@@ -9,7 +9,7 @@ ms.topic: tutorial
 ms.date: 03/05/2020
 ms.author: aahi
 ms.devlang: javascript
-ms.custom: devx-track-js
+ms.custom:
 ---
 # Tutorial: Single-page web app
 

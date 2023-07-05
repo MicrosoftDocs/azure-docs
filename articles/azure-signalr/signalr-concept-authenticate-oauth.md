@@ -7,7 +7,7 @@ ms.topic: conceptual
 ms.date: 11/13/2019
 ms.author: lianwei
 ms.devlang: csharp
-ms.custom: "devx-track-js, devx-track-csharp, devx-track-azurecli"
+ms.custom: devx-track-csharp, devx-track-azurecli
 ---
 # Azure SignalR Service authentication
 
@@ -383,7 +383,7 @@ In this section, you will turn on real authentication by adding the `Authorize` 
 
 Prepare your environment for the Azure CLI:
 
-[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](../../includes/azure-cli-prepare-your-environment-no-header.md)]
+[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment-no-header.md)]
 
 In this section, you will use the Azure CLI to create a new web app in [Azure App Service](../app-service/index.yml) to host your ASP.NET application in Azure. The web app will be configured to use local Git deployment. The web app will also be configured with your SignalR connection string, GitHub OAuth app secrets, and a deployment user.
 

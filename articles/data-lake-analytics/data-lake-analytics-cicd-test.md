@@ -1,16 +1,15 @@
 ---
 title: How to test your Azure Data Lake Analytics code
 description: 'Learn how to add test cases for U-SQL and extended C# code for Azure Data Lake Analytics.'
-author: liudan66
-ms.author: liud
-ms.reviewer: jasonh
 ms.service: data-lake-analytics
 ms.topic: how-to
-ms.date: 08/30/2019
+ms.date: 01/20/2023
 ---
 # Test your Azure Data Lake Analytics code
 
 Azure Data Lake provides the [U-SQL](data-lake-analytics-u-sql-get-started.md) language. U-SQL combines declarative SQL with imperative C# to process data at any scale. In this document, you learn how to create test cases for U-SQL and extended C# user-defined operator (UDO) code.
+
+[!INCLUDE [retirement-flag](includes/retirement-flag.md)]
 
 ## Test U-SQL scripts
 
@@ -137,7 +136,7 @@ For a C# UDO test, make sure to reference the following assemblies, which are ne
 - Microsoft.Analytics.Types
 - Microsoft.Analytics.UnitTest
 
-If you reference them through [the Nuget package Microsoft.Azure.DataLake.USQL.Interfaces](https://www.nuget.org/packages/Microsoft.Azure.DataLake.USQL.Interfaces/), make sure you add a NuGet Restore task in your build pipeline.
+If you reference them through [the NuGet package Microsoft.Azure.DataLake.USQL.Interfaces](https://www.nuget.org/packages/Microsoft.Azure.DataLake.USQL.Interfaces/), make sure you add a NuGet Restore task in your build pipeline.
 
 ## Next steps
 

@@ -1,5 +1,5 @@
 ---
-title: What is entitlement management? - Microsoft Entra
+title: What is entitlement management?
 description: Get an overview of entitlement management and how you can use it to manage access to groups, applications, and SharePoint Online sites for internal and external users.
 services: active-directory
 documentationCenter: ''
@@ -11,7 +11,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.topic: overview
 ms.subservice: compliance
-ms.date: 08/01/2022
+ms.date: 05/31/2023
 ms.author: owinfrey
 ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
@@ -138,11 +138,11 @@ To better understand entitlement management and its documentation, you can refer
 
 ## License requirements
 
-[!INCLUDE [Azure AD Premium P2 license](../../../includes/active-directory-p2-license.md)]
+[!INCLUDE [active-directory-p2-governance-license.md](../../../includes/active-directory-p2-governance-license.md)]
 
 ### How many licenses must you have?
 
-Ensure that your directory has at least as many Azure AD Premium P2 licenses as you have:
+Ensure that your directory has at least as many Microsoft Azure AD Premium P2 or Microsoft Entra ID Governance licenses as you have:
 
 - Member users who *can* request an access package.
 - Member users who *request* an access package.
@@ -150,19 +150,19 @@ Ensure that your directory has at least as many Azure AD Premium P2 licenses as 
 - Member users who *review assignments* for an access package.
 - Member users who have a *direct assignment* or an *automatic assignment* to an access package.
 
-For guest users, licensing needs will depend on the [licensing model](../external-identities/external-identities-pricing.md) you’re using. However, the below guest users’ activities are considered Azure AD Premium P2 usage:
+For guest users, licensing needs will depend on the [licensing model](../external-identities/external-identities-pricing.md) you’re using. However, the below guest users’ activities are considered Microsoft Azure AD Premium P2 or Microsoft Entra ID Governance usage:
 - Guest users who *request* an access package.
 - Guest users who *approve requests* for an access package.
 - Guest users who *review assignments* for an access package.
 - Guest users who have a *direct assignment* to an access package.
 
-Azure AD Premium P2 licenses are **not** required for the following tasks:
+Microsoft Azure AD Premium P2 or Microsoft Entra ID Governance licenses are **not** required for the following tasks:
 
 - No licenses are required for users with the Global Administrator role who set up the initial catalogs, access packages, and policies, and delegate administrative tasks to other users.
 - No licenses are required for users who have been delegated administrative tasks, such as catalog creator, catalog owner, and access package manager.
 - No licenses are required for guests who have **a privilege to request access packages** but they **do not choose** to request them.
 
-For more information about licenses, see [Assign or remove licenses using the Azure Active Directory portal](../fundamentals/license-users-groups.md).
+For more information about licenses, see [Assign or remove licenses using the Azure portal](../fundamentals/license-users-groups.md).
 
 ### Example license scenarios
 

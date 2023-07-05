@@ -1,7 +1,7 @@
 ---
 title: (Preview) SSH access to Azure Arc-enabled servers
 description: Leverage SSH remoting to access and manage Azure Arc-enabled servers.
-ms.date: 03/25/2022
+ms.date: 04/12/2023
 ms.topic: conceptual
 ms.custom: references_regions
 ---
@@ -29,17 +29,20 @@ To leverage this functionality, please ensure the following:
  - [Ensure the Arc-enabled server has the "sshd" service enabled](/windows-server/administration/openssh/openssh_install_firstuse).
  - Ensure you have the Virtual Machine Local User Login role assigned (role ID: 602da2baa5c241dab01d5360126ab525)
 
-### Availability
-SSH access to Arc-enabled servers is currently supported in the following regions:
-- eastus2euap, eastus, eastus2, westus2, southeastasia, westeurope, northeurope, westcentralus, southcentralus, uksouth, australiaeast, francecentral, japaneast, eastasia, koreacentral, westus3, westus, centralus, northcentralus.
+Authenticating with Azure AD credentials has additional requirements:
+ - `aadsshlogin` and `aadsshlogin-selinux` (as appropriate) must be installed on the Arc-enabled server. These packages are installed with the AADSSHLoginForLinux VM extension. 
+ - Configure role assignments for the VM.  Two Azure roles are used to authorize VM login:
+   - **Virtual Machine Administrator Login**: Users who have this role assigned can log in to an Azure virtual machine with administrator privileges.
+   - **Virtual Machine User Login**: Users who have this role assigned can log in to an Azure virtual machine with regular user privileges.
+ 
+    An Azure user who has the Owner or Contributor role assigned for a VM doesn't automatically have privileges to Azure AD login to the VM over SSH. There's an intentional (and audited) separation between the set of people who control virtual machines and the set of people who can access virtual machines. 
 
-### Supported operating systems
- - Windows: Windows 7+ and Windows Server 2012+
- - Linux: 
-   - CentOS: CentOS 7, CentOS 8
-   - RedHat Enterprise Linux (RHEL): RHEL 7.4 to RHEL 7.10, RHEL 8.3+
-   - SUSE Linux Enterprise Server (SLES): SLES 12, SLES 15.1+
-   - Ubuntu Server: Ubuntu Server 16.04 to Ubuntu Server 20.04
+    > [!NOTE]
+    > The Virtual Machine Administrator Login and Virtual Machine User Login roles use `dataActions` and can be assigned at the management group, subscription, resource group, or resource scope. We recommend that you assign the roles at the management group, subscription, or resource level and not at the individual VM level. This practice avoids the risk of reaching the [Azure role assignments limit](../../role-based-access-control/troubleshoot-limits.md) per subscription.
+
+### Availability
+SSH access to Arc-enabled servers is currently supported in all regions supported by Arc-Enabled Servers with the following exceptions:
+ - Germany West Central
 
 ## Getting started
 
@@ -99,7 +102,7 @@ This operation can take 2-5 minutes to complete.  Before moving on, check that t
 
 Create the default endpoint in PowerShell:
  ```powershell
- az rest --method put --uri https://management.azure.com/subscriptions/<subscription>/resourceGroups/<resourcegroup>/providers/Microsoft.HybridCompute/machines/<arc enabled server name>/providers/Microsoft.HybridConnectivity/endpoints/default?api-version=2021-10-06-preview --body '{\"properties\": {\"type\": \"default\"}}'
+ az rest --method put --uri https://management.azure.com/subscriptions/<subscription>/resourceGroups/<resourcegroup>/providers/Microsoft.HybridCompute/machines/<arc enabled server name>/providers/Microsoft.HybridConnectivity/endpoints/default?api-version=2021-10-06-preview --body '{"properties": {"type": "default"}}'
  ```
 Create the default endpoint in Bash:
 ```bash

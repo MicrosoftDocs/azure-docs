@@ -4,12 +4,12 @@ description: In this Quickstart, learn how to create an Azure Red Hat OpenShift 
 author: johnmarco
 ms.service: azure-redhat-openshift
 ms.topic: quickstart
-ms.custom: mode-arm
+ms.custom: mode-arm, devx-track-azurecli, devx-track-azurepowershell, devx-track-arm-template, devx-track-bicep
 ms.author: johnmarc
-ms.date: 03/17/2022
+ms.date: 02/15/2023
 keywords: azure, openshift, aro, red hat, arm, bicep
-#Customer intent: I need to use ARM templates or Bicep files to deploy my Azure Red Hat OpenShift cluster.
 zone_pivot_groups: azure-red-hat-openshift
+#Customer intent: I need to use ARM templates or Bicep files to deploy my Azure Red Hat OpenShift cluster.
 ---
 
 # Quickstart: Deploy an Azure Red Hat OpenShift cluster with an Azure Resource Manager template or Bicep file
@@ -38,7 +38,7 @@ Bicep is a domain-specific language (DSL) that uses declarative syntax to deploy
 
 * A pull secret for your Azure Red Hat OpenShift cluster. [Download the pull secret file from the Red Hat OpenShift Cluster Manager web site](https://cloud.redhat.com/openshift/install/azure/aro-provisioned).
 
-* If you want to run the Azure PowerShell code locally, [Azure PowerShell](/powershell/azure/install-az-ps).
+* If you want to run the Azure PowerShell code locally, [Azure PowerShell](/powershell/azure/install-azure-powershell).
 
 * If you want to run the Azure CLI code locally:
     * A Bash shell (such as Git Bash, which is included in [Git for Windows](https://gitforwindows.org)).
@@ -575,6 +575,9 @@ This section provides information on deploying the azuredeploy.json template.
 
 The azuredeploy.json template is used to deploy an Azure Red Hat OpenShift cluster. The following  parameters are required.
 
+> [!NOTE]
+> For the `domain` parameter, specify the domain prefix that will be used as part of the auto-generated DNS name for OpenShift console and API servers. This prefix is also used as part of the name of the resource group that is created to host the cluster VMs.
+
 | Property | Description | Valid Options | Default Value |
 |----------|-------------|---------------|---------------|
 | `domain` |The domain prefix for the cluster. | | none |
@@ -652,7 +655,7 @@ New-AzResourceGroup -Name $resourceGroup -Location $location
 ```powershell
 $suffix=Get-Random # random suffix for the Service Principal
 $spDisplayName="sp-$resourceGroup-$suffix"
-$azureADAppSp = New-AzADServicePrincipal -DisplayName $displayName -Role Contributor
+$azureADAppSp = New-AzADServicePrincipal -DisplayName $spDisplayName -Role Contributor
 
 New-AzRoleAssignment -ObjectId $azureADAppSp.Id -RoleDefinitionName 'User Access Administrator' -ResourceGroupName $resourceGroup -ObjectType 'ServicePrincipal'
 New-AzRoleAssignment -ObJectId $azureADAppSp.Id -RoleDefinitionName 'Contributor' -ResourceGroupName $resourceGroup -ObjectType 'ServicePrincipal'
@@ -661,7 +664,6 @@ New-AzRoleAssignment -ObJectId $azureADAppSp.Id -RoleDefinitionName 'Contributor
 ### Get the Service Principal password  - PowerShell
 
 ```powershell
-$aadClientSecretDigest = ConvertTo-SecureString -String $azureADAppSp.PasswordCredentials.SecretText -AsPlainText -Force
 $aadClientSecretDigest = ConvertTo-SecureString -String $azureADAppSp.PasswordCredentials.SecretText -AsPlainText -Force
 ```
 
@@ -693,7 +695,7 @@ Write-Verbose (ConvertTo-Json $templateParams) -Verbose
 
 ```powershell
 New-AzResourceGroupDeployment -ResourceGroupName $resourceGroup @templateParams `
-    -TemplateParameterFile azuredeploy.json
+    -TemplateFile azuredeploy.json
 ```
 
 ::: zone-end
@@ -728,10 +730,10 @@ PULL_SECRET=$(cat pull-secret.txt)    # the pull secret text
 ### Define the following parameters as environment variables - Azure CLI
 
 ```azurecli-interactive
-RESOURCEGROUP=aro-rg   # the new resource group for the cluster
-LOCATION=eastus        # the location of the new cluster
-DOMAIN=mydomain        # the domain prefix for the cluster
-CLUSTER=aro-cluster    # the name of the cluster
+RESOURCEGROUP=aro-rg            # the new resource group for the cluster
+LOCATION=eastus                 # the location of the new cluster
+DOMAIN=mydomain                 # the domain prefix for the cluster
+ARO_CLUSTER_NAME=aro-cluster    # the name of the cluster
 ```
 
 ### Register the required resource providers - Azure CLI
@@ -793,7 +795,7 @@ az deployment group create \
     --parameters location=$LOCATION \
     --parameters domain=$DOMAIN \
     --parameters pullSecret=$PULL_SECRET \
-    --parameters clusterName=$ARO_CLUSTER_NAME \
+    --parameters clusterName=$CLUSTER \
     --parameters aadClientId=$SP_CLIENT_ID \
     --parameters aadObjectId=$SP_OBJECT_ID \
     --parameters aadClientSecret=$SP_CLIENT_SECRET \
@@ -809,7 +811,7 @@ To connect to your new cluster, review the steps in [Connect to an Azure Red Hat
 Once you're done, run the following command to delete your resource group and all the resources you created in this tutorial.
 
 ```azurecli-interactive
-az aro delete --resource-group $RESOURCEGROUP --name $ARO_CLUSTER_NAME
+az aro delete --resource-group $RESOURCEGROUP --name $CLUSTER
 ```
 
 > [!TIP]

@@ -1,5 +1,5 @@
 ---
-title: How to submit custom text classification tasks
+title: How to deploy a custom text classification model
 titleSuffix: Azure Cognitive Services
 description: Learn how to deploy a model for custom text classification.
 services: cognitive-services
@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-service
 ms.topic: how-to
-ms.date: 10/12/2022
+ms.date: 03/23/2023
 ms.author: aahi
 ms.custom: language-service-custom-classification, ignite-fall-2021, event-tier1-build-2022
 ---

@@ -9,7 +9,7 @@ ms.date: 06/16/2022
 ms.custom: template-how-to
 ---
 
-# Manage existing SIMs for Azure Private 5G Core Preview - Azure portal
+# Manage existing SIMs for Azure Private 5G Core - Azure portal
 
 *SIM* resources represent physical SIMs or eSIMs used by user equipment (UEs) served by the private mobile network. In this how-to guide, you'll learn how to manage existing SIMs, including how to assign static IP addresses and SIM policies.
 

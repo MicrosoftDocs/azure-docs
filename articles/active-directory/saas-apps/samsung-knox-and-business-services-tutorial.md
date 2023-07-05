@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with Samsung Knox and Business Services | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with Samsung Knox and Business Services'
 description: Learn how to configure single sign-on between Azure Active Directory and Samsung Knox and Business Services.
 services: active-directory
 author: jeevansd

@@ -2,6 +2,7 @@
 title: Automatically scale up throughput units in Azure Event Hubs
 description: Enable Auto-inflate on a namespace to automatically scale up throughput units (standard tier).
 ms.topic: article
+ms.custom: devx-track-arm-template
 ms.date: 06/13/2022
 ---
 
@@ -14,7 +15,7 @@ Azure Event Hubs is a highly scalable data streaming platform. As such, Event Hu
 The Event Hubs service increases the throughput when load increases beyond the minimum threshold, without any requests failing with ServerBusy errors.
 
 > [!NOTE]
-> To learn more about the **premium** tier, see [Event Hubs Premium](event-hubs-premium-overview.md).
+> The auto-inflate feature is currently supported only in the standard tier. 
 
 ## How Auto-inflate works in standard tier
 Event Hubs traffic is controlled by TUs (standard tier). For the limits such as ingress and egress rates per TU, see [Event Hubs quotas and limits](event-hubs-quotas.md). Auto-inflate enables you to start small with the minimum required TUs you choose. The feature then scales automatically to the maximum limit of TUs you need, depending on the increase in your traffic. Auto-inflate provides the following benefits:

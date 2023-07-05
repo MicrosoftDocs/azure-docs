@@ -7,7 +7,7 @@ ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 08/29/2022
 ms.author: thalme
-ms.custom: references_regions
+ms.custom: references_regions, subject-reliability
 
 ---
 

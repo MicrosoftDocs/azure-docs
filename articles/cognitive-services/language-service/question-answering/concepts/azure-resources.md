@@ -14,16 +14,16 @@ Question answering uses several Azure sources, each with a different purpose. Un
 
 ## Resource planning
 
-When you first develop a knowledge base, in the prototype phase, it is common to have a single resource for both testing and production.
-
 > [!TIP]
 > "Knowledge base" and "project" are equivalent terms in question answering and can be used interchangeably.
 
+When you first develop a project, in the prototype phase, it is common to have a single resource for both testing and production.
+
 When you move into the development phase of the project, you should consider:
 
-* How many languages your knowledge base system will hold?
-* How many regions you need your knowledge base to be available in?
-* How many documents in each domain your system will hold?
+* How many languages will your project hold?
+* How many regions you need your project to be available in?
+* How many documents will your system hold in each domain?
 
 ## Pricing tier considerations
 
@@ -35,14 +35,14 @@ Typically there are three parameters you need to consider:
 
     * This should also influence your Azure **Cognitive Search** SKU selection, see more details [here](../../../../search/search-sku-tier.md). Additionally, you may need to adjust Cognitive Search [capacity](../../../../search/search-capacity-planning.md) with replicas.
 
-* **Size and the number of knowledge bases**: Choose the appropriate [Azure search SKU](https://azure.microsoft.com/pricing/details/search/) for your scenario. Typically, you decide the number of knowledge bases you need based on number of different subject domains. One subject domain (for a single language) should be in one knowledge base.
+* **Size and the number of projects**: Choose the appropriate [Azure search SKU](https://azure.microsoft.com/pricing/details/search/) for your scenario. Typically, you decide the number of projects you need based on number of different subject domains. One subject domain (for a single language) should be in one project.
 
     With custom question answering, you have a choice to set up your language resource in a single language or multiple languages. You can make this selection when you create your first project in the [Language Studio](https://language.azure.com/).
 
     > [!IMPORTANT]
-    > You can publish N-1 knowledge bases of a single language or N/2 knowledge bases of different languages in a particular tier, where N is the maximum indexes allowed in the tier. Also check the maximum size and the number of documents allowed per tier.
+    > You can publish N-1 projects of a single language or N/2 projects of different languages in a particular tier, where N is the maximum indexes allowed in the tier. Also check the maximum size and the number of documents allowed per tier.
 
-    For example, if your tier has 15 allowed indexes, you can publish 14 knowledge bases of the same language (one index per published knowledge base). The 15th index is used for all the knowledge bases for authoring and testing. If you choose to have knowledge bases in different languages, then you can only publish seven knowledge bases.
+    For example, if your tier has 15 allowed indexes, you can publish 14 projects of the same language (one index per published project). The 15th index is used for all the projects for authoring and testing. If you choose to have projects in different languages, then you can only publish seven projects.
 
 * **Number of documents as sources**: There are no limits to the number of documents you can add as sources in question answering.
 
@@ -68,7 +68,7 @@ Use these keys when making requests to the service through APIs.
 
 |Name|Location|Purpose|
 |--|--|--|
-|Authoring/Subscription key|[Azure portal](https://azure.microsoft.com/free/cognitive-services/)|These keys are used to access the Language service APIs). These APIs let you edit the questions and answers in your knowledge base, and publish your knowledge base. These keys are created when you create a new resource.<br><br>Find these keys on the **Cognitive Services** resource on the **Keys and Endpoint** page.|
+|Authoring/Subscription key|[Azure portal](https://azure.microsoft.com/free/cognitive-services/)|These keys are used to access the Language service APIs). These APIs let you edit the questions and answers in your project, and publish your project. These keys are created when you create a new resource.<br><br>Find these keys on the **Cognitive Services** resource on the **Keys and Endpoint** page.|
 |Azure Cognitive Search Admin Key|[Azure portal](../../../../search/search-security-api-keys.md)|These keys are used to communicate with the Azure cognitive search service deployed in the user’s Azure subscription. When you associate an Azure Cognitive Search resource with the custom question answering feature, the admin key is automatically passed to question answering. <br><br>You can find these keys on the **Azure Cognitive Search** resource on the **Keys** page.|
 
 ### Find authoring keys in the Azure portal
@@ -109,14 +109,14 @@ The [Cognitive Search](../../../../search/index.yml) resource is used to:
 
 #### Index usage
 
-You can publish N-1 knowledge bases of a single language or N/2 knowledge bases of different languages in a particular tier, where N is the maximum number of indexes allowed in the Azure Cognitive Search tier. Also check the maximum size and the number of documents allowed per tier.
+You can publish N-1 projects of a single language or N/2 projects of different languages in a particular tier, where N is the maximum number of indexes allowed in the Azure Cognitive Search tier. Also check the maximum size and the number of documents allowed per tier.
 
-For example, if your tier has 15 allowed indexes, you can publish 14 knowledge bases of the same language (one index per published knowledge base). The 15th index is used for all the knowledge bases for authoring and testing. If you choose to have knowledge bases in different languages, then you can only publish seven knowledge bases.
+For example, if your tier has 15 allowed indexes, you can publish 14 projects of the same language (one index per published project). The 15th index is used for all the projects for authoring and testing. If you choose to have projects in different languages, then you can only publish seven projects.
 
 #### Language usage
 
-With custom question answering, you have a choice to set up your service for knowledge bases in a single language or multiple languages. You make this choice during the creation of the first knowledge base in your language resource.
+With custom question answering, you have a choice to set up your service for projects in a single language or multiple languages. You make this choice during the creation of the first project in your language resource.
 
 ## Next steps
 
-* Learn about the question answering [knowledge bases](../How-To/manage-knowledge-base.md)
+* Learn about the question answering [projects](../How-To/manage-knowledge-base.md)

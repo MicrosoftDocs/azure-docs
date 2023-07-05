@@ -8,7 +8,7 @@ ms.author: diberry
 ms.service: cognitive-search
 ms.topic: tutorial
 ms.date: 12/04/2022
-ms.custom: devx-track-csharp
+ms.custom: devx-track-csharp, devx-track-azurepowershell, devx-track-dotnet
 ms.devlang: csharp
 ---
 
@@ -21,7 +21,7 @@ Continue to build your search-enabled website by following these steps:
 
 ## Create an Azure Cognitive Search resource
 
-Create a new search resource using PowerShell and the **Az.Search** module.
+Create a new search resource using PowerShell and the **Az.Search** module. In this section, you'll also create a query key used for read-access to the index, and get the built-in admin key used for adding objects.
 
 1. In Visual Studio Code, open a new terminal window.
 
@@ -32,7 +32,7 @@ Create a new search resource using PowerShell and the **Az.Search** module.
    ```
 
    > [!NOTE]
-   > You might need to provide a tenant ID, which you can find in the Azure portal in [Portal settings > Directories + subscriptions](/azure/azure-portal/set-preferences).
+   > You might need to provide a tenant ID, which you can find in the Azure portal in [Portal settings > Directories + subscriptions](../azure-portal/set-preferences.md).
 
 1. Before creating a new search service, you can list existing search services for your subscription to see if there's one you want to use:
 
@@ -43,7 +43,7 @@ Create a new search resource using PowerShell and the **Az.Search** module.
 1. Load the **Az.Search** module: 
 
    ```powershell
-   Install-Module -Name Az.Search
+   Install-Module -Name Az.Search -Scope CurrentUser
    ```
 
 1. Create a new search service. Use the following cmdlet as a template, substituting valid values for the resource group, service name, tier, region, partitions, and replicas:
@@ -83,7 +83,7 @@ The script uses the Azure SDK for Cognitive Search:
     * YOUR-SEARCH-RESOURCE-NAME
     * YOUR-SEARCH-ADMIN-KEY
 
-    :::code language="csharp" source="~/azure-search-dotnet-samples/search-website-functions-v4/bulk-insert/Program.cs" highlight="16-19, 21-23, 32, 49" :::
+    :::code language="csharp" source="~/azure-search-dotnet-samples/search-website-functions-v4/bulk-insert/Program.cs" :::
 
 1. Open an integrated terminal in Visual Studio Code for the project directory's subdirectory, `search-website-functions-v4/bulk-insert`, then run the following command to install the dependencies. 
 

@@ -1,5 +1,5 @@
 ---
-title: 'Business Continuity and Disaster Recovery (BCDR) with Azure OpenAI'
+title: 'Business Continuity and Disaster Recovery (BCDR) with Azure OpenAI Service'
 titleSuffix: Azure OpenAI
 description: Considerations for implementing Business Continuity and Disaster Recovery (BCDR) with Azure OpenAI 
 services: cognitive-services
@@ -7,19 +7,19 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: openai
 ms.topic: how-to
-ms.date: 6/24/2022
-author: ChrisHMSFT
-ms.author: chrhoder
+ms.date: 6/21/2023
+author: mrbullwinkle    
+ms.author: mbullwin
 recommendations: false
 keywords: 
 
 ---
 
-# Business Continuity and Disaster Recovery (BCDR) considerations with Azure OpenAI
+# Business Continuity and Disaster Recovery (BCDR) considerations with Azure OpenAI Service
 
-The Azure OpenAI service is available in two regions. Since subscription keys are region bound, when a customer acquires a key, they select the region in which their deployments will reside and from then on, all operations stay associated with that Azure server region.  
+Azure OpenAI is available in multiple regions. Since subscription keys are region bound, when a customer acquires a key, they select the region in which their deployments will reside and from then on, all operations stay associated with that Azure server region.  
 
-It's rare, but not impossible, to encounter a network issue that hits an entire region. If your service needs to always be available, then you should design it to either fail-over into another region or split the workload between two or more regions. Both approaches require at least two OpenAI resources in different regions. This article provides general recommendations for how to implement  Business Continuity and Disaster Recovery (BCDR) for your Azure OpenAI applications.
+It's rare, but not impossible, to encounter a network issue that hits an entire region. If your service needs to always be available, then you should design it to either fail-over into another region or split the workload between two or more regions. Both approaches require at least two Azure OpenAI resources in different regions. This article provides general recommendations for how to implement  Business Continuity and Disaster Recovery (BCDR) for your Azure OpenAI applications.
 
 ## Best practices
 
@@ -37,11 +37,11 @@ If you're using a default endpoint, you should configure your client code to mon
 
 Follow these steps to configure your client to monitor errors:
 
-1. Use this page to identify the list of available regions for the OpenAI service.
+1. Use the [models page](../concepts/models.md) to identify the list of available regions for Azure OpenAI.
 
 2. Select a primary and one secondary/backup regions from the list.
 
-3. Create OpenAI Service resources for each region selected
+3. Create Azure OpenAI resources for each region selected.
 
 4. For the primary region and any backup regions your code will need to know:
 

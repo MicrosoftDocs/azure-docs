@@ -2,11 +2,11 @@
 title: Deliver events using private link service
 description: This article describes how to work around the limitation of not able to deliver events using private link service. 
 ms.topic: how-to
-ms.date: 05/17/2022
+ms.date: 03/01/2023
 ---
 
 # Deliver events using private link service
-Currently, it's not possible to deliver events using [private endpoints](../private-link/private-endpoint-overview.md). That is, there is no support if you have strict network isolation requirements where your delivered events traffic must not leave the private IP space. 
+Currently, it's not possible to deliver events using [private endpoints](../private-link/private-endpoint-overview.md). That is, there's no support if you have strict network isolation requirements where your delivered events traffic must not leave the private IP space. 
 
 ## Use managed identity
 However, if your requirements call for a secure way to send events using an encrypted channel and a known identity of the sender (in this case, Event Grid) using public IP space, you could deliver events to Event Hubs, Service Bus, or Azure Storage service using an Azure Event Grid custom topic or a domain with system-assigned or user-assigned managed identity. For details about delivering events using managed identity, see [Event delivery using a managed identity](managed-service-identity.md). 
@@ -42,6 +42,9 @@ To deliver events to Storage queues using managed identity, follow these steps:
 1. [Add the identity to the **Storage Queue Data Message Sender**](../storage/blobs/assign-azure-role-data-access.md) role on Azure Storage queue.
 1. [Configure the event subscription](managed-service-identity.md#create-event-subscriptions-that-use-an-identity) that uses a Storage queue as an endpoint to use the system-assigned or user-assigned managed identity.
 
+> [!NOTE]
+> - If there's no firewall or virtual network rules configured for the Azure Storage account, you can use both user-assigned and system-assigned identities to deliver events to the Azure Storage account. 
+> - If a firewall or virtual network rule is configured for the Azure Storage account, you can use only the system-assigned managed identity if **Allow Azure services on the trusted service list to access the storage account** is also enabled on the storage account. You can't use user-assigned managed identity whether this option is enabled or not. 
 
 ## Next steps
 For more information about delivering events using a managed identity, see [Event delivery using a managed identity](managed-service-identity.md).

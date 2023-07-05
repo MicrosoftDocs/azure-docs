@@ -18,8 +18,6 @@ ms.manager: nitinme
 
 Language Understanding (LUIS) is a cloud-based conversational AI service that applies custom machine-learning intelligence to a user's conversational, natural language text to predict overall meaning, and pull out relevant, detailed information. LUIS provides access through its [custom portal](https://www.luis.ai), [APIs][endpoint-apis] and [SDK client libraries](client-libraries-rest-api.md).
 
-[!INCLUDE [TLS 1.2 enforcement](../../../includes/cognitive-services-tls-announcement.md)]
-
 For first time users, follow these steps to [sign in to LUIS portal](sign-in-luis-portal.md "sign in to LUIS portal")
 To get started, you can try a LUIS [prebuilt domain app](luis-get-started-create-app.md).
 

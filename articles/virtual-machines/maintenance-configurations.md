@@ -18,7 +18,7 @@ ms.author: cynthn
 Maintenance Configurations gives you the ability to control and manage updates for many Azure virtual machine resources since Azure frequently updates its infrastructure to improve reliability, performance, security or launch new features. Most updates are transparent to users, but some sensitive workloads, like gaming, media streaming, and financial transactions, can't tolerate even few seconds of a VM freezing or disconnecting for maintenance. Maintenance Configurations is integrated with Azure Resource Graph (ARG) for low latency and high scale customer experience.
 
 >[!IMPORTANT]
-> Users are required to have a role of at least contributor in order to use maintenance configurations.
+> Users are required to have a role of at least contributor in order to use maintenance configurations. Users also have to ensure that their subscription is registered with Maintenance Resource Provider to use maintenance configurations.
 
 ## Scopes
 
@@ -50,13 +50,17 @@ Using this scope with maintenance configurations lets you decide when to apply u
 
 ### Guest
 
-This scope is integrated with [update management center](../update-center/overview.md) which allows you to save recurring deployment schedules to install updates for your Windows Server and Linux machines in Azure, in on-premises environments, and in other cloud environments connected using Azure Arc-enabled servers. Some features and limitations unique to this scope include:
+This scope is integrated with [update management center](../update-center/overview.md), which allows you to save recurring deployment schedules to install updates for your Windows Server and Linux machines in Azure, in on-premises environments, and in other cloud environments connected using Azure Arc-enabled servers. Some features and limitations unique to this scope include:
 
 - [Patch orchestration](automatic-vm-guest-patching.md#patch-orchestration-modes) for virtual machines need to be set to AutomaticByPlatform
-- A minimum of 1 hour and 10 minutes is required for the maintenance window.
+- A minimum of 1 hour and 30 minutes is required for the maintenance window.
 - There is no limit to the recurrence of your schedule.
 
 To learn more about this topic, checkout [update management center and scheduled patching](../update-center/scheduled-patching.md)
+
+## Shut Down Machines
+
+We are unable to apply maintenance updates to any shut down machines. You need to ensure that your machine is turned on at least 15 minutes before a scheduled update or your update may not be applied. If your machine is in a shutdown state at the time of your scheduled update, it may appear that the maintenance configuration has been disassociated on the Azure portal, and this is only a display issue that the team is currently working to fix it. The maintenance configuration has not been completely disassociated and you can check it via CLI using [check configuration](maintenance-configurations-cli.md#check-configuration).
 
 ## Management options
 

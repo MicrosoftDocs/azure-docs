@@ -4,12 +4,12 @@ description: Learn about the child elements of the NetworkConfiguration element 
 ms.topic: article
 ms.service: cloud-services
 ms.subservice: deployment-files
-ms.date: 10/14/2020
+ms.date: 02/21/2023
 author: hirenshah1
 ms.author: hirshah
 ms.reviewer: mimckitt
-ms.custom: 
----thor: tagore
+ms.custom: compute-evergreen 
+
 ---
 
 # Azure Cloud Services (classic) Config NetworkConfiguration Schema

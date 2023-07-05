@@ -3,7 +3,7 @@ author: laujan
 ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: include
-ms.date: 08/25/2022
+ms.date: 03/03/2023
 ms.author: lajanuar
 ---
 <!-- markdownlint-disable MD041 -->
@@ -32,8 +32,10 @@ ms.author: lajanuar
 
 * If your PDFs are password-locked, you must remove the lock before submission.
 
-* The minimum height of the text to be extracted is 12 pixels for a 1024 x 768 pixel image. This dimension corresponds to about 8-point text at 150 dots per inch (DPI).
+* The minimum height of the text to be extracted is 12 pixels for a 1024 x 768 pixel image. This dimension corresponds to about `8`-point text at 150 dots per inch (DPI).
 
 * For custom model training, the maximum number of pages for training data is 500 for the custom template model and 50,000 for the custom neural model.
 
-* For custom model training, the total size of training data is 50 MB for template model and 1G-MB for the neural model.
+* For custom extraction model training, the total size of training data is 50 MB for template model and 1G-MB for the neural model.
+
+* For custom classification model training, the total size of training data is `1GB`  with a maximum of 10,000 pages.

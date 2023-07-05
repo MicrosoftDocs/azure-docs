@@ -15,7 +15,7 @@ zone_pivot_groups: speech-studio-cli-rest
 
 # Create a Custom Speech project
 
-Custom Speech projects contain models, training and testing datasets, and deployment endpoints. Each project is specific to a [locale](language-support.md?tabs=stt-tts). For example, you might create a project for English in the United States.
+Custom Speech projects contain models, training and testing datasets, and deployment endpoints. Each project is specific to a [locale](language-support.md?tabs=stt). For example, you might create a project for English in the United States.
 
 ## Create a project
 
@@ -87,7 +87,7 @@ spx help csr project
 
 ::: zone pivot="rest-api"
 
-To create a project, use the [Projects_Create](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-1/operations/Projects_Create) operation of the [Speech-to-text REST API](rest-speech-to-text.md). Construct the request body according to the following instructions:
+To create a project, use the [Projects_Create](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-1/operations/Projects_Create) operation of the [Speech to text REST API](rest-speech-to-text.md). Construct the request body according to the following instructions:
 
 - Set the required `locale` property. This should be the locale of the contained datasets. The locale can't be changed later.
 - Set the required `displayName` property. This is the project name that will be displayed in the Speech Studio.

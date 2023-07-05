@@ -16,8 +16,6 @@ ms.custom: template-how-to
 
 This guide shows you how to escalate a Job in a Queue by using an Exception Policy.
 
-[!INCLUDE [Private Preview Disclaimer](../../includes/private-preview-include-section.md)]
-
 ## Prerequisites
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F). 
@@ -35,27 +33,29 @@ Create an exception policy, which you will attach to the regular queue, which is
 
 ```csharp
 // create the exception policy
-await client.SetExceptionPolicyAsync(
-    id: "Escalate_XBOX_Policy",
-    name: "Add escalated label and reclassify XBOX Job requests after 5 minutes",
-    rules: new List<ExceptionRule>()
-    {
-        new (
-            id: "Escalated_Rule",
-            trigger: new WaitTimeExceptionTrigger(TimeSpan.FromMinutes(5)),
-            actions: new List<ExceptionAction>
+await routerClient.CreateExceptionPolicyAsync(
+    new CreateExceptionPolicyOptions(
+            exceptionPolicyId: "Escalate_XBOX_Policy",
+            exceptionRules: new Dictionary<string, ExceptionRule>()
             {
-                new ReclassifyExceptionAction("EscalateReclassifyExceptionAction")
                 {
-                    LabelsToUpsert = new LabelCollection(
-                        new Dictionary<string, object>
-                    {
-                        ["Escalated"] = true,
-                    })
+                    ["Escalated_Rule"] = new ExceptionRule(new WaitTimeExceptionTrigger(300), 
+                        new Dictionary<string, ExceptionAction>()
+                        {
+                            "EscalateReclassifyExceptionAction" = new ReclassifyExceptionAction(
+                                classificationPolicyId: "<classification policy id>", 
+                                labelsToUpsert: new Dictionary<string, LabelValue>()
+                                {
+                                    ["Escalated"] = new LabelValue(true),
+                                })
+                        })
                 }
             }
-        )
-    });
+    ))
+    {
+        Name = "My exception policy"
+    }
+);
 ```
 
 ## Classification policy configuration
@@ -63,15 +63,28 @@ await client.SetExceptionPolicyAsync(
 Create a Classification Policy to handle the new label added to the Job. This policy will evaluate the `Escalated` label and assign the Job to either Queue. The policy will also use the [RulesEngine](../../concepts/router/router-rule-concepts.md) to increase the priority of the Job from `1` to `10`.
 
 ```csharp
-await client.SetClassificationPolicyAsync(
-    id: "Classify_XBOX_Voice_Jobs",
-    name: "Classify XBOX Voice Jobs",
-    queueSelector: new QueueIdSelector(
-        new ExpressionRule(
-            "If(job.Escalated = true, \"XBOX_Queue\", \"XBOX_Escalation_Queue\")")),
-    workerSelectors: null,
-    prioritizationRule: new ExpressionRule("If(job.Escalated = true, 10, 1)"),
-    fallbackQueueId: "Default");
+await routerAdministrationClient.CreateClassificationPolicyAsync(
+    options: new CreateClassificationPolicyOptions("Classify_XBOX_Voice_Jobs")
+    {
+        Name = "Classify XBOX Voice Jobs",
+        PrioritizationRule = new ExpressionRule("If(job.Escalated = true, 10, 1)"),
+        QueueSelectors = new List<QueueSelectorAttachment>()
+        {
+            new ConditionalQueueSelectorAttachment(
+                condition: new ExpressionRule("If(job.Escalated = true, true, false)"),
+                labelSelectors: new List<QueueSelector>()
+                {
+                    new QueueSelector("Id", LabelOperator.Equal, new LabelValue("XBOX_Escalation_Queue"))
+                }),
+            new ConditionalQueueSelectorAttachment(
+                condition: new ExpressionRule("If(job.Escalated = false, true, false)"),
+                labelSelectors: new List<QueueSelector>()
+                {
+                    new QueueSelector("Id", LabelOperator.Equal, new LabelValue("XBOX_Queue"))
+                })
+        },
+        FallbackQueueId = "Default"
+    });
 ```
 
 ## Queue configuration
@@ -83,19 +96,19 @@ Create the necessary Queues for regular and escalated Jobs and assign the Except
 
 ```csharp
 // create a queue for regular Jobs and attach the exception policy
-await client.SetQueueAsync(
-    id: "XBOX_Queue",
-    name: "XBOX Queue",
-    distributionPolicyId: "Round_Robin_Policy",
-    exceptionPolicyId: "XBOX_Escalate_Policy"
-);
+await routerAdministrationClient.CreateQueueAsync(
+    options: new CreateQueueOptions("XBOX_Queue", "Round_Robin_Policy")
+    {
+        Name = "XBOX Queue",
+        ExceptionPolicyId = "XBOX_Escalate_Policy"
+    });
 
 // create a queue for escalated Jobs
-await client.SetQueueAsync(
-    id: "XBOX_Escalation_Queue",
-    name: "XBOX Escalation Queue",
-    distributionPolicyId: "Round_Robin_Policy"
-);
+await routerAdministrationClient.CreateQueueAsync(
+    options: new CreateQueueOptions("XBOX_Escalation_Queue", "Round_Robin_Policy")
+    {
+        Name = "XBOX Escalation Queue",
+    });
 ```
 
 ## Job lifecycle
@@ -103,16 +116,17 @@ await client.SetQueueAsync(
 When you submit the Job, specify the Classification Policy ID as follows. For this particular example, the requirement would be to find a worker with a label called `XBOX_Hardware`, which has a value greater than or equal to the number `7`.
 
 ```csharp
-await client.CreateJobWithClassificationPolicyAsync(
-    channelId: ManagedChannels.AcsVoiceChannel,
-    classificationPolicyId: "Classify_XBOX_Voice_Jobs",
-    workerSelectors: new List<LabelSelector>
+await routerClient.CreateJobAsync(
+    options: new CreateJobWithClassificationPolicyOptions(
+        jobId: "<jobId>",
+        channelId: ManagedChannels.AcsVoiceChannel,
+        classificationPolicyId: "Classify_XBOX_Voice_Jobs")
     {
-        new (
-            key: "XBOX_Hardware",
-            @operator: LabelOperator.GreaterThanEqual,
-            value: 7)
-    }
+        RequestedWorkerSelectors = new List<WorkerSelector>
+        {
+            new WorkerSelector(key: "XBOX_Hardware", labelOperator: LabelOperator.GreaterThanEqual, value: new LabelValue(7))
+        }
+    });
 );
 ```
 

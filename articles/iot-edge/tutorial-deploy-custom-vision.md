@@ -5,7 +5,7 @@ services: iot-edge
 author: PatAltimore
 
 ms.author: patricka
-ms.date: 07/30/2020
+ms.date: 06/21/2023
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc
@@ -40,19 +40,19 @@ In this tutorial, you learn how to:
 >[!TIP]
 >This tutorial is a simplified version of the [Custom Vision and Azure IoT Edge on a Raspberry Pi 3](https://github.com/Azure-Samples/custom-vision-service-iot-edge-raspberry-pi) sample project. This tutorial was designed to run on a cloud VM and uses static images to train and test the image classifier, which is useful for someone just starting to evaluate Custom Vision on IoT Edge. The sample project uses physical hardware and sets up a live camera feed to train and test the image classifier, which is useful for someone who wants to try a more detailed, real-life scenario.
 
-Before beginning this tutorial, you should have gone through the previous tutorial to set up your environment for Linux container development: [Develop IoT Edge modules using Linux containers](tutorial-develop-for-linux.md). By completing that tutorial, you should have the following prerequisites in place:
+* Configure your environment for Linux container development by completing [Tutorial: Develop IoT Edge modules using Visual Studio Code](tutorial-develop-for-linux.md). After completing the tutorial, you should have the following prerequisites in available in your development environment:
+    * A free or standard-tier [IoT Hub](../iot-hub/iot-hub-create-through-portal.md) in Azure.
+    * A device running Azure IoT Edge with Linux containers. You can use the quickstarts to set up a [Linux device](quickstart-linux.md) or [Windows device](quickstart.md).
+    * A container registry, like [Azure Container Registry](../container-registry/index.yml).
+    * [Visual Studio Code](https://code.visualstudio.com/) configured with the [Azure IoT Edge](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-edge) and
+    [Azure IoT Hub](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit) extensions.
+    * Download and install a [Docker compatible container management system](support.md#container-engines) on your development machine. Configure it to run Linux containers.
 
-* A free or standard-tier [IoT Hub](../iot-hub/iot-hub-create-through-portal.md) in Azure.
-* A device running Azure IoT Edge with Linux containers. You can use the quickstarts to set up a [Linux device](quickstart-linux.md) or [Windows device](quickstart.md).
-* A container registry, like [Azure Container Registry](../container-registry/index.yml).
-* [Visual Studio Code](https://code.visualstudio.com/) configured with the [Azure IoT Tools](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools).
-* Download and install a [Docker compatible container management system](support.md#container-engines) on your development machine. Configure it to run Linux containers.
+* To develop an IoT Edge module with the Custom Vision service, install the following additional prerequisites on your development machine:
 
-To develop an IoT Edge module with the Custom Vision service, install the following additional prerequisites on your development machine:
-
-* [Python](https://www.python.org/downloads/)
-* [Git](https://git-scm.com/downloads)
-* [Python extension for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-python.python)
+    * [Python](https://www.python.org/downloads/)
+    * [Git](https://git-scm.com/downloads)
+    * [Python extension for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-python.python)
 
 ## Build an image classifier with Custom Vision
 
@@ -134,19 +134,19 @@ When you reach this point, you've finished creating and training your Custom Vis
 
 ## Create an IoT Edge solution
 
-Now you have the files for a container version of your image classifier on your development machine. In this section, you configure the image classifier container to run as an IoT Edge module. You also create a second module that will be deployed alongside the image classifier. The second module posts requests to the classifier and sends the results as messages to IoT Hub. 
+Now you have the files for a container version of your image classifier on your development machine. In this section, you configure the image classifier container to run as an IoT Edge module. You also create a second module that is deployed alongside the image classifier. The second module posts requests to the classifier and sends the results as messages to IoT Hub. 
 
 ### Create a new solution
 
-A solution is a logical way of developing and organizing multiple modules for a single IoT Edge deployment. A solution contains code for one or more modules as well as the deployment manifest that declares how to configure them on an IoT Edge device. 
+A solution is a logical way of developing and organizing multiple modules for a single IoT Edge deployment. A solution contains code for one or more modules and the deployment manifest that declares how to configure them on an IoT Edge device. 
 
-1. In Visual Studio Code, select **View** > **Command Palette** to open the VS Code command palette. 
+1. In Visual Studio Code, select **View** > **Command Palette** to open the Visual Studio Code command palette. 
 
 1. In the command palette, enter and run the command **Azure IoT Edge: New IoT Edge solution**. In the command palette, provide the following information to create your solution: 
 
    | Field | Value |
    | ----- | ----- |
-   | Select folder | Choose the location on your development machine for VS Code to create the solution files. |
+   | Select folder | Choose the location on your development machine for Visual Studio Code to create the solution files. |
    | Provide a solution name | Enter a descriptive name for your solution, like **CustomVisionSolution**, or accept the default. |
    | Select module template | Choose **Python Module**. |
    | Provide a module name | Name your module **classifier**.<br><br>It's important that this module name be lowercase. IoT Edge is case-sensitive when referring to modules, and this solution uses a library that formats all requests in lowercase. |
@@ -162,7 +162,7 @@ The environment file stores the credentials for your container registry and shar
 
 The IoT Edge extension tries to pull your container registry credentials from Azure and populate them in the environment file. Check to see if your credentials are already included. If not, add them now:
 
-1. In the VS Code explorer, open the .env file.
+1. In the Visual Studio Code explorer, open the .env file.
 2. Update the fields with the **username** and **password** values that you copied from your Azure container registry.
 3. Save this file.
 
@@ -175,11 +175,11 @@ Currently, Visual Studio Code can develop modules for Linux AMD64 and Linux ARM3
 
 1. Open the command palette and search for **Azure IoT Edge: Set Default Target Platform for Edge Solution**, or select the shortcut icon in the side bar at the bottom of the window. 
 
-2. In the command palette, select the target architecture from the list of options. For this tutorial, we're using an Ubuntu virtual machine as the IoT Edge device, so will keep the default **amd64**. 
+2. In the command palette, select the target architecture from the list of options. For this tutorial, we're using an Ubuntu virtual machine as the IoT Edge device, so keep the default **amd64**. 
 
 ### Add your image classifier
 
-The Python module template in Visual Studio code contains some sample code that you can run to test IoT Edge. You won't use that code in this scenario. Instead, use the steps in this section to replace the sample code with the image classifier container that you exported previously. 
+The Python module template in Visual Studio Code contains some sample code that you can run to test IoT Edge. You won't use that code in this scenario. Instead, use the steps in this section to replace the sample code with the image classifier container that you exported previously. 
 
 1. In your file explorer, browse to the Custom Vision package that you downloaded and extracted. Copy all the contents from the extracted package. It should be two folders, **app** and **azureml**, and two files, **Dockerfile** and **README**. 
 
@@ -222,7 +222,7 @@ In this section, you add a new module to the same CustomVisionSolution and provi
    | Provide a module name | Name your module **cameraCapture** |
    | Provide Docker image repository for the module | Replace **localhost:5000** with the **Login server** value for your Azure container registry.<br><br>The final string looks like **\<registryname\>.azurecr.io/cameracapture**. |
 
-   The VS Code window loads your new module in the solution workspace, and updates the deployment.template.json file. Now you should see two module folders: classifier and cameraCapture. 
+   The Visual Studio Code window loads your new module in the solution workspace, and updates the deployment.template.json file. Now you should see two module folders: classifier and cameraCapture. 
 
 2. Open the **main.py** file in the **modules** / **cameraCapture** folder. 
 
@@ -379,11 +379,11 @@ The IoT Edge extension for Visual Studio Code provides a template in each IoT Ed
 
 With both modules created and the deployment manifest template configured, you're ready to build the container images and push them to your container registry.
 
-Once the images are in your registry, you can deploy the solution to an IoT Edge device. You can set modules on a device through the IoT Hub, but you can also access your IoT Hub and devices through Visual Studio Code. In this section, you set up access to your IoT Hub then use VS Code to deploy your solution to your IoT Edge device.
+Once the images are in your registry, you can deploy the solution to an IoT Edge device. You can set modules on a device through the IoT Hub, but you can also access your IoT Hub and devices through Visual Studio Code. In this section, you set up access to your IoT Hub then use Visual Studio Code to deploy your solution to your IoT Edge device.
 
 First, build and push your solution to your container registry.
 
-1. Open the VS Code integrated terminal by selecting **View** > **Terminal**.
+1. Open the Visual Studio Code integrated terminal by selecting **View** > **Terminal**.
 
 2. Sign in to Docker by entering the following command in the terminal. Sign in with the username, password, and login server from your Azure container registry. You can retrieve these values from the **Access keys** section of your registry in the Azure portal.
 
@@ -393,7 +393,7 @@ First, build and push your solution to your container registry.
 
    You may receive a security warning recommending the use of `--password-stdin`. While that best practice is recommended for production scenarios, it's outside the scope of this tutorial. For more information, see the [docker login](https://docs.docker.com/engine/reference/commandline/login/#provide-a-password-using-stdin) reference.
 
-3. In the VS Code explorer, right-click the **deployment.template.json** file and select **Build and Push IoT Edge solution**.
+3. In the Visual Studio Code explorer, right-click the **deployment.template.json** file and select **Build and Push IoT Edge solution**.
 
    The build and push command starts three operations. First, it creates a new folder in the solution called **config** that holds the full deployment manifest, which is built out of information in the deployment template and other solution files. Second, it runs `docker build` to build the container image based on the appropriate dockerfile for your target architecture. Then, it runs `docker push` to push the image repository to your container registry.
 
@@ -401,7 +401,7 @@ First, build and push your solution to your container registry.
 
 ## Deploy modules to device
 
-Use the Visual Studio Code explorer and the Azure IoT Tools extension to deploy the module project to your IoT Edge device. You already have a deployment manifest prepared for your scenario, the **deployment.amd64.json** file in the config folder. All you need to do now is select a device to receive the deployment.
+Use the Visual Studio Code explorer and the Azure IoT Edge extension to deploy the module project to your IoT Edge device. You already have a deployment manifest prepared for your scenario, the **deployment.amd64.json** file in the config folder. All you need to do now is select a device to receive the deployment.
 
 Make sure that your IoT Edge device is up and running.
 
@@ -409,9 +409,9 @@ Make sure that your IoT Edge device is up and running.
 
 2. Right-click the name of your IoT Edge device, then select **Create Deployment for Single Device**.
 
-3. Select the **deployment.amd64.json** file in the **config** folder and then click **Select Edge Deployment Manifest**. Do not use the deployment.template.json file.
+3. Select the **deployment.amd64.json** file in the **config** folder and then **Select Edge Deployment Manifest**. Do not use the deployment.template.json file.
 
-4. Under your device, expand **Modules** to see a list of deployed and running modules. Click the refresh button. You should see the new **classifier** and **cameraCapture** modules running along with the **$edgeAgent** and **$edgeHub**.  
+4. Under your device, expand **Modules** to see a list of deployed and running modules. Select the refresh button. You should see the new **classifier** and **cameraCapture** modules running along with the **$edgeAgent** and **$edgeHub**.  
 
 You can also check to see that all the modules are up and running on your device itself. On your IoT Edge device, run the following command to see the status of the modules.
 

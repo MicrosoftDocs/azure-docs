@@ -2,15 +2,15 @@
 title: Set up a test environment for your app
 description: Learn how to set up an Azure Active Directory test environment so you can test your application integrated with Microsoft identity platform. Evaluate whether you need a separate tenant for testing or if you can use your production tenant.
 services: active-directory
-author: arcrowe
+author: cilwerner
 manager: CelesteDG
 
 ms.service: active-directory
 ms.subservice: develop
 ms.topic: how-to
 ms.date: 05/11/2022
-ms.author: arcrowe
-ms.reviewer: marsma, ryanwi
+ms.author: cwerner
+ms.reviewer: ryanwi, arcrowe
 # Customer intent: As a developer, I want to set up a test environment so that I can test my app integrated with Microsoft identity platform.
 ---
 
@@ -119,7 +119,7 @@ Replicating permission grant policies ensures you don't encounter unexpected pro
 
 Replicating token lifetime policies ensures tokens issued to your application don't expire unexpectedly in production.
 
-Token lifetime policies can currently only be managed through PowerShell. Read about [configurable token lifetimes](active-directory-configurable-token-lifetimes.md) to learn about identifying any token lifetime policies that apply to your whole production organization. Copy those policies to your test tenant.
+Token lifetime policies can currently only be managed through PowerShell. Read about [configurable token lifetimes](configurable-token-lifetimes.md) to learn about identifying any token lifetime policies that apply to your whole production organization. Copy those policies to your test tenant.
 
 ## Set up a test environment in your production tenant
 If you can safely constrain your test app in your production tenant, go ahead and set up your tenant for testing purposes.

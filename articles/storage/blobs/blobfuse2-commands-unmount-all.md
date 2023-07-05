@@ -37,7 +37,7 @@ The following flags are inherited from grandparent command [`blobfuse2`](blobfus
 Unmount all BlobFuse2 mount points:
 
 ```bash
-blobfuse2 unmount all
+sudo blobfuse2 unmount all
 ```
 
 ## See also

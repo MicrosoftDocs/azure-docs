@@ -1,5 +1,5 @@
 ---
-title: List Azure AD role assignments for a user - Azure Active Directory
+title: List Azure AD role assignments for a user
 description: Learn how to list Azure AD roles assignments of a user
 services: active-directory
 author: rolyon
@@ -29,7 +29,7 @@ For more information, see [Prerequisites to use PowerShell or Graph Explorer](pr
 ## Azure portal
 Follow these steps to list Azure AD roles for a user using the Azure portal. Your experience will be different depending on whether you have [Azure AD Privileged Identity Management (PIM)](../privileged-identity-management/pim-configure.md) enabled.
 
-1. Sign in to the [Azure portal](https://portal.azure.com) or [Azure AD admin center](https://aad.portal.azure.com).
+1. Sign in to the [Azure portal](https://portal.azure.com).
 
 2. Select **Azure Active Directory** > **Users** > *user name* > **Assigned roles**.
 

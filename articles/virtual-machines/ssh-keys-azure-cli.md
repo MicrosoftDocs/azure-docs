@@ -1,27 +1,27 @@
 ---
 title: Create SSH keys with the Azure CLI
-description: Learn how to generate and store SSH keys with the Azure CLI for connecting to Linux VMs.
+description: Learn how to generate and store SSH keys, before creating a VM, with the Azure CLI for connecting to Linux VMs.
 author: cynthn
 ms.collection: linux
 ms.service: virtual-machines
 ms.workload: infrastructure-services
+ms.custom: devx-track-azurecli
 ms.topic: article
-ms.date: 11/17/2021
+ms.date: 04/13/2023
 ms.author: cynthn
-
 ---
 
 # Generate and store SSH keys with the Azure CLI
 
 **Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Windows VMs :heavy_check_mark: Flexible scale sets :heavy_check_mark: Uniform scale sets
 
-You can create SSH keys before creating a VM, and store them in Azure. Each newly created SSH key is also stored locally.
+You can create SSH keys before creating a VM and store them in Azure. Each newly created SSH key is also stored locally.
 
 If you have existing SSH keys, you can upload and store them in Azure for reuse.
 
-For a more detailed overview of SSH, see [Detailed steps: Create and manage SSH keys for authentication to a Linux VM in Azure](./linux/create-ssh-keys-detailed.md).
+For more information, see [Detailed steps: Create and manage SSH keys for authentication to a Linux VM in Azure](./linux/create-ssh-keys-detailed.md).
 
-For more detailed information about creating and using SSH keys with Linux VMs, see [Use SSH keys to connect to Linux VMs](./linux/ssh-from-windows.md).
+For more information on how to create and use SSH keys with Linux VMs, see [Use SSH keys to connect to Linux VMs](./linux/ssh-from-windows.md).
 
 ## Generate new keys
 
@@ -56,7 +56,7 @@ For example, enter: `ssh -i /home/user/.ssh/mySSHKey azureuser@123.45.67.890`
 
 ## Upload an SSH key
 
-You can upload a public SSH key to store in Azure. 
+You can upload a public SSH key to store in Azure.
 
 Use the [az sshkey create](/cli/azure/sshkey#az-sshkey-create) command to upload an SSH public key by specifying its file:
 
@@ -82,4 +82,4 @@ az sshkey show --name "mySSHKey" --resource-group "myResourceGroup"
 
 ## Next steps
 
-To learn more about using SSH keys with Azure VMs, see [Use SSH keys to connect to Linux VMs](./linux/ssh-from-windows.md).
+To learn more about how to use SSH keys with Azure VMs, see [Use SSH keys to connect to Linux VMs](./linux/ssh-from-windows.md).

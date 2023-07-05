@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory integration with ARES for Enterprise | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory integration with ARES for Enterprise'
 description: Learn how to configure single sign-on between Azure Active Directory and ARES for Enterprise.
 services: active-directory
 author: jeevansd

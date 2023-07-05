@@ -17,7 +17,7 @@ ms.date: 06/20/2022
 
 Azure Database for MySQL supports configuration of some server parameters. This article describes how to configure these parameters by using the Azure portal. Not all server parameters can be adjusted.
 
->[!Note]
+>[!NOTE]
 > Server parameters can be updated globally at the server-level, use the [Azure CLI](./how-to-configure-server-parameters-using-cli.md), [PowerShell](./how-to-configure-server-parameters-using-powershell.md), or [Azure portal](./how-to-server-parameters.md).
 
 ## Configure server parameters
@@ -43,7 +43,7 @@ If the server parameter you want to update is not listed in the Azure portal, yo
     For example, you can change the character set of your server by setting of `init_connect` to `SET character_set_client=utf8;SET character_set_database=utf8mb4;SET character_set_connection=latin1;SET character_set_results=latin1;`
 4. Click **Save** to save your changes.
 
->[!Note]
+>[!NOTE]
 > `init_connect` can be used to change parameters that do not require SUPER privilege(s) at the session level. To verify if you can set the parameter using `init_connect`, execute the `set session parameter_name=YOUR_DESIRED_VALUE;` command and if it errors out with **Access denied; you need SUPER privileges(s)** error, then you cannot set the parameter using `init_connect'.
 
 ## Working with the time zone parameter

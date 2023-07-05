@@ -3,7 +3,7 @@ title: Audit Microsoft Sentinel queries and activities | Microsoft Docs
 description: This article describes how to audit queries and activities performed in Microsoft Sentinel.
 author: limwainstein
 ms.topic: how-to
-ms.date: 11/09/2021
+ms.date: 01/09/2023
 ms.author: lwainstein
 ms.custom: ignite-fall-2021
 ---
@@ -31,7 +31,7 @@ You can use the **AzureActivity** table when auditing activity in your SOC envir
 
 **To query the AzureActivity table**:
 
-1. Connect the [Azure Activity](./data-connectors-reference.md#azure-activity) data source to start streaming audit events into a new table in the **Logs** screen called AzureActivity.
+1. Connect the [Azure Activity](./data-connectors/azure-activity.md) data source to start streaming audit events into a new table in the **Logs** screen called AzureActivity.
 
 1. Then, query the data using KQL, like you would any other table.
 

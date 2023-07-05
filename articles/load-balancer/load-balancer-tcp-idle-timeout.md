@@ -3,15 +3,13 @@ title: Configure load balancer TCP reset and idle timeout
 titleSuffix: Azure Load Balancer
 description: In this article, learn how to configure Azure Load Balancer TCP idle timeout and reset.
 services: load-balancer
-documentationcenter: na
 author: mbender-ms
-ms.custom: seodec18, devx-track-azurepowershell
 ms.service: load-balancer
 ms.topic: how-to
-ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/05/2022
 ms.author: mbender
+ms.custom: template-how-to, seodec18
 ---
 
 # Configure TCP reset and idle timeout for Azure Load Balancer
@@ -60,7 +58,7 @@ To set the idle timeout and tcp reset, set values in the following load-balancin
 * **IdleTimeoutInMinutes**
 * **EnableTcpReset**
 
-If you choose to install and use PowerShell locally, this article requires the Azure PowerShell module version 5.4.1 or later. Run `Get-Module -ListAvailable Az` to find the installed version. If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/install-Az-ps). If you're running PowerShell locally, you also need to run `Connect-AzAccount` to create a connection with Azure.
+If you choose to install and use PowerShell locally, this article requires the Azure PowerShell module version 5.4.1 or later. Run `Get-Module -ListAvailable Az` to find the installed version. If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/install-azure-powershell). If you're running PowerShell locally, you also need to run `Connect-AzAccount` to create a connection with Azure.
 
 Replace the following examples with the values from your resources:
 

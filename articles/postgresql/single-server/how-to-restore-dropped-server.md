@@ -4,14 +4,16 @@ description: This article describes how to restore a dropped server in Azure Dat
 ms.service: postgresql
 ms.subservice: single-server
 ms.topic: how-to
-ms.author: bahusse
-author: Bashar-MSFT
+ms.author: sisawant 
+author: code-sidd
 ms.date: 06/24/2022
 ---
 
 # Restore a dropped Azure Database for PostgreSQL server
 
 [!INCLUDE [applies-to-postgresql-single-server](../includes/applies-to-postgresql-single-server.md)]
+
+[!INCLUDE [azure-database-for-postgresql-single-server-deprecation](../includes/azure-database-for-postgresql-single-server-deprecation.md)]
 
 When a server is dropped, the database server backup will be retained for five days in the service. The database backup can be accessed and restored only from the Azure subscription where the server originally resided. The following recommended steps can be followed to recover a dropped PostgreSQL server resource within five days from the time of server deletion. The recommended steps will work only if the backup for the server is still available and not deleted from the system.
 
@@ -82,4 +84,4 @@ To restore a dropped Azure Database for PostgreSQL server, you need following:
 ## Next steps
 
 - If you're trying to restore a server within five days, and still receive an error after accurately following the steps discussed earlier, open a support incident for assistance. If you're trying to restore a dropped server after five days, an error is expected since the backup file cannot be found. Don't open a support ticket in this scenario. The support team cannot provide any assistance if the backup is deleted from the system. 
-- To prevent accidental deletion of servers, we highly recommend using [Resource Locks](https://techcommunity.microsoft.com/t5/azure-database-for-PostgreSQL/preventing-the-disaster-of-accidental-deletion-for-your-PostgreSQL/ba-p/825222).
+- To prevent accidental deletion of servers, we highly recommend using [Resource Locks](https://techcommunity.microsoft.com/t5/azure-database-for-postgresql/preventing-the-disaster-of-accidental-deletion-for-your-PostgreSQL/ba-p/825222).

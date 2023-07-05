@@ -3,11 +3,11 @@ title: Configure LexisNexis Risk Solutions as an identity verification partner u
 description: This article shows you the steps you need to follow to configure LexisNexis as your identity verification partner
 services: active-directory
 author: barclayn
-manager: amycolonino
+manager: amycolannino
 ms.service: decentralized-identity
 ms.subservice: verifiable-credentials
 ms.topic: how-to
-ms.date: 09/1/2022
+ms.date: 01/26/2023
 ms.author: barclayn
 # Customer intent: As a developer, I'm looking for information about the open standards that are supported by Microsoft Entra Verified ID.
 ---

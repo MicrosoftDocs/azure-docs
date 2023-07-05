@@ -3,8 +3,8 @@ title: Respond to Microsoft Defender for DNS alerts - Microsoft Defender for Clo
 description: Learn best practices for responding to alerts that indicate security risks in DNS services.
 ms.date: 6/21/2022
 ms.topic: how-to
-ms.author: benmansheim
-author: bmansheim
+ms.author: dacurwin
+author: dcurwin
 ---
 
 # Respond to Microsoft Defender for DNS alerts
@@ -35,4 +35,4 @@ Now that you know how to respond to DNS alerts, find out more about how to manag
 For related material, see the following articles: 
 
 - To [export Defender for Cloud alerts](export-to-siem.md) to your centralized security information and event management (SIEM) system, such as Microsoft Sentinel, any third-party SIEM, or any other external tool.
-- To [send alerts to in real-time](continuous-export.md) to Log Analytics or Event Hubs to create automated processes to analyze and respond to security alerts.
+- To [send alerts in real-time](continuous-export.md) to Log Analytics or Event Hubs to create automated processes to analyze and respond to security alerts.

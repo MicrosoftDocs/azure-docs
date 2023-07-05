@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory integration with Asset Bank | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory integration with Asset Bank'
 description: Learn how to configure single sign-on between Azure Active Directory and Asset Bank.
 services: active-directory
 author: jeevansd

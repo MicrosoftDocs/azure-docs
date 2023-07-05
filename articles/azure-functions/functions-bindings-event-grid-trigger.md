@@ -2,9 +2,9 @@
 title: Azure Event Grid trigger for Azure Functions
 description: Learn to run code when Event Grid events in Azure Functions are dispatched.
 ms.topic: reference
-ms.date: 03/04/2022
+ms.date: 04/02/2023
 ms.devlang: csharp, java, javascript, powershell, python
-ms.custom: "devx-track-csharp, fasttrack-edit, devx-track-python"
+ms.custom: devx-track-csharp, fasttrack-edit, devx-track-python, devx-track-extended-java, devx-track-js
 zone_pivot_groups: programming-languages-set-functions-lang-workers
 ---
 
@@ -14,6 +14,21 @@ Use the function trigger to respond to an event sent by an [Event Grid source](.
 
 > [!NOTE]
 > Event Grid triggers aren't natively supported in an internal load balancer App Service Environment (ASE). The trigger uses an HTTP request that can't reach the function app without a gateway into the virtual network.
+
+::: zone pivot="programming-language-python"
+Azure Functions supports two programming models for Python. The way that you define your bindings depends on your chosen programming model.
+
+# [v2](#tab/python-v2)
+The Python v2 programming model lets you define bindings using decorators directly in your Python function code. For more information, see the [Python developer guide](functions-reference-python.md?pivots=python-mode-decorators#programming-model).
+
+# [v1](#tab/python-v1)
+The Python v1 programming model requires you to define bindings in a separate *function.json* file in the function folder. For more information, see the [Python developer guide](functions-reference-python.md?pivots=python-mode-configuration#programming-model).
+
+---
+
+This article supports both programming models.
+
+::: zone-end
 
 ## Example
 
@@ -31,7 +46,7 @@ The type of the input parameter used with an Event Grid trigger depends on these
 
 # [In-process](#tab/in-process)
 
-The following example shows a Functions version 3.x function that uses a `CloudEvent`  binding parameter:
+The following example shows a Functions version 4.x function that uses a `CloudEvent`  binding parameter:
 
 ```cs
 using Azure.Messaging;
@@ -54,11 +69,11 @@ namespace Company.Function
 }
 ```
 
-The following example shows a Functions version 3.x function that uses an `EventGridEvent` binding parameter:
+The following example shows a Functions version 4.x function that uses an `EventGridEvent` binding parameter:
 
 ```cs
 using Microsoft.Azure.WebJobs;
-using Microsoft.Azure.EventGrid.Models;
+using Azure.Messaging.EventGrid;
 using Microsoft.Azure.WebJobs.Extensions.EventGrid;
 using Microsoft.Extensions.Logging;
 
@@ -80,7 +95,6 @@ The following example shows a function that uses a  `JObject`  binding parameter
 ```cs
 using Microsoft.Azure.WebJobs;
 using Microsoft.Azure.WebJobs.Extensions.EventGrid;
-using Microsoft.Azure.WebJobs.Host;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using Microsoft.Extensions.Logging;
@@ -279,7 +293,32 @@ $eventGridEvent | Out-String | Write-Host
 ```
 ::: zone-end  
 ::: zone pivot="programming-language-python"  
-The following example shows a trigger binding in a *function.json* file and a [Python function](functions-reference-python.md) that uses the binding.
+The following example shows an Event Grid trigger binding and a Python function that uses the binding. The example depends on whether you use the [v1 or v2 Python programming model](functions-reference-python.md).
+
+# [v2](#tab/python-v2)
+
+```python
+import logging
+import json
+import azure.functions as func
+
+app = func.FunctionApp()
+
+@app.function_name(name="eventGridTrigger")
+@app.event_grid_trigger(arg_name="event")
+def eventGridTest(event: func.EventGridEvent):
+    result = json.dumps({
+        'id': event.id,
+        'data': event.get_json(),
+        'topic': event.topic,
+        'subject': event.subject,
+        'event_type': event.event_type,
+    })
+
+    logging.info('Python EventGrid trigger processed an event: %s', result)
+```
+
+# [v1](#tab/python-v1)
 
 Here's the binding data in the *function.json* file:
 
@@ -317,6 +356,8 @@ def main(event: func.EventGridEvent):
 
     logging.info('Python EventGrid trigger processed an event: %s', result)
 ```
+
+---
 ::: zone-end  
 ::: zone pivot="programming-language-csharp"
 ## Attributes

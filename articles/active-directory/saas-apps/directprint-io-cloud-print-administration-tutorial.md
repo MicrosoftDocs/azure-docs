@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with directprint.io Cloud Print Administration | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with directprint.io Cloud Print Administration'
 description: Learn how to configure single sign-on between Azure Active Directory and directprint.io Cloud Print Administration.
 services: active-directory
 author: jeevansd

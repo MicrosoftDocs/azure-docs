@@ -2,10 +2,9 @@
 title: Dapr extension for Azure Kubernetes Service (AKS) overview
 description: Learn more about using Dapr on your Azure Kubernetes Service (AKS) cluster to develop applications.
 ms.author: nickoman
-ms.service: container-service
 ms.topic: article
 ms.date: 10/11/2022
-ms.custom: devx-track-azurecli, event-tier1-build-2022
+ms.custom: event-tier1-build-2022
 ---
 
 # Dapr
@@ -98,4 +97,4 @@ After learning about Dapr and some of the challenges it solves, try [Deploying a
 [dapr-docs]: https://docs.dapr.io/
 [dapr-blocks]: https://docs.dapr.io/concepts/building-blocks-concept/
 [dapr-secrets-block]: https://docs.dapr.io/developing-applications/building-blocks/secrets/secrets-overview/
-[dapr-msi]: https://docs.dapr.io/developing-applications/integrations/azure/authenticating-azure
+[dapr-msi]: https://docs.dapr.io/developing-applications/integrations/azure/azure-authentication

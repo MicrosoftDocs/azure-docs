@@ -28,7 +28,7 @@ For example, in JavaScript, you can create a Reliable PubSub WebSocket client wi
 var pubsub = new WebSocket('wss://test.webpubsub.azure.com/client/hubs/hub1', 'protobuf.reliable.webpubsub.azure.v1');
 ```
 
-When using `json.reliable.webpubsub.azure.v1` subprotocol, the client must follow the [How to create reliable clients](./howto-develop-reliable-clients.md) to implement reconnection, publisher and subscriber.
+To correctly use `json.reliable.webpubsub.azure.v1` subprotocol, the client must follow the [How to create reliable clients](./howto-develop-reliable-clients.md) to implement reconnection, publisher and subscriber.
 
 > [!NOTE]
 > Currently, the Web PubSub service supports only [proto3](https://developers.google.com/protocol-buffers/docs/proto3).
@@ -95,7 +95,7 @@ message MessageData {
 
 Reliable PubSub WebSocket client must send `SequenceAckMessage` once it received a message from the service. Find more in [How to create reliable clients](./howto-develop-reliable-clients.md#subscriber)
  
-* `sequence_id` is a incremental uint64 number from the message received.
+* `sequence_id` is an incremental uint64 number from the message received.
 
 ## Responses
 
@@ -184,7 +184,7 @@ When the client connects to the service, you receive a `DownstreamMessage.System
 wss://<service-endpoint>/client/hubs/<hub>?awps_connection_id=<connectionId>&awps_reconnection_token=<reconnectionToken>
 ```
 
-Find more details in [Reconnection](./howto-develop-reliable-clients.md#reconnection)
+Find more details in [Connection Recovery](./howto-develop-reliable-clients.md#connection-recovery)
 
 #### Disconnected
 

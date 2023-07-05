@@ -1,5 +1,5 @@
 ---
-title: Custom role permissions for app registration - Azure AD | Microsoft Docs
+title: Custom role permissions for app registration
 description: Delegate custom administrator role permissions for managing app registrations. 
 services: active-directory
 author: rolyon

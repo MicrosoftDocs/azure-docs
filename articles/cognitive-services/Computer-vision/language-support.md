@@ -9,7 +9,7 @@ ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.custom: ignite-2022
 ms.topic: conceptual
-ms.date: 05/02/2022
+ms.date: 12/27/2022
 ms.author: pafarley
 ---
 
@@ -133,57 +133,57 @@ The following table lists the OCR supported languages for print text by the most
 
 Some features of the [Analyze - Image](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-ga/operations/56f91f2e778daf14a499f21b) API can return results in other languages, specified with the `language` query parameter. Other actions return results in English regardless of what language is specified, and others throw an exception for unsupported languages. Actions are specified with the `visualFeatures` and `details` query parameters; see the [Overview](overview-image-analysis.md) for a list of all the actions you can do with image analysis. Languages for tagging are only available in API version 3.2 or later.
 
-|Language | Language code | Categories | Tags | Description | Adult | Brands | Color | Faces | ImageType | Objects | Celebrities | Landmarks |
-|:---|:---:|:----:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|
-|Arabic |`ar`| | ✅| |||||| |||
-|Azeri (Azerbaijani) |`az`| | ✅| |||||| |||
-|Bulgarian |`bg`| | ✅| |||||| |||
-|Bosnian Latin |`bs`| | ✅| |||||| |||
-|Catalan |`ca`| | ✅| |||||| |||
-|Czech |`cs`| | ✅| |||||| |||
-|Welsh |`cy`| | ✅| |||||| |||
-|Danish |`da`| | ✅| |||||| |||
-|German |`de`| | ✅| |||||| |||
-|Greek |`el`| | ✅| |||||| |||
-|English |`en`|✅ | ✅| ✅|✅|✅|✅|✅|✅|✅|✅|✅|
-|Spanish |`es`|✅ | ✅| ✅|||||| |✅|✅|
-|Estonian |`et`| | ✅| |||||| |||
-|Basque |`eu`| | ✅| |||||| |||
-|Finnish |`fi`| | ✅| |||||| |||
-|French |`fr`| | ✅| |||||| |||
-|Irish |`ga`| | ✅| |||||| |||
-|Galician |`gl`| | ✅| |||||| |||
-|Hebrew |`he`| | ✅| |||||| |||
-|Hindi |`hi`| | ✅| |||||| |||
-|Croatian |`hr`| | ✅| |||||| |||
-|Hungarian |`hu`| | ✅| |||||| |||
-|Indonesian |`id`| | ✅| |||||| |||
-|Italian |`it`| | ✅| |||||| |||
-|Japanese  |`ja`|✅ | ✅| ✅|||||| |✅|✅|
-|Kazakh |`kk`| | ✅| |||||| |||
-|Korean |`ko`| | ✅| |||||| |||
-|Lithuanian |`lt`| | ✅| |||||| |||
-|Latvian |`lv`| | ✅| |||||| |||
-|Macedonian |`mk`| | ✅| |||||| |||
-|Malay  Malaysia |`ms`| | ✅| |||||| |||
-|Norwegian (Bokmal) |`nb`| | ✅| |||||| |||
-|Dutch |`nl`| | ✅| |||||| |||
-|Polish |`pl`| | ✅| |||||| |||
-|Dari |`prs`| | ✅| |||||| |||
-| Portuguese-Brazil|`pt-BR`| | ✅| |||||| |||
-| Portuguese-Portugal |`pt`|✅ | ✅| ✅|||||| |✅|✅|
-| Portuguese-Portugal |`pt-PT`| | ✅| |||||| |||
-|Romanian |`ro`| | ✅| |||||| |||
-|Russian |`ru`| | ✅| |||||| |||
-|Slovak |`sk`| | ✅| |||||| |||
-|Slovenian |`sl`| | ✅| |||||| |||
-|Serbian - Cyrillic RS |`sr-Cryl`| | ✅| |||||| |||
-|Serbian - Latin RS |`sr-Latn`| | ✅| |||||| |||
-|Swedish |`sv`| | ✅| |||||| |||
-|Thai |`th`| | ✅| |||||| |||
-|Turkish |`tr`| | ✅| |||||| |||
-|Ukrainian |`uk`| | ✅| |||||| |||
-|Vietnamese |`vi`| | ✅| |||||| |||
-|Chinese Simplified |`zh`|✅ | ✅| ✅|||||| |✅|✅|
-|Chinese Simplified |`zh-Hans`| | ✅| |||||| |||
-|Chinese Traditional |`zh-Hant`| | ✅| |||||| |||
+|Language | Language code | Categories | Tags | Description | Adult | Brands | Color | Faces | ImageType | Objects | Celebrities | Landmarks | Captions/Dense captions|
+|:---|:---:|:----:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:--:|
+|Arabic |`ar`| | ✅| |||||| ||||
+|Azeri (Azerbaijani) |`az`| | ✅| |||||| ||||
+|Bulgarian |`bg`| | ✅| |||||| ||||
+|Bosnian Latin |`bs`| | ✅| |||||| ||||
+|Catalan |`ca`| | ✅| |||||| ||||
+|Czech |`cs`| | ✅| |||||| ||||
+|Welsh |`cy`| | ✅| |||||| ||||
+|Danish |`da`| | ✅| |||||| ||||
+|German |`de`| | ✅| |||||| ||||
+|Greek |`el`| | ✅| |||||| ||||
+|English |`en`|✅ | ✅| ✅|✅|✅|✅|✅|✅|✅|✅|✅|✅|
+|Spanish |`es`|✅ | ✅| ✅|||||| |✅|✅||
+|Estonian |`et`| | ✅| |||||| ||||
+|Basque |`eu`| | ✅| |||||| ||||
+|Finnish |`fi`| | ✅| |||||| ||||
+|French |`fr`| | ✅| |||||| ||||
+|Irish |`ga`| | ✅| |||||| ||||
+|Galician |`gl`| | ✅| |||||| ||||
+|Hebrew |`he`| | ✅| |||||| ||||
+|Hindi |`hi`| | ✅| |||||| ||||
+|Croatian |`hr`| | ✅| |||||| ||||
+|Hungarian |`hu`| | ✅| |||||| ||||
+|Indonesian |`id`| | ✅| |||||| ||||
+|Italian |`it`| | ✅| |||||| ||||
+|Japanese  |`ja`|✅ | ✅| ✅|||||| |✅|✅||
+|Kazakh |`kk`| | ✅| |||||| ||||
+|Korean |`ko`| | ✅| |||||| ||||
+|Lithuanian |`lt`| | ✅| |||||| ||||
+|Latvian |`lv`| | ✅| |||||| ||||
+|Macedonian |`mk`| | ✅| |||||| ||||
+|Malay  Malaysia |`ms`| | ✅| |||||| ||||
+|Norwegian (Bokmal) |`nb`| | ✅| |||||| ||||
+|Dutch |`nl`| | ✅| |||||| ||||
+|Polish |`pl`| | ✅| |||||| ||||
+|Dari |`prs`| | ✅| |||||| ||||
+| Portuguese-Brazil|`pt-BR`| | ✅| |||||| ||||
+| Portuguese-Portugal |`pt`|✅ | ✅| ✅|||||| |✅|✅||
+| Portuguese-Portugal |`pt-PT`| | ✅| |||||| ||||
+|Romanian |`ro`| | ✅| |||||| ||||
+|Russian |`ru`| | ✅| |||||| ||||
+|Slovak |`sk`| | ✅| |||||| ||||
+|Slovenian |`sl`| | ✅| |||||| ||||
+|Serbian - Cyrillic RS |`sr-Cryl`| | ✅| |||||| ||||
+|Serbian - Latin RS |`sr-Latn`| | ✅| |||||| ||||
+|Swedish |`sv`| | ✅| |||||| ||||
+|Thai |`th`| | ✅| |||||| ||||
+|Turkish |`tr`| | ✅| |||||| ||||
+|Ukrainian |`uk`| | ✅| |||||| ||||
+|Vietnamese |`vi`| | ✅| |||||| ||||
+|Chinese Simplified |`zh`|✅ | ✅| ✅|||||| |✅|✅||
+|Chinese Simplified |`zh-Hans`| | ✅| |||||| ||||
+|Chinese Traditional |`zh-Hant`| | ✅| |||||| ||||

@@ -115,16 +115,16 @@ The results are:
   ], 
   [
     {
-        "familyName": "Merriam",
-        "givenName": "Jesse",
-        "gender": "female",
-        "grade": 1
+      "familyName": "Merriam",
+      "givenName": "Jesse",
+      "gender": "female",
+      "grade": 1
     }, 
     {
-        "familyName": "Miller",
-        "givenName": "Lisa",
-        "gender": "female",
-        "grade": 8
+      "familyName": "Miller",
+      "givenName": "Lisa",
+      "gender": "female",
+      "grade": 8
     }
   ]
 ]

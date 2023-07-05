@@ -2,9 +2,7 @@
 title: 'Site-to-Site VPN connections over ExpressRoute private peering'
 titleSuffix: Azure VPN Gateway
 description: Learn how to configure site-to-site VPN connections over ExpressRoute private peering in order to encrypt traffic.
-services: vpn-gateway
 author: cherylmc
-
 ms.service: vpn-gateway
 ms.topic: how-to
 ms.date: 09/21/2022

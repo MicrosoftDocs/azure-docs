@@ -10,7 +10,7 @@ ms.topic: conceptual
 ms.service: storage
 ms.subservice: queues
 ms.devlang: csharp, powershell, azurecli
-ms.custom: "monitoring, devx-track-csharp, devx-track-azurecli, devx-track-azurepowershell"
+ms.custom: monitoring, devx-track-csharp, devx-track-azurepowershell
 ---
 
 # Monitoring Azure Queue Storage

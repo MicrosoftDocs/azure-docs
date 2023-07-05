@@ -9,7 +9,7 @@ ms.author: heidist
 
 ms.service: cognitive-search
 ms.topic: how-to
-ms.date: 09/15/2022
+ms.date: 05/05/2023
 ---
 
 # Create an index in Azure Cognitive Search
@@ -20,7 +20,7 @@ In this article, learn the steps for defining and publishing a search index. Cre
 
 ## Prerequisites
 
-+ Write permissions on the search service. Permission can be granted through an [admin API key](search-security-api-keys.md) on the request. Alternatively, if you're participating in the [role-based access control public preview](search-security-rbac.md), you can issue your request as a member of the Search Contributor role.
++ Write permissions on the search service. Permission can be granted through an [admin API key](search-security-api-keys.md) on the request. Alternatively, if you're using [role-based access control](search-security-rbac.md), you can issue your request as a member of the Search Contributor role.
 
 + An external data source that provides the content to be indexed. You should refer to the data source to understand the schema requirements of your search index. Index creation is largely a schema definition exercise. Before creating one, you should have:
 
@@ -91,7 +91,7 @@ The following screenshot highlights where **Add index** and **Import data** appe
 
 ### [**REST**](#tab/index-rest)
 
-[**Create Index (REST API)**](/rest/api/searchservice/create-index) is used to create an index. The Postman desktop app can function as a search index client to connect to your search service and send requests. See [Create a search index using REST and Postman](search-get-started-rest.md) to get started.
+[**Create Index (REST API)**](/rest/api/searchservice/create-index) is used to create an index. The Postman app can function as a search index client to connect to your search service and send requests. See [Create a search index using REST and Postman](search-get-started-rest.md) to get started.
 
 The REST API provides defaults for field attribution. For example, all `Edm.String` fields are searchable by default. Attributes are shown in full below for illustrative purposes, but you can omit attribution in cases where the default values apply.
 

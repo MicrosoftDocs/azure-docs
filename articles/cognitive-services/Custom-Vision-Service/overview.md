@@ -9,7 +9,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: custom-vision
 ms.topic: overview
-ms.date: 11/06/2022
+ms.date: 07/04/2023
 ms.author: pafarley
 ms.custom: cog-serv-seo-aug-2020
 keywords: image recognition, image identifier, image recognition app, custom vision
@@ -19,6 +19,9 @@ keywords: image recognition, image identifier, image recognition app, custom vis
 # What is Custom Vision?
 
 Azure Custom Vision is an image recognition service that lets you build, deploy, and improve your own image identifier models. An image identifier applies labels to images, according to their visual characteristics. Each label represents a classification or object. Unlike the [Computer Vision](../computer-vision/overview.md) service, Custom Vision allows you to specify your own labels and train custom models to detect them.
+
+> [!TIP]
+> The Azure Computer Vision Image Analysis API now supports custom models. [Use Image Analysis 4.0](../computer-vision/how-to/model-customization.md) to create custom image identifier models using the latest technology from Azure. To migrate a Custom Vision project to the new Image Analysis 4.0 system, see the [Migration guide](../computer-vision/how-to/migrate-from-custom-vision.md).
 
 You can use Custom Vision through a client library SDK, REST API, or through the [Custom Vision web portal](https://customvision.ai/). Follow a quickstart to get started.
 
@@ -47,13 +50,13 @@ Custom Vision functionality can be divided into two features. **[Image classific
 
 ### Optimization
 
-The Custom Vision service is optimized to quickly recognize major differences between images, so you can start prototyping your model with a small amount of data. 50 images per label are generally a good start. However, the service is not optimal for detecting subtle differences in images (for example, detecting minor cracks or dents in quality assurance scenarios).
+The Custom Vision service is optimized to quickly recognize major differences between images, so you can start prototyping your model with a small amount of data. It's generally a good start to use 50 images per label. However, the service isn't optimal for detecting subtle differences in images (for example, detecting minor cracks or dents in quality assurance scenarios).
 
-Additionally, you can choose from several variations of the Custom Vision algorithm that are optimized for images with certain subject material&mdash;for example, landmarks or retail items. See [Select a domain](select-domain.md) for more information.
+Additionally, you can choose from several variations of the Custom Vision algorithm that are optimized for images with certain subject material&mdash;for example, landmarks or retail items. For more information, see [Select a domain](select-domain.md).
 
 ## How to use it
 
-The Custom Vision Service is available as a set of native SDKs as well as through a web-based interface on the [Custom Vision portal](https://customvision.ai/). You can create, test, and train a model through either interface or use both together.
+The Custom Vision Service is available as a set of native SDKs and through a web-based interface on the [Custom Vision portal](https://customvision.ai/). You can create, test, and train a model through either interface or use both together.
 
 ### Supported browsers for Custom Vision web portal
 
@@ -65,7 +68,7 @@ The Custom Vision portal can be used by the following web browsers:
 
 ## Backup and disaster recovery
 
-As a part of Azure, Custom Vision Service has components that are maintained across multiple regions. Service zones and regions are used by all of our services to provide continued service to our customers. For more information on zones and regions, see [Azure regions](../../availability-zones/az-overview.md). If you need additional information or have any issues, please [contact support](/answers/topics/azure-custom-vision.html).
+As a part of Azure, Custom Vision Service has components that are maintained across multiple regions. Service zones and regions are used by all of our services to provide continued service to our customers. For more information on zones and regions, see [Azure regions](../../availability-zones/az-overview.md). If you need additional information or have any issues, [contact support](/answers/topics/azure-custom-vision.html).
 
 
 ## Data privacy and security

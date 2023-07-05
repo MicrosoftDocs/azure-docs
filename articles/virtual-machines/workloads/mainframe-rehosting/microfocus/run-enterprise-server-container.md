@@ -3,10 +3,10 @@ title: Run Micro Focus Enterprise Server 5.0 in a Docker container on Azure | Mi
 description: In this article, learn how to run Micro Focus Enterprise Server 5.0 in a Docker container on Microsoft Azure.
 services: virtual-machines
 documentationcenter:
-author: maggsl
-ms.author: edprice
-manager: edprice
-editor: edprice
+author: swread
+ms.author: sread
+editor: swread
+manager: mamccrea 
 ms.topic: conceptual
 ms.date: 06/29/2020
 tags:

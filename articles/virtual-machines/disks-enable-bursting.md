@@ -3,7 +3,7 @@ title: Enable on-demand disk bursting
 description: Enable on-demand disk bursting on your managed disk.
 author: roygara
 ms.author: rogarana
-ms.date: 10/12/2022
+ms.date: 05/02/2023
 ms.topic: conceptual
 ms.service: storage
 ms.subservice: disks

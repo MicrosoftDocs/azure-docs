@@ -4,7 +4,7 @@ description: Significant updates to Azure Automation updated each month.
 services: automation
 ms.subservice:
 ms.topic: overview
-ms.date: 11/02/2021
+ms.date: 05/10/2023
 ms.custom: references_regions
 ---
 
@@ -21,6 +21,35 @@ Azure Automation receives improvements on an ongoing basis. To stay up to date w
 
 This page is updated monthly, so revisit it regularly. If you're looking for items older than six months, you can find them in [Archive for What's new in Azure Automation](whats-new-archive.md).
 
+
+## May 2023
+
+### General Availability: Python 3.8 runbooks
+
+Azure Automation announces General Availability of Python 3.8 runbooks. Learn more about Azure Automation [Runbooks](automation-runbook-types.md) and [Python packages](python-3-packages.md).
+
+## April 2023
+
+### Public preview update: Azure Automation supports PowerShell 7.2 and Python 3.10 runbooks
+
+Azure Automation has expanded Public preview support for PowerShell 7.2 and Python 3.10 runbooks in almost all [Public regions](https://azure.microsoft.com/explore/global-infrastructure/products-by-region/?products=automation) except Australia Central2, Korea South, Sweden South, Jio India Central, Brazil Southeast, Central India, West India, UAE Central and Gov clouds. These new runtimes are now supported for both Cloud and Hybrid jobs. Learn more about [PowerShell 7.2 and Python 3.10 runbooks](automation-runbook-types.md) and [execution of Hybrid jobs](automation-hrw-run-runbooks.md#service-accounts) on new runtime versions.
+
+## March 2023
+
+### Retirement of Azure Automation Agent-based User Hybrid Runbook Worker 
+
+**Type:** Plan for change
+
+On **31 August 2024**, Azure Automation will [retire](https://azure.microsoft.com/updates/retirement-azure-automation-agent-user-hybrid-worker/) Agent-based User Hybrid Runbook Worker ([Windows](automation-windows-hrw-install.md) and [Linux](automation-linux-hrw-install.md)). You must migrate all Agent-based User Hybrid Workers to [Extension-based User Hybrid Runbook Worker](extension-based-hybrid-runbook-worker-install.md) (Windows and Linux) before the deprecation date. Moreover, starting **1 October 2023**, creating **new** Agent-based User Hybrid Runbook Worker will not be possible. [Learn more](migrate-existing-agent-based-hybrid-worker-to-extension-based-workers.md).
+
+
+## January 2023
+
+### Public Preview of Automation extension for Visual Studio Code
+
+ Azure Automation now provides an [extension from VS Code](https://marketplace.visualstudio.com/items?itemName=azure-automation.vscode-azureautomation&ssr=false#overview) that allows you to create and manage runbooks. For more information, see the [Key features and limitations](automation-runbook-authoring.md) and [runbook management operations](how-to/runbook-authoring-extension-for-vscode.md).
+
+
 ## November 2022
 
 ### General Availability: Azure Automation User Hybrid Runbook Worker Extension 
@@ -36,13 +65,14 @@ Azure Automation now supports runbooks in latest Runtime versions - PowerShell 7
 
 ### Guidance for Disaster Recovery of Azure Automation account
 
-Set up disaster recovery for your Automation accounts to handle a region-wide or zone-wide failure. [Learn more](https://learn.microsoft.com/azure/automation/automation-disaster-recovery).
+Set up disaster recovery for your Automation accounts to handle a region-wide or zone-wide failure. [Learn more](automation-disaster-recovery.md).
+
 
 ## September 2022
 
 ### Availability zones support for Azure Automation
 
-Azure Automation now supports [Azure availability zones](../reliability/availability-zones-overview.md#availability-zones) to provide improved resiliency and reliability by providing high availability to the service, runbooks, and other Automation assets. [Learn more](https://learn.microsoft.com/azure/automation/automation-availability-zones).
+Azure Automation now supports [Azure availability zones](../reliability/availability-zones-overview.md#availability-zones) to provide improved resiliency and reliability by providing high availability to the service, runbooks, and other Automation assets. [Learn more](automation-availability-zones.md).
 
 
 ## July 2022
@@ -201,7 +231,7 @@ Start/Stop VMs during off-hours (v1) will deprecate on May 21, 2022. Customers s
 
 **Type:** New feature
 
-Region mapping has been updated to support Update Management and Change Tracking in Norway East, UAE North, North Central US, Brazil South, and Korea Central. For more information, see [Supported mappings](./how-to/region-mappings.md#supported-mappings).
+Region mapping has been updated to support Update Management and Change Tracking in Norway East, UAE North, North Central US, Brazil South, and Korea Central. For more information, see [Supported mappings](./how-to/region-mappings.md#supported-mappings-for-log-analytics-and-azure-automation).
 
 ### Support for system-assigned Managed Identities
 

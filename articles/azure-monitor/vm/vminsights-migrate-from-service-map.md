@@ -35,7 +35,7 @@ Once you migrate to VM insights, remove the Service Map solution from the worksp
 1. In the search bar, type *Log Analytics workspaces*. As you begin typing, the list filters suggestions based on your input. 
 1. Select **Log Analytics workspaces**.
 1. From your list of Log Analytics workspaces, select the workspace you chose when you enabled Service Map.
-1. On the left, select **Solutions**.
+1. On the left, select **Legacy solutions**.
 1. From the list of solutions, select **ServiceMap(workspace name)**. 
 1. On the **Overview** page for the solution, select **Delete**. 
 1. When prompted to confirm, select **Yes**.

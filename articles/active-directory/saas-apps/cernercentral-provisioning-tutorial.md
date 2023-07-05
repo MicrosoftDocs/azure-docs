@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: User provisioning for Cerner Central - Azure AD'
+title: 'Tutorial: User provisioning for Cerner Central'
 description: Learn how to configure Azure Active Directory to automatically provision users to a roster in Cerner Central.
 services: active-directory
 author: ArvindHarinder1
@@ -24,7 +24,7 @@ The scenario outlined in this tutorial assumes that you already have the followi
 * A Cerner Central tenant
 
 > [!NOTE]
-> Azure Active Directory integrates with Cerner Central using the [SCIM](http://www.simplecloud.info/) protocol.
+> Azure Active Directory integrates with Cerner Central using the SCIM protocol.
 
 ## Assigning users to Cerner Central
 

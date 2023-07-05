@@ -2,12 +2,12 @@
 title: Review your Microsoft Customer Agreement bill - Azure
 description: Learn how to review your bill and resource usage and to verify charges for your Microsoft Customer Agreement invoice.
 author: bandersmsft
-ms.reviewer: judupont
+ms.reviewer: lishepar
 tags: billing
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: tutorial
-ms.date: 09/15/2021
+ms.date: 04/05/2023
 ms.author: banders
 ---
 

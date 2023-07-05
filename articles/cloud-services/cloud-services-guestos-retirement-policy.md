@@ -12,8 +12,9 @@ ms.service: cloud-services
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 9/20/2017
+ms.date: 02/21/2023
 ms.author: raiye
+ms.custom: compute-evergreen
 ---
 # Azure Guest OS supportability and retirement policy
 The information on this page relates to the Azure Guest operating system ([Guest OS](cloud-services-guestos-update-matrix.md)) for Cloud Services worker and web roles (PaaS). It does not apply to Virtual Machines (IaaS).

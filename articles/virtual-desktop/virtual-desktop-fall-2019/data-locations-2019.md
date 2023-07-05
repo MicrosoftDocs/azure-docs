@@ -18,6 +18,6 @@ Azure Virtual Desktop is currently available for all geographical locations. Ini
 >Microsoft doesn't control or limit the regions where you or your users can access your user and app-specific data.
 
 >[!IMPORTANT]
->Azure Virtual Desktop stores global metadata information like tenant names, host pool names, app group names, and user principal names in a datacenter located in the United States. The stored metadata is encrypted at rest, and geo-redundant mirrors are maintained within the United States. All customer data, such as app settings and user data, resides in the location the customer chooses and isn't managed by the service.
+>Azure Virtual Desktop stores global metadata information like tenant names, host pool names, application group names, and user principal names in a datacenter located in the United States. The stored metadata is encrypted at rest, and geo-redundant mirrors are maintained within the United States. All customer data, such as app settings and user data, resides in the location the customer chooses and isn't managed by the service.
 
 Service metadata is replicated in the United States for disaster recovery purposes.

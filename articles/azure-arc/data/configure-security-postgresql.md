@@ -169,6 +169,10 @@ To configure roles and users in your Azure Arc-enabled PostgreSQL server, use th
 
 For audit scenarios please configure your server group to use the `pgaudit` extensions of Postgres. For more details about `pgaudit` see [`pgAudit` GitHub project](https://github.com/pgaudit/pgaudit/blob/master/README.md). To enable the `pgaudit` extension in your server group read [Use PostgreSQL extensions](using-extensions-in-postgresql-server.md).
 
+## Use SSL connection
+
+SSL is required for client connections. In connection string, the SSL mode parameter should not be disabled. [Form connection strings](get-connection-endpoints-and-connection-strings-postgresql-server.md#form-connection-strings).
+
 ## Next steps
 - See [`pgcrypto` extension](https://www.postgresql.org/docs/current/pgcrypto.html)
 - See [Use PostgreSQL extensions](using-extensions-in-postgresql-server.md)

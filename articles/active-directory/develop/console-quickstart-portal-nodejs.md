@@ -6,11 +6,11 @@ author: OwenRichards1
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
-ms.topic: portal
+ms.topic: conceptual
 ms.date: 08/22/2022
 ROBOTS: NOINDEX
 ms.author: owenrichards
-ms.custom: mode-api
+ms.custom: mode-api, devx-track-js
 #Customer intent: As an application developer, I want to learn how my Node.js app can get an access token and call an API that is protected by a Microsoft identity platform endpoint using client credentials flow.
 ---
 
@@ -25,8 +25,7 @@ ms.custom: mode-api
 
 > [!div renderon="portal" id="display-on-portal" class="sxs-lookup"]
 > # Quickstart: Acquire a token and call Microsoft Graph API from a Node.js console app using app's identity
->
-> [!div renderon="portal" class="sxs-lookup"]
+> 
 > In this quickstart, you download and run a code sample that demonstrates how a Node.js console application can get an access token using the app's identity to call the Microsoft Graph API and display a [list of users](/graph/api/user-list) in the directory. The code sample demonstrates how an unattended job or Windows service can run with an application identity, instead of a user's identity.
 > 
 > This quickstart uses the [Microsoft Authentication Library for Node.js (MSAL Node)](https://github.com/AzureAD/microsoft-authentication-library-for-js/tree/dev/lib/msal-node) with the [client credentials grant](v2-oauth2-client-creds-grant-flow.md).
@@ -35,7 +34,6 @@ ms.custom: mode-api
 > 
 > * [Node.js](https://nodejs.org/en/download/)
 > * [Visual Studio Code](https://code.visualstudio.com/download) or another code editor
-> 
 > 
 > ### Download and configure the sample app
 > 
@@ -63,8 +61,8 @@ ms.custom: mode-api
 > ##### Global tenant administrator
 > 
 > If you are a global administrator, go to **API Permissions** page select **Grant admin consent for > Enter_the_Tenant_Name_Here**
-> > > [!div id="apipermissionspage"]
-> > > [Go to the API Permissions page]()
+> > [!div id="apipermissionspage"]
+> > [Go to the API Permissions page]()
 > 
 > ##### Standard user
 > 

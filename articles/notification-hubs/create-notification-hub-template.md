@@ -9,7 +9,7 @@ ms.date: 09/21/2022
 ms.lastreviewed: 05/15/2020
 ms.topic: quickstart
 ms.service: notification-hubs
-ms.custom: devx-track-azurepowershell, subject-armqs, mode-arm
+ms.custom: subject-armqs, mode-arm, devx-track-arm-template
 ---
 
 # Quickstart: Create a notification hub using a Resource Manager template

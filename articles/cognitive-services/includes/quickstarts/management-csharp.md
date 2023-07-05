@@ -126,4 +126,4 @@ dotnet run
 * See **[Natural language support](../../language-support.md)** to see the list of natural languages that Cognitive Services supports.
 * See **[Use Cognitive Services as containers](../../cognitive-services-container-support.md)** to understand how to use Cognitive Services on-prem.
 * See **[Plan and manage costs for Cognitive Services](../../plan-manage-costs.md)** to estimate cost of using Cognitive Services.
-* See **[Cognitive Services Management SDK reference documentation](/dotnet/api/overview/azure/cognitiveservices/management)** for more details on the management SDK.
+* See **[Cognitive Services Management SDK reference documentation](/dotnet/api/overview/azure/cognitiveservices/management/management-cognitiveservices(deprecated))** for more details on the management SDK.

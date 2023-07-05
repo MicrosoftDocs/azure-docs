@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with SolarWinds Orion | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with SolarWinds Orion'
 description: Learn how to configure single sign-on between Azure Active Directory and SolarWinds Orion.
 services: active-directory
 author: jeevansd

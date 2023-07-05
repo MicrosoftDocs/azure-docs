@@ -2,7 +2,7 @@
 title: Microsoft identity platform UserInfo endpoint
 description: Learn about the UserInfo endpoint on the Microsoft identity platform.
 services: active-directory
-author: nickludwig
+author: Dickson-Mwendia
 manager: CelesteDG
 
 ms.service: active-directory
@@ -10,14 +10,14 @@ ms.subservice: develop
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 08/26/2022
-ms.author: ludwignick
+ms.author: dmwendia
 ms.reviewer: ludwignick
 ms.custom: aaddev
 ---
 
 # Microsoft identity platform UserInfo endpoint
 
-As part of the OpenID Connect (OIDC) standard, the [UserInfo endpoint](https://openid.net/specs/openid-connect-core-1_0.html#UserInfo) returns information about an authenticated user. In the Microsoft identity platform, the UserInfo endpoint is hosted by Microsoft Graph at https://graph.microsoft.com/oidc/userinfo. 
+As part of the OpenID Connect (OIDC) standard, the [UserInfo endpoint](https://openid.net/specs/openid-connect-core-1_0.html#UserInfo) returns information about an authenticated user. 
 
 ## Find the .well-known configuration endpoint
 
@@ -85,7 +85,7 @@ You can't add to or customize the information returned by the UserInfo endpoint.
 
 To customize the information returned by the identity platform during authentication and authorization, use [claims mapping]( active-directory-claims-mapping.md) and [optional claims]( active-directory-optional-claims.md) to modify security token configuration.
 
-## Next Steps
+## Next steps
 
 * [Review the contents of ID tokens](id-tokens.md).
 * [Customize the contents of an ID token using optional claims](active-directory-optional-claims.md).

@@ -1,6 +1,6 @@
 ---
 ms.topic: include
-ms.date: 10/29/2021
+ms.date: 01/05/2023
 author: PatAltimore
 ms.author: patricka
 ms.service: iot-edge
@@ -15,7 +15,7 @@ When you provision an IoT Edge device with X.509 certificates, you use what is c
 
 For X.509 certificate authentication, each device's authentication information is provided in the form of *thumbprints* taken from your device identity certificates. These thumbprints are given to IoT Hub at the time of device registration so that the service can recognize the device when it connects.
 
-For more information about how the CA certificates are used in IoT Edge devices, see [Understand how Azure IoT Edge uses certificates](/articles/iot-edge/iot-edge-certs.md).
+For more information about how the CA certificates are used in IoT Edge devices, see [Understand how Azure IoT Edge uses certificates](../iot-edge-certs.md).
 
 You need the following files for manual provisioning with X.509:
 
@@ -27,7 +27,7 @@ You need the following files for manual provisioning with X.509:
 
   Thumbprint values are 40-hex characters for SHA-1 hashes or 64-hex characters for SHA-256 hashes. Both thumbprints are provided to IoT Hub at the time of device registration.
 
-If you don't have certificates available, you can [Create demo certificates to test IoT Edge device features](/articles/iot-edge/how-to-create-test-certificates.md). Follow the instructions in that article to set up certificate creation scripts, create a root CA certificate, and then create two IoT Edge device identity certificates.
+If you don't have certificates available, you can [Create demo certificates to test IoT Edge device features](../how-to-create-test-certificates.md). Follow the instructions in that article to set up certificate creation scripts, create a root CA certificate, and then create two IoT Edge device identity certificates.
 
 One way to retrieve the thumbprint from a certificate is with the following openssl command:
 

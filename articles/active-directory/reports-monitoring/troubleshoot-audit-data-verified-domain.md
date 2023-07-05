@@ -1,6 +1,6 @@
 ---
 
-title: 'Troubleshoot audit data of verified domain change  | Microsoft Docs'
+title: 'Troubleshoot audit data of verified domain change '
 description: Provides you with information that will appear in the Azure Active Directory activity logs when you change a users verified domain.
 services: active-directory
 author: shlipsey3

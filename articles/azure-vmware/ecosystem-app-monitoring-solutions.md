@@ -22,4 +22,4 @@ Our application performance monitoring and troubleshooting partners have industr
 You can find more information about these solutions here:
 
 - [NETSCOUT](https://www.netscout.com/technology-partners/microsoft-azure)
-- [Turbonomic](https://blog.turbonomic.com/turbonomic-announces-partnership-and-support-for-azure-vmware-service)
+- [Turbonomic](https://www.ibm.com/products/turbonomic/integrations/microsoft-azure?mhsrc=ibmsearch_a&mhq=Azure)

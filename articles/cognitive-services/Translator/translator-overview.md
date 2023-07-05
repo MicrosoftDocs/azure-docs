@@ -14,7 +14,7 @@ ms.author: lajanuar
 
 # What is Azure Cognitive Services Translator?
 
-Translator Service is a cloud-based neural machine translation service that is part of the [Azure Cognitive Services](../what-are-cognitive-services.md) family of REST APIs and can be used with any operating system. Translator powers many Microsoft products and services used by thousands of businesses worldwide to perform language translation and other language-related operations. In this overview, you'll learn how Translator can enable you to build intelligent, multi-language solutions for your applications across all [supported languages](./language-support.md).
+Translator Service is a cloud-based neural machine translation service that is part of the [Azure Cognitive Services](../what-are-cognitive-services.md) family of REST APIs and can be used with any operating system. Translator powers many Microsoft products and services used by thousands of businesses worldwide to perform language translation and other language-related operations. In this overview, you learn how Translator can enable you to build intelligent, multi-language solutions for your applications across all [supported languages](./language-support.md).
 
 Translator documentation contains the following article types:
 
@@ -24,7 +24,7 @@ Translator documentation contains the following article types:
 
 ## Translator features and development options
 
-The following features are supported by the Translator service. Use the links in this table to learn more about each feature and browse the API references.
+Translator service supports the following features. Use the links in this table to learn more about each feature and browse the API references.
 
 | Feature | Description | Development options |
 |----------|-------------|--------------------------|
@@ -32,11 +32,13 @@ The following features are supported by the Translator service. Use the links in
 | [**Document Translation**](document-translation/overview.md) | Translate batch and complex files while preserving the structure and format of the original documents. | <ul><li>[**REST API**](document-translation/reference/rest-api-guide.md)</li><li>[**Client-library SDK**](document-translation/how-to-guides/use-client-sdks.md)</li></ul> |
 | [**Custom Translator**](custom-translator/overview.md) | Build customized models to translate domain- and industry-specific language, terminology, and style. | <ul><li>[**Custom Translator portal**](https://portal.customtranslator.azure.ai/)</li></ul> |
 
+For detailed information regarding Azure Translator Service request limits, *see* [**Text translation request limits**](request-limits.md#text-translation).
+
 ## Try the Translator service for free
 
-First, you'll need a Microsoft account; if you don't have one, you can sign up for free at the [**Microsoft account portal**](https://account.microsoft.com/account).  Select **Create a Microsoft account** and follow the steps to create and verify your new account.
+First, you need a Microsoft account; if you don't have one, you can sign up for free at the [**Microsoft account portal**](https://account.microsoft.com/account).  Select **Create a Microsoft account** and follow the steps to create and verify your new account.
 
-Next, you'll need to  have an Azure account—navigate to the [**Azure sign-up page**](https://azure.microsoft.com/free/ai/), select the **Start free** button, and create a new Azure account using your Microsoft account credentials.
+Next, you need to  have an Azure account—navigate to the [**Azure sign-up page**](https://azure.microsoft.com/free/ai/), select the **Start free** button, and create a new Azure account using your Microsoft account credentials.
 
 Now, you're ready to get started! [**Create a Translator service**](how-to-create-translator-resource.md "Go to the Azure portal."), [**get your access keys and API endpoint**](how-to-create-translator-resource.md#authentication-keys-and-endpoint-url "An endpoint URL and read-only key are required for authentication."), and try our [**quickstart**](quickstart-translator.md "Learn to use Translator via REST.").
 

@@ -6,9 +6,9 @@ author: nabhishek
 ms.service: data-factory
 ms.subservice: security
 ms.topic: conceptual
-ms.date: 08/03/2022
+ms.date: 02/13/2023
 ms.author: abnarain 
-ms.custom: devx-track-azurepowershell, subject-rbac-steps
+ms.custom: subject-rbac-steps
 ---
 
 # Managed identity for Azure Data Factory
@@ -58,7 +58,7 @@ If you find your service instance doesn't have a managed identity associated fol
 >
 >- Managed identity cannot be modified. Updating a service instance which already has a managed identity won't have any impact, and the managed identity is kept unchanged.
 >- If you update a service instance which already has a managed identity without specifying the "identity" parameter in the factory objects or without specifying "identity" section in REST request body, you will get an error.
->- When you delete a service instance, the associated managed identity will be deleted along.
+>- When you delete a service instance, the associated managed identity will also be deleted.
 
 #### Generate system-assigned managed identity using PowerShell
 
@@ -286,3 +286,5 @@ See the following topics that introduce when and how to use managed identity:
 - [Copy data from/to Azure Data Lake Store using managed identities for Azure resources authentication](connector-azure-data-lake-store.md).
 
 See [Managed Identities for Azure Resources Overview](../active-directory/managed-identities-azure-resources/overview.md) for more background on managed identities for Azure resources, on which managed identity in Azure Data Factory is based.
+
+See [Limitations](../active-directory/managed-identities-azure-resources/managed-identities-faq.md#limitations) of managed identities, which also apply to managed identities in Azure Data Factory.

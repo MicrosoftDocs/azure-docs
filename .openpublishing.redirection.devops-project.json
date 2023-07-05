@@ -1,0 +1,119 @@
+{
+    "redirections": [
+        {
+            "source_path": "articles/devops-project/azure-devops-project-aks.md",
+            "redirect_url": "/previous-versions/azure/devops-project/azure-devops-project-aks",
+            "redirect_document_id": false
+          },
+          {
+            "source_path": "articles/devops-project/azure-devops-project-aspnet-core.md",
+            "redirect_url": "/previous-versions/azure/devops-project/azure-devops-project-aspnet-core",
+            "redirect_document_id": false
+          },
+          {
+            "source_path": "articles/devops-project/azure-devops-project-cosmos-db.md",
+            "redirect_url": "/previous-versions/azure/devops-project/azure-devops-project-cosmos-db",
+            "redirect_document_id": false
+          },
+          {
+            "source_path": "articles/devops-project/azure-devops-project-functions.md",
+            "redirect_url": "/previous-versions/azure/devops-project/azure-devops-project-functions",
+            "redirect_document_id": false
+          },
+          {
+            "source_path": "articles/devops-project/azure-devops-project-github.md",
+            "redirect_url": "/previous-versions/azure/devops-project/azure-devops-project-github",
+            "redirect_document_id": false
+          },
+          {
+            "source_path": "articles/devops-project/azure-devops-project-go.md",
+            "redirect_url": "/previous-versions/azure/devops-project/azure-devops-project-go",
+            "redirect_document_id": false
+          },
+          {
+            "source_path": "articles/devops-project/azure-devops-project-java.md",
+            "redirect_url": "/previous-versions/azure/devops-project/azure-devops-project-java",
+            "redirect_document_id": false
+          },
+          {
+            "source_path": "articles/devops-project/azure-devops-project-nodejs.md",
+            "redirect_url": "/previous-versions/azure/devops-project/azure-devops-project-nodejs",
+            "redirect_document_id": false
+          },
+          {
+            "source_path": "articles/devops-project/azure-devops-project-php.md",
+            "redirect_url": "/previous-versions/azure/devops-project/azure-devops-project-php",
+            "redirect_document_id": false
+          },
+          {
+            "source_path": "articles/devops-project/azure-devops-project-python.md",
+            "redirect_url": "/previous-versions/azure/devops-project/azure-devops-project-python",
+            "redirect_document_id": false
+          },
+          {
+            "source_path": "articles/devops-project/azure-devops-project-ruby.md",
+            "redirect_url": "/previous-versions/azure/devops-project/azure-devops-project-ruby",
+            "redirect_document_id": false
+          },
+          {
+            "source_path": "articles/devops-project/azure-devops-project-service-fabric.md",
+            "redirect_url": "/previous-versions/azure/devops-project/azure-devops-project-service-fabric",
+            "redirect_document_id": false
+          },
+          {
+            "source_path": "articles/devops-project/azure-devops-project-sql-database.md",
+            "redirect_url": "/previous-versions/azure/devops-project/azure-devops-project-sql-database",
+            "redirect_document_id": false
+          },
+          {
+            "source_path": "articles/devops-project/azure-devops-project-vms.md",
+            "redirect_url": "/previous-versions/azure/devops-project/azure-devops-project-vms",
+            "redirect_document_id": false
+          },
+          {
+            "source_path": "articles/devops-project/devops-starter-gh-nodejs.md",
+            "redirect_url": "/previous-versions/azure/devops-project/devops-starter-gh-nodejs",
+            "redirect_document_id": false
+          },
+          {
+            "source_path": "articles/devops-project/devops-starter-gh-web-app.md",
+            "redirect_url": "/previous-versions/azure/devops-project/devops-starter-gh-web-app",
+            "redirect_document_id": false
+          },
+          {
+            "source_path": "articles/devops-project/overview.md",
+            "redirect_url": "/previous-versions/azure/devops-project/overview",
+            "redirect_document_id": false
+          },
+          {
+            "source_path": "articles/devops-project/index.md",
+            "redirect_url": "/previous-versions/azure/devops-project/overview",
+            "redirect_document_id": false
+          },
+          {
+            "source_path": "articles/devops-project/retirement-and-migration.md",
+            "redirect_url": "/previous-versions/azure/devops-project/retirement-and-migration",
+            "redirect_document_id": false
+          },
+          {
+            "source_path": "articles/virtual-machines/linux/tutorial-azure-devops-blue-green-strategy.md",
+            "redirect_url": "/previous-versions/azure/virtual-machines/linux/tutorial-azure-devops-blue-green-strategy",
+            "redirect_document_id": false
+          },
+          {
+            "source_path": "articles/virtual-machines/linux/tutorial-azure-devops-canary-strategy.md",
+            "redirect_url": "/previous-versions/azure/virtual-machines/linux/tutorial-azure-devops-canary-strategy",
+            "redirect_document_id": false
+          },
+          {
+            "source_path": "articles/virtual-machines/linux/tutorial-build-deploy-azure-pipelines.md",
+            "redirect_url": "/previous-versions/azure/virtual-machines/linux/tutorial-build-deploy-azure-pipelines",
+            "redirect_document_id": false
+          },
+          {
+            "source_path": "articles/aks/deployment-center-launcher.md",
+            "redirect_url": "/previous-versions/azure/aks/deployment-center-launcher",
+            "redirect_document_id": false
+          }          
+    ]
+  }

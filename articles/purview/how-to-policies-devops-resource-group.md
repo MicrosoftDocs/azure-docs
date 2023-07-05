@@ -1,19 +1,21 @@
 ---
-title: Provision access to resource groups and subscriptions for DevOps actions
-description: Step-by-step guide showing how to provision access to entire resource groups and subscriptions through Microsoft Purview DevOps policies
+title: Manage access to entire resource groups or subscriptions for monitoring system health and performance using Microsoft Purview DevOps policies, a type of RBAC policies.
+description: Use Microsoft Purview DevOps policies to provision access to all data sources inside a resource group or subscription, so IT operations personnel can monitor performance, health and audit security, while limiting the insider threat.
 author: inward-eye
 ms.author: vlrodrig
 ms.service: purview
 ms.subservice: purview-data-policies
 ms.topic: how-to
-ms.date: 11/14/2022
+ms.date: 03/10/2023
 ms.custom:
 ---
 # Provision access to system metadata in resource groups or subscriptions
 
-[DevOps policies](concept-policies-devops.md) are a type of Microsoft Purview access policies. They allow you to manage access to system metadata (DMVs and DMFs) via *SQL Performance Monitoring* or *SQL Security Auditing* actions. They can be created only on data sources that have been registered for *Data use management* in Microsoft Purview. These policies are configured directly in the Microsoft Purview governance portal, and after being saved they get automatically published and then get enforced by the data source. Microsoft Purview access policies apply to Azure AD Accounts only.
+[DevOps policies](concept-policies-devops.md) are a type of Microsoft Purview access policies. They allow you to manage access to system metadata on data sources that have been registered for *Data use management* in Microsoft Purview. These policies are configured directly in the Microsoft Purview governance portal, and after they are saved, they get automatically published and then enforced by the data source. Microsoft Purview policies only manage access for Azure AD principals.
 
-In this guide we cover how to register an entire resource group or subscription and then create a single policy that will manage access to **all** data sources in that resource group or subscription. That single policy will cover all existing data sources and any data sources that are created afterwards.
+This how-to guide covers how to register an entire resource group or subscription and then create a single policy that will provision access to **all** data sources in that resource group or subscription. That single policy will cover all existing data sources and any data sources that are created afterwards. and provisioning access to its system metadata (DMVs and DMFs) using the DevOps policies actions *SQL Performance Monitoring* or *SQL Security Auditing*.
+
+
 
 ## Prerequisites
 [!INCLUDE [Access policies generic pre-requisites](./includes/access-policies-prerequisites-generic.md)]
@@ -52,16 +54,11 @@ Follow this link for the steps to [update a DevOps policies in Microsoft Purview
 ## Delete a DevOps policy
 Follow this link for the steps to [delete a DevOps policies in Microsoft Purview](how-to-policies-devops-authoring-generic.md#delete-a-devops-policy).
 
+## Test the DevOps policy
+See how to [test the policy you created](./how-to-policies-devops-authoring-generic.md#test-the-devops-policy)
 
-### Test the policy
-To test the policy see the DevOps policy guides for the underlying data sources listed in the [next steps section](#next-steps) of this document.
+## Role definition detail
+See the [mapping of DevOps role to data source actions](./how-to-policies-devops-authoring-generic.md#role-definition-detail)
 
 ## Next steps
-Check the blogs, videos and related docs
-* Blog: [Microsoft Purview DevOps policies enter General Availability](https://techcommunity.microsoft.com/t5/security-compliance-and-identity/microsoft-purview-devops-policies-enter-ga-simplify-access/ba-p/3674057)
-* Blog: [Microsoft Purview DevOps policies enable at scale access provisioning for IT operations](https://techcommunity.microsoft.com/t5/microsoft-purview-blog/microsoft-purview-devops-policies-enable-at-scale-access/ba-p/3604725)
-* Video: [DevOps policies quick overview](https://aka.ms/Microsoft-Purview-DevOps-Policies-Video)
-* Video: [DevOps policies deep dive](https://youtu.be/UvClpdIb-6g)
-* Video: [Pre-requisite for policies: The "Data use management" option](https://youtu.be/v_lOzevLW-Q)
-* Doc: [Microsoft Purview DevOps policies on Azure Arc-enabled SQL Server](./how-to-policies-devops-arc-sql-server.md)
-* Doc: [Microsoft Purview DevOps policies on Azure SQL DB](./how-to-policies-devops-azure-sql-db.md)
+See [related videos, blogs and documents](./how-to-policies-devops-authoring-generic.md#next-steps)

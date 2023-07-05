@@ -6,7 +6,7 @@ ms.author: shjia
 ms.service: purview
 ms.subservice: purview-data-map
 ms.topic: how-to
-ms.date: 11/02/2021
+ms.date: 02/14/2023
 ms.custom: template-how-to, ignite-fall-2021
 ---
 
@@ -16,9 +16,9 @@ This article outlines how to register Azure Files, and how to authenticate and i
 
 ## Supported capabilities
 
-|**Metadata Extraction**|  **Full Scan**  |**Incremental Scan**|**Scoped Scan**|**Classification**|**Access Policy**|**Lineage**|**Data Sharing**|
-|---|---|---|---|---|---|---|---|
-| [Yes](#register) | [Yes](#scan) | [Yes](#scan) | [Yes](#scan) | [Yes](#scan) | No | Limited** | No |
+|**Metadata Extraction**|  **Full Scan**  |**Incremental Scan**|**Scoped Scan**|**Classification**|**Labeling**|**Access Policy**|**Lineage**|**Data Sharing**|
+|---|---|---|---|---|---|---|---|---|
+| [Yes](#register) | [Yes](#scan) | [Yes](#scan) | [Yes](#scan) | [Yes](#scan) | [Yes](create-sensitivity-label.md)| No | Limited** | No |
 
 \** Lineage is supported if dataset is used as a source/sink in [Data Factory Copy activity](how-to-link-azure-data-factory.md) 
 
@@ -52,11 +52,11 @@ Currently there's only one way to set up authentication for Azure file shares:
 
 When authentication method selected is **Account Key**, you need to get your access key and store in the key vault:
 
-1. Navigate to your storage account
-1. Select **Settings > Access keys**
+1. Navigate to your storage account 
+1. Select **Security + networking > Access keys**
 1. Copy your *key* and save it somewhere for the next steps
 1. Navigate to your key vault
-1. Select **Settings > Secrets**
+1. Select **Objects > Secrets**
 1. Select **+ Generate/Import** and enter the **Name** and **Value** as the *key* from your storage account
 1. Select **Create** to complete
 1. If your key vault isn't connected to Microsoft Purview yet, you will need to [create a new key vault connection](manage-credentials.md#create-azure-key-vaults-connections-in-your-microsoft-purview-account)
@@ -66,7 +66,10 @@ When authentication method selected is **Account Key**, you need to get your acc
 
 To register a new Azure Files account in your data catalog, follow these steps:
 
-1. Navigate to your Microsoft Purview Data Studio.
+1. Open the Microsoft Purview governance portal by:
+
+   - Browsing directly to [https://web.purview.azure.com](https://web.purview.azure.com) and selecting your Microsoft Purview account.
+   - Opening the [Azure portal](https://portal.azure.com), searching for and selecting the Microsoft Purview account. Selecting the [**the Microsoft Purview governance portal**](https://web.purview.azure.com/) button.
 1. Select **Data Map** on the left navigation.
 1. Select **Register**
 1. On **Register sources**, select **Azure Files**

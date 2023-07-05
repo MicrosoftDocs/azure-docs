@@ -1,5 +1,5 @@
 ---
-title: "Tutorial: Azure Active Directory integration with Shmoop For Schools | Microsoft Docs"
+title: "Tutorial: Azure Active Directory integration with Shmoop For Schools"
 description: Learn how to configure single sign-on between Azure Active Directory and Shmoop For Schools.
 services: active-directory
 author: jeevansd

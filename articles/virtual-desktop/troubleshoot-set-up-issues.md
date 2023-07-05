@@ -3,7 +3,7 @@ title: Azure Virtual Desktop environment host pool creation - Azure
 description: How to troubleshoot and resolve tenant and host pool issues during setup of a Azure Virtual Desktop environment.
 author: Heidilohr
 ms.topic: troubleshooting
-ms.custom: references_regions
+ms.custom: references_regions, devx-track-arm-template
 ms.date: 02/17/2021
 ms.author: helohr
 manager: femila
@@ -42,11 +42,11 @@ If your operation goes over the quota limit, you can do one of the following thi
 
 - Open the link you see in the statusMessage field in a browser to submit a request to increase the quota for your Azure subscription for the specified VM SKU.
 
-### Error: Can't see user assignments in app groups.
+### Error: Can't see user assignments in application groups.
 
 **Cause**: This error usually happens after you've moved the subscription from one Azure Active Directory tenant to another. If your old assignments are still tied to the previous Azure Active Directory tenant, the Azure portal will lose track of them.
 
-**Fix**: You'll need to reassign users to app groups.
+**Fix**: You'll need to reassign users to application groups.
 
 ### I don't see the Azure region I want to use when selecting the location for my service objects
 

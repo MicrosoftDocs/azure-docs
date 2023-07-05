@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory integration with Lifesize Cloud | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory integration with Lifesize Cloud'
 description: Learn how to configure single sign-on between Azure Active Directory and Lifesize Cloud.
 services: active-directory
 author: jeevansd
@@ -88,7 +88,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
     `https://webapp.lifesizecloud.com/?ent=<IDENTIFIER>`
 
     > [!NOTE]
-    > These values are not real. Update these values with the actual Sign-on URL, Identifier and Relay State. Contact [Lifesize Cloud Client support team](https://legacy.lifesize.com/en/support) to get Sign-On URL, and Identifier values and you can get Relay State value from SSO Configuration that is explained later in the tutorial. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
+    > These values are not real. Update these values with the actual Sign-on URL, Identifier and Relay State. Contact [Lifesize Cloud Client support team](https://support.lifesize.com/) to get Sign-On URL, and Identifier values and you can get Relay State value from SSO Configuration that is explained later in the tutorial. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
 
 5. On the **Set up Single Sign-On with SAML** page, in the **SAML Signing Certificate** section, click **Download** to download the **Certificate (Base64)** from the given options as per your requirement and save it on your computer.
 

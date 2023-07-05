@@ -4,12 +4,12 @@ description: Learn how to gain comprehensive visibility and insights over extern
 titleSuffix: Defender EASM and External Attack Surface Management (EASM) and Defender for Cloud
 ms.topic: conceptual
 ms.custom: ignite-2022
-ms.date: 09/21/2022
+ms.date: 03/05/2023
 ---
 
 # What is an external attack surface?
 
-An external attack surface is the entire area of an organization or system that is susceptible to an attack from an external source. An organization's attack surface is made up of all the points of access that an unauthorized person could use to enter their system. The larger your attack surface is, the harder it is to protect.
+An external attack surface is the entire area of an organization or system that is susceptible to an attack from an external source. An organization's attack surface is made up of all the points of access that an unauthorized person could use to enter their system. The larger your attack surface is, the harder it's to protect.
 
 You can use Defender for Cloud's new integration with Microsoft Defender External Attack Surface Management (Defender EASM), to improve your organization's security posture and reduce the potential risk of being attacked. Defender EASM continuously discovers and maps your digital attack surface to provide an external view of your online infrastructure. This visibility enables security and IT teams to identify unknowns, prioritize risk, eliminate threats, and extend vulnerability and exposure control beyond the firewall.
 
@@ -20,7 +20,8 @@ Defender EASM applies Microsoft’s crawling technology to discover assets that 
 - Pinpoint attacker-exposed weaknesses, anywhere and on-demand 
 - Gain visibility into third-party attack surfaces
 
-EASM collects data for publicly exposed assets (“outside-in”) which can be used by MDC CSPM (“inside-out”) to assist with internet-exposure validation and discovery capabilities to provide better visibility to customers.
+EASM collects data for publicly exposed assets (“outside-in”). That data can be used by Defender for Cloud CSPM (“inside-out”) to assist with internet-exposure validation and discovery capabilities to provide better visibility to customers.
+
 
 ## Learn more
 

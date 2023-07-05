@@ -62,7 +62,7 @@ The managed identities for Azure resources feature in Azure Active Directory (Az
 
 ## Policies
 
-[Azure policies](../governance/policy/overview.md) can be used to define the desired behavior for your organization's [Windows VMs](./windows/policy.md) and [Linux VMs](./linux/policy.md). By using policies, an organization can enforce various conventions and rules throughout the enterprise. Enforcement of the desired behavior can help mitigate risk while contributing to the success of the organization.
+[Azure policies](../governance/policy/overview.md) can be used to define the desired behavior for your organization's VMs. By using policies, an organization can enforce various conventions and rules throughout the enterprise. Enforcement of the desired behavior can help mitigate risk while contributing to the success of the organization.
 
 ## Azure role-based access control
 

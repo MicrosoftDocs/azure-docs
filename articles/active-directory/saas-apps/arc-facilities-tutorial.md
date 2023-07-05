@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with ARC Facilities | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with ARC Facilities'
 description: Learn how to configure single sign-on between Azure Active Directory and ARC Facilities.
 services: active-directory
 author: jeevansd

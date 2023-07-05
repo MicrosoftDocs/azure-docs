@@ -2,7 +2,7 @@
 title: Connect with your Apache Spark app - Azure Event Hubs | Microsoft Docs
 description: This article provides information on how to use Apache Spark with Azure Event Hubs for Kafka.
 ms.topic: how-to
-ms.date: 09/28/2021
+ms.date: 03/09/2023
 ms.devlang: scala
 ---
 
@@ -66,6 +66,12 @@ val df_write = df.writeStream
     .outputMode("append")
     .format("console")
     .start()
+```
+
+If you receive an error similar to the following error, add `.option("spark.streaming.kafka.allowNonConsecutiveOffsets", "true")` to the `spark.readStream` call and try again. 
+
+```bash
+IllegalArgumentException: requirement failed: Got wrong record for <spark job name> even after seeking to offset 4216 got offset 4217 instead. If this is a compacted topic, consider enabling spark.streaming.kafka.allowNonConsecutiveOffsets 
 ```
 
 ## Write to Event Hubs for Kafka

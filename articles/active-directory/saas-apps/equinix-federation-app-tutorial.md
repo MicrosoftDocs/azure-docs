@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with Equinix Federation App | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with Equinix Federation App'
 description: Learn how to configure single sign-on between Azure Active Directory and Equinix Federation App.
 services: active-directory
 author: jeevansd

@@ -45,7 +45,7 @@ The issues are reported in raw text. We will use the NER feature to extract the 
 
 ## Create a new Power Automate workflow
 
-Go to the [Power Automate site](https://preview.flow.microsoft.com/), and login. Then click **Create** and **Scheduled flow**.
+Go to the [Power Automate site](https://make.powerautomate.com/), and login. Then click **Create** and **Scheduled flow**.
 
 :::image type="content" source="../media/tutorials/excel/flow-creation.png" alt-text="The workflow creation screen" lightbox="../media/tutorials/excel/flow-creation.png":::
 
@@ -203,5 +203,4 @@ The Excel file will get updated in your OneDrive account. It will look like the 
 
 ## Next steps
 
-> [!div class="nextstepaction"]
-> [Call NER using the REST API or client library](../quickstart.md)
+

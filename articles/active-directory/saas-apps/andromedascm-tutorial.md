@@ -1,5 +1,5 @@
 ---
-title: "Tutorial: Azure Active Directory integration with Andromeda | Microsoft Docs"
+title: "Tutorial: Azure Active Directory integration with Andromeda"
 description: Learn how to configure single sign-on between Azure Active Directory and Andromeda.
 services: active-directory
 author: jeevansd

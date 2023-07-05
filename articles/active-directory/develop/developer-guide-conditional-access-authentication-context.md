@@ -3,18 +3,17 @@ title: Developer guidance for Azure AD Conditional Access authentication context
 description: Developer guidance and scenarios for Azure AD Conditional Access authentication context
 
 services: active-directory
+author: cilwerner
+manager: CelesteDG
+
 ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.date: 11/15/2022
 
-ms.author: kkrishna
-author: kalyankrishna1
-manager: CelesteDG
-ms.reviewer: joflore
-
+ms.author: cwerner
+ms.reviewer: joflore, kkrishna
 ms.workload: identity
-
 ms.custom: aaddev
 ---
 
@@ -155,7 +154,7 @@ These steps are the changes that you need to carry in your code base. The steps 
 
            try
            {
-               // read the header and checks if it conatins error with insufficient_claims value.
+               // read the header and checks if it contains error with insufficient_claims value.
                if (null != errorValue && "insufficient_claims" == errorValue)
                {
                    var claimChallengeParameter = GetParameterValue(parameters, "claims");
@@ -216,6 +215,7 @@ Don't use auth context where the app itself is going to be a target of Condition
 
 - [Use the Conditional Access auth context to perform step-up authentication for high-privilege operations in a web app](https://github.com/Azure-Samples/ms-identity-dotnetcore-ca-auth-context-app/blob/main/README.md)
 - [Use the Conditional Access auth context to perform step-up authentication for high-privilege operations in a web API](https://github.com/Azure-Samples/ms-identity-ca-auth-context/blob/main/README.md)
+- [Use the Conditional Access auth context to perform step-up authentication for high-privilege operations in a React single-page application and an Express web API](https://github.com/Azure-Samples/ms-identity-javascript-react-tutorial/tree/main/6-AdvancedScenarios/3-call-api-acrs)
 
 ## Authentication context [ACRs] in Conditional Access expected behavior
 

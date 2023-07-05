@@ -1,7 +1,7 @@
 ---
 title: Configure performance for the Azure-SSIS Integration Runtime 
 description: Learn how to configure the properties of the Azure-SSIS Integration Runtime for high performance
-ms.date: 02/15/2022
+ms.date: 04/12/2023
 ms.topic: conceptual
 ms.service: data-factory
 ms.subservice: integration-services
@@ -10,7 +10,7 @@ ms.author: chugu
 ---
 # Configure the Azure-SSIS Integration Runtime for high performance
 
-[!INCLUDE[appliesto-adf-asa-preview-md](includes/appliesto-adf-asa-preview-md.md)]
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 
 This article describes how to configure an Azure-SSIS Integration Runtime (IR) for high performance. The Azure-SSIS IR allows you to deploy and run SQL Server Integration Services (SSIS) packages in Azure. For more information about Azure-SSIS IR, see [Integration runtime](concepts-integration-runtime.md#azure-ssis-integration-runtime) article. For information about deploying and running SSIS packages on Azure, see [Lift and shift SQL Server Integration Services workloads to the cloud](/sql/integration-services/lift-shift/ssis-azure-lift-shift-ssis-packages-overview).

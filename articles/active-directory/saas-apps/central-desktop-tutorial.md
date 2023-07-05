@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory integration with Central Desktop | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory integration with Central Desktop'
 description: Learn how to configure single sign-on between Azure Active Directory and Central Desktop.
 services: active-directory
 author: jeevansd

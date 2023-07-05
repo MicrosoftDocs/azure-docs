@@ -1,8 +1,8 @@
 ---
 title: What is Service Connector?
 description: Understand typical use case scenarios for Service Connector, and learn the key benefits of Service Connector.
-author: maud-lv
-ms.author: malev
+author: mcleanbyron
+ms.author: mcleans
 ms.service: service-connector
 ms.custom: event-tier1-build-2022, ignite-2022
 ms.topic: overview
@@ -40,7 +40,7 @@ Once a service connection is created, developers can validate and check the heal
 **Compute Services:**
 
 * Azure App Service
-* Azure Spring Cloud
+* Azure Spring Apps
 * Azure Container Apps
 
 **Target Services:**

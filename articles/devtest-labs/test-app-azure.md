@@ -35,7 +35,7 @@ Azure DevTest Labs creates an Azure storage account when you create a lab. To cr
 
 1. In the [Azure portal](https://portal.azure.com), go to the resource group that contains your lab.
 1. Follow these steps to [select the storage account linked to your lab](./encrypt-storage.md#view-storage-account-contents).
-1. Follow these steps to [create a file share](/azure/storage/files/storage-how-to-create-file-share#create-a-file-share).
+1. Follow these steps to [create a file share](../storage/files/storage-how-to-create-file-share.md#create-a-file-share).
 
 ## Publish your app from Visual Studio
 
@@ -83,7 +83,7 @@ When the publish operation finishes, the application files are available on the 
 
 To access the application files in the Azure file share, you need to first mount the share to your lab VM.
 
-Follow these steps to [mount the Azure file share to your lab VM](/azure/storage/files/storage-how-to-use-files-windows#mount-the-azure-file-share).
+Follow these steps to [mount the Azure file share to your lab VM](../storage/files/storage-how-to-use-files-windows.md#mount-the-azure-file-share).
 
 ## Access the app on your lab VM
 

@@ -1,12 +1,14 @@
 ---
 title: Tutorial - Sign in users and call a protected API from a Blazor WebAssembly app
 description: In this tutorial, sign in users and call a protected API using the Microsoft identity platform in a Blazor WebAssembly (WASM) app.
-author: janicericketts
-ms.author: jricketts
+author: henrymbuguakiarie
+ms.author: henrymbugua
 ms.service: active-directory
 ms.subservice: develop
+ms.custom: devx-track-dotnet
 ms.topic: tutorial
-ms.date: 12/14/2022
+ms.date: 02/09/2023
+ms.reviewer: janicericketts
 #Customer intent: As a developer, I want to add authentication and authorization to a Blazor WebAssembly app and call Microsoft Graph.
 ---
 
@@ -39,13 +41,7 @@ Every app that uses Azure AD for authentication must be registered with Azure AD
 
 ## Create the app using the .NET Core CLI
 
-To create the app, you need the latest Blazor templates. You can install them for the .NET Core CLI with the following command:
-
-```dotnetcli
-dotnet new install Microsoft.Identity.Web.ProjectTemplates
-```
-
-Then run the following command to create the application. Replace the placeholders in the command with the proper information from your app's overview page and execute the command in a command shell. The output location specified with the `-o|--output` option creates a project folder if it doesn't exist and becomes part of the app's name.
+To create the application, run the following command. Replace the placeholders in the command with the proper information from your app's overview page and execute the command in a command shell. The output location specified with the `-o|--output` option creates a project folder if it doesn't exist and becomes part of the app's name.
 
 ```dotnetcli
 dotnet new blazorwasm --auth SingleOrg --calls-graph -o {APP NAME} --client-id "{CLIENT ID}" --tenant-id "{TENANT ID}" -f net7.0
@@ -239,5 +235,5 @@ After granting consent, navigate to the "Fetch data" page to read some email.
 
 ## Next steps
 
-> [!div class="nextstepaction"]
+> [!div class="nextstepaction"] 
 > [Microsoft identity platform best practices and recommendations](./identity-platform-integration-checklist.md)

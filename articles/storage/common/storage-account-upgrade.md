@@ -3,13 +3,13 @@ title: Upgrade to a general-purpose v2 storage account
 titleSuffix: Azure Storage
 description: Upgrade to general-purpose v2 storage accounts using the Azure portal, PowerShell, or the Azure CLI. Specify an access tier for blob data.
 services: storage
-author: jimmart-dev
+author: tamram
 
 ms.service: storage
 ms.topic: how-to
 ms.date: 04/29/2021
-ms.author: jammart
-ms.custom: devx-track-azurepowershell, devx-track-azurecli
+ms.author: tamram
+ms.custom: devx-track-azurecli
 ---
 
 # Upgrade to a general-purpose v2 storage account
@@ -45,7 +45,7 @@ To upgrade a general-purpose v1 or Blob storage account to a general-purpose v2 
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-To upgrade a general-purpose v1 account to a general-purpose v2 account using PowerShell, first update PowerShell to use the latest version of the **Az.Storage** module. See [Install and configure Azure PowerShell](/powershell/azure/install-Az-ps) for information about installing PowerShell.
+To upgrade a general-purpose v1 account to a general-purpose v2 account using PowerShell, first update PowerShell to use the latest version of the **Az.Storage** module. See [Install and configure Azure PowerShell](/powershell/azure/install-azure-powershell) for information about installing PowerShell.
 
 Next, call the following command to upgrade the account, substituting your resource group name, storage account name, and desired account access tier.
 

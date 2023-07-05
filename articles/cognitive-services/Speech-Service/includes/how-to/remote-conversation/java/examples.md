@@ -10,7 +10,7 @@ ms.author: eur
 
 Before asynchronous transcription can be performed, you need to send the audio to Conversation Transcription Service using the Speech SDK.
 
-This example code shows how to create conversation transcriber for asynchronous-only mode. In order to stream audio to the transcriber, you will need to add audio streaming code derived from [Transcribe conversations in real time with the Speech SDK](../../../../how-to-use-conversation-transcription.md). Refer to the **Limitations** section of that topic to see the supported platforms and languages APIs.
+This example code shows how to create conversation transcriber for asynchronous-only mode. In order to stream audio to the transcriber, you will need to add audio streaming code derived from [Transcribe conversations in real-time with the Speech SDK](../../../../how-to-use-conversation-transcription.md). Refer to the **Limitations** section of that topic to see the supported platforms and languages APIs.
 
 ```java
 // Create the speech config object
@@ -45,7 +45,7 @@ ConversationTranscriber transcriber = new ConversationTranscriber(AudioConfig.fr
 // join a conversation
 transcriber.joinConversationAsync(conversation);
 
-// Add the event listener for the realtime events
+// Add the event listener for the real-time events
 transcriber.transcribed.addEventListener((o, e) -> {
     System.out.println("Conversation transcriber Recognized:" + e.toString());
 });

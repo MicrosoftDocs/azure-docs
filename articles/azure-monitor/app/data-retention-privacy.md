@@ -2,14 +2,14 @@
 title: Data retention and storage in Application Insights | Microsoft Docs
 description: Retention and privacy policy statement for Application Insights.
 ms.topic: conceptual
-ms.date: 06/30/2020
-ms.custom: "devx-track-js, devx-track-csharp"
+ms.date: 03/22/2023
+ms.custom: devx-track-csharp
 ms.reviewer: saars
 ---
 
 # Data collection, retention, and storage in Application Insights
 
-When you install the [Application Insights][start] SDK in your app, it sends telemetry about your app to the cloud. As a responsible developer, you want to know exactly what data is sent, what happens to the data, and how you can keep control of it. In particular, could sensitive data be sent, where is it stored, and how secure is it?
+When you install the [Application Insights][start] SDK in your app, it sends telemetry about your app to the [cloud](create-workspace-resource.md). As a responsible developer, you want to know exactly what data is sent, what happens to the data, and how you can keep control of it. In particular, could sensitive data be sent, where is it stored, and how secure is it?
 
 First, the short answer:
 
@@ -25,7 +25,7 @@ The rest of this article discusses these points more fully. The article is self-
 
 [Application Insights][start] is a service provided by Microsoft that helps you improve the performance and usability of your live application. It monitors your application all the time it's running, both during testing and after you've published or deployed it. Application Insights creates charts and tables that show you informative metrics. For example, you might see what times of day you get most users, how responsive the app is, and how well it's served by any external services that it depends on. If there are failures or performance issues, you can search through the telemetry data to diagnose the cause. The service sends you emails if there are any changes in the availability and performance of your app.
 
-To get this functionality, you install an Application Insights SDK in your application, which becomes part of its code. When your app is running, the SDK monitors its operation and sends telemetry to Application Insights, which is a cloud service hosted by [Microsoft Azure](https://azure.com). Application Insights also works for any applications, not just applications that are hosted in Azure.
+To get this functionality, you install an Application Insights SDK in your application, which becomes part of its code. When your app is running, the SDK monitors its operation and sends telemetry to an [Application Insights Log Analytics workspace](create-workspace-resource.md), which is a cloud service hosted by [Microsoft Azure](https://azure.com). Application Insights also works for any applications, not just applications that are hosted in Azure.
 
 Application Insights stores and analyzes the telemetry. To see the analysis or search through the stored telemetry, you sign in to your Azure account and open the Application Insights resource for your application. You can also share access to the data with other members of your team, or with specified Azure subscribers.
 
@@ -45,12 +45,12 @@ They all send telemetry to the same service.
 
 There are three sources of data:
 
-* The SDK, which you integrate with your app either [in development](./asp-net.md) or [at runtime](./status-monitor-v2-overview.md). There are different SDKs for different application types. There's also an [SDK for webpages](./javascript.md), which loads into the user's browser along with the page.
+* The SDK, which you integrate with your app either [in development](./asp-net.md) or [at runtime](./application-insights-asp-net-agent.md). There are different SDKs for different application types. There's also an [SDK for webpages](./javascript.md), which loads into the user's browser along with the page.
   
   * Each SDK has many [modules](./configuration-with-applicationinsights-config.md), which use different techniques to collect different types of telemetry.
   * If you install the SDK in development, you can use its API to send your own telemetry, in addition to the standard modules. This custom telemetry can include any data you want to send.
-* In some web servers, there are also agents that run alongside the app and send telemetry about CPU, memory, and network occupancy. For example, Azure VMs, Docker hosts, and [Java application servers](./java-in-process-agent.md) can have such agents.
-* [Availability tests](./monitor-web-app-availability.md) are processes run by Microsoft that send requests to your web app at regular intervals. The results are sent to Application Insights.
+* In some web servers, there are also agents that run alongside the app and send telemetry about CPU, memory, and network occupancy. For example, Azure VMs, Docker hosts, and [Java application servers](./opentelemetry-enable.md?tabs=java) can have such agents.
+* [Availability overview](availability-overview.md) are processes run by Microsoft that send requests to your web app at regular intervals. The results are sent to Application Insights.
 
 ### What kind of data is collected?
 
@@ -62,7 +62,7 @@ The main categories are:
 * Client and server context: OS, locale, device type, browser, and screen resolution.
 * [Exceptions](./asp-net-exceptions.md) and crashes: Stack dumps, `build id`, and CPU type.
 * [Dependencies](./asp-net-dependencies.md): Calls to external services such as REST, SQL, and AJAX. URI or connection string, duration, success, and command.
-* [Availability tests](./monitor-web-app-availability.md): Duration of test and steps, and responses.
+* [Availability tests](availability-overview.md): Duration of test and steps, and responses.
 * [Trace logs](./asp-net-trace-logs.md) and [custom telemetry](./api-custom-events-metrics.md): Anything you code into your logs or telemetry.
 
 For more information, see the section [Data sent by Application Insights](#data-sent-by-application-insights).
@@ -71,13 +71,13 @@ For more information, see the section [Data sent by Application Insights](#data-
 
 If you're developing an app using Visual Studio, run the app in debug mode (F5). The telemetry appears in the **Output** window. From there, you can copy it and format it as JSON for easy inspection.
 
-![Screenshot that shows running the app in debug mode in Visual Studio.](./media/data-retention-privacy/06-vs.png)
+:::image type="content" source="./media/data-retention-privacy/06-vs.png" lightbox="./media/data-retention-privacy/06-vs.png" alt-text="Screenshot that shows running the app in debug mode in Visual Studio.":::
 
 There's also a more readable view in the **Diagnostics** window.
 
 For webpages, open your browser's debugging window. Select F12 and open the **Network** tab.
 
-![Screenshot that shows the open Network tab.](./media/data-retention-privacy/08-browser.png)
+:::image type="content" source="./media/data-retention-privacy/08-browser.png" lightbox="./media/data-retention-privacy/08-browser.png" alt-text="Screenshot that shows the open Network tab.":::
 
 ### Can I write code to filter the telemetry before it's sent?
 
@@ -85,7 +85,7 @@ You'll need to write a [telemetry processor plug-in](./api-filtering-sampling.md
 
 ## How long is the data kept?
 
-Raw data points (that is, items that you can query in Analytics and inspect in Search) are kept for up to 730 days. You can [select a retention duration](../logs/data-retention-archive.md#set-retention-and-archive-policy-by-table) of 30, 60, 90, 120, 180, 270, 365, 550, or 730 days. If you need to keep data longer than 730 days, you can use [Continuous Export](./export-telemetry.md) to copy it to a storage account during data ingestion.
+Raw data points (that is, items that you can query in Analytics and inspect in Search) are kept for up to 730 days. You can [select a retention duration](../logs/data-retention-archive.md#set-retention-and-archive-policy-by-table) of 30, 60, 90, 120, 180, 270, 365, 550, or 730 days. If you need to keep data longer than 730 days, you can use [diagnostic settings](../essentials/diagnostic-settings.md#diagnostic-settings-in-azure-monitor).
 
 Data kept longer than 90 days incurs extra charges. For more information about Application Insights pricing, see the [Azure Monitor pricing page](https://azure.microsoft.com/pricing/details/monitor/).
 
@@ -232,7 +232,7 @@ We do not recommend explicitly setting your application to only use TLS 1.2, unl
 | Azure App Services  | Supported, configuration might be required. | Support was announced in April 2018. Read the announcement for [configuration details](https://azure.github.io/AppService/2018/04/17/App-Service-and-Functions-hosted-apps-can-now-update-TLS-versions!).  |
 | Azure Function Apps | Supported, configuration might be required. | Support was announced in April 2018. Read the announcement for [configuration details](https://azure.github.io/AppService/2018/04/17/App-Service-and-Functions-hosted-apps-can-now-update-TLS-versions!). |
 |.NET | Supported, Long Term Support (LTS). | For detailed configuration information, refer to [these instructions](/dotnet/framework/network-programming/tls). |
-|Status Monitor | Supported, configuration required. | Status Monitor relies on [OS Configuration](/windows-server/security/tls/tls-registry-settings) + [.NET Configuration](/dotnet/framework/network-programming/tls#support-for-tls-12) to support TLS 1.2.
+|Application Insights Agent| Supported, configuration required. | Application Insights Agent relies on [OS Configuration](/windows-server/security/tls/tls-registry-settings) + [.NET Configuration](/dotnet/framework/network-programming/tls#support-for-tls-12) to support TLS 1.2.
 |Node.js |  Supported, in v10.5.0, configuration might be required. | Use the [official Node.js TLS/SSL documentation](https://nodejs.org/api/tls.html) for any application-specific configuration. |
 |Java | Supported, JDK support for TLS 1.2 was added in [JDK 6 update 121](https://www.oracle.com/technetwork/java/javase/overview-156328.html#R160_121) and [JDK 7](https://www.oracle.com/technetwork/java/javase/7u131-relnotes-3338543.html). | JDK 8 uses [TLS 1.2 by default](https://blogs.oracle.com/java-platform-group/jdk-8-will-use-tls-12-as-default).  |
 |Linux | Linux distributions tend to rely on [OpenSSL](https://www.openssl.org) for TLS 1.2 support.  | Check the [OpenSSL Changelog](https://www.openssl.org/news/changelog.html) to confirm your version of OpenSSL is supported.|
@@ -277,7 +277,7 @@ The SDKs vary between platforms, and there are several components that you can i
 | Your action | Data classes collected (see next table) |
 | --- | --- |
 | [Add Application Insights SDK to a .NET web project][greenbrown] |ServerContext<br/>Inferred<br/>Perf counters<br/>Requests<br/>**Exceptions**<br/>Session<br/>users |
-| [Install Status Monitor on IIS][redfield] |Dependencies<br/>ServerContext<br/>Inferred<br/>Perf counters |
+| [Install Application Insights Agent on IIS][redfield] |Dependencies<br/>ServerContext<br/>Inferred<br/>Perf counters |
 | [Add Application Insights SDK to a Java web app][java] |ServerContext<br/>Inferred<br/>Request<br/>Session<br/>users |
 | [Add JavaScript SDK to webpage][client] |ClientContext <br/>Inferred<br/>Page<br/>ClientPerf<br/>Ajax |
 | [Define default properties][apiproperties] |**Properties** on all standard and custom events |
@@ -304,7 +304,7 @@ For [SDKs for other platforms][platforms], see their documents.
 | Client perf |URL/page name, browser load time |
 | Ajax |HTTP calls from webpage to server |
 | Requests |URL, duration, response code |
-| Dependencies |Type (SQL, HTTP, ...), connection string, or URI, sync/async, duration, success, SQL statement (with Status Monitor) |
+| Dependencies |Type (SQL, HTTP, ...), connection string, or URI, sync/async, duration, success, SQL statement (with Application Insights Agent) |
 | Exceptions |Type, message, call stacks, source file, line number, `thread id` |
 | Crashes |`Process id`, `parent process id`, `crash thread id`; application patch, `id`, build; exception type, address, reason; obfuscated symbols and registers, binary start and end addresses, binary name and path, cpu type |
 | Trace |Message and severity level |
@@ -321,10 +321,6 @@ You can [switch off some of the data by editing ApplicationInsights.config][conf
 
 No. Data is read-only and can only be deleted via the purge functionality. To learn more, see [Guidance for personal data stored in Log Analytics and Application Insights](../logs/personal-data-mgmt.md#delete).
 
-## Credits
-
-This product includes GeoLite2 data created by [MaxMind](https://www.maxmind.com).
-
 <!--Link references-->
 
 [api]: ./api-custom-events-metrics.md
@@ -332,8 +328,8 @@ This product includes GeoLite2 data created by [MaxMind](https://www.maxmind.com
 [client]: ./javascript.md
 [config]: ./configuration-with-applicationinsights-config.md
 [greenbrown]: ./asp-net.md
-[java]: ./java-in-process-agent.md
+[java]: ./opentelemetry-enable.md?tabs=java
 [platforms]: ./app-insights-overview.md#supported-languages
 [pricing]: https://azure.microsoft.com/pricing/details/application-insights/
-[redfield]: ./status-monitor-v2-overview.md
+[redfield]: ./application-insights-asp-net-agent.md
 [start]: ./app-insights-overview.md

@@ -7,10 +7,11 @@ ms.reviewer: maghan
 ms.date: 11/04/2022
 ms.service: postgresql
 ms.subservice: flexible-server
+ms.custom: devx-track-arm-template
 ms.topic: how-to
 ---
 
-# Manage Azure Active Directory roles in Azure Database for PostgreSQL - Flexible Server Preview
+# Manage Azure Active Directory roles in Azure Database for PostgreSQL - Flexible Server 
 
 [!INCLUDE [applies-to-postgresql-Flexible-server](../includes/applies-to-postgresql-Flexible-server.md)]
 
@@ -19,9 +20,6 @@ This article describes how you can create an Azure Active Directory (Azure AD) e
 > [!NOTE]  
 > This guide assumes you already enabled Azure Active Directory authentication on your PostgreSQL Flexible server.
 > See [How to Configure Azure AD Authentication](./how-to-configure-sign-in-azure-ad-authentication.md)
-
-> [!NOTE]  
-> Azure Active Directory Authentication for PostgreSQL Flexible Server is currently in preview.
 
 If you like to learn about how to create and manage Azure subscription users and their privileges, you can visit the [Azure role-based access control (Azure RBAC) article](../../role-based-access-control/built-in-roles.md) or review [how to customize roles](../../role-based-access-control/custom-roles.md).
 
@@ -66,7 +64,9 @@ select * from pgaadauth_list_principals(true);
 ## Create a role using Azure AD principal name
 
 ```sql
-select * from pgaadauth_create_principal('mary@contoso.com', false, false);
+select * from pgaadauth_create_principal('<roleName>', <isAdmin>, <isMfa>);
+
+For example: select * from pgaadauth_create_principal('mary@contoso.com', false, false);
 ```
 
 **Parameters:**
@@ -79,7 +79,9 @@ select * from pgaadauth_create_principal('mary@contoso.com', false, false);
 ## Create a role using Azure AD object identifier
 
 ```sql
-select * from pgaadauth_create_principal_with_oid('accounting_application', '00000000-0000-0000-0000-000000000000', 'service', false, false);
+select * from pgaadauth_create_principal_with_oid('<roleName>', '<objectId>', '<objectType>', <isAdmin>, <isMfa>);
+
+For example: select * from pgaadauth_create_principal_with_oid('accounting_application', '00000000-0000-0000-0000-000000000000', 'service', false, false);
 ```
 
 **Parameters:**
@@ -87,13 +89,13 @@ select * from pgaadauth_create_principal_with_oid('accounting_application', '000
 - *objectId* - Unique object identifier of the Azure AD object:
    - For **Users**, **Groups** and **Managed Identities** the ObjectId can be found by searching for the object name in Azure AD page in Azure portal. [See this guide as example](/partner-center/find-ids-and-domain-names)
    - For **Applications**, Objectid of the corresponding **Service Principal** must be used. In Azure portal the required ObjectId can be found on **Enterprise Applications** page.
-- *objectType* - Type of the Azure AD object to link to this role.
+- *objectType* - Type of the Azure AD object to link to this role: service, user, group.
 - *isAdmin* - Set to **true** if when creating an admin user and **false** for a regular user. Admin user created this way has the same privileges as one created via portal or API.
 - *isMfa* - Flag if Multi Factor Authentication must be enforced for this role.
 
 ## Enable Azure AD authentication for an existing PostgreSQL role using SQL
 
-Azure Database for PostgreSQL Flexible Servers uses Security Labels associated with database roles to store Azure AD mapping. During preview, we don't provide a function to associate existing Azure AD roles.
+Azure Database for PostgreSQL Flexible Servers uses Security Labels associated with database roles to store Azure AD mapping.
 
 You can use the following SQL to assign security label:
 

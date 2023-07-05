@@ -2,39 +2,43 @@
 title: Configure ServiceNow for automatic user provisioning with Azure Active Directory
 description: Learn how to automatically provision and deprovision user accounts from Azure AD to ServiceNow.
 services: active-directory
-author: jeevansd
-manager: CelesteDG
-ms.reviewer: celested
+author: twimmers
+writer: twimmers
+manager: jeedes
+ms.assetid: 5f03d8b7-c3a0-443e-91af-99cc3956fa18
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.topic: how-to
-ms.date: 11/21/2022
-ms.author: jeedes
+ms.topic: tutorial
+ms.date: 04/04/2023
+ms.author: thwimmer
 ---
 
 # Configure ServiceNow for automatic user provisioning
 
-This article describes the steps that you'll take in both ServiceNow and Azure Active Directory (Azure AD) to configure automatic user provisioning. When Azure AD is configured, it automatically provisions and deprovisions users and groups to [ServiceNow](https://www.servicenow.com/) by using the Azure AD provisioning service. 
+This article describes the steps that you'll take in both ServiceNow and Azure Active Directory (Azure AD) to configure automatic user provisioning. When Azure AD is configured, it automatically provisions and deprovisions users and groups to [ServiceNow](https://www.servicenow.com) by using the Azure AD provisioning service. 
 
 For more information on the Azure AD automatic user provisioning service, see [Automate user provisioning and deprovisioning to SaaS applications with Azure Active Directory](../app-provisioning/user-provisioning.md). 
 
 ## Capabilities supported
 
 > [!div class="checklist"]
-> - Create users in ServiceNow
-> - Remove users in ServiceNow when they don't need access anymore
-> - Keep user attributes synchronized between Azure AD and ServiceNow
-> - Provision groups and group memberships in ServiceNow
-> - Allow [single sign-on](servicenow-tutorial.md) to ServiceNow (recommended)
+> - Create users in ServiceNow.
+> - Remove users in ServiceNow when they don't need access anymore.
+> - Keep user attributes synchronized between Azure AD and ServiceNow.
+> - Provision groups and group memberships in ServiceNow.
+> - Allow [single sign-on](servicenow-tutorial.md) to ServiceNow (recommended).
 
 ## Prerequisites
 
 - An Azure AD user account with an active subscription. If you don't already have one, you can [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - One of the following roles: Global Administrator, Cloud Application Administrator, Application Administrator, or owner of the service principal.
-- A [ServiceNow instance](https://www.servicenow.com/) of Calgary or higher
-- A [ServiceNow Express instance](https://www.servicenow.com/) of Helsinki or higher
-- A user account in ServiceNow with the admin role
+- A [ServiceNow instance](https://www.servicenow.com) of Calgary or higher.
+- A [ServiceNow Express instance](https://www.servicenow.com) of Helsinki or higher.
+- A user account in ServiceNow with the admin role.
+
+> [!NOTE]
+> This integration is also available to use from Azure AD US Government Cloud environment. You can find this application in the Azure AD US Government Cloud Application Gallery and configure it in the same way as you do from public cloud.
 
 ## Step 1: Plan your provisioning deployment
 
@@ -51,7 +55,6 @@ For more information on the Azure AD automatic user provisioning service, see [A
 1. Obtain credentials for an admin in ServiceNow. Go to the user profile in ServiceNow and verify that the user has the admin role. 
 
    ![Screenshot that shows a ServiceNow admin role.](media/servicenow-provisioning-tutorial/servicenow-admin-role.png)
-
 
 ## Step 3: Add ServiceNow from the Azure AD application gallery
 
@@ -85,9 +88,7 @@ To configure automatic user provisioning for ServiceNow in Azure AD:
 1. Set **Provisioning Mode** to **Automatic**.
 
 1. In the **Admin Credentials** section, enter your ServiceNow admin credentials and username. Select **Test Connection** to ensure that Azure AD can connect to ServiceNow. If the connection fails, ensure that your ServiceNow account has admin permissions and try again.
-
- 	![Screenshot that shows the Service Provisioning page, where you can enter admin credentials.](./media/servicenow-provisioning-tutorial/servicenow-provisioning.png)
-
+   
 1. In the **Notification Email** box, enter the email address of a person or group that should receive the provisioning error notifications. Then select the **Send an email notification when a failure occurs** check box.
 
 1. Select **Save**.

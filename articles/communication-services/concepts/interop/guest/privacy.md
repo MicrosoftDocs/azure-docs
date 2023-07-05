@@ -23,7 +23,7 @@ Azure Communication Services will delete all copies of the most recently sent me
 
 ## Next steps
 
-- [Authenticate as Teams external user](../../../quickstarts/access-tokens.md)
+- [Authenticate as Teams external user](../../../quickstarts/identity/access-tokens.md)
 - [Join Teams meeting audio and video as Teams external user](../../../quickstarts/voice-video-calling/get-started-teams-interop.md)
 - [Join Teams meeting chat as Teams external user](../../../quickstarts/chat/meeting-interop.md)
 - [Join meeting options](../../../how-tos/calling-sdk/teams-interoperability.md)

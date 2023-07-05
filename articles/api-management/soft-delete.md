@@ -54,7 +54,7 @@ You can verify that a soft-deleted API Management instance is available to resto
 
 ### Get a soft-deleted instance by name
 
-Use the API Management [Get By Name](/rest/api/apimanagement/current-ga/deleted-services/get-by-name) operation, substituting `{subscriptionId}`, `{location}`, and `{serviceName}` with your Azure subscription, resource location, and API Management instance name:
+Use the API Management [Get By Name](/rest/api/apimanagement/current-ga/deleted-services/get-by-name) operation, substituting `{subscriptionId}`, `{location}`, and `{serviceName}` with your Azure subscription, [resource location name](/rest/api/resources/subscriptions/list-locations#location), and API Management instance name:
 
 ```rest
 GET https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.ApiManagement/locations/{location}/deletedservices/{serviceName}?api-version=2021-08-01
@@ -117,7 +117,7 @@ https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{reso
 Use the API Management [Purge](/rest/api/apimanagement/current-ga/deleted-services/purge) operation, substituting `{subscriptionId}`, `{location}`, and `{serviceName}` with your Azure subscription, resource location, and API Management name.
 
 > [!NOTE]
-> To purge a soft-deleted instance, you must have the following RBAC permissions at the subscription scope: Microsoft.ApiManagement/locations/deletedservices/delete, Microsoft.ApiManagement/deletedservices/read.
+> To purge a soft-deleted instance, you must have the following RBAC permissions at the subscription scope in addition to Contributor access to the API Management instance: Microsoft.ApiManagement/locations/deletedservices/delete, Microsoft.ApiManagement/deletedservices/read.
 
 ```rest
 DELETE https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.ApiManagement/locations/{location}/deletedservices/{serviceName}?api-version=2021-08-01

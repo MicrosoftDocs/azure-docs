@@ -1,52 +1,51 @@
 ---
 title: 'Troubleshoot Azure Microsoft.Network failed Provisioning State'
-description: Learn how to troubleshoot Azure Microsoft.Network failed Provisioning State.
+description: Learn about the meaning of various provisioning states and how to troubleshoot Azure Microsoft.Network failed Provisioning State.
 services: networking
 author: stegag
-
 ms.service: virtual-network
+ms.custom: devx-track-azurepowershell
 ms.topic: how-to
-ms.date: 04/08/2022
+ms.date: 03/21/2023
 ms.author: stegag
-
 ---
 
 # Troubleshoot Azure Microsoft.Network failed provisioning state
 
-This article helps understand the meaning of various provisioning states for Microsoft.Network resources and how to effectively troubleshoot situations when the state is **Failed**.
+This article helps you understand the meaning of various provisioning states for Microsoft.Network resources. You can effectively troubleshoot situations when the state is **Failed**.
 
 [!INCLUDE [support-disclaimer](../../includes/support-disclaimer.md)]
 
 ## Provisioning states
 
-The provisioning state is the status of a user-initiated, control-plane operation on an Azure Resource Manager resource. 
+The provisioning state is the status of a user-initiated, control-plane operation on an Azure Resource Manager resource.
 
 | Provisioning state | Description |
 |---|---|
 | Updating | Resource is being created or updated. |
-| Failed | Last operation on the resource was not successful. | 
-| Succeeded | Last operation on the resource was successful. | 
-| Deleting | Resource is being deleted. | 
-| Migrating | Seen when migrating from Azure Service Manager to Azure Resource Manager. | 
+| Failed | Last operation on the resource wasn't successful. |
+| Succeeded | Last operation on the resource was successful. |
+| Deleting | Resource is being deleted. |
+| Migrating | Seen when migrating from Azure Service Manager to Azure Resource Manager. |
 
-These states are just metadata properties of the resource and are independent from the functionality of the resource itself.
-Being in a failed state does not necessarily mean that the resource is not functional, in fact in most cases it can continue operating and servicing traffic without issues.
+These states are metadata properties of the resource. They're independent from the functionality of the resource itself. Being in the failed state doesn't necessarily mean that the resource isn't functional. In most cases, it can continue operating and serving traffic without issues.
 
-However in several scenarios further operations on the resource or on other resources that depend on it may fail if the resource is in failed state, so the state needs to be reverted back to succeeded before executing other operations.
+In several scenarios, if the resource is in the failed state, further operations on the resource or on other resources that depend on it might fail. You need to revert the state back to succeeded before running other operations.
 
-For example, you cannot execute an operation on a VirtualNetworkGateway if it has a dependent VirtualNetworkGatewayConnection object in failed state and viceversa.
+For example, you can't run an operation on a `VirtualNetworkGateway` if it has a dependent `VirtualNetworkGatewayConnection` object in failed state.
 
 ## Restoring succeeded state through a PUT operation
 
-The correct way to restore succeeded state is to execute another write (PUT) operation on the resource.
+To restore succeeded state, run another write (`PUT`) operation on the resource.
 
-Most times, the issue that caused the previous operation might no longer be current, hence the newer write operation should be successful and restore the provisioning state.
+The issue that caused the previous operation might no longer be current. The newer write operation should be successful and restore the provisioning state.
 
-The easiest way to achieve this task is to use Azure PowerShell. You will need to issue a resource-specific "Get" command that fetches all the current configuration for the impacted resource as it is deployed. Next, you can execute a "Set" command (or equivalent) to commit to Azure a write operation containing all the resource properties as they are currently configured.
+The easiest way to achieve this task is to use Azure PowerShell. Issue a resource-specific *Get* command that fetches all the current configuration for the resource. Next, run a *Set* command, or equivalent, to commit to Azure a write operation that contains all the resource properties as currently configured.
 
 > [!IMPORTANT]
-> 1. Executing a "Set" command on the resource without running a "Get" first will result in overwriting the resource with default settings which might be different from those you currently have configured. Do not just run a "Set" command unless resetting settings is intentional.
-> 2. Executing a "Get" and "Set" operation using third party software or otherwise any tool using older API version may also result in loss of some settings, as those may not be present in the API version with which you have executed the command.
+>
+> - Running a `Set` command on the resource without first running a `Get` results in overwriting the resource with default settings. Those settings might be different from the ones you currently have configured. Don't just run a `Set` command unless you intend to reset to default.
+> - Running a `Get` and `Set` operation using third party software or any tool using older API version might also result in loss of some settings. Those settings might not be present in the API version with which you run the command.
 >
 ## Azure PowerShell cmdlets to restore succeeded provisioning state
 
@@ -54,27 +53,30 @@ The easiest way to achieve this task is to use Azure PowerShell. You will need t
 
 ### Preliminary operations
 
-1. Install the latest version of the Azure Resource Manager PowerShell cmdlets. For more information, see [Install and configure Azure PowerShell](/powershell/azure/install-az-ps).
+1. Install the latest version of the Azure Resource Manager PowerShell cmdlets. For more information, see [Install the Azure Az PowerShell module](/powershell/azure/install-azure-powershell).
 
 2. Open your PowerShell console with elevated privileges, and connect to your account. Use the following example to help you connect:
 
    ```azurepowershell-interactive
    Connect-AzAccount
    ```
+
 3. If you have multiple Azure subscriptions, check the subscriptions for the account.
 
    ```azurepowershell-interactive
    Get-AzSubscription
    ```
+
 4. Specify the subscription that you want to use.
 
    ```azurepowershell-interactive
    Select-AzSubscription -SubscriptionName "Replace_with_your_subscription_name"
    ```
-5. Run the resource-specific commands listed below to reset the provisioning state to succeeded. 
- 
+
+5. Run the resource-specific commands in the following sections to reset the provisioning state.
+
 > [!NOTE]
->Every sample command in this article uses "your_resource_name" for the name of the Resource and "your_resource_group_name" for the name of the Resource Group. Make sure to replace these strings with the appropriate Resource and Resource Group names according to your deployment.
+> Every sample command in this article uses `your_resource_name` for the name of the resource and `your_resource_group_name` for the name of the resource group. Make sure to replace these strings with the appropriate resource and resource group names for your deployment.
 
 ### Microsoft.Network/applicationGateways
 
@@ -87,11 +89,13 @@ Get-AzApplicationGateway -Name "your_resource_name" -ResourceGroupName "your_res
 ```azurepowershell-interactive
 Get-AzApplicationGatewayFirewallPolicy -Name "your_resource_name" -ResourceGroupName "your_resource_group_name" | Set-AzApplicationGatewayFirewallPolicy
 ```
+
 ### Microsoft.Network/azureFirewalls
 
 ```azurepowershell-interactive
 Get-AzFirewall -Name "your_resource_name" -ResourceGroupName "your_resource_group_name" | Set-AzFirewall
 ```
+
 ### Microsoft.Network/bastionHosts
 
 ```azurepowershell-interactive
@@ -119,7 +123,7 @@ Get-AzExpressRouteGateway -Name "your_resource_name" -ResourceGroupName "your_re
 ```
 
 > [!NOTE]
-> **Microsoft.Network/expressRouteGateways** are those gateways deployed within a Virtual WAN. If you have a standalone gateway of ExpressRoute type in your Virtual Network you need to execute the commands related to [Microsoft.Network/virtualNetworkGateways](#microsoftnetworkvirtualnetworkgateways).
+> `Microsoft.Network/expressRouteGateways` are deployed within a Virtual WAN. If you have a standalone ExpressRoute gateway in your virtual network, run the commands related to [Microsoft.Network/virtualNetworkGateways](#microsoftnetworkvirtualnetworkgateways).
 
 ### Microsoft.Network/expressRoutePorts
 
@@ -168,9 +172,10 @@ Get-AzNetworkSecurityGroup -Name "your_resource_name" -ResourceGroupName "your_r
 ```azurepowershell-interactive
 Get-AzNetworkVirtualAppliance -Name "your_resource_name" -ResourceGroupName "your_resource_group_name" | Update-AzNetworkVirtualAppliance
 ```
+
 > [!NOTE]
-> Most Virtual WAN related resources such as networkVirtualAppliances leverage the "Update" cmdlet and not the "Set" for write operations.
-> 
+> Most Virtual WAN related resources, such as networkVirtualAppliances, use the `Update` cmdlet, not the `Set`, for write operations.
+
 ### Microsoft.Network/privateDnsZones
 
 ```azurepowershell-interactive
@@ -212,9 +217,10 @@ Get-AzRouteTable -Name "your_resource_name" -ResourceGroupName "your_resource_gr
 ```azurepowershell-interactive
 Get-AzVirtualHub -Name "your_resource_name" -ResourceGroupName "your_resource_group_name" | Update-AzVirtualHub
 ```
+
 > [!NOTE]
-> Most Virtual WAN related resources such as virtualHubs leverage the "Update" cmdlet and not the "Set" for write operations.
-> 
+> Most Virtual WAN related resources, such as virtualHubs, use the `Update` cmdlet, not the `Set`, for write operations.
+
 ### Microsoft.Network/virtualNetworkGateways
 
 ```azurepowershell-interactive
@@ -232,32 +238,33 @@ Get-AzVirtualNetwork -Name "your_resource_name" -ResourceGroupName "your_resourc
 ```azurepowershell-interactive
 Get-AzVirtualWan -Name "your_resource_name" -ResourceGroupName "your_resource_group_name" | Update-AzVirtualWan
 ```
+
 > [!NOTE]
-> Most Virtual WAN related resources such as virtualWans leverage the "Update" cmdlet and not the "Set" for write operations.
+> Most Virtual WAN related resources, such as virtualWans, use the `Update` cmdlet, not the `Set`, for write operations.
 
 ### Microsoft.Network/vpnGateways
 
 ```azurepowershell-interactive
 Get-AzVpnGateway -Name "your_resource_name" -ResourceGroupName "your_resource_group_name" | Update-AzVpnGateway
 ```
+
 > [!NOTE]
-> 1. **Microsoft.Network/vpnGateways** are those gateways deployed within a Virtual WAN. If you have a standalone gateway of VPN type in your Virtual Network you need to execute the commands related to [Microsoft.Network/virtualNetworkGateways](#microsoftnetworkvirtualnetworkgateways).
-> 2. Most Virtual WAN related resources such as vpnGateways leverage the "Update" cmdlet and not the "Set" for write operations.
+>
+> - `Microsoft.Network/vpnGateways` are deployed within a Virtual WAN. If you have a standalone VPN gateway in your virtual network, run the commands related to [Microsoft.Network/virtualNetworkGateways](#microsoftnetworkvirtualnetworkgateways).
+> - Most Virtual WAN related resources, such as vpnGateways, use the `Update` cmdlet, not the `Set` for write operations.
 
 ### Microsoft.Network/vpnSites
 
 ```azurepowershell-interactive
 Get-AzVpnSite -Name "your_resource_name" -ResourceGroupName "your_resource_group_name" | Update-AzVpnSite
 ```
+
 > [!NOTE]
-> Most Virtual WAN related resources such as vpnSites leverage the "Update" cmdlet and not the "Set" for write operations.
-
-
+> Most Virtual WAN related resources, such as vpnSites, use the `Update` cmdlet, not the `Set`, for write operations.
 
 ## Next steps
 
-If the command executed didn't fix the failed state, it should return an error code for you.
+If the command that you ran didn't resolve the failed state, it should return an error code.
 Most error codes contain a detailed description of what the problem might be and offer hints to solve it.
 
-Open a support ticket with [Microsoft support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) if you're still experiencing issues.
-Make sure you specify to the Support Agent both the error code you received in the latest operation, as well as the timestamp of when the operation was executed.
+If you're still experiencing issues, open a support ticket with [Microsoft support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade). Specify to the support agent both the error code that you received in the latest operation and the timestamp when you ran the operation.

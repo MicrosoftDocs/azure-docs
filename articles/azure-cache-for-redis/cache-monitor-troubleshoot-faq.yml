@@ -50,9 +50,9 @@ sections:
             * Azure was patching the instance where the cache was deployed during a Redis server update or general VM maintenance.
 
       - question: |
-          Why am I seeing "Cache is busy processing a previous update request or is undergoing system maintenance. As such, it is currently unable to accept the update request. Please try again later."
+          Why am I seeing "Cache is busy processing a previous update request or is undergoing system maintenance. As such, it's currently unable to accept the update request. Try again later."
         answer: |
-          This message indicates that a management operation, like scaling or patching, is in progress on your cache. All other management operations are blocked until the ongoing operation is completed. During this time, you can expect your Azure Cache For Redis to be fully functional for client operations.
+          This message indicates that a management operation, like scaling or patching, is in progress on your cache. All other management operations are blocked until the ongoing operation is completed. Usually, the ongoing management operation should be completed in a few hours. If you see this error even after 12 hours, reach out to Azure support. During this time, you can expect your Azure Cache For Redis to be fully functional for client operations. 
       - question: |
           Why is my cache in "Failed" state?
         answer: |

@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with RemotePC | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with RemotePC'
 description: Learn how to configure single sign-on between Azure Active Directory and RemotePC.
 services: active-directory
 author: jeevansd

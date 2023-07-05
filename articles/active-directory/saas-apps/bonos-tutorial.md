@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with Bonos | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with Bonos'
 description: Learn how to configure single sign-on between Azure Active Directory and Bonos.
 services: active-directory
 author: jeevansd

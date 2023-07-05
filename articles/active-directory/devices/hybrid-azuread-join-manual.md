@@ -96,30 +96,6 @@ The **$scp.Keywords** output shows the Azure AD tenant information. Here's an ex
    azureADId:72f988bf-86f1-41af-91ab-2d7cd011db47
    ```
 
-If the service connection point doesn't exist, you can create it by running the `Initialize-ADSyncDomainJoinedComputerSync` cmdlet on your Azure AD Connect server. Enterprise admin credentials are required to run this cmdlet.  
-
-The `Initialize-ADSyncDomainJoinedComputerSync` cmdlet:
-
-* Creates the service connection point in the Active Directory forest that Azure AD Connect is connected to.
-* Requires you to specify the `AdConnectorAccount` parameter. This account is configured as the Active Directory connector account in Azure AD Connect.
-
-
-The following script shows an example for using the cmdlet. In this script, `$aadAdminCred = Get-Credential` requires you to type a user name. Provide the user name in the user principal name (UPN) format (`user@example.com`).
-
-   ```PowerShell
-   Import-Module -Name "C:\Program Files\Microsoft Azure Active Directory Connect\AdPrep\AdSyncPrep.psm1";
-
-   $aadAdminCred = Get-Credential;
-
-   Initialize-ADSyncDomainJoinedComputerSync –AdConnectorAccount [connector account name] -AzureADCredentials $aadAdminCred;
-   ```
-
-The `Initialize-ADSyncDomainJoinedComputerSync` cmdlet:
-
-* Uses the Active Directory PowerShell module and Active Directory Domain Services (AD DS) tools. These tools rely on Active Directory Web Services running on a domain controller. Active Directory Web Services is supported on domain controllers running Windows Server 2008 R2 and later.
-* Is only supported by the MSOnline PowerShell module version 1.1.166.0. To download this module, use [this link](https://www.powershellgallery.com/packages/MSOnline/1.1.166.0).
-* If the AD DS tools aren't installed, `Initialize-ADSyncDomainJoinedComputerSync` will fail. You can install the AD DS tools through Server Manager under **Features** > **Remote Server Administration Tools** > **Role Administration Tools**.
-
 ### Set up issuance of claims
 
 In a federated Azure AD configuration, devices rely on AD FS or an  on-premises federation service from a Microsoft partner to authenticate to Azure AD. Devices authenticate to get an access token to register against the Azure Active Directory Device Registration Service (Azure DRS).
@@ -432,7 +408,7 @@ The following script helps you with the creation of the issuance transform rules
 #### Remarks
 
 * This script appends the rules to the existing rules. Don't run the script twice, because the set of rules would be added twice. Make sure that no corresponding rules exist for these claims (under the corresponding conditions) before running the script again.
-* If you have multiple verified domain names (as shown in the Azure AD portal or via the **Get-MsolDomain** cmdlet), set the value of **$multipleVerifiedDomainNames** in the script to **$true**. Also make sure that you remove any existing **issuerid** claim that might have been created by Azure AD Connect or via other means. Here's an example for this rule:
+* If you have multiple verified domain names (as shown in the Azure portal or via the **Get-MsolDomain** cmdlet), set the value of **$multipleVerifiedDomainNames** in the script to **$true**. Also make sure that you remove any existing **issuerid** claim that might have been created by Azure AD Connect or via other means. Here's an example for this rule:
 
    ```
    c:[Type == "http://schemas.xmlsoap.org/claims/UPN"]

@@ -7,7 +7,7 @@ ms.service: azure-government
 ms.topic: quickstart
 ms.custom: mode-other, kr2b-contr-experiment
 recommendations: false
-ms.date: 08/25/2022
+ms.date: 06/14/2023
 ---
 
 # Deploy STIG-compliant Linux Virtual Machines (Preview)
@@ -147,6 +147,17 @@ Azure -> Virtual Machine running Linux -> Cannot create a VM -> Troubleshoot my 
 
 :::image type="content" source="./media/stig-linux-support.png" alt-text="New support request for Linux STIG solution template":::
 
+## Frequently asked questions
+
+**When will STIG-compliant VMs reach general availability (GA)?** </br>
+The Azure STIG-compliant VM offering is expected to remain in Preview instead of reaching GA because of the release cadence for DISA STIGs. Every quarter, the offering is upgraded with latest guidance, and this process is expected to continue in the future. See previous section for support options that most customers require for production workloads, including creating support tickets.
+
+**Can Azure Update Management be used with STIG images?** </br>
+Yes, [Update Management](../automation/update-management/overview.md) in Azure Automation supports STIG images.
+
+**What STIG settings are being applied by the template?** </br>
+For more information, see [Deploy Azure Virtual Machine (Linux) and apply STIG](https://github.com/Azure/ato-toolkit/tree/master/stig/linux).
+
 ## Next steps
 
 This quickstart showed you how to deploy a STIG-compliant Linux virtual machine (Preview) on Azure or Azure Government. For more information about creating virtual machines in:
@@ -171,3 +182,4 @@ For more information about Azure Government, see the following resources:
 - [DoD Impact Level 5 – Azure compliance](/azure/compliance/offerings/offering-dod-il5)
 - [Isolation guidelines for Impact Level 5 workloads](./documentation-government-impact-level-5.md)
 - [Secure Azure Computing Architecture](./compliance/secure-azure-computing-architecture.md)
+- [Security Technical Implementation Guides (STIGs)](https://public.cyber.mil/stigs/)

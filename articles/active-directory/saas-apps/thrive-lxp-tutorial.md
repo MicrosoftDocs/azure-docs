@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with Thrive LXP | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with Thrive LXP'
 description: Learn how to configure single sign-on between Azure Active Directory and Thrive LXP.
 services: active-directory
 author: jeevansd

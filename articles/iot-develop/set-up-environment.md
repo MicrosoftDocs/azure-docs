@@ -19,7 +19,7 @@ Before you can complete any of the IoT Plug and Play quickstarts and tutorials, 
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
-[!INCLUDE [azure-cli-prepare-your-environment-h3](../../includes/azure-cli-prepare-your-environment-h3.md)]
+[!INCLUDE [azure-cli-prepare-your-environment-h3](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment-h3.md)]
 
 ## Create the resources
 
@@ -125,7 +125,7 @@ The first time you run the tool, you're prompted for the IoT hub connection stri
 
 Configure the tool to use the model files you downloaded previously. From the home page in the tool, select **IoT Plug and Play Settings**, then **+ Add > Local folder**. Select the *models* folder you created previously. Then select **Save** to save the settings.
 
-To learn more, see [Install and use Azure IoT explorer](../iot-fundamentals/howto-use-iot-explorer.md).
+To learn more, see [Install and use Azure IoT explorer](../iot/howto-use-iot-explorer.md).
 
 ## Clean up resources
 

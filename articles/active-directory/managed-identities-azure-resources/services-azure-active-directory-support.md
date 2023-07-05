@@ -1,5 +1,5 @@
 ---
-title: Azure services that support Azure AD authentication - Azure AD
+title: Azure services that support Azure AD authentication
 description: List of services that support Azure AD authentication
 services: active-directory
 author: barclayn

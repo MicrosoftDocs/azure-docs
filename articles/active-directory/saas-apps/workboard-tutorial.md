@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with WorkBoard | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with WorkBoard'
 description: Learn how to configure single sign-on between Azure Active Directory and WorkBoard.
 services: active-directory
 author: jeevansd

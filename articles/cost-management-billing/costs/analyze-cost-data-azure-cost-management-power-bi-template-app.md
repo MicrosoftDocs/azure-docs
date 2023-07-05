@@ -3,7 +3,7 @@ title: Analyze Azure costs with the Power BI App
 description: This article explains how to install and use the Cost Management Power BI App.
 author: bandersmsft
 ms.author: banders
-ms.date: 04/08/2022
+ms.date: 04/05/2023
 ms.topic: how-to
 ms.service: cost-management-billing
 ms.subservice: cost-management
@@ -187,7 +187,7 @@ This error occurs because of a bug with the underlying metadata. The issue happe
 
 #### Solution
 
-- Until the bug is fixed, you can work around the problem by adding a test budget in the Azure portal at the billing account/EA enrollment level. The test budget unblocks connecting with Power BI. For more information about creating a budget, see [Tutorial: Create and manage Azure budgets](tutorial-acm-create-budgets.md).
+- Until the bug is fixed, you can work around the problem by adding a test budget in the Azure portal at the billing account/EA enrollment level. The test budget unblocks connecting with Power BI. For more information about creating a budget, see [Tutorial: Create and manage budgets](tutorial-acm-create-budgets.md).
 
 ### Invalid credentials for AzureBlob error
 

@@ -1,18 +1,19 @@
 ---
-title: Use ARM template to publish Azure IoT Hub, storage account, route messages
-description: Use ARM template to publish Azure IoT Hub, storage account, route messages
+title: Quickstart - route messages to storage (ARM)
+titleSuffix: Azure IoT Hub
+description: Learn how to use an ARM template to publish Azure IoT Hub, storage account, route messages in this quickstart
 author: kgremban
-ms.service: iot-hub
-services: iot-hub
-ms.topic: quickstart
-ms.date: 08/24/2020
+
 ms.author: kgremban
-ms.custom: mvc, subject-armqs, mode-arm
+ms.service: iot-hub
+ms.topic: quickstart-arm
+ms.date: 08/24/2020
+ms.custom: mvc, subject-armqs, mode-arm, devx-track-arm-template
 ---
 
-# Quickstart: Deploy an Azure IoT Hub and a storage account using an ARM template
+# Quickstart: Deploy an Azure IoT hub and a storage account using an ARM template
 
-In this quickstart, you use an Azure Resource Manager template (ARM template) to create an IoT Hub that will route messages to Azure Storage, and a storage account to hold the messages. After manually adding a virtual IoT device to the hub to submit the messages, you configure that connection information in an application called  *arm-read-write* to submit messages from the device to the hub. The hub is configured so the messages sent to the hub are automatically routed to the storage account. At the end of this quickstart, you can open the storage account and see the messages sent.
+In this quickstart, you use an Azure Resource Manager template (ARM template) to create an IoT hub that will route messages to Azure Storage, and a storage account to hold the messages. After manually adding a virtual IoT device to the hub to submit the messages, you configure that connection information in an application called  *arm-read-write* to submit messages from the device to the hub. The hub is configured so the messages sent to the hub are automatically routed to the storage account. At the end of this quickstart, you can open the storage account and see the messages sent.
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
@@ -133,7 +134,7 @@ This section provides the steps to deploy the template, create a virtual device,
    > [!NOTE]
    > These messages are encoded in UTF-32 and base64. If you read the message back, you have to decode it from base64 and utf-32 in order to read it as ASCII. If you're interested, you can use the method ReadOneRowFromFile in the Routing Tutorial to read one for from one of these message files and decode it into ASCII. ReadOneRowFromFile is in the IoT C# SDK repository that you unzipped for this quickstart. Here is the path from the top of that folder: *./iothub/device/samples/getting started/RoutingTutorial/SimulatedDevice/Program.cs.* Set the boolean `readTheFile` to true, and hardcode the path to the file on disk, and it will open and translate the first row in the file.
 
-You have deployed an ARM template to create an IoT Hub and a storage account, and run a program to send messages to the hub. The messages are then automatically stored in the storage account where they can be viewed.
+You have deployed an ARM template to create an IoT hub and a storage account, and run a program to send messages to the hub. The messages are then automatically stored in the storage account where they can be viewed.
 
 ## Clean up resources
 

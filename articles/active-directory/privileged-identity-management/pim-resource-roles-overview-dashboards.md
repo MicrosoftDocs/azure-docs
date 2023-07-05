@@ -1,9 +1,9 @@
 ---
-title: Resource dashboards for access reviews in PIM - Azure AD | Microsoft Docs
+title: Resource dashboards for access reviews in PIM
 description: Describes how to use a resource dashboard to perform an access review in Azure AD Privileged Identity Management (PIM).
 services: active-directory
 documentationcenter: ''
-author: amsliu
+author: billmath
 manager: amycolannino
 editor: markwahl-msft
 ms.service: active-directory
@@ -12,7 +12,7 @@ ms.tgt_pltfrm: na
 ms.topic: how-to
 ms.subservice: pim
 ms.date: 06/27/2022
-ms.author: amsliu
+ms.author: billmath
 ms.reviewer: shaunliu
 ms.custom: pim
 ms.collection: M365-identity-device-management

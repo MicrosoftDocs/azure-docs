@@ -3,6 +3,7 @@ title: Azure Virtual Desktop (classic) tenant host pool creation - Azure
 description: How to troubleshoot and resolve tenant and host pool issues during setup of a Azure Virtual Desktop (classic) tenant environment.
 author: Heidilohr
 ms.topic: troubleshooting
+ms.custom: devx-track-arm-template
 ms.date: 03/30/2020
 ms.author: helohr
 manager: femila

@@ -1,5 +1,5 @@
 ---
-title: How to Configure Azure OpenAI with Managed Identities
+title: How to configure Azure OpenAI Service with managed identities
 titleSuffix: Azure OpenAI
 description: Provides guidance on how to set managed identity with Azure Active Directory
 ms.service: cognitive-services
@@ -9,10 +9,10 @@ ms.date: 06/24/2022
 author: ChrisHMSFT
 ms.author: chrhoder
 recommendations: false
-ms.custom: 
+ms.custom: devx-track-azurecli
 ---
 
-# How to Configure Azure OpenAI with Managed Identities
+# How to configure Azure OpenAI Service with managed identities
 
 More complex security scenarios require Azure role-based access control (Azure RBAC). This document covers how to authenticate to your OpenAI resource using Azure Active Directory (Azure AD).
 
@@ -23,7 +23,7 @@ In the following sections, you'll use  the Azure CLI to assign roles, and obtain
 - An Azure subscription - <a href="https://azure.microsoft.com/free/cognitive-services" target="_blank">Create one for free</a>
 - Access granted to the Azure OpenAI service in the desired Azure subscription
 
-    Currently, access to this service is granted only by application. You can apply for access to the Azure OpenAI service by completing the form at <a href="https://aka.ms/oai/access" target="_blank">https://aka.ms/oai/access</a>. Open an issue on this repo to contact us if you have an issue.
+    Currently, access to this service is granted only by application. You can apply for access to Azure OpenAI by completing the form at <a href="https://aka.ms/oai/access" target="_blank">https://aka.ms/oai/access</a>. Open an issue on this repo to contact us if you have an issue.
 - Azure CLI - [Installation Guide](/cli/azure/install-azure-cli)
 - The following Python libraries: os, requests, json
 
@@ -42,30 +42,30 @@ Assigning yourself to the Cognitive Services User role will allow you to use you
 1. Get your user information
 
     ```azurecli
-    export user=$(az account show | jq -r .user.name)
+    export user=$(az account show -o json | jq -r .user.name)
     ```
 
 2. Assign yourself to “Cognitive Services User” role.
 
     ```azurecli
-    export resourceId=$(az group show -g $myResourceGroupName | jq -r .id)
+    export resourceId=$(az group show -g $myResourceGroupName -o json | jq -r .id)
     az role assignment create --role "Cognitive Services User" --assignee $user --scope $resourceId
     ```
 
     > [!NOTE]
-    > Role assignment change will take ~5 mins to become effective. Therefore, I did this step ahead of time. Skip this if you have already done this previously.
+    > Role assignment change will take ~5 mins to become effective.
 
 3. Acquire an Azure AD access token. Access tokens expire in one hour. you'll then need to acquire another one.
 
     ```azurecli
-    export accessToken=$(az account get-access-token --resource https://cognitiveservices.azure.com | jq -r .accessToken)
+    export accessToken=$(az account get-access-token --resource https://cognitiveservices.azure.com -o json | jq -r .accessToken)
     ```
 
 4. Make an API call
 Use the access token to authorize your API call by setting the `Authorization` header value.
 
     ```bash
-    curl ${endpoint%/}/openai/deployment/YOUR_DEPLOYMENT_NAME/completions?api-version=2022-12-01 \
+    curl ${endpoint%/}/openai/deployments/YOUR_DEPLOYMENT_NAME/completions?api-version=2023-05-15 \
     -H "Content-Type: application/json" \
     -H "Authorization: Bearer $accessToken" \
     -d '{ "prompt": "Once upon a time" }'

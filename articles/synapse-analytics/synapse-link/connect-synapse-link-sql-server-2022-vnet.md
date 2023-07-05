@@ -5,7 +5,7 @@ author: yexu
 ms.service: synapse-analytics
 ms.topic: how-to
 ms.subservice: synapse-link
-ms.date: 11/16/2022
+ms.date: 03/15/2023
 ms.author: yexu
 ms.reviewer: sngun, wiassaf
 ---
@@ -21,10 +21,6 @@ In this section, you create an Azure Synapse workspace with a managed virtual ne
    :::image type="content" source="../media/connect-synapse-link-sql-database/create-synapse-workspace-allow-outbound-traffic.png" alt-text="Screenshot that shows how to create an Azure Synapse workspace that allows outbound traffic.":::
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
-
-1. Go to your Azure Synapse workspace, select **Networking**, and then select the **Allow Azure Synapse Link for Azure SQL Database to bypass firewall rules** checkbox.
-
-   :::image type="content" source="../media/connect-synapse-link-sql-database/enable-bypass-firewall-rules.png" alt-text="Screenshot that shows how to enable bypassing firewall rules.":::
 
 1. Open Synapse Studio, go to **Manage**, select **Integration runtimes**, and then select **AutoResolvingIntegrationRuntime**. 
 
@@ -50,10 +46,6 @@ In this section, you create an Azure Synapse workspace with managed virtual netw
    :::image type="content" source="../media/connect-synapse-link-sql-database/create-synapse-workspace-disallow-outbound-traffic.png" alt-text="Screenshot that shows how to create an Azure Synapse workspace that disallows outbound traffic.":::
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
-
-1. Go to your Azure Synapse workspace, select **Networking**, and then select the **Allow Azure Synapse Link for Azure SQL Database to bypass firewall rules** checkbox.
-
-   :::image type="content" source="../media/connect-synapse-link-sql-database/enable-bypass-firewall-rules.png" alt-text="Screenshot that shows how to enable bypassing firewall rules.":::
 
 1. Open Synapse Studio, go to **Manage**, select **Integration runtimes**, and then select **AutoResolvingIntegrationRuntime**. 
 
@@ -86,7 +78,27 @@ In this section, you create an Azure Synapse workspace with managed virtual netw
    d. Complete the creation of the linked service for Azure Data Lake Storage Gen2 storage.
    
      :::image type="content" source="../media/connect-synapse-link-sql-database/new-sql-server-linked-service-pe4.png" alt-text="Screenshot of new sql db linked service pe4.":::
+
+1. Create a blob type managed private endpoint to landing zone.
+
+    a. Navigate to **Managed private endpoints** page, and then select **+New**.
+    
+     :::image type="content" source="../media/connect-synapse-link-sql-database/managed-private-endpoints.png" alt-text="Screenshot of managed private endpoints pane.":::
+
+     b. Enter **blob** in the search box on **New managed private endpoint** pane, and then select **Azure Blob Storage**.
+
+     :::image type="content" source="../media/connect-synapse-link-sql-database/blob-managed-private-endpoint.png" alt-text="Screenshot of Azure blob storage.":::
+
+    c. Complete the managed private endpoint creation for Azure Blob Storage.
          
+      :::image type="content" source="../media/connect-synapse-link-sql-database/create-managed-private-endpoint.png" alt-text="Screenshot of new managed private endpoint.":::
+
+    d. After creating an Azure Blob Storage private endpoint, go to your Azure Data Lake Storage Gen2 networking page and approve it. 
+    
+      :::image type="content" source="../media/connect-synapse-link-sql-database/create-blob-private-endpoint.png" alt-text="Screenshot of create blob private endpoint.":::
+
+    In case your SQL Server 2022 instance is installed on a virtual machine (VM) and your Azure Storage account is disabled from public network access, you can create a private endpoint of storage sub resource type **blob** to ensure secure communications between your VM, SQL Server and Azure Storage. For more information, refer to [Tutorial: Connect to a storage account using an Azure Private Endpoint](/azure/private-link/tutorial-private-endpoint-storage-portal).
+
 1. Now you can create a link connection from the **Integrate** pane to replicate data from your SQL Server 2022 instance to an Azure Synapse SQL pool.
 
    :::image type="content" source="../media/connect-synapse-link-sql-database/create-link.png" alt-text="Screenshot that shows how to create a link.":::

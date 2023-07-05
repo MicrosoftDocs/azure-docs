@@ -3,7 +3,7 @@ title: Configure data retention and archive in Azure Monitor Logs
 description: Configure archive settings for a table in a Log Analytics workspace in Azure Monitor.
 ms.reviewer: adi.biran
 ms.topic: conceptual
-ms.date: 10/01/2022
+ms.date: 6/28/2023
 # Customer intent: As an Azure account administrator, I want to set data retention and archive policies to save retention costs.
 ---
 
@@ -12,6 +12,10 @@ ms.date: 10/01/2022
 Retention policies define when to remove or archive data in a [Log Analytics workspace](log-analytics-workspace-overview.md). Archiving lets you keep older, less used data in your workspace at a reduced cost.
 
 This article describes how to configure data retention and archiving.
+
+## Permissions
+
+To configure set data retention and archiving, you must have at least [contributor rights](../logs/manage-access.md#azure-rbac).
 
 ## How retention and archiving work
 
@@ -23,12 +27,18 @@ During the interactive retention period, data is available for monitoring, troub
 
 Archived data stays in the same table, alongside the data that's available for interactive queries. When you set a total retention period that's longer than the interactive retention period, Log Analytics automatically archives the relevant data immediately at the end of the retention period.
 
-If you change the archive settings on a table with existing data, the relevant data in the table is also affected immediately. For example, you might have an existing table with 30 days of interactive retention and no archive period. You decide to change the retention policy to eight days of interactive retention and one year total retention. Log Analytics immediately archives any data that's older than eight days.
-
 You can access archived data by [running a search job](search-jobs.md) or [restoring archived logs](restore.md).
 
 > [!NOTE]
 > The archive period can only be set at the table level, not at the workspace level.
+
+### Adjustments to retention and archive settings
+
+When you shorten an existing retention policy, Azure Monitor waits 30 days before removing the data, so you can revert the change and prevent data loss in the event of an error in configuration. You can [purge data](#purge-retained-data) immediately when required. 
+
+When you increase the retention policy, the new retention period applies to all data that's already been ingested into the table and hasn't yet been purged or removed.   
+
+If you change the archive settings on a table with existing data, the relevant data in the table is also affected immediately. For example, you might have an existing table with 180 days of interactive retention and no archive period. You decide to change the retention policy to 90 days of interactive retention without changing the total retention period of 180 days. Log Analytics immediately archives any data that's older than 90 days and none of the data is deleted.
 
 ## Configure the default workspace retention policy
 
@@ -48,7 +58,7 @@ To set the default workspace retention policy:
 
 By default, all tables in your workspace inherit the workspace's interactive retention setting and have no archive policy. You can modify the retention and archive policies of individual tables, except for workspaces in the legacy Free Trial pricing tier.
 
-You can keep data in interactive retention between 4 and 730 days. You can set the archive period for a total retention time of up to 2,556 days (seven years).
+The Analytics log data plan includes 30 days of interactive retention. You can increase the interactive retention period to up to 730 days at an [additional cost](https://azure.microsoft.com/pricing/details/monitor/). If needed, you can reduce the interactive retention period to as low as four days using the API or CLI, however, since 30 days are included in the ingestion price, lowering the retention period below 30 days does not reduce costs. You can set the archive period to a total retention time of up to 2,556 days (seven years).
 
 # [Portal](#tab/portal-1)
 
@@ -148,13 +158,13 @@ az monitor log-analytics workspace table update --subscription ContosoSID --reso
 
 # [PowerShell](#tab/PowerShell-1)
 
-Use the [Update-AzOperationalInsightsTable](/powershell/module/az.operationalinsights/Update-AzOperationalInsightsTable?view=azps-9.1.0) cmdlet to set the retention and archive duration for a table. This example sets the table's interactive retention to 30 days, and the total retention to two years, which means that the archive duration is 23 months:
+Use the [Update-AzOperationalInsightsTable](/powershell/module/az.operationalinsights/Update-AzOperationalInsightsTable) cmdlet to set the retention and archive duration for a table. This example sets the table's interactive retention to 30 days, and the total retention to two years, which means that the archive duration is 23 months:
 
 ```powershell
 Update-AzOperationalInsightsTable -ResourceGroupName ContosoRG -WorkspaceName ContosoWorkspace -TableName AzureMetrics -RetentionInDays 30 -TotalRetentionInDays 730
 ```
 
-To reapply the workspace's default interactive retention value to the table and reset its total retention to 0, run the [Update-AzOperationalInsightsTable](/powershell/module/az.operationalinsights/Update-AzOperationalInsightsTable?view=azps-9.1.0) cmdlet with the `-RetentionInDays` and `-TotalRetentionInDays` parameters set to `-1`.
+To reapply the workspace's default interactive retention value to the table and reset its total retention to 0, run the [Update-AzOperationalInsightsTable](/powershell/module/az.operationalinsights/Update-AzOperationalInsightsTable) cmdlet with the `-RetentionInDays` and `-TotalRetentionInDays` parameters set to `-1`.
 
 For example:
 
@@ -203,7 +213,7 @@ az monitor log-analytics workspace table show --subscription ContosoSID --resour
 
 # [PowerShell](#tab/PowerShell-2)
 
-To get the retention policy of a particular table, run the [Get-AzOperationalInsightsTable](/powershell/module/az.operationalinsights/get-azoperationalinsightstable?view=azps-9.1.0) cmdlet.
+To get the retention policy of a particular table, run the [Get-AzOperationalInsightsTable](/powershell/module/az.operationalinsights/get-azoperationalinsightstable) cmdlet.
 
 For example:
 
@@ -215,8 +225,6 @@ Get-AzOperationalInsightsTable -ResourceGroupName ContosoRG -WorkspaceName Conto
 
 ## Purge retained data
 
-When you shorten an existing retention policy, it takes several days for Azure Monitor to remove data that you no longer want to keep.
-
 If you set the data retention policy to 30 days, you can purge older data immediately by using the `immediatePurgeDataOn30Days` parameter in Azure Resource Manager. The purge functionality is useful when you need to remove personal data immediately. The immediate purge functionality isn't available through the Azure portal.
 
 Workspaces with a 30-day retention policy might keep data for 31 days if you don't set the `immediatePurgeDataOn30Days` parameter.
@@ -227,7 +235,7 @@ The Log Analytics [Purge API](/rest/api/loganalytics/workspacepurge/purge) doesn
 
 ## Tables with unique retention policies
 
-By default, two data types, `Usage` and `AzureActivity`, keep data for at least 90 days at no charge. When you increase the workspace retention to more than 90 days, you also increase the retention of these data types. You'll be charged for retaining this data beyond the 90-day period. These tables are also free from data ingestion charges.
+By default, two data types, `Usage` and `AzureActivity`, keep data for at least 90 days at no charge. When you increase the workspace retention to more than 90 days, you also increase the retention of these data types. These tables are also free from data ingestion charges.
 
 Tables related to Application Insights resources also keep data for 90 days at no charge. You can adjust the retention policy of each of these tables individually:
 

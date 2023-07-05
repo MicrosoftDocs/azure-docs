@@ -1,7 +1,6 @@
 ---
 title: 'About Azure VPN Gateway'
 description: Learn what VPN Gateway is, and how to use a VPN gateway to connect to IPsec IKE Site-to-Site, VNet-to-VNet, and Point-to-Site VPN virtual networks.
-services: vpn-gateway
 author: cherylmc
 # Customer intent: As someone with a basic network background, but is new to Azure, I want to understand the capabilities of Azure VPN Gateway so that I can securely connect to my Azure virtual networks.
 ms.service: vpn-gateway
@@ -17,7 +16,7 @@ Azure VPN Gateway is a service that uses a specific type of virtual network gate
 
 ## <a name="vpn"></a>About VPN gateways
 
-A VPN gateway is a type of virtual network gateway. A virtual network gateway is composed of two or more Azure-manged VMs that are automatically configured and deployed to a specific subnet you create called the *gateway subnet*. The gateway VMs contain routing tables and run specific gateway services.
+A VPN gateway is a type of virtual network gateway. A virtual network gateway is composed of two or more Azure-managed VMs that are automatically configured and deployed to a specific subnet you create called the *GatewaySubnet*. The gateway VMs contain routing tables and run specific gateway services.
 
 One of the settings that you specify when creating a virtual network gateway is the "gateway type". The gateway type determines how the virtual network gateway will be used and the actions that the gateway takes. A virtual network can have two virtual network gateways; one VPN gateway and one ExpressRoute gateway. The gateway type 'Vpn' specifies that the type of virtual network gateway created is a **VPN gateway**. This distinguishes it from an ExpressRoute gateway, which uses a different gateway type. For more information, see [Gateway types](vpn-gateway-about-vpn-gateway-settings.md#gwtype).
 

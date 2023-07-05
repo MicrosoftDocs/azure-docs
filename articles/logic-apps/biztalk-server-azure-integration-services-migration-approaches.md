@@ -225,7 +225,7 @@ Consider the following testing recommendations for your migration project:
 
 - Set up mock response testing using static results.
 
-  Regardless whether you set up automated tests, you can use the [static results capability](/azure/logic-apps/test-logic-apps-mock-data-static-results) in Azure Logic Apps to temporarily set mock responses at the action level. This functionality lets you emulate the behavior from a specific system that you want to call. You can then perform some initial testing in isolation and reduce the amount of data that you'd create in line of business systems.
+  Regardless whether you set up automated tests, you can use the [static results capability](./test-logic-apps-mock-data-static-results.md) in Azure Logic Apps to temporarily set mock responses at the action level. This functionality lets you emulate the behavior from a specific system that you want to call. You can then perform some initial testing in isolation and reduce the amount of data that you'd create in line of business systems.
 
 - Run side by side tests.
 
@@ -393,9 +393,9 @@ As a concrete example, you might rename a Service Bus connection in an **OrderQu
 
 ### Handle exceptions with scopes and "Run after" options
 
-[Scopes](/azure/logic-apps/logic-apps-control-flow-run-steps-group-scopes) provide the capability to group multiple actions so that you can implement Try-Catch-Finally behavior. The **Scope** action's functionality is similar to the **Region** concept in Visual Studio. On the designer, you can collapse and expand a scope's contents to improve developer productivity.
+[Scopes](./logic-apps-control-flow-run-steps-group-scopes.md) provide the capability to group multiple actions so that you can implement Try-Catch-Finally behavior. The **Scope** action's functionality is similar to the **Region** concept in Visual Studio. On the designer, you can collapse and expand a scope's contents to improve developer productivity.
 
-When you implement this pattern, you can also specify when to run the **Scope** action and the actions inside, based on the preceding action's execution status, which can be **Succeeded**, **Failed**, **Skipped**, or **TimedOut**. To set up this behavior, use the **Scope** action's [**Run after** (`runAfter`) options](/azure/logic-apps/logic-apps-exception-handling#manage-the-run-after-behavior):
+When you implement this pattern, you can also specify when to run the **Scope** action and the actions inside, based on the preceding action's execution status, which can be **Succeeded**, **Failed**, **Skipped**, or **TimedOut**. To set up this behavior, use the **Scope** action's [**Run after** (`runAfter`) options](./logic-apps-exception-handling.md#manage-the-run-after-behavior):
 
 - **Is successful**
 - **Has failed**

@@ -6,10 +6,10 @@ author: normesta
 
 ms.service: storage
 ms.topic: conceptual
-ms.date: 08/09/2022
+ms.date: 05/04/2023
 ms.author: normesta
 ms.subservice: blobs
-ms.custom: devx-track-azurepowershell
+ms.custom: engagement-fy23
 ---
 
 # Object replication for block blobs
@@ -55,7 +55,11 @@ Object replication asynchronously copies block blobs in a container according to
 
 Object replication requires that blob versioning is enabled on both the source and destination accounts. When a replicated blob in the source account is modified, a new version of the blob is created in the source account that reflects the previous state of the blob, before modification. The current version in the source account reflects the most recent updates. Both the current version and any previous versions are replicated to the destination account. For more information about how write operations affect blob versions, see [Versioning on write operations](versioning-overview.md#versioning-on-write-operations).
 
-When a blob in the source account is deleted, the current version of the blob becomes a previous version, and there's no longer a current  version. All existing previous versions of the blob are preserved. This state is replicated to the destination account. For more information about how to delete operations affect blob versions, see [Versioning on delete operations](versioning-overview.md#versioning-on-delete-operations).
+If your storage account has object replication policies in effect, you cannot disable blob versioning for that account. You must delete any object replication policies on the account before disabling blob versioning.
+
+### Deleting a blob in the source account
+
+When a blob in the source account is deleted, the current version of the blob becomes a previous version, and there's no longer a current version. All existing previous versions of the blob are preserved. This state is replicated to the destination account. For more information about how to delete operations affect blob versions, see [Versioning on delete operations](versioning-overview.md#versioning-on-delete-operations).
 
 ### Snapshots
 
@@ -182,6 +186,9 @@ You can use Azure Policy to audit a set of storage accounts to ensure that the *
 
 You can check the replication status for a blob in the source account. For more information, see [Check the replication status of a blob](object-replication-configure.md#check-the-replication-status-of-a-blob).
 
+> [!NOTE]
+>  While replication is in progress, there's no way to determine the percentage of data that has been replicated. 
+
 If the replication status for a blob in the source account indicates failure, then investigate the following possible causes:
 
 - Make sure that the object replication policy is configured on the destination account.
@@ -199,7 +206,27 @@ If the replication status for a blob in the source account indicates failure, th
 
 ## Billing
 
-Object replication incurs additional costs on read and write transactions against the source and destination accounts, as well as egress charges for the replication of data from the source account to the destination account and read charges to process change feed.
+There is no cost to configure object replication. This includes the task of enabling change feed, enabling versioning, as well as adding replication policies. However, object replication incurs costs on read and write transactions against the source and destination accounts, as well as egress charges for the replication of data from the source account to the destination account and read charges to process change feed. 
+
+Here's a breakdown of the costs. To find the price of each cost component, see [Azure Blob Storage Pricing](https://azure.microsoft.com/pricing/details/storage/blobs/).
+
+| Cost to update a blob in the source account | Cost to replicate data in the destination account |
+|---|---|
+|Transaction cost of a write operation|Transaction cost to read a change feed record|
+|Storage cost of the blob and each blob version<sup>1</sup>|Transaction cost to read the blob and blob versions<sup>2</sup>|
+|Cost to add a change feed record|Transaction cost to write the blob and blob versions<sup>2</sup>|
+||Storage cost of the blob and each blob version<sup>1</sup>|
+||Cost of network egress<sup>2</sup>|
+
+
+
+<sup>1</sup>    See [Blob versioning pricing and Billing](versioning-overview.md#pricing-and-billing).
+
+<sup>2</sup>    This includes only blob versions created since the last replication completed.
+
+<sup>3</sup>    See [Bandwidth pricing](https://azure.microsoft.com/pricing/details/bandwidth/).
+
+
 
 ## Next steps
 
@@ -207,3 +234,5 @@ Object replication incurs additional costs on read and write transactions agains
 - [Prevent object replication across Azure Active Directory tenants](object-replication-prevent-cross-tenant-policies.md)
 - [Blob versioning](versioning-overview.md)
 - [Change feed support in Azure Blob Storage](storage-blob-change-feed.md)
+
+

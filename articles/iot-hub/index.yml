@@ -72,12 +72,12 @@ landingContent:
    linkLists:
    - linkListType: tutorial
      links:
-     - text: Use X.509 certificates to authenticate
-       url: tutorial-x509-introduction.md
+     - text: Create and upload certificates for testing
+       url: tutorial-x509-test-certs.md
    - linkListType: concept
      links:
-     - text: Secure your IoT deployment
-       url: ../iot-fundamentals/iot-security-deployment.md?context=/azure/iot-hub/rc/rc
+     - text: Security best practices
+       url: ../iot/iot-overview-security.md?context=/azure/iot-hub/rc/rc
      - text: Control access to IoT Hub
        url: iot-hub-devguide-security.md
 
@@ -87,8 +87,8 @@ landingContent:
      links:
      - text: Learn about Azure IoT SDKs
        url: iot-hub-devguide-sdks.md
-     - text: Use the Azure IoT Tools for VS Code
-       url: https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools
+     - text: Use the Azure IoT Hub extension for VS Code
+       url: https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit
      - text: Supported device protocols
        url: iot-hub-devguide-protocols.md
 

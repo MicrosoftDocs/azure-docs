@@ -11,7 +11,7 @@ ms.workload: mobile
 ms.tgt_pltfrm: mobile-multiple
 ms.devlang: csharp
 ms.topic: article
-ms.date: 08/23/2021
+ms.date: 06/30/2023
 ms.author: sethm
 ms.reviewer: thsomasu
 ms.lastreviewed: 04/08/2019
@@ -28,7 +28,7 @@ Device registration with a Notification Hub is accomplished using a **Registrati
 
 ### Registrations
 
-A registration associates the Platform Notification Service (PNS) handle for a device with tags and possibly a template. The PNS handle could be a ChannelURI, device token, or FCM registration ID. Tags are used to route notifications to the correct set of device handles. For more information, see [Routing and Tag Expressions](notification-hubs-tags-segment-push-message.md). Templates are used to implement per-registration transformation. For more information, see [Templates](notification-hubs-templates-cross-platform-push-messages.md).
+A registration associates the Platform Notification Service (PNS) handle for a device with tags and possibly a template. The PNS handle could be a ChannelURI, or device token registration ID. Tags are used to route notifications to the correct set of device handles. For more information, see [Routing and Tag Expressions](notification-hubs-tags-segment-push-message.md). Templates are used to implement per-registration transformation. For more information, see [Templates](notification-hubs-templates-cross-platform-push-messages.md).
 
 > [!NOTE]
 > Azure Notification Hubs supports a maximum of 60 tags per device.
@@ -313,7 +313,7 @@ public async Task<HttpResponseMessage> Put(DeviceInstallation deviceUpdate)
 }
 ```
 
-### Example code to register with a notification hub from a device using a registration ID
+### Example code to register with a notification hub from a backend using a registration ID
 
 From your app backend, you can perform basic CRUDS operations on registrations. For example:
 

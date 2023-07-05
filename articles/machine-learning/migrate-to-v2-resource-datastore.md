@@ -11,11 +11,12 @@ ms.author: xunwan
 ms.date: 09/16/2022
 ms.reviewer: sgilley
 ms.custom: migration
+monikerRange: 'azureml-api-1 || azureml-api-2'
 ---
 
 # Upgrade datastore management to SDK v2
 
-Azure Machine Learning Datastores securely keep the connection information to your data storage on Azure, so you don't have to code it in your scripts. V2 Datastore concept remains mostly unchanged compared with V1. The difference is we won't support SQL-like data sources via AzureML Datastores. We'll support SQL-like data sources via AzureML data import&export functionalities.
+Azure Machine Learning Datastores securely keep the connection information to your data storage on Azure, so you don't have to code it in your scripts. V2 Datastore concept remains mostly unchanged compared with V1. The difference is we won't support SQL-like data sources via Azure Machine Learning Datastores. We'll support SQL-like data sources via Azure Machine Learning data import&export functionalities.
 
 This article gives a comparison of scenario(s) in SDK v1 and SDK v2.
 
@@ -148,7 +149,7 @@ blob_datastore = Datastore.register_azure_blob_container(workspace=ws,
     from azure.ai.ml import MLClient
     from azure.identity import DefaultAzureCredential
     
-    #Enter details of your AzureML workspace
+    #Enter details of your Azure Machine Learning workspace
     subscription_id = '<SUBSCRIPTION_ID>'
     resource_group = '<RESOURCE_GROUP>'
     workspace_name = '<AZUREML_WORKSPACE_NAME>'

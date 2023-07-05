@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory integration with Tango Analytics | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory integration with Tango Analytics'
 description: Learn how to configure single sign-on between Azure Active Directory and Tango Analytics.
 services: active-directory
 author: jeevansd

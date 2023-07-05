@@ -4,7 +4,7 @@ titleSuffix: Azure
 description: Best practices for keeping your Azure Virtual Desktop environment secure.
 author: heidilohr
 ms.topic: conceptual
-ms.date: 10/12/2022
+ms.date: 03/09/2023
 ms.author: helohr
 ms.service: virtual-desktop
 ms.custom: ignite-2022
@@ -12,9 +12,9 @@ manager: femila
 ---
 # Security best practices
 
-Azure Virtual Desktop is a managed virtual desktop service that includes many security capabilities for keeping your organization safe. In a Azure Virtual Desktop deployment, Microsoft manages portions of the services on the customer’s behalf. The service has many built-in advanced security features, such as Reverse Connect, which reduce the risk involved with having remote desktops accessible from anywhere.
+Azure Virtual Desktop is a managed virtual desktop service that includes many security capabilities for keeping your organization safe. In an Azure Virtual Desktop deployment, Microsoft manages portions of the services on the customer’s behalf. The service has many built-in advanced security features, such as Reverse Connect, which reduce the risk involved with having remote desktops accessible from anywhere.
 
-This article describes additional steps you can take as an admin to keep your customers' Azure Virtual Desktop deployments secure.
+This article describes steps you can take as an admin to keep your customers' Azure Virtual Desktop deployments secure.
 
 ## Security responsibilities
 
@@ -125,7 +125,7 @@ You can prevent unwanted system access by configuring Azure Virtual Desktop to l
 
 ### Establish tiered admin access
 
-We recommend you don't grant your users admin access to virtual desktops. If you need software packages, we recommend you make them available through configuration management utilities like Microsoft Endpoint Manager. In a multi-session environment, we recommend you don't let users install software directly.
+We recommend you don't grant your users admin access to virtual desktops. If you need software packages, we recommend you make them available through configuration management utilities like Microsoft Intune. In a multi-session environment, we recommend you don't let users install software directly.
 
 ### Consider which users should access which resources
 
@@ -134,6 +134,10 @@ Consider session hosts as an extension of your existing desktop deployment. We r
 ### Manage Office Pro Plus security
 
 In addition to securing your session hosts, it's important to also secure the applications running inside of them. Office Pro Plus is one of the most common applications deployed in session hosts. To improve the Office deployment security, we recommend you use the [Security Policy Advisor](/DeployOffice/overview-of-security-policy-advisor) for Microsoft 365 Apps for enterprise. This tool identifies policies that can you can apply to your deployment for more security. Security Policy Advisor also recommends policies based on their impact to your security and productivity.
+
+### User profile security
+
+User profiles can contain sensitive information. You should restrict who has access to user profiles and the methods of accessing them, especially if you're using [FSLogix Profile Container](/fslogix/tutorial-configure-profile-containers) to store user profiles in a virtual hard disk file (VHDX) on an SMB share. You should follow the security recommendations for the provider of your SMB share. For example, If you're using Azure Files to store these VHDX files, you can use [private endpoints](../storage/files/storage-files-networking-overview.md#private-endpoints) to make them only accessible within an Azure virtual network. 
 
 ### Other security tips for session hosts
 
@@ -216,6 +220,18 @@ The following operating systems support using Windows Defender Application Contr
 
 >[!NOTE]
 >When using Windows Defender Access Control, we recommend only targeting policies at the device level. Although it's possible to target policies to individual users, once the policy is applied, it affects all users on the device equally.
+
+## Windows Update
+
+Windows Update provides a secure way to keep your devices up-to-date. Its end-to-end protection prevents manipulation of protocol exchanges and ensures updates only include approved content. You may need to update firewall and proxy rules for some of your protected environments in order to get proper access to Windows Updates. For more information, see [Windows Update security](/windows/deployment/update/windows-update-security).
+
+## Client updates on other OS platforms
+
+Software updates for the Remote Desktop clients you can use to access Azure Virtual Desktop services on other OS platforms are secured according to the security policies of their respective platforms. All client updates are delivered directly by their platforms. For more information, see the respective store pages for each app:
+
+- [macOS](https://apps.apple.com/app/microsoft-remote-desktop/id1295203466?mt=12)
+- [iOS](https://apps.apple.com/us/app/remote-desktop-mobile/id714464092)
+- [Android](https://play.google.com/store/apps/details?id=com.microsoft.rdc.androidx)
 
 ## Next steps
 

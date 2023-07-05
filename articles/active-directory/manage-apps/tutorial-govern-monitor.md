@@ -8,6 +8,9 @@ ms.service: active-directory
 ms.subservice: app-mgmt
 ms.topic: tutorial
 ms.date: 07/19/2022
+ms.reviewer: saibandaru
+ms.custom: enterprise-apps
+
 # Customer intent: As an administrator of an Azure AD tenant, I want to govern and monitor my applications.
 ---
 
@@ -22,6 +25,8 @@ Using the information in this tutorial, an administrator of the application lear
 > * Access the audit logs report
 > * Access the sign-ins report
 > * Send logs to Azure Monitor
+
+[!INCLUDE [portal updates](../includes/portal-update.md)]
 
 ## Prerequisites
 

@@ -11,7 +11,7 @@ ms.subservice: bing-visual-search
 ms.topic: conceptual
 ms.date: 4/26/2019
 ms.devlang: csharp, java, javascript, python
-ms.custom: "devx-track-python, devx-track-js, devx-track-csharp"
+ms.custom: devx-track-python, devx-track-js, devx-track-csharp, devx-track-extended-java
 ---
 
 # Use an insights token to get insights for an image

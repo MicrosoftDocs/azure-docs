@@ -8,7 +8,7 @@ ms.reviewer: sgilley
 ms.service: machine-learning
 ms.subservice: mldata
 ms.topic: how-to
-ms.custom: data4ml, sdkv1, event-tier1-build-2022, ignite-2022
+ms.custom: UpdateFrequency5, data4ml, sdkv1, event-tier1-build-2022, ignite-2022
 ms.date: 08/17/2022
 #Customer intent: As an experienced Python developer, I need to export my data labels and use them for machine learning tasks.
 ---

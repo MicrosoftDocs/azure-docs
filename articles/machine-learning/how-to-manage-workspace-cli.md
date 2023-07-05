@@ -8,7 +8,7 @@ ms.subservice: core
 ms.author: deeikele
 author: deeikele
 ms.reviewer: larryfr
-ms.date: 08/12/2022
+ms.date: 06/16/2023
 ms.topic: how-to
 ms.custom: devx-track-azurecli, cliv2, event-tier1-build-2022
 ---
@@ -17,11 +17,10 @@ ms.custom: devx-track-azurecli, cliv2, event-tier1-build-2022
 
 [!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
 
-> [!div class="op_single_selector" title1="Select the version of Azure Machine Learning SDK or CLI extension you are using:"]
-> * [v1](v1/how-to-manage-workspace-cli.md)
-> * [v2 (current version)](how-to-manage-workspace-cli.md)
 
 In this article, you learn how to create and manage Azure Machine Learning workspaces using the Azure CLI. The Azure CLI provides commands for managing Azure resources and is designed to get you working quickly with Azure, with an emphasis on automation. The machine learning extension to the CLI provides commands for working with Azure Machine Learning resources.
+
+You can also manage workspaces the [Azure portal and Python SDK](how-to-manage-workspace.md), [Azure PowerShell](how-to-manage-workspace-powershell.md), or [via the VS Code extension](how-to-setup-vs-code.md).
 
 ## Prerequisites
 
@@ -335,7 +334,8 @@ az group delete -g <resource-group-name>
 
 For more information, see the [az ml workspace delete](/cli/azure/ml/workspace#az-ml-workspace-delete) documentation.
 
-If you accidentally deleted your workspace, are still able to retrieve your notebooks. For more information, see the [workspace deletion](./how-to-high-availability-machine-learning.md#workspace-deletion) section of the disaster recovery article.
+> [!TIP]
+> The default behavior for Azure Machine Learning is to _soft delete_ the workspace. This means that the workspace is not immediately deleted, but instead is marked for deletion. For more information, see [Soft delete](./concept-soft-delete.md).
 
 ## Troubleshooting
 
@@ -362,4 +362,4 @@ To check for problems with your workspace, see [How to use workspace diagnostics
 
 To learn how to move a workspace to a new Azure subscription, see [How to move a workspace](how-to-move-workspace.md).
 
-For information on how to keep your Azure ML up to date with the latest security updates, see [Vulnerability management](concept-vulnerability-management.md).
+For information on how to keep your Azure Machine Learning up to date with the latest security updates, see [Vulnerability management](concept-vulnerability-management.md).

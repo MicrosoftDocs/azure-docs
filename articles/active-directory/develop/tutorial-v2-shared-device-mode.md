@@ -59,7 +59,7 @@ Refer to the [configuration documentation](./msal-configuration.md) for more inf
 
 Set `"shared_device_mode_supported"` to `true` in your MSAL configuration file.
 
-You may not be planning to support multiple-account mode. That could be if you're not using a shared device, and the user can sign into the app with more than one account at the same time. If so, set `"account_mode"` to `"SINGLE"`. This guarantees that your app will always get `ISingleAccountPublicClientApplication`, and significantly simplifies your MSAL integration. The default value of `"account_mode"` is `"MULTIPLE"`, so it is important to change this value in the config file if you're using `"single account"` mode.
+You may not be planning to support multiple-account mode. That could be if you're not using a shared device, and the user can sign into the app with more than one account at the same time. If so, set `"account_mode"` to `"SINGLE"`. This guarantees that your app will always get `ISingleAccountPublicClientApplication`, and significantly simplifies your MSAL integration. The default value of `"account_mode"` is `"MULTIPLE"`, so it's important to change this value in the config file if you're using `"single account"` mode.
 
 Here's an example of the auth_config.json file included in the **app**>**main**>**res**>**raw** directory of the sample app:
 
@@ -85,7 +85,7 @@ Here's an example of the auth_config.json file included in the **app**>**main**>
 
 ### Detect shared-device mode
 
-Shared-device mode allows you to configure Android devices to be shared by multiple employees, while providing Microsoft Identity backed management of the device. Employees can sign in to their devices and access customer information quickly. When they are finished with their shift or task, they will be able to sign-out of all apps on the shared device with a single click and the device will be immediately ready for the next employee to use.
+Shared-device mode allows you to configure Android devices to be shared by multiple employees, while providing Microsoft Identity backed management of the device. Employees can sign in to their devices and access customer information quickly. When they're finished with their shift or task, they'll be able to sign-out of all apps on the shared device with a single click and the device will be immediately ready for the next employee to use.
 
 Use `isSharedDevice()` to determine if an app is running on a device that is in shared-device mode. Your app could use this flag to determine if it should modify UX accordingly.
 
@@ -112,7 +112,7 @@ PublicClientApplication.create(this.getApplicationCOntext(),
   loadAccount();
   }
   @Override
-  public void onError(MsalException exception{
+  public void onError(MsalException exception){
   /*Fail to initialize PublicClientApplication */
   }
 });
@@ -122,7 +122,7 @@ PublicClientApplication.create(this.getApplicationCOntext(),
 
 If you're writing an app that will only be used for first-line workers on a shared device, we recommend you write your app to only support single-account mode. This includes most applications that are task focused such as medical records apps, invoice apps, and most line-of-business apps. This will simplify your development as many features of the SDK won't need to be accommodated.
 
-If your app supports multiple accounts as well as shared device mode, you must perform a type check and cast to the appropriate interface as shown below.
+If your app supports multiple accounts and shared device mode, you must perform a type check and cast to the appropriate interface as shown below.
 
 ```java
 private IPublicClientApplication mApplication;
@@ -143,9 +143,9 @@ The `loadAccount` method retrieves the account of the signed in user. The `onAcc
 ```java
 private void loadAccount()
 {
-  mSingleAccountApp.getCurrentAccountAsync(new ISingleAccountPublicClientApplication.CurrentAccountCallback()
+  mSingleAccountApp.getCurrentAccountAsync(new ISingleAccountPublicClientApplication.CurrentAccountCallback())
   {
-    @Overide
+    @Override
     public void onAccountLoaded(@Nullable IAccount activeAccount)
     {
       if (activeAccount != null)
@@ -207,9 +207,9 @@ private void onSignOutClicked()
 
 ### Receive broadcast to detect global sign out initiated from other applications
 
-To receive the account change broadcast, you'll need to register a broadcast receiver.  It’s recommended to register your broadcast receiver via the [Context-registered receivers](https://developer.android.com/guide/components/broadcasts#context-registered-receivers).
+To receive the account change broadcast, you need to register a broadcast receiver.  It’s recommended to register your broadcast receiver via the [Context-registered receivers](https://developer.android.com/guide/components/broadcasts#context-registered-receivers).
 
-When an account change broadcast is received, immediately [get the signed in user and determine if a user has changed on the device](#get-the-signed-in-user-and-determine-if-a-user-has-changed-on-the-device). If a change is detected, initiate data cleanup for previously signed-in account. It is recommended to properly stop any operations and do data cleanup.
+When an account change broadcast is received, immediately [get the signed in user and determine if a user has changed on the device](#get-the-signed-in-user-and-determine-if-a-user-has-changed-on-the-device). If a change is detected, initiate data cleanup for previously signed-in account. It's recommended to properly stop any operations and do data cleanup.
 
 The following code snippet shows how you could register a broadcast receiver.
 
@@ -238,14 +238,14 @@ The following steps describe setting up your application in the Azure portal and
 
 First, register your application within your organizational tenant. Then provide these values below in auth_config.json in order for your application to run correctly.
 
-For information on how to do this, refer to [Register your application](./tutorial-v2-android.md#register-your-application).
+For information on how to do this, refer to [Register your application](./tutorial-v2-android.md#register-your-application-with-azure-ad).
 
 > [!NOTE]
 > When you register your app, please use the quickstart guide on the left-hand side and then select **Android**. This will lead you to a page where you'll be asked to provide the **Package Name** and **Signature Hash** for your app. These are very important to ensure your app configuration will work. You'll then receive a configuration object that you can use for your app that you'll cut and paste into your auth_config.json file.
 
 :::image type="content" source="media/tutorial-v2-shared-device-mode/register-app.png" alt-text="Configure your Android app page in Azure portal quickstart":::
 
-You should select **Make this change for me** and then provide the values the quickstart asks for in the Azure portal. When that's done, we will generate all the configuration files you need.
+You should select **Make this change for me** and then provide the values the quickstart asks for in the Azure portal. When that's done, we'll generate all the configuration files you need.
 
 :::image type="content" source="media/tutorial-v2-shared-device-mode/config-info.png" alt-text="Configure your project page in Azure portal quickstart":::
 
@@ -257,7 +257,7 @@ For testing purposes, set up the following in your tenant: at least two employee
 
 ### Download the Authenticator App
 
-Download the Microsoft Authenticator App from the Google Play store. If you already have the app downloaded, ensure that it is the latest version.
+Download the Microsoft Authenticator App from the Google Play store. If you already have the app downloaded, ensure that it's the latest version.
 
 ### Authenticator app settings & registering the device in the cloud
 
@@ -293,7 +293,7 @@ Once you've put a device in shared-mode, it becomes known to your organization a
 
 ## Running the sample app
 
-The Sample Application is a simple app that will call the Graph API of your organization. On first run you'll be prompted to consent as the application is new to your employee account.
+The Sample Application is a simple app that will call the Graph API of your organization. On first run, you'll be prompted to consent as the application is new to your employee account.
 
 :::image type="content" source="media/tutorial-v2-shared-device-mode/run-app-permissions-requested.png" alt-text="Application configuration info screen":::
 

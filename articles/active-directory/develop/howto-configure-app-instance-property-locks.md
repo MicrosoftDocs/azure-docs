@@ -2,15 +2,15 @@
 title: "How to configure app instance property lock in your applications"
 description: How to increase app security by configuring property modification locks for sensitive properties of the application.
 services: active-directory
-manager: saumadan
+manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
 ms.date: 11/03/2022
-author: madansr7
-ms.author: saumadan
-ms.reviewer:
+author: henrymbuguakiarie
+ms.author: henrymbugua
+ms.reviewer: madansr7
 # Customer intent: As an application developer, I want to learn how to protect properties of my application instance of being modified.
 ---
 # How to configure app instance property lock for your applications (Preview)
@@ -52,3 +52,8 @@ To configure an app instance lock using the Azure portal:
    | **Token Encryption KeyId**                                | Locks the ability to change the `tokenEncryptionKeyId` property.  | 
 
 3. Select **Save** to save your changes.
+
+
+## Configure app instance lock using Microsoft Graph
+
+You manage the app instance lock feature through the **servicePrincipalLockConfiguration** property of the [application](/graph/api/resources/application) object of the multi-tenant app. For more information, see [Lock sensitive properties for service principals](/graph/tutorial-applications-basics#lock-sensitive-properties-for-service-principals).

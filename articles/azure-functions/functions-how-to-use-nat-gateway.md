@@ -10,9 +10,9 @@ ms.date: 2/26/2021
 
 # Tutorial: Control Azure Functions outbound IP with an Azure virtual network NAT gateway
 
-Virtual network address translation (NAT) simplifies outbound-only internet connectivity for virtual networks. When configured on a subnet, all outbound connectivity uses your specified static public IP addresses. An NAT can be useful for Azure Functions or Web Apps that need to consume a third-party service that uses an allowlist of IP address as a security measure. To learn more, see [What is Virtual Network NAT?](../virtual-network/nat-gateway/nat-overview.md).
+Virtual network address translation (NAT) simplifies outbound-only internet connectivity for virtual networks. When configured on a subnet, all outbound connectivity uses your specified static public IP addresses. An NAT can be useful for apps that need to consume a third-party service that uses an allowlist of IP address as a security measure. To learn more, see [What is Azure NAT Gateway?](../virtual-network/nat-gateway/nat-overview.md).
 
-This tutorial shows you how to use virtual network NATs to route outbound traffic from an HTTP triggered function. This function lets you check its own outbound IP address. During this tutorial, you'll:
+This tutorial shows you how to use NAT gateways to route outbound traffic from an HTTP triggered function. This function lets you check its own outbound IP address. During this tutorial, you'll:
 
 > [!div class="checklist"]
 > * Create a virtual network
@@ -67,7 +67,7 @@ Next, you create a function app in the [Premium plan](functions-premium-plan.md)
 This tutorial shows you how to create your function app in a [Premium plan](functions-premium-plan.md). The same functionality is also available when using a [Dedicated (App Service) plan](dedicated-plan.md).
 
 > [!NOTE]  
-> For the best experience in this tutorial, choose .NET for runtime stack and choose Windows for operating system. Also, create you function app in the same region as your virtual network.
+> For the best experience in this tutorial, choose .NET for runtime stack and choose Windows for operating system. Also, create your function app in the same region as your virtual network.
 
 [!INCLUDE [functions-premium-create](../../includes/functions-premium-create.md)]  
 
@@ -95,7 +95,9 @@ You can now connect your function app to the virtual network.
 
 1. Select **OK** to add the subnet. Close the **VNet Integration** and **Network Feature Status** pages to return to your function app page.
 
-The function app can now access the virtual network. Next, you'll add an HTTP-triggered function to the function app.
+The function app can now access the virtual network. When connectivity is enabled, the [`vnetrouteallenabled`](functions-app-settings.md#vnetrouteallenabled) site setting is set to `1`. You must have either this site setting or the legacy [`WEBSITE_VNET_ROUTE_ALL`](functions-app-settings.md#website_vnet_route_all) application setting set to `1`.
+
+Next, you'll add an HTTP-triggered function to the function app. 
 
 ## <a name="create-function"></a>Create an HTTP trigger function
 
@@ -197,25 +199,6 @@ Now, let's create the NAT gateway. When you start with the [previous virtual net
 1. Select **Review + Create** then **Create** to submit the deployment.
 
 Once the deployment completes, the NAT gateway is ready to route traffic from your function app subnet to the Internet.
-
-## Update function configuration
-
-Now, you must add an application setting `WEBSITE_VNET_ROUTE_ALL` set to a value of `1`.  This setting forces outbound traffic through the virtual network and associated NAT gateway. Without this setting, internet traffic isn't routed through the integrated virtual network, and you'll see the same outbound IPs. 
-
-1. Navigate to your function app in the Azure portal and select **Configuration** from the left-hand menu.
-
-1. Under **Application settings**, select **+ New application setting** and complete use the following values to fill out the fields:
-
-    |Field Name  |Value |
-    |---|---|
-    |**Name**    |WEBSITE_VNET_ROUTE_ALL|
-    |**Value**   |1|
-
-1. Select **OK** to close the new application setting dialog.
-
-1. Select **Save** and then **Continue** to save the settings.
-
-The function app's now configured to route traffic through its associated virtual network.
 
 ## Verify new outbound IPs
 

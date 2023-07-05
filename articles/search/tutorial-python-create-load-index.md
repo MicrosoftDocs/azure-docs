@@ -21,7 +21,7 @@ Continue to build your search-enabled website by following these steps:
 
 ## Create an Azure Cognitive Search resource
 
-Create a new search resource using PowerShell and the **Az.Search** module.
+Create a new search resource using PowerShell and the **Az.Search** module. In this section, you'll also create a query key used for read-access to the index, and get the built-in admin key used for adding objects.
 
 1. In Visual Studio Code, open a new terminal window.
 
@@ -32,7 +32,7 @@ Create a new search resource using PowerShell and the **Az.Search** module.
    ```
 
    > [!NOTE]
-   > You might need to provide a tenant ID, which you can find in the Azure portal in [Portal settings > Directories + subscriptions](/azure/azure-portal/set-preferences).
+   > You might need to provide a tenant ID, which you can find in the Azure portal in [Portal settings > Directories + subscriptions](../azure-portal/set-preferences.md).
 
 1. Before creating a new search service, you can list existing search services for your subscription to see if there's one you want to use:
 
@@ -43,7 +43,7 @@ Create a new search resource using PowerShell and the **Az.Search** module.
 1. Load the **Az.Search** module: 
 
    ```powershell
-   Install-Module -Name Az.Search
+   Install-Module -Name Az.Search -Scope CurrentUser
    ```
 
 1. Create a new search service. Use the following cmdlet as a template, substituting valid values for the resource group, service name, tier, region, partitions, and replicas:
@@ -83,7 +83,7 @@ The script uses the Azure SDK for Cognitive Search:
     * YOUR-SEARCH-SERVICE-NAME
     * YOUR-SEARCH-SERVICE-ADMIN-API-KEY
 
-    :::code language="python" source="~/azure-search-python-samples/search-website-functions-v4/bulk-upload/bulk-upload.py" highlight="20-22,46-48,53-54,75-80,83,69,83,135,142" :::
+    :::code language="python" source="~/azure-search-python-samples/search-website-functions-v4/bulk-upload/bulk-upload.py" :::
 
 1. Open an integrated terminal in Visual Studio for the project directory's subdirectory, `search-website-functions-v4/bulk-upload`, and run the following command to install the dependencies. 
 

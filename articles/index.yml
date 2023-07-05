@@ -11,9 +11,9 @@ metadata:
   ms.service: azure
   ms.custom: ignite-2022
   ms.topic: hub-page
-  author: rolyon
-  ms.author: rolyon
-  ms.date: 10/11/2022
+  author: kcpitt
+  ms.author: kellypi
+  ms.date: 06/23/2023
   featureFlags:
   - clicktale
 highlightedContent:
@@ -40,12 +40,12 @@ productDirectory:
   title: Browse Azure products
   items:
     # Card
-    - title: Azure Percept
-      summary: Edge intelligence from silicon to service
-      imageSrc: ./media/index/azure-percept.svg
-      azureCategories:
-        - iot
-      url: azure-percept/index.yml
+    # - title: Azure Percept
+      # summary: Edge intelligence from silicon to service
+      # imageSrc: ./media/index/azure-percept.svg
+      # azureCategories:
+       #  - iot
+     #  url: azure-percept/index.yml
     # Card
     - title: Anomaly Detector
       summary: Easily add anomaly detection capabilities to your apps
@@ -90,6 +90,7 @@ productDirectory:
       summary: Apply advanced coding and language models to a variety of use cases
       imageSrc: cognitive-services/openai/media/icon/azure-openai-dark.svg
       azureCategories:
+        - featured
         - ai-machine-learning
       url: cognitive-services/openai/index.yml
 
@@ -138,6 +139,14 @@ productDirectory:
         - web
         - mobile
       url: communication-services/overview.md
+    # Card
+    - title: Azure Communications Gateway
+      summary: Rapidly connect your fixed and mobile networks with Microsoft Teams
+      imageSrc: ./media/index/communications-gateway.svg
+      azureCategories:
+        - networking
+        - 5g-space
+      url: communications-gateway/index.yml
     # Card
     - title: Computer Vision
       summary: Distill actionable information from images
@@ -204,7 +213,7 @@ productDirectory:
         - ai-machine-learning
       url: cognitive-services/luis/index.yml
     # Card
-    - title: Microsoft Energy Data Services (Preview)
+    - title: Microsoft Azure Data Manager for Energy (Preview)
       summary: Accelerate your journey to energy data modernization and digital transformation
       imageSrc: energy-data-services/media/icon/energy-data-services.svg
       azureCategories:
@@ -739,6 +748,10 @@ productDirectory:
       imageSrc: https://static.docs.com/ui/media/product/azure/app-configuration.svg
       azureCategories:
         - developer-tools
+        - containers
+        - mobile
+        - security
+        - web
       url: azure-app-configuration/index.yml
     # Card
     - title: Azure Data Studio
@@ -845,8 +858,8 @@ productDirectory:
         - devops
       url: /azure/devops/test/
     # Card
-    - title: Azure Load Testing (Preview)
-      summary: Generate high-scale load and identify app performance bottlenecks
+    - title: Azure Load Testing
+      summary: Generate high-scale load and identify performance bottlenecks
       imageSrc: https://static.docs.com/ui/media/product/azure/load-testing.svg
       azureCategories:
         - devops
@@ -874,6 +887,7 @@ productDirectory:
       azureCategories:
         - devops
         - developer-tools
+        - azure-virtual-desktop
       url: dev-box/index.yml
     # Card
     - title: Azure Active Directory (AD)
@@ -885,11 +899,12 @@ productDirectory:
         - security
       url: active-directory/index.yml
     # Card
-    - title: Azure Arc (Preview)
+    - title: Azure Arc
       summary: Bring Azure services and management to any infrastructure
       imageSrc: https://static.docs.com/ui/media/product/azure/arc.svg
       azureCategories:
         - hybrid
+        - featured
       url: azure-arc/index.yml
     # Card
     - title: Azure ExpressRoute
@@ -1317,7 +1332,7 @@ productDirectory:
       azureCategories:
         - networking
         - security
-      url: ./ddos-protection/ddos-protection-overview.md
+      url: ddos-protection/index.yml
     # Card
     - title: Azure DNS
       summary: Host your DNS domain in Azure
@@ -1364,11 +1379,12 @@ productDirectory:
         - networking
       url: private-link/index.yml
     # Card
-    - title: Azure Private 5G Core (Preview)
+    - title: Azure Private 5G Core
       summary: Rapidly deploy and manage private 5G networks at the enterprise edge
       imageSrc: ./media/index/private-5g-core.svg
       azureCategories:
         - networking
+        - 5g-space
       url: private-5g-core/index.yml
     # Card
     - title: Load Balancer
@@ -1422,12 +1438,28 @@ productDirectory:
         - security
       url: web-application-firewall/index.yml
     # Card
+    - title: NAT Gateway
+      summary: Provide highly reliable, secure, and scalable outbound connectivity to the internet
+      imageSrc: nat-gateway/media/icon/nat-gateway.svg
+      azureCategories:
+        - networking
+        - security
+      url: nat-gateway/index.yml
+    # Card
     - title: Azure Dedicated HSM
       summary: Manage hardware security modules that you use in the cloud
       imageSrc: ./media/index/dedicated-hsm.svg
       azureCategories:
         - security
       url: dedicated-hsm/index.yml
+    # Card
+    - title: Microsoft Defender for External Attack Surface Management
+      summary: Safeguard the digital experience by discovering all internet-exposed resources
+      imageSrc: ./media/index/Defender-easm.svg
+      azureCategories:
+        - security
+        - management-and-governance
+      url: external-attack-surface-management/index.md
     # Card
     - title: Key Vault
       summary: Safeguard and maintain control of keys and other secrets
@@ -1492,6 +1524,13 @@ productDirectory:
         - storage
       url: storage/files/index.yml
     # Card
+    - title: Azure Elastic SAN (Preview)
+      summary: Elastic SAN is a cloud-native Storage Area Network (SAN) service built on Azure. Gain access to an end-to-end experience like your on-premises SAN.
+      imageSrc: ./media/index/elastic-san.svg
+      azureCategories:
+        - storage
+      url: storage/elastic-san/index.yml
+    # Card
     - title: Queue Storage
       summary: Effectively scale apps according to traffic
       imageSrc: https://static.docs.com/ui/media/product/azure/storage-accounts.svg
@@ -1532,6 +1571,7 @@ productDirectory:
       imageSrc: /media/logos/logo-azureorbital.svg
       azureCategories:
         - networking
+        - 5g-space
       url: orbital/index.yml
     # Card
     - title: Azure Web PubSub
@@ -1548,6 +1588,74 @@ productDirectory:
       azureCategories:
         - web
       url: azure-fluid-relay/index.yml
+    # Card
+    - title: Azure Operator Nexus
+      summary: Build your mission-critical mobile networks with a carrier-grade, hybrid cloud platform
+      imageSrc: ./media/index/operator-nexus.svg
+      azureCategories:
+       - 5g-space
+      url: operator-nexus/index.yml
+    # Card
+    - title: Azure Network Function Manager
+      summary: Extend Azure management for deploying 5G and SD-WAN network functions on edge devices
+      imageSrc: ./media/index/azure-network-function-manager.svg
+      azureCategories:
+       - networking
+       - 5g-space
+      url: network-function-manager/index.yml
+    # Card
+    - title: Azure Container Storage
+      summary: Manage persistent volumes for stateful container applications
+      imageSrc: https://static.docs.com/ui/media/product/azure/azure.svg
+      azureCategories:
+       - storage
+       - containers
+      url: /azure/storage/container-storage/
+   # Card
+    - title: Azure Managed Lustre
+      summary: A fully managed, cloud based parallel file system that enables customers to run their high performance computing (HPC) workloads in the cloud
+      imageSrc: ./media/index/managed-lustre.svg
+      azureCategories:
+       - storage
+      url: /azure/azure-managed-lustre/
+   # Card
+    - title: Azure confidential ledger
+      summary: Tamperproof, unstructured data store hosted in trusted execution environments (TEEs) and backed by cryptographically verifiable evidence
+      imageSrc: https://static.docs.com/ui/media/product/azure/azure.svg
+      azureCategories:
+       - storage
+       - databases
+       - security
+      url: /azure/confidential-ledger/
+   # Card
+    - title: Azure Lab Services
+      summary: Set up virtual labs for classes, training, hackathons, and other related scenarios
+      imageSrc: https://static.docs.com/ui/media/product/azure/azure.svg
+      azureCategories:
+       - azure-virtual-desktop
+      url: /azure/lab-services/
+   # Card
+    - title: Azure IoT
+      summary: A collection of Microsoft-managed cloud and edge services that connect, monitor, and control billions of IoT assets.
+      imageSrc: https://static.docs.com/ui/media/product/azure/azure.svg
+      azureCategories:
+       - iot
+      url: /azure/iot/
+    # Card
+    - title: Windows for IoT
+      summary: Set up virtual labs for classes, training, hackathons, and other related scenarios
+      imageSrc: https://static.docs.com/ui/media/product/azure/azure.svg
+      azureCategories:
+       - iot
+      url: /windows/iot/   
+    # Card
+    - title: Azure Kubernetes Service Edge Essentials
+      summary:  An on-premises Kubernetes implementation of Azure Kubernetes Service (AKS) that automates running containerized applications at scale.
+      imageSrc: https://static.docs.com/ui/media/product/azure/azure.svg
+      azureCategories:
+       - hybrid
+      url: /azure/aks/hybrid/aks-edge-overview  
+      
 tools:
   title: Languages and tools
   items:

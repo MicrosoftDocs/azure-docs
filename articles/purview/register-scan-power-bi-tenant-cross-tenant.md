@@ -6,7 +6,7 @@ ms.author: jingwang
 ms.service: purview
 ms.subservice: purview-data-map
 ms.topic: how-to
-ms.date: 10/24/2022
+ms.date: 06/08/2023
 ms.custom: template-how-to, ignite-fall-2021
 ---
 
@@ -16,11 +16,22 @@ This article outlines how to register a Power BI tenant in a cross-tenant scenar
 
 ## Supported capabilities
 
-|**Metadata extraction**|  **Full scan**  |**Incremental scan**|**Scoped scan**|**Classification**|**Access policy**|**Lineage**|**Data Sharing**|
-|---|---|---|---|---|---|---|---|
-| [Yes](#deployment-checklist)| [Yes](#deployment-checklist)| Yes | No | No | No| [Yes](how-to-lineage-powerbi.md)| No|
+|**Metadata Extraction**|  **Full Scan**  |**Incremental Scan**|**Scoped Scan**|**Classification**|**Labeling**|**Access Policy**|**Lineage**|**Data Sharing**|
+|---|---|---|---|---|---|---|---|---|
+| [Yes](#deployment-checklist)| [Yes](#deployment-checklist)| Yes | No | No | No| No| [Yes](how-to-lineage-powerbi.md)| No|
 
-For a list of metadata available for Power BI, see our [available metadata documentation](available-metadata.md).
+When scanning Power BI source, Microsoft Purview supports:
+
+- Extracting technical metadata including:
+
+    - Workspaces
+    - Dashboards
+    - Reports
+    - Datasets including the tables and columns
+    - Dataflows
+    - Datamarts
+
+- Fetching static lineage on assets relationships among above Power BI artifacts as well as external data source assets. Learn more from [Power BI lineage](how-to-lineage-powerbi.md).
 
 ### Supported scenarios for Power BI scans
 
@@ -149,7 +160,7 @@ Use either of the following deployment checklists during the setup, or for troub
       - `*.analysis.windows.net` 
    
    1. Network connectivity from the self-hosted runtime to Microsoft services is enabled.
-   1. [JDK 8 or later](https://www.oracle.com/java/technologies/javase-jdk11-downloads.html) is installed.
+   1. [JDK 8 or later](https://www.oracle.com/java/technologies/javase-jdk11-downloads.html) is installed. Restart the machine after you newly install the JDK for it to take effect.
 1. In Power BI tenant, In Azure Active Directory create a security group.
 1. In Power BI tenant, from Azure Active Directory tenant, make sure [Service Principal is member of the new security group](#authenticate-to-power-bi-tenant).
 1. On the Power BI Tenant Admin portal, validate if [Allow service principals to use read-only Power BI admin APIs](#associate-the-security-group-with-power-bi-tenant) is enabled for the new security group. 
@@ -218,7 +229,7 @@ In Azure Active Directory Tenant, where Power BI tenant is located:
 
     :::image type="content" source="./media/setup-power-bi-scan-PowerShell/allow-service-principals-power-bi-admin.png" alt-text="Image showing how to allow service principals to get read-only Power BI admin API permissions.":::
 
-5. Select **Admin API settings** > **Enhance admin APIs responses with detailed metadata** > Enable the toggle to allow Microsoft Purview Data Map automatically discover the detailed metadata of Power BI datasets as part of its scans.
+5. Select **Admin API settings** > **Enhance admin APIs responses with detailed metadata** and **Enhance admin APIs responses with DAX and mashup expressions** > Enable the toggle to allow Microsoft Purview Data Map automatically discover the detailed metadata of Power BI datasets as part of its scans.
 
     > [!IMPORTANT]
     > After you update the Admin API settings on your power bi tenant, wait around 15 minutes before registering a scan and test connection.

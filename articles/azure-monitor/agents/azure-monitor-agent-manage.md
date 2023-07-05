@@ -4,7 +4,7 @@ description: Options for managing Azure Monitor Agent on Azure virtual machines 
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 11/9/2022
+ms.date: 1/30/2022
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
 ms.reviewer: shseth
 
@@ -46,19 +46,19 @@ The following prerequisites must be met prior to installing Azure Monitor Agent.
     {
       "authentication": {
         "managedIdentity": {
-          "identifier-name": "mi_res_id" or "object_id" or "client_id",
+          "identifier-name": "msi_res_id" or "object_id" or "client_id",
           "identifier-value": "<resource-id-of-uai>" or "<guid-object-or-client-id>"
         }
       }
     }
     ```
-    We recommend that you use `mi_res_id` as the `identifier-name`. The following sample commands only show usage with `mi_res_id` for the sake of brevity. For more information on `mi_res_id`, `object_id`, and `client_id`, see the [Managed identity documentation](../../active-directory/managed-identities-azure-resources/how-to-use-vm-token.md#get-a-token-using-http).
+    We recommend that you use `msi_res_id` as the `identifier-name`. The following sample commands only show usage with `mi_res_id` for the sake of brevity. For more information on `msi_res_id`, `object_id`, and `client_id`, see the [Managed identity documentation](../../active-directory/managed-identities-azure-resources/how-to-use-vm-token.md#get-a-token-using-http).
   - **System-assigned**: This managed identity is suited for initial testing or small deployments. When used at scale, for example, for all VMs in a subscription, it results in a substantial number of identities created (and deleted) in Azure Active Directory. To avoid this churn of identities, use user-assigned managed identities instead. *For Azure Arc-enabled servers, system-assigned managed identity is enabled automatically* as soon as you install the Azure Arc agent. It's the only supported type for Azure Arc-enabled servers.
   - **Not required for Azure Arc-enabled servers**: The system identity is enabled automatically when you [create a data collection rule in the Azure portal](data-collection-rule-azure-monitor-agent.md#create-a-data-collection-rule).
 - **Networking**: If you use network firewalls, the [Azure Resource Manager service tag](../../virtual-network/service-tags-overview.md) must be enabled on the virtual network for the virtual machine. The virtual machine must also have access to the following HTTPS endpoints:
 
   -	global.handler.control.monitor.azure.com
-  -	`<virtual-machine-region-name>`.handler.control.monitor.azure.com (example: westus.handler.control.azure.com)
+  -	`<virtual-machine-region-name>`.handler.control.monitor.azure.com (example: westus.handler.control.monitor.azure.com)
   -	`<log-analytics-workspace-id>`.ods.opinsights.azure.com (example: 12345a01-b1cd-1234-e1f2-1234567g8h99.ods.opinsights.azure.com)  
     (If you use private links on the agent, you must also add the [dce endpoints](../essentials/data-collection-endpoint-overview.md#components-of-a-data-collection-endpoint)).
 
@@ -230,12 +230,12 @@ Use the following CLI commands to uninstall Azure Monitor Agent on Azure virtual
 
 - Windows
   ```azurecli
-  az vm extension delete --resource-group <resource-group-name> --vm-name <virtual-machine-name> -name AzureMonitorWindowsAgent
+  az vm extension delete --resource-group <resource-group-name> --vm-name <virtual-machine-name> --name AzureMonitorWindowsAgent
   ```
 
 - Linux
   ```azurecli
-  az vm extension delete --resource-group <resource-group-name> --vm-name <virtual-machine-name> -name AzureMonitorLinuxAgent
+  az vm extension delete --resource-group <resource-group-name> --vm-name <virtual-machine-name> --name AzureMonitorLinuxAgent
   ```
 
 ### Uninstall on Azure Arc-enabled servers
@@ -259,6 +259,9 @@ N/A
 ---
 
 ## Update
+
+> [!NOTE]
+> The recommendation is to enable [Automatic Extension Upgrade](../../virtual-machines/automatic-extension-upgrade.md) which may take **up to 5 weeks** after a new extension version is released for it to update installed extensions to the released (latest) version across all regions. Upgrades are issued in batches, so you may see some of your virtual machines, scale-sets or Arc-enabled servers get upgraded before others. If you need to upgrade an extension immediately, you may use the manual instructions below.
 
 #### [Portal](#tab/azure-portal)
 
@@ -372,9 +375,14 @@ Use the following policies and policy initiatives to automatically install the a
 
 ### Built-in policy initiatives
 
-Before you proceed, review [prerequisites for agent installation](azure-monitor-agent-manage.md#prerequisites).
+Before you proceed, review [prerequisites for agent installation](azure-monitor-agent-manage.md#prerequisites).  
 
-Policy initiatives for Windows and Linux virtual machines, scale sets consist of individual policies that:
+There are built-in policy initiatives for Windows and Linux virtual machines, scale sets that provide at-scale onboarding using Azure Monitor agents end-to-end 
+- [Deploy Windows Azure Monitor Agent with user-assigned managed identity-based auth and associate with Data Collection Rule](https://ms.portal.azure.com/#view/Microsoft_Azure_Policy/InitiativeDetailBlade/id/%2Fproviders%2FMicrosoft.Authorization%2FpolicySetDefinitions%2F0d1b56c6-6d1f-4a5d-8695-b15efbea6b49/scopes~/%5B%22%2Fsubscriptions%2Fae71ef11-a03f-4b4f-a0e6-ef144727c711%22%5D)
+- [Deploy Linux Azure Monitor Agent with user-assigned managed identity-based auth and associate with Data Collection Rule](https://ms.portal.azure.com/#view/Microsoft_Azure_Policy/InitiativeDetailBlade/id/%2Fproviders%2FMicrosoft.Authorization%2FpolicySetDefinitions%2Fbabf8e94-780b-4b4d-abaa-4830136a8725/scopes~/%5B%22%2Fsubscriptions%2Fae71ef11-a03f-4b4f-a0e6-ef144727c711%22%5D)  
+
+
+These initiatives above comprise individual policies that:
 
 - (Optional) Create and assign built-in user-assigned managed identity, per subscription, per region. [Learn more](../../active-directory/managed-identities-azure-resources/how-to-assign-managed-identity-via-azure-policy.md#policy-definition-and-details).
    - `Bring Your Own User-Assigned Identity`: If set to `true`, it creates the built-in user-assigned managed identity in the predefined resource group and assigns it to all machines that the policy is applied to. If set to `false`, you can instead use existing user-assigned identity that *you must assign* to the machines beforehand.

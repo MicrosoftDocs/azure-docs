@@ -4,7 +4,7 @@ description: Learn about frequently asked questions for Azure Bastion.
 author: cherylmc
 ms.service: bastion
 ms.topic: conceptual
-ms.date: 11/21/2022
+ms.date: 05/17/2023
 ms.author: cherylmc
 ---
 # Azure Bastion FAQ
@@ -29,7 +29,7 @@ Azure Bastion doesn't move or store customer data out of the region it's deploye
 
 ### <a name="vwan"></a>Does Azure Bastion support Virtual WAN?
 
-Yes, you can use Azure Bastion for Virtual WAN deployments. However, deploying Azure Bastion within a Virtual WAN hub isn't supported. You can deploy Azure Bastion in a spoke VNet and use the [IP-based connection](connect-ip-address.md) feature to connect to virtual machines deployed across a different VNet via the Virtual WAN hub. For more information, see [Set up routing configuration for a virtual network connection](../virtual-wan/how-to-virtual-hub-routing.md#routing-configuration).
+Yes, you can use Azure Bastion for Virtual WAN deployments. However, deploying Azure Bastion within a Virtual WAN hub isn't supported. You can deploy Azure Bastion in a spoke VNet and use the [IP-based connection](connect-ip-address.md) feature to connect to virtual machines deployed across a different VNet via the Virtual WAN hub. If the Azure Virtual WAN hub will be integrated with Azure Firewall as a [Secured Virtual Hub](../firewall-manager/secured-virtual-hub.md), default 0.0.0.0/0 route must not be overwritten. 
 
 ### <a name="dns"></a>Can I use Azure Bastion with Azure Private DNS Zones?
 
@@ -39,14 +39,14 @@ Azure Bastion needs to be able to communicate with certain internal endpoints to
 * blob.core.windows.net
 * core.windows.net
 * vaultcore.windows.net
-* vault.azure.com
+* vault.azure.net
 * azure.com
 
 You may use a private DNS zone ending with one of the names listed above (ex: privatelink.blob.core.windows.net).
 
 Azure Bastion isn't supported with Azure Private DNS Zones in national clouds.
 
-### <a name="dns"></a>Does Azure Bastion support Private Link?"
+### <a name="dns"></a>Does Azure Bastion support Private Link?
 
 No, Azure Bastion doesn't currently support private link.
 
@@ -94,7 +94,7 @@ Currently, by default, new Bastion deployments don't support zone redundancies. 
 
 ### <a name="azure-ad-guests"></a>Does Bastion support Azure AD guest accounts?
 
-Yes, [Azure AD guest accounts](../active-directory/external-identities/what-is-b2b.md) can be granted access to Bastion and can connect to virtual machines.
+Yes, [Azure AD guest accounts](../active-directory/external-identities/what-is-b2b.md) can be granted access to Bastion and can connect to virtual machines. However, Azure AD guest users can't connect to Azure VMs via Azure AD authentication. Non-guest users are supported via Azure AD authentication. For more information about Azure AD authentication for Azure VMs (for non-guest users), see [Log in to a Windows virtual machine in Azure by using Azure AD](../active-directory/devices/howto-vm-sign-in-azure-ad-windows.md).
 
 ## <a name="vm"></a>VM features and connection FAQs
 
@@ -105,7 +105,7 @@ In order to make a connection, the following roles are required:
 * Reader role on the virtual machine.
 * Reader role on the NIC with private IP of the virtual machine.
 * Reader role on the Azure Bastion resource.
-* Reader Role on the virtual network of the target virtual machine (if the Bastion deployment is in a peered virtual network).
+* Reader role on the virtual network of the target virtual machine (if the Bastion deployment is in a peered virtual network).
 
 ### <a name="publicip"></a>Do I need a public IP on my virtual machine to connect via Azure Bastion?
 
@@ -117,7 +117,7 @@ No. You can access your virtual machine from the Azure portal using your browser
 
 ### <a name="native-client"></a>Can I connect to my VM using a native client?
 
-Yes. You can connect to a VM from your local computer using a native client. See [Connect to a VM using a native client](connect-native-client-windows.md).
+Yes. You can connect to a VM from your local computer using a native client. See [Connect to a VM using a native client](native-client.md).
 
 ### <a name="agent"></a>Do I need an agent running in the Azure virtual machine?
 
@@ -167,13 +167,17 @@ To establish the correct key mappings for your target language, you must set the
 
 To set your target language as your keyboard layout on a Windows workstation, navigate to Settings > Time & Language > Language & Region. Under "Preferred languages," select "Add a language" and add your target language. You'll then be able to see your keyboard layouts on your toolbar. To set English (United States) as your keyboard layout, select "ENG" on your toolbar or click Windows + Spacebar to open keyboard layouts.
 
+### <a name="shortcut"></a>Is there a keyboard solution to toggle focus between a VM and browser?
+
+Users can use "Ctrl+Shift+Alt" to effectively switch focus between the VM and the browser. 
+
 ### <a name="res"></a>What is the maximum screen resolution supported via Bastion?
 
 Currently, 1920x1080 (1080p) is the maximum supported resolution.
 
 ### <a name="timezone"></a>Does Azure Bastion support timezone configuration or timezone redirection for target VMs?
 
-Azure Bastion currently doesn't support timezone redirection and isn't timezone configurable.
+Azure Bastion currently doesn't support timezone redirection and isn't timezone configurable. Timezone settings for a VM can be manually updated after successfully connecting to the Guest OS. 
 
 ### <a name="disconnect"></a>Will an existing session disconnect during maintenance on the Bastion host?
 
@@ -198,7 +202,7 @@ Make sure the user has **read** access to both the VM, and the peered VNet. Addi
 * Reader role on the virtual machine.
 * Reader role on the NIC with private IP of the virtual machine.
 * Reader role on the Azure Bastion resource.
-* Reader Role on the virtual network (Not needed if there isn't a peered virtual network).
+* Reader role on the virtual network (Not needed if there isn't a peered virtual network).
 
 |Permissions|Description|Permission type|
 |---|---| ---|
@@ -210,6 +214,12 @@ Make sure the user has **read** access to both the VM, and the peered VNet. Addi
 |Microsoft.Network/virtualNetworks/read|Get the virtual network definition|Action|
 |Microsoft.Network/virtualNetworks/subnets/virtualMachines/read|Gets references to all the virtual machines in a virtual network subnet|Action|
 |Microsoft.Network/virtualNetworks/virtualMachines/read|Gets references to all the virtual machines in a virtual network|Action|
+
+### My privatelink.azure.com cannot resolve to management.privatelink.azure.com
+
+This may be due to the Private DNS zone for privatelink.azure.com linked to the Bastion virtual network causing management.azure.com CNAMEs to resolve to management.privatelink.azure.com behind the scenes. Create a CNAME record in their privatelink.azure.com zone for management.privatelink.azure.com to arm-frontdoor-prod.trafficmanager.net to enable successful DNS resolution.
+
+
 
 ## Next steps
 

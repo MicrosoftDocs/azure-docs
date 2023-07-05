@@ -10,16 +10,13 @@ author: deeikele
 ms.reviewer: larryfr
 ms.date: 08/12/2022
 ms.topic: how-to
-ms.custom: devx-track-azurecli, cliv1, event-tier1-build-2022
+ms.custom: UpdateFrequency5, devx-track-azurecli, cliv1, event-tier1-build-2022
 ---
 
 # Manage Azure Machine Learning workspaces using Azure CLI extension v1
 
 [!INCLUDE [cli v1](../../../includes/machine-learning-cli-v1.md)]
 
-> [!div class="op_single_selector" title1="Select the version of Azure Machine Learning CLI extension you are using:"]
-> * [v1](how-to-manage-workspace-cli.md)
-> * [v2 (current version)](../how-to-manage-workspace-cli.md)
 
 [!INCLUDE [cli-version-info](../../../includes/machine-learning-cli-version-1-only.md)]
 
@@ -267,7 +264,8 @@ You can also delete the resource group, which deletes the workspace and all othe
 az group delete -g <resource-group-name>
 ```
 
-If you accidentally deleted your workspace, are still able to retrieve your notebooks. For more information, see the [workspace deletion](../how-to-high-availability-machine-learning.md#workspace-deletion) section of the disaster recovery article.
+> [!TIP]
+> The default behavior for Azure Machine Learning is to _soft delete_ the workspace. This means that the workspace is not immediately deleted, but instead is marked for deletion. For more information, see [Soft delete](../concept-soft-delete.md).
 
 ## Troubleshooting
 
@@ -294,4 +292,4 @@ To check for problems with your workspace, see [How to use workspace diagnostics
 
 To learn how to move a workspace to a new Azure subscription, see [How to move a workspace](../how-to-move-workspace.md).
 
-For information on how to keep your Azure ML up to date with the latest security updates, see [Vulnerability management](../concept-vulnerability-management.md).
+For information on how to keep your Azure Machine Learning up to date with the latest security updates, see [Vulnerability management](../concept-vulnerability-management.md).

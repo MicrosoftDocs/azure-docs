@@ -3,25 +3,41 @@ author: jkleinschnitz-msft
 ms.author: jameskl
 ms.service: azure-arc
 ms.topic: include
-ms.date: 12/7/2022
+ms.date: 05/02/2023
 ---
 
-<!---
+<!--
 At this time, a test or preview build is not available for the next release.
---->
+-->
 
-January 2023 test release is now available.
+July 2023 preview release is now available.
 
 |Component|Value|
 |-----------|-----------|
-|Container images registry/repository |`mcr.microsoft.com/arcdata/test`|
-|Container images tag |`v1.15.0_2023-01-10 `|
-|CRD names and version|`datacontrollers.arcdata.microsoft.com`: v1beta1, v1 through v6<br/>`exporttasks.tasks.arcdata.microsoft.com`: v1beta1, v1, v2<br/>`kafkas.arcdata.microsoft.com`: v1beta1, v1beta2, v1beta3<br/>`monitors.arcdata.microsoft.com`: v1beta1, v1, v2<br/>`sqlmanagedinstances.sql.arcdata.microsoft.com`: v1beta1, v1 through v9<br/>`postgresqls.arcdata.microsoft.com`: v1beta1, v1beta2, v1beta3, v1beta4<br/>`sqlmanagedinstancerestoretasks.tasks.sql.arcdata.microsoft.com`: v1beta1, v1<br/>`failovergroups.sql.arcdata.microsoft.com`: v1beta1, v1beta2, v1 through v2<br/>`activedirectoryconnectors.arcdata.microsoft.com`: v1beta1, v1beta2, v1<br/>`sqlmanagedinstancereprovisionreplicatask.tasks.sql.arcdata.microsoft.com`: v1beta1<br/>`telemetrycollectors.arcdata.microsoft.com`: v1beta1, v1beta2, v1beta3 *use to be otelcollectors*<br/>`telemetryrouters.arcdata.microsoft.com`: v1beta1, v1beta2, v1beta3, v1beta4<br/>`sqlmanagedinstancemonitoringprofiles.arcdata.microsoft.com`: v1beta1, v1beta2<br/>|
-|Azure Resource Manager (ARM) API version|2022-06-15-preview|
-|`arcdata` Azure CLI extension version|1.4.10 ([Download](https://aka.ms/az-cli-arcdata-ext))|
-|Arc-enabled Kubernetes helm chart extension version|1.15.0|
-|Azure Arc Extension for Azure Data Studio<br/>`arc`<br/>`azcli`|*No Changes*<br/>1.7.0 ([Download](https://aka.ms/ads-arcdata-ext))</br>1.7.0 ([Download](https://aka.ms/ads-azcli-ext))|
+|Container images registry/repository |`mcr.microsoft.com/arcdata/preview`|
+|Container images tag |`v1.21.0_2023-07-11`|
+|**CRD names and version:**| |
+|`activedirectoryconnectors.arcdata.microsoft.com`| v1beta1, v1beta2, v1|
+|`datacontrollers.arcdata.microsoft.com`| v1beta1, v1 through v5|
+|`exporttasks.tasks.arcdata.microsoft.com`| v1beta1, v1, v2|
+|`failovergroups.sql.arcdata.microsoft.com`| v1beta1, v1beta2, v1, v2|
+|`kafkas.arcdata.microsoft.com`| v1beta1 through v1beta4|
+|`monitors.arcdata.microsoft.com`| v1beta1, v1, v3|
+|`postgresqls.arcdata.microsoft.com`| v1beta1 through v1beta6|
+|`postgresqlrestoretasks.tasks.postgresql.arcdata.microsoft.com`| v1beta1|
+|`sqlmanagedinstances.sql.arcdata.microsoft.com`| v1beta1, v1 through v13|
+|`sqlmanagedinstancemonitoringprofiles.arcdata.microsoft.com`| v1beta1, v1beta2|
+|`sqlmanagedinstancereprovisionreplicatasks.tasks.sql.arcdata.microsoft.com`| v1beta1|
+|`sqlmanagedinstancerestoretasks.tasks.sql.arcdata.microsoft.com`| v1beta1, v1|
+|`telemetrycollectors.arcdata.microsoft.com`| v1beta1 through v1beta5|
+|`telemetryrouters.arcdata.microsoft.com`| v1beta1 through v1beta5|
+|Azure Resource Manager (ARM) API version|2023-01-15-preview|
+|`arcdata` Azure CLI extension version|1.5.3 ([Download](https://aka.ms/az-cli-arcdata-ext))|
+|Arc-enabled Kubernetes helm chart extension version|1.21.0|
+|Azure Arc Extension for Azure Data Studio<br/>`arc`<br/>`azcli`|<br/>1.8.0 ([Download](https://aka.ms/ads-arcdata-ext))</br>1.8.0 ([Download](https://aka.ms/ads-azcli-ext))|
+|SQL Database version | 957 |
 
-New for this release:
+### Release notes
 
-- Kafka "Separate" controller mode : This feature describes the ability to set ".spec.kraftControllerMode" to combined on a Kafka custom resource which creates two stateful sets (one for brokers and one for controllers) instead of a single "server" statefulset that houses both. This feature also ships some health checking, the ability to run multiple kafka instances in a cluster, and security improvements.
+- Proxy bypass is now supported for Arc SQL Server Extension. Starting this release, you can also specify services which should not use the specified proxy server.
+

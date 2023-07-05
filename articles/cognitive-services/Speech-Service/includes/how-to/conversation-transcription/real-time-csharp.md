@@ -89,7 +89,7 @@ Running the function `GetVoiceSignatureString()` returns a voice signature strin
 
 ## Transcribe conversations
 
-The following sample code demonstrates how to transcribe conversations in real time for two speakers. It assumes you've already created voice signature strings for each speaker as shown above. Substitute real information for `subscriptionKey`, `region`, and the path `filepath` for the audio you want to transcribe.
+The following sample code demonstrates how to transcribe conversations in real-time for two speakers. It assumes you've already created voice signature strings for each speaker as shown above. Substitute real information for `subscriptionKey`, `region`, and the path `filepath` for the audio you want to transcribe.
 
 If you don't use pre-enrolled user profiles, it will take a few more seconds to complete the first recognition of unknown users as speaker1, speaker2, etc.
 
@@ -107,6 +107,8 @@ This sample code does the following:
 
 > [!NOTE]
 > `AudioStreamReader` is a helper class you can get on [GitHub](https://github.com/Azure-Samples/cognitive-services-speech-sdk/blob/master/quickstart/csharp/dotnet/conversation-transcription/helloworld/AudioStreamReader.cs).
+
+If speaker identification or differentiate is enabled, then even if you have already received `Transcribed` results, the service is still evaluating them by accumulated audio information. If the service finds that any previous result was assigned an incorrect `UserId`, then a nearly identical `Transcribed` result will be sent again, where only the `UserId` and `UtteranceId` are different. Since the `UtteranceId` format is `{index}_{UserId}_{Offset}`, when you receive a `Transcribed` result, you could use `UtteranceId` to determine if the current `Transcribed` result is going to correct a previous one. Your client or UI logic could decide behaviors, like overwriting previous output, or to ignore the latest result.
 
 Call the function `TranscribeConversationsAsync()` to start conversation transcription.
 

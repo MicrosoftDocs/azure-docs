@@ -2,11 +2,10 @@
 title: Optimize Azure CDN for the type of content delivery
 description: Learn how Azure Content Delivery Network can optimize delivery based on type of content. Optimization best practices improve performance and origin offload.
 services: cdn
-documentationcenter: ''
 author: duongau
 ms.service: azure-cdn
 ms.topic: how-to
-ms.date: 03/25/2019
+ms.date: 02/27/2023
 ms.author: duau
 ---
 # Optimize Azure CDN for the type of content delivery
@@ -37,6 +36,9 @@ This article provides an overview of various optimization features and when you 
 
 
 **Azure CDN Standard from Akamai** profiles support the following optimizations:
+
+> [!IMPORTANT]
+> Azure CDN from Akamai is scheduled to be retired on October 31, 2023. For more information, see [**Migrate CDN provider**](cdn-change-provider.md) for guidance on migrating to another Azure CDN provider.
 
 * [General web delivery](#general-web-delivery) 
 
@@ -107,13 +109,13 @@ For more information about media streaming optimization, see [Media streaming op
 
 For **Azure CDN Standard from Akamai** profiles, large file downloads are optimized for content larger than 10 MB. If your average file size is smaller than 10 MB, use general web delivery. If your average files sizes are consistently larger than 10 MB, it might be more efficient to create a separate endpoint for large files. For example, firmware or software updates typically are large files. To deliver files larger than 1.8 GB, the large file download optimization is required.
 
-For **Azure CDN Standard from Microsoft**, **Azure CDN Standard from Verizon**, and **Azure CDN Premium from Verizon** profiles, use the general web delivery optimization type to deliver large file download content. There is no limitation on file download size.
+For **Azure CDN Standard from Microsoft**, **Azure CDN Standard from Verizon**, and **Azure CDN Premium from Verizon** profiles, use the general web delivery optimization type to deliver large file download content. There's no limitation on file download size.
 
 For more information about large file optimization, see [Large file optimization](cdn-large-file-optimization.md).
 
 ### Dynamic site acceleration
 
- Dynamic site acceleration (DSA) is available for **Azure CDN Standard from Akamai**, **Azure CDN Standard from Verizon**, and **Azure CDN Premium from Verizon** profiles. This optimization involves an additional fee to use; for more information, see [Content Delivery Network pricing](https://azure.microsoft.com/pricing/details/cdn/).
+ Dynamic site acceleration (DSA) is available for **Azure CDN Standard from Akamai**, **Azure CDN Standard from Verizon**, and **Azure CDN Premium from Verizon** profiles. This optimization involves an extra fee to use; for more information, see [Content Delivery Network pricing](https://azure.microsoft.com/pricing/details/cdn/).
 
 > [!NOTE]
 > Dynamic site acceleration from Microsoft is offered via [Azure Front Door Service](../frontdoor/front-door-overview.md) which is a global [anycast](https://en.wikipedia.org/wiki/Anycast) service leveraging Microsoft's private global network to deliver your app workloads.

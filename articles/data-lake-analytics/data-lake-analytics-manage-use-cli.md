@@ -2,14 +2,17 @@
 title: Manage Azure Data Lake Analytics using Azure CLI
 description: This article describes how to use the Azure CLI to manage Data Lake Analytics jobs, data sources, & users.
 ms.service: data-lake-analytics
+ms.custom: devx-track-azurecli
 ms.topic: how-to
-ms.date: 01/29/2018
+ms.date: 01/27/2023
 ---
 # Manage Azure Data Lake Analytics using the Azure CLI
 
 [!INCLUDE [manage-selector](../../includes/data-lake-analytics-selector-manage.md)]
 
-Learn how to manage Azure Data Lake Analytics accounts, data sources, users, and jobs using the Azure CLI. To see management topics using other tools, click the tab select above.
+[!INCLUDE [retirement-flag](includes/retirement-flag.md)]
+
+Learn how to manage Azure Data Lake Analytics accounts, data sources, users, and jobs using the Azure CLI. To see management topics using other tools, select the tab select above.
 
 ## Prerequisites
 
@@ -37,7 +40,7 @@ Before you begin this tutorial, you must have the following resources:
 
 ## Manage accounts
 
-Before running any Data Lake Analytics jobs, you must have a Data Lake Analytics account. Unlike Azure HDInsight, you don't pay for an Analytics account when it is not running a job. You only pay for the time when it is running a job.  For more information, see [Azure Data Lake Analytics Overview](data-lake-analytics-overview.md).
+Before running any Data Lake Analytics jobs, you must have a Data Lake Analytics account. Unlike Azure HDInsight, you don't pay for an Analytics account when it isn't running a job. You only pay for the time when it's running a job.  For more information, see [Azure Data Lake Analytics Overview](data-lake-analytics-overview.md).
 
 ### Create accounts
 
@@ -83,7 +86,7 @@ Data Lake Analytics currently supports the following two data sources:
 - [Azure Storage](../storage/common/storage-introduction.md)
 
 When you create an Analytics account, you must designate an Azure Data Lake Storage account to be the default
-storage account. The default Data Lake storage account is used to store job metadata and job audit logs. After you have created an Analytics account, you can add additional Data Lake Storage accounts and/or Azure Storage account.
+storage account. The default Data Lake storage account is used to store job metadata and job audit logs. After you've created an Analytics account, you can add other Data Lake Storage accounts and/or Azure Storage account.
 
 ### Find the default Data Lake Store account
 
@@ -93,7 +96,7 @@ You can view the default Data Lake Store account used by running the `az dla acc
    az dla account show --account "<Data Lake Analytics account name>"
    ```
 
-### Add additional Blob storage accounts
+### Add other Blob storage accounts
 
    ```azurecli
    az dla account blob-storage add --access-key "<Azure Storage Account Key>" --account "<Data Lake Analytics account name>" --storage-account-name "<Storage account name>"
@@ -103,9 +106,9 @@ You can view the default Data Lake Store account used by running the `az dla acc
 > Only Blob storage short names are supported. Don't use FQDN, for example "myblob.blob.core.windows.net".
 >
 
-### Add additional Data Lake Store accounts
+### Add other Data Lake Store accounts
 
-The following command updates the specified Data Lake Analytics account with an additional Data Lake Store account:
+The following command updates the specified Data Lake Analytics account with another Data Lake Store account:
 
    ```azurecli
    az dla account data-lake-store add --account "<Data Lake Analytics account name>" --data-lake-store-account-name "<Data Lake Store account name>"

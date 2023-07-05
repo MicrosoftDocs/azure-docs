@@ -46,7 +46,7 @@ If you already have a test user, you can skip this section. If you want to creat
 1. Find the new user, select to **view profile** and select **Edit**. Update the following attributes then select Save:
     - Job Title
     - Email (in the Contact Info section. Doesn't have to be an existing email address) 
-    - Photo (select JPG/PNG file with low, thumbnail like, resolution)
+    - Photo (select JPG file with low, thumbnail like, resolution. Maximum size is 2MB.)
 1. Open a new, private, browser window and navigate to page like [https://myapps.microsoft.com/](https://myapps.microsoft.com/) and sign in with your new user. The user name would be something like meganb@yourtenant.onmicrosoft.com. You'll be prompted to change your password
 
 ## Set up the user for Microsoft Authenticator
@@ -67,13 +67,13 @@ When you select + Add credential in the portal, you get the option to launch two
 
 ![Quickstart start screen](media/how-to-use-quickstart-verifiedemployee/verifiable-credentials-configure-verifiedemployee-quickstart.png)
 
-In the next screen, you enter some of the Display definitions, like logo url, text and background color. Since the credential is a managed credential with directory based claims, rules definitions are predefined. You don't need to enter rule definition details. The credential type will be **VerifiedEmployee** and the claims from the user’s profile are pre-set. Select Create to create the credential.
+In the next screen, you enter some of the Display definitions, like logo url, text and background color. Since the credential is a managed credential with directory based claims, rules definitions are predefined and can't be changed. You don't need to enter rule definition details. The credential type will be **VerifiedEmployee** and the claims from the user’s profile are pre-set. Select Create to create the credential.
 
 ![Card styling](media/how-to-use-quickstart-verifiedemployee/verifiable-credentials-configure-verifiedemployee-styling.png)
 
 ## Claims schema for Verified employee credential
 
-All of the claims in the Verified employee credential come from attributes in the [user's profile](/graph/api/resources/user) in Azure AD for the issuing tenant. All claims, except photo, come from the Microsoft Graph Query [https://graph.microsoft.com/v1.0/me](/graph/api/user-get). The photo claim comes from the value returned from the Microsoft Graph Query [https://graph.microsoft.com/v1.0/me/photo/$value.](/graph/api/profilephoto-get)
+All of the claims in the Verified employee credential come from attributes in the [user's profile](/graph/api/resources/user) in Azure AD for the issuing tenant. You can't modify the set of claims. All claims, except photo, come from the Microsoft Graph Query [https://graph.microsoft.com/v1.0/me](/graph/api/user-get). The photo claim comes from the value returned from the Microsoft Graph Query [https://graph.microsoft.com/v1.0/me/photo/$value.](/graph/api/profilephoto-get)
 
 | Claim | Directory attribute | Value  |
 |---------|---------|---------|
@@ -84,7 +84,7 @@ All of the claims in the Verified employee credential come from attributes in th
 | `jobTitle` | `jobTitle` | The user's job title. This attribute doesn't have a value by default in the user's profile. If the user's profile has no value specified, there's no `jobTitle` claim in the issued VC. |
 | `preferredLanguage` | `preferredLanguage` | Should follow [ISO 639-1](https://en.wikipedia.org/wiki/ISO_639-1) and contain a value like `en-us`. There's no default value specified. If there's no value, no claim  is included in the issued VC. |
 | `mail` | `mail` | The user's email address. The `mail` value isn't the same as the UPN. It's also an attribute that doesn't have a value by default. 
-| `photo` | `photo` | The uploaded photo for the user. The image type (JPEG, PNG, etc.), depends on the uploaded image type. When presenting the photo claim to a verifier, the photo claim is in the UrlEncode(Base64Encode(photo)) format. To use the photo, the verifier application has to Base64Decode(UrlDecode(photo)).
+| `photo` | `photo` | The uploaded photo for the user. The image type should be JPEG and the maximum size is 2MB. When presenting the photo claim to a verifier, the photo claim is in the UrlEncode(Base64Encode(photo)) format. To use the photo, the verifier application has to Base64Decode(UrlDecode(photo)).
 
 See full Azure AD user profile [properties reference](/graph/api/resources/user).
 
@@ -108,6 +108,11 @@ The configuration file depends on the sample in-use.
 - **node** - [config.json](https://github.com/Azure-Samples/active-directory-verifiable-credentials-node/blob/main/1-node-api-idtokenhint/config.json)
 - **python** - [config.json](https://github.com/Azure-Samples/active-directory-verifiable-credentials-python/blob/main/1-python-api-idtokenhint/config.json)
 - **Java** - values are set as environment variables in [run.cmd](https://github.com/Azure-Samples/active-directory-verifiable-credentials-java/blob/main/1-java-api-idtokenhint/run.cmd) and [run.sh](https://github.com/Azure-Samples/active-directory-verifiable-credentials-java/blob/main/1-java-api-idtokenhint/run.sh) or docker-run.cmd/docker-run.sh when using docker.
+
+## Remarks
+
+>[!NOTE]
+> This schema is fixed and it is not supported to add or remove claims in the schema. The attestation flow for directory based claims is also fixed and it is unsupported to try and change it to become a custom credential with id token hint attestation flow, for example.
 
 ## Next steps
 

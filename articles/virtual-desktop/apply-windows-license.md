@@ -5,7 +5,6 @@ author: Heidilohr
 ms.topic: how-to
 ms.date: 11/14/2022
 ms.author: helohr 
-ms.custom: devx-track-azurepowershell
 ---
 # Apply Windows license to session host virtual machines
 

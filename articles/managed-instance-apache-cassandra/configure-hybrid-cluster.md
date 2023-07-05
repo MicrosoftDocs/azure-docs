@@ -15,7 +15,7 @@ Azure Managed Instance for Apache Cassandra provides automated deployment and sc
 
 This quickstart demonstrates how to use the Azure CLI commands to configure a hybrid cluster. If you have existing datacenters in an on-premises or self-hosted environment, you can use Azure Managed Instance for Apache Cassandra to add other datacenters to that cluster and maintain them.
 
-[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment.md)]
 
 * This article requires the Azure CLI version 2.30.0 or higher. If you are using Azure Cloud Shell, the latest version is already installed.
 
@@ -59,7 +59,7 @@ This quickstart demonstrates how to use the Azure CLI commands to configure a hy
 
    1. Certs signed by a CA. This can be a self-signed CA or even a public one. In this case we need the root CA certificate (refer to instructions on [preparing SSL certificates for production](https://docs.datastax.com/en/cassandra-oss/3.x/cassandra/configuration/secureSSLCertWithCA.html)), and all intermediaries (if applicable).
 
-   Optionally, if you have also implemented client-to-node certificates (see [here](https://docs.datastax.com/en/cassandra-oss/3.x/cassandra/configuration/secureSSLClientToNode.html)), you also need to provide them in the same format when creating the hybrid cluster. See sample below.
+   Optionally, if you want to implement client-to-node certificate authentication or mutual Transport Layer Security (mTLS) as well, you need to provide the certificates in the same format as when creating the hybrid cluster. See Azure CLI sample below - the certificates are provided in the `--client-certificates` parameter. This will upload and apply your client certificates to the truststore for your Cassandra Managed Instance cluster (i.e. you do not need to edit cassandra.yaml settings). Once applied, your cluster will require Cassandra to verify the certificates when a client connects (see `require_client_auth: true` in Cassandra [client_encryption_options](https://cassandra.apache.org/doc/latest/cassandra/configuration/cass_yaml_file.html#client_encryption_options )).
 
    > [!NOTE]
    > The value of the `delegatedManagementSubnetId` variable you will supply below is exactly the same as the value of `--scope` that you supplied in the command above:

@@ -1,13 +1,13 @@
 ---
-title: Tutorial - Explore an Azure IoT Central industrial scenario | Microsoft Docs
-description: This tutorial shows you how to deploy an end-to-end industrial IoT solution. You install an IoT Edge gateway, an IoT Central application, and an Azure Data Explorer workspace.
+title: Tutorial - Explore an Azure IoT Central industrial scenario
+description: This tutorial shows you how to deploy an end-to-end industrial IoT solution by using IoT Edge, IoT Central, and Azure Data Explorer.
 author: dominicbetts
 ms.author: dobett
 ms.date: 09/15/2022
 ms.topic: tutorial
 ms.service: iot-central
+ms.custom: devx-track-azurecli
 services: iot-central
-
 #Customer intent: As a solution builder, I want to deploy a complete industrial IoT solution that uses IoT Central so that I understand how IoT Central enables industrial IoT scenarios.
 ---
 
@@ -41,7 +41,7 @@ In this tutorial, you learn how to:
 
 In this tutorial, you use the Azure CLI to create an app registration in Azure Active Directory:
 
-[!INCLUDE [azure-cli-prepare-your-environment-no-header](../../../includes/azure-cli-prepare-your-environment-no-header.md)]
+[!INCLUDE [azure-cli-prepare-your-environment-no-header](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment-no-header.md)]
 
 ## Setup
 
@@ -158,7 +158,7 @@ The IoT Edge deployment manifest defines four custom modules:
 
 - [azuremetricscollector](../../iot-edge/how-to-collect-and-transport-metrics.md?view=iotedge-2020-11&tabs=iotcentral&preserve-view=true) - sends metrics from the IoT Edge device to the IoT Central application.
 - [opcplc](https://github.com/Azure-Samples/iot-edge-opc-plc) - generates simulated OPC-UA data.
-- [opcpublisher](https://github.com/Azure/Industrial-IoT/blob/main/docs/modules/publisher.md) - forwards OPC-UA data from an OPC-UA server to the **miabgateway**.
+- [opcpublisher](https://github.com/Azure/Industrial-IoT/tree/main/docs/opc-publisher) - forwards OPC-UA data from an OPC-UA server to the **miabgateway**.
 - [miabgateway](https://github.com/iot-for-all/iotc-miab-gateway) - gateway to send OPC-UA data to your IoT Central app and handle commands sent from your IoT Central app.
 
 You can see the deployment manifest in the tool configuration file. The tool assigns the deployment manifest to the IoT Edge device it registers in your IoT Central application.
@@ -169,7 +169,7 @@ To learn more about how to use the REST API to deploy and configure the IoT Edge
 
 The [opcplc](https://github.com/Azure-Samples/iot-edge-opc-plc) module on the IoT Edge device generates simulated OPC-UA data for the solution. This module implements an OPC-UA server with multiple nodes that generate random data and anomalies. The module also lets you configure user defined nodes.
 
-The [opcpublisher](https://github.com/Azure/Industrial-IoT/blob/main/docs/modules/publisher.md) module on the IoT Edge device forwards OPC-UA data from an OPC-UA server to the **miabgateway** module.
+The [opcpublisher](https://github.com/Azure/Industrial-IoT/tree/main/docs/opc-publisher) module on the IoT Edge device forwards OPC-UA data from an OPC-UA server to the **miabgateway** module.
 
 ### IoT Central application
 

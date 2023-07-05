@@ -3,7 +3,7 @@ title: Create an autoscale scaling plan for Azure Virtual Desktop
 description: How to create an autoscale scaling plan to optimize deployment costs.
 author: Heidilohr
 ms.topic: how-to
-ms.date: 08/15/2022
+ms.date: 02/03/2023
 ms.author: helohr
 manager: femila
 ms.custom: references_regions
@@ -22,7 +22,7 @@ To learn more about autoscale, see [Autoscale scaling plans and example scenario
 > - Azure Virtual Desktop (classic) doesn't support autoscale. 
 > - Autoscale doesn't support Azure Virtual Desktop for Azure Stack HCI.
 > - Autoscale doesn't support scaling of ephemeral disks.
-> - Autoscale doesn't support scaling of generalized VMs.
+> - Autoscale doesn't support scaling of generalized or sysprepped VMs with machine-specific information removed. For more information, see [Remove machine-specific information by generalizing a VM before creating an image](../virtual-machines/generalize.md).
 > - You can't use autoscale and [scale session hosts using Azure Automation and Azure Logic Apps](scaling-automation-logic-apps.md) on the same host pool. You must use one or the other.
 > - Autoscale is available in Azure and Azure Government.
 
@@ -34,6 +34,7 @@ For best results, we recommend using autoscale with VMs you deployed with Azure 
 >   - Australia East
 >   - Canada Central
 >   - Canada East
+>   - Central India
 >   - Central US
 >   - East US
 >   - East US 2
@@ -62,52 +63,7 @@ To use scaling plans, make sure you follow these guidelines:
 
 Before creating your first scaling plan, you'll need to assign the *Desktop Virtualization Power On Off Contributor* RBAC role with your Azure subscription as the assignable scope. Assigning this role at any level lower than your subscription, such as the resource group, host pool, or VM, will prevent autoscale from working properly. You'll need to add each Azure subscription as an assignable scope that contains host pools and session host VMs you want to use with autoscale. This role and assignment will allow Azure Virtual Desktop to manage the power state of any VMs in those subscriptions. It will also let the service apply actions on both host pools and VMs when there are no active user sessions. 
 
-To assign the *Desktop Virtualization Power On Off Contributor* role with the Azure portal to the Azure Virtual Desktop service principal on the subscription your host pool is deployed to:
-
-1. Sign in to the Azure portal and go to **Subscriptions**. Select a subscription that contains a host pool and session host VMs you want to use with autoscale.
-
-1. Select **Access control (IAM)**.
-
-1. Select the **+ Add** button, then select **Add role assignment** from the drop-down menu.
-
-1. Select the **Desktop Virtualization Power On Off Contributor** role and select **Next**.
-
-1. On the **Members** tab, select **User, group, or service principal**, then select **+Select members**. In the search bar, enter and select either **Azure Virtual Desktop** or **Windows Virtual Desktop**. Which value you have depends on when the *Microsoft.DesktopVirtualization* resource provider was first registered in your Azure tenant. If you see two entries titled *Windows Virtual Desktop*, please see the tip below.
-
-1. Select **Review + assign** to complete the assignment. Repeat this for any other subscriptions that contain host pools and session host VMs you want to use with autoscale.
-
-> [!TIP]
-> The application ID for the service principal is **9cdead84-a844-4324-93f2-b2e6bb768d07**.
->
-> If you have an Azure Virtual Desktop (classic) deployment and an Azure Virtual Desktop (Azure Resource Manager) deployment where the *Microsoft.DesktopVirtualization* resource provider was registered before the display name changed, you will see two apps with the same name of *Windows Virtual Desktop*. To add the role assignment to the correct service principal, [you can use PowerShell](../role-based-access-control/role-assignments-powershell.md) which enables you to specify the application ID:
->
-> To assign the *Desktop Virtualization Power On Off Contributor* role with PowerShell to the Azure Virtual Desktop service principal on the subscription your host pool is deployed to:
->
-> 1. Open [Azure Cloud Shell](../cloud-shell/overview.md) with PowerShell as the shell type.
->
-> 1. Get the object ID for the service principal (which is unique in each Azure tenant) and store it in a variable:
->
->    ```powershell
->    $objId = (Get-AzADServicePrincipal -AppId "9cdead84-a844-4324-93f2-b2e6bb768d07").Id
->    ```
->
-> 1. Find the name of the subscription you want to add the role assignment to by listing all that are available to you:
->
->    ```powershell
->    Get-AzSubscription
->    ```
->
-> 1. Get the subscription ID and store it in a variable, replacing the value for `-SubscriptionName` with the name of the subscription from the previous step:
->
->    ```powershell
->    $subId = (Get-AzSubscription -SubscriptionName "Microsoft Azure Enterprise").Id
->    ```
->
-> 1. Add the role assignment:
->
->    ```powershell
->    New-AzRoleAssignment -RoleDefinitionName "Desktop Virtualization Power On Off Contributor" -ObjectId $objId -Scope /subscriptions/$subId
->    ```
+To learn how to assign the *Desktop Virtualization Power On Off Contributor* role to the Azure Virtual Desktop service principal, see [Assign RBAC roles to the Azure Virtual Desktop service principal](service-principal-assign-roles.md).
 
 ## Create a scaling plan
 

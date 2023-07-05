@@ -14,7 +14,7 @@ Use the Azure CLI commands described here to manage your log analytics workspace
 
 [!INCLUDE [Log Analytics agent deprecation](../../../includes/log-analytics-agent-deprecation.md)]
 
-[!INCLUDE [Prepare your Azure CLI environment](../../../includes/azure-cli-prepare-your-environment.md)]
+[!INCLUDE [Prepare your Azure CLI environment](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment.md)]
 
 ## Create a workspace for Monitor Logs
 

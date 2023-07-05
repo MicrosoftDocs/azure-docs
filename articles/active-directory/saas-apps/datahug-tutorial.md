@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory integration with Datahug | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory integration with Datahug'
 description: Learn how to configure single sign-on between Azure Active Directory and Datahug.
 services: active-directory
 author: jeevansd

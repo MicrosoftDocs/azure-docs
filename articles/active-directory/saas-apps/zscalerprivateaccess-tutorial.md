@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory integration with Zscaler Private Access (ZPA) | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory integration with Zscaler Private Access (ZPA)'
 description: Learn how to configure single sign-on between Azure Active Directory and Zscaler Private Access (ZPA).
 services: active-directory
 author: jeevansd
@@ -121,15 +121,10 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 ## Configure Zscaler Private Access (ZPA) SSO
 
-1. To automate the configuration within Zscaler Private Access (ZPA), you need to install **My Apps Secure Sign-in browser extension** by clicking **Install the extension**.
 
-	![My apps extension](common/install-myappssecure-extension.png)
 
-2. After adding extension to the browser, click on **Setup Zscaler Private Access (ZPA)** will direct you to the Zscaler Private Access (ZPA) application. From there, provide the admin credentials to sign into Zscaler Private Access (ZPA). The browser extension will automatically configure the application for you and automate steps 3-6.
 
-	![Setup configuration](common/setup-sso.png)
-
-3. If you want to setup Zscaler Private Access (ZPA) manually, open a new web browser window and sign into your Zscaler Private Access (ZPA) company site as an administrator and perform the following steps:
+1. In a different web browser window, sign in to your Zscaler Private Access (ZPA) company site as an administrator
 
 4. From the left side of menu, click **Administration** and navigate to **AUTHENTICATION** section click **IdP Configuration**.
 

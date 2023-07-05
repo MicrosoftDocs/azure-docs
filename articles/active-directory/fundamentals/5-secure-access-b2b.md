@@ -1,6 +1,6 @@
 ---
-title: Transition to governed collaboration with Azure Active Directory B2B Collaboration 
-description: Move to governed collaboration with Azure Ad B2B collaboration.
+title: Transition to governed collaboration with Azure Active Directory B2B collaboration 
+description: Move to governed collaboration with Azure Ad B2B collaboration by using controls, tools, and settings. 
 services: active-directory
 author: gargi-sinha
 manager: martinco
@@ -8,252 +8,255 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: fundamentals
 ms.topic: conceptual
-ms.date: 09/13/2022
+ms.date: 02/22/2023
 ms.author: gasinh
 ms.reviewer: ajburnle
 ms.custom: "it-pro, seodec18"
 ms.collection: M365-identity-device-management
 ---
 
-# Transition to governed collaboration with Azure Active Directory B2B collaboration 
+# Transition to governed collaboration with Azure Active Directory B2B collaboration
 
-Getting your collaboration under control is key to securing external access to your resources. Before going forward with this article, be sure that you have:
+Understanding collaboration helps secure external access to your resources. Use the information in this article to move external collaboration into Azure Active Directory B2B (Azure AD B2B) collaboration. 
 
-* [Determined your security posture](1-secure-access-posture.md)
+* See, [B2B collaboration overview](../external-identities/what-is-b2b.md)
+* Learn about: [External Identities in Azure AD](../external-identities/external-identities-overview.md)
 
-* [Discovered your current state](2-secure-access-current-state.md)
+## Before you begin
 
-* [Created a security plan](3-secure-access-plan.md)
+This article is number 5 in a series of 10 articles. We recommend you review the articles in order. Go to the **Next steps** section to see the entire series. 
 
-* [Understood how groups and security work together](4-secure-access-groups.md)
+## Control collaboration 
 
-Once you’ve done those things, you're ready to move into controlled collaboration. This article will guide you to move all your external collaboration into [Azure Active Directory B2B collaboration](../external-identities/what-is-b2b.md) (Azure AD B2B). Azure AD B2B is a feature of [Azure AD External Identities](../external-identities/external-identities-overview.md).
+You can limit the organizations your users collaborate with (inbound and outbound), and who in your organization can invite guests. Most organizations permit business units to decide collaboration, and delegate approval and oversight. For example, organizations in government, education, and finance often don't permit open collaboration. You can use Azure AD features to control collaboration.
 
-## Control who your organization collaborates with
+To control access your tenant, deploy one or more of the following solutions:
 
-You can decide whether to limit which organizations your users can collaborate with (inbound and outbound), and who within your organization can invite guests. Most organizations take the approach of permitting business units to decide with whom they collaborate, and delegating the approval and oversight as needed. For example, some government, education, and financial services organizations don't permit open collaboration. You may wish to use the Azure AD features to scope collaboration, as discussed in the rest of this section.
-
-You have several options on how to control who is allowed to access your tenant. These options include: 
-
-- **External Collaboration Settings** – Restrict the email domains that invitations can be sent to. 
-
-- **Cross Tenant Access Settings** – Control what applications can be accessed by guests on a per user/group/tenant basis (inbound). Also controls what external Azure AD tenants and applications your own users can access (outbound). 
-
-- **Connected Organizations** – Control what organizations are allowed to request Access Packages in Entitlement Management. 
-
-Depending on the requirements of your organization, you may need to deploy one or more of these solutions. 
+- **External collaboration settings** – restrict the email domains that invitations go to
+- **Cross tenant access settings** – control application access by guests by user, group, or tenant (inbound). Control external Azure AD tenant and application access for users (outbound).
+- **Connected organizations** – determine what organizations can request access packages in Entitlement Management 
 
 ### Determine collaboration partners
 
-First, ensure you have documented the organizations you are currently collaborating with, and if necessary, the  domains for those organizations' users. Note that domain-based restrictions may be impractical, since one collaboration partner may have multiple domains, and a partner could add domains at any time. For example, a partner may have multiple business units with separate domains and add more domains as they configure more synchronization.
+Document the organizations you collaborate with, and organization users' domains, if needed. Domain-based restrictions might be impractical. One collaboration partner can have multiple domains, and a partner can add domains. For example, a partner with multiple business units, with separate domains, can add more domains as they configure synchronization.
 
-If your users have already started using Azure AD B2B, you can discover what external Azure AD tenants your users are currently collaborating with via the sign-in logs, [PowerShell](https://github.com/AzureAD/MSIdentityTools/wiki/Get-MSIDCrossTenantAccessActivity), or a [built-in workbook](../reports-monitoring/workbook-cross-tenant-access-activity.md).
+If your users use Azure AD B2B, you can discover the external Azure AD tenants they're collaborating with, with the sign-in logs, PowerShell, or a workbook. Learn more:
 
-Next, determine if you want to enable future collaboration with 
+* [Get MsIdCrossTenantAccessActivity](https://github.com/AzureAD/MSIdentityTools/wiki/Get-MSIDCrossTenantAccessActivity)
+* [Cross-tenant access activity workbook](../reports-monitoring/workbook-cross-tenant-access-activity.md)
 
--	any external organization (most inclusive)
+You can enable future collaboration with: 
 
--	all external organizations except those explicitly denied
-
--	only specific external organizations  (most restrictive)
-
-> [!NOTE]
-> The more restrictive your collaboration settings, the more likely that your users will go outside of your approved collaboration framework. We recommend enabling the broadest collaboration your security needs will allow, and closely reviewing that collaboration rather than being overly restrictive. 
-
-Also note that limiting to a single domain may inadvertently prevent authorized collaboration with organizations, which have other unrelated domains for their users. For example, if doing business with an organization Contoso, the initial point of contact with Contoso might be one of their US-based employees who has an email with a ".com" domain. However if you only allow the ".com" domain you may inadvertently omit their Canadian employees who have ".ca" domain. 
-
-There are circumstances in which you would want to only allow specific collaboration partners for a subset of users. For example, a university may want to restrict student accounts from accessing external tenants but need to allow faculty to collaborate with external organizations.
-
-### Using allow and blocklists with External Collaboration Settings
-
-You can use an allowlist or blocklist to [restrict invitations to B2B users](../external-identities/allow-deny-list.md) from specific organizations. You can use only an allow or a blocklist, not both.
-
-* An [allowlist](../external-identities/allow-deny-list.md) limits collaboration to only those domains listed; all other domains are effectively on the blocklist.
-
-* A [blocklist](../external-identities/allow-deny-list.md) allows collaboration with any domain not on the blocklist.
+-	**External organizations** - most inclusive
+-	**External organizations, but not denied organizations**
+-	**Specific external organizations** - most restrictive
 
 > [!NOTE]
-> Limiting to a predefined  domain may inadvertently prevent authorized collaboration with organizations, which have other domains for their users. For example, if doing business with an organization Contoso, the initial point of contact with Contoso might be one of their US-based employees who has an email with a ".com" domain. However, if you only allow the ".com" domain you may inadvertently omit their Canadian employees who have ".ca" domain.
+> If your collaboration settings are highly restrictive, your users might go outside the collaboration framework. We recommend you enable a broad collaboration that your security requirements allow. 
+
+Limits to one domain can prevent authorized collaboration with organizations that have other, unrelated domains. For example, the initial point of contact with Contoso might be a US-based employee with email that has a `.com` domain. However if you allow only the `.com` domain, you can omit Canadian employees who have the `.ca` domain. 
+
+You can allow specific collaboration partners for a subset of users. For example, a university might restrict student accounts from accessing external tenants, but can allow faculty to collaborate with external organizations.
+
+### Allowlist and blocklist with external collaboration settings
+
+You can use an allowlist or blocklist for organizations. You can use an allowlist, or a blocklist, not both.
+
+* **Allowlist** - limit collaboration to a list of domains. Other domains are on the blocklist.
+* **Blocklist** - allow collaboration with domains not on the blocklist
+
+Learn more: [Allow or block invitations to B2B users from specific organizations](../external-identities/allow-deny-list.md) 
 
 > [!IMPORTANT]
-> These lists do not apply to users who are already in your directory. By default, they also do not apply to OneDrive for Business and SharePoint allow/blocklists which are separate unless you enable the [SharePoint/OneDrive B2B integration](/sharepoint/sharepoint-azureb2b-integration).  
+> Allowlists and blocklists don't apply to users in your directory. By default, they don't apply to OneDrive for Business and SharePoint allowlist or blocklists; these lists are separate. However, you can enable [SharePoint-OneDrive B2B integration](/sharepoint/sharepoint-azureb2b-integration).  
 
-Some organizations use a list of known ‘bad actor’ domains provided by their managed security provider for their blocklist. For example, if the organization is legitimately doing business with Contoso and using a .com domain, there may be an unrelated organization that has been using the Contoso .org domain and attempting a phishing attack to impersonate Contoso employees. 
+Some organizations have a blocklist of bad-actor domains from a managed security provider. For example, if the organization does business with Contoso and uses a `.com` domain, an unrelated organization can use the `.org` domain, and attempt a phishing attack. 
 
-### Using Cross Tenant Access Settings
+### Cross tenant access settings
 
-You can control both inbound and outbound access using Cross Tenant Access Settings. In addition, you can trust MFA, Compliant device, and hybrid Azure Active Directory joined device (HAADJ) claims from all or a subset of external Azure AD tenants. When you configure an organization specific policy, it applies to the entire Azure AD tenant and will cover all users from that tenant regardless of the user’s domain suffix. 
+You can control inbound and outbound access using cross tenant access settings. In addition, you can trust multi-factor authentication (MFA), a compliant device, and hybrid Azure Active Directory joined device (HAAJD) claims from external Azure AD tenants. When you configure an organizational policy, it applies to the Azure AD tenant and applies to users in that tenant, regardless of domain suffix. 
 
-You can enable collaboration across Microsoft clouds such as Microsoft Azure China 21Vianet or Microsoft Azure Government with additional configuration. Determine if any of your collaboration partners reside in a different Microsoft cloud. If so, you should [enable collaboration with these partners using Cross Tenant Access Settings](../external-identities/cross-cloud-settings.md).
+You can enable collaboration across Microsoft clouds, such as Microsoft Azure operated by 21Vianet (Azure China) or Azure Government. Determine if your collaboration partners reside in a different Microsoft cloud. 
 
-If you wish to allow inbound access to only specific tenants (allowlist), you can set the default policy to block access and then create organization policies to granularly allow access on a per user, group, and application basis.
+Learn more: 
 
-If you wish to block access to specific tenants (blocklist), you can set the default policy as allow and then create organization policies that block access to those specific tenants. 
+* [Microsoft Azure operated by 21Vianet](/azure/china/overview-operations)
+* [Azure Government developer guide](/azure/azure-government/documentation-government-developer-guide)
+* [Configure Microsoft cloud settings for B2B collaboration (Preview)](../external-identities/cross-cloud-settings.md).
+
+You can allow inbound access to specific tenants (allowlist), and set the default policy to block access. Then, create organizational policies that allow access by user, group, or application.
+
+You can block access to tenants (blocklist). Set the default policy to **Allow** and then create organizational policies that block access to some tenants. 
 
 > [!NOTE]
-> Cross Tenant Access Settings Inbound Access does not prevent the invitations from being sent or redeemed. However, it does control what applications can be accessed and whether a token is issued to the guest user or not. Even if the guest can redeem an invitation, if the policy blocks access to all applications, the user will not have access to anything.
+> Cross tenant access settings, inbound access does not prevent users from sending invitations, nor prevent them from being redeemed. However, it does control application access and whether a token is issued to the guest user. If the guest can redeem an invitation, policy blocks application access.
 
-If you wish to control what external organizations your users can access, you can configure outbound access policies following the same pattern as inbound access – allow/blocklist. Configure the default and organization-specific policies as desired. [Learn more about configuring inbound and outbound access policies](../external-identities/cross-tenant-access-settings-b2b-collaboration.md). 
+To control external organizations users access, configure outbound access policies similarly to inbound access: allowlist and blocklist. Configure default and organization-specific policies. 
+
+Learn more: [Configure cross-tenant access settings for B2B collaboration](../external-identities/cross-tenant-access-settings-b2b-collaboration.md)
 
 > [!NOTE]
-> Cross Tenant Access Settings only applies to Azure AD tenants. If you need to control access to partners who do not use Azure AD, you must use External Collaboration Settings.
+> Cross tenant access settings apply to Azure AD tenants. To control access for partners not using Azure AD, use external collaboration settings.
 
-### Using Entitlement Management and Connected Organizations
+### Entitlement management and connected organizations
 
-If you want to use Entitlement Management to ensure guest lifecycle is governed automatically, you can create Access Packages and publish them to any external user or only to Connected Organizations. Connected Organizations support Azure AD tenants and any other domain. When you create an Access Package you can restrict access only to specific Connected Organizations. This is covered in greater detail in the next section. [Learn more about Entitlement Management](../governance/entitlement-management-overview.md). 
+Use entitlement management to ensure automatic guest-lifecycle governance. Create access packages and publish them to external users or to connected organizations, which support Azure AD tenants and other domains. When you create an access package, restrict access to connected organizations. 
 
-## Control how external users gain access
+Learn more: [What is entitlement management?](../governance/entitlement-management-overview.md)
 
-There are many ways to collaborate with external partners using Azure AD B2B. To begin collaboration, you invite or otherwise enable your partner to access your resources. Users can gain access by responding to :
+## Control external user access
 
-* Redeeming [an invitation sent via an email](../external-identities/redemption-experience.md), or [a direct link to share](../external-identities/redemption-experience.md) a resource. Users can gain access by:
+To begin collaboration, invite or enable a partner to access resources. Users gain access by:
 
-* Requesting access [through an application](../external-identities/self-service-sign-up-overview.md) you create
+* [Azure AD B2B collaboration invitation redemption](../external-identities/redemption-experience.md) 
+* [Self-service sign-up](../external-identities/self-service-sign-up-overview.md)
+* [Requesting access to an access package in entitlement management](../governance/entitlement-management-request-access.md)
 
-* Requesting access through the [My Access](../governance/entitlement-management-request-access.md) portal
+When you enable Azure AD B2B, you can invite guest users with links and email invitations. Self-service sign-up, and publishing access packages to the My Access portal, require more configuration. 
 
-When you enable Azure AD B2B, you enable the ability to invite guest users via direct links and email invitations by default. Self Service sign-up and publishing Access Packages to the My Access portal require additional configuration. 
+> [!NOTE]
+> Self-service sign-up enforces no allowlist or blocklist in external collaboration settings. Instead, use cross tenant access settings. You can integrate allowlists and blocklists with self-service sign-up using custom API connectors. See, [Add an API connector to a user flow](../external-identities/self-service-sign-up-add-api-connector.md).
 
-> [NOTE]
-> Self Service sign-up does not enforce the allow/blocklist in External Collaboration Settings. Cross Tenant Access Settings will apply. You can also integrate your own allow/blocklist with Self Service sign-up using [custom API connectors](../external-identities/self-service-sign-up-add-api-connector.md).
-
-### Control who can invite guest users
+### Guest user invitations
 
 Determine who can invite guest users to access resources.
 
-* The most restrictive setting is to allow only administrators and those users granted the [guest inviter role](../external-identities/external-collaboration-settings-configure.md) to invite guests.
+* Most restrictive: Allow only administrators and users with the Guest Inviter role
+  * See, [Configure external collaboration settings](../external-identities/external-collaboration-settings-configure.md)
+* If security requirements permit, allow all Member UserType to invite guests
+* Determine if Guest UserType can invite guests
+  * Guest is the default Azure AD B2B user account
 
-* If your security requirements allow it, we recommend allowing all users with a userType of Member to invite guests.
+    ![Screenshot of guest invitation settings.](media/secure-external-access/5-guest-invite-settings.png)
 
-* Determine if you want users with a userType of Guest, which is the default account type for Azure AD B2B users, to be able to invite other guests. 
+### External user information
 
-![Screenshot of guest invitation settings.](media/secure-external-access/5-guest-invite-settings.png)
+Use Azure AD entitlement management to configure questions that external users answer. The questions appear to approvers to help them make a decision. You can configure sets of questions for each access package policy, so approvers have relevant information for access they approve. For example, ask vendors for their vendor contract number. 
 
-### Collect additional information about external users
+Learn more: [Change approval and requestor information settings for an access package in entitlement management](../governance/entitlement-management-access-package-approval-policy.md)
 
-If you use Azure AD entitlement management, you can configure questions for external users to answer. The questions will then be shown to approvers to help them make a decision. You can configure different sets of questions for each [access package policy](../governance/entitlement-management-access-package-approval-policy.md) so that approvers can have relevant information for the access they're approving. For example, if one access package is intended for vendor access, then the requestor may be asked for their vendor contract number. A different access package intended for suppliers, may ask for their country of origin.
+If you use a self-service portal, use API connectors to collect user attributes during sign-up. Use the attributes to assign access. You can create custom attributes in the Azure portal and use them in your self-service sign-up user flows. Read and write these attributes by using the Microsoft Graph API. 
 
-If you use a self-service portal, you can use [API connectors](../external-identities/api-connectors-overview.md) to collect additional attributes about users as they sign up. You can then potentially use those attributes to assign access. For example, if during the sign-up process you collect their supplier ID, you could use that attribute to dynamically assign them to a group or access package for that supplier. You can create custom attributes in the Azure portal and use them in your self-service sign-up user flows. You can also read and write these attributes by using the [Microsoft Graph API](../../active-directory-b2c/microsoft-graph-operations.md). 
+Learn more:
+
+* [Use API connectors to customize and extend self-service sign-up](../external-identities/api-connectors-overview.md)
+* [Manage Azure AD B2C with Microsoft Graph](../../active-directory-b2c/microsoft-graph-operations.md)
 
 ### Troubleshoot invitation redemption to Azure AD users
 
-There are three instances when invited guest users from a collaboration partner using Azure AD will have trouble redeeming an invitation.
+Invited guest users from a collaboration partner can have trouble redeeming an invitation. See the following list for mitigations.
 
-* If using an allowlist and the user’s domain isn't included in an allowlist.
+* User domain isn't on an allowlist
+* The partner’s home tenant restrictions prevent external collaboration
+* The user isn't in the partner Azure AD tenant. For example, users at contoso.com are in Active Directory. 
+  * They can redeem invitations with the email one-time password (OTP)
+  * See, [Azure Active Directory B2B collaboration invitation redemption](../external-identities/redemption-experience.md)
 
-* If the collaboration partner’s home tenant has tenant restrictions that prevent collaboration with external users..
+## External user access
 
-* If the user isn't part of the partner’s Azure AD tenant. For example, there are users at contoso.com who are only in Active Directory (or another on-premises IdP), they'll only be able to redeem invitations via the email OTP process. for more information, see the [invitation redemption flow](../external-identities/redemption-experience.md).
+Generally, there are resources you can share with external users, and some you can't. You can control what external users access. 
 
-## Control what external users can access
+Learn more: [Manage external access with Entitlement Management](6-secure-access-entitlement-managment.md)
 
-Most organizations aren't monolithic. That is, there are some resources that are fine to share with external users, and some you will not want external users to access. Therefore, you must control what external users access. Consider using [Entitlement management and access packages to control access](6-secure-access-entitlement-managment.md) to specific resources.
+By default, guest users see information and attributes about tenant members and other partners, including group memberships. Consider limiting external user access to this information.
 
-By default, guest users can see information and attributes about tenant members and other partners, including group memberships. Consider if your security requirements call for limiting external user access to this information.
+   ![Screenshot of guest user access options on External collaboration settings.](media/secure-external-access/5-external-collaboration-settings.png)
 
-![Screenshot of configuring external collaboration settings.](media/secure-external-access/5-external-collaboration-settings.png)
+We recommend the following guest-user restrictions:
 
-We recommend the following restrictions for guest users.
+* Limit guest access to browsing groups and other properties in the directory
+   * Use external collaboration settings to restrict guests from reading groups they aren't members of
+* Block access to employee-only apps
+   * Create a Conditional Access policy to block access to Azure AD-integrated applications for non-guest users
+* Block access to the Azure portal
+  * You can make needed exceptions 
+  * Create a Conditional Access policy with all guest and external users. Implement a policy to block access.
 
-* **Limit guest access to browsing groups and other properties in the directory**
+Learn more: [Conditional Access: Cloud apps, actions, and authentication context](../conditional-access/concept-conditional-access-cloud-apps.md)
 
-   * Use the external collaboration settings to restrict guest ability to read groups they aren't members of.
+## Remove users who don't need access
 
-* **Block access to employee-only apps**.
+Establish a process to review and remove users who don't need access. Include external users in your tenant as guests, and users with member accounts.
 
-   * Create a Conditional Access policy to block access to Azure AD-integrated applications that are only appropriate for non-guest users. 
+Learn more: [Use Azure AD Identity Governance to review and remove external users who no longer have resource access](../governance/access-reviews-external-users.md)
 
-* **Block access to the Azure portal. You can make rare necessary exceptions**. 
+Some organizations add external users as members (vendors, partners, and contractors). Assign an attribute, or username:
 
-   * Create a Conditional Access policy that includes either All guest and external users and then [implement a policy to block access](../conditional-access/concept-conditional-access-cloud-apps.md).
+* **Vendors** - v-alias@contoso.com
+* **Partners** - p-alias@contoso.com
+* **Contractors** - c-alias@contoso.com
 
- 
+Evaluate external users with member accounts to determine access. You might have guest users not invited through entitlement management or Azure AD B2B.
 
-## Remove users who no longer need access
+To find these users:
 
-Evaluate current access so that you can [review and remove users who no longer need access](../governance/access-reviews-external-users.md). Include external users in your tenant as guests, and those with member accounts. 
+* [Use Azure AD Identity Governance to review and remove external users who no longer have resource access](../governance/access-reviews-external-users.md)
+* Use a sample PowerShell script on [access-reviews-samples/ExternalIdentityUse/](https://github.com/microsoft/access-reviews-samples/tree/master/ExternalIdentityUse)
 
-Some organizations added external users such as vendors, partners, and contractors as members. These members may have a specific attribute, or usernames that begin with, for example
+## Transition current external users to Azure AD B2B
 
-* v- for vendors
+If you don't use Azure AD B2B, you likely have non-employee users in your tenant. We recommend you transition these accounts to Azure AD B2B external user accounts and then change their UserType to Guest. Use Azure AD and Microsoft 365 to handle external users. 
 
-* p- for partners
+Include or exclude:
 
-* c- for contractors
+* Guest users in Conditional Access policies
+* Guest users in access packages and access reviews
+* External access to Microsoft Teams, SharePoint, and other resources
 
-Evaluate any external users with member accounts to determine if they still need access. If so, transition these users to Azure AD B2B as described in the next section.
+You can transition these internal users while maintaining current access, user principal name (UPN), and group memberships. 
 
-You may also have guest users who weren't invited through Entitlement Management or Azure AD B2B
+Lear more: [Invite external users to B2B collaboration](../external-identities/invite-internal-users.md)
 
-To find these users, you can:
+## Decommission collaboration methods
 
-* [Find guest users not invited through Entitlement Management](../governance/access-reviews-external-users.md).
+To complete the transition to governed collaboration, decommission unwanted collaboration methods. Decommissioning is based on the level of control to exert on collaboration, and the security posture. See, [Determine your security posture for external access](1-secure-access-posture.md).
 
-   * We provide a [SAMPLE PowerShell script.](https://github.com/microsoft/access-reviews-samples/tree/master/ExternalIdentityUse)
+### Microsoft Teams invitation
 
-Transition these users to Azure AD B2B users as described in the following section.
+By default, Teams allows external access. The organization can communicate with external domains. To restrict or allow domains for Teams, use the [Teams admin center](https://admin.teams.microsoft.com/company-wide-settings/external-communications). 
 
-## Transition your current external users to B2B
+### Sharing through SharePoint and OneDrive
 
-If you haven’t been using Azure AD B2B, you likely have non-employee users in your tenant. We recommend you transition these accounts to Azure AD B2B external user accounts and then change their UserType to Guest. This enables you to take advantage of the many ways Azure AD and Microsoft 365 allow you to treat external users differently. Some of these ways include:
+Sharing through SharePoint and OneDrive adds users not in the entitlement management process. 
 
-* Easily including or excluding guest users in Conditional Access policies
+* [Secure external access to Microsoft Teams, SharePoint, and OneDrive for Business](9-secure-access-teams-sharepoint.md)
+* [Block OneDrive use from Office](/office365/troubleshoot/group-policy/block-onedrive-use-from-office) 
 
-* Easily including or excluding guest users in Access Packages and Access Reviews
+### Emailed documents and sensitivity labels
 
-* Easily including or excluding external access to Teams, SharePoint, and other resources.
+Users send documents to external users by email. You can use sensitivity labels to restrict and encrypt access to documents. 
 
-To transition these internal users while maintaining their current access, UPN, and group memberships, see [Invite external users to B2B collaboration](../external-identities/invite-internal-users.md).
-
-## Decommission undesired collaboration methods
-
-To complete your transition to governed collaboration, you should decommission undesired collaboration methods. Which you decommission is based on the degree of control you wish IT to exert over collaboration, and your security posture. For information about IT versus end-user control, see [Determine your security posture for external access](1-secure-access-posture.md).
-
-The following are collaboration vehicles you may wish to evaluate.
-
-### Direct invitation through Microsoft Teams
-
-By default Teams allows external access, which means that organization can communicate with all external domains. If you want to restrict or allow specific domains just for Teams, you can do so in the [Teams Admin portal](https://admin.teams.microsoft.com/company-wide-settings/external-communications). 
-
-
-### Direct sharing through SharePoint and OneDrive
-
-Direct sharing through SharePoint and OneDrive can add users outside of the Entitlement Management process. For an in-depth look at these configurations see [Manage Access with Microsoft Teams, SharePoint, and OneDrive for business](9-secure-access-teams-sharepoint.md)
-You can also [block the use of user’s personal OneDrive](/office365/troubleshoot/group-policy/block-onedrive-use-from-office) if desired.
-
-### Sending documents through email
-
-Your users will send documents through email to external users. Consider how you want to restrict and encrypt access to these documents by using sensitivity labels. For more information, see Manage access with Sensitivity labels.
+See, [Learn about sensitivity labels](/microsoft-365/compliance/sensitivity-labels?view=o365-worldwide&preserve-view=true).
 
 ### Unsanctioned collaboration tools
 
-The landscape of collaboration tools is vast. Your users likely use many outside of their official duties, including platforms like Google Docs, DropBox, Slack, or Zoom. It's possible to block the use of such tools from a corporate network at the Firewall level and with mobile application management for organization-managed devices. However, this will also block any sanctioned instances of these platforms and wouldn't block access from unmanaged devices. Block platforms you don’t want any use of if necessary, and create business policies for no unsanctioned usage for the platforms you need to use. 
+Some users likely use Google Docs, DropBox, Slack, or Zoom. You can block use of these tools from a corporate network, at the firewall level, and with mobile application management for organization-managed devices. However, this action blocks sanctioned instances and doesn't block access from unmanaged devices. Block tools you don’t want, and create policies for no unsanctioned usage. 
 
-For more information on managing unsanctioned applications, see:
+For more information on governing applications, see:
 
-* [Governing connected apps](/cloud-app-security/governance-actions)
+* [Governing connected apps](/defender-cloud-apps/governance-actions)
+* [Govern discovered apps](/defender-cloud-apps/governance-discovery)
 
-* [Sanctioning and unsanctioning an application.](/cloud-app-security/governance-discovery)
+## Next steps
 
- 
-### Next steps
+Use the following series of articles to learn about securing external access to resources. We recommend you follow the listed order.
 
-See the following articles on securing external access to resources. We recommend you take the actions in the listed order.
+1. [Determine your security posture for external access with Azure AD](1-secure-access-posture.md)
 
-1. [Determine your security posture for external access](1-secure-access-posture.md)
+2. [Discover the current state of external collaboration in your organization](2-secure-access-current-state.md)
 
-2. [Discover your current state](2-secure-access-current-state.md)
+3. [Create a security plan for external access to resources](3-secure-access-plan.md)
 
-3. [Create a governance plan](3-secure-access-plan.md)
+4. [Secure external access with groups in Azure AD and Microsoft 365](4-secure-access-groups.md)
 
-4. [Use groups for security](4-secure-access-groups.md)
+5. [Transition to governed collaboration with Azure AD B2B collaboration](5-secure-access-b2b.md) (You're here) 
 
-5. [Transition to Azure AD B2B](5-secure-access-b2b.md) (You are here.)
+6. [Manage external access with Azure AD entitlement management](6-secure-access-entitlement-managment.md)
 
-6. [Secure access with Entitlement Management](6-secure-access-entitlement-managment.md)
+7. [Manage external access to resources with Conditional Access policies](7-secure-access-conditional-access.md)
 
-7. [Secure access with Conditional Access policies](7-secure-access-conditional-access.md)
+8. [Control external access to resources in Azure AD with sensitivity labels](8-secure-access-sensitivity-labels.md) 
 
-8. [Secure access with Sensitivity labels](8-secure-access-sensitivity-labels.md)
+9. [Secure external access to Microsoft Teams, SharePoint, and OneDrive for Business with Azure AD](9-secure-access-teams-sharepoint.md)
 
-9. [Secure access to Microsoft Teams, OneDrive, and SharePoint](9-secure-access-teams-sharepoint.md)
+10. [Convert local guest accounts to Azure Active Directory B2B guest accounts](10-secure-local-guest.md)

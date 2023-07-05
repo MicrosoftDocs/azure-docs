@@ -26,7 +26,7 @@ In this how-to article, you learn to use the Azure CLI with Bash to work with co
 
 [!INCLUDE [storage-quickstart-prereq-include](../../../includes/storage-quickstart-prereq-include.md)]
 
-[!INCLUDE [azure-cli-prepare-your-environment.md](../../../includes/azure-cli-prepare-your-environment-h3.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment-h3.md)]
 
 - It's always a good idea to install the latest version of the Azure CLI. If using Azure Cloud Shell, the latest version is already installed.
 
@@ -356,6 +356,9 @@ az storage container generate-sas \
     --account-key $accountKey \
     --account-name $storageAccount
 ```
+
+> [!NOTE]
+> The SAS token returned by the Azure CLI does not include the delimiter character ('?') for the URL query string. If you are appending the SAS token to a resource URL, remember to append the delimiter character to the resource URL before appending the SAS token.
 
 ## Next steps
 

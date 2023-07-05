@@ -1,7 +1,7 @@
 ---
 title: List of built-in policy definitions
 description: List built-in policy definitions for Azure Policy. Categories include Tags, Regulatory Compliance, Key Vault, Kubernetes, Guest Configuration, and more.
-ms.date: 11/28/2022
+ms.date: 06/21/2023
 ms.topic: sample
 ms.custom: generated
 ---
@@ -99,6 +99,10 @@ side of the page. Otherwise, use <kbd>Ctrl</kbd>-<kbd>F</kbd> to use your browse
 
 [!INCLUDE [azure-policy-reference-policies-cdn](../../../../includes/policy/reference/bycat/policies-cdn.md)]
 
+## ChangeTrackingAndInventory
+
+[!INCLUDE [azure-policy-reference-policies-changetrackingandinventory](../../../../includes/policy/reference/bycat/policies-changetrackingandinventory.md)]
+
 ## Cognitive Services
 
 [!INCLUDE [azure-policy-reference-policies-cognitive-services](../../../../includes/policy/reference/bycat/policies-cognitive-services.md)]
@@ -114,6 +118,10 @@ side of the page. Otherwise, use <kbd>Ctrl</kbd>-<kbd>F</kbd> to use your browse
 ## Container Instance
 
 [!INCLUDE [azure-policy-reference-policies-container-instance](../../../../includes/policy/reference/bycat/policies-container-instance.md)]
+
+## Container Instances
+
+[!INCLUDE [azure-policy-reference-policies-container-instances](../../../../includes/policy/reference/bycat/policies-container-instances.md)]
 
 ## Container Registry
 
@@ -138,6 +146,10 @@ side of the page. Otherwise, use <kbd>Ctrl</kbd>-<kbd>F</kbd> to use your browse
 ## Data Lake
 
 [!INCLUDE [azure-policy-reference-policies-data-lake](../../../../includes/policy/reference/bycat/policies-data-lake.md)]
+
+## Desktop Virtualization
+
+[!INCLUDE [azure-policy-reference-policies-desktop-virtualization](../../../../includes/policy/reference/bycat/policies-desktop-virtualization.md)]
 
 ## Event Grid
 
@@ -207,6 +219,10 @@ side of the page. Otherwise, use <kbd>Ctrl</kbd>-<kbd>F</kbd> to use your browse
 
 [!INCLUDE [azure-policy-reference-policies-managed-application](../../../../includes/policy/reference/bycat/policies-managed-application.md)]
 
+## Managed Grafana
+
+[!INCLUDE [azure-policy-reference-policies-managed-grafana](../../../../includes/policy/reference/bycat/policies-managed-grafana.md)]
+
 ## Managed Identity
 
 [!INCLUDE [azure-policy-reference-policies-managed-identity](../../../../includes/policy/reference/bycat/policies-managed-identity.md)]
@@ -262,6 +278,10 @@ side of the page. Otherwise, use <kbd>Ctrl</kbd>-<kbd>F</kbd> to use your browse
 ## SQL
 
 [!INCLUDE [azure-policy-reference-policies-sql](../../../../includes/policy/reference/bycat/policies-sql.md)]
+
+## SQL Server
+
+[!INCLUDE [azure-policy-reference-policies-sql-server](../../../../includes/policy/reference/bycat/policies-sql-server.md)]
 
 ## Storage
 

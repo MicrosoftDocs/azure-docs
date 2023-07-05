@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with Luum | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with Luum'
 description: Learn how to configure single sign-on between Azure Active Directory and Luum.
 services: active-directory
 author: jeevansd

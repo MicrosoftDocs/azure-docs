@@ -13,7 +13,7 @@ You may receive Server Busy exception because of Kafka throttling. With AMQP cli
 
 If the traffic is excessive, the service has the following behavior:
 
-- If produce request's delay exceeds request timeout, Event Hubs returns **Policy Violation** error code.
+- If produce request's delay exceeds request timeout(*request.timeout.ms*), Event Hubs returns **Policy Violation** error code.
 - If fetch request's delay exceeds request timeout, Event Hubs logs the request as throttled and responds with empty set of records and no error code.
 
 [Dedicated clusters](event-hubs-dedicated-overview.md) don't have throttling mechanisms. You're free to consume all of your cluster resources.

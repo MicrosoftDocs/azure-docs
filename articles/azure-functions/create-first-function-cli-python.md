@@ -1,7 +1,7 @@
 ---
 title: Create a Python function from the command line - Azure Functions
 description: Learn how to create a Python function from the command line, then publish the local project to serverless hosting in Azure Functions.
-ms.date: 06/15/2022
+ms.date: 03/22/2023
 ms.topic: quickstart
 ms.devlang: python
 ms.custom: devx-track-python, devx-track-azurecli, devx-track-azurepowershell, mode-api, devdivchpfy22
@@ -16,7 +16,7 @@ In this article, you use command-line tools to create a Python function that res
 This article covers both Python programming models supported by Azure Functions. Use the selector at the top to choose your programming model.  
 
 >[!NOTE]
->The Python v2 programming model for Functions is currently in Preview. To learn more about the Python v2 programming model, see the [Developer Reference Guide](functions-reference-python.md).
+>The v2 programming model provides a decorator based approach to create functions. To learn more about the Python v2 programming model, see the [Developer Reference Guide](functions-reference-python.md).
 
 Completing this quickstart incurs a small cost of a few USD cents or less in your Azure account.
 
@@ -32,13 +32,13 @@ Before you begin, you must have the following requirements in place:
 + The [Azure Functions Core Tools](functions-run-local.md#v2) version 4.x.
 ::: zone-end
 ::: zone pivot="python-mode-decorators"  
-+ The [Azure Functions Core Tools](functions-run-local.md#v2) version 4.0.4785 or later.
++ The [Azure Functions Core Tools](functions-run-local.md#v2) version 4.2.1 or later.
 ::: zone-end  
 + One of the following tools for creating Azure resources:
 
   + [Azure CLI](/cli/azure/install-azure-cli) version 2.4 or later.
 
-  + The Azure [Az PowerShell module](/powershell/azure/install-az-ps) version 5.9.0 or later.
+  + The Azure [Az PowerShell module](/powershell/azure/install-azure-powershell) version 5.9.0 or later.
 
 + [Python versions that are supported by Azure Functions](supported-languages.md#languages-by-runtime-version).
 ::: zone pivot="python-mode-decorators"  
@@ -79,7 +79,7 @@ Verify your prerequisites, which depend on whether you're using Azure CLI or Azu
 
 ## <a name="create-venv"></a>Create and activate a virtual environment
 
-In a suitable folder, run the following commands to create and activate a virtual environment named `.venv`. Make sure that you're using Python 3.8, 3.7 or 3.6, which are supported by Azure Functions.
+In a suitable folder, run the following commands to create and activate a virtual environment named `.venv`. Make sure that you're using Python 3.9, 3.8, or 3.7, which are supported by Azure Functions.
 
 # [bash](#tab/bash)
 
@@ -256,18 +256,6 @@ Use the following commands to create these items. Both Azure CLI and PowerShell 
 
     ---
 
-1. When you're using the Azure CLI, you can turn on the `param-persist` option that automatically tracks the names of your created resources. For more information, see [Azure CLI persisted parameter](/cli/azure/param-persist-howto).
-
-    # [Azure CLI](#tab/azure-cli)
-    ```azurecli
-    az config param-persist on
-    ```
-
-    # [Azure PowerShell](#tab/azure-powershell)
-
-    This feature isn't available in Azure PowerShell.
-
-    ---
 
 1. Create a resource group named `AzureFunctionsQuickstart-rg` in your chosen region.
 
@@ -290,7 +278,6 @@ Use the following commands to create these items. Both Azure CLI and PowerShell 
     ---
 
     ::: zone pivot="python-mode-decorators" 
-    In the current v2 programming model preview, choose a region from one of the following locations: France Central, West Central US, North Europe, China East, East US, or North Central US.
     ::: zone-end
 
     > [!NOTE]
@@ -301,7 +288,7 @@ Use the following commands to create these items. Both Azure CLI and PowerShell 
     # [Azure CLI](#tab/azure-cli)
 
     ```azurecli
-    az storage account create --name <STORAGE_NAME> --sku Standard_LRS
+    az storage account create --name <STORAGE_NAME> --location <REGION> --resource-group AzureFunctionsQuickstart-rg --sku Standard_LRS
     ```
 
     The [az storage account create](/cli/azure/storage/account#az-storage-account-create) command creates the storage account.
@@ -325,10 +312,10 @@ Use the following commands to create these items. Both Azure CLI and PowerShell 
     # [Azure CLI](#tab/azure-cli)
 
     ```azurecli
-    az functionapp create --consumption-plan-location westeurope --runtime python --runtime-version 3.9 --functions-version 4 --name <APP_NAME> --os-type linux --storage-account <STORAGE_NAME>
+    az functionapp create --resource-group AzureFunctionsQuickstart-rg --consumption-plan-location westeurope --runtime python --runtime-version 3.9 --functions-version 4 --name <APP_NAME> --os-type linux --storage-account <STORAGE_NAME>
     ```
 
-    The [az functionapp create](/cli/azure/functionapp#az-functionapp-create) command creates the function app in Azure. If you're using Python 3.8, 3.7, or 3.6, change `--runtime-version` to `3.8`, `3.7`, or `3.6`, respectively. You must supply `--os-type linux` because Python functions can't run on Windows, which is the default.
+    The [az functionapp create](/cli/azure/functionapp#az-functionapp-create) command creates the function app in Azure. If you're using Python 3.9, 3.8, or 3.7, change `--runtime-version` to `3.9`, `3.8`, or `3.7`, respectively. You must supply `--os-type linux` because Python functions can't run on Windows, which is the default.
 
     # [Azure PowerShell](#tab/azure-powershell)
 
@@ -336,7 +323,7 @@ Use the following commands to create these items. Both Azure CLI and PowerShell 
     New-AzFunctionApp -Name <APP_NAME> -ResourceGroupName AzureFunctionsQuickstart-rg -StorageAccountName <STORAGE_NAME> -FunctionsVersion 4 -RuntimeVersion 3.9 -Runtime python -Location '<REGION>'
     ```
 
-    The [New-AzFunctionApp](/powershell/module/az.functions/new-azfunctionapp) cmdlet creates the function app in Azure. If you're using Python 3.8, 3.7, or 3.6, change `-RuntimeVersion` to `3.8`, `3.7`, or `3.6`, respectively.
+    The [New-AzFunctionApp](/powershell/module/az.functions/new-azfunctionapp) cmdlet creates the function app in Azure. If you're using Python 3.9, 3.8, or 3.7, change `-RuntimeVersion` to `3.9`, `3.8`, or `3.7`, respectively.
 
     ---
 

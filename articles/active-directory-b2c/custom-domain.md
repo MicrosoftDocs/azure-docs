@@ -9,7 +9,7 @@ manager: CelesteDG
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 07/26/2022
+ms.date: 11/3/2022
 ms.author: kengaderdus
 ms.subservice: B2C
 ms.custom: "b2c-support"
@@ -20,7 +20,11 @@ zone_pivot_groups: b2c-policy-type
 
 [!INCLUDE [active-directory-b2c-choose-user-flow-or-custom-policy](../../includes/active-directory-b2c-choose-user-flow-or-custom-policy.md)]
 
-This article describes how to enable custom domains in your redirect URLs for Azure Active Directory B2C (Azure AD B2C). Using a custom domain with your application provides a more seamless user experience. From the user's perspective, they remain in your domain during the sign in process rather than redirecting to the Azure AD B2C default domain *&lt;tenant-name&gt;.b2clogin.com*.
+This article describes how to enable custom domains in your redirect URLs for Azure Active Directory B2C (Azure AD B2C). By using a verified custom domain, you've benefits such as: 
+
+- It provides a more seamless user experience. From the user's perspective, they remain in your domain during the sign in process rather than redirecting to the Azure AD B2C default domain *&lt;tenant-name&gt;.b2clogin.com*.
+
+- You increase the number of objects (user accounts and applications) you can create in your Azure AD B2C tenant from the default 1.25 million to 5.25 million. 
 
 ![Screenshot demonstrates an Azure AD B2C custom domain user experience.](./media/custom-domain/custom-domain-user-experience.png)
 
@@ -116,7 +120,7 @@ Follow these steps to create an Azure Front Door:
     |Tier| Select either Standard or Premium tier. Standard tier is content delivery optimized. Premium tier builds on Standard tier and is focused on security. See [Tier Comparison](../frontdoor/standard-premium/tier-comparison.md).|
     |Endpoint name| Enter a globally unique name for your endpoint, such as `b2cazurefrontdoor`. The **Endpoint hostname** is generated automatically. |
     |Origin type| Select `Custom`.|
-    |Origin host name| Enter `<tenant-name>.b2clogin.com`. Replace `<tenant-name>` with the [name of your Azure AD B2C tenant](tenant-management.md#get-your-tenant-name) such as `contoso.b2clogin.com`.|
+    |Origin host name| Enter `<tenant-name>.b2clogin.com`. Replace `<tenant-name>` with the [name of your Azure AD B2C tenant]( tenant-management-read-tenant-name.md#get-your-tenant-name) such as `contoso.b2clogin.com`.|
     
     Leave the **Caching** and **WAF policy** empty.
 
@@ -348,7 +352,7 @@ After you add the custom domain and configure your application, users will still
 
 ## (Optional) Azure Front Door advanced configuration
 
-You can use Azure Front Door advanced configuration, such as [Azure Web Application Firewall (WAF)](partner-azure-web-application-firewall.md). Azure WAF provides centralized protection of your web applications from common exploits and vulnerabilities.
+You can use Azure Front Door advanced configuration, such as [Azure Web Application Firewall (WAF)](partner-web-application-firewall.md). Azure WAF provides centralized protection of your web applications from common exploits and vulnerabilities.
 
 When using custom domains, consider the following points:
 

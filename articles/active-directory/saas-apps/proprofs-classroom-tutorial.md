@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with ProProfs Training Maker | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with ProProfs Training Maker'
 description: Learn how to configure single sign-on between Azure Active Directory and ProProfs Training Maker.
 services: active-directory
 author: jeevansd

@@ -1,5 +1,5 @@
 ---
-title: Bulk remove group members by uploading a CSV file - Azure Active Directory | Microsoft Docs
+title: Bulk remove group members by uploading a CSV file
 description: Remove group members in bulk operations in the Azure admin center. 
 services: active-directory 
 author: barclayn

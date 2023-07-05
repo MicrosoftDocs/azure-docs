@@ -27,16 +27,18 @@ For more information about adding lab plans to Canvas, see [Configure Canvas to 
 
 ## Prerequisites
 
-- An Azure Lab Services lab plan. If you don't have a lab plan yet, see For information, see [Tutorial: Set up a lab plan with Azure Lab Services](tutorial-setup-lab-plan.md).
+[!INCLUDE [Azure subscription](./includes/lab-services-prerequisite-subscription.md)]
+[!INCLUDE [Create and manage labs](./includes/lab-services-prerequisite-create-lab.md)]
+[!INCLUDE [Existing lab plan](./includes/lab-services-prerequisite-lab-plan.md)]
+
 - The Azure Lab Services Canvas app is enabled. Learn how to [configure Canvas for Azure Lab Services](./how-to-configure-canvas-for-lab-plans.md).
-- To create and manage labs, your account should have the Lab Creator, or Lab Contributor role on the lab plan.
 
 ## Create a lab in Canvas
 
 Once Azure Lab Services is added to your course, you'll see **Azure Lab Services** in the course navigation menu. If you're authenticated in Canvas as an educator, you'll see this sign in screen before you can use the service. You'll need to sign in here with an Azure AD account or Microsoft account that has been added as a Lab Creator.
     :::image type="content" source="./media/how-to-manage-labs-within-canvas/welcome-to-lab-services.png" alt-text="Screenshot that shows the welcome page in Canvas.":::
 
-For instructions on how to create a lab, see [Create a lab](quick-create-lab-portal.md). Make sure to verify the resource group to use before creating the lab.
+For instructions on how to create a lab, see [Create a lab](./tutorial-setup-lab.md). Make sure to verify the resource group to use before creating the lab.
 
 > [!IMPORTANT]
 > Labs must be created using the Azure Lab Services app in Canvas. Labs created from the Azure Lab Services portal aren't visible from Canvas.
@@ -51,7 +53,7 @@ Azure Lab Services automatically synchronizes the course membership with the lab
 
 :::image type="content" source="./media/how-to-manage-labs-within-canvas/sync-users.png" alt-text="Screenshot that shows how to manually sync users with Azure Lab Services in Canvas.":::
 
-Once the automatic or manual sync is complete, adjustments are made to the lab depending on whether the lab has been [published](tutorial-setup-lab.md#publish-a-lab) or not.
+Once the automatic or manual sync is complete, adjustments are made to the lab depending on whether the lab has been [published](tutorial-setup-lab.md#publish-lab) or not.
 
 If the lab has *not* been published at least once:
 
@@ -110,7 +112,7 @@ This section outlines common error messages that you may see, along with the ste
 
 - Insufficient permissions to create lab.
 
-  In Canvas, an educator will see a message indicating that they don't have sufficient permission. Educators should contact their Azure admin so they can be [added as a **Lab Creator**](tutorial-setup-lab-plan.md#add-a-user-to-the-lab-creator-role). For example, educators can be added as a **Lab Creator** to the resource group that contains their lab.
+  In Canvas, an educator will see a message indicating that they don't have sufficient permission. Educators should contact their Azure admin so they can be [added as a **Lab Creator**](quick-create-resources.md#add-a-user-to-the-lab-creator-role). For example, educators can be added as a **Lab Creator** to the resource group that contains their lab.
 
 - Message that there isn't enough capacity to create lab VMs.
 
@@ -118,7 +120,7 @@ This section outlines common error messages that you may see, along with the ste
 
 - Student sees warning that the lab isn't available yet.
 
-  In Canvas, you'll see the following message if the educator hasn't published the lab yet. Educators must [publish the lab](tutorial-setup-lab.md#publish-a-lab) and [sync users](how-to-manage-user-lists-within-canvas.md#sync-users) for students to have access to a lab.
+  In Canvas, you'll see the following message if the educator hasn't published the lab yet. Educators must [publish the lab](tutorial-setup-lab.md#publish-lab) and [sync users](how-to-manage-user-lists-within-canvas.md#sync-users) for students to have access to a lab.
 
   :::image type="content" source="./media/how-to-manage-labs-within-canvas/troubleshooting-lab-isnt-available-yet.png" alt-text="Troubleshooting -> This lab is not available yet.":::
 

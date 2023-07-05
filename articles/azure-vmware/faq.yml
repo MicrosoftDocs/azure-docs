@@ -63,7 +63,7 @@ sections:
           
           - If we connect a vNET in Azure North Europe to an Azure VMware Solution private cloud in West Europe, then there are no ExpressRoute charges other than the ExpressRoute gateway charges.
           
-          - If we connect an Azure VMware Solution private cloud in West Europe to an Azure VMware Solution private cloud in North Europe, which is connected to the vNET in Azure North Europe, you will not incur any ExpressRoute charges other than the ExpressRoute gateway charges.
+          - If you connect an Azure VMware Solution private cloud in West Europe to an Azure VMware Solution private cloud in North Europe via Expressroute Global Reach you will NOT incur any ExpressRoute Global Reach data transfer (egress and ingress) charges. Please note that there will be charges when using an ExpressRoute gateway.
 
       - question:  Is it necessary to procure additional VMware licensing and resources other than the AV36 instance when migrating from the on-premises VM environment with an L2 extension?  
         answer: | 
@@ -152,11 +152,6 @@ sections:
       - question: Is VMware Horizon 8 2012 compatible with Azure VMware Solution?
         answer: Yes.
 
-      - question: Can I change the default vSphere Client timeout value?
-        answer: Yes. For information on changing the timeout value, see [Configure the vSphere Client Timeout Value](https://docs.vmware.com/en/VMware-vSphere/6.7/com.vmware.vsphere.vcenterhost.doc/GUID-975412DE-CDCB-49A1-8E2A-0965325D33A5.html).
-
-
-
   - name: Migrate
     questions:
       - question: Why can't I see my Sentinel Management tab in the HCX Manager when using the Sentinel Appliance service?
@@ -228,7 +223,7 @@ sections:
           The only way to connect to Azure VMware Solution through ExpressRoute is for your environment and the on-premises ExpressRoute-carrier partners/ISPs support 4-byte ASN or have backward compatibility from 4-byte to 2-byte ASN in the BGP prefix ASN path advertisement.        
 
           > [!NOTE]
-          > Currently, private ASN (64512 - 65534) prepending from a customer on-premises environment isn't supported by Azure VMware Solution. This scenario might lead to intermittent connection drops from on-premises to Azure VMware Solution. To prepend a public ASN from on-premises, create a support request.
+          > Currently, private ASN (64512 - 65534) prepending from a customer on-premises environment isn't supported by Azure VMware Solution. This scenario might lead to intermittent connection drops from on-premises to Azure VMware Solution.
 
       - question: What network IP address planning is required to incorporate private clouds with on-premises environments?
         answer: A private network /22 address space is required to deploy an Azure VMware Solution private cloud. This private address space shouldn't overlap with other virtual networks in a subscription or with on-premises networks.

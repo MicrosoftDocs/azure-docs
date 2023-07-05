@@ -6,7 +6,7 @@ author: rolyon
 manager: amycolannino
 ms.service: role-based-access-control
 ms.topic: quickstart
-ms.custom: subject-armqs, mode-arm
+ms.custom: subject-armqs, mode-arm, devx-track-azurepowershell, devx-track-arm-template
 ms.workload: identity
 ms.date: 04/28/2021
 ms.author: rolyon

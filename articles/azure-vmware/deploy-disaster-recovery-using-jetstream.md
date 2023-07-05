@@ -17,11 +17,9 @@ In this article, you'll implement JetStream DR for your Azure VMware Solution pr
 
 To learn more about JetStream DR, see:
 
-- [JetStream Solution brief](https://www.jetstreamsoft.com/2020/09/28/solution-brief-disaster-recovery-for-avs/)
+- [JetStream Solution brief](https://www.jetstreamsoft.com/2020/09/28/disaster-recovery-for-avs/)
 
 - [JetStream DR on Azure Marketplace](https://portal.azure.com/#blade/Microsoft_Azure_Marketplace/GalleryItemDetailsBladeNopdl/id/jetstreamsoftware1596597632545.jsdravs-111721)
-
-- [JetStream knowledge base articles](https://www.jetstreamsoft.com/resources/knowledge-base/)
 
 ## Core components of the JetStream DR solution
 
@@ -152,7 +150,10 @@ You can follow these steps for both supported scenarios.
  
 1. In your on-premises data center, install JetStream DR following the [JetStream documentation](https://www.jetstreamsoft.com/portal/jetstream-knowledge-base/installing-jetstream-dr-software/).  
 
-1. In your Azure VMware Solution private cloud, install JetStream DR using a Run command. From the [Azure portal](https://portal.azure.com), select **Run command** > **Packages** > **JSDR.Configuration**.  
+1. In your Azure VMware Solution private cloud, install JetStream DR using a Run command. From the [Azure portal](https://portal.azure.com),select **Run command** > **Packages** > **JSDR.Configuration**.  
+    
+   >[!NOTE]
+   >If you need access to the Azure US Gov portal, go to https://portal.azure.us/
 
    :::image type="content" source="media/run-command/run-command-overview-jetstream.png" alt-text="Screenshot showing how to access the JetStream run commands available." lightbox="media/run-command/run-command-overview-jetstream.png":::
  

@@ -4,37 +4,20 @@ ms.author: vlrodrig
 ms.service: purview
 ms.subservice: purview-data-policies
 ms.topic: include
-ms.date: 12/01/2022
+ms.date: 06/27/2023
 ms.custom: references_regions
 ---
-- Get [SQL Server version 2022 or later](https://www.microsoft.com/sql-server/sql-server-2022) running on Windows and install it.
-- Complete the process to onboard that [SQL Server instance with Azure Arc](/sql/sql-server/azure-arc/connect).
+- Get [SQL Server on-premises version 2022](https://www.microsoft.com/en-us/sql-server/sql-server-downloads) running on Windows and install it. You can try the free Developer edition.
+- Next, onboard the [SQL Server instance with Azure Arc](/sql/sql-server/azure-arc/connect-with-installer).
 - Enable [Azure Active Directory authentication in SQL Server](/sql/relational-databases/security/authentication-access/azure-ad-authentication-sql-server-setup-tutorial). For a simpler setup, follow [this article](/sql/relational-databases/security/authentication-access/azure-ad-authentication-sql-server-automation-setup-tutorial#setting-up-azure-ad-admin-using-the-azure-portal).
 
 #### Region support
 
-Policy enforcement is available in only the following regions for Microsoft Purview:
-
-- East US
-- East US 2
-- South Central US
-- West Central US
-- West US
+Policy enforcement is available in all Microsoft Purview regions except:
 - West US2
-- West US3
-- Canada Central
-- Brazil South
-- North Europe
-- West Europe
-- France Central
-- Switzerland North
-- UK South
-- UAE North
-- South Africa North
-- Central India
-- Korea Central
-- Japan East
-- Australia East
+- East Asia
+- US Gov Virginia
+- China North 3
 
 #### Security considerations for Azure Arc-enabled SQL Server
 
@@ -59,6 +42,6 @@ Policy enforcement is available in only the following regions for Microsoft Purv
 
 1. Ensure that an app registration has been entered to create a trust relationship between SQL Server and Azure AD. If not, refer to the access policy prerequisites section in this guide.
 
-1. If you made any changes, select the **Save** button to save the configuration and wait until it shows it completed successfully.
+1. If you made any changes, select the **Save** button to save the configuration and wait until the operation completes successfully. This may take a few minutes. The message *"Saved successfully"* will be displayed at the top of the page in green background. You may need to scroll up to see it.
 
    ![Screenshot that shows pre-requisites to configure a Microsoft Purview endpoint in the Azure Active Directory section.](../media/how-to-policies-data-owner-sql/setup-sql-on-arc-for-purview1.png)

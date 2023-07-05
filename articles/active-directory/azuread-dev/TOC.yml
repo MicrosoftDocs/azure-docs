@@ -70,7 +70,7 @@
     - name: Applications and service principals
       href: ../develop/app-objects-and-service-principals.md?toc=/azure/active-directory/azuread-dev/toc.json&bc=/azure/active-directory/azuread-dev/breadcrumb/toc.json
     - name: How and why apps are added to Azure AD
-      href: ../develop/active-directory-how-applications-are-added.md?toc=/azure/active-directory/azuread-dev/toc.json&bc=/azure/active-directory/azuread-dev/breadcrumb/toc.json
+      href: ../develop/how-applications-are-added.md?toc=/azure/active-directory/azuread-dev/toc.json&bc=/azure/active-directory/azuread-dev/breadcrumb/toc.json
     - name: Single tenant and multi-tenant apps
       href: ../develop/single-and-multi-tenant-apps.md?toc=/azure/active-directory/azuread-dev/toc.json&bc=/azure/active-directory/azuread-dev/breadcrumb/toc.json
   - name: Permissions and consent
@@ -108,7 +108,7 @@
       - name: Configure optional claims
         href: ../develop/active-directory-optional-claims.md?toc=/azure/active-directory/azuread-dev/toc.json&bc=/azure/active-directory/azuread-dev/breadcrumb/toc.json
       - name: Configure token lifetimes
-        href: ../develop/active-directory-configurable-token-lifetimes.md?toc=/azure/active-directory/azuread-dev/toc.json&bc=/azure/active-directory/azuread-dev/breadcrumb/toc.json
+        href: ../develop/configurable-token-lifetimes.md?toc=/azure/active-directory/azuread-dev/toc.json&bc=/azure/active-directory/azuread-dev/breadcrumb/toc.json
     - name: ADAL error handling best practices
       href: active-directory-devhowto-adal-error-handling.md
   - name: Application configuration
@@ -126,7 +126,7 @@
     - name: Add app roles in your application
       href: ../develop/howto-add-app-roles-in-azure-ad-apps.md?toc=/azure/active-directory/azuread-dev/toc.json&bc=/azure/active-directory/azuread-dev/breadcrumb/toc.json
     - name: Branding guidelines
-      href: ../develop/howto-add-branding-in-azure-ad-apps.md?toc=/azure/active-directory/azuread-dev/toc.json&bc=/azure/active-directory/azuread-dev/breadcrumb/toc.json
+      href: /azure/active-directory/develop/howto-add-branding-in-apps
     - name: Terms of Service and Privacy Statement
       href: ../develop/howto-add-terms-of-service-privacy-statement.md?toc=/azure/active-directory/azuread-dev/toc.json&bc=/azure/active-directory/azuread-dev/breadcrumb/toc.json
   - name: Bring an app to market
@@ -143,7 +143,7 @@
     - name: Reactivate disabled Access Control Service namespaces
       href: howto-reactivate-disabled-acs-namespaces.md
   - name: Use the Microsoft Graph API
-    href: ../develop/microsoft-graph-intro.md?toc=/azure/active-directory/azuread-dev/toc.json&bc=/azure/active-directory/azuread-dev/breadcrumb/toc.json
+    href: /graph/overview?toc=/azure/active-directory/azuread-dev/toc.json&bc=/azure/active-directory/azuread-dev/breadcrumb/toc.json
   - name: AD FS for developers
     href: /windows-server/identity/ad-fs/ad-fs-overview
 - name: References
@@ -152,11 +152,11 @@
     displayName: ADAL
     href: active-directory-authentication-libraries.md
   - name: Microsoft Graph API
-    href: ../develop/microsoft-graph-intro.md?toc=/azure/active-directory/azuread-dev/toc.json&bc=/azure/active-directory/azuread-dev/breadcrumb/toc.json
+    href: /graph/overview?toc=/azure/active-directory/azuread-dev/toc.json&bc=/azure/active-directory/azuread-dev/breadcrumb/toc.json
   - name: Application manifest
     href: ../develop/reference-app-manifest.md?toc=/azure/active-directory/azuread-dev/toc.json&bc=/azure/active-directory/azuread-dev/breadcrumb/toc.json
   - name: Authentication and authorization error codes
-    href: ../develop/reference-aadsts-error-codes.md?toc=/azure/active-directory/azuread-dev/toc.json&bc=/azure/active-directory/azuread-dev/breadcrumb/toc.json
+    href: ../develop/reference-error-codes.md?toc=/azure/active-directory/azuread-dev/toc.json&bc=/azure/active-directory/azuread-dev/breadcrumb/toc.json
   - name: Breaking changes
     href: ../develop/reference-breaking-changes.md?toc=/azure/active-directory/azuread-dev/toc.json&bc=/azure/active-directory/azuread-dev/breadcrumb/toc.json
 - name: Resources

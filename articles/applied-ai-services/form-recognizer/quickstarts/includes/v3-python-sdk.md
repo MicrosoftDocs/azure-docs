@@ -7,9 +7,8 @@ manager: nitinme
 ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: include
-ms.date: 11/18/2022
+ms.date: 06/02/2023
 ms.author: lajanuar
-recommendations: false
 ---
 <!-- markdownlint-disable MD025 -->
 
@@ -17,11 +16,11 @@ recommendations: false
 
 In this quickstart you'll, use the following features to analyze and extract data and values from forms and documents:
 
-* [**General document**](#general-document-model)—Analyze and extract text, tables, structure, key-value pairs, and named entities.
+* [**General document**](#general-document-model)—Analyze and extract text, tables, structure, and key-value pairs.
 
 * [**Layout**](#layout-model)—Analyze and extract tables, lines, words, and selection marks like radio buttons and check boxes in documents, without the need to train a model.
 
-* [**Prebuilt Invoice**](#prebuilt-model)—Analyze and extract common fields from specific document types using a pre-trained model.
+* [**Prebuilt Invoice**](#prebuilt-model)—Analyze and extract common fields from specific document types using a pretrained model.
 
 ## Prerequisites
 
@@ -31,19 +30,19 @@ In this quickstart you'll, use the following features to analyze and extract dat
 
   * Your Python installation should include [pip](https://pip.pypa.io/en/stable/). You can check if you have pip installed by running `pip --version` on the command line. Get pip by installing the latest version of Python.
 
-* The latest version of [Visual Studio Code](https://code.visualstudio.com/) or your preferred IDE. For more information, *see* [Getting Started with Python in VS Code](https://code.visualstudio.com/docs/python/python-tutorial).
+* The latest version of [Visual Studio Code](https://code.visualstudio.com/) or your preferred IDE. For more information, *see* [Getting Started with Python in Visual Studio Code](https://code.visualstudio.com/docs/python/python-tutorial).
 
 * A Cognitive Services or Form Recognizer resource. Once you have your Azure subscription, create a [single-service](https://portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer) or [multi-service](https://portal.azure.com/#create/Microsoft.CognitiveServicesAllInOne) Form Recognizer resource, in the Azure portal, to get your key and endpoint. You can use the free pricing tier (`F0`) to try the service, and upgrade later to a paid tier for production.
 
 > [!TIP]
 > Create a Cognitive Services resource if you plan to access multiple cognitive services under a single endpoint/key. For Form Recognizer access only, create a Form Recognizer resource. Please note that you'll  need a single-service resource if you intend to use [Azure Active Directory authentication](../../../../active-directory/authentication/overview-authentication.md).
 
-* After your resource deploys, select **Go to resource**. You need the key and endpoint from the resource you create to connect your application to the Form Recognizer API. You'll paste your key and endpoint into the code below later in the quickstart:
+* After your resource deploys, select **Go to resource**. You need the key and endpoint from the resource you create to connect your application to the Form Recognizer API. You paste your key and endpoint into the code later in the quickstart:
 
   :::image type="content" source="../../media/containers/keys-and-endpoint.png" alt-text="Screenshot: keys and endpoint location in the Azure portal.":::
 
-> [!div class="nextstepaction"]
-> [I ran into an issue with the prerequisites.](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=python&Product=FormRecognizer&Page=quickstart&Section=prerequisites)
+<!-- > [!div class="nextstepaction"]
+> [I &#8203;ran into an issue with the prerequisites.](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=python&Product=FormRecognizer&Page=quickstart&Section=prerequisites) -->
 
 ## Set up
 
@@ -53,12 +52,12 @@ Open a terminal window in your local environment and install the Azure Form Reco
 pip install azure-ai-formrecognizer==3.2.0
 ```
 
-> [!div class="nextstepaction"]
-> [I ran into an issue with the setup.](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=python&Product=FormRecognizer&Page=quickstart&Section=setup)
+<!-- > [!div class="nextstepaction"]
+> [I &#8203;ran into an issue with the setup.](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=python&Product=FormRecognizer&Page=quickstart&Section=setup) -->
 
 ## Create your Python application
 
-To interact with the Form Recognizer service, you'll need to create an instance of the `DocumentAnalysisClient` class. To do so, you'll create an `AzureKeyCredential` with your `key` from the Azure portal and a `DocumentAnalysisClient` instance with the `AzureKeyCredential` and your Form Recognizer `endpoint`.
+To interact with the Form Recognizer service, you need to create an instance of the `DocumentAnalysisClient` class. To do so, you create an `AzureKeyCredential` with your `key` from the Azure portal and a `DocumentAnalysisClient` instance with the `AzureKeyCredential` and your Form Recognizer `endpoint`.
 
 1. Create a new Python file called **form_recognizer_quickstart.py** in your preferred editor or IDE.
 
@@ -77,7 +76,7 @@ To interact with the Form Recognizer service, you'll need to create an instance 
 
 ## General document model
 
-Extract text, tables, structure, key-value pairs, and named entities from documents.
+Extract text, tables, structure, and key-value pairs from documents.
 
 > [!div class="checklist"]
 >
@@ -223,8 +222,8 @@ Once you've added a code sample to your application, build and run your program:
     python form_recognizer_quickstart.py
     ```
 
-> [!div class="nextstepaction"]
-> [I ran into an issue when running the application.](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=python&Product=FormRecognizer&Page=quickstart&Section=run-general-document)
+<!-- > [!div class="nextstepaction"]
+> [I &#8203;ran into an issue when running the application.](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=python&Product=FormRecognizer&Page=quickstart&Section=run-general-document) -->
 
 ### General document model output
 
@@ -373,8 +372,8 @@ Once you've added a code sample to your application, build and run your program:
     python form_recognizer_quickstart.py
     ```
 
-> [!div class="nextstepaction"]
-> [I ran into an issue when running the application.](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=python&Product=FormRecognizer&Page=quickstart&Section=run-layout)
+<!-- > [!div class="nextstepaction"]
+> [I &#8203;ran into an issue when running the application.](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=python&Product=FormRecognizer&Page=quickstart&Section=run-layout) -->
 
 ### Layout model output
 
@@ -402,7 +401,7 @@ ___
 
 ## Prebuilt model
 
-Analyze and extract common fields from specific document types using a prebuilt model. In this example, we'll analyze an invoice using the **prebuilt-invoice** model.
+Analyze and extract common fields from specific document types using a prebuilt model. In this example, we analyze an invoice using the **prebuilt-invoice** model.
 
 > [!TIP]
 > You aren't limited to invoices—there are several prebuilt models to choose from, each of which has its own set of supported fields. The model to use for the analyze operation depends on the type of document to be analyzed. See [**model data extraction**](../../concept-model-overview.md#model-data-extraction).
@@ -713,8 +712,8 @@ Once you've added a code sample to your application, build and run your program:
     python form_recognizer_quickstart.py
     ```
 
-> [!div class="nextstepaction"]
-> [I ran into an issue when running the application.](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=python&Product=FormRecognizer&Page=quickstart&Section=run-prebuilt)
+<!-- > [!div class="nextstepaction"]
+> [I &#8203;ran into an issue when running the application.](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=python&Product=FormRecognizer&Page=quickstart&Section=run-prebuilt) -->
 
 ### Prebuilt model output
 

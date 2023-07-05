@@ -1,11 +1,12 @@
 ---
 title: About Azure Migrate 
 description: Learn about the Azure Migrate service.
-author: v-ksreedevan
-ms.author: v-ksreedevan
+author: Vikram1988
+ms.author: vibansa
 ms.manager: abhemraj
 ms.topic: overview
-ms.date: 11/30/2022
+ms.service: azure-migrate
+ms.date: 05/25/2023
 ms.custom: mvc, engagement-fy23
 ---
 
@@ -18,7 +19,7 @@ Azure Migrate provides a simplified migration, modernization, and optimization s
 - **Unified migration platform**: A single portal to start, run, and track your migration to Azure.
 - **Range of tools**: A range of tools for assessment and migration. Azure Migrate tools include *Azure Migrate: Discovery and assessment* and *Migration and modernization*. Azure Migrate also integrates with other Azure services and tools, and with independent software vendor (ISV) offerings.
 - **Assessment, migration, and modernization**: In the Azure Migrate hub, you can assess, migrate, and modernize:
-    - **Servers, databases and web apps**: Assess on-premises servers including web apps and SQL Server instances and migrate them to Azure virtual machines or Azure VMware Solution (AVS) (Preview).
+    - **Servers, databases and web apps**: Assess on-premises servers including web apps and SQL Server instances and migrate them to Azure.
     - **Databases**: Assess on-premises SQL Server instances and databases to migrate them to an SQL Server on an Azure VM or an Azure SQL Managed Instance or to an Azure SQL Database.
     - **Web applications**: Assess on-premises web applications and migrate them to Azure App Service and Azure Kubernetes Service.
     - **Virtual desktops**: Assess your on-premises virtual desktop infrastructure (VDI) and migrate it to Azure Virtual Desktop.
@@ -47,14 +48,14 @@ Azure Migrate integrates with several ISV offerings.
 
 **ISV**    | **Feature**
 --- | ---
-[Carbonite](https://www.carbonite.com/globalassets/files/datasheets/carb-migrate4azure-microsoft-ds.pdf) | Migrate servers.
+[Carbonite](https://www.carbonite.com/data-protection-resources/resource/Datasheet/carbonite-migrate-for-microsoft-azure) | Migrate servers.
 [Cloudamize](https://www.cloudamize.com/platform) | Assess servers.
 [CloudSphere](https://go.microsoft.com/fwlink/?linkid=2157454) | Assess servers.
 [Corent Technology](https://www.corenttech.com/AzureMigrate/) | Assess and migrate servers.
 [Device42](https://docs.device42.com/) | Assess servers.
 [Lakeside](https://go.microsoft.com/fwlink/?linkid=2104908) | Assess VDI.
 [RackWare](https://go.microsoft.com/fwlink/?linkid=2102735) | Migrate servers.
-[Turbonomic](https://learn.turbonomic.com/azure-migrate-portal-free-trial) | Assess servers.
+[Turbonomic](https://go.microsoft.com/fwlink/?linkid=2094295) | Assess servers.
 [UnifyCloud](https://www.cloudatlasinc.com/cloudrecon/) | Assess servers and databases.
 [Zerto](https://go.microsoft.com/fwlink/?linkid=2152102) | Migrate servers.
 

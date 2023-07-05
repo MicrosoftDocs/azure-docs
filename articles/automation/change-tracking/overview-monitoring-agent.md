@@ -3,13 +3,13 @@ title: Azure Automation Change Tracking and Inventory overview using Azure Monit
 description: This article describes the Change Tracking and Inventory feature using Azure monitoring agent (Preview), which helps you identify software and Microsoft service changes in your environment.
 services: automation
 ms.subservice: change-inventory-management
-ms.date: 12/14/2022
+ms.date: 06/15/2023
 ms.topic: conceptual
 ---
 
 # Overview of change tracking and inventory using Azure Monitoring Agent (Preview)
 
-**Applies to:** :heavy_check_mark: Windows VMs :heavy_check_mark: Linux VMs :heavy_check_mark: Windows Registry :heavy_check_mark: Windows Files :heavy_check_mark: Linux Files :heavy_check_mark: Windows Software
+**Applies to:** :heavy_check_mark: Windows VMs :heavy_check_mark: Linux VMs :heavy_check_mark: Windows Registry :heavy_check_mark: Windows Files :heavy_check_mark: Linux Files :heavy_check_mark: Windows Software :heavy_check_mark: Windows Services & Linux Daemons
 
 > [!Important]
 > Currently, Change tracking and inventory uses Log Analytics Agent and this is scheduled to retire by 31.August.2024. We recommend that you use Azure Monitoring Agent as the new supporting agent.
@@ -18,9 +18,10 @@ This article explains on the latest version of change tracking support using Azu
 
 ## Key benefits
 
-- **Compatibility with the unified monitoring agent** - Compatible with the [Azure Monitor Agent (Preview)](/articles/azure-monitor/agents/agents-overview.md) that enhances security, reliability, and facilitates multi-homing experience to store data.
+- **Compatibility with the unified monitoring agent** - Compatible with the [Azure Monitor Agent (Preview)](../../azure-monitor/agents/agents-overview.md) that enhances security, reliability, and facilitates multi-homing experience to store data.
 - **Compatibility with tracking tool**- Compatible with the Change tracking (CT) extension deployed through the Azure Policy on the client's virtual machine. You can switch to Azure Monitor Agent (AMA), and then the CT extension pushes the software, files, and registry to AMA.
-- **Multi-homing experience** – Provides standardization of management from one central workspace. You can [transition from Log Analytics (LA) to AMA](/articles/azure-monitor/agents/azure-monitor-agent-migration.md) so that all VMs point to a single workspace for data collection and maintenance.
+- **Multi-homing experience** – Provides standardization of management from one central workspace. You can [transition from Log Analytics (LA) to AMA](../../azure-monitor/agents/azure-monitor-agent-migration.md)
+so that all VMs point to a single workspace for data collection and maintenance.
 - **Rules management** – Uses [Data Collection Rules](https://azure.microsoft.com/updates/azure-monitor-agent-and-data-collection-rules-public-preview/) to configure or customize various aspects of data collection. For example, you can change the frequency of file collection.
 
 ## Current limitations
@@ -38,6 +39,8 @@ Change Tracking and Inventory using Azure Monitoring Agent (Preview) doesn't sup
 - If network traffic is high, change records can take up to six hours to display.
 - If you modify a configuration while a machine or server is shut down, it might post changes belonging to the previous configuration.
 - Collecting Hotfix updates on Windows Server 2016 Core RS3 machines.
+- Linux daemons might show a changed state even though no change has occurred. This issue arises because of how the `SvcRunLevels` data in the Azure Monitor [ConfigurationChange](https://learn.microsoft.com/azure/azure-monitor/reference/tables/configurationchange) table is written. 
+
 
 ## Limits
 
@@ -50,10 +53,12 @@ The following table shows the tracked item limits per machine for change trackin
 |Registry|250||
 |Windows software|250|Doesn't include software updates.|
 |Linux packages|1,250||
+|Windows Services |250||
+|Linux Daemons | 250|| 
 
 ## Supported operating systems
 
-Change Tracking and Inventory is supported on all operating systems that meet Log Analytics agent requirements. See [supported operating systems](../../azure-monitor/agents/agents-overview.md#supported-operating-systems) for a list of the Windows and Linux operating system versions that are currently supported by the Log Analytics agent.
+Change Tracking and Inventory is supported on all operating systems that meet Azure Monitor agent requirements. See [supported operating systems](../../azure-monitor/agents/agents-overview.md#supported-operating-systems) for a list of the Windows and Linux operating system versions that are currently supported by the Azure Monitor agent.
 
 To understand client requirements for TLS 1.2, see [TLS 1.2 for Azure Automation](../automation-managing-data.md#tls-12-for-azure-automation).
 
@@ -118,21 +123,58 @@ The next table shows the data collection frequency for the types of changes supp
 | Windows registry | 50 minutes |
 | Windows file | 30 to 40 minutes |
 | Linux file | 15 minutes |
-| Windows services | 10 seconds to 30 minutes</br> Default: 30 minutes |
+| Windows services | 10 minutes to 30 minutes</br> Default: 30 minutes |
 | Windows software | 30 minutes |
 | Linux software | 5 minutes |
+| Linux Daemons | 5 minutes | 
 
 The following table shows the tracked item limits per machine for Change Tracking and Inventory.
 
 | **Resource** | **Limit** |
-|---|---|---|
+|---|---|
 |File|500|
 |Registry|250|
 |Windows software (not including hotfixes) |250|
 |Linux packages|1250|
+|Windows Services | 250 |
+|Linux Daemons| 500| 
 
-> [!NOTE]
-> Change Tracking with Support Windows Services & Daemons will be supported by GA.
+### Windows services data
+
+#### Prerequisites
+
+To enable tracking of Windows Services data, you must upgrade CT extension and use extension more than or equal to 2.11.0.0
+
+#### [For Windows Azure VMs](#tab/win-az-vm)
+
+```powershell-interactive
+- az vm extension set --publisher Microsoft.Azure.ChangeTrackingAndInventory --version 2.11.0 --ids /subscriptions/<subscriptionids>/resourceGroups/<resourcegroupname>/providers/Microsoft.Compute/virtualMachines/<vmname> --name ChangeTracking-Windows --enable-auto-upgrade true
+```
+#### [For Linux Azure VMs](#tab/lin-az-vm)
+
+```powershell-interactive
+– az vm extension set --publisher Microsoft.Azure.ChangeTrackingAndInventory --version 2.11.0 --ids /subscriptions/<subscriptionids>/resourceGroups/<resourcegroupname>/providers/Microsoft.Compute/virtualMachines/<vmname> --name ChangeTracking-Linux --enable-auto-upgrade true
+```
+#### [For Arc-enabled Windows VMs](#tab/win-arc-vm)
+
+```powershell-interactive
+– az connectedmachine extension create --name ChangeTracking-Windows --publisher Microsoft.Azure.ChangeTrackingAndInventory --type ChangeTracking-Windows --machine-name <arc-server-name> --resource-group <resource-group-name> --location <arc-server-location> --enable-auto-upgrade true
+```
+
+#### [For Arc-enabled Linux VMs](#tab/lin-arc-vm)
+
+```powershell-interactive
+- az connectedmachine extension create --name ChangeTracking-Linux --publisher Microsoft.Azure.ChangeTrackingAndInventory --type ChangeTracking-Linux --machine-name <arc-server-name> --resource-group <resource-group-name> --location <arc-server-location> --enable-auto-upgrade true
+```
+---
+
+#### Configure frequency
+
+The default collection frequency for Windows services is 30 minutes. To configure the frequency,
+- under **Edit** Settings, use a slider on the **Windows services** tab.
+
+:::image type="content" source="media/overview-monitoring-agent/frequency-slider-inline.png" alt-text="Screenshot of frequency slider." lightbox="media/overview-monitoring-agent/frequency-slider-expanded.png":::
+
 
 ## Support for alerts on configuration state
 

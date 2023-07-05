@@ -6,7 +6,7 @@ ms.author: viseshag
 ms.service: purview
 ms.subservice: purview-data-map
 ms.topic: how-to
-ms.date: 05/23/2022
+ms.date: 02/01/2023
 ms.custom: template-how-to
 ---
 
@@ -24,7 +24,10 @@ Collections in the Microsoft Purview Data Map can be used to organize assets and
 
 ### Check permissions
 
-In order to create and manage collections in the Microsoft Purview Data Map, you'll need to be a **Collection Admin** within the Microsoft Purview governance portal. We can check these permissions in the [Microsoft Purview governance portal](https://web.purview.azure.com/resource/). You can find Studio in the overview page of the account in the [Azure portal](https://portal.azure.com).
+In order to create and manage collections in the Microsoft Purview Data Map, you'll need to be a **Collection Admin** within the Microsoft Purview governance portal. We can check these permissions in the [Microsoft Purview governance portal](https://web.purview.azure.com/resource/). You can find the Microsoft Purview governance portal by:
+
+- Browsing directly to [https://web.purview.azure.com](https://web.purview.azure.com) and selecting your Microsoft Purview account.
+- Opening the [Azure portal](https://portal.azure.com), searching for and selecting the Microsoft Purview account. Selecting the [**the Microsoft Purview governance portal**](https://web.purview.azure.com/) button.
 
 1. Select Data Map > Collections from the left pane to open collection management page.
 
@@ -101,11 +104,15 @@ You'll need to be a collection admin in order to delete a collection. If you are
    
    :::image type="content" source="./media/how-to-create-and-manage-collections/delete-collections.png" alt-text="Screenshot of Microsoft Purview governance portal window to delete a collection" border="true":::
 
-2. Select **Confirm** when prompted, **Are you sure you want to delete this collection?**
+1. Select **Confirm** when prompted, **Are you sure you want to delete this collection?**
 
    :::image type="content" source="./media/how-to-create-and-manage-collections/delete-collection-confirmation.png" alt-text="Screenshot of Microsoft Purview governance portal window showing confirmation message to delete a collection" border="true":::
 
-3. Verify deletion of the collection from your Microsoft Purview Data Map.
+1. Verify deletion of the collection from your Microsoft Purview Data Map.
+
+### Move registered sources between collections
+
+You can move registered sources from one collection to another you have access to. For steps, see the [manage data sources article](manage-data-sources.md#move-sources-between-collections).
 
 ## Add roles and restrict access through collections
 

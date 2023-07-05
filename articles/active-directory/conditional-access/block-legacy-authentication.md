@@ -1,5 +1,5 @@
 ---
-title: Block legacy authentication - Azure Active Directory
+title: Block legacy authentication
 description: Block legacy authentication using Azure AD Conditional Access.
 
 services: active-directory
@@ -81,7 +81,7 @@ The following messaging protocols support legacy authentication:
 - Universal Outlook - Used by the Mail and Calendar app for Windows 10.
 - Other clients - Other protocols identified as utilizing legacy authentication.
 
-For more information about these authentication protocols and services, see [Sign-in activity reports in the Azure Active Directory portal](../reports-monitoring/concept-sign-ins.md#filter-sign-in-activities).
+For more information about these authentication protocols and services, see [Sign-in activity reports in the Azure portal](../reports-monitoring/concept-sign-ins.md#filter-sign-in-activities).
 
 ### Identify legacy authentication use
 

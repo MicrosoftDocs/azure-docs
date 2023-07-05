@@ -1,5 +1,5 @@
 ---
-title: Control security information registration with Conditional Access - Azure Active Directory
+title: Control security information registration with Conditional Access
 description: Create a custom Conditional Access policy for security info registration
 
 services: active-directory

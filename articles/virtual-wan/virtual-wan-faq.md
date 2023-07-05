@@ -1,10 +1,10 @@
 ---
-title: 'Azure Virtual WAN FAQ | Microsoft Docs'
+title: 'Azure Virtual WAN FAQ'
 description: See answers to frequently asked questions about Azure Virtual WAN networks, clients, gateways, devices, partners, and connections.
 author: cherylmc
 ms.service: virtual-wan
-ms.topic: conceptual
-ms.date: 10/13/2022
+ms.topic: faq
+ms.date: 06/30/2023
 ms.author: cherylmc
 # Customer intent: As someone with a networking background, I want to read more details about Virtual WAN in a FAQ format.
 ---
@@ -13,7 +13,7 @@ ms.author: cherylmc
 
 ### Is Azure Virtual WAN in GA?
 
-Yes, Azure Virtual WAN is Generally Available (GA). However, Virtual WAN consists of several features and scenarios. There are feature or scenarios within Virtual WAN where Microsoft applies the Preview tag. In those cases, the specific feature, or the scenario itself, is in Preview. If you don't use a specific preview feature, regular GA support applies. For more information about Preview support, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+Yes, Azure Virtual WAN is Generally Available (GA). However, Virtual WAN consists of several features and scenarios. There are features or scenarios within Virtual WAN where Microsoft applies the Preview tag. In those cases, the specific feature, or the scenario itself, is in Preview. If you don't use a specific preview feature, regular GA support applies. For more information about Preview support, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ### Which locations and regions are available?
 
@@ -156,9 +156,13 @@ Virtual WAN supports 2 active site-to-site VPN gateway instances in a virtual hu
 
 While Virtual WAN VPN supports many algorithms, our recommendation is GCMAES256 for both IPSEC Encryption and Integrity for optimal performance. AES256 and SHA256 are considered less performant and therefore performance degradation such as latency and packet drops can be expected for similar algorithm types.
 
-Packets per second or PPS is a factor of the total # of packets and the throughput supported per instance. This is best understood with an example. Lets say a 1 scale unit 500-Mbps site-to-site VPN gateway instance is deployed in a virtual WAN hub. Assuming a packet size of 1480, expected PPS for that vpn gateway instance *at a minimum* = [(500 Mbps * 1024 * 1024) /8/1480] ~ 43690.
+Packets per second or PPS is a factor of the total # of packets and the throughput supported per instance. This is best understood with an example. Lets say a 1 scale unit 500-Mbps site-to-site VPN gateway instance is deployed in a virtual WAN hub. Assuming a packet size of 1400, expected PPS for that vpn gateway instance *at a maximum* = [(500 Mbps * 1024 * 1024) /8/1400] ~ 47000.
 
-Virtual WAN has concepts of VPN connection, link connection and tunnels. A single VPN connection consists of link connections. Virtual WAN supports up to 4 link connections in a VPN connection. Each link connection consists of two IPsec tunnels that terminate in two instances of an active-active VPN gateway deployed in a virtual hub. The total number of tunnels that can terminate in a single active instance is 1000, which also implies that throughput for 1 instance will be available aggregated across all the tunnels connecting to that instance. Each tunnel also has certain throughput values. For GCM algorithm, a tunnel can support up to a maximum 1.25 Gbps. In cases of multiple tunnels connected to a lower value scale unit gateway, it's best to evaluate the need per tunnel and plan for a VPN gateway that is an aggregate value for throughput across all tunnels terminating in the VPN instance.
+Virtual WAN has concepts of VPN connection, link connection and tunnels. A single VPN connection consists of link connections. Virtual WAN supports up to 4 link connections in a VPN connection. Each link connection consists of two IPsec tunnels that terminate in two instances of an active-active VPN gateway deployed in a virtual hub. The total number of tunnels that can terminate in a single active instance is 1000, which also implies that throughput for 1 instance will be available aggregated across all the tunnels connecting to that instance. Each tunnel also has certain throughput values. In cases of multiple tunnels connected to a lower value scale unit gateway, it's best to evaluate the need per tunnel and plan for a VPN gateway that is an aggregate value for throughput across all tunnels terminating in the VPN instance.
+
+**Values for various scale units supported in Virtual WAN**
+
+[!INCLUDE [values for scale units](../../includes/virtual-wan-tunnels-throuput-instance-include.md)]
 
 ### Which device providers (Virtual WAN partners) are supported?
 
@@ -260,7 +264,7 @@ No. Virtual WAN doesn't require ExpressRoute from each site. Your sites may be c
 
 ### Is there a network throughput or connection limit when using Azure Virtual WAN?
 
-Network throughput is per service in a virtual WAN hub. In each hub, the VPN aggregate throughput is up to 20 Gbps, the ExpressRoute aggregate throughput is up to 20 Gbps, and the User VPN/point-to-site VPN aggregate throughput is up to 20 Gbps. The router in virtual hub supports up to 50 Gbps for VNet-to-VNet traffic flows and assumes a total of 2000 VM workload across all VNets connected to a single virtual hub. 
+Network throughput is per service in a virtual WAN hub. In each hub, the VPN aggregate throughput is up to 20 Gbps, the ExpressRoute aggregate throughput is up to 20 Gbps, and the User VPN/point-to-site VPN aggregate throughput is up to 200 Gbps. The router in virtual hub supports up to 50 Gbps for VNet-to-VNet traffic flows and assumes a total of 2000 VM workload across all VNets connected to a single virtual hub.
 
 To secure upfront capacity without having to wait for the virtual hub to scale out when more throughput is needed, you can set the minimum capacity or modify as needed. See [About virtual hub settings - hub capacity](hub-settings.md#capacity). For cost implications, see *Routing Infrastructure Unit* cost in the [Azure Virtual WAN Pricing](https://azure.microsoft.com/pricing/details/virtual-wan/) page.
 
@@ -303,12 +307,31 @@ Yes. Customers can now create more than one hub in the same region for the same 
 ### How does the virtual hub in a virtual WAN select the best path for a route from multiple hubs?
 
 If a virtual hub learns the same route from multiple remote hubs, the order in which it decides is as follows:
+1.	Select routes with Longest Prefix Match (LPM).
+2.	Prefer static routes learned from the virtual hub route table over BGP routes.
+3.	Select best path based on the [Virtual hub routing preference](about-virtual-hub-routing-preference.md) configuration. There are three possible configurations for Virtual hub routing preference and the route preference changes accordingly.
 
-1. Longest prefix match.
-1. Local routes over interhub.
-1. Static routes over BGP: This is in context to the decision being made by the virtual hub router. However, if the decision maker is the VPN gateway where a site advertises routes via BGP or provides static address prefixes, static routes may be preferred over BGP routes.
-1. ExpressRoute (ER) over VPN: ER is preferred over VPN when the context is a local hub. Transit connectivity between ExpressRoute circuits is only available through Global Reach. Therefore, in scenarios where ExpressRoute circuit is connected to one hub and there is another ExpressRoute circuit connected to a different hub with VPN connection, VPN may be preferred for inter-hub scenarios. However, you can [configure virtual hub routing preference](howto-virtual-hub-routing-preference.md) to change the default preference.
-1. AS path length (Virtual hubs prepend routes with the AS path 65520-65520 when advertising routes to each other).
+    * **ExpressRoute** (This is the default setting)
+        1.	Prefer routes from local virtual hub connections over routes learned from remote virtual hub.
+        2. If there are Routes from both ExpressRoute and Site-to-site VPN connections:
+              * If all the routes are local to the virtual hub, the routes learned from ExpressRoute connections will be chosen because Virtual hub routing preference is set to ExpressRoute.
+              * If all the routes are through remote hubs, Site-to-site VPN will be preferred over ExpressRoute. 
+        3.	Prefer routes with the shortest BGP AS-Path length.
+
+    * **VPN**
+        1.	Prefer routes from local virtual hub connections over routes learned from remote virtual hub.
+        2.	If there are routes from both ExpressRoute and Site-to-site VPN connections, the Site-to-site VPN routes will be chosen.
+        3.	Prefer routes with the shortest BGP AS-Path length.
+
+    * **AS Path**
+        1.	Prefer routes with the shortest BGP AS-Path length irrespective of the source of the route advertisements. 
+         Note: In vWANs with multiple remote virtual hubs, If there is a tie between remote routes and remote site-to-site VPN routes. Remote site-to-site VPN will be preferred.
+
+        2.	Prefer routes from local virtual hub connections over routes learned from remote virtual hub.
+        3.	If there are routes from both ExpressRoute and Site-to-site VPN connections:
+            *	If all the routes are local to the virtual hub, the routes from ExpressRoute connections will be chosen.
+            * If all the routes are through remote virtual hubs, the routes from Site-to-site VPN connections will be chosen.
+
 
 ### Does the Virtual WAN hub allow connectivity between ExpressRoute circuits?
 
@@ -401,13 +424,21 @@ Yes, BGP communities generated by on-premises will be preserved in Virtual WAN. 
 
 [!INCLUDE [ExpressRoute Performance](../../includes/virtual-wan-expressroute-performance.md)]
 
-### <a name="update-router"></a>Why am I seeing a message and button called "Update router to latest software version" in portal?
+### <a name="why-am-i-seeing-a-message-and-button-called-update-router-to-latest-software-version-in-portal."></a>Why am I seeing a message and button called "Update router to latest software version" in portal?
 
-The Virtual WAN team has been working on upgrading virtual routers from their current Cloud Services infrastructure to Virtual Machine Scale Sets based deployments. This will enable the virtual hub router to now be availability zone aware. If you navigate to your Virtual WAN hub resource and see this message and button, then you can upgrade your router to the latest version by clicking on the button. Azure-wide Cloud Services-based infrastructure is deprecating. If you would like to take advantage of new Virtual WAN features, such as [BGP peering with the hub](create-bgp-peering-hub-portal.md), you'll have to update your virtual hub router via Azure Portal. 
+Azure-wide Cloud Services-based infrastructure is deprecating. As a result, the Virtual WAN team has been working on upgrading virtual routers from their current Cloud Services infrastructure to Virtual Machine Scale Sets based deployments. **All newly created Virtual Hubs will automatically be deployed on the latest Virtual Machine Scale Sets based infrastructure.** If you navigate to your Virtual WAN hub resource and see this message and button, then you can upgrade your router to the latest version by clicking on the button. If you would like to take advantage of new Virtual WAN features, such as [BGP peering with the hub](create-bgp-peering-hub-portal.md), you'll have to update your virtual hub router via Azure Portal. If the button is not visible, please open a support case. 
 
-You’ll only be able to update your virtual hub router if all the resources (gateways/route tables/VNet connections) in your hub are in a succeeded state. Please make sure all your spoke virtual networks are in active/enabled subscriptions and that your spoke virtual networks are not deleted. Additionally, as this operation requires deployment of new virtual machine scale sets based virtual hub routers, you’ll face an expected downtime of 1-2 minutes for VNet-to-VNet traffic through the same hub and 5-7 minutes for all other traffic flows through the hub. Within a single Virtual WAN resource, hubs should be updated one at a time instead of updating multiple at the same time. When the Router Version says “Latest”, then the hub is done updating. There will be no routing behavior changes after this update unless one of the following is true: 
-* If any of your spoke virtual networks are located in a different region than the hub, then you will need to delete and recreate these respective VNet connections after performing the upgrade. This will ensure you have connectivity to these spoke VNets. 
+You’ll only be able to update your virtual hub router if all the resources (gateways/route tables/VNet connections) in your hub are in a succeeded state. Please make sure all your spoke virtual networks are in active/enabled subscriptions and that your spoke virtual networks are not deleted. Additionally, as this operation requires deployment of new virtual machine scale sets based virtual hub routers, you’ll face an expected downtime of 1-2 minutes for VNet-to-VNet traffic through the same hub and 5-7 minutes for all other traffic flows through the hub. Within a single Virtual WAN resource, hubs should be updated one at a time instead of updating multiple at the same time. When the Router Version says “Latest”, then the hub is done updating. There will be no routing behavior changes after this update. 
+
+There are several limitations with the virtual hub router upgrade
+
 * If you have already configured BGP peering between your Virtual WAN hub and an NVA in a spoke VNet, then you will have to [delete and then recreate the BGP peer](create-bgp-peering-hub-portal.md). Since the virtual hub router's IP addresses change after the upgrade, you will also have to reconfigure your NVA to peer with the virtual hub router's new IP addresses. These IP addresses are represented as the "virtualRouterIps" field in the Virtual Hub's Resource JSON.
+
+* If your Virtual WAN hub is connected to a combination of spoke virtual networks in the same region as the hub and a separate region than the hub, then you may experience a lack of connectivity to these respective spoke virtual networks. To resolve this and restore connectivity to these virtual networks, you can modify any of the virtual network connection properties (For example, you can modify the connection to propagate to a dummy label). We are actively working on removing this requirement. 
+
+* Your Virtual WAN hub router can not currently be upgraded if you have a network virtual appliance in the virtual hub. We are actively working on removing this limitation. 
+
+* If your Virtual WAN hub is connected to more than 100 spoke virtual networks, then the upgrade may fail. 
 
 If the update fails for any reason, your hub will be auto recovered to the old version to ensure there is still a working setup.
 

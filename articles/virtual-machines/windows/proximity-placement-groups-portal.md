@@ -6,7 +6,7 @@ ms.service: virtual-machines
 ms.subservice: proximity-placement-groups
 ms.topic: how-to
 ms.workload: infrastructure-services
-ms.date: 3/8/2021
+ms.date: 3/12/2023
 ms.author: mattmcinnes
 
 ---

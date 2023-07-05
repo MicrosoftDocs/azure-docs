@@ -7,7 +7,7 @@ author: savjani
 ms.author: pariks
 ms.topic: tutorial
 ms.date: 06/20/2022
-ms.custom: mvc, devx-track-azurepowershell
+ms.custom: mvc, devx-track-arm-template
 ---
 
 # Tutorial: Provision an Azure Database for MySQL server using Azure Resource Manager template

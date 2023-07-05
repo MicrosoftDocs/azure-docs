@@ -1,5 +1,5 @@
 ---
-title: 'How-to create an Azure OpenAI resource using the Azure portal'
+title: 'How-to create an Azure OpenAI Service resource using the Azure portal'
 titleSuffix: Azure OpenAI
 description: Walkthrough on how to get started with Azure OpenAI by creating your first resource and deploying a model through the Azure portal.
 services: cognitive-services
@@ -7,22 +7,22 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: openai
 ms.topic: include
-ms.date: 06/30/2022
+ms.date: 06/08/2023
 keywords: 
 ---
 
 ## Prerequisites
 
 - An Azure subscription - <a href="https://azure.microsoft.com/free/cognitive-services" target="_blank">Create one for free</a>
-- Access granted to the Azure OpenAI service in the desired Azure subscription
+- Access granted to Azure OpenAI in the desired Azure subscription
 
-    Currently, access to this service is granted only by application. You can apply for access to the Azure OpenAI service by completing the form at <a href="https://aka.ms/oai/access" target="_blank">https://aka.ms/oai/access</a>. Open an issue on this repo to contact us if you have an issue.
+    Currently, access to this service is granted only by application. You can apply for access to Azure OpenAI by completing the form at <a href="https://aka.ms/oai/access" target="_blank">https://aka.ms/oai/access</a>. Open an issue on this repo to contact us if you have an issue.
 
 ## Create a resource
 
 Resources in Azure can be created several different ways:
 
-- Within the Azure portal
+- Within the [Azure portal](https://portal.azure.com/?microsoft_azure_marketplace_ItemHideKey=microsoft_openai_tip#create/Microsoft.CognitiveServicesOpenAI)
 - Using the REST APIs, Azure CLI, PowerShell or client libraries
 - Via ARM templates
 
@@ -43,14 +43,23 @@ This guide walks you through the Azure portal creation experience.
 
 ## Deploy a model
 
-Before you can generate text or inference, you need to deploy a model. This is done by selecting **create new deployment** on the **deployments** page. From here, you can select from one of our many available models. For getting started, we recommend `text-davinci-002` for users in South Central and `text-davinci-001` for users in West Europe (text-davinci-002 is not available in this region). You can do this in the Azure OpenAI Studio.
+Before you can generate text or inference, you need to deploy a model. You can select from one of several available models in Azure OpenAI Studio.
 
-1. Go to the [Azure OpenAI Studio](https://oai.azure.com)
+To deploy a model, follow these steps:
 
-1. Login with the resource you want to use
+1. Sign in to [Azure OpenAI Studio](https://oai.azure.com).
+2. Select the subscription and Azure OpenAI resource to work with.
+3. Under **Management** select **Deployments**.
+4. Select **Create new deployment**.
 
-1. Select the **Go to Deployments** button under **Manage deployments in your resource** to navigate to the **Deployments** page
+    |Field|Description|
+    |--|--|
+    | Select a model | Model availability varies by region.For a list of available models per region, see [Model Summary table and region availability](../concepts/models.md#model-summary-table-and-region-availability).|
+    | Deployment name | Choose a name carefully. The deployment name will be used in your code to call the model via the client libraries and REST API |
+    | Advanced Options| Content Filter - Assign a content filter to your deployment.<br> Tokens per Minute Rate Limit - Adjust the Tokens per Minute (TPM) to set the effective rate limit for your deployment. You can modify this value at any time via the [**Quotas**](../how-to/quota.md) menu |
 
-    :::image type="content" source="../media/create-resource/deployment.png" alt-text="Screenshot of the Azure OpenAI Studio page with the 'Go to Deployments' button highlighted." lightbox="../media/create-resource/deployment.png":::
+5. Select a model from the drop-down.
+6. Enter a deployment name to help you identify the model.
+7. For your first deployment leave the Advanced Options set to the defaults.
 
-1. Create a new deployment called `text-davinci-002` and choose the `text-davinci-002` model from the drop-down.
+The deployments table displays a new entry that corresponds to this newly created model. Your deployment status will move to succeeded when the deployment is complete and ready for use.

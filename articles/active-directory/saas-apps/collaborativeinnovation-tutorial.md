@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with Collaborative Innovation | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with Collaborative Innovation'
 description: Learn how to configure single sign-on between Azure Active Directory and Collaborative Innovation.
 services: active-directory
 author: jeevansd
@@ -160,4 +160,3 @@ When you click the Collaborative Innovation tile in the Access Panel, you should
 
 - [What is conditional access in Azure Active Directory?](../conditional-access/overview.md)
 
-- [Try Collaborative Innovation with Azure AD](https://aad.portal.azure.com/)

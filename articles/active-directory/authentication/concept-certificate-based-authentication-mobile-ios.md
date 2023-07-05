@@ -1,23 +1,40 @@
 ---
-title: Azure Active Directory certificate-based authentication on iOS devices - Azure Active Directory
-description: Learn about Azure Active Directory certificate-based authentication on iOS devices
+title: Azure Active Directory certificate-based authentication on Apple devices
+description: Learn about Azure Active Directory certificate-based authentication on Apple devices that run macOS or iOS
 
 services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
-ms.date: 10/27/2022
+ms.date: 02/09/2023
 
 ms.author: justinha
-author: vimrang
-manager: daveba
+author: justinha
+manager: amycolannino
 ms.reviewer: vimrang
 
 ms.collection: M365-identity-device-management
 ms.custom: has-adal-ref
 ---
-# Azure Active Directory certificate-based authentication on iOS
+# Azure Active Directory certificate-based authentication on iOS and macOS
 
+This topic covers Azure Active Directory (Azure AD) certificate-based authentication (CBA) support for macOS and iOS devices.
+
+## Azure Active Directory certificate-based authentication on macOS devices
+
+Devices that run macOS can use CBA to authenticate against Azure AD by using their X.509 client certificate. Azure AD CBA is supported with certificates on-device and external hardware protected security keys. On macOS, Azure AD CBA is supported on all browsers and on Microsoft first-party applications.
+
+### Browsers supported on macOS
+
+|Edge | Chrome | Safari | Firefox |
+|--------|---------|------|-------|
+|&#x2705; |&#x2705; | &#x2705; |&#x2705; |
+
+### macOS device sign-in with Azure AD CBA
+
+Azure AD CBA today isn't supported for device-based sign-in to macOS machines. The certificate used to sign in to the device can be the same certificate used to authenticate to Azure AD from a browser or desktop application, but the device sign-in itself isn't supported against Azure AD yet. 
+
+## Azure Active Directory certificate-based authentication on iOS devices
 Devices that run iOS can use certificate-based authentication (CBA) to authenticate to Azure Active Directory (Azure AD) using a client certificate on their device when connecting to:
 
 - Office mobile applications such as Microsoft Outlook and Microsoft Word
@@ -25,20 +42,20 @@ Devices that run iOS can use certificate-based authentication (CBA) to authentic
 
 Azure AD CBA is supported for certificates on-device on native browsers and on Microsoft first-party applications on iOS devices. 
 
-## Prerequisites
+### Prerequisites
 
 - iOS version must be iOS 9 or later.
 - Microsoft Authenticator is required for Office applications and Outlook on iOS.
 
-## Support for on-device certificates and external storage
+### Support for on-device certificates and external storage
 
 On-device certificates are provisioned on the device. Customers can use Mobile Device Management (MDM) to provision the certificates on the device. Since iOS doesn't support hardware protected keys out of the box, customers can use external storage devices for certificates.
 
-## Supported platforms
+### Supported platforms
 
 - Only native browsers are supported 
 - Applications using latest MSAL libraries or Microsoft Authenticator can do CBA
-- Edge with profile, when users add account and logged in a profile will support CBA
+- Edge with profile, when users add account and logged in a profile support CBA
 - Microsoft first party apps with latest MSAL libraries or Microsoft Authenticator can do CBA
 
 ### Browsers
@@ -47,7 +64,7 @@ On-device certificates are provisioned on the device. Customers can use Mobile D
 |--------|---------|------|-------|
 |&#10060; | &#10060; | &#x2705; |&#10060; |
 
-## Microsoft mobile applications support
+### Microsoft mobile applications support
 
 | Applications | Support | 
 |:---------|:------------:|
@@ -63,18 +80,18 @@ On-device certificates are provisioned on the device. Customers can use Mobile D
 |Word / Excel / PowerPoint	 |  &#x2705; |
 |Yammer	 |  &#x2705; |
 
-## Support for Exchange ActiveSync clients
+### Support for Exchange ActiveSync clients
 
 On iOS 9 or later, the native iOS mail client is supported. 
 
 To determine if your email application supports Azure AD CBA, contact your application developer.
 
-## Support for certificates on hardware security key (preview)
+## Support for certificates on hardware security key
 
 Certificates can be provisioned in external devices like hardware security keys along with a PIN to protect private key access. 
 Microsoft's mobile certificate-based solution coupled with the hardware security keys is a simple, convenient, FIPS (Federal Information Processing Standards) certified phishing-resistant MFA method. 
 
-As for iOS 16/iPadOS 16.1, Apple devices provide native driver support for USB-C or Lightning connected CCID-compliant smart cards. This means Apple devices on iOS 16/iPadOS 16.1 will see a USB-C or Lightning connected CCID-compliant device as a smart card without the use of additional drivers or 3rd party apps. Azure AD CBA will work on these USB-A or USB-C, or Lightning connected CCID-compliant smart cards. 
+As for iOS 16/iPadOS 16.1, Apple devices provide native driver support for USB-C or Lightning connected CCID-compliant smart cards. This means Apple devices on iOS 16/iPadOS 16.1 see a USB-C or Lightning connected CCID-compliant device as a smart card without the use of additional drivers or third-party apps. Azure AD CBA works on these USB-A, USB-C, or Lightning connected CCID-compliant smart cards. 
 
 
 ### Advantages of certificates on hardware security key 
@@ -89,7 +106,7 @@ Security keys with certificates:
 
 ### Azure AD CBA on iOS mobile with YubiKey 
 
-Even though the native Smartcard/CCID driver is available on iOS/iPadOS for Lightning connected CCID-compliant smart cards, the YubiKey 5Ci Lightning connector is not seen as a connected smart card on these devices without the use of PIV (Personal Identity Verification) middleware like the Yubico Authenticator.  
+Even though the native Smartcard/CCID driver is available on iOS/iPadOS for Lightning connected CCID-compliant smart cards, the YubiKey 5Ci Lightning connector isn't seen as a connected smart card on these devices without the use of PIV (Personal Identity Verification) middleware like the Yubico Authenticator.  
 
 ### One-time registration prerequisite
 
@@ -102,7 +119,7 @@ Even though the native Smartcard/CCID driver is available on iOS/iPadOS for Ligh
 1. Install the latest Microsoft Authenticator app.
 1. Open Outlook and plug in your YubiKey. 
 1. Select **Add account** and enter your user principal name (UPN).
-1. Click **Continue** and the iOS certificate picker will appear. 
+1. Click **Continue** and the iOS certificate picker appears. 
 1. Select the public certificate copied from YubiKey that is associated with the user’s account.  
 1. Click **YubiKey required** to open the YubiKey authenticator app. 
 1. Enter the PIN to access YubiKey and select the back button at the top left corner. 
@@ -111,18 +128,18 @@ The user should be successfully logged in and redirected to the Outlook homepage
 
 ### Troubleshoot certificates on hardware security key
 
-#### What will happen if the user has certificates both on the iOS device and YubiKey? 
+#### What happens if the user has certificates both on the iOS device and YubiKey? 
 
-The iOS certificate picker will show all the certificates on both iOS device and the ones copied from YubiKey into iOS device. Depending on the certificate user picks they will be either taken to YubiKey authenticator to enter PIN or directly authenticated. 
+The iOS certificate picker shows all the certificates on both iOS device and the ones copied from YubiKey into iOS device. Depending on the certificate user picks, they may be taken to YubiKey authenticator to enter a PIN, or directly authenticated. 
 
 #### My YubiKey is locked after incorrectly typing PIN 3 times. How do I fix it? 
 
 - Users should see a dialog informing you that too many PIN attempts have been made. This dialog also pops up during subsequent attempts to select **Use Certificate or smart card**.
 - [YubiKey Manager](https://www.yubico.com/support/download/yubikey-manager/) can reset a YubiKey’s PIN. 
 
-#### Once CBA fails, clicking on the CBA option again in the ‘Other ways to signin’ link on the error page fails. 
+#### After CBA fails, the CBA option in the ‘Other ways to sign in’ link also fails. Is there a workaround? 
 
-This issue happens because of certificate caching. We are working to add a fix to clear the cache. As a workaround, clicking cancel and restarting the login flow will let the user choose a new certificate and successfully login. 
+This issue happens because of certificate caching. We're working on an update to clear the cache. As a workaround, click **Cancel**, retry sign-in, and choose a new certificate. 
 
 #### Azure AD CBA with YubiKey is failing. What information would help debug the issue? 
 
@@ -134,9 +151,9 @@ This issue happens because of certificate caching. We are working to add a fix t
 
 #### How can I enforce phishing-resistant MFA using a hardware security key on browser-based applications on mobile? 
 
-Certificate based authentication and Conditional Access authentication strength capability makes it powerful for customers to enforce authentication needs. Edge as a profile (add an account) will work with a hardware security key like YubiKey and conditional access policy with authentication strength capability can enforce phishing-resistant authentication with CBA.
+Certificate-based authentication and Conditional Access authentication strength capability makes it powerful for customers to enforce authentication needs. Edge as a profile (add an account) works with a hardware security key like YubiKey and a Conditional Access policy with authentication strength capability can enforce phishing-resistant authentication with CBA.
 
-CBA support for YubiKey is available in the latest Microsoft Authentication Library (MSAL) libraries, any third-party application that integrates the latest MSAL, and all Microsoft first party applications can leverage CBA and Conditional Access authentication strength. 
+CBA support for YubiKey is available in the latest Microsoft Authentication Library (MSAL) libraries, and any third-party application that integrates the latest MSAL. All Microsoft first-party applications can use CBA and Conditional Access authentication strength. 
 
 ### Supported operating systems
 
@@ -158,7 +175,7 @@ CBA support for YubiKey is available in the latest Microsoft Authentication Libr
 
 ## Known issue
 
-On iOS, users will see a "double prompt", where they must click the option to use certificate-based authentication twice. We're working to create a seamless user experience.
+On iOS, users see a "double prompt", where they must click the option to use certificate-based authentication twice. We're working to create a seamless user experience.
 
 ## Next steps
 

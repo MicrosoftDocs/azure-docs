@@ -202,6 +202,7 @@ The full JSON schema for materials files is given here. Except for `unlit` and `
             "albedoColor": { "$ref": "#/definitions/colorOrAlpha" },
             "roughness": { "type": "number" },
             "metalness": { "type": "number" },
+            "normalMapScale": { "type": "number" },
             "transparent": { "type" : "boolean" },
             "alphaClipEnabled": { "type" : "boolean" },
             "alphaClipThreshold": { "type": "number" },

@@ -16,8 +16,6 @@ ms.custom: kr2b-contr-experiment
 
 This guide lays out the steps you need to take to observe a Job Router offer. It also outlines how to accept or decline job offers.
 
-[!INCLUDE [Private Preview Disclaimer](../../includes/private-preview-include-section.md)]
-
 ## Prerequisites
 
 - An Azure account with an active subscription. [Create an Azure account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).

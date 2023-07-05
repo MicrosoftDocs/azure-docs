@@ -3,10 +3,9 @@ title: Rotate the cloudadmin credentials for Azure VMware Solution
 description: Learn how to rotate the vCenter Server credentials for your Azure VMware Solution private cloud. 
 ms.topic: how-to
 ms.service: azure-vmware
+ms.custom: devx-track-azurecli
 ms.date: 12/22/2022
-
 #Customer intent: As an Azure service administrator, I want to rotate my cloudadmin credentials so that the HCX Connector has the latest vCenter Server CloudAdmin credentials.
-
 ---
 
 # Rotate the cloudadmin credentials for Azure VMware Solution
@@ -44,7 +43,7 @@ Instead of using the cloudadmin user to connect services to vCenter Server, we r
 
 To begin using Azure CLI:
 
-[!INCLUDE [azure-cli-prepare-your-environment-no-header](../../includes/azure-cli-prepare-your-environment-no-header.md)]
+[!INCLUDE [azure-cli-prepare-your-environment-no-header](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment-no-header.md)]
 
 1. In your Azure VMware Solution private cloud, open an Azure Cloud Shell session.
 

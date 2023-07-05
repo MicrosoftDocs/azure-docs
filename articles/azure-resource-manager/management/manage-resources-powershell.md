@@ -1,11 +1,9 @@
 ---
 title: Manage resources - Azure PowerShell
 description: Use Azure PowerShell and Azure Resource Manager to manage your resources. Shows how to deploy and delete resources. 
-author: mumian
 ms.topic: conceptual
 ms.date: 02/11/2019
-ms.author: jgao 
-ms.custom: devx-track-azurepowershell
+ms.custom: devx-track-azurepowershell, devx-track-arm-template
 ---
 # Manage Azure resources by using Azure PowerShell
 
@@ -41,7 +39,7 @@ $ctx = $storageAccount.Context
 
 ### Deploy a template
 
-The following script creates deploy a Quickstart template to create a storage account. For more information, see [Quickstart: Create Azure Resource Manager templates by using Visual Studio Code](../templates/quickstart-create-templates-use-visual-studio-code.md?tabs=PowerShell).
+The following script deploys a Quickstart template to create a storage account. For more information, see [Quickstart: Create Azure Resource Manager templates by using Visual Studio Code](../templates/quickstart-create-templates-use-visual-studio-code.md?tabs=PowerShell).
 
 ```azurepowershell-interactive
 $resourceGroupName = Read-Host -Prompt "Enter the Resource Group name"
@@ -124,7 +122,7 @@ For more information, see [Lock resources with Azure Resource Manager](lock-reso
 
 ## Tag resources
 
-Tagging helps organizing your resource group and resources logically. For information, see [Using tags to organize your Azure resources](tag-resources.md#powershell).
+Tagging helps organizing your resource group and resources logically. For information, see [Using tags to organize your Azure resources](tag-resources-powershell.md).
 
 ## Manage access to resources
 

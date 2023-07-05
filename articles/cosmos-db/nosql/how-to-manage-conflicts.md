@@ -117,15 +117,10 @@ const { container: lwwContainer } = await database.containers.createIfNotExists(
 ### <a id="create-custom-conflict-resolution-policy-lww-python"></a>Python SDK
 
 ```python
-udp_collection = {
-    'id': self.udp_collection_name,
-    'conflictResolutionPolicy': {
-        'mode': 'LastWriterWins',
-        'conflictResolutionPath': '/myCustomId'
-    }
-}
-udp_collection = self.try_create_document_collection(
-    create_client, database, udp_collection)
+database = client.get_database_client(database=database_id)
+lww_conflict_resolution_policy = {'mode': 'LastWriterWins', 'conflictResolutionPath': '/regionId'}
+lww_container = database.create_container(id=lww_container_id, partition_key=PartitionKey(path="/id"), 
+    conflict_resolution_policy=lww_conflict_resolution_policy)
 ```
 
 ## Create a custom conflict resolution policy using a stored procedure
@@ -314,15 +309,10 @@ After your container is created, you must create the `resolver` stored procedure
 ### <a id="create-custom-conflict-resolution-policy-stored-proc-python"></a>Python SDK
 
 ```python
-udp_collection = {
-    'id': self.udp_collection_name,
-    'conflictResolutionPolicy': {
-        'mode': 'Custom',
-        'conflictResolutionProcedure': 'dbs/' + self.database_name + "/colls/" + self.udp_collection_name + '/sprocs/resolver'
-    }
-}
-udp_collection = self.try_create_document_collection(
-    create_client, database, udp_collection)
+database = client.get_database_client(database=database_id)
+udp_custom_resolution_policy = {'mode': 'Custom' }
+udp_container = database.create_container(id=udp_container_id, partition_key=PartitionKey(path="/id"),
+    conflict_resolution_policy=udp_custom_resolution_policy)
 ```
 
 After your container is created, you must create the `resolver` stored procedure.
@@ -421,14 +411,10 @@ const {
 ### <a id="create-custom-conflict-resolution-policy-python"></a>Python SDK
 
 ```python
-database = client.ReadDatabase("dbs/" + self.database_name)
-manual_collection = {
-    'id': self.manual_collection_name,
-    'conflictResolutionPolicy': {
-        'mode': 'Custom'
-    }
-}
-manual_collection = client.CreateContainer(database['_self'], collection)
+database = client.get_database_client(database=database_id)
+manual_resolution_policy = {'mode': 'Custom'}
+manual_container = database.create_container(id=manual_container_id, partition_key=PartitionKey(path="/id"), 
+    conflict_resolution_policy=manual_resolution_policy)
 ```
 
 ## Read from conflict feed
@@ -509,7 +495,7 @@ const { result: conflicts } = await container.conflicts.readAll().toArray();
 ### <a id="read-from-conflict-feed-python"></a>Python
 
 ```python
-conflicts_iterator = iter(client.ReadConflicts(self.manual_collection_link))
+conflicts_iterator = iter(container.list_conflicts())
 conflict = next(conflicts_iterator, None)
 while conflict:
     # Do something with conflict

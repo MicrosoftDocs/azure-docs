@@ -8,7 +8,7 @@ tags: 'rotation'
 ms.service: key-vault
 ms.subservice: secrets
 ms.topic: tutorial
-ms.date: 01/26/2020
+ms.date: 01/20/2023
 ms.author: mbaldwin
 ms.devlang: csharp
 ms.custom: devx-track-csharp
@@ -19,7 +19,6 @@ ms.custom: devx-track-csharp
 The best way to authenticate to Azure services is by using a [managed identity](../general/authentication.md), but there are some scenarios where that isn't an option. In those cases, access keys or secrets are used. You should periodically rotate access keys or secrets.
 
 This tutorial shows how to automate the periodic rotation of secrets for databases and services that use one set of authentication credentials. Specifically, this tutorial rotates SQL Server passwords stored in Azure Key Vault by using a function triggered by Azure Event Grid notification:
-
 
 :::image type="content" source="../media/rotate-1.png" alt-text="Diagram of rotation solution":::
 
@@ -38,12 +37,12 @@ This tutorial shows how to automate the periodic rotation of secrets for databas
 * Azure Key Vault
 * SQL Server
 
-Below deployment link can be used, if you don't have existing Key Vault and SQL Server:
+If you don't have existing Key Vault and SQL Server, you can use this deployment link:
 
 [![Image showing a button labeled "Deploy to Azure".](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/1-CONTRIBUTION-GUIDE/images/deploytoazure.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure-Samples%2FKeyVault-Rotation-SQLPassword-Csharp%2Fmain%2FARM-Templates%2FInitial-Setup%2Fazuredeploy.json)
 
 1. Under **Resource group**, select **Create new**. Give group a name, we use **akvrotation** in this tutorial.
-1. Under **Sql Admin Login**, type Sql administrator login name. 
+1. Under **SQL Admin Login**, type SQL administrator login name. 
 1. Select **Review + create**.
 1. Select **Create**
 
@@ -67,25 +66,26 @@ akvrotation-sql2         akvrotation      eastus      Microsoft.Sql/servers
 akvrotation-sql2/master  akvrotation      eastus      Microsoft.Sql/servers/databases
 ```
 
-## Create and deploy sql server password rotation function
-> [!IMPORTANT]
-> Below template requires Key Vault, SQL server and Azure Function to be in the same resource group
+## Create and deploy SQL server password rotation function
 
-Next, create a function app with a system-managed identity, in addition to the other required components, and deploy sql server password rotation functions
+> [!IMPORTANT]
+> This template requires the key vault, SQL server and Azure Function to be in the same resource group.
+
+Next, create a function app with a system-managed identity, in addition to the other required components, and deploy SQL server password rotation functions
 
 The function app requires these components:
 - An Azure App Service plan
-- A Function App with Sql password rotation functions with event trigger and http trigger 
+- A Function App with SQL password rotation functions with event trigger and http trigger 
 - A storage account required for function app trigger management
 - An access policy for Function App identity to access secrets in Key Vault
-- An EventGrid event subscription for **SecretNearExpiry** event
+- An Event Grid event subscription for **SecretNearExpiry** event
 
-1. Select the Azure template deployment link: 
+1. Select the Azure template deployment link:
 
    [![Image showing a button labeled "Deploy to Azure".](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/1-CONTRIBUTION-GUIDE/images/deploytoazure.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure-Samples%2FKeyVault-Rotation-SQLPassword-Csharp%2Fmain%2FARM-Templates%2FFunction%2Fazuredeploy.json)
 
 1. In the **Resource group** list, select **akvrotation**.
-1. In the **Sql Server Name**, type the Sql Server name with password to rotate
+1. In the **SQL Server Name**, type the SQL Server name with password to rotate
 1. In the **Key Vault Name**,  type the key vault name
 1. In the **Function App Name**,  type the function app name
 1. In the **Secret Name**,  type secret name where the password will be stored
@@ -191,6 +191,7 @@ This rotation method reads database information from the secret, creates a new v
 You can find the complete code on [GitHub](https://github.com/Azure-Samples/KeyVault-Rotation-SQLPassword-Csharp).
 
 ## Add the secret to Key Vault
+
 Set your access policy to grant *manage secrets* permissions to users:
 
 ```azurecli
@@ -229,7 +230,7 @@ The web app requires these components:
    [![Image showing a button labeled "Deploy to Azure".](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/1-CONTRIBUTION-GUIDE/images/deploytoazure.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure-Samples%2FKeyVault-Rotation-SQLPassword-Csharp-WebApp%2Fmain%2FARM-Templates%2FWeb-App%2Fazuredeploy.json)
 
 1. Select the **akvrotation** resource group.
-1. In the **Sql Server Name**, type the Sql Server name with password to rotate
+1. In the **SQL Server Name**, type the SQL Server name with password to rotate
 1. In the **Key Vault Name**,  type the key vault name
 1. In the **Secret Name**,  type secret name where the password is stored
 1. In the **Repo Url**, type web app code GitHub location (**https://github.com/Azure-Samples/KeyVault-Rotation-SQLPassword-Csharp-WebApp.git**)
@@ -251,3 +252,4 @@ When the application opens in the browser, you will see the **Generated Secret V
 - Overview: [Monitoring Key Vault with Azure Event Grid](../general/event-grid-overview.md)
 - How to: [Receive email when a key vault secret changes](../general/event-grid-logicapps.md)
 - [Azure Event Grid event schema for Azure Key Vault](../../event-grid/event-schema-key-vault.md)
+

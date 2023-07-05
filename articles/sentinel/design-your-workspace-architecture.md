@@ -4,8 +4,7 @@ description: Use a decision tree to understand how you might want to design your
 author: limwainstein
 ms.author: lwainstein
 ms.topic: conceptual
-ms.date: 11/09/2021
-ms.custom: ignite-fall-2021
+ms.date: 01/09/2023
 ---
 
 # Design your Microsoft Sentinel workspace architecture
@@ -78,7 +77,7 @@ If you need to split your billing or charge-back, consider whether the usage rep
 
 - **If you *do not* need to split your billing or charge-back**, continue with [step 5](#step-5-collecting-any-non-soc-data).
 
-- **If you *do* need to split your billing or charge-back**, consider whether [usage reporting or manual cross-charge](billing.md) will work for you.
+- **If you *do* need to split your billing or charge-back**, consider using manual cross-charge. In order to get accurate costs per entity, you can use a modified version of the Microsoft Sentinel Cost workbook that breaks down the cost by entity.
 
   - **If usage reporting or manual cross-charging works for you**, continue with [step 5](#step-5-collecting-any-non-soc-data).
 

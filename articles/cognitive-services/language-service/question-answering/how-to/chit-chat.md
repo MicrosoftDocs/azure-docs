@@ -1,7 +1,7 @@
 ---
-title: Adding chitchat to a custom question answering knowledge base
+title: Adding chitchat to a custom question answering project
 titleSuffix: Azure Cognitive Services
-description: Adding personal chitchat to your bot makes it more conversational and engaging when you create a project. Custom question answering allows you to easily add a pre-populated set of the top chitchat, into your knowledge bases.
+description: Adding personal chitchat to your bot makes it more conversational and engaging when you create a project. Custom question answering allows you to easily add a pre-populated set of the top chitchat, into your projects.
 services: cognitive-services
 manager: nitinme
 ms.service: cognitive-services
@@ -13,7 +13,7 @@ ms.custom: language-service-question-answering, ignite-fall-2021
 
 # Use chitchat with a project
 
-Adding chitchat to your bot makes it more conversational and engaging. The chitchat feature in custom question answering allows you to easily add a pre-populated set of the top chitchat, into your knowledge base (KB). This can be a starting point for your bot's personality, and it will save you the time and cost of writing them from scratch.
+Adding chitchat to your bot makes it more conversational and engaging. The chitchat feature in custom question answering allows you to easily add a pre-populated set of the top chitchat, into your project. This can be a starting point for your bot's personality, and it will save you the time and cost of writing them from scratch.
 
 This dataset has about 100 scenarios of chitchat in the voice of multiple personas, like Professional, Friendly and Witty. Choose the persona that most closely resembles your bot's voice. Given a user query, question answering tries to match it with the closest known chitchat question and answer.
 
@@ -60,7 +60,7 @@ Choose the personality that you want as your chitchat base.
 
 ## Edit your chitchat questions and answers
 
-When you edit your knowledge base, you will see a new source for chitchat, based on the personality you selected. You can now add altered questions or edit the responses, just like with any other source.
+When you edit your project, you will see a new source for chitchat, based on the personality you selected. You can now add altered questions or edit the responses, just like with any other source.
 
 > [!div class="mx-imgBorder"]
 > ![Edit chitchat question pairs](../media/chit-chat/edit-chit-chat.png)
@@ -82,5 +82,4 @@ Select the **manage sources** pane, and choose your chitchat source. Your specif
 
 ## Next steps
 
-> [!div class="nextstepaction"]
-> [Import a knowledge base](./migrate-knowledge-base.md)
+

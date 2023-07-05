@@ -19,4 +19,4 @@ ms.author: eur
 |`WordBoundary`|Signals that a word boundary was received. This event is raised at the beginning of each new spoken word, punctuation, and sentence. The event reports the current word's time offset (in ticks) from the beginning of the output audio. This event also reports the character position in the input text (or [SSML](../../../speech-synthesis-markup.md)) immediately before the word that's about to be spoken.|This event is commonly used to get relative positions of the text and corresponding audio. You might want to know about a new word, and then take action based on the timing. For example, you can get information that can help you decide when and for how long to highlight words as they're spoken.|
 
 > [!NOTE]
-> Events are raised as the output audio data becomes available, which will be faster than playback to an output device. The caller must appropriately synchronize streaming and real time.
+> Events are raised as the output audio data becomes available, which will be faster than playback to an output device. The caller must appropriately synchronize streaming and real-time.

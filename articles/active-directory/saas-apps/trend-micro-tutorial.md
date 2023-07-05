@@ -205,12 +205,12 @@ Complete these steps to configure TMWS SSO on the application side.
 After you configure the Azure AD service and specify Azure AD as the user authentication method, you can sign in to the TMWS proxy server to verify your setup. After the Azure AD sign-in verifies your account, you can visit the internet.
 
 > [!NOTE]
-> TMWS doesn't support testing single sign-on from the Azure AD portal, under **Overview** > **Single sign-on** > **Set up Single Sign-on with SAML** > **Test** of your new enterprise application.
+> TMWS doesn't support testing single sign-on from the Azure portal, under **Overview** > **Single sign-on** > **Set up Single Sign-on with SAML** > **Test** of your new enterprise application.
 
 1. Clear the browser of all cookies and then restart the browser. 
 
 1. Point your browser to the TMWS proxy server. 
-For details, see [Traffic Forwarding Using PAC Files](https://docs.trendmicro.com/en-us/enterprise/trend-micro-web-security-online-help/administration_001/pac-files/traffic-forwarding-u.aspx#GUID-A4A83827-7A29-4596-B866-01ACCEDCC36B).
+For details, see [Traffic Forwarding Using PAC Files](https://docs.trendmicro.com/en-us/enterprise/trend-micro-web-security-online-help/administration/pac-files/traffic-forwarding-u.aspx).
 
 1. Visit any internet website. TMWS will direct you to the TMWS captive portal.
 

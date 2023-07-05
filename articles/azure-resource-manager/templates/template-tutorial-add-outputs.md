@@ -5,7 +5,7 @@ author: mumian
 ms.date: 08/17/2022
 ms.topic: tutorial
 ms.author: jgao
-ms.custom:
+ms.custom: devx-track-arm-template
 ---
 
 # Tutorial: Add outputs to your ARM template

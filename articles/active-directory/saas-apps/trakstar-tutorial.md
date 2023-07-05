@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory integration with Trakstar | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory integration with Trakstar'
 description: Learn how to configure single sign-on between Azure Active Directory and Trakstar.
 services: active-directory
 author: jeevansd

@@ -9,6 +9,7 @@ ms.author: pamistel
 ms.date: 11/22/2021
 ms.topic: how-to
 ms.service: azure-spatial-anchors
+ms.custom: devx-track-azurecli, devx-track-azurepowershell
 ---
 
 # Create an Azure Spatial Anchors account

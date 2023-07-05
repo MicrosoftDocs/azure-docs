@@ -21,7 +21,7 @@ In this tutorial, you learn how to:
 
 ## Prerequisites
 
- In this tutorial, we use [Surface Pen FAQ](https://support.microsoft.com/surface/how-to-use-your-surface-pen-8a403519-cd1f-15b2-c9df-faa5aa924e98) to create a knowledge base.
+ In this tutorial, we use [Surface Pen FAQ](https://support.microsoft.com/surface/how-to-use-your-surface-pen-8a403519-cd1f-15b2-c9df-faa5aa924e98) to create a project.
 
 If you have never created a question answering project before we recommend starting with the [getting started](../how-to/create-test-deploy.md) article, which will take you step-by-step through the process.
 
@@ -29,7 +29,7 @@ If you have never created a question answering project before we recommend start
 
 For this example, let's assume that users are asking for additional details about the Surface Pen product, particularly how to troubleshoot their Surface Pen, but they are not getting the correct answers. So, we add more prompts to support additional scenarios and guide the users to the correct answers using multi-turn prompts.
 
-Multi-turn prompts that are associated with question and answer pairs, can be viewed by selecting **Show columns** > **Context**. By default this should already be enabled on the **Edit knowledge base** page in the Language Studio question answering interface.
+Multi-turn prompts that are associated with question and answer pairs, can be viewed by selecting **Show columns** > **Context**. By default this should already be enabled on the **Edit project** page in the Language Studio question answering interface.
 
 > [!div class="mx-imgBorder"]
 > [ ![Screenshot of show columns UI with context highlighted in red]( ../media/guided-conversations/context.png) ]( ../media/guided-conversations/context.png#lightbox)
@@ -91,5 +91,3 @@ Using the editor, we add a new QnA pair with a follow-up prompt by clicking on *
 
 ## Next steps
 
-> [!div class="nextstepaction"]
-> [Enrich your knowlege base with active learning](active-learning.md)

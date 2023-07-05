@@ -8,7 +8,7 @@ ms.subservice: confidential-computing
 ms.workload: infrastructure
 ms.topic: quickstart
 ms.date: 07/14/2022
-ms.custom: mode-arm, devx-track-azurecli 
+ms.custom: mode-arm
 ms.devlang: azurecli
 ---
 

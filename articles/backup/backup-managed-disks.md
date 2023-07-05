@@ -3,9 +3,9 @@ title: Back up Azure Managed Disks
 description: Learn how to back up Azure Managed Disks from the Azure portal.
 ms.topic: conceptual
 ms.date: 11/03/2022
-author: v-amallick
 ms.service: backup
-ms.author: v-amallick
+author: jyothisuri
+ms.author: jsuri
 ---
 
 # Back up Azure Managed Disks
@@ -39,7 +39,7 @@ A Backup vault is a storage entity in Azure that holds backup data for various n
 
    ![Initiate: Create vault](./media/backup-managed-disks/initiate-create-vault.png)
 
-1. In the **Basics** tab, provide subscription, resource group, backup vault name, region, and backup storage redundancy. Continue by selecting **Review + create**. Learn more about [creating a Backup vault](./backup-vault-overview.md#create-a-backup-vault).
+1. In the **Basics** tab, provide subscription, resource group, backup vault name, region, and backup storage redundancy. Continue by selecting **Review + create**. Learn more about [creating a Backup vault](./create-manage-backup-vault.md#create-a-backup-vault).
 
    ![Review and create vault](./media/backup-managed-disks/review-and-create.png)
 

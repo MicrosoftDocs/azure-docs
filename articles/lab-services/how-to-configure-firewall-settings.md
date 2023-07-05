@@ -28,7 +28,7 @@ Each lab uses single public IP address and multiple ports.  All VMs, both the te
 
 If using a customizable lab, then we can get the public ip anytime after the lab is created.  If using a non-customizable lab, the lab must be published and have capacity of at least 1 to be able to get the public IP for the lab.
 
-We're going to use the Az.LabServices PowerShell module to get the public IP address for a lab.  For more examples using Az.LabServices PowerShell module and how to use it, see [Quickstart: Create a lab plan using PowerShell and the Azure modules](quick-create-lab-plan-powershell.md) and [Quickstart: Create a lab using PowerShell and the Azure module](quick-create-lab-powershell.md).  For more information about cmdlets available in the Az.LabServices PowerShell module, see [Az.LabServices reference](/powershell/module/az.labservices/)
+We're going to use the Az.LabServices PowerShell module to get the public IP address for a lab.  For more examples using Az.LabServices PowerShell module and how to use it, see [Quickstart: Create a lab plan using PowerShell and the Azure modules](how-to-create-lab-plan-powershell.md) and [Quickstart: Create a lab using PowerShell and the Azure module](how-to-create-lab-powershell.md).  For more information about cmdlets available in the Az.LabServices PowerShell module, see [Az.LabServices reference](/powershell/module/az.labservices/)
 
 ```powershell
 $ResourceGroupName = "MyResourceGroup"

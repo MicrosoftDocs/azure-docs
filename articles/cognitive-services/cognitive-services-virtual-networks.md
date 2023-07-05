@@ -6,8 +6,9 @@ services: cognitive-services
 author: aahill
 manager: nitinme
 ms.service: cognitive-services
+ms.custom: devx-track-azurepowershell, devx-track-azurecli
 ms.topic: how-to
-ms.date: 07/19/2022
+ms.date: 07/04/2023
 ms.author: aahi
 ---
 
@@ -19,7 +20,7 @@ An application that accesses a Cognitive Services resource when network rules ar
 
 > [!IMPORTANT]
 > Turning on firewall rules for your Cognitive Services account blocks incoming requests for data by default. In order to allow requests through, one of the following conditions needs to be met:
-
+>
 > * The request should originate from a service operating within an Azure Virtual Network (VNet) on the allowed subnet list of the target Cognitive Services account. The endpoint in requests originated from VNet needs to be set as the [custom subdomain](cognitive-services-custom-subdomains.md) of your Cognitive Services account.
 > * Or the request should originate from an allowed list of IP addresses.
 >
@@ -39,6 +40,7 @@ Virtual networks (VNETs) are supported in [regions where Cognitive Services are 
 
 > [!div class="checklist"]
 > * Anomaly Detector
+> * Azure OpenAI
 > * Computer Vision
 > * Content Moderator
 > * Custom Vision
@@ -52,12 +54,13 @@ Virtual networks (VNETs) are supported in [regions where Cognitive Services are 
 
 
 > [!NOTE]
-> If you're using LUIS, Speech Services, or Language services, the **CognitiveServicesManagement** tag only enables you use the service using the SDK or REST API. To access and use LUIS portal , Speech Studio or Language Studio from a virtual network, you will need to use the following tags: 
+> If you're using, Azure OpenAI, LUIS, Speech Services, or Language services, the **CognitiveServicesManagement** tag only enables you use the service using the SDK or REST API. To access and use Azure OpenAI Studio, LUIS portal , Speech Studio or Language Studio from a virtual network, you will need to use the following tags:
+>
 > * **AzureActiveDirectory**
 > * **AzureFrontDoor.Frontend**
 > * **AzureResourceManager** 
 > * **CognitiveServicesManagement**
-
+> * **CognitiveServicesFrontEnd**
 
 
 ## Change the default network access rule
@@ -88,15 +91,15 @@ You can manage default network access rules for Cognitive Services resources thr
 
 # [PowerShell](#tab/powershell)
 
-1. Install the [Azure PowerShell](/powershell/azure/install-az-ps) and [sign in](/powershell/azure/authenticate-azureps), or select **Try it**.
+1. Install the [Azure PowerShell](/powershell/azure/install-azure-powershell) and [sign in](/powershell/azure/authenticate-azureps), or select **Try it**.
 
 1. Display the status of the default rule for the Cognitive Services resource.
 
     ```azurepowershell-interactive
-    $parameters = @{
-        -ResourceGroupName "myresourcegroup"
-        -Name "myaccount"
-    }
+  $parameters = @{
+    "ResourceGroupName"= "myresourcegroup"
+    "Name"= "myaccount"
+}
     (Get-AzCognitiveServicesAccountNetworkRuleSet @parameters).DefaultAction
     ```
 
@@ -210,15 +213,15 @@ You can manage virtual network rules for Cognitive Services resources through th
 
 # [PowerShell](#tab/powershell)
 
-1. Install the [Azure PowerShell](/powershell/azure/install-az-ps) and [sign in](/powershell/azure/authenticate-azureps), or select **Try it**.
+1. Install the [Azure PowerShell](/powershell/azure/install-azure-powershell) and [sign in](/powershell/azure/authenticate-azureps), or select **Try it**.
 
 1. List virtual network rules.
 
     ```azurepowershell-interactive
-    $parameters = @{
-        -ResourceGroupName "myresourcegroup"
-        -Name "myaccount"
-    }
+ $parameters = @{
+    "ResourceGroupName"= "myresourcegroup"
+    "Name"= "myaccount"
+}
     (Get-AzCognitiveServicesAccountNetworkRuleSet @parameters).VirtualNetworkRules
     ```
 
@@ -340,7 +343,7 @@ Only IPV4 addresses are supported at this time. Each Cognitive Services resource
 
 To grant access from your on-premises networks to your Cognitive Services resource with an IP network rule, you must identify the internet facing IP addresses used by your network. Contact your network administrator for help.
 
-If you're using [ExpressRoute](../expressroute/expressroute-introduction.md) on-premises for public peering or Microsoft peering, you'll need to identify the NAT IP addresses. For public peering, each ExpressRoute circuit by default uses two NAT IP addresses. Each is applied to Azure service traffic when the traffic enters the Microsoft Azure network backbone. For Microsoft peering, the NAT IP addresses that are used are either customer provided or are provided by the service provider. To allow access to your service resources, you must allow these public IP addresses in the resource IP firewall setting. To find your public peering ExpressRoute circuit IP addresses, [open a support ticket with ExpressRoute](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview) via the Azure portal. Learn more about [NAT for ExpressRoute public and Microsoft peering.](../expressroute/expressroute-nat.md#nat-requirements-for-azure-public-peering)
+If you're using [ExpressRoute](../expressroute/expressroute-introduction.md) on-premises for public peering or Microsoft peering, you need to identify the NAT IP addresses. For public peering, each ExpressRoute circuit by default uses two NAT IP addresses. Each is applied to Azure service traffic when the traffic enters the Microsoft Azure network backbone. For Microsoft peering, the NAT IP addresses that are used are either customer provided or are provided by the service provider. To allow access to your service resources, you must allow these public IP addresses in the resource IP firewall setting. To find your public peering ExpressRoute circuit IP addresses, [open a support ticket with ExpressRoute](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview) via the Azure portal. Learn more about [NAT for ExpressRoute public and Microsoft peering.](../expressroute/expressroute-nat.md#nat-requirements-for-azure-public-peering)
 
 ### Managing IP network rules
 
@@ -366,15 +369,15 @@ You can manage IP network rules for Cognitive Services resources through the Azu
 
 # [PowerShell](#tab/powershell)
 
-1. Install the [Azure PowerShell](/powershell/azure/install-az-ps) and [sign in](/powershell/azure/authenticate-azureps), or select **Try it**.
+1. Install the [Azure PowerShell](/powershell/azure/install-azure-powershell) and [sign in](/powershell/azure/authenticate-azureps), or select **Try it**.
 
 1. List IP network rules.
 
     ```azurepowershell-interactive
-    $parameters = @{
-        -ResourceGroupName "myresourcegroup"
-        -Name "myaccount"
-    }
+  $parameters = @{
+    "ResourceGroupName"= "myresourcegroup"
+    "Name"= "myaccount"
+}
     (Get-AzCognitiveServicesAccountNetworkRuleSet @parameters).IPRules
     ```
 
@@ -502,9 +505,12 @@ When creating the private endpoint, you must specify the Cognitive Services reso
 
 ### Connecting to private endpoints
 
+> [!NOTE]
+> Azure OpenAI Service uses a different private DNS zone and public DNS zone forwarder than other Azure Cognitive Services. Refer to the [Azure services DNS zone configuration article](../private-link/private-endpoint-dns.md#azure-services-dns-zone-configuration) for the correct zone and forwader names.  
+
 Clients on a VNet using the private endpoint should use the same connection string for the Cognitive Services resource as clients connecting to the public endpoint. The exception is the Speech Services, which require a separate endpoint. See the section on [Private endpoints with the Speech Services](#private-endpoints-with-the-speech-services). We rely upon DNS resolution to automatically route the connections from the VNet to the Cognitive Services resource over a private link. 
 
-We create a [private DNS zone](../dns/private-dns-overview.md) attached to the VNet with the necessary updates for the private endpoints, by default. However, if you're using your own DNS server, you may need to make additional changes to your DNS configuration. The section on [DNS changes](#dns-changes-for-private-endpoints) below describes the updates required for private endpoints.
+We create a [private DNS zone](../dns/private-dns-overview.md) attached to the VNet with the necessary updates for the private endpoints, by default. However, if you're using your own DNS server, you may need to make more changes to your DNS configuration. The section on [DNS changes](#dns-changes-for-private-endpoints) below describes the updates required for private endpoints.
 
 ### Private endpoints with the Speech Services
 
@@ -512,18 +518,18 @@ See [Using Speech Services with private endpoints provided by Azure Private Link
 
 ### DNS changes for private endpoints
 
-When you create a private endpoint, the DNS CNAME resource record for the Cognitive Services resource is updated to an alias in a subdomain with the prefix '*privatelink*'. By default, we also create a [private DNS zone](../dns/private-dns-overview.md), corresponding to the '*privatelink*' subdomain, with the DNS A resource records for the private endpoints.
+When you create a private endpoint, the DNS CNAME resource record for the Cognitive Services resource is updated to an alias in a subdomain with the prefix `privatelink`. By default, we also create a [private DNS zone](../dns/private-dns-overview.md), corresponding to the `privatelink` subdomain, with the DNS A resource records for the private endpoints.
 
 When you resolve the endpoint URL from outside the VNet with the private endpoint, it resolves to the public endpoint of the Cognitive Services resource. When resolved from the VNet hosting the private endpoint, the endpoint URL resolves to the private endpoint's IP address.
 
 This approach enables access to the Cognitive Services resource using the same connection string for clients in the VNet hosting the private endpoints and clients outside the VNet.
 
-If you are using a custom DNS server on your network, clients must be able to resolve the fully qualified domain name (FQDN) for the Cognitive Services resource endpoint to the private endpoint IP address. Configure your DNS server to delegate your private link subdomain to the private DNS zone for the VNet.
+If you're using a custom DNS server on your network, clients must be able to resolve the fully qualified domain name (FQDN) for the Cognitive Services resource endpoint to the private endpoint IP address. Configure your DNS server to delegate your private link subdomain to the private DNS zone for the VNet.
 
 > [!TIP]
 > When using a custom or on-premises DNS server, you should configure your DNS server to resolve the Cognitive Services resource name in the 'privatelink' subdomain to the private endpoint IP address. You can do this by delegating the 'privatelink' subdomain to the private DNS zone of the VNet, or configuring the DNS zone on your DNS server and adding the DNS A records.
 
-For more information on configuring your own DNS server to support private endpoints, refer to the following articles:
+For more information on configuring your own DNS server to support private endpoints, see the following articles:
 
 * [Name resolution for resources in Azure virtual networks](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-that-uses-your-own-dns-server)
 * [DNS configuration for private endpoints](../private-link/private-endpoint-overview.md#dns-configuration)

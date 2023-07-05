@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory integration with Eli Onboarding | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory integration with Eli Onboarding'
 description: Learn how to configure single sign-on between Azure Active Directory and Eli Onboarding.
 services: active-directory
 author: jeevansd

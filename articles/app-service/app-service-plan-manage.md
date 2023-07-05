@@ -4,7 +4,8 @@ description: Learn how to perform different tasks to manage an App Service plan,
 keywords: app service, azure app service, scale, app service plan, change, create, manage, management
 ms.assetid: 4859d0d5-3e3c-40cc-96eb-f318b2c51a3d
 ms.topic: article
-ms.date: 10/24/2019
+ms.author: msangapu
+ms.date: 06/29/2023
 ms.custom: seodec18
 
 ---
@@ -39,10 +40,11 @@ You can create an empty App Service plan, or you can create a plan as part of ap
 
 ## Move an app to another App Service plan
 
-You can move an app to another App Service plan, as long as the source plan and the target plan are in the _same resource group and geographical region_.
+You can move an app to another App Service plan, as long as the source plan and the target plan are in the _same resource group, geographical region,and of the same OS type_. Any change in type such as Windows to Linux or any type that is different from the originating type is not supported.
+
 
 > [!NOTE]
-> Azure deploys each new App Service plan into a deployment unit, internally called a webspace. Each region can have many webspaces, but your app can only move between plans that are created in the same webspace. An App Service Environment is an isolated webspace, so apps can be moved between plans in the same App Service Environment, but not between plans in different App Service Environments.
+> Azure deploys each new App Service plan into a deployment unit, internally called a webspace. Each region can have many webspaces, but your app can only move between plans that are created in the same webspace. An App Service Environment can have multiple webspaces, but your app can only move between plans that are created in the same webspace.
 >
 > You can’t specify the webspace you want when creating a plan, but it’s possible to ensure that a plan is created in the same webspace as an existing plan. In brief, all plans created with the same resource group, region combination and operating system are deployed into the same webspace. For example, if you created a plan in resource group A and region B, then any plan you subsequently create in resource group A and region B is deployed into the same webspace. Note that plans can’t move webspaces after they’re created, so you can’t move a plan into “the same webspace” as another plan by moving it to another resource group.
 > 

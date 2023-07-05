@@ -4,12 +4,12 @@ description: Learn how Azure Policy uses Rego and Open Policy Agent to manage cl
 ms.date: 06/17/2022
 ms.topic: conceptual
 ms.custom: devx-track-azurecli
-ms.author: timwarner
-author: timwarner-msft
+ms.author: davidsmatlak
+author: davidsmatlak
 ---
 # Understand Azure Policy for Kubernetes clusters
 
-Azure Policy extends [Gatekeeper](https://github.com/open-policy-agent/gatekeeper) v3, an _admission
+Azure Policy extends [Gatekeeper](https://open-policy-agent.github.io/gatekeeper) v3, an _admission
 controller webhook_ for [Open Policy Agent](https://www.openpolicyagent.org/) (OPA), to apply
 at-scale enforcements and safeguards on your clusters in a centralized, consistent manner. Azure
 Policy makes it possible to manage and report on the compliance state of your Kubernetes clusters
@@ -18,7 +18,7 @@ from one place. The add-on enacts the following functions:
 - Checks with Azure Policy service for policy assignments to the cluster.
 - Deploys policy definitions into the cluster as
   [constraint template](https://open-policy-agent.github.io/gatekeeper/website/docs/howto/#constraint-templates) and
-  [constraint](https://github.com/open-policy-agent/gatekeeper#constraints) custom resources.
+  [constraint](https://open-policy-agent.github.io/gatekeeper/website/docs/howto/#constraints) custom resources.
 - Reports auditing and compliance details back to Azure Policy service.
 
 Azure Policy for Kubernetes supports the following cluster environments:
@@ -49,10 +49,8 @@ To enable and use Azure Policy with your Kubernetes cluster, take the following 
 
 The following general limitations apply to the Azure Policy Add-on for Kubernetes clusters:
 
-- Azure Policy Add-on for Kubernetes is supported on Kubernetes version **1.14** or higher.
+- Azure Policy Add-on for Kubernetes is supported on [supported Kubernetes versions in Azure Kubernetes Service (AKS)](../../../aks/supported-kubernetes-versions.md).
 - Azure Policy Add-on for Kubernetes can only be deployed to Linux node pools.
-- Only built-in policy definitions are supported. Custom policy definitions are a _public preview_
-  feature.
 - Maximum number of pods supported by the Azure Policy Add-on: **10,000**
 - Maximum number of Non-compliant records per policy per cluster: **500**
 - Maximum number of Non-compliant records per subscription: **1 million**
@@ -71,8 +69,8 @@ The following limitations apply only to the Azure Policy Add-on for AKS:
 - [AKS Pod security policy](../../../aks/use-pod-security-policies.md) and the Azure Policy Add-on
   for AKS can't both be enabled. For more information, see
   [AKS pod security limitation](../../../aks/use-azure-policy.md).
-- Namespaces automatically excluded by Azure Policy Add-on for evaluation: _kube-system_,
-  _gatekeeper-system_, and _aks-periscope_.
+- Namespaces automatically excluded by Azure Policy Add-on for evaluation: _kube-system_ and
+  _gatekeeper-system_.
 
 ## Recommendations
 
@@ -426,7 +424,6 @@ In a Kubernetes cluster, if a namespace has the cluster-appropriate label, the a
 with violations aren't denied. Compliance assessment results are still available.
 
 - Azure Arc-enabled Kubernetes cluster: `admission.policy.azure.com/ignore`
-- Azure Kubernetes Service cluster: `control-plane`
 
 > [!NOTE]
 > While a cluster admin may have permission to create and update constraint templates and
@@ -491,7 +488,7 @@ messages, see
 ## Logging
 
 As a Kubernetes controller/container, both the _azure-policy_ and _gatekeeper_ pods keep logs in the
-Kubernetes cluster. The logs can be exposed in the **Insights** page of the Kubernetes cluster. For
+Kubernetes cluster. In general, _azure-policy_ logs can be used to troubleshoot issues with policy ingestion onto the cluster and compliance reporting. The _gatekeeper-controller-manager_ pod logs can be used to troubleshoot runtime denies. The _gatekeeper-audit_ pod logs can be used to troubleshoot audits of existing resources. The logs can be exposed in the **Insights** page of the Kubernetes cluster. For
 more information, see
 [Monitor your Kubernetes cluster performance with Azure Monitor for containers](../../../azure-monitor/containers/container-insights-analyze.md).
 

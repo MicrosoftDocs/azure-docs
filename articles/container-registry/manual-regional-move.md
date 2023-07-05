@@ -2,6 +2,7 @@
 title: Move Azure container registry to another region
 description: Manually move Azure container registry settings and data to another Azure region.
 ms.topic: article
+ms.custom: devx-track-azurecli
 author: tejaswikolli-web
 ms.author: tejaswikolli
 ms.date: 10/11/2022
@@ -23,7 +24,7 @@ While [Azure Resource Mover](../resource-mover/overview.md) can't currently auto
 
 Azure CLI
 
-[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](../../includes/azure-cli-prepare-your-environment-no-header.md)]
+[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment-no-header.md)]
 
 ## Considerations
 

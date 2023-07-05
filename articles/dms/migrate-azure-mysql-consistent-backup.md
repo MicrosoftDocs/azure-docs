@@ -1,15 +1,11 @@
 ---
 title: MySQL to Azure Database for MySQL Data Migration - MySQL Consistent Backup (Preview)
 description: Learn how to use the Azure Database for MySQL Data Migration - MySQL Consistent Backup for transaction consistency even without making the Source server read-only
-services: database-migration
-author: hariramt
-ms.author: hariramt
-manager: 
-ms.reviewer: 
-ms.service: dms
-ms.workload: data-services
-ms.topic: conceptual
+author: karlaescobar
+ms.author: karlaescobar
 ms.date: 04/19/2022
+ms.service: dms
+ms.topic: conceptual
 ms.custom: references_regions
 ---
 

@@ -6,7 +6,7 @@ author: jiaochenlu
 ms.author: chenlujiao
 ms.reviewer: mopeakande
 ms.service: machine-learning
-ms.subservice: core
+ms.subservice: enterprise-readiness
 ms.date: 10/10/2022
 ms.topic: how-to
 ms.custom: build-spring-2022, cliv2, sdkv2, event-tier1-build-2022
@@ -169,7 +169,7 @@ TLS/SSL certificates expire and must be renewed. Typically, this happens every y
    If you directly configured the PEM files in the extension deployment command before, you need to run the extension update command and specify the new PEM file's path:
 
    ```azurecli
-      az k8s-extension update --name <extension-name> --extension-type Microsoft.AzureML.Kubernetes --config-protected sslCertPemFile=<file-path-to-cert-PEM> sslKeyPemFile=<file-path-to-cert-KEY> --cluster-type managedClusters --cluster-name <your-AKS-cluster-name> --resource-group <your-RG-name> --scope cluster
+      az k8s-extension update --name <extension-name> --extension-type Microsoft.AzureML.Kubernetes --config sslCname=<ssl cname> --config-protected sslCertPemFile=<file-path-to-cert-PEM> sslKeyPemFile=<file-path-to-cert-KEY> --cluster-type managedClusters --cluster-name <your-AKS-cluster-name> --resource-group <your-RG-name> --scope cluster
    ```
 
 ## Disable TLS
@@ -181,7 +181,7 @@ To disable TLS for a model deployed to Kubernetes:
 1. Run the following Azure CLI command in your Kubernetes cluster, and then perform an update. This command assumes that you're using AKS.
 
    ```azurecli
-      az k8s-extension create --name <extension-name> --extension-type Microsoft.AzureML.Kubernetes --config enableInference=True inferenceRouterServiceType=LoadBalancer allowInsercureconnection=True --cluster-type managedClusters --cluster-name <your-AKS-cluster-name> --resource-group <your-RG-name> --scope cluster
+      az k8s-extension update --name <extension-name> --extension-type Microsoft.AzureML.Kubernetes --config enableInference=True inferenceRouterServiceType=LoadBalancer allowInsercureconnection=True --cluster-type managedClusters --cluster-name <your-AKS-cluster-name> --resource-group <your-RG-name> --scope cluster
    ```
 
 > [!WARNING]

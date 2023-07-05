@@ -1,10 +1,10 @@
 ---
-title: On-premises data gateway for Azure Analysis Services | Microsoft Docs
+title: Learn about the On-premises data gateway for Azure Analysis Services | Microsoft Docs
 description: An On-premises gateway is necessary if your Analysis Services server in Azure will connect to on-premises data sources.
 author: minewiskan
-ms.service: azure-analysis-services
+ms.service: analysis-services
 ms.topic: conceptual
-ms.date: 02/02/2022
+ms.date: 01/27/2023
 ms.author: owend
 ms.reviewer: minewiskan
 ---
@@ -30,13 +30,13 @@ When installing for an Azure Analysis Services environment, it's important you f
 
 ## Connecting to a gateway resource in a different subscription
 
-It's recommended you create your Azure gateway resource in the same subscription as your server. However, you can configure your servers to connect to a gateway resource in another subscription. Connecting to a gateway resource in another subscription is not supported when configuring existing server settings or creating a new server in the portal, but can be configured by using PowerShell. To learn more, see [Connect gateway resource to server](analysis-services-gateway-install.md#connect-gateway-resource-to-server).
+It's recommended you create your Azure gateway resource in the same subscription as your server. However, you can configure servers to connect to a gateway resource in another subscription. Connecting to a gateway resource in another subscription isn't supported when configuring existing server settings or creating a new server in the portal, but can be configured by using PowerShell. To learn more, see [Connect gateway resource to server](analysis-services-gateway-install.md#connect-gateway-resource-to-server).
 
 ## Ports and communication settings
 
-The gateway creates an outbound connection to Azure Service Bus. It communicates on outbound ports: TCP 443 (default), 5671, 5672, 9350 through 9354.  The gateway does not require inbound ports.
+The gateway creates an outbound connection to Azure Service Bus. It communicates on outbound ports: TCP 443 (default), 5671, 5672, 9350 through 9354.  The gateway doesn't require inbound ports.
 
-You may need to include IP addresses for your data region in your firewall. You can download the [Microsoft Azure Datacenter IP list](https://www.microsoft.com/download/details.aspx?id=56519). This list is updated weekly. The IP Addresses listed in the Azure Datacenter IP list are in CIDR notation. To learn more, see [Classless Inter-Domain Routing](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing).
+You may need to include IP addresses for your data region in your firewall. Download the [Microsoft Azure Datacenter IP list](https://www.microsoft.com/download/details.aspx?id=56519). This list is updated weekly. The IP Addresses listed in the Azure Datacenter IP list are in CIDR notation. To learn more, see [Classless Inter-Domain Routing](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing).
 
 The following are fully qualified domain names used by the gateway.
 

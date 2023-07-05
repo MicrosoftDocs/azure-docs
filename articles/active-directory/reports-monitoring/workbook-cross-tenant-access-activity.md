@@ -1,6 +1,6 @@
 ---
 
-title: Cross-tenant access activity workbook in Azure AD | Microsoft Docs
+title: Cross-tenant access activity workbook in Azure AD
 description: Learn how to use the cross-tenant access activity workbook.
 services: active-directory
 author: shlipsey3
@@ -48,7 +48,7 @@ Under **Step 1**, the external tenant list shows all the tenants that have had i
 
 [ ![Screenshot showing list of external tenants with sign-in data.](./media/workbook-cross-tenant-access-activity/cross-tenant-workbook-step-1.png) ](./media/workbook-cross-tenant-access-activity/cross-tenant-workbook-step-1.png#lightbox)
 
-The table under **Step 2** summarizes all outbound and inbound sign-in activity for the selected tenant, including the number of successful sign-ins and the resons for failed sign-ins. You can select **Outbound activity** or **Inbound activity** to update the remaining sections of the workbook with the type of activity you want to view.
+The table under **Step 2** summarizes all outbound and inbound sign-in activity for the selected tenant, including the number of successful sign-ins and the reasons for failed sign-ins. You can select **Outbound activity** or **Inbound activity** to update the remaining sections of the workbook with the type of activity you want to view.
 
 ![Screenshot showing activity for the selected tenant.](./media/workbook-cross-tenant-access-activity/cross-tenant-workbook-step-2.png)
 

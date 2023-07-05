@@ -1,11 +1,11 @@
 ---
-title: 'Tutorial: Configure Klaxoon for automatic user provisioning with Azure Active Directory | Microsoft Docs'
+title: 'Tutorial: Configure Klaxoon for automatic user provisioning with Azure Active Directory'
 description: Learn how to automatically provision and de-provision user accounts from Azure AD to Klaxoon.
 services: active-directory
 documentationcenter: ''
 author: twimmers
 writer: Thwimmer
-manager: beatrizd
+manager: jeedes
 
 ms.assetid: b7a61926-171c-415b-858f-54f6e53515f2
 ms.service: active-directory

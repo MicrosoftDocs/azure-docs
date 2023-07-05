@@ -4,9 +4,9 @@ titleSuffix: Azure Machine Learning
 description: Learn how to create compute clusters in your Azure Machine Learning workspace with CLI v1. Use the compute cluster as a compute target for training or inference.
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: core
+ms.subservice: compute
 ms.topic: how-to
-ms.custom: devx-track-azurecli, cliv1, event-tier1-build-2022
+ms.custom: UpdateFrequency5, devx-track-azurecli, cliv1, event-tier1-build-2022
 ms.author: vijetaj
 author: vijetajo
 ms.reviewer: sgilley
@@ -17,9 +17,6 @@ ms.date: 05/02/2022
 
 [!INCLUDE [dev v1](../../../includes/machine-learning-dev-v1.md)]
 
-> [!div class="op_single_selector" title1="Select the Azure Machine Learning SDK or CLI version you are using:"]
-> * [v1](how-to-create-attach-compute-cluster.md)
-> * [v2 (current version)](../how-to-create-attach-compute-cluster.md)
 
 Learn how to create and manage a [compute cluster](../concept-compute-target.md#azure-machine-learning-compute-managed) in your Azure Machine Learning workspace.
 
@@ -40,7 +37,7 @@ In this article, learn how to:
 
     [!INCLUDE [cli v1 deprecation](../../../includes/machine-learning-cli-v1-deprecation.md)]
 
-* If using the Python SDK, [set up your development environment with a workspace](how-to-configure-environment-v1.md).  Once your environment is set up, attach to the workspace in your Python script:
+* If using the Python SDK, [set up your development environment with a workspace](how-to-configure-environment.md).  Once your environment is set up, attach to the workspace in your Python script:
 
     [!INCLUDE [sdk v1](../../../includes/machine-learning-sdk-v1.md)]
 
@@ -52,24 +49,19 @@ In this article, learn how to:
 
 ## What is a compute cluster?
 
-Azure Machine Learning compute cluster is a managed-compute infrastructure that allows you to easily create a single or multi-node compute. The compute cluster is a resource that can be shared with other users in your workspace. The compute scales up automatically when a job is submitted, and can be put in an Azure Virtual Network. Compute cluster supports **no public IP (preview)** deployment as well in virtual network. The compute executes in a containerized environment and packages your model dependencies in a [Docker container](https://www.docker.com/why-docker).
+Azure Machine Learning compute cluster is a managed-compute infrastructure that allows you to easily create a single or multi-node compute. The compute cluster is a resource that can be shared with other users in your workspace. The compute scales up automatically when a job is submitted, and can be put in an Azure Virtual Network. Compute cluster supports **no public IP** deployment as well in virtual network. The compute executes in a containerized environment and packages your model dependencies in a [Docker container](https://www.docker.com/why-docker).
 
 Compute clusters can run jobs securely in a [virtual network environment](../how-to-secure-training-vnet.md), without requiring enterprises to open up SSH ports. The job executes in a containerized environment and packages your model dependencies in a Docker container. 
 
 ## Limitations
 
-* Some of the scenarios listed in this document are marked as __preview__. Preview functionality is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
-
-* Compute clusters can be created in a different region than your workspace. This functionality is in __preview__, and is only available for __compute clusters__, not compute instances. This preview is not available if you are using a private endpoint-enabled workspace. 
-
-    > [!WARNING]
-    > When using a compute cluster in a different region than your workspace or datastores, you may see increased network latency and data transfer costs. The latency and costs can occur when creating the cluster, and when running jobs on it.
+* Compute clusters can be created in a different region and VNet than your workspace. However, this functionality is only available using the SDK v2, CLI v2, or studio. For more information, see the [v2 version of secure training environments](../how-to-secure-training-vnet.md?view=azureml-api-2&preserve-view=true#compute-cluster-in-a-different-vnetregion-from-workspace).
 
 * We currently support only creation (and not updating) of clusters through [ARM templates](/azure/templates/microsoft.machinelearningservices/workspaces/computes). For updating compute, we recommend using the SDK, Azure CLI or UX for now.
 
 * Azure Machine Learning Compute has default limits, such as the number of cores that can be allocated. For more information, see [Manage and request quotas for Azure resources](../how-to-manage-quotas.md).
 
-* Azure allows you to place _locks_ on resources, so that they cannot be deleted or are read only. __Do not apply resource locks to the resource group that contains your workspace__. Applying a lock to the resource group that contains your workspace will prevent scaling operations for Azure ML compute clusters. For more information on locking resources, see [Lock resources to prevent unexpected changes](../../azure-resource-manager/management/lock-resources.md).
+* Azure allows you to place _locks_ on resources, so that they cannot be deleted or are read only. __Do not apply resource locks to the resource group that contains your workspace__. Applying a lock to the resource group that contains your workspace will prevent scaling operations for Azure Machine Learning compute clusters. For more information on locking resources, see [Lock resources to prevent unexpected changes](../../azure-resource-manager/management/lock-resources.md).
 
 > [!TIP]
 > Clusters can generally scale up to 100 nodes as long as you have enough quota for the number of cores required. By default clusters are setup with inter-node communication enabled between the nodes of the cluster to support MPI jobs for example. However you can scale your clusters to 1000s of nodes by simply [raising a support ticket](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest), and requesting to allow list your subscription, or workspace, or a specific cluster for disabling inter-node communication.

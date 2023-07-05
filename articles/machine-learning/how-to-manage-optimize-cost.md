@@ -2,7 +2,8 @@
 title: Manage and optimize costs
 titleSuffix: Azure Machine Learning
 description: Learn tips to optimize your cost when building machine learning models in Azure Machine Learning
-author: ssalgadodev
+ms.reviewer: ssalgado
+author: joburges
 ms.author: joburges
 ms.custom: subject-cost-optimization, event-tier1-build-2022
 ms.service: machine-learning
@@ -10,8 +11,6 @@ ms.subservice: core
 ms.topic: how-to
 ms.date: 06/08/2021 
 ---
-
-[//]: # (needs PM review; ParallelJobStep or ParallelRunStep?)
 
 # Manage and optimize Azure Machine Learning costs
 
@@ -31,6 +30,11 @@ Use the following tips to help you manage and optimize your compute resource cos
 - Deploy resources to the same region
 
 For information on planning and monitoring costs, see the [plan to manage costs for Azure Machine Learning](concept-plan-manage-cost.md) guide.
+
+> [!IMPORTANT]
+> Items marked (preview) in this article are currently in public preview.
+> The preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
+> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## Use Azure Machine Learning compute cluster (AmlCompute)
 
@@ -83,7 +87,9 @@ Low-Priority VMs have a single quota separate from the dedicated quota value, wh
 
 ## Schedule compute instances
 
-When you create a [compute instance](concept-compute-instance.md), the VM stays on so it is available for your work.  [Set up a schedule](how-to-create-manage-compute-instance.md#schedule-automatic-start-and-stop) to automatically start and stop the compute instance to save cost when you aren't planning to use it.
+When you create a [compute instance](concept-compute-instance.md), the VM stays on so it is available for your work.  
+* [Enable idle shutdown (preview)](how-to-create-manage-compute-instance.md#enable-idle-shutdown) to save on cost when the VM has been idle for a specified time period.
+* Or [set up a schedule](how-to-create-manage-compute-instance.md#schedule-automatic-start-and-stop) to automatically start and stop the compute instance (preview) to save cost when you aren't planning to use it.
 
 ## Use reserved instances
 
@@ -91,15 +97,9 @@ Another way to save money on compute resources is Azure Reserved VM Instance. Wi
 
 Azure Machine Learning Compute supports reserved instances inherently. If you purchase a one-year or three-year reserved instance, we will automatically apply discount against your Azure Machine Learning managed compute.
 
-## Train locally
-
-When prototyping and running training jobs that are small enough to run on your local computer, consider training locally. Using the Python SDK, setting your compute target to `local` executes your script locally. 
-
-Visual Studio Code provides a full-featured environment for developing your machine learning applications. Using the Azure Machine Learning visual Visual Studio Code extension and Docker, you can run and debug locally. For more information, see [interactive debugging with Visual Studio Code](how-to-debug-visual-studio-code.md).
-
 ## Parallelize training
 
-One of the key methods of optimizing cost and performance is by parallelizing the workload with the help of a parallel run step in Azure Machine Learning. This step allows you to use many smaller nodes to execute the task in parallel, hence allowing you to scale horizontally. There is an overhead for parallelization. Depending on the workload and the degree of parallelism that can be achieved, this may or may not be an option. For further information, see the [ParallelRunStep](xref:azureml.contrib.pipeline.steps.ParallelRunStep) documentation.
+One of the key methods of optimizing cost and performance is by parallelizing the workload with the help of a parallel component in Azure Machine Learning. A parallel component allows you to use many smaller nodes to execute the task in parallel, hence allowing you to scale horizontally. There is an overhead for parallelization. Depending on the workload and the degree of parallelism that can be achieved, this may or may not be an option. For further information, see the [ParallelComponent](/python/api/azure-ai-ml/azure.ai.ml.entities.parallelcomponent) documentation.
 
 ## Set data retention & deletion policies
 

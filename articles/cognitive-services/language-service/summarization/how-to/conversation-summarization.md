@@ -8,17 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-service
 ms.topic: how-to
-ms.date: 09/26/2022
+ms.date: 01/31/2023
 ms.author: jboback
 ms.custom: language-service-summarization, ignite-fall-2021, event-tier1-build-2022, ignite-2022
 ---
 
-# How to use conversation summarization (preview)
+# How to use conversation summarization
 
 [!INCLUDE [availability](../includes/regional-availability.md)]
-
-> [!IMPORTANT] 
-> The conversation summarization feature is a preview capability provided “AS IS” and “WITH ALL FAULTS.” As such, Conversation Summarization (preview) should not be implemented or deployed in any production use. The customer is solely responsible for any use of conversation summarization. 
 
 ## Conversation summarization types
 
@@ -40,6 +37,9 @@ There's another feature in Azure Cognitive Service for Language named [document 
 
 ## Submitting data
 
+> [!NOTE]
+> See the [Language Studio](../../language-studio.md#valid-text-formats-for-conversation-features) article for information on formatting conversational text to submit using Language Studio. 
+
 You submit documents to the API as strings of text. Analysis is performed upon receipt of the request. Because the API is [asynchronous](../../concepts/use-asynchronously.md), there may be a delay between sending an API request and receiving the results.  For information on the size and number of requests you can send per minute and second, see the data limits below.
 
 When you use this feature, the API results are available for 24 hours from the time the request was ingested, and is indicated in the response. After this time period, the results are purged and are no longer available for retrieval.
@@ -52,7 +52,7 @@ You can use conversation issue and resolution summarization to get summaries as 
 
 ### Get summaries from speech transcriptions 
 
-Conversation issue and resolution summarization also enables you to get summaries from speech transcripts by using the [Speech service's speech-to-text feature](../../../Speech-Service/call-center-overview.md). The following example shows a short conversation that you might include in your API requests.
+Conversation issue and resolution summarization also enables you to get summaries from speech transcripts by using the [Speech service's speech to text feature](../../../Speech-Service/call-center-overview.md). The following example shows a short conversation that you might include in your API requests.
 
 ```json
 "conversations":[

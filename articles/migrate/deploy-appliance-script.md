@@ -5,7 +5,8 @@ ms.topic: how-to
 author: Vikram1988
 ms.author: vibansa
 ms.manager: abhemraj
-ms.date: 05/12/2022
+ms.service: azure-migrate
+ms.date: 06/15/2023
 ms.custom: engagement-fy23
 ---
 
@@ -58,7 +59,7 @@ Check that the zipped file is secure, before you deploy it.
 
     **Download** | **Hash value**
     --- | ---
-    [Latest version](https://go.microsoft.com/fwlink/?linkid=2191847) | 277C53620DB299F57E3AC5A65569E9720F06190A245476810B36BF651C8B795B
+    [Latest version](https://go.microsoft.com/fwlink/?linkid=2191847) | 7134EF5B61D3560A102DF4814CB91C95E44EAE9677AAF1CC68AE0A04A6DBD613 
 
 > [!NOTE]
 > The same script can be used to set up VMware appliance for either Azure public or Azure Government cloud.
@@ -119,7 +120,7 @@ Check that the zipped file is secure, before you deploy it.
 
     **Download** | **Hash value**
     --- | ---
-    [Latest version](https://go.microsoft.com/fwlink/?linkid=2191847) | 277C53620DB299F57E3AC5A65569E9720F06190A245476810B36BF651C8B795B
+    [Latest version](https://go.microsoft.com/fwlink/?linkid=2191847) | 7134EF5B61D3560A102DF4814CB91C95E44EAE9677AAF1CC68AE0A04A6DBD613 
 
 > [!NOTE]
 > The same script can be used to set up Hyper-V appliance for either Azure public or Azure Government cloud.

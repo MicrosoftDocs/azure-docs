@@ -6,7 +6,7 @@ ms.suite: integration
 ms.reviewer: estfan, niding, azla
 ms.topic: reference
 ms.custom: engagement-fy23
-ms.date: 09/20/2022
+ms.date: 04/07/2023
 ---
 
 # Reference guide to workflow expression functions in Azure Logic Apps and Power Automate
@@ -761,7 +761,7 @@ addProperty(<object>, '<property>', <value>)
 To add a parent property to an existing property, use the `setProperty()` function, not the `addProperty()` function. Otherwise, the function returns only the child object as output.
 
 ```
-setProperty(<object>['<parent-property>'], '<parent-property>', addProperty(<object>['<parent-property>'], '<child-property>', <value>)
+setProperty(<object>, '<parent-property>', addProperty(<object>['<parent-property>'], '<child-property>', <value>)
 ```
 
 | Parameter | Required | Type | Description |
@@ -4050,7 +4050,7 @@ setProperty(<object>, '<property>', <value>)
 To set the child property in a child object, use a nested `setProperty()` call instead. Otherwise, the function returns only the child object as output.
 
 ```
-setProperty(<object>['<parent-property>'], '<parent-property>', setProperty(<object>['parentProperty'], '<child-property>', <value>))
+setProperty(<object>, '<parent-property>', setProperty(<object>['parentProperty'], '<child-property>', <value>))
 ```
 
 | Parameter | Required | Type | Description |
@@ -5342,6 +5342,11 @@ And returns this result XML:
 ### xpath
 
 Check XML for nodes or values that match an XPath (XML Path Language) expression, and return the matching nodes or values. An XPath expression, or just "XPath", helps you navigate an XML document structure so that you can select nodes or compute values in the XML content.
+
+> [!NOTE]
+> 
+> In Consumption and Standard logic apps, all function expressions use the [.NET XPath library](/dotnet/api/system.xml.xpath). 
+> XPath expressions are compatible with the underlying .NET library and support only the expression that the underlying .NET library supports.
 
 ```
 xpath('<xml>', '<xpath>')

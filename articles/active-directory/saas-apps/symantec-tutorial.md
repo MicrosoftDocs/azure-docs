@@ -18,7 +18,7 @@ In this tutorial, you will learn how to integrate your Symantec Web Security Ser
 
 Integrating Symantec Web Security Service (WSS) with Azure AD provides you with the following benefits:
 
-* Manage all of the end users and groups used by your WSS account from your Azure AD portal.
+* Manage all of the end users and groups used by your WSS account from your Azure portal.
 
 * Allow the end users to authenticate themselves in WSS using their Azure AD credentials.
 

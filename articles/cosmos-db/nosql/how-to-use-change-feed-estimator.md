@@ -5,7 +5,7 @@ author: ealsur
 ms.service: cosmos-db
 ms.subservice: nosql
 ms.topic: how-to
-ms.date: 04/01/2021
+ms.date: 05/11/2023
 ms.author: maquaran
 ms.devlang: csharp
 ms.custom: devx-track-csharp
@@ -69,14 +69,17 @@ And whenever you want it, with the frequency you require, you can obtain the det
 
 [!code-csharp[Main](~/samples-cosmosdb-dotnet-v3/Microsoft.Azure.Cosmos.Samples/Usage/ChangeFeed/Program.cs?name=GetIteratorEstimatorDetailed)]
 
-Each `ChangeFeedProcessorState` will contain the lease and lag information, and also who is the current instance owning it. 
+Each `ChangeFeedProcessorState` will contain the lease and lag information, and also who is the current instance owning it.
 
-> [!NOTE]
-> The change feed estimator does not need to be deployed as part of your change feed processor, nor be part of the same project. It can be independent and run in a completely different instance, which is recommended. It just needs to use the same name and lease configuration.
+## Estimator deployment
+
+The change feed estimator does not need to be deployed as part of your change feed processor, nor be part of the same project. We recommend deploying the estimator on an independent and completely different instance from your processors. A single estimator instance can track the progress for the all the leases and instances in your change feed processor deployment.
+
+Each estimation will consume [request units](../request-units.md) from your [monitored and lease containers](change-feed-processor.md#components-of-the-change-feed-processor). A frequency of 1 minute in-between is a good starting point, the lower the frequency, the higher the request units consumed.
 
 ## Additional resources
 
-* [Azure Cosmos DB SDK](sdk-dotnet-v2.md)
+* [Azure Cosmos DB SDK](sdk-dotnet-v3.md)
 * [Usage samples on GitHub](https://github.com/Azure/azure-cosmos-dotnet-v3/tree/master/Microsoft.Azure.Cosmos.Samples/Usage/ChangeFeed)
 * [Additional samples on GitHub](https://github.com/Azure-Samples/cosmos-dotnet-change-feed-processor)
 
@@ -85,4 +88,3 @@ Each `ChangeFeedProcessorState` will contain the lease and lag information, and 
 You can now proceed to learn more about change feed processor in the following articles:
 
 * [Overview of change feed processor](change-feed-processor.md)
-* [Change feed processor start time](./change-feed-processor.md#starting-time)

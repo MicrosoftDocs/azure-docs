@@ -1,38 +1,40 @@
 ---
-title: Enable VM insights using PowerShell
-description: Describes how to enable VM insights for Azure virtual machines or Virtual Machine Scale Sets using Azure PowerShell.
+title: Enable VM insights by using PowerShell
+description: This article describes how to enable VM insights for Azure virtual machines or virtual machine scale sets by using Azure PowerShell.
 ms.topic: conceptual
+ms.custom: devx-track-azurepowershell
 author: bwren
 ms.author: bwren
 ms.date: 06/08/2022
-
 ---
 
-# Enable VM insights using PowerShell
-This article describes how to enable VM insights on Azure virtual machines using PowerShell. This procedure can be used for the following:
+# Enable VM insights by using PowerShell
+This article describes how to enable VM insights on Azure virtual machines by using PowerShell. This procedure can be used for:
 
-- Azure virtual machine
-- Azure Virtual Machine Scale Set
+- Azure Virtual Machines
+- Azure Virtual Machine Scale Sets
 
 > [!NOTE]
-> This article only applies to the Log Analytics agent. To enable VM insights with the Azure monitor agent, use other installation methods described in [Enable VM insights overview](vminsights-enable-overview.md).
+> This article only applies to the Log Analytics agent. To enable VM insights with the Azure Monitor agent, use other installation methods described in [Enable VM insights overview](vminsights-enable-overview.md).
 ## Prerequisites
 
-- [Log Analytics workspace configured for VM insights](../vm/vminsights-configure-workspace.md). 
-- See [Supported operating systems](./vminsights-enable-overview.md#supported-operating-systems) to ensure that the operating system of the virtual machine or Virtual Machine Scale Set you're enabling is supported. 
-- See [Manage the Azure Monitor agent](../agents/azure-monitor-agent-manage.md#prerequisites) for prerequisites related to Azure Monitor agent.
+You need to:
+
+- [Configure a Log Analytics workspace for VM insights](../vm/vminsights-configure-workspace.md).
+- See [Supported operating systems](./vminsights-enable-overview.md#supported-operating-systems) to ensure that the operating system of the virtual machine or virtual machine scale set you're enabling is supported.
+- See [Manage Azure Monitor Agent](../agents/azure-monitor-agent-manage.md#prerequisites) for prerequisites related to Azure Monitor Agent.
 
 ## PowerShell script
 
-To enable VM insights for multiple VMs or Virtual Machine Scale Sets, use the PowerShell script [Install-VMInsights.ps1](https://www.powershellgallery.com/packages/Install-VMInsights), which is available from the Azure PowerShell Gallery. This script iterates through:
+To enable VM insights for multiple VMs or virtual machine scale set, use the PowerShell script [Install-VMInsights.ps1](https://www.powershellgallery.com/packages/Install-VMInsights). The script is available from the Azure PowerShell Gallery. This script iterates through:
 
-- Every virtual machine and Virtual Machine Scale Set in your subscription.
+- Every virtual machine and virtual machine scale set in your subscription.
 - The scoped resource group that's specified by *ResourceGroup*.
-- A single VM or Virtual Machine Scale Set that's specified by *Name*.
+- A single VM or virtual machine scale set that's specified by *Name*.
 
-For each virtual machine or Virtual Machine Scale Set, the script verifies whether the VM extension for the Log Analytics agent and Dependency agent is already installed. If both extensions are installed, the script tries to reinstall it. If both extensions aren't installed, the script installs them.
+For each virtual machine or virtual machine scale set, the script verifies whether the VM extension for the Log Analytics agent and Dependency agent is already installed. If both extensions are installed, the script tries to reinstall it. If both extensions aren't installed, the script installs them.
 
-Verify you're using Azure PowerShell module Az version 1.0.0 or later with `Enable-AzureRM` compatibility aliases enabled. Run `Get-Module -ListAvailable Az` to find the version. If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/install-az-ps). If you're running PowerShell locally, you also need to run `Connect-AzAccount` to create a connection with Azure.
+Verify that you're using Azure PowerShell module Az version 1.0.0 or later with `Enable-AzureRM` compatibility aliases enabled. Run `Get-Module -ListAvailable Az` to find the version. If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/install-azure-powershell). If you're running PowerShell locally, you also need to run `Connect-AzAccount` to create a connection with Azure.
 
 To get a list of the script's argument details and example usage, run `Get-Help`.
 
@@ -187,5 +189,5 @@ Failed: (0)
 
 ## Next steps
 
-* See [Use VM insights Map](vminsights-maps.md) to view discovered application dependencies. 
+* See [Use VM insights Map](vminsights-maps.md) to view discovered application dependencies.
 * See [View Azure VM performance](vminsights-performance.md) to identify bottlenecks, overall utilization, and your VM's performance.

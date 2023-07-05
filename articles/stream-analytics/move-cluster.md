@@ -5,7 +5,7 @@ author: xujxu
 ms.author: xujiang1
 ms.service: stream-analytics
 ms.topic: overview
-ms.custom: mvc
+ms.custom: mvc, devx-track-azurepowershell, devx-track-arm-template
 ms.date: 02/20/2022
 ---
 # Move Azure Stream Analytics cluster using Azure PowerShell

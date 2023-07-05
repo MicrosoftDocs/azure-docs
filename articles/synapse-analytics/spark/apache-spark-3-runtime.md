@@ -1,5 +1,5 @@
 ---
-title: Azure Synapse Runtime for Apache Spark 3.1  
+title: Azure Synapse Runtime for Apache Spark 3.1 (EOLA)
 description: Supported versions of Spark, Scala, Python, and .NET for Apache Spark 3.1.
 author: eskot
 ms.service: synapse-analytics
@@ -7,12 +7,17 @@ ms.topic: reference
 ms.subservice: spark
 ms.date: 11/28/2022
 ms.author: eskot
-ms.custom: has-adal-ref
+ms.custom: has-adal-ref, devx-track-dotnet, devx-track-extended-java, devx-track-python
 ---
 
-# Azure Synapse Runtime for Apache Spark 3.1
+# Azure Synapse Runtime for Apache Spark 3.1 (EOLA)
 
 Azure Synapse Analytics supports multiple runtimes for Apache Spark. This document will cover the runtime components and versions for the Azure Synapse Runtime for Apache Spark 3.1.
+
+> [!IMPORTANT]
+> * End of life announced (EOLA) for Azure Synapse Runtime for Apache Spark 3.1 has been announced January 26, 2023.
+> * In accordance with the Synapse runtime for Apache Spark lifecycle policy, Azure Synapse runtime for Apache Spark 3.1 will be retired as of January 26, 2024. End of life announced (EOLA) runtime will not have bug and feature fixes. Security fixes will be backported based on risk assessment.
+> * We recommend that you upgrade your Apache Spark 3.1 workloads to version 3.2 or 3.3 at your earliest convenience. 
 
 ## Component versions
 

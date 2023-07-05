@@ -8,7 +8,7 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: how-to
-ms.date: 11/01/2022
+ms.date: 7/14/2023
 ---
 
 # Configure semantic ranking and return captions in search results
@@ -44,7 +44,7 @@ You'll need a search client that supports preview APIs on the query request. Her
 
 + [Search explorer](search-explorer.md) in Azure portal, recommended for initial exploration.
 
-+ [Postman Desktop App](https://www.postman.com/downloads/) using the [2021-04-30-Preview REST APIs](/rest/api/searchservice/preview-api/search-documents). See this [Quickstart](search-get-started-rest.md) for help with setting up your requests.
++ [Postman app](https://www.postman.com/downloads/) using the [2021-04-30-Preview REST APIs](/rest/api/searchservice/preview-api/search-documents). See this [Quickstart](search-get-started-rest.md) for help with setting up your requests.
 
 + [Azure.Search.Documents 11.4.0-beta.5](https://www.nuget.org/packages/Azure.Search.Documents/11.4.0-beta.5) in the Azure SDK for .NET Preview.
 
@@ -352,6 +352,9 @@ The response for the above example query returns the following match as the top 
         "Category": "Luxury"
     },
 ```
+
+> [!NOTE]
+> Starting from July 14, 2023, if the initial search results display matches in multiple languages, the semantic ranker will include these results as a part of the semantic response. This is in contrast to the previous behavior, where the semantic ranker would deprioritize results differing from the language specified by the field analyzer.
 
 ## Next steps
 

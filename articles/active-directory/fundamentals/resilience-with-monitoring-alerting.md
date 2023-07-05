@@ -1,5 +1,5 @@
 ---
-title: Resilience through monitoring and analytics using Azure AD B2C | Microsoft Docs
+title: Resilience through monitoring and analytics using Azure AD B2C
 description: Resilience through monitoring and analytics using Azure AD B2C
 services: active-directory 
 ms.service: active-directory

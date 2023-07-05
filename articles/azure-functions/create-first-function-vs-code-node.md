@@ -2,22 +2,23 @@
 title: Create a JavaScript function using Visual Studio Code - Azure Functions
 description: Learn how to create a JavaScript function, then publish the local Node.js project to serverless hosting in Azure Functions using the Azure Functions extension in Visual Studio Code.
 ms.topic: quickstart
-ms.date: 06/07/2022
+ms.date: 02/06/2023
 adobe-target: true
 adobe-target-activity: DocsExp–386541–A/B–Enhanced-Readability-Quickstarts–2.19.2021
 adobe-target-experience: Experience B
 adobe-target-content: ./create-first-function-vs-code-node_uiex
 ms.devlang: javascript
-ms.custom: mode-api, vscode-azure-extension-update-complete
+ms.custom: mode-api, vscode-azure-extension-update-complete, devx-track-js
+zone_pivot_groups: functions-nodejs-model
 ---
 
 # Quickstart: Create a JavaScript function in Azure using Visual Studio Code
 
-[!INCLUDE [functions-language-selector-quickstart-vs-code](../../includes/functions-language-selector-quickstart-vs-code.md)]
-
 Use Visual Studio Code to create a JavaScript function that responds to HTTP requests. Test the code locally, then deploy it to the serverless environment of Azure Functions.
 
-Completing this quickstart incurs a small cost of a few USD cents or less in your Azure account.
+[!INCLUDE [functions-nodejs-model-pivot-description](../../includes/functions-nodejs-model-pivot-description.md)]
+
+Completion of this quickstart incurs a small cost of a few USD cents or less in your Azure account.
 
 There's also a [CLI-based version](create-first-function-cli-node.md) of this article.
 
@@ -25,29 +26,50 @@ There's also a [CLI-based version](create-first-function-cli-node.md) of this ar
 
 Before you get started, make sure you have the following requirements in place:
 
+::: zone pivot="nodejs-model-v3" 
 [!INCLUDE [functions-requirements-visual-studio-code-node](../../includes/functions-requirements-visual-studio-code-node.md)]
+::: zone-end
+::: zone pivot="nodejs-model-v4" 
+[!INCLUDE [functions-requirements-visual-studio-code-node-v4](../../includes/functions-requirements-visual-studio-code-node-v4.md)]
+::: zone-end
 
 ## <a name="create-an-azure-functions-project"></a>Create your local project
 
-In this section, you use Visual Studio Code to create a local Azure Functions project in JavaScript. Later in this article, you'll publish your function code to Azure.
+In this section, you use Visual Studio Code to create a local Azure Functions project in JavaScript. Later in this article, you publish your function code to Azure.
 
 1. Choose the Azure icon in the Activity bar. Then in the **Workspace (local)** area, select the **+** button, choose **Create Function** in the dropdown. When prompted, choose **Create new project**.
 
     :::image type="content" source="./media/functions-create-first-function-vs-code/create-new-project.png" alt-text="Screenshot of create a new project window.":::
 
-1. Choose the directory location for your project workspace and choose **Select**. You should either create a new folder or choose an empty folder for the project workspace. Don't choose a project folder that is already part of a workspace.
+2. Choose the directory location for your project workspace and choose **Select**. You should either create a new folder or choose an empty folder for the project workspace. Don't choose a project folder that is already part of a workspace.
 
-1. Provide the following information at the prompts:
+::: zone pivot="nodejs-model-v3" 
+3. Provide the following information at the prompts:
 
     |Prompt|Selection|
     |--|--|
     |**Select a language for your function project**|Choose `JavaScript`.|
+    |**Select a JavaScript programming model**|Choose `Model V3`|
     |**Select a template for your project's first function**|Choose `HTTP trigger`.|
     |**Provide a function name**|Type `HttpExample`.|
     |**Authorization level**|Choose `Anonymous`, which enables anyone to call your function endpoint. To learn about authorization level, see [Authorization keys](functions-bindings-http-webhook-trigger.md#authorization-keys).|
-    |**Select how you would like to open your project**|Choose `Add to workspace`.|
+    |**Select how you would like to open your project**|Choose `Open in current window`.|
 
     Using this information, Visual Studio Code generates an Azure Functions project with an HTTP trigger. You can view the local project files in the Explorer. To learn more about files that are created, see [Generated project files](functions-develop-vs-code.md?tabs=javascript#generated-project-files). 
+::: zone-end
+::: zone pivot="nodejs-model-v4" 
+3. Provide the following information at the prompts:
+
+    |Prompt|Selection|
+    |--|--|
+    |**Select a language for your function project**|Choose `JavaScript`.|
+    |**Select a JavaScript programming model**|Choose `Model V4 (Preview)`|
+    |**Select a template for your project's first function**|Choose `HTTP trigger`.|
+    |**Provide a function name**|Type `HttpExample`.|
+    |**Select how you would like to open your project**|Choose `Open in current window`|
+
+    Using this information, Visual Studio Code generates an Azure Functions project with an HTTP trigger. You can view the local project files in the Explorer. To learn more about files that are created, see [Azure Functions JavaScript developer guide](functions-reference-node.md?tabs=javascript). 
+::: zone-end
 
 [!INCLUDE [functions-run-function-test-local-vs-code](../../includes/functions-run-function-test-local-vs-code.md)]
 
@@ -55,10 +77,29 @@ After you've verified that the function runs correctly on your local computer, i
 
 [!INCLUDE [functions-sign-in-vs-code](../../includes/functions-sign-in-vs-code.md)]
 
-[!INCLUDE [functions-publish-project-vscode](../../includes/functions-publish-project-vscode.md)]
+## Create the function app in Azure
+
+[!INCLUDE [functions-create-azure-resources-vs-code](../../includes/functions-create-azure-resources-vs-code.md)]
+
+::: zone pivot="nodejs-model-v4" 
+## Update app settings
+
+To enable your V4 programming model app to run in Azure, you need to add a new application setting named `AzureWebJobsFeatureFlags` with a value of `EnableWorkerIndexing`. This setting is already in your local.settings.json file. 
+
+1. In Visual Studio Code, press <kbd>F1</kbd> to open the command palette. In the command palette, search for and select `Azure Functions: Add New Setting...`.
+
+1. Choose your new function app, type `AzureWebJobsFeatureFlags` for the new app setting name, and press <kbd>Enter</kbd>. 
+
+1. For the value, type `EnableWorkerIndexing` and press <kbd>Enter</kbd>.
+::: zone-end
+
+## Deploy the project to Azure
+
+[!INCLUDE [functions-deploy-project-vs-code](../../includes/functions-deploy-project-vs-code.md)]
 
 [!INCLUDE [functions-vs-code-run-remote](../../includes/functions-vs-code-run-remote.md)]
 
+::: zone pivot="nodejs-model-v3" 
 ## Change the code and redeploy to Azure
 
 1. In Visual Studio Code in the Explorer view, select the `./HttpExample/index.js` file. 
@@ -109,7 +150,7 @@ After you've verified that the function runs correctly on your local computer, i
     ```
 1. [Rerun the function](#run-the-function-locally) app locally.
 
-1. In the prompt **Enter request body** change the request message body to { "name": "Tom","sport":"basketball" }. Press Enter to send this request message to your function.
+1. In the prompt **Enter request body**, change the request message body to { "name": "Tom","sport":"basketball" }. Press Enter to send this request message to your function.
 
 1. View the response in the notification:
 
@@ -123,15 +164,16 @@ After you've verified that the function runs correctly on your local computer, i
     ```
 
 1. [Redeploy the function](#deploy-the-project-to-azure) to Azure.
+::: zone-end
 
 ## Troubleshooting
 
-Use the table below to resolve the most common issues encountered when using this quickstart.
+Use the following table to resolve the most common issues encountered when using this quickstart.
 
 |Problem|Solution|
 |--|--|
 |Can't create a local function project?|Make sure you have the [Azure Functions extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions) installed.|
-|Can't run the function locally?|Make sure you have the [Azure Functions Core Tools installed](functions-run-local.md?tabs=node) installed. <br/>When running on Windows, make sure that the default terminal shell for Visual Studio Code isn't set to WSL Bash.|
+|Can't run the function locally?|Make sure you have the latest version of [Azure Functions Core Tools installed](functions-run-local.md?tabs=node) installed. <br/>When running on Windows, make sure that the default terminal shell for Visual Studio Code isn't set to WSL Bash.|
 |Can't deploy function to Azure?|Review the Output for error information. The bell icon in the lower right corner is another way to view the output. Did you publish to an existing function app? That action overwrites the content of that app in Azure.|
 |Couldn't run the cloud-based Function app?|Remember to use the query string to send in parameters.|
 
@@ -144,6 +186,7 @@ You have used [Visual Studio Code](functions-develop-vs-code.md?tabs=javascript)
 > [!div class="nextstepaction"]
 > [Connect to Azure Cosmos DB](functions-add-output-binding-cosmos-db-vs-code.md?pivots=programming-language-javascript)
 > [Connect to Azure Queue Storage](functions-add-output-binding-storage-queue-vs-code.md?pivots=programming-language-javascript)
+> [Connect to Azure SQL](functions-add-output-binding-azure-sql-vs-code.md?pivots=programming-language-javascript)
 
 [Azure Functions Core Tools]: functions-run-local.md
 [Azure Functions extension for Visual Studio Code]: https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions

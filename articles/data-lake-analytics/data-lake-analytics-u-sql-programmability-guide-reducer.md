@@ -2,9 +2,9 @@
 title: U-SQL user defined reducer programmability guide for Azure Data Lake
 description: Learn about the U-SQL UDO programmability guide - user defined reducer.
 ms.service: data-lake-analytics
-ms.reviewer: jasonh
+ms.reviewer: whhender
 ms.topic: how-to
-ms.date: 06/30/2017
+ms.date: 01/27/2023
 ---
 
 # Use user-defined reducer
@@ -16,6 +16,7 @@ U-SQL enables you to write custom rowset reducers in C# by using the user-define
 User-defined reducer, or UDR, can be used to eliminate unnecessary rows during data extraction (import). It also can be used to manipulate and evaluate rows and columns. Based on programmability logic, it can also define which rows need to be extracted.
 
 ## How to define and use user-defined reducer
+
 To define a UDR class, we need to create an `IReducer` interface with an optional `SqlUserDefinedReducer` attribute.
 
 This class interface should contain a definition for the `IEnumerable` interface rowset override.
@@ -33,7 +34,7 @@ public class EmptyUserReducer : IReducer
 }
 ```
 
-The **SqlUserDefinedReducer** attribute indicates that the type should be registered as a user-defined reducer. This class cannot be inherited.
+The **SqlUserDefinedReducer** attribute indicates that the type should be registered as a user-defined reducer. This class can't be inherited.
 **SqlUserDefinedReducer** is an optional attribute for a user-defined reducer definition. It's used to define IsRecursive property.
 
 * bool     IsRecursive    
@@ -54,7 +55,7 @@ The parameter for the `Row.Get` method is a column that's passed as part of the 
 
 For output, use the `output.Set` method.
 
-It is important to understand that custom reducer only outputs values that are defined with the `output.Set` method call.
+It's important to understand that custom reducer only outputs values that are defined with the `output.Set` method call.
 
 ```csharp
 output.Set<string>("mycolumn", guid);

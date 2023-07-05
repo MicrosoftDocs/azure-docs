@@ -63,7 +63,7 @@ In this article, you'll:
 1. From the side navigation menu, under the **APIs** section, select **APIs**.
 1. Under **Create a new definition**, select **OpenAPI specification**.
 
-    :::image type="content" source="./media/import-api-from-oas/oas-api.png" alt-text="OpenAPI specifiction":::
+    :::image type="content" source="./media/import-api-from-oas/oas-api.png" alt-text="OpenAPI specification":::
 
 1. Click **Select a file**, and select the `openapi-spec.json` file that you saved locally in a previous step.
 
@@ -102,7 +102,7 @@ In this article, you'll:
 
     Operation  |Description  |Further configuration for operation  |
     |---------|---------|---------|
-    |`GET /`     |   Enables policy configuration at service root.   |    Configure the following inbound [rewrite-uri](api-management-transformation-policies.md#RewriteURL) policy to append a trailing slash to requests that are forwarded to service root:<br/><br>    `<rewrite-uri template="/" copy-unmatched-params="true" />` <br/><br/>This policy removes potential ambiguity of requests with or without trailing slashes, which are treated differently by some backends.|
+    |`GET /`     |   Enables policy configuration at service root.   |    Configure the following inbound [rewrite-uri](rewrite-uri-policy.md) policy to append a trailing slash to requests that are forwarded to service root:<br/><br>    `<rewrite-uri template="/" copy-unmatched-params="true" />` <br/><br/>This policy removes potential ambiguity of requests with or without trailing slashes, which are treated differently by some backends.|
 
     :::image type="content" source="media/sap-api/get-root-operation.png" alt-text="Get operation for service root":::
 

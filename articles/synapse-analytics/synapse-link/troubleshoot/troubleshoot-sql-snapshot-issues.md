@@ -7,7 +7,7 @@ ms.reviewer: imotiwala, prpasunu
 ms.service: synapse-analytics
 ms.topic: how-to
 ms.subservice: synapse-link
-ms.date: 12/07/2022
+ms.date: 05/03/2023
 ---
 
 # Troubleshoot: Azure Synapse Link for SQL initial snapshot issues 
@@ -53,7 +53,7 @@ When a snapshot has not completed for a given table, there are two possible case
 
 ### Step 2: Snapshot retry
 
-If errors have forced the snapshot to retry, find more information in the [changefeed.change_feed_errors](/sql/relational-databases/system-tables/changefeed-change-feed-errors-transact-sql) dynamic management view. Run the following T-SQL command in the source database:
+If errors have forced the snapshot to retry, find more information in the [sys.dm_change_feed_errors](/sql/relational-databases/system-dynamic-management-views/sys-dm-change-feed-errors) dynamic management view. Run the following T-SQL command in the source database:
 
 ```sql
 SELECT * FROM sys.dm_change_feed_errors;
@@ -73,7 +73,7 @@ For example:
     6.    For **Problem type**, select **Data Sync, Replication, CDC and Change Tracking**.
     7.    For **Problem subtype**, select **Transactional Replication**.
     
-:::image type="content" source="media/troubleshoot-sql-snapshot-issues/sql-snapshot-issues-support-request.png" alt-text="A screenshot of the Azure portal where a New support request has been prepared.":::
+   :::image type="content" source="media/troubleshoot-sql-snapshot-issues/sql-snapshot-issues-support-request.png" alt-text="A screenshot of the Azure portal where a New support request has been prepared.":::
 
 ## Next steps
 

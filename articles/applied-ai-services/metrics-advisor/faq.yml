@@ -1,9 +1,8 @@
 ### YamlMime:FAQ
 metadata:
   title: Metrics Advisor frequently asked questions
-  titleSuffix: Azure Cognitive Services
+  titleSuffix: Azure Applied AI Services
   description: Frequently asked questions about the Metrics Advisor service.
-  services: cognitive-services
   author: mrbullwinkle
   manager: nitinme
   ms.service: applied-ai-services
@@ -67,7 +66,7 @@ sections:
           
           | Granularity(min) |	Retention(day) |
           |------------------| ------------------|
-          |  1 | 6.94 |
+          | 1 | 6.94 |
           |  5 | 34.72|
           | 15 | 104.1|
           | 60(=hourly) | 416.67 |

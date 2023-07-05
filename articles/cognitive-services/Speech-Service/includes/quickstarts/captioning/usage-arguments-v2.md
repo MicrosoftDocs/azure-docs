@@ -18,7 +18,7 @@ Input options include:
 
 Language options include:
 
-- `--language LANG`: Specify a language using one of the corresponding [supported locales](~/articles/cognitive-services/speech-service/language-support.md?tabs=stt-tts). This is used when breaking captions into lines. Default value is `en-US`.
+- `--language LANG`: Specify a language using one of the corresponding [supported locales](~/articles/cognitive-services/speech-service/language-support.md?tabs=stt). This is used when breaking captions into lines. Default value is `en-US`.
 
 Recognition options include:
 

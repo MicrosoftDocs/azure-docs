@@ -1,13 +1,13 @@
 ---
 title: Use managed identities in Azure API Management | Microsoft Docs
-description: Learn how to create system-assigned and user-assigned identities in API Management by using the Azure portal, PowerShell, and a Resource Manager template.
+description: Learn how to create system-assigned and user-assigned identities in API Management by using the Azure portal, PowerShell, and a Resource Manager template. Learn about supported scenarios with managed identities.
 services: api-management
 documentationcenter: ''
 author: dlepow
 
 ms.service: api-management
 ms.topic: how-to
-ms.date: 04/05/2022
+ms.date: 03/31/2023
 ms.author: danlep
 ms.custom: devx-track-azurepowershell
 ---
@@ -42,7 +42,7 @@ To set up a managed identity in the Azure portal, you'll first create an API Man
 
 The following steps walk you through creating an API Management instance and assigning it an identity by using Azure PowerShell.
 
-1. If needed, install Azure PowerShell by using the instructions in the [Azure PowerShell guide](/powershell/azure/install-az-ps). Then run `Connect-AzAccount` to create a connection with Azure.
+1. If needed, install Azure PowerShell by using the instructions in the [Azure PowerShell guide](/powershell/azure/install-azure-powershell). Then run `Connect-AzAccount` to create a connection with Azure.
 
 2. Use the following code to create the instance with a system-assigned managed identity. For more examples of how to use Azure PowerShell with an API Management instance, see [API Management PowerShell samples](powershell-samples.md).
 
@@ -120,17 +120,9 @@ The `tenantId` property identifies which Azure AD tenant the identity belongs to
 
 ## Configure Key Vault access using a managed identity
 
-Refer to the following configurations that are needed for API Management to access secrets and certificates from Key Vault.s
+The following configurations are needed for API Management to access secrets and certificates from an Azure key vault.
 
-### Configure Key Vault access policy
-
-To configure an access policy using the portal:
-
-1. In the Azure portal, navigate to your key vault.
-1. Select **Settings > Access policies > + Add Access Policy**.
-1. Select **Secret permissions**, then select **Get** and **List**.
-1. In **Select principal**, select the resource name of your managed identity. If you're using a system-assigned identity, the principal is the name of your API Management instance.
-1. Select **Add**.
+[!INCLUDE [api-management-key-vault-access](../../includes/api-management-key-vault-access.md)]
 
 [!INCLUDE [api-management-key-vault-network](../../includes/api-management-key-vault-network.md)]
 
@@ -308,7 +300,7 @@ You can use a system-assigned managed identity to access Azure Key Vault to stor
 
 ### Authenticate to a backend by using an API Management identity
 
-You can use the system-assigned identity to authenticate to a backend service through the [authentication-managed-identity](api-management-authentication-policies.md#ManagedIdentity) policy.
+You can use the system-assigned identity to authenticate to a backend service through the [authentication-managed-identity](authentication-managed-identity-policy.md) policy.
 
 ### <a name="apim-as-trusted-service"></a>Connect to Azure resources behind IP firewall using system-assigned managed identity
 
@@ -321,7 +313,11 @@ API Management is a trusted Microsoft service to the following resources. This a
 |Azure Key Vault | [Trusted-access-to-azure-key-vault](../key-vault/general/overview-vnet-service-endpoints.md#trusted-services)|
 |Azure Storage | [Trusted-access-to-azure-storage](../storage/common/storage-network-security.md?tabs=azure-portal#trusted-access-based-on-system-assigned-managed-identity)|
 |Azure Service Bus | [Trusted-access-to-azure-service-bus](../service-bus-messaging/service-bus-ip-filtering.md#trusted-microsoft-services)|
-|Azure Event Hubs | [Trused-access-to-azure-event-hub](../event-hubs/event-hubs-ip-filtering.md#trusted-microsoft-services)|
+|Azure Event Hubs | [Trusted-access-to-azure-event-hub](../event-hubs/event-hubs-ip-filtering.md#trusted-microsoft-services)|
+
+### Log events to an event hub
+
+You can configure and use a system-assigned managed identity to access an event hub for logging events from an API Management instance. For more information, see [How to log events to Azure Event Hubs in Azure API Management](api-management-howto-log-event-hubs.md).
 
 ## Create a user-assigned managed identity
 
@@ -345,7 +341,7 @@ To set up a managed identity in the portal, you'll first create an API Managemen
 
 The following steps walk you through creating an API Management instance and assigning it an identity by using Azure PowerShell.
 
-1. If needed, install the Azure PowerShell by using the instructions in the [Azure PowerShell guide](/powershell/azure/install-az-ps). Then run `Connect-AzAccount` to create a connection with Azure.
+1. If needed, install the Azure PowerShell by using the instructions in the [Azure PowerShell guide](/powershell/azure/install-azure-powershell). Then run `Connect-AzAccount` to create a connection with Azure.
 
 1. Use the following code to create the instance. For more examples of how to use Azure PowerShell with an API Management instance, see [API Management PowerShell samples](powershell-samples.md).
 
@@ -480,7 +476,11 @@ You can use a user-assigned managed identity to access Azure Key Vault to store 
 
 ### Authenticate to a backend by using a user-assigned identity
 
-You can use the user-assigned identity to authenticate to a backend service through the [authentication-managed-identity](api-management-authentication-policies.md#ManagedIdentity) policy.
+You can use the user-assigned identity to authenticate to a backend service through the [authentication-managed-identity](authentication-managed-identity-policy.md) policy.
+
+### Log events to an event hub
+
+You can configure and use a user-assigned managed identity to access an event hub for logging events from an API Management instance. For more information, see [How to log events to Azure Event Hubs in Azure API Management](api-management-howto-log-event-hubs.md).
 
 ## <a name="remove"></a>Remove an identity
 
@@ -507,4 +507,4 @@ Learn more about managed identities for Azure resources:
 
 * [What are managed identities for Azure resources?](../active-directory/managed-identities-azure-resources/overview.md)
 * [Azure Resource Manager templates](https://github.com/Azure/azure-quickstart-templates)
-* [Authenticate with a managed identity in a policy](./api-management-authentication-policies.md#ManagedIdentity)
+* [Authenticate with a managed identity in a policy](authentication-managed-identity-policy.md)

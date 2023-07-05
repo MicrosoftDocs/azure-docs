@@ -1,11 +1,11 @@
 ---
-title: 'Tutorial: Configure Clebex for automatic user provisioning with Azure Active Directory | Microsoft Docs'
+title: 'Tutorial: Configure Clebex for automatic user provisioning with Azure Active Directory'
 description: Learn how to automatically provision and de-provision user accounts from Azure AD to Clebex.
 services: active-directory
 documentationcenter: ''
 author: twimmers
 writer: twimmers
-manager: beatrizd
+manager: jeedes
 
 ms.assetid: 4746fd14-114c-4e6e-bee4-34a7a34a6237
 ms.service: active-directory

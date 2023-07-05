@@ -3,9 +3,8 @@ title: Automate threat response with playbooks in Microsoft Sentinel | Microsoft
 description: This article explains automation in Microsoft Sentinel, and shows how to use playbooks to automate threat prevention and response.
 author: yelevin
 ms.topic: conceptual
-ms.date: 04/10/2022
+ms.date: 06/21/2023
 ms.author: yelevin
-ms.custom: ignite-fall-2021
 ---
 
 # Automate threat response with playbooks in Microsoft Sentinel
@@ -18,33 +17,35 @@ SOC analysts are typically inundated with security alerts and incidents on a reg
 
 Many, if not most, of these alerts and incidents conform to recurring patterns that can be addressed by specific and defined sets of remediation actions. Analysts are also tasked with basic remediation and investigation of the incidents they do manage to address. To the extent that these activities can be automated, a SOC can be that much more productive and efficient, allowing analysts to devote more time and energy to investigative activity.
 
-A playbook is a collection of these remediation actions that can be run from Microsoft Sentinel as a routine. A playbook can help [**automate and orchestrate your threat response**](tutorial-respond-threats-playbook.md); it can be run manually on-demand on entities (in preview - see below) and alerts, or set to run automatically in response to specific alerts or incidents, when triggered by an [automation rule](automate-incident-handling-with-automation-rules.md).
+A playbook is a collection of these remediation actions that you run from Microsoft Sentinel as a routine, to help [**automate and orchestrate your threat response**](tutorial-respond-threats-playbook.md). It can be run in two ways:
+- **Manually** on-demand, on a particular entity or alert
+- **Automatically** in response to specific alerts or incidents, when triggered by an [automation rule](automate-incident-handling-with-automation-rules.md).
 
 For example, if an account and machine are compromised, a playbook can isolate the machine from the network and block the account by the time the SOC team is notified of the incident.
 
-Playbooks can be used within the subscription to which they belong, but the **Playbooks** tab (in the **Automation** blade) displays all the playbooks available across any selected subscriptions.
+While the **Active playbooks** tab on the **Automation** page displays all the active playbooks available across any selected subscriptions, by default a playbook can be used only within the subscription to which it belongs, unless you specifically grant Microsoft Sentinel permissions to the playbook's resource group.
 
 ### Playbook templates
 
-> [!IMPORTANT]
->
-> **Playbook templates** are currently in **PREVIEW**. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+A playbook template is a prebuilt, tested, and ready-to-use workflow that can be customized to meet your needs. Templates can also serve as a reference for best practices when developing playbooks from scratch, or as inspiration for new automation scenarios.
 
-A playbook template is a pre-built, tested, and ready-to-use workflow that can be customized to meet your needs. Templates can also serve as a reference for best practices when developing playbooks from scratch, or as inspiration for new automation scenarios.
-
-Playbook templates are not active playbooks themselves, until you create a playbook (an editable copy of the template) from them.
+Playbook templates aren't usable as playbooks themselves. You create a playbook (an editable copy of the template) from them.
 
 You can get playbook templates from the following sources:
 
-- The **Playbook templates** tab (under **Automation**) presents the leading scenarios contributed by the Microsoft Sentinel community. Multiple active playbooks can be created from the same template.
+- On the **Automation** page, the **Playbook templates** tab lists the playbook templates installed. Multiple active playbooks can be created from the same template.
 
-    When a new version of the template is published, the active playbooks created from that template (in the **Playbooks** tab) will be labeled with a notification that an update is available.
+    When a new version of the template is published, the active playbooks created from that template show up in the **Active playbooks** tab displaying a label indicating that an update is available.
 
-- Playbook templates can also be obtained as part of a [Microsoft Sentinel solution](sentinel-solutions.md) in the context of a specific product. The deployment of the solution produces active playbooks.
+- Playbook templates are available as part of product solutions or standalone content that you install from the content hub in Microsoft Sentinel. For more information, see [Microsoft Sentinel content and solutions](sentinel-solutions.md) and [Discover and manage Microsoft Sentinel out-of-the-box content](sentinel-solutions-deploy.md).
 
 - The [Microsoft Sentinel GitHub repository](https://github.com/Azure/Azure-Sentinel/tree/master/Playbooks) contains many playbook templates. They can be deployed to an Azure subscription by selecting the **Deploy to Azure** button.
 
 Technically, a playbook template is an [ARM template](../azure-resource-manager/templates/index.yml) which consists of several resources: an Azure Logic Apps workflow and API connections for each connection involved.
+
+> [!IMPORTANT]
+>
+> **Playbook templates** are currently in **PREVIEW**. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
 ### Azure Logic Apps basic concepts
 
@@ -89,8 +90,9 @@ To use this logic app version, create new Standard playbooks in Microsoft Sentin
 >
 > - Standard workflows currently don't support Playbook templates, which means you can't create a Standard workflow-based playbook directly in Microsoft Sentinel. Instead, you must create the workflow in Azure Logic Apps. After you've created the workflow, it appears as a playbook in Microsoft Sentinel.
 >
-> - Although Standard workflows support private endpoints as mentioned above, Microsoft Sentinel doesn't currently support the use of private endpoints in playbooks, even those based on Standard workflows.  
->   Workflows with private endpoints might still be visible and selectable when you're choosing a playbook from a list in Microsoft Sentinel (whether to run manually, to add to an automation rule, or in the playbooks gallery), and you'll be able to select them, but their execution will fail.
+> - Logic apps' Standard workflows support private endpoints as mentioned above, but Microsoft Sentinel requires [**defining an access restriction policy in Logic apps**](define-playbook-access-restrictions.md) in order to support the use of private endpoints in playbooks based on Standard workflows.  
+>
+>   If an access restriction policy is not defined, then workflows with private endpoints might still be visible and selectable when you're choosing a playbook from a list in Microsoft Sentinel (whether to run manually, to add to an automation rule, or in the playbooks gallery), and you'll be able to select them, but their execution will fail.
 >   
 > - An indicator identifies Standard workflows as either *stateful* or *stateless*. Microsoft Sentinel doesn't support stateless workflows at this time. Learn about the differences between [**stateful and stateless workflows**](../logic-apps/single-tenant-overview-compare.md#stateful-and-stateless-workflows).
 
@@ -348,7 +350,7 @@ In order to change the authorization of an existing connection, enter the connec
 
 ## Recommended playbooks
 
-The following recommended playbooks, and other similar playbooks are available to you in the [Microsoft Sentinel GitHub repository](https://github.com/Azure/Azure-Sentinel/tree/master/Playbooks):
+The following recommended playbooks, and other similar playbooks are available to you in the [Content hub](sentinel-solutions-deploy.md), or in the [Microsoft Sentinel GitHub repository](https://github.com/Azure/Azure-Sentinel/tree/master/Playbooks):
 
 - **Notification playbooks** are triggered when an alert or incident is created and send a notification to a configured destination:
 
@@ -373,3 +375,5 @@ The following recommended playbooks, and other similar playbooks are available t
 
 - [Tutorial: Use playbooks to automate threat responses in Microsoft Sentinel](tutorial-respond-threats-playbook.md)
 - [Create and perform incident tasks in Microsoft Sentinel using playbooks](create-tasks-playbook.md)
+
+

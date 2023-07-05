@@ -9,20 +9,20 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: how-to
-ms.date: 12/14/2022
+ms.date: 04/11/2023
 ms.author: jeedes
 
 ---
 
 # Azure Active Directory SSO integration with QRadar SOAR
 
-In this article, you'll learn how to integrate QRadar SOAR with Azure Active Directory (Azure AD). QRadar SOAR enhances the analyst experience through accelerated incident response with simple automation, process standardization, and integration with your existing security tools. When you integrate QRadar SOAR with Azure AD, you can:
+In this article, you learn how to integrate QRadar SOAR with Azure Active Directory (Azure AD). QRadar SOAR enhances the analyst experience through accelerated incident response with simple automation, process standardization, and integration with your existing security tools. When you integrate QRadar SOAR with Azure AD, you can:
 
 * Control in Azure AD who has access to QRadar SOAR.
 * Enable your users to be automatically signed-in to QRadar SOAR with their Azure AD accounts.
 * Manage your accounts in one central location - the Azure portal.
 
-You'll configure and test Azure AD single sign-on for QRadar SOAR in a test environment. QRadar SOAR supports both **SP** and **IDP** initiated single sign-on.
+You configure and test Azure AD single sign-on for QRadar SOAR in a test environment. QRadar SOAR supports both **SP** and **IDP** initiated single sign-on.
 
 ## Prerequisites
 
@@ -63,15 +63,15 @@ Complete the following steps to enable Azure AD single sign-on in the Azure port
 
     | **Identifier** |
     |-------|
-    | `https://<UPS>.domain.extension/<ID>` |
-    | `https://<SOAR>.domain.extension` |
+    | `https://<CustomerName>.domain.extension/<ID>` |
+    | `https://<CustomerName>.domain.extension` |
 
     b. In the **Reply URL** textbox, type a URL using one of the following patterns:
 
     | **Reply URL** |
     |-------|
-    | `https://<UPS>.domain.extension/<ID>` |
-    | `https://<SOAR>.domain.extension` |
+    | `https://<CustomerName>.domain.extension/<ID>` |
+    | `https://<CustomerName>.domain.extension` |
 
 1. If you want to configure **SP** initiated SSO, then perform the following step:  
 
@@ -79,8 +79,8 @@ Complete the following steps to enable Azure AD single sign-on in the Azure port
 
     | **Sign on URL** |
     |-------|
-    | `https://<UPS>.domain.extension/<ID>` |
-    | `https://<SOAR>.domain.extension` |
+    | `https://<CustomerName>.domain.extension/<ID>` |
+    | `https://<CustomerName>.domain.extension` |
 
     > [!Note]
     > These values are not the real. Update these values with the actual Identifier, Reply URL and Sign on URL. Contact [QRadar SOAR Client support team](mailto:mysphelp@us.ibm.com) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.

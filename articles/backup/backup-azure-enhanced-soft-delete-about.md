@@ -3,10 +3,10 @@ title: Overview of enhanced soft delete for Azure Backup (preview)
 description: This article gives an overview of enhanced soft delete for Azure Backup.
 ms.topic: conceptual
 ms.custom: references_regions
-ms.date: 12/13/2022
-author: v-amallick
+ms.date: 06/29/2023
 ms.service: backup
-ms.author: v-amallick
+author: jyothisuri
+ms.author: jsuri
 ---
 
 # About Enhanced soft delete for Azure Backup (preview)
@@ -36,19 +36,22 @@ The key benefits of enhanced soft delete are:
 - **Configurable soft delete retention**: You can now specify the retention duration for deleted backup data, ranging from *14* to *180* days. By default, the retention duration is set to *14* days (as per basic soft delete) for the vault, and you can extend it as required.
 
   >[!Note]
-  >The soft delete doesn't cost you for first 14 days of retention; however, you're charged for the period beyond 14 days. [Learn more](#states-of-soft-delete-settings).
+  >The soft delete doesn't cost you for 14 days of retention; however, you're charged for the period beyond 14 days. [Learn more](#pricing).
 - **Re-registration of soft deleted items**: You can now register the items in soft deleted state with another vault. However, you can't register the same item with two vaults for active backups. 
 - **Soft delete and reregistration of backup containers**: You can now unregister the backup containers (which you can soft delete) if you've deleted all backup items in the container. You can now register such soft deleted containers to other vaults. This is applicable for applicable workloads only, including SQL in Azure VM backup, SAP HANA in Azure VM backup and backup of on-premises servers.
 - **Soft delete across workloads**: Enhanced soft delete applies to all vaulted workloads alike and is supported for Recovery Services vaults and Backup vaults. However, it currently doesn't support operational tier workloads, such as Azure Files backup, Operational backup for Blobs, Disk and VM snapshot backups.
+- **Soft delete of recovery points**: This feature allows you to recover data from recovery points that might have been deleted due to making changes in a backup policy or changing the backup policy associated with a backup item. Soft delete of recovery points isn't supported for log recovery points in SQL and SAP HANA workloads. [Learn more](manage-recovery-points.md#impact-of-expired-recovery-points-for-items-in-soft-deleted-state).
 
 ## Supported regions
 
-Enhanced soft delete is currently available in the following regions: East US, West US, West US 2, West Central US, Japan East, Brazil South, Australia East, and North Europe.
+- Enhanced soft delete is available in all Azure public regions.
+- Soft delete of recovery points is now available in all Azure public regions.
 
 ## Supported scenarios
 
 - Enhanced soft delete is supported for Recovery Services vaults and Backup vaults. Also, it's supported for new and existing vaults.
 - All existing Recovery Services vaults in the preview regions are upgraded with an option to use enhanced soft delete.
+- Enhanced soft delete applies to all vaulted workloads alike and is supported for Recovery Services vaults and Backup vaults. However, it currently doesn't support operational tier workloads, such as Azure Files backup, Operational backup for Blobs, Disk and VM snapshot backups.
 
 ## States of soft delete settings
 
@@ -75,6 +78,16 @@ If a backup item/container is in soft deleted state, you can register it to a va
 
 >[!Note]
 >You can't actively protect one item to two vaults simultaneously. So, if you start protecting a backup container using another vault, you can no longer re-protect the same backup container to the previous vault.
+
+## Soft delete of recovery points
+
+Soft delete of recovery points helps you recover any recovery points that are accidentally or maliciously deleted for some operations that could lead to deletion of one or more recovery points. For example, modification of a backup policy associated with a backup item to reduce the backup retention or assigning a new policy to a backed-up item that has a lower retention can cause a loss of certain recovery points.
+
+This feature helps to retain these recovery points for an additional duration, as per the soft delete retention specified for the vault (the impacted recovery points show up as soft deleted during this period). You can undelete the recovery points by increasing the retentions in the backup policy. You can also restore your data from soft deleted state, if you don't choose to undelete them.
+
+>[!Note]
+>- Soft delete of recovery points is not supported for log recovery points in SQL and SAP HANA workloads.
+>- This feature is currently available in selected Azure regions only. [Learn more](#supported-scenarios).
 
 ## Pricing
 

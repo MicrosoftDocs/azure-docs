@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory integration with Wdesk | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory integration with Wdesk'
 description: Learn how to configure single sign-on between Azure Active Directory and Wdesk.
 services: active-directory
 author: jeevansd

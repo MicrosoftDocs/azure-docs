@@ -24,7 +24,7 @@ This article describes ways you can customize and enhance the Azure Active Direc
 To use a custom domain and your tenant ID in the authentication URL, follow the guidance in [Enable custom domains](custom-domain.md). Under the project root folder, open the `appsettings.json` file. This file contains information about your Azure AD B2C identity provider. 
 
 - Update the `Instance` entry with your custom domain.
-- Update the `Domain` entry with your [tenant ID](tenant-management.md#get-your-tenant-id). For more information, see [Use tenant ID](custom-domain.md#optional-use-tenant-id).
+- Update the `Domain` entry with your [tenant ID]( tenant-management-read-tenant-name.md#get-your-tenant-id). For more information, see [Use tenant ID](custom-domain.md#optional-use-tenant-id).
 
 The app settings *before* the change are shown in the following JSON code: 
 

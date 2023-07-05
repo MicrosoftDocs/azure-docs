@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with CheckProof | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with CheckProof'
 description: Learn how to configure single sign-on between Azure Active Directory and CheckProof.
 services: active-directory
 author: jeevansd

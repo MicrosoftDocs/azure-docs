@@ -1,5 +1,5 @@
 ---
-title: Analytics on knowledge bases - custom question answering
+title: Analytics on projects - custom question answering
 titleSuffix: Azure Cognitive Services
 description: Custom question answering uses Azure diagnostic logging to store the telemetry data and chat logs
 services: cognitive-services
@@ -12,7 +12,7 @@ ms.date: 11/02/2021
 ms.custom: language-service-question-answering, ignite-fall-2021
 ---
 
-# Get analytics for your knowledge base
+# Get analytics for your project
 
 Custom question answering uses Azure diagnostic logging to store the telemetry data and chat logs. Follow the below steps to run sample queries to get analytics on the usage of your custom question answering project.
 
@@ -38,7 +38,7 @@ AzureDiagnostics
 | project question_, answer_, score_, kbId_
 ```
 
-### Traffic count per knowledge base and user in a time period
+### Traffic count per project and user in a time period
 
 ```kusto
 // Traffic count per KB and user in a time period
@@ -106,5 +106,4 @@ AzureDiagnostics
 
 ## Next steps
 
-> [!div class="nextstepaction"]
-> [Choose capactiy](../../../qnamaker/how-to/improve-knowledge-base.md)
+

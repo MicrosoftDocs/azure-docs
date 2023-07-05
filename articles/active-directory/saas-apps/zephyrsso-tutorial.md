@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory integration with ZephyrSSO | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory integration with ZephyrSSO'
 description: Learn how to configure single sign-on between Azure Active Directory and ZephyrSSO.
 services: active-directory
 author: jeevansd

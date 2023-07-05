@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure AD SSO integration with Insignia SAML SSO | Microsoft Docs'
+title: 'Tutorial: Azure AD SSO integration with Insignia SAML SSO'
 description: Learn how to configure single sign-on between Azure Active Directory and Insignia SAML SSO.
 services: active-directory
 author: jeevansd

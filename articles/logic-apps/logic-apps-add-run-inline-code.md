@@ -6,7 +6,7 @@ ms.suite: integration
 ms.reviewer: deli, estfan, azla
 ms.topic: how-to
 ms.date: 10/01/2022
-ms.custom: devx-track-js
+ms.custom:
 ---
 
 # Run code snippets in workflows with Inline Code operations in Azure Logic Apps
@@ -20,7 +20,7 @@ Currently, the connector only has a single action, which works best for a code s
 
 | Action | Language | Language version | Run duration | Data size | Other notes |
 |--------|----------|------------------|--------------|-----------|-------------|
-| **Execute JavaScript Code** | JavaScript | **Standard**: <br>Node.js 12.x.x or 14.x.x <br><br>**Consumption**: <br>Node.js 8.11.1 <br><br>For more information, review [Standard built-in objects](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects). | Finishes in 5 seconds or fewer. | Handles data up to 50 MB. | - Doesn't require working with the [**Variables** actions](logic-apps-create-variables-store-values.md), which are unsupported by the action. <br><br>- Doesn't support the `require()` function for running JavaScript. |
+| **Execute JavaScript Code** | JavaScript | **Standard**: <br>Node.js 16.x.x <br><br>**Consumption**: <br>Node.js 8.11.1 <br><br>For more information, review [Standard built-in objects](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects). | Finishes in 5 seconds or fewer. | Handles data up to 50 MB. | - Doesn't require working with the [**Variables** actions](logic-apps-create-variables-store-values.md), which are unsupported by the action. <br><br>- Doesn't support the `require()` function for running JavaScript. |
 |||||||
 
 To run code that doesn't fit these attributes, you can [create and call a function through Azure Functions](logic-apps-azure-functions.md) instead.
@@ -47,11 +47,11 @@ The following diagram shows the highlights from example workflow:
 
   This article's example uses the Office 365 Outlook trigger that's named **When a new email arrives**.
 
-  If you don't have a workflow, review the following documentation:
+  If you don't have a workflow, see the following documentation:
 
-  * Consumption: [Quickstart: Create your first logic app](quickstart-create-first-logic-app-workflow.md)
+  * Consumption: [Create example Consumption logic app workflow](quickstart-create-example-consumption-workflow.md)
 
-  * Standard: [Create single-tenant based logic app workflows](create-single-tenant-workflows-azure-portal.md)
+  * Standard: [Create example Standard logic app workflows](create-single-tenant-workflows-azure-portal.md)
 
 * Based on whether your logic app is Consumption or Standard, review the following requirements:
 
@@ -411,4 +411,5 @@ For more information about the **Execute JavaScript Code** action's structure an
 
 ## Next steps
 
-Learn more about [Connectors for Azure Logic Apps](../connectors/apis-list.md)
+* [Managed connectors for Azure Logic Apps](/connectors/connector-reference/connector-reference-logicapps-connectors)
+* [Built-in connectors for Azure Logic Apps](../connectors/built-in.md)

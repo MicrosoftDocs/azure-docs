@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with SecurityStudio | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with SecurityStudio'
 description: Learn how to configure single sign-on between Azure Active Directory and SecurityStudio.
 services: active-directory
 author: jeevansd

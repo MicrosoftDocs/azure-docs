@@ -2,14 +2,12 @@
 title: 'Connect a VNet to another VNet using a VPN Gateway VNet-to-VNet connection: PowerShell'
 titleSuffix: Azure VPN Gateway
 description: Learn how to connect virtual networks together using a VNet-to-VNet connection and PowerShell.
-services: vpn-gateway
 author: cherylmc
-
 ms.service: vpn-gateway
+ms.custom: devx-track-azurepowershell
 ms.topic: how-to
 ms.date: 09/02/2020
 ms.author: cherylmc
-
 ---
 # Configure a VNet-to-VNet VPN gateway connection using PowerShell
 

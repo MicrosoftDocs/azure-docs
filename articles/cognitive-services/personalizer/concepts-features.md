@@ -1,19 +1,19 @@
 ---
 title: "Features: Action and Context - Personalizer" 
 titleSuffix: Azure Cognitive Services
-description: Personalizer uses features, information about actions and context, to make better ranking suggestions. Features can be very generic, or specific to an item.
+description: Personalizer uses features, information about actions and context, to make better ranking suggestions. Features can be generic, or specific to an item.
 author: jcodella
 ms.author: jacodel
 ms.manager: nitinme
 ms.service: cognitive-services
 ms.subservice: personalizer
 ms.topic: conceptual
-ms.date: 10/25/2022
+ms.date: 12/28/2022
 ---
 
 # Context and actions
 
-Personalizer works by learning what your application should show to users in a given context. These are the two most important pieces of information that you pass into Personalizer. The **context** represents the information you have about the current user or the state of your system, and the **actions** are the options to be chosen from.
+Personalizer works by learning what your application should show to users in a given context. Context and actions are the two most important pieces of information that you pass into Personalizer. The **context** represents the information you have about the current user or the state of your system, and the **actions** are the options to be chosen from.
 
 ## Context
 
@@ -32,7 +32,7 @@ Your application is responsible for loading the information about the context fr
 
 Actions represent a list of options.
 
-Don't send in more than 50 actions when Ranking actions. These may be the same 50 actions every time, or they may change. For example, if you have a product catalog of 10,000 items for an e-commerce application, you may use a recommendation or filtering engine to determine the top 40 a customer may like, and use Personalizer to find the one that will generate the most reward (for example, the user will add to the basket) for the current context.
+Don't send in more than 50 actions when Ranking actions. They may be the same 50 actions every time, or they may change. For example, if you have a product catalog of 10,000 items for an e-commerce application, you may use a recommendation or filtering engine to determine the top 40 a customer may like, and use Personalizer to find the one that will generate the most reward for the current context.
 
 ### Examples of actions
 
@@ -43,7 +43,7 @@ Here are some examples:
 |Purpose|Action|
 |--|--|
 |Personalize which article is highlighted on a news website.|Each action is a potential news article.|
-|Optimize ad placement on a website.|Each action will be a layout or rules to create a layout for the ads (for example, on the top, on the right, small images, big images).|
+|Optimize ad placement on a website.|Each action will be a layout or rules to create a layout for the ads (for example, on the top, on the right, small images, large images).|
 |Display personalized ranking of recommended items on a shopping website.|Each action is a specific product.|
 |Suggest user interface elements such as filters to apply to a specific photo.|Each action may be a different filter.|
 |Choose a chat bot's response to clarify user intent or suggest an action.|Each action is an option of how to interpret the response.|
@@ -55,34 +55,34 @@ Features from actions may typically come from content management systems, catalo
 
 ### Prevent actions from being ranked
 
-In some cases, there are actions that you don't want to display to users. The best way to prevent an action from being ranked is by adding it to the [Excluded Actions](https://learn.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.personalizer.models.rankrequest.excludedactions) list, or not passing it to the Rank Request.
+In some cases, there are actions that you don't want to display to users. The best way to prevent an action from being ranked is by adding it to the [Excluded Actions](/dotnet/api/microsoft.azure.cognitiveservices.personalizer.models.rankrequest.excludedactions) list, or not passing it to the Rank Request.
 
-In some cases, you might not want events to be trained on by default. In other words, you only want to train events when a specific condition is met. For example, The personalized part of your webpage is below the fold (users have to scroll before interacting with the personalized content). In this case you will render the entire page, but only want an event to be trained on when the user scrolls and has a chance to interact with the personalized content. For these cases, you should [Defer Event Activation](concept-active-inactive-events.md) to avoid assigning default reward (and training) events which the end user did not have a chance to interact with.
+In some cases, you might not want events to be trained on by default. In other words, you only want to train events when a specific condition is met. For example, The personalized part of your webpage is below the fold (users have to scroll before interacting with the personalized content). In this case you'll render the entire page, but only want an event to be trained on when the user scrolls and has a chance to interact with the personalized content. For these cases, you should [Defer Event Activation](concept-active-inactive-events.md) to avoid assigning default reward (and training) events that the end user didn't have a chance to interact with.
 
 ## Features
 
-Both the **context** and possible **actions** are described using **features**. The features represent all information you think is important for the decision making process to maximize rewards. A good starting point is to imagine you are tasked with selecting the best action at each timestamp and ask yourself: "What information do I need to make an informed decision? What information do I have available to describe the context and each possible action?". Features can be very generic, or specific to an item.
+Both the **context** and possible **actions** are described using **features**. The features represent all information you think is important for the decision making process to maximize rewards. A good starting point is to imagine you're tasked with selecting the best action at each timestamp and ask yourself: "What information do I need to make an informed decision? What information do I have available to describe the context and each possible action?" Features can be generic, or specific to an item.
 
 Personalizer does not prescribe, limit, or fix what features you can send for actions and context:
 
 * Over time, you may add and remove features about context and actions. Personalizer continues to learn from available information.
-* For categorical features, there is no need to pre-define the possible values.
-* For numeric features, there is no need to pre-define ranges.
+* For categorical features, there's no need to pre-define the possible values.
+* For numeric features, there's no need to pre-define ranges.
 * Feature names starting with an underscore `_` will be ignored.
 * The list of features can be large (hundreds), but we recommend starting with a concise feature set and expanding as necessary.
 * **action** features may or may not have any correlation with **context** features.
-* Features that are not available should be omitted from the request. If the value of a specific feature is not available for a given request, omit the feature for this request.
+* Features that aren't available should be omitted from the request. If the value of a specific feature is not available for a given request, omit the feature for this request.
 * Avoid sending features with a null value. A null value will be processed as a string with a value of "null" which is undesired.
 
-It's ok and natural for features to change over time. However, keep in mind that Personalizer's machine learning model adapts based on the features it sees. If you send a request containing all new features, Personalizer's model will not be able to leverage past events to select the best action for the current event. Having a 'stable' feature set (with recurring features) will help the performance of Personalizer's machine learning algorithms.
+It's ok and natural for features to change over time. However, keep in mind that Personalizer's machine learning model adapts based on the features it sees. If you send a request containing all new features, Personalizer's model won't be able to use past events to select the best action for the current event. Having a 'stable' feature set (with recurring features) will help the performance of Personalizer's machine learning algorithms.
 
 ### Context features
-* Some context features may only be available part of the time. For example, if a user is logged into the online grocery store website, the context will contain features describing purchase history. These features will not be available for a guest user.
+* Some context features may only be available part of the time. For example, if a user is logged into the online grocery store website, the context will contain features describing purchase history. These features won't be available for a guest user.
 * There must be at least one context feature. Personalizer does not support an empty context.
 * If the context features are identical for every request, Personalizer will choose the globally best action.
 
 ### Action features
-* Not all actions need to contain the same features. For example, in the online grocery store scenario, microwavable popcorn will have a "cooking time" feature, while a cucumber will not.
+* Not all actions need to contain the same features. For example, in the online grocery store scenario, microwavable popcorn will have a "cooking time" feature, while a cucumber won't.
 * Features for a certain action ID may be available one day, but later on become unavailable.
 
 Examples:
@@ -95,7 +95,7 @@ The following are good examples for action features. These will depend a lot on 
 
 ## Supported feature types
 
-Personalizer supports features of string, numeric, and boolean types. It's very likely that your application will mostly use string features, with a few exceptions.
+Personalizer supports features of string, numeric, and boolean types. It's likely that your application will mostly use string features, with a few exceptions.
 
 ### How feature types affect machine learning in Personalizer
 

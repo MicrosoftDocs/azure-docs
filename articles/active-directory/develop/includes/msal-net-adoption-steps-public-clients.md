@@ -2,7 +2,7 @@
 title: Common steps for public client migration to MSAL
 description: Include file that explains the common steps you need to take for all public client apps when it comes to migration from ADAL to MSAL.
 services: active-directory
-author: maliksahil
+author: cilwerner
 manager: CelesteDG
 
 ms.service: active-directory
@@ -10,8 +10,8 @@ ms.subservice: develop
 ms.workload: identity
 ms.topic: include
 ms.date: 09/08/2021
-ms.author: sahmalik
-ms.reviewer: jmprieur
+ms.author: cwerner
+ms.reviewer: jmprieur, sahmalik
 ms.custom: aaddev
 ---
 

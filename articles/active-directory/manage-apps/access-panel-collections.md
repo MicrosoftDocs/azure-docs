@@ -2,15 +2,17 @@
 title: Create collections for My Apps portals
 description: Use My Apps collections to Customize My Apps pages for a simpler My Apps experience for your users. Organize applications into groups with separate tabs.
 services: active-directory
-author: lnalepa
+author: omondiatieno
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: how-to
 ms.date: 09/02/2021
-ms.author: lenalepa
+ms.author: jomondi
 ms.collection: M365-identity-device-management
+ms.reviewer: lenalepa
+ms.custom: enterprise-apps
 
 #customer intent: As an admin, I want to enable and create collections for My Apps portal in Azure AD so that I can create a simpler My Apps experience for users.
 ---
@@ -22,6 +24,7 @@ Your users can use the My Apps portal to view and start the cloud-based applicat
 > [!NOTE]
 > This article covers how an admin can enable and create collections. For information for the end user about how to use the My Apps portal and collections, see [Access and use collections](https://support.microsoft.com/account-billing/organize-apps-using-collections-in-the-my-apps-portal-2dae6b8a-d8b0-4a16-9a5d-71ed4d6a6c1d).
 
+[!INCLUDE [portal updates](../includes/portal-update.md)]
 ## Prerequisites
 
 To create collections on the My Apps portal, you need:
@@ -37,7 +40,7 @@ To create a collection, you must have an Azure AD Premium P1 or P2 license.
 
 2. Go to **Azure Active Directory** > **Enterprise Applications**.
 
-3. Under **Manage**, select **Collections**.
+3. Under **Manage**, select **App launchers**.
 
 4. Select **New collection**. In the **New collection** page, enter a **Name** for the collection (we recommend not using "collection" in the name. Then enter a **Description**.
 

@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Configure Jive for automatic user provisioning with Azure Active Directory | Microsoft Docs'
+title: 'Tutorial: Configure Jive for automatic user provisioning with Azure Active Directory'
 description: Learn the steps you need to perform in Jive and Azure AD to automatically provision and de-provision user accounts from Azure AD to Jive.
 services: active-directory
 author: jeevansd

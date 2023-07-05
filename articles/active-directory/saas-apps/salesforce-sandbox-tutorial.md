@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory integration with Salesforce Sandbox | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory integration with Salesforce Sandbox'
 description: Learn how to configure single sign-on between Azure Active Directory and Salesforce Sandbox.
 services: active-directory
 author: jeevansd

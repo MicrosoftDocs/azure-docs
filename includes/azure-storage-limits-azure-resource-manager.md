@@ -10,7 +10,7 @@ ms.author: tamram
 ms.custom: include file
 ---
 
-The following limits apply only when you perform management operations by using Azure Resource Manager with Azure Storage.
+The following limits apply only when you perform management operations by using Azure Resource Manager with Azure Storage. The limits apply per region of the resource in the request.
 
 | Resource | Limit |
 | --- | --- |

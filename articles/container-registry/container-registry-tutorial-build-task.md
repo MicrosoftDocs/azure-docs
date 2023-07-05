@@ -29,7 +29,7 @@ In this tutorial:
 This tutorial assumes you've already completed the steps in the [previous tutorial](container-registry-tutorial-quick-task.md). If you haven't already done so, complete the steps in the [Prerequisites](container-registry-tutorial-quick-task.md#prerequisites) section of the previous tutorial before proceeding.
 
 [!INCLUDE [container-registry-task-tutorial-prereq.md](../../includes/container-registry-task-tutorial-prereq.md)]
-[!INCLUDE [azure-cli-prepare-your-environment-h3.md](../../includes/azure-cli-prepare-your-environment-h3.md)]
+[!INCLUDE [azure-cli-prepare-your-environment-h3.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment-h3.md)]
 
 ## Create the build task
 
@@ -52,7 +52,7 @@ az acr task create \
     --registry $ACR_NAME \
     --name taskhelloworld \
     --image helloworld:{{.Run.ID}} \
-    --context https://github.com/$GIT_USER/acr-build-helloworld-node.git#main \
+    --context https://github.com/$GIT_USER/acr-build-helloworld-node.git#master \
     --file Dockerfile \
     --git-access-token $GIT_PAT
 ```

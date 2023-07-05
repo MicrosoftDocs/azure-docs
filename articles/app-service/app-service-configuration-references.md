@@ -17,16 +17,16 @@ This topic shows you how to work with configuration data in your App Service or 
 
 To get started with using App Configuration references in App Service, you'll first need  an App Configuration store, and provide your app permission to access the configuration key-values in the store.
 
-1. Create an App Configuration store by following the [App Configuration quickstart](../azure-app-configuration/quickstart-dotnet-core-app.md#create-an-app-configuration-store).
+1. Create an App Configuration store by following the [App Configuration quickstart](../azure-app-configuration/quickstart-azure-app-configuration-create.md).
+
+    > [!NOTE]
+    > App Configuration references do not yet support network-restricted configuration stores.
 
 1. Create a [managed identity](overview-managed-identity.md) for your application.
 
     App Configuration references will use the app's system assigned identity by default, but you can [specify a user-assigned identity](#access-app-configuration-store-with-a-user-assigned-identity).
 
 1. Enable the newly created identity to have the right set of access permissions on the App Configuration store. Update the [role assignments for your store](../azure-app-configuration/howto-integrate-azure-managed-service-identity.md#grant-access-to-app-configuration). You'll be assigning `App Configuration Data Reader` role to this identity, scoped over the resource.
-
-> [!NOTE]
-> App Configuration references do not yet support network-restricted configuration stores.
 
 ### Access App Configuration Store with a user-assigned identity
 
@@ -45,6 +45,20 @@ Once you have granted permissions to the user-assigned identity, follow these st
     ```
 
 This configuration will apply to all references from this App.
+
+## Granting your app access to referenced key vaults
+
+In addition to storing raw configuration values, Azure App Configuration has its own format for storing [Key Vault references][app-config-key-vault-references]. If the value of an App Configuration reference is a Key Vault reference in App Configuration store, your app will also need to have permission to access the key vault being specified.
+
+> [!NOTE]
+> [The Azure App Configuration Key Vault references concept][app-config-key-vault-references] should not be confused with [the App Service and Azure Functions Key Vault references concept][app-service-key-vault-references]. Your app may use any combination of these, but there are some important differences to note. If your vault needs to be network restricted or you need the app to periodically update to latest versions, consider using the App Service and Azure Functions direct approach instead of using an App Configuration reference.
+
+[app-config-key-vault-references]: ../azure-app-configuration/use-key-vault-references-dotnet-core.md
+[app-service-key-vault-references]: app-service-key-vault-references.md
+
+1. Identify the identity that you used for the App Configuration reference. Access to the vault must be granted to that same identity.
+
+1. Create an [access policy in Key Vault](../key-vault/general/security-features.md#privileged-access) for that identity. Enable the "Get" secret permission on this policy. Do not configure the "authorized application" or `applicationId` settings, as this is not compatible with a managed identity.
 
 ## Reference syntax
 
@@ -79,9 +93,6 @@ To use an App Configuration reference for an [app setting](configure-common.md#c
 
 > [!TIP]
 > Most application settings using App Configuration references should be marked as slot settings, as you should have separate stores or labels for each environment.
-
-> [!NOTE]
-> Azure App Configuration also supports its own format for storing [Key Vault references](../azure-app-configuration/use-key-vault-references-dotnet-core.md). If the value of an App Configuration reference is a Key Vault reference in App Configuration store, the secret value will not be retrieved from Key Vault, as of yet. For using the secrets from KeyVault in App Service or Functions, please refer to the [Key Vault references in App Service](app-service-key-vault-references.md).
 
 ### Considerations for Azure Files mounting
 

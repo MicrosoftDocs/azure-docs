@@ -9,7 +9,7 @@ manager: CelesteDG
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 01/11/2022
+ms.date: 01/05/2023
 ms.author: kengaderdus
 ms.subservice: B2C
 ---
@@ -31,7 +31,7 @@ Each SAML identity provider has different steps to expose and set the service pr
 The following example shows a URL address to the SAML metadata of an Azure AD B2C technical profile:
 
 ```
-https://your-tenant-name.b2clogin.com/your-tenant-name/your-policy/samlp/metadata?idptp=your-technical-profile
+https://your-tenant-name.b2clogin.com/your-tenant-name.onmicrosoft.com/your-policy/samlp/metadata?idptp=your-technical-profile
 ```
 
 Replace the following values:

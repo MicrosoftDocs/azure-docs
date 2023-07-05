@@ -4,22 +4,19 @@ titleSuffix: Azure Machine Learning
 description: Learn how to create and manage an Azure Machine Learning compute instance. Use as your development environment, or as  compute target for dev/test purposes.
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: core
-ms.custom: event-tier1-build-2022
+ms.subservice: compute
+ms.custom: event-tier1-build-2022, devx-track-azurecli
 ms.topic: how-to
 author: jesscioffi
 ms.author: jcioffi
 ms.reviewer: sgilley
-ms.date: 11/10/2022
+ms.date: 12/28/2022
 ---
 
 # Create and manage an Azure Machine Learning compute instance
 
 [!INCLUDE [dev v2](../../includes/machine-learning-dev-v2.md)]
 
-> [!div class="op_single_selector" title1="Select the Azure Machine Learning SDK or CLI version you are using:"]
-> * [v1](v1/how-to-create-manage-compute-instance.md)
-> * [v2 (current version)](how-to-create-manage-compute-instance.md)
 
 Learn how to create and manage a [compute instance](concept-compute-instance.md) in your Azure Machine Learning workspace. 
 
@@ -30,17 +27,18 @@ In this article, you learn how to:
 * [Create](#create) a compute instance
 * [Manage](#manage) (start, stop, restart, delete) a compute instance
 * [Create  a schedule](#schedule-automatic-start-and-stop) to automatically start and stop the compute instance
+* [Enable idle shutdown](#enable-idle-shutdown)
 
-You can also [use a setup script (preview)](how-to-customize-compute-instance.md) to create the compute instance with your own custom environment.
+You can also [use a setup script](how-to-customize-compute-instance.md) to create the compute instance with your own custom environment.
 
 Compute instances can run jobs securely in a [virtual network environment](how-to-secure-training-vnet.md), without requiring enterprises to open up SSH ports. The job executes in a containerized environment and packages your model dependencies in a Docker container.
 
 > [!NOTE]
-> This article shows CLI v2 in the sections below. If you are still using CLI v1, see [Create an Azure Machine Learning compute cluster CLI v1)](v1/how-to-create-manage-compute-instance.md).
+> This article shows CLI v2 in the sections below. If you are still using CLI v1, see [Create an Azure Machine Learning compute cluster CLI v1)](v1/how-to-create-manage-compute-instance.md?view=azureml-api-1&preserve-view=true).
 
 ## Prerequisites
 
-* An Azure Machine Learning workspace. For more information, see [Create an Azure Machine Learning workspace](how-to-manage-workspace.md).
+* An Azure Machine Learning workspace. For more information, see [Create an Azure Machine Learning workspace](how-to-manage-workspace.md). In the storage account, the "Allow storage account key access" option must be enabled for compute instance creation to be successful.
 
 * The [Azure CLI extension for Machine Learning service (v2)](https://aka.ms/sdk-v2-install), [Azure Machine Learning Python SDK (v2)](https://aka.ms/sdk-v2-install), or the [Azure Machine Learning Visual Studio Code extension](how-to-setup-vs-code.md).
 
@@ -51,18 +49,13 @@ Compute instances can run jobs securely in a [virtual network environment](how-t
 
 ## Create
 
-> [!IMPORTANT]
-> Items marked (preview) below are currently in public preview.
-> The preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
-> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
-
 **Time estimate**: Approximately 5 minutes.
 
 Creating a compute instance is a one time process for your workspace. You can reuse the compute as a development workstation or as a compute target for training. You can have multiple compute instances attached to your workspace. 
 
 The dedicated cores per region per VM family quota and total regional quota, which applies to compute instance creation, is unified and shared with Azure Machine Learning training compute cluster quota. Stopping the compute instance doesn't release quota to ensure you'll be able to restart the compute instance. It isn't possible to change the virtual machine size of compute instance once it's created.
 
-The fastest way to create a compute instance is to follow the [Quickstart: Create workspace resources you need to get started with Azure Machine Learning](quickstart-create-resources.md). 
+The fastest way to create a compute instance is to follow the [Create resources you need to get started](quickstart-create-resources.md). 
 
 Or use the following examples to create a compute instance with more options:
 
@@ -113,54 +106,125 @@ Where the file *create-instance.yml* is:
 1. Select **Create** unless you want to configure advanced settings for the compute instance.
 1. <a name="advanced-settings"></a> Select **Next: Advanced Settings** if you want to:
 
+    * Enable idle shutdown. Configure a compute instance to automatically shut down if it's inactive. For more information, see [enable idle shutdown](#enable-idle-shutdown).
+    * Add schedule. Schedule times for the compute instance to automatically start and/or shut down. See [schedule details](#schedule-automatic-start-and-stop) below.
     * Enable SSH access.  Follow the [detailed SSH access instructions](#enable-ssh-access) below.
-    * Enable virtual network. Specify the **Resource group**, **Virtual network**, and **Subnet** to create the compute instance inside an Azure Virtual Network (vnet). You can also select __No public IP__ (preview) to prevent the creation of a public IP address, which requires a private link workspace. You must also satisfy these [network requirements](./how-to-secure-training-vnet.md) for virtual network setup. 
-    * Assign the computer to another user. For more about assigning to other users, see [Create on behalf of](#create-on-behalf-of-preview)
-    * Provision with a setup script (preview) - for more information about how to create and use a setup script, see [Customize the compute instance with a script](how-to-customize-compute-instance.md).
-    * Add schedule. Schedule times for the compute instance to automatically start and/or shutdown. See [schedule details](#schedule-automatic-start-and-stop) below.
-    * Enable auto-stop (preview). Configure a compute instance to automatically shut down if it's inactive. For more information, see [configure auto-stop](#configure-auto-stop-preview).
-
-
-
+    * Enable virtual network. Specify the **Resource group**, **Virtual network**, and **Subnet** to create the compute instance inside an Azure Virtual Network (vnet). You can also select __No public IP__ to prevent the creation of a public IP address, which requires a private link workspace. You must also satisfy these [network requirements](./how-to-secure-training-vnet.md) for virtual network setup. 
+    * Assign the computer to another user. For more about assigning to other users, see [Create on behalf of](#create-on-behalf-of)
+    * Provision with a setup script - for more information about how to create and use a setup script, see [Customize the compute instance with a script](how-to-customize-compute-instance.md).
+  
 You can also create a compute instance with an [Azure Resource Manager template](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.machinelearningservices/machine-learning-compute-create-computeinstance).
 
-### Enable SSH access
+---
 
-SSH access is disabled by default.  SSH access can't be changed after creation. Make sure to enable access if you plan to debug interactively with [VS Code Remote](how-to-set-up-vs-code-remote.md).  
+## Enable SSH access
+
+SSH access is disabled by default.  SSH access can't be enabled or disabled after creation. Make sure to enable access if you plan to debug interactively with [VS Code Remote](how-to-set-up-vs-code-remote.md).  
 
 [!INCLUDE [amlinclude-info](../../includes/machine-learning-enable-ssh.md)]
+
+### Set up an SSH key later
+
+Although SSH cannot be enabled or disabled after creation, you do have the option to set up an SSH key later on an SSH-enabled compute instance. This allows you to set up the SSH key post-creation. To do this, select to enable SSH on your compute instance, and select to "Set up an SSH key later" as the SSH public key source. After the compute instance is created, you can visit the Details page of your compute instance and click to edit your SSH keys. From there, you will be able to add your SSH key.
+
+An example of a common use case for this is when creating a compute instance on behalf of another user (see [Create on behalf of](#create-on-behalf-of)) When provisioning a compute instance on behalf of another user, you can enable SSH for the new compute instance owner by selecting "Set up an SSH key later". This allows for the new owner of the compute instance to set up their SSH key for their newly owned compute instance once it has been created and assigned to them following the steps above.
 
 ### Connect with SSH
 
 [!INCLUDE [ssh-access](../../includes/machine-learning-ssh-access.md)]
 
----
+## Create on behalf of
 
-## Configure auto-stop (preview)
+As an administrator, you can create a compute instance on behalf of a data scientist and assign the instance to them with:
 
-> [!IMPORTANT]
-> Items marked (preview) below are currently in public preview.
-> The preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
-> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+* Studio, using the [Advanced settings](?tabs=azure-studio#advanced-settings)
 
-To avoid getting charged for a compute instance that is switched on but inactive, you can configure auto-stop. 
+* [Azure Resource Manager template](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.machinelearningservices/machine-learning-compute-create-computeinstance).  For details on how to find the TenantID and ObjectID needed in this template, see [Find identity object IDs for authentication configuration](../healthcare-apis/azure-api-for-fhir/find-identity-object-ids.md).  You can also find these values in the Azure Active Directory portal.
+
+* REST API
+
+The data scientist you create the compute instance for needs the following be [Azure role-based access control (Azure RBAC)](../role-based-access-control/overview.md) permissions:
+
+* *Microsoft.MachineLearningServices/workspaces/computes/start/action*
+* *Microsoft.MachineLearningServices/workspaces/computes/stop/action*
+* *Microsoft.MachineLearningServices/workspaces/computes/restart/action*
+* *Microsoft.MachineLearningServices/workspaces/computes/applicationaccess/action*
+* *Microsoft.MachineLearningServices/workspaces/computes/updateSchedules/action*
+
+The data scientist can start, stop, and restart the compute instance. They can use the compute instance for:
+* Jupyter
+* JupyterLab
+* RStudio
+* Posit Workbench (formerly RStudio Workbench)
+* Integrated notebooks
+
+## Enable idle shutdown
+
+To avoid getting charged for a compute instance that is switched on but inactive, you can configure when to shut down your compute instance due to inactivity.
 
 A compute instance is considered inactive if the below conditions are met:
 * No active Jupyter Kernel sessions (which translates to no Notebooks usage via Jupyter, JupyterLab or Interactive notebooks)
 * No active Jupyter terminal sessions
-* No active AzureML runs or experiments
+* No active Azure Machine Learning runs or experiments
 * No SSH connections
-* No VS code connections; you must close your VS Code connection for your compute instance to be considered inactive. Sessions are auto-terminated if VS code detects no activity for 3 hours. 
+* No VS Code connections; you must close your VS Code connection for your compute instance to be considered inactive. Sessions are auto-terminated if VS Code detects no activity for 3 hours. 
+* No custom applications are running on the compute
 
-Activity on custom applications installed on the compute instance isn't considered. There are also some basic bounds around inactivity time periods; CI must be inactive for a minimum of 15 mins and a maximum of three days. 
+A compute instance will not be considered idle if any custom application is running. There are also some basic bounds around inactivity time periods; compute instance must be inactive for a minimum of 15 mins and a maximum of three days. 
 
-Also, if a CI has already been idle for a certain amount of time, and the idle shutdown settings are updated to shut the CI off after an amount of time shorter than the current idle duration, then the idle time clock on the CI will be reset to 0. For example, if the CI has already been idle for 20 minutes, and the idle shutdown settings are updated to shut the CI off after 15 minutes of idle time, the idle time clock will be reset to 0.
+Also, if a compute instance has already been idle for a certain amount of time, if idle shutdown settings are updated to  an amount of time shorter than the current idle duration, the idle time clock will be reset to 0. For example, if the compute instance has already been idle for 20 minutes, and the shutdown settings are updated to 15 minutes, the idle time clock will be reset to 0.
 
-This setting can be configured during CI creation or for existing CIs via the following interfaces:
-* AzureML Studio
-    
-    :::image type="content" source="media/how-to-create-attach-studio/idle-shutdown-advanced-settings.jpg" alt-text="Screenshot of the Advanced Settings page for creating a compute instance":::
-    :::image type="content" source="media/how-to-create-attach-studio/idle-shutdown-update.jpg" alt-text="Screenshot of the compute instance details page showing how to update an existing compute instance with idle shutdown":::
+The setting can be configured during compute instance creation or for existing compute instances via the following interfaces:
+
+# [Python SDK](#tab/python)
+
+[!INCLUDE [sdk v2](../../includes/machine-learning-sdk-v2.md)]
+
+When creating a new compute instance, add the `idle_time_before_shutdown_minutes` parameter.
+
+```Python
+# Note that idle_time_before_shutdown has been deprecated.
+ComputeInstance(name=ci_basic_name, size="STANDARD_DS3_v2", idle_time_before_shutdown_minutes="30")
+```
+
+You cannot change the idle time of an existing compute instance with the Python SDK.
+
+# [Azure CLI](#tab/azure-cli)
+
+[!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
+
+When creating a new compute instance, add `idle_time_before_shutdown_minutes` to the YAML definition.
+
+```YAML
+# Note that this is just a snippet for the idle shutdown property. Refer to the "Create" Azure CLI section for more information.
+# Note that idle_time_before_shutdown has been deprecated.
+idle_time_before_shutdown_minutes: 30
+```
+
+You cannot change the idle time of an existing compute instance with the CLI.
+
+# [Studio](#tab/azure-studio)
+
+* When creating a new compute instance:
+
+    1. Select **Advanced** after completing required settings.  
+    1. Select **Enable idle shutdown**
+
+        :::image type="content" source="media/how-to-create-manage-compute-instance/enable-idle-shutdown.png" alt-text="Screenshot: Enable compute instance idle shutdown." lightbox="media/how-to-create-manage-compute-instance/enable-idle-shutdown.png":::
+
+    1. Specify the shutdown period.
+
+* For an existing compute instance:
+
+    1. In the left navigation bar, select **Compute**
+    1. In the list, select the compute instance you wish to change
+    1. Select the **Edit** pencil in the **Schedules** section.
+
+        :::image type="content" source="media/how-to-create-manage-compute-instance/edit-idle-time.png" alt-text="Screenshot: Edit idle time for a compute instance." lightbox="media/how-to-create-manage-compute-instance/edit-idle-time.png":::
+
+---
+
+You can also change the idle time using:
 
 * REST API
 
@@ -168,6 +232,7 @@ This setting can be configured during CI creation or for existing CIs via the fo
     ```
     POST https://management.azure.com/subscriptions/{SUB_ID}/resourceGroups/{RG_NAME}/providers/Microsoft.MachineLearningServices/workspaces/{WS_NAME}/computes/{CI_NAME}/updateIdleShutdownSetting?api-version=2021-07-01
     ```
+
     Body:
     ```JSON
     {
@@ -175,22 +240,9 @@ This setting can be configured during CI creation or for existing CIs via the fo
     }
     ```
 
-* CLIv2 (YAML): only configurable during new CI creation
 
-    ```YAML
-    # Note that this is just a snippet for the idle shutdown property. Refer to the "Create" Azure CLI section for more information.
-    # Note that idle_time_before_shutdown has been deprecated.
-    idle_time_before_shutdown_minutes: 30
-    ```
+* ARM Templates: only configurable during new compute instance creation
 
-* Python SDKv2: only configurable during new CI creation
-
-    ```Python
-    # Note that idle_time_before_shutdown has been deprecated.
-    ComputeInstance(name=ci_basic_name, size="STANDARD_DS3_v2", idle_time_before_shutdown_minutes="30")
-    ```
-
-* ARM Templates: only configurable during new CI creation
     ```JSON
     // Note that this is just a snippet for the idle shutdown property in an ARM template
     {
@@ -204,7 +256,7 @@ Administrators can use a built-in [Azure Policy](./../governance/policy/overview
 1. Navigate to Azure Policy in the Azure portal.
 2. Under "Definitions", look for the idle shutdown policy.
 
-      :::image type="content" source="media/how-to-create-attach-studio/idle-shutdown-policy.png" alt-text="Screenshot for the idle shutdown policy in Azure portal.":::
+      :::image type="content" source="media/how-to-create-attach-studio/idle-shutdown-policy.png" alt-text="Screenshot for the idle shutdown policy in Azure portal." lightbox="media/how-to-create-attach-studio/idle-shutdown-policy.png":::
 
 3. Assign policy to the necessary scope.
 
@@ -252,43 +304,13 @@ You can also create your own custom Azure policy. For example, if the below poli
 }
 ```
 
-## Create on behalf of (preview)
-
-> [!IMPORTANT]
-> Items marked (preview) below are currently in public preview.
-> The preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
-> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
-
-As an administrator, you can create a compute instance on behalf of a data scientist and assign the instance to them with:
-
-* Studio, using the [Advanced settings](?tabs=azure-studio#advanced-settings)
-
-* [Azure Resource Manager template](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.machinelearningservices/machine-learning-compute-create-computeinstance).  For details on how to find the TenantID and ObjectID needed in this template, see [Find identity object IDs for authentication configuration](../healthcare-apis/azure-api-for-fhir/find-identity-object-ids.md).  You can also find these values in the Azure Active Directory portal.
-
-* REST API
-
-The data scientist you create the compute instance for needs the following be [Azure role-based access control (Azure RBAC)](../role-based-access-control/overview.md) permissions:
-
-* *Microsoft.MachineLearningServices/workspaces/computes/start/action*
-* *Microsoft.MachineLearningServices/workspaces/computes/stop/action*
-* *Microsoft.MachineLearningServices/workspaces/computes/restart/action*
-* *Microsoft.MachineLearningServices/workspaces/computes/applicationaccess/action*
-* *Microsoft.MachineLearningServices/workspaces/computes/updateSchedules/action*
-
-The data scientist can start, stop, and restart the compute instance. They can use the compute instance for:
-* Jupyter
-* JupyterLab
-* RStudio
-* Posit Workbench (formerly RStudio Workbench)
-* Integrated notebooks
-
 ## Schedule automatic start and stop
 
 Define multiple schedules for auto-shutdown and auto-start. For instance, create a schedule to start at 9 AM and stop at 6 PM from Monday-Thursday, and a second schedule to start at 9 AM and stop at 4 PM for Friday.  You can create a total of four schedules per compute instance.
 
-Schedules can also be defined for [create on behalf of](#create-on-behalf-of-preview) compute instances. You can create a schedule that creates the compute instance in a stopped state. Stopped compute instances are useful when you create a compute instance on behalf of another user.
+Schedules can also be defined for [create on behalf of](#create-on-behalf-of) compute instances. You can create a schedule that creates the compute instance in a stopped state. Stopped compute instances are useful when you create a compute instance on behalf of another user.
 
-Prior to a scheduled shutdown, users will see a notification alerting them that the Compute Instance is about to shutdown. At that point, the user can choose to dismiss the upcoming shutdown event, if for example they are in the middle of using their Compute Instance.
+Prior to a scheduled shutdown, users will see a notification alerting them that the Compute Instance is about to shut down. At that point, the user can choose to dismiss the upcoming shutdown event, if for example they are in the middle of using their Compute Instance.
 
 ### Create a schedule in studio
 
@@ -331,29 +353,27 @@ Where the file *create-instance.yml* is:
 [!INCLUDE [sdk v2](../../includes/machine-learning-sdk-v2.md)]
 
 ```python
+from azure.ai.ml.entities import ComputeInstance, ComputeSchedules, ComputeStartStopSchedule, RecurrenceTrigger, RecurrencePattern
 from azure.ai.ml import MLClient
 from azure.ai.ml.constants import TimeZone
-from azure.ai.ml.entities import ComputeInstance, AmlCompute, ComputeSchedules, ComputeStartStopSchedule, RecurrencePattern, RecurrenceTrigger
 from azure.identity import DefaultAzureCredential
-from dateutil import tz
-import datetime
-# Enter details of your AML workspace
-subscription_id = "<guid>"
-resource_group = "sample-rg"
-workspace = "sample-ws"
+
+subscription_id = "sub-id"
+resource_group = "rg-name"
+workspace = "ws-name"
 # get a handle to the workspace
 ml_client = MLClient(
     DefaultAzureCredential(), subscription_id, resource_group, workspace
 )
-ci_minimal_name = "sampleCI"
-mytz = tz.gettz("Asia/Kolkata")
-now = datetime.datetime.now(tz = mytz)
-starttime = now + datetime.timedelta(minutes=25)
-triggers = RecurrenceTrigger(frequency="day", interval=1, schedule=RecurrencePattern(hours=17, minutes=30))
-myschedule = ComputeStartStopSchedule(start_time=starttime, time_zone=TimeZone.INDIA_STANDARD_TIME, trigger=triggers, action="Stop")
+
+ci_minimal_name = "ci-name"
+
+rec_trigger = RecurrenceTrigger(start_time="yyyy-mm-ddThh:mm:ss", time_zone=TimeZone.INDIA_STANDARD_TIME, frequency="week", interval=1, schedule=RecurrencePattern(week_days=["Friday"], hours=15, minutes=[30]))
+myschedule = ComputeStartStopSchedule(trigger=rec_trigger, action="start")
 com_sch = ComputeSchedules(compute_start_stop=[myschedule])
-ci_minimal = ComputeInstance(name=ci_minimal_name, schedules=com_sch)
-ml_client.begin_create_or_update(ci_minimal)
+
+my_compute = ComputeInstance(name=ci_minimal_name, schedules=com_sch)
+ml_client.compute.begin_create_or_update(my_compute)
 ```
 
 ### Create a schedule with a Resource Manager template
@@ -409,7 +429,7 @@ Then use either cron or LogicApps expressions to define the schedule that starts
     }
 ```
 
-* Action can have value of “Start” or “Stop”.
+* Action can have value of "Start" or "Stop".
 * For trigger type of `Recurrence` use the same syntax as logic app, with this [recurrence schema](../logic-apps/logic-apps-workflow-actions-triggers.md#recurrence-trigger).
 * For trigger type of `cron`, use standard cron syntax:  
 
@@ -477,24 +497,30 @@ Following is a sample policy to default a shutdown schedule at 10 PM PST.
 }    
 ```
 
-## Assign managed identity (preview)
-
-> [!IMPORTANT]
-> Items marked (preview) below are currently in public preview.
-> The preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
-> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+## Assign managed identity
 
 You can assign a system- or user-assigned [managed identity](../active-directory/managed-identities-azure-resources/overview.md) to a compute instance, to authenticate against other Azure resources such as storage. Using managed identities for authentication helps improve workspace security and management. For example, you can allow users to access training data only when logged in to a compute instance. Or use a common user-assigned managed identity to permit access to a specific storage account. 
 
-You can create compute instance with managed identity from Azure ML Studio:
+You can create compute instance with managed identity from Azure Machine Learning studio:
 
-1.	Fill out the form to [create a new compute instance](?tabs=azure-studio#create).
-1.	Select **Next: Advanced Settings**.
-1.	Enable **Assign a managed identity**.
+1.    Fill out the form to [create a new compute instance](?tabs=azure-studio#create).
+1.    Select **Next: Advanced Settings**.
+1.    Enable **Assign a managed identity**.
 1.  Select **System-assigned** or **User-assigned** under **Identity type**.
 1.  If you selected **User-assigned**, select subscription and name of the identity.
 
-You can use V2 CLI to create compute instance with assign system-assigned managed identity:
+You can use SDK V2 to create a compute instance with assign system-assigned managed identity:
+
+```python
+from azure.ai.ml import MLClient
+from azure.identity import ManagedIdentityCredential
+client_id = os.environ.get("DEFAULT_IDENTITY_CLIENT_ID", None)
+credential = ManagedIdentityCredential(client_id=client_id)
+ml_client = MLClient(credential, sub_id, rg_name, ws_name)
+data = ml_client.data.get(name=data_name, version="1")
+```
+
+You can use V2 CLI to create a compute instance with assign system-assigned managed identity:
 
 ```azurecli
 az ml compute create --name myinstance --identity-type SystemAssigned --type ComputeInstance --resource-group my-resource-group --workspace-name my-workspace
@@ -503,7 +529,7 @@ az ml compute create --name myinstance --identity-type SystemAssigned --type Com
 You can also use V2 CLI with yaml file, for example to create a compute instance with user-assigned managed identity:
 
 ```azurecli
-azure ml compute create --file compute.yaml --resource-group my-resource-group --workspace-name my-workspace
+Azure Machine Learning compute create --file compute.yaml --resource-group my-resource-group --workspace-name my-workspace
 ```
 
 The identity definition is contained in compute.yaml file:
@@ -537,21 +563,21 @@ def get_access_token_msi(resource):
 arm_access_token = get_access_token_msi("https://management.azure.com")
 ```
 
+To use Azure CLI with the managed identity for authentication, specify the identity client ID as the username when logging in: 
+```azurecli
+az login --identity --username $DEFAULT_IDENTITY_CLIENT_ID
+```
+
 > [!NOTE]
-> To use Azure CLI with the managed identity for authentication, specify the identity client ID as the username when logging in: ```az login --identity --username $DEFAULT_IDENTITY_CLIENT_ID```.
+> You cannot use ```azcopy``` when trying to use managed identity. ```azcopy login --identity``` will not work.
 
-## Add custom applications such as RStudio or Posit Workbench (preview)
-
-> [!IMPORTANT]
-> Items marked (preview) below are currently in public preview.
-> The preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
-> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+## Add custom applications such as RStudio or Posit Workbench
 
 You can set up other applications, such as RStudio, or Posit Workbench (formerly RStudio Workbench), when creating a compute instance. Follow these steps in studio to set up a custom application on your compute instance
 
-1.	Fill out the form to [create a new compute instance](?tabs=azure-studio#create)
-1.	Select **Next: Advanced Settings**
-1.	Select **Add application** under the **Custom application setup (RStudio Workbench, etc.)** section
+1.    Fill out the form to [create a new compute instance](?tabs=azure-studio#create)
+1.    Select **Next: Advanced Settings**
+1.    Select **Add application** under the **Custom application setup (RStudio Workbench, etc.)** section
  
 :::image type="content" source="media/how-to-create-manage-compute-instance/custom-service-setup.png" alt-text="Screenshot showing Custom Service Setup.":::
 
@@ -559,8 +585,8 @@ You can set up other applications, such as RStudio, or Posit Workbench (formerly
 
 RStudio is one of the most popular IDEs among R developers for ML and data science projects. You can easily set up Posit Workbench, which provides access to RStudio along with other development tools, to run on your compute instance, using your own Posit license, and access the rich feature set that Posit Workbench offers
 
-1.	Follow the steps listed above to **Add application** when creating your compute instance.
-1.	Select **Posit Workbench (bring your own license)** in the **Application** dropdown and enter your Posit Workbench license key in the **License key** field. You can get your Posit Workbench license or trial license [from posit](https://posit.co). 
+1.    Follow the steps listed above to **Add application** when creating your compute instance.
+1.    Select **Posit Workbench (bring your own license)** in the **Application** dropdown and enter your Posit Workbench license key in the **License key** field. You can get your Posit Workbench license or trial license [from posit](https://posit.co). 
 1. Select **Create** to add Posit Workbench application to your compute instance.
  
 :::image type="content" source="media/how-to-create-manage-compute-instance/rstudio-workbench.png" alt-text="Screenshot shows Posit Workbench settings." lightbox="media/how-to-create-manage-compute-instance/rstudio-workbench.png":::
@@ -576,9 +602,9 @@ RStudio is one of the most popular IDEs among R developers for ML and data scien
 
 To use RStudio, set up a custom application as follows:
 
-1.	Follow the steps listed above to **Add application** when creating your compute instance.
-1.	Select **Custom Application** on the **Application** dropdown 
-1.	Configure the **Application name** you would like to use.
+1.    Follow the steps listed above to **Add application** when creating your compute instance.
+1.    Select **Custom Application** on the **Application** dropdown 
+1.    Configure the **Application name** you would like to use.
 1. Set up the application to run on **Target port** `8787` - the docker image for RStudio open source listed below needs to run on this Target port. 
 
 1. Set up the application to be accessed on **Published port** `8787` - you can configure the application to be accessed on a different Published port if you wish.
@@ -620,6 +646,8 @@ Access the custom applications that you set up in studio:
 > It might take a few minutes after setting up a custom application until you can access it via the links above. The amount of time taken will depend on the size of the image used for your custom application. If you see a 502 error message when trying to access the application, wait for some time for the application to be set up and try again.
 
 ## Manage
+
+[!INCLUDE [retiring vms](./includes/retiring-vms.md)]
 
 Start, stop, restart, and delete a compute instance. A compute instance doesn't automatically scale down, so make sure to stop the resource to prevent ongoing charges. Stopping a compute instance deallocates it. Then start it again when you need it. While stopping the compute instance stops the billing for compute hours, you'll still be billed for disk, public IP, and standard load balancer. 
 
@@ -711,11 +739,11 @@ For each compute instance in a workspace that you created (or that was created f
 * SSH into compute instance. SSH access is disabled by default but can be enabled at compute instance creation time. SSH access is through public/private key mechanism. The tab will give you details for SSH connection such as IP address, username, and port number. In a virtual network deployment, disabling SSH prevents SSH access from public internet, you can still SSH from within virtual network using private IP address of compute instance node and port 22.
 * Select the compute name to:
     * View details about a specific compute instance such as IP address, and region.
-    * Create or modify the schedule for starting and stopping the compute instance (preview).  Scroll down to the bottom of the page to edit the schedule.
+    * Create or modify the schedule for starting and stopping the compute instance.  Scroll down to the bottom of the page to edit the schedule.
 
 ---
 
-[Azure RBAC](../role-based-access-control/overview.md) allows you to control which users in the workspace can create, delete, start, stop, restart a compute instance. All users in the workspace contributor and owner role can create, delete, start, stop, and restart compute instances across the workspace. However, only the creator of a specific compute instance, or the user assigned if it was created on their behalf, is allowed to access Jupyter, JupyterLab, and RStudio on that compute instance. A compute instance is dedicated to a single user who has root access.  That user has access to Jupyter/JupyterLab/RStudio running on the instance. Compute instance will have single-user sign-in and all actions will use that user’s identity for Azure RBAC and attribution of experiment jobs. SSH access is controlled through public/private key mechanism.
+[Azure RBAC](../role-based-access-control/overview.md) allows you to control which users in the workspace can create, delete, start, stop, restart a compute instance. All users in the workspace contributor and owner role can create, delete, start, stop, and restart compute instances across the workspace. However, only the creator of a specific compute instance, or the user assigned if it was created on their behalf, is allowed to access Jupyter, JupyterLab, and RStudio on that compute instance. A compute instance is dedicated to a single user who has root access.  That user has access to Jupyter/JupyterLab/RStudio running on the instance. Compute instance will have single-user sign-in and all actions will use that user's identity for Azure RBAC and attribution of experiment jobs. SSH access is controlled through public/private key mechanism.
 
 These actions can be controlled by Azure RBAC:
 * *Microsoft.MachineLearningServices/workspaces/computes/read*
@@ -730,44 +758,46 @@ To create a compute instance, you'll need permissions for the following actions:
 * *Microsoft.MachineLearningServices/workspaces/computes/write*
 * *Microsoft.MachineLearningServices/workspaces/checkComputeNameAvailability/action*
 
-### Audit and observe compute instance version (preview)
+## Audit and observe compute instance version
 
 Once a compute instance is deployed, it does not get automatically updated. Microsoft [releases](azure-machine-learning-ci-image-release-notes.md) new VM images on a monthly basis. To understand options for keeping recent with the latest version, see [vulnerability management](concept-vulnerability-management.md#compute-instance). 
 
-To keep track of whether an instance's operating system version is current, you could query its version using the Studio UI. In your workspace in Azure Machine Learning studio, select Compute, then select compute instance on the top. Select a compute instance's compute name to see its properties including the current operating system. Enable 'audit and observe compute instance os version' under the previews management panel to see these preview properties.
+To keep track of whether an instance's operating system version is current, you could query its version using the CLI, SDK or Studio UI. 
 
-Administrators can use [Azure Policy](./../governance/policy/overview.md) definitions to audit instances that are running on outdated operating system versions across workspaces and subscriptions. The following is a sample policy:
+# [Studio UI](#tab/azure-studio)
 
-```json
-{
-    "mode": "All",
-    "policyRule": {
-      "if": {
-        "allOf": [
-          {
-            "field": "type",
-            "equals": "Microsoft.MachineLearningServices/workspaces/computes"
-          },
-          {
-            "field": "Microsoft.MachineLearningServices/workspaces/computes/computeType",
-            "equals": "ComputeInstance"
-          },
-          {
-            "field": "Microsoft.MachineLearningServices/workspaces/computes/osImageMetadata.isLatestOsImageVersion",
-            "equals": "false"
-          }
-        ]
-      },
-      "then": {
-        "effect": "Audit"
-      }
-    }
-}    
+In your workspace in Azure Machine Learning studio, select Compute, then select compute instance on the top. Select a compute instance's compute name to see its properties including the current operating system.
+
+# [Python SDK](#tab/python)
+
+[!INCLUDE [sdk v2](../../includes/machine-learning-sdk-v2.md)]
+
+```python
+from azure.ai.ml.entities import ComputeInstance, AmlCompute
+
+# Display operating system version
+instance = ml_client.compute.get("myci")
+print instance.os_image_metadata
 ```
+
+For more information on the classes, methods, and parameters used in this example, see the following reference documents:
+
+* [`AmlCompute` class](/python/api/azure-ai-ml/azure.ai.ml.entities.amlcompute)
+* [`ComputeInstance` class](/python/api/azure-ai-ml/azure.ai.ml.entities.computeinstance)
+
+# [Azure CLI](#tab/azure-cli)
+
+[!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
+
+```azurecli
+az ml compute show --name "myci"
+```
+---
+
+IT administrators can use [Azure Policy](./../governance/policy/overview.md) to monitor the inventory of instances across workspaces in Azure Policy compliance portal. Assign the built-in policy [Audit Azure Machine Learning Compute Instances with an outdated operating system](https://ms.portal.azure.com/#view/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Ff110a506-2dcb-422e-bcea-d533fc8c35e2) on an Azure subscription or Azure management group scope.
 
 ## Next steps
 
 * [Access the compute instance terminal](how-to-access-terminal.md)
 * [Create and manage files](how-to-manage-files.md)
 * [Update the compute instance to the latest VM image](concept-vulnerability-management.md#compute-instance)
-

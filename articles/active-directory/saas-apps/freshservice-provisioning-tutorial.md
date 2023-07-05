@@ -1,11 +1,11 @@
 ---
-title: 'Tutorial: Configure Freshservice Provisioning for automatic user provisioning with Azure Active Directory | Microsoft Docs'
+title: 'Tutorial: Configure Freshservice Provisioning for automatic user provisioning with Azure Active Directory'
 description: Learn how to automatically provision and de-provision user accounts from Azure AD to Freshservice Provisioning.
 services: active-directory
 documentationcenter: ''
 author: twimmers
 writer: twimmers
-manager: beatrizd
+manager: jeedes
 
 ms.assetid: e03ec65a-25ef-4c91-a364-36b2f007443c
 ms.service: active-directory

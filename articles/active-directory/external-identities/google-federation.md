@@ -1,13 +1,13 @@
 ---
 
-title: Add Google as an identity provider for B2B - Azure AD
+title: Add Google as an identity provider for B2B
 description: Federate with Google to enable guest users to sign in to your Azure AD apps with their own Gmail accounts.
 
 services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: how-to
-ms.date: 07/12/2022
+ms.date: 01/20/2023
 
 ms.author: mimart
 author: msmimart
@@ -191,10 +191,11 @@ First, create a new project in the Google Developers Console to obtain a client 
 You'll now set the Google client ID and client secret. You can use the Azure portal or PowerShell to do so. Be sure to test your Google federation configuration by inviting yourself. Use a Gmail address and try to redeem the invitation with your invited Google account. 
 
 **To configure Google federation in the Azure portal** 
-1. Go to the [Azure portal](https://portal.azure.com). On the left pane, select **Azure Active Directory**. 
-2. Select **External Identities**.
-3. Select **All identity providers**, and then select the **Google** button.
-4. Enter the client ID and client secret you obtained earlier. Select **Save**:
+1. Sign in to the [Azure portal](https://portal.azure.com) as an External Identity Provider Administrator or a Global Administrator.
+2. In the left pane, select **Azure Active Directory**.
+3. Select **External Identities**.
+4. Select **All identity providers**, and then select the **Google** button.
+5. Enter the client ID and client secret you obtained earlier. Select **Save**:
 
    ![Screenshot that shows the Add Google identity provider page.](media/google-federation/google-identity-provider.png)
 
@@ -214,7 +215,7 @@ You'll now set the Google client ID and client secret. You can use the Azure por
 
 You can delete your Google federation setup. If you do so, Google guest users who have already redeemed their invitation won't be able to sign in. But you can give them access to your resources again by [resetting their redemption status](reset-redemption-status.md).
  
-**To delete Google federation in the Azure AD portal**
+**To delete Google federation in the Azure portal**
 1. Go to the [Azure portal](https://portal.azure.com). On the left pane, select **Azure Active Directory**. 
 2. Select **External Identities**.
 3. Select **All identity providers**.

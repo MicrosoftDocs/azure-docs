@@ -3,6 +3,7 @@ title: Context switching in Azure Automation
 description: This article explains context switching and how to avoid runbook issues.
 services: automation
 ms.subservice: process-automation
+ms.custom: devx-track-azurepowershell
 ms.date: 09/27/2021
 ms.topic: conceptual 
 #Customer intent: As a developer, I want to understand Azure context so that I can avoid error when running multiple runbooks.
@@ -75,4 +76,3 @@ Get-AzureRmResource : Resource group "SomeResourceGroupName" could not be found.
 - [Azure Automation account authentication overview](automation-security-overview.md)
 - [Runbook execution in Azure Automation](automation-runbook-execution.md)
 - [Manage modules in Azure Automation](./shared-resources/modules.md)
-

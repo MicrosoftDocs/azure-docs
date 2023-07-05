@@ -7,7 +7,7 @@ manager: CelesteDG
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 07/07/2022
+ms.date: 04/24/2023
 ms.author: kengaderdus
 ms.subservice: B2C
 ms.custom: "b2c-support"
@@ -31,7 +31,6 @@ You can use an existing React app, or [create a new React App](https://reactjs.o
 ```
 npx create-react-app my-app
 cd my-app
-npm start
 ```
 
 ## Step 2: Install the dependencies
@@ -77,10 +76,10 @@ The sample code is made up of the following components. Add these components fro
   > [!IMPORTANT]
   > If the App component file name is `App.js`, change it to `App.jsx`.
 
-- [src/pages/Hello.jsx](https://github.com/Azure-Samples/ms-identity-javascript-react-tutorial/blob/main/3-Authorization-II/2-call-api-b2c/SPA/src/pages/Hello.jsx) - Demonstrate how to call a protected resource with OAuth2 bearer token.
+- [src/pages/Hello.jsx](https://github.com/Azure-Samples/ms-identity-javascript-react-tutorial/blob/main/6-AdvancedScenarios/1-call-api-obo/SPA/src/pages/Home.jsx) - Demonstrate how to call a protected resource with OAuth2 bearer token.
   - It uses the [useMsal](https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-react/docs/hooks.md) hook that returns the PublicClientApplication instance.
   - With PublicClientApplication instance, it acquires an access token to call the REST API.
-  - Invokes the [callApiWithToken](https://github.com/Azure-Samples/ms-identity-javascript-react-tutorial/blob/main/3-Authorization-II/2-call-api-b2c/SPA/src/fetch.js) function to fetch the data from the REST API and renders the result using the **DataDisplay** component.
+  - Invokes the [callApiWithToken](https://github.com/Azure-Samples/ms-identity-javascript-react-tutorial/blob/main/4-Deployment/2-deploy-static/App/src/fetch.js) function to fetch the data from the REST API and renders the result using the **DataDisplay** component.
 
 - [src/components/NavigationBar.jsx](https://github.com/Azure-Samples/ms-identity-javascript-react-tutorial/blob/main/3-Authorization-II/2-call-api-b2c/SPA/src/components/NavigationBar.jsx) - The app top navigation bar with the sign-in, sign-out, edit profile and call REST API reset buttons.
   - It uses the [AuthenticatedTemplate](https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-react/docs/getting-started.md#authenticatedtemplate-and-unauthenticatedtemplate) and UnauthenticatedTemplate, which only render their children if a user is authenticated or unauthenticated, respectively.
@@ -94,7 +93,7 @@ The sample code is made up of the following components. Add these components fro
 
 - [src/styles/App.css](https://github.com/Azure-Samples/ms-identity-javascript-react-tutorial/blob/main/3-Authorization-II/2-call-api-b2c/SPA/src/styles/App.css) and [src/styles/index.css](https://github.com/Azure-Samples/ms-identity-javascript-react-tutorial/blob/main/3-Authorization-II/2-call-api-b2c/SPA/src/styles/index.css) - CSS styling files for the app.
 
-- [src/fetch.js](https://github.com/Azure-Samples/ms-identity-javascript-react-tutorial/blob/main/3-Authorization-II/2-call-api-b2c/SPA/src/fetch.js) - Fetches HTTP requests to the REST API. 
+- [src/fetch.js](https://github.com/Azure-Samples/ms-identity-javascript-react-tutorial/blob/main/4-Deployment/2-deploy-static/App/src/fetch.js) - Fetches HTTP requests to the REST API. 
 
 ## Step 4: Configure your React app
 

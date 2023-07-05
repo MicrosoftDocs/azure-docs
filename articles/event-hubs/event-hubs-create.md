@@ -49,7 +49,7 @@ An Event Hubs namespace provides a unique scoping container, in which you create
    1. Select the **resource group** you created in the previous step.   
    1. Enter a **name** for the namespace. The system immediately checks to see if the name is available.  
    1. Select a **location** for the namespace.
-   1. Choose **Basic** for the **pricing tier**. To learn about differences between tiers, see [Quotas and limits](event-hubs-quotas.md), [Event Hubs Premium](event-hubs-premium-overview.md), and [Event Hubs Dedicated](event-hubs-dedicated-overview.md) articles. 
+   1. Choose **Basic** for the **pricing tier**. If you plan to use the namespace from **Apache Kafka** apps, use the **Standard** tier. The basic tier doesn't support Apache Kafka workloads. To learn about differences between tiers, see [Quotas and limits](event-hubs-quotas.md), [Event Hubs Premium](event-hubs-premium-overview.md), and [Event Hubs Dedicated](event-hubs-dedicated-overview.md) articles. 
    1. Leave the **throughput units** (for standard tier) or **processing units** (for premium tier) settings as it is. To learn about throughput units or processing units: [Event Hubs scalability](event-hubs-scalability.md).  
    1. Select **Review + Create** at the bottom of the page.
       
@@ -63,7 +63,7 @@ An Event Hubs namespace provides a unique scoping container, in which you create
       :::image type="content" source="./media/event-hubs-quickstart-portal/namespace-home-page.png" lightbox="./media/event-hubs-quickstart-portal/namespace-home-page.png" alt-text="Screenshot of the home page for your Event Hubs namespace in the Azure portal.":::
 
       > [!NOTE]
-      > Azure Event Hubs provides you with a Kafka endpoint. This endpoint enables your Event Hubs namespace to natively understand [Apache Kafka](https://kafka.apache.org/intro) message protocol and APIs. With this capability, you can communicate with your event hubs as you would with Kafka topics without changing your protocol clients or running your own clusters. Event Hubs supports [Apache Kafka versions 1.0](https://kafka.apache.org/10/documentation.html) and later. For more information, see [Use Event Hubs from Apache Kafka applications](event-hubs-for-kafka-ecosystem-overview.md).
+      > Azure Event Hubs provides you with a Kafka endpoint. This endpoint enables your Event Hubs namespace to natively understand [Apache Kafka](https://kafka.apache.org/intro) message protocol and APIs. With this capability, you can communicate with your event hubs as you would with Kafka topics without changing your protocol clients or running your own clusters. Event Hubs supports [Apache Kafka versions 1.0](https://kafka.apache.org/10/documentation.html) and later. For more information, see [Use Event Hubs from Apache Kafka applications](azure-event-hubs-kafka-overview.md).
     
 ## Create an event hub
 
@@ -74,7 +74,7 @@ To create an event hub within the namespace, do the following actions:
       :::image type="content" source="./media/event-hubs-quickstart-portal/create-event-hub4.png" lightbox="./media/event-hubs-quickstart-portal/create-event-hub4.png" alt-text="Screenshot of the selection of Add event hub button on the command bar.":::
 1. Type a name for your event hub, then select **Review + create**.
    
-      :::image type="content" source="./media/event-hubs-quickstart-portal/create-event-hub5.png" alt-text="Screenshot of the Create event bub page.":::
+      :::image type="content" source="./media/event-hubs-quickstart-portal/create-event-hub5.png" alt-text="Screenshot of the Create event hub page.":::
 
     The **partition count** setting allows you to parallelize consumption across many consumers. For more information, see [Partitions](event-hubs-scalability.md#partitions).
 

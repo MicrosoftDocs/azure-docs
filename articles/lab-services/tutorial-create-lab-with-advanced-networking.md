@@ -11,7 +11,7 @@ ms.custom: template-tutorial
 
 [!INCLUDE [update focused article](includes/lab-services-new-update-focused-article.md)]
 
-Azure Lab Services provides a feature called advanced networking.  Advanced networking enables you to control the network for labs created using lab plans.  Advanced networking is used to enable various scenarios including [connecting to licensing servers](how-to-create-a-lab-with-shared-resource.md), using [hub-spoke model for Azure Networking](/azure/architecture/reference-architectures/hybrid-networking/), lab to lab communication, etc.  
+Azure Lab Services provides a feature called advanced networking.  Advanced networking enables you to control the network for labs created using lab plans.  You can use advanced networking to implement various scenarios including [connecting to licensing servers](how-to-create-a-lab-with-shared-resource.md), using [hub-spoke model for Azure Networking](/azure/architecture/reference-architectures/hybrid-networking/), or lab to lab communication. Learn more about the [supported networking scenarios in Azure Lab Services](./concept-lab-services-supported-networking-scenarios.md).
 
 Let's focus on the lab to lab communication scenario.  For our example, we'll create labs for a web development class.  Each student will need access to both a server VM and a client VM.  The server and client VMs must be able to communicate with each other.  We'll test communication by configuring Internet Control Message Protocol (ICMP) for each VM and allowing the VMs to ping each other.
 
@@ -34,7 +34,8 @@ In this tutorial, you learn how to:
 
 ## Prerequisites
 
-An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/).
+[!INCLUDE [Azure subscription](./includes/lab-services-prerequisite-subscription.md)]
+[!INCLUDE [Azure manage resources](./includes/lab-services-prerequisite-manage-resources.md)]
 
 ## Create a resource group
 
@@ -208,14 +209,12 @@ To create a lab, see the following steps.  We'll run the steps twice.  Once to c
 
 1. On the **Virtual machine credentials** page, specify default administrator credentials for all VMs in the lab. Specify the **name** and **password** for the administrator.  By default all the student VMs will have the same password as the one specified here. Select **Next**.
 
-    :::image type="content" source="./media/tutorial-setup-lab/virtual-machine-credentials.png" alt-text="Screenshot that shows the Virtual machine credentials window when creating a new Azure Lab Services lab.":::
+    :::image type="content" source="./media/tutorial-create-lab-with-advanced-networking/new-lab-credentials.png" alt-text="Screenshot that shows the Virtual machine credentials window when creating a new Azure Lab Services lab.":::
 
     > [!IMPORTANT]
     > Make a note of user name and password. They won't be shown again.
 
 1. On the **Lab policies** page, leave the default selections and select **Next**.
-
-    :::image type="content" source="./media/tutorial-setup-lab/quota-for-each-user.png" alt-text="Screenshot of the Lab policy window when creating a new Azure Lab Services lab.":::
 
 1. On the **Template virtual machine settings** window, leave the selection on **Create a template virtual machine**.  Select **Finish**.
 

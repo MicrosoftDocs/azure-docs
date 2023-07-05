@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with Apex Portal | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with Apex Portal'
 description: Learn how to configure single sign-on between Azure Active Directory and Apex Portal.
 services: active-directory
 author: jeevansd

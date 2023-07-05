@@ -15,13 +15,9 @@
   - name: Configure a Route Server - ARM template
     href: quickstart-configure-template.md
   expanded: true
-- name: Samples
-  items:
-  - name: Resource Manager templates
-    href: resource-manager-template-samples.md
 - name: Tutorials
   items:
-  - name: Configure Route Server with Quagga
+  - name: Peer Route Server with NVA
     href: tutorial-configure-route-server-with-quagga.md
   - name: Deploy Route Server with DDoS protection
     href: tutorial-protect-route-server.md

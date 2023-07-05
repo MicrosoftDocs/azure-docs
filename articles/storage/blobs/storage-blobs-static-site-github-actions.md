@@ -9,7 +9,6 @@ ms.reviewer: dineshm
 ms.date: 01/24/2022
 ms.subservice: blobs
 ms.custom: devx-track-javascript, github-actions-azure, devx-track-azurecli
-
 ---
 
 # Use GitHub Actions workflow to deploy your static website in Azure Storage

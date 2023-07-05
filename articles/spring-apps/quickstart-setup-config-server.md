@@ -1,12 +1,12 @@
 ---
 title: "Quickstart: Set up Spring Cloud Config Server for Azure Spring Apps"
 description: Describes the setup of Azure Spring Apps Config Server for app deployment.
-author: karlerickson
+author: KarlErickson
 ms.author: karler
 ms.service: spring-apps
 ms.topic: quickstart
 ms.date: 7/19/2022
-ms.custom: devx-track-java, fasttrack-edit, mode-other, event-tier1-build-2022
+ms.custom: devx-track-java, devx-track-extended-java, fasttrack-edit, mode-other, event-tier1-build-2022
 zone_pivot_groups: programming-languages-spring-apps
 ---
 
@@ -15,7 +15,7 @@ zone_pivot_groups: programming-languages-spring-apps
 > [!NOTE]
 > Azure Spring Apps is the new name for the Azure Spring Cloud service. Although the service has a new name, you'll see the old name in some places for a while as we work to update assets such as screenshots, videos, and diagrams.
 
-**This article applies to:** ✔️ Basic/Standard tier ❌ Enterprise tier
+**This article applies to:** ✔️ Basic/Standard ❌ Enterprise
 
 Config Server is a centralized configuration service for distributed systems. It uses a pluggable repository layer that currently supports local storage, Git, and Subversion. In this quickstart, you set up the Config Server to get data from a Git repository.
 
@@ -24,7 +24,7 @@ Config Server is a centralized configuration service for distributed systems. It
 ## Prerequisites
 
 - Completion of the previous quickstart in this series: [Provision Azure Spring Apps service](./quickstart-provision-service-instance.md).
-- Azure Spring Apps Config Server is only applicable to basic or standard tier.
+- Azure Spring Apps Config Server is only applicable to the Basic or Standard plan.
 
 ## Config Server procedures
 
@@ -34,7 +34,7 @@ Set up your Config Server with the location of the git repository for the projec
 az spring config-server git set -n <service instance name> --uri https://github.com/Azure-Samples/Azure-Spring-Cloud-Samples --search-paths steeltoe-sample/config
 ```
 
-This command tells Config Server to find the configuration data in the [steeltoe-sample/config](https://github.com/Azure-Samples/Azure-Spring-Cloud-Samples/tree/master/steeltoe-sample/config) folder of the sample app repository. Since the name of the app that will get the configuration data is `planet-weather-provider`, the file that will be used is [planet-weather-provider.yml](https://github.com/Azure-Samples/Azure-Spring-Cloud-Samples/blob/master/steeltoe-sample/config/planet-weather-provider.yml).
+This command tells Config Server to find the configuration data in the [steeltoe-sample/config](https://github.com/Azure-Samples/Azure-Spring-Cloud-Samples/tree/master/steeltoe-sample/config) folder of the sample app repository. Since the name of the app that gets the configuration data is `planet-weather-provider`, the file that's used is [planet-weather-provider.yml](https://github.com/Azure-Samples/Azure-Spring-Cloud-Samples/blob/master/steeltoe-sample/config/planet-weather-provider.yml).
 
 ::: zone-end
 
@@ -42,14 +42,14 @@ This command tells Config Server to find the configuration data in the [steeltoe
 
 ## Prerequisites
 
-- [JDK 8 or JDK 11](/azure/developer/java/fundamentals/java-jdk-install)
+- [JDK 17](/azure/developer/java/fundamentals/java-jdk-install)
 - An Azure subscription. If you don't have a subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
-- Optionally, [Azure CLI version 2.0.67 or higher](/cli/azure/install-azure-cli). Install the Azure Spring Apps extension with the following command: `az extension add --name spring`
+- Optionally, [Azure CLI version 2.45.0 or higher](/cli/azure/install-azure-cli). Install the Azure Spring Apps extension with the following command: `az extension add --upgrade --name spring`
 - Optionally, [the Azure Toolkit for IntelliJ](https://plugins.jetbrains.com/plugin/8053-azure-toolkit-for-intellij/).
 
 ## Config Server procedures
 
-#### [Portal](#tab/Azure-portal)
+#### [Azure portal](#tab/Azure-portal)
 
 The following procedure sets up the Config Server using the Azure portal to deploy the [PetClinic sample](https://github.com/azure-samples/spring-petclinic-microservices).
 
@@ -57,7 +57,7 @@ The following procedure sets up the Config Server using the Azure portal to depl
 
 1. In the **Default repository** section, set **URI** to `https://github.com/azure-samples/spring-petclinic-microservices-config`.
 
-1. Select **Validate**.
+1. Select **Validate**. Validation checks the schema and accessibility of your git repo to make sure it's correct.
 
     :::image type="content" source="media/quickstart-setup-config-server/portal-config.png" alt-text="Screenshot of Azure portal showing Config Server page." lightbox="media/quickstart-setup-config-server/portal-config.png":::
 
@@ -67,7 +67,7 @@ The following procedure sets up the Config Server using the Azure portal to depl
 
 Updating the configuration can take a few minutes. You should get a notification when the configuration is complete.
 
-#### [CLI](#tab/Azure-CLI)
+#### [Azure CLI](#tab/Azure-CLI)
 
 The following procedure uses the Azure CLI to set up Config Server to deploy the [Pet Clinic sample](https://github.com/azure-samples/spring-petclinic-microservices).
 

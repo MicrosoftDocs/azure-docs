@@ -2,7 +2,6 @@
 title: Use Scale-down Mode for your Azure Kubernetes Service (AKS) cluster
 titleSuffix: Azure Kubernetes Service
 description: Learn how to use Scale-down Mode in Azure Kubernetes Service (AKS).
-services: container-service
 ms.topic: article
 ms.date: 09/01/2021
 ms.author: qpetraroia
@@ -86,6 +85,6 @@ az aks nodepool add --enable-cluster-autoscaler --min-count 1 --max-count 10 --m
 [az-provider-register]: /cli/azure/provider#az_provider_register
 [aks-upgrade]: upgrade-cluster.md
 [cluster-autoscaler]: cluster-autoscaler.md
-[ephemeral-os]: cluster-configuration.md#ephemeral-os
+[ephemeral-os]: concepts-storage.md#ephemeral-os-disk
 [state-billing-azure-vm]: ../virtual-machines/states-billing.md
 [spot-node-pool]: spot-node-pool.md

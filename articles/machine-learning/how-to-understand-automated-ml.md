@@ -8,7 +8,7 @@ ms.author: magoswam
 ms.reviewer: ssalgado 
 ms.service: machine-learning
 ms.subservice: automl
-ms.date: 04/08/2022
+ms.date: 06/7/2023
 ms.topic: how-to
 ms.custom: contperf-fy21q2, automl, event-tier1-build-2022
 ---
@@ -23,11 +23,15 @@ For example, automated ML generates the following charts based on experiment typ
 | ----------------------------------------------------------- | --------------------------------------------------------|
 | [Confusion matrix](#confusion-matrix)                       | [Residuals histogram](#residuals)                       |
 | [Receiver operating characteristic (ROC) curve](#roc-curve) | [Predicted vs. true](#predicted-vs-true)                |
-| [Precision-recall (PR) curve](#precision-recall-curve)      | [Forecast horizon (preview)](#forecast-horizon-preview) |
+| [Precision-recall (PR) curve](#precision-recall-curve)      | [Forecast horizon](#forecast-horizon) |
 | [Lift curve](#lift-curve)                                   |                                                         |
 | [Cumulative gains curve](#cumulative-gains-curve)           |                                                         |
 | [Calibration curve](#calibration-curve)                     |                     
 
+> [!IMPORTANT]
+> Items marked (preview) in this article are currently in public preview.
+> The preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
+> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## Prerequisites
 
@@ -237,14 +241,17 @@ In this example, note that the better model has a predicted vs. true line that i
 ### Predicted vs. true chart for a bad model
 ![Predicted vs. true chart for a bad model](./media/how-to-understand-automated-ml/chart-predicted-true-bad.png)
 
-## Forecast horizon (preview)
+## Forecast horizon
 
 For forecasting experiments, the forecast horizon chart plots the relationship between the models predicted value and the actual values mapped over time per cross validation fold, up to 5 folds. The x axis maps time based on the frequency you provided during training setup. The vertical line in the chart marks the forecast horizon point also referred to as the horizon line, which is the time period at which you would want to start generating predictions. To the left of the forecast horizon line, you can view historic training data to better visualize past trends. To the right of the forecast horizon, you can visualize the predictions (the purple line) against the actuals (the blue line) for the different cross validation folds and time series identifiers. The shaded purple area indicates the confidence intervals or variance of predictions around that mean. 
 
 You can choose which cross validation fold and time series identifier combinations to display by clicking the edit pencil icon on the top right corner of the chart. Select from the first 5 cross validation folds and up to 20 different time series identifiers to visualize the chart for your various time series.  
 
-> [!IMPORTANT]
-> This chart is only available for models generated from training and validation data. We allow up to 20 data points before and up to 80 data points after the forecast origin. Visuals for models based on test data are not supported at this time. 
+>[!IMPORTANT]
+> This chart is available in the training run for models generated from training and validation data as well as in the test run based on training data and test data. We allow up to 20 data points before and up to 80 data points after the forecast origin.
+> For DNN models, this chart in the training run shows data from the last epoch i.e. after the model has been trained completely.
+> This chart in the test run can have gap before the horizon line if validation data was explicitly provided during the training run. 
+>This is becasue training data and test data is used in the test run leaving out the validation data which results in gap.
 
 ![Forecast horizon chart](./media/how-to-understand-automated-ml/forecast-horizon.png)
 
@@ -306,7 +313,7 @@ The mAP, precision and recall values are logged at an epoch-level for image obje
 
 While model evaluation metrics and charts are good for measuring the general quality of a model, inspecting which dataset features a model used to make its predictions is essential when practicing responsible AI. That's why automated ML provides a model explanations dashboard to measure and report the relative contributions of dataset features. See how to [view the explanations dashboard in the Azure Machine Learning studio](how-to-use-automated-ml-for-ml-models.md#model-explanations-preview).
 
-For a code first experience, see how to set up [model explanations for automated ML experiments with the Azure Machine Learning Python SDK](how-to-machine-learning-interpretability-automl.md).
+For a code first experience, see how to set up [model explanations for automated ML experiments with the Azure Machine Learning Python SDK (v1)](./v1/how-to-machine-learning-interpretability-automl.md).
 
 > [!NOTE]
 > Interpretability, best model explanation, is not available for automated ML forecasting experiments that recommend the following algorithms as the best model or ensemble: 

@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with KFAdvance | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with KFAdvance'
 description: Learn how to configure single sign-on between Azure Active Directory and KFAdvance.
 services: active-directory
 author: jeevansd
