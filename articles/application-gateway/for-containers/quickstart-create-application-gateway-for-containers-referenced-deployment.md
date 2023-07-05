@@ -181,6 +181,7 @@ You need to complete the following tasks prior to deploying Application Gateway 
     kubectl get pods -n azure-alb-system
     ```
     You should see the following:
+   
     | NAME                                     | READY | STATUS  | RESTARTS | AGE  |
     | ---------------------------------------- | ----- | ------- | -------- | ---- |
     | alb-controller-bootstrap-6648c5d5c-hrmpc | 1/1   | Running | 0        | 4d6h |
