@@ -18,19 +18,17 @@
     href: faqs.md
   - name: Peering registered prefix requirements
     href: peering-registered-prefix-requirements.md
-  - name: Peering service prefix requirements
-    href: peering-service-prefix-requirements.md
 - name: How-to guides
   items:
   - name: Direct peering walkthrough
     href: walkthrough-direct-all.md
   - name: Exchange peering walkthrough
     href: walkthrough-exchange-all.md
-  - name: Peering Service partner walkthrough
+  - name: Internet peering for MAPS partner walkthrough
     href: walkthrough-peering-service-all.md
-  - name: Communications Services partner walkthrough
+  - name: Internet peering for MAPS Communications Services partner walkthrough
     href: walkthrough-communications-services-partner.md
-  - name: Exchange Route Server partner walkthrough
+  - name: Internet peering for MAPS Exchange with Route Server partner walkthrough
     href: walkthrough-exchange-route-server-partner.md
   - name: Peering maintenance notification walkthrough
     href: walkthrough-device-maintenance-notification.md

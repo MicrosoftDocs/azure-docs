@@ -20,13 +20,13 @@ For a registered prefix to be validated after creation, the following checks mus
 
 * The prefix can't be in a private range
 * The origin ASN must be registered in a major routing registry
-* All sessions on the parent peering must advertise routes for the prefix
+* The prefix must be announced from all peering sessions
 * Routes must be advertised with the MAPS community string 8075:8007
-* AS paths in your routes can't exceed a path length of 3, and can't contain private ASNs
+* AS paths in your routes can't exceed a path length of 3, and can't contain private ASNs or AS prepending
 
 ## Troubleshooting
 
-The validation state of a peering service prefix can be seen in the Azure portal.
+The validation state of a peering registered prefix can be seen in the Azure portal.
 
 :::image type="content" source="media/peering-registered-prefix-validation-failed.png" alt-text="Peering registered prefixes displayed with validation failure messages" :::
 
@@ -36,13 +36,13 @@ Prefixes can only be registered when all validation steps have passed. Listed in
 
 To validate a prefix during registration, the prefix must be advertised on every session belonging to the prefix's parent peering. This message indicates that Microsoft isn't receiving prefix advertisement from one or more of the sessions. All IPs listed in this message are missing advertisement. Contact your networking team, and confirm that the prefixes are being advertised on all sessions.
 
-If you're advertising your prefix on all sessions and you're still seeing this validation failure message, contact mapschamps@microsoft.com with your Azure subscription, and prefix and we will assist you.
+If you're advertising your prefix on all sessions and you're still seeing this validation failure message, contact peeringservice@microsoft.com with your Azure subscription, and prefix and we will assist you.
 
 ### Advertisement missing MAPS community
 
 A requirement for registered prefix validation is that prefixes are advertised with the MAPS community string "8075:8007". This message indicates that Microsoft is receiving prefix advertisement, but the MAPS community string is missing. Add the MAPS community string to the community when advertising routes for MAPS prefixes. After that, the community requirements will be satisfied and validation will continue.
 
-If you have any issues or questions, contact mapschamps@microsoft.com with your Azure subscription, and prefix and we'll assist you.
+If you have any issues or questions, contact peeringservice@microsoft.com with your Azure subscription, and prefix and we'll assist you.
 
 ### AS path isn't correct
 
@@ -50,7 +50,7 @@ For registered prefix validation, the AS path of the advertised routes must sati
 
 ### Internal server error
 
-Contact mapschamps@microsoft.com with your Azure subscription, and prefix and we'll assist you.
+Contact peeringservice@microsoft.com with your Azure subscription, and prefix and we'll assist you.
 
 ## Next steps
 

@@ -1,18 +1,18 @@
 ---
-title: Peering Service customer walkthrough
-description: Peering Services customer walkthrough.
-services: internet-peering
+title: Microsoft Azure Peering Service customer walkthrough
+description: Learn about MAPS and how to onboard.
+services: peering-service
 author: jsaraco
-ms.service: internet-peering
+ms.service: peering-service
 ms.topic: how-to
 ms.date: 06/09/2023
 ms.author: jsaraco
 ms.custom: template-how-to
 ---
 
-# Peering Service customer walkthrough
+# Microsoft Azure Peering Service customer walkthrough
 
-This section explains the steps to optimize your prefixes with an Internet Service Provider (ISP) or Internet Exchange Provider (IXP) who is a Peering Service partner.
+This section explains the steps to optimize your prefixes with an Internet Service Provider (ISP) or Internet Exchange Provider (IXP) who is a Microsoft Azure Peering Service (MAPS) partner.
 
 The complete list of Peering Service providers can be found here: [Peering Service partners](./location-partners.md)
 
@@ -53,4 +53,4 @@ In this section, you activate the prefix:
 
 **Q.** My peering service prefix has failed validation. How should I proceed?
 
-**A.** Review the [Peering Service Prefix Requirements](../internet-peering/peering-service-prefix-requirements.md) and follow the troubleshooting steps described.
+**A.** Review the [Peering Service Prefix Requirements](./peering-service-prefix-requirements.md) and follow the troubleshooting steps described.

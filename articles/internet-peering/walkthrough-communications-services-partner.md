@@ -1,6 +1,6 @@
 ---
-title: Internet peering for Communications Services walkthrough
-description: Learn about Internet peering for Communications Services, its requirements, the steps to establish direct interconnect, and how to register and activate a prefix.
+title: Internet peering for MAPS Communications Services walkthrough
+description: Learn about Internet peering for MAPS Communications Services, its requirements, the steps to establish direct interconnect, and how to register and activate a prefix.
 services: internet-peering
 author: halkazwini
 ms.service: internet-peering
@@ -10,9 +10,9 @@ ms.author: halkazwini
 ms.custom: template-how-to
 ---
 
-# Internet peering for Communications Services walkthrough
+# Internet peering for MAPS Communications Services walkthrough
 
-In this article, you learn steps to establish a Direct interconnect between a Communications Services Provider and Microsoft.
+In this article, you learn steps to establish a MAPS interconnect between a Communications Services Provider and Microsoft.
 
 **Communications Services Providers** are the organizations that offer communication services (messaging, conferencing, and other communications services.) and want to integrate their communications services infrastructure (SBC, SIP gateways, and other infrastructure device) with Azure Communication Services and Microsoft Teams. 
 
@@ -20,27 +20,27 @@ Internet peering supports Communications Services Providers to establish direct 
 
 Internet peering provides highly reliable and QoS (Quality of Service) enabled interconnect for Communications Services to ensure high quality and performance centric services.
 
-The following flowchart summarizes the process to onboard to Communications Services:
+The following flowchart summarizes the process to onboard to MAPS Communications Services:
 
-:::image type="content" source="media/walkthrough-communications-services-partner/communications-services-partner-onboarding-flowchart.png" alt-text="Flowchart summarizing the onboarding process for Communications Services partners" :::
+:::image type="content" source="media/walkthrough-communications-services-partner/communications-services-partner-onboarding-flowchart.png" alt-text="Flowchart summarizing the onboarding process for MAPS Communications Services partners" :::
 
 ## Technical Requirements
 
-To establish direct interconnect for Communication Services, follow these requirements:
+To establish direct interconnect for MAPS Communication Services, follow these requirements:
 
 -	The Peer MUST provide its own Autonomous System Number (ASN), which MUST be public.
--	The peer MUST have redundant Interconnect (PNI) at each interconnect location to ensure local redundancy.
--	The Peer MUST have geo redundancy in place to ensure failover in the event of site failures in region/metro.
--	The Peer MUST has the BGP sessions as Active-Active to ensure high availability and faster convergence and shouldn't be provisioned as Primary and Backup.
+-	The Peer MUST have redundant Interconnect (PNI) at each interconnect location to ensure local redundancy.
 -	The Peer MUST maintain a 1:1 ratio for Peer peering routers to peering circuits and no rate limiting is applied.
--	The Peer MUST supply and advertise their own publicly routable IPv4 address space used by Peer's communications service endpoints (for example, SBC). 
--	The Peer MUST supply detail of what class of traffic and endpoints are housed in each advertised subnet. 
+-	The Peer MUST supply and advertise their own publicly routable IPv4 address space used by Peer's endpoints (for example, SBC). 
+-	The Peer MUST supply detail of what class of traffic and endpoints are housed in each advertised subnet.
 -	The Peer MUST run BGP over Bidirectional Forwarding Detection (BFD) to facilitate sub second route convergence.
--	All communications infrastructure prefixes are registered in Azure portal and advertised with community string 8075:8007.
--	The Peer MUST NOT terminate peering on a device running a stateful firewall. 
+-	The Peer MUST NOT terminate peering on a device running a stateful firewall.
+-	It is recommended to create MAPS peerings in multiple locations so geo-redundancy can be achieved.
+-   The Peer CANNOT configure a local redundant connection as a backup connection. Backup connections must be in a different location than primary connections.
+-	All infrastructure prefixes are registered in Azure portal and advertised with community string 8075:8007.
 -	Microsoft configures all the interconnect links as LAG (link bundles) by default, so, peer MUST support LACP (Link Aggregation Control Protocol) on the interconnect links.
 
-## Establish Direct Interconnect with Microsoft for Communications Services
+## Establish Direct Interconnect with Microsoft for MAPS Communications Services
 
 To establish a direct interconnect with Microsoft using Internet peering, follow the following steps:
 
@@ -48,9 +48,9 @@ To establish a direct interconnect with Microsoft using Internet peering, follow
 
 Follow the instructions here: [Associate peer ASN to Azure subscription using the Azure portal](./howto-subscription-association-portal.md). If the ASN has already been associated, proceed to the next step.
 
-### 2. Create a Communications Services peering
+### 2. Create a MAPS Communications Services peering
 
-To create a peering resource for Communications Services, search for **Peerings** in the Azure portal, and click on it:
+To create a peering resource for MAPS Communications Services, search for **Peerings** in the Azure portal, and click on it:
 
 :::image type="content" source="./media/create-maps-peering-search.png" alt-text="Azure portal search for Peering resources" :::
 
@@ -71,15 +71,15 @@ In the Configuration form, you MUST choose:
 * **AS8075 (with Voice)** as the Microsoft network
 * **Premium Free** as the SKU
 
-These are mandatory configurations when creating a peering for Communications Services.
+These are mandatory configurations when creating a peering for MAPS Communications Services.
 
-:::image type="content" source="./media/walkthrough-communications-services-partner/create-maps-voice-peering-config.png" alt-text="Configure the peering for Communications Services" :::
+:::image type="content" source="./media/walkthrough-communications-services-partner/create-maps-voice-peering-config.png" alt-text="Configure the peering for MAPS Communications Services" :::
 
 In the peering connections section, click Create new to add a connection to your peering.
 
 :::image type="content" source="./media/walkthrough-communications-services-partner/create-maps-voice-bgp-session.png" alt-text="Configure a peering connection" :::
 
-Peering connections configured for Communications Services MUST have **Microsoft** as the Session Address Provider, and **Use for Peering Service** enabled. These options are chosen for you automatically. Microsoft must be the IP provider for Communications Services, you cannot provide your own IPs.
+Peering connections configured for MAPS Communications Services MUST have **Microsoft** as the Session Address Provider, and **Use for Peering Service** enabled. These options are chosen for you automatically. Microsoft must be the IP provider for MAPS Communications Services, you cannot provide your own IPs.
 
 Before finalizing your Peering, make sure the peering has at least two connections. Local redundancy is a requirement for Peering Service, and creating a Peering with two sessions will achieve this.
 
@@ -93,7 +93,7 @@ Allow time for the resource to finish deploying. When deployment is successful, 
 
 ## Configure optimized routing for your prefixes
 
-To get optimized routing for your prefixes with your Communications Services interconnects, follow these instructions:
+To get optimized routing for your prefixes with your MAPS Communications Services interconnects, follow these instructions:
 
 ### 1. Register your prefixes
 
@@ -104,7 +104,7 @@ For optimized routing for Communication Services infrastructure prefixes, you mu
 
 Ensure that the registered prefixes are announced over the direct interconnects established with your peering. If the same prefix is announced in multiple peering locations, you do NOT have to register the prefix in every single location. A prefix can only be registered with a single peering. When you receive the unique prefix key after validation, this key will be used for the prefix even in locations other than the location of the peering it was registered under.
 
-To begin registration, open your Communications Services peering in the Azure portal and click on **Registered prefixes** in the left pane:
+To begin registration, open your MAPS Communications Services peering in the Azure portal and click on **Registered prefixes** in the left pane:
 
 :::image type="content" source="./media/walkthrough-communications-services-partner/register-prefix-peering-page.png" alt-text="Peering resource page with Registered Prefixes option highlighted" :::
 
@@ -133,7 +133,7 @@ For a registered prefix to become validated, the following checks must pass:
 * The origin ASN must be registered in a major routing registry
 * All connections in the parent peering must advertise routes for the prefix
 * Routes must be advertised with the MAPS community string 8075:8007
-* AS paths in your routes can't exceed a path length of 3, and can't contain private ASNs
+* AS paths in your routes can't exceed a path length of 3, and can't contain private ASNs or AS prepending
 
 For more information on registered prefix requirements and how to troubleshoot validation errors, refer to [Peering Registered Prefix Requirements](./peering-registered-prefix-requirements.md).
 
@@ -180,9 +180,9 @@ For a peering service prefix to become validated, the following checks MUST pass
 * The prefix must be registered, and the prefix key in the peering service prefix must match the prefix key of the corresponding registered prefix
 * All primary and backup sessions (if configured) must advertise routes for the prefix
 * Routes must be advertised with the MAPS community string 8075:8007
-* AS paths in your routes can't exceed a path length of 3, and can't contain private ASNs
+* AS paths in your routes can't exceed a path length of 3, and can't contain private ASNs or AS prepending
 
-For more information on peering service prefix prefix requirements and how to troubleshoot validation errors, refer to [Peering Service Prefix Requirements](./peering-service-prefix-requirements.md).
+For more information on peering service prefix prefix requirements and how to troubleshoot validation errors, refer to [Peering Service Prefix Requirements](../peering-service/peering-service-prefix-requirements.md).
 
 After a prefix passes validation, then activation for that prefix is complete.
 
@@ -196,7 +196,7 @@ After a prefix passes validation, then activation for that prefix is complete.
 
 **A.**   Our automated process allocates addresses and sends the information via email after the port is configured on our side.
 
-**Q.**	I have smaller subnets (</24) for my Communications services. Can I get the smaller subnets also routed?
+**Q.**	I have smaller subnets (</24) for my communications services. Can I get the smaller subnets also routed?
 
 **A.**	Yes, Microsoft Azure Peering service supports smaller prefix routing also. Ensure that you're registering the smaller prefixes for routing and the same are announced over the interconnects.
 
@@ -210,7 +210,7 @@ After a prefix passes validation, then activation for that prefix is complete.
 
 **Q.** My peering service prefix has failed validation. How should I proceed?
 
-**A.** Review the [Peering Service Prefix Requirements](./peering-service-prefix-requirements.md) and follow the troubleshooting steps described.
+**A.** Review the [Peering Service Prefix Requirements](../peering-service/peering-service-prefix-requirements.md) and follow the troubleshooting steps described.
 
 **Q.**   Are there any AS path constraints?
 

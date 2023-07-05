@@ -14,6 +14,8 @@
     items:
       - name: Security baseline
         href: /security/benchmark/azure/baselines/microsoft-azure-peering-service-security-baseline?toc=/azure/peering-service/TOC.json
+  - name: Peering Service Prefix requirements
+    href: peering-service-prefix-requirements.md
 - name: How-to-guides
   items:
   - name: Manage Peering Service

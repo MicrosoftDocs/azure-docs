@@ -1,9 +1,9 @@
 ---
 title: Peering service prefix requirements
 description: Technical requirements to optimize your prefixes using Peering Service.
-services: internet-peering
+services: peering-service
 author: jsaraco
-ms.service: internet-peering
+ms.service: peering-service
 ms.topic: conceptual
 ms.date: 06/13/2023
 ms.author: jsaraco
@@ -21,9 +21,9 @@ For a registered prefix to be validated after creation, the following checks mus
 * The prefix can't be in a private range
 * The origin ASN must be registered in a major routing registry
 * The peering service prefix key in the peering service prefix must match the prefix key received during registration
-* The primary and backup sessions (if configured) must advertise routes for the prefix
+* The prefix must be announced from all primary and backup peering sessions
 * Routes must be advertised with the MAPS community string 8075:8007
-* AS paths in your routes can't exceed a path length of 3, and can't contain private ASNs
+`* AS paths in your routes can't exceed a path length of 3, and can't contain private ASNs or AS prepending`
 
 ## Troubleshooting
 
@@ -37,13 +37,13 @@ Prefixes can only be activated when all validation steps have passed. Listed fur
 
 MAPS requires the primary peering location to have local redundancy. This is achieved by having two MAPS sessions configured on two different routers. If you're seeing this validation failure message, you have chosen a primary peering location that has fewer than two MAPS sessions. If provisioning is still in progress for your second MAPS connection, allow time for provisioning to complete. After that, the primary redundancy requirement will be satisfied and validation will continue.
 
-If you're a Peering Service customer, contact your Peering Service provider about this issue. If you're a Peering Service partner, contact mapschamps@microsoft.com with your Azure subscription and prefix so we can assist you.
+If you're a Peering Service customer, contact your Peering Service provider about this issue. If you're a Peering Service partner, contact peeringservice@microsoft.com with your Azure subscription and prefix so we can assist you.
 
 ### Provider has no sessions in its backup location
 
 MAPS requires the backup peering location, if you've chosen one, to have one MAPS session. If you're seeing this validation failure message, you have chosen a backup peering location that doesn't have a MAPS session. If provisioning is still in progress for your MAPS connection in the backup location, allow time for provisioning to complete. After that, the backup requirement will be satisfied and validation will continue.
 
-If you're a Peering Service customer, contact your Peering Service provider about this issue. If you're a Peering Service partner, contact mapschamps@microsoft.com with your Azure subscription and prefix so we can assist you.
+If you're a Peering Service customer, contact your Peering Service provider about this issue. If you're a Peering Service partner, contact peeringservice@microsoft.com with your Azure subscription and prefix so we can assist you.
 
 ### Peering service prefix is invalid
 
@@ -53,7 +53,7 @@ If you're seeing this validation failure message, the prefix string that you've 
 
 MAPS requires the provider to advertise routes for their peering service prefix. If you're seeing this validation failure message, it means the provider isn't advertising routes for the prefix that's being validated. Refer to this document and review the [MAPS technical requirements](./walkthrough-peering-service-all.md#technical-requirements) regarding route advertisement. Contact your networking team and confirm that they're advertising routes for the prefix being validated. Also confirm the advertisement adheres to MAPS requirements, such as advertising using the MAPS community string 8075:8007, and that the AS path of the route doesn't contain private ASNs. Use the IP address in the message to identify the MAPS connection that isn't advertising the prefix. All MAPS connections must advertise routes.
 
-If you're a Peering Service customer, contact your Peering Service provider about this issue. If you're a Peering Service partner, you're advertising routes for your prefix and you're still seeing this validation failure, contact mapschamps@microsoft.com with your Azure subscription and prefix so we can assist you.
+If you're a Peering Service customer, contact your Peering Service provider about this issue. If you're a Peering Service partner, you're advertising routes for your prefix and you're still seeing this validation failure, contact peeringservice@microsoft.com with your Azure subscription and prefix so we can assist you.
 
 ### Received route for prefix should have the MAPS community 8075:8007
 
@@ -75,11 +75,17 @@ If you're a Peering Service customer, contact your Peering Service provider abou
 
 ### Peering service provider not found
 
-If you're a Peering Service customer, contact your Peering Service provider about this issue. If you're a Peering Service partner, contact mapschamps@microsoft.com with your Azure subscription and prefix so we can assist you.
+If you're a Peering Service customer, contact your Peering Service provider about this issue. If you're a Peering Service partner, contact peeringservice@microsoft.com with your Azure subscription and prefix so we can assist you.
 
 ### Internal server error
 
-If you're a Peering Service customer, contact your Peering Service provider about this issue. Contact mapschamps@microsoft.com with your Azure subscription and prefix so we can assist you.
+If you're a Peering Service customer, contact your Peering Service provider about this issue. Contact peeringservice@microsoft.com with your Azure subscription and prefix so we can assist you.
+
+## Frequently asked questions (FAQ):
+
+**Q.**   I am advertising a prefix from a different origin ASN than the ASN of the peering. Can this work with MAPS?
+
+**A.**   To make this work with MAPS, you must create a peer ASN in the same subscription as the peering service resource, and give it the same name as the peer ASN associated with the peering: [[Associate peer ASN to Azure subscription using the Azure portal](./howto-subscription-association-portal.md)]. 
 
 ## Next steps
 

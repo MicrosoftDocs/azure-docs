@@ -1,6 +1,6 @@
 ---
-title: Internet peering for Exchange with Route Server walkthrough
-description: Learn about Internet peering for Exchange with Route Server, its requirements, the steps to establish direct interconnect, and how to register your ASN and activate a prefix with Microsoft Azure Peering Service.
+title: Internet peering for MAPS Exchange with Route Server partner walkthrough
+description: Learn about Internet peering for MAPS Exchange with Route Server, its requirements, the steps to establish direct interconnect, and how to register your ASN.
 services: internet-peering
 author: jsaraco
 ms.service: internet-peering
@@ -10,46 +10,44 @@ ms.author: jsaraco
 ms.custom: template-how-to
 ---
 
-# Internet peering for Exchange with Route Server walkthrough
+# Internet peering for MAPS Exchange with Route Server partner walkthrough
 
-In this article, you learn steps to establish a Direct interconnect between a Exchange with Route Server Provider and Microsoft.
-
-**Exchange with Route Server Providers** are the organizations that offer... (need to fill in)
+In this article, you learn steps to establish an Exchange with Route Server interconnect enabled for Microsoft Azure Peering Service (MAPS) with Microsoft.
 
 Internet peering supports internet exchange partners (IXPs) to establish direct interconnect with Microsoft at any of its edge sites (POP locations). The list of all the public edges sites is available in [PeeringDB](https://www.peeringdb.com/net/694).
 
 Internet peering provides highly reliable and QoS (Quality of Service) enabled interconnect for IXPs to ensure high quality and performance centric services.
 
-The following flowchart summarizes the process to onboard to Exchange with Route Server:
+The following flowchart summarizes the process to onboard to MAPS Exchange with Route Server:
 
 :::image type="content" source="media/walkthrough-peering-services-partner/peering-services-partner-onboarding-flowchart.png" alt-text="Flowchart summarizing the onboarding process for Exchange with Route Server partners" :::
 
 ## Technical Requirements
 
-To establish direct interconnect for Communication Services, follow these requirements:
+To establish a MAPS Exchange with Route Server peering, follow these requirements:
 
 -	The Peer MUST provide its own Autonomous System Number (ASN), which MUST be public.
--	The peer MUST have redundant Interconnect (PNI) at each interconnect location to ensure local redundancy.
--	The Peer MUST have geo redundancy in place to ensure failover in the event of site failures in region/metro.
--	The Peer MUST has the BGP sessions as Active-Active to ensure high availability and faster convergence and shouldn't be provisioned as Primary and Backup.
+-	The Peer MUST have redundant Interconnect (PNI) at each interconnect location to ensure local redundancy.
 -	The Peer MUST maintain a 1:1 ratio for Peer peering routers to peering circuits and no rate limiting is applied.
--	The Peer MUST supply and advertise their own publicly routable IPv4 address space used by Peer's communications service endpoints (for example, SBC). 
--	The Peer MUST supply detail of what class of traffic and endpoints are housed in each advertised subnet. 
--	All infrastructure prefixes are registered in Azure portal and advertised with community string 8075:8007.
--	The Peer MUST NOT terminate peering on a device running a stateful firewall. 
+-	The Peer MUST supply and advertise their own publicly routable IPv4 address space used by Peer's endpoints (for example, SBC). 
+-	The Peer MUST supply detail of what class of traffic and endpoints are housed in each advertised subnet.
+-	The Peer MUST NOT terminate peering on a device running a stateful firewall.
+-   The Peer MUST register all of their origin ASNs
+-	It is recommended to create MAPS peerings in multiple locations so geo-redundancy is available to customers.
+-   The Peer CANNOT configure a local redundant connection as a backup connection. Backup connections must be in a different location than primary connections.
 -	Microsoft configures all the interconnect links as LAG (link bundles) by default, so, peer MUST support LACP (Link Aggregation Control Protocol) on the interconnect links.
 
-## Establish Direct Interconnect with Microsoft for Exchange with Route Server
+## Establish Direct Interconnect with Microsoft for MAPS Exchange with Route Server
 
-To establish a direct interconnect with Microsoft using Internet peering, follow the following steps:
+To establish a MAPS Exchange with Route Server interconnect with Microsoft, follow the following steps:
 
 ### 1. Associate your public ASN with your Azure subscription
 
 Follow the instructions here: [Associate peer ASN to Azure subscription using the Azure portal](./howto-subscription-association-portal.md). If the ASN has already been associated, proceed to the next step.
 
-### 2. Create an Exchange with Route Server peering
+### 2. Create a MAPS Exchange with Route Server peering
 
-To create an Exchange with Route Server peering resource, search for **Peerings** in the Azure portal, and click on it:
+To create a MAPS Exchange with Route Server peering resource, search for **Peerings** in the Azure portal, and click on it:
 
 :::image type="content" source="./media/create-maps-peering-search.png" alt-text="Azure portal search for Peering resources" :::
 
@@ -70,20 +68,20 @@ In the Configuration form, you MUST choose:
 * **AS8075 (with exchange route server)** as the Microsoft network
 * **Premium Free** as the SKU
 
-These are mandatory configurations when creating a peering for Exchange with Route Server.
+These are mandatory configurations when creating a peering for MAPS Exchange with Route Server.
 
-:::image type="content" source="./media/walkthrough-exchange-route-server-partner/create-maps-ixrs-peering-config.png" alt-text="Configure the peering for Exchange with Route Server" :::
+:::image type="content" source="./media/walkthrough-exchange-route-server-partner/create-maps-ixrs-peering-config.png" alt-text="Configure the peering for MAPS Exchange with Route Server" :::
 
 In the peering connections section, click Create new to add a connection to your peering.
 
 :::image type="content" source="./media/walkthrough-exchange-route-server-partner/create-maps-ixrs-bgp-session.png" alt-text="Configure a peering connection" :::
 
-Peering connections for Exchange with Route Server MUST have **Peer** as the Session Address Provider, and **Use for Peering Service** enabled. These options are chosen for you automatically.
+Peering connections for MAPS Exchange with Route Server MUST have **Peer** as the Session Address Provider, and **Use for Peering Service** enabled. These options are chosen for you automatically.
 
 Before finalizing your Peering, make sure the peering has at least one connection.
 
 > [!NOTE] 
-> A two-link BGP mesh is formed for an Exchange with Route Server peering even if a single connection is configured. Do NOT create a second connection if a two-link mesh is what's desired.
+> A two-link BGP mesh is formed for a MAPS Exchange with Route Server peering even if a single connection is configured. Do NOT create a second connection if a two-link mesh is what's desired.
   
 When you have finished configuring your peering, move on to Review + create. If you have configured it correctly, the resource will pass validation. Click Create to deploy the resource.
 
@@ -95,7 +93,7 @@ Allow time for the resource to finish deploying. When deployment is successful, 
 
 ## Configure optimized routing for your prefixes
 
-To get optimized routing for your prefixes with your Exchange with Route Server interconnects, follow these instructions:
+To get optimized routing for your prefixes with your MAPS Exchange with Route Server interconnects, follow these instructions:
 
 ### 1. Register your ASN
 
@@ -104,7 +102,7 @@ Before prefixes can be optimized, your ASN must be registered.
 > [!NOTE] 
 > The Connection State of your peering connections must be **Active** before registering your ASN.
 
-Open your Exchange with Route Server peering in the Azure portal, and click on **Registered ASNs**:
+Open your MAPS Exchange with Route Server peering in the Azure portal, and click on **Registered ASNs**:
 
 :::image type="content" source="./media/setup-exchange-registered-asn.png" alt-text="Peering page in Azure portal with Registered ASNs button highlighted" :::
 
@@ -114,54 +112,9 @@ Create a Registered ASN by entering a name, and your Autonomous System Number (A
 
 After your ASN is registered, a unique peering service prefix key will be generated. This prefix key must be used with ALL peering service prefixes created in the next section. 
 
-### 2. Activate your prefixes
+### 2. Provide peering service prefix keys to customers for activation
 
-In the previous section, you registered your ASN and generated the peering service prefix key. Activation will configure optimized routing for yor prefixes.
-
-To begin activating your prefixes, in the search box at the top of the portal, enter *peering service*. Select **Peering Services** in the search results. 
-
-:::image type="content" source="./media/walkthrough-communications-services-partner/peering-service-portal-search.png" alt-text="Screenshot shows how to search for Peering Service in the Azure portal.":::
-
-Select **Create** to create a new Peering Service connection.
-
-:::image type="content" source="./media/walkthrough-communications-services-partner/peering-service-list.png" alt-text="Screenshot shows the list of existing Peering Service connections in the Azure portal.":::
-
-In the **Basics** tab, enter or select your subscription, resource group, and Peering Service connection name.
-
-:::image type="content" source="./media/walkthrough-communications-services-partner/peering-service-basics.png" alt-text="Screenshot shows the Basics tab of creating a Peering Service connection in the Azure portal.":::
-
-In the **Configuration** tab, choose your country, state/province, your provider name, the primary peering location, and optionally the backup peering location.
-
-> [!NOTE] 
-> Be careful when choosing "None" as the provider backup peering location when creating a Peering Service. This means your routes will not have geo-redundancy.
-
-In the Prefixes section, add all the prefixes you would like to configure optimized routing for. Know that you do not have to create all of your peering service prefixes when creating a peering service, you can add them later.
-
-> [!NOTE] 
-> Ensure that the prefix key you enter when creating a peering service prefix matches the prefix key generated when you registered your ASN.
-
-:::image type="content" source="./media/walkthrough-communications-services-partner/activate-prefix-configure-peering-service.png" alt-text="The Configuration tab of creating a Peering Service connection in the Azure portal.":::
-
-Select **Review + create**.
-
-Review the settings, and then select **Create**.
-
-After you create a peering service prefix, it will be queued for validation. The validation state of the prefix can be found in the Peering Service Prefixes page.
-
-:::image type="content" source="./media/walkthrough-communications-services-partner/activate-prefixes-prefixes-page.png" alt-text="Peering service prefixes blade showing prefixes that have passed validation." :::
-
-For a peering service prefix to become validated, the following checks MUST pass:
-
-* The prefix can't be in a private range
-* The origin ASN must be registered in a major routing registry
-* The prefix key in the peering service prefix must match the prefix key of your registered ASN
-* All primary and backup sessions (if configured) must advertise routes for the prefix
-* Routes must be advertised with the MAPS community string 8075:8007
-* AS paths in your routes can't exceed a path length of 3, and can't contain private ASNs
-
-For more information on peering service prefix prefix requirements and how to troubleshoot validation errors, refer to [Peering Service Prefix Requirements](./peering-service-prefix-requirements.md).
-
-After a prefix passes validation, then activation for that prefix is complete.
+When your customers onboard to MAPS, customers will follow these instructions: [MAPS customer walkthrough](../peering-service/walkthrough-peering-service-customer.md). During this, they will activate prefixes using the peering service prefix key obtained during ASN registration. Provider this key to customers before they activate, as this key will be used for all prefixes during activation.
 
 ## Frequently asked questions (FAQ):
 
@@ -180,10 +133,6 @@ After a prefix passes validation, then activation for that prefix is complete.
 **Q.**	What Microsoft routes will we receive over these interconnects?
 
 **A.** Microsoft announces all of Microsoft's public service prefixes over these interconnects. This ensures not only Communications but other cloud services are accessible from the same interconnect.
-
-**Q.** My peering service prefix has failed validation. How should I proceed?
-
-**A.** Review the [Peering Service Prefix Requirements](./peering-service-prefix-requirements.md) and follow the troubleshooting steps described.
 
 **Q.**   Are there any AS path constraints?
 

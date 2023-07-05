@@ -118,7 +118,7 @@ Review the [Technical Requirements for Peering Service prefixes](../internet-pee
 
 ## Modifying the primary or backup peering location
 
-If you would like to change the primary or backup peering location in your Peering Service, reach out to mapschamps@microsoft.com to request this. Give is the resource ID of the peering service to modify, and the new primary and backup locations you'd like to be configured.
+If you would like to change the primary or backup peering location in your Peering Service, reach out to peeringservice@microsoft.com to request this. Give the resource ID of the peering service to modify, and the new primary and backup locations you'd like to be configured.
 
 ## Next steps
 
