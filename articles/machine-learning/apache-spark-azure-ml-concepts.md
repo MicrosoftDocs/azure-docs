@@ -9,7 +9,7 @@ ms.topic: conceptual
 ms.author: franksolomon
 author: ynpandey
 ms.reviewer: franksolomon
-ms.date: 05/11/2023
+ms.date: 06/28/2023
 ms.custom: cliv2, sdkv2, build-2023
 #Customer intent: As a full-stack machine learning pro, I want to use Apache Spark in Azure Machine Learning.
 ---
@@ -73,6 +73,10 @@ After the serverless Spark compute resource tear-down happens, submission of the
 > - the *Warm start*, with a different conda package, will also need about ten to fifteen minutes.
 > - If the package that you're installing is large or takes a long time to install, it might affect the Spark instance's startup time.
 > - Altering the PySpark, Python, Scala/Java, .NET, or Spark version is not supported.
+
+### Session-level Conda Packages
+A conda dependency YAML file can define a number of session-level conda packages in a session configuration. A session will time out if it takes longer than fifteen minutes to install the conda packages defined in the YAML file. It becomes important to first check whether a required package is already available in the Azure Synapse base image. To do this, users should follow the link to determine *packages available in the base image for* the Apache Spark version in use:
+- [Azure Synapse Runtime for Apache Spark 3.2](../synapse-analytics/spark/apache-spark-32-runtime.md#python-libraries-normal-vms)
 
 ## Attached Synapse Spark pool
 

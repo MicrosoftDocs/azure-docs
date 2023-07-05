@@ -1,16 +1,16 @@
 ---
-title: Quickstart for installing and configuring Azure Container Storage Preview with Azure Kubernetes Service (AKS)
-description: Learn how to install and configure Azure Container Storage Preview for use with Azure Kubernetes Service. You'll end up with new storage classes that you can use for your Kubernetes workloads.
+title: Quickstart for installing Azure Container Storage Preview for use with Azure Kubernetes Service (AKS)
+description: Learn how to install Azure Container Storage Preview for use with Azure Kubernetes Service. Create an AKS cluster, label the node pool, and install the Azure Container Storage extension.
 author: khdownie
-ms.service: storage
+ms.service: azure-container-storage
 ms.topic: quickstart
-ms.date: 06/20/2023
+ms.date: 07/03/2023
 ms.author: kendownie
-ms.subservice: container-storage
+ms.custom: devx-track-azurecli
 ---
 
 # Quickstart: Install Azure Container Storage Preview for use with Azure Kubernetes Service
-[Azure Container Storage](container-storage-introduction.md) is a cloud-based volume management, deployment, and orchestration service built natively for containers. This Quickstart shows you how to configure and use Azure Container Storage for use with [Azure Kubernetes Service (AKS)](../../aks/intro-kubernetes.md). At the end, you'll have new storage classes that you can use for your Kubernetes workloads, and you can then create a storage pool using one of three block storage options.
+[Azure Container Storage](container-storage-introduction.md) is a cloud-based volume management, deployment, and orchestration service built natively for containers. This Quickstart shows you how to install Azure Container Storage Preview for use with [Azure Kubernetes Service (AKS)](../../aks/intro-kubernetes.md).
 
 [!INCLUDE [azure-cli-prepare-your-environment.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment.md)]
 
@@ -28,6 +28,23 @@ ms.subservice: container-storage
 
 - You'll need the Kubernetes command-line client, `kubectl`. It's already installed if you're using Azure Cloud Shell, or you can install it locally by running the `az aks install-cli` command.
 
+## Set subscription context
+
+Set your Azure subscription context using the `az account set` command. You can view the subscription IDs for all the subscriptions you have access to by running the `az account list --output table` command. Remember to replace `<subscription-id>` with your subscription ID.
+
+```azurecli-interactive
+az account set --subscription <subscription-id>
+```
+
+## Register resource providers
+
+The `Microsoft.ContainerService` and `Microsoft.KubernetesConfiguration` resource providers must be registered on your Azure subscription. To register these providers, run the following command:
+
+```azurecli-interactive
+az provider register --namespace Microsoft.ContainerService --wait 
+az provider register --namespace Microsoft.KubernetesConfiguration --wait 
+```
+
 ## Create a resource group
 
 An Azure resource group is a logical group that holds your Azure resources that you want to manage as a group. When you create a resource group, you're prompted to specify a location. This location is:
@@ -38,32 +55,26 @@ An Azure resource group is a logical group that holds your Azure resources that 
 > [!IMPORTANT]
 > Azure Container Storage Preview is only available in *eastus*, *westus2*, *westus3*, and *westeurope* regions.
 
-1. Set your subscription context using the `az account set` command. You can view the subscription IDs for all the subscriptions you have access to by running the `az account list --output table` command. Remember to replace `<subscription-id>` with your subscription ID.
+Create a resource group using the `az group create` command. Replace `<resource-group-name>` with the name of the resource group you want to create, and replace `<location>` with *eastus*, *westus2*, *westus3*, or *westeurope*.
 
-   ```azurecli-interactive
-   az account set --subscription <subscription-id>
-   ```
+```azurecli-interactive
+az group create --name <resource-group-name> --location <location>
+```
 
-2. Create a resource group using the `az group create` command. Replace `<resource-group-name>` with the name of the resource group you want to create, and replace `<location>` with *eastus*, *westus2*, *westus3*, or *westeurope*.
+If the resource group was created successfully, you'll see output similar to this:
 
-   ```azurecli-interactive
-   az group create --name <resource-group-name> --location <location>
-   ```
-
-   If the resource group was created successfully, you'll see output similar to this:
-   
-   ```json
-   {
-     "id": "/subscriptions/<guid>/resourceGroups/myContainerStorageRG",
-     "location": "eastus",
-     "managedBy": null,
-     "name": "myContainerStorageRG",
-     "properties": {
-       "provisioningState": "Succeeded"
-     },
-     "tags": null
-   }
-   ```
+```json
+{
+  "id": "/subscriptions/<guid>/resourceGroups/myContainerStorageRG",
+  "location": "eastus",
+  "managedBy": null,
+  "name": "myContainerStorageRG",
+  "properties": {
+    "provisioningState": "Succeeded"
+  },
+  "tags": null
+}
+```
 
 ## Choose a data storage option and virtual machine type
 

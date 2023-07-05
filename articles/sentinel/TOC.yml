@@ -173,6 +173,8 @@
       href: sap/solution-overview.md
     - name: Working with the SAP solution across multiple workspaces
       href: sap/cross-workspace.md
+    - name: Respond to SAP incidents with playbooks
+      href: sap/sap-incident-response-playbooks.md
     - name: SAP BTP solution
       items:
       - name: Overview
@@ -941,6 +943,8 @@
         href: multiple-workspace-view.md
       - name: Manage your intellectual property in Microsoft Sentinel
         href: mssp-protect-intellectual-property.md
+    - name: Switch to simplified pricing triggers
+      href: enroll-simplified-pricing-tier.md
     - name: Set up customer-managed keys
       href: customer-managed-keys.md
     - name: Manage your SOC with incident metrics
@@ -955,6 +959,8 @@
         href: monitor-data-connector-health.md
       - name: Monitor automation rules and playbooks health
         href: monitor-automation-health.md
+      - name: Monitor and optimize execution of analytics rules
+        href: monitor-optimize-analytics-rule-execution.md
       - name: Audit and monitor the health of analytics rules
         href: monitor-analytics-rule-integrity.md
       - name: Monitor SAP system health and role
@@ -1015,9 +1021,7 @@
   - name: Troubleshoot Jupyter notebooks
     href: notebooks-troubleshoot.md
   - name: Troubleshoot SAP solution deployment
-    href: sap/sap-deploy-troubleshoot.md
-  - name: Configure SAP Transport Management System
-    href: sap/configure-transport.md  
+    href: sap/sap-deploy-troubleshoot.md    
 - name: Reference
   items:
   - name: SAP solution
