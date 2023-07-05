@@ -1,7 +1,7 @@
 ---
-title: Use Form Recognizer containers in disconnected environments
-titleSuffix: Azure Applied AI Services
-description: Learn how to run Azure Cognitive Services Docker containers disconnected from the internet.
+title: Use Document Intelligence containers in disconnected environments
+titleSuffix: Azure AI services
+description: Learn how to run Azure AI services Docker containers disconnected from the internet.
 ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 author: laujan
@@ -12,14 +12,15 @@ ms.author: lajanuar
 monikerRange: 'form-recog-2.1.0'
 ---
 
-# Form Recognizer containers in disconnected environments
 
-**This article applies to:** ![Form Recognizer v2.1 checkmark](../media/yes-icon.png) **Form Recognizer v2.1**.
+# Document Intelligence containers in disconnected environments
+
+**This article applies to:** ![Document Intelligence v2.1 checkmark](../media/yes-icon.png) **Document Intelligence v2.1**.
 
 <!-- markdownlint-disable MD036 -->
 <!-- markdownlint-disable MD001 -->
 
-Azure Cognitive Services Form Recognizer containers allow you to use Form Recognizer APIs with the benefits of containerization. Disconnected containers are offered through commitment tier pricing offered at a discounted rate compared to pay-as-you-go pricing. With commitment tier pricing, you can commit to using Form Recognizer features for a fixed fee, at a predictable total cost, based on the needs of your workload.
+Azure AI services Document Intelligence containers allow you to use Document Intelligence APIs with the benefits of containerization. Disconnected containers are offered through commitment tier pricing offered at a discounted rate compared to pay-as-you-go pricing. With commitment tier pricing, you can commit to using Document Intelligence features for a fixed fee, at a predictable total cost, based on the needs of your workload.
 
 ## Get started
 
@@ -32,11 +33,11 @@ Before attempting to run a Docker container in an offline environment, make sure
 
 ## Request access to use containers in disconnected environments
 
-Before you can use Form Recognizer containers in disconnected environments, you must first fill out and [submit a request form](../../../cognitive-services/containers/disconnected-containers.md#request-access-to-use-containers-in-disconnected-environments) and [purchase a commitment plan](../../../cognitive-services/containers/disconnected-containers.md#purchase-a-commitment-plan-to-use-containers-in-disconnected-environments).
+Before you can use Document Intelligence containers in disconnected environments, you must first fill out and [submit a request form](../../../ai-services/containers/disconnected-containers.md#request-access-to-use-containers-in-disconnected-environments) and [purchase a commitment plan](../../../ai-services/containers/disconnected-containers.md#purchase-a-commitment-plan-to-use-containers-in-disconnected-environments).
 
 ## Gather required parameters
 
-There are three required parameters for all Cognitive Services' containers:
+There are three required parameters for all Azure AI services' containers:
 
 * The end-user license agreement (EULA) must be present with a value of *accept*.
 * The endpoint URL for your resource from the Azure portal.
@@ -81,7 +82,7 @@ The following example shows the formatting for the `docker run` command to use w
 | `{IMAGE}` | The container image you want to use. | `mcr.microsoft.com/azure-cognitive-services/form-recognizer/invoice` |
 | `{LICENSE_MOUNT}` | The path where the license is downloaded, and mounted.  | `/host/license:/path/to/license/directory` |
 | `{ENDPOINT_URI}` | The endpoint for authenticating your service request. You can find it on your resource's **Key and endpoint** page, on the Azure portal. | `https://<your-custom-subdomain>.cognitiveservices.azure.com` |
-| `{API_KEY}` | The key for your Form Recognizer resource. You can find it on your resource's **Key and endpoint** page, on the Azure portal. |`{string}`|
+| `{API_KEY}` | The key for your Document Intelligence resource. You can find it on your resource's **Key and endpoint** page, on the Azure portal. |`{string}`|
 | `{CONTAINER_LICENSE_DIRECTORY}` | Location of the license folder on the container's local filesystem.  | `/path/to/license/directory` |
 
   **Example `docker run` command**
@@ -107,9 +108,9 @@ Mounts:License={CONTAINER_LICENSE_DIRECTORY}
 
 After you've configured the container, use the next section to run the container in your environment with the license, and appropriate memory and CPU allocations.
 
-## Form Recognizer container models and configuration
+## Document Intelligence container models and configuration
 
-After you've [configured the container](#configure-the-container-to-be-run-in-a-disconnected-environment), the values for the downloaded form recognizer models and container configuration will be generated and displayed in the container output.
+After you've [configured the container](#configure-the-container-to-be-run-in-a-disconnected-environment), the values for the downloaded Document Intelligence models and container configuration will be generated and displayed in the container output.
 
 ## Run the container in a disconnected environment
 
@@ -220,9 +221,9 @@ This usage-logs endpoint returns a JSON response similar to the following exampl
 Run the container with an output mount and logging enabled. These settings enable the container generates log files that are helpful for troubleshooting issues that occur while starting or running the container.
 
 > [!TIP]
-> For more troubleshooting information and guidance, see [Disconnected containers Frequently asked questions (FAQ)](../../../cognitive-services/containers/disconnected-container-faq.yml).
+> For more troubleshooting information and guidance, see [Disconnected containers Frequently asked questions (FAQ)](../../../ai-services/containers/disconnected-container-faq.yml).
 
 ## Next steps
 
 * [Deploy the Sample Labeling tool to an Azure Container Instance (ACI)](../deploy-label-tool.md#deploy-with-azure-container-instances-aci)
-* [Change or end a commitment plan](../../../cognitive-services/containers/disconnected-containers.md#purchase-a-different-commitment-plan-for-disconnected-containers)
+* [Change or end a commitment plan](../../../ai-services/containers/disconnected-containers.md#purchase-a-different-commitment-plan-for-disconnected-containers)

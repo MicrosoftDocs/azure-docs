@@ -1,6 +1,6 @@
 ---
 title: "Tutorial: Use an Azure Function to process stored documents"
-titleSuffix: Azure Applied AI Services
+titleSuffix: Azure AI services
 description: This guide shows you how to use an Azure function to trigger the processing of documents that are uploaded to an Azure blob storage container.
 author: laujan
 manager: nitinme
@@ -13,9 +13,10 @@ ms.author: lajanuar
 ms.custom: VS Code-azure-extension-update-completed, devx-track-python
 ---
 
+
 # Tutorial: Use Azure Functions and Python to process stored documents
 
-Form Recognizer can be used as part of an automated data processing pipeline built with Azure Functions. This guide will show you how to use Azure Functions to process documents that are uploaded to an Azure blob storage container. This workflow extracts table data from stored documents using the Form Recognizer layout model and saves the table data in a .csv file in Azure. You can then display the data using Microsoft Power BI (not covered here).
+Document Intelligence can be used as part of an automated data processing pipeline built with Azure Functions. This guide will show you how to use Azure Functions to process documents that are uploaded to an Azure blob storage container. This workflow extracts table data from stored documents using the Document Intelligence layout model and saves the table data in a .csv file in Azure. You can then display the data using Microsoft Power BI (not covered here).
 
 :::image type="content" source="media/tutorial-azure-function/workflow-diagram.png" alt-text="Screenshot of Azure Service workflow diagram":::
 
@@ -32,9 +33,9 @@ In this tutorial, you learn how to:
 
 * **Azure subscription** - [Create one for free](https://azure.microsoft.com/free/cognitive-services)
 
-* **A Form Recognizer resource**. Once you have your Azure subscription, create a [Form Recognizer resource](https://portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer) in the Azure portal to get your key and endpoint. You can use the free pricing tier (`F0`) to try the service, and upgrade later to a paid tier for production.
+* **A Document Intelligence resource**. Once you have your Azure subscription, create a [Document Intelligence resource](https://portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer) in the Azure portal to get your key and endpoint. You can use the free pricing tier (`F0`) to try the service, and upgrade later to a paid tier for production.
 
-  * After your resource deploys, select **Go to resource**. You need the key and endpoint from the resource you create to connect your application to the Form Recognizer API. You'll paste your key and endpoint into the code below later in the tutorial:
+  * After your resource deploys, select **Go to resource**. You need the key and endpoint from the resource you create to connect your application to the Document Intelligence API. You'll paste your key and endpoint into the code below later in the tutorial:
 
       :::image type="content" source="media/containers/keys-and-endpoint.png" alt-text="Screenshot: keys and endpoint location in the Azure portal.":::
 
@@ -125,7 +126,7 @@ In this tutorial, you learn how to:
 
 ## Add document processing code
 
-Next, you'll add your own code to the Python script to call the Form Recognizer service and parse the uploaded documents using the Form Recognizer [layout model](concept-layout.md).
+Next, you'll add your own code to the Python script to call the Document Intelligence service and parse the uploaded documents using the Document Intelligence [layout model](concept-layout.md).
 
 1. In VS Code, navigate to the function's *requirements.txt* file. This file defines the dependencies for your script. Add the following Python packages to the file:
 
@@ -165,12 +166,12 @@ Next, you'll add your own code to the Python script to call the Form Recognizer 
           f"Blob Size: {myblob.length} bytes")
       ```
 
-1. The following code block calls the Form Recognizer [Analyze Layout](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1/operations/AnalyzeLayoutAsync) API on the uploaded document. Fill in your endpoint and key values.
+1. The following code block calls the Document Intelligence [Analyze Layout](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1/operations/AnalyzeLayoutAsync) API on the uploaded document. Fill in your endpoint and key values.
 
     ```Python
-    # This is the call to the Form Recognizer endpoint
-        endpoint = r"Your Form Recognizer Endpoint"
-        apim_key = "Your Form Recognizer Key"
+    # This is the call to the Document Intelligence endpoint
+        endpoint = r"Your Document Intelligence Endpoint"
+        apim_key = "Your Document Intelligence Key"
         post_url = endpoint + "/formrecognizer/v2.1/layout/analyze"
         source = myblob.read()
 
@@ -184,7 +185,7 @@ Next, you'll add your own code to the Python script to call the Form Recognizer 
     ```
 
     > [!IMPORTANT]
-    > Remember to remove the key from your code when you're done, and never post it publicly. For production, use a secure way of storing and accessing your credentials like [Azure Key Vault](../../key-vault/general/overview.md). For more information, *see* Cognitive Services [security](../../cognitive-services/security-features.md).
+    > Remember to remove the key from your code when you're done, and never post it publicly. For production, use a secure way of storing and accessing your credentials like [Azure Key Vault](../../key-vault/general/overview.md). For more information, *see* Azure AI services [security](../../ai-services/security-features.md).
 
 1. Next, add code to query the service and get the returned data.
 
@@ -227,7 +228,7 @@ Next, you'll add your own code to the Python script to call the Form Recognizer 
         container_client=blob_service_client.get_container_client("output")
     ```
 
-    The following code parses the returned Form Recognizer response, constructs a .csv file, and uploads it to the **output** container.
+    The following code parses the returned Document Intelligence response, constructs a .csv file, and uploads it to the **output** container.
 
     > [!IMPORTANT]
     > You will likely need to edit this code to match the structure of your own form documents.
@@ -297,5 +298,5 @@ In this tutorial, you learned how to use an Azure Function written in Python to 
 > [!div class="nextstepaction"]
 > [Microsoft Power BI](https://powerbi.microsoft.com/integrations/azure-table-storage/)
 
-* [What is Form Recognizer?](overview.md)
+* [What is Document Intelligence?](overview.md)
 * Learn more about the [layout model](concept-layout.md)
