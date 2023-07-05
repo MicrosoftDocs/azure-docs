@@ -134,12 +134,12 @@ For example:
 * Images can be run through object detection, faces through sentiment, etc.
 * Information in text can be augmented by extracting entities, sentiment, and expanding entities with Bing knowledge graph.
 
-You can use several other [Azure Azure AI services](https://www.microsoft.com/cognitive-services), like
+You can use several other [Azure AI services](https://www.microsoft.com/cognitive-services), like
 
-* [Entity Linking](../text-analytics/index.yml)
+* [Entity Linking](../language-service/entity-linking/overview.md)
 * [Language service](../language-service/index.yml)
-* [Emotion](../face/overview.md)
-* [Azure AI Vision](../computer-vision/overview.md)
+* [Face](../computer-vision/overview-identity.md)
+* [Vision](../computer-vision/overview.md)
 
 ### Use embeddings as features
 

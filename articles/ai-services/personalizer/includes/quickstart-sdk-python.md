@@ -18,7 +18,7 @@ ms.date: 02/02/2023
 
 * Azure subscription - [Create one for free](https://azure.microsoft.com/free/cognitive-services)
 * [Python 3.x](https://www.python.org/)
-* Once your Azure subscription is set up, <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesPersonalizer"  title="Create a Personalizer resource"  target="_blank">create a Personalizer resource </a> in the Azure portal and obtain your key and endpoint. After it deploys, click **Go to resource**.
+* Once your Azure subscription is set up, <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesPersonalizer"  title="Create a Personalizer resource"  target="_blank">create a Personalizer resource </a> in the Azure portal and obtain your key and endpoint. After it deploys, select **Go to resource**.
     * You'll need the key and endpoint from the created resource to connect your application to the Personalizer API, which you'll paste into the quick-start code below.
     * You can use the free pricing tier (`F0`) to try the service, then upgrade to a paid tier for production at a later time.
 

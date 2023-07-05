@@ -34,7 +34,7 @@ landingContent:
           - text: Where you can use Personalizer?
             url: where-can-you-use-personalizer.md
           - text: Ethics and responsible use
-            url: ethics-responsible-use.md
+            url: responsible-guidance-integration.md
   - title: Create and use Personalizer loop
     linkLists:
       - linkListType: concept
@@ -136,4 +136,4 @@ landingContent:
       - text: Support and help options
         url: ../cognitive-services-support-options.md?context=/azure/ai-services/personalizer/context/context
       - text: Troubleshooting
-        url: troubleshooting.md
+        url: frequently-asked-questions.md

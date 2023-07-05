@@ -49,7 +49,7 @@ The following are available in **Public Preview**:
 
 ### March 2020
 
-* TLS 1.2 is now enforced for all HTTP requests to this service. For more information, see [Azure Azure AI services security](../cognitive-services-security.md).
+* TLS 1.2 is now enforced for all HTTP requests to this service. For more information, see [Azure AI services security](../cognitive-services-security.md).
 
 ### November 2019 - Ignite conference
 
