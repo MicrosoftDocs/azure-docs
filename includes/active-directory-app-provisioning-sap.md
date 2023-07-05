@@ -253,8 +253,6 @@ You'll use the Azure portal to configure the mapping between the Azure AD user's
  |-----|-----|-----|
  |Direct|userPrincipalName|urn:ietf:params:scim:schemas:extension:ECMA2Host:2.0:User:userName|
  
-:::image type="content" source="media/active-directory-app-provisioning-sql/attribute-2.png" alt-text="Screenshot of changing value." lightbox="media/active-directory-app-provisioning-sql/attribute-2.png":::
- 
 
  7. Now select **Add New Mapping**, and repeat the next step for each mapping.
  
