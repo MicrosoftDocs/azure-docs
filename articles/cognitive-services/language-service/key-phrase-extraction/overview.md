@@ -25,7 +25,7 @@ This documentation contains the following types of articles:
 [!INCLUDE [Typical workflow for pre-configured language features](../includes/overview-typical-workflow.md)]
 
 
-## Get started with entity linking
+## Get started with key phrase extraction
 
 [!INCLUDE [development options](./includes/development-options.md)]
 
@@ -39,6 +39,6 @@ An AI system includes not only the technology, but also the people who will use 
 
 ## Next steps
 
-There are two ways to get started using the entity linking feature:
+There are two ways to get started using the key phrase extraction feature:
 * [Language Studio](../language-studio.md), which is a web-based platform that enables you to try several Azure Cognitive Service for Language features without needing to write code.
 * The [quickstart article](quickstart.md) for instructions on making requests to the service using the REST API and client library SDK.  
