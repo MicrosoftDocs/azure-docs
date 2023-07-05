@@ -5,7 +5,7 @@ services: virtual-machines
 author: cynthn
 ms.topic: how-to
 ms.custom: devx-track-azurepowershell
-ms.date: 06/29/2023
+ms.date: 07/05/2023
 ms.author: cynthn
 ---
 
