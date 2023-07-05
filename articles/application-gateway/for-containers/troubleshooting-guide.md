@@ -7,13 +7,43 @@ author: greglin
 ms.service: application-gateway
 ms.subservice: traffic-controller
 ms.topic: troubleshooting
-ms.date: 5/1/2023
+ms.date: 7/7/2023
 ms.author: greglin
 ---
 
 # Troubleshooting in Application Gateway for Containers
 
 Learn how to troubleshoot common problems in Application Gateway for Containers.
+
+## Collect ALB Controller logs
+Logs may be collected from the ALB Controller by using the _kubectl logs_ command referencing the ALB Controller pod.
+
+1. Get the running ALB Controller pod name
+
+    Execute the following kubectl command:
+    ```bash
+    kubectl get pods -n azure-alb-system
+    ```
+    
+    You should see the following (pod names may differ slightly from the following table):
+    | NAME                                     | READY | STATUS  | RESTARTS | AGE
+    | alb-controller-bootstrap-6648c5d5c-hrmpc | 1/1   | Running | 0        | 4d6h
+    | alb-controller-6648c5d5c-au234           | 1/1   | Running | 0        | 4d6h
+    
+    Copy the name of the alb-controller pod (not the bootstrap pod, in this case, alb-controller-6648c5d5c-au234).
+
+2. Collect the logs
+    Logs from ALB Controller will be returned in JSON format.
+    
+    Execute the following kubectl command, replacing the name with the pod name returned in step 1:
+    ```bash
+    kubectl logs -n azure-alb-system alb-controller-6648c5d5c-au234
+    ```
+    
+    Similarly, you can redirect the output of the existing command to a file by specifying the greater than (>) sign and the filename to write the logs to:
+    ```bash
+    kubectl logs -n azure-alb-system alb-controller-6648c5d5c-au234 > alb-controller-logs.json
+    ```
 
 ## Configuration Errors
 
