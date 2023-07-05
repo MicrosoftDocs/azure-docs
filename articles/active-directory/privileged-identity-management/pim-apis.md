@@ -3,7 +3,7 @@ title: API concepts in Privileged Identity management
 description: Information for understanding the APIs in Azure AD Privileged Identity Management (PIM).
 services: active-directory
 documentationcenter: ''
-author: amsliu
+author: billmath
 manager: amycolannino
 editor: ''
 ms.service: active-directory
@@ -11,7 +11,7 @@ ms.workload: identity
 ms.subservice: pim
 ms.topic: how-to
 ms.date: 04/18/2022
-ms.author: amsliu
+ms.author: billmath
 ms.reviewer: shaunliu
 ms.custom: pim 
 ms.collection: M365-identity-device-management

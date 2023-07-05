@@ -43,7 +43,7 @@ The following code example shows how to create a user delegation SAS for a blob:
 
 ## Use a user delegation SAS to authorize a client object
 
-The following code example shows how to use the user delegation SAS created in the earlier example to authorize a [BlobClient](/python/api/azure-storage-blob/azure.storage.blob.blobclient) object. This client object can be used to perform operations on the blob resource based on the permissions granted by the SAS.
+The following code example shows how to use the user delegation SAS created in the earlier example to authorize a [BlobClient](/java/api/com.azure.storage.blob.blobclient) object. This client object can be used to perform operations on the blob resource based on the permissions granted by the SAS.
 
 :::code language="java" source="~/azure-storage-snippets/blobs/howto/Java/blob-devguide/blob-devguide-blobs/src/main/java/com/blobs/devguide/blobs/BlobSAS.java" id="Snippet_UseUserDelegationSASBlob":::
 

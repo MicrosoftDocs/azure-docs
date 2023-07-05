@@ -464,7 +464,7 @@ The following example gets details for a bank using the bank routing number, whi
 
 ### XML samples for IDoc requests
 
-To generate a plain SAP IDoc XML schema, use the **SAP Logon** application and the `WE-60` T-Code. Access the SAP documentation through the user interface, and generate XML schemas in XSD format for your IDoc types and extensions. For more information about generic SAP formats and payloads, and their built-in dialogs, review the [SAP documentation](https://help.sap.com/viewer/index).
+To generate a plain SAP IDoc XML schema, use the **SAP Logon** application and the `WE60` T-Code. Access the SAP documentation through the user interface, and generate XML schemas in XSD format for your IDoc types and extensions. For more information about generic SAP formats and payloads, and their built-in dialogs, review the [SAP documentation](https://help.sap.com/viewer/index).
 
 This example declares the root node and namespaces. The URI in the sample code, `http://Microsoft.LobServices.Sap/2007/03/Idoc/3/ORDERS05//700/Send`, declares the following configuration:
 

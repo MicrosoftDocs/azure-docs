@@ -75,6 +75,12 @@
       "branch_mapping": {}
     },
     {
+      "path_to_root": "ms-identity-ciam-dotnet-tutorial",
+      "url": "https://github.com/Azure-Samples/ms-identity-ciam-dotnet-tutorial",
+      "branch": "main",
+      "branch_mapping": {}
+    },
+    {
       "path_to_root": "_themes",
       "url": "https://github.com/Microsoft/templates.docs.msft",
       "branch": "main",
@@ -406,12 +412,6 @@
     },
     {
       "path_to_root": "azureml-examples-main",
-      "url": "https://github.com/azure/azureml-examples",
-      "branch": "main",
-      "branch_mapping": {}
-    },
-    {
-      "path_to_root": "azureml-examples-vj",
       "url": "https://github.com/azure/azureml-examples",
       "branch": "main",
       "branch_mapping": {}
