@@ -11,7 +11,7 @@ Starting with Azure Functions version 2.x, the functions runtime only includes H
 
 .NET class library functions apps use bindings that are installed in the project as NuGet packages. Extension bundles allow non-.NET functions apps to use the same bindings without having to deal with the .NET infrastructure.
 
-The following table indicates when and how you register bindings.
+The following table indicates when and how you register bindings. 
 
 | Development environment |Registration<br/> in Functions 1.x  |Registration<br/> in Functions 2.x or later  |
 |-------------------------|------------------------------------|------------------------------------|
