@@ -17,6 +17,14 @@
 # - name: Samples
 - name: Concepts
   items:
+  - name: NAS volumes as a service 
+    items: 
+      - name: Understand NAS
+        href: network-attached-storage-concept.md 
+      - name: Understand NAS protocols
+        href: network-attached-storage-protocols.md
+      - name: Understand file locking
+        href: understand-file-locks.md  
   - name: Azure NetApp Files essentials 
     items:
     - name: Storage hierarchy of Azure NetApp Files
@@ -115,8 +123,6 @@
         href: cross-zone-replication-introduction.md
       - name: Requirements and considerations for cross-zone replication 
         href: cross-zone-replication-requirements-considerations.md
-    - name: Double encryption at rest 
-      href: double-encryption-at-rest.md
     - name: Azure Application Consistent Snapshot (AzAcSnap) tool
       items: 
       - name: What is AzAcSnap?
