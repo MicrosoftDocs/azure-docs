@@ -99,7 +99,7 @@ The following diagram illustrates the concepts.
     * 7.9 TiB of capacity is used (3.5 TiB, 400 GiB, 4 TiB in Volumes 1, 2, and 3).
 * The capacity pool has 100 GiB of unprovisioned capacity remaining.   
 
-:::image type="content" source="../media/azure-netapp-files/azure-netapp-files-capacity-pool-with-three-vols.png" alt-text="Diagram showing capacity pool with three volumes.." lightbox="../media/azure-netapp-files/azure-netapp-files-capacity-pool-with-three-vols.png":::
+:::image type="content" source="../media/azure-netapp-files/azure-netapp-files-capacity-pool-with-three-vols.png" alt-text="Diagram showing capacity pool with three volumes." lightbox="../media/azure-netapp-files/azure-netapp-files-capacity-pool-with-three-vols.png":::
 
 ## Next steps
 
