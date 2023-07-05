@@ -98,8 +98,8 @@ Use the following steps to adjust the log levels:
 ## Setup alert rules
 See [Create a new alert rule](../azure-monitor/alerts/alerts-create-new-alert-rule.md) to create alert rules based on logs and metrics.
 
-You can also directly create alert rules from Portal blade in Azure Spring Apps.
-1. Go to Azure portal for Azure Spring Apps.
+You can also directly create alert rules from Portal for Azure Spring Apps.
+1. Go to Azure portal for Azure Spring Apps, and select your Azure Spring Apps instance.
 1. Go to Logs or Metrics.
 1. Write the log query in Logs blade or add a metrics chart.
 1. Select the "New alert rule", it will jump to the alert rule creation blade, and fill the log query or metrics automatically.
