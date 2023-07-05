@@ -1,18 +1,18 @@
 items:
-- name: Azure Form Recognizer Documentation
+- name: Azure AI Document Intelligence Documentation
   href: index.yml
 - name: Overview
   expanded: true
   items:
-  - name: 🆕 What is Azure Form Recognizer?
+  - name: 🆕 What is Azure AI Document Intelligence?
     displayName: models, develop, development
     href: overview.md
   - name: 🆕 Choose a model
     href: choose-model-feature.md
-  - name: Form Recognizer Studio
+  - name: Document Intelligence Studio
     displayName: get started
     href: studio-overview.md
-  - name: Form Recognizer SDK
+  - name: Document Intelligence SDK
     items:
       - name: Public preview
         displayName: get started, installation, downloads, documentAnalysisClient, document analysis client, Azure AD, Azure Active Directory, identity, package, version,AzureKeyCredential, Azure key credential, key, endpoint
@@ -35,29 +35,29 @@ items:
   - name: What's new
     displayName: changelog, release, updates, previews, beta, packages, ga
     href: whats-new.md
-  - name: Form Recognizer FAQ
+  - name: Document Intelligence FAQ
     displayName: storage, security, privacy, help, support, versions, development, migrate, migration
     href: faq.yml
 - name: Quickstarts
   items:
-    - name: Form Recognizer Studio
+    - name: Document Intelligence Studio
       displayName: get started, cors, blob, storage, upload, labels, custom, dynamic, fixed, signatures
       href: quickstarts/try-form-recognizer-studio.md
-    - name: "Get started with Form Recognizer"
-      displayName: formRecognizerClient, form recognizer client, boundingBox, box, begin_recognize
+    - name: "Get started with Document Intelligence"
+      displayName: formRecognizerClient, Document Intelligence client, boundingBox, box, begin_recognize
       href: quickstarts/get-started-sdks-rest-api.md
     - name: Sample Labeling tool
       displayName: tables, labels, ocr, bounding box
       href: quickstarts/try-sample-label-tool.md
 - name: How-to guides
   items:
-  - name: Use Form Recognizer models
-    displayName: documentAnalysisClient, document analysis client, polygon, boundingPolygon, begin_analyze_document,ormRecognizerClient, form recognizer client, boundingBox, box, begin_recognize, v2.1
+  - name: Use Document Intelligence models
+    displayName: documentAnalysisClient, document analysis client, polygon, boundingPolygon, begin_analyze_document,ormRecognizerClient, Document Intelligence client, boundingBox, box, begin_recognize, v2.1
     href: how-to-guides/use-sdk-rest-api.md
-  - name: Create a Form Recognizer resource
+  - name: Create a Document Intelligence resource
     displayName: endpoint, key, portal
     href:  create-a-form-recognizer-resource.md
-  - name: Migrate to Form Recognizer v3.0
+  - name: Migrate to Document Intelligence v3.0
     displayName: get started, confidence, bounding box, boundingBox, polygon, analyze, AnalyzeResult, train, build, sas, compose, copy
     href: v3-migration-guide.md
   - name: Check my usage and estimate the cost
@@ -95,7 +95,7 @@ items:
   - name: Use containers
     items:
     - name: Install and run containers
-      displayName: docker, docker-compose, container, compose, packages, az, acr, cli, import, pull, computer vision, kubernetes, cpu, EULA, billing
+      displayName: docker, docker-compose, container, compose, packages, az, acr, cli, import, pull, Azure AI Vision, kubernetes, cpu, EULA, billing
       href: containers/form-recognizer-container-install-run.md
     - name: Configure containers
       displayName: docker, docker-compose, compose, containers, run, billing, keys, logging, EULA, telemetry, proxy
@@ -110,7 +110,7 @@ items:
     items:
     - name: Set up Virtual Networks
       displayName: firewall, security, subdomain, VNet, virtual network, az, regions, cli
-      href: ../../cognitive-services/cognitive-services-virtual-networks.md?context=/azure/applied-ai-services/form-recognizer/context/context
+      href: ../../ai-services/cognitive-services-virtual-networks.md?context=/azure/ai-services/document-intelligence/context/context
     - name: Create and use managed identities
       displayName: azure RBAC, role based access control, sas, private, assigned, system assigned, role, blob
       href: managed-identities.md
@@ -122,7 +122,7 @@ items:
       href: encrypt-data-at-rest.md
     - name: Use Azure AD authentication
       displayName: headers, subscription, access token, azure active directory, subdomain, role, service principal
-      href: ../../cognitive-services/authentication.md?context=/azure/applied-ai-services/form-recognizer/context/context
+      href: ../../ai-services/authentication.md?context=/azure/ai-services/document-intelligence/context/context
 - name: Samples
   items:
   - name: "C#/.NET"
@@ -137,20 +137,20 @@ items:
   items:
   - name: Transparency notes
     items:
-    - name: Azure Form Recognizer scenarios
-      href: /legal/cognitive-services/form-recognizer/fr-transparency-note?context=/azure/applied-ai-services/form-recognizer/context/context
+    - name: Document Intelligence scenarios
+      href: /legal/cognitive-services/form-recognizer/fr-transparency-note?context=/azure/ai-services/document-intelligence/context/context
     - name: Characteristics and limitations
-      href: /legal/cognitive-services/form-recognizer/fr-characteristics-and-limitations?context=/azure/applied-ai-services/form-recognizer/context/context
+      href: /legal/cognitive-services/form-recognizer/fr-characteristics-and-limitations?context=/azure/ai-services/document-intelligence/context/context
   - name: Integration and responsible use
-    href: /legal/cognitive-services/form-recognizer/fr-guidance-integration-responsible-use?context=/azure/applied-ai-services/form-recognizer/context/context
+    href: /legal/cognitive-services/form-recognizer/fr-guidance-integration-responsible-use?context=/azure/ai-services/document-intelligence/context/context
   - name: Data, privacy, and security
-    href: /legal/cognitive-services/form-recognizer/fr-data-privacy-security?context=/azure/applied-ai-services/form-recognizer/context/context
+    href: /legal/cognitive-services/form-recognizer/fr-data-privacy-security?context=/azure/ai-services/document-intelligence/context/context
 - name: Concepts
   items:
   - name: Model overview
     displayName: get started, prebuilt, extraction, input
     href: concept-model-overview.md
-  - name: Form Recognizer Studio
+  - name: Document Intelligence Studio
     href: concept-form-recognizer-studio.md
   - name: Accuracy and confidence scores
     displayName: tables, labels, ocr, performance, signatures
@@ -216,27 +216,27 @@ items:
       href:  concept-composed-models.md
 - name: Tutorials
   items:
-  - name: Use Form Recognizer with Azure Logic Apps
+  - name: Use Document Intelligence with Azure Logic Apps
     displayName: connectors, automate, automation, workflows
     href: tutorial-logic-apps.md
   - name: Use managed identities to access Azure storage
     href: ../../app-service/scenario-secure-app-access-storage.md?bc=%2fazure%2fapplied-ai-services%2fform-recognizer%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fapplied-ai-services%2fform-recognizer%2ftoc.json
-  - name: "Create Form Recognizer workflows with AI Builder"
+  - name: "Create Document Intelligence workflows with AI Builder"
     expanded: true
     items:
     - name:  Custom
-      href: /ai-builder/create-form-processing-model?toc=/azure/applied-ai-services/form-recognizer/toc.json&bc=/azure/applied-ai-services/form-recognizer/breadcrumb/toc.json
+      href: /ai-builder/create-form-processing-model?toc=~/articles/ai-services/document-intelligence/toc.json&bc=~/articles/ai-services/document-intelligence/breadcrumb/toc.json
     - name:  Invoice
-      href: /ai-builder/flow-invoice-processing?toc=/azure/applied-ai-services/form-recognizer/toc.json&bc=/azure/applied-ai-services/form-recognizer/breadcrumb/toc.json
+      href: /ai-builder/flow-invoice-processing?toc=~/articles/ai-services/document-intelligence/toc.json&bc=~/articles/ai-services/document-intelligence/breadcrumb/toc.json
     - name: Receipt
-      href: /ai-builder/flow-receipt-processing?toc=/azure/applied-ai-services/form-recognizer/toc.json&bc=/azure/applied-ai-services/form-recognizer/breadcrumb/toc.json
+      href: /ai-builder/flow-receipt-processing?toc=~/articles/ai-services/document-intelligence/toc.json&bc=~/articles/ai-services/document-intelligence/breadcrumb/toc.json
     - name: ID document
-      href: /ai-builder/id-reader?toc=/azure/applied-ai-services/form-recognizer/toc.json&bc=/azure/cognitive-services/applied-ai-services/breadcrumb/toc.json
+      href: /ai-builder/id-reader?toc=~/articles/ai-services/document-intelligence/toc.json&bc=~/articles/ai-services/applied-ai-services/breadcrumb/toc.json
     - name: Business card
-      href: /ai-builder/flow-business-card-reader?toc=/azure/applied-ai-services/form-recognizer/toc.json&bc=/azure/applied-ai-services/form-recognizer/breadcrumb/toc.json
-  - name: Use Azure Form Recognizer with Cognitive Search
+      href: /ai-builder/flow-business-card-reader?toc=~/articles/ai-services/document-intelligence/toc.json&bc=~/articles/ai-services/document-intelligence/breadcrumb/toc.json
+  - name: Use Azure AI Document Intelligence with Cognitive Search
     href: ../../search/cognitive-search-custom-skill-form.md
-  - name: Use Azure Form Recognizer with Azure Functions
+  - name: Use Azure AI Document Intelligence with Azure Functions
     href: tutorial-azure-function.md
 - name: Reference
   items:
@@ -259,6 +259,6 @@ items:
     - name: Compliance and certification
       href: https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/
   - name: Support and help options
-    href: ../../cognitive-services/cognitive-services-support-options.md?context=/azure/applied-ai-services/form-recognizer/context/context
+    href: ../../ai-services/cognitive-services-support-options.md?context=/azure/ai-services/document-intelligence/context/context
   - name: Privacy and cookies
     href: https://privacy.microsoft.com/en-US/privacystatement

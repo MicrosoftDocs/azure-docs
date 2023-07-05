@@ -1,7 +1,7 @@
 ---
-title: Form Recognizer service encryption of data at rest
-titleSuffix: Azure Applied AI Services
-description: Microsoft offers Microsoft-managed encryption keys, and also lets you manage your Cognitive Services subscriptions with your own keys, called customer-managed keys (CMK). This article covers data encryption at rest for Form Recognizer, and how to enable and manage CMK. 
+title: Document Intelligence service encryption of data at rest
+titleSuffix: Azure AI services
+description: Microsoft offers Microsoft-managed encryption keys, and also lets you manage your Azure AI services subscriptions with your own keys, called customer-managed keys (CMK). This article covers data encryption at rest for Document Intelligence, and how to enable and manage CMK. 
 author: erindormier
 manager: venkyv
 ms.service: applied-ai-services
@@ -13,20 +13,21 @@ ms.custom: applied-ai-non-critical-form
 monikerRange: '>=form-recog-2.1.0'
 ---
 
-# Form Recognizer encryption of data at rest
+
+# Document Intelligence encryption of data at rest
 
 [!INCLUDE [applies to v3.0 and v2.1](includes/applies-to-v3-0-and-v2-1.md)]
 
-Azure Form Recognizer automatically encrypts your data when persisting it to the cloud. Form Recognizer encryption protects your data to help you to meet your organizational security and compliance commitments.
+Azure AI Document Intelligence automatically encrypts your data when persisting it to the cloud. Document Intelligence encryption protects your data to help you to meet your organizational security and compliance commitments.
 
-[!INCLUDE [ai-services-about-encryption](../../ai-services/includes/cognitive-services-about-encryption.md)]
+[!INCLUDE [cognitive-services-about-encryption](../../ai-services/includes/cognitive-services-about-encryption.md)]
 
 > [!IMPORTANT]
-> Customer-managed keys are only available resources created after 11 May, 2020. To use CMK with Form Recognizer, you will need to create a new Form Recognizer resource. Once the resource is created, you can use Azure Key Vault to set up your managed identity.
+> Customer-managed keys are only available resources created after 11 May, 2020. To use CMK with Document Intelligence, you will need to create a new Document Intelligence resource. Once the resource is created, you can use Azure Key Vault to set up your managed identity.
 
-[!INCLUDE [ai-services-cmk](../../ai-services/includes/configure-customer-managed-keys.md)]
+[!INCLUDE [cognitive-services-cmk](../../ai-services/includes/configure-customer-managed-keys.md)]
 
 ## Next steps
 
-* [Form Recognizer Customer-Managed Key Request Form](https://aka.ms/cogsvc-cmk)
+* [Document Intelligence Customer-Managed Key Request Form](https://aka.ms/cogsvc-cmk)
 * [Learn more about Azure Key Vault](../../key-vault/general/overview.md)

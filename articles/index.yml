@@ -267,7 +267,7 @@ productDirectory:
       imageSrc: https://static.docs.com/ui/media/product/azure/cognitive-services.svg
       azureCategories:
         - ai-machine-learning
-      url: ./ai-services/speech-service/speech-translation/speech-translation.md
+      url: ./ai-services/speech-service/speech-translation.md
     # Card
     - title: Text Analytics
       summary: Easily evaluate sentiment and topics to understand what users want
