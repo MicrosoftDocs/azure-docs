@@ -19,7 +19,9 @@ In Azure Cognitive Search, vector data is represented in fields in a [search ind
 
 ## Prerequisites
 
-+ Azure Cognitive Search. For vector indexing and queries, the service can be in any region and any tier except free. Use an S1 or higher tier if you want to combine vector search with [semantic search](semantic-search-overview.md). Most existing services support vector search. For a small subset of services created prior to January 1, 2019, an index containing vector fields might on creation. In this situation, a new service must be created.
++ Azure Cognitive Search, in any region and on any tier. However, if you want to also use [semantic search](semantic-search-overview.md) for hybrid queries, your search service must be Standard tier or higher, with [semantic search enabled](semantic-search-overview.md#enable-semantic-search).
+
+  Most existing services support vector search. For a small subset of services created prior to January 2019, an index containing vector fields will fail on creation. In this situation, a new service must be created.
 
 + Pre-existing embeddings. Cognitive Search doesn't generate embeddings. We recommend Azure OpenAI but you can use any model for vectorization. Be sure to use the same model for both indexing and queries. At query time, you must include a step that converts the user's query into a vector.
 
