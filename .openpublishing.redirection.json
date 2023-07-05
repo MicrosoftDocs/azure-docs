@@ -1697,7 +1697,7 @@
         },
         {
             "source_path": "articles/sentinel/sap/configure-transport.md",
-            "redirect_url": "/azure/sentinel/sap/sap-deploy-troubleshoot.md",
+            "redirect_url": "/azure/sentinel/sap/sap-deploy-troubleshoot",
             "redirect_document_id": false
         },
         {
