@@ -322,6 +322,12 @@ const isIncoming = call.direction == 'Incoming';
 const isOutgoing = call.direction == 'Outgoing';
 ```
 
+Inspect active video streams and active screen sharing streams by checking the `localVideoStreams` collection. It returns `LocalVideoStream` objects or type `Video`, `ScreenSharing` or `RawMedia`.
+
+```js
+const localVideoStreams = call.localVideoStreams;
+```
+
 Check if the current microphone is muted. It returns `Boolean`.
 
 ```js
@@ -334,14 +340,14 @@ Check if the current incoming audio (speaker) is muted. It returns `Boolean`.
 const incomingAudioMuted = call._isIncomingAudioMuted;
 ```
 
-Find out if the screen sharing stream is being sent from a given endpoint by checking the `isScreenSharingOn` property. It returns `Boolean`.
+Check if video is on. It returns `Boolean`.
+
+```js
+const isLocalVideoStarted = call.isLocalVideoStarted;
+```
+
+Check is screen sharing is on. It returns `Boolean`.
 
 ```js
 const isScreenSharingOn = call.isScreenSharingOn;
-```
-
-Inspect active video streams by checking the `localVideoStreams` collection. It returns `LocalVideoStream` objects.
-
-```js
-const localVideoStreams = call.localVideoStreams;
 ```
