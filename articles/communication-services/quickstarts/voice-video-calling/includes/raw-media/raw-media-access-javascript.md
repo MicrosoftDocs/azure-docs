@@ -237,35 +237,26 @@ if (this.localVideoStream.mediaStreamType === 'RawMedia' && this.state.videoOn) 
 
 ```
 
-### Receive a call with an incoming video stream
+### Access incoming video stream from a remote participant
 
 You can access the raw video stream for an incoming call. You use `MediaStream` for the incoming raw video stream to process frames by using machine learning and to apply filters. The processed incoming video can then be rendered on the receiver side.
 
 ```js
-const userId = 'acs_user_id';
-const call = callAgent.startCall(userId);
-const callStateChangedHandler = async () => {
-    if (call.state === "Connected") {
-        const remoteVideoStream = remoteParticipants[0].videoStreams.find((stream) => { return stream.mediaStreamType === 'Video'});
-        const processMediaStream = async () => {
-            if (remoteVideoStream.isAvailable) {
-                // remote video stream is turned on, process the video's raw media stream.
-                const mediaStream = await remoteVideoStream.getMediaStream();
-            } else {
-                // remote video stream is turned off, handle it
-            }
-        };
-	
-        remoteVideoStream.on('isAvailableChanged', async () => {
-            await processMediaStream();
-        });
-	
-        await processMediaStream();
+const remoteVideoStream = remoteParticipants[0].videoStreams.find((stream) => { return stream.mediaStreamType === 'Video'});
+const processMediaStream = async () => {
+    if (remoteVideoStream.isAvailable) {
+	// remote video stream is turned on, process the video's raw media stream.
+	const mediaStream = await remoteVideoStream.getMediaStream();
+    } else {
+	// remote video stream is turned off, handle it
     }
 };
 
-callStateChangedHandler();
-call.on("stateChanged", callStateChangedHandler);
+remoteVideoStream.on('isAvailableChanged', async () => {
+    await processMediaStream();
+});
+
+await processMediaStream();
 ```
 
 [!INCLUDE [Public Preview Disclaimer](../../../../includes/public-preview-include.md)]
@@ -360,6 +351,7 @@ const blackAndWhiteMediaStream = applyBlackAndWhiteEffect(rawMediaStream);
 await localScreenSharingStream.setMediaStream(blackAndWhiteMediaStream);
 
 // Stop screen screen sharing and clean up the black and white video filter
+await call.stopScreenSharing();
 clearTimeout(bwTimeout);
 bwVideoElem.srcObject.getVideoTracks().forEach((track) => { track.stop(); });
 bwVideoElem.srcObject = null;
@@ -378,29 +370,20 @@ await call.stopScreenSharing();
 You can access the raw screen share stream from a remote participant. You use `MediaStream` for the incoming raw screen share stream to process frames by using machine learning and to apply filters. The processed incoming screen share stream can then be rendered on the receiver side.
 
 ```js
-const userId = 'acs_user_id';
-const call = callAgent.startCall(userId);
-const callStateChangedHandler = async () => {
-    if (call.state === "Connected") {
-        const remoteScreenSharingStream = remoteParticipants[0].videoStreams.find((stream) => { return stream.mediaStreamType === 'ScreenSharing'});
-        const processMediaStream = async () => {
-            if (remoteScreenSharingStream.isAvailable) {
-                // remote screen sharing stream is turned on, process the stream's raw media stream.
-                const mediaStream = await remoteScreenSharingStream.getMediaStream();
-            } else {
-                // remote video stream is turned off, handle it
-            }
-        };
-	
-        remoteVideoStream.on('isAvailableChanged', async () => {
-            await processMediaStream();
-        });
-	
-        await processMediaStream();
+const remoteScreenSharingStream = remoteParticipants[0].videoStreams.find((stream) => { return stream.mediaStreamType === 'ScreenSharing'});
+const processMediaStream = async () => {
+    if (remoteScreenSharingStream.isAvailable) {
+	// remote screen sharing stream is turned on, process the stream's raw media stream.
+	const mediaStream = await remoteScreenSharingStream.getMediaStream();
+    } else {
+	// remote video stream is turned off, handle it
     }
 };
 
-callStateChangedHandler();
-call.on("stateChanged", callStateChangedHandler);
+remoteScreenSharingStream.on('isAvailableChanged', async () => {
+    await processMediaStream();
+});
+
+await processMediaStream();
 ```
 
