@@ -48,7 +48,7 @@ To generate the caches, execute the following `devenv` command as part of your i
 Open your solution, execute a build and generate the caches for the specified solution
 devenv SolutionName /PopulateSolutionCache /LocalCache /Build [SolnConfigName [/Project ProjName [/ProjectConfig ProjConfigName]] [/Out OutputFilename]]
 ```
-For more information on the `build` command, see [Build command-line reference](/visualstudio/ide/reference/build-command.md). 
+For more information on the `build` command, see [Build command-line reference](/visualstudio/ide/reference/build-command). 
 
 This command will open your solution, execute a build, and generate the caches for the specified solution. The generated caches will then be included in the [custom image](how-to-customize-devbox-azure-image-builder.md) and available to Dev Box users once [posted to a connected Azure Compute Gallery](../virtual-machines/shared-image-galleries.md). 
 
