@@ -39,7 +39,7 @@ You can specify an exact request header, body, cookie, or query string attribute
 - **Contains**: This operator matches all request fields that contain the specified selector value.
 - **Equals any**: This operator matches all request fields. * will be the selector value.
 
-When processing exclusions the WAF engine will perform a case sensitive/insensitive match based on the below table. Additionally, regular expressions aren't allowed as selectors and XML request bodies are not supported.
+When processing exclusions the WAF engine performs a case sensitive/insensitive match based on the below table. Additionally, regular expressions aren't allowed as selectors and XML request bodies aren't supported.
 
 | Request Body Part | CRS 3.1 and Earlier | CRS 3.2 and Later |
 |-|-|-|
@@ -523,7 +523,7 @@ resource wafPolicy 'Microsoft.Network/ApplicationGatewayWebApplicationFirewallPo
 
 ---
 
-So if the URL `http://www.contoso.com/?user%3c%3e=joe` is scanned by the WAF, it won't evaluate the string **joe**, but it will still evaluate the parameter name **user%3c%3e**. 
+So if the URL `http://www.contoso.com/?user%3c%3e=joe` is scanned by the WAF, it won't evaluate the string **joe**, but it still evaluates the parameter name **user%3c%3e**. 
 
 ## Next steps
 
