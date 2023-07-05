@@ -181,11 +181,12 @@ You need to complete the following tasks prior to deploying Application Gateway 
     kubectl get pods -n azure-alb-system
     ```
     You should see the following:
-    | NAME                                     | READY | STATUS  | RESTARTS | AGE
-    | alb-controller-bootstrap-6648c5d5c-hrmpc | 1/1   | Running | 0        | 4d6h
-    | alb-controller-6648c5d5c-au234           | 1/1   | Running | 0        | 4d6h
+    | NAME                                     | READY | STATUS  | RESTARTS | AGE  |
+    | ---------------------------------------- | ----- | ------- | -------- | ---- |
+    | alb-controller-bootstrap-6648c5d5c-hrmpc | 1/1   | Running | 0        | 4d6h |
+    | alb-controller-6648c5d5c-au234           | 1/1   | Running | 0        | 4d6h |
 
-2. Verify GatewayClass `azure-application-lb` is installed on your cluster:
+3. Verify GatewayClass `azure-application-lb` is installed on your cluster:
 
     ```bash
     kubectl get gatewayclass azure-alb-external -o yaml
