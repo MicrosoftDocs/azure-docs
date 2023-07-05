@@ -8,7 +8,7 @@ author: greglin
 ms.service: application-gateway
 ms.subservice: traffic-controller
 ms.topic: how-to
-ms.date: 5/1/2023
+ms.date: 7/7/2023
 ms.author: greglin
 ---
 
