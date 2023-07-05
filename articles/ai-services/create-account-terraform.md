@@ -13,7 +13,7 @@ ms.author: tarcher
 
 # Quickstart: Create an Azure AI services resource using Terraform
 
-This article shows how to use Terraform to create a [Azure AI services account](/azure/ai-services/cognitive-services-apis-create-account.md) using [Terraform](/azure/developer/terraform/quickstart-configure).
+This article shows how to use Terraform to create a [Azure AI services account](cognitive-services-apis-create-account.md) using [Terraform](/azure/developer/terraform/quickstart-configure.md).
 
 Azure AI services are cloud-based artificial intelligence (AI) services that help developers build cognitive intelligence into applications without having direct AI or data science skills or knowledge. They are available through REST APIs and client library SDKs in popular development languages. Azure AI services enables developers to easily add cognitive features into their applications with cognitive solutions that can see, hear, speak, and analyze.
 
