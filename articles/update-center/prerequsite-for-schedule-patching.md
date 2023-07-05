@@ -23,6 +23,11 @@ Additionally, in some instances, when you remove the schedule from a VM, there i
 > [!IMPORTANT]
 > For a continued scheduled patching experience, you must ensure that the new VM property, *BypassPlatformSafetyChecksOnUserSchedule*, is enabled on all your Azure VMs (existing or new) that have schedules attached to them by **30th June 2023**. This setting will ensure machines are patched using your configured schedules and not auto patched. Failing to enable by **30th June 2023** will give an error that the prerequisites aren't met.
 
+## Schedule patching in an availability set
+
+1. All VMs in a common [availability set](../virtual-machines/availability-set-overview.md) aren't updated concurrently.
+1. VMs in a common availability set are updated within Update Domain boundaries and, VMs across multiple Update Domains aren't updated concurrently.
+
 ## Find VMs with associated schedules
 
 To identify the list of VMs with the associated schedules for which you have to enable new VM property, follow these steps:
@@ -41,9 +46,9 @@ To identify the list of VMs with the associated schedules for which you have to 
 
 **Prerequisite**
 
-Patch orchestration = Customer managed schedules.
+Patch orchestration = Customer Managed Schedules.
 
-Select the patch orchestration option as **Customer managed schedules**.
+Select the patch orchestration option as **Customer Managed Schedules**.
 The new patch orchestration option enables the following VM properties on your behalf after receiving your consent:
 
   - Patch mode = Azure-orchestrated
@@ -78,7 +83,7 @@ To update the patch mode, follow these steps:
 1. Go to **Update management center (Preview)**, select **Update Settings**.    
 1. In **Change update settings**, select **+Add machine**.
 1. In **Select resources**, select your VMs and then select **Add**.
-1. In **Change update settings**, under **Patch orchestration**, select *Customer managed schedules* and then select **Save**.
+1. In **Change update settings**, under **Patch orchestration**, select *Customer Managed Schedules* and then select **Save**.
 
 Attach a schedule after you complete the above steps.
 

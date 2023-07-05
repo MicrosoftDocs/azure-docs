@@ -5,7 +5,7 @@ services: networking
 author: skishen525
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 07/23/2020
+ms.date: 06/30/2023
 ms.author: sukishen
 ---
 
