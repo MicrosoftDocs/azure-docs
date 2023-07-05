@@ -1,6 +1,6 @@
 ---
-title: Custom document models - Form Recognizer
-titleSuffix: Azure Applied AI Services
+title: Custom document models - Document Intelligence
+titleSuffix: Azure AI services
 description: Label and train customized models for your documents and compose multiple models into a single model identifier.
 author: laujan
 manager: nitinme
@@ -11,7 +11,8 @@ ms.date: 05/23/2023
 monikerRange: '>=form-recog-2.1.0'
 ms.author: lajanuar
 ---
-# Azure Form Recognizer Custom document models
+
+# Azure AI Document Intelligence Custom document models
 
 ::: moniker range="form-recog-3.0.0"
 [!INCLUDE [applies to v3.0](includes/applies-to-v3-0.md)]
@@ -21,7 +22,7 @@ ms.author: lajanuar
 [!INCLUDE [applies to v2.1](includes/applies-to-v2-1.md)]
 ::: moniker-end
 
-Form Recognizer uses advanced machine learning technology to identify documents, detect and extract information from forms and documents, and return the extracted data in a structured JSON output. With Form Recognizer, you can use document analysis models, pre-built/pre-trained, or your trained standalone custom models.
+Document Intelligence uses advanced machine learning technology to identify documents, detect and extract information from forms and documents, and return the extracted data in a structured JSON output. With Document Intelligence, you can use document analysis models, pre-built/pre-trained, or your trained standalone custom models.
 
 Custom models now include [custom classification models](./concept-custom-classifier.md) for scenarios where you need to identify the document type prior to invoking the extraction model. Classifier models are available starting with the ```2023-02-28-preview``` API. A classification model can be paired with a custom extraction model to analyze and extract fields from forms and documents specific to your business to create a document processing solution. Standalone custom extraction models can be combined to create [composed models](concept-composed-models.md).
 
@@ -82,28 +83,28 @@ The following table compares custom template and custom neural features:
 
 ### Custom classification model
 
- Document classification is a new scenario supported by Form Recognizer with the ```2023-02-28-preview``` API. the document classifier API supports classification and splitting scenarios. Train a classification model to identify the different types of documents your application supports. The input file for the classification model can contain multiple documents and classifies each document within an associated page range. See [custom classification](concept-custom-classifier.md) models to learn more.
+ Document classification is a new scenario supported by Document Intelligence with the ```2023-02-28-preview``` API. the document classifier API supports classification and splitting scenarios. Train a classification model to identify the different types of documents your application supports. The input file for the classification model can contain multiple documents and classifies each document within an associated page range. See [custom classification](concept-custom-classifier.md) models to learn more.
 
 ## Custom model tools
 
-Form Recognizer v3.0 supports the following tools:
+Document Intelligence v3.0 supports the following tools:
 
 | Feature | Resources | Model ID|
 |---|---|:---|
-|Custom model| <ul><li>[Form Recognizer Studio](https://formrecognizer.appliedai.azure.com/studio/customform/projects)</li><li>[REST API](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2022-08-31/operations/AnalyzeDocument)</li><li>[C# SDK](quickstarts/get-started-sdks-rest-api.md?view=form-recog-3.0.0&preserve-view=true)</li><li>[Python SDK](quickstarts/get-started-sdks-rest-api.md?view=form-recog-3.0.0&preserve-view=true)</li></ul>|***custom-model-id***|
+|Custom model| <ul><li>[Document Intelligence Studio](https://formrecognizer.appliedai.azure.com/studio/customform/projects)</li><li>[REST API](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2022-08-31/operations/AnalyzeDocument)</li><li>[C# SDK](quickstarts/get-started-sdks-rest-api.md?view=form-recog-3.0.0&preserve-view=true)</li><li>[Python SDK](quickstarts/get-started-sdks-rest-api.md?view=form-recog-3.0.0&preserve-view=true)</li></ul>|***custom-model-id***|
 
 ::: moniker-end
 
 ::: moniker range="form-recog-2.1.0"
 
-Form Recognizer v2.1 supports the following tools:
+Document Intelligence v2.1 supports the following tools:
 
 > [!NOTE]
-> Custom model types [custom neural](concept-custom-neural.md) and [custom template](concept-custom-template.md) are only available with Form Recognizer version v3.0.
+> Custom model types [custom neural](concept-custom-neural.md) and [custom template](concept-custom-template.md) are only available with Document Intelligence version v3.0.
 
 | Feature | Resources |
 |---|---|
-|Custom model| <ul><li>[Form Recognizer labeling tool](https://fott-2-1.azurewebsites.net)</li><li>[REST API](./how-to-guides/use-sdk-rest-api.md?pivots=programming-language-rest-api&preserve-view=true&tabs=windows&view=form-recog-2.1.0#analyze-forms-with-a-custom-model)</li><li>[Client library SDK](/azure/applied-ai-services/form-recognizer/how-to-guides/v2-1-sdk-rest-api)</li><li>[Form Recognizer Docker container](containers/form-recognizer-container-install-run.md?tabs=custom#run-the-container-with-the-docker-compose-up-command)</li></ul>|
+|Custom model| <ul><li>[Document Intelligence labeling tool](https://fott-2-1.azurewebsites.net)</li><li>[REST API](./how-to-guides/use-sdk-rest-api.md?pivots=programming-language-rest-api&preserve-view=true&tabs=windows&view=form-recog-2.1.0#analyze-forms-with-a-custom-model)</li><li>[Client library SDK](~/articles/ai-services/document-intelligence/how-to-guides/use-sdk-rest-api.md?view=form-recog-2.1.0&preserve-view=true)</li><li>[Document Intelligence Docker container](containers/form-recognizer-container-install-run.md?tabs=custom#run-the-container-with-the-docker-compose-up-command)</li></ul>|
 
 ::: moniker-end
 
@@ -114,7 +115,7 @@ Form Recognizer v2.1 supports the following tools:
 Extract data from your specific or unique documents using custom models. You need the following resources:
 
 * An Azure subscription. You can [create one for free](https://azure.microsoft.com/free/cognitive-services/).
-* A [Form Recognizer instance](https://portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer) in the Azure portal. You can use the free pricing tier (`F0`) to try the service. After your resource deploys, select **Go to resource** to get your key and endpoint.
+* A [Document Intelligence instance](https://portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer) in the Azure portal. You can use the free pricing tier (`F0`) to try the service. After your resource deploys, select **Go to resource** to get your key and endpoint.
 
   :::image type="content" source="media/containers/keys-and-endpoint.png" alt-text="Screenshot that shows the keys and endpoint location in the Azure portal.":::
 
@@ -124,12 +125,12 @@ Extract data from your specific or unique documents using custom models. You nee
 
 >[!TIP]
 >
-> * For an enhanced experience and advanced model quality, try the [Form Recognizer v3.0 Studio ](https://formrecognizer.appliedai.azure.com/studio).
+> * For an enhanced experience and advanced model quality, try the [Document Intelligence v3.0 Studio ](https://formrecognizer.appliedai.azure.com/studio).
 > * The v3.0 Studio supports any model trained with v2.1 labeled data.
 > * You can refer to the API migration guide for detailed information about migrating from v2.1 to v3.0.
 > * *See* our [**REST API**](quickstarts/get-started-sdks-rest-api.md?view=form-recog-3.0.0&preserve-view=true) or [**C#**](quickstarts/get-started-sdks-rest-api.md?view=form-recog-3.0.0&preserve-view=true), [**Java**](quickstarts/get-started-sdks-rest-api.md?view=form-recog-3.0.0&preserve-view=true), [**JavaScript**](quickstarts/get-started-sdks-rest-api.md?view=form-recog-3.0.0&preserve-view=true), or [Python](quickstarts/get-started-sdks-rest-api.md?view=form-recog-3.0.0&preserve-view=true) SDK quickstarts to get started with the v3.0 version.
 
-* The Form Recognizer Sample Labeling tool is an open source tool that enables you to test the latest features of Azure Form Recognizer and Optical Character Recognition (OCR) services.
+* The Document Intelligence Sample Labeling tool is an open source tool that enables you to test the latest features of Document Intelligence and Optical Character Recognition (OCR) features.
 
 * Try the [**Sample Labeling tool quickstart**](quickstarts/try-sample-label-tool.md#train-a-custom-model) to get started building and using a custom model.
 
@@ -137,12 +138,12 @@ Extract data from your specific or unique documents using custom models. You nee
 
 ::: moniker range="form-recog-3.0.0"
 
-## Form Recognizer Studio
+## Document Intelligence Studio
 
 > [!NOTE]
-> Form Recognizer Studio is available with the v3.0 API.
+> Document Intelligence Studio is available with the v3.0 API.
 
-1. On the **Form Recognizer Studio** home page, select **Custom extraction models**.
+1. On the **Document Intelligence Studio** home page, select **Custom extraction models**.
 
 1. Under **My Projects**, select **Create a project**.
 
@@ -155,7 +156,7 @@ Extract data from your specific or unique documents using custom models. You nee
 1. Add your sample documents to label, build and test your custom model.
 
     > [!div class="nextstepaction"]
-    > [Try Form Recognizer Studio](https://formrecognizer.appliedai.azure.com/studio/customform/projects)
+    > [Try Document Intelligence Studio](https://formrecognizer.appliedai.azure.com/studio/customform/projects)
 
 For a detailed walkthrough to create your first custom extraction model, see [how to create a custom extraction model](how-to-guides/build-a-custom-model.md)
 
@@ -164,16 +165,16 @@ For a detailed walkthrough to create your first custom extraction model, see [ho
 Extract data from your specific or unique documents using custom models. You need the following resources:
 
 * An Azure subscription. You can [create one for free](https://azure.microsoft.com/free/cognitive-services/).
-* A [Form Recognizer instance](https://portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer) in the Azure portal. You can use the free pricing tier (`F0`) to try the service. After your resource deploys, select **Go to resource** to get your key and endpoint.
+* A [Document Intelligence instance](https://portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer) in the Azure portal. You can use the free pricing tier (`F0`) to try the service. After your resource deploys, select **Go to resource** to get your key and endpoint.
 
   :::image type="content" source="media/containers/keys-and-endpoint.png" alt-text="Screenshot that shows the keys and endpoint location in the Azure portal.":::
 
-## Form Recognizer Studio
+## Document Intelligence Studio
 
 > [!NOTE]
-> Form Recognizer Studio is available with the v3.0 API.
+> Document Intelligence Studio is available with the v3.0 API.
 
-1. On the **Form Recognizer Studio** home page, select **Custom classification models**.
+1. On the **Document Intelligence Studio** home page, select **Custom classification models**.
 
 1. Under **My Projects**, select **Create a project**.
 
@@ -186,11 +187,12 @@ Extract data from your specific or unique documents using custom models. You nee
 1. Label your documents to build and test your custom classification model.
 
     > [!div class="nextstepaction"]
-    > [Try Form Recognizer Studio](https://formrecognizer.appliedai.azure.com/studio/document-classifier/projects)
+    > [Try Document Intelligence Studio](https://formrecognizer.appliedai.azure.com/studio/document-classifier/projects)
 
 For a detailed walkthrough to create your first custom extraction model, see [how to create a custom extraction model](how-to-guides/build-a-custom-classifier.md)
 
 ---
+
 
 ## Custom model extraction summary
 
@@ -215,9 +217,9 @@ The following table describes the features available with the associated tools a
 
 | Document type | REST API | SDK | Label and Test Models|
 |--|--|--|--|
-| Custom form 2.1 | [Form Recognizer 2.1 GA API](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1/operations/AnalyzeWithCustomForm) | [Form Recognizer SDK](quickstarts/get-started-sdks-rest-api.md?view=form-recog-2.1.0&preserve-view=true?pivots=programming-language-python)| [Sample labeling tool](https://fott-2-1.azurewebsites.net/)|
-| Custom template 3.0 | [Form Recognizer 3.0](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2022-08-31/operations/AnalyzeDocument)| [Form Recognizer SDK](quickstarts/get-started-sdks-rest-api.md?view=form-recog-3.0.0&preserve-view=true)| [Form Recognizer Studio](https://formrecognizer.appliedai.azure.com/studio)|
-| Custom neural | [Form Recognizer 3.0](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2022-08-31/operations/AnalyzeDocument)| [Form Recognizer SDK](quickstarts/get-started-sdks-rest-api.md?view=form-recog-3.0.0&preserve-view=true)| [Form Recognizer Studio](https://formrecognizer.appliedai.azure.com/studio)
+| Custom form 2.1 | [Document Intelligence 2.1 GA API](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1/operations/AnalyzeWithCustomForm) | [Document Intelligence SDK](quickstarts/get-started-sdks-rest-api.md?view=form-recog-2.1.0&preserve-view=true?pivots=programming-language-python)| [Sample labeling tool](https://fott-2-1.azurewebsites.net/)|
+| Custom template 3.0 | [Document Intelligence 3.0](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2022-08-31/operations/AnalyzeDocument)| [Document Intelligence SDK](quickstarts/get-started-sdks-rest-api.md?view=form-recog-3.0.0&preserve-view=true)| [Document Intelligence Studio](https://formrecognizer.appliedai.azure.com/studio)|
+| Custom neural | [Document Intelligence 3.0](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2022-08-31/operations/AnalyzeDocument)| [Document Intelligence SDK](quickstarts/get-started-sdks-rest-api.md?view=form-recog-3.0.0&preserve-view=true)| [Document Intelligence Studio](https://formrecognizer.appliedai.azure.com/studio)
 
 > [!NOTE]
 > Custom template models trained with the 3.0 API will have a few improvements over the 2.1 API stemming from improvements to the OCR engine. Datasets used to train a custom template model using the 2.1 API can still be used to train a new model using the 3.0 API.
@@ -243,23 +245,23 @@ The following table describes the features available with the associated tools a
 ## Supported languages and locales
 
 >[!NOTE]
- > It's not necessary to specify a locale. This is an optional parameter. The Form Recognizer deep-learning technology will auto-detect the language of the text in your image.
+ > It's not necessary to specify a locale. This is an optional parameter. The Document Intelligence deep-learning technology will auto-detect the language of the text in your image.
 
- The Form Recognizer v3.0 version introduces more language support for custom models. For a list of supported handwritten and printed text, see [Language support](language-support.md).
+ The Document Intelligence v3.0 version introduces more language support for custom models. For a list of supported handwritten and printed text, see [Language support](language-support.md).
 
- Form Recognizer v3.0  introduces several new features and capabilities:
+ Document Intelligence v3.0  introduces several new features and capabilities:
 
 * **Custom model API**: This version supports signature detection for custom forms. When you train custom models, you can specify certain fields as signatures. When a document is analyzed with your custom model, it indicates whether a signature was detected or not.
-* [Form Recognizer v3.0 migration guide](v3-migration-guide.md): This guide shows you how to use the v3.0 version in your applications and workflows.
+* [Document Intelligence v3.0 migration guide](v3-migration-guide.md): This guide shows you how to use the v3.0 version in your applications and workflows.
 * [REST API](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2022-08-31/operations/AnalyzeDocument): This API shows you more about the v3.0 version and new capabilities.
 
 ### Try signature detection
 
 1. Build your training dataset.
 
-1. Go to [Form Recognizer Studio](https://formrecognizer.appliedai.azure.com/studio). Under **Custom models**, select **Custom form**.
+1. Go to [Document Intelligence Studio](https://formrecognizer.appliedai.azure.com/studio). Under **Custom models**, select **Custom form**.
 
-    :::image type="content" source="media/label-tool/select-custom-form.png" alt-text="Screenshot that shows selecting the Form Recognizer Studio Custom form page.":::
+    :::image type="content" source="media/label-tool/select-custom-form.png" alt-text="Screenshot that shows selecting the Document Intelligence Studio Custom form page.":::
 
 1. Follow the workflow to create a new project:
 
@@ -281,16 +283,16 @@ After your training set is labeled, you can train your custom model and use it t
 
 ::: moniker range="form-recog-3.0.0"
 
-* Try processing your own forms and documents with the [Form Recognizer Studio](https://formrecognizer.appliedai.azure.com/studio)
+* Try processing your own forms and documents with the [Document Intelligence Studio](https://formrecognizer.appliedai.azure.com/studio)
 
-* Complete a [Form Recognizer quickstart](quickstarts/get-started-sdks-rest-api.md?view=form-recog-3.0.0&preserve-view=true) and get started creating a document processing app in the development language of your choice.
+* Complete a [Document Intelligence quickstart](quickstarts/get-started-sdks-rest-api.md?view=form-recog-3.0.0&preserve-view=true) and get started creating a document processing app in the development language of your choice.
 
 ::: moniker-end
 
 ::: moniker range="form-recog-2.1.0"
 
-* Try processing your own forms and documents with the [Form Recognizer Sample Labeling tool](https://fott-2-1.azurewebsites.net/)
+* Try processing your own forms and documents with the [Document Intelligence Sample Labeling tool](https://fott-2-1.azurewebsites.net/)
 
-* Complete a [Form Recognizer quickstart](quickstarts/get-started-sdks-rest-api.md?view=form-recog-2.1.0&preserve-view=true) and get started creating a document processing app in the development language of your choice.
+* Complete a [Document Intelligence quickstart](quickstarts/get-started-sdks-rest-api.md?view=form-recog-2.1.0&preserve-view=true) and get started creating a document processing app in the development language of your choice.
 
 ::: moniker-end
