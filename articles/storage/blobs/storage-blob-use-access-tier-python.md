@@ -52,7 +52,7 @@ The following code example shows how to change the access tier for an existing b
 
 :::code language="python" source="~/azure-storage-snippets/blobs/howto/python/blob-devguide-py/blob-devguide-access-tiers.py" id="Snippet_change_blob_access_tier":::
 
-If you are rehydrating an archived blob, you can optionally pass the `rehydrate_priority` keyword argument as `HIGH` or `STANDARD`.
+If you're rehydrating an archived blob, you can optionally pass the `rehydrate_priority` keyword argument as `HIGH` or `STANDARD`.
 
 ## Copy a blob to a different access tier
 
