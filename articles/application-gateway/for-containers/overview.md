@@ -87,10 +87,10 @@ While in Public Preview, Application Gateway for Containers follows [Preview sup
 
 ## What's new
 
-To learn what's new with Application Gateway for Containers, see [Azure updates](https://azure.microsoft.com/updates/?category=networking&query=Traffic%20Controller).
+To learn what's new with Application Gateway for Containers, see [Azure updates](https://azure.microsoft.com/updates/?category=networking&query=Application%20Gateway%20for%20Containers).
 
 ## Next steps
 
 - [Concepts: How Application Gateway for Containers works](concepts-how-traffic-controller-works.md)
-- [Quickstart: Create an Application Gateway for Containers - Referenced deployment](quickstart-create-application-gateway-for-containers-referenced.md)
-- [Quickstart: Create an Application Gateway for Containers - Managed deployment](quickstart-create-application-gateway-for-containers-managed.md)
+- [Quickstart: Create an Application Gateway for Containers - Referenced deployment](quickstart-create-application-gateway-for-containers-referenced-deployment.md)
+- [Quickstart: Create an Application Gateway for Containers - Managed deployment](quickstart-create-application-gateway-for-containers-managed-deployment.md)
