@@ -233,7 +233,7 @@ resource policyDefinition 'Microsoft.Authorization/policyDefinitions@2021-06-01'
 }
 ```
 
-## Deploying the Bicep Solution
+## Deploy the Bicep Solution
 
 ### Deployment Prerequisites
 
@@ -295,7 +295,10 @@ az account set -s <subscriptionId>
 
 * **resourceGroupName**: [required] This parameter specifies the name of the resource group where the virtual network manager and sample virtual networks will be deployed.
 * **location**: [required] This parameter specifies the location of the resources to deploy. 
-* **networkGroupMembershipType**: [optional] This parameter specifies the type of Network Group membership to deploy. The default is `static`, but dynamic group membership can be used by specifying `dynamic`. Note, dynamic group membership deploys an Azure Policy to manage membership, requiring [more permissions](../governance/policy/overview.md#azure-rbac-permissions-in-azure-policy). 
+* **networkGroupMembershipType**: [optional] This parameter specifies the type of Network Group membership to deploy. The default is `static`, but dynamic group membership can be used by specifying `dynamic`. 
+
+> [!NOTE]
+> Choosing dynamic group membership deploys an Azure Policy to manage membership, requiring [more permissions](../governance/policy/overview.md#azure-rbac-permissions-in-azure-policy). 
 
 #### [PowerShell](#tab/powershell1)
 
