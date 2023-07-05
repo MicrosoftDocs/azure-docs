@@ -91,6 +91,6 @@ To learn what's new with Application Gateway for Containers, see [Azure updates]
 
 ## Next steps
 
-- [Concepts: How Application Gateway for Containers works](concepts-how-traffic-controller-works.md)
-- [Quickstart: Create an Application Gateway for Containers - Referenced deployment](quickstart-create-application-gateway-for-containers-referenced-deployment.md)
-- [Quickstart: Create an Application Gateway for Containers - Managed deployment](quickstart-create-application-gateway-for-containers-managed-deployment.md)
+- [Concepts: How Application Gateway for Containers works](concepts-how-application-gateway-for-containers-works.md)
+- [Quickstart: Create an Application Gateway for Containers - Bring your own (BYO) deployment](quickstart-create-application-gateway-for-containers-byo-deployment.md)
+- [Quickstart: Create an Application Gateway for Containers - ALB managed deployment](quickstart-create-application-gateway-for-containers-alb-managed-deployment.md)
