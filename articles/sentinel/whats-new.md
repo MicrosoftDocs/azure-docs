@@ -34,17 +34,19 @@ To ensure that Microsoft Sentinel's threat detection provides complete coverage 
 
 ## June 2023
 
-- [Content Hub is now generally available](#content-hub-is-now-generally-available)
+- [Content Hub general availability delayed](#content-hub-general-availability-delayed)
 - [Windows Forwarded Events connector is now generally available](#windows-forwarded-events-connector-is-now-generally-available)
 - [Connect multiple SAP System Identifiers via the UI](#connect-multiple-sap-system-identifiers-via-the-ui-preview)
 - [Classic alert automation due for deprecation](#classic-alert-automation-due-for-deprecation) (see Announcements)
 - [Microsoft Sentinel solution for SAP® applications: new systemconfig.json file](#microsoft-sentinel-solution-for-sap-applications-new-systemconfigjson-file)
 
-### Content Hub is now generally available
+### Content Hub general availability delayed
 
-Along with the general availability (GA) of content hub, the [content hub centralization changes announced in February](#out-of-the-box-content-centralization-changes) have also taken effect. For more information on these changes and their impact, including more details about the tool provided to reinstate **IN USE** gallery templates, see [Out-of-the-box (OOTB) content centralization changes](sentinel-content-centralize.md). 
+We had every intention of releasing content hub to general availability this week. Our engineering team recognized some problems just before launch and are taking the time to get it corrected. If you saw this announcement and were eagerly awaiting the updated experience to rollout to your tenant, we apologize for the mismatch here. So, here is the revised announcement in anticipation of general availability soon.
 
-As part of the deployment for GA, the default view of the content hub is now the **List view**. The install process is streamlined as well. When selecting **Install** or **Install/Update**, the experience behaves like bulk installation. For more information on the content hub GA, see this [blog post](https://aka.ms/sentinelcontenthubga-blogpost).
+When the general availability (GA) of content hub is released, the [content hub centralization changes announced in February](#out-of-the-box-content-centralization-changes) will also take effect. For more information on these changes and their impact, including more details about the tool provided to reinstate **IN USE** gallery templates, see [Out-of-the-box (OOTB) content centralization changes](sentinel-content-centralize.md). 
+
+As part of the deployment for GA, the default view of the content hub is now the **List view**. The install process is streamlined as well. When selecting **Install** or **Install/Update**, the experience behaves like bulk installation. 
 
 ### Windows Forwarded Events connector is now generally available
 

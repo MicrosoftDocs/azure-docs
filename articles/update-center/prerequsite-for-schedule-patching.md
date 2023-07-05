@@ -23,6 +23,11 @@ Additionally, in some instances, when you remove the schedule from a VM, there i
 > [!IMPORTANT]
 > For a continued scheduled patching experience, you must ensure that the new VM property, *BypassPlatformSafetyChecksOnUserSchedule*, is enabled on all your Azure VMs (existing or new) that have schedules attached to them by **30th June 2023**. This setting will ensure machines are patched using your configured schedules and not auto patched. Failing to enable by **30th June 2023** will give an error that the prerequisites aren't met.
 
+## Schedule patching in an availability set
+
+1. All VMs in a common [availability set](../virtual-machines/availability-set-overview.md) aren't updated concurrently.
+1. VMs in a common availability set are updated within Update Domain boundaries and, VMs across multiple Update Domains aren't updated concurrently.
+
 ## Find VMs with associated schedules
 
 To identify the list of VMs with the associated schedules for which you have to enable new VM property, follow these steps:

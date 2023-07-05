@@ -534,6 +534,8 @@
         href: cloud-academy-sso-tutorial.md
       - name: Cloud Management Portal for Microsoft Azure
         href: newsignature-tutorial.md
+      - name: CLOUD ATTENDANCE MANAGEMENT SYSTEM KING OF TIME
+        href: cloud-attendance-management-system-king-of-time-tutorial.md
       - name: CloudCords
         href: cloudcords-tutorial.md
       - name: CloudKnox Permissions Management Platform
@@ -594,6 +596,8 @@
         href: confluencemicrosoft-tutorial.md
       - name: App Proxy configuration for Confluence SAML SSO
         href: confluence-app-proxy-tutorial.md
+      - name: Connect1
+        href: connect1-tutorial.md
       - name: Consent2Go
         href: consent2go-tutorial.md
       - name: Contentful
@@ -698,6 +702,8 @@
         href: datto-file-protection-tutorial.md
       - name: Datto Workplace Single Sign On
         href: datto-workplace-tutorial.md
+      - name: DB Education Portal for Schools
+        href: db-education-portal-for-schools-tutorial.md
       - name: DDC Web
         href: ddc-web-tutorial.md
       - name: Dealpath
@@ -1811,6 +1817,8 @@
         href: opsgenie-tutorial.md
       - name: Optimizely
         href: optimizely-tutorial.md
+      - name: OptiTurn
+        href: optiturn-tutorial.md
       - name: Oracle Access Manager for Oracle E-Business Suite
         href: oracle-access-manager-for-oracle-ebs-tutorial.md
       - name: Oracle Access Manager for Oracle Retail Merchandising
@@ -2449,6 +2457,8 @@
         href: superannotate-tutorial.md
       - name: Supermood
         href: supermood-tutorial.md
+      - name: SURFconext
+        href: surfconext-tutorial.md
       - name: SURFsecureID - Azure MFA
         href: surfsecureid-azure-mfa-tutorial.md  
       - name: SurveyMonkey Enterprise
