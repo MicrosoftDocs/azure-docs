@@ -73,6 +73,12 @@ dotnet add package Azure.AI.ContentSafety --prerelease
 From the project directory, open the *Program.cs* file that was created previously. Paste in the following code:
 
 ```csharp
+// retrieve the endpoint and key from the environment variables created earlier
+string endpoint = Environment.GetEnvironmentVariable("CONTENT_SAFETY_ENDPOINT");
+string key = Environment.GetEnvironmentVariable("CONTENT_SAFETY_KEY");
+
+ContentSafetyClient client = new ContentSafetyClient(new Uri(endpoint), new AzureKeyCredential(key));
+
 string datapath = Path.Combine(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location), "Samples", "sample_data", "text.txt");
 string text = File.ReadAllText(datapath);
 
