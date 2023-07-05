@@ -189,7 +189,7 @@ Data sources provide the vectors in whatever format the data source supports (su
 
 ## Check your index for vector content
 
-You can query the index using Search Explorer in Azure portal or a REST API call. Because Cognitive Search can't convert a vector to human-readable text, try to return fields from the same document that provide evidence of the match. For example, if the vector query targets the "titleVector" field, you could select "title" for the search results.
+For validation purposes, you can query the index using Search Explorer in Azure portal or a REST API call. Because Cognitive Search can't convert a vector to human-readable text, try to return fields from the same document that provide evidence of the match. For example, if the vector query targets the "titleVector" field, you could select "title" for the search results.
 
 ```http
 POST https://my-search-service.search.windows.net/indexes/my-index/docs/search?api-version=2023-07-01-Preview
@@ -213,4 +213,6 @@ api-key: {{admin-api-key}}
 
 ## Next steps
 
-As a next step, we recommend reviewing the demo code for [Python](https://github.com/Azure/cognitive-search-vector-pr/tree/main/demo-python), [JavaScript](https://github.com/Azure/cognitive-search-vector-pr/tree/main/demo-javascript), or [C#](https://github.com/Azure/cognitive-search-vector-pr/tree/main/demo-dotnet).
+As a next step, we recommend [Query vector data in a search index](vector-search-how-to-query.md). 
+
+You might also consider reviewing the demo code for [Python](https://github.com/Azure/cognitive-search-vector-pr/tree/main/demo-python), [JavaScript](https://github.com/Azure/cognitive-search-vector-pr/tree/main/demo-javascript), or [C#](https://github.com/Azure/cognitive-search-vector-pr/tree/main/demo-dotnet).
