@@ -15,9 +15,23 @@ ms.date: 07/07/2023
 > [!IMPORTANT]
 > Vector search is in public preview under [supplemental terms of use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). It's available through the Azure portal, preview REST API, and [alpha SDKs](https://github.com/Azure/cognitive-search-vector-pr#readme).
 
-When you index documents with vector fields, we construct internal vector indexes and use the algorithm parameters you provide. The size of these vector indexes is restricted by the memory reserved for vector search for your service's tier (or SKU).
+When you index documents with vector fields, Azure Cognitive Search constructs internal vector indexes using the algorithm parameters that you specified for the field. Because Cognitive Search imposes limits on vector index size, it's important that you know how to retrieve metrics about the index size, and how to approach estimation.
 
-The service enforces a vector index size quota **for every partition** in your search service. Each extra partition increases the available vector index size quota. This quota is a hard limit to ensure your service remains healthy, which means that further indexing attempts once the limit is exceeded results in failure. You may resume indexing once you free up available quota by either deleting some vector documents or by scaling up in partitions.
+## Key points about vector size limits
+
+The size of vector indexes is restricted by the memory reserved for vector search for your service's tier (or SKU).
+
+The service enforces a vector index size quota **for every partition** in your search service, where the quota varies by tier and also by service creation date (see [Vector index size limits](search-limits-quotas-capacity.md#vector-index-size-limits) in service limits). 
+
+Each extra partition that you add to your service increases the available vector index size quota. This quota is a hard limit to ensure your service remains healthy. It also means that if vector size exceeds this limit, further indexing results in failure. You can resume indexing once you free up available quota by either deleting some vector documents or by scaling up in partitions.
+
+## How to get vector index size
+
+Use the preview REST APIs to return vector index size:
+
++ [GET Index Statistics](/rest/api/searchservice/preview-api/get-index-statistics) returns quota and usage for a given index.
+
++ [GET Service Statistics](/rest/api/searchservice/preview-api/get-service-statistics) returns quota and usage for the search service all-up.
 
 ## Factors affecting vector index size
 
@@ -29,7 +43,7 @@ There are three major components that affect the size of your internal vector in
 
 ### Raw size of the data
 
-Each vector is simply an array of numbers. We currently support single-precision floating-point numbers, which we call `Edm.Single`. These data structures require storage, which we refer to in this document as the **"raw size"** of your data. Use this _raw size_ to estimate the vector index size requirements of your vector fields.
+Each vector is an array of single-precision floating-point numbers, in a field of type `Collection(Edm.Single)`. Vector data structures require storage, represented in the following calculation as the "raw size" of your data. Use this _raw size_ to estimate the vector index size requirements of your vector fields.
 
 The storage size of one vector is determined by its dimensionality. Multiply the size of one vector by the number of documents containing that vector field to obtain the _raw size_: 
 
@@ -43,9 +57,9 @@ Each approximate-nearest-neighbor algorithm creates other data structures in mem
 
 **For HNSW algorithm, this overhead is between 5% to 20%.** 
 
-This overhead is lower for higher dimensions because the raw size of the vectors is larger, but the extra data structures remain a fixed size since they store information on connectivity within the graph. As a result, the contribution of the extra data structures makes up a smaller portion of the overall size. 
+Overhead is lower for higher dimensions because the raw size of the vectors is larger, but the extra data structures remain a fixed size since they store information on connectivity within the graph. As a result, the contribution of the extra data structures makes up a smaller portion of the overall size. 
 
-This overhead is higher for larger values of the HNSW parameter `m`, which sets the number of bi-directional links created for every new vector during index construction. (The reason is because _m_ contributes roughly _m times 8 to 10_ bytes per document.)
+Overhead is higher for larger values of the HNSW parameter `m`, which sets the number of bi-directional links created for every new vector during index construction. (The reason is because _m_ contributes roughly _m times 8 to 10_ bytes per document.)
 
 Based on internal tests, a model with _m=4_ and _dims=96_ has an overhead of ~17%, and a model with _m=4_ and _dims=768_ has an overhead of ~5%.
 
@@ -71,8 +85,8 @@ To obtain the **vector index size**, multiply this **raw_size** by the **algorit
 
 ## Storage size on disk
 
-Disk storage overhead of vector data is roughly three times the size of raw vector data.
+Disk storage overhead of vector data is roughly three times the size of raw vector data in memory.
 
 ## Storage vs. vector index size quotas
 
-The storage and vector index size quotas aren't separate quotas; vector indexes contribute to storage usage. For example, if your storage quota is exhausted but there's remaining vector quota, you can't index any more documents, regardless if they're vector documents, until you scale up in partitions to increase storage quota or delete documents (either text or vector) to reduce storage usage. Similarly, if vector quota is exhausted but there's remaining storage quota, further indexing attempts fail until vector quota is freed, either by deleting some vector documents or by scaling up in partitions.
+The storage and vector index size quotas aren't separate quotas. Vector indexes contribute to the [storage quota for the search service](search-limits-quotas-capacity.md#storage-limits) as a whole. For example, if your storage quota is exhausted but there's remaining vector quota, you can't index any more documents, regardless if they're vector documents, until you scale up in partitions to increase storage quota or delete documents (either text or vector) to reduce storage usage. Similarly, if vector quota is exhausted but there's remaining storage quota, further indexing attempts fail until vector quota is freed, either by deleting some vector documents or by scaling up in partitions.
