@@ -384,6 +384,7 @@ For more information about the supported configurations for different language a
 
 > [!NOTE]
 > In the following different language build and deploy configuration sections, `--build-env` means the environment is used in the build phase. `--env` means the environment is used in the runtime phase.
+
 > [!NOTE]
 > We recommend specifying the language version in case the default version changes. Taking java as an example, use `--build-env BP_JVM_VERSION=11.*` to specify java 11 as the JDK version. For other languages, you can get the environment variable name in the below detailed descriptions for each language.
 
