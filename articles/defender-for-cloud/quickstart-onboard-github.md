@@ -65,7 +65,7 @@ To connect your GitHub account to Microsoft Defender for Cloud:
 
 1. Select **Authorize** to grant your Azure subscription access to your GitHub repositories. Sign in, if necessary, with an account that has permissions to the repositories that you want to protect.
 
-   The authorization automatically signs in by using the session from your browser's tab. After you select **Authorize**, if you don't see the GitHub organizations that you expect to see, check whether you're signed in to Microsoft Defender for Cloud on one browser tab and signed in to GitHub on another browser tab.
+   The authorization automatically signs in by using the session from your browser's tab. After you select **Authorize**, if you don't see the GitHub organizations that you expect, check whether you're signed in to Microsoft Defender for Cloud on one browser tab and signed in to GitHub on another browser tab.
 
     After authorization, if you wait too long to install the DevOps application, the session will time out and you'll get an error message.
 
@@ -85,20 +85,17 @@ When the process finishes, the GitHub connector appears on your **Environment se
 
 The Defender for Cloud service automatically discovers the repositories that you selected and analyzes them for any security problems. Initial repository discovery can take up to 10 minutes during the onboarding process.
 
-When you select auto-discovery during the onboarding process, it can take up to 4 hours for repositories to appear after onboarding is completed. The auto-discovery process detects any new repositories and connects them to Defender for Cloud.
+When you select auto-discovery during the onboarding process, repositories can take up to 4 hours to appear after onboarding is completed. The auto-discovery process detects any new repositories and connects them to Defender for Cloud.
 
 The **Inventory** page shows your selected repositories. The **Recommendations** page shows any security problems related to a selected repository. This information can take 3 hours or more to appear.
 
 ## Learn more
 
 - [Azure and GitHub integration](/azure/developer/github/)
-
 - [Security hardening for GitHub Actions](https://docs.github.com/actions/security-guides/security-hardening-for-github-actions)
 
 ## Next steps
 
-Learn about [Defender for DevOps](defender-for-devops-introduction.md).
-
-Learn how to [configure the Microsoft Security DevOps GitHub action](github-action.md).
-
-Learn how to [configure pull request annotations](enable-pull-request-annotations.md) in Defender for Cloud.
+- Learn about [Defender for DevOps](defender-for-devops-introduction.md).
+- Learn how to [configure the Microsoft Security DevOps GitHub action](github-action.md).
+- Learn how to [configure pull request annotations](enable-pull-request-annotations.md) in Defender for Cloud.

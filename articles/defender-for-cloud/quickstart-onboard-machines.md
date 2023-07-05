@@ -58,7 +58,7 @@ After you connect Defender for Cloud to your Azure subscription, you can start c
 
 1. Select the **Get started** tab.
 
-1. Find **Add on-premises servers** and select **Configure**.
+1. Find **Add non-Azure servers** and select **Configure**.
 
     :::image type="content" source="./media/quickstart-onboard-machines/onboarding-get-started-tab.png" alt-text="Screenshot of the tab for getting started with Defender for Cloud and adding an on-premises server." lightbox="./media/quickstart-onboard-machines/onboarding-get-started-tab.png":::
 
@@ -154,5 +154,4 @@ There's no need to clean up any resources for this article.
 ## Next steps
 
 - [Protect all of your resources with Defender for Cloud](enable-all-plans.md).
-
 - Set up your [AWS account](quickstart-onboard-aws.md) and [GCP projects](quickstart-onboard-gcp.md).

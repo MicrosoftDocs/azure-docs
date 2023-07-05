@@ -34,7 +34,7 @@ If you're using an AWS management account, repeat the following steps to configu
 
 1. Enable [AWS Config](https://docs.aws.amazon.com/config/latest/developerguide/gs-console.html).
 1. Enable [AWS Security Hub](https://docs.aws.amazon.com/securityhub/latest/userguide/securityhub-settingup.html).
-1. Verify that data is flowing to Security Hub. When you first enable Security Hub, it might take several hours for data to be available.
+1. Verify that data is flowing to Security Hub. When you first enable Security Hub, the data might take several hours to become available.
 
 ### Set up authentication for Defender for Cloud in AWS
 
@@ -98,7 +98,7 @@ There are two ways to allow Defender for Cloud to authenticate to AWS:
 
 ### Configure the SSM Agent
 
-AWS Systems Manager is required for automating tasks across your AWS resources. If your EC2 instances don't have the SSM Agent, follow the relevant instructions from Amazon:
+AWS Systems Manager (SSM) is required for automating tasks across your AWS resources. If your EC2 instances don't have the SSM Agent, follow the relevant instructions from Amazon:
 
 - [Installing and Configuring SSM Agent on Windows Instances](https://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-install-ssm-win.html)
 
@@ -220,7 +220,7 @@ For all the GCP projects in your organization, you must:
 
 The instructions for connecting your GCP environment for security configuration follow Google's recommendations for consuming security configuration recommendations. The integration applies Google Security Command Center and consumes extra resources that might affect your billing.
 
-When you first enable Security Health Analytics, it might take several hours for data to be available.
+When you first enable Security Health Analytics, the data might take several hours to become available.
 
 ### Enable the GCP Security Command Center API
 
@@ -236,7 +236,7 @@ When you first enable Security Health Analytics, it might take several hours for
 
 ### Create a dedicated service account for the security configuration integration
 
-1. In the GCP console, select a project from the organization in which you're creating the required service account.
+1. On the GCP console, select a project from the organization in which you're creating the required service account.
 
     > [!NOTE]
     > When you add this service account at the organization level, it will be used to access the data that Security Command Center gathers from all of the other enabled projects in the organization.
@@ -261,7 +261,7 @@ When you first enable Security Health Analytics, it might take several hours for
 
     1. In the **New members** box, paste the **Email value** information that you copied earlier.
 
-    1. Specify the role as **Defender for Cloud Admin Viewer**, and then select **Save**.
+    1. Specify the role as **Security Center Admin Viewer**, and then select **Save**.
 
     :::image type="content" source="./media/quickstart-onboard-gcp/iam-settings-gcp-permissions-admin-viewer.png" alt-text="Screenshot that shows how to set the relevant GCP permissions." lightbox="./media/quickstart-onboard-gcp/iam-settings-gcp-permissions-admin-viewer.png":::
 

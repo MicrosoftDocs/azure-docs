@@ -46,9 +46,7 @@ If you choose the Microsoft Defender for Containers plan, you need:
 If you choose the Microsoft Defender for SQL plan, you need:
 
 - Microsoft Defender for SQL enabled on your subscription. [Learn how to protect your databases](tutorial-enable-databases-plan.md).
-
 - An active AWS account, with EC2 instances running SQL Server or RDS Custom for SQL Server.
-
 - Azure Arc for servers installed on your EC2 instances or RDS Custom for SQL Server.
 
 We recommend that you use the auto-provisioning process to install Azure Arc on all of your existing and future EC2 instances. To enable the Azure Arc auto-provisioning, you need **Owner** permission on the relevant Azure subscription.
@@ -125,7 +123,7 @@ To connect your AWS to Defender for Cloud by using a native connector:
     > [!IMPORTANT]
     > To present the current status of your recommendations, the Microsoft Defender Cloud Security Posture Management plan queries the AWS resource APIs several times a day. These read-only API calls incur no charges, but they *are* registered in CloudTrail if you've enabled a trail for read events.
     >
-    > As explained in [the AWS documentation](https://aws.amazon.com/cloudtrail/pricing/), there are no additional charges for keeping one trail. If you're exporting the data out of AWS (for example, to an external SIEM system), this increased volume of calls might also increase ingestion costs. In such cases, We recommend filtering out the read-only calls from the Defender for Cloud user or ARN role: `arn:aws:iam::[accountId]:role/CspmMonitorAws`. (This is the default role name. Confirm the role name configured on your account.)
+    > As explained in [the AWS documentation](https://aws.amazon.com/cloudtrail/pricing/), there are no additional charges for keeping one trail. If you're exporting the data out of AWS (for example, to an external SIEM system), this increased volume of calls might also increase ingestion costs. In such cases, we recommend filtering out the read-only calls from the Defender for Cloud user or ARN role: `arn:aws:iam::[accountId]:role/CspmMonitorAws`. (This is the default role name. Confirm the role name configured on your account.)
 
 1. By default, the **Servers** plan is set to **On**. This setting is necessary to extend the coverage of Defender for Servers to AWS EC2. Ensure that you've fulfilled the [network requirements for Azure Arc](../azure-arc/servers/network-requirements.md?tabs=azure-cloud).
 
@@ -218,7 +216,7 @@ To view all the active recommendations for your resources by resource type, use 
 
 Check out the following blogs:
 
-- [Ignite 2021: Microsoft Defender for Cloud news](https://techcommunity.microsoft.com/t5/microsoft-defender-for-cloud/ignite-2021-microsoft-defender-for-cloud-news/ba-p/2882807).
+- [Ignite 2021: Microsoft Defender for Cloud news](https://techcommunity.microsoft.com/t5/microsoft-defender-for-cloud/ignite-2021-microsoft-defender-for-cloud-news/ba-p/2882807)
 - [Security posture management and server protection for AWS and GCP](https://techcommunity.microsoft.com/t5/microsoft-defender-for-cloud/security-posture-management-and-server-protection-for-aws-and/ba-p/3271388)
 
 ## Clean up resources

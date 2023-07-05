@@ -44,7 +44,7 @@ To connect your Azure DevOps organization to Defender for Cloud by using a nativ
 
 1. Sign in to the [Azure portal](https://portal.azure.com/).
 
-1. Go to **Microsoft Defender for Cloud** > **Environment Settings**.
+1. Go to **Microsoft Defender for Cloud** > **Environment settings**.
 
 1. Select **Add environment**.
 
@@ -62,7 +62,7 @@ To connect your Azure DevOps organization to Defender for Cloud by using a nativ
 
 1. Select **Authorize**.
 
-   The authorization automatically signs in by using the session from your browser's tab. After you select **Authorize**, if you don't see the Azure DevOps organizations that you expect to see, check whether you're signed in to Microsoft Defender for Cloud on one browser tab and signed in to Azure DevOps on another browser tab.
+   The authorization automatically signs in by using the session from your browser's tab. After you select **Authorize**, if you don't see the Azure DevOps organizations that you expect, check whether you're signed in to Microsoft Defender for Cloud on one browser tab and signed in to Azure DevOps on another browser tab.
 
 1. In the popup dialog, read the list of permission requests, and then select **Accept**.
 
@@ -82,7 +82,7 @@ To connect your Azure DevOps organization to Defender for Cloud by using a nativ
 
 The Defender for DevOps service automatically discovers the organizations, projects, and repositories that you selected and analyzes them for any security problems.
 
-When you select auto-discovery during the onboarding process, it can take up to 4 hours for repositories to appear.
+When you select auto-discovery during the onboarding process, repositories can take up to 4 hours to appear.
 
 The **Inventory** page shows your selected repositories. The **Recommendations** page shows any security problems related to a selected repository.
 
