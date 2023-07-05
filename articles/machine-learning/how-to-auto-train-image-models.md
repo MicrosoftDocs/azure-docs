@@ -395,7 +395,7 @@ In individual trials, you directly control the model architecture and hyperparam
 
 The following table summarizes the supported legacy models for each computer vision task. These models are compatible with the legacy runtime orchestration as well as the new pipelines orchestration.
 
-If you are using the pipelines orchestration, you can additionally use image classification models from the [HuggingFace Hub](https://huggingface.co/models?pipeline_tag=image-classification&library=transformers) which are part of the transformers library, as well as object detection and instance segmentation models from the [MMDetection Model Zoo](https://mmdetection.readthedocs.io/en/latest/model_zoo.html). For curated models from HuggingFace and MMDetection, please visit the [Azure Machine Learning Model Catalog](concept-foundation-models.md).
+If you are using the pipelines orchestration, you can additionally use image classification models from the [HuggingFace Hub](https://huggingface.co/models?pipeline_tag=image-classification&library=transformers) which are part of the transformers library (such as microsoft/beit-base-patch16-224), as well as object detection and instance segmentation models from the [MMDetection Model Zoo](https://mmdetection.readthedocs.io/en/latest/model_zoo.html) (such as atss_r50_fpn_1x_coco). For curated models from HuggingFace and MMDetection, please visit the [Azure Machine Learning Model Catalog](concept-foundation-models.md).
 
 Task |  model architectures | String literal syntax<br> ***`default_model`\**** denoted with \*
 ---|----------|----------
