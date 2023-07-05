@@ -55,7 +55,7 @@ Create a new [ImageAnalysisOptions](/dotnet/api/azure.ai.vision.imageanalysis.im
 
 ### Set model name when using a custom model
 
-You can also do image analysis with a custom trained model. To create and train a model, see [Create a custom Image Analysis model](/azure/cognitive-services/computer-vision/quickstarts-sdk/how-to/model-customization). Once your model is trained, all you need is the model's name. You do not need to specify visual features if you use a custom model.
+You can also do image analysis with a custom trained model. To create and train a model, see [Create a custom Image Analysis model](/azure/cognitive-services/computer-vision/how-to/model-customization). Once your model is trained, all you need is the model's name. You do not need to specify visual features if you use a custom model.
 
 
 To use a custom model, create the [ImageAnalysisOptions](/dotnet/api/azure.ai.vision.imageanalysis.imageanalysisoptions) object and set the [ModelName](/dotnet/api/azure.ai.vision.imageanalysis.imageanalysisoptions.modelname#azure-ai-vision-imageanalysis-imageanalysisoptions-modelname) property. You don't need to set any other properties on **ImageAnalysisOptions**. There's no need to set the [Features](/dotnet/api/azure.ai.vision.imageanalysis.imageanalysisoptions.features#azure-ai-vision-imageanalysis-imageanalysisoptions-features) property, as you do with the standard model, since your custom model already implies the visual features the service extracts.
