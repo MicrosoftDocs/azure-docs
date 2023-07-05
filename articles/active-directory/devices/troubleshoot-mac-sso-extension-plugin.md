@@ -708,6 +708,14 @@ Next, use the correlation ID obtained from the Browser SSO extension logs  to cr
 |**Managed**| Indicates that device is under management. |
 |**Join Type**| macOS and iOS, if registered, can only be of type: **Azure AD Registered**. |
 
+#### Delete PRT Using Company Portal
+The following steps can be used to remove a PRT of the device with the Company Portal:
+1. From the macOS device, click on the spotlight icon
+1. When the Spotlight Search appears, type Company Portal and hit return.
+1. When the Company Portal page loads, click on the account logged in on the top right hand corner
+1. On this page, click Remove account from this device button
+1. On the keychain access window, refresh the search and you will be able to validate the PRT has been remove
+
 ## Next steps
 
 - [Microsoft Enterprise SSO plug-in for Apple devices (preview)](../develop/apple-sso-plugin.md)
