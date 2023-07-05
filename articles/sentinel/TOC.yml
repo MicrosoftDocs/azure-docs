@@ -1015,9 +1015,7 @@
   - name: Troubleshoot Jupyter notebooks
     href: notebooks-troubleshoot.md
   - name: Troubleshoot SAP solution deployment
-    href: sap/sap-deploy-troubleshoot.md
-  - name: Configure SAP Transport Management System
-    href: sap/configure-transport.md  
+    href: sap/sap-deploy-troubleshoot.md    
 - name: Reference
   items:
   - name: SAP solution

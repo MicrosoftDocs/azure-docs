@@ -1696,6 +1696,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/sentinel/sap/configure-transport.md",
+            "redirect_url": "/azure/sentinel/sap/sap-deploy-troubleshoot.md",
+            "redirect_document_id": false
+        },
+        {
             "source_path": "articles/backup/sap-hana-db-manage.md",
             "redirect_url": "/azure/backup/sap-hana-database-manage",
             "redirect_document_id": false

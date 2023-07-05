@@ -326,10 +326,6 @@ Learn more about the Microsoft Sentinel solution for SAP® applications:
 - [Enable and configure SAP auditing](configure-audit.md)
 - [Collect SAP HANA audit logs](collect-sap-hana-audit-logs.md)
 
-Troubleshooting:
-
-- [Configure SAP Transport Management System](configure-transport.md)
-
 Reference files:
 
 - [Microsoft Sentinel solution for SAP® applications solution data reference](sap-solution-log-reference.md)
