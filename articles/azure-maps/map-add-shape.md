@@ -148,7 +148,7 @@ For a fully functional sample that shows how to use an image template as a fill 
 
 ## Customize a polygon layer
 
-The Polygon layer only has a few styling options. See the [Polygon Layer Options] sample map in the [Azure Maps Samples] to try them out.
+The Polygon layer only has a few styling options. See the [Polygon Layer Options] sample map in the [Azure Maps Samples] to try them out. For the source code for this sample, see [Polygon Layer Options source code].
 
 :::image type="content" source="./media/map-add-shape/polygon-layer-options.png" alt-text="A screenshot of the Polygon Layer Options tool.":::
 
@@ -292,6 +292,8 @@ More resources:
 [How to use image templates]: how-to-use-image-templates-web-sdk.md
 [Make a geometry easy to update source code]: https://github.com/Azure-Samples/AzureMapsCodeSamples/blob/main/Samples/Polygons/Make%20a%20geometry%20easy%20to%20update/Make%20a%20geometry%20easy%20to%20update.html
 [Make a geometry easy to update]: https://samples.azuremaps.com/?sample=make-a-geometry-easy-to-update
+[Polygon Layer Options source code]: https://github.com/Azure-Samples/AzureMapsCodeSamples/blob/main/Samples/Polygons/Polygon%20Layer%20Options/Polygon%20Layer%20Options.html
+[Polygon Layer Options]: https://samples.azuremaps.com/polygons/polygon-layer-options
 [Polygon]: /javascript/api/azure-maps-control/atlas.data.polygon
 [PolygonLayer]: /javascript/api/azure-maps-control/atlas.layer.polygonlayer
 [PolygonLayerOptions]: /javascript/api/azure-maps-control/atlas.polygonlayeroptions

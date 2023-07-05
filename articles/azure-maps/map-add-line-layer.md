@@ -194,7 +194,6 @@ See the following articles for more code samples to add to your maps:
 [Add a popup]: map-add-popup.md
 [Azure Maps Samples]: https://samples.azuremaps.com
 [Create a data source]: create-data-source-web-sdk.md
-[How to use image templates]
 [How to use image templates]: how-to-use-image-templates-web-sdk.md
 [Line Layer Options source code]: https://github.com/Azure-Samples/AzureMapsCodeSamples/blob/main/Samples/Line%20Layer/Line%20Layer%20Options/Line%20Layer%20Options.html
 [Line Layer Options]: https://samples.azuremaps.com/line-layer/line-layer-options
