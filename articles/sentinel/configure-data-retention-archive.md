@@ -5,24 +5,23 @@ author: limwainstein
 ms.topic: how-to
 ms.date: 07/05/2023
 ms.author: lwainstein
-#Customer intent: As a SOC analyst, I want to enable the Microsoft Sentinel service and the key features and content, so I can get started with my deployment.
+#Customer intent: As a SOC analyst, I want to set up data retention and archive settings so I can retain the data that's important to my organization in the long term.
 ---
 
 # Configure data retention and archive in Microsoft Sentinel
 
-TBD
+In the previous deployment step, you enabled the User and Entity Behavior Analytics (UEBA) feature to streamline your analysis process. In this article, you learn how to set up data retention and archive, to make sure your organization retains the data that's important in the long term. 
 
-## Configure data retention and archive per table
+## Configure data retention and archive
 
-TBD
+Retention policies define when to remove or archive data in a Log Analytics workspace. Archiving lets you keep older, less used data in your workspace at a reduced cost. To set up data retention, use one or both of these methods, depending on your use case:
 
-## Configure data retention and archive for multiple tables
-
-TBD
+- [Configure data retention and archive for one or more tables](../azure-monitor/logs/data-retention-archive.md) (one table at a time)
+- [Configure data retention and archive for multiple tables](https://github.com/Azure/Azure-Sentinel/tree/master/Tools/Archive-Log-Tool) at once
 
 ## Next steps
 
-In this article, you learned how to enable Microsoft Sentinel, its health and audit feature, and required content.
+In this article, you learned how to set up data retention and archive.
 
 > [!div class="nextstepaction"]
->>[Configure content](configure-content.md)
+>>[Perform post-deployment steps](post-deployment-overview.md)
