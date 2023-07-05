@@ -237,7 +237,7 @@ Combining the pricing tiers offers a simplification to the overall billing and c
 A slight change to how free trials are offered was made to provide further simplification. There used to be a free trial option that waived Microsoft Sentinel costs and charged Log Analytics costs regularly, this will no longer be offered as an option. Starting July 5, 2023 all new Microsoft Sentinel workspaces will result in a 31 day free trial of 10 GB/day for the combined ingestion and analysis costs on Microsoft Sentinel and Log Analytics.
 
 ##### How do I get started with the simplified pricing tier?
-All new Microsoft Sentinel workspaces will automatically default to the simplified pricing tiers. Existing workspaces will have the choice to switch to the new pricing from Microsoft Sentinel settings. For more information, see the [simplified pricing tiers](billing.md#simplified-pricing-tiers) section of our cost planning documentation and [this featured blog post](https://aka.ms/SentinelSimplifiedPricing).
+All new Microsoft Sentinel workspaces will automatically default to the simplified pricing tiers. Existing workspaces will have the choice to switch to the new pricing from Microsoft Sentinel settings. For more information, see the [simplified pricing tiers](billing.md#simplified-pricing-tiers) section of our cost planning documentation.
 
 ### Classic alert automation due for deprecation
 
