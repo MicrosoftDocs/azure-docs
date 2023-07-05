@@ -15,7 +15,7 @@ ms.date: 07/07/2023
 > [!IMPORTANT]
 > Vector search is in public preview under [supplemental terms of use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). It's available through the Azure portal, preview REST API, and [alpha SDKs](https://github.com/Azure/cognitive-search-vector-pr#readme).
 
-In Azure Cognitive Search, vector data is represented in fields in a [search index](search-what-is-an-index.md). If you added vector fields to a search index, this article explains how to query those fields, plus how to combine vector queries with full text search and semantic search for hybrid scenarios.
+In Azure Cognitive Search, if you added vector fields to a search index, this article explains how to query those fields. It also explains how to combine vector queries with full text search and semantic search for hybrid query scenarios.
 
 ## Prerequisites
 
@@ -23,7 +23,7 @@ In Azure Cognitive Search, vector data is represented in fields in a [search ind
 
   Most existing services support vector search. For a small subset of services created prior to January 2019, an index containing vector fields will fail on creation. In this situation, a new service must be created.
 
-+ Pre-existing embeddings. Cognitive Search doesn't generate embeddings. We recommend Azure OpenAI but you can use any model for vectorization. Be sure to use the same model for both indexing and queries. At query time, you must include a step that converts the user's query into a vector.
++ A search index containing vector fields. See [Add vector fields to a search index](vector-search-how-to-query.md).
 
 + Use REST API version 2023-07-01-preview or Azure portal to query vector fields. You can also use alpha versions of the Azure SDKs. For more information, see [this readme](https://github.com/Azure/cognitive-search-vector-pr/blob/main/README.md).
 
@@ -39,7 +39,43 @@ Search documents containing vector data have fields containing many hundreds of 
 
 ## Convert query input into a vector
 
-To query a vector field, the query itself must be a vector. To convert a text query string provided by a user into a vector representation, your application must call an embedding library that provides this capability.
+To query a vector field, the query itself must be a vector. To convert a text query string provided by a user into a vector representation, your application must call an embedding library that provides this capability. Use the same embedding library that you used to generate embeddings in the source documents.
+
+Here's an example of a query string submitted to a deployment of an Azure OpenAI model:
+
+```http
+POST https://{{openai-service-name}}.openai.azure.com/openai/deployments/{{openai-deployment-name}}/embeddings?api-version={{openai-api-version}}
+Content-Type: application/json
+api-key: {{admin-api-key}}
+{
+    "input": "what azure services support full text search"
+}
+```
+
+The expected response is 202, where the vector representation of the "input" is in the "embedding" field. For testing purposes, you would copy the embedding value into "vector.value" in a query request, using syntax from the next sections. Note that the actual response for this query included 1536 embeddings, trimmed here for brevity.
+
+```json
+{
+    "object": "list",
+    "data": [
+        {
+            "object": "embedding",
+            "index": 0,
+            "embedding": [
+                -0.009171937,
+                0.018715322,
+                ...
+                -0.0016804502
+            ]
+        }
+    ],
+    "model": "ada",
+    "usage": {
+        "prompt_tokens": 7,
+        "total_tokens": 7
+    }
+}
+```
 
 ## Query syntax for vector search
 
@@ -67,7 +103,7 @@ api-key: {{admin-api-key}}
 }
 ```
 
-The response includes 5 matches, and each result provides a search score, title, content, and category. In a similarity search, the response always includes "k" matches, although the search score is low if the similarity is weak.
+The response includes 5 matches, and each result provides a search score, title, content, and category. In a similarity search, the response always includes "k" matches, even if the similarity is weak.
 
 ## Query syntax for hybrid search
 

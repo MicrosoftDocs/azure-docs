@@ -23,13 +23,13 @@ In Azure Cognitive Search, vector data is represented in fields in a [search ind
 
   Most existing services support vector search. For a small subset of services created prior to January 2019, an index containing vector fields will fail on creation. In this situation, a new service must be created.
 
-+ Pre-existing embeddings. Cognitive Search doesn't generate embeddings. We recommend Azure OpenAI but you can use any model for vectorization. For more information, see [Create and use embeddings for search queries and documents](vector-search-how-to-generate-embeddings.md).
++ Pre-existing embeddings in your source documents. Cognitive Search doesn't generate embeddings. We recommend Azure OpenAI but you can use any model for vectorization. For more information, see [Create and use embeddings for search queries and documents](vector-search-how-to-generate-embeddings.md).
 
-  Be sure to use the same model for both indexing and queries. At query time, you must include a step that converts the user's query into a vector.
+  Be sure to use the same embedding model for both indexing and queries. At query time, you must include a step that converts the user's query into a vector. 
 
 ## Prepare documents for indexing
 
-Prior to indexing, assemble a documents payload that includes vector data. The document structure must conform to the index schema. Make sure your documents include the following elements.
+Prior to indexing, assemble a document payload that includes vector data. The document structure must conform to the index schema. Make sure your documents include the following elements:
 
 1. Provide a unique value or a metadata property that uniquely identifies each source document. All search indexes require a document key as a unique identifier, which means all documents must have one field that can be mapped to type `Edm.String` and `key=true` in the search index. 
 
