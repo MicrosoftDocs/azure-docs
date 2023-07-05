@@ -44,7 +44,7 @@ Though you can use app roles or groups for authorization, key differences betwee
 
 [!INCLUDE [ciam-security-group](./includes/access-control/add-security-group.md)]
 
-Azure AD for customers can include a user's group membership information in tokens for use within applications. You will learn how to add the group claim to tokens in ["Assign users and groups to roles"](#assign-users-and-groups-to-roles) section.
+Azure AD for customers can include a user's group membership information in tokens for use within applications. You learn how to add the group claim to tokens in [Assign users and groups to roles](#assign-users-and-groups-to-roles) section.
 
 ## Declare roles for an application
 
