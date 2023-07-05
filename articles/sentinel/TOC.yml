@@ -33,6 +33,20 @@
       href: roles.md
     - name: Plan costs
       href: billing.md
+  - name: Deploy
+    items: 
+    - name: Overview   
+      href: deploy-overview.md
+    - name: Enable Microsoft Sentinel and initial features and content
+      href: enable-sentinel-features-content.md
+    - name: Configure content
+      href: configure-content.md
+    - name: Set up multiple workspaces
+      href: use-multiple-workspaces.md
+    - name: Enable User and Entity Behavior Analytics (UEBA)
+      href: enable-entity-behavior-analytics.md
+    - name: Configure data retention and archive 
+      href: configure-data-retention-archive.md
 - name: Tutorials
   items:
   - name: Forward syslog data to workspace
@@ -838,9 +852,7 @@
       - name: Handle ingestion delay in analytics rules
         href: ingestion-delay.md
       - name: Get fine-tuning recommendations
-        href: detection-tuning.md
-    - name: Enable User and Entity Behavior Analytics (UEBA)
-      href: enable-entity-behavior-analytics.md
+        href: detection-tuning.md    
     - name: Work with out-of-the-box anomaly rules
       href: work-with-anomaly-rules.md
     - name: Configure multistage attack (Fusion) rules

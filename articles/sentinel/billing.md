@@ -219,4 +219,4 @@ Learn more about how to [connect data sources](connect-data-sources.md), includi
 In this article, you learned how to plan costs and understand the billing for Microsoft Sentinel.
 
 > [!div class="nextstepaction"]
-> >[TBD](TBD)
+> >[Deploy Microsoft Sentinel](deploy-overview.md)
