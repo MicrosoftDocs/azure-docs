@@ -1,7 +1,7 @@
 ---
 title: Access your application in a private network
 description: Access an app in Azure Spring Apps in a virtual network.
-author: karlerickson
+author: KarlErickson
 ms.author: karler
 ms.service: spring-apps
 ms.topic: how-to

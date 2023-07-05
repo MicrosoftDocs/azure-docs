@@ -43,14 +43,6 @@
     href: tutorial-ingress-controller-add-on-existing.md
   - name: Deploy Application Gateway with DDoS protection
     href: tutorial-protect-application-gateway.md
-- name: Samples
-  items:
-  - name: Azure PowerShell
-    href: powershell-samples.md
-  - name: Azure CLI
-    href: cli-samples.md
-  - name: Resource Manager templates
-    href: resource-manager-template-samples.md
 - name: Concepts
   items:
   - name: Support for working remotely
