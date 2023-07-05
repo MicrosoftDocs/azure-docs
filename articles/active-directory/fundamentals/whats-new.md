@@ -75,7 +75,7 @@ The Entitlement Management service can now be targeted in the conditional access
 **Service category:** Azure Mobile App                             
 **Product capability:** End User Experiences                  
 
-The Azure Mobile app now includes a section for Azure Active Directory. Within Azure Active Directory on mobile, user can search for and view more details about user and groups. Additionally, permitted users can invite guest users to their active tenant, assign group memberships and ownerships for users, and view user sign-in logs. For more information, see: [What is Azure Active Directory?](../fundamentals/active-directory-whatis.md).
+The Azure Mobile app now includes a section for Azure Active Directory. Within Azure Active Directory on mobile, user can search for and view more details about user and groups. Additionally, permitted users can invite guest users to their active tenant, assign group memberships and ownerships for users, and view user sign-in logs. For more information, see: [Get the Azure mobile app](https://azure.microsoft.com/get-started/azure-portal/mobile-app/).
 
 ---
 
