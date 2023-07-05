@@ -43,7 +43,7 @@ Azure Spring Apps supports CA certificates for all language family buildpacks, b
 | Buildpack   | ApplicationInsights | New Relic | AppDynamics | Dynatrace | ElasticAPM |
 |-------------|---------------------|-----------|-------------|-----------|------------|
 | Java        | ✔                  | ✔         | ✔          | ✔         | ✔         |
-| Dotnet      |                     |           |             | ✔        |            |
+| Dotnet      |                     | ✔         |             | ✔        |            |
 | Go          |                     |           |             | ✔        |            |
 | Python      |                     |           |             |           |            |
 | NodeJS      |                     | ✔        | ✔           | ✔        | ✔          |
@@ -89,6 +89,7 @@ This section lists the supported languages and required environment variables fo
 
   Supported languages:
   - Java
+  - .NET
   - Node.js
 
   Environment variables required for buildpack binding:
