@@ -2,6 +2,7 @@
 title: Ingest events from Azure Event Hubs into Azure Monitor Logs
 description: Ingest logs from Event Hubs into Azure Monitor Logs 
 services: azure-monitor
+ms.custom: references_regions
 author: guywi-ms
 ms.author: guywild
 ms.reviewer: ilanawaitser
@@ -138,7 +139,7 @@ To collect data with a data collection rule, you need a data collection endpoint
 
 1. Copy the **Resource ID** for the data collection rule. You'll use this information in the next step.
 
-    :::image type="content" source="media/ingest-logs-event-hub/data-collection-rule-json-view.png" lightbox="media/ingest-logs-event-hub/data-collection-endpoint-json-view.png" alt-text="Screenshot that shows the data collection endpoint JSON view.":::
+    :::image type="content" source="media/ingest-logs-event-hub/data-collection-rule-json-view.png" lightbox="media/ingest-logs-event-hub/data-collection-rule-json-view.png" alt-text="Screenshot that shows the data collection endpoint JSON view.":::
     
 ## Create a data collection rule
 
@@ -361,7 +362,7 @@ The final step is to associate the data collection rule to the event hub from wh
 You can associate a single data collection rule with multiple event hubs that share the same [consumer group](../../event-hubs/event-hubs-features.md#consumer-groups) and ingest data to the same stream. Alternatively, you can associate a unique data collection rule to each event hub.
 
 > [!IMPORTANT]
-> You must associate at least one data collection rule to the event hub to ingest data from an event hub. When you delete all data collection rules associations related to the event hub, you'll stop ingesting data from the event hub.
+> You must associate at least one data collection rule to the event hub to ingest data from an event hub. When you delete all data collection rule associations related to the event hub, you'll stop ingesting data from the event hub.
 
 To create a data collection rule association in the Azure portal:
 
