@@ -14,17 +14,6 @@ ms.custom:
 
 As an IT administrator, you need to monitor the performance, experience, and availability of the traffic flowing through your networks. Within the Global Secure Access (preview) logs there are many data points that you can review to gain insights into your network traffic. This article describes the logs and dashboards that are available to you and some common monitoring scenarios.
 
-## Prerequisites
-
-- Audit logs are available for all services that you have licensed
-- Accessing audit logs requires one of the following roles:
-    - Reports Reader
-    - Security Reader
-    - Security Administrator
-    - Global Reader
-    - Global Administrator
-- Exporting the enriched Microsoft 365 logs requires a **Global Administrator** or **Security Administrator** role
-
 ## Network traffic dashboard
 
 The Global Secure Access network traffic dashboard provides you with visualizations of the traffic flowing through the Microsoft Entra Private Access and Microsoft Entra Internet Access services, which include Microsoft 365 and Private Access traffic. The dashboard provides a summary of the data related to product deployment and insights. Within these categories you can see the number of users, devices, and applications seen in the last 24 hours. You can also see device activity and cross-tenant access.

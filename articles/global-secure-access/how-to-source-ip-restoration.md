@@ -27,7 +27,7 @@ Source IP restoration in Global Secure Access (preview) allows backward compatib
 * Administrators who interact with **Global Secure Access preview** features must have both of the following role assignments depending on the tasks they're performing.
    * A **Global Secure Access Administrator** role to manage the Global Secure Access preview features
    * [Conditional Access Administrator](/azure/active-directory/roles/permissions-reference#conditional-access-administrator) or [Security Administrator](/azure/active-directory/roles/permissions-reference#security-administrator) to create and interact with Conditional Access policies and named locations.
-* A Windows client machine with the [Global Secure Access Client installed](how-to-install-windows-client.md) and running or a [remote network configured](how-to-manage-remote-networks.md).
+* The preview requires a Microsoft Entra ID Premium P1 license. If needed, you can [purchase licenses or get trial licenses](https://aka.ms/azureadlicense).
  
 ### Known limitations
 

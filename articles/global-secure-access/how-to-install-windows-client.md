@@ -19,6 +19,7 @@ The Global Secure Access Client allows organizations control over network traffi
 - Devices must be either Azure AD joined or hybrid Azure AD joined. 
    - Azure AD registered devices aren't supported.
 - Local administrator credentials are required for installation.
+- The preview requires a Microsoft Entra ID Premium P1 license. If needed, you can [purchase licenses or get trial licenses](https://aka.ms/azureadlicense).
 
 ### Known limitations
 

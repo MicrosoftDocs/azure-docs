@@ -21,7 +21,7 @@ Administrators who interact with **Global Secure Access preview** features must 
 
 To follow the [Zero Trust principle of least privilege](/security/zero-trust/), consider using [Privileged Identity Management (PIM)](../active-directory/privileged-identity-management/pim-configure.md) to activate just-in-time privileged role assignments.
 
-A working Microsoft Entra ID tenant with the appropriate license is required. If needed, [create one for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F). Global Secure Access is dependent upon some features that require additional licensing.
+The preview requires a Microsoft Entra ID Premium P1 license. If needed, you can [purchase licenses or get trial licenses](https://aka.ms/azureadlicense). To use the Microsoft 365 traffic forwarding profile, a Microsoft 365 E3 license is recommended.
 
 There may be limitations with some features of the Global Secure Access preview, which are defined in the associated articles. 
 

@@ -20,11 +20,12 @@ With Global Secure Access, you can define specific fully qualified domain names 
 To configure Quick Access, you must have:
 
 - The **Global Secure Access Administrator** and **Application Administrator** roles in Microsoft Entra ID
+- The preview requires a Microsoft Entra ID Premium P1 license. If needed, you can [purchase licenses or get trial licenses](https://aka.ms/azureadlicense).
 
 To manage App Proxy connector groups, which is required for Quick Access, you must have:
 
 - An **Application Administrator** role in Microsoft Entra ID
-- A Microsoft Entra ID P1/P2 license
+- An Azure AD Premium P1/P2 license
 
 ### Known limitations
 
