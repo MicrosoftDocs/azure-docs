@@ -36,6 +36,7 @@ The diagram shows the following architectural flows and relationships of the Pet
 - An Azure subscription. [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 - [Git](https://git-scm.com/downloads).
 - [Java Development Kit (JDK)](/java/azure/jdk/), version 17.
+- [Docker Desktop or Docker Compose](https://docs.docker.com/compose/install/).
 
 [!INCLUDE [deploy-microservice-apps-with-basic-standard-plan](includes/quickstart-deploy-microservice-apps/deploy-microservice-apps-with-basic-standard-plan.md)]
 
