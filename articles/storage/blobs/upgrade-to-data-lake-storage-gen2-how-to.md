@@ -28,13 +28,12 @@ To prepare to upgrade your storage account to Data Lake Storage Gen2:
 
 ### Review feature support
 
-Your account might be configured to use features that aren't yet supported in Data Lake Storage Gen2 enabled accounts, or that must be temporarily disabled to perform the upgrade.
+Your account might be configured to use features that aren't yet supported in Data Lake Storage Gen2 enabled accounts. If your account is using a feature that isn't supported, the upgrade will not pass the validation step. Review the [Blob Storage feature support in Azure Storage accounts](storage-feature-support-in-storage-accounts.md) article to identify unsupported features. If you're using any such features in your account, disable them before you begin the upgrade.
 
-If your account is using a feature that isn't yet supported, the upgrade will not pass the validation step. Review the [Blob Storage feature support in Azure Storage accounts](storage-feature-support-in-storage-accounts.md) article to identify unsupported features. If you're using any unsupported features in your account, disable them before you begin the upgrade. One example is the blob soft delete feature. You must disable blob soft delete and then allow all soft-delete blobs to expire before you can upgrade the account.
-
-You cannot upgrade a storage account to Data Lake Storage Gen2 that has **ever** had the change feed feature enabled.
+In some cases, you will have to allow time for clean-up operations after the feature is disabled before upgrading. One example is the [blob soft delete](soft-delete-blob-overview.md) feature. You must disable blob soft delete and then allow all soft-delete blobs to expire before you can upgrade the account.
 
 > [!IMPORTANT]
+> You cannot upgrade a storage account to Data Lake Storage Gen2 that has **ever** had the change feed feature enabled.
 > Simply disabling change feed will not allow you to perform an upgrade. To convert such an account to Data Lake Storage Gen2, you must perform a manual migration. For more information about manually migrating a storage account, see [Move an Azure Storage account to another region](../common/storage-account-move.md).
 
 ### Ensure the segments of each blob path are named
