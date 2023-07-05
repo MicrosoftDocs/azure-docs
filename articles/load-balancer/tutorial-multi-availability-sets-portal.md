@@ -6,7 +6,7 @@ author: mbender-ms
 ms.author: mbender
 ms.service: load-balancer
 ms.topic: tutorial
-ms.date: 05/09/2022
+ms.date: 07/05/2023
 ms.custom: template-tutorial
 ---
 
@@ -19,7 +19,7 @@ Load Balancer supports more than one availability set with virtual machines in t
 In this tutorial, you learn how to:
 
 > [!div class="checklist"]
-> * Create a virtual network
+> * Create a virtual network and a network security group
 > * Create a NAT gateway for outbound connectivity
 > * Create a standard SKU Azure Load Balancer
 > * Create four virtual machines and two availability sets
@@ -53,15 +53,7 @@ In this section, you'll create a virtual network for the load balancer and the o
     | Name | Enter **myVNet**. |
     | Region | Select **(US) West US 2**. |
 
-1. Select the **Security** tab, or the **Next: Security** button at the bottom of the page.
-1. In the **Security** tab, select **Enable Bastion Host**.
-1. Enter or select the following information:
-
-    | Setting | Value |
-    | ------- | ----- |
-    | Azure Bastion host name | Enter **myBastionHost**. |
-    | Azure Bastion public IP address | Select **Create a public IP address**. </br> Enter **myBastionIP** in **Name** and select **Ok**. |
-1. Select the **IP addresses** tab, or the **Next: IP Addresses** button at the bottom of the page.
+1. Select the **IP addresses** tab, or the **Next: Security** and **Next: IP Addresses** buttons at the bottom of the page.
 
 1. In the **IP Addresses** tab, enter this information:
 
@@ -72,22 +64,57 @@ In this section, you'll create a virtual network for the load balancer and the o
 1. Select **default** under **Subnets**.
 1. Under **Subnet details**, enter **myBackendSubnet** for **Name**.
 1. In **Add subnet**, enter this information:
+
+    | Setting           | Value         |
+    | ----------------- | ------------- |
+    | Subnet address range | Enter **10.1.0.0/24** |
+
 1. Select **Save**.
 1. Select the **Review + create** tab, or the blue **Review + create** button at the bottom of the page.
-15. Select **Create**.
+1. Select **Create**.
 
-> [!IMPORTANT]
+## Create a network security group
 
-> [!INCLUDE [Pricing](../../includes/bastion-pricing.md)]
+In this section, you'll create a network security group for the virtual machines in the backend pool of the load balancer. The NSG will allow inbound traffic on port 80.
 
->
+1. In the search box at the top of the portal, enter **Network security group**.
+1. Select **Network security groups** in the search results.
+1. Select **+ Create** or **Create network security group** button.
+1. On the **Basics** tab, enter or select this information:
 
+    | Setting | Value |
+    | ------- | ----- |
+    | **Project details** |   |
+    | Subscription | Select your subscription. |
+    | Resource group | Select **myResourceGroup**. |
+    | **Instance details** |   |
+    | Name | Enter **myNSG**. |
+    | Region | Select **(US) West US 2**. |
+
+1. Select *Review + create* tab, or select the blue **Review + create** button at the bottom of the page.
+1. Select **Create**.
+1. When deployment is complete, select **Go to resource**.
+1. In the **Settings** section of the **myNSG** page, select **Inbound security rules**.
+1. Select **+ Add**.
+1. In the **Add inbound security rule** window, enter or select the following information:
+
+    | Setting | Value |
+    | ------- | ----- |
+    | Source | Select **Any**. |
+    | Source port ranges | Enter **\***. |
+    | Destination | Select **Any**. |
+    | Service | Select **HTTP**. |
+    | Action | Select **Allow**. |
+    | Priority | Enter **100**. |
+    | Name | Enter **allowHTTPrule**. |
+
+1. Select **Add**.
 ## Create NAT gateway 
 
 In this section, you'll create a NAT gateway for outbound connectivity of the virtual machines.
 
-1. In the search box at the top of the portal, enter **NAT gateways**.
-1. Select **NAT gateways** in the search results.
+1. In the search box at the top of the portal, enter **NAT gateway**.
+1. Select **NAT gateway** in the search results.
 1. Select **+ Create** or **Create NAT Gateway** button.
 1. In the **Basics** tab of **Create network address translation (NAT) gateway**, enter or select the following information:
 
@@ -156,9 +183,7 @@ In this section, you'll create a load balancer for the virtual machines.
 1. In the **Backend pools** tab, select **+ Add a backend pool**.
 1. Enter **myBackendPool** for **Name** in **Add backend pool**.
 1. Select **myVNet** in **Virtual network**.
-1. Select **NIC** or **IP Address** for **Backend Pool Configuration**.
-1. Select **IPv4** or **IPv6** for **IP version**.
-1. Select **Add**.
+1. Select **IP Address** for **Backend Pool Configuration** and select **Save**.
 1. Select the **Inbound rules** tab, or select the **Next: Inbound rules** button at the bottom of the page.
 1. In **Load balancing rule** in the **Inbound rules** tab, select **+ Add a load balancing rule**.
 1. In **Add load balancing rule**, enter or select the following information:
@@ -168,22 +193,20 @@ In this section, you'll create a load balancer for the virtual machines.
     | Name | Enter **myHTTPRule** |
     | IP Version | Select **IPv4** or **IPv6** depending on your requirements. |
     | Frontend IP address | Select **myLoadBalancerFrontEnd**. |
+    | Backend pool | Select **myBackendPool**. |
     | Protocol | Select **TCP**. |
     | Port | Enter **80**. |
     | Backend port | Enter **80**. |
-    | Backend pool | Select **myBackendPool**. |
-    | Health probe | Select **Create new**. </br> In **Name**, enter **myHealthProbe**. </br> Select **HTTP** in **Protocol**. </br> Leave the rest of the defaults, and select **OK**. |
+    | Health probe | Select **Create new**. </br> In **Name**, enter **myHealthProbe**. </br> Select **HTTP** in **Protocol**. </br> Leave the rest of the defaults, and select **Save**. |
     | Session persistence | Select **None**. |
-    | Idle timeout (minutes) | Enter or select **15**. |
-    | TCP reset | Select **Enabled**. |
-    | Floating IP | Select **Disabled**. |
+    | Idle timeout (minutes) | Enter **15**. |
+    | Enable TCP reset | Select checkbox. |
+    | Enable Floating IP | Select checkbox. |
     | Outbound source network address translation (SNAT) | Leave the default of **(Recommended) Use outbound rules to provide backend pool members access to the internet.** |
 
-25. Select **Add**.
-
-26. Select the blue **Review + create** button at the bottom of the page.
-
-27. Select **Create**.
+1. Select **Save**.
+1. Select the blue **Review + create** button at the bottom of the page.
+1. Select **Create**.
 
     > [!NOTE]
     > In this example we created a NAT gateway to provide outbound Internet access. The outbound rules tab in the configuration is bypassed as it's optional and isn't needed with the NAT gateway. For more information on Azure NAT gateway, see [What is Azure Virtual Network NAT?](../virtual-network/nat-gateway/nat-overview.md)
@@ -196,10 +219,8 @@ In this section, you'll create two availability groups with two virtual machines
 ### Create first set of VMs
 
 1. Select **+ Create a resource** in the upper left-hand section of the portal.
-
-2. In **New**, select **Compute** > **Virtual machine**.
-
-3. In the **Basics** tab of **Create a virtual machine**, enter, or select the following information:
+1. In **New**, select **Compute** > **Virtual machine**.
+1. In the **Basics** tab of **Create a virtual machine**, enter, or select the following information:
 
     | Setting | Value |
     | ------- | ----- |
@@ -211,18 +232,16 @@ In this section, you'll create two availability groups with two virtual machines
     | Region | Select **(US) West US 2**. |
     | Availability options | Select **Availability set**. |
     | Availability set | Select **Create new**. </br> Enter **myAvailabilitySet1** in **Name**. </br> Select **OK**. |
-    | Image | Select **Windows Server 2019 Datacenter - Gen1**. |
+    | Security type | Select **Trusted launch virtual machines**. |
+    | Image | Select **Windows Server 2022 Datacenter - x64 Gen2**. |
     | Azure Spot instance | Leave the default of unchecked. |
     | Size | Select a size for the virtual machine. |
     | **Administrator account** |   |
     | Username | Enter a username. |
     | Password | Enter a password. |
-    | **Inbound port rules** |   |
-    | Public inbound ports | Select **None**. |
 
-4. Select the **Networking** tab, or select the **Next: Disks**, then **Next: Networking** button at the bottom of the page.
-
-5. In the **Networking** tab, enter or select the following information:
+1. Select the **Networking** tab, or select the **Next: Disks**, then **Next: Networking** button at the bottom of the page.
+1. In the **Networking** tab, enter or select the following information:
 
     | Setting | Value |
     | ------- | ----- |
@@ -231,19 +250,16 @@ In this section, you'll create two availability groups with two virtual machines
     | Subnet | Select **myBackendSubnet**. |
     | Public IP | Select **None**. |
     | NIC network security group | Select **Advanced**. |
-    | Configure network security group | Select **Create new**. </br> In **Name**, enter **myNSG**. </br> Select **+Add an inbound rule** in **Inbound rules**. </br> Select **HTTP** for **Service**. </br> Enter **myHTTPrule** for **Name**. </br> Select **Add**. </br> Select **OK**. | 
+    | Configure network security group | Skip this setting until the rest of the settings are completed. Complete after **Select a backend pool**.|
     | **Load balancing** |   |
-    | Place this virtual machine behind an existing load-balancing solution? | Select the check box. |
-    | **Load-balancing settings** |   |
     | Load-balancing options | Select **Azure load balancer**. |
     | Select a load balancer | Select **myLoadBalancer**. |
     | Select a backend pool | Select **myBackendPool**. |
+    | Configure network security group | Select **Create new**. </br> In the **Create network security group**, enter **myNSG** in **Name**. </br> Under **Inbound rules**, select **+Add an inbound rule**. </br> Under  **Service**, select **HTTP**. </br> Under **Priority**, enter **100**. </br> In **Name**, enter **myNSGRule** </br> Select **Add** </br> Select **OK** |
 
-6. Select the **Review + create** tab, or select the blue **Review + create** button at the bottom of the page.
-
-7. Select **Create**.
-
-8. Repeat steps 1 through 7 to create the second virtual machine of the set. Replace the settings for the VM with the following information:
+1. Select the **Review + create** tab, or select the blue **Review + create** button at the bottom of the page.
+1. Select **Create**.
+1. Repeat steps 1 through 7 to create the second virtual machine of the set. Replace the settings for the VM with the following information:
 
     | Setting | Value |
     | ------- | ----- |
@@ -252,18 +268,18 @@ In this section, you'll create two availability groups with two virtual machines
     | Virtual Network | Select **myVNet**. |
     | Subnet | Select **myBackendSubnet**. |
     | Public IP | Select **None**. |
-    | Network security group | Select **myNSG**. |
+    | NIC network security group | Select **Advanced**. |
+    | Configure network security group | Skip this setting until the rest of the settings are completed. Complete after **Select a backend pool**.|
     | Load-balancing options | Select **Azure load balancer**. |
     | Select a load balancer | Select **myLoadBalancer**. |
     | Select a backend pool | Select **myBackendPool**. |
+    | Configure network security group | Select **myNSG**. |
 
 ### Create second set of VMs
 
 1. Select **+ Create a resource** in the upper left-hand section of the portal.
-
-2. In **New**, select **Compute** > **Virtual machine**.
-
-3. In the **Basics** tab of **Create a virtual machine**, enter, or select the following information:
+1. In **New**, select **Compute** > **Virtual machine**.
+1. In the **Basics** tab of **Create a virtual machine**, enter, or select the following information:
 
     | Setting | Value |
     | ------- | ----- |
@@ -275,18 +291,16 @@ In this section, you'll create two availability groups with two virtual machines
     | Region | Select **(US) West US 2**. |
     | Availability options | Select **Availability set**. |
     | Availability set | Select **Create new**. </br> Enter **myAvailabilitySet2** in **Name**. </br> Select **OK**. |
-    | Image | Select **Windows Server 2019 Datacenter - Gen1**. |
+    | Security type | Select **Trusted launch virtual machines**. |
+    | Image | Select **Windows Server 2022 Datacenter - x64 Gen2**. |
     | Azure Spot instance | Leave the default of unchecked. |
     | Size | Select a size for the virtual machine. |
     | **Administrator account** |   |
     | Username | Enter a username. |
     | Password | Enter a password. |
-    | **Inbound port rules** |   |
-    | Public inbound ports | Select **None**. |
 
-4. Select the **Networking** tab, or select the **Next: Disks**, then **Next: Networking** button at the bottom of the page.
-
-5. In the **Networking** tab, enter or select the following information:
+1. Select the **Networking** tab, or select the **Next: Disks**, then **Next: Networking** button at the bottom of the page.
+1. In the **Networking** tab, enter or select the following information:
 
     | Setting | Value |
     | ------- | ----- |
@@ -295,13 +309,12 @@ In this section, you'll create two availability groups with two virtual machines
     | Subnet | Select **myBackendSubnet**. |
     | Public IP | Select **None**. |
     | NIC network security group | Select **Advanced**. |
-    | Configure network security group | Select **myNSG**. | 
+    | Configure network security group | Skip this setting until the rest of the settings are completed. Complete after **Select a backend pool**.| 
     | **Load balancing** |   |
-    | Place this virtual machine behind an existing load-balancing solution? | Select the check box. |
-    | **Load-balancing settings** |   |
     | Load-balancing options | Select **Azure load balancer**. |
     | Select a load balancer | Select **myLoadBalancer**. |
     | Select a backend pool | Select **myBackendPool**. |
+    | Configure network security group | Select **myNSG**. |
 
 6. Select the **Review + create** tab, or select the blue **Review + create** button at the bottom of the page.
 
@@ -313,31 +326,23 @@ In this section, you'll create two availability groups with two virtual machines
     | ------- | ----- |
     | Name | Enter **myVM4**. |
     | Availability set | Select **myAvailabilitySet2**. |
-    | Virtual Network | Select **myVNet**. |
-    | Network security group | Select **myNSG**. |
+    | Virtual Network | Select **myVM3**. |
+    | NIC network security group | Select **Advanced**. |
+    | Configure network security group | Skip this setting until the rest of the settings are completed. Complete after **Select a backend pool**.|
     | Load-balancing options | Select **Azure load balancer**. |
     | Select a load balancer | Select **myLoadBalancer**. |
     | Select a backend pool | Select **myBackendPool**. |
+    | Configure network security group | Select **myNSG**. |
 
 ## Install IIS
 
 In this section, you'll use the Azure Bastion host you created previously to connect to the virtual machines and install IIS.
 
 1. In the search box at the top of the portal, enter **Virtual machine**.
-
-2. Select **Virtual machines** in the search results.
-
-3. Select **myVM1**.
-
-4. In the **Overview** page of myVM1, select **Connect** > **Bastion**.
-
-5. Enter the **Username** and **Password** you created when you created the virtual machine.
-
-6. Select **Connect**.
-
-7. On the server desktop, navigate to **Windows Administrative Tools** > **Windows PowerShell**.
-
-8. In the PowerShell Window, run the following commands to:
+1. Select **Virtual machines** in the search results.
+1. Select **myVM1**.
+1. Under **Operations** in the left-side menu, select **Run command > RunPowerShellScript**.
+1. In the PowerShell Script window , add the following commands to:
 
     * Install the IIS server
     * Remove the default iisstart.htm file
@@ -353,29 +358,28 @@ In this section, you'll use the Azure Bastion host you created previously to con
     # Add a new htm file that displays server name
     Add-Content -Path "C:\inetpub\wwwroot\iisstart.htm" -Value $("Hello World from " + $env:computername)
    ```
-9. Close the Bastion session with **myVM1**.
+1. Select **Run** and wait for the command to complete.
 
-10. Repeat steps 1 through 8 for **myVM2**, **myVM3**, and **myVM4**.
+:::image type="content" source="media/tutorial-multi-availability-sets-portal/run-command-script.png" alt-text="Screenshot of Run Command Script window with PowerShell code and output.":::
+
+1. Repeat steps 1 through 8 for **myVM2**, **myVM3**, and **myVM4**.
 
 ## Test the load balancer
 
 In this section, you'll discover the public IP address of the load balancer. You'll use the IP address to test the operation of the load balancer.
 
 1. In the search box at the top of the portal, enter **Public IP**.
-
-2. Select **Public IP addresses** in the search results.
-
-3. Select **myPublicIP-lb**.
-
-4. Note the public IP address listed in **IP address** in the **Overview** page of **myPublicIP-lb**:
+1. Select **Public IP addresses** in the search results.
+1. Select **myPublicIP-lb**.
+1. Note the public IP address listed in **IP address** in the **Overview** page of **myPublicIP-lb**:
 
     :::image type="content" source="./media/tutorial-multi-availability-sets-portal/find-public-ip.png" alt-text="Find the public IP address of the load balancer." border="true":::
 
-5. Open a web browser and enter the public IP address in the address bar:
+1. Open a web browser and enter the public IP address in the address bar:
 
     :::image type="content" source="./media/tutorial-multi-availability-sets-portal/verify-load-balancer.png" alt-text="Test load balancer with web browser." border="true":::
 
-6. Select refresh in the browser to see the traffic balanced to the other virtual machines in the backend pool.
+1. Select refresh in the browser to see the traffic balanced to the other virtual machines in the backend pool.
 
 ## Clean up resources
 
@@ -383,22 +387,18 @@ If you're not going to continue to use this application, delete
 the load balancer and the supporting resources with the following steps:
 
 1. In the search box at the top of the portal, enter **Resource group**.
-
-2. Select **Resource groups** in the search results.
-
-3. Select **myResourceGroup**.
-
-4. In the overview page of **myResourceGroup**, select **Delete resource group**.
-
-5. Enter **myResourceGroup** in **TYPE THE RESOURCE GROUP NAME**.
-
-6. Select **Delete**.
+1. Select **Resource groups** in the search results.
+1. Select **myResourceGroup**.
+1. In the overview page of **myResourceGroup**, select **Delete resource group**.
+1.Select **Apply force delete for selected Virtual Machines and Virtual machine scale sets**.
+1. Enter **myResourceGroup** in **Enter resource group name to confirm deletion**.
+1. Select **Delete**.
 
 ## Next steps
 
 In this tutorial, you:
 
-* Created a virtual network and Azure Bastion host.
+* Created a virtual network and a network security group.
 * Created an Azure Standard Load Balancer.
 * Created two availability sets with two virtual machines per set.
 * Installed IIS and tested the load balancer.
