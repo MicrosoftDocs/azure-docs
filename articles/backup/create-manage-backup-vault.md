@@ -288,7 +288,7 @@ To perform Cross Subscription Restore, follow these steps:
 1. In the *Backup vault*, go tot **Backup Instance** > **Restore**.
 1. Choose the *Subscription* to which you want to restore, and then select **Restore**.
 
-However, you need to disable Cross Subscription Restore for a few instances based on your cloud infrastructure. So, you can enable, disable, or permanently disable Cross Subscription Restore for existing vaults by selecting *Backup vault* > **Properties** > **Cross Subscription Restore**.
+However, you may need to disable Cross Subscription Restore for a few instances based on your cloud infrastructure. So, you can enable, disable, or permanently disable Cross Subscription Restore for existing vaults by selecting *Backup vault* > **Properties** > **Cross Subscription Restore**.
 
 :::image type="content" source="./media/create-manage-backup-vault/disable-cross-subscription-restore-for-backup-vault.png" alt-text="Screenshot shows how to disable Cross Subscription Restore for Backup vault." lightbox="./media/create-manage-backup-vault/disable-cross-subscription-restore-for-backup-vault.png":::
 
