@@ -113,8 +113,6 @@ If you're billed at the simplified commitment tier rate, this table shows how Mi
 |--|--|--|
 | Microsoft Sentinel Commitment Tier | `Sentinel` | **`n` GB Commitment Tier** |
 | Microsoft Sentinel Commitment Tier overage | `Sentinel` |**Analysis**|
-| Basic logs| `Sentinel` |**Basic Logs**|
-
 
 # [Commitment tiers](#tab/commitment-tiers/classic)
 
@@ -126,8 +124,6 @@ If you're billed at the classic commitment tier rate, this table shows how Micro
 | Log Analytics Commitment Tier | `Azure Monitor` | **`n` GB commitment tier** |
 | Microsoft Sentinel Commitment Tier overage | `Sentinel` |**Classic Analysis**|
 | Log Analytics over the Commitment Tier| `Log Analytics` |**Data Ingestion**|
-| Basic logs data analysis| `Sentinel` |**Classic Basic Logs Analysis**|
-
 
 # [Pay-As-You-Go](#tab/pay-as-you-go/simplified)
 
