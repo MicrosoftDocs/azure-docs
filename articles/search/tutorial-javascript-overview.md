@@ -42,6 +42,7 @@ Install the following for your local development environment.
     - Select latest runtime and version from this [list of supported language versions](../azure-functions/functions-versions.md?pivots=programming-language-javascript&tabs=azure-cli%2clinux%2cin-process%2cv4#languages).
     - If you have a different version of Node.js installed on your local computer, consider using [Node Version Manager](https://github.com/nvm-sh/nvm) (nvm) or a Docker container.  
 - [Git](https://git-scm.com/downloads)
+- [PowerShell](/powershell/scripting/install/installing-powershell)
 - [Visual Studio Code](https://code.visualstudio.com/) and the following extensions
     - [Azure Static Web App](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurestaticwebapps) 
     - Use the integrated PowerShell terminal for all PowerShell commands.

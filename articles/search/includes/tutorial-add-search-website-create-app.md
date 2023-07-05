@@ -33,10 +33,13 @@ The Static Web app pulls the information and files for deployment from GitHub us
     |Select a resource group for new resources.|Use the resource group you created for this tutorial.|
     |Enter the name for the new Static Web App.|Create a unique name for your resource. For example, you can prepend your name to the repository name such as, `joansmith-azure-search-dotnet-samples`. |
     |Select a SKU| Select the free SKU for this tutorial.|
-    |Select a location for new resources.|Select a region close to you.|
+    |Select a location for new resources.|For Node.js: Select `West US 2` during the Azure Function programming model (PM) v4 preview. For C# and Python, select a region near you.|
     |Choose build preset to configure default project structure.|Select **Custom**|
-    |Select the location of your application code|`search-website-functions-v4/client`<br><br>This is the path, from the root of the repository, to your static web app. |
+    |Select the location of your application code|`search-website-functions-v4/client-v4`<br><br>This is the path, from the root of the repository, to your static web app. |
+    |Select the location of your Azure Functions code|`search-website-functions-v4/api-v4`<br><br>This is the path, from the root of the repository, to your static web app. |
     |Enter the path of your build output...|`build`<br><br>This is the path, from your static web app, to your generated files.|
+
+    If you get an error about an incorrect region, make sure the resource group and Static web app resource are in one of the supported regions listed in the error response. 
 
 1. The resource is created and a notification window appears. 
 
@@ -60,26 +63,6 @@ The Static Web app pulls the information and files for deployment from GitHub us
     The _part_ of the YAML file relevant to the static web app is shown below:
 
     :::code language="yml" source="~/azure-search-javascript-samples/search-website-functions-v4/example-github-action-v4.yml":::
-
-1. Edit your action file to contain the `api_location` property. If your local file doesn't have the property, add it below the `app_location` property.
-
-    ```yml
-    api_location: "search-website-functions-v4/api"
-    ```
-
-1. Commit changes to your local repository.
-
-    ```bash
-    git add *.yml && git commit -m "update action for static web app" 
-    ```
-
-1. Push changes to GitHub.
-
-    ```bash
-    git push origin main 
-    ```
-
-    The updated action in your remote fork creates a new build and deploy to your static web app. Wait until the _workflow_ completes before continuing. This may take a minute or two to finish. 
 
 ## Get Cognitive Search query key in Visual Studio Code
 

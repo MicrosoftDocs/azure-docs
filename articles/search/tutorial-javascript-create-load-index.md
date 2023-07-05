@@ -73,7 +73,7 @@ Create a new search resource using PowerShell and the **Az.Search** module. In t
 
 ## Prepare the bulk import script for Search
 
-The script uses the Azure SDK for Cognitive Search:
+The ESM script uses the Azure SDK for Cognitive Search:
 
 * [npm package @azure/search-documents](https://www.npmjs.com/package/@azure/search-documents)
 * [Reference Documentation](/javascript/api/overview/azure/search-documents-readme)
