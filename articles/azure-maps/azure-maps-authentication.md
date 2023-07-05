@@ -4,7 +4,7 @@ titleSuffix: Azure Maps
 description: "Learn about two ways of authenticating requests in Azure Maps: shared key authentication and Azure Active Directory (Azure AD) authentication."
 author: eriklindeman
 ms.author: eriklind
-ms.date: 05/25/2021
+ms.date: 07/05/2023
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
@@ -168,10 +168,6 @@ Disabling local authentication doesn't take effect immediately. Allow a few minu
 ```
 
 ## Shared access signature token authentication
-
-[!INCLUDE [preview features callout](./includes/preview-callout.md)]
-
-Shared Access Signature token authentication is in preview.
 
 Shared access signature (SAS) tokens are authentication tokens created using the JSON Web token (JWT) format and are cryptographically signed to prove authentication for an application to the Azure Maps REST API. A SAS token, created by integrating a [user-assigned managed identity] with an Azure Maps account in your Azure subscription. The user-assigned managed identity is given authorization to the Azure Maps account through Azure RBAC using either built-in or custom role definitions.
 
