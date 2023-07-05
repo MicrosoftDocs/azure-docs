@@ -68,7 +68,53 @@ This document helps set up an example application that uses the following resour
     EOF
     ```
 
-    Once the gateway object has been created check the status on the object to ensure that the gateway is valid, and the listener is ready. Verify an address has been assigned to the gateway.
+
+# [Bring your own (BYO) deployment](#tab/byo)
+
+1. Set the following environment variables
+
+```bash
+RESOURCE_GROUP='<resource group name of the Application Gateway For Containers resource>'
+RESOURCE_NAME='test-alb'
+
+RESOURCE_ID=$(az network alb show --resource-group $RESOURCE_GROUP --name $RESOURCE_NAME --query id -o tsv)
+FRONTEND_NAME='frontend'
+```
+
+2. Create a Gateway
+```bash
+kubectl apply -f - <<EOF
+apiVersion: gateway.networking.k8s.io/v1beta1
+kind: Gateway
+metadata:
+  name: gateway-01
+  namespace: test-infra
+  annotations:
+    alb.networking.azure.io/alb-id: $RESOURCE_ID
+spec:
+  gatewayClassName: azure-alb-external
+  listeners:
+  - name: https-listener
+    port: 443
+    protocol: HTTPS
+    allowedRoutes:
+      namespaces:
+        from: Same
+    tls:
+      mode: Terminate
+      certificateRefs:
+      - kind : Secret
+        group: ""
+        name: listener-tls-secret
+  addresses:
+  - type: alb.networking.azure.io/alb-frontend
+    value: $FRONTEND_NAME
+EOF
+```
+
+---
+
+Once the gateway object has been created check the status on the object to ensure that the gateway is valid, and the listener is ready. Verify an address has been assigned to the gateway.
 ```yaml
 status:
   addresses:
@@ -125,52 +171,6 @@ status:
     - group: gateway.networking.k8s.io
       kind: HTTPRoute
 ```
-
-
-# [Bring your own (BYO) deployment](#tab/byo)
-
-1. Set the following environment variables
-
-```bash
-RESOURCE_GROUP='<resource group name of the Application Gateway For Containers resource>'
-RESOURCE_NAME='test-alb'
-
-RESOURCE_ID=$(az network alb show --resource-group $RESOURCE_GROUP --name $RESOURCE_NAME --query id -o tsv)
-FRONTEND_NAME='frontend'
-```
-
-2. Create a Gateway
-```bash
-kubectl apply -f - <<EOF
-apiVersion: gateway.networking.k8s.io/v1beta1
-kind: Gateway
-metadata:
-  name: gateway-01
-  namespace: test-infra
-  annotations:
-    alb.networking.azure.io/alb-id: $RESOURCE_ID
-spec:
-  gatewayClassName: azure-alb-external
-  listeners:
-  - name: https-listener
-    port: 443
-    protocol: HTTPS
-    allowedRoutes:
-      namespaces:
-        from: Same
-    tls:
-      mode: Terminate
-      certificateRefs:
-      - kind : Secret
-        group: ""
-        name: listener-tls-secret
-  addresses:
-  - type: alb.networking.azure.io/alb-frontend
-    value: $FRONTEND_NAME
-EOF
-```
-
----
 
 Once the gateway has been created, create an HTTPRoute
 ```bash
