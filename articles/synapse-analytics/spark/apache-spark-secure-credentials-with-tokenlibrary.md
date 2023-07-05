@@ -75,7 +75,7 @@ Get result:
 
 #### ADLS Gen2 Primary Storage
 
-Accessing files from the primary Azure Data Lake Storage uses Azure Active Directory passthrough for authentication by default and doesn't require the explicit use of the mssparkutils. The identity used in the passthrough authentication differs based on a few factors. By default, interactive notebooks are executed using the user's identity, but it can be changed to the workspace MSI. Batch jobs and non-interactive executions of the notebook use the Workspace MSI identity.
+Accessing files from the primary Azure Data Lake Storage uses Azure Active Directory passthrough for authentication by default and doesn't require the explicit use of the mssparkutils. The identity used in the passthrough authentication differs based on a few factors. By default, interactive notebooks are executed using the user's identity, but they can be changed to the workspace MSI. Batch jobs and non-interactive executions of the notebook use the Workspace MSI identity.
 
 ::: zone pivot = "programming-language-scala"
 
@@ -349,28 +349,27 @@ Console.WriteLine(connectionString);
 
 #### Linked service connections supported from the Spark runtime (notebook or batch jobs)
 
-The Azure Synapse Analytics supported a variety of linked service connections (from pipelines and other places), not all of them are supported from the Spark runtime. Here is the list of supported linked services.
- - Azure blob storage
+The Azure Synapse Analytics supports a variety of linked service connections (from pipelines and other places), but not all of them are supported from the Spark runtime. Here is the list of supported linked services.
+ - Azure Blob Storage
  - Azure Storage
- - Azure SQL DW
+ - Azure SQL Data Warehouse
  - Azure SQL
- - Azure My SQL
- - Azure Postgre SQL
+ - Azure Database for MySQL
+ - Azure Database for PostgreSQL
  - Azure Cosmos DB
- - Azure Datalake (Gen1)
- - Azure Keyvault
+ - Azure Data Lake Storage Gen1
+ - Azure Key Vault
  - Azure Data Explorer
  - Azure Cognitive Services
  - Azure Machine Learning
  - Azure Purview
 
- #### Following methods of accessing the linked services are not supported from the Spark runtime
+ #### The following methods of accessing the linked services are not supported from the Spark runtime
 
   - Passing arguments to parameterized linked service
   - Connections that use User assigned managed identities (UAMI)
   
-  ````
-  From a notebook or a spark job, when the request to get token / secret using Linked Service fails, if the error message indicates BadRequest, then this indicates the user error. The error message currently doesn't require all the details of the failure. Please reach out to our support to debug the issue.
+From a notebook or a spark job, when the request to get token/secret using Linked Service fails, if the error message indicates BadRequest, then this indicates the user error. The error message currently doesn't require all the details of the failure. Please reach out to our support to debug the issue.
   ````
 
 ## Next steps
