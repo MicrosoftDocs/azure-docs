@@ -115,7 +115,7 @@ Click on the picture to see a larger version of the data collection diagram in c
 |Internal| Data is automatically sent to a destination without user configuration.  |
 |[Diagnostic settings](essentials/diagnostic-settings.md)|Use diagnostic settings to determine where to send resource log and activity log data on the data platform.|
 |[Azure Monitor REST API](logs/logs-ingestion-api-overview.md)|The Logs Ingestion API in Azure Monitor lets you send data to a Log Analytics workspace in Azure Monitor Logs. You can also send metrics into the Azure Monitor Metrics store using the custom metrics API.|
-|[Event Hubs](logs/ingest-logs-event-hub.md)|Azure Event Hubs is a big data streaming platform that can collect events from multiple sources. Ingest data directly from an event hub to Azure Monitor Logs.|
+|[Azure Event Hubs](logs/ingest-logs-event-hub.md)|Azure Event Hubs is a big data streaming platform that can collect events from multiple sources. This is a highly scalable method of collecting data from a wide range of sources with minimum configuration. By setting a data collection rule, you can ingest data you need directly from an event hub into Azure Monitor Logs.|
 
 A common way to route monitoring data to other non-Microsoft tools is using *Event hubs*. See more in the [Integrate](#integrate) section below.
 
