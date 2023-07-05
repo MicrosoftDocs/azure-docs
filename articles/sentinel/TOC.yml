@@ -179,6 +179,10 @@
       items:
       - name: Overview
         href: sap/sap-btp-solution-overview.md
+  - name: Integrate Dynamics 365
+    items:
+    - name: Dynamics 365 Finance and Operations solution overview
+      href: dynamics-365/dynamics-365-finance-operations-solution-overview.md 
 - name: How-tos
   items:
   - name: Plan architecture
@@ -1012,6 +1016,10 @@
       items:
       - name: Deploy SAP BTP
         href: sap/deploy-sap-btp-solution.md
+  - name: Integrate Dynamics 365
+    items:
+    - name: Deploy Dynamics 365 Finance and Operations
+      href: dynamics-365/deploy-dynamics-365-finance-operations-solution.md
 - name: Troubleshoot
   items:
   - name: Troubleshoot CEF/Syslog data collection
@@ -1046,6 +1054,10 @@
       items:
       - name: SAP BTP solution content overview
         href: sap/sap-btp-security-content.md
+  - name: Dynamics 365    
+    items:
+    - name: Dynamics 365 Finance and Operations content overview
+      href: dynamics-365/dynamics-365-finance-operations-security-content.md
   - name: Service limits
     href: sentinel-service-limits.md
   - name: Microsoft Sentinel REST-API
