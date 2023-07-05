@@ -29,6 +29,12 @@ Get started with the Content Safety Studio, REST API, or client SDKs to do basic
 
 ::: zone-end
 
+::: zone pivot="programming-language-csharp"
+
+[!INCLUDE [.NET SDK quickstart](./includes/quickstarts/csharp-quickstart-text.md)]
+
+::: zone-end
+
 ::: zone pivot="programming-language-python"
 
 [!INCLUDE [Python SDK quickstart](./includes/quickstarts/python-quickstart-text.md)]
