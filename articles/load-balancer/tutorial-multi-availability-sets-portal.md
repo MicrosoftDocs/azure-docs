@@ -342,7 +342,7 @@ In this section, you'll use the Azure Bastion host you created previously to con
 1. Select **Virtual machines** in the search results.
 1. Select **myVM1**.
 1. Under **Operations** in the left-side menu, select **Run command > RunPowerShellScript**.
-1. In the PowerShell Script window , add the following commands to:
+1. In the PowerShell Script window, add the following commands to:
 
     * Install the IIS server
     * Remove the default iisstart.htm file
