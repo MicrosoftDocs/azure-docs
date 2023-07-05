@@ -24,9 +24,16 @@ See these [important announcements](#announcements) about recent changes to feat
 
 ## July 2023
 
+- [Deploy incident response playbooks for SAP](#deploy-incident-response-playbooks-for-sap)
 - [Microsoft Sentinel solution for D365 Finance and Operations (Preview)](#microsoft-sentinel-solution-for-d365-finance-and-operations-preview)
 - [Simplified pricing tiers](#simplified-pricing-tiers) in [Announcements](#announcements) section below
 - [Monitor and optimize the execution of your scheduled analytics rules (Preview)](#monitor-and-optimize-the-execution-of-your-scheduled-analytics-rules-preview)
+
+### Deploy incident response playbooks for SAP
+
+Take advantage of Microsoft Sentinel's security orchestration, automation, and response (SOAR) capabilities in conjunction with SAP. Microsoft Sentinel presents purpose-built playbooks included in the [Microsoft Sentinel solution for SAP® applications](sap/solution-overview.md). You can use these playbooks to respond automatically to suspicious user activity in SAP systems, automating remedial actions in SAP RISE, SAP ERP, SAP Business Technology Platform (BTP) as well as in Azure Active Directory.
+
+Learn more about [Microsoft Sentinel incident response playbooks for SAP](sap/sap-incident-response-playbooks.md).
 
 ### Microsoft Sentinel solution for D365 Finance and Operations (Preview)
 
