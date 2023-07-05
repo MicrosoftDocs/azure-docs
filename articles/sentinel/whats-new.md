@@ -25,12 +25,20 @@ See these [important announcements](#announcements) about recent changes to feat
 ## July 2023
 
 - [Deploy incident response playbooks for SAP](#deploy-incident-response-playbooks-for-sap)
+- [Monitor and optimize the execution of your scheduled analytics rules (Preview)](#monitor-and-optimize-the-execution-of-your-scheduled-analytics-rules-preview)
 
 ### Deploy incident response playbooks for SAP
 
 Take advantage of Microsoft Sentinel's security orchestration, automation, and response (SOAR) capabilities in conjunction with SAP. Microsoft Sentinel presents purpose-built playbooks included in the [Microsoft Sentinel solution for SAP® applications](sap/solution-overview.md). You can use these playbooks to respond automatically to suspicious user activity in SAP systems, automating remedial actions in SAP RISE, SAP ERP, SAP Business Technology Platform (BTP) as well as in Azure Active Directory.
 
 Learn more about [Microsoft Sentinel incident response playbooks for SAP](sap/sap-incident-response-playbooks.md).
+
+### Monitor and optimize the execution of your scheduled analytics rules (Preview)
+
+To ensure that Microsoft Sentinel's threat detection provides complete coverage in your environment, take advantage of its execution management tools. These tools consist of [insights](monitor-optimize-analytics-rule-execution.md#view-analytics-rule-insights) on your [scheduled analytics rules'](detect-threats-built-in.md#scheduled) execution, based on Microsoft Sentinel's [health and audit data](monitor-analytics-rule-integrity.md), and a facility to [manually rerun previous executions of rules](monitor-optimize-analytics-rule-execution.md#rerun-analytics-rules) on specific time windows, for testing and optimization purposes.
+
+[Learn more about monitoring and optimizing analytics rules](monitor-optimize-analytics-rule-execution.md).
+>>>>>>> 6501f0ac2c68482820de0ce3308b5c89a3fda70e
 
 ## June 2023
 
