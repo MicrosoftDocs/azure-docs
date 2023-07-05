@@ -1,6 +1,6 @@
 ---
-title: "Get started: Form Recognizer client library for .NET v2.1"
-description: Use the Form Recognizer SDK for .NET to create a forms processing app that extracts key/value pairs and table data from your custom documents.
+title: "Get started: Document Intelligence client library for .NET v2.1"
+description: Use the Document Intelligence SDK for .NET to create a forms processing app that extracts key/value pairs and table data from your custom documents.
 author: laujan
 manager: nitinme
 ms.service: applied-ai-services
@@ -28,12 +28,12 @@ In this quickstart, you use the following APIs to extract structured data from f
 
 * The current version of [Visual Studio IDE](https://visualstudio.microsoft.com/vs/). <!-- or [.NET Core](https://dotnet.microsoft.com/download). -->
 
-* A Cognitive Services or Form Recognizer resource. Once you have your Azure subscription, create a [single-service](https://portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer) or [multi-service](https://portal.azure.com/#create/Microsoft.CognitiveServicesAllInOne) Form Recognizer resource in the Azure portal to get your key and endpoint. You can use the free pricing tier (`F0`) to try the service, and upgrade later to a paid tier for production.
+* An Azure AI services or Document Intelligence resource. Once you have your Azure subscription, create a [single-service](https://portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer) or [multi-service](https://portal.azure.com/#create/Microsoft.CognitiveServicesAllInOne) Document Intelligence resource in the Azure portal to get your key and endpoint. You can use the free pricing tier (`F0`) to try the service, and upgrade later to a paid tier for production.
 
     > [!TIP]
-    > Create a Cognitive Services resource if you plan to access multiple cognitive services under a single endpoint/key. For Form Recognizer access only, create a Form Recognizer resource. Please note that you'll need a single-service resource if you intend to use [Azure Active Directory authentication](../../../../../active-directory/authentication/overview-authentication.md).
+    > Create an Azure AI services resource if you plan to access multiple Azure AI services under a single endpoint/key. For Document Intelligence access only, create a Document Intelligence resource. Please note that you'll need a single-service resource if you intend to use [Azure Active Directory authentication](../../../../../active-directory/authentication/overview-authentication.md).
 
-* After your resource deploys, select **Go to resource**. You need the key and endpoint from the resource you create to connect your application to the Form Recognizer API. You paste your key and endpoint into the code later in the quickstart:
+* After your resource deploys, select **Go to resource**. You need the key and endpoint from the resource you create to connect your application to the Document Intelligence API. You paste your key and endpoint into the code later in the quickstart:
 
   :::image type="content" source="../../../media/containers/keys-and-endpoint.png" alt-text="Screenshot: keys and endpoint location in the Azure portal.":::
 
@@ -65,13 +65,13 @@ In this quickstart, you use the following APIs to extract structured data from f
 
  1. Select the Browse tab and type Azure.AI.FormRecognizer.
 
-      :::image type="content" source="../../../media/quickstarts/azure-nuget-package.png" alt-text="Screenshot showing the select Form Recognizer package dropdown menu.":::
+      :::image type="content" source="../../../media/quickstarts/azure-nuget-package.png" alt-text="Screenshot showing the select Document Intelligence package dropdown menu.":::
 
  1. Select version **3.1.1** from the dropdown menu and select **Install**.
 
 ## Build your application
 
-To interact with the Form Recognizer service, you need to create an instance of the `FormRecognizerClient` class. To do so, you create an `AzureKeyCredential` with your key and a `FormRecognizerClient`  instance with the `AzureKeyCredential` and your Form Recognizer `endpoint`.
+To interact with the Document Intelligence service, you need to create an instance of the `FormRecognizerClient` class. To do so, you create an `AzureKeyCredential` with your key and a `FormRecognizerClient`  instance with the `AzureKeyCredential` and your Document Intelligence `endpoint`.
 
 > [!NOTE]
 >
@@ -110,7 +110,7 @@ private static readonly AzureKeyCredential credential = new AzureKeyCredential(k
     * [**Prebuilt Invoice**](#try-it-prebuilt-model)
 
 > [!IMPORTANT]
-> Remember to remove the key from your code when you're done, and never post it publicly. For production, use a secure way of storing and accessing your credentials like [Azure Key Vault](../../../../../key-vault/general/overview.md). For more information, see the Cognitive Services [security](../../../../../cognitive-services/security-features.md) article.
+> Remember to remove the key from your code when you're done, and never post it publicly. For production, use a secure way of storing and accessing your credentials like [Azure Key Vault](../../../../../key-vault/general/overview.md). For more information, see the Azure AI services [security](../../../../../ai-services/security-features.md) article.
 
 ## **Try it**: Layout model
 
@@ -184,7 +184,7 @@ This sample demonstrates how to analyze data from certain types of common docume
 
 ### Choose a prebuilt model
 
-You aren't limited to invoices—there are several prebuilt models to choose from, each of which has its own set of supported fields. The model to use for the analyze operation depends on the type of document to be analyzed. Here are the prebuilt models currently supported by the Form Recognizer service:
+You aren't limited to invoices—there are several prebuilt models to choose from, each of which has its own set of supported fields. The model to use for the analyze operation depends on the type of document to be analyzed. Here are the prebuilt models currently supported by the Document Intelligence service:
 
 * [**Invoice**](../../../concept-invoice.md): extracts text, selection marks, tables, fields, and key information from invoices.
 * [**Receipt**](../../../concept-receipt.md): extracts text and key information from receipts.

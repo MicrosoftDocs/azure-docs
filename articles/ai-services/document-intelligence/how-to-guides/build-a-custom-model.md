@@ -1,6 +1,6 @@
 ---
 title: "Build and train a custom model"
-titleSuffix: Azure Applied AI Services
+titleSuffix: Azure AI services
 description: Learn how to build, label, and train a custom model.
 author: laujan
 manager: nitinme
@@ -11,6 +11,7 @@ ms.date: 01/31/2023
 ms.author: lajanuar
 ---
 
+
 # Build and train a custom model
 
 ::: moniker range="form-recog-3.0.0"
@@ -18,11 +19,11 @@ ms.author: lajanuar
 ::: moniker-end
 
 ::: moniker range="form-recog-3.0.0"
-Form Recognizer models require as few as five training documents to get started. If you have at least five documents, you can get started training a custom model. You can train either a [custom template model (custom form)](../concept-custom-template.md) or a [custom neural model (custom document)](../concept-custom-neural.md). The training process is identical for both models and this document walks you through the process of training either model.
+Document Intelligence models require as few as five training documents to get started. If you have at least five documents, you can get started training a custom model. You can train either a [custom template model (custom form)](../concept-custom-template.md) or a [custom neural model (custom document)](../concept-custom-neural.md). The training process is identical for both models and this document walks you through the process of training either model.
 
 ## Custom model input requirements
 
-First, make sure your training data set follows the input requirements for Form Recognizer.
+First, make sure your training data set follows the input requirements for Document Intelligence.
 
 ::: moniker-end
 
@@ -51,24 +52,24 @@ Once you've put together the set of forms or documents for training, you need to
 
   > [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE5fX1c]
 
-## Create a project in the Form Recognizer Studio
+## Create a project in the Document Intelligence Studio
 
-The Form Recognizer Studio provides and orchestrates all the API calls required to complete your dataset and train your model.
+The Document Intelligence Studio provides and orchestrates all the API calls required to complete your dataset and train your model.
 
-1. Start by navigating to the [Form Recognizer Studio](https://formrecognizer.appliedai.azure.com/studio). The first time you use the Studio, you need to [initialize your subscription, resource group, and resource](../quickstarts/try-form-recognizer-studio.md). Then, follow the [prerequisites for custom projects](../quickstarts/try-form-recognizer-studio.md#added-prerequisites-for-custom-projects) to configure the Studio to access your training dataset.
+1. Start by navigating to the [Document Intelligence Studio](https://formrecognizer.appliedai.azure.com/studio). The first time you use the Studio, you need to [initialize your subscription, resource group, and resource](../quickstarts/try-form-recognizer-studio.md). Then, follow the [prerequisites for custom projects](../quickstarts/try-form-recognizer-studio.md#added-prerequisites-for-custom-projects) to configure the Studio to access your training dataset.
 
 1. In the Studio, select the **Custom models** tile, on the custom models page and select the **Create a project** button.
 
-    :::image type="content" source="../media/how-to/studio-create-project.png" alt-text="Screenshot: Create a project in the Form Recognizer Studio.":::
+    :::image type="content" source="../media/how-to/studio-create-project.png" alt-text="Screenshot: Create a project in the Document Intelligence Studio.":::
 
     1. On the create project dialog, provide a name for your project, optionally a description, and select continue.
 
-    1. On the next step in the workflow, choose or create a Form Recognizer resource before you select continue.
+    1. On the next step in the workflow, choose or create a Document Intelligence resource before you select continue.
 
     > [!IMPORTANT]
     > Custom neural models models are only available in a few regions. If you plan on training a neural model, please select or create a resource in one of [these supported regions](../concept-custom-neural.md#supported-regions).
 
-    :::image type="content" source="../media/how-to/studio-select-resource.png" alt-text="Screenshot: Select the Form Recognizer resource.":::
+    :::image type="content" source="../media/how-to/studio-select-resource.png" alt-text="Screenshot: Select the Document Intelligence resource.":::
 
 1. Next select the storage account you used to upload your custom model training dataset. The **Folder path** should be empty if your training documents are in the root of the container. If your documents are in a subfolder, enter the relative path from the container root in the **Folder path** field. Once your storage account is configured, select continue.
 
@@ -128,7 +129,7 @@ Once the model training is complete, you can test your model by selecting the mo
 
 1. The right navigation bar also has the sample code to invoke your model and the JSON results from the API.
 
-Congratulations you've trained a custom model in the Form Recognizer Studio! Your model is ready for use with the REST API or the SDK to analyze documents.
+Congratulations you've trained a custom model in the Document Intelligence Studio! Your model is ready for use with the REST API or the SDK to analyze documents.
 
 ## Next steps
 
@@ -142,9 +143,9 @@ Congratulations you've trained a custom model in the Form Recognizer Studio! You
 
 ::: moniker range="form-recog-2.1.0"
 
-**Applies to:** ![Form Recognizer v2.1 checkmark](../media/yes-icon.png) **Form Recognizer v2.1**. **Other versions:** [Form Recognizer v3.0](../how-to-guides/build-a-custom-model.md?view=form-recog-3.0.0&preserve-view=true?view=form-recog-3.0.0&preserve-view=true)
+**Applies to:** ![Document Intelligence v2.1 checkmark](../media/yes-icon.png) **Document Intelligence v2.1**. **Other versions:** [Document Intelligence v3.0](../how-to-guides/build-a-custom-model.md?view=form-recog-3.0.0&preserve-view=true?view=form-recog-3.0.0&preserve-view=true)
 
-When you use the Form Recognizer custom model, you provide your own training data to the [Train Custom Model](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1/operations/TrainCustomModelAsync) operation, so that the model can train to your industry-specific forms. Follow this guide to learn how to collect and prepare data to train the model effectively.
+When you use the Document Intelligence custom model, you provide your own training data to the [Train Custom Model](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1/operations/TrainCustomModelAsync) operation, so that the model can train to your industry-specific forms. Follow this guide to learn how to collect and prepare data to train the model effectively.
 
 You need at least five filled-in forms of the same type.
 
@@ -152,7 +153,7 @@ If you want to use manually labeled training data, you must start with at least 
 
 ## Custom model input requirements
 
-First, make sure your training data set follows the input requirements for Form Recognizer.
+First, make sure your training data set follows the input requirements for Document Intelligence.
 
 ::: moniker-end
 
@@ -202,13 +203,13 @@ If you add the following content to the request body, the API trains with docume
 
 ## Next steps
 
-Now that you've learned how to build a training data set, follow a quickstart to train a custom Form Recognizer model and start using it on your forms.
+Now that you've learned how to build a training data set, follow a quickstart to train a custom Document Intelligence model and start using it on your forms.
 
 * [Train a model and extract document data using the client library or REST API](../quickstarts/get-started-sdks-rest-api.md)
 * [Train with labels using the Sample Labeling tool](../label-tool.md)
 
 ## See also
 
-* [What is Form Recognizer?](../overview.md)
+* [What is Document Intelligence?](../overview.md)
 
 ::: moniker-end
