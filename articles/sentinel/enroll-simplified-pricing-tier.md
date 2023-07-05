@@ -3,7 +3,7 @@ title: Enroll in a simplified pricing tier for Microsoft Sentinel
 description: Learn how to enroll in simplified billing, the impact of the switch to simplified pricing tiers, and frequently asked questions about enrollment.
 author: austinmccollum
 ms.topic: how-to
-ms.date: 07/05/2023
+ms.date: 07/06/2023
 ms.author: austinmc
 ---
 
