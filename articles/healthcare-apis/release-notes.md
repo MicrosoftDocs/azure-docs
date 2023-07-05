@@ -6,7 +6,7 @@ author: kgaddam10
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: reference
-ms.date: 01/25/2023
+ms.date: 07/05/2023
 ms.author: kavitagaddam 
 ms.custom: references_regions
 ---
@@ -64,6 +64,12 @@ Per FHIR specification, metadata endpoint URL in capability statement needs to b
 **Fixed issue where DICOM events and Change Feed may miss changes**
 
 The DICOM Change Feed API could previously return results that incorrectly skipped pending changes when the DICOM server was under load. Identical calls to the Change Feed resource could have resulted in new change events appearing in the middle of the result set. For example, if the first call returned sequence numbers `1`, `2`, `3`, and `5`, then the second identical call could have incorrectly returned `1`, `2`, `3`, `4`, and `5`. This behavior also impacted the DICOM events sent to Azure Event Grid System Topics, and could have resulted in missing events in downstream event handlers. For more details, see [#2611](https://github.com/microsoft/dicom-server/pull/2611).
+
+#### MedTech service 
+
+**Feature Enhancement: Encounter identifiers included in the device message**
+
+Customers can now include encounter identifiers in the device message, so that they can look up the corresponding FHIR encounter and link it to the observation created in the FHIR transformation. This look up feature was supported in OSS and was an ask from customers for the PaaS MedTech service.
 
 
 ## May 2023
