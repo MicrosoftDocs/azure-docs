@@ -1,5 +1,5 @@
 ---
-title: Send events from Azure Event Hubs to Azure Monitor Logs
+title: Ingest events from Azure Event Hubs to Azure Monitor Logs
 description: Ingest logs from Event Hubs into Azure Monitor Logs 
 services: azure-monitor
 author: guywi-ms
@@ -9,11 +9,11 @@ ms.topic: tutorial
 ms.date: 09/20/2022
 ms.custom: template-tutorial 
 
-# customer-intent: As a workspace administrator, I want to collect data from an event hub into a Log Analytics workspace so that I can monitor application logs that I ingest using Azure Event Hubs.
+# customer-intent: As a DevOps, I want to ingest data from an event hub into a Log Analytics workspace so that I can monitor logs that I send to Azure Event Hubs.
 ---
 
 
-# Tutorial: Send events from Azure Event Hubs to Azure Monitor Logs   
+# Tutorial: Ingest events from Azure Event Hubs to Azure Monitor Logs   
 
 [Azure Event Hubs](../../event-hubs/event-hubs-about.md) is a big data streaming platform that collects events from multiple sources to be ingested by Azure and external services. This article explains how to ingest data directly from an event hub into a Log Analytics workspace.
 
