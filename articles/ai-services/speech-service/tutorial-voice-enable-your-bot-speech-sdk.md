@@ -271,7 +271,7 @@ If you want to test your deployed bot with text input, use the following steps. 
 
 1. In the [Azure portal](https://portal.azure.com), find and open your **EchoBotTutorial-BotRegistration-####** resource.
 1. From the **Settings** area, select **Configuration**. Copy the value under **Microsoft App ID**.
-1. Open the Visual Studio EchoBot solution. In Solution Explorer, find and double-click **appsettings.json**.
+1. Open the Visual Studio EchoBot solution. In Solution Explorer, find and double-select **appsettings.json**.
 1. Replace the empty string next to **MicrosoftAppId** in the JSON file with the copied ID value.
 1. Go back to the Azure portal. In the **Settings** area, select **Configuration**. Then select **Manage** next to **Microsoft App ID**.
 1. Select **New client secret**. Add a description (for example, **web chat**) and select **Add**. Copy the new secret.

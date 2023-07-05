@@ -79,7 +79,7 @@ Only RSA keys of size 2048 are supported with Azure Storage encryption. For more
 To enable customer-managed keys in the Azure portal, follow these steps:
 
 1. Navigate to your Speech resource.
-1. On the **Settings** blade for your Speech resource, click **Encryption**. Select the **Customer Managed Keys** option, as shown in the following figure.
+1. On the **Settings** blade for your Speech resource, select **Encryption**. Select the **Customer Managed Keys** option, as shown in the following figure.
 
  ![Screenshot showing how to select Customer Managed Keys](media/custom-commands/select-cmk.png)
 

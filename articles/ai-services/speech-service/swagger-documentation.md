@@ -29,10 +29,10 @@ You'll need to set Swagger to the region of your Speech resource. You can confir
 
 1. In a browser, go to the Swagger specification for your [region](regions.md#speech-service):  
        `https://<your-region>.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-1`
-1. On that page, click **API definition**, and click **Swagger**. Copy the URL of the page that appears.
+1. On that page, select **API definition**, and select **Swagger**. Copy the URL of the page that appears.
 1. In a new browser, go to [https://editor.swagger.io](https://editor.swagger.io)
-1. Click **File**, click **Import URL**, paste the URL, and click **OK**.
-1. Click **Generate Client** and select **python**. The client library downloads to your computer in a `.zip` file.
+1. Select **File**, select **Import URL**, paste the URL, and select **OK**.
+1. Select **Generate Client** and select **python**. The client library downloads to your computer in a `.zip` file.
 1. Extract everything from the download. You might use `tar -xf` to extract everything.
 1. Install the extracted module into your Python environment:  
       `pip install path/to/package/python-client`

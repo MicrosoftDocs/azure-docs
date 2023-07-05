@@ -20,8 +20,8 @@ ms.custom: references_regions, ignite-fall-2021
 Before you start, you must install the Speech SDK. Depending on your platform, use the following instructions:
 
 * <a href="~/articles/ai-services/speech-service/quickstarts/setup-platform.md?pivots=programming-language-cpp&tabs=linux" target="_blank">Linux </a>
-* <a href="~/articles/ai-services/speech-service/quickstarts/setup-platform?pivots=programming-language-cpp&tabs=macos" target="_blank">macOS </a>
-* <a href="~/articles/ai-services/speech-service/quickstarts/setup-platform?pivots=programming-language-cpp&tabs=windows" target="_blank">Windows </a>
+* <a href="~/articles/ai-services/speech-service/quickstarts/setup-platform.md?pivots=programming-language-cpp&tabs=macos" target="_blank">macOS </a>
+* <a href="~/articles/ai-services/speech-service/quickstarts/setup-platform.md?pivots=programming-language-cpp&tabs=windows" target="_blank">Windows </a>
 
 ### Import dependencies
 

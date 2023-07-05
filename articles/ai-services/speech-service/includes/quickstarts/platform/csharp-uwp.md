@@ -95,7 +95,7 @@ Next, create your project and select the target architecture:
 
 Allow the project to capture audio input:
 
-1. In **Solution Explorer**, double-click **Package.appxmanifest** to open the package application manifest.
+1. In **Solution Explorer**, double-select **Package.appxmanifest** to open the package application manifest.
 
 1. Select the **Capabilities** tab.
 

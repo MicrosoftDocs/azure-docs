@@ -116,7 +116,7 @@ In the scope of this article, we will be using the Windows Voice Assistant clien
 
 
 > [!TIP]
-> You can click on entries in **Activity Log** to inspect the raw responses being sent from the Custom Commands service.
+> You can select entries in **Activity Log** to inspect the raw responses being sent from the Custom Commands service.
 
 ## Next steps
 

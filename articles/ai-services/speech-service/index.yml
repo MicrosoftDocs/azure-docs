@@ -131,12 +131,6 @@ conceptualContent:
         - itemType: how-to-guide
           text: Recognize speech intents with custom entity matching
           url: how-to-use-custom-entity-pattern-matching.md
-        - itemType: reference
-          text: Language Understanding (LUIS) portal
-          url: https://www.luis.ai
-      footerLink:
-        text: More
-        url: index-intent-recognition.yml  
     - title: Hosting
       links:
         - itemType: how-to-guide

@@ -164,7 +164,7 @@ In this section, you'll use an existing default **DeviceState** endpoint. If you
     > - To make sure the value of the header is unique in our example endpoint, take the first 8 digits of your **applicationId**.
     > - In real world, the web endpoint can be the endpoint to the [IOT hub](../../iot-hub/about-iot-hub.md) that manages your devices.
 
-1. Click **Save**.
+1. Select **Save**.
 
 ## Call web endpoints
 
@@ -313,4 +313,4 @@ If you tested out the app with `turn on tv` in previous section, you would see t
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Export Custom Commands application as a remote skill](./how-to-custom-commands-integrate-remote-skills.md)
+> [Update a command from a client app](./how-to-custom-commands-update-command-from-client.md)

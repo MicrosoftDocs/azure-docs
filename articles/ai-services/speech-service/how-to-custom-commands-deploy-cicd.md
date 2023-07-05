@@ -78,7 +78,7 @@ The scripts are hosted at [Voice Assistant - Custom Commands](https://github.com
 
 1. Navigate to the main page of the pipeline.
 1. In the top-right corner dropdown, select **Edit pipeline**. It gets you to a YAML editor. 
-1. In the top-right corner next to "Run" button, select **Variables**. Click **New variable**.
+1. In the top-right corner next to "Run" button, select **Variables**. Select **New variable**.
 1. Add these variables:
     
     | Variable | Description |
@@ -154,7 +154,7 @@ The scripts are hosted at [Voice Assistant - Custom Commands](https://github.com
 
 1. Navigate to the main page of the pipeline.
 1. In the top-right corner dropdown, select **Edit pipeline**. It gets you to a YAML editor. 
-1. In the top-right corner next to "Run" button, select **Variables**. Click **New variable**.
+1. In the top-right corner next to "Run" button, select **Variables**. Select **New variable**.
 1. Add these variables:
 
     | Variable | Description |

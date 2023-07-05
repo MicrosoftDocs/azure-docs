@@ -48,7 +48,7 @@ You complete the following tasks:
       }
     }
    ```
-1. Click **Save** to create a new rule with a Send Activity action, **Train** and **Publish** the change
+1. Select **Save** to create a new rule with a Send Activity action, **Train** and **Publish** the change
 
    > [!div class="mx-imgBorder"]
    > ![Send Activity completion rule](media/custom-commands/send-activity-to-client-completion-rules.png)
