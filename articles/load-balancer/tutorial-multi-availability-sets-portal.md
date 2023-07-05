@@ -360,7 +360,7 @@ In this section, you'll use the Azure Bastion host you created previously to con
    ```
 1. Select **Run** and wait for the command to complete.
 
-:::image type="content" source="media/tutorial-multi-availability-sets-portal/run-command-script.png" alt-text="Screenshot of Run Command Script window with PowerShell code and output.":::
+    :::image type="content" source="media/tutorial-multi-availability-sets-portal/run-command-script.png" alt-text="Screenshot of Run Command Script window with PowerShell code and output.":::
 
 1. Repeat steps 1 through 8 for **myVM2**, **myVM3**, and **myVM4**.
 
