@@ -8,65 +8,86 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.date: 07/05/2023
-ms.author: moelghaz 
+ms.author: moelghaz
 ms.topic: how-to
 ---
 
 # Enable Custom Translator through Azure virtual network service endpoint
 
-[Azure Virtual Network](../../../../virtual-network/virtual-networks-overview.md) (Azure VNet) [service endpoints](../../../../virtual-network/virtual-network-service-endpoints-overview.md) help to provide secure and direct connectivity to Azure services over an optimized route via the Azure backbone network. Endpoints help you secure your critical Azure service resources to your virtual networks. Service endpoints enable private IP addresses in the virtual network to reach the endpoint of an Azure service without needing a public IP address on the virtual network.
+Azure Virtual Network (VNet) [service endpoints](../../../../virtual-network/virtual-network-service-endpoints-overview.md) securely connect your Azure service resources to your virtual networks over an optimized route via the Azure global network. Service endpoints enable private IP addresses within your virtual network to reach an Azure service endpoint without needing a public IP address on the virtual network. For more information, see [Azure Virtual Network overview](../../../../virtual-network/virtual-networks-overview.md)
 
-This article explains how to set up and use VNet service endpoints with Custom Translator service.
+Learn how to set up and use VNet service endpoints with Custom Translator.
 
 > [!NOTE]
 > Before you start, review [how to use virtual networks with Cognitive Services](../../../cognitive-services-virtual-networks.md).
 
-To set up a Translator resource for Virtual Network service endpoint scenarios, you need the following resources:
+To set up a Translator resource for VNet service endpoint scenarios, you need the following resources:
 
 1. [A regional Translator resource (global isn't supported)](../../create-translator-resource.md).
-1. [VNet and networking settings for the Translator resource](#configure-virtual-networks-and-the-translator-resource-networking-settings).
+1. [VNet and networking settings for the Translator resource](#configure-virtual-networks-resource-networking-settings).
 
-## Configure virtual networks and the Translator resource networking settings
+## Configure virtual networks resource networking settings
 
-You need to add all virtual networks that are allowed access via the service endpoint to the Translator resource networking properties.
+You need to add all virtual networks that are allowed access via the service endpoint to the Translator resource networking properties. To access a Translator resource via the Virtual Network, enable the `Microsoft.CognitiveServices` service endpoint type for the required subnets of your virtual network. Doing so routes all subnet traffic related to Cognitive Services through the private global network. If you intend to access any other Cognitive Services resources from the same subnet, make sure these resources are configured to allow your virtual network.
 
 > [!NOTE]
-> To access a Translator resource via the Virtual Network service endpoint, you need to enable the `Microsoft.CognitiveServices` service endpoint type for the required subnets of your virtual network. Doing so will route all subnet traffic related to Cognitive Services through the private backbone network. If you intend to access any other Cognitive Services resources from the same subnet, make sure these resources are configured to allow your virtual network. 
 >
-> If a virtual network isn't added as *allowed* in the Translator resource networking properties, it won't have access to the Translator resource via the service endpoint, even if the `Microsoft.CognitiveServices` service endpoint is enabled for the virtual network. And if the service endpoint is enabled but the virtual network isn't allowed, the Translator resource won't be accessible for the virtual network through a public IP address, no matter what the Translator resource's other network security settings are. That's because enabling the `Microsoft.CognitiveServices` endpoint routes all traffic related to Cognitive Services through the private backbone network, and in this case the virtual network should be explicitly allowed to access the resource. This guidance applies for all Cognitive Services resources, not just for Translator resources.  
-  
-1. Go to the [Azure portal](https://portal.azure.com/) and sign in to your Azure account.
-1. Select regional Translator resource.
+> * If a virtual network isn't added as *allowed* in the Translator resource networking properties, it won't have access to the Translator resource via the service endpoint, even if the `Microsoft.CognitiveServices` service endpoint is enabled for the virtual network.
+> * If the service endpoint is enabled but the virtual network isn't allowed, the Translator resource won't be accessible for the virtual network through a public IP address, regardless of your other network security settings.
+> * Enabling the `Microsoft.CognitiveServices` endpoint routes all traffic related to Cognitive Services through the private global network. Thus, the virtual network should be explicitly allowed to access the resource.
+> * This guidance applies for all Cognitive Services resources, not just for Translator resources.
+
+1. Navigate to the [Azure portal](https://portal.azure.com/) and sign in to your Azure account.
+
+1. Select a regional Translator resource.
+
 1. In the **Resource Management** group in the left pane, select **Networking**.
-1. On the **Firewalls and virtual networks** tab, select **Selected Networks and Private Endpoints**. 
+
+    :::image type="content" source="../media/how-to/resource-management-networking.png" alt-text="Screenshot of the  networking selection under Resource Management in the Azure portal.":::
+
+1. On the **Firewalls and virtual networks** tab, select **Selected Networks and Private Endpoints**.
+
+    :::image type="content" source="../media/how-to/firewalls-virtual-network.png" alt-text="Screenshot of the firewalls and virtual network page in the Azure portal.":::
 
    > [!NOTE]
    > To use Virtual Network service endpoints, you need to select the **Selected Networks and Private Endpoints** network security option. No other options are supported.
 
-5. Select **Add existing virtual network** or **Add new virtual network** and provide the required parameters. Select **Add** for an existing virtual network or **Create** for a new one. If you add an existing virtual network, the `Microsoft.CognitiveServices` service endpoint is automatically enabled for the selected subnets. This operation can take few minutes. Also, see the note at the beginning of this section.
+1. Select **Add existing virtual network** or **Add new virtual network** and provide the required parameters.
 
-### Enabling service endpoint for an existing virtual network 
+    * Select **Add** for an existing virtual network or **Create** for a new one.
 
-As described in the previous section, when you configure a virtual network as *allowed* for the Translator resource, the `Microsoft.CognitiveServices` service endpoint is automatically enabled. If you later disable it, you need to re-enable it manually to restore the service endpoint access to the Translator resource (and to other Cognitive Services resources):
+    * If you add an existing virtual network, the `Microsoft.CognitiveServices` service endpoint is automatically enabled for the selected subnets.
 
-1. Go to the [Azure portal](https://portal.azure.com/) and sign in to your Azure account.
-1. Select the virtual network.
-1. In the **Settings** group in the left pane, select **Subnets**.
-1. Select the required subnet.
-1. A new panel appears on the right side of the window. In this panel, in the **Service Endpoints** section, select `Microsoft.CognitiveServices` in the **Services** list.
-1. Select **Save**.
+    * If you create a new virtual network, the **default** subnet is automatically configured to the `Microsoft.CognitiveServices` service endpoint. This operation can take few minutes.
 
+    > [!NOTE]
 
-### Use a Translator resource that has Virtual Network service endpoint enabled
+    > As described in the [previous section](#configure-virtual-networks-resource-networking-settings), when you configure a virtual network as *allowed* for the Translator resource, the `Microsoft.CognitiveServices` service endpoint is automatically enabled. If you later disable it, you need to re-enable it manually to restore the service endpoint access to the Translator resource (and to other Cognitive Services resources):
 
-In this scenario, the **Selected Networks and Private Endpoints** option is selected in the networking settings of the Translator resource and at least one virtual network is allowed. 
+1. Check the service endpoint
 
-#### Custom Translator portal
+    * In the **Resource Management** group in the left pane, select **Networking**.
 
-The following table describes Custom Translator project accessibility per Translator resource **Networking** > **Firewalls and virtual networks** security setting.
+    * Select your **virtual network** and then select the desired **subnet**.
 
-> [!NOTE]
-> If you allow only Selected Networks and Private Endpoints via the **Networking** > **Firewalls and virtual networks** tab, then you can't use Custom Translator portal with the Translator resource. You still can use the Translator resource outside of Custom Translator portal.  
+      :::image type="content" source="../media/how-to/select-subnet.png" alt-text="{alt-text}":::
+
+    * A new **Subnets** window appears.
+
+    * Select **Service endpoints** from the **Settings** menu located on the left sidebar.
+
+    :::image type="content" source="../media/how-to/subnet-settings.png" alt-text="Screenshot of the **Subnets** selection from the **Settings** menu in the Azure portal.":::
+
+1. A new panel appears on the right side of the window. In this panel, in the **Service Endpoints** section, check that your virtual network subnet is included in the  `Microsoft.CognitiveServices` list.
+
+1. Now, when you choose the **Selected Networks and Private Endpoints** option you see your enabled virtual network and subnets under the **Virtual networks** section.
+
+## Custom Translator portal
+
+The following table describes Custom Translator project accessibility per Translator resource **Networking** → **Firewalls and virtual networks** security setting.
+
+> [!IMPORTANT]
+ > If you allow only Selected Networks and Private Endpoints via the **Networking** → **Firewalls and virtual networks** tab, you can't use the Custom Translator portal your the Translator resource. You can still use the Translator resource outside of Custom Translator portal.
 
 | Translator resource network security setting | Custom Translator portal accessibility |
 |--|--|
@@ -74,10 +95,13 @@ The following table describes Custom Translator project accessibility per Transl
 | Selected Networks and Private Endpoints | Accessible from allowed VNET IP addresses |
 | Disabled | Not accessible |
 
+To use Custom Translator without relaxing network access restrictions on your production Translator resource, consider this workaround:
 
-To use Custom Translator without relaxing network access restrictions on your production Translator resource, consider this workaround: 
+* Create another Translator resource for development that can be used on a public network.
 
-Create another Translator resource for development that can be used on a public network. Prepare your custom model in Custom Translator portal on the development resource, and then copy the model to your production resource using [Custom Translator non-interactive REST API](https://microsofttranslator.github.io/CustomTranslatorApiSamples/) `workspaces` → `copy authorization and models`  → `copy functions`.
+* Prepare your custom model in Custom Translator portal on the development resource, and then copy the model to your production resource using [Custom Translator non-interactive REST API](https://microsofttranslator.github.io/CustomTranslatorApiSamples/) `workspaces` → `copy authorization and models`  → `copy functions`.
+
+That's it! You learned how to use Azure VNet service endpoints with Custom Translator.
 
 ## Learn more
 
