@@ -257,8 +257,6 @@ You'll use the Azure portal to configure the mapping between the Azure AD user's
  7. Now select **Add New Mapping**, and repeat the next step for each mapping.
  
 
-     [![Screenshot that shows Add New Mapping.](.\media\active-directory-app-provisioning-sql\configure-11.png)](.\media\active-directory-app-provisioning-sql\configure-11.png#lightbox)
-
  8. Specify the source and target attributes for each of the mappings in the following table.
 
      
