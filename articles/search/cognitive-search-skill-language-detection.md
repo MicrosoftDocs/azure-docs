@@ -2,7 +2,6 @@
 title: Language detection cognitive skill
 titleSuffix: Azure Cognitive Search
 description: Evaluates unstructured text, and for each record, returns a language identifier with a score indicating the strength of the analysis in an AI enrichment pipeline in Azure Cognitive Search.
-
 author: LiamCavanagh
 ms.author: liamca
 ms.service: cognitive-search

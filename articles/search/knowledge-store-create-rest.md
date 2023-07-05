@@ -2,7 +2,6 @@
 title: Create a knowledge store using REST
 titleSuffix: Azure Cognitive Search
 description: Use the REST API and Postman to create an Azure Cognitive Search knowledge store for persisting AI enrichments from skillset.
-
 author: HeidiSteen
 manager: nitinme
 ms.author: heidist

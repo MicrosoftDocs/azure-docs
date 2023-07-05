@@ -2,7 +2,6 @@
 title: 'C# tutorial: AI on Azure blobs'
 titleSuffix: Azure Cognitive Search
 description: Step through an example of text extraction and natural language processing over content in Blob storage using C# and the Azure Cognitive Search .NET SDK. 
-
 author: gmndrg
 ms.author: gimondra
 manager: nitinme

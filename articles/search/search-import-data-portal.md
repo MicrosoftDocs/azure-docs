@@ -2,7 +2,6 @@
 title: Import data into a search index using Azure portal
 titleSuffix: Azure Cognitive Search
 description: Learn about the Import Data wizard in the Azure portal used to create and load an index, and optionally invoke AI enrichment using built-in skills for natural language processing, translation, OCR, and image analysis.
-
 author: HeidiSteen
 manager: nitinme
 ms.author: heidist

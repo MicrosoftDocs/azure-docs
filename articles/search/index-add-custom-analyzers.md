@@ -2,7 +2,6 @@
 title: Add custom analyzers to string fields
 titleSuffix: Azure Cognitive Search
 description: Configure text tokenizers and character filters to perform text analysis on strings during indexing and queries.
-
 author: HeidiSteen
 manager: nitinme
 ms.author: heidist

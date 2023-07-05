@@ -2,7 +2,6 @@
 title: Configure search apps for Azure AD
 titleSuffix: Azure Cognitive Search
 description: Acquire a token from Azure Active Directory to authorize search requests to an app built on Azure Cognitive Search.
-
 author: gmndrg
 ms.author: gimondra
 ms.service: cognitive-search

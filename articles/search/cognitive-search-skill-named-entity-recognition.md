@@ -2,7 +2,6 @@
 title: Named Entity Recognition cognitive skill (v2)
 titleSuffix: Azure Cognitive Search
 description: Extract named entities for person, location and organization from text in an AI enrichment pipeline in Azure Cognitive Search.
-
 author: LiamCavanagh
 ms.author: liamca
 ms.service: cognitive-search

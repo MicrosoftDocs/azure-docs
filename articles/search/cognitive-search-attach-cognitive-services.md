@@ -2,7 +2,6 @@
 title: Attach Azure AI services to a skillset
 titleSuffix: Azure Cognitive Search
 description: Learn how to attach an Azure AI multi-service resource to an AI enrichment pipeline in Azure Cognitive Search.
-
 author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
