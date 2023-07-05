@@ -47,14 +47,16 @@ With your mission being to ensure that security coverage of your SAP environment
 
 ## Standard vs. Consumption playbooks
 
-Microsoft Sentinel lets you create instances of these playbooks directly from templates if you're using playbooks based on Azure Logic Apps' **Consumption** plan. If you have specific requirements for virtual networking (VNET) injection support, you must either use **Azure API management** [as described here](https://blogs.sap.com/2023/05/17/generate-soap-services-for-your-legacy-rfcs-to-simplify-integration-out-of-the-box/), or use **Standard**-plan logic apps.
+Microsoft Sentinel lets you create instances of these playbooks directly from templates if you're using playbooks based on Azure Logic Apps' **Consumption** plan. If you have specific requirements for virtual networking (VNET) injection support, you must either use **Azure API management** [as described here](https://blogs.sap.com/2023/05/17/generate-soap-services-for-your-legacy-rfcs-to-simplify-integration-out-of-the-box/) in conjunction with your Consumption logic app, or use **Standard**-plan logic apps.
 
 See the [full explanation of the different types of playbooks](../automate-responses-with-playbooks.md#logic-app-types). Also, see [this SAP blog post](https://blogs.sap.com/2023/05/22/from-zero-to-hero-security-coverage-with-microsoft-sentinel-for-your-critical-sap-security-signals-youre-gonna-hear-me-soar-part-1/), in the table under the heading "Creating line of sight to your SAP system for the SOAP request," for the ramifications of choosing each type of logic app. 
 
 The process for deploying Standard logic apps generally is more complex than it is for Consumption logic apps, but we've made available a series of shortcuts which allows you to deploy them quickly from the Microsoft Sentinel GitHub repository. Follow the [procedure outlined there](https://github.com/Azure/Azure-Sentinel/blob/master/Solutions/SAP/Playbooks/INSTALLATION.md) to deploy the playbooks.
 
-Currently available Standard playbooks:
+Currently available Standard playbooks in GitHub:
 - [**Lock SAP User from Teams - Basic** Standard playbook](https://github.com/Azure/Azure-Sentinel/tree/master/Solutions/SAP/Playbooks/Basic-SAPLockUser-STD)
+
+Keep tabs on the [SAP playbooks folder](https://github.com/Azure/Azure-Sentinel/tree/master/Solutions/SAP/Playbooks) in the GitHub repository for more playbooks as they become available. There's also a short introductory video there to help you get started.
 
 ## Next steps
 
