@@ -3,7 +3,7 @@ title: Removed and deprecated features for Azure Container Registry
 description: This article lists and notifies the features that are deprecated or removed from support for Azure Container Registry.
 ms.topic: article
 ms.date: 06/27/2022
-ms.author: tejaswikolli-web
+ms.author: tejaswikolli
 ---
 
 # API Deprecations in Azure Container Registry
