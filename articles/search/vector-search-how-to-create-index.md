@@ -15,7 +15,7 @@ ms.date: 07/07/2023
 > [!IMPORTANT]
 > Vector search is in public preview under [supplemental terms of use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). It's available through the Azure portal, preview REST API, and [alpha SDKs](https://github.com/Azure/cognitive-search-vector-pr#readme).
 
-In Azure Cognitive Search, vector data is represented in fields in a [search index](search-what-is-an-index.md). You can add vector fields to an existing index. You can use the push API to push content to the index.
+In Azure Cognitive Search, vector data is represented in fields in a [search index](search-what-is-an-index.md).
 
 ## Prerequisites
 
@@ -23,13 +23,15 @@ In Azure Cognitive Search, vector data is represented in fields in a [search ind
 
   Most existing services support vector search. For a small subset of services created prior to January 2019, an index containing vector fields will fail on creation. In this situation, a new service must be created.
 
-+ Pre-existing embeddings. Cognitive Search doesn't generate embeddings. We recommend Azure OpenAI but you can use any model for vectorization. Be sure to use the same model for both indexing and queries. At query time, you must include a step that converts the user's query into a vector.
++ Pre-existing embeddings. Cognitive Search doesn't generate embeddings. We recommend Azure OpenAI but you can use any model for vectorization. For more information, see [Create and use embeddings for search queries and documents](vector-search-how-to-generate-embeddings.md).
+
+  Be sure to use the same model for both indexing and queries. At query time, you must include a step that converts the user's query into a vector.
 
 ## Prepare documents for indexing
 
-Prior to indexing, assemble a documents payload that includes vector data. The document structure must conform to the index schema.
+Prior to indexing, assemble a documents payload that includes vector data. The document structure must conform to the index schema. Make sure your documents include the following elements.
 
-1. Provide a unique value or a metadata property that uniquely identifies each source document. All search indexes require a document key as a unique identifier, which means you must have one string field of type `Edm.String` and `key=true`. 
+1. Provide a unique value or a metadata property that uniquely identifies each source document. All search indexes require a document key as a unique identifier, which means all documents must have one field that can be mapped to type `Edm.String` and `key=true` in the search index. 
 
 1. Provide vector data (an array of single-precision floating point numbers) in source fields.
 
@@ -186,6 +188,8 @@ Data sources provide the vectors in whatever format the data source supports (su
   Azure SQL doesn't provide a way to store a collection natively as a single SQL column. A workaround hasn't been identified at this time.
 
 + The dimensions of all vectors from the data source must be the same and match their index definition for the field they're mapping to. The indexer throws an error on any documents that don’t match.
+
+---
 
 ## Check your index for vector content
 
