@@ -24,10 +24,10 @@ items:
   items: 
     - name: Key concepts
       href: concept-load-testing-concepts.md
-    - name: Scenarios for VNET deployment
-      href: concept-azure-load-testing-vnet-injection.md
     - name: Scenarios
       items:
+        - name: Scenarios for VNET deployment
+          href: concept-azure-load-testing-vnet-injection.md
         - name: Load test Azure App Service apps
           href: concept-load-test-app-service.md
 

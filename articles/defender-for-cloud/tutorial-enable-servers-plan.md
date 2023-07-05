@@ -12,7 +12,7 @@ Defender for Servers in Microsoft Defender for Cloud brings threat detection and
 
 Microsoft Defender for Servers includes an automatic, native integration with Microsoft Defender for Endpoint. Learn more, [Protect your endpoints with Defender for Cloud's integrated EDR solution: Microsoft Defender for Endpoint](integration-defender-for-endpoint.md). With this integration enabled, you have access to the vulnerability findings from **Microsoft threat and vulnerability management**.
 
-Defender for Servers offers two plan options that offer different levels of protection and their own cost. You can learn more about Defender for Clouds pricing on [the pricing page](https://azure.microsoft.com/pricing/details/defender-for-cloud/).
+Defender for Servers offers two plan options with different levels of protection and their own cost. You can learn more about Defender for Cloud's pricing on [the pricing page](https://azure.microsoft.com/pricing/details/defender-for-cloud/).
 
 ## Prerequisites
 
@@ -24,9 +24,9 @@ Defender for Servers offers two plan options that offer different levels of prot
 
 ## Enable the Defender for Servers plan
 
-You can enable the Defender for Servers plan on your Azure subscription, AWS account or GCP project to protect all of your resources within that subscription on the Environment settings page.
+You can enable the Defender for Servers plan from the Environment settings page to protect all the machines in an Azure subscription, AWS account, or GCP project.
 
-**To Enable the Defender for Servers plan**:
+**To enable the Defender for Servers plan**:
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
@@ -42,9 +42,9 @@ You can enable the Defender for Servers plan on your Azure subscription, AWS acc
 
 ## Select a Defender for Servers plan
 
-When you enable the Defender for Servers plan, you're then given the option to select which plan you want to enable. There are two plans you can choose from that offer different levels of protections for your resources.
+When you enable the Defender for Servers plan, you're then given the option to select which plan - Plan 1 or Plan 2 - to enable. There are two plans you can choose from that offer different levels of protections for your resources.
 
-You can compare what's included in [each plan](plan-defender-for-servers-select-plan.md#plan-features).
+[Review what's included each plan](plan-defender-for-servers-select-plan.md#plan-features).
 
 **To select a Defender for Servers plan**:
 
@@ -54,7 +54,7 @@ You can compare what's included in [each plan](plan-defender-for-servers-select-
 
 1. In the Defender for Cloud menu, select **Environment settings**.
 
-1. Select the relevant Azure subscription, AWS account or GCP project.
+1. Select the relevant Azure subscription, AWS account, or GCP project.
 
 1. Select **Change plans**.
 
