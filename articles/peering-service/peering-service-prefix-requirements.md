@@ -29,7 +29,7 @@ For a registered prefix to be validated after creation, the following checks mus
 
 The validation state of a peering service prefix can be seen in the Azure portal.
 
-:::image type="content" source="media/peering-service-prefix-validation-failed.png" alt-text="Peering service prefixes failing validation" :::
+:::image type="content" source="./media/azure-portal/peering-service-prefix-validation-failed.png" alt-text="Peering service prefixes failing validation" :::
 
 Prefixes can only be activated when all validation steps have passed. Listed further in this document are possible validation errors, with troubleshooting steps to solve them.
 
