@@ -4,7 +4,7 @@ description: This article describes new features in Microsoft Sentinel from the 
 author: yelevin
 ms.author: yelevin
 ms.topic: conceptual
-ms.date: 06/22/2023
+ms.date: 07/05/2023
 ---
 
 # What's new in Microsoft Sentinel
@@ -24,6 +24,7 @@ See these [important announcements](#announcements) about recent changes to feat
 
 ## July 2023
 
+- [Simplified pricing tiers](#simplified-pricing-tiers) in [Announcements](#announcements) section below
 - [Monitor and optimize the execution of your scheduled analytics rules (Preview)](#monitor-and-optimize-the-execution-of-your-scheduled-analytics-rules-preview)
 
 ### Monitor and optimize the execution of your scheduled analytics rules (Preview)
@@ -196,6 +197,7 @@ To give you more flexibility in scheduling your analytics rule execution times a
 
 ## Announcements
 
+- [Simplified pricing tiers](#simplified-pricing-tiers)
 - [Classic alert automation due for deprecation](#classic-alert-automation-due-for-deprecation)
 - [When disconnecting and connecting the MDI alerts connector - UniqueExternalId field is not populated (use the AlertName field)](#when-disconnecting-and-connecting-the-mdi-alerts-connector---uniqueexternalid-field-is-not-populated-use-the-alertname-field)
 - [Microsoft Defender for Identity alerts will no longer refer to the MDA policies in the Alert ExternalLinks properties](#microsoft-defender-for-identity-alerts-will-no-longer-refer-to-the-mda-policies-in-the-alert-externallinks-properties)
@@ -205,6 +207,21 @@ To give you more flexibility in scheduling your analytics rule execution times a
 - [Microsoft 365 Defender now integrates Azure Active Directory Identity Protection (AADIP)](#microsoft-365-defender-now-integrates-azure-active-directory-identity-protection-aadip)
 - [Account enrichment fields removed from Azure AD Identity Protection connector](#account-enrichment-fields-removed-from-azure-ad-identity-protection-connector)
 - [Name fields removed from UEBA UserPeerAnalytics table](#name-fields-removed-from-ueba-userpeeranalytics-table)
+
+### Simplified pricing tiers
+Microsoft Sentinel is billed for the volume of data *analyzed* in Microsoft Sentinel and *stored* in Azure Monitor Log Analytics. So far, there have been two sets of pricing tiers, one for each product. Two things are happening:
+
+- Starting July 1, 2023, the separate Microsoft Sentinel pricing tiers are prefixed as *Classic* when viewing meters in Microsoft Cost Management invoice details. 
+- New, simplified pricing tiers are rolling out a unifying the billing experience for Microsoft Sentinel customers starting July 5, 2023.
+
+##### Switch to new pricing 
+Combining the pricing tiers offers a simplification to the overall billing and cost management experience, including visualization in the pricing page, and fewer steps  estimating costs in the Azure calculator. To add further value to the new simplified tiers, the current [Microsoft Defender for Servers P2 benefit granting 500 MB/VM/day](../defender-for-cloud/faq-defender-for-servers.yml#is-the-500-mb-of-free-data-ingestion-allowance-applied-per-workspace-or-per-machine-) security data ingestion into Log Analytics has been extended to the simplified pricing tiers. This greatly increases the financial benefit of bringing eligible data ingested into Microsoft Sentinel for each VM protected in this manner.
+
+##### Free trial changes
+A slight change to how free trials are offered was made to provide further simplification. There used to be a free trial option that waived Microsoft Sentinel costs and charged Log Analytics costs regularly, this will no longer be offered as an option. Starting July 5, 2023 all new Microsoft Sentinel workspaces will result in a 31 day free trial of 10 GB/day for the combined ingestion and analysis costs on Microsoft Sentinel and Log Analytics.
+
+##### How do I get started with the simplified pricing tier?
+All new Microsoft Sentinel workspaces will automatically default to the simplified pricing tiers. Existing workspaces will have the choice to switch to the new pricing from Microsoft Sentinel settings. For more information, see the [simplified pricing tiers](billing.md#simplified-pricing-tiers) section of our cost planning documentation and [this featured blog post](https://aka.ms/SentinelSimplifiedPricing).
 
 ### Classic alert automation due for deprecation
 
