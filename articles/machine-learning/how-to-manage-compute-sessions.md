@@ -7,7 +7,7 @@ author: lebaro-msft
 ms.author: lebaro
 ms.reviewer: sgilley
 ms.service: machine-learning
-ms.subservice: core
+ms.subservice: compute
 ms.topic: how-to
 ms.date: 1/18/2023
 # Customer intent: As a data scientist, I want to manage the notebook and terminal sessions on my compute instance for optimal performance.

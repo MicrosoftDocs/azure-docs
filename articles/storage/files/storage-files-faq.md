@@ -221,5 +221,5 @@ ms.topic: conceptual
     This configuration isn't currently supported for Azure Files. To learn how to set this up using Azure Blob storage, see [Deploy a Cloud Witness for a Failover Cluster](/windows-server/failover-clustering/deploy-cloud-witness).
 
 ## See also
-* [Troubleshoot Azure Files](files-troubleshoot.md)
-* [Troubleshoot Azure File Sync](../file-sync/file-sync-troubleshoot.md)
+* [Troubleshoot Azure Files](/troubleshoot/azure/azure-storage/files-troubleshoot?toc=/azure/storage/files/toc.json)
+* [Troubleshoot Azure File Sync](/troubleshoot/azure/azure-storage/file-sync-troubleshoot?toc=/azure/storage/file-sync/toc.json)
