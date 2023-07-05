@@ -24,7 +24,7 @@ When you deploy Azure Spring Apps in an Azure virtual network, you need to confi
 
 To avoid this problem, you should reserve subnet ranges that are large enough to support the number of application instances. For subnets, Azure reserves five IP addresses, and Azure Spring Apps requires at least three IP addresses. We recommend that you reserve at least the `/24` subnet ranges for the apps subnet.
 
-For more information about how deploy an Azure Spring Apps instance in your virtual network, see [Deploy Azure Spring Apps in a virtual network](how-to-deploy-in-azure-virtual-network.md).
+For more information about how to deploy an Azure Spring Apps instance in your virtual network, see [Deploy Azure Spring Apps in a virtual network](how-to-deploy-in-azure-virtual-network.md).
 
 ## Restrictions
 
