@@ -6,9 +6,9 @@
     href: overview.md
 - name: Quickstarts
   items:
-  - name: Create Application Gateway for Containers - Managed Deployment
-    href: quickstart-create-application-gateway-for-containers-managed-deployment.md
-  - name: Create Application Gateway for Containers - Referenced Deployment
+  - name: Create Application Gateway for Containers - ALB managed deployment
+    href: quickstart-create-application-gateway-for-containers-alb-managed-deployment.md
+  - name: Create Application Gateway for Containers - Bring your own deployment
     href: quickstart-create-application-gateway-for-containers-referenced-deployment.md
 - name: Concepts
   items:
