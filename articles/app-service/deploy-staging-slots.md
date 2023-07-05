@@ -4,7 +4,7 @@ description: Learn how to deploy apps to a non-production slot and autoswap into
 
 ms.assetid: e224fc4f-800d-469a-8d6a-72bcde612450
 ms.topic: article
-ms.date: 04/30/2020
+ms.date: 07/30/2023
 ms.custom: fasttrack-edit, devx-track-azurepowershell
 
 ---
@@ -23,11 +23,16 @@ Each App Service plan tier supports a different number of deployment slots. Ther
 
 To scale your app to a different tier, make sure that the target tier supports the number of slots your app already uses. For example, if your app has more than five slots, you can't scale it down to the **Standard** tier, because the **Standard** tier supports only five deployment slots. 
 
+## Prerequisites
+
+For information on the permissions you need to perform the slot operation you want, see [Resource provider operations](../role-based-access-control/resource-provider-operations.md#microsoftweb) (search for *slot*, for example). 
+
 <a name="Add"></a>
 
 ## Add a slot
 The app must be running in the **Standard**, **Premium**, or **Isolated** tier in order for you to enable multiple deployment slots.
 
+# [Azure Portal](#tab/portal)
 
 1. in the [Azure portal](https://portal.azure.com/), search for and select **App Services** and select your app. 
    
@@ -61,6 +66,28 @@ The app must be running in the **Standard**, **Premium**, or **Isolated** tier i
     The staging slot has a management page just like any other App Service app. You can change the slot's configuration. To remind you that you're viewing the deployment slot, the app name is shown as **\<app-name>/\<slot-name>**, and the app type is **App Service (Slot)**. You can also see the slot as a separate app in your resource group, with the same designations.
 
 6. Select the app URL on the slot's resource page. The deployment slot has its own host name and is also a live app. To limit public access to the deployment slot, see [Azure App Service IP restrictions](app-service-ip-restrictions.md).
+
+# [Azure CLI](#tab/cli)
+
+Run the following command in a terminal:
+
+```azurecli-interactive
+az webapp deployment slot create --name <app-name> --resource-group <group-name> --slot <slot-name>
+```
+
+For more information, see [az webapp deployment slot create](/cli/azure/webapp/deployment/slot#az-webapp-deployment-slot-create).
+
+# [Azure PowerShell](#tab/powershell)
+
+Run the following cmdlet in a PowerShell terminal:
+
+```azurepowershell-interactive
+New-AzWebAppSlot -ResourceGroupName <group-name> -Name <app-name> -Slot <slot-name> -AppServicePlan <plan-name>
+```
+
+For more information, see [New-AzWebAppSlot](/powershell/module/az.websites/new-azwebappslot).
+
+-----
 
 The new deployment slot has no content, even if you clone the settings from a different slot. For example, you can [publish to this slot with Git](./deploy-local-git.md). You can deploy to the slot from a different repository branch or a different repository.  Get publish profile [from Azure App Service](/visualstudio/azure/how-to-get-publish-profile-from-azure-app-service) can provide required information to deploy to the slot.  The profile can be imported by Visual Studio to deploy contents to the slot.
 
@@ -120,6 +147,8 @@ You can swap deployment slots on your app's **Deployment slots** page and the **
 
 To swap deployment slots:
 
+# [Azure Portal](#tab/portal)
+
 1. Go to your app's **Deployment slots** page and select **Swap**.
    
     ![Swap button](./media/web-sites-staged-publishing/SwapButtonBar.png)
@@ -133,6 +162,28 @@ To swap deployment slots:
     To see how your target slot would run with the new settings before the swap actually happens, don't select **Swap**, but follow the instructions in [Swap with preview](#Multi-Phase).
 
 3. When you're finished, close the dialog box by selecting **Close**.
+
+# [Azure CLI](#tab/cli)
+
+To swap a slot into production, run the following command in a terminal:
+
+```azurecli-interactive
+az webapp deployment slot swap --resource-group <group-name> --name <app-name> --slot <source-slot-name> --target-slot production
+```
+
+For more information, see [az webapp deployment slot swap](/cli/azure/webapp/deployment/slot#az-webapp-deployment-slot-swap).
+
+# [Azure PowerShell](#tab/powershell)
+
+To swap a slot into production, run the following cmdlet in a PowerShell terminal:
+
+```azurepowershell-interactive
+Switch-AzWebAppSlot -SourceSlotName "<source-slot-name>" -DestinationSlotName "production" -ResourceGroupName "<group-name>" -Name "<app-name>"
+```
+
+For more information, see [Switch-AzWebAppSlot](/powershell/module/az.websites/switch-azwebappslot).
+
+-----
 
 If you have any problems, see [Troubleshoot swaps](#troubleshoot-swaps).
 
@@ -149,6 +200,8 @@ If you cancel the swap, App Service reapplies configuration elements to the sour
 > [!NOTE]
 > Swap with preview can't be used when one of the slots has site authentication enabled.
 > 
+
+# [Azure Portal](#tab/portal)
 
 To swap with preview:
 
@@ -168,9 +221,53 @@ To swap with preview:
 
 4. When you're finished, close the dialog box by selecting **Close**.
 
-If you have any problems, see [Troubleshoot swaps](#troubleshoot-swaps).
+# [Azure CLI](#tab/cli)
 
-To automate a multi-phase swap, see [Automate with PowerShell](#automate-with-powershell).
+To swap a slot into production with preview, run the following command in a terminal:
+
+```azurecli-interactive
+az webapp deployment slot swap --resource-group <group-name> --name <app-name> --slot <source-slot-name> --target-slot production --action preview
+```
+
+To complete the swap:
+
+```azurecli-interactive
+az webapp deployment slot swap --resource-group <group-name> --name <app-name> --slot <source-slot-name> --target-slot production --action swap
+```
+
+To cancel the swap:
+
+```azurecli-interactive
+az webapp deployment slot swap --resource-group <group-name> --name <app-name> --slot <source-slot-name> --target-slot production --action reset
+```
+
+For more information, see [az webapp deployment slot swap](/cli/azure/webapp/deployment/slot#az-webapp-deployment-slot-swap).
+
+# [Azure PowerShell](#tab/powershell)
+
+To swap a slot into production with preview, run the following cmdlet in a PowerShell terminal:
+
+```azurepowershell-interactive
+Switch-AzWebAppSlot -SourceSlotName "<source-slot-name>" -DestinationSlotName "production" -ResourceGroupName "<group-name>" -Name "<app-name>" -SwapWithPreviewAction ApplySlotConfig
+```
+
+To complete the swap:
+
+```azurepowershell-interactive
+Switch-AzWebAppSlot -SourceSlotName "<source-slot-name>" -DestinationSlotName "production" -ResourceGroupName "<group-name>" -Name "<app-name>" -SwapWithPreviewAction CompleteSlotSwap
+```
+
+To cancel the swap:
+
+```azurepowershell-interactive
+Switch-AzWebAppSlot -SourceSlotName "<source-slot-name>" -DestinationSlotName "production" -ResourceGroupName "<group-name>" -Name "<app-name>" -SwapWithPreviewAction ResetSlotSwap
+```
+
+For more information, see [Switch-AzWebAppSlot](/powershell/module/az.websites/switch-azwebappslot).
+
+-----
+
+If you have any problems, see [Troubleshoot swaps](#troubleshoot-swaps).
 
 <a name="Rollback"></a>
 
@@ -190,6 +287,8 @@ Auto swap streamlines Azure DevOps scenarios where you want to deploy your app c
    > Before you configure auto swap for the production slot, consider testing auto swap on a non-production target slot.
    > 
 
+# [Azure Portal](#tab/portal)
+
 To configure auto swap:
 
 1. Go to your app's resource page. Select **Deployment slots** > *\<desired source slot>* > **Configuration** > **General settings**.
@@ -199,6 +298,32 @@ To configure auto swap:
     ![Selections for configuring auto swap](./media/web-sites-staged-publishing/AutoSwap02.png)
 
 3. Execute a code push to the source slot. Auto swap happens after a short time, and the update is reflected at your target slot's URL.
+
+# [Azure CLI](#tab/cli)
+
+To configure auto swap into the production slot, run the following command in a terminal:
+
+```azurecli-interactive
+az webapp deployment slot auto-swap --name <app-name> --resource-group <group-name> --slot <source-slot-name>
+```
+
+To disable auto swap:
+
+```azurecli-interactive
+az webapp deployment slot auto-swap --name <app-name> --resource-group <group-name> --slot <source-slot-name> --disable
+```
+
+For more information, see [az webapp deployment slot auto-swap](/cli/azure/webapp/deployment/slot#az-webapp-deployment-slot-auto-swap).
+
+# [Azure PowerShell](#tab/[powershell])
+
+```azurepowershell-interactive
+Set-AzWebAppSlot -ResourceGroupName "group-name" -Name "<app-name>" -Slot "<source-slot-name>" -AutoSwapSlotName "production"
+```
+
+For more information, see [Set-AzWebAppSlot](/powershell/module/az.websites/set-azwebappslot).
+
+-----
 
 If you have any problems, see [Troubleshoot swaps](#troubleshoot-swaps).
 
@@ -234,15 +359,40 @@ If you have any problems, see [Troubleshoot swaps](#troubleshoot-swaps).
 
 If the [swap operation](#AboutConfiguration) takes a long time to complete, you can get information on the swap operation in the [activity log](../azure-monitor/essentials/platform-logs-overview.md).
 
+# [Azure Portal](#tab/portal)
+
 On your app's resource page in the portal, in the left pane, select **Activity log**.
 
 A swap operation appears in the log query as `Swap Web App Slots`. You can expand it and select one of the suboperations or errors to see the details.
 
-## Route traffic
+# [Azure CLI](#tab/cli)
+
+To monitor swap events in the activity log, run the following command:
+
+```azurecli-interactive
+az monitor activity-log list --start-time 2023-07-07 --caller SlotSwapJobProcessor
+```
+
+For more information, see [az monitor activity-log list
+](/cli/azure/monitor/activity-log#az-monitor-activity-log-list).
+
+# [Azure PowerShell](#tab/powershell)
+
+To monitor swap events in the activity log, run the following command:
+
+```azurepowershell-interactive
+Get-AzLog -ResourceGroup [resource group name] -StartTime 2023-07-07 -Caller SlotSwapJobProcessor
+```
+
+For more information, see [Get-AzLog](/powershell/module/az.monitor/get-azlog).
+
+-----
+
+## Route production traffic automatically
 
 By default, all client requests to the app's production URL (`http://<app_name>.azurewebsites.net`) are routed to the production slot. You can route a portion of the traffic to another slot. This feature is useful if you need user feedback for a new update, but you're not ready to release it to production.
 
-### Route production traffic automatically
+# [Azure Portal](#tab/portal)
 
 To route production traffic automatically:
 
@@ -254,12 +404,31 @@ To route production traffic automatically:
 
 After the setting is saved, the specified percentage of clients is randomly routed to the non-production slot. 
 
+# [Azure CLI](#tab/cli)
+
+To add a routing rule on a slot and transfer 15% of production traffic it, run the following command:
+
+```azurecli-interactive
+az webapp traffic-routing set --resource-group <group-name> --name <app-name> --distribution <slot-name>=15
+```
+
+For more information, see [az webapp traffic-routing set](/cli/azure/webapp/traffic-routing#az-webapp-traffic-routing-set).
+
+# [Azure PowerShell](#tab/powershell)
+
+To add a routing rule on a slot and transfer 15% of production traffic it, run the following command:
+
+```azurepowershell-interactive
+Add-AzWebAppTrafficRouting -ResourceGroupName "<group-name>" -WebAppName "<app-name>" -RoutingRule @{ActionHostName='XXXX.azurewebsites.net';ReroutePercentage=15;Name='<slot-name>'}
+```
+
+For more information, see [Add-AzWebAppTrafficRouting](/powershell/module/az.websites/add-azwebapptrafficrouting). To update an existing rule, use [Update-AzWebAppTrafficRouting](/powershell/module/az.websites/update-azwebapptrafficrouting).
+
+-----
+
 After a client is automatically routed to a specific slot, it's "pinned" to that slot for one hour or until the cookies are deleted. On the client browser, you can see which slot your session is pinned to by looking at the `x-ms-routing-name` cookie in your HTTP headers. A request that's routed to the "staging" slot has the cookie `x-ms-routing-name=staging`. A request that's routed to the production slot has the cookie `x-ms-routing-name=self`.
 
-   > [!NOTE]
-   > You can also use the [`az webapp traffic-routing set`](/cli/azure/webapp/traffic-routing#az-webapp-traffic-routing-set) command in the Azure CLI to set the routing percentages from CI/CD tools like GitHub Actions, DevOps pipelines, or other automation systems.
-
-### Route production traffic manually
+## Route production traffic manually
 
 In addition to automatic traffic routing, App Service can route requests to a specific slot. This is useful when you want your users to be able to opt in to or opt out of your beta app. To route production traffic manually, you use the `x-ms-routing-name` query parameter.
 
@@ -283,66 +452,38 @@ By default, new slots are given a routing rule of `0%`, shown in grey. When you 
 
 ## Delete a slot
 
+# [Azure Portal](#tab/portal)
+
 Search for and select your app. Select **Deployment slots** > *\<slot to delete>* > **Overview**. The app type is shown as **App Service (Slot)** to remind you that you're viewing a deployment slot. Before deleting a slot, make sure to stop the slot and set the traffic in the slot to zero.  Select **Delete** on the command bar.  
 
 ![Delete a deployment slot](./media/web-sites-staged-publishing/DeleteStagingSiteButton.png)
 
-<!-- ======== AZURE POWERSHELL CMDLETS =========== -->
+# [Azure CLI](#tab/cli)
 
-<a name="PowerShell"></a>
+Run the following command in a terminal:
 
-## Automate with PowerShell
-
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
-
-Azure PowerShell is a module that provides cmdlets to manage Azure through Windows PowerShell, including support for managing deployment slots in Azure App Service.
-
-For information on installing and configuring Azure PowerShell, and on authenticating Azure PowerShell with your Azure subscription, see [How to install and configure Microsoft Azure PowerShell](/powershell/azure/).  
-
----
-### Create a web app
-```powershell
-New-AzWebApp -ResourceGroupName [resource group name] -Name [app name] -Location [location] -AppServicePlan [app service plan name]
+```azurecli-interactive
+az webapp deployment slot delete --name <app-name> --resource-group <group-name> --slot <slot-name>
 ```
 
----
-### Create a slot
-```powershell
-New-AzWebAppSlot -ResourceGroupName [resource group name] -Name [app name] -Slot [deployment slot name] -AppServicePlan [app service plan name]
+For more information, see [az webapp deployment slot delete](/cli/azure/webapp/deployment/slot#az-webapp-deployment-slot-delete).
+
+# [Azure PowerShell](#tab/powershell)
+
+Run the following cmdlet in a PowerShell terminal:
+
+```azurepowershell-interactive
+Remove-AzWebAppSlot -ResourceGroupName "<group-name>" -Name "<app-name>" -Slot "<slot-name>"
 ```
 
----
-### Initiate a swap with a preview (multi-phase swap), and apply destination slot configuration to the source slot
-```powershell
-$ParametersObject = @{targetSlot  = "[slot name – e.g. "production"]"}
-Invoke-AzResourceAction -ResourceGroupName [resource group name] -ResourceType Microsoft.Web/sites/slots -ResourceName [app name]/[slot name] -Action applySlotConfig -Parameters $ParametersObject -ApiVersion 2015-07-01
-```
+For more information, see [Remove-AzWebAppSlot](/powershell/module/az.websites/remove-azwebappslot).
 
----
-### Cancel a pending swap (swap with review) and restore the source slot configuration
-```powershell
-Invoke-AzResourceAction -ResourceGroupName [resource group name] -ResourceType Microsoft.Web/sites/slots -ResourceName [app name]/[slot name] -Action resetSlotConfig -ApiVersion 2015-07-01
-```
-
----
-### Swap deployment slots
-```powershell
-$ParametersObject = @{targetSlot  = "[slot name – e.g. "production"]"}
-Invoke-AzResourceAction -ResourceGroupName [resource group name] -ResourceType Microsoft.Web/sites/slots -ResourceName [app name]/[slot name] -Action slotsswap -Parameters $ParametersObject -ApiVersion 2015-07-01
-```
+-----
 
 ### Monitor swap events in the activity log
 ```powershell
 Get-AzLog -ResourceGroup [resource group name] -StartTime 2018-03-07 -Caller SlotSwapJobProcessor  
 ```
-
----
-### Delete a slot
-```powershell
-Remove-AzResource -ResourceGroupName [resource group name] -ResourceType Microsoft.Web/sites/slots –Name [app name]/[slot name] -ApiVersion 2015-07-01
-```
-
-To perform a slot swap from the production slot, the identity needs (at minimum) permissions to perform the `Microsoft.Web/sites/slotsswap/Action` operation. For more information, see the [Resource provider operations](../role-based-access-control/resource-provider-operations.md#microsoftweb)
 
 ## Automate with Resource Manager templates
 
@@ -398,14 +539,6 @@ The following Resource Manager template will update the `buildVersion` of the st
 ```
 
 This Resource Manager template is idempotent, meaning that it can be executed repeatedly and produce the same state of the slots. After the first execution, `targetBuildVersion` will match the current `buildVersion`, so a swap will not be triggered.
-
-<!-- ======== Azure CLI =========== -->
-
-<a name="CLI"></a>
-
-## Automate with the CLI
-
-For [Azure CLI](https://github.com/Azure/azure-cli) commands for deployment slots, see [az webapp deployment slot](/cli/azure/webapp/deployment/slot).
 
 ## Troubleshoot swaps
 
