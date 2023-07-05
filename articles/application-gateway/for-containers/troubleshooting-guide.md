@@ -26,6 +26,7 @@ Logs may be collected from the ALB Controller by using the _kubectl logs_ comman
     ```
     
     You should see the following (pod names may differ slightly from the following table):
+   
     | NAME                                     | READY | STATUS  | RESTARTS | AGE  |
     | ---------------------------------------- | ----- | ------- | -------- | ---- |
     | alb-controller-bootstrap-6648c5d5c-hrmpc | 1/1   | Running | 0        | 4d6h |
@@ -33,7 +34,7 @@ Logs may be collected from the ALB Controller by using the _kubectl logs_ comman
 
     Copy the name of the alb-controller pod (not the bootstrap pod, in this case, alb-controller-6648c5d5c-au234).
 
-2. Collect the logs
+3. Collect the logs
     Logs from ALB Controller will be returned in JSON format.
     
     Execute the following kubectl command, replacing the name with the pod name returned in step 1:
