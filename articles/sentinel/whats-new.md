@@ -38,7 +38,6 @@ Learn more about [Microsoft Sentinel incident response playbooks for SAP](sap/sa
 To ensure that Microsoft Sentinel's threat detection provides complete coverage in your environment, take advantage of its execution management tools. These tools consist of [insights](monitor-optimize-analytics-rule-execution.md#view-analytics-rule-insights) on your [scheduled analytics rules'](detect-threats-built-in.md#scheduled) execution, based on Microsoft Sentinel's [health and audit data](monitor-analytics-rule-integrity.md), and a facility to [manually rerun previous executions of rules](monitor-optimize-analytics-rule-execution.md#rerun-analytics-rules) on specific time windows, for testing and optimization purposes.
 
 [Learn more about monitoring and optimizing analytics rules](monitor-optimize-analytics-rule-execution.md).
->>>>>>> 6501f0ac2c68482820de0ce3308b5c89a3fda70e
 
 ## June 2023
 
