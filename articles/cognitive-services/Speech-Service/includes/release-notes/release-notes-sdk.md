@@ -12,7 +12,7 @@ ms.author: eur
 
 * **C++, C#, Java** - Added support for `DisplayWords` in Embedded Speech Recognition's detailed result.
 * **Objective-C/Swift** - Added support for `ConnectionMessageReceived` event in Objective-C/Swift.
-* [NEEDS EDITING] **Objective-C/Swift** - Added support for TT KWS models for iOS. This change has increased the size of the certain packages which contain iOS binaries (like NuGet, XCFramework). We are working on to reduce the size for future releases.
+* **Objective-C/Swift** - Improved keyword-spotting models for iOS. This change has increased the size of the certain packages which contain iOS binaries (like NuGet, XCFramework). We are working on to reduce the size for future releases.
 
 #### Bug fixes
 
@@ -21,7 +21,7 @@ ms.author: eur
 
 #### Additional notes
 
-* **Java** Some internally used, `public` Java API methods were change to package `internal`, `protected` or `private`. This change should not impact developers, as we do not expect applications to be using those. Noted here for for transparancy.
+* **Java** Some internally used, `public` Java API methods were change to package `internal`, `protected` or `private`. This change should not impact developers, as we do not expect applications to be using those. Noted here for transparency.
 
 ### Speech SDK 1.29.0: June 2023 release
 
