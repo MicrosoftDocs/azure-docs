@@ -91,14 +91,14 @@ The following premium detections are visible only to Azure AD Premium P2 custome
 
 The algorithm ignores obvious "false positives" contributing to the impossible travel conditions, such as VPNs and locations regularly used by other users in the organization. The system has an initial learning period of the earliest of 14 days or 10 logins, during which it learns a new user's sign-in behavior.
 
-#### Anomalous Token 
+#### Anomalous token 
 
 **Calculated offline**. This detection indicates that there are abnormal characteristics in the token such as an unusual token lifetime or a token that is played from an unfamiliar location. This detection covers Session Tokens and Refresh Tokens. 
 
 > [!NOTE] 
 > Anomalous token is tuned to incur more noise than other detections at the same risk level. This tradeoff is chosen to increase the likelihood of detecting replayed tokens that may otherwise go unnoticed. Because this is a high noise detection, there's a higher than normal chance that some of the sessions flagged by this detection are false positives. We recommend investigating the sessions flagged by this detection in the context of other sign-ins from the user. If the location, application, IP address, User Agent, or other characteristics are unexpected for the user, the tenant admin should consider this risk as an indicator of potential token replay.
 
-#### Token Issuer Anomaly 
+#### Token issuer anomaly 
 
 **Calculated offline**. This risk detection indicates the SAML token issuer for the associated SAML token is potentially compromised. The claims included in the token are unusual or match known attacker patterns. 
 
@@ -150,7 +150,7 @@ Selecting an unfamiliar sign-in properties risk allows you to see **Additional I
 
 **Calculated offline**. This detection is discovered using information provided by [Microsoft Defender for Cloud Apps](/cloud-app-security/anomaly-detection-policy#suspicious-inbox-forwarding). This detection looks for suspicious email forwarding rules, for example, if a user created an inbox rule that forwards a copy of all emails to an external address.
 
-#### Mass Access to Sensitive Files 
+#### Mass access to sensitive files 
 
 **Calculated offline**. This detection is discovered using information provided by [Microsoft Defender for Cloud Apps](/defender-cloud-apps/investigate-anomaly-alerts#unusual-file-access-by-user). This detection looks at your environment and triggers alerts when users access multiple files from Microsoft SharePoint or Microsoft OneDrive. An alert is triggered only if the number of accessed files is uncommon for the user and the files might contain sensitive information
 
@@ -236,7 +236,7 @@ Microsoft finds leaked credentials in various places, including:
 
 Leaked credentials are processed anytime Microsoft finds a new, publicly available batch. Because of the sensitive nature, the leaked credentials are deleted shortly after processing. Only new leaked credentials found after you enable password hash synchronization (PHS) are processed against your tenant. Verifying against previously found credential pairs isn't done. 
 
-### I haven't seen any leaked credential risk events for quite some time?
+### I haven't seen any leaked credential risk events for quite some time
 
 If you haven't seen any leaked credential risk events, it is because of the following reasons:
 

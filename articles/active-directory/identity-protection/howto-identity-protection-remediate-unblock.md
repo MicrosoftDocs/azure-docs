@@ -34,7 +34,7 @@ Administrators have the following options to remediate:
 
 ### Self-remediation with risk-based policy
 
-You can allow users to self-remediate their sign-in risks and user risks by setting up [risk-based policies](howto-identity-protection-configure-risk-policies.md). If users pass the required access control, such as Azure AD multifactor authentication (MFA) or secure password change, then their risks are automatically remediated. The corresponding risk detections, risky sign-ins, and risky users are reported with the risk state "Remediated" instead of "At risk". 
+You can allow users to self-remediate their sign-in risks and user risks by setting up [risk-based policies](howto-identity-protection-configure-risk-policies.md). If users pass the required access control, such as Azure AD Multifactor Authentication or secure password change, then their risks are automatically remediated. The corresponding risk detections, risky sign-ins, and risky users are reported with the risk state "Remediated" instead of "At risk". 
 
 Here are the prerequisites on users before risk-based policies can be applied to them to allow self-remediation of risks:
 

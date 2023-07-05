@@ -175,19 +175,19 @@ For more information about these alerts and their structure, see the article [Un
 
 When security personnel investigate risks in Microsoft 365 Defender and Defender for Identity the following states and reasons are returned to Identity Protection in the portal and APIs.
 
-| Microsoft 365 Defender status | [Microsoft 365 Defender classification](/defender-for-identity/understanding-security-alerts#security-alert-classifications) | Azure AD Identity Protection state | Azure AD Identity Protection state information | Remediation reason |
-| --- | --- | --- | --- | --- |
-| New | False positive | Closed | Confirmed safe | `AdminConfirmedSigninSafe` |
-| New | Benign true positive | Closed | Confirmed safe | `AdminConfirmedSigninSafe` |
-| New | True positive | Open | Confirmed compromised | `AdminConfirmedSigninCompromised` |
-| In Progress | Not set | Open | At risk | |
-| In Progress | False positive | Closed | Confirmed safe | `AdminConfirmedSigninSafe` |
-| In Progress | Benign true positive | Closed | Confirmed safe | `AdminConfirmedSigninSafe` |
-| In Progress | True positive | Open | Confirmed compromised | `AdminConfirmedSigninCompromised` |
-| Resolved | Not set | Closed | Dismissed | `M365DAdminDismissedDetection` |
-| Resolved | False positive | Closed | Confirmed safe | `AdminConfirmedSigninSafe` |
-| Resolved | Benign true positive | Closed | Confirmed safe | `AdminConfirmedSigninSafe` |
-| Resolved | True positive | Closed | Remediated | `M365DAdminDismissedDetection` |
+| Microsoft 365 Defender status | [Microsoft 365 Defender classification](/defender-for-identity/understanding-security-alerts#security-alert-classifications) | Azure AD Identity Protection risk state |  Risk detail in Azure AD Identity Protection |
+| --- | --- | --- | --- |
+| New | False positive | Confirmed safe | `M365DAdminDismissedDetection` |
+| New | Benign true positive | Confirmed safe | `M365DAdminDismissedDetection` |
+| New | True positive | Confirmed compromised | `M365DAdminDismissedDetection` |
+| In Progress | Not set | At risk |  |
+| In Progress | False positive | Confirmed safe | `M365DAdminDismissedDetection` |
+| In Progress | Benign true positive | Confirmed safe | `M365DAdminDismissedDetection` |
+| In Progress | True positive | Confirmed compromised | `M365DAdminDismissedDetection` |
+| Resolved | Not set | Dismissed | `M365DAdminDismissedDetection` |
+| Resolved | False positive | Confirmed safe | `M365DAdminDismissedDetection` |
+| Resolved | Benign true positive | Confirmed safe | `M365DAdminDismissedDetection` |
+| Resolved | True positive | Remediated | `M365DAdminDismissedDetection` |
 
 ## Next steps
 

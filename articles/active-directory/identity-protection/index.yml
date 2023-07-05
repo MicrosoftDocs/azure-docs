@@ -27,7 +27,7 @@ landingContent:
         links:
           - text: What is Identity Protection?
             url: overview-identity-protection.md
-          - text: Plan a Identity Protection deployment
+          - text: Plan an Identity Protection deployment
             url: how-to-deploy-identity-protection.md
 
   # Card
