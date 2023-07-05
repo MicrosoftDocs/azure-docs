@@ -15,7 +15,7 @@ A Log Analytics workspace lets you collect logs from Azure and non-Azure resourc
 
 ## Permissions required
 
-You must have `microsoft.operationalinsights/workspaces/tables/write` permissions to the Log Analytics workspaces you manage, as provided by the [Log Analytics Contributor built-in role](../articles/azure-monitor/logs/manage-access.md#log-analytics-contributor), for example.
+You must have `microsoft.operationalinsights/workspaces/tables/write` permissions to the Log Analytics workspaces you manage, as provided by the [Log Analytics Contributor built-in role](./manage-access.md#log-analytics-contributor), for example.
 
 ## Table properties
 
