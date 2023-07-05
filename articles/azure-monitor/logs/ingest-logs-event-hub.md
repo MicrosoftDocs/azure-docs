@@ -9,7 +9,7 @@ ms.topic: tutorial
 ms.date: 09/20/2022
 ms.custom: template-tutorial 
 
-# customer-intent: As a DevOps, I want to ingest data from an event hub into a Log Analytics workspace so that I can monitor logs that I send to Azure Event Hubs.
+# customer-intent: As a DevOps engineer, I want to ingest data from an event hub into a Log Analytics workspace so that I can monitor logs that I send to Azure Event Hubs.
 ---
 
 
