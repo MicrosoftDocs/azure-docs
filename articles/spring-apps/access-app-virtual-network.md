@@ -19,7 +19,7 @@ ms.devlang: azurecli
 
 This article explains how to access an endpoint for your application in a private network.
 
-When **Assign Endpoint** on applications in an Azure Spring Apps service instance is deployed in your virtual network, the endpoint is a private fully qualified domain name (FQDN). The domain is only accessible in the private network. Apps and services use the application endpoint. They include the *Test Endpoint* described in [View apps and deployments](./how-to-staging-environment.md#view-apps-and-deployments). *Log streaming*, described in [Stream Azure Spring Apps app logs in real-time](./how-to-log-streaming.md), also works only within the private network.
+When **Assign Endpoint** on applications in an Azure Spring Apps service instance deployed in your virtual network, the endpoint is a private fully qualified domain name (FQDN). The domain is only accessible in the private network. Apps and services use the application endpoint. They include the *Test Endpoint* described in [View apps and deployments](./how-to-staging-environment.md#view-apps-and-deployments). *Log streaming*, described in [Stream Azure Spring Apps app logs in real-time](./how-to-log-streaming.md), also works only within the private network.
 
 ## Find the IP for your application
 
@@ -50,7 +50,7 @@ SERVICE_RUNTIME_RG=`az spring show \
 IP_ADDRESS=`az network lb frontend-ip list \
     --lb-name kubernetes-internal \
     --resource-group $SERVICE_RUNTIME_RG \
-    --query "[0].privateIpAddress" \
+    --query "[0].privateIPAddress" \
     --output tsv`
 ```
 
