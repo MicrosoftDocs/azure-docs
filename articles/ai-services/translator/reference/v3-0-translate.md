@@ -74,7 +74,7 @@ The body of the request is a JSON array. Each array element is a JSON object wit
 ]
 ```
 
-For information on character and array limits, _see_ [Request limits](../request-limits.md#character-and-array-limits-per-request).
+For information on character and array limits, _see_ [Request limits](../service-limits.md#character-and-array-limits-per-request).
 
 ## Response body
 
@@ -441,4 +441,4 @@ This dynamic-dictionary feature works the same way with `textType=text` or with 
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Try the Translator quickstart](../quickstart-translator.md)
+> [Try the Translator quickstart](../quickstart-text-rest-api.md)

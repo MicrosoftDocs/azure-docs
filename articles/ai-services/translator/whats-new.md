@@ -157,7 +157,7 @@ These additions bring the total number of languages supported in Translator to 1
 
 ## June 2021
 
-### [Document Translation client libraries for C#/.NET and Python](document-translation/how-to-guides/use-client-sdks.md)—now available in prerelease
+### [Document Translation client libraries for C#/.NET and Python](document-translation/how-to-guides/use-document-translation-sdk.md)—now available in prerelease
 
 ## May 2021
 

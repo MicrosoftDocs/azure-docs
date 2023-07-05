@@ -84,7 +84,7 @@ The following table describes the minimum and recommended CPU cores and memory t
 
 ## Request approval to run container
 
-Complete and submit the [**Azure Azure AI services
+Complete and submit the [**Azure AI services
 Application for Gated Services**](https://aka.ms/csgate-translator) to request access to the container.
 
 [!INCLUDE [Request access to public preview](../../../../includes/cognitive-services-containers-request-access.md)]

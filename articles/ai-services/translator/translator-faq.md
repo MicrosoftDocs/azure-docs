@@ -1,7 +1,7 @@
 ---
 title: Frequently asked questions - Translator
 titleSuffix: Azure AI services
-description: Get answers to frequently asked questions about the Translator API in Azure Azure AI services.
+description: Get answers to frequently asked questions about the Translator API in Azure AI services.
 services: cognitive-services
 author: laujan
 manager: nitinme
@@ -35,7 +35,7 @@ For scripts based on graphic symbols, such as written Chinese and Japanese Kanji
 
 Calls to the **Detect** and **BreakSentence** methods aren't counted in the character consumption. However, we do expect calls to the Detect and BreakSentence methods to be reasonably proportionate to the use of other counted functions. If the number of Detect or BreakSentence calls exceeds the number of other counted methods by 100 times, Microsoft reserves the right to restrict your use of the Detect and BreakSentence methods.
 
-For detailed information regarding Azure AI Translator Service request limits, *see* [**Text translation request limits**](request-limits.md#text-translation).
+For detailed information regarding Azure AI Translator Service request limits, *see* [**Text translation request limits**](service-limits.md#text-translation).
 
 ## Where can I see my monthly usage?
 

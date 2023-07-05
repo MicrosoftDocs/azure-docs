@@ -52,9 +52,9 @@ landingContent:
       - linkListType: get-started
         links:
           - text: Text Translator quickstart
-            url: quickstart-translator.md
+            url: quickstart-text-rest-api.md
           - text: Document Translation quickstart
-            url: document-translation/quickstarts/get-started-with-rest-api.md
+            url: document-translation/quickstarts/document-translation-rest-api.md
           - text: Custom Translator quickstart
             url: custom-translator/quickstart.md
             
@@ -68,7 +68,7 @@ landingContent:
           - text: Text Translator reference (v3)
             url: reference/v3-0-reference.md
           - text: Request limits
-            url: request-limits.md
+            url: service-limits.md
       - linkListType: how-to-guide
         links:
           - text: Use the Text Translator APIs
@@ -86,7 +86,7 @@ landingContent:
       - linkListType: reference
         links:
          - text: Client-library SDKs
-           url: document-translation/how-to-guides/use-client-sdks.md
+           url: document-translation/how-to-guides/use-document-translation-sdk.md
          - text: Document Translation REST APIs
            url: document-translation/reference/rest-api-guide.md
          - text: Document Translation FAQ

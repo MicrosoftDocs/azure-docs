@@ -229,7 +229,7 @@ The result is:
 ]
 ```
 
-This feature works the same way with `textType=text` or with `textType=html`. The feature should be used sparingly. The appropriate and far better way of customizing translation is by using Custom Translator. Custom Translator makes full use of context and statistical probabilities. If you've created training data that shows your work or phrase in context, you'll get much better results. [Learn more about Custom Translator](../custom-translator/concepts/customization).
+This feature works the same way with `textType=text` or with `textType=html`. The feature should be used sparingly. The appropriate and far better way of customizing translation is by using Custom Translator. Custom Translator makes full use of context and statistical probabilities. If you've created training data that shows your work or phrase in context, you'll get much better results. [Learn more about Custom Translator](../custom-translator/concepts/customization.md).
 
 ## Request limits
 

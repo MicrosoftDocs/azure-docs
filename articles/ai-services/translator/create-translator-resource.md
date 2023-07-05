@@ -14,7 +14,7 @@ ms.date: 03/17/2023
 
 # Create a Translator resource
 
-In this article, you learn how to create a Translator resource in the Azure portal. [Azure AI Translator](translator-overview.md) is a cloud-based machine translation service that is part of the [Azure Azure AI services](../what-are-cognitive-services.md) family of REST APIs. Azure resources are instances of services that you create. All API requests to Azure services require an **endpoint** URL and a read-only **key** for authenticating access.
+In this article, you learn how to create a Translator resource in the Azure portal. [Azure AI Translator](translator-overview.md) is a cloud-based machine translation service that is part of the [Azure AI services](../what-are-cognitive-services.md) family of REST APIs. Azure resources are instances of services that you create. All API requests to Azure services require an **endpoint** URL and a read-only **key** for authenticating access.
 
 ## Prerequisites
 
@@ -99,7 +99,7 @@ To delete the resource group:
 In our quickstart, you learn how to use the Translator service with REST APIs.
 
 > [!div class="nextstepaction"]
-> [Get Started with Translator](quickstart-translator.md)
+> [Get Started with Translator](quickstart-text-rest-api.md)
 
 ## More resources
 

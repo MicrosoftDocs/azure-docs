@@ -10,7 +10,7 @@ ms.author: lajanuar
 
 ### Create a Translator resource
 
-Azure Azure AI services are represented by Azure resources that you subscribe to. Create a resource for Translator using the [Azure portal](../../cognitive-services-apis-create-account.md) or [Azure CLI](../../cognitive-services-apis-create-account-cli.md) on your local machine. You can also:
+Azure AI services are represented by Azure resources that you subscribe to. Create a resource for Translator using the [Azure portal](../../cognitive-services-apis-create-account.md) or [Azure CLI](../../cognitive-services-apis-create-account-cli.md) on your local machine. You can also:
 
 * View an existing resource in the [Azure portal](https://portal.azure.com/).
 

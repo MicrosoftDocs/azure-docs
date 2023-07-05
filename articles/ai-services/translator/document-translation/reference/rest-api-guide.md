@@ -29,4 +29,4 @@ Document Translation is a cloud-based feature of the Azure AI Translator service
 |[**Cancel translation (DELETE)**](cancel-translation.md)| This method cancels a document translation that is currently processing or queued. |
 
 > [!div class="nextstepaction"]
-> [Explore our client libraries and SDKs for C# and Python.](../client-sdks.md)
+> [Explore our client libraries and SDKs for C# and Python.](../document-translation-sdk.md)

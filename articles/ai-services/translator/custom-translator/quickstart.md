@@ -12,7 +12,7 @@ ms.topic: quickstart
 ---
 # Quickstart: Build, publish, and translate with custom models
 
-Translator is a cloud-based neural machine translation service that is part of the Azure Azure AI services family of REST API that can be used with any operating system.  Translator powers many Microsoft products and services used by thousands of businesses worldwide to perform language translation and other language-related operations. In this quickstart, you'll learn to build custom solutions for your applications across all [supported languages](../language-support.md).
+Translator is a cloud-based neural machine translation service that is part of the Azure AI services family of REST API that can be used with any operating system.  Translator powers many Microsoft products and services used by thousands of businesses worldwide to perform language translation and other language-related operations. In this quickstart, you'll learn to build custom solutions for your applications across all [supported languages](../language-support.md).
 
 ## Prerequisites
 
@@ -26,7 +26,7 @@ Translator is a cloud-based neural machine translation service that is part of t
 
     :::image type="content" source="../media/keys-and-endpoint-portal.png" alt-text="Screenshot: Azure portal keys and endpoint page.":::
 
-For more information, *see* [how to create a Translator resource](../how-to-create-translator-resource.md).
+For more information, *see* [how to create a Translator resource](../create-translator-resource.md).
 
 ## Custom Translator portal
 
@@ -84,7 +84,7 @@ You can read an overview of translation and custom translation, learn some tips,
 
 Once the workspace is created successfully, you'll be taken to the **Projects** page.
 
-You'll create English-to-German project to train a custom model with only a [training](training-and-model.md#training-document-type-for-custom-translator) document type.
+You'll create English-to-German project to train a custom model with only a [training](concepts/model-training.md#training-document-type-for-custom-translator) document type.
 
 1. Select **Create project**.
 
@@ -102,9 +102,9 @@ You'll create English-to-German project to train a custom model with only a [tra
 
 ## Upload documents
 
-In order to create a custom model, you need to upload all or a combination of [training](training-and-model.md#training-document-type-for-custom-translator), [tuning](training-and-model.md#tuning-document-type-for-custom-translator), [testing](training-and-model.md#testing-dataset-for-custom-translator), and [dictionary](concepts/dictionaries.md) document types.
+In order to create a custom model, you need to upload all or a combination of [training](concepts/model-training.md#training-document-type-for-custom-translator), [tuning](concepts/model-training.md#tuning-document-type-for-custom-translator), [testing](concepts/model-training.md#testing-dataset-for-custom-translator), and [dictionary](concepts/dictionaries.md) document types.
 
-In this quickstart, you'll upload [training](training-and-model.md#training-document-type-for-custom-translator) documents for customization.
+In this quickstart, you'll upload [training](concepts/model-training.md#training-document-type-for-custom-translator) documents for customization.
 
 >[!Note]
 > You can use our sample training, phrase and sentence dictionaries dataset, [Customer sample English-to-German datasets](https://github.com/MicrosoftTranslator/CustomTranslatorSampleDatasets), for this quickstart. However, for production, it's better to upload your own training dataset.

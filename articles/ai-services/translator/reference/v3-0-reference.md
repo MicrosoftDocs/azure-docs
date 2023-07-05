@@ -50,7 +50,7 @@ curl -X POST "https://my-swiss-n.cognitiveservices.azure.com/translator/text/v3.
 
 ## Authentication
 
-Subscribe to Translator or [multi-service](https://azure.microsoft.com/pricing/details/cognitive-services/) in Azure Azure AI services, and use your key (available in the Azure portal) to authenticate.
+Subscribe to Translator or [multi-service](https://azure.microsoft.com/pricing/details/cognitive-services/) in Azure AI services, and use your key (available in the Azure portal) to authenticate.
 
 There are three headers that you can use to authenticate your subscription. This table describes how each is used:
 
@@ -233,7 +233,7 @@ curl -X POST https://<your-custom-domain>.cognitiveservices.azure.com/translator
 
 ## Virtual Network support
 
-The Translator service is now available with Virtual Network (VNET) capabilities in all regions of the Azure public cloud. To enable Virtual Network, *See* [Configuring Azure Azure AI services Virtual Networks](../../cognitive-services-virtual-networks.md?tabs=portal).
+The Translator service is now available with Virtual Network (VNET) capabilities in all regions of the Azure public cloud. To enable Virtual Network, *See* [Configuring Azure AI services Virtual Networks](../../cognitive-services-virtual-networks.md?tabs=portal).
 
 Once you turn on this capability, you must use the custom endpoint to call the Translator. You can't use the global translator endpoint ("api.cognitive.microsofttranslator.com") and you can't authenticate with an access token.
 
@@ -306,7 +306,7 @@ The error code is a 6-digit number combining the 3-digit HTTP status code follow
 | 400036| The target language ("To" field) is missing or invalid.|
 | 400042| One of the options specified ("Options" field) isn't valid.|
 | 400043| The client trace ID (ClientTraceId field or X-ClientTranceId header) is missing or invalid.|
-| 400050| The input text is too long. View [request limits](../request-limits.md).|
+| 400050| The input text is too long. View [request limits](../service-limits.md).|
 | 400064| The "translation" parameter is missing or invalid.|
 | 400070| The number of target scripts (ToScript parameter) doesn't match the number of target languages (To parameter).|
 | 400071| The value isn't valid for TextType.|
@@ -314,7 +314,7 @@ The error code is a 6-digit number combining the 3-digit HTTP status code follow
 | 400073| The script parameter isn't valid.|
 | 400074| The body of the request isn't valid JSON.|
 | 400075| The language pair and category combination isn't valid.|
-| 400077| The maximum request size has been exceeded. View [request limits](../request-limits.md).|
+| 400077| The maximum request size has been exceeded. View [request limits](../service-limits.md).|
 | 400079| The custom system requested for translation between from and to language doesn't exist.|
 | 400080| Transliteration isn't supported for the language or script.|
 | 401000| The request isn't authorized because credentials are missing or invalid.|

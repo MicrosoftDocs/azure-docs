@@ -112,7 +112,7 @@ The `sourceUrl` , `targetUrl` , and optional `glossaryUrl`  must include a Share
 
 A batch Document Translation request is submitted to your Translator service endpoint via a POST request. If successful, the POST method returns a `202 Accepted`  response code and the service creates a batch request. The translated documents are listed in your target container.
 
-For detailed information regarding Azure AI Translator Service request limits, _see_ [**Document Translation request limits**](../../request-limits.md#document-translation).
+For detailed information regarding Azure AI Translator Service request limits, _see_ [**Document Translation request limits**](../../service-limits.md#document-translation).
 
 ### HTTP headers
 

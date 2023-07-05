@@ -808,7 +808,7 @@ let key = "<YOUR-TRANSLATOR-KEY>";
 let endpoint = "https://api.cognitive.microsofttranslator.com";
 
 // Add your location, also known as region. The default is global.
-// This is required if using a Azure AI services resource.
+// This is required if using an Azure AI multi-service resource.
 let location = "<YOUR-RESOURCE-LOCATION>";
 
 axios({
@@ -1084,7 +1084,7 @@ let key = "<YOUR-TRANSLATOR-KEY>";
 let endpoint = "https://api.cognitive.microsofttranslator.com";
 
 // Add your location, also known as region. The default is global.
-// This is required if using a Azure AI services resource.
+// This is required if using an Azure AI multi-service resource.
 let location = "<YOUR-RESOURCE-LOCATION>";
 
 axios({
@@ -1363,7 +1363,7 @@ let key = "<YOUR-TRANSLATOR-KEY>";
 let endpoint = "https://api.cognitive.microsofttranslator.com";
 
 // Add your location, also known as region. The default is global.
-// This is required if using a Azure AI services resource.
+// This is required if using an Azure AI multi-service resource.
 let location = "<YOUR-RESOURCE-LOCATION>";
 
 axios({
@@ -1648,7 +1648,7 @@ let key = "<YOUR-TRANSLATOR-KEY>";
 let endpoint = "https://api.cognitive.microsofttranslator.com";
 
 // Add your location, also known as region. The default is global.
-// This is required if using a Azure AI services resource.
+// This is required if using an Azure AI multi-service resource.
 let location = "<YOUR-RESOURCE-LOCATION>";
 
 axios({
@@ -1924,7 +1924,7 @@ let key = "<YOUR-TRANSLATOR-KEY>";
 let endpoint = "https://api.cognitive.microsofttranslator.com";
 
 // Add your location, also known as region. The default is global.
-// This is required if using a Azure AI services resource.
+// This is required if using an Azure AI multi-service resource.
 let location = "<YOUR-RESOURCE-LOCATION>";
 
 axios({
@@ -2207,7 +2207,7 @@ let key = "<YOUR-TRANSLATOR-KEY>";
 let endpoint = "https://api.cognitive.microsofttranslator.com";
 
 // Add your location, also known as region. The default is global.
-// This is required if using a Azure AI services resource.
+// This is required if using an Azure AI multi-service resource.
 let location = "<YOUR-RESOURCE-LOCATION>";
 
 axios({
@@ -2475,7 +2475,7 @@ let key = "<YOUR-TRANSLATOR-KEY>";
 let endpoint = "https://api.cognitive.microsofttranslator.com";
 
 // Add your location, also known as region. The default is global.
-// This is required if using a Azure AI services resource.
+// This is required if using an Azure AI multi-service resource.
 let location = "<YOUR-RESOURCE-LOCATION>";
 
 axios({
@@ -2898,7 +2898,7 @@ let key = "<YOUR-TRANSLATOR-KEY>";
 let endpoint = "https://api.cognitive.microsofttranslator.com";
 
 // Add your location, also known as region. The default is global.
-// This is required if using a Azure AI services resource.
+// This is required if using an Azure AI multi-service resource.
 let location = "<YOUR-RESOURCE-LOCATION>";
 
 axios({

@@ -46,4 +46,4 @@ Following measured and consistent high-quality results using models trained on t
 
 ## Next steps
 
-For more support, visit [Azure Azure AI services support and help options](../../cognitive-services-support-options.md).
+For more support, visit [Azure AI services support and help options](../../cognitive-services-support-options.md).
