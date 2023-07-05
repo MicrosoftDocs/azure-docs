@@ -7,7 +7,7 @@ ms.topic: conceptual
 
 # Prepare to deliver Extended Security Updates for Windows Server 2012
 
-With Windows Server 2012 and Windows Server 2012 R2 reaching end of support on October 10, 2023, Azure Arc-enabled servers enables you to optionally enroll your existing Windows Server 2012/2012 R2 machines in [Extended Security Updates (ESUs)](/windows-server/get-started/extended-security-updates-overview). Azure Arc helps you position migrating your machines to Azure on your own terms, affording both flexibility and an enhanced delivery experience.
+With Windows Server 2012 and Windows Server 2012 R2 reaching end of support on October 10, 2023, Azure Arc-enabled servers enables you to enroll your existing Windows Server 2012/2012 R2 machines in [Extended Security Updates (ESUs)](/windows-server/get-started/extended-security-updates-overview). Affording both cost flexibility and an enhanced delivery experience, Azure Arc better positions you to migrate to Azure.
 
 The purpose of this article is to help you understand the benefits and how to prepare to use Arc-enabled servers to enable delivery of ESUs.
 
@@ -26,8 +26,8 @@ Delivering ESUs to your Windows Server 2012/2012 R2 machines provides the follow
 Other Azure services through Azure Arc-enabled servers are available, with offerings such as:
 
 * [Microsoft Defender for Cloud](../../defender-for-cloud/defender-for-cloud-introduction.md) - As part of the cloud security posture management (CSPM) pillar, it provides server protections through [Microsoft Defender for Servers](../../defender-for-cloud/plan-defender-for-servers.md) to help protect you from various cyber threats and vulnerabilities.
-* [Update management center (preview)](../../update-center/overview.md) - Unified management and governance of update compliance of that includes not only Azure and hybrid machines, but also ESU update compliance for all your Windows Server 2012/2012 R2 machines.
-* [Azure Policy](../governance/policy/overview.md)
+* [Update management center (preview)](../../update-center/overview.md) - Unified management and governance of update compliance that includes not only Azure and hybrid machines, but also ESU update compliance for all your Windows Server 2012/2012 R2 machines.
+* [Azure Policy](../governance/policy/overview.md) helps to enforce organizational standards and to assess compliance at-scale. Beyond providing an aggregated view to evaluate the overall state of the environment, Azure Policy helps to bring your resources to compliance through bulk and automatic remediation.
 
     >[!NOTE]
     >Activation of ESU is planned for the third quarter of 2023. Using Azure services such as Update management center (preview) and Azure Policy to support managing ESU-eligible Windows Server 2012/2012 R2 machines are also planned for the third quarter.
