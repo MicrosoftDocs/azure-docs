@@ -250,6 +250,8 @@ items:
       href: vnet-customer-responsibilities.md
     - name: Troubleshooting Azure Spring Apps in virtual networks
       href: troubleshooting-vnet.md
+    - name: Map DNS names to applications in multiple Azure Spring Apps service instances in the same virtual network
+      href: how-to-map-dns-virtual-network.md
   - name: Secure
     items:
     - name: Secure communications end-to-end in Zero Trust
