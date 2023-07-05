@@ -236,6 +236,7 @@ Curling this FQDN should return responses from the backends/pods as configured o
 ```bash
 # this curl command will return 50% of the responses from backend-v1
 # and the remaining 50% of the responses from backend-v2
-watch -n 1 curl $fqdn```
+watch -n 1 curl $fqdn
+```
 
 Congratulations, you have installed ALB Controller, deployed a backend application and routed traffic to the application via the ingress on Application Gateway for Containers.
