@@ -89,6 +89,6 @@ items:
   - name: Remote network valid configurations
     href: reference-remote-network-configurations.md
   - name: Supported locations
-    href: reference-supported-locations.md
+    href: reference-points-of-presence.md
   - name: FAQs
     href: resource-faq.yml

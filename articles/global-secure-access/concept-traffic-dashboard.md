@@ -30,6 +30,8 @@ To access the dashboard:
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com/#home).
 1. Go to **Global Secure Access (preview)** > **Dashboard**.
 
+    :::image type="content" source="media/concept-traffic-dashboard/traffic-dashboard.png" alt-text="Screenshot of the Private access profile, with the view applications link highlighted." lightbox="media/concept-traffic-dashboard/traffic-dashboard-expanded.png":::
+
 ## Relationship map
 
 This widget provides a summary of how many users and devices are using the service and how many applications were secured through the service. 
