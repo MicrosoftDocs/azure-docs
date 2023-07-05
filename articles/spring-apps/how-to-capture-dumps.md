@@ -78,10 +78,10 @@ The default value for `duration` is 60 seconds.
 Use the following steps to generate a heap or thread dump of your app in Azure Spring Apps.
 
 1. In the Azure portal, navigate to your target app, then select **Troubleshooting**.
-   ![Troubleshooting](media/how-to-capture-dumps/Troubleshooting.png)
+   ![Navigate to App Troubleshooting](media/how-to-capture-dumps/Troubleshooting.png)
 
 3. In the **Troubleshooting** pane, select the app instance and the type of dump you'd like to collect.
-   ![Dump](media/how-to-capture-dumps/heapdump.png)
+   ![Select dump type](media/how-to-capture-dumps/heapdump.png)
    
 5. In the **File path** field, specify the mount path of your persistent storage.
 6. Select **Collect**.
