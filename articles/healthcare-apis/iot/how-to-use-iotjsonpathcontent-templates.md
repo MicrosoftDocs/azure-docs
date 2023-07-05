@@ -5,7 +5,7 @@ author: msjasteppe
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: how-to
-ms.date: 06/29/2023
+ms.date: 07/05/2023
 ms.author: jasteppe
 ---
 
@@ -73,25 +73,13 @@ When you're specifying the language to use for the expression, the following val
 |---------------------|------------|
 | JSONPath            | `JsonPath` |
 
-Because JSONPath is the default expression language, it's not required to include the expression language within a CalculatedContent template:
+Because JSONPath is the default expression language, it's not required to include the expression language within an IotJsonPathContent template:
 
 ```json
 "templateType": "IotJsonPathContent",
    "template": {
       "typeName": "heartrate",
       "typeMatchExpression": "$..[?(@heartRate)]",
-...
-}
-```
-
-You can also explicitly set the default expression language for a IotJsonPathContent template by using the `defaultExpressionLanguage` parameter:
-
-```json
-"templateType": "IotJsonPathContent",
-   "template": {
-      "typeName": "heartrate",
-      "defaultExpressionLanguage": "JsonPath",
-      "typeMatchExpression": "[Body][?contains(keys(@), `heartRate`)] | @[0]",
 ...
 }
 ```
@@ -168,21 +156,6 @@ We're using this device mapping for the normalization stage:
 
 > [!NOTE]
 > When using `IotJsonPathContent`, the `typeMatchExpression` should resolve to the entire device message as a token.
-
-```json
-{
-  "Body": {
-    "heartRate": "78",
-    "endDate": "2023-03-13T22:46:01.875",
-    "deviceId": "device01"
-  },
-  "matchedToken": {
-    "heartRate": "78",
-    "endDate": "2023-03-13T22:46:01.875",
-    "deviceId": "device01"
-  }
-}
-```
 
 The resulting normalized message will look like this after the normalization stage:
 
