@@ -27,7 +27,7 @@ Here's an example of an autoscale setting:
 
 To complete the steps in this article, you need either:
 
-- A Stream Analytics project on the local machine. If don't have one, follow [this guide](quick-create-visual-studio-code.md) to create one.
+- A Stream Analytics project on the local machine. Follow [this guide](quick-create-visual-studio-code.md) to create one.
 - A running Stream Analytics job in Azure.
 
 ## Configure autoscale settings
