@@ -103,7 +103,7 @@ To connect the Azure AD provisioning agent with SAP ECC 7.0, follow these steps:
 
 1. On the **Properties** page, fill in the boxes with the values specified in the table that follows the image and select **Next**.
 
-     [![Screenshot that shows entering properties.](.\media\active-directory-app-provisioning-SAP\sap-properties-1.png)](.\media\active-directory-app-provisioning-SAP\sap-properties-1.png#lightbox)
+     [![Screenshot that shows entering properties.](.\media\app-provisioning-SAP\sap-properties-1.png)](.\media\app-provisioning-SAP\sap-properties-1.png#lightbox)
 
      |Property|Value|
      |-----|-----|
@@ -114,7 +114,7 @@ To connect the Azure AD provisioning agent with SAP ECC 7.0, follow these steps:
 
 1. On the **Connectivity** page, fill in the boxes with the values specified in the table that follows the image and select **Next**.
 
-     [![Screenshot that shows the Connectivity page.](.\media\active-directory-app-provisioning-sap\sap-connectivity-1.png)](.\media\active-directory-app-provisioning-sap\sap-connectivity-1.png#lightbox)
+     [![Screenshot that shows the Connectivity page.](.\media\app-provisioning-SAP\sap-connectivity-1.png)](.\media\app-provisioning-SAP\sap-connectivity-1.png#lightbox)
      
      |Property|Description|
      |-----|-----|
@@ -180,7 +180,7 @@ To connect the Azure AD provisioning agent with SAP ECC 7.0, follow these steps:
  1. The ECMA connector host discovers the attributes supported by SAP ECC 7.0. You can then choose which of the discovered attributes you want to expose to Azure AD. These attributes can then be configured in the Azure portal for provisioning. On the **Select Attributes** page, add all the attributes in the dropdown list one at a time. The **Attribute** dropdown list shows any attribute that was discovered in SAP ECC 7.0 and *wasn't* chosen on the previous **Select Attributes** page. Once all the relevant attributes have been added, select **Next**.
  
  
-     [![Screenshot that shows the Select Attributes page.](.\media\active-directory-app-provisioning-sap\sap-select-attributes-1.png)](.\media\active-directory-app-provisioning-sap\sap-select-attributes-1.png#lightbox)
+     [![Screenshot that shows the Select Attributes page.](.\media\app-provisioning-SAP\sap-select-attributes-1.png)](.\media\app-provisioning-SAP\sap-select-attributes-1.png#lightbox)
 
  13. On the **Deprovisioning** page, under **Disable flow**, select **Delete**. The attributes selected on the previous page won't be available to select on the Deprovisioning page. Select **Finish**.
  >[!NOTE]
@@ -251,16 +251,23 @@ You'll use the Azure portal to configure the mapping between the Azure AD user's
  
  |Mapping type|Source attribute|Target attribute|
  |-----|-----|-----|
+<<<<<<< HEAD
  |Direct|userPrincipalName|urn:ietf:params:scim:schemas:extension:ECMA2Host:2.0:User:ContosoLogin|
  
 :::image type="content" source="/media/app-provisioning-sql/attribute-2.png" alt-text="Screenshot of changing value." lightbox="/media/app-provisioning-sql/attribute-2.png":::
+=======
+ |Direct|userPrincipalName|urn:ietf:params:scim:schemas:extension:ECMA2Host:2.0:User:userName|
+>>>>>>> a5351f45188dc503a5f0d210216a969b3e0e2de0
  
 
  7. Now select **Add New Mapping**, and repeat the next step for each mapping.
  
 
+<<<<<<< HEAD
      [![Screenshot that shows Add New Mapping.](.\\media\app-provisioning-sql\configure-11.png)](.\\media\app-provisioning-sql\configure-11.png#lightbox)
 
+=======
+>>>>>>> a5351f45188dc503a5f0d210216a969b3e0e2de0
  8. Specify the source and target attributes for each of the mappings in the following table.
 
      
