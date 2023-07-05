@@ -4,7 +4,7 @@ description: The article tells what update management center (preview) in Azure 
 ms.service: update-management-center
 author: SnehaSudhirG
 ms.author: sudhirsneha
-ms.date: 05/31/2023
+ms.date: 07/05/2023
 ms.topic: overview
 ---
 
@@ -106,6 +106,28 @@ For more information, see the [list of supported operating systems and VM images
 > 
 > For the above limitations, we recommend that you use [Automation update management](../automation/update-management/overview.md) till the support is available in Update management center (preview). [Learn more](support-matrix.md#supported-operating-systems).
 
+
+## Extensions
+
+#### [Azure VM Extensions](#tab/azure-vms)
+
+| **Operating system**| **Extension** 
+|----------|-------------|
+|Windows   | Microsoft.CPlat.Core.WindowsPatchExtension|
+|Linux     | Microsoft.CPlat.Core.LinuxPatchExtension |
+
+#### [Azure Arc-enabled VM Extensions](#tab/azure-arc-vms)
+
+| **Operating system**| **Extension** 
+|----------|-------------|
+|Windows  | Microsoft.CPlat.Core.WindowsPatchExtension (Periodic assessment) <br> Microsoft.SoftwareUpdateManagement.WindowsOsUpdateExtension (On-demand operations and Scheduled patching) |
+|Linux  | Microsoft.SoftwareUpdateManagement.LinuxOsUpdateExtension (On-demand operations and Scheduled patching) <br> Microsoft.CPlat.Core.LinuxPatchExtension (Periodic assessment) |
+
+To view the available extensions for a VM in the Azure portal, follow these steps:
+1. Go to [Azure portal](https://portal.azure.com), select a VM.
+1. In the VM home page, under **Settings**, select **Extensions + applications**.
+1. Under the **Extensions** tab, you can view the available extensions.
+---
 
 ### Network planning
 
