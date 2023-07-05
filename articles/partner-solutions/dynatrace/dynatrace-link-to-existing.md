@@ -115,3 +115,4 @@ When you've finished adding tags, select **Next: Review+Create.**
 ## Next steps
 
 - [Manage the Dynatrace resource](dynatrace-how-to-manage.md)
+- Get started with Azure Native Dynatrace Service on [Azure Portal](https://aka.ms/partners/Dynatrace/portal) or [Azure Marketplace](https://aka.ms/partners/Dynatrace/AMPOffer).

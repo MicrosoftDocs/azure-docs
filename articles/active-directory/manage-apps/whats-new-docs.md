@@ -1,7 +1,7 @@
 ---
 title: "What's new in Azure Active Directory application management"
 description: "New and updated documentation for the Azure Active Directory application management."
-ms.date: 06/06/2023
+ms.date: 07/04/2023
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.topic: reference
@@ -14,6 +14,21 @@ manager: CelesteDG
 # Azure Active Directory application management: What's new
 
 Welcome to what's new in Azure Active Directory (Azure AD) application management documentation. This article lists new docs that have been added and those that have had significant updates in the last three months. To learn what's new with the application management service, see [What's new in Azure AD](../fundamentals/whats-new.md).
+
+## June 2023
+
+### Updated articles
+
+- [Manage consent to applications and evaluate consent requests](manage-consent-requests.md)
+- [Plan application migration to Azure Active Directory](migrate-adfs-apps-phases-overview.md)
+- [Tutorial: Configure Secure Hybrid Access with Azure Active Directory and Silverfort](silverfort-integration.md)
+- [Tutorial: Migrate your applications from Okta to Azure Active Directory](migrate-applications-from-okta.md)
+- [Tutorial: Configure Datawiza to enable Azure Active Directory Multi-Factor Authentication and single sign-on to Oracle JD Edwards](datawiza-sso-oracle-jde.md)
+- [Tutorial: Configure Datawiza to enable Azure Active Directory Multi-Factor Authentication and single sign-on to Oracle PeopleSoft](datawiza-sso-oracle-peoplesoft.md)
+- [Tutorial: Configure Cloudflare with Azure Active Directory for secure hybrid access](cloudflare-integration.md)
+- [Configure Datawiza for Azure AD Multi-Factor Authentication and single sign-on to Oracle EBS](datawiza-sso-mfa-oracle-ebs.md)
+- [Tutorial: Configure F5 BIG-IP Access Policy Manager for Kerberos authentication](f5-big-ip-kerberos-advanced.md)
+- [Tutorial: Configure F5 BIG-IP Easy Button for Kerberos single sign-on](f5-big-ip-kerberos-easy-button.md)
 
 ## May 2023
 
@@ -48,18 +63,3 @@ Welcome to what's new in Azure Active Directory (Azure AD) application managemen
 - [Configure F5 BIG-IP Access Policy Manager for form-based SSO](f5-big-ip-forms-advanced.md)
 - [Tutorial: Configure F5 BIG-IP Easy Button for SSO to Oracle EBS](f5-big-ip-oracle-enterprise-business-suite-easy-button.md)
 - [Tutorial: Configure F5 BIG-IP Access Policy Manager for header-based single sign-on](f5-big-ip-header-advanced.md)
-## March 2023
-
-### Updated articles
-
-- [Move application authentication to Azure Active Directory](migrate-adfs-apps-to-azure.md)
-- [Quickstart: Create and assign a user account](add-application-portal-assign-users.md)
-- [Configure sign-in behavior using Home Realm Discovery](configure-authentication-for-federated-users-portal.md)
-- [Disable auto-acceleration sign-in](prevent-domain-hints-with-home-realm-discovery.md)
-- [Review permissions granted to enterprise applications](manage-application-permissions.md)
-- [Migrate application authentication to Azure Active Directory](migrate-application-authentication-to-azure-active-directory.md)
-- [Configure permission classifications](configure-permission-classifications.md)
-- [Restrict access to a tenant](tenant-restrictions.md)
-- [Tutorial: Migrate Okta sign-on policies to Azure Active Directory Conditional Access](migrate-okta-sign-on-policies-to-azure-active-directory-conditional-access.md)
-- [Delete an enterprise application](delete-application-portal.md)
-- [Restore an enterprise application in Azure AD](restore-application.md)

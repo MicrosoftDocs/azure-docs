@@ -9,15 +9,15 @@ manager: nitinme
 
 ms.service: cognitive-search
 ms.topic: tutorial
-ms.date: 12/10/2021
+ms.date: 06/29/2023
 ms.custom: devx-track-csharp, devx-track-dotnet
 ---
 
 # Tutorial: Use .NET and AI to generate searchable content from Azure blobs
 
-If you have unstructured text or images in Azure Blob Storage, an [AI enrichment pipeline](cognitive-search-concept-intro.md) can extract information and create new content for full-text search or knowledge mining scenarios. 
+If you have unstructured text or images in Azure Blob Storage, an [AI enrichment pipeline](cognitive-search-concept-intro.md) in Azure Cognitive Search can extract information and create new content for full-text search or knowledge mining scenarios. 
 
-In this C# tutorial, you will learn how to:
+In this C# tutorial, you learn how to:
 
 > [!div class="checklist"]
 > * Set up a development environment.

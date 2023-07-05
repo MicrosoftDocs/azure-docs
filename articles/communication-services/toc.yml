@@ -240,7 +240,7 @@ items:
       - name: Manage Teams calling
         href: how-tos/cte-calling-sdk/manage-calls.md
       - name: Manage Teams meeting Lobby
-        href: how-tos/calling-sdk/lobby-admit-and-reject.md
+        href: how-tos/calling-sdk/lobby.md
       - name: Record calls
         href: how-tos/calling-sdk/record-calls.md
       - name: Raise Hand
@@ -521,8 +521,8 @@ items:
       items:
       - name: SMS logs
         href: concepts/analytics/logs/sms-logs.md
-      - name: Metrics overview
-        href: concepts/metrics.md
+      - name: SMS metrics overview
+        href: concepts/analytics/sms-metrics.md
     - name: SMS FAQ
       href: concepts/sms/sms-faq.md
   - name: Voice and Video Calling
@@ -643,8 +643,10 @@ items:
         href: concepts/analytics/logs/end-of-call-survey-logs.md
       - name: Rooms logs
         href: concepts/analytics/logs/rooms-logs.md
-      - name: Metrics overview
-        href: concepts/metrics.md
+      - name: Call automation metrics overview
+        href: concepts/analytics/logs/call-automation-metrics.md
+      - name: Rooms metrics overview
+        href: concepts/analytics/rooms-metrics.md
     - name: UI Library
       items:
       - name: UI Library overview
@@ -679,8 +681,8 @@ items:
       items:
       - name: Chat logs
         href: concepts/analytics/logs/chat-logs.md
-      - name: Metrics overview
-        href: concepts/metrics.md
+      - name: Chat metrics overview
+        href: concepts/analytics/chat-metrics.md
   - name: Phone calling
     items:
     - name: Telephony
@@ -747,8 +749,10 @@ items:
         href: concepts/analytics/logs/end-of-call-survey-logs.md
       - name: Recording logs
         href: concepts/analytics/logs/recording-logs.md
-      - name: Metrics overview
-        href: concepts/metrics.md
+      - name: Call automation metrics overview
+        href: concepts/analytics/logs/call-automation-metrics.md
+      - name: Rooms metrics overview
+        href: concepts/analytics/rooms-metrics.md
   - name: Email
     items:
     - name: Overview
@@ -779,7 +783,7 @@ items:
       items:
       - name: Email logs
         href: concepts/analytics/logs/email-logs.md
-      - name: Metrics overview
+      - name: Email metrics overview
         href: concepts/metrics.md
   - name: Network Traversal
     items:
@@ -789,6 +793,8 @@ items:
       items:
       - name: Network Traversal logs
         href: concepts/analytics/logs/network-traversal-logs.md    
+      - name: Network Traversal metrics
+        href: concepts/analytics/turn-metrics.md  
     - name: Pricing
       href: https://azure.microsoft.com/pricing/details/communication-services/
   - name: Azure Advisor
