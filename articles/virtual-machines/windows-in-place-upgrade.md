@@ -17,7 +17,7 @@ Before you begin an in-place upgrade:
 
 - Review the upgrade requirements for the target operating system:
 
-   - Upgrade options for Windows Server 2012 from Windows Server 2008 or Windows Server 2008 R2
+   - Upgrade options for Windows Server 2012 from Windows Server 2008 (64-bit) or Windows Server 2008 R2
 
    - Upgrade options for Windows Server 2016 from Windows Server 2012 or Windows Server 2012 R2
    
@@ -29,11 +29,6 @@ Before you begin an in-place upgrade:
 
 - Disable antivirus and anti-spyware software and firewalls. These types of software can conflict with the upgrade process. Re-enable antivirus and anti-spyware software and firewalls after the upgrade is completed. 
 
-## Windows versions not yet supported for in-place upgrade
-For the following versions, consider using the [workaround](#workaround) later in this article:
-
-- Windows Server 2008 R2 Datacenter
-- Windows Server 2008 R2 Standard
 
 ## Upgrade VM to volume license (KMS server activation) 
 
@@ -60,7 +55,7 @@ To start an in-place upgrade the upgrade media must be attached to the VM as a M
 | location | Azure region where the upgrade media Managed Disk is created. This must be the same region as the VM to be upgraded. |
 | zone | Azure zone in the selected region where the upgrade media Managed Disk will be created. This must be the same zone as the VM to be upgraded. For regional VMs (non-zonal) the zone parameter should be "". |
 | diskName | Name of the Managed Disk that will contain the upgrade media |
-| sku | Windows Server upgrade media version. This must be either:  `server2016Upgrade` or `server2019Upgrade` or `server2022Upgrade` |
+| sku | Windows Server upgrade media version. This must be either:  `server2016Upgrade` or `server2019Upgrade` or `server2022Upgrade` or `server2012Upgrade` |
 
 ### PowerShell script 
 
@@ -190,23 +185,6 @@ Once the upgrade process has completed successfully the following steps should b
 - Delete the upgrade media Managed Disk.
 
 - Enable any antivirus, anti-spyware or firewall software that may have been disabled at the start of the upgrade process.
-
-## Workaround
-
-For versions of Windows that are not currently supported,  create an Azure VM that's running a supported version. And then either migrate the workload (Method 1, preferred), or download and upgrade the VHD of the VM (Method 2).
-To prevent data loss, back up the Windows 10 VM by using [Azure Backup](../backup/backup-overview.md). Or use a third-party backup solution from [Azure Marketplace Backup & Recovery](https://azuremarketplace.microsoft.com/marketplace/apps?page=1&search=Backup+&exp=ubp8).
-### Method 1: Deploy a newer system and migrate the workload
-
-Create an Azure VM that runs a supported version of the operating system, and then migrate the workload. To do so, you'll use Windows Server migration tools. For instructions to migrate Windows Server roles and features, see [Install, use, and remove Windows Server migration tools](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012).
-
-
-### Method 2: Download and upgrade the VHD
-1. Do an in-place upgrade in a local Hyper-V VM
-   1. [Download the VHD](./windows/download-vhd.md) of the VM.
-   2. Attach the VHD to a local Hyper-V VM.
-   3. Start the VM.
-   4. Run the in-place upgrade.
-2. Upload the VHD to Azure. For more information, see  [Upload a generalized VHD and use it to create new VMs in Azure](./windows/upload-generalized-managed.md).
 
 
 ## Recover from failure
