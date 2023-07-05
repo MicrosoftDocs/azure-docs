@@ -138,8 +138,8 @@ If Microsoft Sentinel is removed from a workspace while simplified pricing is en
 ### Will switching reduce my costs?
 Though the goal of the experience is to merely simplify the pricing and cost management experience without impacting actual costs, two primary scenarios exist for a cost reduction when switching to a simplified pricing tier.
 
-1. The combined [Defender for Servers](../defender-for-cloud/faq-defender-for-servers.yml#is-the-500-mb-of-free-data-ingestion-allowance-applied-per-workspace-or-per-machine-) benefit will result in a total cost savings if utilized by the workspace. 
-1. If one of the separate pricing tiers for Log Analytics or Microsoft Sentinel was inappropriately mismatched, the simplified pricing tier could result in cost saving.
+- The combined [Defender for Servers](../defender-for-cloud/faq-defender-for-servers.yml#is-the-500-mb-of-free-data-ingestion-allowance-applied-per-workspace-or-per-machine-) benefit will result in a total cost savings if utilized by the workspace. 
+- If one of the separate pricing tiers for Log Analytics or Microsoft Sentinel was inappropriately mismatched, the simplified pricing tier could result in cost saving.
 
 ### Is there ever a reason NOT to switch?
 It's possible your Microsoft account team has negotiated a discounted price for Log Analytics or Microsoft Sentinel charges on the classic tiers. You won't be able to tell if this is the case from the Microsoft Sentinel pricing interface alone. It might be possible to calculate the expected cost vs. actual charge in Microsoft Cost Management to see if there's a discount included. In such cases, we recommend contacting your Microsoft account team if you want to switch to the simplified pricing tiers or have any questions.

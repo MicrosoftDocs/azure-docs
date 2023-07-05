@@ -42,7 +42,7 @@ For example, to see charts of your daily costs for a certain time frame:
 
    :::image type="content" source="media/billing-monitor-costs/cost-management.png" alt-text="Screenshot of a cost management + billing cost analysis screen." lightbox="media/billing-monitor-costs/cost-management.png":::
 
-You could also apply further controls. For example, to view only the costs associated with Microsoft Sentinel, select **Add filter**, select **Service name**, and then select the service names **Sentinel**, **log analytics**, and **azure monitor**.
+You could also apply further controls. For example, to view only the costs associated with Microsoft Sentinel, select **Add filter**, select **Service name**, and then select the service names **Sentinel**, **Log Analytics**, and **Azure Monitor**.
 
 Microsoft Sentinel data ingestion volumes appear under **Security Insights** in some portal Usage Charts.
 
@@ -123,8 +123,8 @@ The Microsoft Sentinel GitHub community provides the [`Send-IngestionCostAlert`]
 ## Define a data volume cap in Log Analytics
 
 > [!IMPORTANT]
-q> Starting September 18, 2023, the Log Analytics Daily Cap will no longer exclude the below set of data types from the daily cap, and all billable data types will be capped if the daily cap is met. This change improves your ability to fully contain costs from higher-than-expected data ingestion. 
-> If you have a Daily Cap set on your workspace which has [Microsoft Defender for Servers](/azure/defender-for-cloud/plan-defender-for-servers-select-plan) or Microsoft Sentinel, be sure that the cap is high enough to accomodate this change. Also, be sure to set an alert so that you are notified as soon as your Daily Cap is met, see [Set daily cap on Log Analytics workspace](../azure-monitor/logs/daily-cap.md). 
+> Starting September 18, 2023, the Log Analytics Daily Cap will no longer exclude the below set of data types from the daily cap, and all billable data types will be capped if the daily cap is met. This change improves your ability to fully contain costs from higher-than-expected data ingestion. 
+> If you have a Daily Cap set on your workspace which has [Microsoft Defender for Servers](/azure/defender-for-cloud/plan-defender-for-servers-select-plan) or Microsoft Sentinel, be sure that the cap is high enough to accommodate this change. Also, be sure to set an alert so that you are notified as soon as your Daily Cap is met, see [Set daily cap on Log Analytics workspace](../azure-monitor/logs/daily-cap.md). 
 
 In Log Analytics, you can enable a daily volume cap that limits the daily ingestion for your workspace. The daily cap can help you manage unexpected increases in data volume, stay within your limit, and limit unplanned charges.
 

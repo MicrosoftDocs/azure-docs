@@ -83,7 +83,7 @@ Simplified pricing tiers combine the data analysis costs for Microsoft Sentinel 
 
 Workspaces configured with classic pricing tiers have the option to switch to the simplified pricing tiers. For more information on how to **Switch to new pricing**, see [Enroll in a simplified pricing tier](enroll-simplified-pricing-tier.md).
 
-Combining the pricing tiers offers a simplification to the overall billing and cost management experience, including visualization in the pricing page, and less steps in estimating costs in the Azure calculator. To add further value to the new simplified tiers, the current [Microsoft Defender for Servers P2 benefit granting 500 MB/VM/day](../defender-for-cloud/faq-defender-for-servers.yml#is-the-500-mb-of-free-data-ingestion-allowance-applied-per-workspace-or-per-machine-) security data ingestion into Log Analytics has been extended to the simplified pricing tiers. This greatly increases the financial benefit of bringing eligible data ingested into Microsoft Sentinel for each VM protected in this manner.
+Combining the pricing tiers offers a simplification to the overall billing and cost management experience, including visualization in the pricing page, and fewer steps estimating costs in the Azure calculator. To add further value to the new simplified tiers, the current [Microsoft Defender for Servers P2 benefit granting 500 MB/VM/day](../defender-for-cloud/faq-defender-for-servers.yml#is-the-500-mb-of-free-data-ingestion-allowance-applied-per-workspace-or-per-machine-) security data ingestion into Log Analytics has been extended to the simplified pricing tiers. This greatly increases the financial benefit of bringing eligible data ingested into Microsoft Sentinel for each VM protected in this manner.
 
 ### Understand your Microsoft Sentinel bill
 
@@ -91,17 +91,17 @@ Billable meters are the individual components of your service that appear on you
 
 To see your Azure bill, select **Cost Analysis** in the left navigation of **Cost Management**. On the **Cost analysis** screen, select the drop-down caret in the **View** field, and select **Invoice details**.
 
-The costs shown in the following image are for example purposes only. They're not intended to reflect actual costs. Starting July , 2023, legacy pricing tiers are prefixed with **Classic**. 
+The costs shown in the following image are for example purposes only. They're not intended to reflect actual costs. Starting July 1, 2023, legacy pricing tiers are prefixed with **Classic**. 
 
 :::image type="content" source="media/billing/sample-bill-classic.png" alt-text="Screenshot showing the Microsoft Sentinel section of a sample Azure bill, to help you estimate costs." lightbox="media/billing/sample-bill-classic.png":::
 
-Microsoft Sentinel and Log Analytics charges might appear on your Azure bill as separate line items based on your selected pricing plan. Simplified pricing tiers are represented as a single `sentinel` line item for the pricing tier. Since ingestion and analysis is billed on a daily basis, if your workspace exceeds its Commitment Tier usage allocation in any given day, the Azure bill shows one line item for the Commitment Tier with its associated fixed cost, and a separate line item for the cost beyond the Commitment Tier, billed at the same effective Commitment Tier rate. 
-
-The following tabs show how Microsoft Sentinel and Log Analytics costs appear in the **Service name** and **Meter** columns of your Azure bill depending on your pricing tier. Starting July 1st, 2023, legacy pricing tiers are prefixed with **Classic**. 
+Microsoft Sentinel and Log Analytics charges might appear on your Azure bill as separate line items based on your selected pricing plan. Simplified pricing tiers are represented as a single `sentinel` line item for the pricing tier. Since ingestion and analysis are billed on a daily basis, if your workspace exceeds its Commitment Tier usage allocation in any given day, the Azure bill shows one line item for the Commitment Tier with its associated fixed cost, and a separate line item for the cost beyond the Commitment Tier, billed at the same effective Commitment Tier rate. 
 
 # [Simplified](#tab/simplified)
+The following tabs show how Microsoft Sentinel and Log Analytics costs appear in the **Service name** and **Meter** columns of your Azure bill depending on your simplified pricing tier. 
 
 # [Classic](#tab/classic)
+The following tabs show how Microsoft Sentinel and Log Analytics costs appear in the **Service name** and **Meter** columns of your Azure bill depending on your classic pricing tier. 
 
 ---
 
@@ -154,8 +154,8 @@ This table shows how Microsoft Sentinel and Log Analytics no charge costs appear
  Cost description | Service name | Meter |
 |--|--|--|
 | Microsoft Sentinel Free Trial – Sentinel Analysis| `Sentinel` |**Free trial Analysis**|
-| M365 Defender Benefit – Data Ingestion| `Azure Monitor` |**Free Benefit - M365 Defender Data Ingestion**|
-| M365 Defender Benefit – Data Analysis| `Sentinel` |**Free Benefit - M365 Defender Analysis**|
+| Microsoft 365 Defender Benefit – Data Ingestion| `Azure Monitor` |**Free Benefit - M365 Defender Data Ingestion**|
+| Microsoft 365 Defender Benefit – Data Analysis| `Sentinel` |**Free Benefit - M365 Defender Analysis**|
 
 
 # [Free data meters](#tab/free-data-meters/classic)
@@ -166,8 +166,8 @@ This table shows how Microsoft Sentinel and Log Analytics no charge costs appear
 |--|--|--|
 | Microsoft Sentinel Free Trial – Log Analytics data ingestion| `Azure Monitor` |**Free Benefit - Az Sentinel Trial Data Ingestion**|
 | Microsoft Sentinel Free Trial – Sentinel Analysis| `Sentinel` |**Free trial Analysis**|
-| M365 Defender Benefit – Data Ingestion| `Azure Monitor` |**Free Benefit - M365 Defender Data Ingestion**|
-| M365 Defender Benefit – Data Analysis| `Sentinel` |**Free Benefit - M365 Defender Analysis**|
+| Microsoft 365 Defender Benefit – Data Ingestion| `Azure Monitor` |**Free Benefit - M365 Defender Data Ingestion**|
+| Microsoft 365 Defender Benefit – Data Analysis| `Sentinel` |**Free Benefit - M365 Defender Analysis**|
 
 ---
 
