@@ -11,6 +11,8 @@ ms.date: 07/02/2023
 
 To maintain the performance and availability of your Log Analytics workspace in Azure Monitor, you need to be able to proactively detect any issues that arise. This article describes how to monitor the health of your Log Analytics workspace by using data in the [Operation](/azure/azure-monitor/reference/tables/operation) table. This table is included in every Log Analytics workspace. It contains error messages and warnings that occur in your workspace. We recommend that you create alerts for issues with the level of Warning and Error.
 
+[!INCLUDE [log-analytics-query-permissions](../../../includes/log-analytics-query-permissions.md)]
+
 ## _LogOperation function
 
 Azure Monitor Logs sends information on any issues to the [Operation](/azure/azure-monitor/reference/tables/operation) table in the workspace where the issue occurred. The `_LogOperation` system function is based on the **Operation** table and provides a simplified set of information for analysis and alerting.
