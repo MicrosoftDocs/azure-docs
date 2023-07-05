@@ -12,7 +12,7 @@ ms.topic: tutorial
 ms.service: azure-communication-services
 ms.subservice: calling
 ---
-# Creating a click to call Experience with Azure Communication Services 
+# Creating a click to call experience with Azure Communication Services 
 
 [!INCLUDE [Public Preview Notice](../../includes/public-preview-include.md)]
 
