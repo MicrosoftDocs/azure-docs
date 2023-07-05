@@ -1,7 +1,7 @@
 ---
-title: Choose the best Form Recognizer model
-titleSuffix: Azure Applied AI Services
-description: Choose the best Form Recognizer model to meet your needs.
+title: Choose the best Document Intelligence model
+titleSuffix: Azure AI services
+description: Choose the best Document Intelligence model to meet your needs.
 author: laujan
 manager: nitinme
 ms.service: applied-ai-services
@@ -12,13 +12,17 @@ ms.author: lajanuar
 monikerRange: 'form-recog-3.0.0'
 ---
 
-# Which Form Recognizer model should I use?
 
-Azure Form Recognizer supports a wide variety of models that enable you to add intelligent document processing to your applications and optimize your workflows. Selecting the right model is essential to ensure the success of your enterprise. In this article, we explore the available Form Recognizer models and provide guidance for how to choose the best solution for your projects.
+
+
+
+# Which Document Intelligence model should I use?
+
+Azure AI Document Intelligence supports a wide variety of models that enable you to add intelligent document processing to your applications and optimize your workflows. Selecting the right model is essential to ensure the success of your enterprise. In this article, we explore the available Document Intelligence models and provide guidance for how to choose the best solution for your projects.
 
 > [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE5fX1b]
 
-The following decision charts highlight the features of each **Form Recognizer v3.0** supported model and help you choose the best model to meet the needs and requirements of your application.
+The following decision charts highlight the features of each **Document Intelligence v3.0** supported model and help you choose the best model to meet the needs and requirements of your application.
 
 > [!IMPORTANT]
 > Be sure to heck the [**language support**](language-support.md) page for supported language text and field extraction  by feature.
@@ -59,4 +63,4 @@ The following decision charts highlight the features of each **Form Recognizer v
 
 ## Next steps
 
-* [Learn how to process your own forms and documents](quickstarts/try-form-recognizer-studio.md) with the [Form Recognizer Studio](https://formrecognizer.appliedai.azure.com/studio)
+* [Learn how to process your own forms and documents](quickstarts/try-form-recognizer-studio.md) with the [Document Intelligence Studio](https://formrecognizer.appliedai.azure.com/studio)

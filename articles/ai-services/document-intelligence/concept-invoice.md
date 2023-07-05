@@ -1,7 +1,7 @@
 ---
-title: Invoice data extraction – Form Recognizer
-titleSuffix: Azure Applied AI Services
-description: Automate invoice data extraction with Form Recognizer's invoice model to extract accounts payable data including invoice line items.
+title: Invoice data extraction – Document Intelligence
+titleSuffix: Azure AI services
+description: Automate invoice data extraction with Document Intelligence's invoice model to extract accounts payable data including invoice line items.
 author: laujan
 manager: nitinme
 ms.service: applied-ai-services
@@ -10,9 +10,10 @@ ms.topic: conceptual
 ms.date: 05/23/2023
 ms.author: lajanuar
 ---
+
 <!-- markdownlint-disable MD033 -->
 
-# Azure Form Recognizer invoice model
+# Azure AI Document Intelligence invoice model
 
 ::: moniker range="form-recog-3.0.0"
 [!INCLUDE [applies to v3.0](includes/applies-to-v3-0.md)]
@@ -22,7 +23,7 @@ ms.author: lajanuar
 [!INCLUDE [applies to v2.1](includes/applies-to-v2-1.md)]
 ::: moniker-end
 
-The Form Recognizer invoice model uses powerful Optical Character Recognition (OCR) capabilities to analyze and extract key fields and line items from sales invoices, utility bills, and purchase orders. Invoices can be of various formats and quality including phone-captured images, scanned documents, and digital PDFs. The API analyzes invoice text; extracts key information such as customer name, billing address, due date, and amount due; and returns a structured JSON data representation. The model currently supports both English and Spanish invoices.
+The Document Intelligence invoice model uses powerful Optical Character Recognition (OCR) capabilities to analyze and extract key fields and line items from sales invoices, utility bills, and purchase orders. Invoices can be of various formats and quality including phone-captured images, scanned documents, and digital PDFs. The API analyzes invoice text; extracts key information such as customer name, billing address, due date, and amount due; and returns a structured JSON data representation. The model currently supports both English and Spanish invoices.
 
 **Supported document types:**
 
@@ -37,15 +38,15 @@ Automated invoice processing is the process of extracting key accounts payable f
 
 ::: moniker range="form-recog-3.0.0"
 
-**Sample invoice processed with [Form Recognizer Studio](https://formrecognizer.appliedai.azure.com/studio/prebuilt?formType=invoice)**:
+**Sample invoice processed with [Document Intelligence Studio](https://formrecognizer.appliedai.azure.com/studio/prebuilt?formType=invoice)**:
 
-:::image type="content" source="media/studio/overview-invoices.png" alt-text="Screenshot of a sample invoice analyzed in the Form Recognizer Studio." lightbox="media/overview-invoices-big.jpg":::
+:::image type="content" source="media/studio/overview-invoices.png" alt-text="Screenshot of a sample invoice analyzed in the Document Intelligence Studio." lightbox="media/overview-invoices-big.jpg":::
 
 ::: moniker-end
 
 ::: moniker range="form-recog-2.1.0"
 
-**Sample invoice processed with [Form Recognizer Sample Labeling tool](https://fott-2-1.azurewebsites.net)**:
+**Sample invoice processed with [Document Intelligence Sample Labeling tool](https://fott-2-1.azurewebsites.net)**:
 
 :::image type="content" source="media/invoice-example-new.jpg" alt-text="Screenshot of a sample invoice.":::
 
@@ -55,21 +56,21 @@ Automated invoice processing is the process of extracting key accounts payable f
 
 ::: moniker range="form-recog-3.0.0"
 
-Form Recognizer v3.0 supports the following tools:
+Document Intelligence v3.0 supports the following tools:
 
 | Feature | Resources | Model ID |
 |----------|-------------|-----------|
-|**Invoice model** | <ul><li>[**Form Recognizer Studio**](https://formrecognizer.appliedai.azure.com)</li><li>[**REST API**](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2022-08-31/operations/AnalyzeDocument)</li><li>[**C# SDK**](quickstarts/get-started-sdks-rest-api.md?view=form-recog-3.0.0&preserve-view=true)</li><li>[**Python SDK**](quickstarts/get-started-sdks-rest-api.md?view=form-recog-3.0.0&preserve-view=true)</li><li>[**Java SDK**](quickstarts/get-started-sdks-rest-api.md?view=form-recog-3.0.0&preserve-view=true)</li><li>[**JavaScript SDK**](quickstarts/get-started-sdks-rest-api.md?view=form-recog-3.0.0&preserve-view=true)</li></ul>|**prebuilt-invoice**|
+|**Invoice model** | <ul><li>[**Document Intelligence Studio**](https://formrecognizer.appliedai.azure.com)</li><li>[**REST API**](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2022-08-31/operations/AnalyzeDocument)</li><li>[**C# SDK**](quickstarts/get-started-sdks-rest-api.md?view=form-recog-3.0.0&preserve-view=true)</li><li>[**Python SDK**](quickstarts/get-started-sdks-rest-api.md?view=form-recog-3.0.0&preserve-view=true)</li><li>[**Java SDK**](quickstarts/get-started-sdks-rest-api.md?view=form-recog-3.0.0&preserve-view=true)</li><li>[**JavaScript SDK**](quickstarts/get-started-sdks-rest-api.md?view=form-recog-3.0.0&preserve-view=true)</li></ul>|**prebuilt-invoice**|
 
 ::: moniker-end
 
 ::: moniker range="form-recog-2.1.0"
 
-Form Recognizer v2.1 supports the following tools:
+Document Intelligence v2.1 supports the following tools:
 
 | Feature | Resources |
 |----------|-------------------------|
-|**Invoice model**| <ul><li>[**Form Recognizer labeling tool**](https://fott-2-1.azurewebsites.net/prebuilts-analyze)</li><li>[**REST API**](./how-to-guides/use-sdk-rest-api.md?pivots=programming-language-rest-api&preserve-view=true&tabs=windows&view=form-recog-2.1.0#analyze-invoices)</li><li>[**Client-library SDK**](/azure/applied-ai-services/form-recognizer/how-to-guides/v2-1-sdk-rest-api)</li><li>[**Form Recognizer Docker container**](containers/form-recognizer-container-install-run.md?tabs=invoice#run-the-container-with-the-docker-compose-up-command)</li></ul>|
+|**Invoice model**| <ul><li>[**Document Intelligence labeling tool**](https://fott-2-1.azurewebsites.net/prebuilts-analyze)</li><li>[**REST API**](./how-to-guides/use-sdk-rest-api.md?pivots=programming-language-rest-api&preserve-view=true&tabs=windows&view=form-recog-2.1.0#analyze-invoices)</li><li>[**Client-library SDK**](~/articles/ai-services/document-intelligence/how-to-guides/use-sdk-rest-api.md?view=form-recog-2.1.0&preserve-view=true)</li><li>[**Document Intelligence Docker container**](containers/form-recognizer-container-install-run.md?tabs=invoice#run-the-container-with-the-docker-compose-up-command)</li></ul>|
 
 ::: moniker-end
 
@@ -95,15 +96,15 @@ See how data, including customer information, vendor details, and line items, is
 
 * An Azure subscription—you can [create one for free](https://azure.microsoft.com/free/cognitive-services/)
 
-* A [Form Recognizer instance](https://portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer) in the Azure portal. You can use the free pricing tier (`F0`) to try the service. After your resource deploys, select **Go to resource** to get your key and endpoint.
+* A [Document Intelligence instance](https://portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer) in the Azure portal. You can use the free pricing tier (`F0`) to try the service. After your resource deploys, select **Go to resource** to get your key and endpoint.
 
  :::image type="content" source="media/containers/keys-and-endpoint.png" alt-text="Screenshot: keys and endpoint location in the Azure portal.":::
 
 ::: moniker range="form-recog-3.0.0"
 
-## Form Recognizer Studio
+## Document Intelligence Studio
 
-1. On the Form Recognizer Studio home page, select **Invoices**
+1. On the Document Intelligence Studio home page, select **Invoices**
 
 1. You can analyze the sample invoice or select the **+ Add** button to upload your own sample.
 
@@ -112,15 +113,15 @@ See how data, including customer information, vendor details, and line items, is
     :::image type="content" source="media/studio/invoice-analyze.png" alt-text="Screenshot: analyze invoice menu.":::
 
 > [!div class="nextstepaction"]
-> [Try Form Recognizer Studio](https://formrecognizer.appliedai.azure.com/studio/prebuilt?formType=invoice)
+> [Try Document Intelligence Studio](https://formrecognizer.appliedai.azure.com/studio/prebuilt?formType=invoice)
 
 ::: moniker-end
 
 ::: moniker range="form-recog-2.1.0"
 
-## Form Recognizer Sample Labeling tool
+## Document Intelligence Sample Labeling tool
 
-1. Navigate to the [Form Recognizer Sample Tool](https://fott-2-1.azurewebsites.net/).
+1. Navigate to the [Document Intelligence Sample Tool](https://fott-2-1.azurewebsites.net/).
 
 1. On the sample tool home page, select the **Use prebuilt model to get data** tile.
 
@@ -139,20 +140,20 @@ See how data, including customer information, vendor details, and line items, is
 
     :::image type="content" source="media/label-tool/fott-select-url.png" alt-text="Screenshot of source location dropdown menu.":::
 
-1. In the **Form recognizer service endpoint** field, paste the endpoint that you obtained with your Form Recognizer subscription.
+1. In the **Document Intelligence service endpoint** field, paste the endpoint that you obtained with your Document Intelligence subscription.
 
-1. In the **key** field, paste  the key you obtained from your Form Recognizer resource.
+1. In the **key** field, paste  the key you obtained from your Document Intelligence resource.
 
     :::image type="content" source="media/fott-select-form-type.png" alt-text="Screenshot showing the select-form-type dropdown menu.":::
 
-1. Select **Run analysis**. The Form Recognizer Sample Labeling tool calls the Analyze Prebuilt API and analyze the document.
+1. Select **Run analysis**. The Document Intelligence Sample Labeling tool calls the Analyze Prebuilt API and analyze the document.
 
 1. View the results - see the key-value pairs extracted, line items, highlighted text extracted and tables detected.
 
     :::image type="content" source="media/invoice-example-new.jpg" alt-text="Screenshot of layout model analyze results operation.":::
 
 > [!NOTE]
-> The [Sample Labeling tool](https://fott-2-1.azurewebsites.net/) does not support the BMP file format. This is a limitation of the tool not the Form Recognizer Service.
+> The [Sample Labeling tool](https://fott-2-1.azurewebsites.net/) does not support the BMP file format. This is a limitation of the tool not the Document Intelligence Service.
 
 ::: moniker-end
 
@@ -161,7 +162,7 @@ See how data, including customer information, vendor details, and line items, is
 ## Supported languages and locales
 
 >[!NOTE]
-> Form Recognizer auto-detects language and locale data.
+> Document Intelligence auto-detects language and locale data.
 
 | Supported languages | Details |
 |:----------------------|:---------|
@@ -301,7 +302,7 @@ The JSON output has three parts:
 
 ## Migration guide
 
-* Follow our [**Form Recognizer v3.0 migration guide**](v3-migration-guide.md) to learn how to use the v3.0 version in your applications and workflows.
+* Follow our [**Document Intelligence v3.0 migration guide**](v3-migration-guide.md) to learn how to use the v3.0 version in your applications and workflows.
 
 ::: moniker-end
 
@@ -309,16 +310,16 @@ The JSON output has three parts:
 
 ::: moniker range="form-recog-3.0.0"
 
-* Try processing your own forms and documents with the [Form Recognizer Studio](https://formrecognizer.appliedai.azure.com/studio)
+* Try processing your own forms and documents with the [Document Intelligence Studio](https://formrecognizer.appliedai.azure.com/studio)
 
-* Complete a [Form Recognizer quickstart](quickstarts/get-started-sdks-rest-api.md?view=form-recog-3.0.0&preserve-view=true) and get started creating a document processing app in the development language of your choice.
+* Complete a [Document Intelligence quickstart](quickstarts/get-started-sdks-rest-api.md?view=form-recog-3.0.0&preserve-view=true) and get started creating a document processing app in the development language of your choice.
 
 ::: moniker-end
 
 ::: moniker range="form-recog-2.1.0"
 
-* Try processing your own forms and documents with the [Form Recognizer Sample Labeling tool](https://fott-2-1.azurewebsites.net/)
+* Try processing your own forms and documents with the [Document Intelligence Sample Labeling tool](https://fott-2-1.azurewebsites.net/)
 
-* Complete a [Form Recognizer quickstart](quickstarts/get-started-sdks-rest-api.md?view=form-recog-2.1.0&preserve-view=true) and get started creating a document processing app in the development language of your choice.
+* Complete a [Document Intelligence quickstart](quickstarts/get-started-sdks-rest-api.md?view=form-recog-2.1.0&preserve-view=true) and get started creating a document processing app in the development language of your choice.
 
 ::: moniker-end

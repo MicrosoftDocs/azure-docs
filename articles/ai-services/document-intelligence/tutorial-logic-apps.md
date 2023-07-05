@@ -1,7 +1,7 @@
 ---
-title: Use Azure Logic Apps with Form Recognizer
-titleSuffix: Azure Applied AI Services
-description: A tutorial outlining how to use Form Recognizer with Logic Apps.
+title: Use Azure Logic Apps with Document Intelligence
+titleSuffix: Azure AI services
+description: A tutorial outlining how to use Document Intelligence with Logic Apps.
 author: laujan
 manager: nitinme
 ms.service: applied-ai-services
@@ -12,13 +12,14 @@ ms.author: bemabonsu
 monikerRange: 'form-recog-2.1.0'
 ---
 
-# Tutorial: Use Azure Logic Apps with Form Recognizer
 
-**This article applies to:** ![Form Recognizer v2.1 checkmark](media/yes-icon.png) **Form Recognizer v2.1**.
+# Tutorial: Use Azure Logic Apps with Document Intelligence
+
+**This article applies to:** ![Document Intelligence v2.1 checkmark](media/yes-icon.png) **Document Intelligence v2.1**.
 
 > [!IMPORTANT]
 >
-> This tutorial and the Logic App Form Recognizer connector targets Form Recognizer REST API v2.1 and must be used in conjuction with the [FOTT Sample Labeling tool](https://fott-2-1.azurewebsites.net/).
+> This tutorial and the Logic App Document Intelligence connector targets Document Intelligence REST API v2.1 and must be used in conjuction with the [FOTT Sample Labeling tool](https://fott-2-1.azurewebsites.net/).
 
 Azure Logic Apps is a cloud-based platform that can be used to automate workflows without writing a single line of code. The platform enables you to easily integrate Microsoft and third-party applications with your apps, data, services, and systems. A Logic App is the Azure resource you create when you want to develop a workflow. Here are a few examples of what you can do with a Logic App:
 
@@ -33,7 +34,7 @@ For more information, *see* [Logic Apps Overview](../../logic-apps/logic-apps-ov
 > [!div class="checklist"]
 >
 > * Detect when an invoice as been added to a OneDrive folder.
-> * Process the invoice using the Form Recognizer prebuilt-invoice model.
+> * Process the invoice using the Document Intelligence prebuilt-invoice model.
 > * Send the extracted information from the invoice to a pre-specified email address.
 
 ## Prerequisites
@@ -42,16 +43,16 @@ To complete this tutorial, you'll need the following resources:
 
 * **An Azure subscription**. You can [create a free Azure subscription](https://azure.microsoft.com/free/cognitive-services/)
 
-* **A Form Recognizer resource**.  Once you have your Azure subscription, [create a Form Recognizer resource](https://portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer) in the Azure portal to get your key and endpoint. If you have an existing Form Recognizer resource, navigate directly to your resource page. You can use the free pricing tier (F0) to try the service, and upgrade later to a paid tier for production.
+* **A Document Intelligence resource**.  Once you have your Azure subscription, [create a Document Intelligence resource](https://portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer) in the Azure portal to get your key and endpoint. If you have an existing Document Intelligence resource, navigate directly to your resource page. You can use the free pricing tier (F0) to try the service, and upgrade later to a paid tier for production.
 
   1. After the resource deploys, select **Go to resource**.
 
-  1. Copy the **Keys and Endpoint** values from your resource in the Azure portal and paste them in a convenient location, such as *Microsoft Notepad*. You'll need the key and endpoint values to connect your application to the Form Recognizer API.
+  1. Copy the **Keys and Endpoint** values from your resource in the Azure portal and paste them in a convenient location, such as *Microsoft Notepad*. You'll need the key and endpoint values to connect your application to the Document Intelligence API.
 
     :::image border="true" type="content" source="media/containers/keys-and-endpoint.png" alt-text="Still photo showing how to access resource key and endpoint URL.":::
 
     > [!TIP]
-    > For more information, *see* [**create a Form Recognizer resource**](create-a-form-recognizer-resource.md).
+    > For more information, *see* [**create a Document Intelligence resource**](create-a-form-recognizer-resource.md).
 
 * A free [**OneDrive**](https://onedrive.live.com/signup) or [**OneDrive for Business**](https://www.microsoft.com/microsoft-365/onedrive/onedrive-for-business) cloud storage account.
 
@@ -81,7 +82,7 @@ Before we jump into creating the Logic App, we have to set up a OneDrive folder.
 
 ## Create a Logic App resource
 
-At this point, you should have a Form Recognizer resource and a OneDrive folder all set. Now, it's time to create a Logic App resource.
+At this point, you should have a Document Intelligence resource and a OneDrive folder all set. Now, it's time to create a Logic App resource.
 
 1. Select **Create a resource** from the Azure home page.
 
@@ -94,7 +95,7 @@ At this point, you should have a Form Recognizer resource and a OneDrive folder 
 1. Next, you're going to fill out the **Create Logic App** fields with the following values:
 
    * **Subscription**. Select your current subscription.
-   * **Resource group**. The [Azure resource group](/azure/cloud-adoption-framework/govern/resource-consistency/resource-access-management#what-is-an-azure-resource-group) that will contain your resource. Choose the same resource group you have for your Form Recognizer resource.
+   * **Resource group**. The [Azure resource group](/azure/cloud-adoption-framework/govern/resource-consistency/resource-access-management#what-is-an-azure-resource-group) that will contain your resource. Choose the same resource group you have for your Document Intelligence resource.
    * **Type**. Select **Consumption**. The Consumption resource type runs in global, multi-tenant Azure Logic Apps and uses the [Consumption billing model](../../logic-apps/logic-apps-pricing.md#consumption-pricing).
    * **Logic App name**. Enter a name for your resource. We recommend using a descriptive name, for example *YourNameLogicApp*.
    * **Region**. Select your local region.
@@ -140,12 +141,12 @@ Now that you have the Logic App connector resource set up and configured, the on
 
 1. Next, we're going to add a new step to the workflow. Select the plus button underneath the newly created OneDrive node.
 
-1. A new node should be added to the Logic App designer view. Search for "Form Recognizer" in the search bar and select **Analyze invoice** from the list.
+1. A new node should be added to the Logic App designer view. Search for "Document Intelligence" in the search bar and select **Analyze invoice** from the list.
 
-1. Now, you should see a window where you'll create your connection. Specifically, you're going to connect your Form Recognizer resource to the Logic Apps Designer Studio:
+1. Now, you should see a window where you'll create your connection. Specifically, you're going to connect your Document Intelligence resource to the Logic Apps Designer Studio:
 
     * Enter a **Connection name**. It should be something easy to remember.
-    * Enter the Form Recognizer resource **Endpoint URL** and **Account Key** that you copied previously. If you skipped this step earlier or lost the strings, you can navigate back to your Form Recognizer resource and copy them again. When you're done, select **Create**.
+    * Enter the Document Intelligence resource **Endpoint URL** and **Account Key** that you copied previously. If you skipped this step earlier or lost the strings, you can navigate back to your Document Intelligence resource and copy them again. When you're done, select **Create**.
 
     :::image border="true" type="content" source="media/logic-apps-tutorial/logic-app-connector-demo-eleven.gif" alt-text="GIF showing how to add second node to workflow.":::
 
@@ -153,7 +154,7 @@ Now that you have the Logic App connector resource set up and configured, the on
 
 1. Select the **Document/Image File Content** field. A dynamic content pop-up should appear. If it doesn't, select the **Add dynamic content** button below the field.
 
-1. Select **File content** from the pop-up list. This step is essentially sending the file(s) to be analyzed to the Form recognizer prebuilt-invoice model. Once you see the **File content** badge show in the **Document /Image file content** field, you've completed this step correctly.
+1. Select **File content** from the pop-up list. This step is essentially sending the file(s) to be analyzed to the Document Intelligence prebuilt-invoice model. Once you see the **File content** badge show in the **Document /Image file content** field, you've completed this step correctly.
 
     :::image border="true" type="content" source="media/logic-apps-tutorial/logic-app-connector-demo-twelve.gif" alt-text="GIF showing how to add dynamic content to second node.":::
 
@@ -163,7 +164,7 @@ Now that you have the Logic App connector resource set up and configured, the on
 
 1. In the actions bar, scroll down until you find **Send an email (V2)** and select this action.
 
-1. Just like with OneDrive, you'll be asked to sign into your Outlook or Office 365 Outlook account. After you sign in, you should see a window like the one pictured below. In this window, we're going to format the email to be sent with the dynamic content that Form Recognizer will extract from the invoice.
+1. Just like with OneDrive, you'll be asked to sign into your Outlook or Office 365 Outlook account. After you sign in, you should see a window like the one pictured below. In this window, we're going to format the email to be sent with the dynamic content that Document Intelligence will extract from the invoice.
 
     :::image border="true" type="content" source="media/logic-apps-tutorial/logic-app-connector-demo-thirteen.gif" alt-text="GIF showing how to add final step to workflow.":::
 
@@ -201,7 +202,7 @@ Let's quickly review what we've done before we test our flow:
 > [!div class="checklist"]
 >
 > * We created a trigger—in this case scenario, the trigger is when a file is created in a pre-specified folder in our OneDrive account.
-> * We added a Form Recognizer action to our flow—in this scenario we decided to use the invoice API to automatically analyze the invoices from the OneDrive folder.
+> * We added a Document Intelligence action to our flow—in this scenario we decided to use the invoice API to automatically analyze the invoices from the OneDrive folder.
 > * We added an Outlook.com action to our flow—for this scenario we sent some of the analyzed invoice data to a pre-determined email address.
 
 Now that we've created the flow, the last thing to do is to test it and make sure that we're getting the expected behavior.
@@ -223,4 +224,4 @@ Congratulations! You've officially completed this tutorial.
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Use the invoice processing prebuilt model in Power Automate](/ai-builder/flow-invoice-processing?toc=/azure/applied-ai-services/form-recognizer/toc.json&bc=/azure/applied-ai-services/form-recognizer/breadcrumb/toc.json)
+> [Use the invoice processing prebuilt model in Power Automate](/ai-builder/flow-invoice-processing?toc=~/articles/ai-services/document-intelligence/toc.json&bc=~/articles/ai-services/document-intelligence/breadcrumb/toc.json)

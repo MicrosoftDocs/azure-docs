@@ -1,7 +1,7 @@
 ---
-title: Document layout analysis - Form Recognizer
-titleSuffix: Azure Applied AI Services
-description: Extract text, tables, selections, titles, section headings, page headers, page footers, and more with layout analysis model from Form Recognizer.
+title: Document layout analysis - Document Intelligence
+titleSuffix: Azure AI services
+description: Extract text, tables, selections, titles, section headings, page headers, page footers, and more with layout analysis model from Document Intelligence.
 author: laujan
 manager: nitinme
 ms.service: applied-ai-services
@@ -11,7 +11,8 @@ ms.date: 06/23/2023
 ms.author: lajanuar
 ---
 
-# Azure Form Recognizer layout model
+
+# Azure AI Document Intelligence layout model
 
 ::: moniker range="form-recog-3.0.0"
 [!INCLUDE [applies to v3.0](includes/applies-to-v3-0.md)]
@@ -21,7 +22,7 @@ ms.author: lajanuar
 [!INCLUDE [applies to v2.1](includes/applies-to-v2-1.md)]
 ::: moniker-end
 
-Form Recognizer layout model is an advanced machine-learning based document analysis API available in the Form Recognizer cloud. It enables you to take documents in various formats and return structured data representations of the documents. It combines an enhanced version of our powerful [Optical Character Recognition (OCR)](../../cognitive-services/computer-vision/overview-ocr.md) capabilities with deep learning models to extract text, tables, selection marks, and document structure.
+Document Intelligence layout model is an advanced machine-learning based document analysis API available in the Document Intelligence cloud. It enables you to take documents in various formats and return structured data representations of the documents. It combines an enhanced version of our powerful [Optical Character Recognition (OCR)](../../ai-services/computer-vision/overview-ocr.md) capabilities with deep learning models to extract text, tables, selection marks, and document structure.
 
 ## Document layout analysis
 
@@ -36,23 +37,23 @@ The following illustration shows the typical components in an image of a sample 
 
 ::: moniker range="form-recog-3.0.0"
 
-***Sample form processed with [Form Recognizer Studio](https://formrecognizer.appliedai.azure.com/studio/layout)***
+***Sample form processed with [Document Intelligence Studio](https://formrecognizer.appliedai.azure.com/studio/layout)***
 
-:::image type="content" source="media/studio/form-recognizer-studio-layout-newspaper.png" alt-text="Screenshot of sample newspaper page processed using Form Recognizer Studio.":::
+:::image type="content" source="media/studio/form-recognizer-studio-layout-newspaper.png" alt-text="Screenshot of sample newspaper page processed using Document Intelligence Studio.":::
 
 ## Development options
 
-Form Recognizer v3.0 supports the following tools:
+Document Intelligence v3.0 supports the following tools:
 
 | Feature | Resources | Model ID |
 |----------|------------|------------|
-|**Layout model**| <ul><li>[**Form Recognizer Studio**](https://formrecognizer.appliedai.azure.com)</li><li>[**REST API**](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2022-08-31/operations/AnalyzeDocument)</li><li>[**C# SDK**](quickstarts/get-started-sdks-rest-api.md?view=form-recog-3.0.0&preserve-view=true)</li><li>[**Python SDK**](quickstarts/get-started-sdks-rest-api.md?view=form-recog-3.0.0&preserve-view=true)</li><li>[**Java SDK**](quickstarts/get-started-sdks-rest-api.md?view=form-recog-3.0.0&preserve-view=true)</li><li>[**JavaScript SDK**](quickstarts/get-started-sdks-rest-api.md?view=form-recog-3.0.0&preserve-view=true)</li></ul>|**prebuilt-layout**|
+|**Layout model**| <ul><li>[**Document Intelligence Studio**](https://formrecognizer.appliedai.azure.com)</li><li>[**REST API**](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2022-08-31/operations/AnalyzeDocument)</li><li>[**C# SDK**](quickstarts/get-started-sdks-rest-api.md?view=form-recog-3.0.0&preserve-view=true)</li><li>[**Python SDK**](quickstarts/get-started-sdks-rest-api.md?view=form-recog-3.0.0&preserve-view=true)</li><li>[**Java SDK**](quickstarts/get-started-sdks-rest-api.md?view=form-recog-3.0.0&preserve-view=true)</li><li>[**JavaScript SDK**](quickstarts/get-started-sdks-rest-api.md?view=form-recog-3.0.0&preserve-view=true)</li></ul>|**prebuilt-layout**|
 
 ::: moniker-end
 
 ::: moniker range="form-recog-2.1.0"
 
-**Sample document processed with [Form Recognizer Sample Labeling tool layout model](https://fott-2-1.azurewebsites.net/layout-analyze)**:
+**Sample document processed with [Document Intelligence Sample Labeling tool layout model](https://fott-2-1.azurewebsites.net/layout-analyze)**:
 
 :::image type="content" source="media/layout-tool-example.jpg" alt-text="Screenshot of a document processed with the layout model.":::
 
@@ -76,26 +77,26 @@ Form Recognizer v3.0 supports the following tools:
 
 ### Try layout extraction
 
-See how data, including text, tables, table headers, selection marks, and structure information is extracted from documents using  Form Recognizer. You need the following resources:
+See how data, including text, tables, table headers, selection marks, and structure information is extracted from documents using  Document Intelligence. You need the following resources:
 
 * An Azure subscription—you can [create one for free](https://azure.microsoft.com/free/cognitive-services/)
 
-* A [Form Recognizer instance](https://portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer) in the Azure portal. You can use the free pricing tier (`F0`) to try the service. After your resource deploys, select **Go to resource** to get your key and endpoint.
+* A [Document Intelligence instance](https://portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer) in the Azure portal. You can use the free pricing tier (`F0`) to try the service. After your resource deploys, select **Go to resource** to get your key and endpoint.
 
  :::image type="content" source="media/containers/keys-and-endpoint.png" alt-text="Screenshot: keys and endpoint location in the Azure portal.":::
 
 ::: moniker range="form-recog-3.0.0"
 
-## Form Recognizer Studio
+## Document Intelligence Studio
 
 > [!NOTE]
-> Form Recognizer studio is available with the v3.0 API.
+> Document Intelligence Studio is available with the v3.0 API.
 
-***Sample form processed with [Form Recognizer Studio](https://formrecognizer.appliedai.azure.com/studio/layout)***
+***Sample form processed with [Document Intelligence Studio](https://formrecognizer.appliedai.azure.com/studio/layout)***
 
-:::image type="content" source="media/studio/form-recognizer-studio-layout-newspaper.png" alt-text="Screenshot: Layout processing a newspaper page in Form Recognizer Studio.":::
+:::image type="content" source="media/studio/form-recognizer-studio-layout-newspaper.png" alt-text="Screenshot: Layout processing a newspaper page in Document Intelligence Studio.":::
 
-1. On the Form Recognizer Studio home page, select **Layout**
+1. On the Document Intelligence Studio home page, select **Layout**
 
 1. You can analyze the sample document or select the **+ Add** button to upload your own sample.
 
@@ -104,23 +105,23 @@ See how data, including text, tables, table headers, selection marks, and struct
     :::image type="content" source="media/studio/layout-analyze.png" alt-text="Screenshot: analyze layout menu.":::
 
    > [!div class="nextstepaction"]
-   > [Try Form Recognizer Studio](https://formrecognizer.appliedai.azure.com/studio/layout)
+   > [Try Document Intelligence Studio](https://formrecognizer.appliedai.azure.com/studio/layout)
 
 ::: moniker-end
 
 ::: moniker range="form-recog-2.1.0"
 
-## Form Recognizer Sample Labeling tool
+## Document Intelligence Sample Labeling tool
 
-1. Navigate to the [Form Recognizer sample tool](https://fott-2-1.azurewebsites.net/).
+1. Navigate to the [Document Intelligence sample tool](https://fott-2-1.azurewebsites.net/).
 
 1. On the sample tool home page, select **Use Layout to get text, tables and selection marks**.
 
-     :::image type="content" source="media/label-tool/layout-1.jpg" alt-text="Screenshot of connection settings for the Form Recognizer layout process.":::
+     :::image type="content" source="media/label-tool/layout-1.jpg" alt-text="Screenshot of connection settings for the Document Intelligence layout process.":::
 
-1. In the **Form recognizer service endpoint** field, paste the endpoint that you obtained with your Form Recognizer subscription.
+1. In the **Document Intelligence service endpoint** field, paste the endpoint that you obtained with your Document Intelligence subscription.
 
-1. In the **key** field, paste  the key you obtained from your Form Recognizer resource.
+1. In the **key** field, paste  the key you obtained from your Document Intelligence resource.
 
 1. In the **Source** field, select **URL** from the dropdown menu You can use our sample document:
 
@@ -128,13 +129,13 @@ See how data, including text, tables, table headers, selection marks, and struct
 
     * Select the **Fetch** button.
 
-1. Select **Run Layout**. The Form Recognizer Sample Labeling tool calls the Analyze Layout API and analyze the document.
+1. Select **Run Layout**. The Document Intelligence Sample Labeling tool calls the Analyze Layout API and analyze the document.
 
     :::image type="content" source="media/fott-layout.png" alt-text="Screenshot: Layout dropdown window.":::
 
 1. View the results - see the highlighted text extracted, selection marks detected and tables detected.
 
-    :::image type="content" source="media/label-tool/layout-3.jpg" alt-text="Screenshot of connection settings for the Form Recognizer Sample Labeling tool.":::
+    :::image type="content" source="media/label-tool/layout-3.jpg" alt-text="Screenshot of connection settings for the Document Intelligence Sample Labeling tool.":::
 
 ::: moniker-end
 
@@ -178,11 +179,11 @@ The paragraph roles are best used with unstructured documents.  Paragraph roles 
 | --- | --- | --- | --- |
 | Layout  | ✓  | ✓| ✓ |
 
-Form Recognizer v2.1 supports the following tools:
+Document Intelligence v2.1 supports the following tools:
 
 | Feature | Resources |
 |----------|-------------------------|
-|**Layout API**| <ul><li>[**Form Recognizer labeling tool**](https://fott-2-1.azurewebsites.net/layout-analyze)</li><li>[**REST API**](./how-to-guides/use-sdk-rest-api.md?pivots=programming-language-rest-api&preserve-view=true&tabs=windows&view=form-recog-2.1.0#analyze-layout)</li><li>[**Client-library SDK**](/azure/applied-ai-services/form-recognizer/how-to-guides/v2-1-sdk-rest-api)</li><li>[**Form Recognizer Docker container**](containers/form-recognizer-container-install-run.md?branch=main&tabs=layout#run-the-container-with-the-docker-compose-up-command)</li></ul>|
+|**Layout API**| <ul><li>[**Document Intelligence labeling tool**](https://fott-2-1.azurewebsites.net/layout-analyze)</li><li>[**REST API**](./how-to-guides/use-sdk-rest-api.md?pivots=programming-language-rest-api&preserve-view=true&tabs=windows&view=form-recog-2.1.0#analyze-layout)</li><li>[**Client-library SDK**](~/articles/ai-services/document-intelligence/how-to-guides/use-sdk-rest-api.md?view=form-recog-2.1.0&preserve-view=true)</li><li>[**Document Intelligence Docker container**](containers/form-recognizer-container-install-run.md?branch=main&tabs=layout#run-the-container-with-the-docker-compose-up-command)</li></ul>|
 
 ::: moniker-end
 
@@ -208,7 +209,7 @@ The Layout model extracts all identified blocks of text in the `paragraphs` coll
 
 ### Paragraph roles
 
-The new machine-learning based page object detection extracts logical roles like titles, section headings, page headers, page footers, and more. The Form Recognizer Layout model assigns certain text blocks in the `paragraphs` collection with their specialized role or type predicted by the model. They're best used with unstructured documents to help understand the layout of the extracted content for a richer semantic analysis. The following paragraph roles are supported:
+The new machine-learning based page object detection extracts logical roles like titles, section headings, page headers, page footers, and more. The Document Intelligence Layout model assigns certain text blocks in the `paragraphs` collection with their specialized role or type predicted by the model. They're best used with unstructured documents to help understand the layout of the extracted content for a richer semantic analysis. The following paragraph roles are supported:
 
 | **Predicted role**   | **Description**   |
 | --- | --- |
@@ -261,7 +262,7 @@ The pages collection is the first object you see in the service response.
 
 ### Text lines and words extraction
 
-The document layout model in Form Recognizer extracts print and handwritten style text as `lines` and `words`. The model outputs bounding `polygon` coordinates and `confidence` for the extracted words. The `styles` collection includes any handwritten style for lines if detected along with the spans pointing to the associated text. This feature applies to [supported handwritten languages](language-support.md).
+The document layout model in Document Intelligence extracts print and handwritten style text as `lines` and `words`. The model outputs bounding `polygon` coordinates and `confidence` for the extracted words. The `styles` collection includes any handwritten style for lines if detected along with the spans pointing to the associated text. This feature applies to [supported handwritten languages](language-support.md).
 
 ```json
 "words": [
@@ -413,7 +414,7 @@ For large multi-page documents, use the `pages` query parameter to indicate spec
 
 You can specify the order in which the text lines are output with the `readingOrder` query parameter. Use `natural` for a more human-friendly reading order output as shown in the following example. This feature is only supported for Latin languages.
 
-:::image type="content" source="media/layout-reading-order-example.png" alt-text="Screenshot of layout model reading order processing." lightbox="../../cognitive-services/Computer-vision/Images/ocr-reading-order-example.png":::
+:::image type="content" source="media/layout-reading-order-example.png" alt-text="Screenshot of layout model reading order processing." lightbox="../../ai-services/Computer-vision/Images/ocr-reading-order-example.png":::
 
 ### Select page numbers or ranges for text extraction
 
@@ -467,23 +468,23 @@ Layout API also extracts selection marks from documents. Extracted selection mar
 
 ### Migration guide
 
-* Follow our [**Form Recognizer v3.0 migration guide**](v3-migration-guide.md) to learn how to use the v3.0 version in your applications and workflows.
+* Follow our [**Document Intelligence v3.0 migration guide**](v3-migration-guide.md) to learn how to use the v3.0 version in your applications and workflows.
 ::: moniker-end
 
 ## Next steps
 
 ::: moniker range="form-recog-3.0.0"
 
-* [Learn how to process your own forms and documents](quickstarts/try-form-recognizer-studio.md) with the [Form Recognizer Studio](https://formrecognizer.appliedai.azure.com/studio)
+* [Learn how to process your own forms and documents](quickstarts/try-form-recognizer-studio.md) with the [Document Intelligence Studio](https://formrecognizer.appliedai.azure.com/studio)
 
-* Complete a [Form Recognizer quickstart](quickstarts/get-started-sdks-rest-api.md?view=form-recog-3.0.0&preserve-view=true) and get started creating a document processing app in the development language of your choice.
+* Complete a [Document Intelligence quickstart](quickstarts/get-started-sdks-rest-api.md?view=form-recog-3.0.0&preserve-view=true) and get started creating a document processing app in the development language of your choice.
 
 ::: moniker-end
 
 ::: moniker range="form-recog-2.1.0"
 
-* [Learn how to process your own forms and documents](quickstarts/try-sample-label-tool.md) with the [Form Recognizer Sample Labeling tool](https://fott-2-1.azurewebsites.net/)
+* [Learn how to process your own forms and documents](quickstarts/try-sample-label-tool.md) with the [Document Intelligence Sample Labeling tool](https://fott-2-1.azurewebsites.net/)
 
-* Complete a [Form Recognizer quickstart](quickstarts/get-started-sdks-rest-api.md?view=form-recog-2.1.0&preserve-view=true) and get started creating a document processing app in the development language of your choice.
+* Complete a [Document Intelligence quickstart](quickstarts/get-started-sdks-rest-api.md?view=form-recog-2.1.0&preserve-view=true) and get started creating a document processing app in the development language of your choice.
 
 ::: moniker-end

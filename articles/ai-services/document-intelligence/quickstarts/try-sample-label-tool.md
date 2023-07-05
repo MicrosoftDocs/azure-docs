@@ -1,7 +1,7 @@
 ---
-title: "Quickstart: Label forms, train a model, and analyze forms using the Sample Labeling tool - Form Recognizer"
-titleSuffix: Azure Applied AI Services
-description: In this quickstart, you'll learn to use the Form Recognizer Sample Labeling tool to manually label form documents. Then you'll train a custom document processing model with the labeled documents and use the model to extract key/value pairs.
+title: "Quickstart: Label forms, train a model, and analyze forms using the Sample Labeling tool - Document Intelligence"
+titleSuffix: Azure AI services
+description: In this quickstart, you'll learn to use the Document Intelligence Sample Labeling tool to manually label form documents. Then you'll train a custom document processing model with the labeled documents and use the model to extract key/value pairs.
 author: laujan
 manager: nitinme
 ms.service: applied-ai-services
@@ -11,23 +11,24 @@ ms.date: 10/10/2022
 ms.author: lajanuar
 monikerRange: 'form-recog-2.1.0'
 ---
+
 <!-- markdownlint-disable MD001 -->
 <!-- markdownlint-disable MD024 -->
 <!-- markdownlint-disable MD033 -->
 <!-- markdownlint-disable MD034 -->
 <!-- markdownlint-disable MD029 -->
-# Get started with the Form Recognizer Sample Labeling tool
+# Get started with the Document Intelligence Sample Labeling tool
 
-**This article applies to:** ![Form Recognizer v2.1 checkmark](../media/yes-icon.png) **Form Recognizer v2.1**.
+**This article applies to:** ![Document Intelligence v2.1 checkmark](../media/yes-icon.png) **Document Intelligence v2.1**.
 
 >[!TIP]
 >
-> * For an enhanced experience and advanced model quality, try the [Form Recognizer v3.0 Studio](https://formrecognizer.appliedai.azure.com/studio).
+> * For an enhanced experience and advanced model quality, try the [Document Intelligence v3.0 Studio](https://formrecognizer.appliedai.azure.com/studio).
 > * The v3.0 Studio supports any model trained with v2.1 labeled data.
 > * You can refer to the API migration guide for detailed information about migrating from v2.1 to v3.0.
 > * *See* our [**REST API**](get-started-sdks-rest-api.md?view=form-recog-3.0.0&preserve-view=true) or [**C#**](get-started-sdks-rest-api.md?view=form-recog-3.0.0&preserve-view=true), [**Java**](get-started-sdks-rest-api.md?view=form-recog-3.0.0&preserve-view=true), [**JavaScript**](get-started-sdks-rest-api.md?view=form-recog-3.0.0&preserve-view=true), or [Python](get-started-sdks-rest-api.md?view=form-recog-3.0.0&preserve-view=true) SDK quickstarts to get started with the v3.0 version.
 
-The Form Recognizer Sample Labeling tool is an open source tool that enables you to test the latest features of Azure Form Recognizer and Optical Character Recognition (OCR) services:
+The Azure AI Document Intelligence Sample Labeling tool is an open source tool that enables you to test the latest features of Document Intelligence and Optical Character Recognition (OCR) services:
 
 * [Analyze documents with the Layout API](#analyze-layout). Try the Layout API to extract text, tables, selection marks, and structure from documents.
 
@@ -41,12 +42,12 @@ You'll need the following to get started:
 
 * An Azure subscription—you can [create one for free](https://azure.microsoft.com/free/cognitive-services/)
 
-* A Cognitive Services or Form Recognizer resource. Once you have your Azure subscription, create a [single-service](https://portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer), or [multi-service](https://portal.azure.com/#create/Microsoft.CognitiveServicesAllInOne) Form Recognizer resource in the Azure portal to get your key and endpoint. You can use the free pricing tier (`F0`) to try the service, and upgrade later to a paid tier for production.
+* An Azure AI services or Document Intelligence resource. Once you have your Azure subscription, create a [single-service](https://portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer), or [multi-service](https://portal.azure.com/#create/Microsoft.CognitiveServicesAllInOne) Document Intelligence resource in the Azure portal to get your key and endpoint. You can use the free pricing tier (`F0`) to try the service, and upgrade later to a paid tier for production.
 
     > [!TIP]
-    > Create a Cognitive Services resource if you plan to access multiple cognitive services under a single endpoint/key. For Form Recognizer access only, create a Form Recognizer resource. Please note that you'll need a single-service resource if you intend to use [Azure Active Directory authentication](../../../active-directory/authentication/overview-authentication.md).
+    > Create an Azure AI services resource if you plan to access multiple Azure AI services under a single endpoint/key. For Document Intelligence access only, create a Document Intelligence resource. Please note that you'll need a single-service resource if you intend to use [Azure Active Directory authentication](../../../active-directory/authentication/overview-authentication.md).
 
-## Create a Form Recognizer resource
+## Create a Document Intelligence resource
 
 [!INCLUDE [create resource](../includes/create-resource.md)]
 
@@ -54,14 +55,14 @@ You'll need the following to get started:
 
 ## Analyze using a Prebuilt model
 
-Form Recognizer offers several prebuilt models to choose from. Each model has its own set of supported fields. The model to use for the analyze operation depends on the type of document to be analyzed. Here are the prebuilt models currently supported by the Form Recognizer service:
+Document Intelligence offers several prebuilt models to choose from. Each model has its own set of supported fields. The model to use for the analyze operation depends on the type of document to be analyzed. Here are the prebuilt models currently supported by the Document Intelligence service:
 
 * [**Invoice**](../concept-invoice.md): extracts text, selection marks, tables, key-value pairs, and key information from invoices.
 * [**Receipt**](../concept-receipt.md): extracts text and key information from receipts.
 * [**ID document**](../concept-id-document.md): extracts text and key information from driver licenses and international passports.
 * [**Business-card**](../concept-business-card.md): extracts text and key information from business cards.
 
-1. Navigate to the [Form Recognizer Sample Tool](https://fott-2-1.azurewebsites.net/).
+1. Navigate to the [Document Intelligence Sample Tool](https://fott-2-1.azurewebsites.net/).
 
 1. On the sample tool home page, select the **Use prebuilt model to get data** tile.
 
@@ -80,17 +81,17 @@ Form Recognizer offers several prebuilt models to choose from. Each model has it
 
     :::image type="content" source="../media/label-tool/fott-select-url.png" alt-text="Screenshot of source location dropdown menu.":::
 
-1. In the **Form recognizer service endpoint** field, paste the endpoint that you obtained with your Form Recognizer subscription.
+1. In the **Document Intelligence service endpoint** field, paste the endpoint that you obtained with your Document Intelligence subscription.
 
-1. In the **key** field, paste  the key you obtained from your Form Recognizer resource.
+1. In the **key** field, paste  the key you obtained from your Document Intelligence resource.
 
     :::image type="content" source="../media/fott-select-form-type.png" alt-text="Screenshot of the 'select-form-type' dropdown menu.":::
 
-1. Select **Run analysis**. The Form Recognizer Sample Labeling tool will call the Analyze Prebuilt API and analyze the document.
+1. Select **Run analysis**. The Document Intelligence Sample Labeling tool will call the Analyze Prebuilt API and analyze the document.
 
 1. View the results - see the key-value pairs extracted, line items, highlighted text extracted and tables detected.
 
-    :::image type="content" source="../media/label-tool/prebuilt-2.jpg" alt-text="Analyze Results of Form Recognizer invoice model":::
+    :::image type="content" source="../media/label-tool/prebuilt-2.jpg" alt-text="Analyze Results of Document Intelligence invoice model":::
 
 1. Download the JSON output file to view the detailed results.
 
@@ -101,27 +102,27 @@ Form Recognizer offers several prebuilt models to choose from. Each model has it
 
 ## Analyze Layout
 
-Azure the Form Recognizer Layout API extracts text, tables, selection marks, and structure information from documents (PDF, TIFF) and images (JPG, PNG, BMP).
+Azure the Document Intelligence Layout API extracts text, tables, selection marks, and structure information from documents (PDF, TIFF) and images (JPG, PNG, BMP).
 
-1. Navigate to the [Form Recognizer Sample Tool](https://fott-2-1.azurewebsites.net/).
+1. Navigate to the [Document Intelligence Sample Tool](https://fott-2-1.azurewebsites.net/).
 
 1. On the sample tool home page, select **Use Layout to get text, tables and selection marks**.
 
-     :::image type="content" source="../media/label-tool/layout-1.jpg" alt-text="Connection settings for Layout Form Recognizer tool.":::
+     :::image type="content" source="../media/label-tool/layout-1.jpg" alt-text="Connection settings for Layout Document Intelligence tool.":::
 
-1. In the **Form recognizer service endpoint** field, paste the endpoint that you obtained with your Form Recognizer subscription.
+1. In the **Document Intelligence service endpoint** field, paste the endpoint that you obtained with your Document Intelligence subscription.
 
-1. In the **key** field, paste  the key you obtained from your Form Recognizer resource.
+1. In the **key** field, paste  the key you obtained from your Document Intelligence resource.
 
 1. In the **Source** field, select **URL** from the dropdown menu, paste the following URL `https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/form-recognizer/layout-page-001.jpg`, and select the **Fetch** button.
 
-1. Select **Run Layout**. The Form Recognizer Sample Labeling tool will call the Analyze Layout API and analyze the document.
+1. Select **Run Layout**. The Document Intelligence Sample Labeling tool will call the Analyze Layout API and analyze the document.
 
     :::image type="content" source="../media/fott-layout.png" alt-text="Screenshot: Layout dropdown menu.":::
 
 1. View the results - see the highlighted text extracted, selection marks detected and tables detected.
 
-    :::image type="content" source="../media/label-tool/layout-3.jpg" alt-text="Connection settings for Form Recognizer tool.":::
+    :::image type="content" source="../media/label-tool/layout-3.jpg" alt-text="Connection settings for Document Intelligence tool.":::
 
 1. Download the JSON output file to view the detailed Layout Results.
      * The `readResults` node contains every line of text with its respective bounding box placement on the page.
@@ -140,7 +141,7 @@ Train a custom model to analyze and extract data from forms and documents specif
 
 * Configure CORS
 
-    [CORS (Cross Origin Resource Sharing)](/rest/api/storageservices/cross-origin-resource-sharing--cors--support-for-the-azure-storage-services) needs to be configured on your Azure storage account for it to be accessible from the Form Recognizer Studio. To configure CORS in the Azure portal, you'll need access to the CORS tab of your storage account.
+    [CORS (Cross Origin Resource Sharing)](/rest/api/storageservices/cross-origin-resource-sharing--cors--support-for-the-azure-storage-services) needs to be configured on your Azure storage account for it to be accessible from the Document Intelligence Studio. To configure CORS in the Azure portal, you'll need access to the CORS tab of your storage account.
 
     1. Select the CORS tab for the storage account.
 
@@ -165,7 +166,7 @@ Train a custom model to analyze and extract data from forms and documents specif
 
 ### Use the Sample Labeling tool
 
-1. Navigate to the [Form Recognizer Sample Tool](https://fott-2-1.azurewebsites.net/).
+1. Navigate to the [Document Intelligence Sample Tool](https://fott-2-1.azurewebsites.net/).
 
 1. On the sample tool home page, select **Use custom form to train a model with labels and get key-value pairs**.
 
@@ -199,9 +200,9 @@ Configure the **Project Settings** fields with the following values:
 
 1. **Folder Path** (optional).  If your source forms are located within a folder in the blob container, specify the folder name.
 
-1. **Form Recognizer Service Uri** - Your Form Recognizer endpoint URL.
+1. **Document Intelligence Service Uri** - Your Document Intelligence endpoint URL.
 
-1. **Key**. Your Form Recognizer key.
+1. **Key**. Your Document Intelligence key.
 
 1. **API  version**. Keep the v2.1 (default) value.
 
@@ -280,9 +281,9 @@ Choose the Train icon on the left pane to open the Training page. Then select th
 
    :::image type="content" source="../media/analyze.png" alt-text="Training view.":::
 
-That's it! You've learned how to use the Form Recognizer sample tool for Form Recognizer prebuilt, layout and custom models. You've also learned to analyze a custom form with manually labeled data.
+That's it! You've learned how to use the Document Intelligence sample tool for Document Intelligence prebuilt, layout and custom models. You've also learned to analyze a custom form with manually labeled data.
 
 ## Next steps
 
 >[!div class="nextstepaction"]
-> [**Form Recognizer Studio**](https://formrecognizer.appliedai.azure.com/studio)
+> [**Document Intelligence Studio**](https://formrecognizer.appliedai.azure.com/studio)

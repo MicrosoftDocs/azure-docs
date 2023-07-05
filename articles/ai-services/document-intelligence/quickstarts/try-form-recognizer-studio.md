@@ -1,7 +1,7 @@
 ---
-title: "Quickstart: Form Recognizer Studio | v3.0"
-titleSuffix: Azure Applied AI Services
-description: Form and document processing, data extraction, and analysis using Form Recognizer Studio
+title: "Quickstart: Document Intelligence Studio | v3.0"
+titleSuffix: Azure AI services
+description: Form and document processing, data extraction, and analysis using Document Intelligence Studio
 author: laujan
 manager: nitinme
 ms.service: applied-ai-services
@@ -12,27 +12,28 @@ ms.author: lajanuar
 monikerRange: 'form-recog-3.0.0'
 ---
 
+
 <!-- markdownlint-disable MD001 -->
 
-# Get started: Form Recognizer Studio
+# Get started: Document Intelligence Studio
 
 [!INCLUDE [applies to v3.0](../includes/applies-to-v3-0.md)]
 
-[Form Recognizer Studio](https://formrecognizer.appliedai.azure.com/) is an online tool for visually exploring, understanding, and integrating features from the Form Recognizer service in your applications. You can get started by exploring the pretrained models with sample or your own documents. You can also create projects to build custom template models and reference the models in your applications using the [Python SDK](get-started-sdks-rest-api.md?view=form-recog-3.0.0&preserve-view=true) and other quickstarts.
+[Document Intelligence Studio](https://formrecognizer.appliedai.azure.com/) is an online tool for visually exploring, understanding, and integrating features from the Document Intelligence service in your applications. You can get started by exploring the pretrained models with sample or your own documents. You can also create projects to build custom template models and reference the models in your applications using the [Python SDK](get-started-sdks-rest-api.md?view=form-recog-3.0.0&preserve-view=true) and other quickstarts.
 
 > [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE56n49]
 
 ## Prerequisites for new users
 
 * An active [**Azure account**](https://azure.microsoft.com/free/cognitive-services/).  If you don't have one, you can [**create a free account**](https://azure.microsoft.com/free/).
-* A [**Form Recognizer**](https://portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer) or [**Cognitive Services multi-service**](https://portal.azure.com/#create/Microsoft.CognitiveServicesAllInOne) resource.
+* A [**Document Intelligence**](https://portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer) or [**multi-service**](https://portal.azure.com/#create/Microsoft.CognitiveServicesAllInOne) resource.
 
 > [!TIP]
-> Create a Cognitive Services resource if you plan to access multiple cognitive services under a single endpoint/key. For Form Recognizer access only, create a Form Recognizer resource. Please note that you'll  need a single-service resource if you intend to use [Azure Active Directory authentication](../../../active-directory/authentication/overview-authentication.md).
+> Create an Azure AI services resource if you plan to access multiple Azure AI services under a single endpoint/key. For Document Intelligence access only, create a Document Intelligence resource. Please note that you'll  need a single-service resource if you intend to use [Azure Active Directory authentication](../../../active-directory/authentication/overview-authentication.md).
 
 ## Models
 
-Prebuilt models help you add Form Recognizer features to your apps without having to build, train, and publish your own models. You can choose from several prebuilt models, each of which has its own set of supported data fields. The choice of model to use for the analyze operation depends on the type of document to be analyzed. Form Recognizer currently supports the following prebuilt models:
+Prebuilt models help you add Document Intelligence features to your apps without having to build, train, and publish your own models. You can choose from several prebuilt models, each of which has its own set of supported data fields. The choice of model to use for the analyze operation depends on the type of document to be analyzed. Document Intelligence currently supports the following prebuilt models:
 
 #### Document analysis
 
@@ -57,7 +58,7 @@ Prebuilt models help you add Form Recognizer features to your apps without havin
 #### Gated preview models
 
 > [!NOTE]
-> To request access for gated preview models in Form Recognizer Studio, complete and submit the [**Form Recognizer private preview request form**](https://aka.ms/form-recognizer/preview/survey).
+> To request access for gated preview models in Document Intelligence Studio, complete and submit the [**Document Intelligence private preview request form**](https://aka.ms/form-recognizer/preview/survey).
 
 * [**General document with query fields**](https://formrecognizer.appliedai.azure.com/studio): extract labels, values such as names, dates, and amounts from documents.
 * [**Contract**](https://formrecognizer.appliedai.azure.com/studio): extract the title and signatory party information (including names, references, and addresses) from contracts.
@@ -67,15 +68,15 @@ Prebuilt models help you add Form Recognizer features to your apps without havin
 * [**US 1098-T tax form**](https://formrecognizer.appliedai.azure.com/studio): extract tuition information from US 1098-T forms.
 
 > [!NOTE]
-> To request access for gated preview models in Form Recognizer Studio, complete and submit the [**Form Recognizer private preview request form**](https://aka.ms/form-recognizer/preview/survey).
+> To request access for gated preview models in Document Intelligence Studio, complete and submit the [**Document Intelligence private preview request form**](https://aka.ms/form-recognizer/preview/survey).
 
-After you've completed the prerequisites, navigate to [Form Recognizer Studio General Documents](https://formrecognizer.appliedai.azure.com/studio/document).
+After you've completed the prerequisites, navigate to [Document Intelligence Studio General Documents](https://formrecognizer.appliedai.azure.com/studio/document).
 
 In the following example, we use the General Documents feature. The steps to use other pretrained features like [W2 tax form](https://formrecognizer.appliedai.azure.com/studio/prebuilt?formType=tax.us.w2), [Read](https://formrecognizer.appliedai.azure.com/studio/read), [Layout](https://formrecognizer.appliedai.azure.com/studio/layout), [Invoice](https://formrecognizer.appliedai.azure.com/studio/prebuilt?formType=invoice), [Receipt](https://formrecognizer.appliedai.azure.com/studio/prebuilt?formType=receipt), [Business card](https://formrecognizer.appliedai.azure.com/studio/prebuilt?formType=businessCard), and [ID documents](https://formrecognizer.appliedai.azure.com/studio/prebuilt?formType=idDocument) models are similar.
 
-   :::image border="true" type="content" source="../media/quickstarts/form-recognizer-general-document-demo-preview3.gif" alt-text="Selecting the General Document API to analysis a document in the Form Recognizer Studio.":::
+   :::image border="true" type="content" source="../media/quickstarts/form-recognizer-general-document-demo-preview3.gif" alt-text="Selecting the General Document API to analysis a document in the Document Intelligence Studio.":::
 
-1. Select a Form Recognizer service feature from the Studio home page.
+1. Select a Document Intelligence service feature from the Studio home page.
 
 1. This step is a one-time process unless you've already selected the service resource from prior use. Select your Azure subscription, resource group, and resource. (You can change the resources anytime in "Settings" in the top menu.) Review and confirm your selections.
 
@@ -91,7 +92,7 @@ In the following example, we use the General Documents feature. The steps to use
 
 ## Added prerequisites for custom projects
 
-In addition to the Azure account and a Form Recognizer or Cognitive Services resource, you need:
+In addition to the Azure account and a Document Intelligence or Azure AI services resource, you need:
 
 ### Azure Blob Storage container
 
@@ -102,7 +103,7 @@ A **standard performance** [**Azure Blob Storage account**](https://portal.azure
 
 ### Configure CORS
 
-[CORS (Cross Origin Resource Sharing)](/rest/api/storageservices/cross-origin-resource-sharing--cors--support-for-the-azure-storage-services) needs to be configured on your Azure storage account for it to be accessible from the Form Recognizer Studio. To configure CORS in the Azure portal, you need access to the CORS tab of your storage account.
+[CORS (Cross Origin Resource Sharing)](/rest/api/storageservices/cross-origin-resource-sharing--cors--support-for-the-azure-storage-services) needs to be configured on your Azure storage account for it to be accessible from the Document Intelligence Studio. To configure CORS in the Azure portal, you need access to the CORS tab of your storage account.
 
 1. Select the CORS tab for the storage account.
 
@@ -125,7 +126,7 @@ A **standard performance** [**Azure Blob Storage account**](https://portal.azure
 
 1. Select the save button at the top of the page to save the changes.
 
-CORS should now be configured to use the storage account from Form Recognizer Studio.
+CORS should now be configured to use the storage account from Document Intelligence Studio.
 
 ### Sample documents set
 
@@ -170,7 +171,7 @@ To create custom models, you start with configuring your project:
 
 1. Once the model is ready, use the Test command to validate it with your test documents and observe the results.
 
-:::image border="true" type="content" source="../media/quickstarts/form-recognizer-custom-model-demo-v3p2.gif" alt-text="Form Recognizer Custom model demo":::
+:::image border="true" type="content" source="../media/quickstarts/form-recognizer-custom-model-demo-v3p2.gif" alt-text="Document Intelligence Custom model demo":::
 
 ### Labeling as tables
 
@@ -202,7 +203,7 @@ Use dynamic tables to extract variable count of values (rows) for a given set of
 
 1. Select the text in your page and then choose the cell to assign to the text. Repeat for all rows and columns in all pages in all documents.
 
-:::image border="true" type="content" source="../media/quickstarts/custom-tables-dynamic.gif" alt-text="Form Recognizer labeling as dynamic table example":::
+:::image border="true" type="content" source="../media/quickstarts/custom-tables-dynamic.gif" alt-text="Document Intelligence labeling as dynamic table example":::
 
 **Label as fixed table**
 
@@ -214,7 +215,7 @@ Use fixed tables to extract specific collection of values for a given set of fie
 
 1. Select the text in your page and then choose the cell to assign it to the text. Repeat for other documents.
 
-:::image border="true" type="content" source="../media/quickstarts/custom-tables-fixed.gif" alt-text="Form Recognizer Labeling as fixed table example":::
+:::image border="true" type="content" source="../media/quickstarts/custom-tables-fixed.gif" alt-text="Document Intelligence Labeling as fixed table example":::
 
 ### Signature detection
 
@@ -229,12 +230,12 @@ To label for signature detection: (Custom form only)
 
 1. Select the drawn region and choose the Signature type label to assign it to your drawn region. Repeat for other documents.
 
-:::image border="true" type="content" source="../media/quickstarts/custom-signature.gif" alt-text="Form Recognizer labeling for signature detection example":::
+:::image border="true" type="content" source="../media/quickstarts/custom-signature.gif" alt-text="Document Intelligence labeling for signature detection example":::
 
 ## Next steps
 
-* Follow our [**Form Recognizer v3.0 migration guide**](../v3-migration-guide.md) to learn the differences from the previous version of the REST API.
+* Follow our [**Document Intelligence v3.0 migration guide**](../v3-migration-guide.md) to learn the differences from the previous version of the REST API.
 * Explore our [**v3.0 SDK quickstarts**](get-started-sdks-rest-api.md?view=form-recog-3.0.0&preserve-view=true) to try the v3.0 features in your applications using the new SDKs.
 * Refer to our [**v3.0 REST API quickstarts**](get-started-sdks-rest-api.md?view=form-recog-3.0.0&preserve-view=true) to try the v3.0 features using the new REST API.
 
-[Get started with the Form Recognizer Studio](https://formrecognizer.appliedai.azure.com).
+[Get started with the Document Intelligence Studio](https://formrecognizer.appliedai.azure.com).

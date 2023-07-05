@@ -1,6 +1,6 @@
 ---
-title: Add-on capabilities - Form Recognizer
-titleSuffix: Azure Applied AI Services
+title: Add-on capabilities - Document Intelligence
+titleSuffix: Azure AI services
 description: How to increase service limit capacity with add-on capabilities.
 author: jaep3347
 manager: nitinme
@@ -11,17 +11,21 @@ ms.date: 05/23/2023
 ms.author: lajanuar
 monikerRange: 'form-recog-3.0.0'
 ---
+
+
+
+
 <!-- markdownlint-disable MD033 -->
 
-# Azure Form Recognizer add-on capabilities (preview)
+# Document Intelligence add-on capabilities (preview)
 
-**This article applies to:** ![Form Recognizer checkmark](media/yes-icon.png) **The latest [public preview SDK](sdk-preview.md) supported by Form Recognizer REST API version [2023-02-28-preview](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2023-02-28-preview/operations/AnalyzeDocument)**.
+**This article applies to:** ![Document Intelligence checkmark](media/yes-icon.png) **The latest [public preview SDK](sdk-preview.md) supported by Document Intelligence REST API version [2023-02-28-preview](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2023-02-28-preview/operations/AnalyzeDocument)**.
 
 > [!NOTE]
 >
-> Add-on capabilities for Form Recognizer Studio are only available within the Read and Layout models for the `2023-02-28-preview` release.
+> Add-on capabilities for Document Intelligence Studio are only available within the Read and Layout models for the `2023-02-28-preview` release.
 
-Form Recognizer now supports more sophisticated analysis capabilities. These optional capabilities can be enabled and disabled depending on the scenario of the document extraction. There are three add-on capabilities available for the `2023-02-28-preview`:
+Document Intelligence now supports more sophisticated analysis capabilities. These optional capabilities can be enabled and disabled depending on the scenario of the document extraction. There are three add-on capabilities available for the `2023-02-28-preview`:
 
 * [`ocr.highResolution`](#high-resolution-extraction)
 
@@ -31,7 +35,7 @@ Form Recognizer now supports more sophisticated analysis capabilities. These opt
 
 ## High resolution extraction
 
-The task of recognizing small text from large-size documents, like engineering drawings, is a challenge. Often the text is mixed with other graphical elements and has varying fonts, sizes and orientations. Moreover, the text may be broken into separate parts or connected with other symbols. Form Recognizer now supports extracting content from these types of documents with the `ocr.highResolution` capability. You get improved quality of content extraction from A1/A2/A3 documents by enabling this add-on capability.
+The task of recognizing small text from large-size documents, like engineering drawings, is a challenge. Often the text is mixed with other graphical elements and has varying fonts, sizes and orientations. Moreover, the text may be broken into separate parts or connected with other symbols. Document Intelligence now supports extracting content from these types of documents with the `ocr.highResolution` capability. You get improved quality of content extraction from A1/A2/A3 documents by enabling this add-on capability.
 
 ## Formula extraction
 

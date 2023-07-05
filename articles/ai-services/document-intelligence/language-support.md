@@ -1,7 +1,7 @@
 ---
-title: Language support - Form Recognizer
-titleSuffix: Azure Applied AI Services
-description: Learn more about the human languages that are available with Form Recognizer.
+title: Language support - Document Intelligence
+titleSuffix: Azure AI services
+description: Learn more about the human languages that are available with Document Intelligence.
 author: laujan
 manager: nitinme
 ms.service: applied-ai-services
@@ -10,7 +10,8 @@ ms.topic: conceptual
 ms.date: 03/03/2023
 ---
 
-# Language support for Form Recognizer
+
+# Language support for Document Intelligence
 
 ::: moniker range="form-recog-3.0.0"
 [!INCLUDE [applies to v3.0](includes/applies-to-v3-0.md)]
@@ -30,7 +31,7 @@ The following lists include the currently GA languages in the most recent v3.0 v
 > [!NOTE]
 > **Language code optional**
 >
-> Form Recognizer's deep learning based universal models extract all multi-lingual text in your documents, including text lines with mixed languages, and do not require specifying a language code. Do not provide the language code as the parameter unless you are sure about the language and want to force the service to apply only the relevant model. Otherwise, the service may return incomplete and incorrect text.
+> Document Intelligence's deep learning based universal models extract all multi-lingual text in your documents, including text lines with mixed languages, and do not require specifying a language code. Do not provide the language code as the parameter unless you are sure about the language and want to force the service to apply only the relevant model. Otherwise, the service may return incomplete and incorrect text.
 
 To use the v3.0-supported languages, refer to the [v3.0 REST API migration guide](v3-migration-guide.md) to understand the differences from the v2.1 GA API and explore the [v3.0 SDK and REST API quickstarts](quickstarts/get-started-sdks-rest-api.md?view=form-recog-3.0.0&preserve-view=true).
 
@@ -226,7 +227,7 @@ Language| API Version |
 ## Receipt model
 
 >[!NOTE]
- > It's not necessary to specify a locale. This is an optional parameter. The Form Recognizer deep-learning technology will auto-detect the language of the text in your image.
+ > It's not necessary to specify a locale. This is an optional parameter. The Document Intelligence deep-learning technology will auto-detect the language of the text in your image.
 
 Receipt supports all English receipts and the following locales:
 
@@ -243,7 +244,7 @@ Receipt supports all English receipts and the following locales:
 ## Business card model
 
 >[!NOTE]
- > It's not necessary to specify a locale. This is an optional parameter. The Form Recognizer deep-learning technology will auto-detect the language of the text in your image.
+ > It's not necessary to specify a locale. This is an optional parameter. The Document Intelligence deep-learning technology will auto-detect the language of the text in your image.
 
 Business Card supports all English business cards with the following locales:
 
@@ -291,7 +292,7 @@ The [Read API](concept-read.md) supports detecting the following languages in yo
 > [!NOTE]
 > **Language detection**
 >
-> Form Recognizer read model can _detect_ possible presence of languages and returns language codes for detected languages. To determine if text can also be
+> Document Intelligence read model can _detect_ possible presence of languages and returns language codes for detected languages. To determine if text can also be
 > extracted for a given language, see previous sections.
 
 > [!NOTE]
@@ -425,7 +426,7 @@ The [Read API](concept-read.md) supports detecting the following languages in yo
 
 ::: moniker range="form-recog-2.1.0"
 
-This table lists the written languages supported by each Form Recognizer service.
+This table lists the written languages supported by each Document Intelligence service.
 
 <!-- markdownlint-disable MD001 -->
 <!-- markdownlint-disable MD024 -->
@@ -511,7 +512,7 @@ This table lists the written languages supported by each Form Recognizer service
 ## Prebuilt receipt and business card
 
 >[!NOTE]
- > It's not necessary to specify a locale. This is an optional parameter. The Form Recognizer deep-learning technology will auto-detect the language of the text in your image.
+ > It's not necessary to specify a locale. This is an optional parameter. The Document Intelligence deep-learning technology will auto-detect the language of the text in your image.
 
 Prebuilt Receipt and Business Cards support all English receipts and business cards with the following locales:
 
@@ -540,10 +541,10 @@ This technology is currently available for US driver licenses and the biographic
 ::: moniker range="form-recog-3.0.0"
 
 > [!div class="nextstepaction"]
-> [Try Form Recognizer Studio](https://formrecognizer.appliedai.azure.com/studio)
+> [Try Document Intelligence Studio](https://formrecognizer.appliedai.azure.com/studio)
 ::: moniker-end
 
 ::: moniker range="form-recog-2.1.0"
 > [!div class="nextstepaction"]
-> [Try Form Recognizer Sample Labeling tool](https://aka.ms/fott-2.1-ga)
+> [Try Document Intelligence Sample Labeling tool](https://aka.ms/fott-2.1-ga)
 ::: moniker-end
