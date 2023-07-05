@@ -1,8 +1,8 @@
 ---
 
-title: 'Quickstart: Create Application Gateway for Containers - Managed deployment'
+title: 'Quickstart: Create Application Gateway for Containers - ALB managed deployment'
 titlesuffix: Azure Application Load Balancer
-description: In this quickstart, you learn how to provision Application Gateway for Containers in a managed by kubernetes configuration.
+description: In this quickstart, you learn how to provision Application Gateway for Containers in a managed by ALB controller configuration.
 services: application-gateway
 author: greglin
 ms.service: application-gateway
@@ -12,13 +12,11 @@ ms.date: 7/7/2023
 ms.author: greglin
 ---
 
-# Quickstart: Create an Application Gateway for Containers - Managed deployment
+# Quickstart: Create an Application Gateway for Containers - ALB Managed deployment
 
 This document provides instructions on how to deploy the 3 types of resources (Application Gateway for Containers, Association, and Frontend) needed for Application Gateway for Containers to work with your AKS workload, and how to install ALB Controller on your AKS cluster to control the behavior of the Application Gateway for Containers.
 
-The guide assumes you are following a "Managed" deployment strategy, which assumes lifecycle of the Azure resources are managed directly from the custom resources and Gateway and Ingress definitions defined within Kubernetes.
-
-In this deployment strategy ALB Controller deployed in Kubernetes will be responsible for the lifecycle of the Application Gateway for Containers resource and its sub resources. ALB Controller will create Application Gateway for Containers resource when an ApplicationLoadBalancer custom resource is defined on the cluster and its lifecycle will be based on the lifecycle of the custom resource.
+This guide assumes you are following an "ALB Managed" deployment strategy, in which ALB controller deployed into your Kubernetes cluster will be responsible for the lifecycle of the Application Gateway for Containers resource and its sub resources. ALB Controller will create Application Gateway for Containers resource when an ApplicationLoadBalancer custom resource is defined on the cluster and its lifecycle will be based on the lifecycle of the custom resource.
 - In Gateway API: Every time a Gateway object is created referencing the ApplicationLoadBalancer resource, ALB Controller will provision a new Frontend resource and manage its lifecycle based on the lifecycle of the Gateway object.
 
 ## Prerequisites
