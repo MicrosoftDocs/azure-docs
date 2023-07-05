@@ -222,7 +222,7 @@ validation_data:
 
 # [Python SDK](#tab/python)
 
- [!INCLUDE [sdk v2](../../includes/machine-learning-sdk-v2.md)]
+[!INCLUDE [sdk v2](../../includes/machine-learning-sdk-v2.md)]
 
 You can create data inputs from training and validation MLTable from your local directory or cloud storage with the following code:
 
@@ -238,6 +238,40 @@ image_object_detection_job = automl.image_object_detection(
     training_data=my_training_data_input,
     validation_data=my_validation_data_input,
     target_column_name="label"
+)
+```
+---
+
+## Choose orchestration (preview)
+> [!IMPORTANT]
+> This feature is currently in public preview. This preview version is provided without a service-level agreement. Certain features might not be supported or might have constrained capabilities. For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
+# [Azure CLI](#tab/cli)
+
+[!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
+
+You can choose to use the legacy runtime or the new components (in preview) which run on [Azure Machine Learning pipelines](concept-ml-pipelines.md). You can indicate that you want to use the pipeline orchestration by setting `_automl_subgraph_orchestration` flag to `"true"` in the job properties. For example,
+
+```yaml
+properties:
+  _automl_subgraph_orchestration: "true"
+```
+
+
+# [Python SDK](#tab/python)
+
+[!INCLUDE [sdk v2](../../includes/machine-learning-sdk-v2.md)]
+
+You can choose to use the legacy runtime or the new components (in preview) which run on [Azure Machine Learning pipelines](concept-ml-pipelines.md). You can indicate that you want to use the pipeline orchestration by setting `_automl_subgraph_orchestration` flag to `"true"` in the job properties. For example,
+```python
+from azure.ai.ml import automl
+image_object_detection_job = automl.image_object_detection(
+    training_data=my_training_data_input,
+    validation_data=my_validation_data_input,
+    target_column_name="label",
+    properties={
+        "_automl_subgraph_orchestration": "true",
+    }
 )
 ```
 ---
@@ -359,7 +393,9 @@ In individual trials, you directly control the model architecture and hyperparam
 
 #### Supported model architectures
 
-The following table summarizes the supported models for each computer vision task.
+The following table summarizes the supported legacy models for each computer vision task. These models are compatible with the legacy runtime orchestration as well as the new pipelines orchestration.
+
+If you are using the pipelines orchestration, you can additionally use image classification models from the [HuggingFace Hub](https://huggingface.co/models?pipeline_tag=image-classification&library=transformers) which are part of the transformers library, as well as object detection and instance segmentation models from the [MMDetection Model Zoo](https://mmdetection.readthedocs.io/en/latest/model_zoo.html). For curated models from HuggingFace and MMDetection, please visit the [Azure Machine Learning Model Catalog](concept-foundation-models.md).
 
 Task |  model architectures | String literal syntax<br> ***`default_model`\**** denoted with \*
 ---|----------|----------
