@@ -24,6 +24,12 @@ This page is updated monthly, so revisit it regularly.  For older months' update
 
 Check out our [What's New video archive](https://www.youtube.com/playlist?list=PLt4mCx89QIGS1rQlNt2-7iuHHAKSomVLv) for all of our monthly update videos.
 
+## May 2023
+
+### Data Factory in Microsoft Fabric
+
+[Data factory in Microsoft Fabric](/fabric/data-factory/) provides cloud-scale data movement and data transformation services that allow you to solve the most complex data factory and ETL scenarios. It's intended to make your data factory experience easy to use, powerful, and truly enterprise-grade.
+
 ## April 2023
 
 ### Data flow

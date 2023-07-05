@@ -17,11 +17,9 @@ In this article, you'll implement JetStream DR for your Azure VMware Solution pr
 
 To learn more about JetStream DR, see:
 
-- [JetStream Solution brief](https://www.jetstreamsoft.com/2020/09/28/solution-brief-disaster-recovery-for-avs/)
+- [JetStream Solution brief](https://www.jetstreamsoft.com/2020/09/28/disaster-recovery-for-avs/)
 
 - [JetStream DR on Azure Marketplace](https://portal.azure.com/#blade/Microsoft_Azure_Marketplace/GalleryItemDetailsBladeNopdl/id/jetstreamsoftware1596597632545.jsdravs-111721)
-
-- [JetStream knowledge base articles](https://www.jetstreamsoft.com/resources/knowledge-base/)
 
 ## Core components of the JetStream DR solution
 

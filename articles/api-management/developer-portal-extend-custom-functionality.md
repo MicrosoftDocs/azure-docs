@@ -225,7 +225,10 @@ This function returns all data passed to your custom widget from the developer p
 
 ### Add or remove custom properties
 
-Custom properties let you adjust values in the custom widget's code from the administrative user interface of the developer portal, without changing the code or redeploying the custom widget. By default, input fields for four custom properties are defined. You can add or remove other custom properties as needed. 
+Custom properties let you adjust values in the custom widget's code from the administrative user interface of the developer portal, without changing the code or redeploying the custom widget. By default, input fields for four custom properties are defined. You can add or remove other custom properties as needed.
+
+> [!WARNING]
+> Don't store secret or sensitive values in custom properties.
 
 To add a custom property:  
 
