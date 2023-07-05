@@ -2,7 +2,7 @@
 title: AKS-managed Azure Active Directory integration
 description: Learn how to configure Azure AD for your Azure Kubernetes Service (AKS) clusters.
 ms.topic: article
-ms.date: 07/0/2023
+ms.date: 07/05/2023
 ms.custom: devx-track-azurecli
 ms.author: miwithro
 ---
@@ -27,11 +27,6 @@ Learn more about the Azure AD integration flow in the [Azure AD documentation](c
 * You need `kubectl` with a minimum version of [1.18.1](https://github.com/kubernetes/kubernetes/blob/master/CHANGELOG/CHANGELOG-1.18.md#v1181) or [`kubelogin`][kubelogin]. The difference between the minor versions of Kubernetes and `kubectl` shouldn't be more than *one* version. You'll experience authentication issues if you don't use the correct version.
 * If you're using [helm](https://github.com/helm/helm), you need a minimum version of helm 3.3.
 * This configuration requires you have an Azure AD group for your cluster. This group is registered as an admin group on the cluster to grant admin permissions. If you don't have an existing Azure AD group, you can create one using the [`az ad group create`](/cli/azure/ad/group#az_ad_group_create) command.
-
-## Enable AKS-managed Azure AD integration on your AKS cluster
-
-> [!NOTE]
-> `--aad-admin-group-object-ids` is not required for AKS-managed Azure AD integration. But on clusters with Azure AD integration enabled and `properties.disableLocalAccounts` set to `true`, If you don't specify `--aad-admin-group-object-ids`, any attempt to authenticate with user or admin credentials will fail.
 
 ### Create a new cluster
 
@@ -90,8 +85,8 @@ A successful activation of an AKS-managed Azure AD cluster has the following sec
 If your cluster uses legacy Azure AD integration, you can upgrade to AKS-managed Azure AD integration using the [`az aks update`][az-aks-update] command.
 
 > [!WARNING]
-> You may experience API server downtime during the upgrade. It's recommended to upgrade during your non-business hours 
-> After the upgrade, the kubeconfig file changes. You need to run `az aks get-credentials --resource-group <AKS resource group name> --name <AKS cluster name>` to get the new kubeconfig file.
+> Free tier clusters may experience API server downtime during the upgrade. It's recommended to upgrade during your non-business hours 
+> After the upgrade, the kubeconfig content changes. You need to run `az aks get-credentials --resource-group <AKS resource group name> --name <AKS cluster name>` to get the new kubeconfig content.
 
 ```azurecli-interactive
 az aks update -g myResourceGroup -n myManagedCluster --enable-aad --aad-admin-group-object-ids <id> [--aad-tenant-id <id>]
