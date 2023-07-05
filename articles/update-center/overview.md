@@ -107,7 +107,7 @@ For more information, see the [list of supported operating systems and VM images
 > For the above limitations, we recommend that you use [Automation update management](../automation/update-management/overview.md) till the support is available in Update management center (preview). [Learn more](support-matrix.md#supported-operating-systems).
 
 
-## Extensions
+## VM Extensions
 
 #### [Azure VM Extensions](#tab/azure-vms)
 
@@ -120,8 +120,8 @@ For more information, see the [list of supported operating systems and VM images
 
 | **Operating system**| **Extension** 
 |----------|-------------|
-|Windows  | Microsoft.CPlat.Core.WindowsPatchExtension (Periodic assessment) <br> Microsoft.SoftwareUpdateManagement.WindowsOsUpdateExtension (On-demand operations and Scheduled patching) |
-|Linux  | Microsoft.SoftwareUpdateManagement.LinuxOsUpdateExtension (On-demand operations and Scheduled patching) <br> Microsoft.CPlat.Core.LinuxPatchExtension (Periodic assessment) |
+|Windows  | Microsoft.CPlat.Core.WindowsPatchExtension (Periodic assessment) <br> Microsoft.SoftwareUpdateManagement.WindowsOsUpdateExtension (On-demand operations and Schedule patching) |
+|Linux  | Microsoft.SoftwareUpdateManagement.LinuxOsUpdateExtension (On-demand operations and Schedule patching) <br> Microsoft.CPlat.Core.LinuxPatchExtension (Periodic assessment) |
 
 To view the available extensions for a VM in the Azure portal, follow these steps:
 1. Go to [Azure portal](https://portal.azure.com), select a VM.
