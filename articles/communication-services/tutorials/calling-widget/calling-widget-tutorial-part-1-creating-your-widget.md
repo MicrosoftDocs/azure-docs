@@ -12,7 +12,7 @@ ms.topic: tutorial
 ms.service: azure-communication-services
 ms.subservice: calling
 ---
-# Part 1 creating Your widget
+# Part 1 creating your widget
 
 [!INCLUDE [Public Preview Notice](../../includes/public-preview-include.md)]
 
