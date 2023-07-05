@@ -10,7 +10,7 @@ ms.subservice: flexible-server
 ms.topic: conceptual
 ---
 
-# Private Link for Azure Database for MySQL - Flexible Server
+# Private Link for Azure Database for MySQL - Flexible Server (Preview)
 
 [!INCLUDE[applies-to-mysql-flexible-server](../includes/applies-to-mysql-flexible-server.md)]
 
@@ -98,6 +98,10 @@ Clients can connect to the server based on the firewall configuration when this 
 > This setting does not impact the SSL and TLS configurations for your Azure Database for MySQL.
 
 To learn how to set the **Deny Public Network Access** for your Azure Database for MySQL flexible server from the Azure portal, refer to [Deny Public Network Access using the Azure portal](how-to-networking-private-link-deny-public-access.md).
+
+## Limitation
+
+When a user tries to delete both the MySQL flexible server and Private Endpoint simultaneously, they may encounter an Internal Server error. To avoid this issue, we recommend deleting the Private Endpoint(s) first and then proceeding to delete the MySQL flexible server after a short pause.
 
 ## Next steps
 

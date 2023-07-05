@@ -1002,7 +1002,7 @@ sections:
           |Feature                                                                                                             | .NET      | Node.js   | Python    | Java               |
           |--------------------------------------------------------------------------------------------------------------------|-----------|-----------|-----------|--------------------|
           | [Distributed tracing](app/distributed-tracing-telemetry-correlation.md)                                            | :warning: | :warning: | :warning: | :white_check_mark: |
-          | [Custom metrics](app/opentelemetry-enable.md#add-custom-metrics)                                                   | :warning: | :warning: | :warning: | :white_check_mark: |
+          | [Custom metrics](app/opentelemetry-add-modify.md#add-custom-metrics)                                                   | :warning: | :warning: | :warning: | :white_check_mark: |
           | [Standard metrics](app/standard-metrics.md) (accuracy currently affected by sampling)                              | :warning: | :warning: | :warning: | :white_check_mark: |
           | [Fixed-rate sampling](app/sampling.md)                                                                             | :warning: | :warning: | :warning: | :white_check_mark: |
           | [Offline storage and automatic retries](app/opentelemetry-configuration.md#offline-storage-and-automatic-retries)  | :warning: | :warning: | :warning: | :white_check_mark: |

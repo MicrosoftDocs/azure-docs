@@ -10,7 +10,7 @@ ms.subservice: flexible-server
 ms.topic: how-to
 ---
 
-# Deny Public Network Access in Azure Database for MySQL - Flexible Server using Azure portal
+# Deny Public Network Access in Azure Database for MySQL - Flexible Server using Azure portal (Preview)
 
 [!INCLUDE[applies-to-mysql-flexible-server](../includes/applies-to-mysql-flexible-server.md)]
 
