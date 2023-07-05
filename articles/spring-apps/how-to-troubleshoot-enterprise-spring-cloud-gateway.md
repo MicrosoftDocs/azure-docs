@@ -29,11 +29,8 @@ This article shows you how to troubleshoot Spring Cloud Gateway for VMware Tanzu
 
 ## Check Gateway metrics
 
-### Diagnostic settings for Log Analytics
-TODO(jiec): What's the prerequisite of diagnostic settings in order to check metrics for SCG?
-
-### View metrics
-See [Common metrics page section of Metrics for Azure Spring Apps](./concept-metrics.md#common-metrics-page) for how to check metrics in Azure Portal. And see [Gateway section of Metrics for Azure Spring Apps](./concept-metrics.md#gateway) for each supported metrics.
+- See [Common metrics page section of Metrics for Azure Spring Apps](./concept-metrics.md#common-metrics-page) for how to check metrics in Azure Portal.
+- And see [Gateway section of Metrics for Azure Spring Apps](./concept-metrics.md#gateway) for each supported metrics.
 
 ## Check Gateway logs
 
