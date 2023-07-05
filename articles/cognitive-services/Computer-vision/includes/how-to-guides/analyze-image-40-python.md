@@ -1,10 +1,10 @@
 
 ## Prerequisites
 
-This guide assumes you have successfully followed the steps mentioned in the [quickstart](../quickstarts-sdk/image-analysis-client-library-40.md) page. This means:
+This guide assumes you have successfully followed the steps mentioned in the [quickstart](/azure/cognitive-services/computer-vision/quickstarts-sdk/image-analysis-client-library-40) page. This means:
 
 * You have <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesComputerVision"  title="created a Computer Vision resource"  target="_blank">created a Computer Vision resource </a> and obtained a key and endpoint URL.
-* You have the appropriate SDK package installed and you have a running [quickstart](../quickstarts-sdk/image-analysis-client-library-40.md) application. You can modify this quickstart application based on code examples here.
+* You have the appropriate SDK package installed and you have a running [quickstart](/azure/cognitive-services/computer-vision/quickstarts-sdk/image-analysis-client-library-40) application. You can modify this quickstart application based on code examples here.
 
 ## Authenticate against the service
 
@@ -38,7 +38,7 @@ In your script, create a new [VisionSource](/python/api/azure-ai-vision/azure.ai
 
 ### Select visual features when using the standard model
 
-The Analysis 4.0 API gives you access to all of the service's image analysis features. Choose which operations to do based on your own use case. See the [overview](../overview.md) for a description of each feature. The example in this section adds all of the available visual features, but for practical usage you likely need fewer. 
+The Analysis 4.0 API gives you access to all of the service's image analysis features. Choose which operations to do based on your own use case. See the [overview](/azure/cognitive-services/computer-vision/overview-image-analysis) for a description of each feature. The example in this section adds all of the available visual features, but for practical usage you likely need fewer. 
 
 Visual features 'Captions' and 'DenseCaptions' are only supported in the following Azure regions: East US, France Central, Korea Central, North Europe, Southeast Asia, West Europe, West US.
 
@@ -52,7 +52,7 @@ Create a new [ImageAnalysisOptions](/python/api/azure-ai-vision/azure.ai.vision.
 
 ### Set model name when using a custom model
 
-You can also do image analysis with a custom trained model. To create and train a model, see [Create a custom Image Analysis model](./model-customization.md). Once your model is trained, all you need is the model's name. You do not need to specify visual features if you use a custom model.
+You can also do image analysis with a custom trained model. To create and train a model, see [Create a custom Image Analysis model](/azure/cognitive-services/computer-vision/how-to/model-customization). Once your model is trained, all you need is the model's name. You do not need to specify visual features if you use a custom model.
 
 To use a custom model, create the [ImageAnalysisOptions](/python/api/azure-ai-vision/azure.ai.vision.imageanalysisoptions) object and set the [model_name](/python/api/azure-ai-vision/azure.ai.vision.imageanalysisoptions#azure-ai-vision-imageanalysisoptions-model-name) property. You don't need to set any other properties on **ImageAnalysisOptions**. There's no need to set the [features](/python/api/azure-ai-vision/azure.ai.vision.imageanalysisoptions#azure-ai-vision-imageanalysisoptions-features) property, as you do with the standard model, since your custom model already implies the visual features the service extracts.
 
