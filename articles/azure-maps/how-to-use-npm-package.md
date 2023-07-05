@@ -34,13 +34,13 @@ This package includes a minified version of the source code, CSS Style Sheet, an
 
 You would also need to embed the CSS Style Sheet for various controls to display correctly. If you're using a JavaScript bundler to bundle the dependencies and package your code, refer to your bundler's documentation on how it's done. For [Webpack], it's commonly done via a combination of `style-loader` and `css-loader` with documentation available at [style-loader].
 
-To begin, install style-loader and css-loader:
+To begin, install `style-loader` and `css-loader`:
 
 ```powershell
 npm install --save-dev style-loader css-loader
 ```
 
-Inside your source file, import atlas.min.css:
+Inside your source file, import `atlas.min.css`:
 
 ```js
 import "azure-maps-control/dist/atlas.min.css";
