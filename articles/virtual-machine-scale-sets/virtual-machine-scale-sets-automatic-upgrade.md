@@ -204,13 +204,13 @@ The following example describes how to set automatic OS upgrades on a scale set 
          "MaxUnhealthyInstancePercent": 25,
          "MaxUnhealthyUpgradedInstancePercent": 25,
          "PauseTimeBetweenBatches": "PT0S"
-      "automaticOSUpgradePolicy": { 
-        "enableAutomaticOSUpgrade": true,
-         "useRollingUpgradePolicy": true,
-         "disableAutomaticRollback": false 
-      } 
-    }
-   },
+     },
+    "automaticOSUpgradePolicy": { 
+      "enableAutomaticOSUpgrade": true,
+        "useRollingUpgradePolicy": true,
+        "disableAutomaticRollback": false 
+    } 
+  },
 "imagePublisher": {
    "type": "string",
    "defaultValue": "MicrosoftWindowsServer"
@@ -228,6 +228,7 @@ The following example describes how to set automatic OS upgrades on a scale set 
    "defaultValue": "latest"
  } 
 }
+
 ```
 
 ### Bicep
