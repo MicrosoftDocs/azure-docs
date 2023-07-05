@@ -147,7 +147,7 @@ To verify that log ingestion is working:
 1. Query the `FinanceOperationsActivity_CL` table in the Microsoft Sentinel workspace under **Logs**. 
 1. Check that the table shows new logs that reflect the activities you executed in step 1 of this procedure. 
 
-    :::image type="content" source="media/deploy-dynamics-365-finance-operations-solution/query_FinanceOperationsActivity_table.png" alt-text="Screenshot of viewing a new Finance and Operations incident in Microsoft Sentinel.":::
+    :::image type="content" source="media/deploy-dynamics-365-finance-operations-solution/query_financeoperationsactivity_table.png" alt-text="Screenshot of viewing a new Finance and Operations incident in Microsoft Sentinel.":::
 
 ## Next steps
 
