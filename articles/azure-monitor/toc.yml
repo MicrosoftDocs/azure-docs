@@ -847,6 +847,8 @@ items:
       href: logs/private-link-design.md
     - name: Private Link configuration
       href: logs/private-link-configure.md
+  - name: Collect logs from Event Hubs
+    href: logs/ingest-logs-event-hub.md
   - name: Troubleshoot data collection
     href: logs/data-collection-troubleshoot.md
 - name: Data platform
