@@ -25,7 +25,7 @@ You may want to create a copy of your knowledge base for several reasons:
 
 > * If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/cognitive-services/) before you begin.
 > * A [QnA Maker resource](https://portal.azure.com/#create/Microsoft.CognitiveServicesQnAMaker) created in the Azure portal. Remember your Azure Active Directory ID, Subscription, QnA resource name you selected when you created the resource.
-> * Set up a new [QnA Maker service](../How-To/set-up-qnamaker-service-azure.md)
+> * Set up a new [QnA Maker service](../how-to/set-up-qnamaker-service-azure.md)
 
 ## Export a knowledge base
 1. Sign in to [QnA Maker portal](https://qnamaker.ai).
@@ -38,7 +38,7 @@ You may want to create a copy of your knowledge base for several reasons:
    4. **Knowledge Base Replica**: If you want to download the entire knowledge base with synonyms and other settings, you can choose this option.
 
 ## Import a knowledge base
-1. Click **Create a knowledge base** from the top menu of the qnamaker.ai portal and then create an _empty_ knowledge base by not adding any URLs or files. Set the name of your choice for the new knowledge base and then Click **Create your KB**. 
+1. Select **Create a knowledge base** from the top menu of the qnamaker.ai portal and then create an _empty_ knowledge base by not adding any URLs or files. Set the name of your choice for the new knowledge base and then Click **Create your KB**. 
 
 1. In this new knowledge base, open the **Settings** tab and and under _Import knowledge base_ select one of the following options: **QnAs**, **Synonyms**, or **Knowledge Base Replica**. 
 
@@ -58,9 +58,9 @@ You may want to create a copy of your knowledge base for several reasons:
          |DefaultAnswerforMultiturn|Yes|Yes|
          |Language|No|No|
 
-1. **Test** the new knowledge base using the Test panel. Learn how to [test your knowledge base](../How-To/test-knowledge-base.md).
+1. **Test** the new knowledge base using the Test panel. Learn how to [test your knowledge base](../how-to/test-knowledge-base.md).
 
-1. **Publish** the knowledge base and create a chat bot. Learn how to [publish your knowledge base](../Quickstarts/create-publish-knowledge-base.md#publish-the-knowledge-base).
+1. **Publish** the knowledge base and create a chat bot. Learn how to [publish your knowledge base](../quickstarts/create-publish-knowledge-base.md#publish-the-knowledge-base).
 
    > [!div class="mx-imgBorder"]
    > ![Migrate knowledge base](../media/qnamaker-how-to-migrate-kb/import-export-kb.png)
@@ -85,4 +85,4 @@ There is no way to export chat logs, since the new knowledge base uses Applicati
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Edit a knowledge base](../How-To/edit-knowledge-base.md)
+> [Edit a knowledge base](../how-to/edit-knowledge-base.md)

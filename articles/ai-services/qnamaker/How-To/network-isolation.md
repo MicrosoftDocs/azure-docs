@@ -13,7 +13,7 @@ ms.custom: ignite-fall-2021
 
 # Recommended settings for network isolation
 
-Follow the steps below to restrict public access to QnA Maker resources. Protect a Azure AI services resource from public access by [configuring the virtual network](../../cognitive-services-virtual-networks.md?tabs=portal).
+Follow the steps below to restrict public access to QnA Maker resources. Protect an Azure AI services resource from public access by [configuring the virtual network](../../cognitive-services-virtual-networks.md?tabs=portal).
 
 [!INCLUDE [Custom question answering](../includes/new-version.md)]
 
@@ -117,7 +117,7 @@ The Cognitive Search instance can be isolated via a private endpoint after the Q
 
 [Create Private endpoints](../reference-private-endpoint.md) to the Azure Search resource.
 
-Follow the steps below to restrict public access to QnA Maker resources. Protect a Azure AI services resource from public access by [configuring the virtual network](../../cognitive-services-virtual-networks.md?tabs=portal).
+Follow the steps below to restrict public access to QnA Maker resources. Protect an Azure AI services resource from public access by [configuring the virtual network](../../cognitive-services-virtual-networks.md?tabs=portal).
 
 After restricting access to Cognitive Service resource based on VNet, To browse knowledgebases on the https://qnamaker.ai portal from your on-premises network or your local browser.
 - Grant access to [on-premises network](../../cognitive-services-virtual-networks.md?tabs=portal#configuring-access-from-on-premises-networks).

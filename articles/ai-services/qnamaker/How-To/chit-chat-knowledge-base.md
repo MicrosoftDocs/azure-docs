@@ -81,8 +81,8 @@ Select your KB, and navigate to the **Settings** page. Your specific chit-chat s
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Import a knowledge base](../Tutorials/migrate-knowledge-base.md)
+> [Import a knowledge base](../tutorials/export-knowledge-base.md)
 
 ## See also
 
-[QnA Maker overview](../Overview/overview.md)
+[QnA Maker overview](../overview/overview.md)

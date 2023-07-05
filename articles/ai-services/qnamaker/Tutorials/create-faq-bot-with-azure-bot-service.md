@@ -27,7 +27,7 @@ In this tutorial, you learn how to:
 
 ## Create and publish a knowledge base
 
-Follow the [quickstart](../Quickstarts/create-publish-knowledge-base.md) to create a knowledge base. Once the knowledge base has been successfully published, you will reach the below page.
+Follow the [quickstart](../quickstarts/create-publish-knowledge-base.md) to create a knowledge base. Once the knowledge base has been successfully published, you will reach the below page.
 
 > [!div class="mx-imgBorder"]
 > ![Screenshot of successful publishing](../media/qnamaker-create-publish-knowledge-base/publish-knowledge-base-to-endpoint.png)

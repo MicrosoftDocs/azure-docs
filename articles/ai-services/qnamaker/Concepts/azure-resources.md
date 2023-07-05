@@ -182,7 +182,7 @@ The first knowledge base created in the QnA Maker resource is used to determine 
 
 If you create a QnA service and its dependencies (such as Search) through the portal, a Search service is created for you and linked to the QnA Maker service. After these resources are created, you can update the App Service setting to use a previously existing Search service and remove the one you just created.
 
-Learn [how to configure](../How-To/configure-QnA-Maker-resources.md#configure-qna-maker-to-use-different-cognitive-search-resource) QnA Maker to use a different Cognitive Service resource than the one created as part of the QnA Maker resource creation process.
+Learn [how to configure](../how-to/configure-QnA-Maker-resources.md#configure-qna-maker-to-use-different-cognitive-search-resource) QnA Maker to use a different Cognitive Service resource than the one created as part of the QnA Maker resource creation process.
 
 ### App service and App service plan
 
@@ -210,6 +210,6 @@ QnA Maker creates several Azure resources. To reduce management and benefit from
 
 ## Next steps
 
-* Learn about the QnA Maker [knowledge base](../How-To/manage-knowledge-bases.md)
+* Learn about the QnA Maker [knowledge base](../how-to/manage-knowledge-bases.md)
 * Understand a [knowledge base life cycle](development-lifecycle-knowledge-base.md)
 * Review service and knowledge base [limits](../limits.md)

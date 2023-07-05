@@ -40,5 +40,5 @@ ms.custom: ignite-fall-2021
 > [Test knowledge base with batch file](../how-to/test-knowledge-base.md#batch-test-with-tool)
 
 Learn more about metadata:
-* [Authoring - add metadata to QnA pair](../How-To/edit-knowledge-base.md#add-metadata)
-* [Query prediction - filter answers by metadata](../How-To/query-knowledge-base-with-metadata.md)
+* [Authoring - add metadata to QnA pair](../how-to/edit-knowledge-base.md#add-metadata)
+* [Query prediction - filter answers by metadata](../how-to/query-knowledge-base-with-metadata.md)

@@ -20,11 +20,11 @@ This cURL-based quickstart walks you through getting an answer from your knowled
 
 > * A [QnA Maker resource](https://portal.azure.com/#create/Microsoft.CognitiveServicesQnAMaker) created in the Azure portal. Remember your Azure Active Directory ID, Subscription, QnA resource name you selected when you created the resource.
 
-   * A trained and published knowledge base with questions and answers, from the previous [quickstart](../Quickstarts/add-question-metadata-portal.md), configured with metadata and Chit chat.
+   * A trained and published knowledge base with questions and answers, from the previous [quickstart](../quickstarts/add-question-metadata-portal.md), configured with metadata and Chit chat.
 
 
 > [!NOTE]
-> When you are ready to generate an answer to a question from your knowledge base, you must [train](../Quickstarts/create-publish-knowledge-base.md#save-and-train) and [publish](../Quickstarts/create-publish-knowledge-base.md#publish-the-knowledge-base) your knowledge base. When your knowledge base is published, the **Publish** page displays the HTTP request settings to generate an answer. The **cURL** tab shows the settings required to generate an answer from the command-line tool.
+> When you are ready to generate an answer to a question from your knowledge base, you must [train](../quickstarts/create-publish-knowledge-base.md#save-and-train) and [publish](../quickstarts/create-publish-knowledge-base.md#publish-the-knowledge-base) your knowledge base. When your knowledge base is published, the **Publish** page displays the HTTP request settings to generate an answer. The **cURL** tab shows the settings required to generate an answer from the command-line tool.
 
 ## Use metadata to filter answer
 
@@ -343,7 +343,7 @@ You can request a minimum threshold for the answer. If the threshold is not met,
                     "What is the max size of a knowledge base?",
                     "How many GB of data can a knowledge base hold?"
                 ],
-                "answer": "The size of the knowledge base depends on the SKU of Azure search you choose when creating the QnA Maker service. Read [here](../Concepts/azure-resources.md) for more details.",
+                "answer": "The size of the knowledge base depends on the SKU of Azure search you choose when creating the QnA Maker service. Read [here](../concepts/azure-resources.md) for more details.",
                 "score": 71.1,
                 "id": 3,
                 "source": "https://learn.microsoft.com/azure/ai-services/qnamaker/troubleshooting",
