@@ -1,6 +1,6 @@
 ---
 title: Understand asset details
-description: 'Understand asset details: Microsoft Defender External Attack Surface Management discovers and defines your organization's internet-exposed attack surface.'
+description: Learn how Microsoft Defender External Attack Surface Management discovers and defines your organization's internet-exposed attack surface.
 author: danielledennis
 ms.author: dandennis
 ms.service: defender-easm
