@@ -136,7 +136,7 @@ az ml computetarget create amlcompute --name lowpriocluster --vm-size Standard_N
 
 ## Set up managed identity
 
-[!INCLUDE [aml-clone-in-azure-notebook](../../../includes/aml-managed-identity-intro.md)]
+[!INCLUDE [aml-clone-in-azure-notebook](../includes/aml-managed-identity-intro.md)]
 
 # [Python SDK](#tab/python)
 
@@ -217,11 +217,11 @@ az ml computetarget create amlcompute --name lowpriocluster --vm-size Standard_N
 
 ---
 
-[!INCLUDE [aml-clone-in-azure-notebook](../../../includes/aml-managed-identity-note.md)]
+[!INCLUDE [aml-clone-in-azure-notebook](../includes/aml-managed-identity-note.md)]
 
 ### Managed identity usage
 
-[!INCLUDE [aml-clone-in-azure-notebook](../../../includes/aml-managed-identity-default.md)]
+[!INCLUDE [aml-clone-in-azure-notebook](../includes/aml-managed-identity-default.md)]
 
 ## Troubleshooting
 
