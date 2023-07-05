@@ -313,7 +313,13 @@
       - name: Backup
         href: azure-kubernetes-service-cluster-backup-using-powershell.md
       - name: Restore
-        href: azure-kubernetes-service-cluster-restore-using-powershell.md      
+        href: azure-kubernetes-service-cluster-restore-using-powershell.md
+    - name: With CLI
+      items:
+      - name: Backup
+        href: azure-kubernetes-service-cluster-backup-using-cli.md
+      - name: Restore
+        href: azure-kubernetes-service-cluster-restore-using-cli.md      
   - name: Windows backup using MARS agent
     items:
     - name: Overview

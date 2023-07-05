@@ -66,6 +66,7 @@ The following section describes, in-depth, how password hash synchronization wor
 > [!NOTE]
 > The password hash value is **NEVER** stored in SQL. These values are only processed in memory prior to being sent to Azure AD.
 
+
 ### Security considerations
 
 When synchronizing passwords, the plain-text version of your password is not exposed to the password hash synchronization feature, to Azure AD, or any of the associated services.
@@ -100,7 +101,7 @@ When *EnforceCloudPasswordPolicyForPasswordSyncedUsers* is disabled (which is th
 
 `(Get-AzureADUser -objectID <User Object ID>).passwordpolicies`
 
-To enable the EnforceCloudPasswordPolicyForPasswordSyncedUsers feature, run the following command using the MSOnline PowerShell module as shown below. You would have to type yes for the Enable parameter as shown below :
+To enable the EnforceCloudPasswordPolicyForPasswordSyncedUsers feature, run the following command using the MSOnline PowerShell module as shown below. You would have to type yes for the Enable parameter as shown below:
 
 ```
 Set-MsolDirSyncFeature -Feature EnforceCloudPasswordPolicyForPasswordSyncedUsers

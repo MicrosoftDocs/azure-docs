@@ -21,7 +21,7 @@ ms.author: danlep
 This article shows an Azure API management policy sample that demonstrates how to use OAuth2 for authorization between the gateway and a backend. It shows how to obtain an access token from Azure Active Directory and forward it to the backend. 
 
 * For a more detailed example policy that not only acquires an access token, but also caches and renews it upon expiration, see [this blog](https://techcommunity.microsoft.com/t5/azure-paas-blog/api-management-policy-for-access-token-acquisition-caching-and/ba-p/2191623).
-* API Management [authorizations](../authorizations-overview.md) (preview) can also be used to simplify the process of managing authorization tokens to OAuth 2.0 backend services. 
+* API Management [authorizations](../authorizations-overview.md) can also be used to simplify the process of managing authorization tokens to OAuth 2.0 backend services. 
 
 To set or edit a policy code, follow the steps described in [Set or edit a policy](../set-edit-policies.md). To see other examples, see [policy samples](../policy-reference.md).
 

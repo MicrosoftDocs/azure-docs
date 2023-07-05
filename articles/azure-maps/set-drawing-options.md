@@ -1,12 +1,11 @@
 ---
 title: Drawing tools module | Microsoft Azure Maps
 description: In this article, you'll learn how to set drawing options data using the Microsoft Azure Maps Web SDK
-author: eriklindeman
-ms.author: eriklind
-ms.date: 01/29/2020
-ms.topic: conceptual
+author: dubiety
+ms.author: yuchungchen
+ms.date: 06/15/2023
+ms.topic: how-to
 ms.service: azure-maps
-ms.custom: devx-track-js
 ---
 
 # Use the drawing tools module
@@ -41,7 +40,7 @@ Once the drawing tools module is loaded in your application, you can enable draw
 
 ### Set the drawing mode
 
-The following code creates an instance of the drawing manager and sets the drawing **mode** option. 
+The following code creates an instance of the drawing manager and sets the drawing **mode** option.
 
 ```javascript
 //Create an instance of the drawing manager and set drawing mode.
@@ -50,15 +49,15 @@ drawingManager = new atlas.drawing.DrawingManager(map,{
 });
 ```
 
-The code below is a complete running example of how to set a drawing mode of the drawing manager. Click the map to start drawing a polygon.
+The following image is an example of drawing mode of the `DrawingManager`. Select any place on the map to start drawing a polygon.
 
-<br/>
+:::image type="content" source="./media/set-drawing-options/drawing-mode.gif"alt-text="A screenshot of a map showing central park in New York City where the drawing manager is demonstrated by drawing line.":::
 
+<!--------------------------------
 <iframe height="500" scrolling="no" title="Draw a polygon" src="//codepen.io/azuremaps/embed/YzKVKRa/?height=265&theme-id=0&default-tab=js,result&editable=true" frameborder="no" allowtransparency="true" allowfullscreen="true">
   See the Pen <a href='https://codepen.io/azuremaps/pen/YzKVKRa/'>Draw a polygon</a> by Azure Maps
-  (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) on <a href='https://codepen.io'>CodePen</a>.
-</iframe>
-
+  (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) on <a href='https://codepen.io'>CodePen</a>.</iframe>
+-------------------------------->
 
 ### Set the interaction type
 
@@ -78,26 +77,28 @@ drawingManager = new atlas.drawing.DrawingManager(map,{
 });
 ```
 
+<!------------------------------
  This code sample implements the functionality of drawing a polygon on the map. Just hold down the left mouse button and dragging it around, freely.
 
 <br/>
 
 <iframe height="500" scrolling="no" title="Free-hand drawing" src="//codepen.io/azuremaps/embed/ZEzKoaj/?height=265&theme-id=0&default-tab=js,result&editable=true" frameborder="no" allowtransparency="true" allowfullscreen="true">
   See the Pen <a href='https://codepen.io/azuremaps/pen/ZEzKoaj/'>Free-hand drawing</a> by Azure Maps
-  (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) on <a href='https://codepen.io'>CodePen</a>.
-</iframe>
-
+  (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) on <a href='https://codepen.io'>CodePen</a>.</iframe>
+------------------------------>
 
 ### Customizing drawing options
 
-The previous examples demonstrated how to customize drawing options while instantiating the Drawing Manager. You can also set the Drawing Manager options by using the `drawingManager.setOptions()` function. Below is a tool to test out customization of all options for the drawing manager using the setOptions function.
+The previous examples demonstrated how to customize drawing options while instantiating the Drawing Manager. You can also set the Drawing Manager options by using the `drawingManager.setOptions()` function.
 
-<br/>
+The [Drawing manager options] can be used to test out customization of all options for the drawing manager using the `setOptions` function.
 
+:::image type="content" source="./media/set-drawing-options/drawing-manager-options.png"alt-text="A screenshot of a map of Seattle with a panel on the left showing the drawing manager options that can be selected to see the effects they make to the map.":::
+
+<!------------------------------
 <iframe height="685" title="Customize drawing manager" src="//codepen.io/azuremaps/embed/LYPyrxR/?height=600&theme-id=0&default-tab=result" frameborder="no" allowtransparency="true" allowfullscreen="true">See the Pen <a href='https://codepen.io/azuremaps/pen/LYPyrxR/'>Get shape data</a> by Azure Maps
-  (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) on <a href='https://codepen.io'>CodePen</a>.
-</iframe>
-
+  (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) on <a href='https://codepen.io'>CodePen</a>.</iframe>
+------------------------------>
 
 ### Put a shape into edit mode
 
@@ -183,3 +184,5 @@ Learn more about the classes and methods used in this article:
 
 > [!div class="nextstepaction"]
 > [Drawing toolbar](/javascript/api/azure-maps-drawing-tools/atlas.control.drawingtoolbar)
+
+[Drawing manager options]: https://samples.azuremaps.com/drawing-tools-module/drawing-manager-options

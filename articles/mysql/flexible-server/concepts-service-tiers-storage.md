@@ -94,8 +94,8 @@ The detailed specifications of the available server types are as follows:
 |Standard_E16ds_v5	|	16	|	128	|	28000	|	21845   |   600 |
 |Standard_E32ds_v5	|	32	|	256	|	38000	|	43691   |   1200    |
 |Standard_E48ds_v5	|	48	|	384	|	48000	|	65536   |   1800    |
-|Standard_E64ds_v5	|	64	|	512	|	48000	|	87383   |   2400    |
-|Standard_E96ds_v5	|	96	|	672	|	48000	|	100000  |   3600    |
+|Standard_E64ds_v5	|	64	|	512	|	64000	|	87383   |   2400    |
+|Standard_E96ds_v5	|	96	|	672	|	80000	|	100000  |   3600    |
 
 To get more details about the compute series available, refer to Azure VM documentation for [Burstable (B-series)](../../virtual-machines/sizes-b-series-burstable.md), General Purpose [Dadsv5-series](../../virtual-machines/dasv5-dadsv5-series.md#dadsv5-series)[Ddsv4-series](../../virtual-machines/ddv4-ddsv4-series.md#ddsv4-series), and Business Critical [Edsv4](../../virtual-machines/edv4-edsv4-series.md#edsv4-series)/[Edsv5-series](../../virtual-machines/edv5-edsv5-series.md#edsv5-series)/[Eadsv5-series](../../virtual-machines/easv5-eadsv5-series.md#eadsv5-series)
 

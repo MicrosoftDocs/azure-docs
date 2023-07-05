@@ -8,10 +8,8 @@ ms.service: azure-communication-services
 ms.subservice: calling
 ms.topic: how-to 
 ms.date: 05/18/2023
-ms.custom: template-how-to
-
+ms.custom: template-how-to, devx-track-js
 #Customer intent: As a developer, I can verify that a browser an end user is trying to do a call on is supported by Azure Communication Services.
-
 ---
 
 # How to verify if your application is running in a web browser supported by Azure Communication Services

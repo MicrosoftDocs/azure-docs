@@ -5,7 +5,7 @@ services: application-gateway
 author: greg-lindsay
 ms.service: application-gateway
 ms.topic: conceptual
-ms.date: 03/03/2023
+ms.date: 06/20/2023
 ms.author: greglin
 ---
 
@@ -58,7 +58,7 @@ Subnet Size /24 = 256 IP addresses - 5 reserved from the platform = 251 availabl
 The virtual network resource supports [DNS server](../virtual-network/manage-virtual-network.md#view-virtual-networks-and-settings-using-the-azure-portal) configuration, allowing you to choose between Azure-provided default or Custom DNS servers. The instances of your application gateway also honor this DNS configuration for any name resolution. Thus, after you change this setting, you must restart ([Stop](/powershell/module/az.network/Stop-AzApplicationGateway) and [Start](/powershell/module/az.network/start-azapplicationgateway)) your application gateway for these changes to take effect on the instances.
 
 ### Virtual network permission 
-Since the application gateway resource is deployed inside a virtual network, we also perform a check to verify the permission on the provided virtual network resource. This validation is performed during both creation and management operations. You should check your [Azure role-based access control](../role-based-access-control/role-assignments-list-portal.md) to verify the users or service principals that operate application gateways also have at least **Microsoft.Network/virtualNetworks/subnets/join/action** permission on the Virtual Network or Subnet.
+Since the application gateway resource is deployed inside a virtual network, we also perform a check to verify the permission on the provided virtual network resource. This validation is performed during both creation and management operations. You should check your [Azure role-based access control](../role-based-access-control/role-assignments-list-portal.md) to verify the users (and service principals) that operate application gateways also have at least **Microsoft.Network/virtualNetworks/subnets/join/action** permission on the Virtual Network or Subnet. This is also applies to the [Managed Identities for Application Gateway Ingress Controller](./tutorial-ingress-controller-add-on-new.md#deploy-an-aks-cluster-with-the-add-on-enabled).
 
 You may use the built-in roles, such as [Network contributor](../role-based-access-control/built-in-roles.md#network-contributor), which already support this permission. If a built-in role doesn't provide the right permission, you can [create and assign a custom role](../role-based-access-control/custom-roles-portal.md). Learn more about [managing subnet permissions](../virtual-network/virtual-network-manage-subnet.md#permissions). 
 
@@ -82,7 +82,7 @@ As a temporary extension, we have introduced a subscription-level [Azure Feature
 **EnrollmentType**: AutoApprove </br>
 
 > [!NOTE]
-> The provision to circumvent this virtual network permission check by using this feature control (AFEC) is available only for a limited period, **until 30th June 2023**. Ensure all the roles and permissions managing Application Gateways are updated by then, as there will be no further extensions.
+> We suggest using this feature control (AFEC) provision only as interim mitigation until you assign the correct permission. You must prioritize fixing the permissions for all the applicable Users (and Service Principals) and then unregister this AFEC flag to reintroduce the permission verification on the Virtual Network resource. It is recommended not to permanently depend on this AFEC method, as it will be removed in the future.
 
 ## Network security groups
 

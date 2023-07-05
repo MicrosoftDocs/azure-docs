@@ -26,7 +26,7 @@ In the list of global Azure regions, there are several regions that serve specif
 Azure Machine Learning is still in development in air-gap Regions. 
 
 The information in the rest of this document provides information on what features of Azure Machine Learning are available in these regions, along with region-specific information on using these features.
-## Azure Government	
+## Azure Government    
 
 | Feature | Public cloud status  | US-Virginia | US-Arizona| 
 |----------------------------------------------------------------------------|:----------------------:|:--------------------:|:-------------:|
@@ -76,7 +76,7 @@ The information in the rest of this document provides information on what featur
 | View, edit, or delete dataset drift monitors from the UI                    | Public Preview       | YES                | YES         |
 | **Machine learning lifecycle** |   | | |
 | [Model profiling (SDK/CLI v1)](v1/how-to-deploy-profile-model.md)                                                            | GA                   | YES                | PARTIAL     |
-| [The Azure Machine Learning CLI 1.0](v1/reference-azure-machine-learning-cli.md)     | GA                   | YES                | YES         |
+| [The Azure Machine Learning CLI v1](v1/reference-azure-machine-learning-cli.md)     | GA                   | YES                | YES         |
 | [FPGA-based Hardware Accelerated Models (SDK/CLI v1)](./v1/how-to-deploy-fpga-web-service.md)                                     | GA                   | NO                 | NO          |
 | [Visual Studio Code integration](how-to-setup-vs-code.md)                                             | Public Preview       | NO                 | NO          |
 | [Event Grid integration](how-to-use-event-grid.md)                                                     | Public Preview       | NO                 | NO          |
@@ -102,7 +102,7 @@ The information in the rest of this document provides information on what featur
 | [Azure Stack Edge with FPGA (SDK/CLI v1)](./v1/how-to-deploy-fpga-web-service.md#deploy-to-a-local-edge-server)                                                    | Public Preview       | NO                 | NO          |
 | **Other** |   | | |
 | [Open Datasets](../open-datasets/samples.md)                                                              | Public Preview       | YES                | YES         |
-| [Custom Cognitive Search](how-to-deploy-model-cognitive-search.md)                                                    | Public Preview       | YES                | YES         |
+| [Custom Cognitive Search (SDK v1)](./v1/how-to-deploy-model-cognitive-search.md)                                                    | Public Preview       | YES                | YES         |
 
 
 ### Azure Government scenarios
@@ -110,14 +110,14 @@ The information in the rest of this document provides information on what featur
 | Scenario                                                    | US-Virginia | US-Arizona| Limitations  |
 |----------------------------------------------------------------------------|:----------------------:|:--------------------:|-------------|
 | **General security setup** |   | | |
-| Disable/control internet access (inbound and outbound) and specific VNet | PARTIAL| PARTIAL	|  | 
+| Disable/control internet access (inbound and outbound) and specific VNet | PARTIAL| PARTIAL    |  | 
 | Placement for all associated resources/services  | YES | YES |  |
 | Encryption at-rest and in-transit.                                                 | YES | YES |  |
 | Root and SSH access to compute resources.                                          | YES | YES |  |
-| Maintain the security of deployed systems (instances, endpoints, etc.), including endpoint protection, patching, and logging |  PARTIAL|	PARTIAL	|ACI behind VNet currently not available |                                  
-| Control (disable/limit/restrict) the use of ACI/AKS integration                    | PARTIAL|	PARTIAL	|ACI behind VNet currently not available|
+| Maintain the security of deployed systems (instances, endpoints, etc.), including endpoint protection, patching, and logging |  PARTIAL|    PARTIAL    |ACI behind VNet currently not available |                                  
+| Control (disable/limit/restrict) the use of ACI/AKS integration                    | PARTIAL|    PARTIAL    |ACI behind VNet currently not available|
 | Azure role-based access control (Azure RBAC) - Custom Role Creations                           | YES | YES |  |
-| Control access to ACR images used by ML Service (Azure provided/maintained versus custom)  |PARTIAL|	PARTIAL	|  |
+| Control access to ACR images used by ML Service (Azure provided/maintained versus custom)  |PARTIAL|    PARTIAL    |  |
 | **General Machine Learning Service Usage** |  | | |
 | Ability to have a development environment to build a model, train that model, host it as an endpoint, and consume it via a webapp     | YES | YES |  |
 | Ability to pull data from ADLS (Data Lake Storage)                                 |YES | YES |  |
@@ -139,7 +139,7 @@ The information in the rest of this document provides information on what featur
     * For both: `graph.windows.net` 
 
 
-## Azure China 21Vianet	
+## Azure China 21Vianet    
 
 | Feature                                       | Public cloud status | CH-East-2 | CH-North-3 |
 |----------------------------------------------------------------------------|:------------------:|:--------------------:|:-------------:|

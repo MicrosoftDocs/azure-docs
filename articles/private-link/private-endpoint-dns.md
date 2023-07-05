@@ -97,7 +97,7 @@ For Azure services, use the recommended zone names as described in the following
 | Azure HDInsight (Microsoft.HDInsight) | privatelink.azurehdinsight.net | azurehdinsight.net |
 | Azure Arc (Microsoft.HybridCompute) / hybridcompute | privatelink.his.arc.azure.com <br/> privatelink.guestconfiguration.azure.com </br> privatelink.kubernetesconfiguration.azure.com | his.arc.azure.com <br/> guestconfiguration.azure.com </br> kubernetesconfiguration.azure.com |
 | Azure Media Services (Microsoft.Media) / keydelivery, liveevent, streamingendpoint | privatelink.media.azure.net | media.azure.net |
-| Azure Data Explorer (Microsoft.Kusto) | privatelink.{regionName}.kusto.windows.net | {regionName}.kusto.windows.net |
+| Azure Data Explorer (Microsoft.Kusto/Clusters) / cluster | privatelink.{regionName}.kusto.windows.net | {regionName}.kusto.windows.net |
 | Azure Static Web Apps (Microsoft.Web/staticSites) / staticSites | privatelink.azurestaticapps.net </br> privatelink.{partitionId}.azurestaticapps.net | azurestaticapps.net </br> {partitionId}.azurestaticapps.net |
 | Azure Migrate (Microsoft.Migrate) / migrate projects, assessment project and discovery site | privatelink.prod.migration.windowsazure.com | prod.migration.windowsazure.com |
 | Azure API Management (Microsoft.ApiManagement/service) / gateway | privatelink.azure-api.net  | azure-api.net  |
@@ -106,8 +106,8 @@ For Azure services, use the recommended zone names as described in the following
 | Azure Bot Service (Microsoft.BotService/botServices) / Token | privatelink.token.botframework.com | token.botframework.com </br> europe.token.botframework.com |
 | Azure Health Data Services (Microsoft.HealthcareApis/workspaces) / healthcareworkspace | privatelink.workspace.azurehealthcareapis.com </br> privatelink.fhir.azurehealthcareapis.com </br> privatelink.dicom.azurehealthcareapis.com | workspace.azurehealthcareapis.com </br> fhir.azurehealthcareapis.com </br> dicom.azurehealthcareapis.com |
 | Azure Databricks (Microsoft.Databricks/workspaces) / databricks_ui_api, browser_authentication | privatelink.azuredatabricks.net | azuredatabricks.net |
-| Azure Virtual Desktop (Microsoft.DesktopVirtualization/workspaces) / global | privatelink-global.wvd.microsoft.com  | azuredatabricks.net |
-| Azure Virtual Desktop (Microsoft.DesktopVirtualization/workspaces and Microsoft.DesktopVirtualization/hostpools) / feed, connection | privatelink.wvd.microsoft.com  | azuredatabricks.net |
+| Azure Virtual Desktop (Microsoft.DesktopVirtualization/workspaces) / global | privatelink-global.wvd.microsoft.com  | wvd.microsoft.com |
+| Azure Virtual Desktop (Microsoft.DesktopVirtualization/workspaces and Microsoft.DesktopVirtualization/hostpools) / feed, connection | privatelink.wvd.microsoft.com  | wvd.microsoft.com |
 
 <sup>1</sup>To use with IoT Hub's built-in Event Hub compatible endpoint. To learn more, see [private link support for IoT Hub's built-in endpoint](../iot-hub/virtual-network-support.md#built-in-event-hubs-compatible-endpoint)
 
@@ -199,9 +199,9 @@ For Azure services, use the recommended zone names as described in the following
 | Azure Data Factory (Microsoft.DataFactory/factories) / portal |  privatelink.adf.azure.cn  |  adf.azure.cn  |
 | Azure Cache for Redis (Microsoft.Cache/Redis) / redisCache | privatelink.redis.cache.chinacloudapi.cn | redis.cache.chinacloudapi.cn |
 | Azure HDInsight (Microsoft.HDInsight) | privatelink.azurehdinsight.cn | azurehdinsight.cn |
-| Azure Data Explorer (Microsoft.Kusto) | privatelink.{regionName}.kusto.windows.cn | {regionName}.kusto.windows.cn |
-| Azure Virtual Desktop (Microsoft.DesktopVirtualization/workspaces) / global  | privatelink-global.wvd.azure.cn  | wvd.azure.us  |
-| Azure Virtual Desktop (Microsoft.DesktopVirtualization/workspaces and Microsoft.DesktopVirtualization/hostpools) / feed, connection  | privatelink.wvd.azure.cn | wvd.azure.us |
+| Azure Data Explorer (Microsoft.Kusto/Clusters) / cluster | privatelink.{regionName}.kusto.windows.cn | {regionName}.kusto.windows.cn |
+| Azure Virtual Desktop (Microsoft.DesktopVirtualization/workspaces) / global  | privatelink-global.wvd.azure.cn  | wvd.azure.cn  |
+| Azure Virtual Desktop (Microsoft.DesktopVirtualization/workspaces and Microsoft.DesktopVirtualization/hostpools) / feed, connection  | privatelink.wvd.azure.cn | wvd.azure.cn |
 
 <sup>1</sup>To use with IoT Hub's built-in Event Hub compatible endpoint. To learn more, see [private link support for IoT Hub's built-in endpoint](../iot-hub/virtual-network-support.md#built-in-event-hubs-compatible-endpoint)
 

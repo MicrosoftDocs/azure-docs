@@ -1431,6 +1431,14 @@ productDirectory:
         - security
       url: web-application-firewall/index.yml
     # Card
+    - title: NAT Gateway
+      summary: Provide highly reliable, secure, and scalable outbound connectivity to the internet
+      imageSrc: nat-gateway/media/icon/nat-gateway.svg
+      azureCategories:
+        - networking
+        - security
+      url: nat-gateway/index.yml
+    # Card
     - title: Azure Dedicated HSM
       summary: Manage hardware security modules that you use in the cloud
       imageSrc: ./media/index/dedicated-hsm.svg

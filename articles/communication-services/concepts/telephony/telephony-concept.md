@@ -40,7 +40,7 @@ With this option:
 
 This option requires an uninterrupted connection to Azure Communication Services.  
 
-For cloud calling, outbound calls are billed at per-minute rates depending on the target country. See the [current rate list for PSTN calls](https://github.com/Azure/Communication/blob/master/pricing/communication-services-pstn-rates.csv).
+For cloud calling, outbound calls are billed at per-minute rates depending on the target country/region. See the [current rate list for PSTN calls](https://github.com/Azure/Communication/blob/master/pricing/communication-services-pstn-rates.csv).
 
 ### Azure direct routing
 
@@ -78,9 +78,10 @@ This option requires:
 - [Plan for Azure direct routing](./direct-routing-infrastructure.md)
 - [Session Border Controllers certified for Azure Communication Services direct routing](./certified-session-border-controllers.md)
 - [Pricing](../pricing.md)
+- Learn about [call automation API](../call-automation/call-automation.md) that enables you to build server-based calling workflows to control and manage calls for phone numbers and direct routing
 
 ### Quickstarts
 
 - [Get a phone number](../../quickstarts/telephony/get-phone-number.md)
 - [Outbound call to a phone number](../../quickstarts/telephony/pstn-call.md)
-- [Redirect inbound telephony calls with Call Automation](../../quickstarts/call-automation/redirect-inbound-telephony-calls.md)
+- [Use call automation to build calling workflow that can place calls to phone numbers, play voice prompts and more](../../quickstarts/call-automation/quickstart-make-an-outbound-call.md)

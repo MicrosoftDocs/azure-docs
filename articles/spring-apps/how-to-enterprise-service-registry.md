@@ -6,7 +6,7 @@ ms.author: yoterada
 ms.service: spring-apps
 ms.topic: how-to
 ms.date: 06/17/2022
-ms.custom: devx-track-java, event-tier1-build-2022
+ms.custom: devx-track-java, event-tier1-build-2022, devx-track-azurecli
 ---
 
 # Use Tanzu Service Registry

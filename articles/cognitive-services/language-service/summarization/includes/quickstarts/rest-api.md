@@ -75,7 +75,7 @@ The following example will get you started with document extractive summarizatio
 1. Copy the command below into a text editor. The BASH example uses the `\` line continuation character. If your console or terminal uses a different line continuation character, use that character instead.
 
 ```bash
-curl -i -X POST $LANGUAGE_ENDPOINT/language/analyze-text/jobs?api-version=2022-10-01-preview \
+curl -i -X POST $LANGUAGE_ENDPOINT/language/analyze-text/jobs?api-version=2023-04-01 \
 -H "Content-Type: application/json" \
 -H "Ocp-Apim-Subscription-Key: $LANGUAGE_KEY" \
 -d \
@@ -111,13 +111,13 @@ curl -i -X POST $LANGUAGE_ENDPOINT/language/analyze-text/jobs?api-version=2022-1
 4. Get the `operation-location` from the response header. The value will look similar to the following URL:
 
 ```http
-https://<your-language-resource-endpoint>/language/analyze-text/jobs/12345678-1234-1234-1234-12345678?api-version=2022-10-01-preview
+https://<your-language-resource-endpoint>/language/analyze-text/jobs/12345678-1234-1234-1234-12345678?api-version=2023-04-01
 ```
 
 5. To get the results of the request, use the following cURL command. Be sure to replace `<my-job-id>` with the numerical ID value you received from the previous `operation-location` response header:
 
 ```bash
-curl -X GET $LANGUAGE_ENDPOINT/language/analyze-text/jobs/<my-job-id>?api-version=2022-10-01-preview \
+curl -X GET $LANGUAGE_ENDPOINT/language/analyze-text/jobs/<my-job-id>?api-version=2023-04-01 \
 -H "Content-Type: application/json" \
 -H "Ocp-Apim-Subscription-Key: $LANGUAGE_KEY"
 ```
@@ -209,7 +209,7 @@ The following example will get you started with conversation issue and resolutio
 1. Copy the command below into a text editor. The BASH example uses the `\` line continuation character. If your console or terminal uses a different line continuation character, use that character instead.
 
 ```bash
-curl -i -X POST $LANGUAGE_ENDPOINT/language/analyze-conversations/jobs?api-version=2022-10-01-preview \
+curl -i -X POST $LANGUAGE_ENDPOINT/language/analyze-conversations/jobs?api-version=2023-04-01 \
 -H "Content-Type: application/json" \
 -H "Ocp-Apim-Subscription-Key: $LANGUAGE_KEY" \
 -d \
@@ -298,13 +298,13 @@ Only the `resolution` aspect supports sentenceCount. If you do not specify the `
 4. Get the `operation-location` from the response header. The value will look similar to the following URL:
 
 ```http
-https://<your-language-resource-endpoint>/language/analyze-conversations/jobs/12345678-1234-1234-1234-12345678?api-version=2022-10-01-preview
+https://<your-language-resource-endpoint>/language/analyze-conversations/jobs/12345678-1234-1234-1234-12345678?api-version=2023-04-01
 ```
 
 5. To get the results of the request, use the following cURL command. Be sure to replace `<my-job-id>` with the numerical ID value you received from the previous `operation-location` response header:
 
 ```bash
-curl -X GET $LANGUAGE_ENDPOINT/language/analyze-conversations/jobs/<my-job-id>?api-version=2022-10-01-preview \
+curl -X GET $LANGUAGE_ENDPOINT/language/analyze-conversations/jobs/<my-job-id>?api-version=2023-04-01 \
 -H "Content-Type: application/json" \
 -H "Ocp-Apim-Subscription-Key: $LANGUAGE_KEY"
 ```

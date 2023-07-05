@@ -224,6 +224,8 @@ Find the name of the resource group that contains the Azure Front Door profile b
     -Mode Prevention `
     -EnabledState Enabled
    ```
+> [!TIP]
+> For an existing WAF policy, you can use [Update-AzFrontDoorWafPolicy](/powershell/module/az.frontdoor/update-azfrontdoorwafpolicy) to update the policy.
 
 ### Link a WAF policy to an Azure Front Door front-end host
 

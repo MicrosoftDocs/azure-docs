@@ -7,7 +7,7 @@ author: vijetajo
 ms.author: vijetaj
 ms.reviewer: sgilley
 ms.service: machine-learning
-ms.subservice: core
+ms.subservice: compute
 ms.date: 08/11/2022
 ms.topic: how-to
 ms.custom: contperf-fy21q1, event-tier1-build-2022, build-2023
@@ -38,6 +38,8 @@ To see all compute targets for your workspace, use the following steps:
 1. Select tabs at the top to show each type of compute target.
 
     :::image type="content" source="media/how-to-create-attach-studio/compute-targets.png" alt-text="View list of compute targets":::
+
+[!INCLUDE [retiring vms](./includes/retiring-vms.md)]
 
 ## Compute instance and clusters
 

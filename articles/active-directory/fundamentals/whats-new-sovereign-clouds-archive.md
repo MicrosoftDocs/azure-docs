@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.subservice: fundamentals
 ms.workload: identity
 ms.topic: overview
-ms.date: 4/13/2023
+ms.date: 05/31/2023
 ms.author: owinfrey
 ms.collection: M365-identity-device-management
 ---

@@ -8,7 +8,7 @@ ms.topic: conceptual
 ms.date: 04/09/2020
 ms.author: sidandrews
 ms.reviewer: jucocchi
-ms.custom: devx-track-js, ignite-2022
+ms.custom: ignite-2022
 ---
 
 # User-defined functions (UDFs) in Azure Cosmos DB

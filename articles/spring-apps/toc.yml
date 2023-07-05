@@ -24,6 +24,8 @@ items:
     href: quickstart-deploy-web-app.md
   - name: Launch your first event-driven app
     href: quickstart-deploy-event-driven-app-standard-consumption.md
+  - name: Launch your first microservice apps
+    href: quickstart-deploy-microservice-apps.md
   - name: Run apps on Standard consumption and dedicated plan
     expanded: true
     items:
@@ -85,6 +87,8 @@ items:
     href: concept-understand-app-and-deployment.md
   - name: Blue-green deployment strategies
     href: concepts-blue-green-deployment-strategies.md
+  - name: Zero downtime deployment
+    href: concept-zero-downtime-deployment.md
   - name: Quotas and limits
     href: quotas.md
   - name: Understand app status
@@ -107,6 +111,8 @@ items:
     href: concept-outbound-type.md
   - name: Enterprise plan in Azure Marketplace
     href: how-to-enterprise-marketplace-offer.md
+  - name: VMware Tanzu components
+    href: VMware-Tanzu-components.md
 - name: Security
   items:
   - name: Passwordless connection to an Azure database
@@ -150,7 +156,7 @@ items:
       - name: Use Build Service
         href: how-to-enterprise-build-service.md
       - name: Configure APM integration and CA certificates
-        href: how-to-enterprise-configure-apm-intergration-and-ca-certificates.md
+        href: how-to-enterprise-configure-apm-integration-and-ca-certificates.md
       - name: Use Service Registry
         href: how-to-enterprise-service-registry.md
       - name: Use API portal

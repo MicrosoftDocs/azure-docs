@@ -98,7 +98,7 @@ The following table shows the power supply unit specifications:
 
 The Azure Stack Edge Mini R device also includes an onboard battery that is charged by the power supply.
 
-An additional [Type 2590 battery](https://www.bren-tronics.com/bt-70791ck.html) can be used along with the onboard battery to extend the use of the device between the charges. This battery should be compliant with all the safety, transportation, and environmental regulations applicable in the country of use.
+An additional [Type 2590 battery](https://www.bren-tronics.com/bt-70791ck.html) can be used along with the onboard battery to extend the use of the device between the charges. This battery should be compliant with all the safety, transportation, and environmental regulations applicable in the country/region of use.
 
 | Specification            | Value      |
 |--------------------------|------------|

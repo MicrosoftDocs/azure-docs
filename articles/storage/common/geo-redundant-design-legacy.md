@@ -12,7 +12,7 @@ ms.author: pauljewell
 ms.reviewer: artek
 ms.subservice: common
 ms.devlang: csharp
-ms.custom: devx-track-csharp
+ms.custom: devx-track-csharp, devx-track-dotnet
 ---
 
 # Use geo-redundancy to design highly available applications (.NET v11 SDK)

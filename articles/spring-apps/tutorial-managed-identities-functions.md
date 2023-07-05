@@ -68,7 +68,7 @@ az functionapp create \
     --functions-version 4
 ```
 
-Make a note of the returned `hostNames` value, which is in the format *https://\<your-functionapp-name>.azurewebsites.net*. Use this value in the Function app's root URL for testing the Function app.
+Make a note of the returned `hostNames` value, which is in the format `https://<your-functionapp-name>.azurewebsites.net`. Use this value in the Function app's root URL for testing the Function app.
 
 ## Enable Azure Active Directory authentication
 

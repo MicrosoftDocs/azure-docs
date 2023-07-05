@@ -6,6 +6,19 @@ ms.date: 03/16/2023
 ms.author: eur
 ---
 
+### 2023-May release
+
+Add support for the latest model versions:
+- Custom speech to text 3.14.0
+- Speech to text 3.14.0
+- Neural text to speech 2.13.0
+
+Fix the `he-IL` punctuation issue
+
+Fix vulnerability issues
+
+Add new locale voice `en-US-MichelleNeural`and `es-MX-CandelaNeural`
+
 ### 2023-April release
 
 Security Updates

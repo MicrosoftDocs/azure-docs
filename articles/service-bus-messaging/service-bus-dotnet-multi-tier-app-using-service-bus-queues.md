@@ -4,7 +4,7 @@ description: A .NET tutorial that helps you develop a multi-tier app in Azure th
 ms.devlang: csharp
 ms.topic: article
 ms.date: 04/30/2021
-ms.custom: devx-track-csharp
+ms.custom: devx-track-csharp, devx-track-dotnet
 ---
 
 # .NET multi-tier application using Azure Service Bus queues
@@ -78,9 +78,10 @@ The following sections discuss the code that implements this architecture.
 In this tutorial, you'll use Azure Active Directory (Azure AD) authentication to create `ServiceBusClient` and `ServiceBusAdministrationClient` objects. You'll also use `DefaultAzureCredential` and to use it, you need to do the following steps to test the application locally in a development environment.
 
 1. [Register an application in the Azure AD](../active-directory/develop/quickstart-register-app.md).
-1. [Add the application to the `Service Bus Data Owner` role](service-bus-managed-service-identity.md#to-assign-azure-roles-using-the-azure-portal).
+1. [Add the application to the `Service Bus Data Owner` role](../role-based-access-control/role-assignments-portal.md).
 1. Set the `AZURE-CLIENT-ID`, `AZURE-TENANT-ID`, AND `AZURE-CLIENT-SECRET` environment variables. For instructions, see [this article](/dotnet/api/overview/azure/identity-readme#environment-variables).
 
+For a list of Service Bus built-in roles, see [Azure built-in roles for Service Bus](service-bus-managed-service-identity.md#azure-built-in-roles-for-azure-service-bus).
 
 ## Create a namespace
 

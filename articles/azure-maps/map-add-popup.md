@@ -1,12 +1,11 @@
 ---
 title: Add a popup to a point on a map |Microsoft Azure Maps
 description: Learn about popups, popup templates, and popup events in Azure Maps. See how to add a popup to a point on a map and how to reuse and customize popups.
-author: eriklindeman
-ms.author: eriklind
-ms.date: 02/27/2020
-ms.topic: conceptual
+author: dubiety
+ms.author: yuchungchen
+ms.date: 06/14/2023
+ms.topic: how-to
 ms.service: azure-maps
-ms.custom: codepen, devx-track-js
 ---
 
 # Add a popup to the map
@@ -69,32 +68,33 @@ map.events.add('mouseleave', symbolLayer, function (){
 });
 ```
 
-Below is the complete running code sample of the above functionality.
-
-<br/>
-
-<iframe height='500' scrolling='no' title='Add a pop up using Azure Maps' src='//codepen.io/azuremaps/embed/MPRPvz/?height=500&theme-id=0&default-tab=result&embed-version=2&editable=true' frameborder='no' loading="lazy" allowtransparency='true' allowfullscreen='true'>See the Pen <a href='https://codepen.io/azuremaps/pen/MPRPvz/'>Add a pop up using Azure Maps</a> by Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) on <a href='https://codepen.io'>CodePen</a>.
-</iframe>
-
 ## Reusing a popup with multiple points
 
 There are cases in which the best approach is to create one popup and reuse it. For example, you may have a large number of points and want to show only one popup at a time. By reusing the popup, the number of DOM elements created by the application is greatly reduced, which can provide better performance. The following sample creates 3-point features. If you click on any of them, a popup will be displayed with the content for that point feature.
 
-<br/>
+For a fully functional sample that shows how to create one popup and reuse it rather than creating a popup for each point feature, see [Reusing Popup with Multiple Pins] in the [Azure Maps Samples].
 
+:::image type="content" source="./media/map-add-popup/reusing-popup-with-multiple-pins.png"alt-text="A screenshot of map with three blue pins.":::
+
+<!-----------------------------------------------------------------------------
 <iframe height='500' scrolling='no' title='Reusing Popup with Multiple Pins' src='//codepen.io/azuremaps/embed/rQbjvK/?height=500&theme-id=0&default-tab=result&embed-version=2&editable=true' frameborder='no' loading="lazy" allowtransparency='true' allowfullscreen='true'>See the Pen <a href='https://codepen.io/azuremaps/pen/rQbjvK/'>Reusing Popup with Multiple Pins</a> by Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) on <a href='https://codepen.io'>CodePen</a>.
 </iframe>
+----------------------------------------------------------------------------->
 
 ## Customizing a popup
 
 By default, the popup has a white background, a pointer arrow on the bottom, and a close button in the top-right corner. The following sample changes the background color to black using the `fillColor` option of the popup. The close button is removed by setting the `CloseButton` option to false. The HTML content of the popup uses padded of 10 pixels from the edges of the popup. The text is made white, so it shows up nicely on the black background.  
 
-<br/>
+For a fully functional sample that shows how to customize the look of a popup, see [Customize a popup] in the [Azure Maps Samples].
 
+:::image type="content" source="./media/map-add-popup/customize-popup.png"alt-text="A screenshot of map with a custom popup in the center of the map with the caption 'hello world'.":::
+
+<!-----------------------------------------------------------------------------
 <iframe height="500" scrolling="no" title="Customized Popup" src="//codepen.io/azuremaps/embed/ymKgdg/?height=500&theme-id=0&default-tab=result" frameborder='no' loading="lazy" allowtransparency="true" allowfullscreen="true">
   See the Pen <a href='https://codepen.io/azuremaps/pen/ymKgdg/'>Customized Popup</a> by Azure Maps
   (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) on <a href='https://codepen.io'>CodePen</a>.
 </iframe>
+----------------------------------------------------------------------------->
 
 ## Add popup templates to the map
 
@@ -103,14 +103,14 @@ Popup templates make it easy to create data driven layouts for popups. The secti
 > [!NOTE]
 > By default, all content rendered use the popup template will be sandboxed inside of an iframe as a security feature. However, there are limitations:
 >
-> - All scripts, forms, pointer lock and top navigation functionality is disabled. Links are allowed to open up in a new tab when clicked. 
+> - All scripts, forms, pointer lock and top navigation functionality is disabled. Links are allowed to open up in a new tab when clicked.
 > - Older browsers that don't support the `srcdoc` parameter on iframes will be limited to rendering a small amount of content.
-> 
-> If you trust the data being loaded into the popups and potentially want these scripts loaded into popups be able to access your application, you can disable this by setting the popup templates `sandboxContent` option to false. 
+>
+> If you trust the data being loaded into the popups and potentially want these scripts loaded into popups be able to access your application, you can disable this by setting the popup templates `sandboxContent` option to false.
 
 ### String template
 
-The String template replaces placeholders with values of the feature properties. The properties of the feature don't have to be assigned a value of type String. For example, `value1` holds an integer. These values are then passed to the content property of the `popupTemplate`. 
+The String template replaces placeholders with values of the feature properties. The properties of the feature don't have to be assigned a value of type String. For example, `value1` holds an integer. These values are then passed to the content property of the `popupTemplate`.
 
 The `numberFormat` option specifies the format of the number to display. If the `numberFormat` isn't specified, then the code will use the popup templates date format. The `numberFormat` option formats numbers using the [Number.toLocaleString](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number/toLocaleString) function. To format large numbers, consider using the `numberFormat` option with functions from [NumberFormat.format](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/NumberFormat/format). For instance, the code snippet below uses `maximumFractionDigits` to limit the number of fraction digits to two.
 
@@ -244,30 +244,203 @@ When the Popup template isn't defined to be a String template, a PropertyInfo te
 
 Click the points on the map in the CodePen. There is a point on the map for each of the following popup templates: String template, PropertyInfo template, and Multiple content template. There are also three points to show how templates render using the defaulting settings.
 
-<br/>
+```javascript
+function InitMap()
+{
+  var map = new atlas.Map('myMap', {
+      zoom: 2,
+      view: "Auto",
 
+    //Add authentication details for connecting to Azure Maps.
+      authOptions: {
+          authType: 'subscriptionKey',
+          subscriptionKey: '{Your-Azure-Maps-Subscription-key}'
+      }
+  });
+
+  //Wait until the map resources are ready.
+  map.events.add('ready', function() {
+    //Create a data source and add it to the map.
+    var datasource = new atlas.source.DataSource();
+    map.sources.add(datasource);
+
+    //Add sample data.
+    datasource.add([
+      new atlas.data.Feature(new atlas.data.Point([-20, 20]), {
+        title: 'No template - title/description',
+        description: 'This point doesn\'t have a template defined, fallback to title and description properties.'
+      }),
+
+      new atlas.data.Feature(new atlas.data.Point([20, 20]), {
+        title: 'No template - property table',
+        message: 'This point doesn\'t have a template defined, fallback to title and table of properties.',
+        randomValue: 10,
+        url: 'https://aka.ms/AzureMapsSamples',
+        imageLink: 'https://azuremapscodesamples.azurewebsites.net/common/images/Pike_Market.jpg',
+        email: 'info@microsoft.com'
+      }),
+
+      new atlas.data.Feature(new atlas.data.Point([40, 0]), {
+        title: 'No template - hyperlink detection disabled',
+        message: 'This point doesn\'t have a template defined, fallback to title and table of properties.',
+        randomValue: 10,
+        url: 'https://aka.ms/AzureMapsSamples',
+        email: 'info@microsoft.com',
+        popupTemplate: {
+          detectHyperlinks: false
+        }
+      }),
+
+      new atlas.data.Feature(new atlas.data.Point([-20, -20]), {
+        title: 'Template 1 - String template',
+        value1: 1.2345678,
+        value2: {
+          subValue: 'Pizza'
+        },
+        arrayValue: [3, 4, 5, 6],
+        popupTemplate: {
+          content: 'This template uses a string template with placeholders.<br/><br/> - Value 1 = {value1}<br/> - Value 2 = {value2/subValue}<br/> - Array value [2] = {arrayValue/2}',
+          numberFormat: {
+            maximumFractionDigits: 2
+          }
+        }
+      }),
+
+      new atlas.data.Feature(new atlas.data.Point([20, -20]), {
+        title: 'Template 2 - PropertyInfo',
+        createDate: new Date(),
+        dateNumber: 1569880860542,
+        url: 'https://aka.ms/AzureMapsSamples',
+        email: 'info@microsoft.com',
+        popupTemplate: {
+          content: [{
+            propertyPath: 'createDate',
+            label: 'Created Date'
+          },
+                    {
+                      propertyPath: 'dateNumber',
+                      label: 'Formatted date from number',
+                      dateFormat: {
+                        weekday: 'long',
+                        year: 'numeric',
+                        month: 'long',
+                        day: 'numeric',
+                        timeZone: 'UTC',
+                        timeZoneName: 'short'
+                      }
+                    },
+                    {
+                      propertyPath: 'url',
+                      label: 'Code samples',
+                      hideLabel: true,
+                      hyperlinkFormat: {
+                        lable: 'Go to code samples!',
+                        target: '_blank'
+                      }
+                    },
+                    {
+                      propertyPath: 'email',
+                      label: 'Email us',
+                      hideLabel: true,
+                      hyperlinkFormat: {
+                        target: '_blank',
+                        scheme: 'mailto:'
+                      }
+                    }
+                    ]
+        }
+      }),
+
+      new atlas.data.Feature(new atlas.data.Point([0, 0]), {
+        title: 'Template 3 - Multiple content template',
+        value1: 1.2345678,
+        value2: {
+          subValue: 'Pizza'
+        },
+        arrayValue: [3, 4, 5, 6],
+        imageLink: 'https://azuremapscodesamples.azurewebsites.net/common/images/Pike_Market.jpg',
+        popupTemplate: {
+          content: [
+            'This template has two pieces of content; a string template with placeholders and a array of property info which renders a full width image.<br/><br/> - Value 1 = {value1}<br/> - Value 2 = {value2/subValue}<br/> - Array value [2] = {arrayValue/2}',
+            [{
+              propertyPath: 'imageLink',
+              label: 'Image',
+              hideImageLabel: true,
+              hyperlinkFormat: {
+                isImage: true
+              }
+            }]
+          ],
+          numberFormat: {
+            maximumFractionDigits: 2
+          }
+        }
+      }),
+    ]);
+
+    //Create a layer that defines how to render the points on the map.
+    var layer = new atlas.layer.BubbleLayer(datasource);
+    map.layers.add(layer);
+
+    //Create a popup but leave it closed so we can update it and display it later.
+    popup = new atlas.Popup();
+
+    //Add a click event to the layer.
+    map.events.add('click', layer, showPopup);
+  });
+
+  function showPopup(e) {
+    if (e.shapes && e.shapes.length > 0) {
+      var properties = e.shapes[0].getProperties();
+
+      popup.setOptions({
+        //Update the content of the popup.
+        content: atlas.PopupTemplate.applyTemplate(properties, properties.popupTemplate),
+
+        //Update the position of the popup with the pins coordinate.
+        position: e.shapes[0].getCoordinates()
+      });
+
+      //Open the popup.
+      popup.open(map);
+    }
+  }
+}
+```
+
+:::image type="content" source="./media/map-add-popup/points-without-defined-template.png"alt-text="A screenshot of map with six blue dots.":::
+
+<!-----------------------------------------------------------------------------
 <iframe height='500' scrolling='no' title='PopupTemplates' src='//codepen.io/azuremaps/embed/dyovrzL/?height=500&theme-id=0&default-tab=result&embed-version=2&editable=true' frameborder='no' loading="lazy" allowtransparency='true' allowfullscreen='true'>See the Pen <a href='https://codepen.io/azuremaps/pen/dyovrzL/'>PopupTemplates</a> by Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) on <a href='https://codepen.io'>CodePen</a>.
 </iframe>
-
+-------------------------------------------------------------------------------->
 ## Reuse popup template
 
 Similar to reusing popup, you can reuse popup templates. This approach is useful when you only want to show one popup template at a time, for multiple points. By reusing the popup template, the number of DOM elements created by the application is reduced, which then improves your application performance. The following sample uses the same popup template for three points. If you click on any of them, a popup will be displayed with the content for that point feature.
 
-<br/>
+For a fully functional sample that shows hot to reuse a single popup template with multiple features that share a common set of property fields, see [Reuse a popup template] in the [Azure Maps Samples].
 
+:::image type="content" source="./media/map-add-popup/reuse-popup-template.png"alt-text="A screenshot of a map showing Seattle with three blue pins to demonstrating how to reuse popup templates.":::
+
+<!-----------------------------------------------------------------------------
 <iframe height='500' scrolling='no' title='ReusePopupTemplate' src='//codepen.io/azuremaps/embed/WNvjxGw/?height=500&theme-id=0&default-tab=result&embed-version=2&editable=true' frameborder='no' loading="lazy" allowtransparency='true' allowfullscreen='true'>See the Pen <a href='https://codepen.io/azuremaps/pen/WNvjxGw/'>ReusePopupTemplate</a> by Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) on <a href='https://codepen.io'>CodePen</a>.
 </iframe>
+-------------------------------------------------------------------------------->
 
 ## Popup events
 
-Popups can be opened, closed, and dragged. The popup class provides events to help developers react to these events. The following sample highlights which events fire when the user opens, closes, or drags the popup. 
+Popups can be opened, closed, and dragged. The popup class provides events to help developers react to these events. The following sample highlights which events fire when the user opens, closes, or drags the popup.
 
-<br/>
+For a fully functional sample that shows how to add events to popups, see [Popup events] in the [Azure Maps Samples].
 
+:::image type="content" source="./media/map-add-popup/popup-events.png"alt-text="A screenshot of a map of the world with a popup in the center and a list of events in the upper left that are highlighted when the user opens, closes, or drags the popup.":::
+
+<!-----------------------------------------------------------------------------
 <iframe height="500" scrolling="no" title="Popup events" src="//codepen.io/azuremaps/embed/BXrpvB/?height=500&theme-id=0&default-tab=result" frameborder='no' loading="lazy" allowtransparency="true" allowfullscreen="true">
   See the Pen <a href='https://codepen.io/azuremaps/pen/BXrpvB/'>Popup events</a> by Azure Maps
   (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) on <a href='https://codepen.io'>CodePen</a>.
 </iframe>
+-------------------------------------------------------------------------------->
 
 ## Next steps
 
@@ -295,3 +468,9 @@ See the following great articles for full code samples:
 
 > [!div class="nextstepaction"]
 > [Add a polygon layer](map-add-shape.md)
+
+[Reusing Popup with Multiple Pins]: https://samples.azuremaps.com/popups/reusing-popup-with-multiple-pins
+[Azure Maps Samples]: https://samples.azuremaps.com
+[Customize a popup]: https://samples.azuremaps.com/popups/customize-a-popup
+[Reuse a popup template]: https://samples.azuremaps.com/popups/reuse-a-popup-template
+[Popup events]: https://samples.azuremaps.com/popups/popup-events

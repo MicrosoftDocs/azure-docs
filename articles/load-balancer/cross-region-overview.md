@@ -151,8 +151,9 @@ Cross-region load balancer routes the traffic to the appropriate regional load b
 
 * NAT64 translation isn't supported at this time. The frontend and backend IPs must be of the same type (v4 or v6).
 
-* UDP traffic isn't supported on Cross-region Load Balancer. 
+* UDP traffic isn't supported on Cross-region Load Balancer.
 
+* Outbound rules aren't support on Cross-region Load Balancer. For outbound connections please utilize [outbound rules](./outbound-rules.md) on the regional load balancer or [NAT gateway](https://learn.microsoft.com/azure/nat-gateway/nat-overview).
 
 
 

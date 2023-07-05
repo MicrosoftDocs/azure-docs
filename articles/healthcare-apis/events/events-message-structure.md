@@ -27,6 +27,8 @@ In this article, you'll learn about the Events message structure, required and n
 > 
 > - **DicomImageDeleted** - The event emitted after a DICOM image gets deleted successfully.
 > 
+> - **DicomImageUpdated** - The event emitted after a DICOM image gets updated successfully.
+>
 > For more information about the FHIR service delete types, see [FHIR REST API capabilities for Azure Health Data Services FHIR service](../../healthcare-apis/fhir/fhir-rest-api-capabilities.md)
 
 ## FHIR events message structure
@@ -184,6 +186,7 @@ In this article, you'll learn about the Events message structure, required and n
 | eventTime	| string(datetime)	| Yes	| The UTC time when the DICOM image change was committed.
 | id	| string	| Yes	| Unique identifier for the event.
 | data	| object	| Yes	| DICOM image change event details.
+| data.partitionName	| string	| No | Data partition name.
 | data.imageStudyInstanceUid	| string	| Yes | The image's Study Instance UID.
 | data.imageSeriesInstanceUid	| string	| Yes	| The image's Series Instance UID.
 | data.imageSopInstanceUid	| string	| Yes	| The image's SOP Instance UID.
@@ -202,8 +205,9 @@ In this article, you'll learn about the Events message structure, required and n
 {
   "id": "d621839d-958b-4142-a638-bb966b4f7dfd",
   "topic": "/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/Microsoft.HealthcareApis/workspaces/{workspace-name}",
-  "subject": "{dicom-account}.dicom.azurehealthcareapis.com/v1/studies/1.2.3.4.3/series/1.2.3.4.3.9423673/instances/1.3.6.1.4.1.45096.2.296485376.2210.1633373143.864442",
+  "subject": "{dicom-account}.dicom.azurehealthcareapis.com/v1/partitions/Microsoft.Default/studies/1.2.3.4.3/series/1.2.3.4.3.9423673/instances/1.3.6.1.4.1.45096.2.296485376.2210.1633373143.864442",
   "data": {
+    "partitionName": "Microsoft.Default",
     "imageStudyInstanceUid": "1.2.3.4.3",
     "imageSeriesInstanceUid": "1.2.3.4.3.9423673",
     "imageSopInstanceUid": "1.3.6.1.4.1.45096.2.296485376.2210.1633373143.864442",
@@ -221,11 +225,12 @@ In this article, you'll learn about the Events message structure, required and n
 ```json
 {
   "source": "/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/Microsoft.HealthcareApis/workspaces/{workspace-name}",
-  "subject": "{dicom-account}.dicom.azurehealthcareapis.com/v1/studies/1.2.3.4.3/series/1.2.3.4.3.9423673/instances/1.3.6.1.4.1.45096.2.296485376.2210.1633373143.864442",
+  "subject": "{dicom-account}.dicom.azurehealthcareapis.com/v1/partitions/Microsoft.Default/studies/1.2.3.4.3/series/1.2.3.4.3.9423673/instances/1.3.6.1.4.1.45096.2.296485376.2210.1633373143.864442",
   "type": "Microsoft.HealthcareApis.DicomImageCreated",
   "time": "2022-09-15T01:14:04.5613214Z",
   "id": "d621839d-958b-4142-a638-bb966b4f7dfd",
   "data": {
+    "partitionName": "Microsoft.Default",
     "imageStudyInstanceUid": "1.2.3.4.3",
     "imageSeriesInstanceUid": "1.2.3.4.3.9423673",
     "imageSopInstanceUid": "1.3.6.1.4.1.45096.2.296485376.2210.1633373143.864442",
@@ -245,8 +250,9 @@ In this article, you'll learn about the Events message structure, required and n
 {
   "id": "eac1c1a0-ffa8-4b28-97cc-1d8b9a0a6021",
   "topic": "/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/Microsoft.HealthcareApis/workspaces/{workspace-name}",
-  "subject": "{dicom-account}.dicom.azurehealthcareapis.com/v1/studies/1.2.3.4.3/series/1.2.3.4.3.9423673/instances/1.3.6.1.4.1.45096.2.296485376.2210.1633373143.864442",
+  "subject": "{dicom-account}.dicom.azurehealthcareapis.com/v1/partitions/Microsoft.Default/studies/1.2.3.4.3/series/1.2.3.4.3.9423673/instances/1.3.6.1.4.1.45096.2.296485376.2210.1633373143.864442",
   "data": {
+    "partitionName": "Microsoft.Default",
     "imageStudyInstanceUid": "1.2.3.4.3",
     "imageSeriesInstanceUid": "1.2.3.4.3.9423673",
     "imageSopInstanceUid": "1.3.6.1.4.1.45096.2.296485376.2210.1633373143.864442",
@@ -264,11 +270,12 @@ In this article, you'll learn about the Events message structure, required and n
 ```json
 {
   "source": "/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/Microsoft.HealthcareApis/workspaces/{workspace-name}",
-  "subject": "{dicom-account}.dicom.azurehealthcareapis.com/v1/studies/1.2.3.4.3/series/1.2.3.4.3.9423673/instances/1.3.6.1.4.1.45096.2.296485376.2210.1633373143.864442",
+  "subject": "{dicom-account}.dicom.azurehealthcareapis.com/v1/partitions/Microsoft.Default/studies/1.2.3.4.3/series/1.2.3.4.3.9423673/instances/1.3.6.1.4.1.45096.2.296485376.2210.1633373143.864442",
   "type": "Microsoft.HealthcareApis.DicomImageDeleted",
   "time": "2022-09-15T01:14:04.5613214Z",
   "id": "eac1c1a0-ffa8-4b28-97cc-1d8b9a0a6021",
   "data": {
+    "partitionName": "Microsoft.Default",
     "imageStudyInstanceUid": "1.2.3.4.3",
     "imageSeriesInstanceUid": "1.2.3.4.3.9423673",
     "imageSopInstanceUid": "1.3.6.1.4.1.45096.2.296485376.2210.1633373143.864442",
@@ -276,6 +283,49 @@ In this article, you'll learn about the Events message structure, required and n
     "sequenceNumber": 2
   },
   "specVersion": "1.0"
+}
+```
+---
+### DicomImageUpdated
+
+# [Event Grid event schema](#tab/event-grid-event-schema)
+
+```json
+{
+  "id": "83cb0f51-af41-e58c-3c6c-46344b349bc5",
+  "topic": "/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/Microsoft.HealthcareApis/workspaces/{workspace-name}",
+  "subject": "{dicom-account}.dicom.azurehealthcareapis.com/v1/partitions/Microsoft.Default/studies/1.2.3.4.3/series/1.2.3.4.3.9423673/instances/1.3.6.1.4.1.45096.2.296485376.2210.1633373143.864442",
+  "data": {
+    "partitionName": "Microsoft.Default",
+    "imageStudyInstanceUid": "1.2.3.4.3",
+    "imageSeriesInstanceUid": "1.2.3.4.3.9423673",
+    "imageSopInstanceUid": "1.3.6.1.4.1.45096.2.296485376.2210.1633373143.864442",
+    "serviceHostName": "{dicom-account}.dicom.azurehealthcareapis.com",
+    "sequenceNumber": 2
+  },
+  "eventType": "Microsoft.HealthcareApis.DicomImageUpdated",
+  "dataVersion": "1",
+  "metadataVersion": "1",
+  "eventTime": "2023-06-09T16:55:44.7197137Z"
+}
+```
+# [CloudEvent schema](#tab/cloud-event-schema)
+```json
+{
+  "source": "/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/Microsoft.HealthcareApis/workspaces/{workspace-name}",
+  "subject": "{dicom-account}.dicom.azurehealthcareapis.com/v1/partitions/Microsoft.Default/studies/1.2.3.4.3/series/1.2.3.4.3.9423673/instances/1.3.6.1.4.1.45096.2.296485376.2210.1633373143.864442",
+  "type": "Microsoft.HealthcareApis.DicomImageUpdated",
+  "time": "2022-09-15T01:14:04.5613214Z",
+  "id": "7e8aca04-e815-4387-82a8-9fcf15a3114b",
+  "data": {
+    "partitionName": "Microsoft.Default",
+    "imageStudyInstanceUid": "1.2.3.4.3",
+    "imageSeriesInstanceUid": "1.2.3.4.3.9423673",
+    "imageSopInstanceUid": "1.3.6.1.4.1.45096.2.296485376.2210.1633373143.864442",
+    "serviceHostName": "{dicom-account}.dicom.azurehealthcareapis.com",
+    "sequenceNumber": 1
+  },
+  "specversion": "1.0"
 }
 ```
 ---

@@ -6,23 +6,58 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 02/13/2023
 ms.devlang: javascript
+ms.custom: devx-track-js
 ms.reviewer: mmcc
 ---
 
-# Feature extensions for the Application Insights JavaScript SDK (Click Analytics)
+# Enable Click Analytics Auto-Collection plug-in
 
 Application Insights JavaScript SDK feature extensions are extra features that can be added to the Application Insights JavaScript SDK to enhance its functionality.
 
 In this article, we cover the Click Analytics plug-in, which automatically tracks click events on webpages and uses `data-*` attributes or customized tags on HTML elements to populate event telemetry.
 
+> [!IMPORTANT]
+> If you haven't already, you need to first [enable Azure Monitor Application Insights Real User Monitoring](./javascript-sdk.md) before you enable the Click Analytics plug-in.
 
-## Get started
+## What data does the plug-in collect?
 
-Users can set up the Click Analytics Auto-Collection plug-in via SDK Loader Script or NPM.
+The following key properties are captured by default when the plug-in is enabled.
+
+### Custom event properties
+
+| Name                  | Description                            | Sample          |
+| --------------------- | ---------------------------------------|-----------------|
+| Name                  | The name of the custom event. For more information on how a name gets populated, see [Name column](#name).| About              |
+| itemType              | Type of event.                                      | customEvent      |
+|sdkVersion             | Version of Application Insights SDK along with click plug-in.|JavaScript:2_ClickPlugin2|
+
+### Custom dimensions
+
+| Name                  | Description                            | Sample          |
+| --------------------- | ---------------------------------------|-----------------|
+| actionType            | Action type that caused the click event. It can be a left or right click. | CL              |
+| baseTypeSource        | Base Type source of the custom event.                                      | ClickEvent      |
+| clickCoordinates      | Coordinates where the click event is triggered.                            | 659X47          |
+| content               | Placeholder to store extra `data-*` attributes and values.            | [{sample1:value1, sample2:value2}] |
+| pageName              | Title of the page where the click event is triggered.                      | Sample Title    |
+| parentId              | ID or name of the parent element. For more information on how a parentId is populated, see [parentId key](#parentid-key).        | navbarContainer |
+
+### Custom measurements
+
+| Name                  | Description                            | Sample          |
+| --------------------- | ---------------------------------------|-----------------|
+| timeToAction          | Time taken in milliseconds for the user to click the element since the initial page load. | 87407              |
+
+
+## Add the Click Analytics plug-in
+
+Users can set up the Click Analytics Auto-Collection plug-in via JavaScript (Web) SDK Loader Script or npm and then optionally add a framework extension.
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-instrumentation-key-deprecation.md)]
 
-### SDK Loader Script setup
+### 1. Add the code
+
+#### [JavaScript (Web) SDK Loader Script](#tab/javascriptwebsdkloaderscript)
 
 Ignore this setup if you use the npm setup.
 
@@ -50,8 +85,8 @@ Ignore this setup if you use the npm setup.
       [clickPluginInstance.identifier] : clickPluginConfig
     },
   };
-  // Application Insights SDK Loader Script code
-  !function(v,y,T){<!-- Removed the SDK Loader Script code for brevity -->}(window,document,{
+  // Application Insights JavaScript (Web) SDK Loader Script code
+  !function(v,y,T){<!-- Removed the JavaScript (Web) SDK Loader Script code for brevity -->}(window,document,{
     src: "https://js.monitor.azure.com/scripts/b/ai.2.min.js",
     crossOrigin: "anonymous",
     cfg: configObj // configObj is defined above.
@@ -60,9 +95,9 @@ Ignore this setup if you use the npm setup.
 ```
 
 > [!NOTE]
-> To add or update SDK Loader Script configuration, see [SDK Loader Script configuration](./javascript-sdk.md?tabs=sdkloaderscript#sdk-loader-script-configuration).
+> To add or update JavaScript (Web) SDK Loader Script configuration, see [JavaScript (Web) SDK Loader Script configuration](./javascript-sdk.md?tabs=javascriptwebsdkloaderscript#javascript-web-sdk-loader-script-configuration).
 
-### npm setup
+#### [npm package](#tab/npmpackage)
 
 Install the npm package:
 
@@ -96,9 +131,112 @@ const appInsights = new ApplicationInsights({ config: configObj });
 appInsights.loadAppInsights();
 ```
 
-## Set the authenticated user context
+---
 
-If you need to set this optional setting, see [Set the authenticated user context](https://github.com/microsoft/ApplicationInsights-JS/blob/master/API-reference.md#setauthenticatedusercontext). This setting isn't required to use Click Analytics.
+### 2. (Optional) Add a framework extension
+
+Add a framework extension, if needed.
+
+#### [React](#tab/react)
+
+```javascript
+import React from 'react';
+import { ApplicationInsights } from '@microsoft/applicationinsights-web';
+import { ReactPlugin } from '@microsoft/applicationinsights-react-js';
+
+var browserHistory = createBrowserHistory({ basename: '' });
+var reactPlugin = new ReactPlugin();
+var clickPluginInstance = new ClickAnalyticsPlugin();
+var clickPluginConfig = {
+  autoCapture: true
+};
+var appInsights = new ApplicationInsights({
+    config: {
+        connectionString: 'YOUR_CONNECTION_STRING_GOES_HERE',
+        extensions: [reactPlugin, clickPluginInstance],
+        extensionConfig: {
+          [reactPlugin.identifier]: { history: browserHistory },
+          [clickPluginInstance.identifier]: clickPluginConfig
+        }
+    }
+});
+appInsights.loadAppInsights();
+```
+
+> [!NOTE] 
+> To add React configuration, see [React configuration](./javascript-framework-extensions.md?tabs=react#add-configuration). For more information on the React plug-in, see [React plug-in](./javascript-framework-extensions.md?tabs=react).
+
+#### [React Native](#tab/reactnative)
+
+```typescript
+import { ApplicationInsights } from '@microsoft/applicationinsights-web';
+import { ReactNativePlugin } from '@microsoft/applicationinsights-react-native';
+import { ClickAnalyticsPlugin } from '@microsoft/applicationinsights-clickanalytics-js';
+
+var clickPluginInstance = new ClickAnalyticsPlugin();
+var clickPluginConfig = {
+  autoCapture: true
+};
+var RNPlugin = new ReactNativePlugin();
+var appInsights = new ApplicationInsights({
+    config: {
+       connectionString: 'YOUR_CONNECTION_STRING_GOES_HERE',
+        extensions: [RNPlugin,  clickPluginInstance],
+        extensionConfig: {
+                  [clickPluginInstance.identifier]: clickPluginConfig
+         }
+    }
+});
+appInsights.loadAppInsights();
+```
+
+> [!NOTE] 
+> For more information on the React Native plug-in, see [React Native plug-in](./javascript-framework-extensions.md?tabs=reactnative).
+
+#### [Angular](#tab/angular)
+
+```javascript
+import { ApplicationInsights } from '@microsoft/applicationinsights-web';
+import { AngularPlugin } from '@microsoft/applicationinsights-angularplugin-js';
+import { ClickAnalyticsPlugin } from '@microsoft/applicationinsights-clickanalytics-js';
+import { Component } from '@angular/core';
+import { Router } from '@angular/router';
+
+@Component({
+  selector: 'app-root',
+  templateUrl: './app.component.html',
+  styleUrls: ['./app.component.css']
+})
+export class AppComponent {
+    constructor(
+        private router: Router
+    ){
+        var angularPlugin = new AngularPlugin();
+        var clickPluginInstance = new ClickAnalyticsPlugin();
+        var clickPluginConfig = {
+          autoCapture: true
+        };
+        const appInsights = new ApplicationInsights({ config: {
+        connectionString: 'YOUR_CONNECTION_STRING_GOES_HERE',
+        extensions: [angularPlugin, clickPluginInstance],
+        extensionConfig: {
+            [angularPlugin.identifier]: { router: this.router },
+              [clickPluginInstance.identifier]: clickPluginConfig
+        }
+        } });
+        appInsights.loadAppInsights();
+    }
+}
+```
+
+> [!NOTE] 
+> For more information on the Angular plug-in, see [Angular plug-in](./javascript-framework-extensions.md?tabs=angular).
+
+---
+
+### 3. (Optional) Set the authenticated user context
+
+If you need to set this optional setting, see [Set the authenticated user context](https://github.com/microsoft/ApplicationInsights-JS/blob/master/API-reference.md#setauthenticatedusercontext). This setting isn't required to use the Click Analytics plug-in.
 
 ## Use the plug-in
 
@@ -143,7 +281,7 @@ If you declare `parentDataTag` and define the `data-parentid` or `data-*-parenti
 > Once `parentDataTag` is included in *any* HTML element across your application *the SDK begins looking for parents tags across your entire application* and not just the HTML element where you used it.
 
 > [!CAUTION]
-> If you're using the HEART workbook with the Click Analytics plugin, for HEART events to be logged or detected, the tag `parentDataTag` must be declared in all other parts of an end user's application.
+> If you're using the HEART workbook with the Click Analytics plug-in, for HEART events to be logged or detected, the tag `parentDataTag` must be declared in all other parts of an end user's application.
 
 ### `customDataPrefix`
 
@@ -160,36 +298,7 @@ You can replace the asterisk (`*`) in `data-*` with any name following the [prod
 - The name must not contain a semicolon (U+003A).
 - The name must not contain capital letters.
 
-## What data does the plug-in collect?
-
-The following key properties are captured by default when the plug-in is enabled.
-
-### Custom event properties
-
-| Name                  | Description                            | Sample          |
-| --------------------- | ---------------------------------------|-----------------|
-| Name                  | The name of the custom event. For more information on how a name gets populated, see [Name column](#name).| About              |
-| itemType              | Type of event.                                      | customEvent      |
-|sdkVersion             | Version of Application Insights SDK along with click plug-in.|JavaScript:2.6.2_ClickPlugin2.6.2|
-
-### Custom dimensions
-
-| Name                  | Description                            | Sample          |
-| --------------------- | ---------------------------------------|-----------------|
-| actionType            | Action type that caused the click event. It can be a left or right click. | CL              |
-| baseTypeSource        | Base Type source of the custom event.                                      | ClickEvent      |
-| clickCoordinates      | Coordinates where the click event is triggered.                            | 659X47          |
-| content               | Placeholder to store extra `data-*` attributes and values.            | [{sample1:value1, sample2:value2}] |
-| pageName              | Title of the page where the click event is triggered.                      | Sample Title    |
-| parentId              | ID or name of the parent element. For more information on how a parentId is populated, see [parentId key](#parentid-key).        | navbarContainer |
-
-### Custom measurements
-
-| Name                  | Description                            | Sample          |
-| --------------------- | ---------------------------------------|-----------------|
-| timeToAction          | Time taken in milliseconds for the user to click the element since the initial page load. | 87407              |
-
-## Advanced configuration
+## Add advanced configuration
 
 | Name                  | Type                               | Default | Description                                                                                                                              |
 | --------------------- | -----------------------------------| --------| ---------------------------------------------------------------------------------------------------------------------------------------- |
@@ -433,7 +542,7 @@ appInsights.loadAppInsights();
 
 ## Sample app
 
-[Simple web app with the Click Analytics Autocollection Plug-in enabled](https://go.microsoft.com/fwlink/?linkid=2152871)
+See a [simple web app with the Click Analytics Autocollection Plug-in enabled](https://go.microsoft.com/fwlink/?linkid=2152871) for how to implement custom event properties such as `Name` and `parentid` and custom behavior and content. See the [sample app readme](https://github.com/Azure-Samples/Application-Insights-Click-Plugin-Demo/blob/main/README.md) for information about where to find click data.
 
 ## Examples of `parentId` key
 
@@ -487,7 +596,7 @@ For example 2, for clicked element `<Button>`, the value of `parentId` is `paren
 > [!NOTE] 
 > If the `data-parentid` attribute was defined within the div element with `className=”test2”`, the value for `parentId` would still be `parentid2`.
        
-## Example 3 
+### Example 3 
 
 ```javascript
 export const clickPluginConfigWithParentDataTag = {
@@ -519,10 +628,10 @@ See the dedicated [troubleshooting article](/troubleshoot/azure/azure-monitor/ap
 
 ## Next steps
 
+- [Confirm data is flowing](./javascript-sdk.md#5-confirm-data-is-flowing).
 - See the [documentation on utilizing HEART workbook](usage-heart.md) for expanded product analytics.
 - See the [GitHub repository](https://github.com/microsoft/ApplicationInsights-JS/tree/master/extensions/applicationinsights-clickanalytics-js) and [npm Package](https://www.npmjs.com/package/@microsoft/applicationinsights-clickanalytics-js) for the Click Analytics Autocollection Plug-in.
 - Use [Events Analysis in the Usage experience](usage-segmentation.md) to analyze top clicks and slice by available dimensions.
 - Use the [Telemetry Viewer extension](https://github.com/microsoft/ApplicationInsights-JS/tree/master/tools/chrome-debug-extension) to list out the individual events in the network payload and monitor the internal calls within Application Insights.
-- See a [sample app](https://go.microsoft.com/fwlink/?linkid=2152871) for how to implement custom event properties such as Name and parentid and custom behavior and content.
-- See the [sample app readme](https://github.com/Azure-Samples/Application-Insights-Click-Plugin-Demo/blob/main/README.md) for where to find click data and [Log Analytics](../logs/log-analytics-tutorial.md#write-a-query) if you aren’t familiar with the process of writing a query. 
+- See [Log Analytics](../logs/log-analytics-tutorial.md#write-a-query) if you aren’t familiar with the process of writing a query. 
 - Build a [workbook](../visualize/workbooks-overview.md) or [export to Power BI](../logs/log-powerbi.md) to create custom visualizations of click data.

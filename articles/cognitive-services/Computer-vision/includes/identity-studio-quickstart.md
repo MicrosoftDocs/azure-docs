@@ -20,8 +20,7 @@ Use Vision Studio to identify a face. This is a streamlined version of the face 
 * Sign in to [Vision Studio](https://portal.vision.cognitive.azure.com/) with your Azure subscription and Cognitive Services resource. See the [Get started section](../overview-vision-studio.md#get-started-using-vision-studio) of the overview if you need help with this step.
 * You'll need at least three images of a person's face: two or more to train the model and one to test it.
 
-> [!div class="nextstepaction"]
-> <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Vision-studio&Pillar=Vision&Product=Face&Page=quickstart&Section=Prerequisites" target="_target">I ran into an issue</a>
+
 
 ## Identify faces
 
@@ -32,8 +31,7 @@ Use Vision Studio to identify a face. This is a streamlined version of the face 
 1. See the **Detected attributes** pane for the match results and confidence scores.
 1. Below the try-it-out experience are next steps to start using this capability in your own application.
 
-> [!div class="nextstepaction"]
-> <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Vision-studio&Pillar=Vision&Product=Face&Page=quickstart&Section=Identify-faces" target="_target">I ran into an issue</a>
+
 
 ## Next steps
 

@@ -14,8 +14,6 @@ ms.subservice: calling
 ---
 # Call Recording overview
 
-[!INCLUDE [Public Preview](../../includes/public-preview-include-document.md)]
-
 > [!NOTE]
 >  Call Recording is not enabled for [Teams interoperability](../teams-interop.md).
 
@@ -147,13 +145,10 @@ Many countries/regions and states have laws and regulations that apply to call r
 
 Regulations around the maintenance of personal data require the ability to export user data. In order to support these requirements, recording metadata files include the participantId for each call participant in the `participants` array. You can cross-reference the MRIs in the `participants` array with your internal user identities to identify participants in a call. 
 
-## Known Issues
-
-It's possible that when a call is created using Call Automation, you won't get a value in the `serverCallId`. If that's the case, get the `serverCallId` from the `CallConnected` event method described in [Get serverCallId](../../quickstarts/call-automation/callflows-for-customer-interactions.md).
-
 ## Next steps
 For more information, see the following articles:
 
 - Learn more about Call recording, check out the [Call Recording Quickstart](../../quickstarts/voice-video-calling/get-started-call-recording.md).
+- Learn more about call recording [Insights](../analytics/insights/call-recording-insights.md) and [Logs](../analytics/logs/recording-logs.md)
 - Learn more about [Call Automation](../../quickstarts/call-automation/callflows-for-customer-interactions.md).
 - Learn more about [Video Calling](../../quickstarts/voice-video-calling/get-started-with-video-calling.md).

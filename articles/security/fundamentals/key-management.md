@@ -9,7 +9,7 @@ ms.topic: article
 ms.date: 02/28/2023
 ms.author: mbaldwin
 ms.collection:
-  - zerotrust-services
+  - zerotrust-extra
 ---
 
 # Key management in Azure

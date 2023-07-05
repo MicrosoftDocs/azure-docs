@@ -5,7 +5,7 @@ services: expressroute
 author: duongau
 ms.service: expressroute
 ms.topic: how-to
-ms.date: 1/25/2022
+ms.date: 06/01/2023
 ms.author: duau
 ---
 
@@ -39,8 +39,8 @@ BGP communities are groupings of IP prefixes tagged with a community value. This
     :::image type="content" source="./media/how-to-configure-custom-bgp-communities-portal/bgp-community-value.png" alt-text="Screenshot of the BGP community string page.":::
 
 > [!IMPORTANT]
->  If your existing virtual network is already connected to an ExpressRoute circuit, you'll need to delete and recreate the ExpressRoute connection after applying the custom BGP community value. See [link a virtual network to an ExpressRoute circuit](expressroute-howto-linkvnet-arm.md), to learn how.
->
+> * If your existing virtual network is already connected to an ExpressRoute circuit, you'll need to delete and recreate the ExpressRoute connection after applying the custom BGP community value. See [link a virtual network to an ExpressRoute circuit](expressroute-howto-linkvnet-arm.md), to learn how.
+> * If your virtual network is peered with other virtual networks, you'll need to delete all peerings before applying the custom BGP community value. Then re-create the peerings. See [Connect virtual networks with virtual network peering](../virtual-network/tutorial-connect-virtual-networks-portal.md), to learn how. 
 
 ## Next steps
 

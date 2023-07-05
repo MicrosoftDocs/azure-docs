@@ -4,14 +4,14 @@ description: Learn how just-in-time VM access (JIT) in Microsoft Defender for Cl
 ms.topic: how-to
 author: dcurwin
 ms.author: dacurwin
-ms.date: 12/11/2022
+ms.date: 06/14/2023
 ---
 
 # Secure your management ports with just-in-time access
 
 You can use Microsoft Defender for Cloud's just-in-time (JIT) access to protect your Azure virtual machines (VMs) from unauthorized network access. Many times firewalls contain allow rules that leave your VMs vulnerable to attack. JIT lets you allow access to your VMs only when the access is needed, on the ports needed, and for the period of time needed.
 
-Learn more about [how JIT works](just-in-time-access-overview.md) and the [permissions required to configure and use JIT](just-in-time-access-overview.md#what-permissions-are-needed-to-configure-and-use-jit).
+Learn more about [how JIT works](just-in-time-access-overview.md) and the [permissions required to configure and use JIT](#prerequisites).
 
 In this article, you'll learn you how to include JIT in your security program, including how to:
 
@@ -25,8 +25,30 @@ In this article, you'll learn you how to include JIT in your security program, i
 |--|:-|
 | Release state: | General availability (GA) |
 | Supported VMs: | :::image type="icon" source="./media/icons/yes-icon.png"::: VMs deployed through Azure Resource Manager<br>:::image type="icon" source="./media/icons/no-icon.png"::: VMs deployed with [classic deployment models](../azure-resource-manager/management/deployment-models.md)<br>:::image type="icon" source="./media/icons/yes-icon.png"::: VMs protected by Azure Firewalls on the same VNET as the VM<br>:::image type="icon" source="./media/icons/no-icon.png"::: VMs protected by Azure Firewalls controlled by [Azure Firewall Manager](../firewall-manager/overview.md)<br> :::image type="icon" source="./media/icons/yes-icon.png"::: AWS EC2 instances (Preview) |
-| Required roles and permissions: | **Reader**, **SecurityReader**, or a [custom role](just-in-time-access-overview.md#what-permissions-are-needed-to-configure-and-use-jit) can view the JIT status and parameters.<br>To create a least-privileged role for users that only need to request JIT access to a VM, use the [Set-JitLeastPrivilegedRole script](https://github.com/Azure/Microsoft-Defender-for-Cloud/tree/main/Powershell%20scripts/JIT%20Scripts/JIT%20Custom%20Role). |
+| Required roles and permissions: | **Reader**, **SecurityReader**, or a [custom role](#prerequisites) can view the JIT status and parameters.<br>To create a least-privileged role for users that only need to request JIT access to a VM, use the [Set-JitLeastPrivilegedRole script](https://github.com/Azure/Microsoft-Defender-for-Cloud/tree/main/Powershell%20scripts/JIT%20Scripts/JIT%20Custom%20Role). |
 | Clouds: | :::image type="icon" source="./media/icons/yes-icon.png"::: Commercial clouds<br>:::image type="icon" source="./media/icons/yes-icon.png"::: National (Azure Government, Azure China 21Vianet)<br>:::image type="icon" source="./media/icons/yes-icon.png"::: Connected AWS accounts (preview) |
+
+## Prerequisites
+
+- JIT Requires [Microsoft Defender for Servers Plan 2](plan-defender-for-servers-select-plan.md#plan-features) to be enabled on the subscription. 
+
+- **Reader** and **SecurityReader** roles can both view the JIT status and parameters.
+
+- If you want to create custom roles that can work with JIT, you'll need the details from the following table:
+
+    | To enable a user to: | Permissions to set|
+    | --- | --- |
+    |Configure or edit a JIT policy for a VM | *Assign these actions to the role:*  <ul><li>On the scope of a subscription or resource group that is associated with the VM:<br/> `Microsoft.Security/locations/jitNetworkAccessPolicies/write` </li><li> On the scope of a subscription or resource group of VM: <br/>`Microsoft.Compute/virtualMachines/write`</li></ul> | 
+    |Request JIT access to a VM | *Assign these actions to the user:*  <ul><li> `Microsoft.Security/locations/jitNetworkAccessPolicies/initiate/action` </li><li> `Microsoft.Security/locations/jitNetworkAccessPolicies/*/read` </li><li> `Microsoft.Compute/virtualMachines/read` </li><li> `Microsoft.Network/networkInterfaces/*/read` </li> <li> `Microsoft.Network/publicIPAddresses/read` </li></ul> |
+    |Read JIT policies| *Assign these actions to the user:*  <ul><li>`Microsoft.Security/locations/jitNetworkAccessPolicies/read`</li><li>`Microsoft.Security/locations/jitNetworkAccessPolicies/initiate/action`</li><li>`Microsoft.Security/policies/read`</li><li>`Microsoft.Security/pricings/read`</li><li>`Microsoft.Compute/virtualMachines/read`</li><li>`Microsoft.Network/*/read`</li>|
+
+    > [!NOTE]
+    > Only the `Microsoft.Security` permissions are relevant for AWS.
+
+- To set up JIT on your Amazon Web Service (AWS) VM, you will need to [connect your AWS account](quickstart-onboard-aws.md) to Microsoft Defender for Cloud.
+
+    > [!TIP]
+    > To create a least-privileged role for users that need to request JIT access to a VM, and perform no other JIT operations, use the [Set-JitLeastPrivilegedRole script](https://github.com/Azure/Azure-Security-Center/tree/main/Powershell%20scripts/JIT%20Scripts/JIT%20Custom%20Role) from the Defender for Cloud GitHub community pages. 
 
 ## Work with JIT VM access using Microsoft Defender for Cloud
 

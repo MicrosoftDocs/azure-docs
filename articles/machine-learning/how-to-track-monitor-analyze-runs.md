@@ -10,7 +10,7 @@ author: amibp
 ms.reviewer: sgilley
 ms.date: 06/24/2022
 ms.topic: how-to
-ms.custom: devx-track-python, event-tier1-build-2022, build-2023
+ms.custom: event-tier1-build-2022, build-2023
 ---
 
 # Monitor and analyze jobs in studio

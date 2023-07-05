@@ -1,0 +1,47 @@
+### YamlMime:Landing
+
+title: FinOps
+summary: FinOps combines financial management principles with cloud engineering and operations to provide organizations with a better understanding of their cloud spending and to help them make informed decisions on how to allocate and manage their cloud costs.
+metadata:
+  title: FinOps documentation
+  description: FinOps combines financial management principles with cloud engineering and operations to provide organizations with a better understanding of their cloud spending and to help them make informed decisions on how to allocate and manage their cloud costs.
+  ms.service: cost-management-billing
+  ms.subservice: common
+  ms.topic: landing-page
+  ms.collection: collection
+  author: bandersmsft
+  ms.author: banders
+  ms.date: 06/21/2023
+
+# linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new
+
+landingContent:
+# Cards and links should be based on top customer tasks or top subjects
+# Start card title with a verb
+  # Card (optional)
+
+  - title: Get started
+    linkLists:
+    - linkListType: overview
+      links:
+      - text: What is FinOps?
+        url: overview-finops.md
+    - linkListType: tutorial
+      links:
+      - text: Conduct a FinOps iteration
+        url: conduct-finops-iteration.md
+
+# Card (optional)
+
+  - title: Resources
+    linkLists:
+    - linkListType: reference
+      links:
+      - text: FinOps with Azure e-book
+        url: https://aka.ms/finops/ebook
+      - text: FinOps Foundation
+        url: https://finops.org/
+    - linkListType: video
+      links:
+      - text: FinOps The operating model for the cloud
+        url: https://www.youtube.com/watch?v=VDrcgEne6lU

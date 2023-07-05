@@ -5,7 +5,7 @@ author: htaubenfeld
 ms.author: htaubenfeld
 ms.service: microsoft-linux
 ms.topic: overview
-ms.date: 05/24/2023
+ms.date: 06/01/2023
 ---
 
 # What is the Azure Linux Container Host for AKS?
@@ -21,17 +21,15 @@ To learn more about Azure Linux, see the [Azure Linux GitHub repository](https:/
 The Azure Linux Container Host offers the following key benefits:
 
 - **Secure supply chain**: Microsoft builds, signs, and validates the Azure Linux Container Host packages from source, and hosts its packages and sources in Microsoft-owned and secured platforms.
-- **Small and lightweight**: The Azure Linux Container Host only includes the necessary set of packages needed to run container workloads - as a result, it consumes limited disk and memory resources.
+- **Small and lightweight**: The Azure Linux Container Host only includes the necessary set of packages needed to run container workloads. As a result, it consumes limited disk and memory resources.
 - **Secure by default**: The Azure Linux Container Host has an emphasis on security and follows the secure-by-default principles, including using a hardened Linux kernel with Azure cloud optimizations and flags tuned for Azure. It also provides a reduced attack surface and eliminates patching and maintenance of unnecessary packages. For more information on Azure Linux Container Host security principles, see the [AKS security concepts](../../articles/aks/concepts-security.md).
 - **Extensively validated**: The AKS and Azure Linux teams run a suite of functional and performance regression tests with the Azure Linux Container Host before releasing to customers, which enables earlier issue detection and mitigation.​
 
-## Limitations
-
-The Azure Linux Container Host has the following limitation:
-
-- The Azure Linux Container Host supports the NCv3 series and NCasT4_v3 series VM sizes. The NC A100 v4 series is currently not supported.
-
-If there are areas you would like to have priority, please file an issue in the [AKS GitHub repository](https://github.com/Azure/AKS/issues).
+> [!NOTE]
+>
+> For GPU workloads, Azure Linux doesn't support NC A100 v4 series. All other VM SKUs that are available on AKS are available with Azure Linux.
+>
+> If there are any areas you would like to have priority, please file an issue in the [AKS GitHub repository](https://github.com/Azure/AKS/issues).
 
 ## Next steps
 

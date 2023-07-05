@@ -5,8 +5,7 @@ description: Learn how managed identities work in Azure App Service and Azure Fu
 ms.topic: article
 ms.date: 01/27/2022
 ms.reviewer: yevbronsh,mahender
-ms.custom: "devx-track-csharp, devx-track-python, devx-track-azurepowershell, devx-track-azurecli"
-
+ms.custom: devx-track-csharp, devx-track-azurepowershell, devx-track-azurecli
 ---
 
 # How to use managed identities for App Service and Azure Functions
@@ -21,6 +20,8 @@ This article shows you how to create a managed identity for App Service and Azur
 
 [!INCLUDE [app-service-managed-identities](../../includes/app-service-managed-identities.md)]
 
+The managed identity configuration is specific to the slot. To configure a managed identity for a deployment slot in the portal, navigate to the slot first. To find the managed identity for your web app or deployment slot in your Azure Active Directory tenant from the Azure portal, search for it directly from the **Overview** page of your tenant. Usually, the slot name is similar to `<app name>/slots/<slot name>`.
+
 ## Add a system-assigned identity
 
 # [Azure portal](#tab/portal)
@@ -32,11 +33,6 @@ This article shows you how to create a managed identity for App Service and Azur
 1. Within the **System assigned** tab, switch **Status** to **On**. Click **Save**.
 
     ![Screenshot that shows where to switch Status to On and then select Save.](media/app-service-managed-service-identity/system-assigned-managed-identity-in-azure-portal.png)
-
-
-> [!NOTE] 
-> To find the managed identity for your web app or slot app in the Azure portal, under **Enterprise applications**, look in the **User settings** section. Usually, the slot name is similar to `<app name>/slots/<slot name>`.
-
 
 # [Azure CLI](#tab/cli)
 

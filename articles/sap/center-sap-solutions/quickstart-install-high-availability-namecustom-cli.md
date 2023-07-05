@@ -53,7 +53,7 @@ After you [deploy infrastructure](deploy-s4hana.md) and install SAP software wit
     - As you are deploying an HA system, you need to provide the High Availability software configuration with the following two inputs:
         - Fencing Client ID: The client identifier for the STONITH Fencing Agent service principal
         - Fencing Client Password: The password for the Fencing Agent service principal
-- You can use the [sample software installation payload file](https://github.com/Azure/Azure-Center-for-SAP-solutions-preview/blob/main/Payload_Samples/CreatePayload_withTransportDirectory_withHAAvSet_withCustomResourceName.json)
+- You can use the [sample software installation payload file](https://github.com/Azure/Azure-Center-for-SAP-solutions-preview/blob/main/Payload_Samples/InstallPayload_withTransport_withHAAvSet_withCustomResourceName.json)
 
 ## Install SAP software 
 Use [az workloads sap-virtual-instance create](/cli/azure/workloads/sap-virtual-instance?view=azure-cli-latest#az-workloads-sap-virtual-instance-create&preserve-view=true) to install SAP software

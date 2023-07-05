@@ -6,7 +6,7 @@ ms.suite: integration
 ms.reviewer: deli, estfan, azla
 ms.topic: how-to
 ms.date: 10/01/2022
-ms.custom: devx-track-js
+ms.custom:
 ---
 
 # Run code snippets in workflows with Inline Code operations in Azure Logic Apps

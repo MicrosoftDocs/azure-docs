@@ -7,6 +7,7 @@ manager: amycolannino
 ms.service: active-directory
 ms.subservice: app-proxy
 ms.workload: identity
+ms.custom: devx-track-dotnet
 ms.topic: how-to
 ms.date: 11/17/2022
 ms.author: kenwith

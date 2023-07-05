@@ -112,7 +112,7 @@ Check out more code samples:
 > [Code sample page](https://aka.ms/AzureMapsSamples)
 
 [Azure Maps Samples]:https://samples.azuremaps.com
-[Drawing tool events]: https://samples.azuremaps.com/?search=Drawing%20tool&sample=drawing-tools-events
-[Select data in drawn polygon area]:https://samples.azuremaps.com/?search=Drawing%20tool&sample=select-data-in-drawn-polygon-area
-[Draw and search polygon area]: https://samples.azuremaps.com/?search=Drawing%20tool&sample=draw-and-search-polygon-area
-[Create a measuring tool]: https://samples.azuremaps.com/?search=Drawing%20tool&sample=create-a-measuring-tool
+[Drawing tool events]: https://samples.azuremaps.com/drawing-tools-module/drawing-tools-events
+[Select data in drawn polygon area]: https://samples.azuremaps.com/drawing-tools-module/select-data-in-drawn-polygon-area
+[Draw and search polygon area]: https://samples.azuremaps.com/drawing-tools-module/draw-and-search-polygon-area
+[Create a measuring tool]: https://samples.azuremaps.com/drawing-tools-module/create-a-measuring-tool

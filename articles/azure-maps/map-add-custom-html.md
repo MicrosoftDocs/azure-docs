@@ -242,13 +242,13 @@ For more code examples to add to your maps, see the following articles:
 > [!div class="nextstepaction"]
 > [Add a bubble layer]
 
-[Simple HTML Marker]: https://samples.azuremaps.com/?search=HTML%20marker&sample=simple-html-marker
+[Simple HTML Marker]: https://samples.azuremaps.com/html-markers/simple-html-marker
 [Azure Maps Samples]: https://samples.azuremaps.com/
-[HTML Marker with Custom SVG Template]: https://samples.azuremaps.com/?search=HTML%20marker&sample=html-marker-with-custom-svg-template
+[HTML Marker with Custom SVG Template]: https://samples.azuremaps.com/html-markers/html-marker-with-custom-svg-template
 [How to use image templates]: how-to-use-image-templates-web-sdk.md
-[CSS Styled HTML Marker]: https://samples.azuremaps.com/?search=HTML%20marker&sample=css-styled-html-marker
-[Draggable HTML Marker]: https://samples.azuremaps.com/?search=HTML%20marker&sample=draggable-html-marker
-[HTML Marker events]: https://samples.azuremaps.com/?search=HTML%20marker&sample=html-marker-events
+[CSS Styled HTML Marker]: https://samples.azuremaps.com/html-markers/css-styled-html-marker
+[Draggable HTML Marker]: https://samples.azuremaps.com/html-markers/draggable-html-marker
+[HTML Marker events]: https://samples.azuremaps.com/html-markers/html-marker-events
 
 [HtmlMarker]: /javascript/api/azure-maps-control/atlas.htmlmarker
 [HtmlMarkerOptions]: /javascript/api/azure-maps-control/atlas.htmlmarkeroptions

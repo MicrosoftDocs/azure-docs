@@ -4,6 +4,7 @@ description: Send a portion of an apps traffic to different revisions in Azure C
 services: container-apps
 author: craigshoemaker
 ms.service: container-apps
+ms.custom: devx-track-azurecli
 ms.topic: how-to
 ms.date: 03/28/2023
 ms.author: cshoe

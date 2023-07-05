@@ -187,7 +187,7 @@ First you need to create the Azure NetApp Files volumes. Then do the following s
 
 1.	Create a resource group.
 2.	Create a virtual network.
-3.	Create an availability set. Set the max update domain.
+3.	Choose a [suitable deployment type](./sap-high-availability-architecture-scenarios.md#comparison-of-different-deployment-types-for-sap-workload) for SAP virtual machines. Typically a virtual machine scale set with flexible orchestration.
 4.	Create a load balancer (internal). We recommend standard load balancer.
 	Select the virtual network created in step 2.
 5.	Create Virtual Machine 1 (**hanadb1**). 

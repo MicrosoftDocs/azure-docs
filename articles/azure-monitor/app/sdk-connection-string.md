@@ -3,7 +3,7 @@ title: Connection strings in Application Insights | Microsoft Docs
 description: This article shows how to use connection strings.
 ms.topic: conceptual
 ms.date: 11/15/2022
-ms.custom: "devx-track-js, devx-track-csharp"
+ms.custom: devx-track-csharp
 ms.reviewer: cogoodson
 ---
 
@@ -19,7 +19,7 @@ Key-value pairs provide an easy way for users to define a prefix suffix combinat
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-instrumentation-key-deprecation.md)]
 
-Don't use a connection string and instrumentation key simultaneously. Whichever was set last will take precedence.
+ 
 
 ## Scenario overview
 
@@ -163,45 +163,45 @@ Connection string: `APPLICATIONINSIGHTS_CONNECTION_STRING`
 
 # [.NET 5.0+](#tab/dotnet5)
 
-1. Set the instrumentation key in the `appsettings.json` file:
+1. Set the connection string in the `appsettings.json` file:
 
     ```json
     {
       "ApplicationInsights": {
-        "InstrumentationKey" : "InstrumentationKey=00000000-0000-0000-0000-000000000000;"
+        "ConnectionString" : "InstrumentationKey=00000000-0000-0000-0000-000000000000;IngestionEndpoint=https://{region}.in.applicationinsights.azure.com/;LiveEndpoint=https://{region}.livediagnostics.monitor.azure.com/"
         }
     }
     ```
 
-2. Retrieve the instrumentation key in `Program.cs` when registering the `ApplicationInsightsTelemetry` service:
+2. Retrieve the connection string in `Program.cs` when registering the `ApplicationInsightsTelemetry` service:
 
     ```csharp
-    var options = new ApplicationInsightsServiceOptions { ConnectionString = app.Configuration["ApplicationInsights:InstrumentationKey"] };
+    var options = new ApplicationInsightsServiceOptions { ConnectionString = app.Configuration["ApplicationInsights:ConnectionString"] };
     builder.Services.AddApplicationInsightsTelemetry(options: options);
     ```
 
 > [!NOTE]
-> When deploying applications to Azure in production scenarios, consider placing instrumentation keys or other configuration secrets in secure locations such as App Service configuration settings or Azure Key Vault. Avoid including secrets in your application code or checking them into source control where they might be exposed or misused. The preceding code example will also work if the instrumentation key is stored in App Service configuration settings. Learn more about [configuring App Service settings](/azure/app-service/configure-common).
+> When deploying applications to Azure in production scenarios, consider placing connection strings or other configuration secrets in secure locations such as App Service configuration settings or Azure Key Vault. Avoid including secrets in your application code or checking them into source control where they might be exposed or misused. The preceding code example will also work if the connection string is stored in App Service configuration settings. Learn more about [configuring App Service settings](/azure/app-service/configure-common).
 
 # [.NET Framework](#tab/dotnet-framework)
 
 Set the property [TelemetryConfiguration.ConnectionString](https://github.com/microsoft/ApplicationInsights-dotnet/blob/add45ceed35a817dc7202ec07d3df1672d1f610d/BASE/src/Microsoft.ApplicationInsights/Extensibility/TelemetryConfiguration.cs#L271-L274) or [ApplicationInsightsServiceOptions.ConnectionString](https://github.com/microsoft/ApplicationInsights-dotnet/blob/81288f26921df1e8e713d31e7e9c2187ac9e6590/NETCORE/src/Shared/Extensions/ApplicationInsightsServiceOptions.cs#L66-L69).
 
-Explicitly set the instrumentation key in code:
+Explicitly set the connection string in code:
 
 ```csharp
 var configuration = new TelemetryConfiguration
 {
-    ConnectionString = "InstrumentationKey=00000000-0000-0000-0000-000000000000;"
+    ConnectionString = "InstrumentationKey=00000000-0000-0000-0000-000000000000;IngestionEndpoint=https://{region}.in.applicationinsights.azure.com/;LiveEndpoint=https://{region}.livediagnostics.monitor.azure.com/"
 };
 ```
 
-Set the instrumentation key using a configuration file:
+Set the connection string using a configuration file:
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
 <ApplicationInsights xmlns="http://schemas.microsoft.com/ApplicationInsights/2013/Settings">
-    <ConnectionString>InstrumentationKey=00000000-0000-0000-0000-000000000000</ConnectionString>
+    <ConnectionString>InstrumentationKey=00000000-0000-0000-0000-000000000000;IngestionEndpoint=https://{region}.in.applicationinsights.azure.com/;LiveEndpoint=https://{region}.livediagnostics.monitor.azure.com/</ConnectionString>
 </ApplicationInsights>
 ```
 
@@ -211,7 +211,7 @@ You can set the connection string in the `applicationinsights.json` configuratio
 
 ```json
 {
-  "connectionString": "InstrumentationKey=00000000-0000-0000-0000-000000000000"
+  "connectionString": "InstrumentationKey=00000000-0000-0000-0000-000000000000;IngestionEndpoint=https://{region}.in.applicationinsights.azure.com/;LiveEndpoint=https://{region}.livediagnostics.monitor.azure.com/"
 }
 ```
 
@@ -221,7 +221,7 @@ For more information, see [Connection string configuration](./java-standalone-co
 
 JavaScript doesn't support the use of environment variables. You have two options:
 
-- To use the SDK Loader Script, see [SDK Loader Script](./javascript-sdk.md?tabs=sdkloaderscript#enable-application-insights).
+- To use the JavaScript (Web) SDK Loader Script, see [JavaScript (Web) SDK Loader Script](./javascript-sdk.md?tabs=javascriptwebsdkloaderscript#get-started).
 - Manual setup:
    ```javascript
    import { ApplicationInsights } from '@microsoft/applicationinsights-web'
@@ -238,7 +238,7 @@ JavaScript doesn't support the use of environment variables. You have two option
 
 ```javascript
 const appInsights = require("applicationinsights");
-appInsights.setup("InstrumentationKey=00000000-0000-0000-0000-000000000000;");
+appInsights.setup("InstrumentationKey=00000000-0000-0000-0000-000000000000;IngestionEndpoint=https://{region}.in.applicationinsights.azure.com/;LiveEndpoint=https://{region}.livediagnostics.monitor.azure.com/");
 appInsights.start();
 ```
 
@@ -253,7 +253,7 @@ from opencensus.ext.azure.trace_exporter import AzureExporter
 from opencensus.trace.samplers import ProbabilitySampler
 from opencensus.trace.tracer import Tracer
 
-tracer = Tracer(exporter=AzureExporter(connection_string='InstrumentationKey=00000000-0000-0000-0000-000000000000'), sampler=ProbabilitySampler(1.0))
+tracer = Tracer(exporter=AzureExporter(connection_string='InstrumentationKey=00000000-0000-0000-0000-000000000000;IngestionEndpoint=https://{region}.in.applicationinsights.azure.com/;LiveEndpoint=https://{region}.livediagnostics.monitor.azure.com/'), sampler=ProbabilitySampler(1.0))
 ```
 
 ---

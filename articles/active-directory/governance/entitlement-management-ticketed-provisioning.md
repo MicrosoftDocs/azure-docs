@@ -7,7 +7,7 @@ ms.service: active-directory
 ms.subservice: compliance
 ms.workload: identity
 ms.topic: tutorial 
-ms.date: 05/08/2023
+ms.date: 05/31/2023
 ms.custom: template-tutorial 
 ---
 
@@ -15,7 +15,7 @@ ms.custom: template-tutorial
 
 
 
-Scenario: In this scenario you learn how to use custom extensibility, and a Logic App, to automatically generate ServiceNow ticket for provisioning for manual provisioning of users who have received assignments and need access to apps.
+Scenario: In this scenario you learn how to use custom extensibility, and a Logic App, to automatically generate ServiceNow tickets for manual provisioning of users who have received assignments and need access to apps.
 
 In this tutorial, you learn how to:
 

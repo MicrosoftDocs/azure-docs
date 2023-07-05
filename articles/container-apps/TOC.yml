@@ -222,8 +222,17 @@
         href: tutorial-event-driven-jobs.md
     - name: Create an Azure Files storage mount
       href: storage-mounts-azure-files.md
-    - name: Connect development and production services
-      href: connect-services.md
+    - name: Deploy self-hosted CI/CD runners with jobs
+      href: tutorial-ci-cd-runners-jobs.md
+      displayName: Deploy Azure DevOps (Azure Pipelines) agents and GitHub Actions runners
+    - name: Connect and use dev services
+      items:
+      - name: Apache Kafka
+        href: tutorial-dev-services-kafka.md
+      - name: PostgreSQL
+        href: tutorial-dev-services-postgresql.md
+      - name: Redis
+        href: connect-services.md
     - name: Azure Arc
       items:
       - name: 1 - Set up Azure Arc-enabled Kubernetes clusters

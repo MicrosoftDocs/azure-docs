@@ -12,7 +12,7 @@ ms.workload: identity
 ms.date: 11/27/2020
 ms.author: dmwendia
 ms.reviewer: saeeda, nacanuma
-ms.custom: aaddev
+ms.custom: aaddev, devx-track-extended-java
 ---
 # Handle errors and exceptions in MSAL for Java
 

@@ -1,0 +1,19 @@
+- name: FinOps documentation
+  href: index.yml
+- name: Overview
+  expanded: true
+  items:
+  - name: What is FinOps?
+    href: overview-finops.md
+  - name: What's new
+    href: https://azure.microsoft.com/blog/tag/finops/
+- name: Tutorials
+  items:
+  - name: Conduct a FinOps iteration
+    href: conduct-finops-iteration.md
+- name: Resources
+  items:
+  - name: FinOps with Azure e-book
+    href: https://aka.ms/finops/ebook
+  - name: FinOps Foundation
+    href: https://finops.org/

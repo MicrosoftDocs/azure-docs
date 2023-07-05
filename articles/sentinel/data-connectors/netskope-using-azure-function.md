@@ -3,7 +3,7 @@ title: "Netskope (using Azure Function) connector for Microsoft Sentinel"
 description: "Learn how to install the connector Netskope (using Azure Function) to connect your data source to Microsoft Sentinel."
 author: cwatson-cat
 ms.topic: how-to
-ms.date: 03/25/2023
+ms.date: 05/22/2023
 ms.service: microsoft-sentinel
 ms.author: cwatson
 ---
@@ -50,8 +50,9 @@ Netskope
 
 To integrate with Netskope (using Azure Function) make sure you have: 
 
-- **Microsoft.Web/sites permissions**: Read and write permissions to Azure Functions to create a Function App is required. [See the documentation to learn more about Azure Functions](/azure/azure-functions).
-- **Netskope API Token**: A Netskope API Token is required. [See the documentation to learn more about Netskope API](https://innovatechcloud.goskope.com). **Note:** A Netskope account is required.
+- **Microsoft.Web/sites permissions**: Read and write permissions to Azure Functions to create a Function App is required. [See the documentation to learn more about Azure Functions](/azure/azure-functions/).
+- **Netskope API Token**: A Netskope API Token is required. [See the documentation to learn more about Netskope API](https://innovatechcloud.goskope.com/docs/Netskope_Help/en/rest-api-v1-overview.html). **Note:** A Netskope account is required
+
 
 ## Vendor installation instructions
 

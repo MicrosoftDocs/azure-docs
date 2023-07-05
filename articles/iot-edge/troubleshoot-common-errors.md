@@ -466,6 +466,29 @@ When migrating to the new IoT hub (assuming not using DPS), follow these steps i
 1. Restart the top-level parent Edge device first, make sure it's up and running
 1. Restart each device in hierarchy level by level from top to the bottom
 
+### IoT Edge has low message throughput when geographically distant from IoT Hub
+
+#### Symptoms
+
+Azure IoT Edge devices that are geographically distant from Azure IoT Hub have a lower than expected message throughput.
+
+#### Cause
+
+High latency between the device and IoT Hub can cause a lower than expected message throughput. IoT Edge uses a default message batch size of 10. This limits the number of messages that are sent in a single batch, which increases the number of round trips between the device and IoT Hub.
+
+#### Solution
+
+Try increasing the IoT Edge Hub **MaxUpstreamBatchSize** environment variable. This allows more messages to be sent in a single batch, which reduces the number of round trips between the device and IoT Hub.
+
+To set Azure Edge Hub environment variables in the Azure portal:
+
+1. Navigate to your IoT Hub and select **Devices** under the **Device management** menu.
+1. Select the IoT Edge device that you want to update.
+1. Select **Set Modules**.
+1. Select **Runtime Settings**.
+1. In the **Edge Hub** module settings tab, add the **MaxUpstreamBatchSize** environment variable as type **Number** with a value of **20**.
+1. Select **Apply**.
+
 ## Next steps
 
 Do you think that you found a bug in the IoT Edge platform? [Submit an issue](https://github.com/Azure/iotedge/issues) so that we can continue to improve.

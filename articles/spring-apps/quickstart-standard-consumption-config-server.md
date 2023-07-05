@@ -5,7 +5,7 @@ author: KarlErickson
 ms.author: CaihuaRui
 ms.service: spring-apps
 ms.topic: quickstart
-ms.date: 05/23/2023
+ms.date: 06/21/2023
 ms.custom: devx-track-java, devx-track-azurecli
 ---
 

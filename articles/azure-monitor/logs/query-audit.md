@@ -2,8 +2,8 @@
 title: Audit queries in Azure Monitor log queries
 description: Details of log query audit logs which provide telemetry about log queries run in Azure Monitor.
 ms.topic: conceptual
-author: bwren
-ms.author: bwren
+author: guywi-ms
+ms.author: guywild
 ms.date: 10/20/2021
 
 ---

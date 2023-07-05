@@ -9,7 +9,7 @@ ms.service: storage
 ms.subservice: blobs
 ms.topic: quickstart
 ms.devlang: golang
-ms.custom: mode-api, passwordless-go
+ms.custom: mode-api, passwordless-go, devx-track-go
 ---
 
 # Quickstart: Azure Blob Storage client library for Go

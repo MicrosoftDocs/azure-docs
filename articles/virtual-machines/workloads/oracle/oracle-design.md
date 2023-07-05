@@ -7,7 +7,7 @@ ms.subservice: oracle
 ms.collection: linux
 ms.topic: article
 ms.date: 10/15/2021
-ms.author: kegorman
+ms.author: jacobjaygbay
 ms.reviewer: tigorman
 
 ---

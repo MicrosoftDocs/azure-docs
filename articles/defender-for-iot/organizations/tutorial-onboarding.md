@@ -107,15 +107,12 @@ Before you can start using your Defender for IoT sensor, you'll need to onboard 
 
 1. In **Step 3: Register this sensor with Microsoft Defender for IoT**, define the following values:
 
-    |Name  |Description  |
+    |Field name |Description  |
     |---------|---------|
-    |**Sensor name**     |  Enter a name for the sensor. <br><br>We recommend that you include the IP address of the sensor as part of the name, or use an easily identifiable name. Naming your sensor in this way will ensure easier tracking.       |
-    |**Subscription**     |  Select the Azure subscription where you want to add your sensor.      |
-    |**Cloud connected**     |  Toggle on to view detected data and manage your sensor from the Azure portal, and to connect your data to other Microsoft services, such as Microsoft Sentinel.      |
-    |**Automatic threat intelligence updates**     |   Displayed only when the **Cloud connected** option is toggled on.  Select this option to have Defender for IoT automatically push threat intelligence packages to your OT sensor.  For more information, see [Threat intelligence research and packages #](how-to-work-with-threat-intelligence-packages.md).   |
-    |**Sensor version**     | Displayed only when the **Cloud connected** option is toggled on. Select the software version installed on your sensor. Verify that version **22.X and above** is selected.       |
-    |**Site**     | In the **Resource name** field, select the site you want to use for your OT sensor, or select **Create site** to create a new site.<br> In the **Display name** field, enter a meaningful name for your site to be shown across Defender for IoT in Azure.<br>In the **Tags** > **Key** and **Value** fields, enter tag values to help you identify and locate your site and sensor in the Azure portal (optional).    |
-    |**Zone**     |  Select the zone you want to use for your OT sensor, or select **Create zone** to create a new one.       |
+    |**Resource name**     |  Select the site you want to attach your sensors to, or select **Create site** to create a new site.  <br><br>If you're creating a new site: <br>1. In the **New site** field, enter your site's name and select the checkmark button. <br>2.  From the **Site size** menu, select your site's size. The sizes listed in this menu are the sizes that you're licensed for, based on the licenses [you'd purchased](how-to-manage-subscriptions.md) in the Microsoft 365 admin center.     |
+    |**Display name**     |    Enter a meaningful name for your site to be shown across Defender for IoT.   |
+    |**Tags**     |   Enter tag key and values to help you identify and locate your site and sensor in the Azure portal.      |
+    |**Zone**     | Select the zone you want to use for your OT sensor, or select **Create zone** to create a new one.        |
 
     For more information, see [Plan OT sites and zones](best-practices/plan-corporate-monitoring.md#plan-ot-sites-and-zones).
 
