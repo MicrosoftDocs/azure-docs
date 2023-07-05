@@ -59,10 +59,10 @@ Some common reasons for the request to be non-compliant to RFC are:
 | Missing Host Header | Request doesn't have Host Header |
 | Presence of malformed or illegal character | Reserved characters are **&,!.** The workaround is to code it as a percentage. For example: %& |
 | Invalid HTTP version | Get /content.css HTTP/**0.3** |
-| Header field name and URI contains non-ASCII Character | GET /**«úü¡»¿**.doc HTTP/1.1  |
+| Header field name and URI contain non-ASCII Character | GET /**«úü¡»¿**.doc HTTP/1.1  |
 | Missing Content Length header for POST request | Self Explanatory |
 | Invalid HTTP Method | **GET123** /index.html HTTP/1.1 |
-| Duplicate Headers | Authorization:\<base64 encoded content\>,Authorization: \<base64 encoded content\> |
+| Duplicate Headers | Authorization:\<base64 encoded content\>, Authorization: \<base64 encoded content\> |
 | Invalid value in Content-Length | Content-Length: **abc**,Content-Length: **-10**|
 
 For cases when mutual authentication is configured, several scenarios can lead to an HTTP 400 response being returned the client, such as:
