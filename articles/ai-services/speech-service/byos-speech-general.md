@@ -187,7 +187,7 @@ Here's the body of the request:
 ```
 ***
 
-If you used Azure portal for creating a BYOS-enabled Speech resource, it's fully ready to use. If you used any other method, you need to perform the role assignment for the Speech resource managed identity within the scope of the associated Storage account. In all cases, you also need to review different Storage account settings related to data security. See [Configure Storage account](#configure-storage-account) section.
+If you used Azure portal for creating a BYOS-enabled Speech resource, it's fully ready to use. If you used any other method, you need to perform the role assignment for the Speech resource managed identity within the scope of the associated Storage account. In all cases, you also need to review different Storage account settings related to data security. See [this section](#configure-byos-associated-storage-account).
 
 ### (Optional) Verify Speech resource BYOS configuration
 
@@ -258,7 +258,7 @@ If you used Azure portal to create your BYOS-enabled Speech resource, you may sk
 
 ### Configure Storage account security settings for Speech to text
 
-This section describes how to set up Storage account security settings, if you intend to use BYOS-associated Storage account only for Speech to text scenarios. In case you use the BYOS-associated Storage account for Text to speech or a combination of both Speech to text and Text to speech, use [this subsection](#configure-storage-account-security-settings-for-text-to-speech).
+This section describes how to set up Storage account security settings, if you intend to use BYOS-associated Storage account only for Speech to text scenarios. In case you use the BYOS-associated Storage account for Text to speech or a combination of both Speech to text and Text to speech, use [this section](#configure-storage-account-security-settings-for-text-to-speech).
 
 For Speech to text BYOS is using the [trusted Azure services security mechanism](../../storage/common/storage-network-security.md#trusted-access-based-on-a-managed-identity) to communicate with Storage account. The mechanism allows setting very restricted Storage account data access rules.
 
@@ -308,10 +308,10 @@ Having restricted access to the Storage account, you need to grant networking ac
 
 ### Configure Storage account security settings for Text to Speech
 
-This section describes how to set up Storage account security settings, if you intend to use BYOS-associated Storage account for Text to speech or a combination of both Speech to text and Text to speech. In case you use the BYOS-associated Storage account for Speech to text only, use [this subsection](#configure-storage-account-security-settings-for-speech-to-text).
+This section describes how to set up Storage account security settings, if you intend to use BYOS-associated Storage account for Text to speech or a combination of both Speech to text and Text to speech. In case you use the BYOS-associated Storage account for Speech to text only, use [this section](#configure-storage-account-security-settings-for-speech-to-text).
 
 > [!NOTE]
-> Text to speech requires more relaxed settings of Storage account firewall, comparing to Speech to text. If you use both Speech to text and Text to speech, and need maximally restricted Storage account security settings to protect your data, you may want to consider using different Storage accounts and the corresponding Speech resources for Speech to Text and Text to speech tasks.
+> Text to speech requires more relaxed settings of Storage account firewall, comparing to Speech to text. If you use both Speech to text and Text to speech, and need maximally restricted Storage account security settings to protect your data, you may consider using different Storage accounts and the corresponding Speech resources for Speech to Text and Text to speech tasks.
 
 If you perform all actions in the section, your Storage account will be in the following configuration:
 - External network traffic is allowed.
