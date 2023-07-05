@@ -74,7 +74,7 @@ from azure.core.exceptions import HttpResponseError
 endpoint = "<endpoint>"
 key = "<enter_your_key_here>"
   
-# Create an Content Safety client
+# Create a Content Safety client
 client = ContentSafetyClient(endpoint, AzureKeyCredential(key))
 
 def create_or_update_text_blocklist(name, description):
@@ -83,13 +83,13 @@ def create_or_update_text_blocklist(name, description):
             blocklist_name=name, resource=TextBlocklist(description=description)
         )
     except HttpResponseError as e:
-        print("Create or update text blocklist failed. ")
-        print("Error code: {}".format(e.error.code))
-        print("Error message: {}".format(e.error.message))
-        return None
-    except Exception as e:
+        print("\nCreate or update text blocklist failed: ")
+        if e.error:
+            print(f"Error code: {e.error.code}")
+            print(f"Error message: {e.error.message}")
+            raise
         print(e)
-        return None
+        raise
 
 
 if __name__ == "__main__":
@@ -187,14 +187,13 @@ def add_block_items(name, items):
             body=AddBlockItemsOptions(block_items=block_items),
         )
     except HttpResponseError as e:
-        print("Add block items failed.")
-        print("Error code: {}".format(e.error.code))
-        print("Error message: {}".format(e.error.message))
-        return None
-
-    except Exception as e:
+        print("\nAdd block items failed: ")
+        if e.error:
+            print(f"Error code: {e.error.code}")
+            print(f"Error message: {e.error.message}")
+            raise
         print(e)
-        return None
+        raise
 
     return response.value
 
@@ -293,13 +292,13 @@ def analyze_text_with_blocklists(name, text):
             AnalyzeTextOptions(text=text, blocklist_names=[name], break_by_blocklists=False)
         )
     except HttpResponseError as e:
-        print("Analyze text failed.")
-        print("Error code: {}".format(e.error.code))
-        print("Error message: {}".format(e.error.message))
-        return None
-    except Exception as e:
+        print("\nAnalyze text failed: ")
+        if e.error:
+            print(f"Error code: {e.error.code}")
+            print(f"Error message: {e.error.message}")
+            raise
         print(e)
-        return None
+        raise
 
     return response.blocklists_match_results
 
@@ -379,13 +378,13 @@ def list_block_items(name):
         response = client.list_text_blocklist_items(blocklist_name=name)
         return list(response)
     except HttpResponseError as e:
-        print("List block items failed.")
-        print("Error code: {}".format(e.error.code))
-        print("Error message: {}".format(e.error.message))
-        return None
-    except Exception as e:
+        print("\nList block items failed: ")
+        if e.error:
+            print(f"Error code: {e.error.code}")
+            print(f"Error message: {e.error.message}")
+            raise
         print(e)
-        return None
+        raise
 
 
 if __name__ == "__main__":
@@ -454,13 +453,13 @@ def list_text_blocklists():
     try:
         return client.list_text_blocklists()
     except HttpResponseError as e:
-        print("List text blocklists failed.")
-        print("Error code: {}".format(e.error.code))
-        print("Error message: {}".format(e.error.message))
-        return None
-    except Exception as e:
+        print("\nList text blocklists failed: ")
+        if e.error:
+            print(f"Error code: {e.error.code}")
+            print(f"Error message: {e.error.message}")
+            raise
         print(e)
-        return None
+        raise
 if __name__ == "__main__":
     # list blocklists
     result = list_text_blocklists()
@@ -522,13 +521,13 @@ def get_text_blocklist(name):
     try:
         return client.get_text_blocklist(blocklist_name=name)
     except HttpResponseError as e:
-        print("Get text blocklist failed.")
-        print("Error code: {}".format(e.error.code))
-        print("Error message: {}".format(e.error.message))
-        return None
-    except Exception as e:
+        print("\nGet text blocklist failed: ")
+        if e.error:
+            print(f"Error code: {e.error.code}")
+            print(f"Error message: {e.error.message}")
+            raise
         print(e)
-        return None
+        raise
 
 if __name__ == "__main__":
     blocklist_name = "<your_list_id>"
