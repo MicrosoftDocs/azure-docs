@@ -142,7 +142,7 @@ The vault move across subscriptions and resource groups is supported in all publ
 
 1. On the **Resources to move** tab, the Backup vault that needs to be moved will undergo validation. This process may take a few minutes. Wait till the validation is complete.
 
-   :::image type="content" source="./media/backup-vault-overview/move-validation-process-to-move-to-resource-group-inline.png" alt-text="Screenshot showing the Backup vault validation status." lightbox="./media/backup-vault-overview/move-validation-process-to-move-to-resource-group-expanded.png"::: 
+   :::image type="content" source="./media/backup-vault-overview/move-validation-process-to-move-to-resource-group-inline.png" alt-text="Screenshot showsing the Backup vault validation status." lightbox="./media/backup-vault-overview/move-validation-process-to-move-to-resource-group-expanded.png"::: 
 
 1. Select the checkbox **I understand that tools and scripts associated with moved resources will not work until I update them to use new resource IDs** to confirm, and then select **Move**.
  
@@ -294,7 +294,7 @@ However, there may be instances when you need to disable Cross Subscription Rest
 
 You can also select the state of CSR  during the creation of Backup vault.
 
-:::image type="content" source="./media/create-manage-backup-vault/select-cross-subsctiption-state-on-backup-vault-creation.png" alt-text="Screenshot shows how to disable Cross Subscription Restore for Backup vault." lightbox="./media/create-manage-backup-vault/select-cross-subsctiption-state-on-backup-vault-creation.png":::
+:::image type="content" source="./media/create-manage-backup-vault/select-cross-subsctiption-state-on-backup-vault-creation.png" alt-text="Screenshot shows how to select the state of Cross Subscription Restore during Backup vault creation." lightbox="./media/create-manage-backup-vault/select-cross-subsctiption-state-on-backup-vault-creation.png":::
 
 >[!Note]
 >- CSR once permanently disabled on a vault can't be re-enabled because it's an irreversible operation.
