@@ -1,7 +1,7 @@
 ---
-title: "Quickstart: Form Recognizer JavaScript SDK (beta) | v3.0"
-titleSuffix: Azure Applied AI Services
-description: Form and document processing, data extraction, and analysis using Form Recognizer JavaScript client library SDKs v3.0 
+title: "Quickstart: Document Intelligence JavaScript SDK (beta) | v3.0"
+titleSuffix: Azure AI services
+description: Form and document processing, data extraction, and analysis using Document Intelligence JavaScript client library SDKs v3.0 
 author: laujan
 manager: nitinme
 ms.service: applied-ai-services
@@ -30,12 +30,12 @@ In this quickstart you'll, use the following features to analyze and extract dat
 
 * The latest LTS version of [Node.js](https://nodejs.org/about/releases/)
 
-* A Cognitive Services or Form Recognizer resource. Once you have your Azure subscription, create a [single-service](https://portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer) or [multi-service](https://portal.azure.com/#create/Microsoft.CognitiveServicesAllInOne) Form Recognizer resource, in the Azure portal, to get your key and endpoint. You can use the free pricing tier (`F0`) to try the service, and upgrade later to a paid tier for production.
+* An Azure AI services or Document Intelligence resource. Once you have your Azure subscription, create a [single-service](https://portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer) or [multi-service](https://portal.azure.com/#create/Microsoft.CognitiveServicesAllInOne) Document Intelligence resource, in the Azure portal, to get your key and endpoint. You can use the free pricing tier (`F0`) to try the service, and upgrade later to a paid tier for production.
 
     > [!TIP]
-    > Create a Cognitive Services resource if you plan to access multiple cognitive services under a single endpoint/key. For Form Recognizer access only, create a Form Recognizer resource. Please note that you'll  need a single-service resource if you intend to use [Azure Active Directory authentication](../../../../active-directory/authentication/overview-authentication.md).
+    > Create an Azure AI services resource if you plan to access multiple Azure AI services under a single endpoint/key. For Document Intelligence access only, create a Document Intelligence resource. Please note that you'll  need a single-service resource if you intend to use [Azure Active Directory authentication](../../../../active-directory/authentication/overview-authentication.md).
 
-* After your resource deploys, select **Go to resource**. You need the key and endpoint from the resource you create to connect your application to the Form Recognizer API. You paste your key and endpoint into the code later in the quickstart:
+* After your resource deploys, select **Go to resource**. You need the key and endpoint from the resource you create to connect your application to the Document Intelligence API. You paste your key and endpoint into the code later in the quickstart:
 
   :::image type="content" source="../../media/containers/keys-and-endpoint.png" alt-text="Screenshot: keys and endpoint location in the Azure portal.":::
 
@@ -84,7 +84,7 @@ In this quickstart you'll, use the following features to analyze and extract dat
 
 ## Build your application
 
-To interact with the Form Recognizer service, you need to create an instance of the `DocumentAnalysisClient` class. To do so, you create an `AzureKeyCredential` with your `key` from the Azure portal and a `DocumentAnalysisClient` instance with the `AzureKeyCredential` and your Form Recognizer `endpoint`.
+To interact with the Document Intelligence service, you need to create an instance of the `DocumentAnalysisClient` class. To do so, you create an `AzureKeyCredential` with your `key` from the Azure portal and a `DocumentAnalysisClient` instance with the `AzureKeyCredential` and your Document Intelligence `endpoint`.
 
 1. Open the `index.js` file in Visual Studio Code or your favorite IDE and select one of the following code samples to copy and paste into your application:
 
@@ -95,7 +95,7 @@ To interact with the Form Recognizer service, you need to create an instance of 
     * [**Prebuilt Invoice**](#prebuilt-model)
 
 > [!IMPORTANT]
-> Remember to remove the key from your code when you're done, and never post it publicly. For production, use a secure way of storing and accessing your credentials like [Azure Key Vault](../../../../key-vault/general/overview.md). For more information, *see* Cognitive Services [security](../../../../cognitive-services/security-features.md).
+> Remember to remove the key from your code when you're done, and never post it publicly. For production, use a secure way of storing and accessing your credentials like [Azure Key Vault](../../../../key-vault/general/overview.md). For more information, *see* Azure AI services [security](../../../../ai-services/security-features.md).
 
 <!-- markdownlint-disable MD036 -->
 
@@ -109,7 +109,7 @@ Extract text, tables, structure, and key-value pairs from documents.
 > * To analyze a given file from a URL, you'll use the `beginAnalyzeDocuments` method and pass in `prebuilt-document` as the model Id.
 > * We've added the file URL value to the `formUrl` variable near the top of the file.
 
-**Add the following code sample to the `index.js` file. Make sure you update the key and endpoint variables with values from your Azure portal Form Recognizer instance:**
+**Add the following code sample to the `index.js` file. Make sure you update the key and endpoint variables with values from your Azure portal Document Intelligence instance:**
 
 ```javascript
 
@@ -152,7 +152,7 @@ main().catch((error) => {
 
 Once you've added a code sample to your application, run your program:
 
-1. Navigate to the folder where you have your form recognizer application (form-recognizer-app).
+1. Navigate to the folder where you have your Document Intelligence application (form-recognizer-app).
 
 1. Type the following command in your terminal:
 
@@ -197,7 +197,7 @@ Extract text, selection marks, text styles, table structures, and bounding regio
 > * We've added the file URL value to the `formUrl` variable near the top of the file.
 > * To analyze a given file from a URL, you'll use the `beginAnalyzeDocuments` method and pass in `prebuilt-layout` as the model Id.
 
-**Add the following code sample to the `index.js` file. Make sure you update the key and endpoint variables with values from your Azure portal Form Recognizer instance:**
+**Add the following code sample to the `index.js` file. Make sure you update the key and endpoint variables with values from your Azure portal Document Intelligence instance:**
 
 ```javascript
 
@@ -254,7 +254,7 @@ main().catch((error) => {
 
 Once you've added a code sample to your application, run your program:
 
-1. Navigate to the folder where you have your form recognizer application (form-recognizer-app).
+1. Navigate to the folder where you have your Document Intelligence application (form-recognizer-app).
 
 1. Type the following command in your terminal:
 
@@ -347,7 +347,7 @@ main().catch((error) => {
 
 Once you've added a code sample to your application, run your program:
 
-1. Navigate to the folder where you have your form recognizer application (form-recognizer-app).
+1. Navigate to the folder where you have your Document Intelligence application (form-recognizer-app).
 
 1. Type the following command in your terminal:
 

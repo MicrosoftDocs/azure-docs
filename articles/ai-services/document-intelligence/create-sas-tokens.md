@@ -11,6 +11,7 @@ ms.author: lajanuar
 monikerRange: '>=form-recog-2.1.0'
 ---
 
+
 # Create SAS tokens for storage containers
 
 [!INCLUDE [applies to v3.0 and v2.1](includes/applies-to-v3-0-and-v2-1.md)]
@@ -55,7 +56,7 @@ To get started, you need:
 
 * An active [Azure account](https://azure.microsoft.com/free/cognitive-services/). If you don't have one, you can [create a free account](https://azure.microsoft.com/free/).
 
-* A [Form Recognizer](https://portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer) or [Cognitive Services multi-service](https://portal.azure.com/#create/Microsoft.CognitiveServicesAllInOne) resource.
+* A [Document Intelligence](https://portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer) or [multi-service](https://portal.azure.com/#create/Microsoft.CognitiveServicesAllInOne) resource.
 
 * A **standard performance** [Azure Blob Storage account](https://portal.azure.com/#create/Microsoft.StorageAccount-ARM). You need to create containers to store and organize your blob data within your storage account. If you don't know how to create an Azure storage account with a storage container, follow these quickstarts:
 
@@ -112,7 +113,7 @@ The Azure portal is a web-based console that enables you to manage your Azure su
 1. Specify the signed key **Start** and **Expiry** times.
 
     * When you create a SAS token, the default duration is 48 hours. After 48 hours, you'll need to create a new token.
-    * Consider setting a longer duration period for the time you're using your storage account for Form Recognizer Service operations.
+    * Consider setting a longer duration period for the time you're using your storage account for Document Intelligence Service operations.
     * The value of the expiry time is determined by whether you're using an **Account key** or **User delegation key** **Signing method**:
       * **Account key**: There's no imposed maximum time limit; however, best practices recommended that you configure an expiration policy to limit the interval and minimize compromise. [Configure an expiration policy for shared access signatures](/azure/storage/common/sas-expiration-policy).
       * **User delegation key**: The value for the expiry time is a maximum of seven days from the creation of the SAS token. The SAS is invalid after the user delegation key expires, so a SAS with an expiry time of greater than seven days will still only be valid for seven days. For more information,*see* [Use Azure AD credentials to secure a SAS](/azure/storage/blobs/storage-blob-user-delegation-sas-create-cli#use-azure-ad-credentials-to-secure-a-sas).
@@ -137,7 +138,7 @@ Azure Storage Explorer is a free standalone app that enables you to easily manag
 
 * You need the [**Azure Storage Explorer**](../../vs-azure-tools-storage-manage-with-storage-explorer.md) app installed in your Windows, macOS, or Linux development environment.
 
-* After the Azure Storage Explorer app is installed, [connect it the storage account](../../vs-azure-tools-storage-manage-with-storage-explorer.md?tabs=windows#connect-to-a-storage-account-or-service) you're using for Form Recognizer.
+* After the Azure Storage Explorer app is installed, [connect it the storage account](../../vs-azure-tools-storage-manage-with-storage-explorer.md?tabs=windows#connect-to-a-storage-account-or-service) you're using for Document Intelligence.
 
 ### Create your SAS tokens
 
