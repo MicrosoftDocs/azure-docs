@@ -52,7 +52,7 @@ Azure Virtual Network encryption is available in the following regions during th
 
 - Central US EUAP
 
-- North Central US
+- West Central US
 
 - East US
 
@@ -62,7 +62,7 @@ Azure Virtual Network encryption is available in the following regions during th
 
 - West US 2
 
-To sign up to obtain access to the public preview, see [Virtual Network Encryption - Public Preview Sign Up](https://aka.ms/vnet-encryption-form).
+To sign up to obtain access to the public preview, see [Virtual Network Encryption - Public Preview Sign Up](https://aka.ms/vnet-encryption-sign-up).
 
 ## Limitations
 
