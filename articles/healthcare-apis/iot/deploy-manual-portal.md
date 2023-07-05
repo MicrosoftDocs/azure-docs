@@ -5,7 +5,7 @@ author: msjasteppe
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: quickstart
-ms.date: 06/29/2023
+ms.date: 07/06/2023
 ms.author: jasteppe
 ---
 
@@ -14,12 +14,9 @@ ms.author: jasteppe
 > [!NOTE]
 > [Fast Healthcare Interoperability Resources (FHIR&#174;)](https://www.hl7.org/fhir/) is an open healthcare specification.
 
-You may prefer to deploy the MedTech service using the Azure portal if you:
+In this quickstart, learn how to deploy the MedTech service and required resources using the Azure portal.
 
-* Need to track every step of the provisioning process.
-* Want to customize or troubleshoot your deployment.
-
-In this quickstart, the MedTech service deployment using the Azure portal is divided into the following three sections:
+The MedTech service deployment using the Azure portal is divided into the following three sections:
 
 * [Deploy prerequisite resources](#deploy-prerequisite-resources)
 * [Configure and deploy the MedTech service](#configure-and-deploy-the-medtech-service)
@@ -36,14 +33,14 @@ As a prerequisite, you need an Azure subscription and have been granted the prop
 
 The first step is to deploy the MedTech service prerequisite resources:
 
-* Azure resource group.
-* Azure Event Hubs namespace and event hub.
-* Azure Health Data services workspace.
-* Azure Health Data Services FHIR service.
+* Azure resource group
+* Azure Event Hubs namespace and event hub
+* Azure Health Data services workspace
+* Azure Health Data Services FHIR service
 
 Once the prerequisite resources are available, deploy:
  
-* Azure Health Data Services MedTech service.
+* Azure Health Data Services MedTech service
 
 ### Deploy a resource group 
 
@@ -213,7 +210,7 @@ Valid and conforming device and FHIR destination mappings have to be provided to
 
 ## Next steps
 
-This article described the deployment steps needed to get started using the MedTech service. 
+In this article, you learned how to deploy the MedTech service and required resources using the Azure portal.  
 
 To learn about other methods of deploying the MedTech service, see
 
