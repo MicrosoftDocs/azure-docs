@@ -22,6 +22,16 @@ See these [important announcements](#announcements) about recent changes to feat
 
 [!INCLUDE [reference-to-feature-availability](includes/reference-to-feature-availability.md)]
 
+## July 2023
+
+- [Monitor and optimize the execution of your scheduled analytics rules (Preview)](#monitor-and-optimize-the-execution-of-your-scheduled-analytics-rules-preview)
+
+### Monitor and optimize the execution of your scheduled analytics rules (Preview)
+
+To ensure that Microsoft Sentinel's threat detection provides complete coverage in your environment, take advantage of its execution management tools. These tools consist of [insights](monitor-optimize-analytics-rule-execution.md#view-analytics-rule-insights) on your [scheduled analytics rules'](detect-threats-built-in.md#scheduled) execution, based on Microsoft Sentinel's [health and audit data](monitor-analytics-rule-integrity.md), and a facility to [manually rerun previous executions of rules](monitor-optimize-analytics-rule-execution.md#rerun-analytics-rules) on specific time windows, for testing and optimization purposes.
+
+[Learn more about monitoring and optimizing analytics rules](monitor-optimize-analytics-rule-execution.md).
+
 ## June 2023
 
 - [Content Hub general availability delayed](#content-hub-general-availability-delayed)

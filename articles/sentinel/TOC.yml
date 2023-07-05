@@ -955,6 +955,8 @@
         href: monitor-data-connector-health.md
       - name: Monitor automation rules and playbooks health
         href: monitor-automation-health.md
+      - name: Monitor and optimize execution of analytics rules
+        href: monitor-optimize-analytics-rule-execution.md
       - name: Audit and monitor the health of analytics rules
         href: monitor-analytics-rule-integrity.md
       - name: Monitor SAP system health and role
