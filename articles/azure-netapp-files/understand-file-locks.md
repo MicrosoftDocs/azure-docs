@@ -109,4 +109,5 @@ Manually locking files allows you to test file open and edit interactions and te
 * [NFS FAQs for Azure NetApp Files](faq-nfs.md)
 * [SMB FAQs for Azure NetApp Files](faq-smb.md)
 * [Troubleshoot file locks on an Azure NetApp Files volume](troubleshoot-file-locks.md)
+* [Application resilience FAQs for Azure NetApp Files](faq-application-resilience.md)
 

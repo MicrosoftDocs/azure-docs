@@ -23,6 +23,8 @@
         href: network-attached-storage-concept.md 
       - name: Understand NAS protocols
         href: network-attached-storage-protocols.md
+      - name: Understand file locking
+        href: understand-file-locks.md  
   - name: Azure NetApp Files essentials 
     items:
     - name: Storage hierarchy of Azure NetApp Files
@@ -43,10 +45,6 @@
       href: storage-service-add-ons.md
     - name: Cost model for Azure NetApp Files
       href: azure-netapp-files-cost-model.md
-  - name: NAS volumes as a service
-    items:
-    - name: Understand file locking
-      href: understand-file-locks.md
   - name: Quotas 
     items:
     - name: Understand volume quota
