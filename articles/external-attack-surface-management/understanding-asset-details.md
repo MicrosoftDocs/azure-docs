@@ -1,6 +1,6 @@
 ---
 title: Understand asset details
-description: Understanding asset details- Microsoft Defender External Attack Surface Management (Defender EASM) relies on our proprietary discovery technology to continuously define your organization’s unique Internet-exposed attack surface.
+description: 'Understand asset details: Microsoft Defender External Attack Surface Management discovers and defines your organization's internet-exposed attack surface.'
 author: danielledennis
 ms.author: dandennis
 ms.service: defender-easm
@@ -10,7 +10,7 @@ ms.topic: how-to
 
 # Understand asset details
 
-Microsoft Defender External Attack Surface Management (Defender EASM) frequently scans all inventory assets and collects robust contextual metadata that powers Attack Surface Insights. This data can also be viewed more granularly on the asset details page. The provided data changes depending on the asset type. For instance, the platform provides unique Whois data for domains, hosts, and IP addresses. It provides signature algorithm data for Secure Sockets Layer (SSL) certificates.
+Microsoft Defender External Attack Surface Management (Defender EASM) frequently scans all inventory assets and collects robust contextual metadata that powers Attack Surface Insights. This data can also be viewed more granularly on the asset details page. The data that's provided changes depending on the asset type. For instance, the platform provides unique Whois data for domains, hosts, and IP addresses. It provides signature algorithm data for Secure Sockets Layer (SSL) certificates.
 
 This article describes how to view and interpret the expansive data collected by Microsoft for each of your inventory assets. It defines this metadata for each asset type and explains how the insights derived from it can help you manage the security posture of your online infrastructure.
 
@@ -20,7 +20,7 @@ For more information, see [Understanding inventory assets](understanding-invento
 
 You can view the asset details page for any asset by selecting its name from your inventory list. On the left pane of this page, you can view an asset summary that provides key information about that particular asset. This section primarily includes data that applies to all asset types, although more fields are available in some cases. For more information on the metadata provided for each asset type in the summary section, see the following chart.
 
-![Screenshot that shows asset details page with the summary pane highlighted.](media/Inventory_1.png)
+![Screenshot that shows an asset details page with the summary pane highlighted.](media/Inventory_1.png)
 
 ### General information
 
@@ -34,7 +34,7 @@ This section includes high-level information that's key to understanding your as
 | Status | The status of the asset within the RiskIQ system. Options include **Approved Inventory**, **Candidate**, **Dependencies**, or **Requires Investigation**. | All |
 | First seen (Global Security Graph) | The date that Microsoft first scanned the asset and added it to the comprehensive Global Security Graph.  | All |
 | Last seen (Global Security Graph) | The date that Microsoft most recently scanned the asset. | All |
-| Discovered on | Indicates the creation date of the Discovery Group that detected the asset.  | All |
+| Discovered on | Indicates the creation date of the discovery group that detected the asset.  | All |
 | Last updated | The date that a manual user last updated the asset (for example, by making a state change or asset removal).  | All |
 | Country | The country of origin detected for this asset. | All |
 | State/Province | The state or province of origin detected for this asset. | All |
@@ -64,7 +64,7 @@ The following IP address information provides more context about the usage of th
 | IP blocks | The IP block that contains the IP address asset. | IP address |
 | ASNs | The ASN associated with an asset. | IP address |
 
-### Block info
+### Block information
 
 The following data specific to IP blocks provides contextual information about its use.
 
@@ -86,7 +86,7 @@ The following data is specific to the subject (that is, the protected entity) as
 | Common name | The Issuer Common Name of the subject of the SSL certificate. | SSL certificate |
 | Alternate names | Any alternative common names for the subject of the SSL certificate.| SSL certificate |
 | Organization name | The organization linked to the subject of the SSL certificate. | SSL certificate |
-| Organization unit | Optional metadata that indicates the department within an organization that is responsible for the certificate. | SSL certificate |
+| Organization unit | Optional metadata that indicates the department within an organization that's responsible for the certificate. | SSL certificate |
 | Locality | Denotes the city where the organization is located. | SSL certificate |
 | Country | Denotes the country where the organization is located. | SSL certificate |
 | State/Province | Denotes the state or province where the organization is located. | SSL certificate |
@@ -104,7 +104,7 @@ The following data is specific to the issuer of an SSL certificate.
 
 ## Data tabs
 
-In the rightmost pane of the asset details page, users can access more expansive data related to the selected asset. This data is organized in a series of categorized tabs. The available metadata tabs change depending on the type of asset you're viewing.
+On the rightmost pane of the asset details page, users can access more expansive data related to the selected asset. This data is organized in a series of categorized tabs. The available metadata tabs change depending on the type of asset you're viewing.
 
 ### Overview
 
@@ -129,7 +129,7 @@ This section provides information about the process that's used to detect the as
 Options include:
 - **Approved inventory**: This option indicates the relationship between the seed and discovered asset was strong enough to warrant an automatic approval by the Defender EASM system. 
 - **Candidate**: This option indicates that the asset required manual approval to be incorporated into your inventory.
-- **Last discovery run**: This date indicates when the Discovery Group that initially detected the asset was last utilized for a discovery scan.
+- **Last discovery run**: This date indicates when the discovery group that initially detected the asset was last utilized for a discovery scan.
 
 ### IP reputation
 
@@ -206,7 +206,13 @@ Web components are categorized based on their function.
 
 ### Observation
 
-The **Observation** tab displays any insights from the Attack Surface Priorities dashboard that pertain to the asset. These priorities can include critical CVEs, known associations to compromised infrastructure, use of deprecated technology, infrastructure best practice violations, or compliance issues.
+The **Observation** tab displays any insights from the Attack Surface Priorities dashboard that pertain to the asset. These priorities can include:
+
+- Critical CVEs.
+- Known associations to compromised infrastructure.
+- Use of deprecated technology.
+- Infrastructure best-practice violations.
+- Compliance issues.
 
 For more information on observations, see [Understanding dashboards](understanding-dashboards.md). For each observation, Defender EASM provides the name of the observation, categorizes it by type, assigns a priority, and lists both CVSS v2 and v3 scores where applicable.
 
@@ -228,7 +234,7 @@ Certificates are used to secure communications between a browser and a web serve
 
 ### Whois
 
-Whois is a protocol that's used to query and respond to the databases that store data related to the registration and ownership of internet resources. Whois contains key registration data that can apply to domains, hosts, IP addresses, and IP blocks in Defender EASM. On the **Whois** data tab, Microsoft provides a robust amount of information associated with the registry of the asset.
+The Whois protocol is used to query and respond to the databases that store data related to the registration and ownership of internet resources. Whois contains key registration data that can apply to domains, hosts, IP addresses, and IP blocks in Defender EASM. On the **Whois** data tab, Microsoft provides a robust amount of information associated with the registry of the asset.
 
 ![Screenshot that shows the Whois Values tab.](media/Inventory_14.png)
 
