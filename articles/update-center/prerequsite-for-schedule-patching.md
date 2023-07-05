@@ -46,9 +46,9 @@ To identify the list of VMs with the associated schedules for which you have to 
 
 **Prerequisite**
 
-Patch orchestration = Customer managed schedules.
+Patch orchestration = Customer Managed Schedules.
 
-Select the patch orchestration option as **Customer managed schedules**.
+Select the patch orchestration option as **Customer Managed Schedules**.
 The new patch orchestration option enables the following VM properties on your behalf after receiving your consent:
 
   - Patch mode = Azure-orchestrated
@@ -83,7 +83,7 @@ To update the patch mode, follow these steps:
 1. Go to **Update management center (Preview)**, select **Update Settings**.    
 1. In **Change update settings**, select **+Add machine**.
 1. In **Select resources**, select your VMs and then select **Add**.
-1. In **Change update settings**, under **Patch orchestration**, select *Customer managed schedules* and then select **Save**.
+1. In **Change update settings**, under **Patch orchestration**, select *Customer Managed Schedules* and then select **Save**.
 
 Attach a schedule after you complete the above steps.
 
