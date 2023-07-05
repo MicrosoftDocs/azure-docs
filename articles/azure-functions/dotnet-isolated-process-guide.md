@@ -212,29 +212,38 @@ The response from an HTTP trigger is always considered an output, so a return va
 
 For some service-specific binding types, binding data can be provided using types from service SDKs and frameworks. These provide additional capability beyond what a serialized string or plain-old CLR object (POCO) may offer. Support for SDK types is currently in preview with limited scenario coverage.
 
-To use SDK type bindings, your project must reference [Microsoft.Azure.Functions.Worker 1.12.1-preview1 or later][sdk-types-worker-version] and [Microsoft.Azure.Functions.Worker.Sdk 1.9.0-preview1 or later][sdk-types-worker-sdk-version]. Specific package versions will be needed for each of the service extensions as well. When testing SDK types locally on your machine, you will also need to use [Azure Functions Core Tools version 4.0.5000 or later](./functions-run-local.md). You can check your current version using the command `func version`.
+To use SDK type bindings, your project must reference [Microsoft.Azure.Functions.Worker 1.15.0-preview1 or later](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker/1.15.0-preview1) and [Microsoft.Azure.Functions.Worker.Sdk 1.11.0-preview1 or later](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker.Sdk/1.11.0-preview1). Specific package versions will be needed for each of the service extensions as well. When testing SDK types locally on your machine, you will also need to use [Azure Functions Core Tools version 4.0.5000 or later](./functions-run-local.md). You can check your current version using the command `func version`.
 
 The following service-specific bindings are currently included in the preview:
 
 | Service | Trigger | Input binding | Output binding |
 |-|-|-|-|
-| [Azure Blobs][blob-sdk-types] | Preview support | Preview support  |  Not yet supported<sup>1</sup> | 
-| [Azure Cosmos DB][cosmos-sdk-types] | SDK types not used<sup>2</sup> | Preview support  |  Not yet supported<sup>1</sup> | 
+| [Azure Blobs][blob-sdk-types] | **Preview support** | **Preview support** | _SDK types not recommended<sup>1</sup>_ | 
+| [Azure Queues][queue-sdk-types] | **Preview support** | _Input binding does not exist_ | _SDK types not recommended<sup>1</sup>_ | 
+| [Azure Service Bus][servicebus-sdk-types] | **Preview support<sup>2</sup>** | _Input binding does not exist_ | _SDK types not recommended<sup>1</sup>_ | 
+| [Azure Event Hubs][eventhub-sdk-types] | **Preview support** | _Input binding does not exist_ | _SDK types not recommended<sup>1</sup>_ | 
+| [Azure Cosmos DB][cosmos-sdk-types] | _SDK types not used<sup>3</sup>_ | **Preview support**  |  _SDK types not recommended<sup>1</sup>_ | 
+| [Azure Tables][tables-sdk-types] | _Trigger does not exist_ | **Preview support**  |  _SDK types not recommended<sup>1</sup>_ | 
+| [Azure Event Grid][eventgrid-sdk-types] | **Preview support** | _Input binding does not exist_ |  _SDK types not recommended<sup>1</sup>_ | 
 
 [blob-sdk-types]: ./functions-bindings-storage-blob.md?tabs=isolated-process%2Cextensionv5&pivots=programming-language-csharp#binding-types
 [cosmos-sdk-types]: ./functions-bindings-cosmosdb-v2.md?tabs=isolated-process%2Cextensionv4&pivots=programming-language-csharp#binding-types
+[tables-sdk-types]: ./functions-bindings-storage-table.md?tabs=isolated-process%2Ctable-api&pivots=programming-language-csharp#binding-types
+[eventgrid-sdk-types]: ./functions-bindings-event-grid.md?tabs=isolated-process%2Cextensionv3&pivots=programming-language-csharp#binding-types
+[queue-sdk-types]: ./functions-bindings-storage-queue.md?tabs=isolated-process%2Cextensionv5&pivots=programming-language-csharp#binding-types
+[eventhub-sdk-types]: ./functions-bindings-event-hubs.md?tabs=isolated-process%2Cextensionv5&pivots=programming-language-csharp#binding-types
+[servicebus-sdk-types]: ./functions-bindings-service-bus.md?tabs=isolated-process%2Cextensionv5&pivots=programming-language-csharp#binding-types
 
-<sup>1</sup> Support for SDK type bindings does not presently extend to output bindings.
+<sup>1</sup> For output scenarios in which you would use an SDK type, you should create and work with SDK clients directly instead of using an output binding.
 
-<sup>2</sup> The Cosmos DB trigger uses the [Azure Cosmos DB change feed](../cosmos-db/change-feed.md) and exposes change feed items as JSON-serializable types. The absence of SDK types is by-design for this scenario.
+<sup>2</sup> The preview for the Service Bus trigger does not yet support message settlement scenarios.
+
+<sup>3</sup> The Cosmos DB trigger uses the [Azure Cosmos DB change feed](../cosmos-db/change-feed.md) and exposes change feed items as JSON-serializable types. The absence of SDK types is by-design for this scenario.
 
 The [SDK type binding samples](https://github.com/Azure/azure-functions-dotnet-worker/tree/main/samples/WorkerBindingSamples) show examples of working with the various supported types.
 
 > [!NOTE]
-> When using [binding expressions](./functions-bindings-expressions-patterns.md) that rely on trigger data, SDK types for the trigger itself are not supported.
-
-[sdk-types-worker-version]: https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker/1.12.1-preview1
-[sdk-types-worker-sdk-version]: https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker.Sdk/1.9.0-preview1
+> When using [binding expressions](./functions-bindings-expressions-patterns.md) that rely on trigger data, SDK types for the trigger itself cannot be used.
 
 ### HTTP trigger
 
