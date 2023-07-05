@@ -3,12 +3,12 @@ title: Use a customer-managed key to encrypt Azure disks in Azure Kubernetes Ser
 description: Bring your own keys (BYOK) to encrypt AKS OS and Data disks.
 ms.topic: article
 ms.custom: devx-track-azurecli
-ms.date: 06/27/2023
+ms.date: 07/05/2023
 ---
 
 # Bring your own keys (BYOK) with Azure disks in Azure Kubernetes Service (AKS)
 
-Azure Storage encrypts all data in a storage account at rest. By default, data is encrypted with Microsoft-managed keys. For more control over encryption keys, you can supply customer-managed keys to use for encryption at rest for both the ephemeral OS and data disks for your AKS clusters.
+Azure Storage encrypts all data in a storage account at rest. By default, data is encrypted with Microsoft-managed keys. For more control over encryption keys, you can supply customer-managed keys to use for encryption at rest for both the OS and data disks for your AKS clusters.
 
 Learn more about customer-managed keys on [Linux][customer-managed-keys-linux] and [Windows][customer-managed-keys-windows].
 
@@ -16,14 +16,13 @@ Learn more about customer-managed keys on [Linux][customer-managed-keys-linux] a
 
 * You must enable soft delete and purge protection for *Azure Key Vault* when using Key Vault to encrypt managed disks.
 * You need the Azure CLI version 2.11.1 or later.
-* Customer-managed keys are only supported in Kubernetes versions 1.17 and higher.
+* Data disk encryption and customer-managed keys are supported on Kubernetes versions 1.24 and higher.
 * If you choose to rotate (change) your keys periodically, see [Customer-managed keys and encryption of Azure managed disk](../virtual-machines/disk-encryption.md) for more information.
 
 ## Limitations
 
-* Data disk encryption support is limited to AKS clusters running Kubernetes version 1.17 and above.
-* Encryption of ephemeral OS disk with customer-managed keys can only be enabled when creating an AKS cluster.
-* When encrypting ephemeral OS disk-enabled node pool with customer-managed keys, if you want to rotate key in Azure Key Vault, you need to:
+* Encryption of OS disk with customer-managed keys can only be enabled when creating an AKS cluster.
+* When encrypting ephemeral OS disk-enabled node pool with customer-managed keys, if you want to rotate the key in Azure Key Vault, you need to:
 
    * Scale down the node pool count to 0
    * Rotate the key
