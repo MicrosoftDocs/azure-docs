@@ -57,7 +57,7 @@ Some common reasons for the request to be non-compliant to RFC are:
 | ---------- | ---------- | 
 | Invalid Host in request line  | Host containing two colons (example.com:**8090:8080**) |
 | Missing Host Header | Request doesn't have Host Header |
-| Presence of malformed or illegal character | Reserved characters are **&,!.** Workaround is to percent code it like %& |
+| Presence of malformed or illegal character | Reserved characters are **&,!.** The workaround is to code it as a percentage. For example: %& |
 | Invalid HTTP version | Get /content.css HTTP/**0.3** |
 | Header field name and URI contains non-ASCII Character | GET /**«úü¡»¿**.doc HTTP/1.1  |
 | Missing Content Length header for POST request | Self Explanatory |
@@ -92,7 +92,7 @@ An HTTP 401 unauthorized response can be returned to AppGW probe request if the 
 HTTP 403 Forbidden is presented when customers are utilizing WAF skus and have WAF configured in Prevention mode.  If enabled WAF rulesets or custom deny WAF rules match the characteristics of an inbound request, the client is presented a 403 forbidden response.
 
 Other reasons for clients receiving 403 responses include:
-- You're using AppService as backend and it's configured to allow access only from Application Gateway. This can return a 403 error by AppServices. This typically happens due to redirects/href links that point directly to appservices instead of pointing at the Application Gateway's IP address. 
+- You're using App Service as backend and it's configured to allow access only from Application Gateway. This can return a 403 error by App Services. This typically happens due to redirects/href links that point directly to App Services instead of pointing at the Application Gateway's IP address. 
 - If you're accessing a storage blog and the Application Gateway and storage endpoint is in different region, then a 403 error is returned if the Application Gateway's public IP address isn't allow-listed. See [Grant access from an internet IP range](/azure/storage/common/storage-network-security?tabs=azure-portal#grant-access-from-an-internet-ip-range).
 
 #### 404 – Page not found
