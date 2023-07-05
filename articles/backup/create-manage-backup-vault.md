@@ -136,7 +136,7 @@ The vault move across subscriptions and resource groups is supported in all publ
 
 1. In the **Resource group** drop-down list, select an existing resource group or select **Create new** to create a new resource group.
 
-   The subscription remains the same and gets auto-populated.
+   The subscription remains the same and gets auto populated.
 
    :::image type="content" source="./media/backup-vault-overview/select-existing-or-create-resource-group-inline.png" alt-text="Screenshot showing the selection of an existing resource group or creation of a new resource group." lightbox="./media/backup-vault-overview/select-existing-or-create-resource-group-expanded.png":::
 
@@ -274,6 +274,33 @@ Follow these steps:
 
    :::image type="content" source="./media/backup-vault-overview/monitor-postgresql-restore-to-secondary-region.png" alt-text="Screenshot shows how to monitor the postgresql restore to the secondary region." lightbox="./media/backup-vault-overview/monitor-postgresql-restore-to-secondary-region.png":::
 
+## Perform Cross Subscription Restore using Azure portal
+
+Azure Backup now allows you to perform Cross Subscription Restore (CSR), which helps you to restore some datasources of Backup vault in a subscription different from that of the source machine. 
+
+This feature is enabled for existing vaults by default, and you can use it if supported for the intended datasource.
+
+>[!Note]
+> The feature is currently not supported for Azure Kubernetes Service (AKS) and Azure VMWare Service (AVS) backup.
+
+To perform Cross Subscription Restore, follow these steps:
+
+1. In the *Backup vault*, go tot **Backup Instance** > **Restore**.
+1. Choose the *Subscription* to which you want to restore, and then select **Restore**.
+
+However, there may be instances when you need to disable Cross Subscription Restore based on your cloud infrastructure. So, Cross Subscription Restore can be enabled, disabled, or permanently disabled for existing vaults by goint to *Backup vault* > **Properties** > **Cross Subscription Restore**.
+
+:::image type="content" source="./media/create-manage-backup-vault/disable-cross-subscription-restore-for-backup-vault.png" alt-text="Screenshot shows how to disable Cross Subscription Restore for Backup vault." lightbox="./media/create-manage-backup-vault/disable-cross-subscription-restore-for-backup-vault.png":::
+
+You can also select the state of CSR  during the creation of Backup vault.
+
+:::image type="content" source="./media/create-manage-backup-vault/select-cross-subsctiption-state-on-backup-vault-creation.png" alt-text="Screenshot shows how to disable Cross Subscription Restore for Backup vault." lightbox="./media/create-manage-backup-vault/select-cross-subsctiption-state-on-backup-vault-creation.png":::
+
+>[!Note]
+>- CSR once permanently disabled on a vault can't be re-enabled because it's an irreversible operation.
+>- If CSR is disabled but not permanently disabled, then you can reverse the operation by selecting **Vault** > **Properties** > **Cross Subscription Restore** > **Enable**.
+>- If a Backup vault is moved to a different subscription when CSR is disabled or permanently disabled, restore to the original subscription fails.
+ 
 ## Next steps
 
 - [Configure backup on Azure PostgreSQL databases](backup-azure-database-postgresql.md#configure-backup-on-azure-postgresql-databases)
