@@ -59,7 +59,7 @@ To ensure that Microsoft Sentinel's threat detection provides complete coverage 
 
 ### Content Hub general availability delayed
 
-We had every intention of releasing content hub to general availability this week. Our engineering team recognized some problems just before launch and are taking the time to get it corrected. If you saw this announcement and were eagerly awaiting the updated experience to rollout to your tenant, we apologize for the mismatch here. So, here is the revised announcement in anticipation of general availability soon.
+We had every intention of releasing content hub to general availability this week. Our engineering team recognized some problems just before launch and are taking the time to get it corrected. If you saw this announcement and were eagerly awaiting the updated experience to roll out to your tenant, we apologize for the mismatch here. So, here is the revised announcement in anticipation of general availability soon.
 
 When the general availability (GA) of content hub is released, the [content hub centralization changes announced in February](#out-of-the-box-content-centralization-changes) will also take effect. For more information on these changes and their impact, including more details about the tool provided to reinstate **IN USE** gallery templates, see [Out-of-the-box (OOTB) content centralization changes](sentinel-content-centralize.md). 
 
