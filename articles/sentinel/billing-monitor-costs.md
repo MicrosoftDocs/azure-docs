@@ -5,7 +5,7 @@ author: cwatson-cat
 ms.author: cwatson
 ms.custom: subject-cost-optimization
 ms.topic: how-to
-ms.date: 01/05/2023
+ms.date: 07/05/2023
 ---
 
 # Manage and monitor costs for Microsoft Sentinel

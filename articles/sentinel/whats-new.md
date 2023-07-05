@@ -4,7 +4,7 @@ description: This article describes new features in Microsoft Sentinel from the 
 author: yelevin
 ms.author: yelevin
 ms.topic: conceptual
-ms.date: 06/22/2023
+ms.date: 07/05/2023
 ---
 
 # What's new in Microsoft Sentinel

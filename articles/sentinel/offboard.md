@@ -3,7 +3,7 @@ title: Remove Microsoft Sentinel | Microsoft Docs
 description: How to delete your Microsoft Sentinel instance.
 author: yelevin
 ms.topic: conceptual
-ms.date: 11/09/2021
+ms.date: 07/05/2023
 ms.author: yelevin
 ms.custom: ignite-fall-2021
 ---

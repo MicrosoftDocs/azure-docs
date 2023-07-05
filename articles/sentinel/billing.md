@@ -5,7 +5,7 @@ author: cwatson-cat
 ms.author: cwatson
 ms.custom: subject-cost-optimization
 ms.topic: how-to
-ms.date: 06/30/2023
+ms.date: 07/05/2023
 #Customer intent: As a SOC manager, plan Microsoft Sentinel costs so I can understand and optimize the costs of my SIEM.
 ---
 
