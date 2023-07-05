@@ -103,9 +103,6 @@ New-AzVmss `
 
 ```
 
-
----
-
 ## Updating your Spot Priority Mix
 Should your ideal percentage split of Spot and Standard VMs change, you can update your Spot Priority Mix after your scale set has been deployed. Updating your Spot Priority Mix will apply for all scale set actions *after* the change is made, existing VMs will remain as is.
 
@@ -148,9 +145,6 @@ Update-AzVmss `
         -RegularPriorityPercentage 80;
 
 ```
-
-
----
 
 ## Examples
 
@@ -234,7 +228,8 @@ Example walk-through:
 If Spot Priority Mix isn't available to you, be sure to configure the `priorityMixPolicy` to specify a *Spot* priority in the `virtualMachineProfile`. Without enabling the `priorityMixPolicy` setting, you won't be able to access this Spot feature.
 
 ## FAQs
-###Q: I changed the Spot Priority Mix settings, why aren't my existing VMs changing?
+### Q: I changed the Spot Priority Mix settings, why aren't my existing VMs changing?
+
 Spot Priority Mix applies for scale actions on the scale set. Changing the percentage split of Spot and Standard VMs won't rebalance existing scale set. You'll see the actual percentage split change as you scale the scale set.
 
 ### Q: Is Spot Priority Mix enabled for Uniform orchestration mode?
@@ -247,4 +242,5 @@ Spot VMs, and therefore Spot Priority Mix, are available in all global Azure reg
 
 > [!div class="nextstepaction"]
 > [Learn more about Spot virtual machines](../virtual-machines/spot-vms.md)
+
 
