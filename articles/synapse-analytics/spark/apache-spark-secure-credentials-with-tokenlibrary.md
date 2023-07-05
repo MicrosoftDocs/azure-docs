@@ -370,7 +370,6 @@ The Azure Synapse Analytics supports a variety of linked service connections (fr
   - Connections that use User assigned managed identities (UAMI)
   
 From a notebook or a spark job, when the request to get token/secret using Linked Service fails, if the error message indicates BadRequest, then this indicates the user error. The error message currently doesn't require all the details of the failure. Please reach out to our support to debug the issue.
-  ````
 
 ## Next steps
 
