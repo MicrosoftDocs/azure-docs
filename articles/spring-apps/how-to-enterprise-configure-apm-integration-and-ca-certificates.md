@@ -428,7 +428,7 @@ To use the **Unbind binding** command, select the **Bound** hyperlink, and then 
 
 To unbind a buildpack binding by editing binding properties, select **Edit Binding**, and then select **Unbind**.
 
-:::image type="content" source="media/how-to-enterprise-configure-apm-integration-and-ca-certificates/unbind-binding-properties.png" alt-text="Screenshot of Azure portal showing the Edit binding page with the Unbind button highlighted." lightbox="media/how-to-enterprise-configure-apm-integration-and-ca-certificates/unbind-binding-properties.png":::-
+:::image type="content" source="media/how-to-enterprise-configure-apm-integration-and-ca-certificates/unbind-binding-properties.png" alt-text="Screenshot of Azure portal showing the Edit binding page with the Unbind button highlighted." lightbox="media/how-to-enterprise-configure-apm-integration-and-ca-certificates/unbind-binding-properties.png":::
 
 When you unbind a binding, the bind status changes from **Bound** to **Unbound**.
 
