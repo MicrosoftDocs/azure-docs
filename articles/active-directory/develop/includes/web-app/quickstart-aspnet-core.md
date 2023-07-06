@@ -162,7 +162,7 @@ The controller or its methods can be protected by applying the `[Authorize]` att
 [AuthorizeForScopes(ScopeKeySection = "DownstreamApi:Scopes")]
 public async Task<IActionResult> Index()
 {
-    var user = await _graphServiceClient.Me.Request().GetAsync();
+    var user = await _graphServiceClient.Me.GetAsync();
     ViewData["ApiResult"] = user.DisplayName;
 
     return View();

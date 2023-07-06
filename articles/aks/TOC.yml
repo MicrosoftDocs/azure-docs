@@ -107,6 +107,8 @@
       href: concepts-identity.md
     - name: Networking
       href: concepts-network.md
+    - Name: Network observability
+      href: network-observability-overview.md
     - name: Storage
       href: concepts-storage.md
     - name: Scaling
@@ -295,7 +297,6 @@
           href: use-tags.md
         - name: Use labels
           href: use-labels.md
-        - name: Enforce best practices with Guardrails
     - name: Security and authentication
       items:
         - name: Overview of Defender for Containers
@@ -470,6 +471,12 @@
               href: load-balancer-standard.md
             - name: Use kube-proxy configuration (IPVS)
               href: configure-kube-proxy.md
+        - name: Network Observability
+          items:
+          - name: Setup of Network Observability - BYO
+            href: network-observability-byo-cli.md
+          - name: Setup of Network Observability - Azure Managed
+            href: network-observability-managed-cli.md
         - name: Security
           items:
             - name: Use API Server VNet Integration
@@ -581,6 +588,8 @@
           href: ../postgresql/flexible-server/tutorial-django-aks-database.md
         - name: Build Java app with WebSphere Liberty or Open Liberty
           href: howto-deploy-java-liberty-app.md
+        - name: Build Java app with WebLogic Server
+          href: howto-deploy-java-wls-app.md
         - name: Build WordPress app with MySQL
           href: ../mysql/flexible-server/tutorial-deploy-wordpress-on-aks.md
           maintainContext: true
@@ -609,6 +618,10 @@
               href: deploy-application-template.md
             - name: Deploy Kubernetes applications with Azure CLI
               href: deploy-application-az-cli.md
+    - name: Deploy Intelligent Apps on AKS
+      items:
+        - name: Deploy an application that uses OpenAI on Azure Kubernetes Service (AKS) 
+          href: open-ai-quickstart.md
     - name: Deploy the Open Service Mesh AKS add-on
       items:
         - name: About Open Service Mesh

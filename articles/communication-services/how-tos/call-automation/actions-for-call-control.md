@@ -3,27 +3,23 @@ title: Azure Communication Services Call Automation how-to for managing calls wi
 titleSuffix: An Azure Communication Services how-to document
 description: Provides a how-to guide on using call actions to steer and manage a call with Call Automation.
 author: ashwinder
-
 ms.topic: how-to
 ms.service: azure-communication-services
 ms.subservice: call-automation
-ms.date: 11/03/2022
+ms.date: 06/19/2023
 ms.author: askaur
 manager: visho
-ms.custom: public_preview
 services: azure-communication-services
 ---
 
 # How to control and steer calls with Call Automation
-
-[!INCLUDE [Public Preview Notice](../../includes/public-preview-include.md)]
 
 Call Automation uses a REST API interface to receive requests for actions and provide responses to notify whether the request was successfully submitted or not. Due to the asynchronous nature of calling, most actions have corresponding events that are triggered when the action completes successfully or fails. This guide covers the  actions available for steering calls, like CreateCall, Transfer, Redirect, and managing participants. Actions are accompanied with sample code on how to invoke the said action and sequence diagrams describing the events expected after invoking an action. These diagrams help you visualize how to program your service application with Call Automation.
 
 Call Automation supports various other actions to manage call media and recording that aren't included in this guide.
 
 > [!NOTE]
-> Call Automation currently doesn't interoperate with Microsoft Teams. Actions like making, redirecting a call to a Teams user or adding them to a call using Call Automation isn't supported.
+> Call Automation currently doesn't support [Rooms](../../concepts/rooms/room-concept.md) calls.
 
 As a prerequisite, we recommend you to read these articles to make the most of this guide:
 

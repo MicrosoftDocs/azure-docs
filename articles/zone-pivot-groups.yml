@@ -203,6 +203,20 @@ groups:
     title: JavaScript
   - id: programming-language-python
     title: Python
+- id: programming-languages-set-fivedevlangs
+  title: Programming languages
+  prompt: Choose a programming language
+  pivots:
+  - id: programming-language-csharp
+    title: C#
+  - id: programming-language-java
+    title: Java
+  - id: programming-language-javascript
+    title: JavaScript
+  - id: programming-language-python
+    title: Python
+  - id: programming-language-go
+    title: Go
 - id: programming-languages-set-formre
 # Owner: pafarley
   title: Programming languages
@@ -1698,6 +1712,15 @@ groups:
     title: Python
   - id: rest-api
     title: REST
+# Owner: aahi
+- id: openai-use-your-data
+  title: Programming languages
+  prompt: Choose your preferred usage method
+  pivots:
+  - id: programming-language-studio
+    title: Azure OpenAI Studio
+  - id: rest-api
+    title: REST API
 # Owner: pafarley
 - id: openai-quickstart-dall-e
   title: Programming languages
@@ -2120,6 +2143,15 @@ groups:
     title: Azure portal
   - id: azure-resource-manager
     title: ARM template
+# Owner: ruslany
+- id: azure-cli-bicep
+  title: Interaction type
+  prompt: Select how you want to interact with Azure
+  pivots:
+  - id: azure-cli
+    title: Azure CLI
+  - id: bicep
+    title: Bicep    
 # Owner: cshoe
 - id: container-apps-portal-or-cli
   title: Interaction type
@@ -2562,3 +2594,12 @@ groups:
     title: Java
   - id: programming-language-python
     title: Python
+# Owner: juliakm
+- id: template-type
+  title: Template type
+  prompt: Choose a template type
+  pivots:
+  - id: templates-includes
+    title: Includes templates
+  - id: templates-extends
+    title: Extends templates
