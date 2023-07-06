@@ -80,12 +80,10 @@ In the Web SDK, the durability of the channel is ensured through a reliable SCTP
 In the context of a group call, it signifies the prevention of message loss between the sender and server.
 In a peer-to-peer call, it denotes reliable transmission between the sender and remote endpoint.
 
-Note: In the current Web SDK implementation, data transmission is done through a reliable WebRTC Data Channel connection for both `lossy` and `durable` channels. However, in the Native SDK implementation, the underlying connection isn't fully reliable, thus `durable` only means best-effort reliability.
+Note: In the current Web SDK implementation, data transmission is done through a reliable WebRTC Data Channel connection for both `lossy` and `durable` channels.
 
 ### Priority
 Upon creation, a channel can be configured to be one of the two Priority options: `normal` or `high`.
-
-For the Native SDK, a `normal` priority channel ensures a best-effort message delivery where video transmission is given precedence in terms of bandwidth. A `high` priority channel prioritizes Data Channel messages over video, to the point where video quality may suffer due to bandwidth allocation for Data Channel.
 
 For the Web SDK, priority settings are only compared among channels on the sender side. Channels with a `high` priority are given higher precedence for transmission compared to the ones with `normal` priority.
 
