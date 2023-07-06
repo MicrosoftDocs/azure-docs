@@ -47,6 +47,10 @@
       href: enable-entity-behavior-analytics.md
     - name: Configure data retention and archive 
       href: configure-data-retention-archive.md
+  - name: Review and fine-tune
+    items: 
+    - name: Review and fine-tune checklist   
+      href: review-fine-tune-overview.md    
 - name: Tutorials
   items:
   - name: Forward syslog data to workspace
