@@ -4,7 +4,7 @@ titleSuffix: Azure Machine Learning
 description: 'Learn how to create and use managed online endpoints using the Azure Machine Learning studio.'
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: mlops
+ms.subservice: studio
 ms.topic: how-to
 ms.custom: how-to, managed online endpoints, devplatv2, studio, event-tier1-build-2022
 author: dem108

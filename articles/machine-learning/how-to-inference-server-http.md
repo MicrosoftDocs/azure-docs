@@ -7,7 +7,7 @@ ms.author: shnagata
 ms.reviewer: mopeakande
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: core
+ms.subservice: inferencing
 ms.topic: how-to
 ms.custom: inference server, local development, local debugging, devplatv2
 ms.date: 11/29/2022
@@ -227,7 +227,7 @@ In this section, we'll run the server locally with [sample files](https://github
     Use the `curl` command to send an example request to the server and receive a scoring result.
 
     ```bash
-    curl --request POST "127.0.0.1:5001/score" --header 'Content-Type: application/json' --data @sample-request.json
+    curl --request POST "127.0.0.1:5001/score" --header 'Content-Type:application/json' --data @sample-request.json
     ```
 
     The scoring result will be returned if there's no problem in your scoring script. If you find something wrong, you can try to update the scoring script, and launch the server again to test the updated script.
