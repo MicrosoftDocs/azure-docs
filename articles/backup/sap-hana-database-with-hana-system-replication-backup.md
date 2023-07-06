@@ -238,9 +238,9 @@ Follow these steps:
 
 1. On standalone VM, Primary node, or Secondary node (once protected using Azure Backup), go to *vault* > **Backup Items** > **SAP HANA in Azure VM** > **View Details** > **Stop backup**, and then select **Retain backup data** > **Stop backup** to stop backup and retain data.
 
-2. (Mandatory) [Run the latest preregistration script](backup/sap-hana-database-with-hana-system-replication-backup.md#run-the-preregistration-script) on both primary and condary VM nodes
+2. (Mandatory) [Run the latest preregistration script](sap-hana-database-with-hana-system-replication-backup.md#run-the-preregistration-script) on both primary and condary VM nodes
 
-  The preregistration script contains the HSR attributes.
+   The preregistration script contains the HSR attributes.
 
 3. [Configure HSR manually](sap-hana-database-with-hana-system-replication-backup.md#configure-backup).
 You can also configure the backup with clustering tools, such as **Pacemaker**.
