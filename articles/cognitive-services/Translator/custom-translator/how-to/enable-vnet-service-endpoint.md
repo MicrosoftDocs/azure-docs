@@ -64,30 +64,30 @@ You need to add all virtual networks that are allowed access via the service end
 
     > As described in the [previous section](#configure-virtual-networks-resource-networking-settings), when you configure a virtual network as *allowed* for the Translator resource, the `Microsoft.CognitiveServices` service endpoint is automatically enabled. If you later disable it, you need to re-enable it manually to restore the service endpoint access to the Translator resource (and to other Cognitive Services resources):
 
+1. Now, when you choose the **Selected Networks and Private Endpoints** option you see your enabled virtual network and subnets under the **Virtual networks** section.
+
 1. Check the service endpoint
 
     * In the **Resource Management** group in the left pane, select **Networking**.
 
     * Select your **virtual network** and then select the desired **subnet**.
 
-      :::image type="content" source="../media/how-to/select-subnet.png" alt-text="{alt-text}":::
+      :::image type="content" source="../media/how-to/select-subnet.png" alt-text="Screenshot of subnet selection section in the Azure portal.":::
 
     * A new **Subnets** window appears.
 
     * Select **Service endpoints** from the **Settings** menu located on the left sidebar.
 
-    :::image type="content" source="../media/how-to/subnet-settings.png" alt-text="Screenshot of the **Subnets** selection from the **Settings** menu in the Azure portal.":::
+    :::image type="content" source="../media/how-to/service-endpoints.png" alt-text="Screenshot of the **Subnets** selection from the **Settings** menu in the Azure portal.":::
 
 1. A new panel appears on the right side of the window. In this panel, in the **Service Endpoints** section, check that your virtual network subnet is included in the  `Microsoft.CognitiveServices` list.
-
-1. Now, when you choose the **Selected Networks and Private Endpoints** option you see your enabled virtual network and subnets under the **Virtual networks** section.
 
 ## Custom Translator portal
 
 The following table describes Custom Translator project accessibility per Translator resource **Networking** → **Firewalls and virtual networks** security setting.
 
 > [!IMPORTANT]
- > If you allow only Selected Networks and Private Endpoints via the **Networking** → **Firewalls and virtual networks** tab, you can't use the Custom Translator portal your the Translator resource. You can still use the Translator resource outside of Custom Translator portal.
+ > If you configure **Selected Networks and Private Endpoints** via the **Networking** → **Firewalls and virtual networks** tab, you can't use the Custom Translator portal and your the Translator resource. You can still use the Translator resource outside of the Custom Translator portal.
 
 | Translator resource network security setting | Custom Translator portal accessibility |
 |--|--|
@@ -95,13 +95,17 @@ The following table describes Custom Translator project accessibility per Transl
 | Selected Networks and Private Endpoints | Accessible from allowed VNET IP addresses |
 | Disabled | Not accessible |
 
+   :::image type="content" source="../media/how-to/allow-network-access.png" alt-text="Screenshot of allowed network access section in the Azure portal.":::
+
 To use Custom Translator without relaxing network access restrictions on your production Translator resource, consider this workaround:
 
 * Create another Translator resource for development that can be used on a public network.
 
-* Prepare your custom model in Custom Translator portal on the development resource, and then copy the model to your production resource using [Custom Translator non-interactive REST API](https://microsofttranslator.github.io/CustomTranslatorApiSamples/) `workspaces` → `copy authorization and models`  → `copy functions`.
+* Prepare your custom model in the Custom Translator portal on the development resource.
 
-That's it! You learned how to use Azure VNet service endpoints with Custom Translator.
+* Copy the model on your development resource to your production resource using [Custom Translator non-interactive REST API](https://microsofttranslator.github.io/CustomTranslatorApiSamples/) `workspaces` → `copy authorization and models`  → `copy functions`.
+
+Congratulations! You learned how to use Azure VNet service endpoints with Custom Translator.
 
 ## Learn more
 
