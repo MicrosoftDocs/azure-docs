@@ -25,8 +25,8 @@ For more information, see [Azure Virtual Network overview](../../../../virtual-n
 
  To set up a Translator resource for VNet service endpoint scenarios, you need the resources:
 
-1. [A regional Translator resource (global isn't supported)](../../create-translator-resource.md).
-1. [VNet and networking settings for the Translator resource](#configure-virtual-networks-resource-networking-settings).
+* [A regional Translator resource (global isn't supported)](../../create-translator-resource.md).
+* [VNet and networking settings for the Translator resource](#configure-virtual-networks-resource-networking-settings).
 
 ## Configure virtual networks resource networking settings
 
@@ -65,8 +65,7 @@ Let's get started:
       * If you create a new virtual network, the **default** subnet is automatically configured to the `Microsoft.CognitiveServices` service endpoint. This operation can take few minutes.
 
     > [!NOTE]
-
-    > As described in the [previous section](#configure-virtual-networks-resource-networking-settings), when you configure a virtual network as *allowed* for the Translator resource, the `Microsoft.CognitiveServices` service endpoint is automatically enabled. If you later disable it, you need to re-enable it manually to restore the service endpoint access to the Translator resource (and to other Cognitive Services resources):
+    > As described in the [previous section](#configure-virtual-networks-resource-networking-settings), when you configure a virtual network as *allowed* for the Translator resource, the `Microsoft.CognitiveServices` service endpoint is automatically enabled. If you later disable it, you need to re-enable it manually to restore the service endpoint access to the Translator resource (and to other Cognitive Services resources).
 
 1. Now, when you choose the **Selected Networks and Private Endpoints** tab, you can see your enabled virtual network and subnets under the **Virtual networks** section.
 
@@ -93,7 +92,7 @@ The following table describes Custom Translator project accessibility per Transl
    :::image type="content" source="../media/how-to/allow-network-access.png" alt-text="Screenshot of allowed network access section in the Azure portal.":::
 
 > [!IMPORTANT]
- > If you configure **Selected Networks and Private Endpoints** via the **Networking** → **Firewalls and virtual networks** tab, you can't use the Custom Translator portal and your the Translator resource. However, you can still use the Translator resource outside of the Custom Translator portal.
+ > If you configure **Selected Networks and Private Endpoints** via the **Networking** → **Firewalls and virtual networks** tab, you can't use the Custom Translator portal and your Translator resource. However, you can still use the Translator resource outside of the Custom Translator portal.
 
 | Translator resource network security setting | Custom Translator portal accessibility |
 |--|--|
