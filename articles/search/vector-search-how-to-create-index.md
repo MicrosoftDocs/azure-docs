@@ -96,6 +96,9 @@ The schema must include fields for the document key, vector fields, and any othe
                 "type": "Collection(Edm.Single)",
                 "searchable": true,
                 "retrievable": true,
+                "filterable": false,
+                "facetable": false,
+                "sortable": false,
                 "dimensions": 1536,
                 "vectorSearchConfiguration": "vectorConfig"
             },
@@ -110,6 +113,9 @@ The schema must include fields for the document key, vector fields, and any othe
                 "type": "Collection(Edm.Single)",
                 "searchable": true,
                 "retrievable": true,
+                "filterable": false,
+                "facetable": false,
+                "sortable": false,
                 "dimensions": 1536,
                 "vectorSearchConfiguration": "vectorConfig"
             }
