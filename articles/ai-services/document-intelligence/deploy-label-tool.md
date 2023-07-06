@@ -1,7 +1,7 @@
 ---
-title: How to deploy the Form Recognizer Sample Labeling tool
-titleSuffix: Azure Applied AI Services
-description: Learn the different ways you can deploy the Form Recognizer Sample Labeling tool to help with supervised learning.
+title: How to deploy the Document Intelligence Sample Labeling tool
+titleSuffix: Azure AI services
+description: Learn the different ways you can deploy the Document Intelligence Sample Labeling tool to help with supervised learning.
 author: laujan
 manager: nitinme
 ms.service: applied-ai-services
@@ -12,13 +12,14 @@ ms.author: lajanuar
 monikerRange: 'form-recog-2.1.0'
 ---
 
+
 # Deploy the Sample Labeling tool
 
-**This article applies to:** ![Form Recognizer v2.1 checkmark](media/yes-icon.png) **Form Recognizer v2.1**.
+**This article applies to:** ![Document Intelligence v2.1 checkmark](media/yes-icon.png) **Document Intelligence v2.1**.
 
 >[!TIP]
 >
-> * For an enhanced experience and advanced model quality, try the [Form Recognizer v3.0 Studio](https://formrecognizer.appliedai.azure.com/studio).
+> * For an enhanced experience and advanced model quality, try the [Document Intelligence v3.0 Studio](https://formrecognizer.appliedai.azure.com/studio).
 > * The v3.0 Studio supports any model trained with v2.1 labeled data.
 > * You can refer to the [API migration guide](v3-migration-guide.md) for detailed information about migrating from v2.1 to v3.0.
 > * *See* our [**REST API**](quickstarts/get-started-sdks-rest-api.md?view=form-recog-3.0.0&preserve-view=true) or [**C#**](quickstarts/get-started-sdks-rest-api.md?view=form-recog-3.0.0&preserve-view=true), [**Java**](quickstarts/get-started-sdks-rest-api.md?view=form-recog-3.0.0&preserve-view=true), [**JavaScript**](quickstarts/get-started-sdks-rest-api.md?view=form-recog-3.0.0&preserve-view=true), or [Python](quickstarts/get-started-sdks-rest-api.md?view=form-recog-3.0.0&preserve-view=true) SDK quickstarts to get started with the v3.0 version.
@@ -26,7 +27,7 @@ monikerRange: 'form-recog-2.1.0'
 > [!NOTE]
 > The [cloud hosted](https://fott-2-1.azurewebsites.net/) labeling tool is available at [https://fott-2-1.azurewebsites.net/](https://fott-2-1.azurewebsites.net/). Follow the steps in this document only if you want to deploy the Sample Labeling tool for yourself. 
 
-The Form Recognizer Sample Labeling tool is an application that provides a simple user interface (UI), which you can use to manually label forms (documents) for supervised learning. In this article, we'll provide links and instructions that teach you how to:
+The Document Intelligence Sample Labeling tool is an application that provides a simple user interface (UI), which you can use to manually label forms (documents) for supervised learning. In this article, we'll provide links and instructions that teach you how to:
 
 * [Run the Sample Labeling tool locally](#run-the-sample-labeling-tool-locally)
 * [Deploy the Sample Labeling tool to an Azure Container Instance (ACI)](#deploy-with-azure-container-instances-aci)
@@ -34,9 +35,9 @@ The Form Recognizer Sample Labeling tool is an application that provides a simpl
 
 ## Run the Sample Labeling tool locally
 
-The fastest way to start labeling data is to run the Sample Labeling tool locally. The following quickstart uses the Form Recognizer REST API and the Sample Labeling tool to train a custom model with manually labeled data.
+The fastest way to start labeling data is to run the Sample Labeling tool locally. The following quickstart uses the Document Intelligence REST API and the Sample Labeling tool to train a custom model with manually labeled data.
 
-* [Get started with Azure Form Recognizer](label-tool.md).
+* [Get started with Azure AI Document Intelligence](label-tool.md).
 
 ## Deploy with Azure Container Instances (ACI)
 

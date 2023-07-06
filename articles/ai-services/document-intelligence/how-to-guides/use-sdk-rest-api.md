@@ -1,7 +1,7 @@
 ---
-title: "Use Form Recognizer client library SDKs or REST API "
-titleSuffix: Azure Applied AI Services
-description: How to use Form Recognizer SDKs or REST API and create apps to extract key data from documents.
+title: "Use Document Intelligence client library SDKs or REST API "
+titleSuffix: Azure AI services
+description: How to use Document Intelligence SDKs or REST API and create apps to extract key data from documents.
 author: laujan
 manager: nitinme
 ms.service: applied-ai-services
@@ -12,22 +12,23 @@ ms.date: 03/03/2023
 ms.author: lajanuar
 zone_pivot_groups: programming-languages-set-formre
 ---
+
 <!-- markdownlint-disable MD051 -->
 
-# Use Form Recognizer models
+# Use Document Intelligence models
 
 ::: moniker range="form-recog-3.0.0"
 [!INCLUDE [applies to v3.0](../includes/applies-to-v3-0.md)]
 ::: moniker-end
 
 ::: moniker range="form-recog-3.0.0"
- In this guide, you learn how to add Form Recognizer models to your applications and workflows using a programming language SDK of your choice or the REST API. Azure Form Recognizer is a cloud-based Azure Applied AI Service that uses machine learning to extract key text and structure elements from documents. We recommend that you use the free service as you're learning the technology. Remember that the number of free pages is limited to 500 per month.
+ In this guide, you learn how to add Document Intelligence models to your applications and workflows using a programming language SDK of your choice or the REST API. Azure AI Document Intelligence is a cloud-based Azure AI service that uses machine learning to extract key text and structure elements from documents. We recommend that you use the free service as you're learning the technology. Remember that the number of free pages is limited to 500 per month.
 
-Choose from the following Form Recognizer models to analyze and extract data and values from forms and documents:
+Choose from the following Document Intelligence models to analyze and extract data and values from forms and documents:
 
 > [!div class="checklist"]
 >
-> * The [prebuilt-read](../concept-read.md) model is at the core of all Form Recognizer models and can detect lines, words, locations, and languages. Layout, general document, prebuilt, and custom models all use the read model as a foundation for extracting texts from documents.
+> * The [prebuilt-read](../concept-read.md) model is at the core of all Document Intelligence models and can detect lines, words, locations, and languages. Layout, general document, prebuilt, and custom models all use the read model as a foundation for extracting texts from documents.
 >
 > * The [prebuilt-layout](../concept-layout.md) model extracts text and text locations, tables, selection marks, and structure information from documents and images.
 >
@@ -91,12 +92,12 @@ Choose from the following Form Recognizer models to analyze and extract data and
 
 ## Next steps
 
-Congratulations! You've learned to use Form Recognizer models to analyze various documents in different ways. Next, explore the Form Recognizer Studio and reference documentation.
+Congratulations! You've learned to use Document Intelligence models to analyze various documents in different ways. Next, explore the Document Intelligence Studio and reference documentation.
 >[!div class="nextstepaction"]
-> [**Try the Form Recognizer Studio**](https://formrecognizer.appliedai.azure.com/studio)
+> [**Try the Document Intelligence Studio**](https://formrecognizer.appliedai.azure.com/studio)
 
 > [!div class="nextstepaction"]
-> [**Explore the Form Recognizer REST API v3.0**](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2022-08-31/operations/AnalyzeDocument)
+> [**Explore the Document Intelligence REST API v3.0**](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2022-08-31/operations/AnalyzeDocument)
 ::: moniker-end
 
 ::: moniker range="form-recog-2.1.0"
@@ -104,7 +105,7 @@ Congratulations! You've learned to use Form Recognizer models to analyze various
 ::: moniker-end
 
 ::: moniker range="form-recog-2.1.0"
-In this how-to guide, you learn how to add Form Recognizer to your applications and workflows using an SDK, in a programming language of your choice, or the REST API. Azure Form Recognizer is a cloud-based Azure Applied AI Service that uses machine learning to extract key-value pairs, text, and tables from your documents. We recommend that you use the free service when you're learning the technology. Remember that the number of free pages is limited to 500 per month.
+In this how-to guide, you learn how to add Document Intelligence to your applications and workflows using an SDK, in a programming language of your choice, or the REST API. Azure AI Document Intelligence is a cloud-based Azure AI service that uses machine learning to extract key-value pairs, text, and tables from your documents. We recommend that you use the free service when you're learning the technology. Remember that the number of free pages is limited to 500 per month.
 
 You use the following APIs to extract structured data from forms and documents:
 
