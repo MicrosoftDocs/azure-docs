@@ -40,10 +40,8 @@ landingContent:
     linkLists:
       - linkListType: quickstart
         links:
-          - text: Direct web traffic with Azure Application Gateway for Containers - Bring your own deployment
-            url: quickstart-create-application-gateway-for-containers-byo-deployment.md
-          - text: Direct web traffic with Azure Application Gateway for Containers - ALB managed deployment
-            url: quickstart-create-application-gateway-for-containers-alb-managed-deployment.md
+          - text: Provision ALB Controller into AKS cluster
+            url: quickstart-deploy-application-gateway-for-containers-alb-controller.md
 
   # Card
   - title: Deploy with SSL termination
