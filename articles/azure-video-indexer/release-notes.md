@@ -83,7 +83,7 @@ For more information, see [Considerations and limitations when choosing a use ca
 
 ### Support for storage behind firewall
 
-It's good practice to lock storage accounts and disable public access to enhance or comply with enterprise security policy. Video Indexer can now access non-public accessible storage accounts using the [Azure Trusted Service](https://learn.microsoft.com/azure/storage/common/storage-network-security?tabs=azure-portal#trusted-access-based-on-a-managed-identity) exception using Managed Identities. You can read more how to set it up in our [how-to](storage-behind-firewall.md).
+It's good practice to lock storage accounts and disable public access to enhance or comply with enterprise security policy. Video Indexer can now access non-public accessible storage accounts using the [Azure Trusted Service](/azure/storage/common/storage-network-security?tabs=azure-portal#trusted-access-based-on-a-managed-identity) exception using Managed Identities. You can read more how to set it up in our [how-to](storage-behind-firewall.md).
 
 ### New custom speech and pronunciation training
 
@@ -319,7 +319,7 @@ As of May 1st, our new updated repository of Azure Video Indexer widget was rena
 
 As of today, Azure Video analyzer for Media product name is **Azure Video Indexer** and all product related assets (web portal, marketing materials). It is a backward compatible change that has no implication on APIs and links. **Azure Video Indexer**'s new logo:
 
-:::image type="content" source="../ai-services/media/video-indexer.svg" alt-text="New logo":::
+:::image type="content" source="./media/video-indexer.svg" alt-text="New logo":::
 
 ## March 2022
 
