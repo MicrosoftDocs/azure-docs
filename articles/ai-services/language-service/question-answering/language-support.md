@@ -1,6 +1,6 @@
 ---
 title: Language support - custom question answering
-titleSuffix: Azure Cognitive Services
+titleSuffix: Azure AI services
 description: A list of culture, natural languages supported by custom question answering for your project. Do not mix languages in the same project.
 services: cognitive-services
 manager: nitinme
@@ -33,7 +33,7 @@ In custom question answering, you have the option to either select the language 
 
 If you need to support a project system, which includes several languages, you can:
 
-* Use the [Translator service](../../translator/translator-info-overview.md) to translate a question into a single language before sending the question to your project. This allows you to focus on the quality of a single language and the quality of the alternate questions and answers.
+* Use the [Translator service](../../translator/translator-overview.md) to translate a question into a single language before sending the question to your project. This allows you to focus on the quality of a single language and the quality of the alternate questions and answers.
 * Create a custom question answering enabled language resource, and a project inside that resource, for every language. This allows you to manage separate alternate questions and answer text that is more nuanced for each language. This gives you much more flexibility but requires a much higher maintenance cost when the questions or answers change across all languages.
 
 ## Single language per resource

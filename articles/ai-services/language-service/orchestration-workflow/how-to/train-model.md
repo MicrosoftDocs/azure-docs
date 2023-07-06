@@ -1,7 +1,7 @@
 ---
 title: How to train and evaluate models in orchestration workflow
 description: Learn how to train a model for orchestration workflow projects.
-titleSuffix: Azure Cognitive Services
+titleSuffix: Azure AI services
 services: cognitive-services
 author: aahill
 manager: nitinme

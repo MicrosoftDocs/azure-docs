@@ -237,5 +237,5 @@ curl -X POST $LANGUAGE_ENDPOINT/language/:analyze-text?api-version=2022-05-01 \
 ## Next steps
 
 * [Sentiment analysis and opinion mining language support](../../language-support.md)
-* [How to call the API](../../how-to/call-api.md)
+* [How to call the API](../../how-to/call-api.md)  
 * [Reference documentation](/rest/api/language/2023-04-01/text-analysis-runtime/analyze-text)

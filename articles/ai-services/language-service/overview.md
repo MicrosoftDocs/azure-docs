@@ -1,6 +1,6 @@
 ---
-title: What is Azure Cognitive Service for Language
-titleSuffix: Azure Cognitive Services
+title: What is Azure AI Language
+titleSuffix: Azure AI services
 description: Learn how to integrate AI into your applications that can extract information and understand written language.
 services: cognitive-services
 author: aahill
@@ -13,13 +13,13 @@ ms.author: aahi
 ms.custom: ignite-fall-2021, event-tier1-build-2022
 ---
 
-# What is Azure Cognitive Service for Language?
+# What is Azure AI Language?
 
-Azure Cognitive Service for Language is a cloud-based service that provides Natural Language Processing (NLP) features for understanding and analyzing text. Use this service to help build intelligent applications using the web-based Language Studio, REST APIs, and client libraries. 
+Azure AI Language is a cloud-based service that provides Natural Language Processing (NLP) features for understanding and analyzing text. Use this service to help build intelligent applications using the web-based Language Studio, REST APIs, and client libraries. 
 
 ## Available features
 
-This Language service unifies the following previously available Cognitive Services: Text Analytics, QnA Maker, and LUIS. If you need to migrate from these services, see [the migration section](#migrate-from-text-analytics-qna-maker-or-language-understanding-luis) below.
+This Language service unifies the following previously available Azure AI services: Text Analytics, QnA Maker, and LUIS. If you need to migrate from these services, see [the migration section](#migrate-from-text-analytics-qna-maker-or-language-understanding-luis) below.
 
 The Language service also provides several new features as well, which can either be:
 
@@ -218,7 +218,7 @@ This section will help you decide which Language service feature you should use 
 
 ## Migrate from Text Analytics, QnA Maker, or Language Understanding (LUIS)
 
-Azure Cognitive Services for Language unifies three individual Language services in Cognitive Services - Text Analytics, QnA Maker, and Language Understanding (LUIS). If you have been using these three services, you can easily migrate to the new Azure Cognitive Services for Language. For instructions see [Migrating to Azure Cognitive Services for Language](concepts/migrate.md).  
+Azure AI Language unifies three individual language services in Azure AI services - Text Analytics, QnA Maker, and Language Understanding (LUIS). If you have been using these three services, you can easily migrate to the new Azure AI Language. For instructions see [Migrating to Azure AI Language](concepts/migrate.md).  
 
 ## Tutorials
 
@@ -227,7 +227,7 @@ After you've had a chance to get started with the Language service, try our tuto
 * [Extract key phrases from text stored in Power BI](key-phrase-extraction/tutorials/integrate-power-bi.md)
 * [Use Power Automate to sort information in Microsoft Excel](named-entity-recognition/tutorials/extract-excel-information.md) 
 * [Use Flask to translate text, analyze sentiment, and synthesize speech](/training/modules/python-flask-build-ai-web-app/)
-* [Use Cognitive Services in canvas apps](/powerapps/maker/canvas-apps/cognitive-services-api?context=/azure/cognitive-services/language-service/context/context)
+* [Use Azure AI services in canvas apps](/powerapps/maker/canvas-apps/cognitive-services-api?context=/azure/ai-services/language-service/context/context)
 * [Create a FAQ Bot](question-answering/tutorials/bot-service.md)
 
 ## Additional code samples

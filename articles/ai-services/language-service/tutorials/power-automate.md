@@ -1,7 +1,7 @@
 ---
 title: Use Language service in power automate
-titleSuffix: Azure Cognitive Services
-description: Learn how to use Azure Cognitive Service for Language in power automate, without writing code.
+titleSuffix: Azure AI services
+description: Learn how to use Azure AI Language in power automate, without writing code.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -13,10 +13,9 @@ ms.author: aahi
 ms.custom: cogserv-non-critical-language
 ---
 
-
 #  Use the Language service in Power Automate
 
-You can use [Power Automate](/power-automate/getting-started) flows to automate repetitive tasks and bring efficiency to your organization. Using Azure Cognitive Service for Language, you can automate tasks like:
+You can use [Power Automate](/power-automate/getting-started) flows to automate repetitive tasks and bring efficiency to your organization. Using Azure AI Language, you can automate tasks like:
 * Send incoming emails to different departments based on their contents. 
 * Analyze the sentiment of new tweets.
 * Extract entities from incoming documents. 
@@ -52,9 +51,9 @@ For this tutorial, you will create a flow that extracts named entities from text
 
 1. Select **+ New step** to begin adding a Language service connector. 
 
-1. Under **Choose an operation** search for **Azure Language**. Then select **Azure Cognitive Service for Language**. This will narrow down the list of actions to only those that are available for Language.
+1. Under **Choose an operation** search for **Azure AI Language**. Then select **Azure AI Language**. This will narrow down the list of actions to only those that are available for Language.
 
-    :::image type="content" source="../media/language-connector.png" alt-text="A screenshot of An Azure language connector." lightbox="../media/language-connector.png":::
+    :::image type="content" source="../media/language-connector.png" alt-text="A screenshot of An Azure AI Language connector." lightbox="../media/language-connector.png":::
 
 1. Under **Actions** search for **Named Entity Recognition**, and select the connector. 
 
