@@ -11,7 +11,7 @@ ms.author: mattmcinnes
 # Linux VMs with Azure MANA
 
 >[!NOTE]
->MANA is currently part of the Azure Boost Preview. See the [preview announcement](https://aka.ms/azureboostpreview) for more information and to join.
+>Azure MANA is currently part of the Azure Boost Preview. See the [preview announcement](https://aka.ms/azureboostpreview) for more information and to join.
 
 ## Supported Marketplace Images
 Several [Azure marketplace](https://learn.microsoft.com/en-us/marketplace/azure-marketplace-overview) images have built-in support for Azure MANA's ethernet driver.

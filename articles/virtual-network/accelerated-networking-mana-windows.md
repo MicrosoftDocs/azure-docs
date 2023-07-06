@@ -13,7 +13,7 @@ ms.author: mattmcinnes
 Learn how to use the Microsoft Azure Network Adapter (MANA) to improve the performance and availability of Windows virtual machines in Azure. MANA is a next-generation network interface that provides stable forward-compatible device drivers for Windows and Linux operating systems. MANA hardware and software are engineered by Microsoft and take advantage of the latest advancements in cloud networking technology.
 
 >[!NOTE]
->MANA is currently part of the Azure Boost Preview. See the [preview announcement](https://aka.ms/azureboostpreview) for more information and to join.
+>Azure Boost (MANA) is currently part of the Azure Boost Preview. See the [preview announcement](https://aka.ms/azureboostpreview) for more information and to join.
 
 ## Supported Marketplace Images
 Several [Azure marketplace](https://learn.microsoft.com/en-us/marketplace/azure-marketplace-overview) images have built-in support for Azure MANA's ethernet driver.
