@@ -115,7 +115,7 @@ az keyvault set-policy -n myKeyVaultName -g myResourceGroup --object-id $desIden
 
 ## Create a new AKS cluster and encrypt the OS disk
 
-Either create a new resource group, or select an existing resource group hosting other AKS clusters, then use your key to encrypt the ephemeral OS disk.
+Either create a new resource group, or select an existing resource group hosting other AKS clusters, then use your key to encrypt the ephemeral OS disk. By default, a cluster uses ephemeral OS disk when possible in conjunction with VM size and OS disk size.
 
 ```azurecli-interactive
 # Retrieve the DiskEncryptionSet value and set a variable
