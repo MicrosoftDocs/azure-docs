@@ -26,8 +26,7 @@ The cluster administrator, also known as the platform engineer, is responsible f
 
 Large organizations may also have a fleet architect, which is similar to the cluster administrator but is responsible for multiple clusters. They need visibility across the entire environment and must perform administrative tasks at scale. At scale recommendations for the fleet architect are included in the recommended solutions below.
 
-
-{Image placeholder}
+:::image type="content" source="media/monitor-containers/layers-cluster-administrator.png" alt-text="Diagram of Kubernetes layers for cluster administrator" lightbox="media/monitor-containers/layers-cluster-administrator.png"  border="false":::
 
 The primary tools used by the cluster administrator are Container insights, Prometheus, and Grafana. Depending on their particular environment, they may be using the managed offerings in Azure for Prometheus and Grafana or may be using a separate environment. They may also be using alternative tools to Container insights for monitoring and logging. 
 
@@ -107,7 +106,7 @@ The following scenarios assume that the cluster administrator is using the manag
 ## Network Engineer
 The Network Engineer is responsible for traffic between workloads and any ingress/egress with the cluster. They analyze network traffic and perform threat analysis.
 
-{Image placeholder}
+:::image type="content" source="media/monitor-containers/layers-network-engineer.png" alt-text="Diagram of Kubernetes layers for network engineer" lightbox="media/monitor-containers/layers-network-engineer.png"  border="false":::
 
 
 ### Common scenarios for network engineer
@@ -132,8 +131,10 @@ The Network Engineer is responsible for traffic between workloads and any ingres
 
 In addition to developing the application, the developer maintains the application running on the cluster. They're responsible for application specific traffic including application performance and failures and maintain reliability of the application according to company-defined SLAs.
 
-### Tools
-[Application insights]()
+:::image type="content" source="media/monitor-containers/layers-developer.png" alt-text="Diagram of Kubernetes layers for developer" lightbox="media/monitor-containers/layers-developer.png"  border="false":::
+
+
+[Application insights](../app/app-insights-overview.md)
 
 
 **How do I get started with Application insights?**
