@@ -548,7 +548,7 @@
     {
       "source_path_from_root": "/articles/cognitive-services/content-moderator/facebook-post-moderation.md",
       "redirect_url": "/azure/ai-services/content-moderator/overview",
-      "redirect_document_id": true
+      "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/cognitive-services/content-moderator/image-lists-quickstart-dotnet.md",
