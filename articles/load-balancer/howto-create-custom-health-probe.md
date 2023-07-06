@@ -53,9 +53,9 @@ In this section, you'll configure the virtual machine to run the API that will b
 
     ```python
     # Import libraries  
-        from flask import Flask 
-        from flask_restful import Resource, Api 
-        import psutil 
+    from flask import Flask 
+    from flask_restful import Resource, Api 
+    import psutil 
 
     # Define app and API 
         app = Flask(__name__) 
@@ -81,6 +81,10 @@ In this section, you'll configure the virtual machine to run the API that will b
 1. Once you have copied the code into the file, ensure that python3 and the required packages are installed (flask, flask_restful, psutil). If any packages aren’t installed, please install them using pip. 
 
     ```bash
+    #Install Python
+    sudo apt-get update
+    sudo apt-get install python3
+    sudo apt-get install python3-pip
     pip3 install flask flask_restful psutil
     ```
 1. Run the API using the following command:
