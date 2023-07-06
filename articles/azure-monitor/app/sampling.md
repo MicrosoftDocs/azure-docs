@@ -2,7 +2,7 @@
 title: Telemetry sampling in Azure Application Insights | Microsoft Docs
 description: How to keep the volume of telemetry under control.
 ms.topic: conceptual
-ms.date: 03/22/2023
+ms.date: 06/23/2023
 ms.custom: fasttrack-edit
 ms.reviewer: mmcc
 ---
@@ -229,6 +229,19 @@ builder.Services.AddApplicationInsightsTelemetry(new ApplicationInsightsServiceO
 var app = builder.Build();
 ```
 
+You can customize additional sampling settings using the [SamplingPercentageEstimatorSettings](https://github.com/microsoft/ApplicationInsights-dotnet/blob/main/BASE/src/ServerTelemetryChannel/Implementation/SamplingPercentageEstimatorSettings.cs) class: 
+
+```csharp
+using Microsoft.ApplicationInsights.WindowsServer.Channel.Implementation;
+
+telemetryProcessorChainBuilder.UseAdaptiveSampling(new SamplingPercentageEstimatorSettings
+{
+     MinSamplingPercentage = 0.01,
+     MaxSamplingPercentage = 100,
+     MaxTelemetryItemsPerSecond = 5
+ }, null, excludedTypes: "Dependency"); 
+```
+
 ### Configuring adaptive sampling for Azure Functions
 
 Follow instructions from [this page](../../azure-functions/configure-monitoring.md#configure-sampling) to configure adaptive sampling for apps running in Azure Functions.
@@ -330,9 +343,9 @@ In Metrics Explorer, rates such as request and exception counts are multiplied b
 
 ### Configuring sampling overrides and fixed-rate sampling for Java applications
 
-By default no sampling is enabled in the Java auto-instrumentation and SDK. Currently the Java auto-instrumentation, [sampling overrides](./java-standalone-sampling-overrides.md) and fixed rate sampling are supported. Adaptive sampling isn't supported in Java.
+By default no sampling is enabled in the Java autoinstrumentation and SDK. Currently the Java autoinstrumentation, [sampling overrides](./java-standalone-sampling-overrides.md) and fixed rate sampling are supported. Adaptive sampling isn't supported in Java.
 
-#### Configuring Java auto-instrumentation
+#### Configuring Java autoinstrumentation
 
 * To configure sampling overrides that override the default sampling rate and apply different sampling rates to selected requests and dependencies, use the [sampling override guide](./java-standalone-sampling-overrides.md#getting-started).
 * To configure fixed-rate sampling that applies to all of your telemetry, use the [fixed rate sampling guide](./java-standalone-config.md#sampling).

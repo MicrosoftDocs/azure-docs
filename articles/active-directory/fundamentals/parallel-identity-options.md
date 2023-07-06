@@ -219,7 +219,7 @@ Then when a Litware employee wishes to access a Contoso app, they can do so by a
 
 ### Option 8 - Configure B2B but with a common HR feed for both directories
 
-In some situations, after acquisition the organization may converge on a single HR platform, but still run existing identity management systems. In this scenario, MIM could provision users into multiple Active Directory systems, depending on with part of the organization the user is affiliated with. They could continue to use B2B so that users authenticate their existing directory, and have a unified GAL.
+In some situations, after acquisition the organization may converge on a single HR platform, but still run existing identity management systems. In this scenario, MIM could provision users into multiple Active Directory systems, depending on which part of the organization the user is affiliated with. They could continue to use B2B so that users authenticate their existing directory, and have a unified GAL.
 
 ![Configure B2B users but with a common HR system feed](media/parallel-identity-options/identity-combined-8.png)
 

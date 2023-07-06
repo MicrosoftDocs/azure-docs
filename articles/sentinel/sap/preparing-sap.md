@@ -51,9 +51,9 @@ Track your SAP solution deployment journey through this series of articles:
 
 1. [Configure auditing](configure-audit.md)
 
-1. [Deploy data connector agent](deploy-data-connector-agent-container.md)
+1. [Deploy the solution content from the content hub](deploy-sap-security-content.md)
 
-1. [Deploy SAP security content](deploy-sap-security-content.md)
+1. [Deploy data connector agent](deploy-data-connector-agent-container.md)
 
 1. [Configure Microsoft Sentinel solution for SAP® applications](deployment-solution-configuration.md)
 
@@ -133,10 +133,7 @@ To deploy the CRs, follow the steps outlined below. The steps below may differ a
 
     In the **SAP Easy Access** screen, type `STMS_IMPORT` in the field in the upper left corner of the screen and press the **Enter** key.
 
-    :::image type="content" source="media/preparing-sap/stms-import.png" alt-text="Screenshot of running the S T M S import transaction.":::
-
-    > [!CAUTION]
-    > If an error occurs at this step, then you need to configure the SAP transport management system before proceeding any further. [**See this article for instructions**](configure-transport.md).
+    :::image type="content" source="media/preparing-sap/stms-import.png" alt-text="Screenshot of running the S T M S import transaction.":::    
 
 1. In the **Import Queue** window that appears, select **More > Extras > Other Requests > Add**.
 

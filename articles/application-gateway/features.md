@@ -15,8 +15,7 @@ ms.author: greglin
 
 ![Application Gateway conceptual](media/overview/figure1-720.png)
 
-> [!NOTE]
-> For web workloads, we highly recommend utilizing [**Azure DDoS protection**](../ddos-protection/ddos-protection-overview.md) and a [**web application firewall**](../web-application-firewall/overview.md) to safeguard against emerging DDoS attacks. Another option is to employ [**Azure Front Door**](../frontdoor/web-application-firewall.md) along with a web application firewall. Azure Front Door offers platform-level [**protection against network-level DDoS attacks**](../frontdoor/front-door-ddos.md).
+[!INCLUDE [ddos-waf-recommendation](../../includes/ddos-waf-recommendation.md)]
 
 Application Gateway includes the following features:
 
@@ -47,7 +46,7 @@ Web Application Firewall (WAF) is a service that provides centralized protection
 
 Web applications are increasingly targets of malicious attacks that exploit common known vulnerabilities. Common among these exploits are SQL injection attacks, cross site scripting attacks to name a few. Preventing such attacks in application code can be challenging and may require rigorous maintenance, patching and monitoring at many layers of the application topology. A centralized web application firewall helps make security management much simpler and gives better assurance to application administrators against threats or intrusions. A WAF solution can also react to a security threat faster by patching a known vulnerability at a central location versus securing each of individual web applications. Existing application gateways can be converted to a Web Application Firewall enabled application gateway easily.
 
-For more information, see [What is Azure Web Application Firewall?](../web-application-firewall/overview.md).
+Refer to [Application DDoS protection](../web-application-firewall/shared/application-ddos-protection.md) for guidance on how to use Azure WAF with Application Gateway to protect against DDoS attacks. For more information, see [What is Azure Web Application Firewall?](../web-application-firewall/overview.md).
 
 ## Ingress Controller for AKS
 Application Gateway Ingress Controller (AGIC) allows you to use Application Gateway as the ingress for an [Azure Kubernetes Service (AKS)](https://azure.microsoft.com/services/kubernetes-service/) cluster. 

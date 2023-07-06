@@ -105,9 +105,6 @@ BGP communities are groupings of IP prefixes tagged with a community value. This
     Get-AzVirtualNetwork @virtualnetwork
     ```
 
-> [!IMPORTANT]
->  If your virtual network is peered with other virtual networks, you'll need to delete all peerings before applying the custom BGP community value. Then re-create the peerings. See [Connect virtual networks with virtual network peering](../virtual-network/tutorial-connect-virtual-networks-portal.md), to learn how.
->
 
 ## Next steps
 

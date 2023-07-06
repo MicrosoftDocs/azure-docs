@@ -1,12 +1,12 @@
 ---
 title: Quickstart - Deploy event-driven application to Azure Spring Apps
 description: Learn how to deploy an event-driven application to Azure Spring Apps.
-author: karlerickson
+author: KarlErickson
 ms.service: spring-apps
 ms.topic: quickstart
-ms.date: 03/21/2023
+ms.date: 06/21/2023
 ms.author: rujche
-ms.custom: devx-track-java, devx-track-azurecli, mode-other, event-tier1-build-2022, engagement-fy23
+ms.custom: devx-track-java, devx-track-extended-java, devx-track-azurecli, mode-other, event-tier1-build-2022, engagement-fy23
 zone_pivot_groups: spring-apps-plan-selection
 ---
 
@@ -64,12 +64,12 @@ The main resources you need to run this sample is an Azure Spring Apps instance 
 1. Use the following commands to create variables for the names of your resources and for other settings as needed. Resource names in Azure must be unique.
 
    ```azurecli
-   RESOURCE_GROUP=<event-driven-app-resource-group-name>
-   LOCATION=<desired-region>
-   SERVICE_BUS_NAME_SPACE=<event-driven-app-service-bus-namespace>
-   AZURE_CONTAINER_APPS_ENVIRONMENT=<Azure-Container-Apps-environment-name>
-   AZURE_SPRING_APPS_INSTANCE=<Azure-Spring-Apps-instance-name>
-   APP_NAME=<event-driven-app-name>
+   export RESOURCE_GROUP=<event-driven-app-resource-group-name>
+   export LOCATION=<desired-region>
+   export SERVICE_BUS_NAME_SPACE=<event-driven-app-service-bus-namespace>
+   export AZURE_CONTAINER_APPS_ENVIRONMENT=<Azure-Container-Apps-environment-name>
+   export AZURE_SPRING_APPS_INSTANCE=<Azure-Spring-Apps-instance-name>
+   export APP_NAME=<event-driven-app-name>
    ```
 
 ::: zone-end
@@ -79,11 +79,11 @@ The main resources you need to run this sample is an Azure Spring Apps instance 
 1. Use the following commands to create variables for the names of your resources and for other settings as needed. Resource names in Azure must be unique.
 
    ```azurecli
-   RESOURCE_GROUP=<event-driven-app-resource-group-name>
-   LOCATION=<desired-region>
-   SERVICE_BUS_NAME_SPACE=<event-driven-app-service-bus-namespace>
-   AZURE_SPRING_APPS_INSTANCE=<Azure-Spring-Apps-instance-name>
-   APP_NAME=<event-driven-app-name>
+   export RESOURCE_GROUP=<event-driven-app-resource-group-name>
+   export LOCATION=<desired-region>
+   export SERVICE_BUS_NAME_SPACE=<event-driven-app-service-bus-namespace>
+   export AZURE_SPRING_APPS_INSTANCE=<Azure-Spring-Apps-instance-name>
+   export APP_NAME=<event-driven-app-name>
    ```
 
 ::: zone-end
@@ -201,7 +201,7 @@ An Azure Spring Apps service instance hosts the Spring event-driven app. Use the
 1. Get the Azure Container Apps environment resource ID by using the following command:
 
    ```azurecli
-   MANAGED_ENV_RESOURCE_ID=$(az containerapp env show \
+   export MANAGED_ENV_RESOURCE_ID=$(az containerapp env show \
        --name ${AZURE_CONTAINER_APPS_ENVIRONMENT} \
        --query id \
        --output tsv)
@@ -333,7 +333,7 @@ You've now created both the Service Bus and the app in Azure Spring Apps, but th
 1. Get the Service Bus's connection string by using the following command:
 
    ```azurecli
-   SERVICE_BUS_CONNECTION_STRING=$(az servicebus namespace authorization-rule keys list \
+   export SERVICE_BUS_CONNECTION_STRING=$(az servicebus namespace authorization-rule keys list \
        --namespace-name ${SERVICE_BUS_NAME_SPACE} \
        --name RootManageSharedAccessKey \
        --query primaryConnectionString \

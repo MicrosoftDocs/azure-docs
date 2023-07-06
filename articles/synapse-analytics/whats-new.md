@@ -4,7 +4,7 @@ description: Learn about the new features and documentation improvements for Azu
 author: WilliamDAssafMSFT
 ms.author: wiassaf
 ms.reviewer: rymajidi, sngun
-ms.date: 06/05/2023
+ms.date: 07/05/2023
 ms.service: synapse-analytics
 ms.subservice: overview
 ms.topic: conceptual
@@ -40,7 +40,7 @@ The following table lists the features of Azure Synapse Analytics that are curre
 | **Reject options for delimited text files** | [Reject options for CREATE EXTERNAL TABLE on delimited files](/sql/t-sql/statements/create-external-table-transact-sql?view=azure-sqldw-latest&preserve-view=true#reject-options-1) is in preview. |
 | **Spark Advisor for Azure Synapse Notebook** | The [Spark Advisor for Azure Synapse Notebook](monitoring/apache-spark-advisor.md) analyzes code run by Spark and displays real-time advice for Notebooks. The Spark advisor offers recommendations for code optimization based on built-in common patterns, performs error analysis, and locates the root cause of failures.|
 | **Time-To-Live in managed virtual network (VNet)** | Reserve compute for the time-to-live (TTL) in managed virtual network TTL period, saving time and improving efficiency. For more information on this preview, see [Announcing public preview of Time-To-Live (TTL) in managed virtual network](https://techcommunity.microsoft.com/t5/azure-data-factory-blog/announcing-public-preview-of-time-to-live-ttl-in-managed-virtual/ba-p/3552879).|
-| **User-Assigned managed identities** | Now you can use user-assigned managed identities in linked services for authentication in Synapse Pipelines and Dataflows.To learn more, see [Credentials in Azure Data Factory and Azure Synapse](../data-factory/credentials.md?context=%2Fazure%2Fsynapse-analytics%2Fcontext%2Fcontext&tabs=data-factory).|
+| **User-Assigned managed identities** | Now you can use user-assigned managed identities in linked services for authentication in Synapse Pipelines and Dataflows. To learn more, see [Credentials in Azure Data Factory and Azure Synapse](../data-factory/credentials.md?context=%2Fazure%2Fsynapse-analytics%2Fcontext%2Fcontext&tabs=data-factory).|
 
 ## Generally available features
 
@@ -267,6 +267,7 @@ This section summarizes recent improvements and features in SQL pools in Azure S
 
 |**Month** | **Feature** |  **Learn more**|
 |:-- |:-- | :-- |
+| June 2023 | **Updated diagnostic settings fields** | Nine fields have been [added to the dedicated SQL pool diagnostic settings logs](https://techcommunity.microsoft.com/t5/azure-synapse-analytics-blog/missing-fields-added-to-dedicated-sql-pool-diagnostic-settings/ba-p/3844011). |
 | March 2023 | **Create alerts for your Azure Synapse dedicated SQL pool** | This Customer Success Engineering blog post provides steps to [configure alerts for your Azure Synapse dedicated SQL pool](https://techcommunity.microsoft.com/t5/azure-synapse-analytics-blog/create-alerts-for-your-synapse-dedicated-sql-pool/ba-p/3773256) and provide recommended alerts to get you started. |
 | March 2023 | **Performance Tuning Synapse Dedicated Pools - Understanding the Query Lifecycle** | This Customer Success Engineering blog post is a deep dive into [Understanding Query Lifecycle to Maximize Performance](https://techcommunity.microsoft.com/t5/azure-synapse-analytics-blog/performance-tuning-synapse-dedicated-pools-understanding-the/ba-p/3717260). |
 | March 2023 | **GREATEST and LEAST T-SQL syntax support** | [GREATEST](/sql/t-sql/functions/logical-functions-greatest-transact-sql?view=azure-sqldw-latest&preserve-view=true) and [LEAST](/sql/t-sql/functions/logical-functions-least-transact-sql?view=azure-sqldw-latest&preserve-view=true) functions are now available in both serverless and dedicated SQL pools. These scalar-valued functions and return the maximum and minimum value out of a list of one or more expressions. |

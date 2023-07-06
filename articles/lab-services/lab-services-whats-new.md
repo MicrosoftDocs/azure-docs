@@ -102,10 +102,10 @@ With all the new enhancements, it's a good time to revisit your overall lab stru
 
 Let's cover each step to get started with the August 2022 Update in more detail.
 
-1.    **Configure shared resources**. Optionally, [configure licensing servers](how-to-create-a-lab-with-shared-resource.md). For VMs that require access to a licensing server, create a lab using a lab plan with [advanced networking](how-to-connect-vnet-injection.md#connect-the-virtual-network-during-lab-plan-creation). You can reuse the same Azure Compute Gallery and the licensing servers that you use with your lab accounts.
+1.    **Configure shared resources**. Optionally, [configure licensing servers](how-to-create-a-lab-with-shared-resource.md). For VMs that require access to a licensing server, create a lab using a lab plan with [advanced networking](how-to-connect-vnet-injection.md). You can reuse the same Azure Compute Gallery and the licensing servers that you use with your lab accounts.
 1. **Create Lab plans.**  
 
-    1. [Create](quick-create-resources.md) and [configure lab plans](#configure-a-lab-plan). If you plan to use a license server, don't forget to enable [advanced networking](how-to-connect-vnet-injection.md#connect-the-virtual-network-during-lab-plan-creation) when creating your lab plans.
+    1. [Create](quick-create-resources.md) and [configure lab plans](#configure-a-lab-plan). If you plan to use a license server, don't forget to enable [advanced networking](how-to-connect-vnet-injection.md) when creating your lab plans.
     1. [Assign permissions](quick-create-resources.md#add-a-user-to-the-lab-creator-role) to educators that will create labs. 
     1. Enable [Azure Marketplace images](specify-marketplace-images.md).
     1. Optionally, [attach an Azure Compute Gallery](how-to-attach-detach-shared-image-gallery.md).
