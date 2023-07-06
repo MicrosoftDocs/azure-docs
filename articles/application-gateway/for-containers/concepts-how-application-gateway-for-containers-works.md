@@ -56,7 +56,9 @@ The following dependencies are also referenced in an Application Gateway for Con
 ### Application Gateway for Containers ALB Controller
 - An Application Gateway for Containers ALB Controller is a Kubernetes deployment that orchestrates can configure and deploy Application Gateway for Containers by watching CRs (Ingress, Gateway, and ApplicationLoadBalancer).  It uses both ARM / Application Gateway for Containers configuration APIs to propagate configuration to the Application Gateway for Containers Azure deployment.
 - ALB Controller is deployed / installed via Helm
-- ALB Controller consists of two running pods; one for management of Kubernetes/ARM configuration and one for bootstrap of CRs.
+- ALB Controller consists of two running pods
+   - alb-controller pod is responsible for orchestrating customer intent to Application Gateway for Containers load balancing configuration
+   - alb-controller-bootstrap pod is responsible for management of CRDs
 
 ## Azure / General concepts
 
