@@ -65,7 +65,7 @@ This problem might happen if another app uses the certificate.
 
 #### Symptom
 
-In the Azure portal, you can't purchase an [Azure App Service certificate](./configure-ssl-certificate.md#buy-and-import-app-service-certificate).
+In the Azure portal, you can't purchase an [Azure App Service certificate](configure-ssl-app-service-certificate.md).
 
 #### Cause and solution
 
@@ -115,7 +115,7 @@ The Key Vault used to store the App Service Certificate is missing access policy
  
 #### Solution 1: Modify the access policies for the key vault
 
-To modify the access polices for the key vault, follow these steps:
+To modify the access policies for the key vault, follow these steps:
 
 1. Sign in to the Azure portal. Select the Key Vault used by your App Service Certificate. Navigate to Access policies.</li>
 2. If you do not see the two Service Principals listed you will need to add them. If they are available, verify the permissions include the recommended secret and certificate permissions.</li>
@@ -352,7 +352,7 @@ You're not required to migrate to Azure DNS hosting. If you want to migrate to A
 
 **I would like to purchase my domain from App Service Domain but can I host my domain on GoDaddy instead of Azure DNS?**
 
-Starting July 24, 2017, Azure hosts App Service domains purchased from the Azure portal on Azure DNS. If you prefer to use a different hosting provider, you must go to their website to obtain a domain hosting solution.
+Starting on July 24, 2017, Azure hosts App Service domains purchased from the Azure portal on Azure DNS. If you prefer to use a different hosting provider, you must go to their website to obtain a domain hosting solution.
 
 **Do I have to pay for privacy protection for my domain?**
 
@@ -364,7 +364,7 @@ When you purchase a domain, you're not charged for five days. During this time, 
 
 **Can I use the domain in another Azure App Service app in my subscription?**
 
-Yes, when you access the Custom Domains and TLS blade in the Azure portal, you see the domains that you purchased. You can configure your app to use any of those domains.
+Yes, when you access the **Custom domains** and **Certificates** pages in the Azure portal, you see the domains that you purchased. You can configure your app to use any of those domains.
 
 **Can I transfer a domain from one subscription to another subscription?**
 
