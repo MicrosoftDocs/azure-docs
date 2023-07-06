@@ -117,7 +117,7 @@ This section explains how to import a certificate so that it's trusted by your A
     - **Seq. No**: *000*
     - **User**: *SENTINEL*
 
-1. Select **Activated**. 
+1. Select **Save** and **Enter**. 
 
     :::image type="content" source="media/configure-snc/VUSREXTID-table-configuration.png" alt-text="Screenshot of configuring the SAP VUSREXTID table.":::
 
