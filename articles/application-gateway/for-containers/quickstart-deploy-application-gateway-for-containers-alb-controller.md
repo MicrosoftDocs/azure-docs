@@ -205,7 +205,10 @@ Now that you have successfully installed a ALB Controller on your cluster you ca
 
 ## Test it out!
 
-Congratulations, you have installed ALB Controller on your cluster!
+Congratulations, you have installed ALB Controller on your cluster! Try out a few of the how-to guides to deploy a sample application, demonstrating some of Application Gateway for Container's load balancing concepts.
+- [Backend MTLS](how-to-backend-mtls.md)
+- [SSL/TLS Offloading](how-to-ssl-offloading.md)
+- [Traffic Splitting / Weighted Round Robin](how-to-traffic-splitting.md)
 
 ## Uninstall Application Gateway for Containers and ALB Controller
 
