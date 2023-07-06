@@ -43,7 +43,9 @@ There are three major components that affect the size of your internal vector in
 
 ### Raw size of the data
 
-Each vector is an array of single-precision floating-point numbers, in a field of type `Collection(Edm.Single)`. Vector data structures require storage, represented in the following calculation as the "raw size" of your data. Use this _raw size_ to estimate the vector index size requirements of your vector fields.
+Each vector is an array of single-precision floating-point numbers, in a field of type `Collection(Edm.Single)`. Currently, only single-precision floats are supported. 
+
+Vector data structures require storage, represented in the following calculation as the "raw size" of your data. Use this _raw size_ to estimate the vector index size requirements of your vector fields.
 
 The storage size of one vector is determined by its dimensionality. Multiply the size of one vector by the number of documents containing that vector field to obtain the _raw size_: 
 
