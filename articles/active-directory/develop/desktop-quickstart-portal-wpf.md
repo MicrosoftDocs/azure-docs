@@ -47,7 +47,7 @@ ms.custom: aaddev, identityplatformtop40, mode-api
 > > [!div class="nextstepaction"]
 > > <button id="downloadsample" class="download-sample-button">Download the code sample</button>
 > 
-> [!INCLUDE [active-directory-develop-path-length-tip](../../../includes/active-directory-develop-path-length-tip.md)]
+> [!INCLUDE [active-directory-develop-path-length-tip](./includes/error-handling-and-tips/path-length-tip.md)]
 > 
 > #### Step 3: Your app is configured and ready to run
 > We have configured your project with values of your app's properties and it's ready to run.
