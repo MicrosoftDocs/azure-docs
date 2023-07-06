@@ -388,10 +388,12 @@ If you deploy across different environments, consider parameterizing the values 
 For example, if you authenticate HTTP actions with [Azure Active Directory Open Authentication](#azure-active-directory-oauth-authentication) (Azure AD OAuth), you can define and obscure the parameters that accept the client ID and client secret that are used for authentication. To define these parameters in your logic app workflow, use the `parameters` section in your logic app's workflow definition and Resource Manager template for deployment. To help secure parameter values that you don't want shown when editing your logic app or viewing run history, define the parameters by using the `securestring` or `secureobject` type and use encoding as necessary. Parameters that have this type aren't returned with the resource definition and aren't accessible when viewing the resource after deployment. To access these parameter values during runtime, use the `@parameters('<parameter-name>')` expression inside your workflow definition. This expression is evaluated only at runtime and is described by the [Workflow Definition Language](../logic-apps/logic-apps-workflow-definition-language.md).
 
 > [!NOTE]
-> If you use a parameter in a request header or body, that parameter might be visible when you view your logic app's
-> run history and outgoing HTTP request. Make sure that you also set your content access policies accordingly.
-> You can also use [obfuscation](#obfuscate) to hide inputs and outputs in your run history. Authorization headers
-> are never visible through inputs or outputs. So if a secret is used there, that secret isn't retrievable.
+> If you use a parameter in a request header or body, that parameter might be visible 
+> when you view your workflow's run history and outgoing HTTP request. Make sure that 
+> you also set your content access policies accordingly. You can also use 
+> [obfuscation](#obfuscate) to hide inputs and outputs in your run history. 
+> By default, `Authorization` headers aren't visible through inputs or outputs. 
+> So if a secret is used there, that secret isn't retrievable.
 
 For more information, review these sections in this topic:
 
@@ -727,6 +729,11 @@ In a Standard logic app workflow that starts with the Request trigger (but not a
 
   1. To enable the capability to check the OAuth access token, [follow the steps to include 'Authorization' header in the Request or HTTP webhook trigger outputs](#include-auth-header).
 
+     > [!NOTE]
+     >
+     > This step makes the `Authorization` header visible in the workflow's run history 
+     > and in the trigger's outputs.
+
   1. In the [Azure portal](https://portal.azure.com), open your Consumption logic app workflow in the designer.
 
   1. On the trigger, in the upper right corner, select the ellipses (**...**) button, and then select **Settings**.
@@ -826,7 +833,7 @@ In the [Azure portal](https://portal.azure.com), add one or more authorization p
 
 1. When you're done, select **Save**.
 
-1. To include the `Authorization` header from the access token in the request-based trigger outputs, review [Include 'Authorization' header in request trigger outputs](#include-auth-header).
+1. To include the `Authorization` header from the access token in the request-based trigger outputs, review [Include 'Authorization' header in request and HTTP webhook trigger outputs](#include-auth-header).
 
 Workflow properties such as policies don't appear in your logic app's code view in the Azure portal. To access your policies programmatically, call the following API through Azure Resource Manager: `https://management.azure.com/subscriptions/{Azure-subscription-ID}/resourceGroups/{Azure-resource-group-name}/providers/Microsoft.Logic/workflows/{your-workflow-name}?api-version=2016-10-01&_=1612212851820`. Make sure that you replace the placeholder values for your Azure subscription ID, resource group name, and workflow name.
 
@@ -1429,7 +1436,6 @@ In the trigger or action that supports raw authentication, specify these propert
 |---------------------|-----------------|----------|-------|-------------|
 | **Authentication** | `type` | Yes | Raw | The authentication type to use |
 | **Value** | `value` | Yes | <*authorization-header-value*> | The authorization header value to use for authentication |
-||||||
 
 When you use [secured parameters](#secure-action-parameters) to handle and secure sensitive information, for example, in an [Azure Resource Manager template for automating deployment](../logic-apps/logic-apps-azure-resource-manager-templates-overview.md), you can use expressions to access these parameter values at runtime. This example HTTP action definition specifies the authentication `type` as `Raw`, and uses the [parameters() function](../logic-apps/workflow-definition-language-functions-reference.md#parameters) to get the parameter values:
 
