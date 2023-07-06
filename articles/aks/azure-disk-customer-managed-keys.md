@@ -129,7 +129,7 @@ If you want to create a new resource group for the cluster, run the following co
 az group create -n myResourceGroup -l myAzureRegionName
 ```
 
-If you want to create a regular cluster using network-attached OS disks, you can do so by specifying the `--node-osdisk-type=Managed` argument.
+To create a regular cluster using network-attached OS disks, you can do so by specifying the `--node-osdisk-type=Managed` argument.
 
 ```azurecli-interactive
 az aks create -n myAKSCluster -g myResourceGroup --node-osdisk-diskencryptionset-id $diskEncryptionSetId --generate-ssh-keys --node-osdisk-type Managed
