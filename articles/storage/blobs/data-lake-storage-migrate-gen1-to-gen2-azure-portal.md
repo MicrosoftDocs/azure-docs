@@ -7,8 +7,7 @@ author: normesta
 ms.topic: how-to
 ms.author: normesta
 ms.date: 06/20/2023
-ms.service: storage
-ms.subservice: data-lake-storage-gen2
+ms.service: azure-data-lake-storage
 ---
 
 # Migrate Azure Data Lake Storage from Gen1 to Gen2 by using the Azure portal
