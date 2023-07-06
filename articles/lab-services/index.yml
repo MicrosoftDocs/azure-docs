@@ -48,35 +48,35 @@ landingContent:
         
   - title: Create & manage labs
     linkLists:
-    - linkListType: tutorial
+    - linkListType: quickstart
       links:
         - text: Create and connect to a lab
           url: quick-create-connect-lab.md
+    - linkListType: tutorial
+      links:
         - text: Set up a lab for classroom training
           url: tutorial-setup-lab.md
         - text: Create a lab in Teams or Canvas
           url: tutorial-setup-lab-teams-canvas.md
     - linkListType: how-to-guide
       links:
-        - text: Manage labs
+        - text: Manage a lab
           url: how-to-manage-lab-plans.md
-        - text: Customize & publish templates
-          url: how-to-create-manage-template.md
-        - text: Manage the virtual machine pool 
-          url: how-to-set-virtual-machine-passwords.md
         - text: Add and manage lab users
           url: how-to-configure-student-usage.md
         - text: Create and manage schedules
           url: how-to-create-schedules.md
+        - text: Manage the virtual machine pool 
+          url: how-to-set-virtual-machine-passwords.md
+        - text: Customize & publish templates
+          url: how-to-create-manage-template.md
           
   - title: Access labs
     linkLists:
       - linkListType: how-to-guide
         links:
           - text: Access a lab
-            url: tutorial-connect-lab-virtual-machine.md
-          - text: Access a lab in Teams or Canvas
-            url: tutorial-access-lab-virtual-machine-teams-canvas.md
+            url: how-to-access-lab-virtual-machine
           - text: Connect to a lab VM
             url: connect-virtual-machine.md
           - text: Set or reset passwords
