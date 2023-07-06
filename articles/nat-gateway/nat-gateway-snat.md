@@ -24,27 +24,6 @@ Scaling NAT gateway is primarily a function of managing the shared, available SN
 
 SNAT port inventory is provided by the public IP addresses, public IP prefixes or both attached to NAT gateway. SNAT port inventory is made available on-demand to all instances within a subnet attached to NAT gateway. As the workload of a subnet’s private instances scale, NAT gateway allocates SNAT ports as needed.
 
-### Option 1
-
-<!--
-Option 1 diagram
-:::image type="content" source="./media/folder/image.png" alt-text="Alt text here.":::
--->
-
-### Option 2
-
-<!--
-Option 2 diagram
-:::image type="content" source="./media/folder/image.png" alt-text="Alt text here.":::
--->
-
-### Option 3
-
-<!--
-Option 3 diagram
-:::image type="content" source="./media/folder/image.png" alt-text="Alt text here.":::
--->
-
 When multiple subnets within a virtual network are attached to the same NAT gateway resource, the SNAT port inventory provided by NAT gateway is shared across all subnets.
 
 A single NAT gateway can scale up to 16 IP addresses. Each NAT gateway public IP address provides 64,512 SNAT ports to make outbound connections. NAT gateway can scale up to over 1 million SNAT ports. TCP and UDP are separate SNAT port inventories and are unrelated to NAT gateway.
