@@ -194,7 +194,7 @@ additionalContent:
               url: /rest/api/cognitiveservices/
         - title: Explore other Azure AI Services
           links:
-            - text: Azure Applied AI Services
+            - text: Azure AI Services
               url: ../applied-ai-services/index.yml
             - text: Azure Machine Learning
               url: ../machine-learning/index.yml

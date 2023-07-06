@@ -20,7 +20,7 @@ OCR or Optical Character Recognition is also referred to as text recognition or 
 
 ## How is OCR related to Intelligent Document Processing (IDP)?
 
-Intelligent Document Processing (IDP) uses OCR as its foundational technology to additionally extract structure, relationships, key-values, entities, and other document-centric insights with an advanced machine-learning based AI service like [Form Recognizer](../../applied-ai-services/form-recognizer/overview.md). Form Recognizer includes a document-optimized version of **Read** as its OCR engine while delegating to other models for higher-end insights. If you are extracting text from scanned and digital documents, use [Form Recognizer Read OCR](../../applied-ai-services/form-recognizer/concept-read.md).
+Intelligent Document Processing (IDP) uses OCR as its foundational technology to additionally extract structure, relationships, key-values, entities, and other document-centric insights with an advanced machine-learning based AI service like [Document Intelligence](../../ai-services/document-intelligence/overview.md). Document Intelligence includes a document-optimized version of **Read** as its OCR engine while delegating to other models for higher-end insights. If you are extracting text from scanned and digital documents, use [Document Intelligence Read OCR](../../ai-services/document-intelligence/concept-read.md).
 
 ## OCR engine
 Microsoft's **Read** OCR engine is composed of multiple advanced machine-learning based models supporting [global languages](./language-support.md). This allows them to extract printed and handwritten text including mixed languages and writing styles. **Read** is available as cloud service and on-premises container for deployment flexibility. With the latest preview, it's also available as a synchronous API for single, non-document, image-only scenarios with performance enhancements that make it easier to implement OCR-assisted user experiences.
@@ -47,7 +47,7 @@ Refer to the full list of [OCR-supported languages](./language-support.md#optica
 
 ## OCR common features
 
-The Read OCR model is available in Computer Vision and Form Recognizer with common baseline capabilities while optimizing for respective scenarios. The following list summarizes the common features:
+The Read OCR model is available in Computer Vision and Document Intelligence with common baseline capabilities while optimizing for respective scenarios. The following list summarizes the common features:
 
 * Printed and handwritten text extraction in supported languages
 * Pages, text lines and words with location and confidence scores
@@ -67,5 +67,5 @@ As with all of the Cognitive Services, developers using the Computer Vision serv
 ## Next steps
 
 - OCR for general (non-document) images: try the [Computer Vision 4.0 preview Image Analysis REST API quickstart](./concept-ocr.md).
-- OCR for PDF, Office and HTML documents and document images: start with [Form Recognizer Read](../../applied-ai-services/form-recognizer/concept-read.md).
+- OCR for PDF, Office and HTML documents and document images: start with [Document Intelligence Read](../../ai-services/document-intelligence/concept-read.md).
 - Looking for the previous GA version? Refer to the [Computer Vision 3.2 GA SDK or REST API quickstarts](./quickstarts-sdk/client-library.md).

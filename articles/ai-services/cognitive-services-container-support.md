@@ -36,7 +36,7 @@ Containerization is an approach to software distribution in which an application
 Azure Cognitive Services containers provide the following set of Docker containers, each of which contains a subset of functionality from services in Azure Cognitive Services. You can find instructions and image locations in the tables below.
 
 > [!NOTE]
-> See [Install and run Form Recognizer containers](../applied-ai-services/form-recognizer/containers/form-recognizer-container-install-run.md) for **Applied AI Services Form Recognizer** container instructions and image locations.
+> See [Install and run Document Intelligence containers](./document-intelligence/containers/install-run.md) for **AI Services Document Intelligence** container instructions and image locations.
 
 ### Decision containers
 

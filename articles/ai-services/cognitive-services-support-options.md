@@ -25,7 +25,6 @@ Explore the range of [Azure support options and choose the plan](https://azure.m
 * [Azure portal](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview)
 * [Azure portal for the United States government](https://portal.azure.us)
 
-
 ## Post a question on Microsoft Q&A
 
 For quick and reliable answers on your technical product questions from Microsoft Engineers, Azure Most Valuable Professionals (MVPs), or our expert community, engage with us on [Microsoft Q&A](/answers/products/azure?product=all), Azure's preferred destination for community support.
@@ -39,7 +38,7 @@ If you can't find an answer to your problem using search, submit a new question 
 * [Computer Vision](/answers/topics/azure-computer-vision.html)
 * [Custom Vision](/answers/topics/azure-custom-vision.html)
 * [Face](/answers/topics/azure-face.html)
-* [Form Recognizer](/answers/topics/azure-form-recognizer.html)
+* [Document Intelligence](/answers/topics/azure-form-recognizer.html)
 * [Video Indexer](/answers/topics/azure-media-services.html)
 
 **Language**
@@ -83,7 +82,7 @@ If you do submit a new question to Stack Overflow, please use one or more of the
 * [Computer Vision](https://stackoverflow.com/search?q=azure+computer+vision)
 * [Custom Vision](https://stackoverflow.com/search?q=azure+custom+vision)
 * [Face](https://stackoverflow.com/search?q=azure+face)
-* [Form Recognizer](https://stackoverflow.com/search?q=azure+form+recognizer)
+* [Document Intelligence](https://stackoverflow.com/search?q=azure+form+recognizer)
 * [Video Indexer](https://stackoverflow.com/search?q=azure+video+indexer)
 
 **Language**
@@ -120,9 +119,8 @@ To request new features, post them on https://feedback.azure.com. Share your ide
 * [Computer Vision](https://feedback.azure.com/d365community/forum/09041fae-0b25-ec11-b6e6-000d3a4f0858?c=7a8853b4-0b25-ec11-b6e6-000d3a4f0858)
 * [Custom Vision](https://feedback.azure.com/d365community/forum/09041fae-0b25-ec11-b6e6-000d3a4f0858?c=7a8853b4-0b25-ec11-b6e6-000d3a4f0858)
 * [Face](https://feedback.azure.com/d365community/forum/09041fae-0b25-ec11-b6e6-000d3a4f0858?c=7a8853b4-0b25-ec11-b6e6-000d3a4f0858)
-* [Form Recognizer](https://feedback.azure.com/d365community/forum/09041fae-0b25-ec11-b6e6-000d3a4f0858?c=7a8853b4-0b25-ec11-b6e6-000d3a4f0858)
+* [Document Intelligence](https://feedback.azure.com/d365community/forum/09041fae-0b25-ec11-b6e6-000d3a4f0858?c=7a8853b4-0b25-ec11-b6e6-000d3a4f0858)
 * [Video Indexer](https://feedback.azure.com/d365community/forum/09041fae-0b25-ec11-b6e6-000d3a4f0858?c=6483a3c0-0b25-ec11-b6e6-000d3a4f0858)
-
 
 **Language**
 

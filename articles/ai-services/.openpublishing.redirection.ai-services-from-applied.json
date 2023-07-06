@@ -122,7 +122,7 @@
     },
     {
       "source_path_from_root": "/articles/applied-ai-services/form-recognizer/create-a-form-recognizer-resource.md",
-      "redirect_url": "/azure/ai-services/document-intelligence/create-a-document-intelligence-resource",
+      "redirect_url": "/azure/ai-services/document-intelligence/create-document-intelligence-resource",
       "redirect_document_id": true
     },
     {
@@ -357,22 +357,22 @@
     },
     {
       "source_path_from_root": "/articles/applied-ai-services/form-recognizer/containers/form-recognizer-container-configuration.md",
-      "redirect_url": "/azure/ai-services/document-intelligence/containers/document-intelligence-container-configuration",
+      "redirect_url": "/azure/ai-services/document-intelligence/containers/configuration",
       "redirect_document_id": true
     },
     {
       "source_path_from_root": "/articles/applied-ai-services/form-recognizer/containers/form-recognizer-container-image-tags.md",
-      "redirect_url": "/azure/ai-services/document-intelligence/containers/document-intelligence-container-image-tags",
+      "redirect_url": "/azure/ai-services/document-intelligence/containers/image-tags",
       "redirect_document_id": true
     },
     {
       "source_path_from_root": "/articles/applied-ai-services/form-recognizer/containers/form-recognizer-container-install-run.md",
-      "redirect_url": "/azure/ai-services/document-intelligence/containers/document-intelligence-container-install-run",
+      "redirect_url": "/azure/ai-services/document-intelligence/containers/install-run",
       "redirect_document_id": true
     },
     {
       "source_path_from_root": "/articles/applied-ai-services/form-recognizer/containers/form-recognizer-disconnected-containers.md",
-      "redirect_url": "/azure/ai-services/document-intelligence/containers/document-intelligence-disconnected-containers",
+      "redirect_url": "/azure/ai-services/document-intelligence/containers/disconnected",
       "redirect_document_id": true
     },
     {
