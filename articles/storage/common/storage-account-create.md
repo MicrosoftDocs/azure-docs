@@ -5,11 +5,11 @@ description: Learn to create a storage account to store blobs, files, queues, an
 services: storage
 author: tamram
 
-ms.service: storage
+ms.service: azure-storage
 ms.topic: how-to
 ms.date: 05/02/2023
 ms.author: tamram
-ms.subservice: common
+ms.subservice: storage-common-concepts
 ms.custom: devx-track-azurecli, devx-track-azurepowershell, engagement-fy23
 ---
 
