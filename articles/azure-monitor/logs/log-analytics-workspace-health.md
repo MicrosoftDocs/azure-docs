@@ -23,7 +23,7 @@ Azure Service Health monitors:
 
 - To view your Log Analytics workspace health, you need `Microsoft.ResourceHealth/*/read` permissions to the Log Analyics workspace, as provided by the [Log Analyrics Reader built-in role](./manage-access.md#log-analytics-reader), for example.
 
-- To set up health status alerts, you need `Microsoft.Insights/ScheduledQueryRules/Write` permissions to the Log Analytics workspace, as provided by the [Monitoring Contributor built-in role](../roles-permissions-security.md#monitoring-contributor), for example.
+- To set up health status alerts, you need `Microsoft.Insights/ScheduledQueryRules/Write` and `microsoft.insights/metricAlerts/write` permissions to the Log Analytics workspace, as provided by the [Monitoring Contributor built-in role](../roles-permissions-security.md#monitoring-contributor), for example.
 
 ## View Log Analytics workspace health and set up health status alerts 
 
@@ -85,7 +85,7 @@ To view Log Analytics workspace health metrics:
 To investigate Log Analytics workspace health issues:
 
 - Use [Log Analytics Workspace Insights](../logs/log-analytics-workspace-insights-overview.md), which provides a unified view of your workspace usage, performance, health, agent, queries, and change log.
-- Query the data in your Log Analytics workspace to [understand which factors are contributing greater than expected latency in your workspace](../logs/data-ingestion-time.md).  
+- [Query](./queries.md) the data in your Log Analytics workspace to [understand which factors are contributing greater than expected latency in your workspace](../logs/data-ingestion-time.md).  
 - [Use the `_LogOperation` function to view and set up alerts about operational issues](../logs/monitor-workspace.md) logged in your Log Analytics workspace.
 
       
