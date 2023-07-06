@@ -24,9 +24,9 @@ For an architectural overview of reliability in Azure, see [Azure reliability](/
 
 | Category | Priority |Recommendation |  
 |---------------|--------|---|
-| [**High Availability**](#high-availability) |:::image type="icon" source="../reliability/media/icon-recommendation-high.svg":::| [VM-1: Run production workloads on two or more VMs using VMSS Flex](#-vm-1-run-production-workloads-on-two-or-more-vms-using-vmss-flexs) |
+| [**High Availability**](#high-availability) |:::image type="icon" source="../reliability/media/icon-recommendation-high.svg":::| [VM-1: Run production workloads on two or more VMs using VMSS Flex](#-vm-1-run-production-workloads-on-two-or-more-vms-using-vmss-flex) |
 ||:::image type="icon" source="../reliability/media/icon-recommendation-high.svg"::: |[VM-2: Deploy VMs across availability zones or use VMSS Flex with zones](#-vm-2-deploy-vms-across-availability-zones-or-use-vmss-flex-with-zones) | 
-||:::image type="icon" source="../reliability/media/icon-recommendation-high.svg":::|[VM-3: Migrate VMs using availability sets to VMSS Flex](#-vm-3-migrate-vms-using-availability-sets-to-vmss-flext) | 
+||:::image type="icon" source="../reliability/media/icon-recommendation-high.svg":::|[VM-3: Migrate VMs using availability sets to VMSS Flex](#-vm-3-migrate-vms-using-availability-sets-to-vmss-flex) | 
 ||:::image type="icon" source="../reliability/media/icon-recommendation-high.svg"::: |[VM-5: Use managed disks for VM disks](#-vm-5-use-managed-disks-for-vm-disks)|
 |[**Disaster Recovery**](#disaster-recovery)| :::image type="icon" source="../reliability/media/icon-recommendation-medium.svg":::  |[VM-4: If Availability Set is required, then put each application tier into a separate Availability Set](#-vm-4-replicate-vms-using-azure-site-recovery) |
 ||:::image type="icon" source="../reliability/media/icon-recommendation-medium.svg"::: |[VM-7: Backup data on your VMs with Azure Backup service](#-vm-7-backup-data-on-your-vms-with-azure-backup-service) |
