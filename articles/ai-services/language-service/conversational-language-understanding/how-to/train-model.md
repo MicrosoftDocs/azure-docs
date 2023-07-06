@@ -1,6 +1,6 @@
 ---
 title: How to train and evaluate models in Conversational Language Understanding
-titleSuffix: Azure Cognitive Services
+titleSuffix: Azure AI services
 description: Use this article to train a model and view its evaluation details to make improvements.
 services: cognitive-services
 author: aahill

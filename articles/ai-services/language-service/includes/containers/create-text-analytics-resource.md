@@ -1,7 +1,7 @@
 ---
-title: Create a Cognitive Services Language resource
-titleSuffix: Azure Cognitive Services
-description: Learn how to create a Cognitive Services Language resource.
+title: Create an Azure AI Language resource
+titleSuffix: Azure AI services
+description: Learn how to create an Azure AI Language resource.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -13,7 +13,7 @@ ms.author: aahi
 ms.custom: ignite-fall-2021
 ---
 
-## Create a Cognitive Services Language resource
+## Create an Azure AI Language resource
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 1. Select **Create a resource**, and then go to **AI + Machine Learning** > **Language**.

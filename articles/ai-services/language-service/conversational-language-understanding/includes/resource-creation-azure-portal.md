@@ -11,13 +11,13 @@ ms.author: aahi
 
 ### Create a new resource from the Azure portal
 
-1. Go to the [Azure portal](https://portal.azure.com/#create/Microsoft.CognitiveServicesTextAnalytics) to create a new Azure Language resource. 
+1. Go to the [Azure portal](https://portal.azure.com/#create/Microsoft.CognitiveServicesTextAnalytics) to create a new Azure AI Language resource. 
 
-2. Click on **Create a new resource**
+2. Select **Create a new resource**
 
 3. In the window that appears, search for **Language service**  
 
-4. Click **Create** 
+4. Select **Create** 
 
 5. Create a Language resource with following details.
 

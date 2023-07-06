@@ -1,5 +1,5 @@
 ---
-title: Use Language services in power automate
+title: Use Language service in power automate
 titleSuffix: Azure Cognitive Services
 description: Learn how to use Azure Cognitive Service for Language in power automate, without writing code.
 services: cognitive-services

@@ -51,6 +51,6 @@ The provided sample dataset contains about 210 documents, each of which is an ab
 
     :::image type="content" source="../../media/storage-screen.png" alt-text="A screenshot showing the main page for a storage account." lightbox="../../media/storage-screen.png":::
 
-4. After your container has been created, select it. Then click **Upload** button to select the `.txt` and `.json` files you downloaded earlier. 
+4. After your container has been created, select it. Then select **Upload** button to select the `.txt` and `.json` files you downloaded earlier. 
 
     :::image type="content" source="../../media/file-upload-screen.png" alt-text="A screenshot showing the button for uploading files to the storage account." lightbox="../../media/file-upload-screen.png":::
