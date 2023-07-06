@@ -104,13 +104,7 @@ The following routing technique is preferred:
    Monitoring captures the events if there's any service degradation.
 
     :::image type="content" source="./media/about/peering-service-latency-report.png" alt-text="Diagram showing monitoring platform for Peering Service.":::
-
-### Traffic protection
-
-Routing happens only via a preferred path that's defined when the customer is registered with Peering Service.
-
-Microsoft guarantees to route the traffic via preferred paths even if malicious activity is detected.
-
+    
 ### Onboarding a Peering Service connection
 
 To onboard a Peering Service connection, do the following:
