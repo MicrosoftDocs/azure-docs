@@ -6,7 +6,7 @@ author: davidsmatlak
 ms.author: davidsmatlak
 ---
 
-### Get Role Definitions with actions
+### Get role definitions with actions
 
 Displays a sample of [role definitions](../../../../role-based-access-control/role-definitions.md) with an expanded list of actions and not actions for each role definition's permissions list.
 

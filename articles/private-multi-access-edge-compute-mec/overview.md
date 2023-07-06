@@ -5,7 +5,7 @@ description: Learn about the Azure private multi-access edge compute (MEC) solut
 author: niravi-msft
 ms.service: private-multi-access-edge-compute-mec
 ms.topic: overview
-ms.date: 06/16/2021
+ms.date: 06/16/2023
 ms.author: kumud
 
 ---
