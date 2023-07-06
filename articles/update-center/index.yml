@@ -48,7 +48,7 @@ landingContent:
             url: dynamic-scope-overview.md
       - linkListType: tutorial
         links:
-          - text: Dynamically schedule updates at scale
+          - text: Schedule updates on Dynamic scopes (preview)
             url: tutorial-dynamic-grouping-for-scheduled-patching.md
       - linkListType: how-to-guide
         links:
