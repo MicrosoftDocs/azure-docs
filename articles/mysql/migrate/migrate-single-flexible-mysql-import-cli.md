@@ -18,8 +18,6 @@ ms.devlang: azurecli
 
 [!INCLUDE[applies-to-mysql-single-server](../includes/applies-to-mysql-single-server.md)]
 
-[!INCLUDE[Azure-database-for-mysql-single-server-deprecation](../includes/azure-database-for-mysql-single-server-deprecation.md)]
-
 Azure MySQL Import enables you to migrate your Azure Database for MySQL seamlessly - Single Server to Flexible Server. It uses snapshot backup and restores technology to offer a simple and fast migration path to restore the source server's physical data files to the target server. Post MySQL Import operation, you can take advantage of the benefits of Flexible Server, including better price & performance, granular control over database configuration, and custom maintenance windows.
 
 Azure MySQL Import currently supports the offline mode of import. Based on user-inputs, it takes up the responsibility of provisioning your target Flexible Server and then taking the backup of the source server and restoring the target.
@@ -51,6 +49,7 @@ az account set --subscription <subscription id>
 ## Limitations
 
 - The source Azure Database for MySQL - Single Server and the target Azure Database for MySQL - Flexible Server must be in the same subscription, resource group, region, and on the same MySQL version. MySQL Import across subscriptions, resource groups, regions, and versions isn't possible.
+- MySQL versions supported by Azure MySQL Import are 5.7 and 8.0.21. If you are on a different MySQL version on Single Server, make sure to upgrade your version on your Single Server instance before triggering the import command.
 - MySQL Import for Single Servers with Legacy Storage architecture (General Purpose storage V1) isn't supported. You must upgrade your storage to the latest storage architecture (General Purpose storage V2) to trigger a MySQL Import operation. Find your storage type and upgrade steps by following directions [here](../single-server/concepts-pricing-tiers.md#how-can-i-determine-which-storage-type-my-server-is-running-on).
 - MySQL Import to an existing Azure MySQL Flexible Server isn't supported. The CLI command initiates the import of a new Azure MySQL Flexible Server.
 - If the flexible target server is provisioned as non-HA (High Availability disabled) when updating the CLI command parameters, it can later be switched to Same-Zone HA but not Zone-Redundant HA.
@@ -133,6 +132,29 @@ zone | 1 | Availability zone into which to provision the resource.
 standby-zone | 3 | The availability zone information of the standby server when high Availability is enabled.
 storage-auto-grow | Enabled | Enable or disable auto grow of storage for the target Azure Database for MySQL Flexible Server. The default value is Enabled. Accepted values: Disabled, Enabled; Default value: Enabled.
 iops | 500 | Number of IOPS to be allocated for the target Azure Database for MySQL Flexible Server. You get a certain amount of free IOPS based on compute and storage provisioned. The default value for IOPS is free IOPS. To learn more about IOPS based on compute and storage, refer to IOPS in Azure Database for MySQL Flexible Server.
+
+## Best practices for configuring Azure MySQL Import CLI command parameters
+
+ Before you trigger the Azure MySQL Import command, consider the following parameter configuration guidance to help ensure faster data loads using Azure MySQL Import.
+
+- Select the compute tier and SKU name for the target flexible server based on the source single server’s pricing tier and VCores based on the detail in the following table.
+
+    | Single Server Pricing Tier | Single Server VCores | Flexible Server Tier | Flexible Server SKU Name |
+    | ------------- | ------------- |:-------------:|:-------------:|
+    | Basic | 1 | Burstable | Standard_B1s |
+    | Basic | 2 | Burstable | Standard_B2s |
+    | General Purpose | 4 | GeneralPurpose | Standard_D4ds_v4 |
+    | General Purpose | 8 | GeneralPurpose | Standard_D8ds_v4 |
+    | General Purpose | 16 | GeneralPurpose | Standard_D16ds_v4 |
+    | General Purpose | 32 | GeneralPurpose | Standard_D32ds_v4 |
+    | General Purpose | 64 | GeneralPurpose | Standard_D64ds_v4 |
+    | Memory Optimized | 4 | MemoryOptimized | Standard_E4ds_v4 |
+    | Memory Optimized | 8 | MemoryOptimized | Standard_E8ds_v4 |
+    | Memory Optimized | 16 | MemoryOptimized | Standard_E16ds_v4 |
+    | Memory Optimized | 32 | MemoryOptimized | Standard_E32ds_v4 |
+
+- The MySQL version, region, subscription and resource for the target flexible server must be equal to that of the source single server.
+- The storage size for target flexible server should be equal to or greater than than on the source single server. 
 
 ## Post-import steps
 
