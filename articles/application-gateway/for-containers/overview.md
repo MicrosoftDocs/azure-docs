@@ -92,5 +92,4 @@ To learn what's new with Application Gateway for Containers, see [Azure updates]
 ## Next steps
 
 - [Concepts: How Application Gateway for Containers works](concepts-how-application-gateway-for-containers-works.md)
-- [Quickstart: Create an Application Gateway for Containers - Bring your own (BYO) deployment](quickstart-create-application-gateway-for-containers-byo-deployment.md)
-- [Quickstart: Create an Application Gateway for Containers - ALB managed deployment](quickstart-create-application-gateway-for-containers-alb-managed-deployment.md)
+- [Quickstart: Deploy Application Gateway for Containers ALB Controller](quickstart-deploy-application-gateway-for-containers-alb-controller.md)
