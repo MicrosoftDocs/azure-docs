@@ -174,7 +174,7 @@ Now that you have successfully installed a ALB Controller on your cluster you ca
 There are two deployment strategies for management of Application Gateway for Containers:
 
 - **Bring your own (BYO) deployment:** In this deployment strategy, deployment and lifecycle of the Application Gateway for Containers resource, Association and Frontend resource is assumed via Azure Portal, CLI, PowerShell, Terraform, etc. and referenced in configuration within Kubernetes.
-   - Quickstart guide for BYO scenario can [be found here](quickstart-create-application-gateway-for-containers-byo-deployment.md)
+   - Quickstart guide for bring your own (BYO) strategy can [be found here](quickstart-create-application-gateway-for-containers-byo-deployment.md)
 - **Managed by ALB controller:** In this deployment strategy ALB Controller deployed in Kubernetes will be responsible for the lifecycle of the Application Gateway for Containers resource and its sub resources. ALB Controller will create Application Gateway for Containers resource when an ApplicationLoadBalancer custom resource is defined on the cluster and its lifecycle will be based on the lifecycle of the custom resource.
   - Quickstart guide for managed by ALB controller strategy can [be found here](quickstart-create-application-gateway-for-containers-managed-by-alb-controller.md)
 
