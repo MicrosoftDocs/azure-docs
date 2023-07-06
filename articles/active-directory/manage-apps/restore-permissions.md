@@ -8,10 +8,11 @@ ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: how-to
-ms.date: 07/04/2023
+ms.date: 07/05/2023
 ms.author: jomondi
 ms.reviewer: phsignor
 ms.collection: M365-identity-device-management
+zone_pivot_groups: delegated-app-permissions
 ms.custom: enterprise-apps
 
 #customer intent: As an admin, I want to review previously revoked permissions so that I can restore the permissions for a given application.
@@ -21,7 +22,7 @@ ms.custom: enterprise-apps
 
 In this article, you learn how to restore previously revoked permissions that were granted to an application. You can restore permissions for an application that was granted permissions to access your organization's data. You can also restore permissions for an application that was granted permissions to act as a user.
 
-Currently, restoring permissions is only possible through Microsoft Graph PowerShell and Microsoft Graph API calls. You can't restore permissions through the Azure portal. In this article, you learn how to restore permissions using PowerShell.
+Currently, restoring permissions is only possible through Microsoft Graph PowerShell and Microsoft Graph API calls. You can't restore permissions through the Azure portal. In this article, you learn how to restore permissions using Microsoft Graph PowerShell.
 
 ## Prerequisites
 
@@ -33,7 +34,25 @@ To restore previously revoked permissions for an application, you need:
 
 ## Restore revoked permissions for an application
 
-Use the following Microsoft Graph PowerShell scripts to restore permissions for an application.
+"You can try different methods for restoring permissions:
+
+- Use the **Grant admin consent** button on the **Permissions** page for the app to apply consent again. This consent applies the set of permissions that the app's developer originally requested in the app manifest.
+
+>[!NOTE]
+>Regranting admin consent will remove any granted permissions that are not part of the default set configured by the developer.
+
+If you know the specific permission that was revoked, you can grant it again manually using [PowerShell](/powershell/microsoftgraph/tutorial-grant-delegated-api-permissions?view=graph-powershell-1.0) or the [Microsoft Graph API](/graph/permissions-grant-via-msgraph?tabs=http&pivots=grant-delegated-permissions).
+If you don't know the revoked permissions, you can use the scripts provided in this article to detect and restore revoked permissions.
+
+First, set the servicePrincipalId value in the script to the ID value for the enterprise app whose permissions you want to restore. This ID is also called the `object ID` in the Azure portal **Enterprise applications** page.
+
+Then, run each script with `$ForceGrantUpdate = $false` in order to see a list of delegated or app-only permissions that maybe have been removed. Even if the permissions have already been restored, revoke events from your audit logs may still appear in the script results.
+
+Leave `$ForceGrantUpdate` set to `$true` if you want the script to attempt to restore any revoked permissions it detects. The scripts ask for confirmation, but don't ask for individual approval for each permission that it restores. 
+
+Be cautious when granting permissions to apps. To learn more on how to evaluate permissions, see [Evaluate permissions](manage-consent-requests.md#evaluate-a-request-for-tenant-wide-admin-consent).
+
+:::zone pivot="delegated-perms"
 
 ### Delegated permissions
 
@@ -212,7 +231,12 @@ if ($ForceGrantUpdate -eq $true) {
 
 ```
 
-### Application permissions
+:::zone-end
+
+:::zone pivot="app-perms"
+
+>[!NOTE]
+>Granting app-only Microsoft Graph permissions requires the global administrator role.
 
 ```powershell
 # WARNING: Setting $ForceGrantUpdate to true will modify permission grants without
@@ -319,3 +343,10 @@ if ($ForceGrantUpdate -eq $true) {
 }
 
 ```
+
+:::zone-end
+
+
+
+### Application permissions
+
