@@ -43,9 +43,8 @@ ms.custom: devx-track-csharp, aaddev, identityplatformtop40, "scenarios:getting-
 > > [!div class="nextstepaction"]
 > > <button id="downloadsample" class="download-sample-button">Download the code sample</button>
 > 
-> [!INCLUDE [active-directory-develop-path-length-tip](../../../includes/active-directory-develop-path-length-tip.md)]
-> 
-> 
+> [!INCLUDE [active-directory-develop-path-length-tip](./includes/error-handling-and-tips/path-length-tip.md)]
+>
 > #### Step 3: Your app is configured and ready to run
 > We've configured your project with values of your app's properties.
 > 

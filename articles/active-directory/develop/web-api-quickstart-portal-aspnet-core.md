@@ -60,7 +60,7 @@ ms.custom: devx-track-csharp, "scenarios:getting-started", "languages:aspnet-cor
 > 
 > [Download the ASP.NET Core solution](https://github.com/Azure-Samples/active-directory-dotnet-native-aspnetcore-v2/archive/aspnetcore3-1.zip) from GitHub.
 > 
-> [!INCLUDE [active-directory-develop-path-length-tip](../../../includes/active-directory-develop-path-length-tip.md)]
+> [!INCLUDE [active-directory-develop-path-length-tip](./includes/error-handling-and-tips/path-length-tip.md)]
 > 
 > ## Step 3: Configure the ASP.NET Core project
 > 
