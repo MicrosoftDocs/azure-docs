@@ -1,13 +1,13 @@
 ---
 title: How to prepare to deliver Extended Security Updates for Windows Server 2012 through Azure Arc
 description: Learn how to prepare to deliver Extended Security Updates for Windows Server 2012 through Azure Arc.
-ms.date: 06/27/2023
+ms.date: 07/06/2023
 ms.topic: conceptual
 ---
 
 # Prepare to deliver Extended Security Updates for Windows Server 2012
 
-With Windows Server 2012 and Windows Server 2012 R2 reaching end of support on October 10, 2023, Azure Arc-enabled servers enables you to enroll your existing Windows Server 2012/2012 R2 machines in [Extended Security Updates (ESUs)](/windows-server/get-started/extended-security-updates-overview). Affording both cost flexibility and an enhanced delivery experience, Azure Arc better positions you to migrate to Azure.
+With Windows Server 2012 and Windows Server 2012 R2 reaching end of support on October 10, 2023, Azure Arc-enabled servers lets you enroll your existing Windows Server 2012/2012 R2 machines in [Extended Security Updates (ESUs)](/windows-server/get-started/extended-security-updates-overview). Affording both cost flexibility and an enhanced delivery experience, Azure Arc better positions you to migrate to Azure.
 
 The purpose of this article is to help you understand the benefits and how to prepare to use Arc-enabled servers to enable delivery of ESUs.
 
@@ -17,7 +17,7 @@ Delivering ESUs to your Windows Server 2012/2012 R2 machines provides the follow
 
 - **Pay-as-you-go:** Flexibility to sign up for a monthly subscription service with the ability to migrate mid-year.
 
-- **Azure billed:** You can draw down from your existing [Microsoft Azure Consumption Commitment](https://learn.microsoft.com/marketplace/azure-consumption-commitment-benefit) (MACC) and analyze your costs using [Azure Cost Management and Billing](../../cost-management-billing/cost-management-billing-overview.md).
+- **Azure billed:** You can draw down from your existing [Microsoft Azure Consumption Commitment](/marketplace/azure-consumption-commitment-benefit) (MACC) and analyze your costs using [Azure Cost Management and Billing](../../cost-management-billing/cost-management-billing-overview.md).
 
 - **Built-in inventory:** The coverage and enrollment status of Windows Server 2012/2012 R2 ESUs on eligible Arc-enabled servers are identified in the Azure portal, highlighting gaps and status changes.
 
@@ -27,7 +27,7 @@ Other Azure services through Azure Arc-enabled servers are available, with offer
 
 * [Microsoft Defender for Cloud](../../defender-for-cloud/defender-for-cloud-introduction.md) - As part of the cloud security posture management (CSPM) pillar, it provides server protections through [Microsoft Defender for Servers](../../defender-for-cloud/plan-defender-for-servers.md) to help protect you from various cyber threats and vulnerabilities.
 * [Update management center (preview)](../../update-center/overview.md) - Unified management and governance of update compliance that includes not only Azure and hybrid machines, but also ESU update compliance for all your Windows Server 2012/2012 R2 machines.
-* [Azure Policy](../governance/policy/overview.md) helps to enforce organizational standards and to assess compliance at-scale. Beyond providing an aggregated view to evaluate the overall state of the environment, Azure Policy helps to bring your resources to compliance through bulk and automatic remediation.
+* [Azure Policy](../../governance/policy/overview.md) helps to enforce organizational standards and to assess compliance at-scale. Beyond providing an aggregated view to evaluate the overall state of the environment, Azure Policy helps to bring your resources to compliance through bulk and automatic remediation.
 
     >[!NOTE]
     >Activation of ESU is planned for the third quarter of 2023. Using Azure services such as Update management center (preview) and Azure Policy to support managing ESU-eligible Windows Server 2012/2012 R2 machines are also planned for the third quarter.
@@ -40,6 +40,8 @@ To prepare for this new offer, you need to plan and prepare to onboard your mach
 
 - **Networking:** Connectivity options include public endpoint, proxy server, and private link or Azure Express Route. Review the [networking prerequisites](network-requirements.md) to prepare their non-Azure environment for deployment to Azure Arc.
 
-We recommend you deploy your machines to Azure Arc in preparation for when the related Azure services deliver supported functionality to manage ESU. Once these machines are onboarded to Azure Arc-enabled servers, you'll have visibility into their ESU coverage and enroll through the Azure portal or using Azure Policy one month before Windows Server 2012 end of support. Billing for this service commences from October 2023, after Windows Server 2012 end of support.
+We recommend you deploy your machines to Azure Arc in preparation for when the related Azure services deliver supported functionality to manage ESU. Once these machines are onboarded to Azure Arc-enabled servers, you'll have visibility into their ESU coverage and enroll through the Azure portal or using Azure Policy one month before Windows Server 2012 end of support. Billing for this service starts from October 2023, after Windows Server 2012 end of support.
 
+<!-->
 ## Next steps
+
