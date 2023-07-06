@@ -29,7 +29,7 @@ This procedure describes how to add a trial license for Defender for IoT to your
 
 **To add a trial license**:
 
-1. Go to the [Microsoft 365 admin center](https://portal.office.com/AdminPortal/Home#/catalog) **Marketplace**.
+1. Go to the [Microsoft 365 admin center](https://portal.office.com/AdminPortal/Home#/catalog) **Billing > Purchase services**. If you don't have this option, select **Marketplace** instead.
 
 1. Select **All products** and search for **Microsoft Defender for IoT**.
 
