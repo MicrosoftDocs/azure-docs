@@ -6,9 +6,11 @@ services: cognitive-services
 ms.service: cognitive-services
 ms.topic: quickstart
 ms.date: 4/14/2023
-ms.custom: devx-track-terraform, ai-gen-docs
+ms.custom: devx-track-terraform
 author: TomArcherMsft
 ms.author: tarcher
+content_well_notification: 
+  - AI-contribution
 ---
 
 # Quickstart: Create an Azure Cognitive Services resource using Terraform
@@ -26,8 +28,6 @@ In this article, you learn how to:
 > * Create an Azure resource group using [azurerm_resource_group](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/resource_group)
 > * Create a random string using [random_string](https://registry.terraform.io/providers/hashicorp/random/latest/docs/resources/string)
 > * Create a Cognitive Services account using [azurerm_cognitive_account](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/cognitive_account)
-
-[!INCLUDE [AI attribution](../../includes/ai-generated-attribution.md)]
 
 ## Prerequisites
 

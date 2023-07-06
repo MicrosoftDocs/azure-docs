@@ -24,9 +24,9 @@ To stay up-to-date with the most recent Azure Video Indexer developments, this a
 
 You can now redact faces with Azure Video Indexer API. For more information see [Redact faces with Azure Video Indexer API](face-redaction-with-api.md).
 
-### Upload a video API request limit increase  
+### API request limit increase
 
-An upload a video API request limit was increased from 60 to 120 requests per minute.
+Video Indexer has increased the API request limit from 60 requests per minute to 120.
 
 ## June 2023
 

@@ -10,6 +10,9 @@ ms.topic: how-to
 ms.date: 06/15/2023
 ms.custom: template-how-to
 ---
+>[!IMPORTANT]
+> The examples here are available in [1.15.1-beta.1](https://www.npmjs.com/package/@azure/communication-calling/v/1.15.1-beta.1) of the Calling SDK for JavaScript. Be sure to use that version or newer when you're trying this quickstart.
+
 [!INCLUDE [Install SDK](../install-sdk/install-sdk-web.md)]
 
 Object `Lobby` on `Call` or `TeamsCall` class allow users to access Teams meeting lobby information. It would be undefined if current call not the meeting scenario. It includes the APIs, `admit`, `reject` and `admitAll`, which allows user to admit and reject participants from Teams meeting lobby. User could also get the `participants` collection and subscribe the `lobbyParticipantsUpdated` event to receive notification.

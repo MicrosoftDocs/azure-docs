@@ -3,14 +3,14 @@ title: Protect your Azure resources with a lock
 description: You can safeguard Azure resources from updates or deletions by locking all users and roles.
 ms.topic: conceptual
 ms.date: 04/06/2023
-ms.custom: devx-track-azurecli, devx-track-azurepowershell, ai-gen-docs
+ms.custom: devx-track-azurecli, devx-track-azurepowershell
+content_well_notification: 
+  - AI-contribution
 ---
 
 # Lock your resources to protect your infrastructure
 
 As an administrator, you can lock an Azure subscription, resource group, or resource to protect them from accidental user deletions and modifications. The lock overrides any user permissions.
-
-[!INCLUDE [AI attribution](../../../includes/ai-generated-attribution.md)]
 
 You can set locks that prevent either deletions or modifications. In the portal, these locks are called **Delete** and **Read-only**. In the command line, these locks are called **CanNotDelete** and **ReadOnly**. 
 
