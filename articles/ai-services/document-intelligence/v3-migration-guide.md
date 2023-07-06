@@ -1,7 +1,7 @@
 ---
-title: "How-to: Migrate your application from Form Recognizer v2.1 to v3.0."
-titleSuffix: Azure Applied AI Services
-description: In this how-to guide, you'll learn the differences between Form Recognizer API v2.1 and v3.0. You'll also learn the changes you need to move to the newer version of the API.
+title: "How-to: Migrate your application from Document Intelligence v2.1 to v3.0."
+titleSuffix: Azure AI services
+description: In this how-to guide, you'll learn the differences between Document Intelligence API v2.1 and v3.0. You'll also learn the changes you need to move to the newer version of the API.
 author: laujan
 manager: nitinme
 ms.service: applied-ai-services
@@ -12,11 +12,12 @@ ms.author: lajanuar
 monikerRange: '>=form-recog-2.1.0'
 ---
 
-# Form Recognizer v3.0 migration
+
+# Document Intelligence v3.0 migration
 
 > [!IMPORTANT]
 >
-> Form Recognizer REST API v3.0 introduces breaking changes in the REST API request and analyze response JSON.
+> Document Intelligence REST API v3.0 introduces breaking changes in the REST API request and analyze response JSON.
 
 ## Migrating from a v3.0 preview API version
 
@@ -33,9 +34,9 @@ The `2022-08-31` API has a few updates from the preview API versions:
 
 ## Migrating from v2.1
 
-Form Recognizer v3.0  introduces several new features and capabilities:
+Document Intelligence v3.0  introduces several new features and capabilities:
 
-* [Form Recognizer REST API](quickstarts/get-started-sdks-rest-api.md?view=form-recog-3.0.0&preserve-view=true) has been redesigned for better usability.
+* [Document Intelligence REST API](quickstarts/get-started-sdks-rest-api.md?view=form-recog-3.0.0&preserve-view=true) has been redesigned for better usability.
 * [**General document (v3.0)**](concept-general-document.md) model is a new API that extracts text, tables, structure, and key-value pairs, from forms and documents.
 * [**Custom neural model (v3.0)**](concept-custom-neural.md) is a new custom model type to extract fields from structured and unstructured documents.
 * [**Receipt (v3.0)**](concept-receipt.md) model supports single-page hotel receipt processing.
@@ -43,7 +44,7 @@ Form Recognizer v3.0  introduces several new features and capabilities:
 * [**Custom model API (v3.0)**](concept-custom.md) supports signature detection for custom template models.
 * [**Custom model API (v3.0)**](overview.md) supports analysis of all the newly added prebuilt models. For a complete list of prebuilt models, see the [overview](overview.md) page.
 
-In this article, you'll learn the differences between Form Recognizer v2.1 and v3.0 and how to move to the newer version of the API.
+In this article, you'll learn the differences between Document Intelligence v2.1 and v3.0 and how to move to the newer version of the API.
 
 > [!CAUTION]
 >
@@ -98,7 +99,7 @@ The content to be analyzed is provided via the request body. Either the URL or b
   }
   ```
 
-Base64 encoding is also supported in Form Recognizer v3.0:
+Base64 encoding is also supported in Document Intelligence v3.0:
 
 ```json
 {
@@ -372,8 +373,8 @@ GET https://{your-form-recognizer-endpoint}/formrecognizer/info? api-version=202
 
 ## Next steps
 
-In this migration guide, you've learned how to upgrade your existing Form Recognizer application to use the v3.0 APIs.
+In this migration guide, you've learned how to upgrade your existing Document Intelligence application to use the v3.0 APIs.
 
 * [Review the new REST API](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2022-08-31/operations/AnalyzeDocument)
-* [What is Form Recognizer?](overview.md)
-* [Form Recognizer quickstart](quickstarts/get-started-sdks-rest-api.md)
+* [What is Document Intelligence?](overview.md)
+* [Document Intelligence quickstart](quickstarts/get-started-sdks-rest-api.md)

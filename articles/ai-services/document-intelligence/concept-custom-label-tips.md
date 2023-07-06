@@ -1,7 +1,7 @@
 ---
-title: Labeling tips for custom models in the Form Recognizer Studio
-titleSuffix: Azure Applied AI Services
-description: Label tips and tricks for Form Recognizer Studio
+title: Labeling tips for custom models in the Document Intelligence Studio
+titleSuffix: Azure AI services
+description: Label tips and tricks for Document Intelligence Studio
 author: laujan
 manager: nitinme
 ms.service: applied-ai-services
@@ -12,9 +12,10 @@ ms.author: vikurpad
 ms.custom: references_regions
 ---
 
+
 # Tips for labeling custom model datasets
 
-This article highlights the best methods for labeling custom model datasets in the Form Recognizer Studio. Labeling documents can be time consuming when you have a large number of labels, long documents, or documents with varying structure. These tips should help you label documents more efficiently.
+This article highlights the best methods for labeling custom model datasets in the Document Intelligence Studio. Labeling documents can be time consuming when you have a large number of labels, long documents, or documents with varying structure. These tips should help you label documents more efficiently.
 
 ## Video: Custom labels best practices
 
