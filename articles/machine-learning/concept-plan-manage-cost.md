@@ -61,8 +61,8 @@ When you create resources for an Azure Machine Learning workspace, resources for
 * [Application Insights](https://azure.microsoft.com/pricing/details/monitor?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn)
 
 When you create a [compute instance](concept-compute-instance.md), the VM stays on so it is available for your work.  
-* [Enable idle shutdown (preview)](how-to-create-manage-compute-instance.md#enable-idle-shutdown) to save on cost when the VM has been idle for a specified time period.
-* Or [set up a schedule](how-to-create-manage-compute-instance.md#schedule-automatic-start-and-stop) to automatically start and stop the compute instance (preview) to save cost when you aren't planning to use it.
+* [Enable idle shutdown (preview)](how-to-create-compute-instance.md#configure-idle-shutdown) to save on cost when the VM has been idle for a specified time period.
+* Or [set up a schedule](how-to-create-compute-instance.md#schedule-automatic-start-and-stop) to automatically start and stop the compute instance (preview) to save cost when you aren't planning to use it.
 
  
 ### Costs might accrue before resource deletion

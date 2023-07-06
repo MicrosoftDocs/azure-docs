@@ -30,7 +30,7 @@ For this article you need:
 
 * The Azure Machine Learning Python SDK v2 installed.
     To install the SDK you can either, 
-    * Create a compute instance, which already has installed the latest Azure Machine Learning Python SDK and is pre-configured for ML workflows. See [Create and manage an Azure Machine Learning compute instance](how-to-create-manage-compute-instance.md) for more information. 
+    * Create a compute instance, which already has installed the latest Azure Machine Learning Python SDK and is pre-configured for ML workflows. See [Create an Azure Machine Learning compute instance](how-to-create-compute-instance.md) for more information. 
 
     * Use the followings commands to install Azure Machine Learning Python SDK v2:
        * Uninstall previous preview version:
