@@ -44,8 +44,8 @@ landingContent:
             url: quickstart-deploy-application-gateway-for-containers-alb-controller.md
           - text: Create Application Gateway for Containers - bring your own deployment
             url: quickstart-create-application-gateway-for-containers-byo-deployment.md
-          - text: Provision ALB Controller into AKS cluster - managed by ALB controller
-            url: quickstart-deploy-application-gateway-for-containers-managed-by-alb-controller.md
+          - text: Create Application Gateway for Containers - managed by ALB controller
+            url: quickstart-create-application-gateway-for-containers-managed-by-alb-controller.md
 
   # Card
   - title: Deploy with SSL termination
