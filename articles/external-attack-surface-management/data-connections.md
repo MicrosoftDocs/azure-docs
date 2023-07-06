@@ -1,6 +1,6 @@
 ---
 title:       Defender EASM data connections 
-description: "The data connector sends Defender EASM asset data to Log Analytics and Azure Data Explorer. Export Defender EASM data to either tool, where data connections are subject to the pricing model for each respective platform."
+description: "The data connector sends Defender EASM asset data to Log Analytics and Azure Data Explorer. You can export Defender EASM data to either tool."
 author:      elaineriq # GitHub alias
 ms.author:   elgonzalez # Microsoft alias
 ms.service:  defender-easm 
@@ -11,7 +11,10 @@ ms.date:     03/20/2023
 
 # Use data connections
 
-Microsoft Defender External Attack Surface Management (Defender EASM) now offers data connections to help you seamlessly integrate your attack surface data into other Microsoft solutions to supplement existing workflows with new insights. You must get data from Defender EASM into the other security tools you use for remediation purposes to make the best use of your attack surface data.
+This article discusses the data connections feature in Microsoft Defender External Attack Surface Management (Defender EASM).
+
+## Overview
+Defender EASM now offers data connections to help you seamlessly integrate your attack surface data into other Microsoft solutions to supplement existing workflows with new insights. You must get data from Defender EASM into the other security tools you use for remediation purposes to make the best use of your attack surface data.
 
 The data connector sends Defender EASM asset data to two different platforms: Log Analytics and Azure Data Explorer. You need to export Defender EASM data to either tool. Data connections are subject to the pricing model for each respective platform.
 
@@ -42,7 +45,7 @@ This option doesn't provide any predetermined insights about the assets. Instead
 
 ## Configuration overviews
 
-Here's some general information on configuration.
+This section presents general information on configuration.
 
 ### Access data connections
 On the leftmost pane in your Defender EASM resource pane, under **Manage**, select **Data Connections**. This page displays the data connectors for both Log Analytics and Azure Data Explorer. It lists any current connections and provides the option to add, edit, or remove connections.
@@ -98,7 +101,7 @@ A configuration pane opens on the right side of the **Data Connections** page. T
 
 - **Name**: Enter a name for this data connection.
 - **Workspace ID**: Enter the workspace ID for the Log Analytics instance where you want to export Defender EASM data.
-- **Api key**: Enter the API key for the Log Analytics instance.
+- **API key**: Enter the API key for the Log Analytics instance.
 - **Content**: Select to integrate asset data, attack surface insights, or both datasets.
 - **Frequency**: Select the frequency that the Defender EASM connection uses to send updated data to the tool of your choice. Available options are daily, weekly, and monthly.
 
@@ -115,7 +118,7 @@ A configuration pane opens on the right side of the **Data Connections** page. T
 
    ![Screenshot that shows the Add data connection screen for Azure Data Explorer.](media/data-connections/data-connector-12.png)
 
-   After all fields are configured, select **Add** to create the data connection. At this point, the **Data Connections** page displays a banner that indicates the resource has been successfully created. In 30 minutes, data begins to populate. After connections are created, they're listed under the applicable tool on the main **Data Connections** page.
+   After all fields are configured, select **Add** to create the data connection. At this point, the **Data Connections** page displays a banner that indicates the resource was successfully created. In 30 minutes, data begins to populate. After connections are created, they're listed under the applicable tool on the main **Data Connections** page.
 
 ## Edit or delete a data connection
 You can edit or delete a data connection. For example, you might notice that a connection is listed as **Disconnected**. In this case, you need to reenter the configuration details to fix the issue.

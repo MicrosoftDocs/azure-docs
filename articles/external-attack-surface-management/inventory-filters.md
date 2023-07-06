@@ -1,7 +1,7 @@
 ---
 title: Inventory filters overview
 titleSuffix: Defender EASM inventory filters overview
-description: This article outlines the filter functionality available in Microsoft Defender External Attack Surface Management (Defender EASM) to help you find specific subsets of inventory assets based on selected parameters.
+description: This article outlines the filter functionality available in Defender EASM to help you find specific subsets of inventory assets based on selected parameters.
 author: danielledennis
 ms.author: dandennis
 ms.service: defender-easm
@@ -35,7 +35,7 @@ You can save queries of interest to quickly access the resulting asset list. Thi
 
 To save a query:
 
-1. First, carefully select the filters to produce the results you want. For more information on the applicable filters for each kind of asset, see the "Next Steps" section. In this example, we're searching for domains expiring within 30 days that require renewal. Select **Search**.
+1. First, carefully select the filters to produce the results you want. For more information on the applicable filters for each kind of asset, see the "Next steps" section. In this example, you're searching for domains that expire within 30 days that require renewal. Select **Search**.
 
     ![Screenshot that shows the Inventory page with the Search and Saved query buttons highlighted.](media/saved-filters-1.png)
 
@@ -78,11 +78,11 @@ Inventory filters can be used with the following operators. Some operators aren'
 
 ## Common filters
 
-These filters apply to all kinds of assets within inventory. These filters can be used when you search for a wider range of assets. For a list of filters for specific kinds of assets, see the "Next steps" section.
+These filters apply to all kinds of assets within an inventory. You can use these filters when you search for a wider range of assets. For a list of filters for specific kinds of assets, see the "Next steps" section.
 
 ### Defined value filters
 
- The following filters provide a dropdown list of options to select. The available values are predefined.
+ The following filters provide a dropdown list of options that you can select. The available values are predefined.
 
  |       Filter name           |     Description                                     |     Selectable values                                                     |     Available operators                                      |
 |-----------------------------|-------------------------------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------|--------------------------------------------------------------|
@@ -92,18 +92,18 @@ These filters apply to all kinds of assets within inventory. These filters can b
 |     Created At              |   Filters by the date that an asset was created in your inventory.                                                            |   Date range via calendar dropdown                                        |   `Greater Than or Equal To`, `Less Than or Equal To`, `Between`   |
 |     First Seen              |   Filters by the date that an asset was first observed by the Defender EASM detection system.    | Date range via calendar dropdown |                             |                                                                           |                                                              |
 |     Last Seen               |   Filters by the date that an asset was last observed by the Defender EASM detection system.     | Date range via calendar dropdown                              |                                                                           |                                                              |
-|     Labels               |   Filters for labels manually applied to inventory assets.                  |    Accepts freeform responses, but also offers a dropdown of labels available in your Defender EASM resource.                                                           |
+|     Labels               |   Filters for labels manually applied to inventory assets.                  |    Accepts freeform responses, but also offers a dropdown of labels available in your Defender EASM resource                                                           |
 |     Updated At              |   Filters by the date that asset data was last updated in inventory.        | Date range via calendar dropdown                                                  |                                                                           |                                                              |
-|     Wildcard                |   A wildcard DNS record answers DNS requests for subdomains that haven't already been defined. An example is  *.contoso.com.   |   True, False.                                                             |   `Equals`, `Not Equals`                                         |
+|     Wildcard                |   A wildcard DNS record answers DNS requests for subdomains that haven't already been defined. An example is  *.contoso.com.   |   True, False                                                             |   `Equals`, `Not Equals`                                         |
 
 ### Freeform filters
 
-The following filters require you to manually enter the value with which you want to search. Many of these values are case sensitive.  
+The following filters require you to manually enter the value you want to use for your search. Many of these values are case sensitive.  
 
 |       Filter name  |     Description                                                      |     Value format                                                                                                                                           |     Applicable operators                                                                                                                                                                                                                            |
 |--------------------|----------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 |     UUID           |   The universally unique identifier assigned to a particular asset.  |   acabe677-f0c6-4807-ab4e-3a59d9e66b22                                                                                                                     |   `Equals`, `Not Equals`, `In`, `Not In`                                                                                                                                                                                                                    |
-|     Name           |   The name of an asset.                                              |   Must align to the format of the asset name as listed in Inventory. For instance, a host would appear as mail.contoso.com or an IP as 192.168.92.73.  |   `Equals`, `Not Equals`, `Starts with`, `Does not start with`, `In`, `Not In`, `Starts with in`, `Does not start with in`                                                                                                                                          |
+|     Name           |   The name of an asset.                                              |   Must align to the format of the asset name as listed in inventory. For instance, a host would appear as mail.contoso.com or an IP as 192.168.92.73.  |   `Equals`, `Not Equals`, `Starts with`, `Does not start with`, `In`, `Not In`, `Starts with in`, `Does not start with in`                                                                                                                                          |
 |     External ID    |   An identifier provided by a third party.                           |   Typically a numerical value.                                                                                                                             |   `Equals`, `Not Equals`, `Starts with`, `Does not start with`, `Matches`, `Does not match`, `In`, `Not In`, `Starts with in`, `Does not start with in`, `Matches in`, `Does not match in`, `Contains`, `Does Not Contain`, `Contains In`, `Does Not Contain In`, `Empty`, `Not Empty`  |
 
 ## Filter for assets outside your approved inventory
