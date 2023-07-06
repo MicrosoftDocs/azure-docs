@@ -1,6 +1,6 @@
 ---
 title: How to configure Azure Active Directory Authentication
-titleSuffix: Azure Cognitive Services
+titleSuffix: Azure AI services
 description: Learn how to authenticate using Azure Active Directory Authentication
 services: cognitive-services
 author: rhurey
@@ -30,7 +30,7 @@ This article shows how to use Azure AD authentication with the Speech SDK. You'l
 To learn more about Azure AD access tokens, including token lifetime, visit [Access tokens in the Microsoft identity platform](/azure/active-directory/develop/access-tokens).
 
 ## Create a Speech resource
-To create a Speech resource in the [Azure portal](https://portal.azure.com), see [Get the keys for your resource](~/articles/cognitive-services/cognitive-services-apis-create-account.md#get-the-keys-for-your-resource)
+To create a Speech resource in the [Azure portal](https://portal.azure.com), see [Get the keys for your resource](~/articles/ai-services/cognitive-services-apis-create-account.md#get-the-keys-for-your-resource)
 
 ## Configure the Speech resource for Azure AD authentication
 
@@ -40,7 +40,7 @@ To configure your Speech resource for Azure AD authentication, create a custom d
 [!INCLUDE [Custom Domain include](includes/how-to/custom-domain.md)]
 
 ### Assign roles
-For Azure AD authentication with Speech resources, you need to assign either the *Cognitive Services Speech Contributor* or *Cognitive Services Speech User* role.  
+For Azure AD authentication with Speech resources, you need to assign either the *Azure AI Speech Contributor* or *Azure AI Speech User* role.  
 
 You can assign roles to the user or application using the [Azure portal](../../role-based-access-control/role-assignments-portal.md) or [PowerShell](../../role-based-access-control/role-assignments-powershell.md).
 

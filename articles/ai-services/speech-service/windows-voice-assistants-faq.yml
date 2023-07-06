@@ -1,7 +1,7 @@
 ### YamlMime:FAQ
 metadata:
   title: "Voice Assistants on Windows - FAQ"
-  titleSuffix: Azure Cognitive Services
+  titleSuffix: Azure AI services
   description: Common questions that frequently come up during Windows voice agent development.
   services: cognitive-services
   author: cfogg6

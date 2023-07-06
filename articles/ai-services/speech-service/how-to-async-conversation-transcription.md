@@ -1,6 +1,6 @@
 ---
 title: Asynchronous Conversation Transcription - Speech service
-titleSuffix: Azure Cognitive Services
+titleSuffix: Azure AI services
 description: Learn how to use asynchronous Conversation Transcription using the Speech service. Available for Java and C# only.
 services: cognitive-services
 manager: nitinme

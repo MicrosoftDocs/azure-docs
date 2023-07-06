@@ -1,6 +1,6 @@
 ---
 title: "Intent recognition quickstart - Speech service"
-titleSuffix: Azure Cognitive Services
+titleSuffix: Azure AI services
 description: In this quickstart, you recognize intents from audio data with the Speech service and LUIS.
 services: cognitive-services
 author: eric-urban

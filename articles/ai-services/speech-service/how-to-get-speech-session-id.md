@@ -1,6 +1,6 @@
 ---
 title: How to get Speech to text Session ID and Transcription ID
-titleSuffix: Azure Cognitive Services
+titleSuffix: Azure AI services
 description: Learn how to get Speech service Speech to text Session ID and Transcription ID
 services: cognitive-services
 author: alexeyo26

@@ -1,7 +1,7 @@
 ### YamlMime:FAQ
 metadata:
   title: Voice assistants frequently asked questions
-  titleSuffix: Azure Cognitive Services
+  titleSuffix: Azure AI services
   description: Get answers to the most popular questions about voice assistants using Custom Commands or the Direct Line Speech channel.
   services: cognitive-services
   author: trrwilson
@@ -55,7 +55,7 @@ sections:
       - question: |
           I get a 401 error when connecting and nothing works. I know my Speech resource key is valid. What's going on?
         answer: |
-          When managing your Speech resource on the Azure portal, please ensure you're using the **Speech** resource (Microsoft.CognitiveServicesSpeechServices, "Speech") and _not_ the **Cognitive Services** resource (Microsoft.CognitiveServicesAllInOne, "All Cognitive Services"). Also, please check [Speech service region support for voice assistants](regions.md#voice-assistants).
+          When managing your Speech resource on the Azure portal, please ensure you're using the **Speech** resource (Microsoft.CognitiveServicesSpeechServices, "Speech") and _not_ the **Azure AI services** resource (Microsoft.CognitiveServicesAllInOne, "All Azure AI services"). Also, please check [Speech service region support for voice assistants](regions.md#voice-assistants).
           
           ![correct subscription for direct line speech](media/voice-assistants/faq-supported-subscription.png "example of a compatible Speech resource")
           

@@ -1,6 +1,6 @@
 ---
 title: Text to speech overview - Speech service
-titleSuffix: Azure Cognitive Services
+titleSuffix: Azure AI services
 description: Get an overview of the benefits and capabilities of the text to speech feature of the Speech service.
 services: cognitive-services
 author: eric-urban
@@ -16,7 +16,7 @@ keywords: text to speech
 
 # What is text to speech?
 
-In this overview, you learn about the benefits and capabilities of the text to speech feature of the Speech service, which is part of Azure Cognitive Services.
+In this overview, you learn about the benefits and capabilities of the text to speech feature of the Speech service, which is part of Azure AI services.
 
 Text to speech enables your applications, tools, or devices to convert text into humanlike synthesized speech. The text to speech capability is also known as speech synthesis. Use humanlike prebuilt neural voices out of the box, or create a custom neural voice that's unique to your product or brand. For a full list of supported voices, languages, and locales, see [Language and voice support for the Speech service](language-support.md?tabs=tts).
 

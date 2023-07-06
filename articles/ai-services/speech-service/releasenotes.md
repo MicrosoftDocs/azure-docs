@@ -1,7 +1,7 @@
 ---
 title: What's new - Speech service
-titleSuffix: Azure Cognitive Services
-description: Find out about new releases and features for the Azure Cognitive Service for Speech.
+titleSuffix: Azure AI services
+description: Find out about new releases and features for the Azure AI service for Speech.
 services: cognitive-services
 manager: nitinme
 author: eric-urban
@@ -13,9 +13,9 @@ ms.date: 03/16/2023
 ms.custom: ignite-fall-2021, references_regions
 ---
 
-# What's new in Azure Cognitive Service for Speech?
+# What's new in Azure AI Speech?
 
-Azure Cognitive Service for Speech is updated on an ongoing basis. To stay up-to-date with recent developments, this article provides you with information about new releases and features.
+Azure AI Speech is updated on an ongoing basis. To stay up-to-date with recent developments, this article provides you with information about new releases and features.
 
 ## Recent highlights
 

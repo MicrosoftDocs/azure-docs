@@ -1,6 +1,6 @@
 ---
 title: Text to speech API reference (REST) - Speech service
-titleSuffix: Azure Cognitive Services
+titleSuffix: Azure AI services
 description: Learn how to use the REST API to convert text into synthesized speech.
 services: cognitive-services
 author: eric-urban

@@ -1,6 +1,6 @@
 ---
 title: Conversation transcription overview - Speech service
-titleSuffix: Azure Cognitive Services
+titleSuffix: Azure AI services
 description: You use the conversation transcription feature for meetings. It combines recognition, speaker ID, and diarization to provide transcription of any conversation.
 services: cognitive-services
 author: eric-urban
