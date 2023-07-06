@@ -2,23 +2,23 @@
 title: Enable Microsoft Defender for Cloud on your Azure subscription
 description: Learn how to enable Microsoft Defender for Cloud's enhanced security features.
 ms.topic: install-set-up-deploy
-ms.date: 06/22/2023
+ms.date: 07/06/2023
 ms.custom: mode-other
 ---
 
 # Enable Microsoft Defender for Cloud
 
-In this quickstart guide, you learn how to enable Microsoft Defender for Cloud on your Azure subscription. 
+In this guide, you'll learn how to enable Microsoft Defender for Cloud on your Azure subscription.
 
 Defender for Cloud provides unified security management and threat protection across your hybrid and multicloud workloads. While the free features offer limited security for your Azure resources only, you can also enable other paid plans that add extra protection for your resources that exist on your on-premises and other clouds. To learn more about these plans and their costs, see the Defender for Cloud [pricing page](https://azure.microsoft.com/pricing/details/defender-for-cloud/).
 
-Defender for Cloud helps you find and fix security vulnerabilities. Defender for Cloud also applies access and application controls to block malicious activity, detect threats using analytics and intelligence, and respond quickly when under attack. 
+Defender for Cloud helps you find and fix security vulnerabilities. Defender for Cloud also applies access and application controls to block malicious activity, detect threats using analytics and intelligence, and respond quickly when under attack.
 
 ## Prerequisites
 
 - To get started with Defender for Cloud, you must have a subscription to Microsoft Azure. If you don't have a subscription, you can sign up for a [free account](https://azure.microsoft.com/pricing/free-trial/).
 
- - To view information related to a resource in Defender for Cloud, you must be assigned the Owner, Contributor, or Reader role for the subscription or for the resource group that the resource is located in.
+- To view information related to a resource in Defender for Cloud, you must be assigned the Owner, Contributor, or Reader role for the subscription or for the resource group that the resource is located in.
 
 ## Enable Defender for Cloud on your Azure subscription
 
@@ -53,9 +53,47 @@ Within minutes of launching Defender for Cloud for the first time, you might see
 - **Recommendations** for ways to improve the security of your connected resources.
 - An inventory of your resources that Defender for Cloud assesses along with the security posture of each.
 
+## Enable all paid plans on your subscription
+
+To enable all of the Defender for Cloud's protections, you need to enable the other paid plans for each of the workloads that you want to protect.
+
+> [!NOTE]
+>
+> - You can enable **Microsoft Defender for Storage accounts** at either the subscription level or resource level.
+> - You can enable **Microsoft Defender for SQL** at either the subscription level or resource level.
+> - You can enable **Microsoft Defender for open-source relational databases** at the resource level only.
+> - The Microsoft Defender plans available at the workspace level are: **Microsoft Defender for Servers**, **Microsoft Defender for SQL servers on machines**.
+
+When you enabled Defender plans on an entire Azure subscription, the protections are applied to all other resources in the subscription.
+
+**To enable additional paid plans on a subscription**:
+
+1. Sign in to the [Azure portal](https://portal.azure.com).
+
+1. Search for and select **Microsoft Defender for Cloud**.
+
+1. In the Defender for Cloud menu, select **Environment settings**.
+
+    :::image type="content" source="media/get-started/environmental-settings.png" alt-text="Screenshot that shows where to navigate to, to select environmental settings from.":::
+
+1. Select the subscription or workspace that you want to protect.
+
+1. Select **Enable all** to enable all of the plans for Defender for Cloud.
+
+    :::image type="content" source="media/get-started/enable-all-plans.png" alt-text="Screenshot that shows where the enable button is located on the plans page." lightbox="media/get-started/enable-all-plans.png":::
+
+1. Select **Save**.
+
+All of the plans are turned on and the monitoring components required by each plan are deployed to the protected resources.
+
+If you want to disable any of the plans, toggle the individual plan to **off**. The extensions used by the plan aren't uninstalled but, after a short time, the extensions stop collecting data.
+
+> [!TIP]
+> To access Defender for Cloud on all subscriptions within a management group, see [Enable Defender for Cloud on multiple Azure subscriptions](onboard-management-group.md).
+
 ## Next steps
 
-In this quickstart, you enabled Defender for Cloud on your Azure subscription. The next step is to set up your hybrid and multicloud environments.
+In this guide, you enabled Defender for Cloud on your Azure subscription. The next step is to set up your hybrid and multicloud environments.
 
 > [!div class="nextstepaction"]
 > [Quickstart: Connect your non-Azure machines to Microsoft Defender for Cloud with Azure Arc](quickstart-onboard-machines.md)
