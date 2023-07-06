@@ -1,6 +1,6 @@
 ---
-title: "Azure Operator Nexus: Monitoring of AKS-Hybrid cluster"
-description: How-to guide for setting up monitoring of AKS-Hybrid cluster on Operator Nexus.
+title: "Azure Operator Nexus: Monitoring of  Nexus Kubernetes Cluster"
+description: How-to guide for setting up monitoring of Nexus Kubernetes Cluster on Operator Nexus.
 author: mukesh-dua
 ms.author: mukeshdua
 ms.service: azure-operator-nexus
@@ -9,38 +9,37 @@ ms.date: 01/26/2023
 ms.custom: template-how-to, devx-track-azurecli
 ---
 
-# Monitor AKS-hybrid cluster
+# Monitor Nexus Kubernetes Cluster
 
-Each AKS-Hybrid cluster consists of multiple layers:
+Each Nexus Kubernetes Cluster consists of multiple layers:
 
 - Virtual Machines (VMs)
 - Kubernetes layer
 - Application pods
 
-<!--- IMG ![AKS-Hybrid-Stack](Docs/media/sample-aks-hybrid-stack.png) IMG --->
-:::image type="content" source="media/sample-aks-hybrid-stack.png" alt-text="Screenshot of Sample AKS-Hybrid-Stack.":::
+<!--- IMG ![Nexus Kuberentes Cluster](Docs/media/sample-aks-hybrid-stack.png) IMG --->
+:::image type="content" source="media/sample-aks-hybrid-stack.png" alt-text="Screenshot of Sample Nexus Kubernetes Cluster.":::
 
-Figure: Sample AKS-Hybrid Stack
+Figure: Sample Nexus Kubernetes Cluster
 
-On an Operator Nexus instance, AKS-Hybrid clusters are delivered with an _optional_ [Container Insights](../azure-monitor/containers/container-insights-overview.md) observability solution.
-Container Insights captures the logs and metrics from AKS-Hybrid clusters and workloads.
+On an Operator Nexus instance, Nexus Kubernetes Clusters are delivered with an _optional_ [Container Insights](../azure-monitor/containers/container-insights-overview.md) observability solution.
+Container Insights captures the logs and metrics from Nexus Kubernetes Clusters and workloads.
 It's solely your discretion whether to enable this tooling or deploy your own telemetry stack.
 
-The AKS-Hybrid cluster with Azure monitoring tool looks like:
+The Nexus Kubernetes Cluster with Azure monitoring tool looks like:
 
-<!--- IMG ![AKS-Hybrid with Monitoring Tools](Docs/media/ask-hybrid-w-monitoring-tools.png) IMG --->
-:::image type="content" source="media/ask-hybrid-w-monitoring-tools.png" alt-text="Screenshot of AKS-Hybrid with Monitoring Tools.":::
+<!--- IMG ![Nexus Kubernetes Cluster with Monitoring Tools](Docs/media/ask-hybrid-w-monitoring-tools.png) IMG --->
+:::image type="content" source="media/ask-hybrid-w-monitoring-tools.png" alt-text="Screenshot of Nexus Kubernetes Cluster with Monitoring Tools.":::
 
-Figure: AKS-Hybrid with Monitoring Tools
+Figure: Nexus Kubernetes Cluster with Monitoring Tools
 
 ## Extension onboarding with CLI using managed identity auth
 
-When using CLI to enable monitoring agents on AKS-Hybrid clusters, install the following CLI versions:
+When using CLI to enable monitoring agents on Nexus Kubernetes Clusters, install the following CLI versions:
 
 - azure-cli: 2.39.0+
 - azure-cli-core: 2.39.0+
 - k8s-extension: 1.3.2+
-- AKS-Hybrid (for provisioned cluster operation, optional): 0.1.3+
 - Resource-graph: 2.1.0+
 
 Documentation for starting with [Azure CLI](/cli/azure/get-started-with-azure-cli), how to install it across [multiple operating systems](/cli/azure/install-azure-cli), and how to install [CLI extensions](/cli/azure/azure-cli-extensions-overview).
@@ -48,10 +47,10 @@ Documentation for starting with [Azure CLI](/cli/azure/get-started-with-azure-cl
 Install latest version of the
 [necessary CLI extensions](./howto-install-cli-extensions.md).
 
-## Monitor AKS-hybrid – VM layer
+## Monitor Nexus Kubernetes Cluster – VM layer
 
 This how-to guide provides steps and utility scripts to [Arc connect](../azure-arc/servers/overview.md)
-the AKS-Hybrid Virtual Machines to Azure and enable monitoring agents on top for collection of System logs from these VMs using [Azure Monitoring Agent](../azure-monitor/agents/agents-overview.md).
+the Nexus Kubernetes Cluster Virtual Machines to Azure and enable monitoring agents on top for collection of System logs from these VMs using [Azure Monitoring Agent](../azure-monitor/agents/agents-overview.md).
 The instructions further capture details on how to set up log data collection into a Log Analytics workspace.
 
 The following resources provide you with support:
@@ -62,13 +61,13 @@ The following resources provide you with support:
 [!INCLUDE [dcr.sh](./includes/dcr.md)]
 - `assign.sh`: use the script to create a policy to associate the DCR with all Arc-enabled servers in a resource group
 [!INCLUDE [assign.sh](./includes/assign.md)]
-- `install.sh`: Arc-enable AKS-Hybrid VMs and install Azure Monitoring Agent on each VM
+- `install.sh`: Arc-enable Nexus Kubernetes Cluster VMs and install Azure Monitoring Agent on each VM
 [!INCLUDE [install.sh](./includes/install.md)]
 
 ### Prerequisites-VM
 
-- Cluster administrator access to the AKS-Hybrid cluster. See [documentation](/azure-stack/aks-hci/create-aks-hybrid-preview-cli#connect-to-the-aks-hybrid-cluster) on
-  connecting to the AKS-Hybrid cluster.
+- Cluster administrator access to the Nexus Kubernetes Cluster. See [documentation](/azure-stack/aks-hci/create-aks-hybrid-preview-cli#connect-to-the-nexus-kubernetes-cluster) on
+  connecting to the Nexus Kubernetes Cluster.
 
 - To use Azure Arc-enabled servers, register the following Azure resource providers in your subscription:
   - Microsoft.HybridCompute
@@ -89,7 +88,7 @@ Assign the service principal to the Azure resource group that has the machines t
 
 | Role | Needed to |
 |----------------------------------------------------------|----------------------------------------------- |
-| [Azure Connected Machine Resource Administrator](../role-based-access-control/built-in-roles.md#azure-connected-machine-resource-administrator)  or [Contributor](../role-based-access-control/built-in-roles.md#contributor) | Connect Arc-enabled AKS VM server in the resource group and install the Azure Monitoring Agent (AMA)|
+| [Azure Connected Machine Resource Administrator](../role-based-access-control/built-in-roles.md#azure-connected-machine-resource-administrator)  or [Contributor](../role-based-access-control/built-in-roles.md#contributor) | Connect Arc-enabled Nexus Kubernetes Cluster VM server in the resource group and install the Azure Monitoring Agent (AMA)|
 | [Monitoring Contributor](../role-based-access-control/built-in-roles.md#user-access-administrator) or [Contributor](../role-based-access-control/built-in-roles.md#contributor) | Create a [Data Collection Rule (DCR)](../azure-monitor/agents/data-collection-rule-azure-monitor-agent.md) in the resource group and associate Arc-enabled servers to it |
 | [User Access Administrator](../role-based-access-control/built-in-roles.md#user-access-administrator), and [Resource Policy Contributor](../role-based-access-control/built-in-roles.md#resource-policy-contributor) or [Contributor](../role-based-access-control/built-in-roles.md#contributor) | Needed if you want to use Azure policy assignment(s) to ensure that a DCR is associated with [Arc-enabled machines](https://ms.portal.azure.com/#view/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fd5c37ce1-5f52-4523-b949-f19bf945b73a) |
 | [Kubernetes Extension Contributor](../role-based-access-control/built-in-roles.md#kubernetes-extension-contributor) | Needed to deploy the K8s extension for Container Insights |
@@ -99,8 +98,6 @@ Assign the service principal to the Azure resource group that has the machines t
 Copy and run the included scripts. You can run them from an
 [Azure Cloud Shell](../cloud-shell/overview.md), in the Azure portal. Or you can run them from a Linux command
 prompt where the Kubernetes command line tool (kubectl) and Azure CLI are installed.
-See these [instructions](/azure-stack/aks-hci/create-aks-hybrid-preview-cli#connect-to-the-aks-hybrid-cluster)
-for connecting to the AKS-Hybrid cluster.
 
 Prior to running the included scripts, define the following environment variables:
 
@@ -112,6 +109,8 @@ Prior to running the included scripts, define the following environment variable
 | SERVICE_PRINCIPAL_ID | The appId of the Azure service principal with appropriate role assignment(s) |
 | SERVICE_PRINCIPAL_SECRET | The authentication password for the Azure service principal |
 | TENANT_ID | The ID of the tenant directory where the service principal exists |
+| PROXY_URL | The proxy URL to use for connecting to Azure services |
+| NAMESPACE | The namespace where the kuberenetes artefacts are created |
 
 For convenience, you can modify the template file, `arc-connect.env`, to set the environment variable values.
 
@@ -130,13 +129,11 @@ The included **`dcr.sh`** script creates a DCR, in the specified resource group,
 
 1. Ensure proper [environment setup](#environment-setup) and role [prerequisites](#prerequisites-vm) for the service principal. The DCR is created in the specified resource group.
 
-2. Create or identify a Log Analytics workspace for log data ingestion as per the DCR.
-Set an environment variable, LAW_RESOURCE_ID to its resource ID.
-Retrieve the resource ID for a known Log Analytics workspace name:
+2. Create or identify a Log Analytics workspace for log data ingestion as per the DCR. Set an environment variable, LAW_RESOURCE_ID to its resource ID. Retrieve the resource ID for a known Log Analytics workspace name:
 
-```bash
-export LAW_RESOURCE_ID=$(az monitor log-analytics workspace show -g "${RESOURCE_GROUP}" -n <law name> --query id -o tsv)
-```
+  ```bash
+  export LAW_RESOURCE_ID=$(az monitor log-analytics workspace show -g "${RESOURCE_GROUP}" -n <law name> --query id -o tsv)
+  ```
 
 3. Run the dcr.sh script. It creates a DCR in the specified resource group with name ${RESOURCE_GROUP}-syslog-dcr
 
@@ -183,16 +180,16 @@ For convenience, the provided **`assign.sh`** script assigns the built-in policy
 
 #### Connect Arc-enabled servers and install Azure monitoring agent
 
-Use the included **`install.sh`** script to Arc-enroll all server VMs that represent the nodes of the AKS-Hybrid cluster.
-This script creates a Kubernetes daemonSet on the AKS-Hybrid cluster.
+Use the included **`install.sh`** script to Arc-enroll all server VMs that represent the nodes of the Nexus Kubernetes Cluster.
+This script creates a Kubernetes daemonSet on the Nexus Kubernetes Cluster.
 It deploys a pod to each cluster node, connecting each VM to Arc-enabled servers and installing the Azure Monitoring Agent (AMA).
 The `daemonSet` also includes a liveness probe that monitors the server connection and AMA processes.
 
-1. Set the environment as specified in [Environment Setup](#environment-setup). Set the current `kubeconfig` context for the AKS-Hybrid cluster VMs.
+1. Set the environment as specified in [Environment Setup](#environment-setup). Set the current `kubeconfig` context for the Nexus Kubernetes Cluster VMs.
 2. Permit `Kubectl` access to the provisioned cluster. Retrieve `KUBECONFIG` by running the Azure CLI command:
 
 ```azurecli
-az hybridaks proxy --resource-group <AKS-Hybrid Cluster Resource Group> --name <AKS-Hybrid Cluster Name> --file <kube-config-filename> &
+az hybridaks proxy --resource-group <Nexus Kubernetes Cluster Resource Group> --name <Nexus Kubernetes Cluster Name> --file <kube-config-filename> &
 ```
 
 3. Set the `kubeconfig` file for using kubectl:
@@ -201,14 +198,14 @@ az hybridaks proxy --resource-group <AKS-Hybrid Cluster Resource Group> --name <
 export KUBECONFIG=<path-to-kube-config-file>
 ```
 
-4. Run the **`install.sh`** script from the command prompt with kubectl access to the AKS-Hybrid cluster.
+4. Run the **`install.sh`** script from the command prompt with kubectl access to the Nexus Kubernetes Cluster.
 
 The script deploys the `daemonSet` to the cluster. Monitor the progress as follows:
 
 ```bash
 # Run the install script and observe results
 ./install.sh
-kubectl get pod --selector='name=haks-vm-telemetry'
+kubectl get pod --selector='name=naks-vm-telemetry'
 kubectl logs <podname>
 ```
 
@@ -219,11 +216,11 @@ At that point, the Arc-enabled servers appear as resources within the selected r
 > Associate these connected servers to the [DCR](#associate-arc-enabled-server-resources-to-dcr).
 After you configure a policy, there may be some delay to observe the logs in Azure Log Analytics Workspace
 
-### Monitor AKS-hybrid – K8s layer
+### Monitor Nexus Kubernetes Cluster – K8s layer
 
 #### Prerequisites-Kubernetes
 
-There are certain prerequisites the operator should ensure to configure the monitoring tools on AKS-Hybrid clusters.
+There are certain prerequisites the operator should ensure to configure the monitoring tools on Nexus Kubernetes Clusters.
 
 Container Insights stores its data in a [Log Analytics workspace](../azure-monitor/logs/log-analytics-workspace-overview.md).
 Log data flows into the workspace whose Resource ID you provided during the initial scripts covered in the ["Add a data collection rule (DCR)"](#add-a-data-collection-rule-dcr) section.
@@ -264,16 +261,15 @@ az login
 az account set --subscription "<Subscription Name or ID the Provisioned Cluster is in>"
 ```
 
-Now, deploy Container Insights extension on a provisioned AKS-Hybrid cluster using either of the next two commands:
+Now, deploy Container Insights extension on a provisioned Nexus Kubernetes Cluster using either of the next two commands:
 
 #### With customer pre-created Log analytics workspace
 
 ```azurecli
 az k8s-extension create --name azuremonitor-containers \
-  --cluster-name "<Provisioned Cluster Name>" \
-  --resource-group "<Provisioned Cluster Resource Group>" \
-  --cluster-type provisionedclusters \
-  --cluster-resource-provider "microsoft.hybridcontainerservice" \
+  --cluster-name "<Nexus Kubernetes Cluster Name>" \
+  --resource-group "<Nexus Kubernetes Cluster Resource Group>" \
+  --cluster-type connectedClusters \
   --extension-type Microsoft.AzureMonitor.Containers \
   --release-train preview \
   --configuration-settings logAnalyticsWorkspaceResourceID="<Log Analytics workspace Resource ID>" \
@@ -284,10 +280,9 @@ az k8s-extension create --name azuremonitor-containers \
 
 ```azurecli
 az k8s-extension create --name azuremonitor-containers \
-  --cluster-name "<Provisioned Cluster Name>" \
-  --resource-group "<Provisioned Cluster Resource Group>" \
-  --cluster-type provisionedclusters \
-  --cluster-resource-provider "microsoft.hybridcontainerservice" \
+  --cluster-name "<Nexus Kubernetes Cluster Name>" \
+  --resource-group "<Nexus Kubernetes Cluster Resource Group>" \
+  --cluster-type connectedClusters \
   --extension-type Microsoft.AzureMonitor.Containers \
   --release-train preview \
   --configuration-settings amalogsagent.useAADAuth=true
@@ -295,23 +290,22 @@ az k8s-extension create --name azuremonitor-containers \
 
 #### Validate Cluster extension
 
-Validate the successful deployment of monitoring agents’ enablement on AKS-Hybrid clusters using the following command:
+Validate the successful deployment of monitoring agents’ enablement on Nexus Kubernetes Clusters using the following command:
 
 ```azurecli
 az k8s-extension show --name azuremonitor-containers \
-  --cluster-name "<Provisioned Cluster Name>" \
-  --resource-group "<Provisioned Cluster Resource Group>" \
-  --cluster-type provisionedclusters \
-  --cluster-resource-provider "microsoft.hybridcontainerservice"
+  --cluster-name "<Nexus Kubernetes Cluster Name>" \
+  --resource-group "<Nexus Kubernetes Cluster Resource Group>" \
+  --cluster-type conectedClusters
 ```
 
 Look for a Provisioning State of "Succeeded" for the extension. The "k8s-extension create" command may have also returned the status.
 
 #### Customize logs & metrics collection
 
-Container Insights provides end-users functionality to fine-tune the collection of logs and metrics from AKS-Hybrid clusters--[Configure Container insights agent data collection](../azure-monitor/containers/container-insights-agent-config.md).
+Container Insights provides end-users functionality to fine-tune the collection of logs and metrics from Nexus Kubernetes Clusters--[Configure Container insights agent data collection](../azure-monitor/containers/container-insights-agent-config.md).
 
 ## Extra resources
 
-- Review [workbooks documentation](../azure-monitor/visualize/workbooks-overview.md) and then you may use Operator Nexus telemetry [sample Operator Nexus workbooks](https://github.com/microsoft/AzureMonitorCommunity/tree/master/Azure%20Services/Azure%20Operator%20Nexus).
-- Review [Azure Monitor Alerts](../azure-monitor/alerts/alerts-overview.md), how to create [Azure Monitor Alert rules](../azure-monitor/alerts/alerts-create-new-alert-rule.md?tabs=metric), and use [sample Operator Nexus Alert templates](https://github.com/microsoft/AzureMonitorCommunity/tree/master/Azure%20Services/Azure%20Operator%20Nexus).
+- Review [workbooks documentation](../azure-monitor/visualize/workbooks-overview.md) and then you may use Operator Nexus telemetry [sample Operator Nexus workbooks](https://github.com/microsoft/AzureMonitorCommunity/tree/master/Azure%20Services/Azure%20Operator%20Distributed%20Services).
+- Review [Azure Monitor Alerts](../azure-monitor/alerts/alerts-overview.md), how to create [Azure Monitor Alert rules](../azure-monitor/alerts/alerts-create-new-alert-rule.md?tabs=metric), and use [sample Operator Nexus Alert templates](https://github.com/microsoft/AzureMonitorCommunity/tree/master/Azure%20Services/Azure%20Operator%20Distributed%20Services).
