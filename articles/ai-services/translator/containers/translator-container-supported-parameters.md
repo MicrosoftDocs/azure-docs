@@ -1,7 +1,7 @@
 ---
 title: "Container: Translate method"
-titleSuffix: Azure Cognitive Services
-description: Understand the parameters, headers, and body messages for the container Translate method of Azure Cognitive Services Translator to translate text.
+titleSuffix: Azure AI services
+description: Understand the parameters, headers, and body messages for the container Translate method of Azure AI Translator to translate text.
 services: cognitive-services
 author: laujan
 manager: nitinme
@@ -229,7 +229,7 @@ The result is:
 ]
 ```
 
-This feature works the same way with `textType=text` or with `textType=html`. The feature should be used sparingly. The appropriate and far better way of customizing translation is by using Custom Translator. Custom Translator makes full use of context and statistical probabilities. If you've created training data that shows your work or phrase in context, you'll get much better results. [Learn more about Custom Translator](../customization.md).
+This feature works the same way with `textType=text` or with `textType=html`. The feature should be used sparingly. The appropriate and far better way of customizing translation is by using Custom Translator. Custom Translator makes full use of context and statistical probabilities. If you've created training data that shows your work or phrase in context, you'll get much better results. [Learn more about Custom Translator](../custom-translator/concepts/customization.md).
 
 ## Request limits
 

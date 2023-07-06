@@ -1,6 +1,6 @@
 ---
 title: Translator V3.0 Reference
-titleSuffix: Azure Cognitive Services
+titleSuffix: Azure AI services
 description: Reference documentation for the Translator V3.0. Version 3 of the Translator provides a modern JSON-based Web API.
 services: cognitive-services
 author: laujan
@@ -50,15 +50,15 @@ curl -X POST "https://my-swiss-n.cognitiveservices.azure.com/translator/text/v3.
 
 ## Authentication
 
-Subscribe to Translator or [Cognitive Services multi-service](https://azure.microsoft.com/pricing/details/cognitive-services/) in Azure Cognitive Services, and use your key (available in the Azure portal) to authenticate.
+Subscribe to Translator or [multi-service](https://azure.microsoft.com/pricing/details/cognitive-services/) in Azure AI services, and use your key (available in the Azure portal) to authenticate.
 
 There are three headers that you can use to authenticate your subscription. This table describes how each is used:
 
 |Headers|Description|
 |:----|:----|
-|Ocp-Apim-Subscription-Key|*Use with Cognitive Services subscription if you're passing your secret key*.<br/>The value is the Azure secret key for your subscription to Translator.|
-|Authorization|*Use with Cognitive Services subscription if you're passing an authentication token.*<br/>The value is the Bearer token: `Bearer <token>`.|
-|Ocp-Apim-Subscription-Region|*Use with Cognitive Services multi-service and regional translator resource.*<br/>The value is the region of the multi-service or regional translator resource. This value is optional when using a global translator resource.|
+|Ocp-Apim-Subscription-Key|*Use with Azure AI services subscription if you're passing your secret key*.<br/>The value is the Azure secret key for your subscription to Translator.|
+|Authorization|*Use with Azure AI services subscription if you're passing an authentication token.*<br/>The value is the Bearer token: `Bearer <token>`.|
+|Ocp-Apim-Subscription-Region|*Use with multi-service and regional translator resource.*<br/>The value is the region of the multi-service or regional translator resource. This value is optional when using a global translator resource.|
 
 ### Secret key
 
@@ -233,7 +233,7 @@ curl -X POST https://<your-custom-domain>.cognitiveservices.azure.com/translator
 
 ## Virtual Network support
 
-The Translator service is now available with Virtual Network (VNET) capabilities in all regions of the Azure public cloud. To enable Virtual Network, *See* [Configuring Azure Cognitive Services Virtual Networks](../../cognitive-services-virtual-networks.md?tabs=portal).
+The Translator service is now available with Virtual Network (VNET) capabilities in all regions of the Azure public cloud. To enable Virtual Network, *See* [Configuring Azure AI services Virtual Networks](../../cognitive-services-virtual-networks.md?tabs=portal).
 
 Once you turn on this capability, you must use the custom endpoint to call the Translator. You can't use the global translator endpoint ("api.cognitive.microsofttranslator.com") and you can't authenticate with an access token.
 
@@ -306,7 +306,7 @@ The error code is a 6-digit number combining the 3-digit HTTP status code follow
 | 400036| The target language ("To" field) is missing or invalid.|
 | 400042| One of the options specified ("Options" field) isn't valid.|
 | 400043| The client trace ID (ClientTraceId field or X-ClientTranceId header) is missing or invalid.|
-| 400050| The input text is too long. View [request limits](../request-limits.md).|
+| 400050| The input text is too long. View [request limits](../service-limits.md).|
 | 400064| The "translation" parameter is missing or invalid.|
 | 400070| The number of target scripts (ToScript parameter) doesn't match the number of target languages (To parameter).|
 | 400071| The value isn't valid for TextType.|
@@ -314,7 +314,7 @@ The error code is a 6-digit number combining the 3-digit HTTP status code follow
 | 400073| The script parameter isn't valid.|
 | 400074| The body of the request isn't valid JSON.|
 | 400075| The language pair and category combination isn't valid.|
-| 400077| The maximum request size has been exceeded. View [request limits](../request-limits.md).|
+| 400077| The maximum request size has been exceeded. View [request limits](../service-limits.md).|
 | 400079| The custom system requested for translation between from and to language doesn't exist.|
 | 400080| Transliteration isn't supported for the language or script.|
 | 401000| The request isn't authorized because credentials are missing or invalid.|

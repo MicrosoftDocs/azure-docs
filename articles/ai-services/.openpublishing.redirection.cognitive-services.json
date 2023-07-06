@@ -5702,7 +5702,7 @@
         },
         {
             "source_path_from_root": "/articles/cognitive-services/translator/translator-how-to-signup.md",
-            "redirect_url": "/azure/ai-services/translator/how-to-create-translator-resource",
+            "redirect_url": "/azure/ai-services/translator/create-translator-resource",
             "redirect_document_id": false
         },
         {
@@ -6067,7 +6067,7 @@
         },
         {
             "source_path_from_root": "/articles/cognitive-services/Translator/document-translation/client-sdks.md",
-            "redirect_url": "/azure/ai-services/Translator/document-translation/how-to-guides/use-client-sdks",
+            "redirect_url": "/azure/ai-services/Translator/document-translation/quickstarts/document-translation-sdk",
             "redirect_document_id": false
         },
         {
@@ -6092,7 +6092,7 @@
         },
         {
             "source_path_from_root": "/articles/cognitive-services/translator/quickstart-translator.md",
-            "redirect_url": "/azure/ai-services/Translator/quickstart-translator-rest-api",
+            "redirect_url": "/azure/ai-services/Translator/quickstart-text-rest-api",
             "redirect_document_id": false
         },
         {

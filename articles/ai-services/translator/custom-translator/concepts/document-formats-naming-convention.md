@@ -1,6 +1,6 @@
 ---
 title: "Document formats and naming conventions - Custom Translator"
-titleSuffix: Azure Cognitive Services
+titleSuffix: Azure AI services
 description: This article is a guide to document formats and naming conventions in Custom Translator to avoid naming conflicts.
 author: laujan
 manager: nitinme

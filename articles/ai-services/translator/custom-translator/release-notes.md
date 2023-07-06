@@ -1,6 +1,6 @@
 ---
 title: "Release notes - Custom Translator"
-titleSuffix: Azure Cognitive Services
+titleSuffix: Azure AI services
 description: Custom Translator releases, improvements, bug fixes, and known issues.
 author: laujan
 manager: nitinme
