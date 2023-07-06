@@ -3,8 +3,9 @@ title: Azure OpenAI Service models
 titleSuffix: Azure OpenAI
 description: Learn about the different model capabilities that are available with Azure OpenAI. 
 ms.service: cognitive-services
+ms.subservice: openai
 ms.topic: conceptual 
-ms.date: 06/13/2023
+ms.date: 06/30/2023
 ms.custom: event-tier1-build-2022, references_regions, build-2023, build-2023-dataai
 manager: nitinme
 author: mrbullwinkle #ChrisHMSFT
@@ -21,7 +22,7 @@ Azure OpenAI provides access to many different models, grouped by family and cap
 |--|--|
 | [GPT-4](#gpt-4-models) | A set of models that improve on GPT-3.5 and can understand as well as generate natural language and code. |
 | [GPT-3](#gpt-3-models) | A series of models that can understand and generate natural language. This includes the new [ChatGPT model](#chatgpt-gpt-35-turbo). |
-| [DALL-E](#dall-e-models) | A series of models that can generate original images from natural language. |
+| [DALL-E](#dall-e-models-preview) (Preview) | A series of models in preview that can generate original images from natural language. |
 | [Codex](#codex-models) | A series of models that can understand and generate code, including translating natural language to code. |
 | [Embeddings](#embeddings-models) | A set of models that can understand and use embeddings. An embedding is a special format of data representation that can be easily utilized by machine learning models and algorithms. The embedding is an information dense representation of the semantic meaning of a piece of text. Currently, we offer three families of Embeddings models for different functionalities: similarity, text search, and code search. |
 
@@ -59,11 +60,11 @@ Azure OpenAI now supports automatic updates for select model deployments. On mod
 
 :::image type="content" source="../media/models/auto-update.png" alt-text="Screenshot of the deploy model UI of Azure OpenAI Studio." lightbox="../media/models/auto-update.png":::
 
-### Auto update to latest
+### Auto update to default
 
-When **Auto-update to latest** is selected your model deployment will be automatically updated within two weeks of a new version being released.
+When **Auto-update to default** is selected your model deployment will be automatically updated within two weeks of a new version being released.
 
-If you are still in the early testing phases for completion and chat completion based models we recommend deploying models with **auto-update to latest** set whenever it is available. For embeddings models while we recommend using the latest model version, you should choose when you want to upgrade since embeddings generated with an earlier model version will not be interchangeable with the new version.
+If you are still in the early testing phases for completion and chat completion based models we recommend deploying models with **auto-update to default** set whenever it is available. For embeddings models while we recommend using the latest model version, you should choose when you want to upgrade since embeddings generated with an earlier model version will not be interchangeable with the new version.
 
 ### Specific model version
 
@@ -73,7 +74,7 @@ When you select a specific model version for a deployment this version will rema
 
 ### GPT-35-Turbo 0301 and GPT-4 0314 expiration
 
-The original `gpt-35-turbo` (`0301`) and both `gpt-4` (`0314`) models will expire no earlier than September 30th, 2023. Upon expiration deployments will automatically be upgraded to the default version at the time of expiry. If you would like your deployment to stop accepting completion requests rather than upgrading, then you will be able to set the model upgrade option to expire through the API. We will publish guidelines on this by September 1.  
+The original `gpt-35-turbo` (`0301`) and both `gpt-4` (`0314`) models will expire no earlier than October 15th, 2023. Upon expiration, deployments will automatically be upgraded to the default version. If you would like your deployment to stop accepting completion requests rather than upgrading, then you will be able to set the model upgrade option to expire through the API. We will publish guidelines on this by September 1.  
 
 ### Viewing deprecation dates
 
@@ -232,7 +233,7 @@ The ChatGPT model (gpt-35-turbo) is a language model designed for conversational
 
 To learn more about the ChatGPT model and how to interact with the Chat API check out our [in-depth how-to](../how-to/chatgpt.md).
 
-### DALL-E models
+### DALL-E models (Preview)
 
 The DALL-E models, currently in preview, generate images from text prompts that the user provides.
 
@@ -324,9 +325,11 @@ These models can be used with Completion API requests. `gpt-35-turbo` is the onl
 | text-davinci-002 | East US, South Central US, West Europe | N/A | 4,097 | Jun 2021 |
 | text-davinci-003 | East US, West Europe | N/A | 4,097 | Jun 2021 |
 | text-davinci-fine-tune-002 | N/A | N/A |  |  |
-| gpt-35-turbo<sup>1</sup> (ChatGPT) | East US, France Central, South Central US, UK South, West Europe | N/A | 4,096 | Sep 2021 |
+| gpt-35-turbo<sup>1</sup> (0301) | East US, France Central, South Central US, UK South, West Europe | N/A | 4,096 | Sep 2021 |
+| gpt-35-turbo (0613) | East US, France Central, UK South | N/A | 4,096 | Sep 2021 |
+| gpt-35-turbo-16k (0613) | East US, France Central, UK South | N/A | 16,384 | Sep 2021 |
 
-<br><sup>1</sup> Currently, only version `0301` of this model is available.
+<sup>1</sup> Version `0301` of gpt-35-turbo will be deprecated no earlier than October 15th, 2023 in favor of version `0613`.
 
 ### GPT-4 Models
 
@@ -334,11 +337,13 @@ These models can only be used with the Chat Completion API.
 
 |  Model ID  | Base model Regions   | Fine-Tuning Regions | Max Request (tokens) | Training Data (up to)  |
 |  --- |  --- | --- | --- | --- |
-| `gpt-4` <sup>1,</sup><sup>2</sup>      |  East US, France Central |  N/A                | 8,192                | September 2021         |
-| `gpt-4-32k` <sup>1,</sup><sup>2</sup>  |  East US, France Central |  N/A                | 32,768               | September 2021         |
+| `gpt-4` <sup>1,</sup><sup>2</sup> (0314)     |  East US, France Central |  N/A                | 8,192                | September 2021         |
+| `gpt-4-32k` <sup>1,</sup><sup>2</sup> (0314)  |  East US, France Central |  N/A                | 32,768               | September 2021         |
+| `gpt-4` <sup>1</sup> (0613)     |  East US, France Central |  N/A                | 8,192                | September 2021         |
+| `gpt-4-32k` <sup>1</sup> (0613)  |  East US, France Central |  N/A                | 32,768               | September 2021         |
 
 <sup>1</sup> The model is [only available by request](https://aka.ms/oai/get-gpt4).<br>
-<sup>2</sup> Currently, only version `0314` of this model is available.
+<sup>2</sup> Version `0314` of gpt-4 and gpt-4-32k will be deprecated no earlier than October 15th, 2023 in favor of version `0613`.
 
 ### Dall-E Models
 

@@ -51,7 +51,7 @@ ms.custom: devx-track-csharp, aaddev, identityplatformtop40, "scenarios:getting-
 > > [!div class="sxs-lookup" id="autoupdate" class="nextstepaction"]
 > > [Download the code sample](https://github.com/Azure-Samples/active-directory-dotnetcore-daemon-v2/archive/master.zip)
 >
-> [!INCLUDE [active-directory-develop-path-length-tip](../../../includes/active-directory-develop-path-length-tip.md)]
+> [!INCLUDE [active-directory-develop-path-length-tip](./includes/error-handling-and-tips/path-length-tip.md)]
 >
 > > [!div class="sxs-lookup"]
 > > > [!NOTE]
@@ -180,8 +180,8 @@ ms.custom: devx-track-csharp, aaddev, identityplatformtop40, "scenarios:getting-
 >               .GetAsync(r => r.Options.WithAppOnly());
 > ```
 >
-> [!INCLUDE [Help and support](../../../includes/active-directory-develop-help-support-include.md)]
->
+> [!INCLUDE [Help and support](./includes/error-handling-and-tips/help-support-include.md)]
+> 
 > ## Next steps
 >
 > To learn more about daemon applications, see the scenario overview:

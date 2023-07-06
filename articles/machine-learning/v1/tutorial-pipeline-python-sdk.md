@@ -385,7 +385,7 @@ Don't complete this section if you plan to run other Azure Machine Learning tuto
 
 ### Stop the compute instance
 
-[!INCLUDE [aml-stop-server](../../../includes/aml-stop-server.md)]
+[!INCLUDE [aml-stop-server](../includes/aml-stop-server.md)]
 
 ### Delete everything
 

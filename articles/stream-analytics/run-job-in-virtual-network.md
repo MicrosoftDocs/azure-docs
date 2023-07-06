@@ -19,7 +19,8 @@ Virtual network (VNet) support enables you to lock down access to Azure Stream A
 - [Service tags](../virtual-network/service-tags-overview.md), which allow or deny traffic to Azure Stream Analytics. 
 
 ## Availability 
-Currently, this capability is only available in select regions.  If you're interested in enabling VNet integration in your region, fill out this [form](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbRzFwASREnlZFvs9gztPNuTdUMU5INk5VT05ETkRBTTdSMk9BQ0w3OEZDQi4u).    
+Currently, this capability is only available in select regions: **West US**, **Central Canada**, **East US**, **Central US**, **West Europe**, and **North Europe**.
+If you're interested in enabling VNet integration in your region, **fill out this [form](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbRzFwASREnlZFvs9gztPNuTdUMU5INk5VT05ETkRBTTdSMk9BQ0w3OEZDQi4u)**.    
 
 ## Requirements for VNet integration support 
 
@@ -90,7 +91,8 @@ Several ASA jobs may utilize the same subnet.  The last job here refers to no ot
     
 > [!IMPORTANT]
 > - To authenticate with connection string, you must disable the storage account firewall settings. 
-> - To authenticate with Managed Identity, you must add your Stream Analytics job to the storage account's access control list with the Storage Blob Data Contributor role. If you do not give your job access, the job will not be able to perform any operations. For more information on how to grant access, see Use Azure RBAC to assign a managed identity access to another resource. 
+> - To authenticate with Managed Identity, you must add your Stream Analytics job to the storage account's access control list for Storage Blob Data Contributor role and 
+Storage Table Data Contributor role. If you do not give your job access, the job will not be able to perform any operations. For more information on how to grant access, see Use Azure RBAC to assign a managed identity access to another resource. 
 
 ## Permissions 
 You must have at least the following Role-based access control permissions on the subnet or at a higher level to configure virtual network integration through Azure portal, CLI or when setting the virtualNetworkSubnetId site property directly: 

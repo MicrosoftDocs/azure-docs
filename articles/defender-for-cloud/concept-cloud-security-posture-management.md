@@ -3,7 +3,7 @@ title: Overview of Cloud Security Posture Management (CSPM)
 description: Learn more about the new Defender CSPM plan and the other enhanced security features that can be enabled for your multicloud environment through the Defender Cloud Security Posture Management (CSPM) plan.
 ms.topic: conceptual
 ms.custom: ignite-2022, build-2023
-ms.date: 05/08/2023
+ms.date: 06/20/2023
 ---
 
 # Cloud Security Posture Management (CSPM)
@@ -28,17 +28,9 @@ The optional Defender CSPM plan, provides advanced posture management capabiliti
 ### Plan pricing
 
 > [!NOTE]
-> The Microsoft Defender CSPM plan protects across multicloud workloads. With Defender CSPM generally available (GA), the plan will remain free until billing starts on August 1 2023. Billing will apply for compute, database, and storage resources. Billable workloads will be VMs, Storage Accounts, OSS DBs, and SQL PaaS & Servers on Machines. When billing starts, existing Microsoft Defender for Cloud customers will receive automatically applied discounts for Defender CSPM. ​
+> The Microsoft Defender CSPM plan protects across multicloud workloads. With Defender CSPM generally available (GA), the plan will remain free until billing starts on August 1 2023. Billing will apply for Servers, Database, and Storage resources. Billable workloads will be VMs, Storage accounts, OSS DBs, SQL PaaS, & SQL servers on machines.​
 
- Microsoft Defender CSPM protects across all your multicloud workloads, but billing only applies for Servers, Databases and Storage accounts at $15/billable resource/month. The underlying compute services for AKS are regarded as servers for billing purposes.
-
-Current Microsoft Defender for Cloud customers receive automatically applied discounts (5-25% discount per billed workload based on the highest applicable discount). If you have one of the following plans enabled, you will receive a discount. Refer to the following table:
-
-| Current Defender for Cloud Customer | Automatic Discount | Defender CSPM Price |
-|--|--|--|
-|Defender for Servers P2 | 25% | **$11.25/** Compute or Data workload / month
-|Defender for Containers | 10% | **$13.50/** Compute or Data workload / month
-|Defender for DBs / Defender for Storage | 5% | **$14.25/** Compute or Data workload / month  
+Microsoft Defender CSPM protects across all your multicloud workloads, but billing only applies for Servers, Database, and Storage accounts at $5/billable resource/month. The underlying compute services for AKS are regarded as servers for billing purposes.
 
 ## Plan availability
 
