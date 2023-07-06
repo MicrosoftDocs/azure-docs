@@ -43,20 +43,21 @@ You need to complete the following tasks prior to deploying Application Gateway 
         az extension add --name alb
 	```
 
-1. **(Optional)** Create an AKS cluster for your workload.
+1. Create an AKS cluster for your workload.
 
-	If you have an existing AKS cluster for running your workload in one of the regions where Application Gateway for Containers is available for preview, you may skip ahead to the next step.
-
-	> **Note**
-	>
-	> The AKS cluster needs to be in the following regions where Application Gateway for Containers is available for Private Preview.
-	>
-	> - North Central US
-	> - North Europe
-	>
+	> **Prerequisites**
+	> The AKS cluster needs to be in the [regions where Application Gateway for Containers is available](overview.md#supported-regions)
 	> AKS cluster should use [Azure CNI](../../aks/configure-azure-cni.md).
         > AKS cluster should have workload identity feature enabled. [Learn how](../../aks/workload-identity-deploy-cluster.md#update-an-existing-aks-cluster) to enable in use an existing AKS cluster section. 
 
+	If using an existing cluster, please ensure you enable Workload Identity support on your AKS cluster.  Workload identities can be enabled via the following:
+	
+	```bash
+	az aks update -g $RESOURCE_GROUP -n $AKS_NAME --enable-oidc-issuer --enable-workload-identity --no-wait
+	```
+
+	If you do not have an existing cluster, use the following commands to create a new AKS cluster with Azure CNI and workload identity enabled.	
+ 
 	```bash
 	AKS_NAME='<your cluster name>'
 	RESOURCE_GROUP='<the resource group of your AKS cluster>'
@@ -70,6 +71,8 @@ You need to complete the following tasks prior to deploying Application Gateway 
 		--location $LOCATION \
 		--node-vm-size $VM_SIZE \
 		--network-plugin azure \
+ 		--enable-oidc-issuer \
+	        --enable-workload-identity \
 		--generate-ssh-key
 	```
 
@@ -100,13 +103,7 @@ You need to complete the following tasks prior to deploying Application Gateway 
 		--address-prefixes $subnetAddressPrefix
 	```
 
-3. Enable Workload Identity on your AKS cluster.
-
-    ```bash
-    az aks update -g $RESOURCE_GROUP -n $AKS_NAME --enable-oidc-issuer --enable-workload-identity --no-wait
-    ```
-
-4. Install Helm.
+3. Install Helm.
 
 	[Helm](https://github.com/helm/helm) is an open-source packaging tool that is used to install ALB controller. Ensure that you have the latest version of helm installed. Instructions on installation can be found [here](https://github.com/helm/helm#install).
 
@@ -148,19 +145,33 @@ You need to complete the following tasks prior to deploying Application Gateway 
 	```
 
 ## Install ALB Controller
-
-1. Prerequisites - Federate user assigned identity as Pod Identity to use in AKS cluster.
+1. Create a user managed identity for ALB controller and federate the identity as Pod Identity to use in the AKS cluster.
 
     ```bash
+	RESOURCE_GROUP='<your resource group>'
+	AKS_NAME='<your aks cluster name>'
+	IDENTITY_RESOURCE_NAME='azure-alb-identity'
+	
+	mcResourceGroup=$(az aks show --resource-group $RESOURCE_GROUP --name $AKS_NAME --query "nodeResourceGroup" -o tsv)
+	
+	echo "Creating identity $IDENTITY_RESOURCE_NAME in resource group $RESOURCE_GROUP"
+	az identity create --resource-group $RESOURCE_GROUP --name $IDENTITY_RESOURCE_NAME
+	principalId="$(az identity show -g $RESOURCE_GROUP -n $IDENTITY_RESOURCE_NAME --query principalId -otsv)"
+	
+	echo "Apply Contributor and AppGW For Containers Configuration Manager Role on the identity"
+	az role assignment create --assignee-object-id $principalId --resource-group $mcResourceGroup --role "Contributor"
+	az role assignment create --assignee-object-id $principalId --resource-group $mcResourceGroup --role "fbc52c3f28ad4303a8928a056630b8f1"
+	
+	echo "Setup federation with AKS OIDC issuer"
 	AKS_OIDC_ISSUER="$(az aks show -n "$AKS_NAME" -g "$RESOURCE_GROUP" --query "oidcIssuerProfile.issuerUrl" -o tsv)"
-    az identity federated-credential create --name "azure-alb-identity" \
+	az identity federated-credential create --name $IDENTITY_RESOURCE_NAME \
 	    --identity-name "azure-alb-identity" \
-		--resource-group $RESOURCE_GROUP \
-		--issuer "$AKS_OIDC_ISSUER" \
-		--subject "system:serviceaccount:azure-alb-system:alb-controller-sa"
+	    --resource-group $RESOURCE_GROUP \
+	    --issuer "$AKS_OIDC_ISSUER" \
+	    --subject "system:serviceaccount:azure-alb-system:alb-controller-sa"
     ```
 
-1. Install ALB Controller
+2. Install ALB Controller using Helm
 
 	LB Controller can be installed by running the following commands:
 
