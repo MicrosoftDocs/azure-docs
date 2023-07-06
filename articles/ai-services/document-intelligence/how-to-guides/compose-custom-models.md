@@ -102,7 +102,7 @@ While creating your custom models, you may need to extract data collections from
 
 * Specific collection of values for a given set of fields (columns and/or rows)
 
-See [Document Intelligence Studio: labeling as tables](../quickstarts/try-form-recognizer-studio.md#labeling-as-tables)
+See [Document Intelligence Studio: labeling as tables](../quickstarts/try-document-intelligence-studio.md#labeling-as-tables)
 
 ### [REST API](#tab/rest)
 
@@ -256,7 +256,7 @@ Great! You've learned the steps to create custom and composed models and use the
 Try one of our Document Intelligence quickstarts:
 
 > [!div class="nextstepaction"]
-> [Document Intelligence Studio](../quickstarts/try-form-recognizer-studio.md)
+> [Document Intelligence Studio](../quickstarts/try-document-intelligence-studio.md)
 
 > [!div class="nextstepaction"]
 > [REST API](../quickstarts/get-started-sdks-rest-api.md?view=form-recog-3.0.0&preserve-view=true)

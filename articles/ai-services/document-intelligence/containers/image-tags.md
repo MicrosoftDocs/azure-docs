@@ -74,7 +74,7 @@ Release notes for `v2.1`:
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Install and run Document Intelligence containers](form-recognizer-container-install-run.md)
+> [Install and run Document Intelligence containers](install-run.md)
 >
 
 * [Azure container instance recipe](../../../ai-services/containers/azure-container-instance-recipe.md)

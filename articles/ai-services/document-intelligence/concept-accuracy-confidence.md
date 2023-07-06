@@ -79,4 +79,4 @@ Variances in the visual structure of your documents affect the accuracy of your 
 ## Next step
 
 > [!div class="nextstepaction"]
-> [Learn to create custom models ](quickstarts/try-form-recognizer-studio.md#custom-models)
+> [Learn to create custom models](quickstarts/try-document-intelligence-studio.md#custom-models)

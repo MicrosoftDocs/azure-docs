@@ -105,4 +105,4 @@ The following services support data loss prevention configuration:
 
 ## Next steps
 
-* [Configure Virtual Networks](cognitive*services*virtual*networks.md)
+* [Configure Virtual Networks](cognitive-services-virtual-networks.md)

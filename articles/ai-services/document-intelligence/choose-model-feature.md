@@ -63,4 +63,4 @@ The following decision charts highlight the features of each **Document Intellig
 
 ## Next steps
 
-* [Learn how to process your own forms and documents](quickstarts/try-form-recognizer-studio.md) with the [Document Intelligence Studio](https://formrecognizer.appliedai.azure.com/studio)
+* [Learn how to process your own forms and documents](quickstarts/try-document-intelligence-studio.md) with the [Document Intelligence Studio](https://formrecognizer.appliedai.azure.com/studio)

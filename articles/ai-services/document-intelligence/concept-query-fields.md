@@ -44,4 +44,4 @@ For query field extraction, specify the fields you want to extract and Document 
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Try the Document Intelligence Studio quickstart](./quickstarts/try-form-recognizer-studio.md)
+> [Try the Document Intelligence Studio quickstart](./quickstarts/try-document-intelligence-studio.md)

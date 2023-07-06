@@ -32,7 +32,7 @@ In this article you learn how to download, install, and run Document Intelligenc
 
 * **Read**, **Layout**, **General Document**, **ID Document**,  **Receipt**, **Invoice**, and **Custom** models are supported by Document Intelligence v3.0 containers.
 
-* **Business Card** model is currently only supported in the [v2.1 containers](form-recognizer-container-install-run.md?view=form-recog-2.1.0&preserve-view=true).
+* **Business Card** model is currently only supported in the [v2.1 containers](install-run.md?view=form-recog-2.1.0&preserve-view=true).
 
 ::: moniker-end
 

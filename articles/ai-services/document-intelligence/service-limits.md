@@ -34,7 +34,7 @@ This article contains both a quick reference and detailed description of Azure A
 >
 > * [**Document Intelligence SDKs**](quickstarts/get-started-sdks-rest-api.md)
 > * [**Document Intelligence REST API**](quickstarts/get-started-sdks-rest-api.md)
-> * [**Document Intelligence Studio v3.0**](quickstarts/try-form-recognizer-studio.md)
+> * [**Document Intelligence Studio v3.0**](quickstarts/try-document-intelligence-studio.md)
 ::: moniker-end
 
 ::: moniker range="form-recog-2.1.0"

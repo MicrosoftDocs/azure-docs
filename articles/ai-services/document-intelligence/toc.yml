@@ -42,7 +42,7 @@ items:
   items:
     - name: Document Intelligence Studio
       displayName: get started, cors, blob, storage, upload, labels, custom, dynamic, fixed, signatures
-      href: quickstarts/try-form-recognizer-studio.md
+      href: quickstarts/try-document-intelligence-studio.md
     - name: "Get started with Document Intelligence"
       displayName: formRecognizerClient, Document Intelligence client, boundingBox, box, begin_recognize
       href: quickstarts/get-started-sdks-rest-api.md
@@ -96,7 +96,7 @@ items:
     items:
     - name: Install and run containers
       displayName: docker, docker-compose, container, compose, packages, az, acr, cli, import, pull, Azure AI Vision, kubernetes, cpu, EULA, billing
-      href: containers/form-recognizer-container-install-run.md
+      href: containers/install-run.md
     - name: Configure containers
       displayName: docker, docker-compose, compose, containers, run, billing, keys, logging, EULA, telemetry, proxy
       href: containers/form-recognizer-container-configuration.md

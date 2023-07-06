@@ -24,7 +24,7 @@ Containers enable you to run Azure AI services APIs in your own environment, and
   * [Key Phrase Extraction](../language-service/key-phrase-extraction/how-to/use-containers.md)
   * [Language Detection](../language-service/language-detection/how-to/use-containers.md)
 * [Azure AI Vision - Read](../computer-vision/computer-vision-how-to-install-containers.md)
-* [Document Intelligence](../../ai-services/document-intelligence/containers/form-recognizer-disconnected-containers.md)
+* [Document Intelligence](../../ai-services/document-intelligence/containers/disconnected.md)
 
 Before attempting to run a Docker container in an offline environment, make sure you know the steps to successfully download and use the container. For example:
 
@@ -70,7 +70,7 @@ See the following documentation for steps on downloading and configuring the con
 * [Vision - Read](../computer-vision/computer-vision-how-to-install-containers.md#run-the-container-disconnected-from-the-internet) 
 * [Language Understanding (LUIS)](../LUIS/luis-container-howto.md#run-the-container-disconnected-from-the-internet)
 * [Text Translation (Standard)](../translator/containers/translator-disconnected-containers.md)
-* [Document Intelligence](../../ai-services/document-intelligence/containers/form-recognizer-disconnected-containers.md)
+* [Document Intelligence](../../ai-services/document-intelligence/containers/disconnected.md)
 
 **Speech service**
 

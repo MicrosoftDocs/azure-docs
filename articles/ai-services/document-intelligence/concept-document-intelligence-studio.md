@@ -17,7 +17,7 @@ monikerRange: 'form-recog-3.0.0'
 
 **This article applies to:** ![Document Intelligence v3.0 checkmark](media/yes-icon.png) **Document Intelligence v3.0**.
 
-[Document Intelligence Studio](https://formrecognizer.appliedai.azure.com/) is an online tool for visually exploring, understanding, and integrating features from the Document Intelligence service into your applications. Use the [Document Intelligence Studio quickstart](quickstarts/try-form-recognizer-studio.md) to get started analyzing documents with pretrained models. Build custom template models and reference the models in your applications using the [Python SDK v3.0](quickstarts/get-started-sdks-rest-api.md?view=form-recog-3.0.0&preserve-view=true) and other quickstarts.
+[Document Intelligence Studio](https://formrecognizer.appliedai.azure.com/) is an online tool for visually exploring, understanding, and integrating features from the Document Intelligence service into your applications. Use the [Document Intelligence Studio quickstart](quickstarts/try-document-intelligence-studio.md) to get started analyzing documents with pretrained models. Build custom template models and reference the models in your applications using the [Python SDK v3.0](quickstarts/get-started-sdks-rest-api.md?view=form-recog-3.0.0&preserve-view=true) and other quickstarts.
 
 The following image shows the Invoice prebuilt model feature at work.
 
@@ -44,4 +44,4 @@ The following Document Intelligence service features are available in the Studio
 * Refer to our [**v3.0 REST API quickstarts**](quickstarts/get-started-sdks-rest-api.md?view=form-recog-3.0.0&preserve-view=true) to try the v3.0features using the new REST API.
 
 > [!div class="nextstepaction"]
-> [Document Intelligence Studio  quickstart](quickstarts/try-form-recognizer-studio.md)
+> [Document Intelligence Studio  quickstart](quickstarts/try-document-intelligence-studio.md)
