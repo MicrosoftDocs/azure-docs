@@ -6,7 +6,7 @@ ms.topic: include
 ms.date: 05/24/2022
 ---
 
-<!-- 
+<!--
 For clarity of structure, a separate markdown file is used to describe how to deploy to Azure Spring Apps consumption plan.
 
 [!INCLUDE [deploy-to-azure-spring-apps-consumption-plan](includes/quickstart-deploy-web-app/deploy-consumption-plan.md)]
@@ -47,16 +47,16 @@ The main resources required to run this sample are an Azure Spring Apps instance
 Create variables to hold the resource names by using the following commands. Be sure to replace the placeholders with your own values.
 
 ```azurecli
-RESOURCE_GROUP=<resource-group-name>
-LOCATION=<location>
-POSTGRESQL_SERVER=<server-name>
-POSTGRESQL_DB=<database-name>
-POSTGRESQL_ADMIN_USERNAME=<admin-username>
-POSTGRESQL_ADMIN_PASSWORD=<admin-password>
-AZURE_SPRING_APPS_NAME=<Azure-Spring-Apps-service-instance-name>
-APP_NAME=<web-app-name>
-MANAGED_ENVIRONMENT="<Azure-Container-Apps-environment-name>"
-CONNECTION=<connection-name>
+export RESOURCE_GROUP=<resource-group-name>
+export LOCATION=<location>
+export POSTGRESQL_SERVER=<server-name>
+export POSTGRESQL_DB=<database-name>
+export POSTGRESQL_ADMIN_USERNAME=<admin-username>
+export POSTGRESQL_ADMIN_PASSWORD=<admin-password>
+export AZURE_SPRING_APPS_NAME=<Azure-Spring-Apps-service-instance-name>
+export APP_NAME=<web-app-name>
+export MANAGED_ENVIRONMENT="<Azure-Container-Apps-environment-name>"
+export CONNECTION=<connection-name>
 ```
 
 ### 3.2. Create a new resource group
@@ -115,7 +115,7 @@ An Azure Container Apps environment creates a secure boundary around a group of 
 1. Use the following command to create a variable to store the environment resource ID:
 
    ```azurecli
-   MANAGED_ENV_RESOURCE_ID=$(az containerapp env show \
+   export MANAGED_ENV_RESOURCE_ID=$(az containerapp env show \
        --name ${MANAGED_ENVIRONMENT} \
        --query id \
        --output tsv)
@@ -164,7 +164,7 @@ After the application instance and the PostgreSQL instance are created, the appl
 1. Use the following command to get the PostgreSQL instance's fully qualified domain name:
 
    ```azurecli
-   PSQL_FQDN=$(az postgres flexible-server show \
+   export PSQL_FQDN=$(az postgres flexible-server show \
        --name ${POSTGRESQL_SERVER} \
        --query fullyQualifiedDomainName \
        --output tsv)
@@ -193,5 +193,3 @@ Now that the cloud environment is prepared, the application is ready to deploy.
        --name ${APP_NAME} \
        --artifact-path web/target/simple-todo-web-0.0.1-SNAPSHOT.jar
    ```
-
-

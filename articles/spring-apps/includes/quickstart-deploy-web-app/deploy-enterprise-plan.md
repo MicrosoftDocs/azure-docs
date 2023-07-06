@@ -6,7 +6,7 @@ ms.topic: include
 ms.date: 05/24/2022
 ---
 
-<!-- 
+<!--
 For clarity of structure, a separate markdown file is used to describe how to deploy to Azure Spring Apps enterprise plan.
 
 [!INCLUDE [deploy-to-azure-spring-apps-enterprise-plan](includes/quickstart-deploy-web-app/deploy-enterprise-plan.md)]
@@ -47,14 +47,14 @@ The main resources required to run this sample are an Azure Spring Apps instance
 Create variables to hold the resource names by using the following commands. Be sure to replace the placeholders with your own values.
 
 ```azurecli
-RESOURCE_GROUP=<resource-group-name>
-LOCATION=<location>
-POSTGRESQL_SERVER=<server-name>
-POSTGRESQL_DB=<database-name>
-POSTGRESQL_ADMIN_USERNAME=<admin-username>
-POSTGRESQL_ADMIN_PASSWORD=<admin-password>
-AZURE_SPRING_APPS_NAME=<Azure-Spring-Apps-service-instance-name>
-APP_NAME=<web-app-name>
+export RESOURCE_GROUP=<resource-group-name>
+export LOCATION=<location>
+export POSTGRESQL_SERVER=<server-name>
+export POSTGRESQL_DB=<database-name>
+export POSTGRESQL_ADMIN_USERNAME=<admin-username>
+export POSTGRESQL_ADMIN_PASSWORD=<admin-password>
+export AZURE_SPRING_APPS_NAME=<Azure-Spring-Apps-service-instance-name>
+export APP_NAME=<web-app-name>
 ```
 
 ### 3.2. Create a new resource group
@@ -140,7 +140,7 @@ After the application instance and the PostgreSQL instance are created, the appl
 1. Use the following command to get the PostgreSQL instance's fully qualified domain name:
 
    ```azurecli
-   PSQL_FQDN=$(az postgres flexible-server show \
+   export PSQL_FQDN=$(az postgres flexible-server show \
        --name ${POSTGRESQL_SERVER} \
        --query fullyQualifiedDomainName \
        --output tsv)

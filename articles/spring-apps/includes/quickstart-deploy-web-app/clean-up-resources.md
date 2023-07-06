@@ -6,7 +6,7 @@ ms.topic: include
 ms.date: 05/24/2022
 ---
 
-<!-- 
+<!--
 For clarity of structure, a separate markdown file is used to describe how to clean up resources using Azure Portal or AZD.
 
 [!INCLUDE [clean-up-resources-portal-or-azd](includes/quickstart-deploy-web-app/clean-up-resources.md)]
@@ -33,13 +33,13 @@ You can delete the Azure resource group, which includes all the resources in the
 
    Command interaction description:
 
-    - **Total resources to delete: \<resources-total>, are you sure you want to continue?**: Enter *y*.
-    - **Would you like to permanently delete these resources instead, allowing their names to be reused?**: Enter *y*. Enter *n* if you want to reuse the Key Vault.
+   - **Total resources to delete: \<resources-total>, are you sure you want to continue?**: Enter *y*.
+   - **Would you like to permanently delete these resources instead, allowing their names to be reused?**: Enter *y*. Enter *n* if you want to reuse the Key Vault.
 
-   The console outputs messages similar to the following:
+   The console outputs messages similar to the following example:
 
-   ```text
+   ```output
    SUCCESS: Your Azure resources have been deleted.
    ```
-   
+
 ---

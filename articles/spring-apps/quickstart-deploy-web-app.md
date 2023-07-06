@@ -30,7 +30,7 @@ This application is a typical three-layers web application with the following la
 
 The following diagram shows the architecture of the system:
 
-:::image type="content" source="media/quickstart-deploy-web-app/diagram.png" alt-text="Image that shows the architecture of a Spring web application.":::
+:::image type="content" source="media/quickstart-deploy-web-app/diagram.png" alt-text="Diagram that shows the architecture of a Spring web application." border="false":::
 
 ::: zone pivot="sc-standard"
 
@@ -135,7 +135,7 @@ Now we can access the deployed app to see wether it works.
        --name ${APP_NAME}
    ```
 
-::: zone-end   
+::: zone-end
 
 ::: zone pivot="sc-standard"
 
@@ -143,8 +143,8 @@ Now we can access the deployed app to see wether it works.
 
 1. From the navigation pane of the Azure Spring Apps instance overview page, select **Logs** to check the app's logs:
 
-   :::image type="content" source="media/quickstart-deploy-web-app/13-asa-logs.png" alt-text="Azure Spring Apps logs.":::
-   
+   :::image type="content" source="media/quickstart-deploy-web-app/13-asa-logs.png" alt-text="Screenshot of the Azure portal showing the Azure Spring Apps logs page." lightbox="media/quickstart-deploy-web-app/13-asa-logs.png":::
+
 ::: zone-end
 
 ## 6. Clean up resources

@@ -6,7 +6,7 @@ ms.topic: include
 ms.date: 05/24/2022
 ---
 
-<!-- 
+<!--
 For clarity of structure, a separate markdown file is used to describe how to provision PostgreSQL database.
 
 [!INCLUDE [provision-psql-flexible](includes/quickstart-deploy-web-app/provision-psql.md)]
@@ -19,19 +19,19 @@ To create an Azure Database for PostgreSQL server, take the following steps:
 
 1. Select **Databases** > **Azure Database for PostgreSQL**.
 
-    :::image type="content" source="../../media/quickstart-deploy-web-app/4-psql-create-server.png" alt-text="The Azure Database for PostgreSQL in menu":::
+   :::image type="content" source="../../media/quickstart-deploy-web-app/4-psql-create-server.png" alt-text="Screenshot of the Azure portal showing the Create a resource page with Azure Database for PostgreSQL highlighted." lightbox="../../media/quickstart-deploy-web-app/4-psql-create-server.png":::
 
 1. Select the **Flexible server** deployment option.
 
-   :::image type="content" source="../../media/quickstart-deploy-web-app/5-psql-select-deployment-option.png" alt-text="Select Azure Database for PostgreSQL - Flexible server deployment option":::
+   :::image type="content" source="../../media/quickstart-deploy-web-app/5-psql-select-deployment-option.png" alt-text="Screenshot of the Azure portal showing the Select Azure Database for PostgreSQL deployment option page." lightbox="../../media/quickstart-deploy-web-app/5-psql-select-deployment-option.png":::
 
 1. Fill out the **Basics** form with the following information:
 
-    :::image type="content" source="../../media/quickstart-deploy-web-app/6-psql-create-server-basics.png" alt-text="Create a server.":::
+   :::image type="content" source="../../media/quickstart-deploy-web-app/6-psql-create-server-basics.png" alt-text="Screenshot of the Azure portal showing the Server details page." lightbox="../../media/quickstart-deploy-web-app/6-psql-create-server-basics.png":::
 
 1. Configure **Networking** options：
 
-    :::image type="content" source="../../media/quickstart-deploy-web-app/7-psql-create-server-networking.png" alt-text="The Networking pane.":::
+   :::image type="content" source="../../media/quickstart-deploy-web-app/7-psql-create-server-networking.png" alt-text="Screenshot of the Azure portal showing the Networking tab." lightbox="../../media/quickstart-deploy-web-app/7-psql-create-server-networking.png":::
 
 1. Select **Review + create** to review your selections. Select **Create** to provision the server. This operation may take a few minutes.
 
@@ -39,6 +39,4 @@ To create an Azure Database for PostgreSQL server, take the following steps:
 
 1. Select **Databases** from the navigation pane to create a database:
 
-    :::image type="content" source="../../media/quickstart-deploy-web-app/8-psql-create-database.png" alt-text="Create a database.":::
-
-
+   :::image type="content" source="../../media/quickstart-deploy-web-app/8-psql-create-database.png" alt-text="Screenshot of the Azure portal showing the Databases page with the Create Database pane open." lightbox="../../media/quickstart-deploy-web-app/8-psql-create-database.png":::
