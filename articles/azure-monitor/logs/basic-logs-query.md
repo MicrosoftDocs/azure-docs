@@ -18,9 +18,6 @@ For more information, see [Set a table's log data plan](basic-logs-configure.md)
 > [!NOTE]
 > Other tools that use the Azure API for querying - for example, Grafana and Power BI - cannot access Basic Logs.
 
-> [!NOTE]
-> Billing of queries on Basic Logs is not yet enabled. You can query Basic Logs for free until early 2023.
-
 [!INCLUDE [log-analytics-query-permissions](../../../includes/log-analytics-query-permissions.md)]
 
 ## Limitations
