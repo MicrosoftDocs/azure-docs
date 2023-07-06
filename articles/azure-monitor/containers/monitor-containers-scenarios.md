@@ -103,32 +103,45 @@ The Fleet Architect is similar to the cluster administrator but is responsible f
 
 
 ## Network Engineer
+The Network Engineer is Responsible for traffic between workloads and any ingress/egress with the cluster. They analyze network traffic and perform threat analysis.
 
-The primary tools used by the network engineer are [Network insights]()
-
-**How do I know if my network is configured correctly and there's no data exfiltration?**
-
-Create [flow logs](../../network-watcher/network-watcher-nsg-flow-logging-overview.md) to log information about the IP traffic flowing through network security groups and then [traffic analytics](../../network-watcher/traffic-analytics.md) to analyze and provide insights into traffic flow.
-
-**How can I ensure that unnecessary public IPs are exposed?**
-
-- Use Traffic Analytics to identify traffic flowing over public IPs. Provide this information to security engineers to ensure that no unnecessary public IPs are exposed.
+[Network Watcher](../../network-watcher/network-watcher-monitoring-overview.md) is a suite of tools in Azure to monitor your virtual networks and to diagnose detected issues. [Network insights](../../network-watcher/network-insights-overview.md) is a feature of Azure Monitor that includes a visual representation of the performance and health of different network components and provides access to network monitoring tools that a part of Network Watcher such as [Connection Monitor](../../network-watcher/connection-monitor-overview.md), [NSG flow logs](../../network-watcher/network-watcher-nsg-flow-logging-overview.md), and [Traffic Analytics](../../network-watcher/traffic-analytics.md).
 
 
-**How can I capture the traffic flow and monitor that network rules are configured correctly, or more importantly identify traffic that should not be flowing?**
+**How can I detect any data exfiltration for my cluster?**
+
+- Create [flow logs](../../network-watcher/network-watcher-nsg-flow-logging-overview.md) to log information about the IP traffic flowing through network security groups and then use [traffic analytics](../../network-watcher/traffic-analytics.md) to determine if any traffic is flowing to either to or from any unexpected ports used by the cluster.
+
+**How can I detect if any unnecessary public IPs are exposed?**
+
+- Create [flow logs](../../network-watcher/network-watcher-nsg-flow-logging-overview.md) to log information about the IP traffic flowing through network security groups and then use [traffic analytics](../../network-watcher/traffic-analytics.md) to identify traffic flowing over public IPs. Provide this information to security engineers to ensure that no unnecessary public IPs are exposed.
+
+**How can I verify that my network rules are configured correctly?**
+- Follow the previous guidance for detecting any unxpected activity and then analyze your network rules to determine why such traffic is allowed.
 
 
 ## Developer
 
+### Description
+In addition to developing the application, the developer maintains the application running on the cluster. They're responsible for application specific traffic including application performance and failures and maintain reliability of the application according to company-defined SLAs.
+
+### Tools
+[Application insights]()
+
+
 **What are the poor performing apis or database queries?**
+
+
 
 **Where is my application bottleneck?**
 
 
-**How reliable is my application, am I meeting my SLA?**
+**Is myy application meeting my SLA?**
 
+- View the SLA report in the **Failures** tab of Application insights.
+- Use [annotations](../app/annotations.md) to identify when a new build is deployed so that you can visually inspect any change in performance after the update.
 
-**Are we getting a lot of errors, if so, what kind?**
+**If my application getinng errors**
 
 
 **How can I setup telemetry/tracing to gain better observability into the interaction between services?**
@@ -136,7 +149,11 @@ Create [flow logs](../../network-watcher/network-watcher-nsg-flow-logging-overvi
 
 **How should I set up health monitoring for my application?**
 
+- Create an [Availability test](../app/availability-overview.md) in Application insights to create a recurring test to monitor the availability and responsiveness of your application.
+
 **Where should I be sending my application logs, and where do I look for them?**
+
+- 
 
 
 ## Next steps
