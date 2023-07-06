@@ -10,14 +10,6 @@ ms.date: 06/29/2023
 
 Defender for Containers in Microsoft Defender for Cloud is the cloud-native solution that is used to secure your containers so you can improve, monitor, and maintain the security of your clusters, containers, and their applications.
 
-Defender for Containers assists you with the three core aspects of container security:
-
-- [**Environment hardening**](defender-for-containers-introduction.md#hardening) - Defender for Containers protects your Kubernetes clusters whether they're running on Azure Kubernetes Service, Kubernetes on-premises/IaaS, Amazon EKS or GCP. Defender for Containers continuously assesses clusters to provide visibility into misconfigurations and guidelines to help mitigate identified threats.
-
-- [**Vulnerability assessment**](defender-for-containers-introduction.md#vulnerability-assessment) - Vulnerability assessment and management tools for images stored in ACR registries and running in Azure Kubernetes Service.
-
-- [**Run-time threat protection for nodes and clusters**](defender-for-containers-introduction.md#run-time-protection-for-kubernetes-nodes-and-clusters) - Threat protection for clusters and Linux nodes generates security alerts for suspicious activities.
-
 Learn more about [Overview of Microsoft Defender for Containers](defender-for-containers-introduction.md).
 
 You can learn more about Defender for Container's pricing on the [pricing page](https://azure.microsoft.com/pricing/details/defender-for-cloud/).
@@ -79,8 +71,9 @@ You can learn more about Defender for Container's pricing on the [pricing page](
 If you disabled any of the default auto provisioning configurations to Off, during the [GCP connector onboarding process](quickstart-onboard-gcp.md#configure-the-containers-plan), or afterwards. You need to manually install Azure Arc-enabled Kubernetes, the Defender extension, and the Azure Policy extensions to each of your GKE clusters to get the full security value out of Defender for Containers.
 
 There are two dedicated Defender for Cloud recommendations you can use to install the extensions (and Arc if necessary):
--	`GKE clusters should have Microsoft Defender's extension for Azure Arc installed`
--	`GKE clusters should have the Azure Policy extension installed`
+
+- `GKE clusters should have Microsoft Defender's extension for Azure Arc installed`
+- `GKE clusters should have the Azure Policy extension installed`
 
 **To deploy the solution to specific clusters**:
 
@@ -107,7 +100,7 @@ There are two dedicated Defender for Cloud recommendations you can use to instal
 
     :::image type="content" source="media/tutorial-enable-containers-gcp/fix-button.png" alt-text="Screenshot showing the location of the fix button.":::
 
-1. Defender for Cloud generates a script in the language of your choice: 
+1. Defender for Cloud generates a script in the language of your choice:
     - For Linux, select **Bash**.
     - For Windows, select **PowerShell**.
 
