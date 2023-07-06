@@ -483,7 +483,7 @@
         {
             "source_path_from_root": "/articles/defender-for-cloud/enable-enhanced-security.md",
             "redirect_url": "/azure/defender-for-cloud/connect-azure-subscription",
-            "redirect_document_id": true
+            "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/security-center/enhanced-security-features-overview.md",
@@ -828,7 +828,7 @@
         {
             "source_path_from_root": "/articles/defender-for-cloud/enable-all-plans.md",
             "redirect_url": "/azure/defender-for-cloud/connect-azure-subscription",
-            "redirect_document_id": true
+            "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/defender-for-cloud/get-started.md",
