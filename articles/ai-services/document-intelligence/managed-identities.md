@@ -1,7 +1,7 @@
 ---
-title: Create and use managed identities with Form Recognizer
-titleSuffix: Azure Applied AI Services
-description: Understand how to create and  use managed identity with Form Recognizer
+title: Create and use managed identities with Document Intelligence
+titleSuffix: Azure AI services
+description: Understand how to create and  use managed identity with Document Intelligence
 author: laujan
 manager: nitinme
 ms.service: applied-ai-services
@@ -12,7 +12,8 @@ ms.author: lajanuar
 monikerRange: '>=form-recog-2.1.0'
 ---
 
-# Managed identities for Form Recognizer
+
+# Managed identities for Document Intelligence
 
 [!INCLUDE [applies to v3.0 and v2.1](includes/applies-to-v3-0-and-v2-1.md)]
 
@@ -34,11 +35,11 @@ Managed identities for Azure resources are service principals that create an Azu
 
 ## Private storage account access
 
- Private Azure storage account access and authentication support [managed identities for Azure resources](../../active-directory/managed-identities-azure-resources/overview.md). If you have an Azure storage account, protected by a Virtual Network (VNet) or firewall, Form Recognizer can't directly access your storage account data. However, once a managed identity is enabled, Form Recognizer can access your storage account using an assigned managed identity credential.
+ Private Azure storage account access and authentication support [managed identities for Azure resources](../../active-directory/managed-identities-azure-resources/overview.md). If you have an Azure storage account, protected by a Virtual Network (VNet) or firewall, Document Intelligence can't directly access your storage account data. However, once a managed identity is enabled, Document Intelligence can access your storage account using an assigned managed identity credential.
 
 > [!NOTE]
 >
-> * If you intend to analyze your storage data with the [**Form Recognizer Sample Labeling tool (FOTT)**](https://fott-2-1.azurewebsites.net/), you must deploy the tool behind your VNet or firewall.
+> * If you intend to analyze your storage data with the [**Document Intelligence Sample Labeling tool (FOTT)**](https://fott-2-1.azurewebsites.net/), you must deploy the tool behind your VNet or firewall.
 >
 > * The  Analyze [**Receipt**](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1/operations/AnalyzeReceiptAsync), [**Business Card**](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1/operations/AnalyzeBusinessCardAsync), [**Invoice**](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1/operations/5ed8c9843c2794cbb1a96291), [**ID document**](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1/operations/5f74a7738978e467c5fb8707), and [**Custom Form**](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1/operations/AnalyzeWithCustomForm) APIs can extract data from a single document by posting requests as raw binary content. In these scenarios, there is no requirement for a managed identity credential.
 
@@ -48,9 +49,9 @@ To get started, you need:
 
 * An active [**Azure account**](https://azure.microsoft.com/free/cognitive-services/)—if you don't have one, you can [**create a free account**](https://azure.microsoft.com/free/).
 
-* A [**Form Recognizer**](https://portal.azure.com/#create/Microsoft.CognitiveServicesTextTranslation) or [**Cognitive Services**](https://portal.azure.com/#create/Microsoft.CognitiveServicesAllInOne) resource in the Azure portal. For detailed steps, _see_ [Create a Cognitive Services resource using the Azure portal](../../cognitive-services/cognitive-services-apis-create-account.md?tabs=multiservice%2cwindows).
+* A [**Document Intelligence**](https://portal.azure.com/#create/Microsoft.CognitiveServicesTextTranslation) or [**Azure AI services**](https://portal.azure.com/#create/Microsoft.CognitiveServicesAllInOne) resource in the Azure portal. For detailed steps, _see_ [Create an Azure AI services resource using the Azure portal](../../ai-services/cognitive-services-apis-create-account.md?tabs=multiservice%2cwindows).
 
-* An [**Azure blob storage account**](https://portal.azure.com/#create/Microsoft.StorageAccount-ARM) in the same region as your Form Recognizer resource. You also need to create containers to store and organize your blob data within your storage account.
+* An [**Azure blob storage account**](https://portal.azure.com/#create/Microsoft.StorageAccount-ARM) in the same region as your Document Intelligence resource. You also need to create containers to store and organize your blob data within your storage account.
 
   * If your storage account is behind a firewall, **you must enable the following configuration**: </br></br>
 
@@ -67,13 +68,13 @@ To get started, you need:
 
 ## Managed identity assignments
 
-There are two types of managed identity: **system-assigned** and **user-assigned**. Currently, Form Recognizer only supports system-assigned managed identity:
+There are two types of managed identity: **system-assigned** and **user-assigned**. Currently, Document Intelligence only supports system-assigned managed identity:
 
 * A system-assigned managed identity is **enabled** directly on a service instance. It isn't enabled by default; you must go to your resource and update the identity setting.
 
 * The system-assigned managed identity is tied to your resource throughout its lifecycle. If you delete your resource, the managed identity is deleted as well.
 
-In the following steps, we enable a system-assigned managed identity and grant Form Recognizer limited access to your Azure blob storage account.
+In the following steps, we enable a system-assigned managed identity and grant Document Intelligence limited access to your Azure blob storage account.
 
 ## Enable a system-assigned managed identity
 
@@ -83,7 +84,7 @@ In the following steps, we enable a system-assigned managed identity and grant F
 
 1. Sign in to the [Azure portal](https://portal.azure.com) using an account associated with your Azure subscription.
 
-1. Navigate to your **Form Recognizer** resource page in the Azure portal.
+1. Navigate to your **Document Intelligence** resource page in the Azure portal.
 
 1. In the left rail, Select **Identity** from the **Resource Management** list:
 
@@ -93,7 +94,7 @@ In the following steps, we enable a system-assigned managed identity and grant F
 
 ## Grant access to your storage account
 
-You need to grant Form Recognizer access to your storage account before it can create, read, or delete blobs. Now that you've enabled Form Recognizer with a system-assigned managed identity, you can use Azure role-based access control (Azure RBAC), to give Form Recognizer access to Azure storage. The **Storage Blob Data Reader** role gives Form Recognizer (represented by the system-assigned managed identity) read and list access to the blob container and data.
+You need to grant Document Intelligence access to your storage account before it can create, read, or delete blobs. Now that you've enabled Document Intelligence with a system-assigned managed identity, you can use Azure role-based access control (Azure RBAC), to give Document Intelligence access to Azure storage. The **Storage Blob Data Reader** role gives Document Intelligence (represented by the system-assigned managed identity) read and list access to the blob container and data.
 
 1. Under **Permissions** select **Azure role assignments**:
 
@@ -107,7 +108,7 @@ You need to grant Form Recognizer access to your storage account before it can c
     >
     > If you're unable to assign a role in the Azure portal because the Add > Add role assignment option is disabled or you get the permissions error, "you do not have permissions to add role assignment at this scope", check that you're currently signed in as a user with an assigned a role that has Microsoft.Authorization/roleAssignments/write permissions such as Owner or User Access Administrator at the Storage scope for the storage resource.
 
-1. Next, you're going to assign a **Storage Blob Data Reader** role to your Form Recognizer service resource. In the **Add role assignment** pop-up window, complete the fields as follows and select **Save**:
+1. Next, you're going to assign a **Storage Blob Data Reader** role to your Document Intelligence service resource. In the **Add role assignment** pop-up window, complete the fields as follows and select **Save**:
 
     | Field | Value|
     |------|--------|
@@ -126,7 +127,7 @@ You need to grant Form Recognizer access to your storage account before it can c
 
     :::image type="content" source="media/managed-identities/assigned-roles-window.png" alt-text="Screenshot: Azure role assignments window.":::
 
- That's it! You've completed the steps to enable a system-assigned managed identity. With managed identity and Azure RBAC, you granted Form Recognizer specific access rights to your storage resource without having to manage credentials such as SAS tokens.
+ That's it! You've completed the steps to enable a system-assigned managed identity. With managed identity and Azure RBAC, you granted Document Intelligence specific access rights to your storage resource without having to manage credentials such as SAS tokens.
 
 ## Next steps
 > [!div class="nextstepaction"]

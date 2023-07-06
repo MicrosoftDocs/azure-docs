@@ -1,7 +1,7 @@
 ---
-title: Identity document (ID) processing – Form Recognizer
-titleSuffix: Azure Applied AI Services
-description: Automate identity document (ID) processing of driver licenses, passports, and more with Form Recognizer.
+title: Identity document (ID) processing – Document Intelligence
+titleSuffix: Azure AI services
+description: Automate identity document (ID) processing of driver licenses, passports, and more with Document Intelligence.
 author: laujan
 manager: nitinme
 ms.service: applied-ai-services
@@ -12,9 +12,10 @@ ms.author: lajanuar
 
 ms.custom: references.regions
 ---
+
 <!-- markdownlint-disable MD033 -->
 
-# Azure Form Recognizer identity document model
+# Azure AI Document Intelligence identity document model
 
 ::: moniker range="form-recog-3.0.0"
 [!INCLUDE [applies to v3.0](includes/applies-to-v3-0.md)]
@@ -26,7 +27,7 @@ ms.custom: references.regions
 
 ::: moniker range="form-recog-3.0.0"
 
-Form Recognizer Identity document (ID) model combines Optical Character Recognition (OCR) with deep learning models to analyze and extract key information from identity documents. The API analyzes identity documents (including the following) and returns a structured JSON data representation:
+Document Intelligence Identity document (ID) model combines Optical Character Recognition (OCR) with deep learning models to analyze and extract key information from identity documents. The API analyzes identity documents (including the following) and returns a structured JSON data representation:
 
 * US Drivers Licenses (all 50 states and District of Columbia)
 * International passport biographical pages
@@ -38,7 +39,7 @@ Form Recognizer Identity document (ID) model combines Optical Character Recognit
 
 ::: moniker range="form-recog-2.1.0"
 
-Azure Form Recognizer can analyze and extract information from government-issued identification documents (IDs) using its prebuilt IDs model. It combines our powerful [Optical Character Recognition (OCR)](../../cognitive-services/computer-vision/overview-ocr.md) capabilities with ID recognition capabilities to extract key information from Worldwide Passports and U.S. Driver's Licenses (all 50 states and D.C.). The IDs API extracts key information from these identity documents, such as first name, last name, date of birth, document number, and more. This API is available in the Form Recognizer v2.1 as a cloud service. 
+Document Intelligence can analyze and extract information from government-issued identification documents (IDs) using its prebuilt IDs model. It combines our powerful [Optical Character Recognition (OCR)](../../ai-services/computer-vision/overview-ocr.md) capabilities with ID recognition capabilities to extract key information from Worldwide Passports and U.S. Driver's Licenses (all 50 states and D.C.). The IDs API extracts key information from these identity documents, such as first name, last name, date of birth, document number, and more. This API is available in the Document Intelligence v2.1 as a cloud service. 
 
 ::: moniker-end
 
@@ -48,7 +49,7 @@ Identity document processing involves extracting data from identity documents ei
 
 ::: moniker range="form-recog-3.0.0"
 
-***Sample U.S. Driver's License processed with [Form Recognizer Studio](https://formrecognizer.appliedai.azure.com/studio/prebuilt?formType=idDocument)***
+***Sample U.S. Driver's License processed with [Document Intelligence Studio](https://formrecognizer.appliedai.azure.com/studio/prebuilt?formType=idDocument)***
 
 :::image type="content" source="media/studio/analyze-drivers-license.png" alt-text="Image of a sample driver's license.":::
 
@@ -73,20 +74,20 @@ The prebuilt IDs service extracts the key values from worldwide passports and U.
 ## Development options
 
 ::: moniker range="form-recog-3.0.0"
-Form Recognizer v3.0 supports the following tools:
+Document Intelligence v3.0 supports the following tools:
 
 | Feature | Resources | Model ID |
 |----------|-------------|-----------|
-|**ID document model**|<ul><li> [**Form Recognizer Studio**](https://formrecognizer.appliedai.azure.com)</li><li>[**REST API**](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2022-08-31/operations/AnalyzeDocument)</li><li>[**C# SDK**](quickstarts/get-started-sdks-rest-api.md?view=form-recog-3.0.0&preserve-view=true)</li><li>[**Python SDK**](quickstarts/get-started-sdks-rest-api.md?view=form-recog-3.0.0&preserve-view=true)</li><li>[**Java SDK**](quickstarts/get-started-sdks-rest-api.md?view=form-recog-3.0.0&preserve-view=true)</li><li>[**JavaScript SDK**](quickstarts/get-started-sdks-rest-api.md?view=form-recog-3.0.0&preserve-view=true)</li></ul>|**prebuilt-idDocument**|
+|**ID document model**|<ul><li> [**Document Intelligence Studio**](https://formrecognizer.appliedai.azure.com)</li><li>[**REST API**](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2022-08-31/operations/AnalyzeDocument)</li><li>[**C# SDK**](quickstarts/get-started-sdks-rest-api.md?view=form-recog-3.0.0&preserve-view=true)</li><li>[**Python SDK**](quickstarts/get-started-sdks-rest-api.md?view=form-recog-3.0.0&preserve-view=true)</li><li>[**Java SDK**](quickstarts/get-started-sdks-rest-api.md?view=form-recog-3.0.0&preserve-view=true)</li><li>[**JavaScript SDK**](quickstarts/get-started-sdks-rest-api.md?view=form-recog-3.0.0&preserve-view=true)</li></ul>|**prebuilt-idDocument**|
 ::: moniker-end
 
 ::: moniker range="form-recog-2.1.0"
 
-Form Recognizer v2.1 supports the following tools:
+Document Intelligence v2.1 supports the following tools:
 
 | Feature | Resources |
 |----------|-------------------------|
-|**ID document model**| <ul><li>[**Form Recognizer labeling tool**](https://fott-2-1.azurewebsites.net/prebuilts-analyze)</li><li>[**REST API**](./how-to-guides/use-sdk-rest-api.md?pivots=programming-language-rest-api&preserve-view=true&tabs=windows&view=form-recog-2.1.0#analyze-identity-id-documents)</li><li>[**Client-library SDK**](/azure/applied-ai-services/form-recognizer/how-to-guides/v2-1-sdk-rest-api)</li><li>[**Form Recognizer Docker container**](containers/form-recognizer-container-install-run.md?tabs=id-document#run-the-container-with-the-docker-compose-up-command)</li></ul>|
+|**ID document model**| <ul><li>[**Document Intelligence labeling tool**](https://fott-2-1.azurewebsites.net/prebuilts-analyze)</li><li>[**REST API**](./how-to-guides/use-sdk-rest-api.md?pivots=programming-language-rest-api&preserve-view=true&tabs=windows&view=form-recog-2.1.0#analyze-identity-id-documents)</li><li>[**Client-library SDK**](~/articles/ai-services/document-intelligence/how-to-guides/use-sdk-rest-api.md?view=form-recog-2.1.0&preserve-view=true)</li><li>[**Document Intelligence Docker container**](containers/form-recognizer-container-install-run.md?tabs=id-document#run-the-container-with-the-docker-compose-up-command)</li></ul>|
 ::: moniker-end
 
 ## Input requirements
@@ -101,30 +102,30 @@ Form Recognizer v2.1 supports the following tools:
 
 * Supported file formats: JPEG, PNG, PDF, and TIFF
 
-* Form Recognizer processes PDF and TIFF files up to 2000 pages or only the first two pages for free-tier subscribers.
+* Document Intelligence processes PDF and TIFF files up to 2000 pages or only the first two pages for free-tier subscribers.
 
 * The file size must be less than 50 MB and dimensions at least 50 x 50 pixels and at most 10,000 x 10,000 pixels.
 
 ::: moniker-end
 
-### Try Form Recognizer
+### Try Document Intelligence
 
 Extract data, including name, birth date, and expiration date, from ID documents. You need the following resources:
 
 * An Azure subscription—you can [create one for free](https://azure.microsoft.com/free/cognitive-services/)
 
-* A [Form Recognizer instance](https://portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer) in the Azure portal. You can use the free pricing tier (`F0`) to try the service. After your resource deploys, select **Go to resource** to get your key and endpoint.
+* A [Document Intelligence instance](https://portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer) in the Azure portal. You can use the free pricing tier (`F0`) to try the service. After your resource deploys, select **Go to resource** to get your key and endpoint.
 
  :::image type="content" source="media/containers/keys-and-endpoint.png" alt-text="Screenshot: keys and endpoint location in the Azure portal.":::
 
 ::: moniker range="form-recog-3.0.0"
 
-## Form Recognizer Studio
+## Document Intelligence Studio
 
 > [!NOTE]
-> Form Recognizer studio is available with the v3.0 API (API version 2022-08-31 generally available (GA) release)
+> Document Intelligence Studio is available with the v3.0 API (API version 2022-08-31 generally available (GA) release)
 
-1. On the Form Recognizer Studio home page, select **Identity documents**
+1. On the Document Intelligence Studio home page, select **Identity documents**
 
 1. You can analyze the sample invoice or select the **+ Add** button to upload your own sample.
 
@@ -133,14 +134,14 @@ Extract data, including name, birth date, and expiration date, from ID documents
     :::image type="content" source="media/studio/id-document-analyze.png" alt-text="Screenshot: analyze ID document menu.":::
 
     > [!div class="nextstepaction"]
-    > [Try Form Recognizer Studio](https://formrecognizer.appliedai.azure.com/studio/prebuilt?formType=idDocument)
+    > [Try Document Intelligence Studio](https://formrecognizer.appliedai.azure.com/studio/prebuilt?formType=idDocument)
 ::: moniker-end
 
 ::: moniker range="form-recog-2.1.0"
 
-## Form Recognizer Sample Labeling tool
+## Document Intelligence Sample Labeling tool
 
-1. Navigate to the [Form Recognizer Sample Tool](https://fott-2-1.azurewebsites.net/).
+1. Navigate to the [Document Intelligence Sample Tool](https://fott-2-1.azurewebsites.net/).
 
 1. On the sample tool home page, select the **Use prebuilt model to get data** tile.
 
@@ -159,13 +160,13 @@ Extract data, including name, birth date, and expiration date, from ID documents
 
     :::image type="content" source="media/label-tool/fott-select-url.png" alt-text="Screenshot of source location dropdown menu.":::
 
-1. In the **Form recognizer service endpoint** field, paste the endpoint that you obtained with your Form Recognizer subscription.
+1. In the **Document Intelligence service endpoint** field, paste the endpoint that you obtained with your Document Intelligence subscription.
 
-1. In the **key** field, paste  the key you obtained from your Form Recognizer resource.
+1. In the **key** field, paste  the key you obtained from your Document Intelligence resource.
 
     :::image type="content" source="media/fott-select-form-type.png" alt-text="Screenshot: select document type dropdown menu.":::
 
-1. Select **Run analysis**. The Form Recognizer Sample Labeling tool calls the Analyze Prebuilt API and analyzes the document.
+1. Select **Run analysis**. The Document Intelligence Sample Labeling tool calls the Analyze Prebuilt API and analyzes the document.
 
 1. View the results - see the key-value pairs extracted, line items, highlighted text extracted and tables detected.
 
@@ -175,11 +176,11 @@ Extract data, including name, birth date, and expiration date, from ID documents
 
     * The "readResults" node contains every line of text with its respective bounding box placement on the page.
     * The "selectionMarks" node shows every selection mark (checkbox, radio mark) and whether its status is "selected" or "unselected".
-    * The "pageResults" section includes the tables extracted. For each table, Form Recognizer extracts the text, row, and column index, row and column spanning, bounding box, and more.
+    * The "pageResults" section includes the tables extracted. For each table, Document Intelligence extracts the text, row, and column index, row and column spanning, bounding box, and more.
     * The "documentResults" field contains key/value pairs information and line items information for the most relevant parts of the document.
 
 > [!NOTE]
-> The [Sample Labeling tool](https://fott-2-1.azurewebsites.net/) does not support the BMP file format. This is a limitation of the tool not the Form Recognizer Service.
+> The [Sample Labeling tool](https://fott-2-1.azurewebsites.net/) does not support the BMP file format. This is a limitation of the tool not the Document Intelligence Service.
 
 ::: moniker-end
 
@@ -198,7 +199,7 @@ Extract data, including name, birth date, and expiration date, from ID documents
 
 ## Field extractions
 
-The following are the fields extracted per document type. The Azure Form Recognizer ID model `prebuilt-idDocument` extracts the following fields in the `documents.*.fields`. The json output includes all the extracted text in the documents, words, lines, and styles.
+The following are the fields extracted per document type. The Document Intelligence ID model `prebuilt-idDocument` extracts the following fields in the `documents.*.fields`. The json output includes all the extracted text in the documents, words, lines, and styles.
 
 >[!NOTE]
 >
@@ -348,7 +349,7 @@ The following are the fields extracted per document type. The Azure Form Recogni
 
 ### Migration guide
 
-* Follow our [**Form Recognizer v3.0 migration guide**](v3-migration-guide.md) to learn how to use the v3.0 version in your applications and workflows.
+* Follow our [**Document Intelligence v3.0 migration guide**](v3-migration-guide.md) to learn how to use the v3.0 version in your applications and workflows.
 
 ::: moniker-end
 
@@ -356,16 +357,16 @@ The following are the fields extracted per document type. The Azure Form Recogni
 
 ::: moniker range="form-recog-3.0.0"
 
-* Try processing your own forms and documents with the [Form Recognizer Studio](https://formrecognizer.appliedai.azure.com/studio)
+* Try processing your own forms and documents with the [Document Intelligence Studio](https://formrecognizer.appliedai.azure.com/studio)
 
-* Complete a [Form Recognizer quickstart](quickstarts/get-started-sdks-rest-api.md?view=form-recog-3.0.0&preserve-view=true) and get started creating a document processing app in the development language of your choice.
+* Complete a [Document Intelligence quickstart](quickstarts/get-started-sdks-rest-api.md?view=form-recog-3.0.0&preserve-view=true) and get started creating a document processing app in the development language of your choice.
 
 ::: moniker-end
 
 ::: moniker range="form-recog-2.1.0"
 
-* Try processing your own forms and documents with the [Form Recognizer Sample Labeling tool](https://fott-2-1.azurewebsites.net/)
+* Try processing your own forms and documents with the [Document Intelligence Sample Labeling tool](https://fott-2-1.azurewebsites.net/)
 
-* Complete a [Form Recognizer quickstart](quickstarts/get-started-sdks-rest-api.md?view=form-recog-2.1.0&preserve-view=true) and get started creating a document processing app in the development language of your choice.
+* Complete a [Document Intelligence quickstart](quickstarts/get-started-sdks-rest-api.md?view=form-recog-2.1.0&preserve-view=true) and get started creating a document processing app in the development language of your choice.
 
 ::: moniker-end

@@ -62,7 +62,7 @@ Learn what's new with QnA Maker.
 
 ### March 2020
 
-* TLS 1.2 is now enforced for all HTTP requests to this service. For more information, see [Azure AI services security](../cognitive-services-security.md).
+* TLS 1.2 is now enforced for all HTTP requests to this service. For more information, see Azure AI services [security](../security-features.md).
 
 ### February 2020
 

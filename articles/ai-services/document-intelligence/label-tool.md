@@ -1,7 +1,7 @@
 ---
-title: "How-to: Analyze documents, Label forms, train a model, and analyze forms with Form Recognizer"
-titleSuffix: Azure Applied AI Services
-description: How to use the Form Recognizer sample tool to analyze documents, invoices, receipts etc. Label and create a custom model to extract text, tables, selection marks, structure and key-value pairs from documents.
+title: "How-to: Analyze documents, Label forms, train a model, and analyze forms with Document Intelligence"
+titleSuffix: Azure AI services
+description: How to use the Document Intelligence sample tool to analyze documents, invoices, receipts etc. Label and create a custom model to extract text, tables, selection marks, structure and key-value pairs from documents.
 author: laujan
 manager: nitinme
 ms.service: applied-ai-services
@@ -11,22 +11,23 @@ ms.date: 06/23/2023
 ms.author: lajanuar
 monikerRange: 'form-recog-2.1.0'
 ---
+
 <!-- markdownlint-disable MD001 -->
 <!-- markdownlint-disable MD024 -->
 <!-- markdownlint-disable MD033 -->
 <!-- markdownlint-disable MD034 -->
 # Train a custom model using the Sample Labeling tool
 
-**This article applies to:** ![Form Recognizer v2.1 checkmark](media/yes-icon.png) **Form Recognizer v2.1**.
+**This article applies to:** ![Document Intelligence v2.1 checkmark](media/yes-icon.png) **Document Intelligence v2.1**.
 
 >[!TIP]
 >
-> * For an enhanced experience and advanced model quality, try the [Form Recognizer v3.0 Studio](https://formrecognizer.appliedai.azure.com/studio).
+> * For an enhanced experience and advanced model quality, try the [Document Intelligence v3.0 Studio](https://formrecognizer.appliedai.azure.com/studio).
 > * The v3.0 Studio supports any model trained with v2.1 labeled data.
 > * You can refer to the [API migration guide](v3-migration-guide.md) for detailed information about migrating from v2.1 to v3.0.
 > * *See* our [**REST API**](quickstarts/get-started-sdks-rest-api.md?view=form-recog-3.0.0&preserve-view=true) or [**C#**](quickstarts/get-started-sdks-rest-api.md?view=form-recog-3.0.0&preserve-view=true), [**Java**](quickstarts/get-started-sdks-rest-api.md?view=form-recog-3.0.0&preserve-view=true), [**JavaScript**](quickstarts/get-started-sdks-rest-api.md?view=form-recog-3.0.0&preserve-view=true), or [Python](quickstarts/get-started-sdks-rest-api.md?view=form-recog-3.0.0&preserve-view=true) SDK quickstarts to get started with the V3.0.
 
-In this article, you use the Form Recognizer REST API with the Sample Labeling tool to train a custom model with manually labeled data.
+In this article, you use the Document Intelligence REST API with the Sample Labeling tool to train a custom model with manually labeled data.
 
 > [!VIDEO https://learn.microsoft.com/Shows/Docs-Azure/Azure-Form-Recognizer/player]
 
@@ -35,34 +36,34 @@ In this article, you use the Form Recognizer REST API with the Sample Labeling t
  You need the following resources to complete this project:
 
 * Azure subscription - [Create one for free](https://azure.microsoft.com/free/cognitive-services)
-* Once you have your Azure subscription, <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer"  title="Create a Form Recognizer resource"  target="_blank">create a Form Recognizer resource </a> in the Azure portal to get your key and endpoint. After it deploys, select **Go to resource**.
-  * You need the key and endpoint from the resource you create to connect your application to the Form Recognizer API. You paste your key and endpoint into the code later in the quickstart.
+* Once you have your Azure subscription, <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer"  title="Create a Document Intelligence resource"  target="_blank">create a Document Intelligence resource </a> in the Azure portal to get your key and endpoint. After it deploys, select **Go to resource**.
+  * You need the key and endpoint from the resource you create to connect your application to the Document Intelligence API. You paste your key and endpoint into the code later in the quickstart.
   * You can use the free pricing tier (`F0`) to try the service, and upgrade later to a paid tier for production.
 * A set of at least six forms of the same type. You use this data to train the model and test a form. You can use a [sample data set](https://go.microsoft.com/fwlink/?linkid=2090451) (download and extract *sample_data.zip*) for this quickstart. Upload the training files to the root of a blob storage container in a standard-performance-tier Azure Storage account.
 
-## Create a Form Recognizer resource
+## Create a Document Intelligence resource
 
 [!INCLUDE [create resource](includes/create-resource.md)]
 
 ## Try it out
 
-Try out the [**Form Recognizer Sample Labeling tool**](https://fott-2-1.azurewebsites.net/) online:
+Try out the [**Document Intelligence Sample Labeling tool**](https://fott-2-1.azurewebsites.net/) online:
 
 > [!div class="nextstepaction"]
 > [Try Prebuilt Models](https://fott-2-1.azurewebsites.net/)
 
-You need an Azure subscription ([create one for free](https://azure.microsoft.com/free/cognitive-services)) and a [Form Recognizer resource](https://portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer) endpoint and key to try out the Form Recognizer service.
+You need an Azure subscription ([create one for free](https://azure.microsoft.com/free/cognitive-services)) and a [Document Intelligence resource](https://portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer) endpoint and key to try out the Document Intelligence service.
 
 ## Set up the Sample Labeling tool
 
 > [!NOTE]
 >
-> If your storage data is behind a VNet or firewall, you must deploy the **Form Recognizer Sample Labeling tool** behind your VNet or firewall and grant access by creating a [system-assigned managed identity](managed-identities.md "Azure managed identity is a service principal that creates an Azure Active Directory (Azure AD) identity and specific permissions for Azure managed resources").
+> If your storage data is behind a VNet or firewall, you must deploy the **Document Intelligence Sample Labeling tool** behind your VNet or firewall and grant access by creating a [system-assigned managed identity](managed-identities.md "Azure managed identity is a service principal that creates an Azure Active Directory (Azure AD) identity and specific permissions for Azure managed resources").
 
 You use the Docker engine to run the Sample Labeling tool. Follow these steps to set up the Docker container. For a primer on Docker and container basics, see the [Docker overview](https://docs.docker.com/engine/docker-overview/).
 
 > [!TIP]
-> The OCR Form Labeling Tool is also available as an open source project on GitHub. The tool is a TypeScript web application built using React + Redux. To learn more or contribute, see the [OCR Form Labeling Tool](https://github.com/microsoft/OCR-Form-Tools/blob/master/README.md#run-as-web-application) repo. To try out the tool online, go to the [Form Recognizer Sample Labeling tool website](https://fott-2-1.azurewebsites.net/).
+> The OCR Form Labeling Tool is also available as an open source project on GitHub. The tool is a TypeScript web application built using React + Redux. To learn more or contribute, see the [OCR Form Labeling Tool](https://github.com/microsoft/OCR-Form-Tools/blob/master/README.md#run-as-web-application) repo. To try out the tool online, go to the [Document Intelligence Sample Labeling tool website](https://fott-2-1.azurewebsites.net/).
 
 1. First, install Docker on a host computer. This guide shows you how to use local computer as a host. If you want to use a Docker hosting service in Azure, see the [Deploy the Sample Labeling tool](deploy-label-tool.md) how-to guide.
 
@@ -93,7 +94,7 @@ You use the Docker engine to run the Sample Labeling tool. Follow these steps to
    This command makes the sample-labeling tool available through a web browser. Go to `http://localhost:3000`.
 
 > [!NOTE]
-> You can also label documents and train models using the Form Recognizer REST API. To train and Analyze with the REST API, see [Train with labels using the REST API and Python](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/python/FormRecognizer/rest/python-labeled-data.md).
+> You can also label documents and train models using the Document Intelligence REST API. To train and Analyze with the REST API, see [Train with labels using the REST API and Python](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/python/FormRecognizer/rest/python-labeled-data.md).
 
 ## Set up input data
 
@@ -138,8 +139,8 @@ In the Sample Labeling tool, projects store your configurations and settings. Cr
 * **Security Token** - Some project settings can include sensitive values, such as keys or other shared secrets. Each project generates a security token that can be used to encrypt/decrypt sensitive project settings. You can find security tokens in the Application Settings by selecting the gear icon at the bottom of the left navigation bar.
 * **Source Connection** - The Azure Blob Storage connection you created in the previous step that you would like to use for this project.
 * **Folder Path** - Optional - If your source forms are located in a folder on the blob container, specify the folder name here
-* **Form Recognizer Service Uri** - Your Form Recognizer endpoint URL.
-* **Key** - Your Form Recognizer key.
+* **Document Intelligence Service Uri** - Your Document Intelligence endpoint URL.
+* **Key** - Your Document Intelligence key.
 * **Description** - Optional - Project description
 
 :::image type="content" source="media/label-tool/new-project.png" alt-text="New project page on Sample Labeling tool.":::
@@ -255,7 +256,7 @@ Once you've defined your table tag, tag the cell values.
 
 Choose the Train icon on the left pane to open the Training page. Then select the **Train** button to begin training the model. Once the training process completes, you see the following information:
 
-* **Model ID** - The ID of the model that was created and trained. Each training call creates a new model with its own ID. Copy this string to a secure location; you need it if you want to do prediction calls through the [REST API](/azure/applied-ai-services/form-recognizer/how-to-guides/v2-1-sdk-rest-api?pivots=programming-language-rest-api&tabs=preview%2cv2-1) or [client library guide](/azure/applied-ai-services/form-recognizer/how-to-guides/v2-1-sdk-rest-api).
+* **Model ID** - The ID of the model that was created and trained. Each training call creates a new model with its own ID. Copy this string to a secure location; you need it if you want to do prediction calls through the [REST API](~/articles/ai-services/document-intelligence/how-to-guides/use-sdk-rest-api.md?view=form-recog-2.1.0&preserve-view=true?pivots=programming-language-rest-api&tabs=preview%2cv2-1) or [client library guide](~/articles/ai-services/document-intelligence/how-to-guides/use-sdk-rest-api.md?view=form-recog-2.1.0&preserve-view=true).
 * **Average Accuracy** - The model's average accuracy. You can improve model accuracy by adding and labeling more forms, then retraining to create a new model. We recommend starting by labeling five forms and adding more forms as needed.
 * The list of tags, and the estimated accuracy per tag.
 
@@ -269,7 +270,7 @@ After training finishes, examine the **Average Accuracy** value. If it's low, yo
 
 ## Compose trained models
 
-With Model Compose, you can compose up to 200 models to a single model ID. When you call Analyze with the composed `modelID`, Form Recognizer classifies the form you submitted, choose the best matching model, and then return results for that model. This operation is useful when incoming forms may belong to one of several templates.
+With Model Compose, you can compose up to 200 models to a single model ID. When you call Analyze with the composed `modelID`, Document Intelligence classifies the form you submitted, choose the best matching model, and then return results for that model. This operation is useful when incoming forms may belong to one of several templates.
 
 * To compose models in the Sample Labeling tool, select the Model Compose (merging arrow) icon from the navigation bar.
 * Select the models you wish to compose together. Models with the arrows icon are already composed models.
@@ -311,10 +312,10 @@ Finally, go to the main page (house icon) and select **Open Cloud Project**. The
 
 ## Next steps
 
-In this quickstart, you've learned how to use the Form Recognizer Sample Labeling tool to train a model with manually labeled data. If you'd like to build your own utility to label training data, use the REST APIs that deal with labeled data training.
+In this quickstart, you've learned how to use the Document Intelligence Sample Labeling tool to train a model with manually labeled data. If you'd like to build your own utility to label training data, use the REST APIs that deal with labeled data training.
 
 > [!div class="nextstepaction"]
 > [Train with labels using Python](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/python/FormRecognizer/rest/python-labeled-data.md)
 
-* [What is Form Recognizer?](overview.md)
-* [Form Recognizer quickstart](/azure/applied-ai-services/form-recognizer/how-to-guides/v2-1-sdk-rest-api)
+* [What is Document Intelligence?](overview.md)
+* [Document Intelligence quickstart](~/articles/ai-services/document-intelligence/how-to-guides/use-sdk-rest-api.md?view=form-recog-2.1.0&preserve-view=true)

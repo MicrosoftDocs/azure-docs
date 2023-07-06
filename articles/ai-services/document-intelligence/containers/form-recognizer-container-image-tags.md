@@ -1,7 +1,7 @@
 ---
-title: Form Recognizer image tags and release notes
-titleSuffix: Azure Applied AI Services
-description: A listing of all Form Recognizer container image tags.
+title: Document Intelligence image tags and release notes
+titleSuffix: Azure AI services
+description: A listing of all Document Intelligence container image tags.
 author: laujan
 manager: nitinme
 ms.service: applied-ai-services
@@ -12,13 +12,18 @@ ms.author: lajanuar
 monikerRange: 'form-recog-2.1.0'
 ---
 
-# Form Recognizer container image tags and release notes
 
-**This article applies to:** ![Form Recognizer v2.1 checkmark](../media/yes-icon.png) **Form Recognizer v2.1**.
+
+
+
+
+# Document Intelligence container image tags and release notes
+
+**This article applies to:** ![Document Intelligence v2.1 checkmark](../media/yes-icon.png) **Document Intelligence v2.1**.
 
 ## Feature containers
 
-Form Recognizer features are supported by seven containers:
+Document Intelligence features are supported by seven containers:
 
 | Container name | Fully qualified image name |
 |---|---|
@@ -32,13 +37,13 @@ Form Recognizer features are supported by seven containers:
 
 ## Microsoft container registry (MCR)
 
-Form Recognizer container images can be found within the [**Microsoft Container Registry Catalog**](https://mcr.microsoft.com/v2/_catalog) listing, the primary registry for all Microsoft Published Docker images:
+Document Intelligence container images can be found within the [**Microsoft Container Registry Catalog**](https://mcr.microsoft.com/v2/_catalog) listing, the primary registry for all Microsoft Published Docker images:
 
   :::image type="content" source="../media/containers/microsoft-container-registry-catalog.png" alt-text="Screenshot of the Microsoft Container Registry (MCR) catalog list.":::
 
-## Form Recognizer tags
+## Document Intelligence tags
 
-The following tags are available for Form Recognizer:
+The following tags are available for Document Intelligence:
 
 ### [Latest version](#tab/current)
 
@@ -57,14 +62,19 @@ Release notes for `v2.1`:
 ### [Previous versions](#tab/previous)
 
 > [!IMPORTANT]
-> The Form Recognizer v1.0 container has been retired.
+> The Document Intelligence v1.0 container has been retired.
 
 ---
+
+
+
+
+
 
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Install and run Form Recognizer containers](form-recognizer-container-install-run.md)
+> [Install and run Document Intelligence containers](form-recognizer-container-install-run.md)
 >
 
-* [Azure container instance recipe](../../../cognitive-services/containers/azure-container-instance-recipe.md)
+* [Azure container instance recipe](../../../ai-services/containers/azure-container-instance-recipe.md)
