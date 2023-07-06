@@ -75,6 +75,76 @@ For example: `kubectl scale --replicas=1 rs/control -n arcdataservices`
 
 In this scenario, the storage hosting the Data controller data and log files, has corruption and a new storage was provisioned and you need to restore the controller database.
 
+Follow these steps to restore the controller database from a backup with new storage for the controldb StatefulSet:
+
+1. Ensure that you have a backup of the last known good state of the `controller` database
+
+1. Scale the controller ReplicaSet down to 0 replicas as follows:
+
+`kubectl scale --replicas=0 rs/control -n <namespace>`
+
+For example: `kubectl scale --replicas=0 rs/control -n arcdataservices`
+
+1. Scale the controldb StatefulSet down to 0 replicas, as follows: 
+
+`kubectl scale --replicas=0 sts/controldb -n <namespace>`
+
+For example: `kubectl scale --replicas=0 sts/controldb -n arcdataservices`
+
+1. Create a kubernetes secret named `controller-sa-secret` with the following YAML: 
+
+
+```yaml
+   ```yml
+    apiVersion: v1
+    kind: Secret
+    metadata:
+      name: controller-sa-secret
+      namespace: <namespace>
+    type: Opaque
+    data:
+      password: <base64 encoded password>
+    ```
+```
+
+1. Edit the controldb StatefulSet to include a `controller-sa-secret` volume and corresponding volume mount (/var/run/secrets/mounts/credentials/mssql-sa-password`) in the `mssql-server` container, by using `kubectl edit sts controldb -n <namespace>` command. 
+
+1. Create new data (`data-controldb`) and logs (`logs-controldb`) persistent volume claims for the controldb pod as follows: 
+
+
+```yaml
+```yml
+    apiVersion: v1
+    kind: PersistentVolumeClaim
+    metadata:
+      name: data-controldb
+      namespace: <namespace>
+    spec:
+      accessModes:
+        - ReadWriteOnce
+      resources:
+        requests:
+          storage: 15Gi
+      storageClassName: <storage class>
+    
+    ---
+    apiVersion: v1
+    kind: PersistentVolumeClaim
+    metadata:
+      name: logs-controldb
+      namespace: <namespace>
+    spec:
+      accessModes:
+        - ReadWriteOnce
+      resources:
+        requests:
+          storage: 10Gi
+      storageClassName: <storage class>
+    ```
+```
+
+1. Scale the controldb 
+
 ## Next steps
 
 [Azure Data Studio dashboards](azure-data-studio-dashboards.md)
