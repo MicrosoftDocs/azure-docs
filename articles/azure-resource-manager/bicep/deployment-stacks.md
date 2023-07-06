@@ -28,12 +28,13 @@ Deployment stacks provide the following benefits:
 - The ability to rapidly clean up environments by setting appropriate delete flags on a Deployment stack update.
 - The ability to use standard templates, including [Bicep](./overview.md), [ARM templates](../templates/overview.md), or [Template specs](./template-specs.md) for your Deployment stacks.
 
-### Known issues (remove this section)
+### Known issues
 
 - Deleting resource groups currently bypasses deny assignments.
 - Implicitly created resources aren't managed by the stack. Therefore, no deny assignments or cleanup is possible.
 - What-if isn't available in the preview. What-if allows you to evaluate changes before actually submitting the deployment to Azure Resource Manager.
 - Management group scoped deployment stacks can only deploy the template to subscription.
+- When using the Azure CLI create command to modify an existing stack, the deployment process continues regardless of whether you choose _n_ for a prompt. To halt the procedure, use _[CTRL] + C_.
 
 ## Create deployment stacks
 
