@@ -7,7 +7,6 @@ author: normesta
 ms.author: normesta
 ms.date: 06/23/2023
 ms.service: storage
-ms.subservice: blobs
 ms.topic: conceptual
 ms.reviewer: fryu
 ---
@@ -255,8 +254,8 @@ az feature show --namespace Microsoft.Storage --name ColdTier
 | [Java](/java/api/overview/azure/storage-blob-readme) | 12.21.0 |
 | [Python](/python/api/azure-storage-blob/) | 12.15.0 |
 | [JavaScript](/javascript/api/preview-docs/@azure/storage-blob/) | 12.13.0 |
-| [PowerShell (Az.Storage)](/powershell/azure/install-azure-powershell) | 5.4.2-preview |
-| [Azure CLI extension](/cli/azure/install-azure-cli) | storage-blob-preview 0.7.1 |
+| [PowerShell (Az.Storage)](/powershell/azure/install-azure-powershell) | 5.8.0 |
+| [Azure CLI](/cli/azure/install-azure-cli) | 2.50.0 |
 | [AzCopy](../common/storage-use-azcopy-v10.md) | 10.18.1 or later|
 
 ## Feature support

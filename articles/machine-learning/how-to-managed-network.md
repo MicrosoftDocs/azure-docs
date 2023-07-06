@@ -10,7 +10,7 @@ ms.author: jhirono
 author: jhirono
 ms.date: 06/22/2023
 ms.topic: how-to
-ms.custom: build-2023
+ms.custom: build-2023, devx-track-azurecli
 ---
 
 # Workspace managed network isolation (preview)
@@ -25,7 +25,7 @@ Azure Machine Learning provides preview support for managed virtual network (VNe
 
 When you enable managed virtual network isolation, a managed VNet is created for the workspace. Managed compute resources (compute clusters and compute instances) for the workspace automatically use this managed VNet. The managed VNet can use private endpoints for Azure resources that are used by your workspace, such as Azure Storage, Azure Key Vault, and Azure Container Registry. 
 
-The following diagram shows a managed virtual network uses private endpoints to communicate with the storage, key vault, and container registry used by the workspace.
+The following diagram shows how a managed virtual network uses private endpoints to communicate with the storage, key vault, and container registry used by the workspace.
 
 :::image type="content" source="./media/how-to-managed-network/managed-virtual-network-architecture.png" alt-text="Diagram of managed virtual network isolation.":::
 
@@ -37,7 +37,7 @@ There are two different configuration modes for outbound traffic from the manage
 | Outbound mode | Description | Scenarios |
 | ----- | ----- | ----- |
 | Allow internet outbound | Allow all internet outbound traffic from the managed VNet. | Recommended if you need access to machine learning artifacts on the Internet, such as python packages or pretrained models. |
-| Allow only approved outbound | Outbound traffic is allowed by specifying service tags. | Recommended if you want to minimize the risk of data exfiltration but you need to prepare all required machine learning artifacts in your private locations. |
+| Allow only approved outbound | Outbound traffic is allowed by specifying service tags. | Recommended if you want to minimize the risk of data exfiltration but you will need to prepare all required machine learning artifacts in your private locations. |
 
 The managed virtual network is preconfigured with [required default rules](#list-of-required-rules). It's also configured for private endpoint connections to your workspace default storage, container registry and key vault if they're configured as private. After choosing the isolation mode, you only need to consider other outbound requirements you may need to add.
 
@@ -52,6 +52,15 @@ The managed virtual network is preconfigured with [required default rules](#list
 ## Prerequisites
 
 Before following the steps in this article, make sure you have the following prerequisites:
+
+> [!IMPORTANT]
+> To use the information in this article, you must enable this preview feature for your subscription. To check whether it has been registered, or to register it, use the steps in the [Set up preview features in Azure subscription](/azure/azure-resource-manager/management/preview-features). Depending on whether you use the Azure portal, Azure CLI, or Azure PowerShell, you may need to register the feature with a different name. Use the following table to determine the name of the feature to register:
+>
+> | Registration method | Feature name |
+> | ----- | ----- |
+> | Azure portal | `Azure Machine Learning Managed Network` |
+> | Azure CLI | `AMLManagedNetworkEnabled` |
+> | Azure PowerShell | `AMLManagedNetworkEnabled` |
 
 # [Azure CLI](#tab/azure-cli)
 
@@ -87,14 +96,21 @@ Before following the steps in this article, make sure you have the following pre
 
     ```python
     from azure.ai.ml import MLClient
-    from azure.ai.ml.entities import Workspace, ManagedNetwork
-    from azure.ai.ml.constants._workspace import IsolationMode
+    from azure.ai.ml.entities import (
+        Workspace,
+        ManagedNetwork,
+        IsolationMode,
+        ServiceTagDestination,
+        PrivateEndpointDestination
+    )
     from azure.identity import DefaultAzureCredential
-    from azure.ai.ml.entities import ServiceTagDestination, PrivateEndpointDestination
 
     # Replace with the values for your Azure subscription and resource group.
     subscription_id = "<SUBSCRIPTION_ID>"
     resource_group = "<RESOURCE_GROUP>"
+
+    # get a handle to the subscription
+    ml_client = MLClient(DefaultAzureCredential(), subscription_id, resource_group)
     ```
 
 # [Azure portal](#tab/portal)
@@ -125,7 +141,7 @@ managed_network:
   outbound_rules:
   - name: added-perule
     destination:
-      service_resource_id: /subscriptions/{subscription ID}/resourceGroups/{resource group name}/providers/Microsoft.Storage/storageAccounts/{storage account name}
+      service_resource_id: /subscriptions/<SUBSCRIPTION_ID>/resourceGroups/<RESOURCE_GROUP>/providers/Microsoft.Storage/storageAccounts/<STORAGE_ACCOUNT_NAME>
       spark_enabled: true
       subresource_target: blob
     type: private_endpoint
@@ -185,7 +201,7 @@ You can configure a managed VNet using either the `az ml workspace create` or `a
       outbound_rules:
       - name: added-perule
         destination:
-          service_resource_id: /subscriptions/{subscription ID}/resourceGroups/{resource group name}/providers/Microsoft.Storage/storageAccounts/{storage account name}
+          service_resource_id: /subscriptions/<SUBSCRIPTION_ID>/resourceGroups/<RESOURCE_GROUP>/providers/Microsoft.Storage/storageAccounts/<STORAGE_ACCOUNT_NAME>
           spark_enabled: true
           subresource_target: blob
         type: private_endpoint
@@ -203,9 +219,6 @@ To configure a managed VNet that allows internet outbound communications, use th
     The following example creates a new workspace named `myworkspace`, with an outbound rule named `myrule` that adds a private endpoint for an Azure Blob store:
 
     ```python
-    # get a handle to the subscription
-    ml_client = MLClient(DefaultAzureCredential(), subscription_id, resource_group)
-
     # Basic managed network configuration
     network = ManagedNetwork(IsolationMode.ALLOW_INTERNET_OUTBOUND)
 
@@ -218,9 +231,9 @@ To configure a managed VNet that allows internet outbound communications, use th
 
     # Example private endpoint outbound to a blob
     rule_name = "myrule"
-    service_resource_id = "/subscriptions/{subscription ID}/resourceGroups/{resource group name}/providers/Microsoft.Storage/storageAccounts/{storage account name}"
+    service_resource_id = "/subscriptions/<SUBSCRIPTION_ID>/resourceGroups/<RESOURCE_GROUP>/providers/Microsoft.Storage/storageAccounts/<STORAGE_ACCOUNT_NAME>"
     subresource_target = "blob"
-    spark_enabled = true
+    spark_enabled = True
 
     # Add the outbound 
     ws.managed_network.outbound_rules = [PrivateEndpointDestination(
@@ -250,9 +263,9 @@ To configure a managed VNet that allows internet outbound communications, use th
 
     # Example private endpoint outbound to a blob
     rule_name = "myrule"
-    service_resource_id = "/subscriptions/{subscription ID}/resourceGroups/{resource group name}/providers/Microsoft.Storage/storageAccounts/{storage account name}"
+    service_resource_id = "/subscriptions/<SUBSCRIPTION_ID>/resourceGroups/<RESOURCE_GROUP>/providers/Microsoft.Storage/storageAccounts/<STORAGE_ACCOUNT_NAME>"
     subresource_target = "blob"
-    spark_enabled = true
+    spark_enabled = True
 
     # Add the outbound 
     ws.managed_network.outbound_rules = [PrivateEndpointDestination(
@@ -320,7 +333,7 @@ managed_network:
     type: service_tag
   - name: added-perule
     destination:
-      service_resource_id: /subscriptions/{subscription ID}/resourceGroups/{resource group name}/providers/Microsoft.Storage/storageAccounts/{storage account name}
+      service_resource_id: /subscriptions/<SUBSCRIPTION_ID>/resourceGroups/<RESOURCE_GROUP>/providers/Microsoft.Storage/storageAccounts/<STORAGE_ACCOUNT_NAME>
       spark_enabled: true
       subresource_target: blob
     type: private_endpoint
@@ -380,7 +393,7 @@ You can configure a managed VNet using either the `az ml workspace create` or `a
         type: service_tag
       - name: added-perule
         destination:
-          service_resource_id: /subscriptions/{subscription ID}/resourceGroups/{resource group name}/providers/Microsoft.Storage/storageAccounts/{storage account name}
+          service_resource_id: /subscriptions/<SUBSCRIPTION_ID>/resourceGroups/<RESOURCE_GROUP>/providers/Microsoft.Storage/storageAccounts/<STORAGE_ACCOUNT_NAME>
           spark_enabled: true
           subresource_target: blob
         type: private_endpoint
@@ -418,9 +431,9 @@ To configure a managed VNet that allows only approved outbound communications, u
     ws.managed_network.outbound_rules = []
     # Example private endpoint outbound to a blob
     rule_name = "myrule"
-    service_resource_id = "/subscriptions/{subscription ID}/resourceGroups/{resource group name}/providers/Microsoft.Storage/storageAccounts/{storage account name}"
+    service_resource_id = "/subscriptions/<SUBSCRIPTION_ID>/resourceGroups/<RESOURCE_GROUP>/providers/Microsoft.Storage/storageAccounts/<STORAGE_ACCOUNT_NAME>"
     subresource_target = "blob"
-    spark_enabled = true
+    spark_enabled = True
     ws.managed_network.outbound_rules.append(
         PrivateEndpointDestination(
             name=rule_name, 
@@ -473,9 +486,9 @@ To configure a managed VNet that allows only approved outbound communications, u
     ws.managed_network.outbound_rules = []
     # Example private endpoint outbound to a blob
     rule_name = "myrule"
-    service_resource_id = "/subscriptions/{subscription ID}/resourceGroups/{resource group name}/providers/Microsoft.Storage/storageAccounts/{storage account name}"
+    service_resource_id = "/subscriptions/<SUBSCRIPTION_ID>/resourceGroups/<RESOURCE_GROUP>/providers/Microsoft.Storage/storageAccounts/<STORAGE_ACCOUNT_NAME>"
     subresource_target = "blob"
-    spark_enabled = true
+    spark_enabled = True
     ws.managed_network.outbound_rules.append(
         PrivateEndpointDestination(
             name=rule_name, 
@@ -554,7 +567,7 @@ To enable the [serverless spark jobs](how-to-submit-spark-jobs.md) for the manag
       outbound_rules:
       - name: added-perule
         destination:
-          service_resource_id: /subscriptions/{subscription ID}/resourceGroups/{resource group name}/providers/Microsoft.Storage/storageAccounts/{storage account name}
+          service_resource_id: /subscriptions/<SUBSCRIPTION_ID>/resourceGroups/<RESOURCE_GROUP>/providers/Microsoft.Storage/storageAccounts/<STORAGE_ACCOUNT_NAME>
           spark_enabled: true
           subresource_target: blob
         type: private_endpoint
@@ -583,9 +596,9 @@ To enable the [serverless spark jobs](how-to-submit-spark-jobs.md) for the manag
 
     # Example private endpoint outbound to a blob
     rule_name = "myrule"
-    service_resource_id = "/subscriptions/{subscription ID}/resourceGroups/{resource group name}/providers/Microsoft.Storage/storageAccounts/{storage account name}"
+    service_resource_id = "/subscriptions/<SUBSCRIPTION_ID>/resourceGroups/<RESOURCE_GROUP>/providers/Microsoft.Storage/storageAccounts/<STORAGE_ACCOUNT_NAME>"
     subresource_target = "blob"
-    spark_enabled = true
+    spark_enabled = True
 
     # Add the outbound 
     ws.managed_network.outbound_rules = [PrivateEndpointDestination(
@@ -678,11 +691,9 @@ rule_name = "<some-rule-name>"
 
 # Get a rule by name
 rule = ml_client._workspace_outbound_rules.get(resource_group, ws_name, rule_name)
-print(rule._to_dict())
 
 # List rules for a workspace
 rule_list = ml_client._workspace_outbound_rules.list(resource_group, ws_name)
-print([r._to_dict() for r in rule_list])
 
 # Delete a rule from a workspace
 ml_client._workspace_outbound_rules.begin_remove(resource_group, ws_name, rule_name).result()
@@ -702,7 +713,11 @@ ml_client._workspace_outbound_rules.begin_remove(resource_group, ws_name, rule_n
 > [!TIP]
 > These  rules are automatically added to the managed VNet.
 
-__Outbound__ rules:
+__Private endpoints__:
+* When the isolation mode for the managed network is `Allow internet outbound`, private endpoint outbound rules will be automatically created as required rules from the managed network for the workspace and associated resources __with public network access disabled__ (Key Vault, Storage Account, Container Registry, Azure ML Workspace).
+* When the isolation mode for the managed network is `Allow only approved outbound`, private endpoint outbound rules will be automatically created as required rules from the managed network for the workspace and associated resources __regardless of public network access mode for those resources__ (Key Vault, Storage Account, Container Registry, Azure ML Workspace).
+
+__Outbound__ service tag rules:
 
 * `AzureActiveDirectory`
 * `AzureMachineLearning`
@@ -712,7 +727,7 @@ __Outbound__ rules:
 * `MicrosoftContainerRegistry`
 * `AzureMonitor`
 
-__Inbound__ rules:
+__Inbound__ service tag rules:
 * `AzureMachineLearning`
 
 ## List of recommended outbound rules
@@ -723,6 +738,7 @@ Currently we don't have any recommended outbound rules.
 
 * Once you enable managed virtual network isolation of your workspace, you can't disable it.
 * Managed virtual network uses private endpoint connection to access your private resources. You can't have a private endpoint and a service endpoint at the same time for your Azure resources, such as a storage account. We recommend using private endpoints in all scenarios.
+* The managed network will be deleted and cleaned up when the workspace is deleted. 
 
 ## Next steps
 

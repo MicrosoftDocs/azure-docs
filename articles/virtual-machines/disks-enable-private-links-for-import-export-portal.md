@@ -2,11 +2,10 @@
 title: Azure portal - Restrict import/export access to managed disks
 description: Enable Private Link for your managed disks with Azure portal. This allows you to securely export and import disks within your virtual network.
 author: roygara
-ms.service: storage
+ms.service: azure-disk-storage
 ms.topic: how-to
 ms.date: 03/31/2023
 ms.author: rogarana
-ms.subservice: disks
 ---
 
 # Restrict import/export access for managed disks using Azure Private Link

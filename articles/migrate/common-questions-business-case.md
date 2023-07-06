@@ -5,6 +5,7 @@ author: rashijoshi
 ms.author: rajosh
 ms.manager: ronai
 ms.topic: conceptual
+ms.service: azure-migrate
 ms.date: 01/17/2023
 ms.custom: references_regions, engagement-fy23
 ---
