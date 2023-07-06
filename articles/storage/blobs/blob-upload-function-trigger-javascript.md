@@ -29,7 +29,7 @@ In this tutorial, you'll learn how to:
 > * Use Cognitive Services to analyze an image
 > * Write data to Cosmos DB using Azure Function output bindings
 
-:::image type="content" source="./media/functions-storage-database-architectural-diagram" alt-text="Architectural diagram showing a image blob is added to Blob Storage, then analyzed by an Azure Function, with the analysis inserted into a Cosmos D B.":::
+:::image type="content" source="./media/blob-upload-storage-function/functions-storage-database-architectural-diagram.png" alt-text="Architectural diagram showing a image blob is added to Blob Storage, then analyzed by an Azure Function, with the analysis inserted into a Cosmos D B.":::
 
 ## Prerequisites
 
@@ -44,7 +44,6 @@ In this tutorial, you'll learn how to:
 ## Create the storage account and container
 The first step is to create the storage account that will hold the uploaded blob data, which in this scenario will be images that contain text. A storage account offers several different services, but this tutorial utilizes Blob Storage and Table Storage.
 
-
 ### [Visual Studio Code](#tab/storage-resource-visual-studio-code)
 
 1. In Visual Studio Code, select <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>P</kbd> to open the command palette.
@@ -56,7 +55,7 @@ The first step is to create the storage account that will hold the uploaded blob
     |**Name**| Enter *msdocsstoragefunction* or something similar.|
     |**Resource Group**|Create the `msdocs-storage-function` resource group you created earlier.|
     |**Static web hosting**|No.|
-    |**Location**|Choose the region closest to you.|
+
 1. In Visual Studio Code, select <kbd>Shift</kbd> + <kbd>Alt</kbd> + <kbd>A</kbd> to open the **Azure** Explorer.
 1. Expand the **Storage** section, expand your subscription node and wait for the resource to be created. 
 
@@ -64,7 +63,7 @@ The first step is to create the storage account that will hold the uploaded blob
 
 1. Still in the Azure Explorer with your new Storage resource found, expand the resource to see the nodes.
 1. Right-click on **Blob Containers** and select **Create Blob Container**.
-1. Enter the name `imageanalysis`. This creates a private container. 
+1. Enter the name `images`. This creates a private container. 
 
 ### Change from private to public container in Azure portal
 
@@ -72,7 +71,7 @@ This procedure expects a public container. To change that configuration, make th
 
 1. Right-click on the Storage Resource in the Azure Explorer and select **Open in Portal**. 
 1. In the **Data Storage** section, select **Containers**.
-1. Find your container, `imageanalysis`, and select the `...` (ellipse) at the end of the line. 
+1. Find your container, `images`, and select the `...` (ellipse) at the end of the line. 
 1. Select **Change access level**.
 1. Select **Blob (anonymous read access for blobs only** then select **Ok**.
 1. Return to Visual Studio Code.
@@ -110,7 +109,7 @@ Sign in to the [Azure portal](https://portal.azure.com/#create/Microsoft.Storage
 
 2) On the navigation panel, choose **Containers**.
 
-3) On the **Containers** page, select **+ Container** at the top. In the slide out panel, enter a **Name** of *imageanalysis*, and make sure the **Public access level** is set to **Blob (anonymous read access for blobs only**.  Then select **Create**.
+3) On the **Containers** page, select **+ Container** at the top. In the slide out panel, enter a **Name** of *images*, and make sure the **Public access level** is set to **Blob (anonymous read access for blobs only**.  Then select **Create**.
 
     :::image type="content" source="./media/blob-upload-storage-function/portal-container-create-small.png" alt-text="A screenshot showing how to create a new storage container." lightbox="media/blob-upload-storage-function/portal-container-create.png":::
     
@@ -234,13 +233,23 @@ While this tutorial specifies an API when you create your resource, the Azure Fu
 
    - **Subscription**: Choose your desired Subscription.
    - **Resource Group**: Use the `msdocs-storage-function` resource group you created earlier.
-   - **Region**: Select the region that is closest to you.
+   - **Region**: Select the same region as your resource group.
    - **Name**: Enter in a name of `msdocscosmosdb`.
    - **Pricing Tier**: Choose **Free** if it's available, otherwise choose **Standard S1**.
     
 4) Select **Review + Create** at the bottom. Azure will take a moment validate the information you entered.  Once the settings are validated, choose **Create** and Azure will begin provisioning the Computer Vision service, which might take a moment.
 
 5) When the operation has completed, select **Go to Resource**.
+
+6) Select **Data Explorer** then select **New Container**. 
+
+7) Create a new database and container with the following settings:
+
+    - Create new **database id**: `StorageTutorial`.
+    - Enter the new **container id**: `analysis`.
+    - Enter the **partition key**: `/type`.
+
+8) Leave the rest of the default settings and select **OK**.
 
 ### Get the Cosmos DB connection string
 
@@ -256,7 +265,7 @@ Get the connection string for the Cosmos DB service account to use in our Azure 
 
     ```azurecli-interactive
     az cosmosdb service create --account-name analysis-database
-                               --name msdocs-cosmos-db-account
+                               --name msdocscosmosdb
                                --resource-group-name msdocs-storage-function
                                [--count]
                                [--no-wait]
