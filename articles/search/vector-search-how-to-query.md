@@ -103,7 +103,7 @@ api-key: {{admin-api-key}}
 }
 ```
 
-The response includes 5 matches, and each result provides a search score, title, content, and category. In a similarity search, the response always includes "k" matches, even if the similarity is weak.
+The response includes 5 matches, and each result provides a search score, title, content, and category. In a similarity search, the response always includes "k" matches, even if the similarity is weak. For indexes that have fewer than "k" documents, only those number of documents will be returned.
 
 ## Query syntax for hybrid search
 
