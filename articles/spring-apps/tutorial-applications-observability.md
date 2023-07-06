@@ -19,11 +19,10 @@ ms.custom: devx-track-java, devx-track-azurecli, event-tier1-build-2022
 **This article applies to:** ❌ Standard consumption and dedicated (Preview) ✔️ Basic/Standard ❌ Enterprise
 
 Observability is the ability to provide insights, analytics and actionable intelligence through the logs, metrics, traces and alerts.
-As a distributed application manager in production, you should focus on the following aspects to ensure that the state of all applications meet expectations, 
-and to ensure that issues in all applications can be discovered and predicted in time:
+As a distributed application manager in production, you should focus on the following areas to ensure the states of all applications meet expectations and to discover and predict issues in all applications:
 - **Availability**: Check that the application is available and accessible to the user.
 - **Reliability**: Check that the application is reliable and can be used normally.
-- **Failure**: Understand that the application is not working properly and further fixes are required.
+- **Failure**: Understand that the application isn't working properly and further fixes are required.
 - **Performance**: Understand which performance issue the application encounters, need further attention, and find out the root cause of the problem.
 - **Alerts**: Know the current state of the application. Proactively notify managers and perform associated actionable actions when the application is abnormal.
 
@@ -44,10 +43,10 @@ and use Application Insights to investigate production issues.
 
 ## 4. Query logs to diagnose an application problem
 
-It is inevitable to encounter production issues, and then need to do root cause analysis.
+It's inevitable to encounter production issues, and then need to do root cause analysis.
 Finding logs is an important part, especially for distributed applications whose logs are spread across multiple applications.
 The trace data collected by Application Insight can help find the log information of all related links,
-until the exception stack information.
+even the exception stack information.
 
 This section illustrates how to use Log Analytics to query the application logs, 
 and use Application Insights to investigate request failures, 
@@ -66,7 +65,7 @@ On the opened **Queries** window, select **Alerts** menu in the left panel, then
 
 :::image type="content" source="media/tutorial-applications-observability/example-query.png" alt-text="Screenshot of Azure portal showing example queries" lightbox="media/tutorial-applications-observability/example-query.png":::
 
-This query shows the application logs which contain the "error" or "exception" terms in the last hour by default, 
+This query shows the application logs that contain the "error" or "exception" terms in the last hour by default, 
 you may customize the query with any keyword you want to search for.
 
 ```sqle
@@ -100,7 +99,7 @@ AppPlatformLogsforSpring
 #### Query the customers service log with a key word
 
 Create a new tab and write the following query to review a list of logs with `root cause` in the app `customers-service`,
-update your query with the keyword which you are looking for.
+update your query with the keyword that you're looking for.
 
 ```sql
 AppPlatformLogsforSpring
@@ -132,7 +131,7 @@ This section illustrates how to investigate request failures in the application 
 ## 5. Improve the application performance using Application Insights
 
 Performance issues are also common. The trace data collected by Application Insight can help find the log information of all relevant links, 
-including the execution time of each link, up to the database SQL level, so that we can find out where the performance bottleneck is.
+including the execution time of each link, so that we can find out where the performance bottleneck is.
 
 This section illustrates how to use Application Insights to investigate the performance issues.
 
