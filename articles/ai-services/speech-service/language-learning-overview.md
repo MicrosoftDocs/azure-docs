@@ -14,7 +14,7 @@ ms.author: eur
 
 # Language learning with Azure AI Speech
 
-the Azure AI service for Speech platform is a comprehensive collection of technologies and services aimed at accelerating the incorporation of speech into applications. Azure AI services for Speech can be used to learn languages.
+The Azure AI service for Speech platform is a comprehensive collection of technologies and services aimed at accelerating the incorporation of speech into applications. Azure AI services for Speech can be used to learn languages.
 
 
 ## Pronunciation Assessment

@@ -177,7 +177,7 @@ For more information about logging, see [Configure Speech containers](speech-con
 
 ## Microsoft diagnostics container
 
-If you're having trouble running a Azure AI container, you can try using the Microsoft diagnostics container. Use this container to diagnose common errors in your deployment environment that might prevent Azure AI containers from functioning as expected.
+If you're having trouble running an Azure AI container, you can try using the Microsoft diagnostics container. Use this container to diagnose common errors in your deployment environment that might prevent Azure AI containers from functioning as expected.
 
 To get the container, use the following `docker pull` command:
 
