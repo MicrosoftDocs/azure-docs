@@ -1,7 +1,7 @@
 ---
-title: Azure Video Indexer keywords extraction overview 
-titleSuffix: Azure Video Indexer 
-description: An introduction to Azure Video Indexer keywords extraction component responsibly.
+title: Azure AI Video Indexer keywords extraction overview 
+titleSuffix: Azure AI Video Indexer 
+description: An introduction to Azure AI Video Indexer keywords extraction component responsibly.
 author: Juliako
 ms.author: juliako
 manager: femila
@@ -12,7 +12,7 @@ ms.topic: article
 
 # Keywords extraction  
 
-Keywords extraction is an Azure Video Indexer AI feature that automatically detects insights on the different keywords discussed in media files. Keywords extraction can extract insights in both single language and multi-language media files. The total number of extracted keywords and their categories are listed in the Insights tab, where clicking a Keyword and then clicking Play Previous or Play Next jumps to the keyword in the media file.  
+Keywords extraction is an Azure AI Video Indexer AI feature that automatically detects insights on the different keywords discussed in media files. Keywords extraction can extract insights in both single language and multi-language media files. The total number of extracted keywords and their categories are listed in the Insights tab, where clicking a Keyword and then clicking Play Previous or Play Next jumps to the keyword in the media file.  
 
 ## Prerequisites  
 
@@ -85,7 +85,7 @@ To display the instances in a JSON file, do the following:
 
     ```
     
-To download the JSON file via the API, use the [Azure Video Indexer developer portal](https://api-portal.videoindexer.ai/). 
+To download the JSON file via the API, use the [Azure AI Video Indexer developer portal](https://api-portal.videoindexer.ai/). 
 
 > [!NOTE]
 > Keywords extraction is language independent. 
@@ -97,8 +97,8 @@ During the Keywords procedure, audio and images in a media file are processed, a
 |Component|Definition|
 |---|---|
 |Source language |	The user uploads the source file for indexing. |
-|Transcription API	|The audio file is sent to Cognitive Services and the translated transcribed output is returned. If a language has been specified it is processed.| 
-|OCR of video	|Images in a media file are processed using the Computer Vision Read API to extract text, its location, and other insights.  |
+|Transcription API	|The audio file is sent to Azure AI services and the translated transcribed output is returned. If a language has been specified it is processed.| 
+|OCR of video	|Images in a media file are processed using the Azure AI Vision Read API to extract text, its location, and other insights.  |
 |Keywords extraction	|An extraction algorithm processes the transcribed audio. The results are then combined with the insights detected in the video during the OCR process. The keywords and where they appear in the media and then detected and identified. |
 |Confidence level|	The estimated confidence level of each keyword is calculated as a range of 0 to 1. The confidence score represents the certainty in the accuracy of the result. For example, an 82% certainty will be represented as an 0.82 score.|
 
@@ -140,7 +140,7 @@ When used responsibly and carefully Keywords is a valuable tool for many industr
 
 `visupport@microsoft.com`  
 
-## Azure Video Indexer insights
+## Azure AI Video Indexer insights
 
 - [Audio effects detection](audio-effects-detection.md)
 - [Face detection](face-detection.md)

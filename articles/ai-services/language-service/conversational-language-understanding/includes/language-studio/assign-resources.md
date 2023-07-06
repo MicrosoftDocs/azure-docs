@@ -14,7 +14,7 @@ To assign deployment resources in other regions in [Language Studio](https://aka
   1. Make sure you've assigned yourself as a [Cognitive Service Language Owner](https://aka.ms/rbac-language) to the resource you used to create the project.
   2. Go to the **Deploying a model** page in Language Studio.
   3. Click on the **Regions** tab.
-  4. Click on **Add deployment resource**.
+  4. Select **Add deployment resource**.
   5. Select a Language resource in another region.
   
 You are now ready to deploy your project to the regions where you have assigned resources.

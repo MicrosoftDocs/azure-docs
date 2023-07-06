@@ -1,6 +1,6 @@
 ---
 title: 'Debug errors when authoring a Custom Commands application (Preview)'
-titleSuffix: Azure Cognitive Services
+titleSuffix: Azure AI services
 description: In this article, you learn how to debug errors when authoring Custom Commands application.
 services: cognitive-services
 author: eric-urban
@@ -61,7 +61,7 @@ Custom Commands does not allow common sample sentences shared among different co
 
 Make sure you don't have common sample sentences shared among different commands. 
 
-For best practice of balancing your sample sentences across different commands, refer [LUIS best practice](../luis/luis-concept-best-practices.md).
+For best practice of balancing your sample sentences across different commands, refer [LUIS best practice](../luis/faq.md).
 
 ### Empty sample sentences
 You need to have at least one sample sentence for each Command.
@@ -82,7 +82,7 @@ For example, you can define a parameter {vehicle} for the example sentences belo
 | Book a flight | Book a {vehicle} |
 | Book a taxi | Book a {vehicle} |
 
-For best practice of LUIS training, refer [LUIS best practice](../luis/luis-concept-best-practices.md).
+For best practice of LUIS training, refer [LUIS best practice](../luis/faq.md).
 
 ## Can't update LUIS key
 ### Reassign to E0 authoring resource

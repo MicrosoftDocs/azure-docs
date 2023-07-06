@@ -1,6 +1,6 @@
 ---
 title: Get translation status
-titleSuffix: Azure Cognitive Services
+titleSuffix: Azure AI services
 description: The get translation status method returns the status for a document translation request.
 services: cognitive-services
 manager: nitinme
@@ -23,7 +23,7 @@ Send a `GET` request to:
 GET https://<NAME-OF-YOUR-RESOURCE>.cognitiveservices.azure.com/translator/text/batch/v1.0/batches/{id}
 ```
 
-Learn how to find your [custom domain name](../get-started-with-document-translation.md#find-your-custom-domain-name).
+Learn how to find your [custom domain name](../quickstarts/document-translation-rest-api.md).
 
 > [!IMPORTANT]
 >
@@ -87,7 +87,7 @@ The following information is returned in a successful response.
 |code|string|Enums containing high-level error codes. Possible values:<br/><ul><li>InternalServerError</li><li>InvalidArgument</li><li>InvalidRequest</li><li>RequestRateTooHigh</li><li>ResourceNotFound</li><li>ServiceUnavailable</li><li>Unauthorized</li></ul>|
 |message|string|Gets high-level error message.|
 |target|string|Gets the source of the error. For example, it would be "documents" or "document id" for an invalid document.|
-|innerError|InnerTranslationError|New Inner Error format which conforms to Cognitive Services API Guidelines. This contains required properties ErrorCode, message and optional properties target, details(key value pair), inner error(this can be nested).|
+|innerError|InnerTranslationError|New Inner Error format which conforms to Azure AI services API Guidelines. This contains required properties ErrorCode, message and optional properties target, details(key value pair), inner error(this can be nested).|
 |innerError.code|string|Gets code error string.|
 |innerError.message|string|Gets high-level error message.|
 |innerError.target|string|Gets the source of the error. For example it would be "documents" or "document id" in case of invalid document.|
@@ -141,4 +141,4 @@ Status code: 401
 Follow our quickstart to learn more about using Document Translation and the client library.
 
 > [!div class="nextstepaction"]
-> [Get started with Document Translation](../get-started-with-document-translation.md)
+> [Get started with Document Translation](../quickstarts/document-translation-rest-api.md)

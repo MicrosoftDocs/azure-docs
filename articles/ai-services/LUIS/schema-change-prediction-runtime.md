@@ -188,7 +188,7 @@ Send in the following JSON body to add a new sublist with synonyms to the list, 
             "listEntity*":"ProductList",
             "requestLists":[
                 {
-                    "name": "Azure Cognitive Services",
+                    "name": "Azure AI services",
                     "canonicalForm": "Azure-Cognitive-Services",
                     "synonyms":[
                         "language understanding",

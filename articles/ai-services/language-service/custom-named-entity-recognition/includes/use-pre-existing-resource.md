@@ -1,5 +1,5 @@
 ---
-titleSuffix: Azure Cognitive Services
+titleSuffix: Azure AI services
 description: Learn about the steps for using Azure resources with custom NER.
 services: cognitive-services
 author: aahill
@@ -38,7 +38,7 @@ Your Language resource must have identity management, to enable it using [Langua
 
 1. Click the settings icon in the top right corner of the screen
 2. Select **Resources**
-3. Select the check box **Managed Identity** for your Azure Language resource.
+3. Select the check box **Managed Identity** for your Azure AI Language resource.
 
 ---
 
@@ -50,7 +50,7 @@ Make sure to enable **Custom text classification / Custom Named Entity Recogniti
 2. From the left side menu, under **Resource Management** section, select **Features**
 3. Enable **Custom text classification / Custom Named Entity Recognition** feature
 4. Connect your storage account
-5. Click **Apply**
+5. Select **Apply**
 
 >[!Important]
 > * Make sure that your **Language resource** has **storage blob data contributor** role assigned on the storage account you are connecting.

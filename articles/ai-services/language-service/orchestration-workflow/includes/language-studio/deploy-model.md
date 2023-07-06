@@ -13,7 +13,7 @@ To deploy your model from within the [Language Studio](https://aka.ms/LanguageSt
 
 1. Select **Deploying a model** from the left side menu.
 
-2. Click on **Add deployment** to start a new deployment job.
+2. Select **Add deployment** to start a new deployment job.
 
     :::image type="content" source="../../media/add-deployment-model.png" alt-text="A screenshot showing the model deployment button in Language Studio." lightbox="../../media/add-deployment-model.png":::
 
@@ -30,6 +30,6 @@ To deploy your model from within the [Language Studio](https://aka.ms/LanguageSt
     
     * LUIS projects **must be published** to the slot configured during the Orchestration deployment, and custom question answering KBs must also be published to their Production slots.
 
-5. Click **Deploy** to submit your deployment job
+5. Select **Deploy** to submit your deployment job
 
 6. After deployment is successful, an expiration date will appear next to it. [Deployment expiration](../../../concepts/model-lifecycle.md#expiration-timeline) is when your deployed model will be unavailable to be used for prediction, which typically happens **twelve** months after a training configuration expires.

@@ -1,6 +1,6 @@
 ---
 title: Recipes for Docker containers
-titleSuffix: Azure Cognitive Services
+titleSuffix: Azure AI services
 description: Learn how to build, test, and store containers with some or all of your configuration settings for deployment and reuse.
 services: cognitive-services
 author: aahill
@@ -15,7 +15,7 @@ ms.author: aahi
 
 # Create containers for reuse
 
-Use these container recipes to create Cognitive Services Containers that can be reused. Containers can be built with some or all configuration settings so that they are _not_ needed when the container is started.
+Use these container recipes to create Azure AI services Containers that can be reused. Containers can be built with some or all configuration settings so that they are _not_ needed when the container is started.
 
 Once you have this new layer of container (with settings), and you have tested it locally, you can store the container in a container registry. When the container starts, it will only need those settings that are not currently stored in the container. The private registry container provides configuration space for you to pass those settings in.
 
@@ -24,7 +24,7 @@ Once you have this new layer of container (with settings), and you have tested i
 Any `docker run` examples in this document assume a Windows console with a `^` line continuation character. Consider the following for your own use:
 
 * Do not change the order of the arguments unless you are very familiar with docker containers.
-* If you are using an operating system other than Windows, or a console other than Windows console, use the correct console/terminal, folder syntax for mounts, and line continuation character for your console and system.  Because the Cognitive Services container is a Linux operating system, the target mount uses a Linux-style folder syntax.
+* If you are using an operating system other than Windows, or a console other than Windows console, use the correct console/terminal, folder syntax for mounts, and line continuation character for your console and system.  Because the Azure AI services container is a Linux operating system, the target mount uses a Linux-style folder syntax.
 * `docker run` examples use the directory off the `c:` drive to avoid any permission conflicts on Windows. If you need to use a specific directory as the input directory, you may need to grant the docker service permission.
 
 ## Store no configuration settings in image
@@ -39,10 +39,10 @@ Issues with this approach:
 
 * The new container has a separate name and tag from the original container.
 * In order to change these settings, you will have to change the values of the Dockerfile, rebuild the image, and republish to your registry.
-* If someone gets access to your container registry or your local host, they can run the container and use the Cognitive Services endpoints.
+* If someone gets access to your container registry or your local host, they can run the container and use the Azure AI services endpoints.
 * If your Cognitive Service doesn't require input mounts, don't add the `COPY` lines to your Dockerfile.
 
-Create Dockerfile, pulling from the existing Cognitive Services container you want to use, then use docker commands in the Dockerfile to set or pull in information the container needs.
+Create Dockerfile, pulling from the existing Azure AI services container you want to use, then use docker commands in the Dockerfile to set or pull in information the container needs.
 
 This example:
 
@@ -164,7 +164,7 @@ If you are a single manager of the container, you may want to store all settings
 Issues with this approach:
 
 * In order to change these settings, you will have to change the values of the Dockerfile and rebuild the file. 
-* If someone gets access to your container registry or your local host, they can run the container and use the Cognitive Services endpoints. 
+* If someone gets access to your container registry or your local host, they can run the container and use the Azure AI services endpoints. 
 
 The following _partial_ Dockerfile shows how to statically set the values for billing and model. This example uses the 
 

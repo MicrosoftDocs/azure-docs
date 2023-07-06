@@ -1,6 +1,6 @@
 ---
 title: Multilingual projects
-titleSuffix: Azure Cognitive Services
+titleSuffix: Azure AI services
 description: Learn about which how to make use of multilingual projects in conversational language understanding
 services: cognitive-services
 author: aahill

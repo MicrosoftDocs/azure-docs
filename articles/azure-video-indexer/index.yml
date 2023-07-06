@@ -1,11 +1,11 @@
 ### YamlMime:Landing
  
-title: Learn about Azure Video Indexer
-summary: Azure Video Indexer is a cloud application, part of Azure Applied AI Services, built on Azure Media Services and Azure Cognitive Services (such as the Face, Translator, Computer Vision, and Speech). It enables you to extract the insights from your videos using Azure Video Indexer video and audio models.
+title: Learn about Azure AI Video Indexer
+summary: Azure AI Video Indexer is a cloud application, part of Azure AI services, built on Azure Media Services and Azure AI services (such as the Face, Translator, Azure AI Vision, and Speech). It enables you to extract the insights from your videos using Azure AI Video Indexer video and audio models.
 
 metadata:
-  title: Azure Video Indexer documentation
-  description: Azure Video Indexer is a cloud application, part of Azure Applied AI Services, built on Azure Media Services and Azure Cognitive Services (such as the Face, Translator, Computer Vision, and Speech). It enables you to extract the insights from your videos using Azure Video Indexer video and audio models.
+  title: Azure AI Video Indexer documentation
+  description: Azure AI Video Indexer is a cloud application, part of Azure AI services, built on Azure Media Services and Azure AI services (such as the Face, Translator, Azure AI Vision, and Speech). It enables you to extract the insights from your videos using Azure AI Video Indexer video and audio models.
   services: azure-video-indexer
   ms.service: azure-video-indexer
   ms.topic: landing-page
@@ -20,11 +20,11 @@ landingContent:
 # Cards and links should be based on top customer tasks or top subjects
 # Start card title with a verb
   # Card (optional)
-  - title: About Azure Video Indexer
+  - title: About Azure AI Video Indexer
     linkLists:
       - linkListType: overview
         links:
-          - text: "What is Azure Video Indexer?"
+          - text: "What is Azure AI Video Indexer?"
             url: video-indexer-overview.md
           - text: Frequently asked questions
             url: faq.yml
@@ -32,7 +32,7 @@ landingContent:
             url: https://aka.ms/UserVoiceVI
       - linkListType: whats-new
         links:         
-        - text: "What's new in Azure Video Indexer?"
+        - text: "What's new in Azure AI Video Indexer?"
           url: release-notes.md
             
   # Card (optional)
@@ -50,13 +50,13 @@ landingContent:
             url: connect-classic-account-to-arm.md
           - text: Import your content from the trial account
             url: import-content-from-trial.md
-          - text: Use Azure Video Indexer API
+          - text: Use Azure AI Video Indexer API
             url: video-indexer-use-apis.md 
           - text: Upload and index your videos
             url: upload-index-videos.md
           - text: Examine output produced by API
             url: video-indexer-output-json-v2.md
-          - text: Embed Azure Video Indexer widgets into apps
+          - text: Embed Azure AI Video Indexer widgets into apps
             url: video-indexer-embed-widgets.md
       - linkListType: sample
         links:

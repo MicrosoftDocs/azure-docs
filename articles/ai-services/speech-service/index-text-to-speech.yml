@@ -3,8 +3,8 @@
 title: Text to speech documentation
 summary: Text to speech from the Speech service enables your applications, tools, or devices to convert text into human-like synthesized speech.
 metadata:
-  title: Text to speech documentation - Tutorials, API Reference - Azure Cognitive Services | Microsoft Docs
-  titleSuffix: Azure Cognitive Services
+  title: Text to speech documentation - Tutorials, API Reference - Azure AI services | Microsoft Docs
+  titleSuffix: Azure AI services
   services: cognitive-services
   author: eric-urban
   manager: nitinme

@@ -1,6 +1,6 @@
 ---
 title: Conversational Language Understanding backwards compatibility
-titleSuffix: Azure Cognitive Services
+titleSuffix: Azure AI services
 description: Learn about backwards compatibility between LUIS and Conversational Language Understanding
 services: cognitive-services
 author: aahill
@@ -15,7 +15,7 @@ ms.custom: language-service-clu, ignite-fall-2021
 
 # Migrate from Language Understanding (LUIS) to conversational language understanding (CLU)
 
-[Conversational language understanding (CLU)](../overview.md) is a cloud-based AI offering in Azure Cognitive Services for Language. It's the newest generation of [Language Understanding (LUIS)](../../../luis/what-is-luis.md) and offers backwards compatibility with previously created LUIS applications. CLU employs state-of-the-art machine learning intelligence to allow users to build a custom natural language understanding model for predicting intents and entities in conversational utterances. 
+[Conversational language understanding (CLU)](../overview.md) is a cloud-based AI offering in Azure AI Language. It's the newest generation of [Language Understanding (LUIS)](../../../luis/what-is-luis.md) and offers backwards compatibility with previously created LUIS applications. CLU employs state-of-the-art machine learning intelligence to allow users to build a custom natural language understanding model for predicting intents and entities in conversational utterances. 
 
 CLU offers the following advantages over LUIS: 
 
@@ -69,17 +69,17 @@ Follow these steps to begin migration using the [LUIS Portal](https://www.luis.a
 
     :::image type="content" source="../media/backwards-compatibility/migration-overview.svg" alt-text="A screenshot showing the migration overview window." lightbox="../media/backwards-compatibility/migration-overview.svg":::
 
-1. Determine the Language resource that you wish to migrate your LUIS application to. If you have already created your Language resource, select your Azure subscription followed by your Language resource, and then click **Next**. If you don't have a Language resource, click the link to create a new Language resource. Afterwards, select the resource and click **Next**. 
+1. Determine the Language resource that you wish to migrate your LUIS application to. If you have already created your Language resource, select your Azure subscription followed by your Language resource, and then select **Next**. If you don't have a Language resource, click the link to create a new Language resource. Afterwards, select the resource and select **Next**. 
 
     :::image type="content" source="../media/backwards-compatibility/select-resource.svg" alt-text="A screenshot showing the resource selection window." lightbox="../media/backwards-compatibility/select-resource.svg":::
 
-1. Select all your LUIS applications that you want to migrate, and specify each of their versions. Click **Next**. After selecting your application and version, you will be prompted with a message informing you of any features that won't be carried over from your LUIS application. 
+1. Select all your LUIS applications that you want to migrate, and specify each of their versions. Select **Next**. After selecting your application and version, you will be prompted with a message informing you of any features that won't be carried over from your LUIS application. 
 
     > [!NOTE] 
     > Special characters are not supported by conversational language understanding. Any special characters in your selected LUIS application names will be removed in your new migrated applications. 
     :::image type="content" source="../media/backwards-compatibility/select-applications.svg" alt-text="A screenshot showing the application selection window." lightbox="../media/backwards-compatibility/select-applications.svg":::
 
-1. Review your Language resource and LUIS applications selections. Click **Finish** to migrate your applications.  
+1. Review your Language resource and LUIS applications selections. Select **Finish** to migrate your applications.  
 
 1. A popup window will let you track the migration status of your applications. Applications that have not started migrating will have a status of **Not started**. Applications that have begun migrating will have a status of **In progress**, and once they have finished migrating their status will be **Succeeded**. A **Failed** application means that you must repeat the migration process. Once the migration has completed for all applications, select **Done**.
 

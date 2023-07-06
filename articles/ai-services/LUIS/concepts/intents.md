@@ -1,6 +1,6 @@
 ---
 title: What are intents in LUIS
-titleSuffix: Azure Cognitive Services
+titleSuffix: Azure AI services
 description: Learn about intents and how they're used in LUIS
 services: cognitive-services
 ms.author: aahi
@@ -72,13 +72,13 @@ If you want to determine negative and positive intentions, such as "I  **want** 
 
 ## Intents and patterns
 
-If you have example utterances, which can be defined in part or whole as a regular expression, consider using the [regular expression entity](../luis-concept-entity-types.md#regex-entity) paired with a [pattern](../luis-concept-patterns.md).
+If you have example utterances, which can be defined in part or whole as a regular expression, consider using the [regular expression entity](../concepts/entities.md#regex-entity) paired with a [pattern](../concepts/patterns-features.md).
 
 Using a regular expression entity guarantees the data extraction so that the pattern is matched. The pattern matching guarantees an exact intent is returned.
 
 ## Intent balance
 
-The app domain intents should have a balance of utterances across each intent. For example, do not have most of your intents with 10 utterances and another intent with 500 utterances. This is not balanced. In this situation, you would want to review the intent with 500 utterances to see if many of the intents can be reorganized into a [pattern](../luis-concept-patterns.md).
+The app domain intents should have a balance of utterances across each intent. For example, do not have most of your intents with 10 utterances and another intent with 500 utterances. This is not balanced. In this situation, you would want to review the intent with 500 utterances to see if many of the intents can be reorganized into a [pattern](../concepts/patterns-features.md).
 
 The  **None**  intent is not included in the balance. That intent should contain 10% of the total utterances in the app.
 
@@ -137,7 +137,7 @@ After the app is published, only add utterances from active learning in the deve
 
 Create an intent for any action your bot will take. Use entities as parameters that make that action possible.
 
-For example, for a bot that will book airline flights, create a  **BookFlight**  intent. Do not create an intent for every airline or every destination. Use those pieces of data as [entities](../luis-concept-entity-types.md) and mark them in the example utterances.
+For example, for a bot that will book airline flights, create a  **BookFlight**  intent. Do not create an intent for every airline or every destination. Use those pieces of data as [entities](../concepts/entities.md) and mark them in the example utterances.
 
 ## Next steps
 

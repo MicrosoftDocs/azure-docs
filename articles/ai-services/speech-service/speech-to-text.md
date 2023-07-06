@@ -1,6 +1,6 @@
 ---
 title: Speech to text overview - Speech service
-titleSuffix: Azure Cognitive Services
+titleSuffix: Azure AI services
 description: Get an overview of the benefits and capabilities of the speech to text feature of the Speech service.
 services: cognitive-services
 author: eric-urban
@@ -16,7 +16,7 @@ keywords: speech to text, speech to text software
 
 # What is speech to text?
 
-In this overview, you learn about the benefits and capabilities of the speech to text feature of the Speech service, which is part of Azure Cognitive Services. Speech to text can be used for [real-time](#real-time-speech-to-text) or [batch transcription](#batch-transcription) of audio streams into text. 
+In this overview, you learn about the benefits and capabilities of the speech to text feature of the Speech service, which is part of Azure AI services. Speech to text can be used for [real-time](#real-time-speech-to-text) or [batch transcription](#batch-transcription) of audio streams into text. 
 
 > [!NOTE]
 > To compare pricing of [real-time](#real-time-speech-to-text) to [batch transcription](#batch-transcription), see [Speech service pricing](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/). 

@@ -19,7 +19,7 @@ When might you want to switch from a trial to a regular account?
 
 ## Create a new ARM account for the import
 
-* First you need to create an account. The regular account needs to have been already created and available before performing the import. Azure Video Indexer accounts are Azure Resource Manager (ARM) based and account creation can be performed through the Azure portal (see [Create an account with the Azure portal](create-account-portal.md)) or API (see [Create accounts with API](/rest/api/videoindexer/stable/accounts)).  
+* First you need to create an account. The regular account needs to have been already created and available before performing the import. Azure AI Video Indexer accounts are Azure Resource Manager (ARM) based and account creation can be performed through the Azure portal (see [Create an account with the Azure portal](create-account-portal.md)) or API (see [Create accounts with API](/rest/api/videoindexer/stable/accounts)).  
 * The target ARM-based account has to be an empty account that has not yet been used to index any media files.
 * Import from trial can be performed only once per trial account.
 
@@ -27,12 +27,12 @@ When might you want to switch from a trial to a regular account?
 
 To import your data, follow the steps:
 
- 1. Go to the [Azure Video Indexer website](https://aka.ms/vi-portal-link)
+ 1. Go to the [Azure AI Video Indexer website](https://aka.ms/vi-portal-link)
  2. Select your trial account and go to the **Account settings** page.
  3. Click the **Import content to an ARM-based account**.
  4. From the dropdown menu choose the ARM-based account you wish to import the data to.
    
-    * If the account ID isn't showing, you can copy and paste the account ID from the Azure portal or from the list of accounts under the User account blade at the top right of the Azure Video Indexer Portal.
+    * If the account ID isn't showing, you can copy and paste the account ID from the Azure portal or from the list of accounts under the User account blade at the top right of the Azure AI Video Indexer Portal.
     
  5. Click **Import content**
 

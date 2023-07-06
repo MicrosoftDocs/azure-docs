@@ -63,7 +63,7 @@ For information on using the Bing Spell Check API, see [How to correct misspelle
 
 ## Not supported
 
-### Bot Framework and Azure Bot Service client applications
+### Bot Framework and Azure AI Bot Service client applications
 
 Continue to use the V2 API prediction endpoint until the V4.7 of the Bot Framework is released.
 

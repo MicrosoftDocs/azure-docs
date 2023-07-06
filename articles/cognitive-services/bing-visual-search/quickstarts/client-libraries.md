@@ -16,7 +16,7 @@ ms.custom: devx-track-python, devx-track-js, devx-track-csharp, mode-api, devx-t
 ---
 # Quickstart: Use the Bing Visual Search client library
 
-[!INCLUDE [Bing move notice](../../Bing-Web-Search/includes/bing-move-notice.md)]
+[!INCLUDE [Bing move notice](../../bing-web-search/includes/bing-move-notice.md)]
 
 ::: zone pivot="programming-language-csharp"
 

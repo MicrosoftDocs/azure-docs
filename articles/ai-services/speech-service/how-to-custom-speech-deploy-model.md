@@ -1,6 +1,6 @@
 ---
 title: Deploy a Custom Speech model - Speech service
-titleSuffix: Azure Cognitive Services
+titleSuffix: Azure AI services
 description: Learn how to deploy Custom Speech models. 
 services: cognitive-services
 author: eric-urban
@@ -385,7 +385,7 @@ The location of each log file with more details are returned in the response bod
 
 ::: zone-end
 
-Logging data is available on Microsoft-owned storage for 30 days, after which it will be removed. If your own storage account is linked to the Cognitive Services subscription, the logging data won't be automatically deleted.
+Logging data is available on Microsoft-owned storage for 30 days, after which it will be removed. If your own storage account is linked to the Azure AI services subscription, the logging data won't be automatically deleted.
 
 ## Next steps
 

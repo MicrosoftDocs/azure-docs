@@ -1,6 +1,6 @@
 ---
 title: Identification entities
-titleSuffix: Azure Cognitive Services
+titleSuffix: Azure AI services
 services: cognitive-services
 author: jboback
 manager: nitinme

@@ -1,7 +1,7 @@
 ### YamlMime:FAQ
 metadata:
   title: Text to speech FAQ
-  titleSuffix: Azure Cognitive Services
+  titleSuffix: Azure AI services
   description: Get answers to frequently asked questions about the text to speech service.
   services: cognitive-services
   author: eric-urban
@@ -86,7 +86,7 @@ sections:
       - question: |
           Is the model version the same as the engine version?
         answer: |
-          No. The model version is different from the engine version. The model version means the version of the training recipe for your model and varies by the features supported and model training time. Azure Cognitive Services text to speech engines are updated from time to time to capture the latest language model that defines the pronunciation of the language. After you've trained your voice, you can apply your voice to the new language model by updating to the latest engine version. When a new engine is available, you're prompted to update your neural voice model. See [Update engine version for your voice model](how-to-custom-voice-create-voice.md?tabs=neural#update-engine-version-for-your-voice-model).
+          No. The model version is different from the engine version. The model version means the version of the training recipe for your model and varies by the features supported and model training time. Azure AI services text to speech engines are updated from time to time to capture the latest language model that defines the pronunciation of the language. After you've trained your voice, you can apply your voice to the new language model by updating to the latest engine version. When a new engine is available, you're prompted to update your neural voice model. See [Update engine version for your voice model](how-to-custom-voice-create-voice.md?tabs=neural#update-engine-version-for-your-voice-model).
       - question: |
           Can we limit the number of trainings using Azure Policy or other features? Or is there any way to avoid false training?
         answer: |

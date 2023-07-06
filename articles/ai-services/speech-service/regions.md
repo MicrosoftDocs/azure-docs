@@ -1,6 +1,6 @@
 ---
 title: Regions - Speech service
-titleSuffix: Azure Cognitive Services
+titleSuffix: Azure AI services
 description: A list of available regions and endpoints for the Speech service, including speech to text, text to speech, and speech translation.
 services: cognitive-services
 author: eric-urban

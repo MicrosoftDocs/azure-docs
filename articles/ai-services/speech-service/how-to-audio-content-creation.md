@@ -1,6 +1,6 @@
 ---
 title: Audio Content Creation - Speech service
-titleSuffix: Azure Cognitive Services
+titleSuffix: Azure AI services
 description: Audio Content Creation is an online tool that allows you to run Text to speech synthesis without writing any code.
 services: cognitive-services
 author: eric-urban
@@ -41,7 +41,7 @@ To work with Audio Content Creation, you need a [Microsoft account](https://acco
 
 ### Step 2: Create a Speech resource
 
-After you sign up for the Azure account, you need to create a Speech resource in your Azure account to access Speech services. Create a Speech resource on the [Azure portal](https://portal.azure.com). For more information, see [Create a new Azure Cognitive Services resource](~/articles/ai-services/cognitive-services-apis-create-account.md?tabs=speech#create-a-new-azure-cognitive-services-resource).
+After you sign up for the Azure account, you need to create a Speech resource in your Azure account to access Speech services. Create a Speech resource on the [Azure portal](https://portal.azure.com). For more information, see [Create a new Cognitive Services resource](../cognitive-services-apis-create-account.md?tabs=speech#create-a-new-azure-cognitive-services-resource).
 
 It takes a few moments to deploy your new Speech resource. After the deployment is complete, you can start using the Audio Content Creation tool.
 
@@ -181,7 +181,7 @@ To add users to a Speech resource so that they can use Audio Content Creation, d
 
 
 1. In the [Azure portal](https://portal.azure.com/), select **All services**. 
-1. Then select the **Cognitive Services**, and navigate to your specific Speech resource.
+1. Then select the **Azure AI services**, and navigate to your specific Speech resource.
    > [!NOTE]
    > You can also set up Azure RBAC for whole resource groups, subscriptions, or management groups. Do this by selecting the desired scope level and then navigating to the desired item (for example, selecting **Resource groups** and then clicking through to your wanted resource group).
 1. Select **Access control (IAM)** on the left navigation pane.
@@ -202,7 +202,7 @@ Users who are in the same Speech resource will see each other's work in the Audi
 
 ### Remove users from a Speech resource
 
-1. Search for **Cognitive services** in the Azure portal, select the Speech resource that you want to remove users from.
+1. Search for **Azure AI services** in the Azure portal, select the Speech resource that you want to remove users from.
 1. Select **Access control (IAM)**, and then select the **Role assignments** tab to view all the role assignments for this Speech resource.
 1. Select the users you want to remove, select **Remove**, and then select **OK**.
 

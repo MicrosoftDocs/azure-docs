@@ -1,6 +1,6 @@
 ---
 title: Metrics Advisor what's new
-titleSuffix: Azure Applied AI Services
+titleSuffix: Azure AI services
 description: Learn about what is new with Metrics Advisor
 author: mrbullwinkle
 manager: nitinme
@@ -17,7 +17,7 @@ Welcome! This page covers what's new in the Metrics Advisor docs. Check back eve
 
 ## December 2022
 
-**Metrics Advisor new portal experience** has been released in preview! [Metrics Advisor Studio](https://metricsadvisor.appliedai.azure.com/) is designed to align the look and feel with the Cognitive Services studio experiences with better usability and significant accessibility improvements. Both the classic portal and the new portal will be available for a period of time, until we officially retire the classic portal.
+**Metrics Advisor new portal experience** has been released in preview! [Metrics Advisor Studio](https://metricsadvisor.appliedai.azure.com/) is designed to align the look and feel with the Azure AI services studio experiences with better usability and significant accessibility improvements. Both the classic portal and the new portal will be available for a period of time, until we officially retire the classic portal.
 
 We **strongly encourage** you to try out the new experience and share your feedback through the smiley face on the top banner.
 

@@ -33,4 +33,4 @@ To use the code sample below, you'll need to deploy an Azure resource. This reso
 1. Make sure the **Responsible AI Notice** checkbox is checked.
 1. Select **Review + Create** at the bottom of the page.
 
-1. In the screen that appears, make sure the validation has passed, and that you entered your information correctly. Then click **Create**. 
+1. In the screen that appears, make sure the validation has passed, and that you entered your information correctly. Then select **Create**. 

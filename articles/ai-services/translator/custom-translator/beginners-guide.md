@@ -1,6 +1,6 @@
 ---
 title: Custom Translator for beginners
-titleSuffix: Azure Cognitive Services
+titleSuffix: Azure AI services
 description: A user guide for understanding the end-to-end customized machine translation process.
 author: laujan
 manager: nitinme

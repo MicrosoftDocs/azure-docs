@@ -1,7 +1,7 @@
 ---
 title: Data limits for Language service features
-titleSuffix: Azure Cognitive Services
-description: Data and service limitations for Azure Cognitive Service for Language features.
+titleSuffix: Azure AI services
+description: Data and service limitations for Azure AI Language features.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -13,12 +13,12 @@ ms.date: 10/05/2022
 ms.author: aahi
 ---
 
-# Service limits for Azure Cognitive Service for Language
+# Service limits for Azure AI Language
 
 > [!NOTE]
-> This article only describes the limits for preconfigured features in Azure Cognitive Service for Language:
+> This article only describes the limits for preconfigured features in Azure AI Language:
 > To see the service limits for customizable features, see the following articles: 
-> * [Custom classification](../custom-classification/service-limits.md)
+> * [Custom classification](../custom-text-classification/service-limits.md)
 > * [Custom NER](../custom-named-entity-recognition/service-limits.md)
 > * [Conversational language understanding](../conversational-language-understanding/service-limits.md)
 > * [Question answering](../question-answering/concepts/limits.md)
@@ -98,5 +98,5 @@ Requests rates are measured for each feature separately. You can send the maximu
 
 ## See also
 
-* [What is Azure Cognitive Service for Language](../overview.md)
+* [What is Azure AI Language](../overview.md)
 * [Pricing details](https://aka.ms/unifiedLanguagePricing)

@@ -1,6 +1,6 @@
 ---
 title: Ingestion Client - Speech service
-titleSuffix: Azure Cognitive Services
+titleSuffix: Azure AI services
 description: In this article we describe a tool released on GitHub that enables customers push audio files to Speech service easily and quickly 
 services: cognitive-services
 author: eric-urban
@@ -12,21 +12,21 @@ ms.date: 08/29/2022
 ms.author: eur
 ---
 
-# Ingestion Client with Azure Cognitive Services
+# Ingestion Client with Azure AI services
 
 The Ingestion Client is a tool released by Microsoft on GitHub that helps you quickly deploy a call center transcription solution to Azure with a no-code approach. 
 
 > [!TIP]
 > You can use the tool and resulting solution in production to process a high volume of audio.
 
-Ingestion Client uses the [Azure Cognitive Service for Language](../language-service/index.yml), [Azure Cognitive Service for Speech](./index.yml), [Azure storage](https://azure.microsoft.com/product-categories/storage/), and [Azure Functions](https://azure.microsoft.com/services/functions/). 
+Ingestion Client uses the [Azure AI Language](../language-service/index.yml), [Azure AI Speech](./index.yml), [Azure storage](https://azure.microsoft.com/product-categories/storage/), and [Azure Functions](https://azure.microsoft.com/services/functions/). 
 
 ## Get started with the Ingestion Client
 
-An Azure Account and an Azure Cognitive Services resource are needed to run the Ingestion Client.
+An Azure account and a multi-service Cognitive Services resource are needed to run the Ingestion Client.
 * Azure subscription - [Create one for free](https://azure.microsoft.com/free/cognitive-services)
 * <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesAllInOne"  title="Create a Cognitive Services resource"  target="_blank">Create a Cognitive Services resource</a> in the Azure portal.
-* Get the resource key and region. After your Cognitive Services resource is deployed, select **Go to resource** to view and manage keys. For more information about Cognitive Services resources, see [Get the keys for your resource](~/articles/ai-services/cognitive-services-apis-create-account.md#get-the-keys-for-your-resource). 
+* Get the resource key and region. After your resource is deployed, select **Go to resource** to view and manage keys. For more information about Azure AI services resources, see [Get the keys for your resource](~/articles/ai-services/cognitive-services-apis-create-account.md#get-the-keys-for-your-resource). 
 
 See the [Getting Started Guide for the Ingestion Client](https://github.com/Azure-Samples/cognitive-services-speech-sdk/blob/master/samples/ingestion/ingestion-client/Setup/guide.md) on GitHub to learn how to setup and use the tool.
 
@@ -50,7 +50,7 @@ Here are some Language service features that are used by the Ingestion Client:
 - [Personally Identifiable Information (PII) extraction and redaction](../language-service/personally-identifiable-information/how-to-call-for-conversations.md): Identify, categorize, and redact sensitive information in conversation transcription.
 - [Sentiment analysis and opinion mining](../language-service/sentiment-opinion-mining/overview.md): Analyze transcriptions and associate positive, neutral, or negative sentiment at the utterance and conversation-level.
 
-Besides Cognitive Services, these Azure products are used to complete the solution:
+Besides Azure AI services, these Azure products are used to complete the solution:
 
 - [Azure storage](https://azure.microsoft.com/product-categories/storage/): For storing telephony data and the transcripts that are returned by the Batch Transcription API. This storage account should use notifications, specifically for when new files are added. These notifications are used to trigger the transcription process.
 - [Azure Functions](https://azure.microsoft.com/services/functions/): For creating the shared access signature (SAS) URI for each recording, and triggering the HTTP POST request to start a transcription. Additionally, you use Azure Functions to create requests to retrieve and delete transcriptions by using the Batch Transcription API.
@@ -64,6 +64,6 @@ The tool is built to show customers results quickly. You can customize the tool 
 
 ## Next steps
 
-* [Learn more about Cognitive Services features for call center](./call-center-overview.md)
+* [Learn more about Azure AI services features for call center](./call-center-overview.md)
 * [Explore the Language service features](../language-service/overview.md#available-features)
 * [Explore the Speech service features](./overview.md)

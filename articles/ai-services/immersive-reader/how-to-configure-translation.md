@@ -1,6 +1,6 @@
 ---
 title: "Configure translation"
-titleSuffix: Azure Applied AI Services
+titleSuffix: Azure AI services
 description: This article will show you how to configure the various options for translation.
 author: rwallerms
 manager: nitinme

@@ -1,6 +1,6 @@
 ---
 title: Immersive Reader Node.js client library quickstart 
-titleSuffix: Azure Applied AI Services
+titleSuffix: Azure AI services
 description: In this quickstart, you build a web app from scratch and add the Immersive Reader API functionality.
 services: cognitive-services
 author: rwallerms
@@ -206,7 +206,7 @@ script(type="text/javascript").
             .then(function (response) {
                 const token = response["token"];
                 const subdomain = response["subdomain"];
-                // Learn more about chunk usage and supported MIME types https://learn.microsoft.com/azure/cognitive-services/immersive-reader/reference#chunk
+                // Learn more about chunk usage and supported MIME types https://learn.microsoft.com/azure/ai-services/immersive-reader/reference#chunk
                 const data = {
                     title: $("#ir-title").text(),
                     chunks: [{
@@ -214,7 +214,7 @@ script(type="text/javascript").
                         mimeType: "text/html"
                     }]
                 };
-                // Learn more about options https://learn.microsoft.com/azure/cognitive-services/immersive-reader/reference#options
+                // Learn more about options https://learn.microsoft.com/azure/ai-services/immersive-reader/reference#options
                 const options = {
                     "onExit": exitCallback,
                     "uiZIndex": 2000

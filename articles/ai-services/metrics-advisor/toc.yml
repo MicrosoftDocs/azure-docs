@@ -55,13 +55,13 @@
   - name: Transparency notes
     items:
     - name: Use cases for Metrics Advisor
-      href: /legal/cognitive-services/anomaly-detector/transparency-note?context=/azure/applied-ai-services/metrics-advisor/context/context
+      href: /legal/cognitive-services/anomaly-detector/transparency-note?context=/azure/ai-services/metrics-advisor/context/context
     - name: Characteristics and limitations
-      href: /legal/cognitive-services/anomaly-detector/characteristics-and-limitations?context=/azure/applied-ai-services/metrics-advisor/context/context
+      href: /legal/cognitive-services/anomaly-detector/characteristics-and-limitations?context=/azure/ai-services/metrics-advisor/context/context
   - name: Integration and responsible use
-    href: /legal/cognitive-services/anomaly-detector/guidance-integration-responsible-use?context=/azure/applied-ai-services/metrics-advisor/context/context
+    href: /legal/cognitive-services/anomaly-detector/guidance-integration-responsible-use?context=/azure/ai-services/metrics-advisor/context/context
   - name: Data, privacy and security
-    href: /legal/cognitive-services/anomaly-detector/data-privacy-security?context=/azure/applied-ai-services/metrics-advisor/context/context
+    href: /legal/cognitive-services/anomaly-detector/data-privacy-security?context=/azure/ai-services/metrics-advisor/context/context
 - name: Tutorials
   items:
   - name: Enable notifications through different channel
@@ -80,15 +80,15 @@
   items:
   - name: Blog posts - use cases for Metrics Advisor
     items:
-    - name: Protect your organization's growth by using Azure Metrics Advisor
+    - name: Protect your organization's growth by using Azure AI Metrics Advisor
       href: https://techcommunity.microsoft.com/t5/azure-ai/protect-your-organization-s-growth-by-using-azure-metrics/ba-p/2564682
     - name: Supply chain anomaly detection and root cause analysis with Azure Metric Advisor
       href: https://techcommunity.microsoft.com/t5/azure-ai/supply-chain-anomaly-detection-and-root-cause-analysis-with/ba-p/2871920
-    - name: 'Customer support: how Azure Metrics Advisor can help improve customer satisfaction'
+    - name: 'Customer support: how Azure AI Metrics Advisor can help improve customer satisfaction'
       href: https://techcommunity.microsoft.com/t5/azure-ai-blog/customer-support-how-azure-metrics-advisor-can-help-improve/ba-p/3038907
-    - name: Detecting methane leaks using Azure Metrics Advisor
+    - name: Detecting methane leaks using Azure AI Metrics Advisor
       href: https://techcommunity.microsoft.com/t5/ai-cognitive-services-blog/detecting-methane-leaks-using-azure-metrics-advisor/ba-p/3254005
-    - name: AIOps with Azure Metrics Advisor - OpenDataScience.com 
+    - name: AIOps with Azure AI Metrics Advisor - OpenDataScience.com 
       href: https://opendatascience.com/aiops-with-azure-metrics-advisor/
   - name: Enterprise readiness
     items: 
@@ -97,4 +97,4 @@
     - name: Compliance and certification
       href: https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/
   - name: Support and help options
-    href: ../../cognitive-services/cognitive-services-support-options.md?context=/azure/applied-ai-services/metrics-advisor/context/context
+    href: ../../ai-services/cognitive-services-support-options.md?context=/azure/ai-services/metrics-advisor/context/context

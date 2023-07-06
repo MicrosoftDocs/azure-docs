@@ -91,9 +91,9 @@ Add the following code to your **Main** method to list available resources, crea
 
 [!code-java[](~/cognitive-services-quickstart-code/java/azure_management_service/quickstart.java?name=snippet_calls)]
 
-## Create a Cognitive Services resource (Java)
+## Create a Azure AI services resource (Java)
 
-To create and subscribe to a new Cognitive Services resource, use the **create** method. This method adds a new billable resource to the resource group you pass in. When creating your new resource, you'll need to know the "kind" of service you want to use, along with its pricing tier (or SKU) and an Azure location. The following method takes all of these as arguments and creates a resource.
+To create and subscribe to a new Azure AI services resource, use the **create** method. This method adds a new billable resource to the resource group you pass in. When creating your new resource, you'll need to know the "kind" of service you want to use, along with its pricing tier (or SKU) and an Azure location. The following method takes all of these as arguments and creates a resource.
 
 [!code-java[](~/cognitive-services-quickstart-code/java/azure_management_service/quickstart.java?name=snippet_create)]
 
@@ -119,13 +119,13 @@ The following method deletes the specified resource from the given resource grou
 
 [!code-java[](~/cognitive-services-quickstart-code/java/azure_management_service/quickstart.java?name=snippet_delete)]
 
-If you need to recover a deleted resource, see [Recover deleted Cognitive Services resources](../../manage-resources.md).
+If you need to recover a deleted resource, see [Recover deleted Azure AI services resources](../../manage-resources.md).
 
 ## See also
 
-* See **[Authenticate requests to Azure Cognitive Services](../../authentication.md)** on how to securely work with Cognitive Services.
-* See **[What are Azure Cognitive Services?](../../what-are-cognitive-services.md)** to get a list of different categories within Cognitive Services.
-* See **[Natural language support](../../language-support.md)** to see the list of natural languages that Cognitive Services supports.
-* See **[Use Cognitive Services as containers](../../cognitive-services-container-support.md)** to understand how to use Cognitive Services on-prem.
-* See **[Plan and manage costs for Cognitive Services](../../plan-manage-costs.md)** to estimate cost of using Cognitive Services.
+* See **[Authenticate requests to Azure Azure AI services](../../authentication.md)** on how to securely work with Azure AI services.
+* See **[What are Azure Azure AI services?](../../what-are-cognitive-services.md)** to get a list of different categories within Azure AI services.
+* See **[Natural language support](../../language-support.md)** to see the list of natural languages that Azure AI services supports.
+* See **[Use Azure AI services as containers](../../cognitive-services-container-support.md)** to understand how to use Azure AI services on-prem.
+* See **[Plan and manage costs for Azure AI services](../../plan-manage-costs.md)** to estimate cost of using Azure AI services.
 * See **[Azure Management SDK reference documentation](/java/api/com.microsoft.azure.management.cognitiveservices)** for more details on the management SDK.

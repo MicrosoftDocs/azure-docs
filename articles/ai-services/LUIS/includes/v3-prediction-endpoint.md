@@ -1,6 +1,6 @@
 ---
 title: How to get V3 prediction endpoint
-titleSuffix: Azure Cognitive Services
+titleSuffix: Azure AI services
 services: cognitive-services
 
 manager: nitinme

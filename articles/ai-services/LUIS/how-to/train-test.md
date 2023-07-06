@@ -97,11 +97,11 @@ Log into the [LUIS portal](https://www.luis.ai/) and click on your app. Select  
 
 ## View sentiment results
 
-If sentiment analysis is configured on the [**Publish**](/azure/cognitive-services/luis/luis-how-to-publish-app#enable-sentiment-analysis) page, the test results will include the sentiment found in the utterance.
+If sentiment analysis is configured on the [**Publish**](publish.md) page, the test results will include the sentiment found in the utterance.
 
 ## Correct matched pattern's intent
 
-If you are using [Patterns](/azure/cognitive-services/luis/luis-concept-patterns) and the utterance matched is a pattern, but the wrong intent was predicted, select the  **Edit**  link by the pattern and select the correct intent.
+If you are using [Patterns](../concepts/patterns-features.md) and the utterance matched is a pattern, but the wrong intent was predicted, select the  **Edit**  link by the pattern and select the correct intent.
 
 ## Compare with published version
 
@@ -122,5 +122,5 @@ If testing requires testing a batch of utterances, See [batch testing](../luis-h
 
 If testing indicates that your LUIS app doesn't recognize the correct intents and entities, you can work to improve your LUIS app's accuracy by labeling more utterances or adding features.
 
-* [Improve your application](./improve-application.md?branch=pr-en-us-181263)
-* [Publishing your application](./publish.md?branch=pr-en-us-181263)
+* [Improve your application](./improve-application.md)
+* [Publishing your application](./publish.md)

@@ -1,6 +1,6 @@
 ---
 title: Custom Commands service encryption of data at rest
-titleSuffix: Azure Cognitive Services
+titleSuffix: Azure AI services
 description: Custom Commands encryption of data at rest.
 services: cognitive-services
 author: eric-urban
@@ -22,7 +22,7 @@ Custom Commands automatically encrypts your data when it is persisted to the clo
 > [!NOTE]
 > Custom Commands service doesn't automatically enable encryption for the LUIS resources associated with your application. If needed, you must enable encryption for your LUIS resource from [here](../luis/encrypt-data-at-rest.md).
 
-## About Cognitive Services encryption
+## About Azure AI services encryption
 Data is encrypted and decrypted using [FIPS 140-2](https://en.wikipedia.org/wiki/FIPS_140-2) compliant [256-bit AES](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard) encryption. Encryption and decryption are transparent, meaning encryption and access are managed for you. Your data is secure by default and you don't need to modify your code or applications to take advantage of encryption.
 
 ## About encryption key management
@@ -50,7 +50,7 @@ To request the ability to use customer-managed keys, fill out and submit Custome
 
 You must use Azure Key Vault to store customer-managed keys. You can either create your own keys and store them in a key vault, or you can use the Azure Key Vault APIs to generate keys. The Speech resource and the key vault must be in the same region and in the same Azure Active Directory (Azure AD) tenant, but they can be in different subscriptions. For more information about Azure Key Vault, see [What is Azure Key Vault?](../../key-vault/general/overview.md).
 
-When a new Speech resource is created and used to provision Custom Commands application - data is always encrypted using Microsoft-managed keys. It's not possible to enable customer-managed keys at the time that the resource is created. Customer-managed keys are stored in Azure Key Vault, and the key vault must be provisioned with access policies that grant key permissions to the managed identity that is associated with the Cognitive Services resource. The managed identity is available only after the resource is created using the Pricing Tier required for CMK.
+When a new Speech resource is created and used to provision Custom Commands application - data is always encrypted using Microsoft-managed keys. It's not possible to enable customer-managed keys at the time that the resource is created. Customer-managed keys are stored in Azure Key Vault, and the key vault must be provisioned with access policies that grant key permissions to the managed identity that is associated with the Azure AI services resource. The managed identity is available only after the resource is created using the Pricing Tier required for CMK.
 
 Enabling customer managed keys will also enable a system assigned [managed identity](../../active-directory/managed-identities-azure-resources/overview.md), a feature of Azure AD. Once the system assigned managed identity is enabled, this resource will be registered with Azure Active Directory. After being registered, the managed identity will be given access to the Key Vault selected during customer managed key setup. 
 
@@ -85,7 +85,7 @@ To enable customer-managed keys in the Azure portal, follow these steps:
 
 ## Specify a key
 
-After you enable customer-managed keys, you'll have the opportunity to specify a key to associate with the Cognitive Services resource.
+After you enable customer-managed keys, you'll have the opportunity to specify a key to associate with the Azure AI services resource.
 
 ### Specify a key as a URI
 
@@ -138,7 +138,7 @@ Rotating the key does not trigger re-encryption of data in the resource. There i
 
 ## Revoke access to customer-managed keys
 
-To revoke access to customer-managed keys, use PowerShell or Azure CLI. For more information, see [Azure Key Vault PowerShell](/powershell/module/az.keyvault//) or [Azure Key Vault CLI](/cli/azure/keyvault). Revoking access effectively blocks access to all data in the Cognitive Services resource, as the encryption key is inaccessible by Cognitive Services.
+To revoke access to customer-managed keys, use PowerShell or Azure CLI. For more information, see [Azure Key Vault PowerShell](/powershell/module/az.keyvault//) or [Azure Key Vault CLI](/cli/azure/keyvault). Revoking access effectively blocks access to all data in the Azure AI services resource, as the encryption key is inaccessible by Azure AI services.
 
 ## Disable customer-managed keys
 

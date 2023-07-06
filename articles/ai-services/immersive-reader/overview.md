@@ -1,6 +1,6 @@
 ---
-title: What is Azure Immersive Reader?
-titleSuffix: Azure Applied AI Services
+title: What is Azure AI Immersive Reader?
+titleSuffix: Azure AI services
 description: Immersive Reader is a tool that is designed to help people with learning differences or help new readers and language learners with reading comprehension.
 services: cognitive-services
 author: rwallerms
@@ -13,12 +13,12 @@ ms.date: 11/15/2021
 ms.author: rwaller
 ms.custom: "cog-serv-seo-aug-2020"
 keywords: readers, language learners, display pictures, improve reading, read content, translate
-#Customer intent: As a developer, I want to learn more about the Immersive Reader, which is a new offering in Cognitive Services, so that I can embed this package of content into a document to accommodate users with reading differences.
+#Customer intent: As a developer, I want to learn more about the Immersive Reader, which is a new offering in Azure AI services, so that I can embed this package of content into a document to accommodate users with reading differences.
 ---
 
-# What is Azure Immersive Reader?
+# What is Azure AI Immersive Reader?
 
-[Immersive Reader](https://www.onenote.com/learningtools) is part of [Azure Applied AI Services](../../applied-ai-services/what-are-applied-ai-services.md), and is an inclusively designed tool that implements proven techniques to improve reading comprehension for new readers, language learners, and people with learning differences such as dyslexia. With the Immersive Reader client library, you can leverage the same technology used in Microsoft Word and Microsoft One Note to improve your web applications. 
+[Immersive Reader](https://www.onenote.com/learningtools) is part of [Azure AI services](../../ai-services/what-are-cognitive-services.md), and is an inclusively designed tool that implements proven techniques to improve reading comprehension for new readers, language learners, and people with learning differences such as dyslexia. With the Immersive Reader client library, you can leverage the same technology used in Microsoft Word and Microsoft One Note to improve your web applications. 
 
 This documentation contains the following types of articles:  
 

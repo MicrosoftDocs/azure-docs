@@ -1,6 +1,6 @@
 ---
-title: Orchestration workflows - Azure Cognitive Services
-titleSuffix: Azure Cognitive Services
+title: Orchestration workflows - Azure AI services
+titleSuffix: Azure AI services
 description: Customize an AI model to connect your Conversational Language Understanding, question answering and LUIS applications.
 services: cognitive-services
 author: aahill
@@ -16,7 +16,7 @@ ms.custom: language-service-orchestration
 # What is orchestration workflow?
 
 
-Orchestration workflow is one of the features offered by [Azure Cognitive Service for Language](../overview.md). It is a cloud-based API service that applies machine-learning intelligence to enable you to build orchestration models to connect [Conversational Language Understanding (CLU)](../conversational-language-understanding/overview.md), [Question Answering](../question-answering/overview.md) projects and [LUIS](../../luis/what-is-luis.md) applications.
+Orchestration workflow is one of the features offered by [Azure AI Language](../overview.md). It is a cloud-based API service that applies machine-learning intelligence to enable you to build orchestration models to connect [Conversational Language Understanding (CLU)](../conversational-language-understanding/overview.md), [Question Answering](../question-answering/overview.md) projects and [LUIS](../../luis/what-is-luis.md) applications.
 By creating an orchestration workflow, developers can iteratively tag utterances, train and evaluate model performance before making it available for consumption. 
 To simplify building and customizing your model, the service offers a custom web portal that can be accessed through the [Language studio](https://aka.ms/languageStudio). You can easily get started with the service by following the steps in this [quickstart](quickstart.md). 
 
@@ -60,7 +60,7 @@ Follow these steps to get the most out of your model:
 
 ## Reference documentation and code samples
 
-As you use orchestration workflow, see the following reference documentation and samples for Azure Cognitive Services for Language:
+As you use orchestration workflow, see the following reference documentation and samples for Azure AI Language:
 
 |Development option / language  |Reference documentation |Samples  |
 |---------|---------|---------|

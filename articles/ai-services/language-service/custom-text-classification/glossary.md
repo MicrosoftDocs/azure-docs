@@ -1,6 +1,6 @@
 ---
 title: Definitions used in custom text classification
-titleSuffix: Azure Cognitive Services
+titleSuffix: Azure AI services
 description: Learn about definitions used in custom text classification.
 services: cognitive-services
 author: aahill

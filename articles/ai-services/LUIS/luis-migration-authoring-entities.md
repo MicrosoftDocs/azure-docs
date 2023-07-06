@@ -35,7 +35,7 @@ V2 authoring provided hierarchical and composite entities along with roles and f
 With V3, the relationship is explicit and designed by the app authors. This allows you, as the app author, to:
 
 * Visually see how LUIS is predicting these relationships, in the example utterances
-* Test for these relationships either with the [interactive test pane](luis-interactive-test.md) or at the endpoint
+* Test for these relationships either with the [interactive test pane](how-to/train-test.md) or at the endpoint
 * Use these relationships in the client application, via a well-structured, named, nested [.json object](reference-entity-machine-learned-entity.md)
 
 ## Planning
