@@ -16,7 +16,7 @@ ms.custom: aaddev, devx-track-python
 ---
 # Logging in MSAL for Python
 
-[!INCLUDE [MSAL logging introduction](../../../includes/active-directory-develop-error-logging-introduction.md)]
+[!INCLUDE [MSAL logging introduction](./includes/error-handling-and-tips/error-logging-introduction.md)]
 
 ## MSAL for Python logging
 

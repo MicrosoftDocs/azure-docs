@@ -5,8 +5,9 @@ tags: optional
 
 ms.assetid: e34d405e-c5d4-46ad-9b26-2a1eda86ce80
 ms.topic: article
-ms.date: 03/04/2016
+ms.date: 06/29/2023
 ms.custom: UpdateFrequency3
+ms.author: msangapu
 
 ---
 # Azure App Service Local Cache overview

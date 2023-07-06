@@ -5,7 +5,6 @@ services: storage
 author: stevenmatthew
 
 ms.service: storage
-ms.subservice: blobs
 ms.devlang: powershell
 ms.custom: devx-track-azurepowershell
 ms.topic: sample

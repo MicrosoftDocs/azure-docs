@@ -5,12 +5,12 @@ description: Learn how to check the Last Sync Time property for a geo-replicated
 services: storage
 author: jimmart-dev
 
-ms.service: storage
+ms.service: azure-storage
 ms.topic: how-to
 ms.date: 05/28/2020
 ms.author: jammart
 ms.reviewer: artek
-ms.subservice: common 
+ms.subservice: storage-common-concepts
 ---
 
 # Check the Last Sync Time property for a storage account

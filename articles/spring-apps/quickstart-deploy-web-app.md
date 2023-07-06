@@ -1,7 +1,7 @@
 ---
 title: Quickstart - Deploy your first web application to Azure Spring Apps
 description: Describes how to deploy a web application to Azure Spring Apps.
-author: karlerickson
+author: KarlErickson
 ms.service: spring-apps
 ms.topic: quickstart
 ms.date: 06/21/2023
@@ -95,13 +95,13 @@ Create variables to hold the resource names by using the following commands. Be 
 ::: zone pivot="sc-standard,sc-enterprise"
 
 ```azurecli
-RESOURCE_GROUP=<resource-group-name>
-LOCATION=<location>
-POSTGRESQL_SERVER=<server-name>
-POSTGRESQL_DB=<database-name>
-AZURE_SPRING_APPS_NAME=<Azure-Spring-Apps-service-instance-name>
-APP_NAME=<web-app-name>
-CONNECTION=<connection-name>
+export RESOURCE_GROUP=<resource-group-name>
+export LOCATION=<location>
+export POSTGRESQL_SERVER=<server-name>
+export POSTGRESQL_DB=<database-name>
+export AZURE_SPRING_APPS_NAME=<Azure-Spring-Apps-service-instance-name>
+export APP_NAME=<web-app-name>
+export CONNECTION=<connection-name>
 ```
 
 ::: zone-end
@@ -109,16 +109,16 @@ CONNECTION=<connection-name>
 ::: zone pivot="sc-consumption-plan"
 
 ```azurecli
-RESOURCE_GROUP=<resource-group-name>
-LOCATION=<location>
-POSTGRESQL_SERVER=<server-name>
-POSTGRESQL_DB=<database-name>
-POSTGRESQL_ADMIN_USERNAME=<admin-username>
-POSTGRESQL_ADMIN_PASSWORD=<admin-password>
-AZURE_SPRING_APPS_NAME=<Azure-Spring-Apps-service-instance-name>
-APP_NAME=<web-app-name>
-MANAGED_ENVIRONMENT="<Azure-Container-Apps-environment-name>"
-CONNECTION=<connection-name>
+export RESOURCE_GROUP=<resource-group-name>
+export LOCATION=<location>
+export POSTGRESQL_SERVER=<server-name>
+export POSTGRESQL_DB=<database-name>
+export POSTGRESQL_ADMIN_USERNAME=<admin-username>
+export POSTGRESQL_ADMIN_PASSWORD=<admin-password>
+export AZURE_SPRING_APPS_NAME=<Azure-Spring-Apps-service-instance-name>
+export APP_NAME=<web-app-name>
+export MANAGED_ENVIRONMENT="<Azure-Container-Apps-environment-name>"
+export CONNECTION=<connection-name>
 ```
 
 ::: zone-end
@@ -181,7 +181,7 @@ An Azure Container Apps environment creates a secure boundary around a group of 
 1. Use the following command to create a variable to store the environment resource ID:
 
    ```azurecli
-   MANAGED_ENV_RESOURCE_ID=$(az containerapp env show \
+   export MANAGED_ENV_RESOURCE_ID=$(az containerapp env show \
        --name ${MANAGED_ENVIRONMENT} \
        --query id \
        --output tsv)
@@ -295,7 +295,7 @@ After the application instance and the PostgreSQL instance are created, the appl
 1. Use the following command to get the PostgreSQL instance's fully qualified domain name:
 
    ```azurecli
-   PSQL_FQDN=$(az postgres flexible-server show \
+   export PSQL_FQDN=$(az postgres flexible-server show \
        --name ${POSTGRESQL_SERVER} \
        --query fullyQualifiedDomainName \
        --output tsv)
