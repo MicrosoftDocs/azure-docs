@@ -15,6 +15,10 @@ ms.author: greglin
 
 This guide assumes you are following the "managed by ALB controller" deployment strategy, where all the Application Gateway for Containers resources are managed by ALB controller and lifecycle is determine by definition of the the objects defined in Kubernetes.  ALB Controller will create Application Gateway for Containers resource when an _ApplicationLoadBalancer_ custom resource is defined on the cluster and its lifecycle will be based on the lifecycle of the custom resource.
 
+## Prerequisites
+
+Ensure you have first deployed ALB Controller into your Kubernetes cluster.  You may follow the [Quickstart: Deploy Application Gateway for Containers ALB Controller](quickstart-deploy-application-gateway-for-containers-alb-controller.md) guide if you have not yet deployed the ALB Controller.
+
 ## Create ApplicationLoadBalancer kubernetes resource
 
 1. Define the Kubernetes namespace for the ApplicationLoadBalancer object
