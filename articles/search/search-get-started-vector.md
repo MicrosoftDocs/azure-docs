@@ -59,7 +59,7 @@ If you're unfamiliar with Postman, see [this quickstart](search-get-started-rest
     |----------|---------------|
     | index-name | *index names are lower-case, no spaces, and can't start or end with dashes* |
     | search-service-name | *from Azure portal, get just the name of the service, not the full URL* |
-    | search-api-version | 2023-07-10-Preview |
+    | search-api-version | 2023-07-01-Preview |
     | search-api-key | *provide an admin key* |
     | openai-api-key | *optional. Set this value if you want to generate embeddings. Find this value in Azure portal.* |
     | openai-service-name | *optional. Set this value if you want to generate embeddings. Find this value in Azure portal.* |
