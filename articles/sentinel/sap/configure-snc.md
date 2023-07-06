@@ -109,6 +109,8 @@ This section explains how to import a certificate so that it's trusted by your A
 
 1. In the **Table/View** field, type **VUSREXTID**, then select **Maintain**. 
 
+1. In the **Determine Work Area: Entry** page, select the **DN** ID type as the **Work Area**. 
+
 1. Type these details:
 
     - **External ID**: *CN=Sentinel*, *C=US*
