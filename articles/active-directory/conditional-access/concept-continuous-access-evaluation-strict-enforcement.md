@@ -17,7 +17,7 @@ ms.collection: M365-identity-device-management
 ---
 # Strictly enforce location policies using continuous access evaluation (preview)
 
-Strictly enforce location policies is a new enforcement mode for continuous access evaluation, used in Conditional Access policies. This new mode provides protection for resources, immediately stopping access if the IP address detected by the resource provider isn't allowed by Conditional Access policy. This is the highest security modality of CAE location enforcement, and requires that administrators understand the routing of authentication and access requests in their network environment. See our [Introduction to continuous access evaluation](concept-continuous-access-evaluation.md) for a review of how CAE-capable clients and resource providers, like the Outlook email client and Exchange Online evaluate location changes.  
+Strictly enforce location policies is a new enforcement mode for continuous access evaluation, used in Conditional Access policies. This new mode provides protection for resources, immediately stopping access if the IP address detected by the resource provider isn't allowed by Conditional Access policy. This option is the highest security modality of CAE location enforcement, and requires that administrators understand the routing of authentication and access requests in their network environment. See our [Introduction to continuous access evaluation](concept-continuous-access-evaluation.md) for a review of how CAE-capable clients and resource providers, like the Outlook email client and Exchange Online evaluate location changes.  
 
 | Location enforcement mode | Recommended network topology | If the IP address detected by the Resource isn't in the allowed list | Benefits | Configuration |
 | --- | --- | --- | --- | --- |
@@ -28,7 +28,7 @@ Strictly enforce location policies is a new enforcement mode for continuous acce
 
 ### Step 1 - Configure a Conditional Access location based policy for your target users
 
-Before creating a Conditional Access policy requiring strict location enforcement administrators must be comfortable using policies like the one described in [Conditional Access location based policies](howto-conditional-access-policy-location.md). Policies like this one should be tested with a subset of users before proceeding to the next step. By testing before enabling strict enforcement, administrators can isolate any discrepancies between the allowed set of IP addresses and the actual IP addresses seen by Azure AD during authentication.  
+Before creating a Conditional Access policy requiring strict location enforcement, administrators must be comfortable using policies like the one described in [Conditional Access location based policies](howto-conditional-access-policy-location.md). Policies like this one should be tested with a subset of users before proceeding to the next step. By testing before enabling strict enforcement, administrators can isolate any discrepancies between the allowed set of IP addresses and the actual IP addresses seen by Azure AD during authentication.  
 
 ### Step 2 - Test policy on a small subset of users  
 
@@ -39,13 +39,13 @@ After enabling policies requiring strict location enforcement on a subset of tes
 **SCREENSHOT TO GO HERE**
 
    - Admins must ensure all authentication traffic towards Azure AD and access traffic to Resource Providers (like Exchange Online, Teams, SharePoint Online, and MSGraph) are from an Egress IPs that are dedicated and known by the admins. 
-   - Before turning on Conditional Access policies requiring strict location enforcement administrators should ensure that all IP addresses from which your users can access Azure AD and resource providers are included in the [IP-based named locations policy](location-condition.md#ipv4-and-ipv6-address-ranges).
+   - Before administrators turn on Conditional Access policies requiring strict location enforcement administrators should ensure that all IP addresses from which your users can access Azure AD and resource providers are included in the [IP-based named locations policy](location-condition.md#ipv4-and-ipv6-address-ranges).
 
-If administrators don't perform this validation their users may be negatively impacted. If traffic to Azure AD or a CAE supported resource is through a shared or undefinable egress IP, don't enable strict location enforcement in your Conditional Access policies.
+If administrators don't perform this validation, their users may be negatively impacted. If traffic to Azure AD or a CAE supported resource is through a shared or undefinable egress IP, don't enable strict location enforcement in your Conditional Access policies.
 
 ### Step 3 - Identify IP addresses that should be added to your named locations 
 
-If the filter search of **IP address (seen by resource)** in the Azure AD Sign-in logs isn't empty, you might have a split-tunnel network configuration. To ensure your users aren't accidentally locked out by policies requiring strict location enforcement administrators should: 
+If the filter search of **IP address (seen by resource)** in the Azure AD Sign-in logs isn't empty, you might have a split-tunnel network configuration. To ensure your users aren't accidentally locked out by policies requiring strict location enforcement, administrators should: 
 
 - Investigate and identify any IP addresses identified in the Sign-in logs.
 - Add public IP addresses associated with known organizational egress points to their defined [named locations](location-condition.md#named-locations).
@@ -87,7 +87,7 @@ a.) Authentication succeeds using a CAE token.
 
 **SCREENSHOT TO GO HERE**
 
-b.) The **IP address (seen by resource)** is different from the IP address seen by Azure AD. Although the IP address seen by the resource is known, there is no enforcement until the resource redirects the user for reevaluation of the IP address seen by the resource.
+b.) The **IP address (seen by resource)** is different from the IP address seen by Azure AD. Although the IP address seen by the resource is known, there's no enforcement until the resource redirects the user for reevaluation of the IP address seen by the resource.
 
 **SCREENSHOT TO GO HERE**
 
@@ -95,7 +95,7 @@ c.) Azure AD authentication is successful because strict location enforcement is
 
 **SCREENSHOT TO GO HERE**
  
-### Resource redirect for re-evaluation
+### Resource redirect for reevaluation
 
 a.) Authentication fails and a CAE token isn't issued.  
 
