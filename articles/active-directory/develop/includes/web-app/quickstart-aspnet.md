@@ -59,7 +59,7 @@ If you want to manually configure your application and code sample, use the foll
 
 [Download the ASP.NET code sample](https://github.com/AzureADQuickStarts/AppModelv2-WebApp-OpenIDConnect-DotNet/archive/master.zip)
 
-[!INCLUDE [active-directory-develop-path-length-tip](../../../../../includes/active-directory-develop-path-length-tip.md)]
+[!INCLUDE [active-directory-develop-path-length-tip](../error-handling-and-tips/path-length-tip.md)]
 
 
 #### Step 3: Run the project
@@ -177,8 +177,7 @@ You can call Microsoft Graph from the controller by getting the instance of Grap
     }
 ```
 
-
-[!INCLUDE [Help and support](../../../../../includes/active-directory-develop-help-support-include.md)]
+[!INCLUDE [Help and support](../error-handling-and-tips/help-support-include.md)]
 
 ## Next steps
 

@@ -3,7 +3,7 @@ title: Use query parallelization and scale in Azure Stream Analytics
 description: This article describes how to scale Stream Analytics jobs by configuring input partitions, tuning the query definition, and setting job streaming units.
 ms.service: stream-analytics
 ms.custom: event-tier1-build-2022, ignite-2022
-author: ahartoon
+author: anboisve
 ms.author: anboisve
 ms.topic: conceptual
 ms.date: 05/10/2022
@@ -254,7 +254,7 @@ Each of the **Input1** partitions will be processed separately by Stream Analyti
     GROUP BY TumblingWindow(minute, 3), TollBoothId
 ```
 
-This query can be scaled to 24 SUs.
+This query can be scaled to 4 SU V2s.
 
 > [!NOTE]
 > If you are joining two streams, make sure that the streams are partitioned by the partition key of the column that you use to create the joins. Also make sure that you have the same number of partitions in both streams.
