@@ -51,7 +51,7 @@ ms.custom: aaddev, identityplatformtop40, "scenarios:getting-started", "language
 > > [!div  class="nextstepaction"]
 > > <button id="downloadsample" class="download-sample-button">Download the code sample</button>
 > 
-> [!INCLUDE [active-directory-develop-path-length-tip](../includes/path-length-tip.md)]
+> [!INCLUDE [active-directory-develop-path-length-tip](./includes/error-handling-and-tips/path-length-tip.md)]
 > 
 > 
 > #### Step 3: Your app is configured and ready to run
@@ -132,7 +132,7 @@ ms.custom: aaddev, identityplatformtop40, "scenarios:getting-started", "language
 > * `scopes` contains the scopes being requested, such as `{ "user.read" }` for Microsoft Graph or `{ "api://<Application ID>/access_as_user" }` for custom web APIs.
 > * `firstAccount` specifies the first user account in the cache (MSAL supports multiple users in a single app).
 > 
-> [!INCLUDE [Help and support](../includes/help-support-include.md)]
+> [!INCLUDE [Help and support](./includes/error-handling-and-tips/help-support-include.md)]
 > 
 > ## Next steps
 > 
