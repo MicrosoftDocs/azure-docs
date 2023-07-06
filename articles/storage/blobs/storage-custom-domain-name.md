@@ -9,7 +9,6 @@ ms.topic: how-to
 ms.date: 02/12/2021
 ms.author: jammart
 ms.reviewer: dineshm
-ms.subservice: blobs 
 ---
 
 # Map a custom domain to an Azure Blob Storage endpoint
