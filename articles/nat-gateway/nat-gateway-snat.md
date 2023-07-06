@@ -59,7 +59,7 @@ SNAT port reuse diagram
 
 A SNAT port can be reused to connect to the same destination endpoint. Before the port is reused, NAT gateway places a SNAT port reuse timer for cool down on the port after the connection closes.
 
-The SNAT port reuse down timer helps prevent ports from being selected too quickly for connecting to the same destination. This process is helpful when destination endpoints have firewalls or other services configured that place a cool down timer on source ports. A SNAT port may be placed on a different length port reuse timer for cool down depending on how the previous connection closed. To learn more, see [Port Reuse Timers](Timers section of Resource Doc).
+The SNAT port reuse down timer helps prevent ports from being selected too quickly for connecting to the same destination. This process is helpful when destination endpoints have firewalls or other services configured that place a cool down timer on source ports. A SNAT port may be placed on a different length port reuse timer for cool down depending on how the previous connection closed. To learn more, see [Port Reuse Timers](/azure/nat-gateway/nat-gateway-resource#timers).
 
 <!--
 SNAT port cool down diagram
