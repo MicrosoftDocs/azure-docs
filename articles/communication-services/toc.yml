@@ -905,3 +905,15 @@ items:
       href: https://azure.github.io/azure-sdk-for-ios/AzureCommunicationUIChat
     - name: UI Library for Chat (Android)
       href: https://azure.github.io/azure-sdk-for-android/azure-communication-ui-chat/index.html
+  - name: Country phone number management
+    items:
+    - name: Phone number management United States
+      href: (../numbers/phone-number-management-for-united-states.md)
+    - name: Phone number management Canada
+      href: (../numbers/phone-number-management-for-canada.md)
+    - name: Phone number management Country1
+      href: (../numbers/phone-number-management-for-canada.md)
+    - name: Phone number management Canada2
+      href: (../numbers/phone-number-management-for-canada.md)
+    - name: Phone number management Canada3
+      href: (../numbers/phone-number-management-for-canada.md)
