@@ -1312,7 +1312,7 @@ The first time any user signs into your app, they'll be prompted by Microsoft id
 
 When no longer needed, delete the app object that you created in the [Register your application](#register-your-application-with-azure-ad) step.
 
-[!INCLUDE [Help and support](../../../includes/active-directory-develop-help-support-include.md)]
+[!INCLUDE [Help and support](./includes/error-handling-and-tips/help-support-include.md)]
 
 ## Next steps
 
