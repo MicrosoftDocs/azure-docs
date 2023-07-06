@@ -21,7 +21,7 @@ We recommend this article for background, but if you'd rather get started, follo
 
 > [!div class="checklist"]
 > + [Generate vector embeddings](vector-search-how-to-generate-embeddings.md) before you start.
-> + [Add vector fields to an index](vector-search-how-to-create-index.md) using Azure portal or the [**2023-07-10-Preview REST APIs**](/rest/api/searchservice/index-preview).
+> + [Add vector fields to an index](vector-search-how-to-create-index.md) using Azure portal or the [**2023-07-01-Preview REST APIs**](/rest/api/searchservice/index-preview).
 > + [Load vector data](search-what-is-data-import.md) into an index using push or pull methodologies. 
 > + [Query vector data](vector-search-how-to-query.md) using Azure portal or the preview REST APIs.
 
