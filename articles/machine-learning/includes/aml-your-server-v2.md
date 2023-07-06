@@ -13,9 +13,9 @@ ms.date: 08/30/2022
 
 1. Use the instructions at [Azure Machine Learning SDK](https://aka.ms/sdk-v2-install)  to install the Azure Machine Learning SDK (v2) for Python
 
-1. Create an [Azure Machine Learning workspace](../articles/machine-learning/how-to-manage-workspace.md).
+1. Create an [Azure Machine Learning workspace](../how-to-manage-workspace.md).
 
-1. Write a  [configuration file](../articles/machine-learning/how-to-configure-environment.md#) file (**aml_config/config.json**).
+1. Write a  [configuration file](../how-to-configure-environment.md#) file (**aml_config/config.json**).
 
 1. Clone [the AzureML-Examples repository](https://aka.ms/aml-notebooks).
 

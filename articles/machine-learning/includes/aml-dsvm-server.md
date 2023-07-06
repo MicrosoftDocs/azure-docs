@@ -11,7 +11,7 @@ ms.topic: "include"
 ms.date: 12/27/2021
 ---
 
-1. [Create an Azure Machine Learning workspace](../articles/machine-learning/how-to-manage-workspace.md).
+1. [Create an Azure Machine Learning workspace](../how-to-manage-workspace.md).
 
 1. Add a workspace configuration file using either of these methods:
 
