@@ -14,7 +14,7 @@ ms.topic: article
 
 Optical character recognition (OCR) is an Azure AI Video Indexer AI feature that extracts text from images like pictures, street signs and products in media files to create insights.  
 
-OCR currently extracts insights from printed and handwritten text in over 50 languages, including from an image with text in multiple languages. For more information, see [OCR supported languages](/azure/ai-services/computer-vision/language-support.md##optical-character-recognition-ocr).    
+OCR currently extracts insights from printed and handwritten text in over 50 languages, including from an image with text in multiple languages. For more information, see [OCR supported languages](../ai-services/computer-vision/language-support.md#optical-character-recognition-ocr).    
 
 ## Prerequisites  
 
@@ -104,7 +104,7 @@ During the OCR procedure, text images in a media file are processed, as follows:
 |Get read results model	|The output of the extracted text is displayed in a JSON file.|
 |Confidence value|	The estimated confidence level of each word is calculated as a range of 0 to 1. The confidence score represents the certainty in the accuracy of the result. For example, an 82% certainty will be represented as an 0.82 score.|
 
-For more information, see [OCR technology](/azure/ai-services/computer-vision/overview-ocr). 
+For more information, see [OCR technology](../ai-services/computer-vision/overview-ocr.md). 
 
 ## Example use cases 
 
