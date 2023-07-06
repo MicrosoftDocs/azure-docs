@@ -13,7 +13,7 @@ ms.author: greglin
 
 # Quickstart: Deploy Application Gateway for Containers ALB Controller
 
-[ALB Controller](concepts-how-application-gateway-for-containers-works.md#application-gateway-for-containers-alb-controller) is responsible for translating Gateway API and Ingress API configuration within Kubernetes to load balancing rules within Application Gateway for Containers.  The following guide will walk through the steps needed to provision ALB Controller into a new or existing AKS cluster.
+[ALB Controller](concepts-how-application-gateway-for-containers-works.md#application-gateway-for-containers-alb-controller) is responsible for translating Gateway API and Ingress API configuration within Kubernetes to load balancing rules within Application Gateway for Containers.  The following guide walks through the steps needed to provision ALB Controller into a new or existing AKS cluster.
 
 ## Prerequisites
 
@@ -50,7 +50,7 @@ You need to complete the following tasks prior to deploying Application Gateway 
 	az aks update -g $RESOURCE_GROUP -n $AKS_NAME --enable-oidc-issuer --enable-workload-identity --no-wait
 	```
 
-	If you do not have an existing cluster, use the following commands to create a new AKS cluster with Azure CNI and workload identity enabled.	
+	If you don't have an existing cluster, use the following commands to create a new AKS cluster with Azure CNI and workload identity enabled.	
  
 	```bash
 	AKS_NAME='<your cluster name>'
@@ -169,20 +169,20 @@ You need to complete the following tasks prior to deploying Application Gateway 
 
 ## Next Steps - Link your ALB Controller to Application Gateway for Containers
 
-Now that you have successfully installed a ALB Controller on your cluster you can provision the Application Gateway For Containers resources in Azure.
+Now that you have successfully installed an ALB Controller on your cluster you can provision the Application Gateway For Containers resources in Azure.
 
 There are two deployment strategies for management of Application Gateway for Containers:
 
-- **Bring your own (BYO) deployment:** In this deployment strategy, deployment and lifecycle of the Application Gateway for Containers resource, Association and Frontend resource is assumed via Azure Portal, CLI, PowerShell, Terraform, etc. and referenced in configuration within Kubernetes.
+- **Bring your own (BYO) deployment:** In this deployment strategy, deployment and lifecycle of the Application Gateway for Containers resource, Association and Frontend resource is assumed via Azure portal, CLI, PowerShell, Terraform, etc. and referenced in configuration within Kubernetes.
    - Quickstart guide for bring your own (BYO) strategy can [be found here](quickstart-create-application-gateway-for-containers-byo-deployment.md)
-- **Managed by ALB controller:** In this deployment strategy ALB Controller deployed in Kubernetes will be responsible for the lifecycle of the Application Gateway for Containers resource and its sub resources. ALB Controller will create Application Gateway for Containers resource when an ApplicationLoadBalancer custom resource is defined on the cluster and its lifecycle will be based on the lifecycle of the custom resource.
+- **Managed by ALB controller:** In this deployment strategy ALB Controller deployed in Kubernetes is responsible for the lifecycle of the Application Gateway for Containers resource and its sub resources. ALB Controller creates an Application Gateway for Containers resource when an ApplicationLoadBalancer custom resource is defined on the cluster and its lifecycle is based on the lifecycle of the custom resource.
   - Quickstart guide for managed by ALB controller strategy can [be found here](quickstart-create-application-gateway-for-containers-managed-by-alb-controller.md)
 
 ## Uninstall Application Gateway for Containers and ALB Controller
 
 If you wish to uninstall the ALB Controller, you may complete the following steps.
 
-1. To delete the Application Gateway for Containers, you may simply delete the Resource Group containing the Application Gateway for Containers resources:
+1. To delete the Application Gateway for Containers, you can delete the Resource Group containing the Application Gateway for Containers resources:
 
 	```bash
 	az group delete --resource-group $RESOURCE_GROUP
