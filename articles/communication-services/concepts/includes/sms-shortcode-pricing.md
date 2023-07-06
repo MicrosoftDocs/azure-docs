@@ -20,13 +20,22 @@ The Short Code service requires provisioning a short code through the Azure port
 ## Short Codes Pricing
 
 ### Provisioning Fee
-Fees for short code provisioning are charged during the short code provisioning period:
+Fees for short code provisioning are charged during the short code provisioning period.
+
+Setup fee:
 
 |Country|Fee type   | Description |Fee|
 |---------|-----------|-------------|---|
-|United States|Setup Fee |Charged at the time the Short Code is delivered |$650 |
-|United States|Random Short Code Fee |Charged before short code delivery. Waived for a limited period|$1000/mo*|
-|Canada|Setup Fee |Charged at the time the Short Code is delivered |$3000/mo|
+|Canada|Setup Fee |Charged at the time the Short Code is delivered |$3000|
+|United States|Setup Fee |Charged at the time the Short Code is delivered |$650|
+
+Short code fee:
+
+|Country|Fee type   | Description |Fee|
+|---------|-----------|-------------|---|
+|Canada| Short Code Fee |Charged before short code delivery. Waived for a limited period|$1000/mo|
+|United Kingdom| Short Code Fee |Charged before short code delivery. Waived for a limited period|$1600/mo|
+|United States|Random Short Code Fee |Charged before short code delivery. Waived for a limited period|$1000/mo|
 
 *Extra $500/mo would be charged for Vanity short codes
 
@@ -38,22 +47,22 @@ Fees for short code leasing are charged after provisioning is complete and then 
 
 |Country|Number type | Monthly fee |
 |--------|----------|-----------|
-|United States|Random Short Code |$1000/mo* |
-|United Kingdom|Random Short Code |$1400/mo |
 |Canada|Random Short Code |$1000/mo |
+|United Kingdom|Random Short Code |$1600/mo |
+|United States|Random Short Code |$1000/mo* |
 
 *Extra $500/mo would be charged for Vanity short codes
 
 ### Usage Fee
-SMS offers pay-as-you-go pricing. The price is a per-message segment charge based on the destination of the message. Messages can be sent from a short code to phone numbers located within the United States. 
+SMS offers pay-as-you-go pricing. The price is a per-message segment charge based on the destination of the message. Messages can be sent from a short code to phone numbers located within the specified countries. 
 
 The following prices are exclusive of the required communications taxes and fees:
 
 |Country| Send Message | Receive Message|
 |-----------|---------|--------------|
-|United States| $0.0075 | $0.0075|
-|United Kingdom| $0.04 | $0.0075|
 |Canada | $0.0268 | $0.0061|
+|United Kingdom| $0.04 | $0.0075|
+|United States| $0.0075 | $0.0075|
 
 
 *See our guide on [SMS character limits](../sms/sms-faq.md#what-is-the-sms-character-limit) to learn more about message segments.
@@ -63,5 +72,5 @@ A standard carrier surcharge is applicable to messages exchanged via toll-free n
 
 |Country| Send Message | Receive Message|
 |-----------|---------|--------------|
-|United States| $0.0025 | NA|
 |Canada | $0.0050 | NA|
+|United States| $0.0025 | NA|
