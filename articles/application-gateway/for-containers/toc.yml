@@ -8,7 +8,9 @@
   items:
   - name: Deploy Application Gateway for Containers ALB Controller
     href: quickstart-deploy-application-gateway-for-containers-alb-controller.md
-  - name: Create Application Gateway for Containers managed by ALB Controller
+  - name: Create Application Gateway for Containers - bring your own deployment
+    href: quickstart-create-application-gateway-for-containers-byo-deployment.md
+  - name: Create Application Gateway for Containers - managed by ALB Controller
     href: quickstart-create-application-gateway-for-containers-managed-by-alb-controller.md
 - name: Concepts
   items:
