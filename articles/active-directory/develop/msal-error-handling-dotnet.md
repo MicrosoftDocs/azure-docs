@@ -136,7 +136,7 @@ When calling an API requiring Conditional Access from MSAL.NET, your application
 
 To handle the claim challenge, you'll need to use the `.WithClaim()` method of the [`PublicClientApplicationBuilder`](/dotnet/api/microsoft.identity.client.publicclientapplicationbuilder) class.
 
-[!INCLUDE [Active directory error handling retries](../../../includes/active-directory-develop-error-handling-retries.md)]
+[!INCLUDE [Active directory error handling retries](./includes/error-handling-and-tips/active-directory-develop-error-handling-retries.md)]
 
 ### HTTP error codes 500-600
 
