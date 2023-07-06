@@ -51,7 +51,7 @@ To complete this tutorial, you need to:
 
 2. Install the latest Azure CLI for your operating system from the [Azure CLI installation page](/cli/azure/install-azure-cli).
 
-   If the Azure CLI is already installed, check the version by using the `az version` command. The version should be **2.45.0** or later to use the migration CLI commands. If not, [update your Azure CLI version](/cli/azure/update-azure-cli).
+   If the Azure CLI is already installed, check the version by using the `az version` command. The version should be **2.50.0** or later to use the migration CLI commands. If not, [update your Azure CLI version](/cli/azure/update-azure-cli).
 
 3. Run the `az login` command:
    
@@ -153,8 +153,8 @@ The `create` parameters that go into the json file format are as shown below:
 | Parameter | Type | Description |
 | ---- | ---- | ---- |
 | `sourceDbServerResourceId` | Required |  This parameter is the resource ID of the Single Server source and is mandatory. |
-| `sourceServerUserName` | Optional |  This parameter is the user or role on the source single server used for performing the migration. This user should have necessary privileges and ownership on the database objects involved in the migration and should be a member of **azure_pg_admin** role. The default value is the admin user created during the creation of single server and the password provided will be used for authentication against this user. |
-| `targetServerUserName` | Optional |  This parameter is the user or role on the target server used for performing the migration. This user should be a member of **azure_pg_admin** role. The default value is the admin user created during the creation of flexible server and the password provided will be used for authentication against this user. |
+| `sourceServerUserName` | Required |  This parameter is the user or role on the source single server used for performing the migration. This user should have necessary privileges and ownership on the database objects involved in the migration and should be a member of **azure_pg_admin** role. The default value is the admin user created during the creation of single server and the password provided will be used for authentication against this user. |
+| `targetServerUserName` | Required |  This parameter is the user or role on the target server used for performing the migration. This user should be a member of **azure_pg_admin** role. The default value is the admin user created during the creation of flexible server and the password provided will be used for authentication against this user. |
 | `secretParameters` | Required | This parameter lists passwords for admin users for both the Single Server source and the Flexible Server target. These passwords help to authenticate against the source and target servers.
 | `dbsToMigrate` | Required | Specify the list of databases that you want to migrate to Flexible Server. You can include a maximum of eight database names at a time. |
 | `overwriteDbsInTarget` | Required | When set to true (default), if the target server happens to have an existing database with the same name as the one you're trying to migrate, migration tool automatically overwrites the database. |
