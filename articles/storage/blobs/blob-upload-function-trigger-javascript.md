@@ -5,7 +5,7 @@ author: diberry
 ms.author: diberry
 ms.service: storage
 ms.topic: tutorial
-ms.date: 05/13/2022
+ms.date: 07/06/2023
 ms.devlang: javascript
 ms.custom: devx-track-js, devx-track-azurecli
 ---
