@@ -44,7 +44,7 @@ If ID tokens are not enabled for your app and one is requested, the Microsoft id
 
 > *The provided value for the input parameter 'response_type' isn't allowed for this client. Expected value is 'code'*.
 
-Requesting an ID token by specifying a `response_type` of `code` is explained in [Send the sign-in request](#send-the-sign-in-request) later in the article.
+Requesting an ID token by specifying a `response_type` of `id_token` is explained in [Send the sign-in request](#send-the-sign-in-request) later in the article.
 
 ## Fetch the OpenID configuration document
 
@@ -113,7 +113,7 @@ The configuration metadata is returned in JSON format as shown in the following 
 To authenticate a user and request an ID token for use in your application, direct their user-agent to the Microsoft identity platform's _/authorize_ endpoint. The request is similar to the first leg of the [OAuth 2.0 authorization code flow](v2-oauth2-auth-code-flow.md) but with these distinctions:
 
 * Include the `openid` scope in the `scope` parameter.
-* Specify `code` in the `response_type` parameter.
+* Specify `id_token` in the `response_type` parameter.
 * Include the `nonce` parameter.
 
 Example sign-in request (line breaks included only for readability):

@@ -480,7 +480,7 @@ print('\n batch size:',parameter_values[7])
 Refer to train-hyperparameter-* notebooks in this folder:
 * [how-to-use-azureml/ml-frameworks](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/ml-frameworks)
 
-[!INCLUDE [aml-clone-in-azure-notebook](../../../includes/aml-clone-for-examples.md)]
+[!INCLUDE [aml-clone-in-azure-notebook](../includes/aml-clone-for-examples.md)]
 
 ## Next steps
 * [Track an experiment](../how-to-log-view-metrics.md)
