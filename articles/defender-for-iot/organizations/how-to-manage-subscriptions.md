@@ -33,9 +33,9 @@ This procedure describes how to purchase Defender for IoT licenses in the Micros
 
 1. Go to the [Microsoft 365 admin center](https://portal.office.com/AdminPortal/Home#/catalog) **Billing > Purchase services**. If you don't have this option, select **Marketplace** instead.
 
-1. Select **All products** and search for **Microsoft Defender for IoT**.
+1. Search for **Microsoft Defender for IoT**, and then locate the **Microsoft Defender for IoT** license for your site size.
 
-1. Locate the **Microsoft Defender for IoT** license for your site size, and then follow the options through to buy the license and add it to your Microsoft 365 products.
+1. Follow the options through to buy the license and add it to your Microsoft 365 products.
 
    Make sure to select the number of licenses you want to purchase, based on the number of sites you want to monitor at the selected size.
 
