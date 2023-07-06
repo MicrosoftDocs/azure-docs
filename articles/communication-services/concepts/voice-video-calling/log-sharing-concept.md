@@ -21,46 +21,33 @@ ms.subservice: calling
 
 Log Sharing provides access to Log files, to help facilitate the creation of more effective support channels.
 
-## Purpose of the Log Sharing feature
+## Problem Statement
 
-When issues arise in a calling experience, and that issue is escalated to Microsoft for support, Log files from the customer's device may be requested to assist in diagnosing and providing support on the issue.
+To facilitate support requests, occasionally log files are requested. For certain end-users, especially Android/iOS users providing these files can be a major hurdle as these files are stored within the Application's sandbox.
 
-However, it is not fair to ask end users to perform technical steps in order to provide these log files. These API's providing a starting point for an integrating partner to implement enhanced support that streamlines access to these files.
+## Solution
 
-By providing access to a list of files that Microsoft customer support may request, the application will be able to know what files to bundle and link to corresponding support tickets.
-
-These API's do not include remote storage or transfer. The application will need to call these API's when there is an error, and then transfer them to a accessible place for Microsoft support to access. 
+Provide the application developer with the location of the files, so that they can implement share/export functionality in a more robust and reliable way.
 
 ## Api Functionalities
 
 For each platform, a `getSupportFiles` method is offered. This method returns a list of files that should be included in a support request. 
 
-This API does not package/transmit the files.
+This API does not package/transmit the files, and that functionality must be implemented in the application.
 
-## Customer Support Requests
+## Included Support Files
 
-When Logs are requested, they are in the form of Calling and Media stack logs. The files on the device are .blog files, which are encrypted and can not be read outside of microsoft. On mobile devices, these files are stored within the applications sandbox, and on windows, it's in the applications local data.
-
-Ideally, these logs are ready to be shared when the issue is escalated to microsoft. Additionally, collecting the logs as close to the incident is important to ensure relevant issue is there. I.e. you don't want to ask the Customer a week later for their logs for an issue they had a week ago, as the logs roll-over and aren't indefinitely stored.
-
-
-### Network Usage / Storage Considerations
-
-The support files, in total can be in the range of 5-50mb, depending on contents. As such, it's encouraged to notify the user of the transfer size so they can do it when on their desired network.
-
-This size can also be prohibitive with certain transfer mechanisms, i.e. Sharing via Email may not work if > 25mb of log files is collected. 
-
-Storage should generally be in a Cloud Storage bucket that can be readily accessed by Microsoft Support with a URL.
-
-### Handing Over files to Microsoft Support
-
-Once reaching Microsoft support, the files need to be handed over. Ideally a zip file including all logs should be linked and shared. 
+ACS Calling Logs as well as Media Stack Logs are listed out. In releases, these log files are encrypted and not in a format that an Application developer or End user can read.
 
 ## Integration Guidance
 
-To add this feature to your own applications, you'll need to expose an interface to submit the files, and build out mechanisms to receive them. This is likely a combination of both backend/frontend features.
+When creating a user-interface for this feature, the following suggestions can help guide direction.
 
-The recommendation is to create an API Endpoint for creating a ticket, creating the entries in Blob storage, and linking everything together. Your application ticketing system should include the User description of the issue, Call ID's, and a link to the zipped files that should support may request.
+Ultimately, you'll want to address this user story *"As an end user, I'd like to be able to Report and error, and attach the Log Files at the time of error"*.
+
+While your approach may vary, the goal is to have your Support team have access to these files close to the time of issue, so that they can hand the files over to microsoft if requested.
+
+The following is a suggestion on how a typical organization with a Ticket System and access to online Storage Blob's may proceed, however depending on your organizations tooling/support processes and resources this may vary.
 
 ### Backend Integration
 
@@ -72,28 +59,31 @@ It's sensible to create a back-end API that can be used to create Support Ticket
 1. Link URL of Logs to the Support Ticket
 
 ### Frontend Integration
+
 Various options exist on how to integrate this into the UI of your applications. Any combination of approaches is valid, but remember it's best to collect this data as close to the issue as possible.
 
 - Offer a "report issue" feature
     1. Add a screen/dialog to report issues for the user to invoke
     1. When submitting issue, call your API, and pass the log files to the Server
-- Extend post-call survey
+- Extend post-call survey to include "report an issue"
     1. Add "report an issue" checkbox
     1. Add "more info" for issues.
     1. When "report an issue" is checked, call your API to create the ticket and link the support files
 - Integrate via Push-Notification
     1. Create a new Push-Type for requesting log files
+    1. Support initiates push request for support files
     1. Present user with a notification requesting access to log files
-    1. On user confirmation, call your API to Create a Ticket and Link the log files
+    1. On user confirmation, call your API to Create or Link a Ticket and Log files
 - Direct Sharing
     1. Add an "Export Logs" function to the client application
     1. Package files on the client device.
     1. Use the systems built-in share functionality to transmit the files.
 
+
 ## More Reading
 
-- End Call Survey Concept Docs
-- Troubleshooting
-- Azure Storage buckets
-- Devops Create Ticket
-- Devops Attach File
+- [End of Call Survey Conceptual Document](../voice-video-calling/end-of-call-survey-concept.md)
+- [Troubleshooting Info](../troubleshooting-info.md)
+- [Log Sharing Tutorial](../../tutorials/log-sharing-tutorial.md)
+- [Azure Devops Create Ticket](https://learn.microsoft.com/en-us/rest/api/azure/devops/wit/work-items/create?view=azure-devops-rest-7.0&tabs=HTTP)
+- [Azure Devops Attach File](https://learn.microsoft.com/en-us/rest/api/azure/devops/wit/attachments/create?view=azure-devops-rest-7.0&tabs=HTTP)
