@@ -7,111 +7,111 @@ ms.topic: include
 ms.author: Zoubaolian
 ---
 
-| Locale (BCP-47) | Language                          |
-| --------------- | --------------------------------- |
-| ar-AE           | Arabic (United Arab Emirates)<sup>1</sup>     |
-| ar-BH           | Arabic (Bahrain)<sup>1</sup>                  |
-| ar-DZ           | Arabic (Algeria)<sup>1</sup>                  |
-| ar-EG           | Arabic (Egypt)<sup>1</sup>                    |
-| ar-IQ           | Arabic (Iraq)<sup>1</sup>                     |
-| ar-JO           | Arabic (Jordan)<sup>1</sup>                   |
-| ar-KW           | Arabic (Kuwait)<sup>1</sup>                   |
-| ar-LB           | Arabic (Lebanon)<sup>1</sup>                  |
-| ar-LY           | Arabic (Libya)<sup>1</sup>                    |
-| ar-MA           | Arabic (Morocco)<sup>1</sup>                  |
-| ar-OM           | Arabic (Oman)<sup>1</sup>                     |
-| ar-QA           | Arabic (Qatar)<sup>1</sup>                    |
-| ar-SA           | Arabic (Saudi Arabia)<sup>1</sup>             |
-| ar-SY           | Arabic (Syria)<sup>1</sup>                    |
-| ar-TN           | Arabic (Tunisia)<sup>1</sup>                  |
-| ar-YE           | Arabic (Yemen)<sup>1</sup>                    |
-| bg-BG           | Bulgarian (Bulgaria)<sup>1</sup>              |
-| ca-ES           | Catalan (Spain)<sup>1</sup>                   |
-| cs-CZ           | Czech (Czechia) <sup>1</sup>                  |
-| da-DK           | Danish (Denmark) <sup>1</sup>                 |
-| de-AT           | German (Austria)                  |
-| de-CH           | German (Switzerland)              |
-| de-DE           | German (Germany)                  |
-| el-GR           | Greek (Greece)<sup>1</sup>                    |
-| en-AU           | English (Australia)           |
-| en-CA           | English (Canada)            |
-| en-GB           | English (United Kingdom)         |
-| en-HK           | English (Hong Kong SAR)     |
-| en-IE           | English (Ireland)               |
-| en-IN           | English (India)             |
-| en-KE           | English (Kenya)                |
-| en-NG           | English (Nigeria)          |
-| en-NZ           | English (New Zealand)        |
-| en-PH           | English (Philippines)          |
-| en-SG           | English (Singapore)            |
-| en-TZ           | English (Tanzania)             |
-| en-US           | English (United States)      |
-| en-ZA           | English (South Africa) |
-| es-AR           | Spanish (Argentina)|
-| es-BO           | Spanish (Bolivia)|
-| es-CL           | Spanish (Chile) |
-| es-CO           | Spanish (Colombia)|
-| es-CR           | Spanish (Costa Rica)              |
-| es-CU           | Spanish (Cuba)                    |
-| es-DO           | Spanish (Dominican Republic)      |
-| es-EC           | Spanish (Ecuador)                 |
-| es-ES           | Spanish (Spain)                   |
-| es-GQ           | Spanish (Equatorial Guinea)       |
-| es-GT           | Spanish (Guatemala)               |
-| es-HN           | Spanish (Honduras)                |
-| es-MX           | Spanish (Mexico)                  |
-| es-NI           | Spanish (Nicaragua)               |
-| es-PA           | Spanish (Panama)                  |
-| es-PE           | Spanish (Peru)                    |
-| es-PR           | Spanish (Puerto Rico)             |
-| es-PY           | Spanish (Paraguay)                |
-| es-SV           | Spanish (El Salvador)             |
-| es-US           | Spanish (United States)           |
-| es-UY           | Spanish (Uruguay)                 |
-| es-VE           | Spanish (Venezuela)               |
-| fi-FI           | Finnish (Finland) <sup>1</sup>                |
-| fr-BE           | French (Belgium)                  |
-| fr-CA           | French (Canada)                   |
-| fr-CH           | French (Switzerland)              |
-| fr-FR           | French (France)                   |
-| gu-IN           | Gujarati (India)<sup>1</sup>                  |
-| he-IL           | Hebrew (Israel)<sup>1</sup>                   |
-| hi-IN           | Hindi (India)<sup>1</sup>                     |
-| hr-HR           | Croatian (Croatia)<sup>1</sup>                |
-| hu-HU           | Hungarian (Hungary)<sup>1</sup>               |
-| id-ID           | Indonesian (Indonesia)<sup>1</sup>            |
-| it-IT           | Italian (Italy)                   |
-| ja-JP           | Japanese (Japan)<sup>1</sup>                  |
-| ko-KR           | Korean (Korea)<sup>1</sup>                    |
-| mr-IN           | Marathi (India)<sup>1</sup>                   |
-| ms-MY           | Malay (Malaysia)<sup>1</sup>                  |
-| nb-NO           | Norwegian Bokmål (Norway)<sup>1</sup>         |
-| nl-BE           | Dutch (Belgium)<sup>1</sup>                  |
-| nl-NL           | Dutch (Netherlands)<sup>1</sup>               |
-| pl-PL           | Polish (Poland)<sup>1</sup>                   |
-| pt-BR           | Portuguese (Brazil)               |
-| pt-PT           | Portuguese (Portugal)             |
-| ro-RO           | Romanian (Romania)<sup>1</sup>                |
-| ru-RU           | Russian (Russia)<sup>1</sup>                  |
-| sk-SK           | Slovak (Slovakia)<sup>1</sup>                 |
-| sl-SI           | Slovenian (Slovenia)<sup>1</sup>              |
-| sv-SE           | Swedish (Sweden)<sup>1</sup>                  |
-| sw-TZ           | Swahili (Tanzania)<sup>1</sup>                |
-| ta-IN           | Tamil (India)<sup>1</sup>                     |
-| ta-LK           | Tamil (Sri Lanka)<sup>1</sup>                 |
-| ta-MY           | Tamil (Malaysia)<sup>1</sup>                  |
-| ta-SG           | Tamil (Singapore)<sup>1</sup>                 |
-| te-IN           | Telugu (India)<sup>1</sup>                    |
-| th-TH           | Thai (Thailand)<sup>1</sup>                   |
-| tr-TR           | Turkish (Turkey)<sup>1</sup>                  |
-| uk-UA           | Ukrainian (Ukraine)<sup>1</sup>               |
-| ur-IN           | Urdu (India)<sup>1</sup>                      |
-| ur-PK           | Urdu (Pakistan)<sup>1</sup>                   |
-| vi-VN           | Vietnamese (Vietnam)<sup>1</sup>              |
-| zh-CN           | Chinese (Mandarin, Simplified)    |
-| zh-HK           | Chinese (Cantonese, Traditional)<sup>1</sup>  |
-| zh-TW           | Chinese (Taiwanese Mandarin, Traditional)<sup>1</sup> |
+| Locale (BCP-47) | Language                          |Viseme feature
+| --------------- | --------------------------------- |--------------- |
+| ar-AE           | Arabic (United Arab Emirates) | Viseme ID|
+| ar-BH           | Arabic (Bahrain) | Viseme ID|
+| ar-DZ           | Arabic (Algeria) | Viseme ID|
+| ar-EG           | Arabic (Egypt) | Viseme ID|
+| ar-IQ           | Arabic (Iraq) | Viseme ID|
+| ar-JO           | Arabic (Jordan)| Viseme ID|
+| ar-KW           | Arabic (Kuwait) | Viseme ID|
+| ar-LB           | Arabic (Lebanon)| Viseme ID|
+| ar-LY           | Arabic (Libya)| Viseme ID|
+| ar-MA           | Arabic (Morocco) | Viseme ID|
+| ar-OM           | Arabic (Oman) | Viseme ID|
+| ar-QA           | Arabic (Qatar) | Viseme ID|
+| ar-SA           | Arabic (Saudi Arabia) | Viseme ID|
+| ar-SY           | Arabic (Syria) | Viseme ID|
+| ar-TN           | Arabic (Tunisia)| Viseme ID|
+| ar-YE           | Arabic (Yemen)| Viseme ID|
+| bg-BG           | Bulgarian (Bulgaria) | Viseme ID|
+| ca-ES           | Catalan (Spain)| Viseme ID|
+| cs-CZ           | Czech (Czechia) | Viseme ID|
+| da-DK           | Danish (Denmark)  | Viseme ID|
+| de-AT           | German (Austria)  |Viseme ID <br> Blend shapes|
+| de-CH           | German (Switzerland) |Viseme ID <br> Blend shapes|
+| de-DE           | German (Germany)  |Viseme ID <br> Blend shapes|
+| el-GR           | Greek (Greece)| Viseme ID|
+| en-AU           | English (Australia)   |Viseme ID <br> Blend shapes|
+| en-CA           | English (Canada)   |Viseme ID <br> Blend shapes|
+| en-GB           | English (United Kingdom)  |Viseme ID <br> Blend shapes|
+| en-HK           | English (Hong Kong SAR)   |Viseme ID <br> Blend shapes|
+| en-IE           | English (Ireland)    |Viseme ID <br> Blend shapes|
+| en-IN           | English (India)  |Viseme ID <br> Blend shapes|
+| en-KE           | English (Kenya)  |Viseme ID <br> Blend shapes|
+| en-NG           | English (Nigeria)  |Viseme ID <br> Blend shapes|
+| en-NZ           | English (New Zealand)   |Viseme ID <br> Blend shapes|
+| en-PH           | English (Philippines)  |Viseme ID <br> Blend shapes|
+| en-SG           | English (Singapore)  |Viseme ID <br> Blend shapes|
+| en-TZ           | English (Tanzania)   |Viseme ID <br> Blend shapes|
+| en-US           | English (United States)  |Viseme ID <br> Blend shapes<br>Scalable vector graphics (SVG)|
+| en-ZA           | English (South Africa) |Viseme ID <br> Blend shapes|
+| es-AR           | Spanish (Argentina) |Viseme ID <br> Blend shapes|
+| es-BO           | Spanish (Bolivia) |Viseme ID <br> Blend shapes|
+| es-CL           | Spanish (Chile)  |Viseme ID <br> Blend shapes|
+| es-CO           | Spanish (Colombia) |Viseme ID <br> Blend shapes|
+| es-CR           | Spanish (Costa Rica)    |Viseme ID <br> Blend shapes|
+| es-CU           | Spanish (Cuba)      |Viseme ID <br> Blend shapes|
+| es-DO           | Spanish (Dominican Republic)     |Viseme ID <br> Blend shapes|
+| es-EC           | Spanish (Ecuador)   |Viseme ID <br> Blend shapes|
+| es-ES           | Spanish (Spain)     |Viseme ID <br> Blend shapes|
+| es-GQ           | Spanish (Equatorial Guinea)  |Viseme ID <br> Blend shapes|
+| es-GT           | Spanish (Guatemala)  |Viseme ID <br> Blend shapes|
+| es-HN           | Spanish (Honduras)     |Viseme ID <br> Blend shapes|
+| es-MX           | Spanish (Mexico)        |Viseme ID <br> Blend shapes|
+| es-NI           | Spanish (Nicaragua)     |Viseme ID <br> Blend shapes|
+| es-PA           | Spanish (Panama)        |Viseme ID <br> Blend shapes|
+| es-PE           | Spanish (Peru)          |Viseme ID <br> Blend shapes|
+| es-PR           | Spanish (Puerto Rico)   |Viseme ID <br> Blend shapes|
+| es-PY           | Spanish (Paraguay)        |Viseme ID <br> Blend shapes|
+| es-SV           | Spanish (El Salvador)    |Viseme ID <br> Blend shapes|
+| es-US           | Spanish (United States)   |Viseme ID <br> Blend shapes|
+| es-UY           | Spanish (Uruguay)          |Viseme ID <br> Blend shapes|
+| es-VE           | Spanish (Venezuela)     |Viseme ID <br> Blend shapes|
+| fi-FI           | Finnish (Finland) |Viseme ID|
+| fr-BE           | French (Belgium)        |Viseme ID <br> Blend shapes|
+| fr-CA           | French (Canada)         |Viseme ID <br> Blend shapes|
+| fr-CH           | French (Switzerland)      |Viseme ID <br> Blend shapes|
+| fr-FR           | French (France)            |Viseme ID <br> Blend shapes|
+| gu-IN           | Gujarati (India) |Viseme ID|
+| he-IL           | Hebrew (Israel)  |Viseme ID|
+| hi-IN           | Hindi (India) |Viseme ID|
+| hr-HR           | Croatian (Croatia) |Viseme ID|
+| hu-HU           | Hungarian (Hungary) |Viseme ID|
+| id-ID           | Indonesian (Indonesia) |Viseme ID|
+| it-IT           | Italian (Italy)   |Viseme ID <br> Blend shapes|
+| ja-JP           | Japanese (Japan)|Viseme ID|
+| ko-KR           | Korean (Korea) |Viseme ID|
+| mr-IN           | Marathi (India) |Viseme ID|
+| ms-MY           | Malay (Malaysia)  |Viseme ID|
+| nb-NO           | Norwegian Bokmål (Norway) |Viseme ID|
+| nl-BE           | Dutch (Belgium) |Viseme ID|
+| nl-NL           | Dutch (Netherlands) |Viseme ID|
+| pl-PL           | Polish (Poland) |Viseme ID|
+| pt-BR           | Portuguese (Brazil)    |Viseme ID <br> Blend shapes|
+| pt-PT           | Portuguese (Portugal)    |Viseme ID <br> Blend shapes|
+| ro-RO           | Romanian (Romania) |Viseme ID|
+| ru-RU           | Russian (Russia)|Viseme ID|
+| sk-SK           | Slovak (Slovakia) |Viseme ID|
+| sl-SI           | Slovenian (Slovenia) |Viseme ID|
+| sv-SE           | Swedish (Sweden) |Viseme ID|
+| sw-TZ           | Swahili (Tanzania) |Viseme ID|
+| ta-IN           | Tamil (India) |Viseme ID|
+| ta-LK           | Tamil (Sri Lanka) |Viseme ID|
+| ta-MY           | Tamil (Malaysia) |Viseme ID|
+| ta-SG           | Tamil (Singapore)|Viseme ID|
+| te-IN           | Telugu (India)|Viseme ID|
+| th-TH           | Thai (Thailand)|Viseme ID|
+| tr-TR           | Turkish (Turkey)|Viseme ID|
+| uk-UA           | Ukrainian (Ukraine)|Viseme ID|
+| ur-IN           | Urdu (India)|Viseme ID|
+| ur-PK           | Urdu (Pakistan)|Viseme ID|
+| vi-VN           | Vietnamese (Vietnam) |Viseme ID|
+| zh-CN           | Chinese (Mandarin, Simplified)  |Viseme ID <br> Blend shapes|
+| zh-HK           | Chinese (Cantonese, Traditional)|Viseme ID|
+| zh-TW           | Chinese (Taiwanese Mandarin, Traditional)|Viseme ID|
 
-<sup>1</sup> Blend shapes isn't supported for these locales, and SVG is only supported for the `en-US` locale. For more information, see [Get facial position with viseme](../../how-to-speech-synthesis-viseme.md) and [Viseme element](../../speech-synthesis-markup-structure.md#viseme-element). 
+
 
 
