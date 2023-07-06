@@ -32,7 +32,7 @@ metadata:
 EOF
 ```
 
-2. Define the _ApplicationLoadBalancer_ object, specifying the subnet ID the Application Gateway for Containers association resource should deploy into.  The association establishs connectivity from Application Gateway for Containers to the defined subnet (and connected networks where applicable) to be able to proxy traffic to a defined backend.
+2. Define the _ApplicationLoadBalancer_ object, specifying the subnet ID the Application Gateway for Containers association resource should deploy into.  The association establishes connectivity from Application Gateway for Containers to the defined subnet (and connected networks where applicable) to be able to proxy traffic to a defined backend.
 
 ```bash
 kubectl apply -f - <<EOF
@@ -49,7 +49,7 @@ EOF
 
 ## Validate creation of the Application Gateway for Containers resources
 
-Once the _ApplicationLoadBalancer_ object has been created, you can track deployment progress of the Application Gateway for Containers resources. During provisioning, you'll notice the deployment transitions between _InProgress_ and ultimately _Ready_ state once provision has completed. Please note, it can take 5-6 minutes for the Application Gateway For Containers resource to be created.
+Once the _ApplicationLoadBalancer_ object has been created, you can track deployment progress of the Application Gateway for Containers resources. The deployment transitions from _InProgress_ to _Ready_ state when provisioning has completed. It can take 5-6 minutes for the Application Gateway For Containers resource to be created.
 
 You can check the status of the _ApplicationLoadBalancer_ object by running the following command:
 
