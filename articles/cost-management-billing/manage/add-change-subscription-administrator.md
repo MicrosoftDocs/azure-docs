@@ -7,7 +7,7 @@ tags: billing
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: conceptual
-ms.date: 01/26/2023
+ms.date: 04/10/2023
 ms.author: banders
 
 ---
@@ -19,7 +19,7 @@ This article describes how to add or change the administrator role for a user us
 
 This article applies to a Microsoft Online Service Program (pay-as-you-go) account or a Visual Studio account. If you have a Microsoft Customer Agreement (Azure plan) account, see [Understand Microsoft Customer Agreement administrative roles in Azure](understand-mca-roles.md). If you have an Azure Enterprise Agreement, see [Manage Azure Enterprise Agreement roles](understand-ea-roles.md).
 
-Microsoft recommends that you manage access to resources using Azure RBAC. However, if you are still using the classic deployment model and managing the classic resources by using [Azure Service Management PowerShell Module](/powershell/module/servicemanagement/azure.service), you'll need to use a classic administrator.
+Microsoft recommends that you manage access to resources using Azure RBAC. However, if you are still using the classic deployment model and managing the classic resources by using [Azure Service Management PowerShell Module](/powershell/azure/servicemanagement/install-azure-ps), you'll need to use a classic administrator.
 
 > [!TIP]
 > If you only use the Azure portal to manage the classic resources, you don't need to use the classic administrator.

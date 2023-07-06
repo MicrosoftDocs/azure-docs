@@ -4,7 +4,7 @@ metadata:
   description: In this article, discover answers to common questions about backing up Azure VMs with the Azure Backup service.
   ms.topic: faq
   ms.service: backup
-  ms.date: 11/22/2022
+  ms.date: 06/13/2023
   author: jyothisuri
   ms.author: jsuri
 
@@ -147,6 +147,15 @@ sections:
       - question: Can I remove all restore points and retain the latest one?
         answer: |
           No, you can't retain one single restore point. When you delete the previous restore points, the chain gets deleted. Therefore, you can't selectively retain or delete a recovery point.
+
+      - question: How long can I retain backup points of Azure VMs using the backup policy?
+        answer: |
+          The maximum retentions of the backup points are:
+
+          - **Retention of daily backup points**: 9999 days
+          - **Retention of weekly backup points**: 5163 weeks
+          - **Retention of monthly backup points**: 1188 months
+          - **Retention of yearly backup points**: 99 years 
 
   - name: Restore
     questions:
@@ -359,9 +368,9 @@ sections:
         answer: |
           Because Azure resources handle this traffic, it can't be determined by an external user.
 
-      - question: What's the minimum RPO and RTO for VM backups in Azure Backup?
+      - question: What is the minimum RPO and RTO for VM backups in Azure Backup?
         answer: |
-          **RPO**: The minimum RPO is 1 day or 24 hours.  <br><br>  **RTO**: The snapshots are stored in the storage account. So, the restore from the instant restore tier is instantaneous. This data is then transferred to the Recovery Services vault that is maintained by the Azure Backup service and will take a couple of hours for transfer and restore.
+          **RPO**: The minimum RPO is 1 day or 24 hours when you're using Standard policy. If you use Enhanced policy, the minimum RPO is 4 hours.
 
       - question: Why does the error VMMarketplaceInvalidInputmessage appear?
         answer: |

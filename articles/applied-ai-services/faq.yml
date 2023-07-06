@@ -21,7 +21,7 @@ sections:
          - [Cognitive Search encryption of data at rest](../search/search-security-manage-encryption-keys.md)
          - [Form Recognizer encryption of data at rest](./form-recognizer/encrypt-data-at-rest.md)
          - [Metrics Advisor encryption of data at rest](./metrics-advisor/encryption.md)
-         - [Video Analyzer encryption of data at rest](../azure-video-analyzer/video-analyzer-docs/customer-managed-keys.md)
+         - [Video Analyzer encryption of data at rest](/previous-versions/azure/azure-video-analyzer/video-analyzer-docs/articles/azure-video-analyzer/video-analyzer-docs/customer-managed-keys)
 additionalContent: |
   ## Next Steps
   - [What is Azure Key Vault](../key-vault/general/overview.md)?

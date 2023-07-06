@@ -5,7 +5,7 @@ services: active-directory
 author: cilwerner
 manager: CelesteDG
 ms.author: cwerner
-ms.date: 11/14/2022
+ms.date: 06/29/2023
 ms.topic: include
 ms.service: active-directory
 ms.subservice: develop
@@ -35,7 +35,7 @@ The Microsoft identity platform performs identity and access management (IAM) on
 
 ## Register an application
 
-Registering your application establishes a trust relationship between your app and the Microsoft identity platform. The trust is unidirectional: your app trusts the Microsoft identity platform, and not the other way around. Once created, the application object cannot be moved between different tenants.
+Registering your application establishes a trust relationship between your app and the Microsoft identity platform. The trust is unidirectional: your app trusts the Microsoft identity platform, and not the other way around. Once created, the application object cannot be moved between different tenants. 
 
 Follow these steps to create the app registration:
 
@@ -51,7 +51,7 @@ Follow these steps to create the app registration:
    | ---------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
    | **Accounts in this organizational directory only**                           | Select this option if you're building an application for use only by users (or guests) in _your_ tenant.<br><br>Often called a _line-of-business_ (LOB) application, this app is a _single-tenant_ application in the Microsoft identity platform.                                                                                                                                          |
    | **Accounts in any organizational directory**                                 | Select this option if you want users in _any_ Azure Active Directory (Azure AD) tenant to be able to use your application. This option is appropriate if, for example, you're building a software-as-a-service (SaaS) application that you intend to provide to multiple organizations.<br><br>This type of app is known as a _multitenant_ application in the Microsoft identity platform. |
-   | **Accounts in any organizational directory and personal Microsoft accounts** | Select this option to target the widest set of customers.<br><br>By selecting this option, you're registering a _multitenant_ application that can also support users who have personal _Microsoft accounts_.                                                                                                                                                                               |
+   | **Accounts in any organizational directory and personal Microsoft accounts** | Select this option to target the widest set of customers.<br><br>By selecting this option, you're registering a _multitenant_ application that can also support users who have personal _Microsoft accounts_. Personal Microsoft accounts include Skype, Xbox, Live, and Hotmail accounts.                                                                                                                                                                              |
    | **Personal Microsoft accounts**                                              | Select this option if you're building an application only for users who have personal Microsoft accounts. Personal Microsoft accounts include Skype, Xbox, Live, and Hotmail accounts.                                                                                                                                                                                                      |
 
 1. Don't enter anything for **Redirect URI (optional)**. You'll configure a redirect URI in the next section.
@@ -72,7 +72,7 @@ Your application's code, or more typically an authentication library used in you
 
 A _redirect URI_ is the location where the Microsoft identity platform redirects a user's client and sends security tokens after authentication.
 
-In a production web application, for example, the redirect URI is often a public endpoint where your app is running, like `https://contoso.com/auth-response`. During development, it's common to also add the endpoint where you run your app locally, like `https://127.0.0.1/auth-response` or `http://localhost/auth-response`.
+In a production web application, for example, the redirect URI is often a public endpoint where your app is running, like `https://contoso.com/auth-response`. During development, it's common to also add the endpoint where you run your app locally, like `https://127.0.0.1/auth-response` or `http://localhost/auth-response`. Be sure that any unnecessary development environments/redirect URIs are not exposed in the production app. This can be done by having separate app registrations for development and production.
 
 You add and modify redirect URIs for your registered applications by configuring their [platform settings](#configure-platform-settings).
 
@@ -91,11 +91,11 @@ To configure application settings based on the platform or device you're targeti
 
    | Platform                            | Configuration settings                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
    | ----------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-   | **Web**                             | Enter a **Redirect URI** for your app. This URI is the location where the Microsoft identity platform redirects a user's client and sends security tokens after authentication.<br/><br/>Select this platform for standard web applications that run on a server.                                                                                                                                                                                                                                                                   |
-   | **Single-page application**         | Enter a **Redirect URI** for your app. This URI is the location where the Microsoft identity platform redirects a user's client and sends security tokens after authentication.<br/><br/>Select this platform if you're building a client-side web app by using JavaScript or a framework like Angular, Vue.js, React.js, or Blazor WebAssembly.                                                                                                                                                                                    |
+   | **Web**                             | Enter a **Redirect URI** for your app. This URI is the location where the Microsoft identity platform redirects a user's client and sends security tokens after authentication.<br/><br/>Front-channel logout URL and implicit and hybrid flow properties can also be configured.<br/><br/>Select this platform for standard web applications that run on a server.                                                                                                                                                                                                                                                                   |
+   | **Single-page application**         | Enter a **Redirect URI** for your app. This URI is the location where the Microsoft identity platform redirects a user's client and sends security tokens after authentication.<br/><br/>Front-channel logout URL and implicit and hybrid flow properties can also be configured.<br/><br/>Select this platform if you're building a client-side web app by using JavaScript or a framework like Angular, Vue.js, React.js, or Blazor WebAssembly.                                                                                                                                                                                    |
    | **iOS / macOS**                     | Enter the app **Bundle ID**. Find it in **Build Settings** or in Xcode in _Info.plist_.<br/><br/>A redirect URI is generated for you when you specify a **Bundle ID**.                                                                                                                                                                                                                                                                                                                                                              |
    | **Android**                         | Enter the app **Package name**. Find it in the _AndroidManifest.xml_ file. Also generate and enter the **Signature hash**.<br/><br/>A redirect URI is generated for you when you specify these settings.                                                                                                                                                                                                                                                                                                                            |
-   | **Mobile and desktop applications** | Select one of the **Suggested redirect URIs**. Or specify a **Custom redirect URI**.<br/><br/>For desktop applications using embedded browser, we recommend<br/>`https://login.microsoftonline.com/common/oauth2/nativeclient`<br/><br/>For desktop applications using system browser, we recommend<br/>`http://localhost`<br/><br/>Select this platform for mobile applications that aren't using the latest Microsoft Authentication Library (MSAL) or aren't using a broker. Also select this platform for desktop applications. |
+   | **Mobile and desktop applications** | Select one of the suggested **Redirect URIs**. Or specify on or more **Custom redirect URIs**.<br/><br/>For desktop applications using embedded browser, we recommend<br/>`https://login.microsoftonline.com/common/oauth2/nativeclient`<br/><br/>For desktop applications using system browser, we recommend<br/>`http://localhost`<br/><br/>Select this platform for mobile applications that aren't using the latest Microsoft Authentication Library (MSAL) or aren't using a broker. Also select this platform for desktop applications. |
 
 1. Select **Configure** to complete the platform configuration.
 
@@ -107,7 +107,7 @@ There are some restrictions on the format of the redirect URIs you add to an app
 
 Credentials are used by [confidential client applications](../articles/active-directory/develop/msal-client-applications.md) that access a web API. Examples of confidential clients are web apps, other web APIs, or service-type and daemon-type applications. Credentials allow your application to authenticate as itself, requiring no interaction from a user at runtime.
 
-You can add both certificates and client secrets (a string) as credentials to your confidential client app registration.
+You can add certificates, client secrets (a string), or federated identity credentials as credentials to your confidential client app registration.
 
 :::image type="content" source="/azure/active-directory/develop/media/quickstart-register-app/portal-05-app-reg-04-credentials.png" alt-text="Screenshot of the Azure portal, showing the Certificates and secrets pane in an app registration.":::
 
@@ -137,15 +137,17 @@ Client secrets are considered less secure than certificate credentials. Applicat
 
 For application security recommendations, see [Microsoft identity platform best practices and recommendations](../articles/active-directory/develop/identity-platform-integration-checklist.md#security).
 
+If you're using an Azure DevOps service connection that automatically creates a service principal, you need to update the client secret from the Azure DevOps portal site instead of directly updating the client secret. Refer to this document on how to update the client secret from the Azure DevOps portal site:
+[Troubleshoot Azure Resource Manager service connections](/azure/devops/pipelines/release/azure-rm-endpoint#service-principals-token-expired).
 
 ### Add a federated credential
 
-Federated identity credentials are a type of credential that allows workloads, such as GitHub Actions, workloads running on Kubernetes, or workloads running in compute platforms outside of Azure access Azure AD protected resources without needing to manage secrets using [workload identity federation](../articles/active-directory/develop/workload-identity-federation.md).
+Federated identity credentials are a type of credential that allows workloads, such as GitHub Actions, workloads running on Kubernetes, or workloads running in compute platforms outside of Azure access Azure AD protected resources without needing to manage secrets using [workload identity federation](/azure/active-directory/workload-identities/workload-identity-federation).
 
 To add a federated credential, follow these steps:
 
 1. In the Azure portal, in **App registrations**, select your application.
-1. Select **Certificates & secrets** > **Federated credentials** > **Add a credential**.
+1. Select **Certificates & secrets** > **Federated credentials** > **Add credential**.
 1. In the **Federated credential scenario** drop-down box, select one of the supported scenarios, and follow the corresponding guidance to complete the configuration.
 
     - **Customer managed keys** for encrypt data in your tenant using Azure Key Vault in another tenant.

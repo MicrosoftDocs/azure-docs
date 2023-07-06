@@ -2,6 +2,7 @@
 title: Azure CLI Samples
 description: Learn about Azure CLI scripts. With these samples, you can create a virtual machine and then start, stop, and delete it in Azure DevTest Labs.
 ms.topic: sample
+ms.custom: devx-track-azurecli
 ms.author: rosemalcolm
 author: RoseHJM
 ms.date: 02/02/2022

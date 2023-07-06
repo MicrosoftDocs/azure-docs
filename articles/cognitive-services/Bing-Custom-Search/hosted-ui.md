@@ -12,7 +12,7 @@ ms.topic: conceptual
 ms.date: 02/12/2019
 ms.author: aahi
 ms.devlang: javascript
-ms.custom: devx-track-js
+ms.custom:
 ---
 
 # Configure your hosted UI experience

@@ -4,7 +4,7 @@ description: Better understand what typical use case scenarios to use Azure Sign
 author: vicancy
 ms.service: signalr
 ms.topic: overview
-ms.custom: devx-track-dotnet 
+ms.custom:
 ms.date: 11/30/2022
 ms.author: lianwei
 ---

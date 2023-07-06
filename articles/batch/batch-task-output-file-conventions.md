@@ -4,8 +4,7 @@ description: Learn how to persist Azure Batch task and job output to Azure Stora
 ms.topic: how-to
 ms.date: 12/20/2021
 ms.devlang: csharp
-ms.custom: "H1Hack27Feb2017, devx-track-csharp"
-
+ms.custom: H1Hack27Feb2017, devx-track-csharp, devx-track-dotnet
 ---
 # Persist job and task data to Azure Storage with the Batch File Conventions library for .NET
 

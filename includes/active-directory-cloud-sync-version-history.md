@@ -14,6 +14,13 @@ You can download the latest version of the agent using [this link](https://downl
 
 Get notified about when to revisit this page for updates by copying and pasting this URL: `https://aka.ms/cloudsyncrss` into your ![RSS feed reader icon](media/active-directory-cloud-sync-version-history/feed-icon-16x16.png) feed reader.
 
+## 1.1.1107.0
+
+Release date: December 16, 2022
+
+### New or changed functionality
+-	We added support for [on-premises application provisioning](https://learn.microsoft.com/azure/active-directory/app-provisioning/on-premises-application-provisioning-architecture) (SCIM, SQL, LDAP) 
+
 ## 1.1.977.0
 
 Release date: September 23, 2022

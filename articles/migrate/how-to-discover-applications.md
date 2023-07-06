@@ -4,8 +4,9 @@ description: Learn how to discover software inventory on on-premises servers wit
 author: Vikram1988
 ms.author: vibansa
 ms.manager: abhemraj
+ms.service: azure-migrate
 ms.topic: how-to
-ms.date: 02/24/2023
+ms.date: 03/06/2023
 ms.custom: engagement-fy23
 ---
 
@@ -15,8 +16,6 @@ This article describes how to discover installed software inventory, web apps, a
 
 Performing software inventory helps identify and tailor a migration path to Azure for your workloads. Software inventory uses the Azure Migrate appliance to perform discovery, using server credentials. It's completely agentless - no agents are installed on the servers to collect this data.
 
-> [!Note]
-> Currently the discovery of ASP.NET web apps is only available with appliance used for discovery of servers running in your VMware enviornment. These feature is not available for servers running in your Hyper-V enviornment and for physical servers or servers running on other clouds like AWS, GCP etc.
 
 ## Before you start
 

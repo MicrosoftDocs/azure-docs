@@ -3,6 +3,7 @@ title: Azure Blob storage trigger and bindings for Azure Functions
 description: Learn to use the Azure Blob storage trigger and bindings in Azure Functions.
 
 ms.topic: reference
+ms.custom: devx-track-extended-java, devx-track-js, devx-track-python
 ms.date: 11/11/2022
 zone_pivot_groups: programming-languages-set-functions-lang-workers
 ---
@@ -324,7 +325,7 @@ This section describes the function app configuration settings available for fun
 
 |Property  |Default | Description |
 |---------|---------|---------|
-|maxDegreeOfParallelism|8 * (the number of available cores)|The integer number of concurrent invocations allowed for each blob-triggered function. The minimum allowed value is 1.|
+|maxDegreeOfParallelism|8 * (the number of available cores)|The integer number of concurrent invocations allowed for all blob-triggered functions in a given function app. The minimum allowed value is 1.|
 
 ## Next steps
 

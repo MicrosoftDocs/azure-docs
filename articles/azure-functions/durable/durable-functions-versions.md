@@ -120,7 +120,7 @@ The following table represents the main changes:
 
 In the case where an abstract base class contained virtual methods, these virtual methods have been replaced by extension methods defined in `DurableContextExtensions`.
 
-#### function.json changes (JavaScript and C# Script)
+#### function.json changes
 
 In Durable Functions 1.x, the orchestration client binding uses a `type` of `orchestrationClient`. Version 2.x uses `durableClient` instead.
 

@@ -2,7 +2,7 @@
 title: What's new in Microsoft Defender for IoT
 description: This article describes features available in Microsoft Defender for IoT, across both OT and Enterprise IoT networks, and both on-premises and in the Azure portal.
 ms.topic: whats-new
-ms.date: 03/14/2023
+ms.date: 05/17/2023
 ms.custom: enterprise-iot
 ---
 
@@ -16,11 +16,126 @@ Features released earlier than nine months ago are described in the [What's new 
 > Noted features listed below are in PREVIEW. The [Azure Preview Supplemental Terms](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include other legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 >
 
+## June 2023
+
+|Service area  |Updates  |
+|---------|---------|
+| **OT networks** | [OT plans billed by site-based licenses](#ot-plans-billed-by-site-based-licenses) <br> [Security recommendations for OT networks for insecure passwords and critical CVEs](#security-recommendations-for-ot-networks-for-insecure-passwords-and-critical-cves) |
+
+### OT plans billed by site-based licenses
+
+Starting June 1, 2023, Microsoft Defender for IoT licenses for OT monitoring are available for purchase only in the [Microsoft 365 admin center](https://admin.microsoft.com/Adminportal/Home).
+
+- **Licenses are available for individual sites**, based on the sizes of those respective sites. A trial license is also available, covering a **Large** site size for 60 days.
+
+    Any purchase of additional licenses is automatically updated in your OT plan in the Azure portal.
+
+- **When you onboard a new sensor**, you're now requested to assign your sensor to a site that's based on your licensed site sizes.
+
+- **Existing customers** can continue to use any legacy OT plan already onboarded to an Azure subscription, with no changes in functionality. However, you cannot add a new plan to a new subscription without a corresponding license from the Microsoft 365 admin center.
+
+> [!TIP]
+> A Defender for IoT *site* is a physical location, such as a facility, campus, office building, hospital, rig, and so on. Each site can contain any number of network sensors, which identify devices across detected network traffic.
+>
+
+For more information, see:
+
+- [Defender for IoT subscription billing](billing.md)
+- [Start a Microsoft Defender for IoT trial](getting-started.md)
+- [Manage OT plans on Azure subscriptions](how-to-manage-subscriptions.md)
+- [Onboard OT sensors to Defender for IoT](onboard-sensors.md)
+
+### Security recommendations for OT networks for insecure passwords and critical CVEs
+
+Defender for IoT now provides security recommendations for insecure passwords and for critical CVEs to help customers manage their OT/IoT network security posture.
+
+You can see the following new security recommendations from the Azure portal for detected devices across your networks:
+
+- **Secure your vulnerable devices**: Devices with this recommendation are found with one or more vulnerabilities with a critical severity. We recommend that you follow the steps listed by the device vendor or CISA (Cybersecurity & Infrastructure Agency).
+
+- **Set a secure password for devices with missing authentication**: Devices with this recommendation are found without authentication based on successful sign-ins. We recommend that you enable authentication, and that you set a stronger password with minimum length and complexity.
+
+- **Set a stronger password with minimum length and complexity**: Devices with this recommendation are found with weak passwords based on successful sign-ins. We recommend that you change the device password to a stronger password with minimum length and complexity.
+
+For more information, see [Supported security recommendations](recommendations.md#supported-security-recommendations).
+
+## May 2023
+
+|Service area  |Updates  |
+|---------|---------|
+| **OT networks** | **Sensor version 22.3.9**: <br>- [Improved monitoring and support for OT sensor logs](#improved-monitoring-and-support-for-ot-sensor-logs) <br><br> **Sensor versions 22.3.x and higher**: <br>- [Configure Active Directory and NTP settings in the Azure portal](#configure-active-directory-and-ntp-settings-in-the-azure-portal) |
+
+### Improved monitoring and support for OT sensor logs
+
+In version 22.3.9, we've added a new capability to collect logs from the OT sensor through a new endpoint. The additional data helps us troubleshoot customer issues, providing faster response times and more targeted solutions and recommendations. The new endpoint has been added to our list of required endpoints that connect your OT sensors to Azure.
+
+After updating your OT sensors, download the latest list of endpoints and ensure that your sensors can access all endpoints listed.
+
+For more information, see:
+
+- [Update Defender for IoT OT monitoring software](update-ot-software.md)
+- [Sensor deployment and access](how-to-manage-sensors-on-the-cloud.md#sensor-deployment-and-access)
+
+### Configure Active Directory and NTP settings in the Azure portal
+
+Now you can configure Active Directory and NTP settings for your OT sensors remotely from the **Sites and sensors** page in the Azure portal. These settings are available for OT sensor versions 22.3.x and higher.
+
+For more information, see [Sensor setting reference](configure-sensor-settings-portal.md#sensor-setting-reference).
+
+## April 2023
+
+|Service area  |Updates  |
+|---------|---------|
+| **Documentation** | [End-to-end deployment guides](#end-to-end-deployment-guides) |
+| **OT networks** | **Sensor version 22.3.8**: <br>- [Proxy support for client SSL/TLS certificates](#proxy-support-for-client-ssltls-certificates) <br>- [Download WMI script from OT sensor console](#download-wmi-script-from-ot-sensor-console) <br>- [Automatically resolved OS notifications](#automatically-resolved-os-notifications) <br>- [UI enhancement when uploading SSL/TLS certificates](#ui-enhancement-when-uploading-ssltls-certificates) |
+
+### End-to-end deployment guides
+
+The Defender for IoT documentation now includes a new **Deploy** section, with a full set of deployment guides for the following scenarios:
+
+- [Standard deployment for OT monitoring](ot-deploy/ot-deploy-path.md)
+- [Air-gapped deployment for OT monitoring with an on-premises sensor management](ot-deploy/air-gapped-deploy.md)
+- [Enterprise IoT deployment](eiot-defender-for-endpoint.md)
+
+For example, the recommended deployment for OT monitoring includes the following steps, which are all detailed in our new articles:
+
+:::image type="content" source="media/deployment-paths/ot-deploy.png" alt-text="Diagram of an OT monitoring deployment path." border="false" lightbox="media/deployment-paths/ot-deploy.png":::
+
+The step-by-step instructions in each section are intended to help customers optimize for success and deploy for Zero Trust. Navigational elements on each page, including flow charts at the top and **Next steps** links at the bottom, indicate where you are in the process, what you’ve just completed, and what your next step should be. For example:
+
+:::image type="content" source="media/deployment-paths/progress-network-level-deployment.png" alt-text="Diagram of a progress bar with Site networking setup highlighted." border="false" lightbox="media/deployment-paths/progress-network-level-deployment.png":::
+
+For more information, see [Deploy Defender for IoT for OT monitoring](ot-deploy/ot-deploy-path.md).
+
+### Proxy support for client SSL/TLS certificates
+
+A client SSL/TLS certificate is required for proxy servers that inspect SSL/TLS traffic, such as when using services like Zscaler and Palo Alto Prisma. Starting in version 22.3.8, you can upload a client certificate through the OT sensor console.
+
+For more information, see [Configure a proxy](connect-sensors.md#configure-proxy-settings-on-an-ot-sensor).
+
+### Download WMI script from OT sensor console
+
+The script used to configure OT sensors to detect Microsoft Windows workstations and servers is now available for download from the OT sensor itself. 
+
+For more information, see [Download the script](detect-windows-endpoints-script.md#download-and-run-the-script)
+
+### Automatically resolved OS notifications
+
+After updating your OT sensor to version 22.3.8, no new device notifications for **Operating system changes** are generated. Existing **Operating system changes** notifications are automatically resolved if they aren't dismissed or otherwise handled within 14 days.
+
+For more information, see [Device notification responses](how-to-work-with-the-sensor-device-map.md#device-notification-responses)
+
+### UI enhancement when uploading SSL/TLS certificates
+
+The OT sensor version 22.3.8 has an enhanced **SSL/TLS Certificates** configuration page for defining your SSL/TLS certificate settings and deploying a CA-signed certificate.
+
+For more information, see [Manage SSL/TLS certificates](how-to-manage-individual-sensors.md#manage-ssltls-certificates).
+
 ## March 2023
 
 |Service area  |Updates  |
 |---------|---------|
-| **OT networks** | **Sensor version 22.3.6**: <br>- [Support for transient devices](#support-for-transient-devices)<br>- [Learn DNS traffic by configuring allowlists](#learn-dns-traffic-by-configuring-allowlists)<br>- [Device data retention updates](#device-data-retention-updates)<br>- [UI enhancements when uploading SSL/TLS certificates](#ui-enhancements-when-uploading-ssltls-certificates)<br>- [Activation files expiration updates](#activation-files-expiration-updates)<br>- [UI enhancements for managing the device inventory](#ui-enhancements-for-managing-the-device-inventory)<br>- [Updated severity for all Suspicion of Malicious Activity alerts](#updated-severity-for-all-suspicion-of-malicious-activity-alerts)<br>- [Automatically resolved device notifications](#automatically-resolved-device-notifications) <br><br> **Cloud features**: <br>- [New Microsoft Sentinel incident experience for Defender for IoT](#new-microsoft-sentinel-incident-experience-for-defender-for-iot) |
+| **OT networks** | **Sensor version 22.3.6/22.3.7**: <br>- [Support for transient devices](#support-for-transient-devices)<br>- [Learn DNS traffic by configuring allowlists](#learn-dns-traffic-by-configuring-allowlists)<br>- [Device data retention updates](#device-data-retention-updates)<br>- [UI enhancements when uploading SSL/TLS certificates](#ui-enhancements-when-uploading-ssltls-certificates)<br>- [Activation files expiration updates](#activation-files-expiration-updates)<br>- [UI enhancements for managing the device inventory](#ui-enhancements-for-managing-the-device-inventory)<br>- [Updated severity for all Suspicion of Malicious Activity alerts](#updated-severity-for-all-suspicion-of-malicious-activity-alerts)<br>- [Automatically resolved device notifications](#automatically-resolved-device-notifications) <br><br>Version 22.3.7 includes the same features as 22.3.6. If you have version 22.3.6 installed, we strongly recommend that you update to version 22.3.7, which also includes important bug fixes.<br><br> **Cloud features**: <br>- [New Microsoft Sentinel incident experience for Defender for IoT](#new-microsoft-sentinel-incident-experience-for-defender-for-iot) |
 
 ### Support for transient devices
 
@@ -52,13 +167,13 @@ For more information, see [Device data retention periods](references-data-retent
 
 The OT sensor version 22.3.6 has an enhanced **SSL/TLS Certificates** configuration page for defining your SSL/TLS certificate settings and deploying a CA-signed certificate.
 
-For more information, see [Deploy SSL/TLS certificates on OT appliances](how-to-deploy-certificates.md).
+For more information, see [Deploy an SSL/TLS certificate](ot-deploy/activate-deploy-sensor.md#deploy-an-ssltls-certificate).
 
 ### Activation files expiration updates
 
-Activation files on locally-managed OT sensors now remain activated for as long as your Defender for IoT plan is active on your Azure subscription, just like activation files on cloud-connected OT sensors.
+Activation files on locally managed OT sensors now remain activated for as long as your Defender for IoT plan is active on your Azure subscription, just like activation files on cloud-connected OT sensors.
 
-You'll only need to update your activation file if you're [updating an OT sensor from a legacy version](update-legacy-ot-software.md#update-legacy-ot-sensor-software) or switching the sensor management mode, such as moving from locally-managed to cloud-connected.
+You'll only need to update your activation file if you're [updating an OT sensor from a legacy version](update-legacy-ot-software.md#update-legacy-ot-sensor-software) or switching the sensor management mode, such as moving from locally managed to cloud-connected.
 
 For more information, see [Manage individual sensors](how-to-manage-individual-sensors.md).
 
@@ -160,7 +275,15 @@ The **Device inventory** page on the Azure portal supports new grouping categori
 
 ### Focused inventory in the Azure device inventory (Public preview)
 
-The **Device inventory** page on the Azure portal now includes a network location indication for your devices, to help focus your device inventory on the devices within your IoT/OT scope. See and filter which devices are defined as *local* or *routed*, according to your configured subnets. The *Network location* filter is on by default, and the *Network location* column can be added by editing the columns in the device inventory. For more information, see [Subnet](configure-sensor-settings-portal.md#subnet).
+The **Device inventory** page on the Azure portal now includes a network location indication for your devices, to help focus your device inventory on the devices within your IoT/OT scope. 
+
+See and filter which devices are defined as *local* or *routed*, according to your configured subnets. The **Network location** filter is on by default. Add the **Network location** column by editing the columns in the device inventory.
+ 
+Configure your subnets either on the Azure portal or on your OT sensor. For more information, see:
+
+- [Manage your device inventory from the Azure portal](how-to-manage-device-inventory-for-organizations.md)
+- [Configure OT sensor settings from the Azure portal](configure-sensor-settings-portal.md#subnet)
+- [Define OT and IoT subnets on the OT sensor](how-to-control-what-traffic-is-monitored.md#define-ot-and-iot-subnets)
 
 ### Configure OT sensor settings from the Azure portal (Public preview)
 
@@ -546,9 +669,9 @@ For more information, see:
 
 ### Sensor connections restored after certificate rotation
 
-Starting in version 22.2.3, after rotating your certificates, your sensor connections are automatically restored to your central manager, and you don't need to reconnect them manually.
+Starting in version 22.2.3, after rotating your certificates, your sensor connections are automatically restored to your on-premises management console, and you don't need to reconnect them manually.
 
-For more information, see [About certificates](how-to-deploy-certificates.md).
+For more information, see [Prepare CA-signed certificates](best-practices/plan-prepare-deploy.md#prepare-ca-signed-certificates) and [Deploy an SSL/TLS certificate](ot-deploy/activate-deploy-sensor.md#deploy-an-ssltls-certificate).
 
 ### Support diagnostic log enhancements (Public preview)
 
@@ -638,7 +761,6 @@ Check out our new structure to follow through viewing devices and assets, managi
 - [Quickstart: Get started with Defender for IoT](getting-started.md)
 - [Tutorial: Microsoft Defender for IoT trial setup](tutorial-onboarding.md)
 - [Tutorial: Get started with Enterprise IoT](tutorial-getting-started-eiot-sensor.md)
-- [Plan your sensor connections for OT monitoring](best-practices/plan-network-monitoring.md)
 
 > [!NOTE]
 > To send feedback on docs via GitHub, scroll to the bottom of the page and select the **Feedback** option for **This page**. We'd be glad to hear from you!

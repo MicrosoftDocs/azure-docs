@@ -91,6 +91,15 @@ The person who created the workspace is the owner. Within **Workspace settings**
 
 :::image type="content" source="../media/how-to/manage-workspace-settings-3.png" alt-text="Screenshot illustrating how to unshare a workspace.":::
 
+### Restrict access to workspace models 
+
+> [!WARNING]
+> **Restrict access** blocks runtime translation requests to all published models in the workspace if the requests don't include the same Translator resource that was used to create the workspace.
+
+Select the **Yes** checkbox. Within few minutes, all published models are secured from unauthorized access.
+
+:::image type="content" source="../media/how-to/manage-workspace-settings-4.png" alt-text="Screenshot illustrating how to secure a workspace.":::
+
 ## Next steps
 
 > [!div class="nextstepaction"]

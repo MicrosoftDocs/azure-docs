@@ -5,7 +5,7 @@ ms.service: mariadb
 author: savjani
 ms.author: pariks
 ms.topic: how-to
-ms.date: 06/24/2022
+ms.date: 04/19/2023
 ms.devlang: csharp, golang, java, php, python, ruby
 ms.custom: devx-track-csharp
 ---
@@ -40,7 +40,7 @@ For existing connections, you can bind SSL by right-clicking on the connection i
 
 Another way to bind the SSL certificate is to use the MySQL command-line interface by executing the following commands.
 
-```bash
+```terminal
 mysql.exe -h mydemoserver.mariadb.database.azure.com -u Username@mydemoserver -p --ssl-mode=REQUIRED --ssl-ca=c:\ssl\BaltimoreCyberTrustRoot.crt.pem
 ```
 
@@ -57,6 +57,7 @@ Using the Azure portal, visit your Azure Database for MariaDB server, and then s
 ### Using Azure CLI
 
 You can enable or disable the **ssl-enforcement** parameter by using Enabled or Disabled values respectively in Azure CLI.
+
 ```azurecli-interactive
 az mariadb server update --resource-group myresource --name mydemoserver --ssl-enforcement Enabled
 ```
@@ -64,9 +65,11 @@ az mariadb server update --resource-group myresource --name mydemoserver --ssl-e
 ## Verify the SSL connection
 
 Execute the mysql **status** command to verify that you have connected to your MariaDB server using SSL:
+
 ```sql
 status
 ```
+
 Confirm the connection is encrypted by reviewing the output, which should show:  **SSL: Cipher in use is AES256-SHA**
 
 ## Sample code
@@ -83,6 +86,7 @@ if (mysqli_connect_errno($conn)) {
 die('Failed to connect to MySQL: '.mysqli_connect_error());
 }
 ```
+
 ### Python (MySQLConnector Python)
 
 ```python
@@ -95,6 +99,7 @@ try:
 except mysql.connector.Error as err:
     print(err)
 ```
+
 ### Python (PyMySQL)
 
 ```python
@@ -117,6 +122,7 @@ client = Mysql2::Client.new(
         :ssl_mode => 'required'
     )
 ```
+
 #### Ruby on Rails
 
 ```ruby
@@ -142,6 +148,7 @@ var connectionString string
 connectionString = fmt.Sprintf("%s:%s@tcp(%s:3306)/%s?allowNativePasswords=true&tls=custom",'myadmin@mydemoserver' , 'yourpassword', 'mydemoserver.mariadb.database.azure.com', 'quickstartdb')	
 db, _ := sql.Open("mysql", connectionString)
 ```
+
 ### Java (JDBC)
 
 ```java
@@ -172,6 +179,7 @@ properties.setProperty("user", 'myadmin@mydemoserver');
 properties.setProperty("password", 'yourpassword');
 conn = DriverManager.getConnection(url, properties);
 ```
+
 ### Java (MariaDB)
 
 ```java

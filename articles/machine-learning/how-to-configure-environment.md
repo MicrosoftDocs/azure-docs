@@ -7,8 +7,8 @@ author: rastala
 ms.author: roastala
 ms.service: machine-learning
 ms.subservice: core
-ms.reviewer: larryfr
-ms.date: 10/20/2022
+ms.reviewer: larryfr, mattmcinnes
+ms.date: 04/25/2023
 ms.topic: how-to
 ms.custom: devx-track-python, contperf-fy21q1, devx-track-azurecli, event-tier1-build-2022, ignite-2022, py-fresh-zinc
 ---
@@ -134,7 +134,7 @@ Once you have the Visual Studio Code extension installed, use it to:
 
 * [Manage your Azure Machine Learning resources](how-to-manage-resources-vscode.md)
 * [Connect to an Azure Machine Learning compute instance](how-to-set-up-vs-code-remote.md)
-* [Run and debug experiments](how-to-debug-visual-studio-code.md)
+* [Debug online endpoints locally](how-to-debug-managed-online-endpoints-visual-studio-code.md)
 * [Deploy trained models](tutorial-train-deploy-image-classification-model-vscode.md).
 
 ## Azure Machine Learning compute instance
@@ -143,7 +143,7 @@ The Azure Machine Learning [compute instance](concept-compute-instance.md) is a 
 
 There's nothing to install or configure for a compute instance.  
 
-Create one anytime from within your Azure Machine Learning workspace. Provide just a name and specify an Azure VM type. Try it now with this [Tutorial: Setup environment and workspace](quickstart-create-resources.md).
+Create one anytime from within your Azure Machine Learning workspace. Provide just a name and specify an Azure VM type. Try it now with [Create resources to get started](quickstart-create-resources.md).
 
 To learn more about compute instances, including how to install packages, see [Create and manage an Azure Machine Learning compute instance](how-to-create-manage-compute-instance.md).
 

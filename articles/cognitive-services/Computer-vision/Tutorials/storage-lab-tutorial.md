@@ -12,7 +12,7 @@ ms.topic: tutorial
 ms.date: 12/29/2022
 ms.author: pafarley
 ms.devlang: csharp
-ms.custom: devx-track-csharp
+ms.custom: devx-track-csharp, build-2023, build-2023-dataai
 #Customer intent: As a developer of an image-intensive web app, I want to be able to automatically generate captions and search keywords for each of my images.
 ---
 
@@ -295,7 +295,7 @@ In this section, you'll create a new Web app in Visual Studio and add code to im
     }
     ```
 
-    The language used here is [Razor](http://www.asp.net/web-pages/overview/getting-started/introducing-razor-syntax-c), which lets you embed executable code in HTML markup. The ```@foreach``` statement in the middle of the file enumerates the **BlobInfo** objects passed from the controller in **ViewBag** and creates HTML ```<img>``` elements from them. The ```src``` property of each element is initialized with the URI of the blob containing the image thumbnail.
+    The language used here is [Razor](https://www.asp.net/web-pages/overview/getting-started/introducing-razor-syntax-c), which lets you embed executable code in HTML markup. The ```@foreach``` statement in the middle of the file enumerates the **BlobInfo** objects passed from the controller in **ViewBag** and creates HTML ```<img>``` elements from them. The ```src``` property of each element is initialized with the URI of the blob containing the image thumbnail.
 
 1. Download and unzip the _photos.zip_ file from the [GitHub sample data repository](https://github.com/Azure-Samples/cognitive-services-sample-data-files/tree/master/ComputerVision/storage-lab-tutorial). This is an assortment of different photos you can use to test the app.
 

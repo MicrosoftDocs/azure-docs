@@ -5,7 +5,7 @@ ms.author: esarroyo
 author: StefArroyo 
 ms.service: cosmos-db
 ms.topic: how-to
-ms.date: 12/07/2020
+ms.date: 04/14/2023
 ms.custom: subject-monitoring, ignite-2022
 ---
 
@@ -24,7 +24,7 @@ All the metrics corresponding to Azure Cosmos DB are stored in the namespace **A
 |Metric (Metric Display Name)|Unit (Aggregation Type) |Description|Dimensions| Time granularities| Legacy metric mapping | Usage |
 |---|---|---|---| ---| ---| ---|
 | TotalRequests (Total Requests) | Count (Count) | Number of requests made| DatabaseName, CollectionName, Region, StatusCode| All | TotalRequests, Http 2xx, Http 3xx, Http 400, Http 401, Internal Server error, Service Unavailable, Throttled Requests, Average Requests per Second | Used to monitor requests per status code, container at a minute granularity. To get average requests per second, use Count aggregation at minute and divide by 60. |
-| MetadataRequests (Metadata Requests) |Count (Count) | Count of metadata requests. Azure Cosmos DB maintains system metadata container for each account, that allows you to enumerate collections, databases, etc., and their configurations, free of charge. | DatabaseName, CollectionName, Region, StatusCode| All| |Used to monitor throttles due to metadata requests.|
+| MetadataRequests (Metadata Requests) |Count (Count) | Count of Azure Resource Manager metadata requests. Metadata has request limits. See [Control Plane Limits](concepts-limits.md#control-plane) for more information. | DatabaseName, CollectionName, Region, StatusCode| All | | Used to monitor metadata requests in scenarios where requests are being throttled. See [Monitor Control Plane Requests](use-metrics.md#monitor-control-plane-requests) for more information. |
 | MongoRequests (Mongo Requests) | Count (Count) | Number of Mongo Requests Made | DatabaseName, CollectionName, Region, CommandName, ErrorCode| All |Mongo Query Request Rate, Mongo Update Request Rate, Mongo Delete Request Rate, Mongo Insert Request Rate, Mongo Count Request Rate| Used to monitor Mongo request errors, usages per command type. |
 
 ### Request Unit metrics
@@ -90,7 +90,7 @@ The following table lists the properties of resource logs in Azure Cosmos DB. Th
 | **duration** | **duration_d** | The duration of the operation, in milliseconds. |
 | **requestLength** | **requestLength_s** | The length of the request, in bytes. |
 | **responseLength** | **responseLength_s** | The length of the response, in bytes.|
-| **resourceTokenPermissionId** | **resourceTokenPermissionId_s** | This property indicates the resource token permission Id that you have specified. To learn more about permissions, see the [Secure access to your data](./secure-access-to-data.md#permissions) article. |
+| **resourceTokenPermissionId** | **resourceTokenPermissionId_s** | This property indicates the resource token permission ID that you have specified. To learn more about permissions, see the [Secure access to your data](./secure-access-to-data.md#permissions) article. |
 | **resourceTokenPermissionMode** | **resourceTokenPermissionMode_s** | This property indicates the permission mode that you have set when creating the resource token. The permission mode can have values such as "all" or "read". To learn more about permissions, see the [Secure access to your data](./secure-access-to-data.md#permissions) article. |
 | **resourceTokenUserRid** | **resourceTokenUserRid_s** | This value is non-empty when [resource tokens](./secure-access-to-data.md#resource-tokens) are used for authentication. The value points to the resource ID of the user. |
 | **responseLength** | **responseLength_s** | The length of the response, in bytes.|

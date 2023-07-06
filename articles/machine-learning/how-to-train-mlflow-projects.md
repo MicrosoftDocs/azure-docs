@@ -10,7 +10,7 @@ ms.service: machine-learning
 ms.subservice: core
 ms.date: 11/04/2022
 ms.topic: conceptual
-ms.custom: how-to, devx-track-python, sdkv2, event-tier1-build-2022
+ms.custom: how-to, sdkv2, event-tier1-build-2022
 ---
 
 # Train with MLflow Projects in Azure Machine Learning (Preview)
@@ -178,4 +178,3 @@ The [MLflow with Azure Machine Learning notebooks](https://github.com/Azure/Mach
 * [Query & compare experiments and runs with MLflow](how-to-track-experiments-mlflow.md).
 * [Manage models registries in Azure Machine Learning with MLflow](how-to-manage-models-mlflow.md).
 * [Guidelines for deploying MLflow models](how-to-deploy-mlflow-models.md).
-

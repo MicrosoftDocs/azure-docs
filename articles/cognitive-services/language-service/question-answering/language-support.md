@@ -130,5 +130,4 @@ This additional ranking is an internal working of the custom question answering'
 
 ## Next steps
 
-> [!div class="nextstepaction"]
-> [Language selection](../index.yml)
+

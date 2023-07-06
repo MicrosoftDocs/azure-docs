@@ -12,12 +12,12 @@ ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 08/31/2022
+ms.date: 04/09/2023
 ms.author: b-ahibbard
 ---
 # Configure application volume groups for the SAP HANA REST API
 
-Application volume group (AVG) enables you to deploy all volumes for a single HANA host in one atomic step. The Azure portal and the Azure Resource Manager template have implemented pre-checks and recommendations for deployment in areas including throughputs and volume naming conventions. As a REST API user, those checks and recommendations are not available.
+Application volume groups (AVG) enable you to deploy all volumes for a single HANA host in one atomic step. The Azure portal and the Azure Resource Manager template have implemented prechecks and recommendations for deployment in areas including throughputs and volume naming conventions. As a REST API user, those checks and recommendations are not available.
 
 Without these checks, it's important to understand the requirements for running HANA on Azure NetApp Files and the basic architecture and workflows application volume groups on which are built.
 
@@ -39,7 +39,7 @@ Using application volume groups requires understanding the rules and restriction
 * For data, log and shared volumes, SAP HANA certification requires NFSv4.1 protocol.
 * Log-backup and file-backup volumes, if created optionally with the volume group of the first HANA host, may use NFSv4.1 or NFSv3 protocol.
 * Each volume must have at least one export policy defined. To install SAP, root access must be enabled.
-* Kerberos nor LDAP enablement are not supported.
+* Kerberos and LDAP enablement are not supported.
 * You should follow the naming convention outlined in the following table.
 
 The following list describes all the possible volume types for application volume groups for SAP HANA.
@@ -54,19 +54,19 @@ The following list describes all the possible volume types for application volum
 
 ## Prepare your environment
 
-1. **Networking:** You need to decide on the networking architecture. To use Azure NetApp Files, a VNet needs to be created and within the vNet a delegated subnet where the ANF storage endpoints (IPs) will be placed. To ensure that the size of this subnet is large enough, see [Considerations about delegating a subnet to Azure NetApp Files](azure-netapp-files-delegate-subnet.md#considerations).
+1. **Networking:** You need to decide on the networking architecture. To use Azure NetApp Files, you need to create create a VNet that will host a delegated subnet for the Azure NetApp Files storage endpoints (IPs). To ensure that the size of this subnet is large enough, see [Considerations about delegating a subnet to Azure NetApp Files](azure-netapp-files-delegate-subnet.md#considerations).
     1.	Create a VNet.
-    2.	Create a virtual machine (VM) subnet and delegated subnet for ANF.
+    2.	Create a virtual machine (VM) subnet and delegated subnet for Azure NetApp Files.
 1.	**Storage Account and Capacity Pool:** A storage account is the entry point to consume Azure NetApp Files. At least one storage account needs to be created. Within a storage account, a capacity pool is the logical unit to create volumes. Application volume groups require a capacity pool with a manual QoS. It should be created with a size and service level that meets your HANA requirements.
     >[!NOTE]
     > A capacity pool can be resized at any time. For more information about changing a capacity pool, refer to [Manage a manual QoS capacity pool](manage-manual-qos-capacity-pool.md).
     1.	Create a NetApp storage account.
     2.	Create a manual QoS capacity pool.
-1. **Create AvSet and proximity placement group (PPG):** For production landscapes, you should create an AvSet that is manually pinned to a data center where Azure NetApp Files resources are available in proximity. The AvSet pinning ensures that VMs will not be moved on restart. The proximity placement group (PPG) needs to be assigned to the AvSet. With the help of application volume groups, the PPG can find the closest Azure NetApp Files hardware. For more information, see [Best practices about proximity placement groups](application-volume-group-considerations.md#best-practices-about-proximity-placement-groups).
+1. **Create AvSet and proximity placement group (PPG):** For production landscapes, you should create an AvSet that is manually pinned to a data center where Azure NetApp Files resources are available in proximity. The AvSet pinning ensures that VMs won't be moved on restart. The proximity placement group (PPG) needs to be assigned to the AvSet. With the help of application volume groups, the PPG can find the closest Azure NetApp Files hardware. For more information, see [Best practices about proximity placement groups](application-volume-group-considerations.md#best-practices-about-proximity-placement-groups).
     1. Create AvSet.
     2. Create PPG.
     3. Assign PPG to AvSet.
-1. **Manual Steps - Request AvSet pinning**: AvSet pinning is required for long term SAP HANA systems. The Microsoft capacity planning team ensures that the required VMs for SAP HANA and Azure NetApp Files resources be in proximity to the VMs that are available. VMs will not move on restart. 
+1. **Manual Steps - Request AvSet pinning**: AvSet pinning is required for long term SAP HANA systems. The Microsoft capacity planning team ensures that the required VMs for SAP HANA and Azure NetApp Files resources are in proximity to available VMs. VMs will not move on restart. 
     * Request pinning using [this form](https://aka.ms/HANAPINNING).
 1. **Create and start HANA DB VM:** Before you can create volumes using application volume groups, the PPG must be anchored. At least one VM must be created using the pinned AvSet. Once this VM is started, the PPG can be used to detect where the VM is running.
     1. Create and start the VM using the AvSet.
@@ -104,23 +104,22 @@ The following table describes the request body parameters and group level proper
 | `applicationType` | Application type | Must be "SAP-HANA" |
 | `applicationIdentifier` | Application specific identifier string, following application naming rules | The SAP System ID, which should follow aforementioned naming rules, for example `SH9` | 
 | `deploymentSpecId` | Deployment specification identifier defining the rules to deploy the specific application volume group type | Must be: “20542149-bfca-5618-1879-9863dc6767f1” |
-| `volumes` | Array of volumes to be created (see the next table for volume-granular details) | Volume count depends upon host configuration: <ul><li>Single-host (3-5 volumes)</li><li>**Required**: _data_, _log_ and _shared_. **Optional**: _data-backup_, _log-backup_ </li><li> Multiple-Host (two volumes)
-Required: _data_ and _log_.</li><ul> |
+| `volumes` | Array of volumes to be created (see the next table for volume-granular details) | Volume count depends upon host configuration: <ul><li>Single-host (3-5 volumes) <br /> **Required**: _data_, _log_ and _shared_ <br /> **Optional**: _data-backup_, _log-backup_ </li><li> Multiple-host (two volumes) <br /> **Required**: _data_ and _log_ </li></ul> |
 
 This table describes the request body parameters and volume properties for creating a volume in a SAP HANA application volume group.   
 
 | Volume-level request parameter | Description | Restrictions for SAP HANA |
 | ---- | ----- | ----- |
-| `name` | Volume name | None. Examples or recommended volume names: <ul><li> `SH9-data-mnt00001` data for Single-Host.</li><li> `SH9-log-backup` log-backup for Single-Host.</li><li> `HSR-SH9-shared` shared for HSR Secondary.</li><li> `DR-SH9-data-backup` data-backup for CRR destination </li><li> `DR2-SH9-data-backup` data-backup for CRR destination of HSR Secondary.</li></ul> | 
+| `name` | Volume name | None. Examples or recommended volume names: <ul><li> `SH9-data-mnt00001` data for Single-Host.</li><li> `SH9-log-backup` log-backup for Single-Host.</li><li> `HSR-SH9-shared` shared for HSR Secondary.</li><li> `DR-SH9-data-backup` data-backup for cross-region replication destination </li><li> `DR2-SH9-data-backup` data-backup for cross-region replication destination of HSR Secondary.</li></ul> | 
 | `tags` | Volume tags | None, however, it may be helpful to add a tag to the HSR partner volume to identify the corresponding HSR partner volume. The Azure portal suggests the following tag for the HSR Secondary volumes: <ul><li> **Name**: `HSRPartnerStorageResourceId` </li><li> **Value:** `<Partner volume Id>` </li></ul> |
 | **Volume properties** | **Description** | **SAP HANA Value Restrictions** |
-| `creationToken` | Export path name, typically same as name above. | None. Example: `SH9-data-mnt00001` |
+| `creationToken` | Export path name, typically same as the volume name. | None. Example: `SH9-data-mnt00001` |
 | `throughputMibps` | QoS throughput | This must be between 1 Mbps and 4500 Mbps. You should set throughput based on volume type. | 
-| `usageThreshhold` | Size of the volume in bytes. This must be in the 100 GiB to 100 TiB range. For instance, 100 GiB = 107374182400 bytes. | None. You should set volume size depending on the volume type. | 
+| `usageThreshhold` | Size of the volume in bytes. This must be in the 100 GiB to 100-TiB range. For instance, 100 GiB = 107374182400 bytes. | None. You should set volume size depending on the volume type. | 
 | `exportPolicyRule` | Volume export policy rule | At least one export policy rule must be specified for SAP HANA. Only the following rules values can be modified for SAP HANA, the rest _must_ have their default values: <ul><li>`unixReadOnly`: should be false</li><li>`unixReadWrite`: should be true</li><li>`allowedClients`: specify allowed clients. Use `0.0.0.0/0` for no restrictions.</li><li>`hasRootAccess`: must be true to install SAP.</li><li>`chownMode`: Specify `chown` mode.</li><li>`nfsv41`: true for data, log, and shared volumes, optionally true for data backup and log backup volumes</li><li>`nfsv3`: optionally true for data backup and log backup volumes</li><ul> All other rule values _must_ be left defaulted. |
 | `volumeSpecName` | Specifies the type of volume for the application volume group being created | SAP HANA volumes must have a value that is one of the following: <ul><li>"data"</li><li>"log"</li><li>"shared"</li><li>"data-backup"</li><li>"log-backup"</li></ul> | 
 | `proximityPlacementGroup` | Resource ID of the Proximity Placement Group (PPG) for proper placement of the volume. | <ul><li>The “data”, “log” and “shared” volumes must each have a PPG specified, preferably a common PPG.</li><li>A PPG must be specified for the “data-backup” and “log-backup” volumes, but it will be ignored during placement.</li></ul> |
-| `subnetId` | Delegated subnet ID for Azure NetApp Files. | In a normal case where there are sufficient resources available, the number of IP addresses required in the subnet depends on the order of the application volume group created in the subscription: <ol><li> First application volume group created: the creation usually requires to 3-4 IP addresses but can require up to 5</li><li> Second application volume group created: Normally requires two IP addresses</li><li></li>Third and subsequent application volume group created: Normally, more IP addresses will not be required</ol> |
+| `subnetId` | Delegated subnet ID for Azure NetApp Files. | In a normal case where there are sufficient resources available, the number of IP addresses required in the subnet depends on the order of the application volume group created in the subscription: <ol><li> First application volume group created: the creation usually requires to 3-4 IP addresses but can require up to 5</li><li> Second application volume group created: Normally requires two IP addresses</li><li></li>Third and subsequent application volume group created: Normally, more IP addresses are not required</ol> |
 | `capacityPoolResourceId` | ID of the capacity pool | The capacity pool must be of type manual QoS. Generally, all SAP volumes are placed in a common capacity pool, however this is not a requirement. |
 | `protocolTypes` | Protocol to use | This should be either NFSv3 or NFSv4.1 and should match the protocol specified in the Export Policy Rule described earlier in this table. | 
 
@@ -128,7 +127,7 @@ This table describes the request body parameters and volume properties for creat
 
 The examples in this section illustrate the values passed in the volume group creation request for various SAP HANA configurations. The examples demonstrate best practices for naming, sizing, and values as described in the tables.
 
-In the examples below, selected placeholders are specified and should be replaced by the desired values, these include:
+In the following examples, selected placeholders are specified. You should replace them with the values specific to your configuration. These values include:
 1.	`<SubscriptionId>`: Subscription ID. Example: `11111111-2222-3333-4444-555555555555`
 2.	`<ResourceGroup>`: Resource group. Example: `TestResourceGroup`
 3.	`<NtapAccount>`: NetApp account, for example: `TestAccount`
@@ -147,7 +146,7 @@ In the examples below, selected placeholders are specified and should be replace
 
 SAP HANA volume groups for the following examples can be created using a sample shell script that calls the API using curl:
 
-1. Extract the subscription ID. This will automate the extraction of the subscription ID and generate the authorization token:
+1. Extract the subscription ID. This automates the extraction of the subscription ID and generate the authorization token:
     ```bash
     subId=$(az account list | jq ".[] | select (.name == \"Pay-As-You-Go\") | .id" -r)
     echo "Subscription ID: $subId"
@@ -170,9 +169,9 @@ To create the five volumes (data, log, shared, data-backup, log-backup) for a si
 >[!NOTE]
 >You need to replace the placeholders and adapt the parameters to meet your requirements.
 
-#### Example single-host SAP HANA application volume group creation Request
+#### Example single-host SAP HANA application volume group creation request
 
-This example pertains to data, log, shared, data-backup, and log-backup volumes demonstrating best practices for naming, sizing, and throughputs. This example will serve as the primary volume if you're configuring an HSR pair. 
+This example pertains to data, log, shared, data-backup, and log-backup volumes demonstrating best practices for naming, sizing, and throughputs. This example serves as the primary volume if you're configuring an HSR pair. 
 
 1. Save the JSON template as `sh9.json`:
     ```json
@@ -901,15 +900,15 @@ This example encompasses the creation of data, log, shared, data-backup, and log
 }
 ```
 
-### Example 4: Deploy volumes for a secondary HANA system using HANA system replication
+### Example 4: Deploy volumes for a disaster recovery HANA system using cross-region replication
 
-Cross-region replication is one way to set up a disaster recovery configuration for HANA, where the volumes of the HANA database in the DR-region are replicated on the storage side using cross-region replication in contrast to HSR, which replicates at the application level where it requires to have the HANA VMs deployed and running. Refer to the documentation (link) to understand which volumes require CRR replication. Refer to [Add volumes for an SAP HANA system as a DR system using cross-region replication](application-volume-group-disaster-recovery.md) to understand for which volumes in cross-region replication relations are required (data, shared, log-backup), not allowed (log), or optional (data-backup). 
+Cross-region replication is one way to set up a disaster recovery configuration for HANA, where the volumes of the HANA database in the DR-region are replicated on the storage side using cross-region replication in contrast to HSR, which replicates at the application level where it requires to have the HANA VMs deployed and running. Refer to [Add volumes for an SAP HANA system as a DR system using cross-region replication](application-volume-group-disaster-recovery.md) to understand for which volumes in cross-region replication relations are required (data, shared, log-backup), not allowed (log), or optional (data-backup). 
 
 In this example, the following placeholders are specified and should be replaced by values specific to your configuration:
 1.	`<CapacityPoolResourceId3>`: DR capacity pool resource ID, for example:
 `/subscriptions/11111111-2222-3333-4444-555555555555/resourceGroups/myRG/providers/Microsoft.NetApp/netAppAccounts/account1/capacityPools/DR_SH9_HSR_Pool`
 2.	`<ProximityPlacementGroupResourceId3>`: DR proximity placement group, for example:`/subscriptions/11111111-2222-3333-4444-555555555555/resourceGroups/test/providers/Microsoft.Compute/proximityPlacementGroups/DR_SH9_PPG`
-3.	`<SrcVolumeId_data>`, `<SrcVolumeId_shared>`, `<SrcVolumeId_data-backup>`, `<SrcVolumeId_log-backup>`: cross-region replication source volume IDs for the data, log, shared, and log-backup cross-region replication destination volumes.
+3.	`<SrcVolumeId_data>`, `<SrcVolumeId_shared>`, `<SrcVolumeId_data-backup>`, `<SrcVolumeId_log-backup>`: cross-region replication source volume IDs for the data, shared, and log-backup cross-region replication destination volumes.
 
 ```json
 {

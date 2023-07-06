@@ -7,6 +7,7 @@ manager: CelesteDG
 
 ms.service: active-directory
 ms.workload: identity
+ms.custom: devx-track-azurepowershell
 ms.topic: how-to
 ms.date: 02/14/2020
 ms.author: kengaderdus

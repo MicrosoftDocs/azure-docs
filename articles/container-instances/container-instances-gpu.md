@@ -16,6 +16,9 @@ To run certain compute-intensive workloads on Azure Container Instances, deploy 
 This article shows how to add GPU resources when you deploy a container group by using a [YAML file](container-instances-multi-container-yaml.md) or [Resource Manager template](container-instances-multi-container-group.md). You can also specify GPU resources when you deploy a container instance using the Azure portal.
 
 > [!IMPORTANT]
+> K80 and P100 GPU SKUs are retiring by August 31st, 2023. This is due to the retirement of the underlying VMs used: [NC Series](https://learn.microsoft.com/azure/virtual-machines/nc-series-retirement) and [NCv2 Series](https://learn.microsoft.com/azure/virtual-machines/ncv2-series-retirement) Although V100 SKUs will be available, it is receommended to use Azure Kubernetes Service instead. GPU resources are not fully supported and should not be used for production workloads. Use the following resources to migrate to AKS today: [How to Migrate to AKS](https://learn.microsoft.com/azure/aks/aks-migration).
+
+> [!IMPORTANT]
 > This feature is currently in preview, and some [limitations apply](#preview-limitations). Previews are made available to you on the condition that you agree to the [supplemental terms of use][terms-of-use]. Some aspects of this feature may change prior to general availability (GA).
 
 ## Prerequisites
@@ -105,19 +108,19 @@ properties:
 
 Deploy the container group with the [az container create][az-container-create] command, specifying the YAML file name for the `--file` parameter. You need to supply the name of a resource group and a location for the container group such as *eastus* that supports GPU resources.  
 
-```azurecli
+```azurecli-interactive
 az container create --resource-group myResourceGroup --file gpu-deploy-aci.yaml --location eastus
 ```
 
 The deployment takes several minutes to complete. Then, the container starts and runs a CUDA vector addition operation. Run the [az container logs][az-container-logs] command to view the log output:
 
-```azurecli
+```azurecli-interactive
 az container logs --resource-group myResourceGroup --name gpucontainergroup --container-name gpucontainer
 ```
 
 Output:
 
-```Console
+```output
 [Vector addition of 50000 elements]
 Copy input data from the host memory to the CUDA device
 CUDA kernel launch with 196 blocks of 256 threads
@@ -188,13 +191,13 @@ az deployment group create --resource-group myResourceGroup --template-file gpud
 
 The deployment takes several minutes to complete. Then, the container starts and runs the TensorFlow job. Run the [az container logs][az-container-logs] command to view the log output:
 
-```azurecli
+```azurecli-interactive
 az container logs --resource-group myResourceGroup --name gpucontainergrouprm --container-name gpucontainer
 ```
 
 Output:
 
-```Console
+```output
 2018-10-25 18:31:10.155010: I tensorflow/core/platform/cpu_feature_guard.cc:137] Your CPU supports instructions that this TensorFlow binary was not compiled to use: SSE4.1 SSE4.2 AVX AVX2 FMA
 2018-10-25 18:31:10.305937: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1030] Found device 0 with properties:
 name: Tesla K80 major: 3 minor: 7 memoryClockRate(GHz): 0.8235
@@ -223,13 +226,13 @@ Adding run metadata for 999
 
 Because using GPU resources may be expensive, ensure that your containers don't run unexpectedly for long periods. Monitor your containers in the Azure portal, or check the status of a container group with the [az container show][az-container-show] command. For example:
 
-```azurecli
+```azurecli-interactive
 az container show --resource-group myResourceGroup --name gpucontainergroup --output table
 ```
 
 When you're done working with the container instances you created, delete them with the following commands:
 
-```azurecli
+```azurecli-interactive
 az container delete --resource-group myResourceGroup --name gpucontainergroup -y
 az container delete --resource-group myResourceGroup --name gpucontainergrouprm -y
 ```

@@ -3,7 +3,7 @@ title: Resource providers by Azure services
 description: Lists all resource provider namespaces for Azure Resource Manager and shows the Azure service for that namespace.
 ms.topic: conceptual
 ms.date: 02/28/2023
-ms.custom: ignite-2022
+ms.custom: ignite-2022, devx-track-arm-template
 ---
 
 # Resource providers for Azure services
@@ -46,7 +46,7 @@ The resources providers that are marked with **- registered** are registered by 
 | Microsoft.Cache | [Azure Cache for Redis](../../azure-cache-for-redis/index.yml) |
 | Microsoft.Capacity | core |
 | Microsoft.Cdn | [Content Delivery Network](../../cdn/index.yml) |
-| Microsoft.CertificateRegistration | [App Service Certificates](../../app-service/configure-ssl-certificate.md#import-certificate-into-app-service) |
+| Microsoft.CertificateRegistration | [App Service Certificates](../../app-service/configure-ssl-app-service-certificate.md) |
 | Microsoft.ChangeAnalysis | [Azure Monitor](../../azure-monitor/index.yml) |
 | Microsoft.ClassicCompute | Classic deployment model virtual machine |
 | Microsoft.ClassicInfrastructureMigrate | Classic deployment model migration |

@@ -114,6 +114,14 @@ Next, you can check if VNet virtual machines or the branch site can access the I
 
 After finishing the route setting steps, the VNet virtual machines as well as the branch sites are sent a 0/0 to the third-party service route. You can't RDP or SSH into these virtual machines. To sign in, you can deploy the [Azure Bastion](../bastion/bastion-overview.md) service in a peered VNet.
 
+## Rule configuration
+
+Use the partner portal to configure firewall rules. Azure Firewall passes the traffic through.
+
+For example, you may observe allowed traffic through the Azure Firewall, even though there is no explicit rule to allow the traffic. This is because Azure Firewall passes the traffic to the next hop security partner provider (ZScalar, CheckPoint, or iBoss). Azure Firewall still has rules to allow outbound traffic, but the rule name is not logged.
+
+For more information, see the partner documentation.
+
 ## Next steps
 
 - [Tutorial: Secure your cloud network with Azure Firewall Manager using the Azure portal](secure-cloud-network.md)

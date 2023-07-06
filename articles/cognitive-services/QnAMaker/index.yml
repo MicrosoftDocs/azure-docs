@@ -113,7 +113,7 @@ landingContent:
             url: /rest/api/cognitiveservices/qnamaker/knowledgebase
           - text: Generate Answer APIs
             url: /rest/api/cognitiveservices/qnamaker4.0/Runtime
-          - text: .Net SDK reference documentation
+          - text: .NET SDK reference documentation
             url: /dotnet/api/microsoft.azure.cognitiveservices.knowledge.qnamaker
           - text: Azure PowerShell
             url: /powershell/module/az.cognitiveservices/#cognitive_services

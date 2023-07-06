@@ -21,6 +21,9 @@ An Azure Bastion host requires a public IP address for its configuration.
 
 In this article, you'll learn how to create an Azure Bastion host using an existing public IP in your subscription. Azure Bastion doesn't support the change of the public IP address after creation.  Azure Bastion doesn't support public IP prefixes.
 
+>[!NOTE]
+>[!INCLUDE [Pricing](../../../includes/bastion-pricing.md)]
+
 ## Prerequisites
 
 - An Azure account with an active subscription. [Create one for free](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).

@@ -1,21 +1,17 @@
 ---
-title: 'How to configure SMTP settings (preview) within Azure Managed Grafana'
+title: 'How to configure SMTP settings within Azure Managed Grafana'
 titleSuffix: Azure Managed Grafana
-description: Learn how to configure SMTP settings (preview) to generate email notifications for Azure Managed Grafana
-author: maud-lv 
-ms.author: malev 
+description: Learn how to configure SMTP settings to generate email notifications for Azure Managed Grafana
+author: mcleanbyron 
+ms.author: mcleans 
 ms.service: managed-grafana 
 ms.topic: how-to
 ms.date: 02/01/2023
 ---
 
-# Configure SMTP settings (preview)
+# Configure SMTP settings
 
-In this guide, learn how to configure SMTP settings to generate email alerts in Azure Managed Grafana. Notifications alert users when some given scenarios occur on a Grafana dashboard.
-
-> [!IMPORTANT]
-> Email settings is currently in PREVIEW.
-> See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+In this guide, you learn how to configure SMTP settings to generate email alerts in Azure Managed Grafana. Notifications alert users when some given scenarios occur on a Grafana dashboard.
 
 SMTP settings can be enabled on an existing Azure Managed Grafana instance via the Azure Portal and the Azure CLI. Enabling SMTP settings while creating a new instance is currently not supported.
 
@@ -25,7 +21,7 @@ To follow the steps in this guide, you must have:
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free).
 - An Azure Managed Grafana instance. If you don't have one yet, [create a new instance](quickstart-managed-grafana-portal.md).
-- An SMTP server. If you don't have one yet, you may want to consider using [Twilio SendGrid's email API for Azure](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/sendgrid.tsg-saas-offer).
+- An SMTP server. If you don't have one yet, you may want to consider using [Twilio SendGrid's email API for Azure](https://azuremarketplace.microsoft.com/marketplace/apps/sendgrid.tsg-saas-offer).
 
 ## Enable and configure SMTP settings
 
@@ -34,7 +30,7 @@ To activate SMTP settings, enable email notifications and configure an email con
 ### [Portal](#tab/azure-portal)
 
   1. In the Azure portal, open your Grafana instance and under **Settings**, select **Configuration**.
-  1. Select the **Email Settings (Preview)** tab.
+  1. Select the **Email Settings** tab.
          :::image type="content" source="media/smtp-settings/find-settings.png" alt-text="Screenshot of the Azure platform. Selecting the SMTP settings tab.":::
   1. Toggle **SMTP Settings** on, so that **Enable** is displayed.
   1. SMTP settings appear. Fill out the form with the following configuration:
@@ -88,6 +84,11 @@ To activate SMTP settings, enable email notifications and configure an email con
 
 ---
 
+> [!TIP]
+> Here are some tips for properly configuring SMTP:
+>- When using a business email account such as Office 365, you may need to contact your email administrator to enable SMTP AUTH (for example, [enable-smtp-auth-for-specific-mailboxes](/exchange/clients-and-mobile-in-exchange-online/authenticated-client-smtp-submission#enable-smtp-auth-for-specific-mailboxes)). You should be able to create an app password afterwards and use it as the SMTP *password* setting.
+>- When using a personal email account such as Outlook or Gmail, you should create an app password and use it as the SMTP *password* setting. Note that your account won't work for email notification if it's configured with multi-factor authentication.
+
 ## Configure Grafana contact points and send a test email
 
 Configuring Grafana contact points is done in the Grafana portal:
@@ -109,7 +110,7 @@ To disable SMTP settings, follow the steps below.
 
 ### [Portal](#tab/azure-portal)
 
-1. In the Azure portal, go to **Configuration > Email Settings (Preview)** and toggle **SMTP Settings** off, so that **Disable** is displayed.
+1. In the Azure portal, go to **Configuration > Email Settings** and toggle **SMTP Settings** off, so that **Disable** is displayed.
 1. Select **Save** to validate and start updating the Azure Managed Grafana instance.
 
 ### [Azure CLI](#tab/azure-cli)
@@ -149,7 +150,4 @@ Due to limitation on alerting high availability configuration in Azure Managed G
 
 ## Next steps
 
-In this how-to guide, you learned how to configure Grafana SMTP settings. To learn how to create and configure Grafana dashboards, go to:
-
-> [!div class="nextstepaction"]
-> [Create dashboards](how-to-create-dashboard.md)
+In this how-to guide, you learned how to configure Grafana SMTP settings. To learn how to create reports and email them to recipients, see [Create dashboards](how-to-use-reporting-and-image-rendering.md).

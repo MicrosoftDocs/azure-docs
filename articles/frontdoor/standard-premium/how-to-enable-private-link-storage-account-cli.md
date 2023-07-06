@@ -5,6 +5,7 @@ description: Learn how to connect your Azure Front Door Premium to a Storage Acc
 services: frontdoor
 author: duongau
 ms.service: frontdoor
+ms.custom: devx-track-azurecli
 ms.topic: how-to
 ms.date: 10/04/2022
 ms.author: duau

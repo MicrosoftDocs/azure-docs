@@ -6,7 +6,7 @@ ms.author: stevevi
 ms.service: azure-government
 ms.topic: article
 recommendations: false
-ms.date: 07/15/2022
+ms.date: 05/06/2023
 ---
 
 # Azure guidance for secure isolation
@@ -82,7 +82,7 @@ Tenant isolation in Azure AD involves two primary elements:
 As shown in Figure 2, access via Azure AD requires user authentication through a Security Token Service (STS). The authorization system uses information on the user’s existence and enabled state through the Directory Services API and Azure RBAC to determine whether the requested access to the target Azure AD instance is authorized for the user in the session. Aside from token-based authentication that is tied directly to the user, Azure AD further supports logical isolation in Azure through:
 
 - Azure AD instances are discrete containers and there's no relationship between them.
-- Azure AD data is stored in partitions and each partition has a pre-determined set of replicas that are considered the preferred primary replicas. Use of replicas provides high availability of Azure AD services to support identity separation and logical isolation.
+- Azure AD data is stored in partitions and each partition has a predetermined set of replicas that are considered the preferred primary replicas. Use of replicas provides high availability of Azure AD services to support identity separation and logical isolation.
 - Access isn't permitted across Azure AD instances unless the Azure AD instance administrator grants it through federation or provisioning of user accounts from other Azure AD instances.
 - Physical access to servers that comprise the Azure AD service and direct access to Azure AD’s back-end systems is [restricted to properly authorized Microsoft operational roles](./documentation-government-plan-security.md#restrictions-on-insider-access) using the Just-In-Time (JIT) privileged access management system.
 - Azure AD users have no access to physical assets or locations, and therefore it isn't possible for them to bypass the logical Azure RBAC policy checks.
@@ -112,12 +112,15 @@ Proper protection and management of cryptographic keys is essential for data sec
 
 The Key Vault service provides an abstraction over the underlying HSMs. It provides a REST API to enable service use from cloud applications and authentication through [Azure Active Directory](../active-directory/fundamentals/active-directory-whatis.md) (Azure AD) to allow you to centralize and customize authentication, disaster recovery, high availability, and elasticity. Key Vault supports [cryptographic keys](../key-vault/keys/about-keys.md) of various types, sizes, and curves, including RSA and Elliptic Curve keys. With managed HSMs, support is also available for AES symmetric keys.
 
-With Key Vault, you can import or generate encryption keys in HSMs, ensuring that keys never leave the HSM protection boundary to support *bring your own key (BYOK)* scenarios, as shown in Figure 3. **Keys generated inside the Key Vault HSMs aren't exportable – there can be no clear-text version of the key outside the HSMs.** This binding is enforced by the underlying HSM. BYOK functionality is available with both [key vaults](../key-vault/keys/hsm-protected-keys.md) and [managed HSMs](../key-vault/managed-hsm/hsm-protected-keys-byok.md). Methods for transferring HSM-protected keys to Key Vault vary depending on the underlying HSM, as explained in online documentation.
+With Key Vault, you can import or generate encryption keys in HSMs, ensuring that keys never leave the HSM protection boundary to support *bring your own key (BYOK)* scenarios, as shown in Figure 3.
 
 :::image type="content" source="./media/secure-isolation-fig3.png" alt-text="Azure Key Vault support for bring your own key (BYOK)":::
 **Figure 3.**  Azure Key Vault support for bring your own key (BYOK)
 
-**Azure Key Vault is designed, deployed, and operated such that Microsoft and its agents don't see or extract your cryptographic keys.** For extra assurances, see [How does Azure Key Vault protect your keys?](../key-vault/managed-hsm/mhsm-control-data.md#how-does-azure-key-vault-managed-hsm-protect-your-keys)
+**Keys generated inside the Key Vault HSMs aren't exportable – there can be no clear-text version of the key outside the HSMs.** This binding is enforced by the underlying HSM. BYOK functionality is available with both [key vaults](../key-vault/keys/hsm-protected-keys.md) and [managed HSMs](../key-vault/managed-hsm/hsm-protected-keys-byok.md). Methods for transferring HSM-protected keys to Key Vault vary depending on the underlying HSM, as explained in online documentation.
+
+> [!NOTE]
+> Azure Key Vault is designed, deployed, and operated such that Microsoft and its agents are precluded from accessing, using or extracting any data stored in the service, including cryptographic keys. For more information, see [How does Azure Key Vault protect your keys?](../key-vault/managed-hsm/mhsm-control-data.md#how-does-azure-key-vault-managed-hsm-protect-your-keys)
 
 Key Vault provides a robust solution for encryption key lifecycle management. Upon creation, every key vault or managed HSM is automatically associated with the Azure AD tenant that owns the subscription. Anyone trying to manage or retrieve content from a key vault or managed HSM must be properly authenticated and authorized:
 
@@ -404,7 +407,7 @@ Pico-processes are grouped into isolation units called *sandboxes*. The sandbox 
 
 When the pico-process needs system resources, it must call into the Drawbridge host to request them. The normal path for a virtual user process would be to call the Library OS to request resources and the Library OS would then call into the ABI. Unless the policy for resource allocation is set up in the driver itself, the Security Monitor would handle the ABI request by checking policy to see if the request is allowed and then servicing the request. This mechanism is used for all system primitives therefore ensuring that the code running in the pico-process can't abuse the resources from the Host machine.
 
-In addition to being isolated inside sandboxes, pico-processes are also substantially isolated from each other. Each pico-process resides in its own virtual memory address space and runs its own copy of the Library OS with its own user-mode kernel. Each time a user process is launched in a Drawbridge sandbox, a fresh Library OS instance is booted. While this task is more time-consuming compared to launching a non-isolated process on Windows, it's substantially faster than booting a VM while accomplishing logical isolation.
+In addition to being isolated inside sandboxes, pico-processes are also substantially isolated from each other. Each pico-process resides in its own virtual memory address space and runs its own copy of the Library OS with its own user-mode kernel. Each time a user process is launched in a Drawbridge sandbox, a fresh Library OS instance is booted. While this task is more time-consuming compared to launching a nonisolated process on Windows, it's substantially faster than booting a VM while accomplishing logical isolation.
 
 A normal Windows process can call more than 1200 functions that result in access to the Windows kernel; however, the entire interface for a pico-process consists of fewer than 50 calls down to the Host. Most application requests for operating system services are handled by the Library OS within the address space of the pico-process. By providing a significantly smaller interface to the kernel, Drawbridge creates a more secure and isolated operating environment in which applications are much less vulnerable to changes in the Host system and incompatibilities introduced by new OS releases. More importantly, a Drawbridge pico-process is a strongly isolated container within which untrusted code from even the most malicious sources can be run without risk of compromising the Host system. The Host assumes that no code running within the pico-process can be trusted. The Host validates all requests from the pico-process with security checks.
 
@@ -416,6 +419,9 @@ In cases where an Azure service is composed of Microsoft-controlled code and cus
 ### Physical isolation
 In addition to robust logical compute isolation available by design to all Azure tenants, if you desire physical compute isolation you can use Azure Dedicated Host or Isolated Virtual Machines, which are both dedicated to a single customer.
 
+> [!NOTE]
+> Physical tenant isolation increases deployment cost and may not be required in most scenarios given the strong logical isolation assurances provided by Azure.
+
 #### Azure Dedicated Host
 [Azure Dedicated Host](../virtual-machines/dedicated-hosts.md) provides physical servers that can host one or more Azure VMs and are dedicated to one Azure subscription. You can provision dedicated hosts within a region, availability zone, and fault domain. You can then place [Windows](../virtual-machines/windows/overview.md), [Linux](../virtual-machines/linux/overview.md), and [SQL Server on Azure](/azure/azure-sql/virtual-machines/) VMs directly into provisioned hosts using whatever configuration best meets your needs. Dedicated Host provides hardware isolation at the physical server level, enabling you to place your Azure VMs on an isolated and dedicated physical server that runs only your organization’s workloads to meet corporate compliance requirements.
 
@@ -424,10 +430,7 @@ In addition to robust logical compute isolation available by design to all Azure
 
 You can deploy both Windows and Linux virtual machines into dedicated hosts by selecting the server and CPU type, number of cores, and extra features. Dedicated Host enables control over platform maintenance events by allowing you to opt in to a maintenance window to reduce potential impact to your provisioned services. Most maintenance events have little to no impact on your VMs; however, if you're in a highly regulated industry or with a sensitive workload, you may want to have control over any potential maintenance impact.
 
-> [!NOTE]
-> Microsoft provides detailed customer guidance on **[Windows](../virtual-machines/windows/quick-create-portal.md)** and **[Linux](../virtual-machines/linux/quick-create-portal.md)** Azure Virtual Machine provisioning using the Azure portal, Azure PowerShell, and Azure CLI.
-
-Table 5 summarizes the available security guidance for your virtual machines provisioned in Azure.
+Microsoft provides detailed customer guidance on **[Windows](../virtual-machines/windows/quick-create-portal.md)** and **[Linux](../virtual-machines/linux/quick-create-portal.md)** Azure Virtual Machine provisioning using the Azure portal, Azure PowerShell, and Azure CLI. Table 5 summarizes the available security guidance for your virtual machines provisioned in Azure.
 
 **Table 5.**  Security guidance for Azure virtual machines
 
@@ -470,9 +473,9 @@ Azure uses several networking implementations to achieve these goals:
 - Load balancing to spread traffic uniformly across network paths.
 - End-system based address resolution to scale to large server pools, without introducing complexity to the network control plane.
 
-These implementations give each service the illusion that all the servers assigned to it, and only those servers, are connected by a single non-interfering Ethernet switch – a Virtual Layer 2 (VL2) – and maintain this illusion even as the size of each service varies from one server to hundreds of thousands. This VL2 implementation achieves traffic performance isolation, ensuring that it isn't possible for the traffic of one service to be affected by the traffic of any other service, as if each service were connected by a separate physical switch.
+These implementations give each service the illusion that all the servers assigned to it, and only those servers, are connected by a single noninterfering Ethernet switch – a Virtual Layer 2 (VL2) – and maintain this illusion even as the size of each service varies from one server to hundreds of thousands. This VL2 implementation achieves traffic performance isolation, ensuring that it isn't possible for the traffic of one service to be affected by the traffic of any other service, as if each service were connected by a separate physical switch.
 
-This section explains how packets flow through the Azure network, and how the topology, routing design, and directory system combine to virtualize the underlying network fabric, creating the illusion that servers are connected to a large, non-interfering datacenter-wide Layer-2 switch.
+This section explains how packets flow through the Azure network, and how the topology, routing design, and directory system combine to virtualize the underlying network fabric, creating the illusion that servers are connected to a large, noninterfering datacenter-wide Layer-2 switch.
 
 The Azure network uses [two different IP-address families](/windows-server/networking/sdn/technologies/hyper-v-network-virtualization/hyperv-network-virtualization-technical-details-windows-server#packet-encapsulation): 
 
@@ -619,7 +622,7 @@ Each Azure [subscription](/azure/cloud-adoption-framework/decision-guides/subscr
 
 - **Shared symmetric keys** – Upon storage account creation, Azure generates two 512-bit storage account keys that control access to the storage account. You can rotate and regenerate these keys at any point thereafter without coordination with your applications. 
 - **Azure AD-based authentication** – Access to Azure Storage can be controlled by Azure Active Directory (Azure AD), which enforces tenant isolation and implements robust measures to prevent access by unauthorized parties, including Microsoft insiders. More information about Azure AD tenant isolation is available from a white paper [Azure Active Directory Data Security Considerations](https://aka.ms/AADDataWhitePaper).
-- **Shared access signatures (SAS)** – Shared access signatures or “pre-signed URLs” can be created from the shared symmetric keys. These URLs can be significantly limited in scope to reduce the available attack surface, but at the same time allow applications to grant storage access to another user, service, or device.
+- **Shared access signatures (SAS)** – Shared access signatures or “presigned URLs” can be created from the shared symmetric keys. These URLs can be significantly limited in scope to reduce the available attack surface, but at the same time allow applications to grant storage access to another user, service, or device.
 -	**User delegation SAS** – Delegated authentication is similar to SAS but is [based on Azure AD tokens](/rest/api/storageservices/create-user-delegation-sas) rather than the shared symmetric keys. This approach allows a service that authenticates with Azure AD to create a pre signed URL with limited scope and grant temporary access to another user, service, or device.
 -	**Anonymous public read access** – You can allow a small portion of your storage to be publicly accessible without authentication or authorization. This capability can be disabled at the subscription level if you desire more stringent control.
 
@@ -693,7 +696,7 @@ All data blocks stored in stream extent nodes have a 64-bit cyclic redundancy ch
 Your data in Azure Storage relies on data encryption at rest to provide cryptographic certainty for logical data isolation. You can choose between Microsoft-managed encryption keys (also known as platform-managed encryption keys) or customer-managed encryption keys (CMK). The handling of data encryption and decryption is transparent to customers, as discussed in the next section.
 
 ### Data encryption at rest
-Azure provides extensive options for [data encryption at rest](../security/fundamentals/encryption-atrest.md) to help you safeguard your data and meet your compliance needs using both Microsoft-managed encryption keys and customer-managed encryption keys. For more information, see [data encryption models](../security/fundamentals/encryption-models.md). This process relies on multiple encryption keys and services such as Azure Key Vault and Azure Active Directory to ensure secure key access and centralized key management.
+Azure provides extensive options for [data encryption at rest](../security/fundamentals/encryption-atrest.md) to help you safeguard your data and meet your compliance needs when using both Microsoft-managed encryption keys and customer-managed encryption keys. For more information, see [data encryption models](../security/fundamentals/encryption-models.md). This process relies on multiple encryption keys and services such as Azure Key Vault and Azure Active Directory to ensure secure key access and centralized key management.
 
 > [!NOTE]
 > If you require extra security and isolation assurances for your most sensitive data stored in Azure services, you can encrypt it using your own encryption keys you control in Azure Key Vault.
@@ -747,7 +750,7 @@ Because data encryption is performed by the Storage service, server-side encrypt
 #### Azure Disk encryption
 Azure Storage service encryption encrypts the page blobs that store Azure Virtual Machine disks. Moreover, you may optionally use [Azure Disk encryption](../virtual-machines/disk-encryption-overview.md) to encrypt Azure [Windows](../virtual-machines/windows/disk-encryption-overview.md) and [Linux](../virtual-machines/linux/disk-encryption-overview.md) IaaS Virtual Machine disks to increase storage isolation and assure cryptographic certainty of your data stored in Azure. This encryption includes [managed disks](../virtual-machines/managed-disks-overview.md), as described later in this section. Azure disk encryption uses the industry standard [BitLocker](/windows/security/information-protection/bitlocker/bitlocker-overview) feature of Windows and the [DM-Crypt](https://en.wikipedia.org/wiki/Dm-crypt) feature of Linux to provide OS-based volume encryption that is integrated with Azure Key Vault.
 
-Drive encryption through BitLocker and DM-Crypt is a data protection feature that integrates with the operating system and addresses the threats of data theft or exposure from lost, stolen, or inappropriately decommissioned computers. BitLocker and DM-Crypt provide the most protection when used with a Trusted Platform Module (TPM) version 1.2 or higher. The TPM is a microcontroller designed to secure hardware through integrated cryptographic keys – it's commonly pre-installed on newer computers. BitLocker and DM-Crypt can use this technology to protect the keys used to encrypt disk volumes and provide integrity to computer boot process.
+Drive encryption through BitLocker and DM-Crypt is a data protection feature that integrates with the operating system and addresses the threats of data theft or exposure from lost, stolen, or inappropriately decommissioned computers. BitLocker and DM-Crypt provide the most protection when used with a Trusted Platform Module (TPM) version 1.2 or higher. The TPM is a microcontroller designed to secure hardware through integrated cryptographic keys – it's commonly preinstalled on newer computers. BitLocker and DM-Crypt can use this technology to protect the keys used to encrypt disk volumes and provide integrity to computer boot process.
 
 For managed disks, Azure Disk encryption allows you to encrypt the OS and Data disks used by an IaaS virtual machine; however, Data can't be encrypted without first encrypting the OS volume. The solution relies on Azure Key Vault to help you control and manage the disk encryption keys in key vaults. You can supply your own encryption keys, which are safeguarded in Azure Key Vault to support *bring your own key (BYOK)* scenarios, as described previously in *[Data encryption key management](#data-encryption-key-management)* section.
 
@@ -792,7 +795,7 @@ The sectors on the physical disk associated with the deleted data become immedia
 
 Customers aren't provided with direct access to the underlying physical storage. Since customer software only addresses virtual disks, there's no way for another customer to express a request to read from or write to a physical address that is allocated to you or a physical address that is free.
 
-Conceptually, this rationale applies regardless of the software that keeps track of reads and writes. For [Azure SQL Database](../security/fundamentals/isolation-choices.md#sql-database-isolation), it's the SQL Database software that does this enforcement. For Azure Storage, it's the Azure Storage software. For non-durable drives of a VM, it's the VHD handling code of the Host OS. The mapping from virtual to physical address takes place outside of the customer VM.
+Conceptually, this rationale applies regardless of the software that keeps track of reads and writes. For [Azure SQL Database](../security/fundamentals/isolation-choices.md#sql-database-isolation), it's the SQL Database software that does this enforcement. For Azure Storage, it's the Azure Storage software. For nondurable drives of a VM, it's the VHD handling code of the Host OS. The mapping from virtual to physical address takes place outside of the customer VM.
 
 Finally, as described in *[Data encryption at rest](#data-encryption-at-rest)* section and depicted in Figure 16, the encryption key hierarchy relies on the Key Encryption Key (KEK) which can be kept in Azure Key Vault under your control (that is, customer-managed key – CMK) and used to encrypt the Data Encryption Key (DEK), which in turns encrypts data at rest using AES-256 symmetric encryption. Data in Azure Storage is encrypted at rest by default and you can choose to have encryption keys under your own control. In this manner, you can also prevent access to your data stored in Azure. Moreover, since the KEK is required to decrypt the DEKs, the KEK is effectively a single point by which DEK can be deleted via deletion of the KEK.
 
@@ -856,12 +859,26 @@ Compared to traditional on-premises hosted systems, Azure provides a greatly **r
 
 PaaS VMs offer more advanced **protection against persistent malware** infections than traditional physical server solutions, which if compromised by an attacker can be difficult to clean, even after the vulnerability is corrected. The attacker may have left behind modifications to the system that allow re-entry, and it's a challenge to find all such changes. In the extreme case, the system must be reimaged from scratch with all software reinstalled, sometimes resulting in the loss of application data. With PaaS VMs, reimaging is a routine part of operations, and it can help clean out intrusions that haven't even been detected. This approach makes it more difficult for a compromise to persist.
 
-When VMs belonging to different customers are running on the same physical server, it's the Hypervisor’s job to ensure that they can't learn anything important about what the other customer’s VMs are doing. Azure helps block unauthorized direct communication by design; however, there are subtle effects where one customer might be able to characterize the work being done by another customer. The most important of these effects are timing effects when different VMs are competing for the same resources. By carefully comparing operations counts on CPUs with elapsed time, a VM can learn something about what other VMs on the same server are doing. Known as **side-channel attacks**, these exploits have received plenty of attention in the academic press where researchers have been seeking to learn much more specific information about what is going on in a peer VM. Of particular interest are efforts to learn the cryptographic keys of a peer VM by measuring the timing of certain memory accesses and inferring which cache lines the victim’s VM is reading and updating. Under controlled conditions with VMs using hyper-threading, successful attacks have been demonstrated against commercially available implementations of cryptographic algorithms. There are several mitigations in Azure that reduce the risk of such an attack:
+#### Side channel attacks
+Microsoft has been at the forefront of mitigating **speculative execution side channel attacks** that exploit hardware vulnerabilities in modern processors that use hyper-threading. In many ways, these issues are similar to the Spectre (variant 2) side channel attack, which was disclosed in 2018. Multiple new speculative execution side channel issues were disclosed by both Intel and AMD in 2022. To address these vulnerabilities, Microsoft has developed and optimized Hyper-V **[HyperClear](/virtualization/community/team-blog/2018/20180814-hyper-v-hyperclear-mitigation-for-l1-terminal-fault)**, a comprehensive and high performing side channel vulnerability mitigation architecture. HyperClear relies on three main components to ensure strong inter-VM isolation:
+
+- **Core scheduler** to avoid sharing of a CPU core’s private buffers and other resources.
+- **Virtual-processor address space isolation** to avoid speculative access to another virtual machine’s memory or another virtual CPU core’s private state.
+- **Sensitive data scrubbing** to avoid leaving private data anywhere in hypervisor memory other than within a virtual processor’s private address space so that this data can't be speculatively accessed in the future.
+
+These protections have been deployed to Azure and are available in Windows Server 2016 and later supported releases.
+
+> [!NOTE]
+> The Hyper-V HyperClear architecture has proven to be a readily extensible design that helps provide strong isolation boundaries against a variety of speculative execution side channel attacks with negligible impact on performance.
+
+When VMs belonging to different customers are running on the same physical server, it's the Hypervisor’s job to ensure that they can't learn anything important about what the other customer’s VMs are doing. Azure helps block unauthorized direct communication by design; however, there are subtle effects where one customer might be able to characterize the work being done by another customer. The most important of these effects are timing effects when different VMs are competing for the same resources. By carefully comparing operations counts on CPUs with elapsed time, a VM can learn something about what other VMs on the same server are doing. These exploits have received plenty of attention in the academic press where researchers have been seeking to learn more specific information about what's going on in a peer VM.
+
+Of particular interest are efforts to learn the **cryptographic keys of a peer VM** by measuring the timing of certain memory accesses and inferring which cache lines the victim’s VM is reading and updating. Under controlled conditions with VMs using hyper-threading, successful attacks have been demonstrated against commercially available implementations of cryptographic algorithms. In addition to the previously mentioned Hyper-V HyperClear mitigation architecture that's in use by Azure, there are several extra mitigations in Azure that reduce the risk of such an attack:
 
 - The standard Azure cryptographic libraries have been designed to resist such attacks by not having cache access patterns depend on the cryptographic keys being used.
 - Azure uses an advanced VM host placement algorithm that is highly sophisticated and nearly impossible to predict, which helps reduce the chances of adversary-controlled VM being placed on the same host as the target VM.
 - All Azure servers have at least eight physical cores and some have many more. Increasing the number of cores that share the load placed by various VMs adds noise to an already weak signal.
-- You can provision VMs on hardware dedicated to a single customer by using [Azure Dedicated Host](../virtual-machines/dedicated-hosts.md) or [Isolated VMs](../virtual-machines/isolation.md), as described in *[Physical isolation](#physical-isolation)* section.
+- You can provision VMs on hardware dedicated to a single customer by using [Azure Dedicated Host](../virtual-machines/dedicated-hosts.md) or [Isolated VMs](../virtual-machines/isolation.md), as described in *[Physical isolation](#physical-isolation)* section. However, physical tenant isolation increases deployment cost and may not be required in most scenarios given the strong logical isolation assurances provided by Azure.
 
 Overall, PaaS – or any workload that autocreates VMs – contributes to churn in VM placement that leads to randomized VM allocation. Random placement of your VMs makes it much harder for attackers to get on the same host. In addition, host access is hardened with greatly reduced attack surface that makes these types of exploits difficult to sustain.
 

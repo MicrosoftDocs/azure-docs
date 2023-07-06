@@ -1,28 +1,28 @@
 ---
-title: How to work with the Chat Completion API (preview)
+title: How to work with the Chat Completion API 
 titleSuffix: Azure OpenAI
-description: Learn how to work with Chat Completion API (preview)
+description: Learn how to work with Chat Completion API 
 author: mrbullwinkle #dereklegenzoff
 ms.author: mbullwin #delegenz
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 03/21/2023
+ms.date: 05/31/2023
 manager: nitinme
 keywords: ChatGPT
 
 ---
 
-## Working with the ChatGPT and GPT-4 models (preview)
+## Working with the ChatGPT and GPT-4 models 
 
 The following code snippet shows the most basic way to use the ChatGPT and GPT-4 models with the Chat Completion API. If this is your first time using these models programmatically, we recommend starting with our [ChatGPT & GPT-4 Quickstart](../chatgpt-quickstart.md).
 
-**GPT-4 models are currently in preview.** Existing Azure OpenAI customers can [apply for access by filling out this form](https://aka.ms/oai/get-gpt4).
+**GPT-4 models are currently only available by request.** Existing Azure OpenAI customers can [apply for access by filling out this form](https://aka.ms/oai/get-gpt4).
 
 ```python
 import os
 import openai
 openai.api_type = "azure"
-openai.api_version = "2023-03-15-preview" 
+openai.api_version = "2023-05-15" 
 openai.api_base = os.getenv("OPENAI_API_BASE")  # Your Azure OpenAI resource's endpoint value.
 openai.api_key = os.getenv("OPENAI_API_KEY")
 
@@ -30,7 +30,7 @@ response = openai.ChatCompletion.create(
     engine="gpt-35-turbo", # The deployment name you chose when you deployed the ChatGPT or GPT-4 model.
     messages=[
         {"role": "system", "content": "Assistant is a large language model trained by OpenAI."},
-        {"role": "user", "content": "What's the difference between garbanzo beans and chickpeas?"}
+        {"role": "user", "content": "Who were the founders of Microsoft?"}
     ]
 )
 
@@ -48,7 +48,7 @@ print(response['choices'][0]['message']['content'])
       "finish_reason": "stop",
       "index": 0,
       "message": {
-        "content": "There is no difference between garbanzo beans and chickpeas \u2014 the terms are used interchangeably to describe the same round, beige-colored legume. Garbanzo beans are the Spanish name for the legume, while chickpeas are the English name for the same legume. They are a common ingredient in many traditional Middle Eastern and Mediterranean dishes, such as hummus, falafel, and stews.",
+        "content": "The founders of Microsoft are Bill Gates and Paul Allen. They co-founded the company in 1975.",
         "role": "assistant"
       }
     }
@@ -64,7 +64,6 @@ print(response['choices'][0]['message']['content'])
   }
 }
 
-There is no difference between garbanzo beans and chickpeas — the terms are used interchangeably to describe the same round, beige-colored legume. Garbanzo beans are the Spanish name for the legume, while chickpeas are the English name for the same legume. They are a common ingredient in many traditional Middle Eastern and Mediterranean dishes, such as hummus, falafel, and stews.
 ```
 
 > [!NOTE]  
@@ -86,7 +85,7 @@ Consider setting `max_tokens` to a slightly higher value than normal such as 300
 
 Unlike previous GPT-3 and GPT-3.5 models, the `gpt-35-turbo` model as well as the `gpt-4` and `gpt-4-32k` models will continue to be updated. When creating a [deployment](../how-to/create-resource.md#deploy-a-model) of these models, you'll also need to specify a model version.
 
-Currently, only version `0301` is available for ChatGPT and `0314` for GPT-4 models. We'll continue to make updated versions available in the future. You can find model deprecation times on our [models](../concepts/models.md) page.
+Currently, only version `0301` is available for ChatGPT and `0314` for GPT-4 models. We'll continue to make updated versions available in the future. You can find the model deprecation times for these models on our [models](../concepts/models.md#gpt-35-turbo-0301-and-gpt-4-0314-expiration) page.
 
 ## Working with the Chat Completion API
 
@@ -139,7 +138,7 @@ If you want the ChatGPT model to behave similarly to [chat.openai.com](https://c
 
 ```
 {"role": "system", "content": "Assistant is a large language model trained by OpenAI."},
-{"role": "user", "content": "What's the difference between garbanzo beans and chickpeas?"}
+{"role": "user", "content": "Who were the founders of Microsoft?"}
 ```
 
 #### Example with instructions
@@ -212,7 +211,7 @@ This means that every time a new question is asked, a running transcript of the 
 import os
 import openai
 openai.api_type = "azure"
-openai.api_version = "2023-03-15-preview" 
+openai.api_version = "2023-05-15" 
 openai.api_base = os.getenv("OPENAI_API_BASE")  # Your Azure OpenAI resource's endpoint value .
 openai.api_key = os.getenv("OPENAI_API_KEY")
 
@@ -239,6 +238,9 @@ The previous example will run until you hit the model's token limit. With each q
 
 It's your responsibility to ensure the prompt and completion falls within the token limit. This means that for longer conversations, you need to keep track of the token count and only send the model a prompt that falls within the limit.
 
+> [!NOTE]  
+> We strongly recommend staying within the [documented input token limit](../concepts/models.md) for all models even if you find you are able to exceed that limit.
+
 The following code sample shows a simple chat loop example with a technique for handling a 4096 token count using OpenAI's tiktoken library.
 
 The code requires tiktoken `0.3.0`. If you have an older version run `pip install tiktoken --upgrade`.
@@ -248,7 +250,7 @@ import tiktoken
 import openai
 import os
 openai.api_type = "azure"
-openai.api_version = "2023-03-15-preview" 
+openai.api_version = "2023-05-15" 
 openai.api_base = os.getenv("OPENAI_API_BASE")  # Your Azure OpenAI resource's endpoint value .
 openai.api_key = os.getenv("OPENAI_API_KEY")
 
@@ -300,4 +302,4 @@ The token counting portion of the code demonstrated previously, is a simplified 
 
 * [Learn more about Azure OpenAI](../overview.md).
 * Get started with the ChatGPT model with [the ChatGPT quickstart](../chatgpt-quickstart.md).
-* For more examples, check out the [Azure OpenAI Samples GitHub repository](https://github.com/Azure/openai-samples)
+* For more examples, check out the [Azure OpenAI Samples GitHub repository](https://aka.ms/AOAICodeSamples)

@@ -43,7 +43,7 @@ The Long Audio API is limited to the following regions:
 
 ## Voices list
 
-Batch synthesis API supports all [text-to-speech voices and styles](language-support.md?tabs=tts).
+Batch synthesis API supports all [text to speech voices and styles](language-support.md?tabs=tts).
 
 The Long Audio API is limited to the set of voices returned by a GET request to `https://<endpoint>/api/texttospeech/v3.0/longaudiosynthesis/voices`.
 
@@ -59,7 +59,7 @@ With Batch synthesis API, you can use any of the [supported SSML elements](speec
 
 ## Audio output formats
 
-Batch synthesis API supports all [text-to-speech audio output formats](rest-text-to-speech.md#audio-outputs).
+Batch synthesis API supports all [text to speech audio output formats](rest-text-to-speech.md#audio-outputs).
 
 The Long Audio API is limited to the following set of audio output formats. The sample rate for long audio voices is 24kHz, not 48kHz. Other sample rates can be obtained through upsampling or downsampling when synthesizing.
 
@@ -90,4 +90,4 @@ The Long Audio API is limited to 20,000 requests for each Azure subscription acc
 
 - [Batch synthesis API](batch-synthesis.md)
 - [Speech Synthesis Markup Language (SSML)](speech-synthesis-markup.md)
-- [Text-to-speech quickstart](get-started-text-to-speech.md)
+- [Text to speech quickstart](get-started-text-to-speech.md)

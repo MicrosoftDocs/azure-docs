@@ -42,8 +42,6 @@ To utilize the Azure BYOIP feature, you must perform the following steps prior t
 
 ### Requirements and prefix readiness
 
-### Requirements and prefix readiness
-
 * The address range must be owned by you and registered under your name with the one of the 5 major Regional Internet Registries:
       * [American Registry for Internet Numbers (ARIN)](https://www.arin.net/)
       * [Réseaux IP Européens Network Coordination Centre (RIPE NCC)](https://www.ripe.net/)
@@ -68,6 +66,9 @@ To utilize the Azure BYOIP feature, you must perform the following steps prior t
 > [!NOTE]
 > It is also recommended to create a ROA for any existing ASN that is advertising the range to avoid any issues during migration.
 
+> [!IMPORTANT]
+> While Microsoft will not stop advertising the range after the specified date,  it is strongly recommended to independently create a follow-up ROA if the original expiration date has passed to avoid external carriers from not accepting the advertisement.
+
 ### Certificate readiness
 
 To authorize Microsoft to associate a prefix with a customer subscription, a public certificate must be compared against a signed message. 
@@ -76,8 +77,7 @@ The following steps show the steps required to prepare sample customer range (1.
 
 > [!NOTE]
 > Execute the following commands in PowerShell with OpenSSL installed.  
-
-    
+ 
 1. A [self-signed X509 certificate](https://en.wikipedia.org/wiki/Self-signed_certificate) must be created to add to the Whois/RDAP record for the prefix. For information about RDAP, see the [ARIN](https://www.arin.net/resources/registry/whois/rdap/), [RIPE](https://www.ripe.net/manage-ips-and-asns/db/registration-data-access-protocol-rdap), [APNIC](https://www.apnic.net/about-apnic/whois_search/about/rdap/), and [AFRINIC](https://www.afrinic.net/whois/rdap) sites. 
 
     An example utilizing the OpenSSL toolkit is shown below.  The following commands generate an RSA key pair and create an X509 certificate using the key pair that expires in six months:
@@ -110,7 +110,7 @@ The following steps show the steps required to prepare sample customer range (1.
     Use the following command to create a signed message that will be passed to Microsoft for verification.  
    
     > [!NOTE]
-    > If the Validity End date was not included in the original ROA, pick a date that corresponds to the time you intend to have the prefix advertised by Azure.
+    > If the Validity End date was not included in the original ROA, pick a date that corresponds to the time you intend to have the prefix advertised by Azure.  Also note that Microsoft will not stop advertising the range after the specified date, but it is recommended to independently create a follow-up ROA if the original expiration date has passed.
  
     ```powershell
     $byoipauth="xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx|1.2.3.0/24|yyyymmdd"

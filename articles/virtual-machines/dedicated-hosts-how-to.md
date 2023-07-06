@@ -23,7 +23,7 @@ This article guides you through how to create an Azure [dedicated host](dedicate
 
 - The sizes and hardware types available for dedicated hosts vary by region. Refer to the host [pricing page](https://aka.ms/ADHPricing) to learn more.
 - Not all Azure VM SKUs, regions and availability zones support ultra disks, for more information about this topic, see [Azure ultra disks](disks-enable-ultra-ssd.md).
-- Currently dedicated hosts do not support 'ultra disks' on the following VM sizes: LSv2, M, Mv2, Msv2, Mdsv2, NVv3, NVv4 (ultra disks are supported on these sizes for multi tenant VMs).
+- Additional [limitations](./dedicated-hosts.md#ultra-disk-support-for-virtual-machines-on-dedicated-hosts) would apply when using ultra disks on the following VM sizes: LSv2, M, Mv2, Msv2, Mdsv2, NVv3, NVv4 on a dedicated host.
 - The fault domain count of the virtual machine scale set can't exceed the fault domain count of the host group.
 - Users can not select hardware capabilities like accelerated networking when creating a dedicated host.
 - Users would not be able to create VMs/VMSS with accelerated networking enabled on a dedicated host.
@@ -357,7 +357,7 @@ Move the VM to a dedicated host using the [portal](https://portal.azure.com).
 1. At the top of the page, select **Start** to restart the VM.
 
 
-## [CLI](#tab/cli)
+### [CLI](#tab/cli)
 
 Move the existing VM to a dedicated host using the CLI. The VM must be Stop/Deallocated using [az vm deallocate](/cli/azure/vm#az_vm_stop) in order to assign it to a dedicated host. 
 
@@ -418,7 +418,77 @@ Start-AzVM `
 
 ---
 
+## Move a VM from dedicated host to multi-tenant infrastructure
+You can move a VM that is running on a dedicated host to multi-tenant infrastructure, but the VM must first be Stop\Deallocated.
 
+- Make sure that your subscription have sufficient vCPU quota for the VM in the region where
+- Your multi-tenant VM will be scheduled in the same region and zone as the dedicated host
+
+
+### [Portal](#tab/portal)
+
+Move a VM from dedicated host to multi-tenant infrastructure using the [portal](https://portal.azure.com).
+
+1. Open the page for the VM.
+1. Select **Stop** to stop\deallocate the VM.
+1. Select **Configuration** from the left menu.
+1. Select **XXXXX** under host group drop-down menu.
+1. When you're done, select **Save** at the top of the page.
+1. After the VM has been reconfigured as a multi-tenant VM, select **Overview** from the left menu.
+1. At the top of the page, select **Start** to restart the VM.
+
+
+### [CLI](#tab/cli)
+
+Move a VM from dedicated host to multi-tenant infrastructure using the CLI. The VM must be Stop/Deallocated using [az vm deallocate](/cli/azure/vm#az_vm_stop) in order to assign it to reconfigure it as a multi-tenant VM. 
+
+Replace the values with your own information.
+
+```azurecli-interactive
+az vm deallocate -n myVM -g myResourceGroup
+az vm update -n myVM -g myResourceGroup --set host.id=None
+az vm start -n myVM -g myResourceGroup
+```
+
+
+### [PowerShell](#tab/powershell)
+
+Move a VM from dedicated host to multi-tenant infrastructure using the PowerShell.
+
+Replace the values of the variables with your own information.
+
+```azurepowershell-interactive
+$vmRGName = "moveoffhost"
+$vmName = "myDHVM"
+$dhRGName = "myDHResourceGroup"
+$dhGroupName = "myHostGroup"
+$dhName = "myHost"
+
+$myDH = Get-AzHost `
+   -HostGroupName $dhGroupName `
+   -ResourceGroupName $dhRGName `
+   -Name $dhName
+
+$myVM = Get-AzVM `
+   -ResourceGroupName $vmRGName `
+   -Name $vmName
+
+Stop-AzVM `
+   -ResourceGroupName $vmRGName `
+   -Name $vmName -Force
+
+Update-AzVM `
+   -ResourceGroupName $vmRGName `
+   -VM $myVM `
+   -HostId '' 
+
+Start-AzVM `
+   -ResourceGroupName $vmRGName `
+   -Name $vmName
+```
+
+
+---
 ## Check the status of the host
 
 If you need to know how much capacity is still available on a how, you can check the status.

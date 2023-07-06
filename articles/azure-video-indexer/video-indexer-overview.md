@@ -8,6 +8,11 @@ ms.author: juliako
 
 # What is Azure Video Indexer?
 
+> [!IMPORTANT]
+> Following [Azure Media Services retirement announcement](https://aka.ms/ams-retirement), Azure Video Indexer makes the following announcements: [June release notes](release-notes.md#june-2023).
+> 
+> Also checkout related [AMS deprecation FAQ](ams-deprecation-faq.yml).
+
 [!INCLUDE [regulation](./includes/regulation.md)]
 
 [!INCLUDE [Gate notice](./includes/face-limited-access.md)]
@@ -115,6 +120,7 @@ To learn about compliance, privacy and security in Azure Video Indexer please vi
 
 You're ready to get started with Azure Video Indexer. For more information, see the following articles:
 
+- [Indexing and configuration guide](indexing-configuration-guide.md)
 - [Pricing](https://azure.microsoft.com/pricing/details/video-indexer/)
 - [Get started with the Azure Video Indexer website](video-indexer-get-started.md).
 - [Process content with Azure Video Indexer REST API](video-indexer-use-apis.md).

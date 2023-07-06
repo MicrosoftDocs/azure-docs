@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 01/24/2023
+ms.date: 06/14/2023
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
@@ -15,6 +15,7 @@ ms.reviewer: calebb, sandeo
 
 ms.collection: M365-identity-device-management
 ---
+
 # Conditional Access: Conditions
 
 Within a Conditional Access policy, an administrator can make use of signals from conditions like risk, device platform, or location to enhance their policy decisions. 
@@ -27,11 +28,11 @@ For example, when accessing a sensitive application an administrator may factor 
 
 ## Sign-in risk
 
-For customers with access to [Identity Protection](../identity-protection/overview-identity-protection.md), sign-in risk can be evaluated as part of a Conditional Access policy. Sign-in risk represents the probability that a given authentication request isn't authorized by the identity owner. More information about sign-in risk can be found in the articles, [What is risk](../identity-protection/concept-identity-protection-risks.md#sign-in-risk) and [How To: Configure and enable risk policies](../identity-protection/howto-identity-protection-configure-risk-policies.md).
+For customers with access to [Identity Protection](../identity-protection/overview-identity-protection.md), sign-in risk can be evaluated as part of a Conditional Access policy. Sign-in risk represents the probability that a given authentication request isn't authorized by the identity owner. More information about sign-in risk can be found in the articles, [What is risk](../identity-protection/concept-identity-protection-risks.md) and [How To: Configure and enable risk policies](../identity-protection/howto-identity-protection-configure-risk-policies.md).
 
 ## User risk 
 
-For customers with access to [Identity Protection](../identity-protection/overview-identity-protection.md), user risk can be evaluated as part of a Conditional Access policy. User risk represents the probability that a given identity or account is compromised. More information about user risk can be found in the articles, [What is risk](../identity-protection/concept-identity-protection-risks.md#user-linked-detections) and [How To: Configure and enable risk policies](../identity-protection/howto-identity-protection-configure-risk-policies.md).
+For customers with access to [Identity Protection](../identity-protection/overview-identity-protection.md), user risk can be evaluated as part of a Conditional Access policy. User risk represents the probability that a given identity or account is compromised. More information about user risk can be found in the articles, [What is risk](../identity-protection/concept-identity-protection-risks.md) and [How To: Configure and enable risk policies](../identity-protection/howto-identity-protection-configure-risk-policies.md).
 
 ## Device platforms
 
@@ -112,13 +113,14 @@ This setting works with all browsers. However, to satisfy a device policy, like 
 | iOS | Microsoft Edge, Safari (see the notes) |
 | Android | Microsoft Edge, Chrome |
 | macOS | Microsoft Edge, Chrome, Safari |
+| Linux Desktop|Microsoft Edge|
 
 These browsers support device authentication, allowing the device to be identified and validated against a policy. The device check fails if the browser is running in private mode or if cookies are disabled. 
 
 > [!NOTE]
 > Edge 85+ requires the user to be signed in to the browser to properly pass device identity. Otherwise, it behaves like Chrome without the accounts extension. This sign-in might not occur automatically in a Hybrid Azure AD Join scenario.
 >  
-> Safari is supported for device-based Conditional Access, but it can not satisfy the **Require approved client app** or **Require app protection policy** conditions. A managed browser like Microsoft Edge will satisfy approved client app and app protection policy requirements.
+> Safari is supported for device-based Conditional Access on a managed device, but it can not satisfy the **Require approved client app** or **Require app protection policy** conditions. A managed browser like Microsoft Edge will satisfy approved client app and app protection policy requirements.
 > On iOS with 3rd party MDM solution only Microsoft Edge browser supports device policy.
 > 
 > [Firefox 91+](https://support.mozilla.org/kb/windows-sso) is supported for device-based Conditional Access, but "Allow Windows single sign-on for Microsoft, work, and school accounts" needs to be enabled. 
@@ -196,7 +198,7 @@ By selecting **Other clients**, you can specify a condition that affects apps th
 The device state condition was used to exclude devices that are hybrid Azure AD joined and/or devices marked as compliant with a Microsoft Intune compliance policy from an organization's Conditional Access policies.
 
 For example, *All users* accessing the *Microsoft Azure Management* cloud app including **All device state** excluding **Device Hybrid Azure AD joined** and **Device marked as compliant** and for *Access controls*, **Block**. 
-   - This example would create a policy that only allows access to Microsoft Azure Management from devices that are either hybrid Azure AD joined or devices marked as compliant.
+- This example would create a policy that only allows access to Microsoft Azure Management from devices that are either hybrid Azure AD joined or devices marked as compliant.
 
 The above scenario, can be configured using *All users* accessing the *Microsoft Azure Management* cloud app with **Filter for devices** condition in **exclude** mode using the following rule **device.trustType -eq "ServerAD" -or device.isCompliant -eq True** and for *Access controls*, **Block**.
 - This example would create a policy that blocks access to Microsoft Azure Management cloud app from unmanaged or non-compliant devices.
@@ -211,5 +213,4 @@ There’s a new optional condition in Conditional Access called filter for devic
 ## Next steps
 
 - [Conditional Access: Grant](concept-conditional-access-grant.md)
-
-- [Conditional Access common policies](concept-conditional-access-policy-common.md)
+- [Common Conditional Access policies](concept-conditional-access-policy-common.md)

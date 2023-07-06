@@ -2,12 +2,12 @@
 title: App restart issues caused by out-of-memory issues
 titleSuffix: Azure Spring Apps
 description: Explains how to understand out-of-memory (OOM) issues for Java applications in Azure Spring Apps.
-author: karlerickson
+author: KarlErickson
 ms.author: kaiqianyang
 ms.service: spring-apps
 ms.topic: conceptual
 ms.date: 07/15/2022
-ms.custom: devx-track-java
+ms.custom: devx-track-java, devx-track-extended-java
 ---
 
 # App restart issues caused by out-of-memory issues
@@ -15,7 +15,7 @@ ms.custom: devx-track-java
 > [!NOTE]
 > Azure Spring Apps is the new name for the Azure Spring Cloud service. Although the service has a new name, you'll see the old name in some places for a while as we work to update assets such as screenshots, videos, and diagrams.
 
-**This article applies to:** ✔️ Basic/Standard tier ✔️ Enterprise tier
+**This article applies to:** ✔️ Basic/Standard ✔️ Enterprise
 
 This article describes out-of-memory (OOM) issues for Java applications in Azure Spring Apps.
 

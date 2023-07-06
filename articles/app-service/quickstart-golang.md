@@ -14,12 +14,12 @@ author: msangapu-msft
 > Go on App Service on Linux is _experimental_.
 >
 
-In this quickstart, you'll deploy a Go web app to Azure App Service. Azure App Service is a fully managed web hosting service that supports Go 1.18 and higher apps hosted in a Linux server environment.
+In this quickstart, you'll deploy a Go web app to Azure App Service. Azure App Service is a fully managed web hosting service that supports Go 1.19 and higher apps hosted in a Linux server environment.
 
 To complete this quickstart, you need:
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs).
-- [Go 1.18](https://go.dev/dl/) or higher installed locally.
+- [Go 1.19](https://go.dev/dl/) or higher installed locally.
 
 ## 1 - Sample application
 
@@ -67,7 +67,7 @@ az login
 Create the webapp and other resources, then deploy your code to Azure using [az webapp up](/cli/azure/webapp#az-webapp-up).
 
 ```azurecli
-az webapp up --runtime GO:1.18 --os linux --sku B1
+az webapp up --runtime GO:1.19 --os linux --sku B1
 ```
 
 * The `--runtime` parameter specifies what version of Go your app is running. This example uses Go 1.18. To list all available runtimes, use the command `az webapp list-runtimes --os linux --output table`.
@@ -95,7 +95,7 @@ You can launch the app at http://&lt;app-name>.azurewebsites.net
   "name": "&lt;app-name>",
   "os": "&lt;os-type>",
   "resourcegroup": "&lt;group-name>",
-  "runtime_version": "go|1.18",
+  "runtime_version": "go|1.19",
   "runtime_version_detected": "0.0",
   "sku": "FREE",
   "src_path": "&lt;your-folder-location>"

@@ -8,7 +8,7 @@ ms.service: cognitive-services
 ms.subservice: translator-text
 ms.date: 08/17/2020
 ms.author: lajanuar
-ms.topic: reference
+ms.topic: faq
 ms.custom: cogserv-non-critical-translator
 ---
 

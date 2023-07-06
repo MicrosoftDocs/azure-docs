@@ -1,15 +1,15 @@
 ---
 title: Azure Gateway Load Balancer partners
-description: Learn about partners offering their network appliances for use with this service.
+description: Learn about partners offering their network appliances for use with Azure Gateway Load Balancer.
 author: mbender-ms
 ms.service: load-balancer
 ms.topic: conceptual
-ms.date: 05/11/2022
+ms.date: 05/22/2023
 ms.author: mbender
 ms.custom: template-concept
 ---
 
-# Gateway Load Balancer partners
+# Azure Gateway Load Balancer partners
 
 Azure has a growing ecosystem of partners offering their network appliances for use with Gateway Load Balancer.
 
@@ -52,8 +52,6 @@ Azure has a growing ecosystem of partners offering their network appliances for 
 “The combination of the new Azure Gateway Load Balancer with Citrix ADCs provides unparalleled scalability, supporting services across multiple regions and making it simple to insert advanced Layer 7 features provided by the Citrix ADC platform including WAF, LB, CS, L7 DDoS, and bot protection. With Azure Gateway Load Balancer’s integration with Citrix ADCs, customers gain the flexibility of easily adding or removing network appliances as their needs evolve.” 
 
 **Gopinath Durairaj - Sr. Director, Product Management** 
-
-[Learn more](https://www.citrix.com/blogs/2021/11/02/citrix-adc-integration-with-azure-gw-load-balancer/)
 
 ### cPacket Networks
 

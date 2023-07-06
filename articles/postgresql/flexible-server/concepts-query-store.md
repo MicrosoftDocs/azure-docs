@@ -1,6 +1,6 @@
 ---
-title: Query Store - Azure Database for PostgreSQL - Flex Server
-description: This article describes the Query Store feature in Azure Database for PostgreSQL - Flex Server.
+title: Query Store - Azure Database for PostgreSQL - Flexible Server
+description: This article describes the Query Store feature in Azure Database for PostgreSQL - Flexible Server.
 author: ssen-msft
 ms.author: ssen
 ms.service: postgresql
@@ -92,8 +92,9 @@ The following options apply specifically to wait statistics.
 |---|---|---|---|
 | pgms_wait_sampling.query_capture_mode | Sets which statements are tracked for wait stats. | none | none, all|
 | Pgms_wait_sampling.history_period | Set the frequency, in milliseconds, at which wait events are sampled. | 100 | 1-600000 |
->  [!NOTE]
->  **pg_qs.query_capture_mode** supersedes **pgms_wait_sampling.query_capture_mode**. If pg_qs.query_capture_mode is NONE, the pgms_wait_sampling.query_capture_mode setting has no effect.
+
+> [!NOTE]
+> **pg_qs.query_capture_mode** supersedes **pgms_wait_sampling.query_capture_mode**. If pg_qs.query_capture_mode is NONE, the pgms_wait_sampling.query_capture_mode setting has no effect.
 
 Use the [Azure portal](howto-configure-server-parameters-using-portal.md) to get or set a different value for a parameter.
 
@@ -168,7 +169,7 @@ This view returns the query plan that was used to execute a query. There is one 
 
 ## Limitations and known issues
 - If a PostgreSQL server has the parameter `default_transaction_read_only` on, Query Store will not capture any data.
-- 
+
 ## Next steps
 - Learn more about [scenarios where Query Store can be especially helpful](concepts-query-store-scenarios.md).
 - Learn more about [best practices for using Query Store](concepts-query-store-best-practices.md).

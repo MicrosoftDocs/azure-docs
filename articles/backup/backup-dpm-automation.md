@@ -34,7 +34,7 @@ Sample DPM scripts: Get-DPMSampleScript
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-To begin, [download the latest Azure PowerShell](/powershell/azure/install-az-ps).
+To begin, [download the latest Azure PowerShell](/powershell/azure/install-azure-powershell).
 
 The following setup and registration tasks can be automated with PowerShell:
 

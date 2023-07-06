@@ -78,9 +78,6 @@ The table below lists the URLs that must be available in order to install and us
 
 #### [Azure China](#tab/azure-china)
 
-> [!NOTE]
-> Private link is not available for Azure Arc-enabled servers in Azure China regions.
-
 | Agent resource | Description | When required|
 |---------|---------|--------|
 |`aka.ms`|Used to resolve the download script during installation|At installation time, only|

@@ -45,11 +45,30 @@ This list refers to the list of regions where the *metadata* for the host pool w
 
 ## Prerequisites
 
-Review the [Prerequisites for Azure Virtual Desktop](prerequisites.md) for a general idea of what's required. In addition, you'll need:
+Review the [Prerequisites for Azure Virtual Desktop](prerequisites.md) for a general idea of what's required, such as operating systems, virtual networks, and identity providers. Select the relevant tab for your scenario.
 
-- An Azure account with an active subscription.
+# [Portal](#tab/portal)
 
-- The account must have the following built-in role-based access control (RBAC) roles on a resource group or subscription to create the following resource types. If you want to assign the roles to a resource group, you'll need to create this first.
+In addition, you'll need:
+
+- The Azure account you use must have the following built-in role-based access control (RBAC) roles as a minimum on a resource group or subscription to create the following resource types. If you want to assign the roles to a resource group, you'll need to create this first.
+
+   | Resource type | RBAC role(s) |
+   |--|--|
+   | Host pool | [Desktop Virtualization Host Pool Contributor](rbac.md#desktop-virtualization-host-pool-contributor)<br />[Desktop Virtualization Application Group Contributor](rbac.md#desktop-virtualization-application-group-contributor) |
+   | Workspace | [Desktop Virtualization Workspace Contributor](rbac.md#desktop-virtualization-workspace-contributor) |
+   | Application group | [Desktop Virtualization Application Group Contributor](rbac.md#desktop-virtualization-application-group-contributor) |
+   | Session hosts | [Virtual Machine Contributor](../role-based-access-control/built-in-roles.md#virtual-machine-contributor) |
+
+   Alternatively you can assign the [Contributor](../role-based-access-control/built-in-roles.md#contributor) RBAC role to create all of these resource types.
+
+- Don't disable [Windows Remote Management](/windows/win32/winrm/about-windows-remote-management) (WinRM) when creating session hosts using the Azure portal, as it's required by [PowerShell DSC](/powershell/dsc/overview).
+
+# [Azure CLI](#tab/cli)
+
+In addition, you'll need:
+
+- The account must have the following built-in role-based access control (RBAC) roles as a minimum on a resource group or subscription to create the following resource types. If you want to assign the roles to a resource group, you'll need to create this first.
 
    | Resource type | RBAC role |
    |--|--|
@@ -60,7 +79,32 @@ Review the [Prerequisites for Azure Virtual Desktop](prerequisites.md) for a gen
 
    Alternatively you can assign the [Contributor](../role-based-access-control/built-in-roles.md#contributor) RBAC role to create all of these resource types.
 
-- If you want to use Azure CLI or Azure PowerShell locally, see [Use Azure CLI and Azure PowerShell with Azure Virtual Desktop](cli-powershell.md) to make sure you have the [desktopvirtualization](/cli/azure/desktopvirtualization) Azure CLI extension or the [Az.DesktopVirtualization](/powershell/module/az.desktopvirtualization) PowerShell module installed. Alternatively, use the [Azure Cloud Shell](../cloud-shell/overview.md).
+- If you want to use Azure CLI locally, see [Use Azure CLI and Azure PowerShell with Azure Virtual Desktop](cli-powershell.md) to make sure you have the [desktopvirtualization](/cli/azure/desktopvirtualization) Azure CLI extension installed. Alternatively, use the [Azure Cloud Shell](../cloud-shell/overview.md).
+
+> [!IMPORTANT]
+> If you want to create Azure Active Directory-joined session hosts, we only support this using the Azure portal with the Azure Virtual Desktop service.
+
+# [Azure PowerShell](#tab/powershell)
+
+In addition, you'll need:
+
+- The account must have the following built-in role-based access control (RBAC) roles as a minimum on a resource group or subscription to create the following resource types. If you want to assign the roles to a resource group, you'll need to create this first.
+
+   | Resource type | RBAC role |
+   |--|--|
+   | Host pool | [Desktop Virtualization Host Pool Contributor](rbac.md#desktop-virtualization-host-pool-contributor) |
+   | Workspace | [Desktop Virtualization Workspace Contributor](rbac.md#desktop-virtualization-workspace-contributor) |
+   | Application group | [Desktop Virtualization Application Group Contributor](rbac.md#desktop-virtualization-application-group-contributor) |
+   | Session hosts | [Virtual Machine Contributor](../role-based-access-control/built-in-roles.md#virtual-machine-contributor) |
+
+   Alternatively you can assign the [Contributor](../role-based-access-control/built-in-roles.md#contributor) RBAC role to create all of these resource types.
+
+- If you want to use Azure PowerShell locally, see [Use Azure CLI and Azure PowerShell with Azure Virtual Desktop](cli-powershell.md) to make sure you have the [Az.DesktopVirtualization](/powershell/module/az.desktopvirtualization) PowerShell module installed. Alternatively, use the [Azure Cloud Shell](../cloud-shell/overview.md).
+
+> [!IMPORTANT]
+> If you want to create Azure Active Directory-joined session hosts, we only support this using the Azure portal with the Azure Virtual Desktop service.
+
+---
 
 ## Create a host pool
 
@@ -97,7 +141,7 @@ Here's how to create a host pool using the Azure portal.
    |--|--|
    | Add Azure virtual machines | Select **Yes**. This shows several new options. |
    | Resource group | This automatically defaults to the resource group you chose your host pool to be in on the *Basics* tab, but you can also select an alternative. |
-   | Name prefix | Enter a name for your session hosts, for example **aad-hp01-sh**.<br /><br />This will be used as the prefix for your session host VMs. Each session host has a hyphen and then a sequential number added to the end, for example **aad-hp01-sh-0**. This name prefix can be a maximum of 11 characters and is used in the computer name in the operating system. |
+   | Name prefix | Enter a name for your session hosts, for example **aad-hp01-sh**.<br /><br />This will be used as the prefix for your session host VMs. Each session host has a suffix of a hyphen and then a sequential number added to the end, for example **aad-hp01-sh-0**.<br /><br />This name prefix can be a maximum of 11 characters and is used in the computer name in the operating system. The prefix and the suffix combined can be a maximum of 15 characters. Session host names must be unique. |
    | Virtual machine location | Select the Azure region where your session host VMs will be deployed. This must be the same region that your virtual network is in. |
    | Availability options | Select from **[availability zones](../reliability/availability-zones-overview.md)**, **[availability set](../virtual-machines/availability-set-overview.md)**, or **No infrastructure dependency required**. If you select availability zones or availability set, complete the extra parameters that appear.  |
    | Security type | Select from **Standard**, **[Trusted launch virtual machines](../virtual-machines/trusted-launch.md)**, or **[Confidential virtual machines](../confidential-computing/confidential-vm-overview.md)**. |

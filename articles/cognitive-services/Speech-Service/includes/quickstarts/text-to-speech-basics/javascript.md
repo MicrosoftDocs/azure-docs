@@ -88,7 +88,7 @@ Follow these steps to create a Node.js console application for speech synthesis.
 Run your new console application to start speech synthesis to a file:
 
 ```console
-node.exe SpeechSynthesis.js
+node SpeechSynthesis.js
 ```
 
 > [!IMPORTANT]
@@ -102,9 +102,6 @@ Enter some text that you want to speak >
 Now synthesizing to: YourAudioFile.wav
 synthesis finished.
 ```
-
-> [!WARNING]
-> There is a known issue on Windows 11 that might affect some types of Secure Sockets Layer (SSL) and Transport Layer Security (TLS) connections. For more information, see the [troubleshooting guide](../../../troubleshooting.md#connection-closed-or-timeout).
 
 ## Remarks
 Now that you've completed the quickstart, here are some additional considerations:

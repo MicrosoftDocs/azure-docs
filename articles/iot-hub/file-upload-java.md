@@ -9,7 +9,7 @@ ms.service: iot-hub
 ms.devlang: java
 ms.topic: how-to
 ms.date: 07/18/2021
-ms.custom: [amqp, mqtt, devx-track-java]
+ms.custom: amqp, mqtt, devx-track-java, devx-track-extended-java
 ---
 
 # Upload files from your device to the cloud with Azure IoT Hub (Java)
@@ -35,7 +35,7 @@ These files are typically batch processed in the cloud, using tools such as [Azu
 
 ## Prerequisites
 
-* An IoT Hub. Create one with the [CLI](iot-hub-create-using-cli.md) or the [Azure portal](iot-hub-create-through-portal.md).
+* An IoT hub. Create one with the [CLI](iot-hub-create-using-cli.md) or the [Azure portal](iot-hub-create-through-portal.md).
 
 * A registered device. Register one in the [Azure portal](iot-hub-create-through-portal.md#register-a-new-device-in-the-iot-hub).
 
@@ -43,7 +43,7 @@ These files are typically batch processed in the cloud, using tools such as [Azu
 
 * [Maven 3](https://maven.apache.org/download.cgi)
 
-* Port 8883 should be open in your firewall. The device sample in this article uses MQTT protocol, which communicates over port 8883. This port may be blocked in some corporate and educational network environments. For more information and ways to work around this issue, see [Connecting to IoT Hub (MQTT)](iot-hub-mqtt-support.md#connecting-to-iot-hub).
+* Port 8883 should be open in your firewall. The device sample in this article uses MQTT protocol, which communicates over port 8883. This port may be blocked in some corporate and educational network environments. For more information and ways to work around this issue, see [Connecting to IoT Hub (MQTT)](../iot/iot-mqtt-connect-to-iot-hub.md#connecting-to-iot-hub).
 
 [!INCLUDE [iot-hub-associate-storage](../../includes/iot-hub-include-associate-storage.md)]
 

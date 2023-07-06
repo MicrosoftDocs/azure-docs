@@ -195,4 +195,4 @@ As you continue through the rest of the tutorials, keep the metrics collector mo
 Continue to the next tutorial where you set up your developer environment to start deploying custom modules to your devices.
 
 > [!div class="nextstepaction"]
-> [Develop IoT Edge modules with Linux containers](tutorial-develop-for-linux.md)
+> [Develop Azure IoT Edge modules using Visual Studio Code](tutorial-develop-for-linux.md)

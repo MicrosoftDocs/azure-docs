@@ -4,6 +4,7 @@ description: Create your first app to Azure App Service in seconds using Azure B
 author: seligj95
 ms.author: msangapu
 ms.topic: article
+ms.custom: devx-track-bicep
 ms.date: 11/18/2022
 ---
 

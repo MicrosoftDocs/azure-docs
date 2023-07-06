@@ -10,7 +10,7 @@ ms.service: storage
 ms.subservice: blobs
 ms.topic: how-to
 ms.devlang: csharp, python
-ms.custom: "devx-track-csharp, devx-track-python"
+ms.custom: devx-track-csharp, devx-track-dotnet
 ---
 
 # Append data to a blob in Azure Storage using the .NET client library

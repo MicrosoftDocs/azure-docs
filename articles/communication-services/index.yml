@@ -98,7 +98,7 @@ productDirectory:
     links:
       - url: ./concepts/sms/concepts.md
         text: SMS concepts
-      - url: /concepts/sms/sdk-features.md
+      - url: ./concepts/sms/sdk-features.md
         text: SMS SDK overview
       - url: ./quickstarts/sms/send.md
         text: Send an SMS message
@@ -144,7 +144,7 @@ additionalContent:
               - text: Ask questions on Microsoft Q&A
                 url: /answers/index.html
               - text: Create Azure support request
-                url: /azure-portal/supportability/how-to-create-azure-support-request
+                url: /azure/azure-portal/supportability/how-to-create-azure-support-request
           - title: Tools
             links:
               - text: Visual Studio
@@ -158,7 +158,7 @@ additionalContent:
               - text: Azure
                 url: https://azure.microsoft.com/
               - text: Azure Cognitive Services 
-                url: /cognitive-services/
+                url: /azure/cognitive-services
               - text: Dynamics 365
                 url: https://dynamics.microsoft.com/
 

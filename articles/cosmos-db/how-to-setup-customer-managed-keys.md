@@ -24,6 +24,20 @@ You must store customer-managed keys in [Azure Key Vault](../key-vault/general/o
 > [!NOTE]
 > Currently, customer-managed keys are available only for new Azure Cosmos DB accounts. You should configure them during account creation.
 
+> [!WARNING]
+> The following field names are reserved on Cassandra API tables in accounts using Customer-managed Keys:
+>
+> - `id`
+> - `ttl`
+> - `_ts`
+> - `_etag`
+> - `_rid`
+> - `_self`
+> - `_attachments`
+> - `_epk`
+> 
+> When Customer-managed Keys are not enabled, only field names beginning with `__sys_` are reserved.
+
 ## Prerequisites
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
@@ -554,7 +568,7 @@ Use the Azure CLI to restore a continuous account that is already configured usi
         --resource-group $resourceGroupName \
         --account-name $sourceAccountName \
         --target-database-account-name $targetAccountName \
-        --locations regionName=$location \
+        --location $location \
         --restore-timestamp $timestamp \
         --assign-identity $identityId \
         --default-identity "UserAssignedIdentity=$identityId" \

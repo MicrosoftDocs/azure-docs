@@ -12,7 +12,7 @@ ms.subservice: teams-interop
 
 # Monitor logs for Teams external users
 
-In this article, you will learn which Azure logs, Azure metrics & Teams logs are emitted for Teams external users when joining Teams meetings. Azure Communication Services user joining Teams meeting emits the following metrics: [Authentication API](../../metrics.md) and [Chat API](../../metrics.md). Communication Services resource additionally tracks the following logs: [Call Summary](../../analytics/call-logs-azure-monitor.md) and [Call Diagnostic](../../analytics/call-logs-azure-monitor.md) Log. Teams administrator can use [Teams Admin Center](https://aka.ms/teamsadmincenter) and [Teams Call Quality Dashboard](https://cqd.teams.microsoft.com) to review logs stored for Teams external users joining Teams meetings organized by the tenant.
+In this article, you will learn which Azure logs, Azure metrics & Teams logs are emitted for Teams external users when joining Teams meetings. Azure Communication Services user joining Teams meeting emits the following metrics: [Authentication API](../../metrics.md) and [Chat API](../../metrics.md). Communication Services resource additionally tracks the following logs: [Call Summary](../../analytics/logs/voice-and-video-logs.md) and [Call Diagnostic](../../analytics/logs/voice-and-video-logs.md) Log. Teams administrator can use [Teams Admin Center](https://aka.ms/teamsadmincenter) and [Teams Call Quality Dashboard](https://cqd.teams.microsoft.com) to review logs stored for Teams external users joining Teams meetings organized by the tenant.
 
 ## Azure logs & metrics
 
@@ -23,7 +23,7 @@ Call summary and call diagnostics logs are emitted only for the following partic
 - Azure Communication Services users joining the meeting from the same tenant. This includes users rejected in the lobby and Azure Communication Services users from different resources but in the same tenant.
 - Additional Teams users, phone users and bots joining the meeting only if the organizer and current Azure Communication Services resource are in the same tenant.
 
-If Azure Communication Services resource and Teams meeting organizer tenants are different, then some fields of the logs are redacted. You can find more information in the call summary & diagnostics logs [documentation](../../analytics/call-logs-azure-monitor.md). Bots indicate service logic provided during the meeting. Here is a list of frequently used bots:
+If Azure Communication Services resource and Teams meeting organizer tenants are different, then some fields of the logs are redacted. You can find more information in the call summary & diagnostics logs [documentation](../../analytics/logs/voice-and-video-logs.md). Bots indicate service logic provided during the meeting. Here is a list of frequently used bots:
 - b1902c3e-b9f7-4650-9b23-5772bd429747 - Teams convenient recording
 
 ## Microsoft Teams logs
@@ -33,4 +33,4 @@ Teams administrator can see Teams external users in the overview of the meeting 
 
 - [Enable logs and metrics](../../analytics/enable-logging.md)
 - [Metrics](../../metrics.md)
-- [Call summary and call diagnostics](../../analytics/call-logs-azure-monitor.md)
+- [Call summary and call diagnostics](../../analytics/logs/voice-and-video-logs.md)

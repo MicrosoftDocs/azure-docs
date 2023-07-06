@@ -32,7 +32,7 @@ Final step is to prepare the device to ship. In this step, all the device shares
 
 4. After the prepare to ship and the device cleanup (if selected) is complete, the E-ink display on your device will also display the return the shipping label. 
 
-    You also see a completion reference number which is used for different things depending on the country in which you are located. You can also view the instructions for return shipment. Depending on the type of shipping you chose, Microsoft managed or self managed, the instructions will vary. 
+    You also see a completion reference number which is used for different things depending on the country/region in which you are located. You can also view the instructions for return shipment. Depending on the type of shipping you chose, Microsoft managed or self managed, the instructions will vary. 
         
     ![Prepare to ship 5](media/data-box-export-prepare-to-ship/prepare-to-ship5.png)
 

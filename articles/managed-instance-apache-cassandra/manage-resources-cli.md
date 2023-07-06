@@ -6,7 +6,7 @@ ms.service: managed-instance-apache-cassandra
 ms.topic: how-to
 ms.date: 11/02/2021
 ms.author: thvankra
-ms.custom: devx-track-azurecli, seo-azure-cli, ignite-fall-2021
+ms.custom: devx-track-azurecli, seo-azure-cli, ignite-fall-2021, devx-track-arm-template
 keywords: azure resource manager cli
 ---
 
