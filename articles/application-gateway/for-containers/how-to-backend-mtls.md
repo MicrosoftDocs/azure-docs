@@ -20,22 +20,20 @@ This document helps set up an example application that uses the following resour
 - [BackendTLSPolicy](api-specification-kubernetes.md#backendtlspolicy) - creating a backend TLS policy that has a client and CA certificate for the backend service referenced in the HTTPRoute
 
 ## Prerequisites
-1. Ensure you have set up your Application Gateway for Containers resources and ALB Controller by following either of the following quickstart guides:
-- [Quickstart ALB managed deployment](quickstart-create-application-gateway-for-containers-alb-managed-deployment.md)
-- [Quickstart bring your own deployment](quickstart-create-application-gateway-for-containers-byo-deployment.md)
-
-2. Deploy sample HTTP application
-Apply the following deployment.yaml file on your cluster:
-```bash
-kubectl apply -f https://trafficcontrollerdocs.blob.core.windows.net/examples/https-scenario/end-to-end-ssl-with-backend-mtls/deployment.yaml
-```
-
-This command creates the following on your cluster:
-- a namespace called `test-infra`
-- 1 service called `mtls-app` in the `test-infra` namespace
-- 1 deployment called `mtls-app` in the `test-infra` namespace
-- 1 config map called `mtls-app-nginx-cm` in the `test-infra` namespace
-- 4 secrets called `backend.com`, `frontend.com`, `gateway-client-cert`, and `ca.bundle` in the `test-infra` namespace
+1. If following the BYO deployment strategy, ensure you have set up your Application Gateway for Containers resources and [ALB Controller](quickstart-deploy-application-gateway-for-containers-alb-controller.md)
+2. If following the ALB managed deployment strategy, ensure you have provisioned your [ALB Controller](quickstart-deploy-application-gateway-for-containers-alb-controller.md)
+3. Deploy sample HTTP application
+  Apply the following deployment.yaml file on your cluster to create a sample web application and sdeploy sample secrets to demonstrate backend mutual authentication (mTLS).
+  ```bash
+  kubectl apply -f https://trafficcontrollerdocs.blob.core.windows.net/examples/https-scenario/end-to-end-ssl-with-backend-mtls/deployment.yaml
+  ```
+  
+  This command creates the following on your cluster:
+  - a namespace called `test-infra`
+  - 1 service called `mtls-app` in the `test-infra` namespace
+  - 1 deployment called `mtls-app` in the `test-infra` namespace
+  - 1 config map called `mtls-app-nginx-cm` in the `test-infra` namespace
+  - 4 secrets called `backend.com`, `frontend.com`, `gateway-client-cert`, and `ca.bundle` in the `test-infra` namespace
 
 ## Deploy the required gateway api objects
 
