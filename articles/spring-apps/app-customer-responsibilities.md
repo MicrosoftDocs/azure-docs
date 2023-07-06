@@ -29,7 +29,7 @@ For details, see the [Java long-term support for Azure and Azure Stack](/azure/d
 
 Azure Spring Apps will support the latest Spring Boot or Spring Cloud major version starting from 30 days after its release. The latest minor version will be supported as soon as it's released. You can get supported Spring Boot versions from [Spring Boot Releases](https://github.com/spring-projects/spring-boot/wiki/Supported-Versions#releases) and Spring Cloud versions from [Spring Cloud Releases](https://github.com/spring-cloud/spring-cloud-release/wiki).
 
-Apps with lower spring version can still run on Azure Spring Apps, as Azure Spring Apps will continously upgrade the managed components including: config server, eureka server for standard tier, Tanzu components (https://learn.microsoft.com/en-us/azure/spring-apps/vmware-tanzu-components) for enterprise tier, and matric collection, these features will out of support. Strongly recommend you to upgrade to the supported version.
+Apps with lower spring version can still run on Azure Spring Apps, as Azure Spring Apps will continously upgrade the managed components including: config server, eureka server for standard tier, Tanzu components (./vmware-tanzu-components) for enterprise tier, and matric collection, these features will out of support. Strongly recommend you to upgrade to the supported version.
 
 The following table lists current supported Spring Boot and Spring Cloud combinations:
 
@@ -42,6 +42,7 @@ The following table lists current supported Spring Boot and Spring Cloud combina
 
 ### [Enterprise tier](#tab/enterprise-plan)
 You can get spring commercial support when you are using enterprise tier.
+
 | Spring Boot version | Spring Cloud version       |
 |---------------------|----------------------------|
 | 3.0.x               | 2022.0.x               |
@@ -70,7 +71,7 @@ As we support polyglot applications in enterprise tier, please refer the table f
 Please refer to [The Ubuntu lifecycle and release cadence](https://ubuntu.com/about/release-cycle#ubuntu) for stack image support
 
 ### Default version
-There default LTS version of SDK will be possible changes during Build Package upgrade, if you are running a product workload, please assign the SDK LTS version during deployment. Check [How to deploy polyglot application](https://learn.microsoft.com/azure/spring-apps/how-to-enterprise-deploy-polyglot-apps) to assign SDK LTS version
+There default LTS version of SDK will be possible changes during Build Package upgrade, if you are running a product workload, please assign the SDK LTS version during deployment. Check [How to deploy polyglot application](./how-to-enterprise-deploy-polyglot-apps) to assign SDK LTS version
 
 ## Upgrade Process
 - Before a new LTS version is out of support, you need upgrade it to support version. Check above table for support policy for different SDK and stack image
