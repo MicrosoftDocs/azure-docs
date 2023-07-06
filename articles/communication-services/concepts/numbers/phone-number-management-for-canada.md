@@ -18,13 +18,15 @@ Use the below tables to find all the relevant information on number availability
 
 ## Subscription eligibility
 
+## Subscription eligibility
+
 To acquire a phone number, you need to be on a paid Azure subscription. Phone numbers can't be acquired on trial accounts or by Azure free credits.
 
 More details on eligible subscription types are as follows:
 
 | Number Type                      | Eligible Azure Agreement Type                                                                             |
 | :------------------------------- | :-------------------------------------------------------------------------------------------------------- |
-| Toll-Free and Local (Geographic) | Modern Customer Agreement (Field and Customer Led), Modern Partner Agreement (CSP), Enterprise Agreement*, Pay-As-You-Go |
+| Toll-Free and Local (Geographic/National) | Modern Customer Agreement (Field and Customer Led), Modern Partner Agreement (CSP), Enterprise Agreement*, Pay-As-You-Go |
 | Short-Codes                      | Modern Customer Agreement (Field Led), Enterprise Agreement**, Pay-As-You-Go                                      |
 
 \* In some countries/regions, number purchases are only allowed for own use. Reselling or suballcoating to another parties isn't allowed. Due to this restriction, purchases for CSP and LSP customers aren't allowed.
