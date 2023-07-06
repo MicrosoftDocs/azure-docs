@@ -34,7 +34,7 @@
   - name: Connect environments and enable all plans
     expanded: false
     items:
-    - name: Connect your Azure subscription
+    - name: Connect your Azure subscriptions
       displayName: enable, defender for cloud, activate, turn on
       href: connect-azure-subscription.md
     - name: Connect your AWS accounts
