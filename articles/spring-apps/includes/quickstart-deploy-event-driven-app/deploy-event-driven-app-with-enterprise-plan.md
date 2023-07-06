@@ -129,7 +129,7 @@ Now both the Service Bus and the app in Azure Spring Apps have been created, but
 Get the Service Bus's connection string by using the following command:
 
 ```azurecli
-SERVICE_BUS_CONNECTION_STRING=$(az servicebus namespace authorization-rule keys list \
+export SERVICE_BUS_CONNECTION_STRING=$(az servicebus namespace authorization-rule keys list \
     --namespace-name ${SERVICE_BUS_NAME_SPACE} \
     --name RootManageSharedAccessKey \
     --query primaryConnectionString \
