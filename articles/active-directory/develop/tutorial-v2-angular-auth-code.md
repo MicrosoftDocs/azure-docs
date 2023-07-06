@@ -999,7 +999,7 @@ As you add scopes, your users might be prompted to provide extra consent for the
 > [!NOTE]
 > The user might be prompted for additional consents as you increase the number of scopes.
 
-[!INCLUDE [Help and support](../../../includes/active-directory-develop-help-support-include.md)]
+[!INCLUDE [Help and support](./includes/error-handling-and-tips/help-support-include.md)]
 
 ## Next steps
 

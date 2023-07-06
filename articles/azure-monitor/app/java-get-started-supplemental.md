@@ -10,7 +10,7 @@ ms.reviewer: mmcc
 
 # Get Started (Supplemental)
 
-In the following sections, you will find information on how to get Java auto-instrumentation for specific technical environments.
+In the following sections, you will find information on how to get Java autoinstrumentation for specific technical environments.
 
 ## Azure App Service
 
