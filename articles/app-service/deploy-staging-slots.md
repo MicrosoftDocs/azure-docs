@@ -19,7 +19,7 @@ Deploying your application to a non-production slot has the following benefits:
 * Deploying an app to a slot first and swapping it into production makes sure that all instances of the slot are warmed up before being swapped into production. This eliminates downtime when you deploy your app. The traffic redirection is seamless, and no requests are dropped because of swap operations. You can automate this entire workflow by configuring [auto swap](#Auto-Swap) when pre-swap validation isn't needed.
 * After a swap, the slot with previously staged app now has the previous production app. If the changes swapped into the production slot aren't as you expect, you can perform the same swap immediately to get your "last known good site" back.
 
-Each App Service plan tier supports a different number of deployment slots. There's no additional charge for using deployment slots. To find out the number of slots your app's tier supports, see [App Service limits](../azure-resource-manager/management/azure-subscription-service-limits.md#app-service-limits). 
+Each App Service plan tier supports a different number of deployment slots. There's no extra charge for using deployment slots. To find out the number of slots your app's tier supports, see [App Service limits](../azure-resource-manager/management/azure-subscription-service-limits.md#app-service-limits). 
 
 To scale your app to a different tier, make sure that the target tier supports the number of slots your app already uses. For example, if your app has more than five slots, you can't scale it down to the **Standard** tier, because the **Standard** tier supports only five deployment slots. 
 
@@ -84,7 +84,7 @@ For more information, see [New-AzWebAppSlot](/powershell/module/az.websites/new-
 
 The new deployment slot has no content, even if you clone the settings from a different slot. For example, you can [publish to this slot with Git](./deploy-local-git.md). You can deploy to the slot from a different repository branch or a different repository.  Get publish profile [from Azure App Service](/visualstudio/azure/how-to-get-publish-profile-from-azure-app-service) can provide required information to deploy to the slot.  The profile can be imported by Visual Studio to deploy contents to the slot.
 
-The slot's URL will be of the format `http://sitename-slotname.azurewebsites.net`. To keep the URL length within necessary DNS limits, the site name will be truncated at 40 characters, the slot name will be truncated at 19 characters, and an additional 4 random characters will be appended to ensure the resulting domain name is unique. 
+The slot's URL has the format `http://sitename-slotname.azurewebsites.net`. To keep the URL length within necessary DNS limits, the site name is truncated at 40 characters, the slot name is truncated at 19 characters, and 4 extra random characters are appended to ensure the resulting domain name is unique. 
 
 <a name="AboutConfiguration"></a>
 
@@ -210,7 +210,7 @@ To swap with preview:
 
 3. When you're ready to complete the pending swap, select **Complete Swap** in **Swap action** and select **Complete Swap**.
 
-    To cancel a pending swap, select **Cancel Swap** instead.
+    To cancel a pending swap, select **Cancel Swap** instead, and then select **Cancel Swap** at the bottom.
 
 4. When you're finished, close the dialog box by selecting **Close**.
 
@@ -480,14 +480,14 @@ Get-AzLog -ResourceGroup [resource group name] -StartTime 2018-03-07 -Caller Slo
 
 ## Automate with Resource Manager templates
 
-[Azure Resource Manager templates](../azure-resource-manager/templates/overview.md) are declarative JSON files used to automate the deployment and configuration of Azure resources. To swap slots by using Resource Manager templates, you will set two properties on the *Microsoft.Web/sites/slots* and *Microsoft.Web/sites* resources:
+[Azure Resource Manager templates](../azure-resource-manager/templates/overview.md) are declarative JSON files used to automate the deployment and configuration of Azure resources. To swap slots by using Resource Manager templates, you set two properties on the *Microsoft.Web/sites/slots* and *Microsoft.Web/sites* resources:
 
-- `buildVersion`: this is a string property which represents the current version of the app deployed in the slot. For example: "v1", "1.0.0.1", or "2019-09-20T11:53:25.2887393-07:00".
-- `targetBuildVersion`: this is a string property that specifies what `buildVersion` the slot should have. If the targetBuildVersion does not equal the current `buildVersion`, then this will trigger the swap operation by finding the slot which has the specified `buildVersion`.
+- `buildVersion`: this is a string property that represents the current version of the app deployed in the slot. For example: "v1", "1.0.0.1", or "2019-09-20T11:53:25.2887393-07:00".
+- `targetBuildVersion`: this is a string property that specifies what `buildVersion` the slot should have. If the `targetBuildVersion` doesn't equal the current `buildVersion`, it triggers the swap operation by finding the slot with the specified `buildVersion`.
 
 ### Example Resource Manager template
 
-The following Resource Manager template will update the `buildVersion` of the staging slot and set the `targetBuildVersion` on the production slot. This will swap the two slots. The template assumes you already have a webapp created with a slot named "staging".
+The following Resource Manager template swap two slots by updating the `buildVersion` of the `staging` slot and setting the `targetBuildVersion` on the production slot. It assumes you've created a slot called `staging`.
 
 ```json
 {
@@ -531,7 +531,7 @@ The following Resource Manager template will update the `buildVersion` of the st
 }
 ```
 
-This Resource Manager template is idempotent, meaning that it can be executed repeatedly and produce the same state of the slots. After the first execution, `targetBuildVersion` will match the current `buildVersion`, so a swap will not be triggered.
+This Resource Manager template is idempotent, meaning that it can be executed repeatedly and produce the same state of the slots. Without any change to the template, subsequent runs of the same template don't trigger any slot swap because the slots are already in the desired state.
 
 ## Troubleshoot swaps
 
