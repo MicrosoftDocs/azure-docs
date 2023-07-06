@@ -12,9 +12,11 @@ ms.custom: devx-track-js, devx-track-azurecli
 
 # JavaScript Tutorial: Upload and analyze a file with Azure Functions and Blob Storage
 
-In this tutorial, you'll learn how to upload an image to Azure Blob Storage and process it using Azure Functions and Computer Vision. You'll also learn how to implement Azure Function triggers and bindings as part of this process.  Together, these services will analyze an uploaded image that contains text, extract the text out of it, and then store the text in a database row for later analysis or other purposes.
+In this tutorial, you'll learn how to upload an image to Azure Blob Storage and process it using Azure Functions, Computer Vision, and Cosmos DB. You'll also learn how to implement Azure Function triggers and bindings as part of this process.  Together, these services will analyze an uploaded image that contains text, extract the text out of it, and then store the text in a database row for later analysis or other purposes.
 
 Azure Blob Storage is Microsoft's massively scalable object storage solution for the cloud. Blob Storage is designed for storing images and documents, streaming media files, managing backup and archive data, and much more.  You can read more about Blob Storage on the [overview page](./storage-blobs-introduction.md).
+
+Azure Cosmos DB is a fully managed NoSQL and relational database for modern app development. 
 
 Azure Functions is a serverless computer solution that allows you to write and run small blocks of code as highly scalable, serverless, event driven functions. You can read more about Azure Functions on the [overview page](../../azure-functions/functions-overview.md).
 
@@ -27,6 +29,7 @@ In this tutorial, you'll learn how to:
 > * Use Cognitive Services to analyze an image
 > * Write data to Cosmos DB using Azure Function output bindings
 
+:::image type="content" source="./media/functions-storage-database-architectural-diagram" alt-text="Architectural diagram showing a image blob is added to Blob Storage, then analyzed by an Azure Function, with the analysis inserted into a Cosmos D B.":::
 
 ## Prerequisites
 
