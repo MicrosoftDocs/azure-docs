@@ -7,7 +7,7 @@ ms.service: key-vault
 ms.subservice: keys
 ms.topic: how-to
 ms.custom: devx-track-js
-ms.date: 06/21/2023
+ms.date: 07/06/2023
 ms.author: mbaldwin
 #Customer intent: As a JavaScript developer who is new to Azure, I want to import a key to the Key Vault with the SDK.
 ---
@@ -20,7 +20,7 @@ Create the [KeyClient](/javascript/api/@azure/keyvault-keys/keyclient) with the 
 
 A best practice is to allow Key Vault to generate your keys. If you need to migrate a key to Key Vault, the key needs to be in the JWK format with any Base64 values converted to UInt8Array values.
 
-The JSON Web Key (JWK), represented in the SDK as a [JsonWebKey](/javascript/api/@azure/keyvault-keys/jsonwebkey) object, contains a well-known public key, which can be be used to validate the signature of a signed JWT.
+The JSON Web Key (JWK), represented in the SDK as a [JsonWebKey](/javascript/api/@azure/keyvault-keys/jsonwebkey) object, contains a well-known public key, which can be used to validate the signature of a signed JWT.
 
 ```javascript
 // Azure client libraries

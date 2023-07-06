@@ -7,7 +7,7 @@ ms.service: key-vault
 ms.subservice: keys
 ms.topic: how-to
 ms.custom: devx-track-js
-ms.date: 06/21/2023
+ms.date: 07/06/2023
 ms.author: mbaldwin
 #Customer intent: As a JavaScript developer who is new to Azure, I want to list keys to the Key Vault with the SDK.
 ---
@@ -95,7 +95,7 @@ Refer to the [List all keys by page](#list-all-keys-by-page) example to see how 
 
 ## List deleted keys
 
-To list all deleted keyss in Azure Key Vault, use the [listDeletedKeys](/javascript/api/@azure/keyvault-keys/keyclient#@azure-keyvault-keys-keyclient-listdeletedkeys) method.
+To list all deleted keys in Azure Key Vault, use the [listDeletedKeys](/javascript/api/@azure/keyvault-keys/keyclient#@azure-keyvault-keys-keyclient-listdeletedkeys) method.
 
 ```javascript
 import { KeyClient } from '@azure/keyvault-keys';
