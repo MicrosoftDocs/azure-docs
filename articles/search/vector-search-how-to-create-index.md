@@ -198,6 +198,8 @@ Data sources provide the vectors in whatever format the data source supports (su
 
 For validation purposes, you can query the index using Search Explorer in Azure portal or a REST API call. Because Cognitive Search can't convert a vector to human-readable text, try to return fields from the same document that provide evidence of the match. For example, if the vector query targets the "titleVector" field, you could select "title" for the search results.
 
+The following example is a vector query, but it returns only non-vector fields (title, content, category). Only fields marked as "retrievable" can be returned in search results.
+
 ```http
 POST https://my-search-service.search.windows.net/indexes/my-index/docs/search?api-version=2023-07-01-Preview
 Content-Type: application/json

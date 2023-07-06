@@ -52,7 +52,7 @@ api-key: {{admin-api-key}}
 }
 ```
 
-The expected response is 202, where the vector representation of the "input" is in the "embedding" field. For testing purposes, you would copy the embedding value into "vector.value" in a query request, using syntax from the next sections. Note that the actual response for this query included 1536 embeddings, trimmed here for brevity.
+The expected response is 202 for a successful call to the deployed model. The body of the response provides the vector representation of the "input". The vector for the query is in the "embedding" field. For testing purposes, you would copy the embedding value into "vector.value" in a query request, using syntax from the next sections. Note that the actual response for this query included 1536 embeddings, trimmed here for brevity.
 
 ```json
 {
@@ -137,7 +137,7 @@ api-key: {{admin-api-key}}
 }
 ```
 
-## Query syntax for cross-field vector query
+## Query syntax for multi-field vector query
 
 You can set "vector.fields" property to multiple vector fields. For example, the Postman collection has vector fields named titleVector and contentVector. Your query can include both titleVector and contentVector.
 
@@ -159,7 +159,7 @@ You can set "vector.fields" property to multiple vector fields. For example, the
 }
 ```
 
-## Query syntax for multi-vector queries
+## Query syntax for multi-modal vector queries
 
 You can issue a search request with multiple query vectors using the `vectors` query parameter:
 
@@ -167,12 +167,12 @@ You can issue a search request with multiple query vectors using the `vectors` q
 vectors: [ 
     {
         value: [1.0, 2.0],
-        fields: "myfield1",
+        fields: "myimagecontentfield1",
         k:5
     },
     {
         value: [1.0, 2.0, 3.0],
-        fields: "myfield2",
+        fields: "mytextcontentfield2",
         k:5
     }
 ]
