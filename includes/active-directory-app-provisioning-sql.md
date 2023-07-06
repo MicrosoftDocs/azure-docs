@@ -164,7 +164,7 @@ If you have already downloaded the provisioning agent and configured it for anot
  1. Open the provisioning agent wizard.
  1. In the **Select Extension** step, select **On-premises application provisioning** and then select **Next**.
 
-    ![Screenshot that shows how to select on premises provisioning.](./media/app-provisioning-sql/azure-ad-sync-agent-select-on-premises.png)
+    ![Screenshot that shows how to select on premises provisioning.](./media/app-provisioning-sql/sync-agent-select-on-premises.png)
 
  1. The provisioning agent will use the operating system's web browser to display a popup window for you to authenticate to Azure AD, and potentially also your organization's identity provider.  If you are using Internet Explorer as the browser on Windows Server, then you may need to add Microsoft web sites to your browser's trusted site list to allow JavaScript to run correctly.
  1. Provide credentials for an Azure AD administrator when you're prompted to authorize. The user is required to have the Hybrid Identity Administrator or Global Administrator role.
