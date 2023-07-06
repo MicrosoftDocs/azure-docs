@@ -33,17 +33,16 @@ The `.bak` files for the `controller` database will be stored in the same storag
 
 There are two types of recovery possible:
 
-1. `controllerdb` is corrupted and you just need to restore the database
+1. `controller` is corrupted and you just need to restore the database
+1. the entire storage that contains the `controller` data and log files is corrupted/gone and you need to recover 
 
-1. the entire storage that contains the `controllerdb` data and log files is corrupted/gone and you need to recover 
+### Corrupted controller database scenario
 
-### Restore controllerdb from backup
-
-
+In this scenario, all the pods are up and running, you are able to connect to the controldb SQL Server, and there may be a corruption with the `controller` database and you just need to restore the database from a backup.
 
 Follow these steps to restore the controller database from a backup, if the SQL Server is still up and running on the controldb pod, and you are able to connect to it:
 
-1. Verify connectivity to SQL Server pod hosting the `controllerdb` database.
+1. Verify connectivity to SQL Server pod hosting the `controller` database.
    - First, retrieve the credentials for the secret. `controller-system-secret` is the secret that holds the credentials for the `system` user account that can be used to connect to the SQL instance.
       Run the following command to retrieve the secret contents:
    
@@ -56,15 +55,25 @@ Follow these steps to restore the controller database from a backup, if the SQL 
          `kubectl exec controldb-0 -n <namespace> -c  mssql-server -- /opt/mssql-tools/bin/sqlcmd -S localhost -U system -P "<password>" -Q "SELECT @@SERVERNAME"`
          For example:
          `kubectl exec controldb-0 -n contosons -c  mssql-server -- /opt/mssql-tools/bin/sqlcmd -S localhost -U system -P "<password>" -Q "SELECT @@SERVERNAME"`
-1. Scale the controller ReplicaSet down to 0 replicas
-1. Connect to the controldb SQL Server as `system`.
- 4. Delete the corrupted controller database.
- 5. Restore the backup.
- 6. Scale the controller ReplicaSet back up to 1 replica.
+1. Scale the controller ReplicaSet down to 0 replicas as follows:
+`kubectl scale --replicas=0 rs/control -n <namespace>`
+For example: `kubectl scale --replicas=0 rs/control -n arcdataservices`
+1. Connect to the controldb SQL Server as `system` as described in step 1.
+1. Delete the corrupted controller database using T-SQL:
+`DROP DATABASE controller`
+1. Restore the backup - after the corrupted `controllerdb` is dropped, restore the backup as follows:
+`RESTORE DATABASE test FROM DISK = '/backups/<controller backup file>.bak'`
+`WITH MOVE 'controller' to '/var/opt/mssql/data/controller.mdf'  `
+`,MOVE 'controller' to '/var/opt/mssql/data/controller_log.ldf'  `
+`,RECOVERY;  `
+`GO` 
+1. Scale the controller ReplicaSet back up to 1 replica.
+`kubectl scale --replicas=1 rs/control -n <namespace>`
+For example: `kubectl scale --replicas=1 rs/control -n arcdataservices`
 
+### Corrupted storage scenario
 
-
-
+In this scenario, the storage hosting the Data controller data and log files, has corruption and a new storage was provisioned and you need to restore the controller database.
 
 ## Next steps
 
