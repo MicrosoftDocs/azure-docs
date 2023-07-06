@@ -5,7 +5,6 @@ description: Learn about the content filtering capabilities of Azure OpenAI in A
 author: mrbullwinkle
 ms.author: mbullwin
 ms.service: cognitive-services
-ms.subservice: openai
 ms.topic: conceptual 
 ms.date: 06/08/2023
 ms.custom: template-concept
