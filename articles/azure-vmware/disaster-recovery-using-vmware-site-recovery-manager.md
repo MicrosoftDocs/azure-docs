@@ -3,7 +3,7 @@ title: Deploy disaster recovery with VMware Site Recovery Manager
 description: Deploy disaster recovery with VMware Site Recovery Manager (SRM) in your Azure VMware Solution private cloud.
 ms.topic: how-to
 ms.service: azure-vmware
-ms.date: 7/5/2023
+ms.date: 7/6/2023
 ---
 
 # Deploy disaster recovery with VMware Site Recovery Manager (SRM)
@@ -21,8 +21,12 @@ In this article, you'll implement disaster recovery for on-premises VMware vSphe
 
 VMware SRM helps you plan, test, and run the recovery of VMs between a protected VMware vCenter Server site and a recovery VMware vCenter Server site. You can use VMware SRM with Azure VMware Solution with the following two DR scenarios: 
 
-- On-premises VMware to Azure VMware Solution private cloud disaster recovery 
+- On-premises VMware vSphere to Azure VMware Solution private cloud disaster recovery 
 - Primary Azure VMware Solution to Secondary Azure VMware Solution private cloud disaster recovery 
+
+The diagram shows the deployment of the on-premises VMware vSphere to Azure VMware Solution private cloud disaster recovery scenario.
+
+:::image type="content" source="media/vmware-srm-vsphere-replication/vmware-site-recovery-manager-diagram-on-premises.png" alt-text="Diagram showing the VMware Site Recovery Manager (SRM) disaster recovery solution in Azure VMware Solution with on-premises VMware vSphere." border="false" lightbox="media/vmware-srm-vsphere-replication/vmware-site-recovery-manager-diagram-on-premises.png":::
 
 The diagram shows the deployment of the primary Azure VMware Solution to secondary Azure VMware Solution scenario.
 
@@ -39,12 +43,12 @@ You can use VMware SRM to implement different types of recovery, such as:
 - **Bidirectional Protection** uses a single set of paired VMware SRM sites to protect VMs in both directions. Each site can simultaneously be a protected site and a recovery site, but for a different set of VMs.
 
 >[!IMPORTANT]
->Azure VMware Solution doesn't support: 
+>Azure VMware Solution doesn't support:
 >
->- Array-based replication and storage policy protection groups 
->- vVOLs Protection Groups 
+>- Array-based replication and storage policy protection groups
+>- VMware vVOLs Protection Groups
 >- VMware SRM IP customization using SRM command-line tools
->- One-to-Many and Many-to-One topology 
+>- One-to-Many and Many-to-One topologies
 >- Custom VMware SRM plug-in identifier or extension ID
 
 
