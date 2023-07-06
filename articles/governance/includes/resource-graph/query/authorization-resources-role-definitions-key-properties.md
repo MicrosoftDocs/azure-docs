@@ -6,7 +6,7 @@ author: davidsmatlak
 ms.author: davidsmatlak
 ---
 
-### Get Role Definitions with key properties
+### Get role definitions with key properties
 
 Provides a sample of [role definitions](../../../../role-based-access-control/role-definitions.md) and some of the resources relevant properties.
 

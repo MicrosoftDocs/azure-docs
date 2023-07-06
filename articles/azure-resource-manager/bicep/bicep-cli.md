@@ -107,7 +107,7 @@ bicep generate-params main.bicep --output-format bicepparam --include-params all
 The command creates a Bicep parameters file named _main.bicepparam_. The parameter file contains all parameters in the Bicep file, whether configured with default values or not.
 
 ```azurecli
-bicep generate-params --file main.bicep --outfile main.parameters.json
+bicep generate-params main.bicep --outfile main.parameters.json
 ```
 
 The command creates a parameter file named _main.parameters.json_. The parameter file only contains the parameters without default values configured in the Bicep file.
