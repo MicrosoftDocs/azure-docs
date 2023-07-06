@@ -725,7 +725,7 @@ In a Standard logic app workflow that starts with the Request trigger (but not a
 
   To enable Azure AD OAuth so that this option is the only way to call the request endpoint, use the following steps:
 
-  1. [Follow the steps to include 'Authorization' header in Request or HTTP webhook trigger outputs](#include-auth-header).
+  1. To enable the capability to check the OAuth access token, [follow the steps to include 'Authorization' header in the Request or HTTP webhook trigger outputs](#include-auth-header).
 
   1. In the [Azure portal](https://portal.azure.com), open your Consumption logic app workflow in the designer.
 
