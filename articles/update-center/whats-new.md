@@ -16,7 +16,8 @@ ms.date: 06/12/2023
 
 ### Dynamic scope (preview)
 
-You can now include a group of [machines based on the scope and schedule updates](dynamic-scope-overview.md) on those machines and when the scope is modified, the patching requirements are applied accordingly without any changes to your deployment schedule.
+Dynamic scope (preview) is an advanced capability of schedule patching. You can now create a group of [machines based on a schedule and apply patches](dynamic-scope-overview.md) on those machines at scale. [Learn more](tutorial-dynamic-grouping-for-scheduled-patching.md).
+ 
 
 ## May 2023
 
@@ -26,7 +27,7 @@ Update management center (preview) now supports [generalized](../virtual-machine
 
 ### Multi-subscription support
 
-The limit on the number of subscriptions that you can manage using the Update management center (preview) portal has now been removed. You can now manage all your subscriptions using the update management center (preview) portal.
+The limit on the number of subscriptions that you can manage to use the Update management center (preview) portal has now been removed. You can now manage all your subscriptions using the update management center (preview) portal.
 
 ## April 2023
 

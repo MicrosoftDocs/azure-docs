@@ -10,7 +10,7 @@ ms.author: sudhirsneha
 
 # About Dynamic Scoping (preview)
 
-**Applies to:** :heavy_check_mark: Windows VMs :heavy_check_mark: Linux VMs :heavy_check_mark: On-premises environment :heavy_check_mark: Azure Arc-enabled servers.
+**Applies to:** :heavy_check_mark: Windows VMs :heavy_check_mark: Linux VMs :heavy_check_mark: On-premises environment :heavy_check_mark: Azure VMs :heavy_check_mark: Azure Arc-enabled servers.
 
 Dynamic scoping (preview) is an advanced capability of schedule patching that allows users to: 
 
@@ -39,8 +39,8 @@ For dynamic scoping (preview) and configuration assignment, ensure that you have
 
 ## Prerequisites for Azure VMs
 
-1. Patch orchestration should be **Customer Managed Schedules (Preview)/ (AutomaticByPlatform and ByPassPlatformSafetyChecksOnUserSchedule = TRUE)**.  
-1. Associate the VM with a Schedule. 
+- Patch Orchestration must be set to Customer Managed Schedules (Preview). This sets patch mode to AutomaticByPlatform and the **BypassPlatformSafetyChecksOnUserSchedule** = *True*.
+- Associate a Schedule with the VM.
 
 > [!NOTE]
 > For Arc VMs, there are no patch orchestration pre-requisites. However, you must associate a schedule with the VM for Schedule patching. For more information, see [Configure schedule patching on Azure VMs to ensure business continuity](prerequsite-for-schedule-patching.md).
