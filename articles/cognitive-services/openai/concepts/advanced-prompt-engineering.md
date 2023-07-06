@@ -5,6 +5,7 @@ description: Learn about the options for how to use prompt engineering with GPT-
 author: suhridpalsule
 ms.author: mbullwin 
 ms.service: cognitive-services
+ms.subservice: openai
 ms.topic: conceptual 
 ms.date: 04/20/2023
 manager: nitinme

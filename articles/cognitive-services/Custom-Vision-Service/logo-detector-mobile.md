@@ -1,7 +1,7 @@
 ---
 title: "Tutorial: Use custom logo detector to recognize Azure services - Custom Vision"
 titleSuffix: Azure Cognitive Services
-description: In this tutorial, you will step through a sample app that uses Custom Vision as part of a logo detection scenario. Learn how Custom Vision is used with other components to deliver an end-to-end application.
+description: In this tutorial, you'll step through a sample app that uses Custom Vision as part of a logo detection scenario. Learn how Custom Vision is used with other components to deliver an end-to-end application.
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
@@ -9,7 +9,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: custom-vision
 ms.topic: tutorial
-ms.date: 11/23/2020
+ms.date: 07/04/2023
 ms.author: pafarley
 ms.devlang: csharp
 ms.custom: devx-track-csharp
@@ -17,9 +17,9 @@ ms.custom: devx-track-csharp
 
 # Tutorial: Recognize Azure service logos in camera pictures
 
-In this tutorial, you'll explore a sample app that uses Custom Vision as part of a larger scenario. The AI Visual Provision app, a Xamarin.Forms app for mobile platforms, analyzes camera pictures of Azure service logos and then deploys the actual services to the user's Azure account. Here you'll learn how it uses Custom Vision in coordination with other components to deliver a useful end-to-end application. You can run the whole app scenario for yourself, or you can complete only the Custom Vision part of the setup and explore how the app uses it.
+In this tutorial, you'll explore a sample app that uses Custom Vision as part of a larger scenario. The AI Visual Provision app, a Xamarin.Forms application for mobile platforms, analyzes photos of Azure service logos and then deploys those services to the user's Azure account. Here you'll learn how it uses Custom Vision in coordination with other components to deliver a useful end-to-end application. You can run the whole app scenario for yourself, or you can complete only the Custom Vision part of the setup and explore how the app uses it.
 
-This tutorial will show you how to:
+This tutorial shows you how to:
 
 > [!div class="checklist"]
 > - Create a custom object detector to recognize Azure service logos.
@@ -37,11 +37,11 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 ## Get the source code
 
-If you want to use the provided web app, clone or download the app's source code from the [AI Visual Provision](https://github.com/Microsoft/AIVisualProvision) repository on GitHub. Open the *Source/VisualProvision.sln* file in Visual Studio. Later on, you'll edit some of the project files so you can run the app.
+If you want to use the provided web app, clone or download the app's source code from the [AI Visual Provision](https://github.com/Microsoft/AIVisualProvision) repository on GitHub. Open the *Source/VisualProvision.sln* file in Visual Studio. Later, you'll edit some of the project files so you can run the app yourself.
 
 ## Create an object detector
 
-Sign in to the [Custom Vision website](https://customvision.ai/) and create a new project. Specify an Object Detection project and use the Logo domain; this will let the service use an algorithm optimized for logo detection. 
+Sign in to the [Custom Vision web portal](https://customvision.ai/) and create a new project. Specify an Object Detection project and use the Logo domain; this will let the service use an algorithm optimized for logo detection. 
 
 ![New-project window on the Custom Vision website in the Chrome browser](media/azure-logo-tutorial/new-project.png)
 
@@ -87,7 +87,7 @@ This result takes the form of a **PredictionResult** instance, which itself cont
 
 To learn more about how the app handles this data, start with the **GetResourcesAsync** method. This method is defined in the *Source/VisualProvision/Services/Recognition/RecognitionService.cs* file.  
 
-## Add Computer Vision
+## Add text recognition
 
 The Custom Vision portion of the tutorial is complete. If you want to run the app, you'll need to integrate the Computer Vision service as well. The app uses the Computer Vision text recognition feature to supplement the logo detection process. An Azure logo can be recognized by its appearance *or* by the text printed near it. Unlike Custom Vision models, Computer Vision is pretrained to perform certain operations on images or videos.
 

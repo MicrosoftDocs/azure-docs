@@ -55,7 +55,6 @@ The following table summarizes the expected performance targets between standard
 |-----------------------------------------------|--------------|-------------|
 | Write latency (single-digit milliseconds)     | Yes          | Yes         |
 | Read latency (single-digit milliseconds)      | No           | Yes         |
-| Throughput > 300 MiB/s                         | No           | Yes         |
 | IOPS > 20,000                                 | No           | Yes         |
 
 Premium file shares offer a provisioning model that guarantees the following performance profile based on share size. For more information, see [Provisioned model](understanding-billing.md#provisioned-model). Burst credits accumulate in a burst bucket whenever traffic for your file share is below baseline IOPS. Earned credits are used later to enable bursting when operations would exceed the baseline IOPS.
