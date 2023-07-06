@@ -13,11 +13,11 @@ ms.author: greglin
 
 # Quickstart: Create Application Gateway for Containers - Bring your own deployment
 
-This guide assumes you are following the "bring your own" deployment strategy, where ALB Controller will reference the Application Gateway for Containers resources precreated in Azure and assume their lifecycle will be managed in Azure, independent from what is defined within Kubernetes. 
+This guide assumes you're following the "bring your own" deployment strategy, where ALB Controller references the Application Gateway for Containers resources precreated in Azure. It's assumed that resource lifecycles are managed in Azure, independent from what is defined within Kubernetes. 
 
 ## Prerequisites
 
-Ensure you have first deployed ALB Controller into your Kubernetes cluster.  You may follow the [Quickstart: Deploy Application Gateway for Containers ALB Controller](quickstart-deploy-application-gateway-for-containers-alb-controller.md) guide if you have not yet deployed the ALB Controller.
+Ensure you have first deployed ALB Controller into your Kubernetes cluster.  You may follow the [Quickstart: Deploy Application Gateway for Containers ALB Controller](quickstart-deploy-application-gateway-for-containers-alb-controller.md) guide if you haven't yet deployed the ALB Controller.
 
 ## Create the Application Gateway for Containers resource
 
@@ -33,7 +33,7 @@ az network alb frontend create -g test-rg -n test-frontend --alb-name test-alb
 
 ## Create an Association resource
 
-To create an association resource, we will first need to reference a subnet for Application Gateway for Containers to establish connectivity to.  Please ensure the subnet for an Application Gateway for Containers association is at least /24 address CIDR prefix or smaller.
+To create an association resource,  you first need to reference a subnet for Application Gateway for Containers to establish connectivity to.  Ensure the subnet for an Application Gateway for Containers association is at least a class C or larger (/24 or smaller CIDR prefix).
 
 ### Create a new VNET and Subnet
 To create a new vnet and subnet, execute the following command:
