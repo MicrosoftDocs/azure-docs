@@ -4,7 +4,7 @@ description: Read the release notes for the Azure Storage Mover service, which a
 services: storage-mover
 author: stevenmatthew
 ms.author: shaas
-ms.service: storage-mover
+ms.service: azure-storage-mover
 ms.topic: conceptual
 ms.date: 4/14/2022
 ---
