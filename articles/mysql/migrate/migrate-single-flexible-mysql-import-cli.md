@@ -75,7 +75,6 @@ az mysql flexible-server import create --data-source-type
                                 --tier
                                 --version
                                 --storage-size
-                                [--subscription]
                                 [--mode]
                                 [--admin-password]
                                 [--admin-user]
@@ -105,7 +104,7 @@ az mysql flexible-server import create --data-source-type
 The following example takes in the data source information for Single Server named 'test-single-server' and target Flexible Server information, creates a target Flexible Server named `test-flexible-server` in the `westus` location (same location as that of the source Single Server) and performs an import from source to target.
 
 ```azurecli-interactive
-az mysql flexible-server import create --data-source-type "mysql_single" --data-source "test-single-server" --subscription "test-subscription" --resource-group "test-rg" --location westus --name "test-flexible-server" --admin-user "username" --admin-password "password" --sku-name "Standard_B1ms" --tier "Burstable" --public-access 0.0.0.0 --storage-size 32 --tags "key=value" --version 5.7 --high-availability ZoneRedundant --zone 1 --standby-zone 3 --storage-auto-grow Enabled --iops 500
+az mysql flexible-server import create --data-source-type "mysql_single" --data-source "test-single-server" --resource-group "test-rg" --location westus --name "test-flexible-server" --admin-user "username" --admin-password "password" --sku-name "Standard_B1ms" --tier "Burstable" --public-access 0.0.0.0 --storage-size 32 --tags "key=value" --version 5.7 --high-availability ZoneRedundant --zone 1 --standby-zone 3 --storage-auto-grow Enabled --iops 500
 ```
 
 Here are the details for the arguments above:
@@ -114,7 +113,6 @@ Here are the details for the arguments above:
 ---|---|---
 data-source-type | mysql_single | The type of data source that serves as the source destination for triggering MySQL Import. Accepted values: [mysql_single]. Description of accepted values- mysql_single: Azure Database for MySQL Single Server.
 data-source | test-single-server | The name or resource ID of the source Azure Database for MySQL Single Server.
-subscription | test-subscription | The name or ID of subscription of the source Azure Database for MySQL Single Server.
 resource-group | test-rg | The name of the Azure resource group of the source Azure Database for MySQL Single Server.
 mode | Offline | The mode of MySQL import. Accepted values: [Offline]; Default value: Offline.
 location | westus | The Azure location for the source Azure Database for MySQL Single Server.
