@@ -1,7 +1,7 @@
 ---
-title: "Quickstart: Form Recognizer REST API v3.0 | v3.0"
-titleSuffix: Azure Applied AI Services
-description: Form and document processing, data extraction, and analysis using Form Recognizer REST API v3.0
+title: "Quickstart: Document Intelligence REST API v3.0 | v3.0"
+titleSuffix: Azure AI services
+description: Form and document processing, data extraction, and analysis using Document Intelligence REST API v3.0
 author: laujan
 manager: nitinme
 ms.service: applied-ai-services
@@ -11,9 +11,9 @@ ms.date: 06/02/2023
 ms.author: lajanuar
 ---
 
-| [Form Recognizer REST API](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2022-08-31/operations/AnalyzeDocument) | [Azure SDKS](https://azure.github.io/azure-sdk/releases/latest/index.html) | [Supported SDKs](../../sdk-overview.md)
+| [Document Intelligence REST API](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2022-08-31/operations/AnalyzeDocument) | [Azure SDKS](https://azure.github.io/azure-sdk/releases/latest/index.html) | [Supported SDKs](../../sdk-overview.md)
 
-In this quickstart you'll, use the Form Recognizer REST API to analyze and extract data and values from forms and documents:
+In this quickstart you'll, use the Document Intelligence REST API to analyze and extract data and values from forms and documents:
 
 ## Prerequisites
 
@@ -33,12 +33,12 @@ In this quickstart you'll, use the Form Recognizer REST API to analyze and extra
   * Windows: `Get-Host | Select-Object Version`
   * macOS or Linux: `$PSVersionTable`
 
-* A Form Recognizer (single-service) or Cognitive Services (multi-service) resource. Once you have your Azure subscription, create a [single-service](https://portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer) or [multi-service](https://portal.azure.com/#create/Microsoft.CognitiveServicesAllInOne) Form Recognizer resource, in the Azure portal, to get your key and endpoint. You can use the free pricing tier (`F0`) to try the service, and upgrade later to a paid tier for production.
+* A Document Intelligence (single-service) or Azure AI services (multi-service) resource. Once you have your Azure subscription, create a [single-service](https://portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer) or [multi-service](https://portal.azure.com/#create/Microsoft.CognitiveServicesAllInOne) Document Intelligence resource, in the Azure portal, to get your key and endpoint. You can use the free pricing tier (`F0`) to try the service, and upgrade later to a paid tier for production.
 
 > [!TIP]
-> Create a Cognitive Services resource if you plan to access multiple cognitive services under a single endpoint/key. For Form Recognizer access only, create a Form Recognizer resource. Please note that you'll  need a single-service resource if you intend to use [Azure Active Directory authentication](../../../../active-directory/authentication/overview-authentication.md).
+> Create an Azure AI services resource if you plan to access multiple Azure AI services under a single endpoint/key. For Document Intelligence access only, create a Document Intelligence resource. Please note that you'll  need a single-service resource if you intend to use [Azure Active Directory authentication](../../../../active-directory/authentication/overview-authentication.md).
 
-* After your resource deploys, select **Go to resource**. You need the key and endpoint from the resource you create to connect your application to the Form Recognizer API. You paste your key and endpoint into the code later in the quickstart:
+* After your resource deploys, select **Go to resource**. You need the key and endpoint from the resource you create to connect your application to the Document Intelligence API. You paste your key and endpoint into the code later in the quickstart:
 
   :::image type="content" source="../../media/containers/keys-and-endpoint.png" alt-text="Screenshot: keys and endpoint location in the Azure portal.":::
 
@@ -53,9 +53,9 @@ In this quickstart you'll, use the Form Recognizer REST API to analyze and extra
 
 Before you run the cURL command, make the following changes to the [post request](#post-request):
 
-1. Replace `{endpoint}` with the endpoint value from your Azure portal Form Recognizer instance.
+1. Replace `{endpoint}` with the endpoint value from your Azure portal Document Intelligence instance.
 
-1. Replace `{key}` with the key value from your Azure portal Form Recognizer instance.
+1. Replace `{key}` with the key value from your Azure portal Document Intelligence instance.
 
 1. Using the following table as a reference, replace `{modelID}` and `{your-document-url}` with your desired values.
 
@@ -79,7 +79,7 @@ Before you run the cURL command, make the following changes to the [post request
 > [I &#8203;ran into an issue with the POST request.](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=rest&Product=FormRecognizer&Page=quickstart&Section=post-request-analyze) -->
 
 > [!IMPORTANT]
-> Remember to remove the key from your code when you're done, and never post it publicly. For production, use a secure way of storing and accessing your credentials like [Azure Key Vault](../../../../key-vault/general/overview.md). For more information, *see* Cognitive Services [security](../../../../cognitive-services/security-features.md).
+> Remember to remove the key from your code when you're done, and never post it publicly. For production, use a secure way of storing and accessing your credentials like [Azure Key Vault](../../../../key-vault/general/overview.md). For more information, *see* Azure AI services [security](../../../../ai-services/security-features.md).
 
 #### POST request
 
@@ -99,7 +99,7 @@ After you've called the [**Analyze document**](https://westus.dev.cognitive.micr
 
 1. Replace `{POST response}` Operation-location header from the [POST response](#post-response).
 
-1. Replace `{key}` with the key value from your Form Recognizer instance in the Azure portal.
+1. Replace `{key}` with the key value from your Document Intelligence instance in the Azure portal.
 
 <!-- markdownlint-disable MD024 -->
 

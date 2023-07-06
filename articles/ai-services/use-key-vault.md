@@ -599,4 +599,4 @@ If you're using a multi-service resource or Language resource, you can update [y
 * For additional information on secure application development, see:
     * [Best practices for using Azure Key Vault](../key-vault/general/best-practices.md)
     * [Azure AI services security](security-features.md)
-    * [Azure security baseline for Azure AI services](/security/benchmark/azure/baselines/cognitive-services-security-baseline?toc=/azure/ai-services/TOC.json)
+    * [Azure security baseline for Cognitive Services](/security/benchmark/azure/baselines/cognitive-services-security-baseline?toc=/azure/ai-services/TOC.json)
