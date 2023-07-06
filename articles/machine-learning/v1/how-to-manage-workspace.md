@@ -265,7 +265,7 @@ The default action isn't to delete resources associated with the workspace, that
 
 ## Clean up resources
 
-[!INCLUDE [aml-delete-resource-group](../../../includes/aml-delete-resource-group.md)]
+[!INCLUDE [aml-delete-resource-group](../includes/aml-delete-resource-group.md)]
 
 ## Troubleshooting
 

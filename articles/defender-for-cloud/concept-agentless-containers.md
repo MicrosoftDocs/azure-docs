@@ -31,7 +31,7 @@ Agentless discovery for Kubernetes provides API-based discovery of information a
 
 ### How does Agentless Discovery for Kubernetes work?
 
-The discovery process is based on snapshots taken at intervals: 
+The discovery process is based on snapshots taken at intervals:
 
 :::image type="content" source="media/concept-agentless-containers/diagram-permissions-architecture.png" alt-text="Diagram of the permissions architecture." lightbox="media/concept-agentless-containers/diagram-permissions-architecture.png":::
 
@@ -61,7 +61,7 @@ Agentless information in Defender CSPM is updated through a snapshot mechanism. 
 ## Agentless Container registry vulnerability assessment
 
 > [!NOTE]
-> This feature supports scanning of images in the Azure Container Registry (ACR) only. If you want to find vulnerabilities stored in other container registries, you can import the images into ACR, after which the imported images are scanned by the built-in vulnerability assessment solution. Learn how to [import container images to a container registry](https://learn.microsoft.com/azure/container-registry/container-registry-import-images?tabs=azure-cli).
+> This feature supports scanning of images in the Azure Container Registry (ACR) only. If you want to find vulnerabilities stored in other container registries, you can import the images into ACR, after which the imported images are scanned by the built-in vulnerability assessment solution. Learn how to [import container images to a container registry](/azure/container-registry/container-registry-import-images).
 
 - Container registry vulnerability assessment scans images in your Azure Container Registry (ACR) to provide recommendations for improving your posture by remediating vulnerabilities.
 
@@ -113,5 +113,6 @@ Container registry vulnerability assessment scans container images stored in you
 It currently takes 3 days to remove findings for a deleted image. We are working on providing quicker deletion for removed images.
 
 ## Next steps
+
 - Learn about [support and prerequisites for agentless containers posture](support-agentless-containers-posture.md)
 - Learn how to [enable agentless containers](how-to-enable-agentless-containers.md)

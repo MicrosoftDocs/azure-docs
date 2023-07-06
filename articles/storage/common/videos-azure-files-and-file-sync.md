@@ -5,8 +5,7 @@ author: sindamnataraj
 ms.topic: conceptual
 ms.author: nasindam
 ms.date: 04/19/2023
-ms.service: storage
-ms.subservice: files
+ms.service: azure-file-storage
 ---
 
 # Azure Files and Azure File Sync videos

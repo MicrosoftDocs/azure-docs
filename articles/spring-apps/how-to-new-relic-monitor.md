@@ -43,21 +43,28 @@ Use the following procedure to access the agent:
 
 1. Create an instance of Azure Spring Apps.
 
-2. Create an application.
+1. Create an application.
 
-    ```azurecli
-      az spring app create --name "appName" --is-public true \
-      -s "resourceName" -g "resourceGroupName"
-    ```
+   ```azurecli
+   az spring app create \
+       --resource-group <resource-group-name> \
+       --service <Azure-Spring-Apps-instance-name> 
+       --name <app-name> \
+       --is-public true \
+   ```
 
-3. Create a deployment with the New Relic agent and environment variables.
+1. Create a deployment with the New Relic agent and environment variables.
 
-    ```azurecli
-    az spring app deploy --name "appName" --jar-path app.jar \
-       -s "resourceName" -g "resourceGroupName" \
+   ```azurecli
+   az spring app deploy \
+       --resource-group <resource-group-name> \
+       --service <Azure-Spring-Apps-instance-name> \
+       --name <app-name> \
+       --jar-path app.jar \
        --jvm-options="-javaagent:/opt/agents/newrelic/java/newrelic-agent.jar" \
-       --env NEW_RELIC_APP_NAME=appName NEW_RELIC_LICENSE_KEY=newRelicLicenseKey
-    ```
+       --env NEW_RELIC_APP_NAME=appName \
+             NEW_RELIC_LICENSE_KEY=newRelicLicenseKey
+   ```
 
 Azure Spring Apps preinstalls the New Relic Java agent to */opt/agents/newrelic/java/newrelic-agent.jar*. Customers can activate the agent from applications' **JVM options**, and configure the agent using the [New Relic Java agent environment variables](https://docs.newrelic.com/docs/agents/java-agent/configuration/java-agent-configuration-config-file/#Environment_Variables).
 
@@ -77,7 +84,7 @@ You can also activate this agent from the Azure portal with the following proced
 
 1. Select **Environment variables** to add or update the variables used by your application.
 
-   :::image type="content" source="media/how-to-new-relic-monitor/configurations-update-environment.png" alt-text="Screenshot of the Azure portal showing the Configuration page for an app with the Environmental variables tab selected." lightbox="media/how-to-new-relic-monitor/configurations-update-environment.png":::
+   :::image type="content" source="media/how-to-new-relic-monitor/configurations-update-environment.png" alt-text="Screenshot of the Azure portal showing the Configuration page for an app with the Environment variables tab selected." lightbox="media/how-to-new-relic-monitor/configurations-update-environment.png":::
 
 1. View the application api/gateway **Summary** page from the New Relic dashboard.
 

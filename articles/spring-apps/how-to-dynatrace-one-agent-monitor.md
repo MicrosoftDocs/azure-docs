@@ -89,9 +89,9 @@ To add the key/value pairs using the Azure portal, use the following steps:
 
 1. Select the application from the list, and then select **Configuration** in the navigation pane.
 
-1. Use the **Environmental variables** tab to add or update the variables used by your application.
+1. Use the **Environment variables** tab to add or update the variables used by your application.
 
-   :::image type="content" source="media/how-to-dynatrace-one-agent-monitor/configuration-application.png" alt-text="Screenshot of the Azure portal showing the Configuration page for an app with the Environmental variables tab selected." lightbox="media/how-to-dynatrace-one-agent-monitor/configuration-application.png":::
+   :::image type="content" source="media/how-to-dynatrace-one-agent-monitor/configuration-application.png" alt-text="Screenshot of the Azure portal showing the Configuration page for an app with the Environment variables tab selected." lightbox="media/how-to-dynatrace-one-agent-monitor/configuration-application.png":::
 
 ## Automate provisioning
 
