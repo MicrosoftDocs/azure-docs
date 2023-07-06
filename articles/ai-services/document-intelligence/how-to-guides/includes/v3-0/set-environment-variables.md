@@ -15,13 +15,13 @@ ms.author: lajanuar
 
 ## Set your environment variables
 
-To interact with the Form Recognizer service, you need to create an instance of the `DocumentAnalysisClient` class. To do so, instantiate the client with your `key` and `endpoint` from the Azure portal. For this project, we use environment variables to store and access credentials.
+To interact with the Document Intelligence service, you need to create an instance of the `DocumentAnalysisClient` class. To do so, instantiate the client with your `key` and `endpoint` from the Azure portal. For this project, we use environment variables to store and access credentials.
 
 > [!IMPORTANT]
 >
-> Don't include your key directly in the code and never post it publicly. For production, use a secure way of storing and accessing your credentials like [Azure Key Vault](../../../../../cognitive-services/use-key-vault.md). For more information, *see* Cognitive Services [security](../../../../../cognitive-services/security-features.md).
+> Don't include your key directly in the code and never post it publicly. For production, use a secure way of storing and accessing your credentials like [Azure Key Vault](../../../../../ai-services/use-key-vault.md). For more information, *see* Azure AI services [security](../../../../../ai-services/security-features.md).
 
-To set the environment variable for your Form Recognizer resource key, open a console window, and follow the instructions for your operating system and development environment. Replace `{yourKey}` and `{yourEndpoint}` with the values from your resource in the Azure portal.
+To set the environment variable for your Document Intelligence resource key, open a console window, and follow the instructions for your operating system and development environment. Replace `{yourKey}` and `{yourEndpoint}` with the values from your resource in the Azure portal.
 
 #### [Windows](#tab/windows)
 
