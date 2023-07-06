@@ -247,7 +247,7 @@ error: You must be logged in to the server (Unauthorized)
 
 **1. What is the plan for migration?**
 
-Azure Active Directory Integration (legacy) will be deprecated on 1st June 2023. After this date, you won't be able to create new clusters with Azure Active Directory (legacy). We'll migrate all Azure Active Directory Integration (legacy) AKS clusters to AKS-managed Azure Active Directory automatically beginning 1st August 2023.
+Azure Active Directory Integration (legacy) will be deprecated on 1st June 2023. After this date, you won't be able to create new clusters with Azure Active Directory (legacy). We'll migrate all Azure Active Directory Integration (legacy) AKS clusters to AKS-managed Azure Active Directory automatically starting from 1st August 2023.
 We send notification emails to impacted subscription admins biweekly to remind them of migration.
 
 **2. What will happen if I don't take any action?**
