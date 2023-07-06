@@ -286,7 +286,7 @@ With PIM for Groups, you can provide just-in-time access to groups in Google Clo
 Now any end user that was made eligible for the group in PIM can get JIT access to the group in Google Cloud / Google Workspace by [activating their group membership](https://learn.microsoft.com/azure/active-directory/privileged-identity-management/groups-activate-roles#activate-a-role). 
 
 > [!IMPORTANT]
-> The group membership is provisioned roughly a minute after the activation is complete. Please wait before attempting to sign-in to Google Cloud / Google Workspace. If the user is unable to access the necessary group in Google Cloud / Google Workspace, please review the troubleshooting tips below and provisioning logs to ensure that the user was successfully provisioned. 
+> The group membership is provisioned roughly a minute after the activation is complete. Please wait before attempting to sign-in to Google Cloud / Google Workspace. If the user is unable to access the necessary group in Google Cloud / Google Workspace, please review the provisioning logs to ensure that the user was successfully provisioned. 
 
 ## Change log
 
