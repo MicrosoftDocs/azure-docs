@@ -2,7 +2,7 @@
 title: Create & deploy deployment stacks in Bicep
 description: Describes how to create deployment stacks in Bicep.
 ms.topic: conceptual
-ms.date: 06/27/2023
+ms.date: 07/06/2023
 ---
 
 # Deployment stacks (Preview)
@@ -14,6 +14,8 @@ To create and update a deployment stack, you can utilize Azure CLI, Azure PowerS
 `Microsoft.Resources/deploymentStacks` is the resource type for deployment stacks. It consists of a main template that can perform 1-to-many updates across scopes to the resources it describes, and block any unwanted changes to those resources.
 
 When planning your deployment and determining which resource groups should be part of the same stack, it's important to consider the management lifecycle of those resources, which includes creation, updating, and deletion. For instance, suppose you need to provision some test VMs for various application teams across different resource group scopes. In this case, a deployment stack can be utilized to easily create these test environments and update the test VM configurations through subsequent updates to the deployment stack. After completing the project, it may be necessary to remove or delete any resources that were created, such as the test VMs. With a deployment stack, these managed resources can be deleted by specifying the appropriate delete flag, which saves significant time when cleaning up environments since a single update to the stack resource is performed instead of individually updating or removing each test VM across different resource group scopes.
+
+Deployment stacks requires Azure PowerShell [version 10.1.0 or later](/powershell/azure/install-az-ps) or Azure CLI [version 2.50.0 or later](/cli/azure/install-azure-cli).
 
 To create your first deployment stack, work through [Quickstart: create deployment stack](./quickstart-create-deployment-stacks.md).
 
@@ -617,7 +619,7 @@ Save-AzResourceGroupDeploymentStack `
 # [CLI](#tab/azure-cli)
 
 ```azurecli
-az stack group save \
+az stack group export \
   --name <deployment-stack-name> \
   --resource-group <resource-group-name>
 ```
@@ -636,7 +638,7 @@ Save-AzSubscriptionDeploymentStack `
 # [CLI](#tab/azure-cli)
 
 ```azurecli
-az stack sub save \
+az stack sub export \
   --name <deployment-stack-name>
 ```
 
@@ -655,7 +657,7 @@ Save-AzManagmentGroupDeploymentStack `
 # [CLI](#tab/azure-cli)
 
 ```azurecli
-az stack mg save \
+az stack mg export \
   --name <deployment-stack-name> \
   --management-group-id <management-group-id>
 ```
