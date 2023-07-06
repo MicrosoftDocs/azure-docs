@@ -18,7 +18,7 @@ ms.date: 07/01/2023
 You can now deactivate one or more activities from a pipeline, and we skip them during validation and during pipeline run. This feature significantly improves pipeline developer efficiency, allowing customers to comment out part of the pipeline, without deleting it from the canvas. You may choose to reactivate them at a later time.
 
 
-:::image type="content" source="./media/deactivate-activitiy/deactivate-01-overview.png" alt-text="Screenshot showing an inactive activity in pipeline":::
+:::image type="content" source="./media/deactivate-activity/deactivate-01-overview.png" alt-text="Screenshot showing an inactive activity in pipeline":::
 
 ## Deactivate and Reactivate
 
@@ -31,7 +31,7 @@ First, you may deactivate a single activity from its **General** tab.
 - Pick a state for _Mark activity as_. Choose from _Succeeded_, _Failed_ or _Skipped_
 
 
-:::image type="content" source="./media/deactivate-activitiy/deactivate-03-setup-single.png" alt-text="Deactive one activity at a time":::
+:::image type="content" source="./media/deactivate-activity/deactivate-03-setup-single.png" alt-text="Deactive one activity at a time":::
 
 Alternatively, you can deactive multiple activities with right click.
 
@@ -40,7 +40,7 @@ Alternatively, you can deactive multiple activities with right click.
 - Select _Deactivate_ to deactive them all
 - To fine tune the settings fro _Mark activity as_, go to **General** tab of the activity, and make appropriate changes
 
-:::image type="content" source="./media/deactivate-activitiy/deactivate-04-setup-multiple.png" alt-text="Deactive multiple activities all at once":::
+:::image type="content" source="./media/deactivate-activity/deactivate-04-setup-multiple.png" alt-text="Deactive multiple activities all at once":::
 
 To reactivate the activities, choose _Active_ for the _Activity State_, and they revert back to their previous behaviors, as expected.
 
@@ -59,9 +59,7 @@ An inactive activity behaves differently in a pipeline.
     * if you mark the activity as _Skipped_, the _UponSkip_ branch runs
     * for more information, please refer to [Conditional Execution](tutorial-pipeline-failure-error-handling.md#conditional-paths)
 
-
-:::image type="content" source="./media/deactivate-activitiy/deactivate-02-run-status.png" alt-text="Screenshot showing activity run status of an inactive activity":::
-
+:::image type="content" source="./media/deactivate-activity/deactivate-02-run-status.png" alt-text="Screenshot showing activity run status of an inactive activity":::
 
 ## Best Practices
 
