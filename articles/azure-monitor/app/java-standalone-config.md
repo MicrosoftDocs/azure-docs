@@ -388,10 +388,12 @@ The script is aiming at helping customers to track the web user data, and sent t
 If you want to enable this feature, add the below configuration option:
 
 ```json
-"preview": {
-  "browserSdkLoader": {
-     "enabled": true
-   }
+{
+  "preview": {
+    "browserSdkLoader": {
+      "enabled": true
+    }
+  }
 }
 ```
 
