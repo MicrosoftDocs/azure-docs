@@ -25,6 +25,7 @@ See these [important announcements](#announcements) about recent changes to feat
 ## July 2023
 
 - [Deploy incident response playbooks for SAP](#deploy-incident-response-playbooks-for-sap)
+- [Microsoft Sentinel solution for D365 Finance and Operations (Preview)](#microsoft-sentinel-solution-for-d365-finance-and-operations-preview)
 - [Simplified pricing tiers](#simplified-pricing-tiers) in [Announcements](#announcements) section below
 - [Monitor and optimize the execution of your scheduled analytics rules (Preview)](#monitor-and-optimize-the-execution-of-your-scheduled-analytics-rules-preview)
 
@@ -33,6 +34,14 @@ See these [important announcements](#announcements) about recent changes to feat
 Take advantage of Microsoft Sentinel's security orchestration, automation, and response (SOAR) capabilities in conjunction with SAP. Microsoft Sentinel presents purpose-built playbooks included in the [Microsoft Sentinel solution for SAP® applications](sap/solution-overview.md). You can use these playbooks to respond automatically to suspicious user activity in SAP systems, automating remedial actions in SAP RISE, SAP ERP, SAP Business Technology Platform (BTP) as well as in Azure Active Directory.
 
 Learn more about [Microsoft Sentinel incident response playbooks for SAP](sap/sap-incident-response-playbooks.md).
+
+### Microsoft Sentinel solution for D365 Finance and Operations (Preview)
+
+The Microsoft Sentinel Solution for D365 Finance and Operations monitors and protects your Dynamics 365 Finance and Operations system: It collects audits and activity logs from the Dynamics 365 Finance and Operations environment, and detects threats, suspicious activities, illegitimate activities, and more. 
+
+The solution includes the **Dynamics 365 Finance and Operations** connector and [built-in analytics rules](dynamics-365/dynamics-365-finance-operations-security-content.md#built-in-analytics-rules) to detect suspicious activity in your Dynamics 365 Finance and Operations environment.
+
+[Learn more about the solution](dynamics-365/dynamics-365-finance-operations-solution-overview.md).
 
 ### Monitor and optimize the execution of your scheduled analytics rules (Preview)
 
@@ -50,7 +59,7 @@ To ensure that Microsoft Sentinel's threat detection provides complete coverage 
 
 ### Content Hub general availability delayed
 
-We had every intention of releasing content hub to general availability this week. Our engineering team recognized some problems just before launch and are taking the time to get it corrected. If you saw this announcement and were eagerly awaiting the updated experience to rollout to your tenant, we apologize for the mismatch here. So, here is the revised announcement in anticipation of general availability soon.
+We had every intention of releasing content hub to general availability this week. Our engineering team recognized some problems just before launch and are taking the time to get it corrected. If you saw this announcement and were eagerly awaiting the updated experience to roll out to your tenant, we apologize for the mismatch here. So, here is the revised announcement in anticipation of general availability soon.
 
 When the general availability (GA) of content hub is released, the [content hub centralization changes announced in February](#out-of-the-box-content-centralization-changes) will also take effect. For more information on these changes and their impact, including more details about the tool provided to reinstate **IN USE** gallery templates, see [Out-of-the-box (OOTB) content centralization changes](sentinel-content-centralize.md). 
 
@@ -228,7 +237,7 @@ Combining the pricing tiers offers a simplification to the overall billing and c
 A slight change to how free trials are offered was made to provide further simplification. There used to be a free trial option that waived Microsoft Sentinel costs and charged Log Analytics costs regularly, this will no longer be offered as an option. Starting July 5, 2023 all new Microsoft Sentinel workspaces will result in a 31 day free trial of 10 GB/day for the combined ingestion and analysis costs on Microsoft Sentinel and Log Analytics.
 
 ##### How do I get started with the simplified pricing tier?
-All new Microsoft Sentinel workspaces will automatically default to the simplified pricing tiers. Existing workspaces will have the choice to switch to the new pricing from Microsoft Sentinel settings. For more information, see the [simplified pricing tiers](billing.md#simplified-pricing-tiers) section of our cost planning documentation and [this featured blog post](https://aka.ms/SentinelSimplifiedPricing).
+All new Microsoft Sentinel workspaces will automatically default to the simplified pricing tiers. Existing workspaces will have the choice to switch to the new pricing from Microsoft Sentinel settings. For more information, see the [simplified pricing tiers](billing.md#simplified-pricing-tiers) section of our cost planning documentation.
 
 ### Classic alert automation due for deprecation
 
