@@ -1,7 +1,7 @@
 ---
-title: "Quickstart: Form Recognizer SDKs | REST API "
-titleSuffix: Azure Applied AI Services
-description: Use a Form Recognizer SDK or the REST API to create a forms processing app that extracts key data and structure elements from your documents.
+title: "Quickstart: Document Intelligence SDKs | REST API "
+titleSuffix: Azure AI services
+description: Use a Document Intelligence SDK or the REST API to create a forms processing app that extracts key data and structure elements from your documents.
 author: laujan
 manager: nitinme
 ms.service: applied-ai-services
@@ -13,7 +13,8 @@ ms.author: lajanuar
 zone_pivot_groups: programming-languages-set-formre
 ---
 
-# Get started with Form Recognizer
+
+# Get started with Document Intelligence
 
 ::: moniker range="form-recog-3.0.0"
 [!INCLUDE [applies to v3.0](../includes/applies-to-v3-0.md)]
@@ -21,9 +22,9 @@ zone_pivot_groups: programming-languages-set-formre
 
 ::: moniker range="form-recog-3.0.0"
 
-Get started with the latest version of Azure Form Recognizer. Azure Form Recognizer is a cloud-based Azure Applied AI Service that uses machine learning to extract key-value pairs, text, tables and key data from your documents. You can easily integrate Form Recognizer models into your workflows and applications by using an SDK in the programming language of your choice or calling the REST API.  For this quickstart, we recommend that you use the free service while you're learning the technology. Remember that the number of free pages is limited to 500 per month.
+Get started with the latest version of Azure AI Document Intelligence. Azure AI Document Intelligence is a cloud-based Azure AI service that uses machine learning to extract key-value pairs, text, tables and key data from your documents. You can easily integrate Document Intelligence models into your workflows and applications by using an SDK in the programming language of your choice or calling the REST API.  For this quickstart, we recommend that you use the free service while you're learning the technology. Remember that the number of free pages is limited to 500 per month.
 
-To learn more about Form Recognizer features and development options, visit our [Overview](../overview.md) page.
+To learn more about Document Intelligence features and development options, visit our [Overview](../overview.md) page.
 
 ::: moniker-end
 
@@ -70,15 +71,15 @@ To learn more about Form Recognizer features and development options, visit our 
 ::: moniker range="form-recog-3.0.0"
 That's it, congratulations!
 
-In this quickstart, you used a form Form Recognizer model to analyze various forms and documents. Next, explore the Form Recognizer Studio and reference documentation to learn about Form Recognizer API in depth.
+In this quickstart, you used a form Document Intelligence model to analyze various forms and documents. Next, explore the Document Intelligence Studio and reference documentation to learn about Document Intelligence API in depth.
 
 ## Next steps
 
 >[!div class="nextstepaction"]
-> [**Try the Form Recognizer Studio**](https://formrecognizer.appliedai.azure.com/studio)
+> [**Try the Document Intelligence Studio**](https://formrecognizer.appliedai.azure.com/studio)
 
 > [!div class="nextstepaction"]
-> [**Explore our how-to documentation and take a deeper dive into Form Recognizer models**](../how-to-guides/use-sdk-rest-api.md?view=form-recog-3.0.0&preserve-view=true)
+> [**Explore our how-to documentation and take a deeper dive into Document Intelligence models**](../how-to-guides/use-sdk-rest-api.md?view=form-recog-3.0.0&preserve-view=true)
 ::: moniker-end
 
 ::: moniker range="form-recog-2.1.0"
@@ -87,9 +88,9 @@ In this quickstart, you used a form Form Recognizer model to analyze various for
 
 ::: moniker range="form-recog-2.1.0"
 
-Get started with Azure Form Recognizer using the programming language of your choice or the REST API. Azure Form Recognizer is a cloud-based Azure Applied AI Service that uses machine learning to extract key-value pairs, text, and tables from your documents. You can easily call Form Recognizer models by integrating our client library SDKs into your workflows and applications. We recommend that you use the free service when you're learning the technology. Remember that the number of free pages is limited to 500 per month.
+Get started with Azure AI Document Intelligence using the programming language of your choice or the REST API. Document Intelligence is a cloud-based Azure AI service that uses machine learning to extract key-value pairs, text, and tables from your documents. You can easily call Document Intelligence models by integrating our client library SDKs into your workflows and applications. We recommend that you use the free service when you're learning the technology. Remember that the number of free pages is limited to 500 per month.
 
-To learn more about Form Recognizer features and development options, visit our [Overview](../overview.md) page.
+To learn more about Document Intelligence features and development options, visit our [Overview](../overview.md) page.
 
 ::: moniker-end
 
@@ -135,11 +136,11 @@ To learn more about Form Recognizer features and development options, visit our 
 
 ::: moniker range="form-recog-2.1.0"
 
-That's it, congratulations! In this quickstart, you used Form Recognizer models to analyze various forms in different ways.
+That's it, congratulations! In this quickstart, you used Document Intelligence models to analyze various forms in different ways.
 
 ## Next steps
 
-* For an enhanced experience and advanced model quality, try the [Form Recognizer v3.0 Studio ](https://formrecognizer.appliedai.azure.com/studio).
+* For an enhanced experience and advanced model quality, try the [Document Intelligence v3.0 Studio ](https://formrecognizer.appliedai.azure.com/studio).
 
 * The v3.0 Studio supports any model trained with v2.1 labeled data.
 
