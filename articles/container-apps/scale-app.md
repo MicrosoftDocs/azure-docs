@@ -463,7 +463,7 @@ Scaling behavior has the following defaults:
 - **Scale up stabilization window** is how long to wait before performing a scale up decision once scale up conditions were met.
 - **Scale down stabilization window** is how long to wait before performing a scale down decision once scale down conditions were met.
 - **Scale up step** is the rate new instances are added at. It starts with 1, 4, 8, 16, 32, ... up to the configured maximum replica count.
-- **Scale down step** is the rate at which replicas are removed. By default 100% of replicas that need to shutdown are removed.
+- **Scale down step** is the rate at which replicas are removed. By default 100% of replicas that need to shut down are removed.
 - **Scaling algorithm** is the formula used to calculate the current desired number of replicas.
 
 ### Example
@@ -497,7 +497,7 @@ Starting with an empty queue, KEDA takes the following steps in a scale up scena
 1. Scale app to `min(maxReplicaCount, desiredReplicas, max(4, 2*currentReplicaCount))`
 1. Go back to (1).
 
-If the app was scaled to the max of 20 instances, scaling goes through the same previous steps. Except scale down only happens if the condition was satisfied for 300 seconds (scale down stabilization window). Once the queue length is 0, KEDA waits for 300 seconds (cool down period) before scaling the app to 0.
+If the app was scaled to the max of 20 instances, scaling goes through the same previous steps. Scale down only happens if the condition was satisfied for 300 seconds (scale down stabilization window). Once the queue length is 0, KEDA waits for 300 seconds (cool down period) before scaling the app to 0.
 
 ## Considerations
 
