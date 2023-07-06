@@ -8,9 +8,7 @@ author: b-ahibbard
 ms.author: anfdocs
 ms.date: 06/16/2023
 ---
-# Connect to on-premises environment with Azure Active Directory
-
-[Azure AD Connect](../active-directory/hybrid/connect/whatis-azure-ad-connect-v2.md)
+# Access SMB volumes from Windows clients joined to Azure Active Directory
 
 You can use Azure Active Directory (Azure AD) with the Hybrid Authentication Management module to authenticate credentials in your hybrid cloud. This solution enables Azure AD to become the trusted source for both cloud and on-premises authentication, circumventing the need for clients connecting to Azure NetApp Files to join the on-premises AD domain. 
 
@@ -104,5 +102,7 @@ net use * \\ NETBIOS-1234.contoso.com\volume1
 1. Confirm the mounted volume is using Kerberos and not NTLM authentication. Open a Command Prompt to issue the `klist` command and observe the output in the cloud TGT (`krbtgt`) and CIFS server ticket information.  
 
 ## Further information 
+
 * [Understand guidelines for Active Directory Domain Services](understand-guidelines-active-directory-domain-service-site.md)
 * [Create and manage Active Directory connections](create-active-directory-connections.md)
+* [Introduction to Azure AD Connect V2.0](../active-directory/hybrid/connect/whatis-azure-ad-connect-v2.md)

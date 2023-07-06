@@ -199,8 +199,8 @@
       href: configure-ldap-over-tls.md
     - name: Join a Linux VM to an Active Directory Domain
       href: join-active-directory-domain.md
-    - name: Connect Azure Active Directory to on-premises
-      href: connect-azure-ad-on-premises.md
+    - name: Access SMB volume from Azure AD-joined Windows client
+      href: access-smb-volume-from-windows-client.md
   - name: Manage capacity pools
     items:
     - name: Set up a capacity pool
