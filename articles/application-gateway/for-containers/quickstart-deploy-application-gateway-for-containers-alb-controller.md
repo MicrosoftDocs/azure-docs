@@ -1,5 +1,4 @@
-ep---
-
+---
 title: 'Quickstart: Deploy Application Gateway for Containers ALB Controller'
 titlesuffix: Azure Application Load Balancer
 description: In this quickstart, you learn how to provision the Application Gateway for Containers ALB Controller in an AKS cluster.
