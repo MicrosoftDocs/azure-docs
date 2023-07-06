@@ -145,7 +145,7 @@ The `FeedOptions` class in SDK v2 has now been renamed to `QueryRequestOptions` 
 |`FeedOptions.EnableCrossPartitionQuery`|Removed. Default behavior in SDK 3.0 is that cross-partition queries will be executed without the need to enable the property specifically. |
 |`FeedOptions.PopulateQueryMetrics`|Removed. It is now enabled by default and part of the [diagnostics](troubleshoot-dotnet-sdk.md#capture-diagnostics).|
 |`FeedOptions.RequestContinuation`|Removed. It is now promoted to the query methods themselves. |
-|`FeedOptions.JsonSerializerSettings`|Removed. Serialization can be customized through a [custom serializer](/dotnet/api/microsoft.azure.cosmos.cosmosclientoptions.serializer) or [serializer options](/dotnet/api/microsoft.azure.cosmos.cosmosclientoptions.serializeroptions). See [Customize serialization](migrate-dotnet-v3.md#customize-serialization) for addtional information.|
+|`FeedOptions.JsonSerializerSettings`|Removed. See [Customize serialization](#customize-serialization) for addtional information.|
 |`FeedOptions.PartitionKeyRangeId`|Removed. Same outcome can be obtained from using [FeedRange](change-feed-pull-model.md#use-feedrange-for-parallelization) as input to the query method.|
 |`FeedOptions.DisableRUPerMinuteUsage`|Removed.|
 
