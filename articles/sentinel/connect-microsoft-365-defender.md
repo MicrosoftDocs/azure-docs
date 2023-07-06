@@ -43,9 +43,9 @@ The  **Configuration** section has three parts:
 
 1. [**Connect incidents and alerts**](#connect-incidents-and-alerts) enables the basic integration between Microsoft 365 Defender and Microsoft Sentinel, synchronizing incidents and their alerts between the two platforms.
 
-1. [**Connect entities from on-premises Active Directory**](#connect-entities-from-on-premises-active-directory) enables the integration of on-premises Active Directory user identities into Microsoft Sentinel through Microsoft Defender for Identity.
+1. [**Connect entities**](#connect-entities-from-on-premises-active-directory) enables the integration of on-premises Active Directory user identities into Microsoft Sentinel through Microsoft Defender for Identity.
 
-1. [**Connect raw events from Microsoft 365 Defender components**](#connect-raw-events-from-microsoft-365-defender-components) enables the collection of raw advanced hunting events from Defender components.
+1. [**Connect events**](#connect-raw-events-from-microsoft-365-defender-components) enables the collection of raw advanced hunting events from Defender components.
 
 These are explained in greater detail below. See [Microsoft 365 Defender integration with Microsoft Sentinel](microsoft-365-defender-sentinel-integration.md) for more information.
 
