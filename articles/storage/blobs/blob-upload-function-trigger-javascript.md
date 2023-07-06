@@ -131,25 +131,25 @@ These values will be necessary when we need to connect our Azure Function to thi
 
 Azure CLI commands can be run in the [Azure Cloud Shell](https://shell.azure.com) or on a workstation with the [Azure CLI installed](/cli/azure/install-azure-cli).
 
-To create the storage account and container, we can run the CLI commands seen below.
+1. To create the storage account and container, we can run the CLI commands seen below.
 
-```azurecli-interactive
-az group create --location eastus --name msdocs-storage-function \
+    ```azurecli-interactive
+    az group create --location eastus --name msdocs-storage-function \
+    
+    az storage account create --name msdocsstorageaccount --resource-group msdocs-storage-function -l eastus --sku Standard_LRS \
+    
+    az storage container create --name images --account-name msdocsstorageaccount --resource-group msdocs-storage-function
+    ```
 
-az storage account create --name msdocsstorageaccount --resource-group msdocs-storage-function -l eastus --sku Standard_LRS \
+    You may need to wait a few moments for Azure to provision these resources.
 
-az storage container create --name imageanalysis --account-name msdocsstorageaccount --resource-group msdocs-storage-function
-```
+2. After the commands complete, we also need to retrieve the connection string for the storage account.  The connection string will be used later to connect our Azure Function to the storage account.
 
-You may need to wait a few moments for Azure to provision these resources.
+    ```azurecli-interactive
+    az storage account show-connection-string -g msdocs-storage-function -n msdocsstorageaccount
+    ```
 
-After the commands complete, we also need to retrieve the connection string for the storage account.  The connection string will be used later to connect our Azure Function to the storage account.
-
-```azurecli-interactive
-az storage account show-connection-string -g msdocs-storage-function -n msdocsstorageaccount
-```
-
-Copy the value of the `connectionString` property and paste it somewhere to use for later. You'll also want to make a note of the storage account name `msdocsstoragefunction` for later as well. 
+    Copy the value of the `connectionString` property and paste it somewhere to use for later. You'll also want to make a note of the storage account name `msdocsstoragefunction` for later as well. 
 
 ---
 
@@ -189,31 +189,31 @@ Next, we need to find the secret key and endpoint URL for the Computer Vision se
 
 ### [Azure CLI](#tab/computer-vision-azure-cli)
 
-To create the Computer Vision service, we can run the CLI command below.
+1. To create the Computer Vision service, we can run the CLI command below.
 
-```azurecli-interactive
-az cognitiveservices account create \
-    --name msdocs-process-image \
-    --resource-group msdocs-storage-function \
-    --kind ComputerVision \
-    --sku F1 \
-    --location eastus2 \
-    --yes
-```
+    ```azurecli-interactive
+    az cognitiveservices account create \
+        --name msdocs-process-image \
+        --resource-group msdocs-storage-function \
+        --kind ComputerVision \
+        --sku F1 \
+        --location eastus2 \
+        --yes
+    ```
 
-You may need to wait a few moments for Azure to provision these resources.
+    You may need to wait a few moments for Azure to provision these resources.
 
-Once the Computer Vision service is created, you can retrieve the secret keys and URL endpoint using the commands below.
+2. Once the Computer Vision service is created, you can retrieve the secret keys and URL endpoint using the commands below.
 
-```azurelci-interactive
+    ```azurelci-interactive
     az cognitiveservices account keys list \
-    --name msdocs-process-image \
-    --resource-group msdocs-storage-function  \ 
-
+        --name msdocs-process-image \
+        --resource-group msdocs-storage-function  
+    
     az cognitiveservices account list \
-    --name msdocs-process-image \
-     --resource-group msdocs-storage-function --query "[].properties.endpoint"   
-```
+        --name msdocs-process-image \
+        --resource-group msdocs-storage-function --query "[].properties.endpoint"   
+    ```
 
 ---
  
@@ -302,10 +302,11 @@ Get the connection string for the Cosmos DB service account to use in our Azure 
 
     This returns a JSON array of two read-write connection strings, and two read-only connection strings.
 
-4. , copy the **Primary SQL Connection String** to use for later. 
+4. Copy the **Primary SQL Connection String** to use for later. 
 ---
 
 ## Download and configure the sample project
+
 The code for the Azure Function used in this tutorial can be found in [this GitHub repository](https://github.com/Azure-Samples/msdocs-storage-bind-function-service/tree/main/javascript-v4), in the `JavaScript-v4` subdirectory. You can also clone the project using the command below.
 
 ```terminal
@@ -362,7 +363,7 @@ When the function finishes, the function returns the contents of the table row w
     * `databaseName`: The Cosmos DB database to connect to. 
     * `containerName`: The name of the table to write the parsed image text value returned by the function. The table must already exist. 
 
-:::code language="javascript" source="~/msdocs-storage-bind-function-service/javascript/ProcessImageUpload/index.js" highlight="43-68":::
+:::code language="javascript" source="~/msdocs-storage-bind-function-service/javascript-v4/src/functions/process-blob.js":::
 
 This code also retrieves essential configuration values from environment variables, such as the Blob Storage connection string and Computer Vision key. These environment variables are added to the Azure Function environment after it's deployed.
 
@@ -403,9 +404,10 @@ You're now ready to deploy the application to Azure using a Visual Studio Code e
     |--|--|
     |**Name**| Enter *msdocsprocessimage* or something similar.|
     |**Runtime stack**| Select a **Node.js LTS** version. |
+    |**Programming model**| Select **v4**.|
     |**OS**| Select **Linux**. |
     |**Resource Group**|Choose the `msdocs-storage-function` resource group you created earlier.|
-    |**Location**|Choose the region closest to you.|
+    |**Location**|Select the same region as your resource group.|
     |**Plan Type**|Select **Consumption**.|
     |**Azure Storage**| Select the storage account you created earlier.|
     |**Application Insights**| Skip for now.|
@@ -413,8 +415,6 @@ You're now ready to deploy the application to Azure using a Visual Studio Code e
 1. Azure provisions the requested resources, which will take a few moments to complete.
 
 ## Deploy Azure Functions app
-
- 
 
 1. When the previous resource creation process finishes, right-click the new resource in the **Functions** section of the Azure explorer, and select **Deploy to Function App**.
 1. If asked **Are you sure you want to deploy...**, select **Deploy**.
@@ -435,6 +435,7 @@ The Azure Function was deployed successfully, but it can't connect to our Storag
     |StorageContainerName|
     |ComputerVisionKey|
     |ComputerVisionEndPoint|
+    |CosmosDBConnection|
 
 
 All of the required environment variables to connect our Azure function to different services are now in place.
@@ -445,17 +446,18 @@ All of the required environment variables to connect our Azure function to diffe
 You're now ready to test out our application! You can upload a blob to the container, and then verify that the text in the image was saved to Table Storage.
 
 1. In the Azure explorer in Visual Studio Code, find and expand your Storage resource in the **Storage** section.
-1. Expand **Blob Containers** and right-click your container name, `imageanalysis`, then select **Upload files**.
+1. Expand **Blob Containers** and right-click your container name, `images`, then select **Upload files**.
 1. You can find a few sample images included in the **images** folder at the root of the downloadable sample project, or you can use one of your own.
 1. For the **Destination directory**, accept the default value, `/`. 
 1. Wait until the files are uploaded and listed in the container.
 
 ## View text analysis of image
 
-Next, you can verify that the upload triggered the Azure Function, and that the text in the image was analyzed and saved to Table Storage properly.
+Next, you can verify that the upload triggered the Azure Function, and that the text in the image was analyzed and saved to Cosmos DB properly.
 
-1. In Visual Studio Code, in the Azure Explorer, under the same Storage resource, expand **Tables** to find your resource. 
-1. An **ImageText** table should now be available.  Click on the table to preview the data rows inside of it.  You should see an entry for the processed image text of an uploaded file.  You can verify this using either the Timestamp, or by viewing the content of the **Text** column.
+1. In Visual Studio Code, in the Azure Explorer, under the Azure Cosmos DB node, select your resource, and expand it to find your database, **StorageTutorial**.
+1. Expand the database node.
+1. An **analysis** container should now be available.  Click on the container's **Documents** node to preview the data inside.  You should see an entry for the processed image text of an uploaded file.  
 
 Congratulations! You succeeded in processing an image that was uploaded to Blob Storage using Azure Functions and Computer Vision.
 
