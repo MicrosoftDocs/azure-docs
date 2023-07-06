@@ -58,9 +58,8 @@ To deploy an Azure Open Model from Azure Machine Learning, in order to deploy an
 
 1. Select on **Model Catalog** in the left pane.
 1. Select on **Azure OpenAI Service** from the options.
-1. Select a model to deploy from `gpt-4-32K`,
-`text-embedding-ada-002`,`gpt-4`,`gpt35-turbo`, `text-curie-001`, `text-babbage-001`,`text-ada-001`.
-1. Suppose you selected `text-ada-001` to deploy, you can select `Deploy` to deploy the model to the Azure OpenAI service.
+1. Select a model to deploy
+1. Select `Deploy` to deploy the model to the Azure OpenAI service.
 
     :::image type="content" source="./media/how-to-use-openai-models-in-azure-ml/deploy-to-azure-open-ai.png" lightbox="./media/how-to-use-openai-models-in-azure-ml/deploy-to-azure-open-ai.png" alt-text="Screenshot showing the deploy to Azure OpenAI.":::
 
