@@ -64,6 +64,12 @@ Use the following table to determine supported styles and roles for each neural 
 
 [!INCLUDE [Language support include](includes/language-support/voice-styles-and-roles.md)]
 
+### Viseme
+
+This table lists all the locales supported for [Viseme](speech-synthesis-markup-structure.md#viseme-element). For more information about Viseme, see [Get facial position with viseme](how-to-speech-synthesis-viseme.md) and [Viseme element](speech-synthesis-markup-structure.md#viseme-element). 
+
+[!INCLUDE [Language support include](includes/language-support/viseme.md)]
+
 ### Prebuilt neural voices
 
 Each prebuilt neural voice supports a specific language and dialect, identified by locale. You can try the demo and hear the voices in the [Voice Gallery](https://speech.microsoft.com/portal/voicegallery).
