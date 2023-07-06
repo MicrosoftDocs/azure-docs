@@ -12,7 +12,7 @@ ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.topic: how-to
-ms.date: 12/15/2022
+ms.date: 07/06/2023
 ms.author: anfdocs
 ---
 # Restore a backup to a new volume
@@ -34,6 +34,8 @@ Restoring a backup creates a new volume with the same protocol type. This articl
 * For large volumes (greater than 10 TB), it can take multiple hours to transfer all the data from the backup media.
 
 * Restoring a backup to a new volume is not dependent on the networking type used by the source volume. You can restore the backup of a volume configured with Basic networking to a volume configured with Standard networking and vice versa.
+
+[!CAUTION] Running multiple concurrent volume restores using Azure NetApp Files backup may increase the time it takes for each individual, in-progress restore to complete. As such, if time is a factor to you, you should prioritize and sequentialize the most important volume restores and wait until the restores are complete before starting additional, lower priority, volume restores.  
 
 See [Requirements and considerations for Azure NetApp Files backup](backup-requirements-considerations.md) for additional considerations about using Azure NetApp Files backup.
 
