@@ -119,7 +119,7 @@ This section explains how to import a certificate so that it's trusted by your A
 
 1. Select **Save** and **Enter**. 
 
-    :::image type="content" source="media/configure-snc/VUSREXTID-table-configuration.png" alt-text="Screenshot of configuring the SAP VUSREXTID table.":::
+    :::image type="content" source="media/configure-snc/vusrextid-table-configuration.png" alt-text="Screenshot of configuring the SAP VUSREXTID table.":::
 
 ### Set up the container
 
