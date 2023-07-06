@@ -1,7 +1,7 @@
 ---
-title: Configure Form Recognizer containers
-titleSuffix: Azure Applied AI Services
-description: Learn how to configure the Form Recognizer container to parse form and table data.
+title: Configure Document Intelligence containers
+titleSuffix: Azure AI services
+description: Learn how to configure the Document Intelligence container to parse form and table data.
 author: laujan
 manager: nitinme
 ms.service: applied-ai-services
@@ -11,11 +11,12 @@ ms.date: 11/29/2022
 ms.author: lajanuar
 monikerRange: 'form-recog-2.1.0'
 ---
-# Configure Form Recognizer containers
 
-**This article applies to:** ![Form Recognizer v2.1 checkmark](../media/yes-icon.png) **Form Recognizer v2.1**.
+# Configure Document Intelligence containers
 
-With Azure Form Recognizer containers, you can build an application architecture that's optimized to take advantage of both robust cloud capabilities and edge locality. Containers provide a minimalist, isolated environment that can be easily deployed on-premises and in the cloud. In this article, you'll learn to configure the Form Recognizer container run-time environment by using the `docker compose` command arguments. Form Recognizer features are supported by six Form Recognizer feature containers—**Layout**, **Business Card**,**ID Document**,  **Receipt**, **Invoice**, **Custom**. These containers have both required and optional settings. For a few examples, see the [Example docker-compose.yml file](#example-docker-composeyml-file) section.
+**This article applies to:** ![Document Intelligence v2.1 checkmark](../media/yes-icon.png) **Document Intelligence v2.1**.
+
+With Document Intelligence containers, you can build an application architecture that's optimized to take advantage of both robust cloud capabilities and edge locality. Containers provide a minimalist, isolated environment that can be easily deployed on-premises and in the cloud. In this article, you'll learn to configure the Document Intelligence container run-time environment by using the `docker compose` command arguments. Document Intelligence features are supported by six Document Intelligence feature containers—**Layout**, **Business Card**,**ID Document**,  **Receipt**, **Invoice**, **Custom**. These containers have both required and optional settings. For a few examples, see the [Example docker-compose.yml file](#example-docker-composeyml-file) section.
 
 ## Configuration settings
 
@@ -24,7 +25,7 @@ Each container has the following configuration settings:
 |Required|Setting|Purpose|
 |--|--|--|
 |Yes|[Key](#key-and-billing-configuration-setting)|Tracks billing information.|
-|Yes|[Billing](#key-and-billing-configuration-setting)|Specifies the endpoint URI of the service resource on Azure.  For more information, _see_ [Billing](form-recognizer-container-install-run.md#billing). For more information and a complete list of regional endpoints, _see_ [Custom subdomain names for Cognitive Services](../../../cognitive-services/cognitive-services-custom-subdomains.md).|
+|Yes|[Billing](#key-and-billing-configuration-setting)|Specifies the endpoint URI of the service resource on Azure.  For more information, _see_ [Billing](form-recognizer-container-install-run.md#billing). For more information and a complete list of regional endpoints, _see_ [Custom subdomain names for Azure AI services](../../../ai-services/cognitive-services-custom-subdomains.md).|
 |Yes|[Eula](#eula-setting)| Indicates that you've accepted the license for the container.|
 |No|[ApplicationInsights](#applicationinsights-setting)|Enables adding [Azure Application Insights](/azure/application-insights) customer content support to your container.|
 |No|[Fluentd](#fluentd-settings)|Writes log and, optionally, metric data to a Fluentd server.|
@@ -68,7 +69,7 @@ The `Billing` setting specifies the endpoint URI of the resource on Azure that's
 
 Use [**volumes**](https://docs.docker.com/storage/volumes/) to read and write data to and from the container. Volumes are the preferred for persisting data generated and used by Docker containers. You can specify an input mount or an output mount by including the `volumes` option and specifying `type` (bind), `source` (path to the folder) and `target` (file path parameter).
 
-The Form Recognizer container requires an input volume and an output volume. The input volume can be read-only (`ro`), and it's required for access to the data that's used for training and scoring. The output volume has to be writable, and you use it to store the models and temporary data.
+The Document Intelligence container requires an input volume and an output volume. The input volume can be read-only (`ro`), and it's required for access to the data that's used for training and scoring. The output volume has to be writable, and you use it to store the models and temporary data.
 
 The exact syntax of the host volume location varies depending on the host operating system. Additionally, the volume location of the [host computer](form-recognizer-container-install-run.md#host-computer-requirements) might not be accessible because of a conflict between the Docker service account permissions and the host mount location permissions.
 
@@ -110,7 +111,7 @@ networks:
 
 #### **Receipt and OCR Read containers**
 
-In this example, enter {FORM_RECOGNIZER_ENDPOINT_URI} and {FORM_RECOGNIZER_KEY} values for your Receipt container and {COMPUTER_VISION_ENDPOINT_URI} and {COMPUTER_VISION_KEY} values for your Computer Vision Read container.
+In this example, enter {FORM_RECOGNIZER_ENDPOINT_URI} and {FORM_RECOGNIZER_KEY} values for your Receipt container and {COMPUTER_VISION_ENDPOINT_URI} and {COMPUTER_VISION_KEY} values for your Azure AI Vision Read container.
 
 ```yml
 version: "3"
@@ -147,4 +148,4 @@ networks:
 > [!div class="nextstepaction"]
 > [Learn more about running multiple containers and the docker compose command](form-recognizer-container-install-run.md)
 
-* [Azure container instance recipe](../../../cognitive-services/containers/azure-container-instance-recipe.md)
+* [Azure container instance recipe](../../../ai-services/containers/azure-container-instance-recipe.md)

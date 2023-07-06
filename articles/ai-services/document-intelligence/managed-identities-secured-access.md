@@ -1,7 +1,7 @@
 ---
 title: "Configure secure access with managed identities and private endpoints"
-titleSuffix: Azure Applied AI Services
-description: Learn how to configure secure communications between Form Recognizer and other Azure Services.
+titleSuffix: Azure AI services
+description: Learn how to configure secure communications between Document Intelligence and other Azure Services.
 author: laujan
 manager: nitinme
 ms.service: applied-ai-services
@@ -12,17 +12,18 @@ ms.author: vikurpad
 monikerRange: '>=form-recog-2.1.0'
 ---
 
+
 # Configure secure access with managed identities and private endpoints
 
 [!INCLUDE [applies to v3.0 and v2.1](includes/applies-to-v3-0-and-v2-1.md)]
 
-This how-to guide walks you through the process of enabling secure connections for your Form Recognizer resource. You can secure the following connections:
+This how-to guide walks you through the process of enabling secure connections for your Document Intelligence resource. You can secure the following connections:
 
-* Communication between a client application within a Virtual Network (VNET) and your Form Recognizer Resource.
+* Communication between a client application within a Virtual Network (VNET) and your Document Intelligence Resource.
 
-* Communication between Form Recognizer Studio and your Form Recognizer resource.
+* Communication between Document Intelligence Studio and your Document Intelligence resource.
 
-* Communication between your Form Recognizer resource and a storage account (needed when training a custom model).
+* Communication between your Document Intelligence resource and a storage account (needed when training a custom model).
 
  You're setting up your environment to secure the resources:
 
@@ -34,11 +35,11 @@ To get started, you need:
 
 * An active [**Azure account**](https://azure.microsoft.com/free/cognitive-services/)—if you don't have one, you can [**create a free account**](https://azure.microsoft.com/free/).
 
-* A [**Form Recognizer**](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer) or [**Cognitive Services**](https://portal.azure.com/#create/Microsoft.CognitiveServicesAllInOne) resource in the Azure portal. For detailed steps, _see_ [Create a Cognitive Services resource using the Azure portal](../../cognitive-services/cognitive-services-apis-create-account.md?tabs=multiservice%2cwindows).
+* A [**Document Intelligence**](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer) or [**Azure AI services**](https://portal.azure.com/#create/Microsoft.CognitiveServicesAllInOne) resource in the Azure portal. For detailed steps, _see_ [Create an Azure AI services resource using the Azure portal](../../ai-services/cognitive-services-apis-create-account.md?tabs=multiservice%2cwindows).
 
-* An [**Azure blob storage account**](https://portal.azure.com/#create/Microsoft.StorageAccount-ARM) in the same region as your Form Recognizer resource. Create containers to store and organize your blob data within your storage account.
+* An [**Azure blob storage account**](https://portal.azure.com/#create/Microsoft.StorageAccount-ARM) in the same region as your Document Intelligence resource. Create containers to store and organize your blob data within your storage account.
 
-* An [**Azure virtual network**](https://portal.azure.com/#create/Microsoft.VirtualNetwork-ARM) in the same region as your Form Recognizer resource. Create a virtual network to deploy your application resources to train models and analyze documents.
+* An [**Azure virtual network**](https://portal.azure.com/#create/Microsoft.VirtualNetwork-ARM) in the same region as your Document Intelligence resource. Create a virtual network to deploy your application resources to train models and analyze documents.
 
 * An **Azure data science VM** for [**Windows**](../../machine-learning/data-science-virtual-machine/provision-vm.md) or [**Linux/Ubuntu**](../../machine-learning/data-science-virtual-machine/dsvm-ubuntu-intro.md) to optionally deploy a data science VM in the virtual network to test the secure connections being established.
 
@@ -46,13 +47,13 @@ To get started, you need:
 
 Configure each of the resources to ensure that the resources can communicate with each other:
 
-* Configure the Form Recognizer Studio to use the newly created Form Recognizer resource by accessing the settings page and selecting the resource.
+* Configure the Document Intelligence Studio to use the newly created Document Intelligence resource by accessing the settings page and selecting the resource.
 
 * Validate that the configuration works by selecting the Read API and analyzing a sample document. If the resource was configured correctly, the request successfully completes.
 
 * Add a training dataset to a container in the Storage account you created.
 
-* Select the custom model tile to create a custom project. Ensure that you select the same Form Recognizer resource and the storage account you created in the previous step.
+* Select the custom model tile to create a custom project. Ensure that you select the same Document Intelligence resource and the storage account you created in the previous step.
 
 * Select the container with the training dataset you uploaded in the previous step. Ensure that if the training dataset is within a folder, the folder path is set appropriately.
 
@@ -60,27 +61,27 @@ Configure each of the resources to ensure that the resources can communicate wit
 
 * Validate that the Studio is configured to access your training data, if you can see your documents in the labeling experience, all the required connections have been established.
 
-You now have a working implementation of all the components needed to build a Form Recognizer solution with the default security model:
+You now have a working implementation of all the components needed to build a Document Intelligence solution with the default security model:
 
   :::image type="content" source="media/managed-identities/default-config.png" alt-text="Screenshot of default security configuration.":::
 
 Next, complete the following steps:
 
-* Setup managed identity on the Form Recognizer resource.
+* Setup managed identity on the Document Intelligence resource.
 
 * Secure the storage account to restrict traffic from only specific virtual networks and IP addresses.
 
-* Configure the Form Recognizer managed identity to communicate with the storage account.
+* Configure the Document Intelligence managed identity to communicate with the storage account.
 
-* Disable public access to the Form Recognizer resource and create a private endpoint to make it accessible from the virtual network.
+* Disable public access to the Document Intelligence resource and create a private endpoint to make it accessible from the virtual network.
 
 * Add a private endpoint for the storage account in a selected virtual network.
 
 * Validate that you can train models and analyze documents from within the virtual network.
 
-## Setup managed identity for Form Recognizer
+## Setup managed identity for Document Intelligence
 
-Navigate to the Form Recognizer resource in the Azure portal and select the **Identity** tab. Toggle the **System assigned** managed identity to **On** and save the changes:
+Navigate to the Document Intelligence resource in the Azure portal and select the **Identity** tab. Toggle the **System assigned** managed identity to **On** and save the changes:
 
   :::image type="content" source="media/managed-identities/v2-fr-mi.png" alt-text="Screenshot of configure managed identity.":::
 
@@ -102,9 +103,9 @@ Start configuring secure communications by navigating to the **Networking** tab 
 >
 > Refreshing the custom model labeling page in the Studio will result in an error message.
 
-## Enable access to storage from Form Recognizer
+## Enable access to storage from Document Intelligence
 
-To ensure that the Form Recognizer resource can access the training dataset, you need to add a role assignment for your [managed identity](#setup-managed-identity-for-form-recognizer).
+To ensure that the Document Intelligence resource can access the training dataset, you need to add a role assignment for your [managed identity](#setup-managed-identity-for-document-intelligence).
 
 1. Staying on the storage account window in the Azure portal, navigate to the **Access Control (IAM)** tab in the left navigation bar.
 
@@ -124,7 +125,7 @@ To ensure that the Form Recognizer resource can access the training dataset, you
 
    * **Managed Identity**. Select Form **Recognizer**.
 
-   * **Select**. Choose the Form Recognizer resource you enabled with a managed identity.
+   * **Select**. Choose the Document Intelligence resource you enabled with a managed identity.
 
     :::image type="content" source="media/managed-identities/v2-stg-role-assign-resource.png" alt-text="Screenshot of managed identities dialog window.":::
 
@@ -132,22 +133,22 @@ To ensure that the Form Recognizer resource can access the training dataset, you
 
 1. Finally, select **Review + assign** to save your changes.
 
-Great! You've configured your Form Recognizer resource to use a managed identity to connect to a storage account.
+Great! You've configured your Document Intelligence resource to use a managed identity to connect to a storage account.
 
 > [!TIP]
 >
-> When you try the [Form Recognizer Studio](https://formrecognizer.appliedai.azure.com/studio), you'll see the READ API and other prebuilt models don't require storage access to process documents. However, training a custom model requires additional configuration because the Studio can't directly communicate with a storage account.
+> When you try the [Document Intelligence Studio](https://formrecognizer.appliedai.azure.com/studio), you'll see the READ API and other prebuilt models don't require storage access to process documents. However, training a custom model requires additional configuration because the Studio can't directly communicate with a storage account.
   > You can enable storage access by selecting **Add your client IP address** from the **Networking** tab of the storage account to configure your machine to access the storage account via IP allowlisting.
 
 ## Configure private endpoints for access from VNETs
 
-When you connect to resources from a virtual network, adding private endpoints ensures both the storage account, and the Form Recognizer resource are accessible from the virtual network.
+When you connect to resources from a virtual network, adding private endpoints ensures both the storage account, and the Document Intelligence resource are accessible from the virtual network.
 
-Next, configure the virtual network to ensure only resources within the virtual network or traffic router through the network have access to the Form Recognizer resource and the storage account.
+Next, configure the virtual network to ensure only resources within the virtual network or traffic router through the network have access to the Document Intelligence resource and the storage account.
 
 ### Enable your virtual network and private endpoints
 
-1. In the Azure portal, navigate to your Form Recognizer resource.
+1. In the Azure portal, navigate to your Document Intelligence resource.
 
 1. Select the **Networking** tab from the left navigation bar.
 
@@ -155,9 +156,9 @@ Next, configure the virtual network to ensure only resources within the virtual 
 
 > [!NOTE]
 >
->If you try accessing any of the Form Recognizer Studio features, you'll see an access denied message. To enable access from the Studio on your machine, select the **client IP address checkbox** and **Save** to restore access.
+>If you try accessing any of the Document Intelligence Studio features, you'll see an access denied message. To enable access from the Studio on your machine, select the **client IP address checkbox** and **Save** to restore access.
 
-  :::image type="content" source="media/managed-identities/v2-fr-network.png" alt-text="Screenshot showing how to disable public access to Form Recognizer.":::
+  :::image type="content" source="media/managed-identities/v2-fr-network.png" alt-text="Screenshot showing how to disable public access to Document Intelligence.":::
 
 ### Configure your private endpoint
 
@@ -195,7 +196,7 @@ Next, configure the virtual network to ensure only resources within the virtual 
 
 1. Select **Next: Review + create** .
 
-Well done! Your Form Recognizer resource now is only accessible from the virtual network and any IP addresses in the IP allowlist.
+Well done! Your Document Intelligence resource now is only accessible from the virtual network and any IP addresses in the IP allowlist.
 
 ### Configure private endpoints for storage
 
@@ -229,12 +230,12 @@ Navigate to your **storage account** on the Azure portal.
 
 1. Select **Next: Review + create**.
 
-Great work! You now have all the connections between the Form Recognizer resource and storage configured to use managed identities.
+Great work! You now have all the connections between the Document Intelligence resource and storage configured to use managed identities.
 
 > [!NOTE]
 > The resources are only accessible from the virtual network.
 >
-> Studio access and analyze requests to your Form Recognizer resource will fail unless the request originates from the virtual network or is routed via the virtual network.
+> Studio access and analyze requests to your Document Intelligence resource will fail unless the request originates from the virtual network or is routed via the virtual network.
 
 ## Validate your deployment
 
@@ -242,11 +243,11 @@ To validate your deployment, you can deploy a virtual machine (VM) to the virtua
 
 1. Configure a [Data Science VM](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-dsvm.dsvm-win-2019?tab=Overview) in the virtual network.
 
-1. Remotely connect into the VM from your desktop to launch a browser session to access Form Recognizer Studio.
+1. Remotely connect into the VM from your desktop to launch a browser session to access Document Intelligence Studio.
 
 1. Analyze requests and the training operations should now work successfully.
 
-That's it! You can now configure secure access for your Form Recognizer resource with managed identities and private endpoints.
+That's it! You can now configure secure access for your Document Intelligence resource with managed identities and private endpoints.
 
 ## Common error messages
 
@@ -260,19 +261,19 @@ That's it! You can now configure secure access for your Form Recognizer resource
 
   :::image type="content" source="media/managed-identities/auth-failure.png" alt-text="Screenshot of authorization failure error.":::
 
-  **Resolution**: Ensure that there's a network line-of-sight between the computer accessing the form recognizer studio and the storage account. For example, you may need  to add the client IP address in the storage account's networking tab.
+  **Resolution**: Ensure that there's a network line-of-sight between the computer accessing the Document Intelligence Studio and the storage account. For example, you may need  to add the client IP address in the storage account's networking tab.
 
 * **ContentSourceNotAccessible**:
 
    :::image type="content" source="media/managed-identities/content-source-error.png" alt-text="Screenshot of content source not accessible error.":::
 
-    **Resolution**: Make sure you've given your Form Recognizer managed identity the role of **Storage Blob Data Reader** and enabled **Trusted services** access or **Resource instance** rules on the networking tab.
+    **Resolution**: Make sure you've given your Document Intelligence managed identity the role of **Storage Blob Data Reader** and enabled **Trusted services** access or **Resource instance** rules on the networking tab.
 
 * **AccessDenied**:
 
   :::image type="content" source="media/managed-identities/access-denied.png" alt-text="Screenshot of an access denied error.":::
 
-  **Resolution**: Check to make sure there's connectivity between the computer accessing the form recognizer studio and the form recognizer service. For example, you may need to add the client IP address to the Form Recognizer service's networking tab.
+  **Resolution**: Check to make sure there's connectivity between the computer accessing the Document Intelligence Studio and the Document Intelligence service. For example, you may need to add the client IP address to the Document Intelligence service's networking tab.
 
 ## Next steps
 

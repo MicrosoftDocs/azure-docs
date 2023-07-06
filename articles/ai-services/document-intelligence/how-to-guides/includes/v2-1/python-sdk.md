@@ -1,6 +1,6 @@
 ---
-title: "Use Form Recognizer SDK for Python (REST API v2.1)"
-description: Use the Form Recognizer SDK for Python (REST API v2.1) to create a forms processing app that extracts key data from documents.
+title: "Use Document Intelligence SDK for Python (REST API v2.1)"
+description: Use the Document Intelligence SDK for Python (REST API v2.1) to create a forms processing app that extracts key data from documents.
 author: laujan
 manager: nitinme
 ms.service: applied-ai-services
@@ -16,7 +16,7 @@ ms.custom: devx-track-python
 
 > [!IMPORTANT]
 >
-> * This project targets Form Recognizer REST API version **2.1**.
+> * This project targets Document Intelligence REST API version **2.1**.
 
 [Reference documentation](/python/api/azure-ai-formrecognizer) | [Library source code](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/formrecognizer/azure-ai-formrecognizer/azure/ai/formrecognizer) | [Package (PyPi)](https://pypi.org/project/azure-ai-formrecognizer/) | [Samples](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/formrecognizer/azure-ai-formrecognizer/samples)
 
@@ -26,8 +26,8 @@ ms.custom: devx-track-python
 * [Python 3.x](https://www.python.org/)
   * Your Python installation should include [pip](https://pip.pypa.io/en/stable/). You can check if you have pip installed by running `pip --version` on the command line. Get pip by installing the latest version of Python.
 * An Azure Storage blob that contains a set of training data. See [Build a training data set for a custom model](../../build-a-custom-model.md?view=form-recog-2.1.0&preserve-view=true) for tips and options for putting together your training data set. You can use the files under the **Train** folder of the [sample data set](https://go.microsoft.com/fwlink/?linkid=2090451) (download and extract *sample_data.zip*).
-* Once you have your Azure subscription, <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer"  title="Create a Form Recognizer resource"  target="_blank">create a Form Recognizer resource </a> in the Azure portal to get your key and endpoint. After it deploys, select **Go to resource**.
-  * You need the key and endpoint from the resource you create to connect your application to the Form Recognizer API. Paste your key and endpoint into the sample code.
+* Once you have your Azure subscription, <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer"  title="Create a Document Intelligence resource"  target="_blank">create a Document Intelligence resource </a> in the Azure portal to get your key and endpoint. After it deploys, select **Go to resource**.
+  * You need the key and endpoint from the resource you create to connect your application to the Document Intelligence API. Paste your key and endpoint into the sample code.
   * You can use the free pricing tier (`F0`) to try the service, and upgrade later to a paid tier for production.
 
 
@@ -35,7 +35,7 @@ ms.custom: devx-track-python
 
 ### Install the client library
 
-After installing Python, you can install the latest version of the Form Recognizer client library with:
+After installing Python, you can install the latest version of the Document Intelligence client library with:
 
 ```console
 pip install azure-ai-formrecognizer 
@@ -53,7 +53,7 @@ Create variables for your resource's Azure endpoint and key.
 
 ## Object model
 
-With Form Recognizer, you can create two different client types. The first, `form_recognizer_client` is used to query the service to recognize form fields and content. The second, `form_training_client` is used to create and manage custom models to improve recognition.
+With Document Intelligence, you can create two different client types. The first, `form_recognizer_client` is used to query the service to recognize form fields and content. The second, `form_training_client` is used to create and manage custom models to improve recognition.
 
 ### FormRecognizerClient
 
@@ -61,7 +61,7 @@ With Form Recognizer, you can create two different client types. The first, `for
 
 * Recognize form fields and content using custom models trained to analyze your custom forms.
 * Recognize form content, including tables, lines and words, without the need to train a model.
-* Recognize common fields from receipts, using a pre-trained receipt model on the Form Recognizer service.
+* Recognize common fields from receipts, using a pre-trained receipt model on the Document Intelligence service.
 
 ### FormTrainingClient
 
@@ -70,10 +70,10 @@ With Form Recognizer, you can create two different client types. The first, `for
 * Training custom models to analyze all fields and values found in your custom forms. See the [service's documentation on unlabeled model training](#train-a-model-without-labels).
 * Training custom models to analyze specific fields and values you specify by labeling your custom forms. See the [service's documentation on labeled model training](#train-a-model-with-labels).
 * Managing models created in your account.
-* Copying a custom model from one Form Recognizer resource to another.
+* Copying a custom model from one Document Intelligence resource to another.
 
 > [!NOTE]
-> Models can also be trained using a graphical user interface such as the [Form Recognizer Labeling Tool](../../../label-tool.md).
+> Models can also be trained using a graphical user interface such as the [Document Intelligence Labeling Tool](../../../label-tool.md).
 
 ## Authenticate the client
 
@@ -96,7 +96,7 @@ You need to add references to the URLs for your training and testing data.
 
 ## Analyze layout
 
-You can use Form Recognizer to analyze tables, lines, and words in documents, without needing to train a model. For more information about layout extraction, see the [Layout conceptual guide](../../../concept-layout.md).
+You can use Document Intelligence to analyze tables, lines, and words in documents, without needing to train a model. For more information about layout extraction, see the [Layout conceptual guide](../../../concept-layout.md).
 
 To analyze the content of a file at a given URL, use the `begin_recognize_content_from_url` method. The returned value is a collection of `FormPage` objects: one for each page in the submitted document. The following code iterates through these objects and prints the extracted key/value pairs and table data.
 
@@ -183,7 +183,7 @@ To analyze invoices from a URL, use the `begin_recognize_invoices_from_url` meth
 
 ## Analyze ID documents
 
-This section demonstrates how to analyze and extract key information from government-issued identification documents—worldwide passports and U.S. driver's licenses—using the Form Recognizer prebuilt ID model. For more information about ID document analysis, see our [prebuilt identification model conceptual guide](../../../concept-id-document.md).
+This section demonstrates how to analyze and extract key information from government-issued identification documents—worldwide passports and U.S. driver's licenses—using the Document Intelligence prebuilt ID model. For more information about ID document analysis, see our [prebuilt identification model conceptual guide](../../../concept-id-document.md).
 
 To analyze ID documents from a URL, use the `begin_recognize_id_documents_from_url` method.
 
@@ -197,7 +197,7 @@ To analyze ID documents from a URL, use the `begin_recognize_id_documents_from_u
 This section demonstrates how to train a model with your own data. A trained model can output structured data that includes the key/value relationships in the original form document. After you train the model, you can test, retrain, and eventually use it to reliably extract data from more forms according to your needs.
 
 > [!NOTE]
-> You can also train models with a graphical user interface such as the [Form Recognizer Sample Labeling tool](../../../label-tool.md).
+> You can also train models with a graphical user interface such as the [Document Intelligence Sample Labeling tool](../../../label-tool.md).
 
 ### Train a model without labels
 
@@ -246,7 +246,7 @@ Document errors: []
 You can also train custom models by manually labeling the training documents. Training with labels leads to better performance in some scenarios. The returned `CustomFormModel` indicates the fields the model can extract, along with its estimated accuracy in each field. The following code block prints this information to the console.
 
 > [!IMPORTANT]
-> To train with labels, you need to have special label information files (`\<filename\>.pdf.labels.json`) in your blob storage container alongside the training documents. The [Form Recognizer Sample Labeling tool](../../../label-tool.md) provides a UI to help you create these label files. Once you have them, you can call the `begin_training` function with the *use_training_labels* parameter set to `true`.
+> To train with labels, you need to have special label information files (`\<filename\>.pdf.labels.json`) in your blob storage container alongside the training documents. The [Document Intelligence Sample Labeling tool](../../../label-tool.md) provides a UI to help you create these label files. Once you have them, you can call the `begin_training` function with the *use_training_labels* parameter set to `true`.
 
 [!code-python[](~/cognitive-services-quickstart-code/python/FormRecognizer/FormRecognizerQuickstart.py?name=snippet_trainlabels)]
 
@@ -328,7 +328,7 @@ This section demonstrates how to manage the custom models stored in your account
 
 ### Check the number of models in the FormRecognizer resource account
 
-The following code block checks how many models you've saved in your Form Recognizer account and compares it to the account limit.
+The following code block checks how many models you've saved in your Document Intelligence account and compares it to the account limit.
 
 [!code-python[](~/cognitive-services-quickstart-code/python/FormRecognizer/FormRecognizerQuickstart.py?name=snippet_manage_count)]
 
@@ -390,16 +390,16 @@ python form-recognizer.py
 
 ## Clean up resources
 
-If you want to clean up and remove a Cognitive Services subscription, you can delete the resource or resource group. Deleting the resource group also deletes any other resources associated with it.
+If you want to clean up and remove an Azure AI services subscription, you can delete the resource or resource group. Deleting the resource group also deletes any other resources associated with it.
 
-* [Portal](../../../../../cognitive-services/cognitive-services-apis-create-account.md#clean-up-resources)
-* [Azure CLI](../../../../../cognitive-services/cognitive-services-apis-create-account-cli.md#clean-up-resources)
+* [Portal](../../../../../ai-services/cognitive-services-apis-create-account.md#clean-up-resources)
+* [Azure CLI](../../../../../ai-services/cognitive-services-apis-create-account-cli.md#clean-up-resources)
 
 ## Troubleshooting
 
 ### General
 
-The Form Recognizer client library raises exceptions defined in [Azure Core](https://aka.ms/azsdk-python-azure-core).
+The Document Intelligence client library raises exceptions defined in [Azure Core](https://aka.ms/azsdk-python-azure-core).
 
 ### Logging
 
@@ -429,11 +429,11 @@ Similarly, `logging_enable` can enable detailed logging for a single operation, 
 
 ## Next steps
 
-For this project, you used the Form Recognizer Python client library to train models and analyze forms in different ways. Next, learn tips to create a better training data set and produce more accurate models.
+For this project, you used the Document Intelligence Python client library to train models and analyze forms in different ways. Next, learn tips to create a better training data set and produce more accurate models.
 
 > [!div class="nextstepaction"]
 > [Build a training data set](../../build-a-custom-model.md?view=form-recog-2.1.0&preserve-view=true)
 
-* [What is Form Recognizer?](../../../overview.md)
+* [What is Document Intelligence?](../../../overview.md)
 
 * The sample code for this project can be found on [GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/python/FormRecognizer/FormRecognizerQuickstart.py).

@@ -1,6 +1,6 @@
 ---
-title: Best practices for labeling documents in the Form Recognizer Studio
-titleSuffix: Azure Applied AI Services
+title: Best practices for labeling documents in the Document Intelligence Studio
+titleSuffix: Azure AI services
 description: Label documents in the Studio to create a training dataset. Labeling guidelines aimed at training a model with high accuracy
 author: laujan
 manager: nitinme
@@ -13,7 +13,8 @@ ms.custom: references_regions
 monikerRange: 'form-recog-3.0.0'
 ---
 
-# Best practices: Generating Form Recognizer labeled dataset
+
+# Best practices: Generating Document Intelligence labeled dataset
 
 Custom models (template and neural) require a labeled dataset of at least five documents to train a model. The quality of the labeled dataset affects the accuracy of the trained model. This guide helps you learn more about generating a model with high accuracy by assembling a diverse dataset and provides best practices for labeling your documents.
 
@@ -123,4 +124,4 @@ Tabular fields are also useful when extracting repeating information within a do
 * View the REST API:
 
     > [!div class="nextstepaction"]
-    > [Form Recognizer API v3.0](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v3-0-preview-2/operations/AnalyzeDocument)
+    > [Document Intelligence API v3.0](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v3-0-preview-2/operations/AnalyzeDocument)
