@@ -1,6 +1,6 @@
 ---
 title: Speech containers overview - Speech service
-titleSuffix: Azure Cognitive Services
+titleSuffix: Azure AI services
 description: Use the Docker containers for the Speech service to perform speech recognition, transcription, generation, and more on-premises.
 services: cognitive-services
 author: eric-urban
@@ -38,7 +38,7 @@ The following table lists the Speech containers available in the Microsoft Conta
 
 To use the Speech containers, you must submit one of the following request forms and wait for approval:
 -	[Connected containers request form](https://aka.ms/csgate) if you want to run containers regularly, in environments that are only connected to the internet.
--	[Disconnected Container request form](https://aka.ms/csdisconnectedcontainers) if you want to run containers in environments that can be disconnected from the internet. For more information about applying and purchasing a commitment plan to use containers in disconnected environments, see [Use containers in disconnected environments](../containers/disconnected-containers.md) in the Azure Cognitive Services documentation.
+-	[Disconnected Container request form](https://aka.ms/csdisconnectedcontainers) if you want to run containers in environments that can be disconnected from the internet. For more information about applying and purchasing a commitment plan to use containers in disconnected environments, see [Use containers in disconnected environments](../containers/disconnected-containers.md) in the Azure AI services documentation.
 
 The form requests information about you, your company, and the user scenario for which you'll use the container. 
 
@@ -46,7 +46,7 @@ The form requests information about you, your company, and the user scenario for
 * The Azure resource you use to run the container must have been created with the approved Azure subscription ID.
 * Check your email for updates on the status of your application from Microsoft.
 
-After you submit the form, the Azure Cognitive Services team reviews it and emails you with a decision within 10 business days.
+After you submit the form, the Azure AI services team reviews it and emails you with a decision within 10 business days.
 
 > [!IMPORTANT]
 > To use the Speech containers, your request must be approved. 
@@ -64,13 +64,13 @@ Speech containers aren't licensed to run without being connected to Azure for me
 
 ## Container recipes and other container services
 
-You can use container recipes to create containers that can be reused. Containers can be built with some or all configuration settings so that they are not needed when the container is started. For container recipes see the following Azure Cognitive Services articles:
+You can use container recipes to create containers that can be reused. Containers can be built with some or all configuration settings so that they are not needed when the container is started. For container recipes see the following Azure AI services articles:
 - [Create containers for reuse](../containers/container-reuse-recipe.md)
 - [Deploy and run container on Azure Container Instance](../containers/azure-container-instance-recipe.md)
 - [Deploy a language detection container to Azure Kubernetes Service](../containers/azure-kubernetes-recipe.md)
 - [Use Docker Compose to deploy multiple containers](../containers/docker-compose-recipe.md)
 
-For information about other container services, see the following Azure Cognitive Services articles:
+For information about other container services, see the following Azure AI services articles:
 - [Tutorial: Create a container image for deployment to Azure Container Instances](../../container-instances/container-instances-tutorial-prepare-app.md)
 - [Quickstart: Create a private container registry using the Azure CLI](../../container-registry/container-registry-get-started-azure-cli.md)
 - [Tutorial: Prepare an application for Azure Kubernetes Service (AKS)](../../aks/tutorial-kubernetes-prepare-app.md)

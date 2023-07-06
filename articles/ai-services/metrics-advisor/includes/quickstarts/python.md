@@ -1,6 +1,6 @@
 ---
 title: Metrics Advisor Python quickstart
-titleSuffix: Azure Applied AI Services
+titleSuffix: Azure AI services
 author: mrbullwinkle
 manager: nitinme
 ms.service: applied-ai-services
@@ -95,7 +95,7 @@ DESCRIPTION:
 USAGE:
     python sample_data_feeds.py
     Set the environment variables with your own values before running the sample:
-    1) METRICS_ADVISOR_ENDPOINT - the endpoint of your Azure Metrics Advisor service
+    1) METRICS_ADVISOR_ENDPOINT - the endpoint of your Azure AI Metrics Advisor service
     2) METRICS_ADVISOR_KEY - Metrics Advisor service subscription key
     3) METRICS_ADVISOR_API_KEY - Metrics Advisor service API key
     4) SQL_CONNECTION_STRING - Used in this sample for demonstration, but you should

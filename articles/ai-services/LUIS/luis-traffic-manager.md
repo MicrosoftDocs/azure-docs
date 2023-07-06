@@ -1,6 +1,6 @@
 ---
 title: Increase endpoint quota - LUIS
-titleSuffix: Azure Cognitive Services
+titleSuffix: Azure AI services
 description: Language Understanding (LUIS) offers the ability to increase the endpoint request quota beyond a single key's quota. This is done by creating more keys for LUIS and adding them to the LUIS application on the **Publish** page in the **Resources and Keys** section.
 ms.author: aahi
 author: aahill

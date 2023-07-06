@@ -1,6 +1,6 @@
 ---
 title: "Document Translation REST API reference guide"
-titleSuffix: Azure Cognitive Services
+titleSuffix: Azure AI services
 description: View a list of with links to the Document Translation REST APIs.
 services: cognitive-services
 author: laujan
@@ -14,7 +14,7 @@ ms.author: lajanuar
 
 # Document Translation REST API reference guide
 
-Document Translation is a cloud-based feature of the Azure Translator service and is part of the Azure Cognitive Service family of REST APIs. The Document Translation API translates documents across all [supported languages and dialects](../../language-support.md) while preserving document structure and data format. The available methods are listed in the table below:
+Document Translation is a cloud-based feature of the Azure AI Translator service and is part of the Azure AI service family of REST APIs. The Document Translation API translates documents across all [supported languages and dialects](../../language-support.md) while preserving document structure and data format. The available methods are listed in the table below:
 
 | Request| Description|
 |---------|--------------|
@@ -29,4 +29,4 @@ Document Translation is a cloud-based feature of the Azure Translator service an
 |[**Cancel translation (DELETE)**](cancel-translation.md)| This method cancels a document translation that is currently processing or queued. |
 
 > [!div class="nextstepaction"]
-> [Explore our client libraries and SDKs for C# and Python.](../client-sdks.md)
+> [Explore our client libraries and SDKs for C# and Python.](../quickstarts/document-translation-sdk.md)

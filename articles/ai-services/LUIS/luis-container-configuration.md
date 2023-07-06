@@ -1,6 +1,6 @@
 ---
 title: Docker container settings - LUIS
-titleSuffix: Azure Cognitive Services
+titleSuffix: Azure AI services
 description: The LUIS container runtime environment is configured using the `docker run` command arguments. LUIS has several required settings, along with a few optional settings.
 services: cognitive-services
 author: aahill
@@ -40,11 +40,11 @@ This container has the following configuration settings:
 
 ## ApiKey setting
 
-The `ApiKey` setting specifies the Azure resource key used to track billing information for the container. You must specify a value for the ApiKey and the value must be a valid key for the _Cognitive Services_ resource specified for the [`Billing`](#billing-setting) configuration setting.
+The `ApiKey` setting specifies the Azure resource key used to track billing information for the container. You must specify a value for the ApiKey and the value must be a valid key for the _Azure AI services_ resource specified for the [`Billing`](#billing-setting) configuration setting.
 
 This setting can be found in the following places:
 
-* Azure portal: **Cognitive Services** Resource Management, under **Keys**
+* Azure portal: **Azure AI services** Resource Management, under **Keys**
 * LUIS portal: **Keys and Endpoint settings** page. 
 
 Do not use the starter key or the authoring key. 
@@ -55,16 +55,16 @@ Do not use the starter key or the authoring key.
 
 ## Billing setting
 
-The `Billing` setting specifies the endpoint URI of the _Cognitive Services_ resource on Azure used to meter billing information for the container. You must specify a value for this configuration setting, and the value must be a valid endpoint URI for a _Cognitive Services_ resource on Azure. The container reports usage about every 10 to 15 minutes.
+The `Billing` setting specifies the endpoint URI of the _Azure AI services_ resource on Azure used to meter billing information for the container. You must specify a value for this configuration setting, and the value must be a valid endpoint URI for a _Azure AI services_ resource on Azure. The container reports usage about every 10 to 15 minutes.
 
 This setting can be found in the following places:
 
-* Azure portal: **Cognitive Services** Overview, labeled `Endpoint`
+* Azure portal: **Azure AI services** Overview, labeled `Endpoint`
 * LUIS portal: **Keys and Endpoint settings** page, as part of the endpoint URI.
 
 | Required | Name | Data type | Description |
 |----------|------|-----------|-------------|
-| Yes      | `Billing` | string | Billing endpoint URI. For more information on obtaining the billing URI, see [gather required parameters](luis-container-howto.md#gather-required-parameters). For more information and a complete list of regional endpoints, see [Custom subdomain names for Cognitive Services](../cognitive-services-custom-subdomains.md). |
+| Yes      | `Billing` | string | Billing endpoint URI. For more information on obtaining the billing URI, see [gather required parameters](luis-container-howto.md#gather-required-parameters). For more information and a complete list of regional endpoints, see [Custom subdomain names for Azure AI services](../cognitive-services-custom-subdomains.md). |
 
 ## Eula setting
 
@@ -116,7 +116,7 @@ Replace {_argument_name_} with your own values:
 
 > [!IMPORTANT]
 > The `Eula`, `Billing`, and `ApiKey` options must be specified to run the container; otherwise, the container won't start. For more information, see [Billing](luis-container-howto.md#billing).
-> The ApiKey value is the **Key** from the Keys and Endpoints page in the LUIS portal and is also available on the Azure `Cognitive Services` resource keys page. 
+> The ApiKey value is the **Key** from the Keys and Endpoints page in the LUIS portal and is also available on the Azure `Azure AI services` resource keys page. 
 
 ### Basic example
 
@@ -165,5 +165,5 @@ Logging:Console:LogLevel:Default=Information
 ## Next steps
 
 * Review [How to install and run containers](luis-container-howto.md)
-* Refer to [Troubleshooting](troubleshooting.yml) to resolve issues related to LUIS functionality.
-* Use more [Cognitive Services Containers](../cognitive-services-container-support.md)
+* Refer to [Troubleshooting](faq.md) to resolve issues related to LUIS functionality.
+* Use more [Azure AI containers](../cognitive-services-container-support.md)

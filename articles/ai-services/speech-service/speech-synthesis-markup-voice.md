@@ -1,6 +1,6 @@
 ---
 title: Voice and sound with Speech Synthesis Markup Language (SSML) - Speech service
-titleSuffix: Azure Cognitive Services
+titleSuffix: Azure AI services
 description: Learn about Speech Synthesis Markup Language (SSML) elements to determine what your output audio will sound like.
 services: cognitive-services
 author: eric-urban

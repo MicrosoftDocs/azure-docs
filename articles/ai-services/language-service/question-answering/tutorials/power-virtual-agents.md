@@ -28,7 +28,7 @@ In this tutorial, you learn how to:
 > * Test Power Virtual Agents, and receive an answer from your Question Answering project
 
 > [!NOTE]
-> The QnA Maker service is being retired on the 31st of March, 2025. A newer version of the question and answering capability is now available as part of [Azure Cognitive Service for Language](../../index.yml). For question answering capabilities within the Language Service, see [question answering](../overview.md). Starting 1st October, 2022 you won’t be able to create new QnA Maker resources. For information on migrating existing QnA Maker knowledge bases to question answering, consult the [migration guide](../how-to/migrate-qnamaker.md).
+> The QnA Maker service is being retired on the 31st of March, 2025. A newer version of the question and answering capability is now available as part of [Azure AI Language](../../index.yml). For question answering capabilities within the Language Service, see [question answering](../overview.md). Starting 1st October, 2022 you won’t be able to create new QnA Maker resources. For information on migrating existing QnA Maker knowledge bases to question answering, consult the [migration guide](../how-to/migrate-qnamaker.md).
 
 ## Create and publish a project
 1. Follow the [quickstart](../quickstart/sdk.md?pivots=studio) to create a Question Answering project. Once you have deployed your project.
@@ -83,7 +83,7 @@ Instead you need to follow the steps below that creates a Power Automate flow. T
 - Takes the incoming user text as a question, and sends it to Question Answering.
 - Returns the top response back to your bot.
 
-click on **Create** in the left panel, then click "OK" to leave the page.
+select **Create** in the left panel, then click "OK" to leave the page.
 
 > [!div class="mx-imgBorder"]
 > [ ![Screenshot of the Create action in the left panel and a confirmation message for navigating away from the page.]( ../media/power-virtual-agents/power-automate-create-new.png) ]( ../media/power-virtual-agents/power-automate-create-new.png#lightbox)
@@ -93,7 +93,7 @@ Select "Instant Cloud flow"
 > [!div class="mx-imgBorder"]
 > [ ![Screenshot of the Instant cloud flow selection box.]( ../media/power-virtual-agents/create-instant-cloud-flow.png) ]( ../media/power-virtual-agents/create-instant-cloud-flow.png#lightbox)
 
-For testing this connector, you can click on “When PowerVirtual Agents calls a flow” and click on **Create**.
+For testing this connector, you can click on “When PowerVirtual Agents calls a flow” and select **Create**.
 
 > [!div class="mx-imgBorder"]
 > [ ![Screenshot of the When Power Virtual Agents calls a flow selection in the Choose how to trigger this flow list.]( ../media/power-virtual-agents/create-trigger.png) ]( ../media/power-virtual-agents/create-trigger.png#lightbox)

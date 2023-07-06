@@ -1,6 +1,6 @@
 ---
 title: What is Azure Text Translation?
-titlesuffix: Azure Cognitive Services
+titlesuffix: Azure AI services
 description: Integrate the Text Translation API into your applications, websites, tools, and other solutions to provide multi-language user experiences.
 services: cognitive-services
 author: laujan
@@ -18,8 +18,8 @@ ms.author: lajanuar
 
 Text translation documentation contains the following article types:
 
-* [**Quickstarts**](quickstart-translator.md). Getting-started instructions to guide you through making requests to the service.
-* [**How-to guides**](how-to-create-translator-resource.md). Instructions for accessing and using the service in more specific or customized ways.
+* [**Quickstarts**](quickstart-text-rest-api.md). Getting-started instructions to guide you through making requests to the service.
+* [**How-to guides**](create-translator-resource.md). Instructions for accessing and using the service in more specific or customized ways.
 * [**Reference articles**](reference/v3-0-reference.md). REST API documentation and programming language-based content.
 
 ## Text translation features
@@ -54,7 +54,7 @@ Add Text Translation to your projects and applications using the following resou
 
     > [!IMPORTANT]
     >
-    > * To use the Translator container you must complete and submit the [**Azure Cognitive Services Application for Gated Services**](https://aka.ms/csgate-translator) online request form and have it approved to acquire access to the container.
+    > * To use the Translator container you must complete and submit the [**Azure AI services Application for Gated Services**](https://aka.ms/csgate-translator) online request form and have it approved to acquire access to the container.
     >
     > * The [**Translator container image**](https://hub.docker.com/_/microsoft-azure-cognitive-services-translator-text-translation) supports limited features compared to cloud offerings.
     >
@@ -63,16 +63,16 @@ Add Text Translation to your projects and applications using the following resou
 
 Ready to begin?
 
-* [**Create a Translator resource**](how-to-create-translator-resource.md "Go to the Azure portal.") in the Azure portal.
+* [**Create a Translator resource**](create-translator-resource.md "Go to the Azure portal.") in the Azure portal.
 
-* [**Get your access keys and API endpoint**](how-to-create-translator-resource.md#authentication-keys-and-endpoint-url). An endpoint URL and read-only key are required for authentication.
+* [**Get your access keys and API endpoint**](create-translator-resource.md#authentication-keys-and-endpoint-url). An endpoint URL and read-only key are required for authentication.
 
-* Explore our [**Quickstart**](quickstart-translator.md "Learn to use Translator via REST and a preferred programming language.") and view use cases and code samples for the following programming languages: 
-  * [**C#/.NET**](quickstart-translator.md?tabs=csharp)
-  * [**Go**](quickstart-translator.md?tabs=go)
-  * [**Java**](quickstart-translator.md?tabs=java)
-  * [**JavaScript/Node.js**](quickstart-translator.md?tabs=nodejs)
-  * [**Python**](quickstart-translator.md?tabs=python)
+* Explore our [**Quickstart**](quickstart-text-rest-api.md "Learn to use Translator via REST and a preferred programming language.") and view use cases and code samples for the following programming languages: 
+  * [**C#/.NET**](quickstart-text-rest-api.md?tabs=csharp)
+  * [**Go**](quickstart-text-rest-api.md?tabs=go)
+  * [**Java**](quickstart-text-rest-api.md?tabs=java)
+  * [**JavaScript/Node.js**](quickstart-text-rest-api.md?tabs=nodejs)
+  * [**Python**](quickstart-text-rest-api.md?tabs=python)
 
 ## Next steps
 

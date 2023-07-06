@@ -1,7 +1,7 @@
 ---
-title: Azure Cognitive Services for Call Center Overview
-titleSuffix: Azure Cognitive Services
-description: Azure Cognitive Services for Language and Speech can help you realize partial or full automation of telephony-based customer interactions, and provide accessibility across multiple channels.
+title: Azure AI services for Call Center Overview
+titleSuffix: Azure AI services
+description: Azure AI services for Language and Speech can help you realize partial or full automation of telephony-based customer interactions, and provide accessibility across multiple channels.
 services: cognitive-services
 author: goergenj
 ms.author: jagoerge
@@ -13,9 +13,9 @@ ms.date: 09/18/2022
 
 # Call Center Overview
 
-Azure Cognitive Services for Language and Speech can help you realize partial or full automation of telephony-based customer interactions, and provide accessibility across multiple channels. With the Language and Speech services, you can further analyze call center transcriptions, extract and redact conversation personally identifiable information (PII), summarize the transcription, and detect the sentiment.
+Azure AI services for Language and Speech can help you realize partial or full automation of telephony-based customer interactions, and provide accessibility across multiple channels. With the Language and Speech services, you can further analyze call center transcriptions, extract and redact conversation personally identifiable information (PII), summarize the transcription, and detect the sentiment.
 
-Some example scenarios for the implementation of Azure Cognitive Services in call and contact centers are:
+Some example scenarios for the implementation of Azure AI services in call and contact centers are:
 - Virtual agents: Conversational AI-based telephony-integrated voicebots and voice-enabled chatbots
 - Agent-assist: Real-time transcription and analysis of a call to improve the customer experience by providing insights and suggest actions to agents
 - Post-call analytics: Post-call analysis to create insights into customer conversations to improve understanding and support continuous improvement of call handling, optimization of quality assurance and compliance control as well as other insight driven optimizations.
@@ -25,7 +25,7 @@ Some example scenarios for the implementation of Azure Cognitive Services in cal
 > 
 > To deploy a call center transcription solution to Azure with a no-code approach, try the [Ingestion Client](./ingestion-client.md).
 
-## Cognitive Services features for call centers
+## Azure AI services features for call centers
 
 A holistic call center implementation typically incorporates technologies from the Language and Speech services. 
 

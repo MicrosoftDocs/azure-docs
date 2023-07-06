@@ -1,6 +1,6 @@
 ---
 title: Machine-learning entity type - LUIS
-titleSuffix: Azure Cognitive Services
+titleSuffix: Azure AI services
 description: The machine-learning entity is the preferred entity for building LUIS applications.
 services: cognitive-services
 ms.author: aahi
@@ -21,7 +21,7 @@ The machine-learning entity is the preferred entity for building LUIS applicatio
 
 ## Example JSON
 
-Suppose the app takes pizza orders, such as the [decomposable entity tutorial](tutorial-machine-learned-entity.md). Each order can include several different pizzas, including different sizes.
+Suppose the app takes pizza orders, such as the [decomposable entity tutorial](tutorial/build-decomposable-application.md). Each order can include several different pizzas, including different sizes.
 
 Example utterances include:
 
@@ -345,6 +345,6 @@ This entity isn't available in the V2 prediction runtime.
 
 ## Next steps
 
-Learn more about the machine-learning entity including a [tutorial](tutorial-machine-learned-entity.md), [concepts](concepts/entities.md#machine-learned-ml-entity), and [how-to guide](how-to/entities.md#create-a-machine-learned-entity).
+Learn more about the machine-learning entity including a [tutorial](./tutorial/build-decomposable-application.md), [concepts](concepts/entities.md#machine-learned-ml-entity), and [how-to guide](how-to/entities.md#create-a-machine-learned-entity).
 
 Learn about the [list](reference-entity-list.md) entity and [regular expression](reference-entity-regular-expression.md) entity.

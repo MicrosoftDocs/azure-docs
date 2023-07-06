@@ -1,7 +1,7 @@
 ---
-title: Game development with Azure Cognitive Service for Speech - Speech service
-titleSuffix: Azure Cognitive Services
-description: Concepts for game development with Azure Cognitive Service for Speech.
+title: Game development with Azure AI Speech - Speech service
+titleSuffix: Azure AI services
+description: Concepts for game development with Azure AI Speech.
 services: cognitive-services
 author: eric-urban
 manager: nitinme
@@ -12,9 +12,9 @@ ms.date: 01/25/2023
 ms.author: eur
 ---
 
-# Game development with Azure Cognitive Service for Speech
+# Game development with Azure AI Speech
 
-Azure Cognitive Services for Speech can be used to improve various gaming scenarios, both in- and out-of-game. 
+Azure AI services for Speech can be used to improve various gaming scenarios, both in- and out-of-game. 
 
 Here are a few Speech features to consider for flexible and interactive game experiences:
 

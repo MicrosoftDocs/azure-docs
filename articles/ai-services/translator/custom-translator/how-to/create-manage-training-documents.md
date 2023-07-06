@@ -1,6 +1,6 @@
 ---
 title: Build and upload training documents
-titleSuffix: Azure Cognitive Services
+titleSuffix: Azure AI services
 description: How to build and upload parallel documents (two documents where one is the origin and the other is the translation) using Custom Translator.
 author: laujan
 manager: nitinme
@@ -15,9 +15,9 @@ ms.topic: how-to
 
 [Custom Translator](../overview.md) enables you to build translation models that reflect your business, industry, and domain-specific terminology and style. Training and deploying a custom model is easy and doesn't require any programming skills. Custom Translator allows you to upload parallel files, translation memory files, or zip files.
 
-[Parallel documents](../what-are-parallel-documents.md) are pairs of documents where one (target) is a translation of the other (source). One document in the pair contains sentences in the source language and the other document contains those sentences translated into the target language.
+[Parallel documents](../concepts/parallel-documents.md) are pairs of documents where one (target) is a translation of the other (source). One document in the pair contains sentences in the source language and the other document contains those sentences translated into the target language.
 
-Before uploading your documents, review the [document formats and naming convention guidance](../document-formats-naming-convention.md) to make sure your file format is supported by Custom Translator.
+Before uploading your documents, review the [document formats and naming convention guidance](../concepts/document-formats-naming-convention.md) to make sure your file format is supported by Custom Translator.
 
 ## How to create document sets
 

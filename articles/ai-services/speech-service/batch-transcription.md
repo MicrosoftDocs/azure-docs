@@ -1,6 +1,6 @@
 ---
 title: Batch transcription overview - Speech service
-titleSuffix: Azure Cognitive Services
+titleSuffix: Azure AI services
 description: Batch transcription is ideal if you want to transcribe a large quantity of audio in storage, such as Azure blobs. Then you can asynchronously retrieve transcriptions.
 services: cognitive-services
 manager: nitinme

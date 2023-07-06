@@ -1,6 +1,6 @@
 ---
 title: Send prediction requests to a conversational language understanding deployment
-titleSuffix: Azure Cognitive Services
+titleSuffix: Azure AI services
 description: Learn about sending prediction requests for conversational language understanding.
 services: cognitive-services
 author: aahill

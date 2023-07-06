@@ -1,7 +1,7 @@
 ---
-title: What is the Personally Identifying Information (PII) detection feature in Azure Cognitive Service for Language?
-titleSuffix: Azure Cognitive Services
-description: An overview of the PII detection feature in Azure Cognitive Services, which helps you extract entities and sensitive information (PII) in text.
+title: What is the Personally Identifying Information (PII) detection feature in Azure AI Language?
+titleSuffix: Azure AI services
+description: An overview of the PII detection feature in Azure AI services, which helps you extract entities and sensitive information (PII) in text.
 services: cognitive-services
 author: jboback
 manager: nitinme
@@ -13,9 +13,9 @@ ms.author: jboback
 ms.custom: language-service-pii, ignite-fall-2021
 ---
 
-# What is Personally Identifiable Information (PII) detection in Azure Cognitive Service for Language?
+# What is Personally Identifiable Information (PII) detection in Azure AI Language?
 
-PII detection is one of the features offered by [Azure Cognitive Service for Language](../overview.md), a collection of machine learning and AI algorithms in the cloud for developing intelligent applications that involve written language. The PII detection feature can **identify, categorize, and redact** sensitive information in unstructured text. For example: phone numbers, email addresses, and forms of identification. The method for utilizing PII in conversations is different than other use cases, and articles for this use have been separated.
+PII detection is one of the features offered by [Azure AI Language](../overview.md), a collection of machine learning and AI algorithms in the cloud for developing intelligent applications that involve written language. The PII detection feature can **identify, categorize, and redact** sensitive information in unstructured text. For example: phone numbers, email addresses, and forms of identification. The method for utilizing PII in conversations is different than other use cases, and articles for this use have been separated.
 
 * [**Quickstarts**](quickstart.md) are getting-started instructions to guide you through making requests to the service.
 * [**How-to guides**](how-to-call.md) contain instructions for using the service in more specific or customized ways.
@@ -38,7 +38,7 @@ PII comes into two shapes:
 
 ## Responsible AI 
 
-An AI system includes not only the technology, but also the people who will use it, the people who will be affected by it, and the environment in which it's deployed. Read the [transparency note for PII](/legal/cognitive-services/language-service/transparency-note-personally-identifiable-information?context=/azure/cognitive-services/language-service/context/context) to learn about responsible AI use and deployment in your systems. You can also see the following articles for more information:
+An AI system includes not only the technology, but also the people who will use it, the people who will be affected by it, and the environment in which it's deployed. Read the [transparency note for PII](/legal/cognitive-services/language-service/transparency-note-personally-identifiable-information?context=/azure/ai-services/language-service/context/context) to learn about responsible AI use and deployment in your systems. You can also see the following articles for more information:
 
 [!INCLUDE [Responsible AI links](../includes/overview-responsible-ai-links.md)]
 

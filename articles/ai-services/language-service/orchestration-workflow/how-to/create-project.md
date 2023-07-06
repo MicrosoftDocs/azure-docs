@@ -1,6 +1,6 @@
 ---
 title: Create orchestration workflow projects and use Azure resources
-titleSuffix: Azure Cognitive Services
+titleSuffix: Azure AI services
 description: Use this article to learn how to create projects in orchestration workflow
 services: cognitive-services
 author: aahill
@@ -25,11 +25,11 @@ Orchestration workflow allows you to create projects that connect your applicati
 Before you start using orchestration workflow, you will need several things:
 
 * An Azure subscription - [Create one for free](https://azure.microsoft.com/free/cognitive-services).
-* An Azure Language resource 
+* An Azure AI Language resource 
 
 ### Create a Language resource 
 
-Before you start using orchestration workflow, you will need an Azure Language resource.
+Before you start using orchestration workflow, you will need an Azure AI Language resource.
 
 > [!NOTE]
 >  * You need to have an **owner** role assigned on the resource group to create a Language resource.

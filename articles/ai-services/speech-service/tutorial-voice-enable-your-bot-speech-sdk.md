@@ -1,6 +1,6 @@
 ---
 title: "Tutorial: Voice-enable your bot - Speech service"
-titleSuffix: Azure Cognitive Services
+titleSuffix: Azure AI services
 description: In this tutorial, you'll create an echo bot and configure a client app that lets you speak to your bot and hear it respond back to you.
 services: cognitive-services
 author: eric-urban
@@ -16,7 +16,7 @@ ms.custom: cogserv-non-critical-speech, devx-track-csharp
 
 # Tutorial: Voice-enable your bot
 
-You can use Azure Cognitive Services Speech to voice-enable a chat bot.
+You can use Azure AI services Speech to voice-enable a chat bot.
 
 In this tutorial, you'll use the Microsoft Bot Framework to create a bot that responds to what you say. You'll deploy your bot to Azure and register it with the Bot Framework Direct Line Speech channel. Then, you'll configure a sample client app for Windows that lets you speak to your bot and hear it speak back to you.
 
@@ -121,7 +121,7 @@ At this point, check that your resource group (**SpeechEchoBotTutorial-ResourceG
 | Name | Type  | Location |
 |------|-------|----------|
 | SpeechEchoBotTutorial-AppServicePlan | App Service Plan | West US |
-| SpeechEchoBotTutorial-Speech | Cognitive Services | West US |
+| SpeechEchoBotTutorial-Speech | Azure AI services | West US |
 
 ## Build an echo bot
 
@@ -216,7 +216,7 @@ At this point, check your resource group (**SpeechEchoBotTutorial-ResourceGroup*
 |------|-------|----------|
 | EchoBot20190805125647 | App Service | West US |
 | SpeechEchoBotTutorial-AppServicePlan | App Service plan | West US |
-| SpeechEchoBotTutorial-Speech | Cognitive Services | West US |
+| SpeechEchoBotTutorial-Speech | Azure AI services | West US |
 
 ## Enable web sockets
 
@@ -258,10 +258,10 @@ At this point, check your resource group (**SpeechEchoBotTutorial-ResourceGroup*
 | EchoBot20190805125647 | App Service | West US |
 | SpeechEchoBotTutorial-AppServicePlan | App Service plan | West US |
 | SpeechEchoBotTutorial-BotRegistration-8726 | Bot Service | Global |
-| SpeechEchoBotTutorial-Speech | Cognitive Services | West US |
+| SpeechEchoBotTutorial-Speech | Azure AI services | West US |
 
 > [!IMPORTANT]
-> The Azure Bot Service resource shows the Global region, even though you selected West US. This is expected.
+> The Azure AI Bot Service resource shows the Global region, even though you selected West US. This is expected.
 
 ## Optional: Test in web chat
 

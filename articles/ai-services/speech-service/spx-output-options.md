@@ -1,6 +1,6 @@
 ---
 title: "Configure the Speech CLI output options - Speech service"
-titleSuffix: Azure Cognitive Services
+titleSuffix: Azure AI services
 description: Learn how to configure output options with the Speech CLI.
 author: eric-urban
 manager: nitinme
