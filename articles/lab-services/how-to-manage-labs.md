@@ -70,7 +70,7 @@ To access your lab in Teams:
 
 ## Use a non-organizational account as a lab creator
 
-You can access the Azure Lab Services website to create and manage labs without an organizational account (a guest account). In this case, you need a Microsoft account, or a GitHub or non-Microsoft email acount that is linked to a Microsoft account.
+You can access the Azure Lab Services website to create and manage labs without an organizational account (a guest account). In this case, you need a Microsoft account, or a GitHub or non-Microsoft email account that is linked to a Microsoft account.
 
 ### Use a non-Microsoft email account
 
