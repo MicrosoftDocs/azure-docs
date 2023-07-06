@@ -5,7 +5,6 @@ titleSuffix: Azure Cognitive Services
 author: mrbullwinkle
 manager: nitinme
 ms.service: cognitive-services
-ms.subservice: openai
 ms.topic: conceptual
 ms.date: 11/14/2022
 ms.author: mbullwin
