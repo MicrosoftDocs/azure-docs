@@ -1229,8 +1229,8 @@ items:
     items:
     - name: Virtual networks
       href: ../cognitive-services-virtual-networks.md?context=/azure/ai-services/language-service/context/context
-    - name: Azure AI services security
-      href: ../cognitive-services-security.md?context=/azure/ai-services/language-service/context/context
+    - name: Cognitive Services security
+      href: ../security-features.md?context=/azure/ai-services/language-service/context/context
     - name: Encryption of data at rest
       href: concepts/encryption-data-at-rest.md
     - name: Region support

@@ -5707,7 +5707,7 @@
         },
         {
             "source_path_from_root": "/articles/cognitive-services/Translator/translator-hub-overview.md",
-            "redirect_url": "/azure/ai-services/translator/customization",
+            "redirect_url": "/azure/ai-services/translator/custom-translator/concepts/customization",
             "redirect_document_id": false
         },
         {
