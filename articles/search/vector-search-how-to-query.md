@@ -141,7 +141,10 @@ api-key: {{admin-api-key}}
 
 You can set "vector.fields" property to multiple vector fields. For example, the Postman collection has vector fields named titleVector and contentVector. Your query can include both titleVector and contentVector.
 
-```json
+```http
+POST https://{{search-service-name}}.search.windows.net/indexes/{{index-name}}/docs/search?api-version={{api-version}}
+Content-Type: application/json
+api-key: {{admin-api-key}}
 {
     "vector": {
         "value": [
@@ -161,24 +164,32 @@ You can set "vector.fields" property to multiple vector fields. For example, the
 
 ## Query syntax for multi-modal vector queries
 
-You can issue a search request with multiple query vectors using the `vectors` query parameter:
+You can issue a search request with multiple query vectors using the `vectors` query parameter. The queries execute concurrently over the same embedding space in the search index, looking for similarities in each of the vector fields. The result set is a union of the documents that matched all vector queries. A common example of this query request is when using models such as [CLIP](https://openai.com/research/clip) for a multi-modal vector search.
 
-```json
-vectors: [ 
-    {
-        value: [1.0, 2.0],
-        fields: "myimagecontentfield1",
-        k:5
-    },
-    {
-        value: [1.0, 2.0, 3.0],
-        fields: "mytextcontentfield2",
-        k:5
-    }
-]
+You must use REST for this scenario. Currently, there isn't support for multiple vector fields in the alpha SDKs.
+
++ `vectors.value` property contains the vector query generated from the embedding model used to create image and text vectors in the search index. 
++ `vectors.fields` contains the image vectors and text vectors in the search index.
++ `vectors.k` is the number of nearest neighbor matches to include in results.
+
+```http
+{
+    vectors: [ 
+        {
+            value: [1.0, 2.0],
+            fields: "myimagevector",
+            k:5
+        },
+        {
+            value: [1.0, 2.0, 3.0],
+            fields: "mytextvector",
+            k:5
+        }
+    ]
+}
 ```
 
-The result set is a union of the documents that matched all vector queries.
+Search results would include a combination of text and images, assuming your search index includes a field for the image file (a search index doesn't store images).
 
 ## Next steps
 
