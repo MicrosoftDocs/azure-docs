@@ -121,7 +121,7 @@ For more information on compliance controls, see [Tutorial: Regulatory complianc
 
 June 11, 2023
 
-Now you can discover potential cost savings in security by applying Defender for Cloud within the context of an [Azure Migrate business case](/azure/migrate/how-to-build-a-business-case).
+Now you can discover potential cost savings in security by applying Defender for Cloud within the context of an [Azure Migrate business case](/azure/migrate/concepts-business-case-calculation).
 
 ### Express configuration for vulnerability assessments in Defender for SQL is now Generally Available
 
