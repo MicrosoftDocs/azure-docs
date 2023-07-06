@@ -13,29 +13,23 @@ In this tutorial, we will guide you through the process of integrating a log sha
 
 First, we need to add a button to your XAML layout file that users will use to initiate the log sharing process.
 
-Here is a simple button with a tooltip named `dumpLogsButton`. When clicked, it triggers the `DumpLogs_Click` function.
+Here is a simple button with a tooltip named `exportLogsButton`. When clicked, it triggers the `ExportLogs_Click` function.
 
 ```xml
-<AppBarToggleButton x:Name="dumpLogsButton" Icon="Document" Click="DumpLogs_Click">
+<AppBarToggleButton x:Name="exportLogsButton" Icon="Document" Click="ExportLogs_Click">
     <ToolTipService.ToolTip>
-        <ToolTip Content="Dump Logs"/>
+        <ToolTip Content="Export Logs"/>
     </ToolTipService.ToolTip>
 </AppBarToggleButton>
 ```
 
-### Step 2: Implement the Log Dumping and Sharing Method
+### Step 2: Implement the Log Export Method
 
-Now, let's define the `DumpLogs_Click` method. This method is triggered when the user clicks the "Dump Logs" button. It creates a ZIP file containing the logs and prepares them for sharing.
-
-#### Check for `CallClient` Availability
-
-The first part of the method checks whether the `CallClient` object is available. If not, a message dialog will appear to inform the user.
+Now, let's define the `ExportLogs_Click` method. This method is triggered when the user clicks the "Export Logs" button. It creates a ZIP file containing the logs and prepares them for sharing.
 
 ```csharp
-if (callClient == null)
-{
-    await new MessageDialog("No call client - Log Sharing won't work", "Log Files").ShowAsync();
-    return;
+private async void ExportLogs_Click(object sender, RoutedEventArgs e) {
+    // We will add Implementation in here
 }
 ```
 
@@ -62,7 +56,7 @@ var savePicker = new FileSavePicker
 };
 
 savePicker.FileTypeChoices.Add("ZIP Archive", new List<string> { ".zip" });
-savePicker.SuggestedFileName = "your_logs"; // Suggest a default filename
+savePicker.SuggestedFileName = "acs_logs"; // Suggest a default filename
 
 StorageFile zipFile = await savePicker.PickSaveFileAsync();
 ```

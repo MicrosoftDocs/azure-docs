@@ -21,33 +21,34 @@ Declare the following variables in your SwiftUI View:
 let zipFilePath = URL(fileURLWithPath: NSTemporaryDirectory()).appendingPathComponent("logs.zip")
 ```
 
-`isSharing` is a state variable that will be used to control the visibility of the sharing sheet in SwiftUI. The `zipFilePath` is the path where the ZIP file containing the logs will be stored.
+`isSharing` is a state variable that will be used to control the visibility of the sharing sheet in SwiftUI. 
+The `zipFilePath` is the path where the ZIP file containing the logs will be stored in a temporary directory.
 
 ### Step 2: Add a Button to Trigger Log Sharing
 
-Add the following SwiftUI Button in your View:
+Add the following SwiftUI Button and sheet in your View:
 
 ```swift
-Button("Dump Logs") {
-    dumpLogs()
+Button("Share Logs") {
+    shareLogs()
     self.isSharing = true
 }
 .sheet(isPresented: $isSharing) {
     VStack {
-        Text("hello")
+        Text("Share the log files")
         ShareSheet(items: [zipFilePath])
     }
 }
 ```
 
-In the above code, when the button is clicked, the `dumpLogs()` function is called and `isSharing` is set to `true`. This triggers the presentation of a sheet containing a `ShareSheet` populated with the ZIP file containing the logs.
+In the above code, when the button is clicked, the `shareLogs()` function is called and `isSharing` is set to `true`. This triggers the presentation of a sheet containing a `ShareSheet` populated with the ZIP file containing the logs.
 
 ### Step 3: Implement the Log Dumping Function
 
-Next, define the `dumpLogs()` function:
+Next, define the `shareLogs()` function:
 
 ```swift
-func dumpLogs() {
+func shareLogs() {
     if let files = callClient.debugInfo.getSupportFiles() {
         let success = SSZipArchive.createZipFile(atPath: zipFilePath.path, withFilesAtPaths: files.map { $0.path })
         if success {
@@ -67,6 +68,3 @@ Here, `getSupportFiles()` is called from `debugInfo` of the `CallClient` object 
 
 You have now integrated a basic log sharing feature in your iOS application. This feature enables users to easily share logs directly from the application, which can be crucial for debugging and support.
 
-## Next Steps
-
-This approach is very basic, and still requires a level of user interaction. To further streamline this, it is requested to create an API endpoint that is multi-part post, that can receive the files and other troubleshooting information to create a ticket, upload the logs to a Storage Blob, and link it all to the ticket.
