@@ -50,7 +50,7 @@ With MLflow Tracking, you can connect Azure Machine Learning as the back end of 
 
 + [Track Azure Databricks training runs](../how-to-use-mlflow-azure-databricks.md).
 
-## Train MLflow projects 
+## Train MLflow projects (preview)
 
 You can use MLflow Tracking to submit training jobs with [MLflow Projects](https://www.mlflow.org/docs/latest/projects.html) and Azure Machine Learning back-end support.
 
