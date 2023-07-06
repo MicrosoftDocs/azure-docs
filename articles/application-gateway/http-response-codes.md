@@ -5,7 +5,7 @@ services: application-gateway
 author: greg-lindsay
 ms.service: application-gateway
 ms.topic: troubleshooting
-ms.date: 05/03/2023
+ms.date: 07/05/2023
 ms.author: greglin
 ---
 
@@ -38,13 +38,18 @@ HTTP 307 responses are presented when a redirection rule is specified with the *
 
 400-499 response codes indicate an issue that is initiated from the client. These issues can range from the client initiating requests to an unmatched hostname, request timeout, unauthenticated request, malicious request, and more.
 
+Application Gateway collects metrics that capture the distribution of 4xx/5xx status codes has a logging mechanism that captures information such as the URI client IP address with the response code. Metrics and logging enable further troubleshooting.  Clients can also receive 4xx response from other proxies between the client device and Application Gateway. For example, CDN and other authentication providers. See the following articles for more information.
+
+[Metrics supported by Application Gateway V2 SKU](application-gateway-metrics.md#metrics-supported-by-application-gateway-v2-sku)
+[Diagnostic logs](application-gateway-diagnostics.md#diagnostic-logging)
+
 #### 400 – Bad Request
 
 HTTP 400 response codes are commonly observed when:
 - Non-HTTP / HTTPS traffic is initiated to an application gateway with an HTTP or HTTPS listener.
 - HTTP traffic is initiated to a listener with HTTPS, with no redirection configured.
 - Mutual authentication is configured and unable to properly negotiate.
-- The request is not compliant to RFC. 
+- The request isn't compliant to RFC. 
 
 Some common reasons for the request to be non-compliant to RFC are: 
 
@@ -52,12 +57,12 @@ Some common reasons for the request to be non-compliant to RFC are:
 | ---------- | ---------- | 
 | Invalid Host in request line  | Host containing two colons (example.com:**8090:8080**) |
 | Missing Host Header | Request doesn't have Host Header |
-| Presence of malformed or illegal character | Reserved characters are **&,!.** Workaround is to percent code it like %& |
+| Presence of malformed or illegal character | Reserved characters are **&,!.** The workaround is to code it as a percentage. For example: %& |
 | Invalid HTTP version | Get /content.css HTTP/**0.3** |
-| Header field name and URI contains non-ASCII Character | GET /**«úü¡»¿**.doc HTTP/1.1  |
+| Header field name and URI contain non-ASCII Character | GET /**«úü¡»¿**.doc HTTP/1.1  |
 | Missing Content Length header for POST request | Self Explanatory |
 | Invalid HTTP Method | **GET123** /index.html HTTP/1.1 |
-| Duplicate Headers | Authorization:\<base64 encoded content\>,Authorization: \<base64 encoded content\> |
+| Duplicate Headers | Authorization:\<base64 encoded content\>, Authorization: \<base64 encoded content\> |
 | Invalid value in Content-Length | Content-Length: **abc**,Content-Length: **-10**|
 
 For cases when mutual authentication is configured, several scenarios can lead to an HTTP 400 response being returned the client, such as:
@@ -73,16 +78,22 @@ For more information about troubleshooting mutual authentication, see [Error cod
 
 #### 401 – Unauthorized
 
-An HTTP 401 unauthorized response can be returned when the backend pool is configured with [NTLM](/windows/win32/secauthn/microsoft-ntlm?redirectedfrom=MSDN) authentication.
-There are several ways to resolve this:
+An HTTP 401 unauthorized response is returned to the client if the client isn't authorized to access the resource. There are several reasons for 401 to be returned. The following are a few reasons with potential fixes.
+ - If the client has access, it might have an outdated browser cache. Clear the browser cache and try accessing the application again.
+
+An HTTP 401 unauthorized response can be returned to AppGW probe request if the backend pool is configured with [NTLM](/windows/win32/secauthn/microsoft-ntlm?redirectedfrom=MSDN) authentication. In this scenario, the backend is marked as healthy. There are several ways to resolve this issue:
 - Allow anonymous access on backend pool.
 - Configure the probe to send the request to another "fake" site that doesn't require NTLM.
-- Not recommended, as this will not tell us if the actual site behind the application gateway is active or not.
+- Not recommended, as this won't tell us if the actual site behind the application gateway is active or not.
 - Configure application gateway to allow 401 responses as valid for the probes: [Probe matching conditions](/azure/application-gateway/application-gateway-probe-overview).
 
 #### 403 – Forbidden
 
 HTTP 403 Forbidden is presented when customers are utilizing WAF skus and have WAF configured in Prevention mode.  If enabled WAF rulesets or custom deny WAF rules match the characteristics of an inbound request, the client is presented a 403 forbidden response.
+
+Other reasons for clients receiving 403 responses include:
+- You're using App Service as backend and it's configured to allow access only from Application Gateway. This can return a 403 error by App Services. This typically happens due to redirects/href links that point directly to App Services instead of pointing at the Application Gateway's IP address. 
+- If you're accessing a storage blog and the Application Gateway and storage endpoint is in different region, then a 403 error is returned if the Application Gateway's public IP address isn't allow-listed. See [Grant access from an internet IP range](/azure/storage/common/storage-network-security?tabs=azure-portal#grant-access-from-an-internet-ip-range).
 
 #### 404 – Page not found
 
@@ -97,7 +108,7 @@ An HTTP 408 response can be observed when client requests to the frontend listen
 
 #### 499 – Client closed the connection
 
-An HTTP 499 response is presented if a client request that is sent to application gateways using v2 sku is closed before the server finished responding. This error can be observed in 2 scenarios. First scenario is when a large response is returned to the client and the client may have closed or refreshed their application before the server finished sending the large response. Second scenario is the timeout on the client side is low and does not wait long enough to receive the response from server. In this case it is better to increase the timeout on the client. In application gateways using v1 sku, an HTTP 0 response code may be raised for the client closing the connection before the server has finished responding as well.
+An HTTP 499 response is presented if a client request that is sent to application gateways using v2 sku is closed before the server finished responding. This error can be observed in 2 scenarios. The first scenario is when a large response is returned to the client and the client might have closed or refreshed the application before the server finished sending a large response. The second scenario is when the timeout on the client side is low and doesn't wait long enough to receive the response from server. In this case it's better to increase the timeout on the client. In application gateways using v1 sku, an HTTP 0 response code may be raised for the client closing the connection before the server has finished responding as well.
 
 
 ## 5XX response codes (server error)
@@ -122,7 +133,7 @@ For information about scenarios where 502 errors occur, and how to troubleshoot 
 
 #### 504 – Gateway timeout
 
-Azure application Gateway V2 SKU sent HTTP 504 errors if the backend response time exceeds the time-out value which is configured in the Backend Setting.
+Azure application Gateway V2 SKU sent HTTP 504 errors if the backend response time exceeds the time-out value that is configured in the Backend Setting.
 
 IIS
 
