@@ -200,9 +200,9 @@ Repeat with the previous section steps for the **hikaricp_connection_active** me
 
 :::image type="content" source="../../media/tutorial-applications-observability/chart-connection-active.png" alt-text="Screenshot of the Azure portal with active connection to dashboard." lightbox="../../media/tutorial-applications-observability/chart-connection-active.png":::
 
-#### Integrate quick links
+#### Pin content from a resource page
 
-Integrate some commonly used links into the dashboard, which can speed up the managers to quickly open the operation page on Azure or other resource pages, thereby improving efficiency.
+Pin some commonly used links into the dashboard, which can speed up the managers to quickly open the operation page on Azure or other resource pages, thereby improving efficiency.
 
 This section provides the steps to pin the common blades of Azure portal to the dashboard.
 
