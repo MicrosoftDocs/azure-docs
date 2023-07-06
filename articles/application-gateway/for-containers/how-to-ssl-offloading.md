@@ -19,12 +19,20 @@ This document helps set up an example application that uses the following resour
 - [HTTPRoute](https://gateway-api.sigs.k8s.io/v1alpha2/api-types/httproute/) - creating an HTTP route that references a backend service
 
 ## Prerequisites
-1. Ensure you have set up your Application Gateway for Containers resources and ALB Controller by following either of the following quickstart guides:
-- [Quickstart ALB managed deployment](quickstart-create-application-gateway-for-containers-alb-managed-deployment.md)
-- [Quickstart bring your own deployment](quickstart-create-application-gateway-for-containers-byo-deployment.md)
-
-2. Deploy sample HTTPS Application
-    Apply the following deployment.yaml file on your cluster:
+1. If following the BYO deployment strategy, ensure you have set up your Application Gateway for Containers resources and [ALB Controller](quickstart-deploy-application-gateway-for-containers-alb-controller.md)
+2. If following the ALB managed deployment strategy, ensure you have provisioned your [ALB Controller](quickstart-deploy-application-gateway-for-containers-alb-controller.md)
+3. Deploy sample HTTPS application
+  Apply the following deployment.yaml file on your cluster to create a sample web application to demonstrate TLS/SSL offloading.
+  ```bash
+  kubectl apply -f https://trafficcontrollerdocs.blob.core.windows.net/examples/https-scenario/end-to-end-ssl-with-backend-mtls/deployment.yaml
+  ```
+  
+  This command creates the following on your cluster:
+  - a namespace called `test-infra`
+  - 1 service called `mtls-app` in the `test-infra` namespace
+  - 1 deployment called `mtls-app` in the `test-infra` namespace
+  - 1 config map called `mtls-app-nginx-cm` in the `test-infra` namespace
+  - 4 secrets called `backend.com`, `frontend.com`, `gateway-client-cert`, and `ca.bundle` in the `test-infra` namespace
     ```bash
     kubectl apply -f https://trafficcontrollerdocs.blob.core.windows.net/examples/https-scenario/ssl-termination/deployment.yaml
     ```
