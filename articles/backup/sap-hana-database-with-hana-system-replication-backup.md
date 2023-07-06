@@ -2,7 +2,7 @@
 title: Back up SAP HANA System Replication databases on Azure VMs    
 description: In this article, discover how to back up SAP HANA databases with HANA System Replication enabled.
 ms.topic: how-to
-ms.date: 03/08/2023
+ms.date: 07/06/2023
 ms.service: backup
 ms.custom: ignite-2022
 author: jyothisuri
@@ -227,6 +227,29 @@ Backups run in accordance with the policy schedule. Learn how to [run an on-dema
 
 You can run an on-demand backup using SAP HANA native clients to local file-system instead of Backint. Learn more how to [manage operations using SAP native clients](sap-hana-database-manage.md#manage-operations-using-sap-hana-native-clients).
 
+## Switch database protection from standalone to HSR on Azure Backup 
+
+You can now switch the protection of SAP HANA database on Azure VM (standalone) on Azure Backup to HSR. If you’ve already configured HSR and protecting only the primary node using Azure Backup, you can modify the configuration to protect both primary and secondary nodes.
+
+Follow these steps:
+
+1. On standalone VM, Primary node, or Secondary node (once protected using Azure Backup), go to *vault* > **Backup Items** > **SAP HANA in Azure VM** > **View Details** > **Stop backup**, and then select **Retain backup data** > **Stop backup** to stop backup and retain data.
+
+2. (Mandatory) [Run the latest preregistration script](backup/sap-hana-database-with-hana-system-replication-backup.md#run-the-preregistration-script) on both primary and condary VM nodes
+
+  The preregistration script contains the HSR attributes.
+
+3. [Configure HSR manually](sap-hana-database-with-hana-system-replication-backup.md#configure-backup).
+You can also configure the backup with clustering tools, such as **Pacemaker**.
+
+   Skip this step if HSR configuration is complete.
+
+4. Add the Primary and secondary nodes to Azure Backup, [rediscover the databases](sap-hana-database-with-hana-system-replication-backup.md#discover-the-databases), and [resume protection](sap-hana-database-manage.md#resume-protection-for-an-sap-hana-database-or-hana-instance).
+
+   >[!Note]
+   >For HSR deployments, Protected Instance cost is charged to HSR container. Two nodes (primary and secondary) will form a single HSR logical container and storage cost is charged as applicable.
+
+5. Before a planned failover, [ensure that both VMs/Nodes are registered to the vault (physical and logical registration)](sap-hana-database-manage.md#verify-the-registration-status-of-vms-or-nodes-to-the-vault).
 
 ## Next steps
 
