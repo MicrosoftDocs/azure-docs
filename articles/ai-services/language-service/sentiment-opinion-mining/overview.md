@@ -1,7 +1,7 @@
 ---
-title: What is sentiment analysis and opinion mining in Azure Cognitive Service for Language?
-titleSuffix: Azure Cognitive Services
-description: An overview of the sentiment analysis feature in Azure Cognitive Services, which helps you find out what people think of a topic by mining text for clues.
+title: What is sentiment analysis and opinion mining in Azure AI Language?
+titleSuffix: Azure AI services
+description: An overview of the sentiment analysis feature in Azure AI services, which helps you find out what people think of a topic by mining text for clues.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -13,9 +13,9 @@ ms.author: aahi
 ms.custom: language-service-sentiment-opinion-mining, ignite-fall-2021
 ---
 
-# What is sentiment analysis and opinion mining in Azure Cognitive Service for Language?
+# What is sentiment analysis and opinion mining in Azure AI Language?
 
-Sentiment analysis and opinion mining are features offered by [Azure Cognitive Service for Language](../overview.md), a collection of machine learning and AI algorithms in the cloud for developing intelligent applications that involve written language. These features help you find out what people think of your brand or topic by mining text for clues about positive or negative sentiment, and can associate them with specific aspects of the text. 
+Sentiment analysis and opinion mining are features offered by [Azure AI Language](../overview.md), a collection of machine learning and AI algorithms in the cloud for developing intelligent applications that involve written language. These features help you find out what people think of your brand or topic by mining text for clues about positive or negative sentiment, and can associate them with specific aspects of the text. 
 
 Both sentiment analysis and opinion mining work with a variety of [written languages](./language-support.md).
 
@@ -36,7 +36,7 @@ Opinion mining is a feature of sentiment analysis. Also known as aspect-based se
 
 ## Responsible AI 
 
-An AI system includes not only the technology, but also the people who use it, the people who will be affected by it, and the environment in which it's deployed. Read the [transparency note for sentiment analysis](/legal/cognitive-services/language-service/transparency-note-sentiment-analysis?context=/azure/cognitive-services/language-service/context/context) to learn about responsible AI use and deployment in your systems. You can also see the following articles for more information:
+An AI system includes not only the technology, but also the people who use it, the people who will be affected by it, and the environment in which it's deployed. Read the [transparency note for sentiment analysis](/legal/cognitive-services/language-service/transparency-note-sentiment-analysis?context=/azure/ai-services/language-service/context/context) to learn about responsible AI use and deployment in your systems. You can also see the following articles for more information:
 
 [!INCLUDE [Developer reference](../includes/reference-samples-text-analytics.md)] 
 

@@ -1,7 +1,7 @@
 ---
 title: Publish a custom model
-titleSuffix: Azure Cognitive Services
-description: This article explains how to publish a custom model using the Azure Cognitive Services Custom Translator.
+titleSuffix: Azure AI services
+description: This article explains how to publish a custom model using the Azure AI Translator Custom Translator.
 author: laujan
 manager: nitinme
 ms.service: cognitive-services

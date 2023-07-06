@@ -1,6 +1,6 @@
 ---
 title: Manage versions - LUIS
-titleSuffix: Azure Cognitive Services
+titleSuffix: Azure AI services
 description: Versions allow you to build and publish different models. A good practice is to clone the current active model to a different version of the app before making changes to the model.
 services: cognitive-services
 ms.author: aahi
@@ -18,7 +18,7 @@ ms.date: 10/25/2021
 [!INCLUDE [deprecation notice](./includes/deprecation-notice.md)]
 
 
-Versions allow you to build and publish different models. A good practice is to clone the current active model to a different [version](./luis-concept-app-iteration.md) of the app before making changes to the model.
+Versions allow you to build and publish different models. A good practice is to clone the current active model to a different [version](./concepts/application-design.md) of the app before making changes to the model.
 
 The active version is the version you are editing in the LUIS portal **Build** section with intents, entities, features, and patterns. When using the authoring APIs, you don't need to set the active version because the version-specific REST API calls include the version in the route.
 

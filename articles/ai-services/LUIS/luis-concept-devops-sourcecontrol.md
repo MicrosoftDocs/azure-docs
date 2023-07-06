@@ -60,9 +60,9 @@ To save a LUIS app in `.lu` format and place it under source control:
 
 ### Build the LUIS app from source
 
-For a LUIS app, to *build from source* means to [create a new LUIS app version by importing the `.lu` source](./luis-how-to-manage-versions.md#import-version) , to [train the version](./luis-how-to-train.md) and to [publish it](./luis-how-to-publish-app.md). You can do this in the LUIS portal, or at the command line:
+For a LUIS app, to *build from source* means to [create a new LUIS app version by importing the `.lu` source](./luis-how-to-manage-versions.md#import-version) , to [train the version](./how-to/train-test.md) and to [publish it](./how-to/publish.md). You can do this in the LUIS portal, or at the command line:
 
-- Use the LUIS portal to [import the `.lu` version](./luis-how-to-manage-versions.md#import-version) of the app from source control, and [train](./luis-how-to-train.md) and [publish](./luis-how-to-publish-app.md) the app.
+- Use the LUIS portal to [import the `.lu` version](./luis-how-to-manage-versions.md#import-version) of the app from source control, and [train](./how-to/train-test.md) and [publish](./how-to/publish.md) the app.
 
 - Use the [Bot Framework Command Line Interface for LUIS](https://github.com/microsoft/botbuilder-tools/tree/master/packages/LUIS) at the command line or in a CI/CD workflow to [import](https://github.com/microsoft/botframework-cli/blob/master/packages/luis/README.md#bf-luisversionimport) the `.lu` version of the app from source control into a LUIS application, and [train](https://github.com/microsoft/botframework-cli/blob/master/packages/luis/README.md#bf-luistrainrun) and [publish](https://github.com/microsoft/botframework-cli/blob/master/packages/luis/README.md#bf-luisapplicationpublish) the app.
 
@@ -112,7 +112,7 @@ Developers can work on updates on a LUIS app independently from other branches b
 
 1. Creating a feature branch from the main branch (depending on your branch strategy, usually main or develop).
 
-1. [Create a new LUIS app in the LUIS portal](./luis-how-to-start-new-app.md) (the "*dev branch app*") solely to support the work in the feature branch.
+1. [Create a new LUIS app in the LUIS portal](./how-to/sign-in.md) (the "*dev branch app*") solely to support the work in the feature branch.
 
    * If the `.lu` source for your solution already exists in your branch, because it was saved after work done in another branch earlier in the project, create your dev branch LUIS app by importing the `.lu` file.
 
@@ -185,7 +185,7 @@ A LUIS app in LUDown format is human readable, which supports the communication 
 
 ## Versioning
 
-An application consists of multiple components that might include things such as a bot running in [Azure Bot Service](/azure/bot-service/bot-service-overview-introduction), [QnA Maker](https://www.qnamaker.ai/), [Azure Speech service](../speech-service/overview.md), and more. To achieve the goal of loosely coupled applications, use [version control](/devops/develop/git/what-is-version-control) so that each component of an application is versioned independently, allowing developers to detect breaking changes or updates just by looking at the version number. It's easier to version your LUIS app independently from other components if you maintain it in its own repo.
+An application consists of multiple components that might include things such as a bot running in [Azure AI Bot Service](/azure/bot-service/bot-service-overview-introduction), [QnA Maker](https://www.qnamaker.ai/), [Azure AI Speech service](../speech-service/overview.md), and more. To achieve the goal of loosely coupled applications, use [version control](/devops/develop/git/what-is-version-control) so that each component of an application is versioned independently, allowing developers to detect breaking changes or updates just by looking at the version number. It's easier to version your LUIS app independently from other components if you maintain it in its own repo.
 
 The LUIS app for the main branch should have a versioning scheme applied. When you merge updates to the `.lu` for a LUIS app into main, you'll then import that updated source into a new version in the LUIS app for the main branch.
 
@@ -197,7 +197,7 @@ Each update the version number is incremented at the last digit.
 
 The major / minor version can be used to indicate the scope of the changes to the LUIS app functionality:
 
-* Major Version: A significant change, such as support for a new [Intent](./luis-concept-intent.md) or [Entity](concepts/entities.md)
+* Major Version: A significant change, such as support for a new [Intent](./concepts/intents.md) or [Entity](concepts/entities.md)
 * Minor Version: A backwards-compatible minor change, such as after significant new training
 * Build: No functionality change, just a different build.
 

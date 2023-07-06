@@ -1,6 +1,6 @@
 ---
 title: Metrics Advisor metrics graph
-titleSuffix: Azure Applied AI Services
+titleSuffix: Azure AI services
 description: How to configure your Metrics graph and visualize related anomalies in your data.
 author: mrbullwinkle
 manager: nitinme

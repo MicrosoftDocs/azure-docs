@@ -1,6 +1,6 @@
 ---
 title: Prebuilt models for Language Understanding
-titleSuffix: Azure Cognitive Services
+titleSuffix: Azure AI services
 description: LUIS includes a set of prebuilt models for quickly adding common, conversational user scenarios.
 services: cognitive-services
 ms.author: aahi

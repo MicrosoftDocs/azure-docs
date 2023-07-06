@@ -1,6 +1,6 @@
 ---
 title: Speech phonetic alphabets - Speech service
-titleSuffix: Azure Cognitive Services
+titleSuffix: Azure AI services
 description: This article presents Speech service phonetic alphabet and International Phonetic Alphabet (IPA) examples.
 services: cognitive-services
 author: jiajzhan

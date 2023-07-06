@@ -1,6 +1,6 @@
 ---
 title: How to use compressed input audio - Speech service
-titleSuffix: Azure Cognitive Services
+titleSuffix: Azure AI services
 description: Learn how to use compressed input audio the Speech SDK and CLI. 
 services: cognitive-services
 author: eric-urban

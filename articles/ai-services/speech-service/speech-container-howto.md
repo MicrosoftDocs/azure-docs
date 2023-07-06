@@ -1,6 +1,6 @@
 ---
 title: Install and run Speech containers with Docker - Speech service
-titleSuffix: Azure Cognitive Services
+titleSuffix: Azure AI services
 description: Use the Speech containers with Docker to perform speech recognition, transcription, generation, and more on-premises.
 services: cognitive-services
 author: eric-urban
@@ -34,7 +34,7 @@ You must meet the following prerequisites before you use Speech service containe
 
 Speech containers aren't licensed to run without being connected to Azure for metering. You must configure your container to communicate billing information with the metering service at all times. 
 
-Three primary parameters for all Cognitive Services containers are required. The Microsoft Software License Terms must be present with a value of **accept**. An Endpoint URI and API key are also needed.
+Three primary parameters for all Azure AI containers are required. The Microsoft Software License Terms must be present with a value of **accept**. An Endpoint URI and API key are also needed.
 
 Queries to the container are billed at the pricing tier of the Azure resource that's used for the `ApiKey` parameter.
 
@@ -47,9 +47,9 @@ The <a href="https://docs.docker.com/engine/reference/commandline/run/" target="
 | `Eula` | Indicates that you accepted the license for the container.<br/>The value of this option must be set to **accept**. |
 
 > [!IMPORTANT]
-> These subscription keys are used to access your Cognitive Services API. Don't share your keys. Store them securely. For example, use Azure Key Vault. We also recommend that you regenerate these keys regularly. Only one key is necessary to make an API call. When you regenerate the first key, you can use the second key for continued access to the service.
+> These subscription keys are used to access your Azure AI services API. Don't share your keys. Store them securely. For example, use Azure Key Vault. We also recommend that you regenerate these keys regularly. Only one key is necessary to make an API call. When you regenerate the first key, you can use the second key for continued access to the service.
 
-The container needs the billing argument values to run. These values allow the container to connect to the billing endpoint. The container reports usage about every 10 to 15 minutes. If the container doesn't connect to Azure within the allowed time window, the container continues to run but doesn't serve queries until the billing endpoint is restored. The connection is attempted 10 times at the same time interval of 10 to 15 minutes. If it can't connect to the billing endpoint within the 10 tries, the container stops serving requests. For an example of the information sent to Microsoft for billing, see the [Cognitive Services container FAQ](../containers/container-faq.yml#how-does-billing-work) in the Azure Cognitive Services documentation.
+The container needs the billing argument values to run. These values allow the container to connect to the billing endpoint. The container reports usage about every 10 to 15 minutes. If the container doesn't connect to Azure within the allowed time window, the container continues to run but doesn't serve queries until the billing endpoint is restored. The connection is attempted 10 times at the same time interval of 10 to 15 minutes. If it can't connect to the billing endpoint within the 10 tries, the container stops serving requests. For an example of the information sent to Microsoft for billing, see the [Azure AI container FAQ](../containers/container-faq.yml#how-does-billing-work) in the Azure AI services documentation.
 
 For more information about these options, see [Configure containers](speech-container-configuration.md).
 
@@ -138,7 +138,7 @@ To shut down the container, in the command-line environment where the container 
 
 If you intend to run multiple containers with exposed ports, make sure to run each container with a different exposed port. For example, run the first container on port 5000 and the second container on port 5001.
 
-You can have this container and a different Cognitive Services container running on the HOST together. You also can have multiple containers of the same Cognitive Services container running.
+You can have this container and a different Azure AI container running on the HOST together. You also can have multiple containers of the same Azure AI container running.
 
 ## Host URLs
 
@@ -150,14 +150,14 @@ You can have this container and a different Cognitive Services container running
 | WS | `ws://localhost:5000` | [Speech to text](speech-container-stt.md#use-the-container)<br/><br/>[Custom speech to text](speech-container-cstt.md#use-the-container)  |
 | HTTP | `http://localhost:5000` | [Neural text to speech](speech-container-ntts.md#use-the-container)<br/><br/>[Speech language identification](speech-container-lid.md#use-the-container) |
 
-For more information on using WSS and HTTPS protocols, see [Container security](../cognitive-services-container-support.md#azure-cognitive-services-container-security) in the Azure Cognitive Services documentation.
+For more information on using WSS and HTTPS protocols, see [Container security](../cognitive-services-container-support.md#azure-ai-services-container-security) in the Azure AI services documentation.
 
 ## Troubleshooting
 
 When you start or run the container, you might experience issues. Use an output [mount](speech-container-configuration.md#mount-settings) and enable logging. Doing so allows the container to generate log files that are helpful when you troubleshoot issues.
 
 > [!TIP]
-> For more troubleshooting information and guidance, see [Cognitive Services containers frequently asked questions (FAQ)](../containers/container-faq.yml) in the Azure Cognitive Services documentation.
+> For more troubleshooting information and guidance, see [Azure AI containers frequently asked questions (FAQ)](../containers/container-faq.yml) in the Azure AI services documentation.
 
 
 ### Logging settings
@@ -173,11 +173,11 @@ ApiKey={API_KEY} \
 Logging:Console:LogLevel:Default=Information
 ```
 
-For more information about logging, see [Configure Speech containers](speech-container-configuration.md#logging-settings) and [usage records](../containers/disconnected-containers.md#usage-records) in the Azure Cognitive Services documentation.
+For more information about logging, see [Configure Speech containers](speech-container-configuration.md#logging-settings) and [usage records](../containers/disconnected-containers.md#usage-records) in the Azure AI services documentation.
 
 ## Microsoft diagnostics container
 
-If you're having trouble running a Cognitive Services container, you can try using the Microsoft diagnostics container. Use this container to diagnose common errors in your deployment environment that might prevent Cognitive Services containers from functioning as expected.
+If you're having trouble running an Azure AI container, you can try using the Microsoft diagnostics container. Use this container to diagnose common errors in your deployment environment that might prevent Azure AI containers from functioning as expected.
 
 To get the container, use the following `docker pull` command:
 
@@ -198,7 +198,7 @@ The container will test for network connectivity to the billing endpoint.
 
 ## Run disconnected containers
 
-Tu run disconnected containers (not connected to the internet), you must submit [this request form](https://aka.ms/csdisconnectedcontainers) and wait for approval. For more information about applying and purchasing a commitment plan to use containers in disconnected environments, see [Use containers in disconnected environments](../containers/disconnected-containers.md) in the Azure Cognitive Services documentation.
+Tu run disconnected containers (not connected to the internet), you must submit [this request form](https://aka.ms/csdisconnectedcontainers) and wait for approval. For more information about applying and purchasing a commitment plan to use containers in disconnected environments, see [Use containers in disconnected environments](../containers/disconnected-containers.md) in the Azure AI services documentation.
 
 
 ## Next steps
@@ -206,6 +206,6 @@ Tu run disconnected containers (not connected to the internet), you must submit 
 * Review [configure containers](speech-container-configuration.md) for configuration settings.
 * Learn how to [use Speech service containers with Kubernetes and Helm](speech-container-howto-on-premises.md).
 * Deploy and run containers on [Azure Container Instance](../containers/azure-container-instance-recipe.md)
-* Use more [Azure Cognitive Services containers](../cognitive-services-container-support.md).
+* Use more [Azure AI services containers](../cognitive-services-container-support.md).
 
 

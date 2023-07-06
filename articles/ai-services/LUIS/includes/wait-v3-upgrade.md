@@ -1,6 +1,6 @@
 ---
 title: LUIS portal user interface upgrade
-titleSuffix: Azure Cognitive Services
+titleSuffix: Azure AI services
 services: cognitive-services
 
 manager: nitinme

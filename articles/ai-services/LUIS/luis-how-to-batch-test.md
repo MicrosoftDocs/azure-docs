@@ -1,6 +1,6 @@
 ---
 title: How to perform a batch test - LUIS
-titleSuffix: Azure Cognitive Services
+titleSuffix: Azure AI services
 description: Use Language Understanding (LUIS) batch testing sets to find utterances with incorrect intents and entities.
 services: cognitive-services
 author: aahill
@@ -282,5 +282,5 @@ There are several objects returned by the API:
 
 If testing indicates that your LUIS app doesn't recognize the correct intents and entities, you can work to improve your LUIS app's performance by labeling more utterances or adding features.
 
-* [Label suggested utterances with LUIS](luis-how-to-review-endpoint-utterances.md)
-* [Use features to improve your LUIS app's performance](luis-how-to-add-features.md)
+* [Label suggested utterances with LUIS](how-to/improve-application.md)
+* [Use features to improve your LUIS app's performance](concepts/patterns-features.md)

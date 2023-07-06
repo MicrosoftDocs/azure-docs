@@ -1,5 +1,5 @@
 ---
-titleSuffix: Azure Cognitive Services
+titleSuffix: Azure AI services
 services: cognitive-services
 author: aahill
 ms.author: aahi

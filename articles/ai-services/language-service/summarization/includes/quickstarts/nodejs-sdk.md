@@ -67,7 +67,7 @@ Open the file and copy the below code. Then run the code.
 ```javascript
 /**
  * This sample program extracts a summary of two sentences at max from an article.
- * For more information, see the feature documentation: {@link https://learn.microsoft.com/azure/cognitive-services/language-service/summarization/overview}
+ * For more information, see the feature documentation: {@link https://learn.microsoft.com/azure/ai-services/language-service/summarization/overview}
  *
  * @summary extracts a summary from an article
  */

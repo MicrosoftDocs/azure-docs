@@ -66,4 +66,4 @@ If you need the endpoint URL, select the link or select  **Manage**  in the top 
 ## Next steps
 
 - See [Manage keys](../luis-how-to-azure-subscription.md) to add keys to LUIS.
-- See [Train and test your app](/azure/cognitive-services/luis/luis-interactive-test) for instructions on how to test your published app in the test console.
+- See [Train and test your app](train-test.md) for instructions on how to test your published app in the test console.

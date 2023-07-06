@@ -1,6 +1,6 @@
 ---
 title: Install and run Docker containers for LUIS
-titleSuffix: Azure Cognitive Services
+titleSuffix: Azure AI services
 description: Use the LUIS container to load your trained or published app, and gain access to its predictions on-premises.
 services: cognitive-services
 author: aahill
@@ -27,7 +27,7 @@ The Language Understanding (LUIS) container loads your trained or published Lang
 
 The following video demonstrates using this container.
 
-[![Container demonstration for Cognitive Services](./media/luis-container-how-to/luis-containers-demo-video-still.png)](https://aka.ms/luis-container-demo)
+[![Container demonstration for Azure AI services](./media/luis-container-how-to/luis-containers-demo-video-still.png)](https://aka.ms/luis-container-demo)
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/cognitive-services/) before you begin.
 
@@ -109,7 +109,7 @@ Once the container is on the [host computer](#the-host-computer), use the follow
 1. [Run the container](#run-the-container-with-docker-run), with the required _input mount_ and billing settings. More [examples](luis-container-configuration.md#example-docker-run-commands) of the `docker run` command are available.
 1. [Querying the container's prediction endpoint](#query-the-containers-prediction-endpoint).
 1. When you are done with the container, [import the endpoint logs](#import-the-endpoint-logs-for-active-learning) from the output mount in the LUIS portal and [stop](#stop-the-container) the container.
-1. Use LUIS portal's [active learning](luis-how-to-review-endpoint-utterances.md) on the **Review endpoint utterances** page to improve the app.
+1. Use LUIS portal's [active learning](how-to/improve-application.md) on the **Review endpoint utterances** page to improve the app.
 
 The app running in the container can't be altered. In order to change the app in the container, you need to change the app in the LUIS service using the [LUIS](https://www.luis.ai) portal or use the LUIS [authoring APIs](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c2f). Then train and/or publish, then download a new package and run the container again.
 
@@ -142,7 +142,7 @@ Before packaging a LUIS application, you must have the following:
 
 |Packaging Requirements|Details|
 |--|--|
-|Azure _Cognitive Services_ resource instance|Supported regions include<br><br>West US (`westus`)<br>West Europe (`westeurope`)<br>Australia East (`australiaeast`)|
+|Azure _Azure AI services_ resource instance|Supported regions include<br><br>West US (`westus`)<br>West Europe (`westeurope`)<br>Australia East (`australiaeast`)|
 |Trained or published LUIS app|With no [unsupported dependencies][unsupported-dependencies]. |
 |Access to the [host computer](#the-host-computer)'s file system |The host computer must allow an [input mount](luis-container-configuration.md#mount-settings).|
 
@@ -180,7 +180,7 @@ The versioned app's package is available from the **Versions** list page.
 
 ### Export published app's package from API
 
-Use the following REST API method, to package a LUIS app that you've already [published](luis-how-to-publish-app.md). Substituting your own appropriate values for the placeholders in the API call, using the table below the HTTP specification.
+Use the following REST API method, to package a LUIS app that you've already [published](how-to/publish.md). Substituting your own appropriate values for the placeholders in the API call, using the table below the HTTP specification.
 
 ```http
 GET /luis/api/v2.0/package/{APP_ID}/slot/{SLOT_NAME}/gzip HTTP/1.1
@@ -199,7 +199,7 @@ To download the published package, refer to the [API documentation here][downloa
 
 ### Export versioned app's package from API
 
-Use the following REST API method, to package a LUIS application that you've already [trained](luis-how-to-train.md). Substituting your own appropriate values for the placeholders in the API call, using the table below the HTTP specification.
+Use the following REST API method, to package a LUIS application that you've already [trained](how-to/train-test.md). Substituting your own appropriate values for the placeholders in the API call, using the table below the HTTP specification.
 
 ```http
 GET /luis/api/v2.0/package/{APP_ID}/versions/{APP_VERSION}/gzip HTTP/1.1
@@ -251,7 +251,7 @@ More [examples](luis-container-configuration.md#example-docker-run-commands) of 
 
 > [!IMPORTANT]
 > The `Eula`, `Billing`, and `ApiKey` options must be specified to run the container; otherwise, the container won't start.  For more information, see [Billing](#billing).
-> The ApiKey value is the **Key** from the **Azure Resources** page in the LUIS portal and is also available on the Azure `Cognitive Services` resource keys page.
+> The ApiKey value is the **Key** from the **Azure Resources** page in the LUIS portal and is also available on the Azure `Azure AI services` resource keys page.
 
 [!INCLUDE [Running multiple containers on the same host](../../../includes/cognitive-services-containers-run-multiple-same-host.md)]
 
@@ -278,7 +278,7 @@ The query parameters configure how and what is returned in the query response:
 |--|--|--|
 |`query`|string|The user's utterance.|
 |`verbose`|boolean|A boolean value indicating whether to return all the metadata for the predicted models. Default is false.|
-|`log`|boolean|Logs queries, which can be used later for [active learning](luis-how-to-review-endpoint-utterances.md). Default is false.|
+|`log`|boolean|Logs queries, which can be used later for [active learning](how-to/improve-application.md). Default is false.|
 |`show-all-intents`|boolean|A boolean value indicating whether to return all the intents or the top scoring intent only. Default is false.|
 
 # [V2 prediction endpoint](#tab/v2)
@@ -296,7 +296,7 @@ The query parameters configure how and what is returned in the query response:
 |`timezoneOffset`|number|The timezoneOffset allows you to [change the timezone](luis-concept-data-alteration.md#change-time-zone-of-prebuilt-datetimev2-entity) used by the prebuilt entity datetimeV2.|
 |`verbose`|boolean|Returns all intents and their scores when set to true. Default is false, which returns only the top intent.|
 |`staging`|boolean|Returns query from staging environment results if set to true. |
-|`log`|boolean|Logs queries, which can be used later for [active learning](luis-how-to-review-endpoint-utterances.md). Default is true.|
+|`log`|boolean|Logs queries, which can be used later for [active learning](how-to/improve-application.md). Default is true.|
 
 ***
 
@@ -367,7 +367,7 @@ From the LUIS portal, select your app, then select **Import endpoint logs** to u
 
 ![Import container's log files for active learning](./media/luis-container-how-to/upload-endpoint-log-files.png)
 
-After the log is uploaded, [review the endpoint](./luis-concept-review-endpoint-utterances.md) utterances in the LUIS portal.
+After the log is uploaded, [review the endpoint](./how-to/improve-application.md) utterances in the LUIS portal.
 
 <!--  ## Validate container is running -->
 
@@ -385,13 +385,13 @@ To shut down the container, in the command-line environment where the container 
 
 If you run the container with an output [mount](luis-container-configuration.md#mount-settings) and logging enabled, the container generates log files that are helpful to troubleshoot issues that happen while starting or running the container.
 
-[!INCLUDE [Cognitive Services FAQ note](../containers/includes/cognitive-services-faq-note.md)]
+[!INCLUDE [Azure AI services FAQ note](../containers/includes/cognitive-services-faq-note.md)]
 
 [!INCLUDE [Diagnostic container](../containers/includes/diagnostics-container.md)]
 
 ## Billing
 
-The LUIS container sends billing information to Azure, using a _Cognitive Services_ resource on your Azure account.
+The LUIS container sends billing information to Azure, using a _Azure AI services_ resource on your Azure account.
 
 [!INCLUDE [Container's Billing Settings](../../../includes/cognitive-services-containers-how-to-billing-info.md)]
 
@@ -408,14 +408,14 @@ In this article, you learned concepts and workflow for downloading, installing, 
 * You must specify billing information when instantiating a container.
 
 > [!IMPORTANT]
-> Cognitive Services containers are not licensed to run without being connected to Azure for metering. Customers need to enable the containers to communicate billing information with the metering service at all times. Cognitive Services containers do not send customer data (for example, the image or text that is being analyzed) to Microsoft.
+> Azure AI containers are not licensed to run without being connected to Azure for metering. Customers need to enable the containers to communicate billing information with the metering service at all times. Azure AI containers do not send customer data (for example, the image or text that is being analyzed) to Microsoft.
 
 ## Next steps
 
 * Review [Configure containers](luis-container-configuration.md) for configuration settings.
 * See [LUIS container limitations](luis-container-limitations.md) for known capability restrictions.
-* Refer to [Troubleshooting](troubleshooting.yml) to resolve issues related to LUIS functionality.
-* Use more [Cognitive Services Containers](../cognitive-services-container-support.md)
+* Refer to [Troubleshooting](faq.md) to resolve issues related to LUIS functionality.
+* Use more [Azure AI containers](../cognitive-services-container-support.md)
 
 <!-- Links - external -->
 [download-published-package]: https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/apps-packagepublishedapplicationasgzip

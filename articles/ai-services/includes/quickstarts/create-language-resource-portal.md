@@ -29,12 +29,12 @@ ms.author: pafarley
    |--|--|
    | **Create options** | LUIS uses two separate resources together. The **Authoring** resource lets you train models, and the **Prediction** resource lets you publish and query models. Select **Both** if you're starting the project from scratch. |
    | **Subscription** | Select one of your available Azure subscriptions. |
-   | **Resource group** | The Azure resource group that will contain your Cognitive Services resource. You can create a new group or add it to a pre-existing group. |
-   | **Name** | A descriptive name for your cognitive services resource. For example, *MyCognitiveServicesResource*. |
+   | **Resource group** | The Azure resource group that will contain your Azure AI services resource. You can create a new group or add it to a pre-existing group. |
+   | **Name** | A descriptive name for your Azure AI services resource. For example, *MyCognitiveServicesResource*. |
    | **Authoring Resource Region** | The location of your Authoring resource. Different locations may introduce latency, but have no impact on the runtime availability of your resource. |
-   | **Authoring Pricing tier** | The cost of your Cognitive Services account depends on the options you choose and your usage. For more information, see the API [pricing details](https://azure.microsoft.com/pricing/details/cognitive-services/language-understanding-intelligent-services/#pricing).|
+   | **Authoring Pricing tier** | The cost of your Azure AI services account depends on the options you choose and your usage. For more information, see the API [pricing details](https://azure.microsoft.com/pricing/details/cognitive-services/language-understanding-intelligent-services/#pricing).|
    | **Prediction Resource Region** | The location of your Prediction resource. Different locations may introduce latency, but have no impact on the runtime availability of your resource. |
-   | **Prediction Pricing tier** | The cost of your Cognitive Services account depends on the options you choose and your usage. For more information, see the API [pricing details](https://azure.microsoft.com/pricing/details/cognitive-services/language-understanding-intelligent-services/#pricing).|
+   | **Prediction Pricing tier** | The cost of your Azure AI services account depends on the options you choose and your usage. For more information, see the API [pricing details](https://azure.microsoft.com/pricing/details/cognitive-services/language-understanding-intelligent-services/#pricing).|
 1. Select **Review + create**.
 
 #### [Translator](#tab/translator)
@@ -56,11 +56,11 @@ ms.author: pafarley
     |Project details| Description   |
     |--|--|
     | **Subscription** | Select one of your available Azure subscriptions. |
-    | **Resource group** | The Azure resource group that will contain your Cognitive Services resource. You can create a new group or add it to a pre-existing group. |
-    | **Name** | A descriptive name for your cognitive services resource. For example, *MyCognitiveServicesResource*. |
-    | **Pricing tier** | The cost of your Cognitive Services account depends on the options you choose and your usage. For more information, see the API [pricing details](https://azure.microsoft.com/pricing/details/cognitive-services/translator/#pricing).|
+    | **Resource group** | The Azure resource group that will contain your Azure AI services resource. You can create a new group or add it to a pre-existing group. |
+    | **Name** | A descriptive name for your Azure AI services resource. For example, *MyCognitiveServicesResource*. |
+    | **Pricing tier** | The cost of your Azure AI services account depends on the options you choose and your usage. For more information, see the API [pricing details](https://azure.microsoft.com/pricing/details/cognitive-services/translator/#pricing).|
     | **Azure Search location** | The location of the Azure Search instance that will go with your QnA Maker resource. Different locations may introduce latency, but have no impact on the runtime availability of your resource. |
-    | **Azure Search pricing tier** | The cost of your Cognitive Services account depends on the options you choose and your usage. For more information, see the Cognitive Search [pricing details](https://azure.microsoft.com/pricing/details/search/#pricing).|
+    | **Azure Search pricing tier** | The cost of your Azure AI services account depends on the options you choose and your usage. For more information, see the Cognitive Search [pricing details](https://azure.microsoft.com/pricing/details/search/#pricing).|
     | **App name** | Enter a name for the App Service app that will handle your QnA Maker queries.|
     | **Website location** | The location of the App Service instance that will go with your QnA Maker resource. Different locations may introduce latency, but have no impact on the runtime availability of your resource. |
     | **App insights** | Choose whether you'd like to use an Application Insights resource in tandem with your QnA Maker resource. |

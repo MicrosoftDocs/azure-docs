@@ -1,7 +1,7 @@
 ---
 title: How to build an orchestration project schema
 description: Learn how to define intents for your orchestration workflow project.
-titleSuffix: Azure Cognitive Services
+titleSuffix: Azure AI services
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -47,7 +47,7 @@ To build a project schema within [Language Studio](https://aka.ms/languageStudio
 > [!TIP]
 > Use connected intents to connect to other projects (conversational language understanding, LUIS, and question answering)
    
-5. Click on **Add intent** to add your intent.
+5. Select **Add intent** to add your intent.
  
 ## Next steps
 

@@ -1,6 +1,6 @@
 ---
 title: Language identification containers - Speech service
-titleSuffix: Azure Cognitive Services
+titleSuffix: Azure AI services
 description: Install and run language identification containers with Docker to perform speech recognition, transcription, generation, and more on-premises.
 services: cognitive-services
 author: eric-urban
@@ -128,4 +128,4 @@ Increasing the number of concurrent calls can affect reliability and latency. Fo
 
 * See the [Speech containers overview](speech-container-overview.md)
 * Review [configure containers](speech-container-configuration.md) for configuration settings
-* Use more [Azure Cognitive Services containers](../cognitive-services-container-support.md)
+* Use more [Azure AI services containers](../cognitive-services-container-support.md)

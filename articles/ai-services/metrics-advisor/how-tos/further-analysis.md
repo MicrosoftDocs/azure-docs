@@ -1,6 +1,6 @@
 ---
 title: Further analyze an incident and evaluate impact
-titleSuffix: Azure Applied AI Services
+titleSuffix: Azure AI services
 description: Learn how to leverage analysis tools to further analyze an incident. 
 author: mrbullwinkle
 manager: nitinme

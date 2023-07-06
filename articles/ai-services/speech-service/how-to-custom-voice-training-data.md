@@ -1,6 +1,6 @@
 ---
 title: "Training data for Custom Neural Voice - Speech service"
-titleSuffix: Azure Cognitive Services
+titleSuffix: Azure AI services
 description: "Learn about the data types that you can use to train a Custom Neural Voice."
 services: cognitive-services
 author: eric-urban

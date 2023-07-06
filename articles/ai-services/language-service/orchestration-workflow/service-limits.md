@@ -1,6 +1,6 @@
 ---
 title: Orchestration workflow limits
-titleSuffix: Azure Cognitive Services
+titleSuffix: Azure AI services
 description: Learn about the data, region, and throughput limits for Orchestration workflow
 services: cognitive-services
 author: aahill

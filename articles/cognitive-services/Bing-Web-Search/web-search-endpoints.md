@@ -14,7 +14,7 @@ ms.author: aahi
 
 # Web Search endpoint
 
-[!INCLUDE [Bing move notice](../Bing-Web-Search/includes/bing-move-notice.md)]
+[!INCLUDE [Bing move notice](../bing-web-search/includes/bing-move-notice.md)]
 
 The **Web Search API** returns Web pages, news, images, videos, and [entities](../bing-entities-search/overview.md). Entities have summary information about a person, place, or topic.
 
@@ -32,7 +32,7 @@ Endpoint: For details about headers, parameters, market codes, response objects,
 
 ## Response JSON
 
-The response to a Web search request includes all results as JSON objects. Parsing the result requires procedures that handle the elements of each type. See the [tutorial](./tutorial-bing-web-search-single-page-app.md) and [source code](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/tree/master/Tutorials/Bing-Web-Search) for examples.
+The response to a Web search request includes all results as JSON objects. Parsing the result requires procedures that handle the elements of each type. See the [tutorial](./tutorial-bing-web-search-single-page-app.md) and [source code](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/tree/master/Tutorials/bing-web-search) for examples.
 
 ## Next steps
 

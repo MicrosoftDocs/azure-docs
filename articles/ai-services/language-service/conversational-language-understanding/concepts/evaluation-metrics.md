@@ -1,6 +1,6 @@
 ---
 title: Conversational Language Understanding evaluation metrics
-titleSuffix: Azure Cognitive Services
+titleSuffix: Azure AI services
 description: Learn about evaluation metrics in Conversational Language Understanding
 services: cognitive-services
 author: aahill
