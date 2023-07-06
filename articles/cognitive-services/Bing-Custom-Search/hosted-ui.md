@@ -17,7 +17,7 @@ ms.custom:
 
 # Configure your hosted UI experience
 
-[!INCLUDE [Bing move notice](../Bing-Web-Search/includes/bing-move-notice.md)]
+[!INCLUDE [Bing move notice](../bing-web-search/includes/bing-move-notice.md)]
 
 Bing Custom Search provides a hosted UI that you can easily integrate into your webpages and web applications as a JavaScript code snippet. Using the Bing Custom Search portal, you can configure the layout, color, and search options of the UI.
 
