@@ -1,7 +1,7 @@
 ---
 title: Use Docker containers in disconnected environments
-titleSuffix: Azure Cognitive Services
-description: Learn how to run Azure Cognitive Services Docker containers disconnected from the internet.
+titleSuffix: Azure AI services
+description: Learn how to run Azure AI services Docker containers disconnected from the internet.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -13,18 +13,18 @@ ms.author: aahi
 
 # Use Docker containers in disconnected environments
 
-Containers enable you to run Cognitive Services APIs in your own environment, and are great for your specific security and data governance requirements. Disconnected containers enable you to use several of these APIs disconnected from the internet. Currently, the following containers can be run in this manner:
+Containers enable you to run Azure AI services APIs in your own environment, and are great for your specific security and data governance requirements. Disconnected containers enable you to use several of these APIs disconnected from the internet. Currently, the following containers can be run in this manner:
 
 * [Speech to text](../speech-service/speech-container-howto.md?tabs=stt)
 * [Custom Speech to text](../speech-service/speech-container-howto.md?tabs=cstt)
 * [Neural Text to speech](../speech-service/speech-container-howto.md?tabs=ntts)
 * [Text Translation (Standard)](../translator/containers/translator-disconnected-containers.md)
-* Azure Cognitive Service for Language
+* Azure AI Language
   * [Sentiment Analysis](../language-service/sentiment-opinion-mining/how-to/use-containers.md)
   * [Key Phrase Extraction](../language-service/key-phrase-extraction/how-to/use-containers.md)
   * [Language Detection](../language-service/language-detection/how-to/use-containers.md)
-* [Computer Vision - Read](../computer-vision/computer-vision-how-to-install-containers.md)
-* [Form Recognizer](../../applied-ai-services/form-recognizer/containers/form-recognizer-disconnected-containers.md)
+* [Azure AI Vision - Read](../computer-vision/computer-vision-how-to-install-containers.md)
+* [Document Intelligence](../../ai-services/document-intelligence/containers/form-recognizer-disconnected-containers.md)
 
 Before attempting to run a Docker container in an offline environment, make sure you know the steps to successfully download and use the container. For example:
 
@@ -52,7 +52,7 @@ Access is limited to customers that meet the following requirements:
 
 ### Create a new resource
 
-1. Sign into the [Azure portal](https://portal.azure.com/) and select **Create a new resource** for one of the applicable Cognitive Services or Applied AI services listed above.
+1. Sign into the [Azure portal](https://portal.azure.com/) and select **Create a new resource** for one of the applicable Azure AI services or Azure AI services listed above.
 
 2. Enter the applicable information to create your resource. Be sure to select **Commitment tier disconnected containers** as your pricing tier.
 
@@ -67,10 +67,10 @@ Access is limited to customers that meet the following requirements:
 
 See the following documentation for steps on downloading and configuring the container for disconnected usage:
 
-* [Computer Vision - Read](../computer-vision/computer-vision-how-to-install-containers.md#run-the-container-disconnected-from-the-internet) 
+* [Vision - Read](../computer-vision/computer-vision-how-to-install-containers.md#run-the-container-disconnected-from-the-internet) 
 * [Language Understanding (LUIS)](../LUIS/luis-container-howto.md#run-the-container-disconnected-from-the-internet)
 * [Text Translation (Standard)](../translator/containers/translator-disconnected-containers.md)
-* [Form recognizer](../../applied-ai-services/form-recognizer/containers/form-recognizer-disconnected-containers.md)
+* [Document Intelligence](../../ai-services/document-intelligence/containers/form-recognizer-disconnected-containers.md)
 
 **Speech service**
 
@@ -170,7 +170,7 @@ If you run the container with an output mount and logging enabled, the container
 
 ## Next steps
 
-[Azure Cognitive Services containers overview](../cognitive-services-container-support.md)
+[Azure AI services containers overview](../cognitive-services-container-support.md)
 
 
 
