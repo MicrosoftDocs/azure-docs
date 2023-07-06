@@ -34,18 +34,12 @@ The app must be running in the **Standard**, **Premium**, or **Isolated** tier i
 
 # [Azure Portal](#tab/portal)
 
-1. in the [Azure portal](https://portal.azure.com/), search for and select **App Services** and select your app. 
-   
-    ![Search for App Services](./media/web-sites-staged-publishing/search-for-app-services.png)
-   
+1. In the [Azure portal](https://portal.azure.com), navigate to your app's management page.
 
-2. In the left pane, select **Deployment slots** > **Add Slot**.
+1. In the left pane, select **Deployment slots** > **Add Slot**.
    
-    ![Add a new deployment slot](./media/web-sites-staged-publishing/QGAddNewDeploymentSlot.png)
-   
-   > [!NOTE]
-   > If the app isn't already in the **Standard**, **Premium**, or **Isolated** tier, you receive a message that indicates the supported tiers for enabling staged publishing. At this point, you have the option to select **Upgrade** and go to the **Scale** tab of your app before continuing.
-   > 
+    > [!NOTE]
+    > If the app isn't already in the **Standard**, **Premium**, or **Isolated** tier, select **Upgrade** and go to the **Scale** tab of your app before continuing.
 
 3. In the **Add a slot** dialog box, give the slot a name, and select whether to clone an app configuration from another deployment slot. Select **Add** to continue.
    
@@ -53,10 +47,9 @@ The app must be running in the **Standard**, **Premium**, or **Isolated** tier i
    
     You can clone a configuration from any existing slot. Settings that can be cloned include app settings, connection strings, language framework versions, web sockets, HTTP version, and platform bitness.
     
-  > [!NOTE]
-  > Currently, a Private Endpoint isn't cloned across slots.
-  > 
-
+    > [!NOTE]
+    > Currently, a private endpoint isn't cloned across slots.
+    
 4. After the slot is added, select **Close** to close the dialog box. The new slot is now shown on the **Deployment slots** page. By default, **Traffic %** is set to 0 for the new slot, with all customer traffic routed to the production slot.
 
 5. Select the new deployment slot to open that slot's resource page.
@@ -315,7 +308,7 @@ az webapp deployment slot auto-swap --name <app-name> --resource-group <group-na
 
 For more information, see [az webapp deployment slot auto-swap](/cli/azure/webapp/deployment/slot#az-webapp-deployment-slot-auto-swap).
 
-# [Azure PowerShell](#tab/[powershell])
+# [Azure PowerShell](#tab/powershell)
 
 ```azurepowershell-interactive
 Set-AzWebAppSlot -ResourceGroupName "group-name" -Name "<app-name>" -Slot "<source-slot-name>" -AutoSwapSlotName "production"
