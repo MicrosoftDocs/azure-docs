@@ -18,8 +18,6 @@ Use the below tables to find all the relevant information on number availability
 
 ## Subscription eligibility
 
-## Subscription eligibility
-
 To acquire a phone number, you need to be on a paid Azure subscription. Phone numbers can't be acquired on trial accounts or by Azure free credits.
 
 More details on eligible subscription types are as follows:
