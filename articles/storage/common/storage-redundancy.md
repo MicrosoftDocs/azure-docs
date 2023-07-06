@@ -5,11 +5,11 @@ description: Understand data redundancy in Azure Storage. Data in your Microsoft
 services: storage
 author: jimmart-dev
 
-ms.service: storage
+ms.service: azure-storage
 ms.topic: conceptual
 ms.date: 07/06/2023
 ms.author: jammart
-ms.subservice: common
+ms.subservice: storage-common-concepts
 ms.custom: references_regions, engagement-fy23
 ---
 
