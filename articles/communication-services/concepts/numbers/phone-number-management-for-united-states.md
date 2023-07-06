@@ -24,27 +24,32 @@ More details on eligible subscription types are as follows:
 
 | Number Type                      | Eligible Azure Agreement Type                                                                             |
 | :------------------------------- | :-------------------------------------------------------------------------------------------------------- |
-| Toll-Free and Local (Geographic) | Modern Customer Agreement (Field and Customer Led), Modern Partner Agreement (CSP), Enterprise Agreement*, Pay-As-You-Go |
+| Toll-Free and Local (Geographic/National) | Modern Customer Agreement (Field and Customer Led), Modern Partner Agreement (CSP), Enterprise Agreement*, Pay-As-You-Go |
 | Short-Codes                      | Modern Customer Agreement (Field Led), Enterprise Agreement**, Pay-As-You-Go                                      |
 
-\* In some countries/regions, number purchases are only allowed for own use. Reselling or suballcoating to another parties is not allowed. Due to this restriction, purchases for CSP and LSP customers aren't allowed.
+\* In some countries/regions, number purchases are only allowed for own use. Reselling or suballcoating to another parties isn't allowed. Due to this restriction, purchases for CSP and LSP customers aren't allowed.
 
 \** Applications from all other subscription types are reviewed and approved on a case-by-case basis. Reach out to acstns@microsoft.com for assistance with your application.
 
 
-## Customers with US Azure billing addresses
+## Customers with United States Azure billing addresses
 
 | Number            | Type        | Send SMS             | Receive SMS          | Make Calls           | Receive Calls          |
 | :---------------- | :---------- | :------------------- | :------------------- | :------------------- | :--------------------- |
 | USA & Puerto Rico | Toll-Free   | General Availability | General Availability | General Availability | General Availability\* |
 | USA & Puerto Rico | Local       | -                    | -                    | General Availability | General Availability\* |
-| USA               | Short-Codes | General Availability | General Availability | -        | -          |
+| USA               | Short-Codes\** | General Availability | General Availability | -        | -          |
+| UK                 | Toll-Free      | -        | -        | General Availability   | General Availability\* |
+| UK                 | Local          | -        | -        |
 | Canada             | Toll-Free      | General Availability       | General Availability       | General Availability   | General Availability\* |
 | Canada             | Local          | -        | -        | General Availability   | General Availability\* |
-| UK                 | Toll-Free      | -        | -        | General Availability   | General Availability\* |
-| UK                 | Local          | -        | -        | General Availability   | General Availability\* |
+| Denmark           | Toll-Free | -        | -        | Public Preview | Public Preview\* |
+| Denmark           | Local     | -        | -        | Public Preview | Public Preview\* |
+|  Germany, Netherlands, United Kingdom, Australia, France, Switzerland, Sweden, Italy, Spain, Denmark, Ireland, Portugal, Poland, Austria, Lithuania, Latvia, Estonia | Alphanumeric Sender ID\** | Public Preview       | -       | -        | -          |
 
 \* Please refer to [Inbound calling capabilities page](../telephony/inbound-calling-capabilities.md) for details.
+
+\** Please refer to [SMS Concepts page](../sms/concepts.md) for supported destinations for this service.
 
 ## Next steps
 
