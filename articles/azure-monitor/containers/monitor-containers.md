@@ -8,7 +8,7 @@ ms.author: bwren
 ms.date: 03/08/2023
 ---
 
-# Monitor Kubernetes clusters using Azure services
+# Monitor Kubernetes clusters with Azure services
 
 This article describes how to monitor the health and performance of your Kubernetes clusters and the workloads running on them using Azure Monitor and related Azure services. This includes clusters running in Azure Kubernetes Service (AKS) or other clouds such as [AWS](https://aws.amazon.com/kubernetes/) and [GCP](https://cloud.google.com/kubernetes-engine). It includes collection of telemetry critical for monitoring, analysis and visualization of collected data to identify trends, and how to configure alerting to be proactively notified of critical issues.
 
@@ -57,6 +57,11 @@ If you already have a Prometheus environment that you want to use for your AKS c
 See [Default Prometheus metrics configuration in Azure Monitor](../essentials/prometheus-metrics-scrape-default.md) for details on the metrics that are collected by default and their frequency of collection. If you want to customize the configuration, see [Customize scraping of Prometheus metrics in Azure Monitor managed service for Prometheus](../essentials/prometheus-metrics-scrape-configuration.md).
 
 
+## Enable Grafana 
+
+Grafana is the primary tool used to analyze 
+
+If you have an existing Grafana environment, then configure appropriate Prometheus environment as a data source.
 
 ### Enable Container Insights
 
@@ -107,32 +112,13 @@ If you're unsure which resource logs to initially enable, use the following reco
 
 The recommendations are based on the most common customer requirements. You can enable other categories later if you need to.
 
+If you have an existing solution for collection of logs, either follow the guidance for that tool or enable Container insights and use the Data Export feature of Log Analytics workspace to send data to Event Hub and forward to alternate system.
 
-## Monitor layers of Kubernetes and monitoring services
+## Monitoring Kubernetes components and applications
 
 Your monitoring approach should be based on your unique workload requirements, and factors such as scale, topology, organizational roles, and multi-cluster tenancy. Following is an illustration of a common bottoms-up approach, starting from infrastructure up through applications. Each layer has distinct monitoring requirements that are addressed by different Azure services. 
 
 :::image type="content" source="media/monitor-containers/layers.png" alt-text="Diagram of AKS layers" lightbox="media/monitor-containers/layers.png"  border="false":::
-
-## Kubernetes telemetry
-
-
-### Metrics
- Sources | Description |
-|:---|:---|
-| Platform metrics | [Platform metrics](../../aks/monitor-aks-reference.md#metrics) are automatically collected for AKS clusters at no cost. You can analyze these metrics with [metrics explorer](../essentials/metrics-getting-started.md) or use them for [metric alerts](../alerts/alerts-types.md#metric-alerts). Platform metrics are not collected tor hybrid clusters. |
-| Prometheus metrics | Prometheus metrics are stored in [Azure Monitor managed service for Prometheus](../essentials/prometheus-metrics-overview.md). Scrape this data from your cluster using the Azure Monitor agent. Use Azure Arc for Kubernetes with the Azure Monitor agent for hybrid clusters. |
-
-
-### Logs
-
- Sources | Description |
-|:---|:---|
-| Activity logs | [Activity log](../../aks/monitor-aks-reference.md) is collected automatically for  AKS clusters at no cost. These logs track information such as when a cluster is created or has a configuration change. Activity logs are not collected for hybrid clusters. |
-| Cluster inventory | Container insights collects  |
-| stderr/stdout logs | Containerized applications in the cluster send their logs to standard output (stdout) and standard error (stderr) streams. Container insights collects these logs and stores them in the **ContainerLogs**  in a Log Analytics workspace. [Enable the ContainerLogV2](container-insights-logging-v2.md) schema for improved query experience and reduce collection costs.  |
-| Control plane logs | [Control plane logs](../../aks/monitor-aks-reference.md#resource-logs) for AKS are implemented as resource logs. These aren't used by Container insights, but you can create a diagnostic setting to send them to Log Analytics workspace. |
-| Application logs | Application usage and traces |
 
 
 
@@ -319,3 +305,23 @@ Start with a set of recommended Prometheus alerts from [Metric alert rules in Co
 ## Extra
 
 [Cloud native](https://azure.microsoft.com/blog/accelerate-your-cloudnative-journey-with-azure-monitor/) refers to technologies supporting scalable applications in modern, dynamic cloud environments. This includes container based applications managed by [kubernetes](https://kubernetes.io) and tools used to monitor their performance and health such as [Prometheus]() and [Grafana]().
+
+## Kubernetes telemetry
+
+
+### Metrics
+ Sources | Description |
+|:---|:---|
+| Platform metrics | [Platform metrics](../../aks/monitor-aks-reference.md#metrics) are automatically collected for AKS clusters at no cost. You can analyze these metrics with [metrics explorer](../essentials/metrics-getting-started.md) or use them for [metric alerts](../alerts/alerts-types.md#metric-alerts). Platform metrics are not collected tor hybrid clusters. |
+| Prometheus metrics | Prometheus metrics are stored in [Azure Monitor managed service for Prometheus](../essentials/prometheus-metrics-overview.md). Scrape this data from your cluster using the Azure Monitor agent. Use Azure Arc for Kubernetes with the Azure Monitor agent for hybrid clusters. |
+
+
+### Logs
+
+ Sources | Description |
+|:---|:---|
+| Activity logs | [Activity log](../../aks/monitor-aks-reference.md) is collected automatically for  AKS clusters at no cost. These logs track information such as when a cluster is created or has a configuration change. Activity logs are not collected for hybrid clusters. |
+| Cluster inventory | Container insights collects  |
+| stderr/stdout logs | Containerized applications in the cluster send their logs to standard output (stdout) and standard error (stderr) streams. Container insights collects these logs and stores them in the **ContainerLogs**  in a Log Analytics workspace. [Enable the ContainerLogV2](container-insights-logging-v2.md) schema for improved query experience and reduce collection costs.  |
+| Control plane logs | [Control plane logs](../../aks/monitor-aks-reference.md#resource-logs) for AKS are implemented as resource logs. These aren't used by Container insights, but you can create a diagnostic setting to send them to Log Analytics workspace. |
+| Application logs | Application usage and traces |
