@@ -261,37 +261,48 @@ Get the connection string for the Cosmos DB service account to use in our Azure 
 
 ### [Azure CLI](#tab/computer-vision-azure-cli)
 
-1. To [create the Cosmos DB service account](/cli/azure/cosmosdb/service#az-cosmosdb-service-create), we can run the CLI command below.
+1. To [create the Cosmos DB account](/cli/azure/cosmosdb/service#az-cosmosdb-service-create) named `msdocscosmosdb`.
 
     ```azurecli-interactive
-    az cosmosdb service create --account-name analysis-database
-                               --name msdocscosmosdb
-                               --resource-group-name msdocs-storage-function
-                               [--count]
-                               [--no-wait]
-                               [--size]
+    az cosmosdb create 
+        --name msdocscosmosdb 
+        --kind GlobalDocumentDB 
+        --resource-group msdocs-storage-function
+    ```
+
+1. Create a database named `StorageTutorial` in the Cosmos DB account.
+
+    ```azurecli-interactive
+    az cosmosdb sql database create 
+        --account-name msdocscosmosdb 
+        --name StorageTutorial 
+        --resource-group msdocs-storage-function
     ```
     
     You may need to wait a few moments for Azure to provision the database.
     
-2. Once the database is created, create a container.
+2. Once the database is created, create a container named `analysis` with a partition key of `/type`.
 
     ```azurecli-interactive
-    az cosmosdb sql container create --account-name analysis-database
-                                     --database-name msdocs-cosmos-db-account
-                                     --name "analysis"
-                                     --partition-key-path "/analysis-type"
-                                     --resource-group msdocs-storage-function
+    az cosmosdb sql container create 
+        --account-name msdocscosmosdb 
+        --database-name StorageTutorial 
+        --resource-group msdocs-storage-function 
+        --name 'analysis' 
+        --partition-key-path '/type'
     ```
     
 3. Get the connection string using the command below for later use in the tutorial.
 
-```azurelci-interactive
-az cosmosdb keys list --name analysis-database
-                      --resource-group msdocs-storage-function
-                      --type connection-strings
-```
+    ```azurelci-interactive
+    az cosmosdb list-connection-strings 
+        --name msdocscosmosdb 
+        --resource-group msdocs-storage-function
+    ```
 
+    This returns a JSON array of two read-write connection strings, and two read-only connection strings.
+
+4. , copy the **Primary SQL Connection String** to use for later. 
 ---
 
 ## Download and configure the sample project
