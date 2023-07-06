@@ -29,7 +29,7 @@ ms.author: fasantia
     
     [!INCLUDE [sdk v2](machine-learning-sdk-v2.md)]
     
-    You can get the Azure ML MLflow tracking URI using the [Azure Machine Learning SDK v2 for Python](../articles/machine-learning/concept-v2.md). Ensure you have the library `azure-ai-ml` installed in the compute you are using. The following sample gets the unique MLFLow tracking URI associated with your workspace.
+    You can get the Azure ML MLflow tracking URI using the [Azure Machine Learning SDK v2 for Python](../concept-v2.md). Ensure you have the library `azure-ai-ml` installed in the compute you are using. The following sample gets the unique MLFLow tracking URI associated with your workspace.
     
     1. Login into your workspace using the `MLClient`. The easier way to do that is by using the workspace config file:
     

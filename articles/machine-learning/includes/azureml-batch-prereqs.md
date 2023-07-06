@@ -10,7 +10,7 @@ Before following the steps in this article, make sure you have the following pre
 
 * An Azure subscription. If you don't have an Azure subscription, create a free account before you begin. Try the [free or paid version of Azure Machine Learning](https://azure.microsoft.com/free/).
 
-* An Azure Machine Learning workspace. If you don't have one, use the steps in the [How to manage workspaces](../../articles/machine-learning/how-to-manage-workspace.md) article to create one.
+* An Azure Machine Learning workspace. If you don't have one, use the steps in the [How to manage workspaces](../how-to-manage-workspace.md) article to create one.
 
 * Ensure you have the following permissions in the workspace:
 
@@ -22,7 +22,7 @@ Before following the steps in this article, make sure you have the following pre
 
     # [Azure CLI](#tab/cli)
     
-    The [Azure CLI](/cli/azure/) and the `ml` [extension for Azure Machine Learning](../../articles/machine-learning/how-to-configure-cli.md).
+    The [Azure CLI](/cli/azure/) and the `ml` [extension for Azure Machine Learning](../how-to-configure-cli.md).
     
     ```azurecli
     az extension add -n ml

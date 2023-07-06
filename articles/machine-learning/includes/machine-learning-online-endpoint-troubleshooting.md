@@ -14,7 +14,7 @@ The Azure Machine Learning workspace can be configured for `v1_legacy_mode`, whi
 > [!IMPORTANT]
 > Check with your network security team before disabling `v1_legacy_mode`. It may have been enabled by your network security team for a reason.
 
-For information on how to disable `v1_legacy_mode`, see [Network isolation with v2](../articles/machine-learning/how-to-configure-network-isolation-with-v2.md).
+For information on how to disable `v1_legacy_mode`, see [Network isolation with v2](../how-to-configure-network-isolation-with-v2.md).
 
 ### Online endpoint creation with key-based authentication fails
 
@@ -66,7 +66,7 @@ If the value of `bypass` isn't `AzureServices`, use the guidance in the [Configu
     > [!NOTE]
     > For Kubernetes online endpoint, the endpoint hostname should be the **CName** (domain name) which has been specified in your Kubernetes cluster. 
     > If it is an HTTP endpoint, the IP address will be contained in the endpoint URI which you can get directly in the Studio UI.
-    > More ways to get the IP address of the endpoint can be found in [Secure Kubernetes online endpoint](../articles/machine-learning/how-to-secure-Kubernetes-online-endpoint.md#update-your-dns-with-an-fqdn).
+    > More ways to get the IP address of the endpoint can be found in [Secure Kubernetes online endpoint](../how-to-secure-Kubernetes-online-endpoint.md#update-your-dns-with-an-fqdn).
 
 1. If the host name isn't resolved by the `nslookup` command:
 
@@ -82,7 +82,7 @@ If the value of `bypass` isn't `AzureServices`, use the guidance in the [Configu
         The results should contain an entry that is similar to `*.<GUID>.inference.<region>`.
     1. If no inference value is returned, delete the private endpoint for the workspace and then recreate it. For more information, see [How to configure a private endpoint](../articles/container-registry/container-registry-private-link.md). 
     
-    1. If the workspace with a private endpoint is setup using a custom DNS [How to use your workspace with a custom DNS server](../articles/machine-learning/how-to-custom-dns.md), use following command to verify if resolution works correctly from custom DNS.
+    1. If the workspace with a private endpoint is setup using a custom DNS [How to use your workspace with a custom DNS server](../how-to-custom-dns.md), use following command to verify if resolution works correctly from custom DNS.
 
         ```bash
         dig endpointname.westcentralus.inference.ml.azure.com
@@ -91,7 +91,7 @@ If the value of `bypass` isn't `AzureServices`, use the guidance in the [Configu
     **For Kubernetes online endpoint**, 
 
     1. Check the DNS configuration in Kubernetes cluster.
-    2. Additionally, you can check if the [azureml-fe](../articles/machine-learning/how-to-kubernetes-inference-routing-azureml-fe.md) works as expected, use the following command:
+    2. Additionally, you can check if the [azureml-fe](../how-to-kubernetes-inference-routing-azureml-fe.md) works as expected, use the following command:
         
         ```bash
         kubectl exec -it deploy/azureml-fe -- /bin/bash

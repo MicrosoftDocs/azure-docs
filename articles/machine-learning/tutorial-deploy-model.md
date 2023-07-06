@@ -16,7 +16,7 @@ ms.custom: mlops, devx-track-python #add more custom tags
 
 # Deploy a model as an online endpoint
 
-[!INCLUDE [sdk v2](../../includes/machine-learning-sdk-v2.md)]
+[!INCLUDE [sdk v2](includes/machine-learning-sdk-v2.md)]
 Learn to deploy a model to an online endpoint, using Azure Machine Learning Python SDK v2.
 
 In this tutorial, we use a model trained to predict the likelihood of defaulting on a credit card payment. The goal is to deploy this model and show its use.

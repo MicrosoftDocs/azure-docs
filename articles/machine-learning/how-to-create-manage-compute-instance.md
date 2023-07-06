@@ -15,7 +15,7 @@ ms.date: 12/28/2022
 
 # Create and manage an Azure Machine Learning compute instance
 
-[!INCLUDE [dev v2](../../includes/machine-learning-dev-v2.md)]
+[!INCLUDE [dev v2](includes/machine-learning-dev-v2.md)]
 
 
 Learn how to create and manage a [compute instance](concept-compute-instance.md) in your Azure Machine Learning workspace. 
@@ -44,7 +44,7 @@ Compute instances can run jobs securely in a [virtual network environment](how-t
 
 * If using the Python SDK, [set up your development environment with a workspace](how-to-configure-environment.md).  Once your environment is set up, attach to the workspace in your Python script:
 
-  [!INCLUDE [connect ws v2](../../includes/machine-learning-connect-ws-v2.md)]
+  [!INCLUDE [connect ws v2](includes/machine-learning-connect-ws-v2.md)]
 
 
 ## Create
@@ -61,7 +61,7 @@ Or use the following examples to create a compute instance with more options:
 
 # [Python SDK](#tab/python)
 
-[!INCLUDE [sdk v2](../../includes/machine-learning-sdk-v2.md)]
+[!INCLUDE [sdk v2](includes/machine-learning-sdk-v2.md)]
 
 [!notebook-python[](~/azureml-examples-main/sdk/python/resources/compute/compute.ipynb?name=ci_basic)]
 
@@ -72,7 +72,7 @@ For more information on the classes, methods, and parameters used in this exampl
 
 # [Azure CLI](#tab/azure-cli)
 
-[!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
+[!INCLUDE [cli v2](includes/machine-learning-cli-v2.md)]
 
 ```azurecli
 az ml compute create -f create-instance.yml
@@ -121,7 +121,7 @@ You can also create a compute instance with an [Azure Resource Manager template]
 
 SSH access is disabled by default.  SSH access can't be enabled or disabled after creation. Make sure to enable access if you plan to debug interactively with [VS Code Remote](how-to-set-up-vs-code-remote.md).  
 
-[!INCLUDE [amlinclude-info](../../includes/machine-learning-enable-ssh.md)]
+[!INCLUDE [amlinclude-info](includes/machine-learning-enable-ssh.md)]
 
 ### Set up an SSH key later
 
@@ -131,7 +131,7 @@ An example of a common use case for this is when creating a compute instance on 
 
 ### Connect with SSH
 
-[!INCLUDE [ssh-access](../../includes/machine-learning-ssh-access.md)]
+[!INCLUDE [ssh-access](includes/machine-learning-ssh-access.md)]
 
 ## Create on behalf of
 
@@ -178,7 +178,7 @@ The setting can be configured during compute instance creation or for existing c
 
 # [Python SDK](#tab/python)
 
-[!INCLUDE [sdk v2](../../includes/machine-learning-sdk-v2.md)]
+[!INCLUDE [sdk v2](includes/machine-learning-sdk-v2.md)]
 
 When creating a new compute instance, add the `idle_time_before_shutdown_minutes` parameter.
 
@@ -191,7 +191,7 @@ You cannot change the idle time of an existing compute instance with the Python 
 
 # [Azure CLI](#tab/azure-cli)
 
-[!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
+[!INCLUDE [cli v2](includes/machine-learning-cli-v2.md)]
 
 When creating a new compute instance, add `idle_time_before_shutdown_minutes` to the YAML definition.
 
@@ -337,7 +337,7 @@ Once the compute instance is created, you can view, edit, or add new schedules f
 
 ### Create a schedule with CLI
 
-[!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
+[!INCLUDE [cli v2](includes/machine-learning-cli-v2.md)]
 
 ```azurecli
 az ml compute create -f create-instance.yml
@@ -350,7 +350,7 @@ Where the file *create-instance.yml* is:
 
 ### Create a schedule with SDK
 
-[!INCLUDE [sdk v2](../../includes/machine-learning-sdk-v2.md)]
+[!INCLUDE [sdk v2](includes/machine-learning-sdk-v2.md)]
 
 ```python
 from azure.ai.ml.entities import ComputeInstance, ComputeSchedules, ComputeStartStopSchedule, RecurrenceTrigger, RecurrencePattern
@@ -591,7 +591,7 @@ RStudio is one of the most popular IDEs among R developers for ML and data scien
  
 :::image type="content" source="media/how-to-create-manage-compute-instance/rstudio-workbench.png" alt-text="Screenshot shows Posit Workbench settings." lightbox="media/how-to-create-manage-compute-instance/rstudio-workbench.png":::
 
-[!INCLUDE [private link ports](../../includes/machine-learning-private-link-ports.md)]
+[!INCLUDE [private link ports](includes/machine-learning-private-link-ports.md)]
 
 > [!NOTE]
 > * Support for accessing your workspace file store from Posit Workbench is not yet available.
@@ -614,7 +614,7 @@ To use RStudio, set up a custom application as follows:
 
 :::image type="content" source="media/how-to-create-manage-compute-instance/rstudio-open-source.png" alt-text="Screenshot shows form to set up RStudio as a custom application" lightbox="media/how-to-create-manage-compute-instance/rstudio-open-source.png":::
 
-[!INCLUDE [private link ports](../../includes/machine-learning-private-link-ports.md)]
+[!INCLUDE [private link ports](includes/machine-learning-private-link-ports.md)]
  
 ### Setup other custom applications
 
@@ -632,7 +632,7 @@ Set up other custom applications on your compute instance by providing the appli
 
 :::image type="content" source="media/how-to-create-manage-compute-instance/custom-service.png" alt-text="Screenshot show custom application settings." lightbox="media/how-to-create-manage-compute-instance/custom-service.png":::
 
-[!INCLUDE [private link ports](../../includes/machine-learning-private-link-ports.md)]
+[!INCLUDE [private link ports](includes/machine-learning-private-link-ports.md)]
 
 ### Accessing custom applications in studio
 
@@ -658,7 +658,7 @@ You can [create a schedule](#schedule-automatic-start-and-stop) for the compute 
 
 # [Python SDK](#tab/python)
 
-[!INCLUDE [sdk v2](../../includes/machine-learning-sdk-v2.md)]
+[!INCLUDE [sdk v2](includes/machine-learning-sdk-v2.md)]
 
 
 In the examples below, the name of the compute instance is stored in the variable `ci_basic_name`.
@@ -690,7 +690,7 @@ In the examples below, the name of the compute instance is stored in the variabl
 
 # [Azure CLI](#tab/azure-cli)
 
-[!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
+[!INCLUDE [cli v2](includes/machine-learning-cli-v2.md)]
 
 In the examples below, the name of the compute instance is **instance**, in workspace **my-workspace**, in resource group **my-resource-group**.
 
@@ -770,7 +770,7 @@ In your workspace in Azure Machine Learning studio, select Compute, then select 
 
 # [Python SDK](#tab/python)
 
-[!INCLUDE [sdk v2](../../includes/machine-learning-sdk-v2.md)]
+[!INCLUDE [sdk v2](includes/machine-learning-sdk-v2.md)]
 
 ```python
 from azure.ai.ml.entities import ComputeInstance, AmlCompute
@@ -787,7 +787,7 @@ For more information on the classes, methods, and parameters used in this exampl
 
 # [Azure CLI](#tab/azure-cli)
 
-[!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
+[!INCLUDE [cli v2](includes/machine-learning-cli-v2.md)]
 
 ```azurecli
 az ml compute show --name "myci"

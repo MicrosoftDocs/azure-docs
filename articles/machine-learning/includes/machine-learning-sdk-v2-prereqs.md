@@ -8,7 +8,7 @@ ms.author: larryfr
 
 Before following the steps in this article, make sure you have the following prerequisites:
 
-* An Azure Machine Learning workspace. If you don't have one, use the steps in the [Quickstart: Create workspace resources](../articles/machine-learning/quickstart-create-resources.md) article to create one.
+* An Azure Machine Learning workspace. If you don't have one, use the steps in the [Quickstart: Create workspace resources](../quickstart-create-resources.md) article to create one.
 
 * To install the Python SDK v2, use the following command:
 

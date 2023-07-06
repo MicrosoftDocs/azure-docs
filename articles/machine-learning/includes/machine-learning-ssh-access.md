@@ -16,10 +16,10 @@ After you create a compute with SSH access enabled, use these steps for access.
 
     * For a **compute instance**, select **Connect** at the top of the **Details** section.
 
-        :::image type="content" source="../articles/machine-learning/media/how-to-create-attach-studio/details.png" alt-text="Screenshot that shows connect tool at the top of the Details page.":::
+        :::image type="content" source="../media/how-to-create-attach-studio/details.png" alt-text="Screenshot that shows connect tool at the top of the Details page.":::
 
     * For a **compute cluster**, select **Nodes** at the top, then select the **Connection string** in the table for your node.
-        :::image type="content" source="../articles/machine-learning/media/how-to-create-attach-studio/compute-nodes.png" alt-text="Screenshot that shows connection string for a node in a compute cluster.":::
+        :::image type="content" source="../media/how-to-create-attach-studio/compute-nodes.png" alt-text="Screenshot that shows connection string for a node in a compute cluster.":::
 
 1. Copy the connection string.
 1. For Windows, open PowerShell or a command prompt:

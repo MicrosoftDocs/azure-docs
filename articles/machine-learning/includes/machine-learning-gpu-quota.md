@@ -7,4 +7,4 @@ ms.author: sgilley
 ---
 
 > [!IMPORTANT]
-> Before you can create a GPU cluster, you'll need to [request a quota increase](../articles/machine-learning/how-to-manage-quotas.md) for your workspace.
+> Before you can create a GPU cluster, you'll need to [request a quota increase](../how-to-manage-quotas.md) for your workspace.
