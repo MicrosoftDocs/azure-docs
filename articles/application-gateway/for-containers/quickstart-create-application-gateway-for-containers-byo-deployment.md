@@ -54,8 +54,8 @@ You need to complete the following tasks prior to deploying Application Gateway 
 	> - North Central US
 	> - North Europe
 	>
-	> AKS cluster should use [Azure CNI](../aks/configure-azure-cni.md).
-        > AKS cluster should have workload identity feature enabled. [Learn how](../aks/workload-identity-deploy-cluster.md#update-an-existing-aks-cluster) to enable in use an existing AKS cluster section. 
+	> AKS cluster should use [Azure CNI](../../aks/configure-azure-cni.md).
+        > AKS cluster should have workload identity feature enabled. [Learn how](../../aks/workload-identity-deploy-cluster.md#update-an-existing-aks-cluster) to enable in use an existing AKS cluster section. 
 
 	```bash
 	AKS_NAME='<your cluster name>'
@@ -117,12 +117,12 @@ You need to complete the following tasks prior to deploying Application Gateway 
 
 ## Deploy Application Gateway for Containers
 
-1. The following commands deploy Application Gateway for Containers (along with the Association and Frontend resources) using an [ARM template](./templates/traffic-controller.template.json).
+1. The following commands deploy Application Gateway for Containers (along with the Association and Frontend resources) using an [ARM template](../../azure-resource-manager/templates/overview.md).
 
 	```bash
 	ALB_NAME='test-alb'
 	FRONTEND_NAME='frontend'
-
+	
 	albSubnetId=$(az network vnet subnet show --resource-group $vnetResourceGroup --vnet-name $vnetName --name $albSubnetName --query id -o tsv)
 	az deployment group create \
 		--resource-group $RESOURCE_GROUP \
