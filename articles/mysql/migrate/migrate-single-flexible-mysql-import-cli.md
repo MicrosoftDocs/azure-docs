@@ -152,7 +152,7 @@ iops | 500 | Number of IOPS to be allocated for the target Azure Database for My
     | Memory Optimized | 32 | MemoryOptimized | Standard_E32ds_v4 |
 
 - The MySQL version, region, subscription and resource for the target flexible server must be equal to that of the source single server.
-- The storage size for target flexible server should be equal to or greater than than on the source single server. 
+- The storage size for target flexible server should be equal to or greater than on the source single server. 
 
 ## Post-import steps
 
