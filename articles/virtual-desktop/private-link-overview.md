@@ -13,13 +13,13 @@ ms.author: daknappe
 > Using Private Link with Azure Virtual Desktop is currently in PREVIEW.
 > See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
-You can use [Azure Private Link](../private-link/private-link-overview.md) with Azure Virtual Desktop to privately connect to your remote resources. By creating a [private endpoint](../private-link/private-endpoint-overview.md), traffic between your virtual network and the service remains on the Microsoft network, so you no longer need to expose your service to the public internet. You also use a VPN or ExpressRoute for yor users with the Remote Desktop client to connect to the virtual network. Keeping traffic within the Microsoft network improves security and keeps your data safe. This article describes how Private Link can help you secure your Azure Virtual Desktop environment.
+You can use [Azure Private Link](../private-link/private-link-overview.md) with Azure Virtual Desktop to privately connect to your remote resources. By creating a [private endpoint](../private-link/private-endpoint-overview.md), traffic between your virtual network and the service remains on the Microsoft network, so you no longer need to expose your service to the public internet. You also use a VPN or ExpressRoute for your users with the Remote Desktop client to connect to the virtual network. Keeping traffic within the Microsoft network improves security and keeps your data safe. This article describes how Private Link can help you secure your Azure Virtual Desktop environment.
 
 ## How does Private Link work with Azure Virtual Desktop?
 
 Azure Virtual Desktop has three workflows with three corresponding resource types of private endpoints:
 
-1. **Initial feed discovery**: lets the client discover all workspaces assigned to a user. To enable this process, you must create a single private endpoint to the *global* sub-resource to any workspace. However, you can only create one private endpoint in your entire Azure Virtual Desktop deployment. This endpoint creates Domain Name System (DNS) entries and private IP routes for the global fully-qualified domain name (FQDN) needed for initial feed discovery. This connection becomes a single, shared route for all clients to use.
+1. **Initial feed discovery**: lets the client discover all workspaces assigned to a user. To enable this process, you must create a single private endpoint to the *global* sub-resource to any workspace. However, you can only create one private endpoint in your entire Azure Virtual Desktop deployment. This endpoint creates Domain Name System (DNS) entries and private IP routes for the global fully qualified domain name (FQDN) needed for initial feed discovery. This connection becomes a single, shared route for all clients to use.
 
 2. **Feed download**: the client downloads all connection details for a specific user for the workspaces that host their application groups. You create a private endpoint for the *feed* sub-resource for each workspace you want to use with Private Link.
 
@@ -45,7 +45,7 @@ When adding Private Link with Azure Virtual Desktop, you have the following opti
 
 - Both clients and session host VMs use private routes.
 - Clients use public routes while session host VMs use private routes.
-- Both clients and session host VMs use public routes, which doesn't use Private Link.
+- Both clients and session host VMs use public routes. Private Link isn't used.
 
 > [!IMPORTANT]
 > - A private endpoint to the global sub-resource of any workspace controls the shared fully qualified domain name (FQDN) for initial feed discovery. This in turn enables feed discovery for all workspaces. Because the workspace connected to the private endpoint is so important, deleting it will cause all feed discovery processes to stop working. We recommend you create an unused placeholder workspace for the global sub-resource. 
@@ -56,15 +56,15 @@ When adding Private Link with Azure Virtual Desktop, you have the following opti
 
 The preview of using Private Link with Azure Virtual Desktop has the following limitations:
 
-- You'll need to [re-register the Microsoft.DesktopVirtualization resource provider](private-link-setup.md#re-register-your-resource-provider) in order to use Private Link with Azure Virtual Desktop.
+- You need to [enable the preview](private-link-setup.md#re-register-the-resource-provider) on each Azure subscription you want to Private Link with Azure Virtual Desktop.
 
 - You can't use the [manual connection approval method](../private-link/private-endpoint-overview.md#access-to-a-private-link-resource-using-approval-workflow) when using Private Link with Azure Virtual Desktop. We're aware of this issue and are working on fixing it.
 
 - All [Remote Desktop clients to connect to Azure Virtual Desktop](users/remote-desktop-clients-overview.md) can be used with Private Link, but we currently only offer troubleshooting support for the web client with Private Link.
 
-- Validation for data path access checks, particularly those that prevent exfiltration, are still being validated. To help us with validation, this preview collects feedback from customers regarding exfiltration requirements, particularly preferences for how to audit and analyze findings. We don't recommend or support using production data traffic with this preview.
+- Validation for data path access checks, particularly those checks that prevent exfiltration, are still being validated. To help us with validation, this preview collects feedback from customers regarding exfiltration requirements, particularly preferences for how to audit and analyze findings. We don't recommend or support using production data traffic with this preview.
 
-- After you've changed a private endpoint to a host pool, you must restart the *Remote Desktop Agent Loader* (RDAgentBootLoader) service on the session host VM. You'll also need to restart this service whenever you change a host pool's network configuration. Instead of restarting the service, you can restart the session host.
+- After you've changed a private endpoint to a host pool, you must restart the *Remote Desktop Agent Loader* (RDAgentBootLoader) service on the session host VM. You also need to restart this service whenever you change a host pool's network configuration. Instead of restarting the service, you can restart the session host.
 
 - Service tags are used by the Azure Virtual Desktop service for agent monitoring traffic. These tags are created automatically.
 
@@ -76,4 +76,4 @@ The preview of using Private Link with Azure Virtual Desktop has the following l
 - Learn how to configure Azure Private Endpoint DNS at [Private Link DNS integration](../private-link/private-endpoint-dns.md#virtual-network-and-on-premises-workloads-using-a-dns-forwarder).
 - For general troubleshooting guides for Private Link, see [Troubleshoot Azure Private Endpoint connectivity problems](../private-link/troubleshoot-private-endpoint-connectivity.md).
 - Understand [Azure Virtual Desktop network connectivity](network-connectivity.md).
-- See the [Required URL list](safe-url-list.md) for the list of URLs you'll need to unblock to ensure network access to the Azure Virtual Desktop service.
+- See the [Required URL list](safe-url-list.md) for the list of URLs you need to unblock to ensure network access to the Azure Virtual Desktop service.
