@@ -32,7 +32,7 @@ One of the key features of Azure OpenAI on your data is its ability to retrieve 
 
 ## Data source options
 
-Azure OpenAI on your data uses an [Azure Cognitive Services](/azure/search/search-what-is-azure-search) index to determine what data to retrieve based on  user inputs and provided conversation history. We recommend using Azure OpenAI Studio to create your index from a blob storage or local files. See the [quickstart article](../use-your-data-quickstart.md?pivots=programming-language-studio) for more information. 
+Azure OpenAI on your data uses an [Azure Cognitive Search](/azure/search/search-what-is-azure-search) index to determine what data to retrieve based on  user inputs and provided conversation history. We recommend using Azure OpenAI Studio to create your index from a blob storage or local files. See the [quickstart article](../use-your-data-quickstart.md?pivots=programming-language-studio) for more information. 
 
 ## Ingesting your data into Azure cognitive search
 
