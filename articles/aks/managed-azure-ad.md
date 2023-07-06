@@ -87,7 +87,7 @@ A successful activation of an AKS-managed Azure AD cluster has the following sec
 If your cluster uses legacy Azure AD integration, you can upgrade to AKS-managed Azure AD integration using the [`az aks update`][az-aks-update] command.
 
 > [!WARNING]
-> Free tier clusters may experience API server downtime during the upgrade. It's recommended to upgrade during your non-business hours 
+> Free tier clusters may experience API server downtime during the upgrade. It's recommended to upgrade during your non-business hours. 
 > After the upgrade, the kubeconfig content changes. You need to run `az aks get-credentials --resource-group <AKS resource group name> --name <AKS cluster name>` to get the new kubeconfig content.
 
 ```azurecli-interactive
