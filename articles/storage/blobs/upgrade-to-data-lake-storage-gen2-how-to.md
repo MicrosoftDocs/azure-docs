@@ -34,7 +34,7 @@ In some cases, you will have to allow time for clean-up operations after the fea
 
 > [!IMPORTANT]
 > You cannot upgrade a storage account to Data Lake Storage Gen2 that has **ever** had the change feed feature enabled.
-> Simply disabling change feed will not allow you to perform an upgrade. To convert such an account to Data Lake Storage Gen2, you must perform a manual migration. For more information about manually migrating a storage account, see [Move an Azure Storage account to another region](../common/storage-account-move.md).
+> Simply disabling change feed will not allow you to perform an upgrade. To convert such an account to Data Lake Storage Gen2, you must perform a manual migration. For more information about manually migrating a storage account, see [Move an Azure Storage account to another region](../common/storage-account-move.md). *(That article is applicable to migrating to a new storage in the same region as well.)*
 
 ### Ensure the segments of each blob path are named
 
