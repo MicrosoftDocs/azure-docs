@@ -12,7 +12,7 @@ ms.date: 06/29/2023
 
 # Access a lab virtual machine in Azure Lab Services
 
-This article describes how you can access you lab virtual machines in Azure Lab Services. Use Teams, Canvas, or the Azure Lab Services website to view, start, stop, and connect to a lab virtual machine.
+This article describes how you can access your lab virtual machines in Azure Lab Services. Use Teams, Canvas, or the Azure Lab Services website to view, start, stop, and connect to a lab virtual machine.
 
 ## Prerequisites
 
@@ -143,7 +143,7 @@ To start or stop a lab VM:
 
 When the lab virtual machine is running, you can remotely connect to the VM. Depending on the lab VM operating system configuration, you can connect by using remote desktop (RDP) or secure shell (SSH).
 
-If there are no quota hours available, you're can't start the lab VM outside the scheduled lab hours and can't connect to the lab VM.
+If there are no quota hours available, you can't start the lab VM outside the scheduled lab hours and can't connect to the lab VM.
 
 Learn more about how to [connect to a lab VM](connect-virtual-machine.md).
 
