@@ -59,7 +59,7 @@ If you have already downloaded the provisioning agent and configured it for anot
  9. Open the provisioning agent wizard.
  10. In the **Select Extension** step, select **On-premises application provisioning** and then select **Next**.
 
- :::image type="content" source="./media/app-provisioning-sql/sync-agent-select-on-premises.png" alt-text="Screenshot that shows how to select on premises provisioning." lightbox="/media/app-provisioning-sql/sync-agent-select-on-premises.png":::
+ :::image type="content" source="./media/app-provisioning-sql/sync-agent-select-on-premises.png" alt-text="Screenshot that shows how to select on premises provisioning." lightbox="./media/app-provisioning-sql/sync-agent-select-on-premises.png":::
     
  11. The provisioning agent will use the operating system's web browser to display a popup window for you to authenticate to Azure AD, and potentially also your organization's identity provider.  If you are using Internet Explorer as the browser on Windows Server, then you may need to add Microsoft web sites to your browser's trusted site list to allow JavaScript to run correctly.
  12. Provide credentials for an Azure AD administrator when you're prompted to authorize. The user is required to have the Hybrid Identity Administrator or Global Administrator role.
@@ -245,7 +245,7 @@ You'll use the Azure portal to configure the mapping between the Azure AD user's
  5. To confirm that the schema of SAP ECC 7.0 is available in Azure AD, select the **Show advanced options** checkbox and select **Edit attribute list for ScimOnPremises**. Ensure that all the attributes selected in the configuration wizard are listed.  If not, then wait several minutes for the schema to refresh, and then reload the page.  Once you see the attributes listed, then cancel from this page to return to the mappings list.
  6. Now, click on the **userPrincipalName** PLACEHOLDER mapping.  This mapping is added by default when you first configure on-premises provisioning.  
  
-:::image type="content" source="./media/app-provisioning-sql/configure-11.png" alt-text="Screenshot of placeholder." lightbox="/media/app-provisioning-sql/configure-11.png":::
+:::image type="content" source="./media/app-provisioning-sql/configure-11.png" alt-text="Screenshot of placeholder." lightbox="./media/app-provisioning-sql/configure-11.png":::
 
  Change the value to match the following:
  
