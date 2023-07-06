@@ -113,7 +113,7 @@ In the examples below, the name of the compute instance is **instance**, in work
 
 In your workspace in Azure Machine Learning studio, select **Compute**, then select **compute instance** on the top.
 
-!Sccreenshot shows compute tab in studio to manage a compute instance.](./media/concept-compute-instance/manage-compute-instance.png)
+!Screenshot shows compute tab in studio to manage a compute instance.](./media/concept-compute-instance/manage-compute-instance.png)
 
 You can perform the following actions:
 
