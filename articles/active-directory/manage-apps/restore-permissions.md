@@ -54,7 +54,7 @@ Be cautious when granting permissions to apps. To learn more on how to evaluate 
 
 :::zone pivot="delegated-perms"
 
-### Delegated permissions
+### Restore delegated permissions
 
 ```powershell
 # WARNING: Setting $ForceGrantUpdate to true will modify permission grants without
@@ -235,6 +235,8 @@ if ($ForceGrantUpdate -eq $true) {
 
 :::zone pivot="app-perms"
 
+### Restore app-only permissions
+
 >[!NOTE]
 >Granting app-only Microsoft Graph permissions requires the global administrator role.
 
@@ -345,8 +347,3 @@ if ($ForceGrantUpdate -eq $true) {
 ```
 
 :::zone-end
-
-
-
-### Application permissions
-
