@@ -47,7 +47,7 @@ Numbers can be purchased on eligible Azure subscriptions and in geographies wher
 
 ## Next steps
 
-For more information about Azure Communication Services' telephony options please see the following pages:
+For more information about Azure Communication Services' telephony options, see the following pages
 
 - [Learn more about Telephony](../telephony/telephony-concept.md)
 - Get a Telephony capable [phone number](../../quickstarts/telephony/get-phone-number.md)
