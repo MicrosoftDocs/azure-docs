@@ -51,7 +51,7 @@ More details on eligible subscription types are as follows:
 
 \** Please refer to [SMS Concepts page](../sms/concepts.md) for supported destinations for this service.
 
-**Use the below drop-down to check the requirements for other countries**
+**Use the drop-down menu to check the requirements for other countries**
 > [!div class="op_single_selector"]
 >
 > - [Argentina](../numbers/phone-number-management-for-argentina.md)
