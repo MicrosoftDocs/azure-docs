@@ -1,7 +1,7 @@
 ---
 title: 'Bpsv2 Series (preview)' #Required; page title is displayed in search results. 60 characters max.
 description: Overview of Bpsv2 ARM series; this appears in search as the short description
-author:  iamwilliew.
+author:  iamwilliew
 ms.author:  wwilliams
 ms.service: virtual-machines 
 ms.subservice: sizes 
@@ -28,17 +28,17 @@ Bpsv2 VMs offer up to 16 vCPU and 64 GiB of RAM and are optimized for scale-out 
 [Nested Virtualization](/virtualization/hyper-v-on-windows/user-guide/nested-virtualization): Not Supported <br>
 <br> 
 
-| Size               | vCPU | RAM | Base CPU Performance of VM (%) | Max CPU Performance of VM (%) | Initial Credits (#) | Credits banked/hour | Max Banked Credits (#) | Max uncached disk throughput: IOPS/M8ps | Max burst uncached disk throughput: IOPS/MBps | Max Data Disks | Max Network Bandwidth (Gbps) up to | Max NICs |
-|--------------------|------|-----|--------------------------------|-------------------------------|---------------------|---------------------|------------------------|-----------------------------------------|-----------------------------------------------|----------------|------------------------------------|----------|
-| Standard_B2pts_v2  | 2    | 1   | 20%                            | 200%                          | 60                  | 24                  | 576                    | 3750/85                                 | 10,000/960                                    | 4              | 6.250                              | 2        |
-| Standard_B2pls_v2  | 2    | 4   | 30%                            | 200%                          | 60                  | 24                  | 576                    | 3750/85                                 | 10,000/960                                    | 4              | 6.250                              | 2        |
-| Standard_B2ps_v2   | 2    | 8   | 40%                            | 200%                          | 600                 | 24                  | 576                    | 3750/85                                 | 10,000/960                                    | 4              | 6.50                               | 2        |
-| Standard_B4pls_v2  | 4    | 8   | 60%                            | 400%                          | 120                 | 48                  | 1152                   | 6,400/145                               | 20,000/960                                    | 8              | 6.250                              | 2        |
-| Standard_B4ps_v2   | 4    | 16  | 80%                            | 400%                          | 120                 | 48                  | 1150                   | 6,400/145                               | 20,000/960                                    | 8              | 6.250                              | 2        |
-| Standard_B8pls_v2  | 8    | 16  | 120%                           | 800%                          | 240                 | 96                  | 2304                   | 12,800/290                              | 20,000/960                                    | 16             | 6.250                              | 2        |
-| Standard_B8ps_v2   | 8    | 32  | 160%                           | 800%                          | 240                 | 96                  | 2304                   | 12,800/290                              | 20,000/960                                    | 16             | 6.250                              | 2        |
-| Standard_B16pls_v2 | 16   | 32  | 240%                           | 1600%                         | 480                 | 192                 | 4608                   | 25,600/600                              | 40,000/960                                    | 32             | 6.250                              | 4        |
-| Standard_B16ps_v2  | 16   | 64  | 320%                           | 1600%                         | 480                 | 192                 | 4608                   | 25,600/600                              | 40,000/960                                    | 32             | 6.250                              | 4        |
+| Size               | vCPU | RAM | Base CPU Performance of VM (%) | Initial Credits (#) | Credits banked/hour | Max Banked Credits (#) | Max uncached disk throughput: IOPS/M8ps | Max burst uncached disk throughput: IOPS/MBps | Max Data Disks | Max Network Bandwidth (Gbps) | Max NICs |
+|--------------------|------|-----|--------------------------------|---------------------|---------------------|------------------------|-----------------------------------------|-----------------------------------------------|----------------|------------------------------|----------|
+| Standard_B2pts_v2  | 2    | 1   | 20%                            | 60                  | 24                  | 576                    | 3750/85                                 | 10,000/960                                    | 4              | 6.250                        | 2        |
+| Standard_B2pls_v2  | 2    | 4   | 30%                            | 60                  | 24                  | 576                    | 3750/85                                 | 10,000/960                                    | 4              | 6.50                         | 2        |
+| Standard_B2ps_v2   | 2    | 8   | 40%                            | 60                  | 24                  | 576                    | 3750/85                                 | 10,000/960                                    | 4              | 6.50                         | 2        |
+| Standard_B4pls_v2  | 4    | 8   | 30%                            | 120                 | 48                  | 1152                   | 6,400/145                               | 20,000/960                                    | 8              | 6.250                        | 2        |
+| Standard_B4ps_v2   | 4    | 16  | 40%                            | 120                 | 48                  | 1152                   | 6,400/145                               | 20,000/960                                    | 8              | 6.250                        | 2        |
+| Standard_B8pls_v2  | 8    | 16  | 30%                            | 240                 | 96                  | 2304                   | 12,800/290                              | 20,000/960                                    | 16             | 6.250                        | 2        |
+| Standard_B8ps_v2   | 8    | 32  | 40%                            | 240                 | 96                  | 2304                   | 12,800/290                              | 20,000/960                                    | 16             | 6.250                        | 2        |
+| Standard_B16pls_v2 | 16   | 32  | 30%                            | 480                 | 192                 | 4608                   | 25,600/600                              | 40,000/960                                    | 32             | 6.250                        | 4        |
+| Standard_B16ps_v2  | 16   | 64  | 40%                            | 480                 | 192                 | 4608                   | 25,600/600                              | 40,000/960                                    | 32             | 6.250                        | 4        |
 
 <sup>*</sup> These IOPs values can be guaranteed by using [Gen2 VMs](generation-2.md)<br>
 <sup>1</sup> Accelerated networking is required and turned on by default on all Ddv5 virtual machines.<br>
