@@ -14,7 +14,7 @@ ms.custom: references_regions
 ---
 
 # Phone number management for Canada
-Use the below tables to find all the relevenat information on number availability, eligibility and restrictions for phone numebrs in Canada.
+Use the below tables to find all the relevant information on number availability, eligibility and restrictions for phone numebrs in Canada.
 
 ## Subscription eligibility
 
@@ -27,7 +27,7 @@ More details on eligible subscription types are as follows:
 | Toll-Free and Local (Geographic) | Modern Customer Agreement (Field and Customer Led), Modern Partner Agreement (CSP), Enterprise Agreement*, Pay-As-You-Go |
 | Short-Codes                      | Modern Customer Agreement (Field Led), Enterprise Agreement**, Pay-As-You-Go                                      |
 
-\* In some countries/regions, number purchases are only allowed for own use. Reselling or suballcoating to another parties isn't allowed. Due to this restriction, purchases for CSP and LSP customers is not allowed.
+\* In some countries/regions, number purchases are only allowed for own use. Reselling or suballcoating to another parties isn't allowed. Due to this restriction, purchases for CSP and LSP customers aren't allowed.
 
 \** Applications from all other subscription types are reviewed and approved on a case-by-case basis. Reach out to acstns@microsoft.com for assistance with your application.
 
