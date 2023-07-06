@@ -571,15 +571,19 @@ items:
         href: containers/container-insights-troubleshoot.md
   - name: Monitor networks
     items:
-    - name: Overview
-      displayName: Network Insights, Network
-      href: ../network-watcher/network-insights-overview.md
-    - name: Topology
-      displayName: Network Insights, Network
-      href: ../network-watcher/network-insights-topology.md
-    - name: Troubleshooting
-      displayName: Network Insights, Network
-      href: ../network-watcher/network-insights-troubleshooting.md 
+    - name: Network Watcher
+      href: ../network-watcher/network-watcher-monitoring-overview.md
+    - name: Network Insights
+      items:
+      - name: Overview
+        displayName: Network Insights, Network
+        href: ../network-watcher/network-insights-overview.md
+      - name: Topology
+        displayName: Network Insights, Network
+        href: ../network-watcher/network-insights-topology.md
+      - name: Troubleshooting
+        displayName: Network Insights, Network
+        href: ../network-watcher/network-insights-troubleshooting.md
   - name: Monitor Azure Monitor
     href: monitor-azure-monitor.md
 - name: Data sources
