@@ -286,9 +286,9 @@ items:
       href: how-to-enable-redundancy-and-disaster-recovery.md
   - name: Troubleshoot
     items:
-    - name: Self diagnose and solve problems
+    - name: Self-diagnose and solve problems
       href: how-to-self-diagnose-solve.md
-    - name: Self diagnose running in virtual networks
+    - name: Self-diagnose running in virtual networks
       href: how-to-self-diagnose-running-in-vnet.md
     - name: Troubleshoot common issues
       href: troubleshoot.md
