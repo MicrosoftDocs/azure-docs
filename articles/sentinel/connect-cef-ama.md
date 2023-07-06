@@ -383,11 +383,25 @@ This example collects events for:
         logger -p local4.warn -P 514 -n 127.0.0.1 --rfc3164 -t CEF "0|Mock-test|MOCK|common=event-format-test|end|TRAFFIC|1|rt=$common=event-formatted-receive_time"
         ```    
 
-1. To verify that the connector is installed correctly, run the troubleshooting script with this command:
+1. To verify that the connector is installed correctly, run the troubleshooting script with one of these commands:
 
-    ```
-    sudo wget -O Sentinel_AMA_troubleshoot.py https://raw.githubusercontent.com/Azure/Azure-Sentinel/master/DataConnectors/Syslog/Sentinel_AMA_troubleshoot.py&&sudo python Sentinel_AMA_troubleshoot.py
-    ```
+    - For CEF logs, run:
+        
+        ```python
+         sudo wget -O Sentinel_AMA_troubleshoot.py https://raw.githubusercontent.com/Azure/Azure-Sentinel/master/DataConnectors/Syslog/Sentinel_AMA_troubleshoot.py&&sudo python Sentinel_AMA_troubleshoot.py --cef
+        ```
+
+    - For Cisco Adaptive Security Appliance (ASA) logs, run:
+
+        ```python
+        sudo wget -O Sentinel_AMA_troubleshoot.py https://raw.githubusercontent.com/Azure/Azure-Sentinel/master/DataConnectors/Syslog/Sentinel_AMA_troubleshoot.py&&sudo python Sentinel_AMA_troubleshoot.py --asa
+        ```
+ 
+    - For Cisco Firepower Threat Defense (FTD) logs, run:
+    
+        ```python
+        sudo wget -O Sentinel_AMA_troubleshoot.py https://raw.githubusercontent.com/Azure/Azure-Sentinel/master/DataConnectors/Syslog/Sentinel_AMA_troubleshoot.py&&sudo python Sentinel_AMA_troubleshoot.py --ftd
+        ```
 
 ## Next steps
 
