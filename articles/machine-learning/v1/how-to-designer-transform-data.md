@@ -161,7 +161,7 @@ After the pipeline finishes running, you can navigate to your Azure portal blob 
 
 To continue with part two of this [Retrain models with Azure Machine Learning designer](how-to-retrain-designer.md) how-to, skip this section.
 
-[!INCLUDE [aml-ui-cleanup](../../../includes/aml-ui-cleanup.md)]
+[!INCLUDE [aml-ui-cleanup](../includes/aml-ui-cleanup.md)]
 
 ## Next steps
 

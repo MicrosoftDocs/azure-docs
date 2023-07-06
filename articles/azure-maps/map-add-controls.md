@@ -11,7 +11,7 @@ ms.custom:
 
 # Add controls to a map
 
-This article shows you how to add controls to a map. You'll also learn how to create a map with all controls and a [style picker].
+This article shows you how to add controls to a map, including how to create a map with all controls and a [style picker].
 
 ## Add zoom control
 
@@ -66,7 +66,7 @@ map.controls.add(new atlas.control.CompassControl(), {
 
 ## A Map with all controls
 
-Multiple controls can be put into an array and added to the map all at once and positioned in the same area of the map to simplify development. The following adds the standard navigation controls to the map using this approach.
+Multiple controls can be put into an array and added to the map all at once and positioned in the same area of the map to simplify development. The following code snippet adds the standard navigation controls to the map using this approach.
 
 ```javascript
 map.controls.add([
