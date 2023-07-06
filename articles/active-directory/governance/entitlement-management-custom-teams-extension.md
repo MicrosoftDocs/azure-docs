@@ -52,6 +52,7 @@ To create a Logic App and custom extension in a catalog, you'd follow these step
 1. Select the **Extension Type** as “**Request workflow**” to correspond with the policy stage of the access package requested being created, when the request is approved, when assignment is granted, and when assignment is removed.
    > [!NOTE]
    > Another custom extension can be created for the **Pre-Expiration workflow**.
+    
     :::image type="content" source="media/entitlement-management-servicenow-integration/entitlement-management-create-custom-extension.png" alt-text="Screenshot of creating a custom extension for entitlement management." lightbox="media/entitlement-management-servicenow-integration/entitlement-management-create-custom-extension.png":::
 1. Under Extension Configuration, select “**Launch and continue**”, which will ensure that Entitlement Management continues after this workflow is triggered.
     :::image type="content" source="media/entitlement-management-servicenow-integration/entitlement-management-custom-extension-behavior.png" alt-text="Screenshot of entitlement management custom extension behavior actions tab." lightbox="media/entitlement-management-servicenow-integration/entitlement-management-custom-extension-behavior.png":::
@@ -135,8 +136,6 @@ After setting up custom extensibility in the catalog, administrators can create 
 To validate successful integration with Microsoft Teams, you'd add or remove a user to the access package created in the section [Add Custom Extension to a new Access Package](entitlement-management-custom-teams-extension.md#add-custom-extension-to-a-new-access-package). The user receives a notification on Microsoft Teams from **Power Automate**.
 
 ## Next step
-
-TODO: Add your next step link(s)
 
 > [!div class="nextstepaction"]
 > [Configure verified ID settings for an access package in entitlement management](entitlement-management-verified-id-settings.md)
