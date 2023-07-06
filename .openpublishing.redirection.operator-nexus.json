@@ -3,7 +3,7 @@
       {
         "source_path_from_root": "/articles/operator-nexus/howto-monitor-aks-h-cluster.md",
         "redirect_url": "/articles/operator-nexus/howto-monitor-naks-cluster.md",
-        "redirect_document_id": true
+        "redirect_document_id": false
       }  
     ]
   }
