@@ -1,6 +1,6 @@
 ---
 title: Set up staging environments
-description: Learn how to deploy apps to a non-production slot and autoswap into production. Increase the reliability and eliminate app downtime from deployments.
+description: Learn how to deploy apps to a nonproduction slot and autoswap into production. Increase the reliability and eliminate app downtime from deployments.
 
 ms.assetid: e224fc4f-800d-469a-8d6a-72bcde612450
 ms.topic: article
@@ -13,7 +13,7 @@ ms.custom: fasttrack-edit, devx-track-azurepowershell
 
 When you deploy your web app, web app on Linux, mobile back end, or API app to [Azure App Service](./overview.md), you can use a separate deployment slot instead of the default production slot when you're running in the **Standard**, **Premium**, or **Isolated** App Service plan tier. Deployment slots are live apps with their own host names. App content and configurations elements can be swapped between two deployment slots, including the production slot. 
 
-Deploying your application to a non-production slot has the following benefits:
+Deploying your application to a nonproduction slot has the following benefits:
 
 * You can validate app changes in a staging deployment slot before swapping it with the production slot.
 * Deploying an app to a slot first and swapping it into production makes sure that all instances of the slot are warmed up before being swapped into production. This eliminates downtime when you deploy your app. The traffic redirection is seamless, and no requests are dropped because of swap operations. You can automate this entire workflow by configuring [auto swap](#Auto-Swap) when pre-swap validation isn't needed.
@@ -32,7 +32,7 @@ For information on the permissions you need to perform the slot operation you wa
 ## Add a slot
 The app must be running in the **Standard**, **Premium**, or **Isolated** tier in order for you to enable multiple deployment slots.
 
-# [Azure Portal](#tab/portal)
+# [Azure portal](#tab/portal)
 
 1. In the [Azure portal](https://portal.azure.com), navigate to your app's management page.
 
@@ -124,7 +124,7 @@ At any point of the swap operation, all work of initializing the swapped apps ha
 
 [!INCLUDE [app-service-deployment-slots-settings](../../includes/app-service-deployment-slots-settings.md)]
 
-To configure an app setting or connection string to stick to a specific slot (not swapped), go to the **Configuration** page for that slot. Add or edit a setting, and then select **deployment slot setting**. Selecting this check box tells App Service that the setting is not swappable. 
+To configure an app setting or connection string to stick to a specific slot (not swapped), go to the **Configuration** page for that slot. Add or edit a setting, and then select **deployment slot setting**. Selecting this check box tells App Service that the setting isn't swappable. 
 
 ![Slot setting](./media/web-sites-staged-publishing/SlotSetting.png)
 
@@ -140,7 +140,7 @@ You can swap deployment slots on your app's **Deployment slots** page and the **
 
 To swap deployment slots:
 
-# [Azure Portal](#tab/portal)
+# [Azure portal](#tab/portal)
 
 1. Go to your app's **Deployment slots** page and select **Swap**.
    
@@ -194,7 +194,7 @@ If you cancel the swap, App Service reapplies configuration elements to the sour
 > Swap with preview can't be used when one of the slots has site authentication enabled.
 > 
 
-# [Azure Portal](#tab/portal)
+# [Azure portal](#tab/portal)
 
 To swap with preview:
 
@@ -277,10 +277,10 @@ If any errors occur in the target slot (for example, the production slot) after 
 Auto swap streamlines Azure DevOps scenarios where you want to deploy your app continuously with zero cold starts and zero downtime for customers of the app. When auto swap is enabled from a slot into production, every time you push your code changes to that slot, App Service automatically [swaps the app into production](#swap-operation-steps) after it's warmed up in the source slot.
 
    > [!NOTE]
-   > Before you configure auto swap for the production slot, consider testing auto swap on a non-production target slot.
+   > Before you configure auto swap for the production slot, consider testing auto swap on a nonproduction target slot.
    > 
 
-# [Azure Portal](#tab/portal)
+# [Azure portal](#tab/portal)
 
 To configure auto swap:
 
@@ -352,7 +352,7 @@ If you have any problems, see [Troubleshoot swaps](#troubleshoot-swaps).
 
 If the [swap operation](#AboutConfiguration) takes a long time to complete, you can get information on the swap operation in the [activity log](../azure-monitor/essentials/platform-logs-overview.md).
 
-# [Azure Portal](#tab/portal)
+# [Azure portal](#tab/portal)
 
 On your app's resource page in the portal, in the left pane, select **Activity log**.
 
@@ -385,7 +385,7 @@ For more information, see [Get-AzLog](/powershell/module/az.monitor/get-azlog).
 
 By default, all client requests to the app's production URL (`http://<app_name>.azurewebsites.net`) are routed to the production slot. You can route a portion of the traffic to another slot. This feature is useful if you need user feedback for a new update, but you're not ready to release it to production.
 
-# [Azure Portal](#tab/portal)
+# [Azure portal](#tab/portal)
 
 To route production traffic automatically:
 
@@ -395,7 +395,7 @@ To route production traffic automatically:
 
     ![Setting a traffic percentage](./media/web-sites-staged-publishing/RouteTraffic.png)
 
-After the setting is saved, the specified percentage of clients is randomly routed to the non-production slot. 
+After the setting is saved, the specified percentage of clients is randomly routed to the nonproduction slot. 
 
 # [Azure CLI](#tab/cli)
 
@@ -433,7 +433,7 @@ To let users opt out of your beta app, for example, you can put this link on you
 
 The string `x-ms-routing-name=self` specifies the production slot. After the client browser accesses the link, it's redirected to the production slot. Every subsequent request has the `x-ms-routing-name=self` cookie that pins the session to the production slot.
 
-To let users opt in to your beta app, set the same query parameter to the name of the non-production slot. Here's an example:
+To let users opt in to your beta app, set the same query parameter to the name of the nonproduction slot. Here's an example:
 
 ```
 <webappname>.azurewebsites.net/?x-ms-routing-name=staging
@@ -445,7 +445,7 @@ By default, new slots are given a routing rule of `0%`, shown in grey. When you 
 
 ## Delete a slot
 
-# [Azure Portal](#tab/portal)
+# [Azure portal](#tab/portal)
 
 Search for and select your app. Select **Deployment slots** > *\<slot to delete>* > **Overview**. The app type is shown as **App Service (Slot)** to remind you that you're viewing a deployment slot. Before deleting a slot, make sure to stop the slot and set the traffic in the slot to zero.  Select **Delete** on the command bar.  
 
@@ -539,7 +539,7 @@ If any error occurs during a [slot swap](#AboutConfiguration), it's logged in *D
 
 Here are some common swap errors:
 
-- An HTTP request to the application root is timed. The swap operation waits for 90 seconds for each HTTP request, and retries up to 5 times. If all retries are timed out, the swap operation is stopped.
+- An HTTP request to the application root is timed. The swap operation waits for 90 seconds for each HTTP request, and retries up to five times. If all retries are timed out, the swap operation is stopped.
 
 - Local cache initialization might fail when the app content exceeds the local disk quota specified for the local cache. For more information, see [Local cache overview](overview-local-cache.md).
 
@@ -564,4 +564,4 @@ Here are some common swap errors:
 - After slot swaps, the app may experience unexpected restarts. This is because after a swap, the hostname binding configuration goes out of sync, which by itself doesn't cause restarts. However, certain underlying storage events (such as storage volume failovers) may detect these discrepancies and force all worker processes to restart. To minimize these types of restarts, set the [`WEBSITE_ADD_SITENAME_BINDINGS_IN_APPHOST_CONFIG=1` app setting](https://github.com/projectkudu/kudu/wiki/Configurable-settings#disable-the-generation-of-bindings-in-applicationhostconfig) on *all slots*. However, this app setting does *not* work with Windows Communication Foundation (WCF) apps.
 
 ## Next steps
-[Block access to non-production slots](app-service-ip-restrictions.md)
+[Block access to nonproduction slots](app-service-ip-restrictions.md)
