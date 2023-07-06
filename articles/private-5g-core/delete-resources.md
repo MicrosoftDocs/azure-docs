@@ -52,7 +52,7 @@ The Azure Kubernetes Service (AKS) cluster is an orchestration layer used to man
 
 ## Reset ASE
 
- Azure Stack Edge (ASE) hardware runs the packet core software at the network edge. To reset your ASE device, follow [Reset and reactivate your Azure Stack Edge device](https://learn.microsoft.com/azure/databox-online/azure-stack-edge-reset-reactivate-device)
+ Azure Stack Edge (ASE) hardware runs the packet core software at the network edge. To reset your ASE device, follow [Reset and reactivate your Azure Stack Edge device](https://learn.microsoft.com/azure/databox-online/azure-stack-edge-reset-reactivate-device).
 
 ## Next steps
 
