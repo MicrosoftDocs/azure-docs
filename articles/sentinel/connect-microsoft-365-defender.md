@@ -43,9 +43,9 @@ The  **Configuration** section has three parts:
 
 1. [**Connect incidents and alerts**](#connect-incidents-and-alerts) enables the basic integration between Microsoft 365 Defender and Microsoft Sentinel, synchronizing incidents and their alerts between the two platforms.
 
-1. [**Connect entities**](#connect-entities-from-on-premises-active-directory) enables the integration of on-premises Active Directory user identities into Microsoft Sentinel through Microsoft Defender for Identity.
+1. [**Connect entities**](#connect-entities) enables the integration of on-premises Active Directory user identities into Microsoft Sentinel through Microsoft Defender for Identity.
 
-1. [**Connect events**](#connect-raw-events-from-microsoft-365-defender-components) enables the collection of raw advanced hunting events from Defender components.
+1. [**Connect events**](#connect-events) enables the collection of raw advanced hunting events from Defender components.
 
 These are explained in greater detail below. See [Microsoft 365 Defender integration with Microsoft Sentinel](microsoft-365-defender-sentinel-integration.md) for more information.
 
@@ -53,9 +53,8 @@ These are explained in greater detail below. See [Microsoft 365 Defender integra
 
 To ingest and synchronize Microsoft 365 Defender incidents, with all their alerts, to your Microsoft Sentinel incidents queue:
 
-1. Mark the check box labeled **Turn off all Microsoft incident creation rules for these products. Recommended**, to avoid duplication of incidents.
-
-    (This check box will not appear once the Microsoft 365 Defender connector is connected.)
+1. Mark the check box labeled **Turn off all Microsoft incident creation rules for these products. Recommended**, to avoid duplication of incidents.  
+(This check box will not appear once the Microsoft 365 Defender connector is connected.)
 
 1. Select the **Connect incidents & alerts** button.
 
@@ -70,7 +69,7 @@ SecurityIncident
 | where ProviderName == "Microsoft 365 Defender"
 ```
 
-### Connect entities from on-premises Active Directory
+### Connect entities
 
 Use Microsoft Defender for Identity to sync user entities from your on-premises Active Directory to Microsoft Sentinel.
 
@@ -84,63 +83,63 @@ Verify that you've satisfied the [prerequisites](#prerequisites-for-active-direc
 
     :::image type="content" source="media/connect-microsoft-365-defender/ueba-configuration-page.png" alt-text="Screenshot of UEBA configuration page for connecting user entities to Sentinel.":::
 
-### Connect raw events from Microsoft 365 Defender components
+### Connect events
 
-1. If you want to collect advanced hunting events from Microsoft Defender for Endpoint or Microsoft Defender for Office 365, the following types of events can be collected from their corresponding advanced hunting tables.
+If you want to collect advanced hunting events from Microsoft Defender for Endpoint or Microsoft Defender for Office 365, the following types of events can be collected from their corresponding advanced hunting tables.
 
-    1. Mark the check boxes of the tables with the event types you wish to collect:
+1. Mark the check boxes of the tables with the event types you wish to collect:
 
-       # [Defender for Endpoint](#tab/MDE)
+   # [Defender for Endpoint](#tab/MDE)
 
-       | Table name | Events type |
-       |-|-|
-       | **[DeviceInfo](/microsoft-365/security/defender/advanced-hunting-deviceinfo-table)** | Machine information, including OS information |
-       | **[DeviceNetworkInfo](/microsoft-365/security/defender/advanced-hunting-devicenetworkinfo-table)** | Network properties of devices, including physical adapters, IP and MAC addresses, as well as connected networks and domains |
-       | **[DeviceProcessEvents](/microsoft-365/security/defender/advanced-hunting-deviceprocessevents-table)** | Process creation and related events |
-       | **[DeviceNetworkEvents](/microsoft-365/security/defender/advanced-hunting-devicenetworkevents-table)** | Network connection and related events |
-       | **[DeviceFileEvents](/microsoft-365/security/defender/advanced-hunting-devicefileevents-table)** | File creation, modification, and other file system events |
-       | **[DeviceRegistryEvents](/microsoft-365/security/defender/advanced-hunting-deviceregistryevents-table)** | Creation and modification of registry entries |
-       | **[DeviceLogonEvents](/microsoft-365/security/defender/advanced-hunting-devicelogonevents-table)** | Sign-ins and other authentication events on devices |
-       | **[DeviceImageLoadEvents](/microsoft-365/security/defender/advanced-hunting-deviceimageloadevents-table)** | DLL loading events |
-       | **[DeviceEvents](/microsoft-365/security/defender/advanced-hunting-deviceevents-table)** | Multiple event types, including events triggered by security controls such as Windows Defender Antivirus and exploit protection |
-       | **[DeviceFileCertificateInfo](/microsoft-365/security/defender/advanced-hunting-DeviceFileCertificateInfo-table)** | Certificate information of signed files obtained from certificate verification events on endpoints |
+   | Table name | Events type |
+   |-|-|
+   | **[DeviceInfo](/microsoft-365/security/defender/advanced-hunting-deviceinfo-table)** | Machine information, including OS information |
+   | **[DeviceNetworkInfo](/microsoft-365/security/defender/advanced-hunting-devicenetworkinfo-table)** | Network properties of devices, including physical adapters, IP and MAC addresses, as well as connected networks and domains |
+   | **[DeviceProcessEvents](/microsoft-365/security/defender/advanced-hunting-deviceprocessevents-table)** | Process creation and related events |
+   | **[DeviceNetworkEvents](/microsoft-365/security/defender/advanced-hunting-devicenetworkevents-table)** | Network connection and related events |
+   | **[DeviceFileEvents](/microsoft-365/security/defender/advanced-hunting-devicefileevents-table)** | File creation, modification, and other file system events |
+   | **[DeviceRegistryEvents](/microsoft-365/security/defender/advanced-hunting-deviceregistryevents-table)** | Creation and modification of registry entries |
+   | **[DeviceLogonEvents](/microsoft-365/security/defender/advanced-hunting-devicelogonevents-table)** | Sign-ins and other authentication events on devices |
+   | **[DeviceImageLoadEvents](/microsoft-365/security/defender/advanced-hunting-deviceimageloadevents-table)** | DLL loading events |
+   | **[DeviceEvents](/microsoft-365/security/defender/advanced-hunting-deviceevents-table)** | Multiple event types, including events triggered by security controls such as Windows Defender Antivirus and exploit protection |
+   | **[DeviceFileCertificateInfo](/microsoft-365/security/defender/advanced-hunting-DeviceFileCertificateInfo-table)** | Certificate information of signed files obtained from certificate verification events on endpoints |
 
-       # [Defender for Office 365](#tab/MDO)
+   # [Defender for Office 365](#tab/MDO)
 
-       | Table name | Events type |
-       |-|-|
-       | **[EmailAttachmentInfo](/microsoft-365/security/defender/advanced-hunting-emailattachmentinfo-table)** | Information about files attached to emails |
-       | **[EmailEvents](/microsoft-365/security/defender/advanced-hunting-emailevents-table)** | Microsoft 365 email events, including email delivery and blocking events |
-       | **[EmailPostDeliveryEvents](/microsoft-365/security/defender/advanced-hunting-emailpostdeliveryevents-table)** | Security events that occur post-delivery, after Microsoft 365 has delivered the emails to the recipient mailbox |
-       | **[EmailUrlInfo](/microsoft-365/security/defender/advanced-hunting-emailurlinfo-table)** | Information about URLs on emails |
+   | Table name | Events type |
+   |-|-|
+   | **[EmailAttachmentInfo](/microsoft-365/security/defender/advanced-hunting-emailattachmentinfo-table)** | Information about files attached to emails |
+   | **[EmailEvents](/microsoft-365/security/defender/advanced-hunting-emailevents-table)** | Microsoft 365 email events, including email delivery and blocking events |
+   | **[EmailPostDeliveryEvents](/microsoft-365/security/defender/advanced-hunting-emailpostdeliveryevents-table)** | Security events that occur post-delivery, after Microsoft 365 has delivered the emails to the recipient mailbox |
+   | **[EmailUrlInfo](/microsoft-365/security/defender/advanced-hunting-emailurlinfo-table)** | Information about URLs on emails |
 
-       # [Defender for Identity](#tab/MDI)
+   # [Defender for Identity](#tab/MDI)
 
-       | Table name | Events type |
-       |-|-|
-       | **[IdentityDirectoryEvents](/microsoft-365/security/defender/advanced-hunting-identitydirectoryevents-table)** | Various identity-related events, like password changes, password expirations, and user principal name (UPN) changes, captured from an on-premises Active Directory domain controller<br><br>Also includes system events on the domain controller |
-       | **[IdentityInfo](/microsoft-365/security/defender/advanced-hunting-identityinfo-table)** | Information about user accounts obtained from various services, including Azure Active Directory |
-       | **[IdentityLogonEvents](/microsoft-365/security/defender/advanced-hunting-identitylogonevents-table)** | Authentication activities made through your on-premises Active Directory, as captured by Microsoft Defender for Identity <br><br>Authentication activities related to Microsoft online services, as captured by Microsoft Defender for Cloud Apps |
-       | **[IdentityQueryEvents](/microsoft-365/security/defender/advanced-hunting-identityqueryevents-table)** | Information about queries performed against Active Directory objects such as users, groups, devices, and domains |
+   | Table name | Events type |
+   |-|-|
+   | **[IdentityDirectoryEvents](/microsoft-365/security/defender/advanced-hunting-identitydirectoryevents-table)** | Various identity-related events, like password changes, password expirations, and user principal name (UPN) changes, captured from an on-premises Active Directory domain controller<br><br>Also includes system events on the domain controller |
+   | **[IdentityInfo](/microsoft-365/security/defender/advanced-hunting-identityinfo-table)** | Information about user accounts obtained from various services, including Azure Active Directory |
+   | **[IdentityLogonEvents](/microsoft-365/security/defender/advanced-hunting-identitylogonevents-table)** | Authentication activities made through your on-premises Active Directory, as captured by Microsoft Defender for Identity <br><br>Authentication activities related to Microsoft online services, as captured by Microsoft Defender for Cloud Apps |
+   | **[IdentityQueryEvents](/microsoft-365/security/defender/advanced-hunting-identityqueryevents-table)** | Information about queries performed against Active Directory objects such as users, groups, devices, and domains |
 
-       # [Defender for Cloud Apps](#tab/MDCA)
+   # [Defender for Cloud Apps](#tab/MDCA)
 
-       | Table name | Events type |
-       |-|-|
-       | **[CloudAppEvents](/microsoft-365/security/defender/advanced-hunting-cloudappevents-table)** | Information about activities in various cloud apps and services covered by Microsoft Defender for Cloud Apps |
+   | Table name | Events type |
+   |-|-|
+   | **[CloudAppEvents](/microsoft-365/security/defender/advanced-hunting-cloudappevents-table)** | Information about activities in various cloud apps and services covered by Microsoft Defender for Cloud Apps |
 
-       # [Defender alerts](#tab/MDA)
+   # [Defender alerts](#tab/MDA)
 
-       | Table name | Events type |
-       |-|-|
-       | **[AlertInfo](/microsoft-365/security/defender/advanced-hunting-alertinfo-table)** | Information about alerts from Microsoft 365 Defender components |
-       | **[AlertEvidence](/microsoft-365/security/defender/advanced-hunting-alertevidence-table)** | Information about various entities - files, IP addresses, URLs, users, devices - associated with alerts from Microsoft 365 Defender components |
+   | Table name | Events type |
+   |-|-|
+   | **[AlertInfo](/microsoft-365/security/defender/advanced-hunting-alertinfo-table)** | Information about alerts from Microsoft 365 Defender components |
+   | **[AlertEvidence](/microsoft-365/security/defender/advanced-hunting-alertevidence-table)** | Information about various entities - files, IP addresses, URLs, users, devices - associated with alerts from Microsoft 365 Defender components |
 
-       ---
+   ---
 
-    1. Click **Apply Changes**.
+1. Click **Apply Changes**.
 
-    1. To query the advanced hunting tables in Log Analytics, enter the table name from the list above in the query window.
+1. To query the advanced hunting tables in Log Analytics, enter the table name from the list above in the query window.
 
 ## Verify data ingestion
 
@@ -187,4 +186,5 @@ In this document, you learned how to integrate Microsoft 365 Defender incidents,
 
 - Learn how to [get visibility into your data, and potential threats](get-visibility.md).
 - Get started [detecting threats with Microsoft Sentinel](./detect-threats-built-in.md).
+
 
