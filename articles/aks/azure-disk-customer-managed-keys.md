@@ -115,16 +115,29 @@ az keyvault set-policy -n myKeyVaultName -g myResourceGroup --object-id $desIden
 
 ## Create a new AKS cluster and encrypt the OS disk
 
-Either create a new resource group, or select an existing resource group hosting other AKS clusters, then use your key to encrypt the ephemeral OS disk. By default, a cluster uses ephemeral OS disk when possible in conjunction with VM size and OS disk size.
+Either create a new resource group, or select an existing resource group hosting other AKS clusters, then use your key to encrypt the either using network-attached OS disks or ephemeral OS disk. By default, a cluster uses ephemeral OS disk when possible in conjunction with VM size and OS disk size.  
+
+Run the following command to retrieve the DiskEncryptionSet value and set a variable:
 
 ```azurecli-interactive
-# Retrieve the DiskEncryptionSet value and set a variable
 diskEncryptionSetId=$(az disk-encryption-set show -n mydiskEncryptionSetName -g myResourceGroup --query "[id]" -o tsv)
+```
 
-# Create a resource group for the AKS cluster
+If you want to create a new resource group for the cluster, run the following command:
+
+```azurecli-interactive
 az group create -n myResourceGroup -l myAzureRegionName
+```
 
-# Create the AKS cluster
+If you want to create a regular cluster using network-attached OS disks, you can do so by specifying the `--node-osdisk-type=Managed` argument.
+
+```azurecli-interactive
+az aks create -n myAKSCluster -g myResourceGroup --node-osdisk-diskencryptionset-id $diskEncryptionSetId --generate-ssh-keys --node-osdisk-type Managed
+```
+
+To create a cluster with ephemeral OS disk, you can do so by specifying the `--node-osdisk-type=Ephemeral` argument.
+
+```azurecli-interactive
 az aks create -n myAKSCluster -g myResourceGroup --node-osdisk-diskencryptionset-id $diskEncryptionSetId --generate-ssh-keys --node-osdisk-type Ephemeral
 ```
 
