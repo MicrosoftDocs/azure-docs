@@ -48,7 +48,7 @@ To create and work with datasets, you need:
 
 * The [Azure Machine Learning SDK for Python installed](/python/api/overview/azure/ml/install), which includes the azureml-datasets package.
 
-    * Create an [Azure Machine Learning compute instance](how-to-create-manage-compute-instance.md), which is a fully configured and managed development environment that includes integrated notebooks and the SDK already installed.
+    * Create an [Azure Machine Learning compute instance](how-to-create-compute-instance.md), which is a fully configured and managed development environment that includes integrated notebooks and the SDK already installed.
 
     **OR**
 
