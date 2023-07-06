@@ -37,7 +37,7 @@
 - name: Reference
   items:
   - name: Azure CLI
-    href: /cli/azure/network/traffic-controller
+    href: /cli/azure/network/alb
   - name: Azure PowerShell
     href: /powershell/azure/
   - name: .NET
@@ -47,7 +47,7 @@
   - name: Python
     href: https://azure.microsoft.com/develop/python/
   - name: REST
-    href: /rest/api/traffic-controller/traffic-controllers
+    href: /rest/api?view=Azure
   - name: Azure Resource Manager
     displayName: ARM
     href: ../../azure-resource-manager/management/overview.md
