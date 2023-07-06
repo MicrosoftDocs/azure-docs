@@ -21,6 +21,8 @@ To reuse the Spring Apps instance creation steps in other articles, a separate m
 
 1. Fill out the **Basics** form with the following information:
 
+   Use the following table as a guide for completing the form, the recommended **Plan** is `Basic`.
+
    :::image type="content" source="../../media/quickstart/2-create-basics.png" alt-text="Create an Azure Spring Apps service":::
 
    | Setting        |Suggested Value|Description|
