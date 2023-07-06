@@ -1643,7 +1643,7 @@ productDirectory:
       url: /azure/iot/
     # Card
     - title: Windows for IoT
-      summary: Windows for IoT, formerly Windows Embedded, is a family of operating systems from Microsoft designed for use in embedded systems
+      summary: Build intelligent edge solutions with world-class developer tools, long-term support, and enterprise-grade security
       imageSrc: https://static.docs.com/ui/media/product/azure/azure.svg
       azureCategories:
        - iot
