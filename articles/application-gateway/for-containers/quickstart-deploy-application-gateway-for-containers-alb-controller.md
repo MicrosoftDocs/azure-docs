@@ -1,8 +1,8 @@
----
+ep---
 
-title: 'Quickstart: Create Application Gateway for Containers - Bring your own deployment'
+title: 'Quickstart: Deploy Application Gateway for Containers ALB Controller'
 titlesuffix: Azure Application Load Balancer
-description: In this quickstart, you learn how to provision Application Gateway for Containers in a bring your own configuration.
+description: In this quickstart, you learn how to provision the Application Gateway for Containers ALB Controller in an AKS cluster.
 services: application-gateway
 author: greglin
 ms.service: application-gateway
@@ -12,14 +12,9 @@ ms.date: 7/7/2023
 ms.author: greglin
 ---
 
-# Quickstart: Create an Application Gateway for Containers - Bring your own (BYO) deployment
+# Quickstart: Deploy Application Gateway for Containers ALB Controller
 
-This document provides instructions on how to deploy the 3 types of resources (Application Gateway for Containers, Association, and Frontend) needed for Application Gateway for Containers to work with your AKS workload, and how to install ALB Controller on your AKS cluster to control the behavior of the Application Gateway for Containers.
-
-The guide assumes you are following a "Bring your own (BYO)" deployment strategy.
-
-In this deployment strategy, deployment and lifecycle of the Application Gateway for Containers resource, Association and Frontend resource is assumed to have already been created via Azure Portal, CLI, PowerShell, Terraform, etc. and will be referenced in configuration within Kubernetes.
-- **In Gateway API:** Every time you wish to create a new Gateway object in Kuberenetes, a Frontend resource should be provisioned in Azure prior and referenced by the Gateway object. Deletion of the Frontend resource is responsible by the Azure administrator and will not be deleted when the Gateway object in Kubernetes is deleted.
+ALB Controller is responsible for translating Gateway API and Ingress API configuration within Kubernetes to load balancing rules within Application Gateway for Containers.  The following guide will walk through the steps needed to provision ALB Controller into a new or existing AKS cluster.
 
 ## Prerequisites
 
