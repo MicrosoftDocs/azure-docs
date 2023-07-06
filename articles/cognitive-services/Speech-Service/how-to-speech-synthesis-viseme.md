@@ -18,7 +18,7 @@ zone_pivot_groups: programming-languages-speech-services-nomore-variant
 # Get facial position with viseme
 
 > [!NOTE]
-> To explore the locales supported for Viseme ID and blend shapes, refer to [the list of all supported locales](language-support.md?tabs=tts). Scalable Vector Graphics (SVG) is only supported for the `en-US` locale.
+> To explore the locales supported for Viseme ID and blend shapes, refer to [the list of all supported locales](language-support.md?tabs=tts#viseme). Scalable Vector Graphics (SVG) is only supported for the `en-US` locale.
 
 A *viseme* is the visual description of a phoneme in spoken language. It defines the position of the face and mouth while a person is speaking. Each viseme depicts the key facial poses for a specific set of phonemes.
 
