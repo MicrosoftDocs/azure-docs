@@ -40,14 +40,15 @@ Currently, Azure Spring Apps supports the following APM types:
 
 Azure Spring Apps supports CA certificates for all language family buildpacks, but not all supported APMs. The following table shows the binding types supported by Tanzu language family buildpacks.
 
-| Buildpack   | ApplicationInsights | New Relic | AppDynamics | Dynatrace | ElasticAPM |
-|-------------|---------------------|-----------|-------------|-----------|------------|
-| Java        | ✔                  | ✔         | ✔          | ✔         | ✔         |
-| Dotnet      |                     | ✔         |             | ✔        |            |
-| Go          |                     |           |             | ✔        |            |
-| Python      |                     |           |             |           |            |
-| NodeJS      |                     | ✔        | ✔           | ✔        | ✔          |
-| Web servers |                     |           |             | ✔        |            |
+| Buildpack         | ApplicationInsights | New Relic | AppDynamics | Dynatrace | ElasticAPM |
+|-------------------|---------------------|-----------|-------------|-----------|------------|
+| Java              | ✔                  | ✔         | ✔          | ✔         | ✔         |
+| Dotnet            |                     | ✔         |             | ✔        |            |
+| Go                |                     |           |             | ✔        |            |
+| Python            |                     |           |             |           |            |
+| NodeJS            |                     | ✔        | ✔           | ✔        | ✔          |
+| Web servers       |                     |           |             | ✔        |            |
+| Java Native Image |                     |           |             |           |            |
 
 For information about using Web servers, see [Deploy web static files](how-to-enterprise-deploy-static-file.md).
 
@@ -150,7 +151,7 @@ You can create an APM configuration and bind to app builds and deployments, as e
 You can manage APM integration by configuring properties or secrets in the APM configuration.
 
 > [!NOTE]
-> When configuring properties or secrets for APM, use key names without a prefix. For example, don't use a `DT_` prefix for a Dynatrace binding or `APPLICATIONINSIGHTS_` for Application Insights. Tanzu APM buildpacks will transform the key name to the original environment variable name with a prefix.
+> When configuring properties or secrets for APM, use key names without a prefix. For example, don't use a `DT_` prefix for a Dynatrace binding or `APPLICATIONINSIGHTS_` for Application Insights. Tanzu APM buildpacks transform the key name to the original environment variable name with a prefix.
 
 The following list shows you the Azure CLI commands you can use to manage APM configuration:
 
@@ -396,7 +397,7 @@ You can configure the CA certificates on the **Edit binding** page. The `succeed
 This section applies only to an Azure Spring Apps Enterprise service instance with the build service enabled. With the build service enabled, one buildpack binding means either credential configuration against one APM type, or CA certificates configuration against the CA certificates type. For APM integration, follow the earlier instructions to configure the necessary environment variables or secrets for your APM.
 
 > [!NOTE]
-> When configuring environment variables for APM bindings, use key names without a prefix. For example, do not use a `DT_` prefix for a Dynatrace binding or `APPLICATIONINSIGHTS_` for Application Insights. Tanzu APM buildpacks will transform the key name to the original environment variable name with a prefix.
+> When configuring environment variables for APM bindings, use key names without a prefix. For example, do not use a `DT_` prefix for a Dynatrace binding or `APPLICATIONINSIGHTS_` for Application Insights. Tanzu APM buildpacks transform the key name to the original environment variable name with a prefix.
 
 You can manage buildpack bindings with the Azure portal or the Azure CLI.
 
@@ -428,7 +429,7 @@ To use the **Unbind binding** command, select the **Bound** hyperlink, and then 
 
 To unbind a buildpack binding by editing binding properties, select **Edit Binding**, and then select **Unbind**.
 
-:::image type="content" source="media/how-to-enterprise-configure-apm-integration-and-ca-certificates/unbind-binding-properties.png" alt-text="Screenshot of Azure portal showing the Edit binding page with the Unbind button highlighted." lightbox="media/how-to-enterprise-configure-apm-integration-and-ca-certificates/unbind-binding-properties.png":::-
+:::image type="content" source="media/how-to-enterprise-configure-apm-integration-and-ca-certificates/unbind-binding-properties.png" alt-text="Screenshot of Azure portal showing the Edit binding page with the Unbind button highlighted." lightbox="media/how-to-enterprise-configure-apm-integration-and-ca-certificates/unbind-binding-properties.png":::
 
 When you unbind a binding, the bind status changes from **Bound** to **Unbound**.
 
