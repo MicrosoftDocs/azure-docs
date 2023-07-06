@@ -42,6 +42,9 @@ sections:
                 - REST API - [Usages - List By Location - REST API (Azure Dev Center) | Microsoft Learn](/rest/api/devcenter/administrator/usages/list-by-location?tabs=HTTP)
                 - CLI - [az devcenter admin usage | Microsoft Learn |](/cli/azure/devcenter/admin/usage?view=azure-cli-latest) 
 
+      - question: Can I use auto-start schedules to hibernate Dev Boxes on a schedule? # Question.
+        answer: The ability to use auto-stop schedules to initiate hibernation is in Public Preview.
+
 additionalContent: |
     ## Next steps
 

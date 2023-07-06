@@ -45,6 +45,8 @@ items:
       href: how-to-manage-dev-box-pools.md
     - name: Manage a dev box definition
       href: how-to-manage-dev-box-definitions.md
+    - name: How to configure Dev Box Hibernation
+      href: how-to-configure-dev-box-hibernation.md  
     - name: Manage a dev box project
       href: how-to-manage-dev-box-projects.md
     - name: Manage network connections
@@ -57,6 +59,8 @@ items:
       href: how-to-customize-devbox-azure-image-builder.md
     - name: Manage a dev box through developer portal
       href: how-to-create-dev-boxes-developer-portal.md
+    - name: Hibernate your Dev Box
+      href: how-to-hibernate-your-dev-box.md  
     - name: Configure Azure Diagnostic Logs
       href: how-to-configure-dev-box-azure-diagnostic-logs.md
 - name: Reference
