@@ -106,38 +106,6 @@ You need to complete the following tasks prior to deploying Application Gateway 
  	curl https://raw.githubusercontent.com/helm/helm/main/scripts/get-helm-3 | bash
 	```
 
-## Deploy Application Gateway for Containers
-
-1. The following commands deploy Application Gateway for Containers (along with the Association and Frontend resources) using an [ARM template](../../azure-resource-manager/templates/overview.md).
-
-	```bash
-	ALB_NAME='test-alb'
-	FRONTEND_NAME='frontend'
-	
-	albSubnetId=$(az network vnet subnet show --resource-group $vnetResourceGroup --vnet-name $vnetName --name $albSubnetName --query id -o tsv)
-	az deployment group create \
-		--resource-group $RESOURCE_GROUP \
-		--name 'sample-agfc-deployment' \
-		--template-uri 'https://trafficcontrollerdocs.blob.core.windows.net/templates/traffic-controller.template.json' \
-		--parameters "trafficControllerName=$ALB_NAME" \
-		--parameters "frontendName=$FRONTEND_NAME" \
-		--parameters "subnetId=$albSubnetId" \
-		--parameters "mcResourceGroup=$mcResourceGroup"
-	```
-
-2. Once the deployment is successful, you may verify the creation of the Application Gateway for Containers resources with the following commands:
-
-	```bash
-	# Verify the Application Gateway for Containers
-	az resource show --ids $(az resource list --resource-type 'Microsoft.ServiceNetworking/trafficControllers' --resource-group $RESOURCE_GROUP --query '[].id' -o tsv)
-
-	# Verify the Application Gateway for Containers Association
-	az resource show --ids $(az resource list --resource-type 'Microsoft.ServiceNetworking/trafficControllers/associations' --resource-group $RESOURCE_GROUP --query '[].id' -o tsv)
-
-	# Verify the Application Gateway for Containers Frontend
-	az resource show --ids $(az resource list --resource-type 'Microsoft.ServiceNetworking/trafficControllers/frontends' --resource-group $RESOURCE_GROUP --query '[].id' -o tsv)
-	```
-
 ## Install ALB Controller
 1. Create a user managed identity for ALB controller and federate the identity as Pod Identity to use in the AKS cluster.
 
@@ -192,7 +160,7 @@ You need to complete the following tasks prior to deploying Application Gateway 
     | alb-controller-bootstrap-6648c5d5c-hrmpc | 1/1   | Running | 0        | 4d6h |
     | alb-controller-6648c5d5c-au234           | 1/1   | Running | 0        | 4d6h |
 
-3. Verify GatewayClass `azure-application-lb` is installed on your cluster:
+2. Verify GatewayClass `azure-application-lb` is installed on your cluster:
 
     ```bash
     kubectl get gatewayclass azure-alb-external -o yaml
