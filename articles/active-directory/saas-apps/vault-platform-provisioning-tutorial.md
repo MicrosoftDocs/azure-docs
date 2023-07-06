@@ -56,17 +56,17 @@ Using the details in the SAML setup instructions page, enter the information:
 2. SSO URL must be set to the value of Login URL
    ![Screenshot for identifying SSO URL.](media/vault-platform-provisioning-tutorial/sso-url-entry-point-uri.png)
 3. Download the **Certificate (Base64)** file, open it in a text editor and copy its contents (including the `-----BEGIN/END CERTIFICATE-----` markers) into the **Certificate** text field
-   ![Screenshot of Certificate](media/vault-platform-provisioning-tutorial/certificatebase64.png)
+   ![Screenshot of Certificate.](media/vault-platform-provisioning-tutorial/certificate-base64.png)
 
 ### 2. Data Integration
 
 Next go to **Administration > Data Integration** inside Vault Platform
 
-![Screenshot of Data Integration page.](media/vault-platform-provisioning-tutorial/data_integration.png)
+![Screenshot of Data Integration page.](media/vault-platform-provisioning-tutorial/data-integration.png)
 
 1. For **Data Integration** select `Azure`.
 1. For **Method of providing SCIM secret location** set `bearer`.
-1. For **Secret** set a complex string, simialr to a strong password. Keep this string secure as it will be used later on at **Step 5**
+1. For **Secret** set a complex string, similar to a strong password. Keep this string secure as it will be used later on at **Step 5**
 1. Toggle **Set as active SCIM Provider** to be active.
 
 ## Step 3. Add Vault Platform from the Azure AD application gallery
@@ -104,7 +104,7 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 	![Screenshot of Provisioning tab automatic.](common/provisioning-automatic.png)
 
-1. Under the **Admin Credentials** section, input your Vault Platform Tenant URL (URL with structure `https://app.vaultplatform.com/api/scim/${organisation-slug}`) and Secret Token (from Step 2.2). Click **Test Connection** to ensure Azure AD can connect to Vault Platform. If the connection fails, ensure your Vault Platform account has Admin permissions and try again.
+1. Under the **Admin Credentials** section, input your Vault Platform Tenant URL (URL with structure `https://app.vaultplatform.com/api/scim/${organization-slug}`) and Secret Token (from Step 2.2). Click **Test Connection** to ensure Azure AD can connect to Vault Platform. If the connection fails, ensure your Vault Platform account has Admin permissions and try again.
 
  	![Screenshot of Token.](common/provisioning-testconnection-tenanturltoken.png)
 
