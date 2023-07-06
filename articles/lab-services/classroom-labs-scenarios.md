@@ -31,7 +31,7 @@ Azure Lab Services uses Azure Role-Based Access (Azure RBAC) to manage access to
 
 Depending on your organizational structure, responsibilities, and skill level, there might be different options to map these permissions to your organizational roles or personas, such as administrators, or educators. The scenarios and diagrams also include students to show where they fit in the process, although they don't require Azure AD permissions.
 
-The following sections give different examples of assigning permissions across an organization. Azure Lab Services enables you to flexibly assign permissions beyond these typical scenarios to match your organizational set up.
+The following sections give different examples of assigning permissions across an organization. Azure Lab Services enables you to flexibly assign permissions beyond these typical scenarios to match your organizational setup.
 
 ### Scenario 1: Splitting responsibilities between IT department and educators
 
