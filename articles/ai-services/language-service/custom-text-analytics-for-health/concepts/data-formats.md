@@ -1,6 +1,6 @@
 ---
 title: Custom Text Analytics for health data formats
-titleSuffix: Azure Cognitive Services
+titleSuffix: Azure AI services
 description: Learn about the data formats accepted by custom text analytics for health.
 services: cognitive-services
 author: aahill

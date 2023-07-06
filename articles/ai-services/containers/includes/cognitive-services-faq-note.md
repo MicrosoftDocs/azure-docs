@@ -1,6 +1,6 @@
 ---
-title: Cognitive Services containers frequently asked questions (FAQ) note
-titleSuffix: Azure Cognitive Services
+title: Azure AI services containers frequently asked questions (FAQ) note
+titleSuffix: Azure AI services
 description: Frequently asked questions note.
 services: cognitive-services
 author: aahill
@@ -12,4 +12,4 @@ ms.author: aahi
 ---
 
 > [!TIP]
-> For more troubleshooting information and guidance, see [Cognitive Services containers frequently asked questions (FAQ)](../container-faq.yml).
+> For more troubleshooting information and guidance, see [Azure AI services containers frequently asked questions (FAQ)](../container-faq.yml).

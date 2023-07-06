@@ -1,14 +1,14 @@
 ---
-title:  Azure Video Indexer terminology & concepts overview
-description: This article gives a brief overview of Azure Video Indexer terminology and concepts.
+title:  Azure AI Video Indexer terminology & concepts overview
+description: This article gives a brief overview of Azure AI Video Indexer terminology and concepts.
 ms.topic: conceptual
 ms.date: 12/01/2022
 ms.author: juliako
 ---
 
-# Azure Video Indexer terminology & concepts 
+# Azure AI Video Indexer terminology & concepts 
 
-This article gives a brief overview of Azure Video Indexer terminology and concepts. Also, review [transparency note overview](/legal/azure-video-indexer/transparency-note?context=/azure/azure-video-indexer/context/context)
+This article gives a brief overview of Azure AI Video Indexer terminology and concepts. Also, review [transparency note overview](/legal/azure-video-indexer/transparency-note?context=/azure/azure-video-indexer/context/context)
 
 ## Artifact files
 
@@ -45,13 +45,13 @@ Use textual and visual content moderation models to keep your users safe from in
 
 ## Insights	
 
-Insights contain an aggregated view of the data: faces, topics, emotions. Azure Video Indexer analyzes the video and audio content by running 30+ AI models, generating rich insights. 
+Insights contain an aggregated view of the data: faces, topics, emotions. Azure AI Video Indexer analyzes the video and audio content by running 30+ AI models, generating rich insights. 
 
-For detailed explanation of insights, see [Azure Video Indexer insights](insights-overview.md).
+For detailed explanation of insights, see [Azure AI Video Indexer insights](insights-overview.md).
 
 ## Keyframes
 
-Azure Video Indexer selects the frame(s) that best represent each shot. Keyframes are the representative frames selected from the entire video based on aesthetic properties (for example, contrast and stableness). For more information, see [Scenes, shots, and keyframes](scenes-shots-keyframes.md).
+Azure AI Video Indexer selects the frame(s) that best represent each shot. Keyframes are the representative frames selected from the entire video based on aesthetic properties (for example, contrast and stableness). For more information, see [Scenes, shots, and keyframes](scenes-shots-keyframes.md).
 
 ## Time range vs. adjusted time range	
 
@@ -59,7 +59,7 @@ Time range is the time period in the original video. Adjusted time range is the 
 
 ## Widgets
 
-Azure Video Indexer supports embedding widgets in your apps. For more information, see [Embed Azure Video Indexer widgets in your apps](video-indexer-embed-widgets.md).
+Azure AI Video Indexer supports embedding widgets in your apps. For more information, see [Embed Azure AI Video Indexer widgets in your apps](video-indexer-embed-widgets.md).
 
 ## Next steps
 

@@ -1,6 +1,6 @@
 ---
 title: Gated container hosting on MCR
-titleSuffix: Azure Cognitive Services
+titleSuffix: Azure AI services
 description: Note about gated containers hosted on the Microsoft Container Registry (MCR)
 services: cognitive-services
 author: aahill

@@ -1,6 +1,6 @@
 ---
 title: "Translator: sovereign clouds"
-titleSuffix: Azure Cognitive Services
+titleSuffix: Azure AI services
 description: Using Translator in sovereign clouds
 services: cognitive-services
 author: laujan

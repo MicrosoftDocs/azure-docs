@@ -1,6 +1,6 @@
 ---
 title: Custom text classification evaluation metrics
-titleSuffix: Azure Cognitive Services
+titleSuffix: Azure AI services
 description: Learn about evaluation metrics in custom text classification.
 services: cognitive-services
 author: aahill

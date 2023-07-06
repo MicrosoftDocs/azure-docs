@@ -1,7 +1,7 @@
 ---
 title: Create a Translator resource
-titleSuffix: Azure Cognitive Services
-description: This article shows you how to create an Azure Cognitive Services Translator resource and get a key and endpoint URL.
+titleSuffix: Azure AI services
+description: This article shows you how to create an Azure AI Translator resource and get a key and endpoint URL.
 services: cognitive-services
 author: laujan
 ms.author: lajanuar
@@ -14,7 +14,7 @@ ms.date: 03/17/2023
 
 # Create a Translator resource
 
-In this article, you learn how to create a Translator resource in the Azure portal. [Azure Translator](translator-overview.md) is a cloud-based machine translation service that is part of the [Azure Cognitive Services](../what-are-cognitive-services.md) family of REST APIs. Azure resources are instances of services that you create. All API requests to Azure services require an **endpoint** URL and a read-only **key** for authenticating access.
+In this article, you learn how to create a Translator resource in the Azure portal. [Azure AI Translator](translator-overview.md) is a cloud-based machine translation service that is part of the [Azure AI services](../what-are-cognitive-services.md) family of REST APIs. Azure resources are instances of services that you create. All API requests to Azure services require an **endpoint** URL and a read-only **key** for authenticating access.
 
 ## Prerequisites
 
@@ -26,7 +26,7 @@ The Translator service can be accessed through two different resource types:
 
 * [**Single-service**](https://portal.azure.com/#create/Microsoft.CognitiveServicesTextTranslation) resource types enable access to a single service API key and endpoint.
 
-* [**Multi-service**](https://portal.azure.com/#create/Microsoft.CognitiveServicesAllInOne) resource types enable access to multiple Cognitive Services using a single API key and endpoint.
+* [**Multi-service**](https://portal.azure.com/#create/Microsoft.CognitiveServicesAllInOne) resource types enable access to multiple Azure AI services using a single API key and endpoint.
 
 ## Complete your project and instance details
 
@@ -58,7 +58,7 @@ The Translator service can be accessed through two different resource types:
 
 ### Authentication keys and endpoint URL
 
-All Cognitive Services API requests require an endpoint URL and a read-only key for authentication.
+All Azure AI services API requests require an endpoint URL and a read-only key for authentication.
 
 * **Authentication keys**. Your key is a unique string that is passed on every request to the Translation service. You can pass your key through a query-string parameter or by specifying it in the HTTP request header.
 
@@ -78,7 +78,7 @@ All Cognitive Services API requests require an endpoint URL and a read-only key 
 >
 > Deleting a resource group also deletes all resources contained in the group.
 
-To remove a Cognitive Services or Translator resource, you can **delete the resource** or **delete the resource group**.
+To remove an Azure AI multi-service or Translator resource, you can **delete the resource** or **delete the resource group**.
 
 To delete the resource:
 
@@ -99,7 +99,7 @@ To delete the resource group:
 In our quickstart, you learn how to use the Translator service with REST APIs.
 
 > [!div class="nextstepaction"]
-> [Get Started with Translator](quickstart-translator.md)
+> [Get Started with Translator](quickstart-text-rest-api.md)
 
 ## More resources
 

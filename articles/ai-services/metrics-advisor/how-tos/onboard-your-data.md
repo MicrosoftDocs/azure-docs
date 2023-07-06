@@ -1,6 +1,6 @@
 ---
 title: Onboard your data feed to Metrics Advisor
-titleSuffix: Azure Applied AI Services
+titleSuffix: Azure AI services
 description: How to get started with onboarding your data feeds to Metrics Advisor.
 author: mrbullwinkle
 manager: nitinme

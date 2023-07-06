@@ -1,7 +1,7 @@
 ---
 title: Use Translator Docker containers in disconnected environments
-titleSuffix: Azure Cognitive Services
-description: Learn how to run Azure Cognitive Services Translator containers in disconnected environments.
+titleSuffix: Azure AI services
+description: Learn how to run Azure AI Translator containers in disconnected environments.
 services: cognitive-services
 author: laujan
 manager: nitinme
@@ -16,7 +16,7 @@ ms.author: lajanuar
 
 # Use Translator containers in disconnected environments
 
- Azure Cognitive Services Translator containers allow you to use Translator Service APIs with the benefits of containerization. Disconnected containers are offered through commitment tier pricing offered at a discounted rate compared to pay-as-you-go pricing. With commitment tier pricing, you can commit to using Translator Service features for a fixed fee, at a predictable total cost, based on the needs of your workload.
+ Azure AI Translator containers allow you to use Translator Service APIs with the benefits of containerization. Disconnected containers are offered through commitment tier pricing offered at a discounted rate compared to pay-as-you-go pricing. With commitment tier pricing, you can commit to using Translator Service features for a fixed fee, at a predictable total cost, based on the needs of your workload.
 
 ## Get started
 
@@ -58,7 +58,7 @@ Access is limited to customers that meet the following requirements:
 
 ## Gather required parameters
 
-There are three required parameters for all Cognitive Services' containers:
+There are three required parameters for all Azure AI services' containers:
 
 * The end-user license agreement (EULA) must be present with a value of *accept*.
 * The endpoint URL for your resource from the Azure portal.
@@ -276,7 +276,7 @@ Run the container with an output mount and logging enabled. These settings enabl
 > [!TIP]
 > For more troubleshooting information and guidance, see [Disconnected containers Frequently asked questions (FAQ)](../../containers/disconnected-container-faq.yml).
 
-That's it! You've learned how to create and run disconnected containers for Azure Translator Service.
+That's it! You've learned how to create and run disconnected containers for Azure AI Translator Service.
 
 ## Next steps
 

@@ -1,6 +1,6 @@
 ---
-title: Deploy custom language projects to multiple regions in Azure Cognitive Service for Language
-titleSuffix: Azure Cognitive Services
+title: Deploy custom language projects to multiple regions in Azure AI Language
+titleSuffix: Azure AI services
 description: Learn about deploying your language projects to multiple regions.
 services: cognitive-services
 author: aahill
@@ -16,7 +16,7 @@ ms.custom: language-service-clu
 # Deploy custom language projects to multiple regions
 
 > [!NOTE]
-> This article applies to the following custom features in Azure Cognitive Service for Language:
+> This article applies to the following custom features in Azure AI Language:
 > * [Conversational language understanding](../../conversational-language-understanding/overview.md)
 > * [Custom text classification](../../custom-text-classification/overview.md)
 > * [Custom NER](../../custom-named-entity-recognition/overview.md)
@@ -43,7 +43,7 @@ The same request body to each of those different URLs serves the exact same resp
 
 ## Validations and requirements
 
-Assigning deployment resources requires Microsoft Azure Active Directory (Azure AD) authentication. Azure AD is used to confirm you have access to the resources you are interested in assigning to your project for multi-region deployment. In the Language Studio, you can automatically [enable Azure AD authentication](https://aka.ms/rbac-language) by assigning yourself the _Cognitive Services Language Owner_ role to your original resource. To programmatically use Azure AD authentication, learn more from the [Cognitive Services documentation](../../../authentication.md?source=docs&tabs=powershell&tryIt=true#authenticate-with-azure-active-directory).
+Assigning deployment resources requires Microsoft Azure Active Directory (Azure AD) authentication. Azure AD is used to confirm you have access to the resources you are interested in assigning to your project for multi-region deployment. In the Language Studio, you can automatically [enable Azure AD authentication](https://aka.ms/rbac-language) by assigning yourself the _Cognitive Services Language Owner_ role to your original resource. To programmatically use Azure AD authentication, learn more from the [Azure AI services documentation](../../../authentication.md?source=docs&tabs=powershell&tryIt=true#authenticate-with-azure-active-directory).
 
 Your project name and resource are used as its main identifiers. Therefore, a Language resource can only have a specific project name in each resource. Any other projects with the same name will not be deployable to that resource. 
 

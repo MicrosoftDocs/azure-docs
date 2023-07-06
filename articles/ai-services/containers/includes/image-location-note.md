@@ -1,6 +1,6 @@
 ---
 title: Container location change note
-titleSuffix: Azure Cognitive Services
+titleSuffix: Azure AI services
 description: note about the image location for containers on the Microsoft Container Registry
 services: cognitive-services
 author: aahill

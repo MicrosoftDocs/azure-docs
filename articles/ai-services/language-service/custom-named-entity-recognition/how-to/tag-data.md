@@ -1,6 +1,6 @@
 ---
 title: How to label your data for Custom Named Entity Recognition (NER)
-titleSuffix: Azure Cognitive Services
+titleSuffix: Azure AI services
 description: Learn how to label your data for use with Custom Named Entity Recognition (NER).
 services: cognitive-services
 author: aahill

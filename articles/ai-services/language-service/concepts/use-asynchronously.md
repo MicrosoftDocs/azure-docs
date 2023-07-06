@@ -1,6 +1,6 @@
 ---
 title: "How to: Use Language service features asynchronously"
-titleSuffix: Azure Cognitive Services
+titleSuffix: Azure AI services
 description: Learn how to send Language service API requests asynchronously.
 services: cognitive-services
 author: aahill
@@ -84,6 +84,6 @@ If a document exceeds the character limit, the API will reject the entire reques
 
 ## See also
 
-* [Azure Cognitive Service for Language overview](../overview.md)
+* [Azure AI Language overview](../overview.md)
 * [Multilingual and emoji support](../concepts/multilingual-emoji-support.md)
 * [What's new](../whats-new.md)

@@ -1807,22 +1807,22 @@
         },
         {
             "source_path_from_root": "/articles/cognitive-services/Emotion/emotion-api-how-to-topics/HowtoAnalyzeVideo_Emotion.md",
-            "redirect_url": "/azure/ai-services/face/overview",
+            "redirect_url": "/azure/ai-services/computer-vision/overview-identity",
             "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/cognitive-services/Emotion/emotion-api-how-to-topics/HowtoCallEmotionForVideo.md",
-            "redirect_url": "/azure/ai-services/face/overview",
+            "redirect_url": "/azure/ai-services/computer-vision/overview-identity",
             "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/cognitive-services/Emotion/FAQ.md",
-            "redirect_url": "/azure/ai-services/face/overview",
+            "redirect_url": "/azure/ai-services/computer-vision/overview-identity",
             "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/cognitive-services/Emotion/Home.md",
-            "redirect_url": "/azure/ai-services/face/overview",
+            "redirect_url": "/azure/ai-services/computer-vision/overview-identity",
             "redirect_document_id": false
         },
         {
@@ -1832,47 +1832,47 @@
         },
         {
             "source_path_from_root": "/articles/cognitive-services/Emotion/QuickStarts/CSharp.md",
-            "redirect_url": "/azure/ai-services/face/overview",
+            "redirect_url": "/azure/ai-services/computer-vision/overview-identity",
             "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/cognitive-services/Emotion/QuickStarts/curl.md",
-            "redirect_url": "/azure/ai-services/face/overview",
+            "redirect_url": "/azure/ai-services/computer-vision/overview-identity",
             "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/cognitive-services/Emotion/QuickStarts/Java.md",
-            "redirect_url": "/azure/ai-services/face/overview",
+            "redirect_url": "/azure/ai-services/computer-vision/overview-identity",
             "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/cognitive-services/Emotion/QuickStarts/JavaScript.md",
-            "redirect_url": "/azure/ai-services/face/overview",
+            "redirect_url": "/azure/ai-services/computer-vision/overview-identity",
             "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/cognitive-services/Emotion/QuickStarts/PHP.md",
-            "redirect_url": "/azure/ai-services/face/overview",
+            "redirect_url": "/azure/ai-services/computer-vision/overview-identity",
             "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/cognitive-services/Emotion/QuickStarts/Python.md",
-            "redirect_url": "/azure/ai-services/face/overview",
+            "redirect_url": "/azure/ai-services/computer-vision/overview-identity",
             "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/cognitive-services/Emotion/QuickStarts/Ruby.md",
-            "redirect_url": "/azure/ai-services/face/overview",
+            "redirect_url": "/azure/ai-services/computer-vision/overview-identity",
             "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/cognitive-services/Emotion/Tutorials/CSharpTutorial.md",
-            "redirect_url": "/azure/ai-services/face/overview",
+            "redirect_url": "/azure/ai-services/computer-vision/overview-identity",
             "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/cognitive-services/Emotion/Tutorials/PythonTutorial.md",
-            "redirect_url": "/azure/ai-services/face/overview",
+            "redirect_url": "/azure/ai-services/computer-vision/overview-identity",
             "redirect_document_id": false
         },
         {
@@ -1987,27 +1987,27 @@
         },
         {
             "source_path_from_root": "/articles/cognitive-services/Face/face-encryption-of-data-at-rest.md",
-            "redirect_url": "/azure/ai-services/Face/encrypt-data-at-rest",
+            "redirect_url": "/azure/ai-services/computer-vision/identity-encrypt-data-at-rest",
             "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/cognitive-services/Face/face-how-to-install-containers.md",
-            "redirect_url": "/azure/ai-services/Face/overview",
+            "redirect_url": "/azure/ai-services/computer-vision/overview-identity",
             "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/cognitive-services/Face/face-resource-container-config.md",
-            "redirect_url": "/azure/ai-services/Face/overview",
+            "redirect_url": "/azure/ai-services/computer-vision/overview-identity",
             "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/cognitive-services/Face/FAQ.md",
-            "redirect_url": "/azure/ai-services/face/overview",
+            "redirect_url": "/azure/ai-services/computer-vision/overview-identity",
             "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/cognitive-services/Face/Glossary.md",
-            "redirect_url": "/azure/ai-services/face/overview",
+            "redirect_url": "/azure/ai-services/computer-vision/overview-identity",
             "redirect_document_id": false
         },
         {
@@ -5702,7 +5702,7 @@
         },
         {
             "source_path_from_root": "/articles/cognitive-services/translator/translator-how-to-signup.md",
-            "redirect_url": "/azure/ai-services/translator/how-to-create-translator-resource",
+            "redirect_url": "/azure/ai-services/translator/create-translator-resource",
             "redirect_document_id": false
         },
         {
@@ -6067,7 +6067,7 @@
         },
         {
             "source_path_from_root": "/articles/cognitive-services/Translator/document-translation/client-sdks.md",
-            "redirect_url": "/azure/ai-services/Translator/document-translation/how-to-guides/use-client-sdks",
+            "redirect_url": "/azure/ai-services/Translator/document-translation/quickstarts/document-translation-sdk",
             "redirect_document_id": false
         },
         {
@@ -6092,7 +6092,7 @@
         },
         {
             "source_path_from_root": "/articles/cognitive-services/translator/quickstart-translator.md",
-            "redirect_url": "/azure/ai-services/Translator/quickstart-translator-rest-api",
+            "redirect_url": "/azure/ai-services/Translator/quickstart-text-rest-api",
             "redirect_document_id": false
         },
         {

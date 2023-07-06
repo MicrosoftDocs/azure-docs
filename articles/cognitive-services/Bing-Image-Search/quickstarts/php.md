@@ -16,7 +16,7 @@ ms.custom: seodec2018, mode-api
 ---
 # Quickstart: Search for images using the Bing Image Search REST API and PHP
 
-[!INCLUDE [Bing move notice](../../Bing-Web-Search/includes/bing-move-notice.md)]
+[!INCLUDE [Bing move notice](../../bing-web-search/includes/bing-move-notice.md)]
 
 Use this quickstart to make your first call to the Bing Image Search API and receive a JSON response. The simple application in this article sends a search query and displays the raw results.
 
@@ -34,7 +34,7 @@ To run this application, follow these steps:
 
 1. Make sure secure HTTP support is enabled in your `php.ini` file. For Windows, this file is located in *C:\windows*.
 2. Create a new PHP project in your favorite IDE or editor.
-3. Define the API endpoint, your subscription key, and search term. The endpoint can be the global endpoint in the following code, or the [custom subdomain](../../../cognitive-services/cognitive-services-custom-subdomains.md) endpoint displayed in the Azure portal for your resource.
+3. Define the API endpoint, your subscription key, and search term. The endpoint can be the global endpoint in the following code, or the [custom subdomain](../../../ai-services/cognitive-services-custom-subdomains.md) endpoint displayed in the Azure portal for your resource.
 
     ```php
     $endpoint = 'https://api.cognitive.microsoft.com/bing/v7.0/images/search';

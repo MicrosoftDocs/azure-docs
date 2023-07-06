@@ -185,5 +185,5 @@ That's it! You've learned how to create SAS tokens to authorize how clients acce
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Get Started with Document Translation](../quickstarts/get-started-with-rest-api.md)
+> [Get Started with Document Translation](../quickstarts/document-translation-rest-api.md)
 >
