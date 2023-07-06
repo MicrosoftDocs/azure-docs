@@ -47,8 +47,7 @@ This document defines each of the resource types for `alb.networking.azure.io/v1
 <h3 id="alb.networking.azure.io/v1.AlbConditionReason">AlbConditionReason
 (<code>string</code> alias)</h3>
 <div>
-<p>AlbConditionReason defines the set of reasons that explain
-why a particular condition type has been raised on the Application Gateway for Containers resource.</p>
+<p>AlbConditionReason defines the set of reasons that explain why a particular condition type has been raised on the Application Gateway for Containers resource.</p>
 </div>
 <table>
 <thead>
@@ -58,21 +57,17 @@ why a particular condition type has been raised on the Application Gateway for C
 </tr>
 </thead>
 <tbody><tr><td><p>&#34;Accepted&#34;</p></td>
-<td><p>AlbReasonAccepted indicates that the Application Gateway for Containers resource
-has been accepted by the controller.</p>
+<td><p>AlbReasonAccepted indicates the Application Gateway for Containers resource has been accepted by the controller.</p>
 </td>
 </tr><tr><td><p>&#34;Deployment&#34;</p></td>
-<td><p>AlbReasonDeployment indicates that the Application Gateway for Containers resource
-deployment status.</p>
+<td><p>AlbReasonDeployment indicates the Application Gateway for Containers resource deployment status.</p>
 </td>
 </tr></tbody>
 </table>
 <h3 id="alb.networking.azure.io/v1.AlbConditionType">AlbConditionType
 (<code>string</code> alias)</h3>
 <div>
-<p>AlbConditionType is a type of condition associated with a
-Application Gateway for Containers resource. This type should be used with the AlbStatus.Conditions
-field.</p>
+<p>AlbConditionType is a type of condition associated with an Application Gateway for Containers resource. This type should be used with the AlbStatus.Conditions field.</p>
 </div>
 <table>
 <thead>
@@ -82,16 +77,13 @@ field.</p>
 </tr>
 </thead>
 <tbody><tr><td><p>&#34;Accepted&#34;</p></td>
-<td><p>AlbConditionTypeAccepted indicates whether the Application Gateway for Containers resource
-has been accepted by the controller.</p>
+<td><p>AlbConditionTypeAccepted indicates whether the Application Gateway for Containers resource has been accepted by the controller.</p>
 </td>
 </tr><tr><td><p>&#34;InProgress&#34;</p></td>
-<td><p>AlbConditionTypeInProgress indicates whether the Application Gateway for Containers resource
-is in the process of being created, updated or deleted.</p>
+<td><p>AlbConditionTypeInProgress indicates whether the Application Gateway for Containers resource is in the process of being created, updated or deleted.</p>
 </td>
 </tr><tr><td><p>&#34;Ready&#34;</p></td>
-<td><p>AlbConditionTypeReady indicates whether the Application Gateway for Containers resource
-is ready to serve traffic.</p>
+<td><p>AlbConditionTypeReady indicates whether the Application Gateway for Containers resource is ready to serve traffic.</p>
 </td>
 </tr></tbody>
 </table>
@@ -362,7 +354,7 @@ When the given BackendTLSPolicy is correctly configured</p>
 <td><p>BackendTLSPolicyReasonInvalidKind is used when the kind/group is invalid</p>
 </td>
 </tr><tr><td><p>&#34;NoTargetReference&#34;</p></td>
-<td><p>BackendTLSPolicyReasonNoTargetReference is used when there is no target reference</p>
+<td><p>BackendTLSPolicyReasonNoTargetReference is used when there's no target reference</p>
 </td>
 </tr><tr><td><p>&#34;RefNotPermitted&#34;</p></td>
 <td><p>BackendTLSPolicyReasonRefNotPermitted is used when the ref isn't permitted</p>
@@ -894,7 +886,7 @@ particular FrontTLSPolicy condition type has been raised.</p>
 <td><p>FrontTLSPolicyReasonInvalidPolicyType is used when the type is invalid</p>
 </td>
 </tr><tr><td><p>&#34;NoTargetReference&#34;</p></td>
-<td><p>FrontTLSPolicyReasonNoTargetReference is used when there is no target reference</p>
+<td><p>FrontTLSPolicyReasonNoTargetReference is used when there's no target reference</p>
 </td>
 </tr><tr><td><p>&#34;RefNotPermitted&#34;</p></td>
 <td><p>FrontTLSPolicyReasonRefNotPermitted is used when the ref isn't permitted</p>
@@ -1439,7 +1431,7 @@ HealthCheckPolicyConfig
 (<em>Appears on:</em><a href="#alb.networking.azure.io/v1.IngressListenerSetting">IngressListenerSetting</a>)
 </p>
 <div>
-<p>IngressBackendOverride allows a user to change the hostname on a request before it is sent to a backend service</p>
+<p>IngressBackendOverride allows a user to change the hostname on a request before it's sent to a backend service</p>
 </div>
 <table>
 <thead>
@@ -1599,7 +1591,7 @@ string
 </td>
 <td>
 <em>(Optional)</em>
-<p>TrustedRootCertificate can be used to supply a certificate for the gateway to trust when communciating to the
+<p>TrustedRootCertificate can be used to supply a certificate for the gateway to trust when communicating to the
 backend on a port specified as https</p>
 </td>
 </tr>
@@ -1666,7 +1658,7 @@ HealthCheckPolicyConfig
 </td>
 <td>
 <em>(Optional)</em>
-<p>HealthCheck defines a health probe which is used to determine if a backend is healthy</p>
+<p>HealthCheck defines a health probe that is used to determine if a backend is healthy</p>
 </td>
 </tr>
 </tbody>
@@ -2236,7 +2228,7 @@ RoutePolicyConfig
 (<em>Appears on:</em><a href="#alb.networking.azure.io/v1.RoutePolicySpec">RoutePolicySpec</a>)
 </p>
 <div>
-<p>RoutePolicyConfig defines the schema for RoutePolicy specification. This allows the specification of the following attributes:
+<p>RoutePolicyConfig defines the schema for RoutePolicy specification. This schema permits specification of the following attributes:
 * Timeouts
 * Session Affinity</p>
 </div>
