@@ -69,6 +69,8 @@ This procedure describes how to add a secondary NIC after [installing your on-pr
 
 ## Upload a new activation file
 
+<!--how does this need to change?-->
+
 You'd activated your on-premises management console as part of your deployment.
 
 You may need to reactivate your on-premises management console as part of maintenance procedures, such as if the total number of monitored devices exceeds the number of [devices that you're licensed for](billing.md).
