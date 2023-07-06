@@ -40,6 +40,8 @@ Open your web browser and go to the [portal](https://portal.azure.com/). Enter y
 
 1. Fill out the **Basics** form with the following information:
 
+   Use the following table as a guide for completing the form, the recommended **Plan** is `Basic`.
+
    :::image type="content" source="../../media/quickstart-deploy-event-driven-app/2-create-basics.png" alt-text="Create an Azure Spring Apps service":::
 
    | Setting        | Suggested Value | Description                                                                                                                                                                                                                                                                                        |
