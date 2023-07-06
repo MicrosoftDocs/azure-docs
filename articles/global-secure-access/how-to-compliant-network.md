@@ -31,8 +31,8 @@ The compliant network is different than [IPv4, IPv6, or geographic locations](/a
 * Administrators who interact with **Global Secure Access preview** features must have one or more of the following role assignments depending on the tasks they're performing.
    * The **Global Secure Access Administrator** role to manage the Global Secure Access preview features
    * [Conditional Access Administrator](/azure/active-directory/roles/permissions-reference#conditional-access-administrator) or [Security Administrator](/azure/active-directory/roles/permissions-reference#security-administrator) to create and interact with Conditional Access policies and named locations.
-* A Windows client machine with the [Global Secure Access Client installed](how-to-install-windows-client.md) and running or a [remote network configured](how-to-manage-remote-networks.md).
-* You must be routing your end-user Microsoft 365 network traffic through the **Global Secure Access preview** using the steps in [How to manage the Microsoft 365 profile](how-to-manage-microsoft-365-profile.md).
+* The preview requires a Microsoft Entra ID Premium P1 license. If needed, you can [purchase licenses or get trial licenses](https://aka.ms/azureadlicense).
+* To use the Microsoft 365 traffic forwarding profile, a Microsoft 365 E3 license is recommended.
 
 ### Known limitations
 

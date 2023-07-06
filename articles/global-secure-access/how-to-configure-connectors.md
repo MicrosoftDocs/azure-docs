@@ -16,11 +16,12 @@ Connectors are lightweight agents that sit on-premises and facilitate the outbou
 
 ## Prerequisites
 
-To add an on-premises application to Azure AD, you need:
+To add an on-premises application to Azure Active Directory (Azure AD) you need:
 
-* A [Microsoft Azure AD premium subscription](https://azure.microsoft.com/pricing/details/active-directory)
-* An application administrator account
-* User identities must be synchronized from an on-premises directory or created directly within your Azure AD tenants. Identity synchronization allows Azure AD to pre-authenticate users before granting them access to App Proxy published applications and to have the necessary user identifier information to perform single sign-on (SSO).
+* The preview requires a Microsoft Entra ID Premium P1 license. If needed, you can [purchase licenses or get trial licenses](https://aka.ms/azureadlicense).
+* An Application Administrator account.
+
+User identities must be synchronized from an on-premises directory or created directly within your Azure AD tenants. Identity synchronization allows Azure AD to pre-authenticate users before granting them access to App Proxy published applications and to have the necessary user identifier information to perform single sign-on (SSO).
 
 ### Windows server
 

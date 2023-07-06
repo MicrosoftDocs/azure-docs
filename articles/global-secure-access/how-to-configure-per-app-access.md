@@ -21,11 +21,12 @@ This article describes how to configure Per-app Access using Global Secure Acces
 To configure a Global Secure Access app, you must have:
 
 - The **Global Secure Access Administrator** and **Application Administrator** roles in Microsoft Entra ID
+- The preview requires a Microsoft Entra ID Premium P1 license. If needed, you can [purchase licenses or get trial licenses](https://aka.ms/azureadlicense).
 
 To manage App Proxy connector groups, which is required for Global Secure Access apps, you must have:
 
 - An **Application Administrator** role in Microsoft Entra ID
-- A Microsoft Entra ID Premium P1/P2 license
+- An Azure AD Premium P1/P2 license
 
 ### Known limitations
 

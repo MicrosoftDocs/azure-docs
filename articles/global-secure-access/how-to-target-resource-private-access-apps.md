@@ -23,8 +23,8 @@ This article describes how to apply Conditional Access policies to your Quick Ac
 * Administrators who interact with **Global Secure Access preview** features must have one or more of the following role assignments depending on the tasks they're performing.
    * [Global Secure Access Administrator role](../active-directory/roles/permissions-reference.md)
    * [Conditional Access Administrator](../active-directory/roles/permissions-reference.md#conditional-access-administrator) or [Security Administrator](../active-directory/roles/permissions-reference.md#security-administrator) to create and interact with Conditional Access policies.
-* You must be routing your private network traffic through the **Global Secure Access preview**.
 * You need to have configured Quick Access or Private Access.
+* The preview requires a Microsoft Entra ID Premium P1 license. If needed, you can [purchase licenses or get trial licenses](https://aka.ms/azureadlicense).
 
 ### Known limitations
 

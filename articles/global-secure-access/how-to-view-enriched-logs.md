@@ -21,7 +21,8 @@ This article describes the information in the logs and how to export them.
 To use the enriched logs, you need the following roles and subscriptions:
 
 * A **Global Administrator** role is required to enable the enriched Microsoft 365 logs.
-* Global Secure Access is dependent upon some features that require a Microsoft Entra ID P1 or P2 license.
+* The preview requires a Microsoft Entra ID Premium P1 license. If needed, you can [purchase licenses or get trial licenses](https://aka.ms/azureadlicense).
+* To use the Microsoft 365 traffic forwarding profile, a Microsoft 365 E3 license is recommended.
 
 You must configure the endpoint for where you want to route the logs prior to configuring Diagnostic settings. The requirements for each endpoint vary and are described in the [Configure Diagnostic settings](#configure-diagnostic-settings) section.
 
