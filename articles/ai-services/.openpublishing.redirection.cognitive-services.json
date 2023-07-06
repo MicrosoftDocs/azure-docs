@@ -3312,7 +3312,7 @@
         },
         {
             "source_path_from_root": "/articles/cognitive-services/LUIS/luis-quickstart-primary-and-secondary-data.md",
-            "redirect_url": "/azure/ai-services/LUIS/build-decomposable-application",
+            "redirect_url": "/azure/ai-services/LUIS/tutorial/build-decomposable-application",
             "redirect_document_id": false
         },
         {
@@ -3387,7 +3387,7 @@
         },
         {
             "source_path_from_root": "/articles/cognitive-services/LUIS/luis-tutorial-prebuilt-intents-entities.md",
-            "redirect_url": "/azure/ai-services/LUIS/build-decomposable-application",
+            "redirect_url": "/azure/ai-services/LUIS/tutorial/build-decomposable-application",
             "redirect_document_id": false
         },
         {
@@ -3492,7 +3492,7 @@
         },
         {
             "source_path_from_root": "/articles/cognitive-services/LUIS/tutorial-publish-settings.md",
-            "redirect_url": "/azure/ai-services/LUIS/build-decomposable-application",
+            "redirect_url": "/azure/ai-services/LUIS/tutorial/build-decomposable-application",
             "redirect_document_id": ""
         },
         {
