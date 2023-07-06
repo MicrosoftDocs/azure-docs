@@ -134,7 +134,7 @@ You might receive any of the following errors when you try to deploy an Azure Op
     - **Fix**: Unable to create the resource. Due to one of, the following reasons. You aren't in correct region, or you have exceeded the maximum limit of three Azure Open AI resources. You need to delete an existing Azure OpenAI resource or you need to make sure you created a workspace in one of the [supported regions](../cognitive-services/openai/concepts/models.md#model-summary-table-and-region-availability).
 
 - **Model Not Deployable**
-    - **Fix**: This usually happens while trying to deploy a GPT-4 model. Due to high demand you need to [apply for access to use GPT-4 models](../cognitive-services/openai/concepts/models#gpt-4-models).
+    - **Fix**: This usually happens while trying to deploy a GPT-4 model. Due to high demand you need to [apply for access to use GPT-4 models](https://learn.microsoft.com/azure/cognitive-services/openai/concepts/models#gpt-4-models).
 
 - **Resource Create Failed**
     - **Fix**: We tried to automatically create the Azure OpenAI resource but the operation failed. Try again on a new workspace.
