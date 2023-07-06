@@ -1,6 +1,6 @@
 ---
-title: "Use Form Recognizer SDK for C# / .NET (REST API v2.1)"
-description: 'Use the Form Recognizer SDK for C# / .NET (REST API v2.1) to create a forms processing app that extracts key data from documents.'
+title: "Use Document Intelligence SDK for C# / .NET (REST API v2.1)"
+description: 'Use the Document Intelligence SDK for C# / .NET (REST API v2.1) to create a forms processing app that extracts key data from documents.'
 author: laujan
 manager: nitinme
 ms.service: applied-ai-services
@@ -16,7 +16,7 @@ ms.custom: devx-track-csharp
 <!-- markdownlint-disable MD033 -->
 > [!IMPORTANT]
 >
- > * This project targets Form Recognizer REST API  **v2.1**.
+ > * This project targets Document Intelligence REST API  **v2.1**.
 >
 >* The code in this article uses synchronous methods and un-secured credentials storage.
 
@@ -27,8 +27,8 @@ ms.custom: devx-track-csharp
 * Azure subscription - [Create one for free](https://azure.microsoft.com/free/cognitive-services/)
 * The [Visual Studio IDE](https://visualstudio.microsoft.com/vs/) or current version of [.NET Core](https://dotnet.microsoft.com/download/dotnet-core).
 * An Azure Storage blob that contains a set of training data. See [Build a training data set for a custom model](../../build-a-custom-model.md?view=form-recog-2.1.0&preserve-view=true) for tips and options for putting together your training data set. For this project, you can use the files under the **Train** folder of the [sample data set](https://go.microsoft.com/fwlink/?linkid=2090451) (download and extract *sample_data.zip*).
-* Once you have your Azure subscription, <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer"  title="Create a Form Recognizer resource"  target="_blank">create a Form Recognizer resource </a> in the Azure portal to get your key and endpoint. After it deploys, select **Go to resource**.
-  * You need the key and endpoint from the resource you create to connect your application to the Form Recognizer API. Paste your key and endpoint into the sample code later in the project.
+* Once you have your Azure subscription, <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer"  title="Create a Document Intelligence resource"  target="_blank">create a Document Intelligence resource </a> in the Azure portal to get your key and endpoint. After it deploys, select **Go to resource**.
+  * You need the key and endpoint from the resource you create to connect your application to the Document Intelligence API. Paste your key and endpoint into the sample code later in the project.
   * You can use the free pricing tier (`F0`) to try the service, and upgrade later to a paid tier for production.
 
 ## Setting up
@@ -57,7 +57,7 @@ Build succeeded.
 
 ### Install the client library
 
-Within the application directory, install the Form Recognizer client library for .NET with the following command:
+Within the application directory, install the Document Intelligence client library for .NET with the following command:
 
 ```console
 dotnet add package Azure.AI.FormRecognizer --version 3.1.1
@@ -70,9 +70,9 @@ From the project directory, open the *Program.cs* file in your preferred editor 
 In the application's **Program** class, create variables for your resource's key and endpoint.
 
 > [!IMPORTANT]
-> Go to the Azure portal. If the Form Recognizer resource you created in the **Prerequisites** section deployed successfully, click the **Go to Resource** button under **Next Steps**. You can find your key and endpoint in the resource's **key and endpoint** page, under **resource management**.
+> Go to the Azure portal. If the Document Intelligence resource you created in the **Prerequisites** section deployed successfully, click the **Go to Resource** button under **Next Steps**. You can find your key and endpoint in the resource's **key and endpoint** page, under **resource management**.
 >
-> Remember to remove the key from your code when you're done, and never post it publicly. For production, use secure methods to store and access your credentials. Form more information, _see_ our Cognitive Services [security](../../../../../cognitive-services/security-features.md) article.
+> Remember to remove the key from your code when you're done, and never post it publicly. For production, use secure methods to store and access your credentials. Form more information, _see_ our Azure AI services [security](../../../../../ai-services/security-features.md) article.
 
 [!code-csharp[](~/cognitive-services-quickstart-code/dotnet/FormRecognizer/FormRecognizerQuickstart.cs?name=snippet_creds)]
 
@@ -82,7 +82,7 @@ In the application's **Main** method, add a call to the asynchronous tasks used 
 
 ## Object model
 
-With Form Recognizer, you can create two different client types. The first, `FormRecognizerClient` is used to query the service to recognized form fields and content. The second, `FormTrainingClient` is uses to create and manage custom models to improve recognition.
+With Document Intelligence, you can create two different client types. The first, `FormRecognizerClient` is used to query the service to recognized form fields and content. The second, `FormTrainingClient` is uses to create and manage custom models to improve recognition.
 
 ### FormRecognizerClient
 
@@ -90,7 +90,7 @@ With Form Recognizer, you can create two different client types. The first, `For
 
 * Recognize form fields and content, using custom models trained to analyze your custom forms.  These values are returned in a collection of `RecognizedForm` objects. See example [Analyze custom forms](#analyze-forms-with-a-custom-model).
 * Recognize form content, including tables, lines and words, without the need to train a model.  Form content is returned in a collection of `FormPage` objects. See example [Analyze layout](#analyze-layout).
-* Recognize common fields from US receipts, business cards, invoices, and ID documents using a pre-trained model on the Form Recognizer service.
+* Recognize common fields from US receipts, business cards, invoices, and ID documents using a pre-trained model on the Document Intelligence service.
 
 ### FormTrainingClient
 
@@ -99,19 +99,19 @@ With Form Recognizer, you can create two different client types. The first, `For
 * Training custom models to analyze all fields and values found in your custom forms.  A `CustomFormModel` is returned indicating the form types the model analyzes, and the fields it extracts for each form type.
 * Training custom models to analyze specific fields and values you specify by labeling your custom forms.  A `CustomFormModel` is returned indicating the fields the model extracts, and the estimated accuracy for each field.
 * Managing models created in your account.
-* Copying a custom model from one Form Recognizer resource to another.
+* Copying a custom model from one Document Intelligence resource to another.
 
 See examples for [Train a Model](#train-a-custom-model) and [Manage Custom Models](#manage-custom-models).
 
 > [!NOTE]
-> Models can also be trained using a graphical user interface such as the [Form Recognizer Labeling Tool](../../../label-tool.md).
+> Models can also be trained using a graphical user interface such as the [Document Intelligence Labeling Tool](../../../label-tool.md).
 
 ## Authenticate the client
 
-Below **Main**, create a new method named `AuthenticateClient`. You use this method in other tasks to authenticate your requests to the Form Recognizer service. This method uses the `AzureKeyCredential` object, so that if needed, you can update the key without creating new client objects.
+Below **Main**, create a new method named `AuthenticateClient`. You use this method in other tasks to authenticate your requests to the Document Intelligence service. This method uses the `AzureKeyCredential` object, so that if needed, you can update the key without creating new client objects.
 
 > [!IMPORTANT]
-> Get your key and endpoint from the Azure portal. If the Form Recognizer resource you created in the **Prerequisites** section deployed successfully, click the **Go to Resource** button under **Next Steps**. You can find your key and endpoint in the resource's **key and endpoint** page, under **resource management**.
+> Get your key and endpoint from the Azure portal. If the Document Intelligence resource you created in the **Prerequisites** section deployed successfully, click the **Go to Resource** button under **Next Steps**. You can find your key and endpoint in the resource's **key and endpoint** page, under **resource management**.
 >
 > Remember to remove the key from your code when you're done, and never post it publicly. For production, use secure methods to store and access your credentials. For example, [Azure key vault](../../../../../key-vault/general/overview.md).
 
@@ -136,7 +136,7 @@ You also need to add references to the URLs for your training and testing data. 
 
 ## Analyze layout
 
-You can use Form Recognizer to analyze tables, lines, and words in documents, without needing to train a model. The returned value is a collection of **FormPage** objects: one for each page in the submitted document. For more information about layout extraction, see the [Layout conceptual guide](../../../concept-layout.md).
+You can use Document Intelligence to analyze tables, lines, and words in documents, without needing to train a model. The returned value is a collection of **FormPage** objects: one for each page in the submitted document. For more information about layout extraction, see the [Layout conceptual guide](../../../concept-layout.md).
 
 To analyze the content of a file at a given URL, use the `StartRecognizeContentFromUri` method.
 
@@ -275,7 +275,7 @@ The following code processes the invoice at the given URI and prints the major f
 
 ## Analyze ID documents
 
-This section demonstrates how to analyze and extract key information from government-issued identification documents—worldwide passports and U.S. driver's licenses—using the Form Recognizer prebuilt ID model. For more information about ID document analysis, see our [prebuilt identification model conceptual guide](../../../concept-id-document.md).
+This section demonstrates how to analyze and extract key information from government-issued identification documents—worldwide passports and U.S. driver's licenses—using the Document Intelligence prebuilt ID model. For more information about ID document analysis, see our [prebuilt identification model conceptual guide](../../../concept-id-document.md).
 
 To analyze ID documents from a URI, use the `StartRecognizeIdentityDocumentsFromUriAsync` method.
 
@@ -293,7 +293,7 @@ The following code processes the ID document at the given URI and prints the maj
 This section demonstrates how to train a model with your own data. A trained model can output structured data that includes the key/value relationships in the original form document. After you train the model, you can test, retrain, and eventually use it to reliably extract data from more forms according to your needs.
 
 > [!NOTE]
-> You can also train models with a graphical user interface such as the [Form Recognizer Sample Labeling tool](../../../label-tool.md).
+> You can also train models with a graphical user interface such as the [Document Intelligence Sample Labeling tool](../../../label-tool.md).
 
 ### Train a model without labels
 
@@ -367,7 +367,7 @@ Submodel Form Type: form-0
 
 ### Train a model with labels
 
-You can also train custom models by manually labeling the training documents. Training with labels leads to better performance in some scenarios. To train with labels, you need to have special label information files (`\<filename\>.pdf.labels.json`) in your blob storage container alongside the training documents. The [Form Recognizer Sample Labeling tool](../../../label-tool.md) provides a UI to help you create these label files. Once you've them, you can call the `StartTrainingAsync` method with the `uselabels` parameter set to `true`.
+You can also train custom models by manually labeling the training documents. Training with labels leads to better performance in some scenarios. To train with labels, you need to have special label information files (`\<filename\>.pdf.labels.json`) in your blob storage container alongside the training documents. The [Document Intelligence Sample Labeling tool](../../../label-tool.md) provides a UI to help you create these label files. Once you've them, you can call the `StartTrainingAsync` method with the `uselabels` parameter set to `true`.
 
 [!code-csharp[](~/cognitive-services-quickstart-code/dotnet/FormRecognizer/FormRecognizerQuickstart.cs?name=snippet_trainlabels)]
 
@@ -504,7 +504,7 @@ This section demonstrates how to manage the custom models stored in your account
 
 ### Check the number of models in the FormRecognizer resource account
 
-The following code block checks how many models you've saved in your Form Recognizer account and compares it to the account limit.
+The following code block checks how many models you've saved in your Document Intelligence account and compares it to the account limit.
 
 [!code-csharp[](~/cognitive-services-quickstart-code/dotnet/FormRecognizer/FormRecognizerQuickstart.cs?name=snippet_manage_model_count)]
 
@@ -594,14 +594,14 @@ dotnet run
 
 ## Clean up resources
 
-If you want to clean up and remove a Cognitive Services subscription, you can delete the resource or resource group. Deleting the resource group also deletes any other resources associated with it.
+If you want to clean up and remove an Azure AI services subscription, you can delete the resource or resource group. Deleting the resource group also deletes any other resources associated with it.
 
-* [Portal](../../../../../cognitive-services/cognitive-services-apis-create-account.md#clean-up-resources)
-* [Azure CLI](../../../../../cognitive-services/cognitive-services-apis-create-account-cli.md#clean-up-resources)
+* [Portal](../../../../../ai-services/cognitive-services-apis-create-account.md#clean-up-resources)
+* [Azure CLI](../../../../../ai-services/cognitive-services-apis-create-account-cli.md#clean-up-resources)
 
 ## Troubleshooting
 
-When you interact with the Cognitive Services Form Recognizer client library using the .NET SDK, errors returned by the service result in a `RequestFailedException`. They include the same HTTP status code that would have been returned by a REST API request.
+When you interact with the Azure AI services Document Intelligence client library using the .NET SDK, errors returned by the service result in a `RequestFailedException`. They include the same HTTP status code that would have been returned by a REST API request.
 
 For example, if you submit a receipt image with an invalid URI, a `400` error is returned, indicating "Bad Request".
 
@@ -641,11 +641,11 @@ Headers:
 
 ## Next steps
 
-For this project, you used the Form Recognizer .NET client library to train models and analyze forms in different ways. Next, learn tips to create a better training data set and produce more accurate models.
+For this project, you used the Document Intelligence .NET client library to train models and analyze forms in different ways. Next, learn tips to create a better training data set and produce more accurate models.
 
 > [!div class="nextstepaction"]
 > [Build a training data set](../../build-a-custom-model.md?view=form-recog-2.1.0&preserve-view=true)
 
-* [What is Form Recognizer?](../../../overview.md)
+* [What is Document Intelligence?](../../../overview.md)
 
 * The sample code for this project is available on [GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/dotnet/FormRecognizer/csharp-sdk-quickstart.cs).

@@ -1,7 +1,7 @@
 ---
-title: Form Recognizer quotas and limits
-titleSuffix: Azure Applied AI Services
-description: Quick reference, detailed description, and best practices on Azure Form Recognizer service Quotas and Limits
+title: Document Intelligence quotas and limits
+titleSuffix: Azure AI services
+description: Quick reference, detailed description, and best practices for working within Azure AI Document Intelligence service Quotas and Limits
 services: cognitive-services
 author: laujan
 manager: nitinme
@@ -12,7 +12,8 @@ ms.date: 06/23/2023
 ms.author: lajanuar
 ---
 
-# Form Recognizer service quotas and limits
+
+# Document Intelligence service quotas and limits
 <!-- markdownlint-disable MD033 -->
 
 ::: moniker range="form-recog-3.0.0"
@@ -23,7 +24,7 @@ ms.author: lajanuar
 [!INCLUDE [applies to v2.1](includes/applies-to-v2-1.md)]
 ::: moniker-end
 
-This article contains both a quick reference and detailed description of Azure Form Recognizer service Quotas and Limits for all [pricing tiers](https://azure.microsoft.com/pricing/details/form-recognizer/). It also contains some best practices to avoid request throttling.
+This article contains both a quick reference and detailed description of Azure AI Document Intelligence service Quotas and Limits for all [pricing tiers](https://azure.microsoft.com/pricing/details/form-recognizer/). It also contains some best practices to avoid request throttling.
 
 ## Model usage
 
@@ -31,17 +32,17 @@ This article contains both a quick reference and detailed description of Azure F
 
 > [!div class="checklist"]
 >
-> * [**Form Recognizer SDKs**](quickstarts/get-started-sdks-rest-api.md)
-> * [**Form Recognizer REST API**](quickstarts/get-started-sdks-rest-api.md)
-> * [**Form Recognizer Studio v3.0**](quickstarts/try-form-recognizer-studio.md)
+> * [**Document Intelligence SDKs**](quickstarts/get-started-sdks-rest-api.md)
+> * [**Document Intelligence REST API**](quickstarts/get-started-sdks-rest-api.md)
+> * [**Document Intelligence Studio v3.0**](quickstarts/try-form-recognizer-studio.md)
 ::: moniker-end
 
 ::: moniker range="form-recog-2.1.0"
 
 > [!div class="checklist"]
 >
-> * [**Form Recognizer SDKs**](quickstarts/get-started-sdks-rest-api.md)
-> * [**Form Recognizer REST API**](quickstarts/get-started-sdks-rest-api.md)
+> * [**Document Intelligence SDKs**](quickstarts/get-started-sdks-rest-api.md)
+> * [**Document Intelligence REST API**](quickstarts/get-started-sdks-rest-api.md)
 > * [**Sample Labeling Tool v2.1**](https://fott-2-1.azurewebsites.net/)
 
 ::: moniker-end
@@ -127,9 +128,9 @@ This article contains both a quick reference and detailed description of Azure F
 
 ## Detailed description, Quota adjustment, and best practices
 
-Before requesting a quota increase (where applicable), ensure that it's necessary. Form Recognizer service uses autoscaling to bring the required computational resources in "on-demand"  and at the same time to keep the customer costs low, deprovision unused resources by not maintaining an excessive amount of hardware capacity.
+Before requesting a quota increase (where applicable), ensure that it's necessary. Document Intelligence service uses autoscaling to bring the required computational resources in "on-demand"  and at the same time to keep the customer costs low, deprovision unused resources by not maintaining an excessive amount of hardware capacity.
 
-If your application returns Response Code 429 (*Too many requests*) and your workload is within the defined limits: most likely, the service is scaling up to your demand, but hasn't yet reached the required scale. Thus the service doesn't immediately have enough resources to serve the request. This state is transient and shouldn't last long. For more information, *see* [Quotas and Limits quick reference](#form-recognizer-service-quotas-and-limits))
+If your application returns Response Code 429 (*Too many requests*) and your workload is within the defined limits: most likely, the service is scaling up to your demand, but hasn't yet reached the required scale. Thus the service doesn't immediately have enough resources to serve the request. This state is transient and shouldn't last long. For more information, *see* [Quotas and Limits quick reference](#document-intelligence-service-quotas-and-limits))
 
 ### General best practices to mitigate throttling during autoscaling
 
@@ -137,29 +138,29 @@ To minimize issues related to throttling (Response Code 429), we recommend using
 
 * Implement retry logic in your application
 * Avoid sharp changes in the workload. Increase the workload gradually <br/>
-*Example.* Your application is using Form Recognizer and your current workload is 10 TPS (transactions per second). The next second you increase the load to 40 TPS (that is four times more). The Service immediately starts scaling up to fulfill the new load, but likely it can't do it within a second, so some of the requests get Response Code 429.
+*Example.* Your application is using Document Intelligence and your current workload is 10 TPS (transactions per second). The next second you increase the load to 40 TPS (that is four times more). The Service immediately starts scaling up to fulfill the new load, but likely it can't do it within a second, so some of the requests get Response Code 429.
 
 The next sections describe specific cases of adjusting quotas.
-Jump to [Form Recognizer: increasing concurrent request limit](#create-and-submit-support-request)
+Jump to [Document Intelligence: increasing concurrent request limit](#create-and-submit-support-request)
 
 ### Increasing transactions per second request limit
 
-By default the number of transactions per second is limited to 15 transactions per second for a Form Recognizer resource. For the Standard pricing tier, this amount can be increased. Before submitting the request, ensure you're familiar with the material in [this section](#detailed-description-quota-adjustment-and-best-practices) and aware of these [best practices](#example-of-a-workload-pattern-best-practice).
+By default the number of transactions per second is limited to 15 transactions per second for a Document Intelligence resource. For the Standard pricing tier, this amount can be increased. Before submitting the request, ensure you're familiar with the material in [this section](#detailed-description-quota-adjustment-and-best-practices) and aware of these [best practices](#example-of-a-workload-pattern-best-practice).
 
-Increasing the Concurrent Request limit does **not** directly affect your costs. Form Recognizer service uses "Pay only for what you use" model. The limit defines how high the Service may scale before it starts throttle your requests.
+Increasing the Concurrent Request limit does **not** directly affect your costs. Document Intelligence service uses "Pay only for what you use" model. The limit defines how high the Service may scale before it starts throttle your requests.
 
 Existing value of Concurrent Request limit parameter is **not** visible via Azure portal, Command-Line tools, or API requests. To verify the existing value, create an Azure Support Request.
 
-If you would like to increase your transactions per second, you can enable auto scaling on your resource. Follow this document to enable auto scaling on your resource * [enable auto scaling](../../cognitive-services/autoscale.md). You can also submit an increase TPS support request.
+If you would like to increase your transactions per second, you can enable auto scaling on your resource. Follow this document to enable auto scaling on your resource * [enable auto scaling](../../ai-services/autoscale.md). You can also submit an increase TPS support request.
 
 #### Have the required information ready
 
-* Form Recognizer Resource ID
+* Document Intelligence Resource ID
 * Region
 
 * **How to get information (Base model)**:
   * Go to [Azure portal](https://portal.azure.com/)
-  * Select the Form Recognizer Resource for which you would like to increase the transaction limit
+  * Select the Document Intelligence Resource for which you would like to increase the transaction limit
   * Select *Properties* (*Resource Management* group)
   * Copy and save the values of the following fields:
     * **Resource ID**
@@ -171,15 +172,15 @@ Initiate the increase of transactions per second(TPS) limit for your resource by
 
 * Ensure you have the [required information](#have-the-required-information-ready)
 * Go to [Azure portal](https://portal.azure.com/)
-* Select the Form Recognizer Resource for which you would like to increase the TPS limit
+* Select the Document Intelligence Resource for which you would like to increase the TPS limit
 * Select *New support request* (*Support + troubleshooting* group)
 * A new window appears with autopopulated information about your Azure Subscription and Azure Resource
-* Enter *Summary* (like "Increase Form Recognizer TPS limit")
+* Enter *Summary* (like "Increase Document Intelligence TPS limit")
 * In Problem type,* select "Quota or usage validation"
 * Select *Next: Solutions*
 * Proceed further with the request creation
 * Under the *Details* tab, enter the following information in the *Description* field:
-  * a note, that the request is about **Form Recognizer** quota.
+  * a note, that the request is about **Document Intelligence** quota.
   * Provide a TPS expectation you would like to scale to  meet.
   * Azure resource information you [collected](#have-the-required-information-ready).
   * Complete entering the required information and select *Create* button in *Review + create* tab
@@ -189,7 +190,7 @@ Initiate the increase of transactions per second(TPS) limit for your resource by
 
 This example presents the approach we recommend following to mitigate possible request throttling due to [Autoscaling being in progress](#detailed-description-quota-adjustment-and-best-practices). It isn't an *exact recipe*, but merely a template we invite to follow and adjust as necessary.
 
- Let us suppose that a Form Recognizer resource has the default limit set. Start the workload to submit your analyze requests. If you find that you're seeing frequent throttling with response code 429, start by implementing an exponential backoff on the GET analyze response request. By using a progressively longer wait time between retries for consecutive error responses, for example a  2-5-13-34 pattern of delays between requests. In general, it's recommended to not call the get analyze response more than once every 2 seconds for a corresponding POST request.
+ Let us suppose that a Document Intelligence resource has the default limit set. Start the workload to submit your analyze requests. If you find that you're seeing frequent throttling with response code 429, start by implementing an exponential backoff on the GET analyze response request. By using a progressively longer wait time between retries for consecutive error responses, for example a  2-5-13-34 pattern of delays between requests. In general, it's recommended to not call the get analyze response more than once every 2 seconds for a corresponding POST request.
 
 If you find that you're being throttled on the number of POST requests for documents being submitted, consider adding a delay between the requests. If your workload requires a higher degree of concurrent processing, you then need to create a support request to increase your service limits on transactions per second.
 
