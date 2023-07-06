@@ -6,7 +6,7 @@ author: pauljewellmsft
 ms.author: pauljewell
 ms.service: storage
 ms.topic: how-to
-ms.date: 06/28/2023
+ms.date: 07/06/2023
 ms.subservice: blobs
 ms.devlang: python
 ms.custom: devx-track-python, devguide-python, devx-track-python
@@ -26,30 +26,27 @@ Properly tuning data transfer options is key to reliable performance for uploads
 
 The following arguments can be tuned based on the needs of your app:
 
-- [max_single_put_size](#max_single_put_size): The size of the first request in bytes. Defaults to 64 MiB.
+- [max_single_put_size](#max_single_put_size): The maximum size for a blob to be uploaded with a single request. Defaults to 64 MiB.
 - [max_concurrency](#max_concurrency): The maximum number of subtransfers that may be used in parallel.
-- [max_block_size](#max_block_size): The maximum length of a transfer in bytes. Defaults to 4 MiB.
+- [max_block_size](#max_block_size): The maximum length of a transfer in bytes when uploading a block blob in chunks. Defaults to 4 MiB.
 
 > [!NOTE]
 > The client libraries will use defaults for each data transfer option, if not provided. These defaults are typically performant in a data center environment, but not likely to be suitable for home consumer environments. Poorly tuned data transfer options can result in excessively long operations and even request timeouts. It's best to be proactive in testing these values, and tuning them based on the needs of your application and environment.
 
 #### max_single_put_size
 
-The `max_single_put_size` argument is the size of the first range request in bytes. An HTTP range request is a partial request, with the size defined by `max_single_put_size` in this case. Blobs smaller than this size are transferred in a single request. Blobs larger than this size continue to be transferred in chunks of size `max_block_size`.
+The `max_single_put_size` argument is the maximum blob size in bytes for a single request upload. If the blob size is less than or equal to `max_single_put_size`, the blob is uploaded with a single [Put Blob](/rest/api/storageservices/put-blob) request. If the blob size is greater than `max_single_put_size`, or if the blob size is unknown, the blob is uploaded in chunks using a series of [Put Block](/rest/api/storageservices/put-block) calls followed by followed by [Put Block List](/rest/api/storageservices/put-block-list).
 
-It's important to note that the value you specify for `max_block_size` *does not* limit the value that you define for `max_single_put_size`. The `max_single_put_size` argument defines a separate size limitation for an initial request to perform the entire operation at once, with no subtransfers. It's often the case that you want `max_single_put_size` to be *at least* as large as the value you define for `max_block_size`, if not larger.  Depending on the size of the data transfer, this approach can be more performant, as the transfer is completed with a single request and avoids the overhead of multiple requests.
+It's important to note that the value you specify for `max_block_size` *does not* limit the value that you define for `max_single_put_size`. The `max_single_put_size` argument defines a separate size limitation for a request to perform the entire operation at once, with no subtransfers. It's often the case that you want `max_single_put_size` to be *at least* as large as the value you define for `max_block_size`, if not larger.  Depending on the size of the data transfer, this approach can be more performant, as the transfer is completed with a single request and avoids the overhead of multiple requests.
 
 If you're unsure of what value is best for your situation, a safe option is to set `max_single_put_size` to the same value used for `max_block_size`.
-
-> [!NOTE]
-> When using a `BlobClient` object, uploading a blob smaller than the `max_single_put_size` will be performed using [Put Blob](/rest/api/storageservices/put-blob), rather than [Put Block](/rest/api/storageservices/put-block).
 
 #### max_concurrency
 The `max_concurrency` argument is the maximum number of workers that may be used in a parallel transfer. Currently, only asynchronous operations can parallelize transfers. Synchronous operations ignore this value and work in sequence.
 
 #### max_block_size
 
-The `max_block_size` argument is the maximum length of a transfer in bytes. As mentioned earlier, this value *does not* limit `max_single_put_size`, which can be larger than `max_block_size`. 
+The `max_block_size` argument is the maximum length of a transfer in bytes when uploading a block blob in chunks. As mentioned earlier, this value *does not* limit `max_single_put_size`, which can be larger than `max_block_size`. 
 
 To keep data moving efficiently, the client libraries may not always reach the `max_block_size` value for every transfer. Depending on the operation, the maximum supported value for transfer size can vary. For more information on transfer size limits for Blob storage, see the chart in [Scale targets for Blob storage](scalability-targets.md#scale-targets-for-blob-storage).
 
@@ -73,28 +70,31 @@ def upload_blob_transfer_options(self, account_url: str, container_name: str, bl
         blob_client = blob_client.upload_blob(data=data, overwrite=True, max_concurrency=2)
 ```
 
-In this example, we set the number of parallel transfer workers to 2, using the `max_concurrency` argument on the method call. This configuration opens up to two connections simultaneously, allowing the upload to happen in parallel. The initial HTTP range request attempts to upload up to 8 MiB of data, as defined by the `max_single_put_size` argument. Note that `max_single_put_size` only applies for uploads when [using a seekable stream](#max_single_put_size-for-uploads). If the blob size is smaller than 8 MiB, only a single request is necessary to complete the operation. If the blob size is larger than 8 MiB, all subsequent transfer requests have a maximum size of 4 MiB, which we set with the `max_block_size` argument during client construction.
+In this example, we set the number of parallel transfer workers to 2, using the `max_concurrency` argument on the method call. This configuration opens up to two connections simultaneously, allowing the upload to happen in parallel. During client instantiation, we define the `max_single_put_size` argument to be 8 MiB. This means that if the blob size is smaller than 8 MiB, only a single `Put Blob` request is necessary to complete the upload operation. If the blob size is larger than 8 MiB, the blob is uploaded in chunks with a maximum chunk size of 4 MiB, as defined by our `max_block_size` argument. When uploading in chunks, the client libraries use a series of `Put Block` calls followed by `Put Block List`. Note that `max_single_put_size` only applies for uploads when [using a seekable stream](#max_single_put_size-for-uploads).
 
 ### Performance considerations for uploads
 
 During an upload, the Storage client libraries split a given upload stream into multiple subuploads based on the configuration options defined during client construction. Each subupload has its own dedicated call to the REST operation. For a `BlobClient` object or `BlockBlobClient` object, this operation is [Put Block](/rest/api/storageservices/put-block). For a `DataLakeFileClient` object, this operation is [Append Data](/rest/api/storageservices/datalakestoragegen2/path/update). The Storage client library manages these REST operations in parallel (depending on transfer options) to complete the full upload.
 
-Depending on whether the upload stream is seekable or non-seekable, the client library handles buffering and `max_single_put_size` differently, as described in the following sections. A seekable stream is a stream that supports querying and modifying the current position within a stream.
+You can learn how the client library handles buffering in the following sections.
 
 > [!NOTE]
 > Block blobs have a maximum block count of 50,000 blocks. The maximum size of your block blob, then, is 50,000 times `max_block_size`.
 
 #### Buffering during uploads
 
-The Storage REST layer doesn’t support picking up a REST upload operation where you left off; individual transfers are either completed or lost. To ensure resiliency for non-seekable stream uploads, the Storage client libraries buffer data for each individual REST call before starting the upload. In addition to network speed limitations, this buffering behavior is a reason to consider a smaller value for `max_block_size`, even when uploading in sequence. Decreasing the value of `max_block_size` decreases the maximum amount of data that is buffered on each request and each retry of a failed request. If you're experiencing frequent timeouts during data transfers of a certain size, reducing the value of `max_block_size` reduces the buffering time, and may result in better performance.
+The Storage REST layer doesn’t support picking up a REST upload operation where you left off; individual transfers are either completed or lost. To ensure resiliency for stream uploads, the Storage client libraries buffer data for each individual REST call before starting the upload. In addition to network speed limitations, this buffering behavior is a reason to consider a smaller value for `max_block_size`, even when uploading in sequence. Decreasing the value of `max_block_size` decreases the maximum amount of data that is buffered on each request and each retry of a failed request. If you're experiencing frequent timeouts during data transfers of a certain size, reducing the value of `max_block_size` reduces the buffering time, and may result in better performance.
 
-Another scenario where buffering occurs is when you're uploading data with parallel REST calls to maximize network throughput. The client libraries need sources they can read from in parallel, and since streams are sequential, the Storage client libraries buffer the data for each individual REST call before starting the upload. This buffering behavior occurs even if the provided stream is seekable.
+Another scenario where buffering occurs is when you're uploading data with parallel REST calls to maximize network throughput. The client libraries need sources they can read from in parallel, and since streams are sequential, the Storage client libraries buffer the data for each individual REST call before starting the upload.
 
-To avoid buffering during an asynchronous upload call, you must provide a seekable stream and set `max_concurrency` to 1. While this strategy should work in most situations, it's still possible for buffering to occur if your code is using other client library features that require buffering.
+To avoid buffering during an upload call, you must meet the following minimum conditions:
 
-#### max_single_put_size for uploads
+- The `max_block_size` argument must be greater than `min_large_block_upload_threshold`. The `min_large_block_upload_threshold` argument can be defined during client instantiation, and is the minimum chunk size in bytes required to use the memory efficient algorithm. Defaults to `4*1024*1024 + 1`.
+- The provided stream must be seekable. A seekable stream is a stream that supports querying and modifying the current position within a stream.
+- The `max_concurrency` argument must be set to 1.
+- The blob must be a block blob.
 
-When a seekable stream is provided for upload, the stream length is checked against the value of `max_single_put_size`. If the stream length is less than this value, the entire stream is uploaded as a single REST call, regardless of other data transfer configuration values. Otherwise, the upload is done in multiple parts as described earlier. `max_single_put_size` has no effect on a non-seekable stream and is ignored.
+While this strategy should work in most situations, it's still possible for buffering to occur if your code is using other client library features that require buffering.
 
 ## Performance tuning for downloads
 
@@ -131,13 +131,9 @@ def download_blob_transfer_options(self, account_url: str, container_name: str, 
 
 During a download, the Storage client libraries split a given download request into multiple subdownloads based on the configuration options defined during client construction. Each subdownload has its own dedicated call to the REST operation. Depending on transfer options, the client libraries manage these REST operations in parallel to complete the full download.
 
-#### Buffering during downloads
-
-Receiving multiple HTTP responses simultaneously with body contents has implications for memory usage. However, the Storage client libraries don't explicitly add a buffer step for downloaded contents. Incoming responses are processed in order. The client libraries configure a 16-kilobyte buffer for copying streams from an HTTP response stream to a caller-provided destination stream or file path.
-
 #### max_single_get_size for downloads
 
-During a download, the Storage client libraries make one download range request using `max_single_get_size` before doing anything else. During this initial download request, the client libraries know the total size of the resource. If the initial request successfully downloaded all of the content, the operation is complete. Otherwise, the client libraries continue to make range requests up to `max_block_size` until the full download is complete.
+During a download, the Storage client libraries make one download range request using `max_single_get_size` before doing anything else. During this initial download request, the client libraries know the total size of the resource. If the initial request successfully downloaded all of the content, the operation is complete. Otherwise, the client libraries continue to make range requests up to `max_chunk_get_size` until the full download is complete.
 
 ## Next steps
 
