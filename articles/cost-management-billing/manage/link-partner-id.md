@@ -118,7 +118,7 @@ C:\ az managementpartner delete --partner-id 12345
 
 PAL can be as granular as a resource instance. For example, a single virtual machine. However, PAL is set on a user account. The scope of the Azure Consumed Revenue (ACR) measurement is whatever administrative permissions that a user account has within the environment. An administrative scope can be subscription, resource group, or resource instance using standard Azure RBAC roles.
 
-In other words, PAL association can happen for all RBAC roles. Eligibility for partner incentives is determined by the roles. For more information about eligibility, see [Partner Incentives](https://aka.ms/partnerincentives).
+In other words, PAL association can happen for all RBAC roles. The roles determine eligibility for partner incentives. For more information about eligibility, see [Partner Incentives](https://aka.ms/partnerincentives).
 
 For example, if you're partner, your customer might hire you to do a project. Your customer can give you an administrative account to deploy, configure, and support an application. Your customer can scope your access to a resource group. If you use PAL and associate your MPN ID with the administrative account, Microsoft measures the consumed revenue from the services within the resource group.
 
