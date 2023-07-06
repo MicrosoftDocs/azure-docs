@@ -4,7 +4,7 @@ titleSuffix: Azure Machine Learning
 description: Learn how to troubleshoot some common deployment and scoring errors with online endpoints.
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: mlops
+ms.subservice: inferencing
 author: dem108
 ms.author: sehan
 ms.reviewer: mopeakande
@@ -341,6 +341,7 @@ This is a list of reasons you might run into this error when using either manage
 * [Subscription does not exist](#subscription-does-not-exist)
 * [Startup task failed due to authorization error](#authorization-error)
 * [Startup task failed due to incorrect role assignments on resource](#authorization-error)
+* [Invalid template function specification](#invalid-template-function-specification)
 * [Unable to download user container image](#unable-to-download-user-container-image)
 * [Unable to download user model](#unable-to-download-user-model)
 
@@ -368,6 +369,10 @@ To do these, Azure uses [managed identities](../active-directory/managed-identit
 - If you created the associated endpoint with User Assigned Identity, the user's managed identity must have Storage blob data reader permission on the storage account for the workspace, and AcrPull permission on the Azure Container Registry (ACR) for the workspace. Make sure your User Assigned Identity has the right permission.
 
 For more information, please see [Container Registry Authorization Error](#container-registry-authorization-error).
+
+#### Invalid template function specification
+
+This error occurs when a template function has been specified incorrectly. Please either fix the policy or remove the policy assignment to unblock. The error message may include the policy assignment name and the policy definition to help you debug this error, as well as the [Azure policy definition structure article](https://aka.ms/policy-avoiding-template-failures) which discusses tips to avoid template failures.
 
 #### Unable to download user container image
 

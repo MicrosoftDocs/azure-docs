@@ -11,7 +11,8 @@ ms.workload: identity
 ms.topic: how-to
 ms.author: kengaderdus
 ms.subservice: B2C
-ms.date: 01/31/2023
+ms.date: 06/12/2023
+ms.custom: "b2c-support"
 ---
 
 # Monitor Azure AD B2C with Azure Monitor
@@ -345,6 +346,19 @@ workspace("AD-B2C-TENANT1").AuditLogs
 
 Azure Monitor Logs are designed to scale and support collecting, indexing, and storing massive amounts of data per day from any source in your enterprise or deployed in Azure. By default, logs are retained for 30 days, but retention duration can be increased to up to two years. Learn how to [manage usage and costs with Azure Monitor Logs](../azure-monitor/logs/cost-logs.md). After you select the pricing tier, you can [Change the data retention period](../azure-monitor/logs/data-retention-archive.md).
 
+## Disable monitoring data collection
+
+To stop collecting logs to your Log Analytics workspace, delete the diagnostic settings you created. You'll continue to incur charges for retaining log data you've already collected into your workspace. If you no longer need the monitoring data you've collected, you can delete your Log Analytics workspace and the resource group you created for Azure Monitor. Deleting the Log Analytics workspace deletes all data in the workspace and prevents you from incurring additional data retention charges.
+
+## Delete Log Analytics workspace and resource group
+
+1. Sign in to the [Azure portal](https://portal.azure.com).
+1. Make sure you're using the directory that contains your *Azure AD* tenant:
+   1. Select the **Directories + subscriptions** icon in the portal toolbar.
+   1. On the **Portal settings | Directories + subscriptions** page, find your Azure AD directory in the **Directory name** list, and then select **Switch** button next to it.
+1. Choose the resource group that contains the Log Analytics workspace. This example uses a resource group named _azure-ad-b2c-monitor_ and a Log Analytics workspace named `AzureAdB2C`.
+1. [Delete the Logs Analytics workspace](../azure-monitor/logs/delete-workspace.md#azure-portal).
+1. Select the **Delete** button to delete the resource group.
 ## Next steps
 
 - Find more samples in the Azure AD B2C [SIEM gallery](https://aka.ms/b2csiem).

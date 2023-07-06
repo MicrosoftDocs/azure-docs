@@ -1,24 +1,24 @@
 ---
-title: Use blob access tiers with JavaScript
+title: Set or change a blob's access tier with JavaScript
 titleSuffix: Azure Storage 
-description: Learn how to add or change a blob's access tier in your Azure Storage account using the JavaScript client library.
+description: Learn how to set or change a blob's access tier in your Azure Storage account using the JavaScript client library.
 services: storage
 author: pauljewellmsft
 ms.author: pauljewell
 
 ms.service: storage
 ms.topic: how-to
-ms.date: 02/22/2023
+ms.date: 06/28/2023
 ms.subservice: blobs
 ms.devlang: javascript
 ms.custom: devx-track-js, devguide-js
 ---
 
-# Using access tiers
+# Set or change a block blob's access tier with JavaScript
 
-This article shows how to use [access tiers](access-tiers-overview.md) for block blobs with the [Azure Storage client library for JavaScript](https://www.npmjs.com/package/@azure/storage-blob). 
+This article shows how to set or change a blob's [access tier](access-tiers-overview.md) for block blobs with the [Azure Storage client library for JavaScript](https://www.npmjs.com/package/@azure/storage-blob). 
 
-## Understand block blob access tiers
+## About block blob access tiers
 
 Data stored in the cloud grows at an exponential pace. To manage costs for your expanding storage needs, it can be helpful to organize your data based on how frequently it will be accessed and how long it will be retained. Azure storage offers different access tiers so that you can store your blob data in the most cost-effective manner based on how it's being used. Azure Storage access tiers include:
 
@@ -31,6 +31,8 @@ Data stored in the cloud grows at an exponential pace. To manage costs for your 
 ## Restrictions
 
 Setting the access tier is only allowed on block blobs. To learn more about restrictions on setting a block blob's access tier, see [Set Blob Tier (REST API)](/rest/api/storageservices/set-blob-tier#remarks).
+
+To set the access tier to `Cold`, you must use a minimum [client library](/javascript/api/preview-docs/@azure/storage-blob/) version of 12.13.0.
 
 ## Set a blob's access tier during upload
 

@@ -412,7 +412,7 @@ You might have a limited number of Azure app actions per action group.
 | 358 | Finland |
 | 33 | France |
 | 49 | Germany |
-| 852 | Hong Kong |
+| 852 | Hong Kong Special Administrative Region|
 | 91 | India |
 | 353 | Ireland |
 | 972 | Israel |

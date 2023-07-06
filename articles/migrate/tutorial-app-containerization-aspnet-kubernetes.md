@@ -5,6 +5,7 @@ author: vijain
 ms.author: vijain
 ms.manager: kmadnani
 ms.custom: subject-rbac-steps
+ms.service: azure-migrate
 ms.topic: tutorial
 ms.date: 04/24/2023
 ---

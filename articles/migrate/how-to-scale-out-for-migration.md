@@ -4,6 +4,7 @@ description: Learn how to set up an Azure Migrate scale-out appliance to migrate
 author: ajaypartha95
 ms.author: ajaypar
 ms.manager: roopesh.nair
+ms.service: azure-migrate
 ms.topic: how-to
 ms.date: 06/15/2023
 ms.custom: engagement-fy23

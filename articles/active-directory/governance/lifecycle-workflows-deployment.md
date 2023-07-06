@@ -43,7 +43,7 @@ For more information on deployment plans, see [Azure AD deployment plans](../fun
 ## License requirements
 
 
-[!INCLUDE [Azure AD Premium P2 license](../../../includes/lifecycle-workflows-license.md)]
+[!INCLUDE [Microsoft Entra ID Governance license](../../../includes/active-directory-entra-governance-license.md)]
 
 >[!Note]
 >Be aware that if your license expires, any workflows that you have created will stop working.
@@ -241,7 +241,7 @@ When creating custom task extensions, the scenarios for how it interacts with Li
 - **Fire-and-forget scenario**- The Logic App is started, and the sequential task execution immediately continues with no response expected from the Logic App. 
 - **Sequential task execution waiting for response from the Logic App** - The Logic app is started, and the sequential task execution waits on the response from the Logic App.
 - **Sequential task execution waiting for the response of a 3rd party system**- The Logic app is started, and the sequential task execution waits on the response from a 3rd party system that triggers the Logic App to tell the Custom Task extension whether or not it ran successfully. 
-- For more information on custom extensions, see [Lifecycle Workflow extensibility (Preview)](lifecycle-workflow-extensibility.md)
+- For more information on custom extensions, see [Lifecycle Workflow extensibility](lifecycle-workflow-extensibility.md)
 
 ## Create your workflow
 Now that you have design and planned your workflow, you can create it in the portal.  For detailed information on creating a workflow, see [Create a Lifecycle workflow.](create-lifecycle-workflow.md)

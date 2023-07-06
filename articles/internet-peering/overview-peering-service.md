@@ -47,7 +47,7 @@ In the figure above each branch office of a global enterprise connects to the ne
 
 ## FAQ
 
-For frequently asked questions, see [Peering Service FAQ](service-faqs.yml).
+For frequently asked questions, see [Peering Service FAQ](faqs.md#peering-service).
 
 ## Next steps
 
