@@ -27,7 +27,7 @@ Azure AI services is cloud-based artificial intelligence (AI) services that help
 * A valid Azure subscription - [Create one for free](https://azure.microsoft.com/free/cognitive-services/).
 * [!INCLUDE [contributor-requirement](./includes/quickstarts/contributor-requirement.md)]
 
-## Create a new Azure AI services resource
+## Create a new Azure Cognitive Services resource
 
 ### [Multi-service](#tab/multiservice)
 
