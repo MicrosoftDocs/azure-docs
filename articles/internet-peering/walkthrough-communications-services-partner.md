@@ -33,7 +33,7 @@ To establish direct interconnect for MAPS Communication Services, follow these r
 -	The Peer MUST supply and advertise their own publicly routable IPv4 address space used by Peer's endpoints (for example, SBC). 
 -	The Peer MUST supply detail of what class of traffic and endpoints are housed in each advertised subnet.
 -	The Peer MUST run BGP over Bidirectional Forwarding Detection (BFD) to facilitate sub-second route convergence.
--	The Peer MUST NOT terminate peering on a device running a stateful firewall.
+-	The Peer MUST NOT terminate the peering on a device running a stateful firewall.
 -	The Peer CANNOT have two local connections configured on the same router, as diversity is required
 -   The Peer CANNOT apply rate limiting to their connection
 -   The Peer CANNOT configure a local redundant connection as a backup connection. Backup connections must be in a different location than primary connections.
