@@ -213,30 +213,49 @@ When a user is added to the Azure AD group, Azure Lab Services automatically add
 
 You can't manually add or remove lab users, or update the lab capacity when synchronizing with an Azure AD group.
 
-# [Teams/Canvas](#tab/teams-canvas)
+# [Teams](#tab/teams)
 
-When you create a lab in Teams or Canvas, Azure Lab Services automatically grants users access to the lab based on their membership in Teams or Canvas. When you use Teams or Canvas, you can't manually add or delete users in the lab settings. Add or remove users in Teams or Canvas to assign or remove access for a user to a lab VM.
+When you create a lab in Teams, Azure Lab Services automatically grants users access to the lab based on their team membership in Teams. When you use Teams, you can't manually add or delete users in the lab settings. Add or remove users to a team to assign or remove access for a user to a lab VM.
 
-Lab users don't have to register for their lab and a lab VM is automatically assigned. Lab users can [access the lab directly from within Teams or Canvas](./how-to-access-lab-virtual-machine.md).
+Lab users don't have to register for their lab and a lab VM is automatically assigned. Lab users can [access the lab directly from within Teams](./how-to-access-lab-virtual-machine.md).
 
-Before you can use labs in Teams or Canvas:
+Before you can use labs in Teams, follow these steps to [configure Teams for using Azure Lab Services](./how-to-configure-teams-for-lab-plans.md).
 
-- [Configure Teams for using Azure Lab Services](./how-to-configure-teams-for-lab-plans.md)
-- [Configure Canvas for using Azure Lab Services](./how-to-configure-canvas-for-lab-plans.md)
-
-### Synchronize the lab user list with Teams/Canvas
+### Synchronize the lab user list with Teams
 
 Azure Lab Services automatically synchronizes the membership information with the lab user list every 24 hours. Lab creators can select **Sync** in the **Users** tab to manually trigger a sync, for example when the team membership is updated.
 
+:::image type="content" source="./media/how-to-manage-lab-users/sync-users.png" alt-text="Screenshot that shows how to manually sync users with Azure Lab Services in Teams.":::
+
+### Automatic VM management based on team membership
+
+When you create labs in Teams, Azure Lab Services also automatically manages the number of lab VMs based on the number of users in the team.
+
+When a user is added in Teams, Azure Lab Services automatically adds a lab VM for that user. When a user is no longer a member, the lab VM for that user is automatically deleted from the lab.
+
+You can't manually add or remove lab users, or update the lab capacity when creating labs in Teams.
+
+# [Canvas](#tab/canvas)
+
+When you create a lab in Canvas, Azure Lab Services automatically grants users access to the lab based on their course membership in Canvas. When you use Canvas, you can't manually add or delete users in the lab settings. Add or remove users for a course in Canvas to assign or remove access for a user to a lab VM.
+
+Lab users don't have to register for their lab and a lab VM is automatically assigned. Lab users can [access the lab directly from within Canvas](./how-to-access-lab-virtual-machine.md).
+
+Before you can use labs in Canvas, follow these steps to [configure Canvas for using Azure Lab Services](./how-to-configure-canvas-for-lab-plans.md).
+
+### Synchronize the lab user list with Canvas
+
+Azure Lab Services automatically synchronizes the membership information with the lab user list every 24 hours. Lab creators can select **Sync** in the **Users** tab to manually trigger a sync, for example when the course membership is updated.
+
 :::image type="content" source="./media/how-to-manage-lab-users/sync-users.png" alt-text="Screenshot that shows how to manually sync users with Azure Lab Services in Canvas.":::
 
-### Automatic VM management based on Teams/Canvas membership
+### Automatic VM management based on course membership
 
-When you create labs in Teams or Canvas, Azure Lab Services also automatically manages the number of lab VMs based on the number of users in the team (Teams) or course (Canvas).
+When you create labs in Canvas, Azure Lab Services also automatically manages the number of lab VMs based on the number of users in the course.
 
-When a user is added in Teams or Canvas, Azure Lab Services automatically adds a lab VM for that user. When a user is no longer a member, the lab VM for that user is automatically deleted from the lab.
+When a user is added in Canvas, Azure Lab Services automatically adds a lab VM for that user. When a user is no longer a member, the lab VM for that user is automatically deleted from the lab.
 
-You can't manually add or remove lab users, or update the lab capacity when creating labs in Teams or Canvas.
+You can't manually add or remove lab users, or update the lab capacity when creating labs in Canvas.
 
 ---
 

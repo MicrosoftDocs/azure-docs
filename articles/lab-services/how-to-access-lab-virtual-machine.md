@@ -21,7 +21,7 @@ This article describes how you can access you lab virtual machines in Azure Lab 
 
 ## Access a lab virtual machine
 
-# [Lab Services website](#tab/als-website)
+# [Lab Services website](#tab/lab-services-website)
 
 In the Azure Lab Services website, you can view and manage your assigned lab virtual machines. To access the Azure Lab Services website:
 
@@ -45,15 +45,10 @@ Azure Lab Services supports different email account types when registering for a
 - An organizational email account that's provided by your Azure Active Directory instance.
 - A Microsoft-domain email account, such as *outlook.com*, *hotmail.com*, *msn.com*, or *live.com*.
 - A non-Microsoft email account, such as one provided by Yahoo! or Google. You need to link your account with a Microsoft account.
-- A GitHub account. You need to link your account with a Microsoft account.
 
 #### Use a non-Microsoft email account
 
 [!INCLUDE [Use non-Microsoft account](./includes/lab-services-non-microsoft-account.md)]
-
-#### Use a GitHub account
-
-[!INCLUDE [Use GitHub account](./includes/lab-services-github-account.md)]
 
 # [Teams](#tab/teams)
 
@@ -125,8 +120,8 @@ You can start and stop a lab virtual machine from the **My virtual machines** pa
 
 Alternately, you can also stop a lab VM by using the operating system shutdown command from within the lab VM. The preferred method to stop a lab VM is to use the **My virtual machines** page to avoid incurring additional costs.
 
-> [!TIP]
-> Wheny you use lab plans, Azure Lab Services detects when you shut down a lab VM by using the OS shutdown command. The lab VM is then marked as stopped, and billing stops.
+> [!WARNING]
+> If you use the OS shutdown command inside the lab VM, you might still incur costs. The preferred method is to use the stop action on the **My virtual machines** page. When you use lab plans, Azure Lab Services will detect when the lab VM is shut down, marks the lab VM as stopped, and billing stops.
 
 To start or stop a lab VM:
 

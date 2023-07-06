@@ -16,7 +16,7 @@ To register for a lab by using the registration link:
 
     :::image type="content" source="../media/lab-services-register-for-lab/register-lab.png" alt-text="Screenshot of browser with example registration link for Azure Lab Services, highlighting the registration link.":::
 
-1. Sign into the service with the email address that was used to add you to the list of lab users.
+1. Sign in with the email address to which the registration link was sent.
 
     > [!NOTE]
     > You need a Microsoft account to use Azure Lab Services, unless you're using Canvas. Follow these steps to [use a non-Microsoft account](../how-to-access-lab-virtual-machine.md#use-a-non-microsoft-email-account), such as a Yahoo or Google account, to sign into the Azure Lab Services website.

@@ -23,7 +23,7 @@ This article describes how to create and delete labs. It also shows you how to v
 
 ## View all labs
 
-# [Lab Services website](#tab/als-website)
+# [Lab Services website](#tab/lab-services-website)
 
 1. Navigate to Lab Services web portal: [https://labs.azure.com](https://labs.azure.com).
 

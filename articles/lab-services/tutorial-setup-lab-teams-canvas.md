@@ -103,8 +103,8 @@ A lab contains the configuration and settings for creating lab VMs. All lab VMs 
 
     | Field        | Description                |
     | ------------ | -------------------------- |
-    | **Name** | Enter *ubuntu-101*. |
-    | **Virtual machine image** | Select *Ubuntu Server 20.04 LTS*. |
+    | **Name** | Enter *programming-101*. |
+    | **Virtual machine image** | Select *Windows Server 2022 Datacenter*. |
     | **Virtual machine size** | Select *Small*. |
     | **Location** | Leave the default value. |
 
