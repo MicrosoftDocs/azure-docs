@@ -9,20 +9,34 @@ ms.date: 03/08/2023
 ---
 
 # Monitor Kubernetes scenarios
-This article describes different scenarios for monitoring Kubernete using Azure Monitor and other services in Azure. See [Monitor Kubernetes with Azure Monitor](monitor-containers.md) for details on selecting and configuring the right monitoring solution for your environment.
+This article describes different scenarios for monitoring Kubernetes based on the monitoring environment described in [Monitor Kubernetes with Azure Monitor](monitor-containers.md). Solutions to common scenarios are provided for each of the different roles that commonly support a Kubernetes environment. This article assumes that you're using Container insights and the managed offerings in Azure for Prometheus and Grafana. If you're using alternative tools, then you can use the same concepts, but details will vary for the different tools.
 
 
 ## Roles
 Responsibility for a Kubernetes environment and the applications that depend on it are typically shared by multiple roles. Depending on the size of your organization, these roles may be performed by different people or even different teams. The following table describes the different roles while the sections below provide .
 
-| Roles | Levels | Description |
-|:---|:---|:---|
-| [Platform Engineer / Cluster admin](#platform-engineer) | 1-3 | Responsible for kubernetes cluster. Provisions and maintains platform used by developer. |
-| [Developer](#developer) | 4 | Develop and maintain the application running on the cluster. Responsible for application specific traffic including application performance and failures. Maintains reliability of the application according to SLAs. |
-| [Network engineer](#network-engineer) | 5 | Responsible for traffic between workloads and any ingress/egress with the cluster. Analyzes network traffic and performs threat analysis. |
+| Roles | Description |
+|:---|:---|
+| [Cluster administrator](#cluster-administrator) | Responsible for kubernetes cluster. Provisions and maintains platform used by developer. |
+| [Developer](#developer) | Develop and maintain the application running on the cluster. Responsible for application specific traffic including application performance and failures. Maintains reliability of the application according to SLAs. |
+| [Network engineer](#network-engineer) | Responsible for traffic between workloads and any ingress/egress with the cluster. Analyzes network traffic and performs threat analysis. |
 
-## Platform Engineer
-The cluster administrator, also known as the platform engineer, is responsible for the Kubernetes cluster. They provision and maintain the platform used by developers. They need to understand the health of the cluster and its components, and be able to troubleshoot issues. They also need to understand the cost of the cluster and its components, and be able to allocate costs to different teams.
+## Cluster administrator
+The cluster administrator, also known as the platform engineer, is responsible for the Kubernetes cluster. They provision and maintain the platform used by developers. They need to understand the health of the cluster and its components, and be able to troubleshoot any detected issues. They also need to understand the cost of the cluster and its components, and potentially to be able to allocate costs to different teams.
+
+Large organizations may also have a fleet architect, which is similar to the cluster administrator but is responsible for multiple clusters. They need visibility across the entire environment and must perform administrative tasks at scale. At scale recommendations for the fleet architect are included in the recommended solutions below.
+
+
+{Image placeholder}
+
+The primary tools used by the cluster administrator are Container insights, Prometheus, and Grafana. Depending on their particular environment, they may be using the managed offerings in Azure for Prometheus and Grafana or may be using a separate environment. They may also be using alternative tools to Container insights for monitoring and logging. 
+
+### Common scenarios for cluster administrator
+The following scenarios assume that the cluster administrator is using the managed offerings in Azure for Prometheus and Grafana, and Container insights for monitoring and logging.
+
+**How can I monitor the health of multiple clusters?**
+
+- Open **Containers** from the **Monitor** menu in the Azure portal to view the status of all your clusters monitored by Container insights.
 
 
 **What is the most cost effective way to setup logging and metrics?**
@@ -31,20 +45,21 @@ The cluster administrator, also known as the platform engineer, is responsible f
 
 **How do I keep costs to a minimum when using AKS and its larger ecosystem?**
 
-- The cluster administrator needs to ensure that the cluster is being run efficiently and using the full capacity of the nodes. They want to ensure that they're densely packing workloads, using fewer large nodes as opposed to many smaller nodes. [OpenCost](https://www.opencost.io/docs/azure-opencost) is an open-source, vendor-neutral CNCF sandbox project for understanding your Kubernetes costs and supporting your ability to for AKS cost visibility. It exports detailed costing data to Azure storage that the administrator can use for these decisions.
+- Ensure that the cluster is using the full capacity of its nodes by densely packing workloads, using fewer large nodes as opposed to many smaller nodes. [OpenCost](https://www.opencost.io/docs/azure-opencost) is an open-source, vendor-neutral CNCF sandbox project for understanding your Kubernetes costs and supporting your ability to for AKS cost visibility. It exports detailed costing data to Azure storage that the cluster administrator can use for these decisions.
 
 
 **How do I do charge back to different lines of business for their relative usage?**
 
-- The cluster administrator may be tasked with allocating the cost of the cluster to different teams based on their relative usage, and the need appropriate breakdowns of relative usage in order to perform this chargeback. [OpenCost](https://www.opencost.io/docs/azure-opencost) is an open-source, vendor-neutral CNCF sandbox project for understanding your Kubernetes costs and supporting your ability to for AKS cost visibility. It exports detailed costing data in addition to [customer-specific Azure pricing](https://www.opencost.io/docs/azure-prices) to Azure storage that the administrator can use for this requirement.
+- You may be tasked with allocating the cost of the cluster to different teams based on their relative usage, requiring appropriate breakdowns of relative usage
+- . [OpenCost](https://www.opencost.io/docs/azure-opencost) is an open-source, vendor-neutral CNCF sandbox project for understanding your Kubernetes costs and supporting your ability to for AKS cost visibility. It exports detailed costing data in addition to [customer-specific Azure pricing](https://www.opencost.io/docs/azure-prices) to Azure storage that the administrator can use for this requirement.
 
 **Do I have to use Azure's monitoring and logging or can I bring my own?**
 
-- Azure provides a complete set of services for collecting and analyzing your Kubernetes logs. Container insights collects container stdout, stderr, and infrastructure logs, while you can create diagnostic settings to collect control plan logs for AKS. All logs are stored in a Log Analytics workspace where they can be analyzed using [Kusto Query Language (KQL)]() or visualized in [managed Grafana](). If you have an existing investment in another tool to collect and analyze Kubernetes logs, then use the [Data Export feature of Log Analytics workspace] to send AKS logs to Event Hub and forward to alternate system. 
+- Azure provides a complete set of services for collecting and analyzing your Kubernetes logs. Container insights collects container stdout, stderr, and infrastructure logs, while you can create diagnostic settings to collect control plan logs for AKS. All logs are stored in a Log Analytics workspace where they can be analyzed using [Kusto Query Language (KQL)]() or visualized in [managed Grafana](). If you have an existing investment in another tool to collect and analyze Kubernetes logs, such as Splunk or Datadog, then follow the guidance for configuration of those tools. You can also use the [Data Export feature of Log Analytics workspace]() to send AKS logs to Event Hub and forward to alternate system. 
 
 **How can I monitor if my cluster upgrade was successful?**
 
-- Any configuration activities for AKS are logged in the Activity log. When you send the Activity log to a Log Analytics workspace you can analyze it with KQL. The following sample query can be used to return records identifying a successful upgrade. 
+- Any configuration activities for AKS are logged in the Activity log. When you [send the Activity log to a Log Analytics workspace]() you can analyze it with Log Analytics. The following sample query can be used to return records identifying a successful upgrade across all your AKS clusters. 
 
     ``` kql
     AzureActivity
@@ -57,9 +72,9 @@ The cluster administrator, also known as the platform engineer, is responsible f
 
 **How do I monitor attached storage?**
 
-- Use the [Disk Capacity and Disk IO workbooks](container-insights-reports.md#node-monitoring-workbooks) to view health and performance of disks attached to each node in your cluster.
-- Use [Storage insights](../../storage/common/storage-insights-overview.md) in Azure Monitor to monitor the performance, capacity, and availability of your storage resources in Azure. Configure [metric alerts](../alerts/alerts-metric-logs.md) and [service health notifications](../../service-health/alerts-activity-log-service-notifications-portal.md) to set up automated alerting to proactively detect issues.
+- Use the [Disk Capacity and Disk IO workbooks](container-insights-reports.md#node-monitoring-workbooks) in Container insights to view health and performance of disks attached to each node in your cluster.
 - Use Grafana dashboards with [Prometheus metric values](../essentials/prometheus-metrics-scrape-default.md) related to disk such as `node_disk_io_time_seconds_total` and `windows_logical_disk_free_bytes`.
+- Use [Storage insights](../../storage/common/storage-insights-overview.md) in Azure Monitor to monitor the performance, capacity, and availability of your Azure storage resources. Configure [metric alerts](../alerts/alerts-metric-logs.md) and [service health notifications](../../service-health/alerts-activity-log-service-notifications-portal.md) to set up automated alerting to proactively detect issues.
 
 
 **How do I monitor and observe access between services in the cluster (east-west traffic)?**
@@ -75,6 +90,7 @@ The cluster administrator, also known as the platform engineer, is responsible f
 **How do I configure alerting? What alerts should be created for different components?**
 
 - Start with a set of recommended Prometheus alerts from [Metric alert rules in Container insights (preview)](container-insights-metric-alerts.md#prometheus-alert-rules) which include the most common alerting conditions for a Kubernetes cluster. 
+- Review the standard log queries available for Container insights for potential basis for log query alerts.
 
 
 **Do I have to use Azure alerting or can I bring my own?**
@@ -85,58 +101,53 @@ The cluster administrator, also known as the platform engineer, is responsible f
 
 **Which images are currently used inside the cluster?**
 
-- Use the **Image inventory** log query that retrieves data from the [ContainerImageInventory](/azure/azure-monitor/reference/tables/containerimageinventory) table.
-
-## Fleet Architect
-The Fleet Architect is similar to the cluster administrator but is responsible for multiple clusters. They need visibility across the entire environment and must perform administrative tasks at scale. 
-
-**How can I monitor the health of multiple clusters?**
-
-- Open **Containers** from the **Monitor** menu in the Azure portal to view the status of all your clusters monitored by Container insights.
-
-**How can I monitor overall patch status of the clusters?**
-
-- The same log query shown above for tracking cluster upgrades can be used for multiple clusters.
-
-
-**How can I discover application inventory in the fleet with version and stage?**
+- Use the **Image inventory** log query that retrieves data from the [ContainerImageInventory](/azure/azure-monitor/reference/tables/containerimageinventory) table populated by Container insights.
 
 
 ## Network Engineer
-The Network Engineer is Responsible for traffic between workloads and any ingress/egress with the cluster. They analyze network traffic and perform threat analysis.
+The Network Engineer is responsible for traffic between workloads and any ingress/egress with the cluster. They analyze network traffic and perform threat analysis.
 
-[Network Watcher](../../network-watcher/network-watcher-monitoring-overview.md) is a suite of tools in Azure to monitor your virtual networks and to diagnose detected issues. [Network insights](../../network-watcher/network-insights-overview.md) is a feature of Azure Monitor that includes a visual representation of the performance and health of different network components and provides access to network monitoring tools that a part of Network Watcher such as [Connection Monitor](../../network-watcher/connection-monitor-overview.md), [NSG flow logs](../../network-watcher/network-watcher-nsg-flow-logging-overview.md), and [Traffic Analytics](../../network-watcher/traffic-analytics.md).
+{Image placeholder}
 
+
+### Common scenarios for network engineer
+
+**How can I inspect traffic flowing to and from my Kubernetes cluster?**
+
+- Create [flow logs](../../network-watcher/network-watcher-nsg-flow-logging-overview.md) to log information about the IP traffic flowing through network security groups and then use [traffic analytics](../../network-watcher/traffic-analytics.md) to analyze and provide insights on this data.
 
 **How can I detect any data exfiltration for my cluster?**
 
-- Create [flow logs](../../network-watcher/network-watcher-nsg-flow-logging-overview.md) to log information about the IP traffic flowing through network security groups and then use [traffic analytics](../../network-watcher/traffic-analytics.md) to determine if any traffic is flowing to either to or from any unexpected ports used by the cluster.
+ - Use traffic analytics to determine if any traffic is flowing to either to or from any unexpected ports used by the cluster.
 
 **How can I detect if any unnecessary public IPs are exposed?**
 
-- Create [flow logs](../../network-watcher/network-watcher-nsg-flow-logging-overview.md) to log information about the IP traffic flowing through network security groups and then use [traffic analytics](../../network-watcher/traffic-analytics.md) to identify traffic flowing over public IPs. Provide this information to security engineers to ensure that no unnecessary public IPs are exposed.
+- Use traffic analytics to identify traffic flowing over public IPs. Provide this information to security engineers to ensure that no unnecessary public IPs are exposed.
 
 **How can I verify that my network rules are configured correctly?**
-- Follow the previous guidance for detecting any unxpected activity and then analyze your network rules to determine why such traffic is allowed.
+- Follow the previous guidance for detecting any unexpected activity and then analyze your network rules to determine why such traffic is allowed.
 
 
 ## Developer
 
-### Description
 In addition to developing the application, the developer maintains the application running on the cluster. They're responsible for application specific traffic including application performance and failures and maintain reliability of the application according to company-defined SLAs.
 
 ### Tools
 [Application insights]()
 
 
+**How do I get started with Application insights?**
+
+- See [Data Collection Basics of Azure Monitor Application Insights](../app/opentelemetry-overview.md) for options on configuring data collection from your application and decision criteria on the best method for your particular requirements.
+
 **What are the poor performing apis or database queries?**
 
-
+- Use [Profiler](../profiler/profiler-overview.md) to capture and view performance traces for your application 
 
 **Where is my application bottleneck?**
 
 
-**Is myy application meeting my SLA?**
+**Is my application meeting my SLA?**
 
 - View the SLA report in the **Failures** tab of Application insights.
 - Use [annotations](../app/annotations.md) to identify when a new build is deployed so that you can visually inspect any change in performance after the update.
@@ -153,7 +164,8 @@ In addition to developing the application, the developer maintains the applicati
 
 **Where should I be sending my application logs, and where do I look for them?**
 
-- 
+- Container insights sends stdout/stderr logs to a Log Analytics workspace in the XXX table. 
+- App insights for additional logging including iLogger.
 
 
 ## Next steps
