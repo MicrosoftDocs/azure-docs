@@ -1,204 +1,350 @@
 ---
-title: Set up Private Link for Azure Virtual Desktop preview - Azure
-description: Learn how to set up Private Link for Azure Virtual Desktop (preview) to privately connect to your remote resources.
+title: Set up Private Link with Azure Virtual Desktop (preview) - Azure
+description: Learn how to set up Private Link with Azure Virtual Desktop (preview) to privately connect to your remote resources.
 author: dknappettmsft
 ms.topic: how-to
 ms.date: 07/04/2023
 ms.author: daknappe
 ---
 
-# Set up Private Link for Azure Virtual Desktop (preview)
+# Set up Private Link with Azure Virtual Desktop (preview)
 
 > [!IMPORTANT]
-> Private Link for Azure Virtual Desktop is currently in PREVIEW.
+> Using Private Link with Azure Virtual Desktop is currently in PREVIEW.
 > See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
-This article will show you how to set up Private Link for Azure Virtual Desktop (preview) in your Azure Virtual Desktop deployment. For more information about what Private Link can do for your deployment and the limitations of the public preview version, see [Private Link for Azure Virtual Desktop (preview)](private-link-overview.md).
+This article will show you how to set up Private Link with Azure Virtual Desktop (preview) to privately connect to your remote resources. For more information about using Private Link with Azure Virtual Desktop, including limitations with the preview version, see [Azure Private Link with Azure Virtual Desktop (preview)](private-link-overview.md).
 
 ## Prerequisites
 
-In order to use Private Link in your Azure Virtual Desktop deployment, you'll need the following things:
+In order to use Private Link with Azure Virtual Desktop, you'll need the following things:
 
-- An Azure account with an active subscription.
-- An Azure Virtual Desktop deployment with service objects, such as host pools, application groups, and [workspaces](environment-setup.md#workspaces).
-- The [required permissions to use Private Link](../private-link/rbac-permissions.md).
+- An existing [host pool](create-host-pool.md) with [session hosts](add-session-hosts-host-pool.md), [application group, and workspace](create-application-group-workspace.md). 
+- The [required Azure role-based access control permissions to create private endpoints](../private-link/rbac-permissions.md).
+- If you're using the [Remote Desktop client for Windows](connect-windows.md), you must use version 1.2.4066 or later.
 
->[!IMPORTANT]
->There's currently a bug in version 1.2.3918 of the Remote Desktop client for Windows that causes a client regression when you use Private Link. In order to use Private Link in your deployment, you must use a version later than 1.2.3918. Using an earlier version of the Remote Desktop client can potentially cause security issues. We don't recommend using version 1.2.3918 for environments or VMs that you aren't using to preview Private Link.
+## Enable the preview
 
-### Re-register your resource provider
+To use the preview of Private Link with Azure Virtual Desktop you'll need to re-register the *Microsoft.DesktopVirtualization* resource provider and register the *Azure Virtual Desktop Private Link Public Preview* preview feature on your Azure subscription.
 
-In the public preview version of Private Link, after you create your resources, you'll need to re-register them to your resource provider before you can start using Private Link. Re-registering allows the service to download and assign the new roles that will let you use this feature. 
+### Re-register the resource provider
 
-To re-register your resource provider:
-
-1. Sign in to the [Azure portal](https://portal.azure.com).
-
-1. Select **Subscriptions**.
-
-1. Select the name of your subscription.
-
-1. Select **Resource providers**.
-
-1. Search for **Microsoft.DesktopVirtualization**.
-
-1. Select **Microsoft.DesktopVirtualization**, then select **Re-register**.
-
-1. Verify that the status of Microsoft.DesktopVirtualization is **Registered**.
-
-## Enable preview content on your Azure subscription
-
-In order to use Private Link, you'll need to register your Azure subscription to use Private Link. To register your subscription:
+To re-register the *Microsoft.DesktopVirtualization* resource provider:
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
-1. In the search box, enter and select **Subscriptions**.
+1. In the search bar, enter **Subscriptions** and select the matching service entry.
 
-1. Select the name of your subscription.
+1. Select the name of your subscription, then in the section **Settings**, select **Resource providers**.
 
-1. In the menu on the left side of the screen, look under **Settings** and select **Preview features**.
+1. Search for and select **Microsoft.DesktopVirtualization**, then select **Re-register**.
 
-1. In the search box that opens, enter **Private**.
+1. Verify that the status of *Microsoft.DesktopVirtualization* is **Registered**.
 
-1. Select **Azure Virtual Desktop Private Link Public Preview**.
+You'll need to do these steps for each subscription you want to use with the preview.
 
-1. Select **Register**.
+### Register the preview feature
 
-Once you select **Register**, you'll be able to use Private Link.
+To register the *Azure Virtual Desktop Private Link Public Preview* preview feature:
 
-## Create a placeholder workspace
+1. Sign in to the [Azure portal](https://portal.azure.com).
 
-A private endpoint to the global sub-resource of any workspace controls the shared fully qualified domain name (FQDN) for initial feed discovery. This control enables feed discovery for all workspaces. Because the workspace connected to the private endpoint is so important, deleting it will cause all feed discovery processes to stop working. Instead of deleting the workspace, you should create an unused placeholder workspace to terminate the global endpoint before you start using Private Link. To create a workspace, follow the instructions in [Workspace information](create-host-pools-azure-marketplace.md#workspace-information).
+1. In the search bar, enter **Subscriptions** and select the matching service entry.
+
+1. Select the name of your subscription, then in the **Settings** section, select **Preview features**.
+
+1. Select the drop-down list for the filter **Type** and set it to **Microsoft.DesktopVirtualization**.
+
+1. Select **Azure Virtual Desktop Private Link Public Preview**, then select **Register**.
+
+You'll need to do these steps for each subscription you want to use with the preview.
 
 ## Set up Private Link in the Azure portal
 
-Now, let's set up Private Link for your host pool. During the setup process, you'll create private endpoints to the following resources:
+During the setup process, you'll create private endpoints to the following resources:
 
-| Resource type | Target sub-resource | Quantity |
-|--|--|
-| Microsoft.DesktopVirtualization/workspaces | global | One for all Azure Virtual Desktop deployments |
-| Microsoft.DesktopVirtualization/workspaces | feed | One per workspace |
-| Microsoft.DesktopVirtualization/hostpools | connection | One per host pool |
+| Purpose | Resource type | Target sub-resource | Quantity | Private DNS zone name |
+|--|--|--|--|--|
+| Initial feed discovery | Microsoft.DesktopVirtualization/workspaces | global | One for all your Azure Virtual Desktop deployments | `privatelink-global.wvd.microsoft.com` |
+| Feed download | Microsoft.DesktopVirtualization/workspaces | feed | One per workspace | `privatelink.wvd.microsoft.com` |
+| Connections to host pools | Microsoft.DesktopVirtualization/hostpools | connection | One per host pool | `privatelink.wvd.microsoft.com` |
 
-To configure Private Link in the Azure portal:
+> [!IMPORTANT]
+> You must create a private endpoint for each type of sub-resource.
 
-1. Open the Azure portal and sign in.
+### Initial feed discovery
 
-1. Search for and select **Azure Virtual Desktop**.
+To create a private endpoint for the *global* sub-resource used for the initial feed discovery, select the relevant tab for your scenario and follow the steps.
 
-1. Go to **Host pools**, then select the name of the host pool you want to use.
+> [!IMPORTANT]
+> A private endpoint to the global sub-resource of any workspace controls the shared fully qualified domain name (FQDN) for initial feed discovery. This in turn enables feed discovery for all workspaces. Because the workspace connected to the private endpoint is so important, deleting it will cause all feed discovery processes to stop working. We recommend you create an unused placeholder workspace for the global sub-resource.
 
-   >[!TIP]
-   >You can also start setting up by going to **Private Link Center** > **Private Endpoints** > **Add a private endpoint**.
+# [Portal](#tab/portal)
 
-1. After you've opened the host pool, go to **Networking** > **Private Endpoint connections**.
+1. Sign in to the [Azure portal](https://portal.azure.com/).
 
-1. Select **New private endpoint**.
+1. In the search bar, type *Azure Virtual Desktop* and select the matching service entry.
 
-1. In the **Basics** tab, either use the drop-down menus to select the **Subscription** and **Resource group** you want to use or create a new resource group.
+1. Select **Workspaces**.
 
-1. Next, enter a name for your new private endpoint. The network interface name will fill automatically.
+   1. *Optional*: Create a placeholder workspace to terminate the global endpoint by following the instructions to [Create a workspace](create-application-group-workspace?tabs=portal#create-a-workspace).
 
-1. Select the **region** your private endpoint will be located in. You must choose the same location as your session host and the virtual network (VNet) you plan to use.
+1. Select the name of the workspace you want to use for the global sub-resource.
 
-1. When you're done, select **Next: Resource >**.
+1. From the workspace overview, select **Networking**, then **Private endpoint connections**, and finally **New private endpoint**.
 
-1. In the **Resource** tab, use the following resource:
-    
-    - Resource type: **Microsoft.DesktopVirtualization/hostpools**
-    - Resource: *your host pool*
-    - Target sub-resource: connection
+1. On the **Basics** tab, complete the following information:
 
-1. Select **Next: Virtual Network >**.
+   | Parameter | Value/Description |
+   |--|--|
+   | Subscription | Select the subscription you want to create the private endpoint in from the drop-down list. |
+   | Resource group | This automatically defaults to the same resource group as your workspace for the private endpoint, but you can also select an alternative existing one from the drop-down list, or create a new one. |
+   | Name | Enter a name for the new private endpoint. |
+   | Network interface name | The network interface name will fill in automatically based on the name you gave the private endpoint, but you can also specify a different name. |
+   | Region | This automatically defaults to the same Azure region as the workspace and is where the private endpoint will be deployed. This must be the same region that your virtual network and session hosts are in. TODO: IS THIS RIGHT IF SESSION HOSTS ARE IN MULTIPLE REGIONS, BUT ONLY ONE GLOBAL SUB-RESOURCE? |
 
-1. In the **Virtual Network** tab, make sure the values in the **Virtual Network** and **subnet** fields are correct.
+   Once you've completed this tab, select **Next: Resource**.
 
-1. In the **Private IP configuration** field, choose whether you want to dynamically or statically allocate IP addresses from the subnet you selected in the previous step. 
-    
-    - If you choose to statically allocate IP addresses, you'll need to fill in the **Name** and **Private IP** for each listed member.
+1. On the **Resource** tab, validate the values for *Subscription*, *Resource type*, and *Resource*, then for **Target sub-resource**, select **global**. Once you've completed this tab, select **Next: Virtual Network**.
 
-1. Next, select an existing application security group or create a new one.
-    
-    - If you're creating a new application security group, select **Create new**, then enter a name for the new security group.
+1. On the **Virtual Network** tab, complete the following information:
 
-1. When you're finished, select **Next: DNS >**.
+   | Parameter | Value/Description |
+   |--|--|
+   | Virtual network | Select the virtual network you want to create the private endpoint in from the drop-down list. |
+   | Subnet | Select the subnet of the virtual network you want to create the private endpoint in from the drop-down list. |
+   | Network policy for private endpoints | Select **edit** if you want to choose a subnet network policy. For more information, see [Manage network policies for private endpoints](../private-link/disable-private-endpoint-network-policy.md). |
+   | Private IP configuration | Select **Dynamically allocate IP address** or **Statically allocate IP address**. The address space is from the subnet you selected.<br /><br />If you choose to statically allocate IP addresses, you'll need to fill in the **Name** and **Private IP** for each listed member. |
+   | Application security group | Select an existing application security group for the private endpoint from the drop-down list, or create a new one. |
 
-1. In the **DNS** tab, in the **Integrate with private DNS zone** field, select **Yes** if you want to integrate with an Azure private DNS zone. The private DNS zone name is `privatelink.wvd.microsoft.com`. Learn more about integration at [Azure Private endpoint DNS configuration](../private-link/private-endpoint-dns.md).
+   Once you've completed this tab, select **Next: DNS**.
 
-1. When you're done, select **Next: Tags >**.
+1. On the **DNS** tab, choose whether you want to use [Azure Private DNS Zone](../dns/private-dns-privatednszone.md) by selecting **Yes** or **No** for **Integrate with private DNS zone**. If you select **Yes**, select the subscription and resource group in which to create the private DNS zone `privatelink-global.wvd.microsoft.com`. For more information, see [Azure Private Endpoint DNS configuration](../private-link/private-endpoint-dns.md).
 
-1. In the **Tags** tab, you can optionally add tags to help the Azure service categorize your resources. If you don't want to add tags, select **Next: Review + create**.
+   Once you've completed this tab, select **Next: Tags**.
 
-1. Review the details of your private endpoint. If everything looks good, select **Create** and wait for the deployment to finish.
+1. *Optional*: On the **Tags** tab, you can enter any name/value pairs you need, then select **Next: Review + create**.
 
-1. Now, repeat the process to create private endpoints for your resources. Return to step 3, but select **Workspaces** instead of host pools and use the following resources, then follow the rest of the steps until the end.
+1. On the **Review + create** tab, ensure validation passes and review the information that will be used during deployment.
 
-    - Resource type: **Microsoft.DesktopVirtualization/workspaces**
-    - Resource: *your placeholder workspace*
-    - Target sub-resource: global
+1. Select **Create** to create the private endpoint for the global sub-resource.
 
-    - Resource type: **Microsoft.DesktopVirtualization/workspaces**
-    - Resource: *your workspace*
-    - Target sub-resource: feed
+# [Azure CLI](#tab/cli)
 
->[!NOTE]
->You'll need to repeat this process to create a private endpoint for every resource you want to put into Private Link.
+
+
+# [Azure PowerShell](#tab/powershell)
+
+
+
+---
+
+### Feed download
+
+To create a private endpoint for the *feed* sub-resource for a workspace, select the relevant tab for your scenario and follow the steps.
+
+# [Portal](#tab/portal)
+
+1. Return to the list of workspaces, then select the name of the workspace you want to create a *feed* sub-resource for.
+
+1. From the workspace overview, select **Networking**, then **Private endpoint connections**, and finally **New private endpoint**.
+
+1. On the **Basics** tab, complete the following information:
+
+   | Parameter | Value/Description |
+   |--|--|
+   | Subscription | Select the subscription you want to create the private endpoint in from the drop-down list. |
+   | Resource group | This automatically defaults to the same resource group as your workspace for the private endpoint, but you can also select an alternative existing one from the drop-down list, or create a new one. |
+   | Name | Enter a name for the new private endpoint. |
+   | Network interface name | The network interface name will fill in automatically based on the name you gave the private endpoint, but you can also specify a different name. |
+   | Region | This automatically defaults to the same Azure region as the workspace and is where the private endpoint will be deployed. This must be the same region that your virtual network and session hosts are in. TODO: IS THIS RIGHT IF SESSION HOSTS ARE IN MULTIPLE REGIONS, BUT ONLY ONE GLOBAL SUB-RESOURCE? |
+
+   Once you've completed this tab, select **Next: Resource**.
+
+1. On the **Resource** tab, validate the values for *Subscription*, *Resource type*, and *Resource*, then for **Target sub-resource**, select **feed**. Once you've completed this tab, select **Next: Virtual Network**.
+
+1. On the **Virtual Network** tab, complete the following information:
+
+   | Parameter | Value/Description |
+   |--|--|
+   | Virtual network | Select the virtual network you want to create the private endpoint in from the drop-down list. |
+   | Subnet | Select the subnet of the virtual network you want to create the private endpoint in from the drop-down list. |
+   | Network policy for private endpoints | Select **edit** if you want to choose a subnet network policy. For more information, see [Manage network policies for private endpoints](../private-link/disable-private-endpoint-network-policy.md). |
+   | Private IP configuration | Select **Dynamically allocate IP address** or **Statically allocate IP address**. The address space is from the subnet you selected.<br /><br />If you choose to statically allocate IP addresses, you'll need to fill in the **Name** and **Private IP** for each listed member. |
+   | Application security group | Select an existing application security group for the private endpoint from the drop-down list, or create a new one. |
+
+   Once you've completed this tab, select **Next: DNS**.
+
+1. On the **DNS** tab, choose whether you want to use [Azure Private DNS Zone](../dns/private-dns-privatednszone.md) by selecting **Yes** or **No** for **Integrate with private DNS zone**. If you select **Yes**, select the subscription and resource group in which to create the private DNS zone `privatelink.wvd.microsoft.com`. For more information, see [Azure Private Endpoint DNS configuration](../private-link/private-endpoint-dns.md).
+
+   Once you've completed this tab, select **Next: Tags**.
+
+1. *Optional*: On the **Tags** tab, you can enter any name/value pairs you need, then select **Next: Review + create**.
+
+1. On the **Review + create** tab, ensure validation passes and review the information that will be used during deployment.
+
+1. Select **Create** to create the private endpoint for the feed sub-resource.
+
+You'll need to create private endpoint for the *feed* sub-resource for each workspace you want to use with the Private Link.
+
+# [Azure CLI](#tab/cli)
+
+
+
+# [Azure PowerShell](#tab/powershell)
+
+
+
+---
+
+### Connections to host pools
+
+To create a private endpoint for the *connection* sub-resource for a host pool, select the relevant tab for your scenario and follow the steps.
+
+# [Portal](#tab/portal)
+
+1. From the Azure Virtual Desktop overview, select **Host pools**, then select the name of the host pool you want to create a *connection* sub-resource for.
+
+1. From the host pool overview, select **Networking**, then **Private endpoint connections**, and finally **New private endpoint**.
+
+1. On the **Basics** tab, complete the following information:
+
+   | Parameter | Value/Description |
+   |--|--|
+   | Subscription | Select the subscription you want to create the private endpoint in from the drop-down list. |
+   | Resource group | This automatically defaults to the same resource group as your workspace for the private endpoint, but you can also select an alternative existing one from the drop-down list, or create a new one. |
+   | Name | Enter a name for the new private endpoint. |
+   | Network interface name | The network interface name will fill in automatically based on the name you gave the private endpoint, but you can also specify a different name. |
+   | Region | This automatically defaults to the same Azure region as the workspace and is where the private endpoint will be deployed. This must be the same region that your virtual network and session hosts are in. |
+
+   Once you've completed this tab, select **Next: Resource**.
+
+1. On the **Resource** tab, validate the values for *Subscription*, *Resource type*, and *Resource*, then for **Target sub-resource**, select **connection**. Once you've completed this tab, select **Next: Virtual Network**.
+
+1. On the **Virtual Network** tab, complete the following information:
+
+   | Parameter | Value/Description |
+   |--|--|
+   | Virtual network | Select the virtual network you want to create the private endpoint in from the drop-down list. |
+   | Subnet | Select the subnet of the virtual network you want to create the private endpoint in from the drop-down list. |
+   | Network policy for private endpoints | Select **edit** if you want to choose a subnet network policy. For more information, see [Manage network policies for private endpoints](../private-link/disable-private-endpoint-network-policy.md). |
+   | Private IP configuration | Select **Dynamically allocate IP address** or **Statically allocate IP address**. The address space is from the subnet you selected.<br /><br />If you choose to statically allocate IP addresses, you'll need to fill in the **Name** and **Private IP** for each listed member. |
+   | Application security group | Select an existing application security group for the private endpoint from the drop-down list, or create a new one. |
+
+   Once you've completed this tab, select **Next: DNS**.
+
+1. On the **DNS** tab, choose whether you want to use [Azure Private DNS Zone](../dns/private-dns-privatednszone.md) by selecting **Yes** or **No** for **Integrate with private DNS zone**. If you select **Yes**, select the subscription and resource group in which to create the private DNS zone `privatelink.wvd.microsoft.com`. For more information, see [Azure Private Endpoint DNS configuration](../private-link/private-endpoint-dns.md).
+
+   Once you've completed this tab, select **Next: Tags**.
+
+1. *Optional*: On the **Tags** tab, you can enter any name/value pairs you need, then select **Next: Review + create**.
+
+1. On the **Review + create** tab, ensure validation passes and review the information that will be used during deployment.
+
+1. Select **Create** to create the private endpoint for the connection sub-resource.
+
+You'll need to create private endpoint for the *connection* sub-resource for each host pool you want to use with the Private Link.
+
+# [Azure CLI](#tab/cli)
+
+
+
+# [Azure PowerShell](#tab/powershell)
+
+
+
+---
 
 ## Closing public routes
 
-In addition to creating private routes, you can also control if the Azure Virtual Desktop resource allows traffic to come from public routes.
+Once you've created private endpoints, you can also control if traffic is allowed to come from public routes. You can control this at a granular level using Azure Virtual Desktop, or more broadly using a [network security group](../virtual-network/network-security-groups-overview.md) (NSG) or [Azure Firewall](../firewall/protect-azure-virtual-desktop.md?toc=%2Fazure%2Fvirtual-desktop%2Ftoc.json&bc=%2Fazure%2Fvirtual-desktop%2Fbreadcrumb%2Ftoc.json).
 
-To control public traffic:
+### Control with Azure Virtual Desktop
 
-1. Open the Azure portal and sign in.
+With Azure Virtual Desktop, you can independently control public traffic for workspaces and host pools. Select the relevant tab for your scenario and follow the steps.
 
-1. Search for and select **Azure Virtual Desktop**.
+# [Portal](#tab/portal)
 
-1. Go to **Host pools** > **Networking** > **Firewall and virtual networks**.
+#### Workspaces
 
-1. First, configure the **Allow end users access from public network** setting.
+1. From the Azure Virtual Desktop overview, select **Workspaces**, then select the name of the workspace to control public traffic.
 
-    - If you select the check box, users can connect to the host pool using public internet or private endpoints.
+1. From the workspace overview, select **Networking**, then **Private endpoint connections**, and finally **Firewall and virtual networks**.
 
-    - If you don't select the check box, users can only connect to host pool using private endpoints.
+1. Configure **Allow end user access from public network**:
 
-1. Next, configure the **Allow session hosts access from public network** setting.
+   - **Checked**: end users can access the feed over the public internet or the private endpoints.
 
-    - If you select the check box, Azure Virtual Desktop session hosts will talk to the Azure Virtual Desktop service over public internet or private endpoints.
+   - **Unchecked**: end users can only access the feed over the private endpoints.
 
-    - If you don't select the check box, Azure Virtual Desktop session hosts can only talk to the Azure Virtual Desktop service over private endpoint connections.
+1. Select **Save**.
 
->[!IMPORTANT]
->Disabling the **Allow session host access from public network** setting won't affect existing sessions. You must restart the session host VM for the change to take effect on the session host network settings.
+#### Host pools
 
-## Network security groups
+1. From the Azure Virtual Desktop overview, select **Host pools**, then select the name of the host pool to control public traffic.
 
-Follow the directions in [Tutorial: Filter network traffic with a network security group using the Azure portal](../virtual-network/tutorial-filter-network-traffic.md) to set up a network security group (NSG). You can use this NSG to block the **WindowsVirtualDesktop** service tag. If you block this service tag, all service traffic will use private routes only.
+1. From the host pool overview, select **Networking**, then **Private endpoint connections**, and finally **Firewall and virtual networks**.
 
-When you set up your NSG, you must configure it to allow both the URLs in the [required URL list](safe-url-list.md) and your private endpoints. Make sure to include the URLs for Azure Monitor.
+1. Configure **Allow end users access from public network**:
 
-> [!NOTE]
-> If you intend to restrict network ports from either the user client devices or your session host VMs to the private endpoints, you will need to allow traffic across the entire TCP dynamic port range of 1 - 65535 to the private endpoint for the host pool resource using the *connection* sub-resource. The entire TCP dynamic port range is needed because port mapping is used to all global gateways through the single private endpoint IP address corresponding to the *connection* sub-resource.
+   - **Checked**: end users can connect to the host pool over the public internet or the private endpoints.
+
+   - **Unchecked**: end users can only access the feed over the private endpoints.
+
+1. Configure **Allow session hosts access from public network**:
+
+   - **Checked**: session hosts can connect to the host pool over the public internet or the private endpoints.
+
+   - **Unchecked**: session hosts can only access the feed over the private endpoints.
+
+1. Select **Save**.
+
+> [!IMPORTANT]
+> Unchecking the **Allow session host access from public network** setting won't affect existing sessions. You must restart the session host virtual machines for the change to take effect.
+
+# [Azure CLI](#tab/cli)
+
+
+
+# [Azure PowerShell](#tab/powershell)
+
+
+
+---
+
+### Control with network security groups or Azure Firewall
+
+If you're using network security groups or Azure Firewall to control connections from user client devices or your session hosts to the private endpoints, you can use the **WindowsVirtualDesktop** service tag to block traffic from the public internet. If you block public internet traffic using this service tag, all service traffic will use private routes only.
+
+> [!CAUTION]
+> - Make sure you don't block traffic between your private endpoints and the addresses in the [required URL list](safe-url-list.md).
 >
-> If you restrict ports to the private endpoint, your users may not be able to connect successfully to Azure Virtual Desktop. 
+> - Don't block certain ports from either the user client devices or your session hosts to the private endpoint for a host pool resource using the *connection* sub-resource. The entire TCP dynamic port range of *1 - *65535* to the private endpoint is needed because port mapping is used to all global gateways through the single private endpoint IP address corresponding to the *connection* sub-resource. If you restrict ports to the private endpoint, your users may not be able to connect successfully to Azure Virtual Desktop. 
 
-## Validate your Private Link deployment
+## Validate Private Link with Azure Virtual Desktop
 
-To validate your Private Link for Azure Virtual Desktop and make sure it's working:
+To validate that Private Link with Azure Virtual Desktop is working once you've closed public routes:
 
-1. Check to see if your session hosts are registered and functional on the VNet. You can check their health status with [Azure Monitor](insights.md).
-
-1. Next, test your feed connections to make sure they perform as expected. Use the client and make sure you can add and refresh workspaces.
-
-1. Finally, run the following end-to-end tests:
+1. Check the status of your session hosts in Azure Virtual Desktop.
    
-   - Make sure your clients can't connect to Azure Virtual Desktop and your session hosts from public routes.
-   - Make sure the session hosts can't connect to Azure Virtual Desktop from public routes.
+   1. From the Azure Virtual Desktop overview, select **Host pools**, then select the name of the host pool.
+   
+   1. In the **Manage** section, select **Session hosts**.
+   
+   1. Review the list of session hosts and check their status is **Available**.
+
+1. Next, test your feed connections to make sure they perform as expected. Use the Remote Desktop client and make sure you can [subscribe to and and refresh workspaces](users/remote-desktop-clients-overview.md).
+
+1. Finally, make sure your users can connect to a remote session over the private endpoints and not from public routes.
 
 ## Next steps
 
 - Learn more about how Private Link for Azure Virtual Desktop at [Use Private Link with Azure Virtual Desktop](private-link-overview.md).
+
 - Learn how to configure Azure Private Endpoint DNS at [Private Link DNS integration](../private-link/private-endpoint-dns.md#virtual-network-and-on-premises-workloads-using-a-dns-forwarder).
-- For general troubleshooting guides for Private Link, see [Troubleshoot Azure Private Endpoint connectivity problems](../private-link/troubleshoot-private-endpoint-connectivity.md)
-- Understand how connectivity for the Azure Virtual Desktop service works at[Azure Virtual Desktop network connectivity](network-connectivity.md)
+
+- For general troubleshooting guides for Private Link, see [Troubleshoot Azure Private Endpoint connectivity problems](../private-link/troubleshoot-private-endpoint-connectivity.md).
+
+- Understand how connectivity for the Azure Virtual Desktop service works at[Azure Virtual Desktop network connectivity](network-connectivity.md).
+
 - See the [Required URL list](safe-url-list.md) for the list of URLs you'll need to unblock to ensure network access to the Azure Virtual Desktop service.

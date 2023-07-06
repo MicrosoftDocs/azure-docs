@@ -1,5 +1,5 @@
 ---
-title:  Azure Private Link with Azure Virtual Desktop preview - Azure
+title:  Azure Private Link with Azure Virtual Desktop (preview) - Azure
 description: Learn about using Private Link with Azure Virtual Desktop (preview) to privately connect to your remote resources.
 author: dknappettmsft
 ms.topic: conceptual
@@ -21,24 +21,23 @@ Azure Virtual Desktop has three workflows with three corresponding resource type
 
 1. **Initial feed discovery**: lets the client discover all workspaces assigned to a user. To enable this process, you must create a single private endpoint to the *global* sub-resource to any workspace. However, you can only create one private endpoint in your entire Azure Virtual Desktop deployment. This endpoint creates Domain Name System (DNS) entries and private IP routes for the global fully-qualified domain name (FQDN) needed for initial feed discovery. This connection becomes a single, shared route for all clients to use.
 
-2. **Feed download**: when the client downloads all connection details for a specific user for the workspaces that host their application groups. You create a private endpoint for the *feed* sub-resource for each workspace you want to use with Private Link.
+2. **Feed download**: the client downloads all connection details for a specific user for the workspaces that host their application groups. You create a private endpoint for the *feed* sub-resource for each workspace you want to use with Private Link.
 
 3. **Connections to host pools**: every connection to a host pool has two sides - clients and session host virtual machines (VMs). To enable connections, you need to create a private endpoint for the *connection* sub-resource for each host pool you want to use with Private Link.
 
 The following table summarizes the private endpoints you need to create:
 
-| Resource type | Target sub-resource | Quantity |
-|--|--|--|
-| Microsoft.DesktopVirtualization/workspaces | global | One for all Azure Virtual Desktop deployments |
-| Microsoft.DesktopVirtualization/workspaces | feed | One per workspace |
-| Microsoft.DesktopVirtualization/hostpools | connection | One per host pool |
+| Purpose | Resource type | Target sub-resource | Quantity |
+|--|--|--|--|
+| Initial feed discovery | Microsoft.DesktopVirtualization/workspaces | global | One for all your Azure Virtual Desktop deployments |
+| Feed download | Microsoft.DesktopVirtualization/workspaces | feed | One per workspace |
+| Connections to host pools | Microsoft.DesktopVirtualization/hostpools | connection | One per host pool |
 
 You can either share these private endpoints across your network topology or you can isolate your virtual networks so that each has their own private endpoint to the host pool or workspace.
 
 The following high-level diagram shows how Private Link securely connects a local client to the Azure Virtual Desktop service:
 
 :::image type="content" source="media/private-link-diagram.png" alt-text="A high-level diagram that shows Private Link connecting a local client to the Azure Virtual Desktop service.":::
-
 
 ## Supported scenarios
 
@@ -49,7 +48,7 @@ When adding Private Link with Azure Virtual Desktop, you have the following opti
 - Both clients and session host VMs use public routes, which doesn't use Private Link.
 
 > [!IMPORTANT]
-> - A private endpoint to the global sub-resource of any workspace controls the shared fully qualified domain name (FQDN) for initial feed discovery. This enables feed discovery for all workspaces. Because the workspace connected to the private endpoint is so important, deleting it will cause all feed discovery processes to stop working. Instead of deleting the workspace, you should create an unused placeholder workspace for the global sub-resource. 
+> - A private endpoint to the global sub-resource of any workspace controls the shared fully qualified domain name (FQDN) for initial feed discovery. This in turn enables feed discovery for all workspaces. Because the workspace connected to the private endpoint is so important, deleting it will cause all feed discovery processes to stop working. We recommend you create an unused placeholder workspace for the global sub-resource. 
 >
 > - If you intend to restrict network ports from either the user client devices or your session host VMs to the private endpoints, you will need to allow traffic across the entire TCP dynamic port range of 1 - 65535 to the private endpoint for the host pool resource using the *connection* sub-resource. The entire TCP dynamic port range is needed because port mapping is used to all global gateways through the single private endpoint IP address corresponding to the *connection* sub-resource. If you restrict ports to the private endpoint, your users may not be able to connect successfully to Azure Virtual Desktop. 
 
@@ -61,7 +60,7 @@ The preview of using Private Link with Azure Virtual Desktop has the following l
 
 - You can't use the [manual connection approval method](../private-link/private-endpoint-overview.md#access-to-a-private-link-resource-using-approval-workflow) when using Private Link with Azure Virtual Desktop. We're aware of this issue and are working on fixing it.
 
-- All [clients to connect to Azure Virtual Desktop](users/remote-desktop-clients-overview.md) can be used with Private Link, but we currently only offer troubleshooting support for the web client with Private Link.
+- All [Remote Desktop clients to connect to Azure Virtual Desktop](users/remote-desktop-clients-overview.md) can be used with Private Link, but we currently only offer troubleshooting support for the web client with Private Link.
 
 - Validation for data path access checks, particularly those that prevent exfiltration, are still being validated. To help us with validation, this preview collects feedback from customers regarding exfiltration requirements, particularly preferences for how to audit and analyze findings. We don't recommend or support using production data traffic with this preview.
 
