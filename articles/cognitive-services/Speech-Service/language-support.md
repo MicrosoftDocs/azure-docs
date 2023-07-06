@@ -66,7 +66,7 @@ Use the following table to determine supported styles and roles for each neural 
 
 ### Viseme
 
-This table lists all the locales supported for [Visemes](../../speech-synthesis-markup-structure.md#viseme-element).
+This table lists all the locales supported for [Visemes](speech-synthesis-markup-structure.md#viseme-element).
 
 [!INCLUDE [Language support include](includes/language-support/viseme.md)]
 
