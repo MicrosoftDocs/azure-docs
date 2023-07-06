@@ -14,7 +14,7 @@ ms.custom: references_regions
 ---
 
 # Phone number management for Canada
-Use the below tables to find all the relevant information on number availability, eligibility and restrictions for phone numebrs in Canada.
+Use the below tables to find all the relevant information on number availability, eligibility and restrictions for phone numbers in Canada.
 
 ## Subscription eligibility
 
