@@ -30,7 +30,7 @@ In this article, you learn how to:
 * Manage (start, stop, restart, delete) a compute instance
 
 > [!NOTE]
-> This article covers only how to do these tasks using CLI v1.  For more recent ways to manage a compute instance, see [Create an Azure Machine Learning compute cluster](../how-to-create-manage-compute-instance.md).
+> This article covers only how to do these tasks using CLI v1.  For more recent ways to manage a compute instance, see [Create an Azure Machine Learning compute cluster](../how-to-create-compute-instance.md).
 
 ## Prerequisites
 
