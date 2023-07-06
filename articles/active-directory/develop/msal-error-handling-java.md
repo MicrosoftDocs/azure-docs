@@ -74,9 +74,9 @@ MSAL exposes a `reason` field, which you can use to provide a better user experi
         }
 ```
 
-[!INCLUDE [Active directory error handling claims challenges](./includes/error-handling-and-tips/active-directory-develop-error-handling-claims-challenges.md)]
+[!INCLUDE [Active directory error handling claims challenges](./includes/error-handling-and-tips/error-handling-claims-challenges.md)]
 
-[!INCLUDE [Active directory error handling retries](./includes/error-handling-and-tips/active-directory-develop-error-handling-retries.md)]
+[!INCLUDE [Active directory error handling retries](./includes/error-handling-and-tips/error-handling-retries.md)]
 
 ## Next steps
 
