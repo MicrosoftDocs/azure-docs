@@ -24,4 +24,4 @@ Retention policies define when to remove or archive data in a Log Analytics work
 In this article, you learned how to set up data retention and archive.
 
 > [!div class="nextstepaction"]
->>[Perform post-deployment steps](post-deployment-overview.md)
+>>[Perform post-deployment steps](review-fine-tune-overview.md)
