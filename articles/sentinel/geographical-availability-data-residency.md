@@ -5,6 +5,7 @@ author: limwainstein
 ms.author: lwainstein
 ms.topic: conceptual
 ms.date: 11/22/2022
+ms.custom: references_regions
 #Customer intent: As a security operator setting up Microsoft Sentinel, I want to understand where data is stored, so I can meet compliance guidelines.
 ---
 
