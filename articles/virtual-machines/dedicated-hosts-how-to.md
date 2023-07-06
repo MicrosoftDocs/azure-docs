@@ -446,7 +446,7 @@ Replace the values with your own information.
 
 ```azurecli-interactive
 az vm deallocate -n myVM -g myResourceGroup
-az vm update - n myVM -g myResourceGroup --host myHost
+az vm update -n myVM -g myResourceGroup --set host.id=None
 az vm start -n myVM -g myResourceGroup
 ```
 
@@ -458,8 +458,8 @@ Move a VM from dedicated host to multi-tenant infrastructure using the PowerShel
 Replace the values of the variables with your own information.
 
 ```azurepowershell-interactive
-$vmRGName = "movetohost"
-$vmName = "myVMtoHost"
+$vmRGName = "moveoffhost"
+$vmName = "myDHVM"
 $dhRGName = "myDHResourceGroup"
 $dhGroupName = "myHostGroup"
 $dhName = "myHost"
@@ -473,17 +473,14 @@ $myVM = Get-AzVM `
    -ResourceGroupName $vmRGName `
    -Name $vmName
 
-$myVM.Host = New-Object Microsoft.Azure.Management.Compute.Models.SubResource
-
-$myVM.Host.Id = "$myDH.Id"
-
 Stop-AzVM `
    -ResourceGroupName $vmRGName `
    -Name $vmName -Force
 
 Update-AzVM `
    -ResourceGroupName $vmRGName `
-   -VM $myVM -Debug
+   -VM $myVM `
+   -HostId '' 
 
 Start-AzVM `
    -ResourceGroupName $vmRGName `
