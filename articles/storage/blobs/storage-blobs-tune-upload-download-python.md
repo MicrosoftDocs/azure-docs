@@ -35,7 +35,7 @@ The following arguments can be tuned based on the needs of your app:
 
 #### max_single_put_size
 
-The `max_single_put_size` argument is the maximum blob size in bytes for a single request upload. If the blob size is less than or equal to `max_single_put_size`, the blob is uploaded with a single [Put Blob](/rest/api/storageservices/put-blob) request. If the blob size is greater than `max_single_put_size`, or if the blob size is unknown, the blob is uploaded in chunks using a series of [Put Block](/rest/api/storageservices/put-block) calls followed by followed by [Put Block List](/rest/api/storageservices/put-block-list).
+The `max_single_put_size` argument is the maximum blob size in bytes for a single request upload. If the blob size is less than or equal to `max_single_put_size`, the blob is uploaded with a single [Put Blob](/rest/api/storageservices/put-blob) request. If the blob size is greater than `max_single_put_size`, or if the blob size is unknown, the blob is uploaded in chunks using a series of [Put Block](/rest/api/storageservices/put-block) calls followed by [Put Block List](/rest/api/storageservices/put-block-list).
 
 It's important to note that the value you specify for `max_block_size` *does not* limit the value that you define for `max_single_put_size`. The `max_single_put_size` argument defines a separate size limitation for a request to perform the entire operation at once, with no subtransfers. It's often the case that you want `max_single_put_size` to be *at least* as large as the value you define for `max_block_size`, if not larger.  Depending on the size of the data transfer, this approach can be more performant, as the transfer is completed with a single request and avoids the overhead of multiple requests.
 
@@ -70,7 +70,7 @@ def upload_blob_transfer_options(self, account_url: str, container_name: str, bl
         blob_client = blob_client.upload_blob(data=data, overwrite=True, max_concurrency=2)
 ```
 
-In this example, we set the number of parallel transfer workers to 2, using the `max_concurrency` argument on the method call. This configuration opens up to two connections simultaneously, allowing the upload to happen in parallel. During client instantiation, we define the `max_single_put_size` argument to be 8 MiB. This means that if the blob size is smaller than 8 MiB, only a single `Put Blob` request is necessary to complete the upload operation. If the blob size is larger than 8 MiB, the blob is uploaded in chunks with a maximum chunk size of 4 MiB, as defined by our `max_block_size` argument. When uploading in chunks, the client libraries use a series of `Put Block` calls followed by `Put Block List`. Note that `max_single_put_size` only applies for uploads when [using a seekable stream](#max_single_put_size-for-uploads).
+In this example, we set the number of parallel transfer workers to 2, using the `max_concurrency` argument on the method call. This configuration opens up to two connections simultaneously, allowing the upload to happen in parallel. During client instantiation, we define the `max_single_put_size` argument to be 8 MiB, which means that if the blob size is smaller than 8 MiB only a single `Put Blob` request is necessary to complete the upload operation. If the blob size is larger than 8 MiB, the blob is uploaded in chunks with a maximum chunk size of 4 MiB, as defined by our `max_block_size` argument. In this scenario, the client libraries use a series of `Put Block` calls followed by `Put Block List`.
 
 ### Performance considerations for uploads
 
