@@ -61,14 +61,14 @@ An inactive activity behaves differently in a pipeline.
 
 :::image type="content" source="./media/deactivate-activity/deactivate-02-run-status.png" alt-text="Screenshot showing activity run status of an inactive activity":::
 
-## Best Practices
+## Best practices
 
 Deactivation is a powerful tool for pipeline developer. It allows developers to "comment out" part of the code, without permanently deleting the activities. It shines in following scenarios:
 
 - When developing a pipeline, developer can add place holder inactive activities before filling all the required fields. For instance, I need a Copy activity from SQL Server to Data warehouse, but I haven't set up all the connections yet. So I use an _inactive_ copy activity as the place holder for iterative development process.
 - After deployment, developer can comment out certain activities that are constantly causing troubles to avoid costly retries. For instance, my on-premises SQL server is having network connection issues, and I know my copy activities fail for certain. I may want to deactivate the copy activity, to avoid retry requests from flooding the brittle system.
 
-### Known Limitations
+### Known limitations
 
 An inactive activity never actually runs. This means the activity won't have an output or an error field. Any references to these fields throw errors downstream.
 
