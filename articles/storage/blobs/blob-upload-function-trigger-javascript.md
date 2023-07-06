@@ -25,7 +25,7 @@ In this tutorial, you'll learn how to:
 > * Upload images and files to Blob Storage
 > * Use an Azure Function event trigger to process data uploaded to Blob Storage
 > * Use Cognitive Services to analyze an image
-> * Write data to Table Storage using Azure Function output bindings
+> * Write data to Cosmos DB using Azure Function output bindings
 
 
 ## Prerequisites
@@ -34,6 +34,7 @@ In this tutorial, you'll learn how to:
 - [Visual Studio Code](https://code.visualstudio.com/) installed.
     - [Azure Functions extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions) to deploy and configure the Function App.
     - [Azure Storage extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurestorage)
+    - [Azure Databases extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-cosmosdb)
     - [Azure Resources extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azureresourcegroups)
 
 
@@ -150,8 +151,8 @@ Copy the value of the `connectionString` property and paste it somewhere to use 
 
 ---
 
-## Create the Computer Vision service
-Next, create the Computer Vision service account that will process our uploaded files.  Computer Vision is part of Azure Cognitive Services and offers various features for extracting data out of images.  You can learn more about Computer Vision on the [overview page](../../cognitive-services/computer-vision/overview.md).
+## Create the Computer Vision service account
+Create the Computer Vision service account that will process our uploaded files.  Computer Vision is part of Azure Cognitive Services and offers various features for extracting data out of images.  You can learn more about Computer Vision on the [overview page](../../cognitive-services/computer-vision/overview.md).
 
 ### [Azure portal](#tab/computer-vision-azure-portal)
 
@@ -174,7 +175,7 @@ Next, create the Computer Vision service account that will process our uploaded 
 
 5) When the operation has completed, select **Go to Resource**.
 
-### Retrieve the keys
+### Retrieve the Computer Vision keys
 
 Next, we need to find the secret key and endpoint URL for the Computer Vision service to use in our Azure Function app. 
 
@@ -214,13 +215,79 @@ Once the Computer Vision service is created, you can retrieve the secret keys an
 
 ---
  
+## Create a Cosmos DB service account
+
+Create the Cosmos DB service account to store the analysis of files.  Azure Cosmos DB is a fully managed NoSQL and relational database for modern app development.  You can learn more about Cosmos DB and its support [APIs for several different industry databases](https://learn.microsoft.com/en-us/azure/cosmos-db/choose-api). 
+
+While this tutorial specifies an API when you create your resource, the Azure Function bindings for Cosmos DB are configured in the same way for all Cosmos DB APIs.
+
+### [Azure portal](#tab/cosmos-db-azure-portal)
+
+1) In the search bar at the top of the portal, search for *Azure Cosmos DB* and select the result.
+
+2) On the **Azure Cosmos DB** page, select **+ Create**. Select **Azure Cosmos DB for NoSQL** from the list of API choices.
+
+3) On the **Create Cosmos DB** page, enter the following values:
+
+   - **Subscription**: Choose your desired Subscription.
+   - **Resource Group**: Use the `msdocs-storage-function` resource group you created earlier.
+   - **Region**: Select the region that is closest to you.
+   - **Name**: Enter in a name of `msdocscosmosdb`.
+   - **Pricing Tier**: Choose **Free** if it's available, otherwise choose **Standard S1**.
+    
+4) Select **Review + Create** at the bottom. Azure will take a moment validate the information you entered.  Once the settings are validated, choose **Create** and Azure will begin provisioning the Computer Vision service, which might take a moment.
+
+5) When the operation has completed, select **Go to Resource**.
+
+### Get the Cosmos DB connection string
+
+Get the connection string for the Cosmos DB service account to use in our Azure Function app. 
+
+1) On the **Cosmos DB** overview page, select **Keys**.
+
+2) On the **Keys** page, copy the **Primary Connection String** to use for later. 
+
+### [Azure CLI](#tab/computer-vision-azure-cli)
+
+1. To [create the Cosmos DB service account](/cli/azure/cosmosdb/service#az-cosmosdb-service-create), we can run the CLI command below.
+
+    ```azurecli-interactive
+    az cosmosdb service create --account-name analysis-database
+                               --name msdocs-cosmos-db-account
+                               --resource-group-name msdocs-storage-function
+                               [--count]
+                               [--no-wait]
+                               [--size]
+    ```
+    
+    You may need to wait a few moments for Azure to provision the database.
+    
+2. Once the database is created, create a container.
+
+    ```azurecli-interactive
+    az cosmosdb sql container create --account-name analysis-database
+                                     --database-name msdocs-cosmos-db-account
+                                     --name "analysis"
+                                     --partition-key-path "/analysis-type"
+                                     --resource-group msdocs-storage-function
+    ```
+    
+3. Get the connection string using the command below for later use in the tutorial.
+
+```azurelci-interactive
+az cosmosdb keys list --name analysis-database
+                      --resource-group msdocs-storage-function
+                      --type connection-strings
+```
+
+---
 
 ## Download and configure the sample project
-The code for the Azure Function used in this tutorial can be found in [this GitHub repository](https://github.com/Azure-Samples/msdocs-storage-bind-function-service/tree/main/javascript), in the JavaScript subdirectory. You can also clone the project using the command below.
+The code for the Azure Function used in this tutorial can be found in [this GitHub repository](https://github.com/Azure-Samples/msdocs-storage-bind-function-service/tree/main/javascript-v4), in the `JavaScript-v4` subdirectory. You can also clone the project using the command below.
 
 ```terminal
 git clone https://github.com/Azure-Samples/msdocs-storage-bind-function-service.git \
-cd msdocs-storage-bind-function-service/javascript \
+cd msdocs-storage-bind-function-service/javascript-v4 \
 code .
 ```
 
@@ -229,28 +296,48 @@ The sample project accomplishes the following tasks:
 - Retrieves environment variables to connect to the storage account and Computer Vision service
 - Accepts the uploaded file as a blob parameter
 - Analyzes the blob using the Computer Vision service
-- Sends the analyzed image text to a new table row using output bindings
+- Sends the analyzed image text to a new Cosmos DB table row using output bindings
 
 Once you've downloaded and opened the project, there are a few essential concepts to understand:
 
 |Concept|Purpose|
 |--|--|
-|Function|The Azure Function is defined by both the function code and the bindings. The function code is in [./ProcessImageUpload/index.js](https://github.com/Azure-Samples/msdocs-storage-bind-function-service/blob/main/javascript/ProcessImageUpload/index.js). |
-|Triggers and bindings|The triggers and bindings indicate that data which is expected into or out of the function and which service is going to send or receive that data. The trigger and bindings for this function is in [./ProcessImageUpload/function.json](https://github.com/Azure-Samples/msdocs-storage-bind-function-service/blob/main/javascript/ProcessImageUpload/function.json).|
+|Function|The Azure Function is defined by both the function code and the bindings. The function code is in [./src/functions/process-blobs.js](https://github.com/Azure-Samples/msdocs-storage-bind-function-service/blob/main/javascript-v4/functions/process-blobs.js). |
+|Triggers and bindings|The triggers and bindings indicate that data which is expected into or out of the function and which service is going to send or receive that data. 
 
-### Triggers and bindings
-The following [function.json](https://github.com/Azure-Samples/msdocs-storage-bind-function-service/blob/main/javascript/ProcessImageUpload/function.json) file defines the triggers and bindings for this function:
+Triggers and bindings are required to use Azure Functions. They are used in this tutorial to expediate the development process by removing the need to write code to connect to services. 
 
-:::code language="JSON" source="~/msdocs-storage-bind-function-service/javascript/ProcessImageUpload/function.json" :::
+### Input Storage Blob trigger
 
-* **Data In** - The **BlobTrigger** (`"type": "blobTrigger"`) is used to bind the function to the upload event in Blob Storage. The trigger has two required parameters:
-    * `path`: The path the trigger watches for events. The path includes the container name,`imageanalysis`, and the variable substitution for the blob name. This blob name is retrieved from the `name` property. 
-    * `name`: The name of the blob uploaded. The use of the `myBlob` is the parameter name for the blob coming into the function. Don't change the value `myBlob`. 
+The code which specifies that the function is triggered by a blob upload to the **images** container follows. The function is triggered on any blob name including hierarchical folders.
+
+```javascript
+
+// ...preceding code removed for brevity
+
+app.storageBlob('process-blob-image', { 
+    path: 'images/{name}',                // Storage container name: images, Blob name: {name}
+    connection: 'StorageConnection',      // Storage account connection string
+    handler: async (blob, context) => {
+
+// ... function code removed for brevity
+```
+
+* **app.storageBlob** - The **Storage Blob** input trigger is used to bind the function to the upload event in Blob Storage. The trigger has two required parameters:
+    * `path`: The path the trigger watches for events. The path includes the container name,`analysis`, and the variable substitution for the blob name. This blob name is retrieved from the `name` property. 
+    * `{name}`: The name of the blob uploaded. The use of the `blob` is the parameter name for the blob coming into the function. Don't change the value `blob`. 
+    * `connection`: The **connection string** of the storage account. The value `StorageConnection` matches the name in the `local.settings.json` file when developing locally.
+
+### Output Cosmos DB trigger
+
+When the function finishes, the function returns the contents of the table row with the `return` object. The object must include the expected values for your Cosmos DB container. For the container in this article, the following required properties are:
+* `id`: the id required for Cosmos DB to create a new row. 
+* `/type`: the partition key specified with the container was created.
+
+* **output.cosmosDB** - The **Cosmos DB** output trigger is used to insert the result of the function to a Cosmos DB table.  
     * `connection`: The **connection string** of the storage account. The value `StorageConnection` matches the name in the `local.settings.json` file.
-
-* **Data Out** - The **TableBinding** (`"type": "table"`) is used to bind the outbound data to a Storage table.  
-    * `tableName`: The name of the table to write the parsed image text value returned by the function. The table must already exist. 
-    * `connection`: The **connection string** of the storage account. The value `StorageConnection` matches the name in the `local.settings.json` file.
+    * `databaseName`: The Cosmos DB database to connect to. 
+    * `containerName`: The name of the table to write the parsed image text value returned by the function. The table must already exist. 
 
 :::code language="javascript" source="~/msdocs-storage-bind-function-service/javascript/ProcessImageUpload/index.js" highlight="43-68":::
 
@@ -264,7 +351,22 @@ To run the project locally, enter the environment variables in the `./local.sett
 
 Although the Azure Function code runs locally, it connects to the cloud-based services for Storage, rather than using any local emulators.
 
-:::code language="json" source="~/msdocs-storage-bind-function-service/javascript/local.settings.json" highlight="6-10":::
+```
+{
+  "IsEncrypted": false,
+  "Values": {
+    "FUNCTIONS_WORKER_RUNTIME": "node",
+    "AzureWebJobsFeatureFlags": "EnableWorkerIndexing",
+    "AzureWebJobsStorage": "",
+    "StorageConnection": "STORAGE-CONNECTION-STRING",
+    "StorageAccountName": "STORAGE-ACCOUNT-NAME",
+    "StorageContainerName": "STORAGE-CONTAINER-NAME",
+    "ComputerVisionKey": "COMPUTER-VISION-KEY",
+    "ComputerVisionEndPoint":  "COMPUTER-VISION-ENDPOINT",
+    "CosmosDBConnection": "COSMOS-DB-CONNECTION-STRING"
+  }
+}
+```
 
 ## Create Azure Functions app
 
