@@ -497,7 +497,7 @@ Starting with an empty queue, KEDA takes the following steps in a scale up scena
 1. Scale app to `min(maxReplicaCount, desiredReplicas, max(4, 2*currentReplicaCount))`
 1. Go back to (1).
 
-If the app was scaled to the max of 20 instances, scaling goes through the same previous steps. Scale down only happens if the condition was satisfied for 300 seconds (scale down stabilization window). Once the queue length is 0, KEDA waits for 300 seconds (cool down period) before scaling the app to 0.
+If the app was scaled to the maximum replica count of 20, scaling goes through the same previous steps. Scale down only happens if the condition was satisfied for 300 seconds (scale down stabilization window). Once the queue length is 0, KEDA waits for 300 seconds (cool down period) before scaling the app to 0.
 
 ## Considerations
 
