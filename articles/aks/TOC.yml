@@ -103,6 +103,8 @@
               href: cis-kubernetes.md
             - name: CIS Ubuntu benchmark
               href: cis-ubuntu.md
+            - name: CIS Azure Linux benchmark
+              href: cis-azure-linux.md
     - name: Access and identity
       href: concepts-identity.md
     - name: Networking

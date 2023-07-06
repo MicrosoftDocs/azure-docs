@@ -56,9 +56,12 @@ Use this article to learn which natural languages are supported by the PII and c
 
 ## PII language support
 
-| Language              | Language code | Starting with model version | Notes              |
+| Language              | Language code | Starting with model version     | Notes              |
 |:----------------------|:-------------:|:-------------------------------:|:------------------:|
 | English               | `en`          | 2022-05-15-preview              |                    |
+| French                | `fr`          | XXXX-XX-XX-preview              |                    |
+| German                | `de`          | XXXX-XX-XX-preview              |                    |
+| Spanish               | `es`          | XXXX-XX-XX-preview              |                    |
 
 ---
 

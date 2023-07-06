@@ -133,7 +133,7 @@ The sample datasets are available under **Datasets**-**Samples** category. You c
 
 ## Clean up resources
 
-[!INCLUDE [aml-ui-cleanup](../../../includes/aml-ui-cleanup.md)]
+[!INCLUDE [aml-ui-cleanup](../includes/aml-ui-cleanup.md)]
 
 ## Next steps
 

@@ -695,6 +695,10 @@ items:
         href: concepts/custom-features/project-versioning.md
       - name: Project versioning
         href: concepts/custom-features/project-versioning.md
+      - name: Entity Metadata
+        href: named-entity-recognition/concepts/entity-metadata.md
+      - name: Preview API overview
+        href: named-entity-recognition/concepts/ga-preview-mapping.md
   - name: Tutorials
     items:
       - name: Connect conversational language understanding and custom question answering
