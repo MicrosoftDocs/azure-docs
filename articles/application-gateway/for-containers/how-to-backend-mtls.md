@@ -21,7 +21,7 @@ This document helps set up an example application that uses the following resour
 
 ## Prerequisites
 1. Ensure you have set up your Application Gateway for Containers resources and ALB Controller by following either of the following quickstart guides:
-- [Quickstart ALB managed deployment](quickstart-create-application-gateway-for-containers-alb-managed.md)
+- [Quickstart ALB managed deployment](quickstart-create-application-gateway-for-containers-alb-managed-deployment.md)
 - [Quickstart bring your own deployment](quickstart-create-application-gateway-for-containers-byo-deployment.md)
 
 2. Deploy sample HTTP application
