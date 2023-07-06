@@ -90,7 +90,7 @@ For more information on using the SDK to connect to a workspace, see the [Azure 
 ## <a id="registermodel"></a> Register the model
 
 A typical situation for a deployed machine learning service is that you need the following components:
-	
+    
 + Resources representing the specific model that you want deployed (for example: a pytorch model file).
 + Code that you will be running in the service that executes the model on a given input.
 
@@ -404,7 +404,7 @@ curl -v -X POST -H "content-type:application/json" \
 
 ## Choose a compute target
 
-[!INCLUDE [aml-deploy-target](../../../includes/aml-compute-target-deploy.md)]
+[!INCLUDE [aml-deploy-target](../includes/aml-compute-target-deploy.md)]
 
 ## Deploy to cloud
 
