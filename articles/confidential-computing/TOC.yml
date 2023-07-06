@@ -162,7 +162,7 @@
       href: partner-pages/enclaive.md
     - name: Fortanix
       items:
-      - name: About Fortanic
+      - name: About Fortanix
         href: partner-pages/fortanix.md
       - name: Fortanix Confidential Computing Manager
         href: how-to-fortanix-confidential-computing-manager.md
