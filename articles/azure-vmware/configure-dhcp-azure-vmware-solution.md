@@ -4,7 +4,7 @@ description: Learn how to configure DHCP by using either NSX-T Manager to host a
 ms.topic: how-to
 ms.custom: contperf-fy21q2, contperf-fy22q1
 ms.service: azure-vmware
-ms.date: 10/17/2022
+ms.date: 6/26/2023
 
 # Customer intent: As an Azure service administrator, I want to configure DHCP by using either NSX-T Manager to host a DHCP server or use a third-party external DHCP server.
 
@@ -54,25 +54,23 @@ If you want to use NSX-T Data Center to host your DHCP server, you'll create a D
 
 ### Create a DHCP server
 
-1. In NSX-T Manager, select **Networking** > **DHCP**, and then select **Add Server**.
+1. In NSX-T Manager, select **Networking** > **DHCP**, and then select **Add DHCP Profile**.
 
-1. Select **DHCP** for the **Server Type**, provide the server name and IP address, and select **Save**.
+1. Select **Add DHCP Profile**, enter a name, and select **Save**. NOTE: An IP address is not required if none is entered NSX-T Manager will set one.
 
-   :::image type="content" source="./media/manage-dhcp/dhcp-server-settings.png" alt-text="Screenshot showing how to add a DHCP server in NSX-T Manager." border="true":::
+   :::image type="content" source="./media/manage-dhcp/dhcp-server-settings.png" alt-text="Screenshot showing how to add a DHCP Profile in NSX-T Manager." border="true":::
 
-1. Select **Tier 1 Gateways**, select the vertical ellipsis on the Tier-1 gateway, and then select **Edit**.
+1. Under **Networking** > **Tier-1 Gateways**, select the gateway where the segments are connected that DHCP is required. Edit the Tier-1 Gateway by clicking on the three ellipses and choose **Edit**.
+
+1. Select **Set DHCP Configuration**, select **DHCP Server** and then select the DHCP Server Profile created earlier. Click **Save**, then **Close Editing**.
 
    :::image type="content" source="./media/manage-dhcp/edit-tier-1-gateway.png" alt-text="Screenshot showing how to edit the NSX-T Data Center Tier-1 Gateway for using a DHCP server." border="true":::
 
-1. Select **No IP Allocation Set** to add a subnet.
+1. Navigate to **Networking** > **Segments** and find the segment where DHCP is required. Click on **Edit** then **Set DHCP Config**. 
+   
+1. Select **Gateway DHCP Server** for DHCP Type, add a DHCP range, and click **Apply**.
 
    :::image type="content" source="./media/manage-dhcp/add-subnet.png" alt-text="Screenshot showing how to add a subnet to the NSX-T Data Center Tier-1 Gateway for using a DHCP server." border="true":::
-
-1. For **Type**, select **DHCP Local Server**. 
-   
-1. For the **DHCP Server**, select **Default DHCP**, and then select **Save**.
-
-1. Select **Save** again and then select **Close Editing**.
 
 ### Add a network segment
 

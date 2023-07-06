@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: overview
-ms.date: 11/06/2022
+ms.date: 07/04/2023
 ms.author: pafarley
 ms.custom: cog-serv-seo-aug-2020
 keywords: facial recognition, facial recognition software, facial analysis, face matching, face recognition app, face search by image, facial recognition search
@@ -124,4 +124,4 @@ As with all of the Cognitive Services resources, developers who use the Face ser
 
 Follow a quickstart to code the basic components of a face recognition app in the language of your choice.
 
-- [Client library quickstart](quickstarts-sdk/identity-client-library.md).
+- [Face quickstart](quickstarts-sdk/identity-client-library.md).
