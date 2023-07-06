@@ -109,7 +109,7 @@ task.resume()
 
 ### Xamarin
 
-[!INCLUDE [Call web API in .NET](../../../includes/active-directory-develop-scenarios-call-apis-dotnet.md)]
+[!INCLUDE [Call web API in .NET](./includes/web-api/active-directory-develop-scenarios-call-apis-dotnet.md)]
 
 ## Make several API requests
 
