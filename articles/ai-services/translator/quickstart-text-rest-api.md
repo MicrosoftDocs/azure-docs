@@ -63,13 +63,13 @@ Header|Value| Condition  |
 
 > [!IMPORTANT]
 >
-> Remember to remove the key from your code when you're done, and never post it publicly. For production, use a secure way of storing and accessing your credentials like [Azure Key Vault](../../key-vault/general/overview.md). For more information, _see_ the Azure AI services [security](../cognitive-services-security.md) article.
+> Remember to remove the key from your code when you're done, and never post it publicly. For production, use a secure way of storing and accessing your credentials like [Azure Key Vault](../../key-vault/general/overview.md). For more information, _see_ the Azure AI services [security](../security-features.md) article.
 
 ## Translate text
 
 The core operation of the Translator service is translating text. In this quickstart, you build a request using a programming language of your choice that takes a single source (`from`) and provides two outputs (`to`). Then we review some parameters that can be used to adjust both the request and the response.
 
-For detailed information regarding Azure AI Translator Service request limits, *see* [**Text translation request limits**](service-limits.md#text-translation).
+For detailed information regarding Azure AI Translator service request limits, *see* [**Text translation request limits**](service-limits.md#text-translation).
 
 ### [C#: Visual Studio](#tab/csharp)
 

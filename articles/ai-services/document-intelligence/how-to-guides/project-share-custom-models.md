@@ -1,7 +1,7 @@
 ---
-title: "Share custom model projects using Form Recognizer Studio"
-titleSuffix: Azure Applied AI Services
-description: Learn how to share custom model projects using Form Recognizer Studio.
+title: "Share custom model projects using Document Intelligence Studio"
+titleSuffix: Azure AI services
+description: Learn how to share custom model projects using Document Intelligence Studio.
 author: laujan
 manager: nitinme
 ms.service: applied-ai-services
@@ -12,13 +12,14 @@ ms.author: jppark
 monikerRange: 'form-recog-3.0.0'
 ---
 
-# Share custom model projects using Form Recognizer Studio
 
-Form Recognizer Studio is an online tool to visually explore, understand, train, and integrate features from the Form Recognizer service into your applications. Form Recognizer Studio enables project sharing feature within the custom extraction model. Projects can be shared easily via a project token. The same project token can also be used to import a project.
+# Share custom model projects using Document Intelligence Studio
+
+Document Intelligence Studio is an online tool to visually explore, understand, train, and integrate features from the Document Intelligence service into your applications. Document Intelligence Studio enables project sharing feature within the custom extraction model. Projects can be shared easily via a project token. The same project token can also be used to import a project.
 
 ## Prerequisite
 
-In order to share and import your custom extraction projects seamlessly, both users (user who shares and user who imports) need an An active [**Azure account**](https://azure.microsoft.com/free/cognitive-services/).  If you don't have one, you can [**create a free account**](https://azure.microsoft.com/free/). Also, both users need to configure permissions to grant access to the Form Recognizer and storage resources.
+In order to share and import your custom extraction projects seamlessly, both users (user who shares and user who imports) need an An active [**Azure account**](https://azure.microsoft.com/free/cognitive-services/).  If you don't have one, you can [**create a free account**](https://azure.microsoft.com/free/). Also, both users need to configure permissions to grant access to the Document Intelligence and storage resources.
 
 Generally, in the process of creating a custom model project, most of the requirements should have been met for project sharing. However, in cases where the project sharing feature does not work, please check the below.
 
@@ -34,11 +35,11 @@ If your storage account VNet is enabled or if there are any firewall constraints
 A workaround is to manually create a project using the same settings as the project being shared.
 
 
-## Share a custom extraction model with Form Recognizer studio
+## Share a custom extraction model with Document Intelligence Studio
 
-Follow these steps to share your project using Form Recognizer studio:
+Follow these steps to share your project using Document Intelligence Studio:
 
-1. Start by navigating to the [Form Recognizer Studio](https://formrecognizer.appliedai.azure.com/studio).
+1. Start by navigating to the [Document Intelligence Studio](https://formrecognizer.appliedai.azure.com/studio).
 
 1. In the Studio, select the **Custom extraction models** tile, under the custom models section.
 
@@ -52,11 +53,11 @@ Follow these steps to share your project using Form Recognizer studio:
 
 :::image type="content" source="../media/how-to/studio-project-token.png" alt-text="Screenshot showing how to copy the project token.":::
 
-## Import custom extraction model with Form Recognizer studio
+## Import custom extraction model with Document Intelligence Studio
 
-Follow these steps to import a project using Form Recognizer studio.
+Follow these steps to import a project using Document Intelligence Studio.
 
-1. Start by navigating to the [Form Recognizer Studio](https://formrecognizer.appliedai.azure.com/studio).
+1. Start by navigating to the [Document Intelligence Studio](https://formrecognizer.appliedai.azure.com/studio).
 
 1. In the Studio, select the **Custom extraction models** tile, under the custom models section.
 

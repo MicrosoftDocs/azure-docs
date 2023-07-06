@@ -1,6 +1,6 @@
 ---
 title: "Build and train a custom classifier"
-titleSuffix: Azure Applied AI Services
+titleSuffix: Azure AI services
 description: Learn how to label, and build a custom document classification model.
 author: laujan
 manager: nitinme
@@ -12,20 +12,21 @@ ms.author: lajanuar
 monikerRange: 'form-recog-3.0.0'
 ---
 
+
 # Build and train a custom classification model (preview)
 
-**This article applies to:** ![Form Recognizer checkmark](../media/yes-icon.png) **The latest [public preview SDK](../sdk-preview.md) supported by Form Recognizer REST API version [2023-02-28-preview](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2023-02-28-preview/operations/AnalyzeDocument)**.
+**This article applies to:** ![Document Intelligence checkmark](../media/yes-icon.png) **The latest [public preview SDK](../sdk-preview.md) supported by Document Intelligence REST API version [2023-02-28-preview](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2023-02-28-preview/operations/AnalyzeDocument)**.
 
 > [!IMPORTANT]
 >
 > Custom classification model is currently in public preview. Features, approaches, and processes may change, prior to General Availability (GA), based on user feedback.
 >
 
-Custom classification models can classify each page in an input file to identify the document(s) within. Classifier models can also identify multiple documents or multiple instances of a single document in the input file. Form Recognizer custom models require as few as five training documents per document class to get started. To get started training a custom classification model, you need at least **five documents** for each class and **two classes** of documents.
+Custom classification models can classify each page in an input file to identify the document(s) within. Classifier models can also identify multiple documents or multiple instances of a single document in the input file. Document Intelligence custom models require as few as five training documents per document class to get started. To get started training a custom classification model, you need at least **five documents** for each class and **two classes** of documents.
 
 ## Custom classification model input requirements
 
-Make sure your training data set follows the input requirements for Form Recognizer.
+Make sure your training data set follows the input requirements for Document Intelligence.
 
 [!INCLUDE [input requirements](../includes/input-requirements.md)]
 
@@ -41,19 +42,19 @@ Follow these tips to further optimize your data set for training:
 
 Once you've put together the set of forms or documents for training, you need to upload it to an Azure blob storage container. If you don't know how to create an Azure storage account with a container, follow the [Azure Storage quickstart for Azure portal](../../../storage/blobs/storage-quickstart-blobs-portal.md). You can use the free pricing tier (F0) to try the service, and upgrade later to a paid tier for production. If your dataset is organized as folders, preserve that structure as the Studio can use your folder names for labels to simplify the labeling process.
 
-## Create a classification project in the Form Recognizer Studio
+## Create a classification project in the Document Intelligence Studio
 
-The Form Recognizer Studio provides and orchestrates all the API calls required to complete your dataset and train your model.
+The Document Intelligence Studio provides and orchestrates all the API calls required to complete your dataset and train your model.
 
-1. Start by navigating to the [Form Recognizer Studio](https://formrecognizer.appliedai.azure.com/studio). The first time you use the Studio, you need to [initialize your subscription, resource group, and resource](../quickstarts/try-form-recognizer-studio.md). Then, follow the [prerequisites for custom projects](../quickstarts/try-form-recognizer-studio.md#added-prerequisites-for-custom-projects) to configure the Studio to access your training dataset.
+1. Start by navigating to the [Document Intelligence Studio](https://formrecognizer.appliedai.azure.com/studio). The first time you use the Studio, you need to [initialize your subscription, resource group, and resource](../quickstarts/try-form-recognizer-studio.md). Then, follow the [prerequisites for custom projects](../quickstarts/try-form-recognizer-studio.md#added-prerequisites-for-custom-projects) to configure the Studio to access your training dataset.
 
 1. In the Studio, select the **Custom classification model** tile, on the custom models section of the page and select the **Create a project** button.
 
-    :::image type="content" source="../media/how-to/studio-create-classifier-project.png" alt-text="Screenshot of how to create a classifier project in the Form Recognizer Studio.":::
+    :::image type="content" source="../media/how-to/studio-create-classifier-project.png" alt-text="Screenshot of how to create a classifier project in the Document Intelligence Studio.":::
 
     1. On the create project dialog, provide a name for your project, optionally a description, and select continue.
 
-    1. Next, choose or create a Form Recognizer resource before you select continue.
+    1. Next, choose or create a Document Intelligence resource before you select continue.
 
     :::image type="content" source="../media/how-to/studio-select-resource.png" alt-text="Screenshot showing the project setup dialog window.":::
 
@@ -62,7 +63,7 @@ The Form Recognizer Studio provides and orchestrates all the API calls required 
    > [!IMPORTANT]
    > You can either organize the training dataset by folders where the folder name is the label or class for documents or create a flat list of documents that you can assign a label to in the Studio.
 
-    :::image type="content" source="../media/how-to/studio-select-storage.png" alt-text="Screenshot showing how to select the Form Recognizer resource.":::
+    :::image type="content" source="../media/how-to/studio-select-storage.png" alt-text="Screenshot showing how to select the Document Intelligence resource.":::
 
 1. **Training a custom classifier requires the output from the Layout model for each document in your dataset**. Run layout on all documents prior to the model training process.
 
@@ -72,7 +73,7 @@ The Form Recognizer Studio provides and orchestrates all the API calls required 
 
 In your project, you only need to label each document with the appropriate class label.
 
-:::image type="content" source="../media/how-to/studio-create-label.gif" alt-text="Screenshot showing elect the Form Recognizer resource.":::
+:::image type="content" source="../media/how-to/studio-create-label.gif" alt-text="Screenshot showing elect the Document Intelligence resource.":::
 
 You see the files you uploaded to storage in the file list, ready to be labeled. You have a few options to label your dataset.
 
@@ -110,7 +111,7 @@ Once the model training is complete, you can test your model by selecting the mo
 
 1. Validate your model by evaluating the results for each document identified.
 
-Congratulations you've trained a custom classification model in the Form Recognizer Studio! Your model is ready for use with the REST API or the SDK to analyze documents.
+Congratulations you've trained a custom classification model in the Document Intelligence Studio! Your model is ready for use with the REST API or the SDK to analyze documents.
 
 ## Troubleshoot
 

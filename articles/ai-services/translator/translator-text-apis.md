@@ -42,7 +42,7 @@ In this how-to guide, you learn to use the [Translator service REST APIs](refere
     :::image type="content" source="media/keys-and-endpoint-portal.png" alt-text="Screenshot: Azure portal keys and endpoint page.":::
 
 > [!IMPORTANT]
-> Remember to remove the key from your code when you're done, and never post it publicly. For production, use a secure way of storing and accessing your credentials like [Azure Key Vault](../../key-vault/general/overview.md). For more information, *see* the Azure AI services [security](../cognitive-services-security.md).
+> Remember to remove the key from your code when you're done, and never post it publicly. For production, use a secure way of storing and accessing your credentials like [Azure Key Vault](../../key-vault/general/overview.md). For more information, *see* the Azure AI services [security](../security-features.md).
 
 ## Headers
 
@@ -337,7 +337,7 @@ You can use any text editor to write Go applications. We recommend using the lat
 > [!IMPORTANT]
 > The samples in this guide require hard-coded keys and endpoints.
 > Remember to **remove the key from your code when you're done**, and **never post it publicly**.
-> For production, consider using a secure way of storing and accessing your credentials. For more information, *see* [Azure AI services security](../cognitive-services-security.md).
+> For production, consider using a secure way of storing and accessing your credentials. For more information, *see* [Azure AI services security](../security-features.md).
 
 ## Translate text
 

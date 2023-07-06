@@ -1,6 +1,6 @@
 ---
-title: "Use Form Recognizer SDK for JavaScript (REST API v2.1)"
-description: Use the Form Recognizer SDK for JavaScript (REST API v2.1) to create a forms processing app that extracts key data from documents.
+title: "Use Document Intelligence SDK for JavaScript (REST API v2.1)"
+description: Use the Document Intelligence SDK for JavaScript (REST API v2.1) to create a forms processing app that extracts key data from documents.
 author: laujan
 manager: nitinme
 ms.service: applied-ai-services
@@ -17,7 +17,7 @@ ms.custom: devx-track-js
 
 > [!IMPORTANT]
 >
-> This project targets Form Recognizer REST API version **2.1**.
+> This project targets Document Intelligence REST API version **2.1**.
 
 [Reference documentation](/javascript/api/overview/azure/ai-form-recognizer-readme?view=azure-node-latest&preserve-view=true) | [Library source code](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/formrecognizer/ai-form-recognizer/) | [Package (npm)](https://www.npmjs.com/package/@azure/ai-form-recognizer) | [Samples](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/formrecognizer/ai-form-recognizer/samples)
 
@@ -26,8 +26,8 @@ ms.custom: devx-track-js
 * Azure subscription - [Create one for free](https://azure.microsoft.com/free/cognitive-services)
 * The current version of [Node.js](https://nodejs.org/)
 * An Azure Storage blob that contains a set of training data. See [Build a training data set for a custom model](../../build-a-custom-model.md?view=form-recog-2.1.0&preserve-view=true) for tips and options for putting together your training data set. For this project, you can use the files under the **Train** folder of the [sample data set](https://go.microsoft.com/fwlink/?linkid=2090451) (download and extract *sample_data.zip*).
-* Once you have your Azure subscription, <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer"  title="Create a Form Recognizer resource"  target="_blank">create a Form Recognizer resource </a> in the Azure portal to get your key and endpoint. After it deploys, select **Go to resource**.
-  * You need the key and endpoint from the resource you create to connect your application to the Form Recognizer API. You paste your key and endpoint into the code later in the project
+* Once you have your Azure subscription, <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer"  title="Create a Document Intelligence resource"  target="_blank">create a Document Intelligence resource </a> in the Azure portal to get your key and endpoint. After it deploys, select **Go to resource**.
+  * You need the key and endpoint from the resource you create to connect your application to the Document Intelligence API. You paste your key and endpoint into the code later in the project
   * You can use the free pricing tier (`F0`) to try the service, and upgrade later to a paid tier for production.
 
 ## Setting up
@@ -65,13 +65,13 @@ Create variables for your resource's Azure endpoint and key.
 [!code-javascript[](~/cognitive-services-quickstart-code/javascript/FormRecognizer/FormRecognizerQuickstart.js?name=snippet_creds)]
 
 > [!IMPORTANT]
-> Go to the Azure portal. If the Form Recognizer resource you created in the **Prerequisites** section deployed successfully, click the **Go to Resource** button under **Next Steps**. You can find your key and endpoint in the resource's **key and endpoint** page, under **resource management**.
+> Go to the Azure portal. If the Document Intelligence resource you created in the **Prerequisites** section deployed successfully, click the **Go to Resource** button under **Next Steps**. You can find your key and endpoint in the resource's **key and endpoint** page, under **resource management**.
 >
-> Remember to remove the key from your code when you're done, and never post it publicly. For production, use secure methods to store and access your credentials. For more information, _see_ our Cognitive Services [security](../../../../../cognitive-services/security-features.md) article.
+> Remember to remove the key from your code when you're done, and never post it publicly. For production, use secure methods to store and access your credentials. For more information, _see_ our Azure AI services [security](../../../../../ai-services/security-features.md) article.
 
 ## Object model
 
-With Form Recognizer, you can create two different client types. The first, `FormRecognizerClient` is used to query the service to recognized form fields and content. The second, `FormTrainingClient` is used to create and manage custom models to improve recognition.
+With Document Intelligence, you can create two different client types. The first, `FormRecognizerClient` is used to query the service to recognized form fields and content. The second, `FormTrainingClient` is used to create and manage custom models to improve recognition.
 
 ### FormRecognizerClient
 
@@ -79,7 +79,7 @@ With Form Recognizer, you can create two different client types. The first, `For
 
 * Recognize form fields and content using custom models trained to analyze your custom forms. These values are returned in a collection of `RecognizedForm` objects.
 * Recognize form content, including tables, lines and words, without the need to train a model. Form content is returned in a collection of `FormPage` objects.
-* Recognize common fields from US receipts, business cards, invoices, and ID documents using a pre-trained model on the Form Recognizer service.
+* Recognize common fields from US receipts, business cards, invoices, and ID documents using a pre-trained model on the Document Intelligence service.
 
 ### FormTrainingClient
 
@@ -88,10 +88,10 @@ With Form Recognizer, you can create two different client types. The first, `For
 * Training custom models to analyze all fields and values found in your custom forms. A `CustomFormModel` is returned indicating the form types the model analyzes, and the fields it extracts for each form type. For more information, _see_ the [service's documentation on unlabeled model training](#train-a-model-without-labels).
 * Training custom models to analyze specific fields and values you specify by labeling your custom forms. A `CustomFormModel` is returned indicating the fields the model extracts, and the estimated accuracy for each field. See the [service's documentation on labeled model training](#train-a-model-with-labels) for a more detailed explanation of applying labels to a training data set.
 * Managing models created in your account.
-* Copying a custom model from one Form Recognizer resource to another.
+* Copying a custom model from one Document Intelligence resource to another.
 
 > [!NOTE]
-> Models can also be trained using a graphical user interface such as the [Form Recognizer Labeling Tool](../../../label-tool.md).
+> Models can also be trained using a graphical user interface such as the [Document Intelligence Labeling Tool](../../../label-tool.md).
 
 ## Authenticate the client
 
@@ -111,7 +111,7 @@ You also need to add references to the URLs for your training and testing data.
 
 ## Analyze layout
 
-You can use Form Recognizer to analyze tables, lines, and words in documents, without needing to train a model. For more information about layout extraction, see the [Layout conceptual guide](../../../concept-layout.md). To analyze the content of a file at a given URI, use the `beginRecognizeContentFromUrl` method.
+You can use Document Intelligence to analyze tables, lines, and words in documents, without needing to train a model. For more information about layout extraction, see the [Layout conceptual guide](../../../concept-layout.md). To analyze the content of a file at a given URI, use the `beginRecognizeContentFromUrl` method.
 
 [!code-javascript[](~/cognitive-services-quickstart-code/javascript/FormRecognizer/FormRecognizerQuickstart.js?name=snippet_getcontent)]
 
@@ -184,7 +184,7 @@ To analyze invoices from a URL, use the `beginRecognizeInvoicesFromUrl` method.
 
 ## Analyze ID documents
 
-This section demonstrates how to analyze and extract key information from government-issued identification documents—worldwide passports and U.S. driver's licenses—using the Form Recognizer prebuilt ID model. For more information about ID document analysis, see our [prebuilt identification model conceptual guide](../../../concept-id-document.md).
+This section demonstrates how to analyze and extract key information from government-issued identification documents—worldwide passports and U.S. driver's licenses—using the Document Intelligence prebuilt ID model. For more information about ID document analysis, see our [prebuilt identification model conceptual guide](../../../concept-id-document.md).
 
 To analyze ID documents from a URL, use the `beginRecognizeIdDocumentsFromUrl` method.
 
@@ -195,7 +195,7 @@ To analyze ID documents from a URL, use the `beginRecognizeIdDocumentsFromUrl` m
 This section demonstrates how to train a model with your own data. A trained model can output structured data that includes the key/value relationships in the original form document. After you train the model, you can test, retrain, and eventually use it to reliably extract data from more forms according to your needs.
 
 > [!NOTE]
-> You can also train models with a graphical user interface (GUI) such as the [Form Recognizer Sample Labeling tool](../../../label-tool.md).
+> You can also train models with a graphical user interface (GUI) such as the [Document Intelligence Sample Labeling tool](../../../label-tool.md).
 
 ### Train a model without labels
 
@@ -243,7 +243,7 @@ Document errors:
 
 ### Train a model with labels
 
-You can also train custom models by manually labeling the training documents. Training with labels leads to better performance in some scenarios. To train with labels, you need to have special label information files (`\<filename\>.pdf.labels.json`) in your blob storage container alongside the training documents. The [Form Recognizer Sample Labeling tool](../../../label-tool.md) provides a UI to help you create these label files. Once you've them, you can call the `beginTraining` method with the `uselabels` parameter set to `true`.
+You can also train custom models by manually labeling the training documents. Training with labels leads to better performance in some scenarios. To train with labels, you need to have special label information files (`\<filename\>.pdf.labels.json`) in your blob storage container alongside the training documents. The [Document Intelligence Sample Labeling tool](../../../label-tool.md) provides a UI to help you create these label files. Once you've them, you can call the `beginTraining` method with the `uselabels` parameter set to `true`.
 
 [!code-javascript[](~/cognitive-services-quickstart-code/javascript/FormRecognizer/FormRecognizerQuickstart.js?name=snippet_trainlabels)]
 
@@ -422,10 +422,10 @@ node index.js
 
 ## Clean up resources
 
-If you want to clean up and remove a Cognitive Services subscription, you can delete the resource or resource group. Deleting the resource group also deletes any other resources associated with it.
+If you want to clean up and remove an Azure AI services subscription, you can delete the resource or resource group. Deleting the resource group also deletes any other resources associated with it.
 
-* [Portal](../../../../../cognitive-services/cognitive-services-apis-create-account.md#clean-up-resources)
-* [Azure CLI](../../../../../cognitive-services/cognitive-services-apis-create-account-cli.md#clean-up-resources)
+* [Portal](../../../../../ai-services/cognitive-services-apis-create-account.md#clean-up-resources)
+* [Azure CLI](../../../../../ai-services/cognitive-services-apis-create-account-cli.md#clean-up-resources)
 
 ## Troubleshooting
 
@@ -441,14 +441,14 @@ For more detailed instructions on how to enable logs, see the [@azure/logger pac
 
 ## Next steps
 
-For this project, you used the Form Recognizer JavaScript client library to train models and analyze forms in different ways. Next, learn tips to create a better training data set and produce more accurate models.
+For this project, you used the Document Intelligence JavaScript client library to train models and analyze forms in different ways. Next, learn tips to create a better training data set and produce more accurate models.
 
 > [!div class="nextstepaction"]
 > [Build a training data set](../../build-a-custom-model.md?view=form-recog-2.1.0&preserve-view=true)
 
 ## See also
 
-* [What is Form Recognizer?](../../../overview.md)
+* [What is Document Intelligence?](../../../overview.md)
 
 * The sample code from this project can be found on [GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/javascript/FormRecognizer/FormRecognizerQuickstart.js).
 
