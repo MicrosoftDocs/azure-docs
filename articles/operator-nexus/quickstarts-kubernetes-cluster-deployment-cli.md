@@ -121,7 +121,7 @@ CLUSTER_NAME="myNexusAKSCluster"
 AGENT_POOL_NAME="${CLUSTER_NAME}-nodepool-2"
 AGENT_POOL_VM_SIZE="NC_M4_v1"
 AGENT_POOL_COUNT="1"
-AGENT_POOL_MODE="System"
+AGENT_POOL_MODE="User"
 ```
 After defining these variables, you can add an agent pool by executing the following Azure CLI command:
 

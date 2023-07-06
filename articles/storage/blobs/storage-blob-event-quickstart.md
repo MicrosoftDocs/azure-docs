@@ -7,7 +7,6 @@ ms.reviewer: dineshm
 ms.date: 08/11/2021
 ms.topic: how-to
 ms.service: storage
-ms.subservice: blobs 
 ms.custom: devx-track-azurecli
 ---
 

@@ -151,7 +151,7 @@ az k8s-extension show --cluster-type managedClusters \
 > * `global.ha.*`
 > * `dapr_placement.*`
 >
-> HA is enabled enabled by default. Disabling it requires deletion and recreation of the extension.
+> HA is enabled by default. Disabling it requires deletion and recreation of the extension.
 
 To update your Dapr configuration settings, recreate the extension with the desired state. For example, assume we've previously created and installed the extension using the following configuration:
 

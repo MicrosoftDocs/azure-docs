@@ -1,6 +1,11 @@
 {
     "redirections": [
     {
+        "source_path_from_root": "/articles/machine-learning/how-to-create-manage-compute-instance.md",
+        "redirect_url": "/azure/machine-learning/how-to-create-compute-instance",
+        "redirect_document_id": true
+    },
+    {
         "source_path_from_root": "/articles/machine-learning/v-fake/tutorial-train-deploy-notebook.md",
         "redirect_url": "/azure/machine-learning/tutorial-train-deploy-notebook",
         "redirect_document_id": false
@@ -187,8 +192,8 @@
     },
     {
         "source_path_from_root": "/articles/machine-learning/v-fake/how-to-create-manage-compute-instance.md",
-        "redirect_url": "/azure/machine-learning/how-to-create-manage-compute-instance",
-        "redirect_document_id": true
+        "redirect_url": "/azure/machine-learning/how-to-create-compute-instance",
+        "redirect_document_id": false
     },
     {
         "source_path_from_root": "/articles/machine-learning/v-fake/how-to-create-machine-learning-pipelines.md",
@@ -3952,12 +3957,17 @@
     },
     {
         "source_path_from_root": "/articles/machine-learning/how-to-use-batch-endpoint-sdk-v2.md",
-        "redirect_url": "/azure/machine-learning/how-to-use-batch-endpoint",
+        "redirect_url": "/azure/machine-learning/concept-endpoints-batch",
         "redirect_document_id": false
     },
     {
         "source_path_from_root": "/articles/machine-learning/how-to-use-batch-endpoints-studio.md",
-        "redirect_url": "/azure/machine-learning/how-to-use-batch-endpoint",
+        "redirect_url": "/azure/machine-learning/concept-endpoints-batch",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/machine-learning/how-to-use-batch-endpoints.md",
+        "redirect_url": "/azure/machine-learning/concept-endpoints-batch",
         "redirect_document_id": false
     },
     {
@@ -4027,7 +4037,7 @@
     },
     {
         "source_path_from_root": "/articles/machine-learning/batch-inference/how-to-use-batch-endpoint.md",
-        "redirect_url": "/azure/machine-learning/how-to-use-batch-endpoint",
+        "redirect_url": "/azure/machine-learning/concept-endpoints-batch",
         "redirect_document_id": true
     },
     {
