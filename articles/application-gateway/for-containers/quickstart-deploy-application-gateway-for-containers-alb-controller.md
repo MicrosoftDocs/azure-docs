@@ -13,7 +13,7 @@ ms.author: greglin
 
 # Quickstart: Deploy Application Gateway for Containers ALB Controller
 
-ALB Controller is responsible for translating Gateway API and Ingress API configuration within Kubernetes to load balancing rules within Application Gateway for Containers.  The following guide will walk through the steps needed to provision ALB Controller into a new or existing AKS cluster.
+[ALB Controller](concepts-how-application-gateway-for-containers-works.md#application-gateway-for-containers-alb-controller) is responsible for translating Gateway API and Ingress API configuration within Kubernetes to load balancing rules within Application Gateway for Containers.  The following guide will walk through the steps needed to provision ALB Controller into a new or existing AKS cluster.
 
 ## Prerequisites
 
