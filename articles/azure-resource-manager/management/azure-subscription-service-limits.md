@@ -375,6 +375,10 @@ For limits specific to Media Services v2 (legacy), see [Media Services v2 (legac
 The following table applies to v1, v2, Standard, and WAF SKUs unless otherwise stated.
 [!INCLUDE [application-gateway-limits](../../../includes/application-gateway-limits.md)]
 
+### Application Gateway for Containers limits
+
+[!INCLUDE [application-gateway-for-containers-limits](../../../includes/application-gateway-for-containers-limits.md)]
+
 ### Azure Bastion limits
 
 [!INCLUDE [Azure Bastion limits](../../../includes/bastion-limits.md)]

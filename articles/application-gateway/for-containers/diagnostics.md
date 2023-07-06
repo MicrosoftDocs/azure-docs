@@ -7,7 +7,7 @@ author: greglin
 ms.service: application-gateway
 ms.subservice: traffic-controller
 ms.topic: article
-ms.date: 6/20/2023
+ms.date: 7/7/2023
 ms.author: greglin
 ---
 
@@ -30,9 +30,30 @@ You can use different types of logs in Azure to manage and troubleshoot Applicat
 
 ### Configure access log
 
-...
+Activity logging is automatically enabled for every Resource Manager resource. You must enable access logging to start collecting the data available through those logs. To enable logging, you may configure diagnostic settings in Azure Monitor.
+
+For example, the following PowerShell sample may be used to enable all logging to a storage account for Application Gateway for Containers.
+
+```PowerShell
+$storageAccount = Get-AzStorageAccount -ResourceGroupName acctest5097 -Name centraluseuaptclogs
+$metric = @()
+$log = @()
+$metric += New-AzDiagnosticSettingMetricSettingsObject -Enabled $true -Category AllMetrics -RetentionPolicyDay 30 -RetentionPolicyEnabled $true
+$log += New-AzDiagnosticSettingLogSettingsObject -Enabled $true -CategoryGroup allLogs -RetentionPolicyDay 30 -RetentionPolicyEnabled $true
+New-AzDiagnosticSetting -Name 'AppGWForContainersLogs' -ResourceId "/subscriptions/711d99a7-fd79-4ce7-9831-ea1afa18442e/resourceGroups/acctest5097/providers/Microsoft.ServiceNetworking/trafficControllers/acctest2920" -StorageAccountId $storageAccount.Id -Log $log -Metric $metric
+```
+
+More information on diagnostic settings in Azure Monitor and deployment tutorials for Portal, CLI, and more, may be [referenced here](../../azure-monitor/essentials/diagnostic-settings.md).
 
 ### Access log format
 
-Each access of Application Gateway for Containers is logged in JSON format as shown below.
+Each access log entry in Application Gateway for Containers will contain the following information.
 
+| Value | Description |
+| ----- | ----------- |
+|[broken link for update](../../azure-monitorbrokenlink.md).||
+
+Here an example of the access log emitted in JSON format to a storage account.
+```JSON
+
+```

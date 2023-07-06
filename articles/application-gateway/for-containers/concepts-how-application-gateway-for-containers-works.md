@@ -29,12 +29,13 @@ The following dependencies are also referenced in an Application Gateway for Con
 ## Application Gateway for Containers Concepts
 
 ### Application Gateway for Containers
-- Application Gateway for Containers is a parent resource that deploys the control plane
-- The control plane is what orchestrates date plane proxy configuration based on customer intent.
+- Application Gateway for Containers is an Azure parent resource that deploys the control plane
+- The control plane is responsible for orchestrating proxy configuration based on customer intent.
 - Application Gateway for Containers has two child resources; associations and frontends
   - Child resources are exclusive to only their parent Application Gateway for Containers and may not be referenced by additional Application Gateway for Containers
 
 ### Application Gateway for Containers Frontends
+- An Application Gateway for Containers Frontend resource is an Azure child resource of the Application Gateway for Containers parent resource
 - An Application Gateway for Containers Frontend defines the entry point client traffic should be received by a given Application Gateway for Containers
    - A frontend can't be associated to multiple Application Gateway for Containers
    - Each frontend provides a unique FQDN that can be referenced by a customer's CNAME record 
@@ -42,6 +43,7 @@ The following dependencies are also referenced in an Application Gateway for Con
 - A single Application Gateway for Containers can support multiple Frontends
 
 ### Application Gateway for Containers Association
+- An Application Gateway for Containers Association resource is an Azure child resource of the Application Gateway for Containers parent resource
 - An Application Gateway for Containers Association defines a connection point into a virtual network.  An association is a 1:1 mapping of an association resource to an Azure Subnet that has been delegated.
 - Application Gateway for Containers are designed to allow for multiple associations
    - The current number of associations is currently limited to 1
@@ -50,6 +52,13 @@ The following dependencies are also referenced in an Application Gateway for Con
    - A minimum /24 subnet mask for new deployment, assuming nothing has been provisioning in the subnet).
       - If n number of Application Gateway for Containers are provisioned, with the assumption each Application Gateway for Containers contains one association, and the desired is to share the same subnet, the available required addresses should be n*256.
    - All Application Gateway for Containers association resources should match the same region as the Application Gateway for Containers parent resource
+
+### Application Gateway for Containers ALB Controller
+- An Application Gateway for Containers ALB Controller is a Kubernetes deployment that orchestrates can configure and deploy Application Gateway for Containers by watching CRs (Ingress, Gateway, and ApplicationLoadBalancer).  It uses both ARM / Application Gateway for Containers configuration APIs to propagate configuration to the Application Gateway for Containers Azure deployment.
+- ALB Controller is deployed / installed via Helm
+- ALB Controller consists of two running pods
+   - alb-controller pod is responsible for orchestrating customer intent to Application Gateway for Containers load balancing configuration
+   - alb-controller-bootstrap pod is responsible for management of CRDs
 
 ## Azure / General concepts
 

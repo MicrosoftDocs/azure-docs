@@ -6,12 +6,16 @@
     href: overview.md
 - name: Quickstarts
   items:
-  - name: Create Application Gateway for Containers
-    href: quickstart-create-traffic-controller.md
+  - name: Deploy Application Gateway for Containers ALB Controller
+    href: quickstart-deploy-application-gateway-for-containers-alb-controller.md
+  - name: Create Application Gateway for Containers - bring your own deployment
+    href: quickstart-create-application-gateway-for-containers-byo-deployment.md
+  - name: Create Application Gateway for Containers - managed by ALB Controller
+    href: quickstart-create-application-gateway-for-containers-managed-by-alb-controller.md
 - name: Concepts
   items:
   - name: How Application Gateway for Containers works
-    href: concepts-how-traffic-controller-works.md
+    href: concepts-how-application-gateway-for-containers-works.md
   - name: Diagnostic Logs
     href: diagnostics.md
   - name: Frequently Asked Questions (FAQ)
@@ -35,23 +39,23 @@
 - name: Reference
   items:
   - name: Azure CLI
-    href: /cli/azure/network/traffic-controller
+    href: /cli/azure/network/alb
   - name: Azure PowerShell
     href: /powershell/azure/
   - name: .NET
-    href: /dotnet/api/
+    href: /dotnet/api/overview/azure/servicenetworking
   - name: Java
-    href: /java/api/
+    href: /java/api/overview/azure/servicenetworking
   - name: Python
-    href: https://azure.microsoft.com/develop/python/
+    href: /python/api/overview/azure/servicenetworking
   - name: REST
-    href: /rest/api/traffic-controller/traffic-controllers
+    href: /rest/api?view=Azure&preserve-view=true
   - name: Azure Resource Manager
     displayName: ARM
     href: ../../azure-resource-manager/management/overview.md
   - name: Resource Manager template
     displayName: ARM
-    href: /azure/templates/microsoft.network/applicationgateways
+    href: /azure/templates/microsoft.servicenetworking/applicationgateways
 - name: Resources
   items:
   - name: Author templates
@@ -64,5 +68,5 @@
   - name: Regional availability
     href: https://azure.microsoft.com/global-infrastructure/services/
   - name: Stack Overflow
-    href: https://stackoverflow.com/questions/tagged/azure-traffic-controller
+    href: https://stackoverflow.com/questions/tagged/azure-application-gateway-for-containers
  
