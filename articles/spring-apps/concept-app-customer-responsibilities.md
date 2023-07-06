@@ -50,6 +50,7 @@ You can get spring commercial support when you are using enterprise tier.
 | 2.6.x               | 2021.0.0+ aka Jubilee      |
 | 2.5.x               | 2020.3+ aka Ilford+        |
 
+---
 
 
 ## Enterprise Tier
