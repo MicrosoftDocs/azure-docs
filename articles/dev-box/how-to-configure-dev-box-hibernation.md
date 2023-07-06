@@ -43,6 +43,23 @@ There are two steps in enabling hibernation; you must enable hibernation on your
 - Hibernation doesn't support hypervisor-protected code integrity (HVCI)/ Memory Integrity features. Dev Box disables this feature automatically.
 
 - Auto-stop schedules still shutdown the dev boxes. If you want to hibernate your dev box, you can do it through the developer portal or using the CLI.
+
+### Settings not compatible with hibernation
+
+These settings are known to be incompatible with hibernation, and aren't supported for hibernation scenarios: 
+
+- **Memory Integrity/Hypervisor Code Integrity.** 
+    
+    To disable Memory Integrity/Hypervisor Code Integrity:
+    1. In the start menu, search for *memory integrity* 
+    1. Select **Core Isolation**
+    1. Under **Memory integrity**, ensure that memory integrity is set to Off.
+
+- **Guest Virtual Secure Mode based features without Nested Virtualization enabled.** 
+
+    To enable Nested Virtualization:
+    1. In the start menu, search for *Turn Windows features on or off*
+    1. In Turn Windows features on or off, select **Virtual Machine Platform**, and then select **OK**    
  
 ## Enable hibernation on your Dev Box image 
 
@@ -66,23 +83,6 @@ You can enable hibernation as you create a dev box definition, providing that th
 All new dev boxes created in dev box pools that use a dev box definition with hibernation enabled can hibernate in addition to shutting down. If a pool has dev boxes that were created before hibernation was enabled, they continue to only support shutdown. 
 
 Dev Box validates your image for hibernate support. Your dev box definition may fail validation if hibernation couldn't be successfully enabled using your image. 
-
-### Settings not compatible with hibernation
-
-These settings are known to be incompatible with hibernation, and aren't supported for hibernation scenarios: 
-
-- **Memory Integrity/Hypervisor Code Integrity.** 
-    
-    To disable Memory Integrity/Hypervisor Code Integrity:
-    1. In the start menu, search for *memory integrity* 
-    1. Select **Core Isolation**
-    1. Under **Memory integrity**, ensure that memory integrity is set to Off.
-
-- **Guest Virtual Secure Mode based features without Nested Virtualization enabled.** 
-
-    To enable Nested Virtualization:
-    1. In the start menu, search for *Turn Windows features on or off*
-    1. In Turn Windows features on or off, select **Virtual Machine Platform**, and then select **OK**    
 
 ### Enable hibernation on an existing dev box definition by using the Azure portal
 
