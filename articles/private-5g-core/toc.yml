@@ -158,7 +158,7 @@ items:
     items:
     - name: Move private mobile network resources
       href: region-move-private-mobile-network-resources.md
-    - name: Delete Azure Private 5G Core resources
+    - name: Delete resources
       href: delete-resources.md
 - name: Reference
   items:
