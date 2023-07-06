@@ -5,7 +5,7 @@ author: htaubenfeld
 ms.author: htaubenfeld
 ms.service: microsoft-linux
 ms.topic: article
-ms.date: 06/26/2023
+ms.date: 07/06/2023
 ---
 
 # Center for Internet Security (CIS) Azure Linux benchmark
@@ -193,6 +193,6 @@ For more information about Azure Linux Container Host security, see the followin
 <!-- LINKS - internal -->
 [security-concepts-aks]: concepts-security.md
 [cis-benchmarks]: /compliance/regulatory/offering-CIS-Benchmark
-[cis-benchmark-azure-linux]: https://www.cisecurity.org/benchmark/azure/
+[cis-benchmark-azure-linux]: https://www.cisecurity.org/benchmark/azure_linux
 [linux-security-baseline]: ../governance/policy/samples/guest-configuration-baseline-linux.md
 [linux-container-host-aks]: ../azure-linux/intro-azure-linux.md
