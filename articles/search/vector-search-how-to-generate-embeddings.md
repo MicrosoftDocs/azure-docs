@@ -64,10 +64,10 @@ print(embeddings)
 ## Tips and recommendations for embedding model integration
 
 + Python and JavaScript demos offer more scalability than the REST APIs for generating embeddings. As of this writing, the REST API doesn't currently support batching.
-
-+ We've done proof-of-concept testing with indexers and skillsets, where a custom skill calls a machine learning model to generate embeddings. There's currently no tutorial or walkthrough, but we intend to provide this content as part of the public preview launch, if not sooner.
-
-+ We've done proof-of-concept testing of embeddings for a thousand images using [image retrieval vectorization in Cognitive Services](/azure/cognitive-services/computer-vision/how-to/image-retrieval). We hope to provide a demo of this soon.
+<!-- 
++ We've done proof-of-concept testing with indexers and skillsets, where a custom skill calls a machine learning model to generate embeddings. There's currently no tutorial or walkthrough, but we intend to provide this content as part of the public preview launch, if not sooner. -->
+<!-- 
++ We've done proof-of-concept testing of embeddings for a thousand images using [image retrieval vectorization in Cognitive Services](/azure/cognitive-services/computer-vision/how-to/image-retrieval). We hope to provide a demo of this soon. -->
 
 + Similarity search expands your options for searchable content, for example by matching image content with text content, or matching across multiple languages. But not every query is improved with vector search. Keyword matching with BM25 is cheaper, faster, and easier, so integrate vector search only where it adds value.
 
