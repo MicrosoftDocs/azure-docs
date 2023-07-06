@@ -83,8 +83,8 @@ items:
   items:
   - name: App and deployment
     href: concept-understand-app-and-deployment.md
-  - name: Customer responsibilities developing Azure Spring Apps
-    href: app-customer-responsibilities.md
+  - name: Customer responsibilities
+    href: concept-app-customer-responsibilities.md
   - name: Blue-green deployment strategies
     href: concepts-blue-green-deployment-strategies.md
   - name: Zero downtime deployment
