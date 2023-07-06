@@ -16,12 +16,12 @@ Learn how to use the Microsoft Azure Network Adapter (MANA) to improve the perfo
 >Azure Boost (MANA) is currently part of the Azure Boost Preview. See the [preview announcement](https://aka.ms/azureboostpreview) for more information and to join.
 
 ## Compatibility
-Azure Boost (MANA) supports several VM operating systems. While your VM might be running a supported OS, you'll need to update the kernel (Linux), update the OS (FreeBSD) or install drivers (Windows). 
+Azure Boost (MANA) supports several VM operating systems. While your VM might be running a supported OS, you need to update the kernel (Linux), update the OS (FreeBSD) or install drivers (Windows). 
 
-MANA will maintain feature-parity with previous Azure networking features. VMs can still run on hardware with both Mellanox and MANA NICs, so existing 'mlx4' and 'mlx5' drivers still need to be installed.
+MANA maintains feature-parity with previous Azure networking features. VMs can still run on hardware with both Mellanox and MANA NICs, so existing 'mlx4' and 'mlx5' drivers still need to be installed.
 
 ### Supported Marketplace Images
-Several [Azure marketplace](https://learn.microsoft.com/en-us/marketplace/azure-marketplace-overview) images have built-in support for Azure MANA's ethernet driver. 
+Several [Azure Marketplace](https://learn.microsoft.com/en-us/marketplace/azure-marketplace-overview) images have built-in support for Azure MANA's ethernet driver. 
 
 >[!NOTE]
 >None of the current Linux distros in Azure are on a 6.2 or later kernel, which is required for RDMA/InfiniBand and DPDK support. If you use an existing Marketplace Linux image, you will need to update the kernel.
@@ -40,10 +40,10 @@ Several [Azure marketplace](https://learn.microsoft.com/en-us/marketplace/azure-
 - Windows Server 2022
 
 ### Custom images and legacy VMs
-We recommend using an operating system with support for MANA to maximize performance with Azure Boost. However, in instances where the operating system does not or cannot support MANA, network connectivity is provided through the hypervisor’s virtual switch. The virtual switch is also used during some infrastructure servicing events where the Virtual Function (VF) is revoked. 
+We recommend using an operating system with support for MANA to maximize performance with Azure Boost. However, in instances where the operating system doesn't or can't support MANA, network connectivity is provided through the hypervisor’s virtual switch. The virtual switch is also used during some infrastructure servicing events where the Virtual Function (VF) is revoked. 
 
 ### DPDK Support
-Utilizing DPDK on MANA hardware will require the Linux kernel 6.2 or later or a backport of the Ethernet and InfiniBand drivers from the latest Linux kernel. It will also require specific versions of DPDK and user-space drivers.
+Utilizing DPDK on MANA hardware requires the Linux kernel 6.2 or later or a backport of the Ethernet and InfiniBand drivers from the latest Linux kernel. It also requires specific versions of DPDK and user-space drivers.
 
 DPDK requires the following set of drivers:
 1.	[Linux kernel Ethernet driver](https://github.com/torvalds/linux/tree/master/drivers/net/ethernet/microsoft/mana) (5.15 kernel and later)
@@ -55,5 +55,5 @@ Microsoft only supports DPDK on Linux.
 
 ## Evaluating performance
 Differences in VM SKUs, operating systems, applications, and tuning parameters can all affect network performance on Azure. For this reason, we recommend that you benchmark and test your workloads to ensure you achieve the expected network performance. 
-Please see the following documents for information on testing and optimizing network performance in Azure.
+See the following documents for information on testing and optimizing network performance in Azure.
 Look into [TCP/IP performance tuning](/azure/virtual-network/virtual-network-tcpip-performance-tuning) and more info on [VM network throughput](/azure/virtual-network/virtual-machine-network-throughput)
