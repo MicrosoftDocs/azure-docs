@@ -51,6 +51,33 @@ More details on eligible subscription types are as follows:
 
 \** Please refer to [SMS Concepts page](../sms/concepts.md) for supported destinations for this service.
 
+**Use the drop-down to select the country/region where you're getting numbers. You'll find information about availability, restrictions and other related info on the country specific page**
+> [!div class="op_single_selector"]
+>
+> - [United States](../numbers/phone-number-management-for-united-states.md)
+> - [Canada](../numbers/phone-number-management-for-canada.md)
+> - [Country](../numbers/phone-number-management-for-canada.md)
+> - [Country2](../numbers/phone-number-management-for-canada.md)
+> - [Country3](../numbers/phone-number-management-for-canada.md)
+> - [Country4](../numbers/phone-number-management-for-canada.md)
+> - [Country4](../numbers/phone-number-management-for-canada.md)
+> - [Country4](../numbers/phone-number-management-for-canada.md)
+> - [Country4](../numbers/phone-number-management-for-canada.md)
+> - [Country4](../numbers/phone-number-management-for-canada.md)
+> - [Country4](../numbers/phone-number-management-for-canada.md)
+> - [Country4](../numbers/phone-number-management-for-canada.md)
+> - [Country4](../numbers/phone-number-management-for-canada.md)
+> - [Country4](../numbers/phone-number-management-for-canada.md)
+> - [Country4](../numbers/phone-number-management-for-canada.md)
+> - [Country4](../numbers/phone-number-management-for-canada.md)
+> - [Country4](../numbers/phone-number-management-for-canada.md)
+> - [Country4](../numbers/phone-number-management-for-canada.md)
+> - [Country4](../numbers/phone-number-management-for-canada.md)
+> - [Country4](../numbers/phone-number-management-for-canada.md)
+> - [Country4](../numbers/phone-number-management-for-canada.md)
+> - [Country4](../numbers/phone-number-management-for-canada.md)
+
+
 ## Next steps
 
 For more information about Azure Communication Services' telephony options, see the following pages:
