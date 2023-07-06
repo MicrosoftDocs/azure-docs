@@ -6,7 +6,7 @@ author: davidsmatlak
 ms.author: davidsmatlak
 ---
 
-### Get Role Assignments with key properties
+### Get role assignments with key properties
 
 Provides a sample of [role assignments](../../../../role-based-access-control/role-assignments.md) and some of the resources relevant properties.
 

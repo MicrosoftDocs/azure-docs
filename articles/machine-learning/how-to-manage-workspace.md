@@ -329,7 +329,7 @@ In the [Azure portal](https://portal.azure.com/), select **Delete**  at the top 
 
 ## Clean up resources
 
-[!INCLUDE [aml-delete-resource-group](../../includes/aml-delete-resource-group.md)]
+[!INCLUDE [aml-delete-resource-group](includes/aml-delete-resource-group.md)]
 
 ## Troubleshooting
 

@@ -2,7 +2,7 @@
 title: Release notes for Microsoft Defender for Cloud
 description: This page is updated frequently with the latest updates in Defender for Cloud.
 ms.topic: overview
-ms.date: 06/25/2023
+ms.date: 06/28/2023
 ---
 
 # What's new in Microsoft Defender for Cloud?
@@ -20,6 +20,27 @@ To learn about *planned* changes that are coming soon to Defender for Cloud, see
 
 If you're looking for items older than six months, you can find them in the [Archive for What's new in Microsoft Defender for Cloud](release-notes-archive.md).
 
+## July 2023
+
+Updates in July include:
+
+|Date |Update  |
+|---------|---------|
+| July 1 | [Data Aware Security Posture is now Generally Available](#data-aware-security-posture-is-now-generally-available) |
+
+### Data Aware Security Posture is now Generally Available
+
+July 1, 2023
+
+Data-aware security posture in Microsoft Defender for Cloud is now Generally Available. It helps customers to reduce data risk, and respond to data breaches. Using data-aware security posture you can:
+
+- Automatically discover sensitive data resources across Azure and AWS.
+- Evaluate data sensitivity, data exposure, and how data flows across the organization.
+- Proactively and continuously uncover risks that might lead to data breaches.
+- Detect suspicious activities that might indicate ongoing threats to sensitive data resources
+
+For more information, see [Data-aware security posture in Microsoft Defender for Cloud](concept-data-security-posture.md).
+
 ## June 2023
 
 Updates in June include:
@@ -27,7 +48,7 @@ Updates in June include:
 |Date |Update  |
 |---------|---------|
 | June 26 | [Streamlined multicloud account onboarding with enhanced settings](#streamlined-multicloud-account-onboarding-with-enhanced-settings) |
- June 25 | [Private Endpoint support for Malware Scanning in Defender for Storage](#private-endpoint-support-for-malware-scanning-in-defender-for-storage)
+| June 25 | [Private Endpoint support for Malware Scanning in Defender for Storage](#private-endpoint-support-for-malware-scanning-in-defender-for-storage)
 | June 15 | [Control updates were made to the NIST 800-53 standards in regulatory compliance](#control-updates-were-made-to-the-nist-800-53-standards-in-regulatory-compliance) |
 |June 11 | [Planning of cloud migration with an Azure Migrate business case now includes Defender for Cloud](#planning-of-cloud-migration-with-an-azure-migrate-business-case-now-includes-defender-for-cloud) |
 |June 7 | [Express configuration for vulnerability assessments in Defender for SQL is now Generally Available](#express-configuration-for-vulnerability-assessments-in-defender-for-sql-is-now-generally-available) |
@@ -90,7 +111,7 @@ For more information on compliance controls, see [Tutorial: Regulatory complianc
 
 June 11, 2023
 
-Now you can discover potential cost savings in security by applying Defender for Cloud within the context of an [Azure Migrate business case](/azure/migrate/how-to-build-a-business-case).
+Now you can discover potential cost savings in security by applying Defender for Cloud within the context of an [Azure Migrate business case](/azure/migrate/concepts-business-case-calculation).
 
 ### Express configuration for vulnerability assessments in Defender for SQL is now Generally Available
 

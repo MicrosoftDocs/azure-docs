@@ -2,11 +2,10 @@
 title: Use Azure Container Storage Preview with Azure Elastic SAN Preview
 description: Configure Azure Container Storage Preview for use with Azure Elastic SAN Preview. Create a storage pool, select a storage class, create a persistent volume claim, and attach the persistent volume to a pod.
 author: khdownie
-ms.service: storage
+ms.service: azure-container-storage
 ms.topic: how-to
-ms.date: 06/29/2023
+ms.date: 07/03/2023
 ms.author: kendownie
-ms.subservice: container-storage
 ms.custom: references_regions
 ---
 
