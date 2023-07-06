@@ -72,8 +72,8 @@ In this quickstart you learned how to:
 > * Add a verified phone number
 
 > [!div class="nextstepaction"]
-> [Make your first outbound call](../call-automation/quickstart-make-an-outbound-call.md)
+> [Make your first outbound call with Call Automation](../call-automation/quickstart-make-an-outbound-call.md)
 
 > [!div class="nextstepaction"]
-> [Get started with calling in applications](../voice-video-calling/getting-started-with-calling.md)
+> [Add PSTN calling in your app](pstn-call.md)
 
