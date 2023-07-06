@@ -13,7 +13,7 @@ When using Azure Machine Learning __compute instance__ or __compute cluster__ (_
 
 # [IP Address routes](#tab/ipaddress)
 
-For the Azure Machine Learning service, you must add the IP address of both the __primary__ and __secondary__ regions. To find the secondary region, see the [Cross-region replication in Azure](../articles/availability-zones/cross-region-replication-azure.md). For example, if your Azure Machine Learning service is in East US 2, the secondary region is Central US. 
+For the Azure Machine Learning service, you must add the IP address of both the __primary__ and __secondary__ regions. To find the secondary region, see the [Cross-region replication in Azure](/azure/availability-zones/cross-region-replication-azure). For example, if your Azure Machine Learning service is in East US 2, the secondary region is Central US. 
 
 To get a list of IP addresses of the Azure Machine Learning service, download the [Azure IP Ranges and Service Tags](https://www.microsoft.com/download/details.aspx?id=56519) and search the file for `AzureMachineLearning.<region>`, where `<region>` is your Azure region.
 
@@ -36,4 +36,4 @@ az network route-table route create -g MyResourceGroup --route-table-name MyRout
 
 ---
 
-For information on configuring UDR, see [Route network traffic with a routing table](../articles/virtual-network/tutorial-create-route-table-portal.md).
+For information on configuring UDR, see [Route network traffic with a routing table](/azure/virtual-network/tutorial-create-route-table-portal).
