@@ -252,7 +252,7 @@ We send notification emails to impacted subscription admins biweekly to remind t
 
 **2. What will happen if I don't take any action?**
 
-Your AKS clusters with Azure Active Directory integration will keep working after 1 June 2023. We'll migrate your AKS clusters to AKS-managed Azure Active Directory automatically beginning 1st August 2023 and you may experience API server downtime during the migration. After the migration, the kubeconfig content changes. You need to run `az aks get-credentials --resource-group <AKS resource group name> --name <AKS cluster name>` to get the new content file.
+Your AKS clusters with Azure Active Directory integration will keep working after 1 June 2023. We'll migrate your AKS clusters to AKS-managed Azure Active Directory automatically beginning 1st August 2023 and you may experience API server downtime during the migration. After the migration, the kubeconfig content changes. You need to run `az aks get-credentials --resource-group <AKS resource group name> --name <AKS cluster name>` to merge the new credentials into the kubeconfig file. 
 We recommend updating your AKS cluster to [AKS-managed Azure Active Directory][managed-aad-migrate] manually before 1st August. This way you can manage the downtime during non-business hours when it's more convenient.
 
 **3. Why do I still receive the notification email after manual migration?**
