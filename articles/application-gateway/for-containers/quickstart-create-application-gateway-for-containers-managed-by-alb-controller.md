@@ -70,3 +70,12 @@ status:
     status: "True"
     type: Deployment
 ```
+
+## Next steps
+
+Congratulations, you have installed ALB Controller on your cluster and deployed the Application Gateway for Containers resources in Azure!
+
+Try out a few of the how-to guides to deploy a sample application, demonstrating some of Application Gateway for Container's load balancing concepts.
+- [Backend MTLS](how-to-backend-mtls.md)
+- [SSL/TLS Offloading](how-to-ssl-offloading.md)
+- [Traffic Splitting / Weighted Round Robin](how-to-traffic-splitting.md)
