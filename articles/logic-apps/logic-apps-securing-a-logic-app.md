@@ -5,7 +5,7 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, rarayudu, azla
 ms.topic: how-to
-ms.date: 06/22/2023
+ms.date: 07/06/2023
 ms.custom: ignite-fall-2021
 ---
 
@@ -725,6 +725,8 @@ In a Standard logic app workflow that starts with the Request trigger (but not a
 
   To enable Azure AD OAuth so that this option is the only way to call the request endpoint, use the following steps:
 
+  1. [Follow the steps to include 'Authorization' header in Request or HTTP webhook trigger outputs](#include-auth-header).
+
   1. In the [Azure portal](https://portal.azure.com), open your Consumption logic app workflow in the designer.
 
   1. On the trigger, in the upper right corner, select the ellipses (**...**) button, and then select **Settings**.
@@ -889,7 +891,7 @@ Here's the syntax to follow:
 
 <a name="include-auth-header"></a>
 
-#### Include 'Authorization' header in request trigger outputs
+#### Include 'Authorization' header in Request or HTTP webhook trigger outputs
 
 For logic apps that [enable Azure Active Directory Open Authentication (Azure AD OAuth)](#enable-oauth) for authorizing inbound calls to access request-based triggers, you can enable the Request trigger or HTTP Webhook trigger outputs to include the `Authorization` header from the OAuth access token. In the trigger's underlying JSON definition, add and set the `operationOptions` property to `IncludeAuthorizationHeadersInOutputs`. Here's an example for the Request trigger:
 
