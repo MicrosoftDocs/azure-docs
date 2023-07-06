@@ -1,6 +1,6 @@
 ---
 title: Sovereign Clouds - Speech service
-titleSuffix: Azure Cognitive Services
+titleSuffix: Azure AI services
 description: Learn how to use Sovereign Clouds
 services: cognitive-services
 author: alexeyo26

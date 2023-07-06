@@ -1,6 +1,6 @@
 ---
 title: Test accuracy of a Custom Speech model - Speech service
-titleSuffix: Azure Cognitive Services
+titleSuffix: Azure AI services
 description: In this article, you learn how to quantitatively measure and improve the quality of our speech to text model or your custom model.
 services: cognitive-services
 author: eric-urban

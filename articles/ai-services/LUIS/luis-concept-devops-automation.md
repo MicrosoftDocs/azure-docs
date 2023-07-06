@@ -88,7 +88,7 @@ This workflow should:
 
 The CD job in a CI/CD workflow runs conditionally on success of the build and automated unit tests. Its job is to automatically deploy the LUIS application to an environment where you can do more testing.
 
-There's no one recommended solution on how best to deploy your LUIS app, and you must implement the process that is appropriate for your project. The [LUIS DevOps template](https://github.com/Azure-Samples/LUIS-DevOps-Template) repo implements a simple solution for this which is to [publish the new LUIS app version](./luis-how-to-publish-app.md) to the *production* publishing slot. This is fine for a simple setup. However, if you need to support a number of different production environments at the same time, such as *development*, *staging* and *UAT*, then the limit of two named publishing slots per app will prove insufficient.
+There's no one recommended solution on how best to deploy your LUIS app, and you must implement the process that is appropriate for your project. The [LUIS DevOps template](https://github.com/Azure-Samples/LUIS-DevOps-Template) repo implements a simple solution for this which is to [publish the new LUIS app version](./how-to/publish.md) to the *production* publishing slot. This is fine for a simple setup. However, if you need to support a number of different production environments at the same time, such as *development*, *staging* and *UAT*, then the limit of two named publishing slots per app will prove insufficient.
 
 Other options for deploying an app version include:
 

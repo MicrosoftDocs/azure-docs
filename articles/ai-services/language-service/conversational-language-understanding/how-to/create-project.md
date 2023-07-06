@@ -1,6 +1,6 @@
 ---
 title: How to create projects in Conversational Language Understanding
-titleSuffix: Azure Cognitive Services
+titleSuffix: Azure AI services
 description: Use this article to learn how to create projects in Conversational Language Understanding.
 services: cognitive-services
 author: aahill
@@ -23,11 +23,11 @@ Use this article to learn how to set up these requirements and create a project.
 Before you start using CLU, you will need several things:
 
 * An Azure subscription - [Create one for free](https://azure.microsoft.com/free/cognitive-services).
-* An Azure Language resource 
+* An Azure AI Language resource 
 
 ### Create a Language resource 
 
-Before you start using CLU, you will need an Azure Language resource.
+Before you start using CLU, you will need an Azure AI Language resource.
 
 > [!NOTE]
 >  * You need to have an **owner** role assigned on the resource group to create a Language resource.

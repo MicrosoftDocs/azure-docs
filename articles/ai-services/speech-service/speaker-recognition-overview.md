@@ -1,6 +1,6 @@
 ---
 title: Speaker recognition overview - Speech service
-titleSuffix: Azure Cognitive Services
+titleSuffix: Azure AI services
 description: Speaker recognition provides algorithms that verify and identify speakers by their unique voice characteristics, by using voice biometry. Speaker recognition is used to answer the question “who is speaking?”. This article is an overview of the benefits and capabilities of the speaker recognition feature.
 services: cognitive-services
 author: eric-urban
@@ -21,7 +21,7 @@ Speaker recognition can help determine who is speaking in an audio clip. The ser
 You provide audio training data for a single speaker, which creates an enrollment profile based on the unique characteristics of the speaker's voice. You can then cross-check audio voice samples against this profile to verify that the speaker is the same person (speaker verification). You can also cross-check audio voice samples against a *group* of enrolled speaker profiles to see if it matches any profile in the group (speaker identification).
 
 > [!IMPORTANT]
-> Microsoft limits access to speaker recognition. You can apply for access through the [Azure Cognitive Services speaker recognition limited access review](https://aka.ms/azure-speaker-recognition). For more information, see [Limited access for speaker recognition](/legal/cognitive-services/speech-service/speaker-recognition/limited-access-speaker-recognition).
+> Microsoft limits access to speaker recognition. You can apply for access through the [Azure AI services speaker recognition limited access review](https://aka.ms/azure-speaker-recognition). For more information, see [Limited access for speaker recognition](/legal/cognitive-services/speech-service/speaker-recognition/limited-access-speaker-recognition).
 
 ## Speaker verification
 
@@ -58,7 +58,7 @@ Speaker enrollment data is stored in a secured system, including the speech audi
 
 You control how long data should be retained. You can create, update, and delete enrollment data for individual speakers through API calls. When the subscription is deleted, all the speaker enrollment data associated with the subscription will also be deleted. 
 
-As with all of the Cognitive Services resources, developers who use the speaker recognition feature must be aware of Microsoft policies on customer data. You should ensure that you have received the appropriate permissions from the users. You can find more details in [Data and privacy for speaker recognition](/legal/cognitive-services/speech-service/speaker-recognition/data-privacy-speaker-recognition). For more information, see the [Cognitive Services page](https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/) on the Microsoft Trust Center. 
+As with all of the Azure AI services resources, developers who use the speaker recognition feature must be aware of Microsoft policies on customer data. You should ensure that you have received the appropriate permissions from the users. You can find more details in [Data and privacy for speaker recognition](/legal/cognitive-services/speech-service/speaker-recognition/data-privacy-speaker-recognition). For more information, see the [Azure AI services page](https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/) on the Microsoft Trust Center. 
 
 ## Common questions and solutions
 

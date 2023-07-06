@@ -1,6 +1,6 @@
 ---
 title: View custom model details and test translation
-titleSuffix: Azure Cognitive Services
+titleSuffix: Azure AI services
 description: How to test your custom model BLEU score and evaluate translations
 author: laujan
 manager: nitinme

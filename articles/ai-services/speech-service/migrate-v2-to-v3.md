@@ -1,6 +1,6 @@
 ---
 title: Migrate from v2 to v3 REST API - Speech service
-titleSuffix: Azure Cognitive Services
+titleSuffix: Azure AI services
 description: This document helps developers migrate code from v2 to v3 of the Speech to text REST API.speech-to-text REST API.
 services: cognitive-services
 author: bexxx

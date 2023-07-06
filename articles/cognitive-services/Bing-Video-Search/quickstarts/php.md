@@ -16,7 +16,7 @@ ms.custom: mode-api
 
 # Quickstart: Search for videos using the Bing Video Search REST API and PHP
 
-[!INCLUDE [Bing move notice](../../Bing-Web-Search/includes/bing-move-notice.md)]
+[!INCLUDE [Bing move notice](../../bing-web-search/includes/bing-move-notice.md)]
 
 Use this quickstart to make your first call to the Bing Video Search API. This simple PHP application sends an HTTP video search query to the API, and displays the JSON response. The example code is written to work under PHP 5.6.
 

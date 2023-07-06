@@ -16,7 +16,7 @@ ms.custom: mode-api
 
 # Quickstart: Suggest search queries with the Bing Autosuggest REST API and PHP
 
-[!INCLUDE [Bing move notice](../../Bing-Web-Search/includes/bing-move-notice.md)]
+[!INCLUDE [Bing move notice](../../bing-web-search/includes/bing-move-notice.md)]
 
 Follow this quickstart to learn how to make calls to the Bing Autosuggest API and read the JSON response. This simple PHP application sends a partial search query to the API, and returns suggestions for searches. While this application is written in PHP, the API is a RESTful Web service compatible with most programming languages.
 

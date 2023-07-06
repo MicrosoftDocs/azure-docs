@@ -1,7 +1,7 @@
 ---
 title: Language support - Translator
-titleSuffix: Azure Cognitive Services
-description: Cognitive Services Translator supports the following languages for text to text translation using Neural Machine Translation (NMT).
+titleSuffix: Azure AI services
+description: Azure AI Translator supports the following languages for text to text translation using Neural Machine Translation (NMT).
 services: cognitive-services
 author: laujan
 manager: nitinme
@@ -356,17 +356,16 @@ The [Transliterate operation](reference/v3-0-transliterate.md) in the Text Trans
 | Turkish (tr-tr)     | English (en-us) |
 | Vietnamese (vi-vn)     | English (en-us) |
 | Chinese Simplified (zh-cn)     | English (en-us) |
-||
 
-## Other Cognitive Services
+## Other Azure AI services
 
-Add more capabilities to your apps and workflows by utilizing other Cognitive Services with Translator. Language support for other services:
+Add more capabilities to your apps and workflows by utilizing other Azure AI services with Translator. Language support for other services:
 
-* [Computer Vision](../computer-vision/language-support.md)
+* [Azure AI Vision](../computer-vision/language-support.md)
 * [Speech](../speech-service/language-support.md)
 * [Language service](../language-service/concepts/language-support.md)
 
-View all [Cognitive Services](../index.yml).
+View all [Azure AI services](../index.yml).
 
 ## Next steps
 

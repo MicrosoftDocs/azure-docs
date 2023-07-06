@@ -1,6 +1,6 @@
 ---
 title: "Configure the Speech CLI datastore - Speech service"
-titleSuffix: Azure Cognitive Services
+titleSuffix: Azure AI services
 description: Learn how to configure the Speech CLI datastore.
 author: eric-urban
 manager: nitinme

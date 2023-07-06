@@ -16,7 +16,7 @@ ms.custom: mode-api
 
 # Quickstart: Get news results using the Bing News Search REST API and Go
 
-[!INCLUDE [Bing move notice](../Bing-Web-Search/includes/bing-move-notice.md)]
+[!INCLUDE [Bing move notice](../bing-web-search/includes/bing-move-notice.md)]
 
 This quickstart uses the Go language to call the Bing News Search API. The results include names and URLs of news sources identified by the query string.
 

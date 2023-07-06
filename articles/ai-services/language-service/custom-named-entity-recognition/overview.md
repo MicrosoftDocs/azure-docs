@@ -1,7 +1,7 @@
 ---
-title: Custom named entity recognition - Azure Cognitive Services
-titleSuffix: Azure Cognitive Services
-description: Customize an AI model to label and extract information from documents using Azure Cognitive Services.
+title: Custom named entity recognition - Azure AI services
+titleSuffix: Azure AI services
+description: Customize an AI model to label and extract information from documents using Azure AI services.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -15,7 +15,7 @@ ms.custom: language-service-custom-ner, ignite-fall-2021, event-tier1-build-2022
 
 # What is custom named entity recognition?
 
-Custom NER is one of the custom features offered by [Azure Cognitive Service for Language](../overview.md). It is a cloud-based API service that applies machine-learning intelligence to enable you to build custom models for custom named entity recognition tasks.
+Custom NER is one of the custom features offered by [Azure AI Language](../overview.md). It is a cloud-based API service that applies machine-learning intelligence to enable you to build custom models for custom named entity recognition tasks.
 
 Custom NER enables users to build custom AI models to extract domain-specific entities from unstructured text, such as contracts or financial documents. By creating a Custom NER project, developers can iteratively label data, train, evaluate, and improve model performance before making it available for consumption. The quality of the labeled data greatly impacts model performance. To simplify building and customizing your model, the service offers a custom web portal that can be accessed through the [Language studio](https://aka.ms/languageStudio). You can easily get started with the service by following the steps in this [quickstart](quickstart.md). 
  
@@ -64,7 +64,7 @@ Using custom NER typically involves several different steps.
 
 ## Reference documentation and code samples
 
-As you use custom NER, see the following reference documentation and samples for Azure Cognitive Services for Language:
+As you use custom NER, see the following reference documentation and samples for Azure AI Language:
 
 |Development option / language  |Reference documentation |Samples  |
 |---------|---------|---------|
@@ -77,7 +77,7 @@ As you use custom NER, see the following reference documentation and samples for
 
 ## Responsible AI 
 
-An AI system includes not only the technology, but also the people who will use it, the people who will be affected by it, and the environment in which it is deployed. Read the [transparency note for custom NER](/legal/cognitive-services/language-service/cner-transparency-note?context=/azure/cognitive-services/language-service/context/context) to learn about responsible AI use and deployment in your systems. You can also see the following articles for more information:
+An AI system includes not only the technology, but also the people who will use it, the people who will be affected by it, and the environment in which it is deployed. Read the [transparency note for custom NER](/legal/cognitive-services/language-service/cner-transparency-note?context=/azure/ai-services/language-service/context/context) to learn about responsible AI use and deployment in your systems. You can also see the following articles for more information:
 
 [!INCLUDE [Responsible AI links](../includes/overview-responsible-ai-links.md)]
 

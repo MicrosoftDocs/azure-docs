@@ -15,7 +15,7 @@ ms.date: 05/23/2022
 [!INCLUDE [deprecation notice](../includes/deprecation-notice.md)]
 
 
-Cognitive Services provides two natural language processing services, [Language Understanding](../what-is-luis.md) (LUIS) and question answering, each with a different purpose. Understand when to use each service and how they complement each other.
+Azure AI services provides two natural language processing services, [Language Understanding](../what-is-luis.md) (LUIS) and question answering, each with a different purpose. Understand when to use each service and how they complement each other.
 
 Natural language processing (NLP) allows your client application, such as a chat bot, to work with your users' natural language.
 
@@ -38,7 +38,7 @@ As an example, if your chat bot receives the text "How do I get to the Human Res
 Orchestration helps you connect more than one project and service together. Each connection in the orchestration is represented by a type and relevant data. The intent needs to have a name, a project type (LUIS, question answering, or conversational language understanding, and a project you want to connect to by name.
 
 You can use orchestration workflow to create new orchestration projects. See [orchestration workflow](../../language-service/orchestration-workflow/how-to/create-project.md) for more information.
-## Set up orchestration between Cognitive Services features
+## Set up orchestration between Azure AI services features
 
 To use an orchestration project to connect LUIS, question answering, and conversational language understanding, you need:
 

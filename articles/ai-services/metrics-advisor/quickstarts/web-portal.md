@@ -1,6 +1,6 @@
 ---
 title: 'Quickstart: Metrics Advisor web portal'
-titleSuffix: Azure Applied AI Services
+titleSuffix: Azure AI services
 description: Learn how to start using the Metrics Advisor web portal.
 author: mrbullwinkle
 ms.author: mbullwin
@@ -14,7 +14,7 @@ ms.custom: mode-ui
 
 # Quickstart: Monitor your first metric by using the web portal
 
-When you provision an instance of Azure Metrics Advisor, you can use the APIs and web-based workspace to interact with the service. The web-based workspace can be used as a straightforward way to quickly get started with the service. It also provides a visual way to configure settings, customize your model, and perform root cause analysis. 
+When you provision an instance of Azure AI Metrics Advisor, you can use the APIs and web-based workspace to interact with the service. The web-based workspace can be used as a straightforward way to quickly get started with the service. It also provides a visual way to configure settings, customize your model, and perform root cause analysis. 
 
 ## Prerequisites
 

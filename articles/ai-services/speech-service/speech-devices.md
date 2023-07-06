@@ -1,6 +1,6 @@
 ---
 title: Speech devices overview - Speech service
-titleSuffix: Azure Cognitive Services
+titleSuffix: Azure AI services
 description: Get started with the Speech devices. The Speech service works with a wide variety of devices and audio sources. 
 services: cognitive-services
 author: eric-urban
@@ -25,8 +25,8 @@ The Speech SDK works best with a microphone array that has been designed accordi
 ## Device development kits
 The Speech SDK is designed to work with purpose-built development kits, and varying microphone array configurations. For example, you can use one of these Azure development kits. 
 
-- [Azure Percept DK](../../azure-percept/overview-azure-percept-dk.md) contains a preconfigured audio processor and a four-microphone linear array. You can use voice commands, keyword spotting, and far field speech with the help of Azure Cognitive Services. 
-- [Azure Kinect DK](../../kinect-dk/about-azure-kinect-dk.md) is a spatial computing developer kit with advanced AI sensors that provide sophisticated computer vision and speech models. As an all-in-one small device with multiple modes, it contains a depth sensor, spatial microphone array with a video camera, and orientation sensor. 
+- [Azure Percept DK](../../azure-percept/overview-azure-percept-dk.md) contains a preconfigured audio processor and a four-microphone linear array. You can use voice commands, keyword spotting, and far field speech with the help of Azure AI services. 
+- [Azure Kinect DK](../../kinect-dk/about-azure-kinect-dk.md) is a spatial computing developer kit with advanced AI sensors that provide sophisticated Azure AI Vision and speech models. As an all-in-one small device with multiple modes, it contains a depth sensor, spatial microphone array with a video camera, and orientation sensor. 
 
 ## Next steps
 

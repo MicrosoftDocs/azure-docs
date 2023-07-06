@@ -16,7 +16,7 @@ ms.custom: seodec2018, mode-api
 
 # Quickstart: Use PHP to call the Bing Web Search API  
 
-[!INCLUDE [Bing move notice](../../Bing-Web-Search/includes/bing-move-notice.md)]
+[!INCLUDE [Bing move notice](../../bing-web-search/includes/bing-move-notice.md)]
 
 Use this quickstart to make your first call to the Bing Web Search API. This Node.js application sends a search request to the API, and shows the JSON response. Although this application is written in JavaScript, the API is a RESTful Web service compatible with most programming languages.
 

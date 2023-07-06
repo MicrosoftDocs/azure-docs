@@ -1,6 +1,6 @@
 ---
 title: How to label your data for custom Text Analytics for health
-titleSuffix: Azure Cognitive Services
+titleSuffix: Azure AI services
 description: Learn how to label your data for use with custom Text Analytics for health.
 services: cognitive-services
 author: aahill
@@ -92,7 +92,7 @@ Use the following steps to label your data:
    * *Total instances* where you can view count of all labeled instances of a specific entity type.
    * *Documents with at least one label* where each document is counted if it contains at least one labeled instance of this entity.
   
-7. When you're labeling, your changes are synced periodically, if they have not been saved yet you will find a warning at the top of your page. If you want to save manually, click on **Save labels** button at the bottom of the page.
+7. When you're labeling, your changes are synced periodically, if they have not been saved yet you will find a warning at the top of your page. If you want to save manually, select **Save labels** button at the bottom of the page.
 
 ## Remove labels
 

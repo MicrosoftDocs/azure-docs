@@ -206,7 +206,7 @@ Call [examples.add](/javascript/api/@azure/cognitiveservices-luis-authoring/exam
 
 ## Train the app
 
-Once the model is created, the LUIS app needs to be trained for this version of the model. A trained model can be used in a [container](../luis-container-howto.md), or [published](../luis-how-to-publish-app.md) to the staging or product slots.
+Once the model is created, the LUIS app needs to be trained for this version of the model. A trained model can be used in a [container](../luis-container-howto.md), or [published](../how-to/publish.md) to the staging or product slots.
 
 The [train.trainVersion](/javascript/api/@azure/cognitiveservices-luis-authoring/train#trainversion-string--string--msrest-requestoptionsbase-) method needs the app ID and the version ID.
 

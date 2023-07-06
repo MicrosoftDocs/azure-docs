@@ -1,6 +1,6 @@
 ---
 title: Prebuilt models - LUIS
-titleSuffix: Azure Cognitive Services
+titleSuffix: Azure AI services
 description: Prebuilt models provide domains, intents, utterances, and entities. You can start your app with a prebuilt domain or add a relevant domain to your app later. 
 services: cognitive-services
 ms.author: aahi
@@ -33,7 +33,7 @@ LUIS provides three types of prebuilt models. Each model can be added to your ap
 
 ## Prebuilt domains
 
-Language Understanding (LUIS) provides *prebuilt domains*, which are pre-trained models of [intents](luis-how-to-add-intents.md) and [entities](concepts/entities.md) that work together for domains or common categories of client applications. 
+Language Understanding (LUIS) provides *prebuilt domains*, which are pre-trained models of [intents](how-to/intents.md) and [entities](concepts/entities.md) that work together for domains or common categories of client applications. 
 
 The prebuilt domains are trained and ready to add to your LUIS app. The intents and entities of a prebuilt domain are fully customizable once you've added them to your app. 
 

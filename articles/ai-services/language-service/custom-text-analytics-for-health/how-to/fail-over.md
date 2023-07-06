@@ -1,6 +1,6 @@
 ---
 title: Back up and recover your custom Text Analytics for health models
-titleSuffix: Azure Cognitive Services
+titleSuffix: Azure AI services
 description: Learn how to save and recover your custom Text Analytics for health models.
 services: cognitive-services
 author: aahill
@@ -15,7 +15,7 @@ ms.custom: language-service-custom-ta4h
 
 # Back up and recover your custom Text Analytics for health models
 
-When you create a Language resource, you specify a region for it to be created in. From then on, your resource and all of the operations related to it take place in the specified Azure server region. It's rare, but not impossible, to encounter a network issue that affects an entire region. If your solution needs to always be available, then you should design it to fail over into another region. This requires two Azure Language resources in different regions and synchronizing custom models across them. 
+When you create a Language resource, you specify a region for it to be created in. From then on, your resource and all of the operations related to it take place in the specified Azure server region. It's rare, but not impossible, to encounter a network issue that affects an entire region. If your solution needs to always be available, then you should design it to fail over into another region. This requires two Azure AI Language resources in different regions and synchronizing custom models across them. 
 
 If your app or business depends on the use of a custom Text Analytics for health model, we recommend that you create a replica of your project in an additional supported region. If a regional outage occurs, you can then access your model in the other fail-over region where you replicated your project.
 
@@ -25,7 +25,7 @@ In this article, you will learn to how to use the export and import APIs to repl
 
 ##  Prerequisites
 
-* Two Azure Language resources in different Azure regions. [Create your resources](./create-project.md#create-a-language-resource) and connect them to an Azure storage account. It's recommended that you connect each of your Language resources to different storage accounts. Each storage account should be located in the same respective regions that your separate Language resources are in. You can follow the [quickstart](../quickstart.md?pivots=rest-api#create-a-new-azure-language-resource-and-azure-storage-account) to create an additional Language resource and storage account.
+* Two Azure AI Language resources in different Azure regions. [Create your resources](./create-project.md#create-a-language-resource) and connect them to an Azure storage account. It's recommended that you connect each of your Language resources to different storage accounts. Each storage account should be located in the same respective regions that your separate Language resources are in. You can follow the [quickstart](../quickstart.md?pivots=rest-api#create-a-new-azure-ai-language-resource-and-azure-storage-account) to create an additional Language resource and storage account.
 
 
 ## Get your resource keys endpoint

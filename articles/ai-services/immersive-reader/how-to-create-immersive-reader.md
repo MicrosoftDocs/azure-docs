@@ -1,6 +1,6 @@
 ---
 title: "Create an Immersive Reader Resource"
-titleSuffix: Azure Applied AI Services
+titleSuffix: Azure AI services
 description: This article shows you how to create a new Immersive Reader resource with a custom subdomain and then configure Azure AD in your Azure tenant.
 services: cognitive-services
 author: rwallerms
@@ -198,7 +198,7 @@ For more information, _see_ [Azure AD built-in roles](../../active-directory/rol
     | SubscriptionName |Name of the Azure subscription to use for your Immersive Reader resource. You must have a subscription in order to create a resource. |
     | ResourceName |  Must be alphanumeric, and may contain '-', as long as the '-' isn't the first or last character. Length may not exceed 63 characters.|
     | ResourceSubdomain |A custom subdomain is needed for your Immersive Reader resource. The subdomain is used by the SDK when calling the Immersive Reader service to launch the Reader. The subdomain must be globally unique. The subdomain must be alphanumeric, and may contain '-', as long as the '-' isn't the first or last character. Length may not exceed 63 characters. This parameter is optional if the resource already exists. |
-    | ResourceSKU |Options: `S0` (Standard tier) or `S1` (Education/Nonprofit organizations). Visit our [Cognitive Services pricing page](https://azure.microsoft.com/pricing/details/cognitive-services/immersive-reader/) to learn more about each available SKU. This parameter is optional if the resource already exists. |
+    | ResourceSKU |Options: `S0` (Standard tier) or `S1` (Education/Nonprofit organizations). Visit our [Azure AI services pricing page](https://azure.microsoft.com/pricing/details/cognitive-services/immersive-reader/) to learn more about each available SKU. This parameter is optional if the resource already exists. |
     | ResourceLocation |Options: `australiaeast`, `brazilsouth`, `canadacentral`, `centralindia`, `centralus`, `eastasia`, `eastus`, `eastus2`, `francecentral`, `germanywestcentral`, `japaneast`, `japanwest`, `jioindiawest`, `koreacentral`, `northcentralus`, `northeurope`, `norwayeast`, `southafricanorth`, `southcentralus`, `southeastasia`, `swedencentral`, `switzerlandnorth`, `switzerlandwest`, `uaenorth`, `uksouth`, `westcentralus`, `westeurope`, `westus`, `westus2`, `westus3`. This parameter is optional if the resource already exists. |
     | ResourceGroupName |Resources are created in resource groups within subscriptions. Supply the name of an existing resource group. If the resource group doesn't already exist, a new one with this name is created. |
     | ResourceGroupLocation |If your resource group doesn't exist, you need to supply a location in which to create the group. To find a list of locations, run `az account list-locations`. Use the *name* property (without spaces) of the returned result. This parameter is optional if your resource group already exists. |

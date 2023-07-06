@@ -1,12 +1,12 @@
 ### YamlMime:Hub
 
-title: Azure Cognitive Service for Language documentation
+title: Azure AI Language documentation
 summary: Learn how to integrate AI into your applications that can extract information, classify text, understand conversational language, answer questions and more.
 brand: azure
 
 metadata:
-  title: Azure Cognitive Service for language documentation - Tutorials, API Reference | Microsoft Docs
-  titleSuffix: Azure Cognitive Services
+  title: Azure AI Language documentation - Tutorials, API Reference | Microsoft Docs
+  titleSuffix: Azure AI services
   services: cognitive-services
   description: Learn how to integrate AI that works on written text into your applications.
   author: aahill
@@ -19,7 +19,7 @@ metadata:
 highlightedContent:
 # itemType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new
   items:
-    - title: What is Azure Cognitive Service for Language?
+    - title: What is Azure AI Language?
       itemType: overview
       url: overview.md
     - title: What's new?
@@ -30,7 +30,7 @@ highlightedContent:
       url: language-studio.md
     - title: Responsible use of AI
       itemType: concept
-      url: /legal/cognitive-services/language-service/transparency-note?context=/azure/cognitive-services/language-service/context/context
+      url: /legal/cognitive-services/language-service/transparency-note?context=/azure/ai-services/language-service/context/context
 
 conceptualContent:
   items:
@@ -78,7 +78,7 @@ conceptualContent:
           url: language-detection/overview.md       
         - itemType: overview
           text: Custom text classification
-          url: custom-classification/overview.md    
+          url: custom-text-classification/overview.md  
 
     - title: Answer questions
       summary: Provide answers to questions being asked in unstructured texts using our prebuilt capabilities, or customize your domain specific question-and-answer pairs over data you provide.
@@ -113,4 +113,4 @@ additionalContent:
       - title: Support
         links:
         - text: Support and help
-          url: ../cognitive-services-support-options.md?context=/azure/cognitive-services/speech-service/context/context
+          url: ../cognitive-services-support-options.md?context=/azure/ai-services/speech-service/context/context

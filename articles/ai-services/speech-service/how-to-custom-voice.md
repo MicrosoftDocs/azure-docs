@@ -1,6 +1,6 @@
 ---
 title: Create a project for Custom Neural Voice - Speech service
-titleSuffix: Azure Cognitive Services
+titleSuffix: Azure AI services
 description: Learn how to create a Custom Neural Voice project that contains data, models, tests, and endpoints in Speech Studio.
 services: cognitive-services
 author: eric-urban

@@ -1,6 +1,6 @@
 ---
 title: Container support
-titleSuffix: Azure Cognitive Services
+titleSuffix: Azure AI services
 description: Learn how to create an Azure container instance resource from the Azure CLI.
 services: cognitive-services
 author: aahill
@@ -77,6 +77,6 @@ The output of the command is `Running...` if valid, after sometime the output ch
 [azure-container-create]: /cli/azure/container#az_container_create
 [template-format]: /azure/templates/Microsoft.ContainerInstance/2018-10-01/containerGroups#template-format
 [aci-yaml-ref]: ../../../container-instances/container-instances-reference-yaml.md
-[repositories-and-images]: ../container-image-tags.md
+[repositories-and-images]: ../../cognitive-services-container-support.md
 [location-to-resource]: ../../../container-instances/container-instances-region-availability.md
 [secure-values]: ../../../container-instances/container-instances-environment-variables.md#secure-values

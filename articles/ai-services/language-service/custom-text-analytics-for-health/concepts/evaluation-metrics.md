@@ -1,6 +1,6 @@
 ---
 title: Custom text analytics for health evaluation metrics
-titleSuffix: Azure Cognitive Services
+titleSuffix: Azure AI services
 description: Learn about evaluation metrics in custom Text Analytics for health
 services: cognitive-services
 author: aahill

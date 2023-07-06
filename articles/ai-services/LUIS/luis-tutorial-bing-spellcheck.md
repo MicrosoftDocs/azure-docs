@@ -1,6 +1,6 @@
 ---
 title: Correct misspelled words - LUIS
-titleSuffix: Azure Cognitive Services
+titleSuffix: Azure AI services
 description: Correct misspelled words in utterances by adding Bing Spell Check API V7 to LUIS endpoint queries.
 services: cognitive-services
 ms.author: aahi
@@ -66,7 +66,7 @@ To create a Bing Search resource in the Azure portal, follow these instructions:
 
 <!--
 ## Using the key in LUIS test panel
-There are two places in LUIS to use the key. The first is in the [test panel](luis-interactive-test.md#view-bing-spell-check-corrections-in-test-panel). The key isn't saved into LUIS but instead is a session variable. You need to set the key every time you want the test panel to apply the Bing Spell Check API v7 service to the utterance. See [instructions](luis-interactive-test.md#view-bing-spell-check-corrections-in-test-panel) in the test panel for setting the key.
+There are two places in LUIS to use the key. The first is in the [test panel](how-to/train-test.md#view-bing-spell-check-corrections-in-test-panel). The key isn't saved into LUIS but instead is a session variable. You need to set the key every time you want the test panel to apply the Bing Spell Check API v7 service to the utterance. See [instructions](how-to/train-test.md#view-bing-spell-check-corrections-in-test-panel) in the test panel for setting the key.
 -->
 
 

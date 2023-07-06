@@ -1,6 +1,6 @@
 ---
 title: Extract information in Excel using Power Automate
-titleSuffix: Azure Cognitive Services
+titleSuffix: Azure AI services
 description: Learn how to Extract Excel text without having to write code, using Named Entity Recognition and Power Automate.
 services: cognitive-services
 author: jboback
@@ -45,7 +45,7 @@ The issues are reported in raw text. We will use the NER feature to extract the 
 
 ## Create a new Power Automate workflow
 
-Go to the [Power Automate site](https://make.powerautomate.com/), and log in. Then click **Create** and **Scheduled flow**.
+Go to the [Power Automate site](https://make.powerautomate.com/), and log in. Then select **Create** and **Scheduled flow**.
 
 :::image type="content" source="../media/tutorials/excel/flow-creation.png" alt-text="The workflow creation screen" lightbox="../media/tutorials/excel/flow-creation.png":::
 
@@ -59,7 +59,7 @@ On the **Build a scheduled cloud flow** page, initialize your flow with the foll
 
 ## Add variables to the flow
 
-Create variables representing the information that will be added to the Excel file. Click **New Step** and search for **Initialize variable**. Do this four times, to create four variables.
+Create variables representing the information that will be added to the Excel file. Select **New Step** and search for **Initialize variable**. Do this four times, to create four variables.
 
 :::image type="content" source="../media/tutorials/excel/initialize-variables.png" alt-text="The step for initializing variables" lightbox="../media/tutorials/excel/initialize-variables.png":::
 
@@ -77,7 +77,7 @@ Add the following information to the variables you created. They represent the c
 
 ## Read the excel file
 
-Click **New Step** and type **Excel**, then select **List rows present in a table** from the list of actions.
+Select **New Step** and type **Excel**, then select **List rows present in a table** from the list of actions.
 
 :::image type="content" source="../media/tutorials/excel/list-excel-rows.png" alt-text="Add excel rows into the flow" lightbox="../media/tutorials/excel/list-excel-rows.png":::
 
@@ -85,11 +85,11 @@ Add the Excel file to the flow by filling in the fields in this action. This tut
 
 :::image type="content" source="../media/tutorials/excel/list-excel-rows-options.png" alt-text="Fill the excel rows in the flow" lightbox="../media/tutorials/excel/list-excel-rows-options.png":::
 
-Click **New Step** and add an **Apply to each** action.
+Select **New Step** and add an **Apply to each** action.
 
 :::image type="content" source="../media/tutorials/excel/add-apply-action.png" alt-text="Add an apply to each action" lightbox="../media/tutorials/excel/add-apply-action.png":::
 
-Click on **Select an output from previous step**. In the Dynamic content box that appears, select **value**.
+Select **Select an output from previous step**. In the Dynamic content box that appears, select **value**.
 
 :::image type="content" source="../media/tutorials/excel/select-output.png" alt-text="select output from the excel file" lightbox="../media/tutorials/excel/select-output.png":::
 
@@ -99,12 +99,12 @@ If you haven't already, you need to create a [Language resource](https://portal.
 
 ### Create a Language service connection
 
-In the **Apply to each**, click **Add an action**. Go to your Language resource's **key and endpoint** page in the Azure portal, and get the key and endpoint for your Language resource.
+In the **Apply to each**, select **Add an action**. Go to your Language resource's **key and endpoint** page in the Azure portal, and get the key and endpoint for your Language resource.
 
 In your flow, enter the following information to create a new Language connection.
 
 > [!NOTE]
-> If you already have created a Language connection and want to change your connection details, Click on the ellipsis on the top right corner, and click **+ Add new connection**.
+> If you already have created a Language connection and want to change your connection details, Click on the ellipsis on the top right corner, and select **+ Add new connection**.
 
 | Field           | Value                                                                                                             |
 |-----------------|-------------------------------------------------------------------------------------------------------------------|
@@ -121,24 +121,24 @@ After the connection is created, search for **Text Analytics** and select **Name
 
 :::image type="content" source="../media/tutorials/excel/extract-info.png" alt-text="Extract the entities from the Excel sheet" lightbox="../media/tutorials/excel/extract-info.png":::
 
-Click in the **Text** field and select **Description** from the Dynamic content windows that appears. Enter `en` for Language, and a unique name as  the document ID (you might need to click **Show advanced options**).
+Click in the **Text** field and select **Description** from the Dynamic content windows that appears. Enter `en` for Language, and a unique name as  the document ID (you might need to select **Show advanced options**).
 
 :::image type="content" source="../media/tutorials/excel/description-from-dynamic-content.png" alt-text="Get the description column text from the Excel sheet" lightbox="../media/tutorials/excel/description-from-dynamic-content.png":::
 
 
-Within the **Apply to each**, click **Add an action** and create another **Apply to each** action. Click inside the text box and select **documents** in the Dynamic Content window that appears.
+Within the **Apply to each**, select **Add an action** and create another **Apply to each** action. Click inside the text box and select **documents** in the Dynamic Content window that appears.
 
 :::image type="content" source="../media/tutorials/excel/apply-to-each-documents.png" alt-text="Create another apply to each action." lightbox="../media/tutorials/excel/apply-to-each-documents.png":::
 
 
 ## Extract the person name
 
-Next, we will find the person entity type in the NER output. Within the **Apply to each 2**, click **Add an action**, and create another **Apply to each** action. Click inside the text box and select **Entities** in the Dynamic Content window that appears.
+Next, we will find the person entity type in the NER output. Within the **Apply to each 2**, select **Add an action**, and create another **Apply to each** action. Click inside the text box and select **Entities** in the Dynamic Content window that appears.
 
 :::image type="content" source="../media/tutorials/excel/add-apply-action-2.png" alt-text="Find the person entity in the NER output" lightbox="../media/tutorials/excel/add-apply-action-2.png":::
 
 
-Within the newly created **Apply to each 3** action, click **Add an action**, and add a **Condition** control.
+Within the newly created **Apply to each 3** action, select **Add an action**, and add a **Condition** control.
 
 :::image type="content" source="../media/tutorials/excel/create-condition.png" alt-text="Add a condition control to the Apply to each 3 action" lightbox="../media/tutorials/excel/create-condition.png":::
 
@@ -187,15 +187,15 @@ Inside the **Apply to each 4** action, add a **Condition** Control. It will be n
 
 :::image type="content" source="../media/tutorials/excel/condition-3-options.png" alt-text="Create a new condition control" lightbox="../media/tutorials/excel/condition-3-options.png":::
 
-In the **If yes** condition, click **Add an action**, and select **Update a row**. Then enter the information like before. In the IssueType column, select `var_plumbing`. This will apply a "plumbing" label to the row.
+In the **If yes** condition, select **Add an action**, and select **Update a row**. Then enter the information like before. In the IssueType column, select `var_plumbing`. This will apply a "plumbing" label to the row.
 
-In the **If no** condition, click **Add an action**, and select **Update a row**. Then enter the information like before. In the IssueType column, select `var_other`. This will apply an "other" label to the row.
+In the **If no** condition, select **Add an action**, and select **Update a row**. Then enter the information like before. In the IssueType column, select `var_other`. This will apply an "other" label to the row.
 
 :::image type="content" source="../media/tutorials/excel/plumbing-issue-condition.png" alt-text="Add information to both conditions" lightbox="../media/tutorials/excel/plumbing-issue-condition.png":::
 
 ## Test the workflow
 
-In the top-right corner of the screen, click **Save**, then **Test**. Under **Test Flow**, select **manually**. Then click **Test**, and **Run flow**.
+In the top-right corner of the screen, select **Save**, then **Test**. Under **Test Flow**, select **manually**. Then select **Test**, and **Run flow**.
 
 The Excel file will get updated in your OneDrive account. It will look like the below.
 

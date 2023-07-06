@@ -1,6 +1,6 @@
 ---
 title: Configure containers - Translator
-titleSuffix: Azure Cognitive Services
+titleSuffix: Azure AI services
 description: The Translator container runtime environment is configured using the `docker run` command arguments. There are both required and optional settings.
 services: cognitive-services
 author: laujan
@@ -15,7 +15,7 @@ recommendations: false
 
 # Configure Translator Docker containers
 
-Cognitive Services provides each container with a common configuration framework.  You can easily configure your Translator containers to build Translator application architecture optimized for robust cloud capabilities and edge locality.
+Azure AI services provides each container with a common configuration framework.  You can easily configure your Translator containers to build Translator application architecture optimized for robust cloud capabilities and edge locality.
 
 The **Translator** container runtime environment is configured using the `docker run` command arguments. This container has both required and optional settings. The required container-specific settings are the billing settings.
 
@@ -59,7 +59,7 @@ This setting can be found in the following place:
 
 | Required | Name | Data type | Description |
 | -------- | ---- | --------- | ----------- |
-| Yes | `Billing` | String | Billing endpoint URI. For more information on obtaining the billing URI, see [gathering required parameters](translator-how-to-install-container.md#required-elements). For more information and a complete list of regional endpoints, see [Custom subdomain names for Cognitive Services](../../cognitive-services-custom-subdomains.md). |
+| Yes | `Billing` | String | Billing endpoint URI. For more information on obtaining the billing URI, see [gathering required parameters](translator-how-to-install-container.md#required-elements). For more information and a complete list of regional endpoints, see [Custom subdomain names for Azure AI services](../../cognitive-services-custom-subdomains.md). |
 
 ## EULA setting
 
@@ -84,4 +84,4 @@ Use bind mounts to read and write data to and from the container. You can specif
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Learn more about Cognitive Services Containers](../../cognitive-services-container-support.md)
+> [Learn more about Azure AI containers](../../cognitive-services-container-support.md)

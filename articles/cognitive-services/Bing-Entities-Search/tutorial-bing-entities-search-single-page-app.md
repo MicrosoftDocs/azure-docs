@@ -13,7 +13,7 @@ ms.custom:
 ---
 # Tutorial: Single-page web app
 
-[!INCLUDE [Bing move notice](../Bing-Web-Search/includes/bing-move-notice.md)]
+[!INCLUDE [Bing move notice](../bing-web-search/includes/bing-move-notice.md)]
 
 The Bing Entity Search API lets you search the Web for information about *entities* and *places.* You may request either kind of result, or both, in a given query. The definitions of places and entities are provided below.
 
@@ -50,7 +50,7 @@ The tutorial page is entirely self-contained; it does not use any external frame
 In this tutorial, we discuss only selected portions of the source code. The full source code is available [on a separate page](). Copy and paste this code into a text editor and save it as `bing.html`.
 
 > [!NOTE]
-> This tutorial is substantially similar to the [single-page Bing Web Search app tutorial](../Bing-Web-Search/tutorial-bing-web-search-single-page-app.md), but deals only with entity search results.
+> This tutorial is substantially similar to the [single-page Bing Web Search app tutorial](../bing-web-search/tutorial-bing-web-search-single-page-app.md), but deals only with entity search results.
 
 ## Prerequisites
 

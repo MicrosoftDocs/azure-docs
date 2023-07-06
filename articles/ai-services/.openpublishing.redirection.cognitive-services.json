@@ -1807,22 +1807,22 @@
         },
         {
             "source_path_from_root": "/articles/cognitive-services/Emotion/emotion-api-how-to-topics/HowtoAnalyzeVideo_Emotion.md",
-            "redirect_url": "/azure/ai-services/face/overview",
+            "redirect_url": "/azure/ai-services/computer-vision/overview-identity",
             "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/cognitive-services/Emotion/emotion-api-how-to-topics/HowtoCallEmotionForVideo.md",
-            "redirect_url": "/azure/ai-services/face/overview",
+            "redirect_url": "/azure/ai-services/computer-vision/overview-identity",
             "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/cognitive-services/Emotion/FAQ.md",
-            "redirect_url": "/azure/ai-services/face/overview",
+            "redirect_url": "/azure/ai-services/computer-vision/overview-identity",
             "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/cognitive-services/Emotion/Home.md",
-            "redirect_url": "/azure/ai-services/face/overview",
+            "redirect_url": "/azure/ai-services/computer-vision/overview-identity",
             "redirect_document_id": false
         },
         {
@@ -1832,47 +1832,47 @@
         },
         {
             "source_path_from_root": "/articles/cognitive-services/Emotion/QuickStarts/CSharp.md",
-            "redirect_url": "/azure/ai-services/face/overview",
+            "redirect_url": "/azure/ai-services/computer-vision/overview-identity",
             "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/cognitive-services/Emotion/QuickStarts/curl.md",
-            "redirect_url": "/azure/ai-services/face/overview",
+            "redirect_url": "/azure/ai-services/computer-vision/overview-identity",
             "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/cognitive-services/Emotion/QuickStarts/Java.md",
-            "redirect_url": "/azure/ai-services/face/overview",
+            "redirect_url": "/azure/ai-services/computer-vision/overview-identity",
             "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/cognitive-services/Emotion/QuickStarts/JavaScript.md",
-            "redirect_url": "/azure/ai-services/face/overview",
+            "redirect_url": "/azure/ai-services/computer-vision/overview-identity",
             "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/cognitive-services/Emotion/QuickStarts/PHP.md",
-            "redirect_url": "/azure/ai-services/face/overview",
+            "redirect_url": "/azure/ai-services/computer-vision/overview-identity",
             "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/cognitive-services/Emotion/QuickStarts/Python.md",
-            "redirect_url": "/azure/ai-services/face/overview",
+            "redirect_url": "/azure/ai-services/computer-vision/overview-identity",
             "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/cognitive-services/Emotion/QuickStarts/Ruby.md",
-            "redirect_url": "/azure/ai-services/face/overview",
+            "redirect_url": "/azure/ai-services/computer-vision/overview-identity",
             "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/cognitive-services/Emotion/Tutorials/CSharpTutorial.md",
-            "redirect_url": "/azure/ai-services/face/overview",
+            "redirect_url": "/azure/ai-services/computer-vision/overview-identity",
             "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/cognitive-services/Emotion/Tutorials/PythonTutorial.md",
-            "redirect_url": "/azure/ai-services/face/overview",
+            "redirect_url": "/azure/ai-services/computer-vision/overview-identity",
             "redirect_document_id": false
         },
         {
@@ -1987,27 +1987,27 @@
         },
         {
             "source_path_from_root": "/articles/cognitive-services/Face/face-encryption-of-data-at-rest.md",
-            "redirect_url": "/azure/ai-services/Face/encrypt-data-at-rest",
+            "redirect_url": "/azure/ai-services/computer-vision/identity-encrypt-data-at-rest",
             "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/cognitive-services/Face/face-how-to-install-containers.md",
-            "redirect_url": "/azure/ai-services/Face/overview",
+            "redirect_url": "/azure/ai-services/computer-vision/overview-identity",
             "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/cognitive-services/Face/face-resource-container-config.md",
-            "redirect_url": "/azure/ai-services/Face/overview",
+            "redirect_url": "/azure/ai-services/computer-vision/overview-identity",
             "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/cognitive-services/Face/FAQ.md",
-            "redirect_url": "/azure/ai-services/face/overview",
+            "redirect_url": "/azure/ai-services/computer-vision/overview-identity",
             "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/cognitive-services/Face/Glossary.md",
-            "redirect_url": "/azure/ai-services/face/overview",
+            "redirect_url": "/azure/ai-services/computer-vision/overview-identity",
             "redirect_document_id": false
         },
         {
@@ -2842,7 +2842,7 @@
         },
         {
             "source_path_from_root": "/articles/cognitive-services/LUIS/Add-entities.md",
-            "redirect_url": "/azure/ai-services/LUIS/luis-how-to-add-entities",
+            "redirect_url": "/azure/ai-services/LUIS/how-to/entities",
             "redirect_document_id": ""
         },
         {
@@ -2852,12 +2852,12 @@
         },
         {
             "source_path_from_root": "/articles/cognitive-services/LUIS/Add-Features.md",
-            "redirect_url": "/azure/ai-services/LUIS/luis-how-to-add-features",
+            "redirect_url": "/azure/ai-services/LUIS/concepts/patterns-features",
             "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/cognitive-services/LUIS/Add-intents.md",
-            "redirect_url": "/azure/ai-services/LUIS/luis-how-to-add-intents",
+            "redirect_url": "/azure/ai-services/LUIS/how-to/intents",
             "redirect_document_id": false
         },
         {
@@ -2887,7 +2887,7 @@
         },
         {
             "source_path_from_root": "/articles/cognitive-services/LUIS/Create-new-app.md",
-            "redirect_url": "/azure/ai-services/LUIS/luis-how-to-start-new-app",
+            "redirect_url": "/azure/ai-services/LUIS/how-to/sign-in",
             "redirect_document_id": false
         },
         {
@@ -2922,7 +2922,7 @@
         },
         {
             "source_path_from_root": "/articles/cognitive-services/LUIS/interactive-test.md",
-            "redirect_url": "/azure/ai-services/LUIS/luis-interactive-test",
+            "redirect_url": "/azure/ai-services/LUIS/how-to/train-test",
             "redirect_document_id": false
         },
         {
@@ -2997,7 +2997,7 @@
         },
         {
             "source_path_from_root": "/articles/cognitive-services/LUIS/luis-concept-roles.md",
-            "redirect_url": "/azure/ai-services/LUIS/luis-concept-entity-types#entity-role-defines-context",
+            "redirect_url": "/azure/ai-services/LUIS/concepts/entities",
             "redirect_document_id": false
         },
         {
@@ -3007,7 +3007,7 @@
         },
         {
             "source_path_from_root": "/articles/cognitive-services/LUIS/luis-concept-test.md",
-            "redirect_url": "/azure/ai-services/LUIS/luis-interactive-test",
+            "redirect_url": "/azure/ai-services/LUIS/how-to/train-test",
             "redirect_document_id": false
         },
         {
@@ -3017,7 +3017,7 @@
         },
         {
             "source_path_from_root": "/articles/cognitive-services/LUIS/luis-concept-version.md",
-            "redirect_url": "/azure/ai-services/LUIS/luis-concept-app-iteration",
+            "redirect_url": "/azure/ai-services/LUIS/concepts/application-design",
             "redirect_document_id": false
         },
         {
@@ -3157,7 +3157,7 @@
         },
         {
             "source_path_from_root": "/articles/cognitive-services/LUIS/luis-how-to-add-example-utterances.md",
-            "redirect_url": "/azure/ai-services/LUIS/luis-how-to-add-entities",
+            "redirect_url": "/azure/ai-services/LUIS/how-to/entities",
             "redirect_document_id": ""
         },
         {
@@ -3192,7 +3192,7 @@
         },
         {
             "source_path_from_root": "/articles/cognitive-services/LUIS/luis-how-to-review-endoint-utt.md",
-            "redirect_url": "/azure/ai-services/LUIS/luis-how-to-review-endpoint-utterances",
+            "redirect_url": "/azure/ai-services/LUIS/how-to/improve-application",
             "redirect_document_id": false
         },
         {
@@ -3262,7 +3262,7 @@
         },
         {
             "source_path_from_root": "/articles/cognitive-services/LUIS/luis-quickstart-intent-and-hier-entity.md",
-            "redirect_url": "/azure/ai-services/LUIS/luis-how-to-add-entities",
+            "redirect_url": "/azure/ai-services/LUIS/how-to/entities",
             "redirect_document_id": ""
         },
         {
@@ -3272,12 +3272,12 @@
         },
         {
             "source_path_from_root": "/articles/cognitive-services/LUIS/luis-quickstart-intent-and-list-entity.md",
-            "redirect_url": "/azure/ai-services/LUIS/luis-how-to-add-entities",
+            "redirect_url": "/azure/ai-services/LUIS/how-to/entities",
             "redirect_document_id": ""
         },
         {
             "source_path_from_root": "/articles/cognitive-services/LUIS/luis-quickstart-intent-and-sentiment-analysis.md",
-            "redirect_url": "/azure/ai-services/LUIS/luis-how-to-publish-app",
+            "redirect_url": "/azure/ai-services/LUIS/how-to/publish",
             "redirect_document_id": false
         },
         {
@@ -3287,7 +3287,7 @@
         },
         {
             "source_path_from_root": "/articles/cognitive-services/LUIS/luis-quickstart-intents-regex-entity.md",
-            "redirect_url": "/azure/ai-services/LUIS/luis-how-to-add-entities",
+            "redirect_url": "/azure/ai-services/LUIS/how-to/entities",
             "redirect_document_id": ""
         },
         {
@@ -3312,7 +3312,7 @@
         },
         {
             "source_path_from_root": "/articles/cognitive-services/LUIS/luis-quickstart-primary-and-secondary-data.md",
-            "redirect_url": "/azure/ai-services/LUIS/tutorial-machine-learned-entity",
+            "redirect_url": "/azure/ai-services/LUIS/tutorial/build-decomposable-application",
             "redirect_document_id": false
         },
         {
@@ -3352,7 +3352,7 @@
         },
         {
             "source_path_from_root": "/articles/cognitive-services/LUIS/luis-tutorial-composite-entity.md",
-            "redirect_url": "/azure/ai-services/LUIS/luis-how-to-add-entities",
+            "redirect_url": "/azure/ai-services/LUIS/how-to/entities",
             "redirect_document_id": ""
         },
         {
@@ -3387,7 +3387,7 @@
         },
         {
             "source_path_from_root": "/articles/cognitive-services/LUIS/luis-tutorial-prebuilt-intents-entities.md",
-            "redirect_url": "/azure/ai-services/LUIS/tutorial-machine-learned-entity",
+            "redirect_url": "/azure/ai-services/LUIS/tutorial/build-decomposable-application",
             "redirect_document_id": false
         },
         {
@@ -3417,7 +3417,7 @@
         },
         {
             "source_path_from_root": "/articles/cognitive-services/LUIS/Plan-your-app.md",
-            "redirect_url": "/azure/ai-services/LUIS/luis-how-plan-your-app",
+            "redirect_url": "/azure/ai-services/LUIS/concepts/application-design",
             "redirect_document_id": false
         },
         {
@@ -3427,7 +3427,7 @@
         },
         {
             "source_path_from_root": "/articles/cognitive-services/LUIS/PublishApp.md",
-            "redirect_url": "/azure/ai-services/LUIS/luis-how-to-publish-app",
+            "redirect_url": "/azure/ai-services/LUIS/how-to/publish",
             "redirect_document_id": false
         },
         {
@@ -3472,7 +3472,7 @@
         },
         {
             "source_path_from_root": "/articles/cognitive-services/LUIS/tutorial-entity-roles.md",
-            "redirect_url": "/azure/ai-services/LUIS/luis-how-to-add-entities",
+            "redirect_url": "/azure/ai-services/LUIS/how-to/entities",
             "redirect_document_id": ""
         },
         {
@@ -3482,7 +3482,7 @@
         },
         {
             "source_path_from_root": "/articles/cognitive-services/LUIS/tutorial-list-entity.md",
-            "redirect_url": "/azure/ai-services/LUIS/luis-how-to-add-entities",
+            "redirect_url": "/azure/ai-services/LUIS/how-to/entities",
             "redirect_document_id": ""
         },
         {
@@ -3492,12 +3492,12 @@
         },
         {
             "source_path_from_root": "/articles/cognitive-services/LUIS/tutorial-publish-settings.md",
-            "redirect_url": "/azure/ai-services/LUIS/tutorial-machine-learned-entity#publish-the-app-to-access-it-from-the-http-endpoint",
+            "redirect_url": "/azure/ai-services/LUIS/tutorial/build-decomposable-application",
             "redirect_document_id": ""
         },
         {
             "source_path_from_root": "/articles/cognitive-services/LUIS/tutorial-regex-entity.md",
-            "redirect_url": "/azure/ai-services/LUIS/luis-how-to-add-entities",
+            "redirect_url": "/azure/ai-services/LUIS/how-to/entities",
             "redirect_document_id": ""
         },
         {
@@ -5402,7 +5402,7 @@
         },
         {
             "source_path_from_root": "/articles/cognitive-services/translator/how-to-install-containers.md",
-            "redirect_url": "/azure/ai-services/translator/translator-info-overview",
+            "redirect_url": "/azure/ai-services/translator/translator-overview",
             "redirect_document_id": false
         },
         {
@@ -5702,7 +5702,7 @@
         },
         {
             "source_path_from_root": "/articles/cognitive-services/translator/translator-how-to-signup.md",
-            "redirect_url": "/azure/ai-services/translator/how-to-create-translator-resource",
+            "redirect_url": "/azure/ai-services/translator/create-translator-resource",
             "redirect_document_id": false
         },
         {
@@ -5717,7 +5717,7 @@
         },
         {
             "source_path_from_root": "/articles/cognitive-services/translator/translator-text-container-config.md",
-            "redirect_url": "/azure/ai-services/translator/translator-info-overview",
+            "redirect_url": "/azure/ai-services/translator/translator-overview",
             "redirect_document_id": false
         },
         {
@@ -6067,7 +6067,7 @@
         },
         {
             "source_path_from_root": "/articles/cognitive-services/Translator/document-translation/client-sdks.md",
-            "redirect_url": "/azure/ai-services/Translator/document-translation/how-to-guides/use-client-sdks",
+            "redirect_url": "/azure/ai-services/Translator/document-translation/quickstarts/document-translation-sdk",
             "redirect_document_id": false
         },
         {
@@ -6092,7 +6092,7 @@
         },
         {
             "source_path_from_root": "/articles/cognitive-services/translator/quickstart-translator.md",
-            "redirect_url": "/azure/ai-services/Translator/quickstart-translator-rest-api",
+            "redirect_url": "/azure/ai-services/Translator/quickstart-text-rest-api",
             "redirect_document_id": false
         },
         {

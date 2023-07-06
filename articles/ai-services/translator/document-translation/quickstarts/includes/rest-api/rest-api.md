@@ -64,7 +64,7 @@ If you don't have cURL installed, here are links for your platform:
 Before you run the **POST** request, replace `{your-source-container-SAS-URL}` and `{your-key}` with the endpoint value from your Azure portal Translator instance.
 
 > [!IMPORTANT]
-> Remember to remove the key from your code when you're done, and never post it publicly. For production, use a secure way of storing and accessing your credentials like [Azure Key Vault](../../../../../../key-vault/general/overview.md). For more information, *see* Cognitive Services [security](../../../../../../cognitive-services/security-features.md).
+> Remember to remove the key from your code when you're done, and never post it publicly. For production, use a secure way of storing and accessing your credentials like [Azure Key Vault](../../../../../../key-vault/general/overview.md). For more information, *see* Azure AI services [security](../../../../../../ai-services/security-features.md).
 
 ***PowerShell***
 

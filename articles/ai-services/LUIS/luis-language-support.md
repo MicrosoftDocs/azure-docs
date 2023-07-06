@@ -1,6 +1,6 @@
 ---
 title: Language support - LUIS
-titleSuffix: Azure Cognitive Services
+titleSuffix: Azure AI services
 description: LUIS has a variety of features within the service. Not all features are at the same language parity. Make sure the features you are interested in are supported in the language culture you are targeting. A LUIS app is culture-specific and cannot be changed once it is set.
 services: cognitive-services
 ms.author: aahi
@@ -25,7 +25,7 @@ LUIS has a variety of features within the service. Not all features are at the s
 If you need a multilingual LUIS client application such as a chatbot, you have a few options. If LUIS supports all the languages, you develop a LUIS app for each language. Each LUIS app has a unique app ID, and endpoint log. If you need to provide language understanding for a language LUIS does not support, you can use the [Translator service](../translator/translator-overview.md) to translate the utterance into a supported language, submit the utterance to the LUIS endpoint, and receive the resulting scores.
 
 > [!NOTE]
-> A newer version of Language Understanding capabilities is now available as part of Azure Cognitive Service for Language. For more information, see [Azure Cognitive Service for Language Documentation](../language-service/index.yml). For language understanding capabilities that support multiple languages within the Language Service, see [Conversational Language Understanding](../language-service/conversational-language-understanding/concepts/multiple-languages.md).
+> A newer version of Language Understanding capabilities is now available as part of Azure AI Language. For more information, see [Azure AI Language Documentation](../language-service/index.yml). For language understanding capabilities that support multiple languages within the Language Service, see [Conversational Language Understanding](../language-service/conversational-language-understanding/concepts/multiple-languages.md).
 
 ## Languages supported
 
@@ -73,10 +73,10 @@ Language support varies for [prebuilt entities](luis-reference-prebuilt-entities
 See Speech [Supported languages](../speech-service/speech-to-text.md) for Speech dictation mode languages.
 
 ### Bing Spell Check supported languages
-See Bing Spell Check [Supported languages](../bing-spell-check/language-support.md) for a list of supported languages and status.
+See Bing Spell Check [Supported languages](../../cognitive-services/bing-spell-check/language-support.md) for a list of supported languages and status.
 
 ## Rare or foreign words in an application
-In the `en-us` culture, LUIS learns to distinguish most English words, including slang. In the `zh-cn` culture, LUIS learns to distinguish most Chinese characters. If you use a rare word in `en-us` or character in `zh-cn`, and you see that LUIS seems unable to distinguish that word or character, you can add that word or character to a [phrase-list feature](luis-how-to-add-features.md). For example, words outside of the culture of the application -- that is, foreign words -- should be added to a phrase-list feature.
+In the `en-us` culture, LUIS learns to distinguish most English words, including slang. In the `zh-cn` culture, LUIS learns to distinguish most Chinese characters. If you use a rare word in `en-us` or character in `zh-cn`, and you see that LUIS seems unable to distinguish that word or character, you can add that word or character to a [phrase-list feature](concepts/patterns-features.md). For example, words outside of the culture of the application -- that is, foreign words -- should be added to a phrase-list feature.
 
 <!--This phrase list should be marked non-interchangeable, to indicate that the set of rare words forms a class that LUIS should learn to recognize, but they are not synonyms or interchangeable with each other.-->
 
@@ -227,4 +227,4 @@ Tokenizer JSON for version 1.0.1. Notice the property value for  `tokenizerVersi
 
 Tokenization happens at the app level. There is no support for version-level tokenization.
 
-[Import the file as a new app](luis-how-to-start-new-app.md), instead of a version. This action means the new app has a different app ID but uses the tokenizer version specified in the file.
+[Import the file as a new app](how-to/sign-in.md), instead of a version. This action means the new app has a different app ID but uses the tokenizer version specified in the file.

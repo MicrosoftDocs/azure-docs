@@ -1,6 +1,6 @@
 ---
-title: "Quickstart: Azure Cognitive Services Translator SDKs"
-titleSuffix: Azure Cognitive Services
+title: "Quickstart: Azure AI Translator SDKs"
+titleSuffix: Azure AI services
 description: "Learn to translate text with the Translator service SDks in a programming language of your choice: C#, Java, JavaScript, or Python."
 services: cognitive-services
 author: laujan
@@ -21,7 +21,7 @@ zone_pivot_groups:  programming-languages-set-translator-sdk
 <!-- markdownlint-disable MD036 -->
 <!-- markdownlint-disable MD049 -->
 
-# Quickstart: Azure Cognitive Services Translator SDKs (preview)
+# Quickstart: Azure AI Translator SDKs (preview)
 
 > [!IMPORTANT]
 >

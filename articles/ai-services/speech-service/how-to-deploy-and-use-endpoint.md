@@ -1,6 +1,6 @@
 ---
 title: How to deploy and use voice model - Speech service
-titleSuffix: Azure Cognitive Services
+titleSuffix: Azure AI services
 description: Learn about how to deploy and use a custom neural voice model.
 services: cognitive-services
 author: Ling-Cao

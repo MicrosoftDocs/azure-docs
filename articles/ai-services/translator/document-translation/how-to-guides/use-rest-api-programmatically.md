@@ -16,15 +16,15 @@ ms.custom: mode-other, build-2023, devx-track-extended-java, devx-track-python
 
 # Use REST APIs programmatically
 
- Document Translation is a cloud-based feature of the [Azure Translator](../../translator-overview.md) service. You can use the Document Translation API to asynchronously translate whole documents in [supported languages](../../language-support.md) and various [file formats](../overview.md#supported-document-formats) while preserving source document structure and text formatting. In this how-to guide, you learn to use Document Translation APIs with a programming language of your choice and the HTTP REST API.
+ Document Translation is a cloud-based feature of the [Azure AI Translator](../../translator-overview.md) service. You can use the Document Translation API to asynchronously translate whole documents in [supported languages](../../language-support.md) and various [file formats](../overview.md#supported-document-formats) while preserving source document structure and text formatting. In this how-to guide, you learn to use Document Translation APIs with a programming language of your choice and the HTTP REST API.
 
 ## Prerequisites
 
 > [!NOTE]
 >
-> * Typically, when you create a Cognitive Service resource in the Azure portal, you have the option to create a multi-service key or a single-service key. However, Document Translation is currently supported in the Translator (single-service) resource only, and is **not** included in the Cognitive Services (multi-service) resource.
+> * Typically, when you create a Cognitive Service resource in the Azure portal, you have the option to create a multi-service key or a single-service key. However, Document Translation is currently supported in the Translator (single-service) resource only, and is **not** included in the Azure AI services (multi-service) resource.
 >
-> * Document Translation is **only** supported in the S1 Standard Service Plan (Pay-as-you-go) or in the D3 Volume Discount Plan. _See_ [Cognitive Services pricing—Translator](https://azure.microsoft.com/pricing/details/cognitive-services/translator/).
+> * Document Translation is **only** supported in the S1 Standard Service Plan (Pay-as-you-go) or in the D3 Volume Discount Plan. _See_ [Azure AI services pricing—Translator](https://azure.microsoft.com/pricing/details/cognitive-services/translator/).
 >
 
 To get started, you need:
@@ -36,7 +36,7 @@ To get started, you need:
   * **Source container**. This container is where you upload your files for translation (required).
   * **Target container**. This container is where your translated files are stored (required).
 
-* A [**single-service Translator resource**](https://portal.azure.com/#create/Microsoft.CognitiveServicesTextTranslation) (**not** a multi-service Cognitive Services resource):
+* A [**single-service Translator resource**](https://portal.azure.com/#create/Microsoft.CognitiveServicesTextTranslation) (**not** a multi-service Azure AI services resource):
 
   **Complete the Translator project and instance details fields as follows:**
 
@@ -112,7 +112,7 @@ The `sourceUrl` , `targetUrl` , and optional `glossaryUrl`  must include a Share
 
 A batch Document Translation request is submitted to your Translator service endpoint via a POST request. If successful, the POST method returns a `202 Accepted`  response code and the service creates a batch request. The translated documents are listed in your target container.
 
-For detailed information regarding Azure Translator Service request limits, _see_ [**Document Translation request limits**](../../request-limits.md#document-translation).
+For detailed information regarding Azure AI Translator Service request limits, _see_ [**Document Translation request limits**](../../service-limits.md#document-translation).
 
 ### HTTP headers
 
@@ -120,7 +120,7 @@ The following headers are included with each Document Translation API request:
 
 |HTTP header|Description|
 |---|--|
-|Ocp-Apim-Subscription-Key|**Required**: The value is the Azure key for your Translator or Cognitive Services resource.|
+|Ocp-Apim-Subscription-Key|**Required**: The value is the Azure key for your Translator or Azure AI services resource.|
 |Content-Type|**Required**: Specifies the content type of the payload. Accepted values are application/json or charset=UTF-8.|
 
 ### POST request body properties
@@ -1280,7 +1280,7 @@ func main() {
 |------------------|-------------|-----------------|
 | 200 | OK | The request was successful. |
 | 400 | Bad Request | A required parameter is missing, empty, or null. Or, the value passed to either a required or optional parameter is invalid. A common issue is a header that is too long. |
-| 401 | Unauthorized | The request isn't authorized. Check to make sure your key or token is valid and in the correct region. When managing your subscription on the Azure portal, make sure you're using the **Translator** single-service resource  _not_ the **Cognitive Services** multi-service resource.
+| 401 | Unauthorized | The request isn't authorized. Check to make sure your key or token is valid and in the correct region. When managing your subscription on the Azure portal, make sure you're using the **Translator** single-service resource  _not_ the **Azure AI services** multi-service resource.
 | 429 | Too Many Requests | You've exceeded the quota or rate of requests allowed for your subscription. |
 | 502 | Bad Gateway    | Network or server-side issue. May also indicate invalid headers. |
 

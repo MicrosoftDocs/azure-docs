@@ -1,6 +1,6 @@
 ---
 title: Create a batch transcription - Speech service
-titleSuffix: Azure Cognitive Services
+titleSuffix: Azure AI services
 description: With batch transcriptions, you submit the audio, and then retrieve transcription results asynchronously.
 services: cognitive-services
 manager: nitinme

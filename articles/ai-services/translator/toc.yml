@@ -1,5 +1,5 @@
 items:
-- name: Azure Cognitive Services Translator Documentation
+- name: Azure AI Translator Documentation
   href: index.yml
 - name: Overview
   expanded: true
@@ -30,7 +30,7 @@ items:
     href: text-translation-overview.md
   - name: Create a Translator resource
     displayName: endpoint,key,portal,azure,authentication,delete,resource
-    href: how-to-create-translator-resource.md
+    href: create-translator-resource.md
   - name: 🆕 Text Translation SDK overview (preview)
     displayName: get started,sdk,keys,endpoint
     href: text-sdk-overview.md
@@ -107,11 +107,11 @@ items:
   - name: Tutorials
     items:
     - name: Create a Translator workflow
-      href: /ai-builder/flow-text-translation?toc=/azure/cognitive-services/translator/toc.json&bc=/azure/cognitive-services/translator/breadcrumb/toc.json
+      href: /ai-builder/flow-text-translation?toc=/azure/ai-services/translator/toc.json&bc=/azure/ai-services/translator/breadcrumb/toc.json
     - name: Translate text with Translator
-      href: /training/modules/translate-text-with-translator-service?toc=/azure/cognitive-services/translator/toc.json&bc=/azure/cognitive-services/translator/breadcrumb/toc.json
+      href: /training/modules/translate-text-with-translator-service?toc=/azure/ai-services/translator/toc.json&bc=/azure/ai-services/translator/breadcrumb/toc.json
     - name: Build a Translator app with Flask and Python
-      href: /training/modules/python-flask-build-ai-web-app?toc=/azure/cognitive-services/translator/toc.json&bc=/azure/cognitive-services/translator/breadcrumb/toc.json
+      href: /training/modules/python-flask-build-ai-web-app?toc=/azure/ai-services/translator/toc.json&bc=/azure/ai-services/translator/breadcrumb/toc.json
   - name: Reference
     items:
     - name: v3 Translator reference

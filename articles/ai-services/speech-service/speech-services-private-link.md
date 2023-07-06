@@ -1,6 +1,6 @@
 ---
 title: How to use private endpoints with Speech service
-titleSuffix: Azure Cognitive Services
+titleSuffix: Azure AI services
 description: Learn how to use Speech service with private endpoints provided by Azure Private Link
 services: cognitive-services
 author: alexeyo26
@@ -20,7 +20,7 @@ ms.custom: devx-track-azurepowershell, devx-track-azurecli
 This article explains how to set up and use Private Link and private endpoints with the Speech service. This article then describes how to remove private endpoints later, but still use the Speech resource.
 
 > [!NOTE]
-> Before you proceed, review [how to use virtual networks with Cognitive Services](../cognitive-services-virtual-networks.md).
+> Before you proceed, review [how to use virtual networks with Azure AI services](../cognitive-services-virtual-networks.md).
 
 
 Setting up a Speech resource for the private endpoint scenarios requires performing the following tasks:
@@ -62,7 +62,7 @@ Use these parameters instead of the parameters in the article that you chose:
 | Resource            | **\<your-speech-resource-name>**         |
 | Target sub-resource | **account**                              |
 
-**DNS for private endpoints:** Review the general principles of [DNS for private endpoints in Cognitive Services resources](../cognitive-services-virtual-networks.md#dns-changes-for-private-endpoints). Then confirm that your DNS configuration is working correctly by performing the checks described in the following sections.
+**DNS for private endpoints:** Review the general principles of [DNS for private endpoints in Azure AI services resources](../cognitive-services-virtual-networks.md#dns-changes-for-private-endpoints). Then confirm that your DNS configuration is working correctly by performing the checks described in the following sections.
 
 ### Resolve DNS from the virtual network
 
@@ -147,7 +147,7 @@ The next subsections describe both cases.
 
 #### Speech to text REST API
 
-Usually, Speech resources use [Cognitive Services regional endpoints](../cognitive-services-custom-subdomains.md#is-there-a-list-of-regional-endpoints) for communicating with the [Speech to text REST API](rest-speech-to-text.md). These resources have the following naming format: <p/>`{region}.api.cognitive.microsoft.com`.
+Usually, Speech resources use [Azure AI services regional endpoints](../cognitive-services-custom-subdomains.md#is-there-a-list-of-regional-endpoints) for communicating with the [Speech to text REST API](rest-speech-to-text.md). These resources have the following naming format: <p/>`{region}.api.cognitive.microsoft.com`.
 
 This is a sample request URL:
 
@@ -178,7 +178,7 @@ After you turn on a custom domain name for a Speech resource, you typically repl
 #### Speech to text REST API for short audio and Text to speech REST API
 
 The [Speech to text REST API for short audio](rest-speech-to-text-short.md) and the [Text to speech REST API](rest-text-to-speech.md) use two types of endpoints:
-- [Cognitive Services regional endpoints](../cognitive-services-custom-subdomains.md#is-there-a-list-of-regional-endpoints) for communicating with the Cognitive Services REST API to obtain an authorization token
+- [Azure AI services regional endpoints](../cognitive-services-custom-subdomains.md#is-there-a-list-of-regional-endpoints) for communicating with the Azure AI services REST API to obtain an authorization token
 - Special endpoints for all other operations
 
 > [!NOTE]
@@ -350,9 +350,9 @@ This section explains how to use a Speech resource with a custom domain name but
 
 ### DNS configuration
 
-Remember how a custom domain DNS name of the private-endpoint-enabled Speech resource is [resolved from public networks](#resolve-dns-from-other-networks). In this case, the IP address resolved points to a proxy endpoint for a virtual network. That endpoint is used for dispatching the network traffic to the private-endpoint-enabled Cognitive Services resource.
+Remember how a custom domain DNS name of the private-endpoint-enabled Speech resource is [resolved from public networks](#resolve-dns-from-other-networks). In this case, the IP address resolved points to a proxy endpoint for a virtual network. That endpoint is used for dispatching the network traffic to the private-endpoint-enabled Azure AI services resource.
 
-However, when *all* resource private endpoints are removed (or right after the enabling of the custom domain name), the CNAME record of the Speech resource is reprovisioned. It now points to the IP address of the corresponding [Cognitive Services regional endpoint](../cognitive-services-custom-subdomains.md#is-there-a-list-of-regional-endpoints).
+However, when *all* resource private endpoints are removed (or right after the enabling of the custom domain name), the CNAME record of the Speech resource is reprovisioned. It now points to the IP address of the corresponding [Azure AI services regional endpoint](../cognitive-services-custom-subdomains.md#is-there-a-list-of-regional-endpoints).
 
 So the output of the `nslookup` command will look like this:
 ```dos
@@ -395,7 +395,7 @@ In case you have modified your code for using with a [private-endpoint-enabled S
 
 In the section on [private-endpoint-enabled Speech resources](#speech-resource-with-a-custom-domain-name-and-a-private-endpoint-usage-with-the-speech-sdk), we explained how to determine the endpoint URL, modify it, and make it work through "from endpoint"/"with endpoint" initialization of the `SpeechConfig` class instance.
 
-However, if you try to run the same application after having all private endpoints removed (allowing some time for the corresponding DNS record reprovisioning), you'll get an internal service error (404). The reason is that the [DNS record](#dns-configuration) now points to the regional Cognitive Services endpoint instead of the virtual network proxy, and the URL paths like `/stt/speech/recognition/conversation/cognitiveservices/v1?language=en-US` won't be found there.
+However, if you try to run the same application after having all private endpoints removed (allowing some time for the corresponding DNS record reprovisioning), you'll get an internal service error (404). The reason is that the [DNS record](#dns-configuration) now points to the regional Azure AI services endpoint instead of the virtual network proxy, and the URL paths like `/stt/speech/recognition/conversation/cognitiveservices/v1?language=en-US` won't be found there.
 
 You need to roll back your application to the standard instantiation of `SpeechConfig` in the style of the following code:
 

@@ -1,6 +1,6 @@
 ---
 title: "Recording custom voice samples - Speech service"
-titleSuffix: Azure Cognitive Services
+titleSuffix: Azure AI services
 description: Make a production-quality custom voice by preparing a robust script, hiring good voice talent, and recording professionally.
 services: cognitive-services
 author: eric-urban
@@ -30,7 +30,7 @@ The quality of your training data is a primary factor. For example, in the same 
 
 Regarding the size of the training data, in most cases you can build a reasonable custom neural voice with 500 utterances. According to our tests, adding more training data in most languages does not necessarily improve naturalness of the voice itself (tested using the MOS score), however, with more training data that covers more word instances, you have higher possibility to reduce the ratio of dissatisfactory parts of speech for the voice, such as the glitches. To hear what dissatisfactory parts of speech sound like, refer to [the GitHub examples](https://github.com/Azure-Samples/Cognitive-Speech-TTS/blob/master/CustomVoice/DSAT-examples.md).
 
-In some cases, you may want a voice persona with unique characteristics. For example, a cartoon persona needs a voice with a special speaking style, or a voice that is very dynamic in intonation. For such cases, we recommend that you prepare at least 1000 (preferably 2000) utterances, and record them at a professional recording studio. To learn more about how to improve the quality of your voice model, see [characteristics and limitations for using Custom Neural Voice](/legal/cognitive-services/speech-service/custom-neural-voice/characteristics-and-limitations-custom-neural-voice?context=/azure/cognitive-services/speech-service/context/context).
+In some cases, you may want a voice persona with unique characteristics. For example, a cartoon persona needs a voice with a special speaking style, or a voice that is very dynamic in intonation. For such cases, we recommend that you prepare at least 1000 (preferably 2000) utterances, and record them at a professional recording studio. To learn more about how to improve the quality of your voice model, see [characteristics and limitations for using Custom Neural Voice](/legal/cognitive-services/speech-service/custom-neural-voice/characteristics-and-limitations-custom-neural-voice?context=/azure/ai-services/speech-service/context/context).
 
 ## Voice recording roles
 

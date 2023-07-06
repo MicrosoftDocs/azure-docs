@@ -1,6 +1,6 @@
 ---
 title: Role-based access control for the Language service
-titleSuffix: Azure Cognitive Services
+titleSuffix: Azure AI services
 description: Learn how to use Azure RBAC for managing individual access to Azure resources.
 services: cognitive-services
 author: aahill
@@ -15,7 +15,7 @@ ms.author: aahi
 
 # Language role-based access control
 
-Azure Cognitive Service for Language supports Azure role-based access control (Azure RBAC), an authorization system for managing individual access to Azure resources. Using Azure RBAC, you assign different team members different levels of permissions for your projects authoring resources. See the [Azure RBAC documentation](../../../role-based-access-control/index.yml) for more information.
+Azure AI Language supports Azure role-based access control (Azure RBAC), an authorization system for managing individual access to Azure resources. Using Azure RBAC, you assign different team members different levels of permissions for your projects authoring resources. See the [Azure RBAC documentation](../../../role-based-access-control/index.yml) for more information.
 
 ## Enable Azure Active Directory authentication 
 
@@ -25,7 +25,7 @@ To use Azure RBAC, you must enable Azure Active Directory authentication. You ca
 
 Azure RBAC can be assigned to a Language resource. To grant access to an Azure resource, you add a role assignment.
 1. In the [Azure portal](https://portal.azure.com/), select **All services**. 
-1. Select **Cognitive Services**, and navigate to your specific Language resource. 
+1. Select **Azure AI services**, and navigate to your specific Language resource. 
    > [!NOTE]
    > You can also set up Azure RBAC for whole resource groups, subscriptions, or management groups. Do this by selecting the desired scope level and then navigating to the desired item. For example, selecting **Resource groups** and then navigating to a specific resource group.
 
@@ -49,7 +49,7 @@ These custom roles only apply to Language resources.
 > * If you are assigned as a *Contributor* on Azure, your role will be shown as *Owner* in Language studio portal.
 
 
-### Cognitive Services Language reader
+### Azure AI Language reader
 
 A user that should only be validating and reviewing the Language apps, typically a tester to ensure the application is performing well before deploying the project. They may want to review the application’s assets to notify the app developers of any changes that need to be made, but do not have direct access to make them. Readers will have access to view the evaluation results.
 
@@ -83,7 +83,7 @@ A user that should only be validating and reviewing the Language apps, typically
     :::column-end:::
 :::row-end:::
 
-### Cognitive Services Language writer
+### Azure AI Language writer
 
 A user that is responsible for building and modifying an application, as a collaborator in a larger team. The collaborator can modify the Language apps in any way, train those changes, and validate/test those changes in the portal. However, this user shouldn’t have access to deploying this application to the runtime, as they may accidentally reflect their changes in production. They also shouldn’t be able to delete the application or alter its prediction resources and endpoint settings (assigning or unassigning prediction resources, making the endpoint public). This restricts this role from altering an application currently being used in production. They may also create new applications under this resource, but with the restrictions mentioned.
 
@@ -97,7 +97,7 @@ A user that is responsible for building and modifying an application, as a colla
 :::row-end:::
 :::row:::
     :::column span="":::
-      * All functionalities under Cognitive Services Language Reader.
+      * All functionalities under Azure AI Language Reader.
       * Ability to: 
           * Train
           * Write
@@ -116,10 +116,10 @@ A user that is responsible for building and modifying an application, as a colla
     :::column-end:::
 :::row-end:::
 
-### Cognitive Services Language owner
+### Cognitive Services Language Owner
 
 > [!NOTE]
-> If you are assigned as an *Owner* and *Language Owner* you will be be shown as *Cognitive Services Language owner* in Language studio portal.
+> If you are assigned as an *Owner* and *Language Owner* you will be be shown as *Cognitive Services Language Owner* in Language studio portal.
 
 
 These users are the gatekeepers for the Language applications in production environments. They should have full access to any of the underlying functions and thus can view everything in the application and have direct access to edit any changes for both authoring and runtime environments
@@ -134,7 +134,7 @@ These users are the gatekeepers for the Language applications in production envi
 :::row-end:::
 :::row:::
     :::column span="":::
-      * All functionalities under Cognitive Services Language Writer
+      * All functionalities under Azure AI Language Writer
       * Deploy
       * Delete
     :::column-end:::

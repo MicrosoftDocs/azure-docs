@@ -1,6 +1,6 @@
 ---
 title: Using Azure resources in custom Text Analytics for health
-titleSuffix: Azure Cognitive Services
+titleSuffix: Azure AI services
 description: Learn about the steps for using Azure resources with custom text analytics for health.
 services: cognitive-services
 author: aahill
@@ -25,7 +25,7 @@ Before you start using custom text analytics for health, you need:
 
 ## Create a Language resource 
 
-Before you start using custom text analytics for health, you'll need an Azure Language resource. It's recommended to create your Language resource and connect a storage account to it in the Azure portal. Creating a resource in the Azure portal lets you create an Azure storage account at the same time, with all of the required permissions preconfigured. You can also read further in the article to learn how to use a pre-existing resource, and configure it to work with custom text analytics for health.
+Before you start using custom text analytics for health, you'll need an Azure AI Language resource. It's recommended to create your Language resource and connect a storage account to it in the Azure portal. Creating a resource in the Azure portal lets you create an Azure storage account at the same time, with all of the required permissions preconfigured. You can also read further in the article to learn how to use a pre-existing resource, and configure it to work with custom text analytics for health.
 
 You also will need an Azure storage account where you will upload your `.txt` documents that will be used to train a model to extract entities.
 

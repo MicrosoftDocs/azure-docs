@@ -1,7 +1,7 @@
 ---
 title: "Quickstart: Get started with Language Studio"
-titleSuffix: Azure Cognitive Services
-description: Use this article to learn about Language Studio, and testing features of Azure Cognitive Service for Language
+titleSuffix: Azure AI services
+description: Use this article to learn about Language Studio, and testing features of Azure AI Language
 author: aahill
 ms.author: aahi
 manager: nitinme
@@ -14,7 +14,7 @@ ms.custom: ignite-fall-2021
 
 # Quickstart: Get started with Language Studio
 
-[Language Studio](https://aka.ms/languageStudio) is a set of UI-based tools that lets you explore, build, and integrate features from Azure Cognitive Service for Language into your applications.
+[Language Studio](https://aka.ms/languageStudio) is a set of UI-based tools that lets you explore, build, and integrate features from Azure AI Language into your applications.
 
 Language Studio provides you with a platform to try several service features, and see what they return in a visual manner. It also provides you with an easy-to-use experience to create custom projects and models to work on your data. Using the Studio, you can get started without needing to write code, and then use the available client libraries and REST APIs in your application.
 
@@ -30,12 +30,12 @@ Once you choose a feature, you'll be able to send several text examples to the s
 
 ## Use Language Studio with your own text
 
-When you're ready to use Language Studio features on your own text data, you will need an Azure Language resource for authentication and [billing](https://aka.ms/unifiedLanguagePricing). You can also use this resource to call the REST APIs and client libraries programmatically. Follow these steps to get started. 
+When you're ready to use Language Studio features on your own text data, you will need an Azure AI Language resource for authentication and [billing](https://aka.ms/unifiedLanguagePricing). You can also use this resource to call the REST APIs and client libraries programmatically. Follow these steps to get started. 
 
 > [!IMPORTANT] 
 > The setup process and requirements for custom features are different. If you're using one of the following custom features, we recommend using the quickstart articles linked below to get started more easily.  
 > * [Conversational Language Understanding](./conversational-language-understanding/quickstart.md)
-> * [Custom Text Classification](./custom-classification/quickstart.md)
+> * [Custom Text Classification](./custom-text-classification/quickstart.md)
 > * [Custom Named Entity Recognition (NER)](./custom-named-entity-recognition/quickstart.md) 
 > * [Orchestration workflow](./orchestration-workflow/quickstart.md)
 
@@ -84,7 +84,7 @@ Note that the names of the two participants in the conversation (*Agent* and *Cu
 
 ## Clean up resources
 
-If you want to clean up and remove a Cognitive Services subscription, you can delete the resource or resource group. Deleting the resource group also deletes any other resources associated with it.
+If you want to clean up and remove a Azure AI services subscription, you can delete the resource or resource group. Deleting the resource group also deletes any other resources associated with it.
 
 * [Portal](../cognitive-services-apis-create-account.md#clean-up-resources)
 * [Azure CLI](../cognitive-services-apis-create-account-cli.md#clean-up-resources)
@@ -99,4 +99,4 @@ If you want to clean up and remove a Cognitive Services subscription, you can de
 ## Next steps
 
 * Go to the [Language Studio](https://aka.ms/languageStudio) to begin using features offered by the service.
-* For more information and documentation on the features offered, see the [Azure Cognitive Service for Language overview](overview.md). 
+* For more information and documentation on the features offered, see the [Azure AI Language overview](overview.md). 

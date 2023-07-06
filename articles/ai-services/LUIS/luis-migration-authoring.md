@@ -1,6 +1,6 @@
 ---
 title: Migrate to an Azure resource authoring key
-titleSuffix: Azure Cognitive Services
+titleSuffix: Azure AI services
 description: This article describes how to migrate Language Understanding (LUIS) authoring authentication from an email account to an Azure resource.
 services: cognitive-services
 author: aahill
@@ -134,7 +134,7 @@ You can add contributors to the authoring resource from the Azure portal, on the
 ## Troubleshooting the migration process
 
 If you cannot find your Azure subscription in the drop-down list:
-* Ensure that you have a valid Azure subscription that's authorized to create Cognitive Services resources. Go to the [Azure portal](https://portal.azure.com) and check the status of the subscription. If you don't have one, [create a free Azure account](https://azure.microsoft.com/free/cognitive-services/).
+* Ensure that you have a valid Azure subscription that's authorized to create Azure AI services resources. Go to the [Azure portal](https://portal.azure.com) and check the status of the subscription. If you don't have one, [create a free Azure account](https://azure.microsoft.com/free/cognitive-services/).
 * Ensure that you're in the proper tenant associated with your valid subscription. You can switch tenants selecting the avatar in the top right of the screen, containing your initials.
 
   > [!div class="mx-imgBorder"]
@@ -154,7 +154,7 @@ If you are having any issues with the migration that are not addressed in the tr
 
    * **Issue Type**: Technical
    * **Subscription**: Choose a subscription from the dropdown list
-   * **Service**: Search and select "Cognitive Services"
+   * **Service**: Search and select "Azure AI services"
    * **Resource**: Choose a LUIS resource if there is an existing one. If not, select General question.
 
 ## Next steps

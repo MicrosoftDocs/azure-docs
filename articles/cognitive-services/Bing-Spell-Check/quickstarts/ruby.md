@@ -15,7 +15,7 @@ ms.custom: mode-api
 ---
 # Quickstart: Check spelling with the Bing Spell Check REST API and Ruby
 
-[!INCLUDE [Bing move notice](../../Bing-Web-Search/includes/bing-move-notice.md)]
+[!INCLUDE [Bing move notice](../../bing-web-search/includes/bing-move-notice.md)]
 
 Use this quickstart to make your first call to the Bing Spell Check REST API using Ruby. This simple application sends a request to the API and returns a list of suggested corrections. 
 

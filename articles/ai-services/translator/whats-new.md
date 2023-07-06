@@ -1,6 +1,6 @@
 ---
-title: What's new in Azure Cognitive Services Translator?
-titleSuffix: Azure Cognitive Services
+title: What's new in Azure AI Translator?
+titleSuffix: Azure AI services
 description: Learn of the latest changes to the Translator Service API.
 author: laujan
 manager: nitinme
@@ -15,7 +15,7 @@ ms.author: lajanuar
 <!-- markdownlint-disable MD036 -->
 <!-- markdownlint-disable MD001 -->
 
-# What's new in Azure Cognitive Services Translator?
+# What's new in Azure AI Translator?
 
 Bookmark this page to stay up to date with release notes, feature enhancements, and our newest documentation.
 
@@ -37,7 +37,7 @@ Translator service supports language translation for more than 100 languages. If
 
 * The Text translation SDKs are now available in public preview for C#/.NET, Java, JavaScript/TypeScript, and Python programming languages.
 * To learn more, see [Text translation SDK overview](text-sdk-overview.md).
-* To get started, try a [Text Translation SDK quickstart](quickstart-translator-sdk.md) using a programming language of your choice.
+* To get started, try a [Text Translation SDK quickstart](document-translation/document-sdk-overview.md) using a programming language of your choice.
 
 ### Microsoft Translator V3 Connector (preview)
 
@@ -153,11 +153,11 @@ These additions bring the total number of languages supported in Translator to 1
 
 ### [Text and document translation support for literary Chinese](https://www.microsoft.com/translator/blog/2021/08/25/microsoft-translator-releases-literary-chinese-translation/)
 
-* Azure Cognitive Services Translator has [text and document language support](language-support.md) for  literary Chinese. Classical or literary Chinese is a traditional style of written Chinese used by traditional Chinese poets and in ancient Chinese poetry.
+* Azure AI Translator has [text and document language support](language-support.md) for  literary Chinese. Classical or literary Chinese is a traditional style of written Chinese used by traditional Chinese poets and in ancient Chinese poetry.
 
 ## June 2021
 
-### [Document Translation client libraries for C#/.NET and Python](document-translation/how-to-guides/use-client-sdks.md)—now available in prerelease
+### [Document Translation client libraries for C#/.NET and Python](document-translation/document-sdk-overview.md)—now available in prerelease
 
 ## May 2021
 

@@ -1,6 +1,6 @@
 ---
 title: How to recognize intents from speech using the Speech SDK C#
-titleSuffix: Azure Cognitive Services
+titleSuffix: Azure AI services
 description: In this guide, you learn how to recognize intents from speech using the Speech SDK for C#.
 services: cognitive-services
 author: eric-urban
@@ -16,7 +16,7 @@ ms.custom: devx-track-csharp
 
 # How to recognize intents from speech using the Speech SDK for C#
 
-The Cognitive Services [Speech SDK](speech-sdk.md) integrates with the [Language Understanding service (LUIS)](https://www.luis.ai/home) to provide **intent recognition**. An intent is something the user wants to do: book a flight, check the weather, or make a call. The user can use whatever terms feel natural. Using machine learning, LUIS maps user requests to the intents you've defined.
+The Azure AI services [Speech SDK](speech-sdk.md) integrates with the [Language Understanding service (LUIS)](https://www.luis.ai/home) to provide **intent recognition**. An intent is something the user wants to do: book a flight, check the weather, or make a call. The user can use whatever terms feel natural. Using machine learning, LUIS maps user requests to the intents you've defined.
 
 > [!NOTE]
 > A LUIS application defines the intents and entities you want to recognize. It's separate from the C# application that uses the Speech service. In this article, "app" means the LUIS app, while "application" means the C# code.
@@ -82,7 +82,7 @@ To start, create the project in Visual Studio, and make sure that Visual Studio 
 
    If the check box next to **.NET desktop development** is already selected, select **Close** to exit the dialog box.
 
-   ![Enable .NET desktop development](~/articles/cognitive-services/speech-service/media/sdk/vs-enable-net-desktop-workload.png)
+   ![Enable .NET desktop development](~/articles/ai-services/speech-service/media/sdk/vs-enable-net-desktop-workload.png)
 
 1. Close Visual Studio Installer.
 
@@ -92,7 +92,7 @@ The next step is to install the [Speech SDK NuGet package](https://aka.ms/csspee
 
 1. In the Solution Explorer, right-click the **helloworld** project, and then select **Manage NuGet Packages** to show the NuGet Package Manager.
 
-   ![NuGet Package Manager](~/articles/cognitive-services/speech-service/media/sdk/vs-nuget-package-manager.png)
+   ![NuGet Package Manager](~/articles/ai-services/speech-service/media/sdk/vs-nuget-package-manager.png)
 
 1. In the upper-right corner, find the **Package Source** drop-down box, and make sure that **nuget.org** is selected.
 
@@ -102,7 +102,7 @@ The next step is to install the [Speech SDK NuGet package](https://aka.ms/csspee
 
 1. From the search results, select the **Microsoft.CognitiveServices.Speech** package, and then select **Install** to install the latest stable version.
 
-   ![Install Microsoft.CognitiveServices.Speech NuGet package](~/articles/cognitive-services/speech-service/media/sdk/qs-csharp-dotnet-windows-03-nuget-install-1.0.0.png)
+   ![Install Microsoft.CognitiveServices.Speech NuGet package](~/articles/ai-services/speech-service/media/sdk/qs-csharp-dotnet-windows-03-nuget-install-1.0.0.png)
 
 1. Accept all agreements and licenses to start the installation.
 
@@ -114,7 +114,7 @@ Now, to build and run the console application, create a platform configuration m
 
 1. From the menu bar, select **Build** > **Configuration Manager**. The **Configuration Manager** dialog box appears.
 
-   ![Configuration Manager dialog box](~/articles/cognitive-services/speech-service/media/sdk/vs-configuration-manager-dialog-box.png)
+   ![Configuration Manager dialog box](~/articles/ai-services/speech-service/media/sdk/vs-configuration-manager-dialog-box.png)
 
 1. In the **Active solution platform** drop-down box, select **New**. The **New Solution Platform** dialog box appears.
 
@@ -237,7 +237,7 @@ For example, if you say "Turn off the lights", pause, and then say "Turn on the 
 
 ![Audio file LUIS recognition results](media/sdk/luis-results-2.png)
 
-The Speech SDK team actively maintains a large set of examples in an open-source repository. For the sample source code repository, see the [Azure Cognitive Services Speech SDK on GitHub](https://aka.ms/csspeech/samples). There are samples for C#, C++, Java, Python, Objective-C, Swift, JavaScript, UWP, Unity, and Xamarin. Look for the code from this article in the **samples/csharp/sharedcontent/console** folder.
+The Speech SDK team actively maintains a large set of examples in an open-source repository. For the sample source code repository, see the [Azure AI services Speech SDK on GitHub](https://aka.ms/csspeech/samples). There are samples for C#, C++, Java, Python, Objective-C, Swift, JavaScript, UWP, Unity, and Xamarin. Look for the code from this article in the **samples/csharp/sharedcontent/console** folder.
 
 ## Next steps
 

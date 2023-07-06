@@ -1,7 +1,7 @@
 ---
 title: Azure Container Instance recipe
-titleSuffix: Azure Cognitive Services
-description: Learn how to deploy Cognitive Services Containers on Azure Container Instance
+titleSuffix: Azure AI services
+description: Learn how to deploy Azure AI services Containers on Azure Container Instance
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -10,24 +10,24 @@ ms.service: cognitive-services
 ms.topic: how-to
 ms.date: 12/18/2020
 ms.author: aahi
-#Customer intent: As a potential customer, I want to know more about how Cognitive Services provides and supports Docker containers for each service.
+#Customer intent: As a potential customer, I want to know more about how Azure AI services provides and supports Docker containers for each service.
 
 # https://github.com/Azure/cognitiveservices-aci
 ---
 
 # Deploy and run container on Azure Container Instance
 
-With the following steps, scale Azure Cognitive Services applications in the cloud easily with Azure [Container Instances](../../container-instances/index.yml). Containerization helps you focus on building your applications instead of managing the infrastructure. For more information on using containers, see [features and benefits](../cognitive-services-container-support.md#features-and-benefits).
+With the following steps, scale Azure AI services applications in the cloud easily with Azure [Container Instances](../../container-instances/index.yml). Containerization helps you focus on building your applications instead of managing the infrastructure. For more information on using containers, see [features and benefits](../cognitive-services-container-support.md#features-and-benefits).
 
 ## Prerequisites
 
-The recipe works with any Cognitive Services container. The Cognitive Service resource must be created before using the recipe. Each Cognitive Service that supports containers has a "How to install" article for installing and configuring the service for a container. Some services require a file or set of files as input for the container, it is important that you understand and have used the container successfully before using this solution.
+The recipe works with any Azure AI services container. The Cognitive Service resource must be created before using the recipe. Each Cognitive Service that supports containers has a "How to install" article for installing and configuring the service for a container. Some services require a file or set of files as input for the container, it is important that you understand and have used the container successfully before using this solution.
 
-* An Azure resource for the Azure Cognitive Service you're using.
+* An Azure resource for the Azure AI service you're using.
 * Cognitive Service **endpoint URL** - review your specific service's "How to install" for the container, to find where the endpoint URL is from within the Azure portal, and what a correct example of the URL looks like. The exact format can change from service to service.
 * Cognitive Service **key** - the keys are on the **Keys** page for the Azure resource. You only need one of the two keys. The key is a string of 32 alpha-numeric characters.
 
-* A single Cognitive Services Container on your local host (your computer). Make sure you can:
+* A single Azure AI services Container on your local host (your computer). Make sure you can:
   * Pull down the image with a `docker pull` command.
   * Run the local container successfully with all required configuration settings with a `docker run` command.
   * Call the container's endpoint, getting a response of HTTP 2xx and a JSON response back.
@@ -67,7 +67,7 @@ All variables in angle brackets, `<>`, need to be replaced with your own values.
 
 1. Select **Execute** to send the request to your Container Instance.
 
-    You have successfully created and used Cognitive Services containers in Azure Container Instance.
+    You have successfully created and used Azure AI services containers in Azure Container Instance.
 
 # [CLI](#tab/cli)
 

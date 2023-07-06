@@ -1,6 +1,6 @@
 ---
 title: Conversational Language Understanding Project Versioning
-titleSuffix: Azure Cognitive Services
+titleSuffix: Azure AI services
 description: Learn how versioning works in conversational language understanding
 services: cognitive-services
 author: aahill
@@ -17,7 +17,7 @@ ms.reviewer: haelhamm
 # Project versioning
 
 > [!NOTE]
-> This article applies to the following custom features in Azure Cognitive Service for Language:
+> This article applies to the following custom features in Azure AI Language:
 > * Conversational language understanding
 > * Custom text classification
 > * Custom NER

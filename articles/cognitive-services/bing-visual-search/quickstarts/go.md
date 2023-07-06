@@ -16,7 +16,7 @@ ms.custom: mode-api
 
 # Quickstart: Get image insights using the Bing Visual Search REST API and Go
 
-[!INCLUDE [Bing move notice](../../Bing-Web-Search/includes/bing-move-notice.md)]
+[!INCLUDE [Bing move notice](../../bing-web-search/includes/bing-move-notice.md)]
 
 Use this quickstart to make your first call to the Bing Visual Search API using the Go programming language. A POST request uploads an image to the API endpoint. The results include URLs and descriptive information about images similar to the uploaded image.
 
@@ -297,4 +297,4 @@ The results identify images similar to the image contained in the POST body. The
 
 > [!div class="nextstepaction"]
 > [What is the Bing Visual Search API?](../overview.md)
-> [Bing Web Search quickstart in Go](../../Bing-Web-Search/quickstarts/go.md)
+> [Bing Web Search quickstart in Go](../../bing-web-search/quickstarts/go.md)

@@ -1,6 +1,6 @@
 ---
 title: 'Troubleshooting guide for a Custom Commands application at runtime'
-titleSuffix: Azure Cognitive Services
+titleSuffix: Azure AI services
 description: In this article, you learn how to debug runtime errors in a Custom Commands application.
 services: cognitive-services
 author: eric-urban
@@ -122,7 +122,7 @@ A few checks to start with:
 
     The LUIS recognition accuracy may get affected when two commands share similar intents and examples sentences. You can try to make commands functionality and example sentences as distinct as possible.
 
-    For best practice of improving recognition accuracy, refer [LUIS best practice](../luis/luis-concept-best-practices.md).
+    For best practice of improving recognition accuracy, refer [LUIS best practice](../luis/faq.md).
 
 - Dialog is canceled
     

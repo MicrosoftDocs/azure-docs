@@ -70,14 +70,14 @@ Use these keys when making requests to the service through APIs.
 
 |Name|Location|Purpose|
 |--|--|--|
-|Authoring/Subscription key|[Azure portal](https://azure.microsoft.com/free/cognitive-services/)|These keys are used to access the Language service APIs). These APIs let you edit the questions and answers in your project, and publish your project. These keys are created when you create a new resource.<br><br>Find these keys on the **Cognitive Services** resource on the **Keys and Endpoint** page.|
+|Authoring/Subscription key|[Azure portal](https://azure.microsoft.com/free/cognitive-services/)|These keys are used to access the Language service APIs). These APIs let you edit the questions and answers in your project, and publish your project. These keys are created when you create a new resource.<br><br>Find these keys on the **Azure AI services** resource on the **Keys and Endpoint** page.|
 |Azure Cognitive Search Admin Key|[Azure portal](../../../../search/search-security-api-keys.md)|These keys are used to communicate with the Azure cognitive search service deployed in the user’s Azure subscription. When you associate an Azure Cognitive Search resource with the custom question answering feature, the admin key is automatically passed to question answering. <br><br>You can find these keys on the **Azure Cognitive Search** resource on the **Keys** page.|
 
 ### Find authoring keys in the Azure portal
 
 You can view and reset your authoring keys from the Azure portal, where you added the custom question answering feature in your language resource.
 
-1. Go to the language resource in the Azure portal and select the resource that has the *Cognitive Services* type:
+1. Go to the language resource in the Azure portal and select the resource that has the *Azure AI services* type:
 
     > [!div class="mx-imgBorder"]
     > ![Screenshot of question answering resource list.](../../../qnamaker/media/qnamaker-how-to-setup-service/resources-created-question-answering.png)

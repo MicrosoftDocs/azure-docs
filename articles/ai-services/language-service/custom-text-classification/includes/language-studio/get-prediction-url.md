@@ -9,7 +9,7 @@ ms.date: 05/04/2022
 ms.author: aahi
 ---
 
-1. After the deployment job is completed successfully, select the deployment you want to use and from the top menu click on **Get prediction URL**.
+1. After the deployment job is completed successfully, select the deployment you want to use and from the top menu select **Get prediction URL**.
 
     :::image type="content" source="../../media/get-prediction-url-1.png" alt-text="A screenshot showing the button to get the prediction URL." lightbox="../../media/get-prediction-url-1.png":::
 

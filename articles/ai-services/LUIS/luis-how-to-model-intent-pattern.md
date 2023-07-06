@@ -1,6 +1,6 @@
 ---
 title: Patterns add accuracy - LUIS
-titleSuffix: Azure Cognitive Services
+titleSuffix: Azure AI services
 description: Add pattern templates to improve prediction accuracy in Language Understanding (LUIS) applications.
 services: cognitive-services
 author: aahill
@@ -17,10 +17,10 @@ ms.date: 01/07/2022
 
 [!INCLUDE [deprecation notice](./includes/deprecation-notice.md)]
 
-After a LUIS app receives endpoint utterances, use a [pattern](luis-concept-patterns.md) to improve prediction accuracy for utterances that reveal a pattern in word order and word choice. Patterns use specific [syntax](luis-concept-patterns.md#pattern-syntax) to indicate the location of: [entities](luis-concept-entity-types.md), entity [roles](./luis-concept-entity-types.md), and optional text.
+After a LUIS app receives endpoint utterances, use a [pattern](concepts/patterns-features.md) to improve prediction accuracy for utterances that reveal a pattern in word order and word choice. Patterns use specific [syntax](concepts/patterns-features.md) to indicate the location of: [entities](concepts/entities.md), entity [roles](./concepts/entities.md), and optional text.
 
 >[!Note] 
->* After you add, edit, remove, or reassign a pattern, [train](luis-how-to-train.md) and [publish](luis-how-to-publish-app.md) your app for your changes to affect endpoint queries.
+>* After you add, edit, remove, or reassign a pattern, [train](how-to/train-test.md) and [publish](how-to/publish.md) your app for your changes to affect endpoint queries.
 >* Patterns only include machine-learning entity parents, not subentities.
 
 ## Add template utterance using correct syntax
@@ -36,19 +36,19 @@ After a LUIS app receives endpoint utterances, use a [pattern](luis-concept-patt
     > [!div class="mx-imgBorder"]
     > ![Screenshot of entity for pattern](./media/luis-how-to-model-intent-pattern/patterns-3.png)
 
-    If your entity includes a [role](./luis-concept-entity-types.md), indicate the role with a single colon, `:`, after the entity name, such as `{Location:Origin}`. The list of roles for the entities displays in a list. Select the role, and then select Enter.
+    If your entity includes a [role](./concepts/entities.md), indicate the role with a single colon, `:`, after the entity name, such as `{Location:Origin}`. The list of roles for the entities displays in a list. Select the role, and then select Enter.
 
     > [!div class="mx-imgBorder"]
     > ![Screenshot of entity with role](./media/luis-how-to-model-intent-pattern/patterns-4.png)
 
-    After you select the correct entity, finish entering the pattern, and then select Enter. When you are done entering patterns, [train](luis-how-to-train.md) your app.
+    After you select the correct entity, finish entering the pattern, and then select Enter. When you are done entering patterns, [train](how-to/train-test.md) your app.
 
     > [!div class="mx-imgBorder"]
     > ![Screenshot of entered pattern with both types of entities](./media/luis-how-to-model-intent-pattern/patterns-5.png)
 
 ## Create a pattern.any entity
 
-[Pattern.any](luis-concept-entity-types.md) entities are only valid in [patterns](luis-how-to-model-intent-pattern.md), not intents' example utterances. This type of entity helps LUIS find the end of entities of varying length and word choice. Because this entity is used in a pattern, LUIS knows where the end of the entity is in the utterance template.
+[Pattern.any](concepts/entities.md) entities are only valid in [patterns](luis-how-to-model-intent-pattern.md), not intents' example utterances. This type of entity helps LUIS find the end of entities of varying length and word choice. Because this entity is used in a pattern, LUIS knows where the end of the entity is in the utterance template.
 
 1. Sign in to the [LUIS portal](https://www.luis.ai), and select your **Subscription** and **Authoring resource** to see the apps assigned to that authoring resource.
 1. Open your app by selecting its name on **My Apps** page.
@@ -150,9 +150,9 @@ For a pattern to be matched to an utterance, _first_ the entities within the utt
 
 To add an entity as a feature to an intent, select the intent from the Intents page, then select  **+ Add feature**  above the contextual toolbar. The list will include all phrase lists and entities that can be applied as features.
 
-To add an entity as a feature to another entity, you can add the feature either on the Intent detail page using the [Entity Palette](/azure/cognitive-services/luis/label-entity-example-utterance#adding-entity-as-a-feature-from-the-entity-palette) or you can add the feature on the Entity detail page.
+To add an entity as a feature to another entity, you can add the feature either on the Intent detail page using the [Entity Palette](./how-to/entities.md) or you can add the feature on the Entity detail page.
 
 
 ## Next steps
 
-* [Train and test](luis-how-to-train.md) your app after improvement.
+* [Train and test](how-to/train-test.md) your app after improvement.

@@ -16,7 +16,7 @@ ms.custom: seodec2018, mode-api
 ---
 # Quickstart: Search for images using the Bing Image Search REST API and Ruby
 
-[!INCLUDE [Bing move notice](../../Bing-Web-Search/includes/bing-move-notice.md)]
+[!INCLUDE [Bing move notice](../../bing-web-search/includes/bing-move-notice.md)]
 
 Use this quickstart to make your first call to the Bing Image Search API and receive a JSON response. This simple Ruby application sends a search query to the API and displays the raw results.
 

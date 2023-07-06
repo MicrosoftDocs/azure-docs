@@ -1,6 +1,6 @@
 ---
-title: "Quickstart: Azure Cognitive Services Translator REST APIs"
-titleSuffix: Azure Cognitive Services
+title: "Quickstart: Azure AI Translator REST APIs"
+titleSuffix: Azure AI services
 description: "Learn to translate text with the Translator service REST APIs. Examples are provided in C#, Go, Java, JavaScript and Python."
 services: cognitive-services
 author: laujan
@@ -19,9 +19,9 @@ ms.devlang: csharp, golang, java, javascript, python
 <!-- markdownlint-disable MD036 -->
 <!-- markdownlint-disable MD049 -->
 
-# Quickstart: Azure Cognitive Services Translator REST APIs
+# Quickstart: Azure AI Translator REST APIs
 
-Try the latest version of Azure Translator. In this quickstart, get started using the Translator service to [translate text](reference/v3-0-translate.md) using a programming language of your choice or the REST API. For this project, we recommend using the free pricing tier (F0), while you're learning the technology, and later upgrading to a paid tier for production.
+Try the latest version of Azure AI Translator. In this quickstart, get started using the Translator service to [translate text](reference/v3-0-translate.md) using a programming language of your choice or the REST API. For this project, we recommend using the free pricing tier (F0), while you're learning the technology, and later upgrading to a paid tier for production.
 
 ## Prerequisites
 
@@ -39,7 +39,7 @@ You need an active Azure subscription. If you don't have an Azure subscription, 
     >
     > * For this quickstart it is recommended that you use a Translator text single-service global resource.
     > * With a single-service global resource you'll include one authorization header (**Ocp-Apim-Subscription-key**) with the REST API request. The value for Ocp-Apim-Subscription-key is your Azure secret key for your Translator Text subscription.
-    > * If you choose to use the multi-service Cognitive Services or regional Translator resource, two authentication headers will be required: (**Ocp-Api-Subscription-Key** and **Ocp-Apim-Subscription-Region**). The value for Ocp-Apim-Subscription-Region is the region associated with your subscription.
+    > * If you choose to use an Azure AI multi-service or regional Translator resource, two authentication headers will be required: (**Ocp-Api-Subscription-Key** and **Ocp-Apim-Subscription-Region**). The value for Ocp-Apim-Subscription-Region is the region associated with your subscription.
     > * For more information on how to use the **Ocp-Apim-Subscription-Region** header, _see_ [Text Translator REST API headers](translator-text-apis.md).
 
 <!-- checked -->
@@ -57,19 +57,19 @@ For more information on Translator authentication options, _see_ the [Translator
 Header|Value| Condition  |
 |--- |:--- |:---|
 |**Ocp-Apim-Subscription-Key** |Your Translator service key from the Azure portal.|&bullet; ***Required***|
-|**Ocp-Apim-Subscription-Region**|The region where your resource was created. |&bullet; ***Required*** when using a multi-service Cognitive Services or regional (geographic) resource like **West US**.</br>&bullet; ***Optional*** when using a single-service global Translator Resource.
+|**Ocp-Apim-Subscription-Region**|The region where your resource was created. |&bullet; ***Required*** when using an Azure AI multi-service or regional (geographic) resource like **West US**.</br>&bullet; ***Optional*** when using a single-service global Translator Resource.
 |**Content-Type**|The content type of the payload. The accepted value is **application/json** or **charset=UTF-8**.|&bullet; **Required**|
 |**Content-Length**|The **length of the request** body.|&bullet; ***Optional***|
 
 > [!IMPORTANT]
 >
-> Remember to remove the key from your code when you're done, and never post it publicly. For production, use a secure way of storing and accessing your credentials like [Azure Key Vault](../../key-vault/general/overview.md). For more information, _see_ the Cognitive Services [security](../security-features.md) article.
+> Remember to remove the key from your code when you're done, and never post it publicly. For production, use a secure way of storing and accessing your credentials like [Azure Key Vault](../../key-vault/general/overview.md). For more information, _see_ the Azure AI services [security](../security-features.md) article.
 
 ## Translate text
 
 The core operation of the Translator service is translating text. In this quickstart, you build a request using a programming language of your choice that takes a single source (`from`) and provides two outputs (`to`). Then we review some parameters that can be used to adjust both the request and the response.
 
-For detailed information regarding Azure Translator Service request limits, *see* [**Text translation request limits**](service-limits.md#text-translation).
+For detailed information regarding Azure AI Translator service request limits, *see* [**Text translation request limits**](service-limits.md#text-translation).
 
 ### [C#: Visual Studio](#tab/csharp)
 

@@ -1,6 +1,6 @@
 ---
 title: Voice assistants overview - Speech service
-titleSuffix: Azure Cognitive Services
+titleSuffix: Azure AI services
 description: An overview of the features, capabilities, and restrictions for voice assistants with the Speech SDK.
 services: cognitive-services
 author: trrwilson
@@ -19,7 +19,7 @@ By using voice assistants with the Speech service, developers can create natural
 
 ## Choose an assistant solution
 
-The first step in creating a voice assistant is to decide what you want it to do. Speech service provides multiple, complementary solutions for crafting assistant interactions. You might want your application to support an open-ended conversation with phrases such as "I need to go to Seattle" or "What kind of pizza can I order?" For flexibility and versatility, you can add voice in and voice out capabilities to a bot by using Azure Bot Service with the [Direct Line Speech](direct-line-speech.md) channel. 
+The first step in creating a voice assistant is to decide what you want it to do. Speech service provides multiple, complementary solutions for crafting assistant interactions. You might want your application to support an open-ended conversation with phrases such as "I need to go to Seattle" or "What kind of pizza can I order?" For flexibility and versatility, you can add voice in and voice out capabilities to a bot by using Azure AI Bot Service with the [Direct Line Speech](direct-line-speech.md) channel. 
 
 If you aren't yet sure what you want your assistant to do, we recommend [Direct Line Speech](direct-line-speech.md) as the best option. It offers integration with a rich set of tools and authoring aids, such as the [Virtual Assistant solution and enterprise template](/azure/bot-service/bot-builder-enterprise-template-overview) and the [QnA Maker service](../qnamaker/overview/overview.md), to build on common patterns and use your existing knowledge sources.
 
@@ -46,7 +46,7 @@ We offer the following quickstart article that's designed to have you running co
 Sample code for creating a voice assistant is available on GitHub. The samples cover the client application for connecting to your assistant in several popular programming languages.
 
 * [Voice assistant samples on GitHub](https://github.com/Azure-Samples/Cognitive-Services-Voice-Assistant)
-* [Tutorial: Voice-enable an assistant that's built by using Azure Bot Service with the C# Speech SDK](tutorial-voice-enable-your-bot-speech-sdk.md)
+* [Tutorial: Voice-enable an assistant that's built by using Azure AI Bot Service with the C# Speech SDK](tutorial-voice-enable-your-bot-speech-sdk.md)
 
 ## Customization
 

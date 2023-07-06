@@ -16,7 +16,7 @@ ms.custom:
 ---
 # Tutorial: Get search suggestions on a web page
 
-[!INCLUDE [Bing move notice](../../Bing-Web-Search/includes/bing-move-notice.md)]
+[!INCLUDE [Bing move notice](../../bing-web-search/includes/bing-move-notice.md)]
 
 In this tutorial, we'll build a Web page that allows users to query the Bing Autosuggest API.
 

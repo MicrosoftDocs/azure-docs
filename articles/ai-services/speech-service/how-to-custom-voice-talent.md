@@ -1,6 +1,6 @@
 ---
 title: "Set up voice talent for custom neural voice - Speech service"
-titleSuffix: Azure Cognitive Services
+titleSuffix: Azure AI services
 description: Create a voice talent profile with an audio file recorded by the voice talent, consenting to the usage of their speech data to train a custom voice model.
 services: cognitive-services
 author: eric-urban
@@ -21,7 +21,7 @@ Before you can train a neural voice, you must submit a recording of the voice ta
 > [!TIP]
 > Before you get started in Speech Studio, define your voice [persona and choose the right voice talent](record-custom-voice-samples.md#choose-your-voice-talent).
 
-You can find the verbal consent statement in multiple languages on [GitHub](https://github.com/Azure-Samples/Cognitive-Speech-TTS/blob/master/CustomVoice/script/verbal-statement-all-locales.txt). The language of the verbal statement must be the same as your recording. See also the [disclosure for voice talent](/legal/cognitive-services/speech-service/disclosure-voice-talent?context=/azure/cognitive-services/speech-service/context/context).
+You can find the verbal consent statement in multiple languages on [GitHub](https://github.com/Azure-Samples/Cognitive-Speech-TTS/blob/master/CustomVoice/script/verbal-statement-all-locales.txt). The language of the verbal statement must be the same as your recording. See also the [disclosure for voice talent](/legal/cognitive-services/speech-service/disclosure-voice-talent?context=/azure/ai-services/speech-service/context/context).
 
 ## Add voice talent
 

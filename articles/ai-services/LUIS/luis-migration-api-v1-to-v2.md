@@ -1,6 +1,6 @@
 ---
 title: v1 to v2 API Migration
-titleSuffix: Azure Cognitive Services
+titleSuffix: Azure AI services
 description: The version 1 endpoint and authoring Language Understanding APIs are deprecated. Use this guide to understand how to migrate to version 2 endpoint  and authoring APIs.
 services: cognitive-services
 ms.author: aahi
@@ -132,7 +132,7 @@ Several APIs that return LUIS metadata have new names.
 
 
 ## "Sample" renamed to "suggest"
-LUIS suggests utterances from existing [endpoint utterances](luis-how-to-review-endpoint-utterances.md) that may enhance the model. In the previous version, this was named **sample**. In the new version, the name is changed from sample to **suggest**. This is called **[Review endpoint utterances](luis-how-to-review-endpoint-utterances.md)** in the LUIS website.
+LUIS suggests utterances from existing [endpoint utterances](how-to/improve-application.md) that may enhance the model. In the previous version, this was named **sample**. In the new version, the name is changed from sample to **suggest**. This is called **[Review endpoint utterances](how-to/improve-application.md)** in the LUIS website.
 
 | version | route |
 |--|--|

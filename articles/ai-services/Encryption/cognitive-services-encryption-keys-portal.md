@@ -1,6 +1,6 @@
 ---
-title: Customer-Managed Keys for Cognitive Services
-titleSuffix: Cognitive Services
+title: Customer-Managed Keys for Azure AI services
+titleSuffix: Azure AI services
 description: Learn how to use the Azure portal to configure customer-managed keys with Azure Key Vault. Customer-managed keys enable you to create, rotate, disable, and revoke access controls.
 services: cognitive-services
 author: erindormier
@@ -11,15 +11,15 @@ ms.date: 04/07/2021
 ms.author: egeaney
 ---
 
-# Configure customer-managed keys with Azure Key Vault for Cognitive Services
+# Configure customer-managed keys with Azure Key Vault for Azure AI services
 
-The process to enable Customer-Managed Keys with Azure Key Vault for Cognitive Services varies by product. Use these links for service-specific instructions:
+The process to enable Customer-Managed Keys with Azure Key Vault for Azure AI services varies by product. Use these links for service-specific instructions:
 
 ## Vision
 
 * [Custom Vision encryption of data at rest](../custom-vision-service/encrypt-data-at-rest.md)
-* [Face Services encryption of data at rest](../face/encrypt-data-at-rest.md)
-* [Form Recognizer encryption of data at rest](../../applied-ai-services/form-recognizer/encrypt-data-at-rest.md)
+* [Face Services encryption of data at rest](../computer-vision/identity-encrypt-data-at-rest.md)
+* [Document Intelligence encryption of data at rest](../../ai-services/document-intelligence/encrypt-data-at-rest.md)
 
 ## Language
 
@@ -45,4 +45,4 @@ The process to enable Customer-Managed Keys with Azure Key Vault for Cognitive S
 ## Next steps
 
 * [What is Azure Key Vault](../../key-vault/general/overview.md)?
-* [Cognitive Services Customer-Managed Key Request Form](https://aka.ms/cogsvc-cmk)
+* [Azure AI services Customer-Managed Key Request Form](https://aka.ms/cogsvc-cmk)

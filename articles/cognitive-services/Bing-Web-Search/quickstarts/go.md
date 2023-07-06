@@ -18,7 +18,7 @@ ms.custom: seodec2018, mode-api
 
 # Quickstart: Search the web using the Bing Web Search REST API and Go
 
-[!INCLUDE [Bing move notice](../../Bing-Web-Search/includes/bing-move-notice.md)]
+[!INCLUDE [Bing move notice](../../bing-web-search/includes/bing-move-notice.md)]
 
 Use this quickstart to make your first call to the Bing Web Search API. This Go application sends a search request to the API, and shows the JSON response. Although this application is written in Go, the API is a RESTful Web service compatible with most programming languages.
 
@@ -317,7 +317,7 @@ Responses from the Bing Web Search API are returned as JSON. This sample respons
 ```go
 Microsoft Cognitive Services || https://www.microsoft.com/cognitive-services
 Cognitive Services | Microsoft Azure || https://azure.microsoft.com/services/cognitive-services/
-What is Microsoft Cognitive Services? | Microsoft Docs || https://learn.microsoft.com/azure/cognitive-services/Welcome
+What is Microsoft Cognitive Services? | Microsoft Docs || https://learn.microsoft.com/azure/ai-services/Welcome
 Microsoft Cognitive Toolkit || https://www.microsoft.com/en-us/cognitive-toolkit/
 Microsoft Customers || https://customers.microsoft.com/en-us/search?sq=%22Microsoft%20Cognitive%20Services%22&ff=&p=0&so=story_publish_date%20desc
 Microsoft Enterprise Services - Microsoft Enterprise || https://enterprise.microsoft.com/en-us/services/

@@ -64,7 +64,7 @@ pip install azure-ai-translation-document==1.0.0
 ### Code Sample
 
 > [!IMPORTANT]
-> Remember to remove the key from your code when you're done, and never post it publicly. For production, use a secure way of storing and accessing your credentials like [Azure Key Vault](../../../../../../key-vault/general/overview.md). For more information, *see* Cognitive Services [security](../../../../../../cognitive-services/security-features.md).
+> Remember to remove the key from your code when you're done, and never post it publicly. For production, use a secure way of storing and accessing your credentials like [Azure Key Vault](../../../../../../key-vault/general/overview.md). For more information, *see* Azure AI services [security](../../../../../../ai-services/security-features.md).
 
 **Enter the following code sample into your Python application:**
 
@@ -82,7 +82,7 @@ targetUri = "<your-container-targetUrl>"
 targetLanguage = "<target-language-code>"
 
 
-# initialize a new instance of the DocumentTranslationClient object to interact with the Azure Document Translation Service
+# initialize a new instance of the DocumentTranslationClient object to interact with the Document Translation feature
 client = DocumentTranslationClient(endpoint, AzureKeyCredential(key))
 
 # include source and target locations and target language code for the begin translation operation

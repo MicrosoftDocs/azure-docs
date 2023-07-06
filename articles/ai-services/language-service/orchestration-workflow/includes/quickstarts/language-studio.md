@@ -38,12 +38,12 @@ After you complete the conversational language understanding quickstart and crea
 
 To connect to the previously created conversational language understanding project:
 
-* In the **build schema** page in your orchestration project, click on **Add**, to add an intent.
+* In the **build schema** page in your orchestration project, select **Add**, to add an intent.
 * In the window that appears, give your intent a name.
 * Select **Yes, I want to connect it to an existing project**.
 * From the connected services dropdown, select **Conversational Language Understanding**.
 * From the project name dropdown, select your conversational language understanding project.
-* Click on **Add intent** to create your intent.
+* Select **Add intent** to create your intent.
 
 
 
