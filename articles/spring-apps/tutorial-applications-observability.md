@@ -27,7 +27,7 @@ As a distributed application manager in production, you should focus on the foll
 - **Alerts**: Know the current state of the application. Proactively notify managers and perform associated actionable actions when the application is abnormal.
 
 This article shows you how to observe your production applications deployed on Azure Spring Apps, 
-as well as diagnose and investigate production issues.
+and diagnose and investigate production issues.
 We use the well-known sample app [PetClinic](https://github.com/azure-samples/spring-petclinic-microservices) as a production program.
 You can follow [Deploy microservice applications to Azure Spring Apps](./quickstart-deploy-microservice-apps.md) 
 and [Run microservice apps(Pet Clinic) with Azure Database for MySQL](./quickstart-integrate-azure-database-mysql.md) quickstarts to deploy the PetClinic project to Azure Spring Apps and use MySQL as the persistent store.
