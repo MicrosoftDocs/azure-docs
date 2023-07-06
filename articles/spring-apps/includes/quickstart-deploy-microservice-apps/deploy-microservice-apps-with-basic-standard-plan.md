@@ -51,7 +51,7 @@ Use the following steps to create the service instance:
 
    :::image type="content" source="../../media/quickstart-deploy-microservice-apps/create-azure-spring-apps.png" alt-text="Screenshot of the Azure portal showing the Create a Resource Page page with Azure Spring Apps highlighted." lightbox="../../media/quickstart-deploy-microservice-apps/create-azure-spring-apps.png":::
 
-1. On the **Create Azure Spring Apps** page, switch the **Plan** from `Standard consumption & dedicated (preview)` to `Basic` first, and then fill out the form on the **Basics** tab.
+1. On the **Create Azure Spring Apps** page, switch the **Plan** to `Basic` first, and then fill out the form on the **Basics** tab.
 
    :::image type="content" source="../../media/quickstart-deploy-microservice-apps/create-basics.png" alt-text="Screenshot of the Azure portal showing the Create Azure Spring Apps page with the Basics tab selected." lightbox="../../media/quickstart-deploy-microservice-apps/create-basics.png":::
 
