@@ -28,6 +28,8 @@ Learn more about the Azure AD integration flow in the [Azure AD documentation](c
 * If you're using [helm](https://github.com/helm/helm), you need a minimum version of helm 3.3.
 * This configuration requires you have an Azure AD group for your cluster. This group is registered as an admin group on the cluster to grant admin permissions. If you don't have an existing Azure AD group, you can create one using the [`az ad group create`](/cli/azure/ad/group#az_ad_group_create) command.
 
+## Enable AKS-managed Azure AD integration on your AKS cluster
+
 ### Create a new cluster
 
 1. Create an Azure resource group using the [`az group create`][az-group-create] command.
