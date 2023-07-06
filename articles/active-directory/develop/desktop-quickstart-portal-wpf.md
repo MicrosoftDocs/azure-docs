@@ -127,7 +127,7 @@ ms.custom: aaddev, identityplatformtop40, mode-api
 > | `scopes` | Contains the scopes being requested, such as `{ "user.read" }` for Microsoft Graph or `{ "api://<Application ID>/access_as_user" }` for custom web APIs. |
 > | `firstAccount` | Specifies the first user in the cache (MSAL support multiple users in a single app). |
 > 
-> [!INCLUDE [Help and support](../../../includes/active-directory-develop-help-support-include.md)]
+> [!INCLUDE [Help and support](../includes/help-support-include.md)]
 > 
 > ## Next steps
 > 
