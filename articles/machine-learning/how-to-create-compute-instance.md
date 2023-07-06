@@ -320,7 +320,7 @@ ml_client.compute.begin_create_or_update(my_compute)
 
 # [Azure CLI](#tab/azure-cli)
 
-[!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
+[!INCLUDE [cli v2](includes/machine-learning-cli-v2.md)]
 
 ```azurecli
 az ml compute create -f create-instance.yml
@@ -615,7 +615,7 @@ az login --identity --username $DEFAULT_IDENTITY_CLIENT_ID
 
 SSH access is disabled by default.  SSH access can't be enabled or disabled after creation. Make sure to enable access if you plan to debug interactively with [VS Code Remote](how-to-set-up-vs-code-remote.md).  
 
-[!INCLUDE [amlinclude-info](../../includes/machine-learning-enable-ssh.md)]
+[!INCLUDE [amlinclude-info](includes/machine-learning-enable-ssh.md)]
 
 ### Set up an SSH key later
 
@@ -625,7 +625,7 @@ An example of a common use case for this is when creating a compute instance on 
 
 ### Connect with SSH
 
-[!INCLUDE [ssh-access](../../includes/machine-learning-ssh-access.md)]
+[!INCLUDE [ssh-access](includes/machine-learning-ssh-access.md)]
 
 * REST API
 
