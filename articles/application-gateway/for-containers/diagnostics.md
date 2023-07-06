@@ -7,7 +7,7 @@ author: greglin
 ms.service: application-gateway
 ms.subservice: traffic-controller
 ms.topic: article
-ms.date: 6/20/2023
+ms.date: 7/7/2023
 ms.author: greglin
 ---
 
@@ -48,8 +48,9 @@ More information on diagnostic settings in Azure Monitor and deployment tutorial
 ### Access log format
 
 Each access log entry in Application Gateway for Containers will contain the following information.
-|Value  |Description  |
-|---------|---------|
+
+| Value | Description |
+| ----- | ----------- |
 |[broken link for update](../../azure-monitorbrokenlink.md).||
 
 Here an example of the access log emitted in JSON format to a storage account.
