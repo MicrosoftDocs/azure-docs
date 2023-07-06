@@ -40,7 +40,7 @@ This document defines each of the resource types for `alb.networking.azure.io/v1
 <td><p>AffinityTypeApplicationCookie is a session affinity type for an application cookie</p>
 </td>
 </tr><tr><td><p>&#34;managed-cookie&#34;</p></td>
-<td><p>AffinityTypeManagedCookie is a session affinity type for an managed cookie</p>
+<td><p>AffinityTypeManagedCookie is a session affinity type for a managed cookie</p>
 </td>
 </tr></tbody>
 </table>
@@ -119,7 +119,7 @@ is ready to serve traffic.</p>
 </em>
 </td>
 <td>
-<p>Associations is a list of subnet resource IDs the Application Gateway for Containers resource will be associated with.</p>
+<p>Associations is a list of subnet resource IDs the Application Gateway for Containers resource is associated with.</p>
 </td>
 </tr>
 </tbody>
@@ -211,7 +211,7 @@ AlbSpec
 </em>
 </td>
 <td>
-<p>Associations is a list of subnet resource IDs the Application Gateway for Containers resource will be associated with.</p>
+<p>Associations is a list of subnet resource IDs the Application Gateway for Containers resource is associated with.</p>
 </td>
 </tr>
 </table>
@@ -356,7 +356,7 @@ particular BackendTLSPolicy condition type has been raised.</p>
 When the given BackendTLSPolicy is correctly configured</p>
 </td>
 </tr><tr><td><p>&#34;InvalidBackendTLSPolicy&#34;</p></td>
-<td><p>BackendTLSPolicyReasonInvalid is the reason when the BackendTLSPolicy is not Accepted</p>
+<td><p>BackendTLSPolicyReasonInvalid is the reason when the BackendTLSPolicy isn't Accepted</p>
 </td>
 </tr><tr><td><p>&#34;InvalidKind&#34;</p></td>
 <td><p>BackendTLSPolicyReasonInvalidKind is used when the kind/group is invalid</p>
@@ -365,13 +365,13 @@ When the given BackendTLSPolicy is correctly configured</p>
 <td><p>BackendTLSPolicyReasonNoTargetReference is used when there is no target reference</p>
 </td>
 </tr><tr><td><p>&#34;RefNotPermitted&#34;</p></td>
-<td><p>BackendTLSPolicyReasonRefNotPermitted is used when the ref is not permitted</p>
+<td><p>BackendTLSPolicyReasonRefNotPermitted is used when the ref isn't permitted</p>
 </td>
 </tr><tr><td><p>&#34;ServiceNotFound&#34;</p></td>
-<td><p>BackendTLSPolicyReasonServiceNotFound is used when the ref service is not found</p>
+<td><p>BackendTLSPolicyReasonServiceNotFound is used when the ref service isn't found</p>
 </td>
 </tr><tr><td><p>&#34;Degraded&#34;</p></td>
-<td><p>ReasonDegraded is the the backendTLSPolicyConditionReason when the backendTLSPolicy has been incorrectly programmed</p>
+<td><p>ReasonDegraded is the backendTLSPolicyConditionReason when the backendTLSPolicy has been incorrectly programmed</p>
 </td>
 </tr></tbody>
 </table>
@@ -397,7 +397,7 @@ field.</p>
 </td>
 </tr><tr><td><p>&#34;ResolvedRefs&#34;</p></td>
 <td><p>BackendTLSPolicyConditionResolvedRefs is used to set the BackendTLSPolicyCondition to ResolvedRefs
-This is used with the following Reasons :
+This is used with the following Reasons:
 *BackendTLSPolicyReasonRefNotPermitted
 *BackendTLSPolicyReasonInvalidKind
 *BackendTLSPolicyReasonServiceNotFound
@@ -692,7 +692,7 @@ certificate of the backend.</p>
 (<em>Appears on:</em><a href="#alb.networking.azure.io/v1.FrontendTLSPolicySpec">FrontendTLSPolicySpec</a>)
 </p>
 <div>
-<p>CustomTargetRef is a reference to a custom resource that is not part of the
+<p>CustomTargetRef is a reference to a custom resource that isn't part of the
 Kubernetes core API.</p>
 </div>
 <table>
@@ -897,14 +897,14 @@ particular FrontTLSPolicy condition type has been raised.</p>
 <td><p>FrontTLSPolicyReasonNoTargetReference is used when there is no target reference</p>
 </td>
 </tr><tr><td><p>&#34;RefNotPermitted&#34;</p></td>
-<td><p>FrontTLSPolicyReasonRefNotPermitted is used when the ref is not permitted</p>
+<td><p>FrontTLSPolicyReasonRefNotPermitted is used when the ref isn't permitted</p>
 </td>
 </tr><tr><td><p>&#34;Accepted&#34;</p></td>
 <td><p>FrontendTLSPolicyReasonAccepted is used to set the FrontTLSPolicyConditionReason to Accepted
 When the given FrontTLSPolicy is correctly configured</p>
 </td>
 </tr><tr><td><p>&#34;InvalidFrontendTLSPolicy&#34;</p></td>
-<td><p>FrontendTLSPolicyReasonInvalid is the reason when the FrontendTLSPolicy is not Accepted</p>
+<td><p>FrontendTLSPolicyReasonInvalid is the reason when the FrontendTLSPolicy isn't Accepted</p>
 </td>
 </tr><tr><td><p>&#34;InvalidGateway&#34;</p></td>
 <td><p>FrontendTLSPolicyReasonInvalidGateway is used when the gateway is invalid</p>
@@ -1468,7 +1468,7 @@ string
 </em>
 </td>
 <td>
-<p>BackendHost is the hostname that an incoming request will be mutated to use before being forwarded to the baackend</p>
+<p>BackendHost is the hostname that an incoming request is mutated to use before being forwarded to the backend</p>
 </td>
 </tr>
 </tbody>
@@ -1624,7 +1624,7 @@ string
 </td>
 <td>
 <em>(Optional)</em>
-<p>PathPrefixOverride will mutate requests going to the backend to be prefixed with this value</p>
+<p>PathPrefixOverride mutates requests going to the backend to be prefixed with this value</p>
 </td>
 </tr>
 <tr>
@@ -1851,7 +1851,7 @@ IngressExtensionSpec
 (<em>Appears on:</em><a href="#alb.networking.azure.io/v1.IngressListenerSetting">IngressListenerSetting</a>)
 </p>
 <div>
-<p>IngressListenerPort describes a port a listener will listen on.</p>
+<p>IngressListenerPort describes a port a listener  listens on.</p>
 </div>
 <table>
 <thead>
@@ -1869,7 +1869,7 @@ int32
 </em>
 </td>
 <td>
-<p>Port defines what TCP port the listener will listen on</p>
+<p>Port defines what TCP port the listener  listens on</p>
 </td>
 </tr>
 <tr>
@@ -1881,7 +1881,7 @@ string
 </td>
 <td>
 <em>(Optional)</em>
-<p>Protocol indicates if the port will be used for HTTP or HTTPS traffic.</p>
+<p>Protocol indicates if the port is used for HTTP or HTTPS traffic.</p>
 </td>
 </tr>
 <tr>
@@ -1976,7 +1976,7 @@ IngressListenerTLS
 </td>
 <td>
 <em>(Optional)</em>
-<p>OverrideBackendHostnames is a list of services on which incoming requests will have the value of the host header changed</p>
+<p>OverrideBackendHostnames is a list of services on which incoming requests that have the value of the host header changed</p>
 </td>
 </tr>
 </tbody>
@@ -2115,7 +2115,7 @@ FrontendTLSPolicyType
 </p>
 <div>
 <p>Protocol defines the protocol used for checking HealthCheck of the services
-Valid Protocol values are :</p>
+Valid Protocol values are:</p>
 <ul>
 <li>HTTP</li>
 <li>HTTPS</li>
@@ -2130,13 +2130,13 @@ Valid Protocol values are :</p>
 </tr>
 </thead>
 <tbody><tr><td><p>&#34;HTTP&#34;</p></td>
-<td><p>HTTP implies that the HealthCheck check will be done using HTTP protocol</p>
+<td><p>HTTP implies that the HealthCheck check is done using HTTP protocol</p>
 </td>
 </tr><tr><td><p>&#34;HTTPS&#34;</p></td>
-<td><p>HTTPS implies that the HealthCheck check will be done using HTTPS protocol</p>
+<td><p>HTTPS implies that the HealthCheck check is done using HTTPS protocol</p>
 </td>
 </tr><tr><td><p>&#34;TCP&#34;</p></td>
-<td><p>TCP implies that the HealthCheck check will be done using TCP protocol</p>
+<td><p>TCP implies that the HealthCheck check is done using TCP protocol</p>
 </td>
 </tr></tbody>
 </table>
@@ -2236,8 +2236,7 @@ RoutePolicyConfig
 (<em>Appears on:</em><a href="#alb.networking.azure.io/v1.RoutePolicySpec">RoutePolicySpec</a>)
 </p>
 <div>
-<p>RoutePolicyConfig defines the schema for RoutePolicy specification
-This allows the specification of the following attributes:
+<p>RoutePolicyConfig defines the schema for RoutePolicy specification. This allows the specification of the following attributes:
 * Timeouts
 * Session Affinity</p>
 </div>
@@ -2260,8 +2259,7 @@ RouteTimeouts
 </td>
 <td>
 <em>(Optional)</em>
-<p>Custom Timeouts
-Timeout for the target resource.</p>
+<p>Custom timeouts for the target resource.</p>
 </td>
 </tr>
 <tr>
