@@ -53,9 +53,9 @@ Then add the following code to construct a **CognitiveServicesManagementClient**
 
 [!code-python[](~/cognitive-services-quickstart-code/python/azure_management_service/create_delete_resource.py?name=snippet_auth)]
 
-## Create a Cognitive Services resource (Python)
+## Create a Azure AI services resource (Python)
 
-To create and subscribe to a new Cognitive Services resource, use the **Create** function. This function adds a new billable resource to the resource group you pass in. When you create your new resource, you'll need to know the "kind" of service you want to use, along with its pricing tier (or SKU) and an Azure location. The following function takes all of these arguments and creates a resource.
+To create and subscribe to a new Azure AI services resource, use the **Create** function. This function adds a new billable resource to the resource group you pass in. When you create your new resource, you'll need to know the "kind" of service you want to use, along with its pricing tier (or SKU) and an Azure location. The following function takes all of these arguments and creates a resource.
 
 [!code-python[](~/cognitive-services-quickstart-code/python/azure_management_service/create_delete_resource.py?name=snippet_create)]
 
@@ -81,7 +81,7 @@ The following function deletes the specified resource from the given resource gr
 
 [!code-python[](~/cognitive-services-quickstart-code/python/azure_management_service/create_delete_resource.py?name=snippet_delete)]
 
-If you need to recover a deleted resource, see [Recover deleted Cognitive Services resources](../../manage-resources.md).
+If you need to recover a deleted resource, see [Recover deleted Azure AI services resources](../../manage-resources.md).
 
 ## Call management functions
 
@@ -99,9 +99,9 @@ python <your-script-name>.py
 
 ## See also
 
-* See **[Authenticate requests to Azure Cognitive Services](../../authentication.md)** on how to securely work with Cognitive Services.
-* See **[What are Azure Cognitive Services?](../../what-are-cognitive-services.md)** to get a list of different categories within Cognitive Services.
-* See **[Natural language support](../../language-support.md)** to see the list of natural languages that Cognitive Services supports.
-* See **[Use Cognitive Services as containers](../../cognitive-services-container-support.md)** to understand how to use Cognitive Services on-prem.
-* See **[Plan and manage costs for Cognitive Services](../../plan-manage-costs.md)** to estimate cost of using Cognitive Services.
+* See **[Authenticate requests to Azure Azure AI services](../../authentication.md)** on how to securely work with Azure AI services.
+* See **[What are Azure Azure AI services?](../../what-are-cognitive-services.md)** to get a list of different categories within Azure AI services.
+* See **[Natural language support](../../language-support.md)** to see the list of natural languages that Azure AI services supports.
+* See **[Use Azure AI services as containers](../../cognitive-services-container-support.md)** to understand how to use Azure AI services on-prem.
+* See **[Plan and manage costs for Azure AI services](../../plan-manage-costs.md)** to estimate cost of using Azure AI services.
 * See **[Azure Management SDK reference documentation](/python/api/azure-mgmt-cognitiveservices/azure.mgmt.cognitiveservices)** for more details on the management SDK.

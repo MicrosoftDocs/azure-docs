@@ -1,6 +1,6 @@
 ---
 title: "Platform upgrade - Custom Translator"
-titleSuffix: Azure Cognitive Services
+titleSuffix: Azure AI services
 description: Custom Translator v1.0 upgrade
 author: laujan
 manager: nitinme
@@ -46,4 +46,4 @@ Following measured and consistent high-quality results using models trained on t
 
 ## Next steps
 
-For more support, visit [Azure Cognitive Services support and help options](../../cognitive-services-support-options.md).
+For more support, visit [Azure AI services support and help options](../../cognitive-services-support-options.md).

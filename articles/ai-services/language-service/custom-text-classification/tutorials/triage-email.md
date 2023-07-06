@@ -1,6 +1,6 @@
 ---
 title: Triage incoming emails with Power Automate
-titleSuffix: Azure Cognitive Services
+titleSuffix: Azure AI services
 description: Learn how to use custom text classification to categorize and triage incoming emails with Power Automate
 services: cognitive-services
 author: aahill
@@ -34,15 +34,15 @@ In this tutorial you will categorize and triage incoming email using custom text
 
     :::image type="content" source="../media/create-flow.png" alt-text="A screenshot of the flow creation screen." lightbox="../media/create-flow.png":::
 
-3. Name your flow `EmailTriage`. Below **Choose your flow's triggers**, search for *email* and select **When a new email arrives**. Then click **create**
+3. Name your flow `EmailTriage`. Below **Choose your flow's triggers**, search for *email* and select **When a new email arrives**. Then select **create**
 
     :::image type="content" source="../media/email-flow.png" alt-text="A screenshot of the email flow triggers." lightbox="../media/email-flow.png":::
 
 4. Add the right connection to your email account. This connection will be used to access the email content.
 
-5. To add a Language service connector, search for *Azure Language*.
+5. To add a Language service connector, search for *Azure AI Language*.
   
-    :::image type="content" source="../media/language-connector.png" alt-text="A screenshot of available Azure Language service connectors." lightbox="../media/language-connector.png":::
+    :::image type="content" source="../media/language-connector.png" alt-text="A screenshot of available Azure AI Language service connectors." lightbox="../media/language-connector.png":::
 
 6. Search for *CustomSingleLabelClassification*.
 

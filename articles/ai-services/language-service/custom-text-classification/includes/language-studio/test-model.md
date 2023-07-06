@@ -22,7 +22,7 @@ To test your deployed models within [Language Studio](https://aka.ms/LanguageStu
 
 5. Enter the text you want to submit in the request, or upload a `.txt` document to use. If you’re using one of the example datasets, you can use one of the included .txt files.
 
-6. Click on **Run the test** from the top menu.
+6. Select **Run the test** from the top menu.
 
 7. In the **Result** tab, you can see the predicted classes for your text. You can also view the JSON response under the **JSON** tab. The following example is for a single label classification project. A multi label classification project can return more than one class in the result. 
 

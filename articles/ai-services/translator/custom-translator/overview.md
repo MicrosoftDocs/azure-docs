@@ -1,6 +1,6 @@
 ---
 title: What is Custom Translator?
-titleSuffix: Azure Cognitive Services
+titleSuffix: Azure AI services
 description: Custom Translator offers similar capabilities to what Microsoft Translator Hub does for Statistical Machine Translation (SMT), but exclusively for Neural Machine Translation (NMT) systems.
 author: laujan
 manager: nitinme
@@ -53,7 +53,7 @@ The secure [Custom Translator](https://portal.customtranslator.azure.ai) portal 
 
 [Custom Translator](https://portal.customtranslator.azure.ai) can also be programmatically accessed through a [dedicated API](https://custom-api.cognitive.microsofttranslator.com/swagger/). The API allows users to manage creating or updating training through their own app or webservice.
 
-The cost of using a custom model to translate content is based on the user's Translator Text API pricing tier. See the Cognitive Services [Translator Text API pricing webpage](https://azure.microsoft.com/pricing/details/cognitive-services/translator-text-api/)
+The cost of using a custom model to translate content is based on the user's Translator Text API pricing tier. See the Azure AI services [Translator Text API pricing webpage](https://azure.microsoft.com/pricing/details/cognitive-services/translator-text-api/)
 for pricing tier details.
 
 ## Securely translate anytime, anywhere on all your apps and services

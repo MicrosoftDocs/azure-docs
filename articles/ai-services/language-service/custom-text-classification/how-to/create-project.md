@@ -1,6 +1,6 @@
 ---
 title: How to create custom text classification projects
-titleSuffix: Azure Cognitive Services
+titleSuffix: Azure AI services
 description: Learn about the steps for using Azure resources with custom text classification.
 services: cognitive-services
 author: aahill
@@ -25,7 +25,7 @@ Before you start using custom text classification, you will need:
 
 ## Create a Language resource 
 
-Before you start using custom text classification, you will need an Azure Language resource. It is recommended to create your Language resource and connect a storage account to it in the Azure portal. Creating a resource in the Azure portal lets you create an Azure storage account at the same time, with all of the required permissions pre-configured. You can also read further in the article to learn how to use a pre-existing resource, and configure it to work with custom text classification.
+Before you start using custom text classification, you will need an Azure AI Language resource. It is recommended to create your Language resource and connect a storage account to it in the Azure portal. Creating a resource in the Azure portal lets you create an Azure storage account at the same time, with all of the required permissions pre-configured. You can also read further in the article to learn how to use a pre-existing resource, and configure it to work with custom text classification.
 
 You also will need an Azure storage account where you will upload your `.txt` documents that will be used to train a model to classify text.
 

@@ -1,7 +1,7 @@
 ---
 title: Translate text with a custom model
-titleSuffix: Azure Cognitive Services
-description: How to make translation requests using custom models published with the Azure Cognitive Services Custom Translator.  
+titleSuffix: Azure AI services
+description: How to make translation requests using custom models published with the Azure AI Translator Custom Translator.  
 author: laujan
 manager: nitinme
 ms.service: cognitive-services

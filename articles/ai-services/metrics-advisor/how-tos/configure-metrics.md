@@ -1,6 +1,6 @@
 ---
 title: Configure your Metrics Advisor instance using the web portal
-titleSuffix: Azure Applied AI Services
+titleSuffix: Azure AI services
 description: How to configure your Metrics Advisor instance and fine-tune the anomaly detection results.
 author: mrbullwinkle
 manager: nitinme

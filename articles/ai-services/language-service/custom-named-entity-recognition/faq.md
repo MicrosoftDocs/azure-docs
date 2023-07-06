@@ -1,6 +1,6 @@
 ---
 title: Custom Named Entity Recognition (NER) FAQ
-titleSuffix: Azure Cognitive Services
+titleSuffix: Azure AI services
 description: Learn about Frequently asked questions when using custom Named Entity Recognition.
 services: cognitive-services
 author: aahill
@@ -16,7 +16,7 @@ ms.custom: language-service-custom-ner, ignite-fall-2021, event-tier1-build-2022
 
 # Frequently asked questions for Custom Named Entity Recognition
 
-Find answers to commonly asked questions about concepts, and scenarios related to custom NER in Azure Cognitive Service for Language.
+Find answers to commonly asked questions about concepts, and scenarios related to custom NER in Azure AI Language.
 
 ## How do I get started with the service?
 

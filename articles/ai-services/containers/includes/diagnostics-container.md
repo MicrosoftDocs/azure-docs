@@ -1,6 +1,6 @@
 ---
 
-titleSuffix: Cognitive Services
+titleSuffix: Azure AI services
 services: cognitive-services
 author: aahill
 ms.service: cognitive-services
@@ -9,7 +9,7 @@ ms.date: 10/08/2021
 ms.author: aahi
 ---
 
-If you're having trouble running a Cognitive Services container, you can try using the Microsoft diagnostics container. Use this container to diagnose common errors in your deployment environment that might prevent Cognitive Services containers from functioning as expected.
+If you're having trouble running a Azure AI services container, you can try using the Microsoft diagnostics container. Use this container to diagnose common errors in your deployment environment that might prevent Azure AI services containers from functioning as expected.
 
 To get the container, use the following `docker pull` command:
 

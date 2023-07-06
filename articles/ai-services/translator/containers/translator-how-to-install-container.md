@@ -1,6 +1,6 @@
 ---
 title: Install and run Docker containers for Translator API
-titleSuffix: Azure Cognitive Services
+titleSuffix: Azure AI services
 description: Use the Docker container for Translator API to translate text.
 services: cognitive-services
 author: laujan
@@ -48,7 +48,7 @@ You'll also need to have:
 
 ## Required elements
 
-All Cognitive Services containers require three primary elements:
+All Azure AI containers require three primary elements:
 
 * **EULA accept setting**. An end-user license agreement (EULA) set with a value of `Eula=accept`.
 
@@ -84,7 +84,7 @@ The following table describes the minimum and recommended CPU cores and memory t
 
 ## Request approval to run container
 
-Complete and submit the [**Azure Cognitive Services
+Complete and submit the [**Azure AI services
 Application for Gated Services**](https://aka.ms/csgate-translator) to request access to the container.
 
 [!INCLUDE [Request access to public preview](../../../../includes/cognitive-services-containers-request-access.md)]
@@ -129,7 +129,7 @@ The above command:
 
 If you intend to run multiple containers with exposed ports, make sure to run each container with a different exposed port. For example, run the first container on port 5000 and the second container on port 5001.
 
-You can have this container and a different Azure Cognitive Services container running on the HOST together. You also can have multiple containers of the same Cognitive Services container running.
+You can have this container and a different Azure AI container running on the HOST together. You also can have multiple containers of the same Azure AI container running.
 
 ## Query the container's Translator endpoint
 
@@ -286,4 +286,4 @@ In this article, you learned concepts and workflows for downloading, installing,
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Learn more about Azure Cognitive Services containers](../../containers/index.yml?context=%2fazure%2fcognitive-services%2ftranslator%2fcontext%2fcontext)
+> [Learn more about Azure AI containers](../../containers/index.yml?context=%2fazure%2fcognitive-services%2ftranslator%2fcontext%2fcontext)

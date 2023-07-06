@@ -1,5 +1,5 @@
 ---
-titleSuffix: Azure Cognitive Services
+titleSuffix: Azure AI services
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -11,7 +11,7 @@ ms.date: 04/14/2023
 ms.author: aahi
 ---
 
-1. After the deployment job is completed successfully, select the deployment you want to use and from the top menu click on **Get prediction URL**.
+1. After the deployment job is completed successfully, select the deployment you want to use and from the top menu select **Get prediction URL**.
 
     :::image type="content" source="../../media/custom/get-prediction-url-1.png" alt-text="A screenshot showing the button to get a prediction URL." lightbox="../../media/custom/get-prediction-url-1.png":::
 

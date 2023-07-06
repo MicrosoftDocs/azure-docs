@@ -14,7 +14,7 @@ ms.author: aahi
 
 # Searching for entities with the Bing Entity API
 
-[!INCLUDE [Bing move notice](../../Bing-Web-Search/includes/bing-move-notice.md)]
+[!INCLUDE [Bing move notice](../../bing-web-search/includes/bing-move-notice.md)]
 
 ## Suggest search terms with the Bing Autosuggest API
 

@@ -1,6 +1,6 @@
 ---
-title: How to label your data for custom classification - Azure Cognitive Services
-titleSuffix: Azure Cognitive Services
+title: How to label your data for custom classification - Azure AI services
+titleSuffix: Azure AI services
 description: Learn about how to label your data for use with the custom text classification.
 services: cognitive-services
 author: aahill
@@ -87,7 +87,7 @@ Use the following steps to label your data:
    * *Total instances* where you can view count of all labeled instances of a specific class.
    * *documents with at least one label* where each document is counted if it contains at least one labeled instance of this class.
 
-9. While you're labeling, your changes will be synced periodically, if they have not been saved yet you will find a warning at the top of your page. If you want to save manually, click on **Save labels** button at the bottom of the page.
+9. While you're labeling, your changes will be synced periodically, if they have not been saved yet you will find a warning at the top of your page. If you want to save manually, select **Save labels** button at the bottom of the page.
 
 ## Remove labels
 

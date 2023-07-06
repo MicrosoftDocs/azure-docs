@@ -1,6 +1,6 @@
 ---
 title: Word alignment - Translator
-titleSuffix: Azure Cognitive Services
+titleSuffix: Azure AI services
 description: To receive alignment information, use the Translate method and include the optional includeAlignment parameter.
 services: cognitive-services
 author: laujan

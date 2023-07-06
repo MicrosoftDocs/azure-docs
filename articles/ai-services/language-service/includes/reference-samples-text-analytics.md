@@ -10,7 +10,7 @@ manager: nitinme
 
 ## Reference documentation and code samples
 
-As you use this feature in your applications, see the following reference documentation and samples for Azure Cognitive Services for Language:
+As you use this feature in your applications, see the following reference documentation and samples for Azure AI Language:
 
 |Development option / language  |Reference documentation |Samples  |
 |---------|---------|---------|

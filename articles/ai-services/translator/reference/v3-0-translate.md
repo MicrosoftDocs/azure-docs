@@ -1,7 +1,7 @@
 ---
 title: Translator Translate Method
-titleSuffix: Azure Cognitive Services
-description: Understand the parameters, headers, and body messages for the Translate method of Azure Cognitive Services Translator to translate text.
+titleSuffix: Azure AI services
+description: Understand the parameters, headers, and body messages for the Translate method of Azure AI Translator to translate text.
 services: cognitive-services
 author: laujan
 manager: nitinme
@@ -45,7 +45,7 @@ Request parameters passed on the query string are:
 | --- | --- |
 | from | _Optional parameter_.  <br>Specifies the language of the input text. Find which languages are available to translate from by looking up [supported languages](../reference/v3-0-languages.md) using the `translation` scope. If the `from` parameter isn't specified, automatic language detection is applied to determine the source language.  <br>  <br>You must use the `from` parameter rather than autodetection when using the [dynamic dictionary](../dynamic-dictionary.md) feature. **Note**: the dynamic dictionary feature is case-sensitive. |
 | textType | _Optional parameter_.  <br>Defines whether the text being translated is plain text or HTML text. Any HTML needs to be a well-formed, complete element. Possible values are: `plain` (default) or `html`. |
-| category | _Optional parameter_.  <br>A string specifying the category (domain) of the translation. This parameter is used to get translations from a customized system built with [Custom Translator](../customization.md). Add the Category ID from your Custom Translator [project details](../custom-translator/how-to-create-project.md#view-project-details) to this parameter to use your deployed customized system. Default value is: `general`. |
+| category | _Optional parameter_.  <br>A string specifying the category (domain) of the translation. This parameter is used to get translations from a customized system built with [Custom Translator](../custom-translator/concepts/customization.md). Add the Category ID from your Custom Translator [project details](../custom-translator/how-to/create-manage-project.md) to this parameter to use your deployed customized system. Default value is: `general`. |
 | profanityAction | _Optional parameter_.  <br>Specifies how profanities should be treated in translations. Possible values are: `NoAction` (default), `Marked` or `Deleted`. To understand ways to treat profanity, see [Profanity handling](#handle-profanity). |
 | profanityMarker | _Optional parameter_.  <br>Specifies how profanities should be marked in translations. Possible values are: `Asterisk` (default) or `Tag`. To understand ways to treat profanity, see [Profanity handling](#handle-profanity). |
 | includeAlignment | _Optional parameter_.  <br>Specifies whether to include alignment projection from source text to translated text. Possible values are: `true` or `false` (default). |
@@ -74,7 +74,7 @@ The body of the request is a JSON array. Each array element is a JSON object wit
 ]
 ```
 
-For information on character and array limits, _see_ [Request limits](../request-limits.md#character-and-array-limits-per-request).
+For information on character and array limits, _see_ [Request limits](../service-limits.md#character-and-array-limits-per-request).
 
 ## Response body
 
@@ -436,9 +436,9 @@ The result is:
 ]
 ```
 
-This dynamic-dictionary feature works the same way with `textType=text` or with `textType=html`. The feature should be used sparingly. The appropriate and far better way of customizing translation is by using Custom Translator. Custom Translator makes full use of context and statistical probabilities. If you can create training data that shows your work or phrase in context, you'll get much better results. [Learn more about Custom Translator](../customization.md).
+This dynamic-dictionary feature works the same way with `textType=text` or with `textType=html`. The feature should be used sparingly. The appropriate and far better way of customizing translation is by using Custom Translator. Custom Translator makes full use of context and statistical probabilities. If you can create training data that shows your work or phrase in context, you'll get much better results. [Learn more about Custom Translator](../custom-translator/concepts/customization.md).
 
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Try the Translator quickstart](../quickstart-translator.md)
+> [Try the Translator quickstart](../quickstart-text-rest-api.md)

@@ -1,7 +1,7 @@
 ---
-title: Azure Video Indexer emotions detection overview
-titleSuffix: Azure Video Indexer 
-description: This article gives an overview of an Azure Video Indexer emotions detection.
+title: Azure AI Video Indexer emotions detection overview
+titleSuffix: Azure AI Video Indexer 
+description: This article gives an overview of an Azure AI Video Indexer emotions detection.
 author: juliako
 ms.author: juliako
 manager: femila
@@ -12,7 +12,7 @@ ms.topic: article
 
 # Emotions detection
 
-Emotions detection is an Azure Video Indexer AI feature that automatically detects emotions in video's transcript lines. Each sentence can either be detected as "Anger", "Fear", "Joy", "Sad", or none of the above if no other emotion was detected.
+Emotions detection is an Azure AI Video Indexer AI feature that automatically detects emotions in video's transcript lines. Each sentence can either be detected as "Anger", "Fear", "Joy", "Sad", or none of the above if no other emotion was detected.
 
 The model works on text only (labeling emotions in video transcripts.) This model doesn't infer the emotional state of people, may not perform where input is ambiguous or unclear, like sarcastic remarks. Thus, the model shouldn't be used for things like assessing employee performance or the emotional state of a person.  
 
@@ -52,7 +52,7 @@ To display the instances in a JSON file, do the following:
 
 ```
 
-To download the JSON file via the API, use the [Azure Video Indexer developer portal](https://api-portal.videoindexer.ai/). 
+To download the JSON file via the API, use the [Azure AI Video Indexer developer portal](https://api-portal.videoindexer.ai/). 
 
 > [!NOTE]
 > Emotions detection is language independent, however if the transcript is not in English, it is first being translated to English and only then the model is applied. This may cause a reduced accuracy in emotions detection for non English languages. 
@@ -64,7 +64,7 @@ During the emotions detection procedure, the transcript of the video is processe
 |Component |Definition |
 |---|---|
 |Source language |The user uploads the source file for indexing. |
-|Transcription API |The audio file is sent to Cognitive Services and the translated transcribed output is returned. If a language has been specified, it is processed. |
+|Transcription API |The audio file is sent to Azure AI services and the translated transcribed output is returned. If a language has been specified, it is processed. |
 |Emotions detection  |Each sentence is sent to the emotions detection model. The model produces the confidence level of each emotion. If the confidence level exceeds a specific threshold, and there is no ambiguity between positive and negative emotions, the emotion is detected. In any other case, the sentence is labeled as neutral.|
 |Confidence level |The estimated confidence level of the detected emotions is calculated as a range of 0 to 1. The confidence score represents the certainty in the accuracy of the result. For example, an 82% certainty is represented as an 0.82 score. |
 
@@ -100,7 +100,7 @@ Don't purposely disclose inappropriate media showing young children or family me
 
 `visupport@microsoft.com`  
 
-## Azure Video Indexer insights
+## Azure AI Video Indexer insights
 
 View some other Azure Video Insights:
 

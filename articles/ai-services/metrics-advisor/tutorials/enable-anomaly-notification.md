@@ -299,7 +299,7 @@ This section will share the practice of using an SMTP server to send email notif
 
 - A user with the subscription administrator or resource group administrator privileges needs to navigate to the Metrics Advisor resource that was created in the Azure portal, and select the Access control(IAM) tab.
 - Select 'Add role assignments'.
-- Pick a role of 'Cognitive Services Metrics Advisor Administrator', select your account as in the image below.
+- Pick a role of 'Azure AI Metrics Advisor Administrator', select your account as in the image below.
 - Select 'Save' button, then you've been successfully added as administrator of a Metrics Advisor resource. All the above actions need to be performed by a subscription administrator or resource group administrator. It might take up to one minute for the permissions to propagate. 
 
 ![Screenshot that shows how to assign admin role to a specific role](../media/tutorial/access-control.png)

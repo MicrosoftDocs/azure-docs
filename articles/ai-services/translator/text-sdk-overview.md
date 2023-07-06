@@ -1,6 +1,6 @@
 ---
 title: Azure Text Translation SDKs 
-titleSuffix: Azure Applied AI Services
+titleSuffix: Azure AI services
 description: Azure Text Translation software development kits (SDKs) expose Text Translation features and capabilities, using C#, Java, JavaScript, and Python programming language.
 author: laujan
 manager: nitinme
@@ -24,7 +24,7 @@ recommendations: false
 >
 > * The Translator text SDKs are currently available in public preview. Features, approaches and processes may change, prior to General Availability (GA), based on user feedback.
 
-Azure Text Translation is a cloud-based REST API feature of the Azure Translator service. The Text Translation API enables quick and accurate source-to-target text translations in real time. The Text Translation software development kit (SDK) is a set of libraries and tools that enable you to easily integrate Text Translation REST API capabilities into your applications. Text Translation SDK is available across programming platforms in C#/.NET, Java, JavaScript, and Python.
+Azure Text Translation is a cloud-based REST API feature of the Azure AI Translator service. The Text Translation API enables quick and accurate source-to-target text translations in real time. The Text Translation software development kit (SDK) is a set of libraries and tools that enable you to easily integrate Text Translation REST API capabilities into your applications. Text Translation SDK is available across programming platforms in C#/.NET, Java, JavaScript, and Python.
 
 ## Supported languages
 
@@ -302,7 +302,7 @@ The [Microsoft Q&A](/answers/tags/132/azure-translator) and [Stack Overflow](htt
 ## Next steps
 
 >[!div class="nextstepaction"]
-> [**Text Translation quickstart**](quickstart-translator-sdk.md)
+> [**Text Translation quickstart**](quickstart-text-sdk.md)
 
 >[!div class="nextstepaction"]
 > [**Text Translation v3.0 reference guide**](reference/v3-0-reference.md)

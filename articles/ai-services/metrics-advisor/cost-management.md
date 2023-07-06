@@ -1,7 +1,7 @@
 ---
-title: Cost management with Azure Metrics Advisor
-titleSuffix: Azure Applied AI Services
-description: Learn about cost management and pricing for Azure Metrics Advisor
+title: Cost management with Azure AI Metrics Advisor
+titleSuffix: Azure AI services
+description: Learn about cost management and pricing for Azure AI Metrics Advisor
 author: mrbullwinkle
 manager: nitinme
 ms.service: applied-ai-services
@@ -11,9 +11,9 @@ ms.date: 09/06/2022
 ms.author: mbullwin
 ---
 
-# Azure Metrics Advisor cost management
+# Azure AI Metrics Advisor cost management
 
-Azure Metrics Advisor monitors the performance of your organization's growth engines, including sales revenue and manufacturing operations. Quickly identify and fix problems through a powerful combination of monitoring in near-real time, adapting models to your scenario, and offering granular analysis with diagnostics and alerting. You will only be charged for the time series that are analyzed by the service. There's no up-front commitment or minimum fee.
+Azure AI Metrics Advisor monitors the performance of your organization's growth engines, including sales revenue and manufacturing operations. Quickly identify and fix problems through a powerful combination of monitoring in near-real time, adapting models to your scenario, and offering granular analysis with diagnostics and alerting. You will only be charged for the time series that are analyzed by the service. There's no up-front commitment or minimum fee.
 
 > [!NOTE]
 > This article discusses how pricing is calculated to assist you with planning and cost management when using Azure Metric Advisor. The prices in this article do not reflect actual prices and are for example purposes only. For the latest pricing information please refer to the [official pricing page for Metrics Advisor](https://azure.microsoft.com/pricing/details/metrics-advisor/).  

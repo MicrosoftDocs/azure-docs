@@ -1,7 +1,7 @@
 ---
-title: Azure Document Translation SDKs 
-titleSuffix: Azure Applied AI Services
-description: Azure Document Translation software development kits (SDKs) expose Document Translation features and capabilities, using C#, Java, JavaScript, and Python programming language.
+title: Document Translation SDKs 
+titleSuffix: Azure AI services
+description: Document Translation software development kits (SDKs) expose Document Translation features and capabilities, using C#, Java, JavaScript, and Python programming language.
 author: laujan
 manager: nitinme
 ms.service: cognitive-services
@@ -17,9 +17,9 @@ recommendations: false
 <!-- markdownlint-disable MD001 -->
 <!-- markdownlint-disable MD051 -->
 
-# Azure Document Translation SDK
+# Document Translation SDK
 
-Azure Document Translation is a cloud-based REST API feature of the Azure Translator service. The Document Translation API enables quick and accurate source-to-target whole document translations, asynchronously, in supported languages and various file formats. The Document Translation software development kit (SDK) is a set of libraries and tools that enable you to easily integrate Document Translation REST API capabilities into your applications.
+Document Translation is a cloud-based REST API feature of the Azure AI Translator service. The Document Translation API enables quick and accurate source-to-target whole document translations, asynchronously, in supported languages and various file formats. The Document Translation software development kit (SDK) is a set of libraries and tools that enable you to easily integrate Document Translation REST API capabilities into your applications.
 
 ## Supported languages
 
@@ -166,7 +166,7 @@ The [Microsoft Q&A](/answers/tags/132/azure-translator) and [Stack Overflow](htt
 
 > [!TIP]
 > To make sure that we see your Microsoft Q&A question, tag it with **`microsoft-translator`**.
-> To make sure that we see your Stack Overflow question, tag it with **`Azure Translator`**.
+> To make sure that we see your Stack Overflow question, tag it with **`Azure AI Translator`**.
 >
 
 ## Next steps

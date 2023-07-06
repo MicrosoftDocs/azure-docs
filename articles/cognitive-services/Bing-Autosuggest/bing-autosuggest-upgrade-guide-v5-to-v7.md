@@ -14,7 +14,7 @@ ms.date: 02/20/2019
 ---
 # Autosuggest API upgrade guide
 
-[!INCLUDE [Bing move notice](../Bing-Web-Search/includes/bing-move-notice.md)]
+[!INCLUDE [Bing move notice](../bing-web-search/includes/bing-move-notice.md)]
 
 This upgrade guide identifies the changes between version 5 and version 7 of the Bing Autosuggest API. Use this guide to help update your application to use version 7.
 

@@ -150,7 +150,7 @@ You can have this container and a different Azure AI container running on the HO
 | WS | `ws://localhost:5000` | [Speech to text](speech-container-stt.md#use-the-container)<br/><br/>[Custom speech to text](speech-container-cstt.md#use-the-container)  |
 | HTTP | `http://localhost:5000` | [Neural text to speech](speech-container-ntts.md#use-the-container)<br/><br/>[Speech language identification](speech-container-lid.md#use-the-container) |
 
-For more information on using WSS and HTTPS protocols, see [Container security](../cognitive-services-container-support.md#azure-cognitive-services-container-security) in the Azure AI services documentation.
+For more information on using WSS and HTTPS protocols, see [Container security](../cognitive-services-container-support.md#azure-ai-services-container-security) in the Azure AI services documentation.
 
 ## Troubleshooting
 
