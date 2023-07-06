@@ -39,8 +39,11 @@ items:
       href: concepts/email/prepare-email-communication-resource.md
     - name: Network Traversal
       href: concepts/network-traversal.md
-    - name: WhatsApp
-      href: concepts/whatsapp/overview.md
+    - name: Advanced Messaging
+      expanded: true
+      items:
+      - name: WhatsApp
+        href: concepts/whatsapp/overview.md
   - name: Common scenarios
     items:
     - name: Virtual visit
@@ -785,16 +788,24 @@ items:
         href: concepts/analytics/logs/network-traversal-logs.md    
     - name: Pricing
       href: https://azure.microsoft.com/pricing/details/communication-services/
-  - name: WhatsApp
+  - name: Advanced Messaging
     items:
-    - name: Overview
-      href: concepts/whatsapp/overview.md
-    - name: Creating or connecting a WhatsApp Business Account
-      href: concepts/whatsapp/creating-or-connecting-a-whatsapp-business-account.md
-    - name: WhatsAppTermsOfService
-      href: concepts/whatsapp/whatswpptermsofservice.md
-    - name: Pricing
-      href: concepts/whatsapp/pricing.md
+    - name: WhatsApp
+      items:
+      - name: Overview
+        href: concepts/whatsapp/overview.md
+      - name: Creating or connecting a WhatsApp Business Account
+        href: concepts/whatsapp/creating-or-connecting-a-whatsapp-business-account.md
+      - name: WhatsAppTermsOfService
+        href: concepts/whatsapp/whatswpptermsofservice.md
+      - name: Pricing
+        href: concepts/whatsapp/pricing.md
+      - name: Events
+        items:
+        - name: Overview
+          href: ../event-grid/event-schema-communication-services.md
+        - name: Advanced Messaging events
+          href: ../event-grid/communication-services-advanced-messaging-events.md
   - name: Azure Advisor
     href: concepts/advisor-overview.md
 - name: Resources 
