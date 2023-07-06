@@ -108,7 +108,7 @@ The following filters require you to manually enter the value with which you wan
 
 ## Filter for assets outside your approved inventory
 
-1. On the left pane, select **Inventory** to view your inventory.
+1. On the leftmost pane, select **Inventory** to view your inventory.
 
 1. To remove the **Approved** inventory filter, select the **X** next to the **State = Approved** filter. Your inventory list expands to include assets in other states, such as **Dismissed**.
 

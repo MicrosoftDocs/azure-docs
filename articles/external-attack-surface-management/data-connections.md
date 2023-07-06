@@ -45,7 +45,7 @@ This option doesn't provide any predetermined insights about the assets. Instead
 Here's some general information on configuration.
 
 ### Access data connections
-On the pane on the left in your Defender EASM resource pane, under **Manage**, select **Data Connections**. This page displays the data connectors for both Log Analytics and Azure Data Explorer. It lists any current connections and provides the option to add, edit, or remove connections.
+On the leftmost pane in your Defender EASM resource pane, under **Manage**, select **Data Connections**. This page displays the data connectors for both Log Analytics and Azure Data Explorer. It lists any current connections and provides the option to add, edit, or remove connections.
 
 ![Screenshot that shows the Data connections page.](media/data-connections/data-connector-1a.png)
 
@@ -56,7 +56,7 @@ To successfully create a data connection, you must first ensure that you've comp
 
 1. Open the Log Analytics workspace that will ingest your Defender EASM data or [create a new workspace](/azure/azure-monitor/logs/quick-create-workspace?tabs=azure-portal).
 
-1. On the pane on the left, under **Settings**, select **Agents**.
+1. On the leftmost pane, under **Settings**, select **Agents**.
 
    ![Screenshot that shows Log Analytics agents.](media/data-connections/data-connector-10.png)
 
@@ -69,7 +69,7 @@ Use of this data connection is subject to the pricing structure of Log Analytics
 Ensure that the Defender EASM API service principal has access to the correct roles in the database where you want to export your attack surface data. First, ensure that your Defender EASM resource was created in the appropriate tenant because this action provisions the EASM API principal.
 
 1. Open the Azure Data Explorer cluster that will ingest your Defender EASM data or [create a new cluster](/azure/data-explorer/create-cluster-database-portal).
-1. On the pane on the left, under **Data**, select **Databases**.
+1. On the leftmost pane, under **Data**, select **Databases**.
 1. Select **Add Database** to create a database to house your Defender EASM data.
 
    ![Screenshot that shows Azure Data Explorer Add database.](media/data-connections/data-connector-4.png)
@@ -78,7 +78,7 @@ Ensure that the Defender EASM API service principal has access to the correct ro
 
    ![Screenshot that shows creating a new database.](media/data-connections/data-connector-5.png)
 
-1. After your Defender EASM database is created, select the database name to open the details page. On the pane on the left, under **Overview**, select **Permissions**.
+1. After your Defender EASM database is created, select the database name to open the details page. On the leftmost pane, under **Overview**, select **Permissions**.
    To successfully export Defender EASM data to Azure Data Explorer, you must create two new permissions for the EASM API: **user** and **ingestor**.
 
    ![Screenshot that shows Azure Data Explorer permissions.](media/data-connections/data-connector-6b.png)
