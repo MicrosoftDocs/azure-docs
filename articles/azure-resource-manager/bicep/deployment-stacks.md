@@ -292,9 +292,7 @@ To instruct Azure to delete unmanaged resources, update the stack with the creat
 
 - `DeleteAll`: use delete rather than detach for managed resources and resource groups.
 - `DeleteResources`: use delete rather than detach for managed resources only.
-- `DeleteResourceGroups`: use delete rather than detach for managed resource groups only.
-
-`DeleteResourceGroups` must be used together with `DeleteResources`. It's invalid to use `DeleteResourceGroups` by itself.
+- `DeleteResourceGroups`: use delete rather than detach for managed resource groups only. It's invalid to use `DeleteResourceGroups` by itself. `DeleteResourceGroups` must be used together with `DeleteResources`.
 
 For example:
 
@@ -311,9 +309,7 @@ New-AzSubscriptionDeploymentStack `
 
 - `delete-all`: use delete rather than detach for managed resources and resource groups.
 - `delete-resources`: use delete rather than detach for managed resources only.
-- `delete-resource-groups`: use delete rather than detach for managed resource groups only.
-
-`delete-resource-groups` must be used together with `delete-resources`. It's invalid to use `delete-resource-groups` by itself.
+- `delete-resource-groups`: use delete rather than detach for managed resource groups only. It's invalid to use `delete-resource-groups` by itself. `delete-resource-groups` must be used together with `delete-resources`.
 
 For example:
 

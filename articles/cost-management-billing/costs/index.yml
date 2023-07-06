@@ -19,18 +19,6 @@ landingContent:
 # Cards and links should be based on top customer tasks or top subjects
 # Start card title with a verb
   # Card (optional)
-  - title: Pricing + estimation
-    linkLists:
-    - linkListType: reference
-      links:
-      - text: Pricing calculator
-        url: https://azure.microsoft.com/pricing/calculator
-      - text: TCO calculator
-        url: https://azure.microsoft.com/pricing/tco/calculator/
-      - text: Azure Migrate
-        url: ../../migrate/index.yml
-
-  # Card (optional)
   - title: Reporting + analytics
     linkLists:
     - linkListType: overview
@@ -79,14 +67,17 @@ landingContent:
       - text: Manage Azure Hybrid Benefit for SQL
         url: ../scope-level/index.yml
 
-  - title: Cost allocation
+  # Card (optional)
+  - title: Pricing + estimation
     linkLists:
-    - linkListType: how-to-guide
+    - linkListType: reference
       links:
-      - text: Enable tag inheritance
-        url: enable-tag-inheritance.md
-      - text: Split shared costs
-        url: allocate-costs.md
+      - text: Pricing calculator
+        url: https://azure.microsoft.com/pricing/calculator
+      - text: TCO calculator
+        url: https://azure.microsoft.com/pricing/tco/calculator/
+      - text: Azure Migrate
+        url: ../../migrate/index.yml
 
   - title: Cost allocation
     linkLists:

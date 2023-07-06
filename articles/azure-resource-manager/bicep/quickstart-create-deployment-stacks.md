@@ -1,7 +1,7 @@
 ---
 title: Create and deploy a deployment stack with Bicep
 description: Learn how to use Bicep to create and deploy a deployment stack in your Azure subscription.
-ms.date: 06/30/2023
+ms.date: 07/05/2023
 ms.topic: quickstart
 ms.custom: mode-api, devx-track-azurecli, devx-track-azurepowershell, devx-track-bicep
 # Customer intent: As a developer I want to use Bicep to create a deployment stack.
@@ -293,7 +293,7 @@ Once a stack is created, you can access and view both the stack itself and the m
 
 To update a deployment stack, you can modify the underlying Bicep file and rerunning the create deployment stack command.
 
-Edit **main.bicep** to set the sku name to `Standard_GRS` from `Standard_LRS`:
+Edit **main.bicep** to change the sku name to `Standard_GRS` from `Standard_LRS`:
 
 Run the following command:
 
@@ -348,7 +348,7 @@ The following parameters can be used to control between detach and delete.
 
 - `--delete-all`: Delete both the resources and the resource groups.
 - `--delete-resources`: Delete the resources only.
-- `--delete-resource-groups`: Delete the resource groups only.
+- `--delete-resource-groups`: Delete the resource groups only. It's invalid to use `delete-resource-groups` by itself. `delete-resource-groups` must be used together with `delete-resources`.
 
 For more information, see [Delete deployment stacks](./deployment-stacks.md#delete-deployment-stacks).
 
@@ -373,15 +373,17 @@ The following parameters can be used to control between detach and delete.
 
 - `DeleteAll`: delete both resource groups and the managed resources.
 - `DeleteResources`: delete the managed resources only.
-- `DeleteResourceGroups`: delete the resource groups only.
+- `DeleteResourceGroups`: delete the resource groups only. It's invalid to use `DeleteResourceGroups` by itself. `DeleteResourceGroups` must be used together with `DeleteResources`.
 
 For more information, see [Delete deployment stacks](./deployment-stacks.md#delete-deployment-stacks).
 
 ---
 
+The remove command exclusively removes managed resources and managed resource groups. You are still responsible for deleting the resource groups that are not managed by the deployment stack.
+
 ## Clean up resources
 
-The remove command only remove the managed resources and managed resource groups. You still need to delete the resource group.
+Delete the unmanaged resource group.
 
 # [CLI](#tab/CLI)
 

@@ -2143,6 +2143,15 @@ groups:
     title: Azure portal
   - id: azure-resource-manager
     title: ARM template
+# Owner: ruslany
+- id: azure-cli-bicep
+  title: Interaction type
+  prompt: Select how you want to interact with Azure
+  pivots:
+  - id: azure-cli
+    title: Azure CLI
+  - id: bicep
+    title: Bicep    
 # Owner: cshoe
 - id: container-apps-portal-or-cli
   title: Interaction type
@@ -2585,3 +2594,12 @@ groups:
     title: Java
   - id: programming-language-python
     title: Python
+# Owner: juliakm
+- id: template-type
+  title: Template type
+  prompt: Choose a template type
+  pivots:
+  - id: templates-includes
+    title: Includes templates
+  - id: templates-extends
+    title: Extends templates

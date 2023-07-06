@@ -254,7 +254,7 @@ That's it! You can now configure secure access for your Form Recognizer resource
 
    :::image type="content" source="media/managed-identities/cors-error.png" alt-text="Screenshot of error message when CORS config is required":::
 
-  **Resolution**: [Configure CORS](quickstarts/try-v3-form-recognizer-studio.md#prerequisites-for-new-users).
+  **Resolution**: [Configure CORS](quickstarts/try-form-recognizer-studio.md#prerequisites-for-new-users).
 
 * **AuthorizationFailure**:
 
