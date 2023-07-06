@@ -98,6 +98,9 @@ In this section, you'll configure the virtual machine to run the API that will b
 
     :::image type="content" source="media/howto-create-custom-health-probe/running-api-output-thumb.png" alt-text="Screenshot of output from running API for health probe." lightbox="media/howto-create-custom-health-probe/running-api-output.png":::
 
+> [!NOTE] 
+> The API will need to be running on the VM for the health probe to work. When you close the SSH session, the API will stop running. Keep the window open while creating the health probe or run the API in the background.
+
 ## Create health probe
 
 In this section, you'll create the health probe that will be used to check the health of the backend instances using the API created in the previous section.
