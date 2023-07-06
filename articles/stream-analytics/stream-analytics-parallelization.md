@@ -254,7 +254,7 @@ Each of the **Input1** partitions will be processed separately by Stream Analyti
     GROUP BY TumblingWindow(minute, 3), TollBoothId
 ```
 
-This query can be scaled to 24 SUs.
+This query can be scaled to 4 SU V2s.
 
 > [!NOTE]
 > If you are joining two streams, make sure that the streams are partitioned by the partition key of the column that you use to create the joins. Also make sure that you have the same number of partitions in both streams.

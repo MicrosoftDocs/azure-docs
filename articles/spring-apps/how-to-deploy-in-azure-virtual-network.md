@@ -16,7 +16,7 @@ ms.custom: devx-track-java, devx-track-extended-java, devx-track-azurecli, subje
 
 **This article applies to:** ✔️ Java ✔️ C#
 
-**This article applies to:** ✔️ Basic/Standard ✔️ Enterprise
+**This article applies to:** ❌ Basic ✔️ Standard ✔️ Enterprise
 
 This tutorial explains how to deploy an Azure Spring Apps instance in your virtual network. This deployment is sometimes called VNet injection.
 
@@ -93,11 +93,11 @@ If you already have a virtual network to host an Azure Spring Apps instance, ski
 1. Use the following command to define variables for your subscription, resource group, and Azure Spring Apps instance. Customize the values based on your real environment.
 
    ```azurecli
-   SUBSCRIPTION='<subscription-id>'
-   RESOURCE_GROUP='<resource-group-name>'
-   LOCATION='eastus'
-   AZURE_SPRING_APPS_INSTANCE_NAME='<Azure-Spring-Apps-Instance-name>'
-   VIRTUAL_NETWORK_NAME='azure-spring-apps-vnet'
+   export SUBSCRIPTION='<subscription-id>'
+   export RESOURCE_GROUP='<resource-group-name>'
+   export LOCATION='eastus'
+   export AZURE_SPRING_APPS_INSTANCE_NAME='<Azure-Spring-Apps-Instance-name>'
+   export VIRTUAL_NETWORK_NAME='azure-spring-apps-vnet'
    ```
 
 1. Use the following command to sign in to the Azure CLI and choose your active subscription.
@@ -165,11 +165,11 @@ Select the virtual network `azure-spring-apps-vnet` you previously created.
     You can also do this step by running the following Azure CLI command:
 
     ```azurecli
-    VIRTUAL_NETWORK_RESOURCE_ID=`az network vnet show \
+    export VIRTUAL_NETWORK_RESOURCE_ID=$(az network vnet show \
         --resource-group ${RESOURCE_GROUP_OF_VIRTUAL_NETWORK} \
         --name ${NAME_OF_VIRTUAL_NETWORK} \
         --query "id" \
-        --output tsv`
+        --output tsv)
 
     az role assignment create \
         --role "Owner" \
@@ -180,11 +180,11 @@ Select the virtual network `azure-spring-apps-vnet` you previously created.
 #### [Azure CLI](#tab/azure-CLI)
 
 ```azurecli
-VIRTUAL_NETWORK_RESOURCE_ID=`az network vnet show \
+export VIRTUAL_NETWORK_RESOURCE_ID=$(az network vnet show \
     --resource-group $RESOURCE_GROUP \
     --name $VIRTUAL_NETWORK_NAME \
     --query "id" \
-    --output tsv`
+    --output tsv)
 
 az role assignment create \
     --role "Owner" \

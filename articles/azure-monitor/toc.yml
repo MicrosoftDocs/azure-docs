@@ -571,15 +571,19 @@ items:
         href: containers/container-insights-troubleshoot.md
   - name: Monitor networks
     items:
-    - name: Overview
-      displayName: Network Insights, Network
-      href: ../network-watcher/network-insights-overview.md
-    - name: Topology
-      displayName: Network Insights, Network
-      href: ../network-watcher/network-insights-topology.md
-    - name: Troubleshooting
-      displayName: Network Insights, Network
-      href: ../network-watcher/network-insights-troubleshooting.md 
+    - name: Network Watcher
+      href: ../network-watcher/network-watcher-monitoring-overview.md
+    - name: Network Insights
+      items:
+      - name: Overview
+        displayName: Network Insights, Network
+        href: ../network-watcher/network-insights-overview.md
+      - name: Topology
+        displayName: Network Insights, Network
+        href: ../network-watcher/network-insights-topology.md
+      - name: Troubleshooting
+        displayName: Network Insights, Network
+        href: ../network-watcher/network-insights-troubleshooting.md
   - name: Monitor Azure Monitor
     href: monitor-azure-monitor.md
 - name: Data sources
@@ -657,10 +661,12 @@ items:
     - name: Install Azure Monitor Agent
       displayName: Azure Monitor agent
       items:
-      - name: Using the agent extension
+      - name: On virtual machines and servers
         href: agents/azure-monitor-agent-manage.md
-      - name: Using Windows client installer
+      - name: On Windows client machines
         href: agents/azure-monitor-agent-windows-client.md
+      - name: View health
+        href: agents/azure-monitor-agent-health.md
     - name: Configure data collection
       items:
       - name: Collect events and performance
@@ -847,6 +853,8 @@ items:
       href: logs/private-link-design.md
     - name: Private Link configuration
       href: logs/private-link-configure.md
+  - name: Collect logs from Event Hubs
+    href: logs/ingest-logs-event-hub.md
   - name: Troubleshoot data collection
     href: logs/data-collection-troubleshoot.md
 - name: Data platform
@@ -1393,8 +1401,6 @@ items:
         href: alerts/alerts-prepare-migration.md
       - name: Understand the migration tool
         href: alerts/alerts-understand-migration.md
-      - name: Use the migration tool
-        href: alerts/alerts-using-migration-tool.md
       - name: Automatic migration process
         href: alerts/alerts-automatic-migration.md
       - name: Manage classic metric alerts
