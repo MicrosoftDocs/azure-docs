@@ -63,7 +63,7 @@ print(embeddings)
 
 ## Tips and recommendations for embedding model integration
 
-+ Python and JavaScript demos offer more scalability than the REST APIs for generating embeddings. As of this writing, the REST API doesn't currently support batching.
+<!-- + Python and JavaScript demos offer more scalability than the REST APIs for generating embeddings. As of this writing, the REST API doesn't currently support batching. -->
 <!-- 
 + We've done proof-of-concept testing with indexers and skillsets, where a custom skill calls a machine learning model to generate embeddings. There's currently no tutorial or walkthrough, but we intend to provide this content as part of the public preview launch, if not sooner. -->
 <!-- 

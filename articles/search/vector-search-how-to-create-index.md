@@ -57,7 +57,13 @@ The schema must include fields for the document key, vector fields, and any othe
         "algorithmConfigurations": [
             {
                 "name": "vectorConfig",
-                "kind": "hnsw"
+                "kind": "hnsw",
+                "hnswParameters": {
+                    "m": 4,
+                    "efConstruction": 400,
+                    "efSearch": 500,
+                    "metric": "cosine"
+                }
             }
         ]
     }
