@@ -88,7 +88,7 @@ is selected.
 
 1. Specify the location at which the managed identity is to be located.
 
-1. You do not need to select a Scope for System-Assigned Managed Identity, as the scope will be inherited from the assignment scope. 
+1. Don't assign a scope for system-assigned managed identity, as the scope will be inherited from the assignment scope. 
 
 To set a user-assigned managed identity in the portal:
 
