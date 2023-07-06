@@ -6,7 +6,7 @@ ms.topic: how-to
 ms.date: 07/04/2023
 ms.author: daknappe
 ---
-
+TODO: REMOVE PREVIEW
 # Set up Private Link with Azure Virtual Desktop (preview)
 
 > [!IMPORTANT]
@@ -149,11 +149,8 @@ Here's how to create a private endpoint for the *global* sub-resource used for t
 2. Get the details of the virtual network and subnet you want to use for the private endpoint and store them in a variable by running the following commands:
 
    ```azurecli
-   # Get the virtual network details
-   vnet=$(az network vnet show --name <VNetName> --resource-group <ResourceGroupName>)
-
-   # Get the subnet details
-   subnet=$(az network vnet subnet show --resource-group <ResourceGroupName> --vnet-name <VNetName> -n <SubnetName>)
+   # Get the subnet details for the virtual network
+   subnet=$(az network vnet subnet show --vnet-name <VNetName> --name <SubnetName> --resource-group <ResourceGroupName>)
    ```
 
 3. *Optional*: Create a placeholder workspace to terminate the global endpoint by following the instructions to [Create a workspace](create-application-group-workspace.md?tabs=cli#create-a-workspace).
@@ -162,9 +159,11 @@ Here's how to create a private endpoint for the *global* sub-resource used for t
 
    ```azurepowershell
    # Get the details of the workspace
-   
-   FIXME:
    workspaceId=$(az desktopvirtualization workspace show --name <WorkspaceName> --resource-group <ResourceGroupName> --query [id] --output tsv)
+
+   # Create the service connection
+   TODO: 
+   ```
 
 5. TODO:
 
@@ -358,7 +357,8 @@ Here's how to create a private endpoint for the *feed* sub-resource used for the
       ```azurepowershell
       # Specify the Azure region. This must be the same region as your virtual network.
       $location = '<Location>'
-   
+
+      # Create a hash table for each private endpoint IP configuration
       $ip1 = @{
           Name = 'ipconfig1'
           GroupId = 'feed'
@@ -373,6 +373,7 @@ Here's how to create a private endpoint for the *feed* sub-resource used for the
           PrivateIPAddress = '<IPAddress>'
       }
 
+      # Create the private endpoint IP configurations
       $ipConfig1 = New-AzPrivateEndpointIpConfiguration @ip1
       $ipConfig2 = New-AzPrivateEndpointIpConfiguration @ip2
       
@@ -630,6 +631,8 @@ If you're using network security groups or Azure Firewall to control connections
 ## Validate Private Link with Azure Virtual Desktop
 
 To validate that Private Link with Azure Virtual Desktop is working once you've closed public routes:
+
+TODO: ADD IN CHECK PRIVATE LINK CONNECTION STATES
 
 1. Check the status of your session hosts in Azure Virtual Desktop.
    
