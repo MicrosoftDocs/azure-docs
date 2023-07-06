@@ -1,7 +1,7 @@
 ---
 title: Phone Number Management for Canada
 titleSuffix: An Azure Communication Services concept document
-description: Learn about Country Availability, Subscription Eligibility and Number Capabilities for PSTN and SMS Numbers in Communication Services.
+description: Learn about subscription Eligibility and Number Capabilities for PSTN and SMS Numbers in Canada.
 author: krkutser
 manager: rcole
 services: azure-communication-services
