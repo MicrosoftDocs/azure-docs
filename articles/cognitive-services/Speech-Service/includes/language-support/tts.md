@@ -159,6 +159,6 @@ ms.author: eur
 
 <sup>1</sup> The neural voice is available in public preview. Voices and styles in public preview are only available in three service [regions](../../regions.md): East US, West Europe, and Southeast Asia. 
 
-<sup>2</sup> [Phonemes](../../speech-synthesis-markup-pronunciation.md#phoneme-element) and [custom lexicon](../../speech-synthesis-markup-pronunciation.md#custom-lexicon) aren't supported.
+<sup>2</sup> [Phonemes](../../speech-synthesis-markup-pronunciation.md#phoneme-element), [custom lexicon](../../speech-synthesis-markup-pronunciation.md#custom-lexicon), and [visemes](../../speech-synthesis-markup-structure.md#viseme-element) aren't supported. For details about supported visemes, see [viseme locales](../../language-support.md?tabs=tts#viseme). 
 
 <sup>3</sup> For the multilingual voice the primary default locale is `en-US`. Additional locales are supported [using SSML](../../speech-synthesis-markup-voice.md#adjust-speaking-languages).
