@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 11/02/2022
+ms.date: 06/29/2023
 ms.author: cwerner
 ms.reviewer: jmprieur, saeeda, sureshja, ludwignick
 ms.custom: aaddev, identityplatformtop40, microsoft-identity-platform, scenarios:getting-started
@@ -22,7 +22,7 @@ This article defines authentication and authorization. It also briefly covers Mu
 
 ## Authentication
 
-*Authentication* is the process of proving that you are who you say you are. This is achieved by verification of the identity of a person or device. It's sometimes shortened to *AuthN*. The Microsoft identity platform uses the [OpenID Connect](https://openid.net/connect/) protocol for handling authentication.
+*Authentication* is the process of proving that you're who you say you are. This is achieved by verification of the identity of a person or device. It's sometimes shortened to *AuthN*. The Microsoft identity platform uses the [OpenID Connect](https://openid.net/connect/) protocol for handling authentication.
 
 ## Authorization
 
@@ -30,7 +30,7 @@ This article defines authentication and authorization. It also briefly covers Mu
 
 ## Multifactor authentication
 
-*Multifactor authentication* is the act of providing an additional factor of authentication to an account. This is often used to protect against brute force attacks. It is sometimes shortened to *MFA* or *2FA*. The [Microsoft Authenticator](https://support.microsoft.com/account-billing/set-up-the-microsoft-authenticator-app-as-your-verification-method-33452159-6af9-438f-8f82-63ce94cf3d29) can be used as an app for handling two-factor authentication. For more information, see [multifactor authentication](../authentication/concept-mfa-howitworks.md).
+*Multifactor authentication* is the act of providing another factor of authentication to an account. This is often used to protect against brute force attacks. It's sometimes shortened to *MFA* or *2FA*. The [Microsoft Authenticator](https://support.microsoft.com/account-billing/set-up-the-microsoft-authenticator-app-as-your-verification-method-33452159-6af9-438f-8f82-63ce94cf3d29) can be used as an app for handling two-factor authentication. For more information, see [multifactor authentication](../authentication/concept-mfa-howitworks.md).
 
 ## Authentication and authorization using the Microsoft identity platform
 
@@ -60,3 +60,4 @@ For other topics that cover authentication and authorization basics:
 
 * To learn how access tokens, refresh tokens, and ID tokens are used in authorization and authentication, see [Security tokens](security-tokens.md).
 * To learn about the process of registering your application so it can integrate with the Microsoft identity platform, see [Application model](application-model.md).
+* To learn about proper authorization using token claims, see [Secure applications and APIs by validating claims](./claims-validation.md)

@@ -124,7 +124,7 @@
           href: concepts-high-availability.md
     - name: Replication
       href: concepts-read-replicas.md
-    - name: Connection pooling
+    - name: Connection pooling (PgBouncer)
       href: concepts-connection-pool.md
     - name: Monitor and tune
       items:
@@ -177,6 +177,8 @@
         - name: Access database logs
           href: howto-logging.md
           displayName: log
+        - name: Audit logging
+          href: how-to-enable-audit.md
         - name: Useful diagnostic queries
           href: howto-useful-diagnostic-queries.md
     - name: Scale
@@ -247,6 +249,9 @@
         - name: Pg_azure_storage
           href: reference-pg-azure-storage.md
           displayName: pg_azure_storage, extensions
+    - name: COPY
+      href: reference-copy-command.md
+      displayName: pg_azure_storage, copy
     - name: Limits and limitations
       href: reference-limits.md
     - name: Distributed SQL API

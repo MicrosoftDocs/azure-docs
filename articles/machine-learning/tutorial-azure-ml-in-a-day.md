@@ -35,6 +35,10 @@ The steps you'll take are:
 > * Deploy the newly-trained model as an endpoint
 > * Call the Azure Machine Learning endpoint for inferencing
 
+Watch this video for an overview of the steps in this quickstart.
+> [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RW14vFs]
+
+
 ## Prerequisites
 
 1. [!INCLUDE [workspace](includes/prereq-workspace.md)]
@@ -491,7 +495,7 @@ If you're not going to use it now, stop the compute instance:
 
 ### Delete all resources
 
-[!INCLUDE [aml-delete-resource-group](../../includes/aml-delete-resource-group.md)]
+[!INCLUDE [aml-delete-resource-group](includes/aml-delete-resource-group.md)]
 
 ## Next steps
 

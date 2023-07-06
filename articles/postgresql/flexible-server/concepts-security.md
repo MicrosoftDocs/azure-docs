@@ -24,7 +24,7 @@ Azure Database for PostgreSQL encrypts data in two ways:
 
 - **Data in transit**: Azure Database for PostgreSQL encrypts in-transit data with Secure Sockets Layer and Transport Layer Security (SSL/TLS). Encryption is enforced by default. See this [guide](how-to-connect-tls-ssl.md) for more details. For better security, you may choose to enable [SCRAM authentication](how-to-connect-scram.md).
 
-   Although it's not recommended, if needed, you have an option to disable TLS\SSL for connections to Azure Database for PostgreSQL - Flexible Server by updating  the `require_secure_transport` server parameter to OFF. You can also set TLS version by setting `ssl_min_protocol_version` and `ssl_max_protocol_version` server parameters.
+   Although it's not recommended, if needed, you have an option to disable TLS\SSL for connections to Azure Database for PostgreSQL - Flexible Server by updating  the `require_secure_transport` server parameter to OFF. You can also set TLS version by setting `ssl_max_protocol_version` server parameters.
 
 
 - **Data at rest**: For storage encryption, Azure Database for PostgreSQL uses the FIPS 140-2 validated cryptographic module. Data is encrypted on disk, including backups and the temporary files created while queries are running. 
@@ -160,10 +160,18 @@ CREATE POLICY account_managers ON accounts TO managers
     USING (manager = current_user);
 ```
 The USING clause implicitly adds a `WITH CHECK` clause, ensuring that members of the manager role cannot perform SELECT, DELETE, or UPDATE operations on rows that belong to other managers, and cannot INSERT new rows belonging to another manager.
+> [!NOTE]
+>  In [PostgreSQL it is possible for a user to be assigned the *BYPASSRLS* attribute by another superuser](https://www.postgresql.org/docs/current/ddl-rowsecurity.html). With this permission, a user can bypass RLS for all tables in Postgres, as is superuser. That permission cannot  be assigned in Azure Database for PostgreSQL - Flexible Server, since administrator role has no superuser privileges, as common in cloud based PaaS PostgreSQL service.
+
 
 ## Updating passwords
 
 For better security, it is a good practice to periodically rotate your admin password and database user passwords. It is recommended to use strong passwords using upper and lower cases, numbers and special characters.
+
+## Using SCRAM 
+The [Salted Challenge Response Authentication Mechanism (SCRAM)](https://datatracker.ietf.org/doc/html/rfc5802) greatly improves the security of password-based user authentication by adding several key security features that prevent rainbow-table attacks, man-in-the-middle attacks, and stored password attacks, while also adding support for multiple hashing algorithms and passwords that contain non-ASCII characters. 
+If your [client driver supports SCRAM](https://wiki.postgresql.org/wiki/List_of_drivers) , you can **[setup access to Azure Database for PostgreSQL - Flexible Server using SCRAM](./how-to-connect-scram.md)** as `scram-sha-256` vs. default `md5`.
+
 
 ### Reset administrator password
 

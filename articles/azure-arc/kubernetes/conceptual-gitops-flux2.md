@@ -234,7 +234,7 @@ If you use `azblob` source, here are the blob-specific command arguments.
 | `--sp_client_cert_send_chain` | String | Specifies whether to include x5c header in client claims when acquiring a token to enable subject name / issuer based authentication for the client certificate |
 | `--account_key` | String | The Azure Blob Shared Key for authentication |
 | `--sas_token` | String | The Azure Blob SAS Token for authentication |
-| `--mi_client_id` | String | The client ID of the managed identity for authentication with Azure Blob |
+| `--managed-identity-client-id` | String | The client ID of the managed identity for authentication with Azure Blob |
 
 > [!IMPORTANT]
 > When using managed identity authentication for AKS clusters and `azblob` source, the managed identity must be assigned at minimum the [Storage Blob Data Reader](/azure/role-based-access-control/built-in-roles#storage-blob-data-reader) role. Authentication using a managed identity is not yet available for Azure Arc-enabled Kubernetes clusters.

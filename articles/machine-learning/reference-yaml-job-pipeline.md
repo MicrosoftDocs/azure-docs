@@ -17,9 +17,6 @@ ms.reviewer: scottpolly
 
 [!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
 
-> [!div class="op_single_selector" title1="Select the version of Azure Machine Learning CLI extension you are using:"]
-> * [v1](v1/reference-pipeline-yaml.md?view=azureml-api-1&preserve-view=true)
-> * [v2 (current version)](reference-yaml-job-pipeline.md)
 
 The source JSON schema can be found at https://azuremlschemas.azureedge.net/latest/pipelineJob.schema.json.
 

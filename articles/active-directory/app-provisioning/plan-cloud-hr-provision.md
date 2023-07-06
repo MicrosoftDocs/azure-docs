@@ -231,7 +231,7 @@ Deployment topology one is the most common deployment topology. Use this topolog
 
 ### Deployment topology two: Separate apps to provision distinct user sets from Cloud HR to single on-premises Active Directory domain
 
-This topology supports business requirements where attribute mapping and provisioning logic differ based on user type (employee/contractor), user location or user's business unit. You can also use this topology to delegate the administration and maintenance of inbound user provisioning based on division or country.
+This topology supports business requirements where attribute mapping and provisioning logic differ based on user type (employee/contractor), user location or user's business unit. You can also use this topology to delegate the administration and maintenance of inbound user provisioning based on division or country/region.
 
 :::image type="content" source="media/plan-cloud-hr-provision/topology-2-separate-apps-with-single-ad-domain.png" alt-text="Screenshot of separate apps to provision users from Cloud HR to single AD domain" lightbox="media/plan-cloud-hr-provision/topology-2-separate-apps-with-single-ad-domain.png":::
 

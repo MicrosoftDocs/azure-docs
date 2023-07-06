@@ -1,15 +1,17 @@
 ---
-title: 'Quickstart: Create an Azure Cognitive Search service using Terraform'
-description: 'In this article, you create an Azure Cognitive Search service using Terraform'
+title: 'Quickstart: Deploy using Terraform'
+description: 'In this article, you create an Azure Cognitive Search service using Terraform.'
 ms.topic: quickstart
 ms.date: 4/14/2023
-ms.custom: devx-track-terraform, ai-gen-docs
+ms.custom: devx-track-terraform
 author: TomArcherMsft
 ms.author: tarcher
 ms.service: cognitive-search
+content_well_notification: 
+  - AI-contribution
 ---
 
-# Quickstart: Create an Azure Cognitive Search service using Terraform
+# Quickstart: Deploy Cognitive Search service using Terraform
 
 This article shows how to use Terraform to create an [Azure Cognitive Search service](./search-what-is-azure-search.md) using [Terraform](/azure/developer/terraform/quickstart-configure).
 
@@ -22,8 +24,6 @@ In this article, you learn how to:
 > * Create an Azure resource group using [azurerm_resource_group](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/resource_group)
 > * Create a random string using [random_string](https://registry.terraform.io/providers/hashicorp/random/latest/docs/resources/string)
 > * Create an Azure Cognitive Search service using [azurerm_search_service](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/search_service)
-
-[!INCLUDE [AI attribution](../../includes/ai-generated-attribution.md)]
 
 ## Prerequisites
 

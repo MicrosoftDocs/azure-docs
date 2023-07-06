@@ -16,9 +16,6 @@ ms.custom: UpdateFrequency5, seodec18, devx-track-azurecli, cliv1
 
 [!INCLUDE [cli v1](../../../includes/machine-learning-cli-v1.md)]
 
-> [!div class="op_single_selector" title1="Select the version of Azure Machine Learning CLI extension you are using:"]
-> * [v1](reference-azure-machine-learning-cli.md)
-> * [v2 (current version)](../how-to-configure-cli.md?view=azureml-api-2&preserve-view=true)
 
 [!INCLUDE [cli-version-info](../../../includes/machine-learning-cli-version-1-only.md)]
 
@@ -173,7 +170,7 @@ The following commands demonstrate how to use the CLI to manage resources used b
 
 For more information, see [az ml computetarget create amlcompute](/cli/azure/ml(v1)/computetarget/create#az-ml-computetarget-create-amlcompute).
 
-[!INCLUDE [aml-clone-in-azure-notebook](../../../includes/aml-managed-identity-note.md)]
+[!INCLUDE [aml-clone-in-azure-notebook](../includes/aml-managed-identity-note.md)]
 
 <a id="computeinstance"></a>
 

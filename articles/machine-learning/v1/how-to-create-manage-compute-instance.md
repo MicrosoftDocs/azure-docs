@@ -4,9 +4,9 @@ titleSuffix: Azure Machine Learning
 description: Learn how to create and manage an Azure Machine Learning compute instance with CLI v1. Use as your development environment, or as  compute target for dev/test purposes.
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: core
+ms.subservice: compute
 ms.topic: how-to
-ms.custom: UpdateFrequency5, devx-track-azurecli, references_regions, cliv1, event-tier1-build-2022
+ms.custom: UpdateFrequency5, devx-track-azurecli, references_regions, cliv1
 author: swatig007
 ms.author: swatig
 ms.reviewer: sgilley
@@ -17,9 +17,6 @@ ms.date: 05/02/2022
 
 [!INCLUDE [dev v1](../../../includes/machine-learning-dev-v1.md)]
 
-> [!div class="op_single_selector" title1="Select the Azure Machine Learning SDK or CLI version you are using:"]
-> * [v1](how-to-create-manage-compute-instance.md)
-> * [v2 (current version)](../how-to-create-manage-compute-instance.md?view=azureml-api-2&preserve-view=true)
 
 Learn how to create and manage a [compute instance](../concept-compute-instance.md) in your Azure Machine Learning workspace with CLI v1.
 

@@ -27,7 +27,7 @@ zone_pivot_groups: web-app-quickstart
 ::: zone-end
 
 ::: zone pivot="devlang-nodejs-msal"
-[!INCLUDE [node.js-msal](./includes/web-app/quickstart-nodejs-msal.md)]
+[!INCLUDE [node.js](./includes/web-app/quickstart-nodejs-msal.md)]
 ::: zone-end
 
 ::: zone pivot="devlang-java"

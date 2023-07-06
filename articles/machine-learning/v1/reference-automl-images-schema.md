@@ -16,9 +16,6 @@ ms.date: 10/13/2021
 
 [!INCLUDE [sdk v1](../../../includes/machine-learning-sdk-v1.md)]
     
-> [!div class="op_single_selector" title1="Select the version of Azure Machine Learning CLI extension you are using:"]
-> * [v1](reference-automl-images-schema.md)
-> * [v2 (current version)](../reference-automl-images-schema.md?view=azureml-api-2&preserve-view=true)
     
 [!INCLUDE [cli-version-info](../../../includes/machine-learning-cli-version-1-only.md)]
 

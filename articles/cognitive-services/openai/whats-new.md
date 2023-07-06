@@ -8,14 +8,44 @@ ms.author: mbullwin
 ms.service: cognitive-services
 ms.subservice: openai
 ms.topic: whats-new
-ms.date: 05/15/2023
+ms.date: 06/12/2023
 recommendations: false
 keywords:  
 ---
 
 # What's new in Azure OpenAI Service
 
+## June 2023
+
+### Use Azure OpenAI on your own data (preview)
+
+- [Azure OpenAI on your data](./concepts/use-your-data.md) is now available in preview, enabling you to chat with OpenAI models such as ChatGPT and GPT-4 and receive responses based on your data. 
+
+### New versions of gpt-35-turbo and gpt-4 models
+
+- gpt-35-turbo (version 0613)
+- gpt-35-turbo-16k (version 0613)
+- gpt-4 (version 0613)
+- gpt-4-32k (version 0613)
+
+### UK South
+
+- Azure OpenAI is now available in the UK South region. Check the [models page](concepts/models.md), for the latest information on model availability in each region.  
+
+### Content filtering & annotations (Preview)
+
+- How to [configure content filters](how-to/content-filters.md) with Azure OpenAI Service.
+- [Enable annotations](concepts/content-filter.md) to view content filtering category and severity information as part of your GPT based Completion and Chat Completion calls.
+
+### Quota
+
+- Quota provides the flexibility to actively [manage the allocation of rate limits across the deployments](how-to/quota.md) within your subscription.
+
 ## May 2023
+
+### Java & JavaScript SDK support
+
+- NEW Azure OpenAI preview SDKs offering support for [JavaScript](/azure/cognitive-services/openai/quickstart?tabs=command-line&pivots=programming-language-javascript) and [Java](/azure/cognitive-services/openai/quickstart?tabs=command-line&pivots=programming-language-java).
 
 ### Azure OpenAI Chat Completion General Availability (GA)
 

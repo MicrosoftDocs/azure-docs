@@ -16,9 +16,6 @@ ms.custom: UpdateFrequency5, sdkv1
 # Deploy MLflow models as Azure web services
 
 [!INCLUDE [sdk v1](../../../includes/machine-learning-sdk-v1.md)]
-> [!div class="op_single_selector" title1="Select the version of the Azure Machine Learning developer platform you are using:"]
-> * [v1](how-to-deploy-mlflow-models.md)
-> * [v2 (current version)](../how-to-deploy-mlflow-models-online-endpoints.md?view=azureml-api-2&preserve-view=true)
 
 In this article, learn how to deploy your [MLflow](https://www.mlflow.org) model as an Azure web service, so you can leverage and apply Azure Machine Learning's model management and data drift detection capabilities to your production models. See [MLflow and Azure Machine Learning](concept-mlflow.md) for additional MLflow and Azure Machine Learning functionality integrations.
 

@@ -6,6 +6,43 @@ ms.date: 11/01/2022
 ms.author: eur
 ---
 
+### Speech SDK 1.30.0: July 2023 release
+
+#### New Features
+
+* **C++, C#, Java** - Added support for `DisplayWords` in Embedded Speech Recognition's detailed result.
+* **Objective-C/Swift** - Added support for `ConnectionMessageReceived` event in Objective-C/Swift.
+* **Objective-C/Swift** - Improved keyword-spotting models for iOS. This change has increased the size of the certain packages which contain iOS binaries (like NuGet, XCFramework). We are working on to reduce the size for future releases.
+
+#### Bug fixes
+
+* Fixed a memory leak when using speech recognizer with PhraseListGrammar, as reported by a customer ([GitHub issue](https://github.com/Azure-Samples/cognitive-services-speech-sdk/issues/1978)).
+* Fixed a deadlock in Text-to-Speech (TTS) open connection API.
+
+#### Additional notes
+
+* **Java** Some internally used, `public` Java API methods were change to package `internal`, `protected` or `private`. This change should not impact developers, as we do not expect applications to be using those. Noted here for transparency.
+
+### Speech SDK 1.29.0: June 2023 release
+
+#### New Features
+
+* **C++, C#, Java** - Preview of Embedded Speech Translation APIs. Now you can do speech translation without cloud connection!
+* **JavaScript** - Continuous Language Identification (LID) now enabled for speech translation.
+* **JavaScript** - Community contribution for adding `LocaleName` property to `VoiceInfo` class. Thank you GitHub user [shivsarthak](https://github.com/shivsarthak) for the pull request. 
+* **C++, C#, Java** - Added support for resampling Embedded Text-to-Speech (TTS) output from 16kHz to 48kHz sample rate.
+* Added support for `hi-IN` locale in Intent Recognizer with Simple Pattern Matching.
+
+#### Bug fixes
+
+* Fixed a crash caused by a race condition in Speech Recognizer during object destruction, as seen in some of our Android tests
+* Fixed possible deadlocks in Intent Recognizer with Simple Pattern Matcher
+
+#### Samples
+
+* New Embedded Speech Translation samples
+
+
 ### Speech SDK 1.28.0: May 2023 release
 
 #### Breaking change
@@ -627,7 +664,7 @@ Stay healthy!
 - **Java**: Refactored bindings using direct JNI implementation without SWIG. This change reduces by 10x the bindings size for all Java packages used for Windows, Android, Linux, and Mac and eases further development of the Speech SDK Java implementation.
 - **Linux**: Updated support [documentation](../../speech-sdk.md?tabs=linux) with the latest RHEL 7 specific notes.
 - Improved connection logic to attempt connecting multiple times when service and network errors occur.
-- Updated the [portal.azure.com](https://portal.azure.com) Speech Quickstart page to help developers take the next step in the Azure Speech journey.
+- Updated the [portal.azure.com](https://portal.azure.com) Speech Quickstart page to help developers take the next step in the Azure Cognitive Services Speech journey.
 
 #### Bug fixes
 - **C#, Java**: Fixed an [issue](https://github.com/Azure-Samples/cognitive-services-speech-sdk/issues/587) with loading SDK libraries on Linux ARM (both 32 bit and 64 bit).
@@ -683,7 +720,7 @@ Stay healthy!
    > [!NOTE]
    > Customers must configure OpenSSL according to [these instructions](../../how-to-configure-openssl-linux.md).
  - Linux ARM32 support for Debian and Ubuntu.
- - DialogServiceConnector now supports an optional "bot ID" parameter on BotFrameworkConfig. This parameter allows the use of multiple Direct Line Speech bots with a single Azure speech resource. Without the parameter specified, the default bot (as determined by the Direct Line Speech channel configuration page) will be used.
+ - DialogServiceConnector now supports an optional "bot ID" parameter on BotFrameworkConfig. This parameter allows the use of multiple Direct Line Speech bots with a single Speech resource. Without the parameter specified, the default bot (as determined by the Direct Line Speech channel configuration page) will be used.
  - DialogServiceConnector now has a SpeechActivityTemplate property. The contents of this JSON string will be used by Direct Line Speech to pre-populate a wide variety of supported fields in all activities that reach a Direct Line Speech bot, including activities automatically generated in response to events like speech recognition.
  - TTS now uses subscription key for authentication, reducing the first byte latency of the first synthesis result after creating a synthesizer.
  - Updated speech recognition models for 19 locales for an average word error rate reduction of 18.6% (es-ES, es-MX, fr-CA, fr-FR, it-IT, ja-JP, ko-KR, pt-BR, zh-CN, zh-HK, nb-NO, fi-FL, ru-RU, pl-PL, ca-ES, zh-TW, th-TH, pt-PT, tr-TR). The new models bring significant improvements across multiple domains including Dictation, Call-Center Transcription, and Video Indexing scenarios.
