@@ -21,6 +21,9 @@ There are two methods to instrument your application:
 
 **Autoinstrumentation** enables telemetry collection through configuration without touching the application's code. Although it's more convenient, it tends to be less configurable. It's also not available in all languages. See [Autoinstrumentation supported environments and languages](codeless-overview.md). When autoinstrumentation is available, it's the easiest way to enable Azure Monitor Application Insights.
 
+> [!TIP]
+> Currently, [AAD Auth](azure-ad-authentication.md) is not available with autoinstrumentation. If you require AAD Auth, you'll need to use manual instrumentation.
+
 **Manual instrumentation** is coding against the Application Insights or OpenTelemetry API. In the context of a user, it typically refers to installing a language-specific SDK in an application. There are two options for manual instrumentation:
 
 - [Application Insights SDKs](asp-net-core.md)
