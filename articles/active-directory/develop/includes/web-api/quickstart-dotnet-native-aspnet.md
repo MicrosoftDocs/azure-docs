@@ -136,7 +136,7 @@ Start both projects. For Visual Studio users;
 
 1. For both projects choose **Start** as the action
 
-1. Ensure the TodoListService service starts first by moving it to the fist position in the list, using the up arrow.
+1. Ensure the TodoListService service starts first by moving it to the first position in the list, using the up arrow.
 
 Sign in to run your TodoListClient project.
 
