@@ -47,7 +47,7 @@ More details on eligible subscription types are as follows:
 
 \* Please refer to [Inbound calling capabilities page](../telephony/inbound-calling-capabilities.md) for details.
 
-**Use the below drop-down to check the requirements for other countries**
+**Use the drop-down menu to check the requirements for other countries**
 > [!div class="op_single_selector"]
 >
 > - [Argentina](../numbers/phone-number-management-for-argentina.md)
