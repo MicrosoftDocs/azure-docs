@@ -1,7 +1,7 @@
 ---
 title: Copy a custom model
-titleSuffix: Azure Cognitive Services
-description: This article explains how to copy a custom model to another workspace using the Azure Cognitive Services Custom Translator.
+titleSuffix: Azure AI services
+description: This article explains how to copy a custom model to another workspace using the Azure AI Translator Custom Translator.
 author: laujan
 manager: nitinme
 ms.service: cognitive-services

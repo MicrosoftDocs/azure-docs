@@ -1,12 +1,12 @@
 - name: Bing Video Search API Documentation
-  href: ../Bing-Web-Search/index.yml
+  href: ../bing-web-search/index.yml
 - name: Overview
   expanded: true
   items:
     - name: What is the Bing Video Search API?
       href: overview.md
     - name: Compare the Bing Search APIs
-      href: ../Bing-Web-Search/bing-api-comparison.md
+      href: ../bing-web-search/bing-api-comparison.md
       maintainContext: true
 - name: Quickstarts
   expanded: true
@@ -45,7 +45,7 @@
     href: trending-videos.md
   - name: Page videos
     maintainContext: true
-    href: ../Bing-Web-Search/paging-search-results.md
+    href: ../bing-web-search/paging-search-results.md
   - name: Resize and crop thumbnails
     maintainContext: true
     href: ../bing-web-search/resize-and-crop-thumbnails.md
@@ -76,7 +76,7 @@
     - name: Go
       href: https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v1.0/videosearch
   - name: Use and display requirements
-    href: ../Bing-Web-Search/use-display-requirements.md
+    href: ../bing-web-search/use-display-requirements.md
     maintainContext: true
 - name: Resources
   items:

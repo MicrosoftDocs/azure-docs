@@ -1,6 +1,6 @@
 ---
-title: Migrate to the latest version of Azure Cognitive Service for Language
-titleSuffix: Azure Cognitive Services
+title: Migrate to the latest version of Azure AI Language
+titleSuffix: Azure AI services
 description: Learn how to move your Text Analytics applications to use the latest version of the Language service.
 services: cognitive-services
 author: aahill
@@ -13,12 +13,12 @@ ms.author: aahi
 ms.custom: ignite-fall-2021
 ---
 
-# Migrate to the latest version of Azure Cognitive Service for Language
+# Migrate to the latest version of Azure AI Language
 
 > [!TIP]
-> Just getting started with Azure Cognitive Service for Language? See the [overview article](../overview.md) for details on the service, available features, and links to quickstarts for information on the current version of the API. 
+> Just getting started with Azure AI Language? See the [overview article](../overview.md) for details on the service, available features, and links to quickstarts for information on the current version of the API. 
 
-If your applications are still using the Text Analytics API, or client library (before stable v5.1.0), this article will help you upgrade your applications to use the latest version of the [Azure Cognitive Service for language](../overview.md) features.
+If your applications are still using the Text Analytics API, or client library (before stable v5.1.0), this article will help you upgrade your applications to use the latest version of the [Azure AI language](../overview.md) features.
 
 ## Unified Language endpoint (REST API)
 
@@ -126,7 +126,7 @@ The key phrase extraction feature functionality currently has not changed outsid
 
 ## See also
 
-* [What is Azure Cognitive Service for Language?](../overview.md)
+* [What is Azure AI Language?](../overview.md)
 * [Language service developer guide](developer-guide.md)
 * See the following reference documentation for information on previous API versions.
     * [Version 2.1](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c9)

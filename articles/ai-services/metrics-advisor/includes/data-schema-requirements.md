@@ -1,6 +1,6 @@
 ---
 title: Data schema requirements
-titleSuffix: Azure Applied AI Services
+titleSuffix: Azure AI services
 author: mrbullwinkle
 manager: nitinme
 ms.service: applied-ai-services
@@ -10,7 +10,7 @@ ms.date: 09/10/2020
 ms.author: mbullwin
 ---
 
-Azure Metrics Advisor is a service for time series anomaly detection, diagnostics, and analysis. As an AI-powered service, it uses your data to train the model used. The service accepts tables of aggregated data with the following columns:
+Azure AI Metrics Advisor is a service for time series anomaly detection, diagnostics, and analysis. As an AI-powered service, it uses your data to train the model used. The service accepts tables of aggregated data with the following columns:
 
 * **Measure** (required): A measure is a fundamental or unit-specific term and a quantifiable value of the metric. It means one or more columns containing numeric values.
 * **Timestamp** (optional): Zero or one column, with type of `DateTime` or `String`. When this column isn't set, the timestamp is set as the start time of each ingestion period. Format the timestamp as follows: `yyyy-MM-ddTHH:mm:ssZ`. 

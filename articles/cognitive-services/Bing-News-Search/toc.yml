@@ -1,12 +1,12 @@
 - name: Bing News Search Documentation
-  href: ../Bing-Web-Search/index.yml
+  href: ../bing-web-search/index.yml
 - name: Overview
   expanded: true
   items:
     - name: What is the Bing News Search API?
       href: search-the-web.md
     - name: Compare the Bing Search APIs
-      href: ../Bing-Web-Search/bing-api-comparison.md
+      href: ../bing-web-search/bing-api-comparison.md
       maintainContext: true
 - name: Quickstarts
   items:
@@ -41,10 +41,10 @@
 - name: How-to guides
   items:
   - name: Handle hit highlighting
-    href: ../Bing-Web-Search/hit-highlighting.md
+    href: ../bing-web-search/hit-highlighting.md
     maintainContext: true
   - name: Page through search results
-    href: ../Bing-Web-Search/paging-search-results.md
+    href: ../bing-web-search/paging-search-results.md
   - name: Resize and crop thumbnails
     maintainContext: true
     href: ../bing-web-search/resize-and-crop-thumbnails.md
@@ -75,7 +75,7 @@
       - name: Go
         href: https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v1.0/newssearch
   - name: Use and display requirements
-    href: ../Bing-Web-Search/use-display-requirements.md
+    href: ../bing-web-search/use-display-requirements.md
     maintainContext: true
 - name: Resources
   items:

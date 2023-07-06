@@ -1,6 +1,6 @@
 ---
-title: "Use Azure Cognitive Services Translator APIs"
-titleSuffix: Azure Cognitive Services
+title: "Use Azure AI Translator APIs"
+titleSuffix: Azure AI services
 description: "Learn to translate text, transliterate text, detect language and more with the Translator service. Examples are provided in C#, Java, JavaScript and Python."
 services: cognitive-services
 author: laujan
@@ -19,7 +19,7 @@ keywords: translator, translator service, translate text, transliterate text, la
 <!-- markdownlint-disable MD001 -->
 <!-- markdownlint-disable MD024 -->
 
-# Use Azure Cognitive Services Translator APIs
+# Use Azure AI Translator APIs
 
 In this how-to guide, you learn to use the [Translator service REST APIs](reference/rest-api-guide.md). You start with basic examples and move onto some core configuration options that are commonly used during development, including:
 
@@ -33,7 +33,7 @@ In this how-to guide, you learn to use the [Translator service REST APIs](refere
 
 * Azure subscription - [Create one for free](https://azure.microsoft.com/free/cognitive-services/)
 
-* A Cognitive Services or Translator resource. Once you have your Azure subscription, create a [single-service](https://portal.azure.com/#create/Microsoft.CognitiveServicesTextTranslation) or a [multi-service](https://portal.azure.com/#create/Microsoft.CognitiveServicesAllInOne) resource, in the Azure portal, to get your key and endpoint. After it deploys, select **Go to resource**.
+* An Azure AI multi-service or Translator resource. Once you have your Azure subscription, create a [single-service](https://portal.azure.com/#create/Microsoft.CognitiveServicesTextTranslation) or a [multi-service](https://portal.azure.com/#create/Microsoft.CognitiveServicesAllInOne) resource, in the Azure portal, to get your key and endpoint. After it deploys, select **Go to resource**.
 
 * You can use the free pricing tier (F0) to try the service, and upgrade later to a paid tier for production.
 
@@ -42,7 +42,7 @@ In this how-to guide, you learn to use the [Translator service REST APIs](refere
     :::image type="content" source="media/keys-and-endpoint-portal.png" alt-text="Screenshot: Azure portal keys and endpoint page.":::
 
 > [!IMPORTANT]
-> Remember to remove the key from your code when you're done, and never post it publicly. For production, use a secure way of storing and accessing your credentials like [Azure Key Vault](../../key-vault/general/overview.md). For more information, *see* the Cognitive Services [security](../security-features.md).
+> Remember to remove the key from your code when you're done, and never post it publicly. For production, use a secure way of storing and accessing your credentials like [Azure Key Vault](../../key-vault/general/overview.md). For more information, *see* the Azure AI services [security](../security-features.md).
 
 ## Headers
 
@@ -51,7 +51,7 @@ To call the Translator service via the [REST API](reference/rest-api-guide.md), 
 |Header|Value| Condition  |
 |--- |:--- |:---|
 |**Ocp-Apim-Subscription-Key** |Your Translator service key from the Azure portal.|<ul><li>***Required***</li></ul> |
-|**Ocp-Apim-Subscription-Region**|The region where your resource was created. |<ul><li>***Required*** when using a multi-service Cognitive Services or regional (geographic) resource like **West US**.</li><li> ***Optional*** when using a single-service Translator Resource.</li></ul>|
+|**Ocp-Apim-Subscription-Region**|The region where your resource was created. |<ul><li>***Required*** when using an Azure AI multi-service or regional (geographic) resource like **West US**.</li><li> ***Optional*** when using a single-service Translator Resource.</li></ul>|
 |**Content-Type**|The content type of the payload. The accepted value is **application/json** or **charset=UTF-8**.|<ul><li>***Required***</li></ul>|
 |**Content-Length**|The **length of the request** body.|<ul><li>***Optional***</li></ul> |
 |**X-ClientTraceId**|A client-generated GUID to uniquely identify the request. You can omit this header if you include the trace ID in the query string using a query parameter named ClientTraceId.|<ul><li>***Optional***</li></ul>
@@ -337,7 +337,7 @@ You can use any text editor to write Go applications. We recommend using the lat
 > [!IMPORTANT]
 > The samples in this guide require hard-coded keys and endpoints.
 > Remember to **remove the key from your code when you're done**, and **never post it publicly**.
-> For production, consider using a secure way of storing and accessing your credentials. For more information, *see* [Cognitive Services security](../security-features.md).
+> For production, consider using a secure way of storing and accessing your credentials. For more information, *see* [Azure AI services security](../security-features.md).
 
 ## Translate text
 
@@ -808,7 +808,7 @@ let key = "<YOUR-TRANSLATOR-KEY>";
 let endpoint = "https://api.cognitive.microsofttranslator.com";
 
 // Add your location, also known as region. The default is global.
-// This is required if using a Cognitive Services resource.
+// This is required if using an Azure AI multi-service resource.
 let location = "<YOUR-RESOURCE-LOCATION>";
 
 axios({
@@ -1084,7 +1084,7 @@ let key = "<YOUR-TRANSLATOR-KEY>";
 let endpoint = "https://api.cognitive.microsofttranslator.com";
 
 // Add your location, also known as region. The default is global.
-// This is required if using a Cognitive Services resource.
+// This is required if using an Azure AI multi-service resource.
 let location = "<YOUR-RESOURCE-LOCATION>";
 
 axios({
@@ -1363,7 +1363,7 @@ let key = "<YOUR-TRANSLATOR-KEY>";
 let endpoint = "https://api.cognitive.microsofttranslator.com";
 
 // Add your location, also known as region. The default is global.
-// This is required if using a Cognitive Services resource.
+// This is required if using an Azure AI multi-service resource.
 let location = "<YOUR-RESOURCE-LOCATION>";
 
 axios({
@@ -1648,7 +1648,7 @@ let key = "<YOUR-TRANSLATOR-KEY>";
 let endpoint = "https://api.cognitive.microsofttranslator.com";
 
 // Add your location, also known as region. The default is global.
-// This is required if using a Cognitive Services resource.
+// This is required if using an Azure AI multi-service resource.
 let location = "<YOUR-RESOURCE-LOCATION>";
 
 axios({
@@ -1924,7 +1924,7 @@ let key = "<YOUR-TRANSLATOR-KEY>";
 let endpoint = "https://api.cognitive.microsofttranslator.com";
 
 // Add your location, also known as region. The default is global.
-// This is required if using a Cognitive Services resource.
+// This is required if using an Azure AI multi-service resource.
 let location = "<YOUR-RESOURCE-LOCATION>";
 
 axios({
@@ -2207,7 +2207,7 @@ let key = "<YOUR-TRANSLATOR-KEY>";
 let endpoint = "https://api.cognitive.microsofttranslator.com";
 
 // Add your location, also known as region. The default is global.
-// This is required if using a Cognitive Services resource.
+// This is required if using an Azure AI multi-service resource.
 let location = "<YOUR-RESOURCE-LOCATION>";
 
 axios({
@@ -2475,7 +2475,7 @@ let key = "<YOUR-TRANSLATOR-KEY>";
 let endpoint = "https://api.cognitive.microsofttranslator.com";
 
 // Add your location, also known as region. The default is global.
-// This is required if using a Cognitive Services resource.
+// This is required if using an Azure AI multi-service resource.
 let location = "<YOUR-RESOURCE-LOCATION>";
 
 axios({
@@ -2898,7 +2898,7 @@ let key = "<YOUR-TRANSLATOR-KEY>";
 let endpoint = "https://api.cognitive.microsofttranslator.com";
 
 // Add your location, also known as region. The default is global.
-// This is required if using a Cognitive Services resource.
+// This is required if using an Azure AI multi-service resource.
 let location = "<YOUR-RESOURCE-LOCATION>";
 
 axios({
@@ -3124,4 +3124,4 @@ If you're encountering connection issues, it may be that your TLS/SSL certificat
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Customize and improve translation](./custom-translator/concepts/customization.md)
+> [Customize and improve translation](custom-translator/concepts/customization.md)

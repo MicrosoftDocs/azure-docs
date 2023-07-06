@@ -1,6 +1,6 @@
 ---
 title: Metrics Advisor REST API quickstart
-titleSuffix: Azure Applied AI Services
+titleSuffix: Azure AI services
 author: mrbullwinkle
 manager: nitinme
 ms.service: applied-ai-services

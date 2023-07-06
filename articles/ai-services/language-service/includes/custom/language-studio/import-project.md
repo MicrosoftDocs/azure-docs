@@ -1,5 +1,5 @@
 ---
-titleSuffix: Azure Cognitive Services
+titleSuffix: Azure AI services
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -27,15 +27,15 @@ ms.author: aahi
     > * This process is irreversible, if you connect a storage account to your Language resource you cannot disconnect it later.
     > * You can only connect your Language resource to one storage account.
 
-5. Enter the project information, including a name, description, and the language of the documents in your project. You won’t be able to change the name of your project later. Click **Next**.
+5. Enter the project information, including a name, description, and the language of the documents in your project. You won’t be able to change the name of your project later. Select **Next**.
        
     >[!TIP]
     > Your dataset doesn't have to be entirely in the same language. You can have multiple documents, each with different supported languages. If your dataset contains documents of different languages or if you expect text from different languages during runtime, select **enable multi-lingual dataset** option when you enter the basic information for your project. This option can be enabled later from the **Project settings** page.
 
 6. Select the container where you have uploaded your dataset. 
 
-7. Click on **Yes, my documents are already labeled and I have formatted JSON labels file** and select the labels file from the drop-down menu below to import your JSON labels file. 
+7. Select **Yes, my documents are already labeled and I have formatted JSON labels file** and select the labels file from the drop-down menu below to import your JSON labels file. 
 
-8.   Click **Next**.
+8.   Select **Next**.
 
 9. Review the data you entered and select **Create Project**.

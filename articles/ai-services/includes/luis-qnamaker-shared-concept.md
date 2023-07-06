@@ -9,11 +9,11 @@ ms.custom: include file
 ms.date: 04/16/2020
 ---
 
-Cognitive Services provides two natural language processing services, [Language Understanding](../luis/what-is-luis.md) and [QnA Maker](../qnamaker/overview/overview.md), each with a different purpose. Understand when to use each service and how they compliment each other.
+Azure AI services provides two natural language processing services, [Language Understanding](../luis/what-is-luis.md) and [QnA Maker](../qnamaker/overview/overview.md), each with a different purpose. Understand when to use each service and how they compliment each other.
 
 Natural language processing (NLP) allows your client application, such as a chat bot, to work with your users, using natural language. A user enters a sentence or phrase. The user's text can have poor grammar, spelling, and punctuation. The Cognitive Service can work through the user sentence anyway, returning information the chat bot needs to help the user.
 
-## Cognitive Services with NLP
+## Azure AI services with NLP
 
 Language Understanding (LUIS) and QnA Maker provide NLP. The client application submits natural language text. The service takes the text, processes it, and returns a result.
 
@@ -74,7 +74,7 @@ Use the Bot builder sample, **NLP with dispatch**, in [C#](https://github.com/mi
 
 Implement best practices for each service:
 
-* [LUIS](../luis/luis-concept-best-practices.md) best practices
+* [LUIS](../luis/faq.md) best practices
 * [QnA Maker](../qnamaker/concepts/best-practices.md) best practices
 
 ## See also
@@ -83,6 +83,6 @@ Implement best practices for each service:
 * [QnA Maker](../qnamaker/overview/overview.md)
 * [Dispatch CLI](https://github.com/Microsoft/botbuilder-tools/tree/master/packages/Dispatch)
 * [Bot framework samples](https://github.com/Microsoft/BotBuilder-Samples)
-* [Azure bot service](/azure/bot-service/bot-service-overview-introduction)
+* [Azure AI Bot Service](/azure/bot-service/bot-service-overview-introduction)
 * [Azure bot emulator](https://github.com/Microsoft/BotFramework-Emulator)
 * [Bot framework web chat](https://github.com/microsoft/BotFramework-WebChat)
