@@ -19,7 +19,7 @@ You can create a customized dev box image that includes your Visual Studio solut
 Advantages of pre-caching your solution for dev box include:
 - You can reduce the time it takes to load your solution for the first time. 
 - You can quickly use key features like Find In Files and IntelliSense in Visual Studio.
-- You can improve the Git performance on large repositories (available with Visual Studio 17.7 Preview 3 and later).
+- You can improve the Git performance on large repositories.
 
 Performance gains in startup time from pre-caching of your Visual Studio solution will vary depending on the complexity of your solution.
 
@@ -30,7 +30,7 @@ To learn more about how to create a custom image and use it to create a dev box,
 
 ## Prerequisites
 
-- A dev center. If you don't have one available, follow the steps in [Create a dev center](quickstart-configure-dev-box-service.md).
+- A dev box. If you don't have one available, follow the steps in [Create a dev center](quickstart-configure-dev-box-service.md) to configure a dev box.
 
 ## Enable caches in Dev Box images
 
@@ -39,13 +39,12 @@ You can generate caches for your Visual Studio solution as part of an automated 
 * You're using [Microsoft Dev Box](overview-what-is-microsoft-dev-box.md) as your development workstation.
 * The source code for your project is saved in a non-user specific location to be included in the image.
 * You can [create a custom Dev Box image](how-to-customize-devbox-azure-image-builder.md) that includes the source code for your project.
-* You're using [Visual Studio 17.7 Preview 2 or higher](https://visualstudio.microsoft.com/vs/preview/).
+* You're using [Visual Studio 17.7 Preview 3 or higher](https://visualstudio.microsoft.com/vs/preview/).
 
 To generate the caches, execute the following `devenv` command as part of your image build process: 
 
 ```shell
-# Add a command line flag to the Visual Studio devenv 
-Open your solution, execute a build and generate the caches for the specified solution
+# Add a command line flag to the Visual Studio devenv
 devenv SolutionName /PopulateSolutionCache /LocalCache /Build [SolnConfigName [/Project ProjName [/ProjectConfig ProjConfigName]] [/Out OutputFilename]]
 ```
 For more information on the `build` command, see [Build command-line reference](/visualstudio/ide/reference/build-devenv-exe). 
