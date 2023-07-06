@@ -13,9 +13,9 @@ ms.custom: devx-track-js
 
 # Use Azure Maps TypeScript REST SDK
 
-Azure Maps provides a collection of npm modules for the *Azure TypeScript REST SDK*. These modules consist of client libraries that make it easy to use the Azure Maps REST services in web or Node.js applications by using JavaScript or TypeScript. For a complete list of the available modules, see [JavaScript/TypeScript REST SDK Developers Guide](how-to-dev-guide-js-sdk.md).
+Azure Maps provides a collection of npm modules for the [Azure TypeScript REST SDK]. These modules consist of client libraries that make it easy to use the Azure Maps REST services in web or Node.js applications by using JavaScript or TypeScript. For a complete list of the available modules, see [JavaScript/TypeScript REST SDK Developers Guide].
 
-## Use the SDK in a web application
+## Use the REST SDK in a web application
 
 1. Using `@azure-rest/maps-search` as an example, install the package with `npm install @azure-rest/maps-search`.
 
@@ -142,6 +142,8 @@ For more code samples that use the TypeScript REST SDK with Web SDK integration,
 > [!div class="nextstepaction"]
 > [Show directions from A to B](./map-route.md)
 
+[Azure TypeScript REST SDK]: ./rest-sdk-developer-guide.md#javascripttypescript
+[JavaScript/TypeScript REST SDK Developers Guide]: ./how-to-dev-guide-js-sdk.md
 [MapsSearch]: /javascript/api/@azure-rest/maps-search
 [Azure Active Directory credential]: ./how-to-dev-guide-js-sdk.md#using-an-azure-ad-credential
 [Azure Key credential]: ./how-to-dev-guide-js-sdk.md#using-a-subscription-key-credential

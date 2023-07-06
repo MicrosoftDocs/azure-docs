@@ -1,11 +1,11 @@
 ---
 title: Show route directions on a map
 titleSuffix: Microsoft Azure Maps
-description: In this article, you'll learn how to display directions between two locations on a map using the Microsoft Azure Maps Web SDK.
+description: This article demonstrates how to display directions between two locations on a map using the Microsoft Azure Maps Web SDK.
 author: dubiety
 ms.author: yuchungchen
 ms.date: 07/01/2023
-ms.topic: conceptual
+ms.topic: how-to
 ms.service: azure-maps
 ---
 
@@ -13,7 +13,7 @@ ms.service: azure-maps
 
 This article shows you how to make a route request and show the route on the map.
 
-There are two ways to do so. The first way is to query the [Get Route Directions] API using the TypeScript REST SDK [@azure-rest/maps-route]. The second way is to use the [Fetch API] to make a search request to the [Get Route Directions] API. Both ways are discussed below.
+There are two ways to do so. The first way is to query the [Get Route Directions] API using the TypeScript REST SDK [@azure-rest/maps-route]. The second way is to use the [Fetch API] to make a search request to the [Get Route Directions] API. Both approaches are described in this article.
 
 ## Query the route via REST SDK
 
@@ -170,7 +170,7 @@ document.body.onload = onload;
 </iframe>
 --------------------------------------------------------->
 
-In the above code, the first block constructs a map object and sets the authentication mechanism to use Azure Active Directory. You can see [create a map] for instructions.
+In the previous code example, the first block constructs a map object and sets the authentication mechanism to use Azure Active Directory. You can see [Create a map] for instructions.
 
 The second block of code creates an object that implements the [TokenCredential] interface to authenticate HTTP requests to Azure Maps with the access token. It then passes the credential object to [MapsRoute] and creates an instance of the client.
 
@@ -182,7 +182,7 @@ A line is a [Feature] for LineString. A [LineLayer] renders line objects wrapped
 
 A [symbol layer] uses texts or icons to render point-based data wrapped in the [DataSource]. The texts or the icons render as symbols on the map. The fifth block of code creates and adds a symbol layer to the map.
 
-The sixth block of code queries the Azure Maps routing service, which is part of the [MapsRoute] client. A GET request is used to get a route between the start and end points. A GeoJSON feature collection from the response is then extracted using a `getFeatures()` helper function and is added to the datasource. It then renders the response as a route on the map. For more information about adding a line to the map, see [add a line on the map].
+The sixth block of code queries the Azure Maps routing service, which is part of the [MapsRoute] client. A GET request is used to get a route between the start and end points. A GeoJSON feature collection from the response is then extracted using a `getFeatures()` helper function and is added to the datasource. It then renders the response as a route on the map. For more information about adding a line to the map, see [Add a line on the map].
 
 The last block of code sets the bounds of the map using the Map's [setCamera] property.
 
@@ -311,17 +311,17 @@ document.body.onload = onload;
 </iframe>
 --------------------------------------------------------->
 
-In the code above, the first block of code constructs a map object and sets the authentication mechanism to use Azure Active Directory. You can see [create a map] for instructions.
+In the previous code example, the first block of code constructs a map object and sets the authentication mechanism to use Azure Active Directory. You can see [Create a map] for instructions.
 
 The second block of code creates and adds a [DataSource] object to the map.
 
-The third code block creates the start and destination points for the route. Then, it adds them to the data source. For more information, see [add a pin on the map].
+The third code block creates the start and destination points for the route. Then, it adds them to the data source. For more information, see [Add a pin on the map].
 
 A [LineLayer] renders line objects wrapped in the  [DataSource] as lines on the map. The fourth block of code creates and adds a line layer to the map. See properties of a line layer at [LineLayerOptions].
 
 A [symbol layer] uses text or icons to render point-based data wrapped in the [DataSource] as symbols on the map. The fifth block of code creates and adds a symbol layer to the map. See properties of a symbol layer at [SymbolLayerOptions].
 
-The next block of code uses the [Fetch API] to make a search request to [Get Route Directions]. The response is then parsed. If the response was successful, the latitude and longitude information is used to create an array a line by connecting those points. The line data is then added to data source to render the route on the map. For more information, see [add a line on the map].
+The next block of code uses the [Fetch API] to make a search request to [Get Route Directions]. The response is then parsed. If the response was successful, the latitude and longitude information is used to create an array a line by connecting those points. The line data is then added to data source to render the route on the map. For more information, see [Add a line on the map].
 
 The last block of code sets the bounds of the map using the Map's [setCamera] property.
 
@@ -351,13 +351,13 @@ See the following articles for full code examples:
 
 [Get Route Directions]: /rest/api/maps/route/getroutedirections
 [Fetch API]: https://fetch.spec.whatwg.org/
-[create a map]: map-create.md
+[Create a map]: map-create.md
 [DataSource]: /javascript/api/azure-maps-control/atlas.source.datasource
-[add a line on the map]: map-add-line-layer.md
+[Add a line on the map]: map-add-line-layer.md
 [setCamera]: /javascript/api/azure-maps-control/atlas.map#setcamera-cameraoptions---cameraboundsoptions---animationoptions-
 [SymbolLayerOptions]: /javascript/api/azure-maps-control/atlas.symbollayeroptions
 [LineLayerOptions]: /javascript/api/azure-maps-control/atlas.linelayeroptions
-[add a pin on the map]: map-add-pin.md
+[Add a pin on the map]: map-add-pin.md
 [LineLayer]: /javascript/api/azure-maps-control/atlas.layer.linelayer
 [symbol layer]: /javascript/api/azure-maps-control/atlas.layer.symbollayer
 [event listener]: /javascript/api/azure-maps-control/atlas.map#events
