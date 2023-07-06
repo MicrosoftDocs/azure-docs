@@ -432,7 +432,7 @@ Move a VM from dedicated host to multi-tenant infrastructure using the [portal](
 1. Open the page for the VM.
 1. Select **Stop** to stop\deallocate the VM.
 1. Select **Configuration** from the left menu.
-1. Select **XXXXX** under host group drop-down menu.
+1. Select **None** under host group drop-down menu.
 1. When you're done, select **Save** at the top of the page.
 1. After the VM has been reconfigured as a multi-tenant VM, select **Overview** from the left menu.
 1. At the top of the page, select **Start** to restart the VM.
