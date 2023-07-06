@@ -14,21 +14,21 @@ This article describes feature availability in Microsoft Sentinel across differe
 
 ## Analytics		
 
-|Feature  |Feature stage |Azure commercial  |Azure China 21Vianet  |
-|---------|---------|---------|---------|
-|[Analytics rules health](monitor-analytics-rule-integrity.md) |Public Preview |&#x2705; |&#10060; |
-|[MITRE ATT&CK dashboard](mitre-coverage.md)	|Public Preview |&#x2705; |&#10060; |
-|[NRT rules](near-real-time-rules.md) |Public Preview |&#x2705; |&#x2705; |
-|[Recommendations](detection-tuning.md) |Public Preview |&#x2705; |&#10060; |
-|[Scheduled](detect-threats-built-in.md) and [Microsoft rules](create-incidents-from-alerts.md) |GA |&#x2705; |&#x2705; |
+|Feature  |Feature stage |Azure commercial  |Azure Government |Azure China 21Vianet  |
+|---------|---------|---------|---------|---------|
+|[Analytics rules health](monitor-analytics-rule-integrity.md) |Public Preview |&#x2705; |&#10060; |&#10060; |
+|[MITRE ATT&CK dashboard](mitre-coverage.md)	|Public Preview |&#x2705; |&#10060; |&#10060; |
+|[NRT rules](near-real-time-rules.md) |Public Preview |&#x2705; |&#x2705; |&#x2705; |
+|[Recommendations](detection-tuning.md) |Public Preview |&#x2705; |&#x2705; |&#10060; |
+|[Scheduled](detect-threats-built-in.md) and [Microsoft rules](create-incidents-from-alerts.md) |GA |&#x2705; |&#x2705; |&#x2705; |
 
 ## Content and content management		
 
-|Feature  |Feature stage |Azure commercial  |Azure China 21Vianet  |
-|---------|---------|---------|---------|
-|[Content hub](sentinel-solutions.md) and [solutions](sentinel-solutions-catalog.md) |Public preview |&#x2705; |&#10060; |
-|[Repositories](ci-cd.md?tabs=github) |Public preview |&#x2705; |&#10060; |
-|[Workbooks](monitor-your-data.md) |GA |&#x2705; |&#x2705; |
+|Feature  |Feature stage |Azure commercial  |Azure government |Azure China 21Vianet  |
+|---------|---------|---------|---------|---------|
+|[Content hub](sentinel-solutions.md) and [solutions](sentinel-solutions-catalog.md) |GA |&#x2705; |&#x2705; |&#x2705; |
+|[Repositories](ci-cd.md?tabs=github) |Public preview |&#x2705; |&#10060; |&#10060; |
+|[Workbooks](monitor-your-data.md) |GA |&#x2705; |&#x2705; |&#x2705; |
 
 ## Data collection
 
@@ -73,11 +73,12 @@ This article describes feature availability in Microsoft Sentinel across differe
 
 ## Hunting
 
-|Feature  |Feature stage |Azure commercial  |Azure China 21Vianet  |
-|---------|---------|---------|---------|
-|[Hunting blade](hunting.md) |GA |&#x2705; |&#x2705; |
-|[Restore historical data](restore.md) |GA |&#x2705; |&#x2705; |
-|[Search large datasets](search-jobs.md) |GA |&#x2705; |&#x2705; |
+|Feature  |Feature stage |Azure commercial  |Azure Government |Azure China 21Vianet  |
+|---------|---------|---------|---------|---------|
+|[Hunting blade](hunting.md) |GA |&#x2705; |&#x2705; |&#x2705; |
+|[Restore historical data](restore.md) |GA |&#x2705; |&#x2705; |&#x2705; |
+|[Search large datasets](search-jobs.md) |GA |&#x2705; |&#x2705; |&#x2705; |
+|[Hunts](hunts.md) |Public Preview|&#x2705; |&#10060; |&#10060; |
 
 ## Incidents
 
@@ -119,54 +120,56 @@ This article describes feature availability in Microsoft Sentinel across differe
 
 ## Notebooks
 
-|Feature  |Feature stage |Azure commercial  |Azure China 21Vianet  |
-|---------|---------|---------|---------|
-|[Notebooks](notebooks.md) |GA |&#x2705; |&#x2705; |
-|[Notebook integration with Azure Synapse](notebooks-with-synapse.md) |Public Preview |&#x2705; |&#x2705; |
+|Feature  |Feature stage |Azure commercial  |Azure Government |Azure China 21Vianet  |
+|---------|---------|---------|---------|---------|
+|[Notebooks](notebooks.md) |GA |&#x2705;|&#x2705; |&#x2705; |
+|[Notebook integration with Azure Synapse](notebooks-with-synapse.md) |Public Preview |&#x2705;|&#x2705; |&#x2705; |
 
 ## SAP
 
-|Feature  |Feature stage |Azure commercial  |Azure China 21Vianet  |
-|---------|---------|---------|---------|
-|[Threat protection for SAP](sap/deployment-overview.md)<sup>[1](#sap)</sup> |GA |&#x2705; |&#x2705; |
+|Feature  |Feature stage |Azure commercial  |Azure Government |Azure China 21Vianet  |
+|---------|---------|---------|---------|---------|
+|[Threat protection for SAP](sap/deployment-overview.md)<sup>[1](#sap)</sup> |GA |&#x2705;|&#x2705; |&#x2705; |
 
 <sup><a name="sap"></a>1</sup> Deploy SAP security content [via GitHub](https://github.com/Azure/Azure-Sentinel/tree/master/Solutions/SAP).
 
 ## Threat intelligence support		
 
-|Feature  |Feature stage |Azure commercial  |Azure China 21Vianet  |
-|---------|---------|---------|---------|
-|[GeoLocation and WhoIs data enrichment](work-with-threat-indicators.md) |Public Preview |&#x2705; |&#10060; |
-|[Import TI from flat file](indicators-bulk-file-import.md) |Public Preview |&#x2705; |&#x2705; |
-|[Threat intelligence matching analytics](use-matching-analytics-to-detect-threats.md) |Public Preview |&#x2705; |&#10060; |
-|[Threat Intelligence Platform data connector](understand-threat-intelligence.md) |Public Preview |&#x2705; |&#x2705; |
-|[Threat Intelligence Research blade](https://techcommunity.microsoft.com/t5/microsoft-sentinel-blog/what-s-new-threat-intelligence-menu-item-in-public-preview/ba-p/1646597) |GA |&#x2705; |&#x2705; |
-|[Threat Intelligence - TAXII data connector](understand-threat-intelligence.md) |GA |&#x2705; |&#x2705; |
-|[Threat Intelligence workbook](/azure/architecture/example-scenario/data/sentinel-threat-intelligence) |GA |&#x2705; |&#x2705; |
-|[URL detonation](https://techcommunity.microsoft.com/t5/microsoft-sentinel-blog/using-the-new-built-in-url-detonation-in-azure-sentinel/ba-p/996229) |Public Preview |&#x2705; |&#10060; |
+|Feature  |Feature stage |Azure commercial  |Azure Government |Azure China 21Vianet  |
+|---------|---------|---------|---------|---------|
+|[GeoLocation and WhoIs data enrichment](work-with-threat-indicators.md) |Public Preview |&#x2705; |&#10060; |&#10060; |
+|[Import TI from flat file](indicators-bulk-file-import.md) |Public Preview |&#x2705; |&#x2705; |&#x2705; |
+|[Threat Intelligence Platform data connector](understand-threat-intelligence.md) |Public Preview |&#x2705; |&#10060; |&#10060; |
+|[Threat Intelligence Research blade](https://techcommunity.microsoft.com/t5/microsoft-sentinel-blog/what-s-new-threat-intelligence-menu-item-in-public-preview/ba-p/1646597) |GA |&#x2705; |&#x2705; |&#x2705; |
+|[Threat Intelligence - TAXII data connector](understand-threat-intelligence.md) |GA |&#x2705; |&#x2705; |&#x2705; |
+|[Microsoft Defender for Threat Intelligence connector](connect-mdti-data-connector.md) |Public Preview |&#x2705; |&#10060; |&#10060; |
+|[Microsoft Defender Threat intelligence matching analytics](use-matching-analytics-to-detect-threats.md) |Public Preview |&#x2705; |&#10060; |&#10060; |
+|[Threat Intelligence workbook](/azure/architecture/example-scenario/data/sentinel-threat-intelligence) |GA |&#x2705; |&#x2705; |&#x2705; |
+|[URL detonation](https://techcommunity.microsoft.com/t5/microsoft-sentinel-blog/using-the-new-built-in-url-detonation-in-azure-sentinel/ba-p/996229) |Public Preview |&#x2705;|&#10060; |&#10060; |
+|[Threat Intelligence Upload Indicators API](connect-threat-intelligence-upload-api.md) |Public Preview |&#x2705; |&#10060; |&#10060; |
 
 ## UEBA 
 
-|Feature  |Feature stage |Azure commercial  |Azure China 21Vianet  |
-|---------|---------|---------|---------|
-|[Active Directory sync via MDI](enable-entity-behavior-analytics.md#how-to-enable-user-and-entity-behavior-analytics) |Public preview |&#x2705; |&#10060; |
-|[Azure resource entity pages](entity-pages.md) |Public Preview |&#x2705; |&#10060; |
-|[Entity insights](identify-threats-with-entity-behavior-analytics.md) |GA |&#x2705; |&#x2705; |
-|[Entity pages](entity-pages.md) |GA |&#x2705; |&#x2705; |
-|[Identity info table data ingestion](investigate-with-ueba.md) |GA |&#x2705; |&#x2705; |
-|[IoT device entity page](/azure/defender-for-iot/organizations/iot-advanced-threat-monitoring#investigate-further-with-iot-device-entities) |Public Preview	|&#x2705; |&#10060; |
-|[Peer/Blast radius enrichments](identify-threats-with-entity-behavior-analytics.md#what-is-user-and-entity-behavior-analytics-ueba) |Public preview |&#x2705; |&#10060; |
-|[SOC-ML anomalies](soc-ml-anomalies.md#what-are-customizable-anomalies) |GA |&#x2705; |&#10060; |
-|[UEBA anomalies](soc-ml-anomalies.md#ueba-anomalies) |GA |&#x2705; |&#10060; |
-|[UEBA enrichments\insights](investigate-with-ueba.md) |GA |&#x2705; |&#x2705; |
+|Feature  |Feature stage |Azure commercial  |Azure Government |Azure China 21Vianet  |
+|---------|---------|---------|---------|---------|
+|[Active Directory sync via MDI](enable-entity-behavior-analytics.md#how-to-enable-user-and-entity-behavior-analytics) |Public preview |&#x2705; |&#x2705; |&#10060; |
+|[Azure resource entity pages](entity-pages.md) |Public Preview |&#x2705; |&#x2705; |&#10060; |
+|[Entity insights](identify-threats-with-entity-behavior-analytics.md) |GA |&#x2705; |&#x2705; |&#x2705; |
+|[Entity pages](entity-pages.md) |GA |&#x2705; |&#x2705; |&#x2705; |
+|[Identity info table data ingestion](investigate-with-ueba.md) |GA |&#x2705;|&#x2705; |&#x2705; |
+|[IoT device entity page](/azure/defender-for-iot/organizations/iot-advanced-threat-monitoring#investigate-further-with-iot-device-entities) |Public Preview	|&#x2705;|&#x2705; |&#10060; |
+|[Peer/Blast radius enrichments](identify-threats-with-entity-behavior-analytics.md#what-is-user-and-entity-behavior-analytics-ueba) |Public preview |&#x2705;|&#10060; |&#10060; |
+|[SOC-ML anomalies](soc-ml-anomalies.md#what-are-customizable-anomalies) |GA |&#x2705; |&#x2705; |&#10060; |
+|[UEBA anomalies](soc-ml-anomalies.md#ueba-anomalies) |GA |&#x2705; |&#x2705; |&#10060; |
+|[UEBA enrichments\insights](investigate-with-ueba.md) |GA |&#x2705; |&#x2705; |&#x2705; |
 
 ## Watchlists
 
-|Feature  |Feature stage |Azure commercial  |Azure China 21Vianet  |
-|---------|---------|---------|---------|
-|[Large watchlists from Azure Storage](watchlists.md) |Public Preview |&#x2705; |&#10060; |
-|[Watchlists](watchlists.md) |GA |&#x2705; |&#x2705; |
-|[Watchlist templates](watchlist-schemas.md) |Public Preview |&#x2705; |&#10060; |
+|Feature  |Feature stage |Azure commercial  |Azure Government |Azure China 21Vianet  |
+|---------|---------|---------|---------|---------|
+|[Large watchlists from Azure Storage](watchlists.md) |Public Preview |&#x2705; |&#10060; |&#10060; |
+|[Watchlists](watchlists.md) |GA |&#x2705; |&#x2705; |&#x2705; |
+|[Watchlist templates](watchlist-schemas.md) |Public Preview |&#x2705;|&#10060; |&#10060; |
 
 ## Next steps
 
