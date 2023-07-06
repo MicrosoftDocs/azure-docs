@@ -1,6 +1,6 @@
 ---
 title: Data storage - LUIS
-titleSuffix: Azure Cognitive Services
+titleSuffix: Azure AI services
 description: LUIS stores data encrypted in an Azure data store corresponding to the region specified by the key. 
 services: cognitive-services
 ms.author: aahi
@@ -13,7 +13,7 @@ ms.topic: conceptual
 ms.date: 12/07/2020
 ---
 
-# Data storage and removal in Language Understanding (LUIS) Cognitive Services
+# Data storage and removal in Language Understanding (LUIS) Azure AI services
 
 [!INCLUDE [deprecation notice](./includes/deprecation-notice.md)]
 
@@ -22,10 +22,10 @@ LUIS stores data encrypted in an Azure data store corresponding to [the region](
 
 * Data used to train the model such as entities, intents, and utterances will be saved in LUIS for the lifetime of the application. If an owner or contributor deletes the app, this data will be deleted with it. If an application hasn't been used in 90 days, it will be deleted. 
 
-* Application authors can choose to [enable logging](luis-how-to-review-endpoint-utterances.md#log-user-queries-to-enable-active-learning) on the utterances that are sent to a published application. If enabled, utterances will be saved for 30 days, and can be viewed by the application author. If logging isn't enabled when the application is published, this data is not stored.
+* Application authors can choose to [enable logging](how-to/improve-application.md#log-user-queries-to-enable-active-learning) on the utterances that are sent to a published application. If enabled, utterances will be saved for 30 days, and can be viewed by the application author. If logging isn't enabled when the application is published, this data is not stored.
 
 ## Export and delete app
-Users have full control over [exporting](luis-how-to-start-new-app.md#export-app) and [deleting](luis-how-to-start-new-app.md#delete-app) the app. 
+Users have full control over [exporting](how-to/sign-in.md) and [deleting](how-to/sign-in.md) the app. 
 
 ## Utterances
 
@@ -44,12 +44,12 @@ Delete example utterances used for training [LUIS](luis-reference-regions.md). I
 
 ### Delete utterances in review from active learning
 
-You can delete utterances from the list of user utterances that LUIS suggests in the **[Review endpoint utterances page](luis-how-to-review-endpoint-utterances.md)**. Deleting utterances from this list prevents them from being suggested, but doesn't delete them from logs.
+You can delete utterances from the list of user utterances that LUIS suggests in the **[Review endpoint utterances page](how-to/improve-application.md)**. Deleting utterances from this list prevents them from being suggested, but doesn't delete them from logs.
 
-If you don't want active learning utterances, you can [disable active learning](luis-how-to-review-endpoint-utterances.md#disable-active-learning). Disabling active learning also disables logging.
+If you don't want active learning utterances, you can [disable active learning](how-to/improve-application.md). Disabling active learning also disables logging.
 
 ### Disable logging utterances
-[Disabling active learning](luis-how-to-review-endpoint-utterances.md#disable-active-learning) is disables logging.
+[Disabling active learning](how-to/improve-application.md) is disables logging.
 
 
 <a name="accounts"></a>
@@ -74,4 +74,4 @@ For the purposes of data retention and deletion, an inactive LUIS app may at _Mi
 
 ## Next steps
 
-[Learn about exporting and deleting an app](luis-how-to-start-new-app.md)
+[Learn about exporting and deleting an app](how-to/sign-in.md)

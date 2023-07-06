@@ -19,7 +19,7 @@ A Language Understanding (LUIS) app needs data as part of app development.
 
 ## Data used in LUIS
 
-LUIS uses text as data to train and test your LUIS app for classification for [intents](luis-concept-intent.md) and for extraction of [entities](concepts/entities.md). You need a large enough data set that you have sufficient data to create separate data sets for both training and test that have the diversity and distribution called out specifically below.  The data in each of these sets should not overlap.
+LUIS uses text as data to train and test your LUIS app for classification for [intents](concepts/intents.md) and for extraction of [entities](concepts/entities.md). You need a large enough data set that you have sufficient data to create separate data sets for both training and test that have the diversity and distribution called out specifically below.  The data in each of these sets should not overlap.
 
 ## Training data selection for example utterances
 
@@ -58,7 +58,7 @@ Consider the quality of your existing data before you add more data.  With LUIS,
 The following preprocessing steps will help build a better LUIS app:
 
 * **Remove duplicates**: Duplicate utterances won't hurt, but they don't help either, so removing them will save labeling time.
-* **Apply same client-app preprocess**: If your client application, which calls the LUIS prediction endpoint, applies data processing at runtime before sending the text to LUIS, you should train the LUIS app on data that is processed in the same way. For example, if your client application uses [Bing Spell Check](../bing-spell-check/overview.md) to correct spelling on inputs to LUIS, correct your training and test utterances before adding to LUIS.
+* **Apply same client-app preprocess**: If your client application, which calls the LUIS prediction endpoint, applies data processing at runtime before sending the text to LUIS, you should train the LUIS app on data that is processed in the same way. 
 * **Don't apply new cleanup processes that the client app doesn't use**: If your client app accepts speech-generated text directly without any cleanup such as grammar or punctuation, your utterances need to reflect the same including any missing punctuation and any other misrecognition you’ll need to account for.
 * **Don't clean up data**: Don’t get rid of malformed input that you might get from garbled speech recognition, accidental keypresses, or mistyped/misspelled text. If your app will see inputs like these, it’s important for it to be trained and tested on them. Add a _malformed input_ intent if you wouldn’t expect your app to understand it. Label this data to help your LUIS app predict the correct response at runtime. Your client application can choose an appropriate response to unintelligible utterances such as `Please try again`.
 
@@ -68,7 +68,7 @@ The following preprocessing steps will help build a better LUIS app:
 
 ### Data review after LUIS app is in production
 
-[Review endpoint utterances](luis-concept-review-endpoint-utterances.md) to monitor real utterance traffic once you have deployed an app to production.  This allows you to update your training utterances with real data, which will improve your app. Any app built with crowd-sourced or non-real scenario data will need to be improved based on its real use.
+[Review endpoint utterances](how-to/improve-application.md) to monitor real utterance traffic once you have deployed an app to production.  This allows you to update your training utterances with real data, which will improve your app. Any app built with crowd-sourced or non-real scenario data will need to be improved based on its real use.
 
 ## Test data selection for batch testing
 

@@ -21,7 +21,7 @@ SDKs, REST APIs, CLI, help you develop Language Understanding (LUIS) apps in you
 
 ## Azure resource management
 
-Use the Azure Cognitive Services Management layer to create, edit, list, and delete the Language Understanding or Cognitive Service resource.
+Use the Azure AI services Management layer to create, edit, list, and delete the Language Understanding or Cognitive Service resource.
 
 Find reference documentation based on the tool:
 
@@ -39,7 +39,7 @@ The Language Understanding service is accessed from an Azure resource you need t
 
 Learn about the [V3 prediction endpoint](luis-migration-api-v3.md).
 
-Use [Cognitive Services sample code](https://github.com/Azure-Samples/cognitive-services-quickstart-code) to learn and use the most common tasks.
+Use [Azure AI services sample code](https://github.com/Azure-Samples/cognitive-services-quickstart-code) to learn and use the most common tasks.
 
 ### REST specifications
 
@@ -118,7 +118,7 @@ Importing and exporting these formats is available from the APIs and from the LU
 
 ## Bot Framework tools
 
-The bot framework is available as [an SDK](https://github.com/Microsoft/botframework) in a variety of languages and as a service using [Azure Bot Service](https://dev.botframework.com/).
+The bot framework is available as [an SDK](https://github.com/Microsoft/botframework) in a variety of languages and as a service using [Azure AI Bot Service](https://dev.botframework.com/).
 
 Bot framework provides [several tools](https://github.com/microsoft/botbuilder-tools) to help with Language Understanding, including:
 * [Bot Framework emulator](https://github.com/Microsoft/BotFramework-Emulator/releases) - a desktop application that allows bot developers to test and debug bots built using the Bot Framework SDK
@@ -129,6 +129,6 @@ Bot framework provides [several tools](https://github.com/microsoft/botbuilder-t
 
 * Learn about the common [HTTP error codes](luis-reference-response-codes.md)
 * [Reference documentation](../../index.yml) for all APIs and SDKs
-* [Bot framework](https://github.com/Microsoft/botbuilder-dotnet) and [Azure Bot Service](https://dev.botframework.com/)
+* [Bot framework](https://github.com/Microsoft/botbuilder-dotnet) and [Azure AI Bot Service](https://dev.botframework.com/)
 * [LUDown](https://github.com/microsoft/botbuilder-tools/blob/master/packages/Ludown)
 * [Cognitive Containers](../cognitive-services-container-support.md)

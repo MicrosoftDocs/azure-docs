@@ -1,6 +1,6 @@
 ---
 title: LUIS role-based access control
-titleSuffix: Azure Cognitive Services
+titleSuffix: Azure AI services
 description: Use this article to learn how to add access control to your LUIS resource
 author: aahill
 ms.author: aahi
@@ -26,7 +26,7 @@ To use Azure RBAC, you must enable Azure Active Directory authentication. You ca
 
 Azure RBAC can be assigned to a Language Understanding Authoring resource. To grant access to an Azure resource, you add a role assignment.
 1. In the [Azure portal](https://portal.azure.com/), select **All services**. 
-2. Select **Cognitive Services**, and navigate to your specific Language Understanding Authoring resource.
+2. Select **Azure AI services**, and navigate to your specific Language Understanding Authoring resource.
    > [!NOTE]
    > You can also set up Azure RBAC for whole resource groups, subscriptions, or management groups. Do this by selecting the desired scope level and then navigating to the desired item. For example, selecting **Resource groups** and then navigating to a specific resource group.
 
@@ -51,7 +51,7 @@ These custom roles only apply to authoring (Language Understanding Authoring) an
 > * If you are assigned as a *Contributor* on Azure, your role will be shown as *Owner* in LUIS portal.
 
 
-### Cognitive Services LUIS reader
+### Azure AI services LUIS reader
 
 A user that should only be validating and reviewing LUIS applications, typically a tester to ensure the application is performing well before deploying the project. They may want to review the application’s assets (utterances, intents, entities) to notify the app developers of any changes that need to be made, but do not have direct access to make them.
 
@@ -85,7 +85,7 @@ A user that should only be validating and reviewing LUIS applications, typically
     :::column-end:::
 :::row-end:::
 
-### Cognitive Services LUIS writer
+### Azure AI services LUIS writer
 
 A user that is responsible for building and modifying LUIS application, as a collaborator in a larger team. The collaborator can modify the LUIS application in any way, train those changes, and validate/test those changes in the portal. However, this user wouldn't have access to deploying this application to the runtime, as they may accidentally reflect their changes in a production environment. They also wouldn't be able to delete the application or alter its prediction resources and endpoint settings (assigning or unassigning prediction resources, making the endpoint public). This restricts this role from altering an application currently being used in a production environment. They may also create new applications under this resource, but with the restrictions mentioned.
 
@@ -99,7 +99,7 @@ A user that is responsible for building and modifying LUIS application, as a col
 :::row-end:::
 :::row:::
     :::column span="":::
-      * All functionalities under Cognitive Services LUIS Reader. 
+      * All functionalities under Azure AI services LUIS Reader. 
 
       The ability to add: 
         * Utterances
@@ -124,7 +124,7 @@ A user that is responsible for building and modifying LUIS application, as a col
     :::column-end:::
 :::row-end:::
 
-### Cognitive Services LUIS owner
+### Azure AI services LUIS owner
 
 > [!NOTE]
 > * If you are assigned as an *Owner* and *LUIS Owner* you will be be shown as *LUIS Owner* in LUIS portal.
@@ -141,7 +141,7 @@ These users are the gatekeepers for LUIS applications in a production environmen
 :::row-end:::
 :::row:::
     :::column span="":::
-      * All functionalities under Cognitive Services LUIS Writer
+      * All functionalities under Azure AI services LUIS Writer
       * Deploy a model
       * Delete an application
     :::column-end:::
@@ -152,4 +152,4 @@ These users are the gatekeepers for LUIS applications in a production environmen
 
 ## Next steps
 
-* [Managing Azure resources](./luis-how-to-azure-subscription.md?branch=pr-en-us-171715&tabs=portal#authoring-resource)
+* [Managing Azure resources](./luis-how-to-azure-subscription.md?tabs=portal#authoring-resource)

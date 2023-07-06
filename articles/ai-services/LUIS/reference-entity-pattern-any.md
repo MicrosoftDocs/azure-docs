@@ -1,6 +1,6 @@
 ---
 title: Pattern.any entity type - LUIS
-titleSuffix: Azure Cognitive Services
+titleSuffix: Azure AI services
 description: Pattern.any is a variable-length placeholder used only in a pattern's template utterance to mark where the entity begins and ends.
 services: cognitive-services
 ms.author: aahi
@@ -105,4 +105,4 @@ This is the JSON if `verbose=true` is set in the query string:
 
 ## Next steps
 
-In this [tutorial](luis-tutorial-pattern.md), use the **Pattern.any** entity to extract data from utterances where the utterances are well-formatted and where the end of the data may be easily confused with the remaining words of the utterance.
+In this [tutorial](luis-how-to-model-intent-pattern.md), use the **Pattern.any** entity to extract data from utterances where the utterances are well-formatted and where the end of the data may be easily confused with the remaining words of the utterance.

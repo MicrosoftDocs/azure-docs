@@ -1,6 +1,6 @@
 ---
 title: Collaborate with others - LUIS
-titleSuffix: Azure Cognitive Services
+titleSuffix: Azure AI services
 description: An app owner can add contributors to the authoring resource. These contributors can modify the model, train, and publish the app.
 services: cognitive-services
 author: aahill
@@ -29,7 +29,7 @@ In the Azure portal, find your Language Understanding (LUIS) authoring resource.
 
 ## View the app as a contributor
 
-After you have been added as a contributor, [sign in to the LUIS portal](sign-in-luis-portal.md).
+After you have been added as a contributor, [sign in to the LUIS portal](how-to/sign-in.md).
 
 [!INCLUDE [switch azure directories](includes/switch-azure-directories.md)]
 

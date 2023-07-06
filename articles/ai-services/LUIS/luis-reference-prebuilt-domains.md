@@ -1,6 +1,6 @@
 ---
 title: Prebuilt domain reference - LUIS
-titleSuffix: Azure Cognitive Services
+titleSuffix: Azure AI services
 description: Reference for the prebuilt domains, which are prebuilt collections of intents and entities from Language Understanding Intelligent Services (LUIS).
 services: cognitive-services
 ms.author: aahi
@@ -20,7 +20,7 @@ ms.date: 04/18/2022
 
 This reference provides information about the [prebuilt domains](./howto-add-prebuilt-models.md), which are prebuilt collections of intents and entities that LUIS offers.
 
-[Custom domains](luis-how-to-start-new-app.md), by contrast, start with no intents and models. You can add any prebuilt domain intents and entities to a custom model.
+[Custom domains](how-to/sign-in.md), by contrast, start with no intents and models. You can add any prebuilt domain intents and entities to a custom model.
 
 ## Prebuilt domains per language
 

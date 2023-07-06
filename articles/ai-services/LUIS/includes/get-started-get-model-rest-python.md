@@ -1,6 +1,6 @@
 ---
 title: Get model with REST call in C#
-titleSuffix: Azure Cognitive Services
+titleSuffix: Azure AI services
 services: cognitive-services
 
 manager: nitinme
@@ -160,4 +160,4 @@ When you are finished with this quickstart, delete the file from the file system
 
 ## Next steps
 
-[Best practices for an app](../luis-concept-best-practices.md)
+[Best practices for an app](../faq.md)

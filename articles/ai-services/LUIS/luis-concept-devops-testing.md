@@ -26,7 +26,7 @@ Tests are a critical part of [CI/CD workflows](luis-concept-devops-automation.md
 There are two different kinds of testing for a LUIS app that you need to perform in continuous integration workflows:
 
 - **Unit tests** - Relatively simple tests that verify the key functionality of your LUIS app. A unit test passes when the expected intent and the expected entities are returned for a given test utterance. All unit tests must pass for the test run to complete successfully.  
-This kind of testing is similar to [Interactive testing](./luis-interactive-test.md) that you can do in the [LUIS portal](https://www.luis.ai/).
+This kind of testing is similar to [Interactive testing](./how-to/train-test.md) that you can do in the [LUIS portal](https://www.luis.ai/).
 
 - **Batch tests** - Batch testing is a comprehensive test on your current trained model to measure its performance. Unlike unit tests, batch testing isn't pass|fail testing. The expectation with batch testing is not that every test will return the expected intent and expected entities. Instead, a batch test helps you view the accuracy of each intent and entity in your app and helps you to compare over time as you make improvements.  
 This kind of testing is the same as the [Batch testing](./luis-how-to-batch-test.md) that you can perform interactively in the LUIS portal.
@@ -92,7 +92,7 @@ Batch test sets should contain a large number of test cases, designed to test ac
 
 The LUIS portal offers features to help with interactive testing:
 
-* [**Interactive testing**](./luis-interactive-test.md) allows you to submit a sample utterance and get a response of LUIS-recognized intents and entities. You verify the success of the test by visual inspection.
+* [**Interactive testing**](./how-to/train-test.md) allows you to submit a sample utterance and get a response of LUIS-recognized intents and entities. You verify the success of the test by visual inspection.
 
 * [**Batch testing**](./luis-how-to-batch-test.md) uses a batch test file as input to validate your active trained version to measure its prediction accuracy. A batch test helps you view the accuracy of each intent and entity in your active version, displaying results with a chart.
 
@@ -110,7 +110,7 @@ The testing capabilities that are available in the LUIS portal don't require a p
 
 > [!TIP]
 > * If you're implementing your own testing solution and writing code to send test utterances to an endpoint, remember that if you are using the LUIS authoring key, the allowed transaction rate is limited to 5TPS. Either throttle the sending rate or use a prediction key instead.
-> * When sending test queries to an endpoint, remember to use `log=false` in the query string of your prediction request. This ensures that your test utterances do not get logged by LUIS and end up in the endpoint utterances review list presented by the LUIS [active learning](./luis-concept-review-endpoint-utterances.md) feature and, as a result, accidentally get added to the training utterances of your app.
+> * When sending test queries to an endpoint, remember to use `log=false` in the query string of your prediction request. This ensures that your test utterances do not get logged by LUIS and end up in the endpoint utterances review list presented by the LUIS [active learning](./how-to/improve-application.md) feature and, as a result, accidentally get added to the training utterances of your app.
 
 #### Running Unit tests at the command line and in CI/CD workflows
 
