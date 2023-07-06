@@ -115,7 +115,7 @@ You can use many different SFTP clients to securely connect and then transfer fi
 | Key exchange |ecdh-sha2-nistp384<br>ecdh-sha2-nistp256<br>diffie-hellman-group14-sha256<br>diffie-hellman-group16-sha512<br>diffie-hellman-group-exchange-sha256|
 | Ciphers/encryption |aes128-gcm@openssh.com<br>aes256-gcm@openssh.com<br>aes128-ctr<br>aes192-ctr<br>aes256-ctr|
 | Integrity/MAC |hmac-sha2-256<br>hmac-sha2-512<br>hmac-sha2-256-etm@openssh.com<br>hmac-sha2-512-etm@openssh.com|
-| Public key |ssh-rsa <sup>2</sup><br>ecdsa-sha2-nistp256<br>ecdsa-sha2-nistp384|
+| Public key |ssh-rsa <sup>2</sup><br>rsa-sha2-256<br>rsa-sha2-512<br>ecdsa-sha2-nistp256<br>ecdsa-sha2-nistp384|
 
 <sup>1</sup>    Host keys are published [here](secure-file-transfer-protocol-host-keys.md).
 <sup>2</sup>    RSA keys must be minimum 2048 bits in length.
