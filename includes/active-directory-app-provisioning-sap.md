@@ -251,23 +251,12 @@ You'll use the Azure portal to configure the mapping between the Azure AD user's
  
  |Mapping type|Source attribute|Target attribute|
  |-----|-----|-----|
-<<<<<<< HEAD
- |Direct|userPrincipalName|urn:ietf:params:scim:schemas:extension:ECMA2Host:2.0:User:ContosoLogin|
- 
-:::image type="content" source="/media/app-provisioning-sql/attribute-2.png" alt-text="Screenshot of changing value." lightbox="/media/app-provisioning-sql/attribute-2.png":::
-=======
  |Direct|userPrincipalName|urn:ietf:params:scim:schemas:extension:ECMA2Host:2.0:User:userName|
->>>>>>> a5351f45188dc503a5f0d210216a969b3e0e2de0
  
 
  7. Now select **Add New Mapping**, and repeat the next step for each mapping.
  
 
-<<<<<<< HEAD
-     [![Screenshot that shows Add New Mapping.](.\\media\app-provisioning-sql\configure-11.png)](.\\media\app-provisioning-sql\configure-11.png#lightbox)
-
-=======
->>>>>>> a5351f45188dc503a5f0d210216a969b3e0e2de0
  8. Specify the source and target attributes for each of the mappings in the following table.
 
      
