@@ -428,6 +428,9 @@ Example to install all Critical and Security patches on a Windows VM, while excl
 ```azurecli-interactive
 az vm install-patches --resource-group myResourceGroup --name myVM --maximum-duration PT2H --reboot-setting IfRequired --classifications-to-include-win Critical Security --exclude-kbs-requiring-reboot true
 ```
+## Image End-of-Life (EOL)
+
+Publishers may no longer support generating new updates for their images after a certain date. This is commonly referred to as End-of-life (EOL) for the image. Azure does not recommend using images after their EOL date, since it will expose the service to security vulnerabilities or performance issues. The Azure Guest Patching Service (AzGPS) will communicate necessary steps for customers and impacted partners. AzGPS will remove the image from the support list after the EOL date. VMs that use an end of life image on Azure might continue to work beyond their date. However, any issues experienced by these VMs are not eligible for support.
 
 ## Next steps
 > [!div class="nextstepaction"]
