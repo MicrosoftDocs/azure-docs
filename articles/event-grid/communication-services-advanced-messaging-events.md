@@ -98,4 +98,4 @@ This section contains an example of what that data would look like for each even
 
 
 ## Tutorial
-For a tutorial that shows how to subscribe for advanced messaging events using web hooks, see [Quickstart: Handle Advanced Messaging events](../communication-services/quickstarts/whatsapp/handle-advanced-messaging-events.md). 
+For a tutorial that shows how to subscribe for advanced messaging events using web hooks, see [Quickstart: Handle Advanced Messaging events](../communication-services/quickstarts\advancedmessaging\whatsapp\handle-advanced-messaging-events.md). 
