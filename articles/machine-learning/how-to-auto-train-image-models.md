@@ -242,40 +242,6 @@ image_object_detection_job = automl.image_object_detection(
 ```
 ---
 
-## Choose orchestration (preview)
-> [!IMPORTANT]
-> This feature is currently in public preview. This preview version is provided without a service-level agreement. Certain features might not be supported or might have constrained capabilities. For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
-
-# [Azure CLI](#tab/cli)
-
-[!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
-
-You can choose to use the legacy runtime or the new components (in preview) which run on [Azure Machine Learning pipelines](concept-ml-pipelines.md). You can indicate that you want to use the pipeline orchestration by setting `_automl_subgraph_orchestration` flag to `"true"` in the job properties. For example,
-
-```yaml
-properties:
-  _automl_subgraph_orchestration: "true"
-```
-
-
-# [Python SDK](#tab/python)
-
-[!INCLUDE [sdk v2](../../includes/machine-learning-sdk-v2.md)]
-
-You can choose to use the legacy runtime or the new components (in preview) which run on [Azure Machine Learning pipelines](concept-ml-pipelines.md). You can indicate that you want to use the pipeline orchestration by setting `_automl_subgraph_orchestration` flag to `"true"` in the job properties. For example,
-```python
-from azure.ai.ml import automl
-image_object_detection_job = automl.image_object_detection(
-    training_data=my_training_data_input,
-    validation_data=my_validation_data_input,
-    target_column_name="label",
-    properties={
-        "_automl_subgraph_orchestration": "true",
-    }
-)
-```
----
-
 ## Compute to run experiment
 
 Provide a [compute target](concept-azure-machine-learning-architecture.md#compute-targets) for automated ML to conduct model training. Automated ML models for computer vision tasks require GPU SKUs and support NC and ND families. We recommend the NCsv3-series (with v100 GPUs) for faster training. A compute target with a multi-GPU VM SKU leverages multiple GPUs to also speed up training. Additionally, when you set up a compute target with multiple nodes you can conduct faster model training through parallelism when tuning hyperparameters for your model.
@@ -393,9 +359,7 @@ In individual trials, you directly control the model architecture and hyperparam
 
 #### Supported model architectures
 
-The following table summarizes the supported legacy models for each computer vision task. These models are compatible with the legacy runtime orchestration as well as the new pipelines orchestration.
-
-If you are using the pipelines orchestration, you can additionally use image classification models from the [HuggingFace Hub](https://huggingface.co/models?pipeline_tag=image-classification&library=transformers) which are part of the transformers library (such as microsoft/beit-base-patch16-224), as well as object detection and instance segmentation models from the [MMDetection Model Zoo](https://mmdetection.readthedocs.io/en/latest/model_zoo.html) (such as atss_r50_fpn_1x_coco). For curated models from HuggingFace and MMDetection, please visit the [Azure Machine Learning Model Catalog](concept-foundation-models.md).
+The following table summarizes the supported legacy models for each computer vision task. Using only these legacy models will trigger runs using the legacy runtime (where each individual run or trial is submitted as a command job).
 
 Task |  model architectures | String literal syntax<br> ***`default_model`\**** denoted with \*
 ---|----------|----------
@@ -403,6 +367,33 @@ Image classification<br> (multi-class and multi-label)| **MobileNet**: Light-wei
 Object detection | **YOLOv5**: One stage object detection model   <br>  **Faster RCNN ResNet FPN**: Two stage object detection models  <br> **RetinaNet ResNet FPN**: address class imbalance with Focal Loss <br> <br>*Note: Refer to [`model_size` hyperparameter](reference-automl-images-hyperparameters.md#model-specific-hyperparameters) for YOLOv5 model sizes.*| ***`yolov5`\**** <br> `fasterrcnn_resnet18_fpn` <br> `fasterrcnn_resnet34_fpn` <br> `fasterrcnn_resnet50_fpn` <br> `fasterrcnn_resnet101_fpn` <br> `fasterrcnn_resnet152_fpn` <br> `retinanet_resnet50_fpn` 
 Instance segmentation | **MaskRCNN ResNet FPN**| `maskrcnn_resnet18_fpn` <br> `maskrcnn_resnet34_fpn` <br> ***`maskrcnn_resnet50_fpn`\****  <br> `maskrcnn_resnet101_fpn` <br> `maskrcnn_resnet152_fpn`
 
+With the new AutoML on Pipelines feature (preview), you can additionally use any image classification model from the [HuggingFace Hub](https://huggingface.co/models?pipeline_tag=image-classification&library=transformers) which are part of the transformers library (such as microsoft/beit-base-patch16-224), as well as object detection and instance segmentation models from the [MMDetection Version 2.28.2 Model Zoo](https://mmdetection.readthedocs.io/en/v2.28.2/model_zoo.html) (such as atss_r50_fpn_1x_coco). Using any HuggingFace or MMDetection model will trigger runs using pipeline components. If both legacy and HuggingFace/MMdetection models are used, all runs/trials will be triggered using components. Curated models from HuggingFace and MMDetection are provided in the azureml-staging registry. These curated models have been tested thoroughly and use default hyperparameters selected from extensive benchmarking to ensure effective training. The table below summarizes these curated models
+
+Task |  model architectures | String literal syntax
+---|----------|----------
+TODO | TODO | TODO
+
+You can also get a list of the curated models for a given task using the Python SDK:
+```
+credential = DefaultAzureCredential()
+ml_client = MLClient(credential, registry_name="azureml-staging")
+
+models = ml_client.models.list()
+classification_models = []
+for model in models:
+    model = ml_client.models.get(model.name, label="latest")
+    if model.tags['task'] == 'image-classification': # choose an image task
+        classification_models.append(model.name)
+
+classification_models
+```
+output:
+```
+['google-vit-base-patch16-224',
+ 'microsoft-swinv2-base-patch4-window12-192-22k',
+ 'facebook-deit-base-patch16-224',
+ 'microsoft-beit-base-patch16-224-pt22k-ft22k']
+```
 
 In addition to controlling the model architecture, you can also tune hyperparameters used for model training. While many of the hyperparameters exposed are model-agnostic, there are instances where hyperparameters are task-specific or model-specific. [Learn more about the available hyperparameters for these instances](reference-automl-images-hyperparameters.md). 
 
