@@ -446,7 +446,7 @@ If you don't create a scale rule, the default scale rule is applied to your cont
 
 ## Scale behavior
 
-Scaling behavior has the follwing defaults:
+Scaling behavior has the following defaults:
 
 | Parameter | Value |
 |--|--|
@@ -458,12 +458,12 @@ Scaling behavior has the follwing defaults:
 | Scale down step | 100% of current |
 | Scaling algorithm | `desiredReplicas = ceil(currentMetricValue / targetMetricValue)` |
 
-- **Polling interval** is how frequently event sources are queried by KEDA. This doesn't apply to HTTP and TCP scale rules.
+- **Polling interval** is how frequently event sources are queried by KEDA. This value doesn't apply to HTTP and TCP scale rules.
 - **Cool down period** is how long after the last event was observed before the application scales down to its minimum replica count.
-- **Scale up stabilization window** is is how long to wait before performing a scale up decision once scale up conditions were met.
-- **Scale down stabilization window** is is how long to wait before performing a scale down decision once scale down conditions were met.
+- **Scale up stabilization window** is how long to wait before performing a scale up decision once scale up conditions were met.
+- **Scale down stabilization window** is how long to wait before performing a scale down decision once scale down conditions were met.
 - **Scale up step** is the rate new instances are added at. It starts with 1, 4, 8, 16, 32, ... up to the configured maximum replica count.
-- **Scale down step** is the rate at which replicas are removed. By default 100% of replicas that need to shutdown will be rmoved.
+- **Scale down step** is the rate at which replicas are removed. By default 100% of replicas that need to shutdown are removed.
 - **Scaling algorithm** is the formula used to calculate the current desired number of replicas.
 
 ### Example
@@ -488,7 +488,7 @@ For the following scale rule:
 ]
 ```
 
-Starting with an empty queue, KEDA will take the following steps in a scale up scenario:
+Starting with an empty queue, KEDA takes the following steps in a scale up scenario:
 
 1. Check `my-queue` every 30 seconds.
 1. If the queue length equals 0, go back to (1).
@@ -497,11 +497,11 @@ Starting with an empty queue, KEDA will take the following steps in a scale up s
 1. Scale app to `min(maxReplicaCount, desiredReplicas, max(4, 2*currentReplicaCount))`
 1. Go back to (1).
 
-If the app was scaled to the max of 20 instances, scaling will go through the same steps above. Except scale down will only happen if the condition was satisfied for 300 seconds (scale down stabilization window). Once the queue length is 0, KEDA will wait for 300 seconds (cool down period) before scaling the app to 0.
+If the app was scaled to the max of 20 instances, scaling goes through the same previous steps. Except scale down only happens if the condition was satisfied for 300 seconds (scale down stabilization window). Once the queue length is 0, KEDA waits for 300 seconds (cool down period) before scaling the app to 0.
 
 ## Considerations
 
-- In "multiple revision" mode, adding a new scale trigger creates a new revision of your application but your old revision remains available with the old scale rules. Use the **Revision management** page to manage traffic allocations.
+- In "multiple revisions" mode, adding a new scale trigger creates a new revision of your application but your old revision remains available with the old scale rules. Use the **Revision management** page to manage traffic allocations.
 
 - No usage charges are incurred when an application scales to zero. For more pricing information, see [Billing in Azure Container Apps](billing.md).
 
