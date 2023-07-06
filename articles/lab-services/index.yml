@@ -76,7 +76,7 @@ landingContent:
       - linkListType: how-to-guide
         links:
           - text: Access a lab
-            url: how-to-access-lab-virtual-machine
+            url: how-to-access-lab-virtual-machine.md
           - text: Connect to a lab VM
             url: connect-virtual-machine.md
           - text: Set or reset passwords
