@@ -24,9 +24,9 @@ For an architectural overview of reliability in Azure, see [Azure reliability](/
 
 | Category | Priority |Recommendation |  
 |---------------|--------|---|
-| [**High Availability**](#high-availability) |:::image type="icon" source="../reliability/media/icon-recommendation-high.svg":::| [VM-1: Run production workloads on two or more VMs](#-vm-1-run-production-workloads-on-two-or-more-vms) |
-||:::image type="icon" source="../reliability/media/icon-recommendation-high.svg"::: |[VM-2: Deploy VMs across availability zones](#-vm-2-deploy-vms-across-availability-zones) | 
-||:::image type="icon" source="../reliability/media/icon-recommendation-high.svg":::|[VM-3: If Availability Set is required, then put each application tier into a separate Availability Set](#-vm-3-if-availability-set-is-required-then-put-each-application-tier-into-a-separate-availability-set) | 
+| [**High Availability**](#high-availability) |:::image type="icon" source="../reliability/media/icon-recommendation-high.svg":::| [VM-1: Run production workloads on two or more VMs using VMSS Flex](#-vm-1-run-production-workloads-on-two-or-more-vms-using-vmss-flexs) |
+||:::image type="icon" source="../reliability/media/icon-recommendation-high.svg"::: |[VM-2: Deploy VMs across availability zones or use VMSS Flex with zones](#-vm-2-deploy-vms-across-availability-zones-or-use-vmss-flex-with-zones) | 
+||:::image type="icon" source="../reliability/media/icon-recommendation-high.svg":::|[VM-3: Migrate VMs using availability sets to VMSS Flex](#-vm-3-migrate-vms-using-availability-sets-to-vmss-flext) | 
 ||:::image type="icon" source="../reliability/media/icon-recommendation-high.svg"::: |[VM-5: Use managed disks for VM disks](#-vm-5-use-managed-disks-for-vm-disks)|
 |[**Disaster Recovery**](#disaster-recovery)| :::image type="icon" source="../reliability/media/icon-recommendation-medium.svg":::  |[VM-4: If Availability Set is required, then put each application tier into a separate Availability Set](#-vm-4-replicate-vms-using-azure-site-recovery) |
 ||:::image type="icon" source="../reliability/media/icon-recommendation-medium.svg"::: |[VM-7: Backup data on your VMs with Azure Backup service](#-vm-7-backup-data-on-your-vms-with-azure-backup-service) |
@@ -50,16 +50,15 @@ For an architectural overview of reliability in Azure, see [Azure reliability](/
 
 ### High availability
  
-#### :::image type="icon" source="../reliability/media/icon-recommendation-high.svg"::: **VM-1: Run production workloads on two or more VMs** 
+#### :::image type="icon" source="../reliability/media/icon-recommendation-high.svg"::: **VM-1: Run production workloads on two or more VMs using VMSS Flex** 
 
-To safeguard application workloads from downtime due to the temporary unavailability of a disk or VM, it's recommended that you run production workloads on two or more VMs.
+To safeguard application workloads from downtime due to the temporary unavailability of a disk or VM, it's recommended that you run production workloads on two or more VMs using VMSS Flex.
 
 To achieve this you can use:
 
+- [Azure Virtual Machine Scale Sets](/azure/virtual-machine-scale-sets/overview) to create and manage a group of load balanced VMs. The number of VM instances can automatically increase or decrease in response to demand or a defined schedule.
 - **Availability zones**. For more information on availability zones and VMs, see [Availability zone support](#availability-zone-support).
-- **Availability sets**. Use availability sets when availability zones are not available in your region or if you have low latency requirements. With availability sets, Azure places VMs and disks in separate fault domains with different power, network, and server components. For more information on availability sets, see [Availability sets](/azure/virtual-machines/availability-set-overview).
 
-Use [Azure Virtual Machine Scale Sets](/azure/virtual-machine-scale-sets/overview) to create and manage a group of load balanced VMs. The number of VM instances can automatically increase or decrease in response to demand or a defined schedule.
 
 # [Azure Resource Graph](#tab/graph)
 
@@ -68,7 +67,7 @@ Use [Azure Virtual Machine Scale Sets](/azure/virtual-machine-scale-sets/overvie
 ----
 
 
-#### :::image type="icon" source="../reliability/media/icon-recommendation-high.svg"::: **VM-2: Deploy VMs across availability zones** 
+#### :::image type="icon" source="../reliability/media/icon-recommendation-high.svg"::: **VM-2: Deploy VMs across availability zones or use VMSS Flex with zones** 
     
 When you create your VMs, use availability zones to protect your applications and data against unlikely datacenter failure. For more information about availability zones for VMs, see [Availability zone support](#availability-zone-support) in this document.
 
@@ -84,10 +83,16 @@ For information on how to migrate your existing VMs to availability zone support
 ----
 
 
-#### :::image type="icon" source="../reliability/media/icon-recommendation-high.svg"::: **VM-3: If using availability sets, place each application tier into a separate availability set**
+#### :::image type="icon" source="../reliability/media/icon-recommendation-high.svg"::: **VM-3: Migrate VMs using availability sets to VMSS Flex**
 
-VMs in an availability set are placed across fault domains (FDs) and update domains (UD). However, to get the redundancy benefit of FDs and UDs, each VM in the availability set must be able to handle the same client requests.
-In an N-tier application, it's recommended that you place each application tier into its own availability set.
+Availability sets will be retired in the near future. Modernize your workloads by migrating them from VMs to VMSS Flex. 
+
+With VMSS Flex, you can deploy your VMs in one of two ways:
+
+- Across zones
+- In the same zone, but across fault domains (FDs) and update domains (UD) automatically. 
+
+In an N-tier application, it's recommended that you place each application tier into its own VMSS Flex.
 
 # [Azure Resource Graph](#tab/graph)
 
