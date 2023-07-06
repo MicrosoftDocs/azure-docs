@@ -203,7 +203,7 @@ Also see the following SAP resources:
 
 For more information about [SAP certified](https://www.sap.com/dmc/exp/2013_09_adpd/enEN/#/solutions?id=s:33db1376-91ae-4f36-a435-aafa892a88d8) threat monitoring with Microsoft Sentinel for SAP, see the following Microsoft resources:
 
-- [Microsoft Sentinel incident response playbooks for SAP](../../azure/sentinel/sap/sap-incident-response-playbooks)
+- [Microsoft Sentinel incident response playbooks for SAP](../../azure/sentinel/sap/sap-incident-response-playbooks.md)
 - [SAP security content reference](../../sentinel/sap/sap-solution-security-content.md)
 - [Deploy the Microsoft Sentinel solution for SAP](../../sentinel/sap/deploy-sap-security-content.md)
 - [Microsoft Sentinel SAP solution data reference](../../sentinel/sap/sap-solution-log-reference.md)
