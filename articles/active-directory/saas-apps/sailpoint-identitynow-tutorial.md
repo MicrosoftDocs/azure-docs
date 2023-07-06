@@ -128,7 +128,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 1. Go to **Global -> Security Settings -> Service Provider** make the following configuration changes.
 
-    ![Screenshot of sailpoint sso configuration.](./media/sailpoint-identitynow-tutorial/configuration.png#lightbox)
+    [![Screenshot of sailpoint sso configuration.](./media/sailpoint-identitynow-tutorial/configuration.png "sailpoint")](./media/sailpoint-identitynow-tutorial/configuration.png#lightbox)
 
     a. Enable Remote Identity Provider.
 
@@ -151,7 +151,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 ### Create SailPoint IdentityNow test user
 
-In this section, you create a user called Britta Simon in SailPoint IdentityNow. Work with [SailPoint IdentityNow support team](mailto:support@sailpoint.com) to add the users in the SailPoint IdentityNow platform. Users must be created and activated before you use single sign-on.
+In this section, you create a user called Britta Simon in SailPoint IdentityNow. Work with [SailPoint IdentityNow support team](mailto:support@sailpoint.com) to add the users in the SailPoint IdentityNow platform. Users must be created and activated before you use single sign-on.
 
 ## Test SSO 
 
