@@ -4,6 +4,7 @@ description: Create an Azure Migrate project, set up the Azure Migrate appliance
 author: vijain
 ms.author: vijain
 ms.topic: how-to
+ms.service: azure-migrate
 ms.date: 06/15/2023
 ms.custom: engagement-fy23
 ---

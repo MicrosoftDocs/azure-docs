@@ -20,7 +20,7 @@ Lifecycle Workflows allows you to automate the lifecycle management process for 
 
 ## Lifecycle Workflows built-in templates
 
-Lifecycle Workflows currently have six built-in templates you can use or customize:
+Lifecycle Workflows currently have eight built-in templates you can use or customize:
 
 :::image type="content" source="media/lifecycle-workflow-templates/templates-list.png" alt-text="Screenshot of a list of lifecycle workflow templates." lightbox="media/lifecycle-workflow-templates/templates-list.png":::
 
