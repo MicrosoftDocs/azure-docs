@@ -32,7 +32,7 @@ The following examples show how the Azure Synapse Analytics reserved capacity di
 
 - **Example 3**: You purchase one unit of 100 cDWU reserved capacity. You run two DW100c Azure Synapse Analytics instances. Each runs for 30 minutes. In this case, both usage events get reserved capacity discounts. No usage is charged using pay-as-you-go rates.
 
-When you apply a management group scope and you have multiple Synapse Dedicated Pools that are running concurrently, your reservation applies to the usage based on first come, first served basis. Any usage beyond what's covered by your reservation is charged at pay-as-you-go rates.
+When you apply a management group scope and have multiple Synapse Dedicated Pools running concurrently, your reservation applies to the usage based on a first come, first served basis. Any usage beyond what's covered by your reservation is charged at pay-as-you-go rates.
 
 ## Need help? Contact us
 
