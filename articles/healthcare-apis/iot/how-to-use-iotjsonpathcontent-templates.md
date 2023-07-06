@@ -18,7 +18,7 @@ This article provides an overview of how to use IotJsonPathContent templates wit
 
 ## IotJsonPathContent template basics
 
-The MedTech service IotJsonPathContent templates support the JSON expression language JSONPath. Expressions are used to identify which template to use with a given JSON device message (for example: TypeMatchExpression) and to extract specific values that are required to create a normalized message (for example: TimestampExpression, DeviceIdExpression, etc.). IotJsonPathContent templates are similar to the CalculatedContent templates except the DeviceIdExpression and TimestampExpression aren't required.
+The MedTech service IotJsonPathContent templates support the JSON expression language JSONPath. Expressions are used to identify which template to use with a given JSON device message (for example: TypeMatchExpression) and to extract specific values that are required to create a normalized message (for example: PatientIdExpression, ValueExpression, etc.). IotJsonPathContent templates are similar to the CalculatedContent templates except the DeviceIdExpression and TimestampExpression are not supported.
 
 > [!IMPORTANT]
 > JMESPath is not supported by IotJsonPathContent templates.
@@ -51,9 +51,9 @@ It's recommended that IotJsonPathContent templates are used when the device mess
 When you're using these SDKs, the device identity and the timestamp of the message are known.
 
 > [!IMPORTANT]
-> Make sure that you're using a device identifier from Azure IoT Hub or Azure IoT Central that is registered as an identifier for a device resource on the destination FHIR service.
+The MedTech service will use the device id defined in Azure IoT Hub as the FHIR resource device identifier. If the MedTech service is setup to use an identity resolution type of Lookup, a Device resource with a matching device identifier MUST exist in the FHIR service or an error will occur when the message is processed. If the MedTech service identity resolution type is set to Create a patientIdExpression must be included in the message, so that a new Patient resource and Device resource can be created if they do not already exist.
 
-If you're using Azure IoT Hub Device SDKs, you can still use CalculatedContent templates, assuming that you're using custom properties in the device message body for the device identity or measurement timestamp.
+If your MedTech service is setup to ingest messages from Azure IoT Hub, you are not required to use IotJsonPathContent templates. CalculatedContent templates can be used assuming that you correctly define the DeviceIdExpression and TimestampExpression.
 
 The IotJsonPathContent templates allow matching on and extracting values from a device message read from an Azure Event Hubs event hub through the following expressions:
 
@@ -89,7 +89,7 @@ Because JSONPath is the default expression language, it's not required to includ
 
 ## Example
 
-When the MedTech service is processing a device message, the templates in the CollectionContent are used to evaluate the message. The `typeMatchExpression` is used to determine whether or not the template should be used to create a normalized message from the device message. If the `typeMatchExpression` evaluates to true, then the `valueExpression` value is used to locate and extract the JSON values from the device message and create a normalized message. In this example, all expressions are written in JSONPath.
+When the MedTech service is processing a device message, the templates in the CollectionContent are used to evaluate the message. The `typeMatchExpression` is used to determine whether or not the template should be used to create a normalized message from the device message. If the `typeMatchExpression` evaluates to true, then the `valueExpression` value is used to locate and extract the JSON values from the device message and create a normalized message.
 
 > [!TIP]
 > [Visual Studio Code with the Azure IoT Hub extension](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit) is a recommended method for sending IoT device messages to your IoT hub for testing and troubleshooting.
@@ -99,7 +99,9 @@ When the MedTech service is processing a device message, the templates in the Co
 In this example, we're using a device message that is capturing `heartRate` data:
 
 ```json
-{“heartRate” : “78”}
+{
+    “heartRate” : “78”
+}
 ```
 
 > [!NOTE]
