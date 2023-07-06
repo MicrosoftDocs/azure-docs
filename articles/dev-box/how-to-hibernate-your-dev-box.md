@@ -13,9 +13,9 @@ ms.topic: how-to
 
 # How to hibernate your Dev Box
 
-Hibernation is a power-saving state that saves your running applications to your hard disk and then shuts down the virtual machine (VM). When you resume the VM, all your previous work is restored. Resuming a VM from hibernation takes less time than powering up from a full shut down. 
+Hibernation is a power-saving state that saves your running applications to your hard disk and then shuts down the virtual machine (VM). When you resume the VM, all your previous work is restored. Resuming a VM from hibernation takes less time than powering up from a full shutdown. 
 
-
+You can hibernate your dev box through the developer portal or the CLI. You can't hibernate your dev box from the dev box itself.
 ## Hibernate your Dev Box using the developer portal 
 
 Hibernate your Dev Box through the developer portal: 
@@ -40,7 +40,9 @@ In addition, you can also double select on your Dev Box in the list of VMs you s
 
 You can use the CLI to hibernate your dev box:
 
-`az devcenter dev dev-box stop --name <YourDevBoxName> --dev-center-name <YourDevCenterName> --project-name <YourProjectName> --user-id "me" --hibernate false`
+```azurecli-interactive
+az devcenter dev dev-box stop --name <YourDevBoxName> --dev-center-name <YourDevCenterName> --project-name <YourProjectName> --user-id "me" --hibernate false
+```
 
 To learn more about managing your dev box from the CLI, see: [devcenter reference](/cli/azure/devcenter/dev/dev-box?view=azure-cli-latest&preserve-view=true). 
 
@@ -58,6 +60,11 @@ To shut down your dev box, either
 **When my dev box resumes from a hibernated state, all my open windows were gone.** 
 
 Dev Box Hibernation is a preview feature, and you might run into reliability issues. Enable AutoSave on your applications to minimize the impact of session loss. 
+
+**I changed some settings on one of my dev boxes and it no longer hibernates. My other dev boxes hibernate without issues. What could be the problem?**
+
+Some settings aren't compatible with hibernation and prevent your dev box from hibernating. To learn about these settings, see: [Settings not compatible with hibernation](how-to-configure-dev-box-hibernation.md#settings-not-compatible-with-hibernation). 
+
  
 ## Next steps
 

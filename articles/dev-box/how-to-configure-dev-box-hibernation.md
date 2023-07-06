@@ -24,7 +24,7 @@ There are two steps in enabling hibernation; you must enable hibernation on your
 > See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
 
-### Key concepts for hibernation-enabled images
+## Key concepts for hibernation-enabled images
 
 - The following SKUs support hibernation: 8, 16 vCPU SKUs. 32 core SKUs do not support hibernation.
 
@@ -38,40 +38,51 @@ There are two steps in enabling hibernation; you must enable hibernation on your
 
 - Once enabled, you cannot disable hibernation on a Dev Box. However, you can disable hibernation support on the Dev Box definition so that future Dev Boxes do not have hibernation.
 
-- Virtualization-based Security supports hibernation only when you enable Nested Virtualization in the guest OS. Dev Box automatically does this for you. To enable Nested Virtualization, you need to enable the “Virtual Machine Platform” Windows feature.
+- Virtualization-based Security supports hibernation only when you enable Nested Virtualization in the guest OS. Dev Box automatically enables Nested Virtualization for you. To enable Nested Virtualization, you need to enable the “Virtual Machine Platform” Windows feature.
 
-- Hibernation does not support hypervisor-protected code integrity (HVCI)/ Memory Integrity features. Dev Box disables this feature automatically.
+- Hibernation doesn't support hypervisor-protected code integrity (HVCI)/ Memory Integrity features. Dev Box disables this feature automatically.
+
+- Auto-stop schedules still shutdown the dev boxes. If you want to hibernate your dev box, you can do it through the developer portal or using the CLI.
  
 ## Enable hibernation on your Dev Box image 
 
-The  Visual Studio and M365 images that Dev Box provides in the Azure Marketplace are already configured to support hibernation. You don't need to enable hibernation on these images, they are ready to use. 
+The  Visual Studio and Microsoft 365 images that Dev Box provides in the Azure Marketplace are already configured to support hibernation. You don't need to enable hibernation on these images, they're ready to use. 
 
-If you plan to use a custom image from an Azure Compute Gallery, you need to enable hibernation capabilities as you create the new image. To enable hibernation capabilities, set the IsHibernateSupported flag to true. This can only be done at the time of image creation, existing images cannot be modified today.  
+If you plan to use a custom image from an Azure Compute Gallery, you need to enable hibernation capabilities as you create the new image. To enable hibernation capabilities, set the IsHibernateSupported flag to true. You must set the IsHibernateSupported flag when you create the image, existing images cannot be modified.  
 
-To enable hibernation capabilities, set the IsHibernateSupported flag to true:
+To enable hibernation capabilities, set the `IsHibernateSupported` flag to true:
+
 ```azurecli-interactive
-az sig image-definition create --resource-group rg --gallery-name galleryname --gallery-image-definition imageName --location westus3 / 
-
-        --publisher publishername --offer offername --sku skuname --os-type windows --os-state Generalized / 
-
-        --features "IsHibernateSupported=true SecurityType=TrustedLaunch" --hyper-v-generation V2 
+az sig image-definition create /
+   --resource-group <resourcegroupname> --gallery-name <galleryname> --gallery-image-definition <imageName> --location <location> / 
+   --publisher <publishername> --offer <offername> --sku <skuname> --os-type windows --os-state Generalized / 
+   --features "IsHibernateSupported=true SecurityType=TrustedLaunch" --hyper-v-generation V2 
 ```
 
 ## Enable hibernation on a Dev Box definition 
 
 You can enable hibernation as you create a dev box definition, providing that the dev box definition uses a hibernation-enabled custom or marketplace image. You can also update an existing dev box definition that uses a hibernation-enabled custom or marketplace image. 
 
-All new Dev Boxes created in Dev Box pools that use a dev box definition with hibernation enabled can hibernate in addition to shutting down. If a pool has dev boxes that were created before hibernation was enabled, they continue to only support shutdown. 
+All new dev boxes created in dev box pools that use a dev box definition with hibernation enabled can hibernate in addition to shutting down. If a pool has dev boxes that were created before hibernation was enabled, they continue to only support shutdown. 
 
-Dev Box will validate your image for hibernate support. Your Dev Box definition may fail validation if hibernation could not be successfully enabled using your image. 
+Dev Box validates your image for hibernate support. Your dev box definition may fail validation if hibernation couldn't be successfully enabled using your image. 
 
 ### Settings not compatible with hibernation
 
-These settings are known to be incompatible with hibernation, and are not supported for hibernation scenarios: 
+These settings are known to be incompatible with hibernation, and aren't supported for hibernation scenarios: 
 
-- Memory Integrity/Hypervisor Code Integrity. To disable this, search for “memory integrity” in the start menu, go to “Core Isolation”, and disable memory integrity 
+- **Memory Integrity/Hypervisor Code Integrity.** 
+    
+    To disable Memory Integrity/Hypervisor Code Integrity:
+    1. In the start menu, search for *memory integrity* 
+    1. Select **Core Isolation**
+    1. Under **Memory integrity**, ensure that memory integrity is set to Off.
 
-- Guest Virtual Secure Mode based features without Nested Virtualization enabled. To enable Nested Virtualization, search for “Turn Windows features on or off”, and enable “Virtual Machine Platform”    
+- **Guest Virtual Secure Mode based features without Nested Virtualization enabled.** 
+
+    To enable Nested Virtualization:
+    1. In the start menu, search for *Turn Windows features on or off*
+    1. In Turn Windows features on or off, select **Virtual Machine Platform**, and then select **OK**    
 
 ### Enable hibernation on an existing dev box definition by using the Azure portal
 
@@ -99,14 +110,6 @@ These settings are known to be incompatible with hibernation, and are not suppor
 az devcenter admin devbox-definition update --dev-box-definition-name <DevBoxDefinitionName> -–dev-center-name <devcentername> --resource-group <resourcegroupname> –-hibernateSupport enabled
 ``` 
 
-## Configure an auto-stop schedule
-
-You can configure an auto-stop schedule for a Dev Box pool that uses a hibernation-enabled dev box definition. When you configure an auto-stop schedule, you can specify a time of day to stop the Dev Box. If the Dev Box is hibernation-enabled, it hibernates instead of shutting down.
-
-Developers can also hibernate their dev boxes manually, by using the developer portal.
-
-To learn how to configure an auto-stop schedule, see [Auto-stop your Dev Boxes on schedule](how-to-configure-stop-schedule.md).
-
 ## Disable hibernation on a Dev Box definition
 
  If you have issues provisioning new VMs after enabling hibernation on a pool or you want to revert to shut down only dev boxes, you can disable hibernation on the dev box definition.
@@ -131,13 +134,11 @@ To learn how to configure an auto-stop schedule, see [Auto-stop your Dev Boxes o
  
 ```azurecli-interactive
 az devcenter admin devbox-definition update --dev-box-definition-name <DevBoxDefinitionName> -–dev-center-name <devcentername> --resource-group <resourcegroupname> –-hibernateSupport disabled  
- 
 ``` 
 
 ## Next steps
 
 - [Create a Dev Box pool](how-to-manage-dev-box-pools.md)
 - [Configure a dev box by using Azure VM Image Builder](how-to-customize-devbox-azure-image-builder.md)  
-- [Auto-stop your Dev Boxes on schedule](how-to-configure-stop-schedule.md)
 - [How to hibernate your Dev Box](how-to-hibernate-your-dev-box.md)
 - [CLI Reference for az devcenter admin devbox-definition update](/cli/azure/devcenter/admin/devbox-definition?view=azure-cli-latest&preserve-view=true)
