@@ -154,10 +154,12 @@ items:
       href: modify-local-access-configuration.md
   - name: Gather diagnostics
     href: gather-diagnostics.md
-  - name: Move between regions
+  - name: Manage resources
     items:
     - name: Move private mobile network resources
       href: region-move-private-mobile-network-resources.md
+    - name: Delete Azure Private 5G Core resources
+      href: delete-resources.md
 - name: Reference
   items:
    - name: REST API
