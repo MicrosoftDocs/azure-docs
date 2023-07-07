@@ -31,6 +31,6 @@ Although not required reading before completing your first quickstart or tutoria
 
         - [Audiences](../../v2-supported-account-types.md)
         - [Applications and service principals](../../app-objects-and-service-principals.md)
-        - [Permissions and consent](../articles/active-directory/develop/v2-permissions-and-consent.md)
+        - [Permissions and consent](../../permissions-consent-overview.md)
     :::column-end:::
 :::row-end:::
