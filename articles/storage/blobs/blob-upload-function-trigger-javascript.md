@@ -223,6 +223,8 @@ Create the Cosmos DB service account to store the analysis of files.  Azure Cosm
 
 While this tutorial specifies an API when you create your resource, the Azure Function bindings for Cosmos DB are configured in the same way for all Cosmos DB APIs.
 
+### [Azure portal](#tab/cosmos-db-azure-portal)
+
 1) In the search bar at the top of the portal, search for *Azure Cosmos DB* and select the result.
 
 2) On the **Azure Cosmos DB** page, select **+ Create**. Select **Azure Cosmos DB for NoSQL** from the list of API choices.
@@ -257,7 +259,7 @@ Get the connection string for the Cosmos DB service account to use in our Azure 
 
 2) On the **Keys** page, copy the **Primary Connection String** to use later. 
 
-### [Azure CLI](#tab/computer-vision-azure-cli)
+### [Azure CLI](#tab/cosmos-db-azure-cli)
 
 1. To [create the Cosmos DB account](/cli/azure/cosmosdb/service#az-cosmosdb-service-create) named `msdocscosmosdb`.
 
