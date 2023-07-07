@@ -15,7 +15,7 @@ ms.custom: cli-v2, sdk-v2, github-actions-azure, build-2023, build-2023-dataai
 
 # Set up MLOps with GitHub
 
-[!INCLUDE [dev v2](../../includes/machine-learning-dev-v2.md)]
+[!INCLUDE [dev v2](includes/machine-learning-dev-v2.md)]
 
 Azure Machine Learning allows you to integrate with [GitHub Actions](https://docs.github.com/actions) to automate the machine learning lifecycle. Some of the operations you can automate are:
 
