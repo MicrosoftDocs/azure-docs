@@ -21,7 +21,7 @@ For more info regarding Azure MANA, see [Microsoft Azure Network Adapter (MANA) 
 > See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
 ## Supported Marketplace Images
-Several [Azure marketplace](https://learn.microsoft.com/en-us/marketplace/azure-marketplace-overview) Windows images have built-in support for Azure MANA's ethernet driver.
+Several [Azure marketplace](https://learn.microsoft.com/marketplace/azure-marketplace-overview) Windows images have built-in support for Azure MANA's ethernet driver.
 
 Windows:
 - Windows Server 2016
@@ -85,6 +85,6 @@ Ethernet 5                       1230513627217            22739256679 ...7245765
 
 ## Next Steps
 
-- [TCP/IP Performance Tuning for Azure VMs](/azure/virtual-network/virtual-network-tcpip-performance-tuning)
-- [Proximity Placement Groups](/azure/virtual-machines/co-location)
-- [Monitor Virtual Network](azure/virtual-network/monitor-virtual-network)
+- [TCP/IP Performance Tuning for Azure VMs](/azure/virtual-network/virtual-network-tcpip-performance-tuning.md)
+- [Proximity Placement Groups](/azure/virtual-machines/co-location.md)
+- [Monitor Virtual Network](azure/virtual-network/monitor-virtual-network.md)
