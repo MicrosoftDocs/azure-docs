@@ -7,7 +7,6 @@ ms.author: pauljewell
 ms.service: storage
 ms.topic: how-to
 ms.date: 12/14/2022
-ms.subservice: blobs
 ms.custom: devx-track-dotnet
 ---
 
