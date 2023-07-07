@@ -45,7 +45,7 @@ The `spec.keyValues` has the following child properties. The `spec.keyValues.key
 |selectors|The list of selectors for key-value filtering|false|object array|
 |trimKeyPrefixes|The list of key prefixes to be trimmed|false|string array|
 |keyVaults|The settings for Key Vault references|conditional|object|
-|monitoring|The settings for dynamic configuration updates|conditional|object|
+|monitoring|The settings for dynamic configuration updates|false|object|
 
 If the `spec.keyValues.selectors` property isn't set, all key-values with no label will be downloaded. It contains an array of *selector* objects, which have the following child properties.
 
