@@ -12,19 +12,20 @@ ms.custom: template-how-to
 
 # Delete Azure Private 5G Core resources
 
-In this how-to guide, you'll learn how to delete all resources associated with Azure Private 5G Core (AP5GC). This includes Azure Stack Edge (ASE) resources that are required to deploy AP5GC.
+In this how-to guide, you'll learn how to delete all resources associated with Azure Private 5G Core (AP5GC). This includes Azure Stack Edge (ASE) resources that are required to deploy AP5GC. You should do this only when advised by your Microsoft support representative; for example, if your deployment has encountered an unrecoverable error.
 
-If you want to delete your entire AP5GC deployment, you must complete all sections of this guide in order. You can also follow one or more sections to delete a subset of the resources in your deployment.
+If you want to delete your entire AP5GC deployment, you must complete all sections of this guide in order or you may be left with resources that cannot be deleted without intervention from Microsoft. You can also follow one or more sections to delete a subset of the resources in your deployment.
 
 If you want to move resources instead, see [Move your private mobile network resources to a different region](region-move-private-mobile-network-resources.md).
 
 > [!CAUTION]
-> This procedure will destroy your AP5GC deployment. You will lose all data associated with your AP5GC deployment. Do not delete resources that are in use. Consult your support representative before following any part of this procedure.
+> This procedure will destroy your AP5GC deployment. You will lose all data associated with your AP5GC deployment. Do not delete resources that are in use.
 
 ## Prerequisites
 
 - Ensure you can sign in to the Azure portal using an account with access to the active subscription you used to create your private mobile network. This account must have the built-in Contributor or Owner role at the subscription scope.
-- Make a note of the resource group that contains your private mobile network that was collected in [Collect the required information to deploy a private mobile network](collect-required-information-for-private-mobile-network.md).
+- Make a note of the resource group that contains your private mobile network, which was collected in [Collect the required information to deploy a private mobile network](collect-required-information-for-private-mobile-network.md).
+- Make a note of the resource group that contains your Azure Stack Edge and custom location resources.
 
 ## Delete private mobile network resources
 
@@ -39,9 +40,6 @@ The private mobile network resources represent your private 5G core network. If 
 
 The custom location resource represents the physical location of the hardware that runs the packet core software.
 
-1. Navigate to the resource group overview in the Azure portal (for the resource group containing the packet core).
-1. Select the **Packet Core Control Plane** resource and select **Modify packet core**.
-1. Set **Azure Arc Custom Location** to **None** and select **Modify**.
 1. Navigate to the resource group containing the **Custom location** resource.
 1. Select the tick box for the **Custom location** resource and select **Delete**.
 1. Confirm the deletion.
