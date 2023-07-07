@@ -7,7 +7,7 @@ manager: nitinme
 ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: conceptual
-ms.date: 05/23/2023
+ms.date: 07/18/2023
 ms.author: lajanuar
 ---
 
@@ -190,7 +190,7 @@ See how data, including name, job title, address, email, and company name, is ex
 
 |Name| Type | Description | Text |
 |:-----|:----|:----|:----|
-| ContactNames | array of objects | Contact name extracted from business card | [{ "FirstName": "John", "LastName": "Doe" }] |
+| ContactNames | array of objects | Contact name extracted from business card | [{ "FirstName": "John"`,` "LastName": "Doe" }] |
 | FirstName | string | First (given) name of contact | "John" |
 | LastName | string | Last (family) name of contact |     "Doe" |
 | CompanyNames | array of strings | Company name extracted from business card | ["Contoso"] |

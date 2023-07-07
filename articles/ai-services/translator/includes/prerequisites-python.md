@@ -3,7 +3,7 @@ author: laujan
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: include
-ms.date: 08/06/2019
+ms.date: 07/18/2023
 ms.author: lajanuar
 ---
 

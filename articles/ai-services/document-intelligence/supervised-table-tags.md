@@ -7,7 +7,7 @@ manager: nitinme
 ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: how-to
-ms.date: 01/09/2023
+ms.date: 07/18/2023
 ms.author: lajanuar
 #Customer intent: As a user of the Document Intelligence custom model service, I want to ensure I'm training my model in the best way.
 monikerRange: 'form-recog-2.1.0'

@@ -7,7 +7,7 @@ manager: nitinme
 ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: how-to
-ms.date: 06/19/2023
+ms.date: 07/18/2023
 ms.author: lajanuar
 ---
 
@@ -110,24 +110,24 @@ The following table lists the supporting container(s) for each Document Intellig
 
 | Feature container | Supporting container(s) |
 |---------|-----------|
-| **Layout** | None |
+| **Layout** | Not required |
 | **Business Card** | **Azure AI Vision Read**|
 | **ID Document** | **Azure AI Vision Read** |
 | **Invoice**   | **Layout** |
 | **Receipt** |**Azure AI Vision Read** |
-| **Custom** | **Custom API**, **Custom Supervised**, **Layout**|
+| **Custom** | **Custom API**, **Custom Supervised**, **Lay&#8203;out**|
 :::moniker-end
 
 :::moniker range="form-recog-3.0.0"
 Feature container | Supporting container(s) |
 |---------|-----------|
-| **Read** | None |
-| **Layout** | None|
-| **General Document** | Layout |
-| **Invoice** | Layout|
-| **Receipt** | Read |
-| **ID Document** | Read|
-| **Custom Template** | Layout |
+| **Read** | Not required |
+| **Layout** | Not required|
+| **General Document** | **Lay&#8203;out** |
+| **Invoice** | **Lay&#8203;out**|
+| **Receipt** | **Read** |
+| **ID Document** | **Read**|
+| **Custom Template** | **Lay&#8203;out** |
 
 :::moniker-end
 
@@ -195,7 +195,7 @@ The following host machine requirements are applicable to **train and analyze** 
 
    :::image type="content" source="../media/containers/keys-and-endpoint.png" alt-text="Screenshot: Azure portal keys and endpoint page.":::
 
-* Ensure that the EULA value is set to "accept".
+* Ensure that the EULA value is set to *accept*.
 
 * The `EULA`, `Billing`, and `ApiKey`  values must be specified; otherwise the container can't start.
 
@@ -394,7 +394,27 @@ docker-compose up
 
 ### [Business Card](#tab/business-card)
 
-The Business Card container is not supported by Document Intelligence v3.0.
+```yml
+version: "3.9"
+services:
+  azure-cognitive-service-invoice:
+    container_name: azure-cognitive-service-businesscard
+    image: mcr.microsoft.com/azure-cognitive-services/form-recognizer/businesscard-3.0
+    environment:
+        - EULA=accept
+        - billing={FORM_RECOGNIZER_ENDPOINT_URI}
+        - apiKey={FORM_RECOGNIZER_KEY}
+        - AzureCognitiveServiceLayoutHost=http://azure-cognitive-service-layout:5000
+    ports:
+      - "5000:5000"
+  azure-cognitive-service-layout:
+    container_name: azure-cognitive-service-layout
+    image: mcr.microsoft.com/azure-cognitive-services/form-recognizer/layout-3.0
+    environment:
+        - EULA=accept
+        - billing={FORM_RECOGNIZER_ENDPOINT_URI}
+        - apiKey={FORM_RECOGNIZER_KEY}
+```
 
 ### [Custom](#tab/custom)
 
@@ -707,15 +727,15 @@ POST http://localhost:5000/formrecognizer/documentModels:build?api-version=2022-
 
 ### [Read](#tab/read)
 
-The Read container is not supported by Document Intelligence v2.1. 
+Document Intelligence v2.1 doesn't support the Read container. 
 
 ### [General Document](#tab/general-document)
 
-The General Document container is not supported by Document Intelligence v2.1.
+Document Intelligence v2.1 doesn't support the General Document container.
 
 ### [Layout](#tab/layout)
 
-The following code sample is a self-contained `docker compose`  example to run the Document Intelligence Layout container.  With `docker compose`, you use a YAML file to configure your application's services. Then, with `docker-compose up` command, you create and start all the services from your configuration. Enter {FORM_RECOGNIZER_ENDPOINT_URI} and {{FORM_RECOGNIZER_KEY} values for your Layout container instance.
+The following code sample is a self-contained `docker compose`  example to run the Document Intelligence Layout container.  With `docker compose`, you use a YAML file to configure your application's services. Then, with `docker-compose up` command, you create and start all the services from your configuration. Enter {FORM_RECOGNIZER_ENDPOINT_URI} and {FORM_RECOGNIZER_KEY} values for your Layout container instance.
 
 ```yml
 version: "3.9"
@@ -1016,7 +1036,7 @@ http {
 * On the left pane of the tool, select the connections tab.
 * Select to create a new project and give it a name and description.
 * For the provider, choose the local file system option. For the local folder, make sure you enter the path to the folder where you stored the sample data files.
-* Navigate back to the home tab and select the "Use custom to train a model with labels and key-value pairs option".
+* Navigate back to the home tab and select the *Use custom to train a model with labels and key-value pairs option*.
 * Select the train button on the left pane to train the labeled model.
 * Save this connection and use it to label your requests.
 * You can choose to analyze the file of your choice against the trained model.

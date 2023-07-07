@@ -8,7 +8,7 @@ ms.service: cognitive-services
 ms.subservice: translator-text
 ms.custom: build-2023
 ms.topic: how-to
-ms.date: 03/28/2023
+ms.date: 07/18/2023
 ms.author: lajanuar
 ---
 

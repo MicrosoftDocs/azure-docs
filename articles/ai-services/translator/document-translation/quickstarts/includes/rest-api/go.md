@@ -1,12 +1,12 @@
 ---
 title: "Quickstart: Document Translation Go"
-description: 'Document translation processing using the REST API and Go programming language'
+description: 'Document Translation processing using the REST API and Go programming language'
 author: laujan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: include
-ms.date: 06/02/2023
+ms.date: 07/18/2023
 ms.author: lajanuar
 recommendations: false
 ---

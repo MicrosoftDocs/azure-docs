@@ -6,7 +6,7 @@ manager: nitinme
 ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: include
-ms.date: 02/14/2023
+ms.date: 07/18/2023
 ms.author: lajanuar
 ms.custom: devx-track-csharp
 ---
@@ -601,7 +601,7 @@ If you want to clean up and remove an Azure AI services subscription, you can de
 
 ## Troubleshooting
 
-When you interact with the Azure AI services Document Intelligence client library using the .NET SDK, errors returned by the service result in a `RequestFailedException`. They include the same HTTP status code that would have been returned by a REST API request.
+When you interact with the Azure AI Document Intelligence client library using the .NET SDK, errors returned by the service result in a `RequestFailedException`. They include the same HTTP status code that would have been returned by a REST API request.
 
 For example, if you submit a receipt image with an invalid URI, a `400` error is returned, indicating "Bad Request".
 

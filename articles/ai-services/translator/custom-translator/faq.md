@@ -6,7 +6,7 @@ author: laujan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
-ms.date: 08/17/2020
+ms.date: 07/18/2023
 ms.author: lajanuar
 ms.topic: faq
 ms.custom: cogserv-non-critical-translator

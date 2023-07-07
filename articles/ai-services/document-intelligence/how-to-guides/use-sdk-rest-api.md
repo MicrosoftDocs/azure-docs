@@ -8,7 +8,7 @@ ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.custom: devx-track-dotnet, devx-track-extended-java, devx-track-js, devx-track-python
 ms.topic: how-to
-ms.date: 03/03/2023
+ms.date: 07/18/2023
 ms.author: lajanuar
 zone_pivot_groups: programming-languages-set-formre
 ---

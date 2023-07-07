@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: reference
-ms.date: 08/17/2022
+ms.date: 07/18/2023
 ms.author: lajanuar
 ---
 

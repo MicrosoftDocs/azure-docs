@@ -7,7 +7,7 @@ manager: nitinme
 ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: conceptual
-ms.date: 05/23/2023
+ms.date: 07/18/2023
 monikerRange: '>=form-recog-2.1.0'
 ms.author: lajanuar
 ---

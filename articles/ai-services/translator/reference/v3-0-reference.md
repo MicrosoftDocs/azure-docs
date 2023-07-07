@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: reference
-ms.date: 04/20/2023
+ms.date: 07/18/2023
 ms.author: lajanuar
 ---
 
@@ -105,7 +105,7 @@ curl -X POST "https://api.cognitive.microsofttranslator.com/translate?api-versio
 
 #### Authenticating with a Multi-service resource
 
-A Cognitive Service multi-service resource allows you to use a single API key to authenticate requests for multiple services.
+A multi-service resource allows you to use a single API key to authenticate requests for multiple services.
 
 When you use a multi-service secret key, you must include two authentication headers with your request. There are two headers that you need to call the Translator.
 

@@ -7,7 +7,7 @@ manager: nitinme
 ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: include
-ms.date: 11/11/2022
+ms.date: 07/18/2023
 ---
 
 **This article applies to:** ![Document Intelligence v3.0 checkmark](../media/yes-icon.png) **Document Intelligence v3.0**. **Earlier version:** [Document Intelligence v2.1](?view=form-recog-2.1.0&preserve-view=true)

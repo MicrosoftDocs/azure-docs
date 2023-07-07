@@ -3,7 +3,7 @@ author: laujan
 ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: include
-ms.date: 11/02/2021
+ms.date: 07/18/2023
 ms.author: lajanuar
 ms.custom: ignite-fall-2021
 ---

@@ -8,7 +8,7 @@ ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.custom: devx-track-python
 ms.topic: conceptual
-ms.date: 04/25/2023
+ms.date: 07/18/2023
 ms.author: lajanuar
 monikerRange: 'form-recog-3.0.0'
 ---
@@ -29,7 +29,7 @@ monikerRange: 'form-recog-3.0.0'
 > * Features, approaches, and processes may change, prior to General Availability (GA), based on user feedback.
 > * The public preview version of Document Intelligence client libraries default to service version [**Document Intelligence 2023-02-28-preview REST API**](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2023-02-28-preview/operations/AnalyzeDocument).
 
-Azure AI services Document Intelligence is a cloud service that uses machine learning to analyze text and structured data from documents. The Document Intelligence software development kit (SDK) is a set of libraries and tools that enable you to easily integrate Document Intelligence models and capabilities into your applications. Document Intelligence SDK is available across platforms in C#/.NET, Java, JavaScript, and Python programming languages.
+Azure AI Document Intelligence is a cloud service that uses machine learning to analyze text and structured data from documents. The Document Intelligence software development kit (SDK) is a set of libraries and tools that enable you to easily integrate Document Intelligence models and capabilities into your applications. Document Intelligence SDK is available across platforms in C#/.NET, Java, JavaScript, and Python programming languages.
 
 ## Supported languages
 

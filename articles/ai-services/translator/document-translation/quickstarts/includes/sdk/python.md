@@ -1,12 +1,12 @@
 ---
 title: "Quickstart: Document Translation Python SDK"
-description: 'Document translation processing using the Python SDK'
+description: 'Document Translation processing using the Python SDK'
 author: laujan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: include
-ms.date: 06/14/2023
+ms.date: 07/18/2023
 ms.author: lajanuar
 recommendations: false
 ---

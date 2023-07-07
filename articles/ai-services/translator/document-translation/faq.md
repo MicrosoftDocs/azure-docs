@@ -10,7 +10,7 @@ ms.service: cognitive-services
 ms.subservice: translator-text
 ms.custom: event-tier1-build-2022
 ms.topic: conceptual
-ms.date: 05/24/2022
+ms.date: 07/18/2023
 ms.author: lajanuar
 ---
 
@@ -22,7 +22,7 @@ ms.author: lajanuar
 
 #### Should I specify the source language in a request?
 
-If the language of the content in the source document is known, it's recommended to specify the source language in the request to get a better translation. If the document has content in multiple languages or the language is unknown, then don't specify the source language in the request. Document translation automatically identifies language for each text segment and translates.
+If the language of the content in the source document is known, it's recommended to specify the source language in the request to get a better translation. If the document has content in multiple languages or the language is unknown, then don't specify the source language in the request. Document Translation automatically identifies language for each text segment and translates.
 
 #### To what extent are the layout, structure, and formatting maintained?
 
@@ -34,7 +34,7 @@ No. The text in an image within a document won't get translated.
 
 #### Can Document Translation translate content from scanned documents?
 
-Yes. Document translation translates content from _scanned PDF_ documents.
+Yes. Document Translation translates content from _scanned PDF_ documents.
 
 #### Will my document be translated if it's password protected?
 

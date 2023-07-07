@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: how-to
-ms.date: 01/18/2023
+ms.date: 07/18/2023
 ms.author: lajanuar
 recommendations: false
 keywords: on-premises, Docker, container, identify
@@ -45,7 +45,6 @@ You'll also need to have:
 |---------|----------|
 |Azure CLI (command-line interface) |<ul><li> The [Azure CLI](/cli/azure/install-azure-cli) enables you to use a set of online commands to create and manage Azure resources. It's available to install in Windows, macOS, and Linux environments and can be run in a Docker container and Azure Cloud Shell.</li></ul> |
 
-
 ## Required elements
 
 All Azure AI containers require three primary elements:
@@ -56,7 +55,7 @@ All Azure AI containers require three primary elements:
 
 > [!IMPORTANT]
 >
-> * Keys are used to access your Cognitive Service API. Do not share your keys. Store them securely, for example, using Azure Key Vault. We also recommend regenerating these keys regularly. Only one key is necessary to make an API call. When regenerating the first key, you can use the second key for continued access to the service.
+> * Keys are used to access your Azure AI resource. Do not share your keys. Store them securely, for example, using Azure Key Vault. We also recommend regenerating these keys regularly. Only one key is necessary to make an API call. When regenerating the first key, you can use the second key for continued access to the service.
 
 ## Host computer
 

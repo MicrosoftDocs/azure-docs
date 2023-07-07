@@ -7,7 +7,7 @@ ms.subservice: translator-text
 manager: nitinme
 ms.author: lajanuar
 author: laujan
-ms.date: 03/28/2023
+ms.date: 07/18/2023
 ---
 
 # Use glossaries with Document Translation

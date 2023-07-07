@@ -9,7 +9,7 @@ author: laujan
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: reference
-ms.date: 06/22/2021
+ms.date: 07/18/2023
 ---
 
 # Get translations status

@@ -7,7 +7,7 @@ manager: nitinme
 ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: reference
-ms.date: 01/23/2023
+ms.date: 07/18/2023
 ms.author: lajanuar
 monikerRange: 'form-recog-2.1.0'
 ---
@@ -23,7 +23,7 @@ monikerRange: 'form-recog-2.1.0'
 
 ## Feature containers
 
-Document Intelligence features are supported by seven containers:
+Document Intelligence containers support the following features:
 
 | Container name | Fully qualified image name |
 |---|---|

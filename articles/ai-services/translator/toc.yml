@@ -34,7 +34,7 @@ items:
   - name: 🆕 Text Translation SDK overview (preview)
     displayName: get started,sdk,keys,endpoint
     href: text-sdk-overview.md
-  - name: Text Translator REST API guide
+  - name: Text Translation REST API guide
     href:  reference/rest-api-guide.md
   - name: Quickstarts
     items:
@@ -70,7 +70,7 @@ items:
       href: https://github.com/MicrosoftTranslator/Text-Translation-API-V3-Ruby
   - name: How-to guides
     items:
-    - name: Use the Text Translator APIs
+    - name: Use the Text Translation APIs
       displayName: detection,detect,translation,transliteration,identification,length,sentence length,alternate,usage,headers,set up,status,401
       href: translator-text-apis.md
     - name: Migrate to V3 Text API
@@ -117,7 +117,7 @@ items:
     - name: v3 Translator reference
       displayName: 401000,405000,400000
       href: reference/v3-0-reference.md
-    - name: Text Translator REST APIs
+    - name: Text Translation REST APIs
       href:  reference/rest-api-guide.md
     - name: Languages
       href: reference/v3-0-languages.md

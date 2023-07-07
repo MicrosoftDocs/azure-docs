@@ -7,7 +7,7 @@ manager: nitinme
 ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: conceptual
-ms.date: 05/23/2023
+ms.date: 07/18/2023
 ms.author: lajanuar
 ---
 
@@ -297,7 +297,7 @@ Following are the line items extracted from an invoice in the JSON output respon
 The JSON output has three parts:
 
 * `"readResults"` node contains all of the recognized text and selection marks. Text is organized via page, then by line, then by individual words.
-* `"pageResults"` node contains the tables and cells extracted with their bounding boxes, confidence, and a reference to the lines and words in "readResults".
+* `"pageResults"` node contains the tables and cells extracted with their bounding boxes, confidence, and a reference to the lines and words in *readResults*.
 * `"documentResults"` node contains the invoice-specific values and line items that the model discovered. It's where to find all the fields from the invoice such as invoice ID, ship to, bill to, customer, total, line items and lots more.
 
 ## Migration guide

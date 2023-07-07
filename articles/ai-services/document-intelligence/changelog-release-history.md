@@ -81,11 +81,7 @@ This release includes the following updates:
 
 ---
 
-
-
-
-
-#### Document Intelligence SDK September 2022 GA release
+#### Document Intelligence SDK September 2022 (GA) release
 
 This release includes the following updates:
 
