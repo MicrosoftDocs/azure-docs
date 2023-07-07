@@ -25,7 +25,7 @@ Dimension attributes have a minimum of 2 and a maximum of 2048 dimensions per ve
 
   + We used **text-embedding-ada-002** to generate text embeddings and [Image Retrieval REST API](/rest/api/computervision/2023-02-01-preview/image-retrieval/vectorize-image) for image embeddings.
 
-  + To avoid [rate limiting](https://learn.microsoft.com/azure/cognitive-services/openai/quotas-limits), we implemented retry logic in our workload. For the Python demo, we used [tenacity](https://pypi.org/project/tenacity/).
+  + To avoid [rate limiting](/azure/cognitive-services/openai/quotas-limits), we implemented retry logic in our workload. For the Python demo, we used [tenacity](https://pypi.org/project/tenacity/).
 
 + Query outputs are any matching documents found in a search index. Your search index must have been previously loaded with documents having one or more vector fields with embeddings. Whatever model you used for indexing, use the same model for queries.
 
