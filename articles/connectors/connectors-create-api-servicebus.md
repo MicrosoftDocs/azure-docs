@@ -318,9 +318,8 @@ The built-in Service Bus connector is a stateless connector, by default. To run 
 
    > [!NOTE]
    >
-   > This Service Bus trigger follows the *push trigger* pattern, which means that the trigger waits and listens 
-   > for events or data that meet the specified condition before running a workflow. The trigger doesn't check 
-   > for events or data based on a specified schedule. For more information, review [Triggers](introduction.md#triggers).
+   > This Service Bus trigger follows the *polling trigger* pattern, which means that the trigger continually checks for messages
+   > in the queue or topic subscription. For more general information about polling triggers, review [Triggers](introduction.md#triggers).
 
 1. Add any actions that your workflow needs.
 
@@ -543,7 +542,7 @@ The Service Bus built-in connector is available only for Standard logic app work
 | When messages are available in a queue | Start a workflow when one or more messages are available in a queue. |
 | When messages are available in a topic subscription | Start a workflow when one or more messages are available in a topic subscription. |
 
-These Service Bus triggers follow the *push trigger* pattern, which means that the trigger waits and listens for events or data that meet the specified condition before running a workflow. The trigger doesn't check for events or data based on a specified schedule. For more information, review [Triggers](introduction.md#triggers).
+These Service Bus triggers follow the *polling trigger* pattern, which means that the trigger continually checks for messages in the queue or topic subscription. For more general information about polling triggers, review [Triggers](introduction.md#triggers).
 
 | Action | Description |
 |--------|-------------|

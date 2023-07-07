@@ -2,11 +2,10 @@
 title: Azure Elastic SAN Preview networking
 description: How to configure networking for Azure Elastic SAN Preview, a service that enables you to create and use network file shares in the cloud using either SMB or NFS protocols.
 author: roygara
-ms.service: storage
+ms.service: azure-elastic-san-storage
 ms.topic: how-to
 ms.date: 06/26/2023
 ms.author: rogarana
-ms.subservice: elastic-san
 ms.custom: ignite-2022, devx-track-azurepowershell
 ---
 

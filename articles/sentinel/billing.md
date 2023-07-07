@@ -98,7 +98,7 @@ The costs shown in the following image are for example purposes only. They're no
 Microsoft Sentinel and Log Analytics charges might appear on your Azure bill as separate line items based on your selected pricing plan. Simplified pricing tiers are represented as a single `sentinel` line item for the pricing tier. Since ingestion and analysis are billed on a daily basis, if your workspace exceeds its Commitment Tier usage allocation in any given day, the Azure bill shows one line item for the Commitment Tier with its associated fixed cost, and a separate line item for the cost beyond the Commitment Tier, billed at the same effective Commitment Tier rate. 
 
 # [Simplified](#tab/simplified)
-The following tabs show how Microsoft Sentinel and Log Analytics costs appear in the **Service name** and **Meter** columns of your Azure bill depending on your simplified pricing tier. 
+The following tabs show how Microsoft Sentinel costs appear in the **Service name** and **Meter** columns of your Azure bill depending on your simplified pricing tier. 
 
 # [Classic](#tab/classic)
 The following tabs show how Microsoft Sentinel and Log Analytics costs appear in the **Service name** and **Meter** columns of your Azure bill depending on your classic pricing tier. 
@@ -107,7 +107,7 @@ The following tabs show how Microsoft Sentinel and Log Analytics costs appear in
 
 # [Commitment tiers](#tab/commitment-tiers/simplified)
 
-If you're billed at the simplified commitment tier rate, this table shows how Microsoft Sentinel and Log Analytics costs appear in the **Service name** and **Meter** columns of your Azure bill.
+If you're billed at the simplified commitment tier rate, this table shows how Microsoft Sentinel costs appear in the **Service name** and **Meter** columns of your Azure bill.
 
  Cost description | Service name | Meter |
 |--|--|--|
@@ -127,7 +127,7 @@ If you're billed at the classic commitment tier rate, this table shows how Micro
 
 # [Pay-As-You-Go](#tab/pay-as-you-go/simplified)
 
-If you're billed at the simplified Pay-As-You-Go rate, this table shows how Microsoft Sentinel and Log Analytics costs appear in the **Service name** and **Meter** columns of your Azure bill.
+If you're billed at the simplified Pay-As-You-Go rate, this table shows how Microsoft Sentinel costs appear in the **Service name** and **Meter** columns of your Azure bill.
 
  Cost description | Service name | Meter |
 |--|--|--|

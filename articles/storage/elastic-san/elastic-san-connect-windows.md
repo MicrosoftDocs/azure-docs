@@ -2,11 +2,10 @@
 title: Connect to an Azure Elastic SAN Preview volume - Windows
 description: Learn how to connect to an Azure Elastic SAN Preview volume from a Windows client.
 author: roygara
-ms.service: storage
+ms.service: azure-elastic-san-storage
 ms.topic: how-to
 ms.date: 06/01/2023
 ms.author: rogarana
-ms.subservice: elastic-san
 ms.custom: references_regions, ignite-2022, devx-track-azurepowershell
 ---
 

@@ -15,7 +15,7 @@ ms.custom: devx-track-azurecli, devplatv2, event-tier1-build-2022, ignite-2022
 
 # Install and set up the CLI (v2)
 
-[!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
+[!INCLUDE [cli v2](includes/machine-learning-cli-v2.md)]
 
 
 

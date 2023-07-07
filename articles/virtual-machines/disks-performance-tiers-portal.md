@@ -2,11 +2,10 @@
 title: Change the performance of Azure managed disks using the Azure portal
 description: Learn how to change performance tiers for new and existing managed disks using the Azure portal.
 author: roygara
-ms.service: storage
+ms.service: azure-disk-storage
 ms.topic: how-to
 ms.date: 08/30/2022
 ms.author: rogarana
-ms.subservice: disks
 ms.custom: references_regions
 ---
 
