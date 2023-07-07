@@ -60,7 +60,7 @@ The recognition operations use mainly the following data structures. These objec
 
 Use the following tips to ensure that your input images give the most accurate recognition results:
 
-* The supported input image formats are JPEG, PNG, GIF (the first frame), BMP.
+* The supported input image formats are JPEG, PNG, GIF (the first frame), BMP, WebP.
 * Image file size should be no larger than 6 MB.
 * When you create Person objects, use photos that feature different kinds of angles and lighting.
 * Some faces might not be recognized because of technical challenges, such as:
