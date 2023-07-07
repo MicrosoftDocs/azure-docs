@@ -1,6 +1,6 @@
 ---
 title: "Use limited access tokens - Face"
-titleSuffix: Azure Cognitive Services
+titleSuffix: Azure AI services
 description: Learn how ISVs can manage the Face API usage of their clients by issuing access tokens that grant access to Face features which are normally gated.
 services: cognitive-services
 author: PatrickFarley
@@ -19,11 +19,11 @@ Independent software vendors (ISVs) can manage the Face API usage of their clien
 
 This guide shows you how to generate the access tokens, if you're an approved ISV, and how to use the tokens if you're a client. 
 
-The LimitedAccessToken feature is a part of the existing [Cognitive Services token service](https://westus.dev.cognitive.microsoft.com/docs/services/57346a70b4769d2694911369/operations/issueScopedToken).  We have added a new operation for the purpose of bypassing the Limited Access gate for approved scenarios. Only ISVs that pass the gating requirements will be given access to this feature.
+The LimitedAccessToken feature is a part of the existing [Azure AI services token service](https://westus.dev.cognitive.microsoft.com/docs/services/57346a70b4769d2694911369/operations/issueScopedToken).  We have added a new operation for the purpose of bypassing the Limited Access gate for approved scenarios. Only ISVs that pass the gating requirements will be given access to this feature.
 
 ## Example use case
 
-A company sells software that uses the Azure Face service to operate door access security systems. Their clients, individual manufacturers of door devices, subscribe to the software and run it on their devices. These client companies want to make Face API calls from their devices to perform Limited Access operations like face identification. By relying on access tokens from the ISV, they can bypass the formal approval process for face identification. The ISV, which has already been approved, can grant the client just-in-time access tokens.
+A company sells software that uses the Azure AI Face service to operate door access security systems. Their clients, individual manufacturers of door devices, subscribe to the software and run it on their devices. These client companies want to make Face API calls from their devices to perform Limited Access operations like face identification. By relying on access tokens from the ISV, they can bypass the formal approval process for face identification. The ISV, which has already been approved, can grant the client just-in-time access tokens.
 
 ## Expectation of responsibility
 
@@ -34,8 +34,8 @@ If the ISV learns that a client is using the LimitedAccessToken for non-approved
 ## Prerequisites
 
 * [cURL](https://curl.haxx.se/) installed (or another tool that can make HTTP requests).
-* The ISV needs to have either an [Azure Face](https://ms.portal.azure.com/#view/Microsoft_Azure_ProjectOxford/CognitiveServicesHub/~/Face) resource or a [Cognitive Services multi-service](https://ms.portal.azure.com/#view/Microsoft_Azure_ProjectOxford/CognitiveServicesHub/~/AllInOne) resource.
-* The client needs to have an [Azure Face](https://ms.portal.azure.com/#view/Microsoft_Azure_ProjectOxford/CognitiveServicesHub/~/Face) resource.
+* The ISV needs to have either an [Azure AI Face](https://ms.portal.azure.com/#view/Microsoft_Azure_ProjectOxford/CognitiveServicesHub/~/Face) resource or a [Azure AI services multi-service](https://ms.portal.azure.com/#view/Microsoft_Azure_ProjectOxford/CognitiveServicesHub/~/AllInOne) resource.
+* The client needs to have an [Azure AI Face](https://ms.portal.azure.com/#view/Microsoft_Azure_ProjectOxford/CognitiveServicesHub/~/Face) resource.
 
 ## Step 1: ISV obtains client's Face resource ID
 

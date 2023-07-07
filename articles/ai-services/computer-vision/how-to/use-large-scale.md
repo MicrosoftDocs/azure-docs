@@ -1,6 +1,6 @@
 ---
 title: "Example: Use the Large-Scale feature - Face"
-titleSuffix: Azure Cognitive Services
+titleSuffix: Azure AI services
 description: This guide is an article on how to scale up from existing PersonGroup and FaceList objects to LargePersonGroup and LargeFaceList objects.
 services: cognitive-services
 author: nitinme
@@ -25,14 +25,14 @@ This guide demonstrates the migration process. It assumes a basic familiarity wi
 
 LargePersonGroup and LargeFaceList are collectively referred to as large-scale operations. LargePersonGroup can contain up to 1 million persons, each with a maximum of 248 faces. LargeFaceList can contain up to 1 million faces. The large-scale operations are similar to the conventional PersonGroup and FaceList but have some differences because of the new architecture. 
 
-The samples are written in C# by using the Azure Cognitive Services Face client library.
+The samples are written in C# by using the Azure AI Face client library.
 
 > [!NOTE]
 > To enable Face search performance for Identification and FindSimilar in large scale, introduce a Train operation to preprocess the LargeFaceList and LargePersonGroup. The training time varies from seconds to about half an hour based on the actual capacity. During the training period, it's possible to perform Identification and FindSimilar if a successful training operating was done before. The drawback is that the new added persons and faces don't appear in the result until a new post migration to large-scale training is completed.
 
 ## Step 1: Initialize the client object
 
-When you use the Face client library, the key and subscription endpoint are passed in through the constructor of the FaceClient class. See the [quickstart](/azure/cognitive-services/computer-vision/quickstarts-sdk/identity-client-library?pivots=programming-language-csharp&tabs=visual-studio) for instructions on creating a Face client object.
+When you use the Face client library, the key and subscription endpoint are passed in through the constructor of the FaceClient class. See the [quickstart](../quickstarts-sdk/identity-client-library.md?pivots=programming-language-csharp&tabs=visual-studio) for instructions on creating a Face client object.
 
 ## Step 2: Code migration
 

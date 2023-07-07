@@ -1,6 +1,6 @@
 ---
 title: "Overview: Measure retail queue wait time with Spatial Analysis"
-titleSuffix: Azure Cognitive Services
+titleSuffix: Azure AI services
 description: Spatial Analysis can generate real-time information about how long users are waiting in a queue in a retail store. A store manager can use this information to manage open checkout stations and employee shifts.
 services: cognitive-services
 author: PatrickFarley

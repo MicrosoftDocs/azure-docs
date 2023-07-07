@@ -1,7 +1,7 @@
 ---
-title: People detection - Computer Vision
-titleSuffix: Azure Cognitive Services
-description: Learn concepts related to the people detection feature of the Computer Vision API - usage and limits.
+title: People detection - Azure AI Vision
+titleSuffix: Azure AI services
+description: Learn concepts related to the people detection feature of the Azure AI Vision API - usage and limits.
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme

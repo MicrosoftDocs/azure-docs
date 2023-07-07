@@ -1,6 +1,6 @@
 ---
 title: Build a React app to add users to a Face service
-titleSuffix: Azure Cognitive Services
+titleSuffix: Azure AI services
 description: Learn how to set up your development environment and deploy a Face app to get consent from customers.
 author: PatrickFarley
 manager: nitinme
@@ -41,7 +41,7 @@ The sample app is written using JavaScript and the React Native framework. It ca
 1. Retrieve your FaceAPI endpoint and key in the Azure portal under the **Overview** tab of your resource. Don't check in your Face API key to your remote repository.
 
    > [!WARNING]
-   > For local development and testing only, you can enter the API key and endpoint as environment variables. For final deployment, store the API key in a secure location and never in the code or environment variables. See the [Cognitive Services Authentication guide](../../authentication.md) for other ways to authenticate the service.
+   > For local development and testing only, you can enter the API key and endpoint as environment variables. For final deployment, store the API key in a secure location and never in the code or environment variables. See the [Azure AI services Authentication guide](../../authentication.md) for other ways to authenticate the service.
 
 1. Run the app using either the Android Virtual Device emulator from Android Studio, or your own Android device. To test your app on a physical device, follow the relevant <a href="https://reactnative.dev/docs/running-on-device"  title="React Native documentation"  target="_blank">React Native documentation <span class="docon docon-navigate-external x-hidden-focus"></span></a>.
 
@@ -53,7 +53,7 @@ The sample app is written using JavaScript and the React Native framework. It ca
 1. Retrieve your FaceAPI endpoint and key in the Azure portal under the **Overview** tab of your resource.
 
    > [!WARNING]
-   > For local development and testing only, you can enter the API key and endpoint as environment variables. For final deployment, store the API key in a secure location and never in the code or environment variables. See the [Cognitive Services Authentication guide](../../authentication.md) for other ways to authenticate the service.
+   > For local development and testing only, you can enter the API key and endpoint as environment variables. For final deployment, store the API key in a secure location and never in the code or environment variables. See the [Azure AI services Authentication guide](../../authentication.md) for other ways to authenticate the service.
 
 1. Run the app using either a simulated device from Xcode, or your own iOS device. To test your app on a physical device, follow the relevant <a href="https://reactnative.dev/docs/running-on-device"  title="React Native documentation"  target="_blank">React Native documentation <span class="docon docon-navigate-external x-hidden-focus"></span></a>.
 
@@ -94,7 +94,7 @@ To extend the app's functionality to cover the full experience, read the [overvi
 
    You need to use a database to store the face image along with user metadata. The social security number or other unique person identifier can be used as a key to look up their face ID. 
 
-1. For secure methods of passing your subscription key and endpoint to Face service, see the Azure Cognitive Services [Security](/azure/cognitive-services/cognitive-services-security?tabs=command-line%2Ccsharp) guide.
+1. For secure methods of passing your subscription key and endpoint to Face service, see the Azure AI services [Security](../../security-features.md?tabs=command-line%2Ccsharp) guide.
 
 
 ## Deploy the app

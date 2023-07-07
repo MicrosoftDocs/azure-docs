@@ -1,6 +1,6 @@
 ---
 title: "Face recognition - Face"
-titleSuffix: Azure Cognitive Services
+titleSuffix: Azure AI services
 description: Learn the concept of Face recognition, its related operations, and the underlying data structures.
 services: cognitive-services
 author: PatrickFarley

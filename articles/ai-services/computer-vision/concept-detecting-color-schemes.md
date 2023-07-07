@@ -1,7 +1,7 @@
 ---
-title: Color scheme detection - Computer Vision
-titleSuffix: Azure Cognitive Services
-description: Concepts related to detecting the color scheme in images using the Computer Vision API.
+title: Color scheme detection - Azure AI Vision
+titleSuffix: Azure AI services
+description: Concepts related to detecting the color scheme in images using the Azure AI Vision API.
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
@@ -16,15 +16,15 @@ ms.custom: seodec18
 
 # Color schemes detection
 
-Computer Vision analyzes the colors in an image to provide three different attributes: the dominant foreground color, the dominant background color, and the larger set of dominant colors in the image. The set of possible returned colors is: black, blue, brown, gray, green, orange, pink, purple, red, teal, white, and yellow.
+Azure AI Vision analyzes the colors in an image to provide three different attributes: the dominant foreground color, the dominant background color, and the larger set of dominant colors in the image. The set of possible returned colors is: black, blue, brown, gray, green, orange, pink, purple, red, teal, white, and yellow.
 
-Computer Vision also extracts an accent color, which represents the most vibrant color in the image, based on a combination of the dominant color set and saturation. The accent color is returned as a hexadecimal HTML color code (for example, `#00CC00`).
+Azure AI Vision also extracts an accent color, which represents the most vibrant color in the image, based on a combination of the dominant color set and saturation. The accent color is returned as a hexadecimal HTML color code (for example, `#00CC00`).
 
-Computer Vision also returns a boolean value indicating whether the image is a black-and-white image.
+Azure AI Vision also returns a boolean value indicating whether the image is a black-and-white image.
 
 ## Color scheme detection examples
 
-The following example illustrates the JSON response returned by Computer Vision when it detects the color scheme of an image. 
+The following example illustrates the JSON response returned by Azure AI Vision when it detects the color scheme of an image. 
 
 > [!NOTE]
 > In this case, the example image is not a black and white image, but the dominant foreground and background colors are black, and the dominant colors for the image as a whole are black and white.
@@ -70,7 +70,7 @@ The following table shows the returned foreground, background, and image colors 
 
 ### Black and white detection examples
 
-The following table shows Computer Vision's black and white evaluation in the sample images.
+The following table shows Azure AI Vision's black and white evaluation in the sample images.
 
 | Image | Black & white? |
 |-------|----------------|
@@ -81,4 +81,4 @@ The following table shows Computer Vision's black and white evaluation in the sa
 
 The color scheme detection feature is part of the [Analyze Image](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2/operations/56f91f2e778daf14a499f21b) API. You can call this API through a native SDK or through REST calls. Include `Color` in the **visualFeatures** query parameter. Then, when you get the full JSON response, simply parse the string for the contents of the `"color"` section.
 
-* [Quickstart: Computer Vision REST API or client libraries](./quickstarts-sdk/image-analysis-client-library.md?pivots=programming-language-csharp)
+* [Quickstart: Vision REST API or client libraries](./quickstarts-sdk/image-analysis-client-library.md?pivots=programming-language-csharp)

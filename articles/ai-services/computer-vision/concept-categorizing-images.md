@@ -1,6 +1,6 @@
 ---
-title: Image categorization - Computer Vision
-titleSuffix: Azure Cognitive Services
+title: Image categorization - Azure AI Vision
+titleSuffix: Azure AI services
 description: Learn concepts related to the image categorization feature of the Image Analysis API.
 services: cognitive-services
 author: PatrickFarley
@@ -20,13 +20,13 @@ In addition to tags and a description, Image Analysis can return the taxonomy-ba
 
 ## The 86-category hierarchy
 
-Computer vision can categorize an image broadly or specifically, using the list of 86 categories in the following diagram. For the full taxonomy in text format, see [Category Taxonomy](category-taxonomy.md).
+Azure AI Vision can categorize an image broadly or specifically, using the list of 86 categories in the following diagram. For the full taxonomy in text format, see [Category Taxonomy](category-taxonomy.md).
 
 ![Grouped lists of all the categories in the category taxonomy](./Images/analyze_categories-v2.png)
 
 ## Image categorization examples
 
-The following JSON response illustrates what Computer Vision returns when categorizing the example image based on its visual features.
+The following JSON response illustrates what Azure AI Vision returns when categorizing the example image based on its visual features.
 
 ![A woman on the roof of an apartment building](./Images/woman_roof.png)
 
@@ -47,7 +47,7 @@ The following JSON response illustrates what Computer Vision returns when catego
 }
 ```
 
-The following table illustrates a typical image set and the category returned by Computer Vision for each image.
+The following table illustrates a typical image set and the category returned by Azure AI Vision for each image.
 
 | Image | Category |
 |-------|----------|
@@ -60,7 +60,7 @@ The following table illustrates a typical image set and the category returned by
 
 The categorization feature is part of the [Analyze Image](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2/operations/56f91f2e778daf14a499f21b) API. You can call this API through a native SDK or through REST calls. Include `Categories` in the **visualFeatures** query parameter. Then, when you get the full JSON response, simply parse the string for the contents of the `"categories"` section.
 
-* [Quickstart: Computer Vision REST API or client libraries](./quickstarts-sdk/image-analysis-client-library.md?pivots=programming-language-csharp)
+* [Quickstart: Vision REST API or client libraries](./quickstarts-sdk/image-analysis-client-library.md?pivots=programming-language-csharp)
 
 ## Next steps
 

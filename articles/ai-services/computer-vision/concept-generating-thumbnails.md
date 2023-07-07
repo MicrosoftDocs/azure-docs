@@ -1,7 +1,7 @@
 ---
-title: Smart-cropped thumbnails - Computer Vision
-titleSuffix: Azure Cognitive Services
-description: Concepts related to generating thumbnails for images using the Computer Vision API.
+title: Smart-cropped thumbnails - Azure AI Vision
+titleSuffix: Azure AI services
+description: Concepts related to generating thumbnails for images using the Azure AI Vision API.
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
@@ -16,9 +16,9 @@ ms.custom: seodec18, ignite-2022
 
 # Smart-cropped thumbnails
 
-A thumbnail is a reduced-size representation of an image. Thumbnails are used to represent images and other data in a more economical, layout-friendly way. The Computer Vision API uses smart cropping to create intuitive image thumbnails that include the most important regions of an image with priority given to any detected faces.
+A thumbnail is a reduced-size representation of an image. Thumbnails are used to represent images and other data in a more economical, layout-friendly way. The Azure AI Vision API uses smart cropping to create intuitive image thumbnails that include the most important regions of an image with priority given to any detected faces.
 
-The Computer Vision thumbnail generation algorithm works as follows:
+The Azure AI Vision thumbnail generation algorithm works as follows:
 
 1. Remove distracting elements from the image and identify the _area of interest_&mdash;the area of the image in which the main object(s) appears.
 1. Crop the image based on the identified _area of interest_.
@@ -26,7 +26,7 @@ The Computer Vision thumbnail generation algorithm works as follows:
 
 ## Area of interest
 
-When you upload an image, the Computer Vision API analyzes it to determine the *area of interest*. It can then use this region to determine how to crop the image. The cropping operation, however, will always match the desired aspect ratio if one is specified.
+When you upload an image, the Azure AI Vision API analyzes it to determine the *area of interest*. It can then use this region to determine how to crop the image. The cropping operation, however, will always match the desired aspect ratio if one is specified.
 
 You can also get the raw bounding box coordinates of this same *area of interest* by calling the **areaOfInterest** API instead. You can then use this information to modify the original image however you wish.
 

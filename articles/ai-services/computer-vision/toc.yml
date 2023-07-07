@@ -1,10 +1,10 @@
 items:
-- name: Computer Vision Documentation
+- name: Azure AI Vision Documentation
   href: index.yml
 - name: Overview
   expanded: true
   items:
-  - name: What is Computer Vision?
+  - name: What is Azure AI Vision?
     href: overview.md
   - name: Vision Studio
     href: overview-vision-studio.md
@@ -14,7 +14,7 @@ items:
     href: https://azure.microsoft.com/pricing/details/cognitive-services/computer-vision
   - name: What's new
     href: whats-new.md
-  - name: Computer Vision FAQ
+  - name: Azure AI Vision FAQ
     href: FAQ.yml
 - name: Scenario deep-dives
   items:
@@ -39,13 +39,13 @@ items:
     - name: Transparency notes
       items:
       - name: OCR use cases
-        href: /legal/cognitive-services/computer-vision/ocr-transparency-note?context=/azure/cognitive-services/computer-vision/context/context
+        href: /legal/cognitive-services/computer-vision/ocr-transparency-note?context=/azure/ai-services/computer-vision/context/context
       - name: Characteristics and limitations
-        href: /legal/cognitive-services/computer-vision/ocr-characteristics-and-limitations?context=/azure/cognitive-services/computer-vision/context/context
+        href: /legal/cognitive-services/computer-vision/ocr-characteristics-and-limitations?context=/azure/ai-services/computer-vision/context/context
     - name: Integration and responsible use
-      href: /legal/cognitive-services/computer-vision/ocr-guidance-integration-responsible-use?context=/azure/cognitive-services/computer-vision/context/context
+      href: /legal/cognitive-services/computer-vision/ocr-guidance-integration-responsible-use?context=/azure/ai-services/computer-vision/context/context
     - name: Data, privacy, and security
-      href: /legal/cognitive-services/computer-vision/ocr-data-privacy-security?context=/azure/cognitive-services/computer-vision/context/context
+      href: /legal/cognitive-services/computer-vision/ocr-data-privacy-security?context=/azure/ai-services/computer-vision/context/context
   - name: How-to guides
     items:
     - name: Call the Read API
@@ -71,7 +71,7 @@ items:
         displayName: container instances, container, containers, images
       - name: Use containers in disconnected environments
         href: ../containers/disconnected-containers.md
-      - name: All Cognitive Services containers
+      - name: All Azure AI services containers
         href: ../containers/index.yml
         maintainContext: true
   - name: Reference
@@ -116,26 +116,26 @@ items:
         href: https://github.com/Azure-Samples/azure-ai-vision-sdk
     - name: Version 3.2
       items:
-      - name: Cognitive Services .NET SDK samples
+      - name: Azure AI services .NET SDK samples
         href: https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples
-      - name: Cognitive Services Java SDK samples
+      - name: Azure AI services Java SDK samples
         href: https://github.com/Azure-Samples/cognitive-services-java-sdk-samples
-      - name: Cognitive Services Node.js SDK samples
+      - name: Azure AI services Node.js SDK samples
         href: https://github.com/Azure-Samples/cognitive-services-node-sdk-samples
       - name: JavaScript Static Web app
         href: https://github.com/azure-samples/js-e2e-client-cognitive-services/tree/main/
-      - name: Cognitive Services Python SDK samples
+      - name: Azure AI services Python SDK samples
         href: https://github.com/Azure-Samples/cognitive-services-python-sdk-samples
-      - name: Cognitive Services Go SDK Samples
+      - name: Azure AI services Go SDK Samples
         href: https://github.com/microsoft/cognitive-services-speech-sdk-go
   - name: Responsible use of AI
     items:
     - name: Transparency note
-      href: /legal/cognitive-services/computer-vision/imageanalysis-transparency-note?context=/azure/cognitive-services/computer-vision/context/context
+      href: /legal/cognitive-services/computer-vision/imageanalysis-transparency-note?context=/azure/ai-services/computer-vision/context/context
     - name: Data, privacy, and security 
-      href: /legal/cognitive-services/computer-vision/imageanalysis-data-privacy-security?context=/azure/cognitive-services/computer-vision/context/context
+      href: /legal/cognitive-services/computer-vision/imageanalysis-data-privacy-security?context=/azure/ai-services/computer-vision/context/context
     - name: Limited Access features
-      href: /legal/cognitive-services/computer-vision/limited-access?context=/azure/cognitive-services/computer-vision/context/context
+      href: /legal/cognitive-services/computer-vision/limited-access?context=/azure/ai-services/computer-vision/context/context
   - name: How-to guides
     items:
     - name: Version 4.0 (preview)
@@ -279,15 +279,15 @@ items:
     - name: Transparency notes
       items:
       - name: Face use cases
-        href: /legal/cognitive-services/face/transparency-note?context=/azure/cognitive-services/computer-vision/context/context
+        href: /legal/cognitive-services/face/transparency-note?context=/azure/ai-services/computer-vision/context/context
       - name: Characteristics and limitations
-        href: /legal/cognitive-services/face/characteristics-and-limitations?context=/azure/cognitive-services/computer-vision/context/context
+        href: /legal/cognitive-services/face/characteristics-and-limitations?context=/azure/ai-services/computer-vision/context/context
     - name: Integration and responsible use
-      href: /legal/cognitive-services/face/guidance-integration-responsible-use?context=/azure/cognitive-services/computer-vision/context/context
+      href: /legal/cognitive-services/face/guidance-integration-responsible-use?context=/azure/ai-services/computer-vision/context/context
     - name: Data privacy and security
-      href: /legal/cognitive-services/face/data-privacy-security?context=/azure/cognitive-services/computer-vision/context/context
+      href: /legal/cognitive-services/face/data-privacy-security?context=/azure/ai-services/computer-vision/context/context
     - name: Limited Access features
-      href: /legal/cognitive-services/computer-vision/limited-access-identity?context=/azure/cognitive-services/computer-vision/context/context
+      href: /legal/cognitive-services/computer-vision/limited-access-identity?context=/azure/ai-services/computer-vision/context/context
   - name: How-to guides
     items:
     - name: Face detection (open to all)
@@ -353,19 +353,19 @@ items:
     - name: Transparency notes
       items:
       - name: Spatial Analysis use cases
-        href: /legal/cognitive-services/computer-vision/transparency-note-spatial-analysis?context=/azure/cognitive-services/computer-vision/context/context
+        href: /legal/cognitive-services/computer-vision/transparency-note-spatial-analysis?context=/azure/ai-services/computer-vision/context/context
       - name: Characteristics and limitations
-        href: /legal/cognitive-services/computer-vision/accuracy-and-limitations?context=/azure/cognitive-services/computer-vision/context/context
+        href: /legal/cognitive-services/computer-vision/accuracy-and-limitations?context=/azure/ai-services/computer-vision/context/context
     - name: Integration and responsible use
       items:
       - name: Responsible use in AI deployment 
-        href: /legal/cognitive-services/computer-vision/responsible-use-deployment?context=/azure/cognitive-services/computer-vision/context/context
+        href: /legal/cognitive-services/computer-vision/responsible-use-deployment?context=/azure/ai-services/computer-vision/context/context
       - name: Disclosure design guidelines
-        href: /legal/cognitive-services/computer-vision/disclosure-design?context=/azure/cognitive-services/computer-vision/context/context
+        href: /legal/cognitive-services/computer-vision/disclosure-design?context=/azure/ai-services/computer-vision/context/context
       - name: Research insights
-        href: /legal/cognitive-services/computer-vision/research-insights?context=/azure/cognitive-services/computer-vision/context/context
+        href: /legal/cognitive-services/computer-vision/research-insights?context=/azure/ai-services/computer-vision/context/context
     - name: Data, privacy, and security
-      href: /legal/cognitive-services/computer-vision/compliance-privacy-security-2?context=/azure/cognitive-services/computer-vision/context/context
+      href: /legal/cognitive-services/computer-vision/compliance-privacy-security-2?context=/azure/ai-services/computer-vision/context/context
   - name: How-to guides
     items:
     - name: Use the Spatial Analysis container
@@ -386,7 +386,7 @@ items:
         href: spatial-analysis-zone-line-placement.md
       - name: Camera placement
         href: spatial-analysis-camera-placement.md
-      - name: All Cognitive Services containers
+      - name: All Azure AI services containers
         href: ../containers/index.yml?context=%2fazure%2fcognitive-services%2fcomputer-vision%2fcontext%2fcontext
 - name: How-to guides
   items:
@@ -405,7 +405,7 @@ items:
     - name: Compliance and certification
       href: https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/
   - name: Support and help options
-    href: ../cognitive-services-support-options.md?context=/azure/cognitive-services/computer-vision/context/context
+    href: ../cognitive-services-support-options.md?context=/azure/ai-services/computer-vision/context/context
   - name: Training modules
     href: /training/paths/explore-computer-vision-microsoft-azure/
   - name: Azure updates

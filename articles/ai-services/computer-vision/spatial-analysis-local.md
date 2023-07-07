@@ -1,6 +1,6 @@
 ---
 title: Run Spatial Analysis on a local video file
-titleSuffix: Azure Cognitive Services
+titleSuffix: Azure AI services
 description: Use this guide to learn how to run Spatial Analysis on a recorded local video.
 services: cognitive-services
 author: PatrickFarley

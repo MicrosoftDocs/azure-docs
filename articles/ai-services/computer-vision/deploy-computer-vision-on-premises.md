@@ -1,7 +1,7 @@
 ---
-title: Use Computer Vision container with Kubernetes and Helm
-titleSuffix: Azure Cognitive Services
-description: Learn how to deploy the Computer Vision container using Kubernetes and Helm.
+title: Use Azure AI Vision container with Kubernetes and Helm
+titleSuffix: Azure AI services
+description: Learn how to deploy the Azure AI Vision container using Kubernetes and Helm.
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
@@ -13,20 +13,20 @@ ms.author: pafarley
 ms.custom: cogserv-non-critical-vision
 ---
 
-# Use Computer Vision container with Kubernetes and Helm
+# Use Azure AI Vision container with Kubernetes and Helm
 
-One option to manage your Computer Vision containers on-premises is to use Kubernetes and Helm. Using Kubernetes and Helm to define a Computer Vision container image, we'll create a Kubernetes package. This package will be deployed to a Kubernetes cluster on-premises. Finally, we'll explore how to test the deployed services. For more information about running Docker containers without Kubernetes orchestration, see [install and run Computer Vision containers](computer-vision-how-to-install-containers.md).
+One option to manage your Azure AI Vision containers on-premises is to use Kubernetes and Helm. Using Kubernetes and Helm to define an Azure AI Vision container image, we'll create a Kubernetes package. This package will be deployed to a Kubernetes cluster on-premises. Finally, we'll explore how to test the deployed services. For more information about running Docker containers without Kubernetes orchestration, see [install and run Azure AI Vision containers](computer-vision-how-to-install-containers.md).
 
 ## Prerequisites
 
-The following prerequisites before using Computer Vision containers on-premises:
+The following prerequisites before using Azure AI Vision containers on-premises:
 
 | Required | Purpose |
 |----------|---------|
 | Azure Account | If you don't have an Azure subscription, create a [free account][free-azure-account] before you begin. |
 | Kubernetes CLI | The [Kubernetes CLI][kubernetes-cli] is required for managing the shared credentials from the container registry. Kubernetes is also needed before Helm, which is the Kubernetes package manager. |
 | Helm CLI | Install the [Helm CLI][helm-install], which is used to install a helm chart (container package definition). |
-| Computer Vision resource |In order to use the container, you must have:<br><br>An Azure **Computer Vision** resource and the associated API key the endpoint URI. Both values are available on the Overview and Keys pages for the resource and are required to start the container.<br><br>**{API_KEY}**: One of the two available resource keys on the **Keys** page<br><br>**{ENDPOINT_URI}**: The endpoint as provided on the **Overview** page|
+| Computer Vision resource |In order to use the container, you must have:<br><br>A **Computer Vision** resource and the associated API key the endpoint URI. Both values are available on the Overview and Keys pages for the resource and are required to start the container.<br><br>**{API_KEY}**: One of the two available resource keys on the **Keys** page<br><br>**{ENDPOINT_URI}**: The endpoint as provided on the **Overview** page|
 
 [!INCLUDE [Gathering required parameters](../containers/includes/container-gathering-required-parameters.md)]
 
@@ -101,7 +101,7 @@ read:
 > [!IMPORTANT]
 > - If the `billing` and `apikey` values aren't provided, the services expire after 15 minutes. Likewise, verification fails because the services aren't available.
 > 
-> - If you deploy multiple Read OCR containers behind a load balancer, for example, under Docker Compose or Kubernetes, you must have an external cache. Because the processing container and the GET request container might not be the same, an external cache stores the results and shares them across containers. For details about cache settings, see [Configure Computer Vision Docker containers](./computer-vision-resource-container-config.md).
+> - If you deploy multiple Read OCR containers behind a load balancer, for example, under Docker Compose or Kubernetes, you must have an external cache. Because the processing container and the GET request container might not be the same, an external cache stores the results and shares them across containers. For details about cache settings, see [Configure Azure AI Vision Docker containers](./computer-vision-resource-container-config.md).
 >
 
 Create a *templates* folder under the *read* directory. Copy and paste the following YAML into a file named `deployment.yaml`. The `deployment.yaml` file will serve as a Helm template.
@@ -163,9 +163,6 @@ spec:
 
 In the same *templates* folder, copy and paste the following helper functions into `helpers.tpl`. `helpers.tpl` defines useful functions to help generate Helm template.
 
-> [!NOTE]
-> This article contains references to the term *slave*, a term that Microsoft no longer uses. When the term is removed from the software, we'll remove it from this article.
-
 ```yaml
 {{- define "rabbitmq.hostname" -}}
 {{- printf "%s-rabbitmq" .Release.Name -}}
@@ -173,7 +170,7 @@ In the same *templates* folder, copy and paste the following helper functions in
 
 {{- define "redis.connStr" -}}
 {{- $hostMain := printf "%s-redis-master:6379" .Release.Name }}
-{{- $hostReplica := printf "%s-redis-slave:6379" .Release.Name -}}
+{{- $hostReplica := printf "%s-redis-replica:6379" .Release.Name -}}
 {{- $passWord := printf "password=%s" .Values.read.image.args.redis.password -}}
 {{- $connTail := "ssl=False,abortConnect=False" -}}
 {{- printf "%s,%s,%s,%s" $hostMain $hostReplica $passWord $connTail -}}
@@ -187,7 +184,7 @@ The *Helm chart* contains the configuration of which docker image(s) to pull fro
 
 > A [Helm chart][helm-charts] is a collection of files that describe a related set of Kubernetes resources. A single chart might be used to deploy something simple, like a memcached pod, or something complex, like a full web app stack with HTTP servers, databases, caches, and so on.
 
-The provided *Helm charts* pull the docker images of the Computer Vision Service, and the corresponding service from the `mcr.microsoft.com` container 
+The provided *Helm charts* pull the docker images of the Azure AI Vision Service, and the corresponding service from the `mcr.microsoft.com` container 
 registry.
 
 ## Install the Helm chart on the Kubernetes cluster
@@ -361,7 +358,7 @@ replicaset.apps/read-6cbbb6678   3         3         3       3s
 For more details on installing applications with Helm in Azure Kubernetes Service (AKS), [visit here][installing-helm-apps-in-aks].
 
 > [!div class="nextstepaction"]
-> [Cognitive Services Containers][cog-svcs-containers]
+> [Azure AI services Containers][cog-svcs-containers]
 
 <!-- LINKS - external -->
 [free-azure-account]: https://azure.microsoft.com/free

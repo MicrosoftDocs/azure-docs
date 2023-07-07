@@ -1,11 +1,10 @@
 ---
 title: "Example: Add faces to a PersonGroup - Face"
-titleSuffix: Azure Cognitive Services
-description: This guide demonstrates how to add a large number of persons and faces to a PersonGroup object with the Azure Cognitive Services Face service.
+titleSuffix: Azure AI services
+description: This guide demonstrates how to add a large number of persons and faces to a PersonGroup object with the Azure AI Face service.
 services: cognitive-services
 author: nitinme
 manager: nitinme
-
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: how-to
@@ -19,7 +18,7 @@ ms.custom: devx-track-csharp
 
 [!INCLUDE [Gate notice](../includes/identity-gate-notice.md)]
 
-This guide demonstrates how to add a large number of persons and faces to a PersonGroup object. The same strategy also applies to LargePersonGroup, FaceList, and LargeFaceList objects. This sample is written in C# by using the Azure Cognitive Services Face .NET client library.
+This guide demonstrates how to add a large number of persons and faces to a PersonGroup object. The same strategy also applies to LargePersonGroup, FaceList, and LargeFaceList objects. This sample is written in C# by using the Azure AI Face .NET client library.
 
 ## Step 1: Initialization
 
@@ -60,7 +59,7 @@ static async Task WaitCallLimitPerSecondAsync()
 
 ## Step 2: Authorize the API call
 
-When you use the Face client library, the key and subscription endpoint are passed in through the constructor of the FaceClient class. See the [quickstart](/azure/cognitive-services/computer-vision/quickstarts-sdk/identity-client-library?pivots=programming-language-csharp&tabs=visual-studio) for instructions on creating a Face client object.
+When you use the Face client library, the key and subscription endpoint are passed in through the constructor of the FaceClient class. See the [quickstart](../quickstarts-sdk/identity-client-library.md?pivots=programming-language-csharp&tabs=visual-studio) for instructions on creating a Face client object.
 
 
 ## Step 3: Create the PersonGroup

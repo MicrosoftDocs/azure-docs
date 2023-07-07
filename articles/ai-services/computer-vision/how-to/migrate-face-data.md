@@ -1,11 +1,10 @@
 ---
 title: "Migrate your face data across subscriptions - Face"
-titleSuffix: Azure Cognitive Services
+titleSuffix: Azure AI services
 description: This guide shows you how to migrate your stored face data from one Face subscription to another.
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
-
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: how-to
@@ -20,7 +19,7 @@ ms.custom: [devx-track-csharp, cogserv-non-critical-vision]
 > [!CAUTION]
 > The Snapshot API will be retired for all users June 30 2023.
 
-This guide shows you how to move face data, such as a saved PersonGroup object with faces, to a different Azure Cognitive Services Face subscription. To move the data, you use the Snapshot feature. This way you avoid having to repeatedly build and train a PersonGroup or FaceList object when you move or expand your operations. For example, perhaps you created a PersonGroup object with a free subscription and now want to migrate it to your paid subscription. Or you might need to sync face data across subscriptions in different regions for a large enterprise operation.
+This guide shows you how to move face data, such as a saved PersonGroup object with faces, to a different Azure AI Face subscription. To move the data, you use the Snapshot feature. This way you avoid having to repeatedly build and train a PersonGroup or FaceList object when you move or expand your operations. For example, perhaps you created a PersonGroup object with a free subscription and now want to migrate it to your paid subscription. Or you might need to sync face data across subscriptions in different regions for a large enterprise operation.
 
 This same migration strategy also applies to LargePersonGroup and LargeFaceList objects. If you aren't familiar with the concepts in this guide, see their definitions in the [Face recognition concepts](../concept-face-recognition.md) guide. This guide uses the Face .NET client library with C#.
 
@@ -31,7 +30,7 @@ This same migration strategy also applies to LargePersonGroup and LargeFaceList 
 
 You need the following items:
 
-- Two Face keys, one with the existing data and one to migrate to. To subscribe to the Face service and get your key, follow the instructions in [Create a Cognitive Services account](../../cognitive-services-apis-create-account.md).
+- Two Face keys, one with the existing data and one to migrate to. To subscribe to the Face service and get your key, follow the instructions in [Create an Azure AI services account](../../cognitive-services-apis-create-account.md).
 - The Face subscription ID string that corresponds to the target subscription. To find it, select **Overview** in the Azure portal. 
 - Any edition of [Visual Studio 2015 or 2017](https://www.visualstudio.com/downloads/).
 

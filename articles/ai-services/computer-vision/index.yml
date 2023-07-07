@@ -1,11 +1,11 @@
 ### YamlMime:Hub
 
-title: Computer Vision documentation # < 60 chars
-summary: The cloud-based Computer Vision API provides developers with access to advanced algorithms for processing images and returning information. By uploading an image or specifying an image URL, Microsoft Computer Vision algorithms can analyze visual content in different ways based on inputs and user choices. Learn how to analyze visual content in different ways with quickstarts, tutorials, and samples. # < 160 chars
+title: Azure AI Vision documentation # < 60 chars
+summary: The cloud-based Azure AI Vision API provides developers with access to advanced algorithms for processing images and returning information. By uploading an image or specifying an image URL, Azure AI Vision algorithms can analyze visual content in different ways based on inputs and user choices. Learn how to analyze visual content in different ways with quickstarts, tutorials, and samples. # < 160 chars
 
 metadata:
-  title: Computer Vision documentation - Quickstarts, Tutorials, API Reference - Azure Cognitive Services | Microsoft Docs
-  description: The cloud-based Computer Vision API provides developers with access to advanced algorithms for processing images and returning information. By uploading an image or specifying an image URL, Microsoft Computer Vision algorithms can analyze visual content in different ways based on inputs and user choices. Learn how to analyze visual content in different ways with quickstarts, tutorials, and samples.
+  title: Azure AI Vision documentation - Quickstarts, Tutorials, API Reference - Azure AI services | Microsoft Docs
+  description: The cloud-based Azure AI Vision API provides developers with access to advanced algorithms for processing images and returning information. By uploading an image or specifying an image URL, Azure AI Vision algorithms can analyze visual content in different ways based on inputs and user choices. Learn how to analyze visual content in different ways with quickstarts, tutorials, and samples.
   services: cognitive-services
   ms.service: cognitive-services
   ms.subservice: computer-vision
@@ -17,10 +17,10 @@ metadata:
 highlightedContent:
   # itemType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new
     items:
-      - title: About Computer Vision
+      - title: About Azure AI Vision
         itemType: overview
         url: overview.md
-      - title: What's new in Computer Vision?
+      - title: What's new in Azure AI Vision?
         itemType: whats-new
         url: whats-new.md
       - title: Vision Studio
@@ -52,9 +52,7 @@ conceptualContent:
         - itemType: reference
           text: OCR API reference
           url: https://centraluseuap.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2/operations/5d986960601faab4bf452005
-      footerLink:
-        text: More
-        url: index-ocr.yml
+
     - title: Image Analysis
       links:
         - itemType: overview
@@ -89,7 +87,7 @@ conceptualContent:
           url: https://aka.ms/vision-4-0-ref
       footerLink:
         text: More
-        url: index-image-analysis.yml
+        url: overview-image-analysis.md
     - title: Face
       links:
         - itemType: overview
@@ -118,7 +116,7 @@ conceptualContent:
           url: /rest/api/face/
       footerLink:
         text: More
-        url: index-identity.yml
+        url: overview-identity.md
     - title: Spatial Analysis
       links:
         - itemType: overview
@@ -145,7 +143,7 @@ conceptualContent:
 
 tools:
   title: Software development kits (SDKs)
-  summary: Get started with the Computer Vision SDK in your favorite programming language.
+  summary: Get started with the Vision SDK in your favorite programming language.
   items:
   - title: C#
     imageSrc: media/index/logo_Csharp.svg
@@ -189,4 +187,4 @@ additionalContent:
       - title: Support
         links:
         - text: Support and help options
-          url: ../cognitive-services-support-options.md?context=/azure/cognitive-services/computer-vision/context/context
+          url: ../cognitive-services-support-options.md?context=/azure/ai-services/computer-vision/context/context
