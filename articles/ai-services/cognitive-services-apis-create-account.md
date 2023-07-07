@@ -1,5 +1,5 @@
 ---
-title: "Create a Azure AI services resource in the Azure portal"
+title: "Create an Azure AI services resource in the Azure portal"
 titleSuffix: Azure AI services
 description: Get started with Azure AI services by creating and subscribing to a resource in the Azure portal.
 services: cognitive-services
@@ -12,9 +12,9 @@ ms.date: 02/13/2023
 ms.author: aahi
 ---
 
-# Quickstart: Create a Azure AI services resource using the Azure portal
+# Quickstart: Create an Azure AI services resource using the Azure portal
 
-Use this quickstart to create a Azure AI services resource. After you create a Cognitive Service resource in the Azure portal, you'll get an endpoint and a key for authenticating your applications.
+Use this quickstart to create an Azure AI services resource. After you create a Cognitive Service resource in the Azure portal, you'll get an endpoint and a key for authenticating your applications.
 
 Azure AI services is cloud-based artificial intelligence (AI) services that help developers build cognitive intelligence into applications without having direct AI or data science skills or knowledge. They're available through REST APIs and client library SDKs in popular development languages. Azure AI services enables developers to easily add cognitive features into their applications with cognitive solutions that can see, hear, speak, and analyze.
 
@@ -38,7 +38,7 @@ The multi-service resource is named **Azure AI services** in the portal. The mul
 * **Speech** - Speech
 * **Vision** - Azure AI Vision, Custom Vision, Document Intelligence, Face
 
-1. You can select this link to create an Azure Cognitive multi-service resource: [Create a Azure AI services resource](https://portal.azure.com/#create/Microsoft.CognitiveServicesAllInOne).
+1. You can select this link to create an Azure Cognitive multi-service resource: [Create an Azure AI services resource](https://portal.azure.com/#create/Microsoft.CognitiveServicesAllInOne).
 
 1. On the **Create** page, provide the following information:
 
@@ -92,7 +92,7 @@ The multi-service resource is named **Azure AI services** in the portal. The mul
 
 ## Clean up resources
 
-If you want to clean up and remove a Azure AI services subscription, you can delete the resource or resource group. Deleting the resource group also deletes any other resources contained in the group.
+If you want to clean up and remove an Azure AI services subscription, you can delete the resource or resource group. Deleting the resource group also deletes any other resources contained in the group.
 
 1. In the Azure portal, expand the menu on the left side to open the menu of services, and choose **Resource Groups** to display the list of your resource groups.
 1. Locate the resource group containing the resource to be deleted.
