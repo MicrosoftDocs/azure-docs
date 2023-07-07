@@ -158,8 +158,7 @@ Use the following steps to show, add, edit and delete the APM configuration:
 
 1. Open the [Azure portal](https://portal.azure.com).
 1. Select **APM** in the navigation pane.
-1. Click **Add** button to create an APM configuration. If you want to enable the APM configuration globally, you can check **Enable globally
-**, all the subsequent builds and deployments use the  APM configuration automatically.
+1. Click **Add** button to create an APM configuration. If you want to enable the APM configuration globally, check **Enable globally**, all the subsequent builds and deployments will use the APM configuration automatically.
 
    :::image type="content" source="media/how-to-enterprise-configure-apm-integration-and-ca-certificates/add-apm.png" alt-text="Screenshot of Azure portal showing the APM configuration page with Add APM configuration button." lightbox="media/how-to-enterprise-configure-apm-integration-and-ca-certificates/add-apm.png":::
 
@@ -167,11 +166,11 @@ Use the following steps to show, add, edit and delete the APM configuration:
 
    :::image type="content" source="media/how-to-enterprise-configure-apm-integration-and-ca-certificates/show-apm.png" alt-text="Screenshot of the Azure portal showing the APM configuration page." lightbox="media/how-to-enterprise-configure-apm-integration-and-ca-certificates/show-apm.png":::
 
-1. Review the values on the **Edit APM** page.
+1. Review the APM configuration on the **Edit APM** page and you can make change when necessary.
 
    :::image type="content" source="media/how-to-enterprise-configure-apm-integration-and-ca-certificates/edit-apm.png" alt-text="Screenshot of the Azure portal showing the APM configuration page with Edit APM configuration panel open for the current APM configuration in the list." lightbox="media/how-to-enterprise-configure-apm-integration-and-ca-certificates/edit-apm.png":::
 
-1. To delete an APM configuration, select the ellipsis (**...**) button, then select **Delete** to delete the APM configuration. If the APM configuration is used by build or deployment, it can't be deleted.
+1. To delete an APM configuration, select the ellipsis (**...**) button, then select **Delete** to delete the APM configuration. If the APM configuration is used by any build or deployment, it can't be deleted.
 
    :::image type="content" source="media/how-to-enterprise-configure-apm-integration-and-ca-certificates/delete-apm.png" alt-text="Screenshot of Azure portal showing the APM configuration page with Delete APM configuration panel open for the current APM configuration in the list." lightbox="media/how-to-enterprise-configure-apm-integration-and-ca-certificates/delete-apm.png":::
 
