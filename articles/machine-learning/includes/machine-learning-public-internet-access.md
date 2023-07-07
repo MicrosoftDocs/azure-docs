@@ -67,6 +67,6 @@ You may also need to allow __outbound__ traffic to Visual Studio Code and non-Mi
 
 When using Azure Kubernetes Service (AKS) with Azure Machine Learning, allow the following traffic to the AKS VNet:
 
-* General inbound/outbound requirements for AKS as described in the [Restrict egress traffic in Azure Kubernetes Service](../articles/aks/limit-egress-traffic.md) article.
+* General inbound/outbound requirements for AKS as described in the [Restrict egress traffic in Azure Kubernetes Service](/azure/aks/limit-egress-traffic) article.
 * __Outbound__ to mcr.microsoft.com.
 * When deploying a model to an AKS cluster, use the guidance in the [Deploy ML models to Azure Kubernetes Service](../v1/how-to-deploy-azure-kubernetes-service.md#connectivity) article.

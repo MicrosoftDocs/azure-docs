@@ -35,7 +35,7 @@ The response for this command is similar to the following JSON document:
 }
 ```
 
-If the value of `bypass` isn't `AzureServices`, use the guidance in the [Configure key vault network settings](../articles/key-vault/general/how-to-azure-key-vault-network-security.md?tabs=azure-cli) to set it to `AzureServices`.
+If the value of `bypass` isn't `AzureServices`, use the guidance in the [Configure key vault network settings](/azure/key-vault/general/how-to-azure-key-vault-network-security?tabs=azure-cli) to set it to `AzureServices`.
 
 ### Online deployments fail with an image download error
 
@@ -80,7 +80,7 @@ If the value of `bypass` isn't `AzureServices`, use the guidance in the [Configu
         ```
 
         The results should contain an entry that is similar to `*.<GUID>.inference.<region>`.
-    1. If no inference value is returned, delete the private endpoint for the workspace and then recreate it. For more information, see [How to configure a private endpoint](../articles/container-registry/container-registry-private-link.md). 
+    1. If no inference value is returned, delete the private endpoint for the workspace and then recreate it. For more information, see [How to configure a private endpoint](/azure/container-registry/container-registry-private-link). 
     
     1. If the workspace with a private endpoint is setup using a custom DNS [How to use your workspace with a custom DNS server](../how-to-custom-dns.md), use following command to verify if resolution works correctly from custom DNS.
 

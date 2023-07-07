@@ -21,4 +21,4 @@ With Azure Machine Learning, applying a delete lock to the resource group for yo
 
 These resources are used to communicate with, and perform operations such as scaling on, the compute cluster. Removing the resource lock from these resources should allow autoscaling for your compute clusters.
 
-For more information on resource locking, see [Lock resources to prevent unexpected changes](../articles/azure-resource-manager/management/lock-resources.md).
+For more information on resource locking, see [Lock resources to prevent unexpected changes](/azure/azure-resource-manager/management/lock-resources).
