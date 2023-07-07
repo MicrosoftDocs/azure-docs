@@ -55,15 +55,15 @@ Perform these steps to execute Batch transcription with BYOS-enabled Speech reso
 > [!IMPORTANT]
 > Don't use `destinationContainerUrl` parameter in your transcription request. If you use BYOS, the transcription results are stored in the BYOS-associated Storage account automatically. 
 >
-> If you use `destinationContainerUrl` parameter, it will work, but provide significantly less security for your data, because of ad hoc SAS usage. See details in [this section](batch-transcription-create.md#destination-container-url).
+> If you use `destinationContainerUrl` parameter, it will work, but provide significantly less security for your data, because of ad hoc SAS usage. See details in [here](batch-transcription-create.md#destination-container-url).
 
-2. Get transcription results are in `TranscriptionData` folder of `customspeech-artifacts` Blob container of the BYOS-associated Storage account.
+2. When transcription is complete, get transcription results in `TranscriptionData` folder of `customspeech-artifacts` Blob container in the BYOS-associated Storage account.
 
 ### Get Batch transcription results via REST API
 
 [Speech to text REST API](rest-speech-to-text.md) fully supports BYOS-enabled Speech resources. However, because the data is now stored within the BYOS-enabled Storage account, requests like [Get Transcription Files](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-1/operations/Transcriptions_ListFiles) interact with the BYOS-associated Storage account Blob storage, instead of Speech service internal resources. It allows using the same REST API based code for both "regular" and BYOS-enabled Speech resources.
 
-To achieve maximum security, use `sasValidityInSeconds` with the value set to `0` in your [Get Transcription Files](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-1/operations/Transcriptions_ListFiles) request. Here's an example of the request URL:
+To achieve maximum security, use `sasValidityInSeconds` parameter with the value set to `0` in the requests, that return data file URLs, like [Get Transcription Files](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-1/operations/Transcriptions_ListFiles) request. Here's an example of the request URL:
 
 ```http
 https://eastus.api.cognitive.microsoft.com/speechtotext/v3.1/transcriptions/3b24ca19-2eb1-4a2a-b964-35d89eca486b/files?sasValidityInSeconds=0
@@ -77,10 +77,42 @@ Such request returns plain Storage Account URLs for data files (no SAS or other 
       }
 ```
 
-Such URL ensures, that only Azure Active Directory identities with sufficient access rights (like *Storage Blob Data Reader* role) can access the data from the URL.
+URL of this format ensures, that only Azure Active Directory identities (users, service principals, managed identities) with sufficient access rights (like *Storage Blob Data Reader* role) can access the data from the URL.
 
 > [!WARNING]
-> If `sasValidityInSeconds` parameter is omitted in [Get Transcription Files](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-1/operations/Transcriptions_ListFiles) request or similar ones, then a [User delegation SAS](../../storage/common/storage-sas-overview.md) with the validity of 30 days will be generated for all data file URLs returned. This SAS is signed by the system assigned managed identity of your BYOS-enabled Speech resource. Because of it, the SAS allows access to the data, even if storage account key access is disabled. See details [here](../../storage/common/shared-key-authorization-prevent.md#understand-how-disallowing-shared-key-affects-sas-tokens). 
+> If `sasValidityInSeconds` parameter is omitted in [Get Transcription Files](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-1/operations/Transcriptions_ListFiles) request or similar ones, then a [User delegation SAS](../../storage/common/storage-sas-overview.md) with the validity of 30 days will be generated for each data file URL returned. This SAS is signed by the system assigned managed identity of your BYOS-enabled Speech resource. Because of it, the SAS allows access to the data, even if storage account key access is disabled. See details [here](../../storage/common/shared-key-authorization-prevent.md#understand-how-disallowing-shared-key-affects-sas-tokens). 
+
+## Real-time transcription with audio and transcription result logging enabled
+
+You can enable logging for both audio input and recognized speech when using speech to text or speech translation. See the complete description [here](logging-audio-transcription.md).
+
+If you use BYOS, then you will find the logs in `customspeech-audiologs` Blob container in the BYOS-associated Storage account.
+
+> [!WARNING]
+> Logging data is kept for 30 days. After this period the logs are automatically deleted. This is valid for BYOS-enabled Speech resources as well. If you want to keep the logs longer, copy the correspondent files and folders from `customspeech-audiologs` Blob container directly or use REST API.
+
+### Get real-time transcription logs via REST API
+
+[Speech to text REST API](rest-speech-to-text.md) fully supports BYOS-enabled Speech resources. However, because the data is now stored within the BYOS-enabled Storage account, requests like [Get Base Model Logs](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-1/operations/Endpoints_ListBaseModelLogs) interact with the BYOS-associated Storage account Blob storage, instead of Speech service internal resources. It allows using the same REST API based code for both "regular" and BYOS-enabled Speech resources.
+
+To achieve maximum security, use `sasValidityInSeconds` parameter with the value set to `0` in the requests, that return data file URLs, like [Get Base Model Logs](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-1/operations/Endpoints_ListBaseModelLogs) request. Here's an example of the request URL:
+
+```http
+https://eastus.api.cognitive.microsoft.com/speechtotext/v3.1/endpoints/base/ru-RU/files/logs?sasValidityInSeconds=0
+```
+
+Such request returns plain Storage Account URLs for data files (no SAS or other additions). For example:
+
+```json
+"links": {
+        "contentUrl": "https://<BYOS_storage_account_name>.blob.core.windows.net/customspeech-audiologs/be172190e1334399852185c0addee9d6/ru-RU/2023-07-06/152339_fcf52189-0d3f-4415-becd-5f639fd7fd6b.v2.json"
+      }
+```
+
+URL of this format ensures, that only Azure Active Directory identities (users, service principals, managed identities) with sufficient access rights (like *Storage Blob Data Reader* role) can access the data from the URL.
+
+> [!WARNING]
+> If `sasValidityInSeconds` parameter is omitted in [Get Base Model Logs](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-1/operations/Endpoints_ListBaseModelLogs) request or similar ones, then a [User delegation SAS](../../storage/common/storage-sas-overview.md) with the validity of 30 days will be generated for each data file URL returned. This SAS is signed by the system assigned managed identity of your BYOS-enabled Speech resource. Because of it, the SAS allows access to the data, even if storage account key access is disabled. See details [here](../../storage/common/shared-key-authorization-prevent.md#understand-how-disallowing-shared-key-affects-sas-tokens). 
 
 ## Next steps
 
