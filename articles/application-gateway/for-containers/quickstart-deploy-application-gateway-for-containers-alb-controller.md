@@ -84,10 +84,10 @@ You need to complete the following tasks prior to deploying Application Gateway 
 	echo $vnetId
 	```
 
-	Once the Virtual Network has been identified, create a new subnet with at least 120 available addresses and delegate it to the Application Gateway for Containers service with the following command (note, the minimum size a subnet should be for an Association should be /24):
+	Once the Virtual Network has been identified, create a new subnet with at least 250 available addresses and delegate it to the Application Gateway for Containers service with the following command (note, the minimum size a subnet should be for an Association should be /24):
 
 	```bash
-	subnetAddressPrefix='<an address space under the vnet that has at least 120 available addresses (/24 or smaller cidr prefix for the subnet)>'
+	subnetAddressPrefix='<an address space under the vnet that has at least 250 available addresses (/24 or smaller cidr prefix for the subnet)>'
 	albSubnetName='alb-subnet' # subnet name can be any non-reserved subnet name (i.e. GatewaySubnet, AzureFirewallSubnet, AzureBastionSubnet would all be invalid)
 	az network vnet subnet create \
 		--resource-group $vnetResourceGroup \
