@@ -60,18 +60,12 @@ The new project is created:
 
 ### Install necessary NuGet packages
 
-You need to install two NuGet packages:
+You'll need to install `Microsoft.Azure.WebJobs.Extensions.Redis`, the NuGet package for the Redis extension that allows Redis keyspace notifications to be used as triggers in Azure Functions.
 
-1. [StackExchange.Redis](https://www.nuget.org/packages/StackExchange.Redis/), which is the primary .NET client for Redis.
-
-1. `Microsoft.Azure.WebJobs.Extensions.Redis`, which is the extension that allows Redis keyspace notifications to be used as triggers in Azure Functions.
-
-Install these packages by going to the **Terminal** tab in VS Code and entering the following commands:
+Install this package by going to the **Terminal** tab in VS Code and entering the following command:
 
 ```terminal
-dotnet add package StackExchange.Redis
-dotnet add package Microsoft.Azure.WebJobs.Extensions.Redis
-dotnet restore
+dotnet add package Microsoft.Azure.WebJobs.Extensions.Redis --prerelease
 ```
 
 ### Configure cache
@@ -92,76 +86,60 @@ Go back to VS Code, add a file to the project called `RedisFunctions.cs` Copy an
 
 ```csharp
 using Microsoft.Extensions.Logging;
-using System.Text.Json;
+using StackExchange.Redis;
 
 namespace Microsoft.Azure.WebJobs.Extensions.Redis.Samples
 {
     public static class RedisSamples
     {
-        public const string localhostSetting = "redisLocalhost";
+        public const string connectionString = "redisConnectionString";
 
         [FunctionName(nameof(PubSubTrigger))]
         public static void PubSubTrigger(
-            [RedisPubSubTrigger(localhostSetting, "pubsubTest")] RedisMessageModel model,
+            [RedisPubSubTrigger(connectionString, "pubsubTest")] string message,
             ILogger logger)
         {
-            logger.LogInformation(JsonSerializer.Serialize(model));
+            logger.LogInformation(message);
         }
 
         [FunctionName(nameof(PubSubTriggerResolvedChannel))]
         public static void PubSubTriggerResolvedChannel(
-            [RedisPubSubTrigger(localhostSetting, "%pubsubChannel%")] RedisMessageModel model,
+            [RedisPubSubTrigger(connectionString, "%pubsubChannel%")] string message,
             ILogger logger)
         {
-            logger.LogInformation(JsonSerializer.Serialize(model));
+            logger.LogInformation(message);
         }
 
         [FunctionName(nameof(KeyspaceTrigger))]
         public static void KeyspaceTrigger(
-            [RedisPubSubTrigger(localhostSetting, "__keyspace@0__:keyspaceTest")] RedisMessageModel model,
+            [RedisPubSubTrigger(connectionString, "__keyspace@0__:keyspaceTest")] string message,
             ILogger logger)
         {
-            logger.LogInformation(JsonSerializer.Serialize(model));
+            logger.LogInformation(message);
         }
 
         [FunctionName(nameof(KeyeventTrigger))]
         public static void KeyeventTrigger(
-            [RedisPubSubTrigger(localhostSetting, "__keyevent@0__:del")] RedisMessageModel model,
+            [RedisPubSubTrigger(connectionString, "__keyevent@0__:del")] string message,
             ILogger logger)
         {
-            logger.LogInformation(JsonSerializer.Serialize(model));
+            logger.LogInformation(message);
         }
 
-        [FunctionName(nameof(ListsTrigger))]
-        public static void ListsTrigger(
-            [RedisListTrigger(localhostSetting, "listTest")] RedisMessageModel model,
+        [FunctionName(nameof(ListTrigger))]
+        public static void ListTrigger(
+            [RedisListTrigger(connectionString, "listTest")] string entry,
             ILogger logger)
         {
-            logger.LogInformation(JsonSerializer.Serialize(model));
+            logger.LogInformation(entry);
         }
 
-        [FunctionName(nameof(ListsMultipleTrigger))]
-        public static void ListsMultipleTrigger(
-            [RedisListTrigger(localhostSetting, "listTest1 listTest2")] RedisMessageModel model,
+        [FunctionName(nameof(StreamTrigger))]
+        public static void StreamTrigger(
+            [RedisStreamTrigger(connectionString, "streamTest")] string entry,
             ILogger logger)
         {
-            logger.LogInformation(JsonSerializer.Serialize(model));
-        }
-
-        [FunctionName(nameof(StreamsTrigger))]
-        public static void StreamsTrigger(
-            [RedisStreamTrigger(localhostSetting, "streamTest")] RedisMessageModel model,
-            ILogger logger)
-        {
-            logger.LogInformation(JsonSerializer.Serialize(model));
-        }
-
-        [FunctionName(nameof(StreamsMultipleTriggers))]
-        public static void StreamsMultipleTriggers(
-            [RedisStreamTrigger(localhostSetting, "streamTest1 streamTest2")] RedisMessageModel model,
-            ILogger logger)
-        {
-            logger.LogInformation(JsonSerializer.Serialize(model));
+            logger.LogInformation(entry);
         }
     }
 }
@@ -199,12 +177,12 @@ To test the trigger functionality, try creating and deleting the _keyspaceTest_ 
 
 After it's open, try the following commands:
 
-- SET keyspaceTest 1
-- SET keyspaceTest 2
-- DEL keyspaceTest
-- PUBLISH pubsubTest testMessage
-- LPUSH listTest test
-- XADD streamTest * name Clippy
+- `SET keyspaceTest 1`
+- `SET keyspaceTest 2`
+- `DEL keyspaceTest`
+- `PUBLISH pubsubTest testMessage`
+- `LPUSH listTest test`
+- `XADD streamTest * name Clippy`
 
 <!-- ![Image](Media/Console2.png) -->
 
