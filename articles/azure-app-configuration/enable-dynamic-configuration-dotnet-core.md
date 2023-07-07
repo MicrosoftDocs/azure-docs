@@ -1,7 +1,7 @@
----
-title: "Tutorial: Use dynamic configuration in a .NET Core app"
+d---
+title: "Tutorial: Use dynamic configuration in a .NET app"
 titleSuffix: Azure App Configuration
-description: In this tutorial, you learn how to dynamically update the configuration data for .NET Core apps
+description: In this tutorial, you learn how to dynamically update the configuration data for .NET apps
 services: azure-app-configuration
 documentationcenter: ''
 author: mcleanbyron
@@ -18,71 +18,60 @@ ms.date: 07/01/2019
 ms.author: mcleans
 #Customer intent: I want to dynamically update my app to use the latest configuration data in App Configuration.
 ---
-# Tutorial: Use dynamic configuration in a .NET Core app
+# Tutorial: Use dynamic configuration in a .NET app
 
-The App Configuration .NET provider library supports updating configuration on demand without causing an application to restart. This tutorial shows how you can implement dynamic configuration updates in your code. It builds on the app introduced in the quickstart. You should finish [Create a .NET Core app with App Configuration](./quickstart-dotnet-core-app.md) before continuing.
+The App Configuration .NET provider library supports updating configuration on demand without causing an application to restart. This tutorial shows how you can implement dynamic configuration updates in your code. It builds on the app introduced in the quickstart. You should finish [Create a .NET app with App Configuration](./quickstart-dotnet-core-app.md) before continuing.
 
 You can use any code editor to do the steps in this tutorial. [Visual Studio Code](https://code.visualstudio.com/) is an excellent option that's available on the Windows, macOS, and Linux platforms.
 
 In this tutorial, you learn how to:
 
 > [!div class="checklist"]
-> * Set up your .NET Core app to update its configuration in response to changes in an App Configuration store.
+> * Set up your .NET app to update its configuration in response to changes in an App Configuration store.
 > * Consume the latest configuration in your application.
 
 ## Prerequisites
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-Finish the quickstart [Create a .NET Core app with App Configuration](./quickstart-dotnet-core-app.md).
+Finish the quickstart [Create a .NET app with App Configuration](./quickstart-dotnet-core-app.md).
 
 ## Activity-driven configuration refresh
 
-Open *Program.cs* and update the code as following.
+Open the `Program.cs` file and update the code configurations to match the following:
 
 ```csharp
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Configuration.AzureAppConfiguration;
-using System;
-using System.Threading.Tasks;
 
-namespace TestConsole
+IConfiguration _configuration = null;
+IConfigurationRefresher _refresher = null;
+
+var builder = new ConfigurationBuilder();
+builder.AddAzureAppConfiguration(options =>
 {
-    class Program
-    {
-        private static IConfiguration _configuration = null;
-        private static IConfigurationRefresher _refresher = null;
-
-        static void Main(string[] args)
-        {
-            var builder = new ConfigurationBuilder();
-            builder.AddAzureAppConfiguration(options =>
+    options.Connect(Environment.GetEnvironmentVariable("ConnectionString"))
+            .ConfigureRefresh(refresh =>
             {
-                options.Connect(Environment.GetEnvironmentVariable("ConnectionString"))
-                        .ConfigureRefresh(refresh =>
-                        {
-                            refresh.Register("TestApp:Settings:Message")
-                                   .SetCacheExpiration(TimeSpan.FromSeconds(10));
-                        });
-
-                _refresher = options.GetRefresher();
+                refresh.Register("TestApp:Settings:Message")
+                       .SetCacheExpiration(TimeSpan.FromSeconds(10));
             });
 
-            _configuration = builder.Build();
-            PrintMessage().Wait();
-        }
+    _refresher = options.GetRefresher();
+});
 
-        private static async Task PrintMessage()
-        {
-            Console.WriteLine(_configuration["TestApp:Settings:Message"] ?? "Hello world!");
+_configuration = builder.Build();
 
-            // Wait for the user to press Enter
-            Console.ReadLine();
+Console.WriteLine(_configuration["TestApp:Settings:Message"] ?? "Hello world!");
 
-            await _refresher.TryRefreshAsync();
-            Console.WriteLine(_configuration["TestApp:Settings:Message"] ?? "Hello world!");
-        }
-    }
+// Wait for the user to press Enter
+Console.ReadLine();
+
+if (_refresher != null)
+{
+    await _refresher.TryRefreshAsync();
+    Console.WriteLine(_configuration["TestApp:Settings:Message"] ?? "Hello world!");
+
 }
 ```
 
@@ -186,7 +175,7 @@ Logs are output upon configuration refresh and contain detailed information on k
 
 ## Next steps
 
-In this tutorial, you enabled your .NET Core app to dynamically refresh configuration settings from App Configuration. To learn how to use an Azure managed identity to streamline the access to App Configuration, continue to the next tutorial.
+In this tutorial, you enabled your .NET app to dynamically refresh configuration settings from App Configuration. To learn how to use an Azure managed identity to streamline the access to App Configuration, continue to the next tutorial.
 
 > [!div class="nextstepaction"]
 > [Managed identity integration](./howto-integrate-azure-managed-service-identity.md)
