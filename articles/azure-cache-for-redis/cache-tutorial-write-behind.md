@@ -68,38 +68,46 @@ In this example, we’re going to use the [pub/sub trigger](cache-how-to-functio
     1. If so, update the value of that key.
     1. If not, write a new row with the key and its value.
 
-To do this, copy and paste the following code in redisfunction.cs, replacing the existing code.
+First, import the `System.Data.SqlClient` NuGet package to enable communication with the SQL Database instance. Go to the VS Code terminal and use the following command:
+
+```dos
+dotnet add package System.Data.SqlClient
+```
+
+Next, copy and paste the following code in redisfunction.cs, replacing the existing code.
 
 ```csharp
-using System.Text.Json;
 using Microsoft.Extensions.Logging;
 using StackExchange.Redis;
 using System;
 using System.Data.SqlClient;
 
-namespace Microsoft.Azure.WebJobs.Extensions.Redis.Samples
+namespace Microsoft.Azure.WebJobs.Extensions.Redis
 {
-    public static class RedisSamples
+    public static class WriteBehind
     {
-        public const string cacheAddress = "<YourRedisConnectionString>";
-        public const string SQLAddress = "<YourSQLConnectionString>";
+        public const string connectionString = "redisConnectionString";
+        public const string SQLAddress = "SQLConnectionString";
 
         [FunctionName("KeyeventTrigger")]
         public static void KeyeventTrigger(
-            [RedisPubSubTrigger(ConnectionString = cacheAddress, Channel = "__keyevent@0__:set")] RedisMessageModel model,
+            [RedisPubSubTrigger(connectionString, "__keyevent@0__:set")] string message,
             ILogger logger)
         {
-                        // connect to a Redis cache instance
-            var redisConnection = ConnectionMultiplexer.Connect(cacheAddress);
+            // retrive redis connection string from environmental variables
+            var redisConnectionString = System.Environment.GetEnvironmentVariable(connectionString);
+            
+            // connect to a Redis cache instance
+            var redisConnection = ConnectionMultiplexer.Connect(redisConnectionString);
             var cache = redisConnection.GetDatabase();
             
             // get the key that was set and its value
-            var key = model.Message;
+            var key = message;
             var value = (double)cache.StringGet(key);
             logger.LogInformation($"Key {key} was set to {value}");
 
-            // connect to a SQL database
-            String SQLConnectionString = SQLAddress;
+            // retrive SQL connection string from environmental variables
+            String SQLConnectionString = System.Environment.GetEnvironmentVariable(SQLAddress);
             
             // Define the name of the table you created and the column names
             String tableName = "dbo.inventory";
@@ -139,8 +147,6 @@ namespace Microsoft.Azure.WebJobs.Extensions.Redis.Samples
             //Log the time the function was executed
             logger.LogInformation($"C# Redis trigger function executed at: {DateTime.Now}");
         }
-
-
     }
 }
 ```
@@ -149,17 +155,33 @@ namespace Microsoft.Azure.WebJobs.Extensions.Redis.Samples
 > This example is simplified for the tutorial. For production use, we recommend that you use parameterized SQL queries to prevent SQL injection attacks.
 >
 
-You need to update the `cacheAddress` and `SQLAddress` variables with the connection strings for your cache instance and your SQL database. You need to manually enter the password for your SQL database connection string, because the password isn't pasted automatically. You can find the Redis connection string in the **Access Keys** of the Resource menu of the Azure Cache for Redis resource. You can find the SQL database connection string under the **ADO.NET** tab in **Connection strings**  on the Resource menu in the SQL database resource.
+### Configure connection strings
+You need to update the 'local.settings.json' file to include the connection string for your SQL Database instance. Add an entry in the `Values` section for `SQLConnectionString`. Your file should look like this:
 
-You see errors in some of the SQL classes. You need to import the `System.Data.SqlClient` NuGet package to resolve these. Go to the VS Code terminal and use the following command:
-
-```dos
-dotnet add package System.Data.SqlClient
+```json
+{
+  "IsEncrypted": false,
+  "Values": {
+    "AzureWebJobsStorage": "",
+    "FUNCTIONS_WORKER_RUNTIME": "dotnet",
+    "redisConnectionString": "<redis-connection-string>",
+    "SQLConnectionString": "<sql-connection-string>"
+  }
+}
 ```
+You need to manually enter the password for your SQL database connection string, because the password isn't pasted automatically. You can find the Redis connection string in the **Access Keys** of the Resource menu of the Azure Cache for Redis resource. You can find the SQL database connection string under the **ADO.NET** tab in **Connection strings**  on the Resource menu in the SQL database resource.
+
+> [!IMPORTANT]
+> This example is simplified for the tutorial. For production use, we recommend that you use [Azure Key Vault](../service-connector/tutorial-portal-key-vault.md) to store connection string information.
+>
 
 ### Build and run the project
 
 Go to the **Run and debug tab** in VS Code and run the project. Navigate back to your Azure Cache for Redis instance in the Azure portal and select the **Console** button to enter the Redis Console. Try using some set commands:
+
+- SET apple 5.25
+- SET bread 2.25
+- SET apple 4.50
 
 Back in VS Code, you should see the triggers being registered:
 
