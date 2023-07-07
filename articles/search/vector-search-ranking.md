@@ -28,7 +28,7 @@ In a typical application, the input data within a query request would be fed int
 
 If a query request is about dogs, the model maps the query into a vector that exists somewhere in the cluster of vectors representing documents about dogs. Finding the nearest vectors, or the most "similar" vector based on a similarity metric, would return those relevant documents.
 
-Commonly used similarity metrics include `cosine`, `euclidean` (also known as `l2 norm`), and `dot product`, which are summarized here:
+Commonly used similarity metrics include `cosine`, `euclidean` (also known as `l2 norm`), and `dotProduct`, which are summarized here:
 
 + Cosine calculates the angle between two vectors.
 
@@ -68,3 +68,4 @@ By default, if you aren't using pagination, Cognitive Search returns the top 50 
 + [Try the quickstart](search-get-started-vector.md)
 + [Learn more about embeddings](vector-search-how-to-generate-embeddings.md)
 + [Learn more about data chunking](vector-search-how-to-chunk-documents.md)
+
