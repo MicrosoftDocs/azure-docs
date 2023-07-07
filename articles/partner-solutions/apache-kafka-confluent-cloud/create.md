@@ -8,7 +8,7 @@ ms.author: franlanglois
 ms.custom: mode-ui
 ---
 
-# QuickStart: Get started with Apache Kafka for Confluent Cloud - Azure portal
+# QuickStart: Get started with Apache Kafka on Confluent Cloud - Azure portal
 
 In this quickstart, you'll use the Azure portal to create an instance of Apache Kafka for Confluent Cloud.
 
@@ -86,3 +86,11 @@ After you've selected the offer for Apache Kafka on Confluent Cloud, you're read
 
 > [!div class="nextstepaction"]
 > [Manage the Confluent Cloud resource](manage.md)
+
+- Get started with Apache Kafka on Confluent Cloud - Azure Native ISV Service on
+
+    > [!div class="nextstepaction"]
+    > [Azure Portal](https://portal.azure.com/#view/HubsExtension/BrowseResource/resourceType/Microsoft.Confluent%2Forganizations)
+
+    > [!div class="nextstepaction"]
+    > [Azure Marketplace](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/confluentinc.confluent-cloud-azure-prod?tab=Overview)
