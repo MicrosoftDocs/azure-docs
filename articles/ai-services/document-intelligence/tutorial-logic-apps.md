@@ -1,52 +1,17 @@
 ---
-<<<<<<< HEAD:articles/applied-ai-services/form-recognizer/tutorial-logic-apps.md
-title: Use Azure Logic Apps with Form Recognizer
-titleSuffix: Azure AI services
-description: A tutorial outlining how to use Form Recognizer with Logic Apps.
-=======
 title: Use Azure Logic Apps with Document Intelligence
 titleSuffix: Azure AI services
 description: A tutorial outlining how to use Document Intelligence with Logic Apps.
->>>>>>> b55eccae522910c0e16fb33a2db943e5cc5d237e:articles/ai-services/document-intelligence/tutorial-logic-apps.md
 author: laujan
 manager: nitinme
 ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: tutorial
-<<<<<<< HEAD:articles/applied-ai-services/form-recognizer/tutorial-logic-apps.md
-ms.date: 06/29/2023
-=======
 ms.date: 07/18/2023
->>>>>>> b55eccae522910c0e16fb33a2db943e5cc5d237e:articles/ai-services/document-intelligence/tutorial-logic-apps.md
 ms.author: bemabonsu
 ---
 
 
-<<<<<<< HEAD:articles/applied-ai-services/form-recognizer/tutorial-logic-apps.md
-::: moniker range="form-recog-3.0.0"
-[!INCLUDE [applies to v3.0](includes/applies-to-v3-0.md)]
-::: moniker-end
-
-::: moniker range="form-recog-2.1.0"
-[!INCLUDE [applies to v2.1](includes/applies-to-v2-1.md)]
-::: moniker-end
-
-::: moniker range="form-recog-3.0.0"
-
-> [!IMPORTANT]
->
-> This tutorial and the Logic App Form Recognizer connector targets Form Recognizer REST API v3.0 and forward.
-
-::: moniker-end
-
-::: moniker range="form-recog-2.1.0"
-
-> [!IMPORTANT]
->
-> This tutorial and the Logic App Form Recognizer connector targets Form Recognizer REST API v2.1 and must be used with the [FOTT Sample Labeling tool](https://fott-2-1.azurewebsites.net/).
-
-::: moniker-end
-=======
 # Tutorial: Use Azure Logic Apps with Document Intelligence
 
 **This article applies to:** ![Document Intelligence v2.1 checkmark](media/yes-icon.png) **Document Intelligence v2.1**.
@@ -54,7 +19,6 @@ ms.author: bemabonsu
 > [!IMPORTANT]
 >
 > This tutorial and the Logic App Document Intelligence connector targets Document Intelligence REST API v2.1 and must be used in conjuction with the [FOTT Sample Labeling tool](https://fott-2-1.azurewebsites.net/).
->>>>>>> b55eccae522910c0e16fb33a2db943e5cc5d237e:articles/ai-services/document-intelligence/tutorial-logic-apps.md
 
 Azure Logic Apps is a cloud-based platform that can be used to automate workflows without writing a single line of code. The platform enables you to easily integrate Microsoft and third-party applications with your apps, data, services, and systems. A Logic App is the Azure resource you create when you want to develop a workflow. Here are a few examples of what you can do with a Logic App:
 
@@ -82,11 +46,7 @@ To complete this tutorial, you need the following resources:
 
   * After the resource deploys, select **Go to resource**.
 
-<<<<<<< HEAD:articles/applied-ai-services/form-recognizer/tutorial-logic-apps.md
-  * Copy the **Keys and Endpoint** values from your resource in the Azure portal and paste them in a convenient location, such as *Microsoft Notepad*. You need the key and endpoint values to connect your application to the Form Recognizer API.
-=======
-  1. Copy the **Keys and Endpoint** values from your resource in the Azure portal and paste them in a convenient location, such as *Microsoft Notepad*. You'll need the key and endpoint values to connect your application to the Document Intelligence API.
->>>>>>> b55eccae522910c0e16fb33a2db943e5cc5d237e:articles/ai-services/document-intelligence/tutorial-logic-apps.md
+  1. Copy the **Keys and Endpoint** values from your resource in the Azure portal and paste them in a convenient location, such as *Microsoft Notepad*. You need the key and endpoint values to connect your application to the Document Intelligence API.
 
     :::image border="true" type="content" source="media/containers/keys-and-endpoint.png" alt-text="Still photo showing how to access resource key and endpoint URL.":::
 
@@ -144,12 +104,8 @@ At this point, you should have a Document Intelligence resource and a OneDrive f
 1. Next, you're going to fill out the **Create Logic App** fields with the following values:
 
    * **Subscription**. Select your current subscription.
-<<<<<<< HEAD:articles/applied-ai-services/form-recognizer/tutorial-logic-apps.md
-   * **Resource group**. The [Azure resource group](/azure/cloud-adoption-framework/govern/resource-consistency/resource-access-management#what-is-an-azure-resource-group) that contains your resource. Choose the same resource group you have for your Form Recognizer resource.
-=======
-   * **Resource group**. The [Azure resource group](/azure/cloud-adoption-framework/govern/resource-consistency/resource-access-management#what-is-an-azure-resource-group) that will contain your resource. Choose the same resource group you have for your Document Intelligence resource.
+   * **Resource group**. The [Azure resource group](/azure/cloud-adoption-framework/govern/resource-consistency/resource-access-management#what-is-an-azure-resource-group) that contains your resource. Choose the same resource group you have for your Document Intelligence resource.
    * **Type**. Select **Consumption**. The Consumption resource type runs in global, multi-tenant Azure Logic Apps and uses the [Consumption billing model](../../logic-apps/logic-apps-pricing.md#consumption-pricing).
->>>>>>> b55eccae522910c0e16fb33a2db943e5cc5d237e:articles/ai-services/document-intelligence/tutorial-logic-apps.md
    * **Logic App name**. Enter a name for your resource. We recommend using a descriptive name, for example *YourNameLogicApp*.
    * **Publish**. Select **Workflow**.
    * **Region**. Select your local region.
@@ -177,7 +133,7 @@ At this point, you should have a Document Intelligence resource and a OneDrive f
 
 ::: moniker range="form-recog-3.0.0"
 
-Now that you have the Logic App connector resource set up and configured, the only thing left to do is to create the automation flow and test it out!
+Now that you have the Logic App connector resource set up and configured, let's create the automation flow and test it out!
 
 1. Search for and select **OneDrive** or **OneDrive for Business** in the search bar. Then, select the **When a file is created** trigger.
 
@@ -197,23 +153,12 @@ Now that you have the Logic App connector resource set up and configured, the on
 
     :::image type="content" source="media/logic-apps-tutorial/one-drive-trigger-setup.png" alt-text="Screenshot of the OneDrive trigger setup.":::
 
-<<<<<<< HEAD:articles/applied-ai-services/form-recognizer/tutorial-logic-apps.md
-1. A new node should be added to the Logic App designer view. Search for "Form Recognizer" in the search bar and select **Analyze Document for Prebuilt or Custom (v3.0 API)** action from the list.
-
-    :::image type="content" source="media/logic-apps-tutorial/form-recognizer-actions.png" alt-text="Screenshot of the Form Recognizer Action list.":::
-
-1. Now, you should see a window where you can create your connection. Specifically, you're going to connect your Form Recognizer resource to the Logic Apps Designer Studio:
-
-    * Enter a **Connection name**. It should be something easy to remember.
-    * Enter the Form Recognizer resource **Endpoint URL** and **Account Key** that you copied previously. If you skipped this step earlier or lost the strings, you can navigate back to your Form Recognizer resource in the Azure portal and copy them again. When you're done, select **Create**.
-=======
 1. A new node should be added to the Logic App designer view. Search for "Document Intelligence" in the search bar and select **Analyze invoice** from the list.
 
-1. Now, you should see a window where you'll create your connection. Specifically, you're going to connect your Document Intelligence resource to the Logic Apps Designer Studio:
+1. Now, you should see a window to create your connection. Specifically, you're going to connect your Document Intelligence resource to the Logic Apps Designer Studio:
 
     * Enter a **Connection name**. It should be something easy to remember.
     * Enter the Document Intelligence resource **Endpoint URL** and **Account Key** that you copied previously. If you skipped this step earlier or lost the strings, you can navigate back to your Document Intelligence resource and copy them again. When you're done, select **Create**.
->>>>>>> b55eccae522910c0e16fb33a2db943e5cc5d237e:articles/ai-services/document-intelligence/tutorial-logic-apps.md
 
     :::image type="content" source="media/logic-apps-tutorial/create-logic-app-connector.png" alt-text="Screenshot of the logic app connector dialog window"::: 
 
@@ -227,11 +172,7 @@ Now that you have the Logic App connector resource set up and configured, the on
 
 1. Select the **Document/Image File Content** field. A dynamic content pop-up should appear. If it doesn't, select the **Add dynamic content** button below the field.
 
-<<<<<<< HEAD:articles/applied-ai-services/form-recognizer/tutorial-logic-apps.md
-1. Select **File content** from the pop-up list. This step is essentially sending the file(s) to be analyzed to the Form Recognizer prebuilt-invoice model. Once you see the **File content** badge show in the **Document /Image file content** field, you've completed this step correctly.
-=======
 1. Select **File content** from the pop-up list. This step is essentially sending the file(s) to be analyzed to the Document Intelligence prebuilt-invoice model. Once you see the **File content** badge show in the **Document /Image file content** field, you've completed this step correctly.
->>>>>>> b55eccae522910c0e16fb33a2db943e5cc5d237e:articles/ai-services/document-intelligence/tutorial-logic-apps.md
 
     IMAGE here  
 
@@ -241,11 +182,7 @@ Now that you have the Logic App connector resource set up and configured, the on
 
 1. In the actions bar, scroll down until you find **Send an email (V2)** and select this action.
 
-<<<<<<< HEAD:articles/applied-ai-services/form-recognizer/tutorial-logic-apps.md
-1. Just like with OneDrive, you're asked to sign into your Outlook or Office 365 Outlook account. After you sign in, you should see a window like the following image. In this window, we're going to format the email to be sent with the dynamic content that Form Recognizer extracts from the invoice.
-=======
-1. Just like with OneDrive, you'll be asked to sign into your Outlook or Office 365 Outlook account. After you sign in, you should see a window like the one pictured below. In this window, we're going to format the email to be sent with the dynamic content that Document Intelligence will extract from the invoice.
->>>>>>> b55eccae522910c0e16fb33a2db943e5cc5d237e:articles/ai-services/document-intelligence/tutorial-logic-apps.md
+1. Just like with OneDrive, you're asked to sign into your Outlook or Office 365 Outlook account. After you sign in, you should see a window where we're going to format the email that with the dynamic content that Document Intelligence extracts from the invoice.
 
     IMAGE here 
 
