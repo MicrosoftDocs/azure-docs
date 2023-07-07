@@ -13,13 +13,13 @@ ms.topic: how-to
 
 # Arc SQL Managed Instance pod scheduling
 
-By default, SQL pods are scheduled with a preferred pod anti affinity between each other. This prefers that the pods are scheduled on different nodes but does not require it. In a scenario where there are not enough nodes to place each pod on a distinct node, multiple pods will be scheduled on a single node. This decision is not re-evaluated by Kubernetes until a pod is rescheduled.
+By default, SQL pods are scheduled with a preferred pod anti affinity between each other. This setting prefers that the pods are scheduled on different nodes, but does not require it. In a scenario where there are not enough nodes to place each pod on a distinct node, multiple pods are scheduled on a single node. Kubernetes does not reevaluate this decision until a pod is rescheduled.
 
 This default behavior can be overridden using the scheduling options. Arc SQL Managed Instance has three controls for scheduling, which are located at `$.spec.scheduling`
 
 ## NodeSelector
 
-The simplest of the controls is the node selector. The node selector simply specifies a label that the target nodes for an instance must have. The path of nodeSelector is `$.spec.scheduling.nodeSelector` and functions the same as any other Kubernetes nodeSelector property. (see: [Assign Pods to Nodes | Kubernetes](https://kubernetes.io/docs/tasks/configure-pod-container/assign-pods-nodes/#create-a-pod-that-gets-scheduled-to-your-chosen-node))
+The simplest control is node selector. The node selector simply specifies a label that the target nodes for an instance must have. The path of nodeSelector is `$.spec.scheduling.nodeSelector` and functions the same as any other Kubernetes nodeSelector property. (see: [Assign Pods to Nodes | Kubernetes](https://kubernetes.io/docs/tasks/configure-pod-container/assign-pods-nodes/#create-a-pod-that-gets-scheduled-to-your-chosen-node))
 
 ## Affinity
 
@@ -27,7 +27,7 @@ Affinity is a feature in Kubernetes that allows fine-grained control over how po
 
 
 
-The path of affinity in a deployment is `$.spec.template.spec.affinity`, where as the path of affinity in SQL MI is `$.spec.scheduling.affinity`.
+The path of affinity in a deployment is `$.spec.template.spec.affinity`, whereas the path of affinity in SQL MI is `$.spec.scheduling.affinity`.
 
 Here is a sample spec for a required pod anti affinity between replicas of a single SQL MI instance. The labels chosen in the labelSelector of the affinity term are automatically applied by the dataController based on the resource type and name, but the labelSelector could be changed to use any labels provided.
 
