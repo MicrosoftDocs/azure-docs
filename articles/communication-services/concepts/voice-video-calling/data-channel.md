@@ -24,11 +24,11 @@ ms.subservice: calling
 
 The Data Channel API enables real-time messaging during audio and video calls. With this API, you can now easily integrate chat and data exchange functionalities into the applications, providing a seamless communication experience for users. Key features include:
 
-1. Real-time Messaging: The Data Channel API enables users to instantly send and receive messages during an ongoing audio or video call, promoting smooth and efficient communication. In group call scenarios, messages can be sent to a single participant, a specific set of participants, or all participants within the call. This flexibility enhances communication and collaboration among users during group interactions.
-2. Unidirectional Communication: Unlike bidirectional communication, the Data Channel API is designed for unidirectional communication. It employs distinct objects for sending and receiving messages: the DataChannelSender object for sending and the DataChannelReceiver object for receiving. This separation simplifies message management in group calls, leading to a more streamlined user experience.
-3. Binary Data Support: The API supports the sending and receiving of binary data, permitting the exchange of diverse data types, such as text, images, and files. Note that text messages must be serialized into a byte buffer before they can be transmitted.
-4. Sender Options: The Data Channel API provides three configurable options when creating a sender object, including Reliability, Priority, and Bitrate. These options enable the configuration of a channel to meet specific needs for different use cases.
-5. Security: All messages exchanged between a client and the other endpoint are encrypted, ensuring the privacy and security of users' data.
+* Real-time Messaging: The Data Channel API enables users to instantly send and receive messages during an ongoing audio or video call, promoting smooth and efficient communication. In group call scenarios, messages can be sent to a single participant, a specific set of participants, or all participants within the call. This flexibility enhances communication and collaboration among users during group interactions.
+* Unidirectional Communication: Unlike bidirectional communication, the Data Channel API is designed for unidirectional communication. It employs distinct objects for sending and receiving messages: the DataChannelSender object for sending and the DataChannelReceiver object for receiving. This separation simplifies message management in group calls, leading to a more streamlined user experience.
+* Binary Data Support: The API supports the sending and receiving of binary data, permitting the exchange of diverse data types, such as text, images, and files. Note that text messages must be serialized into a byte buffer before they can be transmitted.
+* Sender Options: The Data Channel API provides three configurable options when creating a sender object, including Reliability, Priority, and Bitrate. These options enable the configuration of a channel to meet specific needs for different use cases.
+* Security: All messages exchanged between a client and the other endpoint are encrypted, ensuring the privacy and security of users' data.
 
 ## Common use cases
 
@@ -61,7 +61,7 @@ The decoupling of sender and receiver objects simplifies message handling in gro
 
 ### Channel
 Every Data Channel message is associated with a specific channel identified by `channelId`.
-It's important to clarify that this channelId isn't related to the id property in the WebRTC Data Channel.
+It's important to clarify that this channelId isn't related to the `id` property in the WebRTC Data Channel.
 This channelId can be utilized to differentiate various application uses, such as using 100 for chat messages and 101 for image transfers.
 
 The channelId is assigned during the creation of a DataChannelSender object,
@@ -80,7 +80,8 @@ In the Web SDK, the durability of the channel is ensured through a reliable SCTP
 In the context of a group call, it signifies the prevention of message loss between the sender and server.
 In a peer-to-peer call, it denotes reliable transmission between the sender and remote endpoint.
 
-Note: In the current Web SDK implementation, data transmission is done through a reliable WebRTC Data Channel connection for both `lossy` and `durable` channels.
+> [!Note]
+> In the current Web SDK implementation, data transmission is done through a reliable WebRTC Data Channel connection for both `lossy` and `durable` channels.
 
 ### Priority
 Upon creation, a channel can be configured to be one of the two Priority options: `normal` or `high`.
@@ -129,7 +130,7 @@ As an alternative, you could opt for broadcasting messages. However, be aware th
 ### Rate limiting
 There's a limit on the overall send bitrate, currently set at 500 Kbps.
 However, when broadcasting messages, the send bitrate limit is dynamic and depends on the receive bitrate.
-In the current implementation, the send bitrate limit is calculted as the maximum send bitrate (500 Kbps) minus 80% of the receive bitrate.
+In the current implementation, the send bitrate limit is calculated as the maximum send bitrate (500 Kbps) minus 80% of the receive bitrate.
 
 Furthermore, we also enforce a packet rate restriction when sending broadcast messages.
 The current limit is set at 80 packets per second, where every 1200 bytes in a message is counted as one packet.

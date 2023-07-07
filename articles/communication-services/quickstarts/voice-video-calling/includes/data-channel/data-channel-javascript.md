@@ -11,7 +11,7 @@ ms.service: azure-communication-services
 ms.subservice: calling
 ---
 
-The Data Channel feature API enables real-time messaging during audio and video calls. In this quickstart guide, we'll illustrate how to integrate DataChannel feature, enabling the exchange of text messages among participants within a group call.
+The Data Channel feature API enables real-time messaging during audio and video calls. In this quickstart guide, we'll illustrate how to integrate the Data Channel feature, enabling the exchange of text messages among participants within a group call.
 
 
 [!INCLUDE [Public Preview](../../../../includes/public-preview-include-document.md)]
@@ -45,7 +45,7 @@ dataChannel.on('dataChannelReceiverCreated', receiver => {
 });
 ```
 
-Within the listener callback function, you can access the receiver object and retrieve information such as `channelId` and the sender participant id `senderParticipantIdentifier`.
+Within the listener callback function, you can access the receiver object and retrieve information such as `channelId` and the sender participant ID `senderParticipantIdentifier`.
 It's your responsibility to maintain the receiver object reference, as the SDK will only emit the event once for each created receiver object.
 
 ## Handle messageReady and close event of DataChannelReceiver object
