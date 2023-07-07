@@ -1,11 +1,10 @@
 ---
 title: "Analyze video content for objectionable material in C# - Content Moderator"
-titleSuffix: Azure Cognitive Services
+titleSuffix: Azure AI services
 description: How to analyze video content for various objectionable material using the Content Moderator SDK for .NET
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
-
 ms.service: cognitive-services
 ms.subservice: content-moderator
 ms.topic: how-to
@@ -118,7 +117,7 @@ private static readonly string CONTENT_MODERATOR_PRESET_FILE = "preset.json";
 ```
 
 > [!IMPORTANT]
-> Remember to remove the keys from your code when you're done, and never post them publicly. For production, use a secure way of storing and accessing your credentials like [Azure Key Vault](../../key-vault/general/overview.md). See the Cognitive Services [security](../security-features.md) article for more information.
+> Remember to remove the keys from your code when you're done, and never post them publicly. For production, use a secure way of storing and accessing your credentials like [Azure Key Vault](../../key-vault/general/overview.md). See the Azure AI services [security](../security-features.md) article for more information.
 
 If you wish to use a local video file (simplest case), add it to the project and enter its path as the `INPUT_FILE` value (relative paths are relative to the execution directory).
 

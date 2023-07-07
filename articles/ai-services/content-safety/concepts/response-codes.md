@@ -1,6 +1,6 @@
 ---
 title: "Content Safety error codes"
-titleSuffix: Azure Cognitive Services
+titleSuffix: Azure AI services
 description: See the possible error codes for the Content Safety APIs.
 services: cognitive-services
 author: PatrickFarley

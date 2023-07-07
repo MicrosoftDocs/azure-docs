@@ -1,7 +1,7 @@
 ---
 title: "Content Moderator Java client library quickstart"
-titleSuffix: Azure Cognitive Services
-description: In this quickstart, learn how to get started with the Azure Content Moderator client library for Java. Build content filtering software into your app to comply with regulations or maintain the intended environment for your users.
+titleSuffix: Azure AI services
+description: In this quickstart, learn how to get started with the Azure AI Content Moderator client library for Java. Build content filtering software into your app to comply with regulations or maintain the intended environment for your users.
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
@@ -13,7 +13,7 @@ ms.custom: "devx-track-java, cog-serv-seo-aug-2020"
 ms.author: pafarley
 ---
 
-Get started with the Azure Content Moderator client library for Java. Follow these steps to install the Maven package and try out the example code for basic tasks. 
+Get started with the Azure AI Content Moderator client library for Java. Follow these steps to install the Maven package and try out the example code for basic tasks. 
 
 Content Moderator is an AI service that lets you handle content that is potentially offensive, risky, or otherwise undesirable. Use the AI-powered content moderation service to scan text, image, and videos and apply content flags automatically. Build content filtering software into your app to comply with regulations or maintain the intended environment for your users.
 
@@ -99,7 +99,7 @@ In the application's **ContentModeratorQuickstart** class, create variables for 
 [!code-java[](~/cognitive-services-quickstart-code/java/ContentModerator/src/main/java/ContentModeratorQuickstart.java?name=snippet_creds)]
 
 > [!IMPORTANT]
-> Remember to remove the key from your code when you're done, and never post it publicly. For production, use a secure way of storing and accessing your credentials like [Azure Key Vault](../../../../key-vault/general/overview.md). See the Cognitive Services [security](../../../security-features.md) article for more information.
+> Remember to remove the key from your code when you're done, and never post it publicly. For production, use a secure way of storing and accessing your credentials like [Azure Key Vault](../../../../key-vault/general/overview.md). See the Azure AI services [security](../../../security-features.md) article for more information.
 
 In the application's **main** method, add calls for the methods used in this quickstart. You'll define these methods later.
 
@@ -221,7 +221,7 @@ Then navigate to the *src/main/resources/ModerationOutput.json* file and view th
 
 ## Clean up resources
 
-If you want to clean up and remove a Cognitive Services subscription, you can delete the resource or resource group. Deleting the resource group also deletes any other resources associated with it.
+If you want to clean up and remove an Azure AI services subscription, you can delete the resource or resource group. Deleting the resource group also deletes any other resources associated with it.
 
 * [Portal](../../../cognitive-services-apis-create-account.md#clean-up-resources)
 * [Azure CLI](../../../cognitive-services-apis-create-account-cli.md#clean-up-resources)

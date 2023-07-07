@@ -1,11 +1,11 @@
 ### YamlMime:Landing
 
 title: Content Moderator documentation # < 60 chars
-summary: The Azure Content Moderator API is a cognitive service that checks text, image, and video content for material that is potentially offensive, risky, or otherwise undesirable. When such material is found, the service applies appropriate labels (flags) to the content. Your app can then handle flagged content in order to comply with regulations or maintain the intended environment for users. # < 160 chars
+summary: The Azure AI Content Moderator API checks text, image, and video content for material that is potentially offensive, risky, or otherwise undesirable. When such material is found, the service applies appropriate labels (flags) to the content. Your app can then handle flagged content in order to comply with regulations or maintain the intended environment for users. # < 160 chars
 
 metadata:
-  title: Content Moderator Documentation - Quickstarts, Tutorials, API Reference - Azure Cognitive Services  | Microsoft Docs
-  description: The Azure Content Moderator API is a cognitive service that checks text, image, and video content for material that is potentially offensive, risky, or otherwise undesirable. When such material is found, the service applies appropriate labels (flags) to the content. Your app can then handle flagged content in order to comply with regulations or maintain the intended environment for users.
+  title: Content Moderator Documentation - Quickstarts, Tutorials, API Reference - Azure AI services  | Microsoft Docs
+  description: The Azure AI Content Moderator API checks text, image, and video content for material that is potentially offensive, risky, or otherwise undesirable. When such material is found, the service applies appropriate labels (flags) to the content. Your app can then handle flagged content in order to comply with regulations or maintain the intended environment for users.
   services: cognitive-services
   ms.service: cognitive-services
   ms.subservice: content-moderator
@@ -55,10 +55,6 @@ landingContent:
         links:
           - text: Using the API console
             url: try-image-api.md
-      - linkListType: tutorial
-        links:
-          - text: Moderate e-commerce product images
-            url: ecommerce-retail-catalog-moderation.md
 
   - title: Use custom image lists
     linkLists:
@@ -142,4 +138,4 @@ landingContent:
     - linkListType: reference
       links:
         - text: Support and help options
-          url: ../cognitive-services-support-options.md?context=/azure/cognitive-services/content-moderator/context/context
+          url: ../cognitive-services-support-options.md?context=/azure/ai-services/content-moderator/context/context

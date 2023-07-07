@@ -1,7 +1,7 @@
 ---
 title: "Content Moderator Python client library quickstart"
-titleSuffix: Azure Cognitive Services
-description: In this quickstart, learn how to get started with the Azure Content Moderator client library for Python. Build content filtering software into your app to comply with regulations or maintain the intended environment for your users.
+titleSuffix: Azure AI services
+description: In this quickstart, learn how to get started with the Azure AI Content Moderator client library for Python. Build content filtering software into your app to comply with regulations or maintain the intended environment for your users.
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
@@ -13,7 +13,7 @@ ms.custom: "cog-serv-seo-aug-2020"
 ms.author: pafarley
 ---
 
-Get started with the Azure Content Moderator client library for Python. Follow these steps to install the PiPy package and try out the example code for basic tasks. 
+Get started with the Azure AI Content Moderator client library for Python. Follow these steps to install the PiPy package and try out the example code for basic tasks. 
 
 Content Moderator is an AI service that lets you handle content that is potentially offensive, risky, or otherwise undesirable. Use the AI-powered content moderation service to scan text, image, and videos and apply content flags automatically. Build content filtering software into your app to comply with regulations or maintain the intended environment for your users.
 
@@ -63,7 +63,7 @@ Next, create variables for your resource's endpoint location and key.
 [!code-python[](~/cognitive-services-quickstart-code/python/ContentModerator/ContentModeratorQuickstart.py?name=snippet_vars)]
 
 > [!IMPORTANT]
-> Remember to remove the key from your code when you're done, and never post it publicly. For production, use a secure way of storing and accessing your credentials like [Azure Key Vault](../../../../key-vault/general/overview.md). See the Cognitive Services [security](../../../security-features.md) article for more information.
+> Remember to remove the key from your code when you're done, and never post it publicly. For production, use a secure way of storing and accessing your credentials like [Azure Key Vault](../../../../key-vault/general/overview.md). See the Azure AI services [security](../../../security-features.md) article for more information.
 
 ## Object model
 
@@ -297,7 +297,7 @@ python quickstart-file.py
 
 ## Clean up resources
 
-If you want to clean up and remove a Cognitive Services subscription, you can delete the resource or resource group. Deleting the resource group also deletes any other resources associated with it.
+If you want to clean up and remove an Azure AI services subscription, you can delete the resource or resource group. Deleting the resource group also deletes any other resources associated with it.
 
 * [Portal](../../../cognitive-services-apis-create-account.md#clean-up-resources)
 * [Azure CLI](../../../cognitive-services-apis-create-account-cli.md#clean-up-resources)

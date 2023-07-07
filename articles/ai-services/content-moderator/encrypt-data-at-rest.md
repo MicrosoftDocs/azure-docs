@@ -1,10 +1,9 @@
 ---
 title: Content Moderator encryption of data at rest
-titleSuffix: Azure Cognitive Services
+titleSuffix: Azure AI services
 description: Content Moderator encryption of data at rest.
 author: erindormier
 manager: nitinme
-
 ms.service: cognitive-services
 ms.subservice: content-moderator
 ms.topic: conceptual
@@ -28,6 +27,6 @@ Customer-managed keys are available in all Azure regions.
 
 ## Next steps
 
-* For a full list of services that support CMK, see [Customer-Managed Keys for Cognitive Services](../encryption/cognitive-services-encryption-keys-portal.md)
+* For a full list of services that support CMK, see [Customer-Managed Keys for Azure AI services](../encryption/cognitive-services-encryption-keys-portal.md)
 * [What is Azure Key Vault](../../key-vault/general/overview.md)?
-* [Cognitive Services Customer-Managed Key Request Form](https://aka.ms/cogsvc-cmk)
+* [Azure AI services Customer-Managed Key Request Form](https://aka.ms/cogsvc-cmk)
