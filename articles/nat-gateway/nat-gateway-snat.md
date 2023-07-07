@@ -14,7 +14,7 @@ Source Network Address Translation (SNAT) allows traffic from a private virtual 
 
 SNAT also allows multiple private instances within a virtual network to use the same single public IP address or set of IP addresses (prefix) to connect to the internet.
 
-NAT gateway enables a many-to-one SNAT capability. Many private instances in a subnet can SNAT to a public IP address attached to NAT gateway in order to connect out to the internet. When NAT gateway makes multiple connections to the same destination endpoint, each new connection uses a different SNAT port so that connections can be distinguished from one another.
+NAT gateway enables a many-to-one SNAT capability. Many private instances in a subnet can SNAT to a public IP address attached to NAT gateway in order to connect to the internet. When NAT gateway makes multiple connections to the same destination endpoint, each new connection uses a different SNAT port so that connections can be distinguished from one another.
 
 SNAT port exhaustion occurs when a source endpoint has run out of available SNAT ports to differentiate between new connections. When SNAT port exhaustion occurs, connections fail.
 
