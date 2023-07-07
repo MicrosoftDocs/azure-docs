@@ -224,7 +224,7 @@ The app builds and starts deploying. You can track progress in the **Output Wind
 
 ### Add connection string information
 
-Navigate to your new Function App in the Azure portal and select the **Configuration** blade from the Resource menu. You'll notice that your application settings have automatically been added to the Function App. For security, however, the connection string information in your `local.settings.json` file is not automationally added. Select **New connection string** and enter `redisConnectionString` as the Name, and your connection string as the Value. Set Type to _Custom_, and select **Ok** to close the menu and then **Save** on the Configuration page to confirm. The functions app will restart with the new connection string information. 
+Navigate to your new Function App in the Azure portal and select the **Configuration** blade from the Resource menu. You'll notice that your application settings have automatically been added to the Function App. For security, however, the connection string information in your `local.settings.json` file is not automatically added. Select **New connection string** and enter `redisConnectionString` as the Name, and your connection string as the Value. Set Type to _Custom_, and select **Ok** to close the menu and then **Save** on the Configuration page to confirm. The functions app will restart with the new connection string information. 
 
 ### Test your triggers
 
