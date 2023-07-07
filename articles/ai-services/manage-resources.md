@@ -13,7 +13,7 @@ ms.author: aahi
 
 # Recover deleted Azure AI services resources
 
-This article provides instructions on how to recover a Azure AI services resource that is already deleted. The article also provides instructions on how to purge a deleted resource.
+This article provides instructions on how to recover an Azure AI services resource that is already deleted. The article also provides instructions on how to purge a deleted resource.
 
 > [!NOTE]
 > The instructions in this article are applicable to both a multi-service resource and a single-service resource. A multi-service resource enables access to multiple Azure AI services using a single key and endpoint. On the other hand, a single-service resource enables access to just that specific cognitive service for which the resource was created.
@@ -119,7 +119,7 @@ Select **Manage deleted resources** from the menu.
 
 Select the subscription in the dropdown list to locate the deleted resource you would like to purge.
 Select one or more deleted resources and click **Purge**.
-Purging will permanently delete a Azure AI services resource. 
+Purging will permanently delete an Azure AI services resource. 
 
 :::image type="content" source="media/managing-deleted-resource.png" alt-text="A screenshot showing a list of resources that can be purged." lightbox="media/managing-deleted-resource.png":::
 
