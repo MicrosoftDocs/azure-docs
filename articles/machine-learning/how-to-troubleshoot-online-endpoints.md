@@ -16,7 +16,7 @@ ms.custom: devplatv2, devx-track-azurecli, cliv2, event-tier1-build-2022, sdkv2,
 
 # Troubleshooting online endpoints deployment and scoring
 
-[!INCLUDE [dev v2](../../includes/machine-learning-dev-v2.md)]
+[!INCLUDE [dev v2](includes/machine-learning-dev-v2.md)]
 
 
 Learn how to resolve common issues in the deployment and scoring of Azure Machine Learning online endpoints.
@@ -829,12 +829,12 @@ We recommend that you use Azure Functions, Azure Application Gateway, or any ser
 
 ## Common network isolation issues
 
-[!INCLUDE [network isolation issues](../../includes/machine-learning-online-endpoint-troubleshooting.md)]
+[!INCLUDE [network isolation issues](includes/machine-learning-online-endpoint-troubleshooting.md)]
 
 ## Troubleshoot inference server
 In this section, we provide basic troubleshooting tips for [Azure Machine Learning inference HTTP server](how-to-inference-server-http.md). 
 
-[!INCLUDE [inference server TSGs](../../includes/machine-learning-inference-server-troubleshooting.md)]
+[!INCLUDE [inference server TSGs](includes/machine-learning-inference-server-troubleshooting.md)]
 
 ## Next steps
 

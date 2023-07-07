@@ -112,7 +112,6 @@ For volumes 100 TiB or under, you can increase the `maxfiles` limit up to 531,27
 | Volume size (quota) | Automatic readjustment of the `maxfiles` limit |
 | - | - |
 |   > 100 TiB    | 2,550,135,120                  |
-|   50 - 100 TiB | 1,530,081,072 to 2,550,135,120 |
              
 You can increase the `maxfiles` limit beyond 2,550,135,120 using a support request. For every 2,550,135,120 files you increase (or a fraction thereof), you need to increase the corresponding volume quota by 120 TiB. For example, if you increase `maxfiles` limit from 2,550,135,120 to 5,100,270,240 files (or any number in between), you need to increase the volume quota to at least 240 TiB.
  
