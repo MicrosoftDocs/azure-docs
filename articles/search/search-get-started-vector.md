@@ -7,7 +7,7 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: quickstart
-ms.date: 06/29/2023
+ms.date: 07/07/2023
 ---
 
 # Quickstart: Use preview REST APIs for vector search queries
@@ -255,17 +255,19 @@ POST https://{{search-service-name}}.search.windows.net/indexes/{{index-name}}/d
 Content-Type: application/json
 api-key: {{admin-api-key}}
 {
-    "vector": {
-        "value": [
-            -0.009154141,
-            0.018708462,
-            . . . 
-            -0.02178128,
-            -0.00086512347
-        ],
-        "fields": "contentVector",
-        "k": 5
-    }
+    "vectors": [
+        {
+            "value": [
+                -0.009154141,
+                0.018708462,
+                . . . 
+                -0.02178128,
+                -0.00086512347
+            ],
+            "fields": "contentVector",
+            "k": 5
+        }
+    ]
 }
 ```
 
@@ -282,24 +284,26 @@ POST https://{{search-service-name}}.search.windows.net/indexes/{{index-name}}/d
 Content-Type: application/json
 api-key: {{admin-api-key}}
 {
-    "vector": {
-        "value": [
-            -0.009154141,
-            0.018708462,
-            . . . 
-            -0.02178128,
-            -0.00086512347
-        ],
-        "fields": "contentVector",
-        "select": "title, content, category"
-        "k": 10
-    },
+    "vector": [
+        {
+            "value": [
+                -0.009154141,
+                0.018708462,
+                . . . 
+                -0.02178128,
+                -0.00086512347
+            ],
+            "fields": "contentVector",
+            "select": "title, content, category"
+            "k": 10
+        },
+    ],
     "filter": "category eq 'Databases'"
 }
 ```
 
-
 ### Cross-field vector search
+
 Cross-field vector search allows you to send a single query across multiple vector fields in your vector index. For this example, I want to calculate the similarity across both `titleVector` and `contentVector`:
 
 ```http
@@ -307,21 +311,24 @@ POST https://{{search-service-name}}.search.windows.net/indexes/{{index-name}}/d
 Content-Type: application/json
 api-key: {{admin-api-key}}
 {
-    "vector": {
-        "value": [
-            -0.009154141,
-            0.018708462,
-            . . . 
-            -0.02178128,
-            -0.00086512347
-        ],
-        "fields": "titleVector, contentVector",
-        "k": 5
-    }
+    "vector": [
+        {
+            "value": [
+                -0.009154141,
+                0.018708462,
+                . . . 
+                -0.02178128,
+                -0.00086512347
+            ],
+            "fields": "titleVector, contentVector",
+            "k": 5
+        }
+    ]
 }
 ```
 
 ### Multi-query vector search
+
 Multi-query vector search allows you to send a multiple queries across multiple vector fields in your vector index. For this example, I want to calculate the similarity across both `titleVector` and `contentVector` but will send in two different query embeddings respectively. This scenario is ideal for multi-modal use cases where you want to search over a `textVector` field and an `imageVector` field. You can also use this scenario if you have different embedding models with different dimensions in your search index. 
 
 ```http
@@ -367,17 +374,19 @@ POST https://{{search-service-name}}.search.windows.net/indexes/{{index-name}}/d
 Content-Type: application/json
 api-key: {{admin-api-key}}
 {
-    "vector": {
-        "value": [
-            -0.009154141,
-            0.018708462,
-            . . .
-            -0.02178128,
-            -0.00086512347
-        ],
-        "fields": "contentVector",
-        "k": 10
-    },
+    "vectors": [
+        {
+            "value": [
+                -0.009154141,
+                0.018708462,
+                . . .
+                -0.02178128,
+                -0.00086512347
+            ],
+            "fields": "contentVector",
+            "k": 10
+        }
+    ],
     "search": "what azure services support full text search",
     "top": "10"
 }
@@ -387,7 +396,7 @@ Compare the responses between Single Vector Search and Simple Hybrid Search for 
 
 **Single Vector Search**: Results ordered by cosine similarity (default vector similarity distance function)
 
-```
+```json
 {
     "@search.score": 0.8851871,
     "title": "Azure Cognitive Search",
@@ -398,7 +407,7 @@ Compare the responses between Single Vector Search and Simple Hybrid Search for 
 
 **Hybrid Search**: Combined keyword and vector search results using Reciprocal Rank Fusion.
 
-```
+```json
 {
     "@search.score": 0.03333333507180214,
     "title": "Azure Cognitive Search",
@@ -416,17 +425,19 @@ POST https://{{search-service-name}}.search.windows.net/indexes/{{index-name}}/d
 Content-Type: application/json
 api-key: {{admin-api-key}}
 {
-    "vector": {
-        "value": [
-            -0.009154141,
-            0.018708462,
-            . . . 
-            -0.02178128,
-            -0.00086512347
-        ],
-        "fields": "contentVector",
-        "k": 10
-    },
+    "vectors": [
+        {
+            "value": [
+                -0.009154141,
+                0.018708462,
+                . . . 
+                -0.02178128,
+                -0.00086512347
+            ],
+            "fields": "contentVector",
+            "k": 10
+        }
+    ],
     "search": "what azure services support full text search",
     "filter": "category eq 'Databases'",
     "top": "10"
@@ -442,17 +453,19 @@ POST https://{{search-service-name}}.search.windows.net/indexes/{{index-name}}/d
 Content-Type: application/json
 api-key: {{admin-api-key}}
 {
-    "vector": {
-        "value": [
-            -0.009154141,
-            0.018708462,
-            . . . 
-            -0.02178128,
-            -0.00086512347
-        ],
-        "fields": "contentVector",
-        "k": 10
-    },
+    "vectors": [
+        {
+            "value": [
+                -0.009154141,
+                0.018708462,
+                . . . 
+                -0.02178128,
+                -0.00086512347
+            ],
+            "fields": "contentVector",
+            "k": 10
+        }
+    ],
     "search": "what azure services support full text search",
     "select": "title, content, category",
     "queryType": "semantic",
@@ -473,17 +486,19 @@ POST https://{{search-service-name}}.search.windows.net/indexes/{{index-name}}/d
 Content-Type: application/json
 api-key: {{admin-api-key}}
 {
-    "vector": {
-        "value": [
-            -0.009154141,
-            0.018708462,
-            . . . 
-            -0.02178128,
-            -0.00086512347
-        ],
-        "fields": "contentVector",
-        "k": 10
-    },
+    "vectors": [
+        {
+            "value": [
+                -0.009154141,
+                0.018708462,
+                . . . 
+                -0.02178128,
+                -0.00086512347
+            ],
+            "fields": "contentVector",
+            "k": 10
+        }
+    ],
     "search": "what azure services support full text search",
     "select": "title, content, category",
     "queryType": "semantic",
@@ -509,4 +524,3 @@ Azure Cognitive Search is a billable resource. If it's no longer needed, delete 
 ## Next steps
 
 As a next step, we recommend reviewing the demo code for [Python](https://github.com/Azure/cognitive-search-vector-pr/tree/main/demo-python), or [C#](https://github.com/Azure/cognitive-search-vector-pr/tree/main/demo-dotnet).
-
