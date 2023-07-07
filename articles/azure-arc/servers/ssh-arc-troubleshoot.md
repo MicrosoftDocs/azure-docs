@@ -30,7 +30,7 @@ Resolution:
 - Ensure that the folder is in the PATH environment variable for Azure PowerShell
 
 ### Azure PowerShell module version mis-match 
-This issue occurs when the installed Azure PowerShell sub-module, Az.Ssh.ArcProxy, is not supported by the installed version of Az.Ssh. Error:
+This issue occurs when the installed Azure PowerShell submodule, Az.Ssh.ArcProxy, isn't supported by the installed version of Az.Ssh. Error:
 
 - `This version of Az.Ssh only supports version 1.x.x of the Az.Ssh.ArcProxy PowerShell Module. The Az.Ssh.ArcProxy module {ModulePath} version is {ModuleVersion}, and it is not supported by this version of the Az.Ssh module. Check that this version of Az.Ssh is the latest available.`
 
@@ -39,7 +39,7 @@ Resolution:
 - Update the Az.Ssh and Az.Ssh.ArcProxy modules
 
 ### Az.Ssh.ArcProxy not installed
-This issue occurs when the proxy module is not found on the client machine. Error:
+This issue occurs when the proxy module isn't found on the client machine. Error:
 
 - `Failed to find the PowerShell module Az.Ssh.ArcProxy installed in this machine. You must have the Az.Ssh.Proxy PowerShell module installed in the client machine in order to connect to Azure Arc resources. You can find the module in the PowerShell Gallery (see: https://aka.ms/PowerShellGallery-Az.Ssh.ArcProxy).`
 
@@ -47,8 +47,8 @@ Resolution:
 
 - Install the module from the [PowerShell Gallery](https://www.powershellgallery.com/packages/Az.Ssh.ArcProxy): `Install-Module -Name Az.Ssh.ArcProxy`
 
-### User does not have permissions to execute proxy
-This issue happends when the user does not have permissions to execute the SSH proxy that is used to connect.  Errors:
+### User doesn't have permissions to execute proxy
+This issue happens when the user doesn't have permissions to execute the SSH proxy that is used to connect.  Errors:
 
 - `/bin/bash: line 1: exec: /usr/local/share/powershell/Modules/Az.Ssh.ArcProxy/1.0.0/sshProxy_linux_amd64_1.3.022941: cannot execute: Permission denied`
 - `CreateProcessW failed error:5 posix_spawnp: Input/output error`
@@ -75,7 +75,7 @@ This issue occurs when SSHD isn't running on the server, or SSH traffic isn't al
 
 Resolution:
  - Ensure that the SSHD service is running on the Arc-enabled server.
- - Ensure that the functionality is enabled on your Arc-enabled server on port 22 (or other non-default port) 
+ - Ensure that the functionality is enabled on your Arc-enabled server on port 22 (or other nondefault port) 
 
 #### [Azure CLI](#tab/azure-cli)
 
