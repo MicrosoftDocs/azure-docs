@@ -91,7 +91,7 @@ Identifies the mechanism being used to connect the server to Azure Arc. For exam
 
 `--ignore-network-check`
 
-Instructs the agent to continue onboarding even if the network check for required endpoints fails. You should only use this option if you're sure that the network check results are incorrect. In most cases, a failed network check indicates that the Arc agent won't function correctly on the server.
+Instructs the agent to continue onboarding even if the network check for required endpoints fails. You should only use this option if you're sure that the network check results are incorrect. In most cases, a failed network check indicates that the Azure Connected Machine agent won't function correctly on the server.
 
 `-l`, `--location`
 

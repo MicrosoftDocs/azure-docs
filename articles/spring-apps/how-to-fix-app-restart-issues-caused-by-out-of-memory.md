@@ -2,12 +2,12 @@
 title: App restart issues caused by out-of-memory issues
 titleSuffix: Azure Spring Apps
 description: Explains how to understand out-of-memory (OOM) issues for Java applications in Azure Spring Apps.
-author: karlerickson
+author: KarlErickson
 ms.author: kaiqianyang
 ms.service: spring-apps
 ms.topic: conceptual
 ms.date: 07/15/2022
-ms.custom: devx-track-java
+ms.custom: devx-track-java, devx-track-extended-java
 ---
 
 # App restart issues caused by out-of-memory issues

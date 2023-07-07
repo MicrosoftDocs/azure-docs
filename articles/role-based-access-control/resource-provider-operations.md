@@ -8,7 +8,7 @@ ms.workload: identity
 author: rolyon
 manager: amycolannino
 ms.author: rolyon
-ms.date: 03/31/2023
+ms.date: 06/11/2023
 ms.custom: generated
 ---
 
@@ -115,6 +115,7 @@ Click the resource provider name in the following table to see the list of opera
 | [Microsoft.AzureActiveDirectory](#microsoftazureactivedirectory) |
 | [Microsoft.ManagedIdentity](#microsoftmanagedidentity) |
 | **Security** |
+| [Microsoft.AppComplianceAutomation](#microsoftappcomplianceautomation) |
 | [Microsoft.KeyVault](#microsoftkeyvault) |
 | [Microsoft.Security](#microsoftsecurity) |
 | [Microsoft.SecurityGraph](#microsoftsecuritygraph) |

@@ -5,12 +5,12 @@ description: Configure a policy on the storage account that defines the length o
 services: storage
 author: tamram
 
-ms.service: storage
+ms.service: azure-storage
 ms.topic: how-to
 ms.date: 12/12/2022
 ms.author: tamram
 ms.reviewer: nachakra
-ms.subservice: common
+ms.subservice: storage-common-concepts
 ms.custom: engagement-fy23
 ---
 

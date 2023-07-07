@@ -114,9 +114,9 @@ To create a new Azure Stack Edge resource for an existing device, take the follo
 
 1. Select **+ Create a resource**. Search for and select **Azure Stack Edge**. Then select **Create**.
 
-1. Select the subscription for the Azure Stack Edge Pro FPGA device and the country to ship the device to in **Ship to**.
+1. Select the subscription for the Azure Stack Edge Pro FPGA device and the country/region to ship the device to in **Ship to**.
 
-   ![Select the subscription and ship-to country for your device](media/azure-stack-edge-deploy-prep/create-fpga-existing-resource-01.png)
+   ![Select the subscription and ship-to country/region for your device](media/azure-stack-edge-deploy-prep/create-fpga-existing-resource-01.png)
 
 
 1. In the list of device types that is displayed, select **Azure Stack Edge Pro - FPGA**. Then choose **Select**. 

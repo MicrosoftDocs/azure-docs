@@ -4,7 +4,7 @@ description: Learn how to attach custom network share  in Azure App Service. Sha
 author: msangapu-msft
 
 ms.topic: article
-ms.date: 4/12/2022
+ms.date: 6/29/2022
 ms.author: msangapu
 zone_pivot_groups: app-service-containers-code
 ---

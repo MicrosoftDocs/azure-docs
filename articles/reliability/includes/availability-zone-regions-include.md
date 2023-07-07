@@ -9,7 +9,7 @@
  ms.custom: include file
 ---
 
-Azure provides the most extensive global footprint of any cloud provider and is rapidly opening new regions and availability zones. Azure has availability zones in every country in which Azure operates a datacenter region. 
+Azure provides the most extensive global footprint of any cloud provider and is rapidly opening new regions and availability zones. Azure has availability zones in every country/region in which Azure operates a datacenter region. 
 
 The following regions currently support availability zones:
 

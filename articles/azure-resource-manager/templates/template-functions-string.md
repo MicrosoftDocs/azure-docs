@@ -150,7 +150,7 @@ The output from the preceding example with the default values is:
 
 Combines multiple string values and returns the concatenated string, or combines multiple arrays and returns the concatenated array.
 
-In Bicep, use [string interpolation](../bicep/bicep-functions-string.md#concat) instead of the `concat` function.
+In Bicep, use [string interpolation](../bicep/data-types.md#strings) instead of the [`concat`](../bicep/bicep-functions-string.md#concat) function, except in certain cases involving [multi-line strings](../bicep/data-types.md#multi-line-strings).
 
 ### Parameters
 
@@ -456,6 +456,8 @@ Unique scoped to deployment for a resource group
 ```json
 "[guid(resourceGroup().id, deployment().name)]"
 ```
+
+The `guid` function implements the algorithm from [RFC 4122 §4.3](https://www.ietf.org/rfc/rfc4122.txt). The original source can be found in [GuidUtility](https://github.com/LogosBible/Logos.Utility/blob/e7fc45123da090b8cf34da194a1161ed6a34d20d/src/Logos.Utility/GuidUtility.cs) with some modifications.
 
 ### Return value
 

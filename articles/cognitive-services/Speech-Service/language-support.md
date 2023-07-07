@@ -30,7 +30,7 @@ Language support varies by Speech service functionality.
 
 # [Speech to text](#tab/stt)
 
-The table in this section summarizes the locales and voices supported for Speech to text. Please see the table footnotes for more details. 
+The table in this section summarizes the locales supported for Speech to text. See the table footnotes for more details. 
 
 Additional remarks for Speech to text locales are included in the [Custom Speech](#custom-speech) section below. 
 
@@ -45,7 +45,7 @@ To improve Speech to text recognition accuracy, customization is available for s
 
 # [Text to speech](#tab/tts)
 
-The tables in this section summarizes the locales and voices supported for Text to speech. Please see the table footnotes for more details.
+The table in this section summarizes the locales and voices supported for Text to speech. See the table footnotes for more details.
 
 Additional remarks for Text to speech locales are included in the [Voice styles and roles](#voice-styles-and-roles), [Prebuilt neural voices](#prebuilt-neural-voices), and [Custom Neural Voice](#custom-neural-voice) sections below. 
 
@@ -64,6 +64,12 @@ Use the following table to determine supported styles and roles for each neural 
 
 [!INCLUDE [Language support include](includes/language-support/voice-styles-and-roles.md)]
 
+### Viseme
+
+This table lists all the locales supported for [Viseme](speech-synthesis-markup-structure.md#viseme-element). For more information about Viseme, see [Get facial position with viseme](how-to-speech-synthesis-viseme.md) and [Viseme element](speech-synthesis-markup-structure.md#viseme-element). 
+
+[!INCLUDE [Language support include](includes/language-support/viseme.md)]
+
 ### Prebuilt neural voices
 
 Each prebuilt neural voice supports a specific language and dialect, identified by locale. You can try the demo and hear the voices in the [Voice Gallery](https://speech.microsoft.com/portal/voicegallery).
@@ -75,7 +81,7 @@ Each prebuilt neural voice model is available at 24kHz and high-fidelity 48kHz. 
 
 Please note that the following neural voices are retired.
 
-- The English (United Kingdom) voice `en-GB-MiaNeural` retired on October 30, 2021. All service requests to `en-GB-MiaNeural` will be redirected to `en-GB-SoniaNeural` automatically as of October 30, 2021. If you're using container Neural TTS, [download](speech-container-ntts.md#get-the-container-image-with-docker-pull) and deploy the latest version. Starting from October 30, 2021, all requests with previous versions will not succeed.
+- The English (United Kingdom) voice `en-GB-MiaNeural` retired on October 30, 2021. All service requests to `en-GB-MiaNeural` will be redirected to `en-GB-SoniaNeural` automatically as of October 30, 2021. If you're using container Neural TTS, [download](speech-container-ntts.md#get-the-container-image-with-docker-pull) and deploy the latest version. All requests with previous versions won't succeed starting from October 30, 2021.
 - The `en-US-JessaNeural` voice is retired and replaced by `en-US-AriaNeural`. If you were using "Jessa" before, convert  to "Aria." 
 
 ### Custom Neural Voice
@@ -90,7 +96,7 @@ With the cross-lingual feature (preview), you can transfer your custom neural vo
 
 # [Pronunciation assessment](#tab/pronunciation-assessment)
 
-The table in this section summarizes the locales supported for Pronunciation assessment, and each language is available on all [Speech to text regions](regions.md#speech-service).
+The table in this section summarizes the locales supported for Pronunciation assessment, and each language is available on all [Speech to text regions](regions.md#speech-service). You should specify the language that you're learning or practicing to improve pronunciation. The default language is set as `en-US`. If you know your target learning language, set the locale accordingly. For example, if you're learning British English, you should specify the language as `en-GB`. If you're teaching a broader language, such as Spanish, and are uncertain about which locale to select, you can run various accent models (`es-ES`, `es-MX`) to determine the one that achieves the highest score to suit your specific scenario.
 
 [!INCLUDE [Language support include](includes/language-support/pronunciation-assessment.md)]
 

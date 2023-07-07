@@ -66,7 +66,7 @@ Create a workspace configuration file in one of the following methods:
 
     Create a script to connect to your Azure Machine Learning workspace. Make sure to replace `subscription_id`,`resource_group`, and `workspace_name` with your own.
 
-    [!INCLUDE [sdk v2](../../includes/machine-learning-sdk-v2.md)]
+    [!INCLUDE [sdk v2](includes/machine-learning-sdk-v2.md)]
 
     ```python
         #import required libraries
@@ -134,7 +134,7 @@ Once you have the Visual Studio Code extension installed, use it to:
 
 * [Manage your Azure Machine Learning resources](how-to-manage-resources-vscode.md)
 * [Connect to an Azure Machine Learning compute instance](how-to-set-up-vs-code-remote.md)
-* [Run and debug experiments](how-to-debug-visual-studio-code.md)
+* [Debug online endpoints locally](how-to-debug-managed-online-endpoints-visual-studio-code.md)
 * [Deploy trained models](tutorial-train-deploy-image-classification-model-vscode.md).
 
 ## Azure Machine Learning compute instance
@@ -145,10 +145,10 @@ There's nothing to install or configure for a compute instance.
 
 Create one anytime from within your Azure Machine Learning workspace. Provide just a name and specify an Azure VM type. Try it now with [Create resources to get started](quickstart-create-resources.md).
 
-To learn more about compute instances, including how to install packages, see [Create and manage an Azure Machine Learning compute instance](how-to-create-manage-compute-instance.md).
+To learn more about compute instances, including how to install packages, see [Create an Azure Machine Learning compute instance](how-to-create-compute-instance.md).
 
 > [!TIP]
-> To prevent incurring charges for an unused compute instance, [enable idle shutdown](how-to-create-manage-compute-instance.md#enable-idle-shutdown).
+> To prevent incurring charges for an unused compute instance, [enable idle shutdown](how-to-create-compute-instance.md#configure-idle-shutdown).
 
 In addition to a Jupyter Notebook server and JupyterLab, you can use compute instances in the [integrated notebook feature inside of Azure Machine Learning studio](how-to-run-jupyter-notebooks.md).
 

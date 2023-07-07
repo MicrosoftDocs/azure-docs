@@ -7,7 +7,7 @@ ms.service: active-directory
 ms.subservice: authentication
 ms.custom: ignite-2022
 ms.topic: conceptual
-ms.date: 01/05/2023
+ms.date: 06/22/2023
 
 ms.author: justinha
 author: mjsantani
@@ -21,7 +21,10 @@ ms.collection: M365-identity-device-management
 
 You can nudge users to set up Microsoft Authenticator during sign-in. Users will go through their regular sign-in, perform multifactor authentication as usual, and then be prompted to set up Microsoft Authenticator. You can include or exclude users or groups to control who gets nudged to set up the app. This allows targeted campaigns to move users from less secure authentication methods to the Authenticator app.  
 
-In addition to choosing who can be nudged, you can define how many days a user can postpone, or "snooze", the nudge. If a user taps **Not now** to snooze the app setup, they'll be nudged again on the next MFA attempt after the snooze duration has elapsed. 
+In addition to choosing who can be nudged, you can define how many days a user can postpone, or "snooze", the nudge. If a user taps **Not now** to postpone the app setup, they'll be nudged again on the next MFA attempt after the snooze duration has elapsed. Users with free and trial subscriptions can postpone the app setup up to three times.
+
+>[!NOTE]
+>As users go through their regular sign-in, Conditional Access policies that govern security info registration apply before the user is prompted to set up Authenticator. For example, if a Conditional Access policy requires security info updates can only occur on an internal network, then users won't be prompted to set up Authenticator unless they are on the internal network. 
 
 ## Prerequisites 
 
@@ -63,7 +66,7 @@ In addition to choosing who can be nudged, you can define how many days a user c
 
       ![Installation complete](./media/how-to-nudge-authenticator-app/finish.png)
 
-1. If a user wishes to not install the Authenticator app, they can tap **Not now** to snooze the prompt for up to 14 days, which can be set by an admin. 
+1. If a user wishes to not install the Authenticator app, they can tap **Not now** to snooze the prompt for up to 14 days, which can be set by an admin. Users with free and trial subscriptions can snooze the prompt up to three times.
  
    ![Snooze installation](./media/how-to-nudge-authenticator-app/snooze.png)
 
@@ -72,9 +75,11 @@ In addition to choosing who can be nudged, you can define how many days a user c
 To enable a registration campaign in the Azure portal, complete the following steps:
 
 1. In the Azure portal, click **Security** > **Authentication methods** > **Registration campaign**.
-1. For **State**, click **Enabled**, select any users or groups to exclude from the registration campaign, and then click **Save**.
+1. For **State**, click **Microsoft managed** or **Enabled**. In the following screenshot, the registration campaign is **Microsoft managed**. That setting allows Microsoft to set the default value to be either enabled or disabled. For the registration campaign, the Microsoft managed value is Enabled for voice call and SMS users with free and trial subscriptions. For more information, see [Protecting authentication methods in Azure Active Directory](concept-authentication-default-enablement.md).
    
    ![Screenshot of enabling a registration campaign.](./media/how-to-nudge-authenticator-app/registration-campaign.png)
+
+1. Select any users or groups to exclude from the registration campaign, and then click **Save**. 
 
 ## Enable the registration campaign policy using Graph Explorer
 

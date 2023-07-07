@@ -83,7 +83,7 @@ AKS uses several managed identities for built-in services and add-ons.
     az aks update -g myResourceGroup -n myManagedCluster --enable-managed-identity
     ```
 
-After updating your cluster, the control plane and pods use the managed identity. kubelet continues using a service principal until you upgrade your agentpool. You can use the `az aks nodepool upgrade --node-image-only` command on your nodes to update to a managed identity. A node pool upgrade causes downtime for your AKS cluster as the nodes in the node pools are cordoned/drained and reimaged.
+After updating your cluster, the control plane and pods use the managed identity. kubelet continues using a service principal until you upgrade your agentpool. You can use the `az aks nodepool upgrade --resource-group myResourceGroup --cluster-name myAKSCluster --name mynodepool --node-image-only` command on your nodes to update to a managed identity. A node pool upgrade causes downtime for your AKS cluster as the nodes in the node pools are cordoned/drained and reimaged.
 
 > [!NOTE]
 >
@@ -93,7 +93,7 @@ After updating your cluster, the control plane and pods use the managed identity
 >
 > * The Azure CLI ensures your addon's permission is correctly set after migrating. If you're not using the Azure CLI to perform the migrating operation, you need to handle the addon identity's permission by yourself. For an example using an Azure Resource Manager (ARM) template, see [Assign Azure roles using ARM templates](../role-based-access-control/role-assignments-template.md).
 >
-> * If your cluster was using `--attach-acr` to pull from images from Azure Container Registry, you need to run the `az aks update --attach-acr <ACR resource ID>` command after updating your cluster to let the newly-created kubelet used for managed identity get the permission to pull from ACR. Otherwise, you won't be able to pull from ACR after the update.
+> * If your cluster was using `--attach-acr` to pull from images from Azure Container Registry, you need to run the `az aks update --resource-group myResourceGroup --name myAKSCluster --attach-acr <ACR resource ID>` command after updating your cluster to let the newly-created kubelet used for managed identity get the permission to pull from ACR. Otherwise, you won't be able to pull from ACR after the update.
 
 ## Add role assignment for control plane identity
 
@@ -364,7 +364,7 @@ Now you can create your AKS cluster with your existing identities. Make sure to 
 > Updating kubelet managed identity upgrades node pools, which causes downtime for your AKS cluster as the nodes in the node pools will be cordoned/drained and reimaged.
 
 > [!NOTE]
-> If your cluster was using `--attach-acr` to pull from images from Azure Container Registry, you need to run the `az aks update --attach-acr <ACR Resource ID>` command after updating your cluster to let the newly-created kubelet used for managed identity get the permission to pull from ACR. Otherwise, you won't be able to pull from ACR after the upgrade.
+> If your cluster was using `--attach-acr` to pull from images from Azure Container Registry, you need to run the `az aks update --resource-group myResourceGroup --name myAKSCluster --attach-acr <ACR Resource ID>` command after updating your cluster to let the newly-created kubelet used for managed identity get the permission to pull from ACR. Otherwise, you won't be able to pull from ACR after the upgrade.
 
 #### Make sure your CLI version is updated
 

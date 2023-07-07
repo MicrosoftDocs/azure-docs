@@ -237,7 +237,7 @@ Using `msiexec` enables you to install the agent and boot loader from the comman
    Install-WindowsFeature -Name RDS-RD-Server -Restart
    ```
 
-1. Download the Agent and the Agent Bootloader installation files and unblock them by running the following commands:
+1. Download the Agent and the Agent Bootloader installation files and unblock them by running the following commands. The files will be downloaded to the current working directory.
 
    ```powershell
    $uris = @(
@@ -247,7 +247,7 @@ Using `msiexec` enables you to install the agent and boot loader from the comman
 
    $installers = @()
    foreach ($uri in $uris) {
-       $download = Invoke-WebRequest -Uri $uri
+       $download = Invoke-WebRequest -Uri $uri -UseBasicParsing
 
        $fileName = ($download.Headers.'Content-Disposition').Split('=')[1].Replace('"','')
        $output = [System.IO.FileStream]::new("$pwd\$fileName", [System.IO.FileMode]::Create)

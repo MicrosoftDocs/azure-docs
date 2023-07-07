@@ -13,6 +13,9 @@ keywords:
 
 Use this guide to get started calling the image generation REST APIs using Python.
 
+> [!NOTE]
+> The image generation API creates an image from a text prompt. It does not edit existing images or create variations.
+
 ## Prerequisites
 
 - An Azure subscription - <a href="https://azure.microsoft.com/free/cognitive-services" target="_blank">Create one for free</a>
@@ -51,9 +54,8 @@ Create a new Python file called **quickstart.py**. Then open it up in your prefe
     url = f"{api_base}openai/images/generations:submit?api-version={api_version}"
     headers= { "api-key": api_key, "Content-Type": "application/json" }
     body = {
-        #"prompt": "USER_PROMPT_GOES_HERE",
-        "prompt": "A painting of a dog",
-        "resolution": "1024x1024",
+        "prompt": "a multi-colored umbrella on the beach, disposable camera",
+        "size": "1024x1024",
         "n": 1
     }
     submission = requests.post(url, headers=headers, json=body)

@@ -8,7 +8,7 @@ ms.service: data-factory
 ms.subservice: tutorials
 ms.topic: tutorial
 ms.custom: seo-lt-2019
-ms.date: 06/05/2023
+ms.date: 06/06/2023
 ---
 
 # Manage Azure Data Factory studio preview experience
@@ -118,15 +118,15 @@ You now have the option to enable **Auto Save** when you have a Git repository c
 
 To enable **Auto save**, click the toggle button found in the top banner of your screen. 
 
-:::image type="content" source="media/how-to-manage-studio-preview-exp/data-factory-preview-exp-41.png" alt-text="Screenshot of the Auto Save toggle button in the top banner of the screen.":::
+:::image type="content" source="media/how-to-manage-studio-preview-exp/data-factory-preview-exp-42.png" alt-text="Screenshot of the Auto Save toggle button in the top banner of the screen.":::
 
 Review the pop-up and click **Yes**.
 
-:::image type="content" source="media/how-to-manage-studio-preview-exp/data-factory-preview-exp-42.png" alt-text="Screenshot of the Auto Save confirmation pop-up.":::
+:::image type="content" source="media/how-to-manage-studio-preview-exp/data-factory-preview-exp-43.png" alt-text="Screenshot of the Auto Save confirmation pop-up.":::
 
 When **Auto Save** is enabled, the toggle button shows as blue.
 
-:::image type="content" source="media/how-to-manage-studio-preview-exp/data-factory-preview-exp-43.png" alt-text="Screenshot of the enabled Auto Save toggle button in the top banner of the screen.":::
+:::image type="content" source="media/how-to-manage-studio-preview-exp/data-factory-preview-exp-44.png" alt-text="Screenshot of the enabled Auto Save toggle button in the top banner of the screen.":::
 
 ### Pipeline experimental view
 

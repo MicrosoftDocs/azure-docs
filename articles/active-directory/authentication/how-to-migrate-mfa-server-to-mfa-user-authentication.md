@@ -348,4 +348,4 @@ For more information about migrating applications to Azure, see [Resources for m
 
 - [Migrate from Microsoft MFA Server to Azure AD MFA (Overview)](how-to-migrate-mfa-server-to-azure-mfa.md)
 - [Migrate applications from Windows Active Directory to Azure AD](../manage-apps/migrate-application-authentication-to-azure-active-directory.md)
-- [Plan your cloud authentication strategy](../fundamentals/active-directory-deployment-plans.md)
+- [Plan your cloud authentication strategy](../fundamentals/deployment-plans.md)

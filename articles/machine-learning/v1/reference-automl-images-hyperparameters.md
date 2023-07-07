@@ -14,10 +14,7 @@ ms.date: 01/18/2022
 
 # Hyperparameters for computer vision tasks in automated machine learning (v1)
 
-[!INCLUDE [sdk v1](../../../includes/machine-learning-sdk-v1.md)]
-> [!div class="op_single_selector" title1="Select the version of Azure Machine Learning you are using:"]
-> * [v1](reference-automl-images-hyperparameters.md)
-> * [v2 (current version)](../reference-automl-images-hyperparameters.md?view=azureml-api-2&preserve-view=true)
+[!INCLUDE [sdk v1](../includes/machine-learning-sdk-v1.md)]
 
 Learn which hyperparameters are available specifically for computer vision tasks in automated ML experiments.
 

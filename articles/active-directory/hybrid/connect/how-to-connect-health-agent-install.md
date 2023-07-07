@@ -12,7 +12,7 @@ ms.date: 01/26/2023
 ms.topic: how-to
 ms.author: billmath
 ms.collection: M365-identity-device-management 
-ms.custom: devx-track-azurepowershell
+ms.custom:
 ---
 # Install the Azure AD Connect Health agents
 
@@ -91,27 +91,20 @@ To start the agent installation, double-click the *.exe* file you downloaded. In
 
 :::image type="content" source="media/how-to-connect-health-agent-install/install1.png" alt-text="Screenshot that shows the installation window for the Azure AD Connect Health AD FS agent.":::
 
-After the installation finishes, select **Configure Now**.
-
-:::image type="content" source="media/how-to-connect-health-agent-install/install2.png" alt-text="Screenshot that shows the confirmation message for the Azure AD Connect Health AD FS agent installation.":::
-
-A PowerShell window opens to start the agent registration process. When you're prompted, sign in by using an Azure AD account that has permissions to register the agent. By default, the Hybrid Identity Administrator account has permissions.
+When you're prompted, sign in by using an Azure AD account that has permissions to register the agent. By default, the Hybrid Identity Administrator account has permissions.
 
 :::image type="content" source="media/how-to-connect-health-agent-install/install3.png" alt-text="Screenshot that shows the sign-in window for Azure AD Connect Health AD FS.":::
 
-After you sign in, PowerShell continues the installation. When it finishes, you can close PowerShell. Configuration is complete.
+After you sign in, the installation process will complete and you can close the window.
+
+:::image type="content" source="media/how-to-connect-health-agent-install/install2.png" alt-text="Screenshot that shows the confirmation message for the Azure AD Connect Health AD FS agent installation.":::
 
 At this point, the agent services should start to automatically allow the agent to securely upload the required data to the cloud service.
 
-If you haven't met all the prerequisites, warnings appear in the PowerShell window. Be sure to complete the [requirements](how-to-connect-health-agent-install.md#requirements) before you install the agent. The following screenshot shows an example of these warnings.
-
-:::image type="content" source="media/how-to-connect-health-agent-install/install4.png" alt-text="Screenshot that shows the Azure AD Connect Health AD FS configure script.":::
-
 To verify that the agent was installed, look for the following services on the server. If you completed the configuration, they should already be running. Otherwise, they're stopped until the configuration is complete.
 
-- Azure AD Connect Health AD FS Diagnostics Service
-- Azure AD Connect Health AD FS Insights Service
-- Azure AD Connect Health AD FS Monitoring Service
+- Microsoft Azure AD Connect Agent Updater
+- Microsoft Azure AD Connect Health Agent
 
 :::image type="content" source="media/how-to-connect-health-agent-install/install5.png" alt-text="Screenshot that shows Azure AD Connect Health AD FS services.":::
 

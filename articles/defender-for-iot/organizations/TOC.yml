@@ -142,8 +142,12 @@
       href: ot-deploy/sites-and-zones-on-premises.md
       displayName: site, zone, Zero Trust
   - name: Deploy Enterprise IoT monitoring
-    href: eiot-defender-for-endpoint.md
-    displayName: onboard
+    items:
+    - name: Enable Enterprise IoT security
+      href: eiot-defender-for-endpoint.md
+      displayName: onboard
+    - name: Enterprise IoT networks FAQ
+      href: faqs-eiot.md
 - name: Tutorials
   expanded: false
   items:
@@ -452,13 +456,7 @@
 - name: Resources
   items:
   - name: Frequently asked questions
-    items:
-    - name: General FAQ
-      href: faqs-general.md
-    - name: OT networks FAQ
-      href: faqs-ot.md
-    - name: Enterprise IoT networks FAQ
-      href: faqs-eiot.md
+    href: faqs-general.md
   - name: Architecture icons
     href: /azure/architecture/icons/
   - name: Compliance resources

@@ -14,7 +14,7 @@ ms.author: lajanuar
 
 # Translator in sovereign (national) clouds
 
- Azure sovereign clouds are isolated in-country platforms with independent authentication, storage, and compliance requirements. Sovereign clouds are often used within geographical boundaries where there's a strict data residency requirement. Translator is currently deployed in the following sovereign clouds:
+ Azure sovereign clouds are isolated in-country/region platforms with independent authentication, storage, and compliance requirements. Sovereign clouds are often used within geographical boundaries where there's a strict data residency requirement. Translator is currently deployed in the following sovereign clouds:
 
 |Cloud | Region identifier |
 |---|--|

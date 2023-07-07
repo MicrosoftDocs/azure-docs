@@ -27,6 +27,7 @@ You can use service tags to achieve network isolation and protect your Azure res
 ![Network isolation of Azure services using service tags](./media/service-tags-overview/service_tags.png)
 
 ## Available service tags
+
 The following table includes all the service tags available for use in [network security group](./network-security-groups-overview.md#security-rules) rules.
 
 The columns indicate whether the tag:
@@ -92,7 +93,7 @@ By default, service tags reflect the ranges for the entire cloud. Some service t
 | **AzureUpdateDelivery** | For accessing Windows Updates. <br/><br/>**Note**: This tag provides access to Windows Update metadata services. To successfully download updates, you must also enable the **AzureFrontDoor.FirstParty** service tag and configure outbound security rules with the protocol and port defined as follows: <ul><li>AzureUpdateDelivery: TCP, port 443</li><li>AzureFrontDoor.FirstParty: TCP, port 80</li></ul> | Outbound | No | Yes |  
 | **AzureWebPubSub** | AzureWebPubSub | Both | Yes | Yes |
 | **BatchNodeManagement** | Management traffic for deployments dedicated to Azure Batch. | Both | Yes | Yes |
-| **ChaosStudio** | Azure Chaos Studio. <br/><br/>**Note**: If you have enabled Application Insights integration on the Chaos Agent, the AzureMonitor tag is also required. | Both | Yes | Yes |
+| **ChaosStudio** | Azure Chaos Studio. <br/><br/>**Note**: If you have enabled Application Insights integration on the Chaos Agent, the AzureMonitor tag is also required. | Both | No | Yes |
 | **CognitiveServicesFrontend** | The address ranges for traffic for Cognitive Services frontend portals. | Both | No | Yes |
 | **CognitiveServicesManagement** | The address ranges for traffic for Azure Cognitive Services. | Both | No | Yes |
 | **DataFactory**  | Azure Data Factory | Both | No | Yes |
@@ -115,6 +116,7 @@ By default, service tags reflect the ranges for the entire cloud. Some service t
 | **MicrosoftCloudAppSecurity** | Microsoft Defender for Cloud Apps. | Outbound | No | Yes |
 | **MicrosoftContainerRegistry** | Container registry for Microsoft container images. <br/><br/>**Note**: This tag has a dependency on the **AzureFrontDoor.FirstParty** tag. | Outbound | Yes | Yes |
 | **MicrosoftDefenderForEndpoint** | Microsoft Defender for Endpoint <br/></br>**Please note this service tag is currently not available and in progress. We will update once it is ready for use.**| Both | No | Yes |
+| **MicrosoftPurviewPolicyDistribution** | This tag should be used within the outbound security rules for a data source (e.g. Azure SQL MI) configured with private endpoint to retrieve policies from Microsoft Purview | Outbound| No | No |
 | **PowerBI** | Power BI. | Both | No | Yes |
 | **PowerPlatformInfra** | This tag represents the IP addresses used by the infrastructure to host Power Platform services. | Outbound | Yes | Yes |
 | **PowerPlatformPlex** | This tag represents the IP addresses used by the infrastructure to host Power Platform extension execution on behalf of the customer. | Inbound | Yes | Yes |
@@ -147,15 +149,34 @@ The classic deployment model (before Azure Resource Manager) supports a small su
 | **Internet** | INTERNET |
 | **VirtualNetwork** | VIRTUAL_NETWORK |
 
+### Tags unsupported for user defined routes (UDR)
+
+The following is a list of tags currently unsupported for use with user defined routes (UDR).
+
+* AzurePlatformDNS
+
+* AzurePlatformIMDS
+
+* AzurePlatformLKM
+
+* VirtualNetwork
+
+* AzureLoadBalancer
+
+* Internet
 
 ## Service tags on-premises  
+
 You can obtain the current service tag and range information to include as part of your on-premises firewall configurations. This information is the current point-in-time list of the IP ranges that correspond to each service tag. You can obtain the information programmatically or via a JSON file download, as described in the following sections.
 
 ### Use the Service Tag Discovery API
+
 You can programmatically retrieve the current list of service tags together with IP address range details:
 
 - [REST](/rest/api/virtualnetwork/servicetags/list)
+
 - [Azure PowerShell](/powershell/module/az.network/Get-AzNetworkServiceTag)
+
 - [Azure CLI](/cli/azure/network#az-network-list-service-tags)
 
 For example, to retrieve all the prefixes for the Storage Service Tag, you can use the following PowerShell cmdlets: 
@@ -173,25 +194,39 @@ $storage.Properties.AddressPrefixes
 > - You must be authenticated and have a role with read permissions for your current subscription. 
 
 ### Discover service tags by using downloadable JSON files 
+
 You can download JSON files that contain the current list of service tags together with IP address range details. These lists are updated and published weekly. Locations for each cloud are:
 
 - [Azure Public](https://www.microsoft.com/download/details.aspx?id=56519)
+
 - [Azure US Government](https://www.microsoft.com/download/details.aspx?id=57063)  
+
 - [Azure China 21Vianet](https://www.microsoft.com/download/details.aspx?id=57062) 
+
 - [Azure Germany](https://www.microsoft.com/download/details.aspx?id=57064)   
 
 The IP address ranges in these files are in CIDR notation. 
 
 The following AzureCloud tags don't have regional names formatted according to the normal schema: 
+
 - AzureCloud.centralfrance (FranceCentral)
+
 - AzureCloud.southfrance (FranceSouth)
+
 - AzureCloud.germanywc (GermanyWestCentral)
+
 - AzureCloud.germanyn (GermanyNorth)
+
 - AzureCloud.norwaye (NorwayEast)
+
 - AzureCloud.norwayw (NorwayWest)
+
 - AzureCloud.switzerlandn (SwitzerlandNorth)
+
 - AzureCloud.switzerlandw (SwitzerlandWest)
+
 - AzureCloud.usstagee (EastUSSTG)
+
 - AzureCloud.usstagec (SouthCentralUSSTG)
 
 > [!TIP]
@@ -202,6 +237,6 @@ The following AzureCloud tags don't have regional names formatted according to t
 >
 > - When new IP addresses are added to service tags, they won't be used in Azure for at least one week. This gives you time to update any systems that might need to track the IP addresses associated with service tags.
 
-
 ## Next steps
+
 - Learn how to [create a network security group](tutorial-filter-network-traffic.md).

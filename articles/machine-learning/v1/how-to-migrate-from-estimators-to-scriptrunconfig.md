@@ -7,15 +7,15 @@ ms.author: balapv
 author: balapv
 ms.reviewer: sgilley
 ms.service: machine-learning
-ms.subservice: core
+ms.subservice: training
 ms.date: 09/14/2022
 ms.topic: how-to
-ms.custom: UpdateFrequency5, devx-track-python, contperf-fy21q1, sdkv1, event-tier1-build-2022
+ms.custom: UpdateFrequency5, contperf-fy21q1, sdkv1, event-tier1-build-2022
 ---
 
 # Migrating from Estimators to ScriptRunConfig
 
-[!INCLUDE [sdk v1](../../../includes/machine-learning-sdk-v1.md)]
+[!INCLUDE [sdk v1](../includes/machine-learning-sdk-v1.md)]
 
 Up until now, there have been multiple methods for configuring a training job in Azure Machine Learning via the SDK, including Estimators, ScriptRunConfig, and the lower-level RunConfiguration.   To address this ambiguity and inconsistency, we are simplifying the job configuration process in Azure Machine Learning.  You should now use ScriptRunConfig as the recommended option for configuring training jobs. 
 

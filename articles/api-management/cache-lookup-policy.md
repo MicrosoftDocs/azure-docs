@@ -55,7 +55,7 @@ Use the `cache-lookup` policy to perform cache lookup and return a valid cached 
 |Name|Description|Required|
 |----------|-----------------|--------------|
 |vary-by-header|Add one or more of these elements to start caching responses per value of specified header, such as `Accept`, `Accept-Charset`, `Accept-Encoding`, `Accept-Language`, `Authorization`, `Expect`, `From`, `Host`, `If-Match`.|No|
-|vary-by-query-parameter|Add one or more of these elements to start caching responses per value of specified query parameters. Enter a single or multiple parameters. Use semicolon as a separator. If none are specified, all query parameters are used.|No|
+|vary-by-query-parameter|Add one or more of these elements to start caching responses per value of specified query parameters. Enter a single or multiple parameters. Use semicolon as a separator. |No|
 
 ## Usage
 

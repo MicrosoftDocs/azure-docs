@@ -456,6 +456,7 @@ The following environment variables are related to [hybrid connections](app-serv
 | `WEBSITE_VNET_ROUTE_ALL` | By default, if you use [regional VNet Integration](./overview-vnet-integration.md#regional-virtual-network-integration), your app only routes RFC1918 traffic into your VNet. Set to `1` to route all outbound traffic into your VNet and be subject to the same NSGs and UDRs. The setting lets you access non-RFC1918 endpoints through your VNet, secure all outbound traffic leaving your app, and force tunnel all outbound traffic to a network appliance of your own choosing. |
 | `WEBSITE_PRIVATE_IP` | Read-only. IP address associated with the app when [integrated with a VNet](./overview-vnet-integration.md). For Regional VNet Integration, the value is an IP from the address range of the delegated subnet, and for Gateway-required VNet Integration, the value is an IP from the address range of the point-to-site address pool configured on the Virtual Network Gateway. This IP is used by the app to connect to the resources through the VNet. Also, it can change within the described address range. |
 | `WEBSITE_PRIVATE_PORTS` | Read-only. In VNet integration, shows which ports are useable by the app to communicate with other nodes. |
+| `WEBSITE_CONTENTOVERVNET` | If you are mounting an Azure File Share on the App Service and the Storage account is restricted to a VNET, ensure to enable this setting with a value of `1`. |
 
 <!-- | WEBSITE_SLOT_POLL_WORKER_FOR_CHANGE_NOTIFICATION | Poll worker before pinging the site to detect when change notification has been processed. |
 WEBSITE_SPECIAL_CACHE
@@ -666,7 +667,7 @@ The following environment variables are related to [WebJobs](webjobs-create.md).
         // NOTE: This is set on all sites, irrespective of whether it is a Functions site, because the EnvSettings module depends 
         // upon it to decide when to inject the app-settings.|
 | `WEBSITE_PLACEHOLDER_PING_PATH` | This env var can be used to set a special warmup ping path on placeholder template sites. |
-| ` WEBSITE_PLACEHOLDER_DISABLE_AUTOSPECIALIZATION` | This env var can be used to disabe specialization from being enabled automatically for a given placeholder template site. |
+| ` WEBSITE_PLACEHOLDER_DISABLE_AUTOSPECIALIZATION` | This env var can be used to disable specialization from being enabled automatically for a given placeholder template site. |
 | `WEBSITE_FUNCTIONS_STARTUPCONTEXT_CACHE` | This env var is set only during specialization of a placeholder, to indicate to the Functions Runtime that
         // some function-app related data needed at startup, like secrets, are available in a file at the path specified
         // by this env var. |

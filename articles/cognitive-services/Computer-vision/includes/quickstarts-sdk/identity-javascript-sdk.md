@@ -20,12 +20,11 @@ Get started with facial recognition using the Face client library for JavaScript
 * Azure subscription - [Create one for free](https://azure.microsoft.com/free/cognitive-services/)
 * The latest version of [Node.js](https://nodejs.org/en/)
 * [!INCLUDE [contributor-requirement](../../../includes/quickstarts/contributor-requirement.md)]
-* Once you have your Azure subscription, [Create a Face resource](https://portal.azure.com/#create/Microsoft.CognitiveServicesFace) in the Azure portal to get your key and endpoint. After it deploys, click **Go to resource**.
-    * You will need the key and endpoint from the resource you create to connect your application to the Face API.
+* Once you have your Azure subscription, [Create a Face resource](https://portal.azure.com/#create/Microsoft.CognitiveServicesFace) in the Azure portal to get your key and endpoint. After it deploys, select **Go to resource**.
+    * You'll need the key and endpoint from the resource you create to connect your application to the Face API.
     * You can use the free pricing tier (`F0`) to try the service, and upgrade later to a paid tier for production.
 
-> [!div class="nextstepaction"]
-> <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=JAVASCRIPT&Pillar=Vision&Product=Face&Page=quickstart&Section=Prerequisites" target="_target">I ran into an issue</a>
+
 
 [!INCLUDE [create environment variables](../environment-variables.md)]
 
@@ -46,13 +45,13 @@ Get started with facial recognition using the Face client library for JavaScript
     npm init
     ```
 
-1. Install the `ms-rest-azure` and `azure-cognitiveservices-face` NPM packages:
+1. Install the `ms-rest-azure` and `azure-cognitiveservices-face` npm packages:
 
     ```console
     npm install @azure/cognitiveservices-face @azure/ms-rest-js uuid
     ```
 
-    Your app's `package.json` file will be updated with the dependencies.
+    Your app's `package.json` file is updated with the dependencies.
 
 1. Create a file named `index.js`, open it in a text editor, and paste in the following code:
 
@@ -67,8 +66,7 @@ Get started with facial recognition using the Face client library for JavaScript
     node index.js
     ```
 
-> [!div class="nextstepaction"]
-> <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=JAVASCRIPT&Pillar=Vision&Product=Face&Page=quickstart&Section=Identify-faces" target="_target">I ran into an issue</a>
+
 
 ## Output
 
@@ -104,8 +102,6 @@ Person: Family1-Son is identified for face in: identification1.jpg with ID: 600d
 Person: Family1-Dad is identified for face in: identification1.jpg with ID: e83b494f-9ad2-473f-9d86-3de79c01e345. Confidence: 0.96725.
 ```
 
-> [!div class="nextstepaction"]
-> <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=JAVASCRIPT&Pillar=Vision&Product=Face&Page=quickstart&Section=Output" target="_target">I ran into an issue</a>
 
 ## Clean up resources
 

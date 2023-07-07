@@ -14,7 +14,7 @@ This article shows you how to create an alert rule. To learn more about alerts, 
 
 You create an alert rule by combining:
  - The resources to be monitored.
- - The signal or telemetry from the resource.
+ - The signal or data from the resource.
  - Conditions.
 
 You then define these elements for the resulting alert actions by using:
@@ -29,6 +29,8 @@ Alerts triggered by these alert rules contain a payload that uses the [common al
 
    :::image type="content" source="media/alerts-create-new-alert-rule/alerts-create-new-alert-rule.png" alt-text="Screenshot that shows steps to create a new alert rule.":::
 
+### Select a scope for the alert rule
+
 1. On the **Select a resource** pane, set the scope for your alert rule. You can filter by **subscription**, **resource type**, or **resource location**.
 
     > [!NOTE]
@@ -38,7 +40,13 @@ Alerts triggered by these alert rules contain a payload that uses the [common al
 
 1. Select **Apply**.
 1. Select **Next: Condition** at the bottom of the page.
+
+### Set the conditions for the alert rule
+
 1. On the **Condition** tab, when you select the **Signal name** field, the most commonly used signals are displayed in the drop-down list. Select one of these popular signals, or select **See all signals** if you want to choose a different signal for the condition. 
+
+    :::image type="content" source="media/alerts-create-new-alert-rule/alerts-popular-signals.png" alt-text="Screenshot that shows popular signals when creating an alert rule.":::
+
 1. (Optional) If you chose to **See all signals** in the previous step, use the **Select a signal** pane to search for the signal name or filter the list of signals. Filter by:
     - **Signal type**: The [type of alert rule](alerts-overview.md#types-of-alerts) you're creating.
     - **Signal source**: The service sending the signal. The list is prepopulated based on the type of alert rule you selected.
@@ -61,7 +69,7 @@ Alerts triggered by these alert rules contain a payload that uses the [common al
 
     Select the **Signal name** and **Apply**.
 1. Follow the steps in the tab that corresponds to the type of alert you're creating.
-    ### [Metric alert](#tab/metric)
+    #### [Metric alert](#tab/metric)
 
     1. Preview the results of the selected metric signal in the **Preview** section. Select values for the following fields.
 
@@ -114,7 +122,7 @@ Alerts triggered by these alert rules contain a payload that uses the [common al
         |Ignore data before|Use this setting to select the date from which to start using the metric historical data for calculating the dynamic thresholds. For example, if a resource was running in testing mode and is moved to production, you may want to disregard the metric behavior while the resource was in testing.|
 
     1. Select **Done**.
-    ### [Log alert](#tab/log)
+    #### [Log alert](#tab/log)
 
     > [!NOTE]
     > If you're creating a new log alert rule, note that the current alert rule wizard is different from the earlier experience. For more information, see [Changes to the log alert rule creation experience](#changes-to-the-log-alert-rule-creation-experience).
@@ -125,7 +133,7 @@ Alerts triggered by these alert rules contain a payload that uses the [common al
 
         :::image type="content" source="media/alerts-create-new-alert-rule/alerts-log-rule-query-pane.png" alt-text="Screenshot that shows the Query pane when creating a new log alert rule.":::
 
-    1. (Optional) If you are querying an ADX cluster, Log Analytics can't automatically identify the column with the event timestamp, so we recommend that you add a time range filter to the query. For example:
+    1. (Optional) If you're querying an ADX cluster, Log Analytics can't automatically identify the column with the event timestamp, so we recommend that you add a time range filter to the query. For example:
         ```azurecli
          adx(cluster).table    
          | where MyTS >= ago(5m) and MyTS <= now()
@@ -200,7 +208,7 @@ Alerts triggered by these alert rules contain a payload that uses the [common al
 
         :::image type="content" source="media/alerts-create-new-alert-rule/alerts-create-alert-rule-preview.png" alt-text="Screenshot that shows a preview of a new alert rule.":::
 
-    ### [Activity log alert](#tab/activity-log)
+    #### [Activity log alert](#tab/activity-log)
 
     1. On the **Conditions** pane, select the **Chart period**.
     1. The **Preview** chart shows you the results of your selection.
@@ -212,7 +220,7 @@ Alerts triggered by these alert rules contain a payload that uses the [common al
         |Status|Select the status levels for the alert.|
         |Event initiated by|Select the user or service principal that initiated the event.|
 
-    ### [Resource Health alert](#tab/resource-health)
+    #### [Resource Health alert](#tab/resource-health)
 
      On the **Conditions** pane, select values for each of these fields:
 
@@ -223,7 +231,7 @@ Alerts triggered by these alert rules contain a payload that uses the [common al
       |Previous resource status|Select the previous resource status. Values are **Available**, **Degraded**, **Unavailable**, and **Unknown**.|
       |Reason type|Select the causes of the Resource Health events. Values are **Platform Initiated**, **Unknown**, and **User Initiated**.|
   
-    ### [Service Health alert](#tab/service-health)
+    #### [Service Health alert](#tab/service-health)
 
      On the **Conditions** pane, select values for each of these fields:
 
@@ -237,25 +245,23 @@ Alerts triggered by these alert rules contain a payload that uses the [common al
 
     From this point on, you can select the **Review + create** button at any time.
 
+### Set the actions for the alert rule
+
 1. On the **Actions** tab, select or create the required [action groups](./action-groups.md).
 
-    > [!NOTE]
-    > We're continually adding more regions for regional data processing.
+1. <a name="custom-props"></a>(Optional)  In the **Custom properties** section, if you've configured action groups for this alert rule, you can add your own properties to include in the alert notification payload. You can use these properties in the actions called by the action group, such as webhook, Azure function or logic app actions.
 
-1. (Optional)  In the <a name="custom-props">**Custom properties**</a> section, if you've configured action groups for this alert rule, you can add custom properties in key:value pairs to the alert notification payload to add more information to it. Add the property **Name** and **Value** for the custom property you want included in the payload.
+    The custom properties are specified as key:value pairs, using either static text, a dynamic value extracted from the alert payload, or a combination of both.
 
-    You can also use custom properties to extract and manipulate data from alert payloads that use the common schema. You can use those values in the action group webhook or logic app.
-    
-     > [!NOTE]
-     > In this phase the custom properties are not part of the e-mail template
+    The format for extracting a dynamic value from the alert payload is: `${<path to schema field>}`. For example: ${data.essentials.monitorCondition}.
 
-    The format for extracting values from the common schema, use a "$", and then the path of the [Common alert schema](alerts-common-schema.md) field inside curly brackets. For example: `${data.essentials.monitorCondition}`.
+    Use the [common alert schema](alerts-common-schema.md) format to specify the field in the payload, whether or not the action groups configured for the alert rule use the common schema. 
 
-    In the following examples, values in the **custom properties** are used to utilize data from the payload:
+    In the following examples, values in the **custom properties** are used to utilize data from a payload that uses the common alert schema:
 
     **Example 1**
 
-    This example creates an "Additional Details" tag with data refarding the "window start time" and "window end time".
+    This example creates an "Additional Details" tag with data regarding the "window start time" and "window end time".
 
     - **Name:** "Additional Details"
     - **Value:** "Evaluation windowStartTime: \${data.context.condition.windowStartTime}. windowEndTime: \${data.context.condition.windowEndTime}"
@@ -263,7 +269,7 @@ Alerts triggered by these alert rules contain a payload that uses the [common al
 
 
     **Example 2**
-    This example add the data regarding the reason of resolving or firing the alert. 
+    This example adds the data regarding the reason of resolving or firing the alert. 
 
     - **Name:** "Alert \${data.essentials.monitorCondition} reason"
     - **Value:** "\${data.context.condition.allOf[0].metricName} \${data.context.condition.allOf[0].operator} \${data.context.condition.allOf[0].threshold} \${data.essentials.monitorCondition}. The value is \${data.context.condition.allOf[0].metricValue}"
@@ -277,24 +283,26 @@ Alerts triggered by these alert rules contain a payload that uses the [common al
     > [!NOTE]
     > The [common schema](alerts-common-schema.md) overwrites custom configurations. Therefore, you can't use both custom properties and the common schema for log alerts.
 
+### Set the details for the alert rule
+
 1. On the **Details** tab, define the **Project details**.
     - Select the **Subscription**.
     - Select the **Resource group**.
-    - (Optional) If you're creating a metric alert rule that monitors a custom metric with the scope defined as one of the following regions and you want to make sure that the data processing for the alert rule takes place within that region, you can select to process the alert rule in one of these regions:
+
+1. Define the **Alert rule details**.
+
+    #### [Metric alert](#tab/metric)
+
+    1. Select the **Severity**.
+    1. Enter values for the **Alert rule name** and the **Alert rule description**.
+    1. (Optional) If you're creating a metric alert rule that monitors a custom metric with the scope defined as one of the following regions and you want to make sure that the data processing for the alert rule takes place within that region, you can select to process the alert rule in one of these regions:
         - North Europe
         - West Europe
         - Sweden Central
         - Germany West Central 
   
-    > [!NOTE]
-    > We're continually adding more regions for regional data processing.
-1. Define the **Alert rule details**.
+        We're continually adding more regions for regional data processing.
 
-    ### [Metric alert](#tab/metric)
-
-    1. Select the **Severity**.
-    1. Enter values for the **Alert rule name** and the **Alert rule description**.
-    1. Select the **Region**.
     1. (Optional) In the **Advanced options** section, you can set several options.
 
         |Field |Description |
@@ -304,12 +312,12 @@ Alerts triggered by these alert rules contain a payload that uses the [common al
 
     :::image type="content" source="media/alerts-create-new-alert-rule/alerts-metric-rule-details-tab.png" alt-text="Screenshot that shows the Details tab when creating a new alert rule.":::
 
-    ### [Log alert](#tab/log)
+    #### [Log alert](#tab/log)
 
     1. Select the **Severity**.
     1. Enter values for the **Alert rule name** and the **Alert rule description**.
     1. Select the **Region**.
-    1. In the <a name="managed-id">**Identity**</a> section, select which identity is used by the log alert rule to send the log query. This identity is used for authentication when the alert rule executes the log query.
+    1. <a name="managed-id"></a>In the **Identity** section, select which identity is used by the log alert rule to send the log query. This identity is used for authentication when the alert rule executes the log query.
 
         Keep these things in mind when selecting an identity:
         - A managed identity is required if you're sending a query to Azure Data Explorer.
@@ -344,29 +352,28 @@ Alerts triggered by these alert rules contain a payload that uses the [common al
         |Mute actions |Select to set a period of time to wait before alert actions are triggered again. If you select this checkbox, the **Mute actions for** field appears to select the amount of time to wait after an alert is fired before triggering actions again.|
         |Check workspace linked storage|Select if logs workspace linked storage for alerts is configured. If no linked storage is configured, the rule isn't created.|
 
-    ### [Activity log alert](#tab/activity-log)
+    #### [Activity log alert](#tab/activity-log)
 
     1. Enter values for the **Alert rule name** and the **Alert rule description**.
-    1. Select the **Region**.
     1. Select **Enable upon creation** for the alert rule to start running as soon as you're done creating it.
 
     :::image type="content" source="media/alerts-create-new-alert-rule/alerts-activity-log-rule-details-tab.png" alt-text="Screenshot that shows the Actions tab when creating a new activity log alert rule.":::
 
-    ### [Resource Health alert](#tab/resource-health)
+    #### [Resource Health alert](#tab/resource-health)
 
     1. Enter values for the **Alert rule name** and the **Alert rule description**.
-    1. Select the **Region**.
     1. Select **Enable upon creation** for the alert rule to start running as soon as you're done creating it.
 
     :::image type="content" source="media/alerts-create-new-alert-rule/alerts-activity-log-rule-details-tab.png" alt-text="Screenshot that shows the Actions tab when creating a new activity log alert rule.":::
-    ### [Service Health alert](#tab/service-health)
+    #### [Service Health alert](#tab/service-health)
     
     1. Enter values for the **Alert rule name** and the **Alert rule description**.
-    1. Select the **Region**.
     1. Select **Enable upon creation** for the alert rule to start running as soon as you're done creating it.
 
     :::image type="content" source="media/alerts-create-new-alert-rule/alerts-activity-log-rule-details-tab.png" alt-text="Screenshot that shows the Actions tab when creating a new activity log alert rule.":::
     ---
+
+### Finish creating the alert rule
 
 1. On the **Tags** tab, set any required tags on the alert rule resource.
 
@@ -383,7 +390,7 @@ You can create a new alert rule using the [Azure CLI](/cli/azure/get-started-wit
 
 1. In the [portal](https://portal.azure.com/), select **Cloud Shell**. At the prompt, use the commands that follow.
 
-    ### [Metric alert](#tab/metric)
+    #### [Metric alert](#tab/metric)
 
     To create a metric alert rule, use the `az monitor metrics alert create` command. You can see detailed documentation on the metric alert rule create command in the `az monitor metrics alert create` section of the [CLI reference documentation for metric alerts](/cli/azure/monitor/metrics/alert).
 
@@ -391,7 +398,7 @@ You can create a new alert rule using the [Azure CLI](/cli/azure/get-started-wit
     ```azurecli
      az monitor metrics alert create -n {nameofthealert} -g {ResourceGroup} --scopes {VirtualMachineResourceID} --condition "avg Percentage CPU > 90" --description {descriptionofthealert}
     ```
-    ### [Log alert](#tab/log)
+    #### [Log alert](#tab/log)
 
     To create a log alert rule that monitors the count of system event errors:
 
@@ -402,7 +409,7 @@ You can create a new alert rule using the [Azure CLI](/cli/azure/get-started-wit
     > [!NOTE]
     > Azure CLI support is only available for the `scheduledQueryRules` API version `2021-08-01` and later. Previous API versions can use the Azure Resource Manager CLI with templates as described in the following sections. If you use the legacy [Log Analytics Alert API](./api-alerts.md), you must switch to use the CLI. [Learn more about switching](./alerts-log-api-switch.md).
 
-    ### [Activity log alert](#tab/activity-log)
+    #### [Activity log alert](#tab/activity-log)
 
     To create a new activity log alert rule, use the following commands:
      - [az monitor activity-log alert create](/cli/azure/monitor/activity-log/alert#az-monitor-activity-log-alert-create): Create a new activity log alert rule resource.
@@ -411,7 +418,7 @@ You can create a new alert rule using the [Azure CLI](/cli/azure/get-started-wit
 
     You can find detailed documentation on the activity log alert rule create command in the `az monitor activity-log alert create` section of the [CLI reference documentation for activity log alerts](/cli/azure/monitor/activity-log/alert).
 
-    ### [Resource Health alert](#tab/resource-health)
+    #### [Resource Health alert](#tab/resource-health)
  
     To create a new activity log alert rule, use the following commands by using the `Resource Health` category:
      - [az monitor activity-log alert create](/cli/azure/monitor/activity-log/alert#az-monitor-activity-log-alert-create): Create a new activity log alert rule resource.
@@ -420,7 +427,7 @@ You can create a new alert rule using the [Azure CLI](/cli/azure/get-started-wit
     
     You can find detailed documentation on the alert rule create command in the `az monitor activity-log alert create` section of the [CLI reference documentation for activity log alerts](/cli/azure/monitor/activity-log/alert).
 
-   ### [Service Health alert](#tab/service-health)
+   #### [Service Health alert](#tab/service-health)
 
     To create a new activity log alert rule, use the following commands by using the `Service Health` category:
      - [az monitor activity-log alert create](/cli/azure/monitor/activity-log/alert#az-monitor-activity-log-alert-create): Create a new activity log alert rule resource.
@@ -475,7 +482,7 @@ ARM templates for activity log alerts contain additional properties for the cond
 |resourceGroup     |Name of the resource group for the affected resource in the activity log event.        |
 |resourceProvider     |For more information, see [Azure resource providers and types](../../azure-resource-manager/management/resource-providers-and-types.md). For a list that maps resource providers to Azure services, see [Resource providers for Azure services](../../azure-resource-manager/management/resource-providers-and-types.md).         |
 |status     |String describing the status of the operation in the activity event. Possible values are `Started`, `In Progress`, `Succeeded`, `Failed`, `Active`, or `Resolved`.         |
-|subStatus     |Usually, this field is the HTTP status code of the corresponding REST call. This field can also include other strings describing a sub-status. Examples of HTTP status codes include `OK` (HTTP Status Code: 200), `No Content` (HTTP Status Code: 204), and `Service Unavailable` (HTTP Status Code: 503), among many others.         |
+|subStatus     |Usually, this field is the HTTP status code of the corresponding REST call. This field can also include other strings describing a substatus. Examples of HTTP status codes include `OK` (HTTP Status Code: 200), `No Content` (HTTP Status Code: 204), and `Service Unavailable` (HTTP Status Code: 503), among many others.         |
 |resourceType     |The type of the resource affected by the event. An example is `Microsoft.Resources/deployments`.         |
 
 For more information about the activity log fields, see [Azure activity log event schema](../essentials/activity-log-schema.md).

@@ -156,6 +156,28 @@ JBoss EAP is only available on the Linux version of App Service. Select the **Li
 
 ---
 
+After you've confirmed your choices, the plugin adds the above plugin element and requisite settings to your project's `pom.xml` file that configure your web app to run in Azure App Service.
+
+The relevant portion of the `pom.xml` file should look similar to the following example.
+
+```xml-interactive
+<build>
+    <plugins>
+        <plugin>
+            <groupId>com.microsoft.azure</groupId>
+            <artifactId>>azure-webapp-maven-plugin</artifactId>
+            <version>x.xx.x</version>
+            <configuration>
+                <schemaVersion>v2</schemaVersion>
+                <resourceGroup>your-resourcegroup-name</resourceGroup>
+                <appName>your-app-name</appName>
+            ...
+            </configuration>
+        </plugin>
+    </plugins>
+</build>           
+```
+
 You can modify the configurations for App Service directly in your `pom.xml`. Some common configurations are listed below:
 
 Property | Required | Description | Version

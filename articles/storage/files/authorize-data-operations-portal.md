@@ -32,7 +32,7 @@ There are two new built-in roles that have the required permissions to access fi
 - [Storage File Data Privileged Reader](../../role-based-access-control/built-in-roles.md#storage-file-data-privileged-reader)
 - [Storage File Data Privileged Contributor](../../role-based-access-control/built-in-roles.md#storage-file-data-privileged-contributor)
 
-For information about the built-in roles that support access to file data, see [Access Azure file shares using Azure Active Directory with Azure Files OAuth over REST Preview](authorize-oauth-rest.md).
+For information about the built-in roles that support access to file data, see [Access Azure file shares using Azure Active Directory with Azure Files OAuth over REST (preview)](authorize-oauth-rest.md).
 
 Custom roles can support different combinations of the same permissions provided by the built-in roles. For more information about creating Azure custom roles, see [Azure custom roles](../../role-based-access-control/custom-roles.md) and [Understand role definitions for Azure resources](../../role-based-access-control/role-definitions.md).
 
@@ -101,5 +101,5 @@ To update this setting for an existing storage account, follow these steps:
 
 ## See also
 
-- [Access Azure file shares using Azure AD with Azure Files OAuth over REST Preview](authorize-oauth-rest.md)
+- [Access Azure file shares using Azure AD with Azure Files OAuth over REST (preview)](authorize-oauth-rest.md)
 - [Authorize access to data in Azure Storage](../common/authorize-data-access.md)

@@ -1,18 +1,18 @@
 ### YamlMime:Hub
 
 title: Computer Vision documentation # < 60 chars
-summary: The cloud-based Computer Vision API provides developers with access to advanced algorithms for processing images and returning information. By uploading an image or specifying an image URL, Microsoft Computer Vision algorithms can analyze visual content in different ways based on inputs and user choices. Learn how to analyze visual content in different ways with quickstarts, tutorials, and samples. # < 160 chars
+summary: The cloud-based Computer Vision API provides developers with access to advanced algorithms for processing images and returning information. When you upload an image or specify an image URL, Azure Computer Vision algorithms can analyze visual content in different ways based on inputs and user choices. Learn how to analyze visual content with quickstarts, tutorials, and samples. # < 160 chars
 
 metadata:
-  title: Computer Vision documentation - Quickstarts, Tutorials, API Reference - Azure Cognitive Services | Microsoft Docs
-  description: The cloud-based Computer Vision API provides developers with access to advanced algorithms for processing images and returning information. By uploading an image or specifying an image URL, Microsoft Computer Vision algorithms can analyze visual content in different ways based on inputs and user choices. Learn how to analyze visual content in different ways with quickstarts, tutorials, and samples.
+  title: Computer Vision documentation - Quickstarts, Tutorials, API Reference - Azure Cognitive Services | Microsoft Learn
+  description: The cloud-based Computer Vision API provides developers with access to advanced algorithms for processing images and returning information. When you upload an image or specify an image URL, Azure Computer Vision algorithms can analyze visual content in different ways based on inputs and user choices. Learn how to analyze visual content with quickstarts, tutorials, and samples.
   services: cognitive-services
   ms.service: cognitive-services
   ms.subservice: computer-vision
   ms.topic: hub-page
   author: PatrickFarley
   ms.author: pafarley
-  ms.date: 11/03/2022
+  ms.date: 07/04/2023
 
 highlightedContent:
   # itemType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new

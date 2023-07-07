@@ -6,7 +6,7 @@ author: AvijitkGupta
 ms.service: cosmos-db
 ms.subservice: postgresql
 ms.topic: reference
-ms.date: 06/05/2023
+ms.date: 06/06/2023
 ---
 
 # Multi-tenant monitoring
@@ -22,7 +22,7 @@ Tenant monitoring is a crucial aspect of managing a multi-tenant SaaS platform. 
 
 Azure Cosmos DB for PostgreSQL uses row-based sharding at core, which means that each distributed table contains a distributed column - denoted as tenant key. Tenant key enables splitting data across shards, where each shard contains one or more tenants. Shards themselves are distributed among the nodes in the cluster, enabling horizontal scaling of your database.
 
-:::image type="content" source="media/concepts-monitor-tenants/tenants-overview.svg" alt-text="Diagram shows 3 node cluster hosting tenants, with top 3 tenants usage of CPU_in_seconds & Overall query count traced in citus_stat_tenants view.":::
+:::image type="content" source="media/concepts-monitor-tenants/tenants-overview.svg" alt-text="Diagram shows three node cluster hosting tenants, with top three tenants usage of CPU_in_seconds & Overall query count traced in citus_stat_tenants view.":::
 
 The CPU time is measured in seconds, consumed by tenant, across all available cores on a node in a cluster. Total CPU time available on cluster, can be estimated as: `number_of_vcores * citus.stat_tenants_period * number_of_nodes`.
 
@@ -35,7 +35,7 @@ Controls which message levels are written to the server log. Valid values are `D
 Controls the number of tenants (top `N`) tracked within a single time window. Default is `100`.
 
 ### citus.stat_tenants_period (int)
-Controls the time window (in seconds) to which tenant statistics are allocated. Default is `60 * 60 * 24` seconds.
+Controls the time window (in seconds) to which tenant statistics are allocated. Default is `60` seconds.
 
 ### citus.stat_tenants_track (boolean)
 Enables or disables the tracking of tenant statistics. Default is `None`. Modification to the node parameter requires a restart.

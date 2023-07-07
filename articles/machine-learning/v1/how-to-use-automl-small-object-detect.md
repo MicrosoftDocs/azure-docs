@@ -13,13 +13,10 @@ ms.custom: UpdateFrequency5, sdkv1, event-tier1-build-2022
 
 # Train a small object detection model with AutoML (preview) (v1)
 
-[!INCLUDE [sdk v1](../../../includes/machine-learning-sdk-v1.md)]
+[!INCLUDE [sdk v1](../includes/machine-learning-sdk-v1.md)]
 
-> [!div class="op_single_selector" title1="Select the version of Azure Machine Learning CLI extension you are using:"]
-> * [v1](how-to-use-automl-small-object-detect.md)
-> * [v2 (current version)](../how-to-use-automl-small-object-detect.md?view=azureml-api-2&preserve-view=true)
 
-[!INCLUDE [cli-version-info](../../../includes/machine-learning-cli-version-1-only.md)]
+[!INCLUDE [cli-version-info](../includes/machine-learning-cli-version-1-only.md)]
 
 
 > [!IMPORTANT]

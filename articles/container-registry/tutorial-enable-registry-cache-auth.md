@@ -16,6 +16,7 @@ This article walks you through the steps of enabling Cache ACR with authenticati
 
 * Sign in to the [Azure portal](https://ms.portal.azure.com/). 
 * You have an existing Key Vault to store credentials. Learn more about [creating and storing credentials in a Key Vault.][create-and-store-keyvault-credentials]
+* You have the existing Key vaults without the RBAC controls.
 
 ## Configure Cache ACR (preview) with authentication - Azure portal
 
