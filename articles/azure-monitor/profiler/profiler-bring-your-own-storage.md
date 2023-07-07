@@ -32,7 +32,7 @@ In this guide, you learn how to:
 > [!div class="checklist"]
 > - Grant Diagnostic Services access to your storage account.
 > - Link your storage account with your Application Insights resource.
-> - Learn how to read the Profiler performance data and call stack.
+> - Learn how your storage account is accessed.
 
 ## Prerequisites
 
