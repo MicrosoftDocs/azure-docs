@@ -12,7 +12,7 @@ ms.reviewer: sapnakeshari
 
 # View your usage summary details and download reports for EA enrollments
 
-This article explains how partner administrators of indriect enrollments and enterprise administrators of direct and indirect Enterprise Agreement (EA) enrollments can view a summary of their usage data, Azure Prepayment consumed, and charges associated with other usage in the Azure portal. Charges are presented at the summary level across all accounts and subscriptions of the enrollment.
+This article explains how partner administrators of indirect enrollments and enterprise administrators of direct and indirect Enterprise Agreement (EA) enrollments can view a summary of their usage data, Azure Prepayment consumed, and charges associated with other usage in the Azure portal. Charges are presented at the summary level across all accounts and subscriptions of the enrollment.
 
 > [!NOTE]
 > We recommend that both direct and indirect EA Azure customers use Cost Management + Billing in the Azure portal to manage their enrollment and billing instead of using the EA portal. For more information about enrollment management in the Azure portal, see [Get started with EA billing in the Azure portal](ea-direct-portal-get-started.md).
@@ -249,11 +249,12 @@ As a partner admin, you can update the PO number for a billing account:
 
 ## Review credit charges
 
-The information in this section describes how you can view the starting balance, ending balance, and credit adjustments for your Azure Prepayment (previously called monetary commitment).
+The information in this section describes how an EA administrator or partner administrator can view the starting balance, ending balance, and credit adjustments for your Azure Prepayment (previously called monetary commitment).
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 1. Search for **Cost Management + Billing** and select it.
-1. Select **Billing scopes** from the navigation menu and then select the billing account that you want to work with.
+1. For EA administrators, select **Billing scopes** from the navigation menu and then select the billing account that you want to work with.
+1. For partner administrators, select **Billing scopes** from the navigation menu and then select the billing account that you want to work with. Navigate to **Billing profile** and select the billing profile that you want to work with.
 1. In the navigation menu, select **Credits + Commitments**.
 1. The Credits tab shows a breakdown of your credits and a graph showing your balance over time.  
     :::image type="content" source="./media/direct-ea-azure-usage-charges-invoices/credits-tab.png" alt-text="Screenshot showing the Credits tab." lightbox="./media/direct-ea-azure-usage-charges-invoices/credits-tab.png" :::
@@ -315,6 +316,7 @@ You can view all the reservations placed for an Enterprise Agreement in the Azur
 1. Sign in to the [Azure portal](https://portal.azure.com).
 1. Search for **Cost Management + Billing** and select it.
 1. Select **Billing scopes** from the navigation menu and then select the billing account that you want to work with.
+1. For a partner administrator, after you select a billing account, select the billing profile that you want to work with.
 1. In the navigation menu, select **Reservation transactions**. Prices shown in the following image are examples.  
     :::image type="content" source="./media/direct-ea-azure-usage-charges-invoices/reservation-transactions.png" alt-text="Screenshot showing the Reservation transactions page." lightbox="./media/direct-ea-azure-usage-charges-invoices/reservation-transactions.png" :::
 
