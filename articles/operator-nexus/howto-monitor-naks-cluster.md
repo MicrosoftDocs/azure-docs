@@ -178,19 +178,8 @@ It deploys a pod to each cluster node, connecting each VM to Arc-enabled servers
 The `daemonSet` also includes a liveness probe that monitors the server connection and AMA processes.
 
 1. Set the environment as specified in [Environment Setup](#environment-setup). Set the current `kubeconfig` context for the Nexus Kubernetes cluster VMs.
-2. Permit `Kubectl` access to the provisioned cluster. Retrieve `KUBECONFIG` by running the Azure CLI command:
-
-```azurecli
-az hybridaks proxy --resource-group <Nexus Kubernetes cluster Resource Group> --name <Nexus Kubernetes cluster Name> --file <kube-config-filename> &
-```
-
-3. Set the `kubeconfig` file for using kubectl:
-
-```bash
-export KUBECONFIG=<path-to-kube-config-file>
-```
-
-4. Run the **`install.sh`** script from the command prompt with kubectl access to the Nexus Kubernetes cluster.
+2. Permit `Kubectl` access to the Nexus Kubernetes cluster through [cluster connect feature](./includes/kubernetes-cluster/cluster-connect.md).
+3. Run the **`install.sh`** script from the command prompt with kubectl access to the Nexus Kubernetes cluster.
 
 The script deploys the `daemonSet` to the cluster. Monitor the progress as follows:
 
