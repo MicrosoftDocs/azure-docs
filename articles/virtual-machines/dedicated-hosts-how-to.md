@@ -866,7 +866,7 @@ If you would like to move your host and all associated VMs to a newer generation
 
 > [!Warning]
 > Resize operation will cause loss of any non-persisted data including the data on temp disks, hence save all your work before triggering resize.
-> During preview certain hosts in host group with auto-placement 
+> During preview certain hosts with auto-placement disabled might not support resize, this limitation is only temporary and would be removed as we announce general availability of host resize.
 
 ### [Portal](#tab/portal)
 
