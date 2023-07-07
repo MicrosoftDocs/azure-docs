@@ -18,7 +18,7 @@ You can configure Elastic SAN volume groups to only allow access over specific e
 
 There are two types of virtual network endpoints you can configure to allow access to an Elastic SAN volume group:
 
-- [Storage service endpoints](#azure-storage-service-endpoints)
+- [Storage service endpoints](#storage-service-endpoints)
 - [Private endpoints](#private-endpoints)
 
 To decide which option is best for you, see [Compare Private Endpoints and Service Endpoints](../../virtual-network/vnet-integration-for-azure-services.md#compare-private-endpoints-and-service-endpoints). Generally, you should use private endpoints instead of service endpoints. Private Link offers better capabilities in terms of privately accessing PaaS services from on-premises, built-in data exfiltration protection and mapping a service to a Private IP address in your own network. For more information, see [Azure Private Link](../../private-link/private-endpoint-overview.md).  
