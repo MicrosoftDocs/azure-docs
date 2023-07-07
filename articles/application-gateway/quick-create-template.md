@@ -33,6 +33,9 @@ If your environment meets the prerequisites and you're familiar with using ARM t
 
 For the sake of simplicity, this template creates a simple setup with a public frontend IP, a basic listener to host a single site on the application gateway, a basic request routing rule, and two virtual machines in the backend pool.
 
+  > [!NOTE]
+  > Application Gateway now supports IPv6 frontend IP (Public Preview). You can now choose up to 4 frontend IPs: two IPv4 addresses (Public and Private) and two IPv6 addresses (Public and Private)
+
 The template used in this quickstart is from [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/ag-docs-qs/)
 
 :::code language="json" source="~/quickstart-templates/demos/ag-docs-qs/azuredeploy.json":::

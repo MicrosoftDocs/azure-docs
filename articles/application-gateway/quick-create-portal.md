@@ -70,6 +70,10 @@ You'll create the application gateway using the tabs on the **Create application
 
      ![Create new application gateway: frontends](./media/application-gateway-create-gateway-portal/application-gateway-create-frontends.png)
 
+  > [!NOTE]
+  > Application Gateway now supports IPv6 frontend IP (Public Preview). You can now choose up to 4 frontend IPs: two IPv4 addresses (Public and Private) and two IPv6 addresses (Public and Private)
+
+
 3. Select **Next: Backends**.
 
 ### Backends tab
