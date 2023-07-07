@@ -1,7 +1,7 @@
 ---
-title: "Recipe: Predictive maintenance with the Cognitive Services for big data"
-titleSuffix: Azure Cognitive Services
-description: This quickstart shows how to perform distributed anomaly detection with the Cognitive Services for big data
+title: "Recipe: Predictive maintenance with the Azure AI services for big data"
+titleSuffix: Azure AI services
+description: This quickstart shows how to perform distributed anomaly detection with the Azure AI services for big data
 services: cognitive-services
 author: mhamilton723
 manager: nitinme
@@ -14,9 +14,9 @@ ms.devlang: python
 ms.custom: ignite-2022
 ---
 
-# Recipe: Predictive maintenance with the Cognitive Services for big data
+# Recipe: Predictive maintenance with the Azure AI services for big data
 
-This recipe shows how you can use Azure Synapse Analytics and Cognitive Services on Apache Spark for predictive maintenance of IoT devices. We'll follow along with the [Azure Cosmos DB and Synapse Link](https://github.com/Azure-Samples/cosmosdb-synapse-link-samples) sample. To keep things simple, in this recipe we'll read the data straight from a CSV file rather than getting streamed data through Azure Cosmos DB and Synapse Link. We strongly encourage you to look over the Synapse Link sample.
+This recipe shows how you can use Azure Synapse Analytics and Azure AI services on Apache Spark for predictive maintenance of IoT devices. We'll follow along with the [Azure Cosmos DB and Synapse Link](https://github.com/Azure-Samples/cosmosdb-synapse-link-samples) sample. To keep things simple, in this recipe we'll read the data straight from a CSV file rather than getting streamed data through Azure Cosmos DB and Synapse Link. We strongly encourage you to look over the Synapse Link sample.
 
 ## Hypothetical scenario
 
@@ -33,7 +33,7 @@ There could be outliers in the data in random frequency. In those situations, RP
 
 ### Create an Anomaly Detector resource
 
-Azure Cognitive Services are represented by Azure resources that you subscribe to. Create a resource for Translator using the [Azure portal](../../cognitive-services-apis-create-account.md) or [Azure CLI](../../cognitive-services-apis-create-account-cli.md). You can also:
+Azure AI services are represented by Azure resources that you subscribe to. Create a resource for Translator using the [Azure portal](../../cognitive-services-apis-create-account.md) or [Azure CLI](../../cognitive-services-apis-create-account-cli.md). You can also:
 
 - View an existing resource in the  [Azure portal](https://portal.azure.com/).
 
@@ -59,7 +59,7 @@ Next, let's read the IoTSignals file into a DataFrame. Open a new notebook in yo
 df_signals = spark.read.csv("wasbs://publicwasb@mmlspark.blob.core.windows.net/iot/IoTSignals.csv", header=True, inferSchema=True)
 ```
 
-### Run anomaly detection using Cognitive Services on Spark
+### Run anomaly detection using Azure AI services on Spark
 
 The goal is to find instances where the signals from the IoT devices were outputting anomalous values so that we can see when something is going wrong and do predictive maintenance. To do that, let's use Anomaly Detector on Spark:
 
@@ -147,4 +147,4 @@ If successful, your output will look like this:
 
 ## Next steps
 
-Learn how to do predictive maintenance at scale with Azure Cognitive Services, Azure Synapse Analytics, and Azure Cosmos DB. For more information, see the full sample on [GitHub](https://github.com/Azure-Samples/cosmosdb-synapse-link-samples).
+Learn how to do predictive maintenance at scale with Azure AI services, Azure Synapse Analytics, and Azure Cosmos DB. For more information, see the full sample on [GitHub](https://github.com/Azure-Samples/cosmosdb-synapse-link-samples).
