@@ -14,7 +14,7 @@ ms.custom: template-how-to-pattern, devx-track-azurecli
 This guide explains prerequisites for creating:
 
 - Virtual machines (VMs) for virtual network function (VNF) workloads.
-- Azure Kubernetes Service (AKS) hybrid deployments for cloud-native network function (CNF) workloads.
+- Tenant Kubernetes cluster deployments for cloud-native network function (CNF) workloads.
 
 :::image type="content" source="./media/tenant-workload-deployment-flow.png" alt-text="Diagram of a tenant workload deployment flow.":::
 
@@ -38,11 +38,11 @@ You also need:
 - Your Azure account and the subscription ID of the Azure Operator Nexus cluster deployment.
 - The `custom location` resource ID of your Azure Operator Nexus cluster.
 
-## Specify the Nexus Kubernetes cluster availability zone
+## Nexus Kubernetes cluster availability zone
 
-When you're creating an AKS hybrid cluster, you can use the `--zones` option in `az hybridaks create` or `az hybridaks nodepool add` to schedule the cluster onto specific racks or distribute it evenly across multiple racks. This technique can improve resource utilization and fault tolerance.
+When you're creating a Nexus Kubernetes cluster, you can schedule the cluster onto specific racks or distribute it evenly across multiple racks. This technique can improve resource utilization and fault tolerance.
 
-If you don't specify a zone when you're creating an AKS hybrid cluster through the `--zones` option, the Azure Operator Nexus platform automatically implements a default anti-affinity rule. This rule aims to prevent scheduling the cluster VM on a node that already has a VM from the same cluster, but it's a best-effort approach and can't make guarantees.
+If you don't specify a zone when you're creating a Nexus Kubernetes cluster, the Azure Operator Nexus platform automatically implements a default anti-affinity rule. This rule aims to prevent scheduling the cluster VM on a node that already has a VM from the same cluster, but it's a best-effort approach and can't make guarantees.
 
 To get the list of available zones in the Azure Operator Nexus instance, you can use the following command:
 
@@ -96,31 +96,6 @@ The push refers to repository `devtestacr.azurecr.io/your-favorite-image`:
 
 ```bash
 docker push devtestacr.azurecr.io/your-favorite-image:v1
-```
-
-## Create a VM by using an image
-
-You can now use your image when you're creating Azure Operator Nexus virtual machines:
-
-```azurecli
-az networkcloud virtualmachine create --name "<YourVirtualMachineName>" \
---resource-group "<YourResourceGroup>" \
---subscription "<YourSubscription" \
---extended-location name="<ClusterCustomLocationId>" type="CustomLocation" \
---location "<ClusterAzureRegion>" \
---admin-username "<AdminUserForYourVm>" \
---csn attached-network-id="<CloudServicesNetworkResourceId>" \
---cpu-cores <NumOfCpuCores> \
---memory-size <AmountOfMemoryInGB> \
---network-attachments '[{"attachedNetworkId":"<L3NetworkResourceId>","ipAllocationMethod":"<YourIpAllocationMethod","defaultGateway":"True","networkAttachmentName":"<YourNetworkInterfaceName"},\
-                        {"attachedNetworkId":"<L2NetworkResourceId>","ipAllocationMethod":"Disabled","networkAttachmentName":"<YourNetworkInterfaceName"},
-                        {"attachedNetworkId":"<TrunkedNetworkResourceId>","ipAllocationMethod":"Disabled","networkAttachmentName":"<YourNetworkInterfaceName"}]' \
---storage-profile create-option="Ephemeral" delete-option="Delete" disk-size="<YourVmDiskSize>" \
---vm-image "<vmImageRef>" \
---ssh-key-values "<YourSshKey1>" "<YourSshKey2>" \
---placement-hints '[{<YourPlacementHint1},\
-                    {<YourPlacementHint2}]' \
---vm-image-repository-credentials registry-url="<YourAcrUrl>" username="<YourAcrUsername>" password="<YourAcrPassword>" \
 ```
 
 This VM image build procedure is derived from [KubeVirt](https://kubevirt.io/user-guide/virtual_machines/disks_and_volumes/#containerdisk-workflow-example).
