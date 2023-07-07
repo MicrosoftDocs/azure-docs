@@ -11,7 +11,7 @@ ms.author: aahi
 ms.custom: subject-armqs, mode-arm, devx-track-bicep
 ---
 
-# Quickstart: Create a Azure AI services resource using Bicep
+# Quickstart: Create an Azure AI services resource using Bicep
 
 Follow this quickstart to create Azure AI services resource using Bicep.
 
@@ -43,7 +43,7 @@ Be sure to change the `sku` parameter to the [pricing](https://azure.microsoft.c
 
 :::code language="bicep" source="~/quickstart-templates/quickstarts/microsoft.cognitiveservices/cognitive-services-universalkey/main.bicep":::
 
-One Azure resource is defined in the Bicep file: [Microsoft.CognitiveServices/accounts](/azure/templates/microsoft.cognitiveservices/accounts) specifies that it is a Azure AI services resource. The `kind` field in the Bicep file defines the type of resource.
+One Azure resource is defined in the Bicep file: [Microsoft.CognitiveServices/accounts](/azure/templates/microsoft.cognitiveservices/accounts) specifies that it is an Azure AI services resource. The `kind` field in the Bicep file defines the type of resource.
 
 [!INCLUDE [SKUs and pricing](./includes/quickstarts/sku-pricing.md)]
 
