@@ -26,6 +26,9 @@ The management SDKs enable you to create, update, and delete Event Grid topics a
 
 ## Data plane SDKs
 
+> [!NOTE]
+> For MQTT messaging, you can use your favorite MQTT SDK.  Currently Azure Event Grid doesn't provide data plane SDK for MQTT.
+
 The data plane SDKs enable you to post events to topics by taking care of authenticating, forming the event, and asynchronously posting to the specified endpoint. They also enable you to consume first party events. Currently, the following SDKs are available:
 
 | Programming language | Package | Reference documentation |  Samples | 
