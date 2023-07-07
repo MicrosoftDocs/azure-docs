@@ -1,5 +1,5 @@
 ---
-title: Restore revoked permissions granted to applications
+title: Restore revoked permissions granted to applications in Azure Active Directory
 description: Learn how to review and restore revoked permissions for an application in Azure Active Directory.
 services: active-directory
 author: Jackson-Woods
@@ -41,8 +41,8 @@ To restore previously revoked permissions for an application, you need:
 >[!NOTE]
 >Regranting admin consent will remove any granted permissions that are not part of the default set configured by the developer.
 
-If you know the specific permission that was revoked, you can grant it again manually using [PowerShell](/powershell/microsoftgraph/tutorial-grant-delegated-api-permissions?view=graph-powershell-1.0&preserve-view=true) or the [Microsoft Graph API](/graph/permissions-grant-via-msgraph?tabs=http&pivots=grant-delegated-permissions).
-If you don't know the revoked permissions, you can use the scripts provided in this article to detect and restore revoked permissions.
+- If you know the specific permission that was revoked, you can grant it again manually using [PowerShell](/powershell/microsoftgraph/tutorial-grant-delegated-api-permissions?view=graph-powershell-1.0&preserve-view=true) or the [Microsoft Graph API](/graph/permissions-grant-via-msgraph?tabs=http&pivots=grant-delegated-permissions).
+- If you don't know the revoked permissions, you can use the scripts provided in this article to detect and restore revoked permissions.
 
 First, set the servicePrincipalId value in the script to the ID value for the enterprise app whose permissions you want to restore. This ID is also called the `object ID` in the Azure portal **Enterprise applications** page.
 
