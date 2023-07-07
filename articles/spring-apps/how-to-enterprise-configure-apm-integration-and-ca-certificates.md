@@ -189,7 +189,7 @@ Use the following steps to view the APM configurations bound to the build:
 
 Use the following steps to view the APM configurations bound to the deployment:
 
-1. Navigate to your deployment page.
+1. Navigate to your application page.
    
 1. Under **Settings** in the left navigation pane, select **APM bindings**.
    
@@ -284,6 +284,8 @@ The following list shows you the Azure CLI commands you can use to manage APM co
       --service <Azure-Spring-Apps-instance-name> \
       --name <your-APM-name> \
   ```
+  
+---
 
 For more information on the `properties` and `secrets` parameters for your buildpack, see the [Supported Scenarios - APM and CA Certificates Integration](#supported-scenarios---apm-and-ca-certificates-integration) section.
 
@@ -357,7 +359,7 @@ az spring app deploy \
    --apms <your-APM>
 ```
 
-### Manage APMs via bindings in builder
+### Manage APMs via bindings in builder(deprecated)
 
 When the build service uses the Azure Spring Apps managed container registry, you can build an application to an image and then deploy it, but only within the current Azure Spring Apps service instance.
 
@@ -425,7 +427,20 @@ az spring build-service build <create|update> \
     --artifact-path <path-to-your-JAR-file>
 ```
 
-### Bind CA certificates via bindings in builder
+### View CA certificates bound to app builds
+Use the following steps to view the CA certificates bound to the build:
+
+1. Navigate to your build page.
+
+   :::image type="content" source="media/how-to-enterprise-configure-apm-integration-and-ca-certificates/build-service-build.png" alt-text="Screenshot of the build service page with current build highlighted in the list." lightbox="media/how-to-enterprise-configure-apm-integration-and-ca-certificates/build-service-build":::
+   
+1. Under **Settings** in the left navigation pane, select **Certificate bindings**.
+   
+1. On the **Certificate bindings** page, view the CA certificates bound to the build.
+
+   :::image type="content" source="media/how-to-enterprise-configure-apm-integration-and-ca-certificates/build-certificate-bindings.png" alt-text="Screenshot of the certificate bindings page showing CA certificates bound to the build." lightbox="media/how-to-enterprise-configure-apm-integration-and-ca-certificates/build-certificate-bindings.png":::
+
+### Bind CA certificates via bindings in builder(deprecated)
 
 CA certificates use the [ca-certificates](https://github.com/paketo-buildpacks/ca-certificates) buildpack to support providing CA certificates to the system trust store at build and runtime.
 
@@ -437,7 +452,7 @@ You can configure the CA certificates on the **Edit binding** page. The `succeed
 
 :::image type="content" source="media/how-to-enterprise-configure-apm-integration-and-ca-certificates/ca-certificates-buildpack-binding.png" alt-text="Screenshot of the Azure portal showing the Edit bindings for default builder page with the Edit binding for CA Certificates panel open." lightbox="media/how-to-enterprise-configure-apm-integration-and-ca-certificates/ca-certificates-buildpack-binding.png":::
 
-## Manage bindings in builder in Azure Spring Apps
+## Manage bindings in builder in Azure Spring Apps(deprecated)
 
 This section applies only to an Azure Spring Apps Enterprise service instance with the build service enabled. With the build service enabled, one buildpack binding means either credential configuration against one APM type, or CA certificates configuration against the CA certificates type. For APM integration, follow the earlier instructions to configure the necessary environment variables or secrets for your APM.
 
