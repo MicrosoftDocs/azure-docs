@@ -1,6 +1,6 @@
 ---
 title: "Quickstart: Image classification with Custom Vision client library or REST API"
-titleSuffix: Azure Cognitive Services
+titleSuffix: Azure AI services
 description: "Quickstart: Create an image classification project, add tags, upload images, train your project, and make a prediction using the Custom Vision client library or the REST API"
 author: PatrickFarley
 ms.author: pafarley

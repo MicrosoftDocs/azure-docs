@@ -31,13 +31,13 @@ items:
   - name: Transparency notes
     items:
     - name: Custom Vision use cases
-      href: /legal/cognitive-services/custom-vision/custom-vision-cvs-transparency-note?context=/azure/cognitive-services/custom-vision-service/context/context
+      href: /legal/cognitive-services/custom-vision/custom-vision-cvs-transparency-note?context=/azure/ai-services/custom-vision-service/context/context
     - name: Characteristics and limitations
-      href: /legal/cognitive-services/custom-vision/custom-vision-cvs-characteristics-and-limitations?context=/azure/cognitive-services/custom-vision-service/context/context
+      href: /legal/cognitive-services/custom-vision/custom-vision-cvs-characteristics-and-limitations?context=/azure/ai-services/custom-vision-service/context/context
   - name: Integration and responsible use
-    href: /legal/cognitive-services/custom-vision/custom-vision-cvs-guidance-integration-responsible-use?context=/azure/cognitive-services/custom-vision-service/context/context
+    href: /legal/cognitive-services/custom-vision/custom-vision-cvs-guidance-integration-responsible-use?context=/azure/ai-services/custom-vision-service/context/context
   - name: Data, privacy, and security
-    href: /legal/cognitive-services/custom-vision/custom-vision-cvs-data-privacy-security?context=/azure/cognitive-services/custom-vision-service/context/context
+    href: /legal/cognitive-services/custom-vision/custom-vision-cvs-data-privacy-security?context=/azure/ai-services/custom-vision-service/context/context
 - name: How-to guides
   items:
   - name: Test your model
@@ -73,7 +73,7 @@ items:
   - name: Enterprise readiness
     items:
     - name: Set up Virtual Networks
-      href: ../cognitive-services-virtual-networks.md?context=/azure/cognitive-services/custom-vision-service/context/context
+      href: ../cognitive-services-virtual-networks.md?context=/azure/ai-services/custom-vision-service/context/context
     - name: Use customer-managed keys
       href: encrypt-data-at-rest.md
 - name: Tutorials
@@ -113,7 +113,7 @@ items:
     - name: Compliance and certification
       href: https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/
   - name: Support and help options
-    href: ../cognitive-services-support-options.md?context=/azure/cognitive-services/custom-vision-service/context/context
+    href: ../cognitive-services-support-options.md?context=/azure/ai-services/custom-vision-service/context/context
   - name: Samples
     href: /samples/browse/?products=azure&term=vision
   - name: Azure roadmap

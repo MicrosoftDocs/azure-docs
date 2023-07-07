@@ -173,7 +173,7 @@ scissorsImageRegions := map[string][4]float64{
 Then, use this map of associations to upload each sample image with its region coordinates (you can upload up to 64 images in a single batch). Add the following code.
 
 > [!NOTE]
-> You'll need to change the path to the images based on where you downloaded the Cognitive Services Go SDK Samples project earlier.
+> You'll need to change the path to the images based on where you downloaded the Azure AI services Go SDK Samples project earlier.
 
 ```Go
 // Go through the data table above and create the images

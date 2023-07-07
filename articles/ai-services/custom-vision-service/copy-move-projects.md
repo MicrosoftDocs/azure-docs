@@ -1,6 +1,6 @@
 ---
 title: Copy and back up Custom Vision projects
-titleSuffix: Azure Cognitive Services
+titleSuffix: Azure AI services
 description: Learn how to use the ExportProject and ImportProject APIs to copy and back up your Custom Vision projects.
 author: PatrickFarley
 manager: nitinme
@@ -23,7 +23,7 @@ The **[ExportProject](https://westus2.dev.cognitive.microsoft.com/docs/services/
 
 ##  Prerequisites
 
-- Two Azure Custom Vision resources. If you don't have them, go to the Azure portal and [create a new Custom Vision resource](https://portal.azure.com/?microsoft_azure_marketplace_ItemHideKey=microsoft_azure_cognitiveservices_customvision#create/Microsoft.CognitiveServicesCustomVision?azure-portal=true).
+- Two Azure AI Custom Vision resources. If you don't have them, go to the Azure portal and [create a new Custom Vision resource](https://portal.azure.com/?microsoft_azure_marketplace_ItemHideKey=microsoft_azure_cognitiveservices_customvision#create/Microsoft.CognitiveServicesCustomVision?azure-portal=true).
 - The training keys and endpoint URLs of your Custom Vision resources. You can find these values on the resource's **Overview** tab on the Azure portal.
 - A created Custom Vision project. See [Build a classifier](./getting-started-build-a-classifier.md) for instructions on how to do this.
 * [PowerShell version 6.0+](/powershell/scripting/install/installing-powershell-core-on-windows), or a similar command-line utility.

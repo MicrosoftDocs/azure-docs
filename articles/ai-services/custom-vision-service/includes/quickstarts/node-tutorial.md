@@ -127,7 +127,7 @@ To add the sample images to the project, insert the following code after the tag
 [!code-javascript[](~/cognitive-services-quickstart-code/javascript/CustomVision/ImageClassification/CustomVisionQuickstart.js?name=snippet_upload)]
 
 > [!IMPORTANT]
-> You'll need to change the path to the images (`sampleDataRoot`) based on where you downloaded the Cognitive Services Python SDK Samples repo.
+> You'll need to change the path to the images (`sampleDataRoot`) based on where you downloaded the Azure AI services Python SDK Samples repo.
 
 ## Train the project
 

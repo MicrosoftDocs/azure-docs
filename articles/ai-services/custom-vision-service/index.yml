@@ -1,10 +1,10 @@
 ### YamlMime:Landing
 
 title: Custom Vision documentation # < 60 chars
-summary: Azure Custom Vision lets you build, deploy, and improve your own image classifiers. An image classifier is an AI service that applies content labels to images based on their visual characteristics.  # < 160 chars
+summary: Azure AI Custom Vision lets you build, deploy, and improve your own image classifiers. An image classifier is an AI service that applies content labels to images based on their visual characteristics.  # < 160 chars
 
 metadata:
-  title: Custom Vision documentation - Quickstarts, Tutorials, API Reference - Azure Cognitive Services | Microsoft Docs
+  title: Custom Vision documentation - Quickstarts, Tutorials, API Reference - Azure AI services | Microsoft Docs
   description: Custom Vision lets you build, deploy, and improve your own image classifiers. An image classifier is an AI service that applies labels (which represent classes) to images, based on their visual characteristics.
   services: cognitive-services
   ms.service: cognitive-services
@@ -133,4 +133,4 @@ landingContent:
     - linkListType: reference
       links:
         - text: Support and help options
-          url: ../cognitive-services-support-options.md?context=/azure/cognitive-services/custom-vision-service/context/context
+          url: ../cognitive-services-support-options.md?context=/azure/ai-services/custom-vision-service/context/context

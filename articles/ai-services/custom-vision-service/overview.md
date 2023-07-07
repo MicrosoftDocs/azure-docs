@@ -1,7 +1,7 @@
 ---
 title: What is Custom Vision?
-titleSuffix: Azure Cognitive Services
-description: Learn how to use the Azure Custom Vision service to build custom AI models to detect objects or classify images.
+titleSuffix: Azure AI services
+description: Learn how to use the Azure AI Custom Vision service to build custom AI models to detect objects or classify images.
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
@@ -18,10 +18,10 @@ keywords: image recognition, image identifier, image recognition app, custom vis
 
 # What is Custom Vision?
 
-Azure Custom Vision is an image recognition service that lets you build, deploy, and improve your own image identifier models. An image identifier applies labels to images, according to their visual characteristics. Each label represents a classification or object. Unlike the [Computer Vision](../computer-vision/overview.md) service, Custom Vision allows you to specify your own labels and train custom models to detect them.
+Azure AI Custom Vision is an image recognition service that lets you build, deploy, and improve your own image identifier models. An image identifier applies labels to images, according to their visual characteristics. Each label represents a classification or object. Unlike the [Azure AI Vision](../computer-vision/overview.md) service, Custom Vision allows you to specify your own labels and train custom models to detect them.
 
 > [!TIP]
-> The Azure Computer Vision Image Analysis API now supports custom models. [Use Image Analysis 4.0](../computer-vision/how-to/model-customization.md) to create custom image identifier models using the latest technology from Azure. To migrate a Custom Vision project to the new Image Analysis 4.0 system, see the [Migration guide](../computer-vision/how-to/migrate-from-custom-vision.md).
+> The Azure AI Vision Image Analysis API now supports custom models. [Use Image Analysis 4.0](../computer-vision/how-to/model-customization.md) to create custom image identifier models using the latest technology from Azure. To migrate a Custom Vision project to the new Image Analysis 4.0 system, see the [Migration guide](../computer-vision/how-to/migrate-from-custom-vision.md).
 
 You can use Custom Vision through a client library SDK, REST API, or through the [Custom Vision web portal](https://customvision.ai/). Follow a quickstart to get started.
 
@@ -73,7 +73,7 @@ As a part of Azure, Custom Vision Service has components that are maintained acr
 
 ## Data privacy and security
 
-As with all of the Cognitive Services, developers using the Custom Vision service should be aware of Microsoft's policies on customer data. See the [Cognitive Services page](https://www.microsoft.com/trustcenter/cloudservices/cognitiveservices) on the Microsoft Trust Center to learn more.
+As with all of the Azure AI services, developers using the Custom Vision service should be aware of Microsoft's policies on customer data. See the [Azure AI services page](https://www.microsoft.com/trustcenter/cloudservices/cognitiveservices) on the Microsoft Trust Center to learn more.
 
 ## Data residency
 
