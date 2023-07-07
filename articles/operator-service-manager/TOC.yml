@@ -1,10 +1,10 @@
 - name: Azure Operator Service Manager documentation
   href: index.yml
-- name: Operator
+- name: Overview
   expanded: true
   items:
-  - name: Operator workflow
-    href: ./operator/operator-workflow.md
+  - name: About Azure Operator Service Manager
+    href: ./overview.md
   - name: Tutorials
     expanded: true
     items:
