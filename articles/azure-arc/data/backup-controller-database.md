@@ -111,7 +111,7 @@ For example: `kubectl scale --replicas=0 sts/controldb -n arcdataservices`
     ```
 ```
 
-5. Edit the controldb StatefulSet to include a `controller-sa-secret` volume and corresponding volume mount (/var/run/secrets/mounts/credentials/mssql-sa-password`) in the `mssql-server` container, by using `kubectl edit sts controldb -n <namespace>` command. 
+5. Edit the controldb StatefulSet to include a `controller-sa-secret` volume and corresponding volume mount (`/var/run/secrets/mounts/credentials/mssql-sa-password`) in the `mssql-server` container, by using `kubectl edit sts controldb -n <namespace>` command. 
 
 6. Create new data (`data-controldb`) and logs (`logs-controldb`) persistent volume claims for the controldb pod as follows: 
 
