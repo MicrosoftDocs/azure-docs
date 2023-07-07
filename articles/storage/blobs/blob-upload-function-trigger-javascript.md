@@ -32,7 +32,7 @@ In this tutorial, learn how to:
 > * Use Cognitive Services to analyze an image
 > * Write data to Cosmos DB using Azure Function output bindings
 
-:::image type="content" source="./media/blob-upload-storage-function/functions-storage-database-architectural-diagram.png" alt-text="Architectural diagram showing an image blob is added to Blob Storage, then analyzed by an Azure Function, with the analysis inserted into a Cosmos D B.":::
+:::image type="content" source="./media/blob-upload-storage-function/functions-storage-database-architectural-diagram.png" alt-text="Architectural diagram showing an image blob is added to Blob Storage, then analyzed by an Azure Function, with the analysis inserted into a Cosmos DB.":::
 
 ## Prerequisites
 
