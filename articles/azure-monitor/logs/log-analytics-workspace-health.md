@@ -23,7 +23,7 @@ Azure Service Health monitors:
 
 - To view Log Analytics workspace health, you need `Microsoft.ResourceHealth/*/read` permissions to the Log Analytics workspace, as provided by the [Log Analytics Reader built-in role](./manage-access.md#log-analytics-reader), for example.
 
-- To set up health status alerts, you need `Microsoft.Insights/ScheduledQueryRules/Write` and `microsoft.insights/metricAlerts/write` permissions to the Log Analytics workspace, as provided by the [Monitoring Contributor built-in role](../roles-permissions-security.md#monitoring-contributor), for example.
+- To set up health status alerts, you need `Microsoft.Insights/ScheduledQueryRules/Write` and `Microsoft.Insights/ActivityLogAlerts/Write` permissions to the Log Analytics workspace, as provided by the [Monitoring Contributor built-in role](../roles-permissions-security.md#monitoring-contributor), for example.
 
 ## View Log Analytics workspace health and set up health status alerts 
 
