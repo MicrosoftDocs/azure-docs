@@ -49,7 +49,7 @@ sections:
       - question: Can I use auto-stop schedules to hibernate Dev Boxes on a schedule? # Question.
         answer: 
           The ability to use auto-stop schedules to initiate hibernation is in Preview.
-          To participate in the Preview, see [Schedule Dev Box Hibernation](https://aka.ms/DevBoxHibernationSchedulesPrivatePreviewSignUp).
+#          To participate in the Preview, see [Schedule Dev Box Hibernation](https://aka.ms/DevBoxHibernationSchedulesPrivatePreviewSignUp).
 
       - question: I enabled hibernation on a Dev Box definition, but my Dev Box definition reports that hibernation couldn't be enabled. # Question.
         answer: |
