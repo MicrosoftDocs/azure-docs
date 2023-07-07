@@ -266,13 +266,13 @@ It takes several days for the email to send. If your cluster wasn't migrated bef
 
 Confirm your AKS cluster is migrated to the AKS-managed Azure Active Directory using the [`az aks show`][az-aks-show] command.
 
-    ```azurecli-interactive
-    az aks show -g <RGName> -n <ClusterName>  --query "aadProfile"
-    ```
+```azurecli
+az aks show -g <RGName> -n <ClusterName>  --query "aadProfile"
+```
 
-    If your cluster is using the AKS-managed Azure Active Directory, the output shows `managed` is `true`.  For example:
+If your cluster is using the AKS-managed Azure Active Directory, the output shows `managed` is `true`.  For example:
 
-    ```output
+```output
     {
       "adminGroupObjectIDs": [
         "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
@@ -285,7 +285,7 @@ Confirm your AKS cluster is migrated to the AKS-managed Azure Active Directory u
       "serverAppSecret": null,
       "tenantId": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
     }
-    ```
+ ```
 
 
 ## Next steps
