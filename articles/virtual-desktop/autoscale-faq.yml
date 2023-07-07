@@ -73,7 +73,7 @@ sections:
          Nothing. Autoscale only reacts when the host pool capacity is greater than or less than the capacity threshold. The feature won't do anything when the host pool capacity is the same as the capacity threshold.
 
       - question: |
-         If I set drain mode on session hosts, will autoscale change my configured setting?
+         If I already configured drain mode on session hosts myself, does autoscale still change my configured drain mode settings?
         answer: |
          Yes, autoscale still turns VMs in drain mode on or off, no matter who put it in drain mode. Autoscale overrides drain mode on all VMs included in scaling, so if you want to exclude a VM from scaling actions, you must use exclusion tags.
       
@@ -83,7 +83,7 @@ sections:
          Autoscale monitors for when users sign in or out of their session hosts and categorizes this activity as session change events. Session change events trigger a scaling evaluation that creates logs. If there aren't any session change events or the event service has an outage, autoscale then checks to see if it missed any events. When several session change events happen within a short time period, the feature batches the scaling evaluations. This batching allows autoscale to process large numbers of events quickly without overloading the system.
 
       - question: |
-         Can forced sign-out happen in any phase of the day?
+         Can forced sign out happen in any phase of the day?
         answer: |
          No. If you've enabled autoscale, you can only force users to sign out during the ramp-down phase. If you put a session host in drain mode during ramp-down to prepare it to be shut down but not all users sign out before the phase changes to off-peak, the remaining user sessions won't be forced to sign out from their session. The reason users aren't signed out is because autoscale doesn't force users to sign out of their sessions during off-peak hours. Instead, autoscale waits until all users have signed out before deallocating the VM. For example, if the ramp-down phase is 15 minutes long, and the wait time before signing out users and shutting down VMs is 20 minutes long, the schedule shifts to the off-peak phase and the user sessions won't be forced to sign out.
       
@@ -132,4 +132,4 @@ sections:
       - question: |
          Does autoscale for personal desktops overwrite the drain mode of session hosts?
         answer: |
-         No. When autoscale is ready to deallocate a personal desktop due to the user session being signed out or disconnected, autoscale doesn't put the session host in drain mode. If the user tries to connect while autoscale is deallocating the session host, they'll receive a "No resources available" error message.
+         No. When autoscale is ready to deallocate a personal desktop due to the user session being signed out or disconnected, autoscale doesn't put the session host in drain mode. If the user tries to connect while autoscale is deallocating the session host, they'll receive an error message that says "No resources available."
