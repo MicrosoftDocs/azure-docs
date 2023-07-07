@@ -12,9 +12,9 @@ ms.date: 06/20/2022 #Required; mm/dd/yyyy format. Date the article was created o
 
 # Basv2-series (Public Preview)
 
-Basv2-series virtual machines run on the AMD's 3rd Generation EPYCTM 7763v processor in a multi-threaded configuration with up to 256 MB L3 cache configuration, providing low cost CPU burstable general purpose virtual machines. Basv2-series virtual machines utilize a CPU credit model to track how much CPU is consumed - the virtual machine accumuates CPU credits when a wokload is operationg below the base CPU performance threshold and, uses credits when running above the base CPU performance threshold, until all of its credits are consumed. Upon consuming all the CPU credits, a Basv2-series virtual machine is throttled back to its base CPU perfomrance until it accumulates the credits to CPU burst again.
+Basv2-series virtual machines run on the AMD's 3rd Generation EPYCTM 7763v processor in a multi-threaded configuration with up to 256 MB L3 cache configuration, providing low cost CPU burstable general purpose virtual machines. Basv2-series virtual machines utilize a CPU credit model to track how much CPU is consumed - the virtual machine accumuates CPU credits when a wokload is operating below the base CPU performance threshold and, uses credits when running above the base CPU performance threshold, until all of its credits are consumed. Upon consuming all the CPU credits, a Basv2-series virtual machine is throttled back to its base CPU perfomrance until it accumulates the credits to CPU burst again.
 
-Basv2-series virtual machines offer a balance of compute, memory, and network resources and are a cost effective way to run a broad spectrum of general purpose workloads, including large scale micro-services, small and medium databases, virtual desktops, and business-critical applications; and are also an affordable option to run your code repositories and dev/test environments. Basv2-Series offers virtual machines of up-to 32 vCPU and 128 Gib of RAM, with max network bandwidth of upto 6250 Mbps and max uncached disk thoughput of 600 Mbps. Basv2-series virtual machines also support attachments of Standard SSD, Standard HDD, Premium SSD disk types with a default Remote-SSD support, you can also attach Ultra Disk storage based on its regional availability. Disk storage is billed separately from virtual machines. [See pricing for disks](https://azure.microsoft.com/pricing/details/managed-disks/).    
+Basv2-series virtual machines offer a balance of compute, memory, and network resources, and are a cost effective way to run a broad spectrum of general purpose workloads, including large scale micro-services, small and medium databases, virtual desktops, and business-critical applications; and are also an affordable option to run your code repositories and dev/test environments. Basv2-Series offers virtual machines of up-to 32 vCPU and 128 Gib of RAM, with max network bandwidth of upto 6250 Mbps and max uncached disk thoughput of 600 Mbps. Basv2-series virtual machines also support attachments of Standard SSD, Standard HDD, Premium SSD disk types with a default Remote-SSD support, you can also attach Ultra Disk storage based on its regional availability. Disk storage is billed separately from virtual machines. [See pricing for disks](https://azure.microsoft.com/pricing/details/managed-disks/).    
 
 
 [Premium Storage](premium-storage-performance.md): Supported<br>
@@ -42,13 +42,7 @@ Basv2-series virtual machines offer a balance of compute, memory, and network re
 | Standard_B32as_v2  | 32   | 128 | 40%                            | 960                 | 384                 | 9216                   | 25,600/600                              | 80,000/960                                    | 32             | 6.25                         | 4        |
 
 
-<sup>*</sup> These IOPs values can be guaranteed by using [Gen2 VMs](generation-2.md)<br>
-<sup>1</sup> Accelerated networking is required and turned on by default on all Ddv5 virtual machines.<br>
 
-
-<sup>*</sup> These IOPs values can be guaranteed by using [Gen2 VMs](generation-2.md)<br>
-<sup>1</sup> Accelerated networking is required and turned on by default on all Basv2 virtual machines.<br>
-<sup>2</sup> Basv2-series virtual machines can [burst](disk-bursting.md) their disk performance and get up to their bursting max for up to 30 minutes at a time.
 
 [!INCLUDE [virtual-machines-common-sizes-table-defs](../../includes/virtual-machines-common-sizes-table-defs.md)]
 
