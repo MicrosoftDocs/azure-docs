@@ -17,7 +17,7 @@ Nexus Kubernetes clusters offer two types of agent pools.
    * System agent pools are designed for hosting critical system pods like CoreDNS and metrics-server. 
    * User agent pools are designed for hosting your application pods.
 
-Application pods can be scheduled on system node pools if you wish to only have one pool in your Kubernetes cluster. Nexus Kubernetes cluster must contain at least one system node pool with at least one node.
+Application pods can be scheduled on system node pools if you wish to only have one pool in your Kubernetes cluster. Nexus Kubernetes cluster must have an initial agent pool that includes at least one system node pool with at least one node.
 
 ## Prerequisites
 
