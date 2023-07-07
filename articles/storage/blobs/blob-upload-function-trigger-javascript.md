@@ -17,7 +17,7 @@ In this tutorial, you'll learn how to upload an image to Azure Blob Storage and 
 Azure Blob Storage is Microsoft's massively scalable object storage solution for the cloud. Blob Storage is designed for storing images and documents, streaming media files, managing backup and archive data, and much more.  You can read more about Blob Storage on the [overview page](./storage-blobs-introduction.md). 
 
 > [!WARNING]
-> This tutorial uses publicly accessible storage to simplify the process in this tutorial. Anonymous public access presents a security risk. [Learn how to remediate this risk.](/azure/storage/blobs/anonymous-read-access-overview)
+> This tutorial uses publicly accessible storage to simplify the process to finish this tutorial. Anonymous public access presents a security risk. [Learn how to remediate this risk.](/azure/storage/blobs/anonymous-read-access-overview)
 
 Azure Cosmos DB is a fully managed NoSQL and relational database for modern app development. 
 
