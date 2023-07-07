@@ -6,7 +6,7 @@ author: pauljewellmsft
 ms.author: pauljewell
 ms.service: storage
 ms.topic: how-to
-ms.date: 07/06/2023
+ms.date: 07/07/2023
 ms.subservice: blobs
 ms.devlang: python
 ms.custom: devx-track-python, devguide-python, devx-track-python
@@ -27,8 +27,8 @@ Properly tuning data transfer options is key to reliable performance for uploads
 The following arguments can be tuned based on the needs of your app:
 
 - [max_single_put_size](#max_single_put_size): The maximum size for a blob to be uploaded with a single request. Defaults to 64 MiB.
-- [max_concurrency](#max_concurrency): The maximum number of subtransfers that may be used in parallel.
 - [max_block_size](#max_block_size): The maximum length of a transfer in bytes when uploading a block blob in chunks. Defaults to 4 MiB.
+- `max_concurrency`: The maximum number of subtransfers that may be used in parallel.
 
 > [!NOTE]
 > The client libraries will use defaults for each data transfer option, if not provided. These defaults are typically performant in a data center environment, but not likely to be suitable for home consumer environments. Poorly tuned data transfer options can result in excessively long operations and even request timeouts. It's best to be proactive in testing these values, and tuning them based on the needs of your application and environment.
@@ -40,9 +40,6 @@ The `max_single_put_size` argument is the maximum blob size in bytes for a singl
 It's important to note that the value you specify for `max_block_size` *does not* limit the value that you define for `max_single_put_size`. The `max_single_put_size` argument defines a separate size limitation for a request to perform the entire operation at once, with no subtransfers. It's often the case that you want `max_single_put_size` to be *at least* as large as the value you define for `max_block_size`, if not larger.  Depending on the size of the data transfer, this approach can be more performant, as the transfer is completed with a single request and avoids the overhead of multiple requests.
 
 If you're unsure of what value is best for your situation, a safe option is to set `max_single_put_size` to the same value used for `max_block_size`.
-
-#### max_concurrency
-The `max_concurrency` argument is the maximum number of workers that may be used in a parallel transfer. Currently, only asynchronous operations can parallelize transfers. Synchronous operations ignore this value and work in sequence.
 
 #### max_block_size
 
