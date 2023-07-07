@@ -104,7 +104,7 @@ const messages = [
   { role: "system", content: "You are a helpful assistant." },
   { role: "user", content: "Does Azure OpenAI support customer managed keys?" },
   { role: "assistant", content: "Yes, customer managed keys are supported by Azure OpenAI" },
-  { role: "user", content: "Do other Azure Cognitive Services support this too" },
+  { role: "user", content: "Do other Azure AI services support this too" },
 ];
 
 async function main() {
@@ -127,7 +127,7 @@ module.exports = { main };
 ```
 
 > [!IMPORTANT]
-> For production, use a secure way of storing and accessing your credentials like [Azure Key Vault](../../../key-vault/general/overview.md). For more information about credential security, see the Cognitive Services [security](../../security-features.md) article.
+> For production, use a secure way of storing and accessing your credentials like [Azure Key Vault](../../../key-vault/general/overview.md). For more information about credential security, see the Azure AI services [security](../../security-features.md) article.
 
 ```cmd
 node.exe ChatCompletion.js
@@ -139,7 +139,7 @@ node.exe ChatCompletion.js
 == Chat Completions Sample ==
 {
   role: 'assistant',
-  content: 'Yes, most Azure Cognitive Services support customer managed keys. It is always best to check the specific service documentation to confirm this.'
+  content: 'Yes, most Azure AI services support customer managed keys. It is always best to check the specific service documentation to confirm this.'
 }
 ```
 

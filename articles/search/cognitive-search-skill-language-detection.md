@@ -2,7 +2,6 @@
 title: Language detection cognitive skill
 titleSuffix: Azure Cognitive Search
 description: Evaluates unstructured text, and for each record, returns a language identifier with a score indicating the strength of the analysis in an AI enrichment pipeline in Azure Cognitive Search.
-
 author: LiamCavanagh
 ms.author: liamca
 ms.service: cognitive-search
@@ -12,14 +11,14 @@ ms.date: 12/09/2021
 
 #	Language detection cognitive skill
 
-The **Language Detection** skill detects the language of input text and reports a single language code for every document submitted on the request. The language code is paired with a score indicating the strength of the analysis. This skill uses the machine learning models provided in [Azure Cognitive Services for Language](../ai-services/language-service/overview.md).
+The **Language Detection** skill detects the language of input text and reports a single language code for every document submitted on the request. The language code is paired with a score indicating the strength of the analysis. This skill uses the machine learning models provided in [Azure AI Language](../ai-services/language-service/overview.md).
 
 This capability is especially useful when you need to provide the language of the text as input to other skills (for example, the [Sentiment Analysis skill](cognitive-search-skill-sentiment-v3.md) or [Text Split skill](cognitive-search-skill-textsplit.md)).
 
 See [supported languages](../ai-services/language-service/language-detection/language-support.md) for Language Detection. If you have content expressed in an unsupported language, the response is `(Unknown)`.
 
 > [!NOTE]
-> This skill is bound to Cognitive Services and requires [a billable resource](cognitive-search-attach-cognitive-services.md) for transactions that exceed 20 documents per indexer per day. Execution of built-in skills is charged at the existing [Cognitive Services pay-as-you go price](https://azure.microsoft.com/pricing/details/cognitive-services/).
+> This skill is bound to Azure AI services and requires [a billable resource](cognitive-search-attach-cognitive-services.md) for transactions that exceed 20 documents per indexer per day. Execution of built-in skills is charged at the existing [Azure AI services pay-as-you go price](https://azure.microsoft.com/pricing/details/cognitive-services/).
 >
 
 ## @odata.type  

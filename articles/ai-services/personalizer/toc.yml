@@ -54,7 +54,7 @@
   - name: Enterprise readiness
     items:
       - name: Set up Virtual Networks
-        href: ../cognitive-services-virtual-networks.md?context=/azure/cognitive-services/personalizer/context/context
+        href: ../cognitive-services-virtual-networks.md?context=/azure/ai-services/personalizer/context/context
       - name: Use customer-managed keys
         href: encrypt-data-at-rest.md
 - name: Concepts
@@ -146,6 +146,6 @@
   - name: Training modules
     href: /training/browse/?terms=personalizer
   - name: Support and help options
-    href: ../cognitive-services-support-options.md?context=/azure/cognitive-services/personalizer/context/context
+    href: ../cognitive-services-support-options.md?context=/azure/ai-services/personalizer/context/context
   - name: Azure updates
     href: https://go.microsoft.com/fwlink/?linkid=2092153

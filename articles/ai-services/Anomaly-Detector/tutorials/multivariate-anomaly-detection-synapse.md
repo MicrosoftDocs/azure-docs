@@ -1,6 +1,6 @@
 ---
 title: "Tutorial: Use Multivariate Anomaly Detector in Azure Synapse Analytics"
-titleSuffix: Azure Cognitive Services
+titleSuffix: Azure AI services
 description: Learn how to use the Multivariate Anomaly Detector with Azure Synapse Analytics.
 services: cognitive-services
 author: mrbullwinkle
@@ -44,7 +44,7 @@ In this section, you'll create the following resources in the Azure portal:
 
 ### Create a storage account resource
 
-* [Create a storage account resource](https://portal.azure.com/#create/Microsoft.StorageAccount) in the Azure portal. After your storage account is built, **create a container** to store intermediate data, since SynapseML will transform your original data to a schema that Multivariate Anomaly Detector supports. (Refer to Multivariate Anomaly Detector [input schema](../how-to/multivariate-how-to.md#input-data-schema))
+* [Create a storage account resource](https://portal.azure.com/#create/Microsoft.StorageAccount) in the Azure portal. After your storage account is built, **create a container** to store intermediate data, since SynapseML will transform your original data to a schema that Multivariate Anomaly Detector supports. (Refer to Multivariate Anomaly Detector [input schema](../how-to/prepare-data.md#input-data-schema))
 
     > [!NOTE]
     > For the purposes of this example only we are setting the security on the container to allow anonymous read access for containers and blobs since it will only contain our example .csv data. For anything other than demo purposes this is **not recommended**.
@@ -263,12 +263,12 @@ If you have the need to run training code and inference code in separate noteboo
 
 * Learn about [what is Multivariate Anomaly Detector](../overview.md).
 * SynapseML documentation with [Multivariate Anomaly Detector feature](https://microsoft.github.io/SynapseML/docs/documentation/estimators/estimators_cognitive/#fitmultivariateanomaly).
-* Recipe: [Cognitive Services - Multivariate Anomaly Detector](https://microsoft.github.io/SynapseML/docs/features/cognitive_services/CognitiveServices%20-%20Multivariate%20Anomaly%20Detection/).
+* Recipe: [Azure AI services - Multivariate Anomaly Detector](https://microsoft.github.io/SynapseML/docs/features/cognitive_services/CognitiveServices%20-%20Multivariate%20Anomaly%20Detection/).
 * Need support? [Join the Anomaly Detector Community](https://forms.office.com/pages/responsepage.aspx?id=v4j5cvGGr0GRqy180BHbR2Ci-wb6-iNDoBoNxrnEk9VURjNXUU1VREpOT0U1UEdURkc0OVRLSkZBNC4u).
 
 ### About Synapse
 
-* Quick start: [Configure prerequisites for using Cognitive Services in Azure Synapse Analytics](../../../synapse-analytics/machine-learning/tutorial-configure-cognitive-services-synapse.md#create-a-key-vault-and-configure-secrets-and-access).
+* Quick start: [Configure prerequisites for using Azure AI services in Azure Synapse Analytics](../../../synapse-analytics/machine-learning/tutorial-configure-cognitive-services-synapse.md#create-a-key-vault-and-configure-secrets-and-access).
 * Visit [SynpaseML new website](https://microsoft.github.io/SynapseML/) for the latest docs, demos, and examples.
 * Learn more about [Synapse Analytics](../../../synapse-analytics/index.yml).
 * Read about the [SynapseML v0.9.5 release](https://github.com/microsoft/SynapseML/releases/tag/v0.9.5) on GitHub.

@@ -1,6 +1,6 @@
 ---
 title: What's new - Personalizer
-titleSuffix: Azure Cognitive Services
+titleSuffix: Azure AI services
 description: This article contains news about Personalizer.
 author: jcodella
 ms.author: jacodel
@@ -12,7 +12,7 @@ ms.date: 05/28/2021
 ---
 # What's new in Personalizer
 
-Learn what's new in Azure Personalizer. These items may include release notes, videos, blog posts, and other types of information. Bookmark this page to keep up-to-date with the service.
+Learn what's new in Azure AI Personalizer. These items may include release notes, videos, blog posts, and other types of information. Bookmark this page to keep up-to-date with the service.
 
 ## Release notes
 
@@ -49,7 +49,7 @@ The following are available in **Public Preview**:
 
 ### March 2020
 
-* TLS 1.2 is now enforced for all HTTP requests to this service. For more information, see [Azure Cognitive Services security](../security-features.md).
+* TLS 1.2 is now enforced for all HTTP requests to this service. For more information, see [Azure AI services security](../security-features.md).
 
 ### November 2019 - Ignite conference
 
@@ -66,11 +66,11 @@ The following preview features were released at the Build 2019 Conference:
 
 ### 2019 Build videos
 
-* [Deliver the Right Experiences & Content like Xbox with Cognitive Services Personalizer](https://azure.microsoft.com/resources/videos/build-2019-deliver-the-right-experiences-and-content-with-cognitive-services-personalizer/)
+* [Deliver the Right Experiences & Content like Xbox with Azure AI Personalizer](https://azure.microsoft.com/resources/videos/build-2019-deliver-the-right-experiences-and-content-with-cognitive-services-personalizer/)
 
 ## Service updates
 
-[Azure update announcements for Cognitive Services](https://azure.microsoft.com/updates/?product=cognitive-services)
+[Azure update announcements for Azure AI services](https://azure.microsoft.com/updates/?product=cognitive-services)
 
 ## Next steps
 

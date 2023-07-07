@@ -1,6 +1,6 @@
 ---
 title: What's New - Anomaly Detector
-description: This article is regularly updated with news about the Azure Cognitive Services Anomaly Detector.
+description: This article is regularly updated with news about the Azure AI Anomaly Detector.
 ms.service: cognitive-services
 ms.subservice: anomaly-detector
 ms.topic: whats-new
@@ -99,10 +99,9 @@ We have also added links to some user-generated content. Those items will be mar
 
 * March 12, 2021 [Introducing Multivariate Anomaly Detection](https://techcommunity.microsoft.com/t5/azure-ai/introducing-multivariate-anomaly-detection/ba-p/2260679) - Technical blog on the new multivariate APIs
 * September 2020 [Multivariate Time-series Anomaly Detection via Graph Attention Network](https://arxiv.org/abs/2009.02040) - Paper on multivariate anomaly detection accepted by ICDM 2020
-* November 5, 2019 [Overview of SR-CNN algorithm in Azure Anomaly Detector](https://techcommunity.microsoft.com/t5/ai-customer-engineering-team/overview-of-sr-cnn-algorithm-in-azure-anomaly-detector/ba-p/982798) - Technical blog on SR-CNN
+* November 5, 2019 [Overview of SR-CNN algorithm in Azure AI Anomaly Detector](https://techcommunity.microsoft.com/t5/ai-customer-engineering-team/overview-of-sr-cnn-algorithm-in-azure-anomaly-detector/ba-p/982798) - Technical blog on SR-CNN
 * June 10, 2019 [Time-Series Anomaly Detection Service at Microsoft](https://arxiv.org/abs/1906.03821) - Paper on SR-CNN accepted by KDD 2019
-* April 25, 2019 **[UGC]** [Trying the Cognitive Service: Anomaly Detector API (in Japanese)](/ja-jp/azure/cognitive-services/anomaly-detector/)
-* April 20, 2019 [Introducing Azure Anomaly Detector API](https://techcommunity.microsoft.com/t5/ai-customer-engineering-team/introducing-azure-anomaly-detector-api/ba-p/490162) - Announcement blog
+* April 20, 2019 [Introducing Azure AI Anomaly Detector API](https://techcommunity.microsoft.com/t5/ai-customer-engineering-team/introducing-azure-anomaly-detector-api/ba-p/490162) - Announcement blog
 
 ## Videos
 
@@ -114,9 +113,9 @@ We have also added links to some user-generated content. Those items will be mar
 * September 3, 2019 [Anomaly detection on streaming data using Azure Databricks](/shows/AI-Show/Anomaly-detection-on-streaming-data-using-Azure-Databricks) - AI Show with Qun Ying
 * August 27, 2019 [Anomaly Detector v1.0 Best Practices](/shows/AI-Show/Anomaly-Detector-v10-Best-Practices) - AI Show on univariate anomaly detection best practices with Qun Ying
 * August 20, 2019 [Bring Anomaly Detector on-premises with containers support](/shows/AI-Show/Bring-Anomaly-Detector-on-premise-with-containers-support) - AI Show with Qun Ying and Seth Juarez
-* August 13, 2019 [Introducing Azure Anomaly Detector](/shows/AI-Show/Introducing-Azure-Anomaly-Detector?WT.mc_id=ai-c9-niner) - AI Show with Qun Ying and Seth Juarez
+* August 13, 2019 [Introducing Azure AI Anomaly Detector](/shows/AI-Show/Introducing-Azure-Anomaly-Detector?WT.mc_id=ai-c9-niner) - AI Show with Qun Ying and Seth Juarez
 
 
 ## Service updates
 
-[Azure update announcements for Cognitive Services](https://azure.microsoft.com/updates/?product=cognitive-services)
+[Azure update announcements for Azure AI services](https://azure.microsoft.com/updates/?product=cognitive-services)

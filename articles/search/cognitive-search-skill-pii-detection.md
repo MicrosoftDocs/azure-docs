@@ -13,10 +13,10 @@ ms.date: 12/09/2021
 
 # Personally Identifiable Information (PII) Detection cognitive skill
 
-The **PII Detection** skill extracts personal information from an input text and gives you the option of masking it. This skill uses the [detection models](../ai-services/language-service/personally-identifiable-information/overview.md) provided in [Azure Cognitive Services for Language](../ai-services/language-service/overview.md).
+The **PII Detection** skill extracts personal information from an input text and gives you the option of masking it. This skill uses the [detection models](../ai-services/language-service/personally-identifiable-information/overview.md) provided in [Azure AI Language](../ai-services/language-service/overview.md).
 
 > [!NOTE]
-> This skill is bound to Cognitive Services and requires [a billable resource](cognitive-search-attach-cognitive-services.md) for transactions that exceed 20 documents per indexer per day. Execution of built-in skills is charged at the existing [Cognitive Services pay-as-you go price](https://azure.microsoft.com/pricing/details/cognitive-services/).
+> This skill is bound to Azure AI services and requires [a billable resource](cognitive-search-attach-cognitive-services.md) for transactions that exceed 20 documents per indexer per day. Execution of built-in skills is charged at the existing [Azure AI services pay-as-you go price](https://azure.microsoft.com/pricing/details/cognitive-services/).
 >
 
 ## @odata.type
