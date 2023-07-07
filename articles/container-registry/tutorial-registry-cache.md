@@ -71,7 +71,7 @@ Cache for ACR currently supports the following upstream registries:
 
 - Quarantine functions like signing, scanning, and manual compliance approval are on the roadmap but not included in this release.
 
-- Caching for ACR feature doesn't support Customer managed key (CMK) enabled registries.
+- Cache for ACR feature doesn't support Customer managed key (CMK) enabled registries.
 
 - Cache will only occur after at least one image pull is complete on the available container image. For every new image available, a new image pull must be complete. Cache for ACR doesn't automatically pull new tags of images when a new tag is available. It is on the roadmap but not supported in this release. 
 
