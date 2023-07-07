@@ -710,6 +710,8 @@
         href: dealpath-tutorial.md
       - name: deBroome Brand Portal
         href: debroome-brand-portal-tutorial.md
+      - name: Deem Mobile
+        href: deem-mobile-tutorial.md
       - name: Degreed
         href: degreed-tutorial.md
       - name: Delivery Solutions
@@ -2701,6 +2703,8 @@
         href: validsign-tutorial.md
       - name: Vault Platform
         href: vault-platform-tutorial.md  
+      - name: Vbrick Rev Cloud
+        href: vbrick-rev-cloud-tutorial.md
       - name: V-Client
         href: v-client-tutorial.md  
       - name: VECOS Releezme Locker management system
