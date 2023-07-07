@@ -28,24 +28,11 @@ Meanwhile, when you configure your own storage account (BYOS), artifacts are upl
 > - [Learn more about Private Link for Application Insights](../logs/private-link-security.md).
 > - [Learn more about customer-managed keys for Application Insights](../logs/customer-managed-keys.md).
 
-In this guide, you'll learn how to:
+In this guide, you learn how to:
 > [!div class="checklist"]
 > - Grant Diagnostic Services access to your storage account.
 > - Link your storage account with your Application Insights resource.
 > - Learn how to read the Profiler performance data and call stack.
-
-1. Agents running in your virtual machines or Azure App Service upload artifacts (profiles, snapshots, and symbols) to blob containers in your account.
-
-    This process involves contacting Profiler or Snapshot Debugger to obtain a shared access signature token to a new blob in your storage account.
-
-1. Profiler or Snapshot Debugger will:
-
-    - Analyze the incoming blob.
-    - Write back the analysis results and log files into blob storage.
-  
-    Depending on available compute capacity, this process might occur anytime after upload.
-
-1. When you view Profiler traces or Snapshot Debugger analysis, the service fetches the analysis results from blob storage.
 
 ## Prerequisites
 
@@ -54,7 +41,7 @@ In this guide, you'll learn how to:
 
 ## Grant Diagnostic Services access to your storage account
 
-A BYOS storage acount is linked to an Application Insights resource. Start by granting the `Storage Blob Data Contributor` role to the Azure Active Directory (Azure AD) application named `Diagnostic Services Trusted Storage Access` via the [Access Control (IAM)](../../role-based-access-control/role-assignments-portal.md) page in your storage account.  
+A BYOS storage account is linked to an Application Insights resource. Start by granting the `Storage Blob Data Contributor` role to the Azure Active Directory (Azure AD) application named `Diagnostic Services Trusted Storage Access` via the [Access Control (IAM)](../../role-based-access-control/role-assignments-portal.md) page in your storage account.  
 
 1. Select **Access control (IAM)**.
 
@@ -221,7 +208,7 @@ Before you begin, [install the Azure CLI](/cli/azure/install-azure-cli).
     |           Parameter           |                                Description                               |
     |-------------------------------|--------------------------------------------------------------------------|
     | `application_insights_name`     | The name of the Application Insights resource to enable BYOS.            |
-    | `storage_account_name`          | The name of the storage account resource that you'll use as your BYOS. |
+    | `storage_account_name`          | The name of the storage account resource that you use as your BYOS. |
   
     Expected output:
 
@@ -262,7 +249,7 @@ This section offers troubleshooting tips for common issues in configuring BYOS.
 
 ### Scenario: Template schema '{schema_uri}' isn't supported
 
-You've received an error similar to the following:
+You've received an error similar to the following example:
 
 ```powershell
 New-AzResourceGroupDeployment : 11:53:49 AM - Error: Code=InvalidTemplate; Message=Deployment template validation failed: 'Template schema
@@ -281,7 +268,7 @@ New-AzResourceGroupDeployment : 11:53:49 AM - Error: Code=InvalidTemplate; Messa
     
 ### Scenario: No registered resource provider found for location '{location}'
 
-You've received an error similar to the following:
+You've received an error similar to the following example:
 
 ```powershell
 New-AzResourceGroupDeployment : 6:18:03 PM - Resource microsoft.insights/components 'byos-test-westus2-ai' failed with message '{
@@ -300,9 +287,9 @@ australiasoutheast'."
 - Make sure that the `apiVersion` of the resource `microsoft.insights/components` is `2015-05-01`.
 - Make sure that the `apiVersion` of the resource `linkedStorageAccount` is `2020-03-01-preview`.
     
-### Scenario: Storage account location should match AI component location
+### Scenario: Storage account location should match Application Insights component location
 
-You've received an error similar to the following:
+You've received an error similar to the following example:
 
 ```powershell
 New-AzResourceGroupDeployment : 1:01:12 PM - Resource microsoft.insights/components/linkedStorageAccounts 'byos-test-centralus-ai/serviceprofiler' failed with message '{
@@ -326,19 +313,19 @@ Make sure that the location of the Application Insights resource is the same as 
 
 This section provides answers to common questions about configuring BYOS for Profiler and Snapshot Debugger.
 
-### If I've enabled Profiler/Snapshot Debugger and BYOS, will my data be migrated into my storage account?
+### If I've enabled Profiler/Snapshot Debugger and BYOS, is my data migrated into my storage account?
 
   No, it won't.
 
-### Will BYOS work with encryption-at-rest and customer-managed keys?
+### Does BYOS work with encryption-at-rest and customer-managed keys?
   
   Yes. To be precise, BYOS is a requirement to have Profiler/Snapshot Debugger enabled with customer-manager keys.
 
-### Will BYOS work in an environment isolated from the internet?
+### Does BYOS work in an environment isolated from the internet?
   
   Yes. BYOS is a requirement for isolated network scenarios.
 
-### Will BYOS work with both customer-managed keys and Private Link enabled?
+### Does BYOS work with both customer-managed keys and Private Link enabled?
   
   Yes, it's possible.
 
@@ -346,10 +333,24 @@ This section provides answers to common questions about configuring BYOS for Pro
   
   Yes, you can, but we don't currently support data migration from your BYOS.
 
-### After I enable BYOS, will I take over all the related costs of storage and networking?
+### After I enable BYOS, do I take over all the related costs of storage and networking?
 
   Yes. 
 
+### How is my storage account accessed?
+
+1. Agents running in your virtual machines or Azure App Service upload artifacts (profiles, snapshots, and symbols) to blob containers in your account.
+
+    This process involves contacting Profiler or Snapshot Debugger to obtain a shared access signature token to a new blob in your storage account.
+
+1. Profiler or Snapshot Debugger:
+
+    - Analyzes the incoming blob.
+    - Write back the analysis results and log files into blob storage.
+  
+    Depending on available compute capacity, this process might occur anytime after upload.
+
+1. When you view Profiler traces or Snapshot Debugger analysis, the service fetches the analysis results from blob storage.
 
 ## Next steps
 
