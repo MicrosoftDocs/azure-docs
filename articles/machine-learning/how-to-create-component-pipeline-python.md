@@ -15,7 +15,7 @@ ms.custom: devx-track-python, sdkv2, event-tier1-build-2022, ignite-2022, build-
 
 # Create and run machine learning pipelines using components with the Azure Machine Learning SDK v2
 
-[!INCLUDE [sdk v2](../../includes/machine-learning-sdk-v2.md)]
+[!INCLUDE [sdk v2](includes/machine-learning-sdk-v2.md)]
 
 In this article, you learn how to build an [Azure Machine Learning pipeline](concept-ml-pipelines.md) using Python SDK v2 to complete an image classification task containing three steps: prepare data, train an image classification model, and score the model. Machine learning pipelines optimize your workflow with speed, portability, and reuse, so you can focus on machine learning instead of infrastructure and automation.  
 
