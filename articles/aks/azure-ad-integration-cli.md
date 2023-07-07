@@ -4,7 +4,7 @@ description: Learn how to use the Azure CLI to create and Azure Active Directory
 author: TomGeske
 ms.topic: article
 ms.custom: devx-track-azurecli
-ms.date: 07/02/2023
+ms.date: 07/07/2023
 ms.author: miwithro
 ---
 
@@ -252,14 +252,17 @@ We send notification emails to impacted subscription admins biweekly to remind t
 
 **2. What will happen if I don't take any action?**
 
-Your AKS clusters with Azure Active Directory integration will keep working after 1 June 2023. We'll migrate your AKS clusters to AKS-managed Azure Active Directory automatically beginning 1st August 2023 and you may experience API server downtime during the migration. After the migration, the kubeconfig content changes. You need to run `az aks get-credentials --resource-group <AKS resource group name> --name <AKS cluster name>` to merge the new credentials into the kubeconfig file. 
+Your Azure Active Directory Integration (legacy) AKS clusters will continue working after 1st June 2023. We'll automatically migrate your clusters to AKS-managed Azure Active Directory starting 1st August 2023. You may experience API server downtime during the migration.
+
+The kubeconfig content changes after the migration. You need to merge the new credentials into the kubeconfig file using the `az aks get-credentials --resource-group <AKS resource group name> --name <AKS cluster name>`.
+
 We recommend updating your AKS cluster to [AKS-managed Azure Active Directory][managed-aad-migrate] manually before 1st August. This way you can manage the downtime during non-business hours when it's more convenient.
 
 **3. Why do I still receive the notification email after manual migration?**
 
-It takes several days to send the email. So your cluster may be Azure Active Directory Integration before the email is sent and it is collected by us as impacted. You migrate it during the email-sending process.
+It takes several days for the email to send. If your cluster wasn't migrated before we initiate the email-sending process, you may still receive a notification.
 
-**4. How to check whether the cluster is migrated to AKS-managed Azure Active Directory?**
+**4. How can I check whether my cluster my cluster is migrated to AKS-managed Azure Active Directory?**
 
 Confirm your AKS cluster is migrated to the AKS-managed Azure Active Directory using the [`az aks show`][az-aks-show] command.
 
