@@ -8,7 +8,7 @@ ms.service: data-factory
 ms.subservice: v1
 ms.topic: conceptual
 ms.date: 04/12/2023
-ms.custom: ignite-2022
+ms.custom: ignite-2022, devx-track-dotnet
 ---
 
 # Azure Data Factory - JSON Scripting Reference

@@ -2,6 +2,7 @@
 title: Migrate apps from Azure Functions version 3.x to 4.x 
 description: This article shows you how to upgrade your existing function apps running on version 3.x of the Azure Functions runtime to be able to run on version 4.x of the runtime. 
 ms.service: azure-functions
+ms.custom: devx-track-dotnet, devx-track-extended-java, devx-track-js, devx-track-python
 ms.topic: how-to 
 ms.date: 11/05/2022
 zone_pivot_groups: programming-languages-set-functions

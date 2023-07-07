@@ -15,6 +15,7 @@ ms.reviewer: sandeo
 
 ms.collection: M365-identity-device-management
 ---
+
 # Azure AD registered devices
 
 The goal of Azure AD registered - also known as Workplace joined - devices is to provide your users with support for bring your own device (BYOD) or mobile device scenarios. In these scenarios, a user can access your organization’s resources using a personal device.
@@ -26,11 +27,11 @@ The goal of Azure AD registered - also known as Workplace joined - devices is to
 |   | Bring your own device |
 |   | Mobile devices |
 | **Device ownership** | User or Organization |
-| **Operating Systems** | Windows 10 or newer, iOS, Android, macOS, Ubuntu 20.04/22.04 |
+| **Operating Systems** | Windows 10 or newer, iOS, Android, macOS, Ubuntu 20.04/22.04 LTS|
 | **Provisioning** | Windows 10 or newer – Settings |
 |   | iOS/Android – Company Portal or Microsoft Authenticator app |
 |   | macOS – Company Portal |
-|   | Linux - Intune Agent | 
+|   | Linux - Intune Agent |
 | **Device sign in options** | End-user local credentials |
 |   | Password |
 |   | Windows Hello |
@@ -47,7 +48,7 @@ The goal of Azure AD registered - also known as Workplace joined - devices is to
 
 Azure AD registered devices are signed in to using a local account like a Microsoft account on a Windows 10 or newer device. These devices have an Azure AD account for access to organizational resources. Access to resources in the organization can be limited based on that Azure AD account and Conditional Access policies applied to the device identity.
 
-Administrators can secure and further control these Azure AD registered devices using Mobile Device Management (MDM) tools like Microsoft Intune. MDM provides a means to enforce organization-required configurations like requiring storage to be encrypted, password complexity, and security software kept updated. 
+Administrators can further control these Azure AD registered devices by enrolling the device(s) into Mobile Device Management (MDM) tools like Microsoft Intune. MDM provides a means to enforce organization-required configurations like requiring storage to be encrypted, password complexity, and security software kept updated. 
 
 Azure AD registration can be accomplished when accessing a work application for the first time or manually using the Windows 10 or Windows 11 Settings menu. 
 
@@ -62,3 +63,5 @@ Another user wants to access their organizational email on their personal Androi
 - [Manage device identities using the Azure portal](device-management-azure-portal.md)
 - [Manage stale devices in Azure AD](manage-stale-devices.md)
 - [Register your personal device on your work or school network](https://support.microsoft.com/account-billing/register-your-personal-device-on-your-work-or-school-network-8803dd61-a613-45e3-ae6c-bd1ab25bf8a8)
+
+

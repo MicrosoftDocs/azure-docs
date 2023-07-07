@@ -2,7 +2,7 @@
 title: Scheduling recurring updates in Update management center (preview)
 description: The article details how to use update management center (preview) in Azure to set update schedules that install recurring updates on your machines.
 ms.service: update-management-center
-ms.date: 05/02/2023
+ms.date: 05/30/2023
 ms.topic: conceptual
 author: SnehaSudhirG
 ms.author: sudhirsneha
@@ -13,7 +13,7 @@ ms.author: sudhirsneha
 **Applies to:** :heavy_check_mark: Windows VMs :heavy_check_mark: Linux VMs :heavy_check_mark: On-premises environment :heavy_check_mark: Azure Arc-enabled servers.
 
 > [!IMPORTANT]
-> - For a seamless scheduled patching experience, we recommend that for all Azure VMs, you update the patch orchestration to **Customer Managed Schedules (Preview)**. If you fail to update the patch orchestration, you can experience a disruption in business continuity because the schedules will fail to patch the VMs.[Learn more](prerequsite-for-schedule-patching.md).
+> - For a seamless scheduled patching experience, we recommend that for all Azure VMs, you update the patch orchestration to **Customer Managed Schedules (Preview)** by **30th June 2023**. If you fail to update the patch orchestration by **30th June 2023**, you can experience a disruption in business continuity because the schedules will fail to patch the VMs.[Learn more](prerequsite-for-schedule-patching.md).
 
 
 You can use update management center (preview) in Azure to create and save recurring deployment schedules. You can create a schedule on a daily, weekly or hourly cadence, specify the machines that must be updated as part of the schedule, and the updates to be installed. This schedule will then automatically install the updates as per the created schedule for single VM and at scale.
@@ -28,6 +28,10 @@ Update management center (preview) uses maintenance control schedule instead of 
 	> [!Note]
 	> If you set the patch mode to Azure orchestrated (AutomaticByPlatform) but do not enable the **BypassPlatformSafetyChecksOnUserSchedule** flag and do not attach a maintenance configuration to an Azure machine, it is treated as [Automatic Guest patching](../virtual-machines/automatic-vm-guest-patching.md) enabled machine and Azure platform will automatically install updates as per its own schedule. [Learn more](./overview.md#prerequisites).
 
+## Schedule patching in an availability set
+
+1. All VMs in a common [availability set](../virtual-machines/availability-set-overview.md) aren't updated concurrently.
+1. VMs in a common availability set are updated within Update Domain boundaries and, VMs across multiple Update Domains aren't updated concurrently.
 
 ## Schedule recurring updates on single VM
 

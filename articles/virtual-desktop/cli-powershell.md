@@ -27,7 +27,7 @@ To learn how to install Azure CLI and Azure PowerShell across all supported plat
 
 - Azure CLI: [How to install the Azure CLI](/cli/azure/install-azure-cli)
 
-- Azure PowerShell: [Install the Azure Az PowerShell module](/powershell/azure/install-az-ps)
+- Azure PowerShell: [Install the Azure Az PowerShell module](/powershell/azure/install-azure-powershell)
 
 ## Example commands
 

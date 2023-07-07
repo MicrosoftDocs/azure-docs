@@ -5,6 +5,7 @@ author: rashijoshi
 ms.author: rajosh
 ms.manager: ronai
 ms.topic: conceptual
+ms.service: azure-migrate
 ms.date: 01/17/2023
 ms.custom: references_regions, engagement-fy23
 ---
@@ -50,7 +51,7 @@ The **Build business case** feature will be enabled only when you have discovery
 
 ### Why can’t I build business case from my project?
 
-You will not be able to create a business case if your project is in one of the 3 project regions:
+You will not be able to create a business case if your project is in one of these 3 project regions:
 
 Germany West Central, East Asia and Switzerland North.
 

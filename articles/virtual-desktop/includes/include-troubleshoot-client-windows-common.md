@@ -65,6 +65,28 @@ To reset user data from the command line:
    .\msrdcw.exe /reset /f
    ```
 
+### Your administrator may have ended your session
+
+You see the error message **Your administrator may have ended your session. Try connecting again. If this does not work, ask your administrator or technical support for help**, when the policy setting **Allow users to connect remotely using Remote Desktop Services** has been set to disabled.
+
+To configure the policy to enable users to connect again depending on whether your session hosts are managed with Group Policy or Intune.
+
+For Group Policy:
+
+1. Open the **Group Policy Management Console** (GPMC) for session hosts managed with Active Directory or the **Local Group Policy Editor console** and edit the policy that targets your session hosts.
+
+1. Browse to **Computer Configuration > Administrative Templates > Windows Components > Remote Desktop Services > Remote Desktop Session Host > Connections**
+
+1. Set the policy setting **Allow users to connect remotely using Remote Desktop Services** to **Enabled**.
+
+For Intune:
+
+1. Open the **Settings catalog**.
+
+1. Browse to **Computer Configuration > Administrative Templates > Windows Components > Remote Desktop Services > Remote Desktop Session Host > Connections**
+
+1. Set the policy setting **Allow users to connect remotely using Remote Desktop Services** to **Enabled**.
+
 ## Authentication and identity
 
 In this section you'll find troubleshooting guidance for authentication and identity issues with the Remote Desktop client.

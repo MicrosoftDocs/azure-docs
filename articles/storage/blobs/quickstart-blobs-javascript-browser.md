@@ -7,7 +7,6 @@ author: normesta
 ms.author: normesta
 ms.date: 02/25/2022
 ms.service: storage
-ms.subservice: blobs
 ms.topic: quickstart
 ms.devlang: javascript
 ms.custom: devx-track-js, mode-api
@@ -107,6 +106,9 @@ Follow these steps to get the Blob service SAS URL:
 1. Scroll down further and locate the **Blob service SAS URL** field
 1. Select the **Copy to clipboard** button at the far-right end of the **Blob service SAS URL** field.
 1. Save the copied URL somewhere for use in an upcoming step.
+
+> [!NOTE]
+> The SAS token returned by the portal does not include the delimiter character ('?') for the URL query string. If you are appending the SAS token to a resource URL, remember to append the delimiter character to the resource URL before appending the SAS token.
 
 ## Create the JavaScript project
 

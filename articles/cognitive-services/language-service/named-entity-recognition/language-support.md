@@ -19,9 +19,12 @@ Use this article to learn which natural languages are supported by the NER featu
 
 > [!NOTE]
 > * Languages are added as new [model versions](how-to-call.md#specify-the-ner-model) are released. 
-> * The language support below is for model version `2023-02-01-preview`.
+> * The language support below is for model version `2023-02-01-preview` for the Generally Available API.
+> * You can additionally find the language support for the Preview API in the second tab.
 
 ## NER language support
+
+# [Generally Available API](#tab/ga-api)
 
 |Language|Language Code|Supports resolution|Notes|
 |:----|:----|:----|:----|
@@ -77,7 +80,7 @@ Use this article to learn which natural languages are supported by the NER featu
 |Mongolian|`mn`| | |
 |Nepali|`ne`| | |
 |Norwegian (Bokmal)|`no`| |`nb` also accepted|
-|Oriya|`or`| | |
+|Odia|`or`| | |
 |Pashto|`ps`| | |
 |Persian|`fa`| | |
 |Polish|`pl`| | |
@@ -104,6 +107,107 @@ Use this article to learn which natural languages are supported by the NER featu
 |Uzbek|`uz`| | |
 |Vietnamese|`vi`| | |
 |Welsh|`cy`| | |
+
+# [Preview API](#tab/preview-api)
+
+|Language|Language Code|Supports metadata|Notes|
+|:----|:----|:----|:----|
+|Afrikaans|`af`|✓||
+|Albanian|`sq`|✓||
+|Amharic|`am`|✓||
+|Arabic|`ar`|✓||
+|Armenian|`hy`|✓||
+|Assamese|`as`|✓||
+|Azerbaijani|`az`|✓||
+|Basque|`eu`|✓||
+|Belarusian (new)|`be`|✓||
+|Bengali|`bn`|✓||
+|Bosnian|`bs`|✓||
+|Breton (new)|`br`|✓||
+|Bulgarian|`bg`|✓||
+|Burmese|`my`|✓|`zh` also accepted|
+|Catalan|`ca`|✓||
+|Chinese (Simplified)|`zh-Hans`|✓||
+|Chinese (Traditional)|`zh-Hant`|✓||
+|Croatian|`hr`|✓||
+|Czech|`cs`|✓||
+|Danish|`da`|✓||
+|Dutch|`nl`|✓||
+|English|`en`|✓||
+|Esperanto (new)|`eo`|✓||
+|Estonian|`et`|✓||
+|Filipino|`fil`|✓||
+|Finnish|`fi`|✓||
+|French|`fr`|✓||
+|Galician|`gl`|✓||
+|Georgian|`ka`|✓||
+|German|`de`|✓||
+|Greek|`el`|✓||
+|Gujarati|`gu`|✓||
+|Hausa (new)|`ha`|✓||
+|Hebrew|`he`|✓||
+|Hindi|`hi`|✓||
+|Hungarian|`hu`|✓||
+|Indonesian|`id`|✓||
+|Irish|`ga`|✓||
+|Italian|`it`|✓||
+|Japanese|`ji`|✓||
+|Javanese (new)|`jv`|✓||
+|Kannada|`kn`|✓||
+|Kazakh|`kk`|✓||
+|Khmer|`km`|✓||
+|Korean|`ko`|✓||
+|Kurdish (Kurmanji)|`ku`|✓||
+|Kyrgyz|`ky`|✓||
+|Lao|`lo`|✓||
+|Latin (new)|`la`|✓||
+|Latvian|`lv`|✓||
+|Lithuanian|`lt`|✓||
+|Macedonian|`mk`|✓|nb also accepted|
+|Malagasy|`mg`|✓||
+|Malay|`ms`|✓||
+|Malayalam|`ml`|✓||
+|Marathi|`mr`|✓||
+|Mongolian|`mn`|✓||
+|Nepali|`ne`|✓|pt also accepted|
+|Norwegian|`no`|✓||
+|Odia|`or`|✓||
+|Oromo (new)|`om`|✓||
+|Pashto|`ps`|✓||
+|Persian|`fa`|✓||
+|Polish|`pl`|✓||
+|Portuguese (Brazil)|`pt-BR`|✓||
+|Portuguese (Portugal)|`pt-PT`|✓||
+|Punjabi|`pa`|✓||
+|Romanian|`ro`|✓||
+|Russian|`ru`|✓||
+|Sanskrit (new)|`sa`|✓||
+|Scottish Gaelic (new)|`gd`|✓||
+|Serbian|`sr`|✓||
+|Sindhi (new)|`sd`|✓||
+|Sinhala (new)|`si`|✓||
+|Slovak|`sk`|✓||
+|Slovenian|`sl`|✓||
+|Somali|`so`|✓||
+|Spanish|`es`|✓||
+|Sundanese (new)|`su`|✓||
+|Swahili|`sw`|✓||
+|Swedish|`sv`|✓||
+|Tamil|`ta`|✓||
+|Telugu|`te`|✓||
+|Thai|`th`|✓||
+|Turkish|`tr`|✓||
+|Ukrainian|`uk`|✓||
+|Urdu|`ur`|✓||
+|Uyghur|`ug`|✓||
+|Uzbek|`uz`|✓||
+|Vietnamese|`vi`|✓||
+|Welsh|`cy`|✓||
+|Western Frisian (new)|`fy`|✓||
+|Xhosa (new)|`xh`|✓||
+|Yiddish (new)|`yi`|✓||
+
+---
 
 ## Next steps
 

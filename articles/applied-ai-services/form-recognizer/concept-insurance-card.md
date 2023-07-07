@@ -7,10 +7,9 @@ manager: nitinme
 ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: conceptual
-ms.date: 03/03/2023
+ms.date: 05/23/2023
 ms.author: lajanuar
 monikerRange: 'form-recog-3.0.0'
-recommendations: false
 ---
 
 # Azure Form Recognizer health insurance card model
@@ -94,7 +93,7 @@ See how data is extracted from health insurance cards using the Form Recognizer 
 |`PrescriptionInfo.RxPlan`|`string`|Prescription Plan number|A1|
 |`Pbm`|`string`|Pharmacy Benefit Manager for the plan|CVS CAREMARK|
 |`EffectiveDate`|`date`|Date from which the plan is effective|08/12/2012|
-|`Copays`|`array`|Array holding list of CoPay Benefits||
+|`Copays`|`array`|Array holding list of copay Benefits||
 |`Copays.*`|`object`|||
 |`Copays.*.Benefit`|`string`|Co-Pay Benefit name|Deductible|
 |`Copays.*.Amount`|`currency`|Co-Pay required amount|$1,500|

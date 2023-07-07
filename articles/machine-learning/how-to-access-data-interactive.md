@@ -32,7 +32,7 @@ Typically the beginning of a machine learning project involves exploratory data 
 * An Azure Machine Learning Datastore. For more information, see [Create datastores](how-to-datastore.md).
 
 > [!TIP]
-> The guidance in this article to access data during interactive development applies to any host that can run a Python session - for example: your local machine, a cloud VM, a GitHub Codespace, etc. We recommend using an Azure Machine Learning compute instance - a fully managed and pre-configured cloud workstation. For more information, see [Create and manage an Azure Machine Learning compute instance](how-to-create-manage-compute-instance.md).
+> The guidance in this article to access data during interactive development applies to any host that can run a Python session - for example: your local machine, a cloud VM, a GitHub Codespace, etc. We recommend using an Azure Machine Learning compute instance - a fully managed and pre-configured cloud workstation. For more information, see [Create an Azure Machine Learning compute instance](how-to-create-compute-instance.md).
 
 > [!IMPORTANT]
 > Ensure you have the latest `azure-fsspec` and `mltable` python libraries installed in your python environment:
@@ -119,7 +119,7 @@ with fs.open('./folder1/file1.csv') as f:
 ```python
 from azureml.fsspec import AzureMachineLearningFileSystem
 # instantiate file system using following URI
-fs = AzureMachineLearningFileSystem('azureml://subscriptions/<subid>/resourcegroups/<rgname>/workspaces/<workspace_name>/datastore/datastorename')
+fs = AzureMachineLearningFileSystem('azureml://subscriptions/<subid>/resourcegroups/<rgname>/workspaces/<workspace_name>/datastores/<datastorename>/paths/')
 
 # you can specify recursive as False to upload a file
 fs.upload(lpath='data/upload_files/crime-spring.csv', rpath='data/fsspec', recursive=False, **{'overwrite': 'MERGE_WITH_OVERWRITE'})

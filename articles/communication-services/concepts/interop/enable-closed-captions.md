@@ -64,7 +64,7 @@ Provide translation – Use the translation functions provided to provide transl
 
 ## Privacy concerns
 
-Closed captions are only available during the call or meeting for the participant that has selected to enable captions, ACS doesn't store these captions anywhere. Many countries and states have laws and regulations that apply to storing of data. It is your responsibility to use the closed captions in compliance with the law should you choose to store any of the data generated through closed captions. You must obtain consent from the parties involved in a manner that complies with the laws applicable to each participant. 
+Closed captions are only available during the call or meeting for the participant that has selected to enable captions, ACS doesn't store these captions anywhere. Many countries/regions and states have laws and regulations that apply to storing of data. It is your responsibility to use the closed captions in compliance with the law should you choose to store any of the data generated through closed captions. You must obtain consent from the parties involved in a manner that complies with the laws applicable to each participant. 
  
 Interoperability between Azure Communication Services and Microsoft Teams enables your applications and users to participate in Teams calls, meetings, and chats. It is your responsibility to ensure that the users of your application are notified when closed captions are enabled in a Teams call or meeting and being stored.
  

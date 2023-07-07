@@ -2,7 +2,7 @@
 title: Bicep extensibility Kubernetes provider
 description: Learn how to Bicep Kubernetes provider  to deploy .NET applications to Azure Kubernetes Service clusters.
 ms.topic: conceptual
-ms.custom: devx-track-bicep
+ms.custom: devx-track-bicep, devx-track-dotnet
 ms.date: 04/18/2023
 ---
 

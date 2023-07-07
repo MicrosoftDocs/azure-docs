@@ -1,3 +1,11 @@
+---
+author: eric-urban
+ms.service: cognitive-services
+ms.subservice: speech-service
+ms.topic: include
+ms.author: eur
+---
+
 #### Vowels for es-MX
 
 | `ipa` | VisemeID | Example&nbsp;1  | Example&nbsp;2      | Example&nbsp;3|

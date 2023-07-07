@@ -7,7 +7,7 @@ metadata:
   ms.service: virtual-desktop
   ms.date: 04/27/2023
   ms.author: helohr 
-  ms.custom: devx-track-azurepowershell
+  ms.custom:
   manager: femila
 title: Azure Virtual Desktop FAQ
 summary: This article answers frequently asked questions and explains best practices for Azure Virtual Desktop.
@@ -131,9 +131,9 @@ sections:
           
           - The Azure template is limited to 800 objects. To learn more, see [Azure subscription and service limits, quotas, and constraints](../azure-resource-manager/management/azure-subscription-service-limits.md#template-limits). Each VM also creates about six objects, so that means you can create around 132 VMs each time you run the template.
           
-          - There are restrictions on how many cores you can create per region and per subscription. For example, if you have an Enterprise Agreement subscription, you can create 350 cores. You'll need to divide 350 by either the default number of cores per VM or your own core limit to determine how many VMs you can create each time you run the template. Learn more at [Virtual Machines limits - Azure Resource Manager](../azure-resource-manager/management/azure-subscription-service-limits.md#virtual-machines-limits---azure-resource-manager).
+          - There are restrictions on how many vCPUs you can create per region and per subscription. For example, if you have an Enterprise Agreement subscription, by default you can create 350 vCPUs. You'll need to divide 350 by either the default number of vCPUs per VM or your own vCPU limit to determine how many VMs you can create each time you run the template. Learn more at [Virtual Machines limits - Azure Resource Manager](../azure-resource-manager/management/azure-subscription-service-limits.md#virtual-machines-limits---azure-resource-manager) and [Check vCPU quotas](../virtual-machines/quotas.md).
           
-          - The VM prefix name and the number of VMs is fewer than 15 characters. To learn more, see [Naming rules and restrictions for Azure resources](../azure-resource-manager/management/resource-name-rules.md#microsoftcompute).
+          - The VM prefix name can't exceed 11 characters, so that when a sequential number is added the total name is a maximum of 15 characters. To learn more, see [Naming rules and restrictions for Azure resources](../azure-resource-manager/management/resource-name-rules.md#microsoftcompute).
           
       - question: |
          Can I manage Azure Virtual Desktop environments with Azure Lighthouse?

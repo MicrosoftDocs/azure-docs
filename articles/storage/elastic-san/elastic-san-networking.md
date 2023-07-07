@@ -2,12 +2,11 @@
 title: Azure Elastic SAN networking Preview
 description: An overview of Azure Elastic SAN Preview, a service that enables you to create and use network file shares in the cloud using either SMB or NFS protocols.
 author: roygara
-ms.service: storage
+ms.service: azure-elastic-san-storage
 ms.topic: how-to
 ms.date: 05/04/2023
 ms.author: rogarana
-ms.subservice: elastic-san
-ms.custom: ignite-2022, devx-track-azurepowershell, devx-track-azurecli
+ms.custom: ignite-2022, devx-track-azurepowershell
 ---
 
 # Configure Elastic SAN networking Preview
@@ -83,7 +82,7 @@ You can manage virtual network rules for volume groups through the Azure portal,
 
 ### [PowerShell](#tab/azure-powershell)
 
-- Install the [Azure PowerShell](/powershell/azure/install-Az-ps) and [sign in](/powershell/azure/authenticate-azureps).
+- Install the [Azure PowerShell](/powershell/azure/install-azure-powershell) and [sign in](/powershell/azure/authenticate-azureps).
 
 - List virtual network rules.
 

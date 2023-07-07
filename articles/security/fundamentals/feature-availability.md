@@ -11,7 +11,7 @@ ms.date: 01/13/2023
 
 # Cloud feature availability for commercial and US Government customers
 
-This article describes feature availability in the Microsoft Azure and Azure Government clouds for the following security services:
+This article describes feature availability in the Microsoft Azure and Azure Government clouds. Features are listed as **GA** (Generally Available), **Public Preview**, or **Not Available** for the following security services:
 
 - [Azure Information Protection](#azure-information-protection)
 - [Microsoft Defender for Cloud](#microsoft-defender-for-cloud)
@@ -108,11 +108,11 @@ For more information, see the [Azure Information Protection product documentatio
 |- [Double Key Encryption (DKE)](/azure/information-protection/plan-implement-tenant-key)     |    GA       |    GA     |   GA    |
 |**Office files** <sup>[3](#aipnote6)</sup>      |         |         |         |
 |- [Protection for Microsoft Exchange Online, Microsoft SharePoint Online, and Microsoft OneDrive for Business](/azure/information-protection/requirements-applications)      |     GA    |  GA <sup>[4](#aipnote3)</sup>       |   GA <sup>[4](#aipnote3)</sup>      |
-|- [Protection for on-premises Exchange and SharePoint content via the Rights Management connector](/azure/information-protection/deploy-rms-connector)     |    GA <sup>[5](#aipnote5)</sup>      |  Not available       |     Not available         |
+|- [Protection for on-premises Exchange and SharePoint content via the Rights Management connector](/azure/information-protection/deploy-rms-connector)     |    GA <sup>[5](#aipnote5)</sup>      |  GA <sup>[6](#aipnote6)</sup>        |     GA <sup>[6](#aipnote6)</sup>        |
 |- [Office 365 Message Encryption](/microsoft-365/compliance/set-up-new-message-encryption-capabilities)      |     GA       |    GA     |   GA        |
 |- [Set labels to automatically apply pre-configured M/MIME protection in Outlook](/azure/information-protection/rms-client/clientv2-admin-guide-customizations)      |         GA       |    GA     |   GA        |
-|- [Control oversharing of information when using Outlook](/azure/information-protection/rms-client/clientv2-admin-guide-customizations)     |      GA   |  GA <sup>[6](#aipnote6)</sup>        |    GA <sup>[6](#aipnote6)</sup>      |
-|**Classification and labeling** <sup>[2](#aipnote2) / [7](#aipnote7)</sup>      |         |         |         |
+|- [Control oversharing of information when using Outlook](/azure/information-protection/rms-client/clientv2-admin-guide-customizations)     |      GA   |  GA <sup>[7](#aipnote7)</sup>        |    GA <sup>[7](#aipnote7)</sup>      |
+|**Classification and labeling** <sup>[2](#aipnote2) / [8](#aipnote8)</sup>      |         |         |         |
 |- Custom templates, including departmental templates     |     GA       |    GA     |   GA         |
 |- Manual, default, and mandatory document classification     |       GA       |    GA     |   GA       |
 |- Configure conditions for automatic and recommended classification      GA       |    GA     |   GA        |
@@ -125,9 +125,12 @@ For more information, see the [Azure Information Protection product documentatio
 
 <sup><a name="aipnote5"></a>5</sup> Information Rights Management (IRM) is supported only for Microsoft 365 Apps (version 9126.1001 or higher), including Professional Plus (ProPlus) and Click-to-Run (C2R) versions. Office 2010, Office 2013, and other Office 2016 versions are not supported.
 
-<sup><a name="aipnote6"></a>6</sup> Sharing of protected documents and emails from government clouds to users in the commercial cloud is not currently available. Includes Microsoft 365 Apps users in the commercial cloud, non-Microsoft 365 Apps users in the commercial cloud, and users with an RMS for Individuals license.
+<sup><a name="aipnote6"></a>6</sup> Only on-premises Exchange is supported. Outlook Protection Rules are not supported. File Classification Infrastructure is not supported. On-premises SharePoint is not supported.
 
-<sup><a name="aipnote7"></a>7</sup> The number of [Sensitive Information Types](/microsoft-365/compliance/sensitive-information-type-entity-definitions) in your Microsoft Purview compliance portal may vary based on region.
+<sup><a name="aipnote7"></a>7</sup> Sharing of protected documents and emails from government clouds to users in the commercial cloud is not currently available. Includes Microsoft 365 Apps users in the commercial cloud, non-Microsoft 365 Apps users in the commercial cloud, and users with an RMS for Individuals license.
+
+<sup><a name="aipnote8"></a>8</sup> The number of [Sensitive Information Types](/microsoft-365/compliance/sensitive-information-type-entity-definitions) in your Microsoft Purview compliance portal may vary based on region.
+
 
 ## Microsoft Defender for Cloud
 
@@ -227,11 +230,14 @@ The following tables display the current Microsoft Sentinel feature availability
 |- [Watchlists](../../sentinel/watchlists.md) | GA | GA |
 |- [Large watchlists from Azure Storage](../../sentinel/watchlists.md) | Public Preview | Not Available |
 |- [Watchlist templates](../../sentinel/watchlists.md) | Public Preview | Not Available |
+| **Workspace Manager** | | |
+| - [Workspace manager](../../sentinel/workspace-manager.md) | Public Preview | Public Preview |
 | **Hunting** | | |
 | - [Hunting](../../sentinel/hunting.md) | GA | GA |
+| - [Hunts](../../sentinel/hunts.md) | Public Preview | Not Available |
 | **Content  and content management** | | |
-| - [Content hub](../../sentinel/sentinel-solutions.md) and [solutions](../../sentinel/sentinel-solutions-catalog.md) | Public preview | Public preview |
-| - [Repositories](../../sentinel/ci-cd.md?tabs=github)  | Public preview | Not Available |
+| - [Content hub](../../sentinel/sentinel-solutions.md) and [solutions](../../sentinel/sentinel-solutions-catalog.md) | Public Preview | Public Preview |
+| - [Repositories](../../sentinel/ci-cd.md?tabs=github)  | Public Preview | Not Available |
 | **Data collection** | | |
 | - [Advanced SIEM Information Model (ASIM)](../../sentinel/normalization.md) | Public Preview | Not Available |
 | **Threat intelligence support** | | |

@@ -12,7 +12,7 @@ ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.topic: how-to
-ms.date: 12/13/2022
+ms.date: 06/13/2023
 ms.author: anfdocs
 ---
 # Configure manual backups for Azure NetApp Files 

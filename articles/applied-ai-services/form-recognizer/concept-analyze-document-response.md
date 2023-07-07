@@ -7,15 +7,14 @@ manager: nitinme
 ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: conceptual
-ms.date: 12/15/2022
+ms.date: 05/23/2023
 ms.author: vikurpad
 ms.custom: references_regions
 monikerRange: 'form-recog-3.0.0'
-recommendations: false
 ---
 # Analyze document API response
 
-In this article, we'll examine the different objects returned as part of the analyze document response and how to use the document analysis API response in your applications.
+In this article, let's examine the different objects returned as part of the analyze document response and how to use the document analysis API response in your applications.
 
 ## Analyze document request
 
@@ -31,7 +30,7 @@ The Form Recognizer APIs analyze images, PDFs, and other document files to extra
 
 * Semantic elements assign meaning to the specified content elements.
 
-All content elements are grouped by pages, specified by page number (`1`-indexed).  They're also sorted by reading order that arranges semantically contiguous elements together, even if they cross line or column boundaries.  When the reading order among paragraphs and other layout elements is ambiguous, the service generally returns the content in a left-to-right, top-to-bottom order.
+All content elements are grouped according to pages, specified by page number (`1`-indexed).  They're also sorted by reading order that arranges semantically contiguous elements together, even if they cross line or column boundaries.  When the reading order among paragraphs and other layout elements is ambiguous, the service generally returns the content in a left-to-right, top-to-bottom order.
 
 > [!NOTE]
 > Currently, Form Recognizer does not support reading order across page boundaries.  Selection marks are not positioned within the surrounding words.
@@ -48,8 +47,8 @@ The analyze response for each API returns different objects. API responses conta
 | **paragraphs**| Content recognized as paragraphs. | Read, Layout, General Document, Prebuilt, and Custom models|
 | **styles**| Identified text element properties. | Read, Layout, General Document, Prebuilt, and Custom models|
 | **languages**| Identified language associated with each span of the text extracted | Read |
-| **tables**| Tabular content identified and extracted from the document. Tables relate to tables identified by the pre-trained layout model. Content labeled as tables is extracted as structured fields in the documents object.  | Layout, General Document, Invoice, and Custom models |
-| **keyValuePairs**| Key-value pairs recognized by a pre-trained model. The key is a span of text from the document with the associated value. | General document and Invoice models |
+| **tables**| Tabular content identified and extracted from the document. Tables relate to tables identified by the pretrained layout model. Content labeled as tables is extracted as structured fields in the documents object.  | Layout, General Document, Invoice, and Custom models |
+| **keyValuePairs**| Key-value pairs recognized by a pretrained model. The key is a span of text from the document with the associated value. | General document and Invoice models |
 | **documents**| Fields recognized are returned in the ```fields``` dictionary within the list of documents| Prebuilt models, Custom models|
 
 For more information on the objects returned by each API, see [model data extraction](concept-model-overview.md#model-data-extraction).
@@ -64,7 +63,7 @@ Spans specify the logical position of each element in the overall reading order,
 
 ### Bounding Region
 
-Bounding regions describe the visual position of each element in the file. Since elements may not be visually contiguous or may cross pages (tables), the positions of most elements are described via an array of bounding regions. Each region specifies the page number (`1`-indexed) and bounding polygon.  The bounding polygon is described as a sequence of points, clockwise from the left relative to the natural orientation of the element.  For quadrilaterals, plot points are top-left, top-right, bottom-right, and bottom-left corners.  Each point is represented by its x, y coordinate in the page unit specified by the unit property.  In general, unit of measure for images is pixels while PDFs use inches.
+Bounding regions describe the visual position of each element in the file. Since elements may not be visually contiguous or may cross pages (tables), the positions of most elements are described via an array of bounding regions. Each region specifies the page number (`1`-indexed) and bounding polygon.  The bounding polygon is described as a sequence of points, clockwise from the left relative to the natural orientation of the element.  For quadrilaterals, plot points are top-left, top-right, bottom-right, and bottom-left corners.  Each point represents its x, y coordinate in the page unit specified by the unit property.  In general, unit of measure for images is pixels while PDFs use inches.
 
 :::image type="content" source="media/bounding-regions.png" alt-text="Screenshot of detected bounding regions example.":::
 
@@ -89,27 +88,27 @@ A selection mark is a content element that represents a visual glyph indicating 
 
 #### Line
 
-A line is an ordered sequence of consecutive content elements separated by a visual space, or ones that are immediately adjacent for languages without space delimiters between words.  Content elements in the same horizontal plane (row) but separated by more than a single visual space will generally be split into multiple lines.  While this feature sometimes splits semantically contiguous content into separate lines, it enables the representation of textual content split into multiple columns or cells.  Lines in vertical writing will be detected in the vertical direction.
+A line is an ordered sequence of consecutive content elements separated by a visual space, or ones that are immediately adjacent for languages without space delimiters between words.  Content elements in the same horizontal plane (row) but separated by more than a single visual space are most often split into multiple lines.  While this feature sometimes splits semantically contiguous content into separate lines, it enables the representation of textual content split into multiple columns or cells.  Lines in vertical writing are detected in the vertical direction.
 
 :::image type="content" source="media/lines.png" alt-text="Screenshot of detected lines example.":::
 
 #### Paragraph
 
-A paragraph is an ordered sequence of lines that form a logical unit.  Typically, the lines share common alignment and spacing between lines.  Paragraphs are often delimited by indentation, added spacing, or bullets/numbering.  Content can only be assigned to a single paragraph.
+A paragraph is an ordered sequence of lines that form a logical unit.  Typically, the lines share common alignment and spacing between lines.  Paragraphs are often delimited via indentation, added spacing, or bullets/numbering.  Content can only be assigned to a single paragraph.
 Select paragraphs may also be associated with a functional role in the document.  Currently supported roles include page header, page footer, page number, title, section heading, and footnote.
 
 :::image type="content" source="media/paragraph.png" alt-text="Screenshot of detected paragraphs example.":::
 
 #### Page
 
-A page is a grouping of content that typically corresponds to one side of a sheet of paper.  For rendered pages, it's characterized by width and height in the specified unit.  In general, images use pixel while PDFs use inch.  The angle property describes the overall text angle in degrees for pages that may be rotated.
+A page is a grouping of content that typically corresponds to one side of a sheet of paper.  A rendered page is characterized via width and height in the specified unit.  In general, images use pixel while PDFs use inch.  The angle property describes the overall text angle in degrees for pages that may be rotated.
 
 > [!NOTE]
 > For spreadsheets like Excel, each sheet is mapped to a page.  For presentations, like PowerPoint, each slide is mapped to a page.  For file formats without a native concept of pages without rendering like HTML or Word documents, the main content of the file is considered a single page.
 
 #### Table
 
-A table organizes content into a group of cells in a grid layout.  The rows and columns may be visually separated by grid lines, color banding, or greater spacing. The position of a table cell is specified by its row and column indices.  A cell may span across multiple rows and columns.
+A table organizes content into a group of cells in a grid layout.  The rows and columns may be visually separated by grid lines, color banding, or greater spacing. The position of a table cell is specified via its row and column indices.  A cell may span across multiple rows and columns.
 
 Based on its position and styling, a cell may be classified as general content, row header, column header, stub head, or description:
 
@@ -125,7 +124,7 @@ Based on its position and styling, a cell may be classified as general content, 
 
 * A table caption specifies content that explains the table. A table may further have an associated caption and a set of footnotes. Unlike a description cell, a caption typically lies outside the grid layout.  A table footnote annotates content inside the table, often marked with a footnote symbol.  It's often found below the table grid.
 
-**Layout tables differ from document fields extracted from tabular data**.  Layout tables are extracted from tabular visual content in the document without considering the semantics of the content.  In fact, some layout tables are designed purely for visual layout and may not always contain structured data.  The method to extract structured data from documents with diverse visual layout, like itemized details of a receipt, generally requires significant post processing. It's essential to map the row or column headers to structured fields with normalized field names.  Depending on the document type, use prebuilt models or train a custom model to extract such structured content.  The resulting information is exposed as document fields.  Such trained models can also handle tabular data without headers and structured data in non-tabular forms, for example the work experience section of a resume.
+**Layout tables differ from document fields extracted from tabular data**.  Layout tables are extracted from tabular visual content in the document without considering the semantics of the content.  In fact, some layout tables are designed purely for visual layout and may not always contain structured data.  The method to extract structured data from documents with diverse visual layout, like itemized details of a receipt, generally requires significant post processing. It's essential to map the row or column headers to structured fields with normalized field names.  Depending on the document type, use prebuilt models or train a custom model to extract such structured content.  The resulting information is exposed as document fields.  Such trained models can also handle tabular data without headers and structured data in nontabular forms, for example the work experience section of a resume.
 
 :::image type="content" source="media/table.png" alt-text="Layout table":::
 
@@ -140,7 +139,7 @@ Document field is a similar but distinct concept from general form fields.  The 
 
 #### Style
 
-A style element describes the font style to apply to text content.  The content is specified via spans into the global content property.  Currently, the only detected font style is whether the text is handwritten.  As other styles are added, text may be described by multiple non-conflicting style objects.  For compactness, all text sharing the particular font style (with the same confidence) are described via a single style object.
+A style element describes the font style to apply to text content.  The content is specified via spans into the global content property.  Currently, the only detected font style is whether the text is handwritten.  As other styles are added, text may be described via multiple nonconflicting style objects.  For compactness, all text sharing the particular font style (with the same confidence) are described via a single style object.
 
 :::image type="content" source="media/style.png" alt-text="Screenshot of detected style handwritten text example.":::
 
@@ -173,9 +172,9 @@ A document is a semantically complete unit.  A file may contain multiple documen
 
 The document type describes documents sharing a common set of semantic fields, represented by a structured schema, independent of its visual template or layout.  For example, all documents of type "receipt" may contain the merchant name, transaction date, and transaction total, although restaurant and hotel receipts often differ in appearance.
 
-A document element includes the list of recognized fields from among the fields specified by the semantic schema of the detected document type.  A document field may be extracted or inferred.  Extracted fields are represented by the extracted content and optionally its normalized value, if interpretable.  Inferred fields don't have content property and are represented only by its value.  Array fields don't include a content property, as the content can be concatenated from the content of the array elements.  Object fields do contain a content property that specifies the full content representing the object, which may be a superset of the extracted subfields.
+A document element includes the list of recognized fields from among the fields specified by the semantic schema of the detected document type.  A document field may be extracted or inferred.  Extracted fields are represented via the extracted content and optionally its normalized value, if interpretable.  Inferred fields don't have content property and are represented only via its value.  Array fields don't include a content property, as the content can be concatenated from the content of the array elements.  Object fields do contain a content property that specifies the full content representing the object, which may be a superset of the extracted subfields.
 
-The semantic schema of a document type is described by the fields it may contain.  Each field schema is specified by its canonical name and value type.  Field value types include basic (ex. string), compound (ex. address), and structured (ex. array, object) types.  The field value type also specifies the semantic normalization performed to convert detected content into a normalization representation.  Normalization may be locale dependent.
+The semantic schema of a document type is described via the fields it may contain.  Each field schema is specified via its canonical name and value type.  Field value types include basic (ex. string), compound (ex. address), and structured (ex. array, object) types.  The field value type also specifies the semantic normalization performed to convert detected content into a normalization representation.  Normalization may be locale dependent.
 
 #### Basic types
 

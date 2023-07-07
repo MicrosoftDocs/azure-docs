@@ -10,7 +10,7 @@ author: sdgilley
 ms.author: sgilley
 ms.reviewer: sgilley
 ms.date: 09/14/2022
-ms.custom: UpdateFrequency5, sdkv1, event-tier1-build-2022
+ms.custom: UpdateFrequency5, sdkv1, event-tier1-build-2022, devx-track-python
 #Customer intent: As a professional data scientist, I can build an image classification model with Azure Machine Learning by using Python in a Jupyter Notebook.
 ---
 
@@ -38,7 +38,7 @@ Learn how to take the following actions:
 
 ## Run a notebook from your workspace
 
-Azure Machine Learning includes a cloud notebook server in your workspace for an install-free and pre-configured experience. Use [your own environment](how-to-configure-environment-v1.md) if you prefer to have control over your environment, packages, and dependencies.
+Azure Machine Learning includes a cloud notebook server in your workspace for an install-free and pre-configured experience. Use [your own environment](how-to-configure-environment.md) if you prefer to have control over your environment, packages, and dependencies.
 
 ## Clone a notebook folder
 
@@ -86,7 +86,7 @@ You may see a few install warnings.  These can safely be ignored.
 
 ## Run the notebook
 
-This tutorial and accompanying **utils.py** file is also available on [GitHub](https://github.com/Azure/MachineLearningNotebooks/tree/master/tutorials) if you wish to use it on your own [local environment](how-to-configure-environment-v1.md). If you aren't using the compute instance, add `%pip install azureml-sdk[notebooks] azureml-opendatasets matplotlib` to the install above.
+This tutorial and accompanying **utils.py** file is also available on [GitHub](https://github.com/Azure/MachineLearningNotebooks/tree/master/tutorials) if you wish to use it on your own [local environment](how-to-configure-environment.md). If you aren't using the compute instance, add `%pip install azureml-sdk[notebooks] azureml-opendatasets matplotlib` to the install above.
 
 > [!Important]
 > The rest of this article contains the same content as you see in the notebook.  
@@ -346,7 +346,7 @@ If you want to control cost further, stop the compute instance by selecting the 
 
 Use these steps to delete your Azure Machine Learning workspace and all compute resources.
 
-[!INCLUDE [aml-delete-resource-group](../../../includes/aml-delete-resource-group.md)]
+[!INCLUDE [aml-delete-resource-group](../includes/aml-delete-resource-group.md)]
 
 
 ## Next steps
@@ -355,4 +355,3 @@ Use these steps to delete your Azure Machine Learning workspace and all compute 
 + Learn how to [authenticate to the deployed model](../how-to-authenticate-online-endpoint.md).
 + [Make predictions on large quantities of data](../tutorial-pipeline-batch-scoring-classification.md) asynchronously.
 + Monitor your Azure Machine Learning models with [Application Insights](how-to-enable-app-insights.md).
-

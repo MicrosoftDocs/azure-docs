@@ -9,7 +9,7 @@ ms.author: jboback
 ms.custom: ignite-fall-2021
 ---
 
-[Reference documentation](/rest/api/language/2022-05-01/text-analysis-runtime/analyze-text)
+[Reference documentation](/rest/api/language/2023-04-01/text-analysis-runtime/analyze-text)
 
 Use this quickstart to send language detection requests using the REST API. In the following example, you will use cURL to identify medical [entities](../../concepts/health-entity-categories.md), [relations](../../concepts/relation-extraction.md), and [assertions](../../concepts/assertion-detection.md) that appear in text.
 
@@ -32,8 +32,7 @@ To call the API, you need the following information:
 
 [!INCLUDE [Create environment variables](../../../includes/environment-variables.md)]
 
-> [!div class="nextstepaction"]
-> <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=CSHARP&Pillar=Language&Product=Text-analytics-for-health&Page=quickstart&Section=Create-environment-variables" target="_target">I ran into an issue</a>
+
 
 |parameter  |Description  |
 |---------|---------|
@@ -44,8 +43,7 @@ To call the API, you need the following information:
 
 The following cURL commands are executed from a BASH shell. Edit these commands with your own resource name, resource key, and JSON values.
 
-> [!div class="nextstepaction"]
-> <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=REST API&Pillar=Language&Product=Text-analytics-for-health&Page=quickstart&Section=Prerequisites" target="_target">I ran into an issue</a>
+
 
 
 ## Text Analytics for health

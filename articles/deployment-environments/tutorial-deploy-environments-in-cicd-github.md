@@ -4,6 +4,7 @@ description: Learn how to integrate Azure Deployment Environments into your CI/C
 author: RoseHJM
 ms.author: rosemalcolm
 ms.service: deployment-environments
+ms.custom: devx-track-azurecli
 ms.topic: tutorial
 ms.date: 04/13/2023
 ---
@@ -11,7 +12,9 @@ ms.date: 04/13/2023
 # Tutorial: Deploy environments in CI/CD with GitHub
 Continuous integration and continuous delivery (CI/CD) is a software development approach that helps teams to automate the process of building, testing, and deploying software changes. CI/CD enables you to release software changes more frequently and with greater confidence. 
 
-In this tutorial, you'll Learn how to integrate Azure Deployment Environments into your CI/CD pipeline by using GitHub Actions. You use a workflow that features three branches: main, dev, and test.
+In this tutorial, you'll Learn how to integrate Azure Deployment Environments into your CI/CD pipeline by using GitHub Actions. You can use any GitOps provider that supports CI/CD, like GitHub Actions, Azure Arc, GitLab, or Jenkins. 
+
+You use a workflow that features three branches: main, dev, and test.
 
 - The  *main* branch is always considered production.
 - You create feature branches from the *main* branch.
@@ -404,7 +407,7 @@ az keyvault secret set \
 
 ## 4. Connect the catalog to your dev center
 
-A catalog is a repository that contains a set of catalog items. Catalog items consist of an IaC template and a manifest file. The template defines the environment, and the manifest provides metadata about the template. Development teams use catalog items from the catalog to create environments.                                                         
+A catalog is a repository that contains a set of environment definitions. Catalog items consist of an IaC template and a manifest file. The template defines the environment, and the manifest provides metadata about the template. Development teams use environment definitions from the catalog to create environments.                                                         
 
 The template you used to create your GitHub repository contains a catalog in the _Environments_ folder.
 
@@ -726,7 +729,7 @@ In this section, you make some changes to the repository and test the CI/CD pipe
 
 1. Merge the PR.
 
-    Your changes are published into the production environment, and delete the branch and pull request environments.
+    Your changes are published into the production environment, and the branch and pull request environments are deleted.
 
 ## Clean up resources
 

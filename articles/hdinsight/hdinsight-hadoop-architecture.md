@@ -4,7 +4,7 @@ description: Describes Apache Hadoop storage and processing on Azure HDInsight c
 ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
-ms.date: 04/07/2022
+ms.date: 05/10/2023
 ---
 
 # Apache Hadoop architecture in HDInsight

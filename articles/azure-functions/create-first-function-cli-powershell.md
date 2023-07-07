@@ -27,7 +27,7 @@ Before you begin, you must have the following:
 
 + One of the following tools for creating Azure resources:
 
-    + The Azure [Az PowerShell module](/powershell/azure/install-az-ps) version 9.4.0 or later.
+    + The Azure [Az PowerShell module](/powershell/azure/install-azure-powershell) version 9.4.0 or later.
 
     + [Azure CLI](/cli/azure/install-azure-cli) version 2.4 or later.
 
@@ -112,7 +112,7 @@ Each binding requires a direction, a type, and a unique name. The HTTP trigger h
     # [Azure CLI](#tab/azure-cli)
 
     ```azurecli
-    az functionapp create --resource-group AzureFunctionsQuickstart-rg --consumption-plan-location <REGION> --runtime powershell --functions-version 3 --name <APP_NAME> --storage-account <STORAGE_NAME>
+    az functionapp create --resource-group AzureFunctionsQuickstart-rg --consumption-plan-location <REGION> --runtime powershell --functions-version 4 --name <APP_NAME> --storage-account <STORAGE_NAME>
     ```
 
     The [az functionapp create](/cli/azure/functionapp#az-functionapp-create) command creates the function app in Azure.

@@ -37,7 +37,9 @@ sections:
           How can an administrator enable Azure AD CBA?
         answer: |
           1. Sign in to the [Azure portal](https://portal.azure.com) as a Global Administrator.
-          1. Click **Azure Active Directory** > **Security** > **Authentication methods** > **Certificate-based Authentication** > **Basics**, click **Yes** to enable certificate-based authentication.
+          2. Select **Azure Active Directory** > **Security** > **Authentication methods** > **Policies**.
+          3. Select policy: **Certificate-based Authentication**.
+          4. On the **Enable and Target** tab, select the **Enable** toggle to enable certificate-based authentication.
 
       - question: |
           Is Azure AD CBA a free feature?
@@ -129,11 +131,6 @@ sections:
         answer: |
           We have support for single factor CBA to get MFA. CBA SF + passwordless phone sign-in (PSI) and CBA SF + FIDO2 are the two supported combinations to get MFA using single factor certificates.
           [MFA with single factor certificates](../authentication/concept-certificate-based-authentication-technical-deep-dive.md#mfa-authentication-flow-using-single-factor-certificates-and-passwordless-sign-in) 
-          
-      - question: |
-          Will the changes to the Authentication methods policy take effect immediately?
-        answer: |
-          The policy is cached. After a policy update, it may take up to an hour for the changes to take effect.
           
       - question: |
           CertificateUserIds update fails with value already there. How can an admin query all the user objects with the same value?

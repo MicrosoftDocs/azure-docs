@@ -1,8 +1,8 @@
 ---
 title: Create an iOS app
 description: Steps to create an Azure Maps account and the first iOS App.
-author: sinnypan
-ms.author: sipa
+author: dubiety
+ms.author: yuchungchen
 ms.date: 11/23/2021
 ms.topic: quickstart
 ms.service: azure-maps

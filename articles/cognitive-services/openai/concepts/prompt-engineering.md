@@ -5,7 +5,7 @@ description: Learn how to use prompt engineering to optimize your work with Azur
 ms.service: cognitive-services
 ms.topic: conceptual 
 ms.date: 03/21/2023
-ms.custom: event-tier1-build-2022, references_regions
+ms.custom: event-tier1-build-2022, references_regions, build-2023, build-2023-dataai
 manager: nitinme
 author: mrbullwinkle
 ms.author: mbullwin
@@ -36,7 +36,7 @@ As you develop more complex prompts, it's helpful to keep this fundamental behav
 
 ### Prompt components
 
-When using the Completion API while there's no differentiation between different parts of the prompt, it can still be useful for learning and discussion to identify underlying prompt components. With the [Chat Completion API](../how-to/chatgpt.md) there are distinct sections of the prompt that are sent to the API in the form of an array of dictionaries with associated roles: system, user, and assistant. This guidance will focus more generally on how to think about prompt construction rather than providing prescriptive guidance that is specific to one API over another.
+When using the Completion API while there's no differentiation between different parts of the prompt, it can still be useful for learning and discussion to identify underlying prompt components. With the [Chat Completion API](../how-to/chatgpt.md) there are distinct sections of the prompt that are sent to the API in the form of an array of dictionaries with associated roles: system, user, and assistant. This guidance focuses more generally on how to think about prompt construction rather than providing prescriptive guidance that is specific to one API over another.
 
 It's also important to understand that while there could be other valid ways to dissect prompts, the goal of this breakdown is to provide a relatively simple way to think about prompt construction. With the Completion API, all the components are optional, but at least one must be present and most prompts include more than one component. There can be some grey area between components as well. The order presented below roughly corresponds to how commonly each component is used, from most to least.
 
@@ -58,12 +58,12 @@ Primary content refers to some sort of text that is being processed or transform
 |--------|-----------|
 | Can you please tell me how to get to the museum?<br>Translate to French: |`Pouvez-vous s'il vous plaît me dire comment aller au musée?` |
 
-Primary content can also be much longer. In the following example the primary content is the introduction section from the [Wikipedia entry on time complexity](https://en.wikipedia.org/wiki/Time_complexity), which is almost 300 words long. This content has been abbreviated in our table for ease of display.
+Primary content can also be much longer. In the following example, the primary content is the introduction section from the [Wikipedia entry on time complexity](https://en.wikipedia.org/wiki/Time_complexity), which is almost 300 words long. This content has been abbreviated in our table for ease of display.
 
 | Prompt | Completion|
 |--------|-----------|
 | In computer science, the time complexity is the computational complexity that describes the amount of computer time it takes to run an algorithm. Time complexity is commonly estimated by [...]<br>Summarize the previous text in a few sentences:| Time complexity is a measure of how long an algorithm takes to run. It is typically expressed as a function of the size of the input. The most common measure is worst-case time complexity, which is the maximum amount of time required for inputs of a given size.|
-| In computer science, the time complexity is the computational complexity that describes the amount of computer time it takes to run an algorithm. Time complexity is commonly estimated by [...]<br>TL;DR (Too long didn't read) | The time complexity of an algorithm is the amount of time it takes to run an algorithm. Time complexity is commonly estimated by counting the number of elementary operations performed by the algorithm, supposing that each elementary operation takes a fixed amount of time to perform. The time complexity is generally expressed as a function of the size of the input.|
+| In computer science, the time complexity is the computational complexity that describes the amount of computer time it takes to run an algorithm. Time complexity is commonly estimated by [...]<br>`TL;DR` (Too long didn't read) | The time complexity of an algorithm is the amount of time it takes to run an algorithm. Time complexity is commonly estimated by counting the number of elementary operations performed by the algorithm, supposing that each elementary operation takes a fixed amount of time to perform. The time complexity is generally expressed as a function of the size of the input.|
 
 GPT models can also handle primary content that is structured. In the example below, a TSV about beers in Belgium (abbreviated for display in this article) is passed to the model as part of the prompt. It is capable of properly interpreting the content and answering questions about the data.
 
@@ -73,7 +73,7 @@ GPT models can also handle primary content that is structured. In the example be
 
 ### Examples
 
-Successful prompts often rely on the practice of “one-shot” or “few-shot” learning. This refers to the inclusion of one or more examples of the desired behavior of the model, typically by including input and output pairs. This is not learning in the sense that the model is permanently changed, but rather that the examples better condition the model to respond as desired for only the current inference. The use of prompts with no examples is sometimes referred to as “zero-shot” learning. Please note that with the Chat Completion API few-shot learning examples are typically added to the messages array in the form of example user/assistant interactions after the initial system message.
+Successful prompts often rely on the practice of “one-shot” or “few-shot” learning. This refers to the inclusion of one or more examples of the desired behavior of the model, typically by including input and output pairs. This is not learning in the sense that the model is permanently changed, but rather that the examples better condition the model to respond as desired for only the current inference. The use of prompts with no examples is sometimes referred to as “zero-shot” learning. Note that with the Chat Completion API few-shot learning examples are typically added to the messages array in the form of example user/assistant interactions after the initial system message.
 
 | Learning Type|  Prompt| Completion|
 |------------------------------------- |-------|-----|
@@ -101,7 +101,7 @@ Supporting content is information that the model can utilize to influence the ou
 | Supporting Content| Prompt | Completion|
 |--------|-------------|-----------------|
 | Without | Workshop list:<br>Title	Description<br> Planning Workshop Kickoff Please join us to kick off our workshop! Hear from our leaders about cross group priorities and learnings for the year ahead. The invitation to this event has already been sent to everyone in […]<br>Summarize the workshops above, grouped by topic: | Workshop list: <br> Planning Workshop Kickoff <br> -Planning Workshop Wrap-up<br>- Core MeetUp<br>- Customer Driven Perspectives<br>-Impact and Key Focus Areas<br>-Best practices<br>-Accelerating app adoption […] |
-| With | Workshop list: <br>Title	Description<br>Planning Workshop Kickoff	Please join us to kick off our workshop! Hear from our leaders about cross group priorities and learnings for the year ahead. The invitation to this event has already been sent to everyone in […] <br>My Important Topics: prompt engineering, search, GPT models<br>Summarize the workshops above, grouped by my important topics:| 1. Prompt Engineering: <br>- New prompt engineering tips<br>- The art of prompt engineering<br>2. Search:<br>-Intro to vector search with embedding<br>3. GPT Models:<br>- Intro to GPT-4<br>- ChatGPT in-depth.|
+| With | Workshop list: <br>Title	Description<br>Planning Workshop Kickoff	Please join us to kick off our workshop! Hear from our leaders about cross group priorities and learnings for the year ahead. The invitation to this event has already been sent to everyone in […] <br>My Important Topics: prompt engineering, search, GPT models<br>Summarize the workshops above, grouped by my important topics:| 1. Prompt Engineering: <br>- New prompt engineering tips<br>- The art of prompt engineering<br>2. Search:<br>-Intro to vector search with embedding<br>3. GPT Models:<br>- Intro to GPT-4<br>- GPT-35-Turbo in-depth.|
 
 ## Best practices
 
@@ -109,7 +109,7 @@ Supporting content is information that the model can utilize to influence the ou
 - **Be Descriptive**. Use analogies.
 - **Double Down**. Sometimes you may need to repeat yourself to the model. Give instructions before and after your primary content, use an instruction and a cue, etc. 
 - **Order Matters**. The order in which you present information to the model may impact the output.  Whether you put instructions before your content (“summarize the following…”) or after (“summarize the above…”) can make a difference in output. Even the order of few-shot examples can matter. This is referred to as recency bias.
-- **Give the model an “out”**.  It can sometimes be helpful to give the model an alternative path if it is unable to complete the assigned task. For example, when asking a question over a piece of text you might include something like "respond with ‘not found’ if the answer is not present". This can help the model avoid generating false responses.
+- **Give the model an “out”**.  It can sometimes be helpful to give the model an alternative path if it is unable to complete the assigned task. For example, when asking a question over a piece of text you might include something like "respond with ‘not found’ if the answer is not present." This can help the model avoid generating false responses.
 
 ## Space efficiency
 

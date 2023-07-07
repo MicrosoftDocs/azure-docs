@@ -4,7 +4,7 @@ description: Insert a few lines of code in your device or desktop app, webpage, 
 ms.topic: conceptual
 ms.date: 01/24/2023
 ms.devlang: csharp, java, javascript, vb
-ms.custom: "devx-track-js, devx-track-csharp"
+ms.custom: devx-track-csharp
 ms.reviewer: mmcc
 ---
 
@@ -428,7 +428,7 @@ The SDKs catch many exceptions automatically, so you don't always have to call `
 
 * **ASP.NET**: [Write code to catch exceptions](./asp-net-exceptions.md).
 * **Java EE**: [Exceptions are caught automatically](./opentelemetry-enable.md?tabs=java).
-* **JavaScript**: Exceptions are caught automatically. If you want to disable automatic collection, add a line to the code snippet that you insert in your webpages:
+* **JavaScript**: Exceptions are caught automatically. If you want to disable automatic collection, add a line to the JavaScript (Web) SDK Loader Script that you insert in your webpages:
 
 ```javascript
 ({
@@ -617,7 +617,7 @@ In Java, many dependency calls can be automatically tracked by using the
 You use this call if you want to track calls that the automated tracking doesn't catch.
 
 To turn off the standard dependency-tracking module in C#, edit [ApplicationInsights.config](./configuration-with-applicationinsights-config.md) and delete the reference to `DependencyCollector.DependencyTrackingTelemetryModule`. For Java, see
-[Suppressing specific autocollected telemetry](./java-standalone-config.md#suppress-specific-auto-collected-telemetry).
+[Suppressing specific autocollected telemetry](./java-standalone-config.md#suppress-specific-autocollected-telemetry).
 
 ### Dependencies in Log Analytics
 
@@ -1151,9 +1151,9 @@ Yes, the [data access API](/rest/api/application-insights/). Other ways to extra
 
 ### Why are my calls to custom events and metrics APIs ignored?
 
-The Application Insights SDK isn't compatible with auto-instrumentation. If auto-instrumentation is enabled, calls to <code class="notranslate">Track()</code> and other custom events and metrics APIs will be ignored.
+The Application Insights SDK isn't compatible with autoinstrumentation. If autoinstrumentation is enabled, calls to <code class="notranslate">Track()</code> and other custom events and metrics APIs will be ignored.
 
-Turn off auto-instrumentation in the Azure portal on the Application Insights tab of the App Service page or set <code class="notranslate">ApplicationInsightsAgent_EXTENSION_VERSION</code> to <code class="notranslate">disabled</code>.
+Turn off autoinstrumentation in the Azure portal on the Application Insights tab of the App Service page or set <code class="notranslate">ApplicationInsightsAgent_EXTENSION_VERSION</code> to <code class="notranslate">disabled</code>.
 
 ## <a name="next"></a>Next steps
 

@@ -23,7 +23,7 @@ The scale set should have application health monitoring for instances enabled. H
 
 **Configure endpoint to provide health status**
 
-Before enabling automatic instance repairs policy, ensure that your scale set instances have application endpoint configured to emit the application health status. To configure health status on Application Health extension, you can use either [Binary Health States](./virtual-machine-scale-sets-health-extension.md#binary-health-states) or [Rich Health States](./virtual-machine-scale-sets-health-extension.md#rich-health-states). To configure health status using Load balancer health probes, see [probe up behavior](../load-balancer/load-balancer-custom-probe-overview.md#probe-up-behavior).
+Before enabling automatic instance repairs policy, ensure that your scale set instances have application endpoint configured to emit the application health status. To configure health status on Application Health extension, you can use either [Binary Health States](./virtual-machine-scale-sets-health-extension.md#binary-health-states) or [Rich Health States](./virtual-machine-scale-sets-health-extension.md#rich-health-states). To configure health status using Load balancer health probes, see [probe up behavior](../load-balancer/load-balancer-custom-probe-overview.md).
 
 For instances marked as "Unhealthy" or "Unknown" (*Unknown* state is only available with [Application Health extension - Rich Health States](./virtual-machine-scale-sets-health-extension.md#unknown-state)), automatic repairs are triggered by the scale set. Ensure the application endpoint is correctly configured before enabling the automatic repairs policy in order to avoid unintended instance repairs, while the endpoint is getting configured.
 
@@ -153,7 +153,7 @@ The above example uses an existing load balancer and health probe for monitoring
 
 Before enabling automatic repairs policy in an existing scale set, ensure that all the [requirements](#requirements-for-using-automatic-instance-repairs) for opting in to this feature are met. The application endpoint should be correctly configured for scale set instances to avoid triggering unintended repairs while the endpoint is getting configured. To enable the automatic instance repair in a scale set, use *automaticRepairsPolicy* object in the Virtual Machine Scale Set model.
 
-After updating the model of an existing scale set, ensure that the latest model is applied to all the instances of the scale. Refer to the instruction on [how to bring VMs up-to-date with the latest scale set model](./virtual-machine-scale-sets-upgrade-scale-set.md#how-to-bring-vms-up-to-date-with-the-latest-scale-set-model).
+After updating the model of an existing scale set, ensure that the latest model is applied to all the instances of the scale. Refer to the instruction on [how to bring VMs up-to-date with the latest scale set model](./virtual-machine-scale-sets-upgrade-policy.md).
 
 ### Azure portal
 

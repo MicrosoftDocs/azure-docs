@@ -5,7 +5,7 @@ titleSuffix: Azure Digital Twins
 description: Learn about the data ingress and egress requirements for integrating Azure Digital Twins with other services.
 author: baanders
 ms.author: baanders # Microsoft employees only
-ms.date: 03/08/2023
+ms.date: 05/31/2023
 ms.topic: conceptual
 ms.service: digital-twins
 
@@ -39,7 +39,7 @@ You may want to send Azure Digital Twins data to other downstream services for s
 
 There are two main egress options in Azure Digital Twins. Digital twin data can be sent to most Azure services using *endpoints*. Or, if your destination is [Azure Data Explorer](/azure/data-explorer/data-explorer-overview), you can use *data history* to automatically send graph updates to an Azure Data Explorer cluster, where they are stored as historical data and can be queried as such.
 
-In order for Azure Digital Twins to send data to other Azure services via endpoints or data history, the receiving service must have public network access enabled. Azure Digital Twins currently does not support any outbound communication to resources that have public network access disabled.
+In order for Azure Digital Twins to send data to other Azure services via endpoints or data history, the receiving service must have either public network access enabled or the Trusted Microsoft Service option enabled. For data history, the data history connection must be configured with public network access enabled on the Event Hub and Azure Data Explorer instances. Once data history is configured, the Event Hub and Azure Data Explorer firewall and security settings will need to be configured manually.
 
 Once the connection is set up, Azure Digital Twins implements *at least once* delivery for data emitted to egress services. 
 

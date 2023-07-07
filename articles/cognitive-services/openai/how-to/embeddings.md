@@ -7,7 +7,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: openai
 ms.topic: how-to
-ms.date: 6/24/2022
+ms.date: 5/9/2023
 author: ChrisHMSFT
 ms.author: chrhoder
 recommendations: false
@@ -24,7 +24,7 @@ To obtain an embedding vector for a piece of text, we make a request to the embe
 
 # [console](#tab/console)
 ```console
-curl https://YOUR_RESOURCE_NAME.openai.azure.com/openai/deployments/YOUR_DEPLOYMENT_NAME/embeddings?api-version=2022-12-01\
+curl https://YOUR_RESOURCE_NAME.openai.azure.com/openai/deployments/YOUR_DEPLOYMENT_NAME/embeddings?api-version=2023-05-15\
   -H 'Content-Type: application/json' \
   -H 'api-key: YOUR_API_KEY' \
   -d '{"input": "Sample Document goes here"}'
@@ -37,7 +37,7 @@ import openai
 openai.api_type = "azure"
 openai.api_key = YOUR_API_KEY
 openai.api_base = "https://YOUR_RESOURCE_NAME.openai.azure.com"
-openai.api_version = "2022-12-01"
+openai.api_version = "2023-05-15"
 
 response = openai.Embedding.create(
     input="Your text string goes here",
@@ -46,9 +46,32 @@ response = openai.Embedding.create(
 embeddings = response['data'][0]['embedding']
 print(embeddings)
 ```
+
+# [C#](#tab/csharp)
+```csharp
+using Azure;
+using Azure.AI.OpenAI;
+
+Uri oaiEndpoint = new ("https://YOUR_RESOURCE_NAME.openai.azure.com");
+string oaiKey = "YOUR_API_KEY";
+
+AzureKeyCredential credentials = new (oaiKey);
+
+OpenAIClient openAIClient = new (oaiEndpoint, credentials);
+
+EmbeddingsOptions embeddingOptions = new ("Your text string goes here");
+
+var returnValue = openAIClient.GetEmbeddings("YOUR_DEPLOYMENT_NAME", embeddingOptions);
+
+foreach (float item in returnValue.Value.Data[0].Embedding)
+{
+    Console.WriteLine(item);
+}
+```
+
 ---
 
-## Best Practices
+## Best practices
 
 ### Verify inputs don't exceed the maximum length
 

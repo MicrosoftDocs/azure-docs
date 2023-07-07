@@ -97,6 +97,8 @@ landingContent:
         links:
           - text: About virtual hub routing
             url: about-virtual-hub-routing.md
+          - text: About Route-maps
+            url: route-maps-about.md
           - text: Scenario - Route traffic through an NVA
             url: scenario-route-through-nva.md
           - text: Scenario - Any spoke to any spoke

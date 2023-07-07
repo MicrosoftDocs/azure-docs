@@ -22,6 +22,8 @@ ms.custom: enterprise-apps
 
 Learn how to hide enterprise applications in Azure Active Directory. When an application is hidden, users still have permissions to the application.
 
+[!INCLUDE [portal updates](../includes/portal-update.md)]
+
 ## Prerequisites
 
 - Application administrator privileges are required to hide an application from the My Apps portal and Microsoft 365 launcher.

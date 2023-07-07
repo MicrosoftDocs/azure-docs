@@ -3,10 +3,9 @@ title: include file
 description: Learn how to use the Azure portal to configure direct routing.
 services: azure-communication-services
 author: boris-bazilevskiy
-
 ms.service: azure-communication-services
 ms.subservice: pstn
-ms.date: 03/11/2023
+ms.date: 06/01/2023
 ms.topic: include
 ms.custom: include file
 ms.author: nikuklic
@@ -36,8 +35,12 @@ ms.author: nikuklic
    :::image type="content" source="../media/voice-routing/add-session-border-controller.png" alt-text="Screenshot of adding a session border controller on the panel for configuring direct routing.":::
 
 3. Select **Next**.
+    If everything is set up correctly, you should see the status of SBC as *Active* in Azure portal. 
 
-    If everything is set up correctly, you should see an exchange of **OPTIONS** messages between Microsoft and your SBC. Use your SBC monitoring and logs to validate the connection.
+   [![Screenshot of SBC connection properties.](../media/voice-routing/session-border-controller-connection-properties.png)](../media/voice-routing/session-border-controller-connection-properties.png#lightbox)
+
+> [!IMPORTANT]
+> Before placing or receiving calls, make sure that SBC status is *Online*
 
 ## Create voice routing rules
 

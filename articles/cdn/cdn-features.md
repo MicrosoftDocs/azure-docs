@@ -5,7 +5,7 @@ services: cdn
 author: duongau
 ms.service: azure-cdn
 ms.topic: overview
-ms.date: 02/21/2023
+ms.date: 06/05/2023
 ms.author: duau
 ms.custom: mvc
 
@@ -21,7 +21,7 @@ Azure Content Delivery Network (CDN) includes four products:
 * **Azure CDN Premium from Verizon**.
 
 > [!IMPORTANT]
-> Azure CDN from Akamai is scheduled to be retired on October 31, 2023. For more information, see [**Migrate CDN provider**](cdn-change-provider.md) for guidance on migrating to another Azure CDN provider.
+> Azure CDN from Akamai is scheduled to be retired on October 31, 2023. You can no longer create new Azure CDN from Akamai after June 1, 2023. For more information, see [**Migrate CDN provider**](cdn-change-provider.md) for guidance on migrating to another Azure CDN provider.
 
 The following table compares the features available with each product.
 

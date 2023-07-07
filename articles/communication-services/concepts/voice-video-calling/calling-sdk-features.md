@@ -11,6 +11,7 @@ ms.date: 06/30/2021
 ms.topic: conceptual
 ms.service: azure-communication-services
 ms.subservice: calling
+ms.custom: devx-track-js
 ---
 # Calling SDK overview
 
@@ -76,7 +77,7 @@ The following list presents the set of features that are currently available in 
 |                   | Set / update scaling mode                                                                                           | ✔️   | ✔️       | ✔️              | ✔️                 |
 |                   | Render remote video stream                                                                                          | ✔️   | ✔️       | ✔️              | ✔️                 |
 
-1. The Share Screen capability can be achieved using Raw Media (this feature is in Public Preview), if you want to learn, **how  to add Raw Media**, visit [the quickstart guide](../../quickstarts/voice-video-calling/get-started-raw-media-access.md).
+1. The Share Screen capability can be achieved using Raw Media, if you want to learn, **how  to add Raw Media**, visit [the quickstart guide](../../quickstarts/voice-video-calling/get-started-raw-media-access.md).
 2. The Calling SDK doesn't have an explicit API, you need to use the OS (android & iOS) API to achieve it.
 
 ## UI Library
@@ -93,6 +94,7 @@ The Azure Communication Services Calling SDK supports the following streaming co
 | ------------------------------------------------------------- | --------------------------- | -------------------------- |
 | **Maximum # of outgoing local streams that can be sent simultaneously**     | 1 video and 1 screen sharing | 1 video + 1 screen sharing |
 | **Maximum # of incoming remote streams that can be rendered simultaneously** | 4 videos + 1 screen sharing | 6 videos + 1 screen sharing |
+| **Maximum # of incoming remote streams that can be rendered simultaneousl - public preview WebSDK or greater [1.14.1](https://github.com/Azure/Communication/blob/master/releasenotes/acs-javascript-calling-library-release-notes.md#1141-beta1-2023-06-01)** | 9 videos + 1 screen sharing | 6 videos + 1 screen sharing |
 
 While the Calling SDK don't enforce these limits, your users may experience performance degradation if they're exceeded.
 
@@ -179,4 +181,6 @@ For more information, see the following articles:
 
 - Familiarize yourself with general [call flows](../call-flows.md)
 - Learn about [call types](../voice-video-calling/about-call-types.md)
+- Learn about [call automation API](../call-automation/call-automation.md) that enables you to build server-based calling workflows that can route and control calls with client applications. 
 - [Plan your PSTN solution](../telephony/plan-solution.md)
+

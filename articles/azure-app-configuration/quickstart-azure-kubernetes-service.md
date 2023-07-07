@@ -272,7 +272,7 @@ If you don't see your application picking up the data from your App Configuratio
 kubectl get configmap configmap-created-by-appconfig-provider -n appconfig-demo
 ```
 
-If the ConfigMap is not created properly, run the following command to get the data retrieval status.
+If the ConfigMap is not created, run the following command to get the data retrieval status.
 
 ```console
 kubectl get AzureAppConfigurationProvider appconfigurationprovider-sample -n appconfig-demo -o yaml
@@ -311,7 +311,7 @@ helm uninstall azureappconfiguration.kubernetesprovider --namespace azappconfig-
 
 [!INCLUDE[Azure App Configuration cleanup](../../includes/azure-app-configuration-cleanup.md)]
 
-## Summary
+## Next steps
 
 In this quickstart, you:
 
@@ -319,3 +319,5 @@ In this quickstart, you:
 * Connected your AKS cluster to your App Configuration store using the App Configuration Kubernetes Provider.
 * Created a ConfigMap with data from your App Configuration store.
 * Ran the application with configuration from your App Configuration store without changing your application code.
+
+To learn more about the Azure App Configuration Kubernetes Provider, see [Azure App Configuration Kubernetes Provider reference](./reference-kubernetes-provider.md).

@@ -26,6 +26,8 @@ landingContent:
         links:
           - text: Manage configurations for hybrid servers 
             url: /azure/architecture/hybrid/azure-arc-hybrid-config 
+          - text: Azure Arc landing zone accelerator for hybrid and multicloud
+            url: /azure/cloud-adoption-framework/scenarios/hybrid/arc-enabled-servers/eslz-identity-and-access-management
  
  # Card
   - title: Connect machines to Azure
@@ -56,7 +58,7 @@ landingContent:
     linkLists:
      - linkListType: sample
        links:
-          - text: Jumpstart
+          - text: Jumpstart for Azure Arc-enabled servers
             url: https://azurearcjumpstart.io/azure_arc_jumpstart/azure_arc_servers/
      - linkListType: get-started
        links:

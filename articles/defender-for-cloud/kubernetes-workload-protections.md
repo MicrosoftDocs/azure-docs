@@ -2,8 +2,8 @@
 title: Kubernetes data plane hardening
 description: Learn how to use Microsoft Defender for Cloud's set of Kubernetes data plane hardening security recommendations
 ms.topic: how-to
-author: bmansheim
-ms.author: benmansheim
+author: dcurwin
+ms.author: dacurwin
 ms.custom: ignite-2022
 ms.date: 03/08/2022
 ---

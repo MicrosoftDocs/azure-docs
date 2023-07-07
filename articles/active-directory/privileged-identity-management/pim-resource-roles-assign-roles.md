@@ -3,7 +3,7 @@ title: Assign Azure resource roles in Privileged Identity Management
 description: Learn how to assign Azure resource roles in Azure AD Privileged Identity Management (PIM).
 services: active-directory
 documentationcenter: ''
-author: amsliu
+author: billmath
 manager: amycolannino
 ms.service: active-directory
 ms.topic: how-to
@@ -11,7 +11,7 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: pim
 ms.date: 07/29/2022
-ms.author: amsliu
+ms.author: billmath
 ms.custom: pim
 ms.collection: M365-identity-device-management
 ---
@@ -225,6 +225,5 @@ Follow these steps to update or remove an existing role assignment.
 
 ## Next steps
 
-- [Extend or renew Azure resource roles in Privileged Identity Management](pim-resource-roles-renew-extend.md)
 - [Configure Azure resource role settings in Privileged Identity Management](pim-resource-roles-configure-role-settings.md)
 - [Assign Azure AD roles in Privileged Identity Management](pim-how-to-add-role-to-user.md)

@@ -4,7 +4,7 @@ description: Learn about recent changes to the Remote Desktop client for Windows
 ms.topic: release-notes
 author: heidilohr
 ms.author: helohr
-ms.date: 04/21/2023
+ms.date: 07/06/2023
 ---
 
 # What's new in the Remote Desktop client for Windows
@@ -17,14 +17,60 @@ The following table lists the current versions available for the public and Insi
 
 | Release | Latest version | Download |
 |---------|----------------|----------|
-| Public  | 1.2.4157       | [Windows 64-bit](https://go.microsoft.com/fwlink/?linkid=2139369) *(most common)*<br />[Windows 32-bit](https://go.microsoft.com/fwlink/?linkid=2139456)<br />[Windows ARM64](https://go.microsoft.com/fwlink/?linkid=2139370) |
-| Insider | 1.2.4157       | [Windows 64-bit](https://go.microsoft.com/fwlink/?linkid=2139233) *(most common)*<br />[Windows 32-bit](https://go.microsoft.com/fwlink/?linkid=2139144)<br />[Windows ARM64](https://go.microsoft.com/fwlink/?linkid=2139368) |
+| Public  | 1.2.4419       | [Windows 64-bit](https://go.microsoft.com/fwlink/?linkid=2139369) *(most common)*<br />[Windows 32-bit](https://go.microsoft.com/fwlink/?linkid=2139456)<br />[Windows ARM64](https://go.microsoft.com/fwlink/?linkid=2139370) |
+| Insider | 1.2.4419       | [Windows 64-bit](https://go.microsoft.com/fwlink/?linkid=2139233) *(most common)*<br />[Windows 32-bit](https://go.microsoft.com/fwlink/?linkid=2139144)<br />[Windows ARM64](https://go.microsoft.com/fwlink/?linkid=2139368) |
 
-## Updates for version 1.2.4157
+## Updates for version 1.2.4419
 
-*Date published: April 10, 2023*
+*Date published: July 6, 2023*
 
 Download: [Windows 64-bit](https://go.microsoft.com/fwlink/?linkid=2139369), [Windows 32-bit](https://go.microsoft.com/fwlink/?linkid=2139456), [Windows ARM64](https://go.microsoft.com/fwlink/?linkid=2139370)
+
+In this release, we've made the following changes: 
+
+- General improvements to Narrator experience.
+- Fixed an issue that caused the text in the message for subscribing to workspaces to be cut off when the user increases the text size.
+- Fixed an issue that caused the client to sometimes stop responding when attempting to start new connections.
+- Improved client logging, diagnostics, and error classification to help admins troubleshoot connection and feed issues. 
+
+## Updates for version 1.2.4337 
+
+*Date published: June 13, 2023*
+
+Download: [Windows 64-bit](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RW1697H), [Windows 32-bit](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RW15Tzb), [Windows ARM64](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RW15W7E) 
+
+In this release, we've made the following changes: 
+
+- Fixed the vulnerability known as [CVE-2023-29362](https://msrc.microsoft.com/update-guide/vulnerability/CVE-2023-29362).
+- Fixed the vulnerability known as [CVE-2023-29352](https://msrc.microsoft.com/update-guide/vulnerability/CVE-2023-29352).
+
+## Updates for version 1.2.4331
+
+*Date published: June 6, 2023*
+
+In this release, we've made the following changes:
+
+- Improved connection bar resizing so that resizing the bar to its minimum width doesn't make its buttons disappear.
+- Fixed an application compatibility issue that affected preview versions of Windows.
+- Moved the identity verification method from the lock window message in the connection bar to the end of the connection info message.
+- Changed the error message that appears when the session host can't reach the authenticator to validate a user's credentials to be clearer.
+- Added a reconnect button to the disconnect message boxes that appear whenever the local PC goes into sleep mode or the session is locked. 
+- Improved client logging, diagnostics, and error classification to help admins troubleshoot connection and feed issues.
+
+## Updates for version 1.2.4240 
+
+*Date published: May 16, 2023*
+
+In this release, we've made the following changes: 
+
+- Fixed an issue where the connection bar remained visible on local sessions when the user changed their contrast themes.
+- Made minor changes to connection bar UI, including improved button sizing. 
+- Fixed an issue where the client stopped responding if closed from the system tray. 
+- Improved client logging, diagnostics, and error classification to help admins troubleshoot connection and feed issues. 
+
+## Updates for version 1.2.4159
+
+*Date published: May 9, 2023*
 
 In this release, we've made the following changes:
 
@@ -36,12 +82,11 @@ In this release, we've made the following changes:
 - Fixed the vulnerability known as [CVE-2023-28267](https://msrc.microsoft.com/update-guide/vulnerability/CVE-2023-28267).
 - Fixed an issue that generated duplicate Activity IDs for unique connections. 
 - Improved client logging, diagnostics, and error classification to help admins troubleshoot connection and feed issues.
+- Fixed an application compatibility issue for preview versions of Windows.
 
 ## Updates for version 1.2.4066
 
 *Date published: March 28, 2023*
-
-Download: [Windows 64-bit](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RW10DEa), [Windows 32-bit](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RW10GYu), [Windows ARM64](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RW10GYw)
 
 In this release, we've made the following changes:
 

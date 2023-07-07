@@ -6,8 +6,7 @@ author: roygara
 ms.date: 02/06/2023
 ms.topic: how-to
 ms.author: rogarana
-ms.service: storage
-ms.subservice: disks
+ms.service: azure-disk-storage
 ms.custom: references_regions, devx-track-azurepowershell
 ---
 
@@ -23,7 +22,7 @@ Double encryption at rest isn't currently supported with either Ultra Disks or P
 
 ## Prerequisites
 
-Install the latest [Azure PowerShell version](/powershell/azure/install-az-ps), and sign in to an Azure account using [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount).
+Install the latest [Azure PowerShell version](/powershell/azure/install-azure-powershell), and sign in to an Azure account using [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount).
 
 ## Getting started
 

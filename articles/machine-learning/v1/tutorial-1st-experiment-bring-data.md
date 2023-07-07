@@ -4,7 +4,7 @@ titleSuffix: Azure Machine Learning
 description: How to upload and use your own data in a remote training job, with SDK v1. This is part 3 of a three-part getting-started series.
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: core
+ms.subservice: training
 ms.topic: tutorial
 author: aminsaied
 ms.author: amsaied
@@ -17,9 +17,6 @@ ms.custom: UpdateFrequency5, tracking-python, contperf-fy21q3, FY21Q4-aml-seo-ha
 
 [!INCLUDE [sdk v1](../../../includes/machine-learning-sdk-v1.md)]
 
-> [!div class="op_single_selector" title1="Select the version of Azure Machine Learning SDK you are using:"]
-> * [v1](tutorial-1st-experiment-bring-data.md)
-> * [v2](../tutorial-1st-experiment-bring-data.md?view=azureml-api-2&preserve-view=true)
 
 This tutorial shows you how to upload and use your own data to train machine learning models in Azure Machine Learning. This tutorial is *part 3 of a three-part tutorial series*.  
 
@@ -338,7 +335,7 @@ If you're not going to use it now, stop the compute instance:
 
 ### Delete all resources
 
-[!INCLUDE [aml-delete-resource-group](../../../includes/aml-delete-resource-group.md)]
+[!INCLUDE [aml-delete-resource-group](../includes/aml-delete-resource-group.md)]
 
 You can also keep the resource group but delete a single workspace. Display the workspace properties and select **Delete**.
 

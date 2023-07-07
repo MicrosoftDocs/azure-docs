@@ -5,7 +5,7 @@ description: Learn how to connect to your virtual machines using a specified pri
 author: cherylmc
 ms.service: bastion
 ms.topic: how-to
-ms.date: 04/26/2022
+ms.date: 06/26/2023
 ms.author: cherylmc
 
 ---
@@ -64,7 +64,7 @@ Before you begin these steps, verify that you have the following environment set
 
 ## Connect to VM - native client
 
-You can connect to VMs using a specified IP address with native client via SSH, RDP, or tunnelling. Note that this feature does not support Azure Active Directory authentication or custom port and protocol at the moment. To learn more about configuring native client support, see [Connect to a VM - native client](connect-native-client-windows.md). Use the following commands as examples:
+You can connect to VMs using a specified IP address with native client via SSH, RDP, or tunnelling. Note that this feature does not support Azure Active Directory authentication or custom port and protocol at the moment. To learn more about configuring native client support, see [Configure Bastion native client support](native-client.md). Use the following commands as examples:
 
    **RDP:**
    

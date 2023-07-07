@@ -7,10 +7,10 @@ author: sdgilley
 ms.author: sgilley
 ms.reviewer: sgilley
 ms.service: machine-learning
-ms.subservice: core
+ms.subservice: training
 ms.date: 10/21/2021
 ms.topic: how-to
-ms.custom: UpdateFrequency5, devx-track-python, contperf-fy21q1, sdkv1, event-tier1-build-2022
+ms.custom: UpdateFrequency5,sdkv1
 ---
 
 # Configure and submit training jobs
@@ -174,7 +174,7 @@ See these notebooks for examples of configuring jobs for various training scenar
 * [Training with ML frameworks](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/ml-frameworks)
 * [tutorials/img-classification-part1-training.ipynb](https://github.com/Azure/MachineLearningNotebooks/blob/master/tutorials/image-classification-mnist-data/img-classification-part1-training.ipynb)
 
-[!INCLUDE [aml-clone-in-azure-notebook](../../../includes/aml-clone-for-examples.md)]
+[!INCLUDE [aml-clone-in-azure-notebook](../includes/aml-clone-for-examples.md)]
 
 ## Troubleshooting
 

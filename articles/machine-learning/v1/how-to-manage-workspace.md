@@ -10,15 +10,12 @@ author: deeikele
 ms.reviewer: sgilley
 ms.date: 03/08/2022
 ms.topic: how-to
-ms.custom: UpdateFrequency5, fasttrack-edit, FY21Q4-aml-seo-hack, contperf-fy21q4, sdkv1, event-tier1-build-2022, ignite-2022
+ms.custom: UpdateFrequency5, fasttrack-edit, FY21Q4-aml-seo-hack, contperf-fy21q4, sdkv1, event-tier1-build-2022, ignite-2022, devx-track-python
 ---
 
 # Manage Azure Machine Learning workspaces with the Python SDK (v1)
 
 [!INCLUDE [sdk v1](../../../includes/machine-learning-sdk-v1.md)]
-> [!div class="op_single_selector" title1="Select the version of Azure Machine Learning SDK you are using:"]
-> * [v1](how-to-manage-workspace.md)
-> * [v2 (current version)](../how-to-manage-workspace.md?view=azureml-api-2&preserve-view=true)
 
 In this article, you create, view, and delete [**Azure Machine Learning workspaces**](../concept-workspace.md) for [Azure Machine Learning](../overview-what-is-azure-machine-learning.md), using the [SDK for Python](/python/api/overview/azure/ml/).  
 
@@ -251,7 +248,8 @@ When you no longer need a workspace, delete it.
 
 [!INCLUDE [machine-learning-delete-workspace](../../../includes/machine-learning-delete-workspace.md)]
 
-If you accidentally deleted your workspace, you may still be able to retrieve your notebooks. For details, see [Failover for business continuity and disaster recovery](../how-to-high-availability-machine-learning.md#workspace-deletion).
+> [!TIP]
+> The default behavior for Azure Machine Learning is to _soft delete_ the workspace. This means that the workspace is not immediately deleted, but instead is marked for deletion. For more information, see [Soft delete](../concept-soft-delete.md).
 
 
 Delete the workspace `ws`:
@@ -267,7 +265,7 @@ The default action isn't to delete resources associated with the workspace, that
 
 ## Clean up resources
 
-[!INCLUDE [aml-delete-resource-group](../../../includes/aml-delete-resource-group.md)]
+[!INCLUDE [aml-delete-resource-group](../includes/aml-delete-resource-group.md)]
 
 ## Troubleshooting
 
