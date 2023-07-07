@@ -23,7 +23,7 @@ When a Vector Index is created, Azure Machine Learning will chunk the data, crea
 
 * A sample prompt flow, which uses the Vector Index you created. The sample prompt flow, which gets created has several key features like: a. Automatically generated prompt variants. b. Evaluation of each of these variations using the test data generated<TBD - link to eval blog>. c. Metrics against each of the variants to help you choose the best variant to run. You can use this sample to continue developing your prompt. 
 
-[!INCLUDE [machine-learning-preview-generic-disclaimer](../../includes/machine-learning-preview-generic-disclaimer.md)]
+[!INCLUDE [machine-learning-preview-generic-disclaimer](includes/machine-learning-preview-generic-disclaimer.md)]
 
 ## Prerequisites
 

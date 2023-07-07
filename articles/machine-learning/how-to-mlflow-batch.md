@@ -15,7 +15,7 @@ ms.custom: devplatv2
 
 # Deploy MLflow models in batch deployments
 
-[!INCLUDE [cli v2](../../includes/machine-learning-dev-v2.md)]
+[!INCLUDE [cli v2](includes/machine-learning-dev-v2.md)]
 
 In this article, learn how to deploy [MLflow](https://www.mlflow.org) models to Azure Machine Learning for both batch inference using batch endpoints. When deploying MLflow models to batch endpoints, Azure Machine Learning:
 
@@ -31,7 +31,7 @@ This example shows how you can deploy an MLflow model to a batch endpoint to per
 
 The model has been trained using an `XGBBoost` classifier and all the required preprocessing has been packaged as a `scikit-learn` pipeline, making this model an end-to-end pipeline that goes from raw data to predictions.
 
-[!INCLUDE [machine-learning-batch-clone](../../includes/machine-learning/azureml-batch-clone-samples.md)]
+[!INCLUDE [machine-learning-batch-clone](includes/azureml-batch-clone-samples.md)]
 
 The files for this example are in:
 
@@ -45,7 +45,7 @@ You can follow along this sample in the following notebooks. In the cloned repos
 
 ## Prerequisites
 
-[!INCLUDE [machine-learning-batch-prereqs](../../includes/machine-learning/azureml-batch-prereqs.md)]
+[!INCLUDE [machine-learning-batch-prereqs](includes/azureml-batch-prereqs.md)]
 
 ## Steps
 
