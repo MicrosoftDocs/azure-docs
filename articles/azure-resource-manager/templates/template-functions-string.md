@@ -457,6 +457,8 @@ Unique scoped to deployment for a resource group
 "[guid(resourceGroup().id, deployment().name)]"
 ```
 
+The `guid` function implements the algorithm from [RFC 4122 §4.3](https://www.ietf.org/rfc/rfc4122.txt). The original source can be found in [GuidUtility](https://github.com/LogosBible/Logos.Utility/blob/e7fc45123da090b8cf34da194a1161ed6a34d20d/src/Logos.Utility/GuidUtility.cs) with some modifications.
+
 ### Return value
 
 A string containing 36 characters in the format of a globally unique identifier.
