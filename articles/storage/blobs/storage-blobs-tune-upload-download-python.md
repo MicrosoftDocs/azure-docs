@@ -85,16 +85,13 @@ You can learn how the client library handles buffering in the following sections
 
 The Storage REST layer doesn’t support picking up a REST upload operation where you left off; individual transfers are either completed or lost. To ensure resiliency for stream uploads, the Storage client libraries buffer data for each individual REST call before starting the upload. In addition to network speed limitations, this buffering behavior is a reason to consider a smaller value for `max_block_size`, even when uploading in sequence. Decreasing the value of `max_block_size` decreases the maximum amount of data that is buffered on each request and each retry of a failed request. If you're experiencing frequent timeouts during data transfers of a certain size, reducing the value of `max_block_size` reduces the buffering time, and may result in better performance.
 
-Another scenario where buffering occurs is when you're uploading data with parallel REST calls to maximize network throughput. The client libraries need sources they can read from in parallel, and since streams are sequential, the Storage client libraries buffer the data for each individual REST call before starting the upload.
+By default, the SDK buffers data of `max_block_size` bytes per concurrent subupload request, but memory use can be limited to 4 MiB per request if the following conditions are met:
 
-To avoid buffering during an upload call, you must meet the following minimum conditions:
-
-- The `max_block_size` argument must be greater than `min_large_block_upload_threshold`. The `min_large_block_upload_threshold` argument can be defined during client instantiation, and is the minimum chunk size in bytes required to use the memory efficient algorithm. Defaults to `4*1024*1024 + 1`.
+- The `max_block_size` argument must be greater than `min_large_block_upload_threshold`. The `min_large_block_upload_threshold` argument can be defined during client instantiation, and is the minimum chunk size in bytes required to use the memory efficient algorithm. The `min_large_block_upload_threshold` argument defaults to `4*1024*1024 + 1`.
 - The provided stream must be seekable. A seekable stream is a stream that supports querying and modifying the current position within a stream.
-- The `max_concurrency` argument must be set to 1.
 - The blob must be a block blob.
 
-While this strategy should work in most situations, it's still possible for buffering to occur if your code is using other client library features that require buffering.
+While this strategy applies to most situations, it's still possible for more buffering to occur if your code is using other client library features that require buffering.
 
 ## Performance tuning for downloads
 
