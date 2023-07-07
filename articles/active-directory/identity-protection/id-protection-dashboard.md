@@ -71,7 +71,7 @@ To help you better understand your risk exposure, we're introducing an innovativ
 
 Each type of [risk detection](concept-identity-protection-risks.md#what-are-risk-detections) corresponds to a MITRE ATT&CK technique. When risks are detected during a sign-in, risk detections are generated, and the sign-in becomes a risky sign-in. Attacks are then identified based on the risk detections. Refer to the below table for the mapping between Microsoft Entra ID Protection’s risk detections and attacks as categorized by MITRE ATT&CK techniques.
 
-#### How to interpret the Attack Graphic?
+#### How to interpret the attack graphic?
 
 The graphic presents attack types impacted your tenant over the past 30 days, and whether they were blocked during sign-in. On the left side, you see the volume of each attack type. On the right, the numbers of blocked and yet-to-be-remediated attacks are displayed. The graph updates every 24 hours, so the displayed volumes may not exactly mirror your latest detections volume in the Risk detections report.
 
@@ -97,7 +97,7 @@ Two filters can be applied to the graph:
 
 ### Risk detection type to MITRE attack type mapping
 
-| Microsoft Entra ID Protection Risk detection type | MITRE ATT&CK technique mapping | Attack display name |
+| Microsoft Entra ID Protection risk detection type | MITRE ATT&CK technique mapping | Attack display name |
 | --- | --- | --- |
 | Unfamiliar Sign-in Properties | T1078.004 | Access using a valid account (Detected at Sign-In)
 | Impossible Travel | T1078 | Access using a valid account (Detected Offline)
@@ -167,7 +167,7 @@ Recent Activity provides a summary of recent risk-related activities in your ten
 
 ![Screenshot showing recent activities in the dashboard](./media/id-protection-dashboard/microsoft-entra-id-protection-dashboard-recent-activities.png)
 
-## Known Issues
+## Known issues
 
 Depending on the configuration of your tenant, there may or may not be recommendations or recent activities on your dashboard. We're working on a better **no new recommendations or recent activities** view to enhance the experience.
 
