@@ -24,14 +24,14 @@ To help in debugging and authentication failure troubleshooting scenarios, the M
 
 :::row:::
     :::column:::
-        - [Logging in MSAL.NET](../articles/active-directory/develop/msal-logging-dotnet.md)
-        - [Logging in MSAL for Android](../articles/active-directory/develop/msal-logging-android.md)
-        - [Logging in MSAL.js](../articles/active-directory/develop/msal-logging-js.md)
+        - [Logging in MSAL.NET](../../msal-logging-dotnet.md)
+        - [Logging in MSAL for Android](../../msal-logging-android.md)
+        - [Logging in MSAL.js](../../msal-logging-js.md)
     :::column-end:::
     :::column:::
-        - [Logging in MSAL for iOS/macOS](../articles/active-directory/develop/msal-logging-ios.md)
-        - [Logging in MSAL for Java](../articles/active-directory/develop/msal-logging-java.md)
-        - [Logging in MSAL for Python](../articles/active-directory/develop/msal-logging-python.md)
+        - [Logging in MSAL for iOS/macOS](../../msal-logging-ios.md)
+        - [Logging in MSAL for Java](../../msal-logging-java.md)
+        - [Logging in MSAL for Python](../../msal-logging-python.md)
     :::column-end:::
 :::row-end:::
 
@@ -44,8 +44,8 @@ Here are some suggestions for data collection:
 
 ## Validate your integration
 
-Test your integration by following the [Microsoft identity platform integration checklist](../articles/active-directory/develop/identity-platform-integration-checklist.md).
+Test your integration by following the [Microsoft identity platform integration checklist](../../identity-platform-integration-checklist.md).
 
 ## Build for resilience
 
-Learn how to increase resiliency in your app. For details, see [Increase resilience of authentication and authorization applications you develop](../articles/active-directory/fundamentals/resilience-app-development-overview.md)
+Learn how to increase resiliency in your app. For details, see [Increase resilience of authentication and authorization applications you develop](../../../fundamentals/resilience-app-development-overview.md)
