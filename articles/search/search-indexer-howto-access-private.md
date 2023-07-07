@@ -17,7 +17,7 @@ This article explains how to configure private, outbound calls from Azure Cognit
 
 Setting up a private connection allows Azure Cognitive Search to connect to Azure PaaS through a virtual network IP address instead of a port that's open to the internet. The object created for the connection is called a *shared private link*. On the connection, Search uses the shared private link internally to reach an Azure PaaS resource inside the network boundary.
 
-Shared private link is a premium feature that's billed by usage. The costs of reading from the private endpoint are billed to your Azure subscription. As the indexer reads data from the data source, network egress charges are billed at the ["inbound data processed"](https://azure.microsoft.com/pricing/details/private-link/) rate.
+Shared private link is a premium feature that's billed by usage. The costs of reading from a data source through the private endpoint are billed to your Azure subscription. As the indexer reads data from the data source, network egress charges are billed at the ["inbound data processed"](https://azure.microsoft.com/pricing/details/private-link/) rate.
 
 > [!NOTE]
 > If you're setting up a private indexer connection to a SQL Managed Instance, see [this article](search-indexer-how-to-access-private-sql.md) instead.
