@@ -106,6 +106,8 @@ items:
         href: quickstarts/rooms/join-rooms-call.md
     - name: Use UI components for voice and video
       href: quickstarts/ui-library/get-started-composites.md
+    - name: Add data channel messaging to your calling app
+      href: quickstarts/voice-video-calling/get-started-data-channel.md
   - name: Chat
     items:
     - name: Connect to a chat 
@@ -613,6 +615,8 @@ items:
       href: concepts/interop/enable-closed-captions.md      
     - name: Media access
       href: concepts/voice-video-calling/media-access.md
+    - name: Data channel
+      href: concepts/voice-video-calling/data-channel.md
     - name: Video constraints
       href: concepts/voice-video-calling/video-constraints.md
       displayName: diagnostics, diagnose, feedback, quality, reliability, users, call, quick, satisfaction, improve, issues
