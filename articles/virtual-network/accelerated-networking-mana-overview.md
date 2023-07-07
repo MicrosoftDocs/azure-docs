@@ -12,8 +12,9 @@ ms.author: mattmcinnes
 
 Learn how to use the Microsoft Azure Network Adapter (MANA) to improve the performance and availability of virtual machines in Azure. MANA is a next-generation network interface that provides stable forward-compatible device drivers for Windows and Linux operating systems. MANA hardware and software are engineered by Microsoft and take advantage of the latest advancements in cloud networking technology.
 
->[!NOTE]
->Azure MANA is currently in preview. See the [preview announcement](https://aka.ms/azureboostpreview) for more information and to join.
+> [!IMPORTANT]
+> Azure MANA is currently in PREVIEW.
+> See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
 ## Compatibility
 Azure MANA supports several VM operating systems. While your VM might be running a supported OS, you need to update the kernel (Linux) or install drivers (Windows). 
@@ -23,9 +24,6 @@ MANA maintains feature-parity with previous Azure networking features. VMs can s
 ### Supported Marketplace Images
 Several [Azure Marketplace](https://learn.microsoft.com/marketplace/azure-marketplace-overview) images have built-in support for Azure MANA's ethernet driver. 
 
->[!NOTE]
->None of the current Linux distros in Azure are on a 6.2 or later kernel, which is required for RDMA/InfiniBand and DPDK. If you use an existing Marketplace Linux image, you will need to update the kernel.
-
 #### Linux:
 - Ubuntu 20.04 LTS
 - Ubuntu 22.04 LTS
@@ -34,6 +32,9 @@ Several [Azure Marketplace](https://learn.microsoft.com/marketplace/azure-market
 - SUSE Linux Enterprise Server 15 SP4
 - Debian 12 “Bookworm”
 - Oracle Linux 9.0
+
+>[!NOTE]
+>None of the current Linux distros in Azure Marketplace are on a 6.2 or later kernel, which is required for RDMA/InfiniBand and DPDK. If you use an existing Marketplace Linux image, you will need to update the kernel.
 
 #### Windows:
 - Windows Server 2016
@@ -65,3 +66,9 @@ Tutorials for each supported OS type are available for you to get started:
 For Linux support, see [Linux VMs with Azure MANA](./accelerated-networking-mana-linux.md)
 
 For Windows support, see [Windows VMs with Azure MANA](./accelerated-networking-mana-windows.md)
+
+## Next Steps
+
+- [TCP/IP Performance Tuning for Azure VMs](/azure/virtual-network/virtual-network-tcpip-performance-tuning)
+- [Proximity Placement Groups](/azure/virtual-machines/co-location)
+- [Monitor Virtual Network](azure/virtual-network/monitor-virtual-network)

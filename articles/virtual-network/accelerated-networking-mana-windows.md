@@ -16,8 +16,9 @@ For Linux support, see [Linux VMs with Azure MANA](./accelerated-networking-mana
 
 For more info regarding Azure MANA, see [Microsoft Azure Network Adapter (MANA) overview](./accelerated-networking-mana-overview.md)
 
->[!NOTE]
->Azure MANA is currently in preview. See the [preview announcement](https://aka.ms/azureboostpreview) for more information and to join.
+> [!IMPORTANT]
+> Azure MANA is currently in PREVIEW.
+> See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
 ## Supported Marketplace Images
 Several [Azure marketplace](https://learn.microsoft.com/en-us/marketplace/azure-marketplace-overview) Windows images have built-in support for Azure MANA's ethernet driver.
@@ -47,7 +48,7 @@ When Accelerated Networking is enabled, the underlying MANA NIC can be identifie
 ### Driver check
 There are several ways to verify your VM has a MANA Ethernet driver installed:
 
-#### Powershell:
+#### PowerShell:
 ```powershell
 PS C:\Users\testVM> Get-NetAdapter
 
@@ -59,7 +60,7 @@ Ethernet 5                Microsoft Azure Network Adapter #3            7 Up    
 
 #### Device Manager
 1.	Open up device Manager
-2.	Within device manager, you should see the Hyper-V Network Adapter as well as the Microsoft Azure Network Adapter (MANA)
+2.	Within device manager, you should see the Hyper-V Network Adapter and the Microsoft Azure Network Adapter (MANA)
 
 ![Device Manager with Azure MANA NIC](media/accelerated-networking-mana/devicemanager-mana.png)
 
@@ -72,7 +73,7 @@ Installation is similar to other Windows device drivers. A readme file with more
 
 ## Verify traffic is flowing through the MANA adapter
 
-In Powershell, run the following command:
+In PowerShell, run the following command:
 
 ```powershell
 PS C:\ > Get-NetAdapter | Where-Object InterfaceDescription -Like "*Microsoft Azure Network Adapter*" | Get-NetAdapterStatistics
@@ -82,3 +83,8 @@ Name                             ReceivedBytes ReceivedUnicastPackets       Sent
 Ethernet 5                       1230513627217            22739256679 ...724576506362       381331993845
 ```
 
+## Next Steps
+
+- [TCP/IP Performance Tuning for Azure VMs](/azure/virtual-network/virtual-network-tcpip-performance-tuning)
+- [Proximity Placement Groups](/azure/virtual-machines/co-location)
+- [Monitor Virtual Network](azure/virtual-network/monitor-virtual-network)

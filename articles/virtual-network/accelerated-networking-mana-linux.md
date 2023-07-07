@@ -16,19 +16,23 @@ For Windows support, see [Windows VMs with Azure MANA](./accelerated-networking-
 
 For more info regarding Azure MANA, see [Microsoft Azure Network Adapter (MANA) overview](./accelerated-networking-mana-overview.md)
 
-
->[!NOTE]
->Azure MANA is currently in preview. See the [preview announcement](https://aka.ms/azureboostpreview) for more information and to join.
+> [!IMPORTANT]
+> Azure MANA is currently in PREVIEW.
+> See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
 ## Supported Marketplace Images
 Several [Azure marketplace](https://learn.microsoft.com/en-us/marketplace/azure-marketplace-overview) Linux images have built-in support for Azure MANA's ethernet driver.
 
-- Ubuntu 20.04 LTS, 22.04 LTS
+- Ubuntu 20.04 LTS
+- Ubuntu 22.04 LTS
 - Red Hat Enterprise Linux 8.8
 - Red Hat Enterprise Linux 9.2
 - SUSE Linux Enterprise Server 15 SP4
 - Debian 12 “Bookworm”
 - Oracle Linux 9.0
+
+>[!NOTE]
+>None of the current Linux distros in Azure Marketplace are on a 6.2 or later kernel, which is required for RDMA/InfiniBand and DPDK. If you use an existing Marketplace Linux image, you will need to update the kernel.
 
 ## Check status of MANA support
 Because Azure MANA's feature set requires both host hardware and VM software components, there are several checks required to ensure MANA is working properly
@@ -60,7 +64,7 @@ kernel/drivers/net/ethernet/microsoft/mana/mana.ko
 
 ## Kernel update
 
-If your VM has both portal and hardware support for MANA but doesn't have a recent enough kernel, Linux VF drivers are included in kernel 6.2. Prior or forked kernel versions (5.15 and 6.1) will require additonal integration.
+If your VM has both portal and hardware support for MANA but doesn't have a recent enough kernel, Linux VF drivers are included in kernel 6.2. Prior or forked kernel versions (5.15 and 6.1) require additonal integration.
 
 To update your VM's Linux kernel, check the docs for your specific distro.
 
@@ -89,3 +93,9 @@ $ ethtool -S eth0 | grep -E "^[ \t]+vf"
      vf_tx_bytes: 76231291
      vf_tx_dropped: 0
 ```
+
+## Next Steps
+
+- [TCP/IP Performance Tuning for Azure VMs](/azure/virtual-network/virtual-network-tcpip-performance-tuning)
+- [Proximity Placement Groups](/azure/virtual-machines/co-location)
+- [Monitor Virtual Network](azure/virtual-network/monitor-virtual-network)
