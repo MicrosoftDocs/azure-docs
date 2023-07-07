@@ -1,6 +1,6 @@
 ---
 title: Deploy a web app with authentiation in a pipeline
-description: Describes how to .
+description: Describes how to deploy a web app to Azure App Service and enable Azure App Service authentication in Azure Pipelines.
 services: active-directory
 author: rwike77
 manager: CelesteDG
@@ -54,14 +54,9 @@ Get the sample application
         
 ## Create a multi-stage build and release pipeline in Azure Pipelines
 
-- Pipeline stages
-    - Build, dev, test, staging
-- Script commands and Azure Pipelines tasks
-    - AzureCLI@2 task helps you run AZ CLI commands
-- Environments?
-- Azure resources
-- Deployment steps
-- Service connections
+1. Create/update pipeline variables
+1. Deploy the web app to Azure App Service
+1. See the deployed website on App Service
 
 ## Build and deploy the web app to Azure App Service
 

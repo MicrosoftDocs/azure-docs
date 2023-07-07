@@ -231,6 +231,8 @@
               href: scenario-web-app-call-api-call-api.md
             - name: Move to production
               href: scenario-web-app-call-api-production.md
+        - name: Deploy in a pipeline and configure authentication
+          href: deploy-web-app-authentication-pipeline.md
 - name: Web API
   items:
     - name: Web API authentication
