@@ -26,7 +26,7 @@ The Data Channel API enables real-time messaging during audio and video calls. W
 
 * Real-time Messaging: The Data Channel API enables users to instantly send and receive messages during an ongoing audio or video call, promoting smooth and efficient communication. In group call scenarios, messages can be sent to a single participant, a specific set of participants, or all participants within the call. This flexibility enhances communication and collaboration among users during group interactions.
 * Unidirectional Communication: Unlike bidirectional communication, the Data Channel API is designed for unidirectional communication. It employs distinct objects for sending and receiving messages: the DataChannelSender object for sending and the DataChannelReceiver object for receiving. This separation simplifies message management in group calls, leading to a more streamlined user experience.
-* Binary Data Support: The API supports the sending and receiving of binary data, permitting the exchange of diverse data types, such as text, images, and files. Note that text messages must be serialized into a byte buffer before they can be transmitted.
+* Binary Data Support: The API supports the sending and receiving of binary data, permitting the exchange of diverse data types, such as text, images, and files. The text messages must be serialized into a byte buffer before they can be transmitted.
 * Sender Options: The Data Channel API provides three configurable options when creating a sender object, including Reliability, Priority, and Bitrate. These options enable the configuration of a channel to meet specific needs for different use cases.
 * Security: All messages exchanged between a client and the other endpoint are encrypted, ensuring the privacy and security of users' data.
 
@@ -49,7 +49,7 @@ This setup offers an efficient method for file transfer, taking full advantage o
 
 In a group call scenario, files can still be shared among participants. However, there are better ways, such as Azure Storage or Azure Files.
 Additionally, broadcasting the file content to all participants in a call can be achieved by setting an empty participant list.
-However, it's important to keep in mind that, in additional to bandwidth limitations,
+However, it's important to keep in mind that, in addition to bandwidth limitations,
 there are further restrictions imposed during a group call when broadcasting messages, such as packet rate and back pressure from the receive bitrate.
 
 ## Key concepts
@@ -76,7 +76,7 @@ Upon creation, a channel can be configured to be one of the two Reliability opti
 A `lossy` channel means the order of messages isn't guaranteed and a message can be silently dropped when sending fails. It generally affords a faster data transfer speed.
 
 A `durable` channel means the SDK guarantees a lossless and ordered message delivery. In cases when a message can't be delivered, an exception will be thrown by the SDK.
-In the Web SDK, the durability of the channel is ensured through a reliable SCTP connection. However, it doesn't imply that message will not be lost in an end-to-end manner.
+In the Web SDK, the durability of the channel is ensured through a reliable SCTP connection. However, it doesn't imply that message won't be lost in an end-to-end manner.
 In the context of a group call, it signifies the prevention of message loss between the sender and server.
 In a peer-to-peer call, it denotes reliable transmission between the sender and remote endpoint.
 
@@ -91,7 +91,7 @@ For the Web SDK, priority settings are only compared among channels on the sende
 ### Bitrate
 When creating a channel, a desirable bitrate can be specified for bandwidth allocation.
 
-This Bitrate property is to notify the SDK of the expected bandwidth requirement for a particular use case. Although the SDK generally can't match the exact bitrate, it will try to accommodate the request.
+This Bitrate property is to notify the SDK of the expected bandwidth requirement for a particular use case. Although the SDK generally can't match the exact bitrate, it tries to accommodate the request.
 
 
 ### Session
@@ -100,17 +100,17 @@ In the SDK, the session is associated to the sender or the receiver object.
 
 Upon creating a sender object with a new channelId, the sender object is in open state.
 If the `close()` API is invoked on the sender object, the session becomes closed and can no longer facilitate message sending.
-At the same time, the sender object will notify all participants in the call that the session is closed.
+At the same time, the sender object notifies all participants in the call that the session is closed.
 
 If a sender object is created with an already existing channelId, the existing sender object associated with the channelId will be closed and any messages sent from the newly created sender object will be recognized as part of a new session.
 
 From the receiver's perspective, messages coming from different sessions on the sender's side are directed to distinct receiver objects.
 If the SDK identifies a new session associated with an existing channelId on the receiver's side, it creates a new receiver object.
-The SDK won't close the older receiver object; such closure will only take place 1) when the receiver object receives a closure notification from the sender, or 2) if the session hasn't received any messages from the sender for over two minutes.
+The SDK doesn't close the older receiver object; such closure takes place 1) when the receiver object receives a closure notification from the sender, or 2) if the session hasn't received any messages from the sender for over two minutes.
 
-In instances where the session of a receiver object is closed and no new session for the same channelId exists on the receiver's side, the SDK will create a new receiver object upon receipt of a message from the same session at a later time. However, if a new session for the same channelId exists on the receiver's side, the SDK will discard any incoming messages from the previous session.
+In instances where the session of a receiver object is closed and no new session for the same channelId exists on the receiver's side, the SDK creates a new receiver object upon receipt of a message from the same session at a later time. However, if a new session for the same channelId exists on the receiver's side, the SDK discards any incoming messages from the previous session.
 
-Considering that the receiver object will close if it doesn't receive messages for more than two minutes. We suggest that the application periodically sends keep-alive messages from the sender's side to maintain the active status of the receiver object.
+Considering that the receiver object closes if it doesn't receive messages for more than two minutes, we suggest that the application periodically sends keep-alive messages from the sender's side to maintain the active status of the receiver object.
 
 ### Sequence number
 The sequence number is a 32-bit unsigned integer included in the Data Channel message to indicate the order of messages within a channel. It's important to note this number is generated from the sender's perspective. Consequently, a receiver may notice a gap in the sequence numbers if the sender alters the recipients during sending messages.
@@ -124,8 +124,8 @@ The maximum allowable size for a single message is 32 KB. If you need to send da
 
 ### Participant list
 The maximum number of participants in a list is limited to 64. If you want to specify more participants, you'll need to manage participant list on your own. For example, if you want to send a message to 50 participants, you can create two different channels, each with 25 participants in their recipient lists.
-Note that when calculating the limit, two endpoints with the same participant identifier will be counted as separate entities.
-As an alternative, you could opt for broadcasting messages. However, be aware that certain restrictions apply when broadcasting messages.
+When calculating the limit, two endpoints with the same participant identifier will be counted as separate entities.
+As an alternative, you could opt for broadcasting messages. However, certain restrictions apply when broadcasting messages.
 
 ### Rate limiting
 There's a limit on the overall send bitrate, currently set at 500 Kbps.

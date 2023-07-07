@@ -46,7 +46,7 @@ dataChannel.on('dataChannelReceiverCreated', receiver => {
 ```
 
 Within the listener callback function, you can access the receiver object and retrieve information such as `channelId` and the sender participant ID `senderParticipantIdentifier`.
-It's your responsibility to maintain the receiver object reference, as the SDK will only emit the event once for each created receiver object.
+It's your responsibility to maintain the receiver object reference, as the SDK emits the event once for each created receiver object.
 
 ## Handle messageReady and close event of DataChannelReceiver object
 
@@ -82,7 +82,7 @@ Please note that the participant list is limited to 64 participants. If the part
 ## Send and receive messages
 
 DataChannel feature API requires you to pass data as `Uint8Array` type. You can't directly send a JavaScript string using `sendMessage` API.
-For example, if you want to send a string 'abc', you can't use `sender.sendMessage('abc')`. Instead, you need to serialize the data to a byte buffer first.
+For example, if you want to send a string `abc`, you can't use `sender.sendMessage('abc')`. Instead, you need to serialize the data to a byte buffer first.
 ```js
 const data = (new TextEncoder()).encode('abc');
 sender.sendMessage(data);
