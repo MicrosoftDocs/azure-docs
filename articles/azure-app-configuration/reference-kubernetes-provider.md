@@ -45,6 +45,7 @@ The `spec.keyValues` has the following child properties. The `spec.keyValues.key
 |selectors|The list of selectors for key-value filtering|false|object array|
 |trimKeyPrefixes|The list of key prefixes to be trimmed|false|string array|
 |keyVaults|The settings for Key Vault references|conditional|object|
+|monitoring|The settings for dynamic configuration updates|conditional|object|
 
 If the `spec.keyValues.selectors` property isn't set, all key-values with no label will be downloaded. It contains an array of *selector* objects, which have the following child properties.
 
@@ -52,7 +53,6 @@ If the `spec.keyValues.selectors` property isn't set, all key-values with no lab
 |---|---|---|---|
 |keyFilter|The key filter for querying key-values|true|string|
 |labelFilter|The label filter for querying key-values|false|string|
-
 
 The `spec.keyValues.keyVaults` property has the following child properties.
 
@@ -82,6 +82,20 @@ The authentication method of each *vault* can be specified with the following pr
 |uri|The URI of a vault|true|string|
 |managedIdentityClientId|The client ID of a user-assigned managed identity used for authentication with a vault|false|string|
 |servicePrincipalReference|The name of the Kubernetes Secret that contains the credentials of a service principal used for authentication with a vault|false|string|
+
+The `spec.keyValues.monitoring` property has the following child properties.
+
+|Name|Description|Required|Type|
+|---|---|---|---|
+|sentinels|The sentinels watched by the provider, provider automatically refreshes the configMap or secret if any of sentinel is changed|true|object array|
+|refreshInterval|The interval of watching the sentinels, default is 30 seconds|false|string|
+
+The `spec.keyValues.monitoring.sentinels` is an array of *sentinel* objects, which have the following child properties.
+
+|Name|Description|Required|Type|
+|---|---|---|---|
+|key|The key of a sentinel|true|string|
+|label|The label of a sentinel|false|string|
 
 ## Examples
 
@@ -221,4 +235,34 @@ spec:
         vaults:
           - uri: <your-key-vault-uri>
             servicePrincipalReference: <name-of-secret-containing-service-principal-credentials>
+```
+
+### Dynamically update ConfigMap and Secret
+
+Set the `spec.keyValues.monitoring` property enables dynamic configuration updates to the ConfigMap and Secret by watching sentinel keys. The provider periodically polling the sentinel keys, if there are any value change to them, provider triggers ConfigMap and Secret update according to the present key-values stored in Azure App Configuration.
+
+The following sample instructs monitoring two sentinel keys with 1 minute polling interval.
+
+``` yaml
+apiVersion: azconfig.io/v1beta1
+kind: AzureAppConfigurationProvider
+metadata:
+  name: appconfigurationprovider-sample
+spec:
+  endpoint: <your-app-configuration-store-endpoint>
+  target:
+    configMapName: configmap-created-by-appconfig-provider
+  keyValues:
+    selectors:
+      - keyFilter: app1*
+        labelFilter: common
+      - keyFilter: app1*
+        labelFilter: development
+    monitoring:
+      refreshInterval: 1m
+      sentinels:
+        - key: sentinelKey
+          label: common
+        - key: sentinelKey
+          label: development
 ```
