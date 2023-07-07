@@ -71,7 +71,7 @@ If you're facing issues while creating a Cache rule, we recommend verifying if y
 
 We recommend deleting any unwanted cache rules to avoid hitting the limit. 
 
-## Support Upstream
+## Upstream support 
 
 Cache for ACR currently supports the following upstream registries:
 

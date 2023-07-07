@@ -55,7 +55,7 @@ Implementing Cache for ACR provides the following benefits:
         
         4. Username and Password secrets- The secrets containing the username and password. 
 
-## Support Upstream
+## Upstream support 
 
 Cache for ACR currently supports the following upstream registries:
 
