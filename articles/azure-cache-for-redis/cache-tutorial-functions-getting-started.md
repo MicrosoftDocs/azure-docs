@@ -167,6 +167,10 @@ To connect to your cache, add a `ConnectionStrings` section in the `local.settin
 
 <!-- ![Image](Media/ConnectionString.png) -->
 
+> [!IMPORTANT]
+> This example is simplified for the tutorial. For production use, we recommend that you use [Azure Key Vault](../service-connector/tutorial-portal-key-vault.md) to store connection string information.
+>
+
 ### Build and run the code locally
 
 Switch to the **Run and debug** tab in VS Code and select the green arrow to debug the code locally. If you don’t have Azure Functions core tools installed, you're prompted to do so. In that case, you’ll need to restart VS Code after installing.
