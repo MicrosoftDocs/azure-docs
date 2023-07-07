@@ -273,7 +273,7 @@ The response includes 5 results, and each result provides a search score, title,
 
 ### Single vector search with filter
 
-You can add filters to filter on metadata fields. In this example, the filter applies to the "category" field.
+You can add filters, but the filters are applied to the nonvector content in your index. In this example, the filter applies to the "category" field.
 
 The response is 10 Azure services, with a search score, title, and category for each one. You'll also notice the `select` property here to visually only see the fields are necessary in my the response.
 
