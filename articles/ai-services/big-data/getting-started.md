@@ -19,7 +19,7 @@ Setting up your environment is the first step to building a pipeline for your da
 In this article, you'll perform these steps to get started:
 
 > [!div class="checklist"]
-> * [Create an Azure AI services resource](#create-a-azure-ai-services-resource)
+> * [Create an Azure AI services resource](#create-an-azure-ai-services-resource)
 > * [Create an Apache Spark cluster](#create-an-apache-spark-cluster)
 > * [Try a sample](#try-a-sample)
 
