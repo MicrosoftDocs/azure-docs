@@ -500,6 +500,7 @@ Start-AzVM `
 
 
 ---
+
 ## Check the status of the host
 
 If you need to know how much capacity is still available on a how, you can check the status.
@@ -705,6 +706,7 @@ You can restart the entire host, meaning that the host's not **completely** powe
 
 
 ### [Portal](#tab/portal)
+
 1. Search for and select the host.
 1. In the top menu bar, select the **Restart** button. 
 1. In the **Essentials** section of the Host Resource Pane, Host Status will switch to **Host undergoing restart** during the restart.
@@ -715,7 +717,10 @@ You can restart the entire host, meaning that the host's not **completely** powe
 Restart the host using [az vm host restart](/cli/azure/vm#az-vm-host-restart).
 
 ```azurecli-interactive
-az vm host restart --resource-group myResourceGroup --host-group myHostGroup --name myDedicatedHost
+az vm host restart \
+ --resource-group myResourceGroup \
+ --host-group myHostGroup \
+ --name myDedicatedHost
 ```
 
 To view the status of the restart, you can use the [az vm host get-instance-view](/cli/azure/vm#az-vm-host-get-instance-view) command. The **displayStatus** will be set to **Host undergoing restart** during the restart. Once the restart has completed, the displayStatus will return to **Host available**.
@@ -740,6 +745,57 @@ To view the status of the restart, you can use the [Get-AzHost](/powershell/modu
 $hostRestartStatus = Get-AzHost -ResourceGroupName myResourceGroup -HostGroupName myHostGroup -Name myDedicatedHost -InstanceView;
 $hostRestartStatus.InstanceView.Statuses[1].DisplayStatus;
 ```
+
+
+---
+## Resize a host [Preview]
+
+If you would like to move your host and all associated VMs to a newer generation hardware you can use resize to do so through a single click rather than doing it manually my creating a new host and moving all VMs individually.
+
+- Host can only be resized to an ADH within the same VM family i.e. a Dsv3-Type3 host can only be resized to Dsv3-Type4 but **not to** Esv3-Type4.
+- You can only resize to newer generation of hardware in comparison to teh source host i.e. a Dsv3-Type3 host can only be resized to Dsv3-Type4 but **not to** Dsv3-Type2 .
+- Resize will move the host to a different node hence the 'Host Asset Id' will  change but the 'Host Id' will remain the same.
+- Since resize operation involves moving the host and all associated VMs to a different node, host and the VMs will become unavailable during the resize operation
+>[!Warning] 
+>Resize operation will cause loss of any non persisted data including the data on temp disks, hence save all your work before triggering resize.
+
+### [Portal](#tab/portal)
+
+1. Search for and select the host.
+1. In the left menu under **Settings** select **Size**.
+1. Once on the the size page from the list of SKUs, select the desired SKU to resize to.
+>[!Note]
+> If the source host is already running on the latest hardware, 'Size' page would display an empty list.
+If you are looking for enhanced performance consider switching to a different VM family.
+1. Selecting a target size from the list would enable **Resize** button on the bottom on the page.
+1. Click **Resize**, host's 'Provisioning State' will change from 'Provisioning Succeeded' to 'Updating'
+1. Once the the resizing is complete the host's 'Provisioning State' will revert to 'Provisioning Succeeded'
+
+### [CLI](#tab/cli)
+
+First list the sizes that you can resize incase you are unsure which to resize to.
+Use [az vm host list-resize-options](/cli/azure/vm#az-vm-host-list-resize-options) [Preview]
+
+```azurecli-interactive
+az vm host list-resize-options \
+ --host-group myHostGroup \
+ --host-name myHost \
+ --resource-group myResourceGroup
+```
+
+Resize the host using [az vm host resize](/cli/azure/vm#az-vm-host-resize) [Preview].
+
+```azurecli-interactive
+az vm host resize \
+ --host-group myHostGroup \
+ --host-name myHost \
+ --resource-group myResourceGroup \
+ --sku Dsv3-Type4
+```
+
+### [PowerShell](#tab/powershell)
+
+PowerShell support for host resize is coming soon.
 
 
 ---
