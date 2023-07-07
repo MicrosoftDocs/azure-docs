@@ -271,11 +271,11 @@ Work is distributed at the file level, for both structured and unstructured data
 > [!WARNING]
 > Nested folder structures are not explored during inference. If you are partitioning your data using folders, make sure to flatten the structure beforehand.
 
-Batch deployments will call the `predict` function of the MLflow model once per file. For CSV files containing multiple rows, this may impose a memory pressure in the underlying compute. When sizing your compute, take into account not only the memory consumption of the data being read but also the memory footprint of the model itself. This is specially true for models that processes text, like transformer-based models where the memory consumption is not linear with the size of the input. If you encouter several out-of-memory exceptions, consider splitting the data in smaller files with less rows or implement batching at the row level inside of the model/scoring script.
+Batch deployments will call the `predict` function of the MLflow model once per file. For CSV files containing multiple rows, this may impose a memory pressure in the underlying compute. When sizing your compute, take into account not only the memory consumption of the data being read but also the memory footprint of the model itself. This is specially true for models that processes text, like transformer-based models where the memory consumption is not linear with the size of the input. If you encounter several out-of-memory exceptions, consider splitting the data in smaller files with less rows or implement batching at the row level inside of the model/scoring script.
 
 ### File's types support
 
-The following data types are supported for batch inference when deploying MLflow models without an environment and a scoring script. If you like to process a different file type, or execute inference in a different way that batch endpoints do by default you can always create the deploymnet with a scoring script as explained in [Using MLflow models with a scoring script](#customizing-mlflow-models-deployments-with-a-scoring-script).
+The following data types are supported for batch inference when deploying MLflow models without an environment and a scoring script. If you like to process a different file type, or execute inference in a different way that batch endpoints do by default you can always create the deployment with a scoring script as explained in [Using MLflow models with a scoring script](#customizing-mlflow-models-deployments-with-a-scoring-script).
 
 | File extension | Type returned as model's input | Signature requirement |
 | :- | :- | :- |
