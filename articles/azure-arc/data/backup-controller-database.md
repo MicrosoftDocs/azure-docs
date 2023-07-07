@@ -199,15 +199,16 @@ Follow these steps to restore the controller database from a backup with new sto
 
 10. Create a `system` login with sysadmin role using the password in the `controller-system-secret` kubernetes secret as follows:
 
-```sql
- CREATE LOGIN [system] WITH PASSWORD = '<password-from-secret>'
- ALTER SERVER ROLE sysadmin ADD MEMBER [system]
-```
+   ```sql
+   CREATE LOGIN [system] WITH PASSWORD = '<password-from-secret>'
+   ALTER SERVER ROLE sysadmin ADD MEMBER [system]
+   ```
 
 11. Restore the backup, then delete the backup file from the data volume once successful using the `RESTORE` command as follows:
-```sql
-RESTORE DATABASE [controller] FROM DISK = N'/var/opt/mssql/data/controller.bak' WITH FILE = 1
-```
+
+   ```sql
+   RESTORE DATABASE [controller] FROM DISK = N'/var/opt/mssql/data/controller.bak' WITH FILE = 1
+   ```
 
 12. Create a `controldb-rw-user` login using the password in the `controller-db-rw-secret` secret `CREATE LOGIN [controldb-rw-user] WITH PASSWORD = '<password-from-secret>'` and associate it with the existing `controldb-rw-user` user in the controller DB `ALTER USER [controldb-rw-user] WITH LOGIN = [controldb-rw-user]`.
 
