@@ -15,7 +15,7 @@ zone_pivot_groups: openai-quickstart-new
 recommendations: false
 ---
 
-# Quickstart: Get started using ChatGPT  and GPT-4  with Azure OpenAI Service
+# Quickstart: Get started using ChatGPT and GPT-4 with Azure OpenAI Service
 
 Use this article to get started using Azure OpenAI.
 

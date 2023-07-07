@@ -35,9 +35,9 @@ To sign-in to the Azure CLI, run the following command and complete the sign-in.
 az login
 ```
 
-## Assign yourself to the Azure AI services User role
+## Assign yourself to the Cognitive Services User role
 
-Assigning yourself to the Azure AI services User role will allow you to use your account for access to the specific Azure AI services resource
+Assigning yourself to the "Cognitive Services User" role will allow you to use your account for access to the specific Azure AI services resource
 
 1. Get your user information
 
@@ -45,11 +45,11 @@ Assigning yourself to the Azure AI services User role will allow you to use your
     export user=$(az account show -o json | jq -r .user.name)
     ```
 
-2. Assign yourself to “Azure AI services User” role.
+2. Assign yourself to “Cognitive Services User” role.
 
     ```azurecli
     export resourceId=$(az group show -g $myResourceGroupName -o json | jq -r .id)
-    az role assignment create --role "Azure AI services User" --assignee $user --scope $resourceId
+    az role assignment create --role "Cognitive Services User" --assignee $user --scope $resourceId
     ```
 
     > [!NOTE]

@@ -103,7 +103,7 @@ sections:
       - question: |
           What are the SLAs for API responses in Azure OpenAI?
         answer:
-          We don't have a defined API response time Service Level Agreement (SLA) at this time. The overall SLA for Azure OpenAI Service is the same as for other Azure AI services. For more information, see the Azure AI services section of the [Service Level Agreements (SLA) for Online Services page](https://azure.microsoft.com/support/legal/sla/cognitive-services/v1_1/).  
+          We don't have a defined API response time Service Level Agreement (SLA) at this time. For more information about the SLA for Azure OpenAI Service, see the "Azure Cognitive Services" section of the [Service Level Agreements (SLA) for Online Services page](https://azure.microsoft.com/support/legal/sla/cognitive-services/v1_1/).  
       - question: |
           Why was my fine-tuned model deployment deleted? 
         answer:
@@ -111,7 +111,7 @@ sections:
       - question: |
           How do I deploy a model with the REST API? 
         answer:
-          There are currently two different REST APIs that allow model deployment. For the latest model deployment features such as the ability to specify a model version during deployment for models like text-embedding-ada-002 Version 2, use the [Azure AI services Create or Update REST API call](/rest/api/cognitiveservices/accountmanagement/deployments/create-or-update?tabs=HTTP). 
+          There are currently two different REST APIs that allow model deployment. For the latest model deployment features such as the ability to specify a model version during deployment for models like text-embedding-ada-002 Version 2, use the [Deployments - Create Or Update](/rest/api/cognitiveservices/accountmanagement/deployments/create-or-update?tabs=HTTP) REST API call. 
       - question: |
           Can I use quota to increase the max token limit of a model?
         answer:
