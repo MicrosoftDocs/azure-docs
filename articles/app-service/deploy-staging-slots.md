@@ -42,8 +42,8 @@ The app must be running in the **Standard**, **Premium**, or **Isolated** tier i
     > If the app isn't already in the **Standard**, **Premium**, or **Isolated** tier, select **Upgrade** and go to the **Scale** tab of your app before continuing.
 
 3. In the **Add a slot** dialog box, give the slot a name, and select whether to clone an app configuration from another deployment slot. Select **Add** to continue.
-   
-    ![Configuration source](./media/web-sites-staged-publishing/ConfigurationSource1.png)
+
+    :::image type="content" source="media/web-sites-staged-publishing/configure-new-slot.png" alt-text="A screenshot that shows how to configure a new deployment slot called 'staging' in the portal.":::
    
     You can clone a configuration from any existing slot. Settings that can be cloned include app settings, connection strings, language framework versions, web sockets, HTTP version, and platform bitness.
     
@@ -53,8 +53,8 @@ The app must be running in the **Standard**, **Premium**, or **Isolated** tier i
 4. After the slot is added, select **Close** to close the dialog box. The new slot is now shown on the **Deployment slots** page. By default, **Traffic %** is set to 0 for the new slot, with all customer traffic routed to the production slot.
 
 5. Select the new deployment slot to open that slot's resource page.
-   
-    ![Deployment slot title](./media/web-sites-staged-publishing/StagingTitle.png)
+
+    :::image type="content" source="media/web-sites-staged-publishing/open-deployment-slot.png" alt-text="A screenshot that shows how to open deployment slot's management page in the portal.":::
 
     The staging slot has a management page just like any other App Service app. You can change the slot's configuration. To remind you that you're viewing the deployment slot, the app name is shown as **\<app-name>/\<slot-name>**, and the app type is **App Service (Slot)**. You can also see the slot as a separate app in your resource group, with the same designations.
 
@@ -126,7 +126,7 @@ At any point of the swap operation, all work of initializing the swapped apps ha
 
 To configure an app setting or connection string to stick to a specific slot (not swapped), go to the **Configuration** page for that slot. Add or edit a setting, and then select **deployment slot setting**. Selecting this check box tells App Service that the setting isn't swappable. 
 
-![Slot setting](./media/web-sites-staged-publishing/SlotSetting.png)
+:::image type="content" source="media/web-sites-staged-publishing/set-slot-app-setting.png" alt-text="A screenshot that shows how to make an app setting a slot setting in the Azure portal.":::
 
 <a name="Swap"></a>
 
@@ -138,19 +138,19 @@ You can swap deployment slots on your app's **Deployment slots** page and the **
 > 
 > 
 
-To swap deployment slots:
-
 # [Azure portal](#tab/portal)
 
+To swap deployment slots:
+
 1. Go to your app's **Deployment slots** page and select **Swap**.
-   
-    ![Swap button](./media/web-sites-staged-publishing/SwapButtonBar.png)
+
+    :::image type="content" source="media/web-sites-staged-publishing/swap-initiate.png" alt-text="A screenshot that shows how to initiate a swap operation in the portal.":::
 
     The **Swap** dialog box shows settings in the selected source and target slots that will be changed.
 
 2. Select the desired **Source** and **Target** slots. Usually, the target is the production slot. Also, select the **Source Changes** and **Target Changes** tabs and verify that the configuration changes are expected. When you're finished, you can swap the slots immediately by selecting **Swap**.
 
-    ![Complete swap](./media/web-sites-staged-publishing/SwapImmediately.png)
+    :::image type="content" source="media/web-sites-staged-publishing/swap-configure-source-target-slots.png" alt-text="A screenshot that shows how to configure and complete a swap in the portal.":::
 
     To see how your target slot would run with the new settings before the swap actually happens, don't select **Swap**, but follow the instructions in [Swap with preview](#Multi-Phase).
 
@@ -200,7 +200,7 @@ To swap with preview:
 
 1. Follow the steps in [Swap deployment slots](#Swap) but select **Perform swap with preview**.
 
-    ![Swap with preview](./media/web-sites-staged-publishing/SwapWithPreview.png)
+    :::image type="content" source="media/web-sites-staged-publishing/swap-with-preview.png" alt-text="A screenshot that shows how to configure a swap with preview in the portal.":::
 
     The dialog box shows you how the configuration in the source slot changes in phase 1, and how the source and target slot change in phase 2.
 
@@ -287,8 +287,8 @@ To configure auto swap:
 1. Go to your app's resource page. Select **Deployment slots** > *\<desired source slot>* > **Configuration** > **General settings**.
    
 2. For **Auto swap enabled**, select **On**. Then select the desired target slot for **Auto swap deployment slot**, and select **Save** on the command bar. 
-   
-    ![Selections for configuring auto swap](./media/web-sites-staged-publishing/AutoSwap02.png)
+
+    :::image type="content" source="media/web-sites-staged-publishing/auto-swap.png" alt-text="A screenshot that shows how to configure auto swap into the production slot in the portal.":::
 
 3. Execute a code push to the source slot. Auto swap happens after a short time, and the update is reflected at your target slot's URL.
 
@@ -393,7 +393,7 @@ To route production traffic automatically:
 
 2. In the **Traffic %** column of the slot you want to route to, specify a percentage (between 0 and 100) to represent the amount of total traffic you want to route. Select **Save**.
 
-    ![Setting a traffic percentage](./media/web-sites-staged-publishing/RouteTraffic.png)
+    :::image type="content" source="media/web-sites-staged-publishing/route-traffic-to-slot.png" alt-text="A screenshot that shows how to route a percentage of request traffic to a deployment slot, in the portal.":::
 
 After the setting is saved, the specified percentage of clients is randomly routed to the nonproduction slot. 
 
@@ -449,7 +449,7 @@ By default, new slots are given a routing rule of `0%`, shown in grey. When you 
 
 Search for and select your app. Select **Deployment slots** > *\<slot to delete>* > **Overview**. The app type is shown as **App Service (Slot)** to remind you that you're viewing a deployment slot. Before deleting a slot, make sure to stop the slot and set the traffic in the slot to zero.  Select **Delete** on the command bar.  
 
-![Delete a deployment slot](./media/web-sites-staged-publishing/DeleteStagingSiteButton.png)
+:::image type="content" source="media/web-sites-staged-publishing/delete-slot.png" alt-text="A screenshot that shows how to delete a deployment slot in the portal.":::
 
 # [Azure CLI](#tab/cli)
 
