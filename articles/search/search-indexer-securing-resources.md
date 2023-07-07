@@ -39,7 +39,7 @@ A list of all possible Azure resource types that an indexer might access in a ty
 | Azure Functions | Attached to a skillset and used to host for custom web API skills |
 
 > [!NOTE]
-> An indexer also connects to Cognitive Services for built-in skills. However, that connection is made over the internal network and isn't subject to any network provisions under your control.
+> An indexer also connects to Azure AI services for built-in skills. However, that connection is made over the internal network and isn't subject to any network provisions under your control.
 
 ## Supported network protections
 

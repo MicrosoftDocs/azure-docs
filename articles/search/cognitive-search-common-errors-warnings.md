@@ -210,7 +210,7 @@ This error occurs when the indexer is attempting to [project data into a knowled
 
 ## `Error: The cognitive service for skill '<skill-name>' has been throttled`
 
-Skill execution failed because the call to Cognitive Services was throttled. Typically, this class of failure occurs when too many skills are executing in parallel. If you're using the Microsoft.Search.Documents client library to run the indexer, you can use the [SearchIndexingBufferedSender](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/search/Azure.Search.Documents/samples/Sample05_IndexingDocuments.md#searchindexingbufferedsender) to get automatic retry on failed steps. Otherwise, you can [reset and rerun the indexer](search-howto-run-reset-indexers.md).
+Skill execution failed because the call to Azure AI services was throttled. Typically, this class of failure occurs when too many skills are executing in parallel. If you're using the Microsoft.Search.Documents client library to run the indexer, you can use the [SearchIndexingBufferedSender](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/search/Azure.Search.Documents/samples/Sample05_IndexingDocuments.md#searchindexingbufferedsender) to get automatic retry on failed steps. Otherwise, you can [reset and rerun the indexer](search-howto-run-reset-indexers.md).
 
 <a name="could-not-execute-skill-because-a-skill-input-was-invalid"></a>
 
@@ -279,13 +279,13 @@ If you know that your data set contains multiple languages and thus you need the
 
 Here are some references for the currently supported languages for each of the skills that may produce this error message:
 
-* [EntityRecognitionSkill supported languages](../cognitive-services/language-service/named-entity-recognition/language-support.md)
-* [EntityLinkingSkill supported languages](../cognitive-services/language-service/entity-linking/language-support.md)
-* [KeyPhraseExtractionSkill supported languages](../cognitive-services/language-service/key-phrase-extraction/language-support.md)
-* [LanguageDetectionSkill supported languages](../cognitive-services/language-service/language-detection/language-support.md)
-* [PIIDetectionSkill supported languages](../cognitive-services/language-service/personally-identifiable-information/language-support.md)
-* [SentimentSkill supported languages](../cognitive-services/language-service/sentiment-opinion-mining/language-support.md)
-* [Translator supported languages](../cognitive-services/translator/language-support.md)
+* [EntityRecognitionSkill supported languages](../ai-services/language-service/named-entity-recognition/language-support.md)
+* [EntityLinkingSkill supported languages](../ai-services/language-service/entity-linking/language-support.md)
+* [KeyPhraseExtractionSkill supported languages](../ai-services/language-service/key-phrase-extraction/language-support.md)
+* [LanguageDetectionSkill supported languages](../ai-services/language-service/language-detection/language-support.md)
+* [PIIDetectionSkill supported languages](../ai-services/language-service/personally-identifiable-information/language-support.md)
+* [SentimentSkill supported languages](../ai-services/language-service/sentiment-opinion-mining/language-support.md)
+* [Translator supported languages](../ai-services/translator/language-support.md)
 * [Text SplitSkill](cognitive-search-skill-textsplit.md) supported languages: `da, de, en, es, fi, fr, it, ko, pt`
 
 <a name="skill-input-was-truncated"></a>
@@ -384,4 +384,4 @@ Collections with [Lazy](../cosmos-db/index-policy.md#indexing-mode) indexing pol
 
 ## `Warning: The document contains very long words (longer than 64 characters). These words may result in truncated and/or unreliable model predictions.`
 
-This warning is passed from the Language service of Azure Cognitive Services. In some cases, it's safe to ignore this warning, such as when your document contains a long URL (which likely isn't a key phrase or driving sentiment, etc.).  Be aware that when a word is longer than 64 characters, it will be truncated to 64 characters which can affect model predictions.
+This warning is passed from the Language service of Azure AI services. In some cases, it's safe to ignore this warning, such as when your document contains a long URL (which likely isn't a key phrase or driving sentiment, etc.).  Be aware that when a word is longer than 64 characters, it will be truncated to 64 characters which can affect model predictions.
