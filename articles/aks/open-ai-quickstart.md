@@ -18,7 +18,8 @@ The sample cloud native application is representative of real-world implementati
 
 These applications provide front ends for customers and store admins, REST APIs for sending data to RabbitMQ message queue and MongoDB database, and console apps to simulate traffic.
 
-> Note: Running stateful containers such as MongoDB and Rabbit MQ without persistent storage is not recommended for production. These are used here for simplicity, but it is recommended to use managed services such as Azure CosmosDB, Azure Service Bus, etc.
+> [!NOTE]
+> We don't recommend running stateful containers, such as MongoDB and Rabbit MQ, without persistent storage for production. These are used here for simplicity, but we recommend using managed services, such as Azure CosmosDB or Azure Service Bus.
 
 The codebase for [AKS Store Demo][aks-store-demo] can be found on GitHub.
 
@@ -120,7 +121,8 @@ For the [AKS Store application][aks-store-demo], this manifest includes the foll
 - Mongo DB: NoSQL instance for persisted data
 - Rabbit MQ: Message queue for an order queue
 
-    > Note: Running stateful containers such as MongoDB and Rabbit MQ without persistent storage is not recommended for production. These are used here for simplicity, but it is recommended to use managed services such as Azure CosmosDB, Azure Service Bus, etc.
+> [!NOTE]
+> We don't recommend running stateful containers, such as MongoDB and Rabbit MQ, without persistent storage for production. These are used here for simplicity, but we recommend using managed services, such as Azure CosmosDB or Azure Service Bus.
 
 1. Review the [YAML manifest](https://github.com/Azure-Samples/aks-store-demo/blob/main/aks-store-all-in-one.yaml) for the application. You will see a series of deployments and services that make up the entire application. 
 
