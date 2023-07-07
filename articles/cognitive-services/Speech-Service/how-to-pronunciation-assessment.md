@@ -466,14 +466,14 @@ pronunciationAssessmentConfig?.nbestPhonemeCount = 5
 
 ## Get pronunciation assessment results 
 
-::: zone pivot="programming-language-csharp"
-
-In the `SpeechRecognizer`, you can specify the language that you're learning or practicing improving pronunciation. The default locale is `en-US` if not otherwise specified. To learn how to specify the learning language for pronunciation assessment in your own application, see [sample code](https://github.com/Azure-Samples/cognitive-services-speech-sdk/blob/master/samples/csharp/sharedcontent/console/speech_recognition_samples.cs#LL1086C13-L1086C98).
+In the `SpeechRecognizer`, you can specify the language that you're learning or practicing improving pronunciation. The default locale is `en-US` if not otherwise specified. 
 
 > [!TIP]
 > If you aren't sure which locale to set when a language has multiple locales (such as Spanish), try each locale (such as `es-ES` and `es-MX`) separately. Evaluate the results to determine which locale scores higher for your specific scenario.
 
 When speech is recognized, you can request the pronunciation assessment results as SDK objects or a JSON string. 
+
+::: zone pivot="programming-language-csharp"
 
 ```csharp
 using (var speechRecognizer = new SpeechRecognizer(
@@ -492,16 +492,11 @@ using (var speechRecognizer = new SpeechRecognizer(
 }
 ```
 
+To learn how to specify the learning language for pronunciation assessment in your own application, see [sample code](https://github.com/Azure-Samples/cognitive-services-speech-sdk/blob/master/samples/csharp/sharedcontent/console/speech_recognition_samples.cs#LL1086C13-L1086C98).
+
 ::: zone-end   
 
 ::: zone pivot="programming-language-cpp"
-
-In the `SpeechRecognizer`, you can specify the language that you're learning or practicing improving pronunciation. The default locale is `en-US` if not otherwise specified. To learn how to specify the learning language for pronunciation assessment in your own application, see [sample code](https://github.com/Azure-Samples/cognitive-services-speech-sdk/blob/master/samples/cpp/windows/console/samples/speech_recognition_samples.cpp#L624).
-
-> [!TIP]
-> If you aren't sure which locale to set when a language has multiple locales (such as Spanish), try each locale (such as `es-ES` and `es-MX`) separately. Evaluate the results to determine which locale scores higher for your specific scenario.
-
-When speech is recognized, you can request the pronunciation assessment results as SDK objects or a JSON string. 
 
 Word, syllable, and phoneme results aren't available via SDK objects with the Speech SDK for C++. Word, syllable, and phoneme results are only available in the JSON string.
 
@@ -520,18 +515,12 @@ auto pronunciationAssessmentResult =
 // The pronunciation assessment result as a JSON string
 auto pronunciationAssessmentResultJson = speechRecognitionResult->Properties.GetProperty(PropertyId::SpeechServiceResponse_JsonResult);
 ```
+
+To learn how to specify the learning language for pronunciation assessment in your own application, see [sample code](https://github.com/Azure-Samples/cognitive-services-speech-sdk/blob/master/samples/cpp/windows/console/samples/speech_recognition_samples.cpp#L624).
    
 ::: zone-end 
 
 ::: zone pivot="programming-language-java"
-
-In the `SpeechRecognizer`, you can specify the language that you're learning or practicing improving pronunciation. The default locale is `en-US` if not otherwise specified. 
-
-> [!TIP]
-> If you aren't sure which locale to set when a language has multiple locales (such as Spanish), try each locale (such as `es-ES` and `es-MX`) separately. Evaluate the results to determine which locale scores higher for your specific scenario.
-
-When speech is recognized, you can request the pronunciation assessment results as SDK objects or a JSON string. 
-
 For Android application development, the word, syllable, and phoneme results are available via SDK objects with the Speech SDK for Java. The results are also available in the JSON string. For Java Runtime (JRE) application development, the word, syllable, and phoneme results are only available in the JSON string.
 
 ```Java
@@ -559,14 +548,8 @@ speechRecognitionResult.close();
 
 ::: zone-end 
 
+
 ::: zone pivot="programming-language-javascript"
-
-In the `SpeechRecognizer`, you can specify the language that you're learning or practicing improving pronunciation. The default locale is `en-US` if not otherwise specified. To learn how to specify the learning language for pronunciation assessment in your own application, see [sample code](https://github.com/Azure-Samples/cognitive-services-speech-sdk/blob/master/samples/js/node/pronunciationAssessmentContinue.js#LL37C4-L37C52).
-
-> [!TIP]
-> If you aren't sure which locale to set when a language has multiple locales (such as Spanish), try each locale (such as `es-ES` and `es-MX`) separately. Evaluate the results to determine which locale scores higher for your specific scenario.
-
-When speech is recognized, you can request the pronunciation assessment results as SDK objects or a JSON string. 
 
 ```JavaScript
 var speechRecognizer = SpeechSDK.SpeechRecognizer.FromConfig(speechConfig, audioConfig);
@@ -583,16 +566,11 @@ speechRecognizer.recognizeOnceAsync((speechRecognitionResult: SpeechSDK.SpeechRe
 {});
 ```
 
+To learn how to specify the learning language for pronunciation assessment in your own application, see [sample code](https://github.com/Azure-Samples/cognitive-services-speech-sdk/blob/master/samples/js/node/pronunciationAssessmentContinue.js#LL37C4-L37C52).
+
 ::: zone-end  
 
 ::: zone pivot="programming-language-python"
-
-In the `SpeechRecognizer`, you can specify the language that you're learning or practicing improving pronunciation. The default locale is `en-US` if not otherwise specified. To learn how to specify the learning language for pronunciation assessment in your own application, see [sample code](https://github.com/Azure-Samples/cognitive-services-speech-sdk/blob/master/samples/python/console/speech_sample.py#LL937C1-L937C1).
-
-> [!TIP]
-> If you aren't sure which locale to set when a language has multiple locales (such as Spanish), try each locale (such as `es-ES` and `es-MX`) separately. Evaluate the results to determine which locale scores higher for your specific scenario.
-
-When speech is recognized, you can request the pronunciation assessment results as SDK objects or a JSON string. 
 
 ```Python
 speech_recognizer = speechsdk.SpeechRecognizer(
@@ -609,17 +587,12 @@ pronunciation_assessment_result = speechsdk.PronunciationAssessmentResult(speech
 pronunciation_assessment_result_json = speech_recognition_result.properties.get(speechsdk.PropertyId.SpeechServiceResponse_JsonResult)
 ```
 
+To learn how to specify the learning language for pronunciation assessment in your own application, see [sample code](https://github.com/Azure-Samples/cognitive-services-speech-sdk/blob/master/samples/python/console/speech_sample.py#LL937C1-L937C1).
+
 ::: zone-end  
 
 
 ::: zone pivot="programming-language-objectivec"
-
-In the `SpeechRecognizer`, you can specify the language that you're learning or practicing improving pronunciation. The default locale is `en-US` if not otherwise specified. To learn how to specify the learning language for pronunciation assessment in your own application, see [sample code](https://github.com/Azure-Samples/cognitive-services-speech-sdk/blob/master/samples/objective-c/ios/speech-samples/speech-samples/ViewController.m#L862).
-
-> [!TIP]
-> If you aren't sure which locale to set when a language has multiple locales (such as Spanish), try each locale (such as `es-ES` and `es-MX`) separately. Evaluate the results to determine which locale scores higher for your specific scenario.
-
-When speech is recognized, you can request the pronunciation assessment results as SDK objects or a JSON string. 
    
 ```ObjectiveC
 SPXSpeechRecognizer* speechRecognizer = \
@@ -637,16 +610,11 @@ SPXPronunciationAssessmentResult* pronunciationAssessmentResult = [[SPXPronuncia
 NSString* pronunciationAssessmentResultJson = [speechRecognitionResult.properties getPropertyByName:SPXSpeechServiceResponseJsonResult];
 ```
 
+To learn how to specify the learning language for pronunciation assessment in your own application, see [sample code](https://github.com/Azure-Samples/cognitive-services-speech-sdk/blob/master/samples/objective-c/ios/speech-samples/speech-samples/ViewController.m#L862).
+
 ::: zone-end 
 
 ::: zone pivot="programming-language-swift"
-
-In the `SpeechRecognizer`, you can specify the language that you're learning or practicing improving pronunciation. The default locale is `en-US` if not otherwise specified. To learn how to specify the learning language for pronunciation assessment in your own application, see [sample code](https://github.com/Azure-Samples/cognitive-services-speech-sdk/blob/master/samples/swift/ios/speech-samples/speech-samples/ViewController.swift#L224).
-
-> [!TIP]
-> If you aren't sure which locale to set when a language has multiple locales (such as Spanish), try each locale (such as `es-ES` and `es-MX`) separately. Evaluate the results to determine which locale scores higher for your specific scenario.
-
-When speech is recognized, you can request the pronunciation assessment results as SDK objects or a JSON string. 
 
 ```swift
 let speechRecognizer = try! SPXSpeechRecognizer(speechConfiguration: speechConfig, audioConfiguration: audioConfig)
@@ -661,6 +629,8 @@ let pronunciationAssessmentResult = SPXPronunciationAssessmentResult(speechRecog
 // The pronunciation assessment result as a JSON string
 let pronunciationAssessmentResultJson = speechRecognitionResult!.properties?.getPropertyBy(SPXPropertyId.speechServiceResponseJsonResult)
 ```
+
+To learn how to specify the learning language for pronunciation assessment in your own application, see [sample code](https://github.com/Azure-Samples/cognitive-services-speech-sdk/blob/master/samples/swift/ios/speech-samples/speech-samples/ViewController.swift#L224).
 
 ::: zone-end
 
