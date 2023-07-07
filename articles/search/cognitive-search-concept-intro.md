@@ -68,7 +68,7 @@ A [skillset](cognitive-search-defining-skillset.md) that's assembled using built
 
 [**Custom skills**](cognitive-search-create-custom-skill-example.md) execute external code that you provide. Custom skills can support more complex scenarios, such as recognizing forms, or custom entity detection using a model that you provide and wrap in the [custom skill web interface](cognitive-search-custom-skill-interface.md). Several examples of custom skills include:
 
-+ [Forms Recognizer](../ai-services/form-recognizer/overview.md)
++ [Forms Recognizer](../ai-services/document-intelligence/overview.md)
 + [Bing Entity Search API](./cognitive-search-create-custom-skill-example.md)
 + [Custom entity recognition](https://github.com/Microsoft/SkillsExtractorCognitiveSearch)
 

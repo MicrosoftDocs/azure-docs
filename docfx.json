@@ -966,7 +966,7 @@
         "articles/blockchain/**/*.md": "azure-blockchain",
         "articles/chef/**/*.md": "chef",
         "articles/cloud-shell/**/*.md": "cloud-shell",
-        "articles/ai-services/**/*.md": "ai-services",
+        "articles/ai-services/**/*.md": "cognitive-services",
         "articles/cognitive-services/**/*.md": "cognitive-services",
         "articles/connectors/*.md": "logic-apps",
         "articles/container-instances/**/*.md": "container-instances",

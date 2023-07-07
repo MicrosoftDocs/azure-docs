@@ -605,12 +605,12 @@ Response:
    }
 ]
 ```
-For more information, see [public documentation](../ai-services/computer-vision/index-identity.yml), and [public API documentation](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) for Face API.
+For more information, see [public documentation](../ai-services/computer-vision/overview-identity.md), and [public API documentation](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) for Face API.
 
 
 ## Text Analytics
 
-For instructions on how to use Text Analytics, see [Quickstart: Use the Text Analytics client library and REST API](../ai-services/text-analytics/quickstarts/client-libraries-rest-api.md?tabs=version-3-1&pivots=programming-language-csharp).
+For instructions on how to use Text Analytics, see [Quickstart: Use the Text Analytics client library and REST API](../ai-services/language-service/language-detection/overview.md?tabs=version-3-1&pivots=programming-language-csharp).
 
 ### Variations
 

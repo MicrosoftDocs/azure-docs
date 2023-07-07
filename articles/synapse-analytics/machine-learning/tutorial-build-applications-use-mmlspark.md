@@ -62,7 +62,7 @@ anomalydetector_key = mssparkutils.credentials.getSecret("ADD_YOUR_KEY_VAULT_NAM
 
 ## Text analytics sample
 
-The [Text Analytics](../../ai-services/text-analytics/index.yml) service provides several algorithms for extracting intelligent insights from text. For example, we can find the sentiment of given input text. The service will return a score between 0.0 and 1.0 where low scores indicate negative sentiment and high score indicates positive sentiment. This sample uses three simple sentences and returns the sentiment for each.
+The [Text Analytics](../../ai-services/language-service/index.yml) service provides several algorithms for extracting intelligent insights from text. For example, we can find the sentiment of given input text. The service will return a score between 0.0 and 1.0 where low scores indicate negative sentiment and high score indicates positive sentiment. This sample uses three simple sentences and returns the sentiment for each.
 
 ```python
 from pyspark.sql.functions import col
@@ -127,7 +127,7 @@ display(analysis.transform(df_images).select("image", "analysis_results.descript
 | `https://raw.githubusercontent.com/Azure-Samples/cognitive-services-sample-data-files/master/ComputerVision/Images/objects.jpg` | [skating, person, man, outdoor, riding, sport, skateboard, young, board, shirt, air, park, boy, side, jumping, ramp, trick, doing, flying] |
 
 ## Bing image search sample
-[Bing Image Search](../../ai-services/bing-image-search/overview.md) searches the web to retrieve images related to a user's natural language query. In this sample, we use a text query that looks for images with quotes. It returns a list of image URLs that contain photos related to our query.
+[Bing Image Search](../../cognitive-services/bing-image-search/overview.md) searches the web to retrieve images related to a user's natural language query. In this sample, we use a text query that looks for images with quotes. It returns a list of image URLs that contain photos related to our query.
 
 
 ```python

@@ -568,9 +568,9 @@ The following tutorials provide complete examples of using Cognitive Services in
 
 - [Build machine learning applications using Microsoft Machine Learning for Apache Spark](tutorial-build-applications-use-mmlspark.md) - This tutorial demonstrates how to use SynapseML to access several models from Cognitive Services.
 
-- [Form recognizer with Applied AI Service](tutorial-form-recognizer-use-mmlspark.md) demonstrates how to use [Form Recognizer](../../ai-services/form-recognizer/index.yml) to analyze your forms and documents, extracts text and data on Azure Synapse Analytics. 
+- [Form recognizer with Applied AI Service](tutorial-form-recognizer-use-mmlspark.md) demonstrates how to use [Form Recognizer](../../ai-services/document-intelligence/index.yml) to analyze your forms and documents, extracts text and data on Azure Synapse Analytics. 
 
-- [Text Analytics with Cognitive Service](tutorial-text-analytics-use-mmlspark.md) shows how to use [Text Analytics](../../ai-services/text-analytics/index.yml) to analyze unstructured text on Azure Synapse Analytics.
+- [Text Analytics with Cognitive Service](tutorial-text-analytics-use-mmlspark.md) shows how to use [Text Analytics](../../ai-services/language-service/index.yml) to analyze unstructured text on Azure Synapse Analytics.
 
 - [Translator with Cognitive Service](tutorial-translator-use-mmlspark.md) shows how to use [Translator](../../ai-services/Translator/index.yml) to build intelligent, multi-language solutions on Azure Synapse Analytics
 

@@ -7943,7 +7943,7 @@ Read access to view files, models, deployments. The ability to create completion
 
 ### Cognitive Services QnA Maker Editor
 
-Let's you create, edit, import and export a KB. You cannot publish or delete a KB. [Learn more](../ai-services/qnamaker/reference-role-based-access-control.md)
+Let's you create, edit, import and export a KB. You cannot publish or delete a KB. [Learn more](../ai-services/qnamaker/index.yml)
 
 > [!div class="mx-tableFixed"]
 > | Actions | Description |
@@ -8064,7 +8064,7 @@ Let's you create, edit, import and export a KB. You cannot publish or delete a K
 
 ### Cognitive Services QnA Maker Reader
 
-Let's you read and test a KB only. [Learn more](../ai-services/qnamaker/reference-role-based-access-control.md)
+Let's you read and test a KB only. [Learn more](../ai-services/qnamaker/index.yml)
 
 > [!div class="mx-tableFixed"]
 > | Actions | Description |

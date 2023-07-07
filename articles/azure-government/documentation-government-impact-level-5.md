@@ -78,9 +78,9 @@ For AI and machine learning services availability in Azure Government, see [Prod
 
 - Configure encryption at rest of content in Cognitive Services Custom Vision [using customer-managed keys in Azure Key Vault](../ai-services/custom-vision-service/encrypt-data-at-rest.md#customer-managed-keys-with-azure-key-vault).
 
-### [Cognitive Services: Face](../ai-services/computer-vision/index-identity.yml)
+### [Cognitive Services: Face](../ai-services/computer-vision/overview-identity.md)
 
-- Configure encryption at rest of content in the Face service by [using customer-managed keys in Azure Key Vault](../ai-services/face/encrypt-data-at-rest.md#customer-managed-keys-with-azure-key-vault).
+- Configure encryption at rest of content in the Face service by [using customer-managed keys in Azure Key Vault](../ai-services/computer-vision/identity-encrypt-data-at-rest.md#customer-managed-keys-with-azure-key-vault).
 
 ### [Cognitive Services: Language Understanding (LUIS)](../ai-services/luis/index.yml)
 
