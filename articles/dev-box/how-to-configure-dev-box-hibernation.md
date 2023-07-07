@@ -102,7 +102,7 @@ Dev Box validates your image for hibernate support. Your dev box definition may 
 
 1. On the Editing \<dev box definition\> page, select **Enable hibernation**.
 
-   :::image type="content" source="./media/how-to-configure-dev-box-hibernation/dev-box-pool-enable-hibernation.png" alt-text="Screenshot of the page for editing a dev box definition.":::
+   :::image type="content" source="./media/how-to-configure-dev-box-hibernation/dev-box-pool-enable-hibernation.png" alt-text="Screenshot of the page for editing a dev box definition, with Enable hibernation selected..":::
 
 1. Select **Save**.
 
@@ -128,7 +128,7 @@ az devcenter admin devbox-definition update --dev-box-definition-name <DevBoxDef
 
 1. On the Editing \<dev box definition\> page, clear **Enable hibernation**.
 
-   :::image type="content" source="./media/how-to-configure-dev-box-hibernation/dev-box-pool-disable-hibernation.png" alt-text="Screenshot of the page for editing a dev box definition.":::
+   :::image type="content" source="./media/how-to-configure-dev-box-hibernation/dev-box-pool-disable-hibernation.png" alt-text="Screenshot of the page for editing a dev box definition, with Enable hibernation not selected.":::
 
 1. Select **Save**.
 
