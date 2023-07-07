@@ -33,6 +33,8 @@ Here's a video version of this tutorial:
 
 > [!VIDEO https://www.microsoft.com/videoplayer/embed/RE42pGX]
 
+[!INCLUDE [log-analytics-query-permissions](../../../includes/log-analytics-query-permissions.md)]
+
 ## Write a new query
 
 Queries can start with either a table name or the `search` command. It's a good idea to start with a table name because it defines a clear scope for the query. It also improves query performance and the relevance of the results.
