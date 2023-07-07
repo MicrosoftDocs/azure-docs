@@ -52,7 +52,7 @@ After upload, you can check the data details of the training set. Before continu
 
 You can resolve data issues per utterance in Speech Studio. 
 
-1. On the detail page, go to the **Accepted data** or **Rejected data** page. Select individual utterances you want to change, then click **Edit**.
+1. On the detail page, go to the **Accepted data** or **Rejected data** page. Select individual utterances you want to change, then select **Edit**.
 
    :::image type="content" source="media/custom-voice/cnv-edit-trainingset.png" alt-text="Screenshot of selecting edit button on the accepted data or rejected data details page.":::
 
@@ -66,7 +66,7 @@ You can resolve data issues per utterance in Speech Studio.
 
 1. Update transcript or recording file according to issue description on the edit window.
 
-   You can edit transcript in the text box, then click **Done**
+   You can edit transcript in the text box, then select **Done**
 
    :::image type="content" source="media/custom-voice/cnv-edit-trainingset-scriptedit-done.png" alt-text="Screenshot of selecting Done button on the Edit transcript and recording file window.":::
 

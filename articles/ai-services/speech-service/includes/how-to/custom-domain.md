@@ -9,7 +9,7 @@ ms.author: rhurey
 ---
 
 
-Follow these steps to create a [custom subdomain name for Cognitive Services](../../../cognitive-services-custom-subdomains.md) for your Speech resource.
+Follow these steps to create a [custom subdomain name for Azure AI services](../../../cognitive-services-custom-subdomains.md) for your Speech resource.
 
 > [!CAUTION]
 > When you turn on a custom domain name, the operation is [not reversible](../../../cognitive-services-custom-subdomains.md#can-i-change-a-custom-domain-name). The only way to go back to the [regional name](../../../cognitive-services-custom-subdomains.md#is-there-a-list-of-regional-endpoints) is to create a new Speech resource.
@@ -53,7 +53,7 @@ Before you proceed, run `Connect-AzAccount` to create a connection with Azure.
 ## Verify that a custom domain name is available
 
 Check whether the custom domain that you want to use is available. 
-The following code confirms that the domain is available by using the [Check Domain Availability](/rest/api/cognitiveservices/accountmanagement/checkdomainavailability/checkdomainavailability) operation in the Cognitive Services REST API.
+The following code confirms that the domain is available by using the [Check Domain Availability](/rest/api/cognitiveservices/accountmanagement/checkdomainavailability/checkdomainavailability) operation in the Azure AI services REST API.
 
 > [!NOTE]
 > The following code will *not* work in Azure Cloud Shell.
@@ -66,12 +66,12 @@ $subdomainName = "custom domain name"
 # You can skip this step if your Azure account has only one active subscription.
 Set-AzContext -SubscriptionId $subscriptionId
 
-# Prepare the OAuth token to use in the request to the Cognitive Services REST API.
+# Prepare the OAuth token to use in the request to the Azure AI services REST API.
 $Context = Get-AzContext
 $AccessToken = (Get-AzAccessToken -TenantId $Context.Tenant.Id).Token
 $token = ConvertTo-SecureString -String $AccessToken -AsPlainText -Force
 
-# Prepare and send the request to the Cognitive Services REST API.
+# Prepare and send the request to the Azure AI services REST API.
 $uri = "https://management.azure.com/subscriptions/" + $subscriptionId + `
     "/providers/Microsoft.CognitiveServices/checkDomainAvailability?api-version=2017-04-18"
 $body = @{
@@ -127,7 +127,7 @@ This section requires the latest version of the Azure CLI. If you're using Azure
 
 ## Verify that the custom domain name is available
 
-Check whether the custom domain that you want to use is free. Use the [Check Domain Availability](/rest/api/cognitiveservices/accountmanagement/checkdomainavailability/checkdomainavailability) method from the Cognitive Services REST API.
+Check whether the custom domain that you want to use is free. Use the [Check Domain Availability](/rest/api/cognitiveservices/accountmanagement/checkdomainavailability/checkdomainavailability) method from the Azure AI services REST API.
 
 Copy the following code block, insert your preferred custom domain name, and save to the file `subdomain.json`.
 

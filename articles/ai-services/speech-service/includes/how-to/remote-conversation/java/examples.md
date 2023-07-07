@@ -102,7 +102,7 @@ You can obtain **remote-conversation** by editing your pom.xml file as follows.
    <repositories>
      <repository>
        <id>maven-cognitiveservices-speech</id>
-       <name>Microsoft Cognitive Services Speech Maven Repository</name>
+       <name>Microsoft Azure AI Speech Maven Repository</name>
        <url>https://azureai.azureedge.net/maven/</url>
      </repository>
    </repositories>

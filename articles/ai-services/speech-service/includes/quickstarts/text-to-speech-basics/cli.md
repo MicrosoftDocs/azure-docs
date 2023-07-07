@@ -30,7 +30,7 @@ If you don't set a voice name, the default voice for `en-US` will speak. All neu
 
 Now that you've completed the quickstart, here are some additional considerations:
 
-You can have finer control over voice styles, prosody, and other settings by using [Speech Synthesis Markup Language (SSML)](~/articles/cognitive-services/speech-service/speech-synthesis-markup.md).
+You can have finer control over voice styles, prosody, and other settings by using [Speech Synthesis Markup Language (SSML)](~/articles/ai-services/speech-service/speech-synthesis-markup.md).
 
 In the following example, the voice and style ('excited') are provided in the SSML block. 
 

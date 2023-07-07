@@ -28,7 +28,7 @@ You complete the following tasks:
 ## Prerequisites
 > [!div class = "checklist"]
 > * [Visual Studio 2019](https://visualstudio.microsoft.com/downloads/) or higher. This guide uses Visual Studio 2019
-> * An Azure AI services Speech resource key and region: Create a Speech resource on the [Azure portal](https://portal.azure.com). For more information, see [Create a new Cognitive Services resource](~/articles/ai-services/cognitive-services-apis-create-account.md?tabs=speech#create-a-new-azure-cognitive-services-resource).
+> * An Azure AI services Speech resource key and region: Create a Speech resource on the [Azure portal](https://portal.azure.com). For more information, see [Create a new Cognitive Services resource](../cognitive-services-apis-create-account.md?tabs=speech#create-a-new-azure-cognitive-services-resource).
 > * A previously [created Custom Commands app](quickstart-custom-commands-application.md)
 > * A Speech SDK enabled client app:
 [How-to: Integrate with a client application using Speech SDK](./how-to-custom-commands-setup-speech-sdk.md)
@@ -48,7 +48,7 @@ You complete the following tasks:
       }
     }
    ```
-1. Click **Save** to create a new rule with a Send Activity action, **Train** and **Publish** the change
+1. Select **Save** to create a new rule with a Send Activity action, **Train** and **Publish** the change
 
    > [!div class="mx-imgBorder"]
    > ![Send Activity completion rule](media/custom-commands/send-activity-to-client-completion-rules.png)

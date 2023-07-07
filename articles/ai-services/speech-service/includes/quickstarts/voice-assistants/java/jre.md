@@ -11,13 +11,13 @@ ms.author: travisw
 Before you get started, make sure to:
 
 > [!div class="checklist"]
-> * [Create a Speech resource](~/articles/cognitive-services/cognitive-services-apis-create-account.md#get-the-keys-for-your-resource)
-> * [Set up your development environment and create an empty project](~/articles/cognitive-services/speech-service/quickstarts/setup-platform.md?tabs=jre&pivots=programming-language-java)
+> * [Create a Speech resource](~/articles/ai-services/cognitive-services-apis-create-account.md#get-the-keys-for-your-resource)
+> * [Set up your development environment and create an empty project](~/articles/ai-services/speech-service/quickstarts/setup-platform.md?tabs=jre&pivots=programming-language-java)
 > * Create a bot connected to the [Direct Line Speech channel](/azure/bot-service/bot-service-channel-connect-directlinespeech)
 > * Make sure that you have access to a microphone for audio capture
 
   > [!NOTE]
-  > Please refer to [the list of supported regions for voice assistants](~/articles/cognitive-services/speech-service/regions.md#voice-assistants) and ensure your resources are deployed in one of those regions.
+  > Please refer to [the list of supported regions for voice assistants](~/articles/ai-services/speech-service/regions.md#voice-assistants) and ensure your resources are deployed in one of those regions.
 
 ## Create and configure project
 
@@ -39,7 +39,7 @@ Additionally, to enable logging, update the _pom.xml_ file to include the follow
 
 1. In the **New Java Class** window, enter _speechsdk.quickstart_ in the **Package** field and _Main_ in the **Name** field.
 
-   ![Screenshot of New Java Class window](~/articles/cognitive-services/speech-service/media/sdk/qs-java-jre-06-create-main-java.png)
+   ![Screenshot of New Java Class window](~/articles/ai-services/speech-service/media/sdk/qs-java-jre-06-create-main-java.png)
 
 1. Open the newly created `Main` class, and replace the contents of the `Main.java` file with the following starting code:
 
@@ -111,10 +111,10 @@ Additionally, to enable logging, update the _pom.xml_ file to include the follow
 1. In the `main` method, you first configure your `DialogServiceConfig` and use it to create a `DialogServiceConnector` instance. This instance connects to the Direct Line Speech channel to interact with your bot. An `AudioConfig` instance is also used to specify the source for audio input. In this example, the default microphone is used with `AudioConfig.fromDefaultMicrophoneInput()`.
 
    - Replace the string `YourSubscriptionKey` with your Speech resource key, which you can get from the [Azure portal](https://portal.azure.com).
-   - Replace the string `YourServiceRegion` with the [region](~/articles/cognitive-services/speech-service/regions.md) associated with your Speech resource.
+   - Replace the string `YourServiceRegion` with the [region](~/articles/ai-services/speech-service/regions.md) associated with your Speech resource.
 
    > [!NOTE]
-   > Please refer to [the list of supported regions for voice assistants](~/articles/cognitive-services/speech-service/regions.md#voice-assistants) and ensure your resources are deployed in one of those regions.
+   > Please refer to [the list of supported regions for voice assistants](~/articles/ai-services/speech-service/regions.md#voice-assistants) and ensure your resources are deployed in one of those regions.
 
    ```java
    final String subscriptionKey = "YourSubscriptionKey"; // Your subscription key
@@ -433,7 +433,7 @@ Select F11, or select **Run** > **Debug**.
 The console displays the message "Say something."
 At this point, speak an English phrase or sentence that your bot can understand. Your speech is transmitted to your bot through the Direct Line Speech channel where it's recognized and processed by your bot. The response is returned as an activity. If your bot returns speech as a response, the audio is played back by using the `AudioPlayer` class.
 
-![Screenshot of console output after successful recognition](~/articles/cognitive-services/Speech-Service/media/sdk/qs-java-jre-08-console-output.png)
+![Screenshot of console output after successful recognition](~/articles/ai-services/speech-service/media/sdk/qs-java-jre-08-console-output.png)
 
 ## Next steps
 

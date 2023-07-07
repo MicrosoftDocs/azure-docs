@@ -339,7 +339,7 @@ For more information, see the [language and voice list](../../language-support.m
 
 #### Custom Neural Voice
 
-* Supported role based access control. Learn more on [Azure role-based access control in Speech Studio](../../speech-studio-role-based-access-control.md)
+* Supported role based access control. Learn more on [Azure role-based access control in Speech Studio](../../role-based-access-control.md)
 * Supported private endpoints and virtual network service endpoints. Learn more on [how to use private endpoints with speech service](../../speech-services-private-link.md).
 
 #### Audio Content Creation tool
@@ -517,8 +517,8 @@ The [bookmark element](../../speech-synthesis-markup-structure.md#bookmark-eleme
 
 **Custom Neural Voice GA**
 
-Custom Neural Voice is GA in February in 13 languages: Chinese (Mandarin, Simplified), English (Australia), English (India), English (United Kingdom), English (United States), French (Canada), French (France), German (Germany), Italian (Italy), Japanese (Japan), Korean (Korea), Portuguese (Brazil), Spanish (Mexico), and Spanish (Spain). Learn more about [what is Custom Neural Voice](../../custom-neural-voice.md) and [how to use it responsibly](../../concepts-guidelines-responsible-deployment-synthetic.md).
-Custom Neural Voice feature requires registration and Microsoft may limit access based on Microsoft's eligibility criteria. Learn more about the [limited access](/legal/cognitive-services/speech-service/custom-neural-voice/limited-access-custom-neural-voice?context=/azure/cognitive-services/speech-service/context/context).
+Custom Neural Voice is GA in February in 13 languages: Chinese (Mandarin, Simplified), English (Australia), English (India), English (United Kingdom), English (United States), French (Canada), French (France), German (Germany), Italian (Italy), Japanese (Japan), Korean (Korea), Portuguese (Brazil), Spanish (Mexico), and Spanish (Spain). Learn more about [what is Custom Neural Voice](../../custom-neural-voice.md) and [how to use it responsibly](/legal/cognitive-services/speech-service/custom-neural-voice/concepts-guidelines-responsible-deployment-synthetic?context=~/articles/ai-services/speech-service/context/context).
+Custom Neural Voice feature requires registration and Microsoft may limit access based on Microsoft's eligibility criteria. Learn more about the [limited access](/legal/cognitive-services/speech-service/custom-neural-voice/limited-access-custom-neural-voice?context=~/articles/ai-services/speech-service/context/context).
 
 
 ### December 2020 release

@@ -16,7 +16,7 @@ ms.author: eur
 
 ## Set up the environment
 
-Before you can do anything, you need to [install the Speech SDK](~/articles/cognitive-services/speech-service/quickstarts/setup-platform.md?pivots=programming-language-java&tabs=jre). The sample in this quickstart works with the [Microsoft Build of OpenJDK 17](https://www.microsoft.com/openjdk)
+Before you can do anything, you need to [install the Speech SDK](~/articles/ai-services/speech-service/quickstarts/setup-platform.md?pivots=programming-language-java&tabs=jre). The sample in this quickstart works with the [Microsoft Build of OpenJDK 17](https://www.microsoft.com/openjdk)
 
 1. Install [Apache Maven](https://maven.apache.org/install.html). Then run `mvn -v` to confirm successful installation.
 1. Create a new `pom.xml` file in the root of your project, and copy the following into it:
@@ -52,7 +52,7 @@ Before you can do anything, you need to [install the Speech SDK](~/articles/cogn
     ```console
     mvn clean dependency:copy-dependencies
     ```
-1. You must also install [GStreamer](~/articles/cognitive-services/speech-service/how-to-use-codec-compressed-audio-input-streams.md) for compressed input audio.
+1. You must also install [GStreamer](~/articles/ai-services/speech-service/how-to-use-codec-compressed-audio-input-streams.md) for compressed input audio.
 
 ### Set environment variables
 

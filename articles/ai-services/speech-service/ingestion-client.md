@@ -23,10 +23,10 @@ Ingestion Client uses the [Azure AI Language](../language-service/index.yml), [A
 
 ## Get started with the Ingestion Client
 
-An Azure Account and an Azure AI services resource are needed to run the Ingestion Client.
+An Azure account and a multi-service Cognitive Services resource are needed to run the Ingestion Client.
 * Azure subscription - [Create one for free](https://azure.microsoft.com/free/cognitive-services)
-* <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesAllInOne"  title="Create a Azure AI services resource"  target="_blank">Create a Azure AI services resource</a> in the Azure portal.
-* Get the resource key and region. After your Azure AI services resource is deployed, select **Go to resource** to view and manage keys. For more information about Azure AI services resources, see [Get the keys for your resource](~/articles/ai-services/cognitive-services-apis-create-account.md#get-the-keys-for-your-resource). 
+* <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesAllInOne"  title="Create a Cognitive Services resource"  target="_blank">Create a Cognitive Services resource</a> in the Azure portal.
+* Get the resource key and region. After your resource is deployed, select **Go to resource** to view and manage keys. For more information about Azure AI services resources, see [Get the keys for your resource](~/articles/ai-services/cognitive-services-apis-create-account.md#get-the-keys-for-your-resource). 
 
 See the [Getting Started Guide for the Ingestion Client](https://github.com/Azure-Samples/cognitive-services-speech-sdk/blob/master/samples/ingestion/ingestion-client/Setup/guide.md) on GitHub to learn how to setup and use the tool.
 

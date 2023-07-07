@@ -102,11 +102,11 @@ ms.author: eur
 
 #### Breaking changes
 
-- Language Identification (preview) APIs have been simplified. If you update to Speech SDK 1.25 and see a build break, please visit the [Language Identification (preview)](/azure/cognitive-services/speech-service/language-identification) page to learn about the new property `SpeechServiceConnection_LanguageIdMode`. This single property replaces the two previous ones `SpeechServiceConnection_SingleLanguageIdPriority` and `SpeechServiceConnection_ContinuousLanguageIdPriority`. Prioritizing between low latency and high accuracy is no longer necessary following recent model improvements. Now, you only need to select whether to run at-start or continuous Language Identification when doing continuous speech recognition or translation.
+- Language Identification (preview) APIs have been simplified. If you update to Speech SDK 1.25 and see a build break, please visit the [Language Identification](~/articles/ai-services/speech-service/language-identification.md) page to learn about the new property `SpeechServiceConnection_LanguageIdMode`. This single property replaces the two previous ones `SpeechServiceConnection_SingleLanguageIdPriority` and `SpeechServiceConnection_ContinuousLanguageIdPriority`. Prioritizing between low latency and high accuracy is no longer necessary following recent model improvements. Now, you only need to select whether to run at-start or continuous Language Identification when doing continuous speech recognition or translation.
 
 #### New features
 
-- **C#/C++/Java**: Embedded Speech SDK is now released under gated public preview. See [Embedded Speech (preview)](/azure/cognitive-services/speech-service/embedded-speech) documentation. You can now do on-device speech to text and text to speech when cloud connectivity is intermittent or unavailable. Supported on Android, Linux, MacOS and Windows platforms
+- **C#/C++/Java**: Embedded Speech SDK is now released under gated public preview. See [Embedded Speech (preview)](~/articles/ai-services/speech-service/embedded-speech.md) documentation. You can now do on-device speech to text and text to speech when cloud connectivity is intermittent or unavailable. Supported on Android, Linux, MacOS and Windows platforms
 - **C# MAUI**: Support added for iOS and Mac Catalyst targets in Speech SDK NuGet ([Customer issue](https://github.com/Azure-Samples/cognitive-services-speech-sdk/issues/1649))
 - **Unity**: Android x86_64 architecture added to Unity package ([Customer issue](https://github.com/Azure-Samples/cognitive-services-speech-sdk/issues/1715))
 - **Go**:
@@ -353,7 +353,7 @@ ms.author: eur
 - **C++**: Simple Language Pattern matching with the Intent Recognizer now makes it easier to [implement simple intent recognition scenarios](../../get-started-intent-recognition.md?pivots=programming-language-cpp).
 - **C++/C#/Java**: We added a new API, `GetActivationPhrasesAsync()` to the `VoiceProfileClient` class for receiving a list of valid activation phrases in Speaker Recognition enrollment phase for independent recognition scenarios. 
     - **Important**: The Speaker Recognition feature is in Preview. All voice profiles created in Preview will be discontinued 90 days after the Speaker Recognition feature is moved out of Preview into General Availability. At that point the Preview voice profiles will stop functioning.
-- **Python**: Added [support for continuous Language Identification (LID)](../../how-to-automatic-language-detection.md?pivots=programming-language-python) on the existing `SpeechRecognizer` and `TranslationRecognizer` objects. 
+- **Python**: Added [support for continuous Language Identification (LID)](../../language-identification.md?pivots=programming-language-python) on the existing `SpeechRecognizer` and `TranslationRecognizer` objects. 
 - **Python**: Added a [new Python object](/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.sourcelanguagerecognizer) named `SourceLanguageRecognizer` to do one-time or continuous LID (without recognition or translation). 
 - **JavaScript**: `getActivationPhrasesAsync` API added to `VoiceProfileClient` class for receiving a list of valid activation phrases in Speaker Recognition enrollment phase for independent recognition scenarios. 
 - **JavaScript** `VoiceProfileClient`'s `enrollProfileAsync` API is now async awaitable. See [this independent identification code](https://github.com/Azure-Samples/cognitive-services-speech-sdk/blob/master/quickstart/javascript/node/speaker-recognition/identification/independent-identification.js), for example, usage.
@@ -394,7 +394,7 @@ ms.author: eur
 #### New features
 
 - **C++/C#**: New stand-alone At-Start and Continuous Language Detection via the `SourceLanguageRecognizer` API. If you only want to detect the language(s) spoken in audio content, this is the API to do that. See details for [C++](/cpp/cognitive-services/speech/sourcelanguagerecognizer) and [C#](/dotnet/api/microsoft.cognitiveservices.speech.sourcelanguagerecognizer).
-- **C++/C#**: Speech Recognition and Translation Recognition now support both at-start and continuous Language Identification so you can programmatically determine which language(s) are being spoken before they're transcribed or translated. See documentation [here for Speech Recognition](../../how-to-automatic-language-detection.md) and [here for Speech Translation](../../get-started-speech-translation.md).
+- **C++/C#**: Speech Recognition and Translation Recognition now support both at-start and continuous Language Identification so you can programmatically determine which language(s) are being spoken before they're transcribed or translated. See documentation [here for Speech Recognition](../../language-identification.md) and [here for Speech Translation](../../get-started-speech-translation.md).
 - **C#**:  Added support Unity support to macOS (x64). This unlocks speech recognition and speech synthesis use cases in mixed reality and gaming!
 - **Go**: We added support for speech synthesis text to speech to the Go programming language to make speech synthesis available in even more use cases. See our [quickstart](../../get-started-text-to-speech.md?tabs=windowsinstall&pivots=programming-language-go) or our [reference documentation](https://pkg.go.dev/github.com/Microsoft/cognitive-services-speech-sdk-go).
 - **C++/C#/Java/Python/Objective-C/Go**: The speech synthesizer now supports the `connection` object. This helps you manage and monitor the connection to the Speech service, and is especially helpful to pre-connect to reduce latency. See documentation [here](../../how-to-lower-speech-synthesis-latency.md).
@@ -430,7 +430,7 @@ ms.author: eur
 #### Samples
 
 - Updated Unity samples documentation for macOS [here](https://github.com/Azure-Samples/cognitive-services-speech-sdk).
-- A React Native sample for the Cognitive Services speech recognition service is now available [here](https://github.com/microsoft/cognitive-services-sdk-react-native-example).
+- A React Native sample for the Azure AI Speech recognition service is now available [here](https://github.com/microsoft/cognitive-services-sdk-react-native-example).
 
 
 ### Speech SDK 1.16.0: 2021-March release
@@ -589,7 +589,7 @@ Stay healthy!
 #### New features
 - **C#**: Added support for asynchronous conversation transcription. See documentation [here](../../how-to-async-conversation-transcription.md).
 - **JavaScript**: Added Speaker Recognition support for both [browser](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart/javascript/browser/speaker-recognition) and [Node.js](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart/javascript/node/speaker-recognition).
-- **JavaScript**: Added support for Language Identification/language ID. See documentation [here](../../how-to-automatic-language-detection.md?pivots=programming-language-javascript).
+- **JavaScript**: Added support for Language Identification/language ID. See documentation [here](../../language-identification.md?pivots=programming-language-javascript).
 - **Objective-C**: Added support for [multi-device conversation](../../multi-device-conversation.md) and [conversation transcription](../../conversation-transcription.md).
 - **Python**: Added compressed audio support for Python on Windows and Linux. See documentation [here](../../how-to-use-codec-compressed-audio-input-streams.md).
 
@@ -647,7 +647,7 @@ Stay healthy!
 - **Java**: Refactored bindings using direct JNI implementation without SWIG. This change reduces by 10x the bindings size for all Java packages used for Windows, Android, Linux, and Mac and eases further development of the Speech SDK Java implementation.
 - **Linux**: Updated support [documentation](../../speech-sdk.md?tabs=linux) with the latest RHEL 7 specific notes.
 - Improved connection logic to attempt connecting multiple times when service and network errors occur.
-- Updated the [portal.azure.com](https://portal.azure.com) Speech Quickstart page to help developers take the next step in the Azure Cognitive Services Speech journey.
+- Updated the [portal.azure.com](https://portal.azure.com) Speech Quickstart page to help developers take the next step in the Azure AI services Speech journey.
 
 #### Bug fixes
 - **C#, Java**: Fixed an [issue](https://github.com/Azure-Samples/cognitive-services-speech-sdk/issues/587) with loading SDK libraries on Linux ARM (both 32 bit and 64 bit).
@@ -733,7 +733,7 @@ Stay healthy!
 - Keyword recognition support added for Android `.aar` package and added support for x86 and x64 flavors.
 - Objective-C: `SendMessage` and `SetMessageProperty` methods added to `Connection` object. See documentation [here](/objectivec/cognitive-services/speech/spxconnection).
 - TTS C++ api now supports `std::wstring` as synthesis text input, removing the need to convert a wstring to string before passing it to the SDK. See details [here](/cpp/cognitive-services/speech/speechsynthesizer#speaktextasync).
-- C#: [Language ID](../../how-to-automatic-language-detection.md?pivots=programming-language-csharp) and [source language config](../../how-to-recognize-speech.md) are now available.
+- C#: [Language ID](../../language-identification.md?pivots=programming-language-csharp) and [source language config](../../how-to-recognize-speech.md) are now available.
 - JavaScript: Added a feature to `Connection` object to pass through custom messages from the Speech service as callback `receivedServiceMessage`.
 - JavaScript: Added support for `FromHost API` to ease use with on-prem containers and sovereign clouds. See documentation [here](../../speech-container-howto.md).
 - JavaScript: We now honor `NODE_TLS_REJECT_UNAUTHORIZED` thanks to a contribution from [orgads](https://github.com/orgads). See details [here](https://github.com/microsoft/cognitive-services-speech-sdk-js/pull/75).
@@ -1079,7 +1079,7 @@ Reliability improvements and bug fixes:
 
 In our [sample repository](https://aka.ms/csspeech/samples), a new sample for JavaScript was added.
 
-### Cognitive Services Speech SDK 1.0.0: 2018-September release
+### Azure AI Speech SDK 1.0.0: 2018-September release
 
 #### New features
 
@@ -1091,7 +1091,7 @@ In our [sample repository](https://aka.ms/csspeech/samples), a new sample for Ja
 - With this release, a number of breaking changes are introduced.
   Check [this page](https://aka.ms/csspeech/breakingchanges_1_0_0) for details.
 
-### Cognitive Services Speech SDK 0.6.0: 2018-August release
+### Azure AI Speech SDK 0.6.0: 2018-August release
 
 #### New features
 
@@ -1117,7 +1117,7 @@ In our [sample repository](https://aka.ms/csspeech/samples), a new sample for Ja
 - Fixed a problem, where a long-running recognition could terminate in the middle of the transmission.
 - Fixed a race condition in recognizer shutdown.
 
-### Cognitive Services Speech SDK 0.5.0: 2018-July release
+### Azure AI Speech SDK 0.5.0: 2018-July release
 
 #### New features
 
@@ -1154,7 +1154,7 @@ In our [sample repository](https://aka.ms/csspeech/samples), a new sample for Ja
 
 - The Speech SDK for Android doesn't report speech synthesis results for translation. This issue will be fixed in the next release.
 
-### Cognitive Services Speech SDK 0.4.0: 2018-June release
+### Azure AI Speech SDK 0.4.0: 2018-June release
 
 **Functional changes**
 
@@ -1183,6 +1183,6 @@ In our [sample repository](https://aka.ms/csspeech/samples), a new sample for Ja
 
 More samples have been added and are constantly being updated. For the latest set of samples, see the [Speech SDK samples GitHub repository](https://aka.ms/csspeech/samples).
 
-### Cognitive Services Speech SDK 0.2.12733: 2018-May release
+### Azure AI Speech SDK 0.2.12733: 2018-May release
 
-This release is the first public preview release of the Cognitive Services Speech SDK.
+This release is the first public preview release of the Azure AI Speech SDK.

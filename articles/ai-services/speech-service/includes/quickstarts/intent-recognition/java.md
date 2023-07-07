@@ -15,7 +15,7 @@ ms.author: eur
 
 [!INCLUDE [Prerequisites](../../common/azure-prerequisites-luis.md)]
 
-You also need to <a href="~/articles/cognitive-services/Speech-Service/quickstarts/setup-platform.md?tabs=jre&pivots=programming-language-java" target="_blank">install the Speech SDK for your development environment and create an empty sample project</a>.
+You also need to <a href="~/articles/ai-services/speech-service/quickstarts/setup-platform.md?tabs=jre&pivots=programming-language-java" target="_blank">install the Speech SDK for your development environment and create an empty sample project</a>.
 
 ## Create a LUIS app for intent recognition
 
@@ -46,7 +46,7 @@ Insert this code in the try / catch block in `main()`. Make sure you update thes
 > If you need help finding these values, see [Create a LUIS app for intent recognition](#create-a-luis-app-for-intent-recognition).
 
 > [!IMPORTANT]
-> Remember to remove the key from your code when you're done, and never post it publicly. For production, use a secure way of storing and accessing your credentials like [Azure Key Vault](../../../../use-key-vault.md). See the Cognitive Services [security](../../../../security-features.md) article for more information.
+> Remember to remove the key from your code when you're done, and never post it publicly. For production, use a secure way of storing and accessing your credentials like [Azure Key Vault](../../../../use-key-vault.md). See the Azure AI services [security](../../../../security-features.md) article for more information.
 
 :::code language="java" source="~/samples-cognitive-services-speech-sdk/quickstart/java/jre/intent-recognition/src/speechsdk/quickstart/Main.java" id="create_speech_configuration":::
 

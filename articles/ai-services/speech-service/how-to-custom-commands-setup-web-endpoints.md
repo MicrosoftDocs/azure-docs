@@ -29,7 +29,7 @@ In this article, you'll learn how to set up web endpoints in a Custom Commands a
 
 > [!div class = "checklist"]
 > * [Visual Studio 2019](https://visualstudio.microsoft.com/downloads/)
-> * An Azure AI services Speech resource key and region: Create a Speech resource on the [Azure portal](https://portal.azure.com). For more information, see [Create a new Cognitive Services resource](~/articles/ai-services/cognitive-services-apis-create-account.md?tabs=speech#create-a-new-azure-cognitive-services-resource).
+> * An Azure AI services Speech resource key and region: Create a Speech resource on the [Azure portal](https://portal.azure.com). For more information, see [Create a new Cognitive Services resource](../cognitive-services-apis-create-account.md?tabs=speech#create-a-new-azure-cognitive-services-resource).
 > * A Custom Commands app (see [Create a voice assistant using Custom Commands](quickstart-custom-commands-application.md))
 > * A Speech SDK enabled client app (see [Integrate with a client application using Speech SDK](how-to-custom-commands-setup-speech-sdk.md))
 
@@ -164,7 +164,7 @@ In this section, you'll use an existing default **DeviceState** endpoint. If you
     > - To make sure the value of the header is unique in our example endpoint, take the first 8 digits of your **applicationId**.
     > - In real world, the web endpoint can be the endpoint to the [IOT hub](../../iot-hub/about-iot-hub.md) that manages your devices.
 
-1. Click **Save**.
+1. Select **Save**.
 
 ## Call web endpoints
 
@@ -313,4 +313,4 @@ If you tested out the app with `turn on tv` in previous section, you would see t
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Export Custom Commands application as a remote skill](./custom-commands.md)
+> [Update a command from a client app](./how-to-custom-commands-update-command-from-client.md)

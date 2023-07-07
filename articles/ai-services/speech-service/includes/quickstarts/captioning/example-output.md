@@ -28,4 +28,4 @@ Welcome to applied Mathematics course 2
 Welcome to applied Mathematics course 201.
 ```
 
-The [SRT](https://docs.fileformat.com/video/srt/) (SubRip Text) timespan output format is `hh:mm:ss,fff`. For more information, see [Caption output format](~/articles/cognitive-services/speech-service/captioning-concepts.md#caption-output-format).
+The [SRT](https://docs.fileformat.com/video/srt/) (SubRip Text) timespan output format is `hh:mm:ss,fff`. For more information, see [Caption output format](~/articles/ai-services/speech-service/captioning-concepts.md#caption-output-format).

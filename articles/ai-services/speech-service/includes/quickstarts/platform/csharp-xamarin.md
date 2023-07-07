@@ -1,6 +1,6 @@
 ---
 title: 'Speech SDK for C# (Xamarin) platform setup - Speech service'
-titleSuffix: Azure Cognitive Services
+titleSuffix: Azure AI services
 description: 'Use this guide to set up your platform for C# Xamarin with the Speech SDK.'
 services: cognitive-services
 author: markamos
@@ -13,7 +13,7 @@ ms.author: eur
 ms.custom: devx-track-csharp, ignite-fall-2021
 ---
 
-This guide shows how to create a [Xamarin](/xamarin/get-started/what-is-xamarin) forms project and install the [Speech SDK](~/articles/cognitive-services/speech-service/speech-sdk.md). Xamarin is an open-source platform for building modern and performant applications for iOS, Android, and Windows by using .NET. 
+This guide shows how to create a [Xamarin](/xamarin/get-started/what-is-xamarin) forms project and install the [Speech SDK](~/articles/ai-services/speech-service/speech-sdk.md). Xamarin is an open-source platform for building modern and performant applications for iOS, Android, and Windows by using .NET. 
 
 For Xamarin development, the Speech SDK supports Windows Desktop (x86 and x64) or Universal Windows Platform (x86, x64, ARM/ARM64), Android (x86, ARM32/64), and iOS (x64 simulator and ARM64).
 
@@ -41,7 +41,7 @@ To start, make sure you're set up correctly in Visual Studio for cross-platform 
    
 1. On the **Workloads** tab, under **Windows**, find the **Mobile development with .NET** workload. If the check box next to that workload is already selected, close the **Modifying** dialog and go to step 6.
 
-   ![Screenshot that shows the Workloads tab, the Modifying dialog, and Visual Studio Installer.](~/articles/cognitive-services/Speech-Service/media/sdk/vs-enable-xamarin-workload.png)
+   ![Screenshot that shows the Workloads tab, the Modifying dialog, and Visual Studio Installer.](~/articles/ai-services/speech-service/media/sdk/vs-enable-xamarin-workload.png)
 
 1. Select the **Mobile development with .NET** check box, and then select **Modify**. 
 
@@ -59,7 +59,7 @@ Next, create your project and select the target architecture:
 
 1. Select **Next**.
 
-   ![Screenshot that shows how to create a new project in Visual Studio.](~/articles/cognitive-services/Speech-Service/media/sdk/vs-enable-xamarin-create-new-project.png)   
+   ![Screenshot that shows how to create a new project in Visual Studio.](~/articles/ai-services/speech-service/media/sdk/vs-enable-xamarin-create-new-project.png)   
 
 1. In the **Configure your new project** dialog, in **Project name**, enter **helloworld**.
 
@@ -67,17 +67,17 @@ Next, create your project and select the target architecture:
 
 1. Select **Create**.
 
-   ![Screenshot that shows how to configure your new project in Visual Studio.](~/articles/cognitive-services/Speech-Service/media/sdk/vs-enable-xamarin-configure-your-new-project.png)   
+   ![Screenshot that shows how to configure your new project in Visual Studio.](~/articles/ai-services/speech-service/media/sdk/vs-enable-xamarin-configure-your-new-project.png)   
 
 1. In the **New Cross Platform App** window, select the **Blank** template, and then select **OK**.
 
-   ![Screenshot that shows the New Mobile App Xamarin Forms Project dialog in Visual Studio.](~/articles/cognitive-services/Speech-Service/media/sdk/qs-csharp-xamarin-new-xamarin-project.png)
+   ![Screenshot that shows the New Mobile App Xamarin Forms Project dialog in Visual Studio.](~/articles/ai-services/speech-service/media/sdk/qs-csharp-xamarin-new-xamarin-project.png)
 
 1. In **Platform**, select the boxes for **Android**, **iOS**, and **Windows (UWP)**.
 
 1. Select **OK**. You're returned to the Visual Studio IDE, with the new project created and visible in the **Solution Explorer** pane.
 
-   ![Screenshot that shows the helloworld project visible in Visual Studio.](~/articles/cognitive-services/Speech-Service/media/sdk/vs-enable-xamarin-helloworld.png)
+   ![Screenshot that shows the helloworld project visible in Visual Studio.](~/articles/ai-services/speech-service/media/sdk/vs-enable-xamarin-helloworld.png)
 
 1. Select your target platform architecture and startup project. On the Visual Studio toolbar, find the **Solution Platforms** drop-down box. If you don't see it, select **View** > **Toolbars** > **Standard** to display the toolbar that contains **Solution Platforms**. 
 
@@ -95,7 +95,7 @@ Install the [Speech SDK NuGet package](https://aka.ms/csspeech/nuget), and refer
 
 1. In **Package source**, select **nuget.org**.
 
-   ![Screenshot of the Manage Packages for Solution dialog when you're installing the Speech SDK.](~/articles/cognitive-services/Speech-Service/media/sdk/vs-enable-uwp-nuget-solution-browse.png)
+   ![Screenshot of the Manage Packages for Solution dialog when you're installing the Speech SDK.](~/articles/ai-services/speech-service/media/sdk/vs-enable-uwp-nuget-solution-browse.png)
 
 1. In the **Search** box, enter **Microsoft.CognitiveServices.Speech**. Then select that package after it appears in the search results.   
 
@@ -106,7 +106,7 @@ Install the [Speech SDK NuGet package](https://aka.ms/csspeech/nuget), and refer
 
 1. Select **Install**.
 
-   ![Screenshot that highlights the Microsoft.CognitiveServices.Speech package.](~/articles/cognitive-services/Speech-Service/media/sdk/qs-csharp-xamarin-nuget-install.png)
+   ![Screenshot that highlights the Microsoft.CognitiveServices.Speech package.](~/articles/ai-services/speech-service/media/sdk/qs-csharp-xamarin-nuget-install.png)
 
 1. In the **Preview Changes** dialog, select **OK**.
 
