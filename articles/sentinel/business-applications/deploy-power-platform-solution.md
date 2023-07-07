@@ -42,7 +42,7 @@ The Microsoft Sentinel Solution for Power Platform ingests and cross-correlates 
 - You have a defined Microsoft Sentinel workspace and have read and write permissions to the workspace.
 - Your organization uses Power Platform to create and use Power Apps.
 - You can create an Azure Function App with the `Microsoft.Web/Sites`, `Microsoft.Web/ServerFarms`, `Microsoft.Insights/Components`, and `Microsoft.Storage/StorageAccounts` permissions.
-- You can create [Data Collection Rules/Endpoints](../../azure-monitor/essentials/data-collection-rule-overview.md) with the permissions to: 
+- You can create [Data Collection Rules/Endpoints](/azure/azure-monitor/essentials/data-collection-rule-overview) with the permissions to: 
     - `Microsoft.Insights/DataCollectionEndpoints`, and `Microsoft.Insights/DataCollectionRules`.
     - Assign the Monitoring Metrics Publisher role to the Azure Function. 
 
@@ -171,7 +171,8 @@ After you've waited for Microsoft Sentinel to ingest the data, complete the foll
     | take 50
     ```
 
-   The following table lists the the Log Analytics tables to query. 
+   The following table lists the the Log Analytics tables to query.
+
    |Log Analytics tables |Data collected |
    |---------|---------|
    |PowerApps_CL, PowerPlatrformEnvironments_CL |Power Apps activity logs     |
@@ -179,11 +180,13 @@ After you've waited for Microsoft Sentinel to ingest the data, complete the foll
    |PowerAutomateActivity |Power Automate activity logs  |
    |PowerPlatformConnectorActivity |Power Platform connector activity logs |
    |PowerPlatformDlpActivity |Data loss prevention activity logs   |
-   |Dynamics365Activity |Dataverse and model-driven apps activity logging     |  
+   |Dynamics365Activity |Dataverse and model-driven apps activity logging  |  
+
 1. Verify that the results for each table show the activities you generated.
 
 ## Next steps
 
 In this article, you learned how to deploy the Microsoft Sentinel solution for Power Platform.
 
-For more information about how to manage the solution components and enable security content, see [Discover and deploy out-of-the-box content](../sentinel-solutions-deploy.md).
+<!--Create new article specific to the analytic rule details? -->
+For more information about how to manage the solution components and enable security content, see [Discover and deploy out-of-the-box content](/azure/sentinel/sentinel-solutions-deploy).
