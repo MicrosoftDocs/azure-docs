@@ -114,7 +114,7 @@ landingContent:
       - linkListType: how-to-guide
         links:
           - text: Create a Document Intelligence resource
-            url: create-a-form-recognizer-resource.md
+            url: create-document-intelligence-resource.md
           - text: Migrate to Document Intelligence v3.0
             url: v3-migration-guide.md
           - text: Use the read model

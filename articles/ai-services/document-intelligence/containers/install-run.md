@@ -676,13 +676,13 @@ Custom template containers require a few different configurations and support ot
 
 #### Use the Document Intelligence Studio to train a model
 
-* Gather a set of at least five forms of the same type. You use this data to train the model and test a form. You can use a [sample data set](https://go.microsoft.com/fwlink/?linkid=2090451) (download and extract *sample_data.zip*).
+* Gather a set of at least five forms of the same type. You use this data to train the model and test a form. You can use a [sample data set](https://go.microsoft.com/fwlink/?linkid=2090451) (download and extract _sample_data.zip_).
 
-* Once you can confirm that the containers are running, open a browser and navigate to the endpoint where you have the containers deployed. If this deployment is your local machine, the endpoint is [http://localhost:5001](http://localhost:5001).
+* Once you can confirm that the containers are running, open a browser and navigate to the endpoint where you have the containers deployed. If this deployment is your local machine, the endpoint is <a href="http://localhost:5000">http://localhost:5000</a>.
 * Select the custom extraction model tile.
 * Select the `Create project` option.
 * Provide a project name and optionally a description
-* On the "configure your resource" step, provide the endpoint to your custom template model. If you deployed the containers on your local machine, use this URL [http://localhost:5000](http://localhost:5000)
+* On the "configure your resource" step, provide the endpoint to your custom template model. If you deployed the containers on your local machine, use this URL <a href="http://localhost:5000">http://localhost:5000</a>.
 * Provide a subfolder for where your training data is located within the files folder.
 * Finally, create the project
 
@@ -1229,7 +1229,7 @@ The [**docker-compose up**](https://docs.docker.com/engine/reference/commandline
 | `Billing` | The endpoint of the Azure AI services resource that's used to track billing information.<br/>The value of this option must be set to the endpoint URI of a provisioned Azure resource.|
 | `Eula` | Indicates that you accepted the license for the container.<br/>The value of this option must be set to **accept**. |
 
-For more information about these options, see [Configure containers](form-recognizer-container-configuration.md).
+For more information about these options, see [Configure containers](configuration.md).
 
 ## Summary
 
@@ -1245,6 +1245,6 @@ That's it! In this article, you learned concepts and workflows for downloading, 
 
 ## Next steps
 
-* [Document Intelligence container configuration settings](form-recognizer-container-configuration.md)
+* [Document Intelligence container configuration settings](configuration.md)
 
 * [Azure container instance recipe](../../../ai-services/containers/azure-container-instance-recipe.md)

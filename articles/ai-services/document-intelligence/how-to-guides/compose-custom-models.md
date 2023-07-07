@@ -44,7 +44,7 @@ To get started, you need the following resources:
     :::image type="content" source="../media/containers/keys-and-endpoint.png" alt-text="Still photo showing how to access resource key and endpoint URL.":::
 
     > [!TIP]
-    > For more information, see [**create a Document Intelligence resource**](../create-a-form-recognizer-resource.md).
+    > For more information, see [**create a Document Intelligence resource**](../create-document-intelligence-resource.md).
 
 * **An Azure storage account.** If you don't know how to create an Azure storage account, follow the [Azure Storage quickstart for Azure portal](../../../storage/blobs/storage-quickstart-blobs-portal.md). You can use the free pricing tier (F0) to try the service, and upgrade later to a paid tier for production.
 

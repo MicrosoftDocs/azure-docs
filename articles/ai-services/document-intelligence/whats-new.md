@@ -662,7 +662,7 @@ Document Intelligence service is updated on an ongoing basis. Bookmark this page
 
 * Document Intelligence containers v2.1 released in gated preview and are now supported by six feature containers—**Layout**, **Business Card**,**ID Document**,  **Receipt**, **Invoice**, and **Custom**. To use them, you must submit an [online request](https://customervoice.microsoft.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR7en2Ais5pxKtso_Pz4b1_xUNlpBU1lFSjJUMFhKNzVHUUVLN1NIOEZETiQlQCN0PWcu), and receive approval.
 
-  * *See* [**Install and run Docker containers for Document Intelligence**](containers/install-run.md?branch=main&tabs=layout) and [**Configure Document Intelligence containers**](containers/form-recognizer-container-configuration.md?branch=main)
+  * *See* [**Install and run Docker containers for Document Intelligence**](containers/install-run.md?branch=main&tabs=layout) and [**Configure Document Intelligence containers**](containers/configuration.md?branch=main)
 
 * Document Intelligence connector released in preview: The [**Document Intelligence connector**](/connectors/formrecognizer) integrates with  [Azure Logic Apps](../../logic-apps/logic-apps-overview.md),  [Microsoft Power Automate](/power-automate/getting-started), and [Microsoft Power Apps](/powerapps/powerapps-overview). The connector supports workflow actions and triggers to extract and analyze document data and structure from custom and prebuilt forms, invoices, receipts, business cards and ID documents.
 

@@ -480,7 +480,7 @@ sections:
         answer: |
           Each request to an Azure service must include an authentication header. You can authenticate a request with several methods:
 
-          - [Authenticate](create-a-form-recognizer-resource.md?#get-endpoint-url-and-keys) with a [single-service](https://portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer) or [multi-service](https://portal.azure.com/#create/Microsoft.CognitiveServicesAllInOne) key.
+          - [Authenticate](create-document-intelligence-resource.md?#get-endpoint-url-and-keys) with a [single-service](https://portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer) or [multi-service](https://portal.azure.com/#create/Microsoft.CognitiveServicesAllInOne) key.
 
           - [Authenticate](../../ai-services/authentication.md?context=%2fazure%2fapplied-ai-services%2fform-recognizer%2fcontext%2fcontext&tabs=PowerShell#authenticate-with-azure-active-directory) with Azure Active Directory (Azure AD).
 
