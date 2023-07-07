@@ -5,7 +5,7 @@ ms.topic: article
 ms.date: 07/31/2023
 ---
 
-# Authentication types by App Service deployment methods
+# Authentication types by deployment methods in Azure App Service
 
 Azure App Service lets you deploy your web application code and configuration by using multiple options. These deployment options may support one or more authentication mechanisms. This article provides details about various authentication mechanisms supported by different deployment methods. 
 
@@ -32,7 +32,7 @@ Azure App Service lets you deploy your web application code and configuration by
 |Run directly from an uploaded ZIP file |Azure AD authentication |[Run your app in Azure App Service directly from a ZIP package](deploy-run-package.md) |
 |Run directly from external URL |Storage account key, managed identity |[Run from external URL instead](deploy-run-package.md#run-from-external-url-instead) |
 |Azure Web app plugin for Maven (Java) |Azure AD authentication |[Quickstart: Create a Java app on Azure App Service](quickstart-java.md)|
-|Azure WebApp Plugin for Gradle (Java) |Basic authentication |[Configure a Java app for Azure App Service](configure-language-java.md)|
+|Azure WebApp Plugin for Gradle (Java) |Azure AD authentication |[Configure a Java app for Azure App Service](configure-language-java.md)|
 |Webhooks |Publish profile |[Web hooks](https://github.com/projectkudu/kudu/wiki/Web-hooks) |
 |App Service migration assistant |Basic authentication |[Azure App Service migration tools](https://azure.microsoft.com/products/app-service/migration-tools/) |
 |App Service migration assistant for PowerShell scripts |Basic authentication |[Azure App Service migration tools](https://azure.microsoft.com/products/app-service/migration-tools/) |
