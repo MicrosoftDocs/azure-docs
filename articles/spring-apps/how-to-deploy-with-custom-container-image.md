@@ -1,11 +1,11 @@
 ---
 title: How to deploy applications in Azure Spring Apps with a custom container image
 description: How to deploy applications in Azure Spring Apps with a custom container image
-author: karlerickson
+author: KarlErickson
 ms.author: xiangy
 ms.topic: how-to
 ms.service: spring-apps
-ms.custom: event-tier1-build-2022, devx-track-java
+ms.custom: event-tier1-build-2022, devx-track-java, devx-track-extended-java
 ms.date: 4/28/2022
 ---
 

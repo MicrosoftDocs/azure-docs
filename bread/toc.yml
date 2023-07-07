@@ -1124,6 +1124,9 @@
     - name: Cost Management
       tocHref: /azure/cost-management-billing/automate
       topicHref: /azure/cost-management-billing/costs/index
+    - name: FinOps
+      tocHref: /azure/cost-management-billing/finops
+      topicHref: /azure/cost-management-billing/finops/index
   - name: Microsoft Purview
     tocHref: /azure/purview/
     topicHref: /azure/purview/

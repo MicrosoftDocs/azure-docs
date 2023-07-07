@@ -5,6 +5,7 @@ description: View code samples that use the Azure File Share client library for 
 services: storage
 author: pauljewellmsft
 ms.service: azure-file-storage
+ms.custom: devx-track-extended-java
 ms.topic: how-to
 ms.date: 04/26/2023
 ms.author: pauljewell

@@ -80,6 +80,5 @@ SELECT DateTimeToTimestamp("2020-07-09") AS Timestamp
 
 ## Next steps
 
-- [Date and time functions Azure Cosmos DB](date-time-functions.md)
-- [System functions Azure Cosmos DB](system-functions.md)
+- [System functions Azure Cosmos DB](system-functions.yml)
 - [Introduction to Azure Cosmos DB](../../introduction.md)

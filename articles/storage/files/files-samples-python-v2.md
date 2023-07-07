@@ -5,6 +5,7 @@ description: View code samples that use the Azure File Share client library for 
 services: storage
 author: pauljewellmsft
 ms.service: azure-file-storage
+ms.custom: devx-track-python
 ms.topic: how-to
 ms.date: 05/05/2023
 ms.author: pauljewell

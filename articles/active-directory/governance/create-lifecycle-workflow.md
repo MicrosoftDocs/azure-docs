@@ -7,7 +7,7 @@ manager: amycolannino
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to 
-ms.date: 05/31/2023
+ms.date: 06/22/2023
 ms.subservice: compliance
 ms.custom: template-how-to 
 ---
@@ -23,7 +23,8 @@ You can create and customize workflows for common scenarios by using templates, 
 
 ## Prerequisites
 
-The preview of lifecycle workflows requires Azure Active Directory (Azure AD) Premium P2. For more information, see [License requirements](what-are-lifecycle-workflows.md#license-requirements).
+[!INCLUDE [Microsoft Entra ID Governance license](../../../includes/active-directory-entra-governance-license.md)]
+
 
 ## Create a lifecycle workflow by using a template in the Azure portal
 

@@ -5,9 +5,8 @@ description: Learn how to specify a blob's access tier when you upload it, or ho
 author: normesta
 
 ms.author: normesta
-ms.date: 05/02/2023
+ms.date: 06/22/2023
 ms.service: storage
-ms.subservice: blobs
 ms.topic: how-to
 ms.reviewer: fryu
 ms.devlang: powershell, azurecli
@@ -28,7 +27,7 @@ This article describes how to manage a blob in an online access tier. For more i
 For more information about access tiers for blobs, see [Access tiers for blob data](access-tiers-overview.md).
 
 > [!IMPORTANT]
-> The cold tier is currently in PREVIEW and is available in the following regions: Canada Central, Canada East, France Central, France South and Korea Central.
+> The cold tier is currently in PREVIEW and is available in the all public regions.
 > See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 > To enroll, see [Cold tier (preview)](access-tiers-overview.md#cold-tier-preview).
 

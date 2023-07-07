@@ -5,9 +5,8 @@ description: Learn how to upload a blob to your Azure Storage account using the 
 services: storage
 author: pauljewellmsft
 ms.author: pauljewell
-ms.date: 06/16/2023
+ms.date: 07/07/2023
 ms.service: storage
-ms.subservice: blobs
 ms.topic: how-to
 ms.devlang: csharp
 ms.custom: devx-track-csharp, devguide-csharp, devx-track-dotnet
@@ -81,7 +80,7 @@ You can configure the values in [StorageTransferOptions](/dotnet/api/azure.stora
 
 :::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/BlobDevGuideBlobs/UploadBlob.cs" id="Snippet_UploadWithTransferOptions":::
 
-To learn more about tuning data transfer options, see [Performance tuning for uploads and downloads](storage-blobs-tune-upload-download.md).
+To learn more about tuning data transfer options, see [Performance tuning for uploads and downloads with .NET](storage-blobs-tune-upload-download.md).
 
 ### Specify transfer validation options on upload
 
@@ -114,7 +113,7 @@ You can set a blob's access tier on upload by using the [BlobUploadOptions](/dot
 
 :::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/BlobDevGuideBlobs/UploadBlob.cs" id="Snippet_UploadWithAccessTier":::
 
-Setting the access tier is only allowed for block blobs. You can set the access tier for a block blob to `Hot`, `Cool`, `Cold`, or `Archive`.
+Setting the access tier is only allowed for block blobs. You can set the access tier for a block blob to `Hot`, `Cool`, `Cold`, or `Archive`. To set the access tier to `Cold`, you must use a minimum [client library](/dotnet/api/azure.storage.blobs) version of 12.15.0.
 
 To learn more about access tiers, see [Access tiers overview](access-tiers-overview.md).
 
