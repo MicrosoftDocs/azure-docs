@@ -27,9 +27,9 @@ The downloaded file is called *config.json*. This file has permission to describ
 
 ## Core namespace access
 
-The Azure Private 5G Core deployment uses the *core* namespace. For operations such as modifying local or Azure Active Directory (AAD) authentication, or for gathering packet capture, you need a *kubeconfig* file with full access to the *core* namespace. To download this file set up a minishell session and run the necessary commands as directed below.
+The Azure Private 5G Core deployment uses the *core* namespace. For operations such as modifying local or Azure Active Directory (AAD) authentication, or for gathering packet capture, you need a *kubeconfig* file with full access to the *core* namespace. To download this file set up a minishell session and run the necessary commands as directed in this section.
 
-You only need to perform this procedure once. If you have previously done this, you can use the previously-saved *kubeconfig* file.
+You only need to perform this procedure once. If you've done this procedure before you can use the previously saved *kubeconfig* file.
 
 ### Enter a minishell session
 
@@ -72,15 +72,15 @@ You now have a minishell session set up ready to obtain the *kubeconfig* file in
 
 ### Set up kubectl access
 
-- If this is the first time you are running this procedure, you need to run the following steps to create the namespace, download the *kubeconfig* file and use it to grant access to the namespace.
+- If this is the first time you're running this procedure, you need to run the following steps. These steps create the namespace, download the *kubeconfig* file and use it to grant access to the namespace.
     ```powershell
     Invoke-Command -Session $minishellSession -ScriptBlock {New-HcsKubernetesNamespace -Namespace "core"}
     Invoke-Command -Session $minishellSession -ScriptBlock {New-HcsKubernetesUser -UserName "core"} | Out-File -FilePath .\kubeconfig-core.yaml
     Invoke-Command -Session $minishellSession -ScriptBlock {Grant-HcsKubernetesNamespaceAccess -Namespace "core" -UserName "core"}
     ```
-    If you have run these steps previously, you will get an error like `The Kubernetes namespace 'core' already exists`. If this happens skip straight to the next bullet to retrieve the previously-generated file.
+    If you see an error like `The Kubernetes namespace 'core' already exists`, it means you have run these steps before. In this case skip straight to the next bullet to retrieve the previously-generated file.
 
-- If you have run this procedure before, you can retrieve the previously-generated *kubeconfig* file immediately by running:
+- If you have run this procedure before, you can retrieve the previously generated *kubeconfig* file immediately by running:
     ```powershell
     Invoke-Command -Session $miniShellSession -ScriptBlock { Get-HcsKubernetesUserConfig -UserName "core" }
     ```
@@ -88,5 +88,5 @@ You now have a minishell session set up ready to obtain the *kubeconfig* file in
 For more information, see [Configure cluster access via Kubernetes RBAC](../databox-online/azure-stack-edge-gpu-create-kubernetes-cluster.md#configure-cluster-access-via-kubernetes-rbac).
 
 ## Next steps
-- Save the *kubeconfig* file so it's availble to use if you need it in future
-- You'll have been directed to obtain the *kubeconfig* file as part of completing a different operation (such as to set up Azure Active Directory (AAD) authentication). Return to the operation you started from and continue.
+- Save the *kubeconfig* file so it's available to use if you need it in future
+- You need the *kubeconfig* file as part of completing a different operation (such as to set up Azure Active Directory (AAD) authentication). Return to the operation you started from and continue.
