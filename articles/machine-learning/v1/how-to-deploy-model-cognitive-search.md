@@ -17,7 +17,7 @@ monikerRange: 'azureml-api-1'
 
 # Deploy a model for use with Cognitive Search
 
-[!INCLUDE [sdk v1](../../../includes/machine-learning-sdk-v1.md)]
+[!INCLUDE [sdk v1](../includes/machine-learning-sdk-v1.md)]
 
 This article teaches you how to use Azure Machine Learning to deploy a model for use with [Azure Cognitive Search](/azure/search/search-what-is-azure-search).
 

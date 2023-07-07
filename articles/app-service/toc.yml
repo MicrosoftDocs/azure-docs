@@ -77,6 +77,8 @@
           href: deploy-run-package.md
         - name: Use cloud sync
           href: deploy-content-sync.md
+    - name: Authentication for deployment
+      href: deploy-authentication-types.md
     - name: Set deployment credentials
       href: deploy-configure-credentials.md
     - name: Create staging environments
@@ -138,6 +140,8 @@
           href: configure-ssl-bindings.md
         - name: Add TLS/SSL cert
           href: configure-ssl-certificate.md
+        - name: Buy App Service cert
+          href: configure-ssl-app-service-certificate.md
         - name: Use TLS/SSL cert in code
           href: configure-ssl-certificate-in-code.md
         - name: Configure TLS mutual authentication

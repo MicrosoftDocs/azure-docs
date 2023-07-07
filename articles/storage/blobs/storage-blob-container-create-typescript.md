@@ -8,7 +8,6 @@ ms.service: storage
 ms.topic: how-to
 ms.date: 03/21/2023
 ms.author: pauljewell
-ms.subservice: blobs
 ms.devlang: typescript
 ms.custom: devx-track-ts, devguide-ts, devx-track-js
 ---

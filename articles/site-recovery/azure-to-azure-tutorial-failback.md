@@ -81,10 +81,8 @@ After failing back VMs to the primary region, you need to reprotect them, so tha
 
 4. Monitor reprotect progress in notifications. 
 
-    ![Reprotect progress notification](./media/azure-to-azure-tutorial-failback/notification-reprotect-start.png)
-    [Reprotect progress notification](./media/azure-to-azure-tutorial-failback/notification-reprotect-finish.png)
-    
-  
+    ![Reprotect start notification](./media/azure-to-azure-tutorial-failback/notification-reprotect-start.png)
+    ![Reprotect finish notification](./media/azure-to-azure-tutorial-failback/notification-reprotect-finish.png)
 
 ## Clean up resources
 
