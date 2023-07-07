@@ -59,6 +59,13 @@ Resolution:
 
 ## Server-side issues
 
+### Unable to connect after the public preview
+If the user had participated in the public preview and has updated their Arc agent and the Azure CLI/PowerShell to the general availability releases, then the connectivity may fail.
+
+Resolution:
+
+- Re-enable the functionality on the [Azure Arc-enabled servers](ssh-arc-overview.md).
+
 ### SSH traffic not allowed on the server
 This issue occurs when SSHD isn't running on the server, or SSH traffic isn't allowed on the server. Error:
 
@@ -129,8 +136,6 @@ Resolution:
   - Remove the SSH port and functionality from the Arc-enabled server: ```Invoke-AzRestMethod -Method delete -Path /subscriptions/<subscription>/resourceGroups/<resourcegroup>/providers/Microsoft.HybridCompute/machines/<arc enabled server name>/providers/Microsoft.HybridConnectivity/endpoints/default/serviceconfigurations/SSH?api-version=2023-03-15 -Payload '{"properties": {"serviceName": "SSH", "port": "22"}}'```
 
   - Delete the default connectivity endpoint: ```Invoke-AzRestMethod -Method delete -Path /subscriptions/<subscription>/resourceGroups/<resourcegroup>/providers/Microsoft.HybridCompute/machines/<arc enabled server name>/providers/Microsoft.HybridConnectivity/endpoints/default?api-version=2023-03-15```
-
----  Invoke-AzRestMethod -Method put -Path /subscriptions/<subscription>/resourceGroups/<resourcegroup>/providers/Microsoft.HybridCompute/machines/<arc enabled server name>/providers/Microsoft.HybridConnectivity/endpoints/default/serviceconfigurations/SSH?api-version=2023-03-15 -Payload '{"properties": {"serviceName": "SSH", "port": "22"}}'
 
 ## Next steps
 
