@@ -678,11 +678,11 @@ Custom template containers require a few different configurations and support ot
 
 * Gather a set of at least five forms of the same type. You use this data to train the model and test a form. You can use a [sample data set](https://go.microsoft.com/fwlink/?linkid=2090451) (download and extract _sample_data.zip_).
 
-* Once you can confirm that the containers are running, open a browser and navigate to the endpoint where you have the containers deployed. If this deployment is your local machine, the endpoint is <a href="http://localhost:5000">http://localhost:5000</a>.
+* Once you can confirm that the containers are running, open a browser and navigate to the endpoint where you have the containers deployed. If this deployment is your local machine, the endpoint is `[http://localhost:5000](http://localhost:5000)`.
 * Select the custom extraction model tile.
 * Select the `Create project` option.
 * Provide a project name and optionally a description
-* On the "configure your resource" step, provide the endpoint to your custom template model. If you deployed the containers on your local machine, use this URL <a href="http://localhost:5000">http://localhost:5000</a>.
+* On the "configure your resource" step, provide the endpoint to your custom template model. If you deployed the containers on your local machine, use this URL `[http://localhost:5000](http://localhost:5000)`.
 * Provide a subfolder for where your training data is located within the files folder.
 * Finally, create the project
 
