@@ -237,10 +237,6 @@ Perform the following steps to verify your nested VM configuration:
 
     Learn more about the [supported guest operating systems in Hyper-V](/virtualization/hyper-v-on-windows/about/supported-guest-os).
 
-- There's a known issue with caching of the windowing library in older Linux distributions.
-
-    Create another desktop session, manually clear the cache for the windowing library, and then restart.
-
 ### Hyper-V doesn't start with error `The virtual machine is using processor-specific xsave features not supported`
 
 - This error can happen when a lab user leaves the Hyper-V VM in the saved state. You can right-select the VM in Hyper-V Manager and select **Delete saved state**.
@@ -278,8 +274,6 @@ If you're using the Medium (Nested Virtualization) VM size for the lab, consider
 
 Now that you've configured nested virtualization on the template VM, you can [create nested virtual machines with Hyper-V](/windows-server/virtualization/hyper-v/get-started/create-a-virtual-machine-in-hyper-v). See [Microsoft Evaluation Center](https://www.microsoft.com/evalcenter/) to check out available operating systems and software.
 
-You can further configure your lab:
-
-- [Add lab users](./how-to-configure-student-usage.md)
-- [Set quota hours](how-to-configure-student-usage.md#set-quotas-for-users)
-- [Configure a lab schedule](tutorial-setup-lab.md#add-a-lab-schedule)
+- [Add lab users](how-to-manage-lab-users.md)
+- [Set quota hours](how-to-manage-lab-users.md#set-quotas-for-users)
+- [Configure a lab schedule](./how-to-create-schedules.md)

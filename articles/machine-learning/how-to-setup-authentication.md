@@ -35,7 +35,7 @@ Azure AD Conditional Access can be used to further control or restrict access to
 ## Prerequisites
 
 * Create an [Azure Machine Learning workspace](how-to-manage-workspace.md).
-* [Configure your development environment](how-to-configure-environment.md) or use a [Azure Machine Learning compute instance](how-to-create-manage-compute-instance.md) and install the [Azure Machine Learning SDK v2](https://aka.ms/sdk-v2-install).
+* [Configure your development environment](how-to-configure-environment.md) or use a [Azure Machine Learning compute instance](how-to-create-compute-instance.md) and install the [Azure Machine Learning SDK v2](https://aka.ms/sdk-v2-install).
 
 * Install the [Azure CLI](/cli/azure/install-azure-cli).
 
@@ -199,7 +199,7 @@ For more information, see [Set up managed identity for compute cluster](how-to-c
 
 ### Managed identity with compute instance
 
-For more information, see [Set up managed identity for compute instance](how-to-create-manage-compute-instance.md#assign-managed-identity).
+For more information, see [Set up managed identity for compute instance](how-to-create-compute-instance.md#assign-managed-identity).
 
 <a id="service-principal-authentication"></a>
 

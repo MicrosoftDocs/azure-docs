@@ -108,7 +108,7 @@ See examples at [examples GitHub repository](https://github.com/Azure/azureml-ex
 
 ## YAML: A standalone Spark job using attached Synapse Spark pool and managed identity
 
-:::code language="yaml" source="~/azureml-examples-main/cli/jobs/spark/attached-spark-standalone-managed-identity.yaml":::
+:::code language="yaml" source="~/azureml-examples-main/cli/jobs/spark/attached-spark-standalone-managed-identity.yml":::
 
 ## YAML: A standalone Spark job using serverless Spark compute and user identity
 
