@@ -81,7 +81,7 @@ You're billed for prorated usage up to the time of cluster deletion. After your 
 
 ## Next steps
 
-- For help with troubleshooting, see [Troubleshooting Apache Kafka for Confluent Cloud solutions](troubleshoot.md).
+- For help with troubleshooting, see [Troubleshooting Apache Kafka on Confluent Cloud solutions](troubleshoot.md).
 
 - If you need to contact support, see [Get support for Confluent Cloud resource](get-support.md).
 

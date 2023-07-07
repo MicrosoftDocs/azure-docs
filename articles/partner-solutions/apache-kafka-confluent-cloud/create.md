@@ -10,7 +10,7 @@ ms.custom: mode-ui
 
 # QuickStart: Get started with Apache Kafka on Confluent Cloud - Azure portal
 
-In this quickstart, you'll use the Azure portal to create an instance of Apache Kafka for Confluent Cloud.
+In this quickstart, you'll use the Azure portal to create an instance of Apache Kafka on Confluent Cloud.
 
 ## Prerequisites
 
@@ -19,7 +19,7 @@ In this quickstart, you'll use the Azure portal to create an instance of Apache 
 
 ## Find offer
 
-Use the Azure portal to find the Apache Kafka for Confluent Cloud application.
+Use the Azure portal to find the Apache Kafka on Confluent Cloud application.
 
 1. In a web browser, go to the [Azure portal](https://portal.azure.com/) and sign in.
 
@@ -84,8 +84,8 @@ After you've selected the offer for Apache Kafka on Confluent Cloud, you're read
 
 ## Next steps
 
-> [!div class="nextstepaction"]
-> [Manage the Confluent Cloud resource](manage.md)
+    > [!div class="nextstepaction"]
+    > [Manage the Confluent Cloud resource](manage.md)
 
 - Get started with Apache Kafka on Confluent Cloud - Azure Native ISV Service on
 

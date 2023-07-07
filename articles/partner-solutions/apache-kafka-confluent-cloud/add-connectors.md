@@ -26,7 +26,7 @@ To set up your connector, see [Azure Cosmos DB Sink Connector for Confluent Clou
 
 ## Next steps
 
-- For help with troubleshooting, see [Troubleshooting Apache Kafka for Confluent Cloud solutions](troubleshoot.md).
+- For help with troubleshooting, see [Troubleshooting Apache Kafka on Confluent Cloud solutions](troubleshoot.md).
 - Get started with Apache Kafka on Confluent Cloud - Azure Native ISV Service on
 
     > [!div class="nextstepaction"]
