@@ -64,7 +64,7 @@ Create a workspace configuration file in one of the following methods:
 
     Create a script to connect to your Azure Machine Learning workspace and use the [`write_config`](/python/api/azureml-core/azureml.core.workspace.workspace#write-config-path-none--file-name-none-) method to generate your file and save it as *.azureml/config.json*. Make sure to replace `subscription_id`,`resource_group`, and `workspace_name` with your own.
 
-    [!INCLUDE [sdk v1](../../../includes/machine-learning-sdk-v1.md)]
+    [!INCLUDE [sdk v1](../includes/machine-learning-sdk-v1.md)]
 
     ```python
     from azureml.core import Workspace
@@ -129,7 +129,7 @@ To use Visual Studio Code for development:
 1. Install [Visual Studio Code](https://code.visualstudio.com/Download).
 1. Install the [Azure Machine Learning Visual Studio Code extension](../how-to-setup-vs-code.md) (preview).
 
-    [!INCLUDE [machine-learning-preview-generic-disclaimer](../../../includes/machine-learning-preview-generic-disclaimer.md)]
+    [!INCLUDE [machine-learning-preview-generic-disclaimer](../includes/machine-learning-preview-generic-disclaimer.md)]
 
 Once you have the Visual Studio Code extension installed, use it to:
 

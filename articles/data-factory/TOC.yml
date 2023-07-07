@@ -330,6 +330,8 @@ items:
       href: author-visually.md
     - name: Iterative development and debugging
       href: iterative-development-debugging.md
+    - name: Deactivate and reactivate
+      href: deactivate-activity.md
     - name: Management hub
       href: author-management-hub.md
     - name: Source control

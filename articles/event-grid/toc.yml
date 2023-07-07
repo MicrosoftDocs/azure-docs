@@ -70,6 +70,8 @@ items:
         href: mqtt-troubleshoot-errors.md
     - name: Reference
       items:
+      - name: SDKs
+        href: sdk-overview.md
       - name: Azure CLI
         href: /cli/azure/eventgrid
       - name: PowerShell
@@ -126,6 +128,8 @@ items:
         href: create-view-manage-event-subscriptions.md
     - name: Reference
       items:
+      - name: SDKs
+        href: sdk-overview.md
       - name: Azure CLI
         href: /cli/azure/eventgrid
       - name: PowerShell
@@ -522,6 +526,8 @@ items:
           href: troubleshoot-subscription-validation.md
     - name: Reference
       items:
+      - name: SDKs
+        href: sdk-overview.md
       - name: Azure CLI
         href: /cli/azure/eventgrid
       - name: PowerShell
@@ -548,8 +554,6 @@ items:
           href: /azure/templates/microsoft.eventgrid/eventsubscriptions
         - name: Topics
           href: /azure/templates/microsoft.eventgrid/topics
-      - name: SDKs
-        href: sdk-overview.md
       - name: Transition from Event Grid on IoT Edge to Azure IoT Edge
         href: transition.md
     - name: Resources
