@@ -866,7 +866,11 @@ If you would like to move your host and all associated VMs to a newer generation
 
 > [!Warning]
 > Resize operation will cause loss of any non-persisted data including the data on temp disks, hence save all your work before triggering resize.
-> During preview certain hosts with auto-placement disabled might not support resize, this limitation is only temporary and would be removed as we announce general availability of host resize.
+
+> [!Note]
+> During preview hosts in host groups with Fault domain count of '1' might not support resize, this limitation is only temporary and would be removed as we announce general availability of host resize.
+> If the source host is already running on the latest hardware, 'Size' page would display an empty list. If you are looking for enhanced performance, consider switching to a different VM family.
+
 
 ### [Portal](#tab/portal)
 
@@ -876,10 +880,6 @@ If you would like to move your host and all associated VMs to a newer generation
 1. Selecting a target size from the list would enable **Resize** button on the bottom on the page.
 1. Click **Resize**, host's 'Provisioning State' will change from 'Provisioning Succeeded' to 'Updating'
 1. Once the resizing is complete the host's 'Provisioning State' will revert to 'Provisioning Succeeded'
-
-> [!Note]
-> If the source host is already running on the latest hardware, 'Size' page would display an empty list. If you are looking for enhanced performance, consider switching to a different VM family.
-
 
 
 ### [CLI](#tab/cli)
