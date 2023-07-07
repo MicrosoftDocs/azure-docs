@@ -1,6 +1,6 @@
 ---
 title: Quickstart - get and manage trial phone numbers in Azure Communication Services
-description: learn how to get manage and use trial phone numbers in Azure Communication Services
+description: Learn how to get manage and use trial phone numbers in Azure Communication Services.
 author: jadacampbell
 ms.author: jadacampbell
 ms.service: azure-communication-services
@@ -9,7 +9,7 @@ ms.date: 07/19/2023
 ms.custom: template-quickstart
 ---
 
-# Quickstart: Get and manage a Trial Phone Number in Azure Communication Services
+# Quickstart: get and manage a trial phone number in Azure Communication Services
 
 [!INCLUDE [Public Preview Notice](../../includes/public-preview-include.md)]
 
@@ -35,13 +35,13 @@ If you already have numbers for your Communication Services resource, you can al
 :::image type="content" source="./media/trial-phone-numbers/trial-empty-with-purchased-numbers.png" alt-text="Screenshot showing a Communication Services resource's phone numbers page with already purchased numbers.":::
 
 3. Select on “Activate trial phone number”. This immediately provisions a trial phone number to your Communication Services resource.  Once the trial phone number is provisioned, you can view it on the Phone numbers page. 
-:::image type="content" source="./media/trial-phone-numbers/trial-activated.png" alt-text="Screenshot showing a Communication Services resource's phone numbers page with a trial phone number":::
+:::image type="content" source="./media/trial-phone-numbers/trial-activated.png" alt-text="Screenshot showing a Communication Services resource's phone numbers page with a trial phone number.":::
 
 ## Add a verified phone number to your trial phone number
 When using a trial phone number in Azure Communication Services for PSTN Calling capabilities, it is required to verify the recipient phone number. This verification process ensures that the trial phone number can only make calls to the verified number. 
 
 1. Once your trial phone number is provisioned, select on the number in the Phone Numbers page and navigate to the “Trial details” tab: 
-:::image type="content" source="./media/trial-phone-numbers/trial-details.png" alt-text="Screenshot showing a Communication Services resource's phone numbers page with a side panel open with the trial details tab":::
+:::image type="content" source="./media/trial-phone-numbers/trial-details.png" alt-text="Screenshot showing a Communication Services resource's phone numbers page with a side panel open with the trial details tab.":::
 This tab shows the current limitations on the number, including the days left to use the number, the total calling minutes, and how many verified phone numbers are attached to the trial phone number. You can find more information on the trial phone number limitations [here](../../concepts/telephony/trial-phone-numbers-faq.md).
 
 2. Select on “Manage verified phone numbers” to start adding verified phone numbers. 

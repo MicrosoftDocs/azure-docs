@@ -1,6 +1,6 @@
 ---
-title: Trial phone numbers and Verified phone numbers - FAQ
-description: A conceptual overview plus FAQ for trial phone numbers and verified phone numbers
+title: Frequently asked questions about trial phone numbers in Azure Communication Services
+description: A conceptual overview plus FAQ for trial phone numbers and verified phone numbers.
 author: jadacampbell
 ms.author: jadacampbell
 ms.service: azure-communication-services
@@ -9,7 +9,9 @@ ms.date: 07/19/2023
 ms.custom: template-concept
 ---
 
-# Trial Phone Numbers - Frequently Asked Questions (FAQ)
+# Frequently asked questions about trial phone numbers in Azure Communication Services
+
+[!INCLUDE [Public Preview Notice](../../includes/public-preview-include.md)]
 
 This article answers commonly asked questions about Trial Phone Numbers and Verified Phone Numbers. 
 
@@ -42,7 +44,7 @@ Trial phone numbers have 60 minutes of inbound and 60 minutes of outbound PSTN c
 While the trial phone number itself is provided at no cost during the trial period, there may be associated costs for making and receiving calls or other PSTN Calling services. It's essential to review the pricing details for Azure Communication Services to understand the costs involved.  
 
 ## Verified Phone Numbers
-<!-- add your content here -->
+
 ### Why do I need to verify the recipient phone number for a trial phone number?
 Verifying the recipient phone number is a security measure that ensures the trial phone number can only make calls to the verified number. This helps protect against misuse and unauthorized usage of trial phone numbers.
 
