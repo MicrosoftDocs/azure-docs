@@ -3,14 +3,14 @@ title: Import Bicep namespaces
 description: Describes how to import Bicep namespaces.
 ms.topic: conceptual
 ms.custom: devx-track-bicep
-ms.date: 06/28/2023
+ms.date: 07/07/2023
 ---
 
 # Import Bicep namespaces
 
 This article describes the syntax you use to import the Bicep namespaces including the Bicep extensibility providers.
 
-## Import namespaces
+## Import namespaces and extensibility providers
 
 The syntax for importing the namespaces is:
 
