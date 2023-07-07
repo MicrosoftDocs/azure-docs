@@ -158,9 +158,9 @@ Use the following steps to switch the container registry associated with the bui
 
 1. Open the [Azure portal](https://portal.azure.com/?AppPlatformExtension=entdf#home).
 1. Select **Build Service** in the navigation pane.
-1. Select **Referred container registry** to update the container registry for the build service.
+1. Select **Referenced container registry** to update the container registry for the build service.
 
-   :::image type="content" source="media/how-to-enterprise-deploy-polyglot-apps/switch-build-service-container-registry.png" alt-text="Screenshot of the Azure portal showing the Build Service page with Referred container registry highlighted." lightbox="media/how-to-enterprise-deploy-polyglot-apps/switch-build-service-container-registry.png":::
+   :::image type="content" source="media/how-to-enterprise-deploy-polyglot-apps/switch-build-service-container-registry.png" alt-text="Screenshot of the Azure portal showing the Build Service page with referenced container registry highlighted." lightbox="media/how-to-enterprise-deploy-polyglot-apps/switch-build-service-container-registry.png":::
 
 #### [Azure CLI](#tab/Azure-CLI)
 
