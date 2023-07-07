@@ -284,7 +284,7 @@ POST https://{{search-service-name}}.search.windows.net/indexes/{{index-name}}/d
 Content-Type: application/json
 api-key: {{admin-api-key}}
 {
-    "vector": [
+    "vectors": [
         {
             "value": [
                 -0.009154141,
@@ -311,7 +311,7 @@ POST https://{{search-service-name}}.search.windows.net/indexes/{{index-name}}/d
 Content-Type: application/json
 api-key: {{admin-api-key}}
 {
-    "vector": [
+    "vectors": [
         {
             "value": [
                 -0.009154141,
