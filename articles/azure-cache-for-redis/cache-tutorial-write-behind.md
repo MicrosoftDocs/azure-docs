@@ -197,6 +197,11 @@ You should see the items written to your Azure Cache for Redis instance show up 
 
 The only thing left is to deploy the code to the actual Azure Function app. As before, go to the Azure tab in VS Code, find your subscription, expand it, find the Function App section, and expand that. Select and hold (or right-click) your Azure Function app. Then, select **Deploy to Function App…**
 
+### Add connection string information
+
+Navigate to your Function App in the Azure portal and select the **Configuration** blade from the Resource menu. Select **New application setting** and enter `SQLConnectionString` as the Name, with your connection string as the Value. Set Type to _Custom_, and select **Ok** to close the menu and then **Save** on the Configuration page to confirm. The functions app will restart with the new connection string information. 
+
+## Verify deployment
 Once the deployment has finished, go back to your Azure Cache for Redis instance and use SET commands to write more values. You should see these show up in your Azure SQL database as well.
 
 If you’d like to confirm that your Azure Function app is working properly, go to the app in the portal and select the **Log stream** from the Resource menu. You should see the triggers executing there, and the corresponding updates being made to your SQL database.
