@@ -20,7 +20,7 @@ In this example, we'll use the Azure AI services for big data to add intelligent
 
 ## Prerequisites
 
-* You must have a subscription key for Azure AI Vision and Cognitive Search. Follow the instructions in [Create a Azure AI services account](../../cognitive-services-apis-create-account.md) to subscribe to Azure AI Vision and get your key.
+* You must have a subscription key for Azure AI Vision and Cognitive Search. Follow the instructions in [Create an Azure AI services account](../../cognitive-services-apis-create-account.md) to subscribe to Azure AI Vision and get your key.
   > [!NOTE]
   > For pricing information, see [Azure Cognitive Search](https://azure.microsoft.com/services/search/#pricing).
 
