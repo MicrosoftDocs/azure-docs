@@ -1,8 +1,6 @@
 ---
 title: Bicep functions - string
 description: Describes the functions to use in a Bicep file to work with strings.
-author: mumian
-ms.author: jgao
 ms.topic: conceptual
 ms.custom: devx-track-bicep
 ms.date: 12/09/2022
@@ -143,12 +141,19 @@ The output from the preceding example with the default values is:
 
 ## concat
 
-Instead of using the concat function, use string interpolation.
+`concat(arg1, arg2, arg3, ...)`
+
+Combines multiple string values and returns the concatenated string, or combines multiple arrays and returns the concatenated array. Instead of using the concat function, use string interpolation, except in certain cases involving [multi-line strings](../bicep/data-types.md#multi-line-strings).
+
+Namespace: [sys](bicep-functions.md#namespaces-for-functions).
+
+The following demo compares using interpolation and using concat.
 
 ```bicep
 param prefix string = 'prefix'
 
-output concatOutput string = '${prefix}And${uniqueString(resourceGroup().id)}'
+output concatOutput string = concat(prefix, uniqueString(resourceGroup().id))
+output interpolationOutput string = '${prefix}And${uniqueString(resourceGroup().id)}'
 ```
 
 The output from the preceding example with the default values is:
@@ -156,8 +161,25 @@ The output from the preceding example with the default values is:
 | Name | Type | Value |
 | ---- | ---- | ----- |
 | concatOutput | String | prefixAnd5yj4yjf5mbg72 |
+| interpolationOutput | String | prefixAnd5yj4yjf5mbg72 |
 
-Namespace: [sys](bicep-functions.md#namespaces-for-functions).
+Interpolation is not currently supported in multi-line strings.
+
+```bicep
+var blocked = 'BLOCKED'
+
+output concatOutput string = concat('''interpolation
+is ''', blocked)
+output interpolationOutput string = '''interpolation
+is ${blocked}'''
+```
+
+The output from the preceding example with the default values is:
+
+| Name | Type | Value |
+| ---- | ---- | ----- |
+| concatOutput | String | interpolation\nis BLOCKED |
+| interpolationOutput | String | interpolation\nis ${blocked} |
 
 ## contains
 
