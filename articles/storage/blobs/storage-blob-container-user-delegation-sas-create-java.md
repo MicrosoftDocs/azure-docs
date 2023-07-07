@@ -10,7 +10,6 @@ ms.topic: how-to
 ms.date: 06/12/2023
 ms.author: pauljewell
 ms.reviewer: dineshm
-ms.subservice: blobs
 ms.devlang: java
 ms.custom: devx-track-java, devguide-java
 ---

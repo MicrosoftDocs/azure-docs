@@ -311,6 +311,9 @@
         - name: Configure single sign-on using AD FS
           displayName: identity, sso
           href: configure-adfs-sso.md
+        - name: Assign RBAC roles to the service principal
+          displayName: identity, role-based access control, role based access control
+          href: service-principal-assign-roles.md
         - name: Set up the KDC proxy
           displayName: identity, key distribution center
           href: key-distribution-center-proxy.md

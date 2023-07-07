@@ -9,8 +9,8 @@ ms.author: tamram
 ms.reviewer: ozgun
 ms.date: 02/10/2021
 ms.topic: how-to
-ms.service: storage
-ms.subservice: common 
+ms.service: azure-storage
+ms.subservice: storage-common-concepts
 ms.custom: devx-track-azurecli
 ---
 

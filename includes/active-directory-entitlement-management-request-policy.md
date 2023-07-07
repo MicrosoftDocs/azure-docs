@@ -19,7 +19,7 @@ Follow these steps if you want to allow users in your directory to be able to re
 
     When you select this option, new options appear to further refine who in your directory can request this access package.
 
-    ![Access package - Requests - For users in your directory](./media/active-directory-entitlement-management-request-policy/for-users-in-your-directory.png)
+    ![Access package - Requests - For users in your directory](./media/entitlement-management-request-policy/for-users-in-your-directory.png)
 
 1. Select one of the following options:
 
@@ -35,7 +35,7 @@ Follow these steps if you want to allow users in your directory to be able to re
 
 1. In the Select users and groups pane, select the users and groups you want to add.
 
-    ![Access package - Requests - Select users and groups](./media/active-directory-entitlement-management-request-policy/select-users-groups.png)
+    ![Access package - Requests - Select users and groups](./media/entitlement-management-request-policy/select-users-groups.png)
 
 1. Select **Select** to add the users and groups.
 
@@ -54,7 +54,7 @@ Follow these steps if you want to allow users not in your directory to request t
 
     When you select this option, new options appear.
 
-    ![Access package - Requests - For users not in your directory](./media/active-directory-entitlement-management-request-policy/for-users-not-in-your-directory.png)
+    ![Access package - Requests - For users not in your directory](./media/entitlement-management-request-policy/for-users-not-in-your-directory.png)
 
 1. Select one of the following options:
 
@@ -70,7 +70,7 @@ Follow these steps if you want to allow users not in your directory to request t
 
 1. Type the name or domain name to search for a previously connected organization.
 
-    ![Access package - Requests - Select directories](./media/active-directory-entitlement-management-request-policy/select-directories.png)
+    ![Access package - Requests - Select directories](./media/entitlement-management-request-policy/select-directories.png)
 
     If the organization you want to collaborate with isn't in the list, you can ask your administrator to add it as a connected organization. For more information, see [Add a connected organization](../articles/active-directory/governance/entitlement-management-organization.md).
 
@@ -87,7 +87,7 @@ Follow these steps if you want to bypass access requests and allow administrator
 
 1. In the **Users who can request access** section, select **None (administrator direct assignments only)**.
 
-    ![Access package - Requests - None administrator direct assignments only](./media/active-directory-entitlement-management-request-policy/none-admin-direct-assignments-only.png)
+    ![Access package - Requests - None administrator direct assignments only](./media/entitlement-management-request-policy/none-admin-direct-assignments-only.png)
 
     After you create the access package, you can directly assign specific internal and external users to the access package. If you specify an external user, a guest user account will be created in your directory. For information about directly assigning a user, see [View, add, and remove assignments for an access package](../articles/active-directory/governance/entitlement-management-access-package-assignments.md).
 
@@ -119,7 +119,7 @@ Follow these steps to specify the approval settings for requests for the access 
     
 1. Now determine if requests will require single or 2-stage approval. Set the **How many stages** toggle to **1** for single stage approval or set the toggle to **2** for 2-stage approval.
 
-    ![Access package - Requests - Approval settings](./media/active-directory-entitlement-management-request-policy/approval.png)
+    ![Access package - Requests - Approval settings](./media/entitlement-management-request-policy/approval.png)
 
 Use the following steps to add approvers after selecting how many stages you require: 
 
@@ -129,11 +129,11 @@ Use the following steps to add approvers after selecting how many stages you req
     
     If the policy is set to *For users in your directory*, you can select **Manager as approver**. Or, add a specific user by clicking **Add approvers** after selecting Choose specific approvers from the dropdown menu.
     
-    ![Access package - Requests - For users in directory - First Approver](./media/active-directory-entitlement-management-request-policy/approval-single-stage-first-approver-manager.png)
+    ![Access package - Requests - For users in directory - First Approver](./media/entitlement-management-request-policy/approval-single-stage-first-approver-manager.png)
 
     If this policy is set to *For users not in your directory*, you can select **External sponsor** or **Internal sponsor**. Or, add a specific user by clicking **Add approvers** or groups under Choose specific approvers.
     
-    ![Access package - Requests - For users out of directory - First Approver](./media/active-directory-entitlement-management-request-policy/out-directory-first-approver.png)
+    ![Access package - Requests - For users out of directory - First Approver](./media/entitlement-management-request-policy/out-directory-first-approver.png)
     
 1. If you selected **Manager** as the first approver, select **Add fallback** to select one or more users or groups in your directory to be a fallback approver. Fallback approvers receive the request if entitlement management can't find the manager for the user requesting access.
 
@@ -157,11 +157,11 @@ If you selected a 2-stage approval, you'll need to add a second approver.
     
     If the users are in your directory, add a specific user as the second approver by clicking **Add approvers** under Choose specific approvers.
 
-    ![Access package - Requests - For users in directory - Second Approver](./media/active-directory-entitlement-management-request-policy/in-directory-second-approver.png)
+    ![Access package - Requests - For users in directory - Second Approver](./media/entitlement-management-request-policy/in-directory-second-approver.png)
 
     If the users aren't in your directory, select **Internal sponsor** or **External sponsor** as the second approver. After selecting the approver, add the fallback approvers.
 
-    ![Access package - Requests - For users out of directory - Second Approver](./media/active-directory-entitlement-management-request-policy/out-directory-second-approver.png) 
+    ![Access package - Requests - For users out of directory - Second Approver](./media/entitlement-management-request-policy/out-directory-second-approver.png) 
 
 1. Specify the number of days the second approver has to approve the request in the box under **Decision must be made in how many days?**. 
 
@@ -180,13 +180,13 @@ For example, if you listed Alice and Bob as the First Approver(s), list Carol an
 
 1. Under the First Approver, Second Approver, or both, select **Show advanced request settings**.
 
-    ![Access package - Policy - Show advanced request settings](./media/active-directory-entitlement-management-request-policy/alternate-approvers-click-advanced-request.png)
+    ![Access package - Policy - Show advanced request settings](./media/entitlement-management-request-policy/alternate-approvers-click-advanced-request.png)
 
 1. Set **If no action taken, forward to alternate approvers?** toggle to **Yes**.
 
 1. Select **Add alternate approvers** and select the alternate approver(s) from the list.
 
-    ![Access package - Policy - Add Alternate Approvers](./media/active-directory-entitlement-management-request-policy/alternate-approvers-add.png)
+    ![Access package - Policy - Add Alternate Approvers](./media/entitlement-management-request-policy/alternate-approvers-add.png)
 
     If you select Manager as approver for the First Approver, you'll have an extra option, **Second level manager as alternate approver**,  available to choose in the alternate approver field. If you select this option, you need to add a fallback approver to forward the request to in case the system can't find the second level manager.
 
@@ -202,7 +202,7 @@ For example, if you listed Alice and Bob as the First Approver(s), list Carol an
 
     If you selected **None (administrator direct assignments only)** and you set enable to **No**, then administrators can't directly assign this access package.
 
-    ![Screenshot that shows the option for enabling new requests and assignments.](./media/active-directory-entitlement-management-request-policy/enable-requests.png)
+    ![Screenshot that shows the option for enabling new requests and assignments.](./media/entitlement-management-request-policy/enable-requests.png)
 
 1. Go to the [verified ID requirement section](#add-a-verified-id-requirement-preview) section to learn how to add a verified ID requirement to your access package. Otherwise, select **Next**.
 
@@ -214,9 +214,9 @@ For example, if you listed Alice and Bob as the First Approver(s), list Carol an
 Follow these steps if you want to add a verified ID requirement to your access package policy. Users requesting access to the access package will need to present the required verified IDs before successfully submitting their request. You can learn more about how to configure your tenant with the Microsoft Entra Verified ID service [here](../articles/active-directory/verifiable-credentials/decentralized-identifier-overview.md).
 
 1. Click + Add issuer and select an issuer from the Entra Verified ID network. If you want to issue your own credentials to users, you can find instructions on how to do that [here](../articles/active-directory/verifiable-credentials/verifiable-credentials-configure-issuer.md).
-    :::image type="content" source="media/active-directory-entitlement-management-request-policy/access-package-select-issuer.png" alt-text="Access package select issuer.":::
+    :::image type="content" source="media/entitlement-management-request-policy/access-package-select-issuer.png" alt-text="Access package select issuer.":::
 1. Select the credential type(s) you want users to present during the request process. 
-    :::image type="content" source="media/active-directory-entitlement-management-request-policy/access-package-select-credential.png" alt-text="Select access package credential.":::
+    :::image type="content" source="media/entitlement-management-request-policy/access-package-select-credential.png" alt-text="Select access package credential.":::
     > [!NOTE]
     > If you select multiple credential types from one issuer, users will be required to present credentials of all selected types. Similarly, if you include multiple issuers, users will be required to present credentials from each of the issuers you include in the policy. To give users the option of presenting different credentials from various issuers, configure separate policies for each issuer/credential type you’ll accept.
 1. Click Add to add the verified ID requirement to the access package policy. 
@@ -227,18 +227,18 @@ Follow these steps if you want to add a verified ID requirement to your access p
  
 1. Type in what you want to ask the requestor, also known as the display string, for the question in the **Question** box.
 
-    ![Access package - Policy- Enable Requestor information setting](./media/active-directory-entitlement-management-request-policy/add-requestor-info-question.png)
+    ![Access package - Policy- Enable Requestor information setting](./media/entitlement-management-request-policy/add-requestor-info-question.png)
 
 1. If you would like to add your own localization options, select **add localization**.
     1. Once in the **Add localizations for question** pane, select the **language code** for the language in which you're localizing the question.
     1. In the language you configured, type the question in the **Localized Text** box.
     1. Once you've added all the localizations needed, select **Save**.
 
-    ![Access package - Policy- Configure localized text](./media/active-directory-entitlement-management-request-policy/add-localization-question.png)
+    ![Access package - Policy- Configure localized text](./media/entitlement-management-request-policy/add-localization-question.png)
 
 1. Select the **Answer format** in which you would like requestors to answer. Answer formats include: *Short text*, *Multiple choice*, and *long text*.
  
-    ![Access package - Policy- Select view and edit multiple choice answer format](./media/active-directory-entitlement-management-request-policy/answer-format-view-edit.png)
+    ![Access package - Policy- Select view and edit multiple choice answer format](./media/entitlement-management-request-policy/answer-format-view-edit.png)
  
 1. If selecting multiple choice, select on the **edit and localize** button to configure the answer options.
     1. After selecting edit and localize, the **View/edit question** pane will open.
@@ -246,7 +246,7 @@ Follow these steps if you want to add a verified ID requirement to your access p
     1. Select the language for the response option. You can localize response options if you choose extra languages.
     1. Type in as many responses as you need then select **Save**.
     
-    ![Access package - Policy- Enter multiple choice options](./media/active-directory-entitlement-management-request-policy/answer-multiple-choice.png)
+    ![Access package - Policy- Enter multiple choice options](./media/entitlement-management-request-policy/answer-multiple-choice.png)
   
 1. To require requestors to answer this question when requesting access to an access package, select the check box under **Required**.
 

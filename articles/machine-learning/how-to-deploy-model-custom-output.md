@@ -4,7 +4,7 @@ titleSuffix: Azure Machine Learning
 description: Learn how create deployments that generate custom outputs and files.
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: core
+ms.subservice: inferencing
 ms.topic: how-to
 author: santiagxf
 ms.author: fasantia
@@ -15,7 +15,7 @@ ms.custom: devplatv2
 
 # Customize outputs in batch deployments
 
-[!INCLUDE [ml v2](../../includes/machine-learning-dev-v2.md)]
+[!INCLUDE [ml v2](includes/machine-learning-dev-v2.md)]
 
 Sometimes you need to execute inference having a higher control of what is being written as output of the batch job. Those cases include:
 
@@ -33,7 +33,7 @@ This example shows how you can deploy a model to perform batch inference and cus
 
 The model has been trained using an `XGBBoost` classifier and all the required preprocessing has been packaged as a `scikit-learn` pipeline, making this model an end-to-end pipeline that goes from raw data to predictions.
 
-[!INCLUDE [machine-learning-batch-clone](../../includes/machine-learning/azureml-batch-clone-samples.md)]
+[!INCLUDE [machine-learning-batch-clone](includes/azureml-batch-clone-samples.md)]
 
 The files for this example are in:
 
@@ -47,7 +47,7 @@ You can follow along this sample in a Jupyter Notebook. In the cloned repository
 
 ## Prerequisites
 
-[!INCLUDE [machine-learning-batch-prereqs](../../includes/machine-learning/azureml-batch-prereqs.md)]
+[!INCLUDE [machine-learning-batch-prereqs](includes/azureml-batch-prereqs.md)]
 
 ## Creating a batch deployment with a custom output
 

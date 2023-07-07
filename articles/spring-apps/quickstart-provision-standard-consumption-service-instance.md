@@ -1,7 +1,7 @@
 ---
 title: Quickstart - Provision an Azure Spring Apps Standard consumption and dedicated plan service instance
 description: Learn how to create a Standard consumption and dedicated plan in Azure Spring Apps for app deployment.
-author: karlerickson
+author: KarlErickson
 ms.author: xuycao
 ms.service: spring-apps
 ms.topic: quickstart
@@ -119,9 +119,9 @@ You can create the Azure Container Apps environment in one of two ways:
 1. Use the following commands to create variables to store name and location information. Be sure to replace the placeholder values with your own values.
 
    ```bash
-   RESOURCE_GROUP="<resource-group-name>"
-   LOCATION="eastus"
-   AZURE_CONTAINER_APPS_ENVIRONMENT="<Azure-Container-Apps-environment-name>"
+   export RESOURCE_GROUP="<resource-group-name>"
+   export LOCATION="eastus"
+   export AZURE_CONTAINER_APPS_ENVIRONMENT="<Azure-Container-Apps-environment-name>"
    ```
 
 1. Use the following command to create a resource group:
@@ -174,12 +174,12 @@ Use the following steps to deploy the service instance:
 1. Use the following commands to create variables to store name and location information. You can skip the first three variables if you set them in the previous section. Be sure to replace the placeholder values with your own values.
 
    ```azurecli
-   RESOURCE_GROUP="<resource-group-name>"
-   LOCATION="eastus"
-   AZURE_CONTAINER_APPS_ENVIRONMENT="<Azure-Container-Apps-environment-name>"
+   export RESOURCE_GROUP="<resource-group-name>"
+   export LOCATION="eastus"
+   export AZURE_CONTAINER_APPS_ENVIRONMENT="<Azure-Container-Apps-environment-name>"
 
-   AZURE_SPRING_APPS_INSTANCE="<Azure-Spring-Apps-instance-name>"
-   MANAGED_ENV_RESOURCE_ID=$(az containerapp env show \
+   export AZURE_SPRING_APPS_INSTANCE="<Azure-Spring-Apps-instance-name>"
+   export MANAGED_ENV_RESOURCE_ID=$(az containerapp env show \
        --resource-group $RESOURCE_GROUP \
        --name $AZURE_CONTAINER_APPS_ENVIRONMENT \
        --query id \
@@ -200,12 +200,12 @@ Use the following steps to deploy the service instance:
 1. After the deployment, an infrastructure resource group is created in your subscription to host the underlying resources for the Azure Spring Apps Standard consumption and dedicated plan instance. The resource group is named `{AZURE_CONTAINER_APPS_ENVIRONMENT}_SpringApps_{SPRING_APPS_SERVICE_ID}`, as shown with the following command:
 
    ```azurecli
-   SERVICE_ID=$(az spring show \
+   export SERVICE_ID=$(az spring show \
        --resource-group $RESOURCE_GROUP \
        --name $AZURE_SPRING_APPS_INSTANCE \
        --query properties.serviceId \
        --output tsv)
-   INFRA_RESOURCE_GROUP=${AZURE_CONTAINER_APPS_ENVIRONMENT}_SpringApps_${SERVICE_ID}
+   export INFRA_RESOURCE_GROUP=${AZURE_CONTAINER_APPS_ENVIRONMENT}_SpringApps_${SERVICE_ID}
    echo ${INFRA_RESOURCE_GROUP}
    ```
 
