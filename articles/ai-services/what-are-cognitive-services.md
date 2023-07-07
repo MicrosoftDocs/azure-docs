@@ -71,9 +71,9 @@ See the tables below to learn about the services offered within those categories
 |:------------|:-------------------|-----------|
 |[Azure OpenAI](./openai/index.yml "Azure OpenAI") |Powerful language models including the GPT-3, Codex and Embeddings model series for content generation, summarization, semantic search, and natural language to code translation. | [Azure OpenAI quickstart](./openai/quickstart.md) |
 
-## Create a Azure AI services resource
+## Create an Azure AI services resource
 
-You can create a Azure AI services resource with hands-on quickstarts using any of the following methods:
+You can create an Azure AI services resource with hands-on quickstarts using any of the following methods:
 
 * [Azure portal](cognitive-services-apis-create-account.md?tabs=multiservice%2Cwindows "Azure portal")
 * [Azure CLI](cognitive-services-apis-create-account-cli.md?tabs=windows "Azure CLI")
@@ -133,5 +133,5 @@ Azure AI services provides several support options to help you move forward with
 ## Next steps
 
 * Select a service from the tables above and learn how it can help you meet your development goals.
-* [Create a Azure AI services resource using the Azure portal](cognitive-services-apis-create-account.md "Create a Azure AI services account")
+* [Create an Azure AI services resource using the Azure portal](cognitive-services-apis-create-account.md "Create an Azure AI services account")
 * [Plan and manage costs for Azure AI services](plan-manage-costs.md)
