@@ -52,11 +52,11 @@ Each file is an item to be labeled.
 
 You use these items to set up image labeling in Azure Machine Learning:
 
-[!INCLUDE [prerequisites](../../includes/machine-learning-data-labeling-prerequisites.md)]
+[!INCLUDE [prerequisites](includes/machine-learning-data-labeling-prerequisites.md)]
 
 ## Create an image labeling project
 
-[!INCLUDE [start](../../includes/machine-learning-data-labeling-start.md)]
+[!INCLUDE [start](includes/machine-learning-data-labeling-start.md)]
 
 1. To create a project, select **Add project**.
 
@@ -79,7 +79,7 @@ You use these items to set up image labeling in Azure Machine Learning:
 
 ## Add workforce (optional)
 
-[!INCLUDE [outsource](../../includes/machine-learning-data-labeling-outsource.md)]
+[!INCLUDE [outsource](includes/machine-learning-data-labeling-outsource.md)]
 
 ## Specify the data to label
 
@@ -127,15 +127,15 @@ To directly upload your data:
 
 ## Configure incremental refresh
 
-[!INCLUDE [refresh](../../includes/machine-learning-data-labeling-refresh.md)]
+[!INCLUDE [refresh](includes/machine-learning-data-labeling-refresh.md)]
 
 ## Specify label classes
 
-[!INCLUDE [classes](../../includes/machine-learning-data-labeling-classes.md)]
+[!INCLUDE [classes](includes/machine-learning-data-labeling-classes.md)]
 
 ## Describe the image labeling task
 
-[!INCLUDE [describe](../../includes/machine-learning-data-labeling-describe.md)]
+[!INCLUDE [describe](includes/machine-learning-data-labeling-describe.md)]
 
 For bounding boxes, important questions include:
 
@@ -153,7 +153,7 @@ For bounding boxes, important questions include:
 
 ## Quality control (preview)
 
-[!INCLUDE [describe](../../includes/machine-learning-data-labeling-quality-control.md)]
+[!INCLUDE [describe](includes/machine-learning-data-labeling-quality-control.md)]
 
 > [!NOTE]
 > **Instance Segmentation** projects can't use consensus labeling.
@@ -196,11 +196,11 @@ After a machine learning model is trained on your manually labeled data, the mod
 
 ## Initialize the image labeling project
 
-[!INCLUDE [initialize](../../includes/machine-learning-data-labeling-initialize.md)]
+[!INCLUDE [initialize](includes/machine-learning-data-labeling-initialize.md)]
 
 ## Run and monitor the project
 
-[!INCLUDE [run](../../includes/machine-learning-data-labeling-run.md)]
+[!INCLUDE [run](includes/machine-learning-data-labeling-run.md)]
 
 ### Dashboard
 
@@ -267,15 +267,15 @@ If your project was created from [Vision Studio](../cognitive-services/computer-
 
 ### Access for labelers
 
-[!INCLUDE [access](../../includes/machine-learning-data-labeling-access.md)]
+[!INCLUDE [access](includes/machine-learning-data-labeling-access.md)]
 
 ## Add new labels to a project
 
-[!INCLUDE [add-label](../../includes/machine-learning-data-labeling-add-label.md)]
+[!INCLUDE [add-label](includes/machine-learning-data-labeling-add-label.md)]
 
 ## Start an ML-assisted labeling task
 
-[!INCLUDE [start-ml-assist](../../includes/machine-learning-data-labeling-start-ml-assist.md)]
+[!INCLUDE [start-ml-assist](includes/machine-learning-data-labeling-start-ml-assist.md)]
 
 ## Export the labels
 
@@ -308,7 +308,7 @@ After you export your labeled data to an Azure Machine Learning dataset, you can
 
 ## Troubleshoot issues
 
-[!INCLUDE [troubleshooting](../../includes/machine-learning-data-labeling-troubleshooting.md)]
+[!INCLUDE [troubleshooting](includes/machine-learning-data-labeling-troubleshooting.md)]
 
 ### Troubleshoot object detection
 
