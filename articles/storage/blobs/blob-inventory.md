@@ -224,7 +224,7 @@ View the JSON for inventory rules by selecting the **Code view** tab in the **Bl
 | IncrementalCopy | ![Yes](../media/icons/yes-icon.png) | ![Yes](../media/icons/yes-icon.png) | 
 | x-ms-blob-sequence-number | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) | 
 
-<sup>1</sup> Disableb by default. [Optionally enable access time tracking](lifecycle-management-policy-configure.md#optionally-enable-access-time-tracking).
+<sup>1</sup> Disabled by default. [Optionally enable access time tracking](lifecycle-management-policy-configure.md#optionally-enable-access-time-tracking).
 
 ### Custom schema fields supported for container inventory
 
