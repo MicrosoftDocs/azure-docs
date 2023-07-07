@@ -55,9 +55,6 @@
       - name: 10 - Manage APIs in Visual Studio Code
         href: visual-studio-code-tutorial.md
 - name: Samples
-  items:
-      - name: Policies
-        href: ./policies/index.md
       - name: Azure PowerShell
         href: powershell-samples.md
 - name: Concepts
