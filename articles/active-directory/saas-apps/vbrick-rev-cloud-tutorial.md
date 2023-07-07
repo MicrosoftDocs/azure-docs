@@ -115,6 +115,9 @@ Complete the following steps to enable Azure AD single sign-on in the Azure port
 
 	1.  Leave the **Sign SAML Request** checkbox checked and click **Save**.
 
+	> [!Note]
+	>  For more information, please visit [this](https://revdocs.vbrick.com/docs/configure-single-sign-on-sso) Vbrick Rev documentation.
+
 ### Create Vbrick Rev Cloud test user
 
 In this section, you create a user called B.Simon in Vbrick Rev. Please follow [this](https://revdocs.vbrick.com/docs/user-accounts#add-or-edit-a-user) guide to create the test user. Users must be created and activated before you use single sign-on.
