@@ -35,7 +35,7 @@ If you're having an issue with cached images not showing up in your repository i
 - The Login server for Docker Hub is `docker.io`.
 - The Login server for Microsoft Artifact Registry is `mcr.microsoft.com`.
 
-The Azure portal autofill these fields for you. However, many Docker repositories begin with `library/` in their path. For example, in-order to cache the `hello-world` repository, the correct Repository Path is `docker.io/library/hello-world`. 
+The Azure portal autofills these fields for you. However, many Docker repositories begin with `library/` in their path. For example, in-order to cache the `hello-world` repository, the correct Repository Path is `docker.io/library/hello-world`. 
 
 ## Unhealthy Credential Set
 
