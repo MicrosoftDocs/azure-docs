@@ -12,7 +12,7 @@ ms.author: aahi
 ms.custom: subject-armqs, mode-arm, devx-track-arm-template
 ---
 
-# Quickstart: Create a Azure AI services resource using an ARM template
+# Quickstart: Create an Azure AI services resource using an ARM template
 
 This quickstart describes how to use an Azure Resource Manager template (ARM template) to create Azure AI services.
 
@@ -36,7 +36,7 @@ The template used in this quickstart is from [Azure Quickstart Templates](https:
 
 :::code language="json" source="~/quickstart-templates/quickstarts/microsoft.cognitiveservices/cognitive-services-universalkey/azuredeploy.json":::
 
-One Azure resource is defined in the Bicep file: [Microsoft.CognitiveServices/accounts](/azure/templates/microsoft.cognitiveservices/accounts) specifies that it is a Azure AI services resource. The `kind` field in the Bicep file defines the type of resource.
+One Azure resource is defined in the Bicep file: [Microsoft.CognitiveServices/accounts](/azure/templates/microsoft.cognitiveservices/accounts) specifies that it is an Azure AI services resource. The `kind` field in the Bicep file defines the type of resource.
 
 [!INCLUDE [SKUs and pricing](./includes/quickstarts/sku-pricing.md)]
 
@@ -68,7 +68,7 @@ One Azure resource is defined in the Bicep file: [Microsoft.CognitiveServices/ac
 > [!NOTE]
 > `az deployment group` create requires Azure CLI version 2.6 or later. To display the version type `az --version`. For more information, see the [documentation](/cli/azure/deployment/group).
 
-Run the following script via the Azure CLI, either from [your local machine](/cli/azure/install-azure-cli), or from a browser by using the **Try it** button. Enter a name and location (for example `centralus`) for a new resource group, and the ARM template will be used to deploy a Azure AI services resource within it. Remember the name you use. You will use it later to validate the deployment.
+Run the following script via the Azure CLI, either from [your local machine](/cli/azure/install-azure-cli), or from a browser by using the **Try it** button. Enter a name and location (for example `centralus`) for a new resource group, and the ARM template will be used to deploy an Azure AI services resource within it. Remember the name you use. You will use it later to validate the deployment.
 
 ```azurecli-interactive
 read -p "Enter a name for your new resource group:" resourceGroupName &&
@@ -108,7 +108,7 @@ az cognitiveservices account list -g $resourceGroupName
 
 ## Clean up resources
 
-If you want to clean up and remove a Azure AI services subscription, you can delete the resource or resource group. Deleting the resource group also deletes any other resources contained in the group.
+If you want to clean up and remove an Azure AI services subscription, you can delete the resource or resource group. Deleting the resource group also deletes any other resources contained in the group.
 
 # [Azure portal](#tab/portal)
 
