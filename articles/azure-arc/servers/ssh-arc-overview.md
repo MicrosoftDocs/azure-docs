@@ -1,6 +1,6 @@
 ---
 title: SSH access to Azure Arc-enabled servers
-description: Leverage SSH remoting to access and manage Azure Arc-enabled servers.
+description: Use SSH remoting to access and manage Azure Arc-enabled servers.
 ms.date: 07/01/2023
 ms.topic: conceptual
 ms.custom: references_regions
@@ -19,9 +19,9 @@ SSH access to Arc-enabled servers provides the following key benefits:
  - Support for other OpenSSH based tooling with config file support
 
 ## Prerequisites
-To enable this functionality, please ensure the following: 
+To enable this functionality, ensure the following: 
  - Ensure the Arc-enabled server has a hybrid agent version of "1.31.xxxx" or higher.  Run: ```azcmagent show``` on your Arc-enabled Server.
- - Ensure the Arc-enabled server has the "sshd" service enabled. For Linux machines `openssh-server` can be installed via a package manager and will need to be enabled.  SSHD will need to be [enabled on Windows](/windows-server/administration/openssh/openssh_install_firstuse).
+ - Ensure the Arc-enabled server has the "sshd" service enabled. For Linux machines `openssh-server` can be installed via a package manager and needs to be enabled.  SSHD needs to be [enabled on Windows](/windows-server/administration/openssh/openssh_install_firstuse).
  - Ensure you have the Owner or Contributer role assigned.
 
 Authenticating with Azure AD credentials has additional requirements:
@@ -105,7 +105,7 @@ Install-Module -Name Az.Ssh.ArcProxy -Scope CurrentUser -Repository PSGallery
 ---
 
 ### Enable functionality on your Arc-enabled server
-In order to use the SSH connect feature, you must update the Service Configuration in the Connectivity Endpoint on the Arc-Enabled Server to allow SSH connection to a specific port. You may only allow connection to a single port. The CLI tools will attempt to update the allowed port at runtime, but the port can be manually configured with the following:
+In order to use the SSH connect feature, you must update the Service Configuration in the Connectivity Endpoint on the Arc-Enabled Server to allow SSH connection to a specific port. You may only allow connection to a single port. The CLI tools attempt to update the allowed port at runtime, but the port can be manually configured with the following:
 
 > [!NOTE]
 > There may be a delay after updating the Service Configuration until you are able to connect.
@@ -120,7 +120,7 @@ In order to use the SSH connect feature, you must update the Service Configurati
 
 ---
 
-If you're using a non-default port for your SSH connection, replace port 22 with your desired port in the previous command.
+If you're using a nondefault port for your SSH connection, replace port 22 with your desired port in the previous command.
 
 ### Optional: Install AAD login extension
 The `Azure AD based SSH Login – Azure Arc` VM extension can be added from the extensions menu of the Arc server. The AAD login extension can also be installed locally via a package manager via: `apt-get install aadsshlogin` or the following command.
@@ -133,6 +133,6 @@ To view examples, view the Az CLI documentation page for [az ssh](/cli/azure/ssh
 
 ## Next steps
 
-- Learn about [OpenSSH for Windows](https://learn.microsoft.com/windows-server/administration/openssh/openssh_overview)
+- Learn about [OpenSSH for Windows](/windows-server/administration/openssh/openssh_overview)
 - Learn about troubleshooting [SSH access to Azure Arc-enabled servers](ssh-arc-troubleshoot.md).
 - Learn about troubleshooting [agent connection issues](troubleshoot-agent-onboard.md).
