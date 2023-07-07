@@ -14,7 +14,7 @@ zone_pivot_groups: programming-languages-set-ten
 ms.custom: mode-api, devx-track-dotnet, devx-track-extended-java, devx-track-js, devx-track-python
 ---
 
-# Quickstart: Create a Azure AI services resource using the Azure Management client library
+# Quickstart: Create an Azure AI services resource using the Azure Management client library
 
 Use this quickstart to create and manage Azure AI services resources using the Azure Management client library.
 
