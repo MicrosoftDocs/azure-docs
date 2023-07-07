@@ -33,22 +33,22 @@ This section provides a comparative summary of capabilities between the Azure St
 
 |    Capability  | Azure Stack Edge Pro 2 (Target device)  | Azure Stack Edge Pro FPGA (Source device)|
 |----------------|-----------------------|------------------------|
-| Hardware       | Hardware acceleration: 1 or 2 Nvidia A2 GPUs <br> 64 GB, 128 GB, or 256 GB of memory <br> 2x 10 GB BASE-T iWarp RDMA-capable network ports <br> 2x optical 100 GB/sec RoCE RDMA-capable network ports<br> Power supply units - 1 <br> For more information, see [Azure Stack Edge Pro 2 technical specifications](azure-stack-edge-pro-2-technical-specifications-compliance.md).   | Hardware acceleration: Intel Arria 10 FPGA <br> 128 GB of memory <br> 2x copper 1 GB/sec network ports <br> 4x optical 25 GB/sec RDMA-capable network ports <br> Power supply units - 2 <br> For more information, see [Azure Stack Edge Pro FPGA technical specifications](azure-stack-edge-technical-specifications-compliance.md).  |
-| Usable storage | 720 GB - 2.5 TB <br> After reserving space for resiliency and internal use | 12.5 TB <br> After reserving space for internal use |
+| Hardware       | Hardware acceleration: 1 or 2 Nvidia A2 GPUs. <br> 64 GB, 128 GB, or 256 GB of memory. <br> 2x 10 GB BASE-T iWarp RDMA-capable network ports. <br> 2x optical 100 GB/sec RoCE RDMA-capable network ports. <br> Power supply units - 1. <br> For more information, see [Azure Stack Edge Pro 2 technical specifications](azure-stack-edge-pro-2-technical-specifications-compliance.md).   | Hardware acceleration: Intel Arria 10 FPGA. <br> 128 GB of memory. <br> 2x copper 1 GB/sec network ports. <br> 4x optical 25 GB/sec RDMA-capable network ports. <br> Power supply units - 2. <br> For more information, see [Azure Stack Edge Pro FPGA technical specifications](azure-stack-edge-technical-specifications-compliance.md).  |
+| Usable storage | 720 GB - 2.5 TB <br> After reserving space for resiliency and internal use. | 12.5 TB <br> After reserving space for internal use. |
 | Security       | Certificates |                                                     |
 | Workloads      | IoT Edge workloads <br> VM workloads <br> Kubernetes workloads| IoT Edge workloads |
-| Pricing        | [Pricing](https://azure.microsoft.com/pricing/details/azure-stack/edge/) | [Pricing](https://azure.microsoft.com/pricing/details/azure-stack/edge/)  |
+| Pricing        | [Azure Stack Edge pricing](https://azure.microsoft.com/pricing/details/azure-stack/edge/). | [Azure Stack Edge pricing](https://azure.microsoft.com/pricing/details/azure-stack/edge/).  |
 
 
 ### [Migrate to Azure Stack Edge Pro GPU](#tab/migrate-to-ase-pro-gpu)
 
 |    Capability  | Azure Stack Edge Pro GPU (Target device)  | Azure Stack Edge Pro FPGA (Source device)|
 |----------------|-----------------------|------------------------|
-| Hardware       | Hardware acceleration: 1 or 2 Nvidia T4 GPUs <br> Compute, memory, network interface, power supply unit, and power cord specifications are identical to the device with FPGA. <br> For more information, see [Azure Stack Edge Pro GPU technical specifications](azure-stack-edge-gpu-technical-specifications-compliance.md).   | Hardware acceleration: Intel Arria 10 FPGA <br> Compute, memory, network interface, power supply unit, and power cord specifications are identical to the device with GPU. <br> For more information, see [Azure Stack Edge Pro FPGA technical specifications](azure-stack-edge-technical-specifications-compliance.md).  |
-| Usable storage | 4.19 TB <br> After reserving space for parity resiliency and internal use | 12.5 TB <br> After reserving space for internal use |
+| Hardware       | Hardware acceleration: 1 or 2 Nvidia T4 GPUs. <br> Compute, memory, network interface, power supply unit, and power cord specifications are identical to the device with FPGA. <br> For more information, see [Azure Stack Edge Pro GPU technical specifications](azure-stack-edge-gpu-technical-specifications-compliance.md).   | Hardware acceleration: Intel Arria 10 FPGA. <br> Compute, memory, network interface, power supply unit, and power cord specifications are identical to the device with GPU. <br> For more information, see [Azure Stack Edge Pro FPGA technical specifications](azure-stack-edge-technical-specifications-compliance.md).  |
+| Usable storage | 4.19 TB <br> After reserving space for parity resiliency and internal use. | 12.5 TB <br> After reserving space for internal use. |
 | Security       | Certificates |                                                     |
 | Workloads      | IoT Edge workloads <br> VM workloads <br> Kubernetes workloads| IoT Edge workloads |
-| Pricing        | [Pricing](https://azure.microsoft.com/pricing/details/azure-stack/edge/) | [Pricing](https://azure.microsoft.com/pricing/details/azure-stack/edge/)  |
+| Pricing        | [Azure Stack Edge pricing](https://azure.microsoft.com/pricing/details/azure-stack/edge/). | [Azure Stack Edge pricing](https://azure.microsoft.com/pricing/details/azure-stack/edge/).  |
 
 ---
 
@@ -202,7 +202,7 @@ You need to set up and activate the *target* device against the new resource you
 Follow these steps to configure the *target* device via the Azure portal:
 
 1. Gather the information required in the [Deployment checklist](azure-stack-edge-pro-2-deploy-checklist.md). You can use the information that you saved from the source device configuration. 
-1. [Unpack](azure-stack-edge-pro-2-deploy-install.md#unpack-the-device), [rack mount](azure-stack-edge-pro-2-deploy-install.md#rack-the-device) and [cable your device](azure-stack-edge-pro-2-deploy-install.md#cable-the-device). 
+1. [Unpack](azure-stack-edge-pro-2-deploy-install.md#unpack-the-device), [rack mount](azure-stack-edge-pro-2-deploy-install.md#rack-mount-the-device) and [cable your device](azure-stack-edge-pro-2-deploy-install.md#cable-the-device). 
 1. [Connect to the local UI of the device](azure-stack-edge-pro-2-deploy-connect.md).
 1. Configure the network using a different set of IP addresses (if using static IPs) than the ones that you used for your old device. See how to [configure network settings](azure-stack-edge-pro-2-deploy-configure-network-compute-web-proxy.md).
 1. Assign the same device name as your old device and provide a DNS domain. See how to [configure device setting](azure-stack-edge-pro-2-deploy-set-up-device-update-time.md).
