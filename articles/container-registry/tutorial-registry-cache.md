@@ -57,7 +57,7 @@ Implementing Cache for ACR provides the following benefits:
 
 ## Support Upstream
 
-The new upstream to Cache content for ACR are as follows:
+The upstream sources to Cache content for ACR are as follows:
 
 1. Docker : Supports both authenticated pulls and un-authenticated pulls.
 2. MAR : Supports un-authenticated pulls only.
