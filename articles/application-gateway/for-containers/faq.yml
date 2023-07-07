@@ -45,3 +45,6 @@ sections:
 
       - question: Is it supported to increase the number of pods/replicas for ALB Controller?
         answer: No.  Only one pod/replica of ALB Controller should be running at any given time.
+
+      - question: Is it supported to use the same managed identity with multiple ALB Controllers?
+        answer: No.  Each ALB controller must use its own unique managed identity.
