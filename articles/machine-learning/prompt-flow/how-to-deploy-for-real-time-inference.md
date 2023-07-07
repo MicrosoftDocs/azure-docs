@@ -97,7 +97,7 @@ If the checkbox is selected, the first row of your input data will be used as sa
 
 In this step, you can view all flow outputs, and specify which outputs will be included in the response of the endpoint you deploy.
 
-:::image type="content" source="./media/how-to-deploy-for-real-time-inference/deploy-wizard-outputs" alt-text="Screenshot of the outputs step in the deploy wizard." lightbox = "./media/how-to-deploy-for-real-time-inference/deploy-wizard-outputs.png":::
+:::image type="content" source="./media/how-to-deploy-for-real-time-inference/deploy-wizard-outputs.png" alt-text="Screenshot of the outputs step in the deploy wizard." lightbox = "./media/how-to-deploy-for-real-time-inference/deploy-wizard-outputs.png":::
 
 ### Connections
 
