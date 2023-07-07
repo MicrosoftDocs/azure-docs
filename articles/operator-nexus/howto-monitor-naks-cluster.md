@@ -28,8 +28,8 @@ It's solely your discretion whether to enable this tooling or deploy your own te
 
 The Nexus Kubernetes cluster with Azure monitoring tool looks like:
 
-<!--- IMG ![Nexus Kubernetes cluster with Monitoring Tools](Docs/media/naks-w-monitoring-tools.png) IMG --->
-:::image type="content" source="media/naks-w-monitoring-tools.png" alt-text="Screenshot of Nexus Kubernetes cluster with Monitoring Tools.":::
+<!--- IMG ![Nexus Kubernetes cluster with Monitoring Tools](Docs/media/naks-w-monitoring.png) IMG --->
+:::image type="content" source="media/naks-w-monitoring.png" alt-text="Screenshot of Nexus Kubernetes cluster with Monitoring Tools.":::
 
 Figure: Nexus Kubernetes cluster with Monitoring Tools
 
