@@ -149,7 +149,7 @@ curl -i -X POST $AOAIEndpoint/openai/deployments/$AOAIDeploymentId/extensions/ch
     "messages": [
         {
             "role": "user",
-            "content": "What are the differences between Azure Machine Learning and Azure Cognitive Services?"
+            "content": "What are the differences between Azure Machine Learning and Azure AI services?"
         }
     ]
 }
@@ -170,12 +170,12 @@ curl -i -X POST $AOAIEndpoint/openai/deployments/$AOAIDeploymentId/extensions/ch
             "messages": [
                 {
                     "role": "tool",
-                    "content": "{\"citations\": [{\"content\": \"\\nCognitive Services are cloud-based artificial intelligence (AI) services...\", \"id\": null, \"title\": \"What is Cognitive Services\", \"filepath\": null, \"url\": null, \"metadata\": {\"chunking\": \"orignal document size=250. Scores=0.4314117431640625 and 1.72564697265625.Org Highlight count=4.\"}, \"chunk_id\": \"0\"}], \"intent\": \"[\\\"Learn about Azure Cognitive Services.\\\"]\"}",
+                    "content": "{\"citations\": [{\"content\": \"\\nAzure AI services are cloud-based artificial intelligence (AI) services...\", \"id\": null, \"title\": \"What is Azure AI services\", \"filepath\": null, \"url\": null, \"metadata\": {\"chunking\": \"orignal document size=250. Scores=0.4314117431640625 and 1.72564697265625.Org Highlight count=4.\"}, \"chunk_id\": \"0\"}], \"intent\": \"[\\\"Learn about Azure AI services.\\\"]\"}",
                     "end_turn": false
                 },
                 {
                     "role": "assistant",
-                    "content": " \nAzure Cognitive Services are cloud-based artificial intelligence (AI) services that help developers build cognitive intelligence into applications without having direct AI or data science skills or knowledge. [doc1]. Azure Machine Learning is a cloud service for accelerating and managing the machine learning project lifecycle. [doc1].",
+                    "content": " \nAzure AI services are cloud-based artificial intelligence (AI) services that help developers build cognitive intelligence into applications without having direct AI or data science skills or knowledge. [doc1]. Azure Machine Learning is a cloud service for accelerating and managing the machine learning project lifecycle. [doc1].",
                     "end_turn": true
                 }
             ]

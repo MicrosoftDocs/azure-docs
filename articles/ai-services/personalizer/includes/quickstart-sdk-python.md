@@ -18,7 +18,7 @@ ms.date: 02/02/2023
 
 * Azure subscription - [Create one for free](https://azure.microsoft.com/free/cognitive-services)
 * [Python 3.x](https://www.python.org/)
-* Once your Azure subscription is set up, <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesPersonalizer"  title="Create a Personalizer resource"  target="_blank">create a Personalizer resource </a> in the Azure portal and obtain your key and endpoint. After it deploys, click **Go to resource**.
+* Once your Azure subscription is set up, <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesPersonalizer"  title="Create a Personalizer resource"  target="_blank">create a Personalizer resource </a> in the Azure portal and obtain your key and endpoint. After it deploys, select **Go to resource**.
     * You'll need the key and endpoint from the created resource to connect your application to the Personalizer API, which you'll paste into the quick-start code below.
     * You can use the free pricing tier (`F0`) to try the service, then upgrade to a paid tier for production at a later time.
 
@@ -68,7 +68,7 @@ Follow these steps to set up the Personalizer script.
 1. Paste your key and endpoint into the code where indicated. Your endpoint has the form `https://<your_resource_name>.cognitiveservices.azure.com/`.
 
     > [!IMPORTANT]
-    > Remember to remove the key from your code when you're done, and never post it publicly. For production, use a secure method to store and access your credentials like [Azure Key Vault](../../../key-vault/general/overview.md). For more information, see the Cognitive Services [security](../../security-features.md).
+    > Remember to remove the key from your code when you're done, and never post it publicly. For production, use a secure method to store and access your credentials like [Azure Key Vault](../../../key-vault/general/overview.md). For more information, see the Azure AI services [security](../../security-features.md).
 
 [!code-python[](~/cognitive-services-quickstart-code/python/Personalizer/quickstart-sdk/personalizer-quickstart.py?name=snippet_1)]
 

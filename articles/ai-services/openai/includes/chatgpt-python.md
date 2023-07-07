@@ -112,7 +112,7 @@ echo export AZURE_OPENAI_ENDPOINT="REPLACE_WITH_YOUR_ENDPOINT_HERE" >> /etc/envi
             {"role": "system", "content": "You are a helpful assistant."},
             {"role": "user", "content": "Does Azure OpenAI support customer managed keys?"},
             {"role": "assistant", "content": "Yes, customer managed keys are supported by Azure OpenAI."},
-            {"role": "user", "content": "Do other Azure Cognitive Services support this too?"}
+            {"role": "user", "content": "Do other Azure AI services support this too?"}
         ]
     )
 
@@ -121,7 +121,7 @@ echo export AZURE_OPENAI_ENDPOINT="REPLACE_WITH_YOUR_ENDPOINT_HERE" >> /etc/envi
     ```
 
     > [!IMPORTANT]
-    > For production, use a secure way of storing and accessing your credentials like [Azure Key Vault](../../../key-vault/general/overview.md). For more information about credential security, see the Cognitive Services [security](../../security-features.md) article.
+    > For production, use a secure way of storing and accessing your credentials like [Azure Key Vault](../../../key-vault/general/overview.md). For more information about credential security, see the Azure AI services [security](../../security-features.md) article.
 
 3. Run the application with the `python` command on your quickstart file:
 
@@ -138,7 +138,7 @@ echo export AZURE_OPENAI_ENDPOINT="REPLACE_WITH_YOUR_ENDPOINT_HERE" >> /etc/envi
       "finish_reason": "stop",
       "index": 0,
       "message": {
-        "content": "Yes, most of the Azure Cognitive Services support customer managed keys. However, not all services support it. You can check the documentation of each service to confirm if customer managed keys are supported.",
+        "content": "Yes, most of the Azure AI services support customer managed keys. However, not all services support it. You can check the documentation of each service to confirm if customer managed keys are supported.",
         "role": "assistant"
       }
     }
@@ -153,7 +153,7 @@ echo export AZURE_OPENAI_ENDPOINT="REPLACE_WITH_YOUR_ENDPOINT_HERE" >> /etc/envi
     "total_tokens": 97
   }
 }
-Yes, most of the Azure Cognitive Services support customer managed keys. However, not all services support it. You can check the documentation of each service to confirm if customer managed keys are supported.
+Yes, most of the Azure AI services support customer managed keys. However, not all services support it. You can check the documentation of each service to confirm if customer managed keys are supported.
 ```
 
 > [!div class="nextstepaction"]

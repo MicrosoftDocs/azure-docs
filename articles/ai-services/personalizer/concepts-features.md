@@ -1,6 +1,6 @@
 ---
 title: "Features: Action and Context - Personalizer" 
-titleSuffix: Azure Cognitive Services
+titleSuffix: Azure AI services
 description: Personalizer uses features, information about actions and context, to make better ranking suggestions. Features can be generic, or specific to an item.
 author: jcodella
 ms.author: jacodel
@@ -122,9 +122,9 @@ Having features of high density helps Personalizer extrapolate learning from one
 
 Analyze the user behavior by running a [Feature Evaluation Job](how-to-feature-evaluation.md). This allows you to look at past data to see what features are heavily contributing to positive rewards versus those that are contributing less. You can see what features are helping, and it will be up to you and your application to find better features to send to Personalizer to improve results even further.
 
-### Expand feature sets with artificial intelligence and cognitive services
+### Expand feature sets with artificial intelligence and Azure AI services
 
-Artificial Intelligence and ready-to-run Cognitive Services can be a very powerful addition to Personalizer.
+Artificial Intelligence and ready-to-run Azure AI services can be a very powerful addition to Personalizer.
 
 By preprocessing your items using artificial intelligence services, you can automatically extract information that is likely to be relevant for personalization.
 
@@ -134,19 +134,19 @@ For example:
 * Images can be run through object detection, faces through sentiment, etc.
 * Information in text can be augmented by extracting entities, sentiment, and expanding entities with Bing knowledge graph.
 
-You can use several other [Azure Cognitive Services](https://www.microsoft.com/cognitive-services), like
+You can use several other [Azure AI services](https://www.microsoft.com/cognitive-services), like
 
-* [Entity Linking](../text-analytics/index.yml)
+* [Entity Linking](../language-service/entity-linking/overview.md)
 * [Language service](../language-service/index.yml)
-* [Emotion](../face/overview.md)
-* [Computer Vision](../computer-vision/overview.md)
+* [Face](../computer-vision/overview-identity.md)
+* [Vision](../computer-vision/overview.md)
 
 ### Use embeddings as features
 
 Embeddings from various Machine Learning models have proven to be affective features for Personalizer
 
 * Embeddings from Large Language Models
-* Embeddings from Computer Vision Models
+* Embeddings from Azure AI Vision Models
 
 ## Namespaces
 

@@ -13,7 +13,7 @@ ms.custom: ignite-fall-2021
 
 # Tutorial: Anomaly detection with Cognitive Services
 
-In this tutorial, you'll learn how to easily enrich your data in Azure Synapse Analytics with [Azure Cognitive Services](../../cognitive-services/index.yml). You'll use [Anomaly Detector](../../cognitive-services/anomaly-detector/index.yml) to find anomalies. A user in Azure Synapse can simply select a table to enrich for detection of anomalies.
+In this tutorial, you'll learn how to easily enrich your data in Azure Synapse Analytics with [Azure Cognitive Services](../../ai-services/index.yml). You'll use [Anomaly Detector](../../ai-services/anomaly-detector/index.yml) to find anomalies. A user in Azure Synapse can simply select a table to enrich for detection of anomalies.
 
 This tutorial covers:
 
@@ -97,7 +97,7 @@ When you're done, select **Open notebook**. This will generate a notebook for yo
 
 The notebook that you just opened uses the [SynapseML library](https://github.com/microsoft/SynapseML) to connect to Cognitive Services. The Azure Cognitive Services linked service that you provided allow you to securely reference your cognitive service from this experience without revealing any secrets.
 
-You can now run all cells to perform anomaly detection. Select **Run All**. [Learn more about Anomaly Detector in Cognitive Services](../../cognitive-services/anomaly-detector/index.yml).
+You can now run all cells to perform anomaly detection. Select **Run All**. [Learn more about Anomaly Detector in Cognitive Services](../../ai-services/anomaly-detector/index.yml).
 
 ![Screenshot that shows anomaly detection.](media/tutorial-cognitive-services/tutorial-cognitive-services-anomaly-notebook.png)
 
@@ -105,7 +105,7 @@ You can now run all cells to perform anomaly detection. Select **Run All**. [Lea
 
 - [Tutorial: Sentiment analysis with Azure Cognitive Services](tutorial-cognitive-services-sentiment.md)
 - [Tutorial: Machine learning model scoring in Azure Synapse dedicated SQL pools](tutorial-sql-pool-model-scoring-wizard.md)
-- [Tutorial: Use Multivariate Anomaly Detector in Azure Synapse Analytics](../../cognitive-services/Anomaly-Detector/tutorials/multivariate-anomaly-detection-synapse.md)
+- [Tutorial: Use Multivariate Anomaly Detector in Azure Synapse Analytics](../../ai-services/Anomaly-Detector/tutorials/multivariate-anomaly-detection-synapse.md)
 - [SynapseML anomaly detection](https://microsoft.github.io/SynapseML/docs/documentation/transformers/transformers_cognitive/#anomaly-detection)
 - [Machine Learning capabilities in Azure Synapse Analytics](what-is-machine-learning.md)
 

@@ -2,7 +2,6 @@
 title: Reliability in Azure Cognitive Search
 titleSuffix: Azure Cognitive Search
 description: Find out about reliability in Azure Cognitive Search.
-
 author: LiamCavanagh
 ms.author: liamca
 ms.service: cognitive-search

@@ -217,7 +217,7 @@ Install the following software:
 * [Visual Studio 2019](https://visualstudio.microsoft.com/vs/), or [.NET Core CLI](/dotnet/core/tools/) - use either the developer environment of Visual Studio 2019 or the .NET Core CLI to build and run the app
 
 ### Set up the sample
-1. Clone the Azure Personalizer Samples repo.
+1. Clone the Azure AI Personalizer Samples repo.
 
     ```bash
     git clone https://github.com/Azure-Samples/cognitive-services-personalizer-samples.git
@@ -227,7 +227,7 @@ Install the following software:
 
     If requested, allow Visual Studio to update the .NET package for Personalizer.
 
-### Set up Azure Personalizer Service
+### Set up Azure AI Personalizer Service
 
 1. [Create a Personalizer resource](https://portal.azure.com/#create/Microsoft.CognitiveServicesPersonalizer) in the Azure portal.
 
@@ -318,7 +318,7 @@ namespace HttpRequestFeaturesExample
             string personalizerEndpoint = Configuration.GetSection("PersonalizerConfiguration:ServiceEndpoint").Value;
             if (string.IsNullOrEmpty(personalizerEndpoint) || string.IsNullOrEmpty(personalizerApiKey))
             {
-                throw new ArgumentException("Missing Azure Personalizer endpoint and/or api key.");
+                throw new ArgumentException("Missing Azure AI Personalizer endpoint and/or api key.");
             }
             services.AddSingleton(client =>
             {

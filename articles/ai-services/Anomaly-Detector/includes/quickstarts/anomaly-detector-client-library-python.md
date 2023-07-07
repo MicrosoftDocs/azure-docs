@@ -1,6 +1,6 @@
 ---
 title: Anomaly Detector Python client library quickstart
-titleSuffix: Azure Cognitive Services
+titleSuffix: Azure AI services
 services: cognitive-services
 author: mrbullwinkle
 manager: nitinme
@@ -131,7 +131,7 @@ curl "https://raw.githubusercontent.com/Azure/azure-sdk-for-python/main/sdk/anom
     ```
 
     > [!IMPORTANT]
-    > For production, use a secure way of storing and accessing your credentials like [Azure Key Vault](../../../../key-vault/general/overview.md). For more information about credential security, see the Cognitive Services [security](../../../security-features.md) article.
+    > For production, use a secure way of storing and accessing your credentials like [Azure Key Vault](../../../../key-vault/general/overview.md). For more information about credential security, see the Azure AI services [security](../../../security-features.md) article.
 
 3. Run the application with the `python` command on your quickstart file
 
@@ -217,7 +217,7 @@ To visualize the anomalies and change points in relation to the sample data seri
     ```
 
     > [!IMPORTANT]
-    > For production, use a secure way of storing and accessing your credentials like [Azure Key Vault](../../../../key-vault/general/overview.md). for more information about credential security, see the Cognitive Services [security](../../../security-features.md) article.
+    > For production, use a secure way of storing and accessing your credentials like [Azure Key Vault](../../../../key-vault/general/overview.md). for more information about credential security, see the Azure AI services [security](../../../security-features.md) article.
 
 3. Run the application with the `python` command on your quickstart file
 

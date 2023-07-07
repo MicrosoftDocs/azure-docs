@@ -1,6 +1,6 @@
 ---
 title: MVAD input parameters
-titleSuffix: Azure Cognitive Services
+titleSuffix: Azure AI services
 services: cognitive-services
 author: quying
 manager: tonyxin

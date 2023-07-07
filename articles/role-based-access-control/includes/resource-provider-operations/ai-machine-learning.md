@@ -84,7 +84,7 @@ Azure service: [Azure Bot Service](/azure/bot-service/)
 
 ### Microsoft.CognitiveServices
 
-Azure service: [Cognitive Services](../../../cognitive-services/index.yml)
+Azure service: [Cognitive Services](../../../ai-services/index.yml)
 
 > [!div class="mx-tableFixed"]
 > | Action | Description |
