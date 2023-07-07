@@ -1,7 +1,7 @@
 ---
 title: Troubleshoot the Anomaly Detector multivariate API
-titleSuffix: Azure Cognitive Services
-description: Learn how to remediate common error codes when you use the Azure Anomaly Detector multivariate API.
+titleSuffix: Azure AI services
+description: Learn how to remediate common error codes when you use the Azure AI Anomaly Detector multivariate API.
 services: cognitive-services
 author: mrbullwinkle
 manager: nitinme
@@ -15,7 +15,7 @@ keywords: anomaly detection, machine learning, algorithms
 
 # Troubleshoot the multivariate API
 
-This article provides guidance on how to troubleshoot and remediate common error messages when you use the Azure Cognitive Services Anomaly Detector multivariate API.
+This article provides guidance on how to troubleshoot and remediate common error messages when you use the Azure AI Anomaly Detector multivariate API.
 
 ## Multivariate error codes
 
@@ -28,9 +28,9 @@ The following tables list multivariate error codes.
 | `SubscriptionNotInHeaders` | 400             | apim-subscription-id is not found in headers. | Add your APIM subscription ID in the header. An example header is `{"apim-subscription-id": <Your Subscription ID>}`. |
 | `FileNotExist`             | 400             | File \<source> does not exist.                  | Check the validity of your blob shared access signature. Make sure that it hasn't expired. |
 | `InvalidBlobURL`           | 400             |                                                | Your blob shared access signature isn't a valid shared access signature.                            |
-| `StorageWriteError`        | 403             |                                                | This error is possibly caused by permission issues. Our service isn't allowed to write the data to the blob encrypted by a customer-managed key. Either remove the customer-managed key or grant access to our service again. For more information, see [Configure customer-managed keys with Azure Key Vault for Cognitive Services](../../encryption/cognitive-services-encryption-keys-portal.md). |
+| `StorageWriteError`        | 403             |                                                | This error is possibly caused by permission issues. Our service isn't allowed to write the data to the blob encrypted by a customer-managed key. Either remove the customer-managed key or grant access to our service again. For more information, see [Configure customer-managed keys with Azure Key Vault for Azure AI services](../../encryption/cognitive-services-encryption-keys-portal.md). |
 | `StorageReadError`         | 403             |                                                | Same as `StorageWriteError`.                                 |
-| `UnexpectedError`          | 500             |                                                |  Contact us with detailed error information. You could take the support options from [Azure Cognitive Services support and help options](../../cognitive-services-support-options.md?context=%2fazure%2fcognitive-services%2fanomaly-detector%2fcontext%2fcontext) or email us at [AnomalyDetector@microsoft.com](mailto:AnomalyDetector@microsoft.com).           |
+| `UnexpectedError`          | 500             |                                                |  Contact us with detailed error information. You could take the support options from [Azure AI services support and help options](../../cognitive-services-support-options.md?context=%2fazure%2fcognitive-services%2fanomaly-detector%2fcontext%2fcontext) or email us at [AnomalyDetector@microsoft.com](mailto:AnomalyDetector@microsoft.com).           |
 
 ### Train a multivariate anomaly detection model
 

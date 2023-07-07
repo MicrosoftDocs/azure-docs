@@ -1,6 +1,6 @@
 ---
 title: Service limits - Anomaly Detector service
-titleSuffix: Azure Cognitive Services
+titleSuffix: Azure AI services
 description: Service limits for Anomaly Detector service, including Univariate Anomaly Detection and Multivariate Anomaly Detection.
 services: cognitive-services
 author: jr-MS
@@ -15,9 +15,9 @@ ms.custom:
 
 # Anomaly Detector service quotas and limits
 
-This article contains both a quick reference and detailed description of Azure Anomaly Detector service quotas and limits for all pricing tiers. It also contains some best practices to help avoid request throttling.
+This article contains both a quick reference and detailed description of Azure AI Anomaly Detector service quotas and limits for all pricing tiers. It also contains some best practices to help avoid request throttling.
 
-The quotas and limits apply to all the versions within Azure Anomaly Detector service.
+The quotas and limits apply to all the versions within Azure AI Anomaly Detector service.
 
 ## Univariate Anomaly Detection
 
