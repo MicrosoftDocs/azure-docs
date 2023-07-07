@@ -18,8 +18,8 @@ Before you can create any QnA Maker knowledge bases, you must first set up a QnA
 
 A solid understanding of the following concepts is helpful before creating your resource:
 
-* [QnA Maker resources](../Concepts/azure-resources.md)
-* [Authoring and publishing keys](../Concepts/azure-resources.md#keys-in-qna-maker)
+* [QnA Maker resources](../concepts/azure-resources.md)
+* [Authoring and publishing keys](../concepts/azure-resources.md#keys-in-qna-maker)
 
 ## Create a new QnA Maker service
 
@@ -59,7 +59,7 @@ This procedure creates the Azure resources needed to manage the knowledge base c
 
    ![Resource created a new QnA Maker service](../media/qnamaker-how-to-setup-service/resources-created.png)
 
-    The resource with the _Cognitive Services_ type has your _subscription_ keys.
+    The resource with the _Azure AI services_ type has your _subscription_ keys.
 
 ## Upgrade Azure resources
 

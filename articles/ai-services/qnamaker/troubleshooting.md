@@ -81,7 +81,7 @@ The size of the knowledge base depends on the SKU of Azure search you choose whe
 <summary><b>Why can't I see anything in the drop-down when I try to create a new knowledge base?</b></summary>
 
 **Answer**:
-You haven't created any QnA Maker services in Azure yet. Read [here](./How-To/set-up-qnamaker-service-azure.md) to learn how to do that.
+You haven't created any QnA Maker services in Azure yet. Read [here](./how-to/set-up-qnamaker-service-azure.md) to learn how to do that.
 
 </details>
 
@@ -281,7 +281,7 @@ Please follow the below given steps:
 <summary><b>Do I need to use Bot Framework in order to use QnA Maker?</b></summary>
 
 **Answer**:
-No, you do not need to use the [Bot Framework](https://github.com/Microsoft/botbuilder-dotnet) with QnA Maker. However, QnA Maker is offered as one of several templates in [Azure Bot Service](/azure/bot-service/). Bot Service enables rapid intelligent bot development through Microsoft Bot Framework, and it runs in a server-less environment.
+No, you do not need to use the [Bot Framework](https://github.com/Microsoft/botbuilder-dotnet) with QnA Maker. However, QnA Maker is offered as one of several templates in [Azure AI Bot Service](/azure/bot-service/). Bot Service enables rapid intelligent bot development through Microsoft Bot Framework, and it runs in a server-less environment.
 
 </details>
 
@@ -289,12 +289,12 @@ No, you do not need to use the [Bot Framework](https://github.com/Microsoft/botb
 <summary><b>How can I create a new bot with QnA Maker?</b></summary>
 
 **Answer**:
-Follow the instructions in [this](./Quickstarts/create-publish-knowledge-base.md) documentation to create your Bot with Azure Bot Service.
+Follow the instructions in [this](./quickstarts/create-publish-knowledge-base.md) documentation to create your Bot with Azure AI Bot Service.
 
 </details>
 
 <details>
-<summary><b>How do I use a different knowledge base with an existing Azure bot service?</b></summary>
+<summary><b>How do I use a different knowledge base with an existing Azure AI Bot Service?</b></summary>
 
 **Answer**:
 You need to have the following information about your knowledge base:
@@ -323,7 +323,7 @@ Yes, the knowledge base can be queried from any number of clients. If the respon
 **Answer**:
 Follow these steps to embed the QnA Maker service as a web-chat control in your website:
 
-1. Create your FAQ bot by following the instructions [here](./Quickstarts/create-publish-knowledge-base.md).
+1. Create your FAQ bot by following the instructions [here](./quickstarts/create-publish-knowledge-base.md).
 2. Enable the web chat by following the steps [here](/azure/bot-service/bot-service-channel-connect-webchat)
 
 </details>

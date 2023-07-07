@@ -34,7 +34,7 @@ The knowledge base is ready for testing once it is populated with content, eithe
 * **To fix low confidence scores**: add alternate questions.
 * **When a query incorrectly returns the [default response](../How-to/change-default-answer.md)**: add new answers to the correct question.
 
-This tight loop of test-update continues until you are satisfied with the results. Learn how to [test your knowledge base](../How-To/test-knowledge-base.md).
+This tight loop of test-update continues until you are satisfied with the results. Learn how to [test your knowledge base](../how-to/test-knowledge-base.md).
 
 For large KBs, use automated testing with the [generateAnswer API](../how-to/metadata-generateanswer-usage.md#get-answer-predictions-with-the-generateanswer-api) and the `isTest` body property, which queries the `test` knowledge base instead of the published knowledge base.
 
@@ -54,14 +54,14 @@ Due to the publish action, any further changes made to the test version of the k
 
 Each of these knowledge bases can be targeted for testing separately. Using the APIs, you can target the test version of the knowledge base with `isTest` body property in the generateAnswer call.
 
-Learn how to [publish your knowledge base](../Quickstarts/create-publish-knowledge-base.md#publish-the-knowledge-base).
+Learn how to [publish your knowledge base](../quickstarts/create-publish-knowledge-base.md#publish-the-knowledge-base).
 
 ## Monitor usage
-To be able to log the chat logs of your service, you would need to enable Application Insights when you [create your QnA Maker service](../How-To/set-up-qnamaker-service-azure.md).
+To be able to log the chat logs of your service, you would need to enable Application Insights when you [create your QnA Maker service](../how-to/set-up-qnamaker-service-azure.md).
 
-You can get various analytics of your service usage. Learn more about how to use application insights to get [analytics for your QnA Maker service](../How-To/get-analytics-knowledge-base.md).
+You can get various analytics of your service usage. Learn more about how to use application insights to get [analytics for your QnA Maker service](../how-to/get-analytics-knowledge-base.md).
 
-Based on what you learn from your analytics, make appropriate [updates to your knowledge base](../How-To/edit-knowledge-base.md).
+Based on what you learn from your analytics, make appropriate [updates to your knowledge base](../how-to/edit-knowledge-base.md).
 
 ## Version control for data in your knowledge base
 

@@ -1,6 +1,6 @@
 ---
 title: What's new in QnA Maker service?
-titleSuffix: Azure Cognitive Services
+titleSuffix: Azure AI services
 description: This article contains news about QnA Maker.
 services: cognitive-services
 manager: nitinme
@@ -24,7 +24,7 @@ Learn what's new in the service. These items may release notes, videos, blog pos
 Learn what's new with QnA Maker.
 
 ### November 2021
-* [Question answering](../language-service/question-answering/overview.md) is now [generally available](https://techcommunity.microsoft.com/t5/ai-cognitive-services-blog/question-answering-feature-is-generally-available/ba-p/2899497) as a feature within [Azure Cognitive Service for Language](https://portal.azure.com/?quickstart=true#create/Microsoft.CognitiveServicesTextAnalytics).
+* [Question answering](../language-service/question-answering/overview.md) is now [generally available](https://techcommunity.microsoft.com/t5/ai-cognitive-services-blog/question-answering-feature-is-generally-available/ba-p/2899497) as a feature within [Azure AI Language](https://portal.azure.com/?quickstart=true#create/Microsoft.CognitiveServicesTextAnalytics).
 * Question answering is powered by **state-of-the-art transformer models** and [Turing](https://turing.microsoft.com/) Natural Language models.
 * The erstwhile QnA Maker product will be [retired](https://azure.microsoft.com/updates/azure-qna-maker-will-be-retired-on-31-march-2025/) on 31st March 2025, and no new QnA Maker resources will be created beginning 1st October 2022.
 * All existing QnA Maker customers are strongly advised to [migrate](../language-service/question-answering/how-to/migrate-qnamaker.md) their QnA Maker knowledge bases to Question answering as soon as possible to continue experiencing the best of QnA capabilities offered by Azure.
@@ -62,7 +62,7 @@ Learn what's new with QnA Maker.
 
 ### March 2020
 
-* TLS 1.2 is now enforced for all HTTP requests to this service. For more information, see [Azure Cognitive Services security](../security-features.md).
+* TLS 1.2 is now enforced for all HTTP requests to this service. For more information, see Azure AI services [security](../security-features.md).
 
 ### February 2020
 
@@ -101,4 +101,4 @@ Learn what's new with QnA Maker.
 
 ## Cognitive Service updates
 
-[Azure update announcements for Cognitive Services](https://azure.microsoft.com/updates/?product=cognitive-services)
+[Azure update announcements for Azure AI services](https://azure.microsoft.com/updates/?product=cognitive-services)

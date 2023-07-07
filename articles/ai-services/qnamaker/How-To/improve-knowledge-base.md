@@ -22,7 +22,7 @@ Active Learning alters the Knowledge Base or Search Service after you approve th
 
 ## Turn on active learning
 
-In order to see suggested questions, you must [turn on active learning](../How-To/use-active-learning.md#turn-on-active-learning-for-alternate-questions) for your QnA Maker resource.
+In order to see suggested questions, you must [turn on active learning](../how-to/use-active-learning.md#turn-on-active-learning-for-alternate-questions) for your QnA Maker resource.
 
 ## View suggested questions
 
@@ -338,7 +338,7 @@ async callTrain(stepContext){
 
 ## Best practices
 
-For best practices when using active learning, see [Best practices](../Concepts/best-practices.md#active-learning).
+For best practices when using active learning, see [Best practices](../concepts/best-practices.md#active-learning).
 
 ## Next steps
 

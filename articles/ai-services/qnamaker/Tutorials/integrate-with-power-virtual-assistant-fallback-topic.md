@@ -33,7 +33,7 @@ In this tutorial, you learn how to:
 
 ## Create and publish a knowledge base
 
-1. Follow the [quickstart](../Quickstarts/create-publish-knowledge-base.md) to create a knowledge base. Don't complete the last section, about creating a bot. Instead, use this tutorial to create a bot with Power Virtual Agents.
+1. Follow the [quickstart](../quickstarts/create-publish-knowledge-base.md) to create a knowledge base. Don't complete the last section, about creating a bot. Instead, use this tutorial to create a bot with Power Virtual Agents.
 
     > [!div class="mx-imgBorder"]
     > ![Screenshot of published knowledge base settings](../media/how-to-integrate-power-virtual-agent/published-knowledge-base-settings.png)
@@ -188,7 +188,7 @@ When you are done with the knowledge base, remove the QnA Maker resources in the
 
 ## Next step
 
-[Get analytics on your knowledge base](../How-To/get-analytics-knowledge-base.md)
+[Get analytics on your knowledge base](../how-to/get-analytics-knowledge-base.md)
 
 Learn more about:
 
