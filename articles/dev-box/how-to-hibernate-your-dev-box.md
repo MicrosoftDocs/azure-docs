@@ -27,9 +27,9 @@ Hibernate your Dev Box through the developer portal:
 
 1. Sign in to the [developer portal](https://aka.ms/devbox-portal).
  
-1. On the dev box you want to hibernate, on the more options menu, select **Shut down**. 
+1. On the dev box you want to hibernate, on the more options menu, select **Hibernate**. 
  
-Dev boxes that support hibernation when you select **Shut down** hibernate instead of shutting down.
+Dev boxes that support hibernation will show the **Hibernate** option. Dev boxes that only support shutdown will show the **Shutdown** option.
 
 ## Resume your dev box using the developer portal 
 
