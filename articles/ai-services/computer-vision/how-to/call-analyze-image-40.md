@@ -27,7 +27,7 @@ This guide assumes you have successfully followed the steps mentioned in the [qu
 
 ## Authenticate against the service
 
-To authenticate against the Image Analysis service, you need An Azure AI Vision key and endpoint URL.
+To authenticate against the Image Analysis service, you need an Azure AI Vision key and endpoint URL.
 
 > [!TIP]
 > Don't include the key directly in your code, and never post it publicly. See the Azure AI services [security](../../security-features.md) article for more authentication options like [Azure Key Vault](../../use-key-vault.md). 

@@ -15,7 +15,7 @@ ms.custom: cogserv-non-critical-vision
 
 # Use Azure AI Vision container with Kubernetes and Helm
 
-One option to manage your Azure AI Vision containers on-premises is to use Kubernetes and Helm. Using Kubernetes and Helm to define An Azure AI Vision container image, we'll create a Kubernetes package. This package will be deployed to a Kubernetes cluster on-premises. Finally, we'll explore how to test the deployed services. For more information about running Docker containers without Kubernetes orchestration, see [install and run Azure AI Vision containers](computer-vision-how-to-install-containers.md).
+One option to manage your Azure AI Vision containers on-premises is to use Kubernetes and Helm. Using Kubernetes and Helm to define an Azure AI Vision container image, we'll create a Kubernetes package. This package will be deployed to a Kubernetes cluster on-premises. Finally, we'll explore how to test the deployed services. For more information about running Docker containers without Kubernetes orchestration, see [install and run Azure AI Vision containers](computer-vision-how-to-install-containers.md).
 
 ## Prerequisites
 
