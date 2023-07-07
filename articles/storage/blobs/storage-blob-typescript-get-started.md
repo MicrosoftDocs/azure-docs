@@ -9,7 +9,6 @@ ms.author: pauljewell
 ms.service: storage
 ms.topic: how-to
 ms.date: 03/21/2023
-ms.subservice: blobs
 ms.custom: template-how-to, devx-track-ts, devguide-ts, passwordless-js, devx-track-js
 ---
 

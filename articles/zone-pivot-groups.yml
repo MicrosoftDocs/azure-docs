@@ -2308,6 +2308,15 @@ groups:
     title: Microsoft graph PowerShell
   - id: ms-graph
     title: Microsoft Graph
+## revoke permissions
+- id: delegated-app-permissions
+  title: Permissions
+  prompt: Choose an option
+  pivots:
+  - id: delegated-perms
+    title: Delegated permissions
+  - id: app-perms
+    title: App-only permissions
 # Owner: juliakm
 - id: pipelines-version
   title: Pipelines version
