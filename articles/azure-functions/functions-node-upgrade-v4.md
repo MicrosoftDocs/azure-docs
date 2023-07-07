@@ -96,7 +96,7 @@ The trigger input is now the first argument to your function handler instead of 
 
 ## Define your function in code
 
-Say goodbye 👋 to `function.json` files! All of the configuration that was previously specified in a `function.json` file is now defined directly in your TypeScript or JavaScript files. In addition, many properties now have a default so that you don't have to specify them every time.
+Say goodbye to `function.json` files! All of the configuration that was previously specified in a `function.json` file is now defined directly in your TypeScript or JavaScript files. In addition, many properties now have a default so that you don't have to specify them every time.
 
 # [v4](#tab/v4)
 
@@ -251,7 +251,7 @@ const testInvocationContext = new InvocationContext({
 
 # [v3](#tab/v3)
 
-Not possible 😮
+Not possible.
 
 ---
 

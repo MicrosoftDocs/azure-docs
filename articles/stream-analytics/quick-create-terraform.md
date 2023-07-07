@@ -4,10 +4,12 @@ description: In this article, you create an Azure Stream Analytics job using Ter
 ms.service: stream-analytics
 ms.workload: big-data
 ms.topic: quickstart
-ms.custom: devx-track-terraform, ai-gen-docs
+ms.custom: devx-track-terraform
 author: TomArcherMsft
 ms.author: tarcher
 ms.date: 4/22/2023
+content_well_notification: 
+  - AI-contribution
 ---
 
 # Quickstart: Create an Azure Stream Analytics job using Terraform
@@ -23,8 +25,6 @@ In this article, you learn how to:
 > * Create an Azure resource group using [azurerm_resource_group](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/resource_group).
 > * Create a random value for the Azure Stream Analytics job name using [random_pet](https://registry.terraform.io/providers/hashicorp/random/latest/docs/resources/pet).
 > * Create an Azure Stream Analytics job using [azurerm_stream_analytics_job](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/stream_analytics_job).
-
-[!INCLUDE [AI attribution](../../includes/ai-generated-attribution.md)]
 
 ## Prerequisites
 

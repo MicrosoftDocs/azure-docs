@@ -15,5 +15,5 @@ Now that you've added app groups claim in your application, add users to the sec
 1. Select  **Members**.
 1. Select **+ Add members**.
 1. Scroll through the list or enter a name in the search box. You can choose multiple names. When you're ready, choose **Select**.
-2. The **Group Overview** page updates to show the number of members who are now added to the group.
-3. To test your application, sign out, and then sign in again with the user you added to the security group.
+1. The **Group Overview** page updates to show the number of members who are now added to the group.
+

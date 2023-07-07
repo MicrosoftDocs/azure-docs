@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: ciam
 ms.topic: how-to
-ms.date: 06/10/2023
+ms.date: 06/13/2023
 ms.author: mimart
 ms.custom: it-pro
 ---
@@ -40,6 +40,12 @@ Though you can use app roles or groups for authorization, key differences betwee
 | App roles are removed when their app registration is removed.| Groups remain intact even if the app is removed.|
 | Provided in the `roles` claim.| Provided in `groups` claim. |
 
+## Create a security group
+
+[!INCLUDE [ciam-security-group](./includes/access-control/add-security-group.md)]
+
+Azure AD for customers can include a user's group membership information in tokens for use within applications. You learn how to add the group claim to tokens in [Assign users and groups to roles](#assign-users-and-groups-to-roles) section.
+
 ## Declare roles for an application
 
 [!INCLUDE [ciam-declare-roles](./includes/access-control/declare-app-roles.md)]
@@ -48,6 +54,8 @@ Though you can use app roles or groups for authorization, key differences betwee
 
 [!INCLUDE [ciam-assign-user-and-groups-to-roles](./includes/access-control/assign-users-groups-roles.md)]
 
+To test your application, sign out and sign in again with the user you assigned the roles. Inspect the security token to make sure that it contains the user's role. 
+
 ## Add group claims to security tokens
 
 [!INCLUDE [ciam-add-group-claim-to-token](./includes/access-control/add-group-claim-in-token.md)]
@@ -55,6 +63,8 @@ Though you can use app roles or groups for authorization, key differences betwee
 ### Add members to a group
 
 [!INCLUDE [ciam-add-member-to-group](./includes/access-control/add-member-to-group.md)]
+
+To test your application, sign out, and then sign in again with the user you added to the security group. Inspect the security token to make sure that it contains the user's group membership. 
 
 ## Groups and application roles support
 
@@ -81,3 +91,7 @@ The following table shows which features are currently available.
 | Change security group members using the Microsoft Graph API | Yes |
 | Scale up to 50,000 users and 50,000 groups | Not currently available |
 | Add 50,000 users to at least two groups | Not currently available |
+
+## Next steps
+
+- Learn how to [Use role-based access control in your web application](how-to-web-app-role-based-access-control.md).

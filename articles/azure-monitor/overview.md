@@ -30,7 +30,7 @@ You can also export monitoring data from Azure Monitor into other systems so you
   - Integrate with other third-party and open-source monitoring and visualization tools
   - Integrate with ticketing and other ITSM systems
 
-## Monitoring and observability
+## Monitoring, observability, and artificial intelligence for IT operations
 
 Observability is the ability to assess an internal system’s state based on the data it produces. An observability solution analyzes output data, provides an assessment of the system’s health, and offers actionable insights for addressing problems across your IT infrastructure.
 
@@ -41,11 +41,13 @@ The pillars of observability are the different kinds of data that a monitoring t
 When a system is observable, a user can identify the root cause of a performance problem by looking at the data it produces without additional testing or coding.
 Azure Monitor achieves observability by correlating data from multiple pillars and aggregating data across the entire set of monitored resources. Azure Monitor provides a common set of tools to correlate and analyze the data from multiple Azure subscriptions and tenants, in addition to data hosted for other services. 
 
+Artificial Intelligence for IT Operations (AIOps) improves service quality and reliability by using machine learning to process and automatically act on data you collect in Azure Monitor. [Azure Monitor AIOps and machine learning capabilities](./logs/aiops-machine-learning.md) let you detect, diagnose, predict, and respond to potential issues in your IT environment using advanced analytics.
+
 ## High level architecture
 
 The following diagram gives a high-level view of Azure Monitor. 
 
-:::image type="content" source="media/overview/overview_2023_02.png" alt-text="Diagram that shows an overview of Azure Monitor." border="false" lightbox="media/overview/overview_2023_02.png":::
+:::image type="content" source="media/overview/overview-2023-06.png" alt-text="Diagram that shows an overview of Azure Monitor." border="false" lightbox="media/overview/overview-2023-06.png":::
 
 The diagram depicts the Azure Monitor system components:
 - The **[data sources](data-sources.md)** are the types of data collected from each monitored resource. The data is collected and routed to the **data platform**.
@@ -113,6 +115,7 @@ Click on the picture to see a larger version of the data collection diagram in c
 |Internal| Data is automatically sent to a destination without user configuration.  |
 |[Diagnostic settings](essentials/diagnostic-settings.md)|Use diagnostic settings to determine where to send resource log and activity log data on the data platform.|
 |[Azure Monitor REST API](logs/logs-ingestion-api-overview.md)|The Logs Ingestion API in Azure Monitor lets you send data to a Log Analytics workspace in Azure Monitor Logs. You can also send metrics into the Azure Monitor Metrics store using the custom metrics API.|
+|[Azure Event Hubs](logs/ingest-logs-event-hub.md)|Azure Event Hubs is a big data streaming platform that can collect events from multiple sources. This is a highly scalable method of collecting data from a wide range of sources with minimum configuration. By setting a data collection rule, you can ingest data you need directly from an event hub into Azure Monitor Logs.|
 
 A common way to route monitoring data to other non-Microsoft tools is using *Event hubs*. See more in the [Integrate](#integrate) section below.
 

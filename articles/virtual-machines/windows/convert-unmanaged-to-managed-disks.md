@@ -2,8 +2,7 @@
 title: Migrate a Windows virtual machine from unmanaged disks to managed disks
 description: How to migrate a Windows VM from unmanaged disks to managed disks by using PowerShell in the Resource Manager deployment model
 author: roygara
-ms.service: storage
-ms.subservice: disks
+ms.service: azure-disk-storage
 ms.custom: devx-track-azurepowershell
 ms.topic: how-to
 ms.date: 07/12/2018
@@ -105,6 +104,6 @@ The VM will be stopped and restarted after migration is complete.
 
 ## Next steps
 
-[Convert standard managed disks to premium](convert-disk-storage.md)
+[Change the disk type of an Azure managed disk](../disks-convert-types.md).
 
 Take a read-only copy of a VM by using [snapshots](snapshot-copy-managed-disk.md).

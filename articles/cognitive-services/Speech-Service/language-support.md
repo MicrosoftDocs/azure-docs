@@ -30,7 +30,7 @@ Language support varies by Speech service functionality.
 
 # [Speech to text](#tab/stt)
 
-The table in this section summarizes the locales and voices supported for Speech to text. Please see the table footnotes for more details. 
+The table in this section summarizes the locales supported for Speech to text. See the table footnotes for more details. 
 
 Additional remarks for Speech to text locales are included in the [Custom Speech](#custom-speech) section below. 
 
@@ -45,7 +45,7 @@ To improve Speech to text recognition accuracy, customization is available for s
 
 # [Text to speech](#tab/tts)
 
-The table in this section summarizes the locales and voices supported for Text to speech. Please see the table footnotes for more details.
+The table in this section summarizes the locales and voices supported for Text to speech. See the table footnotes for more details.
 
 Additional remarks for Text to speech locales are included in the [Voice styles and roles](#voice-styles-and-roles), [Prebuilt neural voices](#prebuilt-neural-voices), and [Custom Neural Voice](#custom-neural-voice) sections below. 
 
@@ -63,6 +63,12 @@ To learn how you can configure and adjust neural voice styles and roles, see [Sp
 Use the following table to determine supported styles and roles for each neural voice.
 
 [!INCLUDE [Language support include](includes/language-support/voice-styles-and-roles.md)]
+
+### Viseme
+
+This table lists all the locales supported for [Viseme](speech-synthesis-markup-structure.md#viseme-element). For more information about Viseme, see [Get facial position with viseme](how-to-speech-synthesis-viseme.md) and [Viseme element](speech-synthesis-markup-structure.md#viseme-element). 
+
+[!INCLUDE [Language support include](includes/language-support/viseme.md)]
 
 ### Prebuilt neural voices
 

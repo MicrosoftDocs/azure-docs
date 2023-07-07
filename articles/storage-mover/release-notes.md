@@ -4,7 +4,7 @@ description: Read the release notes for the Azure Storage Mover service, which a
 services: storage-mover
 author: stevenmatthew
 ms.author: shaas
-ms.service: storage-mover
+ms.service: azure-storage-mover
 ms.topic: conceptual
 ms.date: 4/14/2022
 ---
@@ -19,6 +19,7 @@ The following Azure Storage Mover agent versions are supported:
 
 | Milestone                    | Version number | Release date       | Status                                                            |
 |------------------------------|----------------|--------------------|-------------------------------------------------------------------|
+| Refresh release              | 1.1.256        | June 14, 2023      | Supported                                                         |
 | General availability release | 1.0.229        | April 17, 2023     | Supported                                                         |
 | Public preview release       | 0.1.116        | September 15, 2022 | Functioning. No longer supported by Microsoft Azure Support teams.|
 
@@ -47,6 +48,27 @@ Azure Storage Mover is a hybrid service, which continuously introduces new featu
 
 > [!IMPORTANT]
 > Preview versions of the Storage Mover agent cannot update themselves. You must replace them manually by deploying the [latest available agent](https://aka.ms/StorageMover/agent).
+
+## 2023 June 14
+
+Refresh release notes for:
+
+- Service version: June 12, 2023
+- Agent version: 1.1.256
+
+### Migration scenarios
+Existing migration scenarios from the GA release remain unchanged. This release contains fixes to small issues and feature optimizations.
+
+### Service
+
+- Fixed a corner-case issue where the *mirror* copy mode may miss changes made in the source since the job was last ran.
+- When moving the storage mover resource in your resource group, an issue was fixed where some properties may have been left behind.
+- Error messages have been improved.
+
+## Agent
+
+- Fixed an issue with registration failing sometimes when a proxy server connection and a private link scope were configured at the same time.
+- Improved the security stance by omitting to transmit a specific user input to the service that is no longer necessary.
 
 ## 2023 April 17
 

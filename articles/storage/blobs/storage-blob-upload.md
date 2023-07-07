@@ -5,9 +5,8 @@ description: Learn how to upload a blob to your Azure Storage account using the 
 services: storage
 author: pauljewellmsft
 ms.author: pauljewell
-ms.date: 05/23/2023
+ms.date: 06/16/2023
 ms.service: storage
-ms.subservice: blobs
 ms.topic: how-to
 ms.devlang: csharp
 ms.custom: devx-track-csharp, devguide-csharp, devx-track-dotnet
@@ -34,7 +33,7 @@ You can use either of the following methods to upload data to a block blob:
 - [Upload](/dotnet/api/azure.storage.blobs.blobclient.upload)
 - [UploadAsync](/dotnet/api/azure.storage.blobs.blobclient.uploadasync)
 
-When using these upload methods, the client library may call either [Put Blob](/rest/api/storageservices/put-blob) or [Put Block](/rest/api/storageservices/put-block), depending on the overall size of the object and how the [data transfer options](#specify-data-transfer-options-on-upload) are set.
+When using these upload methods, the client library may call either [Put Blob](/rest/api/storageservices/put-blob) or a series of [Put Block](/rest/api/storageservices/put-block) calls followed by [Put Block List](/rest/api/storageservices/put-block-list). This behavior depends on the overall size of the object and how the [data transfer options](#specify-data-transfer-options-on-upload) are set.
 
 To open a stream in Blob Storage and write to that stream, use either of the following methods:
 
@@ -70,12 +69,6 @@ The following example uploads a block blob from a string:
 You can open a stream in Blob Storage and write to it. The following example creates a zip file in Blob Storage and writes files to it. Instead of building a zip file in local memory, only one file at a time is in memory. 
 
 :::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/BlobDevGuideBlobs/UploadBlob.cs" id="Snippet_UploadToStream":::
-
-## Upload a block blob by staging blocks and committing
-
-You can have greater control over how to divide uploads into blocks by manually staging individual blocks of data. When all of the blocks that make up a blob are staged, you can commit them to Blob Storage. You can use this approach to enhance performance by uploading blocks in parallel. 
-
-:::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/BlobDevGuideBlobs/UploadBlob.cs" id="Snippet_UploadBlocks":::
 
 ## Upload a block blob with configuration options
 
@@ -120,9 +113,15 @@ You can set a blob's access tier on upload by using the [BlobUploadOptions](/dot
 
 :::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/BlobDevGuideBlobs/UploadBlob.cs" id="Snippet_UploadWithAccessTier":::
 
-Setting the access tier is only allowed for block blobs. You can set the access tier for a block blob to `Hot`, `Cool`, `Cold`, or `Archive`.
+Setting the access tier is only allowed for block blobs. You can set the access tier for a block blob to `Hot`, `Cool`, `Cold`, or `Archive`. To set the access tier to `Cold`, you must use a minimum [client library](/dotnet/api/azure.storage.blobs) version of 12.15.0.
 
 To learn more about access tiers, see [Access tiers overview](access-tiers-overview.md).
+
+## Upload a block blob by staging blocks and committing
+
+You can have greater control over how to divide uploads into blocks by manually staging individual blocks of data. When all of the blocks that make up a blob are staged, you can commit them to Blob Storage. You can use this approach to enhance performance by uploading blocks in parallel. 
+
+:::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/BlobDevGuideBlobs/UploadBlob.cs" id="Snippet_UploadBlocks":::
 
 ## Resources
 

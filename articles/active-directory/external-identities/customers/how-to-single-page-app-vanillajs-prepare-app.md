@@ -8,13 +8,13 @@ manager: CelesteDG
 ms.author: owenrichards
 ms.service: active-directory
 ms.subservice: ciam
+ms.custom: devx-track-js
 ms.topic: tutorial
 ms.date: 06/09/2023
-
 #Customer intent: As a developer, I want to learn how to configure vanilla JavaScript single-page app (SPA) to sign in and sign out users with my Azure AD for customers tenant.
 ---
 
-# Tutorial: Prepare a vanilla JavaScript single-page app (SPA) for authentication in a customer tenant
+# Tutorial: Prepare a vanilla JavaScript single-page app for authentication in a customer tenant
 
 In the [previous article](./how-to-single-page-app-vanillajs-prepare-tenant.md), you registered an application and configured user flows in your Azure Active Directory (AD) for customers tenant. This article shows you how to create a vanilla JavaScript (JS) single-page app (SPA) and configure it to sign in and sign out users with your customer tenant.
 

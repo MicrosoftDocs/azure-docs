@@ -8,15 +8,15 @@ manager: CelesteDG
 ms.author: owenrichards
 ms.service: active-directory
 ms.subservice: ciam
+ms.custom: devx-track-js
 ms.topic: tutorial
 ms.date: 06/09/2023
-
 #Customer intent: As a developer, I want to learn how to configure vanilla JavaScript single-page app (SPA) to sign in and sign out users with my Azure Active Directory (AD) for customers tenant.
 ---
 
 # Tutorial: Handle authentication flows in a vanilla JavaScript single-page app
 
-In the [previous article](./how-to-single-page-app-vanillajs-prepare-app.md), you created a vanilla JavaScript (JS) single-page application (SPA) and a server to host it. This article shows you how to configure the application to authenticate and authorize users to access protected resources.
+In the [previous article](./how-to-single-page-app-vanillajs-prepare-app.md), you created a vanilla JavaScript (JS) single-page application (SPA) and a server to host it. This tutorial demonstrates how to configure the application to authenticate and authorize users to access protected resources.
 
 In this tutorial;
 
@@ -278,4 +278,4 @@ The application uses *authPopup.js* to handle the authentication flow when the u
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Sign in and sign out of the Vanilla JS SPA](./how-to-single-page-app-vanillajs-sign-in-sign-out.md)
+> [Sign in and sign out of the vanilla JS SPA](./how-to-single-page-app-vanillajs-sign-in-sign-out.md)

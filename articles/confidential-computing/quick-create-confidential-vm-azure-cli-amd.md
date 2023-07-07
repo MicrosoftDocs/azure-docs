@@ -82,7 +82,7 @@ Make a note of the `publicIpAddress` to use later.
 
 ## Create Confidential virtual machine using a Customer Managed Key
 
-Create a confidential [disk encryption set](../virtual-machines/linux/disks-enable-customer-managed-keys-cli.md) using [Azure Key Vault](../key-vault/general/quick-create-cli.md) or [Azure Key Vault managed Hardware Security Module (HSM)](../key-vault/managed-hsm/quick-create-cli.md). Based on your security and compliance needs you can choose either option. The following example uses Azure Key Vault Premium. 
+To create a confidential [disk encryption set](../virtual-machines/linux/disks-enable-customer-managed-keys-cli.md), you have two options: Using [Azure Key Vault](../key-vault/general/quick-create-cli.md) or [Azure Key Vault managed Hardware Security Module (HSM)](../key-vault/managed-hsm/quick-create-cli.md). Based on your security and compliance needs you can choose either option. However, it is important to note that the standard SKU is not supported. The following example uses Azure Key Vault Premium.
 
 1. Grant confidential VM Service Principal `Confidential VM Orchestrator` to tenant
 For this step you need to be a Global Admin or you need to have the User Access Administrator RBAC role.

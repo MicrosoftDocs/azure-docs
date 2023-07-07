@@ -141,7 +141,9 @@ az networkcloud clustermanager update \
 ## Delete Cluster Manager
 
 This command is used to Delete the provided Cluster Manager.
-A Cluster Manager that has an existing associated Network Fabric Controller, or any Clusters that reference this Cluster Manager may not be deleted
+
+> [!Warning]
+> A Cluster Manager that has an existing associated Network Fabric Controller, or any Clusters that reference this Cluster Manager may not be deleted.
 
 ```azurecli
 az networkcloud clustermanager delete \

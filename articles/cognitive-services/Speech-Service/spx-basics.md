@@ -1,7 +1,7 @@
 ---
 title: "Quickstart: The Speech CLI - Speech service"
 titleSuffix: Azure Cognitive Services
-description: In this Azure Speech CLI quickstart, you interact with speech to text, text to speech, and speech translation without having to write code.
+description: In this Azure AI Speech CLI quickstart, you interact with speech to text, text to speech, and speech translation without having to write code.
 services: cognitive-services
 author: eric-urban
 manager: nitinme
@@ -13,9 +13,9 @@ ms.author: eur
 ms.custom: mode-api
 ---
 
-# Quickstart: Get started with the Azure Speech CLI
+# Quickstart: Get started with the Azure AI Speech CLI
 
-In this article, you'll learn how to use the Azure Speech CLI (also called SPX) to access Speech services such as speech to text, text to speech, and speech translation, without having to write any code. The Speech CLI is production ready, and you can use it to automate simple workflows in the Speech service by using `.bat` or shell scripts.
+In this article, you'll learn how to use the Azure AI Speech CLI (also called SPX) to access Speech services such as speech to text, text to speech, and speech translation, without having to write any code. The Speech CLI is production ready, and you can use it to automate simple workflows in the Speech service by using `.bat` or shell scripts.
 
 This article assumes that you have working knowledge of the Command Prompt window, terminal, or PowerShell.
 
@@ -82,8 +82,8 @@ spx --% config @region --clear
 
 ## Basic usage
 
-> [!NOTE]
-> When you use the Speech CLI in a container, include the `--host` option. For example, run `spx recognize --host wss://localhost:5000/ --file myaudio.wav` to recognize speech from an audio file in a [speech to text container](speech-container-stt.md).
+> [!IMPORTANT]
+> When you use the Speech CLI in a container, include the `--host` option. You must also specify `--key none` to ensure that the CLI doesn't try to use a Speech key for authentication. For example, run `spx recognize --key none --host wss://localhost:5000/ --file myaudio.wav` to recognize speech from an audio file in a [speech to text container](speech-container-stt.md).
 
 This section shows a few basic SPX commands that are often useful for first-time testing and experimentation. Start by viewing the help that's built into the tool by running the following command:
 

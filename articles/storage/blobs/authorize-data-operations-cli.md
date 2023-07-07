@@ -4,12 +4,12 @@ titleSuffix: Azure Storage
 description: Specify how to authorize data operations against blob data with the Azure CLI. You can authorize data operations using Azure AD credentials, with the account access key, or with a shared access signature (SAS) token.
 author: tamram
 
-ms.service: storage
+ms.service: azure-storage
 ms.topic: how-to
 ms.date: 07/12/2021
 ms.author: tamram
 ms.reviewer: nachakra
-ms.subservice: common
+ms.subservice: storage-common-concepts
 ms.devlang: azurecli
 ms.custom: devx-track-azurecli
 ---

@@ -27,7 +27,7 @@ You can use Codex for a variety of tasks including:
 
 ## How to use the Codex models
 
-Here are a few examples of using Codex that can be tested in [Azure AI Studio's](https://oai.azure.com) playground with a deployment of a Codex series model, such as `code-davinci-002`.
+Here are a few examples of using Codex that can be tested in [Azure OpenAI Studio's](https://oai.azure.com) playground with a deployment of a Codex series model, such as `code-davinci-002`.
 
 ### Saying "Hello" (Python)
 

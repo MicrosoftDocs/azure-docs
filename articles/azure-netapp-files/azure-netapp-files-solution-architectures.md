@@ -12,7 +12,7 @@ ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 06/09/2023
+ms.date: 06/12/2023
 ms.author: anfdocs
 ---
 # Solution architectures using Azure NetApp Files
@@ -47,6 +47,7 @@ This section provides references for solutions for Linux OSS applications and da
 * [Oracle VM images and their deployment on Microsoft Azure: Shared storage configuration options](../virtual-machines/workloads/oracle/oracle-vm-solutions.md#shared-storage-configuration-options)
 * [Oracle On Azure IaaS Recommended Practices For Success](https://github.com/Azure/Oracle-Workloads-for-Azure/blob/main/Oracle%20on%20Azure%20IaaS%20Recommended%20Practices%20for%20Success.pdf)
 * [Run Your Most Demanding Oracle Workloads in Azure without Sacrificing Performance or Scalability](https://techcommunity.microsoft.com/t5/azure-architecture-blog/run-your-most-demanding-oracle-workloads-in-azure-without/ba-p/3264545)
+* [Oracle database performance on Azure NetApp Files multiple volumes](performance-oracle-multiple-volumes.md)
 * [Oracle database performance on Azure NetApp Files single volumes](performance-oracle-single-volumes.md)
 * [Benefits of using Azure NetApp Files with Oracle Database](solutions-benefits-azure-netapp-files-oracle-database.md)
 * [Oracle Databases on Microsoft Azure Using Azure NetApp Files](https://www.netapp.com/media/17105-tr4780.pdf)
@@ -57,11 +58,12 @@ This section provides references for solutions for Linux OSS applications and da
 ### Product Lifecycle Management
 
 * [Use Teamcenter PLM with Azure NetApp Files](/azure/architecture/example-scenario/manufacturing/teamcenter-plm-netapp-files)
+* [Siemens Teamcenter baseline architecture](/azure/architecture/example-scenario/manufacturing/teamcenter-baseline)
 
 ### Machine Learning
 *	[Cloudera Machine Learning](https://docs.cloudera.com/machine-learning/cloud/requirements-azure/topics/ml-requirements-azure.html)
-*	[Distributed training in Azure: Lane detection - Solution design](https://www.netapp.com/media/32427-tr-4896-design.pdf)
-*	[Distributed training in Azure: Click-Through Rate Prediction – Solution design](https://docs.netapp.com/us-en/netapp-solutions/ai/aks-anf_introduction.html)
+* [Distributed ML Training for Lane Detection, powered by NVIDIA and Azure NetApp Files](https://techcommunity.microsoft.com/t5/azure-architecture-blog/distributed-ml-training-for-lane-detection-powered-by-nvidia-and/ba-p/3848255)
+* [Distributed ML Training for Click-Through Rate Prediction with NVIDIA, Dask and Azure NetApp Files](https://techcommunity.microsoft.com/t5/azure-architecture-blog/distributed-ml-training-for-click-through-rate-prediction-with/ba-p/3848262)
 
 ### Education
 
@@ -142,6 +144,7 @@ This section provides references to SAP on Azure solutions.
 * [SAP Oracle 19c System Refresh Guide on Azure VMs using Azure NetApp Files Snapshots with AzAcSnap](https://techcommunity.microsoft.com/t5/running-sap-applications-on-the/sap-oracle-19c-system-refresh-guide-on-azure-vms-using-azure/ba-p/3708172)
 * [IBM Db2 Azure Virtual Machines DBMS deployment for SAP workload using Azure NetApp Files](../virtual-machines/workloads/sap/dbms_guide_ibm.md#using-azure-netapp-files)
 * [DB2 Installation Guide on Azure NetApp Files](https://techcommunity.microsoft.com/t5/running-sap-applications-on-the/db2-installation-guide-on-anf/ba-p/3709437)
+* [SAP ASE 16.0 on Azure NetApp Files for SAP Workloads on SLES15](https://techcommunity.microsoft.com/t5/running-sap-applications-on-the/sap-ase-16-0-on-azure-netapp-files-for-sap-workloads-on-sles15/ba-p/3729496)
 
 ### SAP IQ-NLS
 
@@ -150,11 +153,6 @@ This section provides references to SAP on Azure solutions.
 
 ### SAP tech community and blog posts 
 
-* [Azure NetApp Files – SAP HANA backup in seconds](https://blog.netapp.com/azure-netapp-files-sap-hana-backup-in-seconds/)
-* [Azure NetApp Files – Restore your HANA database from a snapshot backup](https://blog.netapp.com/azure-netapp-files-backup-sap-hana)
-* [Azure NetApp Files – SAP HANA offloading backup with Cloud Sync](https://blog.netapp.com/azure-netapp-files-sap-hana)
-* [Speed up your SAP HANA system copies using Azure NetApp Files](https://blog.netapp.com/sap-hana-faster-using-azure-netapp-files/)
-* [Cloud Volumes ONTAP and Azure NetApp Files: SAP HANA system migration made easy](https://blog.netapp.com/cloud-volumes-ontap-and-azure-netapp-files-sap-hana-system-migration-made-easy/)
 * [Architectural Decisions to maximize ANF investment in HANA N+M Scale-Out Architecture - Part 1](https://techcommunity.microsoft.com/t5/running-sap-applications-on-the/architectural-decisions-to-maximize-anf-investment-in-hana-n-m/ba-p/2078737)
 * [Architectural Decisions to maximize ANF investment in HANA N+M Scale-Out Architecture - Part 2](https://techcommunity.microsoft.com/t5/running-sap-applications-on-the/architectural-decisions-to-maximize-anf-investment-in-hana-n-m/ba-p/2117130)
 * [Architectural Decisions to maximize ANF investment in HANA N+M Scale-Out Architecture - Part 3](https://techcommunity.microsoft.com/t5/running-sap-applications-on-the/architectural-decisions-to-maximize-anf-investment-in-hana-n-m/ba-p/2215948)
@@ -165,7 +163,7 @@ This section provides references to SAP on Azure solutions.
 
 * [Attach Azure NetApp Files datastores to Azure VMware Solution hosts](../azure-vmware/attach-azure-netapp-files-to-azure-vmware-solution-hosts.md)
 * [Attach Azure NetApp Files to Azure VMware Solution VMs - Guest OS Mounts](../azure-vmware/netapp-files-with-azure-vmware-solution.md)
-* [Disaster Recovery with Azure NetApp Files, JetStream DR and Azure VMware Solution](../azure-vmware/deploy-disaster-recovery-using-jetstream.md#disaster-recovery-with-azure-netapp-files-jetstream-dr-and-azure-vmware-solution)
+* [Deploy disaster recovery using JetStream DR software](../azure-vmware/deploy-disaster-recovery-using-jetstream.md#disaster-recovery-with-azure-netapp-files-jetstream-dr-and-azure-vmware-solution)
 * [Disaster Recovery with Azure NetApp Files, JetStream DR and AVS (Azure VMware Solution)](https://www.jetstreamsoft.com/portal/jetstream-knowledge-base/disaster-recovery-with-azure-netapp-files-jetstream-dr-and-avs-azure-vmware-solution/) - Jetstream
 * [Enable App Volume Replication for Horizon VDI on Azure VMware Solution using Azure NetApp Files](https://techcommunity.microsoft.com/t5/azure-migration-and/enable-app-volume-replication-for-horizon-vdi-on-azure-vmware/ba-p/3798178)
 
