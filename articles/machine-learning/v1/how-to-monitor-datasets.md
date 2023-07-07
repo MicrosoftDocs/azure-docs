@@ -16,7 +16,7 @@ ms.custom: UpdateFrequency5, data4ml, contperf-fy21q2, sdkv1, event-tier1-build-
 
 # Detect data drift (preview) on datasets
 
-[!INCLUDE [sdk v1](../../../includes/machine-learning-sdk-v1.md)]
+[!INCLUDE [sdk v1](../includes/machine-learning-sdk-v1.md)]
 
 Learn how to monitor data drift and set alerts when drift is high.  
 
@@ -106,7 +106,7 @@ The target dataset needs the `timeseries` trait set on it by specifying the time
 # [Python SDK](#tab/python)
 <a name="sdk-dataset"></a>
 
-[!INCLUDE [sdk v1](../../../includes/machine-learning-sdk-v1.md)]
+[!INCLUDE [sdk v1](../includes/machine-learning-sdk-v1.md)]
 
 The [`Dataset`](/python/api/azureml-core/azureml.data.tabulardataset#with-timestamp-columns-timestamp-none--partition-timestamp-none--validate-false----kwargs-) class [`with_timestamp_columns()`](/python/api/azureml-core/azureml.data.tabulardataset#with-timestamp-columns-timestamp-none--partition-timestamp-none--validate-false----kwargs-)  method defines the time stamp column for the dataset.
 
@@ -165,7 +165,7 @@ Create a dataset monitor to detect and alert to data drift on a new dataset.  Us
 # [Python SDK](#tab/python)
 <a name="sdk-monitor"></a>
 
-[!INCLUDE [sdk v1](../../../includes/machine-learning-sdk-v1.md)]
+[!INCLUDE [sdk v1](../includes/machine-learning-sdk-v1.md)]
 
 See the [Python SDK reference documentation on data drift](/python/api/azureml-datadrift/azureml.datadrift) for full details. 
 
