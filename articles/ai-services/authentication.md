@@ -22,7 +22,7 @@ Each request to an Azure AI service must include an authentication header. This 
 
 ## Prerequisites
 
-Before you make a request, you need an Azure account and an Azure AI services subscription. If you already have an account, go ahead and skip to the next section. If you don't have an account, we have a guide to get you set up in minutes: [Create a Azure AI services account for Azure](cognitive-services-apis-create-account.md).
+Before you make a request, you need an Azure account and an Azure AI services subscription. If you already have an account, go ahead and skip to the next section. If you don't have an account, we have a guide to get you set up in minutes: [Create an Azure AI services account for Azure](cognitive-services-apis-create-account.md).
 
 You can get your subscription key from the [Azure portal](cognitive-services-apis-create-account.md#get-the-keys-for-your-resource) after [creating your account](https://azure.microsoft.com/free/cognitive-services/).
 
@@ -56,7 +56,7 @@ curl -X POST 'https://api.cognitive.microsofttranslator.com/translate?api-versio
 --data-raw '[{ "text": "How much for the cup of coffee?" }]' | json_pp
 ```
 
-The following video demonstrates using a Azure AI services key.
+The following video demonstrates using an Azure AI services key.
 
 ## Authenticate with a multi-service subscription key
 
