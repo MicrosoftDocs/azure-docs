@@ -38,6 +38,118 @@ You also need:
 - Your Azure account and the subscription ID of the Azure Operator Nexus cluster deployment.
 - The `custom location` resource ID of your Azure Operator Nexus cluster.
 
+## Create networks for virtual machine workloads
+
+The following sections explain the steps to create VMs for VNF workloads.
+
+### Create isolation domains for VM workloads
+
+Isolation domains enable creation of layer 2 (L2) and layer 3 (L3) connectivity between network functions running on Azure Operator Nexus. This connectivity enables inter-rack and intra-rack communication between the workloads.
+You can create as many L2 and L3 isolation domains as needed.
+
+You should have the following information already:
+
+- VLAN and subnet info for each L3 network.
+- Which networks need to talk to each other. (Remember to put VLANs and subnets that need to talk to each other into the same L3 isolation domain.)
+- BGP peering and network policy information for your L3 isolation domains.
+- VLANs for all your L2 networks.
+- VLANs for all your trunked networks.
+- MTU values for your networks.
+
+#### L2 isolation domain
+
+[!INCLUDE [L2 isolation domain](./includes/l2-isolation-domain.md)]
+
+#### L3 isolation domain
+
+[!INCLUDE [L3 isolation domain](./includes/l3-isolation-domain.md)]
+
+### Create networks for VM workloads
+
+The following sections describe how to create these networks for VM workloads:
+
+- Layer 2 network
+- Layer 3 network
+- Trunked network
+- Cloud services network
+
+#### Create an L2 network
+
+Create an L2 network, if necessary, for your VM. You can repeat the instructions for each required L2 network.
+
+Gather the resource ID of the L2 isolation domain that you [created](#l2-isolation-domain) to configure the VLAN for this network.
+
+Here's an example Azure CLI command:
+
+```azurecli
+  az networkcloud l2network create --name "<YourL2NetworkName>" \
+    --resource-group "<YourResourceGroupName>" \
+    --subscription "<YourSubscription>" \
+    --extended-location name="<ClusterCustomLocationId>" type="CustomLocation" \
+    --location "<ClusterAzureRegion>" \
+    --l2-isolation-domain-id "<YourL2IsolationDomainId>"
+```
+
+#### Create an L3 network
+
+Create an L3 network, if necessary, for your VM. Repeat the instructions for each required L3 network.
+
+You need:
+
+- The `resourceID` value of the L3 isolation domain that you [created](#l3-isolation-domain) to configure the VLAN for this network.
+- The `ipv4-connected-prefix` value, which must match the `i-pv4-connected-prefix` value that's in the L3 isolation domain.
+- The `ipv6-connected-prefix` value, which must match the `i-pv6-connected-prefix` value that's in the L3 isolation domain.
+- The `ip-allocation-type` value, which can be `IPv4`, `IPv6`, or `DualStack` (default).
+- The `vlan` value, which must match what's in the L3 isolation domain.
+
+```azurecli
+  az networkcloud l3network create --name "<YourL3NetworkName>" \
+    --resource-group "<YourResourceGroupName>" \
+    --subscription "<YourSubscription>" \
+    --extended-location name="<ClusterCustomLocationId>" type="CustomLocation" \
+    --location "<ClusterAzureRegion>" \
+    --ip-allocation-type "<YourNetworkIpAllocation>" \
+    --ipv4-connected-prefix "<YourNetworkIpv4Prefix>" \
+    --ipv6-connected-prefix "<YourNetworkIpv6Prefix>" \
+    --l3-isolation-domain-id "<YourL3IsolationDomainId>" \
+    --vlan <YourNetworkVlan>
+```
+
+#### Create a trunked network
+
+Create a trunked network, if necessary, for your VM. Repeat the instructions for each required trunked network.
+
+Gather the `resourceId` values of the L2 and L3 isolation domains that you created earlier to configure the VLANs for this network. You can include as many L2 and L3 isolation domains as needed.
+
+```azurecli
+  az networkcloud trunkednetwork create --name "<YourTrunkedNetworkName>" \
+    --resource-group "<YourResourceGroupName>" \
+    --subscription "<YourSubscription>" \
+    --extended-location name="<ClusterCustomLocationId>" type="CustomLocation" \
+    --location "<ClusterAzureRegion>" \
+    --interface-name "<YourNetworkInterfaceName>" \
+    --isolation-domain-ids \
+      "<YourL3IsolationDomainId1>" \
+      "<YourL3IsolationDomainId2>" \
+      "<YourL2IsolationDomainId1>" \
+      "<YourL2IsolationDomainId2>" \
+      "<YourL3IsolationDomainId3>" \
+    --vlans <YourVlanList>
+```
+
+#### Create a cloud services network
+
+Your VM requires at least one cloud services network. You need the egress endpoints that you want to add to the proxy for your VM to access. This list should include any domains needed to pull images or access data, such as `.azurecr.io` or `.docker.io`.
+
+```azurecli
+  az networkcloud cloudservicesnetwork create --name "<YourCloudServicesNetworkName>" \
+    --resource-group "<YourResourceGroupName >" \
+    --subscription "<YourSubscription>" \
+    --extended-location name="<ClusterCustomLocationId >" type="CustomLocation" \
+    --location "<ClusterAzureRegion>" \
+    --additional-egress-endpoints "[{\"category\":\"<YourCategory >\",\"endpoints\":[{\"<domainName1 >\":\"< endpoint1 >\",\"port\":<portnumber1 >}]}]"
+```
+
 ## Nexus Kubernetes cluster availability zone
 
 When you're creating a Nexus Kubernetes cluster, you can schedule the cluster onto specific racks or distribute it evenly across multiple racks. This technique can improve resource utilization and fault tolerance.
