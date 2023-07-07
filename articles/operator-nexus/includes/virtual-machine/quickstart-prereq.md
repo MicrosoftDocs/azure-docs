@@ -32,7 +32,7 @@ ms.service: azure-operator-nexus
       "tags": null
     }
     ```
-* To deploy a Bicep file or ARM template, you need write access on the resources you're deploying and access to all operations on the Microsoft.Resources/deployments resource type. For example, to deploy a cluster, you need Microsoft.NetworkCloud/kubernetesclusters/write and Microsoft.Resources/deployments/* permissions. For a list of roles and permissions, see [Azure built-in roles](../../../role-based-access-control/built-in-roles.md).
+* To deploy a Bicep file or ARM template, you need write access on the resources you're deploying and access to all operations on the Microsoft.Resources/deployments resource type. For example, to deploy a cluster, you need Microsoft.NetworkCloud/virtualMachines/write and Microsoft.Resources/deployments/* permissions. For a list of roles and permissions, see [Azure built-in roles](../../../role-based-access-control/built-in-roles.md).
 * You need the `custom location` resource ID of your Azure Operator Nexus cluster.
 * You need to create various networks according to your specific workload requirements, and it's essential to have the appropriate IP addresses available for your workloads. To ensure a smooth implementation, it's advisable to consult the relevant support teams for assistance.
 
