@@ -6,7 +6,7 @@ description: In this quickstart, you'll learn how to add messaging to your exist
 author: sloanster
 services: azure-communication-services
 ms.date: 05/04/2023
-ms.topic: quickstart
+ms.topic: include
 ms.service: azure-communication-services
 ms.subservice: calling
 ---
