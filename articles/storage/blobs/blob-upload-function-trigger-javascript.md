@@ -12,7 +12,7 @@ ms.custom: devx-track-js, devx-track-azurecli
 
 # JavaScript Tutorial: Upload and analyze a file with Azure Functions and Blob Storage
 
-In this tutorial, you'll learn how to upload an image to Azure Blob Storage and process it using Azure Functions, Computer Vision, and Cosmos DB. You'll also learn how to implement Azure Function triggers and bindings as part of this process.  Together, these services will analyze an uploaded image that contains text, extract the text out of it, and then store the text in a database row for later analysis or other purposes.
+In this tutorial, you'll learn how to upload an image to Azure Blob Storage and process it using Azure Functions, Computer Vision, and Cosmos DB. You'll also learn how to implement Azure Function triggers and bindings as part of this process.  Together, these services analyze an uploaded image that contains text, extract the text out of it, and then store the text in a database row for later analysis or other purposes.
 
 Azure Blob Storage is Microsoft's massively scalable object storage solution for the cloud. Blob Storage is designed for storing images and documents, streaming media files, managing backup and archive data, and much more.  You can read more about Blob Storage on the [overview page](./storage-blobs-introduction.md).
 
@@ -21,7 +21,7 @@ Azure Cosmos DB is a fully managed NoSQL and relational database for modern app 
 Azure Functions is a serverless computer solution that allows you to write and run small blocks of code as highly scalable, serverless, event driven functions. You can read more about Azure Functions on the [overview page](../../azure-functions/functions-overview.md).
 
 
-In this tutorial, you'll learn how to:
+In this tutorial, learn how to:
 
 > [!div class="checklist"]
 > * Upload images and files to Blob Storage
@@ -29,7 +29,7 @@ In this tutorial, you'll learn how to:
 > * Use Cognitive Services to analyze an image
 > * Write data to Cosmos DB using Azure Function output bindings
 
-:::image type="content" source="./media/blob-upload-storage-function/functions-storage-database-architectural-diagram.png" alt-text="Architectural diagram showing a image blob is added to Blob Storage, then analyzed by an Azure Function, with the analysis inserted into a Cosmos D B.":::
+:::image type="content" source="./media/blob-upload-storage-function/functions-storage-database-architectural-diagram.png" alt-text="Architectural diagram showing an image blob is added to Blob Storage, then analyzed by an Azure Function, with the analysis inserted into a Cosmos D B.":::
 
 ## Prerequisites
 
@@ -125,7 +125,7 @@ The last step is to retrieve our connection string for the storage account.
 
     :::image type="content" source="./media/blob-upload-storage-function/storage-account-access-small.png" alt-text="A screenshot showing how to access the storage container." lightbox="media/blob-upload-storage-function/storage-account-access.png":::
     
-These values will be necessary when we need to connect our Azure Function to this storage account.
+These values are necessary when we need to connect our Azure Function to this storage account.
 
 ### [Azure CLI](#tab/storage-resource-azure-cli)
 
@@ -134,16 +134,16 @@ Azure CLI commands can be run in the [Azure Cloud Shell](https://shell.azure.com
 1. To create the storage account and container, we can run the CLI commands seen below.
 
     ```azurecli-interactive
-    az group create --location eastus --name msdocs-storage-function \
+    az group create --location eastus2 --name msdocs-storage-function \
     
-    az storage account create --name msdocsstorageaccount --resource-group msdocs-storage-function -l eastus --sku Standard_LRS \
+    az storage account create --name msdocsstorageaccount --resource-group msdocs-storage-function -l eastus2 --sku Standard_LRS \
     
     az storage container create --name images --account-name msdocsstorageaccount --resource-group msdocs-storage-function
     ```
 
     You may need to wait a few moments for Azure to provision these resources.
 
-2. After the commands complete, we also need to retrieve the connection string for the storage account.  The connection string will be used later to connect our Azure Function to the storage account.
+2. After the commands complete, we also need to retrieve the connection string for the storage account.  The connection string is used later to connect our Azure Function to the storage account.
 
     ```azurecli-interactive
     az storage account show-connection-string -g msdocs-storage-function -n msdocsstorageaccount
@@ -154,7 +154,7 @@ Azure CLI commands can be run in the [Azure Cloud Shell](https://shell.azure.com
 ---
 
 ## Create the Computer Vision service account
-Create the Computer Vision service account that will process our uploaded files.  Computer Vision is part of Azure Cognitive Services and offers various features for extracting data out of images.  You can learn more about Computer Vision on the [overview page](../../cognitive-services/computer-vision/overview.md).
+Create the Computer Vision service account that processes our uploaded files.  Computer Vision is part of Azure Cognitive Services and offers various features for extracting data out of images.  You can learn more about Computer Vision on the [overview page](../../cognitive-services/computer-vision/overview.md).
 
 ### [Azure portal](#tab/computer-vision-azure-portal)
 
@@ -173,7 +173,7 @@ Create the Computer Vision service account that will process our uploaded files.
 
     :::image type="content" lightbox="./media/blob-upload-storage-function/computer-vision-create.png" source="./media/blob-upload-storage-function/computer-vision-create-small.png" alt-text="A screenshot showing how to create a new Computer Vision service." :::
      
-4) Select **Review + Create** at the bottom. Azure will take a moment validate the information you entered.  Once the settings are validated, choose **Create** and Azure will begin provisioning the Computer Vision service, which might take a moment.
+4) Select **Review + Create** at the bottom. Azure takes a moment validate the information you entered.  Once the settings are validated, choose **Create** and Azure will begin provisioning the Computer Vision service, which might take a moment.
 
 5) When the operation has completed, select **Go to Resource**.
 
@@ -327,13 +327,13 @@ Once you've downloaded and opened the project, there are a few essential concept
 |Concept|Purpose|
 |--|--|
 |Function|The Azure Function is defined by both the function code and the bindings. These are in [./src/functions/process-blobs.js](https://github.com/Azure-Samples/msdocs-storage-bind-function-service/blob/main/javascript-v4/functions/process-blobs.js). |
-|Triggers and bindings|The triggers and bindings indicate that data which is expected into or out of the function and which service is going to send or receive that data. 
+|Triggers and bindings|The triggers and bindings indicate that data, which is expected into or out of the function and which service is going to send or receive that data. 
 
 Triggers and bindings used in this tutorial to expediate the development process by removing the need to write code to connect to services. 
 
 ### Input Storage Blob trigger
 
-The code which specifies that the function is triggered when a blob is uploaded to the **images** container follows. The function is triggered on any blob name including hierarchical folders.
+The code, which specifies that the function is triggered when a blob is uploaded to the **images** container follows. The function is triggered on any blob name including hierarchical folders.
 
 ```javascript
 
@@ -373,7 +373,7 @@ app.storageBlob('process-blob-image', {
                 type: 'image',
                 blobUrl,
                 blobSize: blob.length,
-                ...analysis,
+                analysis,
                 trigger: context.triggerMetadata
             }
 
@@ -390,7 +390,7 @@ app.storageBlob('process-blob-image', {
 ```
 
 For the container in this article, the following required properties are:
-* `id`: the id required for Cosmos DB to create a new row. 
+* `id`: the ID required for Cosmos DB to create a new row. 
 * `/type`: the partition key specified with the container was created.
 
 * **output.cosmosDB** - The **Cosmos DB** output trigger is used to insert the result of the function to Cosmos DB.  
@@ -400,7 +400,7 @@ For the container in this article, the following required properties are:
 
 ## Azure Function code
 
-The following is the full funtion code.
+The following is the full function code.
 
 :::code language="javascript" source="~/msdocs-storage-bind-function-service/javascript-v4/src/functions/process-blob.js":::
 
@@ -433,8 +433,6 @@ Although the Azure Function code runs locally, it connects to the cloud-based se
 
 ## Create Azure Functions app
 
-### [Visual Studio Code](#tab/storage-resource-visual-studio-code)
-
 You're now ready to deploy the application to Azure using a Visual Studio Code extension.  
 
 1. In Visual Studio Code, select <kbd>Shift</kbd> + <kbd>Alt</kbd> + <kbd>A</kbd> to open the **Azure** explorer.
@@ -455,29 +453,17 @@ You're now ready to deploy the application to Azure using a Visual Studio Code e
 
 1. Azure provisions the requested resources, which will take a few moments to complete.
 
-### [Azure CLI](#tab/storage-resource-azure-cli)
-
----
-
 ## Deploy Azure Functions app
-
-### [Visual Studio Code](#tab/storage-resource-visual-studio-code)
 
 1. When the previous resource creation process finishes, right-click the new resource in the **Functions** section of the Azure explorer, and select **Deploy to Function App**.
 1. If asked **Are you sure you want to deploy...**, select **Deploy**.
-1. When the process completes, a notification appears which a choice which includes **Upload settings**. Select that option. This copies the values from your local.settings.json file into your Azure Function app. If the notification disappeared before you could select it, continue to the next section. 
+1. When the process completes, a notification appears which a choice, which includes **Upload settings**. Select that option. This copies the values from your local.settings.json file into your Azure Function app. If the notification disappeared before you could select it, continue to the next section. 
 
-### [Azure CLI](#tab/storage-resource-azure-cli)
-
----
 
 ## Add app settings for Storage and Computer Vision
 If you selected **Upload settings** in the notification, skip this section.
 
 The Azure Function was deployed successfully, but it can't connect to our Storage account and Computer Vision services yet. The correct keys and connection strings must first be added to the configuration settings of the Azure Functions app.
-
-### [Visual Studio Code](#tab/storage-resource-visual-studio-code)
-
 
 1. Find your resource in the **Functions** section of the Azure explorer, right-click **Application Settings**, and select **Add New Setting**.
 1. Enter a new app setting for the following secrets. Copy and paste your secret values from your local project in the `local.settings.json` file.
@@ -491,10 +477,6 @@ The Azure Function was deployed successfully, but it can't connect to our Storag
     |ComputerVisionEndPoint|
     |CosmosDBConnection|
 
-### [Azure CLI](#tab/storage-resource-azure-cli)
-
----
-
 
 All of the required environment variables to connect our Azure function to different services are now in place.
 
@@ -502,9 +484,6 @@ All of the required environment variables to connect our Azure function to diffe
 ## Upload an image to Blob Storage
 
 You're now ready to test out our application! You can upload a blob to the container, and then verify that the text in the image was saved to Cosmos DB.
-
-### [Visual Studio Code](#tab/storage-resource-visual-studio-code)
-
 
 1. In the Azure explorer in Visual Studio Code, find and expand your Storage resource in the **Storage** section.
 1. Expand **Blob Containers** and right-click your container name, `images`, then select **Upload files**.
@@ -518,13 +497,55 @@ Next, you can verify that the upload triggered the Azure Function, and that the 
 
 1. In Visual Studio Code, in the Azure Explorer, under the Azure Cosmos DB node, select your resource, and expand it to find your database, **StorageTutorial**.
 1. Expand the database node.
-1. An **analysis** container should now be available.  Click on the container's **Documents** node to preview the data inside.  You should see an entry for the processed image text of an uploaded file.  
+1. An **analysis** container should now be available.  Select on the container's **Documents** node to preview the data inside.  You should see an entry for the processed image text of an uploaded file.  
+
+    ```json
+    {
+        "id": "3cf7d6f0-a362-421e-9482-3020d7d1e689",
+        "type": "image",
+        "blobUrl": "https://msdocsstoragefunction.blob.core.windows.net/images/presentation.png",
+        "blobSize": 1383614,
+        "analysis": {  ... details removed for brevity ...
+            "categories": [],
+            "adult": {},
+            "imageType": {},
+            "tags": [],
+            "description": {},
+            "faces": [],
+            "objects": [],
+            "requestId": "eead3d60-9905-499c-99c5-23d084d9cac2",
+            "metadata": {},
+            "modelVersion": "2021-05-01"
+        },
+        "trigger": { 
+            "blobTrigger": "images/presentation.png",
+            "uri": "https://msdocsstorageaccount.blob.core.windows.net/images/presentation.png",
+            "properties": {
+                "lastModified": "2023-07-07T15:32:38+00:00",
+                "createdOn": "2023-07-07T15:32:38+00:00",
+                "metadata": {},
+                ... removed for brevity ...
+                "contentLength": 1383614,
+                "contentType": "image/png",
+                "accessTier": "Hot",
+                "accessTierInferred": true,
+            },
+            "metadata": {},
+            "name": "presentation.png"
+        },
+        "_rid": "YN1FAKcZojEFAAAAAAAAAA==",
+        "_self": "dbs/YN1FAA==/colls/YN1FAKcZojE=/docs/YN1FAKcZojEFAAAAAAAAAA==/",
+        "_etag": "\"7d00f2d3-0000-0700-0000-64a830210000\"",
+        "_attachments": "attachments/",
+        "_ts": 1688743969
+    }
+    ```
 
 Congratulations! You succeeded in processing an image that was uploaded to Blob Storage using Azure Functions and Computer Vision.
 
 ## Troubleshooting
 
-Please use the following table to help troubleshoot issues during this procedure.
+Use the following table to help troubleshoot issues during this procedure.
 
 |Issue|Resolution|
 |--|--|
