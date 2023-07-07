@@ -32,19 +32,9 @@ A single NAT gateway can scale up to 16 IP addresses. Each NAT gateway public IP
 
 NAT gateway dynamically allocates SNAT ports across a subnet's private resources, such as virtual machines. All available SNAT ports are used on-demand by any virtual machine in subnets configured with NAT gateway.
 
-<!--
-NAT gateway on-demand outbound SNAT diagram
-:::image type="content" source="./media/folder/image.png" alt-text="Alt text here.":::
--->
-
 Preallocation of SNAT ports to each virtual machine is required for other SNAT methods. This preallocation of SNAT ports can cause SNAT port exhaustion on some virtual machines while others still have available SNAT ports for connecting outbound.
 
 With NAT gateway, preallocation of SNAT ports isn't required, which means SNAT ports aren't left unused by virtual machines not actively needing them.
-
-<!--
-Exaustion scenario diagram
-:::image type="content" source="./media/folder/image.png" alt-text="Alt text here.":::
--->
 
 After a SNAT port is released, it's available for use by any virtual machine within subnets configured with NAT gateway. On-demand allocation allows dynamic and divergent workloads on subnets to use SNAT ports as needed. As long as SNAT ports are available, SNAT flows succeed.
 
@@ -52,19 +42,9 @@ After a SNAT port is released, it's available for use by any virtual machine wit
 
 NAT gateway selects a SNAT port at random out of the available inventory of ports to make new outbound connections. If NAT gateway doesn't find any available SNAT ports, then it reuses a SNAT port. The same SNAT port can be used to connect to multiple different destinations at the same time.
 
-<!--
-SNAT port reuse diagram
-:::image type="content" source="./media/folder/image.png" alt-text="Alt text here.":::
--->
-
 A SNAT port can be reused to connect to the same destination endpoint. Before the port is reused, NAT gateway places a SNAT port reuse timer for cool down on the port after the connection closes.
 
 The SNAT port reuse down timer helps prevent ports from being selected too quickly for connecting to the same destination. This process is helpful when destination endpoints have firewalls or other services configured that place a cool down timer on source ports. A SNAT port may be placed on a different length port reuse timer for cool down depending on how the previous connection closed. To learn more, see [Port Reuse Timers](/azure/nat-gateway/nat-gateway-resource#timers).
-
-<!--
-SNAT port cool down diagram
-:::image type="content" source="./media/folder/image.png" alt-text="Alt text here.":::
--->
 
 ## Example SNAT flows for NAT gateway
 
