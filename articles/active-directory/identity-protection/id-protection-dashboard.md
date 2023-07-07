@@ -48,10 +48,10 @@ As you implement more security measures such as risk-based policies, your tenant
 
 | Metric | Metric definition | Refresh frequency | Where to view detail |
 | --- | --- | --- | --- |
-| Number of attacks blocked | Number of attacks blocked for this tenant on each day. <br><br> An attack is considered blocked if the risky sign-in was interrupted by any access policy. The access control required by the policy should block the attacker from signing in, therefore blocking the attack. | Every 24 hours. | View the risk detections that determined the attacks in the Risk detections report, filter “Risk state” by: <br><br> - Remediated <br>- Dismissed <br>- Confirmed safe |
-| Number of users protected | Number of users in this tenant whose risk state changed from **At risk** to **Remediated** or **Dismissed** on each day. <br><br> A **Remediated** risk state indicates that the user has self-remediated their user risk by completing MFA or secure password change, and their account is therefore protected. <br><br> A **Dismissed** risk state indicates that an admin has dismissed the user’s risk because they identified the user’s account to be safe. | Every 24 hours. | View users protected in the Risky users report, filter “Risk state” by: <br><br> - Remediated <br> - Dismissed |
-| Mean time your users take to self-remediate their risks | Average time for the Risk state of risky users in your tenant to change from **At risk** to **Remediated**. <br><br> A user’s risk state changes to **Remediated** when they self-remediated their user risk through MFA or secure password change. <br><br> To reduce the self-remediation time in your tenant, deploy risk-based CA policies. | Every 24 hours. | View remediated users in the Risky users report, filter “Risk state” by: <br><br> - Remediated |
-| Number of new high-risk users detected | Number of new risky users with risk level **High** detected on each day. | Every 24 hours. | View high-risk users in the Risky users report, filter risk level by <br><br> - “High” |
+| Number of attacks blocked | Number of attacks blocked for this tenant on each day. <br><br> An attack is considered blocked if the risky sign-in was interrupted by any access policy. The access control required by the policy should block the attacker from signing in, therefore blocking the attack. | Every 24 hours. | View the risk detections that determined the attacks in the **Risk detections report**, filter “Risk state” by: <br><br>- **Remediated** <br>- **Dismissed** <br>-** Confirmed safe** |
+| Number of users protected | Number of users in this tenant whose risk state changed from **At risk** to **Remediated** or **Dismissed** on each day. <br><br> A **Remediated** risk state indicates that the user has self-remediated their user risk by completing MFA or secure password change, and their account is therefore protected. <br><br> A **Dismissed** risk state indicates that an admin has dismissed the user’s risk because they identified the user’s account to be safe. | Every 24 hours. | View users protected in the **Risky users report**, filter “Risk state” by: <br><br>- **Remediated** <br>- **Dismissed** |
+| Mean time your users take to self-remediate their risks | Average time for the Risk state of risky users in your tenant to change from **At risk** to **Remediated**. <br><br> A user’s risk state changes to **Remediated** when they self-remediated their user risk through MFA or secure password change. <br><br> To reduce the self-remediation time in your tenant, deploy risk-based CA policies. | Every 24 hours. | View remediated users in the Risky users report, filter “Risk state” by: <br><br>- Remediated |
+| Number of new high-risk users detected | Number of new risky users with risk level **High** detected on each day. | Every 24 hours. | View high-risk users in the Risky users report, filter risk level by <br><br>- “High” |
 
 Data aggregation for the following three metrics started on June 22, 2023, so these metrics are available from that date. We're working on updating the graph to reflect that.
 
@@ -146,15 +146,15 @@ We’ve also introduced new Microsoft Entra ID Protection recommendations for cu
 
 ![Screenshot showing recommendations in the dashboard](./media/id-protection-dashboard/microsoft-entra-id-protection-dashboard-recommendations.png)
 
-Common attacks that are seen like, password spray, leaked credentials in your tenant, and mass access to sensitive files can inform you that there was a potential breach. Recommendations might surface based on these detections to enable a sign-in risk-based policy in Conditional Access and require the user to complete multifactor authentication on their next sign-in attempt.
+Common attacks that are seen, like password spray, leaked credentials in your tenant, and mass access to sensitive files can inform you that there was a potential breach. In the previous screenshot, the example **Identity Protection detected at least 20 users with leaked credentials in your tenant** the recommended action in this case would be to create a Conditional Access policy requiring secure password reset on risky users.
 
-We provide unique recommendations that trigger based on what Microsoft Entra ID Protection detects in your tenant. The number and frequency of recommendations is dependent on the number of users who are impacted, or the type of attacks detected within at least 30 days in your tenant. In the recommendations component on our new dashboard, customers see:
+In the recommendations component on our new dashboard, customers see:
 
 - Up to three recommendations if specific attacks occur in their tenant.
-- Insight into the details of the attack
+- Insight into the impact of the attack.
 - Direct links to take appropriate actions for remediation.
 
-Customers with P2 licenses have a comprehensive list of recommendations that provide insights into other types of attacks. When **View All** is selected, it opens a panel showing more recommendations that were triggered based on the attacks in their environment. The same detections of these attacks are provided to all customers. Customers with P2 licenses have quick access to remediate risk by clicking the action link that takes them to the appropriate area, like Conditional Access to create a recommended policy. 
+Customers with P2 licenses can view a comprehensive list of recommendations that provide insights with actions. When ‘View All’ is selected, it opens a panel showing more recommendations that were triggered based on the attacks in their environment.
 
 ### Recent activities
 
