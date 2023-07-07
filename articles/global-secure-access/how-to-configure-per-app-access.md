@@ -5,7 +5,7 @@ author: shlipsey3
 ms.author: sarahlipsey
 manager: amycolannino
 ms.topic: how-to
-ms.date: 06/29/2023
+ms.date: 07/07/2023
 ms.service: network-access
 ms.custom: 
 ms.reviewer: katabish
@@ -73,26 +73,6 @@ To create a new app, you provide a name, select a connector group, and then add 
     - Existing connector groups appear in the dropdown menu.
 1. Select the **Save** button at the bottom of the page to create your app without adding private resources.
 
-#### Microsoft Graph API
-
-Global Secure Access apps can be configured using Microsoft Graph on the `/beta` endpoint. 
-
-1. Sign in to [Graph Explorer](https://aka.ms/ge).
-1. Add the following query to create the Global Secure Access app:
-
-```http
-POST applicationTemplates/{templateId}/instantiate​
-{​
-    "displayName": "Global Secure Access app 1"​
-    }​
-    
-    PATCH applications/{objectId}​
-    {​
-    "onPremisesPublishing":{​
-    "applicationType":"nonwebapp"​
-    }​
-}
-```
 ### Add application segment
 
 The **Add application segment** process is where you define the FQDNs and IP addresses that you want to include in the traffic for the Global Secure Access app. You can add sites when you create the app and return to add more or edit them later.
@@ -127,17 +107,6 @@ You can add fully qualified domain names (FQDN), IP addresses, and IP address ra
 >
 > Do not overlap FQDNs, IP addresses, and IP ranges between your Quick Access app and any Private Access apps.
 
-#### Microsoft Graph API
-
-```http
-POST applications('{objectId}')/onPremisesPublishing/segmentsConfiguration/microsoft.graph.ipSegmentConfiguration/applicationSegments​
-{​
-    "destinationHost": "10.0.0.0",​
-    "port": 445,​
-    "ports": []​
-}
-```
-
 ### Assign users and groups
 
 You need to grant access to the app you created by assigning users and/or groups to the app. For more information, see [Assign users and groups to an application.](../active-directory/manage-apps/assign-user-or-group-access-portal.md)
@@ -168,14 +137,6 @@ You can enable or disable access to the Global Secure Access app using the Globa
 
 ![Screenshot of the enable access checkbox.](media/how-to-configure-per-app-access/per-app-access-enable-checkbox.png)
 
-#### Graph
-
-```http
-PATCH application('{objectId}')/OnPremisesPublishing​
-{​
-    "isAccessibleViaZTNAClient": true​
-}
-```
 ## Assign Conditional Access policies
 
 Conditional Access policies for Per-app Access are configured at the application level for each app. Conditional Access policies can be created and applied to the application from two places:
