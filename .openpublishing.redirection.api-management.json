@@ -1,6 +1,10 @@
 {
   "redirections": [
     {
+        "source_path_from_root": "/articles/api-management/policies/authorize-request-using-external-authorizer.md",
+        "redirect_url": "https://github.com/Azure/api-management-policy-snippets",
+        "redirect_document_id": false
+    },{
         "source_path_from_root": "/articles/api-management/policies/add-correlation-id.md",
         "redirect_url": "https://github.com/Azure/api-management-policy-snippets",
         "redirect_document_id": false
