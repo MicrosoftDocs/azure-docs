@@ -1,11 +1,9 @@
 ---
 title: Bicep functions - string
 description: Describes the functions to use in a Bicep file to work with strings.
-author: mumian
-ms.author: jgao
 ms.topic: conceptual
 ms.custom: devx-track-bicep
-ms.date: 12/09/2022
+ms.date: 07/07/2023
 ---
 
 # String functions for Bicep
@@ -143,21 +141,60 @@ The output from the preceding example with the default values is:
 
 ## concat
 
-Instead of using the concat function, use string interpolation.
+`concat(arg1, arg2, arg3, ...)`
+
+Combines multiple string values and returns the concatenated string, or combines multiple arrays and returns the concatenated array. Instead of using the `concat` function, use string interpolation, except in certain cases involving [multi-line strings](../bicep/data-types.md#multi-line-strings). For more information about combining multiple arrays, see [concat](./bicep-functions-array.md#concat).
+
+Namespace: [sys](bicep-functions.md#namespaces-for-functions).
+
+### Parameters
+
+| Parameter | Required | Type | Description |
+|:--- |:--- |:--- |:--- |
+| arg1 |Yes |string or array |The first string or array for concatenation. |
+| more arguments |No |string or array |More strings or arrays in sequential order for concatenation. |
+
+This function can take any number of arguments, and can accept either strings or arrays for the parameters. However, you can't provide both arrays and strings for parameters. Strings are only concatenated with other strings.
+
+### Return value
+
+A string or array of concatenated values.
+
+### Examples
+
+The following example shows a comparison between using interpolation and using the `concat` function. The two outputs return the same value.
 
 ```bicep
 param prefix string = 'prefix'
 
-output concatOutput string = '${prefix}And${uniqueString(resourceGroup().id)}'
+output concatOutput string = concat(prefix, uniqueString(resourceGroup().id))
+output interpolationOutput string = '${prefix}And${uniqueString(resourceGroup().id)}'
+```
+
+The outputs from the preceding example with the default value are:
+
+| Name | Type | Value |
+| ---- | ---- | ----- |
+| concatOutput | String | prefixAnd5yj4yjf5mbg72 |
+| interpolationOutput | String | prefixAnd5yj4yjf5mbg72 |
+
+Interpolation is not currently supported in multi-line strings. The following example shows a comparison between using interpolation and using the `concat` function.
+
+```bicep
+var blocked = 'BLOCKED'
+
+output concatOutput string = concat('''interpolation
+is ''', blocked)
+output interpolationOutput string = '''interpolation
+is ${blocked}'''
 ```
 
 The output from the preceding example with the default values is:
 
 | Name | Type | Value |
 | ---- | ---- | ----- |
-| concatOutput | String | prefixAnd5yj4yjf5mbg72 |
-
-Namespace: [sys](bicep-functions.md#namespaces-for-functions).
+| concatOutput | String | interpolation\nis BLOCKED |
+| interpolationOutput | String | interpolation\nis ${blocked} |
 
 ## contains
 
