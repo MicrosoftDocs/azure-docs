@@ -53,6 +53,15 @@ The managed virtual network is preconfigured with [required default rules](#list
 
 Before following the steps in this article, make sure you have the following prerequisites:
 
+> [!IMPORTANT]
+> To use the information in this article, you must enable this preview feature for your subscription. To check whether it has been registered, or to register it, use the steps in the [Set up preview features in Azure subscription](/azure/azure-resource-manager/management/preview-features). Depending on whether you use the Azure portal, Azure CLI, or Azure PowerShell, you may need to register the feature with a different name. Use the following table to determine the name of the feature to register:
+>
+> | Registration method | Feature name |
+> | ----- | ----- |
+> | Azure portal | `Azure Machine Learning Managed Network` |
+> | Azure CLI | `AMLManagedNetworkEnabled` |
+> | Azure PowerShell | `AMLManagedNetworkEnabled` |
+
 # [Azure CLI](#tab/azure-cli)
 
 * An Azure subscription. If you don't have an Azure subscription, create a free account before you begin. Try the [free or paid version of Azure Machine Learning](https://azure.microsoft.com/free/).

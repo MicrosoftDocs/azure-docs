@@ -85,11 +85,11 @@ Examples are available in the [examples GitHub repository](https://github.com/Az
 
 ## YAML: A sample Spark component
 
-:::code language="yaml" source="~/azureml-examples-main/cli/jobs/spark/spark-job-component.yaml":::
+:::code language="yaml" source="~/azureml-examples-main/cli/jobs/spark/spark-job-component.yml":::
 
 ## YAML: A sample pipeline job with a Spark component
 
-:::code language="yaml" source="~/azureml-examples-main/cli/jobs/spark/attached-spark-pipeline-user-identity.yaml":::
+:::code language="yaml" source="~/azureml-examples-main/cli/jobs/spark/attached-spark-pipeline-user-identity.yml":::
 
 ## Next steps
 

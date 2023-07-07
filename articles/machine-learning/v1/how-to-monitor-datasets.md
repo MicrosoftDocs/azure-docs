@@ -146,7 +146,7 @@ If you create your dataset using Azure Machine Learning studio, ensure the path 
 
 In the following example, all data under the subfolder *NoaaIsdFlorida/2019* is taken, and the partition format specifies the timestamp's year, month, and day.
 
-[![Partition format](./media/how-to-monitor-datasets/partition-format.png)](media/how-to-monitor-datasets/partition-format-expand.png)
+[![Partition format](./media/how-to-monitor-datasets/partition-format.png)](media/how-to-monitor-datasets/partition-format-expand.png#lightbox)
 
 In the **Schema** settings, specify the **timestamp** column from a virtual or real column in the specified dataset. This type indicates that your data has a time component. 
 
@@ -319,7 +319,7 @@ Metrics can be queried in the [Azure Application Insights](../../azure-monitor/a
 
 To get started, navigate to the [Azure portal](https://portal.azure.com) and select your workspace's **Overview** page.  The associated Application Insights resource is on the far right:
 
-[![Azure portal overview](./media/how-to-monitor-datasets/ap-overview.png)](media/how-to-monitor-datasets/ap-overview-expanded.png)
+[![Azure portal overview](./media/how-to-monitor-datasets/ap-overview.png)](media/how-to-monitor-datasets/ap-overview-expanded.png#lightbox)
 
 Select Logs (Analytics) under Monitoring on the left pane:
 
@@ -327,7 +327,7 @@ Select Logs (Analytics) under Monitoring on the left pane:
 
 The dataset monitor metrics are stored as `customMetrics`. You can write and run a query after setting up a dataset monitor to view them:
 
-[![Log analytics query](./media/how-to-monitor-datasets/simple-query.png)](media/how-to-monitor-datasets/simple-query-expanded.png)
+[![Log analytics query](./media/how-to-monitor-datasets/simple-query.png)](media/how-to-monitor-datasets/simple-query-expanded.png#lightbox)
 
 After identifying metrics to set up alert rules, create a new alert rule:
 
