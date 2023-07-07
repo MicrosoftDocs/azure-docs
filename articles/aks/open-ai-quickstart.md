@@ -510,13 +510,15 @@ You can either use Azure OpenAI or OpenAI and run your application on AKS.
 1. Select the Azure OpenAI instance you created.
 1. Select **Keys and Endpoints** to generate a key.
 1. Select **Model Deployments** > **Managed Deployments** to open the [Azure OpenAI studio][aoai-studio].
-1. Create a new deployment using the **text-davinci-003** model. 
+1. Create a new deployment using the **gpt-35-turbo** model. 
 
 For more information on how to create a deployment in Azure OpenAI, check out [Get started generating text using Azure OpenAI Service][aoai-get-started].
 
 ### [OpenAI](#tab/openai)
 1. [Generate an OpenAI key][open-ai-new-key] by selecting **Create new secret key** and save the key. You will need this key in the [next step](#deploy-the-ai-service). 
 1. [Start a paid plan][openai-paid] to use OpenAI API.
+
+
 --- 
 
 ## Deploy the AI service
@@ -582,6 +584,7 @@ Now that the application is deployed, you can deploy the Python-based microservi
       deployment.apps/ai-service created
       service/ai-service created
     ```
+
 ### [OpenAI](#tab/openai)
 1. Create a file named `ai-service.yaml` and copy the following manifest into it.
     ```yaml
@@ -640,6 +643,8 @@ Now that the application is deployed, you can deploy the Python-based microservi
       deployment.apps/ai-service created
       service/ai-service created
     ```
+
+
 ---
 
 > [!NOTE]
@@ -680,10 +685,13 @@ Now that the application is deployed, you can deploy the Python-based microservi
 1. Open a web browser and browse to the external IP address of your service. In the example shown here, open 40.64.86.161 to see Store Admin in the browser. Repeat the same step for Store Front. 
 1. In store admin, click on the products tab, then select **Add Products**. 
 1. When the ai-service is running successfully, you should see the Ask OpenAI button next to the description field. Fill in the name, price, and keywords, then click Ask OpenAI to generate a product description. Then click save product. See the picture for an example of adding a new product. 
+
 :::image type="content" source="media/ai-walkthrough/ai-generate-description.png" alt-text="Screenshot of how to use openAI to generate a product description.":::
 1. You can now see the new product you created on Store Admin used by sellers. In the picture, you can see Jungle Monkey Chew Toy is added.
+
 :::image type="content" source="media/ai-walkthrough/new-product-store-admin.png" alt-text="Screenshot viewing the new product in the store admin page.":::
 1. You can also see the new product you created on Store Front used by buyers. In the picture, you can see Jungle Monkey Chew Toy is added. Remember to get the IP address of store front by using [kubectl get service][kubectl-get].
+
 :::image type="content" source="media/ai-walkthrough/new-product-store-front.png" alt-text="Screenshot viewing the new product in the store front page.":::
 
 ## Next steps
@@ -695,27 +703,49 @@ Now that you've seen how to add OpenAI functionality to an AKS application, lear
 
 <!-- Links external -->
 [aks-store-demo]: https://github.com/Azure-Samples/aks-store-demo
+
 [kubectl]: https://kubernetes.io/docs/reference/kubectl/
+
 [kubeconfig-file]: https://kubernetes.io/docs/concepts/configuration/organize-cluster-access-kubeconfig/
+
 [kubectl-get]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#get
+
 [kubectl-apply]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#apply
+
 [aoai-studio]: https://oai.azure.com/portal/
+
 [open-ai-landing]: https://openai.com/
+
 [open-ai-new-key]: https://platform.openai.com/account/api-keys
+
 [open-ai-org-id]: https://platform.openai.com/account/org-settings
+
 [aoai-access]: https://aka.ms/oai/access
+
 [openai-paid]: https://platform.openai.com/account/billing/overview
+
 [openai-platform]: https://platform.openai.com/
+
 [miyagi]: https://github.com/Azure-Samples/miyagi
 
 <!-- Links internal -->
 [azure-resource-group]: ../azure-resource-manager/management/overview.md 
+
 [az-group-create]: /cli/azure/group#az-group-create
+
 [az-aks-create]: /cli/azure/aks#az-aks-create
+
 [az-aks-install-cli]: /cli/azure/aks#az-aks-install-cli
+
 [az-aks-get-credentials]: /cli/azure/aks#az-aks-get-credentials
+
 [aoai-get-started]: ../cognitive-services/openai/quickstart.md
+
 [managed-identity]: /azure/cognitive-services/openai/how-to/managed-identity#authorize-access-to-managed-identities
+
 [key-vault]: csi-secrets-store-driver.md
+
 [aoai]: ../cognitive-services/openai/index.yml
+
 [learn-aoai]: /training/modules/explore-azure-openai
+
