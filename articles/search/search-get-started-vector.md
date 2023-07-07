@@ -23,7 +23,7 @@ Get started with vector search in Azure Cognitive Search using the **2023-07-01-
 
 + An Azure subscription. [Create one for free](https://azure.microsoft.com/free/).
 
-+ Azure Cognitive Search, in any region and on any tier. However, if you want to also use [semantic search](semantic-search-overview.md), as shown in the last two examples, your search service must be Standard tier or higher, with [semantic search enabled](semantic-search-overview.md#enable-semantic-search).
++ Azure Cognitive Search, in any region and on any tier. However, if you want to also use [semantic search](semantic-search-overview.md), as shown in the last two examples, your search service must be Basic tier or higher, with [semantic search enabled](semantic-search-overview.md#enable-semantic-search).
 
   Most existing services support vector search. For a small subset of services created prior to January 2019, an index containing vector fields will fail on creation. In this situation, a new service must be created.
 
@@ -39,9 +39,13 @@ Sample data consists of text and vector descriptions of 108 Azure services, gene
 
 + Vector data (text embeddings) is used for vector search. Currently, Cognitive Search doesn't generate vectors for you. For this quickstart, vector data was generated previously and copied into the "Upload Documents" request and into the query requests.
 
-  For documents, we generated vector data using demo code that calls Azure OpenAI for the embeddings. Demo code is currently using alpha builds of the Azure SDKs and is available in [Python](https://github.com/Azure/cognitive-search-vector-pr/tree/main/demo-python), [JavaScript](https://github.com/Azure/cognitive-search-vector-pr/tree/main/demo-javascript), and [C#](https://github.com/Azure/cognitive-search-vector-pr/tree/main/demo-dotnet).
+  For documents, we generated vector data using demo code that calls Azure OpenAI for the embeddings. Demo code is currently using alpha builds of the Azure SDKs and is available in [Python](https://github.com/Azure/cognitive-search-vector-pr/tree/main/demo-python) and [C#](https://github.com/Azure/cognitive-search-vector-pr/tree/main/demo-dotnet).
 
-  For queries, we used the "Create Query Embeddings" request that calls Azure OpenAI and outputs embeddings for a search string. If you want to formulate your own vector queries against the sample data of 108 Azure services, provide your Azure OpenAI connection information in the Postman collection variables. Your Azure OpenAI service must have a deployment of an embedding model that's identical to the one used to generate embeddings in your search corpus. For this quickstart, that embedding model is **text-embedding-ada-002**, API version **2023-05-15**.
+  For queries, we used the "Create Query Embeddings" request that calls Azure OpenAI and outputs embeddings for a search string. If you want to formulate your own vector queries against the sample data of 108 Azure services, provide your Azure OpenAI connection information in the Postman collection variables. Your Azure OpenAI service must have a deployment of an embedding model that's identical to the one used to generate embeddings in your search corpus. For this quickstart, the following parameters were used: 
+  
+  + Model name: **text-embedding-ada-002**
+  + Model version: **2**
+  + API version: **2023-05-15**.
 
 ## Set up your project
 
@@ -49,7 +53,7 @@ If you're unfamiliar with Postman, see [this quickstart](search-get-started-rest
 
 1. [Fork or clone the repository](https://github.com/Azure/cognitive-search-vector-pr).
 
-1. Start Postman and import the collection `Vector Search QuickStart.postman_collection v0.2.json`.
+1. Start Postman and import the collection `Vector Search QuickStart.postman_collection v1.0.json`.
 
 1. Right-click the collection name and select **Edit** to set the collection's variables to valid values for Azure Cognitive Search and Azure OpenAI.
 
@@ -170,7 +174,7 @@ You should get a status HTTP 201 success.
 
 + The "vectorSearch" object is an array of algorithm configurations used by vector fields. Currently, only HNSW is supported. HNSW is a graph-based Approximate Nearest Neighbors (ANN) algorithm optimized for high-recall, low-latency applications.
 
-+ The "semanticSearch" configuration enables semantic reranking of search results. You can semantically rerank results in queries of type "semantic" for string fields that are specified in the configuration. See [Semantic Search overview](semantic-search-overview.md) to learn more.
++ [Optional]: The "semanticSearch" configuration enables reranking of search results. You can rerank results in queries of type "semantic" for string fields that are specified in the configuration. See [Semantic Search overview](semantic-search-overview.md) to learn more.
 
 ## Upload documents
 
@@ -229,10 +233,12 @@ api-key: {{admin-api-key}}
 
 Use the [Search Documents](/rest/api/searchservice/preview-api/search-documents) REST API for this request. Public preview has several limitations. POST is required for this preview and the API version must be 2023-07-01-Preview.
 
-There are 6 queries to demonstrate the patterns. We use the same query string (*"what Azure services support full text search"*) across all of them so that you can compare results and relevance.
+There are several queries to demonstrate the patterns. We use the same query string (*"what Azure services support full text search"*) across all of them so that you can compare results and relevance.
 
 + [Single vector search](#single-vector-search)
 + [Single vector search with filter](#single-vector-search-with-filter)
++ [Cross-field vector search](#cross-field-vector-search)
++ [Multi-query vector search](#multi-query-vector-search)
 + [Hybrid search](#hybrid-search)
 + [Hybrid search with filter](#hybrid-search-with-filter)
 + [Semantic hybrid search](#semantic-hybrid-search)
@@ -242,7 +248,7 @@ There are 6 queries to demonstrate the patterns. We use the same query string (*
 
 In this vector query, which is shortened for brevity, the "value" contains the vectorized text of the query input, "fields" determines which vector fields are searched, and "k" specifies the number of nearest neighbors to return.
 
-Recall that the vector query was generated from this string: "what Azure services support full text search". The search targets the "contentVector" field.
+Recall that the vector query was generated from this string: "what Azure services support full text search". The search targets the `contentVector` field.
 
 ```http
 POST https://{{search-service-name}}.search.windows.net/indexes/{{index-name}}/docs/search?api-version={{api-version}}
@@ -259,8 +265,7 @@ api-key: {{admin-api-key}}
         ],
         "fields": "contentVector",
         "k": 5
-    },
-    "select": "title, content, category"
+    }
 }
 ```
 
@@ -270,7 +275,7 @@ The response includes 5 results, and each result provides a search score, title,
 
 You can add filters, but the filters are applied to the nonvector content in your index. In this example, the filter applies to the "category" field.
 
-The response is 10 Azure services, with a search score, title, and category for each one.
+The response is 10 Azure services, with a search score, title, and category for each one. You'll also notice the `select` property here to visually only see the fields are necessary in my the response.
 
 ```http
 POST https://{{search-service-name}}.search.windows.net/indexes/{{index-name}}/docs/search?api-version={{api-version}}
@@ -286,10 +291,68 @@ api-key: {{admin-api-key}}
             -0.00086512347
         ],
         "fields": "contentVector",
+        "select": "title, content, category"
         "k": 10
     },
-    "select": "title, category",
     "filter": "category eq 'Databases'"
+}
+```
+
+
+### Cross-field vector search
+Cross-field vector search allows you to send a single query across multiple vector fields in your vector index. For this example, I want to calculate the similarity across both `titleVector` and `contentVector`:
+
+```http
+POST https://{{search-service-name}}.search.windows.net/indexes/{{index-name}}/docs/search?api-version={{api-version}}
+Content-Type: application/json
+api-key: {{admin-api-key}}
+{
+    "vector": {
+        "value": [
+            -0.009154141,
+            0.018708462,
+            . . . 
+            -0.02178128,
+            -0.00086512347
+        ],
+        "fields": "titleVector, contentVector",
+        "k": 5
+    }
+}
+```
+
+### Multi-query vector search
+Multi-query vector search allows you to send a multiple queries across multiple vector fields in your vector index. For this example, I want to calculate the similarity across both `titleVector` and `contentVector` but will send in two different query embeddings respectively. This scenario is ideal for multi-modal use cases where you want to search over a `textVector` field and an `imageVector` field. You can also use this scenario if you have different embedding models with different dimensions in your search index. 
+
+```http
+POST https://{{search-service-name}}.search.windows.net/indexes/{{index-name}}/docs/search?api-version={{api-version}}
+Content-Type: application/json
+api-key: {{admin-api-key}}
+{
+    "vectors": [
+        {
+            "value": [
+                -0.01234823,
+                0.018708462,
+                . . . 
+                -0.99456344,
+                -0.00084123
+            ],
+            "fields": "contentVector",
+            "k": 5
+        },
+        {
+            "value": [
+                -0.43725224,
+                0.000234324,
+                . . . 
+                -0.99912342,
+                -0.01239130
+            ],
+            "fields": "contentVector",
+            "k": 5
+        }
+    ]
 }
 ```
 
@@ -297,7 +360,7 @@ api-key: {{admin-api-key}}
 
 Hybrid search allows to compose keyword queries and vector queries in a single search request. 
 
-The response includes the top 10 by search score. Both vector queries and free text queries are assigned a search score according to the similarity functions configured on the fields (BM25 for text fields). The scores are merged using Reciprocal Rank Fusion (RRF) to weight each document with the inverse of its position on the rank. 
+The response includes the top 10 ordereded by search score. Both vector queries and free text queries are assigned a search score according to the scoring or similarity functions configured on the fields (BM25 for text fields). The scores are merged using Reciprocal Rank Fusion (RRF) to weight each document with the inverse of its position in the ranked result set. 
 
 ```http
 POST https://{{search-service-name}}.search.windows.net/indexes/{{index-name}}/docs/search?api-version={{api-version}}
@@ -316,12 +379,11 @@ api-key: {{admin-api-key}}
         "k": 10
     },
     "search": "what azure services support full text search",
-    "select": "title, content, category",
     "top": "10"
 }
 ```
 
-Compare the responses between Single Vector Search and Simple Hybrid Search for the top result. The different ranking algorithms produce scores that have different magnitudes.
+Compare the responses between Single Vector Search and Simple Hybrid Search for the top result. The different ranking algorithms produce scores that may seem in different magnitudes. This is by design of the RRF algorithm. When using Hybrid search, it's important to note that the reciprocal of the ranked documents are taken given the relatively smaller score vs pure vector search.
 
 **Single Vector Search**: Results ordered by cosine similarity (default vector similarity distance function)
 
@@ -366,7 +428,6 @@ api-key: {{admin-api-key}}
         "k": 10
     },
     "search": "what azure services support full text search",
-    "select": "title, content, category",
     "filter": "category eq 'Databases'",
     "top": "10"
 }
@@ -374,7 +435,7 @@ api-key: {{admin-api-key}}
 
 ### Semantic hybrid search
 
-Assuming that you've [enabled semantic search](semantic-search-overview.md#enable-semantic-search) and your index definition includes a [semantic configuration](semantic-how-to-query-request.md), you can formulate a query that includes vector search, plus keyword search with semantic ranking, caption, answers, and spell check.
+Assuming that you've [enabled semantic search](semantic-search-overview.md#enable-semantic-search) and your index definition includes a [semantic configuration](semantic-how-to-query-request.md), you can formulate a query that includes vector search, plus keyword search with semantic ranking, caption, answers, and spell check. 
 
 ```http
 POST https://{{search-service-name}}.search.windows.net/indexes/{{index-name}}/docs/search?api-version={{api-version}}
@@ -447,4 +508,5 @@ Azure Cognitive Search is a billable resource. If it's no longer needed, delete 
 
 ## Next steps
 
-As a next step, we recommend reviewing the demo code for [Python](https://github.com/Azure/cognitive-search-vector-pr/tree/main/demo-python), [JavaScript](https://github.com/Azure/cognitive-search-vector-pr/tree/main/demo-javascript), or [C#](https://github.com/Azure/cognitive-search-vector-pr/tree/main/demo-dotnet).
+As a next step, we recommend reviewing the demo code for [Python](https://github.com/Azure/cognitive-search-vector-pr/tree/main/demo-python), or [C#](https://github.com/Azure/cognitive-search-vector-pr/tree/main/demo-dotnet).
+
