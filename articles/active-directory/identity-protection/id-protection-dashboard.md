@@ -125,7 +125,7 @@ Two filters can be applied to the graph:
 
 A map is provided to display the country location of the risky sign-ins in your tenant. The size of the bubble reflects the volume of the risk sign-ins in at that location. Hovering over the bubble shows a call-out box, providing the country name and number of risky sign-ins from that place.
 
-![Screenshot showing the attack graphic in the dashboard](./media/id-protection-dashboard/microsoft-entra-id-protection-dashboard-map.png)
+![Screenshot showing the map graphic in the dashboard](./media/id-protection-dashboard/microsoft-entra-id-protection-dashboard-map.png)
 
 It contains the following elements:
 
@@ -144,7 +144,7 @@ It contains the following elements:
 
 We’ve also introduced new Microsoft Entra ID Protection recommendations for customers to configure their environment to increase their security posture. Recommendations are based on potential attacks detected in your tenant over the past 30 days. These recommendations are provided to guide your security staff on what actions to take on those attacks. 
 
-![Screenshot showing the attack graphic in the dashboard](./media/id-protection-dashboard/microsoft-entra-id-protection-dashboard-recommendations.png)
+![Screenshot showing recommendations in the dashboard](./media/id-protection-dashboard/microsoft-entra-id-protection-dashboard-recommendations.png)
 
 Some common attacks within your tenant can be password spray, leaked credentials in your tenant, and users gaining access to your tenant using a valid account – informing the customer that there was a potential breach in their tenant. We're providing unique recommendations that trigger based on what Microsoft Entra ID Protection detects in your tenant.
 
@@ -165,7 +165,7 @@ Recent Activity provides a summary of recent risk-related activities in your ten
 1.	Self-Remediation Activity 
 1.	New High-Risk Users 
 
-![Screenshot showing the attack graphic in the dashboard](./media/id-protection-dashboard/microsoft-entra-id-protection-dashboard-recent-activities.png)
+![Screenshot showing recent activities in the dashboard](./media/id-protection-dashboard/microsoft-entra-id-protection-dashboard-recent-activities.png)
 
 ## Known Issues
 
