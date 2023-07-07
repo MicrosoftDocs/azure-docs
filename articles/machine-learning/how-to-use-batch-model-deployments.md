@@ -16,7 +16,7 @@ ms.custom: how-to, devplatv2
 
 # Deploy models for scoring in batch endpoints
 
-[!INCLUDE [cli v2](../../includes/machine-learning-dev-v2.md)]
+[!INCLUDE [cli v2](includes/machine-learning-dev-v2.md)]
 
 Batch endpoints provide a convenient way to deploy models to run inference over large volumes of data. They simplify the process of hosting your models for batch scoring, so you can focus on machine learning, not infrastructure. We call this type of deployments *model deployments*.
 
@@ -34,7 +34,7 @@ In this article, you'll learn how to use batch endpoints to deploy a machine lea
 
 In this example, we're going to deploy a model to solve the classic MNIST ("Modified National Institute of Standards and Technology") digit recognition problem to perform batch inferencing over large amounts of data (image files). In the first section of this tutorial, we're going to create a batch deployment with a model created using Torch. Such deployment will become our default one in the endpoint. In the second half, [we're going to see how we can create a second deployment](#adding-deployments-to-an-endpoint) using a model created with TensorFlow (Keras), test it out, and then switch the endpoint to start using the new deployment as default.
 
-[!INCLUDE [machine-learning-batch-clone](../../includes/machine-learning/azureml-batch-clone-samples-with-studio.md)]
+[!INCLUDE [machine-learning-batch-clone](includes/azureml-batch-clone-samples-with-studio.md)]
 
 The files for this example are in:
 
@@ -48,7 +48,7 @@ You can follow along this sample in the following notebooks. In the cloned repos
 
 ## Prerequisites
 
-[!INCLUDE [machine-learning-batch-prereqs-studio](../../includes/machine-learning/azureml-batch-prereqs-with-studio.md)]
+[!INCLUDE [machine-learning-batch-prereqs-studio](includes/azureml-batch-prereqs-with-studio.md)]
 
 ### Create compute
 

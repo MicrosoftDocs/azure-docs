@@ -89,7 +89,7 @@ After you delete an Azure Machine Learning workspace in the Azure portal or with
 
 To delete the workspace along with these dependent resources, use the SDK:
 
-[!INCLUDE [sdk v2](../../includes/machine-learning-sdk-v2.md)]
+[!INCLUDE [sdk v2](includes/machine-learning-sdk-v2.md)]
 ```python
 from azure.ai.ml.entities import Workspace
 ml_client.workspaces.begin_delete(name=ws.name, delete_dependent_resources=True)
