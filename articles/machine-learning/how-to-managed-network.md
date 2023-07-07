@@ -647,7 +647,7 @@ To enable the [serverless spark jobs](how-to-submit-spark-jobs.md) for the manag
     # whether to provision spark vnet as well
     include_spark = True
 
-    provision_network_result = ml_client.workspaces.begin_provision_network(ws_name, include_spark).result()
+    provision_network_result = ml_client.workspaces.begin_provision_network(workspace_name=ws_name, include_spark=include_spark).result()
     ```
 
     # [Azure portal](#tab/portal)
