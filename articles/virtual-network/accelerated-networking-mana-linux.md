@@ -4,17 +4,24 @@ description: Learn how Azure MANA Accelerated Networking can improve the network
 author: mattmcinnes
 ms.service: virtual-network
 ms.topic: how-to
-ms.date: 07/05/2023
+ms.date: 07/07/2023
 ms.author: mattmcinnes
 ---
 
 # Linux VMs with Azure MANA
 
+Learn how to use the Microsoft Azure Network Adapter (MANA) to improve the performance and availability of Linux virtual machines in Azure.
+
+For Windows support, see [Windows VMs with Azure MANA](./accelerated-networking-mana-windows.md)
+
+For more info regarding Azure MANA, see [Microsoft Azure Network Adapter (MANA) overview](./accelerated-networking-mana-overview.md)
+
+
 >[!NOTE]
->Azure MANA is currently part of the Azure Boost Preview. See the [preview announcement](https://aka.ms/azureboostpreview) for more information and to join.
+>Azure MANA is currently in preview. See the [preview announcement](https://aka.ms/azureboostpreview) for more information and to join.
 
 ## Supported Marketplace Images
-Several [Azure marketplace](https://learn.microsoft.com/en-us/marketplace/azure-marketplace-overview) images have built-in support for Azure MANA's ethernet driver.
+Several [Azure marketplace](https://learn.microsoft.com/en-us/marketplace/azure-marketplace-overview) Linux images have built-in support for Azure MANA's ethernet driver.
 
 - Ubuntu 20.04 LTS, 22.04 LTS
 - Red Hat Enterprise Linux 8.8
@@ -24,7 +31,9 @@ Several [Azure marketplace](https://learn.microsoft.com/en-us/marketplace/azure-
 - Oracle Linux 9.0
 
 ## Check status of MANA support
-Because Azure MANA's feature set requires both host hardware and VM driver software components, there are several checks required to ensure MANA is working properly
+Because Azure MANA's feature set requires both host hardware and VM software components, there are several checks required to ensure MANA is working properly
+
+### Azure portal check
 
 Ensure that you have Accelerated Networking enabled on at least one of your NICs:
 1.	From the Azure portal page for the VM, select Networking from the left menu.
@@ -40,7 +49,7 @@ $ lspci
 7870:00:00.0 Ethernet controller: Microsoft Corporation Device 00ba
 ```
 
-### Driver check
+### Kernel version check
 Verify your VM has a MANA Ethernet driver installed.
 
 ```
@@ -49,10 +58,11 @@ $ grep /mana*.ko /lib/modules/$(uname -r)/modules.builtin || find /lib/modules/$
 kernel/drivers/net/ethernet/microsoft/mana/mana.ko
 ```
 
-## Driver install
+## Kernel update
 
-If your VM has both portal and hardware support for MANA but doesn't have a recent enough kernel , Linux VF drivers are included in <!--- Brian to fill in --->. Prior or forked kernel versions will require integration. <!--- Brian to fill in --->
+If your VM has both portal and hardware support for MANA but doesn't have a recent enough kernel, Linux VF drivers are included in kernel 6.2. Prior or forked kernel versions (5.15 and 6.1) will require additonal integration.
 
+To update your VM's Linux kernel, check the docs for your specific distro.
 
 ## Verify traffic is flowing through the MANA adapter
 
