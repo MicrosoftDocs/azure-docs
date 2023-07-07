@@ -2,22 +2,24 @@
 title: Set up kubectl access 
 titleSuffix: Azure Private 5G Core
 description: This how-to guide shows how to obtain kubectl files that can be used to monitor your deployment and obtain diagnostics.
-author: TODO
-ms.author: TODO
+author: robswain
+ms.author: robswain
 ms.service: private-5g-core
 ms.topic: how-to
-ms.date: TODO
+ms.date: 07/07/2023
 ms.custom: template-how-to 
-zone_pivot_groups: ase-pro-version
 ---
 
 # Set up kubectl access
 
-This how-to guide explains how to obtain the necessary *kubeconfig* files if you wish to use *kubectl* to monitor your deployment, or obtain certain diagnostics.
+This how-to guide explains how to obtain the necessary *kubeconfig* files as needed for other procedures. The read-only file is sufficient to view cluster configuration. The core namespace file is needed for operations such as modifying local or Azure Active Directory (AAD) authentication, or for gathering packet capture.
 
 ## Read-only access
 
 For running read-only *kubectl* commands such as to describe pods and view logs, you can download a *kubeconfig* file from the ASE local UI. Under **Device**, select **Download config**.
+
+> [!TIP]
+> To access the local UI, see [Tutorial: Connect to Azure Stack Edge Pro with GPU](../databox-online/azure-stack-edge-gpu-deploy-connect.md).
 
 :::image type="content" source="media/set-up-kubectl/commission-cluster-kubernetes-download-config.png" alt-text="Screenshot of Kubernetes dashboard showing link to download config.":::
 
@@ -25,16 +27,13 @@ The downloaded file is called *config.json*. This file has permission to describ
 
 ## Core namespace access
 
-The Azure Private 5G Core deployment uses the *core* namespace. If you need to collect diagnostics, you can download a *kubeconfig* file with full access to the *core* namespace. To do this set up a minishell session and run the necessary commands as directed below.
+The Azure Private 5G Core deployment uses the *core* namespace. For operations such as modifying local or Azure Active Directory (AAD) authentication, or for gathering packet capture, you need a *kubeconfig* file with full access to the *core* namespace. To download this file set up a minishell session and run the necessary commands as directed below.
 
 You only need to perform this procedure once. If you have previously done this, you can use the previously-saved *kubeconfig* file.
 
 ### Enter a minishell session
 
 You need to run minishell commands on Azure Stack Edge during this procedure. You must use a Windows machine that is on a network with access to the management port of the ASE. You should be able to view the ASE local UI to verify you have access.
-
-> [!TIP]
-> To access the local UI, see [Tutorial: Connect to Azure Stack Edge Pro with GPU](../databox-online/azure-stack-edge-gpu-deploy-connect.md).
 
 #### Enable WinRM on your machine
 
@@ -87,3 +86,7 @@ You now have a minishell session set up ready to obtain the *kubeconfig* file in
     ```
 
 For more information, see [Configure cluster access via Kubernetes RBAC](../databox-online/azure-stack-edge-gpu-create-kubernetes-cluster.md#configure-cluster-access-via-kubernetes-rbac).
+
+## Next steps
+- Save the *kubeconfig* file so it's availble to use if you need it in future
+- You'll have been directed to obtain the *kubeconfig* file as part of completing a different operation (such as to set up Azure Active Directory (AAD) authentication). Return to the operation you started from and continue.
