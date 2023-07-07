@@ -47,6 +47,8 @@ You need to complete the following tasks prior to deploying Application Gateway 
 	If using an existing cluster, please ensure you enable Workload Identity support on your AKS cluster.  Workload identities can be enabled via the following:
 	
 	```bash
+ 	AKS_NAME='<your cluster name>'
+	RESOURCE_GROUP='<the resource group of your AKS cluster>'
 	az aks update -g $RESOURCE_GROUP -n $AKS_NAME --enable-oidc-issuer --enable-workload-identity --no-wait
 	```
 
