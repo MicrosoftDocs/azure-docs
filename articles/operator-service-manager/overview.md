@@ -36,4 +36,4 @@ Azure Operator Service Manager provides the following benefits:
 
 ## Get access to Azure Operator Service Manager
 
-Azure Operator Service Manager is currently in public preview. To get started, [contact us](mailto:aznfmpartner@microsoft.com?subject=Azure%20Operator%20Service%20Manager%20preview%20request&Body=Hello%2C%0A%0AI%20would%20like%20to%20request%20access%20to%20the%20Azure%20Operator%20Service%20Manager%20preview%20documentation.%0A%0AMy%20GitHub%20username%20is%3A%20%0A%0AThank%20you%21) and request access to our preview documentation.
+Azure Operator Service Manager is currently in public preview. To get started, contact us at [aosmpartner@microsoft.com](mailto:aosmpartner@microsoft.com?subject=Azure%20Operator%20Service%20Manager%20preview%20request&Body=Hello%2C%0A%0AI%20would%20like%20to%20request%20access%20to%20the%20Azure%20Operator%20Service%20Manager%20preview%20documentation.%0A%0AMy%20GitHub%20username%20is%3A%20%0A%0AThank%20you%21), provide your GitHub username, and request access to our preview documentation.
