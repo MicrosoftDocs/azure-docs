@@ -4,7 +4,7 @@ description: Learn how to enable identity-based Kerberos authentication for hybr
 author: khdownie
 ms.service: storage
 ms.topic: how-to
-ms.date: 06/26/2023
+ms.date: 06/30/2023
 ms.author: kendownie
 ms.subservice: files
 ms.custom: engagement-fy23
@@ -134,7 +134,9 @@ az storage account update --name <storageAccountName> --resource-group <resource
 
 ## Grant admin consent to the new service principal
 
-After enabling Azure AD Kerberos authentication, you'll need to explicitly grant admin consent to the new Azure AD application registered in your Azure AD tenant to complete your configuration. You can configure the API permissions from the [Azure portal](https://portal.azure.com) by following these steps:
+After enabling Azure AD Kerberos authentication, you'll need to explicitly grant admin consent to the new Azure AD application registered in your Azure AD tenant. This service principal is auto-generated and isn't used for authorization to the file share, so don't make any edits to the service principal other than those documented here. If you do, you might get an error.
+
+You can configure the API permissions from the [Azure portal](https://portal.azure.com) by following these steps:
 
 1. Open **Azure Active Directory**.
 2. Select **App registrations** on the left pane.

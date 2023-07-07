@@ -58,7 +58,7 @@ productDirectory:
       url: ./metrics-advisor/index.yml
     # Card
     - title: Azure Video Indexer
-      imageSrc: ./media/video-indexer.svg
+      imageSrc: ../azure-video-indexer/media/video-indexer.svg
       summary: Extract actionable insights from your videos
       url: ../azure-video-indexer/index.yml
      # Card
@@ -100,6 +100,6 @@ additionalContent:
         - title: Explore other Azure AI Services
           links:
             - text: Azure Cognitive Services
-              url: ../cognitive-services/index.yml
+              url: ../ai-services/index.yml
             - text: Azure Machine Learning
               url: ../machine-learning/index.yml
