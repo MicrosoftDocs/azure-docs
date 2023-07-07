@@ -222,7 +222,7 @@ validation_data:
 
 # [Python SDK](#tab/python)
 
-[!INCLUDE [sdk v2](../../includes/machine-learning-sdk-v2.md)]
+[!INCLUDE [sdk v2](includes/machine-learning-sdk-v2.md)]
 
 You can create data inputs from training and validation MLTable from your local directory or cloud storage with the following code:
 
