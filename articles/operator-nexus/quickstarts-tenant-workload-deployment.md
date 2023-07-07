@@ -19,7 +19,7 @@ Don't use the examples verbatim, because they don't specify all required paramet
 
 Complete the [prerequisites](./quickstarts-tenant-workload-prerequisites.md).
 
-## Create VMs for deploying VNF workloads
+## Create networks for virtual machine workloads
 
 The following sections explain the steps to create VMs for VNF workloads.
 
@@ -131,90 +131,60 @@ Your VM requires at least one cloud services network. You need the egress endpoi
     --additional-egress-endpoints "[{\"category\":\"<YourCategory >\",\"endpoints\":[{\"<domainName1 >\":\"< endpoint1 >\",\"port\":<portnumber1 >}]}]"
 ```
 
-### Create a VM
+## Create a Virtual Machine
 
 Azure Operator Nexus VMs are used for hosting VNFs within a telco network.
 The Azure Operator Nexus platform provides `az networkcloud virtualmachine create` to create a customized VM.
 
 To host a VNF on your VM, have it [Azure Arc enrolled](/azure/azure-arc/servers/overview), and provide a way to SSH to it via the Azure CLI.
 
-#### Parameters
+```bash
+# Azure parameters
+RESOURCE_GROUP="myResourceGroup"
+SUBSCRIPTION="$(az account show -o tsv --query id)"
+CUSTOM_LOCATION="/subscriptions/<subscription_id>/resourceGroups/<managed_resource_group>/providers/microsoft.extendedlocation/customlocations/<custom-location-name>"
+LOCATION="$(az group show --name $RESOURCE_GROUP --query location | tr -d '\"')"
 
-- The subscription, resource group, location, and custom location of the Azure Operator Nexus Cluster for deployment:
-  - *SUBSCRIPTION*=
-  - *RESOURCE_GROUP*=
-  - *LOCATION*=
-  - *CUSTOM_LOCATION*=
-- A service principal configured with proper access:
-  - *SERVICE_PRINCIPAL_ID*=
-  - *SERVICE_PRINCIPAL_SECRET*=
-- A tenant ID:
-  - *TENANT_ID*=
-- For a VM image hosted in a managed Azure Container Registry instance, a generated token for access:
-  - *ACR_URL*=
-  - *ACR_USERNAME*=
-  - *ACR_TOKEN*=
-  - *IMAGE_URL*=
-- An SSH public/private key pair:
-  - *SSH_PURLIC_KEY*=
-  - *SSH_PRIVATE_KEY*=
-- The Azure CLI and extensions installed and available
-- A customized `cloudinit userdata` file (provided):
-  - *USERDATA*=
-- The resource ID of the previously created [cloud services network](#create-a-cloud-services-network) and [L3 networks](#create-an-l3-network) to configure VM connectivity
+# VM parameters
+VM_NAME="myNexusVirtualMachine"
 
-#### Update the user data file
+# VM credentials
+ADMIN_USERNAME="azureuser"
+SSH_PUBLIC_KEY="$(cat ~/.ssh/id_rsa.pub)"
 
-Update the values listed in the _USERDATA_ file with the proper information:
+# Network parameters
+CSN_ARM_ID="/subscriptions/<subscription_id>/resourceGroups/<resource_group>/providers/Microsoft.NetworkCloud/cloudServicesNetworks/<csn-name>"
+L3_NETWORK_ID="/subscriptions/<subscription_id>/resourceGroups/<resource_group>/providers/Microsoft.NetworkCloud/l3Networks/<l3Network-name>"
+NETWORK_INTERFACE_NAME="mgmt0"
 
-- Service principal ID
-- Service principal secret
-- Tenant ID
-- Location (Azure region)
-- Custom location
+# VM Size parameters
+CPU_CORES=4
+MEMORY_SIZE=12
+VM_DISK_SIZE="64"
 
-Locate the following line in the _USERDATA_ file (toward the end) and update it appropriately:
-
-```azurecli
-azcmagent connect --service-principal-id _SERVICE_PRINCIPAL_ID_ --service-principal-secret _SERVICE_PRINCIPAL_SECRET_ --tenant-id _TENANT_ID_ --subscription-id _SUBSCRIPTION_ --resource-group _RESOURCE_GROUP_ --location _LOCATION_
+# Virtual Machine Image parameters
+VM_IMAGE="<VM image, example: myacr.azurecr.io/ubuntu:20.04>"
+ACR_URL="<Azure container registry URL, example: myacr.azurecr.io>"
+ACR_USERNAME="<Azure container registry username>"
+ACR_PASSWORD="<Azure container registry password>"
 ```
-
-Encode the user data:
 
 ```bash
-ENCODED_USERDATA=(`base64 -w0 USERDATA`)
-```
-
-#### Create the VM with the encoded data
-
-Update the VM template with the proper information:
-
-- `name` (_VMNAME_)
-- `location` (_LOCATION_)
-- `custom location` (_CUSTOM_LOCATION_)
-- `adminUsername` (_ADMINUSER_)
-- `cloudServicesNetworkAttachment`
-- `cpuCores`
-- `memorySizeGB`
-- `networkAttachments` (set your L3 network as the default gateway)
-- `sshPublicKeys` (_SSH_PUBLIC_KEY_)
-- `diskSizeGB`
-- `userData` (_ENCODED_USERDATA_)
-- `vmImageRepositoryCredentials` (_ACR_URL_, _ACR_USERNAME_, _ACR_TOKEN_)
-- `vmImage` (_IMAGE_URL_)
-
-Run the following command. Update it with your info for the resource group, subscription, deployment name, and L3 network template.
-
-```azurecli
-az deployment group create --resource-group _RESOURCE_GROUP_ --subscription=_SUBSCRIPTION_ --name _DEPLOYMENT_NAME_ --template-file _VM_TEMPLATE_
-```
-
-#### SSH to the VM
-
-It takes a few minutes for the VM to be created and then Azure Arc connected. If your attempt fails at first, try again after a short wait.
-
-```azurecli
-az ssh vm -n _VMNAME_ -g _RESOURCE_GROUP_ --subscription _SUBSCRIPTION_ --private-key _SSH_PRIVATE_KEY_ --local-user _ADMINUSER_
+az networkcloud virtualmachine create \
+    --name "$VM_NAME" \
+    --resource-group "$RESOURCE_GROUP" \
+    --subscription "$SUBSCRIPTION" \
+    --extended-location name="$CUSTOM_LOCATION" type="CustomLocation" \
+    --location "$LOCATION" \
+    --admin-username "$ADMIN_USERNAME" \
+    --csn "attached-network-id=$CSN_ARM_ID" \
+    --cpu-cores $CPU_CORES \
+    --memory-size $MEMORY_SIZE \
+    --network-attachments '[{"attachedNetworkId":"'$L3_NETWORK_ID'","ipAllocationMethod":"Dynamic","defaultGateway":"True","networkAttachmentName":"'$NETWORK_INTERFACE_NAME'"}'\
+    --storage-profile create-option="Ephemeral" delete-option="Delete" disk-size="$VM_DISK_SIZE" \
+    --vm-image "$VM_IMAGE" \
+    --ssh-key-values "$SSH_PUBLIC_KEY" \
+    --vm-image-repository-credentials registry-url="$ACR_URL" username="$ACR_USERNAME" password="$ACR_PASSWORD"
 ```
 
 > [!NOTE]
