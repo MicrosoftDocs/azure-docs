@@ -483,12 +483,12 @@ items:
       items:
       - name: Configure monitoring
         displayName: Kubernetes, containers
-        href: containers/monitor-containers-configure.md
+        href: containers/monitor-kubernetes-configure.md
       - name: Analyze monitoring data
         displayName: Kubernetes, containers
-        href: containers/monitor-containers-analyze.md
+        href: containers/monitor-kubernetes-analyze.md
       - name: Monitoring scenarios
-        href: containers/monitor-containers-scenarios.md
+        href: containers/monitor-kubernetes-scenarios.md
     - name: Container insights
       items:
       - name: Overview
