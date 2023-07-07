@@ -71,7 +71,7 @@ items:
     - name: Manage quota
       href: ./how-to/quota.md
     - name: Use virtual networks
-      href: ../cognitive-services-virtual-networks.md?context=/azure/cognitive-services/openai/context/context
+      href: ../cognitive-services-virtual-networks.md?context=/azure/ai-services/openai/context/context
     - name: Use with large datasets
       href: ./how-to/integrate-synapseml.md
     - name: Encryption of data at rest
@@ -91,15 +91,15 @@ items:
 - name: Responsible AI
   items:
     - name: Overview
-      href: /legal/cognitive-services/openai/overview?context=/azure/cognitive-services/openai/context/context
+      href: /legal/cognitive-services/openai/overview?context=/azure/ai-services/openai/context/context
     - name : Transparency note
-      href: /legal/cognitive-services/openai/transparency-note?context=/azure/cognitive-services/openai/context/context
+      href: /legal/cognitive-services/openai/transparency-note?context=/azure/ai-services/openai/context/context
     - name: Limited access
-      href: /legal/cognitive-services/openai/limited-access?context=/azure/cognitive-services/openai/context/context
+      href: /legal/cognitive-services/openai/limited-access?context=/azure/ai-services/openai/context/context
     - name: Code of conduct
-      href: /legal/cognitive-services/openai/code-of-conduct?context=/azure/cognitive-services/openai/context/context
+      href: /legal/cognitive-services/openai/code-of-conduct?context=/azure/ai-services/openai/context/context
     - name: Data, privacy, and security
-      href: /legal/cognitive-services/openai/data-privacy?context=/azure/cognitive-services/openai/context/context
+      href: /legal/cognitive-services/openai/data-privacy?context=/azure/ai-services/openai/context/context
 - name: Reference
   items:
     - name: Bicep/Azure Resource Manager/Terraform
@@ -120,7 +120,7 @@ items:
 - name: Resources
   items: 
     - name: Support and help options
-      href: ../cognitive-services-support-options.md?context=/azure/cognitive-services/openai/context/context
+      href: ../cognitive-services-support-options.md?context=/azure/ai-services/openai/context/context
     - name: Intro to Azure OpenAI training
       href: /training/modules/explore-azure-openai/
     - name: Azure OpenAI Samples
