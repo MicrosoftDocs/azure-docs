@@ -22,15 +22,15 @@ Although not required reading before completing your first quickstart or tutoria
     :::column:::
         **Authentication and authorization**
 
-        - [Authentication basics](../articles/active-directory/develop/authentication-vs-authorization.md)
-        - [ID tokens](../articles/active-directory/develop/id-tokens.md)
-        - [Access tokens](../articles/active-directory/develop/access-tokens.md)
+        - [Authentication basics](../../authentication-vs-authorization.md)
+        - [ID tokens](../../id-tokens.md)
+        - [Access tokens](../../access-tokens.md)
     :::column-end:::
     :::column:::
         **Microsoft identity platform**
 
-        - [Audiences](../articles/active-directory/develop/v2-supported-account-types.md)
-        - [Applications and service principals](../articles/active-directory/develop/app-objects-and-service-principals.md)
-        - [Permissions and consent](../articles/active-directory/develop/v2-permissions-and-consent.md)
+        - [Audiences](../../v2-supported-account-types.md)
+        - [Applications and service principals](../../app-objects-and-service-principals.md)
+        - [Permissions and consent](../../permissions-consent-overview.md)
     :::column-end:::
 :::row-end:::
