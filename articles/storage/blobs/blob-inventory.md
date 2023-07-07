@@ -8,7 +8,6 @@ ms.service: storage
 ms.date: 06/21/2023
 ms.topic: conceptual
 ms.author: normesta
-ms.subservice: blobs
 ms.custom: references_regions
 ---
 

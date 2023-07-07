@@ -4,12 +4,12 @@ description: Azure Storage protects your data by automatically encrypting it bef
 services: storage
 author: tamram
 
-ms.service: storage
+ms.service: azure-storage
 ms.date: 02/09/2023
 ms.topic: conceptual
 ms.author: tamram
 ms.reviewer: ozgun
-ms.subservice: common
+ms.subservice: storage-common-concepts
 ---
 
 # Azure Storage encryption for data at rest

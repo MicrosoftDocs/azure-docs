@@ -31,7 +31,7 @@ Development of Calling and Chat applications can be accelerated by the  [Azure C
 | Email | [REST](/rest/api/communication/Email) | Service|Send and get status on Email messages|
 | Chat | [REST](/rest/api/communication/) with proprietary signaling | Client & Service | Add real-time text chat to your applications |
 | Calling | Proprietary transport | Client | Voice, video, screen-sharing, and other real-time communication |
-| Call Automation | [REST](/rest/api/communication/callautomation/server-calling) | Service| Build customized calling workflows for PSTN and VoIP calls|
+| Call Automation | [REST](/rest/api/communication/callautomation/call-connection) | Service| Build customized calling workflows for PSTN and VoIP calls|
 | Network Traversal | [REST](./network-traversal.md)| Service| Access TURN servers for low-level data transport |
 | UI Library | N/A | Client | Production-ready UI components for chat and calling apps |
 

@@ -106,9 +106,12 @@ Enterprise Agreement customers can use the VM RI Coverage reports for VMs and pu
 
 Reservation purchase recommendations are available in [Azure Advisor](https://portal.azure.com/#blade/Microsoft_Azure_Expert/AdvisorMenuBlade/overview).
 
-- Advisor has only single-subscription scope recommendations.
-- Advisor recommendations are calculated using 30-day look-back period. The projected savings are for a three-year reservation term.
-- If you purchase a shared-scope reservation, Advisor reservation purchase recommendations can take up to 30 days to disappear.
+- Advisor has only single-subscription scope recommendations. If you want to see recommendations for the entire billing scope (Billing account or billing profile), then:
+- In the Azure portal, navigate to Reservations > Add and then select the type that you want to see the recommendations for.
+- The recommendations quantity and savings are for a three-year reservation, where available. If a three-year reservation isn't sold for the service, the recommendation is calculated using the one-year reservation price.
+- The recommendation calculations include any special discounts that you might have on your on-demand usage rates.
+- If you purchase a shared-scope reservation, Advisor reservation purchase recommendations can take up to five days to disappear.
+- Azure classic compute resources such as classic VMs are explicitly excluded from reservation recommendations. Microsoft recommends that users avoid making long-term commitments to legacy services that are being deprecated.
 
 ## Recommendations using APIs
 
