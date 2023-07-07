@@ -10,8 +10,6 @@ ms.date: 07/07/2023
 
 You can receive performance traces for your instance of [Azure Cloud Services](../../cloud-services-extended-support/overview.md) by enabling the Application Insights Profiler. Profiler is installed on your instance of Azure Cloud Services via the [Azure Diagnostics extension](../agents/diagnostics-extension-overview.md).
 
-In this article, you:
-
 In this guide, you learn how to:
 > [!div class="checklist"]
 > - Enable your instance of Azure Cloud Services to send diagnostics data to Application Insights.
