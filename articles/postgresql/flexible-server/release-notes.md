@@ -15,9 +15,10 @@ ms.date: 05/10/2023
 [!INCLUDE [applies-to-postgresql-flexible-server](../includes/applies-to-postgresql-flexible-server.md)]
 
 This page provides latest news and updates regarding feature additions, engine versions support, extensions, and any other announcements relevant for Flexible Server - PostgreSQL
+
 ## Release: June 2023
 * General availability of [Query Performance Insight](./concepts-query-performance-insight.md) for Azure Database for PostgreSQL – Flexible Server.
-* Support for [minor versions](./concepts-supported-versions.md) 15.2(preview),14.7, 13.10, 12.14, 11.19. <sup>$</sup>
+* Support for [minor versions](./concepts-supported-versions.md) 15.2 (preview), 14.7, 13.10, 12.14, 11.19. <sup>$</sup>
 
 ## Release: May 2023
 * Public preview of [Database availability metric](./concepts-monitoring.md#database-availability-metric) for Azure Database for PostgreSQL – Flexible Server.
