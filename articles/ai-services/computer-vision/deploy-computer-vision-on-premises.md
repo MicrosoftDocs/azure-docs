@@ -163,9 +163,6 @@ spec:
 
 In the same *templates* folder, copy and paste the following helper functions into `helpers.tpl`. `helpers.tpl` defines useful functions to help generate Helm template.
 
-> [!NOTE]
-> This article contains references to the term *slave*, a term that Microsoft no longer uses. When the term is removed from the software, we'll remove it from this article.
-
 ```yaml
 {{- define "rabbitmq.hostname" -}}
 {{- printf "%s-rabbitmq" .Release.Name -}}
@@ -173,7 +170,7 @@ In the same *templates* folder, copy and paste the following helper functions in
 
 {{- define "redis.connStr" -}}
 {{- $hostMain := printf "%s-redis-master:6379" .Release.Name }}
-{{- $hostReplica := printf "%s-redis-slave:6379" .Release.Name -}}
+{{- $hostReplica := printf "%s-redis-replica:6379" .Release.Name -}}
 {{- $passWord := printf "password=%s" .Values.read.image.args.redis.password -}}
 {{- $connTail := "ssl=False,abortConnect=False" -}}
 {{- printf "%s,%s,%s,%s" $hostMain $hostReplica $passWord $connTail -}}
