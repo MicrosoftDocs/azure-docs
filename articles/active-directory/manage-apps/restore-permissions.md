@@ -34,7 +34,7 @@ To restore previously revoked permissions for an application, you need:
 
 ## Restore revoked permissions for an application
 
-"You can try different methods for restoring permissions:
+You can try different methods for restoring permissions:
 
 - Use the **Grant admin consent** button on the **Permissions** page for the app to apply consent again. This consent applies the set of permissions that the app's developer originally requested in the app manifest.
 
