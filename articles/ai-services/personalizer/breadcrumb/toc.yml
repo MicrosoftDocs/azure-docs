@@ -2,10 +2,10 @@
   tocHref: /azure/
   topicHref: /azure/index
   items:
-  - name: Cognitive Services
-    tocHref: /azure/cognitive-services/
-    topicHref: /azure/cognitive-services/index
+  - name: Azure AI services
+    tocHref: /azure/ai-services/
+    topicHref: /azure/ai-services/index
     items:
     - name: Personalizer
-      tocHref: /azure/cognitive-services/
-      topicHref: /azure/cognitive-services/personalizer/index
+      tocHref: /azure/ai-services/
+      topicHref: /azure/ai-services/personalizer/index

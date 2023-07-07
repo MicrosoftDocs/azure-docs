@@ -1,6 +1,6 @@
 ---
 title: Guidance for integration and responsible use of Personalizer
-titleSuffix: Azure Cognitive Services
+titleSuffix: Azure AI services
 description: Guidance for integration and responsible use of Personalizer
 author: jcodella
 ms.author: jacodel
@@ -14,7 +14,7 @@ ms.topic: conceptual
 
 # Guidance for integration and responsible use of Personalizer
 
-Microsoft works to help customers responsibly develop and deploy solutions by using Azure Personalizer. Our principled approach upholds personal agency and dignity by considering the AI system's:  
+Microsoft works to help customers responsibly develop and deploy solutions by using Azure AI Personalizer. Our principled approach upholds personal agency and dignity by considering the AI system's:  
 
 - Fairness, reliability, and safety.
 - Privacy and security.

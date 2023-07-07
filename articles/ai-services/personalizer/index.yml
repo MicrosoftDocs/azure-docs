@@ -12,8 +12,8 @@ metadata:
   ms.subservice: personalizer
   services: cognitive-services
   title: Personalizer documentation
-  titleSuffix: Azure Cognitive Services
-  description:  Azure Personalizer is a cloud-based API service that allows you to choose the best experience to show to your users, learning from their real-time behavior.
+  titleSuffix: Azure AI services
+  description:  Azure AI Personalizer is a cloud-based API service that allows you to choose the best experience to show to your users, learning from their real-time behavior.
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
 landingContent:
@@ -34,7 +34,7 @@ landingContent:
           - text: Where you can use Personalizer?
             url: where-can-you-use-personalizer.md
           - text: Ethics and responsible use
-            url: ethics-responsible-use.md
+            url: responsible-guidance-integration.md
   - title: Create and use Personalizer loop
     linkLists:
       - linkListType: concept
@@ -134,6 +134,6 @@ landingContent:
     - linkListType: reference
       links:
       - text: Support and help options
-        url: ../cognitive-services-support-options.md?context=/azure/cognitive-services/personalizer/context/context
+        url: ../cognitive-services-support-options.md?context=/azure/ai-services/personalizer/context/context
       - text: Troubleshooting
-        url: troubleshooting.md
+        url: frequently-asked-questions.yml

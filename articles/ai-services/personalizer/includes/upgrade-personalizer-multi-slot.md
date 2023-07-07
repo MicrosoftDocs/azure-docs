@@ -20,7 +20,7 @@ In the Azure portal, in the Personalizer resource, under **Resource Management**
 > Multi-slot personalization will not work unless you disable Automatic Optimization. Automatic Optimization for multi-slot personalization will be supported in the future. 
 
 2. Update Personalizer to multi-slot
-In the Azure portal, in the Personalizer resource, under **Resource Management**, on the **Model and learning settings** page, click **Export learning settings**. The **arguments** field in the downloaded json file will start with **--cb_explore_adf**. Change this to **--ccb_explore_adf** and save the file. CB (contextual bandits) and CCB (conditional contextual bandits) are the algorithms Personalizer uses for single-slot and multi-slot personalization, respectively. ADF (action dependent features) means that the actions are expressed / identified with features.
+In the Azure portal, in the Personalizer resource, under **Resource Management**, on the **Model and learning settings** page, select **Export learning settings**. The **arguments** field in the downloaded json file will start with **--cb_explore_adf**. Change this to **--ccb_explore_adf** and save the file. CB (contextual bandits) and CCB (conditional contextual bandits) are the algorithms Personalizer uses for single-slot and multi-slot personalization, respectively. ADF (action dependent features) means that the actions are expressed / identified with features.
 
 ![Learning settings before change](../media/settings/learning-settings-pre-upgrade.png)
 
