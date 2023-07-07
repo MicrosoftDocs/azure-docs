@@ -33,7 +33,7 @@ Before you begin, have the following prerequisites in place:
 
   [Upload the file to a blob container](../storage/blobs/storage-quickstart-blobs-portal.md) in Azure Storage.
 
-This quickstart also uses [Azure AI services](https://azure.microsoft.com/services/cognitive-services/) for AI enrichment. Because the workload is so small, Azure AI services is tapped behind the scenes for free processing for up to 20 transactions. This means that you can complete this exercise without having to create an extran Azure AI multi-service resource.
+This quickstart also uses [Azure AI services](https://azure.microsoft.com/services/cognitive-services/) for AI enrichment. Because the workload is so small, Azure AI services is tapped behind the scenes for free processing for up to 20 transactions. This means that you can complete this exercise without having to create an extra Azure AI multi-service resource.
 
 ## Start the wizard
 
