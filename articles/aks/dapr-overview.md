@@ -18,7 +18,7 @@ ms.custom: event-tier1-build-2022
 
 Dapr is incrementally adoptable. You can use any of the API building blocks as needed.
 
-:::image type="content" source="./media/dapr-overview/dapr-building-blocks.png" alt-text="Diagram showing how many different code frameworks can interface with the various building blocks of Dapr via HTTP or gRPC.":::
+:::image type="content" source="./media/dapr-overview/dapr-building-blocks.png" alt-text="Diagram showing how many different code frameworks can interface with the various building blocks of Dapr via HTTP or gRPC." lightbox="./media/dapr-overview/dapr-building-blocks.png":::
 
 ## Capabilities and features
 
