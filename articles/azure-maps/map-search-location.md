@@ -1,11 +1,11 @@
 ---
 title: Show search results on a map
 titleSuffix: Microsoft Azure Maps
-description: In this article, you'll learn how to perform a search request using Microsoft Azure Maps Web SDK and display the results on the map.
+description: This article demonstrates how to perform a search request using Microsoft Azure Maps Web SDK and display the results on the map.
 author: dubiety
 ms.author: yuchungchen
 ms.date: 07/01/2023
-ms.topic: conceptual
+ms.topic: how-to
 ms.service: azure-maps
 ---
 
@@ -13,7 +13,7 @@ ms.service: azure-maps
 
 This article shows you how to search for location of interest and show the search results on the map.
 
-There are two ways to search for a location of interest. One way is to use the TypeScript REST SDK, [@azure-rest/maps-search] to make a search request. The other way is to make a search request to Azure Maps [Fuzzy search API] through the [Fetch API]. Both ways are discussed below.
+There are two ways to search for a location of interest. One way is to use the TypeScript REST SDK, [@azure-rest/maps-search] to make a search request. The other way is to make a search request to Azure Maps [Fuzzy search API] through the [Fetch API]. Both approaches are described in this article.
 
 ## Make a search request via REST SDK
 
@@ -97,7 +97,7 @@ document.body.onload = onload;
 </iframe>
 --------------------------------------------------------->
 
-In the code above, the first block constructs a map object and sets the authentication mechanism to use Azure Active Directory. You can see [create a map] for instructions.
+In the previous code example, the first block constructs a map object and sets the authentication mechanism to use Azure Active Directory. For more information, see [Create a map].
 
 The second block of code creates an object that implements the [TokenCredential] interface to authenticate HTTP requests to Azure Maps with the access token. It then passes the credential object to [MapsSearch] and creates an instance of the client.
 
@@ -188,7 +188,7 @@ document.body.onload = onload;
 </iframe>
 --------------------------------------------------------->
 
-In the code above, the first block of code constructs a map object. It sets the authentication mechanism to use Azure Active Directory. You can see [create a map] for instructions.
+In the previous code example, the first block of code constructs a map object. It sets the authentication mechanism to use Azure Active Directory. For more information, see [Create a map].
 
 The second block of code creates a data source object using the [DataSource] class and add search results to it. A [symbol layer] uses text or icons to render point-based data wrapped in the [DataSource] as symbols on the map.  A symbol layer is then created. The data source is added to the symbol layer, which is then added to the map.
 
@@ -231,7 +231,7 @@ See the following articles for full code examples:
 [Fetch API]: https://fetch.spec.whatwg.org/
 [DataSource]: /javascript/api/azure-maps-control/atlas.source.datasource
 [symbol layer]: /javascript/api/azure-maps-control/atlas.layer.symbollayer
-[create a map]: map-create.md
+[Create a map]: map-create.md
 [Get Search Fuzzy rest API]: /rest/api/maps/search/getsearchfuzzy
 [setCamera]: /javascript/api/azure-maps-control/atlas.map#setcamera-cameraoptions---cameraboundsoptions---animationoptions-
 [event listener]: /javascript/api/azure-maps-control/atlas.map#events
