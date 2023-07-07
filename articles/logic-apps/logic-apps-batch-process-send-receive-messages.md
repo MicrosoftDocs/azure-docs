@@ -5,7 +5,7 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: how-to
-ms.date: 02/28/2023
+ms.date: 07/07/2023
 ---
 
 # Send, receive, and batch process messages in Azure Logic Apps
@@ -14,7 +14,7 @@ ms.date: 02/28/2023
 
 To send and process messages together in a specific way as groups, you can create a batching solution. This solution collects messages into a *batch* and waits until your specified criteria are met before releasing and processing the batched messages. Batching can reduce how often your logic app processes messages.
 
-This article shows how to build a batching solution by creating two logic apps within the same Azure subscription, Azure region, and in this order:
+This how-to guide shows how to build a batching solution by creating two logic apps within the same Azure subscription, Azure region, and in this order:
 
 1. The ["batch receiver"](#batch-receiver) logic app, which accepts and collects messages into a batch until your specified criteria is met for releasing and processing those messages. Make sure that you first create this batch receiver so that you can later select the batch destination when you create the batch sender.
 
@@ -26,7 +26,7 @@ Your batch receiver and batch sender need to share the same Azure subscription *
 
 ## Prerequisites
 
-* An Azure account and subscription. If you don't have a subscription, you can [start with a free Azure account](https://azure.microsoft.com/free/). Or, [sign up for a Pay-As-You-Go subscription](https://azure.microsoft.com/pricing/purchase-options/).
+* An Azure account and subscription. If you don't have a subscription, you can [start with a free Azure account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F). Or, [sign up for a Pay-As-You-Go subscription](https://azure.microsoft.com/pricing/purchase-options/).
 
 * An email account with any [email provider supported by Azure Logic Apps](/connectors/connector-reference/connector-reference-logicapps-connectors)
 
@@ -39,6 +39,12 @@ Your batch receiver and batch sender need to share the same Azure subscription *
 * Basic knowledge about [logic app workflows](../logic-apps/logic-apps-overview.md)
 
 * To use Visual Studio rather than the Azure portal, make sure that you [set up Visual Studio for working with Logic Apps](../logic-apps/quickstart-create-logic-apps-with-visual-studio.md).
+
+## Limitations
+
+* You can only check the contents in a batch after release by comparing the released contents with the source.
+
+* You can release a batch early only by changing the release criteria in the batch receiver, which is described in this guide, while the trigger still has the batch. However, the trigger uses the updated release criteria for any unsent messages.
 
 <a name="batch-receiver"></a>
 
@@ -62,7 +68,6 @@ Before you can send messages to a batch, that batch must first exist as the dest
    | **Message Count** | The number of messages to collect in the batch, for example, 10 messages. A batch's limit is 8,000 messages. |
    | **Batch Size** | The total size in bytes to collect in the batch, for example, 10 MB. A batch's size limit is 80 MB. |
    | **Schedule** | The interval and frequency between batch releases, for example, 10 minutes. The minimum recurrence is 60 seconds or 1 minute. Fractional minutes are effectively rounded up to 1 minute. To specify a time zone or a start date and time, open the **Add new parameter** list, and select the corresponding properties. |
-   |||
 
    > [!NOTE]
    >

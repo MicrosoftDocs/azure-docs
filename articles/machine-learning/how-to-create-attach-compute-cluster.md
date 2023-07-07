@@ -15,7 +15,7 @@ ms.date: 10/19/2022
 
 # Create an Azure Machine Learning compute cluster
 
-[!INCLUDE [dev v2](../../includes/machine-learning-dev-v2.md)]
+[!INCLUDE [dev v2](includes/machine-learning-dev-v2.md)]
 
 Learn how to create and manage a [compute cluster](concept-compute-target.md#azure-machine-learning-compute-managed) in your Azure Machine Learning workspace.
 
@@ -37,7 +37,7 @@ In this article, learn how to:
 
 * If using the Python SDK, [set up your development environment with a workspace](how-to-configure-environment.md).  Once your environment is set up, attach to the workspace in your Python script:
 
-    [!INCLUDE [connect ws v2](../../includes/machine-learning-connect-ws-v2.md)]
+    [!INCLUDE [connect ws v2](includes/machine-learning-connect-ws-v2.md)]
 
 
 ## What is a compute cluster?
@@ -68,7 +68,7 @@ Azure Machine Learning Compute can be reused across runs. The compute can be sha
 
 The dedicated cores per region per VM family quota and total regional quota, which applies to compute cluster creation, is unified and shared with Azure Machine Learning training compute instance quota. 
 
-[!INCLUDE [min-nodes-note](../../includes/machine-learning-min-nodes.md)]
+[!INCLUDE [min-nodes-note](includes/machine-learning-min-nodes.md)]
 
 The compute autoscales down to zero nodes when it isn't used.   Dedicated VMs are created to run your jobs as needed.
 
@@ -82,7 +82,7 @@ To create a persistent Azure Machine Learning Compute resource in Python, specif
 * *size**: The VM family of the nodes created by Azure Machine Learning Compute.
 * **max_instances*: The max number of nodes to autoscale up to when you run a job on Azure Machine Learning Compute.
 
-[!INCLUDE [sdk v2](../../includes/machine-learning-sdk-v2.md)]
+[!INCLUDE [sdk v2](includes/machine-learning-sdk-v2.md)]
 
 [!notebook-python[](~/azureml-examples-main/sdk/python/resources/compute/compute.ipynb?name=cluster_basic)]
 
@@ -93,7 +93,7 @@ You can also configure several advanced properties when you create Azure Machine
 
 # [Azure CLI](#tab/azure-cli)
 
-[!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
+[!INCLUDE [cli v2](includes/machine-learning-cli-v2.md)]
 
 ```azurecli
 az ml compute create -f create-cluster.yml
@@ -152,11 +152,11 @@ Create a single- or multi- node compute cluster for your training, batch inferen
 
 SSH access is disabled by default.  SSH access can't be changed after creation. Make sure to enable access if you plan to debug interactively with [VS Code Remote](how-to-set-up-vs-code-remote.md).  
 
-[!INCLUDE [enable-ssh](../../includes/machine-learning-enable-ssh.md)]
+[!INCLUDE [enable-ssh](includes/machine-learning-enable-ssh.md)]
 
 ### Connect with SSH access
 
-[!INCLUDE [ssh-access](../../includes/machine-learning-ssh-access.md)]
+[!INCLUDE [ssh-access](includes/machine-learning-ssh-access.md)]
 
 ---
 
@@ -170,14 +170,14 @@ Use any of these ways to specify a low-priority VM:
     
 # [Python SDK](#tab/python)
 
-[!INCLUDE [sdk v2](../../includes/machine-learning-sdk-v2.md)]
+[!INCLUDE [sdk v2](includes/machine-learning-sdk-v2.md)]
 
 [!notebook-python[](~/azureml-examples-main/sdk/python/resources/compute/compute.ipynb?name=cluster_low_pri)]
 
     
 # [Azure CLI](#tab/azure-cli)
 
-[!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
+[!INCLUDE [cli v2](includes/machine-learning-cli-v2.md)]
 
 Set the `vm-priority`:
     
@@ -212,7 +212,7 @@ There's a chance that some users who created their Azure Machine Learning worksp
 
 If your Azure Machine Learning compute cluster appears stuck at resizing (0 -> 0) for the node state, this may be caused by Azure resource locks.
 
-[!INCLUDE [resource locks](../../includes/machine-learning-resource-lock.md)]
+[!INCLUDE [resource locks](includes/machine-learning-resource-lock.md)]
 
 ## Next steps
 

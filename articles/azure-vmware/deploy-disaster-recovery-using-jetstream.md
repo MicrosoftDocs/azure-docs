@@ -3,7 +3,7 @@ title: Deploy disaster recovery using JetStream DR
 description: Learn how to implement JetStream DR for your Azure VMware Solution private cloud and on-premises VMware workloads. 
 ms.topic: how-to
 ms.service: azure-vmware
-ms.date: 7/6/2022
+ms.date: 7/7/2023
 ms.custom: references_regions
 ---
 
@@ -29,9 +29,7 @@ To learn more about JetStream DR, see:
 | **JetStream DR Virtual Appliance (DRVA)**  | Linux-based Virtual Machine appliance receives protected VMs replication data from the source ESXi host. It maintains the replication log and manages the transfer of the VMs and their data to the object store such as Azure Blob Storage. Depending upon the number of protected VMs and the amount of VM data to replicate, the private cloud admin can create one or more DRVA instances.  | 
 | **JetStream ESXi host components (IO Filter packages)**  | JetStream software installed on each ESXi host configured for JetStream DR. The host driver intercepts the vSphere VMs I/O and sends the replication data to the DRVA. The IO filters also monitor relevant events, such as vMotion, Storage vMotion, snapshots, etc.   | 
 | **JetStream Protected Domain**  | Logical group of VMs that will be protected together using the same policies and runbook. The data for all VMs in a protection domain is stored in the same Azure Blob container instance. A single DRVA instance handles replication to remote DR storage for all VMs in a Protected Domain.   | 
-| **Azure Blob Storage containers**  | The protected VMs replicated data is stored in Azure Blobs. JetStream software creates one Azure Blob container instance for each JetStream Protected Domain.    | 
-
-
+| **Azure Blob Storage containers**  | The protected VM's replicated data is stored in Azure Blobs. JetStream software creates one Azure Blob container instance for each JetStream Protected Domain.    | 
 
 ## JetStream scenarios on Azure VMware Solution
 You can use JetStream DR with Azure VMware Solution for the following two scenarios:  

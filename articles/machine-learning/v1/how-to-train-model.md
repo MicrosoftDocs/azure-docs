@@ -14,7 +14,7 @@ ms.custom: UpdateFrequency5, devx-track-python, contperf-fy21q1, ignite-fall-202
 ---
 # Train models with the Azure Machine Learning Python SDK (v1)
 
-[!INCLUDE [sdk v1](../../../includes/machine-learning-sdk-v1.md)]
+[!INCLUDE [sdk v1](../includes/machine-learning-sdk-v1.md)]
 
      
 Learn how to attach Azure compute resources to your Azure Machine Learning workspace with SDK v1.  Then you can use these resources as training and inference [compute targets](../concept-compute-target.md) in your machine learning tasks.

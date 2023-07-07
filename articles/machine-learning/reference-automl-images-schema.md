@@ -15,7 +15,7 @@ ms.date: 09/09/2022
 
 # Data schemas to train computer vision models with automated machine learning
 
-[!INCLUDE [dev v2](../../includes/machine-learning-dev-v2.md)]
+[!INCLUDE [dev v2](includes/machine-learning-dev-v2.md)]
 
 
 
