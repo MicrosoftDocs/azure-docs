@@ -329,7 +329,7 @@ Once you've downloaded and opened the project, there are a few essential concept
 
 |Concept|Purpose|
 |--|--|
-|Function|The Azure Function is defined by both the function code and the bindings. These are in [./src/functions/process-blobs.js](https://github.com/Azure-Samples/msdocs-storage-bind-function-service/blob/main/javascript-v4/functions/process-blobs.js). |
+|Function|The Azure Function is defined by both the function code and the bindings. These are in [./src/functions/process-blobs.js](https://github.com/Azure-Samples/msdocs-storage-bind-function-service/blob/main/javascript-v4/src/functions/process-blob.js). |
 |Triggers and bindings|The triggers and bindings indicate that data, which is expected into or out of the function and which service is going to send or receive that data. 
 
 Triggers and bindings used in this tutorial to expediate the development process by removing the need to write code to connect to services. 
@@ -562,6 +562,10 @@ If you're not going to continue to use this application, you can delete the reso
 1. Find and right-click the `msdocs-storage-function` resource group from the list.
 1. Select **Delete**. The process to delete the resource group may take a few minutes to complete.
 
+
+## Sample code
+
+* [Azure Functions sample code](https://github.com/Azure-Samples/msdocs-storage-bind-function-service/blob/main/javascript-v4)
 
 ## Next steps
 
