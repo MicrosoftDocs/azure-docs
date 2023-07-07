@@ -59,13 +59,13 @@ Implementing Cache for ACR provides the following benefits:
 
 Cache for ACR currently supports the following upstream registries:
 
-| Upstream registries         | Support                                                      | Availability |
-| ----------------------------| ------------------------------------------------------------ | ------------ |
-| Docker                      | Supports both authenticated pulls and unauthenticated pulls. | CLI, Portal  |
-| Microsoft Artifact Registry | Supports unauthenticated pulls only.                         | CLI, Portal  |
-| ECR Public                  | Supports unauthenticated pulls only.                         | CLI          |
-| Quay.io                     | Supports both authenticated pulls and unauthenticated pulls. | CLI          |
-| GitHub Container Registry   | Supports both authenticated pulls and unauthenticated pulls. | CLI          |
+| Upstream registries         | Support                                                      | Availability            |
+| --------------------------- | ------------------------------------------------------------ | ----------------------- |
+| Docker                      | Supports both authenticated pulls and unauthenticated pulls. | Azure CLI, Azure Portal |
+| Microsoft Artifact Registry | Supports unauthenticated pulls only.                         | Azure CLI, Azure Portal |
+| ECR Public                  | Supports unauthenticated pulls only.                         | Azure CLI               |
+| Quay.io                     | Supports both authenticated pulls and unauthenticated pulls. | Azure CLI               |
+| GitHub Container Registry   | Supports both authenticated pulls and unauthenticated pulls. | Azure CLI               |
 
 ## Preview Limitations
 
