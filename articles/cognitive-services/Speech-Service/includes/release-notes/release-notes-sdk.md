@@ -21,7 +21,7 @@ ms.author: eur
 
 #### Additional notes
 
-* **Java** Some internally used, `public` Java API methods were change to package `internal`, `protected` or `private`. This change should not impact developers, as we do not expect applications to be using those. Noted here for transparency.
+* **Java** - Some internally used, `public` Java API methods were changed to package `internal`, `protected` or `private`. This change should not impact developers, as we do not expect applications to be using those. Noted here for transparency.
 
 ### Speech SDK 1.29.0: June 2023 release
 

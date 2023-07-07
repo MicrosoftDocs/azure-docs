@@ -14,7 +14,7 @@ ms.custom: devx-track-azurecli, devplatv2, event-tier1-build-2022, devx-track-py
 
 # Manage Azure Machine Learning environments with the CLI & SDK (v2)
 
-[!INCLUDE [dev v2](../../includes/machine-learning-dev-v2.md)]
+[!INCLUDE [dev v2](includes/machine-learning-dev-v2.md)]
 
 
 
@@ -26,7 +26,7 @@ In this article, learn how to create and manage Azure Machine Learning environme
 
 ## Prerequisites
 
-[!INCLUDE [sdk/cliv2](../../includes/machine-learning-cli-sdk-v2-prereqs.md)]
+[!INCLUDE [sdk/cliv2](includes/machine-learning-cli-sdk-v2-prereqs.md)]
 
 > [!TIP]
 > For a full-featured development environment, use Visual Studio Code and the [Azure Machine Learning extension](how-to-setup-vs-code.md) to [manage Azure Machine Learning resources](how-to-manage-resources-vscode.md) and [train machine learning models](tutorial-train-deploy-image-classification-model-vscode.md).

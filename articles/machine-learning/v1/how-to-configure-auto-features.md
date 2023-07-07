@@ -16,7 +16,7 @@ monikerRange: 'azureml-api-1'
 
 # Data featurization in automated machine learning
 
-[!INCLUDE [sdk v1](../../../includes/machine-learning-sdk-v1.md)]
+[!INCLUDE [sdk v1](../includes/machine-learning-sdk-v1.md)]
 
 Learn about the data featurization settings in Azure Machine Learning, and how to customize those features for [automated machine learning experiments](../concept-automated-ml.md).
 
@@ -32,7 +32,7 @@ In Azure Machine Learning, data-scaling and normalization techniques are applied
 
 This article assumes that you already know how to configure an automated ML experiment. 
 
-[!INCLUDE [automl-sdk-version](../../../includes/machine-learning-automl-sdk-version.md)]
+[!INCLUDE [automl-sdk-version](../includes/machine-learning-automl-sdk-version.md)]
 
 For information about configuration, see the following articles:
 

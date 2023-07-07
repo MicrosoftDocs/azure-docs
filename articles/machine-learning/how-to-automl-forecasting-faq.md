@@ -15,7 +15,7 @@ ms.date: 01/27/2023
 
 # Frequently asked questions about forecasting in AutoML
 
-[!INCLUDE [sdk v2](../../includes/machine-learning-sdk-v2.md)]
+[!INCLUDE [sdk v2](includes/machine-learning-sdk-v2.md)]
 
 This article answers common questions about forecasting in automatic machine learning (AutoML). For general information about forecasting methodology in AutoML, see the [Overview of forecasting methods in AutoML](./concept-automl-forecasting-methods.md) article.
 
