@@ -8,7 +8,7 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 04/26/2023
+ms.date: 07/07/2023
 ms.custom: references_regions
 ---
 # Semantic search in Azure Cognitive Search
@@ -25,6 +25,9 @@ Semantic search is a premium feature that's billed by usage. We recommend this a
 > * [Enable semantic search for semantic ranking](#enable-semantic-search) on your search service.
 > * Create or modify queries to [return semantic captions and highlights](semantic-how-to-query-request.md).
 > * Add a few more query properties to also [return semantic answers](semantic-answers.md).
+
+> [!NOTE]
+> Looking for vector support and similarity search? See [Vector search in Azure Cognitive Search](vector-search-overview.md) for details.
 
 ## What is semantic search?
 
