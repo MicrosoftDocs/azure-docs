@@ -7,13 +7,13 @@ ms.topic: include
 ms.author: eur
 ---
 
-To complete the intent recognition quickstart, you'll need to create a LUIS account and a project using the LUIS preview portal. This quickstart requires a LUIS subscription [in a region where intent recognition is available](../../../regions.md#intent-recognition.md). A Speech service subscription *isn't* required.
+To complete the intent recognition quickstart, you'll need to create a LUIS account and a project using the LUIS preview portal. This quickstart requires a LUIS subscription [in a region where intent recognition is available](../../../regions.md#intent-recognition). A Speech service subscription isn't required.
 
 The first thing you'll need to do is create a LUIS account and app using the LUIS preview portal. The LUIS app that you create will use a prebuilt domain for home automation, which provides intents, entities, and example utterances. When you're finished, you'll have a LUIS endpoint running in the cloud that you can call using the Speech SDK. 
 
 Follow these instructions to create your LUIS app:
 
-* <a href="/azure/ai-services/luis/luis-get-started-create-app" target="_blank">Quickstart: Build prebuilt domain app </a>
+* <a href="/azure/ai-services/luis/luis-get-started-create-app.md" target="_blank">Quickstart: Build prebuilt domain app </a>
 
 When you're done, you'll need four things:
 
