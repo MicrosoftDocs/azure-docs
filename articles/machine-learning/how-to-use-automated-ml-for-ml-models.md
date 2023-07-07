@@ -37,7 +37,7 @@ For a Python code-based experience, [configure your automated machine learning e
 
 1. Navigate to the left pane. Select **Automated ML** under the **Author** section.
 
-[![Azure Machine Learning studio navigation pane](media/how-to-use-automated-ml-for-ml-models/nav-pane.png)](media/how-to-use-automated-ml-for-ml-models/nav-pane-expanded.png)
+[![Azure Machine Learning studio navigation pane](media/how-to-use-automated-ml-for-ml-models/nav-pane.png)](media/how-to-use-automated-ml-for-ml-models/nav-pane-expanded.png#lightbox)
 
  If this is your first time doing any experiments, you'll see an empty list and links to documentation. 
 
