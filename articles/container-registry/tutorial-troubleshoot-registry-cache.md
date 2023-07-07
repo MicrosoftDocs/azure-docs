@@ -67,7 +67,7 @@ Learn more about the [Cache Terminology](tutorial-registry-cache.md#terminology)
 
 ### Cache rule Limit
 
-If you're facing issues while creating a Cache rule, we recommend verifying if you've more than 50 cache rules created. 
+If you're facing issues while creating a Cache rule, we recommend verifying if you have more than 50 cache rules created. 
 
 We recommend deleting any unwanted cache rules to avoid hitting the limit. 
 
@@ -75,11 +75,11 @@ We recommend deleting any unwanted cache rules to avoid hitting the limit.
 
 The upstream sources to Cache content for ACR are as follows:
 
-1. Docker : Supports both authenticated pulls and un-authenticated pulls.
-2. MAR : Supports un-authenticated pulls only.
-3. ECR Public : Supports un-authenticated pulls only.
-4. Quay.io : Supports both authenticated pulls and un-authenticated pulls.
-5. GitHub Container Registry : Supports both authenticated pulls and un-authenticated pulls.
+1. Docker: Supports both authenticated pulls and unauthenticated pulls.
+2. MAR: Supports unauthenticated pulls only.
+3. ECR Public: Supports unauthenticated pulls only.
+4. Quay.io: Supports both authenticated pulls and unauthenticated pulls.
+5. GitHub Container Registry: Supports both authenticated pulls and unauthenticated pulls.
 
 <!-- LINKS - External -->
 [create-and-store-keyvault-credentials]:../key-vault/secrets/quick-create-portal.md
