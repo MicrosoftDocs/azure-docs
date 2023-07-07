@@ -33,7 +33,7 @@ Let's start by enabling diagnostic logging using the Azure portal.
 > [!NOTE]
 > To enable this feature using PowerShell or the Azure CLI, use the instructions provided in [Collect and consume log data from your Azure resources](../azure-monitor/essentials/platform-logs-overview.md).
 
-1. Navigate to the Azure portal. Then locate and select a Azure AI services resource. For example, your subscription to Speech Services.   
+1. Navigate to the Azure portal. Then locate and select an Azure AI services resource. For example, your subscription to Speech Services.   
 2. Next, from the left-hand navigation menu, locate **Monitoring** and select **Diagnostic settings**. This screen contains all previously created diagnostic settings for this resource.
 3. If there is a previously created resource that you'd like to use, you can select it now. Otherwise, select **+ Add diagnostic setting**.
 4. Enter a name for the setting. Then select **Archive to a storage account** and **Send to log Analytics**.
