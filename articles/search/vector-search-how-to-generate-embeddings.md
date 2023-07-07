@@ -21,11 +21,11 @@ Dimension attributes have a minimum of 2 and a maximum of 2048 dimensions per ve
 
 ## How models are used
 
-+ Query inputs require that you submit user-provided input to an embedding model that quickly converts human readable text into a vector. Optimizing for speed is the objective. 
++ Query inputs require that you submit user-provided input to an embedding model that quickly converts human readable text into a vector.
 
   + We used **text-embedding-ada-002** to generate text embeddings and [Image Retrieval REST API](/rest/api/computervision/2023-02-01-preview/image-retrieval/vectorize-image) for image embeddings.
 
-  + To increase the success rate of generation, we slowed the rate at which calls to the model are made. For the Python demo, we used [tenacity](https://pypi.org/project/tenacity/).
+  + To avoid [rate limiting](https://learn.microsoft.com/azure/cognitive-services/openai/quotas-limits), we implemented retry logic in our workload. For the Python demo, we used [tenacity](https://pypi.org/project/tenacity/).
 
 + Query outputs are any matching documents found in a search index. Your search index must have been previously loaded with documents having one or more vector fields with embeddings. Whatever model you used for indexing, use the same model for queries.
 
@@ -44,14 +44,14 @@ If you want resources in the same region, start with:
 The Postman collection assumes that you already have a vector query. Here's some Python code for generating an embedding that you can paste into the "values" property of a vector query.
 
 ```python
-! pip install openai
+!pip install openai
 
 import openai
 
 openai.api_type = "azure"
 openai.api_key = "YOUR-API-KEY"
 openai.api_base = "https://YOUR-OPENAI-RESOURCE.openai.azure.com"
-openai.api_version = "2022-12-01"
+openai.api_version = "2023-05-15"
 
 response = openai.Embedding.create(
     input="How do I use Python in VSCode?",
@@ -69,7 +69,12 @@ print(embeddings)
 <!-- 
 + We've done proof-of-concept testing of embeddings for a thousand images using [image retrieval vectorization in Cognitive Services](/azure/cognitive-services/computer-vision/how-to/image-retrieval). We hope to provide a demo of this soon. -->
 
-+ Similarity search expands your options for searchable content, for example by matching image content with text content, or matching across multiple languages. But not every query is improved with vector search. Keyword matching with BM25 is cheaper, faster, and easier, so integrate vector search only where it adds value.
++ **Identify use cases:** Evaluate the specific use cases where embedding model integration for vector search features can add value to your search solution. This can include matching image content with text content, cross-lingual searches, or finding similar documents.
++ **Optimize cost and performance**: Vector search can be resource-intensive, so consider only vectorizing the fields that contain semantic meaning
++ **Choose the right embedding model:** Select an appropriate model for your specific use case, such as word embeddings for text-based searches or image embeddings for visual searches. Consider using pre-trained models like **text-embedding-ada-002** from OpenAI or **Image Retreival** REST API from [Azure AI Computer Vision](/azure/cognitive-services/computer-vision/how-to/image-retrieval).
++ **Normalize Vector lengths**: Ensure that the vector lengths are normalized before storing them in the search index to improve the accuracy and performance of similarity search. Most pre-trained models already are normalized but not all. 
++ **Fine-tune the model**: If needed, fine-tune the selected model on your domain-specific data to improve its performance and relevance to your search application.
++ **Test and iterate**: Continuously test and refine your embedding model integration to achieve the desired search performance and user satisfaction.
 
 ## Next steps
 

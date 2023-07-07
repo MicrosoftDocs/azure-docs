@@ -58,7 +58,7 @@ Scenarios for vector search include:
 
 + **Hybrid search**. For text data, combine the best of vector retrieval and keyword retrieval to obtain the best results. Use with [semantic search (preview)](semantic-search-overview.md) for even more accuracy with L2 reranking using the same language models that power Bing.  
 
-+ **Vector database**.Use Cognitive Search as a vector store to server as long-term memory or an external knowledge base for Large Language Models (LLMs), or other applications.
++ **Vector database**. Use Cognitive Search as a vector store to server as long-term memory or an external knowledge base for Large Language Models (LLMs), or other applications.
 
 ## Azure integration and related services
 
@@ -66,9 +66,11 @@ You can use other Azure services to provide embeddings and data storage.
 
 + Azure OpenAI provides embedding models. Demos and samples target the [text-embedding-ada-002](/azure/cognitive-services/openai/concepts/models#embeddings-models) and other models. We recommend Azure OpenAI for generating embeddings for text.
 
-+ [Image Retrieval REST API (Preview)](/rest/api/computervision/2023-02-01-preview/image-retrieval/vectorize-image) supports vectorization of image content. We recommend this API for image vector data in Azure Cognitive Search.
++ [Image Retrieval Vectorize Image API(Preview)](/azure/cognitive-services/computer-vision/how-to/image-retrieval#call-the-vectorize-image-api) supports vectorization of image content. We recommend this API for generating embeddings for images.
 
 + Azure Cognitive Search can automatically index vector data from two data sources: [Azure blob indexers](search-howto-indexing-azure-blob-storage.md) and [Azure Cosmos DB for NoSQL indexers](search-howto-index-cosmosdb.md). For more information, see [Add vector fields to a search index.](vector-search-how-to-create-index.md)
+
++ [LangChain](https://python.langchain.com/docs/get_started/introduction.html) is a framework for developing applications powered by language models. Use the [Azure Cognitive Search vector store integraton](https://python.langchain.com/docs/modules/data_connection/vectorstores/integrations/azuresearch) to simplify the creation of applications using LLMs with Azure Cognitive Search as your vector datastore.
 
 + [Semantic kernel](https://github.com/microsoft/semantic-kernel/blob/main/README.md) is a lightweight SDK enabling integration of AI Large Language Models (LLMs) with conventional programming languages.
 
@@ -110,3 +112,4 @@ Azure Cognitive Search uses Hierarchical Navigation Small Worlds (HNSW), which i
 + [Try the quickstart](search-get-started-vector.md)
 + [Learn more about vector indexing](vector-search-how-to-create-index.md)
 + [Learn more about vector queries](vector-search-how-to-query.md)
+

@@ -23997,6 +23997,11 @@
             "source_path_from_root": "/articles/operator-nexus/howto-hybrid-aks.md",
             "redirect_url": "/articles/operator-nexus/howto-kubernetes-cluster-agent-pools.md",
             "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/container-registry/github-action-scan.md",
+            "redirect_url": "/azure/developer/github/",
+            "redirect_document_id": false
         }
     ]
 }
