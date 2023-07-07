@@ -1,6 +1,6 @@
 ---
-title: Backup controller database
-description: Explains how to backup the controller database for Azure Arc-enabled data services
+title: Back up controller database
+description: Explains how to back up the controller database for Azure Arc-enabled data services
 services: azure-arc
 ms.service: azure-arc
 ms.subservice: azure-arc-data
@@ -11,7 +11,7 @@ ms.date: 04/26/2023
 ms.topic: how-to
 ---
 
-# Backup and recover controller database
+# Back up and recover controller database
 
 When you deploy Azure Arc data services, the Azure Arc Data Controller is one of the most critical components that is deployed. The functions of the  data controller include:
 
@@ -23,11 +23,11 @@ In order to perform above functions, the Data controller needs to store an inven
 
 This article explains how to back up the controller database.
 
-## Backup of data controller database
+## Back up data controller database
 
 As part of built-in capabilities, the Data controller database `controller` is automatically backed up whenever there is an update - this update includes creating, deleting or updating an existing custom resource such as an Arc SQL managed instance.
 
-The `.bak` files for the `controller` database will be stored in the same storage class specified for the data and logs via the `--storage-class` parameter.
+The `.bak` files for the `controller` database is stored in the same storage class specified for the data and logs via the `--storage-class` parameter.
 
 ## Recover controller database 
 
@@ -38,67 +38,111 @@ There are two types of recovery possible:
 
 ### Corrupted controller database scenario
 
-In this scenario, all the pods are up and running, you are able to connect to the controldb SQL Server, and there may be a corruption with the `controller` database and you just need to restore the database from a backup.
+In this scenario, all the pods are up and running, you are able to connect to the `controldb` SQL Server, and there may be a corruption with the `controller` database. You just need to restore the database from a backup.
 
-Follow these steps to restore the controller database from a backup, if the SQL Server is still up and running on the controldb pod, and you are able to connect to it:
+Follow these steps to restore the controller database from a backup, if the SQL Server is still up and running on the `controldb` pod, and you are able to connect to it:
 
 1. Verify connectivity to SQL Server pod hosting the `controller` database.
 
    - First, retrieve the credentials for the secret. `controller-system-secret` is the secret that holds the credentials for the `system` user account that can be used to connect to the SQL instance.
       Run the following command to retrieve the secret contents:
    
-   `kubectl get secret controller-system-secret --namespace [namespace] -o yaml`
-   For example:
-   `kubectl get secret controller-system-secret --namespace arcdataservices -o yaml`
-   - Decode the base64 encoded credentials: The contents of the yaml file of the secret `controller-system-secret` contain a `password` and `username`. You can use any base64 decoder tool to decode the contents of the `password`.
+      ```console
+      kubectl get secret controller-system-secret --namespace [namespace] -o yaml
+      ```
+
+      For example:
+
+      ```console
+      kubectl get secret controller-system-secret --namespace arcdataservices -o yaml
+      ```
+
+   - Decode the base64 encoded credentials. The contents of the yaml file of the secret `controller-system-secret` contain a `password` and `username`. You can use any base64 decoder tool to decode the contents of the `password`.
    - Verify connectivity: With the decoded credentials, run a command such as `SELECT @@SERVERNAME` to verify connectivity to the SQL Server.
 
-   ```powershell
-   kubectl exec controldb-0 -n <namespace> -c  mssql-server -- /opt/mssql-tools/bin/sqlcmd -S localhost -U system -P "<password>" -Q "SELECT @@SERVERNAME"
+      ```powershell
+      kubectl exec controldb-0 -n <namespace> -c  mssql-server -- /opt/mssql-tools/bin/sqlcmd -S localhost -U system -P "<password>" -Q "SELECT @@SERVERNAME"
+      ```
    
-   
-   -- For example:
-   kubectl exec controldb-0 -n contosons -c  mssql-server -- /opt/mssql-tools/bin/sqlcmd -S localhost -U system -P "<password>" -Q "SELECT @@SERVERNAME"
-   ```
+      ```powershell
+      kubectl exec controldb-0 -n contosons -c  mssql-server -- /opt/mssql-tools/bin/sqlcmd -S localhost -U system -P "<password>" -Q "SELECT @@SERVERNAME"
+      ```
+
 1. Scale the controller ReplicaSet down to 0 replicas as follows:
-`kubectl scale --replicas=0 rs/control -n <namespace>`
-For example: `kubectl scale --replicas=0 rs/control -n arcdataservices`
-1. Connect to the controldb SQL Server as `system` as described in step 1.
+
+   ```console
+   kubectl scale --replicas=0 rs/control -n <namespace>`
+   ```
+
+   For example: 
+
+   ```console
+   kubectl scale --replicas=0 rs/control -n arcdataservices
+   ```
+
+1. Connect to the `controldb` SQL Server as `system` as described in step 1.
+
 1. Delete the corrupted controller database using T-SQL:
-`DROP DATABASE controller`
-1. Restore the backup - after the corrupted `controllerdb` is dropped, restore the backup as follows:
-`RESTORE DATABASE test FROM DISK = '/backups/<controller backup file>.bak'`
-`WITH MOVE 'controller' to '/var/opt/mssql/data/controller.mdf'  `
-`,MOVE 'controller' to '/var/opt/mssql/data/controller_log.ldf'  `
-`,RECOVERY;  `
-`GO` 
+
+   ```sql
+   DROP DATABASE controller
+   ```
+
+1. Restore the database from backup - after the corrupted `controllerdb` is dropped. For example:
+
+   ```sql
+   RESTORE DATABASE test FROM DISK = '/backups/<controller backup file>.bak'
+   WITH MOVE 'controller' to '/var/opt/mssql/data/controller.mdf
+   ,MOVE 'controller' to '/var/opt/mssql/data/controller_log.ldf' 
+   ,RECOVERY;
+   GO
+   ```
+ 
 1. Scale the controller ReplicaSet back up to 1 replica.
-`kubectl scale --replicas=1 rs/control -n <namespace>`
-For example: `kubectl scale --replicas=1 rs/control -n arcdataservices`
+
+   ```console
+   kubectl scale --replicas=1 rs/control -n <namespace>
+   ```
+
+   For example: 
+
+   ```console
+   kubectl scale --replicas=1 rs/control -n arcdataservices
+   ```
 
 ### Corrupted storage scenario
 
 In this scenario, the storage hosting the Data controller data and log files, has corruption and a new storage was provisioned and you need to restore the controller database.
 
-Follow these steps to restore the controller database from a backup with new storage for the controldb StatefulSet:
+Follow these steps to restore the controller database from a backup with new storage for the `controldb` StatefulSet:
 
 1. Ensure that you have a backup of the last known good state of the `controller` database
 
 2. Scale the controller ReplicaSet down to 0 replicas as follows:
 
-`kubectl scale --replicas=0 rs/control -n <namespace>`
+   ```console
+   kubectl scale --replicas=0 rs/control -n <namespace>
+   ```
 
-For example: `kubectl scale --replicas=0 rs/control -n arcdataservices`
+   For example:
 
-3. Scale the controldb StatefulSet down to 0 replicas, as follows: 
+   ```console
+   kubectl scale --replicas=0 rs/control -n arcdataservices
+   ``
+3. Scale the `controldb` StatefulSet down to 0 replicas, as follows: 
 
-`kubectl scale --replicas=0 sts/controldb -n <namespace>`
+   ```console
+   kubectl scale --replicas=0 sts/controldb -n <namespace>
+   ```
 
-For example: `kubectl scale --replicas=0 sts/controldb -n arcdataservices`
+   For example: 
+
+   ```console
+   kubectl scale --replicas=0 sts/controldb -n arcdataservices`
+   ```
 
 4. Create a kubernetes secret named `controller-sa-secret` with the following YAML: 
 
-```yaml
    ```yml
     apiVersion: v1
     kind: Secret
@@ -109,14 +153,12 @@ For example: `kubectl scale --replicas=0 sts/controldb -n arcdataservices`
     data:
       password: <base64 encoded password>
     ```
-```
 
-5. Edit the controldb StatefulSet to include a `controller-sa-secret` volume and corresponding volume mount (`/var/run/secrets/mounts/credentials/mssql-sa-password`) in the `mssql-server` container, by using `kubectl edit sts controldb -n <namespace>` command. 
+5. Edit the `controldb` StatefulSet to include a `controller-sa-secret` volume and corresponding volume mount (`/var/run/secrets/mounts/credentials/mssql-sa-password`) in the `mssql-server` container, by using `kubectl edit sts controldb -n <namespace>` command. 
 
-6. Create new data (`data-controldb`) and logs (`logs-controldb`) persistent volume claims for the controldb pod as follows: 
+6. Create new data (`data-controldb`) and logs (`logs-controldb`) persistent volume claims for the `controldb` pod as follows: 
 
-```yaml
-```yml
+   ```yml
     apiVersion: v1
     kind: PersistentVolumeClaim
     metadata:
@@ -143,14 +185,17 @@ For example: `kubectl scale --replicas=0 sts/controldb -n arcdataservices`
         requests:
           storage: 10Gi
       storageClassName: <storage class>
-    ```
-```
+   ```
 
-7. Scale the controldb StatefulSet back to 1 replica using `kubectl scale --replicas=1 sts/controldb -n <namespace>`
+7. Scale the `controldb` StatefulSet back to 1 replica using:
+
+   ```console
+   kubectl scale --replicas=1 sts/controldb -n <namespace>
+   ```
 
 8. Copy the backup file of the controller database to `var/opt/mssql/data` on the newly created daa volume
 
-9. Connect to the controldb SQL server as `sa` using the password in the `controller-sa-secret` secret created earlier.
+9. Connect to the `controldb` SQL server as `sa` using the password in the `controller-sa-secret` secret created earlier.
 
 10. Create a `system` login with sysadmin role using the password in the `controller-system-secret` kubernetes secret as follows:
 
@@ -165,10 +210,14 @@ RESTORE DATABASE [controller] FROM DISK = N'/var/opt/mssql/data/controller.bak' 
 ```
 
 12. Create a `controldb-rw-user` login using the password in the `controller-db-rw-secret` secret `CREATE LOGIN [controldb-rw-user] WITH PASSWORD = '<password-from-secret>'` and associate it with the existing `controldb-rw-user` user in the controller DB `ALTER USER [controldb-rw-user] WITH LOGIN = [controldb-rw-user]`.
- 13. Disable the `sa` login using TSQL - `ALTER LOGIN [sa] DISABLE`.
- 14. Edit the controldb StatefulSet to remove the `controller-sa-secret` volume and corresponding volume mount.
- 15. Delete the `controller-sa-secret` secret.
- 16. Scale the controller ReplicaSet back up to 1 replica using the `kubectl scale` command.
+
+13. Disable the `sa` login using TSQL - `ALTER LOGIN [sa] DISABLE`.
+
+14. Edit the `controldb` StatefulSet to remove the `controller-sa-secret` volume and corresponding volume mount.
+
+15. Delete the `controller-sa-secret` secret.
+
+16. Scale the controller ReplicaSet back up to 1 replica using the `kubectl scale` command.
 
 ## Next steps
 
