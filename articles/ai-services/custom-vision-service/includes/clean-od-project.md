@@ -11,4 +11,4 @@ If you wish to implement your own object detection project (or try an [image cla
 
 On the [Custom Vision website](https://customvision.ai), navigate to **Projects** and select the trash can under My New Project.
 
-![Screenshot of a panel labeled My New Project with a trash can icon](../media/csharp-tutorial/delete_od_project.png)
+![Screenshot of a panel labeled My New Project with a trash can icon.](../media/csharp-tutorial/delete_od_project.png)
