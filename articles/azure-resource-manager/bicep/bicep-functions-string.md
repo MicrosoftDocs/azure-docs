@@ -143,7 +143,7 @@ The output from the preceding example with the default values is:
 
 `concat(arg1, arg2, arg3, ...)`
 
-Combines multiple string values and returns the concatenated string, or combines multiple arrays and returns the concatenated array. Instead of using the `concat` function, use string interpolation, except in certain cases involving [multi-line strings](../bicep/data-types.md#multi-line-strings). For more information about combining multiple arrays, see [concat](./bicep-functions-array.md#concat).
+Combines multiple string values and returns the concatenated string, or combines multiple arrays and returns the concatenated array. To improve readability, use [string interpolation](./data-types.md#strings) instead of the `concat()` function. However, in some cases such as string replacement in [multi-line strings](../bicep/data-types.md#multi-line-strings), you may need to fall back on using the `concat()` function or the [`replace()` function](#replace).
 
 Namespace: [sys](bicep-functions.md#namespaces-for-functions).
 
@@ -162,7 +162,7 @@ A string or array of concatenated values.
 
 ### Examples
 
-The following example shows a comparison between using interpolation and using the `concat` function. The two outputs return the same value.
+The following example shows a comparison between using interpolation and using the `concat()` function. The two outputs return the same value.
 
 ```bicep
 param prefix string = 'prefix'
@@ -178,7 +178,7 @@ The outputs from the preceding example with the default value are:
 | concatOutput | String | prefixAnd5yj4yjf5mbg72 |
 | interpolationOutput | String | prefixAnd5yj4yjf5mbg72 |
 
-Interpolation is not currently supported in multi-line strings. The following example shows a comparison between using interpolation and using the `concat` function.
+Interpolation is not currently supported in multi-line strings. The following example shows a comparison between using interpolation and using the `concat()` function.
 
 ```bicep
 var blocked = 'BLOCKED'

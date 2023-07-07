@@ -58,20 +58,14 @@ The new project is created:
 
 <!-- ![Image](Media/VSCodeWorkspace.png) -->
 
-### Install necessary NuGet packages
+### Install the necessary NuGet package
 
-You need to install two NuGet packages:
+You'll need to install `Microsoft.Azure.WebJobs.Extensions.Redis`, the NuGet package for the Redis extension that allows Redis keyspace notifications to be used as triggers in Azure Functions.
 
-1. [StackExchange.Redis](https://www.nuget.org/packages/StackExchange.Redis/), which is the primary .NET client for Redis.
-
-1. `Microsoft.Azure.WebJobs.Extensions.Redis`, which is the extension that allows Redis keyspace notifications to be used as triggers in Azure Functions.
-
-Install these packages by going to the **Terminal** tab in VS Code and entering the following commands:
+Install this package by going to the **Terminal** tab in VS Code and entering the following command:
 
 ```terminal
-dotnet add package StackExchange.Redis
-dotnet add package Microsoft.Azure.WebJobs.Extensions.Redis
-dotnet restore
+dotnet add package Microsoft.Azure.WebJobs.Extensions.Redis --prerelease
 ```
 
 ### Configure cache
@@ -92,82 +86,58 @@ Go back to VS Code, add a file to the project called `RedisFunctions.cs` Copy an
 
 ```csharp
 using Microsoft.Extensions.Logging;
-using System.Text.Json;
+using StackExchange.Redis;
 
 namespace Microsoft.Azure.WebJobs.Extensions.Redis.Samples
 {
     public static class RedisSamples
     {
-        public const string localhostSetting = "redisLocalhost";
+        public const string connectionString = "redisConnectionString";
 
         [FunctionName(nameof(PubSubTrigger))]
         public static void PubSubTrigger(
-            [RedisPubSubTrigger(localhostSetting, "pubsubTest")] RedisMessageModel model,
+            [RedisPubSubTrigger(connectionString, "pubsubTest")] string message,
             ILogger logger)
         {
-            logger.LogInformation(JsonSerializer.Serialize(model));
-        }
-
-        [FunctionName(nameof(PubSubTriggerResolvedChannel))]
-        public static void PubSubTriggerResolvedChannel(
-            [RedisPubSubTrigger(localhostSetting, "%pubsubChannel%")] RedisMessageModel model,
-            ILogger logger)
-        {
-            logger.LogInformation(JsonSerializer.Serialize(model));
+            logger.LogInformation(message);
         }
 
         [FunctionName(nameof(KeyspaceTrigger))]
         public static void KeyspaceTrigger(
-            [RedisPubSubTrigger(localhostSetting, "__keyspace@0__:keyspaceTest")] RedisMessageModel model,
+            [RedisPubSubTrigger(connectionString, "__keyspace@0__:keyspaceTest")] string message,
             ILogger logger)
         {
-            logger.LogInformation(JsonSerializer.Serialize(model));
+            logger.LogInformation(message);
         }
 
         [FunctionName(nameof(KeyeventTrigger))]
         public static void KeyeventTrigger(
-            [RedisPubSubTrigger(localhostSetting, "__keyevent@0__:del")] RedisMessageModel model,
+            [RedisPubSubTrigger(connectionString, "__keyevent@0__:del")] string message,
             ILogger logger)
         {
-            logger.LogInformation(JsonSerializer.Serialize(model));
+            logger.LogInformation(message);
         }
 
-        [FunctionName(nameof(ListsTrigger))]
-        public static void ListsTrigger(
-            [RedisListTrigger(localhostSetting, "listTest")] RedisMessageModel model,
+        [FunctionName(nameof(ListTrigger))]
+        public static void ListTrigger(
+            [RedisListTrigger(connectionString, "listTest")] string entry,
             ILogger logger)
         {
-            logger.LogInformation(JsonSerializer.Serialize(model));
+            logger.LogInformation(entry);
         }
 
-        [FunctionName(nameof(ListsMultipleTrigger))]
-        public static void ListsMultipleTrigger(
-            [RedisListTrigger(localhostSetting, "listTest1 listTest2")] RedisMessageModel model,
+        [FunctionName(nameof(StreamTrigger))]
+        public static void StreamTrigger(
+            [RedisStreamTrigger(connectionString, "streamTest")] string entry,
             ILogger logger)
         {
-            logger.LogInformation(JsonSerializer.Serialize(model));
-        }
-
-        [FunctionName(nameof(StreamsTrigger))]
-        public static void StreamsTrigger(
-            [RedisStreamTrigger(localhostSetting, "streamTest")] RedisMessageModel model,
-            ILogger logger)
-        {
-            logger.LogInformation(JsonSerializer.Serialize(model));
-        }
-
-        [FunctionName(nameof(StreamsMultipleTriggers))]
-        public static void StreamsMultipleTriggers(
-            [RedisStreamTrigger(localhostSetting, "streamTest1 streamTest2")] RedisMessageModel model,
-            ILogger logger)
-        {
-            logger.LogInformation(JsonSerializer.Serialize(model));
+            logger.LogInformation(entry);
         }
     }
 }
 ```
 
-This tutorial shows multiple different triggers:
+This tutorial shows multiple different ways to trigger on Redis activity:
 
 1. _PubSubTrigger_, which is triggered when activity is published to the pub/sub channel named `pubsubTest`
 
@@ -177,13 +147,24 @@ This tutorial shows multiple different triggers:
 
 1. _ListTrigger_, which looks for changes to the list `listTest`
 
-1. _ListMultipleTrigger_, which looks for changes to list `listTest1` and `listTest2`
-
 1. _StreamTrigger_, which looks for changes to the stream `streamTest`
 
-1. _StreamMultipleTrigger_, which looks for changes to streams `streamTest1` and `streamTest2`
+### Connect to your cache
+In order to trigger on Redis activity, you need to pass in the connection string of your cache instance. This information will be stored in the `local.settings.json` file that was automatically created in your folder. Using the [local settings file](../azure-functions/functions-run-local.md#local-settings) is recommended as a security best practice.
 
-To connect to your cache, take the connection string you copied from earlier and paste to replace the value of `localhost` at the top of the file, set to `127.0.0.1:6379` by default.
+To connect to your cache, add a `ConnectionStrings` section in the `local.settings.json` file and add your connection string using the parameter `redisConnectionString`. It should look like this:
+
+```json
+{
+  "IsEncrypted": false,
+  "Values": {
+    "FUNCTIONS_WORKER_RUNTIME": "dotnet",
+  },
+  "ConnectionStrings": {
+    "redisConnectionString": "<your-connection-string>"
+  }
+}
+```
 
 <!-- ![Image](Media/ConnectionString.png) -->
 
@@ -199,12 +180,12 @@ To test the trigger functionality, try creating and deleting the _keyspaceTest_ 
 
 After it's open, try the following commands:
 
-- SET keyspaceTest 1
-- SET keyspaceTest 2
-- DEL keyspaceTest
-- PUBLISH pubsubTest testMessage
-- LPUSH listTest test
-- XADD streamTest * name Clippy
+- `SET keyspaceTest 1`
+- `SET keyspaceTest 2`
+- `DEL keyspaceTest`
+- `PUBLISH pubsubTest testMessage`
+- `LPUSH listTest test`
+- `XADD streamTest * name Clippy`
 
 <!-- ![Image](Media/Console2.png) -->
 
@@ -241,7 +222,13 @@ Wait a few minutes for the new Function App to be created. It appears in the dro
 
 The app builds and starts deploying. You can track progress in the **Output Window**.
 
-Once deployment is complete, open your Function App in the Azure portal and select **Log Stream** from the Resource menu. Wait for log analytics to connect, and then use the Redis console to activate any of the triggers. You should see the triggers being logged here.
+### Add connection string information
+
+Navigate to your new Function App in the Azure portal and select the **Configuration** blade from the Resource menu. You'll notice that your application settings have automatically been added to the Function App. For security, however, the connection string information in your `local.settings.json` file is not automatically added. Select **New connection string** and enter `redisConnectionString` as the Name, and your connection string as the Value. Set Type to _Custom_, and select **Ok** to close the menu and then **Save** on the Configuration page to confirm. The functions app will restart with the new connection string information. 
+
+### Test your triggers
+
+Once deployment is complete and the connection string information added, open your Function App in the Azure portal and select **Log Stream** from the Resource menu. Wait for log analytics to connect, and then use the Redis console to activate any of the triggers. You should see the triggers being logged here.
 
 <!-- ![Image](Media/LogStream.png) -->
 
