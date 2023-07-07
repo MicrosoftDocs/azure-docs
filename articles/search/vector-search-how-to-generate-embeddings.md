@@ -25,7 +25,7 @@ Dimension attributes have a minimum of 2 and a maximum of 2048 dimensions per ve
 
   + We used **text-embedding-ada-002** to generate text embeddings and [Image Retrieval REST API](/rest/api/computervision/2023-02-01-preview/image-retrieval/vectorize-image) for image embeddings.
 
-  + To avoid [rate limiting](https://learn.microsoft.com/azure/cognitive-services/openai/quotas-limits), we implemented retry logic in our workload. For the Python demo, we used [tenacity](https://pypi.org/project/tenacity/).
+  + To avoid [rate limiting](/azure/cognitive-services/openai/quotas-limits), we implemented retry logic in our workload. For the Python demo, we used [tenacity](https://pypi.org/project/tenacity/).
 
 + Query outputs are any matching documents found in a search index. Your search index must have been previously loaded with documents having one or more vector fields with embeddings. Whatever model you used for indexing, use the same model for queries.
 
@@ -63,14 +63,8 @@ print(embeddings)
 
 ## Tips and recommendations for embedding model integration
 
-<!-- + Python and JavaScript demos offer more scalability than the REST APIs for generating embeddings. As of this writing, the REST API doesn't currently support batching. -->
-<!-- 
-+ We've done proof-of-concept testing with indexers and skillsets, where a custom skill calls a machine learning model to generate embeddings. There's currently no tutorial or walkthrough, but we intend to provide this content as part of the public preview launch, if not sooner. -->
-<!-- 
-+ We've done proof-of-concept testing of embeddings for a thousand images using [image retrieval vectorization in Cognitive Services](/azure/cognitive-services/computer-vision/how-to/image-retrieval). We hope to provide a demo of this soon. -->
-
 + **Identify use cases:** Evaluate the specific use cases where embedding model integration for vector search features can add value to your search solution. This can include matching image content with text content, cross-lingual searches, or finding similar documents.
-+ **Optimize cost and performance**: Vector search can be resource-intensive, so consider only vectorizing the fields that contain semantic meaning
++ **Optimize cost and performance**: Vector search can be resource-intensive and is subject to maximum limits, so consider only vectorizing the fields that contain semantic meaning.
 + **Choose the right embedding model:** Select an appropriate model for your specific use case, such as word embeddings for text-based searches or image embeddings for visual searches. Consider using pre-trained models like **text-embedding-ada-002** from OpenAI or **Image Retreival** REST API from [Azure AI Computer Vision](/azure/cognitive-services/computer-vision/how-to/image-retrieval).
 + **Normalize Vector lengths**: Ensure that the vector lengths are normalized before storing them in the search index to improve the accuracy and performance of similarity search. Most pre-trained models already are normalized but not all. 
 + **Fine-tune the model**: If needed, fine-tune the selected model on your domain-specific data to improve its performance and relevance to your search application.
