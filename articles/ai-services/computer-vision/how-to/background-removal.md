@@ -1,6 +1,6 @@
 ---
 title: Remove the background in images
-titleSuffix: Azure Cognitive Services
+titleSuffix: Azure AI services
 description: Learn how to call the Segment API to isolate and remove the background from images.
 services: cognitive-services
 manager: nitinme
@@ -21,7 +21,7 @@ This article demonstrates how to call the Image Analysis 4.0 API to segment an i
 
 This guide assumes you have successfully followed the steps mentioned in the [quickstart](../quickstarts-sdk/image-analysis-client-library-40.md) page. This means:
 
-* You have <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesComputerVision"  title="created a Computer Vision resource"  target="_blank">created a Computer Vision resource </a> and obtained a key and endpoint URL.
+* You have <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesComputerVision"  title="created a Vision resource"  target="_blank">created a Vision resource </a> and obtained a key and endpoint URL.
 * If you're using the client SDK, you have the appropriate SDK package installed and you have a running quickstart application. You modify this quickstart application based on code examples here.
 * If you're using 4.0 REST API calls directly, you have successfully made a `curl.exe` call to the service (or used an alternative tool). You modify the `curl.exe` call based on the examples here.
 
@@ -32,10 +32,10 @@ The quickstart shows you how to extract visual features from an image, however, 
 
 ## Authenticate against the service
 
-To authenticate against the Image Analysis service, you need a Computer Vision key and endpoint URL.
+To authenticate against the Image Analysis service, you need an Azure AI Vision key and endpoint URL.
 
 > [!TIP]
-> Don't include the key directly in your code, and never post it publicly. See the Cognitive Services [security](/azure/cognitive-services/security-features) article for more authentication options like [Azure Key Vault](/azure/cognitive-services/use-key-vault). 
+> Don't include the key directly in your code, and never post it publicly. See the Azure AI services [security](../../security-features.md) article for more authentication options like [Azure Key Vault](../../use-key-vault.md). 
 
 The SDK example assumes that you defined the environment variables `VISION_KEY` and `VISION_ENDPOINT` with your key and endpoint.
 
@@ -63,7 +63,7 @@ Where we used this helper function to read the value of an environment variable:
 
 #### [REST API](#tab/rest)
 
-Authentication is done by adding the HTTP request header **Ocp-Apim-Subscription-Key** and setting it to your vision key. The call is made to the URL `https://<endpoint>/computervision/imageanalysis:segment?api-version=2023-02-01-preview`, where `<endpoint>` is your unique computer vision endpoint URL. See [Select a mode ](./background-removal.md#select-a-mode) section for another query string you add to this URL.
+Authentication is done by adding the HTTP request header **Ocp-Apim-Subscription-Key** and setting it to your vision key. The call is made to the URL `https://<endpoint>/computervision/imageanalysis:segment?api-version=2023-02-01-preview`, where `<endpoint>` is your unique Azure AI Vision endpoint URL. See [Select a mode ](./background-removal.md#select-a-mode) section for another query string you add to this URL.
 
 ---
 
@@ -102,7 +102,7 @@ Create a new **VisionSource** object from the URL of the image you want to analy
 
 #### [REST API](#tab/rest)
 
-When analyzing a remote image, you specify the image's URL by formatting the request body like this: `{"url":"https://learn.microsoft.com/azure/cognitive-services/computer-vision/images/windows-kitchen.jpg"}`. The **Content-Type** should be `application/json`.
+When analyzing a remote image, you specify the image's URL by formatting the request body like this: `{"url":"https://learn.microsoft.com/azure/ai-services/computer-vision/images/windows-kitchen.jpg"}`. The **Content-Type** should be `application/json`.
 
 To analyze a local image, you'd put the binary image data in the HTTP request body. The **Content-Type** should be `application/octet-stream` or `multipart/form-data`.
 

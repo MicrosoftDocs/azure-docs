@@ -1,6 +1,6 @@
 ---
-title: How to install and run the Spatial Analysis container - Computer Vision
-titleSuffix: Azure Cognitive Services
+title: How to install and run the Spatial Analysis container - Azure AI Vision
+titleSuffix: Azure AI services
 description: The Spatial Analysis container lets you can detect people and distances.
 services: cognitive-services
 author: PatrickFarley
@@ -21,7 +21,7 @@ The Spatial Analysis container enables you to analyze real-time streaming video 
 
 * Azure subscription - [Create one for free](https://azure.microsoft.com/free/cognitive-services)
 * [!INCLUDE [contributor-requirement](../includes/quickstarts/contributor-requirement.md)]
-* Once you have your Azure subscription, <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesComputerVision"  title="Create a Computer Vision resource"  target="_blank">create a Computer Vision resource </a> for the Standard S1 tier in the Azure portal to get your key and endpoint. After it deploys, select **Go to resource**.
+* Once you have your Azure subscription, <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesComputerVision"  title="Create a Vision resource"  target="_blank">create a Vision resource </a> for the Standard S1 tier in the Azure portal to get your key and endpoint. After it deploys, select **Go to resource**.
     * You'll need the key and endpoint from the resource you create to run the Spatial Analysis container. You'll use your key and endpoint later.
 
 ### Spatial Analysis container requirements
@@ -499,8 +499,8 @@ The following table shows the various Environment Variables used by the IoT Edge
 | ARCHON_NODES_LOG_LEVEL | Info; Verbose | Logging level, select one of the two values|
 | OMP_WAIT_POLICY | PASSIVE | Do not modify|
 | QT_X11_NO_MITSHM | 1 | Do not modify|
-| APIKEY | your API Key| Collect this value from Azure portal from your Computer Vision resource. You can find it in the **Key and endpoint** section for your resource. |
-| BILLING | your Endpoint URI| Collect this value from Azure portal from your Computer Vision resource. You can find it in the **Key and endpoint** section for your resource.|
+| APIKEY | your API Key| Collect this value from Azure portal from your Vision resource. You can find it in the **Key and endpoint** section for your resource. |
+| BILLING | your Endpoint URI| Collect this value from Azure portal from your Vision resource. You can find it in the **Key and endpoint** section for your resource.|
 | EULA | accept | This value needs to be set to *accept* for the container to run |
 | DISPLAY | :1 | This value needs to be same as the output of `echo $DISPLAY` on the host computer. Azure Stack Edge devices do not have a display. This setting is not applicable|
 | KEY_ENV | ASE Encryption key | Add this environment variable if Video_URL is an obfuscated string |
@@ -553,9 +553,9 @@ If you encounter issues when starting or running the container, see [Telemetry a
 
 ## Billing
 
-The Spatial Analysis container sends billing information to Azure, using a Computer Vision resource on your Azure account. The use of Spatial Analysis in public preview is currently free. 
+The Spatial Analysis container sends billing information to Azure, using a Vision resource on your Azure account. The use of Spatial Analysis in public preview is currently free. 
 
-Azure Cognitive Services containers aren't licensed to run without being connected to the metering / billing endpoint. You must always enable the containers to communicate billing information with the billing endpoint. Cognitive Services containers don't send customer data, such as the video or image that's being analyzed, to Microsoft.
+Azure AI services containers aren't licensed to run without being connected to the metering / billing endpoint. You must always enable the containers to communicate billing information with the billing endpoint. Azure AI services containers don't send customer data, such as the video or image that's being analyzed, to Microsoft.
 
 
 ## Summary

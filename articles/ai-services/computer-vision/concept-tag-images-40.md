@@ -1,6 +1,6 @@
 ---
 title: Content tags - Image Analysis 4.0
-titleSuffix: Azure Cognitive Services
+titleSuffix: Azure AI services
 description: Learn concepts related to the images tagging feature of the Image Analysis 4.0 API.
 services: cognitive-services
 author: PatrickFarley
@@ -25,7 +25,7 @@ Try out the image tagging features quickly and easily in your browser using Visi
 
 ## Image tagging example
 
-The following JSON response illustrates what Computer Vision returns when tagging visual features detected in the example image.
+The following JSON response illustrates what Azure AI Vision returns when tagging visual features detected in the example image.
 
 ![A blue house and the front yard](./Images/house_yard.png).
 

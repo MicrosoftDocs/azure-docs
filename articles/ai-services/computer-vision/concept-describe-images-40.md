@@ -1,6 +1,6 @@
 ---
 title: Image captions - Image Analysis 4.0
-titleSuffix: Azure Cognitive Services
+titleSuffix: Azure AI services
 description: Concepts related to the image captioning feature of the Image Analysis 4.0 API.
 services: cognitive-services
 author: PatrickFarley
@@ -25,10 +25,9 @@ At this time, image captioning is available in English language only.
 All captions contain gender terms: "man", "woman", "boy" and "girl" by default. You have the option to replace these terms with "person" in your results and receive gender-neutral captions. You can do so by setting the optional API request parameter, **gender-neutral-caption** to `true` in the request URL.
 
 > [!IMPORTANT]
-> Image captioning in Image Analysis 4.0 is only available in the following Azure data center regions at this time: East US, France Central, Korea Central, North Europe, Southeast Asia, West Europe, West US, East Asia. You must use a Computer Vision resource located in one of these regions to get results from Caption and Dense Captions features.
+> Image captioning in Image Analysis 4.0 is only available in the following Azure data center regions at this time: East US, France Central, Korea Central, North Europe, Southeast Asia, West Europe, West US, East Asia. You must use a Vision resource located in one of these regions to get results from Caption and Dense Captions features.
 >
-> If you have to use a Computer Vision resource outside these regions to generate image captions, please use [Image Analysis 3.2](concept-describing-images.md) which is available in all Computer Vision regions.  
-
+> If you have to use a Vision resource outside these regions to generate image captions, please use [Image Analysis 3.2](concept-describing-images.md) which is available in all Azure AI Vision regions.  
 
 Try out the image captioning features quickly and easily in your browser using Vision Studio.
 

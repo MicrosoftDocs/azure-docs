@@ -28,8 +28,8 @@ Use the Image Analysis client library for C# to analyze an image for content tag
 
 * An Azure subscription - [Create one for free](https://azure.microsoft.com/free/cognitive-services/)
 * The [Visual Studio IDE](https://visualstudio.microsoft.com/vs/) or current version of [.NET Core](https://dotnet.microsoft.com/download/dotnet-core).
-* Once you have your Azure subscription, <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesComputerVision"  title="Create a Computer Vision resource"  target="_blank">create a Computer Vision resource </a> in the Azure portal to get your key and endpoint. After it deploys, click **Go to resource**.
-    * You need the key and endpoint from the resource you create to connect your application to the Computer Vision service.
+* Once you have your Azure subscription, <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesComputerVision"  title="create a Vision resource"  target="_blank">create a Vision resource</a> in the Azure portal to get your key and endpoint. After it deploys, select **Go to resource**.
+    * You need the key and endpoint from the resource you create to connect your application to the Azure AI Vision service.
     * You can use the free pricing tier (`F0`) to try the service, and upgrade later to a paid tier for production.
 
 
@@ -74,7 +74,7 @@ Use the Image Analysis client library for C# to analyze an image for content tag
 
     ### Install the client library
 
-    Within the application directory, install the Computer Vision client library for .NET with the following command:
+    Within the application directory, install the Azure AI Vision client library for .NET with the following command:
 
     ```console
     dotnet add package Microsoft.Azure.CognitiveServices.Vision.ComputerVision --version 7.0.0
@@ -88,7 +88,7 @@ Use the Image Analysis client library for C# to analyze an image for content tag
 
 
    > [!IMPORTANT]
-   > Remember to remove the key from your code when you're done, and never post it publicly. For production, use a secure way of storing and accessing your credentials like [Azure Key Vault](../../../../key-vault/general/overview.md). See the Cognitive Services [security](../../../security-features.md) article for more information.
+   > Remember to remove the key from your code when you're done, and never post it publicly. For production, use a secure way of storing and accessing your credentials like [Azure Key Vault](../../../../key-vault/general/overview.md). See the Azure AI services [security](../../../security-features.md) article for more information.
 
 1. Run the application
 
@@ -139,7 +139,7 @@ brown 0.6581960916519165
 
 ## Clean up resources
 
-If you want to clean up and remove a Cognitive Services subscription, you can delete the resource or resource group. Deleting the resource group also deletes any other resources associated with it.
+If you want to clean up and remove an Azure AI services subscription, you can delete the resource or resource group. Deleting the resource group also deletes any other resources associated with it.
 
 * [Portal](../../../cognitive-services-apis-create-account.md#clean-up-resources)
 * [Azure CLI](../../../cognitive-services-apis-create-account-cli.md#clean-up-resources)

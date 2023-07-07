@@ -1,6 +1,6 @@
 ---
 title: Configure your blob storage for image retrieval and video search in Vision Studio
-titleSuffix: Azure Cognitive Services
+titleSuffix: Azure AI services
 description: To get started with the **Search photos with natural language** or with **Video summary and frame locator** in Vision Studio, you will need to select or create a new storage account.
 services: cognitive-services
 author: PatrickFarley
@@ -16,10 +16,10 @@ ms.author: pafarley
 
 # Configure your blob storage for image retrieval and video search in Vision Studio
 
-To get started with the **Search photos with natural language** or **Video summary and frame locator** scenario in Vision Studio, you need to select or create a new Azure storage account. Your storage account can be in any region, but creating it in the same region as your Azure Computer Vision resource is more efficient and reduces cost. 
+To get started with the **Search photos with natural language** or **Video summary and frame locator** scenario in Vision Studio, you need to select or create a new Azure storage account. Your storage account can be in any region, but creating it in the same region as your Vision resource is more efficient and reduces cost. 
 
 > [!IMPORTANT]
-> You need to create your storage account on the same Azure subscription as the Computer Vision resource you're using in the **Search photos with natural language** or **Video summary and frame locator** scenarios as shown below.
+> You need to create your storage account on the same Azure subscription as the Vision resource you're using in the **Search photos with natural language** or **Video summary and frame locator** scenarios as shown below.
 
 :::image type="content" source="../media/storage-instructions/subscription.png" alt-text="Screenshot of resource selection.":::
 

@@ -1,7 +1,7 @@
 ---
-title: Configure Read OCR containers - Computer Vision
-titleSuffix: Azure Cognitive Services
-description: This article shows you how to configure both required and optional settings for Read OCR containers in Computer Vision.
+title: Configure Read OCR containers - Azure AI Vision
+titleSuffix: Azure AI services
+description: This article shows you how to configure both required and optional settings for Read OCR containers in Azure AI Vision.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -15,7 +15,7 @@ ms.custom: seodec18
 
 # Configure Read OCR Docker containers
 
-You configure the Computer Vision Read OCR container's runtime environment by using the `docker run` command arguments. This container has several required settings, along with a few optional settings. Several [examples](#example-docker-run-commands) of the command are available. The container-specific settings are the billing settings. 
+You configure the Azure AI Vision Read OCR container's runtime environment by using the `docker run` command arguments. This container has several required settings, along with a few optional settings. Several [examples](#example-docker-run-commands) of the command are available. The container-specific settings are the billing settings. 
 
 ## Configuration settings
 
@@ -43,11 +43,11 @@ The container also has the following container-specific configuration settings:
 
 ## ApiKey configuration setting
 
-The `ApiKey` setting specifies the Azure `Cognitive Services` resource key used to track billing information for the container. You must specify a value for the ApiKey and the value must be a valid key for the _Cognitive Services_ resource specified for the [`Billing`](#billing-configuration-setting) configuration setting.
+The `ApiKey` setting specifies the Vision resource key used to track billing information for the container. You must specify a value for the ApiKey and the value must be a valid key for the Vision resource specified for the [`Billing`](#billing-configuration-setting) configuration setting.
 
 This setting can be found in the following place:
 
-* Azure portal: **Cognitive Services** Resource Management, under **Keys**
+* Azure portal: **Azure AI services** Resource Management, under **Keys**
 
 ## ApplicationInsights setting
 
@@ -55,11 +55,11 @@ This setting can be found in the following place:
 
 ## Billing configuration setting
 
-The `Billing` setting specifies the endpoint URI of the _Cognitive Services_ resource on Azure used to meter billing information for the container. You must specify a value for this configuration setting, and the value must be a valid endpoint URI for a _Cognitive Services_ resource on Azure. The container reports usage about every 10 to 15 minutes.
+The `Billing` setting specifies the endpoint URI of the _Azure AI services_ resource on Azure used to meter billing information for the container. You must specify a value for this configuration setting, and the value must be a valid endpoint URI for a _Azure AI services_ resource on Azure. The container reports usage about every 10 to 15 minutes.
 
 This setting can be found in the following place:
 
-* Azure portal: **Cognitive Services** Overview, labeled `Endpoint`
+* Azure portal: **Azure AI services** Overview, labeled `Endpoint`
 
 Remember to add the `vision/<version>` routing to the endpoint URI as shown in the following table. 
 
@@ -87,13 +87,13 @@ Remember to add the `vision/<version>` routing to the endpoint URI as shown in t
 
 Use bind mounts to read and write data to and from the container. You can specify an input mount or output mount by specifying the `--mount` option in the [docker run](https://docs.docker.com/engine/reference/commandline/run/) command.
 
-The Computer Vision containers don't use input or output mounts to store training or service data. 
+The Azure AI Vision containers don't use input or output mounts to store training or service data. 
 
 The exact syntax of the host mount location varies depending on the host operating system. Additionally, the [host computer](computer-vision-how-to-install-containers.md#host-computer-requirements)'s mount location may not be accessible due to a conflict between permissions used by the Docker service account and the host mount location permissions. 
 
 |Optional| Name | Data type | Description |
 |-------|------|-----------|-------------|
-|Not allowed| `Input` | String | Computer Vision containers do not use this.|
+|Not allowed| `Input` | String | Azure AI Vision containers do not use this.|
 |Optional| `Output` | String | The target of the output mount. The default value is `/output`. This is the location of the logs. This includes container logs. <br><br>Example:<br>`--mount type=bind,src=c:\output,target=/output`|
 
 ## Example docker run commands
@@ -107,14 +107,14 @@ Replace {_argument_name_} with your own values:
 
 | Placeholder | Value | Format or example |
 |-------------|-------|---|
-| **{API_KEY}** | The endpoint key of the `Computer Vision` resource on the Azure `Computer Vision` Keys page. | `xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx` |
-| **{ENDPOINT_URI}** | The billing endpoint value is available on the Azure `Computer Vision` Overview page.| See [gather required parameters](computer-vision-how-to-install-containers.md#gather-required-parameters) for explicit examples. |
+| **{API_KEY}** | The endpoint key of the Vision resource on the resource keys page. | `xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx` |
+| **{ENDPOINT_URI}** | The billing endpoint value is available on the resource overview page.| See [gather required parameters](computer-vision-how-to-install-containers.md#gather-required-parameters) for explicit examples. |
 
 [!INCLUDE [subdomains-note](../../../includes/cognitive-services-custom-subdomains-note.md)]
 
 > [!IMPORTANT]
 > The `Eula`, `Billing`, and `ApiKey` options must be specified to run the container; otherwise, the container won't start.  For more information, see [Billing](computer-vision-how-to-install-containers.md#billing).
-> The ApiKey value is the **Key** from the Azure `Cognitive Services` Resource keys page.
+> The ApiKey value is the **Key** from the Vision resource keys page.
 
 ## Container Docker examples
 

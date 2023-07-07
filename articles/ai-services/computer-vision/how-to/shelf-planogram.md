@@ -1,10 +1,9 @@
 ---
 title: Check planogram compliance with Image Analysis
-titleSuffix: Azure Cognitive Services
+titleSuffix: Azure AI services
 description: Learn how to use the Planogram Matching API to check that a retail shelf in a photo matches its planogram layout.
 author: PatrickFarley
 manager: nitinme
-
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.custom: build-2023
@@ -255,8 +254,8 @@ This is the text you'll use in your API request body.
     curl.exe -H "Ocp-Apim-Subscription-Key: <subscriptionKey>" -H "Content-Type: application/json" "https://<endpoint>/vision/v4.0-preview.1/operations/shelfanalysis-planogrammatching:analyze" -d "<body>"
     ```
 1. Make the following changes in the command where needed:
-    1. Replace the value of `<subscriptionKey>` with your Computer Vision resource key.
-    1. Replace the value of `<endpoint>` with your Computer Vision resource endpoint. For example: `https://YourResourceName.cognitiveservices.azure.com`.
+    1. Replace the value of `<subscriptionKey>` with your Vision resource key.
+    1. Replace the value of `<endpoint>` with your Vision resource endpoint. For example: `https://YourResourceName.cognitiveservices.azure.com`.
     1. Replace the value of `<body>` with the joined JSON string you prepared in the previous section. 
 1. Open a command prompt window.
 1. Paste your edited `curl` command from the text editor into the command prompt window, and then run the command.
