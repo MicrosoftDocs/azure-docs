@@ -359,7 +359,7 @@ In individual trials, you directly control the model architecture and hyperparam
 
 #### Supported model architectures
 
-The following table summarizes the supported legacy models for each computer vision task. Using only these legacy models will trigger runs using the legacy runtime (where each individual run or trial is submitted as a command job).
+The following table summarizes the supported legacy models for each computer vision task. Using only these legacy models will trigger runs using the legacy runtime (where each individual run or trial is submitted as a command job). Please see below for HuggingFace and MMDetection support.
 
 Task |  model architectures | String literal syntax<br> ***`default_model`\**** denoted with \*
 ---|----------|----------
@@ -367,15 +367,19 @@ Image classification<br> (multi-class and multi-label)| **MobileNet**: Light-wei
 Object detection | **YOLOv5**: One stage object detection model   <br>  **Faster RCNN ResNet FPN**: Two stage object detection models  <br> **RetinaNet ResNet FPN**: address class imbalance with Focal Loss <br> <br>*Note: Refer to [`model_size` hyperparameter](reference-automl-images-hyperparameters.md#model-specific-hyperparameters) for YOLOv5 model sizes.*| ***`yolov5`\**** <br> `fasterrcnn_resnet18_fpn` <br> `fasterrcnn_resnet34_fpn` <br> `fasterrcnn_resnet50_fpn` <br> `fasterrcnn_resnet101_fpn` <br> `fasterrcnn_resnet152_fpn` <br> `retinanet_resnet50_fpn` 
 Instance segmentation | **MaskRCNN ResNet FPN**| `maskrcnn_resnet18_fpn` <br> `maskrcnn_resnet34_fpn` <br> ***`maskrcnn_resnet50_fpn`\****  <br> `maskrcnn_resnet101_fpn` <br> `maskrcnn_resnet152_fpn`
 
-With the new AutoML on Pipelines feature (preview), you can additionally use any image classification model from the [HuggingFace Hub](https://huggingface.co/models?pipeline_tag=image-classification&library=transformers) which are part of the transformers library (such as microsoft/beit-base-patch16-224), as well as any object detection or instance segmentation model from the [MMDetection Version 2.28.2 Model Zoo](https://mmdetection.readthedocs.io/en/v2.28.2/model_zoo.html) (such as atss_r50_fpn_1x_coco). Using any HuggingFace or MMDetection model will trigger runs using pipeline components. If both legacy and HuggingFace/MMdetection models are used, all runs/trials will be triggered using components. Curated models from HuggingFace and MMDetection are provided in the azureml-staging registry. These curated models have been tested thoroughly and use default hyperparameters selected from extensive benchmarking to ensure effective training. The table below summarizes these curated models
+#### Supported model architectures - HuggingFace and MMDetection (preview)
 
-Task |  model architectures
----|---------
-Image classification<br> (multi-class and multi-label)| [**microsoft/beit-base-patch16-224-pt22k-ft22k**](https://ml.azure.com/registries/azureml-preview/models/microsoft-beit-base-patch16-224-pt22k-ft22k/version/1): The BEiT model is a Vision Transformer (ViT), which is a transformer encoder model (BERT-like). <br> [**google/vit-base-patch16-224**](https://ml.azure.com/registries/azureml-preview/models/google-vit-base-patch16-224/version/1): The Vision Transformer (ViT) is a transformer encoder model (BERT-like) pretrained on a large collection of images in a supervised fashion, namely ImageNet-21k, at a resolution of 224x224 pixels. <br> [**facebook/deit-base-patch16-224**](https://ml.azure.com/registries/azureml-preview/models/facebook-deit-base-patch16-224/version/1): This model is actually a more efficiently trained Vision Transformer (ViT). <br> [**microsoft/swinv2-base-patch4-window12-192-22k**](https://ml.azure.com/registries/azureml-preview/models/microsoft-swinv2-base-patch4-window12-192-22k/version/1): The Swin Transformer is a type of Vision Transformer.
-Object Detection | TODO
-Instance Segmentation | TODO
+With the new backend that runs on [AzureML Pipelines](concept-ml-pipelines.md), you can additionally use any image classification model from the [HuggingFace Hub](https://huggingface.co/models?pipeline_tag=image-classification&library=transformers) which is part of the transformers library (such as microsoft/beit-base-patch16-224), as well as any object detection or instance segmentation model from the [MMDetection Version 2.28.2 Model Zoo](https://mmdetection.readthedocs.io/en/v2.28.2/model_zoo.html) (such as atss_r50_fpn_1x_coco). 
 
-You can also get a list of the curated models for a given task using the Python SDK:
+In addition to supporting any model from HuggingFace Transfomers and MMDetection 2.28.2, we also offer a list of curated models from these libraries in the azureml-staging registry. These curated models have been tested thoroughly and use default hyperparameters selected from extensive benchmarking to ensure effective training. The table below summarizes these curated models.
+
+Task |  model architectures | String literal syntax
+---|----------|----------
+Image classification<br> (multi-class and multi-label)| **BEiT**: A Vision Transformer (ViT), which is a transformer encoder model (BERT-like). |[`microsoft/beit-base-patch16-224-pt22k-ft22k`](https://ml.azure.com/registries/azureml-preview/models/microsoft-beit-base-patch16-224-pt22k-ft22k/version/1)<br> [`google/vit-base-patch16-224`](https://ml.azure.com/registries/azureml-preview/models/google-vit-base-patch16-224/version/1)<br> [`facebook/deit-base-patch16-224`](https://ml.azure.com/registries/azureml-preview/models/facebook-deit-base-patch16-224/version/1)<br> [`microsoft/swinv2-base-patch4-window12-192-22k`](https://ml.azure.com/registries/azureml-preview/models/microsoft-swinv2-base-patch4-window12-192-22k/version/1)
+Object Detection | TODO |  TODO
+Instance Segmentation | TODO | TODO
+
+We constantly update the list of curated models. You can get the most up to date list of the curated models for a given task using the Python SDK:
 ```
 credential = DefaultAzureCredential()
 ml_client = MLClient(credential, registry_name="azureml-staging")
@@ -396,6 +400,8 @@ output:
  'facebook-deit-base-patch16-224',
  'microsoft-beit-base-patch16-224-pt22k-ft22k']
 ```
+Using any HuggingFace or MMDetection model will trigger runs using pipeline components. If both legacy and HuggingFace/MMdetection models are used, all runs/trials will be triggered using components. 
+
 
 In addition to controlling the model architecture, you can also tune hyperparameters used for model training. While many of the hyperparameters exposed are model-agnostic, there are instances where hyperparameters are task-specific or model-specific. [Learn more about the available hyperparameters for these instances](reference-automl-images-hyperparameters.md). 
 
