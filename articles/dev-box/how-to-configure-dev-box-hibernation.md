@@ -76,6 +76,8 @@ az sig image-definition create /
    --features "IsHibernateSupported=true SecurityType=TrustedLaunch" --hyper-v-generation V2 
 ```
 
+For more information about creating a custom image, see [Configure a dev box by using Azure VM Image Builder](how-to-customize-devbox-azure-image-builder.md).
+
 ## Enable hibernation on a Dev Box definition 
 
 You can enable hibernation as you create a dev box definition, providing that the dev box definition uses a hibernation-enabled custom or marketplace image. You can also update an existing dev box definition that uses a hibernation-enabled custom or marketplace image. 
@@ -126,7 +128,7 @@ az devcenter admin devbox-definition update --dev-box-definition-name <DevBoxDef
 
 1. On the Editing \<dev box definition\> page, clear **Enable hibernation**.
 
-   :::image type="content" source="./media/how-to-configure-dev-box-hibernation/dev-box-pool-enable-hibernation.png" alt-text="Screenshot of the page for editing a dev box definition.":::
+   :::image type="content" source="./media/how-to-configure-dev-box-hibernation/dev-box-pool-disable-hibernation.png" alt-text="Screenshot of the page for editing a dev box definition.":::
 
 1. Select **Save**.
 
