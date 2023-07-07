@@ -20,22 +20,22 @@ The Short Code service requires provisioning a short code through the Azure port
 ## Short Codes Pricing
 
 ### Provisioning Fee
-Fees for short code provisioning are charged during the short code provisioning period.
+There are 2 types of fees for short code provisioning.
 
-Setup fee:
+**Setup fee:**
 
 |Country|Fee type   | Description |Fee|
 |---------|-----------|-------------|---|
 |Canada|Setup Fee |Charged at the time the Short Code is delivered |$3000|
 |United States|Setup Fee |Charged at the time the Short Code is delivered |$650|
 
-Short code fee:
+**Short code fee:**
 
 |Country|Fee type   | Description |Fee|
 |---------|-----------|-------------|---|
 |Canada| Short Code Fee |Charged before short code delivery. Waived for a limited period|$1000/mo|
 |United Kingdom| Short Code Fee |Charged before short code delivery. Waived for a limited period|$1600/mo|
-|United States|Random Short Code Fee |Charged before short code delivery. Waived for a limited period|$1000/mo|
+|United States|Random Short Code Fee |Charged before short code delivery. Waived for a limited period|$1000/mo*|
 
 *Extra $500/mo would be charged for Vanity short codes
 
