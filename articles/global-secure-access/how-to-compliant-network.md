@@ -5,7 +5,7 @@ description: Require known compliant network locations with Conditional Access.
 ms.service: network-access
 ms.subservice: 
 ms.topic: how-to
-ms.date: 06/01/2023
+ms.date: 07/07/2023
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
@@ -37,6 +37,7 @@ The compliant network is different than [IPv4, IPv6, or geographic locations](/a
 ### Known limitations
 
 - Continuous access evaluation is not currently supported for compliant network check.
+
 ## Enable Global Secure Access signaling for Conditional Access
 
 To enable the required setting to allow the compliant network check, an administrator must take the following steps.
@@ -53,7 +54,7 @@ To enable the required setting to allow the compliant network check, an administ
 
 ## Protect Exchange and SharePoint Online behind the compliant network
 
-The following example shows a Conditional Access policy that requires Exchange Online and SharePoint Online to be accessed from behind a compliant network.
+The following example shows a Conditional Access policy that requires Exchange Online and SharePoint Online to be accessed from behind a compliant network as part of the preview.
 
 1. Sign in to the **[Microsoft Entra admin center](https://entra.microsoft.com)** as a Conditional Access Administrator or Security Administrator.
 1. Browse to **Microsoft Entra ID** > **Protection** > **Conditional Access**.
@@ -61,7 +62,7 @@ The following example shows a Conditional Access policy that requires Exchange O
 1. Give your policy a name. We recommend that organizations create a meaningful standard for the names of their policies.
 1. Under **Assignments**, select **Users or workload identities**.
    1. Under **Include**, select **All users**.
-   1. Under **Exclude**, select **Users and groups** and choose your organization's emergency access or break-glass accounts. 
+   1. Under **Exclude**, select **Users and groups** and choose your organization's [emergency access or break-glass accounts](#user-exclusions). 
 1. Under **Target resources** > **Include**, and select **Select apps**.
    1. Choose **Office 365 Exchange Online** and **Office 365 SharePoint Online**.
 1. Under **Conditions** > **Location**.
@@ -76,6 +77,10 @@ The following example shows a Conditional Access policy that requires Exchange O
 1. Select **Create** to create to enable your policy.
 
 After administrators confirm the policy settings using [report-only mode](../active-directory/conditional-access/howto-conditional-access-insights-reporting.md), an administrator can move the **Enable policy** toggle from **Report-only** to **On**.
+
+### User exclusions
+
+[!INCLUDE [active-directory-policy-exclusions](../../includes/active-directory-policy-exclude-user.md)]
 
 ## Try your compliant network policy
 

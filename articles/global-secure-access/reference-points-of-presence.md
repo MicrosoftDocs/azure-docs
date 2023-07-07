@@ -9,10 +9,9 @@ ms.date: 07/03/2023
 ms.service: network-access
 ms.custom: references_regions
 ---
+# Global Secure Access (preview) points of presence
 
-# Global Secure Access (preview) supported locations
-
-During the preview, Global Secure Access (preview) is available in limited points of presence, with new locations added periodically. The service routes through one of the following nearby locations, so even if you're not in a listed location, you can still access the service.
+During the preview, Global Secure Access (preview) is available in limited points of presence, with new locations added periodically. The service routes traffic through one of the following nearby locations, so even if you're not in a listed location, you can still access the service.
 
 ## Microsoft Entra Internet Access
 

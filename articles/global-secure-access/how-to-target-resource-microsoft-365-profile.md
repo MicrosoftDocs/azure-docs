@@ -5,7 +5,7 @@ description: Learn how to apply Conditional Access policies to the Microsoft 365
 ms.service: network-access
 ms.subservice: 
 ms.topic: how-to
-ms.date: 06/22/2023
+ms.date: 07/07/2023
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
@@ -28,7 +28,7 @@ This article describes how to apply Conditional Access policies to your Microsof
 
 ## Create a Conditional Access policy targeting the Microsoft 365 traffic profile
 
-The following example policy targets all users except for your break-glass accounts requiring multifactor authentication, device compliance, and Microsoft Entra ID hybrid join when accessing Microsoft 365 traffic.
+The following example policy targets all users except for your break-glass accounts and guest/external users, requiring multifactor authentication, device compliance, or a hybrid Azure AD joined device when accessing Microsoft 365 traffic.
 
 :::image type="content" source="media/how-to-target-resource-microsoft-365-profile/target-resource-traffic-profile.png" alt-text="Screenshot showing a Conditional Access policy targeting a traffic profile.":::
 
@@ -39,7 +39,7 @@ The following example policy targets all users except for your break-glass accou
 1. Under **Assignments**, select **Users or workload identities**.
    1. Under **Include**, select **All users**.
    1. Under **Exclude**:
-      1. Select **Users and groups** and choose your organization's emergency access or break-glass accounts. 
+      1. Select **Users and groups** and choose your organization's [emergency access or break-glass accounts](#user-exclusions).
       1. Select **Guest or external users** and select all checkboxes.
 1. Under **Target resources** > **Network Access (Preview)***.
    1. Choose **Microsoft 365 traffic**.
@@ -49,6 +49,10 @@ The following example policy targets all users except for your break-glass accou
    1. Select **Select**.
 
 After administrators confirm the policy settings using [report-only mode](../active-directory/conditional-access/howto-conditional-access-insights-reporting.md), an administrator can move the **Enable policy** toggle from **Report-only** to **On**.
+
+### User exclusions
+
+[!INCLUDE [active-directory-policy-exclusions](../../includes/active-directory-policy-exclude-user.md)]
 
 ## Next steps
 
