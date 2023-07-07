@@ -1,6 +1,6 @@
 ---
 title: Prerequisites for deploying tenant workloads
-description: Learn the prerequisites for creating VMs for VNF workloads and for creating AKS hybrid clusters for CNF workloads.
+description: Learn the prerequisites for creating VMs for VNF workloads and for creating Kubernetes clusters for CNF workloads.
 author: dramasamy
 ms.author: dramasamy
 ms.service: azure-operator-nexus
@@ -14,17 +14,16 @@ ms.custom: template-how-to-pattern, devx-track-azurecli
 This guide explains prerequisites for creating:
 
 - Virtual machines (VMs) for virtual network function (VNF) workloads.
-- Tenant Kubernetes cluster deployments for cloud-native network function (CNF) workloads.
+- Nexus Kubernetes cluster deployments for cloud-native network function (CNF) workloads.
 
 :::image type="content" source="./media/tenant-workload-deployment-flow.png" alt-text="Diagram of a tenant workload deployment flow.":::
 
-## Preparation
+## Network prerequisites
 
 You need to create various networks based on your workload needs. The following list of considerations isn't exhaustive. Consult with the appropriate support teams for help.
 
 - Determine the types of networks that you need to support your workloads:
   - A layer 3 (L3) network requires a VLAN and subnet assignment. The subnet must be large enough to support IP assignment to each of the VMs.
-  
     The platform reserves the first three usable IP addresses for internal use. For instance, to support six VMs, the minimum CIDR for your subnet is /28 (14 usable addresses – 3 reserved = 11 addresses available).
   - A layer 2 (L2) network requires only a single VLAN assignment.
   - A trunked network requires the assignment of multiple VLANs.
@@ -33,16 +32,11 @@ You need to create various networks based on your workload needs. The following 
 - Determine the BGP peering info for each network, and whether the networks need to talk to each other. You should group networks that need to talk to each other into the same L3 isolation domain, because each L3 isolation domain can support multiple L3 networks.
 - The platform provides a proxy to allow your VM to reach other external endpoints. Creating a `cloudservicesnetwork` instance requires the endpoints to be proxied, so gather the list of endpoints. You can modify the list of endpoints after the network creation.
 
-You also need:
+## Create networks for tenant workloads
 
-- Your Azure account and the subscription ID of the Azure Operator Nexus cluster deployment.
-- The `custom location` resource ID of your Azure Operator Nexus cluster.
+The following sections explain the steps to create networks for tenant workloads (VMs and Kubernetes clusters).
 
-## Create networks for virtual machine workloads
-
-The following sections explain the steps to create VMs for VNF workloads.
-
-### Create isolation domains for VM workloads
+### Create isolation domains
 
 Isolation domains enable creation of layer 2 (L2) and layer 3 (L3) connectivity between network functions running on Azure Operator Nexus. This connectivity enables inter-rack and intra-rack communication between the workloads.
 You can create as many L2 and L3 isolation domains as needed.
@@ -58,15 +52,15 @@ You should have the following information already:
 
 #### L2 isolation domain
 
-[!INCLUDE [L2 isolation domain](./includes/l2-isolation-domain.md)]
+You can find more information on how to create an L2 isolation domain [here](./includes/l2-isolation-domain.md).
 
 #### L3 isolation domain
 
-[!INCLUDE [L3 isolation domain](./includes/l3-isolation-domain.md)]
+You can find more information on how to create an L3 isolation domain [here](./includes/l3-isolation-domain.md).
 
-### Create networks for VM workloads
+### Create networks for tenant workloads
 
-The following sections describe how to create these networks for VM workloads:
+The following sections describe how to create these networks:
 
 - Layer 2 network
 - Layer 3 network
@@ -75,7 +69,7 @@ The following sections describe how to create these networks for VM workloads:
 
 #### Create an L2 network
 
-Create an L2 network, if necessary, for your VM. You can repeat the instructions for each required L2 network.
+Create an L2 network, if necessary, for your workloads. You can repeat the instructions for each required L2 network.
 
 Gather the resource ID of the L2 isolation domain that you [created](#l2-isolation-domain) to configure the VLAN for this network.
 
@@ -92,7 +86,7 @@ Here's an example Azure CLI command:
 
 #### Create an L3 network
 
-Create an L3 network, if necessary, for your VM. Repeat the instructions for each required L3 network.
+Create an L3 network, if necessary, for your workloads. Repeat the instructions for each required L3 network.
 
 You need:
 
