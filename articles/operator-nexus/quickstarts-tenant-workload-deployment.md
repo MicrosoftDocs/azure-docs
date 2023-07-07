@@ -1,6 +1,6 @@
 ---
 title: Create an Azure Nexus virtual machine by using Azure CLI
-description: Learn how to create an Azure Nexus VMs for VNF workloads
+description: Learn how to create an Azure Nexus VM for VNF workloads
 author: dramasamy
 ms.author: dramasamy
 ms.service: azure-operator-nexus
@@ -120,7 +120,7 @@ Gather the `resourceId` values of the L2 and L3 isolation domains that you creat
 
 #### Create a cloud services network
 
-Your VM requires at least one cloud services network. You need the egress endpoints that you want to add to the proxy for your VM to access. This list should include any domains needed to pull images or access data, such as ".azurecr.io" or ".docker.io".
+Your VM requires at least one cloud services network. You need the egress endpoints that you want to add to the proxy for your VM to access. This list should include any domains needed to pull images or access data, such as `.azurecr.io` or `.docker.io`.
 
 ```azurecli
   az networkcloud cloudservicesnetwork create --name "<YourCloudServicesNetworkName>" \
