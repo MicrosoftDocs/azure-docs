@@ -173,7 +173,7 @@ Create the Computer Vision service account that processes our uploaded files.  C
 
     :::image type="content" lightbox="./media/blob-upload-storage-function/computer-vision-create.png" source="./media/blob-upload-storage-function/computer-vision-create-small.png" alt-text="A screenshot showing how to create a new Computer Vision service." :::
      
-4) Select **Review + Create** at the bottom. Azure takes a moment validate the information you entered.  Once the settings are validated, choose **Create** and Azure will begin provisioning the Computer Vision service, which might take a moment.
+4) Select **Review + Create** at the bottom. Azure takes a moment to validate the information you entered.  Once the settings are validated, choose **Create** and Azure will begin provisioning the Computer Vision service, which might take a moment.
 
 5) When the operation has completed, select **Go to Resource**.
 
