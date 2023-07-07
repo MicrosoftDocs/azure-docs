@@ -1,7 +1,7 @@
 ---
-title: Azure Cognitive Services security
-titleSuffix: Azure Cognitive Services
-description: Learn about the security considerations for Cognitive Services usage.
+title: Azure AI services security
+titleSuffix: Azure AI services
+description: Learn about the security considerations for Azure AI services usage.
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
@@ -12,19 +12,19 @@ ms.author: pafarley
 ms.custom: devx-track-csharp
 ---
 
-# Azure Cognitive Services security
+# Azure AI services security
 
-Security should be considered a top priority in the development of all applications, and with the growth of artificial intelligence enabled applications, security is even more important. This article outlines various security features available for Azure Cognitive Services. Each feature addresses a specific liability, so multiple features can be used in the same workflow.
+Security should be considered a top priority in the development of all applications, and with the growth of artificial intelligence enabled applications, security is even more important. This article outlines various security features available for Azure AI services. Each feature addresses a specific liability, so multiple features can be used in the same workflow.
 
-For a comprehensive list of Azure service security recommendations see the [Cognitive Services security baseline](/security/benchmark/azure/baselines/cognitive-services-security-baseline?toc=%2Fazure%2Fcognitive-services%2FTOC.json) article.
+For a comprehensive list of Azure service security recommendations see the [Azure AI services security baseline](/security/benchmark/azure/baselines/cognitive-services-security-baseline?toc=%2Fazure%2Fcognitive-services%2FTOC.json) article.
 
 ## Security features
 
 |Feature | Description |
 |:---|:---|
-| [Transport Layer Security (TLS)](/dotnet/framework/network-programming/tls) | All of the Cognitive Services endpoints exposed over HTTP enforce the TLS 1.2 protocol. With an enforced security protocol, consumers attempting to call a Cognitive Services endpoint should follow these guidelines: </br>- The client operating system (OS) needs to support TLS 1.2.</br>- The language (and platform) used to make the HTTP call need to specify TLS 1.2 as part of the request. Depending on the language and platform, specifying TLS is done either implicitly or explicitly.</br>- For .NET users, consider the [Transport Layer Security best practices](/dotnet/framework/network-programming/tls). |
-| [Authentication options](./authentication.md)| Authentication is the act of verifying a user's identity. Authorization, by contrast, is the specification of access rights and privileges to resources for a given identity. An identity is a collection of information about a <a href="https://en.wikipedia.org/wiki/Principal_(computer_security)" target="_blank">principal</a>, and a principal can be either an individual user or a service.</br></br>By default, you authenticate your own calls to Cognitive Services using the subscription keys provided; this is the simplest method but not the most secure. The most secure authentication method is to use managed roles in Azure Active Directory. To learn about this and other authentication options, see [Authenticate requests to Cognitive Services](./authentication.md). |
-| [Key rotation](./authentication.md)| Each Cognitive Services resource has two API keys to enable secret rotation. This is a security precaution that lets you regularly change the keys that can access your service, protecting the privacy of your service in the event that a key gets leaked. To learn about this and other authentication options, see [Rotate keys](./rotate-keys.md). |
+| [Transport Layer Security (TLS)](/dotnet/framework/network-programming/tls) | All of the Azure AI services endpoints exposed over HTTP enforce the TLS 1.2 protocol. With an enforced security protocol, consumers attempting to call an Azure AI services endpoint should follow these guidelines: </br>- The client operating system (OS) needs to support TLS 1.2.</br>- The language (and platform) used to make the HTTP call need to specify TLS 1.2 as part of the request. Depending on the language and platform, specifying TLS is done either implicitly or explicitly.</br>- For .NET users, consider the [Transport Layer Security best practices](/dotnet/framework/network-programming/tls). |
+| [Authentication options](./authentication.md)| Authentication is the act of verifying a user's identity. Authorization, by contrast, is the specification of access rights and privileges to resources for a given identity. An identity is a collection of information about a <a href="https://en.wikipedia.org/wiki/Principal_(computer_security)" target="_blank">principal</a>, and a principal can be either an individual user or a service.</br></br>By default, you authenticate your own calls to Azure AI services using the subscription keys provided; this is the simplest method but not the most secure. The most secure authentication method is to use managed roles in Azure Active Directory. To learn about this and other authentication options, see [Authenticate requests to Azure AI services](./authentication.md). |
+| [Key rotation](./authentication.md)| Each Azure AI services resource has two API keys to enable secret rotation. This is a security precaution that lets you regularly change the keys that can access your service, protecting the privacy of your service in the event that a key gets leaked. To learn about this and other authentication options, see [Rotate keys](./rotate-keys.md). |
 | [Environment variables](cognitive-services-environment-variables.md) | Environment variables are name-value pairs that are stored within a specific development environment. You can store your credentials in this way as a more secure alternative to using hardcoded values in your code. However, if your environment is compromised, the environment variables are compromised as well, so this is not the most secure approach.</br></br> For instructions on how to use environment variables in your code, see the [Environment variables guide](cognitive-services-environment-variables.md). |
 | [Customer-managed keys (CMK)](./encryption/cognitive-services-encryption-keys-portal.md) | This feature is for services that store customer data at rest (longer than 48 hours). While this data is already double-encrypted on Azure servers, users can get extra security by adding another layer of encryption, with keys they manage themselves. You can link your service to Azure Key Vault and manage your data encryption keys there. </br></br>You need special approval to get the E0 SKU for your service, which enables CMK. Within 3-5 business days after you submit the [request form](https://aka.ms/cogsvc-cmk), you'll get an update on the status of your request. Depending on demand, you may be placed in a queue and approved as space becomes available. Once you're approved for using the E0 SKU, you'll need to create a new resource from the Azure portal and select E0 as the Pricing Tier. You won't be able to upgrade from F0 to the new E0 SKU. </br></br>Only some services can use CMK; look for your service on the [Customer-managed keys](./encryption/cognitive-services-encryption-keys-portal.md) page.|
 | [Virtual networks](./cognitive-services-virtual-networks.md) | Virtual networks allow you to specify which endpoints can make API calls to your resource. The Azure service will reject API calls from devices outside of your network. You can set a formula-based definition of the allowed network, or you can define an exhaustive list of endpoints to allow. This is another layer of security that can be used in combination with others. |
@@ -34,4 +34,4 @@ For a comprehensive list of Azure service security recommendations see the [Cogn
 
 ## Next steps
 
-* Explore [Cognitive Services](./what-are-cognitive-services.md) and choose a service to get started.
+* Explore [Azure AI services](./what-are-cognitive-services.md) and choose a service to get started.

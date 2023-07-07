@@ -1,6 +1,6 @@
 ---
-title: Rotate keys in Azure Cognitive Services
-titleSuffix: Azure Cognitive Services
+title: Rotate keys in Azure AI services
+titleSuffix: Azure AI services
 description: "Learn how to rotate API keys for better security, without interrupting service"
 services: cognitive-services
 author: PatrickFarley
@@ -11,9 +11,9 @@ ms.date: 11/08/2022
 ms.author: pafarley
 ---
 
-# Rotate subscription keys in Cognitive Services
+# Rotate subscription keys in Azure AI services
 
-Each Cognitive Services resource has two API keys to enable secret rotation. This is a security precaution that lets you regularly change the keys that can access your service, protecting the privacy of your resource if a key gets leaked.
+Each Azure AI services resource has two API keys to enable secret rotation. This is a security precaution that lets you regularly change the keys that can access your service, protecting the privacy of your resource if a key gets leaked.
 
 ## How to rotate keys
 
@@ -31,5 +31,5 @@ Keys can be rotated using the following procedure:
 
 ## See also
 
-* [What is Cognitive Services?](./what-are-cognitive-services.md)
-* [Cognitive Services security features](./security-features.md)
+* [What is Azure AI services?](./what-are-cognitive-services.md)
+* [Azure AI services security features](./security-features.md)

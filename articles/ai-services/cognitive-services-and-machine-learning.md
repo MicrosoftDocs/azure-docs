@@ -1,7 +1,7 @@
 ---
-title: Cognitive Services and Machine Learning
-titleSuffix: Azure Cognitive Services
-description: Learn where Azure Cognitive Services fits in with other Azure offerings for machine learning.
+title: Azure AI services and Machine Learning
+titleSuffix: Azure AI services
+description: Learn where Azure AI services fits in with other Azure offerings for machine learning.
 services: cognitive-services
 manager: nitinme
 author: aahill
@@ -10,11 +10,11 @@ ms.service: cognitive-services
 ms.topic: conceptual
 ms.date: 10/28/2021
 ---
-# Cognitive Services and machine learning
+# Azure AI services and machine learning
 
-Cognitive Services provides machine learning capabilities to solve general problems such as analyzing text for emotional sentiment or analyzing images to recognize objects or faces. You don't need special machine learning or data science knowledge to use these services.
+Azure AI services provides machine learning capabilities to solve general problems such as analyzing text for emotional sentiment or analyzing images to recognize objects or faces. You don't need special machine learning or data science knowledge to use these services.
 
-[Cognitive Services](./what-are-cognitive-services.md) is a group of services, each supporting different, generalized prediction capabilities. The services are divided into different categories to help you find the right service. 
+[Azure AI services](./what-are-cognitive-services.md) is a group of services, each supporting different, generalized prediction capabilities. The services are divided into different categories to help you find the right service. 
 
 |Service category|Purpose|
 |--|--|
@@ -24,7 +24,7 @@ Cognitive Services provides machine learning capabilities to solve general probl
 |[Speech](https://azure.microsoft.com/services/cognitive-services/directory/speech/)|Convert speech into text and text into natural-sounding speech. Translate from one language to another and enable speaker verification and recognition.|
 |[Vision](https://azure.microsoft.com/services/cognitive-services/directory/vision/)|Recognize, identify, caption, index, and moderate your pictures, videos, and digital ink content.|
 
-Use Cognitive Services when you:
+Use Azure AI services when you:
 
 * Can use a generalized solution.
 * Access solution from a programming REST API or SDK.
@@ -45,13 +45,13 @@ Machine learning is provided using [Azure Machine Learning (AML) products and se
 
 A Cognitive Service provides part or all of the components in a machine learning solution: data, algorithm, and trained model. These services are meant to require general knowledge about your data without needing experience with machine learning or data science. These services provide both REST API(s) and language-based SDKs. As a result, you need to have programming language knowledge to use the services.
 
-## How are Cognitive Services and Azure Machine Learning (AML) similar?
+## How are Azure AI services and Azure Machine Learning (AML) similar?
 
 Both have the end-goal of applying artificial intelligence (AI) to enhance business operations, though how each provides this in the respective offerings is different. 
 
 Generally, the audiences are different:
 
-* Cognitive Services are for developers without machine-learning experience.
+* Azure AI services are for developers without machine-learning experience.
 * Azure Machine Learning is tailored for data scientists.
 
 ## How is a Cognitive Service different from machine learning?
@@ -62,7 +62,7 @@ Machine learning is a process that generally requires a longer period of time to
 
 ## What kind of data do you have?
 
-Cognitive Services, as a group of services, can require none, some, or all custom data for the trained model. 
+Azure AI services, as a group of services, can require none, some, or all custom data for the trained model. 
 
 ### No additional training data required
 
@@ -86,11 +86,10 @@ The following data categorizes each service by which kind of data it allows or r
 |--|--|--|--|
 |[Anomaly Detector](./Anomaly-Detector/overview.md)|x|x|x|
 |Bing Search |x|||
-|[Computer Vision](./computer-vision/overview.md)|x|||
+|[Azure AI Vision](./computer-vision/overview.md)|x|||
 |[Content Moderator](./Content-Moderator/overview.md)|x||x|
 |[Custom Vision](./custom-vision-service/overview.md)||x||
-|[Face](./Face/Overview.md)|x|x||
-|[Ink Recognizer](/previous-versions/azure/cognitive-services/Ink-Recognizer/overview)|x|x||
+|[Face](./computer-vision/overview-identity.md)|x|x||
 |[Language Understanding (LUIS)](./LUIS/what-is-luis.md)||x||
 |[Personalizer](./personalizer/what-is-personalizer.md)|x*|x*|x|
 |[QnA Maker](./QnAMaker/Overview/overview.md)||x||
@@ -104,19 +103,19 @@ The following data categorizes each service by which kind of data it allows or r
 
 *Personalizer only needs training data collected by the service (as it operates in real-time) to evaluate your policy and data. Personalizer does not need large historical datasets for up-front or batch training. 
 
-## Where can you use Cognitive Services?
+## Where can you use Azure AI services?
  
 The services are used in any application that can make REST API(s) or SDK calls. Examples of applications include web sites, bots, virtual or mixed reality, desktop and mobile applications. 
 
-## How is Azure Cognitive Search related to Cognitive Services?
+## How is Azure Cognitive Search related to Azure AI services?
 
-[Azure Cognitive Search](../search/search-what-is-azure-search.md) is a separate cloud search service that optionally uses Cognitive Services to add image and natural language processing to indexing workloads. Cognitive Services is exposed in Azure Cognitive Search through [built-in skills](../search/cognitive-search-predefined-skills.md) that wrap individual APIs. You can use a free resource for walkthroughs, but plan on creating and attaching a [billable resource](../search/cognitive-search-attach-cognitive-services.md) for larger volumes.
+[Azure Cognitive Search](../search/search-what-is-azure-search.md) is a separate cloud search service that optionally uses Azure AI services to add image and natural language processing to indexing workloads. Azure AI services is exposed in Azure Cognitive Search through [built-in skills](../search/cognitive-search-predefined-skills.md) that wrap individual APIs. You can use a free resource for walkthroughs, but plan on creating and attaching a [billable resource](../search/cognitive-search-attach-cognitive-services.md) for larger volumes.
 
-## How can you use Cognitive Services?
+## How can you use Azure AI services?
 
-Each service provides information about your data. You can combine services together to chain solutions such as converting speech (audio) to text, translating the text into many languages, then using the translated languages to get answers from a knowledge base. While Cognitive Services can be used to create intelligent solutions on their own, they can also be combined with traditional machine learning projects to supplement models or accelerate the development process. 
+Each service provides information about your data. You can combine services together to chain solutions such as converting speech (audio) to text, translating the text into many languages, then using the translated languages to get answers from a knowledge base. While Azure AI services can be used to create intelligent solutions on their own, they can also be combined with traditional machine learning projects to supplement models or accelerate the development process. 
 
-Cognitive Services that provide exported models for other machine learning tools:
+Azure AI services that provide exported models for other machine learning tools:
 
 |Cognitive Service|Model information|
 |--|--|

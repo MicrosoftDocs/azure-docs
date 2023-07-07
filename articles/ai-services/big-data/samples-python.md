@@ -1,6 +1,6 @@
 ---
-title: "Cognitive Services for big data - Python Samples"
-description: Try Cognitive Services samples in Python for Azure Databricks to run your MMLSpark pipeline for big data.
+title: "Azure AI services for big data - Python Samples"
+description: Try Azure AI services samples in Python for Azure Databricks to run your MMLSpark pipeline for big data.
 services: cognitive-services
 author: mhamilton723
 manager: nitinme
@@ -12,20 +12,20 @@ ms.devlang: python
 ms.custom: devx-track-python
 ---
 
-# Python Samples for Cognitive Services for big data
+# Python Samples for Azure AI services for big data
 
-The following snippets are ready to run and will help get you started with using Cognitive Services on Spark with Python.
+The following snippets are ready to run and will help get you started with using Azure AI services on Spark with Python.
 
-The samples in this article use these Cognitive Services:
+The samples in this article use these Azure AI services:
 
 - Language service - get the sentiment (or mood) of a set of sentences.
-- Computer Vision - get the tags (one-word descriptions) associated with a set of images.
+- Azure AI Vision - get the tags (one-word descriptions) associated with a set of images.
 - Speech to text - transcribe audio files to extract text-based transcripts.
 - Anomaly Detector - detect anomalies within a time series data.
 
 ## Prerequisites
 
-1. Follow the steps in [Getting started](getting-started.md) to set up your Azure Databricks and Cognitive Services environment. This tutorial shows you how to install MMLSpark and how to create your Spark cluster in Databricks.
+1. Follow the steps in [Getting started](getting-started.md) to set up your Azure Databricks and Azure AI services environment. This tutorial shows you how to install MMLSpark and how to create your Spark cluster in Databricks.
 1. After you create a new notebook in Azure Databricks, copy the **Shared code** below and paste into a new cell in your notebook.
 1. Choose a service sample, below, and copy paste it into a second new cell in your notebook.
 1. Replace any of the service subscription key placeholders with your own key.
@@ -39,7 +39,7 @@ To get started, we'll need to add this code to the project:
 ```python
 from mmlspark.cognitive import *
 
-# A general Cognitive Services key for the Language service and Computer Vision (or use separate keys that belong to each service)
+# A general Azure AI services key for the Language service and Azure AI Vision (or use separate keys that belong to each service)
 service_key = "ADD_YOUR_SUBSCRIPION_KEY"
 # An Anomaly Dectector subscription key
 anomaly_key = "ADD_YOUR_SUBSCRIPION_KEY"
@@ -59,7 +59,7 @@ from pyspark.sql.functions import col
 df = spark.createDataFrame([
   ("I am so happy today, its sunny!", "en-US"),
   ("I am frustrated by this rush hour traffic", "en-US"),
-  ("The cognitive services on spark aint bad", "en-US"),
+  ("The Azure AI services on spark aint bad", "en-US"),
 ], ["text", "language"])
 
 # Run the Language service with options
@@ -81,11 +81,11 @@ display(sentiment.transform(df).select("text", col("sentiment")[0].getItem("sent
 |:------------------------------------------|:------------------------------------------------------|
 | I am so happy today, its sunny!           | positive                                              |
 | I am frustrated by this rush hour traffic | negative                                              |
-| The cognitive services on spark aint bad  | positive                                              |
+| The Azure AI services on spark aint bad  | positive                                              |
 
-## Computer Vision sample
+## Azure AI Vision sample
 
-[Computer Vision](../computer-vision/index.yml) analyzes images to identify structure such as faces, objects, and natural-language descriptions. In this sample, we tag a list of images. Tags are one-word descriptions of things in the image like recognizable objects, people, scenery, and actions.
+[Azure AI Vision](../computer-vision/index.yml) analyzes images to identify structure such as faces, objects, and natural-language descriptions. In this sample, we tag a list of images. Tags are one-word descriptions of things in the image like recognizable objects, people, scenery, and actions.
 
 ```python
 
@@ -96,7 +96,7 @@ df = spark.createDataFrame([
         ("https://raw.githubusercontent.com/Azure-Samples/cognitive-services-sample-data-files/master/ComputerVision/Images/house.jpg", )
     ], ["image", ])
 
-# Run the Computer Vision service. Analyze Image extracts infortmation from/about the images.
+# Run the Azure AI Vision service. Analyze Image extracts infortmation from/about the images.
 analysis = (AnalyzeImage()
     .setLocation("eastus")
     .setSubscriptionKey(service_key)
