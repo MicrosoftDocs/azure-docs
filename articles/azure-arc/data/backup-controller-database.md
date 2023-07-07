@@ -27,7 +27,7 @@ This article explains how to back up the controller database.
 
 As part of built-in capabilities, the Data controller database `controller` is automatically backed up whenever there is an update - this update includes creating, deleting or updating an existing custom resource such as an Arc SQL managed instance.
 
-The `.bak` files for the `controller` database is stored in the same storage class specified for the data and logs via the `--storage-class` parameter.
+The `.bak` files for the `controller` database are stored in the same storage class specified for the data and logs via the `--storage-class` parameter.
 
 ## Recover controller database 
 
@@ -193,7 +193,7 @@ Follow these steps to restore the controller database from a backup with new sto
    kubectl scale --replicas=1 sts/controldb -n <namespace>
    ```
 
-8. Copy the backup file of the controller database to `var/opt/mssql/data` on the newly created daa volume
+8. Copy the backup file of the controller database to `var/opt/mssql/data` on the newly created data volume
 
 9. Connect to the `controldb` SQL server as `sa` using the password in the `controller-sa-secret` secret created earlier.
 
