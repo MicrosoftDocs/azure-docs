@@ -23,7 +23,7 @@ Application pods can be scheduled on system node pools if you wish to only have 
 
 Before proceeding with this how-to guide, it's recommended that you:
 
-   * Refer to the Nexus Kubernetes cluster [quickStart guide](./quickstarts-kubernetes-cluster-deployment-bicep.md) for a comprehensive overview and steps involved.
+   * Refer to the Nexus Kubernetes cluster [QuickStart guide](./quickstarts-kubernetes-cluster-deployment-bicep.md) for a comprehensive overview and steps involved.
    * Ensure that you meet the outlined prerequisites to ensure smooth implementation of the guide.
 
 ## Limitations
@@ -52,4 +52,4 @@ Choosing how to utilize your system pool and user pool depends largely on your s
 
 Always consider your cluster's resource capacity, the nature of your workloads, and the required level of resiliency when making your decision. By managing and understanding these node pools effectively, you can optimize your Nexus Kubernetes cluster to best fit your operational needs.
 
-Refer to the [quickStart guide](./quickstarts-kubernetes-cluster-deployment-bicep.md#add-an-agent-pool) to add new agent pools and experiment with configurations in your Nexus Kubernetes cluster.
+Refer to the [QuickStart guide](./quickstarts-kubernetes-cluster-deployment-bicep.md#add-an-agent-pool) to add new agent pools and experiment with configurations in your Nexus Kubernetes cluster.
