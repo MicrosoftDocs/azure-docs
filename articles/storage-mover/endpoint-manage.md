@@ -39,9 +39,11 @@ Within the Azure Storage Mover resource hierarchy, a migration project is used t
 
 Because migrations require well defined source and target locations, endpoint resources are parented to the top-level storage mover resource. This placement allows you to reuse endpoints across any number of job definitions. While there's a single endpoint resource, the properties of each endpoint may vary based on its type. For example, NFS shares, SMB shares, and Azure Storage blob container endpoints each require fundamentally different information.
 
-## SMB endpoint considerations
+Currently, endpoints support NFS (Network File System) and SMB (Server Message Block) protocols.
 
-Currently, endpoints support NFS (Network File System) and SMB (Server Message Block) protocols. However, SMB uses the ACL (access control list) concept and user-based authentication to provide access to shared files for selected users. To maintain security, Storage Mover relies on Azure Key Vault integration to securely store and tightly control access to user credentials and other secrets. Storage mover agent resources can then connect to your SMB endpoints with Key Vault rather than with unsecure hard-coded credentials. This approach greatly reduces the chance that secrets may be accidentally leaked. After configuring your local file share source, add secrets for both `username` and `password` to Key Vault. You need to supply your both your Key Vault's URI and the names of the secrets when creating your SMB endpoints.
+### SMB endpoints
+
+ SMB uses the ACL (access control list) concept and user-based authentication to provide access to shared files for selected users. To maintain security, Storage Mover relies on Azure Key Vault integration to securely store and tightly control access to user credentials and other secrets. Storage mover agent resources can then connect to your SMB endpoints with Key Vault rather than with unsecure hard-coded credentials. This approach greatly reduces the chance that secrets may be accidentally leaked. After configuring your local file share source, add secrets for both `username` and `password` to Key Vault. You need to supply your both your Key Vault's URI and the names of the secrets when creating your SMB endpoints.
 
 In addition to Key Vault secrets, your agents must be granted access to your Key Vault and target storage account resources. This access is provided by the Azure role-based access control (Azure RBAC) authorization system, which assigns roles to your agents' managed identities. It's important to note that the required RBAC role assignments are created for you when SMB endpoints are created within the Azure portal. Endpoints created programmatically require you to make these assignments manually:
 
@@ -50,21 +52,27 @@ In addition to Key Vault secrets, your agents must be granted access to your Key
 |*Key Vault Secrets User*                    | Key Vault resource used to store your SMB credentials     |
 |*Storage File Data Privileged Contributor*  | Storage Account resource to containing your migrated data |
 
+### NFS endpoints
+
+This paragraph discusses the NFS-specific endpoints. Hostname/IP address and share name.
+
 ## Create endpoints
 
 Before you can create a job definition, you need to create endpoints for your source and target data sources. In this example, leave the **description** field blank; it's added within the [View and edit an endpoint's properties](#view-and-edit-an-endpoints-properties) section later in this article.
 
 > [!IMPORTANT]
-> If you have not yet deployed a resource using the resource provider, you'll need to create your top level resource.
+> If you have not yet deployed a Storage Mover resource using the resource provider, you'll need to create your top level resource.
 
 > [!CAUTION]
-> Renaming endpoint resources is not supported. It's a good idea to ensure that you've named the project appropriately since you will not be able to change the project name after it is provisioned. To circumvent this, you may choose to create a new endpoint with the same properties and a different name as shown in a later section. Refer to the [resource naming convention](../azure-resource-manager/management/resource-name-rules.md#microsoftstoragesync) to choose a supported name. 
+> Renaming endpoint resources is not supported. It's a good idea to ensure that you've named the project appropriately since you will not be able to change the project name after it is provisioned. To circumvent this, you may choose to create a new endpoint with the same properties and a different name as shown in a later section. Refer to the [resource naming convention](../azure-resource-manager/management/resource-name-rules.md#microsoftstoragesync) to choose a supported name.
+
+Azure Storage Mover supports migration scenarios using NFS and SMB. The steps to create the endpoints are very similar. The key differentiator between the creation of SMB and NFS endpoints is the use of Azure Key Vault to securely store the source fileshare's shared credential. The shared credentials stored within Key Vault will be accessed by agents when a migration job is run. Access to Key Vault secrets are managed by granting an RBAC role assignment to the agent's managed identity.  
 
 ### [Azure portal](#tab/portal)
 
-   1. Navigate to the **Storage endpoints** page in the [Azure portal](https://portal.azure.com) to access your endpoints. The default **Source endpoints** view displays the names of your endpoints along with data about their protocol, host, share, and associated job definitions.
+   To create an endpoint using the Navigate to the [Azure portal](https://portal.azure.com), navigate to the **Storage mover** resource page. Select **Storage endpoints** from within the navigation pane as shown in the following image.
 
-       :::image type="content" source="media/resource-hierarchy/resource-hierarchy.png" alt-text="Image of the Storage Endpoints tab within the Azure Portal showing the default Source Endpoints view" lightbox="media/resource-hierarchy/resource-hierarchy-large.png":::
+   :::image type="content" source="media/resource-hierarchy/storage-mover.png" alt-text="Image of the Storage Mover resource page within the Azure Portal showing the location of the Storage Endpoints link." lightbox="media/resource-hierarchy/storage-mover-lrg.png":::
 
    1. Select **Create project** to open the **Create a Project** pane. Provide a project name value in the **Project name** field, but leave the **Project description** field empty. Finally, select **Create** to provision the project.
 
