@@ -5,7 +5,7 @@ author: msjasteppe
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: how-to
-ms.date: 07/05/2023
+ms.date: 07/07/2023
 ms.author: jasteppe
 ---
 
@@ -46,12 +46,10 @@ In the following example, `typeMatchExpression` is defined as:
 }
 ``` 
 
-When you're using these SDKs, the device identity and the timestamp of the message are known.
-
 > [!IMPORTANT]
-The MedTech service will use the device id defined in Azure IoT Hub as the FHIR resource device identifier. If the MedTech service is setup to use an identity resolution type of Lookup, a Device resource with a matching device identifier MUST exist in the FHIR service or an error will occur when the message is processed. If the MedTech service identity resolution type is set to Create a patientIdExpression must be included in the message, so that a new Patient resource and Device resource can be created if they do not already exist.
+> The MedTech service will use the device id defined in Azure IoT Hub as the FHIR resource device identifier. If the MedTech service is setup to use an identity resolution type of **Lookup**, a Device resource with a matching device identifier **must** exist in the FHIR service or an error will occur when the device message is processed. If the MedTech service identity resolution type is set to **Create**, a `patientIdExpression` must be included in the device message so that a new Patient resource and Device resource can be created if they do not already exist.
 
-If your MedTech service is set up to ingest messages from Azure IoT Hub, you aren't required to use IotJsonPathContent templates. CalculatedContent templates can be used assuming that you correctly define the DeviceIdExpression and TimestampExpression.
+If your MedTech service is set up to ingest device messages from an Azure IoT Hub, you aren't required to use IotJsonPathContent templates. CalculatedContent templates can be used assuming that you correctly define the DeviceIdExpression and TimestampExpression.
 
 The IotJsonPathContent templates allow matching on and extracting values from a device message read from an Azure Event Hubs event hub through the following expressions:
 
@@ -62,6 +60,9 @@ The IotJsonPathContent templates allow matching on and extracting values from a 
 |encounterIdExpression|*Optional*: The expression to extract the encounter identifier.|`$.matchedToken.encounterId`|
 |correlationIdExpression|*Optional*: The expression to extract the correlation identifier. You can use this output to group values into a single observation in the FHIR destination mapping.|`$.matchedToken.correlationId`|
 |values[].valueExpression|The expression to extract the wanted value.|`$.matchedToken.heartRate`|
+
+> [!IMPORTANT]
+> The **Resolution type** specifies how the MedTech service associates device data with Device resources and Patient resources. The MedTech service reads Device and Patient resources from the FHIR service using [device identifiers](https://www.hl7.org/fhir/r4/device-definitions.html#Device.identifier) and [patient identifiers](https://www.hl7.org/fhir/r4/patient-definitions.html#Patient.identifier). If an [encounter identifier](https://hl7.org/fhir/r4/encounter-definitions.html#Encounter.identifier) is specified and extracted from the device data payload, it's linked to the observation if an encounter exists on the FHIR service with that identifier.  If the [encounter identifier](../../healthcare-apis/release-notes.md#medtech-service) is successfully normalized, but no FHIR Encounter exists with that encounter identifier, a **FhirResourceNotFound** exception is thrown. For more information on configuring the the MedTech service **Resolution type**, see [Configure the Destination tab](deploy-manual-portal.md#configure-the-destination-tab).
 
 ## Expression languages
 
