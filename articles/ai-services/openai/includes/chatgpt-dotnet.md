@@ -134,7 +134,7 @@ var chatCompletionsOptions = new ChatCompletionsOptions()
         new ChatMessage(ChatRole.System, "You are a helpful assistant."),
         new ChatMessage(ChatRole.User, "Does Azure OpenAI support customer managed keys?"),
         new ChatMessage(ChatRole.Assistant, "Yes, customer managed keys are supported by Azure OpenAI."),
-        new ChatMessage(ChatRole.User, "Do other Azure Cognitive Services support this too?"),
+        new ChatMessage(ChatRole.User, "Do other Azure AI services support this too?"),
     },
     MaxTokens = 100
 };
@@ -149,7 +149,7 @@ Console.WriteLine();
 ```
 
 > [!IMPORTANT]
-> For production, use a secure way of storing and accessing your credentials like [Azure Key Vault](../../../key-vault/general/overview.md). For more information about credential security, see the Cognitive Services [security](../../security-features.md) article.
+> For production, use a secure way of storing and accessing your credentials like [Azure Key Vault](../../../key-vault/general/overview.md). For more information about credential security, see the Azure AI services [security](../../security-features.md) article.
 
 ```cmd
 dotnet run program.cs
@@ -158,7 +158,7 @@ dotnet run program.cs
 ## Output
 
 ```output
-Yes, many of the Azure Cognitive Services support customer managed keys. Some examples include Azure Cognitive Services Text Analytics, Speech Services, and Translator. However, it's important to note that not all services support customer managed keys, so it's best to check the documentation for each individual service to see if it is supported.
+Yes, many of the Azure AI services support customer managed keys. Some examples include Azure AI services Text Analytics, Speech Services, and Translator. However, it's important to note that not all services support customer managed keys, so it's best to check the documentation for each individual service to see if it is supported.
 ```
 
 This will wait until the model has generated its entire response before printing the results. Alternatively, if you want to asynchronously stream the response and print the results, you can replace the contents of *program.cs* with the code in the next example.
@@ -182,7 +182,7 @@ var chatCompletionsOptions = new ChatCompletionsOptions()
         new ChatMessage(ChatRole.System, "You are a helpful assistant."),
         new ChatMessage(ChatRole.User, "Does Azure OpenAI support customer managed keys?"),
         new ChatMessage(ChatRole.Assistant, "Yes, customer managed keys are supported by Azure OpenAI."),
-        new ChatMessage(ChatRole.User, "Do other Azure Cognitive Services support this too?"),
+        new ChatMessage(ChatRole.User, "Do other Azure AI services support this too?"),
     },
     MaxTokens = 100
 };

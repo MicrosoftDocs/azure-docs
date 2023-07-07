@@ -1,6 +1,6 @@
 ---
 title: Anomaly Detector JavaScript client library quickstart
-titleSuffix: Azure Cognitive Services
+titleSuffix: Azure AI services
 services: cognitive-services
 author: mrbullwinkle
 manager: nitinme

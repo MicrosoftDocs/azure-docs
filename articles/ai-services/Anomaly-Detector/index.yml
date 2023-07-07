@@ -5,7 +5,7 @@ summary: Learn how to use the Anomaly Detector univariate and multivariate APIs 
 
 metadata:
   title: Anomaly Detector API - Tutorials, quickstarts, API reference
-  titleSuffix: Azure Cognitive Services
+  titleSuffix: Azure AI services
   description: Use the Anomaly Detector univariate and multivariate APIs to monitor data over time and detect anomalies with machine learning. Get insight into your data, regardless of volume, industry, or scenario. 
   services: cognitive-services
   author: mrbullwinkle
@@ -23,7 +23,7 @@ metadata:
 landingContent:
 
 # Card 1
-- title: About Azure Cognitive Services Anomaly Detector
+- title: About Azure AI Anomaly Detector
   linkLists:
     - linkListType: overview
       links:
@@ -50,7 +50,7 @@ landingContent:
     - linkListType: reference
       links:
         - text: Support and help options
-          url: ../cognitive-services-support-options.md?context=/azure/cognitive-services/anomaly-detector/context/context
+          url: ../cognitive-services-support-options.md?context=/azure/ai-services/anomaly-detector/context/context
         - text: Join the Anomaly Detector community for better support on Microsoft Teams
           url: https://aka.ms/adadvisorsjoin
         - text: Technical articles about Anomaly Detector
@@ -82,7 +82,7 @@ landingContent:
   linkLists:
     - linkListType: overview
       links:
-        - text: Introducing Azure Anomaly Detector API (univariate) 
+        - text: Introducing Azure AI Anomaly Detector API (univariate) 
           url: https://techcommunity.microsoft.com/t5/AI-Customer-Engineering-Team/Introducing-Azure-Anomaly-Detector-API/ba-p/490162
     - linkListType: how-to-guide
       links:

@@ -1,7 +1,7 @@
 ---
 title: Azure OpenAI Service quotas and limits
-titleSuffix: Azure Cognitive Services
-description: Quick reference, detailed description, and best practices on the quotas and limits for the OpenAI service in Azure Cognitive Services.
+titleSuffix: Azure AI services
+description: Quick reference, detailed description, and best practices on the quotas and limits for the OpenAI service in Azure AI services.
 services: cognitive-services
 author: mrbullwinkle
 manager: nitinme
@@ -14,7 +14,7 @@ ms.author: mbullwin
 
 # Azure OpenAI Service quotas and limits
 
-This article contains a quick reference and a detailed description of the quotas and limits for Azure OpenAI in Azure Cognitive Services.
+This article contains a quick reference and a detailed description of the quotas and limits for Azure OpenAI in Azure AI services.
 
 ## Quotas and limits reference
 
@@ -50,7 +50,7 @@ To minimize issues related to rate limits, it's a good idea to use the following
 
 Quota increase requests can be submitted from the [Quotas](./how-to/quota.md) page of Azure OpenAI Studio. Please note that due to overwhelming demand, we are not currently approving new quota increase requests. Your request will be queued until it can be filled at a later time.
 
-For other rate limits, please [submit a service request](/azure/cognitive-services/cognitive-services-support-options?context=%2Fazure%2Fcognitive-services%2Fopenai%2Fcontext%2Fcontext).
+For other rate limits, please [submit a service request](../cognitive-services-support-options.md?context=/azure/ai-services/openai/context/context).
 
 ## Next steps
 

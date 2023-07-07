@@ -1,6 +1,6 @@
 ---
 title: Run Anomaly Detector on IoT Edge
-titleSuffix: Azure Cognitive Services
+titleSuffix: Azure AI services
 description: Deploy the Anomaly Detector module to IoT Edge. 
 services: cognitive-services
 author: mrbullwinkle
@@ -14,7 +14,7 @@ ms.author: mbullwin
 
 # Deploy an Anomaly Detector univariate module to IoT Edge
 
-Learn how to deploy the Cognitive Services [Anomaly Detector](../anomaly-detector-container-howto.md) module to an IoT Edge device. Once it's deployed into IoT Edge, the module runs in IoT Edge together with other modules as container instances. It exposes the exact same APIs as an Anomaly Detector container instance running in a standard docker container environment. 
+Learn how to deploy the Azure AI services [Anomaly Detector](../anomaly-detector-container-howto.md) module to an IoT Edge device. Once it's deployed into IoT Edge, the module runs in IoT Edge together with other modules as container instances. It exposes the exact same APIs as an Anomaly Detector container instance running in a standard docker container environment. 
 
 ## Prerequisites
 
@@ -22,7 +22,7 @@ Learn how to deploy the Cognitive Services [Anomaly Detector](../anomaly-detecto
 * Install the [Azure CLI](/cli/azure/install-azure-cli).
 * An [IoT Hub](../../../iot-hub/iot-hub-create-through-portal.md) and an [IoT Edge](../../../iot-edge/quickstart-linux.md) device.
 
-[!INCLUDE [Create a Cognitive Services Anomaly Detector resource](../includes/create-anomaly-detector-resource.md)]
+[!INCLUDE [Create a Azure AI Anomaly Detector resource](../includes/create-anomaly-detector-resource.md)]
 
 ## Deploy the Anomaly Detection module to the edge
 
@@ -45,9 +45,9 @@ Learn how to deploy the Cognitive Services [Anomaly Detector](../anomaly-detecto
 
     1.  Keep the value accept for **Eula**.
 
-    1. Fill out **Billing** with your Cognitive Services endpoint.
+    1. Fill out **Billing** with your Azure AI services endpoint.
 
-    1. Fill out **ApiKey** with your Cognitive Services API key.
+    1. Fill out **ApiKey** with your Azure AI services API key.
 
     :::image type="content" source="../media/deploy-anomaly-detection-on-iot-edge/environment-variables.png" alt-text="Environment variables with red boxes around the areas that need values to be filled in for endpoint and API key":::
 
@@ -67,9 +67,9 @@ To troubleshoot the runtime status of your IoT Edge device, consult the [trouble
 
 ## Test Anomaly Detector on an IoT Edge device
 
-You'll make an HTTP call to the Azure IoT Edge device that has the Azure Cognitive Services container running. The container provides REST-based endpoint APIs. Use the host, `http://<your-edge-device-ipaddress>:5000`, for module APIs.
+You'll make an HTTP call to the Azure IoT Edge device that has the Azure AI services container running. The container provides REST-based endpoint APIs. Use the host, `http://<your-edge-device-ipaddress>:5000`, for module APIs.
 
-Alternatively, you can [create a module client by using the Anomaly Detector client library](../quickstarts/client-libraries.md?tabs=linux&pivots=programming-language-python) on the Azure IoT Edge device, and then call the running Azure Cognitive Services container on the edge. Use the host endpoint `http://<your-edge-device-ipaddress>:5000` and leave the host key empty. 
+Alternatively, you can [create a module client by using the Anomaly Detector client library](../quickstarts/client-libraries.md?tabs=linux&pivots=programming-language-python) on the Azure IoT Edge device, and then call the running Azure AI services container on the edge. Use the host endpoint `http://<your-edge-device-ipaddress>:5000` and leave the host key empty. 
 
 If your edge device does not already allow inbound communication on port 5000, you will need to create a new **inbound port rule**. 
 

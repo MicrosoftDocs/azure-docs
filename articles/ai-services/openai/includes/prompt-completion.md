@@ -12,7 +12,7 @@ keywords: ChatGPT
 ---
 
 > [!NOTE]
-> All of the examples in this section of the guide were tested against the `text-davinci-003` model in English. If you are reading a localized version of this article in another language, these responses represent a localized translation of the English results. To learn more about potential limitations depending on what language you are using to prompt a model, please consult our [Responsible AI transparency note](/legal/cognitive-services/openai/transparency-note?context=%2Fazure%2Fcognitive-services%2Fopenai%2Fcontext%2Fcontext#limitations).  
+> All of the examples in this section of the guide were tested against the `text-davinci-003` model in English. If you are reading a localized version of this article in another language, these responses represent a localized translation of the English results. To learn more about potential limitations depending on what language you are using to prompt a model, please consult our [Responsible AI transparency note](/legal/cognitive-services/openai/transparency-note?context=/azure/ai-services/openai/context/context#limitations).  
 
 ## Start with clear instructions
 

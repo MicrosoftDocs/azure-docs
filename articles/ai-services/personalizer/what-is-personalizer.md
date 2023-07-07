@@ -9,12 +9,12 @@ ms.subservice: personalizer
 ms.topic: overview
 ms.date: 11/17/2022
 ms.custom: cog-serv-seo-aug-2020
-keywords: personalizer, Azure personalizer, machine learning 
+keywords: personalizer, Azure AI Personalizer, machine learning 
 ---
 
 # What is Personalizer?
 
-Azure Personalizer is an AI service that your applications make smarter decisions at scale using **reinforcement learning**. Personalizer processes information about the state of your application, scenario, and/or users (*contexts*), and a set of possible decisions and related attributes (*actions*) to determine the best decision to make. Feedback from your application (*rewards*) is sent to Personalizer to learn how to improve its decision-making ability in near-real time.
+Azure AI Personalizer is an AI service that your applications make smarter decisions at scale using **reinforcement learning**. Personalizer processes information about the state of your application, scenario, and/or users (*contexts*), and a set of possible decisions and related attributes (*actions*) to determine the best decision to make. Feedback from your application (*rewards*) is sent to Personalizer to learn how to improve its decision-making ability in near-real time.
 
 Personalizer can determine the best actions to take in a variety of scenarios:
 * E-commerce: What product should be shown to customers to maximize the likelihood of a purchase?
