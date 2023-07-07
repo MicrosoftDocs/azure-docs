@@ -12,14 +12,17 @@ ms.author: mbender
 
 # Create a custom HTTP/HTTPS health probe for Azure Load Balancer
 
-In this article, you learn to create a custom API for HTTP health probes using Python, FLASK, and psutil. Health checks are performed on backend instances using HTTP GET and marked as healthy or unhealthy based on the response. The custom probe in this article marks instances as unhealthy if their CPU usage is over 75%. HTTP health probes can be used for many purposes, not just CPU utilization, when combine with your own logic and health checks.
+In this article, you learn to create a custom API for HTTP [health probes](load-balancer-custom-probe-overview.md) using Python, FLASK, and psutil. Health checks are performed on backend instances using HTTP GET and marked as healthy or unhealthy based on the response. The custom probe in this article marks instances as unhealthy if their CPU usage is over 75%. HTTP health probes can be used for many purposes, not just CPU utilization, when combine with your own logic and health checks.
 
 ## Prerequisites
 
 -  An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) and access to the Azure portal.
 - An existing standard SKU Azure Load Balancer. For more information on creating a load balancer, see [Create a public load balancer using the Azure portal](quickstart-load-balancer-standard-public-portal.md).
 - An Azure Virtual Machine running linux in the backend pool of the Azure Load Balancer, see [Create a virtual machine using the Azure portal](../virtual-machines/linux/quick-create-portal.md).
-- A linux virtual machine with python3 and pip installed.
+- Linux virtual machine has *python3*, *pip* and the following packages installed:
+    - *flask*
+    - *flask_restful*
+    - *psutil*
 - Remote access to the virtual machine via SSH or Azure Bastion.
 
 > [!IMPORTANT]
