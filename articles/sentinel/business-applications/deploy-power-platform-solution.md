@@ -11,17 +11,17 @@ ms.date: 07/06/2023
 
 # Deploy the Microsoft Sentinel solution for Microsoft Power Platform 
 
-The Microsoft Sentinel solution for Power Platform allows you to monitor and detect suspicious or malicious activities in your Power Platform environment. The solution collects activity logs from different Power Platform components and inventory data. It analyzes those activity logs to detect threats and suspicious activities like the following:
+The Microsoft Sentinel solution for Power Platform allows you to monitor and detect suspicious or malicious activities in your Power Platform environment. The solution collects activity logs from different Power Platform components and inventory data. It analyzes those activity logs to detect threats and suspicious activities like the following activities:
 
 - Power Apps execution from unauthorized geographies
 - Suspicious data destruction by Power Apps
 - Mass deletion of Power Apps
 - Phishing attacks made possible through Power Apps
 - Power Automate flows activity by departing employees
-- Microsoft Power Platform connectors added to the an environment, and the
+- Microsoft Power Platform connectors added to the environment
 - Update or removal of Microsoft Power Platform data loss prevention policies
 
-The Microsoft Sentinel Solution for Power Platform ingests and cross-correlates activity logs and inventory data from multiple sources. So, the solution requires that you enable 6 connectors that are available as part of the solution.
+The Microsoft Sentinel Solution for Power Platform ingests and cross-correlates activity logs and inventory data from multiple sources. So, the solution requires that you enable the following data connectors that are available as part of the solution.
 
 
 |Connector name  |Data collected  |Log Analytics tables |
@@ -75,6 +75,7 @@ Install the solution from the content hub in Microsoft Sentinel by using the fol
 ## Verify audit logging is enabled for Microsoft Purview
 
 <!-- Make this a prereq? "It may take up to 60 minutes for the change to take effect." -->
+...
 
 ## Enable the data connectors
 
@@ -140,7 +141,7 @@ In your Power Platform environment, go to **Settings** > **Audit settings**. Und
 For more information about these steps, see [Manage Dataverse auditing](/power-platform/admin/manage-dataverse-auditing#startstop-auditing-for-an-environment-and-set-retention-policy).
 
 ### Audit dataverse entities
-
+<!--Is dataverse Microsoft Dataverse? Per cloud style guide: "Microsoft Dataverse is the new name for Common Data Service."-->
 Enable detailed auditing on each of the dataverse entities. Do this automatically by importing a Power Platform managed solution or manually by enabling details auditing on each of the entities.
 
 <!--Totally lost. What section in the existing PP articles does the manual enablement align to? The automated way doesn't seem safe (download a zip file?!) -->
@@ -155,7 +156,7 @@ To verify that log ingestion is working, complete the following steps.
 
 ### Generate activity and inventory logs
 
-1. Run activities like create, update, and delete to generage logs for data that you enabled for monitoring.
+1. Run activities like create, update, and delete to generate logs for data that you enabled for monitoring.
 1. Wait up to 60 minutes for Microsoft Sentinel to ingest the activity logs to the logs table in the workspace.
 1. For Power Platform inventory data, wait up to 24 hours for Microsoft Sentinel to ingest the data to the log tables in the workspace.
 
@@ -171,7 +172,7 @@ After you've waited for Microsoft Sentinel to ingest the data, complete the foll
     | take 50
     ```
 
-   The following table lists the the Log Analytics tables to query.
+   The following table lists the Log Analytics tables to query.
 
    |Log Analytics tables |Data collected |
    |---------|---------|
