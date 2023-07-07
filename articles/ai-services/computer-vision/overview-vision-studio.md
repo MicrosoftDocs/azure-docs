@@ -1,7 +1,7 @@
 ---
 title: What is Vision Studio?
-titleSuffix: Azure Cognitive Services
-description: Learn how to set up and use Vision Studio to test features of Azure Computer Vision on the web.
+titleSuffix: Azure AI services
+description: Learn how to set up and use Vision Studio to test features of Azure AI Vision on the web.
 author: PatrickFarley
 manager: nitinme
 
@@ -15,13 +15,13 @@ ms.custom: cog-serv-seo-aug-2020
 
 # What is Vision Studio?
 
-[Vision Studio](https://portal.vision.cognitive.azure.com/) is a set of UI-based tools that lets you explore, build, and integrate features from Azure Computer Vision.
+[Vision Studio](https://portal.vision.cognitive.azure.com/) is a set of UI-based tools that lets you explore, build, and integrate features from Azure AI Vision.
 
 Vision Studio provides you with a platform to try several service features and sample their returned data in a quick, straightforward manner. Using Studio, you can start experimenting with the services and learning what they offer without needing to write any code. Then, use the available client libraries and REST APIs to get started embedding these services into your own applications.
 
 ## Get started using Vision Studio
 
-To use Vision Studio, you'll need an Azure subscription and a resource for Cognitive Services for authentication. You can also use this resource to call the services in the try-it-out experiences. Follow these steps to get started.
+To use Vision Studio, you'll need an Azure subscription and a resource for Azure AI services for authentication. You can also use this resource to call the services in the try-it-out experiences. Follow these steps to get started.
 
 1. Create an Azure Subscription if you don't have one already. You can [create one for free](https://azure.microsoft.com/free/ai/).
 
@@ -48,20 +48,20 @@ To use Vision Studio, you'll need an Azure subscription and a resource for Cogni
 
 ## Pre-configured features
 
-Computer Vision offers multiple features that use prebuilt, pre-configured models for performing various tasks, such as: understanding how people move through a space, detecting faces in images, and extracting text from images. See the [Computer Vision overview](overview.md) for a list of features offered by the Vision service.
+Azure AI Vision offers multiple features that use prebuilt, pre-configured models for performing various tasks, such as: understanding how people move through a space, detecting faces in images, and extracting text from images. See the [Azure AI Vision overview](overview.md) for a list of features offered by the Vision service.
 
 Each of these features has one or more try-it-out experiences in Vision Studio that allow you to upload images and receive JSON and text responses. These experiences help you quickly test the features using a no-code approach.
 
 ## Cleaning up resources
 
-If you want to remove a Cognitive Services resource after using Vision Studio, you can delete the resource or resource group. Deleting the resource group also deletes any other resources associated with it. You can't delete your resource directly from Vision Studio, so use one of the following methods:
+If you want to remove an Azure AI services resource after using Vision Studio, you can delete the resource or resource group. Deleting the resource group also deletes any other resources associated with it. You can't delete your resource directly from Vision Studio, so use one of the following methods:
 * [Using the Azure portal](../cognitive-services-apis-create-account.md?tabs=multiservice%2cwindows#clean-up-resources)
 * [Using the Azure CLI](../cognitive-services-apis-create-account-cli.md?tabs=windows#clean-up-resources)
 
 > [!TIP]
-> In Vision Studio, you can find your resource's details (such as its name and pricing tier) as well as switch resources by selecting the Settings icon in the top-right corner of the Vision Studio screen).
+> In Vision Studio, you can find your resource's details (such as its name and pricing tier) as well as switch resources by selecting the Settings icon in the top-right corner of the Vision Studio screen.
 
 ## Next steps
 
 * Go to [Vision Studio](https://portal.vision.cognitive.azure.com/) to begin using features offered by the service.
-* For more information on the features offered, see the [Azure Computer Vision overview](overview.md).
+* For more information on the features offered, see the [Azure AI Vision overview](overview.md).

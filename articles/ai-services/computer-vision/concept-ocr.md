@@ -1,7 +1,7 @@
 ---
-title: OCR for images - Computer Vision
-titleSuffix: Azure Cognitive Services
-description: Extract text from in-the-wild and non-document images with a fast and synchronous Computer Vision Image Analysis 4.0 API.
+title: OCR for images - Azure AI Vision
+titleSuffix: Azure AI services
+description: Extract text from in-the-wild and non-document images with a fast and synchronous Azure AI Vision Image Analysis 4.0 API.
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
@@ -18,13 +18,13 @@ ms.author: pafarley
 
 > [!NOTE]
 >
-> For extracting text from PDF, Office, and HTML documents and document images, use the [Form Recognizer Read OCR model](../../applied-ai-services/form-recognizer/concept-read.md) optimized for text-heavy digital and scanned documents with an asynchronous API that makes it easy to power your intelligent document processing scenarios.
+> For extracting text from PDF, Office, and HTML documents and document images, use the [Document Intelligence Read OCR model](../../ai-services/document-intelligence/concept-read.md) optimized for text-heavy digital and scanned documents with an asynchronous API that makes it easy to power your intelligent document processing scenarios.
 
 OCR traditionally started as a machine-learning based technique for extracting text from in-the-wild and non-document images like product labels, user generated images, screenshots, street signs, and posters. For several scenarios that including running OCR on single images that are not text-heavy, you need a fast, synchronous API or service. This allows OCR to be embedded in near real-time user experiences to enrich content understanding and follow-up user actions with fast turn-around times.
 
-## What is Computer Vision v4.0 Read OCR (preview)
+## What is Azure AI Vision v4.0 Read OCR (preview)
 
-The new Computer Vision Image Analysis 4.0 REST API offers the ability to extract printed or handwritten text from images in a unified performance-enhanced synchronous API that makes it easy to get all image insights including OCR results in a single API operation. The Read OCR engine is built on top of multiple deep learning models supported by universal script-based models for [global language support](./language-support.md).
+The new Azure AI Vision Image Analysis 4.0 REST API offers the ability to extract printed or handwritten text from images in a unified performance-enhanced synchronous API that makes it easy to get all image insights including OCR results in a single API operation. The Read OCR engine is built on top of multiple deep learning models supported by universal script-based models for [global language support](./language-support.md).
 
 ## Text extraction example
 

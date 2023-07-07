@@ -1,7 +1,7 @@
 ---
-title: Computer Vision 3.2 GA Read OCR container
-titleSuffix: Azure Cognitive Services
-description: Use the Read 3.2 OCR containers from Computer Vision to extract text from images and documents, on-premises.
+title: Azure AI Vision 3.2 GA Read OCR container
+titleSuffix: Azure AI services
+description: Use the Read 3.2 OCR containers from Azure AI Vision to extract text from images and documents, on-premises.
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
@@ -14,11 +14,11 @@ ms.custom: seodec18, cog-serv-seo-aug-2020
 keywords: on-premises, OCR, Docker, container
 ---
 
-# Install Computer Vision 3.2 GA Read OCR container
+# Install Azure AI Vision 3.2 GA Read OCR container
 
 [!INCLUDE [container hosting on the Microsoft Container Registry](../containers/includes/gated-container-hosting.md)]
 
-Containers enable you to run the Computer Vision APIs in your own environment. Containers are great for specific security and data governance requirements. In this article you'll learn how to download, install, and run the Read (OCR) container.
+Containers enable you to run the Azure AI Vision APIs in your own environment. Containers are great for specific security and data governance requirements. In this article you'll learn how to download, install, and run the Read (OCR) container.
 
 The Read container allows you to extract printed and handwritten text from images and documents with support for JPEG, PNG, BMP, PDF, and TIFF file formats. For more information, see the [Read API how-to guide](how-to/call-read-api.md).
 
@@ -47,7 +47,7 @@ You must meet the following prerequisites before using the containers:
 |--|--|
 |Docker Engine| You need the Docker Engine installed on a [host computer](#host-computer-requirements). Docker provides packages that configure the Docker environment on [macOS](https://docs.docker.com/docker-for-mac/), [Windows](https://docs.docker.com/docker-for-windows/), and [Linux](https://docs.docker.com/engine/install/#server). For a primer on Docker and container basics, see the [Docker overview](https://docs.docker.com/engine/docker-overview/).<br><br> Docker must be configured to allow the containers to connect with and send billing data to Azure. <br><br> **On Windows**, Docker must also be configured to support Linux containers.<br><br>|
 |Familiarity with Docker | You should have a basic understanding of Docker concepts, like registries, repositories, containers, and container images, as well as knowledge of basic `docker` commands.| 
-|Computer Vision resource |In order to use the container, you must have:<br><br>An Azure **Computer Vision** resource and the associated API key the endpoint URI. Both values are available on the Overview and Keys pages for the resource and are required to start the container.<br><br>**{API_KEY}**: One of the two available resource keys on the **Keys** page<br><br>**{ENDPOINT_URI}**: The endpoint as provided on the **Overview** page|
+|Computer Vision resource |In order to use the container, you must have:<br><br>A **Computer Vision** resource and the associated API key the endpoint URI. Both values are available on the Overview and Keys pages for the resource and are required to start the container.<br><br>**{API_KEY}**: One of the two available resource keys on the **Keys** page<br><br>**{ENDPOINT_URI}**: The endpoint as provided on the **Overview** page|
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/cognitive-services/) before you begin.
 
@@ -80,7 +80,7 @@ grep -q avx2 /proc/cpuinfo && echo AVX2 supported || echo No AVX2 support detect
 
 ## Get the container image
 
-The Computer Vision Read OCR container image can be found on the `mcr.microsoft.com` container registry syndicate. It resides within the `azure-cognitive-services` repository and is named `read`. The fully qualified container image name is, `mcr.microsoft.com/azure-cognitive-services/vision/read`.
+The Azure AI Vision Read OCR container image can be found on the `mcr.microsoft.com` container registry syndicate. It resides within the `azure-cognitive-services` repository and is named `read`. The fully qualified container image name is, `mcr.microsoft.com/azure-cognitive-services/vision/read`.
 
 To use the latest version of the container, you can use the `latest` tag. You can also find a full list of [tags on the MCR](https://mcr.microsoft.com/product/azure-cognitive-services/vision/read/tags).
 
@@ -168,7 +168,7 @@ Use the host, `http://localhost:5000`, for container APIs. You can view the Swag
 
 ### Asynchronous Read
 
-You can use the `POST /vision/v3.2/read/analyze` and `GET /vision/v3.2/read/operations/{operationId}` operations in concert to asynchronously read an image, similar to how the Computer Vision service uses those corresponding REST operations. The asynchronous POST method will return an `operationId` that is used as the identifier to the HTTP GET request.
+You can use the `POST /vision/v3.2/read/analyze` and `GET /vision/v3.2/read/operations/{operationId}` operations in concert to asynchronously read an image, similar to how the Azure AI Vision service uses those corresponding REST operations. The asynchronous POST method will return an `operationId` that is used as the identifier to the HTTP GET request.
 
 From the swagger UI, select the `Analyze` to expand it in the browser. Then select **Try it out** > **Choose file**. In this example, we'll use the following image:
 
@@ -293,7 +293,7 @@ The `operation-location` is the fully qualified URL and is accessed via an HTTP 
 
 
 > [!IMPORTANT]
-> If you deploy multiple Read OCR containers behind a load balancer, for example, under Docker Compose or Kubernetes, you must have an external cache. Because the processing container and the GET request container might not be the same, an external cache stores the results and shares them across containers. For details about cache settings, see [Configure Computer Vision Docker containers](./computer-vision-resource-container-config.md).
+> If you deploy multiple Read OCR containers behind a load balancer, for example, under Docker Compose or Kubernetes, you must have an external cache. Because the processing container and the GET request container might not be the same, an external cache stores the results and shares them across containers. For details about cache settings, see [Configure Azure AI Vision Docker containers](./computer-vision-resource-container-config.md).
 
 ### Synchronous read
 
@@ -325,13 +325,13 @@ For an example use-case, see the <a href="https://aka.ms/ts-read-api-types" targ
 
 If you run the container with an output [mount](./computer-vision-resource-container-config.md#mount-settings) and logging enabled, the container generates log files that are helpful to troubleshoot issues that happen while starting or running the container.
 
-[!INCLUDE [Cognitive Services FAQ note](../containers/includes/cognitive-services-faq-note.md)]
+[!INCLUDE [Azure AI services FAQ note](../containers/includes/cognitive-services-faq-note.md)]
 
 [!INCLUDE [Diagnostic container](../containers/includes/diagnostics-container.md)]
 
 ## Billing
 
-The Cognitive Services containers send billing information to Azure, using the corresponding resource on your Azure account.
+The Azure AI services containers send billing information to Azure, using the corresponding resource on your Azure account.
 
 [!INCLUDE [Container's Billing Settings](../../../includes/cognitive-services-containers-how-to-billing-info.md)]
 
@@ -339,21 +339,21 @@ For more information about these options, see [Configure containers](./computer-
 
 ## Summary
 
-In this article, you learned concepts and workflow for downloading, installing, and running Computer Vision containers. In summary:
+In this article, you learned concepts and workflow for downloading, installing, and running Azure AI Vision containers. In summary:
 
-* Computer Vision provides a Linux container for Docker, encapsulating Read.
+* Azure AI Vision provides a Linux container for Docker, encapsulating Read.
 * The read container image requires an application to run it. 
 * Container images run in Docker.
 * You can use either the REST API or SDK to call operations in Read OCR containers by specifying the host URI of the container.
 * You must specify billing information when instantiating a container.
 
 > [!IMPORTANT]
-> Cognitive Services containers are not licensed to run without being connected to Azure for metering. Customers need to enable the containers to communicate billing information with the metering service at all times. Cognitive Services containers do not send customer data (for example, the image or text that is being analyzed) to Microsoft.
+> Azure AI services containers are not licensed to run without being connected to Azure for metering. Customers need to enable the containers to communicate billing information with the metering service at all times. Azure AI services containers do not send customer data (for example, the image or text that is being analyzed) to Microsoft.
 
 ## Next steps
 
 * Review [Configure containers](computer-vision-resource-container-config.md) for configuration settings
 * Review the [OCR overview](overview-ocr.md) to learn more about recognizing printed and handwritten text
 * Refer to the [Read API](https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2/operations/5d986960601faab4bf452005) for details about the methods supported by the container.
-* Refer to [Frequently asked questions (FAQ)](FAQ.yml) to resolve issues related to Computer Vision functionality.
-* Use more [Cognitive Services Containers](../cognitive-services-container-support.md)
+* Refer to [Frequently asked questions (FAQ)](FAQ.yml) to resolve issues related to Azure AI Vision functionality.
+* Use more [Azure AI services Containers](../cognitive-services-container-support.md)

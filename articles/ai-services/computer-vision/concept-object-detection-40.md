@@ -1,6 +1,6 @@
 ---
 title: Object detection - Image Analysis 4.0
-titleSuffix: Azure Cognitive Services
+titleSuffix: Azure AI services
 description: Learn concepts related to the object detection feature of the Image Analysis 4.0 API - usage and limits.
 services: cognitive-services
 author: PatrickFarley

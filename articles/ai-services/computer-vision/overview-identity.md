@@ -1,7 +1,7 @@
 ---
-title: What is the Azure Face service?
-titleSuffix: Azure Cognitive Services
-description: The Azure Face service provides AI algorithms that you use to detect, recognize, and analyze human faces in images.
+title: What is the Azure AI Face service?
+titleSuffix: Azure AI services
+description: The Azure AI Face service provides AI algorithms that you use to detect, recognize, and analyze human faces in images.
 author: PatrickFarley
 manager: nitinme
 
@@ -15,7 +15,7 @@ keywords: facial recognition, facial recognition software, facial analysis, face
 #Customer intent: As the developer of an app that deals with images of humans, I want to learn what the Face service does so I can determine if I should use its features.
 ---
 
-# What is the Azure Face service?
+# What is the Azure AI Face service?
 
 > [!WARNING]
 > On June 11, 2020, Microsoft announced that it will not sell facial recognition technology to police departments in the United States until strong regulation, grounded in human rights, has been enacted. As such, customers may not use facial recognition features or functionality included in Azure Services, such as Face or Video Indexer, if a customer is, or is allowing use of such services by or for, a police department in the United States. When you create a new Face resource, you must acknowledge and agree in the Azure Portal that you will not use the service by or for a police department in the United States and that you have reviewed the Responsible AI documentation and will use this service in accordance with it.
@@ -23,7 +23,7 @@ keywords: facial recognition, facial recognition software, facial analysis, face
 [!INCLUDE [GDPR-related guidance](./includes/identity-data-notice.md)]
 [!INCLUDE [Gate notice](./includes/identity-gate-notice.md)]
 
-The Azure Face service provides AI algorithms that detect, recognize, and analyze human faces in images. Facial recognition software is important in many different scenarios, such as identity verification, touchless access control, and face blurring for privacy.
+The Azure AI Face service provides AI algorithms that detect, recognize, and analyze human faces in images. Facial recognition software is important in many different scenarios, such as identity verification, touchless access control, and face blurring for privacy.
 
 You can use the Face service through a client library SDK or by calling the REST API directly. Follow the quickstart to get started.
 
@@ -118,7 +118,7 @@ All of the faces in a returned group are likely to belong to the same person, bu
 
 ## Data privacy and security
 
-As with all of the Cognitive Services resources, developers who use the Face service must be aware of Microsoft's policies on customer data. For more information, see the [Cognitive Services page](https://www.microsoft.com/trustcenter/cloudservices/cognitiveservices) on the Microsoft Trust Center.
+As with all of the Azure AI services resources, developers who use the Face service must be aware of Microsoft's policies on customer data. For more information, see the [Azure AI services page](https://www.microsoft.com/trustcenter/cloudservices/cognitiveservices) on the Microsoft Trust Center.
 
 ## Next steps
 

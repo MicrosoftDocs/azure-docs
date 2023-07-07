@@ -1,6 +1,6 @@
 ---
 title: "About COCO files"
-titleSuffix: "Azure Cognitive Services"
+titleSuffix: "Azure AI services"
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
@@ -97,7 +97,7 @@ If you're generating your own COCO file from scratch, make sure all the required
 | `width` | integer | Width of the image in pixels  | Yes |
 | `height` | integer | Height of the image in pixels | Yes |
 | `file_name`| string | A unique name for the image  | Yes |
-| `absolute_url` or `coco_url`| string | Image path as an absolute URI to a blob in a blob container. The Computer Vision resource must have permission to read the annotation files and all referenced image files. | Yes |
+| `absolute_url` or `coco_url`| string | Image path as an absolute URI to a blob in a blob container. The Vision resource must have permission to read the annotation files and all referenced image files. | Yes |
 
 The value for `absolute_url` can be found in your blob container's properties: 
 
@@ -122,4 +122,4 @@ The value for `absolute_url` can be found in your blob container's properties:
 
 ### COCO file verification
 
-You can use our [Python sample code](/azure/cognitive-services/computer-vision/how-to/coco-verification) to check the format of a COCO file.
+You can use our [Python sample code](../how-to/coco-verification.md) to check the format of a COCO file.

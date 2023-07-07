@@ -1,6 +1,6 @@
 ---
-title: Domain-specific content - Computer Vision
-titleSuffix: Azure Cognitive Services
+title: Domain-specific content - Azure AI Vision
+titleSuffix: Azure AI services
 description: Learn how to specify an image categorization domain to return more detailed information about an image.
 services: cognitive-services
 author: PatrickFarley
@@ -16,7 +16,7 @@ ms.custom: seodec18
 
 # Domain-specific content detection
 
-In addition to tagging and high-level categorization, Computer Vision also supports further domain-specific analysis using models that have been trained on specialized data.
+In addition to tagging and high-level categorization, Azure AI Vision also supports further domain-specific analysis using models that have been trained on specialized data.
 
 There are two ways to use the domain-specific models: by themselves (scoped analysis) or as an enhancement to the categorization feature.
 
@@ -94,7 +94,7 @@ The following JSON response shows how domain-specific analysis can be included a
 
 ## List the domain-specific models
 
-Currently, Computer Vision supports the following domain-specific models:
+Currently, Azure AI Vision supports the following domain-specific models:
 
 | Name | Description |
 |------|-------------|
@@ -137,4 +137,4 @@ Calling the [Models](https://westcentralus.dev.cognitive.microsoft.com/docs/serv
 
 This feature is available through the [Analyze Image](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2/operations/56f91f2e778daf14a499f21b) API. You can call this API through a native SDK or through REST calls. Include `Celebrities` or `Landmarks` in the **details** query parameter. Then, when you get the full JSON response, simply parse the string for the contents of the `"details"` section.
 
-* [Quickstart: Computer Vision REST API or client libraries](./quickstarts-sdk/image-analysis-client-library.md?pivots=programming-language-csharp)
+* [Quickstart: Vision REST API or client libraries](./quickstarts-sdk/image-analysis-client-library.md?pivots=programming-language-csharp)

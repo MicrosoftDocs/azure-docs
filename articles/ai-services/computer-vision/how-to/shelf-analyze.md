@@ -1,10 +1,9 @@
 ---
 title: Analyze a shelf image using pretrained models
-titleSuffix: Azure Cognitive Services
+titleSuffix: Azure AI services
 description: Use the Product Understanding API to analyze a shelf image and receive rich product data.
 author: PatrickFarley
 manager: nitinme
-
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: how-to
@@ -24,8 +23,8 @@ The fastest way to start using Product Recognition is to use the built-in pretra
 
 ## Prerequisites
 * An Azure subscription - [Create one for free](https://azure.microsoft.com/free/cognitive-services/) 
-* Once you have your Azure subscription, <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesComputerVision"  title="Create a Computer Vision resource"  target="_blank">create a Computer Vision resource </a> in the Azure portal. It must be deployed in the **East US** or **West US 2** region. After it deploys, select **Go to resource**.
-  * You'll need the key and endpoint from the resource you create to connect your application to the Computer Vision service. You'll paste your key and endpoint into the code below later in the guide.
+* Once you have your Azure subscription, <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesComputerVision"  title="create a Vision resource"  target="_blank">create a Vision resource</a> in the Azure portal. It must be deployed in the **East US** or **West US 2** region. After it deploys, select **Go to resource**.
+  * You'll need the key and endpoint from the resource you create to connect your application to the Azure AI Vision service. You'll paste your key and endpoint into the code below later in the guide.
 * An Azure Storage resource with a blob storage container. [Create one](/azure/storage/common/storage-account-create?tabs=azure-portal)
 * [cURL](https://curl.haxx.se/) installed. Or, you can use a different REST platform, like Postman, Swagger, or the REST Client extension for VS Code.
 * A shelf image. You can download our [sample image](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/ComputerVision/shelf-analysis/shelf.png) or bring your own images. The maximum file size per image is 20 MB.
@@ -43,8 +42,8 @@ To analyze a shelf image, do the following steps:
     }"
     ```
 1. Make the following changes in the command where needed:
-    1. Replace the value of `<subscriptionKey>` with your Computer Vision resource key.
-    1. Replace the value of `<endpoint>` with your Computer Vision resource endpoint. For example: `https://YourResourceName.cognitiveservices.azure.com`.
+    1. Replace the value of `<subscriptionKey>` with your Vision resource key.
+    1. Replace the value of `<endpoint>` with your Vision resource endpoint. For example: `https://YourResourceName.cognitiveservices.azure.com`.
     1. Replace the `<your_url_string>` contents with the blob URL of the image
 1. Open a command prompt window.
 1. Paste your edited `curl` command from the text editor into the command prompt window, and then run the command.

@@ -1,6 +1,6 @@
 ---
 title: How to call the Read API
-titleSuffix: Azure Cognitive Services
+titleSuffix: Azure AI services
 description: Learn how to call the Read API and configure its behavior in detail.
 services: cognitive-services
 author: PatrickFarley
@@ -14,9 +14,9 @@ ms.date: 11/03/2022
 ms.author: pafarley
 ---
 
-# Call the Computer Vision 3.2 GA Read API
+# Call the Azure AI Vision 3.2 GA Read API
 
-In this guide, you'll learn how to call the v3.2 GA Read API to extract text from images. You'll learn the different ways you can configure the behavior of this API to meet your needs. This guide assumes you have already <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesComputerVision"  title="created a Computer Vision resource"  target="_blank">create a Computer Vision resource </a> and obtained a key and endpoint URL. If you haven't, follow a [quickstart](../quickstarts-sdk/client-library.md) to get started.
+In this guide, you'll learn how to call the v3.2 GA Read API to extract text from images. You'll learn the different ways you can configure the behavior of this API to meet your needs. This guide assumes you have already <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesComputerVision"  title="created a Vision resource"  target="_blank">create a Vision resource </a> and obtained a key and endpoint URL. If you haven't, follow a [quickstart](../quickstarts-sdk/client-library.md) to get started.
 
 [!INCLUDE [read-editions](../includes/read-editions.md)]
 
@@ -82,7 +82,7 @@ The call returns with a response header field called `Operation-Location`. The `
 > [!NOTE]
 > **Billing** 
 >
-> The [Computer Vision pricing](https://azure.microsoft.com/pricing/details/cognitive-services/computer-vision/) page includes the pricing tier for Read. Each analyzed image or page is one transaction. If you call the operation with a PDF or TIFF document containing 100 pages, the Read operation will count it as 100 transactions and you will be billed for 100 transactions. If you made 50 calls to the operation and each call submitted a document with 100 pages, you will be billed for 50 X 100 = 5000 transactions.
+> The [Azure AI Vision pricing](https://azure.microsoft.com/pricing/details/cognitive-services/computer-vision/) page includes the pricing tier for Read. Each analyzed image or page is one transaction. If you call the operation with a PDF or TIFF document containing 100 pages, the Read operation will count it as 100 transactions and you will be billed for 100 transactions. If you made 50 calls to the operation and each call submitted a document with 100 pages, you will be billed for 50 X 100 = 5000 transactions.
 
 
 ## Get results from the service

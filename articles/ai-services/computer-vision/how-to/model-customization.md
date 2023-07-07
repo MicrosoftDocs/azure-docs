@@ -1,6 +1,6 @@
 ---
 title: Create a custom Image Analysis model
-titleSuffix: Azure Cognitive Services
+titleSuffix: Azure AI services
 description: Learn how to create and train a custom model to do image classification and object detection that's specific to your use case.
 services: cognitive-services
 author: PatrickFarley
@@ -21,20 +21,18 @@ This guide shows you how to create and train a custom image classification model
 ## Prerequisites
 
 * Azure subscription - [Create one for free](https://azure.microsoft.com/free/cognitive-services)
-* Once you have your Azure subscription, <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesComputerVision"  title="Create a Computer Vision resource"  target="_blank">create a Computer Vision resource </a> in the Azure portal to get your key and endpoint. If you're following this guide using Vision Studio, you must create your resource in the East US region. If you're using the Python library, you can create it in the East US, West US 2, or West Europe region. After it deploys, select **Go to resource**. Copy the key and endpoint to a temporary location to use later on.
+* Once you have your Azure subscription, <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesComputerVision"  title="Create a Vision resource"  target="_blank">create a Vision resource </a> in the Azure portal to get your key and endpoint. If you're following this guide using Vision Studio, you must create your resource in the East US region. If you're using the Python library, you can create it in the East US, West US 2, or West Europe region. After it deploys, select **Go to resource**. Copy the key and endpoint to a temporary location to use later on.
 * An Azure Storage resource - [Create one](/azure/storage/common/storage-account-create?tabs=azure-portal)
 * A set of images with which to train your classification model. You can use the set of [sample images on GitHub](https://github.com/Azure-Samples/cognitive-services-sample-data-files/tree/master/CustomVision/ImageClassification/Images). Or, you can use your own images. You only need about 3-5 images per class.
 
 > [!NOTE]
-> We do not recommend you use custom models for business critical environments due to potential high latency. When customers train custom models in Vision Studio, those custom models belong to the Computer Vision resource that they were trained under and the customer is able to make calls to those models using the **Analyze Image** API. When they make these calls, the custom model is loaded in memory and the prediction infrastructure is initialized. While this happens, customers might experience longer than expected latency to receive prediction results.
+> We do not recommend you use custom models for business critical environments due to potential high latency. When customers train custom models in Vision Studio, those custom models belong to the Vision resource that they were trained under and the customer is able to make calls to those models using the **Analyze Image** API. When they make these calls, the custom model is loaded in memory and the prediction infrastructure is initialized. While this happens, customers might experience longer than expected latency to receive prediction results.
 
 #### [Python](#tab/python)
 
 Train your own image classifier (IC) or object detector (OD) with your own data using Image Analysis model customization and Python.
 
 You can run through all of the model customization steps using a Python sample package. You can run the code in this section using a Python script, or you can download and run the Notebook on a compatible platform.
-
-<!-- nbstart https://raw.githubusercontent.com/Azure-Samples/cognitive-service-vision-model-customization-python-samples/main/docs/cognitive_service_vision_model_customization.ipynb -->
 
 > [!TIP]
 > Contents of _cognitive_service_vision_model_customization.ipynb_. **[Open in GitHub](https://github.com/Azure-Samples/cognitive-service-vision-model-customization-python-samples/blob/main/docs/cognitive_service_vision_model_customization.ipynb)**.
@@ -49,7 +47,7 @@ pip install cognitive-service-vision-model-customization-python-samples
 
 ## Authentication
 
-Enter your Computer Vision endpoint URL, key, and the name of the resource, into the code below.
+Enter your Azure AI Vision endpoint URL, key, and the name of the resource, into the code below.
 
 ```python
 # Resource and key
@@ -74,7 +72,7 @@ resource_key = '{specify_your_resource_key}'
 
 ## Prepare a dataset from Azure blob storage
 
-To train a model with your own dataset, the dataset should be arranged in the COCO format described below, hosted on Azure blob storage, and accessible from your Computer Vision resource.
+To train a model with your own dataset, the dataset should be arranged in the COCO format described below, hosted on Azure blob storage, and accessible from your Vision resource.
 
 ### Dataset annotation format
 
@@ -135,28 +133,28 @@ cat_dog/
 > [!TIP]
 > Quota limit information, including the maximum number of images and categories supported, maximum image size, and so on, can be found on the [concept page](../concept-model-customization.md).
 
-### Grant Computer Vision access to your Azure data blob
+### Grant Azure AI Vision access to your Azure data blob
 
-You need to take an extra step to give your Computer Vision resource access to read the contents of your Azure blog storage container. There are two ways to do this.
+You need to take an extra step to give your Vision resource access to read the contents of your Azure blog storage container. There are two ways to do this.
 
 #### Option 1: Shared access signature (SAS)
 
-You can generate a SAS token with at least `read` permission on your Azure Blob Container. This is the option used in the code below. For instructions on acquiring a SAS token, see [Create SAS tokens](/azure/cognitive-services/translator/document-translation/how-to-guides/create-sas-tokens?tabs=Containers).
+You can generate a SAS token with at least `read` permission on your Azure Blob Container. This is the option used in the code below. For instructions on acquiring a SAS token, see [Create SAS tokens](../../translator/document-translation/how-to-guides/create-sas-tokens.md?tabs=Containers).
 
 #### Option 2: Managed Identity or public accessible
 
 You can also use [Managed Identity](/azure/active-directory/managed-identities-azure-resources/overview) to grant access.
 
-Below is a series of steps for allowing the system-assigned Managed Identity of your Computer Vision resource to access your blob storage. In the Azure portal:
+Below is a series of steps for allowing the system-assigned Managed Identity of your Vision resource to access your blob storage. In the Azure portal:
 
-1. Go to the **Identity / System assigned** tab of your Computer Vision resource, and change the **Status** to **On**.
+1. Go to the **Identity / System assigned** tab of your Vision resource, and change the **Status** to **On**.
 1. Go to the **Access Control (IAM) / Role assignment** tab of your blob storage resource, select **Add / Add role assignment**, and choose either **Storage Blob Data Contributor** or **Storage Blob Data Reader**.
 1. Select **Next**, and choose **Managed Identity** under **Assign access to**, and then select **Select members**.
-1. Choose your subscription, with the Managed Identity being Computer Vision, and look up the one that matches your Computer Vision resource name.
+1. Choose your subscription, with the Managed Identity being Azure AI Vision, and look up the one that matches your Vision resource name.
 
 ### Register the dataset
 
-Once your dataset has been prepared and hosted on your Azure blob storage container, with access granted to your Computer Vision resource, you can register it with the service.
+Once your dataset has been prepared and hosted on your Azure blob storage container, with access granted to your Vision resource, you can register it with the service.
 
 > [!NOTE]
 > The service only accesses your storage data during training. It doesn't keep copies of your data beyond the training cycle.
@@ -247,7 +245,7 @@ Begin by going to [Vision Studio](https://portal.vision.cognitive.azure.com/) an
 
 :::image type="content" source="../media/customization/customization-tile.png" alt-text="Screenshot of the Customize models tile.":::
 
-Then, sign in with your Azure account and select your Computer Vision resource. If you don't have one, you can create one from this screen.
+Then, sign in with your Azure account and select your Vision resource. If you don't have one, you can create one from this screen.
 
 > [!IMPORTANT]
 > To train a custom model in Vision Studio, your Azure subscription needs to be approved for access. Please request access using [this form](https://aka.ms/visionaipublicpreview).
@@ -365,9 +363,9 @@ Upload your COCO file to a blob storage container, ideally the same blob contain
 
 The `datasets/<dataset-name>` API lets you create a new dataset object that references the training data. Make the following changes to the cURL command below:
 
-1. Replace `<endpoint>` with your Computer Vision endpoint.
+1. Replace `<endpoint>` with your Azure AI Vision endpoint.
 1. Replace `<dataset-name>` with a name for your dataset.
-1. Replace `<subscription-key>` with your Computer Vision key.
+1. Replace `<subscription-key>` with your Azure AI Vision key.
 1. In the request body, set `"annotationKind"` to either `"imageClassification"` or `"imageObjectDetection"`, depending on your project.
 1. In the request body, set the `"annotationFileUris"` array to an array of string(s) that show the URI location(s) of your COCO file(s) in blob storage.
 
@@ -383,9 +381,9 @@ curl.exe -v -X PUT "https://<endpoint>/computervision/datasets/<dataset-name>?ap
 
 The `models/<model-name>` API lets you create a new custom model and associate it with an existing dataset. It also starts the training process. Make the following changes to the cURL command below:
 
-1. Replace `<endpoint>` with your Computer Vision endpoint.
+1. Replace `<endpoint>` with your Azure AI Vision endpoint.
 1. Replace `<model-name>` with a name for your model.
-1. Replace `<subscription-key>` with your Computer Vision key.
+1. Replace `<subscription-key>` with your Azure AI Vision key.
 1. In the request body, set `"trainingDatasetName"` to the name of the dataset from the previous step.
 1. In the request body, set `"modelKind"` to either `"Generic-Classifier"` or `"Generic-Detector"`, depending on your project.
 
@@ -404,10 +402,10 @@ curl.exe -v -X PUT "https://<endpoint>/computervision/models/<model-name>?api-ve
 
 The `models/<model-name>/evaluations/<eval-name>` API evaluates the performance of an existing model. Make the following changes to the cURL command below:
 
-1. Replace `<endpoint>` with your Computer Vision endpoint.
+1. Replace `<endpoint>` with your Azure AI Vision endpoint.
 1. Replace `<model-name>` with the name of your model.
 1. Replace `<eval-name>` with a name that can be used to uniquely identify the evaluation.
-1. Replace `<subscription-key>` with your Computer Vision key.
+1. Replace `<subscription-key>` with your Azure AI Vision key.
 1. In the request body, set `"testDatasetName"` to the name of the dataset you want to use for evaluation. If you don't have a dedicated dataset, you can use the same dataset you used for training.
 
 ```bash
@@ -428,14 +426,14 @@ The API call returns a **ModelPerformance** JSON object, which lists the model's
 
 The `imageanalysis:analyze` API does ordinary Image Analysis operations. By specifying some parameters, you can use this API to query your own custom model instead of the prebuilt Image Analysis models. Make the following changes to the cURL command below:
 
-1. Replace `<endpoint>` with your Computer Vision endpoint.
+1. Replace `<endpoint>` with your Azure AI Vision endpoint.
 1. Replace `<model-name>` with the name of your model.
-1. Replace `<subscription-key>` with your Computer Vision key.
+1. Replace `<subscription-key>` with your Azure AI Vision key.
 1. In the request body, set `"url"` to the URL of a remote image you want to test your model on.
 
 ```bash
 curl.exe -v -X POST "https://<endpoint>/computervision/imageanalysis:analyze?model-name=<model-name>&api-version=2023-02-01-preview" -H "Content-Type: application/json" -H "Ocp-Apim-Subscription-Key: <subscription-key>" --data-ascii "
-{'url':'https://learn.microsoft.com/azure/cognitive-services/computer-vision/media/quickstarts/presentation.png'
+{'url':'https://learn.microsoft.com/azure/ai-services/computer-vision/media/quickstarts/presentation.png'
 }"
 ```
 

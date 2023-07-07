@@ -1,7 +1,7 @@
 ---
-title: Language support - Computer Vision
-titleSuffix: Azure Cognitive Services
-description: This article provides a list of natural languages supported by Computer Vision features; OCR, Image analysis.
+title: Language support - Azure AI Vision
+titleSuffix: Azure AI services
+description: This article provides a list of natural languages supported by Azure AI Vision features; OCR, Image analysis.
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
@@ -13,13 +13,13 @@ ms.date: 12/27/2022
 ms.author: pafarley
 ---
 
-# Language support for Computer Vision
+# Language support for Azure AI Vision
 
-Some capabilities of Computer Vision support multiple languages; any capabilities not mentioned here only support English.
+Some capabilities of Azure AI Vision support multiple languages; any capabilities not mentioned here only support English.
 
 ## Optical Character Recognition (OCR)
 
-The Computer Vision [Read API](./overview-ocr.md) supports many languages. The `Read` API can extract text from images and documents with mixed languages, including from the same text line, without requiring a language parameter.
+The Azure AI Vision [Read API](./overview-ocr.md) supports many languages. The `Read` API can extract text from images and documents with mixed languages, including from the same text line, without requiring a language parameter.
 
 > [!NOTE]
 > **Language code optional**

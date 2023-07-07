@@ -1,6 +1,6 @@
 ---
 title: Model customization concepts - Image Analysis 4.0
-titleSuffix: Azure Cognitive Services
+titleSuffix: Azure AI services
 description: Concepts related to the custom model feature of the Image Analysis 4.0 API.
 services: cognitive-services
 author: PatrickFarley
@@ -15,7 +15,7 @@ ms.author: pafarley
 
 # Model customization (version 4.0 preview)
 
-Model customization lets you train a specialized Image Analysis model for your own use case. Custom models can do either image classification (tags apply to the whole image) or object detection (tags apply to specific areas of the image). Once your custom model is created and trained, it belongs to your Computer Vision resource, and you can call it using the [Analyze Image API](./how-to/call-analyze-image-40.md).
+Model customization lets you train a specialized Image Analysis model for your own use case. Custom models can do either image classification (tags apply to the whole image) or object detection (tags apply to specific areas of the image). Once your custom model is created and trained, it belongs to your Vision resource, and you can call it using the [Analyze Image API](./how-to/call-analyze-image-40.md).
 
 > [!div class="nextstepaction"]
 > [Vision Studio quickstart](./how-to/model-customization.md?tabs=studio)
@@ -97,7 +97,7 @@ The specified training budget is the calibrated **compute time**, not the **wall
 - **Longer than specified budget:**
    - Image Analysis experiences a high training traffic, and GPU resources may be tight. Your job may wait in the queue or be put on hold during training.
    - The backend training process ran into unexpected failures, which resulted in retrying logic. The failed runs don't consume your budget, but this can lead to longer training time in general.
-   - Your data is stored in a different region than your created Computer Vision resource, which will lead to longer data transmission time.
+   - Your data is stored in a different region than your Vision resource, which will lead to longer data transmission time.
 
 - **Shorter than specified budget:** The following factors speed up training at the cost of using more budget in certain wall-clock time.
    - Image Analysis sometimes trains with multiple GPUs depending on your data. 
@@ -172,11 +172,11 @@ Below are the possible reasons:
 
 ### What is the expected latency for predictions with custom models?
 
-We do not recommend you use custom models for business critical environments due to potential high latency. When customers train custom models in Vision Studio, those custom models belong to the Computer Vision resource that they were trained under, and the customer is able to make calls to those models using the **Analyze Image** API. When they make these calls, the custom model is loaded in memory, and the prediction infrastructure is initialized. While this happens, customers might experience longer than expected latency to receive prediction results.
+We do not recommend you use custom models for business critical environments due to potential high latency. When customers train custom models in Vision Studio, those custom models belong to the Azure AI Vision resource that they were trained under, and the customer is able to make calls to those models using the **Analyze Image** API. When they make these calls, the custom model is loaded in memory, and the prediction infrastructure is initialized. While this happens, customers might experience longer than expected latency to receive prediction results.
 
 ## Data privacy and security
 
-As with all of the Cognitive Services, developers using Image Analysis model customization should be aware of Microsoft's policies on customer data. See the [Cognitive Services page](https://www.microsoft.com/trustcenter/cloudservices/cognitiveservices) on the Microsoft Trust Center to learn more.
+As with all of the Azure AI services, developers using Image Analysis model customization should be aware of Microsoft's policies on customer data. See the [Azure AI services page](https://www.microsoft.com/trustcenter/cloudservices/cognitiveservices) on the Microsoft Trust Center to learn more.
 
 ## Next steps
 
