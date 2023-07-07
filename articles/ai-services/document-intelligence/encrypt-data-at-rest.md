@@ -7,7 +7,7 @@ manager: venkyv
 ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: conceptual
-ms.date: 10/20/2022
+ms.date: 07/18/2023
 ms.author: egeaney
 ms.custom: applied-ai-non-critical-form
 monikerRange: '>=form-recog-2.1.0'

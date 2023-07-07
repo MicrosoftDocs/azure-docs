@@ -7,7 +7,7 @@ manager: nitinme
 ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: overview
-ms.date: 05/23/2023
+ms.date: 07/18/2023
 ms.author: lajanuar
 monikerRange: 'form-recog-3.0.0'
 ---
@@ -63,4 +63,4 @@ The following decision charts highlight the features of each **Document Intellig
 
 ## Next steps
 
-* [Learn how to process your own forms and documents](quickstarts/try-form-recognizer-studio.md) with the [Document Intelligence Studio](https://formrecognizer.appliedai.azure.com/studio)
+* [Learn how to process your own forms and documents](quickstarts/try-document-intelligence-studio.md) with the [Document Intelligence Studio](https://formrecognizer.appliedai.azure.com/studio)

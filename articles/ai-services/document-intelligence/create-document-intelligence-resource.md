@@ -7,7 +7,7 @@ manager: nitinme
 ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: how-to
-ms.date: 04/17/2023
+ms.date: 07/18/2023
 ms.author: bemabonsu
 monikerRange: '>=form-recog-2.1.0'
 ---
@@ -71,7 +71,7 @@ That's it! You're now ready to start automating data extraction using Azure AI D
 
 ## Next steps
 
-* Try the [Document Intelligence Studio](concept-form-recognizer-studio.md), an online tool for visually exploring, understanding, and integrating features from the Document Intelligence service into your applications.
+* Try the [Document Intelligence Studio](concept-document-intelligence-studio.md), an online tool for visually exploring, understanding, and integrating features from the Document Intelligence service into your applications.
 
 * Complete a Document Intelligence quickstart and get started creating a document processing app in the development language of your choice:
 

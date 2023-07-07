@@ -7,7 +7,7 @@ manager: nitinme
 ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: tutorial
-ms.date: 08/22/2022
+ms.date: 07/18/2023
 ms.author: bemabonsu
 monikerRange: 'form-recog-2.1.0'
 ---
@@ -52,7 +52,7 @@ To complete this tutorial, you'll need the following resources:
     :::image border="true" type="content" source="media/containers/keys-and-endpoint.png" alt-text="Still photo showing how to access resource key and endpoint URL.":::
 
     > [!TIP]
-    > For more information, *see* [**create a Document Intelligence resource**](create-a-form-recognizer-resource.md).
+    > For more information, *see* [**create a Document Intelligence resource**](create-document-intelligence-resource.md).
 
 * A free [**OneDrive**](https://onedrive.live.com/signup) or [**OneDrive for Business**](https://www.microsoft.com/microsoft-365/onedrive/onedrive-for-business) cloud storage account.
 

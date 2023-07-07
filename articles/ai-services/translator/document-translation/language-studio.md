@@ -7,7 +7,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: quickstart
-ms.date: 03/17/2023
+ms.date: 07/18/2023
 ms.author: lajanuar
 ms.custom: references_regions, build-2023
 recommendations: false
@@ -81,7 +81,7 @@ At least one **source document** is required. You can download our [document tra
     > [!TIP]
     > You can update your selected directory and resource by selecting the Translator settings icon located in the left navigation section.
 
-1. Navigate to Language Studio and select the **Document translation** tile:
+1. Navigate to Language Studio and select the **Document Translation** tile:
 
     :::image type="content" source="media/language-studio/welcome-home-page.png" alt-text="Screenshot of the language studio home page.":::
 

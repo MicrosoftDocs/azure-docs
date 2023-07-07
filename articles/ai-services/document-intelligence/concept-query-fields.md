@@ -7,7 +7,7 @@ manager: nitinme
 ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: conceptual
-ms.date: 05/23/2023
+ms.date: 07/18/2023
 ms.author: nitinme
 monikerRange: 'form-recog-3.0.0'
 ---
@@ -44,4 +44,4 @@ For query field extraction, specify the fields you want to extract and Document 
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Try the Document Intelligence Studio quickstart](./quickstarts/try-form-recognizer-studio.md)
+> [Try the Document Intelligence Studio quickstart](./quickstarts/try-document-intelligence-studio.md)

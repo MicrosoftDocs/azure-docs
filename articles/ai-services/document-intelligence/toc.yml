@@ -42,7 +42,7 @@ items:
   items:
     - name: Document Intelligence Studio
       displayName: get started, cors, blob, storage, upload, labels, custom, dynamic, fixed, signatures
-      href: quickstarts/try-form-recognizer-studio.md
+      href: quickstarts/try-document-intelligence-studio.md
     - name: "Get started with Document Intelligence"
       displayName: formRecognizerClient, Document Intelligence client, boundingBox, box, begin_recognize
       href: quickstarts/get-started-sdks-rest-api.md
@@ -56,7 +56,7 @@ items:
     href: how-to-guides/use-sdk-rest-api.md
   - name: Create a Document Intelligence resource
     displayName: endpoint, key, portal
-    href:  create-a-form-recognizer-resource.md
+    href:  create-document-intelligence-resource.md
   - name: Migrate to Document Intelligence v3.0
     displayName: get started, confidence, bounding box, boundingBox, polygon, analyze, AnalyzeResult, train, build, sas, compose, copy
     href: v3-migration-guide.md
@@ -96,16 +96,16 @@ items:
     items:
     - name: Install and run containers
       displayName: docker, docker-compose, container, compose, packages, az, acr, cli, import, pull, Azure AI Vision, kubernetes, cpu, EULA, billing
-      href: containers/form-recognizer-container-install-run.md
+      href: containers/install-run.md
     - name: Configure containers
       displayName: docker, docker-compose, compose, containers, run, billing, keys, logging, EULA, telemetry, proxy
-      href: containers/form-recognizer-container-configuration.md
+      href: containers/configuration.md
     - name: Container image tags
       displayName: registry, mcr
-      href: containers/form-recognizer-container-image-tags.md
+      href: containers/image-tags.md
     - name: Disconnected containers
       displayName: docker, commitment, plan, environment, usage
-      href: containers/form-recognizer-disconnected-containers.md
+      href: containers/disconnected.md
   - name: Configure secure communications
     items:
     - name: Set up Virtual Networks
@@ -151,7 +151,7 @@ items:
     displayName: get started, prebuilt, extraction, input
     href: concept-model-overview.md
   - name: Document Intelligence Studio
-    href: concept-form-recognizer-studio.md
+    href: concept-document-intelligence-studio.md
   - name: Accuracy and confidence scores
     displayName: tables, labels, ocr, performance, signatures
     href: concept-accuracy-confidence.md

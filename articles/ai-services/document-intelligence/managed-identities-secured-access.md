@@ -7,7 +7,7 @@ manager: nitinme
 ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: how-to
-ms.date: 03/03/2023
+ms.date: 07/18/2023
 ms.author: vikurpad
 monikerRange: '>=form-recog-2.1.0'
 ---
@@ -182,7 +182,7 @@ Next, configure the virtual network to ensure only resources within the virtual 
 
 1. On the **Resource** tab, accept the default values and select **Next: Virtual Network**.
 
-1. On the **Virtual Network** tab, ensure that the virtual network you created is selected in the virtual network.
+1. On the **Virtual Network** tab, make sure that you select the virtual network that you created.
 
 1. If you have multiple subnets, select the subnet where you want the private endpoint to connect. Accept the default value to **Dynamically allocate IP address**.
 
@@ -255,7 +255,7 @@ That's it! You can now configure secure access for your Document Intelligence re
 
    :::image type="content" source="media/managed-identities/cors-error.png" alt-text="Screenshot of error message when CORS config is required":::
 
-  **Resolution**: [Configure CORS](quickstarts/try-form-recognizer-studio.md#prerequisites-for-new-users).
+  **Resolution**: [Configure CORS](quickstarts/try-document-intelligence-studio.md#prerequisites-for-new-users).
 
 * **AuthorizationFailure**:
 

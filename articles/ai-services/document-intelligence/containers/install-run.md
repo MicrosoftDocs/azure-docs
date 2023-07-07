@@ -7,7 +7,7 @@ manager: nitinme
 ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: how-to
-ms.date: 06/19/2023
+ms.date: 07/18/2023
 ms.author: lajanuar
 ---
 
@@ -32,7 +32,7 @@ In this article you learn how to download, install, and run Document Intelligenc
 
 * **Read**, **Layout**, **General Document**, **ID Document**,  **Receipt**, **Invoice**, and **Custom** models are supported by Document Intelligence v3.0 containers.
 
-* **Business Card** model is currently only supported in the [v2.1 containers](form-recognizer-container-install-run.md?view=form-recog-2.1.0&preserve-view=true).
+* **Business Card** model is currently only supported in the [v2.1 containers](install-run.md?view=form-recog-2.1.0&preserve-view=true).
 
 ::: moniker-end
 
@@ -110,24 +110,24 @@ The following table lists the supporting container(s) for each Document Intellig
 
 | Feature container | Supporting container(s) |
 |---------|-----------|
-| **Layout** | None |
+| **Layout** | Not required |
 | **Business Card** | **Azure AI Vision Read**|
 | **ID Document** | **Azure AI Vision Read** |
 | **Invoice**   | **Layout** |
 | **Receipt** |**Azure AI Vision Read** |
-| **Custom** | **Custom API**, **Custom Supervised**, **Layout**|
+| **Custom** | **Custom API**, **Custom Supervised**, **Lay&#8203;out**|
 :::moniker-end
 
 :::moniker range="form-recog-3.0.0"
 Feature container | Supporting container(s) |
 |---------|-----------|
-| **Read** | None |
-| **Layout** | None|
-| **General Document** | Layout |
-| **Invoice** | Layout|
-| **Receipt** | Read |
-| **ID Document** | Read|
-| **Custom Template** | Layout |
+| **Read** | Not required |
+| **Layout** | Not required|
+| **General Document** | **Lay&#8203;out** |
+| **Invoice** | **Lay&#8203;out**|
+| **Receipt** | **Read** |
+| **ID Document** | **Read**|
+| **Custom Template** | **Lay&#8203;out** |
 
 :::moniker-end
 
@@ -195,7 +195,7 @@ The following host machine requirements are applicable to **train and analyze** 
 
    :::image type="content" source="../media/containers/keys-and-endpoint.png" alt-text="Screenshot: Azure portal keys and endpoint page.":::
 
-* Ensure that the EULA value is set to "accept".
+* Ensure that the EULA value is set to *accept*.
 
 * The `EULA`, `Billing`, and `ApiKey`  values must be specified; otherwise the container can't start.
 
@@ -394,7 +394,27 @@ docker-compose up
 
 ### [Business Card](#tab/business-card)
 
-The Business Card container is not supported by Document Intelligence v3.0.
+```yml
+version: "3.9"
+services:
+  azure-cognitive-service-invoice:
+    container_name: azure-cognitive-service-businesscard
+    image: mcr.microsoft.com/azure-cognitive-services/form-recognizer/businesscard-3.0
+    environment:
+        - EULA=accept
+        - billing={FORM_RECOGNIZER_ENDPOINT_URI}
+        - apiKey={FORM_RECOGNIZER_KEY}
+        - AzureCognitiveServiceLayoutHost=http://azure-cognitive-service-layout:5000
+    ports:
+      - "5000:5000"
+  azure-cognitive-service-layout:
+    container_name: azure-cognitive-service-layout
+    image: mcr.microsoft.com/azure-cognitive-services/form-recognizer/layout-3.0
+    environment:
+        - EULA=accept
+        - billing={FORM_RECOGNIZER_ENDPOINT_URI}
+        - apiKey={FORM_RECOGNIZER_KEY}
+```
 
 ### [Custom](#tab/custom)
 
@@ -656,13 +676,13 @@ Custom template containers require a few different configurations and support ot
 
 #### Use the Document Intelligence Studio to train a model
 
-* Gather a set of at least five forms of the same type. You use this data to train the model and test a form. You can use a [sample data set](https://go.microsoft.com/fwlink/?linkid=2090451) (download and extract *sample_data.zip*).
+* Gather a set of at least five forms of the same type. You use this data to train the model and test a form. You can use a [sample data set](https://go.microsoft.com/fwlink/?linkid=2090451) (download and extract _sample_data.zip_).
 
-* Once you can confirm that the containers are running, open a browser and navigate to the endpoint where you have the containers deployed. If this deployment is your local machine, the endpoint is [http://localhost:5001](http://localhost:5001).
+* Once you can confirm that the containers are running, open a browser and navigate to the endpoint where you have the containers deployed. If this deployment is your local machine, the endpoint is `[http://localhost:5000](http://localhost:5000)`.
 * Select the custom extraction model tile.
 * Select the `Create project` option.
 * Provide a project name and optionally a description
-* On the "configure your resource" step, provide the endpoint to your custom template model. If you deployed the containers on your local machine, use this URL [http://localhost:5000](http://localhost:5000)
+* On the "configure your resource" step, provide the endpoint to your custom template model. If you deployed the containers on your local machine, use this URL `[http://localhost:5000](http://localhost:5000)`.
 * Provide a subfolder for where your training data is located within the files folder.
 * Finally, create the project
 
@@ -707,15 +727,15 @@ POST http://localhost:5000/formrecognizer/documentModels:build?api-version=2022-
 
 ### [Read](#tab/read)
 
-The Read container is not supported by Document Intelligence v2.1. 
+Document Intelligence v2.1 doesn't support the Read container. 
 
 ### [General Document](#tab/general-document)
 
-The General Document container is not supported by Document Intelligence v2.1.
+Document Intelligence v2.1 doesn't support the General Document container.
 
 ### [Layout](#tab/layout)
 
-The following code sample is a self-contained `docker compose`  example to run the Document Intelligence Layout container.  With `docker compose`, you use a YAML file to configure your application's services. Then, with `docker-compose up` command, you create and start all the services from your configuration. Enter {FORM_RECOGNIZER_ENDPOINT_URI} and {{FORM_RECOGNIZER_KEY} values for your Layout container instance.
+The following code sample is a self-contained `docker compose`  example to run the Document Intelligence Layout container.  With `docker compose`, you use a YAML file to configure your application's services. Then, with `docker-compose up` command, you create and start all the services from your configuration. Enter {FORM_RECOGNIZER_ENDPOINT_URI} and {FORM_RECOGNIZER_KEY} values for your Layout container instance.
 
 ```yml
 version: "3.9"
@@ -1016,7 +1036,7 @@ http {
 * On the left pane of the tool, select the connections tab.
 * Select to create a new project and give it a name and description.
 * For the provider, choose the local file system option. For the local folder, make sure you enter the path to the folder where you stored the sample data files.
-* Navigate back to the home tab and select the "Use custom to train a model with labels and key-value pairs option".
+* Navigate back to the home tab and select the *Use custom to train a model with labels and key-value pairs option*.
 * Select the train button on the left pane to train the labeled model.
 * Save this connection and use it to label your requests.
 * You can choose to analyze the file of your choice against the trained model.
@@ -1209,7 +1229,7 @@ The [**docker-compose up**](https://docs.docker.com/engine/reference/commandline
 | `Billing` | The endpoint of the Azure AI services resource that's used to track billing information.<br/>The value of this option must be set to the endpoint URI of a provisioned Azure resource.|
 | `Eula` | Indicates that you accepted the license for the container.<br/>The value of this option must be set to **accept**. |
 
-For more information about these options, see [Configure containers](form-recognizer-container-configuration.md).
+For more information about these options, see [Configure containers](configuration.md).
 
 ## Summary
 
@@ -1225,6 +1245,6 @@ That's it! In this article, you learned concepts and workflows for downloading, 
 
 ## Next steps
 
-* [Document Intelligence container configuration settings](form-recognizer-container-configuration.md)
+* [Document Intelligence container configuration settings](configuration.md)
 
 * [Azure container instance recipe](../../../ai-services/containers/azure-container-instance-recipe.md)

@@ -8,7 +8,7 @@ ms.service: cognitive-services
 ms.subservice: translator-text
 ms.custom: build-2023, build-2023-dataai
 ms.topic: tutorial
-ms.date: 05/23/2023
+ms.date: 07/18/2023
 ms.author: lajanuar
 ---
 

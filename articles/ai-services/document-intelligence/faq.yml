@@ -369,7 +369,7 @@ sections:
       - question: |
             I'm building a custom model, what does the signature-detection label return?
         answer: |
-            [Signature detection](quickstarts/try-form-recognizer-studio.md#signature-detection) looks for the presence of a signature, not the identity of the person signing the document.
+            [Signature detection](quickstarts/try-document-intelligence-studio.md#signature-detection) looks for the presence of a signature, not the identity of the person signing the document.
 
             If the model returns "unsigned" for signature detection, the model didn’t find a signature in the defined field.
 
@@ -384,7 +384,7 @@ sections:
 
              - Do your tables span across multiple pages? If so, to avoid having to label all of the pages, split the PDF into pages prior to sending it to Document Intelligence. Following the analysis, post-process the pages to a single table.
 
-             - If you’re creating custom models, refer to [Labeling as tables](quickstarts/try-form-recognizer-studio.md#labeling-as-tables). Dynamic tables have a variable number of rows for each given column. Fixed tables have a constant number of rows for each given column.
+             - If you’re creating custom models, refer to [Labeling as tables](quickstarts/try-document-intelligence-studio.md#labeling-as-tables). Dynamic tables have a variable number of rows for each given column. Fixed tables have a constant number of rows for each given column.
 
       - question: |
             How can I move my trained models from one environment (like beta) to another (like production)?
@@ -444,14 +444,14 @@ sections:
           Do I need an internet connection to use Document Intelligence containers?
         answer: |
 
-          Yes, Document Intelligence containers require internet connectivity to send [billing information](containers/form-recognizer-container-install-run.md?tabs=layout#billing) to Azure.
+          Yes, Document Intelligence containers require internet connectivity to send [billing information](containers/install-run.md?tabs=layout#billing) to Azure.
           Learn more about [Azure container security](../../container-instances/container-instances-image-security.md#security-recommendations-for-azure-container-instances).
 
       - question: |
           What's the difference between disconnected and connected container?
         answer: |
 
-          - Document Intelligence connected containers send billing information to Azure using a Document Intelligence resource on your Azure account. With connected containers, internet connectivity is required to send [billing information](containers/form-recognizer-container-install-run.md?tabs=layout#billing) to Azure.
+          - Document Intelligence connected containers send billing information to Azure using a Document Intelligence resource on your Azure account. With connected containers, internet connectivity is required to send [billing information](containers/install-run.md?tabs=layout#billing) to Azure.
 
           - [Disconnected containers](../../ai-services/containers/disconnected-containers.md) enable you to use APIs disconnected from the internet. [Billing information](../../ai-services/containers/disconnected-container-faq.yml#how-does-billing-work) isn't sent via the internet, instead you're charged based upon a purchased commitment tier. Currently, disconnected container usage is available for Document Intelligence custom and invoice models. The model capabilities provided in connected and disconnected containers are the same and supported by Document Intelligence v2.1.
 
@@ -480,7 +480,7 @@ sections:
         answer: |
           Each request to an Azure service must include an authentication header. You can authenticate a request with several methods:
 
-          - [Authenticate](create-a-form-recognizer-resource.md?#get-endpoint-url-and-keys) with a [single-service](https://portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer) or [multi-service](https://portal.azure.com/#create/Microsoft.CognitiveServicesAllInOne) key.
+          - [Authenticate](create-document-intelligence-resource.md?#get-endpoint-url-and-keys) with a [single-service](https://portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer) or [multi-service](https://portal.azure.com/#create/Microsoft.CognitiveServicesAllInOne) key.
 
           - [Authenticate](../../ai-services/authentication.md?context=%2fazure%2fapplied-ai-services%2fform-recognizer%2fcontext%2fcontext&tabs=PowerShell#authenticate-with-azure-active-directory) with Azure Active Directory (Azure AD).
 

@@ -7,7 +7,7 @@ manager: nitinme
 ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: conceptual
-ms.date: 05/23/2023
+ms.date: 07/18/2023
 ms.author: lajanuar
 monikerRange: '>=form-recog-2.1.0'
 ---
@@ -79,4 +79,4 @@ Variances in the visual structure of your documents affect the accuracy of your 
 ## Next step
 
 > [!div class="nextstepaction"]
-> [Learn to create custom models ](quickstarts/try-form-recognizer-studio.md#custom-models)
+> [Learn to create custom models](quickstarts/try-document-intelligence-studio.md#custom-models)

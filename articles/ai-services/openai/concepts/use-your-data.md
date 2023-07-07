@@ -73,7 +73,7 @@ Use the following sections to help you configure Azure OpenAI on your data for o
 
 ### System message
 
-Give the model instructions about how it should behave and any context it should reference when generating a response. You can describe the assistant’s personality, what it should and shouldn’t answer, and how to format responses. There’s no token limit for the system message, but will be included with every API call and counted against the overall token limit. The system message will be truncated if it's greater than 200 tokens. 
+Give the model instructions about how it should behave and any context it should reference when generating a response. You can describe the assistant's personality, what it should and shouldn't answer, and how to format responses. There's no token limit for the system message, but will be included with every API call and counted against the overall token limit. The system message will be truncated if it's greater than 200 tokens. 
 
 For example, if you're creating a chatbot where the data consists of transcriptions of quarterly financial earnings calls, you might use the following system message:
 
@@ -137,7 +137,7 @@ Avoid asking long questions and break them down into multiple questions if possi
 
 * We recommend using a system message to inform the model that your data is in another language. For example:
     
-    *“You are an AI assistant that helps people find information. You retrieve Japanese documents, and you should read them carefully in Japanese and answer in Japanese.”* 
+    *"You are an AI assistant that helps people find information. You retrieve Japanese documents, and you should read them carefully in Japanese and answer in Japanese."* 
 
 * If you have documents in multiple languages, we recommend building a new index for each language and connecting them separately to Azure OpenAI.  
 
@@ -149,7 +149,7 @@ Consider setting the following parameters even if they are optional for using th
 |Parameter  |Recommendation  |
 |---------|---------|
 |`fieldsMapping`    | Explicitly set the title and content fields of your index. This impacts the search retrieval quality of Azure Cognitive Search, which impacts the overall response and citation quality.         |
-|`roleInformation`     | Corresponds to the “System Message” in the Azure OpenAI Studio. See the [System message](#system-message) section above for recommendations. |
+|`roleInformation`     | Corresponds to the "System Message" in the Azure OpenAI Studio. See the [System message](#system-message) section above for recommendations. |
 
 #### Streaming data
 

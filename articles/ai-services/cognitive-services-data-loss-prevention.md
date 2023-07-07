@@ -94,15 +94,15 @@ There are two parts to enable data loss prevention. First the property restrictO
 
 The following services support data loss prevention configuration:
 
-- Azure OpenAI
-- Azure AI Vision
-- Content Moderator
-- Custom Vision
-- Face
-- Document Intelligence
-- Speech Service
-- QnA Maker
+* Azure OpenAI
+* Azure AI Vision
+* Content Moderator
+* Custom Vision
+* Face
+* Document Intelligence
+* Speech Service
+* QnA Maker
 
 ## Next steps
 
-- [Configure Virtual Networks](cognitive-services-virtual-networks.md)
+* [Configure Virtual Networks](cognitive-services-virtual-networks.md)

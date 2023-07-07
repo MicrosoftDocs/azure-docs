@@ -7,7 +7,7 @@ manager: nitinme
 ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: whats-new
-ms.date: 06/23/2023
+ms.date: 07/18/2023
 ms.author: lajanuar
 monikerRange: '>=form-recog-2.1.0'
 ms.custom: references_regions
@@ -87,7 +87,7 @@ Document Intelligence service is updated on an ongoing basis. Bookmark this page
 * Select Document Intelligence containers for v3.0 are now available for use!
 * Currently **Read v3.0** and **Layout v3.0** containers are available.
 
-  For more information, _see_ [Install and run Document Intelligence containers](containers/form-recognizer-container-install-run.md?view=form-recog-3.0.0&preserve-view=true)
+  For more information, _see_ [Install and run Document Intelligence containers](containers/install-run.md?view=form-recog-3.0.0&preserve-view=true)
 
 ---
 
@@ -662,7 +662,7 @@ Document Intelligence service is updated on an ongoing basis. Bookmark this page
 
 * Document Intelligence containers v2.1 released in gated preview and are now supported by six feature containers—**Layout**, **Business Card**,**ID Document**,  **Receipt**, **Invoice**, and **Custom**. To use them, you must submit an [online request](https://customervoice.microsoft.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR7en2Ais5pxKtso_Pz4b1_xUNlpBU1lFSjJUMFhKNzVHUUVLN1NIOEZETiQlQCN0PWcu), and receive approval.
 
-  * *See* [**Install and run Docker containers for Document Intelligence**](containers/form-recognizer-container-install-run.md?branch=main&tabs=layout) and [**Configure Document Intelligence containers**](containers/form-recognizer-container-configuration.md?branch=main)
+  * *See* [**Install and run Docker containers for Document Intelligence**](containers/install-run.md?branch=main&tabs=layout) and [**Configure Document Intelligence containers**](containers/configuration.md?branch=main)
 
 * Document Intelligence connector released in preview: The [**Document Intelligence connector**](/connectors/formrecognizer) integrates with  [Azure Logic Apps](../../logic-apps/logic-apps-overview.md),  [Microsoft Power Automate](/power-automate/getting-started), and [Microsoft Power Apps](/powerapps/powerapps-overview). The connector supports workflow actions and triggers to extract and analyze document data and structure from custom and prebuilt forms, invoices, receipts, business cards and ID documents.
 
@@ -801,7 +801,7 @@ Document Intelligence service is updated on an ongoing basis. Bookmark this page
     `gender`—possible values are `M` `F` or `X`.</br>
    `country`—possible values follow [ISO alpha-3](https://www.iso.org/obp/ui/#search) three-letter country code string.
 
-* New option `pages` supported by all form recognition methods (custom forms and all prebuilt models). The argument allows you to select individual or a range of pages for multi-page PDF and TIFF documents. For individual pages, enter the page number, for example, `3`. For a range of pages (like page 2 and pages 5-7) enter the page numbers and ranges separated by commas: `2, 5-7`.
+* New option `pages` supported by all document intelligence methods (custom forms and all prebuilt models). The argument allows you to select individual or a range of pages for multi-page PDF and TIFF documents. For individual pages, enter the page number, for example, `3`. For a range of pages (like page 2 and pages 5-7) enter the page numbers and ranges separated by commas: `2, 5-7`.
 
 * Added support for a **[ReadingOrder](/javascript/api/@azure/ai-form-recognizer/formreadingorder?view=azure-node-latest&preserve-view=true to the URL)** type to the content recognition methods. This option enables you to control the algorithm that the service uses to determine how recognized lines of text should be ordered. You can specify which reading order algorithm—`basic` or `natural`—should be applied to order the extraction of text elements. If not specified, the default value is `basic`.
 

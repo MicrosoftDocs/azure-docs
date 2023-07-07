@@ -7,7 +7,7 @@ manager: nitinme
 ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: conceptual
-ms.date: 05/23/2023
+ms.date: 07/18/2023
 ms.author: lajanuar
 
 ms.custom: references.regions
@@ -87,7 +87,7 @@ Document Intelligence v2.1 supports the following tools:
 
 | Feature | Resources |
 |----------|-------------------------|
-|**ID document model**| <ul><li>[**Document Intelligence labeling tool**](https://fott-2-1.azurewebsites.net/prebuilts-analyze)</li><li>[**REST API**](./how-to-guides/use-sdk-rest-api.md?pivots=programming-language-rest-api&preserve-view=true&tabs=windows&view=form-recog-2.1.0#analyze-identity-id-documents)</li><li>[**Client-library SDK**](~/articles/ai-services/document-intelligence/how-to-guides/use-sdk-rest-api.md?view=form-recog-2.1.0&preserve-view=true)</li><li>[**Document Intelligence Docker container**](containers/form-recognizer-container-install-run.md?tabs=id-document#run-the-container-with-the-docker-compose-up-command)</li></ul>|
+|**ID document model**| <ul><li>[**Document Intelligence labeling tool**](https://fott-2-1.azurewebsites.net/prebuilts-analyze)</li><li>[**REST API**](./how-to-guides/use-sdk-rest-api.md?pivots=programming-language-rest-api&preserve-view=true&tabs=windows&view=form-recog-2.1.0#analyze-identity-id-documents)</li><li>[**Client-library SDK**](~/articles/ai-services/document-intelligence/how-to-guides/use-sdk-rest-api.md?view=form-recog-2.1.0&preserve-view=true)</li><li>[**Document Intelligence Docker container**](containers/install-run.md?tabs=id-document#run-the-container-with-the-docker-compose-up-command)</li></ul>|
 ::: moniker-end
 
 ## Input requirements
@@ -175,7 +175,7 @@ Extract data, including name, birth date, and expiration date, from ID documents
 1. Download the JSON output file to view the detailed results.
 
     * The "readResults" node contains every line of text with its respective bounding box placement on the page.
-    * The "selectionMarks" node shows every selection mark (checkbox, radio mark) and whether its status is "selected" or "unselected".
+    * The "selectionMarks" node shows every selection mark (checkbox, radio mark) and whether its status is *selected* or *unselected*.
     * The "pageResults" section includes the tables extracted. For each table, Document Intelligence extracts the text, row, and column index, row and column spanning, bounding box, and more.
     * The "documentResults" field contains key/value pairs information and line items information for the most relevant parts of the document.
 
@@ -341,7 +341,7 @@ The following are the fields extracted per document type. The Document Intellige
 |  FirstName | string | Extracted given name and middle initial if applicable | "JENNIFER" |
 |  LastName | string | Extracted surname | "BROOKS" |
 |  Nationality | country | Country code compliant with ISO 3166 standard | "USA" |
-|  Sex | gender | Possible extracted values include "M", "F" and "X" | "F" |
+|  Sex | gender | Possible extracted values include "M" "F" "X" | "F" |
 |  MachineReadableZone | object | Extracted Passport MRZ including two lines of 44 characters each | "P<USABROOKS<<JENNIFER<<<<<<<<<<<<<<<<<<<<<<< 3400200135USA8001014F1905054710000307<715816" |
 |  DocumentType | string | Document type, for example, Passport, Driver's License | "passport" |
 |  Address | string | Extracted address (Driver's License only) | "123 STREET ADDRESS YOUR CITY WA 99999-1234"|

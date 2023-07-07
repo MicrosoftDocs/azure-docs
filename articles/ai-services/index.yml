@@ -43,7 +43,7 @@ highlightedContent:
       url: ./cognitive-services-support-options.md
 
 conceptualContent:
-  
+
 # itemType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new
   items:
     - title: Vision
@@ -105,7 +105,7 @@ conceptualContent:
           itemType: overview
           text: Personalizer
     - title: Azure OpenAI
-      summary: Apply advanced language models to variety of use cases with the Azure OpenAI service 
+      summary: Apply advanced language models to variety of use cases with the Azure OpenAI service
       links:
         - url: ./openai/overview.md
           itemType: overview
@@ -169,7 +169,7 @@ additionalContent:
             - text: Language Understanding (LUIS)
               url: https://luis.ai
             # Card
-            - text: QnA Maker 
+            - text: QnA Maker
               url: https://www.qnamaker.ai/
             # Card
             - text: Speech Studio
@@ -186,9 +186,9 @@ additionalContent:
               url: /javascript/api/overview/azure/cognitive-services
             - text: Python
               url: /python/api/overview/azure/cognitive-services
-            - text: R 
+            - text: R
               url: https://github.com/Azure/AzureCognitive
-            - text: Apache Spark and Databases 
+            - text: Apache Spark and Databases
               url: ./big-data/cognitive-services-for-big-data.md
             - text: Azure AI services Management REST API
               url: /rest/api/cognitiveservices/

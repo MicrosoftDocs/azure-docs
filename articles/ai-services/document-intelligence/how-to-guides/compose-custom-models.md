@@ -7,7 +7,7 @@ manager: nitinme
 ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: how-to
-ms.date: 06/23/2023
+ms.date: 07/18/2023
 ms.author: lajanuar
 ---
 
@@ -44,7 +44,7 @@ To get started, you need the following resources:
     :::image type="content" source="../media/containers/keys-and-endpoint.png" alt-text="Still photo showing how to access resource key and endpoint URL.":::
 
     > [!TIP]
-    > For more information, see [**create a Document Intelligence resource**](../create-a-form-recognizer-resource.md).
+    > For more information, see [**create a Document Intelligence resource**](../create-document-intelligence-resource.md).
 
 * **An Azure storage account.** If you don't know how to create an Azure storage account, follow the [Azure Storage quickstart for Azure portal](../../../storage/blobs/storage-quickstart-blobs-portal.md). You can use the free pricing tier (F0) to try the service, and upgrade later to a paid tier for production.
 
@@ -102,7 +102,7 @@ While creating your custom models, you may need to extract data collections from
 
 * Specific collection of values for a given set of fields (columns and/or rows)
 
-See [Document Intelligence Studio: labeling as tables](../quickstarts/try-form-recognizer-studio.md#labeling-as-tables)
+See [Document Intelligence Studio: labeling as tables](../quickstarts/try-document-intelligence-studio.md#labeling-as-tables)
 
 ### [REST API](#tab/rest)
 
@@ -256,7 +256,7 @@ Great! You've learned the steps to create custom and composed models and use the
 Try one of our Document Intelligence quickstarts:
 
 > [!div class="nextstepaction"]
-> [Document Intelligence Studio](../quickstarts/try-form-recognizer-studio.md)
+> [Document Intelligence Studio](../quickstarts/try-document-intelligence-studio.md)
 
 > [!div class="nextstepaction"]
 > [REST API](../quickstarts/get-started-sdks-rest-api.md?view=form-recog-3.0.0&preserve-view=true)
