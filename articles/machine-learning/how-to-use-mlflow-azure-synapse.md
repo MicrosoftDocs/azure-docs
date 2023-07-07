@@ -21,6 +21,8 @@ In this article, learn how to enable MLflow to connect to Azure Machine Learning
 
 If you have an MLflow Project to train with Azure Machine Learning, see [Train ML models with MLflow Projects and Azure Machine Learning (preview)](how-to-train-mlflow-projects.md).
 
+[!INCLUDE [machine-learning-mlflow-projects-deprecation](includes/machine-learning-mlflow-projects-deprecation.md)]
+
 ## Prerequisites
 
 * An [Azure Synapse Analytics workspace and cluster](../synapse-analytics/quickstart-create-workspace.md).
@@ -64,13 +66,13 @@ To use Azure Machine Learning as your centralized repository for experiments, yo
 
 __Configure tracking URI__
 
-[!INCLUDE [configure-mlflow-tracking](../../includes/machine-learning-mlflow-configure-tracking.md)]
+[!INCLUDE [configure-mlflow-tracking](includes/machine-learning-mlflow-configure-tracking.md)]
 
 __Configure authentication__
 
 Once the tracking is configured, you'll also need to configure how the authentication needs to happen to the associated workspace. By default, the Azure Machine Learning plugin for MLflow will perform interactive authentication by opening the default browser to prompt for credentials. Refer to [Configure MLflow for Azure Machine Learning: Configure authentication](how-to-use-mlflow-configure-tracking.md#configure-authentication) to additional ways to configure authentication for MLflow in Azure Machine Learning workspaces.
 
-[!INCLUDE [configure-mlflow-auth](../../includes/machine-learning-mlflow-configure-auth.md)]
+[!INCLUDE [configure-mlflow-auth](includes/machine-learning-mlflow-configure-auth.md)]
 
 ### Experiment's names in Azure Machine Learning
 
