@@ -83,9 +83,7 @@
         - name: Configure role-based access control
           href: howto-kubernetes-cluster-aad-rbac.md
     - name: Network Fabric Route Policy
-      href: how-to-route-policy.md      
-    - name: AKS-Hybrid
-      href: howto-hybrid-aks.md
+      href: how-to-route-policy.md
     - name: Monitor AKS-Hybrid Cluster
       href: howto-monitor-aks-h-cluster.md
     - name: Monitor VMs for VNF
