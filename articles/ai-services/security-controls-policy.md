@@ -1,6 +1,6 @@
 ---
-title: Azure Policy Regulatory Compliance controls for Azure Cognitive Services
-description: Lists Azure Policy Regulatory Compliance controls available for Azure Cognitive Services. These built-in policy definitions provide common approaches to managing the compliance of your Azure resources.
+title: Azure Policy Regulatory Compliance controls for Azure AI services
+description: Lists Azure Policy Regulatory Compliance controls available for Azure AI services. These built-in policy definitions provide common approaches to managing the compliance of your Azure resources.
 ms.date: 06/27/2023
 ms.topic: sample
 author: PatrickFarley
@@ -8,12 +8,12 @@ ms.author: pafarley
 ms.service: cognitive-services
 ms.custom: subject-policy-compliancecontrols
 ---
-# Azure Policy Regulatory Compliance controls for Azure Cognitive Services
+# Azure Policy Regulatory Compliance controls for Azure AI services
 
 [Regulatory Compliance in Azure Policy](../governance/policy/concepts/regulatory-compliance.md)
 provides Microsoft created and managed initiative definitions, known as _built-ins_, for the
 **compliance domains** and **security controls** related to different compliance standards. This
-page lists the **compliance domains** and **security controls** for Azure Cognitive Services. You can
+page lists the **compliance domains** and **security controls** for Azure AI services. You can
 assign the built-ins for a **security control** individually to help make your Azure resources
 compliant with the specific standard.
 

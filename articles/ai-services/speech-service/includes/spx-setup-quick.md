@@ -8,7 +8,7 @@ ms.author: eur
 ms.custom: ignite-fall-2021
 ---
 
-Follow these steps and see the [Speech CLI quickstart](~/articles/cognitive-services/speech-service/spx-basics.md#download-and-install) for additional requirements for your platform.
+Follow these steps and see the [Speech CLI quickstart](~/articles/ai-services/speech-service/spx-basics.md#download-and-install) for additional requirements for your platform.
 
 1. Install the Speech CLI via the .NET CLI by entering this command:
    ```dotnetcli

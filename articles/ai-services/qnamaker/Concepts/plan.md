@@ -68,7 +68,7 @@ You can structure your QnA Maker resources by language or you can use [Translato
 
 ### Ingest data sources
 
-You can use one of the following ingested [data sources](../Concepts/data-sources-and-content.md) to create a knowledge base:
+You can use one of the following ingested [data sources](../concepts/data-sources-and-content.md) to create a knowledge base:
 
 * Public URL
 * Private SharePoint URL
@@ -104,7 +104,7 @@ Knowledge base authoring supports several role-based access permissions you appl
 
 Integration with client applications is accomplished by sending a query to the prediction runtime endpoint. A query is sent to your specific knowledge base with an SDK or REST-based request to your QnA Maker's web app endpoint.
 
-To authenticate a client request correctly, the client application must send the correct credentials and knowledge base ID. If you're using an Azure Bot Service, configure these settings as part of the bot configuration in the Azure portal.
+To authenticate a client request correctly, the client application must send the correct credentials and knowledge base ID. If you're using an Azure AI Bot Service, configure these settings as part of the bot configuration in the Azure portal.
 
 ### Conversation flow in a client application
 
@@ -122,7 +122,7 @@ In such a [shared architecture](../choose-natural-language-processing-service.md
 
 ### Active learning from a client application
 
-QnA Maker uses _active learning_ to improve your knowledge base by suggesting alternate questions to an answer. The client application is responsible for a part of this [active learning](../How-To/use-active-learning.md). Through conversational prompts, the client application can determine that the knowledge base returned an answer that's not useful to the user, and it can determine a better answer. The client application needs to send that information back to the knowledge base to improve the prediction quality.
+QnA Maker uses _active learning_ to improve your knowledge base by suggesting alternate questions to an answer. The client application is responsible for a part of this [active learning](../how-to/use-active-learning.md). Through conversational prompts, the client application can determine that the knowledge base returned an answer that's not useful to the user, and it can determine a better answer. The client application needs to send that information back to the knowledge base to improve the prediction quality.
 
 ### Providing a default answer
 
@@ -170,7 +170,7 @@ Your QnA pairs should be designed and developed based on your client application
 Each pair can contain:
 * Metadata - filterable when querying to allow you to tag your QnA pairs with additional information about the source, content, format, and purpose of your data.
 * Follow-up prompts - helps to determine a path through your knowledge base so the user arrives at the correct answer.
-* Alternate questions - important to allow search to match to your answer from different  forms of the question. [Active learning suggestions](../How-To/use-active-learning.md) turn into alternate questions.
+* Alternate questions - important to allow search to match to your answer from different  forms of the question. [Active learning suggestions](../how-to/use-active-learning.md) turn into alternate questions.
 
 ### DevOps development
 

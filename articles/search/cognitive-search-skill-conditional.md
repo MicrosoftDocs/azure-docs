@@ -2,7 +2,6 @@
 title: Conditional cognitive skill
 titleSuffix: Azure Cognitive Search
 description: The conditional skill in Azure Cognitive Search enables filtering, creating defaults, and merging values in a skillset definition.
-
 author: LiamCavanagh
 ms.author: liamca
 ms.service: cognitive-search
@@ -24,7 +23,7 @@ else
 ```
 
 > [!NOTE]
-> This skill isn't bound to Cognitive Services. It is non-billable and has no Cognitive Services key requirement.
+> This skill isn't bound to Azure AI services. It is non-billable and has no Azure AI services key requirement.
 
 ## @odata.type  
 Microsoft.Skills.Util.ConditionalSkill

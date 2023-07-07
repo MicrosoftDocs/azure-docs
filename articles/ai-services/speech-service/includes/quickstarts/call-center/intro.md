@@ -13,7 +13,7 @@ In this C# quickstart, you perform sentiment analysis and conversation summariza
 > 
 > To deploy a call center transcription solution to Azure with a no-code approach, try the [Ingestion Client](../../../ingestion-client.md).
 
-The following Azure Cognitive Services for Speech features are used in the quickstart:
+The following Azure AI services for Speech features are used in the quickstart:
 - [Batch transcription](../../../batch-transcription.md): Submit a batch of audio files for transcription.
 - [Speaker separation](../../../batch-transcription.md): Separate multiple speakers through diarization of mono 16khz 16 bit PCM wav files. 
 

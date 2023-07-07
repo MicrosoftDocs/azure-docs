@@ -19,9 +19,9 @@ ms.custom: references_regions, ignite-fall-2021
 
 Before you start, you must install the Speech SDK. Depending on your platform, use the following instructions:
 
-* <a href="/azure/cognitive-services/speech-service/quickstarts/setup-platform?pivots=programming-language-cpp&tabs=linux" target="_blank">Linux </a>
-* <a href="/azure/cognitive-services/speech-service/quickstarts/setup-platform?pivots=programming-language-cpp&tabs=macos" target="_blank">macOS </a>
-* <a href="/azure/cognitive-services/speech-service/quickstarts/setup-platform?pivots=programming-language-cpp&tabs=windows" target="_blank">Windows </a>
+* <a href="~/articles/ai-services/speech-service/quickstarts/setup-platform.md?pivots=programming-language-cpp&tabs=linux" target="_blank">Linux </a>
+* <a href="~/articles/ai-services/speech-service/quickstarts/setup-platform.md?pivots=programming-language-cpp&tabs=macos" target="_blank">macOS </a>
+* <a href="~/articles/ai-services/speech-service/quickstarts/setup-platform.md?pivots=programming-language-cpp&tabs=windows" target="_blank">Windows </a>
 
 ### Import dependencies
 
@@ -47,7 +47,7 @@ auto ticks_per_second = 10000000;
 To call the Speech service by using the Speech SDK, create a [`SpeechConfig`](/cpp/cognitive-services/speech/speechconfig) class. This class includes information about your subscription, like your key and associated region, endpoint, host, or authorization token.
 
 > [!IMPORTANT]
-> Remember to remove the key from your code when you're done, and never post it publicly. For production, use a secure way of storing and accessing your credentials like [Azure Key Vault](../../../../use-key-vault.md). See the Cognitive Services [security](../../../../security-features.md) article for more information.
+> Remember to remove the key from your code when you're done, and never post it publicly. For production, use a secure way of storing and accessing your credentials like [Azure Key Vault](../../../../use-key-vault.md). See the Azure AI services [security](../../../../security-features.md) article for more information.
 
 ```cpp
 shared_ptr<SpeechConfig> GetSpeechConfig()

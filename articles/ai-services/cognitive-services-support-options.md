@@ -1,6 +1,6 @@
 ---
-title: Azure Cognitive Services support and help options
-description: How to obtain help and support for questions and problems when you create applications that integrate with Azure Cognitive Services.
+title: Azure AI services support and help options
+description: How to obtain help and support for questions and problems when you create applications that integrate with Azure AI services.
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
@@ -10,9 +10,9 @@ ms.date: 06/28/2022
 ms.author: pafarley
 ---
 
-# Azure Cognitive Services support and help options
+# Azure AI services support and help options
 
-Are you just starting to explore the functionality of Azure Cognitive Services? Perhaps you are implementing a new feature in your application. Or after using the service, do you have suggestions on how to improve it? Here are options for where you can get support, stay up-to-date, give feedback, and report bugs for Cognitive Services.
+Are you just starting to explore the functionality of Azure AI services? Perhaps you are implementing a new feature in your application. Or after using the service, do you have suggestions on how to improve it? Here are options for where you can get support, stay up-to-date, give feedback, and report bugs for Azure AI services.
 
 ## Create an Azure support request
 
@@ -31,11 +31,11 @@ For quick and reliable answers on your technical product questions from Microsof
 
 If you can't find an answer to your problem using search, submit a new question to Microsoft Q&A. Use one of the following tags when you ask your question:
 
-* [Cognitive Services](/answers/topics/azure-cognitive-services.html)
+* [Azure AI services](/answers/topics/azure-cognitive-services.html)
 
 **Vision**
 
-* [Computer Vision](/answers/topics/azure-computer-vision.html)
+* [Azure AI Vision](/answers/topics/azure-computer-vision.html)
 * [Custom Vision](/answers/topics/azure-custom-vision.html)
 * [Face](/answers/topics/azure-face.html)
 * [Document Intelligence](/answers/topics/azure-form-recognizer.html)
@@ -75,11 +75,11 @@ For answers on your developer questions from the largest community developer eco
 
 If you do submit a new question to Stack Overflow, please use one or more of the following tags when you create the question:
 
-* [Cognitive Services](https://stackoverflow.com/questions/tagged/azure-cognitive-services)
+* [Azure AI services](https://stackoverflow.com/questions/tagged/azure-cognitive-services)
 
 **Vision**
 
-* [Computer Vision](https://stackoverflow.com/search?q=azure+computer+vision)
+* [Azure AI Vision](https://stackoverflow.com/search?q=azure+computer+vision)
 * [Custom Vision](https://stackoverflow.com/search?q=azure+custom+vision)
 * [Face](https://stackoverflow.com/search?q=azure+face)
 * [Document Intelligence](https://stackoverflow.com/search?q=azure+form+recognizer)
@@ -110,13 +110,13 @@ If you do submit a new question to Stack Overflow, please use one or more of the
 
 ## Submit feedback
 
-To request new features, post them on https://feedback.azure.com. Share your ideas for making Cognitive Services and its APIs work better for the applications you develop. 
+To request new features, post them on https://feedback.azure.com. Share your ideas for making Azure AI services and its APIs work better for the applications you develop. 
 
-* [Cognitive Services](https://feedback.azure.com/d365community/forum/09041fae-0b25-ec11-b6e6-000d3a4f0858)
+* [Azure AI services](https://feedback.azure.com/d365community/forum/09041fae-0b25-ec11-b6e6-000d3a4f0858)
 
 **Vision**
 
-* [Computer Vision](https://feedback.azure.com/d365community/forum/09041fae-0b25-ec11-b6e6-000d3a4f0858?c=7a8853b4-0b25-ec11-b6e6-000d3a4f0858)
+* [Azure AI Vision](https://feedback.azure.com/d365community/forum/09041fae-0b25-ec11-b6e6-000d3a4f0858?c=7a8853b4-0b25-ec11-b6e6-000d3a4f0858)
 * [Custom Vision](https://feedback.azure.com/d365community/forum/09041fae-0b25-ec11-b6e6-000d3a4f0858?c=7a8853b4-0b25-ec11-b6e6-000d3a4f0858)
 * [Face](https://feedback.azure.com/d365community/forum/09041fae-0b25-ec11-b6e6-000d3a4f0858?c=7a8853b4-0b25-ec11-b6e6-000d3a4f0858)
 * [Document Intelligence](https://feedback.azure.com/d365community/forum/09041fae-0b25-ec11-b6e6-000d3a4f0858?c=7a8853b4-0b25-ec11-b6e6-000d3a4f0858)
@@ -143,13 +143,13 @@ To request new features, post them on https://feedback.azure.com. Share your ide
 
 ## Stay informed
 
-Staying informed about features in a new release or news on the Azure blog can help you find the difference between a programming error, a service bug, or a feature not yet available in Cognitive Services.
+Staying informed about features in a new release or news on the Azure blog can help you find the difference between a programming error, a service bug, or a feature not yet available in Azure AI services.
 
 * Learn more about product updates, roadmap, and announcements in [Azure Updates](https://azure.microsoft.com/updates/?category=ai-machine-learning&query=Azure%20Cognitive%20Services).
-* News about Cognitive Services is shared in the [Azure blog](https://azure.microsoft.com/blog/topics/cognitive-services/).
-* [Join the conversation on Reddit](https://www.reddit.com/r/AZURE/search/?q=Cognitive%20Services&restrict_sr=1) about Cognitive Services.
+* News about Azure AI services is shared in the [Azure blog](https://azure.microsoft.com/blog/topics/cognitive-services/).
+* [Join the conversation on Reddit](https://www.reddit.com/r/AZURE/search/?q=Cognitive%20Services&restrict_sr=1) about Azure AI services.
 
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [What are Azure Cognitive Services?](./what-are-cognitive-services.md)
+> [What are Azure AI services?](./what-are-cognitive-services.md)

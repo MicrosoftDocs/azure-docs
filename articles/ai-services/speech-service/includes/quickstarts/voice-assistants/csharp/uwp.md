@@ -12,13 +12,13 @@ ms.custom: devx-track-csharp
 Before you get started, make sure to:
 
 > [!div class="checklist"]
-> * [Create a Speech resource](~/articles/cognitive-services/cognitive-services-apis-create-account.md#get-the-keys-for-your-resource)
-> * [Set up your development environment and create an empty project](~/articles/cognitive-services/speech-service/quickstarts/setup-platform.md?tabs=uwp&pivots=programming-language-csharp)
+> * [Create a Speech resource](~/articles/ai-services/cognitive-services-apis-create-account.md#get-the-keys-for-your-resource)
+> * [Set up your development environment and create an empty project](~/articles/ai-services/speech-service/quickstarts/setup-platform.md?tabs=uwp&pivots=programming-language-csharp)
 > * Create a bot connected to the [Direct Line Speech channel](/azure/bot-service/bot-service-channel-connect-directlinespeech)
 > * Make sure that you have access to a microphone for audio capture
 > 
   > [!NOTE]
-  > Please refer to [the list of supported regions for voice assistants](~/articles/cognitive-services/speech-service/regions.md#voice-assistants) and ensure your resources are deployed in one of those regions.
+  > Please refer to [the list of supported regions for voice assistants](~/articles/ai-services/speech-service/regions.md#voice-assistants) and ensure your resources are deployed in one of those regions.
 
 ## Open your project in Visual Studio
 
@@ -269,12 +269,12 @@ The Design view is updated to show the application's user interface.
     ```
 
    > [!NOTE]
-   > Please refer to [the list of supported regions for voice assistants](~/articles/cognitive-services/speech-service/regions.md#voice-assistants) and ensure your resources are deployed in one of those regions.
+   > Please refer to [the list of supported regions for voice assistants](~/articles/ai-services/speech-service/regions.md#voice-assistants) and ensure your resources are deployed in one of those regions.
 
    > [!NOTE]
    > For information on configuring your bot, see the Bot Framework documentation for [the Direct Line Speech channel](/azure/bot-service/bot-service-channel-connect-directlinespeech).
 
-1. Replace the strings `YourSpeechSubscriptionKey` and `YourServiceRegion` with your own values for your speech subscription and [region](~/articles/cognitive-services/speech-service/regions.md).
+1. Replace the strings `YourSpeechSubscriptionKey` and `YourServiceRegion` with your own values for your speech subscription and [region](~/articles/ai-services/speech-service/regions.md).
 
 1. Append the following code snippet to the end of the method body of `InitializeDialogServiceConnector`. This code sets up handlers for events relied on by `DialogServiceConnector` to communicate its bot activities, speech recognition results, and other information.
 
@@ -368,11 +368,11 @@ Now you're ready to build your app and test your custom voice assistant using th
 
 1. Choose **Debug** > **Start Debugging** (or press **F5**) to start the application. The **helloworld** window appears.
 
-   ![Sample UWP voice assistant application in C# - quickstart](~/articles/cognitive-services/Speech-Service/media/sdk/qs-voice-assistant-uwp-helloworld-window.png)
+   ![Sample UWP voice assistant application in C# - quickstart](~/articles/ai-services/speech-service/media/sdk/qs-voice-assistant-uwp-helloworld-window.png)
 
 1. Select **Enable Microphone**, and when the access permission request pops up, select **Yes**.
 
-   ![Microphone access permission request](~/articles/cognitive-services/Speech-Service/media/sdk/qs-csharp-uwp-10-access-prompt.png)
+   ![Microphone access permission request](~/articles/ai-services/speech-service/media/sdk/qs-csharp-uwp-10-access-prompt.png)
 
 1. Select **Talk to your bot**, and speak an English phrase or sentence into your device's microphone. Your speech is transmitted to the Direct Line Speech channel and transcribed to text, which appears in the window.
 

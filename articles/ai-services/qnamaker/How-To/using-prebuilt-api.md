@@ -1,6 +1,6 @@
 ---
 title: QnA Maker Prebuilt API
-titleSuffix: Azure Cognitive Services
+titleSuffix: Azure AI services
 description: Use the Prebuilt API to get answers over text
 services: cognitive-services
 manager: nitinme

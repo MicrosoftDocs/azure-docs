@@ -1,17 +1,16 @@
 ---
 title: What is Azure AI Content Safety? (preview)
-titleSuffix: Azure Cognitive Services
+titleSuffix: Azure AI services
 description: Learn how to use Content Safety to track, flag, assess, and filter inappropriate material in user-generated content.
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
-
 ms.service: cognitive-services
 ms.subservice: content-safety
 ms.topic: overview
 ms.date: 04/02/2023
 ms.author: pafarley
-keywords: content safety, azure content safety, online content safety, content filtering software, content moderation service, content moderation
+keywords: content safety, Azure AI Content Safety, online content safety, content filtering software, content moderation service, content moderation
 ms.custom: references_regions, build-2023, build-2023-dataai
 #Customer intent: As a developer of content management software, I want to find out whether Azure AI Content Safety is the right solution for my moderation needs.
 ---
@@ -86,7 +85,7 @@ The maximum size for image submissions is 4 MB, and image dimensions must be bet
 
 ### Use Azure Active Directory to manage access
 
-For enhanced security, you can use Azure Active Directory (Azure AD) to manage access to your resources. You can grant access to other users within your organization by assigning them the roles of **Cognitive Services Users** and **Reader**. To learn more about granting user access to Azure resources using the Azure Portal, please refer to the [Role-based access control guide](/azure/role-based-access-control/quickstart-assign-role-user-portal).
+For enhanced security, you can use Azure Active Directory (Azure AD) to manage access to your resources. You can grant access to other users within your organization by assigning them the roles of **Azure AI services Users** and **Reader**. To learn more about granting user access to Azure resources using the Azure Portal, please refer to the [Role-based access control guide](/azure/role-based-access-control/quickstart-assign-role-user-portal).
 
 ### Encryption of data at rest
 

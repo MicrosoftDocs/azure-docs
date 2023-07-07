@@ -37,10 +37,10 @@ public class Program {
 
 ## Create a Speech configuration
 
-Before you can initialize an `IntentRecognizer` object, you need to create a configuration that uses the key and location for your Cognitive Services prediction resource.
+Before you can initialize an `IntentRecognizer` object, you need to create a configuration that uses the key and location for your Azure AI services prediction resource.
 
-* Replace `"YOUR_SUBSCRIPTION_KEY"` with your Cognitive Services prediction key.
-* Replace `"YOUR_SUBSCRIPTION_REGION"` with your Cognitive Services resource region.
+* Replace `"YOUR_SUBSCRIPTION_KEY"` with your Azure AI services prediction key.
+* Replace `"YOUR_SUBSCRIPTION_REGION"` with your Azure AI services resource region.
 
 This sample uses the `FromSubscription()` method to build the `SpeechConfig`. For a full list of available methods, see [SpeechConfig Class](/java/api/com.microsoft.cognitiveservices.speech.speechconfig).
 

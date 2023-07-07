@@ -1,6 +1,6 @@
 ---
 title: "Quickstart: Analyze image content"
-titleSuffix: Azure Cognitive Services
+titleSuffix: Azure AI services
 description: Get started using Content Safety to analyze image content for objectionable material.
 services: cognitive-services
 author: PatrickFarley
@@ -39,10 +39,10 @@ Get started with the Content Studio, REST API, or client SDKs to do basic image 
 
 ## Clean up resources
 
-If you want to clean up and remove a Cognitive Services subscription, you can delete the resource or resource group. Deleting the resource group also deletes any other resources associated with it.
+If you want to clean up and remove an Azure AI services subscription, you can delete the resource or resource group. Deleting the resource group also deletes any other resources associated with it.
 
-- [Portal](/azure/cognitive-services/cognitive-services-apis-create-account#clean-up-resources)
-- [Azure CLI](/azure/cognitive-services/cognitive-services-apis-create-account-cli#clean-up-resources)
+- [Portal](../cognitive-services-apis-create-account.md#clean-up-resources)
+- [Azure CLI](../cognitive-services-apis-create-account-cli.md#clean-up-resources)
 
 ## Next steps
 

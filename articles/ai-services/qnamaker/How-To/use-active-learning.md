@@ -24,7 +24,7 @@ Your knowledge base doesn't change automatically. In order for any change to tak
 QnA Maker learns new question variations with implicit and explicit feedback.
 
 * [Implicit feedback](#how-qna-makers-implicit-feedback-works) – The ranker understands when a user question has multiple answers with scores that are very close and considers this as feedback. You don't need to do anything for this to happen.
-* [Explicit feedback](#how-you-give-explicit-feedback-with-the-train-api) – When multiple answers with little variation in scores are returned from the knowledge base, the client application asks the user which question is the correct question. The user's explicit feedback is sent to QnA Maker with the [Train API](../How-To/improve-knowledge-base.md#train-api).
+* [Explicit feedback](#how-you-give-explicit-feedback-with-the-train-api) – When multiple answers with little variation in scores are returned from the knowledge base, the client application asks the user which question is the correct question. The user's explicit feedback is sent to QnA Maker with the [Train API](../how-to/improve-knowledge-base.md#train-api).
 
 Both methods provide the ranker with similar queries that are clustered.
 

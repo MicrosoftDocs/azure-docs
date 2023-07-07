@@ -15,16 +15,16 @@ ms.author: eur
 [!INCLUDE [Prerequisites](../../common/azure-prerequisites.md)]
 
 > [!div class="nextstepaction"]
-> [I have the prerequisites](~/articles/cognitive-services/speech-service/get-started-speech-to-text.md?pivots=programming-language-go)
-> [I ran into an issue](~/articles/cognitive-services/speech-service/get-started-speech-to-text.md?pivots=programming-language-go)
+> [I have the prerequisites](~/articles/ai-services/speech-service/get-started-speech-to-text.md?pivots=programming-language-go)
+> [I ran into an issue](~/articles/ai-services/speech-service/get-started-speech-to-text.md?pivots=programming-language-go)
 
 ## Set up the environment
 
 Install the [Speech SDK for Go](../../../quickstarts/setup-platform.md?pivots=programming-language-go&tabs=dotnet%252cwindows%252cjre%252cbrowser). 
 
 > [!div class="nextstepaction"]
-> [I have the tools I need](~/articles/cognitive-services/speech-service/get-started-speech-to-text.md?pivots=programming-language-go)
-> [I ran into an issue](~/articles/cognitive-services/speech-service/get-started-speech-to-text.md?pivots=programming-language-go)
+> [I have the tools I need](~/articles/ai-services/speech-service/get-started-speech-to-text.md?pivots=programming-language-go)
+> [I ran into an issue](~/articles/ai-services/speech-service/get-started-speech-to-text.md?pivots=programming-language-go)
 
 ## Recognize speech from a microphone
 
@@ -120,8 +120,8 @@ go run speech-recognition
 ```
 
 > [!div class="nextstepaction"]
-> [My speech was recognized](~/articles/cognitive-services/speech-service/get-started-speech-to-text.md?pivots=programming-language-go)
-> [I ran into an issue](~/articles/cognitive-services/speech-service/get-started-speech-to-text.md?pivots=programming-language-go)
+> [My speech was recognized](~/articles/ai-services/speech-service/get-started-speech-to-text.md?pivots=programming-language-go)
+> [I ran into an issue](~/articles/ai-services/speech-service/get-started-speech-to-text.md?pivots=programming-language-go)
 
 
 ## Clean up resources

@@ -1,6 +1,6 @@
 ---
 title: 'Quickstart: Create a custom voice assistant - Speech service'
-titleSuffix: Azure Cognitive Services
+titleSuffix: Azure AI services
 services: cognitive-services
 author: trrwilson
 manager: nitinme
@@ -11,7 +11,7 @@ ms.date: 03/20/2020
 ms.author: travisw
 ---
 
-In this quickstart, you will use the [Speech SDK](~/articles/cognitive-services/speech-service/speech-sdk.md) to create a custom voice assistant application that connects to a bot that you have already authored and configured. If you need to create a bot, see [the related tutorial](~/articles/cognitive-services/speech-service/tutorial-voice-enable-your-bot-speech-sdk.md) for a more comprehensive guide.
+In this quickstart, you will use the [Speech SDK](~/articles/ai-services/speech-service/speech-sdk.md) to create a custom voice assistant application that connects to a bot that you have already authored and configured. If you need to create a bot, see [the related tutorial](~/articles/ai-services/speech-service/tutorial-voice-enable-your-bot-speech-sdk.md) for a more comprehensive guide.
 
 After satisfying a few prerequisites, connecting your custom voice assistant takes only a few steps:
 > [!div class="checklist"]

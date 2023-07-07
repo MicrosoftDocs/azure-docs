@@ -1,24 +1,24 @@
 ---
-title: "Create a Cognitive Services resource in the Azure portal"
-titleSuffix: Azure Cognitive Services
-description: Get started with Azure Cognitive Services by creating and subscribing to a resource in the Azure portal.
+title: "Create an Azure AI services resource in the Azure portal"
+titleSuffix: Azure AI services
+description: Get started with Azure AI services by creating and subscribing to a resource in the Azure portal.
 services: cognitive-services
 author: aahill
 manager: nitinme
-keywords: cognitive services, cognitive intelligence, cognitive solutions, ai services
+keywords: Azure AI services, cognitive intelligence, cognitive solutions, ai services
 ms.service: cognitive-services
 ms.topic: quickstart
 ms.date: 02/13/2023
 ms.author: aahi
 ---
 
-# Quickstart: Create a Cognitive Services resource using the Azure portal
+# Quickstart: Create an Azure AI services resource using the Azure portal
 
-Use this quickstart to create a Cognitive Services resource. After you create a Cognitive Service resource in the Azure portal, you'll get an endpoint and a key for authenticating your applications.
+Use this quickstart to create an Azure AI services resource. After you create a Cognitive Service resource in the Azure portal, you'll get an endpoint and a key for authenticating your applications.
 
-Azure Cognitive Services is cloud-based artificial intelligence (AI) services that help developers build cognitive intelligence into applications without having direct AI or data science skills or knowledge. They're available through REST APIs and client library SDKs in popular development languages. Azure Cognitive Services enables developers to easily add cognitive features into their applications with cognitive solutions that can see, hear, speak, and analyze.
+Azure AI services is cloud-based artificial intelligence (AI) services that help developers build cognitive intelligence into applications without having direct AI or data science skills or knowledge. They're available through REST APIs and client library SDKs in popular development languages. Azure AI services enables developers to easily add cognitive features into their applications with cognitive solutions that can see, hear, speak, and analyze.
 
-## Types of Cognitive Services resources
+## Types of Azure AI services resources
 
 [!INCLUDE [cognitive-services-subscription-types](../../includes/cognitive-services-subscription-types.md)]
 
@@ -31,14 +31,14 @@ Azure Cognitive Services is cloud-based artificial intelligence (AI) services th
 
 ### [Multi-service](#tab/multiservice)
 
-The multi-service resource is named **Cognitive Services** in the portal. The multi-service resource enables access to the following Cognitive Services:
+The multi-service resource is named **Azure AI services** in the portal. The multi-service resource enables access to the following Azure AI services:
 
 * **Decision** - Content Moderator
 * **Language** - Language, Translator
 * **Speech** - Speech
-* **Vision** - Computer Vision, Custom Vision, Document Intelligence, Face
+* **Vision** - Azure AI Vision, Custom Vision, Document Intelligence, Face
 
-1. You can select this link to create an Azure Cognitive multi-service resource: [Create a Cognitive Services resource](https://portal.azure.com/#create/Microsoft.CognitiveServicesAllInOne).
+1. You can select this link to create an Azure Cognitive multi-service resource: [Create an Azure AI services resource](https://portal.azure.com/#create/Microsoft.CognitiveServicesAllInOne).
 
 1. On the **Create** page, provide the following information:
 
@@ -92,19 +92,19 @@ The multi-service resource is named **Cognitive Services** in the portal. The mu
 
 ## Clean up resources
 
-If you want to clean up and remove a Cognitive Services subscription, you can delete the resource or resource group. Deleting the resource group also deletes any other resources contained in the group.
+If you want to clean up and remove an Azure AI services subscription, you can delete the resource or resource group. Deleting the resource group also deletes any other resources contained in the group.
 
 1. In the Azure portal, expand the menu on the left side to open the menu of services, and choose **Resource Groups** to display the list of your resource groups.
 1. Locate the resource group containing the resource to be deleted.
 1. If you want to delete the entire resource group, select the resource group name. On the next page, Select **Delete resource group**, and confirm.
 1. If you want to delete only the Cognitive Service resource, select the resource group to see all the resources within it. On the next page, select the resource that you want to delete, select the ellipsis menu for that row, and select **Delete**.
 
-If you need to recover a deleted resource, see [Recover deleted Cognitive Services resources](manage-resources.md).
+If you need to recover a deleted resource, see [Recover deleted Azure AI services resources](manage-resources.md).
 
 ## See also
 
-* See **[Authenticate requests to Azure Cognitive Services](authentication.md)** on how to securely work with Cognitive Services.
-* See **[What are Azure Cognitive Services?](./what-are-cognitive-services.md)** to get a list of different categories within Cognitive Services.
-* See **[Natural language support](language-support.md)** to see the list of natural languages that Cognitive Services supports.
-* See **[Use Cognitive Services as containers](cognitive-services-container-support.md)** to understand how to use Cognitive Services on-premises.
-* See **[Plan and manage costs for Cognitive Services](plan-manage-costs.md)** to estimate cost of using Cognitive Services.
+* See **[Authenticate requests to Azure AI services](authentication.md)** on how to securely work with Azure AI services.
+* See **[What are Azure AI services?](./what-are-cognitive-services.md)** to get a list of different categories within Azure AI services.
+* See **[Natural language support](language-support.md)** to see the list of natural languages that Azure AI services supports.
+* See **[Use Azure AI services as containers](cognitive-services-container-support.md)** to understand how to use Azure AI services on-premises.
+* See **[Plan and manage costs for Azure AI services](plan-manage-costs.md)** to estimate cost of using Azure AI services.

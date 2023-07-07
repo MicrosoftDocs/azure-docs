@@ -26,9 +26,9 @@ items:
 - name: Responsible use of AI
   items:
   - name: Transparency note
-    href: /legal/cognitive-services/content-safety/transparency-note?context=/azure/cognitive-services/content-safety/context/context
+    href: /legal/cognitive-services/content-safety/transparency-note?context=/azure/ai-services/content-safety/context/context
   - name: Data, privacy, and security
-    href: /legal/cognitive-services/content-safety/data-privacy?context=/azure/cognitive-services/content-safety/context/context
+    href: /legal/cognitive-services/content-safety/data-privacy?context=/azure/ai-services/content-safety/context/context
 - name: How-to guides
   items:
   - name: Use a blocklist
@@ -38,7 +38,7 @@ items:
   - name: Enterprise readiness
     items:
       - name: Set up Virtual Networks
-        href: ../cognitive-services-virtual-networks.md?context=/azure/cognitive-services/content-safety/context/context
+        href: ../cognitive-services-virtual-networks.md?context=/azure/ai-services/content-safety/context/context
 - name: Concepts
   items:
   - name: Harm categories
@@ -60,7 +60,7 @@ items:
       - name: Compliance and certification
         href: https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/
   - name: Support and help options
-    href: ../cognitive-services-support-options.md?context=/azure/cognitive-services/content-safety/context/context
+    href: ../cognitive-services-support-options.md?context=/azure/ai-services/content-safety/context/context
   - name: Azure Government and global Azure
     href: ../../azure-government/compare-azure-government-global-azure.md
   - name: Azure updates

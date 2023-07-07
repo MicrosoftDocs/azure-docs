@@ -14,7 +14,7 @@ ms.custom: ignite-fall-2021
 # Manage QnA Maker app
 
 QnA Maker allows you to collaborate with different authors and content editors by offering a capability to restrict collaborator access based on the collaborator's role.
-Learn more about [QnA Maker collaborator authentication concepts](../Concepts/role-based-access-control.md).
+Learn more about [QnA Maker collaborator authentication concepts](../concepts/role-based-access-control.md).
 
 [!INCLUDE [Custom question answering](../includes/new-version.md)]
 
@@ -52,9 +52,9 @@ The following steps use the collaborator role but any of the roles can be added 
     |--|
     |Owner|
     |Contributor|
-    |Cognitive Services QnA Maker Reader|
-    |Cognitive Services QnA Maker Editor|
-    |Cognitive Services User|
+    |Azure AI QnA Maker Reader|
+    |Azure AI QnA Maker Editor|
+    |Azure AI services User|
 
     :::image type="content" source="../media/qnamaker-how-to-collaborate-knowledge-base/qnamaker-add-role-iam.png" alt-text="QnA Maker IAM add role.":::
 

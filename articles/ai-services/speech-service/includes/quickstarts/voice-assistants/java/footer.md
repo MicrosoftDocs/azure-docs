@@ -1,6 +1,6 @@
 ---
 title: "Quickstart: Recognize speech from a microphone, Java - Speech service"
-titleSuffix: Azure Cognitive Services
+titleSuffix: Azure AI services
 description: TBD
 services: cognitive-services
 author: trrwilson

@@ -1,6 +1,6 @@
 ---
 title: Data Loss Prevention
-description: Cognitive Services Data Loss Prevention capabilities allow customers to configure the list of outbound URLs their Cognitive Services resources are allowed to access. This configuration creates another level of control for customers to prevent data loss.
+description: Azure AI services Data Loss Prevention capabilities allow customers to configure the list of outbound URLs their Azure AI services resources are allowed to access. This configuration creates another level of control for customers to prevent data loss.
 author: gclarkmt
 ms.author: gregc
 ms.service: cognitive-services
@@ -9,13 +9,13 @@ ms.date: 03/31/2023
 ms.custom: template-concept
 ---
 
-# Configure data loss prevention for Azure Cognitive Services
+# Configure data loss prevention for Azure AI services
 
-Cognitive Services data loss prevention capabilities allow customers to configure the list of outbound URLs their Cognitive Services resources are allowed to access. This creates another level of control for customers to prevent data loss. In this article, we'll cover the steps required to enable the data loss prevention feature for Cognitive Services resources.
+Azure AI services data loss prevention capabilities allow customers to configure the list of outbound URLs their Azure AI services resources are allowed to access. This creates another level of control for customers to prevent data loss. In this article, we'll cover the steps required to enable the data loss prevention feature for Azure AI services resources.
 
 ## Prerequisites
 
-Before you make a request, you need an Azure account and an Azure Cognitive Services subscription. If you already have an account, go ahead and skip to the next section. If you don't have an account, we have a guide to get you set up in minutes: [Create a Cognitive Services account for Azure](cognitive-services-apis-create-account.md).
+Before you make a request, you need an Azure account and an Azure AI services subscription. If you already have an account, go ahead and skip to the next section. If you don't have an account, we have a guide to get you set up in minutes: [Create an Azure AI services account for Azure](cognitive-services-apis-create-account.md).
 
 You can get your subscription key from the [Azure portal](cognitive-services-apis-create-account.md#get-the-keys-for-your-resource) after [creating your account](https://azure.microsoft.com/free/cognitive-services/).
 
@@ -33,14 +33,14 @@ There are two parts to enable data loss prevention. First the property restrictO
 
 1. Install the [Azure CLI](/cli/azure/install-azure-cli) and [sign in](/cli/azure/authenticate-azure-cli), or select **Try it**.
 
-1. View the details of the Cognitive Services resource.
+1. View the details of the Azure AI services resource.
 
     ```azurecli-interactive
     az cognitiveservices account show \
         -g "myresourcegroup" -n "myaccount" \
     ```
 
-1. View the current properties of the Cognitive Services resource.
+1. View the current properties of the Azure AI services resource.
 
     ```azurecli-interactive
     az rest -m get \
@@ -59,7 +59,7 @@ There are two parts to enable data loss prevention. First the property restrictO
 
 1. Install the [Azure PowerShell](/powershell/azure/install-azure-powershell) and [sign in](/powershell/azure/authenticate-azureps), or select **Try it**.
 
-1. Display the current properties for Cognitive Services resource.
+1. Display the current properties for Azure AI services resource.
 
     ```azurepowershell-interactive
     $getParams = @{
@@ -95,7 +95,7 @@ There are two parts to enable data loss prevention. First the property restrictO
 The following services support data loss prevention configuration:
 
 * Azure OpenAI
-* Computer Vision
+* Azure AI Vision
 * Content Moderator
 * Custom Vision
 * Face

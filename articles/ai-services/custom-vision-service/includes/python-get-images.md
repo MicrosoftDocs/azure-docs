@@ -9,4 +9,4 @@
 
 ## Get the sample images
 
-This example uses the images from the [Cognitive Services Python SDK Samples](https://github.com/Azure-Samples/cognitive-services-python-sdk-samples/tree/master/samples/vision/images) repository on GitHub. Clone or download this repository to your development environment. Remember its folder location for a later step.
+This example uses the images from the [Azure AI services Python SDK Samples](https://github.com/Azure-Samples/cognitive-services-python-sdk-samples/tree/master/samples/vision/images) repository on GitHub. Clone or download this repository to your development environment. Remember its folder location for a later step.

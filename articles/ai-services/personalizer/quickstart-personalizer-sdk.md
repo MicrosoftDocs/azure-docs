@@ -10,13 +10,13 @@ ms.topic: quickstart
 ms.date: 02/02/2023
 ms.devlang: csharp, javascript, python
 ms.custom: cog-serv-seo-aug-2020, mode-api, devx-track-extended-java, devx-track-js, devx-track-python
-keywords: personalizer, Azure personalizer, machine learning
+keywords: personalizer, Azure AI Personalizer, machine learning
 zone_pivot_groups: programming-languages-set-six
 ---
 
 # Quickstart: Personalizer client library
 
-Get started with the Azure Personalizer client libraries to set up a basic learning loop. A learning loop is a system of decisions and feedback: an application requests a decision ranking from the service, then it uses the top-ranked choice and calculates a reward score from the outcome. It returns the reward score to the service. Over time, Personalizer uses AI algorithms to  make better decisions for any given context. Follow these steps to set up a sample application.
+Get started with the Azure AI Personalizer client libraries to set up a basic learning loop. A learning loop is a system of decisions and feedback: an application requests a decision ranking from the service, then it uses the top-ranked choice and calculates a reward score from the outcome. It returns the reward score to the service. Over time, Personalizer uses AI algorithms to  make better decisions for any given context. Follow these steps to set up a sample application.
 
 ## Example scenario
 
@@ -42,7 +42,7 @@ If you'd like download a Personalizer model that has been trained on 5,000 event
 
 ## Clean up resources
 
-To clean up your Cognitive Services subscription, you can delete the resource or delete the resource group, which will delete any associated resources.
+To clean up your Azure AI services subscription, you can delete the resource or delete the resource group, which will delete any associated resources.
 
 * [Portal](../cognitive-services-apis-create-account.md#clean-up-resources)
 * [Azure CLI](../cognitive-services-apis-create-account-cli.md#clean-up-resources)

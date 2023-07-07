@@ -220,7 +220,7 @@ In most modes, there's a visible delay between the live video on the left and th
 
 By using this approach, you can visualize the detected face immediately. You can then update the emotions later, after the API call returns. This demonstrates the possibility of a "hybrid" approach. That is, some simple processing can be performed on the client, and then Cognitive Services APIs can be used to augment this processing with more advanced analysis when necessary.
 
-![The LiveCameraSample app displaying an image with tags](../../Video/Images/FramebyFrame.jpg)
+![The LiveCameraSample app displaying an image with tags](../images/frame-by-frame.jpg)
 
 ### Integrate samples into your codebase
 

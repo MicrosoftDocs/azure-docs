@@ -21,7 +21,7 @@ The Speech SDK for Python is available as a [Python Package Index (PyPI) module]
 - On Linux, you must use the x64 target architecture.
 
 1. Install a version of [Python from 3.7 or later](https://www.python.org/downloads/). First check the [SDK installation guide](../../../quickstarts/setup-platform.md?pivots=programming-language-python) for any more requirements 
-1. You must also install [GStreamer](~/articles/cognitive-services/speech-service/how-to-use-codec-compressed-audio-input-streams.md) for compressed input audio.
+1. You must also install [GStreamer](~/articles/ai-services/speech-service/how-to-use-codec-compressed-audio-input-streams.md) for compressed input audio.
 
 ### Set environment variables
 

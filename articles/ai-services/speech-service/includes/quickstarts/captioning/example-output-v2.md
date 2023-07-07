@@ -6,7 +6,7 @@ ms.date: 10/03/2022
 ms.author: eur
 ---
 
-When you use the `realTime` option in the example above, the partial results from `Recognizing` events are included in the output. In this example, only the final `Recognized` event includes the commas. Commas aren't the only differences between `Recognizing` and `Recognized` events. For more information, see [Get partial results](~/articles/cognitive-services/speech-service/captioning-concepts.md#get-partial-results).
+When you use the `realTime` option in the example above, the partial results from `Recognizing` events are included in the output. In this example, only the final `Recognized` event includes the commas. Commas aren't the only differences between `Recognizing` and `Recognized` events. For more information, see [Get partial results](~/articles/ai-services/speech-service/captioning-concepts.md#get-partial-results).
 
 ```srt
 1
@@ -63,4 +63,4 @@ orange, yellow, green, blue,
 indigo and Violet.
 ```
 
-The [SRT](https://docs.fileformat.com/video/srt/) (SubRip Text) timespan output format is `hh:mm:ss,fff`. For more information, see [Caption output format](~/articles/cognitive-services/speech-service/captioning-concepts.md#caption-output-format).
+The [SRT](https://docs.fileformat.com/video/srt/) (SubRip Text) timespan output format is `hh:mm:ss,fff`. For more information, see [Caption output format](~/articles/ai-services/speech-service/captioning-concepts.md#caption-output-format).

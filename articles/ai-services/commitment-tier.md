@@ -1,5 +1,5 @@
 ---
-title: Create an Azure Cognitive Services resource with commitment tier pricing
+title: Create an Azure AI services resource with commitment tier pricing
 description: Learn how to sign up for commitment tier pricing, which is different than pay-as-you-go pricing.
 author: aahill
 ms.author: aahi
@@ -11,27 +11,27 @@ ms.date: 12/01/2022
 
 # Purchase commitment tier pricing
 
-Cognitive Services offers commitment tier pricing, each offering a discounted rate compared to the pay-as-you-go pricing model. With commitment tier pricing, you can commit to using the following Cognitive Services features for a fixed fee, enabling you to have a predictable total cost based on the needs of your workload:
+Azure AI services offers commitment tier pricing, each offering a discounted rate compared to the pay-as-you-go pricing model. With commitment tier pricing, you can commit to using the following Azure AI services features for a fixed fee, enabling you to have a predictable total cost based on the needs of your workload:
 
 * Speech to text (Standard)
 * Text to speech (Neural)
 * Text Translation (Standard)
 * Language Understanding standard (Text Requests)
-* Azure Cognitive Service for Language
+* Azure AI Language
   * Sentiment Analysis
   * Key Phrase Extraction
   * Language Detection
-* Computer Vision - OCR
+* Azure AI Vision - OCR
 
-Commitment tier pricing is also available for the following Azure AI service:
+Commitment tier pricing is also available for the following Applied AI service:
 
 * Document Intelligence – Custom/Invoice
 
-For more information, see [Azure Cognitive Services pricing](https://azure.microsoft.com/pricing/details/cognitive-services/).
+For more information, see [Azure AI services pricing](https://azure.microsoft.com/pricing/details/cognitive-services/).
 
 ## Create a new resource
 
-1. Sign into the [Azure portal](https://portal.azure.com/) and select **Create a new resource** for one of the applicable Cognitive Services or Azure AI services listed above.
+1. Sign into the [Azure portal](https://portal.azure.com/) and select **Create a new resource** for one of the applicable Azure AI services or Azure AI services listed above. 
 
 2. Enter the applicable information to create your resource. Be sure to select the standard pricing tier.
 
@@ -48,7 +48,7 @@ For more information, see [Azure Cognitive Services pricing](https://azure.micro
 2. In your Azure resource for one of the applicable features listed above, select **Commitment tier pricing**.
 3. Select **Change** to view the available commitments for hosted API and container usage. Choose a commitment plan for one or more of the following offerings:
     * **Web**: web-based APIs, where you send data to Azure for processing.
-    * **Connected container**: Docker containers that enable you to [deploy Cognitive services on premises](cognitive-services-container-support.md), and maintain an internet connection for billing and metering.
+    * **Connected container**: Docker containers that enable you to [deploy Azure AI services on premises](cognitive-services-container-support.md), and maintain an internet connection for billing and metering.
 
     :::image type="content" source="media/commitment-tier/commitment-tier-pricing.png" alt-text="A screenshot showing the commitment tier pricing page on the Azure portal." lightbox="media/commitment-tier/commitment-tier-pricing.png":::
 
@@ -82,4 +82,4 @@ If you decide that you don't want to continue purchasing a commitment plan, you 
 
 ## See also
 
-* [Azure Cognitive Services pricing](https://azure.microsoft.com/pricing/details/cognitive-services/).
+* [Azure AI services pricing](https://azure.microsoft.com/pricing/details/cognitive-services/).

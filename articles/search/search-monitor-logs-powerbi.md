@@ -1,7 +1,6 @@
 ---
 title: Visualize logs and metrics with Power BI
 description: Visualize Azure Cognitive Search logs and metrics with Power BI.
-
 author: gmndrg
 ms.author: gimondra
 manager: nitinme

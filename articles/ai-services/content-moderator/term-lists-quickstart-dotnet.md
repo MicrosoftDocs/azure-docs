@@ -1,11 +1,10 @@
 ---
 title: "Check text against a custom term list in C# - Content Moderator"
-titleSuffix: Azure Cognitive Services
+titleSuffix: Azure AI services
 description: How to moderate text with custom term lists using the Content Moderator SDK for C#.
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
-
 ms.service: cognitive-services
 ms.subservice: content-moderator
 ms.topic: how-to
@@ -17,7 +16,7 @@ ms.custom: devx-track-csharp, devx-track-dotnet
 
 # Check text against a custom term list in C#
 
-The default global list of terms in Azure Content Moderator is sufficient for most content moderation needs. However, you might need to screen for terms that are specific to your organization.
+The default global list of terms in Azure AI Content Moderator is sufficient for most content moderation needs. However, you might need to screen for terms that are specific to your organization.
 
 You can use the [Content Moderator SDK for .NET](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.ContentModerator/) to create custom lists of terms to use with the Text Moderation API.
 
@@ -108,7 +107,7 @@ public static class Clients
 ```
 
 > [!IMPORTANT]
-> Remember to remove the key from your code when you're done, and never post it publicly. For production, use a secure way of storing and accessing your credentials like [Azure Key Vault](../../key-vault/general/overview.md). See the Cognitive Services [security](../security-features.md) article for more information.
+> Remember to remove the key from your code when you're done, and never post it publicly. For production, use a secure way of storing and accessing your credentials like [Azure Key Vault](../../key-vault/general/overview.md). See the Azure AI services [security](../security-features.md) article for more information.
 
 ### Add private properties
 

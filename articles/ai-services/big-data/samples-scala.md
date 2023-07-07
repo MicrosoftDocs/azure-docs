@@ -1,6 +1,6 @@
 ---
-title: "Cognitive Services for big data Scala Samples"
-description: Use Cognitive Services for Azure Databricks to run your MMLSpark pipeline for big data.
+title: "Azure AI services for big data Scala Samples"
+description: Use Azure AI services for Azure Databricks to run your MMLSpark pipeline for big data.
 services: cognitive-services
 author: mhamilton723
 manager: nitinme
@@ -13,18 +13,18 @@ ms.devlang: scala
 
 # Quick Examples
 
-The following snippets are ready to run and will help get you started with using Cognitive Services on Spark. The samples below are in Scala.
+The following snippets are ready to run and will help get you started with using Azure AI services on Spark. The samples below are in Scala.
 
-The samples use these Cognitive Services:
+The samples use these Azure AI services:
 
 - Language service - get the sentiment (or mood) of a set of sentences.
-- Computer Vision - get the tags (one-word descriptions) associated with a set of images.
+- Azure AI Vision - get the tags (one-word descriptions) associated with a set of images.
 - Speech to text - transcribe audio files to extract text-based transcripts.
 - Anomaly Detector - detect anomalies within a time series data.
 
 ## Prerequisites
 
-1. Follow the steps in [Getting started](getting-started.md) to set up your Azure Databricks and Cognitive Services environment. This tutorial will include how to install MMLSpark and how to create your Spark cluster in Databricks.
+1. Follow the steps in [Getting started](getting-started.md) to set up your Azure Databricks and Azure AI services environment. This tutorial will include how to install MMLSpark and how to create your Spark cluster in Databricks.
 1. After you create a new notebook in Azure Databricks, copy the **Shared code** below and paste into a new cell in your notebook.
 1. Choose a service sample, below, and copy paste it into a second new cell in your notebook.
 1. Replace any of the service subscription key placeholders with your own key.
@@ -52,7 +52,7 @@ import org.apache.spark.sql.functions.col
 val df = Seq(
   ("I am so happy today, its sunny!", "en-US"),
   ("I am frustrated by this rush hour traffic", "en-US"),
-  ("The cognitive services on spark aint bad", "en-US")
+  ("The Azure AI services on spark aint bad", "en-US")
 ).toDF("text", "language")
 
 val sentiment = new TextSentiment()
@@ -72,11 +72,11 @@ display(sentiment.transform(df).select(col("text"), col("sentiment")(0).getItem(
 |:------------------------------------------|:------------------------------------------------------|
 | I am so happy today, its sunny!           | 0.9789592027664185                                    |
 | I am frustrated by this rush hour traffic | 0.023795604705810547                                  |
-| The cognitive services on spark aint bad  | 0.8888956308364868                                    |
+| The Azure AI services on spark aint bad  | 0.8888956308364868                                    |
 
-## Computer Vision
+## Azure AI Vision
 
-[Computer Vision](../computer-vision/index.yml) analyzes images to identify structure such as faces, objects, and natural-language descriptions.
+[Azure AI Vision](../computer-vision/index.yml) analyzes images to identify structure such as faces, objects, and natural-language descriptions.
  In this sample, we tag a list of images. Tags are one-word descriptions of things in the image like recognizable objects, people, scenery, and actions.
 
 ```scala
@@ -87,7 +87,7 @@ val df = Seq(
     ("https://raw.githubusercontent.com/Azure-Samples/cognitive-services-sample-data-files/master/ComputerVision/Images/house.jpg")
 ).toDF("image")
 
-// Run the Computer Vision service. Analyze Image extracts infortmation from/about the images.
+// Run the Azure AI Vision service. Analyze Image extracts infortmation from/about the images.
 val analysis = new AnalyzeImage()
     .setLocation(location)
     .setSubscriptionKey(serviceKey)

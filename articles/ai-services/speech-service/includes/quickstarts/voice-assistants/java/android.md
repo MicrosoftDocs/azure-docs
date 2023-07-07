@@ -1,6 +1,6 @@
 ---
 title: 'Quickstart: Create a custom voice assistant, Java (Android) - Speech service'
-titleSuffix: Azure Cognitive Services
+titleSuffix: Azure AI services
 description: Learn how to create a custom voice assistant in Java on Android by using the Speech SDK.
 services: cognitive-services
 author: trrwilson
@@ -17,13 +17,13 @@ ms.author: travisw
 Before you get started, make sure to:
 
 > [!div class="checklist"]
-> * [Create a Speech resource](~/articles/cognitive-services/cognitive-services-apis-create-account.md#get-the-keys-for-your-resource)
-> * [Set up your development environment and create an empty project](~/articles/cognitive-services/speech-service/quickstarts/setup-platform.md?tabs=android&pivots=programming-language-java)
+> * [Create a Speech resource](~/articles/ai-services/cognitive-services-apis-create-account.md#get-the-keys-for-your-resource)
+> * [Set up your development environment and create an empty project](~/articles/ai-services/speech-service/quickstarts/setup-platform.md?tabs=android&pivots=programming-language-java)
 > * Create a bot connected to the [Direct Line Speech channel](/azure/bot-service/bot-service-channel-connect-directlinespeech)
 > * Make sure that you have access to a microphone for audio capture
 
   > [!NOTE]
-  > Please refer to [the list of supported regions for voice assistants](~/articles/cognitive-services/speech-service/regions.md#voice-assistants) and ensure your resources are deployed in one of those regions.
+  > Please refer to [the list of supported regions for voice assistants](~/articles/ai-services/speech-service/regions.md#voice-assistants) and ensure your resources are deployed in one of those regions.
 
 ## Create and configure a project
 
@@ -90,7 +90,7 @@ This XML defines a simple UI to interact with your bot.
 
 The text and graphical representation of your UI should now look like this:
 
-![Screenshot of how your Talk to your bot UI should look.](~/articles/cognitive-services/speech-service/media/sdk/qs-java-android-assistant-designer-ui.png)
+![Screenshot of how your Talk to your bot UI should look.](~/articles/ai-services/speech-service/media/sdk/qs-java-android-assistant-designer-ui.png)
 
 ## Add sample code
 
@@ -246,7 +246,7 @@ The text and graphical representation of your UI should now look like this:
 
     * Replace `YourSpeechSubscriptionKey` with your subscription key.
 
-    * Replace `YourServiceRegion` with the [region](~/articles/cognitive-services/speech-service/regions.md) associated with your subscription Only a subset of Speech service regions are currently supported with Direct Line Speech. For more information, see [regions](~/articles/cognitive-services/speech-service/regions.md#voice-assistants).
+    * Replace `YourServiceRegion` with the [region](~/articles/ai-services/speech-service/regions.md) associated with your subscription Only a subset of Speech service regions are currently supported with Direct Line Speech. For more information, see [regions](~/articles/ai-services/speech-service/regions.md#voice-assistants).
 
 ## Build and run the app
 
@@ -258,11 +258,11 @@ The text and graphical representation of your UI should now look like this:
 
 1. In the deployment target window that appears, choose your Android device.
 
-   ![Screenshot of Select Deployment Target window](~/articles/cognitive-services/speech-service/media/sdk/qs-java-android-12-deploy.png)
+   ![Screenshot of Select Deployment Target window](~/articles/ai-services/speech-service/media/sdk/qs-java-android-12-deploy.png)
 
 Once the application and its activity have launched, click the button to begin talking to your bot. Transcribed text will appear as you speak and the latest activity have you received from your bot will appear when it is received. If your bot is configured to provide spoken responses, the speech to text will automatically play.
 
-![Screenshot of the Android application](~/articles/cognitive-services/speech-service/media/sdk/qs-java-android-assistant-completed-turn.png)
+![Screenshot of the Android application](~/articles/ai-services/speech-service/media/sdk/qs-java-android-assistant-completed-turn.png)
 
 ## Next steps
 

@@ -70,7 +70,7 @@ Follow these steps to recognize speech in a macOS application.
     NSString *serviceRegion = [[[NSProcessInfo processInfo] environment] objectForKey:@"SPEECH_REGION"];
     ```
 
-1. To change the speech recognition language, replace `en-US` with another [supported language](~/articles/cognitive-services/speech-service/supported-languages.md). For example, `es-ES` for Spanish (Spain). The default language is `en-US` if you don't specify a language. For details about how to identify one of multiple languages that might be spoken, see [language identification](~/articles/cognitive-services/speech-service/language-identification.md). 
+1. To change the speech recognition language, replace `en-US` with another [supported language](~/articles/ai-services/speech-service/language-support.md). For example, `es-ES` for Spanish (Spain). The default language is `en-US` if you don't specify a language. For details about how to identify one of multiple languages that might be spoken, see [language identification](~/articles/ai-services/speech-service/language-identification.md). 
 1. Make the debug output visible (**View** > **Debug Area** > **Activate Console**).
 1. Build and run the example code by selecting **Product** > **Run** from the menu or selecting the **Play** button.
 
@@ -82,7 +82,7 @@ After you select the button in the app and say a few words, you should see the t
 ## Remarks
 Now that you've completed the quickstart, here are some additional considerations:
 
-- This example uses the `recognizeOnce` operation to transcribe utterances of up to 30 seconds, or until silence is detected. For information about continuous recognition for longer audio, including multi-lingual conversations, see [How to recognize speech](~/articles/cognitive-services/speech-service/how-to-recognize-speech.md).
+- This example uses the `recognizeOnce` operation to transcribe utterances of up to 30 seconds, or until silence is detected. For information about continuous recognition for longer audio, including multi-lingual conversations, see [How to recognize speech](~/articles/ai-services/speech-service/how-to-recognize-speech.md).
 - To recognize speech from an audio file, use `initWithWavFileInput` instead of `initWithMicrophone`:
     ```ObjectiveC
     SPXAudioConfiguration *audioConfig = [[SPXAudioConfiguration alloc] initWithWavFileInput:YourAudioFile];

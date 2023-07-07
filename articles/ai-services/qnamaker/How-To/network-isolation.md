@@ -13,7 +13,7 @@ ms.custom: ignite-fall-2021
 
 # Recommended settings for network isolation
 
-Follow the steps below to restrict public access to QnA Maker resources. Protect a Cognitive Services resource from public access by [configuring the virtual network](../../cognitive-services-virtual-networks.md?tabs=portal).
+Follow the steps below to restrict public access to QnA Maker resources. Protect an Azure AI services resource from public access by [configuring the virtual network](../../cognitive-services-virtual-networks.md?tabs=portal).
 
 [!INCLUDE [Custom question answering](../includes/new-version.md)]
 
@@ -27,7 +27,7 @@ You can use the ServiceTag `CognitiveServicesMangement` to restrict inbound acce
 2. Run the following command in the PowerShell window at the bottom of the page:
 
 ```ps
-Add-AzWebAppAccessRestrictionRule -ResourceGroupName "<resource group name>" -WebAppName "<app service name>" -Name "cognitive services Tag" -Priority 100 -Action Allow -ServiceTag "CognitiveServicesManagement" 
+Add-AzWebAppAccessRestrictionRule -ResourceGroupName "<resource group name>" -WebAppName "<app service name>" -Name "Azure AI services Tag" -Priority 100 -Action Allow -ServiceTag "CognitiveServicesManagement" 
 ```
 3.  Verify the added access rule is present in the **Access Restrictions** section of the **Networking** tab:  
 
@@ -71,7 +71,7 @@ The App Service Environment (ASE) can be used to host the QnA Maker App Service 
     > [!div class="mx-imgBorder"]
     > [ ![Screenshot of CORS interface within App Service UI]( ../media/network-isolation/cross-orgin-resource-sharing.png) ](  ../media/network-isolation/cross-orgin-resource-sharing.png#lightbox)
 
-5. Create a QnA Maker Cognitive Services instance (Microsoft.CognitiveServices/accounts) using Azure Resource Manager. The QnA Maker endpoint should be set to the App Service Endpoint created above (`https:// mywebsite.myase.p.azurewebsite.net`). Here is a [sample Azure Resource Manager template you can use for reference](https://github.com/pchoudhari/QnAMakerBackupRestore/tree/master/QnAMakerASEArmTemplate).
+5. Create a QnA Maker Azure AI services instance (Microsoft.CognitiveServices/accounts) using Azure Resource Manager. The QnA Maker endpoint should be set to the App Service Endpoint created above (`https:// mywebsite.myase.p.azurewebsite.net`). Here is a [sample Azure Resource Manager template you can use for reference](https://github.com/pchoudhari/QnAMakerBackupRestore/tree/master/QnAMakerASEArmTemplate).
 
 ### Related questions
 
@@ -117,7 +117,7 @@ The Cognitive Search instance can be isolated via a private endpoint after the Q
 
 [Create Private endpoints](../reference-private-endpoint.md) to the Azure Search resource.
 
-Follow the steps below to restrict public access to QnA Maker resources. Protect a Cognitive Services resource from public access by [configuring the virtual network](../../cognitive-services-virtual-networks.md?tabs=portal).
+Follow the steps below to restrict public access to QnA Maker resources. Protect an Azure AI services resource from public access by [configuring the virtual network](../../cognitive-services-virtual-networks.md?tabs=portal).
 
 After restricting access to Cognitive Service resource based on VNet, To browse knowledgebases on the https://qnamaker.ai portal from your on-premises network or your local browser.
 - Grant access to [on-premises network](../../cognitive-services-virtual-networks.md?tabs=portal#configuring-access-from-on-premises-networks).

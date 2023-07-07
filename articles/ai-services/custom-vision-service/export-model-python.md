@@ -1,6 +1,6 @@
 ---
 title: "Tutorial: Run TensorFlow model in Python - Custom Vision Service"
-titleSuffix: Azure Cognitive Services
+titleSuffix: Azure AI services
 description: Run a TensorFlow model in Python. This article only applies to models exported from image classification projects in the Custom Vision service.
 services: cognitive-services
 author: PatrickFarley

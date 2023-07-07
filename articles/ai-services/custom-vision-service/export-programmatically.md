@@ -1,6 +1,6 @@
 ---
 title: "Export a model programmatically"
-titleSuffix: Azure Cognitive Services
+titleSuffix: Azure AI services
 description: Use the Custom Vision client library to export a trained model.
 services: cognitive-services
 author: PatrickFarley
@@ -33,7 +33,7 @@ trainer = CustomVisionTrainingClient(ENDPOINT, credentials)
 ```
 
 > [!IMPORTANT]
-> Remember to remove the keys from your code when youre done, and never post them publicly. For production, consider using a secure way of storing and accessing your credentials. For more information, see the Cognitive Services [security](../security-features.md) article.
+> Remember to remove the keys from your code when youre done, and never post them publicly. For production, consider using a secure way of storing and accessing your credentials. For more information, see the Azure AI services [security](../security-features.md) article.
 
 ## Call the export method
 

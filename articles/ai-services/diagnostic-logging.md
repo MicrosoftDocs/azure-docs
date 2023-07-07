@@ -1,7 +1,7 @@
 ---
 title: Diagnostic logging
-titleSuffix: Azure Cognitive Services
-description: This guide provides step-by-step instructions to enable diagnostic logging for an Azure Cognitive Service. These logs provide rich, frequent data about the operation of a resource that are used for issue identification and debugging.
+titleSuffix: Azure AI services
+description: This guide provides step-by-step instructions to enable diagnostic logging for an Azure AI service. These logs provide rich, frequent data about the operation of a resource that are used for issue identification and debugging.
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
@@ -11,9 +11,9 @@ ms.date: 07/19/2021
 ms.author: pafarley
 ---
 
-# Enable diagnostic logging for Azure Cognitive Services
+# Enable diagnostic logging for Azure AI services
 
-This guide provides step-by-step instructions to enable diagnostic logging for an Azure Cognitive Service. These logs provide rich, frequent data about the operation of a resource that are used for issue identification and debugging. Before you continue, you must have an Azure account with a subscription to at least one Cognitive Service, such as [Speech Services](./speech-service/overview.md), or [LUIS](./luis/what-is-luis.md).
+This guide provides step-by-step instructions to enable diagnostic logging for an Azure AI service. These logs provide rich, frequent data about the operation of a resource that are used for issue identification and debugging. Before you continue, you must have an Azure account with a subscription to at least one Cognitive Service, such as [Speech Services](./speech-service/overview.md), or [LUIS](./luis/what-is-luis.md).
 
 ## Prerequisites
 
@@ -33,7 +33,7 @@ Let's start by enabling diagnostic logging using the Azure portal.
 > [!NOTE]
 > To enable this feature using PowerShell or the Azure CLI, use the instructions provided in [Collect and consume log data from your Azure resources](../azure-monitor/essentials/platform-logs-overview.md).
 
-1. Navigate to the Azure portal. Then locate and select a Cognitive Services resource. For example, your subscription to Speech Services.   
+1. Navigate to the Azure portal. Then locate and select an Azure AI services resource. For example, your subscription to Speech Services.   
 2. Next, from the left-hand navigation menu, locate **Monitoring** and select **Diagnostic settings**. This screen contains all previously created diagnostic settings for this resource.
 3. If there is a previously created resource that you'd like to use, you can select it now. Otherwise, select **+ Add diagnostic setting**.
 4. Enter a name for the setting. Then select **Archive to a storage account** and **Send to log Analytics**.
@@ -66,7 +66,7 @@ Follow these instructions to explore log analytics data for your resource.
 
 Here are a few basic Kusto queries you can use to explore your log data.
 
-Run this query for all diagnostic logs from Azure Cognitive Services for a specified time period:
+Run this query for all diagnostic logs from Azure AI services for a specified time period:
 
 ```kusto
 AzureDiagnostics

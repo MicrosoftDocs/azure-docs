@@ -84,7 +84,7 @@ However, when scoped at a higher level you often need to add additional filters 
 
 :::image type="content" source="../media/manage-costs/subscription.png" alt-text="Screenshot of cost analysis dashboard with scope set to subscription." lightbox="../media/manage-costs/subscription.png":::
 
-If you try to add a filter by service, you'll find that you can't find Azure OpenAI in the list. This is because technically Azure OpenAI is part of Cognitive Services so the service level filter is **Cognitive Services**, but if you want to see all Azure OpenAI resources across a subscription without any other type of Cognitive Services resources you need to instead scope to **Service tier: Azure OpenAI**:
+If you try to add a filter by service, you'll find that you can't find Azure OpenAI in the list. This is because Azure OpenAI has commonality with a subset of Azure AI services where the service level filter is **Cognitive Services**, but if you want to see all Azure OpenAI resources across a subscription without any other type of Azure AI services resources you need to instead scope to **Service tier: Azure OpenAI**:
 
 :::image type="content" source="../media/manage-costs/service-tier.png" alt-text="Screenshot of cost analysis dashboard with service tier highlighted." lightbox="../media/manage-costs/service-tier.png":::
 

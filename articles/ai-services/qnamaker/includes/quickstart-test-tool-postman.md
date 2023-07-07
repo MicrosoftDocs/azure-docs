@@ -20,11 +20,11 @@ This Postman-based quickstart walks you through getting an answer from your know
 
 > * A [QnA Maker resource](https://portal.azure.com/#create/Microsoft.CognitiveServicesQnAMaker) created in the Azure portal. Remember your Azure Active Directory ID, Subscription, QnA resource name you selected when you created the resource.
 
-   * A trained and published knowledge base with questions and answers, from the previous [quickstart](../Quickstarts/add-question-metadata-portal.md), configured with metadata and Chit chat.
+   * A trained and published knowledge base with questions and answers, from the previous [quickstart](../quickstarts/add-question-metadata-portal.md), configured with metadata and Chit chat.
 
 
 > [!NOTE]
-> When you are ready to generate an answer to a question from your knowledge base, you must [train](../Quickstarts/create-publish-knowledge-base.md#save-and-train) and [publish](../Quickstarts/create-publish-knowledge-base.md#publish-the-knowledge-base) your knowledge base. When your knowledge base is published, the **Publish** page displays the HTTP request settings to generate an answer. The **Postman** tab shows the settings required to generate an answer.
+> When you are ready to generate an answer to a question from your knowledge base, you must [train](../quickstarts/create-publish-knowledge-base.md#save-and-train) and [publish](../quickstarts/create-publish-knowledge-base.md#publish-the-knowledge-base) your knowledge base. When your knowledge base is published, the **Publish** page displays the HTTP request settings to generate an answer. The **Postman** tab shows the settings required to generate an answer.
 
 ## Set up Postman for requests
 
@@ -43,7 +43,7 @@ Use this procedure to configure Postman, then read each subsequent section to co
     ||`{"question":"<Your question>"}`|The body of the POST request as a JSON object. This value will change in each following section depending on what the query is meant to do.|
 
     > [!IMPORTANT]
-    > Remember to remove the key from your code when you're done, and never post it publicly. For production, use a secure way of storing and accessing your credentials like [Azure Key Vault](../../../key-vault/general/overview.md). See the Cognitive Services [security](../../security-features.md) article for more information.
+    > Remember to remove the key from your code when you're done, and never post it publicly. For production, use a secure way of storing and accessing your credentials like [Azure Key Vault](../../../key-vault/general/overview.md). See the Azure AI services [security](../../security-features.md) article for more information.
 
 1. Open Postman and create a new basic **POST** request with your published knowledge base settings. In the following sections, alter the POST body JSON to change the query to your knowledge base.
 
@@ -79,10 +79,10 @@ In a previous quickstart, metadata was added to two QnA pairs to distinguish bet
                     "What is the max size of a knowledge base?",
                     "How many GB of data can a knowledge base hold?"
                 ],
-                "answer": "The size of the knowledge base depends on the SKU of Azure search you choose when creating the QnA Maker service. Read [here](../Concepts/azure-resources.md) for more details.",
+                "answer": "The size of the knowledge base depends on the SKU of Azure search you choose when creating the QnA Maker service. Read [here](../concepts/azure-resources.md) for more details.",
                 "score": 68.76,
                 "id": 3,
-                "source": "https://learn.microsoft.com/azure/cognitive-services/qnamaker/troubleshooting",
+                "source": "https://learn.microsoft.com/azure/ai-services/qnamaker/troubleshooting",
                 "metadata": [
                     {
                         "name": "link_in_answer",
@@ -136,7 +136,7 @@ Debug information helps you understand how the returned answer was determined. W
                 "answer": "Sharing works at the level of a QnA Maker service, that is, all knowledge bases in the service will be shared.",
                 "score": 56.07,
                 "id": 5,
-                "source": "https://learn.microsoft.com/azure/cognitive-services/qnamaker/troubleshooting",
+                "source": "https://learn.microsoft.com/azure/ai-services/qnamaker/troubleshooting",
                 "metadata": [],
                 "context": {
                     "isContextOnly": false,
@@ -382,10 +382,10 @@ You can request a minimum threshold for the answer. If the threshold is not met,
                     "What is the max size of a knowledge base?",
                     "How many GB of data can a knowledge base hold?"
                 ],
-                "answer": "The size of the knowledge base depends on the SKU of Azure search you choose when creating the QnA Maker service. Read [here](../Concepts/azure-resources.md) for more details.",
+                "answer": "The size of the knowledge base depends on the SKU of Azure search you choose when creating the QnA Maker service. Read [here](../concepts/azure-resources.md) for more details.",
                 "score": 71.1,
                 "id": 3,
-                "source": "https://learn.microsoft.com/azure/cognitive-services/qnamaker/troubleshooting",
+                "source": "https://learn.microsoft.com/azure/ai-services/qnamaker/troubleshooting",
                 "metadata": [
                     {
                         "name": "link_in_answer",

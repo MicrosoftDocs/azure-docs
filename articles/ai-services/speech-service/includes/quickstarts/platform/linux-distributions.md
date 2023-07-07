@@ -48,7 +48,7 @@ sudo yum install alsa-lib openssl wget
 ```
 
 > [!IMPORTANT]
-> - On RHEL/CentOS 7, follow the instructions on [how to configure RHEL/CentOS 7 for Speech SDK](~/articles/cognitive-services/speech-service/how-to-configure-rhel-centos-7.md).
-> - On RHEL/CentOS 8, follow the instructions on [how to configure OpenSSL for Linux](~/articles/cognitive-services/speech-service/how-to-configure-openssl-linux.md).
+> - On RHEL/CentOS 7, follow the instructions on [how to configure RHEL/CentOS 7 for Speech SDK](~/articles/ai-services/speech-service/how-to-configure-rhel-centos-7.md).
+> - On RHEL/CentOS 8, follow the instructions on [how to configure OpenSSL for Linux](~/articles/ai-services/speech-service/how-to-configure-openssl-linux.md).
 
 ---

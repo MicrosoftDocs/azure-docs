@@ -1,7 +1,7 @@
 ---
 title: "Content Moderator REST API quickstart"
-titleSuffix: Azure Cognitive Services
-description: In this quickstart, learn how to get started with the Azure Content Moderator REST API. Build content filtering software into your app to comply with regulations or maintain the intended environment for your users.
+titleSuffix: Azure AI services
+description: In this quickstart, learn how to get started with the Azure AI Content Moderator REST API. Build content filtering software into your app to comply with regulations or maintain the intended environment for your users.
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
@@ -12,7 +12,7 @@ ms.date: 12/08/2020
 ms.author: pafarley
 ---
 
-Get started with the Azure Content Moderator REST API. 
+Get started with the Azure AI Content Moderator REST API. 
 
 Content Moderator is an AI service that lets you handle content that is potentially offensive, risky, or otherwise undesirable. Use the AI-powered content moderation service to scan text, image, and videos and apply content flags automatically. Build content filtering software into your app to comply with regulations or maintain the intended environment for your users.
 
@@ -40,7 +40,7 @@ Copy the command to a text editor and make the following changes:
 
 1. Assign `Ocp-Apim-Subscription-Key` to your valid Face subscription key.
    > [!IMPORTANT]
-   > Remember to remove the key from your code when you're done, and never post it publicly. For production, use a secure way of storing and accessing your credentials like [Azure Key Vault](../../../../key-vault/general/overview.md). See the Cognitive Services [security](../../../security-features.md) article for more information.
+   > Remember to remove the key from your code when you're done, and never post it publicly. For production, use a secure way of storing and accessing your credentials like [Azure Key Vault](../../../../key-vault/general/overview.md). See the Azure AI services [security](../../../security-features.md) article for more information.
 1. Change the first part of the query URL to match the endpoint that corresponds to your subscription key.
    [!INCLUDE [subdomains-note](../../../../../includes/cognitive-services-custom-subdomains-note.md)]
 1. Optionally change the body of the request to whatever string of text you'd like to analyze.
@@ -164,7 +164,7 @@ For more information on the image attributes that Content Moderator screens for,
 
 ## Clean up resources
 
-If you want to clean up and remove a Cognitive Services subscription, you can delete the resource or resource group. Deleting the resource group also deletes any other resources associated with it.
+If you want to clean up and remove an Azure AI services subscription, you can delete the resource or resource group. Deleting the resource group also deletes any other resources associated with it.
 
 * [Portal](../../../cognitive-services-apis-create-account.md#clean-up-resources)
 * [Azure CLI](../../../cognitive-services-apis-create-account-cli.md#clean-up-resources)

@@ -1,6 +1,6 @@
 ---
-title: Plan to manage costs for Azure Cognitive Services
-description: Learn how to plan for and manage costs for Azure Cognitive Services by using cost analysis in the Azure portal.
+title: Plan to manage costs for Azure AI services
+description: Learn how to plan for and manage costs for Azure AI services by using cost analysis in the Azure portal.
 author: PatrickFarley
 ms.author: pafarley
 ms.custom: subject-cost-optimization
@@ -10,9 +10,9 @@ ms.date: 11/03/2021
 ---
 
 
-# Plan and manage costs for Azure Cognitive Services
+# Plan and manage costs for Azure AI services
 
-This article describes how you plan for and manage costs for Azure Cognitive Services. First, you use the Azure pricing calculator to help plan for Cognitive Services costs before you add any resources for the service to estimate costs. Next, as you add Azure resources, review the estimated costs. After you've started using Cognitive Services resources (for example Speech, Computer Vision, LUIS, Language service, Translator, etc.), use Cost Management features to set budgets and monitor costs. You can also review forecasted costs and identify spending trends to identify areas where you might want to act. Costs for Cognitive Services are only a portion of the monthly costs in your Azure bill. Although this article explains how to plan for and manage costs for Cognitive Services, you're billed for all Azure services and resources used in your Azure subscription, including the third-party services.
+This article describes how you plan for and manage costs for Azure AI services. First, you use the Azure pricing calculator to help plan for Azure AI services costs before you add any resources for the service to estimate costs. Next, as you add Azure resources, review the estimated costs. After you've started using Azure AI services resources (for example Speech, Azure AI Vision, LUIS, Language service, Translator, etc.), use Cost Management features to set budgets and monitor costs. You can also review forecasted costs and identify spending trends to identify areas where you might want to act. Costs for Azure AI services are only a portion of the monthly costs in your Azure bill. Although this article explains how to plan for and manage costs for Azure AI services, you're billed for all Azure services and resources used in your Azure subscription, including the third-party services.
 
 ## Prerequisites
 
@@ -20,30 +20,30 @@ Cost analysis in Cost Management supports most Azure account types, but not all 
 
 <!--Note for Azure service writer: If you have other prerequisites for your service, insert them here -->
 
-## Estimate costs before using Cognitive Services
+## Estimate costs before using Azure AI services
 
-Use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator/) to estimate costs before you add Cognitive Services.
+Use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator/) to estimate costs before you add Azure AI services.
 
-:::image type="content" source="media/cognitive-services-pricing-calculator.png" alt-text="Azure Pricing calculator for Cognitive Services" border="true":::
+:::image type="content" source="media/cognitive-services-pricing-calculator.png" alt-text="Azure Pricing calculator for Azure AI services" border="true":::
 
 As you add new resources to your workspace, return to this calculator and add the same resource here to update your cost estimates.
 
-For more information, see [Azure Cognitive Services pricing](https://azure.microsoft.com/pricing/details/cognitive-services/).
+For more information, see [Azure AI services pricing](https://azure.microsoft.com/pricing/details/cognitive-services/).
 
-## Understand the full billing model for Cognitive Services
+## Understand the full billing model for Azure AI services
 
-Cognitive Services runs on Azure infrastructure that [accrues costs](https://azure.microsoft.com/pricing/details/cognitive-services/) when you deploy the new resource. It's important to understand that more infrastructure might accrue costs. You need to manage that cost when you make changes to deployed resources. 
+Azure AI services runs on Azure infrastructure that [accrues costs](https://azure.microsoft.com/pricing/details/cognitive-services/) when you deploy the new resource. It's important to understand that more infrastructure might accrue costs. You need to manage that cost when you make changes to deployed resources. 
 
-When you create or use Cognitive Services resources, you might get charged based on the services that you use. There are two billing models available for Cognitive Services: pay-as-you-go, and commitment tier.
+When you create or use Azure AI services resources, you might get charged based on the services that you use. There are two billing models available for Azure AI services: pay-as-you-go, and commitment tier.
 
 ## Pay-as-you-go
 
-With Pay-As-You-Go pricing, you are billed according to the Cognitive Services offering you use, based on its billing information.
+With Pay-As-You-Go pricing, you are billed according to the Azure AI services offering you use, based on its billing information.
 
 | Service | Instance(s) | Billing information | 
 |---------|-------|---------------------|
 | **Vision** | | |
-| [Computer Vision](https://azure.microsoft.com/pricing/details/cognitive-services/computer-vision/) | Free, Standard (S1) | Billed by the number of transactions. Price per transaction varies per feature (Read, OCR, Spatial Analysis). For full details, see [Pricing](https://azure.microsoft.com/pricing/details/cognitive-services/computer-vision/). |
+| [Azure AI Vision](https://azure.microsoft.com/pricing/details/cognitive-services/computer-vision/) | Free, Standard (S1) | Billed by the number of transactions. Price per transaction varies per feature (Read, OCR, Spatial Analysis). For full details, see [Pricing](https://azure.microsoft.com/pricing/details/cognitive-services/computer-vision/). |
 | [Custom Vision](https://azure.microsoft.com/pricing/details/cognitive-services/custom-vision-service/) | Free, Standard | <li>Predictions are billed by the number of transactions.</li><li>Training is billed by compute hour(s).</li><li>Image storage is billed by number of images (up to 6 MB per image).</li>|
 | [Face](https://azure.microsoft.com/pricing/details/cognitive-services/face-api/) | Free, Standard | Billed by the number of transactions. |
 | **Speech** | | |
@@ -60,17 +60,17 @@ With Pay-As-You-Go pricing, you are billed according to the Cognitive Services o
 
 ## Commitment tier
 
-In addition to the pay-as-you-go model, Cognitive Services has commitment tiers, which let you commit to using several service features for a fixed fee, enabling you to have a predictable total cost based on the needs of your workload.
+In addition to the pay-as-you-go model, Azure AI services has commitment tiers, which let you commit to using several service features for a fixed fee, enabling you to have a predictable total cost based on the needs of your workload.
 
 With commitment tier pricing, you are billed according to the plan you choose. See [Quickstart: purchase commitment tier pricing](commitment-tier.md) for information on available services, how to sign up, and considerations when purchasing a plan.
 
 > [!NOTE]
-> If you use the resource above the quota provided by the commitment plan, you will be charged for the additional usage as per the overage amount mentioned in the Azure portal when you purchase a commitment plan. For more information, see [Azure Cognitive Services pricing](https://azure.microsoft.com/pricing/details/cognitive-services/).
+> If you use the resource above the quota provided by the commitment plan, you will be charged for the additional usage as per the overage amount mentioned in the Azure portal when you purchase a commitment plan. For more information, see [Azure AI services pricing](https://azure.microsoft.com/pricing/details/cognitive-services/).
 
 
 
 
-### Costs that typically accrue with Cognitive Services
+### Costs that typically accrue with Azure AI services
 
 Typically, after you deploy an Azure resource, costs are determined by your pricing tier and the API calls you make to your endpoint. If the service you're using has a commitment tier, going over the allotted calls in your tier may incur an overage charge.
 
@@ -92,35 +92,35 @@ After you delete QnA Maker resources, the following resources might continue to 
 - [Azure App Service (for the runtime)](https://azure.microsoft.com/pricing/details/app-service/)
 - [Azure Cognitive Search (for the data)](https://azure.microsoft.com/pricing/details/search/)
 
-### Using Azure Prepayment credit with Cognitive Services
+### Using Azure Prepayment credit with Azure AI services
 
-You can pay for Cognitive Services charges with your Azure Prepayment (previously called monetary commitment) credit. However, you can't use Azure Prepayment credit to pay for charges for third-party products and services including those from the Azure Marketplace.
+You can pay for Azure AI services charges with your Azure Prepayment (previously called monetary commitment) credit. However, you can't use Azure Prepayment credit to pay for charges for third-party products and services including those from the Azure Marketplace.
 
 ## Monitor costs
 
 <!-- Note to Azure service writer: Modify the following as needed for your service. Replace example screenshots with ones taken for your service. If you need assistance capturing screenshots, ask banders for help. -->
 
-As you use Azure resources with Cognitive Services, you incur costs. Azure resource usage unit costs vary by time intervals (seconds, minutes, hours, and days) or by unit usage (bytes, megabytes, and so on). As soon as use of a Cognitive Service (or Cognitive Services) starts, costs are incurred and you can see the costs in [cost analysis](../cost-management-billing/costs/quick-acm-cost-analysis.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn).
+As you use Azure resources with Azure AI services, you incur costs. Azure resource usage unit costs vary by time intervals (seconds, minutes, hours, and days) or by unit usage (bytes, megabytes, and so on). As soon as use of a Cognitive Service (or Azure AI services) starts, costs are incurred and you can see the costs in [cost analysis](../cost-management-billing/costs/quick-acm-cost-analysis.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn).
 
-When you use cost analysis, you view Cognitive Services costs in graphs and tables for different time intervals. Some examples are by day, current and prior month, and year. You also view costs against budgets and forecasted costs. Switching to longer views over time can help you identify spending trends. And you see where overspending might have occurred. If you've created budgets, you can also easily see where they're exceeded.
+When you use cost analysis, you view Azure AI services costs in graphs and tables for different time intervals. Some examples are by day, current and prior month, and year. You also view costs against budgets and forecasted costs. Switching to longer views over time can help you identify spending trends. And you see where overspending might have occurred. If you've created budgets, you can also easily see where they're exceeded.
 
-To view Cognitive Services costs in cost analysis:
+To view Azure AI services costs in cost analysis:
 
 1. Sign in to the Azure portal.
 2. Open the scope in the Azure portal and select **Cost analysis** in the menu. For example, go to **Subscriptions**, select a subscription from the list, and then select  **Cost analysis** in the menu. Select **Scope** to switch to a different scope in cost analysis.
-3. By default, cost for services are shown in the first donut chart. Select the area in the chart labeled Cognitive Services.
+3. By default, cost for services are shown in the first donut chart. Select the area in the chart labeled Azure AI services.
 
 Actual monthly costs are shown when you initially open cost analysis. Here's an example showing all monthly usage costs.
 
 :::image type="content" source="./media/cost-management/all-costs.png" alt-text="Example showing accumulated costs for a subscription":::
 
-- To narrow costs for a single service, like Cognitive Services, select **Add filter** and then select **Service name**. Then, select **Cognitive Services**.
+- To narrow costs for a single service, like Azure AI services, select **Add filter** and then select **Service name**. Then, select **Azure AI services**.
 
-Here's an example showing costs for just Cognitive Services.
+Here's an example showing costs for just Azure AI services.
 
-:::image type="content" source="./media/cost-management/cognitive-services-costs.png" alt-text="Example showing accumulated costs for Cognitive Services":::
+:::image type="content" source="./media/cost-management/cognitive-services-costs.png" alt-text="Example showing accumulated costs for Azure AI services":::
 
-In the preceding example, you see the current cost for the service. Costs by Azure regions (locations) and Cognitive Services costs by resource group are also shown. From here, you can explore costs on your own.
+In the preceding example, you see the current cost for the service. Costs by Azure regions (locations) and Azure AI services costs by resource group are also shown. From here, you can explore costs on your own.
 
 ## Create budgets
 

@@ -1,6 +1,6 @@
 ---
-title: "Get started with Cognitive Services for big data"
-description: Set up your SynapseML or MMLSpark pipeline with Cognitive Services in Azure Databricks and run a sample.
+title: "Get started with Azure AI services for big data"
+description: Set up your SynapseML or MMLSpark pipeline with Azure AI services in Azure Databricks and run a sample.
 services: cognitive-services
 author: mhamilton723
 manager: nitinme
@@ -19,39 +19,39 @@ Setting up your environment is the first step to building a pipeline for your da
 In this article, you'll perform these steps to get started:
 
 > [!div class="checklist"]
-> * [Create a Cognitive Services resource](#create-a-cognitive-services-resource)
+> * [Create an Azure AI services resource](#create-an-azure-ai-services-resource)
 > * [Create an Apache Spark cluster](#create-an-apache-spark-cluster)
 > * [Try a sample](#try-a-sample)
 
-## Create a Cognitive Services resource
+## Create an Azure AI services resource
 
-To work with big data in Cognitive Services, first create a Cognitive Services resource for your workflow. There are two main types of Cognitive Services: cloud services hosted in Azure and containerized services managed by users. We recommend starting with the simpler cloud-based Cognitive Services.
+To work with big data in Azure AI services, first create an Azure AI services resource for your workflow. There are two main types of Azure AI services: cloud services hosted in Azure and containerized services managed by users. We recommend starting with the simpler cloud-based Azure AI services.
 
 ### Cloud services
 
-Cloud-based Cognitive Services are intelligent algorithms hosted in Azure. These services are ready for use without training, you just need an internet connection. You can [create a Cognitive Service in the Azure portal](../cognitive-services-apis-create-account.md?tabs=multiservice%2Cwindows) or with the [Azure CLI](../cognitive-services-apis-create-account-cli.md?tabs=windows).
+Cloud-based Azure AI services are intelligent algorithms hosted in Azure. These services are ready for use without training, you just need an internet connection. You can [create a Cognitive Service in the Azure portal](../cognitive-services-apis-create-account.md?tabs=multiservice%2Cwindows) or with the [Azure CLI](../cognitive-services-apis-create-account-cli.md?tabs=windows).
 
 ### Containerized services (optional)
 
-If your application or workload uses large datasets, requires private networking, or can't contact the cloud, communicating with cloud services might be impossible. In this situation, containerized Cognitive Services have these benefits:
+If your application or workload uses large datasets, requires private networking, or can't contact the cloud, communicating with cloud services might be impossible. In this situation, containerized Azure AI services have these benefits:
 
-* **Low Connectivity**: You can deploy containerized Cognitive Services in any computing environment, both on-cloud and off. If your application can't contact the cloud, consider deploying containerized Cognitive Services on your application.
+* **Low Connectivity**: You can deploy containerized Azure AI services in any computing environment, both on-cloud and off. If your application can't contact the cloud, consider deploying containerized Azure AI services on your application.
 
 * **Low Latency**: Because containerized services don't require the round-trip communication to/from the cloud, responses are returned with much lower latencies.
 
 * **Privacy and Data Security**: You can deploy containerized services into private networks, so that sensitive data doesn't leave the network.
 
-* **High Scalability**: Containerized services don't have "rate limits" and run on user-managed computers. So, you can scale Cognitive Services without end to handle much larger workloads.
+* **High Scalability**: Containerized services don't have "rate limits" and run on user-managed computers. So, you can scale Azure AI services without end to handle much larger workloads.
 
 Follow [this guide](../cognitive-services-container-support.md?tabs=luis) to create a containerized Cognitive Service.
 
 ## Create an Apache Spark cluster
 
-[Apache Spark&trade;](http://spark.apache.org/) is a distributed computing framework designed for big-data data processing. Users can work with Apache Spark in Azure with services like Azure Databricks, Azure Synapse Analytics, HDInsight, and Azure Kubernetes Services. To use the big data Cognitive Services, you must first create a cluster. If you already have a Spark cluster, feel free to try an example.
+[Apache Spark&trade;](http://spark.apache.org/) is a distributed computing framework designed for big-data data processing. Users can work with Apache Spark in Azure with services like Azure Databricks, Azure Synapse Analytics, HDInsight, and Azure Kubernetes Services. To use the big data Azure AI services, you must first create a cluster. If you already have a Spark cluster, feel free to try an example.
 
 ### Azure Databricks
 
-Azure Databricks is an Apache Spark-based analytics platform with a one-click setup, streamlined workflows, and an interactive workspace. It's often used to collaborate between data scientists, engineers, and business analysts. To use the big data Cognitive Services on Azure Databricks, follow these steps:
+Azure Databricks is an Apache Spark-based analytics platform with a one-click setup, streamlined workflows, and an interactive workspace. It's often used to collaborate between data scientists, engineers, and business analysts. To use the big data Azure AI services on Azure Databricks, follow these steps:
 
 1. [Create an Azure Databricks workspace](/azure/databricks/scenarios/quickstart-create-databricks-workspace-portal#create-an-azure-databricks-workspace)
 
@@ -82,11 +82,11 @@ Optionally, you can use Synapse Analytics to create a spark cluster. Azure Synap
 
 1. [Create a new serverless Apache Spark pool (preview) using the Azure portal](../../synapse-analytics/quickstart-create-apache-spark-pool-portal.md).
 
-In Azure Synapse Analytics, big data for Cognitive Services is installed by default.
+In Azure Synapse Analytics, big data for Azure AI services is installed by default.
 
 ### Azure Kubernetes Service
 
-If you're using containerized Cognitive Services, one popular option for deploying Spark alongside containers is the Azure Kubernetes Service.
+If you're using containerized Azure AI services, one popular option for deploying Spark alongside containers is the Azure Kubernetes Service.
 
 To get started on Azure Kubernetes Service, follow these steps:
 
@@ -94,7 +94,7 @@ To get started on Azure Kubernetes Service, follow these steps:
 
 1. [Install the Apache Spark 2.4.0 helm chart](https://hub.helm.sh/charts/microsoft/spark)
 
-1. [Install a cognitive service container using Helm](../computer-vision/deploy-computer-vision-on-premises.md)
+1. [Install an Azure AI container using Helm](../computer-vision/deploy-computer-vision-on-premises.md)
 
 ## Try a sample
 
@@ -119,14 +119,14 @@ First, you can create a notebook in Azure Databricks. For other Spark cluster pr
     from pyspark.sql.functions import col
     
     # Add your region and subscription key from the Language service (or a general Cognitive Service key)
-    # If using a multi-region Cognitive Services resource, delete the placeholder text: service_region = ""
+    # If using a multi-region Azure AI services resource, delete the placeholder text: service_region = ""
     service_key = "ADD-SUBSCRIPTION-KEY-HERE"
     service_region = "ADD-SERVICE-REGION-HERE"
     
     df = spark.createDataFrame([
       ("I am so happy today, its sunny!", "en-US"),
       ("I am frustrated by this rush hour traffic", "en-US"),
-      ("The cognitive services on spark aint bad", "en-US"),
+      ("The Azure AI services on spark aint bad", "en-US"),
     ], ["text", "language"])
     
     sentiment = (TextSentiment()
@@ -155,7 +155,7 @@ First, you can create a notebook in Azure Databricks. For other Spark cluster pr
 |:------------------------------------------|------------:|
 | I am so happy today, its sunny!           |   0.978959  |
 | I am frustrated by this rush hour traffic |   0.0237956 |
-| The cognitive services on spark aint bad  |   0.888896  |
+| The Azure AI services on spark aint bad  |   0.888896  |
 
 ## Next steps
 

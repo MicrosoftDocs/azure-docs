@@ -13,7 +13,7 @@ ms.custom: ignite-fall-2021
 
 # Change default answer for a QnA Maker resource
 
-The default answer for a knowledge base is meant to be returned when an answer is not found. If you are using a client application, such as the [Azure Bot service](/azure/bot-service/bot-builder-howto-qna), it may also have a separate default answer, indicating no answer met the score threshold.
+The default answer for a knowledge base is meant to be returned when an answer is not found. If you are using a client application, such as the [Azure AI Bot Service](/azure/bot-service/bot-builder-howto-qna), it may also have a separate default answer, indicating no answer met the score threshold.
 
 [!INCLUDE [Custom question answering](../includes/new-version.md)]
 
@@ -28,7 +28,7 @@ There are two types of default answer in your knowledge base. It is important to
 
 ### Client application integration
 
-For a client application, such as a bot with the **Azure Bot service**, you can choose from the common following scenarios:
+For a client application, such as a bot with the **Azure AI Bot Service**, you can choose from the common following scenarios:
 
 * Use the knowledge base's setting
 * Use different text in the client application to distinguish when an answer is returned but doesn't meet the score threshold. This text can either be static text stored in code, or can be stored in the client application's settings list.

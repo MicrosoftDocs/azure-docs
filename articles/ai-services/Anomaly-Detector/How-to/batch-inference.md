@@ -1,6 +1,6 @@
 ---
 title: Trigger batch inference with trained model
-titleSuffix: Azure Cognitive Services
+titleSuffix: Azure AI services
 description: Trigger batch inference with trained model
 services: cognitive-services
 author: mrbullwinkle
