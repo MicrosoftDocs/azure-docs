@@ -61,12 +61,11 @@ As we support polyglot applications in enterprise tier, please refer the table f
 | Type                 | Support Policy            |
 |---------------------|----------------------------|
 | Java|[Java Support On Azure](/azure/developer/java/fundamentals/java-support-on-azure)
-| Maven |[Tomcat Versions](https://tomcat.apache.org/whichversion.html)
+| Tomcat |[Tomcat Versions](https://tomcat.apache.org/whichversion.html)
 |.Net|[.NET and .NET Core Support Policy](https://dotnet.microsoft.com/en-us/platform/support/policy/dotnet-core)
 |Python|[Status of Python versions](https://devguide.python.org/versions/)
 |Go|[Go Release History](https://go.dev/doc/devel/release)
 |NodeJS|[Nodejs releases](https://nodejs.dev/en/about/releases/)
-|Tomcat| [Tomcat Versions](https://tomcat.apache.org/whichversion.html)
 
 ### Stack Image Support
 Please refer to [The Ubuntu lifecycle and release cadence](https://ubuntu.com/about/release-cycle#ubuntu) for stack image support
