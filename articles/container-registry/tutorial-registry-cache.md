@@ -55,6 +55,16 @@ Implementing Cache for ACR provides the following benefits:
         
         4. Username and Password secrets- The secrets containing the username and password. 
 
+## Support Upstream
+
+The new upstream to Cache content for ACR are as follows:
+
+1. Docker : Supports both authenticated pulls and un-authenticated pulls.
+2. MAR : Supports un-authenticated pulls only.
+3. ECR Public : Supports un-authenticated pulls only.
+4. Quay.io : Supports both authenticated pulls and un-authenticated pulls.
+5. GitHub Container Registry : Supports both authenticated pulls and un-authenticated pulls.
+
 ## Preview Limitations
 
 - Quarantine functions like signing, scanning, and manual compliance approval are on the roadmap but not included in this release.

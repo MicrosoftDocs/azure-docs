@@ -71,6 +71,16 @@ If you're facing issues while creating a Cache rule, we recommend verifying if y
 
 We recommend deleting any unwanted cache rules to avoid hitting the limit. 
 
+## Support Upstream
+
+The new upstream to Cache content for ACR are as follows:
+
+1. Docker : Supports both authenticated pulls and un-authenticated pulls.
+2. MAR : Supports un-authenticated pulls only.
+3. ECR Public : Supports un-authenticated pulls only.
+4. Quay.io : Supports both authenticated pulls and un-authenticated pulls.
+5. GitHub Container Registry : Supports both authenticated pulls and un-authenticated pulls.
+
 <!-- LINKS - External -->
 [create-and-store-keyvault-credentials]:../key-vault/secrets/quick-create-portal.md
 [az-keyvault-set-policy]: ../key-vault/general/assign-access-policy.md#assign-an-access-policy
