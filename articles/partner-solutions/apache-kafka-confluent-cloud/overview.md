@@ -84,7 +84,7 @@ To learn more, see Confluent blog articles about Azure services that integrate w
 
 ## Next steps
 
-- To create an instance of Apache Kafka for Confluent Cloud, see [QuickStart: Get started with Confluent Cloud on Azure](create.md).
+- To create an instance of Apache Kafka on Confluent Cloud, see [QuickStart: Get started with Confluent Cloud on Azure](create.md).
 - Get started with Apache Kafka on Confluent Cloud - Azure Native ISV Service on
 
     > [!div class="nextstepaction"]
