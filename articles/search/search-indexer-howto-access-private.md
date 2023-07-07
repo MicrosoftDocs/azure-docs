@@ -1,22 +1,23 @@
 ---
-title: Connect through a private endpoint
+title: Connect through a shared private link
 titleSuffix: Azure Cognitive Search
-description: Configure indexer connections to access content from other Azure resources that are protected through a private endpoint.
+description: Configure indexer connections to access content from other Azure resources that are protected through a shared private link.
 
 manager: nitinme
-author: arv100kri
-ms.author: arjagann
+author: mrcarter8
+ms.author: mcarter
 ms.service: cognitive-search
-ms.custom: ignite-2022
 ms.topic: how-to
-ms.date: 04/18/2023
+ms.date: 07/07/2023
 ---
 
-# Make outbound connections through a private link
+# Make outbound connections through a shared private link
 
 This article explains how to configure private, outbound calls from Azure Cognitive Search to Azure PaaS resources that run within a virtual network.
 
-Setting up a private connection allows Azure Cognitive Search to connect to Azure PaaS through a virtual network IP address instead of a port that's open to the internet. The object created for the connection is called a *shared private link*. On the connection, Search uses the shared private link internally to reach an Azure PaaS resource inside the network boundary. 
+Setting up a private connection allows Azure Cognitive Search to connect to Azure PaaS through a virtual network IP address instead of a port that's open to the internet. The object created for the connection is called a *shared private link*. On the connection, Search uses the shared private link internally to reach an Azure PaaS resource inside the network boundary.
+
+Shared private link is a premium feature that's billed by usage. The costs of reading from the private endpoint are billed to your Azure subscription. As the indexer reads data from the data source, network egress charges are billed at the ["inbound data processed"](https://azure.microsoft.com/pricing/details/private-link/) rate.
 
 > [!NOTE]
 > If you're setting up a private indexer connection to a SQL Managed Instance, see [this article](search-indexer-how-to-access-private-sql.md) instead.
@@ -60,9 +61,6 @@ When evaluating shared private links for your scenario, remember these constrain
 + An Azure PaaS resource from the following list of supported resource types, configured to run in a virtual network.
 
 + You should have a minimum of Contributor permissions on both Azure Cognitive Search and the Azure PaaS resource for which you're creating the shared private link.
-
-> [!NOTE]
-> Azure Private Link is used internally, at no charge, to set up the shared private link.
 
 <a name="group-ids"></a>
 
