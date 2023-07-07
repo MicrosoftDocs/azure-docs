@@ -56,7 +56,7 @@ Desktop applications have few specificities. They depend mainly on whether your 
 
 ## Recommended reading
 
-[!INCLUDE [recommended-topics](../../../includes/active-directory-develop-scenarios-prerequisites.md)]
+[!INCLUDE [recommended-topics](./includes/scenarios/scenarios-prerequisites.md)]
 
 ## Next steps
 
