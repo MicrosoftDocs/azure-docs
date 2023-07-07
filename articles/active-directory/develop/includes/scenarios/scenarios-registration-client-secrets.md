@@ -24,10 +24,10 @@ You can add credentials to your client app's registration by using the [Azure po
 
 ### Add client credentials by using the Azure portal
 
-To add credentials to your confidential client application's app registration, follow the steps in [Quickstart: Register an application with the Microsoft identity platform](../articles/active-directory/develop/quickstart-register-app.md) for the type of credential you want to add:
+To add credentials to your confidential client application's app registration, follow the steps in [Quickstart: Register an application with the Microsoft identity platform](../../quickstart-register-app.md) for the type of credential you want to add:
 
-* [Add a client secret](../articles/active-directory/develop/quickstart-register-app.md#add-a-client-secret)
-* [Add a certificate](../articles/active-directory/develop/quickstart-register-app.md#add-a-certificate)
+* [Add a client secret](.../../quickstart-register-app.md#add-a-client-secret)
+* [Add a certificate](../../quickstart-register-app.md#add-a-certificate)
 
 ### Add client credentials by using PowerShell
 
