@@ -23,8 +23,6 @@
   items:
     - name: Before you start workload deployment
       href: quickstarts-tenant-workload-prerequisites.md
-    - name: Tenant workload deployment
-      href: quickstarts-tenant-workload-deployment.md
     - name: Deploy Nexus Kubernetes cluster
       expanded: true
       items:
@@ -34,6 +32,11 @@
           href: quickstarts-kubernetes-cluster-deployment-arm.md
         - name: Use Bicep file
           href: quickstarts-kubernetes-cluster-deployment-bicep.md
+    - name: Deploy Nexus Virtual Machines
+      expanded: true
+      items:
+        - name: Use the Azure CLI
+          href: quickstarts-tenant-workload-deployment.md
 - name: How-To Guides
   items:
     - name: Instance Deployment and Upgrade

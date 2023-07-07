@@ -31,17 +31,14 @@ You need to create various networks based on your workload needs. The following 
 - Determine how many networks of each type you need.
 - Determine the MTU size of each of your networks (maximum is 9,000).
 - Determine the BGP peering info for each network, and whether the networks need to talk to each other. You should group networks that need to talk to each other into the same L3 isolation domain, because each L3 isolation domain can support multiple L3 networks.
-- The platform provides a proxy to allow your VM to reach other external endpoints. Creating a `cloudservicesnetwork` instance requires the endpoints to be proxied, so gather the list of endpoints.
-
-  You can modify the list of endpoints after the network creation.
-- For an AKS hybrid cluster, you need to create a `defaultcninetwork` instance to support your cluster CNI networking needs. You need another VLAN and subnet assignment for `defaultcninetwork`, similar to an L3 network.
+- The platform provides a proxy to allow your VM to reach other external endpoints. Creating a `cloudservicesnetwork` instance requires the endpoints to be proxied, so gather the list of endpoints. You can modify the list of endpoints after the network creation.
 
 You also need:
 
 - Your Azure account and the subscription ID of the Azure Operator Nexus cluster deployment.
 - The `custom location` resource ID of your Azure Operator Nexus cluster.
 
-## Specify the AKS hybrid availability zone
+## Specify the Nexus Kubernetes cluster availability zone
 
 When you're creating an AKS hybrid cluster, you can use the `--zones` option in `az hybridaks create` or `az hybridaks nodepool add` to schedule the cluster onto specific racks or distribute it evenly across multiple racks. This technique can improve resource utilization and fault tolerance.
 
