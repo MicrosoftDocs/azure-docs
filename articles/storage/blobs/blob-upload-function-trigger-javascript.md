@@ -561,3 +561,9 @@ If you're not going to continue to use this application, you can delete the reso
 1. Select **Resource groups** from the Azure explorer
 1. Find and right-click the `msdocs-storage-function` resource group from the list.
 1. Select **Delete**. The process to delete the resource group may take a few minutes to complete.
+
+
+## Next steps
+
+* [Create a function app that connects to Azure services using identities instead of secrets](/azure/azure-functions/functions-identity-based-connections-tutorial)
+* [Remediating anonymous public read access for blob data](/azure/storage/blobs/anonymous-read-access-overview)
