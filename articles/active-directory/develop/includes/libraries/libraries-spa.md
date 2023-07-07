@@ -27,8 +27,8 @@ ms.author: henrymbugua
 
 <!--Image references-->
 
-[y]: ../articles/active-directory/develop/media/common/yes.png
-[n]: ../articles/active-directory/develop/media/common/no.png
+[y]: ../../../develop/media/common/yes.png
+[n]: ../../../develop/media/common/no.png
 
 <!--Reference-style links -->
 
