@@ -33,6 +33,99 @@ The path of affinity in a deployment is `$.spec.template.spec.affinity`, where a
 
 Here is a sample spec for a required pod anti affinity between replicas of a single SQL MI instance.  The labels chosen in the labelSelector of the affinity term are automatically applied by the dataController based on the resource type and name, but the labelSelector could be changed to use any labels provided.
 
-  
+
+```yaml
+apiVersion: sql.arcdata.microsoft.com/v13
+kind: SqlManagedInstance
+metadata:
+  labels:
+    management.azure.com/resourceProvider: Microsoft.AzureArcData
+  name: sql1
+  namespace: test
+spec:
+  backup:
+    retentionPeriodInDays: 7
+  dev: false
+  licenseType: LicenseIncluded
+  orchestratorReplicas: 1
+  preferredPrimaryReplicaSpec:
+    preferredPrimaryReplica: any
+    primaryReplicaFailoverInterval: 600
+  readableSecondaries: 1
+  replicas: 3
+  scheduling:
+    affinity:
+      podAntiAffinity:
+        requiredDuringSchedulingIgnoredDuringExecution:
+        - labelSelector:
+            matchLabels:
+              arc-resource: sqlmanagedinstance
+              controller: sql1
+          topologyKey: kubernetes.io/hostname
+    default:
+      resources:
+        limits:
+          cpu: "4"
+        requests:
+          cpu: "4"
+          memory: 4Gi
+  services:
+    primary:
+      type: NodePort
+    readableSecondaries:
+      type: NodePort
+  storage:
+    data:
+      volumes:
+      - accessMode: ReadWriteOnce
+        className: local-storage
+        size: 5Gi
+    logs:
+      volumes:
+      - accessMode: ReadWriteOnce
+        className: local-storage
+        size: 5Gi
+  syncSecondaryToCommit: -1
+  tier: BusinessCritical
+```
+
+#### TopologySpreadConstraints
+
+ 
+
+Pod topology spread constraints control rules around how pods are spread across different groupings of nodes in a Kubernetes cluster.  A cluster may have different node topology domains defined such as regions, zones, node pools, etc.  A standard Kubernetes topology spread constraint can be applied at `$.spec.scheduling.topologySpreadConstraints` (see: [Pod Topology Spread Constraints | Kubernetes](https://kubernetes.io/docs/concepts/scheduling-eviction/topology-spread-constraints/)).
+
+For instance:
+
+
+```yaml
+apiVersion: sql.arcdata.microsoft.com/v13 
+kind: SqlManagedInstance 
+metadata: 
+  labels: 
+  management.azure.com/resourceProvider: Microsoft.AzureArcData 
+  name: sql1 
+  namespace: test 
+spec: 
+  backup: 
+  retentionPeriodInDays: 7 
+  dev: false 
+  licenseType: LicenseIncluded 
+  orchestratorReplicas: 1 
+  preferredPrimaryReplicaSpec: 
+  preferredPrimaryReplica: any 
+  primaryReplicaFailoverInterval: 600 
+  readableSecondaries: 1 
+  replicas: 3 
+  scheduling:
+    topologySpreadConstraints:
+    - maxSkew: 1
+      topologyKey: kubernetes.io/hostname
+      whenUnsatisfiable: DoNotSchedule
+      labelSelector:
+        matchLabels:
+          name: sql1
+```
+
 
 
