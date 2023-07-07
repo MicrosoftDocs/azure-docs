@@ -15,7 +15,7 @@ ms.custom: devplatv2
 
 # Troubleshooting batch endpoints
 
-[!INCLUDE [dev v2](../../includes/machine-learning-dev-v2.md)]
+[!INCLUDE [dev v2](includes/machine-learning-dev-v2.md)]
 
 Learn how to troubleshoot and solve, or work around, common errors you may come across when using [batch endpoints](how-to-use-batch-endpoint.md) for batch scoring. In this article you'll learn:
 
