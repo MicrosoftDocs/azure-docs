@@ -192,7 +192,7 @@ The **Models** tab contains a list of the models created ordered by the metric s
 
 Drill down on any of the completed models to see training job details. On the **Model** tab view details like a model summary and the hyperparameters used for the selected model. 
 
-[![Hyperparameter details](media/how-to-use-automated-ml-for-ml-models/hyperparameter-button.png)](media/how-to-use-automated-ml-for-ml-models/hyperparameter-details.png)
+[![Hyperparameter details](media/how-to-use-automated-ml-for-ml-models/hyperparameter-button.png)](media/how-to-use-automated-ml-for-ml-models/hyperparameter-details.png#lightbox)
 
  You can also see model specific performance metric charts on the **Metrics** tab. [Learn more about charts](how-to-understand-automated-ml.md).
 
