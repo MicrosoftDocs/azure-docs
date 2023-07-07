@@ -66,7 +66,7 @@ Real-time detections may not show up in reporting for 5 to 10 minutes. Offline d
 | [Additional risk detected](#additional-risk-detected-sign-in) | Real-time or Offline | Nonpremium |
 | [Anonymous IP address](#anonymous-ip-address) | Real-time | Nonpremium |
 | [Admin confirmed user compromised](#admin-confirmed-user-compromised) | Offline | Nonpremium |
-| [Azure AD threat intelligence](#azure-ad-threat-intelligence-sign-in) | Offline | Nonpremium |
+| [Azure AD threat intelligence](#azure-ad-threat-intelligence-sign-in) | Real-time or Offline | Nonpremium |
 
 ### User risk detections
 
@@ -192,7 +192,7 @@ Customers without Azure AD Premium P2 licenses receive detections titled "additi
 
 #### Azure AD threat intelligence (sign-in)
 
-**Calculated offline**. This risk detection type indicates user activity that is unusual for the user or consistent with known attack patterns. This detection is based on Microsoft's internal and external threat intelligence sources.
+**Calculated in real-time or offline**. This risk detection type indicates user activity that is unusual for the user or consistent with known attack patterns. This detection is based on Microsoft's internal and external threat intelligence sources.
 
 ### Nonpremium user risk detections
 
