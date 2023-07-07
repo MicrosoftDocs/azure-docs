@@ -23,7 +23,6 @@ May include one or more of the following issues:
   - [Unhealthy Credential Set](tutorial-troubleshoot-registry-cache.md#unhealthy-credential-set)
 
 - Unable to create a cache rule
-  - [Unsupported Registries](tutorial-troubleshoot-registry-cache.md#unsupported-registries)
   - [Cache rule Limit](tutorial-troubleshoot-registry-cache.md#cache-rule-limit)
 
 ## Potential Solutions
