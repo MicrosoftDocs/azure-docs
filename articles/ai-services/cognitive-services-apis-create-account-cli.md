@@ -1,5 +1,5 @@
 ---
-title: Create a Azure AI services resource using the Azure CLI
+title: Create an Azure AI services resource using the Azure CLI
 titleSuffix: Azure AI services
 description: Get started with Azure AI services by using Azure CLI commands to create and subscribe to a resource.
 services: cognitive-services
@@ -14,9 +14,9 @@ ms.custom: mode-api, devx-track-azurecli
 ms.devlang: azurecli
 ---
 
-# Quickstart: Create a Azure AI services resource using the Azure CLI
+# Quickstart: Create an Azure AI services resource using the Azure CLI
 
-Use this quickstart to create a Azure AI services resource using [Azure Command-Line Interface (CLI)](/cli/azure/install-azure-cli) commands. After you create the resource, use the keys and endpoint generated for you to authenticate your applications.
+Use this quickstart to create an Azure AI services resource using [Azure Command-Line Interface (CLI)](/cli/azure/install-azure-cli) commands. After you create the resource, use the keys and endpoint generated for you to authenticate your applications.
 
 Azure AI services are cloud-based artificial intelligence (AI) services that help developers build cognitive intelligence into applications without having direct AI or data science skills or knowledge. They are available through REST APIs and client library SDKs in popular development languages. Azure AI services enables developers to easily add cognitive features into their applications with cognitive solutions that can see, hear, speak, and analyze.
 
@@ -43,7 +43,7 @@ You can also use the green **Try It** button to run these commands in your brows
 
 ## Create a new Azure AI services resource group
 
-Before you create a Azure AI services resource, you must have an Azure resource group to contain the resource. When you create a new resource, you can either create a new resource group, or use an existing one. This article shows how to create a new resource group.
+Before you create an Azure AI services resource, you must have an Azure resource group to contain the resource. When you create a new resource, you can either create a new resource group, or use an existing one. This article shows how to create a new resource group.
 
 ### Choose your resource group location
 
@@ -63,7 +63,7 @@ After you have your Azure location, create a new resource group in the Azure CLI
 az group create --name cognitive-services-resource-group --location westus2
 ```
 
-## Create a Azure AI services resource
+## Create an Azure AI services resource
 
 ### Choose a service and pricing tier
 
@@ -125,7 +125,7 @@ az cognitiveservices account list-usage --name anomaly-detector-resource --resou
 
 ## Clean up resources
 
-If you want to clean up and remove a Azure AI services resource, you can delete it or the resource group. Deleting the resource group also deletes any other resources contained in the group.
+If you want to clean up and remove an Azure AI services resource, you can delete it or the resource group. Deleting the resource group also deletes any other resources contained in the group.
 
 To remove the resource group and its associated resources, use the az group delete command.
 
