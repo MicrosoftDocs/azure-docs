@@ -15,7 +15,7 @@ ms.custom: UpdateFrequency5, devx-track-python, automl, sdkv2, event-tier1-build
 
 # Tutorial: Train an object detection model (preview) with AutoML and Python (v1)
 
-[!INCLUDE [sdk v1](../../../includes/machine-learning-sdk-v1.md)]
+[!INCLUDE [sdk v1](../includes/machine-learning-sdk-v1.md)]
     
 
 >[!IMPORTANT]

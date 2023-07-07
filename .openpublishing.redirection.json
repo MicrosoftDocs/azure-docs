@@ -1696,6 +1696,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/sentinel/sap/configure-transport.md",
+            "redirect_url": "/azure/sentinel/sap/sap-deploy-troubleshoot",
+            "redirect_document_id": false
+        },
+        {
             "source_path": "articles/backup/sap-hana-db-manage.md",
             "redirect_url": "/azure/backup/sap-hana-database-manage",
             "redirect_document_id": false
@@ -22199,6 +22204,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path_from_root": "/articles/communication-services/how-tos/calling-sdk/lobby-admit-and-reject.md",
+            "redirect_url": "/azure/communication-services/how-tos/calling-sdk/lobby",
+            "redirect_document_id": false
+        },
+        {
             "source_path_from_root": "/articles/load-balancer/tutorial-load-balancer-standard-manage-portal.md",
             "redirect_url": "/azure/load-balancer/quickstart-load-balancer-standard-public-portal",
             "redirect_document_id": false
@@ -23629,11 +23639,6 @@
           "redirect_document_id": true
         },
         {
-          "source_path_from_root": "/articles/healthcare-apis/dicom/dicom-cast-access-request.md",
-          "redirect_url": "/azure/healthcare-apis/dicom/dicom-cast-overview",
-          "redirect_document_id": false
-        },
-        {
             "source_path_from_root": "/articles/virtual-network/nat-gateway/faq.yml",
             "redirect_url": "/azure/nat-gateway/faq",
             "redirect_document_id": false
@@ -23967,6 +23972,31 @@
             "source_path_from_root": "/articles/active-directory/manage-apps/migrate-okta-sync-provisioning-to-azure-active-directory.md",
             "redirect_url": "/azure/active-directory/manage-apps/migrate-okta-sync-provisioning",
             "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/networking/connectivty-interoperability-preface.md",
+            "redirect_url": "/azure/networking/manage-apps/connectivity-interoperability-preface",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/networking/connectivty-interoperability-configuration.md",
+            "redirect_url": "/azure/networking/manage-apps/connectivity-interoperability-configuration",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/networking/connectivty-interoperability-control-plane.md",
+            "redirect_url": "/azure/networking/manage-apps/connectivity-interoperability-control-plane",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/networking/connectivty-interoperability-data-plane.md",
+            "redirect_url": "/azure/networking/manage-apps/connectivity-interoperability-data-plane",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/container-registry/github-action-scan.md",
+            "redirect_url": "/azure/developer/github/",
+            "redirect_document_id": false
         }
     ]
 }

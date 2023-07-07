@@ -5,11 +5,11 @@ description: Learn how to recover a deleted storage account within the Azure por
 services: storage
 author: tamram
 
-ms.service: storage
+ms.service: azure-storage
 ms.topic: conceptual
 ms.date: 01/25/2023
 ms.author: tamram
-ms.subservice: common
+ms.subservice: storage-common-concepts
 ---
 
 # Recover a deleted storage account

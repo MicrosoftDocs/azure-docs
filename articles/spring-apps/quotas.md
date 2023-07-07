@@ -1,12 +1,12 @@
 ---
 title: Service plans and quotas for Azure Spring Apps
 description: Learn about service quotas and service plans for Azure Spring Apps.
-author: karlerickson
+author: KarlErickson
 ms.service: spring-apps
 ms.topic: conceptual
 ms.date: 05/15/2023
 ms.author: karler
-ms.custom: devx-track-java, event-tier1-build-2022
+ms.custom: devx-track-java, devx-track-extended-java, event-tier1-build-2022
 ---
 
 # Quotas and service plans for Azure Spring Apps
@@ -29,7 +29,7 @@ The following table defines limits for the pricing plans in Azure Spring Apps.
 | vCPU                                | per app instance                       | 1                  | 4                                               | 8                                               | 4                                               | based on workload profile (for example, 16 in D16)    |
 | Memory                              | per app instance                       | 2 GB               | 8 GB                                            | 32 GB                                           | 8 GB                                            | based on workload profile (for example, 128GB in E16) |
 | Azure Spring Apps service instances | per region per subscription            | 10                 | 10                                              | 10                                              | 10                                              | 10                                                    |
-| Total app instances                 | per Azure Spring Apps service instance | 25                 | 500                                             | 500                                             | 400                                             | 1000                                                  |
+| Total app instances                 | per Azure Spring Apps service instance | 25                 | 500                                             | 1000                                            | 400                                             | 1000                                                  |
 | Custom Domains                      | per Azure Spring Apps service instance | 0                  | 500                                             | 500                                             | 500                                             | 500                                                   |
 | Persistent volumes                  | per Azure Spring Apps service instance | 1 GB/app x 10 apps | 50 GB/app x 10 apps                             | 50 GB/app x 10 apps                             | Not applicable                                  | Not applicable                                        |
 | Inbound Public Endpoints            | per Azure Spring Apps service instance | 10 <sup>1</sup>    | 10 <sup>1</sup>                                 | 10 <sup>1</sup>                                 | 10 <sup>1</sup>                                 | 10 <sup>1</sup>                                       |

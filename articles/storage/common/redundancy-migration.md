@@ -5,11 +5,11 @@ description: Learn how to change how data in an existing storage account is repl
 services: storage
 author: jimmart-dev
 
-ms.service: storage
+ms.service: azure-storage
 ms.topic: how-to
 ms.date: 03/13/2023
 ms.author: jammart
-ms.subservice: common 
+ms.subservice: storage-common-concepts
 ms.custom: engagement-fy23, references_regions
 ---
 

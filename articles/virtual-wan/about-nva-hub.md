@@ -5,7 +5,7 @@ description: Learn about Network Virtual Appliances in a Virtual WAN hub.
 author: wtnlee
 ms.service: virtual-wan
 ms.topic: conceptual
-ms.date: 09/14/2022
+ms.date: 06/30/2023
 ms.author: wellee
 ms.custom: references_regions
 # Customer intent: As someone with a networking background, I want to learn about Network Virtual Appliances in a Virtual WAN hub.

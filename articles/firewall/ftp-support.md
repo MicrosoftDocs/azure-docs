@@ -24,7 +24,7 @@ By default, Passive FTP is enabled and Active FTP support is disabled to protect
 However, you can enable Active FTP when you deploy using Azure PowerShell, the Azure CLI, or an Azure ARM template. Azure Firewall can support both Active and Passive FTP simultaneously. 
 
 *ActiveFTP* is an Azure Firewall property that can be enabled for:
-- both Premium and Standard SKUs
+- all Azure Firewall SKUs
 - secure hub and VNet firewalls
 - firewalls using policy and classic rules
 
