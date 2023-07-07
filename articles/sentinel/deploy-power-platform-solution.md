@@ -24,7 +24,7 @@ The Microsoft Sentinel solution for Power Platform allows you to monitor and det
 The Microsoft Sentinel Solution for Power Platform ingests and cross-correlates activity logs and inventory data from multiple sources. So, the solution requires that you enable 6 connectors that are available as part of the solution.
 
 
-|Connector name  |Data collected  |Log Analytics table |
+|Connector name  |Data collected  |Log Analytics tables |
 |---------|---------|---------|
 |Power Platform Inventory (using Azure Functions)   |  Power Apps and Power Automate inventory data       |   PowerApps_CL, PowerPlatrformEnvironments_CL      |
 |Microsoft Power Apps (Preview)   |    Power Apps activity logs     |  PowerAppsActivity       |
@@ -62,6 +62,8 @@ Configure Power Platform self-service analytics: Refer to the Power Platform gui
 
 ## Install the Power Platform solution in Microsoft Sentinel
 
+Install the solution from the content hub in Microsoft Sentinel by using the following steps.
+
 1. In the Azure portal, search for and select **Microsoft Sentinel**.
 1. Under **Content management**, select **Content hub**.
 1. Search for and select **Power Platform**.
@@ -73,18 +75,23 @@ Configure Power Platform self-service analytics: Refer to the Power Platform gui
 ## Verify audit logging is enabled for Microsoft Purview
 
 <!-- Make this a prereq? "It may take up to 60 minutes for the change to take effect." -->
-## Enable the Power Platform inventory data connector
+
+## Enable the data connectors
+
+In Microsoft Sentinel, enable the six data connectors to collect activity logs and inventory data from the Power Platform components.
+
+### Power Platform inventory data connector
 
 Configure and connect the Power Platform inventory data connector to collect Power Apps and Power Automate inventory data.
 
 
 1. In Microsoft Sentinel, under **Configuration**, select **Data connectors**.
 1. Search for and select **Power Platform Inventory**.
-1. Select **Open connector page**. 
+1. Select **Open connector page**... 
 
 <!-- More steps but unclear what need to set up before you get to this point (what's prereq). Need subscription added to preview and to use preview flag to walk through steps.-->
 
-## Enable the Power Apps data connector
+### Power Apps data connector
 
 Connect the data connector for Power Apps to collect Power Apps activity logs.
 
@@ -92,7 +99,9 @@ Connect the data connector for Power Apps to collect Power Apps activity logs.
 1. Search for and select **Microsoft Power Apps (Preview)**.
 1. Select **Open connector page** > **Connect**.
 
-## Enable the Power Platform Connectors data connector
+### Power Platform Connectors data connector
+
+<!-- Consider collapsing these into one section if they're as simple as connecting with no different instructions-->
 
 Connect the data connector for Power Platform  to collect Power Platform connector activity logs.
 
@@ -100,7 +109,7 @@ Connect the data connector for Power Platform  to collect Power Platform connect
 1. Search for and select **Microsoft Power Platform Connectors**.
 1. Select **Open connector page** > **Connect**.
 
-## Enable the Power Platform data loss prevention data connector
+### Power Platform data loss prevention data connector
 
 Connect the data connector for Power Platform DLP to collect data loss prevention activity logs.
 
@@ -108,17 +117,19 @@ Connect the data connector for Power Platform DLP to collect data loss preventio
 1. Search for and select **Microsoft Power Platform DLP**.
 1. Select **Open connector page** > **Connect**.
 
-## Enable the Dynamics 365 data connector
+### Dynamics 365 data connector
 
-Connect the data connector for Dynamics 365 and enable auditing in you Power Platform environment to collect dataverse and model-driven apps activity logs. 
-
-### Connect the Dynamics 365 data connector
+Connect the data connector for Dynamics 365 to collect dataverse and model-driven apps activity logs.
 
 1. In Microsoft Sentinel, under **Configuration**, select **Data connectors**.
 1. Search for and select **Dynamics365**.
 1. Select **Open connector page** > **Connect**.
 
-### Enable auditing in your Power Platform environment
+## Enable auditing in your Power Platform environment
+
+Enable auditing at the global level for Power Platform and for each dataverse entity.
+
+### Audit at the global level
 
 In your Power Platform environment, go to **Settings** > **Audit settings**. Under **Auditing**, select all three checkboxes.
 
@@ -128,7 +139,7 @@ In your Power Platform environment, go to **Settings** > **Audit settings**. Und
 
 For more information about these steps, see [Manage Dataverse auditing](/power-platform/admin/manage-dataverse-auditing#startstop-auditing-for-an-environment-and-set-retention-policy).
 
-### Enable auditing on each dataverse entity
+### Audit dataverse entities
 
 Enable detailed auditing on each of the dataverse entities. Do this automatically by importing a Power Platform managed solution or manually by enabling details auditing on each of the entities.
 
@@ -141,6 +152,35 @@ For more information about these steps, see [Manage Dataverse auditing](/power-p
 ## Verify that the data connector is ingesting logs to Microsoft Sentinel
 
 To verify that log ingestion is working, complete the following steps.
+
+### Generate activity and inventory logs
+
+1. Run activities like create, update, and delete to generage logs for data that you enabled for monitoring.
+1. Wait up to 60 minutes for Microsoft Sentinel to ingest the activity logs to the logs table in the workspace.
+1. For Power Platform inventory data, wait up to 24 hours for Microsoft Sentinel to ingest the data to the log tables in the workspace.
+
+### View ingested data in Microsoft Sentinel
+
+After you've waited for Microsoft Sentinel to ingest the data, complete the following steps to verify you get the data you expect.
+
+1. In Microsoft Sentinel, select **Logs**.
+1. Run KQL queries against the tables that collect the activity logs from the data connectors. For example, run the following query to return 50 rows from the table with the Power Apps activity logs.
+
+   ```kusto
+    PowerAppsActivity
+    | take 50
+    ```
+
+   The following table lists the the Log Analytics tables to query. 
+   |Log Analytics tables |Data collected |
+   |---------|---------|
+   |PowerApps_CL, PowerPlatrformEnvironments_CL |Power Apps activity logs     |
+   |PowerAppsActivity |Power Apps and Power Automate inventory data |  
+   |PowerAutomateActivity |Power Automate activity logs  |
+   |PowerPlatformConnectorActivity |Power Platform connector activity logs |
+   |PowerPlatformDlpActivity |Data loss prevention activity logs   |
+   |Dynamics365Activity |Dataverse and model-driven apps activity logging     |  
+1. Verify that the results for each table show the activities you generated.
 
 ## Next steps
 
