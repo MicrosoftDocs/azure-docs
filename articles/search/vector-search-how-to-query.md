@@ -88,7 +88,7 @@ POST https://{{search-service-name}}.search.windows.net/indexes/{{index-name}}/d
 Content-Type: application/json
 api-key: {{admin-api-key}}
 {
-    "vector": {
+    "vectors": [{
         "value": [
             -0.009154141,
             0.018708462,
@@ -98,7 +98,7 @@ api-key: {{admin-api-key}}
         ],
         "fields": "contentVector",
         "k": 5
-    },
+    }],
     "select": "title, content, category"
 }
 ```
@@ -114,7 +114,7 @@ POST https://{{search-service-name}}.search.windows.net/indexes/{{index-name}}/d
 Content-Type: application/json
 api-key: {{admin-api-key}}
 {
-    "vector": {
+    "vectors": [{
         "value": [
             -0.009154141,
             0.018708462,
@@ -124,7 +124,7 @@ api-key: {{admin-api-key}}
         ],
         "fields": "contentVector",
         "k": 10
-    },
+    }],
     "search": "what azure services support full text search",
     "select": "title, content, category",
     "queryType": "semantic",
@@ -146,7 +146,7 @@ POST https://{{search-service-name}}.search.windows.net/indexes/{{index-name}}/d
 Content-Type: application/json
 api-key: {{admin-api-key}}
 {
-    "vector": {
+    "vectors": [{
         "value": [
             -0.009154141,
             0.018708462,
@@ -157,7 +157,7 @@ api-key: {{admin-api-key}}
         ],
         "fields": "contentVector, titleVector",
         "k": 5
-    },
+    }],
     "select": "title, content, category"
 }
 ```
@@ -174,16 +174,16 @@ You must use REST for this scenario. Currently, there isn't support for multiple
 
 ```http
 {
-    vectors: [ 
+    "vectors": [ 
         {
-            value: [1.0, 2.0],
-            fields: "myimagevector",
-            k:5
+            "value": [1.0, 2.0],
+            "fields": "myimagevector",
+            "k": 5
         },
         {
-            value: [1.0, 2.0, 3.0],
-            fields: "mytextvector",
-            k:5
+            "value": [1.0, 2.0, 3.0],
+            "fields": "mytextvector",
+            "k": 5
         }
     ]
 }
