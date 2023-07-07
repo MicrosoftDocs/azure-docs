@@ -82,7 +82,7 @@ Azure Database for MySQL - Flexible Server provides the **Replication lag in sec
 If you see increased replication lag, refer to [troubleshooting replication latency](./../howto-troubleshoot-replication-latency.md) to troubleshoot and understand possible causes.
 
 > [!IMPORTANT]  
-> Read Replica on HA server uses storage based replication technology, which no longer uses 'SLAVE_IO_RUNNING' metric available in MySQL's 'SHOW SLAVE STATUS' command. The value of it always be displayed as "No" and is not indicative of replication status. To know the correct status of replication, please refer to replication metrics - **Replica IO Status** and **Replica SQL Status** under monitoring blade.
+> Read Replica uses storage based replication technology, which no longer uses 'SLAVE_IO_RUNNING'/'REPLICA_IO_RUNNING' metric available in MySQL's 'SHOW SLAVE STATUS'/'SHOW REPLICA STATUS' command. The value of it always be displayed as "No" and is not indicative of replication status. To know the correct status of replication, please refer to replication metrics - **Replica IO Status** and **Replica SQL Status** under monitoring blade.
 
 ## Stop replication
 

@@ -646,7 +646,9 @@ items:
           - name: Create and manage snapshots
             href: snapshots-manage-dotnet.md
           - name: Create and list blob versions
-            href: versions-manage-dotnet.md  
+            href: versions-manage-dotnet.md
+          - name: Set or change a blob's access tier
+            href: storage-blob-use-access-tier-dotnet.md
           - name: Generate a shared access signature (SAS)
             items:
             - name: Create a user delegation SAS for a blob
@@ -807,7 +809,7 @@ items:
             href: storage-blob-properties-metadata-javascript.md
           - name: Get blob URL
             href: storage-blob-get-url-javascript.md
-          - name: Use access tiers
+          - name: Set or change a blob's access tier
             href: storage-blob-use-access-tier-javascript.md
       - name: TypeScript
         items: 
@@ -875,7 +877,7 @@ items:
             href: storage-blob-properties-metadata-typescript.md
           - name: Get blob URL
             href: storage-blob-get-url-typescript.md
-          - name: Use access tiers
+          - name: Set or change a blob's access tier
             href: storage-blob-use-access-tier-typescript.md
       - name: Python
         items:
@@ -939,6 +941,8 @@ items:
             href: storage-blob-lease-python.md
           - name: Manage blob properties and metadata
             href: storage-blob-properties-metadata-python.md
+          - name: Set or change a blob's access tier
+            href: storage-blob-use-access-tier-python.md
           - name: Generate a shared access signature (SAS)
             items:
             - name: Create a user delegation SAS for a blob
