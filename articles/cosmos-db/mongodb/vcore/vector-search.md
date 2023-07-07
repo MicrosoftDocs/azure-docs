@@ -16,7 +16,7 @@ ms.date: 05/10/2023
 
 [!INCLUDE[MongoDB vCore](../../includes/appliesto-mongodb-vcore.md)]
 
-Use Vector Search in Azure Cosmos DB for MongoDB vCore to seamlessly integrate your AI-based applications, including apps built using [Azure OpenAI embeddings](../../../cognitive-services/openai/tutorials/embeddings.md), with your data stored in Azure Cosmos DB. Vector search enables you to efficiently store, index, and query high dimensional vector data stored directly in Azure Cosmos DB for MongoDB vCore, eliminating the need to transfer your data to more expensive alternatives for vector search capabilities.
+Use Vector Search in Azure Cosmos DB for MongoDB vCore to seamlessly integrate your AI-based applications, including apps built using [Azure OpenAI embeddings](../../../ai-services/openai/tutorials/embeddings.md), with your data stored in Azure Cosmos DB. Vector search enables you to efficiently store, index, and query high dimensional vector data stored directly in Azure Cosmos DB for MongoDB vCore, eliminating the need to transfer your data to more expensive alternatives for vector search capabilities.
 
 ## What is Vector search?
 

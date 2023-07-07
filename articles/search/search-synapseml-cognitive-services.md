@@ -137,7 +137,7 @@ display(df2)
 
 Paste the following code into the third cell. No modifications are required, so run the code when you're ready.
 
-This code loads the [AnalyzeInvoices transformer](https://microsoft.github.io/SynapseML/docs/documentation/transformers/transformers_cognitive/#analyzeinvoices) and passes a reference to the data frame containing the invoices. It calls the pre-built [invoice model](../ai-services/document-intelligence/concept-invoice.md) of Azure AI Document Intelligence to extract information from the invoices..
+This code loads the [AnalyzeInvoices transformer](https://microsoft.github.io/SynapseML/docs/documentation/transformers/transformers_cognitive/#analyzeinvoices) and passes a reference to the data frame containing the invoices. It calls the pre-built [invoice model](../ai-services/document-intelligence/concept-invoice.md) of Azure AI Document Intelligence to extract information from the invoices.
 
 ```python
 from synapse.ml.cognitive import AnalyzeInvoices

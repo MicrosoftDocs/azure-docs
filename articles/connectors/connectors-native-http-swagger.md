@@ -27,7 +27,7 @@ With the built-in **HTTP + Swagger** operation and [Azure Logic Apps](../logic-a
 
   * The Swagger file must have [Cross-Origin Resource Sharing (CORS)](/rest/api/storageservices/cross-origin-resource-sharing--cors--support-for-the-azure-storage-services) enabled.
 
-  The examples in this topic use the [Cognitive Services Face API](../cognitive-services/face/overview.md), which requires a [Cognitive Services account and access key](../cognitive-services/cognitive-services-apis-create-account.md).
+  The examples in this topic use the [Cognitive Services Face API](../ai-services/computer-vision/overview-identity.md), which requires a [Cognitive Services account and access key](../ai-services/cognitive-services-apis-create-account.md).
 
   > [!NOTE]
   > To reference a Swagger file that's unhosted or that doesn't meet the security and cross-origin requirements, 

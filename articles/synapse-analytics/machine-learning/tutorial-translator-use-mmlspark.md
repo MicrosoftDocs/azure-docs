@@ -13,7 +13,7 @@ ms.custom: ignite-fall-2021
 
 # Tutorial: Translator with Cognitive Service
 
-[Translator](../../cognitive-services/Translator/index.yml) is an [Azure Cognitive Service](../../cognitive-services/index.yml) that enables you to perform language translation and other language-related operations. In this tutorial, you'll learn how to use [Translator](../../cognitive-services/Translator/index.yml) to build intelligent, multi-language solutions on Azure Synapse Analytics.
+[Translator](../../ai-services/Translator/index.yml) is an [Azure Cognitive Service](../../ai-services/index.yml) that enables you to perform language translation and other language-related operations. In this tutorial, you'll learn how to use [Translator](../../ai-services/Translator/index.yml) to build intelligent, multi-language solutions on Azure Synapse Analytics.
 
 This tutorial demonstrates using translator with [MMLSpark](https://github.com/Azure/mmlspark) to:
 
