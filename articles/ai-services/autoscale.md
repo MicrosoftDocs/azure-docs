@@ -14,7 +14,7 @@ This article provides guidance for how customers can access higher rate limits o
 
 ## Overview
 
-Each Azure AI services resource has a pre-configured static call rate (transactions per second) which limits the number of concurrent calls that customers can make to the backend service in a given time frame. The autoscale feature will automatically increase/decrease a customer's resource's rate limits based on near-real-time resource usage metrics and backend service capacity metrics.
+Each Azure AI services resource has a preconfigured static call rate (transactions per second) which limits the number of concurrent calls that customers can make to the backend service in a given time frame. The autoscale feature will automatically increase/decrease a customer's resource's rate limits based on near-real-time resource usage metrics and backend service capacity metrics.
 
 ## Get started with the autoscale feature
 
@@ -41,11 +41,11 @@ az resource update --namespace Microsoft.CognitiveServices --resource-type accou
 
 ### Does enabling the autoscale feature mean my resource will never be throttled again?
 
-No, you may still get `429` errors for rate limit excess. If your application triggers a spike, and your resource reports a `429` response, autoscale will check the available capacity projection section to see whether the current capacity can accommodate a rate limit increase and respond within five minutes.
+No, you may still get `429` errors for rate limit excess. If your application triggers a spike, and your resource reports a `429` response, autoscale checks the available capacity projection section to see whether the current capacity can accommodate a rate limit increase and respond within five minutes.
 
-If the available capacity is enough for an increase, autoscale will gradually increase the rate limit cap of your resource. If you continue to call your resource at a high rate that results in more `429` throttling, your TPS rate will continue to increase over time. If this continues for one hour or more, you should reach the maximum rate (up to 1000 TPS) currently available at that time for that resource.
+If the available capacity is enough for an increase, autoscale gradually increases the rate limit cap of your resource. If you continue to call your resource at a high rate that results in more `429` throttling, your TPS rate will continue to increase over time. If this action continues for one hour or more, you should reach the maximum rate (up to 1000 TPS) currently available at that time for that resource.
 
-If the available capacity is not enough for an increase, the autoscale feature will wait five minutes and check again.
+If the available capacity isn't enough for an increase, the autoscale feature waits five minutes and checks again.
 
 ### What if I need a higher default rate limit?
 
@@ -53,13 +53,13 @@ By default, Cognitive Service resources have a default rate limit of 10 TPS. If 
 
 ### Will this feature increase my Azure spend? 
 
-Azure AI services pricing hasn't changed and can be accessed [here](https://azure.microsoft.com/pricing/details/cognitive-services/). We'll only bill for successful calls made to Azure AI services APIs. However, increased call rate limits mean more transactions will be completed, and you may receive a higher bill.
+Azure AI services pricing hasn't changed and can be accessed [here](https://azure.microsoft.com/pricing/details/cognitive-services/). We'll only bill for successful calls made to Azure AI services APIs. However, increased call rate limits mean more transactions are completed, and you may receive a higher bill.
 
-Be aware of potential errors and their consequences. If a bug in your client application causes it to call the service hundreds of times per second, that would likely lead to a much higher bill, whereas the cost would be much more limited under a fixed rate limit. Errors of this kind are your responsibility, so we highly recommend that you perform development and client update tests against a resource with a fixed rate limit prior to using the autoscale feature.
+Be aware of potential errors and their consequences. If a bug in your client application causes it to call the service hundreds of times per second, that would likely lead to a much higher bill, whereas the cost would be much more limited under a fixed rate limit. Errors of this kind are your responsibility. We highly recommend that you perform development and client update tests against a resource with a fixed rate limit prior to using the autoscale feature.
 
 ### Can I disable this feature if I'd rather limit the rate than have unpredictable spending?
 
-Yes, you can disable the autoscale feature through Azure portal or CLI and return to your default call rate limit setting. If your resource was previously approved for a higher default TPS, it will go back to that rate. It can take up to five minutes for the changes to go into effect.
+Yes, you can disable the autoscale feature through Azure portal or CLI and return to your default call rate limit setting. If your resource was previously approved for a higher default TPS, it goes back to that rate. It can take up to five minutes for the changes to go into effect.
 
 ### Which services support the autoscale feature?
 
@@ -80,7 +80,7 @@ Autoscale feature is available for the following services:
 
 ### Can I test this feature using a free subscription?
 
-No, the autoscale feature is not available to free tier subscriptions.
+No, the autoscale feature isn't available to free tier subscriptions.
 
 ## Next steps
 
