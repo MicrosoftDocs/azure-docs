@@ -19,7 +19,7 @@ In Azure Cognitive Search, if you added vector fields to a search index, this ar
 
 ## Prerequisites
 
-+ Azure Cognitive Search, in any region and on any tier. However, if you want to also use [semantic search](semantic-search-overview.md) for hybrid queries, your search service must be Standard tier or higher, with [semantic search enabled](semantic-search-overview.md#enable-semantic-search).
++ Azure Cognitive Search, in any region and on any tier. However, if you want to also use [semantic search](semantic-search-overview.md) for hybrid queries, your search service must be Basic tier or higher, with [semantic search enabled](semantic-search-overview.md#enable-semantic-search).
 
   Most existing services support vector search. For a small subset of services created prior to January 2019, an index containing vector fields will fail on creation. In this situation, a new service must be created.
 
@@ -137,7 +137,7 @@ api-key: {{admin-api-key}}
 }
 ```
 
-## Query syntax for multi-field vector query
+## Query syntax for cross-field vector query
 
 You can set "vector.fields" property to multiple vector fields. For example, the Postman collection has vector fields named titleVector and contentVector. Your query can include both titleVector and contentVector.
 
@@ -193,4 +193,4 @@ Search results would include a combination of text and images, assuming your sea
 
 ## Next steps
 
-As a next step, we recommend reviewing the demo code for [Python](https://github.com/Azure/cognitive-search-vector-pr/tree/main/demo-python), [JavaScript](https://github.com/Azure/cognitive-search-vector-pr/tree/main/demo-javascript), or [C#](https://github.com/Azure/cognitive-search-vector-pr/tree/main/demo-dotnet).
+As a next step, we recommend reviewing the demo code for [Python](https://github.com/Azure/cognitive-search-vector-pr/tree/main/demo-python), or [C#](https://github.com/Azure/cognitive-search-vector-pr/tree/main/demo-dotnet).
