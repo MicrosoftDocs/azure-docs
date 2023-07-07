@@ -58,7 +58,7 @@ The new project is created:
 
 <!-- ![Image](Media/VSCodeWorkspace.png) -->
 
-### Install necessary NuGet packages
+### Install the necessary NuGet package
 
 You'll need to install `Microsoft.Azure.WebJobs.Extensions.Redis`, the NuGet package for the Redis extension that allows Redis keyspace notifications to be used as triggers in Azure Functions.
 
@@ -102,14 +102,6 @@ namespace Microsoft.Azure.WebJobs.Extensions.Redis.Samples
             logger.LogInformation(message);
         }
 
-        [FunctionName(nameof(PubSubTriggerResolvedChannel))]
-        public static void PubSubTriggerResolvedChannel(
-            [RedisPubSubTrigger(connectionString, "%pubsubChannel%")] string message,
-            ILogger logger)
-        {
-            logger.LogInformation(message);
-        }
-
         [FunctionName(nameof(KeyspaceTrigger))]
         public static void KeyspaceTrigger(
             [RedisPubSubTrigger(connectionString, "__keyspace@0__:keyspaceTest")] string message,
@@ -145,7 +137,7 @@ namespace Microsoft.Azure.WebJobs.Extensions.Redis.Samples
 }
 ```
 
-This tutorial shows multiple different triggers:
+This tutorial shows multiple different ways to trigger on Redis activity:
 
 1. _PubSubTrigger_, which is triggered when activity is published to the pub/sub channel named `pubsubTest`
 
@@ -155,13 +147,24 @@ This tutorial shows multiple different triggers:
 
 1. _ListTrigger_, which looks for changes to the list `listTest`
 
-1. _ListMultipleTrigger_, which looks for changes to list `listTest1` and `listTest2`
-
 1. _StreamTrigger_, which looks for changes to the stream `streamTest`
 
-1. _StreamMultipleTrigger_, which looks for changes to streams `streamTest1` and `streamTest2`
+### Connect to your cache
+In order to trigger on Redis activity, you need to pass in the connection string of your cache instance. This information will be stored in the `local.settings.json` file that was automatically created in your folder. Using the [local settings file](../azure-functions/functions-run-local.md#local-settings) is recommended as a security best practice.
 
-To connect to your cache, take the connection string you copied from earlier and paste to replace the value of `localhost` at the top of the file, set to `127.0.0.1:6379` by default.
+To connect to your cache, add a `ConnectionStrings` section in the `local.settings.json` file and add your connection string using the parameter `redisConnectionString`. It should look like this:
+
+```json
+{
+  "IsEncrypted": false,
+  "Values": {
+    "FUNCTIONS_WORKER_RUNTIME": "dotnet",
+  },
+  "ConnectionStrings": {
+    "redisConnectionString": "<your-connection-string>"
+  }
+}
+```
 
 <!-- ![Image](Media/ConnectionString.png) -->
 
@@ -219,7 +222,13 @@ Wait a few minutes for the new Function App to be created. It appears in the dro
 
 The app builds and starts deploying. You can track progress in the **Output Window**.
 
-Once deployment is complete, open your Function App in the Azure portal and select **Log Stream** from the Resource menu. Wait for log analytics to connect, and then use the Redis console to activate any of the triggers. You should see the triggers being logged here.
+### Add connection string information
+
+Navigate to your new Function App in the Azure portal and select the **Configuration** blade from the Resource menu. You'll notice that your application settings have automatically been added to the Function App. For security, however, the connection string information in your `local.settings.json` file is not automationally added. Select **New connection string** and enter `redisConnectionString` as the Name, and your connection string as the Value. Set Type to _Custom_, and select **Ok** to close the menu and then **Save** on the Configuration page to confirm. The functions app will restart with the new connection string information. 
+
+### Test your triggers
+
+Once deployment is complete and the connection string information added, open your Function App in the Azure portal and select **Log Stream** from the Resource menu. Wait for log analytics to connect, and then use the Redis console to activate any of the triggers. You should see the triggers being logged here.
 
 <!-- ![Image](Media/LogStream.png) -->
 
