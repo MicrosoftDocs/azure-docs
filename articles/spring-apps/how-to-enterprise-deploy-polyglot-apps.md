@@ -446,7 +446,7 @@ The following table indicates the features supported for each language.
 | E2E TLS                                                         | ✔️  | ✔️     | ✔️  | ✔️        | ✔️ | ✔️                                                      | ✔️               |
 | Advanced troubleshooting - thread/heap/JFR dump                 | ✔️  |        |      |           |    |                                                         |                   |
 | Bring your own storage                                          | ✔️  | ✔️     | ✔️  | ✔️        | ✔️ | ✔️                                                      | ✔️               |
-| Integrate service binding with Resource Connector               | ✔️  |        |      |           |    |                                                         |                   |
+| Integrate service binding with Resource Connector               | ✔️  |        |      |           |    |                                                         |   ✔️              |
 | Availability Zone                                               | ✔️  | ✔️     | ✔️  | ✔️        | ✔️ | ✔️                                                      | ✔️               |
 | App Lifecycle events                                            | ✔️  | ✔️     | ✔️  | ✔️        | ✔️ | ✔️                                                      | ✔️               |
 | Reduced app size - 0.5 vCPU and 512 MB                          | ✔️  | ✔️     | ✔️  | ✔️        | ✔️ | ✔️                                                      | ✔️               |
@@ -482,7 +482,7 @@ The following features aren't supported in Azure Spring Apps due to the limitati
 | Managed identity                                  | Azure SDKs doesn't support native image.                          |
 | Advanced troubleshooting – thread/heap/JFR dump   | GraalVM built native images doesn't support thread/heap/JFR dump. |
 | Remote debugging                                  | GraalVM Native Image doesn't support Remote Debugging.            |
-| Integrate service binding with Resource Connector | JDBC driver or resource SDK doesn't support native image.         |
+| Passwordless connection via Service Connector     | Azure Java SDK doesn't support native image.                      |
 
 > [!NOTE]
 > In the following different language build and deploy configuration sections, `--build-env` means the environment is used in the build phase. `--env` means the environment is used in the runtime phase.
@@ -566,6 +566,7 @@ The following table lists the features supported in Azure Spring Apps:
 | Add CA certificates to the system trust store at build and runtime.  | See the [Configure CA certificates for app builds and deployments](./how-to-enterprise-configure-apm-integration-and-ca-certificates.md#configure-ca-certificates-for-app-builds-and-deployments) section of [How to configure APM integration and CA certificates](./how-to-enterprise-configure-apm-integration-and-ca-certificates.md). | N/A                                                                                                                   | N/A                                  |
 | Integrate with Dynatrace, Elastic, New Relic, App Dynamic APM agent. | See [How to configure APM integration and CA certificates](./how-to-enterprise-configure-apm-integration-and-ca-certificates.md).                                                                                                                                                                                                          | N/A                                                                                                                   | N/A                                  |
 | Enable configuration of labels on the created image.                 | Configures both OCI-specified labels with short environment variable names and arbitrary labels using a space-delimited syntax in a single environment variable.                                                                                                                                                                           | `BP_IMAGE_LABELS` <br> `BP_OCI_AUTHORS` <br> See more envs [here](https://github.com/paketo-buildpacks/image-labels). | `--build-env BP_OCI_AUTHORS=<value>` |
+| Deploy an Angular application with Angular Live Development Server.   | Specify the host before running ng serve in the [package.json](https://github.com/paketo-buildpacks/samples/blob/main/nodejs/angular-npm/package.json): `ng serve --host 0.0.0.0 --port 8080 --public-host <your application domain name>`. You can get domain name of the application from **URL** in the application overrivew page. Do remember to remove the protocal `https://`.                                                                                                                                                                             | `BP_NODE_RUN_SCRIPTS` <br> `NODE_ENV` | `--build-env BP_NODE_RUN_SCRIPTS=build NODE_ENV=development` |
 
 ### Deploy WebServer applications
 
