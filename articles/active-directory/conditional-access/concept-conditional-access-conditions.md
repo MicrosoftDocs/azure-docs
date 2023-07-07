@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 06/14/2023
+ms.date: 07/07/2023
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
@@ -55,13 +55,11 @@ We don't support selecting macOS or Linux device platforms when selecting **Requ
 
 ## Locations
 
-When configuring location as a condition, organizations can choose to include or exclude locations. These named locations may include the public IPv4 or IPv6 network information, country or region, or even unknown areas that don't map to specific countries or regions. Only IP ranges can be marked as a trusted location.
+When configuring location as a condition, organizations can choose to include or exclude locations. These named locations may include the public IPv4 or IPv6 network information, country or region, unknown areas that don't map to specific countries or regions, and [Global Secure Access' compliant network](../../global-secure-access/how-to-compliant-network.md).
 
 When including **any location**, this option includes any IP address on the internet not just configured named locations. When selecting **any location**, administrators can choose to exclude **all trusted** or **selected locations**.
 
-For example, some organizations may choose to not require multifactor authentication when their users are connected to the network in a trusted location such as their physical headquarters. Administrators could create a policy that includes any location but excludes the selected locations for their headquarters networks.
-
-More information about locations can be found in the article, [What is the location condition in Azure Active Directory Conditional Access](location-condition.md).
+Administrators can create policies that target specific locations along with other conditions. More information about locations can be found in the article, [What is the location condition in Azure Active Directory Conditional Access](location-condition.md).
 
 ## Client apps
 

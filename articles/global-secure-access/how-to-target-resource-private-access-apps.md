@@ -5,7 +5,7 @@ description: How to apply Conditional Access policies to Microsoft Entra Private
 ms.service: network-access
 ms.subservice: 
 ms.topic: how-to
-ms.date: 06/21/2023
+ms.date: 07/07/2023
 
 ms.author: sarahlipsey
 author: shlipsey3
@@ -54,16 +54,20 @@ You can also apply Conditional Access policies to a group of applications based 
 
 ### Assignments and Access controls example
 
-Adjust the following policy details to create a Conditional Access policy requiring multifactor authentication for your Quick Access application. The user assignments ensure that your organization's emergency access or break-glass accounts are excluded from the policy.
+Adjust the following policy details to create a Conditional Access policy requiring multifactor authentication, device compliance, or a hybrid Azure AD joined device for your Quick Access application. The user assignments ensure that your organization's emergency access or break-glass accounts are excluded from the policy.
 
 1. Under **Assignments**, select **Users**:
    1. Under **Include**, select **All users**.
-   1. Under **Exclude**, select **Users and groups** and choose your organization's emergency access or break-glass accounts. 
+   1. Under **Exclude**, select **Users and groups** and choose your organization's [emergency access or break-glass accounts](#user-exclusions).  
 1. Under **Access controls** > **Grant**:
-   1. Select **Grant access** > **Require multifactor authentication** > **Select**.
+   1. Select **Require multifactor authentication**, **Require device to be marked as compliant**, and **Require hybrid Azure AD joined device**
 1. Confirm your settings and set **Enable policy** to **Report-only**.
    
 After administrators confirm the policy settings using [report-only mode](../active-directory/conditional-access/howto-conditional-access-insights-reporting.md), an administrator can move the **Enable policy** toggle from **Report-only** to **On**.
+
+### User exclusions
+
+[!INCLUDE [active-directory-policy-exclusions](../../includes/active-directory-policy-exclude-user.md)]
 
 ## Next steps
 

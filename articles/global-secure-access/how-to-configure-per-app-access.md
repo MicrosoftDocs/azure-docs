@@ -54,7 +54,7 @@ Let's look at each of these steps in more detail.
 
 To configure a Global Secure Access app, you must have a connector group with at least one active App Proxy connector.
 
-If you don't already have a connector set up, see [Configure connectors](how-to-configure-quick-access.md).
+If you don't already have a connector set up, see [Configure connectors](how-to-configure-connectors.md).
 
 ## Create a Global Secure Access application
 
@@ -167,7 +167,6 @@ You can add or update the FQDNs and IP addresses included in your app at any tim
 You can enable or disable access to the Global Secure Access app using the Global Secure Access Client. This option is selected by default, but can be disabled, so the FQDNs and IP addresses included in the app segments aren't tunneled through the service. 
 
 ![Screenshot of the enable access checkbox.](media/how-to-configure-per-app-access/per-app-access-enable-checkbox.png)
-
 
 #### Graph
 
