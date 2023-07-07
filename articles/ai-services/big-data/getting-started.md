@@ -19,13 +19,13 @@ Setting up your environment is the first step to building a pipeline for your da
 In this article, you'll perform these steps to get started:
 
 > [!div class="checklist"]
-> * [Create a Azure AI services resource](#create-a-azure-ai-services-resource)
+> * [Create an Azure AI services resource](#create-a-azure-ai-services-resource)
 > * [Create an Apache Spark cluster](#create-an-apache-spark-cluster)
 > * [Try a sample](#try-a-sample)
 
-## Create a Azure AI services resource
+## Create an Azure AI services resource
 
-To work with big data in Azure AI services, first create a Azure AI services resource for your workflow. There are two main types of Azure AI services: cloud services hosted in Azure and containerized services managed by users. We recommend starting with the simpler cloud-based Azure AI services.
+To work with big data in Azure AI services, first create an Azure AI services resource for your workflow. There are two main types of Azure AI services: cloud services hosted in Azure and containerized services managed by users. We recommend starting with the simpler cloud-based Azure AI services.
 
 ### Cloud services
 
@@ -94,7 +94,7 @@ To get started on Azure Kubernetes Service, follow these steps:
 
 1. [Install the Apache Spark 2.4.0 helm chart](https://hub.helm.sh/charts/microsoft/spark)
 
-1. [Install a Azure AI container using Helm](../computer-vision/deploy-computer-vision-on-premises.md)
+1. [Install an Azure AI container using Helm](../computer-vision/deploy-computer-vision-on-premises.md)
 
 ## Try a sample
 
