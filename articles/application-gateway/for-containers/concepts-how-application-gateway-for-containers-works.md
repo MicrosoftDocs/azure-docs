@@ -45,8 +45,8 @@ The following dependencies are also referenced in an Application Gateway for Con
 ### Application Gateway for Containers Association
 - An Application Gateway for Containers Association resource is an Azure child resource of the Application Gateway for Containers parent resource
 - An Application Gateway for Containers Association defines a connection point into a virtual network.  An association is a 1:1 mapping of an association resource to an Azure Subnet that has been delegated.
-- Application Gateway for Containers are designed to allow for multiple associations
-   - The current number of associations is currently limited to 1
+- Application Gateway for Containers is designed to allow for multiple associations
+   - At this time, the current number of associations is currently limited to 1
 - During creation of an association, the underlying data plane is provisioned and connected to a subnet within the defined virtual network's subnet
 - Each association should assume at least 256 addresses are available in the subnet at time of provisioning.
    - A minimum /24 subnet mask for new deployment, assuming nothing has been provisioning in the subnet).
