@@ -23,9 +23,80 @@ Most Azure AI services are available through REST APIs and client library SDKs i
 
 Select a service from the list below and learn how it can help you meet your development goals.
 
+items:
+    # Card
+    - title: Language
+      imageSrc: ./media/service-icons/language.svg
+      summary: Build apps with industry-leading natural language understanding capabilities
+      url: ./language-service/index.yml
+    # Card
+    - title: Translator
+      imageSrc: ./media/service-icons/translator.svg
+      summary: Translate more than 100 languages and dialects
+      url: ./translator/index.yml
+    # Card
+    - title: Vision
+      imageSrc: ./media/service-icons/vision.svg
+      summary: Analyze content in images and videos
+      url: ./computer-vision/index.yml
+    # Card
+    - title: Custom Vision
+      imageSrc: ./media/service-icons/custom-vision.svg
+      summary: Customize image recognition to fit your business
+      url: ./custom-vision-service/index.yml
+    # Card
+    - title: Face
+      imageSrc: ./media/service-icons/face.svg
+      summary: Detect and identify people and emotions in images
+      url: ./computer-vision/overview-identity.md
+    # Card
+    - title: Anomaly Detector
+      imageSrc: ./media/service-icons/anomaly-detector.svg
+      summary: Identify potential problems early on
+      url: ./anomaly-detector/index.yml
+    # Card
+    - title: Content Safety
+      imageSrc: ./media/service-icons/content-safety.svg
+      summary: An AI service that detects unwanted contents
+      url: ./content-safety/index.yml
+    # Card
+    - title: Personalizer
+      imageSrc: ./media/service-icons/personalizer.svg
+      summary: Create rich, personalized experiences for each user
+      url: ./personalizer/index.yml
+    # Card
+    - title: Bot Service
+      imageSrc: ./media/service-icons/bot-services.svg
+      summary: Create bots and connect them across channels
+      url: /composer/
+    # Card
+    - title: Document Intelligence
+      imageSrc: ./media/service-icons/document-intelligence.svg
+      summary: Turn documents into usable data at a fraction of the time and cost
+      url: ./document-intelligence/index.yml
+    # Card
+    - title: Azure Cognitive Search
+      imageSrc: ./media/service-icons/cognitive-search.svg
+      summary: Bring AI-powered cloud search to your mobile and web apps
+      url: ../search/index.yml
+    # Card
+    - title: Metrics Advisor
+      imageSrc: ./media/service-icons/metrics-advisor.svg
+      summary: Proactively monitor metrics and diagnose issues
+      url: ./metrics-advisor/index.yml
+    # Card
+    - title: Video Indexer
+      imageSrc: ./media/service-icons/video-indexer.svg
+      summary: Extract actionable insights from your videos
+      url: ../azure-video-indexer/index.yml
+     # Card
+    - title: Immersive Reader
+      imageSrc: ./media/service-icons/immersive-reader.svg
+      summary: Help users read and comprehend text
+      url: ./immersive-reader/index.yml
 :::row:::
    :::column:::
-      :::image type="icon" source="media/service-icons/language.svg" link="#read":::</br>Azure OpenAI
+      :::image type="icon" source="media/service-icons/language.svg" link="./openai/index.yml":::</br>Azure OpenAI
    :::column-end:::
    :::column span="":::
       Perform a wide variety of natural language tasks
@@ -33,7 +104,7 @@ Select a service from the list below and learn how it can help you meet your dev
 :::row-end:::
 :::row:::
    :::column:::
-      :::image type="icon" source="media/service-icons/speech.svg" link="#read":::</br>Speech
+      :::image type="icon" source="media/service-icons/speech.svg" link="./speech-service/index.yml":::</br>Speech
    :::column-end:::
    :::column span="":::
       Speech to text, text to speech, translation and speaker recognition
@@ -41,7 +112,7 @@ Select a service from the list below and learn how it can help you meet your dev
 :::row-end:::
 :::row:::
    :::column:::
-      :::image type="icon" source="media/service-icons/language.svg" link="#read":::</br>Language
+      :::image type="icon" source="media/service-icons/language.svg" link="./language-service/index.yml":::</br>Language
    :::column-end:::
    :::column span="":::
       Build apps with industry-leading natural language understanding capabilities
@@ -49,7 +120,7 @@ Select a service from the list below and learn how it can help you meet your dev
 :::row-end:::
 :::row:::
    :::column:::
-      :::image type="icon" source="media/service-icons/translator.svg" link="#read":::</br>Translator
+      :::image type="icon" source="media/service-icons/translator.svg" link="./translator/index.yml":::</br>Translator
    :::column-end:::
    :::column span="":::
       Translate more than 100 languages and dialects
@@ -57,7 +128,7 @@ Select a service from the list below and learn how it can help you meet your dev
 :::row-end:::
 :::row:::
    :::column:::
-      :::image type="icon" source="media/service-icons/vision.svg" link="#read":::</br>Vision
+      :::image type="icon" source="media/service-icons/vision.svg" link="./computer-vision/index.yml":::</br>Vision
    :::column-end:::
    :::column span="":::
       Analyze content in images and videos
@@ -65,7 +136,7 @@ Select a service from the list below and learn how it can help you meet your dev
 :::row-end:::
 :::row:::
    :::column:::
-      :::image type="icon" source="media/service-icons/custom-vision.svg" link="#read":::</br>Custom Vision
+      :::image type="icon" source="media/service-icons/custom-vision.svg" link="./custom-vision-service/index.yml":::</br>Custom Vision
    :::column-end:::
    :::column span="":::
       Customize image recognition to fit your business
@@ -73,7 +144,7 @@ Select a service from the list below and learn how it can help you meet your dev
 :::row-end:::
 :::row:::
    :::column:::
-      :::image type="icon" source="media/service-icons/face.svg" link="#read":::</br>Face
+      :::image type="icon" source="media/service-icons/face.svg" link="./computer-vision/overview-identity.md":::</br>Face
    :::column-end:::
    :::column span="":::
       Detect and identify people and emotions in images
@@ -81,7 +152,7 @@ Select a service from the list below and learn how it can help you meet your dev
 :::row-end:::
 :::row:::
    :::column:::
-      :::image type="icon" source="media/service-icons/anomaly-detector.svg" link="#read":::</br>Anomaly Detector
+      :::image type="icon" source="media/service-icons/anomaly-detector.svg" link="./anomaly-detector/index.yml":::</br>Anomaly Detector
    :::column-end:::
    :::column span="":::
       Identify potential problems early on
@@ -89,7 +160,7 @@ Select a service from the list below and learn how it can help you meet your dev
 :::row-end:::
 :::row:::
    :::column:::
-      :::image type="icon" source="media/service-icons/content-safety.svg" link="#read":::</br>Content Safety
+      :::image type="icon" source="media/service-icons/content-safety.svg" link="./content-safety/index.yml":::</br>Content Safety
    :::column-end:::
    :::column span="":::
       An AI service that detects unwanted contents
@@ -97,7 +168,7 @@ Select a service from the list below and learn how it can help you meet your dev
 :::row-end:::
 :::row:::
    :::column:::
-      :::image type="icon" source="media/service-icons/personalizer.svg" link="#read":::</br>Personalizer
+      :::image type="icon" source="media/service-icons/personalizer.svg" link="./personalizer/index.yml":::</br>Personalizer
    :::column-end:::
    :::column span="":::
       Create rich, personalized experiences for each user
@@ -105,7 +176,7 @@ Select a service from the list below and learn how it can help you meet your dev
 :::row-end:::
 :::row:::
     :::column:::
-        :::image type="icon" source="media/service-icons/bot-services.svg" link="#read":::</br>Bot Service
+        :::image type="icon" source="media/service-icons/bot-services.svg" link="/composer":::</br>Bot Service
     :::column-end:::
     :::column span="":::
         Create bots and connect them across channels
@@ -113,7 +184,7 @@ Select a service from the list below and learn how it can help you meet your dev
 :::row-end:::
 :::row:::
     :::column:::
-        :::image type="icon" source="media/service-icons/document-intelligence.svg" link="#read":::</br>Document Intelligence
+        :::image type="icon" source="media/service-icons/document-intelligence.svg" link="./document-intelligence/index.yml":::</br>Document Intelligence
     :::column-end:::
     :::column span="":::
         Turn documents into usable data at a fraction of the time and cost
@@ -121,7 +192,7 @@ Select a service from the list below and learn how it can help you meet your dev
 :::row-end:::
 :::row:::
     :::column:::
-        :::image type="icon" source="media/service-icons/cognitive-search.svg" link="#read":::</br>Azure Cognitive Search
+        :::image type="icon" source="media/service-icons/cognitive-search.svg" link="../search/index.yml":::</br>Azure Cognitive Search
     :::column-end:::
     :::column span="":::
         Bring AI-powered cloud search to your mobile and web apps
@@ -129,7 +200,7 @@ Select a service from the list below and learn how it can help you meet your dev
 :::row-end:::
 :::row:::
     :::column:::
-        :::image type="icon" source="media/service-icons/metrics-advisor.svg" link="#read":::</br>Metrics Advisor
+        :::image type="icon" source="media/service-icons/metrics-advisor.svg" link="./metrics-advisor/index.yml":::</br>Metrics Advisor
     :::column-end:::
     :::column span="":::
         An AI service that detects unwanted contents
@@ -137,7 +208,7 @@ Select a service from the list below and learn how it can help you meet your dev
 :::row-end:::
 :::row:::
     :::column:::
-        :::image type="icon" source="media/service-icons/video-indexer.svg" link="#read":::</br>Video Indexer
+        :::image type="icon" source="media/service-icons/video-indexer.svg" link="../azure-video-indexer/index.yml":::</br>Video Indexer
     :::column-end:::
     :::column span="":::
         Extract actionable insights from your videos
@@ -145,13 +216,12 @@ Select a service from the list below and learn how it can help you meet your dev
 :::row-end:::
 :::row:::
     :::column:::
-        :::image type="icon" source="media/service-icons/immersive-reader.svg" link="#read":::</br>Immersive Reader
+        :::image type="icon" source="media/service-icons/immersive-reader.svg" link="./immersive-reader/index.yml":::</br>Immersive Reader
     :::column-end:::
     :::column span="":::
         Help users read and comprehend text
     :::column-end:::
 :::row-end:::
-
 
 
 ## Create an Azure AI services resource
