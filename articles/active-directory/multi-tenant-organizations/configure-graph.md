@@ -69,6 +69,7 @@ These steps describe how to use Microsoft Graph Explorer (recommended), but you 
     
     **Response**
 
+    ```http
     {
         "@odata.context": "https://graph.microsoft.com/beta/$metadata#tenantRelationships/multiTenantOrganization/$entity",
         "id": "{mtoId}",
@@ -76,6 +77,7 @@ These steps describe how to use Microsoft Graph Explorer (recommended), but you 
         "displayName": "Cairo",
         "description": null
     }
+    ```
 
 ## Step 3: Add tenants
 
@@ -161,7 +163,7 @@ These steps describe how to use Microsoft Graph Explorer (recommended), but you 
 
 ## Step 4: (Optional) Change the role of a tenant
 
-By default, tenants added to the multi-tenant organization are member tenants. Optionally, you can change them to owner tenants, which will allow them to add other tenants to the multi-tenant organization. You can also change an owner tenant to a member tenant.
+By default, tenants added to the multi-tenant organization are member tenants. Optionally, you can change them to owner tenants, which allows them to add other tenants to the multi-tenant organization. You can also change an owner tenant to a member tenant.
 
 1. Use the [Update multiTenantOrganizationMember](/graph/api/multitenantorganizationmember-update?branch=pr-en-us-21123) API to change a member tenant to an owner tenant.
 
@@ -218,7 +220,7 @@ By default, tenants added to the multi-tenant organization are member tenants. O
 
 You can remove any member tenant, including your own. You can't remove owner tenants. Also, you can't remove the original creator tenant, even if it has been changed from owner to member.
 
-1. Use the [Delete multiTenantOrganizationMember](/graph/api/multitenantorganization-delete-tenants?branch=pr-en-us-21123) API to remove any member tenant. This operation will take a few minutes.
+1. Use the [Delete multiTenantOrganizationMember](/graph/api/multitenantorganization-delete-tenants?branch=pr-en-us-21123) API to remove any member tenant. This operation takes a few minutes.
 
     **Request**
 
@@ -277,7 +279,7 @@ You can remove any member tenant, including your own. You can't remove owner ten
 
 ## Step 6: Sign in to a member tenant
 
-The Cairo tenant created an multi-tenant organization and added the Berlin and Athens tenants. In these steps you sign in to the Berlin tenant and join the multi-tenant organization created by Cairo.
+The Cairo tenant created a multi-tenant organization and added the Berlin and Athens tenants. In these steps you sign in to the Berlin tenant and join the multi-tenant organization created by Cairo.
 
 1. Start [Microsoft Graph Explorer tool](https://aka.ms/ge).
 
@@ -295,7 +297,7 @@ The Cairo tenant created an multi-tenant organization and added the Berlin and A
 
 ## Step 7: Unconfigure TRV2
 
-1. Use the [Update crossTenantAccessPolicyConfigurationDefault](/graph/api/crosstenantaccesspolicyconfigurationdefault-update) to un-configure tenant restrictions version 2 (TRV2). 
+1. Use the [Update crossTenantAccessPolicyConfigurationDefault](/graph/api/crosstenantaccesspolicyconfigurationdefault-update) to unconfigure tenant restrictions version 2 (TRV2). 
 
     **Request**
 
@@ -345,7 +347,7 @@ The Cairo tenant created an multi-tenant organization and added the Berlin and A
     GET https://graph.microsoft.com/beta/tenantRelationships/multiTenantOrganization/joinRequest
     ```
 
-    This operation will take a few minutes to process. If you check immediately after calling the API to join, the response will be similar to the following.
+    This operation takes a few minutes. If you check immediately after calling the API to join, the response will be similar to the following.
 
     **Response**
 
