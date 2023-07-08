@@ -61,12 +61,12 @@ Scenarios in which you would notice a 500-error code on Application Gateway for 
 
 1. No endpoints found for all backends: when there are no endpoints found for all the backends referenced in an HTTPRoute, a 500 error code is obtained.
 
-### Kubernetes Gateway object fails to get token from credential chain
+### Kubernetes Gateway resource fails to get token from credential chain
 
 #### Symptoms
 No changes to HttpRoutes are being applied to Application Gateway for Containers.
 
-The following error message is returned on the Kubernetes Gateway object and no changes to HttpRoutes
+The following error message is returned on the Kubernetes Gateway resource and no changes to HttpRoutes
 
 ```YAML
 status:
