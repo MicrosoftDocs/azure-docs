@@ -10,11 +10,11 @@ ms.date: 05/02/2023
 At this time, a test or preview build is not available for the next release.
 -->
 
-July 2023 test release is now available.
+July 2023 preview release is now available.
 
 |Component|Value|
 |-----------|-----------|
-|Container images registry/repository |`mcr.microsoft.com/arcdata/test`|
+|Container images registry/repository |`mcr.microsoft.com/arcdata/preview`|
 |Container images tag |`v1.21.0_2023-07-11`|
 |**CRD names and version:**| |
 |`activedirectoryconnectors.arcdata.microsoft.com`| v1beta1, v1beta2, v1|

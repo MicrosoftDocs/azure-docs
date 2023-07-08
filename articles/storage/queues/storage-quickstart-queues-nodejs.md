@@ -5,8 +5,7 @@ author: pauljewellmsft
 ms.author: pauljewell
 ms.date: 06/29/2023
 ms.topic: quickstart
-ms.service: storage
-ms.subservice: queues
+ms.service: azure-queue-storage
 ms.devlang: javascript
 ms.custom: devx-track-js, mode-api, passwordless-js
 ---

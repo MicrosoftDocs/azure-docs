@@ -16,7 +16,7 @@ ms.custom: UpdateFrequency5, sdkv1, event-tier1-build-2022
 
 # Train PyTorch models at scale with Azure Machine Learning SDK (v1)
 
-[!INCLUDE [sdk v1](../../../includes/machine-learning-sdk-v1.md)]
+[!INCLUDE [sdk v1](../includes/machine-learning-sdk-v1.md)]
 
 In this article, learn how to run your [PyTorch](https://pytorch.org/) training scripts at enterprise scale using Azure Machine Learning.
 
@@ -40,7 +40,7 @@ Run this code on either of these environments:
      
     You can also find a completed [Jupyter Notebook version](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/ml-frameworks/pytorch/train-hyperparameter-tune-deploy-with-pytorch/train-hyperparameter-tune-deploy-with-pytorch.ipynb) of this guide on the GitHub samples page. The notebook includes expanded sections covering intelligent hyperparameter tuning, model deployment, and notebook widgets.
 
-[!INCLUDE [gpu quota](../../../includes/machine-learning-gpu-quota-prereq.md)]
+[!INCLUDE [gpu quota](../includes/machine-learning-gpu-quota-prereq.md)]
 
 ## Set up the experiment
 
@@ -92,7 +92,7 @@ shutil.copy('pytorch_train.py', project_folder)
 
 Create a compute target for your PyTorch job to run on. In this example, create a GPU-enabled Azure Machine Learning compute cluster.
 
-[!INCLUDE [gpu quota](../../../includes/machine-learning-gpu-quota.md)]
+[!INCLUDE [gpu quota](../includes/machine-learning-gpu-quota.md)]
 
 ```Python
 
@@ -117,7 +117,7 @@ except ComputeTargetException:
 
 If you instead want to create a CPU cluster, provide a different VM size to the vm_size parameter, such as STANDARD_D2_V2.
 
-[!INCLUDE [low-pri-note](../../../includes/machine-learning-low-pri-vm.md)]
+[!INCLUDE [low-pri-note](../includes/machine-learning-low-pri-vm.md)]
 
 For more information on compute targets, see the [what is a compute target](../concept-compute-target.md) article.
 
