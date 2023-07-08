@@ -22,7 +22,7 @@ ms.custom: include file
 
 To run your project, in Visual Studio, select **F5**. Your application **MainWindow** is displayed, as shown here:
 
-![Test your application.](./media/develop-guidedsetup-windesktop-test/samplescreenshot.png)
+![Test your application.](../media/develop-guidedsetup-windesktop-test/samplescreenshot.png)
 
 The first time that you run the application and select the **Call Microsoft Graph API** button, you're prompted to sign in. Use an Azure Active Directory account (work or school account) or a Microsoft account (live.com, outlook.com) to test it.
 

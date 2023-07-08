@@ -101,11 +101,11 @@ To configure application settings based on the platform or device you're targeti
 
 ### Redirect URI restrictions
 
-There are some restrictions on the format of the redirect URIs you add to an app registration. For details about these restrictions, see [Redirect URI (reply URL) restrictions and limitations](../articles/active-directory/develop/reply-url.md).
+There are some restrictions on the format of the redirect URIs you add to an app registration. For details about these restrictions, see [Redirect URI (reply URL) restrictions and limitations](../../reply-url.md).
 
 ## Add credentials
 
-Credentials are used by [confidential client applications](../articles/active-directory/develop/msal-client-applications.md) that access a web API. Examples of confidential clients are web apps, other web APIs, or service-type and daemon-type applications. Credentials allow your application to authenticate as itself, requiring no interaction from a user at runtime.
+Credentials are used by [confidential client applications](../../msal-client-applications.md) that access a web API. Examples of confidential clients are web apps, other web APIs, or service-type and daemon-type applications. Credentials allow your application to authenticate as itself, requiring no interaction from a user at runtime.
 
 You can add certificates, client secrets (a string), or federated identity credentials as credentials to your confidential client app registration.
 
@@ -113,12 +113,12 @@ You can add certificates, client secrets (a string), or federated identity crede
 
 ### Add a certificate
 
-Sometimes called a _public key_, a certificate is the recommended credential type because they're considered more secure than client secrets. For more information about using a certificate as an authentication method in your application, see [Microsoft identity platform application authentication certificate credentials](../articles/active-directory/develop/active-directory-certificate-credentials.md).
+Sometimes called a _public key_, a certificate is the recommended credential type because they're considered more secure than client secrets. For more information about using a certificate as an authentication method in your application, see [Microsoft identity platform application authentication certificate credentials](../../certificate-credentials.md).
 
 1. In the Azure portal, in **App registrations**, select your application.
-1. Select **Certificates & secrets** > **Certificates** > **Upload certificate**.
-1. Select the file you want to upload. It must be one of the following file types: _.cer_, _.pem_, _.crt_.
-1. Select **Add**.
+2. Select **Certificates & secrets** > **Certificates** > **Upload certificate**.
+3. Select the file you want to upload. It must be one of the following file types: _.cer_, _.pem_, _.crt_.
+4. Select **Add**.
 
 ### Add a client secret
 
@@ -135,7 +135,7 @@ Client secrets are considered less secure than certificate credentials. Applicat
 1. Select **Add**.
 1. _Record the secret's value_ for use in your client application code. This secret value is _never displayed again_ after you leave this page.
 
-For application security recommendations, see [Microsoft identity platform best practices and recommendations](../articles/active-directory/develop/identity-platform-integration-checklist.md#security).
+For application security recommendations, see [Microsoft identity platform best practices and recommendations](../../identity-platform-integration-checklist.md#security).
 
 If you're using an Azure DevOps service connection that automatically creates a service principal, you need to update the client secret from the Azure DevOps portal site instead of directly updating the client secret. Refer to this document on how to update the client secret from the Azure DevOps portal site:
 [Troubleshoot Azure Resource Manager service connections](/azure/devops/pipelines/release/azure-rm-endpoint#service-principals-token-expired).
@@ -151,9 +151,9 @@ To add a federated credential, follow these steps:
 1. In the **Federated credential scenario** drop-down box, select one of the supported scenarios, and follow the corresponding guidance to complete the configuration.
 
     - **Customer managed keys** for encrypt data in your tenant using Azure Key Vault in another tenant.
-    - **GitHub actions deploying Azure resources** to [configure a GitHub workflow](../articles/active-directory/develop/workload-identity-federation-create-trust.md#github-actions) to get tokens for your application and deploy assets to Azure.
+    - **GitHub actions deploying Azure resources** to [configure a GitHub workflow](../../workload-identity-federation-create-trust.md#github-actions) to get tokens for your application and deploy assets to Azure.
     - **Kubernetes accessing Azure resources** to configure a [Kubernetes service account](../articles/active-directory/develop/workload-identity-federation-create-trust.md#kubernetes) to get tokens for your application and access Azure resources.
     - **Other issuer** to configure an identity managed by an external [OpenID Connect provider](../articles/active-directory/develop/workload-identity-federation-create-trust.md#other-identity-providers) to get tokens for your application and access Azure resources.
     
 
-For more information, how to get an access token with a federated credential, check out the [Microsoft identity platform and the OAuth 2.0 client credentials flow](../articles/active-directory/develop/v2-oauth2-client-creds-grant-flow.md#third-case-access-token-request-with-a-federated-credential) article.
+For more information, how to get an access token with a federated credential, check out the [Microsoft identity platform and the OAuth 2.0 client credentials flow](../../v2-oauth2-client-creds-grant-flow.md#third-case-access-token-request-with-a-federated-credential) article.
