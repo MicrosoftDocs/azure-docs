@@ -13,7 +13,7 @@ ms.author: greglin
 
 # Quickstart: Create Application Gateway for Containers managed by ALB Controller
 
-This guide assumes you're following the "managed by ALB controller" deployment strategy, where all the Application Gateway for Containers resources are managed by ALB controller and lifecycle is determined by definition of the objects defined in Kubernetes.  ALB Controller creates the Application Gateway for Containers resource when an _ApplicationLoadBalancer_ custom resource is defined on the cluster. Application Gateway for Containers' lifecycle is based on the lifecycle of the custom resource.
+This guide assumes you're following the "managed by ALB controller" deployment strategy, where all the Application Gateway for Containers resources are managed by ALB controller and lifecycle is determined by definition of the resources defined in Kubernetes.  ALB Controller creates the Application Gateway for Containers resource when an _ApplicationLoadBalancer_ custom resource is defined on the cluster. Application Gateway for Containers' lifecycle is based on the lifecycle of the custom resource.
 
 ## Prerequisites
 
@@ -21,7 +21,7 @@ Ensure you have first deployed ALB Controller into your Kubernetes cluster.  You
 
 ## Create ApplicationLoadBalancer kubernetes resource
 
-1. Define the Kubernetes namespace for the ApplicationLoadBalancer object
+1. Define the Kubernetes namespace for the ApplicationLoadBalancer resource
 
 ```bash
 kubectl apply -f - <<EOF
@@ -32,7 +32,7 @@ metadata:
 EOF
 ```
 
-2. Define the _ApplicationLoadBalancer_ object, specifying the subnet ID the Application Gateway for Containers association resource should deploy into.  The association establishes connectivity from Application Gateway for Containers to the defined subnet (and connected networks where applicable) to be able to proxy traffic to a defined backend.
+2. Define the _ApplicationLoadBalancer_ resource, specifying the subnet ID the Application Gateway for Containers association resource should deploy into.  The association establishes connectivity from Application Gateway for Containers to the defined subnet (and connected networks where applicable) to be able to proxy traffic to a defined backend.
 
 ```bash
 kubectl apply -f - <<EOF
@@ -49,9 +49,9 @@ EOF
 
 ## Validate creation of the Application Gateway for Containers resources
 
-Once the _ApplicationLoadBalancer_ object has been created, you can track deployment progress of the Application Gateway for Containers resources. The deployment transitions from _InProgress_ to _Ready_ state when provisioning has completed. It can take 5-6 minutes for the Application Gateway For Containers resource to be created.
+Once the _ApplicationLoadBalancer_ resource has been created, you can track deployment progress of the Application Gateway for Containers resources. The deployment transitions from _InProgress_ to _Ready_ state when provisioning has completed. It can take 5-6 minutes for the Application Gateway For Containers resource to be created.
 
-You can check the status of the _ApplicationLoadBalancer_ object by running the following command:
+You can check the status of the _ApplicationLoadBalancer_ resource by running the following command:
 
 ```bash
 kubectl get applicationloadbalancer alb-test -n alb-test-infra -o yaml -w
