@@ -76,7 +76,7 @@ Using PowerShell that enables Hyper-V on a nested virtual machine will fail with
 To avoid the error do not use the Install-WindowsFeature which is the same used by WAC or Server Manager.
 
 1. Make sure you have enabled Nested Virtualization beforehand.
-Here is how to do this: https://learn.microsoft.com/en-us/virtualization/hyper-v-on-windows/user-guide/nested-virtualization
+Here is how to do this: https://learn.microsoft.com/virtualization/hyper-v-on-windows/user-guide/nested-virtualization
 
 2. Use Enable-WindowsOptionalFeature -Online -FeatureName Microsoft-Hyper-V -all
 instead, which will skip prerequisite checks. 
