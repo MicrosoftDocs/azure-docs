@@ -50,7 +50,7 @@ The following dependencies are also referenced in an Application Gateway for Con
 - During creation of an association, the underlying data plane is provisioned and connected to a subnet within the defined virtual network's subnet
 - Each association should assume at least 256 addresses are available in the subnet at time of provisioning.
    - A minimum /24 subnet mask for new deployment, assuming nothing has been provisioning in the subnet).
-      - If n number of Application Gateway for Containers are provisioned, with the assumption each Application Gateway for Containers contains one association, and the desired is to share the same subnet, the available required addresses should be n*256.
+      - If n number of Application Gateway for Containers are provisioned, with the assumption each Application Gateway for Containers contains one association, and the intent is to share the same subnet, the available required addresses should be n*256.
    - All Application Gateway for Containers association resources should match the same region as the Application Gateway for Containers parent resource
 
 ### Application Gateway for Containers ALB Controller
