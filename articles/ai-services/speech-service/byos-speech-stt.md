@@ -41,8 +41,8 @@ BYOS-associated Storage account stores the following data:
 - Audio and transcription result logs
 
 **Custom Speech**
-- Datasets for model training and testing (optional)
-- All data and meta-data related to Custom models connected to the Speech resource associated with the BYOS Storage account
+- Source files of datasets for model training and testing (optional)
+- All data and meta-data related to Custom models hosted by the BYOS-enabled Speech resource
 
 ## Batch transcription
 
@@ -55,9 +55,9 @@ Perform these steps to execute Batch transcription with BYOS-enabled Speech reso
 > [!IMPORTANT]
 > Don't use `destinationContainerUrl` parameter in your transcription request. If you use BYOS, the transcription results are stored in the BYOS-associated Storage account automatically. 
 >
-> If you use `destinationContainerUrl` parameter, it will work, but provide significantly less security for your data, because of ad hoc SAS usage. See details in [here](batch-transcription-create.md#destination-container-url).
+> If you use `destinationContainerUrl` parameter, it will work, but provide significantly less security for your data, because of ad hoc SAS usage. See details [here](batch-transcription-create.md#destination-container-url).
 
-2. When transcription is complete, get transcription results in `TranscriptionData` folder of `customspeech-artifacts` Blob container in the BYOS-associated Storage account.
+2. When transcription is complete, get transcription results [the usual way](batch-transcription-get.md), or directly in `TranscriptionData` folder of `customspeech-artifacts` Blob container in the BYOS-associated Storage account.
 
 ### Get Batch transcription results via REST API
 
@@ -118,11 +118,11 @@ URL of this format ensures, that only Azure Active Directory identities (users, 
 
 With Custom Speech, you can evaluate and improve the accuracy of speech recognition for your applications and products. A custom speech model can be used for real-time speech to text, speech translation, and batch transcription. See complete description of Custom Speech [here](custom-speech-overview.md).
 
-There's nothing specific about how you use Custom Speech with BYOS-enabled Speech resource. The only difference is where all custom model related data, which Speech service produces for you, is stored. The data is stored in the following Blob containers of BYOS-associated Storage account:
+There's nothing specific about how you use Custom Speech with BYOS-enabled Speech resource. The only difference is where all custom model related data, which Speech service collects and produces for you, is stored. The data is stored in the following Blob containers of BYOS-associated Storage account:
 
 - `customspeech-models` - Location of Custom Speech models
 - `customspeech-artifacts` - Location of all other Custom Speech related data 
-  - Custom Speech data is located in all subfolders of the container, except `TranscriptionData`. This subfolder contains Batch transcription results.
+  - Custom Speech data is located in all subfolders of the container, except for `TranscriptionData`. This subfolder contains Batch transcription results.
 
 > [!CAUTION]
 > Speech service relies on pre-defined Blob container paths and file names for Custom Speech module to correctly function. Don't move, rename or in any way alter the contents of `customspeech-models` container and Custom Speech related folders of `customspeech-artifacts` container.
@@ -148,6 +148,8 @@ Such request returns plain Storage Account URLs for data files (no SAS or other 
         "contentUrl": "https://<BYOS_storage_account_name>.blob.core.windows.net/customspeech-artifacts/AcousticData/8427b92a-cb50-4cda-bf04-964ea1b1781b/4a61ddac-5b1c-4c21-b87d-22001b0f18ab.zip"
       }
 ```
+
+URL of this format ensures, that only Azure Active Directory identities (users, service principals, managed identities) with sufficient access rights (like *Storage Blob Data Reader* role) can access the data from the URL.
 
 > [!WARNING]
 > If `sasValidityInSeconds` parameter is omitted in [Get Dataset Files](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-1/operations/Datasets_ListFiles) request or similar ones, then a [User delegation SAS](../../storage/common/storage-sas-overview.md) with the validity of 30 days will be generated for each data file URL returned. This SAS is signed by the system assigned managed identity of your BYOS-enabled Speech resource. Because of it, the SAS allows access to the data, even if storage account key access is disabled. See details [here](../../storage/common/shared-key-authorization-prevent.md#understand-how-disallowing-shared-key-affects-sas-tokens). 
