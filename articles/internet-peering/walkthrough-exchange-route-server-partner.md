@@ -83,7 +83,7 @@ Peering connections for MAPS Exchange with Route Server MUST have **Peer** as th
 Before finalizing your Peering, make sure the peering has at least one connection.
 
 > [!NOTE] 
-> A two-link BGP mesh is formed for a MAPS Exchange with Route Server peering even if a single connection is configured. Do NOT create a second connection if a two-link mesh is what's desired.
+> Exchange with Route Server peerings are configured with a BGP mesh. Provider one peer IP and one Microsoft IP and the BGP mesh will be handled automatically. The number of connections displayed in the peering will not be equal to the number of sessions configured because of this.
   
 When you have finished configuring your peering, move on to Review + create. If you have configured it correctly, the resource will pass validation. Click Create to deploy the resource.
 
@@ -97,22 +97,25 @@ Allow time for the resource to finish deploying. When deployment is successful, 
 
 To get optimized routing for your prefixes with your MAPS Exchange with Route Server interconnects, follow these instructions:
 
-### 1. Register your ASN
+### 1. Register a customer ASN
 
-Before prefixes can be optimized, your ASN must be registered.
+Before prefixes can be optimized for a customer, their ASN must be registered.
 
 > [!NOTE] 
-> The Connection State of your peering connections must be **Active** before registering your ASN.
+> The Connection State of your peering connections must be **Active** before registering an ASN.
 
 Open your MAPS Exchange with Route Server peering in the Azure portal, and click on **Registered ASNs**:
 
 :::image type="content" source="./media/setup-exchange-registered-asn.png" alt-text="Peering page in Azure portal with Registered ASNs button highlighted" :::
 
-Create a Registered ASN by entering a name, and your Autonomous System Number (ASN):
+Create a Registered ASN by entering a name, and the customer's Autonomous System Number (ASN):
 
 :::image type="content" source="./media/setup-exchange-register-new-asn.png" alt-text="Configuration page for a new Registered ASN" :::
 
-After your ASN is registered, a unique peering service prefix key will be generated. This prefix key must be used with ALL peering service prefixes created in the next section. 
+After your ASN is registered, a unique peering service prefix key used for activation will be generated.
+
+> [!NOTE] 
+> For every customer ASN you register, the ASN only needs to be registered with a single peering. The same prefix key can be used for all prefixes activated by that customer, regardless of location. As a result, it is not needed to register the ASN under more than one peering. Duplicate registration of an ASN is not allowed.
 
 ### 2. Provide peering service prefix keys to customers for activation
 

@@ -93,15 +93,19 @@ The following routing technique is preferred:
 
 ### Monitoring platform
 
-   Service monitoring is offered to analyze customer traffic and routing, and it provides the following capabilities: 
+Service monitoring is offered to analyze user traffic and routing. The following metrics are available in the Azure portal to track the performance and availability of your MAPS connection:  
 
--  **Customer latency**
+- **Ingress and egress traffic rates**
 
-   This service monitors the routing performance between the customer's location and Microsoft. 
-   
-   Routing performance is measured by validating the round-trip time taken from the client to reach the Microsoft Edge PoP. Customers can view the latency reports for different geographic locations.
+- **BGP session availability**
 
-   Monitoring captures the events if there's any service degradation.
+- **Packet drops**
+
+- **Flap events**
+
+- **Latency**
+
+- **Prefix events**
 
     :::image type="content" source="./media/about/peering-service-latency-report.png" alt-text="Diagram showing monitoring platform for Peering Service.":::
     
