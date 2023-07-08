@@ -89,12 +89,21 @@ Here are the primary constraints with using cross-tenant synchronization across 
 
 :::image type="content" source="./media/overview/multi-tenant-cross-tenant-sync.png" alt-text="Diagram that shows using cross-tenant synchronization across tenants." lightbox="./media/overview/multi-tenant-cross-tenant-sync.png":::
 
-## Multi-tenant organization (Preview)
+## Multi-tenant organization feature (Preview)
 
 > [!IMPORTANT]
 > Multi-tenant organization is currently in PREVIEW.
 > See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
+Multi-tenant organization is a new feature (currently available in public preview) for Microsoft Entra and Microsoft 365 customers. The multi-tenant organization feature allows you to form a tenant group within your organization. Each pair of tenants in the group shares a cross-tenant access policy that you can use to configure B2B or cross-tenant synchronization.
+
+The administrator of the multi-tenant organization owner tenant can also configure a cross-tenant access policy template for the entire multi-tenant organization, eliminating the need for each tenant admin to manually configure the cross-tenant access policies.
+
+Here are the primary benefits of forming a multi-tenant organization:
+
+- External users within a multi-tenant organization can be differentiated from external users not in the multi-tenant organization, so you can use multi-tenant organization to enable different policies for in-org and out-of-org external users.
+- Multi-tenant organization external users can use MS Teams without switching tenants.
+- Fixed people card and people search functionality.
 
 ## Compare multi-tenant capabilities
 
