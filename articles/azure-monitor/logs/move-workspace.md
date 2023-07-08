@@ -16,13 +16,43 @@ In this article, you'll learn the steps to move a Log Analytics workspace to ano
 > [!IMPORTANT]
 > You can't move a workspace to a different region by using this procedure. Follow the steps in the article [Move a Log Analytics workspace to another region](./move-workspace-region.md) to move a workspace across regions.
 
+## Permissions required
+
+- Verify, `Microsoft.AzureActiveDirectory/b2cDirectories/read`
+- To delete a solution, you need `Microsoft.OperationsManagement/solutions/delete` permissions on it, 
+
 ## Verify the Azure Active Directory tenant
 The workspace source and destination subscriptions must exist within the same Azure Active Directory tenant. Use Azure PowerShell to verify that both subscriptions have the same tenant ID.
+
+### [Portal](#tab/azure-portal)
+
+[Find your Azure AD tenant](../../azure-portal/get-subscription-tenant-id.md#find-your-azure-ad-tenant) for the source and destination subscriptions.
+
+### [REST API](#tab/rest-api)
+
+To fetch the tenant ID for the source and destination subscriptions, call the [Directory Tenants - List API](/rest/api/azurestack/directory-tenants/list):
+
+```http
+GET https://management.azure.com/subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/providers/Microsoft.Subscriptions.Admin/directoryTenants?api-version=2015-11-01
+```
+
+### [CLI](#tab/cli)
+
+Run the [az account tenant](/cli/azure/account/tenant) command and set the `--subscription` parameter to the source and destination subscriptions:
+
+```azurecli
+az account tenant list --subscription <your-source-subscription>
+az account tenant list --subscription <your-destination-subscription>
+```
+
+### [PowerShell](#tab/PowerShell)
 
 ```powershell
 (Get-AzSubscription -SubscriptionName <your-source-subscription>).TenantId
 (Get-AzSubscription -SubscriptionName <your-destination-subscription>).TenantId
 ```
+
+---
 
 ## Workspace move considerations
 
@@ -53,8 +83,9 @@ Consider these points before you move a Log Analytics workspace:
 >   - Custom scripting
 >
 
-### Delete solutions in the Azure portal
-Use the following procedure to remove solutions by using the Azure portal:
+## Delete solutions
+
+### [Portal](#tab/azure-portal)
 
 1. Open the menu for the resource group where any solutions are installed.
 1. Select the solutions to remove.
@@ -62,15 +93,42 @@ Use the following procedure to remove solutions by using the Azure portal:
 
    [![Screenshot that shows deleting solutions.](media/move-workspace/delete-solutions.png)](media/move-workspace/delete-solutions.png#lightbox)
 
-### Delete by using PowerShell
+### [REST API](#tab/rest-api)
 
-To remove solutions by using PowerShell, use the [Remove-AzResource](/powershell/module/az.resources/remove-azresource) cmdlet as shown in the following example:
+To delete the solution, call the [Resources - Delete API](/rest/api/resources/resources/delete): 
+
+```http
+DELETE https://management.azure.com/subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{parentResourcePath}/{resourceType}/{resourceName}?api-version=2021-04-01
+```
+
+In the URL, you need to specify the following information for the solution you want to delete:
+
+- `subscriptionId`
+- `resourceGroupName`
+- `resourceProviderNamespace`
+- `parentResourcePath`
+- `resourceType`
+- `resourceName`
+
+### [CLI](#tab/cli)
+
+To remove solutions, run the [az resource delete](cli/azure/resource#az-resource-delete) command. You need to specify the name of the resource, resource type, and resource group for the solution you want to delete:
+
+```azurecli
+az resource delete --name <resource-name> --resource-type <resource-type> --resource-group <resource-group-name>
+```
+
+### [PowerShell](#tab/PowerShell)
+
+To remove solutions, use the [Remove-AzResource](/powershell/module/az.resources/remove-azresource) cmdlet as shown in the following example:
 
 ```powershell
 Remove-AzResource -ResourceType 'Microsoft.OperationsManagement/solutions' -ResourceName "ChangeTracking(<workspace-name>)" -ResourceGroupName <resource-group-name>
 Remove-AzResource -ResourceType 'Microsoft.OperationsManagement/solutions' -ResourceName "Updates(<workspace-name>)" -ResourceGroupName <resource-group-name>
 Remove-AzResource -ResourceType 'Microsoft.OperationsManagement/solutions' -ResourceName "Start-Stop-VM(<workspace-name>)" -ResourceGroupName <resource-group-name>
 ```
+
+---
 
 ### Remove alert rules for the Start/Stop VMs solution
 To remove the **Start/Stop VMs** solution, you also need to remove the alert rules created by the solution. Use the following procedure in the Azure portal to remove these rules:
@@ -96,10 +154,7 @@ Use the following procedure to unlink the Automation account from the workspace 
 
 ## Move your workspace
 
-Move your workspace by using the Azure portal or PowerShell.
-
-### Azure portal
-Use the following procedure to move your workspace by using the Azure portal:
+### [Portal](#tab/azure-portal)
 
 1. Open the **Log Analytics workspaces** menu and then select your workspace.
 1. On the **Overview** page, select **change** next to either **Resource group** or **Subscription name**.
@@ -109,12 +164,23 @@ Use the following procedure to move your workspace by using the Azure portal:
 
     [![Screenshot that shows the Overview pane in the Log Analytics workspace with options to change the resource group and subscription name.](media/move-workspace/portal.png)](media/move-workspace/portal.png#lightbox)
 
-### PowerShell
-To move your workspace by using PowerShell, use the [Move-AzResource](/powershell/module/AzureRM.Resources/Move-AzureRmResource) cmdlet as shown in the following example:
+### [ REST API](#tab/rest-api)
+
+To move your workspace, use the [Resources - Move Resources API](/rest/api/resources/resources/move-resources).
+
+### [CLI](#tab/cli)
+
+To move your workspace, use the [az resource move](/cli/azure/resource#az-resource-move) command
+
+### [PowerShell](#tab/PowerShell)
+
+To move your workspace, use the [Move-AzResource](/powershell/module/AzureRM.Resources/Move-AzureRmResource) cmdlet as shown in the following example:
 
 ```powershell
 Move-AzResource -ResourceId "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/MyResourceGroup01/providers/Microsoft.OperationalInsights/workspaces/MyWorkspace" -DestinationSubscriptionId "00000000-0000-0000-0000-000000000000" -DestinationResourceGroupName "MyResourceGroup02"
 ```
+
+---
 
 > [!IMPORTANT]
 > After the move operation, removed solutions and the Automation account link should be reconfigured to bring the workspace back to its previous state.
