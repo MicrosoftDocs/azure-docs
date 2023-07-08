@@ -30,10 +30,13 @@ To add your Azure Cosmos DB account to the Robo 3T connection manager, perform t
 
 3. Click the connection button under **File** to manage your connections. Then, click **New Connection** in the **Connection Manager** window, which will open up another window where you can paste the connection credentials.
 
-4. In the connection credentials window, choose the first option and paste your Azure Cosmos DB for MongoDB vCore connection string.
+4. In the connection credentials window, choose the first option and paste your Azure Cosmos DB for MongoDB vCore connection string. Click **Next** to move forward.
 
-    :::image type="content" source="./media/connect-using-robomongo/connectionconfiguration.png" alt-text="Screenshot of the Robo 3T connection credentials window":::
-5. On the **SSL** tab, check **Use SSL protocol to connect**.
+    :::image type="content" source="./media/connect-using-robomongo/newconnection.png" alt-text="Screenshot of the Robo 3T connection credentials window":::
+5. Choose a **Connection name** and double check your connection credentials. 
+
+    :::image type="content" source="./media/connect-using-robomongo/connectionconfiguration.png" alt-text="Screenshot of the Robo 3T connection details window":::
+6. On the **SSL** tab, check **Use SSL protocol to connect**.
 
     :::image type="content" source="./media/connect-using-robomongo/connectionssl.png" alt-text="Screenshot of the Robo 3T new connection SSL Tab":::
-6. Finally, click **Test Connection** in the bottom left to verify that you are able to connect, then click **Save**.
+7. Finally, click **Test Connection** in the bottom left to verify that you are able to connect, then click **Save**.
