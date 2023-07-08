@@ -448,7 +448,7 @@ The following example creates a bank object using the `CREATE` method. This exam
       <STREET xmlns="http://Microsoft.LobServices.Sap/2007/03/Types/Rfc">ExampleStreetAddress</STREET>
       <CITY xmlns="http://Microsoft.LobServices.Sap/2007/03/Types/Rfc">Redmond</CITY>
    </BANK_ADDRESS>
-   <BANK_COUNTRY>US</BANK_COUNTRY>
+   <BANK_CTRY>US</BANK_CTRY>
    <BANK_KEY>123456789</BANK_KEY>
 </CREATE>
 ```
@@ -457,8 +457,8 @@ The following example gets details for a bank using the bank routing number, whi
 
 ```xml
 <GETDETAIL xmlns="http://Microsoft.LobServices.Sap/2007/03/Bapi/BUS1011">
-   <BANK_COUNTRY>US</BANK_COUNTRY>
-   <BANK_KEY>123456789</BANK_KEY>
+   <BANKCOUNTRY>US</BANKCOUNTRY>
+   <BANKKEY>123456789</BANKKEY>
 </GETDETAIL>
 ```
 
