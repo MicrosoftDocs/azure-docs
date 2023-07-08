@@ -15,6 +15,7 @@ Core Tools commands are organized into the following contexts, each providing a 
 | ----- | ----- |
 | [`func`](#func-init) | Commands used to create and run functions on your local computer. |
 | [`func azure`](#func-azure-functionapp-fetch-app-settings) | Commands for working with Azure resources, including publishing. |
+| [`func azurecontainerapps`](#func-azurecontainerapps) | Deploy containerized function app to Azure Container Apps. |
 | [`func durable`](#func-durable-delete-task-hub)    | Commands for working with [Durable Functions](./durable/durable-functions-overview.md). |
 | [`func extensions`](#func-extensions-install) | Commands for installing and managing extensions. |
 | [`func kubernetes`](#func-kubernetes-deploy) | Commands for working with Kubernetes and Azure Functions. |
@@ -224,8 +225,8 @@ The following publish options apply, based on version:
 | **`--build`**, **`-b`** | Performs build action when deploying to a Linux function app. Accepts: `remote` and `local`. |
 | **`--build-native-deps`** | Skips generating the `.wheels` folder when publishing Python function apps. |
 | **`--csx`** | Publish a C# script (.csx) project. |
-| **`--force`** | Ignore prepublishing verification in certain scenarios. |
 | **`--dotnet-cli-params`** | When publishing compiled C# (.csproj) functions, the core tools calls `dotnet build --output bin/publish`. Any parameters passed to this will be appended to the command line. |
+| **`--force`** | Ignore prepublishing verification in certain scenarios. |
 |**`--list-ignored-files`** | Displays a list of files that are ignored during publishing, which is based on the `.funcignore` file. |
 | **`--list-included-files`** | Displays a list of files that are published, which is based on the `.funcignore` file. |
 | **`--no-build`** | Project isn't built during publishing. For Python, `pip install` isn't performed. |
@@ -251,6 +252,37 @@ Gets the connection string for the specified Azure Storage account.
 ```command
 func azure storage fetch-connection-string <STORAGE_ACCOUNT_NAME>
 ```
+
+## func azurecontainerapps deploy
+
+Deploys a containerized function app to Azure Container Apps.
+
+```command
+func azure functionapp publish <FunctionAppName>
+```
+func azurecontainerapps deploy --name <APP_NAME> --environment --storage-account <STORAGE_NAME> --resource-group <RESOURCE_GROUP>  --image-name <> [--registry-password] [--registry-server] [--registry-username]
+
+The following publish options apply:
+
+| Option     | Description                            |
+| ------------ | -------------------------------------- |
+| **`--name`** | The name used for the deployment and other artifacts in Kubernetes. |  
+| **`--image-name`** | The image name of the container in a registry, which includes the tag name. 
+    --registry           When set, a docker build is run and the image is pushed to that registry/name. This is mutuall
+                         y exclusive with --image-name. For docker hub, use username.
+    --registry-username  The registry username to pull the image from private registry.
+    --registry-password  The registry password/token to pull the image from private registry.
+    --image-build        If true, skip the docker build
+    --resource-group     Resource Group
+    --environment        Managed Environment Name
+    --storage-account    Storage Account Connection String
+    --location           Location of the deployment.
+    --worker-runtime     Runtime framework for the functions. The parameter is only accepted with --image-name or --ima
+                         ge-build. Options are: dotnet, dotnetIsolated, node, python, powershell, custom
+    --access-token       Access token to use for performing authenticated azure actions
+    --access-token-stdin Read access token from stdin e.g: az account get-access-token | func ... --access-token-stdin
+    --management-url     Management URL for Azure Cloud e.g: --management-url https://management.azure.com.
+    --subscription       Default subscription to use
 
 ## func deploy
 
