@@ -159,18 +159,7 @@ To get the list of available zones in the Azure Operator Nexus instance, you can
       --query computeRackDefinitions[*].availabilityZone
 ```
 
-### Review Azure Container Registry
-
-[Azure Container Registry](../container-registry/container-registry-intro.md) is a managed registry service to store and manage your container images and related artifacts.
-
-This article provides details on how to create and maintain Azure Container Registry operations such as [push/pull an image](../container-registry/container-registry-get-started-docker-cli.md?tabs=azure-cli) and [push/pull a Helm chart](../container-registry/container-registry-helm-repos.md), for security and monitoring. For more information, see the [Azure Container Registry documentation](../container-registry/index.yml).
-
-## Install Azure CLI extensions
-
-Install the latest version of the
-[necessary Azure CLI extensions](./howto-install-cli-extensions.md).
-
-## Upload Azure Operator Nexus workload images
+## Create virtual machine images
 
 Make sure that each image that you use to create your workload VMs is a
 containerized image in either `qcow2` or `raw` disk format. Upload these images to Azure Container Registry. If your Azure Container Registry instance is password protected, you can supply this info when creating your VM.
@@ -205,6 +194,16 @@ docker push devtestacr.azurecr.io/your-favorite-image:v1
 ```
 
 This VM image build procedure is derived from [KubeVirt](https://kubevirt.io/user-guide/virtual_machines/disks_and_volumes/#containerdisk-workflow-example).
+
+### Azure Container Registry
+
+[Azure Container Registry](../container-registry/container-registry-intro.md) is a managed registry service to store and manage your container images and related artifacts.
+
+This article provides details on how to create and maintain Azure Container Registry operations such as.
+   * [push/pull an image](../container-registry/container-registry-get-started-docker-cli.md?tabs=azure-cli)
+   * [push/pull a Helm chart](../container-registry/container-registry-helm-repos.md).
+
+For security and monitoring. For more information, see the [Azure Container Registry documentation](../container-registry/index.yml).
 
 ## Miscellaneous prerequisites
 
