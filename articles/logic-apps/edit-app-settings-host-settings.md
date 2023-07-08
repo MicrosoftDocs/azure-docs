@@ -5,7 +5,7 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: how-to
-ms.date: 05/23/2023
+ms.date: 07/10/2023
 ms.custom: fasttrack-edit
 ---
 
@@ -169,6 +169,8 @@ These settings affect the throughput and capacity for single-tenant Azure Logic 
 <a name="trigger-concurrency"></a>
 
 ### Trigger concurrency
+
+The following settings work only for workflows that start with a recurrence-based trigger for [built-in, service provider-based connectors](/azure/logic-apps/connectors/built-in/reference/).
 
 | Setting | Default value | Description |
 |---------|---------------|-------------|
