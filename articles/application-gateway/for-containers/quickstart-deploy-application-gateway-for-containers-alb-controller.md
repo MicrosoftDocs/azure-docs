@@ -167,7 +167,7 @@ You need to complete the following tasks prior to deploying Application Gateway 
     ```bash
     kubectl get gatewayclass azure-alb-external -o yaml
     ```
-    You should see that the GatewayClass has a condition that reads **Valid GatewayClass** . This indicates that a default GatewayClass has been set up and that any gateway objects that reference this GatewayClass is managed by ALB Controller automatically.
+    You should see that the GatewayClass has a condition that reads **Valid GatewayClass** . This indicates that a default GatewayClass has been set up and that any gateway resources that reference this GatewayClass is managed by ALB Controller automatically.
 
 ## Next Steps - Link your ALB Controller to Application Gateway for Containers
 
