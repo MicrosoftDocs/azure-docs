@@ -10,6 +10,8 @@ items:
       href: quotas-limits.md
     - name: Models
       href: ./concepts/models.md
+    - name: Legacy models
+      href: ./concepts/legacy-models.md
     - name: Pricing
       href: https://azure.microsoft.com/pricing/details/cognitive-services/openai-service/
     - name: What's new
