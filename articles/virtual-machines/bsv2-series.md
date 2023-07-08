@@ -43,12 +43,12 @@ Bsv2-series virtual machines offer a balance of compute, memory, and network res
 
 
 <sup>*</sup> These IOPs values can be guaranteed by using [Gen2 VMs](generation-2.md)<br>
-<sup>1</sup> Accelerated networking is required and turned on by default on all Ddv5 virtual machines.<br>
+<sup>1</sup> Accelerated networking is required and turned on by default on all Bsv2 virtual machines.<br>
 
 
 <sup>*</sup> These IOPs values can be guaranteed by using [Gen2 VMs](generation-2.md)<br>
-<sup>1</sup> Accelerated networking is required and turned on by default on all Ddsv5 virtual machines.<br>
-<sup>2</sup> Ddsv5-series virtual machines can [burst](disk-bursting.md) their disk performance and get up to their bursting max for up to 30 minutes at a time.
+<sup>1</sup> Accelerated networking is required and turned on by default on all Bsv2 virtual machines.<br>
+<sup>2</sup> Bsv2-series virtual machines can [burst](disk-bursting.md) their disk performance and get up to their bursting max for up to 30 minutes at a time.
 
 [!INCLUDE [virtual-machines-common-sizes-table-defs](../../includes/virtual-machines-common-sizes-table-defs.md)]
 
