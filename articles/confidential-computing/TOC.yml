@@ -148,12 +148,34 @@
         href: skr-policy-examples.md
   - name: Partner Solutions
     items:
+    - name: Overview
+      href: partner-pages/partner-pages-index.md
+    - name: Anjuna
+      href: partner-pages/anjuna.md
+    - name: BeeKeeperAI
+      href: partner-pages/beekeeperai.md
+    - name: Decentriq
+      href: partner-pages/decentriq.md
+    - name: Edgeless
+      href: partner-pages/edgeless.md
+    - name: Enclaive
+      href: partner-pages/enclaive.md
     - name: Fortanix
       items:
+      - name: About Fortanix
+        href: partner-pages/fortanix.md
       - name: Fortanix Confidential Computing Manager
         href: how-to-fortanix-confidential-computing-manager.md
       - name: Fortanix Confidential Computing Manager Node Agent
         href: how-to-fortanix-confidential-computing-manager-node-agent.md
+    - name: Habu
+      href: partner-pages/habu.md
+    - name: Mithril Security
+      href: partner-pages/mithril.md
+    - name: Opaque
+      href: partner-pages/opaque.md
+    - name: Scone
+      href: partner-pages/scone.md
 - name: Resources
   items:
   - name: Join our Tech Community
