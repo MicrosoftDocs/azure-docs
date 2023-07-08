@@ -3,7 +3,7 @@ title: EA Billing administration on the Azure portal
 description: This article explains the common tasks that an enterprise administrator accomplishes in the Azure portal.
 author: bandersmsft
 ms.author: banders
-ms.date: 04/25/2023
+ms.date: 05/26/2023
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: enterprise
@@ -337,7 +337,7 @@ After subscriptions are activated under your Azure EA enrollment, cancel the Azu
 
 ## MSDN subscription transfer
 
-When your transfer an MSDN subscription to an EA enrollment it's automatically converted to an MSDN Dev/Test subscription. After conversion, the subscription loses any existing monetary credit. So, we recommended that you use all your credit before you transfer it to your Enterprise Agreement.
+When your transfer an MSDN subscription to an EA enrollment, it's automatically converted to an [Enterprise Dev/Test subscription](https://azure.microsoft.com/pricing/offers/ms-azr-0148p/). After conversion, the subscription loses any existing monetary credit. So, we recommended that you use all your credit before you transfer it to your Enterprise Agreement.
 
 ## Azure in Open subscription transfer
 
@@ -349,7 +349,7 @@ If your Enterprise Agreement doesn't have a support plan and you try to transfer
 
 ## Manage department and account spending with budgets
 
-EA customers can set budgets for each department and account under an enrollment. Budgets in Cost Management help you plan for and drive organizational accountability. They help you inform others about their spending to proactively manage costs, and to monitor how spending progresses over time. You can configure alerts based on your actual cost or forecasted cost to ensure that your spending is within your organizational spend limit. When the budget thresholds you've created are exceeded, only notifications are triggered. None of your resources are affected and your consumption isn't stopped. You can use budgets to compare and track spending as you analyze costs. For more information about how to create budgets, see [Tutorial: Create and manage Azure budgets](../costs/tutorial-acm-create-budgets.md).
+EA customers can set budgets for each department and account under an enrollment. Budgets in Cost Management help you plan for and drive organizational accountability. They help you inform others about their spending to proactively manage costs, and to monitor how spending progresses over time. You can configure alerts based on your actual cost or forecasted cost to ensure that your spending is within your organizational spend limit. When the budget thresholds you've created are exceeded, only notifications are triggered. None of your resources are affected and your consumption isn't stopped. You can use budgets to compare and track spending as you analyze costs. For more information about how to create budgets, see [Tutorial: Create and manage budgets](../costs/tutorial-acm-create-budgets.md).
 
 ## Enterprise Agreement user roles
 
@@ -381,9 +381,9 @@ As an EA admin, you can allow account owners in your organization to create subs
 
 :::image type="content" source="./media/direct-ea-administration/dev-test-option.png" alt-text="Screenshot showing navigation to the Dev/Test option." lightbox="./media/direct-ea-administration/dev-test-option.png" :::
 
-When a user is added as an account owner, any Azure subscriptions associated with the user that is based on either the pay-as-you-go Dev/Test offer or the monthly credit offers for Visual Studio subscribers get converted to the EA Dev/Test offer. Subscriptions based on other offer types, such as pay-as-you-go, associated with the account owner get converted to Microsoft Azure Enterprise offers.
+When a user is added as an account owner, any Azure subscriptions associated with the user that is based on either the pay-as-you-go Dev/Test offer or the monthly credit offers for Visual Studio subscribers get converted to the [Enterprise Dev/Test](https://azure.microsoft.com/pricing/offers/ms-azr-0148p/) offer. Subscriptions based on other offer types, such as pay-as-you-go, associated with the account owner get converted to Microsoft Azure Enterprise offers.
 
-Currently, the Dev/Test Offer isn't applicable to Azure Gov customers.
+Currently, the Enterprise Dev/Test Offer isn't applicable to Azure Gov customers.
 
 ## Create a subscription
 

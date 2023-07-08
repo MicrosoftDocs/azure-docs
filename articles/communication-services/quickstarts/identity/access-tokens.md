@@ -11,7 +11,7 @@ ms.topic: quickstart
 ms.service: azure-communication-services
 ms.subservice: identity
 zone_pivot_groups: acs-azcli-js-csharp-java-python-portal-nocode
-ms.custom: mode-other
+ms.custom: mode-other, devx-track-azurecli, devx-track-extended-java, devx-track-js, devx-track-python
 ---
 
 # Quickstart: Create and manage access tokens

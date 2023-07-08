@@ -5,7 +5,7 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: conceptual
-ms.date: 11/07/2022
+ms.date: 07/05/2023
 ms.author: victorh
 ---
 
@@ -27,23 +27,17 @@ This article will be updated to reflect the features that are currently in previ
 
 The following features are available in preview.
 
-### Structured Firewall Logs (preview)
-
-With Structured Firewall Logs, you'll be able to choose to use Resource Specific tables instead of an existing AzureDiagnostics table. Structured Firewall Logs is required for Policy Analytics. This new method helps you with better log querying and is recommended because:
-
-- It's easier to work with the data in the log queries
-- It's easier to discover schemas and their structure
-- It improves performance across both ingestion latency and query times
-- It allows you to grant Azure RBAC rights on a specific table
-
-For more information, see [Azure Structured Firewall Logs (preview)](firewall-structured-logs.md).
-
 ### Explicit proxy (preview)
 
 With the Azure Firewall Explicit proxy set on the outbound path, you can configure a proxy setting on the sending application (such as a web browser) with Azure Firewall configured as the proxy. As a result, traffic from a sending application goes to the firewall's private IP address, and therefore egresses directly from the firewall without using a user defined route (UDR).
 
 For more information, see [Azure Firewall Explicit proxy (preview)](explicit-proxy.md).
 
+### Resource Health (preview)
+
+With the Azure Firewall Resource Health check, you can now diagnose and get support for service problems that affect your Azure Firewall resource. Resource Health allows IT teams to receive proactive notifications on potential health degradations, and recommended mitigation actions per each health event type.  The resource health is also available in a dedicated page in the Azure portal resource page.
+This preview is automatically enabled on all firewalls and no action is required to enable this functionality.
+For more information, see [Resource Health overview](../service-health/resource-health-overview.md).
 
 ## Next steps
 

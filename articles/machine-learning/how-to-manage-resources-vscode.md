@@ -354,7 +354,7 @@ Alternatively, use the `> Azure ML: View Compute Properties` and `> Azure ML: De
 For more information, see [train machine learning models](concept-train-machine-learning-model.md).
 :::moniker-end
 :::moniker range="azureml-api-1"
-For more information, see [train machine learning models](./v1/concept-train-machine-learning-model-v1.md).
+For more information, see [train machine learning models](./v1/concept-train-machine-learning-model.md).
 :::moniker-end
 
 ### Create model

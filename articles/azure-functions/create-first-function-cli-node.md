@@ -4,7 +4,7 @@ description: Learn how to create a JavaScript function from the command line, th
 ms.date: 03/08/2023
 ms.topic: quickstart
 ms.devlang: javascript
-ms.custom: devx-track-azurecli, devx-track-azurepowershell, mode-api
+ms.custom: devx-track-azurecli, devx-track-azurepowershell, mode-api, devx-track-js
 zone_pivot_groups: functions-nodejs-model
 ---
 

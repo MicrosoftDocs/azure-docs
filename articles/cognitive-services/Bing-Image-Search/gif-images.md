@@ -10,7 +10,7 @@ ms.subservice: bing-image-search
 ms.topic: conceptual
 ms.date: 04/24/2018
 ms.author: aahi
-ms.custom: seodec2018
+ms.custom: seodec2018, devx-track-extended-java
 ---
 
 # Search for GIF images 

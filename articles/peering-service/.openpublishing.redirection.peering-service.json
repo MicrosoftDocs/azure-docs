@@ -1,0 +1,9 @@
+{
+    "redirections": [
+        {
+            "source_path_from_root": "/articles/peering-service/measure-connection-telemetry.md",
+            "redirect_url": "/azure/peering-service/connection-telemetry",
+            "redirect_document_id": false
+        }
+    ]
+}

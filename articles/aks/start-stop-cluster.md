@@ -12,6 +12,9 @@ You may not need to continuously run your Azure Kubernetes Service (AKS) workloa
 
 To better optimize your costs during these periods, you can turn off, or stop, your cluster. This action stops your control plane and agent nodes, allowing you to save on all the compute costs, while maintaining all objects except standalone pods. The cluster state is stored for when you start it again, allowing you to pick up where you left off.
 
+> [!NOTE]
+> AKS start operations will restore all objects from ETCD with the exception of standalone pods with the same names and ages. meaning that a pod's age will continue to be calculated from its original creation time. This count will keep increasing over time, regardless of whether the cluster is in a stopped state.
+
 ## Before you begin
 
 This article assumes you have an existing AKS cluster. If you need an AKS cluster, you can create one using [Azure CLI][aks-quickstart-cli], [Azure PowerShell][aks-quickstart-powershell], or the [Azure portal][aks-quickstart-portal].
@@ -22,7 +25,7 @@ When using the cluster stop/start feature, the following conditions apply:
 
 - This feature is only supported for Virtual Machine Scale Set backed clusters.
 - The cluster state of a stopped AKS cluster is preserved for up to 12 months. If your cluster is stopped for more than 12 months, you can't recover the state. For more information, see the [AKS support policies](support-policies.md).
-- You can only start or delete a stopped AKS cluster. To perform other operations, like scaling or upgrading, you need to start your cluster first.
+- You can only perform start or delete operations on a stopped AKS cluster. To perform other operations, like scaling or upgrading, you need to start your cluster first.
 - If you provisioned PrivateEndpoints linked to private clusters, they need to be deleted and recreated again when starting a stopped AKS cluster.
 - Because the stop process drains all nodes, any standalone pods (i.e. pods not managed by a Deployment, StatefulSet, DaemonSet, Job, etc.) will be deleted.
 - When you start your cluster back up, the following behavior is expected:

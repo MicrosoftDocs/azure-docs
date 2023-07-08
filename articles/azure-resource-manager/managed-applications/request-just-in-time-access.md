@@ -8,8 +8,7 @@ ms.author: evanhi
 ---
 # Enable and request just-in-time access for Azure Managed Applications
 
-Consumers of your managed application may be reluctant to grant you permanent access to the managed resource group. As a publisher of a managed application, you might prefer that consumers know exactly when you need to access the managed resources. To give consumers greater control over granting access to managed resources, Azure Managed Applications provides a feature called just-in-time (JIT) access. This feature is currently in preview.
-
+Consumers of your managed application may be reluctant to grant you permanent access to the managed resource group. As a publisher of a managed application, you might prefer that consumers know exactly when you need to access the managed resources. To give consumers greater control over granting access to managed resources, Azure Managed Applications provides a feature called just-in-time (JIT) access. 
 JIT access enables you to request elevated access to a managed application's resources for troubleshooting or maintenance. You always have read-only access to the resources, but for a specific time period you can have greater access.
 
 The work flow for granting access is:

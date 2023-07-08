@@ -12,7 +12,7 @@ ms.topic: conceptual
 ms.date: 09/09/2022
 ms.author: cwerner
 ms.reviewer: saeeda, jmprieur
-ms.custom: aaddev, fasttrack-edit, contperf-fy21q2
+ms.custom: aaddev, fasttrack-edit, contperf-fy21q2, devx-track-js
 ---
 
 # Application types for the Microsoft identity platform
@@ -42,7 +42,7 @@ Many modern apps have a single-page app front end written primarily in JavaScrip
 
 The flow diagram below demonstrates the OAuth 2.0 authorization code grant (with details around PKCE omitted), where the app receives a code from the Microsoft identity platform `authorize` endpoint, and redeems it for an access token and a refresh token using cross-site web requests. For single-page apps (SPAs), the access token is valid for 1 hour, and once expired, must request another code using the refresh token. In addition to the access token, an `id_token` that represents the signed-in user to the client application is typically also requested through the same flow and/or a separate OpenID Connect request (not shown here).
 
-:::image type="content" source="media/v2-oauth-auth-code-spa/active-directory-oauth-code-spa.svg" alt-text="Diagram showing the OAuth 2 authorization code flow between a single-page app and the security token service endpoint." border="false":::
+:::image type="content" source="media/v2-oauth-auth-code-spa/oauth-code-spa.svg" alt-text="Diagram showing the OAuth 2 authorization code flow between a single-page app and the security token service endpoint." border="false":::
 
 To see this scenario in action, check out the [Tutorial: Sign in users and call the Microsoft Graph API from a JavaScript SPA using auth code flow](tutorial-v2-javascript-auth-code.md).
 

@@ -50,13 +50,12 @@ Networking ISV partners include software vendors that provide network functions 
 
 |Firewall |SD-WAN |
 |---------|---------|
-| [Palo Alto Networks](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/paloaltonetworks.vmseries-ngfw-vm-edge-panos-10-1-5?exp=ubp8&tab=Overview) | [NetFoundry](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/netfoundryinc.application-ziti-private-edge?exp=ubp8&tab=Overview) |
-| | [Nuage Networks by Nokia](https://aka.ms/nokianuage)|
+| [Palo Alto Networks](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/paloaltonetworks.vmseries-ngfw-vm-edge-panos-10-2-4?tab=Overview) | [NetFoundry](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/netfoundryinc.application-ziti-private-edge?exp=ubp8&tab=Overview) |
 | | [VMware SD-WAN by Velocloud](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/vmware-inc.vmware_sdwan_edge_zones?exp=ubp8&tab=Overview) |
 | | [Versa Networks](https://aka.ms/versa) |
 
 ### SIM & RAN
-SIM partners provide wireless authentication technologies and embedded cellular modules. RAN partners deliver various hardware equipment (such as radios and antennas) necessary to deploy private mobile networks. The following partners have completed interop tests with Azure private MEC. Please contact the partner or your Microsoft representative for more details:
+SIM partners provide wireless authentication technologies and embedded cellular modules. RAN partners deliver various hardware equipment (such as radios and antennas) necessary to deploy private mobile networks. The following partners have completed interop tests with Azure private MEC. Contact the partner representative for more details:
 
 |SIM |RAN (hardware)|
 |---------|---------|
@@ -64,7 +63,6 @@ SIM partners provide wireless authentication technologies and embedded cellular 
 | Idemia | ASOCS |
 | JCI | Commscope |
 | Transatel | Compal |
-| | Ericsson |
 | | Foxconn |
 | | Fujitsu |
 | | Inventec |
@@ -90,5 +88,5 @@ Our application ISV partners include:
 ## Next steps
 - To partner with Microsoft and deploy Azure private MEC solutions:
     - [Join the Azure private MEC Managed Solution Providers program](https://aka.ms/privateMECmsp) to get started if you're an operator and system integrator managed service providers.
-    - [Contact the Azure private MEC team](https://aka.ms/privateMEC_ISV) if you are a Platform partner, such as a network function or hardware vendor.
+    - [Contact the Azure private MEC team](https://aka.ms/privateMEC_ISV) if you're a Platform partner, such as a network function or hardware vendor.
     - Onboard your applications to the Azure Marketplace, and then [pre-register for the forthcoming Azure private MEC ISV or developer program](https://aka.ms/privateMECpartnerprogram).

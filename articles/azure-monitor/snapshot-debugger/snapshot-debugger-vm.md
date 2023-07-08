@@ -7,7 +7,7 @@ ms.reviewer: charles.weininger
 reviewer: cweining
 ms.topic: conceptual
 ms.date: 03/21/2023
-ms.custom: devdivchpfy22
+ms.custom: devdivchpfy22, devx-track-dotnet
 ---
 
 # Enable Snapshot Debugger for .NET apps in Azure Service Fabric, Cloud Services, and Virtual Machines

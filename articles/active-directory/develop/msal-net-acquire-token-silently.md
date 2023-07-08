@@ -12,7 +12,7 @@ ms.workload: identity
 ms.date: 01/16/2023
 ms.author: dmwendia
 ms.reviewer: saeeda
-ms.custom: devx-track-csharp, aaddev, engagement-fy23
+ms.custom: devx-track-csharp, aaddev, engagement-fy23, devx-track-dotnet
 #Customer intent: As an application developer, I want to learn how how to use the AcquireTokenSilent method so I can acquire tokens from the cache.
 ---
 

@@ -356,7 +356,7 @@ Locate the installer files for the server’s operating system using the followi
 4. After successfully installing, register the source machine with the above appliance using the following command:
 
    ```cmd
-   "C:\Program Files (x86)\Microsoft Azure Site Recovery\agent\UnifiedAgentConfigurator.exe" /SourceConfigFilePath "config.json" /CSType CSPrime /CredLessDiscovery true
+   "C:\Program Files (x86)\Microsoft Azure Site Recovery\agent\UnifiedAgentConfigurator.exe" /SourceConfigFilePath "config.json" /CSType CSPrime /CredentialLessDiscovery true
    ```
 
 #### Installation settings

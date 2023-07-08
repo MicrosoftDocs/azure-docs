@@ -5,7 +5,7 @@ description: Learn how to configure Route-maps for Virtual WAN virtual hubs.
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: how-to
-ms.date: 05/03/2023
+ms.date: 05/31/2023
 ms.author: cherylmc
 ms.custom: references_region
 
@@ -17,8 +17,6 @@ This article helps you create or edit a route map in an Azure Virtual WAN hub us
 [!INCLUDE [Preview text](../../includes/virtual-wan-route-maps-preview.md)]
 
 ## Prerequisites
-
-[!INCLUDE [Route-maps regions](../../includes/virtual-wan-route-maps-regions.md)]
 
 Verify that you've met the following criteria before beginning your configuration:
 

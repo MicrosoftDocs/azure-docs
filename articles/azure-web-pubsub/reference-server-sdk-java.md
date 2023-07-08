@@ -4,6 +4,7 @@ description: This reference describes the Java SDK for the Azure Web PubSub serv
 author: vicancy
 ms.author: lianwei
 ms.service: azure-web-pubsub
+ms.custom: devx-track-extended-java
 ms.topic: conceptual 
 ms.date: 01/31/2023
 ---

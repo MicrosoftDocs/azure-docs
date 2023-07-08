@@ -55,7 +55,7 @@ Update threat intelligence packages on your OT sensors using any of the followin
 
 Threat intelligence packages can be automatically updated to cloud-connected sensors as they're released by Defender for IoT.
 
-Ensure automatic package update by onboarding your cloud-connected sensor with the **Automatic Threat Intelligence Updates** option enabled. For more information, see [Onboard a sensor](tutorial-onboarding.md#onboard-and-activate-the-virtual-sensor).
+Ensure automatic package update by onboarding your cloud-connected sensor with the **Automatic Threat Intelligence Updates** option enabled. For more information, see [Onboard OT sensors to Defender for IoT](onboard-sensors.md).
 
 **To change the update mode after you've onboarded your OT sensor**:
 
@@ -152,6 +152,6 @@ For cloud-connected OT sensors, threat intelligence data is also shown in the **
 
 For more information, see:
 
-- [Onboard a sensor](tutorial-onboarding.md#onboard-and-activate-the-virtual-sensor)
+- [Onboard OT sensors to Defender for IoT](onboard-sensors.md)
 
 - [Manage sensors from the management console](how-to-manage-sensors-from-the-on-premises-management-console.md)

@@ -1,16 +1,16 @@
 ---
-title: Quickstart for installing and configuring Azure Container Storage Preview with Azure Kubernetes Service (AKS)
-description: Learn how to install and configure Azure Container Storage Preview for use with Azure Kubernetes Service. You'll end up with new storage classes that you can use for your Kubernetes workloads.
+title: Quickstart for installing Azure Container Storage Preview for use with Azure Kubernetes Service (AKS)
+description: Learn how to install Azure Container Storage Preview for use with Azure Kubernetes Service. Create an AKS cluster, label the node pool, and install the Azure Container Storage extension.
 author: khdownie
-ms.service: storage
+ms.service: azure-container-storage
 ms.topic: quickstart
-ms.date: 05/15/2023
+ms.date: 07/03/2023
 ms.author: kendownie
-ms.subservice: container-storage
+ms.custom: devx-track-azurecli
 ---
 
 # Quickstart: Install Azure Container Storage Preview for use with Azure Kubernetes Service
-[Azure Container Storage](container-storage-introduction.md) is a cloud-based volume management, deployment, and orchestration service built natively for containers. This Quickstart shows you how to configure and use Azure Container Storage for use with [Azure Kubernetes Service (AKS)](../../aks/intro-kubernetes.md). At the end, you'll have new storage classes that you can use for your Kubernetes workloads, and you can then create a storage pool using one of three block storage options.
+[Azure Container Storage](container-storage-introduction.md) is a cloud-based volume management, deployment, and orchestration service built natively for containers. This Quickstart shows you how to install Azure Container Storage Preview for use with [Azure Kubernetes Service (AKS)](../../aks/intro-kubernetes.md).
 
 [!INCLUDE [azure-cli-prepare-your-environment.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment.md)]
 
@@ -28,6 +28,23 @@ ms.subservice: container-storage
 
 - You'll need the Kubernetes command-line client, `kubectl`. It's already installed if you're using Azure Cloud Shell, or you can install it locally by running the `az aks install-cli` command.
 
+## Set subscription context
+
+Set your Azure subscription context using the `az account set` command. You can view the subscription IDs for all the subscriptions you have access to by running the `az account list --output table` command. Remember to replace `<subscription-id>` with your subscription ID.
+
+```azurecli-interactive
+az account set --subscription <subscription-id>
+```
+
+## Register resource providers
+
+The `Microsoft.ContainerService` and `Microsoft.KubernetesConfiguration` resource providers must be registered on your Azure subscription. To register these providers, run the following command:
+
+```azurecli-interactive
+az provider register --namespace Microsoft.ContainerService --wait 
+az provider register --namespace Microsoft.KubernetesConfiguration --wait 
+```
+
 ## Create a resource group
 
 An Azure resource group is a logical group that holds your Azure resources that you want to manage as a group. When you create a resource group, you're prompted to specify a location. This location is:
@@ -38,32 +55,26 @@ An Azure resource group is a logical group that holds your Azure resources that 
 > [!IMPORTANT]
 > Azure Container Storage Preview is only available in *eastus*, *westus2*, *westus3*, and *westeurope* regions.
 
-1. Set your subscription context using the `az account set` command. You can view the subscription IDs for all the subscriptions you have access to by running the `az account list --output table` command. Remember to replace `<subscription-id>` with your subscription ID.
+Create a resource group using the `az group create` command. Replace `<resource-group-name>` with the name of the resource group you want to create, and replace `<location>` with *eastus*, *westus2*, *westus3*, or *westeurope*.
 
-   ```azurecli-interactive
-   az account set --subscription <subscription-id>
-   ```
+```azurecli-interactive
+az group create --name <resource-group-name> --location <location>
+```
 
-2. Create a resource group using the `az group create` command. Replace `<resource-group-name>` with the name of the resource group you want to create, and replace `<location>` with *eastus*, *westus2*, *westus3*, or *westeurope*.
+If the resource group was created successfully, you'll see output similar to this:
 
-   ```azurecli-interactive
-   az group create --name <resource-group-name> --location <location>
-   ```
-
-   If the resource group was created successfully, you'll see output similar to this:
-   
-   ```json
-   {
-     "id": "/subscriptions/<guid>/resourceGroups/myContainerStorageRG",
-     "location": "eastus",
-     "managedBy": null,
-     "name": "myContainerStorageRG",
-     "properties": {
-       "provisioningState": "Succeeded"
-     },
-     "tags": null
-   }
-   ```
+```json
+{
+  "id": "/subscriptions/<guid>/resourceGroups/myContainerStorageRG",
+  "location": "eastus",
+  "managedBy": null,
+  "name": "myContainerStorageRG",
+  "properties": {
+    "provisioningState": "Succeeded"
+  },
+  "tags": null
+}
+```
 
 ## Choose a data storage option and virtual machine type
 
@@ -81,9 +92,12 @@ Before you create your cluster, you should understand which back-end storage opt
 
 To use Azure Container Storage, you'll need a node pool of at least three Linux VMs. Each VM should have a minimum of four virtual CPUs (vCPUs). Azure Container Storage will consume one core for I/O processing on every VM the extension is deployed to.
 
-If you intend to use Azure Elastic SAN Preview or Azure Disks with Azure Container Storage, then you should choose a [general purpose VM type](../../virtual-machines/sizes-general.md) such as **standard_d4s_v5** for the cluster nodes. The VMs must have standard hard disk drives (HDD), not SSD.
+If you intend to use Azure Elastic SAN Preview or Azure Disks with Azure Container Storage, then you should choose a [general purpose VM type](../../virtual-machines/sizes-general.md) such as **standard_d4s_v5** for the cluster nodes. 
 
 If you intend to use Ephemeral Disk, choose a [storage optimized VM type](../../virtual-machines/sizes-storage.md) with NVMe drives such as **standard_l8s_v3**. In order to use Ephemeral Disk, the VMs must have NVMe drives.
+
+> [!IMPORTANT]
+> You must choose a VM type that supports [Azure premium storage](../../virtual-machines/premium-storage-performance.md).
 
 ## Create AKS cluster
 
@@ -143,19 +157,35 @@ az aks nodepool update --resource-group <resource group> --cluster-name <cluster
 
 ## Assign Contributor role to AKS managed identity
 
-Azure Container Service is a separate service from AKS, so you'll need to grant permissions to allow Azure Container Storage to provision storage for your cluster. Specifically, you must assign the [Contributor](../../role-based-access-control/built-in-roles.md#contributor) Azure RBAC built-in role to the AKS managed identity. You'll need an [Owner](../../role-based-access-control/built-in-roles.md#owner) role for your Azure subscription in order to do this. If you don't have sufficient permissions, ask your admin to perform these steps.
+Azure Container Service is a separate service from AKS, so you'll need to grant permissions to allow Azure Container Storage to provision storage for your cluster. Specifically, you must assign the [Contributor](../../role-based-access-control/built-in-roles.md#contributor) Azure RBAC built-in role to the AKS managed identity. You can do this using the Azure portal or Azure CLI. You'll need an [Owner](../../role-based-access-control/built-in-roles.md#owner) role for your Azure subscription in order to do this. If you don't have sufficient permissions, ask your admin to perform these steps.
+
+# [Azure portal](#tab/portal)
 
 1. Sign into the [Azure portal](https://portal.azure.com?azure-portal=true), and search for and select **Kubernetes services**.
 1. Locate and select your AKS cluster. Select **Settings** > **Properties** from the left navigation.
 1. Under **Infrastructure resource group**, you should see a link to the resource group that AKS created when you created the cluster. Select it.
 1. Select **Access control (IAM)** from the left pane.
 1. Select **Add > Add role assignment**.
-1. Under **Assignment type**, select **Privileged administrator roles** and then **Contributor**. If you don't have an Owner role on the subscription, you won't be able to add the Contributor role.
+1. Under **Assignment type**, select **Privileged administrator roles** and then **Contributor**, then select **Next**. If you don't have an Owner role on the subscription, you won't be able to add the Contributor role.
+   
+   :::image type="content" source="media/container-storage-aks-quickstart/add-role-assignment.png" alt-text="Screenshot showing how to use the Azure portal to add Contributor role to the AKS managed identity." lightbox="media/container-storage-aks-quickstart/add-role-assignment.png":::
+   
 1. Under **Assign access to**, select **Managed identity**.
 1. Under **Members**, click **+ Select members**. The **Select managed identities** menu will appear.
 1. Under **Managed identity**, select **User-assigned managed identity**.
 1. Under **Select**, search for and select the managed identity with your cluster name and `-agentpool` appended.
-1. Select **Review + assign**.
+1. Click **Select**, then **Review + assign**.
+
+# [Azure CLI](#tab/cli)
+
+Run the following commands to assign Contributor role to AKS managed identity. Remember to replace `<resource-group>` and `<cluster-name>` with your own values.
+
+```azurecli-interactive
+export AKS_MI_OBJECT_ID=$(az aks show --name <cluster-name> --resource-group <resource-group> --query "identityProfile.kubeletidentity.objectId" -o tsv)
+export AKS_NODE_RG=$(az aks show --name <cluster-name> --resource-group <resource-group> --query "nodeResourceGroup" -o tsv)
+az role assignment create --assignee $AKS_MI_OBJECT_ID --role "Contributor" --resource-group "$AKS_NODE_RG"
+```
+---
 
 ## Install Azure Container Storage
 

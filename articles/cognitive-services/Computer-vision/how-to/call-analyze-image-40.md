@@ -21,7 +21,7 @@ This article demonstrates how to call the Image Analysis 4.0 API to return infor
 This guide assumes you have successfully followed the steps mentioned in the [quickstart](../quickstarts-sdk/image-analysis-client-library-40.md) page. This means:
 
 * You have <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesComputerVision"  title="created a Computer Vision resource"  target="_blank">created a Computer Vision resource </a> and obtained a key and endpoint URL.
-* If you're using the client SDK, you have the appropriate SDK package installed and you have a running quickstart application. You modify this quickstart application based on code examples here.
+* If you're using the client SDK, you have the appropriate SDK package installed and you have a running [quickstart](../quickstarts-sdk/image-analysis-client-library-40.md) application. You can modify this quickstart application based on code examples here.
 * If you're using 4.0 REST API calls directly, you have successfully made a `curl.exe` call to the service (or used an alternative tool). You modify the `curl.exe` call based on the examples here.
 
 ## Authenticate against the service
@@ -139,7 +139,7 @@ You can specify which features you want to use by setting the URL query paramete
 |---|---|--|
 |`features`|`read` | Reads the visible text in the image and outputs it as structured JSON data.|
 |`features`|`caption` | Describes the image content with a complete sentence in supported languages.|
-|`features`|`denseCaption` | Generates detailed captions for up to 10 prominent image regions. |
+|`features`|`denseCaptions` | Generates detailed captions for up to 10 prominent image regions. |
 |`features`|`smartCrops` | Finds the rectangle coordinates that would crop the image to a desired aspect ratio while preserving the area of interest.|
 |`features`|`objects` | Detects various objects within an image, including the approximate location. The Objects argument is only available in English.|
 |`features`|`tags` | Tags the image with a detailed list of words related to the image content.|
@@ -147,7 +147,7 @@ You can specify which features you want to use by setting the URL query paramete
 
 A populated URL might look like this:
 
-`https://<endpoint>/computervision/imageanalysis:analyze?api-version=2023-02-01-preview&features=tags,read,caption,denseCaption,smartCrops,objects,people`
+`https://<endpoint>/computervision/imageanalysis:analyze?api-version=2023-02-01-preview&features=tags,read,caption,denseCaptions,smartCrops,objects,people`
 
 ---
 
@@ -185,7 +185,7 @@ To use a custom model, don't use the features query parameter. Instead, set the 
 
 You can specify the language of the returned data. The language is optional, with the default being English. See [Language support](https://aka.ms/cv-languages) for a list of supported language codes and which visual features are supported for each language.
 
-Language option only applies when you are using the standard model.
+Language option only applies when you're using the standard model.
 
 #### [C#](#tab/csharp)
 
@@ -227,7 +227,7 @@ A populated URL might look like this:
 
 If you're extracting captions or dense captions, you can ask for gender neutral captions. Gender neutral captions is optional, with the default being gendered captions. For example, in English, when you select gender neutral captions, terms like **woman** or **man** are replaced with **person**, and **boy** or **girl** are replaced with **child**. 
 
-Gender neurtal caption option only applies when you are using the standard model.
+Gender neutral caption option only applies when you're using the standard model.
 
 #### [C#](#tab/csharp)
 
@@ -261,7 +261,7 @@ A populated URL might look like this:
 
 An aspect ratio is calculated by dividing the target crop width by the height. Supported values are from 0.75 to 1.8 (inclusive). Setting this property is only relevant when the **smartCrop** option (REST API) or **CropSuggestions** (SDK) was selected as part the visual feature list. If you select smartCrop/CropSuggestions but don't specify aspect ratios, the service returns one crop suggestion with an aspect ratio it sees fit. In this case, the aspect ratio is between 0.5 and 2.0 (inclusive).
 
-Smart cropping aspect rations only applies when you are using the standard model.
+Smart cropping aspect rations only applies when you're using the standard model.
 
 #### [C#](#tab/csharp)
 

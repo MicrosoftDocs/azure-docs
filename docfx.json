@@ -73,13 +73,29 @@
         "exclude": [
           "**/_themes/**",
           "**/includes/**",
-          "**/obj/**"
+          "**/obj/**",
+          "**/v1/**",
+          "**/v-fake/**"
         ]
       },
       {
         "group": "grp-machine-learningv1",
         "src": "articles/machine-learning/v1",
         "dest": "./machine-learning",
+        "files": [
+          "**/*.md",
+          "**/*.yml"
+        ],
+        "exclude": [
+          "**/_themes/**",
+          "**/includes/**",
+          "**/obj/**"
+        ]
+      },
+      {
+        "group": "grp-machine-learningv1",
+        "src": "articles/machine-learning/v-fake",
+        "dest": "./machine-learning/v1",
         "files": [
           "**/*.md",
           "**/*.yml"
@@ -186,13 +202,30 @@
         "exclude": [
           "**/_themes/**",
           "**/obj/**",
-          "**/v1/**"
+          "**/v1/**",
+          "**/v-fake/**"
         ]
       },
       {
         "group": "grp-machine-learningv1",
         "src": "articles/machine-learning/v1",
         "dest": "./machine-learning/",
+        "files": [
+          "**/*.gif",
+          "**/*.jpeg",
+          "**/*.jpg",
+          "**/*.png",
+          "**/*.svg"
+        ],
+        "exclude": [
+          "**/_themes/**",
+          "**/obj/**"
+        ]
+      },
+      {
+        "group": "grp-machine-learningv1",
+        "src": "articles/machine-learning/v-fake",
+        "dest": "./machine-learning/v1",
         "files": [
           "**/*.gif",
           "**/*.jpeg",
@@ -422,7 +455,7 @@
         "articles/container-registry/**/*.md": "tejaswikolli-web",
         "articles/data-catalog/*.md": "whhender",
         "articles/data-lake-analytics/*.md": "MikeRys",
-        "articles/defender-for-cloud/*.md": "elazark",
+        "articles/defender-for-cloud/*.md": "dcurwin",
         "articles/defender-for-iot/organizations/*.md": "batamig",
         "articles/defender-for-iot/organizations/**/*.md": "batamig",
         "articles/defender-for-iot/device-builders/*.md": "batamig",
@@ -462,7 +495,7 @@
         "articles/service-fabric/*.md": "sukanyamsft",
         "articles/service-health/*.md": "rboucher",
         "articles/site-recovery/*.md": "ankitaduttaMSFT",
-        "articles/stream-analytics/*.md": "ajetasin",
+        "articles/stream-analytics/*.md": "alicialimicrosoft",
         "articles/terraform/**/*.md": "TomArcherMsft",
         "articles/virtual-machines/*.md": "cynthn",
         "articles/virtual-machines/linux/*.md": "cynthn",
@@ -485,6 +518,7 @@
         "articles/*.md": "https://feedback.azure.com/d365community/forum/b822bb63-8b26-ec11-b6e6-000d3a4f0789",
         "articles/active-directory/**/*.md": "https://feedback.azure.com/d365community/forum/22920db1-ad25-ec11-b6e6-000d3a4f0789",
         "articles/active-directory/develop/*.md": "https://docs.microsoft.com/azure/active-directory/develop/developer-support-help-options",
+        "articles/active-directory/external-identities/customers/*.md": "https://aka.ms/microsoftentraexternalid",
         "articles/active-directory-b2c/**/*.md": "https://docs.microsoft.com/azure/active-directory/develop/developer-support-help-options",
         "articles/active-directory-domain-services/**/*.md": "https://feedback.azure.com/d365community/forum/22920db1-ad25-ec11-b6e6-000d3a4f0789",
         "articles/advisor/**/*.md": "https://feedback.azure.com/d365community/forum/44a8566e-0525-ec11-b6e6-000d3a4f0858",
@@ -810,7 +844,7 @@
         "articles/container-registry/**/*.md": "tejaswikolli",
         "articles/data-catalog/*.md": "whhender",
         "articles/data-lake-analytics/*.md": "mrys",
-        "articles/defender-for-cloud/*.md": "elkrieger",
+        "articles/defender-for-cloud/*.md": "dacurwin",
         "articles/defender-for-iot/organizations/*.md": "bagol",
         "articles/defender-for-iot/organizations/**/*.md": "bagol",
         "articles/defender-for-iot/device-builders/*.md": "bagol",
@@ -851,7 +885,7 @@
         "articles/service-fabric/*.md": "sukanyas",
         "articles/service-health/*.md": "robb",
         "articles/site-recovery/*.md": "jsuri",
-        "articles/stream-analytics/*.md": "ajetasi",
+        "articles/stream-analytics/*.md": "ali",
         "articles/terraform/**/*.md": "tarcher",
         "articles/virtual-machines/*.md": "cynthn",
         "articles/virtual-machines/linux/*.md": "cynthn",
@@ -1045,9 +1079,6 @@
         "articles/media-services/live-video-analytics-edge/*.md": "lva-edge",
         "articles/media-services/previous/*.md": "rest-v2",
         "articles/media-services/video-indexer/*.md": "video-indexer",
-        "articles/azure-video-analyzer/video-analyzer-docs/*.md": "video-analyzer-subservice",
-        "articles/azure-video-analyzer/video-analyzer-docs/edge/*.md": "video-analyzer-subservice",
-        "articles/azure-video-analyzer/video-analyzer-docs/cloud/*.md": "video-analyzer-subservice",
         "articles/cosmos-db/mongodb/*.md": "cosmosdb-mongo",
         "articles/cosmos-db/cassandra/*.md": "cosmosdb-cassandra",
         "articles/cosmos-db/graph/*.md": "cosmosdb-graph",
@@ -1253,6 +1284,8 @@
         "articles/industry/agriculture/**/*.md": "Azure for Industry: Agriculture",
         "articles/iot/**/*.md": "Azure IoT",
         "articles/iot/**/*yml": "Azure IoT",
+        "articles/iot-central/**/*.md": "Azure IoT Central",
+        "articles/iot-central/**/*yml": "Azure IoT Central",
         "articles/jenkins/**/*.yml": "Jenkins",
         "articles/lab-services/**/*.md": "Azure Lab Services",
         "articles/lighthouse/**/*.md": "Azure Lighthouse",

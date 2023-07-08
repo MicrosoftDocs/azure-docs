@@ -1,7 +1,7 @@
 ---
 title: Fuzzy search
 titleSuffix: Azure Cognitive Search
-description: Implement a fuzzy search query for a "did you mean" search experience. Fuzzy search will auto-correct a misspelled term or typo on the query.
+description: Implement a fuzzy search query for a "did you mean" search experience. Fuzzy search auto-corrects a misspelled term or typo on the query.
 
 manager: nitinme
 author: HeidiSteen
@@ -12,7 +12,7 @@ ms.date: 04/20/2023
 ---
 # Fuzzy search to correct misspellings and typos
 
-Azure Cognitive Search supports fuzzy search, a type of query that compensates for typos and misspelled terms in the input string. It does this by scanning for terms having a similar composition. Expanding search to cover near-matches has the effect of auto-correcting a typo when the discrepancy is just a few misplaced characters. 
+Azure Cognitive Search supports fuzzy search, a type of query that compensates for typos and misspelled terms in the input string. Fuzzy search scans for terms having a similar composition. Expanding search to cover near-matches has the effect of autocorrecting a typo when the discrepancy is just a few misplaced characters. 
 
 ## What is fuzzy search?
 
@@ -71,7 +71,7 @@ POST https://[service name].search.windows.net/indexes/hotels-sample-index/docs/
 
 1. Set the query type to the full Lucene syntax (`queryType=full`).
 
-1. Provide the query string where each term is followed by a tilde (`~`) operator at the end of each whole term (`search=<string>~`). An expansion graph will be created for every term in the query input.
+1. Provide the query string where each term is followed by a tilde (`~`) operator at the end of each whole term (`search=<string>~`). An expansion graph is created for every term in the query input.
 
    Include an optional parameter, a number between 0 and 2 (default), if you want to specify the edit distance (`~1`). For example, "blue~" or "blue~1" would return "blue", "blues", and "glue".
 
@@ -142,5 +142,5 @@ The point of this expanded example is to illustrate the clarity that hit highlig
 
 + [How full text search works in Azure Cognitive Search (query parsing architecture)](search-lucene-query-architecture.md)
 + [Search explorer](search-explorer.md)
-+ [How to query in .NET](./search-get-started-dotnet.md)
++ [How to query in .NET](./search-get-started-text.md)
 + [How to query in REST](./search-get-started-powershell.md)

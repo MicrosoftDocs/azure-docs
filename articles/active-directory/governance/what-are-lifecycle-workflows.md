@@ -7,15 +7,15 @@ manager: amycolannino
 ms.service: active-directory
 ms.workload: identity
 ms.topic: overview
-ms.date: 01/26/2023
+ms.date: 06/22/2023
 ms.subservice: compliance
 ms.author: owinfrey
 ms.collection: M365-identity-device-management
 ---
 
-# What are lifecycle workflows (preview)?
+# What are lifecycle workflows?
 
-Lifecycle workflows (preview) are a new identity governance feature that enables organizations to manage Azure Active Directory (Azure AD) users by automating these three basic lifecycle processes:
+Lifecycle workflows are a new identity governance feature that enables organizations to manage Azure Active Directory (Azure AD) users by automating these three basic lifecycle processes:
 
 - **Joiner**: When an individual enters the scope of needing access. An example is a new employee joining a company or organization.
 - **Mover**: When an individual moves between boundaries within an organization. This movement might require more access or authorization. An example is a user who was in marketing and is now a member of the sales organization.
@@ -71,9 +71,9 @@ You can use lifecycle workflows to address any of the following conditions:
 
 ## License requirements
 
-[!INCLUDE [Azure AD Premium P2 license](../../../includes/lifecycle-workflows-license.md)]
+[!INCLUDE [Microsoft Entra ID Governance license](../../../includes/active-directory-entra-governance-license.md)]
 
-During this preview, you can:
+With Lifecycle Workflows, you can:
 
 - Create, manage, and delete workflows up to the total limit of 50 workflows.
 - Trigger on-demand and scheduled workflow execution.

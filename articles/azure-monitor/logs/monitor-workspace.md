@@ -3,7 +3,7 @@ title: Monitor operational issues logged in your Azure Monitor Log Analytics wor
 description: The article describes how to monitor the health of your Log Analytics workspace by using data in the Operation table.
 ms.topic: how-to
 ms.reviewer: MeirMen
-ms.date: 03/21/2022
+ms.date: 07/02/2023
 
 ---
 
@@ -56,7 +56,7 @@ After your data collection reaches the set limit, it automatically stops for the
 Recommended actions:
 
 *	Check the `_LogOperation` table for collection stopped and collection resumed events:</br>
-`_LogOperation | where TimeGenerated >= ago(7d) | where Category == "Ingestion" | where Operation has "Data collection"`
+`_LogOperation | where TimeGenerated >= ago(7d) | where Category == "Ingestion" | where Detail has "Data collection"`
 *	[Create an alert](daily-cap.md#alert-when-daily-cap-is-reached) on the "Data collection stopped" Operation event. This alert notifies you when the collection limit is reached.
 *	Data collected after the daily collection limit is reached will be lost. Use the **Workspace insights** pane to review usage rates from each source. Or you can decide to [manage your maximum daily data volume](daily-cap.md) or [change the pricing tier](cost-logs.md#commitment-tiers) to one that suits your collection rates pattern.
 * The data collection rate is calculated per day and resets at the start of the next day. You can also monitor a collection resume event by [creating an alert](./daily-cap.md#alert-when-daily-cap-is-reached) on the "Data collection resumed" Operation event.
