@@ -152,8 +152,8 @@ An AI system includes not only the technology, but also the people who will use 
 * [Limited access](/legal/cognitive-services/speech-service/custom-neural-voice/limited-access-custom-neural-voice?context=/azure/cognitive-services/speech-service/context/context)
 * [Responsible deployment of synthetic speech](/legal/cognitive-services/speech-service/custom-neural-voice/concepts-guidelines-responsible-deployment-synthetic?context=/azure/cognitive-services/speech-service/context/context)
 * [Disclosure of voice talent](/legal/cognitive-services/speech-service/disclosure-voice-talent?context=/azure/cognitive-services/speech-service/context/context)
-* [Disclosure of design guidelines](/legal/cognitive-services/speech-service/concepts-disclosure-guidelines?context=/azure/cognitive-services/speech-service/context/context)
-* [Disclosure of design patterns](/legal/cognitive-services/speech-service/concepts-disclosure-patterns?context=/azure/cognitive-services/speech-service/context/context)
+* [Disclosure of design guidelines](/legal/cognitive-services/speech-service/custom-neural-voice/concepts-disclosure-guidelines?context=/azure/cognitive-services/speech-service/context/context)
+* [Disclosure of design patterns](/legal/cognitive-services/speech-service/custom-neural-voice/concepts-disclosure-patterns?context=/azure/cognitive-services/speech-service/context/context)
 * [Code of conduct](/legal/cognitive-services/speech-service/tts-code-of-conduct?context=/azure/cognitive-services/speech-service/context/context)
 * [Data, privacy, and security](/legal/cognitive-services/speech-service/custom-neural-voice/data-privacy-security-custom-neural-voice?context=/azure/cognitive-services/speech-service/context/context)
 
