@@ -361,6 +361,8 @@ The optional `emphasis` element is used to add or remove word-level stress for t
 
 > [!NOTE]
 > The word-level emphasis tuning is only available for these neural voices: `en-US-GuyNeural`, `en-US-DavisNeural`, and `en-US-JaneNeural`.
+> 
+> For words that have low pitch and short duration, the pitch might not be raised enough to be noticed.
 
 Usage of the `emphasis` element's attributes are described in the following table.
 
