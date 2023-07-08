@@ -152,4 +152,4 @@ Staying informed about features in a new release or news on the Azure blog can h
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [What are Azure AI services?](./what-are-cognitive-services.md)
+> [What are Azure AI services?](./what-are-ai-services.md)

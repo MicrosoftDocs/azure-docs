@@ -540,5 +540,5 @@ For pricing details, see [Azure Private Link pricing](https://azure.microsoft.co
 
 ## Next steps
 
-* Explore the various [Azure AI services](./what-are-cognitive-services.md)
+* Explore the various [Azure AI services](./what-are-ai-services.md)
 * Learn more about [Azure Virtual Network Service Endpoints](../virtual-network/virtual-network-service-endpoints-overview.md)

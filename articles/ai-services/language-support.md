@@ -47,5 +47,5 @@ These Azure AI services are language agnostic and don't have limitations based o
 
 ## See also
 
-* [What are the Azure AI services?](./what-are-cognitive-services.md)
+* [What are Azure AI services?](./what-are-ai-services.md)
 * [Create an account](cognitive-services-apis-create-account.md)

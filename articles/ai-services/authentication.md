@@ -186,6 +186,6 @@ Authentication is done via Azure Active Directory. Authorization may be done via
 
 ## See also
 
-* [What is Azure AI services?](./what-are-cognitive-services.md)
+* [What are Azure AI services?](./what-are-ai-services.md)
 * [Azure AI services pricing](https://azure.microsoft.com/pricing/details/cognitive-services/)
 * [Custom subdomains](cognitive-services-custom-subdomains.md)

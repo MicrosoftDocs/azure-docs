@@ -14,7 +14,7 @@ ms.date: 10/28/2021
 
 Azure AI services provides machine learning capabilities to solve general problems such as analyzing text for emotional sentiment or analyzing images to recognize objects or faces. You don't need special machine learning or data science knowledge to use these services.
 
-[Azure AI services](./what-are-cognitive-services.md) is a group of services, each supporting different, generalized prediction capabilities. The services are divided into different categories to help you find the right service. 
+[Azure AI services](./what-are-ai-services.md) is a group of services, each supporting different, generalized prediction capabilities. The services are divided into different categories to help you find the right service. 
 
 |Service category|Purpose|
 |--|--|

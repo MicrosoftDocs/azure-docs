@@ -100,7 +100,7 @@ python <your-script-name>.py
 ## See also
 
 * See **[Authenticate requests to Azure Azure AI services](../../authentication.md)** on how to securely work with Azure AI services.
-* See **[What are Azure Azure AI services?](../../what-are-cognitive-services.md)** to get a list of different categories within Azure AI services.
+* See **[What are Azure Azure AI services?](../../what-are-ai-services.md)** for a list of Azure AI services.
 * See **[Natural language support](../../language-support.md)** to see the list of natural languages that Azure AI services supports.
 * See **[Use Azure AI services as containers](../../cognitive-services-container-support.md)** to understand how to use Azure AI services on-prem.
 * See **[Plan and manage costs for Azure AI services](../../plan-manage-costs.md)** to estimate cost of using Azure AI services.

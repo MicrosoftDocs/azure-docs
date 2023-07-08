@@ -26,7 +26,7 @@ landingContent:
           - text: What is Immersive Reader?
             url: overview.md
           - text: What are Azure AI services?
-            url: ../../ai-services/what-are-cognitive-services.md
+            url: ../../ai-services/what-are-ai-services.md
       - linkListType: video
         links:
           - text: Getting started - short engineering videos

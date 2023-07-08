@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18">
+  <defs>
+    <linearGradient id="e51839a3-82bc-47bc-b889-01cf8ec8ea13" x1="9.723" y1="7.674" x2="8.608" y2="1.35" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#0078d4" />
+      <stop offset="1" stop-color="#005ba1" />
+    </linearGradient>
+    <linearGradient id="f6d48ef6-e5f1-4382-be9c-7bccce10d180" x1="12.891" y1="13.178" x2="-0.602" y2="5.388" gradientUnits="userSpaceOnUse">
+      <stop offset="0.301" stop-color="#0078d4" />
+      <stop offset="1" stop-color="#5ea0ef" />
+    </linearGradient>
+    <linearGradient id="b0295935-9307-4c71-9365-d3f2841c13da" x1="14.287" y1="6.971" x2="14.287" y2="12.596" gradientUnits="userSpaceOnUse">
+      <stop offset="0.225" stop-color="#32bedd" />
+      <stop offset="1" stop-color="#198ab3" />
+    </linearGradient>
+    <linearGradient id="fe74be48-0623-4f8a-9382-96349995ca0e" x1="10.365" y1="5.709" x2="10.365" y2="12.862" gradientUnits="userSpaceOnUse">
+      <stop offset="0.225" stop-color="#50e6ff" />
+      <stop offset="1" stop-color="#32bedd" />
+    </linearGradient>
+  </defs>
+  <g id="a26731ac-d571-4a2f-940b-f27a6fe5a0cf">
+    <path d="M7.145,3.861a5.005,5.005,0,0,1,4.736,3.4l2.135-.347A7.142,7.142,0,0,0,4.427,2.256l.307,2.227A4.962,4.962,0,0,1,7.145,3.861Z" fill="url(#e51839a3-82bc-47bc-b889-01cf8ec8ea13)" />
+    <path d="M11.853,7.2a4.942,4.942,0,0,1,.286,1.656A5,5,0,1,1,3.191,5.8s.349-.49.511-.672a.127.127,0,0,1,.126.012l.076.054,1.145.82a.13.13,0,0,0,.2-.127L4.688,2.476a.292.292,0,0,0-.335-.24L.946,2.8a.13.13,0,0,0-.054.234l1.145.82,0,0A7.139,7.139,0,1,0,13.885,6.509Z" fill="url(#f6d48ef6-e5f1-4382-be9c-7bccce10d180)" />
+    <g>
+      <path d="M17.336,15.35A.661.661,0,0,0,18,14.691a.546.546,0,0,0,0-.08c-.259-2.079-1.446-3.772-3.708-3.772-2.3,0-3.491,1.434-3.722,3.778a.665.665,0,0,0,.593.73c.022,0,.045,0,.067,0Z" fill="#32bedd" />
+      <circle cx="14.287" cy="9.247" r="2.086" fill="url(#b0295935-9307-4c71-9365-d3f2841c13da)" />
+    </g>
+    <g>
+      <path d="M14.244,16.364a.841.841,0,0,0,.844-.838.855.855,0,0,0-.006-.1c-.331-2.644-1.839-4.8-4.717-4.8-2.928,0-4.438,1.823-4.732,4.8a.845.845,0,0,0,.754.928.794.794,0,0,0,.085,0Z" fill="#50e6ff" />
+      <circle cx="10.365" cy="8.603" r="2.653" fill="url(#fe74be48-0623-4f8a-9382-96349995ca0e)" />
+    </g>
+  </g>
+</svg>

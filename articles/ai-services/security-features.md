@@ -34,4 +34,4 @@ For a comprehensive list of Azure service security recommendations see the [Azur
 
 ## Next steps
 
-* Explore [Azure AI services](./what-are-cognitive-services.md) and choose a service to get started.
+* Explore [Azure AI services](./what-are-ai-services.md) and choose a service to get started.

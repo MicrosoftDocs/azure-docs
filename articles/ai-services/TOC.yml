@@ -4,7 +4,7 @@
   expanded: true
   items:
   - name: What are Azure AI services?
-    href: what-are-cognitive-services.md
+    href: what-are-ai-services.md
   - name: Language support
     href: language-support.md
   - name: Pricing

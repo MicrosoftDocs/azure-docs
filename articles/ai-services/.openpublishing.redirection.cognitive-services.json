@@ -112,7 +112,7 @@
         },
         {
             "source_path_from_root": "/articles/cognitive-services/whats-new-docs.md",
-            "redirect_url": "/azure/ai-services/what-are-cognitive-services",
+            "redirect_url": "/azure/ai-services/what-are-ai-services",
             "redirect_document_id": false
         },
         {
@@ -5847,7 +5847,7 @@
         },
         {
             "source_path_from_root": "/articles/cognitive-services/Welcome.md",
-            "redirect_url": "/azure/ai-services/what-are-cognitive-services",
+            "redirect_url": "/azure/ai-services/what-are-ai-services",
             "redirect_document_id": false
         },
         {

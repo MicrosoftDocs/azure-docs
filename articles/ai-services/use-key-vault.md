@@ -595,7 +595,7 @@ If you're using a multi-service resource or Language resource, you can update [y
 
 ## Next steps
 
-* See [What are Azure AI services](./what-are-cognitive-services.md) for available features you can develop along with [Azure Key Vault](../key-vault/general/index.yml).  
+* See [What are Azure AI services](./what-are-ai-services.md) for available features you can develop along with [Azure Key Vault](../key-vault/general/index.yml).  
 * For additional information on secure application development, see:
     * [Best practices for using Azure Key Vault](../key-vault/general/best-practices.md)
     * [Azure AI services security](security-features.md)
