@@ -21,7 +21,7 @@ Microsoft Entra ID Protection prevents identity compromises by detecting identit
 
 Our new dashboard helps customers better analyze their security posture, understand how well they're protected, identify vulnerabilities, and perform recommended actions. 
 
-![Screenshot showing the new Microsoft Entra ID Protection overview dashboard.](./media/id-protection-dashboard/microsoft-entra-id-protection-dashboard.png)
+[![Screenshot showing the new Microsoft Entra ID Protection overview dashboard.](./media/id-protection-dashboard/microsoft-entra-id-protection-dashboard.png)](./media/id-protection-dashboard/microsoft-entra-id-protection-dashboard.png)
 
 This dashboard is designed to empower organizations with rich insights and actionable recommendations tailored to your tenant. This information provides a better view into your organization’s security posture and allows you to enable effective protections accordingly. You have access to key metrics, attack graphics, a map highlighting risky locations, top recommendations to enhance security posture, and recent activities.
 
@@ -44,7 +44,7 @@ Organizations can access the new dashboard by:
  
 As you implement more security measures such as risk-based policies, your tenant protection strengthens. So, we're now providing four key metrics to help you understand the effectiveness of the security measures you have in place. 
 
-![Screenshot showing the metric graphs in the dashboard.](./media/id-protection-dashboard/microsoft-entra-id-protection-dashboard-metrics.png)
+[![Screenshot showing the metric graphs in the dashboard.](./media/id-protection-dashboard/microsoft-entra-id-protection-dashboard-metrics.png)](./media/id-protection-dashboard/microsoft-entra-id-protection-dashboard-metrics.png)
 
 | Metric | Metric definition | Refresh frequency | Where to view detail |
 | --- | --- | --- | --- |
@@ -65,7 +65,7 @@ The graphs provide a rolling 12 month window of data.
 
 To help you better understand your risk exposure, we're introducing an innovative Attack Graphic that displays common identity-based attack patterns detected for your tenant. The attack patterns are represented by MITRE ATT&CK techniques and are determined by our advanced risk detections. For more information, see the section [Risk detection type to MITRE attack type mapping](#risk-detection-type-to-mitre-attack-type-mapping).
 
-![Screenshot showing the attack graphic in the dashboard.](./media/id-protection-dashboard/microsoft-entra-id-protection-dashboard-attack-graphic.png)
+[![Screenshot showing the attack graphic in the dashboard.](./media/id-protection-dashboard/microsoft-entra-id-protection-dashboard-attack-graphic.png)](./media/id-protection-dashboard/microsoft-entra-id-protection-dashboard-attack-graphic.png)
 
 #### What is considered an attack in Microsoft Entra ID Protection?
 
@@ -125,7 +125,7 @@ Two filters can be applied to the graph:
 
 A map is provided to display the country location of the risky sign-ins in your tenant. The size of the bubble reflects the volume of the risk sign-ins in at that location. Hovering over the bubble shows a call-out box, providing the country name and number of risky sign-ins from that place.
 
-![Screenshot showing the map graphic in the dashboard.](./media/id-protection-dashboard/microsoft-entra-id-protection-dashboard-map.png)
+[![Screenshot showing the map graphic in the dashboard.](./media/id-protection-dashboard/microsoft-entra-id-protection-dashboard-map.png)](./media/id-protection-dashboard/microsoft-entra-id-protection-dashboard-map.png)
 
 It contains the following elements:
 
@@ -144,7 +144,7 @@ It contains the following elements:
 
 We’ve also introduced new Microsoft Entra ID Protection recommendations for customers to configure their environment to increase their security posture. These Recommendations are based on the attacks detected in your tenant over the past 30 days. The recommendations are provided to guide your security staff with recommended actions to take. 
 
-![Screenshot showing recommendations in the dashboard.](./media/id-protection-dashboard/microsoft-entra-id-protection-dashboard-recommendations.png)
+[![Screenshot showing recommendations in the dashboard.](./media/id-protection-dashboard/microsoft-entra-id-protection-dashboard-recommendations.png)](./media/id-protection-dashboard/microsoft-entra-id-protection-dashboard-recommendations.png)
 
 Common attacks that are seen, like password spray, leaked credentials in your tenant, and mass access to sensitive files can inform you that there was a potential breach. In the previous screenshot, the example **Identity Protection detected at least 20 users with leaked credentials in your tenant** the recommended action in this case would be to create a Conditional Access policy requiring secure password reset on risky users.
 
@@ -165,7 +165,7 @@ Recent Activity provides a summary of recent risk-related activities in your ten
 1.	Self-Remediation Activity 
 1.	New High-Risk Users 
 
-![Screenshot showing recent activities in the dashboard.](./media/id-protection-dashboard/microsoft-entra-id-protection-dashboard-recent-activities.png)
+[![Screenshot showing recent activities in the dashboard.](./media/id-protection-dashboard/microsoft-entra-id-protection-dashboard-recent-activities.png)](./media/id-protection-dashboard/microsoft-entra-id-protection-dashboard-recent-activities.png)
 
 ## Known issues
 
