@@ -18,7 +18,7 @@ ms.custom: aaddev
 # Shared device mode for iOS devices
 
 > [!IMPORTANT]
-> This feature [!INCLUDE [PREVIEW BOILERPLATE](./includes/develop-preview.md)
+> This feature [!INCLUDE [PREVIEW BOILERPLATE](./includes/develop-preview.md)]
 
 Frontline workers such as retail associates, flight crew members, and field service workers often use a shared mobile device to perform their work. These shared devices can present security risks if your users share their passwords or PINs, intentionally or not, to access customer and business data on the shared device.
 

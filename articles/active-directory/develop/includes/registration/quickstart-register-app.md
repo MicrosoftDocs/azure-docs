@@ -22,16 +22,16 @@ Get started with the Microsoft identity platform by registering an application i
 The Microsoft identity platform performs identity and access management (IAM) only for registered applications. Whether it's a client application like a web or mobile app, or it's a web API that backs a client app, registering it establishes a trust relationship between your application and the identity provider, the Microsoft identity platform.
 
 > [!TIP]
-> To register an application for Azure AD B2C, follow the steps in [Tutorial: Register a web application in Azure AD B2C](../articles/active-directory-b2c/tutorial-register-applications.md).
+> To register an application for Azure AD B2C, follow the steps in [Tutorial: Register a web application in Azure AD B2C](../../../../active-directory-b2c/tutorial-register-applications.md).
 
 ## Prerequisites
 
 - An Azure account that has an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - The Azure account must have permission to manage applications in Azure Active Directory (Azure AD). Any of the following Azure AD roles include the required permissions:
-  - [Application administrator](../articles/active-directory/roles/permissions-reference.md#application-administrator)
-  - [Application developer](../articles/active-directory/roles/permissions-reference.md#application-developer)
-  - [Cloud application administrator](../articles/active-directory/roles/permissions-reference.md#cloud-application-administrator)
-- Completion of the [Set up a tenant](../articles/active-directory/develop/quickstart-create-new-tenant.md) quickstart.
+  - [Application administrator](../../../../active-directory/roles/permissions-reference.md#application-administrator)
+  - [Application developer](../../../../active-directory/roles/permissions-reference.md#application-developer)
+  - [Cloud application administrator](../../../../active-directory/roles/permissions-reference.md#cloud-application-administrator)
+- Completion of the [Set up a tenant](../../../../active-directory/develop/quickstart-create-new-tenant.md) quickstart.
 
 ## Register an application
 
