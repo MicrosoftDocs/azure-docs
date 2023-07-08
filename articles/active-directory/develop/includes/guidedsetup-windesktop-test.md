@@ -52,4 +52,4 @@ To access the user's calendars in the context of an application, add the *Calend
 >[!NOTE]
 >The user might be prompted for additional consents as you increase the number of scopes.
 
-[!INCLUDE [Help and support](../articles/active-directory/develop/includes/error-handling-and-tips/help-support-include.md)]
+[!INCLUDE [Help and support](./error-handling-and-tips/help-support-include.md)]
