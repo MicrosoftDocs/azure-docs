@@ -85,7 +85,9 @@ You can use the same VPN client configuration package on each Windows client com
 
 ## <a name="azurevpn"></a>OpenVPN: Azure VPN Client steps
 
-This section applies to certificate authentication configurations that use the OpenVPN tunnel type. The following steps help you download, install, and configure the Azure VPN Client to connect to your VNet. Each client computer requires the following items:
+This section applies to certificate authentication configurations that use the OpenVPN tunnel type. The following steps help you download, install, and configure the Azure VPN Client to connect to your VNet. Note that these steps apply to certificate authentication. If you're using OpenVPN with Azure AD authentication, see the [Azure AD](openvpn-azure-ad-client.md) configuration article instead.
+
+To connect, each client computer requires the following items:
 
 * The Azure VPN Client software must be installed on each client computer that you want to connect.
 * The Azure VPN Client profile must be configured using the downloaded **azurevpnconfig.xml** configuration file.
@@ -93,7 +95,9 @@ This section applies to certificate authentication configurations that use the O
 
 ### <a name="view-azurevpn"></a>View configuration files
 
-When you open the zip file, you'll see the **AzureVPN** folder. Locate the **azurevpnconfig.xml** file. This file contains the settings you use to configure the VPN client profile. If you don't see the file, verify the following items:
+When you open the zip file, you'll see the **AzureVPN** folder. Locate the **azurevpnconfig.xml** file. This file contains the settings you use to configure the VPN client profile.
+
+If you don't see the file, verify the following items:
 
 * Verify that your VPN gateway is configured to use the OpenVPN tunnel type.
 * If you're using Azure AD authentication, you may not have an AzureVPN folder. See the [Azure AD](openvpn-azure-ad-client.md) configuration article instead.

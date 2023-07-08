@@ -19,7 +19,7 @@ This article describes several approaches for chunking large documents so that y
 
 ## Why is chunking important?
 
-The models used to generate embedding vectors have maximum limits on the text fragments provided as input. For example, the maximum length of input text for the [Azure OpenAI](/azure/cognitive-services/openai/how-to/embeddings) embedding models is 8,191 tokens (equivalent to around 6000 words of text). If you're using these models to generate embeddings, it's critical that the input text stays under the limit. Partitioning your content into chunks ensures that your data can be processed by the Large Language Models (LLM) used for indexing and queries. 
+The models used to generate embedding vectors have maximum limits on the text fragments provided as input. For example, the maximum length of input text for the [Azure OpenAI](/azure/cognitive-services/openai/how-to/embeddings) embedding models is 8,191 tokens. Given that each token is around 4 tokens for common OpenAI models, this maximum limit is equivalent to around 6000 words of text. If you're using these models to generate embeddings, it's critical that the input text stays under the limit. Partitioning your content into chunks ensures that your data can be processed by the Large Language Models (LLM) used for indexing and queries. 
 
 ## How chunking fits into the workflow
 

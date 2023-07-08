@@ -19,7 +19,7 @@ Get notified about when to revisit this page for updates by copying and pasting 
 Release date: December 16, 2022
 
 ### New or changed functionality
--	We added support for [on-premises application provisioning](https://learn.microsoft.com/azure/active-directory/app-provisioning/on-premises-application-provisioning-architecture) (SCIM, SQL, LDAP) 
+-	We added support for [on-premises application provisioning](/azure/active-directory/app-provisioning/on-premises-application-provisioning-architecture) (SCIM, SQL, LDAP) 
 
 ## 1.1.977.0
 

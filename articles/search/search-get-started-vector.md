@@ -7,7 +7,7 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: quickstart
-ms.date: 06/29/2023
+ms.date: 07/07/2023
 ---
 
 # Quickstart: Use preview REST APIs for vector search queries
@@ -248,24 +248,26 @@ There are several queries to demonstrate the patterns. We use the same query str
 
 In this vector query, which is shortened for brevity, the "value" contains the vectorized text of the query input, "fields" determines which vector fields are searched, and "k" specifies the number of nearest neighbors to return.
 
-Recall that the vector query was generated from this string: "what Azure services support full text search". The search targets the `contentVector` field.
+Recall that the vector query was generated from this string: `"what Azure services support full text search"`. The search targets the `contentVector` field.
 
 ```http
 POST https://{{search-service-name}}.search.windows.net/indexes/{{index-name}}/docs/search?api-version={{api-version}}
 Content-Type: application/json
 api-key: {{admin-api-key}}
 {
-    "vector": {
-        "value": [
-            -0.009154141,
-            0.018708462,
-            . . . 
-            -0.02178128,
-            -0.00086512347
-        ],
-        "fields": "contentVector",
-        "k": 5
-    }
+    "vectors": [
+        {
+            "value": [
+                -0.009154141,
+                0.018708462,
+                . . . 
+                -0.02178128,
+                -0.00086512347
+            ],
+            "fields": "contentVector",
+            "k": 5
+        }
+    ]
 }
 ```
 
@@ -275,54 +277,59 @@ The response includes 5 results, and each result provides a search score, title,
 
 You can add filters, but the filters are applied to the nonvector content in your index. In this example, the filter applies to the "category" field.
 
-The response is 10 Azure services, with a search score, title, and category for each one. You'll also notice the `select` property here to visually only see the fields are necessary in my the response.
+The response is 10 Azure services, with a search score, title, and category for each one. Notice the `select` property. It's used to select specific fields for the response.
 
 ```http
 POST https://{{search-service-name}}.search.windows.net/indexes/{{index-name}}/docs/search?api-version={{api-version}}
 Content-Type: application/json
 api-key: {{admin-api-key}}
 {
-    "vector": {
-        "value": [
-            -0.009154141,
-            0.018708462,
-            . . . 
-            -0.02178128,
-            -0.00086512347
-        ],
-        "fields": "contentVector",
-        "select": "title, content, category"
-        "k": 10
-    },
+    "vectors": [
+        {
+            "value": [
+                -0.009154141,
+                0.018708462,
+                . . . 
+                -0.02178128,
+                -0.00086512347
+            ],
+            "fields": "contentVector",
+            "select": "title, content, category"
+            "k": 10
+        },
+    ],
     "filter": "category eq 'Databases'"
 }
 ```
 
-
 ### Cross-field vector search
-Cross-field vector search allows you to send a single query across multiple vector fields in your vector index. For this example, I want to calculate the similarity across both `titleVector` and `contentVector`:
+
+A cross-field vector query sends a single query across multiple vector fields in your search index. This query example looks for similarity in both `titleVector` and `contentVector`:
 
 ```http
 POST https://{{search-service-name}}.search.windows.net/indexes/{{index-name}}/docs/search?api-version={{api-version}}
 Content-Type: application/json
 api-key: {{admin-api-key}}
 {
-    "vector": {
-        "value": [
-            -0.009154141,
-            0.018708462,
-            . . . 
-            -0.02178128,
-            -0.00086512347
-        ],
-        "fields": "titleVector, contentVector",
-        "k": 5
-    }
+    "vectors": [
+        {
+            "value": [
+                -0.009154141,
+                0.018708462,
+                . . . 
+                -0.02178128,
+                -0.00086512347
+            ],
+            "fields": "titleVector, contentVector",
+            "k": 5
+        }
+    ]
 }
 ```
 
 ### Multi-query vector search
-Multi-query vector search allows you to send a multiple queries across multiple vector fields in your vector index. For this example, I want to calculate the similarity across both `titleVector` and `contentVector` but will send in two different query embeddings respectively. This scenario is ideal for multi-modal use cases where you want to search over a `textVector` field and an `imageVector` field. You can also use this scenario if you have different embedding models with different dimensions in your search index. 
+
+Multi-query vector search sends multiple queries across multiple vector fields in your search index. This query example looks for similarity in both `titleVector` and `contentVector`, but sends in two different query embeddings respectively. This scenario is ideal for multi-modal use cases where you want to search over a `textVector` field and an `imageVector` field. You can also use this scenario if you have different embedding models with different dimensions in your search index. 
 
 ```http
 POST https://{{search-service-name}}.search.windows.net/indexes/{{index-name}}/docs/search?api-version={{api-version}}
@@ -358,36 +365,38 @@ api-key: {{admin-api-key}}
 
 ### Hybrid search
 
-Hybrid search allows to compose keyword queries and vector queries in a single search request. 
+Hybrid search consists of keyword queries and vector queries in a single search request. 
 
-The response includes the top 10 ordereded by search score. Both vector queries and free text queries are assigned a search score according to the scoring or similarity functions configured on the fields (BM25 for text fields). The scores are merged using Reciprocal Rank Fusion (RRF) to weight each document with the inverse of its position in the ranked result set. 
+The response includes the top 10 ordered by search score. Both vector queries and free text queries are assigned a search score according to the scoring or similarity functions configured on the fields (BM25 for text fields). The scores are merged using [Reciprocal Rank Fusion (RRF)](vector-search-ranking.md#reciprocal-rank-fusion-rrf-for-hybrid-queries) to weight each document with the inverse of its position in the ranked result set. 
 
 ```http
 POST https://{{search-service-name}}.search.windows.net/indexes/{{index-name}}/docs/search?api-version={{api-version}}
 Content-Type: application/json
 api-key: {{admin-api-key}}
 {
-    "vector": {
-        "value": [
-            -0.009154141,
-            0.018708462,
-            . . .
-            -0.02178128,
-            -0.00086512347
-        ],
-        "fields": "contentVector",
-        "k": 10
-    },
+    "vectors": [
+        {
+            "value": [
+                -0.009154141,
+                0.018708462,
+                . . .
+                -0.02178128,
+                -0.00086512347
+            ],
+            "fields": "contentVector",
+            "k": 10
+        }
+    ],
     "search": "what azure services support full text search",
     "top": "10"
 }
 ```
 
-Compare the responses between Single Vector Search and Simple Hybrid Search for the top result. The different ranking algorithms produce scores that may seem in different magnitudes. This is by design of the RRF algorithm. When using Hybrid search, it's important to note that the reciprocal of the ranked documents are taken given the relatively smaller score vs pure vector search.
+Compare the responses between Single Vector Search and Simple Hybrid Search for the top result. The different ranking algorithms, HNSW's similarity metric and RRF respectively, produce scores that have different magnitudes. This is by design. Note that RRF scores may appear quite low, even with a high similarity match. This is a characteristic of the RRF algorithm. When using hybrid search and RRF, more of the reciprocal of the ranked documents are included in the results, given the relatively smaller score of the RRF ranked documents, as opposed to pure vector search.
 
-**Single Vector Search**: Results ordered by cosine similarity (default vector similarity distance function)
+**Single Vector Search**: Results ordered by cosine similarity (default vector similarity distance function).
 
-```
+```json
 {
     "@search.score": 0.8851871,
     "title": "Azure Cognitive Search",
@@ -398,7 +407,7 @@ Compare the responses between Single Vector Search and Simple Hybrid Search for 
 
 **Hybrid Search**: Combined keyword and vector search results using Reciprocal Rank Fusion.
 
-```
+```json
 {
     "@search.score": 0.03333333507180214,
     "title": "Azure Cognitive Search",
@@ -409,24 +418,26 @@ Compare the responses between Single Vector Search and Simple Hybrid Search for 
 
 ### Hybrid search with filter
 
-This example adds a filter, which is applied to the non-vector content of the search index.
+This example adds a filter, which is applied to the nonvector content of the search index.
 
 ```http
 POST https://{{search-service-name}}.search.windows.net/indexes/{{index-name}}/docs/search?api-version={{api-version}}
 Content-Type: application/json
 api-key: {{admin-api-key}}
 {
-    "vector": {
-        "value": [
-            -0.009154141,
-            0.018708462,
-            . . . 
-            -0.02178128,
-            -0.00086512347
-        ],
-        "fields": "contentVector",
-        "k": 10
-    },
+    "vectors": [
+        {
+            "value": [
+                -0.009154141,
+                0.018708462,
+                . . . 
+                -0.02178128,
+                -0.00086512347
+            ],
+            "fields": "contentVector",
+            "k": 10
+        }
+    ],
     "search": "what azure services support full text search",
     "filter": "category eq 'Databases'",
     "top": "10"
@@ -442,17 +453,19 @@ POST https://{{search-service-name}}.search.windows.net/indexes/{{index-name}}/d
 Content-Type: application/json
 api-key: {{admin-api-key}}
 {
-    "vector": {
-        "value": [
-            -0.009154141,
-            0.018708462,
-            . . . 
-            -0.02178128,
-            -0.00086512347
-        ],
-        "fields": "contentVector",
-        "k": 10
-    },
+    "vectors": [
+        {
+            "value": [
+                -0.009154141,
+                0.018708462,
+                . . . 
+                -0.02178128,
+                -0.00086512347
+            ],
+            "fields": "contentVector",
+            "k": 10
+        }
+    ],
     "search": "what azure services support full text search",
     "select": "title, content, category",
     "queryType": "semantic",
@@ -466,24 +479,26 @@ api-key: {{admin-api-key}}
 
 ### Semantic hybrid search with filter
 
-Here's the last query in the collection. It's the same hybrid query as above, with a filter.
+Here's the last query in the collection. It's the same hybrid query as the previous example, but with a filter.
 
 ```http
 POST https://{{search-service-name}}.search.windows.net/indexes/{{index-name}}/docs/search?api-version={{api-version}}
 Content-Type: application/json
 api-key: {{admin-api-key}}
 {
-    "vector": {
-        "value": [
-            -0.009154141,
-            0.018708462,
-            . . . 
-            -0.02178128,
-            -0.00086512347
-        ],
-        "fields": "contentVector",
-        "k": 10
-    },
+    "vectors": [
+        {
+            "value": [
+                -0.009154141,
+                0.018708462,
+                . . . 
+                -0.02178128,
+                -0.00086512347
+            ],
+            "fields": "contentVector",
+            "k": 10
+        }
+    ],
     "search": "what azure services support full text search",
     "select": "title, content, category",
     "queryType": "semantic",
@@ -509,4 +524,3 @@ Azure Cognitive Search is a billable resource. If it's no longer needed, delete 
 ## Next steps
 
 As a next step, we recommend reviewing the demo code for [Python](https://github.com/Azure/cognitive-search-vector-pr/tree/main/demo-python), or [C#](https://github.com/Azure/cognitive-search-vector-pr/tree/main/demo-dotnet).
-
