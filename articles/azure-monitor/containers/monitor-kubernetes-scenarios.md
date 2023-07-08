@@ -5,15 +5,15 @@ ms.service:  azure-monitor
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 03/08/2023
+ms.date: 07/07/2023
 ---
 
 # Monitor Kubernetes scenarios
-This article describes different scenarios for monitoring Kubernetes based on the monitoring environment described in [Monitor Kubernetes with Azure Monitor](monitor-containers.md). Solutions to common scenarios are provided for each of the different roles that commonly support a Kubernetes environment. This article assumes that you're using Container insights and the managed offerings in Azure for Prometheus and Grafana. If you're using alternative tools, then you can use the same concepts, but details will vary for the different tools.
+This article describes different scenarios for monitoring Kubernetes based on the monitoring environment described in [Configure Kubernetes monitoring using Azure services](monitor-kubernetes-configure.md). Solutions to common scenarios are provided for each of the different roles that commonly support a Kubernetes environment. This article assumes that you're using Container insights and the managed offerings in Azure for Prometheus and Grafana. If you're using alternative tools, then you can use the same concepts, but details will vary for the different tools.
 
 
 ## Roles
-Responsibility for a Kubernetes environment and the applications that depend on it are typically shared by multiple roles. Depending on the size of your organization, these roles may be performed by different people or even different teams. The following table describes the different roles while the sections below provide .
+Responsibility for the [different layers of a a Kubernetes environment and the applications that depend on it](monitor-kubernetes-analyze.md) are typically shared by multiple roles. Depending on the size of your organization, these roles may be performed by different people or even different teams. The following table describes the different roles while the sections below provide different monitoring scenarios that each will typically encounter.
 
 | Roles | Description |
 |:---|:---|
@@ -111,9 +111,6 @@ The Network Engineer is responsible for traffic between workloads and any ingres
 
 ### Common scenarios for network engineer
 
-**How can I inspect traffic flowing to and from my Kubernetes cluster?**
-
-- Create [flow logs](../../network-watcher/network-watcher-nsg-flow-logging-overview.md) to log information about the IP traffic flowing through network security groups and then use [traffic analytics](../../network-watcher/traffic-analytics.md) to analyze and provide insights on this data.
 
 **How can I detect any data exfiltration for my cluster?**
 
