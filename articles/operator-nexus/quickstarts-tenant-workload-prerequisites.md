@@ -52,11 +52,11 @@ You should have the following information already:
 
 #### L2 isolation domain
 
-You can find more information on how to create an L2 isolation domain [here](./includes/l2-isolation-domain.md).
+[!INCLUDE [l2-isolation-domain](./includes/l2-isolation-domain.md)]
 
 #### L3 isolation domain
 
-You can find more information on how to create an L3 isolation domain [here](./includes/l3-isolation-domain.md).
+[!INCLUDE [l3-isolation-domain](./includes/l3-isolation-domain.md)]
 
 ### Create networks for tenant workloads
 
