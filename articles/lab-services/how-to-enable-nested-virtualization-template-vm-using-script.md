@@ -70,6 +70,18 @@ First, follow these steps to [connect to the template virtual machine by using a
 
 ### 1. Enable the Hyper-V role
 
+The following steps describe the actions to enable Hyper-V on Windows Server using PowerShell
+Using PowerShell that enables Hyper-V on a nested virtual machine will fail with an error message that BIOS settings are missing, even though nested virtualization is enabled in the VM via Windows Admin Center or PowerShell.
+
+To avoid the error do not use the Install-WindowsFeature which is the same used by WAC or Server Manager.
+
+1. Make sure you have enabled Nested Virtualization beforehand.
+Here is how to do this: https://learn.microsoft.com/en-us/virtualization/hyper-v-on-windows/user-guide/nested-virtualization
+
+2. Use Enable-WindowsOptionalFeature -Online -FeatureName Microsoft-Hyper-V -all
+instead, which will skip prerequisite checks. 
+
+
 The following steps describe the actions to enable Hyper-V on Windows Server using Server Manager. After enabling Hyper-V, Hyper-V manager is available to add, modify, and delete client VMs.
 
 1. In **Server Manager**, on the Dashboard page, select **Add Roles and Features**.
