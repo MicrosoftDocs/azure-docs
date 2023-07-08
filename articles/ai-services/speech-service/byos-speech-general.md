@@ -20,10 +20,17 @@ In BYOS scenario, all traffic between the Speech resource and the Storage accoun
 
 BYOS can be used with several Azure AI services. For Speech, it can be used in the following scenarios:
 
+**Speech to text**
+
 1. [Batch transcription](batch-transcription.md)
 1. Real-time transcription with [audio and transcription result logging](logging-audio-transcription.md) enabled
 1. [Custom Speech](custom-speech-overview.md) (Custom models for Speech recognition)
+
+**Text to speech**
+
+4. [Audio Content Creation](how-to-audio-content-creation.md)
 1. [Custom Neural Voice](custom-neural-voice.md) (Custom models for Speech synthesizing)
+
 
 One Speech resource – Storage account combination can be used for all four scenarios simultaneously in all combinations.
 
