@@ -5,12 +5,12 @@ description: Learn how to create a storage account that supports configuring cus
 services: storage
 author: tamram
 
-ms.service: storage
+ms.service: azure-storage
 ms.topic: how-to
 ms.date: 06/09/2021
 ms.author: tamram
 ms.reviewer: ozgun
-ms.subservice: common 
+ms.subservice: storage-common-concepts
 ms.custom: devx-track-azurecli, devx-track-azurepowershell, devx-track-arm-template
 ---
 
