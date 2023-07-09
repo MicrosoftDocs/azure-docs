@@ -4,8 +4,8 @@ description: This article describes how you enable VM insights for multiple Azur
 ms.topic: how-to
 author: guywi-ms
 ms.author: guywild
-ms.reviewer: xpathak
-ms.date: 12/13/2022
+ms.reviewer: Rahul.Bagaria
+ms.date: 07/09/2023
 
 ---
 
@@ -30,6 +30,10 @@ The initiatives apply to new machines you create and machines you modify, but no
 | Enable Azure Monitor for Hybrid VMs with Azure Monitoring Agent | Installs Azure Monitor Agent and Dependency agent on hybrid VMs connected with Azure Arc. |
 | Legacy: Enable Azure Monitor for VMs | Installs the Log Analytics agent and Dependency agent on virtual machine scale sets. |
 | Legacy: Enable Azure Monitor for virtual machine scale sets | Installs the Log Analytics agent and Dependency agent on virtual machine scale sets. |
+
+## Support for custom images
+
+To enable onboarding Dependency Agent on custom images, the `scopeToSupportedImages` parameter is set to `false` by default in all Azure Monitoring Agent-based VM insights policy and initiative definitions. Set this parameter to `true` if you to allow deploying only virtual machines with supported images.  
 
 ## Assign a VM insights policy initiative
 
