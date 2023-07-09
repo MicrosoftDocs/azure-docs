@@ -29,7 +29,7 @@ The resources are grouped into tabs:
 
     :::image type="content" source="media/view-and-remediate-vulnerabilities-for-images-running-on-aks/running-image-recommendation-line.png" alt-text="Screenshot showing the recommendation line for running container images should have vulnerability findings resolved." lightbox="media/view-and-remediate-vulnerabilities-for-images-running-on-aks/running-image-recommendation-line.png"::: 
 
-1. The recommendation details page opens showing the list of Kubernetes clusters ("affected resources") and categorize them as healthy, unhealthy and not applicable, based on the images used by your workloads. Select the relevant cluster for which you want to remediate vulnerabilities.
+1. The recommendation details page opens showing the list of Kubernetes clusters ("affected resources") and categorizes them as healthy, unhealthy and not applicable, based on the images used by your workloads. Select the relevant cluster for which you want to remediate vulnerabilities.
 
     :::image type="content" source="media/view-and-remediate-vulnerabilities-for-images-running-on-aks/running-select-cluster.png" alt-text="Screenshot showing the affected clusters for the recommendation." lightbox="media/view-and-remediate-vulnerabilities-for-images-running-on-aks/running-select-cluster.png":::
 
