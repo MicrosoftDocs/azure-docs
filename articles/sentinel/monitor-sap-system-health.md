@@ -24,9 +24,9 @@ This article describes how to use the following features, which allow you to per
 1. From the Microsoft Sentinel portal, select **Data connectors**.
 1. In the search bar, type *Microsoft Sentinel for SAP*.
 1. Select the **Microsoft Sentinel for SAP** connector and select **Open connector**.
-1. In the **Configuration > Configure an SAP system and assign it to a collector agent** area, you can view information on the health of your SAP systems. 
+1. In the **Configuration > Configure an SAP system and assign it to a collector agent** area, you can view information on the health of your SAP systems. Learn how to [add new SAP systems](sap/deploy-data-connector-agent-container.md).    
 
-Learn how to [add new SAP systems](sap/deploy-data-connector-agent-container.md).
+    The following table describes the different fields in the **Configure an SAP system and assign it to a collector agent** area.
 
 ### System health status and details
 
