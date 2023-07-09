@@ -4,7 +4,7 @@ description: Learn how to view and remediate runtime threat findings
 ms.service: defender-for-cloud
 ms.custom: build-2023
 ms.topic: how-to
-ms.date: 07/05/2023
+ms.date: 07/09/2023
 ---
 
 # View and remediate vulnerabilities for images running on your AKS clusters
@@ -14,6 +14,12 @@ Defender for Cloud gives its customers the ability to prioritize the remediation
 To provide findings for the recommendation, Defender CSPM uses [agentless container registry vulnerability assessment](concept-agentless-containers.md#agentless-container-registry-vulnerability-assessment) to create a full inventory of your K8s clusters and their workloads and correlates that inventory with the [agentless container registry vulnerability assessment](concept-agentless-containers.md#agentless-container-registry-vulnerability-assessment). The recommendation shows your running containers with the vulnerabilities associated with the images that are used by each container and provides vulnerability reports and remediation steps. 
 
 Vulnerability assessment for containers reports vulnerabilities to Defender for Cloud, Defender for Cloud presents the findings and related information as recommendations, including related information such as remediation steps and relevant CVEs. You can view the identified vulnerabilities for one or more subscriptions, or for a specific resource.
+
+The resources are grouped into tabs:  
+
+- **Healthy resources** – relevant resources, which either aren't impacted or on which you've already remediated the issue.  
+- **Unhealthy resources** – resources that are still impacted by the identified issue.  
+- **Not applicable resources** – resources for which the recommendation can't give a definitive answer. The not applicable tab also includes reasons for each resource.
 
 ## View vulnerabilities on a specific cluster
 
