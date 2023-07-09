@@ -2,7 +2,7 @@
 title: Upgrade legacy rules management to the current Azure Monitor Log Alerts API
 description: Learn how to switch to the log alerts management to ScheduledQueryRules API
 ms.topic: conceptual
-ms.date: 2/23/2022
+ms.date: 07/09/2023
 ---
 # Upgrade to the Log Alerts API from the legacy Log Analytics alerts API
 
@@ -32,13 +32,13 @@ The current alert rule wizard is different from the earlier experience:
 - Previously, search results were included in the payload of the triggered alert and its associated notifications. The email included only 10 rows from the unfiltered results while the webhook payload contained 1,000 unfiltered results. To get detailed context information about the alert so that you can decide on the appropriate action:
     - We recommend using [dimensions](alerts-types.md#narrow-the-target-using-dimensions). Dimensions provide the column value that fired the alert, which gives you context for why the alert fired and how to fix the issue.
     - When you need to investigate in the logs, use the link in the alert to the search results in logs.
-    - If you need the raw search results or for any other advanced customizations, use Azure Logic Apps.
+    - If you need the raw search results or for any other advanced customizations, [use Azure Logic Apps](alerts-logic-apps.md).
 - The new alert rule wizard doesn't support customization of the JSON payload.
     - Use custom properties in the [new API](/rest/api/monitor/scheduledqueryrule-2021-08-01/scheduled-query-rules/create-or-update#actions) to add static parameters and associated values to the webhook actions triggered by the alert.
-    - For more advanced customizations, use Logic Apps.
+    - For more advanced customizations, [use Azure Logic Apps](alerts-logic-apps.md).
 - The new alert rule wizard doesn't support customization of the email subject.
     - Customers often use the custom email subject to indicate the resource on which the alert fired, instead of using the Log Analytics workspace. Use the [new API](/rest/api/monitor/scheduledqueryrule-2021-08-01/scheduled-query-rules/create-or-update#actions) to trigger an alert of the desired resource by using the resource ID column.
-    - For more advanced customizations, use Logic Apps.
+    - For more advanced customizations, [use Azure Logic Apps](alerts-logic-apps.md).
 
 
 ## Impact

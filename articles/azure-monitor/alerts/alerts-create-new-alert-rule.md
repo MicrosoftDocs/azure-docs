@@ -173,7 +173,7 @@ To edit an existing alert rule:
 
         Dimensions are columns from your query results that contain additional data. When you use dimensions, the alert rule groups the query results by the dimension values and evaluates the results of each group separately. If the condition is met, the rule fires an alert for that group. The alert payload includes the combination that triggered the alert.
 
-        You can apply up to six dimensions per alert rule. Dimensions can only be string or numeric columns. If you want to use a column that isn't a number or string type as a dimension, you must convert it to a string or numeric value. If you select more than one dimension value, each time series that results from the combination triggers its own alert and is charged separately.
+        You can apply up to six dimensions per alert rule. Dimensions can only be string or numeric columns. If you want to use a column that isn't a number or string type as a dimension, you must convert it to a string or numeric value in your query. If you select more than one dimension value, each time series that results from the combination triggers its own alert and is charged separately.
 
         For example:
         -  You could use dimensions to monitor CPU usage on multiple instances running your website or app. Each instance is monitored individually, and notifications are sent for each instance where the CPU usage exceeds the configured value.
@@ -181,7 +181,9 @@ To edit an existing alert rule:
 
         Select values for these fields:
 
-        -  **Resource ID column**: If you want a separate alert for each affected Azure resource, you can use the **Azure Resource ID** column as a dimension, which makes the resource the target of the alert. If your alert rule scope is a workspace, the alerts are fired on the workspace. If the workspace of the alert rule gets data from resources in more than one subscription, alerts are sent about the resources from the other subscriptions. As a result, the fired alert can happen in a different subscription than the workspace. 
+        -  **Resource ID column**: In general, if your alert rule scope is a workspace, the alerts are fired on the workspace. If you want a separate alert for each affected Azure resource, you can:
+            - use the ARM **Azure Resource ID** column as a dimension
+            - specify it as a dimension in the Azure Resource ID property, which makes the resource returned by your query the target of the alert, so alerts are fired on the resource returned by your query, such as a virtual machine or a storage account, as opposed to in the workspace. When you use this option, if the workspace  gets data from resources in more than one subscription, alerts can be triggered on resources from a subscription that is different from the alert rule subscription. 
 
         |Field  |Description  |
         |---------|---------|
