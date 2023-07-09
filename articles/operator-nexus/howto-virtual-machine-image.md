@@ -54,12 +54,6 @@ The following environment variables are used to configure the script for creatin
 # Azure subscription ID (provide if not using username-password)
 export SUBSCRIPTION="your_subscription_id"
 
-# (Optional) ACR login username (provide if not using subscription)
-export USERNAME="your_username"
-
-# (Optional) ACR login password (provide if not using subscription)
-export PASSWORD="your_password"
-
 # (Mandatory) Azure Container Registry name
 export ACR_NAME="your_acr_name"
 
@@ -77,9 +71,15 @@ export DOCKERFILE_NAME="nexus-vm-img-dockerfile"
 
 # (Optional) ACR URL (leave empty to derive from ACR_NAME)
 export ACR_URL=""
+
+# (Optional) ACR login username (provide if not using subscription)
+export USERNAME=""
+
+# (Optional) ACR login password (provide if not using subscription)
+export PASSWORD=""
 ```
 
-To create a VM image for your Virtual Network Function (VNF), save the provided script as vnf-image-builder.sh, set the required environment variables, and execute the script.
+To create a VM image for your Virtual Network Function (VNF), save the provided script as `vnf-image-builder.sh`, set the required environment variables, and execute the script.
 
 ```bash
 #!/bin/bash
@@ -117,7 +117,7 @@ if [ -z "$ACR_URL" ]; then
     ACR_URL="$ACR_NAME.azurecr.io"
 fi
 
-# Initialize variables for downloaded files
+# Initialize variables for downloaded/copied files
 downloaded_files=()
 
 # Function to clean up downloaded files
@@ -171,7 +171,7 @@ EOF
 # Build the Docker image and tag it to the Azure Container Registry
 docker build -f "$DOCKERFILE_NAME" -t "$CONTAINER_IMAGE_NAME:$CONTAINER_IMAGE_TAG" .
 
-# Log in to Azure and Azure Container Registry
+# Log in to Azure Container Registry
 if [ -n "$USERNAME" ] && [ -n "$PASSWORD" ]; then
     docker login "$ACR_NAME.azurecr.io" -u "$USERNAME" -p "$PASSWORD"
 else
@@ -181,7 +181,7 @@ fi
 docker tag "$CONTAINER_IMAGE_NAME:$CONTAINER_IMAGE_TAG" "$ACR_URL/$CONTAINER_IMAGE_NAME:$CONTAINER_IMAGE_TAG"
 docker push "$ACR_URL/$CONTAINER_IMAGE_NAME:$CONTAINER_IMAGE_TAG"
 
-# Remove the downloaded files
+# Remove the downloaded/copied files
 cleanup
 
 rm "$DOCKERFILE_NAME"
