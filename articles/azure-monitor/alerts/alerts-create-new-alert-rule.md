@@ -105,7 +105,7 @@ To edit an existing alert rule:
         |Aggregation granularity| Select the interval that's used to group the data points by using the aggregation type function. Choose an **Aggregation granularity** (period) that's greater than the **Frequency of evaluation** to reduce the likelihood of missing the first evaluation period of an added time series.|
         |Frequency of evaluation|Select how often the alert rule is to be run. Select a frequency that's smaller than the aggregation granularity to generate a sliding window for the evaluation.|
  
-    1. <a name="dimensions"></a>(Optional) Depending on the signal type, you might see the **Split by dimensions** section.
+    1. (Optional) Depending on the signal type, you might see the **Split by dimensions** section.
 
         Dimensions are name-value pairs that contain more data about the metric value. By using dimensions, you can filter the metrics and monitor specific time-series, instead of monitoring the aggregate of all the dimensional values.
 
@@ -167,7 +167,7 @@ To edit an existing alert rule:
         |Aggregation granularity| The interval for aggregating multiple records to one numeric value.|
 
  
-    1. (Optional) In the **Split by dimensions** section, you can use dimensions to help provide context for the triggered alert.
+    1. <a name="dimensions"></a>(Optional) In the **Split by dimensions** section, you can use dimensions to help provide context for the triggered alert.
 
         :::image type="content" source="media/alerts-create-new-alert-rule/alerts-create-log-rule-dimensions.png" alt-text="Screenshot that shows the splitting by dimensions section of a new log alert rule.":::
 
