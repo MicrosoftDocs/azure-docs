@@ -24,6 +24,7 @@ See these [important announcements](#announcements) about recent changes to feat
 
 ## July 2023
 
+- Announcement: [Changes to Microsoft Defender for Office 365 connector alerts that apply when disconnecting and reconnecting](#changes-to-microsoft-defender-for-office-365-connector-alerts-that-apply-when-disconnecting-and-reconnecting)
 - [Content Hub generally available and centralization changes released](#content-hub-generally-available-and-centralization-changes-released)
 - [Deploy incident response playbooks for SAP](#deploy-incident-response-playbooks-for-sap)
 - [Microsoft Sentinel solution for D365 Finance and Operations (Preview)](#microsoft-sentinel-solution-for-d365-finance-and-operations-preview)
@@ -32,7 +33,7 @@ See these [important announcements](#announcements) about recent changes to feat
 
 ### Content Hub generally available and centralization changes released
 
-Content hub is now generally availabile (GA)! The [content hub centralization changes announced in February](#out-of-the-box-content-centralization-changes) have also been released. For more information on these changes and their impact, including more details about the tool provided to reinstate **IN USE** gallery templates, see [Out-of-the-box (OOTB) content centralization changes](sentinel-content-centralize.md). 
+Content hub is now generally available (GA)! The [content hub centralization changes announced in February](#out-of-the-box-content-centralization-changes) have also been released. For more information on these changes and their impact, including more details about the tool provided to reinstate **IN USE** gallery templates, see [Out-of-the-box (OOTB) content centralization changes](sentinel-content-centralize.md). 
 
 As part of the deployment for GA, the default view of the content hub is now the **List view**. The install process is streamlined as well. When selecting **Install** or **Install/Update**, the experience behaves like bulk installation. 
 
@@ -62,7 +63,6 @@ To ensure that Microsoft Sentinel's threat detection provides complete coverage 
 - [Connect multiple SAP System Identifiers via the UI](#connect-multiple-sap-system-identifiers-via-the-ui-preview)
 - [Classic alert automation due for deprecation](#classic-alert-automation-due-for-deprecation) (see Announcements)
 - [Microsoft Sentinel solution for SAP® applications: new systemconfig.json file](#microsoft-sentinel-solution-for-sap-applications-new-systemconfigjson-file)
-
 
 ### Windows Forwarded Events connector is now generally available
 
@@ -123,6 +123,7 @@ Learn more about [Microsoft Sentinel workspace manager](workspace-manager.md).
 
 ## Announcements
 
+- [Changes to Microsoft Defender for Office 365 connector alerts that apply when disconnecting and reconnecting](#changes-to-microsoft-defender-for-office-365-connector-alerts-that-apply-when-disconnecting-and-reconnecting)
 - [Simplified pricing tiers](#simplified-pricing-tiers)
 - [Classic alert automation due for deprecation](#classic-alert-automation-due-for-deprecation)
 - [When disconnecting and connecting the MDI alerts connector - UniqueExternalId field is not populated (use the AlertName field)](#when-disconnecting-and-connecting-the-mdi-alerts-connector---uniqueexternalid-field-is-not-populated-use-the-alertname-field)
@@ -133,6 +134,30 @@ Learn more about [Microsoft Sentinel workspace manager](workspace-manager.md).
 - [Microsoft 365 Defender now integrates Azure Active Directory Identity Protection (AADIP)](#microsoft-365-defender-now-integrates-azure-active-directory-identity-protection-aadip)
 - [Account enrichment fields removed from Azure AD Identity Protection connector](#account-enrichment-fields-removed-from-azure-ad-identity-protection-connector)
 - [Name fields removed from UEBA UserPeerAnalytics table](#name-fields-removed-from-ueba-userpeeranalytics-table)
+
+
+### Changes to Microsoft Defender for Office 365 connector alerts that apply when disconnecting and reconnecting  
+
+To improve the overall experience for Microsoft Defender for Office 365 alerts, we've improved the sync between alerts and incidents, and increased the number of alerts that flow through the connector. 
+
+To benefit from this change, disconnect and reconnect the Microsoft Defender for Office 365 connector. However, by taking this action, some fields are no longer populated:
+
+- `ExtendedProperties["InvestigationName"]`
+- `ExtendedProperties["Status"]`
+- `ExtendedLinks`
+- `AdditionalActionsAndResults` located inside the `Entities` field
+
+To retrieve the information that was previously retrieved by these fields, in the Microsoft 365 Defender portal, on the left, select **Alerts**, and locate the following information:
+
+- `ExtendedProperties["InvestigationName"]`: Under **Investigation ID**:
+ 
+    :::image type="content" source="media/whats-new/mdo-connector-fields-investigation-id.png" alt-text="Screenshot showing the Microsoft Defender for Office 365 alerts Investigation ID field in the Microsoft 365 Defender portal." lightbox="media/whats-new/mdo-connector-fields-investigation-id.png":::
+
+- `ExtendedProperties["Status"]`: Under **Investigation status**:
+ 
+    :::image type="content" source="media/whats-new/mdo-connector-fields-investigation-status.png" alt-text="Screenshot showing the Microsoft Defender for Office 365 alerts Investigation status field in the Microsoft 365 Defender portal.":::
+
+- `ExtendedLinks`: Select **Investigation ID**, which opens the relevant **Investigation** page. 
 
 ### Simplified pricing tiers
 Microsoft Sentinel is billed for the volume of data *analyzed* in Microsoft Sentinel and *stored* in Azure Monitor Log Analytics. So far, there have been two sets of pricing tiers, one for each product. Two things are happening:
