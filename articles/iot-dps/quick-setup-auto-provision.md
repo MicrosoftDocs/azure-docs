@@ -68,7 +68,7 @@ In this section, you add a configuration to the Device Provisioning Service inst
     | --- | --- |
     | **Subscription** | Select the subscription containing the IoT hub that you want to link with your new Device Provisioning Service instance. |
     | **IoT hub** | Select the IoT hub to link with your new Device Provisioning System instance. |
-    | **Access Policy** | Select **iothubowner (RegistryWrite, ServiceConnect, DeviceConnect)** as the credentials for establishing the link with the IoT hub. |
+    | **Access Policy** | Select **IoT Hub Owner (RegistryWrite, ServiceConnect, DeviceConnect)** as the credentials for establishing the link with the IoT hub. |
 
     :::image type="content" source="./media/quick-setup-auto-provision/link-iot-hub-to-dps-portal.png" alt-text="Screenshot showing how to link an IoT hub to the Device Provisioning Service instance in the portal blade."::: 
 
