@@ -88,4 +88,4 @@ Apprentice mode provides the following **evaluation metrics**:
 
 ## Next steps
 
-* Learn about [ethics and responsible use](ethics-responsible-use.md)
+* Learn about [ethics and responsible use](responsible-use-cases.md)

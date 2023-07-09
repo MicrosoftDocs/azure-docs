@@ -85,7 +85,7 @@ By adding up reward scores, your final reward may be outside the expected score 
 
 * **Rewards only apply to RewardActionID**: Personalizer applies the rewards to understand the efficacy of the action specified in RewardActionID. If you choose to display other actions and the user clicks on them, the reward should be zero.
 
-* **Consider unintended consequences**: Create reward functions that lead to responsible outcomes with [ethics and responsible use](ethics-responsible-use.md).
+* **Consider unintended consequences**: Create reward functions that lead to responsible outcomes with [ethics and responsible use](responsible-use-cases.md).
 
 * **Use Incremental Rewards**: Adding partial rewards for smaller user behaviors helps Personalizer to achieving better rewards. This incremental reward allows the algorithm to know it's getting closer to engaging the user in the final desired behavior.
     * If you are showing a list of movies, if the user hovers over the first one for a while to see more information, you can determine that some user-engagement happened. The behavior can count with a reward score of 0.1.
