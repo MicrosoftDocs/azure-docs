@@ -97,7 +97,7 @@ Here are the primary constraints with using cross-tenant synchronization across 
 
 Multi-tenant organization is a new feature (currently available in public preview) for Microsoft Entra and Microsoft 365 customers. The multi-tenant organization feature allows you to form a tenant group within your organization. Each pair of tenants in the group shares a cross-tenant access policy that you can use to configure B2B or cross-tenant synchronization.
 
-The administrator of the multi-tenant organization owner tenant can also configure a cross-tenant access policy template for the entire multi-tenant organization, eliminating the need for each tenant admin to manually configure the cross-tenant access policies.
+The administrator of the multi-tenant organization owner tenant can also configure a cross-tenant access policy template for the entire multi-tenant organization, eliminating the need for each tenant administrator to manually configure the cross-tenant access policies.
 
 Here are the primary benefits of forming a multi-tenant organization:
 
