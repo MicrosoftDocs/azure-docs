@@ -15,7 +15,7 @@ ms.custom: devplatv2
 
 # Run batch endpoints from Event Grid events in storage
 
-[!INCLUDE [ml v2](../../includes/machine-learning-dev-v2.md)]
+[!INCLUDE [ml v2](includes/machine-learning-dev-v2.md)]
 
 Event Grid is a fully managed service that enables you to easily manage events across many different Azure services and applications. It simplifies building event-driven and serverless applications. In this tutorial, we learn how to trigger a batch endpoint's job to process files as soon as they are created in a storage account. In this architecture, we use a Logic App to subscribe to those events and trigger the endpoint.
 

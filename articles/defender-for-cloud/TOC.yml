@@ -39,13 +39,13 @@
   - name: Connect your hybrid and multicloud environments
     expanded: false
     items:
-    - name: Connect your on-premises machine
+    - name: Connect your on-premises machines
       displayName: azure stack, ash, windows, linux, hybrid, arc, on-premises
       href: quickstart-onboard-machines.md
-    - name: Connect your AWS account
+    - name: Connect your AWS accounts
       displayName: hybrid, multicloud, multicloud, amazon, arc, AWS, accounts
       href: quickstart-onboard-aws.md
-    - name: Connect your GCP project
+    - name: Connect your GCP projects
       displayName: hybrid, multicloud, multicloud, google, gcp
       href: quickstart-onboard-gcp.md
     - name: Connect non-Azure machines with Defender for Endpoint
@@ -60,7 +60,7 @@
     - name: Protect your resources with Defender CSPM
       displayName: CSPM, cloud security posture management, enable
       href: tutorial-enable-cspm-plan.md
-    - name: Protect servers with Defender for Servers
+    - name: Protect your servers with Defender for Servers
       displayName: servers, server, enable
       href: tutorial-enable-servers-plan.md
     - name: Protect your applications with Defender for App Service
@@ -69,20 +69,20 @@
     - name: Protect your databases with Defender for Databases
       displayName: Databases, Cosmos, DB, SQL servers, Azure SQL, SQL, Open-source relational databases
       href: tutorial-enable-databases-plan.md
-    - name: Protect your storage with Defender for Storage
+    - name: Protect your storage accounts with Defender for Storage
       displayName: storage, enable
       href: tutorial-enable-storage-plan.md
     - name: Protect containers with Defender for Containers
       items:
       - name: Protect your Azure containers (AKS) 
         href: tutorial-enable-containers-azure.md
-      - name: Protect your on-premises and IaaS (ARC) devices 
+      - name: Protect your on-premises and IaaS (Arc) devices 
         href: tutorial-enable-containers-arc.md
       - name: Protect your Amazon Web Service (AWS) accounts containers
         href: tutorial-enable-container-aws.md
       - name: Protect your Google Cloud Platform (GCP) project containers
         href: tutorial-enable-container-gcp.md
-    - name: Protect your key vault with Defender for Key Vault
+    - name: Protect your key vaults with Defender for Key Vault
       displayName: enable, key, vault, key vault
       href: tutorial-enable-key-vault-plan.md
     - name: Protect your Domain Name System (DNS) with Defender for DNS
@@ -307,6 +307,8 @@
       href: view-and-remediate-vulnerability-assessment-findings.md
     - name: View and remediate vulnerabilities for images running on your AKS clusters 
       href: view-and-remediate-vulnerabilities-for-images-running-on-aks.md
+    - name: Disable vulnerability assessment findings on Container registry images
+      href: disable-vulnerability-findings-containers.md  
   - name: Security recommendations
     items:
     - name: Create custom Azure security initiatives and policies

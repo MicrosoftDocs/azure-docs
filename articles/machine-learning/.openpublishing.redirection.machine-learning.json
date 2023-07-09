@@ -1,6 +1,11 @@
 {
     "redirections": [
     {
+        "source_path_from_root": "/articles/machine-learning/how-to-create-manage-compute-instance.md",
+        "redirect_url": "/azure/machine-learning/how-to-create-compute-instance",
+        "redirect_document_id": true
+    },
+    {
         "source_path_from_root": "/articles/machine-learning/v-fake/tutorial-train-deploy-notebook.md",
         "redirect_url": "/azure/machine-learning/tutorial-train-deploy-notebook",
         "redirect_document_id": false
@@ -187,8 +192,8 @@
     },
     {
         "source_path_from_root": "/articles/machine-learning/v-fake/how-to-create-manage-compute-instance.md",
-        "redirect_url": "/azure/machine-learning/how-to-create-manage-compute-instance",
-        "redirect_document_id": true
+        "redirect_url": "/azure/machine-learning/how-to-create-compute-instance",
+        "redirect_document_id": false
     },
     {
         "source_path_from_root": "/articles/machine-learning/v-fake/how-to-create-machine-learning-pipelines.md",
@@ -217,7 +222,7 @@
     },
     {
         "source_path_from_root": "/articles/machine-learning/v-fake/azure-machine-learning-release-notes.md",
-        "redirect_url": "/articles/machine-learning/azure-machine-learning-release-notes",
+        "redirect_url": "/azure/machine-learning/azure-machine-learning-release-notes",
         "redirect_document_id": false
     },
     {
@@ -253,7 +258,7 @@
     {
         "source_path_from_root": "/articles/machine-learning/v-fake/concept-model-management-and-deployment.md",
         "redirect_url": "/azure/machine-learning/concept-model-management-and-deployment",
-        "redirect_document_id": false 
+        "redirect_document_id": false
     },
     {
         "source_path_from_root": "/articles/machine-learning/how-to-set-up-vs-code-remote.md",
@@ -283,7 +288,7 @@
     {
         "source_path_from_root": "/articles/machine-learning/v-fake/how-to-export-delete-data.md",
         "redirect_url": "/azure/machine-learning/how-to-export-delete-data.md",
-        "redirect_document_id": false   
+        "redirect_document_id": false
     },
     {
         "source_path_from_root": "/articles/machine-learning/v-fake/how-to-configure-auto-features.md",
@@ -365,7 +370,7 @@
         "redirect_url": "/azure/machine-learning/how-to-train-model",
         "redirect_document_id": false
     },
-   
+
     {
         "source_path_from_root": "/articles/machine-learning/how-to-train-with-rest.md",
         "redirect_url": "/azure/machine-learning/how-to-train-model",
@@ -1758,8 +1763,8 @@
     {
         "source_path_from_root": "/articles/machine-learning/service/how-to-save-write-experiment-files.md",
         "redirect_url": "/azure/machine-learning/v1/how-to-save-write-experiment-files",
-        "redirect_document_id": false  
-    },    
+        "redirect_document_id": false
+    },
     {
         "source_path_from_root": "/articles/machine-learning/service/how-to-run-batch-predictions.md",
         "redirect_url": "/azure/machine-learning/how-to-run-batch-predictions",
