@@ -332,7 +332,7 @@ sections:
         answer: |
           To get an example query for a recommendation, open the recommendation in Defender for Cloud, select **Open query**, and then select **Query returning security findings**.
 
-        :::image type="content" source="media/faq-general/recommendation-example-query.png" alt-text="Screenshot of how to create example query for recommendation.":::
+          :::image type="content" source="media/faq-general/recommendation-example-query.png" alt-text="Screenshot of how to create example query for recommendation.":::
 
       - question: |
           Does continuous export support any business continuity or disaster recovery (BCDR) scenarios?
