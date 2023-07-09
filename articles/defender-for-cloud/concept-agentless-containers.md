@@ -111,7 +111,7 @@ Container registry vulnerability assessment scans container images stored in you
       1. Using the inventory, vulnerability reports are generated for new images, and updated for images previously scanned which were either pushed in the last 90 days to a registry, or are currently running. 
 
 > [!NOTE]
-> To determine if an image is currently running, Agentless Vulnerability Assesment use [Agentless Discovery and Visibility within Kubernetes components](/azure/defender-for-cloud/concept-agentless-containers). 
+> To determine if an image is currently running, Agentless Vulnerability Assessment uses [Agentless Discovery and Visibility within Kubernetes components](/azure/defender-for-cloud/concept-agentless-containers). 
 ### If I remove an image from my registry, how long before vulnerabilities reports on that image would be removed?
 
 It currently takes 3 days to remove findings for a deleted image. We are working on providing quicker deletion for removed images.
