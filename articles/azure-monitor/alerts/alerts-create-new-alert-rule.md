@@ -38,7 +38,7 @@ To create a new alert rule from a specific resource:
 1. In the [portal](https://portal.azure.com/), navigate to the resource.
 1. Select **Alerts** from the left pane, and then select **+ Create** > **Alert rule**.
 
-     :::image type="content" source="media/alerts-create-new-alert-rule/alerts-create-new-alert-rule2.png" alt-text="Screenshot that shows steps to create a new alert rule from a selected resource.":::
+     :::image type="content" source="media/alerts-create-new-alert-rule/alerts-create-new-alert-rule-2.png" alt-text="Screenshot that shows steps to create a new alert rule from a selected resource.":::
 
 To edit an existing alert rule:
 1. In the [portal](https://portal.azure.com/), either from the home page or from a specific resource, select **Alerts** from the left pane.
