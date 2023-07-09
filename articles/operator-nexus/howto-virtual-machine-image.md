@@ -26,7 +26,7 @@ Before you begin creating a virtual machine (VM) image, ensure you have the foll
    * Docker: Install Docker on your local machine. Docker is a platform that enables you to build, package, and distribute applications as lightweight containers. You use Docker to build and package your VM image. You can download Docker from Docker's [official website](https://docs.docker.com/engine/install/).
 
    > [!NOTE]
-   > The script uses the `az acr login` command to authenticate (recommended) and log in to Azure Container Registry (ACR). Ensure you have the Azure CLI installed and configured on your machine. Once the Azure CLI is set up, you can run the script, and it will automatically perform the ACR login using the `az acr login` command with the provided ACR name and subscription ID. If you have already logged in to the Azure CLI, you don't need to perform an additional login for ACR access. If the USERNAME and PASSWORD environment variables are provided, the script performs an ACR login using the specified username and password.
+   > You can use the `az login` command to authenticate with Azure, and the script will automatically perform the ACR login using the provided ACR name and subscription ID. If you don't have the Azure CLI installed on your machine, you can provide your username and password for ACR login instead.
 
 Ensure you have an operational Azure Container Registry (ACR) and Docker installed on your machine before proceeding with the creation of a VM image. Familiarize yourself with the usage and functionality of ACR and Docker, as they're essential for managing your container images and building the VM image.
 
