@@ -564,18 +564,84 @@
       href: how-to-use-foundation-models.md
     - name: Hugging Face Hub community partner models
       href: how-to-deploy-models-from-huggingface.md
-- name: Retrieval Augmented Generation (RAG)
+- name: Use Generative AI
   items:
-    - name: What is RAG
-      href: concept-retrieval-augmented-generation.md
-    - name: What is a vector store
-      href: concept-vector-stores.md
-    - name: How to use RAG in Prompt flow
-      href: how-to-use-retrieval-augmented-generation.md
-    - name: How to create a vector index
-      href: how-to-create-vector-index.md
-    - name: How to create an RAG pipeline
-      href: how-to-use-pipelines-prompt-flow.md
+    - name: Build AI solutions with Prompt flow 
+      items:
+        - name: What is Prompt flow? 
+          href: ./prompt-flow/overview-what-is-prompt-flow.md
+        - name: Concepts
+          items: 
+            - name: Connections
+              href: ./prompt-flow/concept-connections.md
+            - name: Runtimes
+              href: ./prompt-flow/concept-runtime.md
+            - name: Flows
+              href: ./prompt-flow/concept-flows.md
+            - name: Tools
+              href: ./prompt-flow/concept-tools.md
+            - name: Variants
+              href: ./prompt-flow/concept-variants.md
+        - name: Get started in Prompt flow
+          href: ./prompt-flow/get-started-prompt-flow.md
+        - name: Set up infrastructure
+          items: 
+            - name: Create and manage runtime
+              href: ./prompt-flow/how-to-create-manage-runtime.md
+            - name: Customize environment for runtime
+              href: ./prompt-flow/how-to-customize-environment-runtime.md
+        - name: Develop flows
+          items:
+            - name: Develop a standard flow
+              href: ./prompt-flow/how-to-develop-a-standard-flow.md
+            - name: Develop a chat flow
+              href: ./prompt-flow/how-to-develop-a-chat-flow.md
+            - name: Integrate Langchain in prompt flow
+              href: ./prompt-flow/how-to-integrate-with-langchain.md
+            - name: Tune prompts using variants
+              href: ./prompt-flow/how-to-tune-prompts-using-variants.md
+        - name: Evaluate flows
+          items:
+            - name: Bulk test and evaluate a flow
+              href: ./prompt-flow/how-to-bulk-test-evaluate-flow.md
+            - name: Develop a customized evaluation flow
+              href: ./prompt-flow/how-to-develop-an-evaluation-flow.md
+        - name: Deploy flows for real-time inference
+          href: ./prompt-flow/how-to-deploy-for-real-time-inference.md
+        - name: Tools Reference
+          items:
+            - name: LLM tool
+              href: ./prompt-flow/tools-reference/llm-tool.md
+            - name: Prompt tool
+              href: ./prompt-flow/tools-reference/prompt-tool.md
+            - name: Python tool
+              href: ./prompt-flow/tools-reference/python-tool.md
+            - name: Azure Translator tool
+              href: ./prompt-flow/tools-reference/azure-translator-tool.md
+            - name: Vector Index Lookup tool
+              href: ./prompt-flow/tools-reference/vector-index-lookup-tool.md
+            - name: Content Safety (text) tool
+              href: ./prompt-flow/tools-reference/content-safety-text-tool.md
+            - name: Faiss Index Lookup tool
+              href: ./prompt-flow/tools-reference/faiss-index-lookup-tool.md
+            - name: Azure Language Detector tool
+              href: ./prompt-flow/tools-reference/azure-language-detector-tool.md
+            - name: Vector DB Lookup tool
+              href: ./prompt-flow/tools-reference/vector-db-lookup-tool.md
+            - name: SERP API tool
+              href: ./prompt-flow/tools-reference/serp-api-tool.md
+    - name: Retrieval Augmented Generation (RAG)
+      items:
+        - name: What is RAG
+          href: concept-retrieval-augmented-generation.md
+        - name: What is a vector store
+          href: concept-vector-stores.md
+        - name: How to use RAG in Prompt flow
+          href: how-to-use-retrieval-augmented-generation.md
+        - name: How to create a vector index
+          href: how-to-create-vector-index.md
+        - name: How to create an RAG pipeline
+          href: how-to-use-pipelines-prompt-flow.md
 - name: Responsibly develop & monitor
   items: 
   - name: Responsible AI overview
@@ -1097,9 +1163,12 @@
       href: how-to-manage-registries.md
     - name: Create & manage compute resources
       items:
-        - name: Compute instance
+        - name: Create compute instance
           displayName: compute target, No public IP
-          href: how-to-create-manage-compute-instance.md
+          href: how-to-create-compute-instance.md
+        - name: Manage compute instance
+          displayName: compute target, No public IP
+          href: how-to-manage-compute-instance.md
         # v1
         - name: Compute instance
           displayName: compute target

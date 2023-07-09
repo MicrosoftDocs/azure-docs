@@ -5,11 +5,11 @@ description: Learn about the process of migrating classic storage accounts to th
 services: storage
 author: tamram
 
-ms.service: storage
+ms.service: azure-storage
 ms.topic: conceptual
 ms.date: 04/28/2023
 ms.author: tamram
-ms.subservice: common
+ms.subservice: storage-common-concepts
 ms.custom: devx-track-arm-template
 ---
 
