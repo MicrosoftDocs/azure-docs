@@ -16,11 +16,9 @@ ms.author: alexeyo
 
 Bring your own storage (BYOS) can be used in the following Speech to text scenarios:
 
-!!!
-
-1. [Batch transcription](batch-transcription.md)
-1. Real-time transcription with [audio and transcription result logging](logging-audio-transcription.md) enabled
-1. [Custom Speech](custom-speech-overview.md)
+1. Batch transcription
+1. Real-time transcription with audio and transcription result logging enabled
+1. Custom Speech
 
 One Speech resource – Storage account combination can be used for all scenarios simultaneously in all combinations.
 
@@ -156,4 +154,7 @@ URL of this format ensures, that only Azure Active Directory identities (users, 
 
 ## Next steps
 
-!!!
+- [How to use the Bring your own storage (BYOS) Speech resource](byos-speech-general.md)
+- [Batch transcription overview](batch-transcription.md)
+- [How to log audio and transcriptions for speech recognition](logging-audio-transcription.md)
+- [Custom Speech overview](custom-speech-overview.md)

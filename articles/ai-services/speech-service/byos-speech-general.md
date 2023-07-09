@@ -386,4 +386,4 @@ You need to allow access for the machine, where you run the browser using Speech
 
 ## Next steps
 
-!!!
+- [How to use the Bring your own storage (BYOS) Speech resource for Speech to text](byos-speech-stt.md)
