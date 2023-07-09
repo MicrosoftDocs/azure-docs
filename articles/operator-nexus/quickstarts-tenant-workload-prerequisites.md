@@ -159,52 +159,6 @@ To get the list of available zones in the Azure Operator Nexus instance, you can
       --query computeRackDefinitions[*].availabilityZone
 ```
 
-## Create virtual machine images
-
-Make sure that each image that you use to create your workload VMs is a
-containerized image in either `qcow2` or `raw` disk format. Upload these images to Azure Container Registry. If your Azure Container Registry instance is password protected, you can supply this info when creating your VM.
-
-The following build procedure is an example of how to pull an image from an anonymous Azure Container Registry instance. It assumes that you already have an existing VM instance image in `qcow2` format and that the image can boot with cloud-init. The procedure requires a working Docker build and runtime environment.
-
-Create a Dockerfile that copies the `qcow2` image file into the container's `/disk` directory. Place it in an expected directory with correct permissions. For example, for a Dockerfile named `aods-vm-img-dockerfile`:
-
-```bash
-FROM scratch
-ADD --chown=107:107 your-favorite-image.qcow2 /disk/
-```
-
-By using the `docker` command, build the image and tag to a Docker registry (such as Azure Container Registry) that you can push to. The build can take a while, depending on how large the `qcow2` file is. The `docker` command assumes that the `qcow2` file is in the same directory as your Dockerfile.
-
-```bash
-  docker build -f aods-vm-img-dockerfile -t devtestacr.azurecr.io/your-favorite-image:v1 .
-  FROM scratch
-  ADD --chown=107:107 your-favorite-image.qcow2 /disk/
-```
-
-Sign in to Azure Container Registry if needed and push. Depending on the size of the Docker image, this push can also take a while.
-
-```azurecli
-az acr login -n devtestacr
-```
-
-The push refers to repository `devtestacr.azurecr.io/your-favorite-image`:
-
-```bash
-docker push devtestacr.azurecr.io/your-favorite-image:v1
-```
-
-This VM image build procedure is derived from [KubeVirt](https://kubevirt.io/user-guide/virtual_machines/disks_and_volumes/#containerdisk-workflow-example).
-
-### Azure Container Registry
-
-[Azure Container Registry](../container-registry/container-registry-intro.md) is a managed registry service to store and manage your container images and related artifacts.
-
-This article provides details on how to create and maintain Azure Container Registry operations such as.
-   * [push/pull an image](../container-registry/container-registry-get-started-docker-cli.md?tabs=azure-cli)
-   * [push/pull a Helm chart](../container-registry/container-registry-helm-repos.md).
-
-For security and monitoring. For more information, see the [Azure Container Registry documentation](../container-registry/index.yml).
-
 ## Miscellaneous prerequisites
 
 To deploy your workloads, you need:

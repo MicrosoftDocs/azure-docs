@@ -1,0 +1,192 @@
+---
+title: Create image for Azure Operator Nexus virtual machine
+description: Create container image for Azure Operator Nexus virtual machine
+author: dramasamy
+ms.author: dramasamy
+ms.service: azure-operator-nexus
+ms.topic: how-to
+ms.date: 07/09/2023
+ms.custom: template-how-to-pattern
+---
+
+# Create image for Azure Operator Nexus virtual machine
+
+In this article, you learn how to enable the creation of a virtual machine (VM) image to facilitate the provisioning of Virtual Network Function (VNF) instances.
+
+## Prerequisites
+
+Before you begin creating a virtual machine (VM) image, ensure you have the following prerequisites in place:
+
+    * Azure Container Registry (ACR): Set up a working Azure Container Registry to store and manage your container images. ACR provides a secure and private registry for storing Docker images used in your VM image creation process. You can create an ACR by following the official documentation at [Azure Container Registry](../container-registry/container-registry-intro.md) documentation.
+
+   * Docker: Install Docker on your local machine. Docker is a platform that enables you to build, package, and distribute applications as lightweight containers. You use Docker to build and package your VM image. You can download Docker from Docker's [official website](https://docs.docker.com/engine/install/).
+
+   * Azure CLI: Install and configure the Azure CLI on your machine. The Azure CLI provides a command-line interface for interacting with Azure services. You use the Azure CLI to interact with the Azure Container Registry and manage your Azure resources. You can install the Azure CLI by following the instructions at [Azure CLI documentation](https://docs.microsoft.com/en-us/cli/azure/).
+
+   > **Note:** The script uses the `az acr login` command to authenticate (recommended) and log in to Azure Container Registry (ACR). Ensure you have the Azure CLI installed and configured on your machine. Once the Azure CLI is set up, you can run the script, and it will automatically perform the ACR login using the `az acr login` command with the provided ACR name and subscription ID. If you have already logged in to the Azure CLI, you don't need to perform an additional login for ACR access. If the USERNAME and PASSWORD environment variables are provided, the script performs an ACR login using the specified username and password.
+
+Ensure you have an operational Azure Container Registry (ACR) and Docker installed on your machine before proceeding with the creation of a VM image. Familiarize yourself with the usage and functionality of ACR and Docker, as they're essential for managing your container images and building the VM image.
+
+When preparing a VM image, ensure it meets the following requirements:
+
+   * Ensure you have an existing VM instance image in qcow2 format that can boot with cloud-init before executing the script to create a VM image for your Virtual Network Function (VNF).
+
+   * You need to configure the bootloader, kernel, and init system in your image to enable a text-based serial console. This configuration is required to enable console support for your virtual machine (VM). Make sure the serial port settings on your system and terminal match to establish proper communication. For more information, see [Configure serial console access to a Linux virtual machine](https://docs.microsoft.com/en-us/azure/virtual-machines/linux/serial-console).
+
+   * You need to ensure your VM image supports cloud-init version 2, enabling advanced configuration options during the VM initialization process.
+
+   * You need to ensure that your VM image includes cloud-init with the `nocloud` datasource. `nocloud` datasource allows for initial configuration and customization during VM provisioning.
+
+
+## Example: Create VM image for Azure Operator Nexus virtual machine
+
+You can create an image for your VNF by using the provided script. It generates a Dockerfile that copies the VNF image file into the container's /disk directory. With the VNF image included within the container, you can package and deploy your VNF.
+
+The following environment variables are used to configure the script for creating a virtual machine (VM) image for your VNF. Modify and export these variables with your own values before executing the script:
+
+```bash
+
+# Azure subscription ID (provide if not using username-password)
+export SUBSCRIPTION="your_subscription_id"
+
+# (Optional) ACR login username (provide if not using subscription)
+export USERNAME="your_username"
+
+# (Optional) ACR login password (provide if not using subscription)
+export PASSWORD="your_password"
+
+# (Mandatory) Azure Container Registry name
+export ACR_NAME="your_acr_name"
+
+# (Mandatory) Name of the container image
+export CONTAINER_IMAGE_NAME="your_container_image_name"
+
+# (Mandatory) Tag for the container image
+export CONTAINER_IMAGE_TAG="your_container_image_tag"
+
+# (Mandatory) VNF image (URL, local file, or full local path)
+export VNF_IMAGE="your_vnf_image"
+
+# (Optional) Name of the Dockerfile
+export DOCKERFILE_NAME="nexus-vm-img-dockerfile"
+
+# (Optional) ACR URL (leave empty to derive from ACR_NAME)
+export ACR_URL=""
+```
+
+To create a VM image for your Virtual Network Function (VNF), save the provided script as vnf-image-builder.sh, set the required environment variables, and execute the script.
+
+```bash
+#!/bin/bash
+
+# Define the required environment variables
+required_vars=(
+    "ACR_NAME"                  # Azure Container Registry name
+    "CONTAINER_IMAGE_NAME"      # Name of the container image
+    "CONTAINER_IMAGE_TAG"       # Tag for the container image
+    "VNF_IMAGE"                 # VNF image (URL, local file, or full local path)
+)
+
+# Verify if required environment variables are set
+for var in "${required_vars[@]}"; do
+    if [ -z "${!var}" ]; then
+        echo "Error: $var environment variable is not set."
+        exit 1
+    fi
+done
+
+# Check if either SUBSCRIPTION or USERNAME with PASSWORD is provided
+if [ -z "$SUBSCRIPTION" ] && [ -z "$USERNAME" ] && [ -z "$PASSWORD" ]; then
+    echo "Error: Either provide SUBSCRIPTION or USERNAME with PASSWORD."
+    exit 1
+fi
+
+# Set default value for DOCKERFILE_NAME if not set
+if [ -z "$DOCKERFILE_NAME" ]; then
+    DOCKERFILE_NAME="nexus-vm-img-dockerfile"
+fi
+
+# Check if ACR_URL is already set by the user
+if [ -z "$ACR_URL" ]; then
+    # Derive the ACR URL from the ACR_NAME
+    ACR_URL="$ACR_NAME.azurecr.io"
+fi
+
+# Initialize variables for downloaded files
+downloaded_files=()
+
+# Function to clean up downloaded files
+cleanup() {
+    for file in "${downloaded_files[@]}"; do
+        if [ -f "$file" ]; then
+            rm "$file"
+        fi
+    done
+}
+
+# Register the cleanup function to be called on exit
+trap cleanup EXIT
+
+# Check if the VNF image is a URL or a local file
+if [[ "$VNF_IMAGE" == http* ]]; then
+    # Use curl to download the file
+    filename=$(basename "$VNF_IMAGE")
+    # Download the VNF image file and save the output to a file
+    curl -o "$filename" "$VNF_IMAGE"
+    # Add the downloaded file to the list for cleanup
+    downloaded_files+=("$filename")
+elif [[ "$VNF_IMAGE" == /* ]]; then
+    # Use the provided full local path
+    filename=$(basename "$VNF_IMAGE")
+    # Check if the file exists
+    if [ ! -f "$VNF_IMAGE" ]; then
+        echo "Error: File $VNF_IMAGE does not exist."
+        exit 1
+    fi
+    # Copy the VNF image file to the current directory for cleanup
+    cp "$VNF_IMAGE" "./$filename"
+    # Add the copied file to the list for cleanup
+    downloaded_files+=("$filename")
+else
+    # Assume it's a local file in the current directory
+    filename="$VNF_IMAGE"
+    # Check if the file exists
+    if [ ! -f "$filename" ]; then
+        echo "Error: File $filename does not exist."
+        exit 1
+    fi
+fi
+
+# Create a Dockerfile that copies the VNF image file into the container's /disk directory
+cat <<EOF > "$DOCKERFILE_NAME"
+FROM scratch
+ADD --chown=107:107 "$filename" /disk/
+EOF
+
+# Build the Docker image and tag it to the Azure Container Registry
+docker build -f "$DOCKERFILE_NAME" -t "$CONTAINER_IMAGE_NAME:$CONTAINER_IMAGE_TAG" .
+
+# Log in to Azure and Azure Container Registry
+if [ -n "$USERNAME" ] && [ -n "$PASSWORD" ]; then
+    docker login "$ACR_NAME.azurecr.io" -u "$USERNAME" -p "$PASSWORD"
+else
+    az acr login --name "$ACR_NAME" -s "$SUBSCRIPTION"
+fi
+
+docker tag "$CONTAINER_IMAGE_NAME:$CONTAINER_IMAGE_TAG" "$ACR_URL/$CONTAINER_IMAGE_NAME:$CONTAINER_IMAGE_TAG"
+docker push "$ACR_URL/$CONTAINER_IMAGE_NAME:$CONTAINER_IMAGE_TAG"
+
+# Remove the downloaded files
+cleanup
+
+rm "$DOCKERFILE_NAME"
+
+echo "VNF image created successfully!"
+
+```
+
+After executing the script, you'll have a VM image tailored for your Virtual Network Function (VNF). You can use this image to deploy your VNF.
+
+## Next steps
+
+ Refer to the [QuickStart guide](./quickstarts-tenant-workload-deployment.md) to deploy a VNF using the image you created.

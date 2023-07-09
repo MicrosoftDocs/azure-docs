@@ -96,7 +96,7 @@ az networkcloud virtualmachine create \
     --csn "attached-network-id=$CSN_ARM_ID" \
     --cpu-cores $CPU_CORES \
     --memory-size $MEMORY_SIZE \
-    --network-attachments '[{"attachedNetworkId":"'$L3_NETWORK_ID'","ipAllocationMethod":"Dynamic","defaultGateway":"True","networkAttachmentName":"'$NETWORK_INTERFACE_NAME'"}'\
+    --network-attachments '[{"attachedNetworkId":"'$L3_NETWORK_ID'","ipAllocationMethod":"Dynamic","defaultGateway":"True","networkAttachmentName":"'$NETWORK_INTERFACE_NAME'"}]'\
     --storage-profile create-option="Ephemeral" delete-option="Delete" disk-size="$VM_DISK_SIZE" \
     --vm-image "$VM_IMAGE" \
     --ssh-key-values "$SSH_PUBLIC_KEY" \
