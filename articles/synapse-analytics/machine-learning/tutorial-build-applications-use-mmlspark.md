@@ -15,7 +15,7 @@ ms.author: ruxu
 # Tutorial: Build machine learning applications using Synapse Machine Learning
 
 In this article, you will learn how to use Synapse Machine Learning ([SynapseML](https://github.com/microsoft/SynapseML)) to create machine learning applications. 
-SynapseML expands the distributed machine learning solution of Apache Spark by adding many deep learning and data science tools, such as [Azure Cognitive Services](../../ai-services/big-data/cognitive-services-for-big-data.md), [OpenCV](https://opencv.org/), [LightGBM](https://github.com/Microsoft/LightGBM) and more.  SynapseML allows you to build powerful and highly scalable predictive and analytical models from various Spark data sources.
+SynapseML expands the distributed machine learning solution of Apache Spark by adding many deep learning and data science tools, such as [Azure AI services](../../ai-services/what-are-ai-services.md), [OpenCV](https://opencv.org/), [LightGBM](https://github.com/Microsoft/LightGBM) and more.  SynapseML allows you to build powerful and highly scalable predictive and analytical models from various Spark data sources.
 Synapse Spark provide built-in SynapseML libraries including:
 
 - [Vowpal Wabbit](https://github.com/VowpalWabbit/vowpal_wabbit) – Library services for Machine learning to enable Text analytics like sentiment analysis in tweets.

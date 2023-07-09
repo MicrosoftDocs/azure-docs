@@ -25,6 +25,14 @@
     href: create-account-resource-manager-template.md  
   - name: Create a new resource using Terraform
     href: create-account-terraform.md
+- name: Concepts
+  items:
+  - name: Azure AI services development options
+    href: cognitive-services-development-options.md
+  - name: Azure AI services and Machine learning
+    href: cognitive-services-and-machine-learning.md 
+  - name: Custom subdomains for Azure AI services
+    href: cognitive-services-custom-subdomains.md
 - name: How-To
   items:
   - name: Plan and manage costs 
@@ -91,32 +99,12 @@
       href: /security/benchmark/azure/baselines/cognitive-services-security-baseline?toc=/azure/ai-services/TOC.json
     - name: Security controls by Azure Policy
       href: ./security-controls-policy.md
-  - name: Use with big data
-    items:
-    - name: Azure AI services for big data
-      href: ./big-data/cognitive-services-for-big-data.md
-    - name: Getting started
-      href: ./big-data/getting-started.md
-    - name: Samples
-      items:
-      - name: Python
-        href: ./big-data/samples-python.md
-      - name: Scala
-        href: ./big-data/samples-scala.md
-    - name: Recipes
-      items:
-      - name: "Recipe: Anomaly Detector"
-        href: ./big-data/recipes/anomaly-detection.md
-      - name: "Recipe: Art Explorer"
-        href: ./big-data/recipes/art-explorer.md
-- name: Concepts
+- name: Responsible use of AI
   items:
-  - name: Azure AI services development options
-    href: cognitive-services-development-options.md
-  - name: Azure AI services and Machine learning
-    href: cognitive-services-and-machine-learning.md 
-  - name: Custom subdomains for Azure AI services
-    href: cognitive-services-custom-subdomains.md
+  - name: Responsible use of AI overview
+    href: responsible-use-of-ai-overview.md
+  - name: Limited Access features
+    href: cognitive-services-limited-access.md
 - name: Reference
   items:
   - name: REST API
@@ -146,12 +134,6 @@
     href: https://azure.microsoft.com/global-infrastructure/services/?products=cognitive-services
   - name: Azure updates
     href: https://azure.microsoft.com/updates/?query=cognitive%20services
-  - name: Responsible use of AI
-    items:
-    - name: Responsible use of AI overview
-      href: responsible-use-of-ai-overview.md
-    - name: Limited Access features
-      href: cognitive-services-limited-access.md
   - name: Pricing calculator
     href: https://azure.microsoft.com/pricing/calculator/
   - name: Compliance

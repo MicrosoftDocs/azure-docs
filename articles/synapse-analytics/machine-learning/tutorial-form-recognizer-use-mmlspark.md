@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial: Form Recognizer with Azure Applied AI Service'
-description: Learn how to use form recognizer in Azure Synapse Analytics.
+title: 'Tutorial: Document Intelligence with Azure AI services'
+description: Learn how to use Azure AI Document Intelligence in Azure Synapse Analytics.
 ms.service: synapse-analytics
 ms.subservice: machine-learning
 ms.topic: tutorial
@@ -11,11 +11,11 @@ ms.author: ruxu
 ms.custom: ignite-fall-2021
 ---
 
-# Tutorial: Form Recognizer with Applied AI Service
+# Tutorial: Document Intelligence with Azure AI services
 
-[Azure Form Recognizer](../../ai-services/document-intelligence/index.yml) is an [Azure Applied AI Service](../../ai-services/index.yml) that enables you to build automated data processing application using machine learning technology. In this tutorial, you'll learn how to easily enrich your data in Azure Synapse Analytics. You'll use [Form Recognizer](../../ai-services/document-intelligence/index.yml) to analyze your forms and documents, extracts text and data, and returns a structured JSON output. You quickly get accurate results that are tailored to your specific content without excessive manual intervention or extensive data science expertise. 
+[Azure AI Document Intelligence](../../ai-services/document-intelligence/index.yml) is an [Azure AI service](../../ai-services/index.yml) that enables you to build automated data processing application using machine learning technology. In this tutorial, you'll learn how to easily enrich your data in Azure Synapse Analytics. You'll use [Document Intelligence](../../ai-services/document-intelligence/index.yml) to analyze your forms and documents, extracts text and data, and returns a structured JSON output. You quickly get accurate results that are tailored to your specific content without excessive manual intervention or extensive data science expertise. 
 
-This tutorial demonstrates using form recognizer with [SynapseML](https://github.com/microsoft/SynapseML) to:
+This tutorial demonstrates using Document Intelligence with [SynapseML](https://github.com/microsoft/SynapseML) to:
 
 > [!div class="checklist"]
 > - Extract text and layout from a given document
@@ -43,12 +43,12 @@ import synapse.ml
 from synapse.ml.cognitive import *
 ```
 
-## Configure form recognizer 
+## Configure Document Intelligence 
 
-Use the linked form recognizer you configured in the [pre-configuration steps](tutorial-configure-cognitive-services-synapse.md) . 
+Use the linked Document Intelligence you configured in the [pre-configuration steps](tutorial-configure-cognitive-services-synapse.md) . 
 
 ```python
-cognitive_service_name = "<Your linked service for form recognizer>"
+cognitive_service_name = "<Your linked service for Document Intelligence>"
 ```
 
 
@@ -195,6 +195,6 @@ To ensure the Spark instance is shut down, end any connected sessions(notebooks)
 
 ## Next steps
 
-* [Train a custom form recognizer model](../../ai-services/document-intelligence/label-tool.md)
+* [Train a custom Document Intelligence model](../../ai-services/document-intelligence/label-tool.md)
 * [Check out Synapse sample notebooks](https://github.com/Azure-Samples/Synapse/tree/main/MachineLearning) 
 * [SynapseML GitHub Repo](https://github.com/microsoft/SynapseML)

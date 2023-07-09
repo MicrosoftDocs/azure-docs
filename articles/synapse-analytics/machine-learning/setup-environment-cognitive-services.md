@@ -1,18 +1,19 @@
 ---
-title: "Get started with Azure AI services for big data"
+title: "Setup environment for Azure AI services for big data"
 description: Set up your SynapseML or MMLSpark pipeline with Azure AI services in Azure Databricks and run a sample.
-services: cognitive-services
-author: mhamilton723
-manager: nitinme
-ms.service: cognitive-services
+ms.service: synapse-analytics
+ms.subservice: machine-learning
+ms.topic: overview
+ms.reviewer: sngun, garye, negust, ruxu
+author: WilliamDAssafMSFT
+ms.author: wiassaf
 ms.topic: how-to
-ms.date: 08/16/2022
-ms.author: marhamil
+ms.date: 7/18/2023
 ms.devlang: python
 ms.custom: mode-other
 ---
 
-# Getting started
+# Setup environment for Azure AI services for big data
 
 Setting up your environment is the first step to building a pipeline for your data. After your environment is ready, running a sample is quick and easy.
 
@@ -29,7 +30,7 @@ To work with big data in Azure AI services, first create an Azure AI services re
 
 ### Cloud services
 
-Cloud-based Azure AI services are intelligent algorithms hosted in Azure. These services are ready for use without training, you just need an internet connection. You can [create a Cognitive Service in the Azure portal](../cognitive-services-apis-create-account.md?tabs=multiservice%2Cwindows) or with the [Azure CLI](../cognitive-services-apis-create-account-cli.md?tabs=windows).
+Cloud-based Azure AI services are intelligent algorithms hosted in Azure. These services are ready for use without training, you just need an internet connection. You can [create resources for Azure AI services in the Azure portal](../../ai-services/cognitive-services-apis-create-account.md) or with the [Azure CLI](../../ai-services/cognitive-services-apis-create-account-cli.md).
 
 ### Containerized services (optional)
 
@@ -43,7 +44,7 @@ If your application or workload uses large datasets, requires private networking
 
 * **High Scalability**: Containerized services don't have "rate limits" and run on user-managed computers. So, you can scale Azure AI services without end to handle much larger workloads.
 
-Follow [this guide](../cognitive-services-container-support.md?tabs=luis) to create a containerized Cognitive Service.
+Follow [this guide](../../ai-services/cognitive-services-container-support.md) to create a containerized Azure AI service.
 
 ## Create an Apache Spark cluster
 
@@ -78,9 +79,9 @@ Azure Databricks is an Apache Spark-based analytics platform with a one-click se
 
 Optionally, you can use Synapse Analytics to create a spark cluster. Azure Synapse Analytics brings together enterprise data warehousing and big data analytics. It gives you the freedom to query data on your terms, using either serverless on-demand or provisioned resources at scale. To get started using Azure Synapse Analytics, follow these steps:
 
-1. [Create a Synapse Workspace (preview)](../../synapse-analytics/quickstart-create-workspace.md).
+1. [Create a Synapse Workspace (preview)](../quickstart-create-workspace.md).
 
-1. [Create a new serverless Apache Spark pool (preview) using the Azure portal](../../synapse-analytics/quickstart-create-apache-spark-pool-portal.md).
+1. [Create a new serverless Apache Spark pool (preview) using the Azure portal](../quickstart-create-apache-spark-pool-portal.md).
 
 In Azure Synapse Analytics, big data for Azure AI services is installed by default.
 
@@ -94,7 +95,7 @@ To get started on Azure Kubernetes Service, follow these steps:
 
 1. [Install the Apache Spark 2.4.0 helm chart](https://hub.helm.sh/charts/microsoft/spark)
 
-1. [Install an Azure AI container using Helm](../computer-vision/deploy-computer-vision-on-premises.md)
+1. [Install an Azure AI container using Helm](../../ai-services/computer-vision/deploy-computer-vision-on-premises.md)
 
 ## Try a sample
 
@@ -118,7 +119,7 @@ First, you can create a notebook in Azure Databricks. For other Spark cluster pr
     from mmlspark.cognitive import *
     from pyspark.sql.functions import col
     
-    # Add your region and subscription key from the Language service (or a general Cognitive Service key)
+    # Add your region and subscription key from the Language service (or a general Cognitive Services key)
     # If using a multi-region Azure AI services resource, delete the placeholder text: service_region = ""
     service_key = "ADD-SUBSCRIPTION-KEY-HERE"
     service_region = "ADD-SERVICE-REGION-HERE"
@@ -159,7 +160,5 @@ First, you can create a notebook in Azure Databricks. For other Spark cluster pr
 
 ## Next steps
 
-- [Short Python Examples](samples-python.md)
-- [Short Scala Examples](samples-scala.md)
-- [Recipe: Predictive Maintenance](recipes/anomaly-detection.md)
-- [Recipe: Intelligent Art Exploration](recipes/art-explorer.md)
+- [Cognitive Services in Azure Synapse Analytics](./overview-cognitive-services.md)
+- [Tutorial: Sentiment analysis with Azure AI Language](./tutorial-cognitive-services-sentiment.md)

@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial: Sentiment analysis with Cognitive Services'
-description: Learn how to use Cognitive Services for sentiment analysis in Azure Synapse Analytics
+title: 'Tutorial: Sentiment analysis with Azure AI services'
+description: Learn how to use Azure AI Language for sentiment analysis in Azure Synapse Analytics
 ms.service: synapse-analytics
 ms.subservice: machine-learning
 ms.topic: tutorial
@@ -11,9 +11,9 @@ ms.author: negust
 ms.custom: ignite-fall-2021
 ---
 
-# Tutorial: Sentiment analysis with Cognitive Services
+# Tutorial: Sentiment analysis with Azure AI services
 
-In this tutorial, you'll learn how to easily enrich your data in Azure Synapse Analytics with [Azure Cognitive Services](../../ai-services/index.yml). You'll use the [Text Analytics](../../ai-services/language-service/index.yml) capabilities to perform sentiment analysis. 
+In this tutorial, you'll learn how to easily enrich your data in Azure Synapse Analytics with [Azure AI services](../../ai-services/index.yml). You'll use the [Azure AI Language](../../ai-services/language-service/index.yml) text analytics capabilities to perform sentiment analysis. 
 
 A user in Azure Synapse can simply select a table that contains a text column to enrich with sentiments. These sentiments can be positive, negative, mixed, or neutral. A probability will also be returned.
 
@@ -21,7 +21,7 @@ This tutorial covers:
 
 > [!div class="checklist"]
 > - Steps for getting a Spark table dataset that contains a text column for sentiment analysis.
-> - Using a wizard experience in Azure Synapse to enrich data by using Text Analytics in Cognitive Services.
+> - Using a wizard experience in Azure Synapse to enrich data by using Text Analytics in Azure AI Language.
 
 If you don't have an Azure subscription, [create a free account before you begin](https://azure.microsoft.com/free/).
 
