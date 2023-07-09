@@ -21,8 +21,6 @@ Before you begin creating a virtual machine (VM) image, ensure you have the foll
 
    * This article requires version 2.49.0 or later of the Azure CLI. If using Azure Cloud Shell, the latest version is already installed.
 
-   * If you have multiple Azure subscriptions, select the appropriate subscription ID in which the resources should be billed using the [`az account`][az-account] command.
-
    * Azure Container Registry (ACR): Set up a working Azure Container Registry to store and manage your container images. ACR provides a secure and private registry for storing Docker images used in your VM image creation process. You can create an ACR by following the official documentation at [Azure Container Registry](../container-registry/container-registry-intro.md) documentation.
 
    * Docker: Install Docker on your local machine. Docker is a platform that enables you to build, package, and distribute applications as lightweight containers. You use Docker to build and package your VM image. You can download Docker from Docker's [official website](https://docs.docker.com/engine/install/).
