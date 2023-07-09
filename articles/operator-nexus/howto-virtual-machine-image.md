@@ -31,7 +31,7 @@ When preparing a VM image, ensure it meets the following requirements:
 
    * Ensure you have an existing VM instance image in qcow2 format that can boot with cloud-init before executing the script to create a VM image for your Virtual Network Function (VNF).
 
-   * You need to configure the bootloader, kernel, and init system in your image to enable a text-based serial console. This configuration is required to enable console support for your virtual machine (VM). Make sure the serial port settings on your system and terminal match to establish proper communication. For more information, see [Configure serial console access to a Linux virtual machine](https://docs.microsoft.com/en-us/azure/virtual-machines/linux/serial-console).
+   * You need to configure the bootloader, kernel, and init system in your image to enable a text-based serial console. This configuration is required to enable console support for your virtual machine (VM). Make sure the serial port settings on your system and terminal match to establish proper communication.
 
    * You need to ensure your VM image supports cloud-init version 2, enabling advanced configuration options during the VM initialization process.
 
