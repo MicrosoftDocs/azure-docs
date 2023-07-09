@@ -20,7 +20,7 @@ Performance expectations using common HPC microbenchmarks are as follows:
 
 | Workload                                        | HX                                                                |
 |-------------------------------------------------|-------------------------------------------------------------------|
-| STREAM Triad                                    | 750-780GB/s                                                       |
+| STREAM Triad                                    | 750-780GB/s of DDR5, up to 5.7 TB/s of 3D-V Cache bandwidth                                                    |
 | High-Performance Linpack (HPL)                  | Up to 7.6 TF (Rpeak, FP64) for 144-core VM size                   |
 | RDMA latency & bandwidth                        | < 2 microseconds (1 byte), 400 Gb/s (one-way)                     |
 | FIO on local NVMe SSDs (RAID0)                  | 12 GB/s reads, 7 GB/s writes; 186k IOPS reads, 201k IOPS writes   |
@@ -34,7 +34,6 @@ cd woc-benchmarking/apps/hpc/stream/
 sh build_stream.sh 
 sh stream_run_script.sh $PWD “hbrs_v4” 
 ```
- 
 ## Compute performance test 
 
 The HPL benchmark can be run using the script in this GitHub repository. 
@@ -78,3 +77,5 @@ NUMA node affinity for InfiniBand NIC is NUMA0.
 - Review the performance and scalability results of HPC applications on the HX VMs at the [TechCommunity article](https://techcommunity.microsoft.com/t5/azure-compute/hpc-performance-and-scalability-results-with-azure-hbv4-vms/bc-p/2235843).
 - Read about the latest announcements, HPC workload examples, and performance results at the [Azure HPC Microsoft Community Hub](https://techcommunity.microsoft.com/t5/azure-high-performance-computing/bg-p/AzureHighPerformanceComputingBlog).
 - For a higher-level architectural view of running HPC workloads, see [High Performance Computing (HPC) on Azure](/azure/architecture/topics/high-performance-computing/).
+
+

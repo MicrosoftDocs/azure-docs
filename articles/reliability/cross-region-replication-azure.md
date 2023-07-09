@@ -56,7 +56,7 @@ Regions are paired for cross-region replication based on proximity and other fac
 
 | Geography | Regional pair A | Regional pair B |
 | --- | --- | --- |
-| Asia-Pacific |East Asia (Hong Kong) | Southeast Asia (Singapore) |
+| Asia-Pacific |East Asia (Hong Kong Special Administrative Region) | Southeast Asia (Singapore) |
 | Australia |Australia East |Australia Southeast |
 | Australia |Australia Central |Australia Central 2\* |
 | Brazil |Brazil South |South Central US |

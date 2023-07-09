@@ -115,8 +115,59 @@ sections:
       - question: |
           Can I use quota to increase the max token limit of a model?
         answer:
-          No, quota Tokens-Per-Minute (TPM) allocation is not related to the max input token limit of a model. Model input token limits are defined in the [models table](./concepts/models.md) and are not impacted by changes made to TPM.  
-
+          No, quota Tokens-Per-Minute (TPM) allocation is not related to the max input token limit of a model. Model input token limits are defined in the [models table](./concepts/models.md) and are not impacted by changes made to TPM. 
+  - name: Web app
+    questions:
+      - question: |
+            How can I customize my published web app?
+        answer:
+          You can customize your published web app in the Azure portal. The source code for the published web app is [available on GitHub](https://github.com/microsoft/sample-app-aoai-chatGPT/tree/main), where you can find information on changing the app frontend, as well as instructions for building and deploying the app.
+      - question: |
+          Will my web app be overwritten when I deploy the app again from the Azure AI Studio?
+        answer:
+          Your app code will not be overwritten when you update your app. The app will be updated to use the Azure OpenAI resource, Azure Cognitive Search index (if you're using Azure OpenAI on your data), and model settings selected in the Azure OpenAI Studio without any change to the appearance or functionality. 
+  - name: Using your data
+    questions:
+      - question: |
+          What is Azure OpenAI on your data?  
+        answer:
+          Azure OpenAI on your data is a feature of the Azure OpenAI Services that helps organizations to generate customized insights, content, and searches using their designated data sources. It works with the capabilities of the OpenAI models in Azure OpenAI to provide more accurate and relevant responses to user queries in natural language. Azure OpenAI on your data can be integrated with customer's existing applications and workflows, offers insights into key performance indicators, and can interact with users seamlessly.  
+      - question: |
+          How can I access Azure OpenAI on your data?  
+        answer:
+          All Azure OpenAI customers can use Azure OpenAI on your data via the Azure AI studio and Rest API.
+      - question: |
+          What data sources does Azure OpenAI on your data support?
+        answer:
+          Azure OpenAI on your data supports ingestion from Azure Cognitive Search, Azure Blob Storage, and uploading local files. You can learn more about Azure OpenAI on your data from the [conceptual article](./concepts/use-your-data.md) and [quickstart](./use-your-data-quickstart.md).
+      - question: |
+          How much does it cost to use Azure OpenAI on your data?
+        answer:
+          When using Azure OpenAI on your data, you incur costs when you use Azure Cognitive Search, Azure Blob Storage, Azure Web App Service, semantic search and OpenAI models. There is no additional cost for using the "your data" feature in the Azure AI Studio.
+      - question: |
+          How can I customize or automate the index creation process?
+        answer:
+          You can prepare the index yourself using a [script provided on GitHub](https://github.com/microsoft/sample-app-aoai-chatGPT/tree/main/scripts#readme). Using this script will create an Azure Cognitive Search index with all the information needed to better leverage your data, with your documents broken down into manageable chunks. Please see the [README file](https://github.com/microsoft/sample-app-aoai-chatGPT/tree/main/scripts#readme) with the data preparation code for details on how to run it.
+      - question: | 
+          How can I update my index?
+        answer:
+          You can upload additional data to your Azure Blob Container and use it as your data source when you create a new index. The new index will include all of the data in your container.
+      - question: | 
+          What file types does Azure OpenAI on your data support?
+        answer:
+          See [Using your data](./concepts/use-your-data.md#data-formats-and-file-types) for more information on supported file types. 
+      - question: |
+          Is responsible AI supported by Azure OpenAI on your data?
+        answer:
+          Yes, [Azure OpenAI on your data](./concepts/use-your-data.md) is part of the Azure OpenAI Service and works with the [models](./concepts/models.md) available in Azure OpenAI. The [content filtering](./concepts/content-filter.md) and abuse monitoring features of Azure OpenAI still apply. For more information, see the [overview of Responsible AI practices for Azure OpenAI models](/legal/cognitive-services/openai/overview?context=%2Fazure%2Fcognitive-services%2Fopenai%2Fcontext%2Fcontext) and the [Transparency Note for Azure OpenAI](/legal/cognitive-services/openai/transparency-note?context=%2Fazure%2Fcognitive-services%2Fopenai%2Fcontext%2Fcontext&tabs=text) for additional guidance on using Azure OpenAI on your data responsibly. 
+      - question: |
+          Is there a token limit on the system message?
+        answer: 
+          Yes, the token limit on the system message is 200. If the system message is more than 200 tokens, the rest of the tokens beyond the first 200 will be ignored.
+      - question: |
+          Do the query language and the data source language need to be the same?
+        answer:
+          You must send queries in the same language of your data. Your data can be in any of the languages supported by [Azure Cognitive Search](/azure/search/search-language-support).
 additionalContent: |
 
   ## Next steps

@@ -14,9 +14,9 @@ ms.custom: template-concept, build-2023
 
 # Understanding top-level entities in managed feature store
 
-[!INCLUDE [preview disclaimer](../../includes/machine-learning-preview-generic-disclaimer.md)]
-
 This document describes the top level entities in the managed feature store. 
+
+[!INCLUDE [preview disclaimer](includes/machine-learning-preview-generic-disclaimer.md)]
 
 :::image type="content" source="media/concept-managed-feature-store/concepts.png" alt-text="Diagram depicting the main components of managed feature store.":::
 

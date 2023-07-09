@@ -5,6 +5,7 @@ ms.topic: conceptual
 ms.author: rosemalcolm
 author: RoseHJM
 ms.date: 06/14/2023
+ms.custom: UpdateFrequency2
 ---
 
 # DevTest Labs concepts

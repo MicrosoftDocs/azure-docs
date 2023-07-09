@@ -162,12 +162,12 @@
     },
     {
       "source_path_from_root": "/articles/iot-hub/iot-hub-security-best-practices.md",
-      "redirect_url": "/azure/iot/iot-security-best-practices",
+      "redirect_url": "/azure/iot/iot-overview-security",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/iot-hub/iot-hub-security-deployment.md",
-      "redirect_url": "/azure/iot/iot-security-best-practices",
+      "redirect_url": "/azure/iot/iot-overview-security",
       "redirect_document_id": false
     },
     {

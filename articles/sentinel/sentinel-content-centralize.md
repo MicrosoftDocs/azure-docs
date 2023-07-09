@@ -4,7 +4,7 @@ titleSuffix: Microsoft Sentinel
 description: This article describes upcoming centralization changes for out-of-the-box content in Microsoft Sentinel.
 author: austinmccollum
 ms.topic: conceptual
-ms.date: 01/30/2023
+ms.date: 06/22/2023
 ms.author: austinmc
 #Customer intent: As a SIEM decision maker or implementer, I want to know about changes to out-of-the-box content, and how to centralize the management, discovery, and inventory of content in Microsoft Sentinel.
 ---
@@ -21,15 +21,33 @@ The Microsoft Sentinel content hub enables discovery and on-demand installation 
 
 ## Content hub changes
 
-To centralize all OOTB content, we're planning to retire the gallery-only content templates. The legacy gallery content templates are no longer being updated consistently, and the content hub is where OOTB content stays up to date. The content hub also provides update workflows for solutions and automatic updates for standalone content.
+To centralize all OOTB content, we've retired the gallery-only content templates. The legacy gallery content templates are no longer being updated consistently, and the content hub is where OOTB content stays up to date. The content hub also provides updated workflows for solutions and automatic updates for standalone content.
 
-To facilitate this transition, we're publishing a central tool to reinstate **IN USE** retired templates from corresponding content hub solutions.
+To facilitate this transition, we've published a central tool to reinstate **IN USE** retired templates from corresponding content hub solutions.
+
+## Reinstate IN USE retired templates with central tool
+
+Now that the content hub centralization changes are complete, here's an overview of how to complete the central tool reinstate process.
+
+1. Select the link in the warning banner to reinstate **IN USE** retired, gallery-only content templates.
+
+    This screenshot shows an example of the warning banner found in the **Workbooks** gallery.
+    :::image type="content" source="media/sentinel-content-centralize/warning-banner-with-tool-link.png" alt-text="Screenshot showing orange warning banner with link to initiate central tool." lightbox="media/sentinel-content-centralize/warning-banner-with-tool-link.png"::: 
+
+1. Select the link and read the page carefully.
+1. Select **Continue** and review the list of content the tool generates.
+
+    :::image type="content" source="media/sentinel-content-centralize/central-tool-reinstate-templates-resized.png" alt-text="Screenshot shows central tool page including details on how to use it." lightbox="media/sentinel-content-centralize/central-tool-reinstate-templates-resized.png" :::
+
+1. Select **Complete Centralization** to start the installation. The selection is fixed and can't be changed.
+
+    :::image type="content" source="media/sentinel-content-centralize/central-tool-select-all-content-resized.png" alt-text="Screenshot shows the list of content the tool generates.":::
 
 ## Data connector page change
 
 All data connectors are now part of a solution. Previously, in order to promote dashboard visualizations (now called workbooks) and provide sample KQL queries, we included a few of these items on a **Next Steps** tab of the data connector page. We have deprecated the **Next Steps** portion of the data connector page in favor of the new *solution* content behavior where all the solution components are managed alongside the data connector. 
 
-The key to experiencing the updated behavior is to start in **Content hub (Preview)**. For a comparison of the previous behavior with the new experience, examine the **Azure Activity** data connector. After installing the solution from content hub and selecting **Manage**, the entire solution is available for inspection. If you want a visualization of the Azure Activity data connector, view the template for the workbook. If you want to see KQL queries, start with the data table. For advanced queries, look to the analytics rules and hunting queries.
+The key to experiencing the updated behavior is to start in **Content hub**. For a comparison of the previous behavior with the new experience, examine the **Azure Activity** data connector. After installing the solution from content hub and selecting **Manage**, the entire solution is available for inspection. If you want a visualization of the Azure Activity data connector, view the template for the workbook. If you want to see KQL queries, start with the data table. For advanced queries, look to the analytics rules and hunting queries.
 
 For more information on the new solution content behavior, see [Discover and deploy OOTB content](sentinel-solutions-deploy.md#enable-content-items-in-a-solution).
 
@@ -48,10 +66,7 @@ These changes to the content hub and the Microsoft Sentinel GitHub repo will com
 
 ## When is this change coming?
 
-> [!IMPORTANT]
-> The following timeline is tentative and subject to change.
-
-The centralization change in the Microsoft Sentinel portal is expected to go live in all Microsoft Sentinel workspaces in Q2 2023. The Microsoft Sentinel GitHub changes have already happened. Standalone content is available in existing GitHub folders, and solution content has been moved to the *Solutions* folder.
+The centralization changes have been released! The Microsoft Sentinel GitHub changes have already happened. Standalone content is available in existing GitHub folders, and solution content has been moved to the *Solutions* folder.
 
 The change to the **Next Steps** tab has already been completed. 
 
@@ -82,19 +97,19 @@ This change also doesn't affect any OOTB content templates installed from the co
 
 ### What's changing?
 
-All template galleries will display an in-product warning banner. This banner will contain a link to a tool that will run within the Microsoft Sentinel portal. Activating the tool will start a guided experience to reinstate the content templates for the **IN USE** retired templates from the content hub.
+All template galleries now display an in-product warning banner. This banner contains a link to a tool that will run within the Microsoft Sentinel portal. Activating the tool starts a guided experience to reinstate the content templates for the **IN USE** retired templates from the content hub.
 
 This tool needs to run only once per workspace, so be sure to plan with your organization. After the tool runs successfully, the warning banner will disappear from the template galleries of that workspace.
 
-The following table lists specific impacts to the content templates for each of these galleries. Expect these changes when the OOTB content centralization goes live.
+The following table lists specific impacts to the content templates for each of these galleries. Expect these changes now that the OOTB content centralization is live.
 
 | Content type | Impact |
 | ------- | ------- |
 | [Data connectors](connect-data-sources.md) | Templates identifiable as **Content source** = **Gallery content** and **Status** = **Not connected** will no longer appear in the data connectors gallery. |
-| [Analytics](detect-threats-built-in.md#view-built-in-detections) | Templates identifiable as **Source name** = **Gallery content** will no longer appear in the analytics gallery. |
+| [Analytics](detect-threats-built-in.md) | Templates identifiable as **Source name** = **Gallery content** will no longer appear in the analytics gallery. |
 | [Hunting](hunting.md#use-built-in-queries) | Templates with **Content source** = **Gallery content** will no longer appear in the hunting gallery. |
 | [Playbooks](use-playbook-templates.md#explore-playbook-templates) | Templates identifiable as **Source name** = **Gallery content** will no longer appear in the automation playbooks gallery. |
-| [Workbooks](get-visibility.md#use-built-in-workbooks) | Templates with **Content source** = **Gallery content** will no longer appear in the workbooks gallery. |
+| [Workbooks](get-visibility.md) | Templates with **Content source** = **Gallery content** will no longer appear in the workbooks gallery. |
 
 Here's an example of an analytics rule before and after the centralization changes and the tool has run:
 
@@ -112,10 +127,10 @@ Here's an example of an analytics rule before and after the centralization chang
 
 ## Action needed
 
-- Starting now, install new OOTB content from the content hub and update solutions as needed to have the latest versions of templates.
+- Install new OOTB content from the content hub and update solutions as needed to have the latest versions of templates.
 - For existing gallery content templates in use, get future updates by installing the solutions or standalone content items from the content hub. The gallery content in the feature galleries might be out of date.
 - If you have applications or processes that directly get OOTB content from the Microsoft Sentinel GitHub repository, update the locations to include getting OOTB content from the *Solutions* folder in addition to existing content folders.  
-- Plan with your organization who will run the tool, and when, after you see the warning banner and the change goes live in Q2 2023. The tool needs to run once in a workspace to reinstate all **IN USE** retired templates from the content hub.
+- Plan with your organization who will run the tool, and when, now that the warning banner and the changes are live. The tool needs to run once in a workspace to reinstate all **IN USE** retired templates from the content hub.
 - Review the following FAQs to learn more details that might apply to your environment.
 
 ## Content centralization FAQs
@@ -140,7 +155,7 @@ Yes. Currently, the only Microsoft Sentinel REST API calls that exist for conten
 
 New REST API operations on the content hub will be available soon to enable OOTB content management scenarios more broadly. This API update will include operations for the same content types scoped in the centralization changes (data connectors, playbook templates, workbook templates, analytics rule templates, hunting queries). A mechanism to update analytics rule templates installed on the workspace is also on the roadmap.
 
-**Action needed:** Plan to update your applications and processes to use the new OOTB content management API operations on the content hub when those are available in Q2 2023.  
+**Action needed:** Plan to update your applications and processes to use the new OOTB content management API operations on the content hub when those are available. Originally we expressed this would be available Q2 2023, but they are not ready yet.  
 
 ### How will the central tool identify my in-use OOTB content templates?
 
@@ -157,6 +172,10 @@ Currently, if an API data connection matches the data connector data type, it wi
 ### What if I'm working with content by using the repositories feature in Microsoft Sentinel?
 
 Repositories specifically deploy custom or active content in Microsoft Sentinel. The OOTB content centralization changes won't affect content that's deployed through the repositories feature.
+
+### Does this affect deployment groups in workspace manager?
+
+Just like Repositories, workspace manager deploys custom or active content only, so the OOTB content centralization changes won't affect content that's deployed through workspace manager either.
 
 ## Next steps
 

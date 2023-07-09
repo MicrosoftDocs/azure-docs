@@ -1,7 +1,7 @@
 ---
 title: Speech to text overview - Speech service
 titleSuffix: Azure Cognitive Services
-description: Get an overview of the benefits and capabilities of the speech to text feature of the Speech Service.
+description: Get an overview of the benefits and capabilities of the speech to text feature of the Speech service.
 services: cognitive-services
 author: eric-urban
 manager: nitinme
@@ -60,6 +60,15 @@ Out of the box, speech recognition utilizes a Universal Language Model as a base
 A custom model can be used to augment the base model to improve recognition of domain-specific vocabulary specific to the application by providing text data to train the model. It can also be used to improve recognition based for the specific audio conditions of the application by providing audio data with reference transcriptions. For more information, see [Custom Speech](./custom-speech-overview.md) and [Speech to text REST API](rest-speech-to-text.md).
 
 Customization options vary by language or locale. To verify support, see [Language and voice support for the Speech service](./language-support.md?tabs=stt).
+
+## Responsible AI 
+
+An AI system includes not only the technology, but also the people who will use it, the people who will be affected by it, and the environment in which it is deployed. Read the transparency notes to learn about responsible AI use and deployment in your systems. 
+
+* [Transparency note and use cases](/legal/cognitive-services/speech-service/speech-to-text/transparency-note?context=/azure/cognitive-services/speech-service/context/context)
+* [Characteristics and limitations](/legal/cognitive-services/speech-service/speech-to-text/characteristics-and-limitations?context=/azure/cognitive-services/speech-service/context/context)
+* [Integration and responsible use](/legal/cognitive-services/speech-service/speech-to-text/guidance-integration-responsible-use?context=/azure/cognitive-services/speech-service/context/context)
+* [Data, privacy, and security](/legal/cognitive-services/speech-service/speech-to-text/data-privacy-security?context=/azure/cognitive-services/speech-service/context/context)
 
 ## Next steps
 

@@ -150,7 +150,7 @@ The operation is asynchronous. You can check the status by reviewing the **Commi
 To fully remove a custom IP prefix, it must be deprovisioned and then deleted. 
 
 > [!NOTE]
-> If there is a requirement to migrate an provisioned range from one region to the other, the original custom IP prefix must be fully removed from the fist region before a new custom IP prefix with the same address range can be created in another region.
+> If there is a requirement to migrate an provisioned range from one region to the other, the original custom IP prefix must be fully removed from the first region before a new custom IP prefix with the same address range can be created in another region.
 >
 > The estimated time to complete the deprovisioning process is anywhere from 30 to 60 minutes.
 

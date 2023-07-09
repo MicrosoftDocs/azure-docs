@@ -6,7 +6,7 @@ ms.service: spring-apps
 ms.topic: how-to
 ms.date: 11/29/2022
 ms.author: caiqing
-ms.custom: devx-track-java, devx-track-azurecli, event-tier1-build-2022
+ms.custom: devx-track-java, devx-track-extended-java, devx-track-azurecli, event-tier1-build-2022
 ---
 
 # Use VMware Tanzu Application Accelerator with the Azure Spring Apps Enterprise plan
@@ -195,7 +195,7 @@ az spring application-accelerator predefined-accelerator enable \
 
 ### Manage your own accelerators
 
-In addition to using the predefined accelerators, you can create your own accelerators. You can use any Git repository in GitHub, GitLab, or BitBucket.
+In addition to using the predefined accelerators, you can create your own accelerators. You can use any Git repository in Azure Devops, GitHub, GitLab, or BitBucket.
 
 Use to following steps to create and maintain your own accelerators:
 
