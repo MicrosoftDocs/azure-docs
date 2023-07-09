@@ -27,7 +27,11 @@ To begin provisioning a short code, go to your Communication Services resource o
 :::image type="content" source="./media/apply-for-short-code/manage-phone-azure-portal-start1.png"alt-text="Screenshot showing a Communication Services resource's main page.":::
 
 ## Apply for a short code
-Navigate to the Short Codes blade in the resource menu and click on "Get" button to launch the short code program brief application wizard. For detailed guidance on how to fill out the program brief application check the [program brief filling guidelines](../../concepts/sms/program-brief-guidelines.md). 
+Navigate to the Short Codes blade in the resource menu and click on "Get" button to launch the short code program brief application wizard. For detailed guidance on how to fill out the program brief application check the [program brief filling guidelines](../../concepts/sms/program-brief-guidelines.md). This quickstart covers the application for US short code. 
+
+For UK short code, fill out [UK short code application form](https://forms.office.com/r/VtfKFenZLF). 
+
+For CA short code, download and fill out [CA short code application form](https://www.txt.ca/wp-content/uploads/2022/10/DownloadShortcodeApplicationPdf_100522.pdf) and email the form to acstns@microsoft.com.
 
 ## Pre-requisites
 The wizard on the short codes blade will walk you through a series of questions about the program as well as a description of content which will be shared with the carriers for them to review and approve your short code program brief. Review the pre-requisites tab for a list of the program content deliverables you'll need to attach with your application.
