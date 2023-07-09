@@ -193,22 +193,22 @@
     {
       "source_path_from_root": "/articles/cognitive-services/big-data/cognitive-services-for-big-data.md",
       "redirect_url": "/azure/synapse-analytics/machine-learning/overview-cognitive-services",
-      "redirect_document_id": true
+      "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/cognitive-services/big-data/getting-started.md",
       "redirect_url": "/azure/synapse-analytics/machine-learning/overview-cognitive-services",
-      "redirect_document_id": true
+      "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/cognitive-services/big-data/samples-python.md",
       "redirect_url": "/azure/synapse-analytics/machine-learning/overview-cognitive-services",
-      "redirect_document_id": true
+      "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/cognitive-services/big-data/samples-scala.md",
       "redirect_url": "/azure/synapse-analytics/machine-learning/overview-cognitive-services",
-      "redirect_document_id": true
+      "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/cognitive-services/computer-vision/category-taxonomy.md",
@@ -2473,12 +2473,12 @@
     {
       "source_path_from_root": "/articles/cognitive-services/big-data/recipes/anomaly-detection.md",
       "redirect_url": "/azure/synapse-analytics/machine-learning/overview-cognitive-services",
-      "redirect_document_id": true
+      "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/cognitive-services/big-data/recipes/art-explorer.md",
       "redirect_url": "/azure/synapse-analytics/machine-learning/overview-cognitive-services",
-      "redirect_document_id": true
+      "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/cognitive-services/computer-vision/how-to/add-faces.md",

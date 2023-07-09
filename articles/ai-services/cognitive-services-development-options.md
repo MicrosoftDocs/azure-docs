@@ -59,7 +59,7 @@ With Azure AI services for big data you can embed continuously improving, intell
 * **UI**: N/A - Code only
 * **Subscription(s)**: Azure account + Azure AI services resources
 
-If you want to learn more about big data for Azure AI services, a good place to start is with the [Cognitive Services in Azure Synapse Analytics quickstart](/azure/synapse-analytics/machine-learning/tutorial-configure-cognitive-services-synapse.md). 
+To learn more about big data for Azure AI services, see [Cognitive Services in Azure Synapse Analytics](../synapse-analytics/machine-learning/overview-cognitive-services.md). 
 
 ### Azure Functions and Azure Service Web Jobs
 

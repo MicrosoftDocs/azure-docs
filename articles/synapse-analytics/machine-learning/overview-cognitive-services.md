@@ -100,7 +100,7 @@ The tutorial, [Pre-requisites for using Cognitive Services in Azure Synapse](tut
 
 ## Prerequisites
 
-1. Follow the steps in [Getting started](../../ai-services/big-data/getting-started.md) to set up your Azure Databricks and Cognitive Services environment. This tutorial shows you how to install SynapseML and how to create your Spark cluster in Databricks.
+1. Follow the steps in [Setup environment for Azure AI services](./setup-environment-cognitive-services.md) to set up your Azure Databricks and Azure AI services environment. This tutorial shows you how to install SynapseML and how to create your Spark cluster in Databricks.
 1. After you create a new notebook in Azure Databricks, copy the following **Shared code** and paste into a new cell in your notebook.
 1. Choose one of the following service samples and copy paste it into a second new cell in your notebook.
 1. Replace any of the service subscription key placeholders with your own key.

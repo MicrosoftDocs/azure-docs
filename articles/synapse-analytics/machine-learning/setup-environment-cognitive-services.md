@@ -3,7 +3,6 @@ title: "Setup environment for Azure AI services for big data"
 description: Set up your SynapseML or MMLSpark pipeline with Azure AI services in Azure Databricks and run a sample.
 ms.service: synapse-analytics
 ms.subservice: machine-learning
-ms.topic: overview
 ms.reviewer: sngun, garye, negust, ruxu
 author: WilliamDAssafMSFT
 ms.author: wiassaf
@@ -61,7 +60,7 @@ Azure Databricks is an Apache Spark-based analytics platform with a one-click se
 1. Install the SynapseML open-source library (or MMLSpark library if you're supporting a legacy application):
 
     * Create a new library in your databricks workspace  
-       <img src="media/create-library.png" alt="Create library" width="50%"/>
+       <img src="media/setup-environment-cognitive-services/create-library.png" alt="Create library" width="50%"/>
 
     * For SynapseML: input the following maven coordinates
       Coordinates:  `com.microsoft.azure:synapseml_2.12:0.10.0`
@@ -70,10 +69,10 @@ Azure Databricks is an Apache Spark-based analytics platform with a one-click se
     * For MMLSpark (legacy): input the following maven coordinates
       Coordinates:  `com.microsoft.ml.spark:mmlspark_2.11:1.0.0-rc3`
       Repository: `https://mmlspark.azureedge.net/maven`  
-      <img src="media/library-coordinates.png" alt="Library Coordinates" width="50%"/>
+      <img src="media/setup-environment-cognitive-services/library-coordinates.png" alt="Library Coordinates" width="50%"/>
 
     * Install the library onto a cluster  
-      <img src="media/install-library.png" alt="Install Library on Cluster" width="50%"/>
+      <img src="media/setup-environment-cognitive-services/install-library.png" alt="Install Library on Cluster" width="50%"/>
 
 ### Azure Synapse Analytics (optional)
 
@@ -105,11 +104,11 @@ First, you can create a notebook in Azure Databricks. For other Spark cluster pr
 
 1. Create a new Databricks notebook, by choosing **New Notebook** from the **Azure Databricks** menu.
 
-    <img src="media/new-notebook.png" alt="Create a new notebook" width="50%"/>
+    <img src="media/setup-environment-cognitive-services/new-notebook.png" alt="Create a new notebook" width="50%"/>
 
 1. In the **Create Notebook**, enter a name, select **Python** as the language, and select the Spark cluster that you created earlier.
 
-    <img src="media/databricks-notebook-details.jpg" alt="New notebook details" width="50%"/>
+    <img src="media/setup-environment-cognitive-services/databricks-notebook-details.jpg" alt="New notebook details" width="50%"/>
 
     Select **Create**.
 
