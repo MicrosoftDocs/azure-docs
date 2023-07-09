@@ -19,209 +19,28 @@ Azure AI services help developers and organizations rapidly create intelligent, 
 
 Most Azure AI services are available through REST APIs and client library SDKs in popular development languages. For more information, see each service's documentation.
 
-## Categories of Azure AI services
+## Available Azure AI services
 
-Select a service from the list below and learn how it can help you meet your development goals.
+Select a service from the table below and learn how it can help you meet your development goals.
 
-items:
-    # Card
-    - title: Language
-      imageSrc: ./media/service-icons/language.svg
-      summary: Build apps with industry-leading natural language understanding capabilities
-      url: ./language-service/index.yml
-    # Card
-    - title: Translator
-      imageSrc: ./media/service-icons/translator.svg
-      summary: Translate more than 100 languages and dialects
-      url: ./translator/index.yml
-    # Card
-    - title: Vision
-      imageSrc: ./media/service-icons/vision.svg
-      summary: Analyze content in images and videos
-      url: ./computer-vision/index.yml
-    # Card
-    - title: Custom Vision
-      imageSrc: ./media/service-icons/custom-vision.svg
-      summary: Customize image recognition to fit your business
-      url: ./custom-vision-service/index.yml
-    # Card
-    - title: Face
-      imageSrc: ./media/service-icons/face.svg
-      summary: Detect and identify people and emotions in images
-      url: ./computer-vision/overview-identity.md
-    # Card
-    - title: Anomaly Detector
-      imageSrc: ./media/service-icons/anomaly-detector.svg
-      summary: Identify potential problems early on
-      url: ./anomaly-detector/index.yml
-    # Card
-    - title: Content Safety
-      imageSrc: ./media/service-icons/content-safety.svg
-      summary: An AI service that detects unwanted contents
-      url: ./content-safety/index.yml
-    # Card
-    - title: Personalizer
-      imageSrc: ./media/service-icons/personalizer.svg
-      summary: Create rich, personalized experiences for each user
-      url: ./personalizer/index.yml
-    # Card
-    - title: Bot Service
-      imageSrc: ./media/service-icons/bot-services.svg
-      summary: Create bots and connect them across channels
-      url: /composer/
-    # Card
-    - title: Document Intelligence
-      imageSrc: ./media/service-icons/document-intelligence.svg
-      summary: Turn documents into usable data at a fraction of the time and cost
-      url: ./document-intelligence/index.yml
-    # Card
-    - title: Azure Cognitive Search
-      imageSrc: ./media/service-icons/cognitive-search.svg
-      summary: Bring AI-powered cloud search to your mobile and web apps
-      url: ../search/index.yml
-    # Card
-    - title: Metrics Advisor
-      imageSrc: ./media/service-icons/metrics-advisor.svg
-      summary: Proactively monitor metrics and diagnose issues
-      url: ./metrics-advisor/index.yml
-    # Card
-    - title: Video Indexer
-      imageSrc: ./media/service-icons/video-indexer.svg
-      summary: Extract actionable insights from your videos
-      url: ../azure-video-indexer/index.yml
-     # Card
-    - title: Immersive Reader
-      imageSrc: ./media/service-icons/immersive-reader.svg
-      summary: Help users read and comprehend text
-      url: ./immersive-reader/index.yml
-:::row:::
-   :::column:::
-      :::image type="icon" source="media/service-icons/language.svg" link="./openai/index.yml":::</br>Azure OpenAI
-   :::column-end:::
-   :::column span="":::
-      Perform a wide variety of natural language tasks
-   :::column-end:::
-:::row-end:::
-:::row:::
-   :::column:::
-      :::image type="icon" source="media/service-icons/speech.svg" link="./speech-service/index.yml":::</br>Speech
-   :::column-end:::
-   :::column span="":::
-      Speech to text, text to speech, translation and speaker recognition
-   :::column-end:::
-:::row-end:::
-:::row:::
-   :::column:::
-      :::image type="icon" source="media/service-icons/language.svg" link="./language-service/index.yml":::</br>Language
-   :::column-end:::
-   :::column span="":::
-      Build apps with industry-leading natural language understanding capabilities
-   :::column-end:::
-:::row-end:::
-:::row:::
-   :::column:::
-      :::image type="icon" source="media/service-icons/translator.svg" link="./translator/index.yml":::</br>Translator
-   :::column-end:::
-   :::column span="":::
-      Translate more than 100 languages and dialects
-   :::column-end:::
-:::row-end:::
-:::row:::
-   :::column:::
-      :::image type="icon" source="media/service-icons/vision.svg" link="./computer-vision/index.yml":::</br>Vision
-   :::column-end:::
-   :::column span="":::
-      Analyze content in images and videos
-   :::column-end:::
-:::row-end:::
-:::row:::
-   :::column:::
-      :::image type="icon" source="media/service-icons/custom-vision.svg" link="./custom-vision-service/index.yml":::</br>Custom Vision
-   :::column-end:::
-   :::column span="":::
-      Customize image recognition to fit your business
-   :::column-end:::
-:::row-end:::
-:::row:::
-   :::column:::
-      :::image type="icon" source="media/service-icons/face.svg" link="./computer-vision/overview-identity.md":::</br>Face
-   :::column-end:::
-   :::column span="":::
-      Detect and identify people and emotions in images
-   :::column-end:::
-:::row-end:::
-:::row:::
-   :::column:::
-      :::image type="icon" source="media/service-icons/anomaly-detector.svg" link="./anomaly-detector/index.yml":::</br>Anomaly Detector
-   :::column-end:::
-   :::column span="":::
-      Identify potential problems early on
-   :::column-end:::
-:::row-end:::
-:::row:::
-   :::column:::
-      :::image type="icon" source="media/service-icons/content-safety.svg" link="./content-safety/index.yml":::</br>Content Safety
-   :::column-end:::
-   :::column span="":::
-      An AI service that detects unwanted contents
-   :::column-end:::
-:::row-end:::
-:::row:::
-   :::column:::
-      :::image type="icon" source="media/service-icons/personalizer.svg" link="./personalizer/index.yml":::</br>Personalizer
-   :::column-end:::
-   :::column span="":::
-      Create rich, personalized experiences for each user
-   :::column-end:::
-:::row-end:::
-:::row:::
-    :::column:::
-        :::image type="icon" source="media/service-icons/bot-services.svg" link="/composer":::</br>Bot Service
-    :::column-end:::
-    :::column span="":::
-        Create bots and connect them across channels
-    :::column-end:::
-:::row-end:::
-:::row:::
-    :::column:::
-        :::image type="icon" source="media/service-icons/document-intelligence.svg" link="./document-intelligence/index.yml":::</br>Document Intelligence
-    :::column-end:::
-    :::column span="":::
-        Turn documents into usable data at a fraction of the time and cost
-    :::column-end:::
-:::row-end:::
-:::row:::
-    :::column:::
-        :::image type="icon" source="media/service-icons/cognitive-search.svg" link="../search/index.yml":::</br>Azure Cognitive Search
-    :::column-end:::
-    :::column span="":::
-        Bring AI-powered cloud search to your mobile and web apps
-    :::column-end:::
-:::row-end:::
-:::row:::
-    :::column:::
-        :::image type="icon" source="media/service-icons/metrics-advisor.svg" link="./metrics-advisor/index.yml":::</br>Metrics Advisor
-    :::column-end:::
-    :::column span="":::
-        An AI service that detects unwanted contents
-    :::column-end:::
-:::row-end:::
-:::row:::
-    :::column:::
-        :::image type="icon" source="media/service-icons/video-indexer.svg" link="../azure-video-indexer/index.yml":::</br>Video Indexer
-    :::column-end:::
-    :::column span="":::
-        Extract actionable insights from your videos
-    :::column-end:::
-:::row-end:::
-:::row:::
-    :::column:::
-        :::image type="icon" source="media/service-icons/immersive-reader.svg" link="./immersive-reader/index.yml":::</br>Immersive Reader
-    :::column-end:::
-    :::column span="":::
-        Help users read and comprehend text
-    :::column-end:::
-:::row-end:::
+| Service | Description |
+| --- | --- |
+| ![Anomaly Detector](media/service-icons/anomaly-detector.svg) Anomaly Detector | Identify potential problems early on |
+| ![Azure Cognitive Search](media/service-icons/cognitive-search.svg) Azure Cognitive Search | Bring AI-powered cloud search to your mobile and web apps |
+| ![Azure OpenAI](media/service-icons/language.svg) Azure OpenAI | Perform a wide variety of natural language tasks |
+| ![Bot Service](media/service-icons/bot-services.svg) Bot Service | Create bots and connect them across channels |
+| ![Content Safety](media/service-icons/content-safety.svg) Content Safety | An AI service that detects unwanted contents |
+| ![Custom Vision](media/service-icons/custom-vision.svg) Custom Vision | Customize image recognition to fit your business |
+| ![Document Intelligence](media/service-icons/document-intelligence.svg) Document Intelligence | Turn documents into usable data at a fraction of the time and cost |
+| ![Face](media/service-icons/face.svg) Face | Detect and identify people and emotions in images |
+| ![Immersive Reader](media/service-icons/immersive-reader.svg) Immersive Reader | Help users read and comprehend text |
+| ![Language](media/service-icons/language.svg) Language | Build apps with industry-leading natural language understanding capabilities |
+| ![Metrics Advisor](media/service-icons/metrics-advisor.svg) Metrics Advisor | An AI service that detects unwanted contents |
+| ![Personalizer](media/service-icons/personalizer.svg) Personalizer | Create rich, personalized experiences for each user |
+| ![Speech](media/service-icons/speech.svg) Speech | Speech to text, text to speech, translation and speaker recognition |
+| ![Translator](media/service-icons/translator.svg) Translator | Translate more than 100 languages and dialects |
+| ![Video Indexer](media/service-icons/video-indexer.svg) Video Indexer | Extract actionable insights from your videos |
+| ![Vision](media/service-icons/vision.svg) Vision | Analyze content in images and videos |
 
 
 ## Create an Azure AI services resource
@@ -247,17 +66,6 @@ To learn more, see [Azure AI services development options](./cognitive-services-
 ### Containers for Azure AI services
 
 Azure AI services also provides several Docker containers that let you use the same APIs that are available from Azure, on-premises. These containers give you the flexibility to bring Azure AI services closer to your data for compliance, security, or other operational reasons. For more information, see [Azure AI containers](cognitive-services-container-support.md "Azure AI containers").
-
-<!--
-## Subscription management
-
-Once you are signed in with your Microsoft Account, you can access [My subscriptions](https://www.microsoft.com/cognitive-services/subscriptions "My subscriptions") to show the products you are using, the quota remaining, and the ability to add additional products to your subscription.
-
-## Upgrade to unlock higher limits
-
-All APIs have a free tier, which has usage and throughput limits.  You can increase these limits by using a paid offering and selecting the appropriate pricing tier option when deploying the service in the Azure portal. [Learn more about the offerings and pricing](https://azure.microsoft.com/pricing/details/cognitive-services/ "offerings and pricing"). You'll need to set up an Azure subscriber account with a credit card and a phone number. If you have a special requirement or simply want to talk to sales, click "Contact us" button at the top the pricing page.
--->
-
 
 ## Regional availability
 
