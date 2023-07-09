@@ -132,17 +132,16 @@ if [[ "$VNF_IMAGE" == http* ]]; then
     # Use curl to download the file
     filename=$(basename "$VNF_IMAGE")
     # Download the VNF image file and save the output to a file
-    curl -o "$filename" "$VNF_IMAGE"
+    curl -f -Lo "$filename" "$VNF_IMAGE"
+    if [ $? -ne 0 ]; then
+        echo "Error: Failed to download file."
+        exit 1
+    fi
     # Add the downloaded file to the list for cleanup
     downloaded_files+=("$filename")
 elif [[ "$VNF_IMAGE" == /* ]]; then
     # Use the provided full local path
     filename=$(basename "$VNF_IMAGE")
-    # Check if the file exists
-    if [ ! -f "$VNF_IMAGE" ]; then
-        echo "Error: File $VNF_IMAGE does not exist."
-        exit 1
-    fi
     # Copy the VNF image file to the current directory for cleanup
     cp "$VNF_IMAGE" "./$filename"
     # Add the copied file to the list for cleanup
@@ -150,11 +149,12 @@ elif [[ "$VNF_IMAGE" == /* ]]; then
 else
     # Assume it's a local file in the current directory
     filename="$VNF_IMAGE"
-    # Check if the file exists
-    if [ ! -f "$filename" ]; then
-        echo "Error: File $filename does not exist."
-        exit 1
-    fi
+fi
+
+# Check if the file exists
+if [ ! -f "$filename" ]; then
+    echo "Error: File $filename does not exist."
+    exit 1
 fi
 
 # Create a Dockerfile that copies the VNF image file into the container's /disk directory
@@ -170,7 +170,7 @@ docker build -f "$DOCKERFILE_NAME" -t "$CONTAINER_IMAGE_NAME:$CONTAINER_IMAGE_TA
 if [ -n "$USERNAME" ] && [ -n "$PASSWORD" ]; then
     docker login "$ACR_NAME.azurecr.io" -u "$USERNAME" -p "$PASSWORD"
 else
-    az acr login --name "$ACR_NAME" -s "$SUBSCRIPTION"
+    az acr login --name "$ACR_NAME" --subscription "$SUBSCRIPTION"
 fi
 
 docker tag "$CONTAINER_IMAGE_NAME:$CONTAINER_IMAGE_TAG" "$ACR_URL/$CONTAINER_IMAGE_NAME:$CONTAINER_IMAGE_TAG"
@@ -181,7 +181,7 @@ cleanup
 
 rm "$DOCKERFILE_NAME"
 
-echo "VNF image created successfully!"
+echo "VNF image $ACR_URL/$CONTAINER_IMAGE_NAME:$CONTAINER_IMAGE_TAG created successfully!"
 
 ```
 
@@ -218,7 +218,7 @@ Login Succeeded
 The push refers to repository [myvnfacr.azurecr.io/ubuntu]
 b86efae7de58: Layer already exists
 20.04: digest: sha256:d514547ee28d9ed252167d0943d4e711547fda95161a3728c44a275f5d9669a8 size: 529
-VNF image created successfully!
+VNF image myvnfacr.azurecr.io/ubuntu:20.04.1 created successfully!
 ```
 
 ## Next steps
