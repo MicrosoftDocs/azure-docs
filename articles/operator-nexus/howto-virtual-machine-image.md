@@ -17,7 +17,7 @@ In this article, you learn how to enable the creation of a virtual machine (VM) 
 
 Before you begin creating a virtual machine (VM) image, ensure you have the following prerequisites in place:
 
-   * Install the latest version of the [necessary Azure CLI extensions](../../howto-install-cli-extensions.md).
+   * Install the latest version of the [necessary Azure CLI extensions](./howto-install-cli-extensions.md).
 
    * This article requires version 2.49.0 or later of the Azure CLI. If using Azure Cloud Shell, the latest version is already installed.
 
