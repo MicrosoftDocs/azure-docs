@@ -106,7 +106,7 @@ Container registry vulnerability assessment scans container images stored in you
 1. Defender CSPM automatically discovers all containers registries, repositories and images (created before or after enabling the plan).  
 1. Once a day:
 
-   1. all newly discovered images are pulled, and an inventory is created for each image. Image inventory is kept to avoid further image pulls unless required by new scanner capabilities.​
+   1. All newly discovered images are pulled, and an inventory is created for each image. Image inventory is kept to avoid further image pulls, unless required by new scanner capabilities.​
 
       1. Using the inventory, vulnerability reports are generated for new images, and updated for images previously scanned which were either pushed in the last 90 days to a registry, or are currently running. 
 
