@@ -5,12 +5,12 @@ description: Learn about the different ways to authorize access to data in Azure
 services: storage
 author: tamram
 
-ms.service: storage
+ms.service: azure-storage
 ms.topic: conceptual
 ms.date: 05/31/2023
 ms.author: tamram
 ms.reviewer: nachakra
-ms.subservice: common
+ms.subservice: storage-common-concepts
 ---
 
 # Authorize access to data in Azure Storage
