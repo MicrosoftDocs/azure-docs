@@ -17,11 +17,15 @@ In this article, you learn how to enable the creation of a virtual machine (VM) 
 
 Before you begin creating a virtual machine (VM) image, ensure you have the following prerequisites in place:
 
-    * Azure Container Registry (ACR): Set up a working Azure Container Registry to store and manage your container images. ACR provides a secure and private registry for storing Docker images used in your VM image creation process. You can create an ACR by following the official documentation at [Azure Container Registry](../container-registry/container-registry-intro.md) documentation.
+   * Install the latest version of the [necessary Azure CLI extensions](../../howto-install-cli-extensions.md).
+
+   * This article requires version 2.49.0 or later of the Azure CLI. If using Azure Cloud Shell, the latest version is already installed.
+
+   * If you have multiple Azure subscriptions, select the appropriate subscription ID in which the resources should be billed using the [`az account`][az-account] command.
+
+   * Azure Container Registry (ACR): Set up a working Azure Container Registry to store and manage your container images. ACR provides a secure and private registry for storing Docker images used in your VM image creation process. You can create an ACR by following the official documentation at [Azure Container Registry](../container-registry/container-registry-intro.md) documentation.
 
    * Docker: Install Docker on your local machine. Docker is a platform that enables you to build, package, and distribute applications as lightweight containers. You use Docker to build and package your VM image. You can download Docker from Docker's [official website](https://docs.docker.com/engine/install/).
-
-   * Azure CLI: Install and configure the Azure CLI on your machine. The Azure CLI provides a command-line interface for interacting with Azure services. You use the Azure CLI to interact with the Azure Container Registry and manage your Azure resources. You can install the Azure CLI by following the instructions at [Azure CLI documentation](https://docs.microsoft.com/en-us/cli/azure/).
 
    > **Note:** The script uses the `az acr login` command to authenticate (recommended) and log in to Azure Container Registry (ACR). Ensure you have the Azure CLI installed and configured on your machine. Once the Azure CLI is set up, you can run the script, and it will automatically perform the ACR login using the `az acr login` command with the provided ACR name and subscription ID. If you have already logged in to the Azure CLI, you don't need to perform an additional login for ACR access. If the USERNAME and PASSWORD environment variables are provided, the script performs an ACR login using the specified username and password.
 
@@ -190,3 +194,10 @@ After executing the script, you'll have a VM image tailored for your Virtual Net
 ## Next steps
 
  Refer to the [QuickStart guide](./quickstarts-tenant-workload-deployment.md) to deploy a VNF using the image you created.
+
+<!-- LINKS - internal -->
+[kubernetes-concepts]: ../../../aks/concepts-clusters-workloads.md
+[az-account]: /cli/azure/account
+[az-group-create]: /cli/azure/group#az-group-create
+[az-group-delete]: /cli/azure/group#az-group-delete
+[azure-resource-group]: ../../../azure-resource-manager/management/overview.md
