@@ -3,7 +3,7 @@ title: Agentless Container Posture for Microsoft Defender for Cloud
 description: Learn how Agentless Container Posture offers discovery, visibility, and vulnerability assessment for Containers without installing an agent on your machines.
 ms.service: defender-for-cloud
 ms.topic: conceptual
-ms.date: 06/21/2023
+ms.date: 07/03/2023
 ms.custom: template-concept
 ---
 
@@ -86,7 +86,8 @@ Container vulnerability assessment powered by MDVM (Microsoft Defender Vulnerabi
 
 - **Query vulnerability information via the Azure Resource Graph** - Ability to query vulnerability information via the [Azure Resource Graph](/azure/governance/resource-graph/overview#how-resource-graph-complements-azure-resource-manager). Learn how to [query recommendations via the ARG](review-security-recommendations.md#review-recommendation-data-in-azure-resource-graph-arg). 
 - **Query vulnerability information via sub-assessment API** - You can get scan results via REST API. See the [subassessment list](/rest/api/defenderforcloud/sub-assessments/get?tabs=HTTP).   
-- **Support for exemptions** - Learn how to  [create exemption rules for a management group, resource group, or subscription](how-to-enable-agentless-containers.md#support-for-exemptions). 
+- **Support for exemptions** - Learn how to  [create exemption rules for a management group, resource group, or subscription](how-to-enable-agentless-containers.md#support-for-exemptions).
+- **Support for disabling vulnerability findings** - Learn how to [disable vulnerability assessment findings on Container registry images](disable-vulnerability-findings-containers.md). 
    
 ### Scan Triggers 
 
