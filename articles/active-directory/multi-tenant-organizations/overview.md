@@ -102,8 +102,10 @@ The administrator of the multi-tenant organization owner tenant can also configu
 Here are the primary benefits of forming a multi-tenant organization:
 
 - External users within a multi-tenant organization can be differentiated from external users not in the multi-tenant organization, so you can use multi-tenant organization to enable different policies for in-org and out-of-org external users.
-- Multi-tenant organization external users can use MS Teams without switching tenants.
-- Fixed people card and people search functionality.
+- Multi-tenant organization external users can use Microsoft Teams without switching tenants.
+- Improved people card and people search functionality.
+
+:::image type="content" source="./media/overview/multi-tenant-organization.png" alt-text="Diagram that shows a multi-tenant organization and cross-tenant access policies." lightbox="./media/overview/multi-tenant-organization.png":::
 
 ## Compare multi-tenant capabilities
 
