@@ -29,7 +29,7 @@ This procedure requires several tools that must be installed and run locally. Do
     * **Azure AI Language** resource with F0 or standard pricing tiers only.
     * **Azure AI services** resource with the S0 pricing tier.
 
-[!INCLUDE [Create a Azure AI Language resource](../includes/containers/create-text-analytics-resource.md)]
+[!INCLUDE [Create an Azure AI Language resource](../includes/containers/create-text-analytics-resource.md)]
 
 [!INCLUDE [Create a language container on Azure Kubernetes Service (AKS)](../../containers/includes/create-aks-resource.md)]
 

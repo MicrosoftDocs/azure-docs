@@ -120,7 +120,7 @@ sections:
           }
           ```
           
-          You reed to create a Speech resource, not a Azure AI services resource.
+          You reed to create a Speech resource, not an Azure AI services resource.
           
           
       - question: |

@@ -16,7 +16,7 @@ ms.author: aahi
 
 Azure AI services provides a layered security model. This model enables you to secure your Azure AI services accounts to a specific subset of networks​. When network rules are configured, only applications requesting data over the specified set of networks can access the account. You can limit access to your resources with request filtering. Allowing only requests originating from specified IP addresses, IP ranges or from a list of subnets in [Azure Virtual Networks](../virtual-network/virtual-networks-overview.md).
 
-An application that accesses a Azure AI services resource when network rules are in effect requires authorization. Authorization is supported with [Azure Active Directory](../active-directory/fundamentals/active-directory-whatis.md) (Azure AD) credentials or with a valid API key.
+An application that accesses an Azure AI services resource when network rules are in effect requires authorization. Authorization is supported with [Azure Active Directory](../active-directory/fundamentals/active-directory-whatis.md) (Azure AD) credentials or with a valid API key.
 
 > [!IMPORTANT]
 > Turning on firewall rules for your Azure AI services account blocks incoming requests for data by default. In order to allow requests through, one of the following conditions needs to be met:
@@ -165,7 +165,7 @@ Each Azure AI services resource supports up to 100 virtual network rules, which 
 
 ### Required permissions
 
-To apply a virtual network rule to a Azure AI services resource, the user must have the appropriate permissions for the subnets being added. The required permission is the default *Contributor* role, or the *Azure AI services Contributor* role. Required permissions can also be added to custom role definitions.
+To apply a virtual network rule to an Azure AI services resource, the user must have the appropriate permissions for the subnets being added. The required permission is the default *Contributor* role, or the *Azure AI services Contributor* role. Required permissions can also be added to custom role definitions.
 
 Azure AI services resource and the virtual networks granted access may be in different subscriptions, including subscriptions that are a part of a different Azure AD tenant.
 
@@ -491,7 +491,7 @@ Applications in the VNet can connect to the service over the private endpoint se
 
 Private endpoints can be created in subnets that use [Service Endpoints](../virtual-network/virtual-network-service-endpoints-overview.md). Clients in a subnet can connect to one Azure AI services resource using private endpoint, while using service endpoints to access others.
 
-When you create a private endpoint for a Azure AI services resource in your VNet, a consent request is sent for approval to the Azure AI services resource owner. If the user requesting the creation of the private endpoint is also an owner of the resource, this consent request is automatically approved.
+When you create a private endpoint for an Azure AI services resource in your VNet, a consent request is sent for approval to the Azure AI services resource owner. If the user requesting the creation of the private endpoint is also an owner of the resource, this consent request is automatically approved.
 
 Azure AI services resource owners can manage consent requests and the private endpoints, through the '*Private endpoints*' tab for the Azure AI services resource  in the [Azure portal](https://portal.azure.com).
 

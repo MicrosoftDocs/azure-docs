@@ -19,7 +19,7 @@ Learn how to deploy the Azure AI services [Anomaly Detector](../anomaly-detector
 
 [!INCLUDE [Prerequisites](../../containers/includes/container-preview-prerequisites.md)]
 
-[!INCLUDE [Create a Azure AI Anomaly Detector resource](../includes/create-anomaly-detector-resource.md)]
+[!INCLUDE [Create an Azure AI Anomaly Detector resource](../includes/create-anomaly-detector-resource.md)]
 
 [!INCLUDE [Create an Anomaly Detector container on Azure Container Instances](../../containers/includes/create-container-instances-resource-from-azure-cli.md)]
 

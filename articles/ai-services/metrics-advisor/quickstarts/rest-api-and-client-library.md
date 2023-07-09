@@ -58,7 +58,7 @@ Use Metrics Advisor to perform:
 
 ## Clean up resources
 
-If you want to clean up and remove a Azure AI services subscription, you can delete the resource or resource group. Deleting the resource group also deletes any other resources associated with it.
+If you want to clean up and remove an Azure AI services subscription, you can delete the resource or resource group. Deleting the resource group also deletes any other resources associated with it.
 
 * [Portal](../../../ai-services/cognitive-services-apis-create-account.md#clean-up-resources)
 * [Azure CLI](../../../ai-services/cognitive-services-apis-create-account-cli.md#clean-up-resources)

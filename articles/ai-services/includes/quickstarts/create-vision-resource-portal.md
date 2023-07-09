@@ -11,7 +11,7 @@ ms.author: pafarley
 
 #### [Azure AI Vision](#tab/computer-vision)
 
-1. Select the following link to create a Azure AI Vision resource:
+1. Select the following link to create an Azure AI Vision resource:
    - [Azure AI Vision](https://portal.azure.com/#create/Microsoft.CognitiveServicesComputerVision)
 
 1. On the **Create** page, provide the following information:

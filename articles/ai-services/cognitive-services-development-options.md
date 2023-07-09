@@ -141,4 +141,4 @@ Many of the Azure AI services can be deployed in containers for on-premises acce
 ## Next steps
 <!--
 * Learn more about low code development options for Azure AI services -->
-* [Create a Azure AI services resource and start building](./cognitive-services-apis-create-account.md?tabs=multiservice%252clinux)
+* [Create an Azure AI services resource and start building](./cognitive-services-apis-create-account.md?tabs=multiservice%252clinux)

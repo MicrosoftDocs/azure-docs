@@ -64,7 +64,7 @@ To specify a key as a URI, follow these steps:
 1. Under **Encryption key**, select **Enter key URI**.
 1. Paste the URI that you copied into the **Key URI** box.
 
-   :::image type="content" source="../media/cognitive-services-encryption/ssecmk2.png" alt-text="Screenshot of the Encryption page for a Azure AI services resource. The Enter key URI option is selected, and the Key URI box contains a value.":::
+   :::image type="content" source="../media/cognitive-services-encryption/ssecmk2.png" alt-text="Screenshot of the Encryption page for an Azure AI services resource. The Enter key URI option is selected, and the Key URI box contains a value.":::
 
 1. Under **Subscription**, select the subscription that contains the key vault.
 1. Save your changes.

@@ -45,7 +45,7 @@ Be sure you have the following items before you begin this guide:
 
 ## Speech and simple patterns
 
-The simple patterns are a feature of the Speech SDK and need a Azure AI services resource or a Unified Speech resource.
+The simple patterns are a feature of the Speech SDK and need an Azure AI services resource or a Unified Speech resource.
 
 A pattern is a phrase that includes an Entity somewhere within it. An Entity is defined by wrapping a word in curly brackets. This example defines an Entity with the ID "floorName", which is case-sensitive:
 

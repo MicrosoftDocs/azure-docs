@@ -27,7 +27,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 * [Xcode](https://apps.apple.com/us/app/xcode/id497799835?mt=12)
 * An Immersive Reader resource configured for Azure Active Directory authentication. Follow [these instructions](./how-to-create-immersive-reader.md) to get set up. You will need some of the values created here when configuring the sample project properties. Save the output of your session into a text file for future reference.
-* Usage of this sample requires an Azure subscription to the Azure AI Vision Cognitive Service. [Create a Azure AI Vision Cognitive Service resource in the Azure portal](https://portal.azure.com/#create/Microsoft.CognitiveServicesComputerVision).
+* Usage of this sample requires an Azure subscription to the Azure AI Vision Cognitive Service. [Create an Azure AI Vision Cognitive Service resource in the Azure portal](https://portal.azure.com/#create/Microsoft.CognitiveServicesComputerVision).
 
 ## Create an Xcode project
 
