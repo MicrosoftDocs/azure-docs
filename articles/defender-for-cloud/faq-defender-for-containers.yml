@@ -30,6 +30,13 @@ sections:
           No. Only Azure Kubernetes Service (AKS) clusters that use Virtual Machine Scale Sets for the nodes is supported.
 
       - question: |
+          Does Microsoft Defender for Containers support clusters in a private network?
+        answer: |
+          No. Only the configurations described [here](support-matrix-defender-for-containers.md#kubernetes-distributionsconfigurations-support-eks) are supported. For a workaround, you can try one of these options:
+          - Allow inbound network traffic during deployment, and then disable it after the deployment is complete. You will need to repeat this action for every upgrade.
+          - Contact AWS and see if you can add the the official AWS mirror server to your Security Group. The server that Defender for Cloud uses to download the kernel headers is `amazonlinux.<aws region>.amazonaws.com`.
+
+      - question: |
           Do I need to install the Log Analytics VM extension on my AKS nodes for security protection?
         answer: |
           No, AKS is a managed service, and manipulation of the IaaS resources isn't supported. The Log Analytics VM extension isn't needed and may result in extra charges.
