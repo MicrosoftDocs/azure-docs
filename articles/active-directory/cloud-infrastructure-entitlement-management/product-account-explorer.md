@@ -7,7 +7,7 @@ ms.service: active-directory
 ms.subservice: ciem
 ms.topic: how-to
 author: jenniferf-skc
-ms.date: 02/23/2022
+ms.date: 06/16/2023
 ms.author: jfields
 ---
 
@@ -70,6 +70,8 @@ To export the data in comma-separated values (CSV) file format, select **Export*
       - To view the **Role summary** for EC2 instances and Lambda functions, select the "eye" icon to the right of the identity name.
       - To view a graph of how the identity can access the specified account and through which role(s), select the identity name.
 
-1. The **Info** tab displays the **Privilege creep index** and **Service control policy (SCP)** information about the account.
+1. The **Dashboard** tab displays the **Permissions Creep Index (PCI)** and **Identity findings** information about the account.
 
-For more information about the **Privilege creep index** and SCP information, see [View key statistics and data about your authorization system](ui-dashboard.md).
+## Next steps
+
+For more information about the **Permissions Creep Index (PCI)** and SCP information, see [View key statistics and data about your authorization system](ui-dashboard.md).

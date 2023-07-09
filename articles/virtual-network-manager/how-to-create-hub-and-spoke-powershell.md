@@ -130,7 +130,7 @@ Deploy-AzNetworkManagerCommit @deployment
 
 ## Confirm configuration deployment
 
-1. Go to one of the virtual networks in the PowerShell and select **Peerings** under *Settings*. You should see a new peering connection created between the hub and the spoke virtual networks with *AVNM* in the name.
+1. Go to one of the virtual networks in the Azure portal and select **Peerings** under **Settings**. You should see a new peering connection created between the hub and the spoke virtual networks with *AVNM* in the name.
 
 1. To test *direct connectivity* between spokes, deploy a virtual machine into each spokes virtual network. Then start an ICMP request from one virtual machine to the other.
 

@@ -4,11 +4,11 @@ description: Learn how to create a Bicep file or ARM template JSON template to u
 author: kof-f
 ms.author: kofiforson
 ms.reviewer: erd
-ms.date: 06/06/2023
+ms.date: 06/12/2023
 ms.topic: reference
 ms.service: virtual-machines
 ms.subservice: image-builder
-ms.custom: references_regions, devx-track-bicep
+ms.custom: references_regions, devx-track-bicep, devx-track-arm-template
 ---
 
 # Create an Azure Image Builder Bicep or ARM template JSON template
@@ -748,10 +748,15 @@ Write-Output '>>> Waiting for GA Service (WindowsAzureTelemetryService) to start
 while ((Get-Service WindowsAzureTelemetryService) -and ((Get-Service WindowsAzureTelemetryService).Status -ne 'Running')) { Start-Sleep -s 5 }
 Write-Output '>>> Waiting for GA Service (WindowsAzureGuestAgent) to start ...'
 while ((Get-Service WindowsAzureGuestAgent).Status -ne 'Running') { Start-Sleep -s 5 }
-Write-Output '>>> Sysprepping VM ...'
 if( Test-Path $Env:SystemRoot\system32\Sysprep\unattend.xml ) {
+  Write-Output '>>> Removing Sysprep\unattend.xml ...'
   Remove-Item $Env:SystemRoot\system32\Sysprep\unattend.xml -Force
 }
+if (Test-Path $Env:SystemRoot\Panther\unattend.xml) {
+  Write-Output '>>> Removing Panther\unattend.xml ...'
+  Remove-Item $Env:SystemRoot\Panther\unattend.xml -Force
+}
+Write-Output '>>> Sysprepping VM ...'
 & $Env:SystemRoot\System32\Sysprep\Sysprep.exe /oobe /generalize /quiet /quit
 while($true) {
   $imageState = (Get-ItemProperty HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Setup\State).ImageState
@@ -837,7 +842,7 @@ The image output is a managed image resource.
 
 ```json
 {
-  "type":"managedImage",
+  "type":"ManagedImage",
   "imageId": "<resource ID>",
   "location": "<region>",
   "runOutputName": "<name>",
@@ -852,7 +857,7 @@ The image output is a managed image resource.
 
 ```bicep
 {
-  type:'managedImage'
+  type:'ManagedImage'
   imageId: '<resource ID>'
   location: '<region>'
   runOutputName: '<name>'
@@ -867,7 +872,7 @@ The image output is a managed image resource.
 
 Distribute properties:
 
-- **type** – managedImage
+- **type** – ManagedImage
 - **imageId** – Resource ID of the destination image, expected format: /subscriptions/\<subscriptionId>/resourceGroups/\<destinationResourceGroupName>/providers/Microsoft.Compute/images/\<imageName>
 - **location** - location of the managed image.
 - **runOutputName** – unique name for identifying the distribution.

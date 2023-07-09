@@ -86,10 +86,10 @@ The following resources are available in all Azure Regions supported by Azure Co
 | 4 | 16 | 20 | Y | 
 
 ## GPU Resources (Preview) 
-> **Warning**
+> [!IMPORTANT]
 > K80 and P100 GPU SKUs are retiring by August 31st, 2023. This is due to the retirement of the underlying VMs used: [NC Series](../virtual-machines/nc-series-retirement.md) and [NCv2 Series](../virtual-machines/ncv2-series-retirement.md) Although V100 SKUs will be available, it is receommended to use Azure Kubernetes Service instead. GPU resources are not fully supported and should not be used for production workloads. Use the following resources to migrate to AKS today: [How to Migrate to AKS](../aks/aks-migration.md).
 
-> **Note**
+> [!NOTE]
 > Not all limit increase requests are guaranteed to be approved.
 > Deployments with GPU resources are not supported in an Azure virtual network deployment and are only available on Linux container groups.
 > Using GPU resources (preview) is not fully supported yet and any support is provided on a best-effort basis.
