@@ -155,7 +155,7 @@ To retrieve the information that was previously retrieved by these fields, in th
 
 - `ExtendedProperties["Status"]`: Under **Investigation status**:
  
-    :::image type="content" source="media/whats-new/mdo-connector-fields-investigation-status.png" alt-text="Screenshot showing the Microsoft Defender for Office 365 alerts Investigation status field in the Microsoft 365 Defender portal." lightbox="media/whats-new/mdo-connector-fields-investigation-status.png":::
+    :::image type="content" source="media/whats-new/mdo-connector-fields-investigation-status.png" alt-text="Screenshot showing the Microsoft Defender for Office 365 alerts Investigation status field in the Microsoft 365 Defender portal.":::
 
 - `ExtendedLinks`: Select **Investigation ID**, which opens the relevant **Investigation** page. 
 
