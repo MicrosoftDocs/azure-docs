@@ -2,7 +2,7 @@
 title: Release notes for Microsoft Defender for Cloud
 description: This page is updated frequently with the latest updates in Defender for Cloud.
 ms.topic: overview
-ms.date: 07/02/2023
+ms.date: 07/09/2023
 ---
 
 # What's new in Microsoft Defender for Cloud?
@@ -33,7 +33,7 @@ Updates in July include:
 
 **July 12, 2023**
 
-The new Agentless Container Posture capabilities is now Generally Available (GA) as part of the Defender CSPM (Cloud Security Posture Management) plan.
+The new agentless container posture capabilities is now Generally Available (GA) as part of the Defender CSPM (Cloud Security Posture Management) plan.
 
 With this release, the following recommendation is released for General Availability:
 
@@ -41,7 +41,7 @@ With this release, the following recommendation is released for General Availabi
 |--|--|--|
 | Container registry images should have vulnerability findings resolved (powered by Microsoft Defender Vulnerability Management) | Container image vulnerability assessment scans your registry for commonly known vulnerabilities and provides a detailed vulnerability report for each image. This recommendation provides visibility to vulnerable images currently running in your Kubernetes clusters. Remediating vulnerabilities in container images that are currently running is key to  improving your security posture, significantly reducing the attack surface for your containerized workloads. |c0b7cfc6-3172-465a-b378-53c7ff2cc0d5
 
-Learn more about [Agentless Containers Posture in Defender CSPM](concept-agentless-containers.md).
+Learn more about [agentless container posture in Defender CSPM](concept-agentless-containers.md).
 
 ### Data Aware Security Posture is now Generally Available
 
