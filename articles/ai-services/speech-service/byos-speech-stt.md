@@ -22,6 +22,8 @@ Bring your own storage (BYOS) can be used in the following Speech to text scenar
 
 One Speech resource – Storage account combination can be used for all scenarios simultaneously in all combinations.
 
+This article explains the details of use a BYOS-enabled Speech resource in all Speech to text scenarios. The article implies, that you have [a fully configured BYOS-enabled Speech resource and associated Storage account](byos-speech-general.md).
+
 ## Data storage
 
 When using BYOS, Speech service doesn't keep any customer artifacts after the data processing (transcription, model training, model testing) is complete. However, some meta-data that isn't derived from the user content is stored within Speech service premises. For example, in Custom Speech scenario, the Service keeps certain information about the custom endpoints, like which models they use.
