@@ -9,7 +9,6 @@ ms.service: storage
 ms.topic: conceptual
 ms.date: 05/17/2021
 ms.author: tamram
-ms.subservice: blobs
 ---
 
 # Optimize costs for Blob storage with reserved capacity

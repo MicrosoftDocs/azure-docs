@@ -2,7 +2,7 @@
 title: Set up the Azure Monitor agent on Windows client devices
 description: This article describes the instructions to install the agent on Windows 10, 11 client OS devices, configure data collection, manage and troubleshoot the agent.
 ms.topic: conceptual
-ms.date: 4/2/2023
+ms.date: 7/6/2023
 ms.custom: references_region, devx-track-azurepowershell
 ms.reviewer: shseth
 ---
@@ -93,7 +93,7 @@ Here is a comparison between client installer and VM extension for Azure Monitor
 
 ## Create and associate a 'Monitored Object'
 You need to create a 'Monitored Object' (MO) that creates a representation for the Azure AD tenant within Azure Resource Manager (ARM). This ARM entity is what Data Collection Rules are then associated with. **This Monitored Object needs to be created only once for any number of machines in a single AAD tenant**.
-Currently this association is only **limited** to the Azure AD tenant scope, which means configuration applied to the tenant will be applied to all devices that are part of the tenant and running the agent.
+Currently this association is only **limited** to the Azure AD tenant scope, which means configuration applied to the AAD tenant will be applied to all devices that are part of the tenant and running the agent installed via the client installer. Agents installed as virtual machine extension will not be impacted by this.
 The image below demonstrates how this works:
 
 ![Diagram shows monitored object purpose and association.](media/azure-monitor-agent-windows-client/azure-monitor-agent-monitored-object.png)

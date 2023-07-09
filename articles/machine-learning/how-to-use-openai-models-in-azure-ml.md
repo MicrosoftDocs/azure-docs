@@ -58,9 +58,8 @@ To deploy an Azure Open Model from Azure Machine Learning, in order to deploy an
 
 1. Select on **Model Catalog** in the left pane.
 1. Select on **Azure OpenAI Service** from the options.
-1. Select a model to deploy from `gpt-4-32K`,
-`text-embedding-ada-002`,`gpt-4`,`gpt35-turbo`, `text-curie-001`, `text-babbage-001`,`text-ada-001`.
-1. Suppose you selected `text-ada-001` to deploy, you can select `Deploy` to deploy the model to the Azure OpenAI service.
+1. Select a model to deploy
+1. Select `Deploy` to deploy the model to the Azure OpenAI service.
 
     :::image type="content" source="./media/how-to-use-openai-models-in-azure-ml/deploy-to-azure-open-ai.png" lightbox="./media/how-to-use-openai-models-in-azure-ml/deploy-to-azure-open-ai.png" alt-text="Screenshot showing the deploy to Azure OpenAI.":::
 
@@ -134,7 +133,7 @@ You might receive any of the following errors when you try to deploy an Azure Op
     - **Fix**: Unable to create the resource. Due to one of, the following reasons. You aren't in correct region, or you have exceeded the maximum limit of three Azure Open AI resources. You need to delete an existing Azure OpenAI resource or you need to make sure you created a workspace in one of the [supported regions](../cognitive-services/openai/concepts/models.md#model-summary-table-and-region-availability).
 
 - **Model Not Deployable**
-    - **Fix**: This is an internal server error. Try again in a few days.
+    - **Fix**: This usually happens while trying to deploy a GPT-4 model. Due to high demand you need to [apply for access to use GPT-4 models](https://learn.microsoft.com/azure/cognitive-services/openai/concepts/models#gpt-4-models).
 
 - **Resource Create Failed**
     - **Fix**: We tried to automatically create the Azure OpenAI resource but the operation failed. Try again on a new workspace.

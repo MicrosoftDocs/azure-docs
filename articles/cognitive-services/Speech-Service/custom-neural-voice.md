@@ -68,9 +68,9 @@ the recording samples of human voices. For more information, see [this Microsoft
 
 If you're using the old version of Custom Voice (which is scheduled to be retired in February 2024), see [How to migrate to Custom Neural Voice](how-to-migrate-to-custom-neural-voice.md).
 
-## Responsible use of AI
+## Responsible AI 
 
-To learn how to use Custom Neural Voice responsibly, check the following articles.
+An AI system includes not only the technology, but also the people who will use it, the people who will be affected by it, and the environment in which it is deployed. Read the transparency notes to learn about responsible AI use and deployment in your systems. 
 
 * [Transparency note and use cases for Custom Neural Voice](/legal/cognitive-services/speech-service/custom-neural-voice/transparency-note-custom-neural-voice?context=/azure/cognitive-services/speech-service/context/context)  
 * [Characteristics and limitations for using Custom Neural Voice](/legal/cognitive-services/speech-service/custom-neural-voice/characteristics-and-limitations-custom-neural-voice?context=/azure/cognitive-services/speech-service/context/context)   

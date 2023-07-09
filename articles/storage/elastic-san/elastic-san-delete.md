@@ -2,11 +2,10 @@
 title: Delete an Azure Elastic SAN Preview
 description: Learn how to delete an Azure Elastic SAN Preview with the Azure portal, Azure PowerShell module, or the Azure CLI.
 author: roygara
-ms.service: storage
+ms.service: azure-elastic-san-storage
 ms.topic: how-to
 ms.date: 02/22/2023
 ms.author: rogarana
-ms.subservice: elastic-san
 ms.custom: ignite-2022, devx-track-azurecli, devx-track-azurepowershell
 ---
 
