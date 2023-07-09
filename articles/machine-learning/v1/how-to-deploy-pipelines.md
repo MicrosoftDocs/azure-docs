@@ -15,7 +15,7 @@ ms.custom: UpdateFrequency5, contperf-fy21q1, sdkv1, event-tier1-build-2022, dev
 
 # Publish and track machine learning pipelines
 
-[!INCLUDE [sdk v1](../../../includes/machine-learning-sdk-v1.md)]
+[!INCLUDE [sdk v1](../includes/machine-learning-sdk-v1.md)]
 
 This article will show you how to share a machine learning pipeline with your colleagues or customers.
 

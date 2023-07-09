@@ -5,12 +5,12 @@ description: Overview of private endpoints for secure access to storage accounts
 services: storage
 author: jimmart-dev
 
-ms.service: storage
+ms.service: azure-storage
 ms.topic: conceptual
 ms.date: 06/22/2023
 ms.author: jammart
 ms.reviewer: santoshc
-ms.subservice: common
+ms.subservice: storage-common-concepts
 ms.custom: engagement-fy23
 ---
 

@@ -5,10 +5,9 @@ description: Use Azure Storage Data Lake client library for JavaScript to manage
 author: pauljewellmsft
 
 ms.author: pauljewell
-ms.service: storage
+ms.service: azure-data-lake-storage
 ms.date: 02/07/2023
 ms.topic: how-to
-ms.subservice: data-lake-storage-gen2
 ms.reviewer: prishet
 ms.devlang: javascript
 ms.custom: devx-track-js

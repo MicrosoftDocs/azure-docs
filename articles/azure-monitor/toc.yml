@@ -5,86 +5,26 @@ items:
   items:
     - name: Azure Monitor overview
       href: overview.md
-    - name: Getting started
-      items:
-      - name: Get started with Azure Monitor
-        href: getting-started.md
-      - name: Plan your implementation
-        href: best-practices-plan.md
-      - name: Configure data collection
-        href: best-practices-data-collection.md
-      - name: Analysis and visualizations
-        href: best-practices-analysis.md
-      - name: Configure alerts and automated actions
-        href: best-practices-alerts.md
-      - name: Optimize costs
-        href: best-practices-cost.md
     - name: Multicloud monitoring
       href: best-practices-multicloud.md
     - name: What's new?
       href: whats-new.md
     - name: FAQ
       href: faq.yml
-- name: Samples
+- name: Getting started
   items:
-  - name: Resource Manager templates
-    items:
-    - name: Overview
-      href: resource-manager-samples.md
-    - name: Agents
-      href: agents/resource-manager-agent.md
-    - name: Alerts
-      items:
-      - name: Log alert rules
-        href: alerts/resource-manager-alerts-log.md
-      - name: Metric alert rules
-        href: alerts/resource-manager-alerts-metric.md
-      - name: Activity log alert rules
-        href: alerts/resource-manager-alerts-activity-log.md
-      - name: Resource health alert rules
-        href: alerts/resource-manager-alerts-resource-health.md
-      - name: Action groups
-        href: alerts/resource-manager-action-groups.md
-    - name: Application Insights
-      items:
-        - name: Create a resource
-          href: app/resource-manager-app-resource.md
-    - name: Container insights
-      href: containers/resource-manager-container-insights.md
-    - name: Data collection rules
-      href: agents/resource-manager-data-collection-rules.md
-    - name: Data collection endpoints
-      href: essentials/data-collection-endpoint-sample.md
-    - name: Diagnostic settings
-      href: essentials/resource-manager-diagnostic-settings.md
-    - name: Log Analytics workspaces
-      href: logs/resource-manager-workspace.md
-    - name: Log Analytics clusters
-      href: logs/resource-manager-cluster.md
-    - name: Log queries
-      href: logs/resource-manager-log-queries.md
-    - name: SQL Insights (preview)
-      href: insights/resource-manager-sql-insights.md
-    - name: Workbooks
-      href: visualize/resource-manager-workbooks.md
-    - name: VM insights
-      href: vm/resource-manager-vminsights.md
-  - name: Alerts 
-    href: alerts/alerts-payload-samples.md
-  - name: Data collection rules
-    items:
-    - name: Agent
-      href: agents/data-collection-rule-sample-agent.md
-    - name: Custom logs
-      href: logs/data-collection-rule-sample-custom-logs.md
-  - name: Monitor Logs in Azure CLI
-    href: logs\azure-cli-log-analytics-workspace-sample.md
-  - name: Configure workspaces using PowerShell
-    href: logs/powershell-workspace-configuration.md
-  - name: Azure Resource Graph queries
-    href: ./resource-graph-samples.md
-  - name: Azure CLI metric alerts
-    href: azure-cli-metrics-alert-sample.md
+  - name: Get started with Azure Monitor
+    href: getting-started.md
+  - name: Plan your implementation
+    href: best-practices-plan.md
+  - name: Configure data collection
+    href: best-practices-data-collection.md
+  - name: Analysis and visualizations
+    href: best-practices-analysis.md
+  - name: Configure alerts and automated actions
+    href: best-practices-alerts.md
+  - name: Optimize costs
+    href: best-practices-cost.md
 - name: Monitoring scenarios
   items:
   - name: Monitor Azure resources
@@ -631,15 +571,19 @@ items:
         href: containers/container-insights-troubleshoot.md
   - name: Monitor networks
     items:
-    - name: Overview
-      displayName: Network Insights, Network
-      href: ../network-watcher/network-insights-overview.md
-    - name: Topology
-      displayName: Network Insights, Network
-      href: ../network-watcher/network-insights-topology.md
-    - name: Troubleshooting
-      displayName: Network Insights, Network
-      href: ../network-watcher/network-insights-troubleshooting.md 
+    - name: Network Watcher
+      href: ../network-watcher/network-watcher-monitoring-overview.md
+    - name: Network Insights
+      items:
+      - name: Overview
+        displayName: Network Insights, Network
+        href: ../network-watcher/network-insights-overview.md
+      - name: Topology
+        displayName: Network Insights, Network
+        href: ../network-watcher/network-insights-topology.md
+      - name: Troubleshooting
+        displayName: Network Insights, Network
+        href: ../network-watcher/network-insights-troubleshooting.md
   - name: Monitor Azure Monitor
     href: monitor-azure-monitor.md
 - name: Data sources
@@ -717,10 +661,12 @@ items:
     - name: Install Azure Monitor Agent
       displayName: Azure Monitor agent
       items:
-      - name: Using the agent extension
+      - name: On virtual machines and servers
         href: agents/azure-monitor-agent-manage.md
-      - name: Using Windows client installer
+      - name: On Windows client machines
         href: agents/azure-monitor-agent-windows-client.md
+      - name: View health
+        href: agents/azure-monitor-agent-health.md
     - name: Configure data collection
       items:
       - name: Collect events and performance
@@ -907,6 +853,8 @@ items:
       href: logs/private-link-design.md
     - name: Private Link configuration
       href: logs/private-link-configure.md
+  - name: Collect logs from Event Hubs
+    href: logs/ingest-logs-event-hub.md
   - name: Troubleshoot data collection
     href: logs/data-collection-troubleshoot.md
 - name: Data platform
@@ -1453,8 +1401,6 @@ items:
         href: alerts/alerts-prepare-migration.md
       - name: Understand the migration tool
         href: alerts/alerts-understand-migration.md
-      - name: Use the migration tool
-        href: alerts/alerts-using-migration-tool.md
       - name: Automatic migration process
         href: alerts/alerts-automatic-migration.md
       - name: Manage classic metric alerts
@@ -1513,6 +1459,66 @@ items:
           href: logs/kql-machine-learning-azure-monitor.md
         - name: Analyze data in Azure Monitor Logs using a notebook
           href: logs/notebooks-azure-monitor-logs.md      
+- name: Samples
+  items:
+  - name: Resource Manager templates
+    items:
+    - name: Overview
+      href: resource-manager-samples.md
+    - name: Agents
+      href: agents/resource-manager-agent.md
+    - name: Alerts
+      items:
+      - name: Log alert rules
+        href: alerts/resource-manager-alerts-log.md
+      - name: Metric alert rules
+        href: alerts/resource-manager-alerts-metric.md
+      - name: Activity log alert rules
+        href: alerts/resource-manager-alerts-activity-log.md
+      - name: Resource health alert rules
+        href: alerts/resource-manager-alerts-resource-health.md
+      - name: Action groups
+        href: alerts/resource-manager-action-groups.md
+    - name: Application Insights
+      items:
+        - name: Create a resource
+          href: app/resource-manager-app-resource.md
+    - name: Container insights
+      href: containers/resource-manager-container-insights.md
+    - name: Data collection rules
+      href: agents/resource-manager-data-collection-rules.md
+    - name: Data collection endpoints
+      href: essentials/data-collection-endpoint-sample.md
+    - name: Diagnostic settings
+      href: essentials/resource-manager-diagnostic-settings.md
+    - name: Log Analytics workspaces
+      href: logs/resource-manager-workspace.md
+    - name: Log Analytics clusters
+      href: logs/resource-manager-cluster.md
+    - name: Log queries
+      href: logs/resource-manager-log-queries.md
+    - name: SQL Insights (preview)
+      href: insights/resource-manager-sql-insights.md
+    - name: Workbooks
+      href: visualize/resource-manager-workbooks.md
+    - name: VM insights
+      href: vm/resource-manager-vminsights.md
+  - name: Alerts 
+    href: alerts/alerts-payload-samples.md
+  - name: Data collection rules
+    items:
+    - name: Agent
+      href: agents/data-collection-rule-sample-agent.md
+    - name: Custom logs
+      href: logs/data-collection-rule-sample-custom-logs.md
+  - name: Monitor Logs in Azure CLI
+    href: logs\azure-cli-log-analytics-workspace-sample.md
+  - name: Configure workspaces using PowerShell
+    href: logs/powershell-workspace-configuration.md
+  - name: Azure Resource Graph queries
+    href: ./resource-graph-samples.md
+  - name: Azure CLI metric alerts
+    href: azure-cli-metrics-alert-sample.md
 - name: Reference
   items:
   - name: Service limits

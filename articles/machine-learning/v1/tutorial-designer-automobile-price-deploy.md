@@ -40,7 +40,7 @@ In [part one of the tutorial](tutorial-designer-automobile-price-train-score.md)
 
 Complete [part one of the tutorial](tutorial-designer-automobile-price-train-score.md) to learn how to train and score a machine learning model in the designer.
 
-[!INCLUDE [machine-learning-missing-ui](../../../includes/machine-learning-missing-ui.md)]
+[!INCLUDE [machine-learning-missing-ui](../includes/machine-learning-missing-ui.md)]
 
 ## Create a real-time inference pipeline
 
@@ -194,13 +194,13 @@ You can update the online endpoint with new model trained in the designer. On th
 
 * If you have datasets in the real-time inference pipeline and want to deploy it to real-time endpoint, currently this flow only supports datasets registered from **Blob** datastore. If you want to use datasets from other type datastores, you can use Select Column to connect with your initial dataset with settings of selecting all columns, register the outputs of Select Column as File dataset and then replace the initial dataset in the real-time inference pipeline with this newly registered dataset.
 
-* If your inference graph contains "Enter Data Manually" component which is not connected to the same port as “Web service Input” component, the "Enter Data Manually" component will not be executed during HTTP call processing. A workaround is to register the outputs of that "Enter Data Manually" component as dataset, then in the inference pipeline draft, replace the "Enter Data Manually" component with the registered dataset. 
+* If your inference graph contains "Enter Data Manually" component which is not connected to the same port as "Web service Input" component, the "Enter Data Manually" component will not be executed during HTTP call processing. A workaround is to register the outputs of that "Enter Data Manually" component as dataset, then in the inference pipeline draft, replace the "Enter Data Manually" component with the registered dataset. 
 
     :::image type="content" source="./media/tutorial-designer-automobile-price-deploy/real-time-inferencepipeline-limitation.png" alt-text="Screenshot showing how to modify inference pipeline containing enter data manually component.":::
 
 ## Clean up resources
 
-[!INCLUDE [aml-ui-cleanup](../../../includes/aml-ui-cleanup.md)]
+[!INCLUDE [aml-ui-cleanup](../includes/aml-ui-cleanup.md)]
 
 ## Next steps
 

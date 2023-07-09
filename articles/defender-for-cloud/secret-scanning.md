@@ -13,17 +13,14 @@ Defender for Cloud's agentless secret scanning for Virtual Machines (VM) locates
 
 By using agentless secret scanning, you can proactively discover the following types of secrets across your environments:
 
-- **Insecure (plaintext) SSH private keys** - Detects Putty and PKCS#8 and PKCS#1 (RSA algorithm).
-- **Plaintext AWS access keys** - CLI & plaintext on many file extensions.
-- **Plaintext AWS RDS SQL connection string (SQL PAAS)** - Detects Microsoft SQL server connection string.
-- **Plaintext SQL connection strings (SQL PAAS)** - Detects Microsoft SQL server connection string.  
-- **Plaintext storage account connection strings**.  
-- **Plaintext storage account SAS tokens**.
+- **Insecure SSH private keys** - supports RSA algorithm for PuTTy files, PKCS#8 and PKCS#1 standards
+- **Plaintext Azure SQL connection strings** - supports SQL PAAS
+- **Plaintext Azure storage account connection strings**
+- **Plaintext Azure storage account SAS tokens**
+- **Plaintext AWS access keys**
+- **Plaintext AWS RDS SQL connection string** -supports SQL PAAS
 
-> [!NOTE]
-> All of the standards are supported by the RSA algorithm.
-
-In addition to detecting SSH private keys, the agentless scanner verifies whether they can be used to move laterally in the network. Keys that we didn't successfully verify are categorized as **unverified**.
+In addition to detecting SSH private keys, the agentless scanner verifies whether they can be used to move laterally in the network. Keys that we didn't successfully verify are categorized as **unverified** in the **Recommendation** pane.
 
 ## Prerequisites
 
@@ -61,7 +58,7 @@ If you only enable one of the two plans, you gain only part of the available fea
 | Plan Feature | Defender for servers plan 2 | Defender CSPM |
 |--|--|--|
 | [Attack path](#remediate-secrets-with-attack-path) | No | Yes |
-| [Cloud security explorer](#remediate-secrets-with-cloud-security-explorer) | No | Yes |
+| [Cloud security explorer](#remediate-secrets-with-cloud-security-explorer) | Yes | Yes |
 | [Recommendations](#remediate-secrets-with-recommendations) | Yes | Yes |
 | [Asset Inventory](#remediate-secrets-from-your-asset-inventory) - Secrets | Yes | No |
 
@@ -79,8 +76,6 @@ Agentless secret scanning for Azure VMs supports the following attack path scena
 
 - `Exposed Vulnerable VM has an insecure SSH private key that is used to authenticate to a VM`.
 
-- `Vulnerable VM has an insecure SSH private key that is used to authenticate to a VM`.
-
 - `Exposed Vulnerable VM has insecure secrets that are used to authenticate to a storage account`.
 
 - `Vulnerable VM has insecure secrets that are used to authenticate to a storage account`.
@@ -93,11 +88,7 @@ Agentless secret scanning for AWS instances supports the following attack path s
 
 - `Exposed Vulnerable EC2 instance has an insecure SSH private key that is used to authenticate to a EC2 instance`.
 
-- `Vulnerable EC2 instance has an insecure SSH private key that is used to authenticate to a EC2 instance`.
-
 - `Exposed Vulnerable EC2 instance has an insecure secret that are used to authenticate to a storage account`.
-
-- `Vulnerable EC2 instances have insecure secrets that are used to authenticate to a storage account`.
 
 - `Exposed Vulnerable EC2 instance has insecure secrets that are used to authenticate to an AWS RDS server`.
 

@@ -14,6 +14,8 @@ ms.custom: query-reference
 
 # IntBitAnd (NoSQL query)
 
+[!INCLUDE[NoSQL](../../includes/appliesto-nosql.md)]
+
 Compares the bits on both the left-hand and right-hand operators using `AND` and returns a result for each bit. If both bits match, the corresponding bit is `1`. Otherwise, the corresponding bit is `0`. For more information, see [bitwise `AND` operator](/cpp/cpp/bitwise-and-operator-amp).
 
 ## Syntax

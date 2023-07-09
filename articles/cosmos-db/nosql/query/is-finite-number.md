@@ -14,6 +14,8 @@ ms.custom: query-reference
 
 # IS_FINITE_NUMBER (NoSQL query)
 
+[!INCLUDE[NoSQL](../../includes/appliesto-nosql.md)]
+
 Returns a boolean indicating if a number is a finite number (not infinite).
 
 ## Syntax

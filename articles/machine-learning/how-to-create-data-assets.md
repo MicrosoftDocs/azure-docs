@@ -14,7 +14,7 @@ ms.date: 06/20/2023
 ---
 
 # Create and manage data assets
-[!INCLUDE [dev v2](../../includes/machine-learning-dev-v2.md)]
+[!INCLUDE [dev v2](includes/machine-learning-dev-v2.md)]
 
 
 This article shows how to create and manage data assets in Azure Machine Learning.
