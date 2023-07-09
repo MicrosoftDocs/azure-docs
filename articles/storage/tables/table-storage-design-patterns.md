@@ -4,11 +4,10 @@ description: Review design patterns that are appropriate for use with Table serv
 services: storage
 author: tamram
 
-ms.service: storage
+ms.service: azure-table-storage
 ms.topic: article
 ms.date: 06/24/2021
 ms.author: tamram
-ms.subservice: tables
 ms.devlang: csharp
 ms.custom: devx-track-csharp, ignite-2022
 ---

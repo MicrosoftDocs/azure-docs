@@ -56,6 +56,5 @@ SELECT ST_ISVALIDDETAILED({
 
 ## Next steps
 
-- [Spatial functions Azure Cosmos DB](spatial-functions.md)
-- [System functions Azure Cosmos DB](system-functions.md)
+- [System functions Azure Cosmos DB](system-functions.yml)
 - [Introduction to Azure Cosmos DB](../../introduction.md)

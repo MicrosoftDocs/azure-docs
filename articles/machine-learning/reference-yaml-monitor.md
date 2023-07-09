@@ -16,7 +16,7 @@ reviewer: msakande
 
 # CLI (v2) schedule YAML schema for model monitoring (preview)
 
-[!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
+[!INCLUDE [cli v2](includes/machine-learning-cli-v2.md)]
 
 The YAML syntax detailed in this document is based on the JSON schema for the latest version of the ML CLI v2 extension. This syntax is guaranteed only to work with the latest version of the ML CLI v2 extension.
 You can find the schemas for older extension versions at [https://azuremlschemasprod.azureedge.net/](https://azuremlschemasprod.azureedge.net/).
@@ -198,13 +198,13 @@ Examples are available in the [examples GitHub repository](https://github.com/Az
 
 ## YAML: Schedule with recurrence pattern
 
-[!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
+[!INCLUDE [cli v2](includes/machine-learning-cli-v2.md)]
 
 :::code language="yaml" source="~/azureml-examples-main/cli/schedules/recurrence-job-schedule.yml":::
 
 ## YAML: Schedule with cron expression
 
-[!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
+[!INCLUDE [cli v2](includes/machine-learning-cli-v2.md)]
 
 :::code language="yaml" source="~/azureml-examples-main/cli/schedules/cron-job-schedule.yml":::
 

@@ -30,7 +30,7 @@ While you can use pre-made [custom policy starter pack](./tutorial-create-user-f
 
 ## Select an article 
 
-This how-to guide series consists of multiple articles. We recommend that you start this series from the fist article. For each article (except the first one), you're expected to use the custom policy you write in the preceding article.
+This how-to guide series consists of multiple articles. We recommend that you start this series from the first article. For each article (except the first one), you're expected to use the custom policy you write in the preceding article.
 
 |Article  | What you'll learn  |
 |---------|---------|
