@@ -71,9 +71,9 @@
       href: tutorial-enable-storage-plan.md
     - name: Protect containers with Defender for Containers
       items:
-      - name: Protect your Azure containers (AKS) 
+      - name: Protect your Azure containers
         href: tutorial-enable-containers-azure.md
-      - name: Protect your on-premises and IaaS (Arc) devices 
+      - name: Protect your on-premises and IaaS Kubernetes clusters
         href: tutorial-enable-containers-arc.md
       - name: Protect your Amazon Web Service (AWS) accounts containers
         href: tutorial-enable-container-aws.md
