@@ -46,9 +46,9 @@ Select a service from the table below and learn how it can help you meet your de
 
 You can create an Azure AI services resource with hands-on quickstarts using any of the following methods:
 
-* [Azure portal](cognitive-services-apis-create-account.md?tabs=multiservice%2Cwindows "Azure portal")
-* [Azure CLI](cognitive-services-apis-create-account-cli.md?tabs=windows "Azure CLI")
-* [Azure SDK client libraries](cognitive-services-apis-create-account-client-library.md?tabs=windows "cognitive-services-apis-create-account-client-library?pivots=programming-language-csharp")
+* [Azure portal](multi-service-resource.md?pivots=azportal)
+* [Azure CLI](multi-service-resource.md?pivots=azcli)
+* [Azure SDK client libraries](multi-service-resource.md?pivots=programming-language-csharp)
 * [Azure Resource Manager (ARM template)](./create-account-resource-manager-template.md?tabs=portal "Azure Resource Manager (ARM template)")
 
 ## Use Azure AI services in different development environments
@@ -93,5 +93,5 @@ Azure AI services provides several support options to help you move forward with
 ## Next steps
 
 * Select a service from the tables above and learn how it can help you meet your development goals.
-* [Create an Azure AI services resource using the Azure portal](cognitive-services-apis-create-account.md "Create an Azure AI services account")
+* [Create a multi-service resource](multi-service-resource.md?pivots=azportal)
 * [Plan and manage costs for Azure AI services](plan-manage-costs.md)

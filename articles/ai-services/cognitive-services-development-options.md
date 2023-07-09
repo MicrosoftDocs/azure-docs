@@ -139,6 +139,5 @@ Language Understanding and the Speech service offer continuous integration and c
 Many of the Azure AI services can be deployed in containers for on-premises access and use. Using these containers gives you the flexibility to bring Azure AI services closer to your data for compliance, security, or other operational reasons. For a complete list of Azure AI containers, see [On-premises containers for Azure AI services](./cognitive-services-container-support.md).
 
 ## Next steps
-<!--
-* Learn more about low code development options for Azure AI services -->
-* [Create an Azure AI services resource and start building](./cognitive-services-apis-create-account.md?tabs=multiservice%252clinux)
+
+* [Create a multi-service resource and start building](./multi-service-resource.md?pivots=azportal)

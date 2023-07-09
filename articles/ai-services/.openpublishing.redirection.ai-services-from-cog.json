@@ -17,17 +17,17 @@
     },
     {
       "source_path_from_root": "/articles/cognitive-services/cognitive-services-apis-create-account-cli.md",
-      "redirect_url": "/azure/ai-services/cognitive-services-apis-create-account-cli",
-      "redirect_document_id": true
+      "redirect_url": "/azure/ai-services/multi-service-resource",
+      "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/cognitive-services/cognitive-services-apis-create-account-client-library.md",
-      "redirect_url": "/azure/ai-services/cognitive-services-apis-create-account-client-library",
-      "redirect_document_id": true
+      "redirect_url": "/azure/ai-services/multi-service-resource",
+      "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/cognitive-services/cognitive-services-apis-create-account.md",
-      "redirect_url": "/azure/ai-services/cognitive-services-apis-create-account",
+      "redirect_url": "/azure/ai-services/multi-service-resource",
       "redirect_document_id": true
     },
     {

@@ -11,12 +11,8 @@
     href: https://azure.microsoft.com/pricing/details/cognitive-services/
 - name: Quickstarts
   items:
-  - name: Create a new resource using the Azure portal
-    href: cognitive-services-apis-create-account.md
-  - name: Create a new resource using the Azure CLI
-    href: cognitive-services-apis-create-account-cli.md
-  - name: Create a new resource using the client library
-    href: cognitive-services-apis-create-account-client-library.md
+  - name: Create a multi-service resource
+    href: multi-service-resource.md
   - name: Create a new resource using Bicep
     displayName: Resource Manager, ARM, Template
     href: create-account-bicep.md
@@ -101,7 +97,7 @@
       href: ./security-controls-policy.md
 - name: Responsible use of AI
   items:
-  - name: Responsible use of AI overview
+  - name: Overview
     href: responsible-use-of-ai-overview.md
   - name: Limited Access features
     href: cognitive-services-limited-access.md

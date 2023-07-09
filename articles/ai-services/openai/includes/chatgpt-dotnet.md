@@ -209,8 +209,8 @@ await foreach (StreamingChatChoice choice in streamingChatCompletions.GetChoices
 
 If you want to clean up and remove an Azure OpenAI resource, you can delete the resource. Before deleting the resource, you must first delete any deployed models.
 
-- [Portal](../../cognitive-services-apis-create-account.md#clean-up-resources)
-- [Azure CLI](../../cognitive-services-apis-create-account-cli.md#clean-up-resources)
+- [Portal](../../multi-service-resource.md?pivots=azportal#clean-up-resources)
+- [Azure CLI](../../multi-service-resource.md?pivots=azcli#clean-up-resources)
 
 ## Next steps
 

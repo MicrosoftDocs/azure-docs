@@ -1037,12 +1037,12 @@
         },
         {
             "source_path_from_root": "/articles/cognitive-services/cognitive-services-text-analytics-how-to-access-key.md",
-            "redirect_url": "/azure/ai-services/cognitive-services-apis-create-account",
+            "redirect_url": "/azure/ai-services/multi-service-resource",
             "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/cognitive-services/cognitive-services-text-analytics-how-to-sign-up.md",
-            "redirect_url": "/azure/ai-services/cognitive-services-apis-create-account",
+            "redirect_url": "/azure/ai-services/multi-service-resource",
             "redirect_document_id": false
         },
         {
@@ -1387,7 +1387,7 @@
         },
         {
             "source_path_from_root": "/articles/cognitive-services/Computer-vision/Vision-API-How-to-Topics/HowToSubscribe.md",
-            "redirect_url": "/azure/ai-services/cognitive-services-apis-create-account#single-service-subscription",
+            "redirect_url": "/azure/ai-services/multi-service-resource",
             "redirect_document_id": false
         },
         {

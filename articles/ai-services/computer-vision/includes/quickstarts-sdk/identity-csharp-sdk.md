@@ -143,8 +143,8 @@ End of quickstart.
 
 If you want to clean up and remove an Azure AI services subscription, you can delete the resource or resource group. Deleting the resource group also deletes any other resources associated with it.
 
-* [Portal](../../../cognitive-services-apis-create-account.md#clean-up-resources)
-* [Azure CLI](../../../cognitive-services-apis-create-account-cli.md#clean-up-resources)
+* [Portal](../../../multi-service-resource.md?pivots=azportal#clean-up-resources)
+* [Azure CLI](../../../multi-service-resource.md?pivots=azcli#clean-up-resources)
 
 To delete the **PersonGroup** you created in this quickstart, run the following code in your program:
 

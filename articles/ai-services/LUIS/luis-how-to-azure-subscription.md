@@ -40,7 +40,7 @@ A prediction resource lets you query your prediction endpoint beyond the 1,000 r
 You can use the [v3.0-preview LUIS Endpoint API](https://westus.dev.cognitive.microsoft.com/docs/services/luis-endpoint-api-v3-0-preview/operations/5f68f4d40a511ce5a7440859) to manage prediction resources.
 
 > [!Note]
-> * You can also use a [multi-service resource](../cognitive-services-apis-create-account-cli.md?tabs=multiservice) to get a single endpoint you can use for multiple Azure AI services.
+> * You can also use a [multi-service resource](../multi-service-resource.md?pivots=azcli) to get a single endpoint you can use for multiple Azure AI services.
 > * LUIS provides two types of F0 (free tier) resources: one for authoring transactions and one for prediction transactions. If you're running out of free quota for prediction transactions, make sure you're using the F0 prediction resource, which gives you a 10,000 free transactions monthly, and not the authoring resource, which gives you 1,000 prediction transactions monthly.
 > * You should author LUIS apps in the [regions](luis-reference-regions.md#publishing-regions) where you want to publish and query.
 

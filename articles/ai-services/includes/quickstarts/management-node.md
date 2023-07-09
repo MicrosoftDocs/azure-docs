@@ -70,7 +70,7 @@ Next, add the following `quickstart` function to handle the main work of your pr
 
 Add the following code to the end of your `quickstart` function to list available resources, create a sample resource, list your owned resources, and then delete the sample resource. You'll define these functions in the next steps.
 
-## Create a Azure AI services resource (Node.js)
+## Create an Azure AI services resource (Node.js)
 
 To create and subscribe to a new Azure AI services resource, use the **Create** function. This function adds a new billable resource to the resource group you pass in. When you create your new resource, you'll need to know the "kind" of service you want to use, along with its pricing tier (or SKU) and an Azure location. The following function takes all of these arguments and creates a resource.
 
@@ -81,8 +81,6 @@ To create and subscribe to a new Azure AI services resource, use the **Create** 
 When you create a new resource, you'll need to know the "kind" of service you want to use, along with the [pricing tier](https://azure.microsoft.com/pricing/details/cognitive-services/) (or SKU) you want. You'll use this and other information as parameters when creating the resource. The following function lists the available Cognitive Service "kinds."
 
 [!code-javascript[](~/cognitive-services-quickstart-code/javascript/azure_management_service/create_delete_resource.js?name=snippet_list_avail)]
-
-[!INCLUDE [cognitive-services-subscription-types](../../../../includes/cognitive-services-subscription-types.md)]
 
 [!INCLUDE [SKUs and pricing](./sku-pricing.md)]
 
@@ -111,12 +109,3 @@ Then, in your console window, run the application with the `node` command.
 ```console
 node index.js
 ```
-
-## See also
-
-* See **[Authenticate requests to Azure Azure AI services](../../authentication.md)** on how to securely work with Azure AI services.
-* See **[What are Azure Azure AI services?](../../what-are-ai-services.md)** for a list of Azure AI services.
-* See **[Natural language support](../../language-support.md)** to see the list of natural languages that Azure AI services supports.
-* See **[Use Azure AI services as containers](../../cognitive-services-container-support.md)** to understand how to use Azure AI services on-prem.
-* See **[Plan and manage costs for Azure AI services](../../plan-manage-costs.md)** to estimate cost of using Azure AI services.
-* See **[Azure Management SDK reference documentation](/javascript/api/@azure/arm-cognitiveservices/)** for more details on the management SDK.

@@ -148,7 +148,5 @@ az resource delete --ids /subscriptions/{subscriptionId}/providers/Microsoft.Cog
 
 
 ## See also
-* [Create a new resource using the Azure portal](cognitive-services-apis-create-account.md)
-* [Create a new resource using the Azure CLI](cognitive-services-apis-create-account-cli.md)
-* [Create a new resource using the client library](cognitive-services-apis-create-account-client-library.md)
+* [Create a multi-service resource](multi-service-resource.md)
 * [Create a new resource using an ARM template](create-account-resource-manager-template.md)

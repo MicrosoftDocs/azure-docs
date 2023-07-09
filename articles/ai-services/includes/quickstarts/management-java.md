@@ -91,7 +91,7 @@ Add the following code to your **Main** method to list available resources, crea
 
 [!code-java[](~/cognitive-services-quickstart-code/java/azure_management_service/quickstart.java?name=snippet_calls)]
 
-## Create a Azure AI services resource (Java)
+## Create an Azure AI services resource (Java)
 
 To create and subscribe to a new Azure AI services resource, use the **create** method. This method adds a new billable resource to the resource group you pass in. When creating your new resource, you'll need to know the "kind" of service you want to use, along with its pricing tier (or SKU) and an Azure location. The following method takes all of these as arguments and creates a resource.
 
@@ -102,8 +102,6 @@ To create and subscribe to a new Azure AI services resource, use the **create** 
 When you create a new resource, you'll need to know the "kind" of service you want to use, along with the [pricing tier](https://azure.microsoft.com/pricing/details/cognitive-services/) (or SKU) you want. You'll use this and other information as parameters when creating the resource. You can find a list of available Cognitive Service "kinds" by calling the following method:
 
 [!code-java[](~/cognitive-services-quickstart-code/java/azure_management_service/quickstart.java?name=snippet_list_avail)]
-
-[!INCLUDE [cognitive-services-subscription-types](../../../../includes/cognitive-services-subscription-types.md)]
 
 [!INCLUDE [SKUs and pricing](./sku-pricing.md)]
 
@@ -121,11 +119,3 @@ The following method deletes the specified resource from the given resource grou
 
 If you need to recover a deleted resource, see [Recover deleted Azure AI services resources](../../manage-resources.md).
 
-## See also
-
-* See **[Authenticate requests to Azure Azure AI services](../../authentication.md)** on how to securely work with Azure AI services.
-* See **[What are Azure Azure AI services?](../../what-are-ai-services.md)** for a list of Azure AI services.
-* See **[Natural language support](../../language-support.md)** to see the list of natural languages that Azure AI services supports.
-* See **[Use Azure AI services as containers](../../cognitive-services-container-support.md)** to understand how to use Azure AI services on-prem.
-* See **[Plan and manage costs for Azure AI services](../../plan-manage-costs.md)** to estimate cost of using Azure AI services.
-* See **[Azure Management SDK reference documentation](/java/api/com.microsoft.azure.management.cognitiveservices)** for more details on the management SDK.

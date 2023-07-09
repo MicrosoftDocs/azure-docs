@@ -20,10 +20,6 @@ Use this quickstart to create an Azure AI services resource using [Azure Command
 
 Azure AI services are cloud-based artificial intelligence (AI) services that help developers build cognitive intelligence into applications without having direct AI or data science skills or knowledge. They are available through REST APIs and client library SDKs in popular development languages. Azure AI services enables developers to easily add cognitive features into their applications with cognitive solutions that can see, hear, speak, and analyze.
 
-## Types of Azure AI services resources
-
-[!INCLUDE [cognitive-services-subscription-types](../../includes/cognitive-services-subscription-types.md)]
-
 ## Prerequisites
 
 * A valid Azure subscription - [Create one](https://azure.microsoft.com/free/cognitive-services) for free.
@@ -69,9 +65,6 @@ az group create --name cognitive-services-resource-group --location westus2
 
 When you create a new resource, you'll need to know the kind of service you want to use, along with the [pricing tier](https://azure.microsoft.com/pricing/details/cognitive-services/) (or SKU) you want. You'll use this and other information as parameters when you create the resource.
 
-[!INCLUDE [cognitive-services-subscription-types](../../includes/cognitive-services-subscription-types.md)]
-
-
 [!INCLUDE [SKUs and pricing](./includes/quickstarts/sku-pricing.md)]
 
 You can find a list of available Cognitive Service "kinds" with the [az cognitiveservices account list-kinds](/cli/azure/cognitiveservices/account#az-cognitiveservices-account-list-kinds) command:
@@ -90,7 +83,8 @@ You can create an F0 (free) resource for Anomaly Detector, named `anomaly-detect
 az cognitiveservices account create --name anomaly-detector-resource --resource-group cognitive-services-resource-group  --kind AnomalyDetector --sku F0 --location westus2 --yes
 ```
 
-[!INCLUDE [Register Azure resource for subscription](./includes/register-resource-subscription.md)]
+> [!Tip]
+> If your subscription doesn't allow you to create a Cognitive Service resource, you may need to enable the privilege of that [Azure resource provider](../../../azure-resource-manager/management/resource-providers-and-types.md#register-resource-provider) using the [Azure portal](../../../azure-resource-manager/management/resource-providers-and-types.md#azure-portal), [PowerShell command](../../../azure-resource-manager/management/resource-providers-and-types.md#azure-powershell) or an [Azure CLI command](../../../azure-resource-manager/management/resource-providers-and-types.md#azure-cli). If you are not the subscription owner, ask the _Subscription Owner_ or someone with a role of _admin_ to complete the registration for you or ask for the **/register/action** privileges to be granted to your account.
 
 ## Get the keys for your resource
 
@@ -134,11 +128,3 @@ az group delete --name cognitive-services-resource-group
 ```
 
 If you need to recover a deleted resource, see [Recover deleted Azure AI services resources](manage-resources.md).
-
-## See also
-
-* See **[Authenticate requests to Azure AI services](authentication.md)** on how to securely work with Azure AI services.
-* See **[What are Azure AI services?](./what-are-ai-services.md)** for a list of Azure AI services.
-* See **[Natural language support](language-support.md)** to see the list of natural languages that Azure AI services supports.
-* See **[Use Azure AI services as containers](cognitive-services-container-support.md)** to understand how to use Azure AI services on-prem.
-* See **[Plan and manage costs for Azure AI services](plan-manage-costs.md)** to estimate cost of using Azure AI services.

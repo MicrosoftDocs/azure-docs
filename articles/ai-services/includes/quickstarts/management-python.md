@@ -53,7 +53,7 @@ Then add the following code to construct a **CognitiveServicesManagementClient**
 
 [!code-python[](~/cognitive-services-quickstart-code/python/azure_management_service/create_delete_resource.py?name=snippet_auth)]
 
-## Create a Azure AI services resource (Python)
+## Create an Azure AI services resource (Python)
 
 To create and subscribe to a new Azure AI services resource, use the **Create** function. This function adds a new billable resource to the resource group you pass in. When you create your new resource, you'll need to know the "kind" of service you want to use, along with its pricing tier (or SKU) and an Azure location. The following function takes all of these arguments and creates a resource.
 
@@ -64,8 +64,6 @@ To create and subscribe to a new Azure AI services resource, use the **Create** 
 When you create a new resource, you'll need to know the "kind" of service you want to use, along with the [pricing tier](https://azure.microsoft.com/pricing/details/cognitive-services/) (or SKU) you want. You'll use this and other information as parameters when creating the resource. The following function lists the available Cognitive Service "kinds."
 
 [!code-python[](~/cognitive-services-quickstart-code/python/azure_management_service/create_delete_resource.py?name=snippet_list_avail)]
-
-[!INCLUDE [cognitive-services-subscription-types](../../../../includes/cognitive-services-subscription-types.md)]
 
 [!INCLUDE [SKUs and pricing](./sku-pricing.md)]
 
@@ -96,12 +94,3 @@ Run your application from the command line with the `python` command.
 ```console
 python <your-script-name>.py
 ```
-
-## See also
-
-* See **[Authenticate requests to Azure Azure AI services](../../authentication.md)** on how to securely work with Azure AI services.
-* See **[What are Azure Azure AI services?](../../what-are-ai-services.md)** for a list of Azure AI services.
-* See **[Natural language support](../../language-support.md)** to see the list of natural languages that Azure AI services supports.
-* See **[Use Azure AI services as containers](../../cognitive-services-container-support.md)** to understand how to use Azure AI services on-prem.
-* See **[Plan and manage costs for Azure AI services](../../plan-manage-costs.md)** to estimate cost of using Azure AI services.
-* See **[Azure Management SDK reference documentation](/python/api/azure-mgmt-cognitiveservices/azure.mgmt.cognitiveservices)** for more details on the management SDK.

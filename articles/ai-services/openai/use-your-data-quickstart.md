@@ -47,7 +47,7 @@ In this quickstart you can use your own data with Azure OpenAI models. Using Azu
 
 If you want to clean up and remove an OpenAI or Azure Cognitive Search resource, you can delete the resource or resource group. Deleting the resource group also deletes any other resources associated with it.
 
-- [Azure AI services resources](../cognitive-services-apis-create-account.md#clean-up-resources)
+- [Azure AI services resources](../multi-service-resource.md?pivots=azportal#clean-up-resources)
 - [Azure Cognitive Search resources](/azure/search/search-get-started-portal#clean-up-resources)
 - [Azure app service resources](/azure/app-service/quickstart-dotnetcore?pivots=development-environment-vs#clean-up-resources)
 
