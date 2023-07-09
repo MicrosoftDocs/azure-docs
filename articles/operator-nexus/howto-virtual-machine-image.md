@@ -41,7 +41,7 @@ When preparing a VM image, ensure it meets the following requirements:
    * You need to ensure that your VM image includes cloud-init with the `nocloud` datasource. `nocloud` datasource allows for initial configuration and customization during VM provisioning.
 
 
-## Example: Create image for Azure Operator Nexus virtual machine
+## Create image for Azure Operator Nexus virtual machine
 
 You can create an image for your VNF by using the provided script. It generates a Dockerfile that copies the VNF image file into the container's /disk directory. With the VNF image included within the container, you can package and deploy your VNF.
 
@@ -63,9 +63,6 @@ export CONTAINER_IMAGE_TAG="your_container_image_tag"
 
 # (Mandatory) VNF image (URL, local file, or full local path)
 export VNF_IMAGE="your_vnf_image"
-
-# (Optional) Name of the Dockerfile
-export DOCKERFILE_NAME="nexus-vm-img-dockerfile"
 
 # (Optional) ACR URL (leave empty to derive from ACR_NAME)
 export ACR_URL=""
