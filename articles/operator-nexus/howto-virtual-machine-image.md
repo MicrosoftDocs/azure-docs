@@ -190,6 +190,40 @@ echo "VNF image created successfully!"
 
 After executing the script, you'll have a VM image tailored for your Virtual Network Function (VNF). You can use this image to deploy your VNF.
 
+## Example usage
+
+```bash
+export SUBSCRIPTION=""00000000-0000-0000-0000-000000000000""
+export ACR_NAME="myvnfacr"
+export CONTAINER_IMAGE_NAME="ubuntu"
+export CONTAINER_IMAGE_TAG="20.04"
+export VNF_IMAGE="https://cloud-images.ubuntu.com/releases/focal/release/ubuntu-20.04-server-cloudimg-amd64.img"
+```
+
+```bash
+$ ./vnf-image-builder.sh
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+100  622M  100  622M    0     0  24.7M      0  0:00:25  0:00:25 --:--:-- 26.5M
+[+] Building 36.6s (5/5) FINISHED
+ => [internal] load .dockerignore                                                              0.1s
+ => => transferring context: 2B                                                                0.0s
+ => [internal] load build definition from nexus-vm-img-dockerfile                              0.1s
+ => => transferring dockerfile: 137B                                                           0.0s
+ => [internal] load build context                                                              36.4s
+ => => transferring context: 652.33MB                                                          36.3s
+ => CACHED [1/1] ADD --chown=107:107 ubuntu-20.04-server-cloudimg-amd64.img /disk/             0.0s
+ => exporting to image                                                                         0.0s
+ => => exporting layers                                                                        0.0s
+ => => writing image sha256:5b5f531c132cdbba202136b5ec41c9bfe9d91beeb5acee617c1ef902df4ca772   0.0s
+ => => naming to docker.io/library/ubuntu:20.04                                                0.0s
+Login Succeeded
+The push refers to repository [myvnfacr.azurecr.io/ubuntu]
+b86efae7de58: Layer already exists
+20.04: digest: sha256:d514547ee28d9ed252167d0943d4e711547fda95161a3728c44a275f5d9669a8 size: 529
+VNF image created successfully!
+```
+
 ## Next steps
 
  Refer to the [QuickStart guide](./quickstarts-tenant-workload-deployment.md) to deploy a VNF using the image you created.
