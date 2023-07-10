@@ -3072,6 +3072,8 @@
         href: cisco-webex-provisioning-tutorial.md
       - name: Clarizen One
         href: clarizen-one-provisioning-tutorial.md
+      - name: Cleanmail Swiss
+        href: cleanmail-swiss-provisioning-tutorial.md
       - name: Clebex
         href: clebex-provisioning-tutorial.md
       - name: Cloud Academy - SSO
@@ -3436,6 +3438,8 @@
         href: tableau-online-provisioning-tutorial.md
       - name: Talentech
         href: talentech-provisioning-tutorial.md
+      - name: Tanium SSO
+        href: tanium-sso-provisioning-tutorial.md
       - name: Tap App Security
         href: tap-app-security-provisioning-tutorial.md
       - name: Taskize Connect
