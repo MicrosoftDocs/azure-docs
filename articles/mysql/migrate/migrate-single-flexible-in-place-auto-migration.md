@@ -96,7 +96,7 @@ Copy the following properties from the source Single Server to target Flexible S
 
 **Q. How can I defer the scheduled migration?​**
 
-**A.** You can review the migration schedule by navigating to the Migration blade of your Single Server instance. If you wish to defer the migration, you can defer by a month at the most by navigating to the Migration blade of your single server instance on the Azure portal and re-scheduling the migration by selecting another migration window within a month. Note, the migration details will be locked 7 days prior to the scheduled migration window after which you're unable to reschedule. This in-place migration can be deferred monthly until 16 September 2024.  
+**A.** You can review the migration schedule by navigating to the Migration blade of your Single Server instance. If you wish to defer the migration, you can defer by a month at the most by navigating to the Migration blade of your single server instance on the Azure portal and re-scheduling the migration by selecting another migration window within a month. Note that the migration details will be locked 7 days prior to the scheduled migration window after which you're unable to reschedule. This in-place migration can be deferred monthly until 16 September 2024.  
 
 **Q. What are some post-migration activities I need to perform?​**
 

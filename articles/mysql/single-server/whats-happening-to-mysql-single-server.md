@@ -115,11 +115,11 @@ To upgrade to Azure Database for MySQL Flexible Server, it's important to know w
 
 **Q. I have private link configured for my single server, and this feature is not currently supported in Flexible Server. How do I migrate?**
 
-**A.** Flexible Server support for private link is on our road map as our highest priority. Launch of the feature is planned in Q2 2023 and you have ample time to initiate your Single Server to Flexible Server migrations with private link configured. You can also choose to migrate now and perform VNet injection via a point-in-time restore operation to move to private access network connectivity method.
+**A.** Private Link for flexible server is available now, and you can start migrating your single server.
 
 **Q. I have cross-region read replicas configured for my single server, and this feature is not currently supported in Flexible Server. How do I migrate?**
 
-**A.** Flexible Server support for cross-region read replicas is on our roadmap as our highest priority. Cross-Region Read Replicas for flexible server (for paired region) is in private preview, and you can start migrating your single server. Cross-Region Read Replicas for flexible server (for any cross-region) is on the road map for later this year, post, which you can migrate your single server.
+**A.**  Cross-Region Read Replicas for flexible server (for paired region) is available now, and you can start migrating your single server.
 
 **Q. I have TLS v1.0/1.1 configured for my v8.0 single server, and this feature is not currently supported in Flexible Server. How do I migrate?**
 
