@@ -155,13 +155,13 @@ To validate the internal routing,
    deploy the test tool application inside the Operator Nexus cluster.
 To test the routing across the CE, based on the  application characteristics,
    deploy the test tool application outside the Operator Nexus cluster.
-1. Azure PaaS integration (optional): Microsoft precert environment will be
+8. Azure PaaS integration (optional): Microsoft precert environment will be
    connected to an Azure region using ExpressRoute. The NEP partner can also integrate
    Azure PaaS services with their application. They can verify that the PaaS functionality is working as designed.
-2. After testing is complete, delete NF resources
+9. After testing is complete, delete NF resources
    in the ANFM service and verify that the container pods are removed from the
    subcluster.
-3. Verify all the tenant cluster and fabric components are deleted. Validate that deleting the network fabric
+10. Verify all the tenant cluster and fabric components are deleted. Validate that deleting the network fabric
     resources removes the corresponding configuration on the Network
     devices.
 
