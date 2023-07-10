@@ -52,7 +52,7 @@ az acr task create \
     --registry $ACR_NAME \
     --name taskhelloworld \
     --image helloworld:{{.Run.ID}} \
-    --context https://github.com/$GIT_USER/acr-build-helloworld-node.git#main \
+    --context https://github.com/$GIT_USER/acr-build-helloworld-node.git#master \
     --file Dockerfile \
     --git-access-token $GIT_PAT
 ```

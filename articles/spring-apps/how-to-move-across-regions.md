@@ -1,12 +1,12 @@
 ---
 title: Move an Azure Spring Apps service instance to another region
 description: Learn how to move an Azure Spring Apps service instance to another region.
-author: karlerickson
+author: KarlErickson
 ms.author: wepa
 ms.service: spring-apps
 ms.topic: how-to
 ms.date: 01/27/2022
-ms.custom: devx-track-java, event-tier1-build-2022, engagement-fy23
+ms.custom: devx-track-java, devx-track-extended-java, event-tier1-build-2022, engagement-fy23
 ---
 
 # Move an Azure Spring Apps service instance to another region
@@ -116,7 +116,7 @@ Use the following steps to modify the *template.json* file. In the following exa
    }
    ```
 
-1. If any custom domain resources are configured, create the CNAME records as described in [Tutorial: Map an existing custom domain to Azure Spring Apps](tutorial-custom-domain.md). Make sure the record name is expected for the new service name.
+1. If any custom domain resources are configured, create the CNAME records as described in [Tutorial: Map an existing custom domain to Azure Spring Apps](how-to-custom-domain.md). Make sure the record name is expected for the new service name.
 
 1. The following example shows how to change all `relativePath` instances in the template `properties` for all app resources to `<default>`:
 

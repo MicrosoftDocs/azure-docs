@@ -4,7 +4,7 @@ description: How to install and manage certificates on an Azure IoT Edge device 
 author: PatAltimore
 
 ms.author: patricka
-ms.date: 4/18/2023
+ms.date: 6/23/2023
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
@@ -63,6 +63,10 @@ If your PKI provider provides a `.cer` file, it may contain the same certificate
 
 * If it's in DER (binary) format, convert it to PEM with `openssl x509 -in cert.cer -out cert.pem`.
 * Use the PEM file as the trust bundle. For more information about the trust bundle, see the next section.
+
+> [!IMPORTANT]
+> Your PKI infrastructure should support RSA-2048 bit keys and EC P-256 keys. For example, your EST servers should support these key types. You can use other key types, but we only test RSA-2048 bit keys and EC P-256 keys.
+>
 
 ## Permission requirements
 

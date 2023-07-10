@@ -3,7 +3,7 @@ title: Overview of enhanced soft delete for Azure Backup (preview)
 description: This article gives an overview of enhanced soft delete for Azure Backup.
 ms.topic: conceptual
 ms.custom: references_regions
-ms.date: 06/16/2023
+ms.date: 06/29/2023
 ms.service: backup
 author: jyothisuri
 ms.author: jsuri
@@ -45,7 +45,7 @@ The key benefits of enhanced soft delete are:
 ## Supported regions
 
 - Enhanced soft delete is available in all Azure public regions.
-- Soft delete of recovery points is currently in preview in West Central US, Australia East, North Europe, South Central US, Australia Central, Australia Central 2, Canada East, India Central, India South,Japan West, Japan East, Korea Central, Korea South, France South, France Central, Sweden Central, Sweden South, West Europe, UK South, Australia South East, Brazil South, Brazil South East, Canada Central, UK West.
+- Soft delete of recovery points is now available in all Azure public regions.
 
 ## Supported scenarios
 

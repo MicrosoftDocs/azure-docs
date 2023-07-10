@@ -5,6 +5,7 @@ ms.topic: overview
 author: Vikram1988
 ms.author: vibansa
 ms.manager: abhemraj
+ms.service: azure-migrate
 ms.date: 06/06/2023
 ms.custom: mvc, engagement-fy23
 ---
@@ -25,7 +26,7 @@ ms.custom: mvc, engagement-fy23
 - Build business case using Azure Migrate for:
     - Servers and workloads running in your Microsoft Hyper-V and Physical/ Bare-metal environments as well as IaaS services of other public cloud.
     - SQL Server Always On Failover Cluster Instances and Always On Availability Groups. [Learn more](how-to-discover-applications.md).
-- Envision savings with Azure Hybird Benefits by bringing your existing Windows Server licenses to Azure using Azure VM assessments. 
+- Envision savings with Azure Hybrid Benefits by bringing your existing Windows Server licenses to Azure using Azure VM assessments. 
 ## Update (March 2023)
 - Support for discovery and assessment of web apps for Azure app service for Hyper-V and Physical servers. [Learn more](how-to-create-azure-app-service-assessment.md).
 
@@ -63,7 +64,6 @@ Learn more on how to perform [software inventory](how-to-discover-applications.m
 ## Update (October 2022)
 
 - Support for export of errors and notifications from the portal for software inventory and agentless dependency.
-- Private preview: Plan replication. This is a new feature added to the Migration and Modernization tool of Azure Migrate. It helps to estimate the time and resources required for replication and migration of the discovered servers. This feature will help in planning the replication and migration schedule. Currently, the feature is available for VMware agentless migrations.  To enroll for private preview, please fill this [form](https://forms.office.com/pages/responsepage.aspx?id=v4j5cvGGr0GRqy180BHbR2QMeqnlmM1An_w4S8FpvJ5UNEQ1VEgzNUpEUE0xODBHVUdVVUxGMUdVNS4u).
 
 ## Update (September 2022)
 

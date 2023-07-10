@@ -4,6 +4,7 @@ description: Learn how to set up an Azure Migrate appliance in Azure Government
 author: vikram1988
 ms.author: vibansa
 ms.manager: abhemraj
+ms.service: azure-migrate
 ms.topic: how-to
 ms.date: 06/15/2023
 ms.custom: engagement-fy23 

@@ -151,11 +151,6 @@
     items:
     - name: Troubleshoot issues
       href: troubleshoot.md
-  - name: Training videos
-    expanded: false
-    items:
-    - name: Get started with Permissions Management training videos
-      href: training-videos.md
   - name: Reference
     expanded: false
     items:

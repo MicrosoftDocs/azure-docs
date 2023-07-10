@@ -3,7 +3,7 @@ title: Assign Azure AD roles in PIM
 description: Learn how to assign Azure AD roles in Azure AD Privileged Identity Management (PIM).
 services: active-directory
 documentationcenter: ''
-author: amsliu
+author: billmath
 manager: amycolannino
 editor: ''
 ms.service: active-directory
@@ -11,7 +11,7 @@ ms.topic: how-to
 ms.workload: identity
 ms.subservice: pim
 ms.date: 02/02/2022
-ms.author: amsliu
+ms.author: billmath
 ms.reviewer: shaunliu
 ms.collection: M365-identity-device-management
 ms.custom: subject-rbac-steps
@@ -245,7 +245,7 @@ The following is an example of the response. The response object shown here migh
 
 ## Update or remove an existing role assignment
 
-Follow these steps to update or remove an existing role assignment. **Azure AD P2 licensed customers only**: Don't assign a group as Active to a role through both Azure AD and Privileged Identity Management (PIM). For a detailed explanation, see [Known issues](../roles/groups-concept.md#known-issues).
+Follow these steps to update or remove an existing role assignment. **Microsoft Entra Premium P2 or Microsoft Entra ID Governance licensed customers only**: Don't assign a group as Active to a role through both Azure AD and Privileged Identity Management (PIM). For a detailed explanation, see [Known issues](../roles/groups-concept.md#known-issues).
 
 1. Open **Azure AD Privileged Identity Management**.
 

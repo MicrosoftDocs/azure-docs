@@ -25,8 +25,8 @@ Use the OCR client library to read printed and handwritten text from a remote im
 
 * An Azure subscription - [Create one for free](https://azure.microsoft.com/free/cognitive-services/)
 * The [Visual Studio IDE](https://visualstudio.microsoft.com/vs/) or current version of [.NET Core](https://dotnet.microsoft.com/download/dotnet-core).
-* Once you have your Azure subscription, <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesComputerVision"  title="Create a Computer Vision resource"  target="_blank">create a Computer Vision resource </a> in the Azure portal to get your key and endpoint. After it deploys, click **Go to resource**.
-    * You will need the key and endpoint from the resource you create to connect your application to the Computer Vision service. You'll paste your key and endpoint into the code below later in the quickstart.
+* Once you have your Azure subscription, <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesComputerVision"  title="Create a Computer Vision resource"  target="_blank">create a Computer Vision resource </a> in the Azure portal to get your key and endpoint. After it deploys, select **Go to resource**.
+    * You'll need the key and endpoint from the resource you create to connect your application to the Computer Vision service. Paste your key and endpoint into the code below later in the quickstart.
     * You can use the free pricing tier (`F0`) to try the service, and upgrade later to a paid tier for production.
 
 
@@ -97,7 +97,7 @@ Use the OCR client library to read printed and handwritten text from a remote im
 
    #### [Visual Studio IDE](#tab/visual-studio)
 
-   Click the **Debug** button at the top of the IDE window.
+   Select the **Debug** button at the top of the IDE window.
 
    #### [CLI](#tab/cli)
 

@@ -3,7 +3,7 @@ title: Quickstart - Register an existing system with Azure Center for SAP soluti
 description: Learn how to register an existing SAP system in Azure Center for SAP solutions through Azure PowerShell module.
 ms.service: sap-on-azure
 ms.subservice: center-sap-solutions
-ms.custom: references_regions
+ms.custom: references_regions, devx-track-azurepowershell
 ms.topic: how-to
 ms.date: 05/04/2023
 ms.author: kanamudu
@@ -20,7 +20,7 @@ After you register an SAP system with *Azure Center for SAP solutions*, you can 
 This quickstart requires the Az PowerShell module version 1.0.0 or later. Run `Get-Module -ListAvailable Az` to find the version. If you need to install or upgrade, see [Install Azure PowerShell module](/powershell/azure/install-az-ps).
 
 ## Prerequisites for Registering a system
-- Check that you're trying to register a [supported SAP system configuration](/articles/sap/center-sap-solutions/register-existing-system.md)
+- Check that you're trying to register a [supported SAP system configuration](/azure/sap/center-sap-solutions/register-existing-system#supported-systems)
 - Grant access to Azure Storage accounts from the virtual network where the SAP system exists. Use one of these options:
     - Allow outbound internet connectivity for the VMs.
     - Use a [**Storage** service tag](../../virtual-network/service-tags-overview.md) to allow connectivity to any Azure storage account from the VMs.

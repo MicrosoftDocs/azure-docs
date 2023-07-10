@@ -10,12 +10,7 @@ ms.custom: engagement-fy23
 #Customer intent: As a developer, I want to export one or more ISE workflows to a Standard workflow.
 ---
 
-# Export ISE workflows to a Standard logic app (Preview)
-
-> [!NOTE]
->
-> This capability is in preview and is subject to the 
-> [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+# Export ISE workflows to a Standard logic app
 
 Standard logic app workflows, which run in single-tenant Azure Logic Apps, offer many new and improved capabilities. For example, you get compute isolation, virtual network integration, and private endpoints along with App Services Environment hosting, local development and debugging using Visual Studio Code, low latency with stateless workflows, and more.
 

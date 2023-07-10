@@ -41,7 +41,7 @@ View the upcoming version releases on the AKS Kubernetes release calendar. To se
 > [!NOTE]
 > AKS follows 12 months of support for a generally available (GA) Kubernetes version. To read more about our support policy for Kubernetes versioning, please read our [FAQ](./supported-kubernetes-versions.md#faq).
 
-For the past release history, see [Kubernetes history](https://en.wikipedia.org/wiki/Kubernetes#History).
+For the past release history, see [Kubernetes history](https://github.com/kubernetes/kubernetes/releases).
 
 |  K8s version | Upstream release  | AKS preview  | AKS GA  | End of life |
 |--------------|-------------------|--------------|---------|-------------|

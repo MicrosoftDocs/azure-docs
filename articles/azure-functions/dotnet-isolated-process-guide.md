@@ -258,31 +258,24 @@ The following example demonstrates the use of `HttpRequestData` and `HttpRespons
 This section shows how to work with the underlying HTTP request and response objects using types from ASP.NET Core including [HttpRequest], [HttpResponse], and [IActionResult]. Use of this feature for local testing requires [Core Tools version 4.0.5198 or later](./functions-run-local.md). This model is not available to [apps targeting .NET Framework][supported-versions], which should instead leverage the [built-in model](#built-in-http-model).
 
 > [!NOTE]
-> Not all features of ASP.NET Core are exposed by this model. Specifically, the ASP.NET Core middleware pipeline and routing capabilities are not available. In the initial preview versions of the integration package, route info is missing from the `HttpRequest` and `HttpContext` objects, and accessing route parameters should be done through the `FunctionContext` object or via parameter injection.
+> Not all features of ASP.NET Core are exposed by this model. Specifically, the ASP.NET Core middleware pipeline and routing capabilities are not available.
 
-1. Add a reference to the [Microsoft.Azure.Functions.Worker.Extensions.Http.AspNetCore NuGet package](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker.Extensions.Http.AspNetCore) to your project.
+1. Add a reference to the [Microsoft.Azure.Functions.Worker.Extensions.Http.AspNetCore NuGet package, version 1.0.0-preview2 or later](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker.Extensions.Http.AspNetCore/1.0.0-preview2) to your project.
 
-  You must also update your project to use [version 1.10.0 or later of Microsoft.Azure.Functions.Worker.Sdk](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker.Sdk/1.10.0) and [version 1.14.1 or later of Microsoft.Azure.Functions.Worker](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker/1.14.1).
+  You must also update your project to use [version 1.11.0 or later of Microsoft.Azure.Functions.Worker.Sdk](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker.Sdk/1.11.0) and [version 1.16.0 or later of Microsoft.Azure.Functions.Worker](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker/1.16.0).
 
-2. In your `Program.cs` file, update the host builder configuration to include the `UseAspNetCoreIntegration()` and `ConfigureAspNetCoreIntegration()` methods. The following example shows a minimal setup without other customizations:
+2. In your `Program.cs` file, update the host builder configuration to use `ConfigureFunctionsWebApplication()` instead of `ConfigureFunctionsWorkerDefaults()`. The following example shows a minimal setup without other customizations:
 
     ```csharp
     using Microsoft.Extensions.Hosting;
     using Microsoft.Azure.Functions.Worker;
     
     var host = new HostBuilder()
-        .ConfigureFunctionsWorkerDefaults(workerApplication =>
-        {
-            workerApplication.UseAspNetCoreIntegration();
-        })
-        .ConfigureAspNetCoreIntegration()
+        .ConfigureFunctionsWebApplication()
         .Build();
     
     host.Run();
     ```
-
-    > [!NOTE]
-    > Initial preview versions of the integration package require both `UseAspNetCoreIntegration()` and `ConfigureAspNetCoreIntegration()` to be called, but these setup steps are not yet finalized.
 
 3. You can then update your HTTP-triggered functions to use the ASP.NET Core types. The following example shows `HttpRequest` and an `IActionResult` used for a simple "hello, world" function:
 

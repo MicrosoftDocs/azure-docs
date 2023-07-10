@@ -17,12 +17,12 @@ monikerRange: 'azureml-api-2 || azureml-api-1'
 # Regenerate storage account access keys
 
 :::moniker range="azureml-api-2"
-[!INCLUDE [cli v2](../../includes/machine-learning-dev-v2.md)]
-[!INCLUDE [SDK v2](../../includes/machine-learning-sdk-v2.md)]
+[!INCLUDE [cli v2](includes/machine-learning-dev-v2.md)]
+[!INCLUDE [SDK v2](includes/machine-learning-sdk-v2.md)]
 :::moniker-end
 :::moniker range="azureml-api-1"
-[!INCLUDE [cli v1](../../includes/machine-learning-dev-v1.md)]
-[!INCLUDE [SDK v1](../../includes/machine-learning-sdk-v1.md)]
+[!INCLUDE [cli v1](includes/machine-learning-dev-v1.md)]
+[!INCLUDE [SDK v1](includes/machine-learning-sdk-v1.md)]
 :::moniker-end
 
 Learn how to change the access keys for Azure Storage accounts used by Azure Machine Learning. Azure Machine Learning can use storage accounts to store data or trained models.
@@ -144,7 +144,7 @@ To update Azure Machine Learning to use the new key, use the following steps:
         az login
         ```
 
-        [!INCLUDE [select-subscription](../../includes/machine-learning-cli-subscription.md)]
+        [!INCLUDE [select-subscription](includes/machine-learning-cli-subscription.md)]
 
     1. To update the workspace to use the new key, use the following command. Replace `myworkspace` with your Azure Machine Learning workspace name, and replace `myresourcegroup` with the name of the Azure resource group that contains the workspace.
 

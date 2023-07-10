@@ -1002,7 +1002,7 @@ sections:
           |Feature                                                                                                             | .NET      | Node.js   | Python    | Java               |
           |--------------------------------------------------------------------------------------------------------------------|-----------|-----------|-----------|--------------------|
           | [Distributed tracing](app/distributed-tracing-telemetry-correlation.md)                                            | :warning: | :warning: | :warning: | :white_check_mark: |
-          | [Custom metrics](app/opentelemetry-enable.md#add-custom-metrics)                                                   | :warning: | :warning: | :warning: | :white_check_mark: |
+          | [Custom metrics](app/opentelemetry-add-modify.md#add-custom-metrics)                                                   | :warning: | :warning: | :warning: | :white_check_mark: |
           | [Standard metrics](app/standard-metrics.md) (accuracy currently affected by sampling)                              | :warning: | :warning: | :warning: | :white_check_mark: |
           | [Fixed-rate sampling](app/sampling.md)                                                                             | :warning: | :warning: | :warning: | :white_check_mark: |
           | [Offline storage and automatic retries](app/opentelemetry-configuration.md#offline-storage-and-automatic-retries)  | :warning: | :warning: | :warning: | :white_check_mark: |
@@ -1227,6 +1227,11 @@ sections:
         answer:
           By default, Normal event types aren't collected unless the *collect_all_kube_events* ConfigMap setting is enabled. If you need to collect Normal events, enable *collect_all_kube_events setting* in the *container-azm-ms-agentconfig* ConfigMap. See [Configure agent data collection for Container insights](containers/container-insights-agent-config.md) for information on how to configure the ConfigMap.
 
+      - question: |
+          Does Container Insights support pod sandboxing?
+        answer: |
+          Yes, Container Insights supports pod sandboxing through support for Kata Containers. For more details on pod sandboxing in AKS, [refer to the AKS docs](https://learn.microsoft.com/azure/aks/use-pod-sandboxing).
+          
 
       
   - name: VM insights

@@ -325,7 +325,7 @@ This section describes the function app configuration settings available for fun
 
 |Property  |Default | Description |
 |---------|---------|---------|
-|maxDegreeOfParallelism|8 * (the number of available cores)|The integer number of concurrent invocations allowed for each blob-triggered function. The minimum allowed value is 1.|
+|maxDegreeOfParallelism|8 * (the number of available cores)|The integer number of concurrent invocations allowed for all blob-triggered functions in a given function app. The minimum allowed value is 1.|
 
 ## Next steps
 
