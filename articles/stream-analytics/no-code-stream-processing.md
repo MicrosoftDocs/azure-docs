@@ -88,7 +88,7 @@ For more information about the streaming data inputs, see [Stream data as input 
 > [!NOTE]
 > The no-code editor in the Azure Event Hubs portal only has **Event Hub** as an input option.
 
-:::image type="content" source="./media/no-code-stream-processing/streaming-input-type.png" alt-text="Screenshot that shows the streaming inputtype." lightbox="./media/no-code-stream-processing/streaming-input-type.png" :::
+:::image type="content" source="./media/no-code-stream-processing/streaming-input-type.png" alt-text="Screenshot that shows the streaming input type." lightbox="./media/no-code-stream-processing/streaming-input-type.png" :::
 
 ### Azure Event Hubs as streaming input
 
@@ -149,7 +149,7 @@ Azure Data Lake Storage Gen2 (ADLS Gen2) is a cloud-based, enterprise data lake 
 
 To add an ADLS Gen2 as a streaming input for your job, select the **ADLS Gen2** under **Inputs** from the ribbon. Then fill in the needed information in the right panel to connect ADLS Gen2 to your job. To learn more about the details of each field, see [Stream data from ADLS Gen2 to Stream Analytics job](./stream-analytics-define-inputs.md#stream-data-from-blob-storage-or-data-lake-storage-gen2)
 
-:::image type="content" source="./media/no-code-stream-processing/adls-gen2-input.png" alt-text="Screenshot that shows adls gen2 input configuration." lightbox= "./media/no-code-stream-processing/adls-gen2-input.png" :::
+:::image type="content" source="./media/no-code-stream-processing/adls-gen2-input.png" alt-text="Screenshot that shows Azure Data Lake Storage Gen2 input configuration." lightbox= "./media/no-code-stream-processing/adls-gen2-input.png" :::
 
 ## Reference data inputs
 
@@ -171,7 +171,7 @@ First, under the **Inputs** section on the ribbon, select **Reference ADLS Gen2*
 
 Then, upload a JSON array file. The fields in the file will be detected. Use this reference data to perform transformation with streaming input data from Event Hubs.
 
-![Screenshot that shows selections for uploading JSON for reference data.](./media/no-code-stream-processing/blob-referencedata-upload-nocode.png)
+[ ![Screenshot that shows selections for uploading JSON for reference data.](./media/no-code-stream-processing/blob-referencedata-upload-nocode.png) ](./media/no-code-stream-processing/blob-referencedata-upload-nocode.png#lightbox)
 
 ### Azure SQL Database as reference data
 
