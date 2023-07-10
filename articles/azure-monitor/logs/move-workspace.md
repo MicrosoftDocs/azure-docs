@@ -38,7 +38,7 @@ GET https://management.azure.com/subscriptions/{subscriptionId}/resourcegroups/{
 
 ### [CLI](#tab/cli)
 
-Run the [az account tenant](/cli/azure/account/tenant) command and set the `--subscription` parameter to the source and destination subscriptions:
+Run the [az account tenant](/cli/azure/account/tenant) command:
 
 ```azurecli
 az account tenant list --subscription <your-source-subscription>
@@ -46,6 +46,8 @@ az account tenant list --subscription <your-destination-subscription>
 ```
 
 ### [PowerShell](#tab/PowerShell)
+
+Run the [Get-AzSubscription](/powershell/module/az.accounts/get-azsubscription/) command:
 
 ```powershell
 (Get-AzSubscription -SubscriptionName <your-source-subscription>).TenantId
