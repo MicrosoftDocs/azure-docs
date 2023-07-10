@@ -328,37 +328,37 @@ To mount the Azure Files file share into your pod, you configure the volume in t
 
 1. Create a new file named `azure-files-pod.yaml` and copy in the following contents. If you changed the name of the file share or secret name, update the `shareName` and `secretName`. You can also update the `mountPath`, which is the path where the Files share is mounted in the pod. For Windows Server containers, specify a `mountPath` using the Windows path convention, such as *'D:'*.
 
-    ```yaml
-    apiVersion: v1
-    kind: Pod
-    metadata:
+```yaml
+apiVersion: v1
+kind: Pod
+metadata:
+  name: mypod
+spec:
+  nodeSelector:
+    kubernetes.io/os: linux
+  containers:
+    - image: 'mcr.microsoft.com/oss/nginx/nginx:1.15.5-alpine'
       name: mypod
-    spec:
-      nodeSelector:
-        kubernetes.io/os: linux
-      containers:
-     - image: mcr.microsoft.com/oss/nginx/nginx:1.15.5-alpine
-        name: mypod
-        resources:
-          requests:
-            cpu: 100m
-            memory: 128Mi
-          limits:
-            cpu: 250m
-            memory: 256Mi
-        volumeMounts:
-          - name: azure
-            mountPath: /mnt/azure
-      volumes:
-     - name: azure
-        csi:
-          driver: file.csi.azure.com
-          readOnly: false
-          volumeAttributes:
-            secretName: azure-secret  # required
-            shareName: aksshare  # required
-            mountOptions: "dir_mode=0777,file_mode=0777,cache=strict,actimeo=30,nosharesock"  # optional
-    ```
+      resources:
+        requests:
+          cpu: 100m
+          memory: 128Mi
+        limits:
+          cpu: 250m
+          memory: 256Mi
+      volumeMounts:
+        - name: azure
+          mountPath: /mnt/azure
+  volumes:
+    - name: azure
+      csi: 
+        driver: file.csi.azure.com
+        readOnly: false
+        volumeAttributes:
+          secretName: azure-secret  # required
+          shareName: aksshare  # required
+          mountOptions: 'dir_mode=0777,file_mode=0777,cache=strict,actimeo=30,nosharesock'  # optional
+```
 
 2. Create the pod using the [`kubectl apply`][kubectl-apply] command.
 
