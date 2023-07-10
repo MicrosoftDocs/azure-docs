@@ -66,9 +66,314 @@ During the setup process, you create private endpoints to the following resource
 
 | Purpose | Resource type | Target sub-resource | Quantity | Private DNS zone name |
 |--|--|--|--|--|
-| Initial feed discovery | Microsoft.DesktopVirtualization/workspaces | global | **Only one for all your Azure Virtual Desktop deployments** | `privatelink-global.wvd.microsoft.com` |
-| Feed download | Microsoft.DesktopVirtualization/workspaces | feed | One per workspace | `privatelink.wvd.microsoft.com` |
 | Connections to host pools | Microsoft.DesktopVirtualization/hostpools | connection | One per host pool | `privatelink.wvd.microsoft.com` |
+| Feed download | Microsoft.DesktopVirtualization/workspaces | feed | One per workspace | `privatelink.wvd.microsoft.com` |
+| Initial feed discovery | Microsoft.DesktopVirtualization/workspaces | global | **Only one for all your Azure Virtual Desktop deployments** | `privatelink-global.wvd.microsoft.com` |
+
+### Connections to host pools
+
+To create a private endpoint for the *connection* sub-resource for connections to a host pool, select the relevant tab for your scenario and follow the steps.
+
+# [Portal](#tab/portal)
+
+1. Sign in to the [Azure portal](https://portal.azure.com/).
+
+1. In the search bar, type *Azure Virtual Desktop* and select the matching service entry to go to the Azure Virtual Desktop overview.
+
+1. Select **Host pools**, then select the name of the host pool you want to create a *connection* sub-resource for.
+
+1. From the host pool overview, select **Networking**, then **Private endpoint connections**, and finally **New private endpoint**.
+
+1. On the **Basics** tab, complete the following information:
+
+   | Parameter | Value/Description |
+   |--|--|
+   | Subscription | Select the subscription you want to create the private endpoint in from the drop-down list. |
+   | Resource group | This automatically defaults to the same resource group as your workspace for the private endpoint, but you can also select an alternative existing one from the drop-down list, or create a new one. |
+   | Name | Enter a name for the new private endpoint. |
+   | Network interface name | The network interface name fills in automatically based on the name you gave the private endpoint, but you can also specify a different name. |
+   | Region | This automatically defaults to the same Azure region as the workspace and is where the private endpoint is deployed. This must be the same region as your virtual network and session hosts. |
+
+   Once you've completed this tab, select **Next: Resource**.
+
+1. On the **Resource** tab, validate the values for *Subscription*, *Resource type*, and *Resource*, then for **Target sub-resource**, select **connection**. Once you've completed this tab, select **Next: Virtual Network**.
+
+1. On the **Virtual Network** tab, complete the following information:
+
+   | Parameter | Value/Description |
+   |--|--|
+   | Virtual network | Select the virtual network you want to create the private endpoint in from the drop-down list. |
+   | Subnet | Select the subnet of the virtual network you want to create the private endpoint in from the drop-down list. |
+   | Network policy for private endpoints | Select **edit** if you want to choose a subnet network policy. For more information, see [Manage network policies for private endpoints](../private-link/disable-private-endpoint-network-policy.md). |
+   | Private IP configuration | Select **Dynamically allocate IP address** or **Statically allocate IP address**. The address space is from the subnet you selected.<br /><br />If you choose to statically allocate IP addresses, you need to fill in the **Name** and **Private IP** for each listed member. |
+   | Application security group | *Optional*: select an existing application security group for the private endpoint from the drop-down list, or create a new one. |
+
+   Once you've completed this tab, select **Next: DNS**.
+
+1. On the **DNS** tab, choose whether you want to use [Azure Private DNS Zone](../dns/private-dns-privatednszone.md) by selecting **Yes** or **No** for **Integrate with private DNS zone**. If you select **Yes**, select the subscription and resource group in which to create the private DNS zone `privatelink.wvd.microsoft.com`. For more information, see [Azure Private Endpoint DNS configuration](../private-link/private-endpoint-dns.md).
+
+   Once you've completed this tab, select **Next: Tags**.
+
+1. *Optional*: On the **Tags** tab, you can enter any name/value pairs you need, then select **Next: Review + create**.
+
+1. On the **Review + create** tab, ensure validation passes and review the information that is used during deployment.
+
+1. Select **Create** to create the private endpoint for the connection sub-resource.
+
+# [Azure CLI](#tab/cli)
+
+TODO: ADD
+
+# [Azure PowerShell](#tab/powershell)
+
+Here's how to create a private endpoint for the *connection* sub-resource used for the feed download.
+
+1. In the same PowerShell session, create a Private Link service connection for a host pool with the connection sub-resource by running the following commands. In these example the same virtual network and subnet are used.
+
+   ```azurepowershell
+   # Get the details of the host pool
+   $hostPoolId = (Get-AzWvdHostPool -Name <HostPoolName> -ResourceGroupName <ResourceGroupName>).Id
+
+   # Create the service connection
+   $parameters = @{
+       Name = '<ServiceConnectionName>'
+       PrivateLinkServiceId = $hostPoolId
+       GroupId = 'connection'
+   }
+
+   $serviceConnection = New-AzPrivateLinkServiceConnection @parameters
+   ```
+
+1. Finally, create the private endpoint by running the following commands in one of the following examples.
+
+   1. To create a private endpoint with a dynamically allocated IP addresses:
+   
+      ```azurepowershell
+      # Specify the Azure region. This must be the same region as your virtual network and session hosts.
+      $location = '<Location>'
+   
+      # Create the private endpoint
+      $parameters = @{
+          Name = '<PrivateEndpointName>'
+          ResourceGroupName = '<ResourceGroupName>'
+          Location = $location
+          Subnet = $subnet
+          PrivateLinkServiceConnection = $serviceConnection
+      }
+   
+      New-AzPrivateEndpoint @parameters
+      ```
+
+   1. To create a private endpoint with statically allocated IP addresses:
+   
+      ```azurepowershell
+      # Specify the Azure region. This must be the same region as your virtual network and session hosts.
+      $location = '<Location>'
+
+      # Create a hash table for each private endpoint IP configuration
+      $ip1 = @{
+          Name = 'ipconfig1'
+          GroupId = 'connection'
+          MemberName = 'broker'
+          PrivateIPAddress = '<IPAddress>'
+      }
+
+      $ip2 = @{
+          Name = 'ipconfig2'
+          GroupId = 'connection'
+          MemberName = 'diagnostics'
+          PrivateIPAddress = '<IPAddress>'
+      }
+
+      $ip3 = @{
+          Name = 'ipconfig3'
+          GroupId = 'connection'
+          MemberName = 'gateway-ring-map'
+          PrivateIPAddress = '<IPAddress>'
+      }
+
+      $ip4 = @{
+          Name = 'ipconfig4'
+          GroupId = 'connection'
+          MemberName = 'web'
+          PrivateIPAddress = '<IPAddress>'
+      }
+
+      # Create the private endpoint IP configurations
+      $ipConfig1 = New-AzPrivateEndpointIpConfiguration @ip1
+      $ipConfig2 = New-AzPrivateEndpointIpConfiguration @ip2
+      $ipConfig3 = New-AzPrivateEndpointIpConfiguration @ip3
+      $ipConfig4 = New-AzPrivateEndpointIpConfiguration @ip4
+
+      # Create the private endpoint
+      $parameters = @{
+          Name = '<PrivateEndpointName>'
+          ResourceGroupName = '<ResourceGroupName>'
+          Location = $location
+          Subnet = $subnet
+          PrivateLinkServiceConnection = $serviceConnection
+          IpConfiguration = $ipConfig1, $ipConfig2, $ipConfig3, $ipConfig4
+      }
+
+      New-AzPrivateEndpoint @parameters
+      ```
+
+   Your output should be similar to the following. Check that **ProvisioningState** is **Succeeded**.
+
+   ```output
+   ResourceGroupName Name            Location ProvisioningState Subnet
+   ----------------- ----            -------- ----------------- ------
+   privatelink       endpoint-hp01   uksouth  Succeeded
+   ```
+
+---
+
+> [!IMPORTANT]
+> You need to create private endpoint for the connection sub-resource for each host pool you want to use with the Private Link.
+
+---
+
+### Feed download
+
+To create a private endpoint for the *feed* sub-resource for a workspace, select the relevant tab for your scenario and follow the steps.
+
+# [Portal](#tab/portal)
+
+1. From the Azure Virtual Desktop overview, select **Workspaces**, then select the name of the workspace you want to create a *feed* sub-resource for.
+
+1. From the workspace overview, select **Networking**, then **Private endpoint connections**, and finally **New private endpoint**.
+
+1. On the **Basics** tab, complete the following information:
+
+   | Parameter | Value/Description |
+   |--|--|
+   | Subscription | Select the subscription you want to create the private endpoint in from the drop-down list. |
+   | Resource group | This automatically defaults to the same resource group as your workspace for the private endpoint, but you can also select an alternative existing one from the drop-down list, or create a new one. |
+   | Name | Enter a name for the new private endpoint. |
+   | Network interface name | The network interface name fills in automatically based on the name you gave the private endpoint, but you can also specify a different name. |
+   | Region | This automatically defaults to the same Azure region as the workspace and is where the private endpoint is deployed. This must be the same region as your virtual network. |
+
+   Once you've completed this tab, select **Next: Resource**.
+
+1. On the **Resource** tab, validate the values for *Subscription*, *Resource type*, and *Resource*, then for **Target sub-resource**, select **feed**. Once you've completed this tab, select **Next: Virtual Network**.
+
+1. On the **Virtual Network** tab, complete the following information:
+
+   | Parameter | Value/Description |
+   |--|--|
+   | Virtual network | Select the virtual network you want to create the private endpoint in from the drop-down list. |
+   | Subnet | Select the subnet of the virtual network you want to create the private endpoint in from the drop-down list. |
+   | Network policy for private endpoints | Select **edit** if you want to choose a subnet network policy. For more information, see [Manage network policies for private endpoints](../private-link/disable-private-endpoint-network-policy.md). |
+   | Private IP configuration | Select **Dynamically allocate IP address** or **Statically allocate IP address**. The address space is from the subnet you selected.<br /><br />If you choose to statically allocate IP addresses, you need to fill in the **Name** and **Private IP** for each listed member. |
+   | Application security group | Select an existing application security group for the private endpoint from the drop-down list, or create a new one. |
+
+   Once you've completed this tab, select **Next: DNS**.
+
+1. On the **DNS** tab, choose whether you want to use [Azure Private DNS Zone](../dns/private-dns-privatednszone.md) by selecting **Yes** or **No** for **Integrate with private DNS zone**. If you select **Yes**, select the subscription and resource group in which to create the private DNS zone `privatelink.wvd.microsoft.com`. For more information, see [Azure Private Endpoint DNS configuration](../private-link/private-endpoint-dns.md).
+
+   Once you've completed this tab, select **Next: Tags**.
+
+1. *Optional*: On the **Tags** tab, you can enter any name/value pairs you need, then select **Next: Review + create**.
+
+1. On the **Review + create** tab, ensure validation passes and review the information that is used during deployment.
+
+1. Select **Create** to create the private endpoint for the feed sub-resource.
+
+# [Azure CLI](#tab/cli)
+
+TODO: ADD
+
+# [Azure PowerShell](#tab/powershell)
+
+Here's how to create a private endpoint for the *feed* sub-resource used for the feed download.
+
+1. In the same PowerShell session, create a Private Link service connection for a workspace with the feed sub-resource by running the following commands. In these example the same virtual network and subnet are used.
+
+   ```azurepowershell
+   # Get the details of the workspace
+   $workspaceId = (Get-AzWvdWorkspace -Name <WorkspaceName> -ResourceGroupName <ResourceGroupName>).Id
+
+   # Create the service connection
+   $parameters = @{
+       Name = '<ServiceConnectionName>'
+       PrivateLinkServiceId = $workspaceId
+       GroupId = 'feed'
+   }
+
+   $serviceConnection = New-AzPrivateLinkServiceConnection @parameters
+   ```
+
+1. Finally, create the private endpoint by running the following commands in one of the following examples.
+
+   1. To create a private endpoint with a dynamically allocated IP address:
+   
+      ```azurepowershell
+      # Specify the Azure region. This must be the same region as your virtual network.
+      $location = '<Location>'
+   
+      # Create the private endpoint
+      $parameters = @{
+          Name = '<PrivateEndpointName>'
+          ResourceGroupName = '<ResourceGroupName>'
+          Location = $location
+          Subnet = $subnet
+          PrivateLinkServiceConnection = $serviceConnection
+      }
+   
+      New-AzPrivateEndpoint @parameters
+      ```
+
+   1. To create a private endpoint with a statically allocated IP address:
+   
+      ```azurepowershell
+      # Specify the Azure region. This must be the same region as your virtual network.
+      $location = '<Location>'
+
+      # Create a hash table for each private endpoint IP configuration
+      $ip1 = @{
+          Name = 'ipconfig1'
+          GroupId = 'feed'
+          MemberName = 'web-r1'
+          PrivateIPAddress = '<IPAddress>'
+      }
+
+      $ip2 = @{
+          Name = 'ipconfig2'
+          GroupId = 'feed'
+          MemberName = 'web-r0'
+          PrivateIPAddress = '<IPAddress>'
+      }
+
+      # Create the private endpoint IP configurations
+      $ipConfig1 = New-AzPrivateEndpointIpConfiguration @ip1
+      $ipConfig2 = New-AzPrivateEndpointIpConfiguration @ip2
+      
+      # Create the private endpoint
+      $parameters = @{
+          Name = '<PrivateEndpointName>'
+          ResourceGroupName = '<ResourceGroupName>'
+          Location = $location
+          Subnet = $subnet
+          PrivateLinkServiceConnection = $serviceConnection
+          IpConfiguration = $ipConfig1, $ipConfig2
+      }
+   
+      New-AzPrivateEndpoint @parameters
+      ```
+
+   Your output should be similar to the following. Check that **ProvisioningState** is **Succeeded**.
+
+   ```output
+   ResourceGroupName Name            Location ProvisioningState Subnet
+   ----------------- ----            -------- ----------------- ------
+   privatelink       endpoint-ws01   uksouth  Succeeded
+   ```
+
+---
+
+> [!IMPORTANT]
+> You need to create private endpoint for the feed sub-resource for each workspace you want to use with the Private Link.
+
 
 ### Initial feed discovery
 
@@ -83,15 +388,9 @@ To create a private endpoint for the *global* sub-resource used for the initial 
 
 Here's how to create a private endpoint for the *global* sub-resource used for the initial feed discovery using the Azure portal.
 
-1. Sign in to the [Azure portal](https://portal.azure.com/).
+1. From the Azure Virtual Desktop overview, select **Workspaces**, then select the name of a workspace you want to use for the global sub-resource.
 
-1. In the search bar, type *Azure Virtual Desktop* and select the matching service entry.
-
-1. Select **Workspaces**.
-
-   1. *Optional*: Create a placeholder workspace to terminate the global endpoint by following the instructions to [Create a workspace](create-application-group-workspace.md?tabs=portal#create-a-workspace).
-
-1. Select the name of the workspace you want to use for the global sub-resource.
+   1. *Optional*: Instead, create a placeholder workspace to terminate the global endpoint by following the instructions to [Create a workspace](create-application-group-workspace.md?tabs=portal#create-a-workspace).
 
 1. From the workspace overview, select **Networking**, then **Private endpoint connections**, and finally **New private endpoint**.
 
@@ -253,306 +552,6 @@ Here's how to create a private endpoint for the *global* sub-resource used for t
    ----------------- ----            -------- ----------------- ------
    privatelink       endpoint-global uksouth  Succeeded
    ```
-
----
-
-### Feed download
-
-To create a private endpoint for the *feed* sub-resource for a workspace, select the relevant tab for your scenario and follow the steps.
-
-# [Portal](#tab/portal)
-
-1. Return to the list of workspaces, then select the name of a workspace you want to create a feed sub-resource for.
-
-1. From the workspace overview, select **Networking**, then **Private endpoint connections**, and finally **New private endpoint**.
-
-1. On the **Basics** tab, complete the following information:
-
-   | Parameter | Value/Description |
-   |--|--|
-   | Subscription | Select the subscription you want to create the private endpoint in from the drop-down list. |
-   | Resource group | This automatically defaults to the same resource group as your workspace for the private endpoint, but you can also select an alternative existing one from the drop-down list, or create a new one. |
-   | Name | Enter a name for the new private endpoint. |
-   | Network interface name | The network interface name fills in automatically based on the name you gave the private endpoint, but you can also specify a different name. |
-   | Region | This automatically defaults to the same Azure region as the workspace and is where the private endpoint is deployed. This must be the same region as your virtual network. |
-
-   Once you've completed this tab, select **Next: Resource**.
-
-1. On the **Resource** tab, validate the values for *Subscription*, *Resource type*, and *Resource*, then for **Target sub-resource**, select **feed**. Once you've completed this tab, select **Next: Virtual Network**.
-
-1. On the **Virtual Network** tab, complete the following information:
-
-   | Parameter | Value/Description |
-   |--|--|
-   | Virtual network | Select the virtual network you want to create the private endpoint in from the drop-down list. |
-   | Subnet | Select the subnet of the virtual network you want to create the private endpoint in from the drop-down list. |
-   | Network policy for private endpoints | Select **edit** if you want to choose a subnet network policy. For more information, see [Manage network policies for private endpoints](../private-link/disable-private-endpoint-network-policy.md). |
-   | Private IP configuration | Select **Dynamically allocate IP address** or **Statically allocate IP address**. The address space is from the subnet you selected.<br /><br />If you choose to statically allocate IP addresses, you need to fill in the **Name** and **Private IP** for each listed member. |
-   | Application security group | Select an existing application security group for the private endpoint from the drop-down list, or create a new one. |
-
-   Once you've completed this tab, select **Next: DNS**.
-
-1. On the **DNS** tab, choose whether you want to use [Azure Private DNS Zone](../dns/private-dns-privatednszone.md) by selecting **Yes** or **No** for **Integrate with private DNS zone**. If you select **Yes**, select the subscription and resource group in which to create the private DNS zone `privatelink.wvd.microsoft.com`. For more information, see [Azure Private Endpoint DNS configuration](../private-link/private-endpoint-dns.md).
-
-   Once you've completed this tab, select **Next: Tags**.
-
-1. *Optional*: On the **Tags** tab, you can enter any name/value pairs you need, then select **Next: Review + create**.
-
-1. On the **Review + create** tab, ensure validation passes and review the information that is used during deployment.
-
-1. Select **Create** to create the private endpoint for the feed sub-resource.
-
-# [Azure CLI](#tab/cli)
-
-TODO: ADD
-
-# [Azure PowerShell](#tab/powershell)
-
-Here's how to create a private endpoint for the *feed* sub-resource used for the feed download.
-
-1. In the same PowerShell session, create a Private Link service connection for a workspace with the feed sub-resource by running the following commands. In these example the same virtual network and subnet are used.
-
-   ```azurepowershell
-   # Get the details of the workspace
-   $workspaceId = (Get-AzWvdWorkspace -Name <WorkspaceName> -ResourceGroupName <ResourceGroupName>).Id
-
-   # Create the service connection
-   $parameters = @{
-       Name = '<ServiceConnectionName>'
-       PrivateLinkServiceId = $workspaceId
-       GroupId = 'feed'
-   }
-
-   $serviceConnection = New-AzPrivateLinkServiceConnection @parameters
-   ```
-
-1. Finally, create the private endpoint by running the following commands in one of the following examples.
-
-   1. To create a private endpoint with a dynamically allocated IP address:
-   
-      ```azurepowershell
-      # Specify the Azure region. This must be the same region as your virtual network.
-      $location = '<Location>'
-   
-      # Create the private endpoint
-      $parameters = @{
-          Name = '<PrivateEndpointName>'
-          ResourceGroupName = '<ResourceGroupName>'
-          Location = $location
-          Subnet = $subnet
-          PrivateLinkServiceConnection = $serviceConnection
-      }
-   
-      New-AzPrivateEndpoint @parameters
-      ```
-
-   1. To create a private endpoint with a statically allocated IP address:
-   
-      ```azurepowershell
-      # Specify the Azure region. This must be the same region as your virtual network.
-      $location = '<Location>'
-
-      # Create a hash table for each private endpoint IP configuration
-      $ip1 = @{
-          Name = 'ipconfig1'
-          GroupId = 'feed'
-          MemberName = 'web-r1'
-          PrivateIPAddress = '<IPAddress>'
-      }
-
-      $ip2 = @{
-          Name = 'ipconfig2'
-          GroupId = 'feed'
-          MemberName = 'web-r0'
-          PrivateIPAddress = '<IPAddress>'
-      }
-
-      # Create the private endpoint IP configurations
-      $ipConfig1 = New-AzPrivateEndpointIpConfiguration @ip1
-      $ipConfig2 = New-AzPrivateEndpointIpConfiguration @ip2
-      
-      # Create the private endpoint
-      $parameters = @{
-          Name = '<PrivateEndpointName>'
-          ResourceGroupName = '<ResourceGroupName>'
-          Location = $location
-          Subnet = $subnet
-          PrivateLinkServiceConnection = $serviceConnection
-          IpConfiguration = $ipConfig1, $ipConfig2
-      }
-   
-      New-AzPrivateEndpoint @parameters
-      ```
-
-   Your output should be similar to the following. Check that **ProvisioningState** is **Succeeded**.
-
-   ```output
-   ResourceGroupName Name            Location ProvisioningState Subnet
-   ----------------- ----            -------- ----------------- ------
-   privatelink       endpoint-ws01   uksouth  Succeeded
-   ```
-
----
-
-> [!IMPORTANT]
-> You need to create private endpoint for the feed sub-resource for each workspace you want to use with the Private Link.
-
-### Connections to host pools
-
-To create a private endpoint for the *connection* sub-resource for connections to a host pool, select the relevant tab for your scenario and follow the steps.
-
-# [Portal](#tab/portal)
-
-1. From the Azure Virtual Desktop overview, select **Host pools**, then select the name of the host pool you want to create a *connection* sub-resource for.
-
-1. From the host pool overview, select **Networking**, then **Private endpoint connections**, and finally **New private endpoint**.
-
-1. On the **Basics** tab, complete the following information:
-
-   | Parameter | Value/Description |
-   |--|--|
-   | Subscription | Select the subscription you want to create the private endpoint in from the drop-down list. |
-   | Resource group | This automatically defaults to the same resource group as your workspace for the private endpoint, but you can also select an alternative existing one from the drop-down list, or create a new one. |
-   | Name | Enter a name for the new private endpoint. |
-   | Network interface name | The network interface name fills in automatically based on the name you gave the private endpoint, but you can also specify a different name. |
-   | Region | This automatically defaults to the same Azure region as the workspace and is where the private endpoint is deployed. This must be the same region as your virtual network and session hosts. |
-
-   Once you've completed this tab, select **Next: Resource**.
-
-1. On the **Resource** tab, validate the values for *Subscription*, *Resource type*, and *Resource*, then for **Target sub-resource**, select **connection**. Once you've completed this tab, select **Next: Virtual Network**.
-
-1. On the **Virtual Network** tab, complete the following information:
-
-   | Parameter | Value/Description |
-   |--|--|
-   | Virtual network | Select the virtual network you want to create the private endpoint in from the drop-down list. |
-   | Subnet | Select the subnet of the virtual network you want to create the private endpoint in from the drop-down list. |
-   | Network policy for private endpoints | Select **edit** if you want to choose a subnet network policy. For more information, see [Manage network policies for private endpoints](../private-link/disable-private-endpoint-network-policy.md). |
-   | Private IP configuration | Select **Dynamically allocate IP address** or **Statically allocate IP address**. The address space is from the subnet you selected.<br /><br />If you choose to statically allocate IP addresses, you need to fill in the **Name** and **Private IP** for each listed member. |
-   | Application security group | *Optional*: select an existing application security group for the private endpoint from the drop-down list, or create a new one. |
-
-   Once you've completed this tab, select **Next: DNS**.
-
-1. On the **DNS** tab, choose whether you want to use [Azure Private DNS Zone](../dns/private-dns-privatednszone.md) by selecting **Yes** or **No** for **Integrate with private DNS zone**. If you select **Yes**, select the subscription and resource group in which to create the private DNS zone `privatelink.wvd.microsoft.com`. For more information, see [Azure Private Endpoint DNS configuration](../private-link/private-endpoint-dns.md).
-
-   Once you've completed this tab, select **Next: Tags**.
-
-1. *Optional*: On the **Tags** tab, you can enter any name/value pairs you need, then select **Next: Review + create**.
-
-1. On the **Review + create** tab, ensure validation passes and review the information that is used during deployment.
-
-1. Select **Create** to create the private endpoint for the connection sub-resource.
-
-# [Azure CLI](#tab/cli)
-
-TODO: ADD
-
-# [Azure PowerShell](#tab/powershell)
-
-Here's how to create a private endpoint for the *connection* sub-resource used for the feed download.
-
-1. In the same PowerShell session, create a Private Link service connection for a host pool with the connection sub-resource by running the following commands. In these example the same virtual network and subnet are used.
-
-   ```azurepowershell
-   # Get the details of the host pool
-   $hostPoolId = (Get-AzWvdHostPool -Name <HostPoolName> -ResourceGroupName <ResourceGroupName>).Id
-
-   # Create the service connection
-   $parameters = @{
-       Name = '<ServiceConnectionName>'
-       PrivateLinkServiceId = $hostPoolId
-       GroupId = 'connection'
-   }
-
-   $serviceConnection = New-AzPrivateLinkServiceConnection @parameters
-   ```
-
-1. Finally, create the private endpoint by running the following commands in one of the following examples.
-
-   1. To create a private endpoint with a dynamically allocated IP addresses:
-   
-      ```azurepowershell
-      # Specify the Azure region. This must be the same region as your virtual network and session hosts.
-      $location = '<Location>'
-   
-      # Create the private endpoint
-      $parameters = @{
-          Name = '<PrivateEndpointName>'
-          ResourceGroupName = '<ResourceGroupName>'
-          Location = $location
-          Subnet = $subnet
-          PrivateLinkServiceConnection = $serviceConnection
-      }
-   
-      New-AzPrivateEndpoint @parameters
-      ```
-
-   1. To create a private endpoint with statically allocated IP addresses:
-   
-      ```azurepowershell
-      # Specify the Azure region. This must be the same region as your virtual network and session hosts.
-      $location = '<Location>'
-
-      # Create a hash table for each private endpoint IP configuration
-      $ip1 = @{
-          Name = 'ipconfig1'
-          GroupId = 'connection'
-          MemberName = 'broker'
-          PrivateIPAddress = '<IPAddress>'
-      }
-
-      $ip2 = @{
-          Name = 'ipconfig2'
-          GroupId = 'connection'
-          MemberName = 'diagnostics'
-          PrivateIPAddress = '<IPAddress>'
-      }
-
-      $ip3 = @{
-          Name = 'ipconfig3'
-          GroupId = 'connection'
-          MemberName = 'gateway-ring-map'
-          PrivateIPAddress = '<IPAddress>'
-      }
-
-      $ip4 = @{
-          Name = 'ipconfig4'
-          GroupId = 'connection'
-          MemberName = 'web'
-          PrivateIPAddress = '<IPAddress>'
-      }
-
-      # Create the private endpoint IP configurations
-      $ipConfig1 = New-AzPrivateEndpointIpConfiguration @ip1
-      $ipConfig2 = New-AzPrivateEndpointIpConfiguration @ip2
-      $ipConfig3 = New-AzPrivateEndpointIpConfiguration @ip3
-      $ipConfig4 = New-AzPrivateEndpointIpConfiguration @ip4
-
-      # Create the private endpoint
-      $parameters = @{
-          Name = '<PrivateEndpointName>'
-          ResourceGroupName = '<ResourceGroupName>'
-          Location = $location
-          Subnet = $subnet
-          PrivateLinkServiceConnection = $serviceConnection
-          IpConfiguration = $ipConfig1, $ipConfig2, $ipConfig3, $ipConfig4
-      }
-
-      New-AzPrivateEndpoint @parameters
-      ```
-
-   Your output should be similar to the following. Check that **ProvisioningState** is **Succeeded**.
-
-   ```output
-   ResourceGroupName Name            Location ProvisioningState Subnet
-   ----------------- ----            -------- ----------------- ------
-   privatelink       endpoint-hp01   uksouth  Succeeded
-   ```
-
----
-
-> [!IMPORTANT]
-> You need to create private endpoint for the connection sub-resource for each host pool you want to use with the Private Link.
 
 ---
 
