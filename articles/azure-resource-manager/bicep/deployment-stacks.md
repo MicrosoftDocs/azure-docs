@@ -32,9 +32,12 @@ Deployment stacks provide the following benefits:
 
 - Deleting resource groups currently bypasses deny assignments.
 - Implicitly created resources aren't managed by the stack. Therefore, no deny assignments or cleanup is possible.
-- What-if isn't available in the preview. What-if allows you to evaluate changes before actually submitting the deployment to Azure Resource Manager.
+- [What-if](./deploy-what-if.md) isn't available in the preview.
 - Management group scoped deployment stacks can only deploy the template to subscription.
 - When using the Azure CLI create command to modify an existing stack, the deployment process continues regardless of whether you choose _n_ for a prompt. To halt the procedure, use _[CTRL] + C_.
+- If you create or modify a deployment stack in the Azure portal, deny settings will be overwritten (support for deny settings in the Azure portal is currently in progress).
+- Management group deployment stacks not yet available in the Azure portal.
+
 
 ## Create deployment stacks
 
@@ -44,7 +47,7 @@ A deployment stack resource can be created at resource group, subscription, or m
 - A stack at subscription scope can deploy the template passed-in to a resource group scope (if specified) or the same subscription scope where the deployment stack exists.
 - A stack at management group scope can deploy the template passed-in to the subscription scope specified.
 
-It's important to note that where a deployment stack exists, so is the deny assignment created with the deny settings capability. For example, by creating a deployment stack at subscription scope that deploys the template to resource group scope and with deny settings mode 'DenyDelete', you can easily provision managed resources to the specified resource group and block delete attempts to those resources. By using this approach, you also enhance the security of the deployment stack by separating it at the subscription level, as opposed to the resource group level. This separation ensures that the developer teams working with the provisioned resources only have visibility and write access to the resource groups, while the deployment stack remains isolated at a higher level. This minimizes the number of users that can edit a deployment stack and make changes to its deny assignment. For more information, see [Protect managed resource against deletion](#protect-managed-resources-against-deletion).
+It's important to note that where a deployment stack exists, so is the deny assignment created with the deny settings capability. For example, by creating a deployment stack at subscription scope that deploys the template to resource group scope and with deny settings mode `DenyDelete`, you can easily provision managed resources to the specified resource group and block delete attempts to those resources. By using this approach, you also enhance the security of the deployment stack by separating it at the subscription level, as opposed to the resource group level. This separation ensures that the developer teams working with the provisioned resources only have visibility and write access to the resource groups, while the deployment stack remains isolated at a higher level. This minimizes the number of users that can edit a deployment stack and make changes to its deny assignment. For more information, see [Protect managed resource against deletion](#protect-managed-resources-against-deletion).
 
 The create-stack commands can also be used to [update deployment stacks](#update-deployment-stacks).
 
@@ -211,6 +214,8 @@ az stack mg list \
 ```
 
 # [Portal](#tab/azure-portal)
+
+Currently not implemented.
 
 ---
 
@@ -488,6 +493,8 @@ az stack mg delete \
 
 # [Portal](#tab/azure-portal)
 
+Currently not implemented.
+
 ---
 
 ## View managed resources in deployment stack
@@ -567,6 +574,8 @@ az stack mg show \
 ```
 
 # [Portal](#tab/azure-portal)
+
+Currently not implemented.
 
 ---
 
