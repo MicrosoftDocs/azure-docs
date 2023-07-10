@@ -273,6 +273,9 @@ app = func.FunctionApp()
 app.register_functions(bp) 
 ```
 
+> Durable Functions also supports Python V2's [blueprints](../functions-reference-python.md#blueprints). To use them, you will need to register your blueprint functions using the `azure-functions-durable` `Blueprint` class, as
+> shown [here](https://github.com/Azure/azure-functions-durable-python/blob/dev/samples-v2/blueprint/durable_blueprints.py). The resulting blueprint can then be registered as normal. See our [sample](https://github.com/Azure/azure-functions-durable-python/tree/dev/samples-v2/blueprint) for an example.
+
 ::: zone-end
 
 ::: zone pivot="python-mode-configuration"  
