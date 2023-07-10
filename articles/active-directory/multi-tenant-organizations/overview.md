@@ -104,7 +104,6 @@ Here are the primary benefits of forming a multi-tenant organization:
 - External users within a multi-tenant organization can be differentiated from external users not in the multi-tenant organization, so you can use multi-tenant organization to enable different policies for in-org and out-of-org external users.
 - Multi-tenant organization external users can use Teams without switching tenants for a subset of Teams scenarios.
 - Improved people card and people search functionality within Microsoft 365 services such as Outlook and Teams.
-- A multi-tenant organization can be formed in either the Microsoft Entra or Microsoft 365 admin center.
 
 :::image type="content" source="./media/overview/multi-tenant-organization-topology.png" alt-text="Diagram that shows a multi-tenant organization topology and cross-tenant access settings." lightbox="./media/overview/multi-tenant-organization-topology.png":::
 
