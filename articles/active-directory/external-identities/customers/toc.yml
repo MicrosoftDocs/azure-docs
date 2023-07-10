@@ -201,7 +201,7 @@ items:
               - name: Sign in and sign out
                 href: tutorial-desktop-app-maui-sign-in-sign-out.md
               - name: Access roles and groups
-                href: tutorial-desktop-app-maui-role-based-access-control.md
+                href: tutorial-desktop-maui-role-based-access-control.md
       - name: Mobile
         items: 
         - name: .NET MAUI
