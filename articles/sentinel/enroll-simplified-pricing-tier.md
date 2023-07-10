@@ -102,7 +102,7 @@ The following sample template sets Microsoft Sentinel to the classic pricing tie
             "properties": { 
                 "workspaceResourceId": "/subscriptions/{SubscriptionId}/resourcegroups/{ResourceGroup}/providers/microsoft.operationalinsights/workspaces/{YourWorkspaceName}", 
                 "sku": { 
-                    "name": "pergb2018", 
+                    "name": "PerGB", 
                     "capacityReservationLevel":
                 } 
             } 
