@@ -53,7 +53,7 @@ The following are the three custom metrics details:
 - `petclinic.owner` and `petclinic.pet` defined in the `customers-service` application.
 - `petclinic.visit` defined in the `visits-service` application.
 
-Same as in the previous section, you can define a chart `REST Controller` with custom metrics, and update the **Aggregation** to `Count` for each metric.
+Same as in the previous section, you can define a chart `REST API access` with custom metrics, and update the **Aggregation** to `Count` for each metric.
 
 :::image type="content" source="../../media/tutorial-applications-observability/custom-metrics.png" alt-text="Screenshot of the Azure portal with Azure Spring Apps instance overview page." lightbox="../../media/tutorial-applications-observability/custom-metrics.png":::
 
