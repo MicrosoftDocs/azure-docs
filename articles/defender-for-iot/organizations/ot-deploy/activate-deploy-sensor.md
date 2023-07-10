@@ -11,9 +11,9 @@ This article is one in a series of articles describing the [deployment path](ot-
 
 :::image type="content" source="../media/deployment-paths/progress-deploy-your-sensors.png" alt-text="Diagram of a progress bar with Deploy your sensors highlighted." border="false" lightbox="../media/deployment-paths/progress-deploy-your-sensors.png":::
 
-Several initial setup steps can be performed by the GUI or the CLI.
+Several initial setup steps can be performed in the browser or via CLI.
 
-- Use the GUI if you can connect physical cables from your switch to the sensor to identify your interfaces correctly.         Make sure to reconfigure your network adapter to match the default settings on the sensor.
+- Use the browser if you can connect physical cables from your switch to the sensor to identify your interfaces correctly.         Make sure to reconfigure your network adapter to match the default settings on the sensor.
 - Use the CLI if you know your networking details without needing to connect physical cables.      Use the CLI if you can only connect to the sensor via iLo / iDrac
 
 Configuring your setup via the CLI still requires you to complete the last few steps in the browser.
@@ -22,11 +22,13 @@ Configuring your setup via the CLI still requires you to complete the last few s
 
 To perform the procedures in this article, you need:
 
-- An OT sensor [onboarded](../onboard-sensors.md) to Defender for IoT in the Azure portal and [installed](install-software-ot-sensor.md) or [purchased](../ot-pre-configured-appliances.md).
+- An OT sensor [onboarded](../onboard-sensors.md) to Defender for IoT in the Azure portal.
 
 - The sensor's activation file, which was downloaded after [onboarding your sensor](../onboard-sensors.md). You need a unique activation file for each OT sensor you deploy.
 
     [!INCLUDE [root-of-trust](../includes/root-of-trust.md)]
+
+- OT sensor software installed on your appliance. Make sure that you've either [installed](install-software-ot-sensor.md) the software yourself or or [purchased](../ot-pre-configured-appliances.md) a pre-configured appliance.
 
 - A SSL/TLS certificate. We recommend using a CA-signed certificate, and not a self-signed certificate. For more information, see [Create SSL/TLS certificates for OT appliances](create-ssl-certificates.md).
 
@@ -34,9 +36,9 @@ To perform the procedures in this article, you need:
 
 This step is performed by your deployment teams.
 
-## Configure setup via the GUI
+## Configure setup via the browser
 
-Configuring sensor setup via the GUI includes the following steps:
+Configuring sensor setup via the browser includes the following steps:
 
 - Signing into the sensor console and changing the *support* user password
 - Defining network details for your sensor
@@ -105,7 +107,7 @@ In the **Interface configurations** tab, do the following to configure settings 
 
     |Name  |Description  |
     |---------|---------|
-    |**Mode**     | Select **SPAN Traffic (no encapsulation)** to use the default SPAN port mirroring.  Select **ERSPAN** if you're using ERSPAN mirroring. For more information, see [Choose a traffic mirroring method for OT sensors](../best-practices/traffic-mirroring-methods.md).       |
+    |**Mode**     | Select one of the following: <br>- **SPAN Traffic (no encapsulation)** to use the default SPAN port mirroring.  <br>- **ERSPAN** if you're using ERSPAN mirroring. <br><br>For more information, see [Choose a traffic mirroring method for OT sensors](../best-practices/traffic-mirroring-methods.md).       |
     |**Description**     |  Enter an optional description for the interface. You'll see this later on in the sensor's **System settings > Interface configurations** page, and these descriptions may be helpful in understanding the purpose of each interface.  |
     |**Auto negotiation**     | Relevant for physical machines only. Use this option to determine which sort of communication methods are used, or if the communication methods are automatically defined between components. <br><br>**Important**: We recommend that you change this setting only on the advice of your networking team. |
 
@@ -119,7 +121,7 @@ In the **Interface configurations** tab, do the following to configure settings 
 
 This procedure describes how to activate your new OT sensor. 
 
-If you've configured the initial settings [via the CLI](#configure-setup-via-the-cli) until now, you'll start the GUI configuration at this step. After the sensor reboots, you're redirected to the same **Defender for IoT | Overview** page, to the **Activation** tab.
+If you've configured the initial settings [via the CLI](#configure-setup-via-the-cli) until now, you'll start the browser-based configuration at this step. After the sensor reboots, you're redirected to the same **Defender for IoT | Overview** page, to the **Activation** tab.
 
 **To activate your sensor**:
 
@@ -159,7 +161,7 @@ Use this procedure to configure the following initial setup settings via CLI:
 - Defining network details for your sensor
 - Defining the interfaces you want to monitor
 
-You'll continue with [activating](#activate-your-ot-sensor) and [configuring SSL/TLS certificate settings](#define-ssltls-certificate-settings) in the GUI.
+You'll continue with [activating](#activate-your-ot-sensor) and [configuring SSL/TLS certificate settings](#define-ssltls-certificate-settings) in the browser.
 
 **To configure initial setup settings via CLI**:
 
@@ -232,7 +234,9 @@ You'll continue with [activating](#activate-your-ot-sensor) and [configuring SSL
 At this point, open a browser to the IP address you'd defined for your sensor and continue the setup in the browser. For more information, see [Activate your OT sensor](#activate-your-ot-sensor).
 
 > [!NOTE]
-> Defining ERSPAN monitoring ports is available only in the GUI during initial setup. If you are running the CLI process, and want to set up ERSPAN monitoring ports, do so afterwards via the sensor's **Settings > Interface connections** page or the CLI. For more information, see [Update a sensor's monitoring interfaces](../how-to-manage-individual-sensors.md#update-a-sensors-monitoring-interfaces).
+> During initial setup, options for ERSPAN monitoring ports is available only in the browser-based procedure.
+>
+> If you're defining your network details via CLI and want to set up ERSPAN monitoring ports, do so afterwards via the sensor's **Settings > Interface connections** page. For more information, see [Update a sensor's monitoring interfaces](../how-to-manage-individual-sensors.md#update-a-sensors-monitoring-interfaces).
 >
 
 ## Next steps

@@ -40,6 +40,7 @@ This step is performed by your deployment teams.
 
 > [!NOTE]
 > There is no need to pre-install an operating system on the VM. The sensor installation includes the operating system image.
+>
 
 ### Configure network adapters for a VM deployment
 
@@ -65,7 +66,6 @@ For more information, see:
 > If you're working with an air-gapped sensor and are [deploying an on-premises management console](air-gapped-deploy.md), configure **Network adapter 1** to connect to the on-premises management console UI instead of the Azure portal.
 >
 
-
 ## Download software files from the Azure portal
 
 Download the OT sensor software from Defender for IoT in the Azure portal.
@@ -76,6 +76,16 @@ In Defender for IoT on the Azure portal, select **Getting started** > **Sensor**
 > If you're updating software from a previous version, use the options from the **Sites and sensors** > **Sensor update** menu. For more information, see [Update Defender for IoT OT monitoring software](../update-ot-software.md).
 
 ## Install Defender or IoT software on OT sensors
+
+This procedure describes how to install the Defender for IoT software you'd downloaded from the Azure portal.
+
+> [!TIP]
+> While you can run this procedure and watch the installation from a deployment workstation, after you boot your sensor machine from the physical media or virtual mount, the installation can also run automatically on its own.
+>
+> If you choose to do this without a keyboard or screen, note the default IP address listed at the end of this procedure. Use the default IP address to access the sensor from the a browser and [continue the deployment process](activate-deploy-sensor.md) from there.
+>
+
+**To install your software**:
 
 1. Mount the downloaded ISO file onto your hardware appliance or VM using one of the following options:
 
@@ -88,7 +98,9 @@ In Defender for IoT on the Azure portal, select **Getting started** > **Sensor**
 
     - **Virtual mount** – use iLO for HPE appliances, or iDRAC for Dell appliances to boot the ISO file.
 
-1. When the installation boots, you're prompted to start the installation process. Select the **Install iot-sensor-<version number>** item to continue. For example:
+1. When the installation boots, you're prompted to start the installation process. Either select the **Install iot-sensor-<version number>** item to continue, or leave the wizard to make the selection automatically on its own. 
+
+    The wizard automatically selects to install the software after 30 seconds of waiting. For example:
 
     :::image type="content" source="../media/install-software-ot-sensor/initial-install-screen.png" alt-text="Screenshot of the initial installation screen.":::
 
@@ -97,7 +109,7 @@ In Defender for IoT on the Azure portal, select **Getting started** > **Sensor**
 
     The installation begins, giving you updated status messages as it goes. The entire installation process takes up to 20-30 minutes, and may vary depending on the type of media you're using.
 
-    When the installation is complete, you're shown the following set of default networking details.
+    When the installation is complete, you're shown the following a set of default networking details. While the default IP, subnet, and gateway addresses will be identical with each installation, the UID is unique for each appliance. For example:
 
     ```bash
     IP: 172.23.41.83,

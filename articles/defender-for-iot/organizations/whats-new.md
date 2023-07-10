@@ -28,11 +28,13 @@ In version 23.1.x we've updated the OT sensor installation and setup wizards to 
 
 - **Installation wizard**: If you're installing software on your own physical or virtual machines, the Linux installation wizard now goes directly through the installation process without requiring any input or details from you.
 
-    - The installation uses default values for your network settings, which you fine-tune only afterwards, either in the CLI as before, or in a new GUI-based wizard.
+    You can watch the installation run from a deployment workstation, but you might also choose to install the software without using a keyboard or screen, and let the installation run automatically. When it's done, access the sensor from the browser using the default IP address.
+
+    - The installation uses default values for your network settings. Fine-tune these settings afterwards, either in the CLI as before, or in a new, browser-based wizard.
 
     - All sensors are installed with a default *support* user and password. You'll change the default password immediately with the first sign-in.
 
-- **Configure initial setup in the GUI**: After installing software, configure initial network settings in a new GUI wizard. Continue with the same wizard to activate your sensor and define SSL/TLS certificate settings.
+- **Configure initial setup in the browser**: After installing software and configuring your initial network settings, continue with the same browser-based wizard to activate your sensor and define SSL/TLS certificate settings.
 
 For more information, see [Install and set up your OT sensor](ot-deploy/install-software-ot-sensor.md) and [Configure and activate your OT sensor](ot-deploy/activate-deploy-sensor.md).
 
@@ -46,15 +48,14 @@ For more information, see [Analyze detected subnets](how-to-control-what-traffic
 
 ### Monitored interface configuration
 
-If you want to modify the interfaces used to monitor your traffic after the initial sensor setup, now you can use the new **Sensor settings** > **Interface configurations** page to update your settings instead of the Linux wizard accessed by CLI:
+If you want to modify the interfaces used to monitor your traffic after the initial sensor setup, now you can use the new **Sensor settings** > **Interface configurations** page to update your settings instead of the Linux wizard accessed by CLI. For example:
+
+:::image type="content" source="media/release-notes/integration-configurations.png" alt-text="Screenshot of the Integration configurations page on the OT sensor.":::
 
 The **Interface configurations** page shows the same options as the **Interface configurations** tab in the [initial setup wizard](ot-deploy/activate-deploy-sensor.md#define-the-interfaces-you-want-to-monitor).
 
-For more information, see 
+For more information, see [Update a sensor's monitoring interfaces](how-to-manage-individual-sensors.md#update-a-sensors-monitoring-interfaces).
 
-
-
-For more information, see 
 ### Simplified privileged users
 
 In new sensor installations of version 23.1.x, only the privileged *support* user is available by default. The *cyberx* and *cyberx_host* users are available, but are disabled by default. If you need to use these users, such as for [Defender for IoT CLI](references-work-with-defender-for-iot-cli-commands.md) access, [change the user password](manage-users-sensor.md#change-a-sensor-users-password).
