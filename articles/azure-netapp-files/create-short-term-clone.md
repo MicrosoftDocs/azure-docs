@@ -1,6 +1,6 @@
 ---
 title: Create a short-term clone from an Azure NetApp File snapshot| Microsoft Learn
-description: Create a short-term clone from an Azure NetApp File snapshot.
+description: Short-term clones are cloned volumes created from Azure NetApp Files snapshots intended for temporary use. 
 services: azure-netapp-files
 author: b-ahibbard
 ms.service: azure-netapp-files
