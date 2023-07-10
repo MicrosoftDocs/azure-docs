@@ -3,8 +3,8 @@ title: Vector search
 titleSuffix: Azure Cognitive Search
 description: Describes concepts, scenarios, and availability of the vector search feature in Cognitive Search.
 
-author: yahnoosh
-ms.author: jlembicz
+author: robertklee
+ms.author: robertlee
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 07/10/2023
