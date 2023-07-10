@@ -22,13 +22,13 @@ Ensure you have first deployed ALB Controller into your Kubernetes cluster.  You
 ## Create the Application Gateway for Containers resource
 
 ```azurecli-interactive
-az network alb create -g test-rg -n test-alb
+az network alb create -g rg-test -n alb-test
 ```
 
 ## Create a Frontend resource
 
 ```azurecli-interactive
-az network alb frontend create -g test-rg -n test-frontend --alb-name test-alb
+az network alb frontend create -g rg-test -n test-frontend --alb-name alb-test
 ```
 
 ## Create an Association resource
@@ -39,21 +39,21 @@ To create an association resource,  you first need to reference a subnet for App
 To create a new vnet and subnet, execute the following command:
 ```azurecli-interactive
 az network vnet create \
-    --name test-vnet \
-    --resource-group test-rg \
+    --name vnet-test \
+    --resource-group rg-test \
     --address-prefix 10.0.0.0/16 \
-    --subnet-name test-alb-subnet \
+    --subnet-name subnet-alb-subnet \
     --subnet-prefixes 10.0.0.0/24
 ```
 ### Reference an existing VNet and Subnet
 To reference an existing subnet, execute the following command to get the resource ID of the subnet:
 ```azurecli-interactive
-az network vnet subnet list --resource-group test-rg --vnet-name test-vnet --query "[?name=='test-alb-subnet'].id" --output tsv
+az network vnet subnet list --resource-group rg-test --vnet-name vnet-test --query "[?name=='subnet-alb-test'].id" --output tsv
 ```
 
 Execute the following command to create the Association resource and connect it to the referenced subnet
 ```azurecli-interactive
-az network alb association create -g test-rg -n test-association --alb-name test-alb --subnet /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/yyyyy/providers/Microsoft.Network/virtualNetworks/zzzzzz/subnets/test-alb-subnet
+az network alb association create -g rg-test -n association-test --alb-name alb-test --subnet /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/yyyyy/providers/Microsoft.Network/virtualNetworks/zzzzzz/subnets/subnet-alb-test
 ```
 
 ## Next steps
