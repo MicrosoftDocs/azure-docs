@@ -13,7 +13,7 @@ To create and update a deployment stack, you can utilize Azure CLI, Azure PowerS
 
 `Microsoft.Resources/deploymentStacks` is the resource type for deployment stacks. It consists of a main template that can perform 1-to-many updates across scopes to the resources it describes, and block any unwanted changes to those resources.
 
-When planning your deployment and determining which resource groups should be part of the same stack, it's important to consider the management lifecycle of those resources, which includes creation, updating, and deletion. For instance, suppose you need to provision some test VMs for various application teams across different resource group scopes. In this case, a deployment stack can be utilized to easily create these test environments and update the test VM configurations through subsequent updates to the deployment stack. After completing the project, it may be necessary to remove or delete any resources that were created, such as the test VMs. With a deployment stack, these managed resources can be deleted by specifying the appropriate delete flag, which saves significant time when cleaning up environments since a single update to the stack resource is performed instead of individually updating or removing each test VM across different resource group scopes.
+When planning your deployment and determining which resource groups should be part of the same stack, it's important to consider the management lifecycle of those resources, which includes creation, updating, and deletion. For instance, suppose you need to provision some test VMs for various application teams across different resource group scopes. In this case, a deployment stack can be utilized to  create these test environments and update the test VM configurations through subsequent updates to the deployment stack. After completing the project, it may be necessary to remove or delete any resources that were created, such as the test VMs. By utilizing a deployment stack, the managed resources can be easily removed by specifying the appropriate delete flag. This streamlined approach saves time during environment cleanup, as it involves a single update to the stack resource rather than individually modifying or removing each test VM across various resource group scopes.
 
 Deployment stacks requires Azure PowerShell [version 10.1.0 or later](/powershell/azure/install-az-ps) or Azure CLI [version 2.50.0 or later](/cli/azure/install-azure-cli).
 
@@ -23,10 +23,10 @@ To create your first deployment stack, work through [Quickstart: create deployme
 
 Deployment stacks provide the following benefits:
 
-- The ease of provisioning and managing resources across various [scopes](./deploy-to-resource-group.md) as a single atomic unit.
-- The option to prevent undesirable changes to managed resources using [deny settings](#protect-managed-resources-against-deletion).
-- The ability to rapidly clean up environments by setting appropriate delete flags on a Deployment stack update.
-- The ability to use standard templates, including [Bicep](./overview.md), [ARM templates](../templates/overview.md), or [Template specs](./template-specs.md) for your Deployment stacks.
+- Simplified provisioning and management of resources across different scopes as a cohesive entity.
+- Preventing undesired modifications to managed resources through [deny settings](#protect-managed-resources-against-deletion).
+- Efficient environment cleanup by employing delete flags during deployment stack updates.
+- Utilizing standard templates such as Bicep, ARM templates, or Template specs for your deployment stacks.
 
 ### Known issues
 
@@ -44,7 +44,7 @@ A deployment stack resource can be created at resource group, subscription, or m
 - A stack at subscription scope can deploy the template passed-in to a resource group scope (if specified) or the same subscription scope where the deployment stack exists.
 - A stack at management group scope can deploy the template passed-in to the subscription scope specified.
 
-It's important to note that where a deployment stack exists, so is the deny assignment created with the deny settings capability. For example, by creating a deployment stack at subscription scope that deploys the template to resource group scope and with deny settings mode 'DenyDelete', you can easily provision managed resources to the specified resource group and block delete attempts to those resources. With this approach you also add an extra layer of security to the deployment stack by separating it into the subscription level rather that resource group level which is visible and writable by developer teams working with the provisioned resources. This minimizes the number of users that can edit a deployment stack and make changes to its deny assignment. For more information, see [Protect managed resource against deletion](#protect-managed-resources-against-deletion).
+It's important to note that where a deployment stack exists, so is the deny assignment created with the deny settings capability. For example, by creating a deployment stack at subscription scope that deploys the template to resource group scope and with deny settings mode 'DenyDelete', you can easily provision managed resources to the specified resource group and block delete attempts to those resources. By using this approach, you also enhance the security of the deployment stack by separating it at the subscription level, as opposed to the resource group level. This separation ensures that the developer teams working with the provisioned resources only have visibility and write access to the resource groups, while the deployment stack remains isolated at a higher level. This minimizes the number of users that can edit a deployment stack and make changes to its deny assignment. For more information, see [Protect managed resource against deletion](#protect-managed-resources-against-deletion).
 
 The create-stack commands can also be used to [update deployment stacks](#update-deployment-stacks).
 
@@ -165,9 +165,9 @@ az stack group list \
 # [Portal](#tab/azure-portal)
 
 1. From the Azure portal, open the resource group that contains the deployment stacks.
-1. From the left menu, select `Deployment stacks`.
+1. From the left menu, select `Deployment stacks` to list the deployment stacks deployed to the resource group.
 
-  :::image type="content" source="./media/deployment-stacks/deployment-stack-portal-group-list-stacks.png" alt-text="Screenshot of listing resource group scope deployment stacks.":::
+    :::image type="content" source="./media/deployment-stacks/deployment-stack-portal-group-list-stacks.png" alt-text="Screenshot of listing deployment stacks at the resource group scope.":::
 
 ---
 
@@ -190,7 +190,7 @@ az stack sub list
 1. From the Azure portal, open the subscription that contains the deployment stacks.
 1. From the left menu, select `Deployment stacks` to list the deployment stacks deployed to the subscription.
 
-  :::image type="content" source="./media/deployment-stacks/deployment-stack-portal-sub-list-stacks.png" alt-text="Screenshot of listing resource group scope deployment stacks.":::
+    :::image type="content" source="./media/deployment-stacks/deployment-stack-portal-sub-list-stacks.png" alt-text="Screenshot of listing deployment stacks at the subscription scope.":::
 
 ---
 
@@ -395,13 +395,13 @@ If you run the delete commands without the delete parameters, the unmanaged reso
 
 # [Portal](#tab/azure-portal)
 
-Select one of the update behaviors:
+Select one of the update behaviors when you delete a deployment stack.
 
 :::image type="content" source="./media/deployment-stacks/deployment-stack-portal-update-behavior.png" alt-text="Screenshot of portal update behavior.":::
 
 ---
 
-Even if you specify the delete all switch, if there are unmanaged resources within the resource group where the deployment stack is located, both the unmanaged resource and the resource group itself won't not be deleted.
+Even if you specify the delete all switch, if there are unmanaged resources within the resource group where the deployment stack is located, both the unmanaged resource and the resource group itself won't  be deleted.
 
 To delete deployment stack resources at the resource group scope:
 
@@ -428,11 +428,11 @@ az stack group delete \
 1. From the Azure portal, open the resource group that contains the deployment stacks.
 1. From the left menu, select `Deployment stacks`, select the deployment stack to be deleted, and then select `Delete stack`.
 
-  :::image type="content" source="./media/deployment-stacks/deployment-stack-portal-group-delete-stacks.png" alt-text="Screenshot of deleting resource group scope deployment stacks.":::
+    :::image type="content" source="./media/deployment-stacks/deployment-stack-portal-group-delete-stacks.png" alt-text="Screenshot of deleting deployment stacks at the resource group scope.":::
 
 1. Select an `Update behavior`, and then select `Next`.
 
-  :::image type="content" source="./media/deployment-stacks/deployment-stack-portal-group-delete-stack-update-behavior.png" alt-text="Screenshot of update behavior for deleting resource group scope deployment stacks.":::
+    :::image type="content" source="./media/deployment-stacks/deployment-stack-portal-group-delete-stack-update-behavior.png" alt-text="Screenshot of update behavior for deleting resource group scope deployment stacks.":::
 
 ---
 
@@ -459,8 +459,11 @@ az stack sub delete \
 1. From the Azure portal, open the subscription that contains the deployment stacks.
 1. From the left menu, select `Deployment stacks`, select the deployment stack to be deleted, and then select `Delete stack`.
 
-  :::image type="content" source="./media/deployment-stacks/deployment-stack-portal-sub-delete-stacks.png" alt-text="Screenshot of listing resource group scope deployment stacks.":::
+    :::image type="content" source="./media/deployment-stacks/deployment-stack-portal-sub-delete-stacks.png" alt-text="Screenshot of deleting deployment stacks at the subscription scope.":::
 
+1. Select an `Update behavior`, and then select `Next`.
+
+    :::image type="content" source="./media/deployment-stacks/deployment-stack-portal-sub-delete-stack-update-behavior.png" alt-text="Screenshot of update behavior for deleting subscription scope deployment stacks.":::
 ---
 
 To delete deployment stack resources at the management group scope:
@@ -513,7 +516,7 @@ az stack group list \
 1. From the Azure portal, open the resource group that contains the deployment stacks.
 1. From the left menu, select `Deployment stacks`.
 
-  :::image type="content" source="./media/deployment-stacks/deployment-stack-portal-group-list-stacks.png" alt-text="Screenshot of listing resource group scope deployment stacks.":::
+    :::image type="content" source="./media/deployment-stacks/deployment-stack-portal-group-list-stacks.png" alt-text="Screenshot of listing managed resources at the resource group scope.":::
 
 1. Select one of the deployment stacks to view the managed resources of the deployment stack.
 
@@ -540,7 +543,7 @@ az stack sub show \
 1. From the Azure portal, open the subscription that contains the deployment stacks.
 1. From the left menu, select `Deployment stacks` to list the deployment stacks deployed to the subscription.
 
-  :::image type="content" source="./media/deployment-stacks/deployment-stack-portal-sub-list-stacks.png" alt-text="Screenshot of listing resource group scope deployment stacks.":::
+    :::image type="content" source="./media/deployment-stacks/deployment-stack-portal-sub-list-stacks.png" alt-text="Screenshot of listing managed resources at the subscription scope.":::
 
 1. Select the deployment stack to list the managed resources.
 
