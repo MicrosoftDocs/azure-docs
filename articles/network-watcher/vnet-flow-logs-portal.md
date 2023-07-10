@@ -5,7 +5,7 @@ description: Learn how to create, change, enable, disable, or delete Azure Netwo
 author: halkazwini
 ms.service: network-watcher
 ms.topic: how-to
-ms.date: 06/08/2023
+ms.date: 07/10/2023
 ms.author: halkazwini
 ms.custom: template-how-to, engagement-fy23
 ---
@@ -23,7 +23,7 @@ ms.custom: template-how-to, engagement-fy23
 
 Virtual network flow logging is a feature of Azure Network Watcher that allows you to log information about IP traffic flowing through an Azure virtual network. For more information about virtual network flow logging, see [VNet flow logs overview](vnet-flow-logs-overview.md).
 
-In this article, you learn how to create, change, enable, disable, or delete a VNet flow log using the Azure portal.
+In this article, you learn how to create, change, enable, disable, or delete a VNet flow log using the Azure portal. You can learn how to manage a VNet flow log using [Azure PowerShell](vnet-flow-logs-powershell.md) or [Azure CLI](vnet-flow-logs-cli.md).
 
 ## Prerequisites
 
@@ -51,9 +51,9 @@ In this article, you learn how to create, change, enable, disable, or delete a V
 
     :::image type="content" source="./media/vnet-flow-logs-portal/register-microsoft-insights.png" alt-text="Screenshot of registering Microsoft Insights provider in the Azure portal.":::
 
-## Create a flow log
+## Enable VNet flow logs
 
-Use Network Watcher to create a flow log for your virtual network.
+Enable VNet flow logs by creating a flow log for your virtual network.
 
 1. In the search box at the top of the portal, enter *network watcher*. Select **Network Watcher** in the search results.
 
@@ -85,9 +85,9 @@ Use Network Watcher to create a flow log for your virtual network.
 
 1. Review the settings, and then select **Create**.
 
-## Create a flow log and traffic analytics workspace
+## Enable VNet flow logs and traffic analytics
 
-Use Network Watcher to create a flow log for your virtual network with traffic analytics enabled for the flow log.
+Enable VNet flow logs and traffic analytics by creating a flow log for your virtual network and enabling traffic analytics for it.
 
 1. In the search box at the top of the portal, enter *network watcher*. Select **Network Watcher** in the search results.
 
