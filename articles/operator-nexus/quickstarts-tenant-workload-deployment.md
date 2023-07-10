@@ -108,6 +108,14 @@ After a few minutes, the command completes and returns information about the vir
 > [!NOTE]
 > If each server has two CPU chipsets and each CPU chip has 28 cores, then with hyperthreading enabled (default), the CPU chip supports 56 vCPUs. With 8 vCPUs in each chip reserved for infrastructure (OS and agents), the remaining 48 are available for tenant workloads.
 
+## Review deployed resources
+
+[!INCLUDE [quickstart-review-deployment-cli](./includes/virtual-machine/quickstart-review-deployment-cli.md)]
+
+## Clean up resources
+
+[!INCLUDE [quickstart-cleanup](./includes/kubernetes-cluster/quickstart-cleanup.md)]
+
 ## Next steps
 You've successfully created a Nexus virtual machine. You can now use the virtual machine to host virtual network functions (VNFs).
 
