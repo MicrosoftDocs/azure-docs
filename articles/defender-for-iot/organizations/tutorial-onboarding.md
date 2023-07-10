@@ -225,7 +225,7 @@ This procedure describes how to install the sensor software on your VM.
 
 1. When the installation boots, you're prompted to start the installation process. Select the **Install iot-sensor-<version number>** item to continue. For example:
 
-    :::image type="content" source="../media/install-software-ot-sensor/initial-install-screen.png" alt-text="Screenshot of the initial installation screen.":::
+    :::image type="content" source="media/install-software-ot-sensor/initial-install-screen.png" alt-text="Screenshot of the initial installation screen.":::
 
     > [!NOTE]
     > If you're using a legacy BIOS version, you're prompted to select a language and the installation options are presented at the top left instead of in the center. When prompted, select `English` and then the the **Install iot-sensor-<version number> option to continue.
@@ -241,7 +241,7 @@ This procedure describes how to install the sensor software on your VM.
     UID: 91F14D56-C1E4-966F-726F-006A527C61D
     ```
 
-You'll use the default IP address provided to access your sensor for [initial setup and activation](activate-deploy-sensor.md).
+You'll use the default IP address provided to access your sensor for [initial setup and activation](/ot-deploy/activate-deploy-sensor.md).
 
 ### Post-installation validation
 
@@ -281,7 +281,7 @@ This procedure describes how to sign into the OT sensor console for the first ti
 
     The initial sign-in page appears. For example:
 
-    :::image type="content" source="../media/install-software-ot-sensor/ui-sign-in.png" alt-text="Screenshot of the initial sensor sign-in page.":::
+    :::image type="content" source="media/install-software-ot-sensor/ui-sign-in.png" alt-text="Screenshot of the initial sensor sign-in page.":::
 
 1. Enter the following credentials and select **Login**:
 
@@ -294,7 +294,7 @@ This procedure describes how to sign into the OT sensor console for the first ti
 
     In the **Confirm new password** field, enter your new password again, and then select **Get started**.
 
-    For more information, see [Default privileged users](../manage-users-sensor.md#default-privileged-users).
+    For more information, see [Default privileged users](manage-users-sensor.md#default-privileged-users).
 
 The **Defender for IoT | Overview** page opens to the **Management interface** tab.
 
@@ -327,7 +327,7 @@ In the **Interface configurations** tab, do the following to configure settings 
 
 1. Select the **Enable/Disable** toggle for any interfaces you want the sensor to monitor. You must select at least one interface to continue.
 
-    If you're not sure which interface to use, select the :::image type="icon" source="../media/install-software-ot-sensor/blink-interface.png" border="false"::: **Blink physical interface LED** button to have the selected port blink on your machine. Select any of the interfaces that you've connected to your switch.
+    If you're not sure which interface to use, select the :::image type="icon" source="media/install-software-ot-sensor/blink-interface.png" border="false"::: **Blink physical interface LED** button to have the selected port blink on your machine. Select any of the interfaces that you've connected to your switch.
 
 1. For the sake of this tutorial, skip any advanced settings and select **Next: Reboot >** to continue.
 
@@ -347,13 +347,13 @@ This procedure describes how to activate your new OT sensor.
 
 ### Define SSL/TLS certificate settings
 
-Use the **Certificates** tab to deploy an SSL/TLS certificate on your OT sensor. While we recommend that you use a [CA-signed certificate](create-ssl-certificates.md) for all production environments, for the sake of this tutorial, you'll select to use a self-signed certificate. 
+Use the **Certificates** tab to deploy an SSL/TLS certificate on your OT sensor. While we recommend that you use a [CA-signed certificate](/ot-deploy/create-ssl-certificates.md) for all production environments, for the sake of this tutorial, you'll select to use a self-signed certificate. 
 
 **To define SSL/TLS certificate settings**:
 
 1. In the **Certificates** tab, select **Use Locally generated self-signed certificate (Not recommended)**, and then select the **Confirm** option.
 
-For more information, see [SSL/TLS certificate requirements for on-premises resources](../best-practices/certificate-requirements.md) and [Create SSL/TLS certificates for OT appliances](create-ssl-certificates.md).
+For more information, see [SSL/TLS certificate requirements for on-premises resources](best-practices/certificate-requirements.md) and [Create SSL/TLS certificates for OT appliances](/ot-deploy/create-ssl-certificates.md).
 
 1. Select **Finish** to complete the initial setup and open your sensor console.
 
