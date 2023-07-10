@@ -4,7 +4,7 @@ description: Learn how Azure MANA Accelerated Networking can improve the network
 author: mattmcinnes
 ms.service: virtual-network
 ms.topic: how-to
-ms.date: 07/07/2023
+ms.date: 07/10/2023
 ms.author: mattmcinnes
 ---
 
@@ -29,7 +29,7 @@ Windows:
 - Windows Server 2022
 
 ## Check status of MANA support
-Because Azure MANA's feature set requires both host hardware and VM driver software components, there are several checks required to ensure MANA is working properly.
+Because Azure MANA's feature set requires both host hardware and VM driver software components, there are several checks required to ensure MANA is working properly. All checks are required to ensure MANA functions properly on your VM.
 
 ### Azure portal check
 
@@ -43,7 +43,7 @@ Ensure that you have Accelerated Networking enabled on at least one of your NICs
 When Accelerated Networking is enabled, the underlying MANA NIC can be identified as a PCI device in the Virtual Machine.
 
 >[!NOTE] 
->When multiple NICs are configured, there will still only be one PCIe Virtual Function assigned to the VM. MANA is designed such that all VM NICs interact with the same PCIe Virtual function. Since network resource limits are set at the VM SKU level, this has no impact on performance.
+>When multiple NICs are configured on MANA-supported hardware, there will still only be one PCIe Virtual Function assigned to the VM. MANA is designed such that all VM NICs interact with the same PCIe Virtual function. Since network resource limits are set at the VM SKU level, this has no impact on performance.
 
 ### Driver check
 There are several ways to verify your VM has a MANA Ethernet driver installed:
