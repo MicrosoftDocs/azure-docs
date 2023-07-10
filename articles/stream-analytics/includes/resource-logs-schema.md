@@ -30,7 +30,7 @@ Execution logs have information about events that happened during Stream Analyti
 
 ### Data errors
 
-Any error that occurs while the job is processing data is in this category of logs. These logs most often are created during data read, serialization, and write operations. These logs do not include connectivity errors. Connectivity errors are treated as generic events. You can learn more about the cause of various different [input and output data errors](../data-errors.md).
+Any error that occurs while the job is processing data is in this category of logs. These logs most often are created during data read, serialization, and write operations. These logs don't include connectivity errors. Connectivity errors are treated as generic events. You can learn more about the cause of various different [input and output data errors](../data-errors.md).
 
 Name | Description
 ------- | -------
@@ -41,11 +41,11 @@ Data | Contains data that is useful to accurately locate the source of the error
 
 Depending on the **operationName** value, data errors have the following schema:
 
-* **Serialize events** occur during event read operations. They occur when the data at the input does not satisfy the query schema for one of these reasons:
+* **Serialize events** occur during event read operations. They occur when the data at the input doesn't satisfy the query schema for one of these reasons:
 
-   * *Type mismatch during event (de)serialize*: Identifies the field that's causing the error.
+   * *Type mismatch during event serialization/deserialization*: Identifies the field that's causing the error.
 
-   * *Cannot read an event, invalid serialization*: Lists information about the location in the input data where the error occurred. Includes blob name for blob input, offset, and a sample of the data.
+   * *Can't read an event, invalid serialization*: Lists information about the location in the input data where the error occurred. Includes blob name for blob input, offset, and a sample of the data.
 
 * **Send events** occur during write operations. They identify the streaming event that caused the error.
 
@@ -55,7 +55,7 @@ Generic events cover everything else.
 
 Name | Description
 -------- | --------
-Error | (optional) Error information. Usually, this is exception information if it's available.
+Error | (optional) Error information. Usually, it's the exception information if it's available.
 Message| Log message.
 Type | Type of message. Maps to internal categorization of errors. For example, **JobValidationError** or **BlobOutputAdapterInitializationFailure**.
 Correlation ID | GUID that uniquely identifies the job execution. All execution log entries from the time the job starts until the job stops have the same **Correlation ID** value.
