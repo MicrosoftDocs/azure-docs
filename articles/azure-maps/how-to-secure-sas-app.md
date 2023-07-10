@@ -305,7 +305,7 @@ The following steps describe how to create and configure an Azure Maps account w
             {
                 "name": "[parameters('accountName')]",
                 "type": "Microsoft.Maps/accounts",
-                "apiVersion": "2021-12-01-preview",
+                "apiVersion": "2023-06-01",
                 "location": "[parameters('location')]",
                 "sku": {
                     "name": "[parameters('pricingTier')]"
@@ -353,7 +353,7 @@ The following steps describe how to create and configure an Azure Maps account w
                     "expiry" : "[variables('sasParameters').expiry]"
                 },
                 "properties": {
-                    "value": "[listSas(variables('accountId'), '2021-12-01-preview', variables('sasParameters')).accountSasToken]"
+                    "value": "[listSas(variables('accountId'), '2023-06-01', variables('sasParameters')).accountSasToken]"
                 }
             }
         ]
