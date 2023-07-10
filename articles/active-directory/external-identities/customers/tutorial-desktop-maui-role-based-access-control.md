@@ -11,6 +11,8 @@ ms.subservice: ciam
 ms.date: 06/05/2023
 ---
 
+# Tutorial: Add app roles to .NET MAUI app and receive them in the ID token
+
 This tutorial demonstrates how to add app roles to .NET Multi-platform App UI (.NET MAUI) and receive them in the ID token.
 
 In this tutorial, you learn how to:
@@ -26,7 +28,7 @@ In this tutorial, you learn how to:
 - [Tutorial: Sign in users in .NET MAUI shell app](tutorial-desktop-app-maui-sign-in-sign-out.md)
 - [Using role-based access control for applications](how-to-use-app-roles-customers.md)
 
-# Receive groups and roles claims in .NET MAUI
+## Receive groups and roles claims in .NET MAUI
 
 Once you configure your customer's tenant, you can retrieve your roles and groups claims in your client app. The roles and groups claims are both present in the ID token and the access token. Access tokens are only validated in the web APIs for which they were acquired by a client. The client should not validate access tokens.
 
