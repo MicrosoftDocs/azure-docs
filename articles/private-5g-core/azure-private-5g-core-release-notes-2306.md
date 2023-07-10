@@ -29,7 +29,7 @@ Packet core versions are supported until two subsequent versions have been relea
     - Network address and port translation parameters
     - DNS addresses
 
-To change your packet core configuration, see [Modify a packet core instance](https://learn.microsoft.com/en-us/azure/private-5g-core/modify-packet-core).
+To change your packet core configuration, see [Modify a packet core instance](modify-packet-core.md).
 
 <!-- removed issues fixed section as none in this release
 ## Issues fixed in the AP5GC 2306 release

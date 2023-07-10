@@ -43,7 +43,7 @@ It is now possible to:
   
 followed by a few minutes of downtime, but not a packet core reinstall.
 
-For details, see [Modify a packet core instance](https://learn.microsoft.com/en-us/azure/private-5g-core/modify-packet-core).
+For details, see [Modify a packet core instance](modify-packet-core.md).
 
 ### PLMN configuration
 
@@ -53,7 +53,7 @@ For details, see [Modify a packet core instance](https://learn.microsoft.com/en-
 
 You can now change the public land mobile network (PLMN) identifier, comprising a Mobile Country Code (MCC) and Mobile Network Code (MNC), on an existing private mobile network. Previously, this required recreating the network with the new configuration.
 
-To change your PLMN configuration, see [Deploy a private mobile network through Azure Private 5G Core](https://learn.microsoft.com/en-us/azure/private-5g-core/how-to-guide-deploy-a-private-mobile-network-azure-portal).
+To change your PLMN configuration, see [Deploy a private mobile network through Azure Private 5G Core - Azure portal](how-to-guide-deploy-a-private-mobile-network-azure-portal.md).
 
 
 ## May 2023
@@ -74,7 +74,7 @@ The 2305 release for the Azure Private 5G Core packet core is now available. For
 
 New-MobileNetworkSite now supports an additional parameter that makes it easier to create a site and its dependant resources.
 
-For details, see [Create additional Packet Core instances for a site using the Azure portal](https://learn.microsoft.com/en-us/azure/private-5g-core/create-additional-packet-core).
+For details, see [Create additional Packet Core instances for a site using the Azure portal](create-additional-packet-core.md).
  
 ### Multiple Packet Cores under the same Site
 
@@ -84,7 +84,7 @@ For details, see [Create additional Packet Core instances for a site using the A
 
 It is now possible to add multiple packet cores in the same site using the Azure portal. 
 
-For details, see [Create a Site and dependant resources](https://learn.microsoft.com/en-us/azure/private-5g-core/deploy-private-mobile-network-with-site-powershell#create-a-site-and-dependant-resources).
+For details, see [Create a Site and dependant resources](deploy-private-mobile-network-with-site-powershell#create-a-site-and-dependant-resources.md).
 
 
 ## March 2023
