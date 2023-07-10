@@ -14,6 +14,10 @@ Search jobs are asynchronous queries that fetch records into a new search table 
 > [!NOTE]
 > The search job feature is currently not supported for workspaces with [customer-managed keys](customer-managed-keys.md). 
 
+## Permissions
+
+To run a search job, you need `Microsoft.OperationalInsights/workspaces/tables/write` and `Microsoft.OperationalInsights/workspaces/searchJobs/write` permissions to the Log Analytics workspace, for example, as provided by the [Log Analytics Contributor built-in role](../logs/manage-access.md#built-in-roles).
+
 ## When to use search jobs
 
 Use a search job when the log query timeout of 10 minutes isn't sufficient to search through large volumes of data or if you're running a slow query.

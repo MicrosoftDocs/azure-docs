@@ -4,7 +4,7 @@ description: Understand how to plan for an Azure Files deployment. You can eithe
 author: khdownie
 ms.service: storage
 ms.topic: conceptual
-ms.date: 06/07/2023
+ms.date: 06/09/2023
 ms.author: kendownie
 ms.subservice: files
 ms.custom: references_regions
@@ -67,7 +67,7 @@ When deploying Azure file shares into storage accounts, we recommend:
 
 - Paying attention to a storage account's IOPS limitations when deploying Azure file shares. Ideally, you would map file shares 1:1 with storage accounts. However, this may not always be possible due to various limits and restrictions, both from your organization and from Azure. When it is not possible to have only one file share deployed in one storage account, consider which shares will be highly active and which shares will be less active to ensure that the hottest file shares don't get put in the same storage account together.
 
-- Only deploying GPv2 and FileStorage accounts and upgrading GPv1 and classic storage accounts when you find them in your environment. 
+- Only deploying GPv2 and FileStorage accounts, and upgrading GPv1 and classic storage accounts when you find them in your environment. 
 
 ## Identity
 To access an Azure file share, the user of the file share must be authenticated and authorized to access the share. This is done based on the identity of the user accessing the file share. Azure Files supports the following methods of authentication:
@@ -101,8 +101,8 @@ In addition to directly connecting to the file share using the public endpoint o
 ## Encryption
 Azure Files supports two different types of encryption: 
 
-- Encryption in transit, which relates to the encryption used when mounting/accessing the Azure file share
-- Encryption at rest, which relates to how the data is encrypted when it's stored on disk
+- **Encryption in transit**, which relates to the encryption used when mounting/accessing the Azure file share
+- **Encryption at rest**, which relates to how the data is encrypted when it's stored on disk
 
 ### Encryption in transit
 
@@ -121,7 +121,7 @@ For more information about encryption in transit, see [requiring secure transfer
 [!INCLUDE [storage-files-encryption-at-rest](../../../includes/storage-files-encryption-at-rest.md)]
 
 ## Data protection
-Azure Files has a multi-layered approach to ensuring your data is backed up, recoverable, and protected from security threats.
+Azure Files has a multi-layered approach to ensuring your data is backed up, recoverable, and protected from security threats. See [Azure Files data protection overview](files-data-protection-overview.md).
 
 ### Soft delete
 Soft delete is a storage-account level setting for SMB file shares that allows you to recover your file share when it's accidentally deleted. When a file share is deleted, it transitions to a soft deleted state instead of being permanently erased. You can configure the amount of time soft deleted shares are recoverable before they're permanently deleted, and undelete the share anytime during this retention period. 
@@ -155,15 +155,23 @@ Defender for Storage doesn't access the storage account data and doesn't impact 
 ## Redundancy
 [!INCLUDE [storage-files-redundancy-overview](../../../includes/storage-files-redundancy-overview.md)]
 
+For more information about redundancy, see [Azure Files data redundancy](files-redundancy.md).
 
 ### Standard ZRS availability
-[!INCLUDE [storage-redundancy-standard-zrs](../../../includes/storage-redundancy-standard-zrs.md)]
+
+ZRS for standard general-purpose v2 storage accounts is available for a [subset of Azure regions](../common/redundancy-regions-zrs.md).
 
 ### Premium ZRS availability
-[!INCLUDE [storage-files-redundancy-premium-zrs](../../../includes/storage-files-redundancy-premium-zrs.md)]
+
+ZRS for premium file shares is available for a [subset of Azure regions](redundancy-premium-file-shares.md#premium-file-share-accounts).
 
 ### Standard GZRS availability
-[!INCLUDE [storage-redundancy-standard-gzrs](../../../includes/storage-redundancy-standard-gzrs.md)]
+
+GZRS is available for a [subset of Azure regions](../common/redundancy-regions-gzrs.md).
+
+## Disaster recovery and failover
+
+In the case of an unplanned regional service outage, you should have a disaster recovery (DR) plan in place for your Azure file shares. To understand the concepts and processes involved with DR and storage account failover, see [Disaster recovery and failover for Azure Files](files-disaster-recovery.md).
 
 ## Migration
 In many cases, you won't be establishing a net new file share for your organization, but instead migrating an existing file share from an on-premises file server or NAS device to Azure Files. Picking the right migration strategy and tool for your scenario is important for the success of your migration. 

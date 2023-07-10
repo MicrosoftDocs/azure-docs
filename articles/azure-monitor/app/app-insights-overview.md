@@ -149,7 +149,7 @@ This section lists all supported platforms and frameworks.
 ### Logging frameworks
 * [ILogger](./ilogger.md)
 * [Log4Net, NLog, or System.Diagnostics.Trace](./asp-net-trace-logs.md)
-* [Log4J, Logback, or java.util.logging](./opentelemetry-enable.md?tabs=java#logs)
+* [Log4J, Logback, or java.util.logging](./opentelemetry-add-modify.md?tabs=java#logs)
 * [LogStash plug-in](https://github.com/Azure/azure-diagnostics-tools/tree/master/Logstash/logstash-output-applicationinsights)
 * [Azure Monitor](/archive/blogs/msoms/application-insights-connector-in-oms)
 

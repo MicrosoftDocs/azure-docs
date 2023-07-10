@@ -179,7 +179,7 @@ An example response:
         },
         {
             "name": "searchParams",
-            "valueString": "{{LIST_OF_SEARCHPARAM_URLS}}h"
+            "valueString": "{{LIST_OF_SEARCHPARAM_URLS}}"
         },
         {
             "name": "queryDelayIntervalInMilliseconds",

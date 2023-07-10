@@ -15,10 +15,7 @@ ms.custom: UpdateFrequency5, devx-track-python, automl, sdkv2, event-tier1-build
 
 # Tutorial: Train an object detection model (preview) with AutoML and Python (v1)
 
-[!INCLUDE [sdk v1](../../../includes/machine-learning-sdk-v1.md)]
-> [!div class="op_single_selector" title1="Select the version of Azure Machine Learning SDK you are using:"]
-> * [v1](tutorial-auto-train-image-models.md)
-> * [v2 (current version)](../tutorial-auto-train-image-models.md?view=azureml-api-2&preserve-view=true)
+[!INCLUDE [sdk v1](../includes/machine-learning-sdk-v1.md)]
     
 
 >[!IMPORTANT]

@@ -144,6 +144,5 @@ Managing devices in Intune is *not* supported at this time.
 ## Next steps
 
 - [Create or delete administrative units](admin-units-manage.md)
-- [Add users, groups, or devices to an administrative unit](admin-units-members-add.md)
-- [Assign Azure AD roles with administrative unit scope](admin-units-assign-roles.md)
+- [Restricted management administrative units](admin-units-restricted-management.md)
 - [Administrative unit limits](../enterprise-users/directory-service-limits-restrictions.md?context=%2fazure%2factive-directory%2froles%2fcontext%2fugr-context)

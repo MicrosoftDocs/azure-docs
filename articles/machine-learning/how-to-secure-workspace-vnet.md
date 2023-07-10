@@ -15,11 +15,8 @@ ms.custom: contperf-fy20q4, tracking-python, contperf-fy21q1, security, cliv2, s
 
 # Secure an Azure Machine Learning workspace with virtual networks
 
-[!INCLUDE [sdk/cli v2](../../includes/machine-learning-dev-v2.md)]
+[!INCLUDE [sdk/cli v2](includes/machine-learning-dev-v2.md)]
 
-> [!div class="op_single_selector" title1="Select the version of Azure Machine Learning SDK/CLI extension you are using:"]
-> * [v2 (current version)](how-to-secure-workspace-vnet.md)
-> * [v1](v1/how-to-secure-workspace-vnet.md?view=azureml-api-1&preserve-view=true)
 
 In this article, you learn how to secure an Azure Machine Learning workspace and its associated resources in an Azure Virtual Network.
 
@@ -55,12 +52,7 @@ In this article you learn how to enable the following workspaces resources in a 
     > [!IMPORTANT]
     > We do not recommend using the 172.17.0.0/16 IP address range for your VNet. This is the default subnet range used by the Docker bridge network. Other ranges may also conflict depending on what you want to connect to the virtual network. For example, if you plan to connect your on premises network to the VNet, and your on-premises network also uses the 172.16.0.0/16 range. Ultimately, it is up to __you__ to plan your network infrastructure.
 
-+ To deploy resources into a virtual network or subnet, your user account must have permissions to the following actions in Azure role-based access control (Azure RBAC):
-
-    - "Microsoft.Network/virtualNetworks/join/action" on the virtual network resource.
-    - "Microsoft.Network/virtualNetworks/subnets/join/action" on the subnet resource.
-
-    For more information on Azure RBAC with networking, see the [Networking built-in roles](../role-based-access-control/built-in-roles.md#networking)
+[!INCLUDE [network-rbac](includes/network-rbac.md)]
 
 ### Azure Container Registry
 
@@ -100,7 +92,7 @@ When ACR is behind a virtual network, Azure Machine Learning can't use it to dir
 
 ## Required public internet access
 
-[!INCLUDE [machine-learning-required-public-internet-access](../../includes/machine-learning-public-internet-access.md)]
+[!INCLUDE [machine-learning-required-public-internet-access](includes/machine-learning-public-internet-access.md)]
 
 For information on using a firewall solution, see [Configure required input and output communication](how-to-access-azureml-behind-firewall.md).
 
@@ -215,7 +207,7 @@ Azure Container Registry can be configured to use a private endpoint. Use the fo
 
     # [Azure CLI](#tab/cli)
 
-    [!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
+    [!INCLUDE [cli v2](includes/machine-learning-cli-v2.md)]
 
     If you've [installed the Machine Learning extension v2 for Azure CLI](how-to-configure-cli.md), you can use the `az ml workspace show` command to show the workspace information. The v1 extension doesn't return this information.
 
@@ -227,7 +219,7 @@ Azure Container Registry can be configured to use a private endpoint. Use the fo
 
     # [Python SDK](#tab/python)
 
-    [!INCLUDE [sdk v2](../../includes/machine-learning-sdk-v2.md)]
+    [!INCLUDE [sdk v2](includes/machine-learning-sdk-v2.md)]
 
     The following code snippet demonstrates how to get the container registry information using the [Azure Machine Learning SDK](/python/api/overview/azure/ai-ml-readme):
 
@@ -284,7 +276,7 @@ Azure Container Registry can be configured to use a private endpoint. Use the fo
 
     The following code snippet demonstrates how to update the workspace to set a build compute using the [Azure Machine Learning SDK](/python/api/overview/azure/ai-ml-readme). Replace `mycomputecluster` with the name of the cluster to use:
 
-    [!INCLUDE [sdk v2](../../includes/machine-learning-sdk-v2.md)]
+    [!INCLUDE [sdk v2](includes/machine-learning-sdk-v2.md)]
 
     ```python
     # import required libraries
@@ -334,11 +326,11 @@ To enable network isolation for Azure Monitor and the Application Insights insta
 
 ## Securely connect to your workspace
 
-[!INCLUDE [machine-learning-connect-secure-workspace](../../includes/machine-learning-connect-secure-workspace.md)]
+[!INCLUDE [machine-learning-connect-secure-workspace](includes/machine-learning-connect-secure-workspace.md)]
 
 ## Workspace diagnostics
 
-[!INCLUDE [machine-learning-workspace-diagnostics](../../includes/machine-learning-workspace-diagnostics.md)]
+[!INCLUDE [machine-learning-workspace-diagnostics](includes/machine-learning-workspace-diagnostics.md)]
 
 ## Public access to workspace
 

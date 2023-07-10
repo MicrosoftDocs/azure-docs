@@ -32,7 +32,8 @@ There are few exceptions to the retirement policy outlined above. Here is a list
 
 |Language Versions                        |EOL Date         |Retirement Date|
 |-----------------------------------------|-----------------|----------------|
-|Node 12|30 Apr 2022|13 December 2022|
+|Node 14|30 April 2023|30 June 2024|
+|Node 16|11 September 2023|30 June 2024|
 
 ## Language version support timeline
 

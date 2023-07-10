@@ -65,7 +65,7 @@ You can find a sample [local deployment notebook](https://github.com/Azure/Machi
 
 To deploy locally, modify your code to use `LocalWebservice.deploy_configuration()` to create a deployment configuration. Then use `Model.deploy()` to deploy the service. The following example deploys a model (contained in the model variable) as a local web service:
 
-[!INCLUDE [sdk v1](../../../includes/machine-learning-sdk-v1.md)]
+[!INCLUDE [sdk v1](../includes/machine-learning-sdk-v1.md)]
 
 ```python
 from azureml.core.environment import Environment
@@ -152,5 +152,4 @@ You can address the error by increasing the value of `memory_gb` in `deployment_
 Learn more about deployment:
 
 * [How to troubleshoot remote deployments](how-to-troubleshoot-deployment.md)
-* [Azure Machine Learning inference HTTP Server](../how-to-inference-server-http.md)
-* [How to run and debug experiments locally](../how-to-debug-visual-studio-code.md)
+* [How to run and debug experiments locally](how-to-debug-visual-studio-code.md)

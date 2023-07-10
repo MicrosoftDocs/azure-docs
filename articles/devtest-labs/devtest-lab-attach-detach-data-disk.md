@@ -5,6 +5,7 @@ ms.topic: how-to
 ms.author: rosemalcolm
 author: RoseHJM
 ms.date: 04/24/2023
+ms.custom: UpdateFrequency2
 ---
 
 # Attach or detach a data disk for a lab virtual machine in Azure DevTest Labs

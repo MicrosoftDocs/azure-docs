@@ -65,6 +65,8 @@ When an authorized user selects one of these application-specific links, they fi
 
 These links use the same access control mechanisms as My Apps and Microsoft 365. Only those users or groups who have been assigned to the application in the Azure portal will be able to successfully authenticate. However, any user who is unauthorized will see a message explaining that they haven't been granted access. The unauthorized user is given a link to load My Apps to view available applications that they do have access to.
 
+[!INCLUDE [portal updates](../includes/portal-update.md)]
+
 ## Manage preview settings
 
 As an admin, you can choose to try out new app launcher features while they are in preview. Enabling a preview feature means that the feature is turned on for your organization and will be reflected in the My Apps portal and other app launchers for all your users.

@@ -28,15 +28,34 @@ This article summarizes new releases and features in Azure Database for MySQL - 
 
 ## June 2023
 
+- **Private Link for Azure Database for MySQL - Flexible Server (Preview)**
+
+  You can now enable private access to Azure Database for MySQL - flexible server using Private Link. Azure Private Link essentially brings Azure services inside your private Virtual Network (VNet). Using the private IP address, the MySQL flexible server is accessible just like any other resource within the VNet. [Learn more](./concepts-networking-private-link.md).
+
+- **Enhanced Data Encryption with Customer Managed Keys for Azure Database for MySQL - Flexible Server**
+
+  Azure Database for MySQL - Flexible Server now supports allowing access to Azure Key Vault from selected Vnets for enabling data encryption using Customer Managed Keys. [Learn more](./concepts-customer-managed-key.md).
+
+
+- **Server Parameters support for Azure Database for MySQL- Flexible Server**
+
+  Please reach out to our [support team](https://azure.microsoft.com/support/create-ticket) if you require assistance with below server parameters.
+
+  [lower_case_table_names](https://dev.mysql.com/doc/refman/8.0/en/server-system-variables.html#sysvar_lower_case_table_names): Supported value change is to value of 2 for MySQL version 5.7. Please note that changing the value from 2 back to 1 is not allowed. Please contact our support team for assistance.
+
+  [innodb_flush_log_at_trx_commit](https://dev.mysql.com/doc/refman/8.0/en/innodb-parameters.html#sysvar_innodb_flush_log_at_trx_commit): This parameter determines the level of strictness for commit operations to ensure ACID compliance. Changing the value from its default setting may result in data loss.
+
 - **Max IOPS support for Azure Database for MySQL- Flexible Server**
 
   Business Critical SKU now supports 80K IOPS, enabling enhanced performance with increased IO operations per second. [Learn more](./concepts-service-tiers-storage.md#service-tiers-size-and-server-types).
 
+ 
+
 ## May 2023
 
-- **Read-Replica in Geo-Paired Region on Azure Database for MySQL- Flexible Server**
+- **Read-Replica in Geo-Paired Region on Azure Database for MySQL- Flexible Server (General Availability)**
 
-  Azure Database for MySQL - Flexible server now supports cross region read-replica in a geo-paired region. The feature allows you to replicate your data from an instance of Azure Database for MySQL Flexible Server to a read-only server in geo-paired region. [Learn more](how-to-read-replicas-portal.md)
+  Azure Database for MySQL - Flexible server now supports cross region read-replica in a geo-paired region. The feature allows you to replicate your data from an instance of Azure Database for MySQL Flexible Server to a read-only server in geo-paired region. [Learn more](concepts-read-replicas.md)
 
 - **Support for data-in replication using GTID**
 
@@ -419,7 +438,7 @@ This release of Azure Database for MySQL - Flexible Server includes the followin
 
   - Australia Southeast
   - South Africa North
-  - East Asia (Hong Kong)
+  - East Asia (Hong Kong Special Administrative Region)
   - Central India
 
    [Learn more](overview.md#azure-regions).

@@ -15,9 +15,6 @@ ms.devlang: azurecli
 
 # Track ML experiments and models with MLflow
 
-> [!div class="op_single_selector" title1="Select the version of Azure Machine Learning developer platform you're using:"]
-> * [v1](./v1/how-to-use-mlflow.md?view=azureml-api-1&preserve-view=true)
-> * [v2 (current version)](how-to-use-mlflow-cli-runs.md)
 
 __Tracking__ refers to process of saving all experiment's related information that you may find relevant for every experiment you run. Such metadata varies based on your project, but it may include:
 
@@ -55,7 +52,7 @@ See [MLflow and Azure Machine Learning](concept-mlflow.md) for all supported MLf
 
 ## Prerequisites
 
-[!INCLUDE [mlflow-prereqs](../../includes/machine-learning-mlflow-prereqs.md)]
+[!INCLUDE [mlflow-prereqs](includes/machine-learning-mlflow-prereqs.md)]
 
 ## Configuring the experiment
 

@@ -85,7 +85,7 @@ The "analyzer" property on a field definition is used to set the [language analy
 
 ## Build and load an index
 
-An intermediate step is [building and populating the index](search-get-started-dotnet.md) before formulating a query. We mention this step here for completeness. One way to determine index availability is by checking the indexes list in the [portal](https://portal.azure.com).
+An intermediate step is [building and populating the index](search-get-started-text.md) before formulating a query. We mention this step here for completeness. One way to determine index availability is by checking the indexes list in the [portal](https://portal.azure.com).
 
 ## Constrain the query and trim results
 

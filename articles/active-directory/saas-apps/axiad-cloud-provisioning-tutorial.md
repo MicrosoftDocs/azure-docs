@@ -31,9 +31,9 @@ This tutorial describes the steps you need to perform in both Axiad Cloud and Az
 
 The scenario outlined in this tutorial assumes that you already have the following prerequisites:
 
-* [An Azure AD tenant](../develop/quickstart-create-new-tenant.md) 
+* [An Azure AD tenant](../develop/quickstart-create-new-tenant.md). 
 * A user account in Azure AD with [permission](../roles/permissions-reference.md) to configure provisioning (for example, Application Administrator, Cloud Application administrator, Application Owner, or Global Administrator).
-* A user account in Axiad Cloud with Admin permissions.
+* An Axiad Cloud tenant.
 
 ## Step 1. Plan your provisioning deployment
 1. Learn about [how the provisioning service works](../app-provisioning/user-provisioning.md).
@@ -41,7 +41,7 @@ The scenario outlined in this tutorial assumes that you already have the followi
 1. Determine what data to [map between Azure AD and Axiad Cloud](../app-provisioning/customize-application-attributes.md).
 
 ## Step 2. Configure Axiad Cloud to support provisioning with Azure AD
-Contact Axiad Cloud support to configure Axiad Cloud to support provisioning with Azure AD.
+Contact [Axiad Customer Success](mailto:customer.success@axiad.com) to request your Axiad Cloud tenant be configured for Azure AD SCIM provisioning. The Axiad Customer Success team will also provide the configuration information and SCIM API credentials for your Axiad Cloud tenant that are needed for the next steps.
 
 ## Step 3. Add Axiad Cloud from the Azure AD application gallery
 

@@ -10,7 +10,7 @@ ms.author: kritifaujdar
 ms.reviewer: larryfr
 ms.date: 06/06/2023
 ms.topic: how-to
-ms.custom: devops-pipelines-deploy, devx-track-arm-template
+ms.custom: devops-pipelines-deploy
 ---
 
 # Use Azure Pipelines with Azure Machine Learning
@@ -38,7 +38,7 @@ This tutorial uses [Azure Machine Learning Python SDK v2](/python/api/overview/a
     > [!TIP]
     >This extension isn't required to submit the Azure Machine Learning job; it's required to be able to wait for the job completion.
 
-    [!INCLUDE [machine-learning-preview-generic-disclaimer](../../includes/machine-learning-preview-generic-disclaimer.md)]
+    [!INCLUDE [machine-learning-preview-generic-disclaimer](includes/machine-learning-preview-generic-disclaimer.md)]
 
 
 ## Step 1: Get the code

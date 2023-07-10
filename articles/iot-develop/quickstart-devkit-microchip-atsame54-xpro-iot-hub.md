@@ -6,14 +6,8 @@ ms.author: timlt
 ms.service: iot-develop
 ms.devlang: c
 ms.topic: quickstart
-ms.date: 05/11/2022
+ms.date: 06/20/2023
 
-#- id: iot-develop-toolset
-## Owner: timlt
-#  title: IoT Devices
-#  prompt: Choose a build environment
-#  - id: iot-toolset-mplab
-#    title: MPLAB
 #Customer intent: As a device builder, I want to see a working IoT device sample connecting to IoT Hub and sending properties and telemetry, and responding to commands. As a solution builder, I want to use a tool to view the properties, commands, and telemetry an IoT Plug and Play device reports to the IoT hub it connects to.
 ---
 
@@ -230,7 +224,7 @@ Keep Termite open to monitor device output in the following steps.
 
 ## View device properties
 
-You can use Azure IoT Explorer to view and manage the properties of your devices. In the following sections, you use the Plug and Play capabilities that are visible in IoT Explorer to manage and interact with the Microchip E54. These capabilities rely on the device model published for the Microchip E54 in the public model repository. You configured IoT Explorer to search this repository for device models earlier in this quickstart. In many cases, you can perform the same action without using plug and play by selecting IoT Explorer menu options. However, using plug and play often provides an enhanced experience. IoT Explorer can read the device model specified by a plug and play device and present information specific to that device.  
+You can use Azure IoT Explorer to view and manage the properties of your devices. In the following sections, you use the Plug and Play capabilities that are visible in IoT Explorer to manage and interact with the Microchip E54. These capabilities rely on the device model published for the Microchip E54 in the public model repository. You configured IoT Explorer to search this repository for device models earlier in this quickstart. 
 
 To access IoT Plug and Play components for the device in IoT Explorer:
 
@@ -398,10 +392,13 @@ To delete a resource group by name:
 
 In this quickstart, you built a custom image that contains Azure RTOS sample code, and then flashed the image to the Microchip E54 device. You connected the Microchip E54 to Azure IoT Hub, and carried out tasks such as viewing telemetry and calling a method on the device.
 
-As a next step, explore the following articles to learn more about using the IoT device SDKs, or Azure RTOS to connect devices to Azure IoT. 
+As a next step, explore the following articles to learn more about using the IoT device SDKs to connect general devices, and embedded devices, to Azure IoT. 
 
 > [!div class="nextstepaction"]
-> [Connect a simulated device to IoT Hub](quickstart-send-telemetry-iot-hub.md)
+> [Connect a general simulated device to IoT Hub](quickstart-send-telemetry-iot-hub.md)
+
+> [!div class="nextstepaction"]
+> [Learn more about connecting embedded devices using C SDK and Embedded C SDK](concepts-using-c-sdk-and-embedded-c-sdk.md)
 
 > [!IMPORTANT]
 > Azure RTOS provides OEMs with components to secure communication and to create code and data isolation using underlying MCU/MPU hardware protection mechanisms. However, each OEM is ultimately responsible for ensuring that their device meets evolving security requirements.

@@ -15,12 +15,9 @@ ms.custom: UpdateFrequency5, cliv1, sdkv1, event-tier1-build-2022, devx-track-az
 
 # Use Managed identities with Azure Machine Learning  CLI v1
 
-[!INCLUDE [sdk v1](../../../includes/machine-learning-sdk-v1.md)]
-[!INCLUDE [cli v1](../../../includes/machine-learning-cli-v1.md)]
+[!INCLUDE [sdk v1](../includes/machine-learning-sdk-v1.md)]
+[!INCLUDE [cli v1](../includes/machine-learning-cli-v1.md)]
 
-> [!div class="op_single_selector" title1="Select the version of Azure Machine Learning SDK or CLI extension you are using:"]
-> * [v1](how-to-use-managed-identities.md)
-> * [v2 (current version)](../how-to-identity-based-service-authentication.md?view=azureml-api-2&preserve-view=true)
 
 [Managed identities](../../active-directory/managed-identities-azure-resources/overview.md) allow you to configure your workspace with the *minimum required permissions to access resources*. 
 
@@ -39,7 +36,7 @@ In this article, you'll learn how to use managed identities to:
 - An Azure Machine Learning workspace. For more information, see [Create workspace resources](../quickstart-create-resources.md).
 - The [Azure CLI extension for Machine Learning service](reference-azure-machine-learning-cli.md)
 
-    [!INCLUDE [cli v1 deprecation](../../../includes/machine-learning-cli-v1-deprecation.md)]
+    [!INCLUDE [cli v1 deprecation](../includes/machine-learning-cli-v1-deprecation.md)]
 
 - The [Azure Machine Learning Python SDK](/python/api/overview/azure/ml/intro).
 - To assign roles, the login for your Azure subscription must have the [Managed Identity Operator](../../role-based-access-control/built-in-roles.md#managed-identity-operator) role, or other role that grants the required actions (such as __Owner__).
@@ -116,7 +113,7 @@ When creating a compute cluster with the [AmlComputeProvisioningConfiguration](/
 
 # [Azure CLI](#tab/azure-cli)
 
-[!INCLUDE [cli v1](../../../includes/machine-learning-cli-v1.md)]
+[!INCLUDE [cli v1](../includes/machine-learning-cli-v1.md)]
 
 ```azurecli-interaction
 az ml computetarget create amlcompute --name <cluster name> -w <workspace> -g <resource group> --vm-size <vm sku> --assign-identity '[system]'
@@ -146,7 +143,7 @@ To use a custom base image internal to your enterprise, you can use managed iden
 
 Create machine learning compute cluster with system-assigned managed identity enabled as described earlier. Then, determine the principal ID of the managed identity.
 
-[!INCLUDE [cli v1](../../../includes/machine-learning-cli-v1.md)]
+[!INCLUDE [cli v1](../includes/machine-learning-cli-v1.md)]
 
 ```azurecli-interactive
 az ml computetarget amlcompute identity show --name <cluster name> -w <workspace> -g <resource group>
@@ -154,7 +151,7 @@ az ml computetarget amlcompute identity show --name <cluster name> -w <workspace
 
 Optionally, you can update the compute cluster to assign a user-assigned managed identity:
 
-[!INCLUDE [cli v1](../../../includes/machine-learning-cli-v1.md)]
+[!INCLUDE [cli v1](../includes/machine-learning-cli-v1.md)]
 
 ```azurecli-interactive
 az ml computetarget amlcompute identity assign --name <cluster name> \
@@ -171,7 +168,7 @@ az role assignment create --assignee <principal ID> \
 
 Finally, when submitting a training run, specify the base image location in the [environment definition](how-to-use-environments.md).
 
-[!INCLUDE [sdk v1](../../../includes/machine-learning-sdk-v1.md)]
+[!INCLUDE [sdk v1](../includes/machine-learning-sdk-v1.md)]
 
 ```python
 from azureml.core import Environment
@@ -185,7 +182,7 @@ env.python.user_managed_dependencies = True
 
 ### Build Azure Machine Learning managed environment into base image from private ACR for training or inference
 
-[!INCLUDE [cli v1](../../../includes/machine-learning-cli-v1.md)]
+[!INCLUDE [cli v1](../includes/machine-learning-cli-v1.md)]
 
 In this scenario, Azure Machine Learning service builds the training or inference environment on top of a base image you supply from a private ACR. Because the image build task happens on the workspace ACR using ACR Tasks, you must perform more steps to allow access.
 
@@ -208,7 +205,7 @@ In this scenario, Azure Machine Learning service builds the training or inferenc
 
 1. Specify the external ACR and client ID of the __user-assigned managed identity__ in workspace connections by using [Workspace.set_connection method](/python/api/azureml-core/azureml.core.workspace.workspace#set-connection-name--category--target--authtype--value-):
 
-    [!INCLUDE [sdk v1](../../../includes/machine-learning-sdk-v1.md)]
+    [!INCLUDE [sdk v1](../includes/machine-learning-sdk-v1.md)]
 
     ```python
     workspace.set_connection(
@@ -221,7 +218,7 @@ In this scenario, Azure Machine Learning service builds the training or inferenc
 
 1. Once the configuration is complete, you can use the base images from private ACR when building environments for training or inference. The following code snippet demonstrates how to specify the base image ACR and image name in an environment definition:
 
-    [!INCLUDE [sdk v1](../../../includes/machine-learning-sdk-v1.md)]
+    [!INCLUDE [sdk v1](../includes/machine-learning-sdk-v1.md)]
 
     ```python
     from azureml.core import Environment
@@ -232,7 +229,7 @@ In this scenario, Azure Machine Learning service builds the training or inferenc
 
     Optionally, you can specify the managed identity resource URL and client ID in the environment definition itself by using [RegistryIdentity](/python/api/azureml-core/azureml.core.container_registry.registryidentity). If you use registry identity explicitly, it overrides any workspace connections specified earlier:
 
-    [!INCLUDE [sdk v1](../../../includes/machine-learning-sdk-v1.md)]
+    [!INCLUDE [sdk v1](../includes/machine-learning-sdk-v1.md)]
 
     ```python
     from azureml.core.container_registry import RegistryIdentity
@@ -262,7 +259,7 @@ Use Azure CLI or Python SDK to create the workspace. When using the CLI, specify
 
 __Azure CLI__
 
-[!INCLUDE [cli v1](../../../includes/machine-learning-cli-v1.md)]
+[!INCLUDE [cli v1](../includes/machine-learning-cli-v1.md)]
 
 ```azurecli-interactive
 az ml workspace create -w <workspace name> -g <resource group> --primary-user-assigned-identity <managed identity ARM ID>
@@ -270,7 +267,7 @@ az ml workspace create -w <workspace name> -g <resource group> --primary-user-as
 
 __Python__
 
-[!INCLUDE [sdk v1](../../../includes/machine-learning-sdk-v1.md)]
+[!INCLUDE [sdk v1](../includes/machine-learning-sdk-v1.md)]
 
 ```python
 from azureml.core import Workspace

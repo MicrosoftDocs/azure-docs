@@ -10,6 +10,8 @@ items:
       href: quotas-limits.md
     - name: Models
       href: ./concepts/models.md
+    - name: Legacy models
+      href: ./concepts/legacy-models.md
     - name: Pricing
       href: https://azure.microsoft.com/pricing/details/cognitive-services/openai-service/
     - name: What's new
@@ -25,8 +27,12 @@ items:
       displayName: ChatGPT, chatgpt
     - name: DALL-E (preview)
       href: dall-e-quickstart.md
+    - name: Use your data (preview)
+      href: use-your-data-quickstart.md
 - name: Concepts
   items:
+    - name: Abuse monitoring
+      href: ./concepts/abuse-monitoring.md
     - name: Content filtering
       href: ./concepts/content-filter.md
     - name: Embeddings
@@ -39,6 +45,8 @@ items:
       href: ./concepts/advanced-prompt-engineering.md
     - name: System message templates
       href: ./concepts/system-message.md
+    - name: Using your data (preview)
+      href: ./concepts/use-your-data.md
 - name: How-to 
   items:
     - name: Resource creation & model deployment
@@ -50,6 +58,8 @@ items:
       href: ./how-to/completions.md
     - name: OpenAI vs Azure OpenAI (Python)
       href: ./how-to/switching-endpoints.md
+    - name: Configure content filters
+      href: ./how-to/content-filters.md
     - name: Work with code (Codex)
       href: ./how-to/work-with-code.md
     - name: Generate embeddings
@@ -60,6 +70,8 @@ items:
       href: ./how-to/fine-tuning.md
     - name: Manage identity
       href: ./how-to/managed-identity.md
+    - name: Manage quota
+      href: ./how-to/quota.md
     - name: Use virtual networks
       href: ../cognitive-services-virtual-networks.md?context=/azure/cognitive-services/openai/context/context
     - name: Use with large datasets
@@ -92,6 +104,9 @@ items:
       href: /legal/cognitive-services/openai/data-privacy?context=/azure/cognitive-services/openai/context/context
 - name: Reference
   items:
+    - name: Bicep/Azure Resource Manager/Terraform
+      href: /azure/templates/microsoft.cognitiveservices/accounts?pivots=deployment-language-bicep
+      displayName: ARM, ARM template, template 
     - name: REST API (completions & embeddings)
       href: reference.md
     - name: REST API (fine-tuning)
