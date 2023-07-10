@@ -10,7 +10,7 @@ ms.date: 06/22/2023
 ---
 
 # Container Image Management 
-When deploying Service Fabric containers, the activation path handles the downloading of the container images to the VM on which the container will be running. Once the containers have been removed from the cluster and their application types have been unregistered, there is a clean up cycle that deletes the container images. This clean up works only if the container image has been hard coded in the service manifest. For existing Service Fabric runtime versions, the configurations supporting the clean up of the container images are as follows - 
+The activation path during Service Fabric containers deployment, handles the downloading of the container images to the VM on which the containers are running. Once the containers have been removed from the cluster and their application types have been unregistered, there's a cleanup cycle that deletes the container images. This container image cleanup works only if the container image has been hard coded in the service manifest. For existing Service Fabric runtime versions, the configurations supporting the cleanup of the container images are as follows - 
 
 ## Settings
 
@@ -35,10 +35,10 @@ When deploying Service Fabric containers, the activation path handles the downlo
 |Setting |Description |
    | --- | --- |
    |PruneContainerImage |Setting to enable or disable pruning of container images when application type is unregistered. |
-   |CacheCleanupScanInterval |Setting in seconds determining how often the clean up cycle runs.  |
+   |CacheCleanupScanInterval |Setting in seconds determining how often the cleanup cycle runs.  |
 
 ## Container Image Management v2
-Starting Service Fabric version 10.0 there is a newer version of the container image deletion flow. This flow cleans up container images irrespective of how the container images may have been defined - either hard coded or parameterized during application deployment. PruneContainerImages and ContainerImageDeletionEnabled configuration are mutually exclusive and cluster upgrade validation exists to ensure one or the other is switched on but not both. The configuration supporting this feature are as follows - 
+Starting Service Fabric version 10.0 there's a newer version of the container image deletion flow. This flow cleans up container images irrespective of how the container images may have been defined - either hard coded or parameterized during application deployment. PruneContainerImages and ContainerImageDeletionEnabled configuration are mutually exclusive and cluster upgrade validation exists to ensure one or the other is switched on but not both. The configuration supporting this feature are as follows - 
 
 ### Settings
 
@@ -76,9 +76,10 @@ Starting Service Fabric version 10.0 there is a newer version of the container i
    | --- | --- |
    |ContainerImageDeletionEnabled |Setting to enable or disable deletion of container images. |
    |ContainerImageCleanupInterval |Time interval for cleaning up unused container images.  |
-   |ContainerImageTTL |Time to live for container images once they are eligible for removal (not referenced by containers on the VM and the application is deleted(if ContainerImageDeletionOnAppInstanceDeletionEnabled is enabled)).  |
+   |ContainerImageTTL |Time to live for container images once they're eligible for removal (not referenced by containers on the VM and the application is deleted(if ContainerImageDeletionOnAppInstanceDeletionEnabled is enabled)).  |
    |ContainerImageDeletionOnAppInstanceDeletionEnabled |Setting to enable or disable deletion of expired ttl container images only after application has been deleted as well.  |
-   |ContainerImagesToSkip |When set enables the container runtime to skip deleting images that match any of the set of regular expressions. Each expression must be separated by the \| character. Example: "mcr.microsoft.com/.+\|docker.io/library/alpine:latest" - this example matches everything prefixed with "mcr.microsoft.com/" and matches exactly "docker.io/library/alpine:latest". By default we do not delete the known Windows base images microsoft/windowsservercore or microsoft/nanoserver.  |
+   |ContainerImagesToSkip |When set enables the container runtime to skip deleting images that match any of the set of regular expressions. The \| character separates each expression. Example: "mcr.microsoft.com/.+\|docker.io/library/alpine:latest" - this 
+   example matches everything prefixed with "mcr.microsoft.com/" and matches exactly "docker.io/library/alpine:latest". By default we don't delete the known Windows base images microsoft/windowsservercore or microsoft/nanoserver.  |
 
 ## Next steps
 See the following article for related information:
