@@ -89,4 +89,4 @@ For more information, see [Configure cluster access via Kubernetes RBAC](../data
 
 ## Next steps
 - Save the *kubeconfig* file so it's available to use if you need it in future
-- You need the *kubeconfig* file as part of completing a different operation (such as to set up Azure Active Directory (AAD) authentication). Return to the operation you started from and continue.
+- If you need the *kubeconfig* file as part of completing a different procedure (such as to set up Azure Active Directory (AAD) authentication), return to that procedure and continue.
