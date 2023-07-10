@@ -1,12 +1,14 @@
 # Failover Considerations for Storage Accounts with Private Endpoints
 
 **NOTES**
->*  We need to test failover
->*  Datalake is not supported
+*  We need to test failover
+*  Datalake is not supported
 
-Storage accounts work different than many other Azure services when it comes to high availability configurations.  Instead of having a secondary instance that is deployed by the customer to a region of their selection, storage accounts configured to be [geo-redundant](./storage-account-overview#types-of-storage-accounts.md) use a specific secondary region based on the main region, to align with [regional pairs](../../reliability/cross-region-replication-azure).  Customers can fail over to the secondary region, or the storage account will automatically fail over when a regional outage occurs.
+Storage accounts work different than many other Azure services when it comes to high availability configurations.  Instead of having a secondary instance that is deployed by the customer to a region of their selection, storage accounts configured to be [geo-redundant](./storage-account-overview#types-of-storage-accounts.md) use a specific secondary region based on the main region, to align with [regional pairs](azure/reliability/cross-region-replication-azure).  Customers can fail over to the secondary region, or the storage account will automatically fail over when a regional outage occurs.
 
-This means that customers don't need to play to have a second
+This means that customers don't need to plan to have a second storage account already running in their second region; the SKU used in the primary region will address this.  You could have multiple storage accounts and use customer managed operations to move data between them, but this is an uncommon parent.
+
+When a storage account is failed over, it doesn't have 
 
 That means that you don't plan to have a second SA (you could but its uncommon and you have to solve for file sync and pay more), you plan to fail over your SA.
 The Storage Account depends on DNS for routing if you are doing a Private Endpoint
