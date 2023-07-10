@@ -2,11 +2,10 @@
 title: Use Azure Active Directory to access Azure file shares over SMB for hybrid identities using Kerberos authentication
 description: Learn how to enable identity-based Kerberos authentication for hybrid user identities over Server Message Block (SMB) for Azure Files through Azure Active Directory (Azure AD). Your users can then access Azure file shares by using their Azure AD credentials.
 author: khdownie
-ms.service: storage
+ms.service: azure-file-storage
 ms.topic: how-to
 ms.date: 06/30/2023
 ms.author: kendownie
-ms.subservice: files
 ms.custom: engagement-fy23
 recommendations: false
 ---

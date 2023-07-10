@@ -217,16 +217,16 @@ openai.api_key = os.getenv("OPENAI_API_KEY")
 
 conversation=[{"role": "system", "content": "You are a helpful assistant."}]
 
-while(True):
+while True:
     user_input = input()      
     conversation.append({"role": "user", "content": user_input})
 
     response = openai.ChatCompletion.create(
         engine="gpt-3.5-turbo", # The deployment name you chose when you deployed the GPT-35-turbo or GPT-4 model.
-        messages = conversation
+        messages=conversation
     )
 
-    conversation.append({"role": "assistant", "content": response['choices'][0]['message']['content']})
+    conversation.append({"role": "assistant", "content": response["choices"][0]["message"]["content"]})
     print("\n" + response['choices'][0]['message']['content'] + "\n")
 ```
 
@@ -249,15 +249,16 @@ The code requires tiktoken `0.3.0`. If you have an older version run `pip instal
 import tiktoken
 import openai
 import os
+
 openai.api_type = "azure"
 openai.api_version = "2023-05-15" 
-openai.api_base = os.getenv("OPENAI_API_BASE")  # Your Azure OpenAI resource's endpoint value .
+openai.api_base = os.getenv("OPENAI_API_BASE")  # Your Azure OpenAI resource's endpoint value.
 openai.api_key = os.getenv("OPENAI_API_KEY")
 
 system_message = {"role": "system", "content": "You are a helpful assistant."}
 max_response_tokens = 250
-token_limit= 4096
-conversation=[]
+token_limit = 4096
+conversation = []
 conversation.append(system_message)
 
 def num_tokens_from_messages(messages, model="gpt-3.5-turbo-0301"):
@@ -272,19 +273,19 @@ def num_tokens_from_messages(messages, model="gpt-3.5-turbo-0301"):
     num_tokens += 2  # every reply is primed with <im_start>assistant
     return num_tokens
 
-while(True):
+while True:
     user_input = input("")     
     conversation.append({"role": "user", "content": user_input})
     conv_history_tokens = num_tokens_from_messages(conversation)
 
-    while (conv_history_tokens+max_response_tokens >= token_limit):
+    while conv_history_tokens + max_response_tokens >= token_limit:
         del conversation[1] 
         conv_history_tokens = num_tokens_from_messages(conversation)
-        
+
     response = openai.ChatCompletion.create(
         engine="gpt-35-turbo", # The deployment name you chose when you deployed the GPT-35-Turbo or GPT-4 model.
-        messages = conversation,
-        temperature=.7,
+        messages=conversation,
+        temperature=0.7,
         max_tokens=max_response_tokens,
     )
 
@@ -292,11 +293,11 @@ while(True):
     print("\n" + response['choices'][0]['message']['content'] + "\n")
 ```
 
-In this example once the token count is reached the oldest messages in the conversation transcript will be removed. `del` is used instead of `pop()` for efficiency, and we start at index 1 so as to always preserve the system message and only remove user/assistant messages. Over time, this method of managing the conversation can cause the conversation quality to degrade as the model will gradually lose context of the earlier portions of the conversation.
+In this example, once the token count is reached, the oldest messages in the conversation transcript will be removed. `del` is used instead of `pop()` for efficiency, and we start at index 1 so as to always preserve the system message and only remove user/assistant messages. Over time, this method of managing the conversation can cause the conversation quality to degrade as the model will gradually lose context of the earlier portions of the conversation.
 
 An alternative approach is to limit the conversation duration to the max token length or a certain number of turns. Once the max token limit is reached and the model would lose context if you were to allow the conversation to continue, you can prompt the user that they need to begin a new conversation and clear the messages array to start a brand new conversation with the full token limit available.
 
-The token counting portion of the code demonstrated previously, is a simplified version of one of [OpenAI's cookbook examples](https://github.com/openai/openai-cookbook/blob/main/examples/How_to_format_inputs_to_ChatGPT_models.ipynb).
+The token counting portion of the code demonstrated previously is a simplified version of one of [OpenAI's cookbook examples](https://github.com/openai/openai-cookbook/blob/main/examples/How_to_format_inputs_to_ChatGPT_models.ipynb).
 
 ## Next steps
 
