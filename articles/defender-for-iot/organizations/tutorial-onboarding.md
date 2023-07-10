@@ -223,7 +223,7 @@ This procedure describes how to install the sensor software on your VM.
 
 1. Power on the VM, and open a console.
 
-1. When the installation boots, you're prompted to start the installation process. Select the **Install iot-sensor-`<version number>`** item to continue. For example:
+1. When the installation boots, you're prompted to start the installation process. Select the **Install iot-sensor-`<version number>`** item to continue or let it start automatically after 30 seconds. For example:
 
     :::image type="content" source="media/install-software-ot-sensor/initial-install-screen.png" alt-text="Screenshot of the initial installation screen.":::
 
