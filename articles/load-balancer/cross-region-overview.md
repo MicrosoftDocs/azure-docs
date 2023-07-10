@@ -12,7 +12,7 @@ ms.author: mbender
 ms.custom: template-concept, references_regions
 ---
 
-# Cross-region load balancer (Preview)
+# Cross-region (Global) Load Balancer
 
 Azure Standard Load Balancer supports cross-region load balancing enabling geo-redundant High Availability scenarios such as:
 
