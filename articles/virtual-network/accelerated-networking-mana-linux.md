@@ -79,7 +79,7 @@ $ ip link
 2: eth0: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc mq state UP mode DEFAULT group default qlen 1000
     link/ether 00:22:48:71:c2:8c brd ff:ff:ff:ff:ff:ff
     alias Network Device
-3: enP30832p0s0: <BROADCAST,MULTICAST,SLAVE,UP,LOWER_UP> mtu 1500 qdisc mq master eth0 state UP mode DEFAULT group default qlen 1000
+3: enP30832p0s0: <BROADCAST,MULTICAST,CHILD,UP,LOWER_UP> mtu 1500 qdisc mq master eth0 state UP mode DEFAULT group default qlen 1000
     link/ether 00:22:48:71:c2:8c brd ff:ff:ff:ff:ff:ff
     altname enP30832s1296119428
 ```
