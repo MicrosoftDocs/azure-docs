@@ -4,7 +4,7 @@ description: Learn how to view and remediate runtime threat findings
 ms.service: defender-for-cloud
 ms.custom: build-2023
 ms.topic: how-to
-ms.date: 07/09/2023
+ms.date: 07/10/2023
 ---
 
 # View and remediate vulnerabilities for images running on your AKS clusters
@@ -20,6 +20,8 @@ The resources are grouped into tabs:
 - **Healthy resources** – relevant resources, which either aren't impacted or on which you've already remediated the issue.  
 - **Unhealthy resources** – resources that are still impacted by the identified issue.  
 - **Not applicable resources** – resources for which the recommendation can't give a definitive answer. The not applicable tab also includes reasons for each resource.
+
+First review and remediate vulnerabilities exposed via [attack paths](how-to-manage-attack-path.md), as they pose the greatest risk to your security posture; then use the following procedures to view, remediate, prioritize, and monitor vulnerabilities for your containers.
 
 ## View vulnerabilities on a specific cluster
 
@@ -64,8 +66,8 @@ Use these steps to remediate each of the affected images found either in a speci
 1. When you've completed the steps required to remediate the security issue, replace each affected image in your cluster, or replace each affected image for a specific vulnerability:
     1. Build a new image (including updates for each of the packages) that resolves the vulnerability according to the remediation details.
     1. Push the updated image to trigger a scan; it may take up to 24 hours for the previous image to be removed from the results, and for the new image to be included in the results.
-    1. Use the new images across all vulnerable workloads.
-    1. Remove the vulnerable images from the registry.
+    1. Use the new image across all vulnerable workloads.
+    1. Remove the vulnerable image from the registry.
 1. Check the recommendations page for the recommendation [Running container images should have vulnerability findings resolved](https://portal.azure.com/#view/Microsoft_Azure_Security_CloudNativeCompute/KubernetesRuntimeVisibilityRecommendationDetailsBlade/assessmentKey/41503391-efa5-47ee-9282-4eff6131462c). 
 1. If the recommendation still appears and the image you've handled still appears in the list of vulnerable images, check the remediation steps again. 
 
