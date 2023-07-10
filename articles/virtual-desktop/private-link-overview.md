@@ -58,8 +58,6 @@ Private Link with Azure Virtual Desktop has the following limitations:
 
 - All [Remote Desktop clients to connect to Azure Virtual Desktop](users/remote-desktop-clients-overview.md) can be used with Private Link, but we currently only offer troubleshooting support for the web client with Private Link.
 
-- TODO: CLARIFYING. Validation for data path access checks, particularly those checks that prevent exfiltration, are still being validated. To help us with validation, this preview collects feedback from customers regarding exfiltration requirements, particularly preferences for how to audit and analyze findings. We don't recommend or support using production data traffic with this preview.
-
 - After you've changed a private endpoint to a host pool, you must restart the *Remote Desktop Agent Loader* (RDAgentBootLoader) service on the session host VM. You also need to restart this service whenever you change a host pool's network configuration. Instead of restarting the service, you can restart the session host.
 
 - Service tags are used by the Azure Virtual Desktop service for agent monitoring traffic. These tags are created automatically.
