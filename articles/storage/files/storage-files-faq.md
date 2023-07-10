@@ -89,7 +89,7 @@ ms.topic: conceptual
 
 * <a id="afs-lastwritetime"></a>
   **Does Azure File Sync sync the LastWriteTime for directories?**  
-    No, Azure File Sync doesn't sync the LastWriteTime for directories.
+    No, Azure File Sync doesn't sync the LastWriteTime for directories. Azure Files doesn't update the **date modified** timestamp (LastWriteTime) for directories even if files within the directory have been changed. This is expected behavior.
     
 ## Security, authentication, and access control
 
