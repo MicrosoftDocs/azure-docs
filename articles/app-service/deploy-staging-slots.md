@@ -311,7 +311,7 @@ For more information, see [az webapp deployment slot auto-swap](/cli/azure/webap
 # [Azure PowerShell](#tab/powershell)
 
 ```azurepowershell-interactive
-Set-AzWebAppSlot -ResourceGroupName "group-name" -Name "<app-name>" -Slot "<source-slot-name>" -AutoSwapSlotName "production"
+Set-AzWebAppSlot -ResourceGroupName "<group-name>" -Name "<app-name>" -Slot "<source-slot-name>" -AutoSwapSlotName "production"
 ```
 
 For more information, see [Set-AzWebAppSlot](/powershell/module/az.websites/set-azwebappslot).
@@ -363,7 +363,7 @@ A swap operation appears in the log query as `Swap Web App Slots`. You can expan
 To monitor swap events in the activity log, run the following command:
 
 ```azurecli-interactive
-az monitor activity-log list --start-time 2023-07-07 --caller SlotSwapJobProcessor
+az monitor activity-log list --resource-group <group-name> --query "[?contains(operationName.value,'Microsoft.Web/sites/slots/slotsswap/action')]"
 ```
 
 For more information, see [az monitor activity-log list
@@ -374,7 +374,7 @@ For more information, see [az monitor activity-log list
 To monitor swap events in the activity log, run the following command:
 
 ```azurepowershell-interactive
-Get-AzLog -ResourceGroup [resource group name] -StartTime 2023-07-07 -Caller SlotSwapJobProcessor
+Get-AzLog -ResourceGroup <group-name> -StartTime 2023-07-07 | where{$_.OperationName -eq 'Swap Web App Slots'}
 ```
 
 For more information, see [Get-AzLog](/powershell/module/az.monitor/get-azlog).
@@ -412,7 +412,7 @@ For more information, see [az webapp traffic-routing set](/cli/azure/webapp/traf
 To add a routing rule on a slot and transfer 15% of production traffic it, run the following command:
 
 ```azurepowershell-interactive
-Add-AzWebAppTrafficRouting -ResourceGroupName "<group-name>" -WebAppName "<app-name>" -RoutingRule @{ActionHostName='XXXX.azurewebsites.net';ReroutePercentage=15;Name='<slot-name>'}
+Add-AzWebAppTrafficRouting -ResourceGroupName "<group-name>" -WebAppName "<app-name>" -RoutingRule @{ActionHostName='<app-name>-<slot-name>.azurewebsites.net';ReroutePercentage='15';Name='<slot-name>'}
 ```
 
 For more information, see [Add-AzWebAppTrafficRouting](/powershell/module/az.websites/add-azwebapptrafficrouting). To update an existing rule, use [Update-AzWebAppTrafficRouting](/powershell/module/az.websites/update-azwebapptrafficrouting).
@@ -472,11 +472,6 @@ Remove-AzWebAppSlot -ResourceGroupName "<group-name>" -Name "<app-name>" -Slot "
 For more information, see [Remove-AzWebAppSlot](/powershell/module/az.websites/remove-azwebappslot).
 
 -----
-
-### Monitor swap events in the activity log
-```powershell
-Get-AzLog -ResourceGroup [resource group name] -StartTime 2018-03-07 -Caller SlotSwapJobProcessor  
-```
 
 ## Automate with Resource Manager templates
 
