@@ -42,18 +42,18 @@ az network vnet create \
     --name vnet-test \
     --resource-group rg-test \
     --address-prefix 10.0.0.0/16 \
-    --subnet-name subnet-alb-subnet \
+    --subnet-name subnet-alb \
     --subnet-prefixes 10.0.0.0/24
 ```
 ### Reference an existing VNet and Subnet
 To reference an existing subnet, execute the following command to get the resource ID of the subnet:
 ```azurecli-interactive
-az network vnet subnet list --resource-group rg-test --vnet-name vnet-test --query "[?name=='subnet-alb-test'].id" --output tsv
+az network vnet subnet list --resource-group rg-test --vnet-name vnet-test --query "[?name=='subnet-alb'].id" --output tsv
 ```
 
 Execute the following command to create the Association resource and connect it to the referenced subnet
 ```azurecli-interactive
-az network alb association create -g rg-test -n association-test --alb-name alb-test --subnet /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/yyyyy/providers/Microsoft.Network/virtualNetworks/zzzzzz/subnets/subnet-alb-test
+az network alb association create -g rg-test -n association-test --alb-name alb-test --subnet /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/yyyyy/providers/Microsoft.Network/virtualNetworks/zzzzzz/subnets/subnet-alb
 ```
 
 ## Next steps
