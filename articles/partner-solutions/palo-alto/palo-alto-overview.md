@@ -10,11 +10,10 @@ ms.date: 07/10/2023
 
 # What is Cloud NGFW by Palo Alto Networks Preview?
 
-## Overview
 
 Azure Native ISV Services enable you to easily provision, manage, and tightly integrate independent software vendor (ISV) software and services on Azure. This Azure Native ISV Service is developed and managed by Microsoft and Palo Alto Networks.
 
-You can find Cloud Next-Generation Firewall by Palo Alto Networks - an Azure Native ISV Service in the [Azure Portal](https://portal.azure.com/#view/HubsExtension/BrowseResource/resourceType/PaloAltoNetworks.Cloudngfw%2Ffirewalls) or get it on [Azure Marketplace](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/paloaltonetworks.pan_swfw_cloud_ngfw?tab=Overview).
+You can find Cloud Next-Generation Firewall by Palo Alto Networks - an Azure Native ISV Service in the [Azure portal](https://portal.azure.com/#view/HubsExtension/BrowseResource/resourceType/PaloAltoNetworks.Cloudngfw%2Ffirewalls) or get it on [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/paloaltonetworks.pan_swfw_cloud_ngfw?tab=Overview).
 
 Palo Alto Networks is leading provider of cloud security, offering next-generation cybersecurity to thousands of customers globally, across all sectors. With the integration of Cloud Next-Generation Firewall by Palo Alto for Azure into the Azure ecosystem we are delivering an integrated experience and empowering a growing ecosystem of developers and customers to help protect their organizations on Azure.
 

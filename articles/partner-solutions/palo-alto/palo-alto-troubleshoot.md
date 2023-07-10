@@ -32,7 +32,7 @@ Only users who have Owner access can setup a Palo Alto resource on the Azure sub
 - Get Started with Cloud Next-Generation Firewall by Palo Alto Networks - an Azure Native ISV Service on
 
   > [!div class="nextstepaction"]
-  > [Azure Portal](https://portal.azure.com/#view/HubsExtension/BrowseResource/resourceType/PaloAltoNetworks.Cloudngfw%2Ffirewalls)
+  > [Azure portal](https://portal.azure.com/#view/HubsExtension/BrowseResource/resourceType/PaloAltoNetworks.Cloudngfw%2Ffirewalls)
 
   > [!div class="nextstepaction"]
-  > [Azure Marketplace](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/paloaltonetworks.pan_swfw_cloud_ngfw?tab=Overview)
+  > [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/paloaltonetworks.pan_swfw_cloud_ngfw?tab=Overview)
