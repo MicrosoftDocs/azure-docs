@@ -63,29 +63,30 @@ Publishing locations for individual SDK packages are detailed below.
 
 #### .NET
 
-Except for Calling, Communication Services packages target .NET Standard 2.0, which supports the platforms listed below.
+Calling supports the platforms listed below.
 
-Support via .NET Framework 4.6.1
+- UWP with .NET Native or C++/WinRT
+  - Windows 10/11 10.0.17763 - 10.0.22621.0
+  - Windows Server 2019/2022 10.0.17763 - 10.0.22621.0
+- WinUI3 with .NET 6
+  - Windows 10/11 10.0.17763.0 - net6.0-windows10.0.22621.0
+  - Windows Server 2019/2022 10.0.17763.0 - net6.0-windows10.0.22621.0
+  
+All other Communication Services packages target .NET Standard 2.0, which supports the platforms listed below.
 
-- Windows 10, 8.1, 8 and 7
-- Windows Server 2012 R2, 2012 and 2008 R2 SP1
-
-Support via .NET Core 2.0:
-
-- Windows 10 (1607+), 7 SP1+, 8.1
-- Windows Server 2008 R2 SP1+
-- Max OS X 10.12+
-- Linux multiple versions/distributions
-- UWP 10.0.16299 (RS3) September 2017
-- Unity 2018.1
-- Mono 5.4
-- Xamarin iOS 10.14
-- Xamarin Mac 3.8
-
-The Calling package supports UWP apps build with .NET Native or C++/WinRT on:
-
-- Windows 10 10.0.17763
-- Windows Server 2019 10.0.17763
+- Support via .NET Framework 4.6.1
+    - Windows 10, 8.1, 8 and 7
+    - Windows Server 2012 R2, 2012 and 2008 R2 SP1
+- Support via .NET Core 2.0:
+  - Windows 10 (1607+), 7 SP1+, 8.1
+  - Windows Server 2008 R2 SP1+
+  - Max OS X 10.12+
+  - Linux multiple versions/distributions
+  - UWP 10.0.16299 (RS3) September 2017
+  - Unity 2018.1
+  - Mono 5.4
+  - Xamarin iOS 10.14
+  - Xamarin Mac 3.8
 
 ## REST APIs
 
