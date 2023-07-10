@@ -1811,10 +1811,10 @@
         href: openidoauth-tutorial.md
       - name: OpenLearning
         href: openlearning-tutorial.md
-      - name: OpenText Directory Services
-        href: opentext-directory-services-tutorial.md
-      - name: OpenText XM Fax and XM SendSecure
-        href: opentext-fax-tutorial.md
+      - name: Directory Services
+        href: directory-services-tutorial.md
+      - name: XM Fax and XM SendSecure
+        href: xm-fax-and-xm-send-secure-tutorial.md
       - name: OpsGenie
         href: opsgenie-tutorial.md
       - name: Optimizely
