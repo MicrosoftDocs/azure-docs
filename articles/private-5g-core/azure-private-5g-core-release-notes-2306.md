@@ -49,7 +49,7 @@ None in this release
   |No.  |Feature  | Issue | Workaround/comments |
   |-----|-----|-----|-----|
   | 1 | Local distributed tracing | The distributed tracing web GUI fails to display & decode some fields of 4G NAS messages. Specifically, 'Initial Context Setup Request' and 'Attach Accept messages' information elements. | Not applicable. |
-  | 2 | 4G/5G Signalling | Removal of static or dynamic UE IP pool as part of attached data network modification on an existing AP5GC setup still requires reinstall of packet core. | Not applicable. |  
+  | 2 | 4G/5G Signaling | Removal of static or dynamic UE IP pool as part of attached data network modification on an existing AP5GC setup still requires reinstall of packet core. | Not applicable. |  
 
 ## Known issues from previous releases
 
@@ -60,7 +60,7 @@ The following table provides a summary of known issues carried over from the pre
   | 1 | Packet forwarding  | AP5GC may not forward buffered packets if NAT is enabled. | Not applicable. |
   | 2 | Install/Upgrade | In some cases, the packet core reports successful installation even when the underlying platform or networking is misconfigured. | Not applicable. |
   | 3 | Local Dashboards | When a web proxy is enabled on the Azure Stack Edge appliance that the packet core is running on and Azure Active Directory is used to authenticate access to AP5GC Local Dashboards, the traffic to Azure Active Directory doesn't transmit via the web proxy. If there's a firewall blocking traffic that doesn't go via the web proxy then enabling Azure Active Directory causes the packet core install to fail. | Disable Azure Active Directory and use password based authentication to authenticate access to AP5GC Local Dashboards instead. |
-  | 4 | 4G/5G Signalling | AP5GC may intermittently fail to recover after underlying platform is rebooted and may require another reboot to recover. | Not applicable. |  
+  | 4 | 4G/5G Signaling | AP5GC may intermittently fail to recover after underlying platform is rebooted and may require another reboot to recover. | Not applicable. |  
 
 ## Next steps
 
