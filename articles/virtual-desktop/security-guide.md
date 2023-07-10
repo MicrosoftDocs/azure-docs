@@ -4,7 +4,7 @@ titleSuffix: Azure
 description: Best practices for keeping your Azure Virtual Desktop environment secure.
 author: heidilohr
 ms.topic: conceptual
-ms.date: 06/30/2023
+ms.date: 07/11/2023
 ms.author: helohr
 ms.service: virtual-desktop
 ms.custom: ignite-2022
