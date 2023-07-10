@@ -564,6 +564,8 @@
       href: how-to-use-foundation-models.md
     - name: Hugging Face Hub community partner models
       href: how-to-deploy-models-from-huggingface.md
+    - name: How to use Open AI Models 
+      href: how-to-use-openai-models-in-azure-ml.md
 - name: Responsibly develop & monitor
   items: 
   - name: Responsible AI overview
