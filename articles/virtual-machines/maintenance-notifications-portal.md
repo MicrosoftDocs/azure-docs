@@ -41,9 +41,13 @@ You can use the Azure portal and look for VMs scheduled for maintenance.
 
 ## Notification and alerts in the portal
 
-Azure communicates a schedule for planned maintenance by sending an email to the subscription owner and co-owners group. You can add additional recipients and channels to this communication by creating Azure activity log alerts. For more information, see [Create activity log alerts on service notifications](../service-health/alerts-activity-log-service-notifications-portal.md).
+[Azure Service Health](https://azure.microsoft.com/get-started/azure-portal/service-health/#overview) has a dedicated tab for Planned Maintenance where all Azure services (for example, Virtual Machines) publish their upcoming Maintenance events.
 
-Make sure you set the **Event type** as **Planned maintenance**, and **Services** as **Virtual Machine Scale Sets** and/or **Virtual Machines**.
+Virtual Machine related Maintenance notifications are available under [Service Health](https://aka.ms/azureservicehealth) in the Azure portal. For some specific Virtual Machine Planned Maintenance scenarios, Azure might communicate the schedule by sending an additional email (besides Service Health) to the Subscription Classic Admin, Co-Admin, and Subscription Owners group.
+
+[Azure Service Health](https://azure.microsoft.com/get-started/azure-portal/service-health/#overview) enables users to configure their own custom Service Health alerts for the Planned Maintenance category. With Azure Service Health alerts, you can assign different Action-Groups to include additional recipients and channels (such as emails and SMS) based on event or service type, like Virtual Machine maintenance in this context. For more information, see [Create activity log alerts on service notifications](../service-health/alerts-activity-log-service-notifications-portal.md).
+
+While creating alerts specific to Virtual Machine maintenance, make sure you set the **Event type** as **Planned maintenance** and **Services** as **Virtual Machine Scale Sets** and/or **Virtual Machines**.
 
 ## Start Maintenance on your VM from the portal
 

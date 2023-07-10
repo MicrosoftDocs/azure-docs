@@ -28,7 +28,7 @@ To see how all Azure Arc-enabled components are validated, see [Validation progr
 
 |Solution and version | Kubernetes version | Azure Arc-enabled data services version | SQL engine version | PostgreSQL server version
 |-----|-----|-----|-----|-----|
-|DataON AZS-6224|1.23.8|1.12.0_2022-10-11|16.0.537.5223|  12.3 (Ubuntu 12.3-1) |
+|[DataON AZS-6224](https://www.dataonstorage.com/products-solutions/integrated-systems-for-azure-stack-hci/dataon-integrated-system-azs-6224-for-azure-stack-hci/)|1.24.11|	1.20.0_2023-06-13|16.0.5100.7242|14.5 (Ubuntu 20.04)|
 
 ### Dell
 

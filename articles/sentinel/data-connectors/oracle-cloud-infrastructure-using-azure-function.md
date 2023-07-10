@@ -66,7 +66,7 @@ To integrate with Oracle Cloud Infrastructure (using Azure Functions) make sure 
 7. Select Source: Logging
 8. Select Target: Streaming
 9. (Optional) Configure *Log Group*, *Filters* or use custom search query to stream only logs that you need.
-10. Configure Target - select the strem created before.
+10. Configure Target - select the stream created before.
 11. Click *Create*
 
 Check the documentation to get more information about [Streaming](https://docs.oracle.com/en-us/iaas/Content/Streaming/home.htm) and [Service Connectors](https://docs.oracle.com/en-us/iaas/Content/service-connector-hub/home.htm).
