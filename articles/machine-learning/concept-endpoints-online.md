@@ -36,7 +36,9 @@ To define an endpoint, you need to specify:
 - **Endpoint name**: This name must be unique in the Azure region. For more information on the naming rules, see [managed online endpoint limits](how-to-manage-quotas.md#azure-machine-learning-managed-online-endpoints).
 - **Authentication mode**: You can choose between key-based authentication mode and Azure Machine Learning token-based authentication mode for the endpoint. A key doesn't expire, but a token does expire. For more information on authenticating, see [Authenticate to an online endpoint](how-to-authenticate-online-endpoint.md).
 
-Azure Machine Learning provides convenience of using **managed online endpoints** for deploying your ML models in a turnkey manner. This is the _recommended_ way to use online endpoints in Azure Machine Learning. Managed online endpoints work with powerful CPU and GPU machines in Azure in a scalable, fully managed way. These endpoints also take care of serving, scaling, securing, and monitoring your models, to free you from the overhead of setting up and managing the underlying infrastructure.
+Azure Machine Learning provides the convenience of using **managed online endpoints** for deploying your ML models in a turnkey manner. This is the _recommended_ way to use online endpoints in Azure Machine Learning. Managed online endpoints work with powerful CPU and GPU machines in Azure in a scalable, fully managed way. These endpoints also take care of serving, scaling, securing, and monitoring your models, to free you from the overhead of setting up and managing the underlying infrastructure. 
+To learn how to deploy to a managed online endpoint, see [Deploy an ML model with an online endpoint](how-to-deploy-online-endpoints.md).
+
 
 ### Why to choose managed online endpoints (v2) over ACI/AKS (v1)
 
@@ -46,12 +48,12 @@ Use of managed online endpoints is the _recommended_ way to use online endpoints
 |Attributes  |Managed online endpoints (v2)  |ACI/AKS (v1)  |
 |---------|---------|---------|
 |Network security/isolation |Easy inbound/outbound control with quick toggle |VNet not supported or requires complex manual configuration |
-|Managed service |Fully managed compute provisioning/scaling​<br> Network configuration for data exfiltration prevention​<br>Host OS upgrade, controlled rollout of in-place updates |Scaling is limited in v1<br>Network configuration or upgrade needs to be managed by user |
+|Managed service |- Fully managed compute provisioning/scaling​<br> - Network configuration for data exfiltration prevention​<br> - Host OS upgrade, controlled rollout of in-place updates |- Scaling is limited in v1<br> - Network configuration or upgrade needs to be managed by user |
 |Endpoint/deployment concept |Distinction between endpoint and deployment enables complex scenarios such as safe rollout of models |No concept of endpoint |
-|Diagnostics and Monitoring |Local endpoint debugging possible with Docker and VSCode<br>​ Advanced metrics and logs analysis with chart/query to compare between deployments​<br> Cost breakdown down to deployment level |No easy local debugging |
-|Scalability |Limitless, elastic, and automatic scaling |ACI is non-scalable​ <br> AKS (v1) supports in-cluster scale only and requires scalability configuration |
+|Diagnostics and Monitoring |- Local endpoint debugging possible with Docker and VSCode<br>​ - Advanced metrics and logs analysis with chart/query to compare between deployments​<br> - Cost breakdown down to deployment level |No easy local debugging |
+|Scalability |Limitless, elastic, and automatic scaling |- ACI is non-scalable​ <br> - AKS (v1) supports in-cluster scale only and requires scalability configuration |
 |Enterprise readiness |Private link, customer managed keys, Azure Active Directory, quota management, billing integration, BCDR, SLA |Not supported |
-|Advanced ML features |Model data collection<br>Model monitoring​<br>Champion-challenger model, safe rollout, traffic mirroring<br>Responsible AI extensibility |Not supported |
+|Advanced ML features |- Model data collection<br> - Model monitoring​<br> - Champion-challenger model, safe rollout, traffic mirroring<br> - Responsible AI extensibility |Not supported |
 
 Alternatively, if you prefer to use Kubernetes to deploy your models and serve endpoints, and you're comfortable with managing infrastructure requirements, you can use _Kubernetes online endpoints_. These endpoints allow you to deploy models and serve online endpoints at your fully configured and managed [Kubernetes cluster anywhere](./how-to-attach-kubernetes-anywhere.md), with CPUs or GPUs.
 
@@ -77,8 +79,6 @@ Managed online endpoints can help streamline your deployment process and provide
     > Managed online endpoints are based on Azure Machine Learning compute. When using a managed online endpoint, you pay for the compute and networking charges. There is no additional surcharge.
     >
     > If you use a virtual network and secure outbound (egress) traffic from the managed online endpoint, there is an additional cost. For egress, three private endpoints are created _per deployment_ for the managed online endpoint. These are used to communicate with the default storage account, Azure Container Registry, and workspace. Additional networking charges may apply. For more information on pricing, see the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator/).
-
-To learn how to deploy to a managed online endpoint, see [Deploy an ML model with an online endpoint](how-to-deploy-online-endpoints.md).
 
 The following table highlights the key differences between managed online endpoints and Kubernetes online endpoints.
 
