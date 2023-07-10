@@ -21,7 +21,7 @@ Chaos Studio has three levels of security to help you control how and when fault
 
 * First, a chaos experiment is an Azure resource that's deployed to a region, resource group, and subscription. Users must have appropriate Azure Resource Manager permissions to create, update, start, cancel, delete, or view an experiment.
 
-   Each permission is a Resource Manager operation that can be granularly assigned to an identity or assigned as part of a role with wildcard permissions. For example, the Contributor role in Azure has */write permission at the assigned scope, which includes `Microsoft.Chaos/experiments/write permission`.
+   Each permission is a Resource Manager operation that can be granularly assigned to an identity or assigned as part of a role with wildcard permissions. For example, the Contributor role in Azure has `*/write` permission at the assigned scope, which includes `Microsoft.Chaos/experiments/write` permission.
 
    When you attempt to control the ability to inject faults against a resource, the most important operation to restrict is `Microsoft.Chaos/experiments/start/action`. This operation starts a chaos experiment that injects faults.
 
@@ -59,16 +59,18 @@ To assign these permissions granularly, you can [create a custom role](../role-b
 
 All user interactions with Chaos Studio happen through Azure Resource Manager. If a user starts an experiment, the experiment might interact with endpoints other than Resource Manager, depending on the fault:
 
-* **Service-direct faults**: Most service-direct faults are executed through Resource Manager. Target resources don't require any allowlisted network endpoints.
-* **Service-direct AKS Chaos Mesh faults**: Service-direct faults for Azure Kubernetes Service (AKS) that use Chaos Mesh require access that the AKS cluster have a publicly exposed Kubernetes API server. To learn how to limit AKS network access to a set of IP ranges, see [Secure access to the API server using authorized IP address ranges in AKS](../aks/api-server-authorized-ip-ranges.md).
-* **Agent-based faults**: Agent-based faults require agent access to the Chaos Studio agent service. A VM or virtual machine scale set must have outbound access to the agent service endpoint for the agent to connect successfully. The agent service endpoint is `https://acs-prod-<region>.chaosagent.trafficmanager.net`. You must replace the `<region>` placeholder with the region where your VM is deployed. An example is `https://acs-prod-eastus.chaosagent.trafficmanager.net` for a VM in East US.
+* **Service-direct faults**: Most service-direct faults are executed through Azure Resource Manager and don't require any allowlisted network endpoints.
+* **Service-direct AKS Chaos Mesh faults:** Service-direct faults for Azure Kubernetes Service that use Chaos Mesh require access to the AKS cluster's Kubernetes API server. 
+    * [Learn how to limit AKS network access to a set of IP ranges here](../aks/api-server-authorized-ip-ranges.md). You can obtain Chaos Studio's IP ranges by querying the `ChaosStudio` [service tag with the Service Tag Discovery API or downloadable JSON files](../virtual-network/service-tags-overview.md).
+    * Currently, Chaos Studio can't execute Chaos Mesh faults if the AKS cluster has [local accounts disabled](../aks/manage-local-accounts-managed-azure-ad.md).
+* **Agent-based faults**: To use agent-based faults, the agent needs access to the Chaos Studio agent service. A VM or virtual machine scale set must have outbound access to the agent service endpoint for the agent to connect successfully. The agent service endpoint is `https://acs-prod-<region>.chaosagent.trafficmanager.net`. You must replace the `<region>` placeholder with the region where your VM is deployed. An example is `https://acs-prod-eastus.chaosagent.trafficmanager.net` for a VM in East US.
 
 Chaos Studio doesn't support Azure Private Link for agent-based scenarios.
 
 ## Service tags
 A [service tag](../virtual-network/service-tags-overview.md) is a group of IP address prefixes that can be assigned to inbound and outbound rules for network security groups. It automatically handles updates to the group of IP address prefixes without any intervention.
 
-You can use service tags to explicitly allow inbound traffic from Chaos Studio without the need to know the IP addresses of the platform. Currently, you can enable service tags via PowerShell. Support will soon be added to the Chaos Studio user interface.
+You can use service tags to explicitly allow inbound traffic from Chaos Studio without the need to know the IP addresses of the platform. Chaos Studio's service tag is `ChaosStudio`.
 
 A limitation of service tags is that they can only be used with applications that have a public IP address. If a resource only has a private IP address, service tags can't route traffic to it.
 
