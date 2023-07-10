@@ -1,17 +1,13 @@
 ---
-title:  Azure Private Link with Azure Virtual Desktop (preview) - Azure
-description: Learn about using Private Link with Azure Virtual Desktop (preview) to privately connect to your remote resources.
+title:  Azure Private Link with Azure Virtual Desktop - Azure
+description: Learn about using Private Link with Azure Virtual Desktop to privately connect to your remote resources.
 author: dknappettmsft
 ms.topic: conceptual
-ms.date: 07/04/2023
+ms.date: 07/10/2023
 ms.author: daknappe
 ---
 
-# Azure Private Link with Azure Virtual Desktop (preview)
-
-> [!IMPORTANT]
-> Using Private Link with Azure Virtual Desktop is currently in PREVIEW.
-> See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+# Azure Private Link with Azure Virtual Desktop
 
 You can use [Azure Private Link](../private-link/private-link-overview.md) with Azure Virtual Desktop to privately connect to your remote resources. By creating a [private endpoint](../private-link/private-endpoint-overview.md), traffic between your virtual network and the service remains on the Microsoft network, so you no longer need to expose your service to the public internet. You also use a VPN or ExpressRoute for your users with the Remote Desktop client to connect to the virtual network. Keeping traffic within the Microsoft network improves security and keeps your data safe. This article describes how Private Link can help you secure your Azure Virtual Desktop environment.
 
@@ -52,17 +48,17 @@ When adding Private Link with Azure Virtual Desktop, you have the following opti
 >
 > - If you intend to restrict network ports from either the user client devices or your session host VMs to the private endpoints, you will need to allow traffic across the entire TCP dynamic port range of 1 - 65535 to the private endpoint for the host pool resource using the *connection* sub-resource. The entire TCP dynamic port range is needed because port mapping is used to all global gateways through the single private endpoint IP address corresponding to the *connection* sub-resource. If you restrict ports to the private endpoint, your users may not be able to connect successfully to Azure Virtual Desktop. 
 
-## Preview limitations
+## Limitations
 
-The preview of using Private Link with Azure Virtual Desktop has the following limitations:
+Private Link with Azure Virtual Desktop has the following limitations:
 
-- You need to [enable the preview](private-link-setup.md#re-register-the-resource-provider) on each Azure subscription you want to Private Link with Azure Virtual Desktop.
+- You need to [enable the feature](private-link-setup.md#enable-the-feature) on each Azure subscription you want to Private Link with Azure Virtual Desktop.
 
 - You can't use the [manual connection approval method](../private-link/private-endpoint-overview.md#access-to-a-private-link-resource-using-approval-workflow) when using Private Link with Azure Virtual Desktop. We're aware of this issue and are working on fixing it.
 
 - All [Remote Desktop clients to connect to Azure Virtual Desktop](users/remote-desktop-clients-overview.md) can be used with Private Link, but we currently only offer troubleshooting support for the web client with Private Link.
 
-- Validation for data path access checks, particularly those checks that prevent exfiltration, are still being validated. To help us with validation, this preview collects feedback from customers regarding exfiltration requirements, particularly preferences for how to audit and analyze findings. We don't recommend or support using production data traffic with this preview.
+- TODO: CLARIFYING. Validation for data path access checks, particularly those checks that prevent exfiltration, are still being validated. To help us with validation, this preview collects feedback from customers regarding exfiltration requirements, particularly preferences for how to audit and analyze findings. We don't recommend or support using production data traffic with this preview.
 
 - After you've changed a private endpoint to a host pool, you must restart the *Remote Desktop Agent Loader* (RDAgentBootLoader) service on the session host VM. You also need to restart this service whenever you change a host pool's network configuration. Instead of restarting the service, you can restart the session host.
 

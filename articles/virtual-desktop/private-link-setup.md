@@ -1,19 +1,15 @@
 ---
-title: Set up Private Link with Azure Virtual Desktop (preview) - Azure
-description: Learn how to set up Private Link with Azure Virtual Desktop (preview) to privately connect to your remote resources.
+title: Set up Private Link with Azure Virtual Desktop - Azure
+description: Learn how to set up Private Link with Azure Virtual Desktop to privately connect to your remote resources.
 author: dknappettmsft
 ms.topic: how-to
-ms.date: 07/04/2023
+ms.date: 07/10/2023
 ms.author: daknappe
 ---
-TODO: REMOVE PREVIEW
-# Set up Private Link with Azure Virtual Desktop (preview)
 
-> [!IMPORTANT]
-> Using Private Link with Azure Virtual Desktop is currently in PREVIEW.
-> See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+# Set up Private Link with Azure Virtual Desktop
 
-This article shows you how to set up Private Link with Azure Virtual Desktop (preview) to privately connect to your remote resources. For more information about using Private Link with Azure Virtual Desktop, including limitations with the preview version, see [Azure Private Link with Azure Virtual Desktop (preview)](private-link-overview.md).
+This article shows you how to set up Private Link with Azure Virtual Desktop to privately connect to your remote resources. For more information about using Private Link with Azure Virtual Desktop, including limitations, see [Azure Private Link with Azure Virtual Desktop](private-link-overview.md).
 
 ## Prerequisites
 
@@ -29,9 +25,12 @@ In order to use Private Link with Azure Virtual Desktop, you need the following 
 
 - If you want to use Azure CLI or Azure PowerShell locally, see [Use Azure CLI and Azure PowerShell with Azure Virtual Desktop](cli-powershell.md) to make sure you have the [desktopvirtualization](/cli/azure/desktopvirtualization) Azure CLI extension or the [Az.DesktopVirtualization](/powershell/module/az.desktopvirtualization) PowerShell module installed. Alternatively, use the [Azure Cloud Shell](../cloud-shell/overview.md).
 
-## Enable the preview
+## Enable the feature
 
-To use the preview of Private Link with Azure Virtual Desktop, you need to re-register the *Microsoft.DesktopVirtualization* resource provider and register the *Azure Virtual Desktop Private Link Public Preview* preview feature on your Azure subscription.
+To use of Private Link with Azure Virtual Desktop, first you need to re-register the *Microsoft.DesktopVirtualization* resource provider and register the *Azure Virtual Desktop Private Link* feature on your Azure subscription.
+
+> [!IMPORTANT]
+> You need to do re-register the resource provider and register the feature for each subscription you want to use Private Link with Azure Virtual Desktop.
 
 ### Re-register the resource provider
 
@@ -47,11 +46,9 @@ To re-register the *Microsoft.DesktopVirtualization* resource provider:
 
 1. Verify that the status of *Microsoft.DesktopVirtualization* is **Registered**.
 
-You need to do these steps for each subscription you want to use with the preview.
+### Register the feature
 
-### Register the preview feature
-
-To register the *Azure Virtual Desktop Private Link Public Preview* preview feature:
+To register the *Azure Virtual Desktop Private Link Public* feature:
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
@@ -61,9 +58,7 @@ To register the *Azure Virtual Desktop Private Link Public Preview* preview feat
 
 1. Select the drop-down list for the filter **Type** and set it to **Microsoft.DesktopVirtualization**.
 
-1. Select **Azure Virtual Desktop Private Link Public Preview**, then select **Register**.
-
-You need to do these steps for each subscription you want to use with the preview.
+1. Select **Azure Virtual Desktop Private Link**, then select **Register**.
 
 ## Create private endpoints
 
@@ -71,18 +66,17 @@ During the setup process, you create private endpoints to the following resource
 
 | Purpose | Resource type | Target sub-resource | Quantity | Private DNS zone name |
 |--|--|--|--|--|
-| Initial feed discovery | Microsoft.DesktopVirtualization/workspaces | global | One for all your Azure Virtual Desktop deployments | `privatelink-global.wvd.microsoft.com` |
+| Initial feed discovery | Microsoft.DesktopVirtualization/workspaces | global | **Only one for all your Azure Virtual Desktop deployments** | `privatelink-global.wvd.microsoft.com` |
 | Feed download | Microsoft.DesktopVirtualization/workspaces | feed | One per workspace | `privatelink.wvd.microsoft.com` |
 | Connections to host pools | Microsoft.DesktopVirtualization/hostpools | connection | One per host pool | `privatelink.wvd.microsoft.com` |
-
-> [!IMPORTANT]
-> You must create a private endpoint for each type of sub-resource.
 
 ### Initial feed discovery
 
 To create a private endpoint for the *global* sub-resource used for the initial feed discovery, select the relevant tab for your scenario and follow the steps.
 
 > [!IMPORTANT]
+> - Only create one private endpoint for the *global* sub-resource for all your Azure Virtual Desktop deployments. If you've already created this, go to [Feed download](#feed-download).
+> 
 > A private endpoint to the global sub-resource of any workspace controls the shared fully qualified domain name (FQDN) for initial feed discovery. This in turn enables feed discovery for all workspaces. Because the workspace connected to the private endpoint is so important, deleting it will cause all feed discovery processes to stop working. We recommend you create an unused placeholder workspace for the global sub-resource.
 
 # [Portal](#tab/portal)
