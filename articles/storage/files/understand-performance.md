@@ -2,11 +2,10 @@
 title: Understand Azure Files performance
 description: Learn about the factors that can impact Azure file share performance and how to optimize performance for your workload.
 author: khdownie
-ms.service: storage
+ms.service: azure-file-storage
 ms.topic: conceptual
 ms.date: 07/06/2023
 ms.author: kendownie
-ms.subservice: files
 ---
 
 # Understand Azure Files performance
