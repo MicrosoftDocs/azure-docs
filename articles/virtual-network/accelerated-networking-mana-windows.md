@@ -1,6 +1,6 @@
 ---
-title: Windows VMs with Azure MANA
-description: Learn how Azure MANA Accelerated Networking can improve the networking performance of Windows VMs on Azure.
+title: Windows VMs with MANA
+description: Learn how MANA Accelerated Networking can improve the networking performance of Windows VMs on Azure.
 author: mattmcinnes
 ms.service: virtual-network
 ms.topic: how-to
