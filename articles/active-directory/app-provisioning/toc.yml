@@ -35,12 +35,6 @@ items:
         href: on-premises-web-services-connector.md
       - name: Provisioning with custom connectors
         href: on-premises-custom-connector.md
-    - name: API-driven provisioning tutorials
-      items:
-      - name: Configure API-driven provisioning app
-        href: inbound-provisioning-api-configure-app.md
-      - name: Quickstart with cURL
-        href: inbound-provisioning-api-curl-tutorial.md
     - name: Customize attribute mappings
       href: customize-application-attributes.md
   - name: Concepts
