@@ -88,7 +88,7 @@ Use [Service Connector](../service-connector/overview.md) to connect the app hos
 ### [Portal](#tab/azure-portal)
 
 1. In the Azure portal, type the name of your Azure Spring Apps instance in the search box at the top of the screen and select your instance.
-1. Under **Settings**, select **Apps** and select the application `customers-service` from the list.
+1. Under **Settings**, select **Apps**, and then select the application `customers-service` from the list.
 1. Select **Service Connector** from the left table of contents and select **Create**.
 
    :::image type="content" source="./media\quickstart-integrate-azure-database-mysql\create-service-connection.png" alt-text="Screenshot of the Azure portal, in the Azure Spring Apps instance, create a connection with Service Connector.":::
