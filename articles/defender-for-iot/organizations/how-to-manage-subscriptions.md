@@ -113,7 +113,7 @@ After migrating your plan to a site-based Microsoft 365 plan, edits are supporte
 
 1. Purchase a new, site-based license in the Microsoft 365 Marketplace for the site size that you need. For more information, see [Purchase a Defender for IoT license](#purchase-a-defender-for-iot-license).
 
-1. In Defender for IoT in the Azure portal, go to **Plans and pricing** and locate the subscription for the plan want to migrate.
+1. In Defender for IoT in the Azure portal, go to **Plans and pricing** and locate the subscription for the plan you want to migrate.
 
 1. On the subscription row, select the options menu (**...**) at the right > select **Edit plan**.
 
