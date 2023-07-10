@@ -2,7 +2,7 @@
 title: Enable Microsoft Defender for Cloud on your Azure subscription
 description: Learn how to enable Microsoft Defender for Cloud's enhanced security features.
 ms.topic: install-set-up-deploy
-ms.date: 07/06/2023
+ms.date: 07/10/2023
 ms.custom: mode-other
 ---
 
@@ -15,8 +15,6 @@ Defender for Cloud provides unified security management and threat protection ac
 Defender for Cloud helps you find and fix security vulnerabilities. Defender for Cloud also applies access and application controls to block malicious activity, detect threats using analytics and intelligence, and respond quickly when under attack.
 
 ## Prerequisites
-
-- To get started with Defender for Cloud, you must have a subscription to Microsoft Azure. If you don't have a subscription, you can sign up for a [free account](https://azure.microsoft.com/pricing/free-trial/).
 
 - To view information related to a resource in Defender for Cloud, you must be assigned the Owner, Contributor, or Reader role for the subscription or for the resource group that the resource is located in.
 
@@ -89,7 +87,7 @@ All of the plans are turned on and the monitoring components required by each pl
 If you want to disable any of the plans, toggle the individual plan to **off**. The extensions used by the plan aren't uninstalled but, after a short time, the extensions stop collecting data.
 
 > [!TIP]
-> To access Defender for Cloud on all subscriptions within a management group, see [Enable Defender for Cloud on multiple Azure subscriptions](onboard-management-group.md).
+> To enable Defender for Cloud on all subscriptions within a management group, see [Enable Defender for Cloud on multiple Azure subscriptions](onboard-management-group.md).
 
 ## Next steps
 
