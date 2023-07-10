@@ -43,6 +43,7 @@ You can create as many L2 and L3 isolation domains as needed.
 
 You should have the following information already:
 
+- The network fabric resource ID to create isolation domains.
 - VLAN and subnet info for each L3 network.
 - Which networks need to talk to each other. (Remember to put VLANs and subnets that need to talk to each other into the same L3 isolation domain.)
 - BGP peering and network policy information for your L3 isolation domains.
@@ -158,10 +159,3 @@ To get the list of available zones in the Azure Operator Nexus instance, you can
       --name <Azure Operator Nexus on-premises cluster name> \
       --query computeRackDefinitions[*].availabilityZone
 ```
-
-## Miscellaneous prerequisites
-
-To deploy your workloads, you need:
-
-- To create resource group or find a resource group to use for your workloads.
-- The network fabric resource ID to create isolation domains.
