@@ -68,7 +68,7 @@ Calling supports the platforms listed below.
 - UWP with .NET Native or C++/WinRT
   - Windows 10/11 10.0.17763 - 10.0.22621.0
   - Windows Server 2019/2022 10.0.17763 - 10.0.22621.0
-- WinUI3 with .Net 6
+- WinUI3 with .NET 6
   - Windows 10/11 10.0.17763.0 - net6.0-windows10.0.22621.0
   - Windows Server 2019/2022 10.0.17763.0 - net6.0-windows10.0.22621.0
   
