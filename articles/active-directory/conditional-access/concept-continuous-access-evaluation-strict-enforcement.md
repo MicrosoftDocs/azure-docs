@@ -104,7 +104,7 @@ Administrators can investigate the Sign-in logs to find cases with **IP address 
 
 1. **IP address (seen by resource)** is different from the IP seen by Azure AD. 
 
-   ![Screenshot showing a mismatch in IP addresses](./media/concept-continuous-access-evaluation-strict-enforcement/activity-details-sign-ins.png)
+   ![Screenshot showing a mismatch in IP addresses](./media/concept-continuous-access-evaluation-strict-enforcement/activity-details-ip-differs.png)
 
 1. Authentication isn't successful because **IP address (seen by resource)** isn't a known [named location](location-condition.md#named-locations) in Conditional Access. 
 
