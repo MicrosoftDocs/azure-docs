@@ -6,7 +6,7 @@ ms.author: edbaynash
 ms.service: azure-monitor
 ms.subservice: autoscale
 ms.topic: how-to
-ms.date: 06/22/2022
+ms.date: 07/09/2023
 ms.reviewer: akkumari
 
 # Customer intent: As a user or dev ops administrator, I want to use the portal to set up autoscale so I can scale my resources.
@@ -19,7 +19,7 @@ This article describes how to set up autoscale for a web app by using a custom m
 Autoscale allows you to add and remove resources to handle increases and decreases in load. In this article, we'll show you how to set up autoscale for a web app by using one of the Application Insights metrics to scale the web app in and out.
 
 > [!NOTE]
-> Autoscaling on custom metrics in Application Insights is supported only for metrics published to **Standard** and **Azure.ApplicationInsights** namespaces. If any other namespaces are used for custom metrics in Application Insights, it will return **Unsupported Metric** error.
+> Autoscaling on custom metrics in Application Insights is supported only for metrics published to **Standard** and **Azure.ApplicationInsights** namespaces. If any other namespaces are used for custom metrics in Application Insights, it returns an **Unsupported Metric** error.
 
 Azure Monitor autoscale applies to:
 
@@ -114,7 +114,7 @@ Set up a scale-out rule so that Azure spins up another instance of the web app w
 
 ### Set up a scale-in rule
 
-Set up a scale-in rule so that Azure spins down one of the instances when the number of sessions your web app is handling is less than 60 per instance. Azure will reduce the number of instances each time this rule is run until the minimum number of instances is reached.
+Set up a scale-in rule so that Azure spins down one of the instances when the number of sessions your web app is handling is less than 60 per instance. Azure reduces the number of instances each time this rule is run until the minimum number of instances is reached.
 
 1. In the **Rules** section of the default scale condition, select **Add a rule**.
 1. From the **Metric source** dropdown, select **Other resource**.
@@ -152,8 +152,8 @@ If you're not going to continue to use this application, delete resources.
 
 To learn more about autoscale, see the following articles:
 
-- [Use autoscale actions to send email and webhook alert notifications](./autoscale-webhook-email.md)
-- [Overview of autoscale](./autoscale-overview.md)
-- [Azure Monitor autoscale common metrics](./autoscale-common-metrics.md)
-- [Best practices for Azure Monitor autoscale](./autoscale-best-practices.md)
-- [Autoscale REST API](/rest/api/monitor/autoscalesettings)
++ [Use autoscale actions to send email and webhook alert notifications](./autoscale-webhook-email.md)
++ [Overview of autoscale](./autoscale-overview.md)
++ [Azure Monitor autoscale common metrics](./autoscale-common-metrics.md)
++ [Best practices for Azure Monitor autoscale](./autoscale-best-practices.md)
++ [Autoscale REST API](/rest/api/monitor/autoscalesettings)

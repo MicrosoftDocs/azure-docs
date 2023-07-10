@@ -230,4 +230,4 @@ api-key: {{admin-api-key}}
 
 As a next step, we recommend [Query vector data in a search index](vector-search-how-to-query.md). 
 
-You might also consider reviewing the demo code for [Python](https://github.com/Azure/cognitive-search-vector-pr/tree/main/demo-python), [JavaScript](https://github.com/Azure/cognitive-search-vector-pr/tree/main/demo-javascript), or [C#](https://github.com/Azure/cognitive-search-vector-pr/tree/main/demo-dotnet).
+You might also consider reviewing the demo code for [Python](https://github.com/Azure/cognitive-search-vector-pr/tree/main/demo-python) or [C#](https://github.com/Azure/cognitive-search-vector-pr/tree/main/demo-dotnet).
