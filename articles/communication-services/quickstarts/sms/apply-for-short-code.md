@@ -88,7 +88,7 @@ Azure communication service offers an opt-out management service for short codes
 :::image type="content" source="./media/apply-for-short-code/templates-03.png" alt-text="Screenshot showing template 3 details section.":::
 
 ### Review 
-Once completed, review the short code request details, fees, SMS laws and industry standards and submit the completed application through the Azure Portal. 
+Once completed, review the short code request details, fees, SMS laws and industry standards and submit the completed application through the Azure portal. 
 
 :::image type="content" source="./media/apply-for-short-code/review.png" alt-text="Screenshot showing template details section.":::
  
