@@ -53,12 +53,12 @@ Either use an activation file you'd downloaded when [adding your plan](../how-to
 
 **To download the activation file**:
 
-1. Do one of the following:
+1. In Defender for IoT in the Azure portal, select **Plans and pricing**.
 
-    |Start from...  |Steps |
-    |---------|---------|
-    |**...from the Azure portal**     |   In Defender for IoT, select **Plans and pricing**.     |
-    |**... the on-premises management console**     |            After signing into the on-premises management console for the first time, you'll see a message prompting you to take action for a missing activation file. <br><br>In the message bar, select the **Take action** link. An **Activation** dialog shows the number of monitored and licensed devices. <br><br>Since you're just starting the deployment, both of these values should be **0**. <br>        <br> Select the link to the **Azure portal** to jump to Defender for IoT's **Plans and pricing** page in the Azure portal.     |
+    > [!NOTE]
+    > If you'd prefer to start in the on-premises management console, you'll see a message prompting you to take action for a missing activation file after signing into the on-premises management console for the first time.
+    >
+    > In the message bar, select the **Take action** link. An **Activation** dialog shows the number of monitored and licensed devices. <br><br>Since you're just starting the deployment, both of these values should be **0**. <br>        <br> Select the link to the **Azure portal** to jump to Defender for IoT's **Plans and pricing** page in the Azure portal.     |
 
 1. In the **Plans** grid, select your subscription.
 
@@ -70,9 +70,7 @@ Either use an activation file you'd downloaded when [adding your plan](../how-to
 
 **To activate your on-premises management console**:
 
-
-
-1. Return to your on-premises management console. In the **Activation** dialog, select **CHOOSE FILE** and select the downloaded activation file.
+1. If you haven't yet, sign into your on-premises management console. In the **Activation** dialog, select **CHOOSE FILE** and select the downloaded activation file.
 
     A confirmation message appears to confirm that the file's been uploaded successfully.
 

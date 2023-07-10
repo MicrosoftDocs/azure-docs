@@ -25,7 +25,7 @@ Features released earlier than nine months ago are described in the [What's new 
 
 ### Migrate to site-based licenses
 
-Existing customers can migrate their legacy Defender for IoT purchasing plans to a **Microsoft 365** plan, based on site-based, Microsoft 365 licenses.
+Existing customers can now migrate their legacy Defender for IoT purchasing plans to a **Microsoft 365** plan, based on site-based, Microsoft 365 licenses.
 
 On the **Plans and pricing** page, edit your plan and select the **Microsoft 365** plan instead of your current monthly or annual plan. For example:
 
