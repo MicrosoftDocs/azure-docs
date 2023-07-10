@@ -64,7 +64,7 @@ kernel/drivers/net/ethernet/microsoft/mana/mana.ko
 
 ## Kernel update
 
-If your VM has both portal and hardware support for MANA but doesn't have a recent enough kernel, Linux VF drivers are included in kernel 6.2. Prior or forked kernel versions (5.15 and 6.1) require additonal integration.
+Ethernet drivers for MANA are included in kernel 5.15 and up. Linux support for features such as InfiniBand/RDMA and DPDK are included in kernel 6.2. Prior or forked kernel versions (5.15 and 6.1) require backported support.
 
 To update your VM's Linux kernel, check the docs for your specific distro.
 
