@@ -8,7 +8,7 @@ author: dlepow
 
 ms.service: api-management
 ms.topic: article
-ms.date: 07/06/2023
+ms.date: 07/10/2023
 ms.author: danlep 
 ---
 
@@ -60,11 +60,6 @@ Styling guide is a panel created with designers in mind. It allows for overseein
 
 To edit a variant, select it and select the pencil icon that appears on top of it. After you make the changes in the pop-up window, close it.
 
-### API Management content
-
-The developer portal synchronizes with your API Management instance to display content such as your APIs, operations, products, and subscriptions.
-
-By default, the developer portal also provides a "Try it" capability so that portal visitors can test your APIs directly through an interactive console. You can disable this feature in the portal's settings.
 
 ## <a name="managed-vs-self-hosted"></a> Options to extend portal functionality
 In some cases you might need functionality beyond the customization and styling options provided in the managed developer portal. If you need to implement custom logic, which isn't supported out-of-the-box, you have [several options](developer-portal-extend-custom-functionality.md):
@@ -76,9 +71,62 @@ In some cases you might need functionality beyond the customization and styling 
 > Because the API Management developer portal codebase is maintained on [GitHub](https://github.com/Azure/api-management-developer-portal), you can open issues and make pull requests for the API Management team to merge new functionality at any time.
 >
 
+
+## Manage portal access
+
+API Management supports several ways to secure access to the developer portal: 
+
+*  By default, the developer portal authenticates developers with credentials for API Management [user accounts](api-management-howto-create-or-invite-developers.md). Developers can sign up for an account directly through the portal, or you can create accounts for them.
+
+* Depending on your scenarios, you can also restrict access to the portal by requiring users to sign-up or sign-in with an [Azure Active Directory](api-management-howto-aad.md) (Azure AD) or [Azure AD B2C](api-management-howto-aad-b2c.md) account.
+
+* If you already manage developer sign-up and sign-in through an existing website, you can [delegate authentication](api-management-howto-setup-delegation.md) instead of using the developer portal's built-in authentication.
+
+[Learn more](secure-developer-portal-access.md) about options to secure user sign-up and sign-in to the developer portal.
+
+## API Management content
+
+The developer portal synchronizes with your API Management instance to display content such as your APIs, operations, products, and subscriptions.
+
+By default, the developer portal also provides a "Try it" capability on the API reference pages so that portal visitors can test your APIs directly through an interactive console. You can disable this feature in the portal's settings.
+
+> [!IMPORTANT]
+> To let the visitors of your portal test the APIs through the built-in interactive console, enable CORS (cross-origin resource sharing) on your APIs. For details, see [Enable CORS for interactive console in the API Management developer portal](enable-cors-developer-portal.md).
+
+### Content visibility and access
+
+In API Management, [groups of users](api-management-howto-create-groups.md) are used to manage the visibility of products and their associated APIs to developers. Products are first made visible to groups, and then developers in those groups can view and subscribe to the products that are associated with the groups.
+
+You can also control the other portal content (such as pages and sections) appears to different users, based on their identity. For example, you might want to display certain pages only to users who have access to a specific product or API. Or, make a section of a page appear only for certain [groups of users](api-management-howto-create-groups.md). The developer portal has built-in controls for these needs.
+
+> [!NOTE]
+> Visibility and access controls are supported only in the managed developer portal. They aren't supported in the [self-hosted portal](developer-portal-self-host.md).
+
+* When you add or edit a page, select the **Access** tab to control the users or groups that can access the page
+    
+    :::image type="content" source="media/developer-portal-overview/page-access-control.png" alt-text="Screenshot of the page access control settings in the developer portal.":::
+
+* When you customize page content such as a page section, menu, or button, select the **Change visibility** icon to control the users or groups that can see the element on the page
+
+    :::image type="content" source="media/developer-portal-overview/change-visibility-button.png" alt-text="Screenshot of the change visibility button in the developer portal.":::
+
+    * You can change the visibility of the following page content: sections, menus, buttons, and sign-in for OAuth authorization.    
+
+    * Media files such as images on a page inherit the visibility of the elements that contain them.
+
+When a user visits the developer portal with visibility and access controls applied:
+
+* The developer portal automatically hides buttons or navigation items that point to pages that a user doesn't have access to.
+
+* An attempt by a user to access a page they aren't authorized to will result in a 404 Not Found error.
+
+> [!TIP]
+> Using the administrative interface, you can preview pages as a user associated with any built-in or custom group by selecting the **Impersonate** icon in the menu at the bottom. 
+> 
+
 ## Manage portal content
 
-After you update the developer portal content, you need to save and publish your changes to make them available to portal visitors. The developer portal maintains a record of the content you've published, and you can revert to a previous revision when you need to.
+After you update the developer portal content, you need to save and publish your changes to make them available to portal visitors. The developer portal maintains a record of the content you've published, and you can revert to a previous portal *revision* when you need to.
 
 ### Save the portal
 :::image type="content" source="media/developer-portal-overview/save-button.png" alt-text="Screenshot of the Save button in the developer portal." :::
@@ -111,30 +159,15 @@ To make your portal and its latest changes available to visitors, you need to *p
 
     :::image type="content" source="media/developer-portal-overview/pubish-portal-azure-portal.png" alt-text="Publish portal from Azure portal":::
 
-### Use portal revisions
 
-The developer portal supports content versioning. Whenever you publish the portal, that content is saved as a specific timestamped revision. You can revert to a previous revision at any time.    
-
-## Manage portal access
-
- By default, the developer portal authenticates developers with credentials for API Management [user accounts](api-management-howto-create-or-invite-developers.md). Developers can sign up for an account directly through the portal, or you can create accounts for them.
-
-Depending on your scenarios, you can also restrict access to the portal by requiring users to sign-up or sign-in with an [Azure Active Directory](api-management-howto-aad.md) (Azure AD) or [Azure AD B2C](api-management-howto-aad-b2c.md) account.
-
-If you already manage developer sign-up and sign-in through an existing website, you can [delegate authentication](api-management-howto-setup-delegation.md) instead of using the developer portal's built-in authentication.
-
-[Learn more](secure-developer-portal-access.md) about options to secure user sign-up and sign-in to the developer portal.
 
 
 ## Migrate from the legacy portal
 
-An earlier version of the developer portal ("legacy portal") is also provided with your API Management service. The legacy portal is deprecated, and if you've previously customized the legacy portal, you should plan to migrate to the new developer portal.
+An earlier version of the developer portal ("legacy portal") is also provided with your API Management service. If you've previously customized the legacy portal, you should plan to migrate to the new developer portal. For more information, see the [migration guide](developer-portal-deprecated-migration.md).
 
 > [!IMPORTANT]
 > The legacy developer portal is now deprecated and it will receive security updates only. You can continue to use it, as per usual, until its retirement in October 2023, when it will be removed from all API Management services.
-
-To migrate to the new developer portal, see the [migration guide](developer-portal-deprecated-migration.md).
-
 
 ## Next steps
 
