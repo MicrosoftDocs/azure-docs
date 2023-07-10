@@ -446,6 +446,8 @@ api-key: {{admin-api-key}}
 
 ### Semantic hybrid search
 
+In Cognitive Search, semantic search and vector search are separate features, but you can use them together as described in this example. Semantic search adds language representation models that rerank search results based on query intent. This feature is optional and billable for the transactions against the language models.
+
 Assuming that you've [enabled semantic search](semantic-search-overview.md#enable-semantic-search) and your index definition includes a [semantic configuration](semantic-how-to-query-request.md), you can formulate a query that includes vector search, plus keyword search with semantic ranking, caption, answers, and spell check. 
 
 ```http

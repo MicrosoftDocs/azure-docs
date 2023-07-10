@@ -1,5 +1,5 @@
 ---
-title: Cross-region load balancer (preview)
+title: Cross-region load balancer
 titleSuffix: Azure Load Balancer
 description: Overview of cross region load balancer tier for Azure Load Balancer.
 services: load-balancer
