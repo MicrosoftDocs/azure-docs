@@ -143,7 +143,7 @@ You need to complete the following tasks prior to deploying Application Gateway 
 
 3. Install ALB Controller using Helm
 
-	LB Controller can be installed by running the following commands:
+	ALB Controller can be installed by running the following commands:
 
 	```bash
 	az aks get-credentials --resource-group $RESOURCE_GROUP --name $AKS_NAME
@@ -153,6 +153,9 @@ You need to complete the following tasks prior to deploying Application Gateway 
 		--version '0.3.023706-pr' \
 		--set albController.podIdentity.clientID=$(az identity show -g $RESOURCE_GROUP -n azure-alb-identity --query clientId -o tsv)
 	```
+
+   	> [!Note]
+   	> ALB Controller will automatically be provisioned into a namespace called azure-alb-system. The namespace name may be changed by defining the _--namespace <namespace_name>_ parameter when executing the helm command.
 
 ### Verify the ALB Controller installation
 
