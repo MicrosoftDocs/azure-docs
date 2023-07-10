@@ -27,6 +27,10 @@ Before performing the procedures in this article, you need to have:
 
 - Access to the Azure portal as a [Security Admin](../../../role-based-access-control/built-in-roles.md#security-admin), [Contributor](../../../role-based-access-control/built-in-roles.md#contributor), or [Owner](../../../role-based-access-control/built-in-roles.md#owner) user
 
+- An Defender for IoT OT plan. For more information, see [Add an OT plan to your Azure subscription](../how-to-manage-subscriptions.md#add-an-ot-plan-to-your-azure-subscription).
+
+    When you add a plan, you're given the option of downloading an activation file for your on-premises management console. Either use the file you'd downloaded then, or use the steps in this article to download it afresh.
+
 ## Sign in to your on-premises management console
 
 During the [software installation process](install-software-on-premises-management-console.md#users), you'll have received a set of credentials for privileged access. We recommend using the **Support** credentials when signing into the on-premises management console for the first time.
@@ -45,13 +49,16 @@ Activate your on-premises management console using a downloaded file from the Az
 
 If your sensors detect more devices than you're licensed for, purchase a new license for a larger site. For more information, see [Manage OT plans and licenses](../how-to-manage-subscriptions.md).
 
-**To activate**:
+Either use an activation file you'd downloaded when [adding your plan](../how-to-manage-subscriptions.md#add-an-ot-plan-to-your-azure-subscription), or use the steps in this procedure to download the activation file afresh.
 
-1. After signing into the on-premises management console for the first time, you'll see a message prompting you to take action for a missing activation file. In the message bar, select the **Take action** link.
+**To download the activation file**:
 
-    An **Activation** dialog shows the number of monitored and licensed devices. Since you're just starting the deployment, both of these values should be **0**.
+1. Do one of the following:
 
-1. Select the link to the **Azure portal** to jump to Defender for IoT's **Plans and pricing** page in the Azure portal.
+    |Start from...  |Steps |
+    |---------|---------|
+    |**...from the Azure portal**     |   In Defender for IoT, select **Plans and pricing**.     |
+    |**... the on-premises management console**     |            After signing into the on-premises management console for the first time, you'll see a message prompting you to take action for a missing activation file. <br><br>In the message bar, select the **Take action** link. An **Activation** dialog shows the number of monitored and licensed devices. <br><br>Since you're just starting the deployment, both of these values should be **0**. <br>        <br> Select the link to the **Azure portal** to jump to Defender for IoT's **Plans and pricing** page in the Azure portal.     |
 
 1. In the **Plans** grid, select your subscription.
 
@@ -60,6 +67,10 @@ If your sensors detect more devices than you're licensed for, purchase a new lic
 1. In the toolbar, select **Download on-premises management console activation file**. The activation file downloads.
 
     [!INCLUDE [root-of-trust](../includes/root-of-trust.md)]
+
+**To activate your on-premises management console**:
+
+
 
 1. Return to your on-premises management console. In the **Activation** dialog, select **CHOOSE FILE** and select the downloaded activation file.
 

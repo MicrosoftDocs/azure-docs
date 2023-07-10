@@ -69,15 +69,15 @@ This procedure describes how to add a secondary NIC after [installing your on-pr
 
 ## Upload a new activation file
 
-<!--how does this need to change?-->
-
 You'd activated your on-premises management console as part of your deployment.
 
 You may need to reactivate your on-premises management console as part of maintenance procedures, such as if the total number of monitored devices exceeds the number of [devices that you're licensed for](billing.md).
 
 **To upload a new activation file to your on-premises management console**:
 
-1. In Defender for IoT on the Azure portal, select **Plans and pricing** > **Download on-premises management console activation file**.
+1. In Defender for IoT on the Azure portal, select **Plans and pricing**.
+
+1. Select your plan and then select **Download on-premises management console activation file**.
 
    Save your downloaded file in a location that's accessible from the on-premises management console.
 

@@ -65,9 +65,9 @@ This procedure describes how to add an OT plan for Defender for IoT in the Azure
     - Select the terms and conditions.
     - If you're working with an on-premises management console, select **Download OT activation file (Optional)**.
 
-    When you're finished, select **Save**. If you've selected to download the on-premises management console activation file, the file is downloaded and you're prompted to save it locally.
+    When you're finished, select **Save**. If you've selected to download the on-premises management console activation file, the file is downloaded and you're prompted to save it locally. You'll use it later, when [activating your on-premises management console](ot-deploy/activate-deploy-management.md#activate-the-on-premises-management-console). 
 
-Your new plan is listed under the relevant subscription on the **Plans and pricing** > **Plans** page. 
+Your new plan is listed under the relevant subscription on the **Plans and pricing** > **Plans** page.
 
 ## Cancel a Defender for IoT plan
 
@@ -101,6 +101,8 @@ For more information, see the [Microsoft 365 admin center documentation](/micros
 ## Migrate from a legacy OT plan
 
 If you're an existing customer with a legacy OT plan, we recommend migrating your plan to a site-based Microsoft 365 plan. After you've edited your plan, make sure to update your site details with a site size that matches your Microsoft 365 license.
+
+After migrating your plan to a site-based Microsoft 365 plan, edits are supported only in the Microsoft 365 Admin center.
 
 > [!NOTE]
 > Defender for IoT supports migration for a single subscription only. If you have multiple subscriptions, choose the one you want to migrate, and then move all sensors to that subscription before you update your plan settings.
