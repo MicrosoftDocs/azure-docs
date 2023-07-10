@@ -1,5 +1,5 @@
 ---
-title: Windows VMs with MANA
+title: Windows VMs with Azure MANA
 description: Learn how MANA Accelerated Networking can improve the networking performance of Windows VMs on Azure.
 author: mattmcinnes
 ms.service: virtual-network
@@ -62,7 +62,7 @@ Ethernet 5                Microsoft Azure Network Adapter #3            7 Up    
 1.	Open up device Manager
 2.	Within device manager, you should see the Hyper-V Network Adapter and the Microsoft Azure Network Adapter (MANA)
 
-![Device Manager with Azure MANA NIC](media/accelerated-networking-mana/devicemanager-mana.png)
+![A screenshot of Windows Device Manager with an Azure MANA network card successfully detected](media/accelerated-networking-mana/device-manager-mana.png)
 
 ## Driver install
 
