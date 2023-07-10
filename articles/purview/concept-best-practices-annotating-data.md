@@ -46,7 +46,7 @@ I use a term so that anyone who finds this data can go to the term to explore th
 
 :::image type="content" source="media/concept-annotations/04-term-details.png" alt-text="Screen shot showing a term detail page for order.":::
 
-## Best practice for using business assets
+## Best practices for using business assets
 
 Finally, you can extend Purview's metamodel by creating additional asset types for describing real-world things in your organization such as departments, projects, products, and lines of business. When you look at your data estate, it's often helpful to understand how your data fits into your business. Use business assets whenever you want to associate data assets to specific organizational structures, business processes, or other anything else that could be convincingly modeled as an entity.
 
