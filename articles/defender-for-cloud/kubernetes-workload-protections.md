@@ -30,7 +30,7 @@ You can enable the Azure policy for Kubernetes by one of two ways:
 - Enable for all current and future clusters using plan/connector settings
     - [Enabling for Azure subscriptions or on-prem](#enabling-for-azure-subscriptions-or-on-prem)
     - [Enabling for GCP projects](#enabling-for-gcp-projects)
-- [Enable for existing clusters using recommendations (specific clusters or all clusters)](#manually-deploy-the-add-on-to-clusters-using-recommendations). 
+- [Enable for existing clusters using recommendations (specific clusters or all clusters)](#manually-deploy-the-add-on-to-clusters-using-recommendations-on-specific-clusters). 
 
 ### Enable for all current and future clusters using plan/connector settings
 
