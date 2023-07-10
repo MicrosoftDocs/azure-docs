@@ -71,4 +71,4 @@ For Windows support, see [Windows VMs with Azure MANA](./accelerated-networking-
 
 - [TCP/IP Performance Tuning for Azure VMs](./virtual-network-tcpip-performance-tuning.md)
 - [Proximity Placement Groups](../virtual-machines/co-location.md)
-- [Monitor Virtual Network](./virtual-network/monitor-virtual-network.md)
+- [Monitor Virtual Network](./monitor-virtual-network.md)

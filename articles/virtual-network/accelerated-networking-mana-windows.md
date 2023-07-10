@@ -87,4 +87,4 @@ Ethernet 5                       1230513627217            22739256679 ...7245765
 
 - [TCP/IP Performance Tuning for Azure VMs](./virtual-network-tcpip-performance-tuning.md)
 - [Proximity Placement Groups](../virtual-machines/co-location.md)
-- [Monitor Virtual Network](./virtual-network/monitor-virtual-network.md)
+- [Monitor Virtual Network](./monitor-virtual-network.md)
