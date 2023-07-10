@@ -279,7 +279,7 @@ To connect a sensor controlled by the management console to NTP:
 Sometimes ICS devices are configured with external IP addresses. These ICS devices aren't shown on the map. Instead of the devices, an internet cloud appears on the map. The IP addresses of these devices are included in the cloud image. Another indication of the same problem is when multiple internet-related alerts appear. Fix the issue as follows:
 
 1. Right-click the cloud icon on the device map and select **Export IP Addresses**.
-1. Copy the public ranges that are private, and add them to the subnet list. For more information, see [Define OT and IoT subnets](how-to-control-what-traffic-is-monitored.md#define-ot-and-iot-subnets).
+1. Copy the public ranges that are private, and add them to the subnet list. For more information, see [Fine-tune your deployment](how-to-control-what-traffic-is-monitored.md#fine-tune-your-deployment).
 1. Generate a new data-mining report for internet connections.
 1. In the data-mining report, enter the administrator mode and delete the IP addresses of your ICS devices.
 

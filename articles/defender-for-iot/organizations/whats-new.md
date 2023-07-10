@@ -20,7 +20,7 @@ Features released earlier than nine months ago are described in the [What's new 
 
 |Service area  |Updates  |
 |---------|---------|
-| **OT networks** | **Version 23.1.x**: <br>- [OT sensor installation and setup enhancements](#ot-sensor-installation-and-setup-enhancements) <br>- [Sensor network analysis](#sensor-network-analysis) <br>- [Simplified privileged users](#simplified-privileged-users) |
+| **OT networks** | **Version 23.1.x**: <br>- [OT sensor installation and setup enhancements](#ot-sensor-installation-and-setup-enhancements) <br>- [Fine-tune your deployment](#fine-tune-your-deployment) <br>- [Simplified privileged users](#simplified-privileged-users) |
 
 ### OT sensor installation and setup enhancements
 
@@ -38,13 +38,13 @@ In version 23.1.x we've updated the OT sensor installation and setup wizards to 
 
 For more information, see [Install and set up your OT sensor](ot-deploy/install-software-ot-sensor.md) and [Configure and activate your OT sensor](ot-deploy/activate-deploy-sensor.md).
 
-### Sensor network analysis
+### Fine-tune your deployment
 
 After completing the installation and initial setup, analyze the traffic that the sensor detects by default from the sensor settings. On the sensor, select **Sensor settings** > **Basic** > **Deployment** to analyze the current detections. For example:
 
 :::image type="content" source="media/how-to-control-what-traffic-is-monitored/deployment-settings.png" alt-text="Screenshot of the Deployment settings page.":::
 
-For more information, see [Analyze detected subnets](how-to-control-what-traffic-is-monitored.md#analyze-detected-subnets).
+For more information, see [Fine-tune your deployment](how-to-control-what-traffic-is-monitored.md#fine-tune-your-deployment).
 
 ### Monitored interface configuration
 
@@ -329,7 +329,7 @@ Configure your subnets either on the Azure portal or on your OT sensor. For more
 
 - [Manage your device inventory from the Azure portal](how-to-manage-device-inventory-for-organizations.md)
 - [Configure OT sensor settings from the Azure portal](configure-sensor-settings-portal.md#subnet)
-- [Define OT and IoT subnets on the OT sensor](how-to-control-what-traffic-is-monitored.md#define-ot-and-iot-subnets)
+- [Fine-tune your OT sensor deployment](how-to-control-what-traffic-is-monitored.md#fine-tune-your-deployment)
 
 ### Configure OT sensor settings from the Azure portal (Public preview)
 
