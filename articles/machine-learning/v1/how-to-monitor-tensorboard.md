@@ -17,7 +17,7 @@ ms.custom: UpdateFrequency5, sdkv1, event-tier1-build-2022
 
 # Visualize experiment jobs and metrics with TensorBoard and Azure Machine Learning
 
-[!INCLUDE [sdk v1](../../../includes/machine-learning-sdk-v1.md)]
+[!INCLUDE [sdk v1](../includes/machine-learning-sdk-v1.md)]
 
 In this article, you learn how to view your experiment jobs and metrics in TensorBoard using [the `tensorboard` package](/python/api/azureml-tensorboard/) in the main Azure Machine Learning SDK. Once you've inspected your experiment jobs, you can better tune and retrain your machine learning models.
 
@@ -141,7 +141,7 @@ compute_target.wait_for_completion(show_output=True, min_node_count=None)
 # print(compute_target.get_status().serialize())
 ```
 
-[!INCLUDE [low-pri-note](../../../includes/machine-learning-low-pri-vm.md)]
+[!INCLUDE [low-pri-note](../includes/machine-learning-low-pri-vm.md)]
 
 ### Configure and submit training job
 

@@ -184,7 +184,15 @@
       - name: Av2-series
         href: av2-series.md
       - name: B-series burstable
-        href: sizes-b-series-burstable.md
+        items:
+        - name: B-series V1
+          href: sizes-b-series-burstable.md
+        - name: Bsv2-series 
+          href: bsv2-series.md 
+        - name: Basv2-series  
+          href: basv2.md   
+        - name: Bpsv2
+          href: bpsv2-arm.md    
       - name: DCsv2-series
         href: dcv2-series.md
       - name: DCsv3 and DCdsv3-series
@@ -1407,7 +1415,7 @@
         href: ./windows/migrate-to-premium-storage-using-azure-site-recovery.md
     - name: Migrate to Managed Disks
       href: ./windows/migrate-to-managed-disks.md
-    - name: Unmanaged Disks retirement starting November 18, 2022
+    - name: Unmanaged Disks retirement
       href: ./unmanaged-disks-deprecation.md
     - name: Unmanaged VM to Managed Disks
       items:

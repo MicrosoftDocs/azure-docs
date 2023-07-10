@@ -2,8 +2,7 @@
 title: Mount Azure file share to an AD DS-joined VM
 description: Learn how to mount an Azure file share to your on-premises Active Directory Domain Services domain-joined machines.
 author: khdownie
-ms.service: storage
-ms.subservice: files
+ms.service: azure-file-storage
 ms.topic: how-to
 ms.date: 04/07/2023
 ms.author: kendownie
@@ -55,7 +54,7 @@ You can also use the `net-use` command from a Windows prompt to mount the file s
 net use Z: \\<YourStorageAccountName>.file.core.windows.net\<FileShareName>
 ```
 
-If you run into issues, refer to [Unable to mount Azure file shares with AD credentials](files-troubleshoot-smb-authentication.md#unable-to-mount-azure-file-shares-with-ad-credentials).
+If you run into issues, see [Unable to mount Azure file shares with AD credentials](/troubleshoot/azure/azure-storage/files-troubleshoot-smb-authentication?toc=/azure/storage/files/toc.json#unable-to-mount-azure-file-shares-with-ad-credentials).
 
 ## Mount the file share from a non-domain-joined VM
 

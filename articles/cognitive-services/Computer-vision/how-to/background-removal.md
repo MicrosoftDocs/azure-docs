@@ -27,7 +27,7 @@ This guide assumes you have successfully followed the steps mentioned in the [qu
 The quickstart shows you how to extract visual features from an image, however, the concepts are similar to background removal. Therefore you benefit from starting from the quickstart and making modifications.
 
 > [!IMPORTANT]
-> Background removal is only available in the following Azure regions: East US, France Central, Korea Central, North Europe, Southeast Asia, West Europe, West US, East Asia.
+> Background removal is only available in the following Azure regions: East US, France Central, Korea Central, North Europe, Southeast Asia, West Europe, West US.
 
 ## Authenticate against the service
 

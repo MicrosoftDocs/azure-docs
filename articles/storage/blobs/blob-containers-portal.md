@@ -9,7 +9,6 @@ ms.service: storage
 ms.topic: how-to
 ms.date: 07/18/2022
 ms.author: shaas
-ms.subservice: blobs
 ---
 
 # Manage blob containers using the Azure portal

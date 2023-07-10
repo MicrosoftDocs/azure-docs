@@ -66,9 +66,9 @@ A number of specific Android devices fail to start, accept calls, and meetings. 
 
 On Android Chrome, if a user is on an ACS call and puts the browser into background for one minute. The microphone will lose access and the other participants in the call won't hear the audio from the user. Once the user brings the browser to foreground, microphone is available again. Related chromium bugs [here](https://bugs.chromium.org/p/chromium/issues/detail?id=1027446) and [here](https://bugs.chromium.org/p/webrtc/issues/detail?id=10940)
 
-### The user has dropped the call but is still on the participant list.
+### A mobile (iOS and Android) user has dropped the call but is still showing up on the participant list.
 
-The problem can occur if a mobile user leaves the ACS group call without properly hang up. When a user closes the browser or refreshes the webpage without hang up, other participants in the group call will still see the user on the participant list for about 2 minutes.
+The problem can occur if a mobile user leaves the ACS group call without using the Call.hangUp() API. When a mobile user closes the browser or refreshes the webpage without hang up, other participants in the group call will still see this mobile user on the participant list for about 60 seconds.
 
 ### iOS Safari refreshes the page if the user goes to another app and returns back to the browser
 

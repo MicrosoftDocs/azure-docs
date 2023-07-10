@@ -30,9 +30,9 @@ The [sample](https://github.com/Azure-Samples/azure-search-javascript-samples/tr
 
 |App|Purpose|GitHub<br>Repository<br>Location|
 |--|--|--|
-|Client|React app (presentation layer) to display books, with search. It calls the Azure Function app. |[/search-website-functions-v4/client](https://github.com/Azure-Samples/azure-search-javascript-samples/tree/master/search-website-functions-v4/client)|
-|Server|Azure Function app (business layer) - calls the Azure Cognitive Search API using JavaScript SDK |[/search-website-functions-v4/api](https://github.com/Azure-Samples/azure-search-javascript-samples/tree/master/search-website-functions-v4/api)|
-|Bulk insert|JavaScript file to create the index and add documents to it.|[/search-website-functions-v4/bulk-insert](https://github.com/Azure-Samples/azure-search-javascript-samples/tree/master/search-website-functions-v4/bulk-insert)|
+|Client|React app (presentation layer) to display books, with search. It calls the Azure Function app. |[/search-website-functions-v4/client-v4](https://github.com/Azure-Samples/azure-search-javascript-samples/tree/master/search-website-functions-v4/client-v4)|
+|Server|Azure Function app (business layer) - calls the Azure Cognitive Search API using JavaScript SDK |[/search-website-functions-v4/api-v4](https://github.com/Azure-Samples/azure-search-javascript-samples/tree/master/search-website-functions-v4/api-v4)|
+|Bulk insert|JavaScript file to create the index and add documents to it.|[/search-website-functions-v4/bulk-insert-v4](https://github.com/Azure-Samples/azure-search-javascript-samples/tree/master/search-website-functions-v4/bulk-insert-v4)|
 
 ## Set up your development environment
 
@@ -42,6 +42,7 @@ Install the following for your local development environment.
     - Select latest runtime and version from this [list of supported language versions](../azure-functions/functions-versions.md?pivots=programming-language-javascript&tabs=azure-cli%2clinux%2cin-process%2cv4#languages).
     - If you have a different version of Node.js installed on your local computer, consider using [Node Version Manager](https://github.com/nvm-sh/nvm) (nvm) or a Docker container.  
 - [Git](https://git-scm.com/downloads)
+- [PowerShell](/powershell/scripting/install/installing-powershell)
 - [Visual Studio Code](https://code.visualstudio.com/) and the following extensions
     - [Azure Static Web App](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurestaticwebapps) 
     - Use the integrated PowerShell terminal for all PowerShell commands.

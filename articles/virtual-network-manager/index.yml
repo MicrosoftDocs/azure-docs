@@ -52,8 +52,8 @@ landingContent:
         links:
           - text: Create and configure a Virtual Network Manager - Portal
             url: create-virtual-network-manager-portal.md
-          - text: Create and configure a Virtual Network Manager - PowerShell
-            url: create-virtual-network-manager-powershell.md
+          - text: Create and configure a Virtual Network Manager - Terraform
+            url: create-virtual-network-manager-terraform.md
       - linkListType: tutorial
         links:
           - text: Create a secured hub-and-spoke network
