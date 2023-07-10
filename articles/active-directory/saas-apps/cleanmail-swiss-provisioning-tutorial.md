@@ -64,27 +64,27 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 1. Sign in to the [Azure portal](https://portal.azure.com). Select **Enterprise Applications**, then select **All applications**.
 
-	![Enterprise applications blade](common/enterprise-applications.png)
+	![Screenshot of Enterprise applications blade.](common/enterprise-applications.png)
 
 1. In the applications list, select **Cleanmail**.
 
-	![The Cleanmail Swiss link in the Applications list](common/all-applications.png)
+	![Screenshot of the Cleanmail Swiss link in the Applications list.](common/all-applications.png)
 
 1. Select the **Provisioning** tab.
 
-	![Provisioning tab](common/provisioning.png)
+	![Screenshot of Provisioning tab.](common/provisioning.png)
 
 1. Set the **Provisioning Mode** to **Automatic**.
 
-	![Provisioning tab automatic](common/provisioning-automatic.png)
+	![Screenshot of Provisioning tab automatic.](common/provisioning-automatic.png)
 
 1. In the **Admin Credentials** section, input your Cleanmail Swiss Tenant URL as `https://cloud.cleanmail.ch/api/v3/scim2` and corresponding Secret Token obtained from Step 2. Click **Test Connection** to ensure Azure AD can connect to Cleanmail. If the connection fails, ensure your Cleanmail Swiss account has Admin permissions and try again.
 
-	![Token](common/provisioning-testconnection-tenanturltoken.png)
+	![Screenshot of the token.](common/provisioning-testconnection-tenanturltoken.png)
 	
 1. In the **Notification Email** field, enter the email address of a person or group who should receive the provisioning error notifications and select the **Send an email notification when a failure occurs** check box.
 
-	![Notification Email](common/provisioning-notification-email.png)
+	![Screenshot of notification email.](common/provisioning-notification-email.png)
 
 1. Select **Save**.
 
@@ -104,15 +104,15 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 1. To enable the Azure AD provisioning service for Cleanmail, change the **Provisioning Status** to **On** in the **Settings** section.
 
-	![Provisioning Status Toggled On](common/provisioning-toggle-on.png)
+	![Screenshot of provisioning status toggled on.](common/provisioning-toggle-on.png)
 
 1. Define the users and groups that you would like to provision to Cleanmail Swiss by choosing the desired values in **Scope** in the **Settings** section.
 
-	![Provisioning Scope](common/provisioning-scope.png)
+	![Screenshot of provisioning scope.](common/provisioning-scope.png)
 
 1. When you're ready to provision, click **Save**.
 
-	![Saving Provisioning Configuration](common/provisioning-configuration-save.png)
+	![Screenshot of saving provisioning configuration.](common/provisioning-configuration-save.png)
 
 This operation starts the initial synchronization cycle of all users and groups defined in **Scope** in the **Settings** section. The initial cycle takes longer to complete than next cycles, which occur approximately every 40 minutes as long as the Azure AD provisioning service is running. 
 
