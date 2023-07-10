@@ -66,7 +66,7 @@ EOF
 
 ```bash
 RESOURCE_GROUP='<resource group name of the Application Gateway For Containers resource>'
-RESOURCE_NAME='test-alb'
+RESOURCE_NAME='alb-test'
 
 RESOURCE_ID=$(az network alb show --resource-group $RESOURCE_GROUP --name $RESOURCE_NAME --query id -o tsv)
 FRONTEND_NAME='frontend'
