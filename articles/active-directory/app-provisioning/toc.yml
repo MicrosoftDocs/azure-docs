@@ -154,7 +154,7 @@ items:
     - name: Prepare AD LDS for provisioning from Azure AD
       href: on-premises-ldap-connector-prepare-directory.md
     - name: Frequently asked questions (FAQs) about API-driven inbound provisioning 
-      href: inbound-provisioning-faqs.md
+      href: inbound-provisioning-api-faqs.md
   - name: Resources
     items:
     - name: Support and help options for developers
