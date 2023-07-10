@@ -135,7 +135,7 @@ The charge for restored logs is based on the volume of data you restore, in GB, 
 For example, if your table holds 500 GB a day and you restore 10 days of data, you'll be charged for 5000 GB a day until you [dismiss the restored data](#dismiss-restored-data).
 
 > [!NOTE]
-> There is no charge for querying against restored logs.
+> There is no charge for querying restored logs.
 
 ## Next steps
 
