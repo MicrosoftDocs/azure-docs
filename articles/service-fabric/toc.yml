@@ -179,7 +179,7 @@
       - name: Probes
         href: probes-codepackage.md
       - name: Container image management
-        href: containerimagemanagement.md
+        href: container-image-management.md
     - name: Reliable Services
       items:
       - name: Reliable Services overview
