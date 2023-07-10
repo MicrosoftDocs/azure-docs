@@ -40,7 +40,7 @@ The following scenarios assume that the cluster administrator is using the manag
 
 **What is the most cost effective way to setup logging and metrics?**
 
-- See the [Configure monitoring](../containers/container-insights-onboard.md#configure-monitoring) section of [Monitor Kubernetes clusters with Azure services](monitor-containers.md) for details on configuring data collection with Azure services such as [Azure Monitor managed service for Prometheus](../essentials/prometheus-metrics-overview.md) and [Container Insights](container-insights-overview.md). This includes steps for configuring the tools for optimizing cost.
+- See [Configure Kubernetes monitoring using Azure services](monitor-kubernetes-configure.md) for details on configuring data collection with Azure services such as [Azure Monitor managed service for Prometheus](../essentials/prometheus-metrics-overview.md) and [Container Insights](container-insights-overview.md). This includes steps for configuring the tools for optimizing cost.
 
 **How do I keep costs to a minimum when using AKS and its larger ecosystem?**
 
@@ -130,40 +130,47 @@ In addition to developing the application, the developer maintains the applicati
 
 :::image type="content" source="media/monitor-containers/layers-developer.png" alt-text="Diagram of Kubernetes layers for developer" lightbox="media/monitor-containers/layers-developer.png"  border="false":::
 
-
-[Application insights](../app/app-insights-overview.md)
+[Application insights](../app/app-insights-overview.md) is the primary tool for developers to monitor the health, performance, and usage of their application. Below are a few common scenarios, but you should refer to Application insights documentation for complete details.
 
 
 **How do I get started with Application insights?**
 
 - See [Data Collection Basics of Azure Monitor Application Insights](../app/opentelemetry-overview.md) for options on configuring data collection from your application and decision criteria on the best method for your particular requirements.
 
-**What are the poor performing apis or database queries?**
+**Where are my application logs stored?**
 
-- Use [Profiler](../profiler/profiler-overview.md) to capture and view performance traces for your application 
+- Container insights sends stdout/stderr logs to a Log Analytics workspace. See [Resource logs](../../aks/monitor-aks-reference.md#resource-logs) for a description of the different logs and [Kubernetes Services](https://learn.microsoft.com/en-us/azure/azure-monitor/reference/tables/tables-resourcetype#kubernetes-services) for a list of the tables each is sent to.
+- App insights for additional logging including iLogger.
 
-**Where is my application bottleneck?**
+**How do I identify poor performing apis or database queries?**
 
+- Use [Profiler](../profiler/profiler-overview.md) to capture and view performance traces for your application.
 
-**Is my application meeting my SLA?**
+**How do I identify my application bottleneck?**
 
-- View the SLA report in the **Failures** tab of Application insights.
+- Use [Application Map](../app/app-map.md) to view the dependencies between your application components and identify any bottlenecks.
+- Use [Profiler](../profiler/profiler-overview.md) to capture and view performance traces for your application.
+- Use the **Performance** view in Application insights to view the performance of different operations in your application.
+
+**How do I determine if my application is meeting its service-level agreement (SLA)?**
+
+- Use the [SLA report](../app/sla-report.md) to calculate and report SLA for web tests.
 - Use [annotations](../app/annotations.md) to identify when a new build is deployed so that you can visually inspect any change in performance after the update.
 
-**If my application getinng errors**
+**How do I determine if my application is generating errors?**
+
+- See the **Failures** tab of Application insights to view the number of failed requests and the most common exceptions.
+- Ensure that alerts for [failure anomalies](../alerts/proactive-failure-diagnostics.md) identified with [smart detection](../alerts/proactive-diagnostics.md) are configured properly.
 
 
-**How can I setup telemetry/tracing to gain better observability into the interaction between services?**
+**How can I to gain better observability into the interaction between services?**
 
+- Enable [distributed tracing](../app/distributed-tracing-telemetry-correlation.md), which provides a performance profiler that works like call stacks for cloud and microservices architectures.
 
 **How should I set up health monitoring for my application?**
 
 - Create an [Availability test](../app/availability-overview.md) in Application insights to create a recurring test to monitor the availability and responsiveness of your application.
 
-**Where should I be sending my application logs, and where do I look for them?**
-
-- Container insights sends stdout/stderr logs to a Log Analytics workspace in the XXX table. 
-- App insights for additional logging including iLogger.
 
 
 ## Next steps
