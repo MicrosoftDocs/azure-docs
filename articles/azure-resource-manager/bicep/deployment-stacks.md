@@ -2,7 +2,7 @@
 title: Create & deploy deployment stacks in Bicep
 description: Describes how to create deployment stacks in Bicep.
 ms.topic: conceptual
-ms.date: 07/06/2023
+ms.date: 07/09/2023
 ---
 
 # Deployment stacks (Preview)
@@ -70,6 +70,10 @@ az stack group create \
   --deny-settings-mode none
 ```
 
+# [Portal](#tab/azure-portal)
+
+Currently not implemented.
+
 ---
 
 To create a deployment stack at the subscription scope:
@@ -99,6 +103,10 @@ az stack sub create \
 ```
 
 The `deployment-resource-group-name` parameter specifies the resource group used to store the managed resources. If the parameter isn't specified, the managed resources are stored in the subscription scope.
+
+# [Portal](#tab/azure-portal)
+
+Currently not implemented.
 
 ---
 
@@ -130,6 +138,10 @@ az stack mg create \
 
 The `deployment-subscription` parameter specifies the subscription used to store the managed resources. If the parameter isn't specified, the managed resources are stored in the management group scope.
 
+# [Portal](#tab/azure-portal)
+
+Currently not implemented.
+
 ---
 
 ## List deployment stacks
@@ -150,6 +162,13 @@ az stack group list \
   --resource-group <resource-group-name>
 ```
 
+# [Portal](#tab/azure-portal)
+
+1. From the Azure portal, open the resource group that contains the deployment stacks.
+1. From the left menu, select `Deployment stacks`.
+
+  :::image type="content" source="./media/deployment-stacks/deployment-stack-portal-group-list-stacks.png" alt-text="Screenshot of listing resource group scope deployment stacks.":::
+
 ---
 
 To list deployment stack resources at the subscription scope:
@@ -165,6 +184,13 @@ Get-AzSubscriptionDeploymentStack
 ```azurecli
 az stack sub list
 ```
+
+# [Portal](#tab/azure-portal)
+
+1. From the Azure portal, open the subscription that contains the deployment stacks.
+1. From the left menu, select `Deployment stacks` to list the deployment stacks deployed to the subscription.
+
+  :::image type="content" source="./media/deployment-stacks/deployment-stack-portal-sub-list-stacks.png" alt-text="Screenshot of listing resource group scope deployment stacks.":::
 
 ---
 
@@ -183,6 +209,8 @@ Get-AzManagementGroupDeploymentStack `
 az stack mg list \
   --management-group-id <management-group-id>
 ```
+
+# [Portal](#tab/azure-portal)
 
 ---
 
@@ -219,6 +247,10 @@ az stack group create \
 > [!NOTE]
 > Azure CLI doesn't have a deployment stack set command.  Use the new command instead.
 
+# [Portal](#tab/azure-portal)
+
+Currently not implemented.
+
 ---
 
 To update a deployment stack at the subscription scope:
@@ -247,6 +279,10 @@ az stack sub create \
   --deny-settings-mode none
 ```
 
+# [Portal](#tab/azure-portal)
+
+Currently not implemented.
+
 ---
 
 To update a deployment stack at the management group scope:
@@ -272,6 +308,10 @@ az stack mg create \
   --deployment-subscription-id <subscription-id> \
   --deny-settings-mode none
 ```
+
+# [Portal](#tab/azure-portal)
+
+Currently not implemented.
 
 ---
 
@@ -326,6 +366,10 @@ az stack sub create `
   --delete-resources
 ```
 
+# [Portal](#tab/azure-portal)
+
+Currently not implemented.
+
 ---
 
 > [!WARNING]
@@ -333,9 +377,9 @@ az stack sub create `
 
 ## Delete deployment stacks
 
-If you run the delete commands without the delete parameters, the unmanaged resources will be detached but not deleted. To delete the unmanaged resources, use the following switches:
-
 # [PowerShell](#tab/azure-powershell)
+
+If you run the delete commands without the delete parameters, the unmanaged resources will be detached but not deleted. To delete the unmanaged resources, use the following switches:
 
 - `DeleteAll`: Delete both the resources and the resource groups.
 - `DeleteResources`: Delete the resources only.
@@ -343,9 +387,17 @@ If you run the delete commands without the delete parameters, the unmanaged reso
 
 # [CLI](#tab/azure-cli)
 
+If you run the delete commands without the delete parameters, the unmanaged resources will be detached but not deleted. To delete the unmanaged resources, use the following switches:
+
 - `delete-all`: Delete both the resources and the resource groups.
 - `delete-resources`: Delete the resources only.
 - `delete-resource-groups`: Delete the resource groups only.
+
+# [Portal](#tab/azure-portal)
+
+Select one of the update behaviors:
+
+:::image type="content" source="./media/deployment-stacks/deployment-stack-portal-update-behavior.png" alt-text="Screenshot of portal update behavior.":::
 
 ---
 
@@ -371,6 +423,17 @@ az stack group delete \
   [--delete-all/--delete-resource-groups/--delete-resources]
 ```
 
+# [Portal](#tab/azure-portal)
+
+1. From the Azure portal, open the resource group that contains the deployment stacks.
+1. From the left menu, select `Deployment stacks`, select the deployment stack to be deleted, and then select `Delete stack`.
+
+  :::image type="content" source="./media/deployment-stacks/deployment-stack-portal-group-delete-stacks.png" alt-text="Screenshot of deleting resource group scope deployment stacks.":::
+
+1. Select an `Update behavior`, and then select `Next`.
+
+  :::image type="content" source="./media/deployment-stacks/deployment-stack-portal-group-delete-stack-update-behavior.png" alt-text="Screenshot of update behavior for deleting resource group scope deployment stacks.":::
+
 ---
 
 To delete deployment stack resources at the subscription scope:
@@ -390,6 +453,13 @@ az stack sub delete \
   --name <deployment-stack-name> \
   [--delete-all/--delete-resource-groups/--delete-resources]
 ```
+
+# [Portal](#tab/azure-portal)
+
+1. From the Azure portal, open the subscription that contains the deployment stacks.
+1. From the left menu, select `Deployment stacks`, select the deployment stack to be deleted, and then select `Delete stack`.
+
+  :::image type="content" source="./media/deployment-stacks/deployment-stack-portal-sub-delete-stacks.png" alt-text="Screenshot of listing resource group scope deployment stacks.":::
 
 ---
 
@@ -412,6 +482,8 @@ az stack mg delete \
   --management-group-id <management-group-id> \
   [--delete-all/--delete-resource-groups/--delete-resources]
 ```
+
+# [Portal](#tab/azure-portal)
 
 ---
 
@@ -436,6 +508,15 @@ az stack group list \
   --output json
 ```
 
+# [Portal](#tab/azure-portal)
+
+1. From the Azure portal, open the resource group that contains the deployment stacks.
+1. From the left menu, select `Deployment stacks`.
+
+  :::image type="content" source="./media/deployment-stacks/deployment-stack-portal-group-list-stacks.png" alt-text="Screenshot of listing resource group scope deployment stacks.":::
+
+1. Select one of the deployment stacks to view the managed resources of the deployment stack.
+
 ---
 
 To view managed resources at the subscription scope:
@@ -453,6 +534,15 @@ az stack sub show \
   --name <deployment-stack-name> \
   --output json
 ```
+
+# [Portal](#tab/azure-portal)
+
+1. From the Azure portal, open the subscription that contains the deployment stacks.
+1. From the left menu, select `Deployment stacks` to list the deployment stacks deployed to the subscription.
+
+  :::image type="content" source="./media/deployment-stacks/deployment-stack-portal-sub-list-stacks.png" alt-text="Screenshot of listing resource group scope deployment stacks.":::
+
+1. Select the deployment stack to list the managed resources.
 
 ---
 
@@ -472,6 +562,8 @@ az stack mg show \
   --management-group-id <management-group-id> \
   --output json
 ```
+
+# [Portal](#tab/azure-portal)
 
 ---
 
@@ -505,6 +597,10 @@ The Azure CLI includes these parameters to customize the deny assignment:
 - `deny-settings-excluded-actions`: List of role-based access control (RBAC) management operations excluded from the deny settings. Up to 200 actions are allowed.
 - `deny-settings-excluded-principals`: List of Azure Active Directory (Azure AD) principal IDs excluded from the lock. Up to five principals are allowed.
 
+# [Portal](#tab/azure-portal)
+
+Currently not implemented.
+
 ---
 
 To apply deny settings at the resource group scope:
@@ -532,6 +628,10 @@ az stack group create \
   --deny-settings-excluded-actions Microsoft.Compute/virtualMachines/write Microsoft.StorageAccounts/delete \
   --deny-settings-excluded-principals <object-id> <object-id>
 ```
+
+# [Portal](#tab/azure-portal)
+
+Currently not implemented.
 
 ---
 
@@ -565,6 +665,10 @@ az stack sub create \
 
 Use the `deployment-resource-group` parameter to specify the resource group at which the deployment stack is created. If a scope isn't specified, it uses the scope of the deployment stack.
 
+# [Portal](#tab/azure-portal)
+
+Currently not implemented.
+
 ---
 
 To apply deny settings at the management group scope:
@@ -597,6 +701,10 @@ az stack mg create \
 
 Use the `deployment-subscription ` parameter to specify the subscription ID at which the deployment stack is created. If a scope isn't specified, it uses the scope of the deployment stack.
 
+# [Portal](#tab/azure-portal)
+
+Currently not implemented.
+
 ---
 
 ## Detach managed resources from deployment stack
@@ -625,6 +733,10 @@ az stack group export \
   --resource-group <resource-group-name>
 ```
 
+# [Portal](#tab/azure-portal)
+
+Currently not implemented.
+
 ---
 
 To export a deployment stack at the subscription scope:
@@ -642,6 +754,10 @@ Save-AzSubscriptionDeploymentStack `
 az stack sub export \
   --name <deployment-stack-name>
 ```
+
+# [Portal](#tab/azure-portal)
+
+Currently not implemented.
 
 ---
 
@@ -662,6 +778,10 @@ az stack mg export \
   --name <deployment-stack-name> \
   --management-group-id <management-group-id>
 ```
+
+# [Portal](#tab/azure-portal)
+
+Currently not implemented.
 
 ---
 
