@@ -5,9 +5,8 @@ author: inward-eye
 ms.author: vlrodrig
 ms.service: purview
 ms.subservice: purview-data-policies
-ms.custom: event-tier1-build-2022
 ms.topic: how-to
-ms.date: 10/10/2022
+ms.date: 07/06/2023
 ---
 
 # Authoring and publishing data owner access policies (Preview)
@@ -133,6 +132,6 @@ Ensure you have the *Policy Author* permission as described [here](how-to-enable
 ## Next steps
 
 For specific guides on creating policies, you can follow these tutorials:
-
-- [Enable Microsoft Purview data owner policies on all data sources in a subscription or a resource group](./how-to-policies-data-owner-resource-group.md)
-- [Enable Microsoft Purview data owner policies on an Azure Storage account](./how-to-policies-data-owner-storage.md)
+- Doc: [Microsoft Purview data owner policies on all data sources in a subscription or a resource group](./how-to-policies-data-owner-resource-group.md)
+- Doc: [Microsoft Purview data owner policies on an Azure Storage account](./how-to-policies-data-owner-storage.md)
+- Blog: [Grant users access to data assets in your enterprise via API](https://aka.ms/AAlg655)

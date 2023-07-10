@@ -55,13 +55,13 @@ You need to assign enough permission to use runtime in Prompt flow. To assign a 
 
 ### Create compute instance runtime in UI
 
-If you didn't have compute instance, create a new one: [Create and manage an Azure Machine Learning compute instance](../how-to-create-manage-compute-instance.md).
+If you didn't have compute instance, create a new one: [Create and manage an Azure Machine Learning compute instance](../how-to-create-compute-instance.md).
 
 1. Select add compute instance runtime in runtime list page.
     :::image type="content" source="./media/how-to-create-manage-runtime/runtime-creation-runtime-list-add.png" alt-text="Screenshot of Prompt flow on the runtime add with compute instance runtime selected. " lightbox = "./media/how-to-create-manage-runtime/runtime-creation-runtime-list-add.png":::
 1. Select compute instance you want to use as runtime.
     :::image type="content" source="./media/how-to-create-manage-runtime/runtime-creation-ci-runtime-select-ci.png" alt-text="Screenshot of add compute instance runtime with select compute instance highlighted. " lightbox = "./media/how-to-create-manage-runtime/runtime-creation-ci-runtime-select-ci.png":::
-    Because compute instances are isolated by user, you can only see your own compute instances or the ones assigned to you. To learn more, see [Create and manage an Azure Machine Learning compute instance](../how-to-create-manage-compute-instance.md).
+    Because compute instances are isolated by user, you can only see your own compute instances or the ones assigned to you. To learn more, see [Create and manage an Azure Machine Learning compute instance](../how-to-create-compute-instance.md).
 1. Select create new custom application or existing custom application as runtime.
     1. Select create new custom application as runtime.
         :::image type="content" source="./media/how-to-create-manage-runtime/runtime-creation-ci-runtime-select-custom-application.png" alt-text="Screenshot of add compute instance runtime with custom application highlighted. " lightbox = "./media/how-to-create-manage-runtime/runtime-creation-ci-runtime-select-custom-application.png":::
@@ -245,7 +245,10 @@ This because you're cloning a flow from others that is using compute instance as
 
 #### Compute instance behind vnet
 
-This is known limitation, currently compute instance runtime didn't support vent.
+If your compute instance is behind a VNet, you need to make the following changes to ensure that your compute instance can be used in prompt flow:
+- Please follow [required-public-internet-access](../how-to-secure-workspace-vnet.md#required-public-internet-access) to set your CI network configuration.
+- If your storage account also behind vnet, please follow [Secure Azure storage accounts](../how-to-secure-workspace-vnet.md#secure-azure-storage-accounts) to create private endpoints for both table and blob.
+- Make sure the managed identity of workspace have `Storage Blob Data Contributor`, `Storage Table Data Contributor` roles on the workspace default storage account.
 
 ### Managed endpoint runtime related
 

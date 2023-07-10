@@ -51,6 +51,22 @@ const defaultSpeaker = deviceManager.selectedSpeaker;
 await deviceManager.selectSpeaker(localSpeakers[0]);
 ```
 
+### Local video stream properties
+
+A `LocalVideoStream` has the following properties:
+
+- `source`: The device information.
+
+```js
+const source = localVideoStream.source;
+```
+
+- `mediaStreamType`: Can be `Video`, `ScreenSharing`, or `RawMedia`.
+
+```js
+const type: MediaStreamType = localVideoStream.mediaStreamType;
+```
+
 ### Local camera preview
 
 You can use `deviceManager` and `VideoStreamRenderer` to begin rendering streams from your local camera. This stream won't be sent to other participants; it's a local preview feed.
@@ -122,7 +138,7 @@ const localVideoStream = new LocalVideoStream(camera);
 await call.startVideo(localVideoStream);
 ```
 
-After you successfully start sending video, a `LocalVideoStream` instance is added to the `localVideoStreams` collection on a call instance.
+After you successfully start sending video, a `LocalVideoStream` instance of type `Video` is added to the `localVideoStreams` collection on a call instance.
 
 ```js
 const localVideoStream = call.localVideoStreams.find( (stream) => { return stream.mediaStreamType === 'Video'} );
@@ -168,12 +184,19 @@ call.off('isLocalVideoStartedChanged', () => {
 
 
 ## Start and stop screen sharing while on a call
-To start and stop screen sharing while on a call, you can use asynchronous APIs startScreenSharing and stopScreenSharing respectively:
-
+To start screen sharing while on a call, you can use asynchronous API startScreenSharing:
 ```js
 // Start screen sharing
 await call.startScreenSharing();
+```
 
+After you successfully start sending screen sharing, a `LocalVideoStream` instance of type `ScreenSharing`, is added to the `localVideoStreams` collection on the call instance.
+```js
+const localVideoStream = call.localVideoStreams.find( (stream) => { return stream.mediaStreamType === 'ScreenSharing'} );
+```
+
+To stop screen sharing while on a call, you can use asynchronous API stoptScreenSharing:
+```js
 // Stop screen sharing
 await call.stopScreenSharing();
 ```
