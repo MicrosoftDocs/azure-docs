@@ -15,7 +15,7 @@ ms.custom: UpdateFrequency5, contperf-fy20q4, tracking-python, contperf-fy21q1, 
 
 # Secure an Azure Machine Learning workspace with virtual networks (v1)
 
-[!INCLUDE [sdk/cli v1](../../../includes/machine-learning-dev-v1.md)]
+[!INCLUDE [sdk/cli v1](../includes/machine-learning-dev-v1.md)]
 
 
 In this article, you learn how to secure an Azure Machine Learning workspace and its associated resources in an Azure Virtual Network.
@@ -93,7 +93,7 @@ When ACR is behind a virtual network, Azure Machine Learning can't use it to dir
 
 ## Required public internet access
 
-[!INCLUDE [machine-learning-required-public-internet-access](../../../includes/machine-learning-public-internet-access.md)]
+[!INCLUDE [machine-learning-required-public-internet-access](../includes/machine-learning-public-internet-access.md)]
 
 For information on using a firewall solution, see [Use a firewall with Azure Machine Learning](../how-to-access-azureml-behind-firewall.md).
 
@@ -208,7 +208,7 @@ Azure Container Registry can be configured to use a private endpoint. Use the fo
 
     # [Azure CLI](#tab/cli)
 
-    [!INCLUDE [cli v1](../../../includes/machine-learning-cli-v1.md)]
+    [!INCLUDE [cli v1](../includes/machine-learning-cli-v1.md)]
 
     If you've [installed the Machine Learning extension v1 for Azure CLI](reference-azure-machine-learning-cli.md), you can use the `az ml workspace show` command to show the workspace information.
 
@@ -220,7 +220,7 @@ Azure Container Registry can be configured to use a private endpoint. Use the fo
 
     # [Python SDK](#tab/python)
 
-    [!INCLUDE [sdk v1](../../../includes/machine-learning-sdk-v1.md)]
+    [!INCLUDE [sdk v1](../includes/machine-learning-sdk-v1.md)]
 
     The following code snippet demonstrates how to get the container registry information using the [Azure Machine Learning SDK](/python/api/overview/azure/ml/):
 
@@ -263,7 +263,7 @@ Azure Container Registry can be configured to use a private endpoint. Use the fo
 
     The following code snippet demonstrates how to update the workspace to set a build compute using the [Azure Machine Learning SDK](/python/api/overview/azure/ml/). Replace `mycomputecluster` with the name of the cluster to use:
 
-    [!INCLUDE [sdk v1](../../../includes/machine-learning-sdk-v1.md)]
+    [!INCLUDE [sdk v1](../includes/machine-learning-sdk-v1.md)]
 
     ```python
     from azureml.core import Workspace
@@ -343,11 +343,11 @@ To enable network isolation for Azure Monitor and the Application Insights insta
 
 ## Securely connect to your workspace
 
-[!INCLUDE [machine-learning-connect-secure-workspace](../../../includes/machine-learning-connect-secure-workspace.md)]
+[!INCLUDE [machine-learning-connect-secure-workspace](../includes/machine-learning-connect-secure-workspace.md)]
 
 ## Workspace diagnostics
 
-[!INCLUDE [machine-learning-workspace-diagnostics](../../../includes/machine-learning-workspace-diagnostics.md)]
+[!INCLUDE [machine-learning-workspace-diagnostics](../includes/machine-learning-workspace-diagnostics.md)]
 
 ## Next steps
 

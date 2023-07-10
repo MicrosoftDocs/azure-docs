@@ -5,7 +5,6 @@ description: Learn how to cache static website content from an Azure Storage acc
 author: normesta
 
 ms.service: storage
-ms.subservice: blobs
 ms.topic: how-to
 ms.author: normesta
 ms.date: 04/07/2020

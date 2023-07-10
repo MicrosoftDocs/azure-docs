@@ -3,8 +3,7 @@ title: Monitoring Azure Files
 description: Learn how to monitor the performance and availability of Azure Files. Monitor Azure Files data, learn about configuration, and analyze metric and log data.
 author: normesta
 services: storage
-ms.service: storage
-ms.subservice: files
+ms.service: azure-file-storage
 ms.topic: conceptual
 ms.date: 10/06/2022
 ms.author: normesta
