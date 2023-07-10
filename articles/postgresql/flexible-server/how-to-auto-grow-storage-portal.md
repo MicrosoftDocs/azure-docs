@@ -31,7 +31,7 @@ Follow these steps to enable Storage Autogrow on your Azure Database for Postgre
 
 3. In the **Storage Auto-growth** section, checkmark to enable storage autogrow.
 
-4. Select **Save** on apply the changes.
+4. Select **Save** to apply the changes.
 
    ![Screenshot showing Storage Autogrowth.](./media/how-to-auto-grow-storage-portal/storage-auto-grow.png)
 
