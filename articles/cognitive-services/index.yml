@@ -105,7 +105,7 @@ conceptualContent:
           itemType: overview
           text: Personalizer
     - title: Azure OpenAI
-      summary: Apply advanced language models to variety of use cases with the Azure OpenAI service 
+      summary: Apply advanced language models to variety of use cases with the Azure OpenAI Service 
       links:
         - url: ./openai/overview.md
           itemType: overview
