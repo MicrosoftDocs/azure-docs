@@ -19,10 +19,11 @@ In this quickstart, you deploy a virtual machine and use Network Watcher [IP flo
 
 :::image type="content" source="./media/diagnose-vm-network-traffic-filtering-problem/-ip-flow-verify-quickstart-diagram.png" alt-text="Diagram shows the resources created in Network Watcher quickstart.":::
 
+If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
 ## Prerequisites
 
-- An Azure account with an active subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+- An Azure account with an active subscription
 
 ## Sign in to Azure
 
