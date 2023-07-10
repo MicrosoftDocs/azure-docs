@@ -21,7 +21,7 @@ You need to complete the following tasks prior to deploying Application Gateway 
 
 1. Prepare your Azure subscription and your `az-cli` client.
 
-	```bash
+	```azurecli-interactive
 	# Login to your Azure subscription.
 	SUBSCRIPTION_ID='<your subscription id>'
 	az login
@@ -46,7 +46,7 @@ You need to complete the following tasks prior to deploying Application Gateway 
 
 	If using an existing cluster, please ensure you enable Workload Identity support on your AKS cluster.  Workload identities can be enabled via the following:
 	
-	```bash
+	```azurecli-interactive
  	AKS_NAME='<your cluster name>'
 	RESOURCE_GROUP='<the resource group of your AKS cluster>'
 	az aks update -g $RESOURCE_GROUP -n $AKS_NAME --enable-oidc-issuer --enable-workload-identity --no-wait
@@ -54,7 +54,7 @@ You need to complete the following tasks prior to deploying Application Gateway 
 
 	If you don't have an existing cluster, use the following commands to create a new AKS cluster with Azure CNI and workload identity enabled.	
  
-	```bash
+	```azurecli-interactive
 	AKS_NAME='<your cluster name>'
 	RESOURCE_GROUP='<the resource group of your AKS cluster>'
 	LOCATION='northeurope' # The list of available regions may grow as we roll out to more preview regions
@@ -76,7 +76,7 @@ You need to complete the following tasks prior to deploying Application Gateway 
 
 	Once you have an AKS cluster, identify the virtual network to which the agent pool is connected using the following commands:
 
-	```bash
+	```azurecli-interactive
 	AKS_NAME='<your cluster name>'
 	RESOURCE_GROUP='<your resource group>'
 
@@ -88,7 +88,7 @@ You need to complete the following tasks prior to deploying Application Gateway 
 
 	Once the Virtual Network has been identified, create a new subnet with at least 250 available addresses and delegate it to the Application Gateway for Containers service with the following command (note, the minimum size a subnet should be for an Association should be /24):
 
-	```bash
+	```azurecli-interactive
 	subnetAddressPrefix='<an address space under the vnet that has at least 250 available addresses (/24 or smaller cidr prefix for the subnet)>'
 	albSubnetName='alb-subnet' # subnet name can be any non-reserved subnet name (i.e. GatewaySubnet, AzureFirewallSubnet, AzureBastionSubnet would all be invalid)
 	az network vnet subnet create \
@@ -111,7 +111,7 @@ You need to complete the following tasks prior to deploying Application Gateway 
 ## Install ALB Controller
 1. Create a user managed identity for ALB controller and federate the identity as Pod Identity to use in the AKS cluster.
 
-    ```bash
+    ```azurecli-interactive
 	RESOURCE_GROUP='<your resource group>'
 	AKS_NAME='<your aks cluster name>'
 	IDENTITY_RESOURCE_NAME='azure-alb-identity'
@@ -186,7 +186,7 @@ If you wish to uninstall the ALB Controller, you may complete the following step
 
 1. To delete the Application Gateway for Containers, you can delete the Resource Group containing the Application Gateway for Containers resources:
 
-	```bash
+	```azurecli-interactive
 	az group delete --resource-group $RESOURCE_GROUP
 	```
 
