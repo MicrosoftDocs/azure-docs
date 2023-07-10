@@ -27,8 +27,21 @@ This article uses an example owner tenant named *Cairo* and two member tenants n
 
 ## Prerequisites
 
+![Icon for the owner tenant.](./media/common/icon-tenant-owner.png)<br/>**Owner tenant**
+
+- Azure AD Premium P1 or P2 license. For more information, see [License requirements](cross-tenant-synchronization-overview.md#license-requirements).
+- [Security Administrator](../roles/permissions-reference.md#security-administrator) role to configure cross-tenant access settings and manage the multi-tenant organization.
+- [Global Administrator](../roles/permissions-reference.md#global-administrator) role to consent to required permissions.
+
+![Icon for the member tenant.](./media/common/icon-tenant-member.png)<br/>**Member tenant**
+
+- Azure AD Premium P1 or P2 license. For more information, see [License requirements](cross-tenant-synchronization-overview.md#license-requirements).
+- [Security Administrator](../roles/permissions-reference.md#security-administrator) role to configure cross-tenant access settings and join the multi-tenant organization.
+- [Global Administrator](../roles/permissions-reference.md#global-administrator) role to consent to required permissions.
 
 ## Step 1: Sign in to the owner tenant
+
+![Icon for the owner tenant.](./media/common/icon-tenant-owner.png)<br/>**Owner tenant**
 
 These steps describe how to use Microsoft Graph Explorer (recommended), but you can also use Postman, or another REST API client.
 
@@ -48,7 +61,9 @@ These steps describe how to use Microsoft Graph Explorer (recommended), but you 
 
 ## Step 2: Create a multi-tenant organization
 
-1. Use the [Create multiTenantOrganization](/graph/api/tenantrelationship-put-multitenantorganization?branch=pr-en-us-21123) API to create your multi-tenant organization. This operation can take a few minutes.
+![Icon for the owner tenant.](./media/common/icon-tenant-owner.png)<br/>**Owner tenant**
+
+1. In the owner tenant, use the [Create multiTenantOrganization](/graph/api/tenantrelationship-put-multitenantorganization?branch=pr-en-us-21123) API to create your multi-tenant organization. This operation can take a few minutes.
 
     **Request**
 
@@ -81,7 +96,9 @@ These steps describe how to use Microsoft Graph Explorer (recommended), but you 
 
 ## Step 3: Add tenants
 
-1. Use the [Create multiTenantOrganizationMember](/graph/api/multitenantorganization-post-tenants?branch=pr-en-us-21123) API to add tenants to your multi-tenant organization.
+![Icon for the owner tenant.](./media/common/icon-tenant-owner.png)<br/>**Owner tenant**
+
+1. In the owner tenant, use the [Create multiTenantOrganizationMember](/graph/api/multitenantorganization-post-tenants?branch=pr-en-us-21123) API to add tenants to your multi-tenant organization.
 
     **Request**
 
@@ -163,9 +180,11 @@ These steps describe how to use Microsoft Graph Explorer (recommended), but you 
 
 ## Step 4: (Optional) Change the role of a tenant
 
+![Icon for the owner tenant.](./media/common/icon-tenant-owner.png)<br/>**Owner tenant**
+
 By default, tenants added to the multi-tenant organization are member tenants. Optionally, you can change them to owner tenants, which allows them to add other tenants to the multi-tenant organization. You can also change an owner tenant to a member tenant.
 
-1. Use the [Update multiTenantOrganizationMember](/graph/api/multitenantorganizationmember-update?branch=pr-en-us-21123) API to change a member tenant to an owner tenant.
+1. In the owner tenant, use the [Update multiTenantOrganizationMember](/graph/api/multitenantorganizationmember-update?branch=pr-en-us-21123) API to change a member tenant to an owner tenant.
 
     **Request**
 
@@ -218,9 +237,11 @@ By default, tenants added to the multi-tenant organization are member tenants. O
 
 ## Step 5: (Optional) Remove a member tenant
 
+![Icon for the owner tenant.](./media/common/icon-tenant-owner.png)<br/>**Owner tenant**
+
 You can remove any member tenant, including your own. You can't remove owner tenants. Also, you can't remove the original creator tenant, even if it has been changed from owner to member.
 
-1. Use the [Delete multiTenantOrganizationMember](/graph/api/multitenantorganization-delete-tenants?branch=pr-en-us-21123) API to remove any member tenant. This operation takes a few minutes.
+1. In the owner tenant, use the [Delete multiTenantOrganizationMember](/graph/api/multitenantorganization-delete-tenants?branch=pr-en-us-21123) API to remove any member tenant. This operation takes a few minutes.
 
     **Request**
 
@@ -279,6 +300,8 @@ You can remove any member tenant, including your own. You can't remove owner ten
 
 ## Step 6: Sign in to a member tenant
 
+![Icon for the member tenant.](./media/common/icon-tenant-member.png)<br/>**Member tenant**
+
 The Cairo tenant created a multi-tenant organization and added the Berlin and Athens tenants. In these steps you sign in to the Berlin tenant and join the multi-tenant organization created by Cairo.
 
 1. Start [Microsoft Graph Explorer tool](https://aka.ms/ge).
@@ -297,7 +320,9 @@ The Cairo tenant created a multi-tenant organization and added the Berlin and At
 
 ## Step 7: Unconfigure TRV2
 
-1. Use the [Update crossTenantAccessPolicyConfigurationDefault](/graph/api/crosstenantaccesspolicyconfigurationdefault-update) to unconfigure tenant restrictions version 2 (TRV2). 
+![Icon for the member tenant.](./media/common/icon-tenant-member.png)<br/>**Member tenant**
+
+1. In the member tenant, use the [Update crossTenantAccessPolicyConfigurationDefault](/graph/api/crosstenantaccesspolicyconfigurationdefault-update) to unconfigure tenant restrictions version 2 (TRV2). 
 
     **Request**
 
@@ -328,7 +353,9 @@ The Cairo tenant created a multi-tenant organization and added the Berlin and At
 
 ## Step 8: Join the multi-tenant organization
 
-1. Use the [Update multiTenantOrganizationJoinRequestRecord](/graph/api/multitenantorganizationjoinrequestrecord-update?branch=pr-en-us-21123) API to join the multi-tenant organization.
+![Icon for the member tenant.](./media/common/icon-tenant-member.png)<br/>**Member tenant**
+
+1. In the member tenant, use the [Update multiTenantOrganizationJoinRequestRecord](/graph/api/multitenantorganizationjoinrequestrecord-update?branch=pr-en-us-21123) API to join the multi-tenant organization.
 
     **Request**
 
@@ -430,4 +457,6 @@ The Cairo tenant created a multi-tenant organization and added the Berlin and At
     ```
 
 ## Next steps
+
+- [Configure cross-tenant synchronization](cross-tenant-synchronization-configure.md)
 
