@@ -642,6 +642,10 @@
           href: flexible-server/how-to-stop-start-server-portal.md
         - name: Azure CLI
           href: flexible-server/how-to-stop-start-server-cli.md
+      - name: Storage auto-grow
+        items:
+        - name: Azure portal
+          href: flexible-server/how-to-auto-grow-storage-portal.md
     - name: Encryption with CMK
       items:
       - name: Azure CLI
