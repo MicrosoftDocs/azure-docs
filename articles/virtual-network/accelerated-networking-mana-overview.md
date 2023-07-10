@@ -4,7 +4,7 @@ description: Learn how Azure MANA Accelerated Networking can improve the network
 author: mattmcinnes
 ms.service: virtual-network
 ms.topic: how-to
-ms.date: 07/07/2023
+ms.date: 07/10/2023
 ms.author: mattmcinnes
 ---
 
@@ -17,9 +17,9 @@ Learn how to use the Microsoft Azure Network Adapter (MANA) to improve the perfo
 > See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
 ## Compatibility
-Azure MANA supports several VM operating systems. While your VM might be running a supported OS, you need to update the kernel (Linux) or install drivers (Windows). 
+Azure MANA supports several VM operating systems. While your VM might be running a supported OS, you may need to update the kernel (Linux) or install drivers (Windows). 
 
-MANA maintains feature-parity with previous Azure networking features. VMs can still run on hardware with both Mellanox and MANA NICs, so existing 'mlx4' and 'mlx5' support still need to be present.
+MANA maintains feature-parity with previous Azure networking features. VMs run on hardware with both Mellanox and MANA NICs, so existing 'mlx4' and 'mlx5' support still need to be present.
 
 ### Supported Marketplace Images
 Several [Azure Marketplace](https://learn.microsoft.com/marketplace/azure-marketplace-overview) images have built-in support for Azure MANA's ethernet driver. 
