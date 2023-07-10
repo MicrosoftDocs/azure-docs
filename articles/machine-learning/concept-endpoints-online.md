@@ -50,7 +50,7 @@ Use of managed online endpoints is the _recommended_ way to use online endpoints
 |Network security/isolation |Easy inbound/outbound control with quick toggle |VNet not supported or requires complex manual configuration |
 |Managed service |- Fully managed compute provisioning/scaling​<br> - Network configuration for data exfiltration prevention​<br> - Host OS upgrade, controlled rollout of in-place updates |- Scaling is limited in v1<br> - Network configuration or upgrade needs to be managed by user |
 |Endpoint/deployment concept |Distinction between endpoint and deployment enables complex scenarios such as safe rollout of models |No concept of endpoint |
-|Diagnostics and Monitoring |- Local endpoint debugging possible with Docker and VSCode<br>​ - Advanced metrics and logs analysis with chart/query to compare between deployments​<br> - Cost breakdown down to deployment level |No easy local debugging |
+|Diagnostics and Monitoring |- Local endpoint debugging possible with Docker and Visual Studio Code<br>​ - Advanced metrics and logs analysis with chart/query to compare between deployments​<br> - Cost breakdown down to deployment level |No easy local debugging |
 |Scalability |Limitless, elastic, and automatic scaling |- ACI is non-scalable​ <br> - AKS (v1) supports in-cluster scale only and requires scalability configuration |
 |Enterprise readiness |Private link, customer managed keys, Azure Active Directory, quota management, billing integration, BCDR, SLA |Not supported |
 |Advanced ML features |- Model data collection<br> - Model monitoring​<br> - Champion-challenger model, safe rollout, traffic mirroring<br> - Responsible AI extensibility |Not supported |
@@ -125,7 +125,9 @@ To learn how to deploy online endpoints using the CLI, SDK, studio, and ARM temp
 
 Azure Machine Learning supports model deployment to online endpoints for coders and noncoders alike, by providing options for _no-code deployment_, _low-code deployment_, and _Bring Your Own Container (BYOC) deployment_.
 
-**No-code model deployment** provides out-of-box inferencing for common frameworks (for example, scikit-learn, TensorFlow, PyTorch, and ONNX) via MLflow and Triton. For no-code deployment, Azure Machine Learning requires that you provide:
+#### No-code model deployment
+
+No-code deployment provides out-of-box inferencing for common frameworks (for example, scikit-learn, TensorFlow, PyTorch, and ONNX) via MLflow and Triton. For no-code deployment, Azure Machine Learning requires that you provide:
 - A model folder or the name and version of the model, if it's already registered in your workspace. This model folder should contain:
     - ML model file connecting assets/schema for MLflow
     - model files
@@ -138,7 +140,9 @@ In turn, Azure Machine Learning ​does the following:
 
 To learn more about no-code deployment for MLflow models, see [Deploy MLflow models to online endpoints](/azure/machine-learning/how-to-deploy-mlflow-models-online-endpoints).
 
-**Low-code model deployment** allows you to provide minimal code along with your ML model for deployment. For low-code deployment, Azure Machine Learning requires that you provide:
+#### Low-code model deployment
+
+Low-code deployment allows you to provide minimal code along with your ML model for deployment. For low-code deployment, Azure Machine Learning requires that you provide:
 - Model assets or the name and version of registered assets in your workspace. These assets should include:
     - model files
     - an Azure Machine Learning environment in which the model runs: either a Docker image with conda dependencies, or a dockerfile​
@@ -147,7 +151,9 @@ To learn more about no-code deployment for MLflow models, see [Deploy MLflow mod
 
 In turn, Azure Machine Learning uses the model assets you specified to create the container that runs in our managed infrastructure, providing all platform features of a managed online endpoint.​ ​To learn more about low-code deployment for ML models, see [Deploy an ML model with an online endpoint](/azure/machine-learning/how-to-deploy-online-endpoints).
 
-**Bring Your Own Container (BYOC) deployment** lets you virtually bring any containers to run your online endpoint. You can use all the Azure Machine Learning platform features such as autoscaling, GitOps, debugging, and safe rollout to manage your MLOps pipelines​. For BYOC deployment, Azure Machine Learning requires that you provide:
+#### Bring Your Own Container (BYOC) deployment
+
+BYOC deployment lets you virtually bring any containers to run your online endpoint. You can use all the Azure Machine Learning platform features such as autoscaling, GitOps, debugging, and safe rollout to manage your MLOps pipelines​. For BYOC deployment, Azure Machine Learning requires that you provide:
 - an accessible container image location (for example, docker.io, Azure Container Registry (ACR), or Microsoft Container Registry (MCR)) or a Dockerfile that you can build/push with ACR​ for your container
 - Port and route path info for:​
     - liveness (to check if server is running)​
@@ -167,15 +173,45 @@ The following table summarizes key points about deployment options to online end
 > [!NOTE]
 > AutoML runs create a scoring script and dependencies automatically for users, so you can deploy any AutoML model without authoring additional code (for no-code deployment) or you can modify auto-generated scripts to your business needs (for low-code deployment).​ To learn how to deploy with AutoML models, see [Deploy an AutoML model with an online endpoint](/azure/machine-learning/how-to-deploy-automl-endpoint).
 
-## Local deployment and Visual Studio Code debugging
+## Online endpoint debugging
 
-You can deploy an endpoint locally to test it without having to deploy to the cloud. Azure Machine Learning creates a local Docker image that mimics the Azure Machine Learning image. Azure Machine Learning will build and run deployments for you locally and cache the image for rapid iterations.
+Azure Machine Learning provides various ways to debug online endpoints locally and by using container logs.
 
-Azure Machine Learning local endpoints use Docker and VS Code development containers (dev containers) to build and configure a local debugging environment. With dev containers, you can take advantage of VS Code features, such as interactive debugging, from inside a Docker container.
+#### Local debugging
 
-:::image type="content" source="media/concept-endpoints/visual-studio-code-full.png" alt-text="Screenshot of endpoint debugging in VS Code." lightbox="media/concept-endpoints/visual-studio-code-full.png" :::
+For **local debugging**, you need a local deployment; that is, a model that is deployed to a local Docker environment. You can use this local deployment for testing and debugging before deployment to the cloud. To deploy locally, you'll need to have the [Docker Engine](https://docs.docker.com/engine/install/) installed and running. Azure Machine Learning then creates a local Docker image that mimics the Azure Machine Learning image. Azure Machine Learning will build and run deployments for you locally and cache the image for rapid iterations.
 
-To interactively debug online endpoints in VS Code, see [Debug online endpoints locally in Visual Studio Code](/azure/machine-learning/how-to-debug-managed-online-endpoints-visual-studio-code).
+The steps for local debugging typically include:
+
+- Checking that the local deployment succeeded
+- Invoking the local endpoint for inferencing
+- Reviewing the logs for output of the invoke operation
+
+To learn more about local debugging, see [Deploy and debug locally by using local endpoints](how-to-deploy-online-endpoints.md#deploy-and-debug-locally-by-using-local-endpoints).
+
+#### Local debugging with Visual Studio Code (preview)
+
+As with local debugging, you first need to have the [Docker Engine](https://docs.docker.com/engine/install/) installed and running and then deploy a model to the local Docker environment. Once you have a local deployment, Azure Machine Learning local endpoints use Docker and Visual Studio Code development containers (dev containers) to build and configure a local debugging environment. With dev containers, you can take advantage of Visual Studio Code features, such as interactive debugging, from inside a Docker container.
+
+To learn more about interactively debugging online endpoints in VS Code, see [Debug online endpoints locally in Visual Studio Code](/azure/machine-learning/how-to-debug-managed-online-endpoints-visual-studio-code).
+
+#### Local debugging with the Azure Machine Learning inference HTTP server (preview)
+
+[!INCLUDE [machine-learning-preview-generic-disclaimer](../../includes/machine-learning-preview-generic-disclaimer.md)]
+
+You can debug your scoring script locally by using the Azure Machine Learning inference HTTP server. The HTTP server is a Python package that exposes your scoring function as an HTTP endpoint and wraps the Flask server code and dependencies into a singular package. It's included in the [prebuilt Docker images for inference](concept-prebuilt-docker-images-inference.md) that are used when deploying a model with Azure Machine Learning. Using the package alone, you can deploy the model locally for production, and you can also easily validate your scoring (entry) script in a local development environment. If there's a problem with the scoring script, the server will return an error and the location where the error occurred. 
+You can also use Visual Studio Code to debug with the Azure Machine Learning inference HTTP server.
+
+To learn more about debugging with the HTTP server, see [Debugging scoring script with Azure Machine Learning inference HTTP server (preview)](how-to-inference-server-http.md).
+
+#### Debugging with container logs
+
+For a deployment, you can't get direct access to the VM where the model is deployed. However, you can get logs from some of the containers that are running on the VM.
+There are two types of containers that you can get the logs from:
+- Inference server: Logs include the console log (from [the inference server](how-to-inference-server-http.md)) which contains the output of print/logging functions from your scoring script (`score.py` code). 
+- Storage initializer: Logs contain information on whether code and model data were successfully downloaded to the container. The container runs before the inference server container starts to run.
+
+To learn more about debugging with container logs, see [Get container logs](how-to-troubleshoot-online-endpoints.md#get-container-logs).
 
 ## Traffic routing and mirroring to online deployments
 
