@@ -12,7 +12,6 @@
     href: ../../load-balancer/quickstart-load-balancer-standard-public-portal.md?toc=/azure/networking/fundamentals/toc.json
   - name: Create a front door
     href: ../../frontdoor/create-front-door-portal.md?toc=/azure/networking/fundamentals/toc.json
-  - name: 
 - name: Tutorials
   items:
   - name: Deploy and manage a VPN gateway
@@ -39,7 +38,7 @@
     - name: Virtual networks
       href: ../../virtual-network/virtual-network-vnet-plan-design-arm.md?toc=/azure/networking/fundamentals/toc.json
     - name: Hub-spoke network topology in Azure
-      href: /azure/architecture/reference-architectures/hybrid-networking/hub-spoke.md?toc=/azure/networking/fundamentals/toc.json
+      href: /azure/architecture/reference-architectures/hybrid-networking/hub-spoke?toc=/azure/networking/fundamentals/toc.json
     - name: Cross-premises connectivity - VPN
       items:
       - name: VPN Gateway
