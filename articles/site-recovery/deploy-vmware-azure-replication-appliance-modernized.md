@@ -59,7 +59,7 @@ Ensure the following URLs are allowed and reachable from the Azure Site Recovery
   | **URL**                  | **Details**                             |
   | ------------------------- | -------------------------------------------|
   | portal.azure.com          | Navigate to the Azure portal.              |
-  | `*.windows.net `<br>`*.msftauth.net`<br>`*.msauth.net`<br>`*.microsoft.com`<br>`*.live.com `<br>`*.office.com ` | To sign-in to your Azure subscription.  |
+  | `*.login.windows.net `<br>`*.graph.windows.net `<br>`*.msftauth.net`<br>`*.msauth.net`<br>`*.microsoft.com`<br>`*.live.com `<br>`*.office.com ` | To sign-in to your Azure subscription.  |
   |`*.microsoftonline.com `|Create Azure Active  Directory (AD) apps for the appliance to communicate with Azure Site Recovery. |
   |management.azure.com |Create Azure AD apps for the appliance to communicate with the Azure Site Recovery service. |
   |`*.services.visualstudio.com `|Upload app logs used for internal monitoring. |
@@ -69,6 +69,7 @@ Ensure the following URLs are allowed and reachable from the Azure Site Recovery
   |`*.servicebus.windows.net `|Communication between the appliance and the Azure Site Recovery service. |
   |`*.discoverysrv.windowsazure.com `<br><br>`*.hypervrecoverymanager.windowsazure.com `<br><br> `*.backup.windowsazure.com ` |Connect to Azure Site Recovery micro-service URLs.
   |`*.blob.core.windows.net `|Upload data to Azure storage, which is used to create target disks. |
+  | `*.prod.migration.windowsazure.com `| To discover your on-premises estate.  
 
 #### Allow URLs for government clouds
 

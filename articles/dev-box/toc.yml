@@ -19,6 +19,8 @@ items:
   items:
     - name: Connect with Remote Desktop App 
       href: tutorial-connect-to-dev-box-with-remote-desktop-app.md
+    - name: Set dev box project limits
+      href: tutorial-dev-box-limits.md  
 - name: Concepts
   expanded: true
   items:
@@ -55,6 +57,10 @@ items:
       href: how-to-customize-devbox-azure-image-builder.md
     - name: Manage a dev box through developer portal
       href: how-to-create-dev-boxes-developer-portal.md
+    - name: How to configure Dev Box Hibernation
+      href: how-to-configure-dev-box-hibernation.md
+    - name: Hibernate your Dev Box
+      href: how-to-hibernate-your-dev-box.md  
     - name: Configure Azure Diagnostic Logs
       href: how-to-configure-dev-box-azure-diagnostic-logs.md
 - name: Reference

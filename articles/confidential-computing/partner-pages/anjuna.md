@@ -16,7 +16,7 @@ ms.author: ananyagarg
 
 ## Overview
 
-Anjuna’s goal is to give companies the freedom to run applications in the cloud with complete data security and privacy. ANjuna believes that Confidential Computing should be the foundational fabric of the cloud, fostering secure and reliable operations for organizations of all types. Through collaboration with Microsoft Azure, Anjuna is  dedicated to delivering solutions that transform security into a business enabler, offering simplified adoption without compromising on data protection. 
+Anjuna’s goal is to give companies the freedom to run applications in the cloud with complete data security and privacy. Anjuna believes that Confidential Computing should be the foundational fabric of the cloud, fostering secure and reliable operations for organizations of all types. Through collaboration with Microsoft Azure, Anjuna is  dedicated to delivering solutions that transform security into a business enabler, offering simplified adoption without compromising on data protection. 
 
 You can learn more about Anjuna Security in [our partner webinar here](https://vshow.on24.com/vshow/Azure_Confidential/exhibits/Anjuna_Security).
 

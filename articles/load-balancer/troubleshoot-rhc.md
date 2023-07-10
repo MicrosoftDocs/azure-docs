@@ -58,6 +58,7 @@ Let's say we check our health probe status and find out that all instances are s
 * Check your OS. Ensure your VMs are listening on the probe port and review their OS firewall rules to ensure they aren't blocking the probe traffic originating from IP address `168.63.129.16`.
   * You can check listening ports by running `netstat -a` from a Windows command prompt or `netstat -l` from a Linux terminal.
 * Ensure you're using the right protocol. For example, a probe using HTTP to probe a port listening for a non-HTTP application fails.
+* Azure Firewall should not be placed in the backend pool of load balancers, see [Integrate Azure Firewall with Azure Standard Load Balancer](../firewall/integrate-lb.md) to properly integrate Azure Firewall with load balancer.
 
 If you've gone through this checklist and are still finding health probe failures, there may be rare platform issues impacting the probe service for your instances. In this case, Azure has your back and an automated alert is sent to our team to rapidly resolve all platform issues.
 
