@@ -10,7 +10,13 @@ ms.custom: mode-other
 
 In this guide, you'll learn how to enable Microsoft Defender for Cloud on your Azure subscription.
 
-Defender for Cloud provides unified security management and threat protection across your hybrid and multicloud workloads. While the free features offer limited security for your Azure resources only, you can also enable other paid plans that add extra protection for your resources that exist on your on-premises and other clouds. To learn more about these plans and their costs, see the Defender for Cloud [pricing page](https://azure.microsoft.com/pricing/details/defender-for-cloud/).
+Microsoft Defender for Cloud is a cloud-native application protection platform (CNAPP) with a set of security measures and practices designed to protect your cloud-based applications end-to-end by combining the following capabilities:
+
+- A development security operations (DevSecOps) solution that unifies security management at the code level across multicloud and multiple-pipeline environments
+- A cloud security posture management (CSPM) solution that surfaces actions that you can take to prevent breaches
+- A cloud workload protection platform (CWPP) with specific protections for servers, containers, storage, databases, and other workloads
+
+Defender for Cloud includes Foundational CSPM capabilities for free, complemented by additional paid plans required to secure all aspects of your cloud resources. To learn more about these plans and their costs, see the Defender for Cloud [pricing page](https://azure.microsoft.com/pricing/details/defender-for-cloud/).
 
 Defender for Cloud helps you find and fix security vulnerabilities. Defender for Cloud also applies access and application controls to block malicious activity, detect threats using analytics and intelligence, and respond quickly when under attack.
 
