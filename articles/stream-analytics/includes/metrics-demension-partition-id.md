@@ -15,7 +15,7 @@ When streaming data is ingested into the Azure Stream Analytics service for proc
 
 For example, if the input source is an event hub, the partition ID is the event hub's partition ID. **Partition ID** in the input is the same as it is in the output.
 
-:::image type="content" source="./media/stream-analytics-job-metrics-dimensions/08-watermark-delay-splitting-by-partition-id.png" alt-text="Diagram that shows splitting a watermark delay by the Partition ID dimension." lightbox="./media/stream-analytics-job-metrics-dimensions/08-watermark-delay-splitting-by-partition-id.png":::
+:::image type="content" source="../media/stream-analytics-job-metrics-dimensions/08-watermark-delay-splitting-by-partition-id.png" alt-text="Diagram that shows splitting a watermark delay by the Partition ID dimension." lightbox="../media/stream-analytics-job-metrics-dimensions/08-watermark-delay-splitting-by-partition-id.png":::
 
 The **Partition ID** dimension is available for filtering and splitting the following metrics:
 -	**Backlogged Input Events**

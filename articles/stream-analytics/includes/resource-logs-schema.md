@@ -30,7 +30,7 @@ Execution logs have information about events that happened during Stream Analyti
 
 ### Data errors
 
-Any error that occurs while the job is processing data is in this category of logs. These logs most often are created during data read, serialization, and write operations. These logs do not include connectivity errors. Connectivity errors are treated as generic events. You can learn more about the cause of various different [input and output data errors](./data-errors.md).
+Any error that occurs while the job is processing data is in this category of logs. These logs most often are created during data read, serialization, and write operations. These logs do not include connectivity errors. Connectivity errors are treated as generic events. You can learn more about the cause of various different [input and output data errors](../data-errors.md).
 
 Name | Description
 ------- | -------
