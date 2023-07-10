@@ -28,8 +28,8 @@ It's solely your discretion whether to enable this tooling or deploy your own te
 
 The Nexus Kubernetes cluster with Azure monitoring tool looks like:
 
-<!--- IMG ![Nexus Kubernetes cluster with Monitoring Tools](Docs/media/naks-w-monitoring.png) IMG --->
-:::image type="content" source="media/naks-w-monitoring.png" alt-text="Screenshot of Nexus Kubernetes cluster with Monitoring Tools.":::
+<!--- IMG ![Nexus Kubernetes cluster with Monitoring Tools](Docs/media/naks-monitoring.png) IMG --->
+:::image type="content" source="media/naks-monitoring.png" alt-text="Screenshot of Nexus Kubernetes cluster with Monitoring Tools.":::
 
 Figure: Nexus Kubernetes cluster with Monitoring Tools
 
@@ -102,7 +102,7 @@ Prior to running the included scripts, define the following environment variable
 | SERVICE_PRINCIPAL_SECRET | The authentication password for the Azure service principal |
 | TENANT_ID | The ID of the tenant directory where the service principal exists |
 | PROXY_URL | The proxy URL to use for connecting to Azure services |
-| NAMESPACE | The namespace where the kuberenetes artefacts are created |
+| NAMESPACE | The namespace where the Kubernetes artifacts are created |
 
 For convenience, you can modify the template file, `arc-connect.env`, to set the environment variable values.
 
