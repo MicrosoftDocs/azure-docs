@@ -84,7 +84,7 @@ For details, see [Create additional Packet Core instances for a site using the A
 
 It is now possible to add multiple packet cores in the same site using the Azure portal. 
 
-For details, see [Create a Site and dependant resources](deploy-private-mobile-network-with-site-powershell#create-a-site-and-dependant-resources.md).
+For details, see [Create a Site and dependant resources](deploy-private-mobile-network-with-site-powershell.md#create-a-site-and-dependant-resources).
 
 
 ## March 2023
