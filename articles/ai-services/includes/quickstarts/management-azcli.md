@@ -98,7 +98,7 @@ Use the [az cognitiveservices account keys list](/cli/azure/cognitiveservices/ac
 az cognitiveservices account keys list  --name multi-service-resource --resource-group ai-services-resource-group
 ```
 
-[!INCLUDE [environment-variables](../../includes/quickstarts/environment-variables.md)]
+[!INCLUDE [environment-variables](environment-variables.md)]
 
 ## Pricing tiers and billing
 

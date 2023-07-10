@@ -77,11 +77,11 @@
     items:
     - name: Security features
       href: security-features.md
-    - name: Authenticate requests to Azure AI services
+    - name: Authenticate requests
       href: authentication.md
     - name: Rotate keys
       href: rotate-keys.md
-    - name: Use environment variables with Azure AI services
+    - name: Use environment variables
       href: cognitive-services-environment-variables.md
     - name: Configure customer-managed keys
       href: ./encryption/cognitive-services-encryption-keys-portal.md
@@ -114,7 +114,7 @@
   - name: Java
     href: /java/api/com.microsoft.azure.management.cognitiveservices
   - name: Go
-    href: https://pkg.go.dev/github.com/Azure/azure-sdk-for-go@v52.5.0+incompatible/services/cognitiveservices/mgmt/2017-04-18/cognitiveservices
+    href: https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/mgmt
   - name: Azure CLI
     href: /cli/azure/cognitiveservices
   - name: Azure PowerShell

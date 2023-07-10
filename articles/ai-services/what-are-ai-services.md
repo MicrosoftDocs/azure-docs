@@ -45,14 +45,16 @@ Select a service from the table below and learn how it can help you meet your de
 | ![Video Indexer icon](media/service-icons/video-indexer.svg) Video Indexer | Extract actionable insights from your videos |
 | ![Vision icon](media/service-icons/vision.svg) Vision | Analyze content in images and videos |
 
-## Create an Azure AI services resource
+## Pricing tiers and billing
 
-You can create an Azure AI services resource with hands-on quickstarts using any of the following methods:
+Pricing tiers (and the amount you get billed) are based on the number of transactions you send using your authentication information. Each pricing tier specifies the:
+* maximum number of allowed transactions per second (TPS).
+* service features enabled within the pricing tier.
+* cost for a predefined number of transactions. Going above this number will cause an extra charge as specified in the [pricing details](https://azure.microsoft.com/pricing/details/cognitive-services/) for your service.
 
-* [Azure portal](multi-service-resource.md?pivots=azportal)
-* [Azure CLI](multi-service-resource.md?pivots=azcli)
-* [Azure SDK client libraries](multi-service-resource.md?pivots=programming-language-csharp)
-* [Azure Resource Manager (ARM template)](./create-account-resource-manager-template.md?tabs=portal "Azure Resource Manager (ARM template)")
+> [!NOTE]
+> Many of the Azure AI services have a free tier you can use to try the service. To use the free tier, use `F0` as the SKU for your resource.
+
 
 ## Use Azure AI services in different development environments
 

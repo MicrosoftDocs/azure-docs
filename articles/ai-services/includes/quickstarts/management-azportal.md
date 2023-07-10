@@ -23,14 +23,14 @@ The multi-service resource is listed under **Azure AI services** > **Multipurpos
 
 | Service | Description |
 | --- | --- |
-| ![Content Moderator icon](media/service-icons/content-moderator.svg) Content Moderator | Detect potentially offensive or unwanted content |
-| ![Custom Vision icon](media/service-icons/custom-vision.svg) Custom Vision | Customize image recognition to fit your business |
-| ![Document Intelligence icon](media/service-icons/document-intelligence.svg) Document Intelligence | Turn documents into usable data at a fraction of the time and cost |
-| ![Face icon](media/service-icons/face.svg) Face | Detect and identify people and emotions in images |
-| ![Language icon](media/service-icons/language.svg) Language | Build apps with industry-leading natural language understanding capabilities |
-| ![Speech icon](media/service-icons/speech.svg) Speech | Speech to text, text to speech, translation and speaker recognition |
-| ![Translator icon](media/service-icons/translator.svg) Translator | Translate more than 100 languages and dialects |
-| ![Vision icon](media/service-icons/vision.svg) Vision | Analyze content in images and videos |
+| ![Content Moderator icon](../../media/service-icons/content-moderator.svg) Content Moderator | Detect potentially offensive or unwanted content |
+| ![Custom Vision icon](../../media/service-icons/custom-vision.svg) Custom Vision | Customize image recognition to fit your business |
+| ![Document Intelligence icon](../../media/service-icons/document-intelligence.svg) Document Intelligence | Turn documents into usable data at a fraction of the time and cost |
+| ![Face icon](../../media/service-icons/face.svg) Face | Detect and identify people and emotions in images |
+| ![Language icon](../../media/service-icons/language.svg) Language | Build apps with industry-leading natural language understanding capabilities |
+| ![Speech icon](../../media/service-icons/speech.svg) Speech | Speech to text, text to speech, translation and speaker recognition |
+| ![Translator icon](../../media/service-icons/translator.svg) Translator | Translate more than 100 languages and dialects |
+| ![Vision icon](../../media/service-icons/vision.svg) Vision | Analyze content in images and videos |
 
 To create a multi-service resource follow these instructions:
 1. Select this link to create a multi-service resource: [https://portal.azure.com/#create/Microsoft.CognitiveServicesAllInOne](https://portal.azure.com/#create/Microsoft.CognitiveServicesAllInOne)
@@ -60,7 +60,7 @@ To create a multi-service resource follow these instructions:
 
 1. From the quickstart pane that opens, you can access the resource endpoint and manage keys.
 
-[!INCLUDE [cognitive-services-environment-variables](../../cognitive-services-environment-variables.md)]
+[!INCLUDE [environment-variables](environment-variables.md)]
 
 ## Clean up resources
 

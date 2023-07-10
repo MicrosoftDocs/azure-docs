@@ -1,7 +1,7 @@
 ---
-title: Create a multi-service Cognitive Services resource
+title: Create a multi-service resource for Azure AI services
 titleSuffix: Azure AI services
-description: Create and manage a multi-service Cognitive Services resource
+description: Create and manage a multi-service resource for Azure AI services
 services: cognitive-services
 keywords: Azure AI services, cognitive
 author: eric-urban
@@ -13,9 +13,9 @@ ms.author: eur
 zone_pivot_groups: programming-languages-portal-cli-sdk
 ---
 
-# Quickstart: Create a multi-service Cognitive Services resource
+# Quickstart: Create a multi-service resource for Azure AI services
 
-Use this quickstart to create and manage a multi-service Cognitive Services resource.
+Use this quickstart to create and managea multi-service resource for Azure AI services. A multi-service resource allows you to access multiple Azure AI services with a single key and endpoint. It also consolidates billing from the services you use.
 
 You can access Azure Cognitive Services through two different resources: A multi-service resource, or a single-service one.
 
@@ -24,12 +24,9 @@ You can access Azure Cognitive Services through two different resources: A multi
     * Consolidates billing from the services you use.
 * Single-service resource:
     * Access a single Azure Cognitive Service with a unique key and endpoint for each service created. 
-    * Use the free tier to try out the service.
+    * Most Azure AI servives offer a free tier to try it out.
 
-Azure AI services are cloud-based artificial intelligence (AI) services that help developers build cognitive intelligence into applications without having direct AI or data science skills or knowledge. They are available through REST APIs and client library SDKs in popular development languages. Azure AI services enables developers to easily add cognitive features into their applications with cognitive solutions that can see, hear, speak, and analyze.
-
-Individual AI services are represented by Azure [resources](../azure-resource-manager/management/manage-resources-portal.md) that you create under your Azure subscription. After you create a resource, you can use the keys and endpoint generated to authenticate your applications.
-
+Azure AI services are represented by Azure [resources](../azure-resource-manager/management/manage-resources-portal.md) that you create under your Azure subscription. After you create a resource, you can use the keys and endpoint generated to authenticate your applications.
 
 ::: zone pivot="azportal"
 
@@ -66,3 +63,7 @@ Individual AI services are represented by Azure [resources](../azure-resource-ma
 [!INCLUDE [Python SDK quickstart](includes/quickstarts/management-python.md)]
 
 ::: zone-end
+
+## Next steps
+
+* Explore [Azure AI services](./what-are-ai-services.md) and choose a service to get started.
