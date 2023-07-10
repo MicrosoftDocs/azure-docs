@@ -103,7 +103,7 @@ For more information, see the [Microsoft 365 admin center documentation](/micros
 If you're an existing customer with a legacy OT plan, we recommend migrating your plan to a site-based Microsoft 365 plan. After you've edited your plan, make sure to update your site details with a site size that matches your Microsoft 365 license.
 
 > [!NOTE]
-> Defender for IoT supports migration for a single subscription only. If you have multiple subscriptions, choose the one you want to migrate, and then move all sensors to that subscription before you update your plan settings. 
+> Defender for IoT supports migration for a single subscription only. If you have multiple subscriptions, choose the one you want to migrate, and then move all sensors to that subscription before you update your plan settings.
 >
 > For more information, see [Move existing sensors to a different subscription](#move-existing-sensors-to-a-different-subscription).
 
@@ -115,19 +115,21 @@ If you're an existing customer with a legacy OT plan, we recommend migrating you
 
 1. On the subscription row, select the options menu (**...**) at the right > select **Edit plan**.
 
-1. In the **Price plan** field, select **Microsoft 365 (recommended)** > **Next**.
+1. In the **Price plan** field, select **Microsoft 365 (recommended)** > **Next**. For example:
+
+    :::image type="content" source="media/release-notes/migrate-to-365.png" alt-text="Screenshot of updating your pricing plan to Microsoft 365.":::
 
 1. Review your plan details and select **Save**.
 
 **To update your site sizes**:
 
-1. In Defender for IoT in the Azure portal, select **Sites and sensors** and then select the site you want to migrate. 
+1. In Defender for IoT in the Azure portal, select **Sites and sensors** and then select the name of the site you want to migrate. If you have multiple sites, any sites linked to the plan you migrated are highlighted as needing changes.
 
-   If you have multiple sites, all sites linked to the plan you migrated are highlighted as needing changes.
+1. In the **Edit site** pane, in the **Size** field, edit your site size to match your licensed sites. For example:
 
-1. In the **Edit site** pane, in the **Size** field, edit your site size to match your licensed sites.
+   :::image type="content" source="media/release-notes/edit-site-size.png" alt-text="Screenshot of editing a site size on the Azure portal.":::
 
-<!--for example TBD-->
+
 ## Legacy procedures for plan management in the Azure portal
 
 Starting June 1, 2023, Microsoft Defender for IoT licenses for OT monitoring are available for purchase only in the [Microsoft 365 admin center](https://admin.microsoft.com/Adminportal/Home), and OT sensors are onboarded to Defender for IoT based on your licensed site sizes. For more information, see [OT plans billed by site-based licenses](whats-new.md#ot-plans-billed-by-site-based-licenses).
