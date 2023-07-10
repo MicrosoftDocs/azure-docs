@@ -30,9 +30,9 @@ The following API versions are ready for retirement/deprecation. In some cases, 
 
 | API version        | Deprecation First Announcement | Plan to end support |
 | ------------------ | ------------------------------ | ------------------- |
-| 2016-06-27-preview | July 17, 2023                  | October 15, 2023    |
-| 2017-06-01-preview | July 17, 2023                  | October 15, 2023    |
-| 2018-02-01-preview | July 17, 2023                  | October 15, 2023    |
+| 2016-06-27-preview | July 17, 2023                  | October 16, 2023    |
+| 2017-06-01-preview | July 17, 2023                  | October 16, 2023    |
+| 2018-02-01-preview | July 17, 2023                  | October 16, 2023    |
 
 ## See also
 
