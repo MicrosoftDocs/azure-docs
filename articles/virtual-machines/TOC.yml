@@ -191,7 +191,7 @@
           href: bsv2-series.md 
         - name: Basv2-series  
           href: basv2.md   
-        - name: Bpsv2
+        - name: Bpsv2-series
           href: bpsv2-arm.md    
       - name: DCsv2-series
         href: dcv2-series.md
