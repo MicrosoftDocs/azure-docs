@@ -95,7 +95,7 @@ To convert blobs, copy them to a new location by using PowerShell, Azure CLI, or
    containerName = '<source container name>'
    srcblobName = '<source append or page blob name>'
    destcontainerName = '<destination container name>'
-   destblobName = '<destination block blob name>'
+   destBlobName = '<destination block blob name>'
    destTier = '<destination block blob tier>'
 
    az storage blob copy start --account-name $accountName --destination-blob $destBlobName --destination-container $destcontainerName --destination-blob-type BlockBlob --source-blob $srcblobName --source-container $containerName --tier $destTier
