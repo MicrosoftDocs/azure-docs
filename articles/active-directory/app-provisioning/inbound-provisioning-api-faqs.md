@@ -183,4 +183,5 @@ The current API only supports inbound data. Here are some options to consider fo
 
 ## Next steps
 
-- To learn more about API-driven inbound provisioning, see [Inbound User Provisioning API concepts](inbound-provisioning-api-concepts.md).
+[Configure API-driven inbound provisioning app](inbound-provisioning-api-configure-app.md)
+To learn more about API-driven inbound provisioning, see [Inbound User Provisioning API concepts](inbound-provisioning-api-concepts.md).

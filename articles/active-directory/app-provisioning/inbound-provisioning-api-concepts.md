@@ -75,5 +75,6 @@ In all the above scenarios, the integration is greatly simplified as Azure AD pr
 - API clients can track progress by querying [provisioning logs API](/graph/api/resources/provisioningobjectsummary).
 
 ## Next steps
+[Configure API-driven inbound provisioning app](inbound-provisioning-api-configure-app.md)
 [Frequently asked questions about API-driven inbound provisioning](inbound-provisioning-api-faqs.md)
 [Automate user provisioning and deprovisioning to SaaS applications with Azure Active Directory](user-provisioning.md)
