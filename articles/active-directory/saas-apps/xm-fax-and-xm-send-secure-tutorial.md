@@ -137,7 +137,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 ## Configure XM Fax and XM SendSecure SSO
 
-1. Login to your XM Cloud account using a Web browser.
+1. Log in to your XM Cloud account using a Web browser.
 
 1. From the main menu of your Web Portal, select **enterprise_account -> Enterprise Settings**.
 
