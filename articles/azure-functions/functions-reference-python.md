@@ -274,7 +274,7 @@ app.register_functions(bp)
 ```
 
 > [!NOTE]
-> Durable Functions (DF) also supports blueprints. To create DF blueprints, register your DF triggers and bindings using the [`azure-functions-durable`](https://pypi.org/project/azure-functions-durable) `Blueprint` class, as
+> Durable Functions also supports blueprints. To create blueprints for Durable Functions apps, register your orchestration, activity, and entity triggers and client bindings using the [`azure-functions-durable`](https://pypi.org/project/azure-functions-durable) `Blueprint` class, as
 > shown [here](https://github.com/Azure/azure-functions-durable-python/blob/dev/samples-v2/blueprint/durable_blueprints.py). The resulting blueprint can then be registered as normal. See our [sample](https://github.com/Azure/azure-functions-durable-python/tree/dev/samples-v2/blueprint) for an example.
 
 ::: zone-end
