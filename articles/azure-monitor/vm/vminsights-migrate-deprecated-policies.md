@@ -11,7 +11,7 @@ ms.date: 07/09/2023
 
 # Migrate from deprecated VM insights policies
 
-We've recently deprecated some VM insights policies and introduced new policies that replace them. If you are using the deprecated policies, we recommend you migrate to the new policies as soon as possible.  
+We're deprecating some VM insights policies and introducing new policies that replace them. If you're using deprecated policies, we recommend you migrate to the new policies as soon as possible.  
 
 This article explains how to migrate from deprecated VM insights policies to their replacement policies.
 
@@ -21,15 +21,15 @@ This article explains how to migrate from deprecated VM insights policies to the
 
 ## Deprecated VM insights policies
 
-- [Preview]: Deploy a VMInsights Data Collection Rule and Data Collection Rule Association for Arc Machines in the Resource Group
-- Deploy a VMInsights Data Collection Rule and Data Collection Rule Association for all the VMs in the Resource Group 
-- [Preview]: Deploy a VMInsights Data Collection Rule and Data Collection Rule Association for all the VMSS in the Resource Group 
+- [[Preview]: Deploy a VMInsights Data Collection Rule and Data Collection Rule Association for Arc Machines in the Resource Group](https://ms.portal.azure.com/#view/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2f7c4214e9-ea57-487a-b38e-310ec09bc21d)
+- [[Preview]: Deploy a VMInsights Data Collection Rule and Data Collection Rule Association for all the VMs in the Resource Group](https://ms.portal.azure.com/#view/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2fa0f27bdc-5b15-4810-b81d-7c4df9df1a37) 
+- [[Preview]: Deploy a VMInsights Data Collection Rule and Data Collection Rule Association for all the VMSS in the Resource Group](https://ms.portal.azure.com/#view/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2fc7f3bf36-b807-4f18-82dc-f480ad713635) 
 
 
 ## Replacement VM insights policies
 
-- Configure Linux Machines to be associated with a Data Collection Rule or a Data Collection Endpoint 
-- Configure Windows Machines to be associated with a Data Collection Rule or a Data Collection Endpoint
+- [Configure Linux Machines to be associated with a Data Collection Rule or a Data Collection Endpoint](https://ms.portal.azure.com/#view/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2f2ea82cdd-f2e8-4500-af75-67a2e084ca74) 
+- [Configure Windows Machines to be associated with a Data Collection Rule or a Data Collection Endpoint](https://ms.portal.azure.com/#view/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2feab1f514-22e3-42e3-9a1f-e1dc9199355c)
 
 ## Migrate from deprecated VM insights policies to replacement policies
 
