@@ -89,7 +89,7 @@ Currently, only version `0301` is available for GPT-35-Turbo and `0314` for GPT-
 
 ## Working with the Chat Completion API
 
-OpenAI trained the GPT-35-Turbo and GPT-4 models to accept input formatted as a conversation. The messages parameter takes a list of dictionaries with a conversation organized by role.
+OpenAI trained the GPT-35-Turbo and GPT-4 models to accept input formatted as a conversation. The messages parameter takes an array of message objects with a conversation organized by role. When using the Python API a list of dictionaries is used.
 
 The format of a basic Chat Completion is as follows:
 
