@@ -2,7 +2,7 @@
 title: Create & deploy deployment stacks in Bicep
 description: Describes how to create deployment stacks in Bicep.
 ms.topic: conceptual
-ms.date: 07/09/2023
+ms.date: 07/10/2023
 ---
 
 # Deployment stacks (Preview)
@@ -334,7 +334,7 @@ For more information, see [Create deployment stacks](#create-deployment-stacks).
 
 A detached resource (or unmanaged resource) refers to a resource that isn't tracked or managed by the deployment stack but still exists within Azure.
 
-To instruct Azure to delete unmanaged resources, update the stack with the create stack command with one of the following parameters. For more information, see [Create deployment stack](#create-deployment-stacks).
+To instruct Azure to delete unmanaged resources, update the stack with the create stack command with one of the following delete flags. For more information, see [Create deployment stack](#create-deployment-stacks).
 
 # [PowerShell](#tab/azure-powershell)
 
@@ -384,7 +384,7 @@ Currently not implemented.
 
 # [PowerShell](#tab/azure-powershell)
 
-If you run the delete commands without the delete parameters, the unmanaged resources will be detached but not deleted. To delete the unmanaged resources, use the following switches:
+If you run the delete commands without the delete flags, the unmanaged resources will be detached but not deleted. To delete the unmanaged resources, use the following switches:
 
 - `DeleteAll`: Delete both the resources and the resource groups.
 - `DeleteResources`: Delete the resources only.
@@ -392,7 +392,7 @@ If you run the delete commands without the delete parameters, the unmanaged reso
 
 # [CLI](#tab/azure-cli)
 
-If you run the delete commands without the delete parameters, the unmanaged resources will be detached but not deleted. To delete the unmanaged resources, use the following switches:
+If you run the delete commands without the delete flags, the unmanaged resources will be detached but not deleted. To delete the unmanaged resources, use the following switches:
 
 - `delete-all`: Delete both the resources and the resource groups.
 - `delete-resources`: Delete the resources only.
@@ -400,9 +400,9 @@ If you run the delete commands without the delete parameters, the unmanaged reso
 
 # [Portal](#tab/azure-portal)
 
-Select one of the update behaviors when you delete a deployment stack.
+Select one of the delete flags when you delete a deployment stack.
 
-:::image type="content" source="./media/deployment-stacks/deployment-stack-portal-update-behavior.png" alt-text="Screenshot of portal update behavior.":::
+:::image type="content" source="./media/deployment-stacks/deployment-stack-portal-update-behavior.png" alt-text="Screenshot of portal update behavior (delete flags).":::
 
 ---
 
@@ -437,7 +437,7 @@ az stack group delete \
 
 1. Select an `Update behavior`, and then select `Next`.
 
-    :::image type="content" source="./media/deployment-stacks/deployment-stack-portal-group-delete-stack-update-behavior.png" alt-text="Screenshot of update behavior for deleting resource group scope deployment stacks.":::
+    :::image type="content" source="./media/deployment-stacks/deployment-stack-portal-group-delete-stack-update-behavior.png" alt-text="Screenshot of update behavior (delete flags) for deleting resource group scope deployment stacks.":::
 
 ---
 
@@ -466,9 +466,9 @@ az stack sub delete \
 
     :::image type="content" source="./media/deployment-stacks/deployment-stack-portal-sub-delete-stacks.png" alt-text="Screenshot of deleting deployment stacks at the subscription scope.":::
 
-1. Select an `Update behavior`, and then select `Next`.
+1. Select an `Update behavior` (delete flag), and then select `Next`.
 
-    :::image type="content" source="./media/deployment-stacks/deployment-stack-portal-sub-delete-stack-update-behavior.png" alt-text="Screenshot of update behavior for deleting subscription scope deployment stacks.":::
+    :::image type="content" source="./media/deployment-stacks/deployment-stack-portal-sub-delete-stack-update-behavior.png" alt-text="Screenshot of update behavior (delete flags) for deleting subscription scope deployment stacks.":::
 ---
 
 To delete deployment stack resources at the management group scope:
@@ -581,11 +581,11 @@ Currently not implemented.
 
 ## Add resources to deployment stack
 
-See [Update deployment stacks](#update-deployment-stacks).
+To add a managed resource, add the resource definition to the underlying Bicep files, and then run the update command or rerun the create command. For more information, see [Update deployment stacks](#update-deployment-stacks).
 
 ## Delete managed resources from deployment stack
 
-See [Update deployment stacks](#update-deployment-stacks).
+To delete a managed resource, remove the resource definition from the underlying Bicep files, and then run the update command or rerun the create command. For more information, see [Update deployment stacks](#update-deployment-stacks).
 
 ## Protect managed resources against deletion
 
