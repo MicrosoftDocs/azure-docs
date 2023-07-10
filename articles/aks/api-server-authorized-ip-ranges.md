@@ -59,6 +59,7 @@ az aks create \
 > You should add these ranges to an allow list:
 >
 > - The firewall public IP address
+> - The NAT Gateway public IP addresses
 > - Any range that represents networks that you'll administer the cluster from
 >
 > The upper limit for the number of IP ranges you can specify is 200.
