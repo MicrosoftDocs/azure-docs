@@ -240,12 +240,11 @@ az feature show --namespace Microsoft.Storage --name ColdTier
 ### Limitations and known issues
 
 - The [change feed](storage-blob-change-feed.md) is not yet compatible with the cold tier.
-- [Point in time restore](point-in-time-restore-overview.md) is not yet compatible with the cold tier. 
 - [Object replication](object-replication-overview.md) is not yet compatible with the cold tier.
 - The default access tier setting of the account can't be set to cold tier.
 - Setting the cold tier in a batch call is not yet supported (For example: using the [Blob Batch](/rest/api/storageservices/blob-batch) REST operation along with the [Set Blob Tier](/rest/api/storageservices/set-blob-tier) subrequest).
 
-### Required versions of REST, SDKs, and command line tools
+### Required versions of REST, SDKs, and tools
 
 | Environment | Minimum version |
 |---|---|
@@ -256,7 +255,8 @@ az feature show --namespace Microsoft.Storage --name ColdTier
 | [JavaScript](/javascript/api/preview-docs/@azure/storage-blob/) | 12.13.0 |
 | [PowerShell (Az.Storage)](/powershell/azure/install-azure-powershell) | 5.8.0 |
 | [Azure CLI](/cli/azure/install-azure-cli) | 2.50.0 |
-| [AzCopy](../common/storage-use-azcopy-v10.md) | 10.18.1 or later|
+| [AzCopy](../common/storage-use-azcopy-v10.md) | 10.18.1 |
+| [Azure Storage Explorer](quickstart-storage-explorer.md) | 1.29.0 |
 
 ## Feature support
 

@@ -2,11 +2,10 @@
 title: Use Azure Active Directory Domain Services (Azure AD DS) to authorize user access to Azure Files over SMB
 description: Learn how to enable identity-based authentication over Server Message Block (SMB) for Azure Files through Azure Active Directory Domain Services (Azure AD DS). Your domain-joined Windows VMs can then access Azure file shares by using Azure AD credentials.
 author: khdownie
-ms.service: storage
+ms.service: azure-file-storage
 ms.topic: how-to
 ms.date: 05/03/2023
 ms.author: kendownie
-ms.subservice: files
 ms.custom: engagement-fy23, devx-track-azurecli, devx-track-azurepowershell
 recommendations: false
 ---

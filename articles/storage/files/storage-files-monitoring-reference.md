@@ -3,11 +3,10 @@ title: Azure Files monitoring data reference
 description: Log and metrics reference for monitoring data from Azure Files.
 author: khdownie
 services: storage
-ms.service: storage
+ms.service: azure-file-storage
 ms.topic: reference
 ms.date: 03/29/2023
 ms.author: kendownie
-ms.subservice: files
 ms.custom: monitoring
 ---
 

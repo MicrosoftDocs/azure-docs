@@ -2,11 +2,10 @@
 title: How to manage Azure File Sync tiered files
 description: Tips and PowerShell commandlets to help you manage tiered files
 author: khdownie
-ms.service: storage
+ms.service: azure-file-storage
 ms.topic: how-to
 ms.date: 06/06/2022
 ms.author: kendownie
-ms.subservice: files
 ---
 
 # How to manage tiered files

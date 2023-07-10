@@ -22,7 +22,7 @@ Use the built-in examples in Azure Machine Learning designer to quickly get star
 * An Azure subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/)
 * An Azure Machine Learning workspace
 
-[!INCLUDE [machine-learning-missing-ui](../../../includes/machine-learning-missing-ui.md)]
+[!INCLUDE [machine-learning-missing-ui](../includes/machine-learning-missing-ui.md)]
 
 ## Use sample pipelines
 

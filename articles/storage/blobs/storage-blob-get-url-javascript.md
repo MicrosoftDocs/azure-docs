@@ -7,7 +7,6 @@ author: pauljewellmsft
 ms.author: pauljewell
 ms.date: 09/13/2022
 ms.service: storage
-ms.subservice: blobs
 ms.topic: how-to
 ms.devlang: javascript
 ms.custom: devx-track-js, devguide-js

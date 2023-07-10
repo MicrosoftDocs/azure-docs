@@ -4,8 +4,7 @@ titleSuffix: Azure Storage
 description: View code samples that use the Azure Queue Storage client library for Python version 2.
 services: storage
 author: pauljewellmsft
-ms.service: storage
-ms.subservice: queues
+ms.service: azure-queue-storage
 ms.custom: devx-track-python
 ms.topic: how-to
 ms.date: 04/26/2023

@@ -3,11 +3,10 @@ title: Create an SMB Azure file share
 titleSuffix: Azure Files
 description: How to create and delete an SMB Azure file share by using the Azure portal, Azure PowerShell, or Azure CLI.
 author: khdownie
-ms.service: storage
+ms.service: azure-file-storage
 ms.topic: how-to
 ms.date: 05/24/2022
 ms.author: kendownie
-ms.subservice: files 
 ms.custom: devx-track-azurecli, references_regions, devx-track-azurepowershell
 ---
 
