@@ -383,7 +383,7 @@ The following actions should take place for a successful interactive sign-on:
 1. Return an access token to the client application to access the Microsoft Graph with a scope of User.Read.
 
 > [!IMPORTANT]
-> The sample log snippets that follows, have been annoted with comment headers // that are not seen in the logs. They are used to help illustrate a specific action being undertaken. We have documented the log snippets this way to assist with copy and paste operations. In addition, the log examples have been trimmed to only show lines of significance for troubleshooting.
+> The sample log snippets that follows, have been annotated with comment headers // that are not seen in the logs. They are used to help illustrate a specific action being undertaken. We have documented the log snippets this way to assist with copy and paste operations. In addition, the log examples have been trimmed to only show lines of significance for troubleshooting.
 
 The User clicks on the **Call Microsoft Graph API** button to invoke the sign-in process.
 
@@ -444,7 +444,7 @@ Resolved authority, validated: YES, error: 0
 [MSAL] Resolving authority: Masked(not-null), upn: Masked(null)
 [MSAL] Resolved authority, validated: YES, error: 0
 [MSAL] Start webview authorization session with webview controller class MSIDAADOAuthEmbeddedWebviewController: 
-[MSAL] Presenting web view contoller. 
+[MSAL] Presenting web view controller. 
 ```
 
 The logging sample can be broken down into three segments:
@@ -471,7 +471,7 @@ SSOExtensionLogs
 //Acquire PRT//
 ///////////////
 [MSAL] -completeWebAuthWithURL: msauth://microsoft.aad.brokerplugin/?code=(not-null)&client_info=(not-null)&state=(not-null)&session_state=(not-null)
-[MSAL] Dismissed web view contoller.
+[MSAL] Dismissed web view controller.
 [MSAL] Result from authorization session callbackURL host: microsoft.aad.brokerplugin , has error: NO
 [MSAL] (Default accessor) Looking for token with aliases (
     "login.windows.net",
@@ -707,6 +707,14 @@ Next, use the correlation ID obtained from the Browser SSO extension logs  to cr
 |**Compliant**| SSO extension can facilitate Compliance policies by passing the device header. The requirements are:<br> - **Azure AD Device Registration**<br> - **MDM Management**<br> - **Intune or Intune Partner  Compliance** |
 |**Managed**| Indicates that device is under management. |
 |**Join Type**| macOS and iOS, if registered, can only be of type: **Azure AD Registered**. |
+
+#### Delete PRT using Company Portal
+The following steps can be used to remove a PRT of the device with the Company Portal:
+1. From the macOS device, select the spotlight icon.
+1. When the Spotlight Search appears, type "Company Portal" and press Return.
+1. When the Company Portal page loads, select the account logged in at the top right corner.
+1. On this page, select the **Remove account from this device** button.
+1. On the keychain access window, refresh the search and validate that the PRT has been removed.
 
 ## Next steps
 

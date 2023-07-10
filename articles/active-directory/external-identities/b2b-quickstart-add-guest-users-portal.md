@@ -54,7 +54,7 @@ In this section, you're inviting the guest to your tenant using *their email add
 
 - **Display name**: Provide the display name.
 
--  **Invitation message**: Select the **Send invite message** checkbox to customize a brief message to preview how the invitation message appears.
+-  **Invitation message**: Select the **Send invite message** checkbox to send an invitation message. When enabling this checkbox, you can also set up the customized short message and additional CC recipient.
 
 ![Screenshot of the invite external user Basics tab.](media/quickstart-add-users-portal/invite-external-user-basics-tab.png)
 

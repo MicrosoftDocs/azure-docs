@@ -58,7 +58,7 @@ To refund a reservation, go to **Reservation Details** and select **Refund**.
 
 You can return similar types of reservations in one action.
 
-When you exchange reservations, the new purchase currency amount must be greater than the refund amount. If your new purchase amount is less than the refund amount, an error message appears. If you see the error, reduce the quantity that you want to return, or increase the amount to purchase.
+When you exchange reservations, the new purchase currency amount must be greater than the refund amount. You can exchange any number of reservations for other allowed reservations if the currency amount is greater or equal to returned (exchanged) reservations. If your new purchase amount is less than the refund amount, an error message appears. If you see the error, reduce the quantity you want to return or increase the amount to purchase.
 
 1. Sign in to the Azure portal and navigate to **Reservations**.
 1. In the list of reservations, select the box for each reservation that you want to exchange.

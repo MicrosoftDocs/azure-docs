@@ -11,9 +11,9 @@ items:
   - name: Create a Microsoft Purview account
     items:
     - name: Create an account - Azure portal
-      href: create-catalog-portal.md
+      href: create-microsoft-purview-portal.md
     - name: Create an account - PowerShell/CLI
-      href: create-catalog-powershell.md
+      href: create-microsoft-purview-powershell.md
     - name: Create an account - .NET SDK
       href: create-microsoft-purview-dotnet.md
     - name: Create an account - Python
@@ -54,6 +54,8 @@ items:
         href: concept-best-practices-classification.md
       - name: Collections architecture best practices
         href: concept-best-practices-collections.md
+      - name: Describing data best practices
+        href: concept-best-practices-annotating-data.md
       - name: Deployment best practices
         href: deployment-best-practices.md
       - name: Governing domains best practices 
@@ -158,6 +160,8 @@ items:
       href: register-scan-azure-sql-managed-instance.md
     - name: Azure Dedicated SQL pool (formerly SQL DW)
       href: register-scan-azure-synapse-analytics.md
+    - name: Azure Machine Learning
+      href: register-scan-azure-machine-learning.md
     - name: Cassandra
       href: register-scan-cassandra-source.md
     - name: Db2
@@ -321,11 +325,11 @@ items:
           href: how-to-workflow-manage-requests-approvals.md
         - name: Manage workflow runs
           href: how-to-workflow-manage-runs.md
-        - name: Workflow connectors
+        - name: Workflow connectors and actions
           href: how-to-use-workflow-connectors.md    
         - name: Workflow dynamic content
           href: how-to-use-workflow-dynamic-content.md      
-        - name: Workflow HTTP connector
+        - name: Workflows and external APIs
           href: how-to-use-workflow-http-connector.md
   - name: Data sharing
     items:
@@ -343,6 +347,8 @@ items:
       href: how-to-schedule-data-estate-insights.md
     - name: View data stewardship
       href: data-stewardship.md
+    - name: View catalog adoption
+      href: catalog-adoption-insights.md
     - name: View asset insights
       href: asset-insights.md
     - name: View glossary insights
@@ -457,10 +463,14 @@ items:
     href: tutorial-using-python-sdk.md
 - name: Reference
   items:
+    - name: Account upgrades
+      href: account-upgrades.md
     - name: Product glossary reference
       href: reference-azure-purview-glossary.md
     - name: Supported browsers
       href: supported-browsers.md
+    - name: Azure policy exception
+      href: create-microsoft-purview-portal-faq.md
     - name: Limits
       href: how-to-manage-quotas.md
     - name: Java
@@ -479,8 +489,6 @@ items:
       href: tutorial-purview-audit-logs-diagnostics.md
     - name: ABAP function deployment guide
       href: abap-functions-deployment-guide.md
-    - name: Troubleshooting access policy distribution
-      href: troubleshoot-policy-distribution.md
     - name: Troubleshooting policies for SQL
       href: troubleshoot-policy-sql.md
     - name: Frequently asked questions (FAQ)

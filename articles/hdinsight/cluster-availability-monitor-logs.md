@@ -3,7 +3,7 @@ title: How to monitor cluster availability with Azure Monitor logs in HDInsight
 description: Learn how to use Azure Monitor logs to monitor cluster health and availability.
 ms.service: hdinsight
 ms.topic: how-to
-ms.date: 04/11/2022
+ms.date: 05/23/2023
 ---
 
 # How to monitor cluster availability with Azure Monitor logs in HDInsight
@@ -89,7 +89,7 @@ If you don't already have an existing action group, click **Create New** under t
 This will open **Add action group**. Choose an **Action group name**, **Short name**, **Subscription**, and **Resource group.** Under the **Actions** section, choose an **Action Name** and select **Email/SMS/Push/Voice** as the **Action Type.**
 
 > [!NOTE]
-> There are several other actions an alert can trigger besides an Email/SMS/Push/Voice, such as an Azure Function, LogicApp, Webhook, ITSM, and Automation Runbook. [Learn More.](../azure-monitor/alerts/action-groups.md#action-specific-information)
+> There are several other actions an alert can trigger besides an Email/SMS/Push/Voice, such as an Azure Function, LogicApp, Webhook, ITSM, and Automation Runbook. [Learn More.](../azure-monitor/alerts/action-groups.md)
 
 This will open **Email/SMS/Push/Voice**. Choose a **Name** for the recipient, **check** the **Email** box, and type an email address to which you want the alert sent. Select **OK** in  **Email/SMS/Push/Voice**, then in **Add action group** to finish configuring your action group.
 

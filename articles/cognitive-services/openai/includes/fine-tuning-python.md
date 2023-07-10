@@ -58,7 +58,7 @@ In addition to the JSONL format, training and validation data files must be enco
 
 ### Creating your training and validation datasets
 
-Designing your prompts and completions for fine-tuning is different from designing your prompts for use with any of [our GPT-3 base models](../concepts/models.md#gpt-3-models). Prompts for completion calls often use either detailed instructions or few-shot learning techniques, and consist of multiple examples. For fine-tuning, we recommend that each training example consists of a single input prompt and its desired completion output. You don't need to give detailed instructions or multiple completion examples for the same prompt.
+Designing your prompts and completions for fine-tuning is different from designing your prompts for use with any of [our GPT-3 base models](../concepts/legacy-models.md#gpt-3-models). Prompts for completion calls often use either detailed instructions or few-shot learning techniques, and consist of multiple examples. For fine-tuning, we recommend that each training example consists of a single input prompt and its desired completion output. You don't need to give detailed instructions or multiple completion examples for the same prompt.
 
 The more training examples you have, the better. We recommend having at least 200 training examples. In general, we've found that each doubling of the dataset size leads to a linear increase in model quality.
 
@@ -134,7 +134,7 @@ openai.api_key = "COPY_YOUR_OPENAI_KEY_HERE"
 openai.api_base =  "COPY_YOUR_OPENAI_ENDPOINT_HERE" 
 openai.api_type = 'azure'
 # The API version may change in the future.
-openai.api_version = '2022-12-01'
+openai.api_version = '2023-05-15'
 
 training_file_name = 'training.jsonl'
 validation_file_name = 'validation.jsonl'

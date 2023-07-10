@@ -49,7 +49,7 @@ All traffic to MCP must use SIP over TLS.
 
 Teams Phone Mobile subscribers require Initial Filter Criteria (iFC) configuration in the HSS to involve MCP at the appropriate points in the call: we recommend invoking it last in the originating iFC chain and first in the terminating iFC chain. Invoke MCP for all calls involving Teams Phone Mobile subscribers, except for CDIV calls.
 
-The IFCs must use to a hostname for MCP. MCP provides two hostnames, each prioritizing one region (and allowing fallback to the other region). To find the hostnames:
+The iFCs should use a hostname for MCP. MCP provides two hostnames, each prioritizing one region and allowing fallback to the other region. To find the hostnames:
 
 1. Go to the **Overview** page for your Azure Communications Gateway resource.
 1. In each **Service Location** section, find the **MCP hostname** field.

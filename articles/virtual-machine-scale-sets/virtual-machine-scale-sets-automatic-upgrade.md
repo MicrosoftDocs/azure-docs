@@ -66,6 +66,8 @@ The region of a scale set becomes eligible to get image upgrades either through 
 
 The scale set OS upgrade orchestrator checks for the overall scale set health before upgrading every batch. While you're upgrading a batch, there could be other concurrent planned or unplanned maintenance activities that could impact the health of your scale set instances. In such cases if more than 20% of the scale set's instances become unhealthy, then the scale set upgrade stops at the end of current batch.
 
+To modify the default settings associated with Rolling Upgrades, review Azure's [Rolling Upgrade Policy](/rest/api/compute/virtual-machine-scale-sets/create-or-update?tabs=HTTP#rollingupgradepolicy).
+
 > [!NOTE]
 >Automatic OS upgrade does not upgrade the reference image Sku on the scale set. To change the Sku (such as Ubuntu 18.04-LTS to 20.04-LTS), you must update the [scale set model](virtual-machine-scale-sets-upgrade-scale-set.md#the-scale-set-model) directly with the desired image Sku. Image publisher and offer can't be changed for an existing scale set.  
 
@@ -104,12 +106,14 @@ The following platform SKUs are currently supported (and more are added periodic
 | MicrosoftWindowsServer  | WindowsServer | 2022-Datacenter |
 | MicrosoftWindowsServer  | WindowsServer | 2022-Datacenter-smalldisk |
 | MicrosoftWindowsServer  | WindowsServer | 2022-Datacenter-smalldisk-g2 |
-| MicrosoftWindowsServer  | WindowsServer | 2022-Datacenter-azure-edition |
 | MicrosoftWindowsServer  | WindowsServer | 2022-Datacenter-core |
 | MicrosoftWindowsServer  | WindowsServer | 2022-Datacenter-core-smalldisk |
 | MicrosoftWindowsServer  | WindowsServer | 2022-Datacenter-g2 |
 | MicrosoftWindowsServer  | WindowsServer | Datacenter-core-20h2-with-containers-smalldisk-gs |
-
+| MicrosoftWindowsServer  | WindowsServer | 2022-Datacenter-azure-edition |
+| MicrosoftWindowsServer  | WindowsServer | 2022-Datacenter-azure-edition-smalldisk |
+| MicrosoftWindowsServer  | WindowsServer | 2022-Datacenter-azure-edition-core |
+| MicrosoftWindowsServer  | WindowsServer | 2022-Datacenter-azure-edition-core-smalldisk |
 
 ## Requirements for configuring automatic OS image upgrade
 
@@ -126,7 +130,7 @@ The following platform SKUs are currently supported (and more are added periodic
 ### Service Fabric requirements
 
 If you are using Service Fabric, ensure the following conditions are met:
--	Service Fabric [durability level](../service-fabric/service-fabric-cluster-capacity.md#durability-characteristics-of-the-cluster) is Silver or Gold. If Service Fabric durability is Bronze, only Stateless-only node types supports automatic OS image upgrades).
+-	Service Fabric [durability level](../service-fabric/service-fabric-cluster-capacity.md#durability-characteristics-of-the-cluster) is Silver or Gold. If Service Fabric durability is Bronze, only Stateless-only node types support automatic OS image upgrades).
 -	The Service Fabric extension on the scale set model definition must have TypeHandlerVersion 1.1 or above.
 -	Durability level should be the same at the Service Fabric cluster and Service Fabric extension on the scale set model definition.
 - An additional health probe or use of application health extension is not required for Silver or Gold durability. Bronze durability with Stateless-only node types requires an additional health probe.
@@ -188,7 +192,7 @@ az vmss update --name myScaleSet --resource-group myResourceGroup --set UpgradeP
 ```
 
 > [!NOTE]
->After configuring automatic OS image upgrades for your scale set, you must also bring the scale set VMs to the latest scale set model if your scale set uses the 'Manual' [upgrade policy](virtual-machine-scale-sets-upgrade-scale-set.md#how-to-bring-vms-up-to-date-with-the-latest-scale-set-model).
+>After configuring automatic OS image upgrades for your scale set, you must also bring the scale set VMs to the latest scale set model if your scale set uses the 'Manual' [upgrade policy](virtual-machine-scale-sets-upgrade-policy.md).
 
 ### ARM templates
 The following example describes how to set automatic OS upgrades on a scale set model via Azure Resource Manager templates (ARM templates):

@@ -12,7 +12,7 @@ ms.topic: tutorial
 ms.date: 02/03/2020
 ms.author: aahi
 ms.devlang: javascript
-ms.custom: devx-track-js
+ms.custom:
 ---
 # Tutorial: Single-page Video Search app
 

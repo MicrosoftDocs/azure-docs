@@ -12,7 +12,7 @@ ms.workload: identity
 ms.date: 10/30/2019
 ms.author: owenrichards
 ms.reviewer: jmprieur
-ms.custom: aaddev, devx-track-python
+ms.custom: aaddev
 #Customer intent: As an application developer, I want to know how to write a desktop app that calls web APIs by using the Microsoft identity platform.
 ---
 
@@ -24,7 +24,7 @@ Now that you've created your application, you'll learn how to configure the code
 
 The following Microsoft libraries support desktop apps:
 
-[!INCLUDE [active-directory-develop-libraries-desktop](../../../includes/active-directory-develop-libraries-desktop.md)]
+[!INCLUDE [active-directory-develop-libraries-desktop](./includes/libraries/libraries-desktop.md)]
 
 ## Public client application
 

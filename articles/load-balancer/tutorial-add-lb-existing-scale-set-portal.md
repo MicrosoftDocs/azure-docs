@@ -75,6 +75,11 @@ In this section, you'll create a virtual network for the scale set and the other
 
 1. Select **Create**.
 
+> [!IMPORTANT]
+
+> [!INCLUDE [Pricing](../../includes/bastion-pricing.md)]
+
+>
 ## Create Virtual Machine Scale Set
 
 In this section, you'll create a Virtual Machine Scale Set that will be attached to a load balancer created later.

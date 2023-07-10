@@ -70,7 +70,7 @@ There are multiple ways to set up your network for use with AP5GC. The exact set
   :::image type="content" source="media/private-mobile-network-design-requirements/layer-2-network.png" alt-text="Diagram of a layer 2 network." lightbox="media/private-mobile-network-design-requirements/layer-2-network.png":::
 
 - Layer 3 network with multiple data networks
-  - AP5GC can support multiple attached data networks, each with its own configuration for Domain Name System (DNS), UE IP address pools, N6 IP configuration, and NAT. The operator can provision UEs as subscribed in one or more data networks and apply data network-specific policy and quality of service (QoS) configuration.
+  - AP5GC can support up to three attached data networks, each with its own configuration for Domain Name System (DNS), UE IP address pools, N6 IP configuration, and NAT. The operator can provision UEs as subscribed in one or more data networks and apply data network-specific policy and quality of service (QoS) configuration.
   - This topology requires that the N6 interface is split into one subnet for each data network or one subnet for all data networks. This option therefore requires careful planning and configuration to prevent overlapping data network IP ranges or UE IP ranges.  
   :::image type="content" source="media/private-mobile-network-design-requirements/layer-3-network-with-multiple-dns.png" alt-text="Diagram of layer 3 network topology with multiple data networks." lightbox="media/private-mobile-network-design-requirements/layer-3-network-with-multiple-dns.png":::
 
@@ -102,7 +102,7 @@ You need to agree with the enterprise team which IP subnets and addresses will b
 
 The RAN that you use to broadcast the signal across the enterprise site must comply with local regulations. For example, this could mean:
 
-- The RAN units have completed the process of homologation and received regulatory approval for their use on a certain frequency band in a country.
+- The RAN units have completed the process of homologation and received regulatory approval for their use on a certain frequency band in a country/region.
 - You have received permission for the RAN to broadcast using spectrum in a certain location, for example, by grant from a telecom operator, regulatory authority or via a technological solution such as a Spectrum Access System (SAS).
 - The RAN units in a site have access to high-precision timing sources, such as Precision Time Protocol (PTP) and GPS location services.
 

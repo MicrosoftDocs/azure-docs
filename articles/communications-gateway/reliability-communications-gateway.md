@@ -42,12 +42,14 @@ We expect your network to have two geographically redundant sites. Each site sho
     Diagram of two operator sites (operator site A and operator site B) and two service regions (service region A and service region B). Operator site A has a primary route to service region A and a secondary route to service region B. Operator site B has a primary route to service region B and a secondary route to service region A.
 :::image-end:::
 
-Each Azure Communications Gateway service region provides an SRV record. This record contains all the SIP peers within the region at top priority and the SIP peers in the other region at a lower priority. If your Azure Communications Gateway includes Mobile Control Point (MCP), each service region also provides an SRV record for MCP (prioritizing the regions in the same way).
+Each Azure Communications Gateway service region provides an SRV record. This record contains all the SIP peers providing SBC functionality (for routing calls to Microsoft Phone System) within the region.
+
+If your Azure Communications Gateway includes Mobile Control Point (MCP), each service region provides an extra SRV record for MCP. Each per-region MCP record contains MCP within the region at top priority and MCP in the other region at a lower priority.
 
 Each site in your network must:
 
 > [!div class="checklist"]
-> - Send traffic to its local Azure Communications Gateway service region by default, using the region's SRV record.
+> - Send traffic to its local Azure Communications Gateway service region by default.
 > - Locate Azure Communications Gateway peers within a region using DNS SRV, as outlined in RFC 3263.
 >     - Make a DNS SRV lookup on the domain name for the service region, for example pstn-region1.xyz.commsgw.azure.example.com.
 >     - If the SRV lookup returns multiple targets, use the weight and priority of each target to select a single target.
@@ -57,7 +59,7 @@ When your network routes calls to Microsoft Phone System (through Azure Communic
 
 > [!div class="checklist"]
 > - Use SIP OPTIONS (or a combination of OPTIONS and SIP traffic) to monitor the availability of the Azure Communications Gateway SIP peers.
-> - Retry INVITEs that received 408 responses, 503 responses or 504 responses or did not receive responses, by rerouting them to other available peers in the local site. Hunt to the second service region only if all peers in the local service region have failed.
+> - Retry INVITEs that received 408 responses, 503 responses or 504 responses or did not receive responses, by rerouting them to other available peers in the local site. Hunt to the other service region (defined by the other region's SRV record) only if all peers in the local service region have failed.
 > - Never retry calls that receive error responses other than 408, 503 and 504.
 
 If your Azure Communications Gateway deployment includes integrated Mobile Control Point (MCP), your network must do as follows for MCP:

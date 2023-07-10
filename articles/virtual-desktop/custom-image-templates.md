@@ -17,9 +17,18 @@ Custom image templates in Azure Virtual Desktop enable you to easily create a cu
 
 ## Creation process
 
-There are two parts to creating a custom image. First you need to create a custom image template that defines what should be in the resulting image. Then you need to build the image from that custom image template, by submitting the template to Azure Image Builder. A custom image template is a JSON file that contains your choices of source image, distribution targets, build properties, and customizations. Azure Image Builder uses this template to create a custom image, which you can use as the source image for your session hosts when creating or updating a host pool. Custom images can be stored in [Azure Compute Gallery](../virtual-machines/azure-compute-gallery.md) or as a [managed image](../virtual-machines/windows/capture-image-resource.md), or both. Azure Compute Gallery allows you to manage  region replication, versioning, and sharing of custom images.
+There are two parts to creating a custom image:
+
+1. Create a custom image template that defines what should be in the resulting image.
+
+1. Build the image from that custom image template, by submitting the template to Azure Image Builder.
+
+A custom image template is a JSON file that contains your choices of source image, distribution targets, build properties, and customizations. Azure Image Builder uses this template to create a custom image, which you can use as the source image for your session hosts when creating or updating a host pool. When creating the image, Azure Image Builder also takes care of generalizing the image with sysprep.
+
+Custom images can be stored in [Azure Compute Gallery](../virtual-machines/azure-compute-gallery.md) or as a [managed image](../virtual-machines/windows/capture-image-resource.md), or both. Azure Compute Gallery allows you to manage  region replication, versioning, and sharing of custom images.
 
 The source image must be [supported for Azure Virtual Desktop](prerequisites.md#operating-systems-and-licenses) and can be from:
+
 - Azure Marketplace.
 - An existing Azure Compute Gallery shared image.
 - An existing managed image.

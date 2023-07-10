@@ -11,7 +11,7 @@ ms.topic: how-to
 ms.date: 03/21/2023
 
 ms.devlang: typescript
-ms.custom: devx-track-ts, devguide-ts
+ms.custom: devx-track-ts, devguide-ts, devx-track-js
 ---
 
 # Manage container properties and metadata with TypeScript

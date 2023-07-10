@@ -1,12 +1,12 @@
 ---
 title: Built-in policy definitions for Azure Spring Apps
 description: Lists Azure Policy built-in policy definitions for Azure Spring Apps. These built-in policy definitions provide common approaches to managing your Azure resources.
-ms.date: 02/21/2023
+ms.date: 07/06/2023
 ms.topic: reference
-author: karlerickson
+author: KarlErickson
 ms.author: karler
 ms.service: spring-apps
-ms.custom: subject-policy-reference, devx-track-java, event-tier1-build-2022
+ms.custom: subject-policy-reference, devx-track-java, devx-track-extended-java, event-tier1-build-2022
 ---
 
 # Azure Policy built-in definitions for Azure Spring Apps
@@ -16,7 +16,7 @@ ms.custom: subject-policy-reference, devx-track-java, event-tier1-build-2022
 
 **This article applies to:** ✔️ Java ✔️ C#
 
-**This article applies to:** ✔️ Basic/Standard tier ✔️ Enterprise tier
+**This article applies to:** ✔️ Basic/Standard ✔️ Enterprise
 
 This page is an index of [Azure Policy](../governance/policy/overview.md) built-in policy
 definitions for Azure Spring Apps. For additional Azure Policy built-ins for other services, see

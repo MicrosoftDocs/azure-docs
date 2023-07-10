@@ -8,9 +8,8 @@ ms.service: storage
 ms.topic: tutorial
 ms.author: jammart
 ms.reviewer: nachakra
-ms.subservice: blobs
 ms.custom: devx-track-azurecli
-ms.date: 10/25/2022
+ms.date: 03/15/2023
 ---
 
 # Tutorial: Add a role assignment condition to restrict access to blobs using Azure CLI

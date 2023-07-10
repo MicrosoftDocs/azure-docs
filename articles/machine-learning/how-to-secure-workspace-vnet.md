@@ -10,31 +10,29 @@ ms.author: jhirono
 author: jhirono
 ms.date: 01/19/2023
 ms.topic: how-to
-ms.custom: contperf-fy20q4, tracking-python, contperf-fy21q1, security, cliv2, sdkv2, event-tier1-build-2022, engagement-fy23
+ms.custom: contperf-fy20q4, tracking-python, contperf-fy21q1, security, cliv2, sdkv2, event-tier1-build-2022, engagement-fy23, build-2023
 ---
 
 # Secure an Azure Machine Learning workspace with virtual networks
 
-[!INCLUDE [sdk/cli v2](../../includes/machine-learning-dev-v2.md)]
+[!INCLUDE [sdk/cli v2](includes/machine-learning-dev-v2.md)]
 
-> [!div class="op_single_selector" title1="Select the version of Azure Machine Learning SDK/CLI extension you are using:"]
-> * [v2 (current version)](how-to-secure-workspace-vnet.md)
-> * [v1](v1/how-to-secure-workspace-vnet.md?view=azureml-api-1&preserve-view=true)
 
-In this article, you learn how to secure an Azure Machine Learning workspace and its associated resources in a virtual network.
+In this article, you learn how to secure an Azure Machine Learning workspace and its associated resources in an Azure Virtual Network.
 
-> [!TIP]
-> This article is part of a series on securing an Azure Machine Learning workflow. See the other articles in this series:
->
-> * [Virtual network overview](how-to-network-security-overview.md)
-> * [Secure the training environment](how-to-secure-training-vnet.md)
-> * [Secure the inference environment](how-to-secure-inferencing-vnet.md)
-> * [Enable studio functionality](how-to-enable-studio-virtual-network.md)
-> * [Use custom DNS](how-to-custom-dns.md)
-> * [Use a firewall](how-to-access-azureml-behind-firewall.md)
-> * [API platform network isolation](how-to-configure-network-isolation-with-v2.md)
->
-> For a tutorial on creating a secure workspace, see [Tutorial: Create a secure workspace](tutorial-create-secure-workspace.md) or [Tutorial: Create a secure workspace using a template](tutorial-create-secure-workspace-template.md).
+[!INCLUDE [managed-vnet-note](includes/managed-vnet-note.md)]
+
+This article is part of a series on securing an Azure Machine Learning workflow. See the other articles in this series:
+
+* [Virtual network overview](how-to-network-security-overview.md)
+* [Secure the training environment](how-to-secure-training-vnet.md)
+* [Secure the inference environment](how-to-secure-inferencing-vnet.md)
+* [Enable studio functionality](how-to-enable-studio-virtual-network.md)
+* [Use custom DNS](how-to-custom-dns.md)
+* [Use a firewall](how-to-access-azureml-behind-firewall.md)
+* [API platform network isolation](how-to-configure-network-isolation-with-v2.md)
+
+For a tutorial on creating a secure workspace, see [Tutorial: Create a secure workspace](tutorial-create-secure-workspace.md) or [Tutorial: Create a secure workspace using a template](tutorial-create-secure-workspace-template.md).
 
 In this article you learn how to enable the following workspaces resources in a virtual network:
 > [!div class="checklist"]
@@ -54,12 +52,7 @@ In this article you learn how to enable the following workspaces resources in a 
     > [!IMPORTANT]
     > We do not recommend using the 172.17.0.0/16 IP address range for your VNet. This is the default subnet range used by the Docker bridge network. Other ranges may also conflict depending on what you want to connect to the virtual network. For example, if you plan to connect your on premises network to the VNet, and your on-premises network also uses the 172.16.0.0/16 range. Ultimately, it is up to __you__ to plan your network infrastructure.
 
-+ To deploy resources into a virtual network or subnet, your user account must have permissions to the following actions in Azure role-based access control (Azure RBAC):
-
-    - "Microsoft.Network/virtualNetworks/join/action" on the virtual network resource.
-    - "Microsoft.Network/virtualNetworks/subnets/join/action" on the subnet resource.
-
-    For more information on Azure RBAC with networking, see the [Networking built-in roles](../role-based-access-control/built-in-roles.md#networking)
+[!INCLUDE [network-rbac](includes/network-rbac.md)]
 
 ### Azure Container Registry
 
@@ -87,7 +80,7 @@ When your Azure Machine Learning workspace is configured with a private endpoint
 When ACR is behind a virtual network, Azure Machine Learning can't use it to directly build Docker images. Instead, the compute cluster is used to build the images.
 
 > [!IMPORTANT]
-> The compute cluster used to build Docker images needs to be able to access the package repositories that are used to train and deploy your models. You may need to add network security rules that allow access to public repos, [use private Python packages](how-to-use-private-python-packages.md), or use [custom Docker images (SDK v1)](v1/how-to-train-with-custom-image.md?view=azureml-api-1&preserve-view=true) that already include the packages.
+> The compute cluster used to build Docker images needs to be able to access the package repositories that are used to train and deploy your models. You may need to add network security rules that allow access to public repos, [use private Python packages](concept-vulnerability-management.md#using-a-private-package-repository), or use [custom Docker images (SDK v1)](v1/how-to-train-with-custom-image.md?view=azureml-api-1&preserve-view=true) that already include the packages.
 
 > [!WARNING]
 > If your Azure Container Registry uses a private endpoint or service endpoint to communicate with the virtual network, you cannot use a managed identity with an Azure Machine Learning compute cluster.
@@ -99,7 +92,7 @@ When ACR is behind a virtual network, Azure Machine Learning can't use it to dir
 
 ## Required public internet access
 
-[!INCLUDE [machine-learning-required-public-internet-access](../../includes/machine-learning-public-internet-access.md)]
+[!INCLUDE [machine-learning-required-public-internet-access](includes/machine-learning-public-internet-access.md)]
 
 For information on using a firewall solution, see [Configure required input and output communication](how-to-access-azureml-behind-firewall.md).
 
@@ -123,8 +116,8 @@ Azure Machine Learning supports storage accounts configured to use either a priv
 
     * **Blob**
     * **File**
-    * **Queue** - Only needed if you plan to use [Batch endpoints](concept-endpoints.md#what-are-batch-endpoints) or the [ParallelRunStep](./tutorial-pipeline-batch-scoring-classification.md) in an Azure Machine Learning pipeline.
-    * **Table** - Only needed if you plan to use [Batch endpoints](concept-endpoints.md#what-are-batch-endpoints) or the [ParallelRunStep](./tutorial-pipeline-batch-scoring-classification.md) in an Azure Machine Learning pipeline.
+    * **Queue** - Only needed if you plan to use [Batch endpoints](concept-endpoints-batch.md) or the [ParallelRunStep](./tutorial-pipeline-batch-scoring-classification.md) in an Azure Machine Learning pipeline.
+    * **Table** - Only needed if you plan to use [Batch endpoints](concept-endpoints-batch.md) or the [ParallelRunStep](./tutorial-pipeline-batch-scoring-classification.md) in an Azure Machine Learning pipeline.
 
     :::image type="content" source="./media/how-to-enable-studio-virtual-network/configure-storage-private-endpoint.png" alt-text="Screenshot showing private endpoint configuration page with blob and file options":::
 
@@ -214,7 +207,7 @@ Azure Container Registry can be configured to use a private endpoint. Use the fo
 
     # [Azure CLI](#tab/cli)
 
-    [!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
+    [!INCLUDE [cli v2](includes/machine-learning-cli-v2.md)]
 
     If you've [installed the Machine Learning extension v2 for Azure CLI](how-to-configure-cli.md), you can use the `az ml workspace show` command to show the workspace information. The v1 extension doesn't return this information.
 
@@ -226,7 +219,7 @@ Azure Container Registry can be configured to use a private endpoint. Use the fo
 
     # [Python SDK](#tab/python)
 
-    [!INCLUDE [sdk v2](../../includes/machine-learning-sdk-v2.md)]
+    [!INCLUDE [sdk v2](includes/machine-learning-sdk-v2.md)]
 
     The following code snippet demonstrates how to get the container registry information using the [Azure Machine Learning SDK](/python/api/overview/azure/ai-ml-readme):
 
@@ -283,7 +276,7 @@ Azure Container Registry can be configured to use a private endpoint. Use the fo
 
     The following code snippet demonstrates how to update the workspace to set a build compute using the [Azure Machine Learning SDK](/python/api/overview/azure/ai-ml-readme). Replace `mycomputecluster` with the name of the cluster to use:
 
-    [!INCLUDE [sdk v2](../../includes/machine-learning-sdk-v2.md)]
+    [!INCLUDE [sdk v2](includes/machine-learning-sdk-v2.md)]
 
     ```python
     # import required libraries
@@ -333,11 +326,11 @@ To enable network isolation for Azure Monitor and the Application Insights insta
 
 ## Securely connect to your workspace
 
-[!INCLUDE [machine-learning-connect-secure-workspace](../../includes/machine-learning-connect-secure-workspace.md)]
+[!INCLUDE [machine-learning-connect-secure-workspace](includes/machine-learning-connect-secure-workspace.md)]
 
 ## Workspace diagnostics
 
-[!INCLUDE [machine-learning-workspace-diagnostics](../../includes/machine-learning-workspace-diagnostics.md)]
+[!INCLUDE [machine-learning-workspace-diagnostics](includes/machine-learning-workspace-diagnostics.md)]
 
 ## Public access to workspace
 

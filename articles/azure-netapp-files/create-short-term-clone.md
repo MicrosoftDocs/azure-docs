@@ -34,9 +34,15 @@ Short-term clones can be converted regular volumes.
 Short-term clones are current in preview. To take advantage of the feature, you must first register it. 
 
 1. Register the feature:
-    `Register-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANFShortTermClone`
+
+    ```azurepowershell-interactive
+    Register-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANFShortTermClone
+    ```
 1. Registration for short term clones is not automatic and may take up to a week. You can check on the registration status with the command: 
-    `Get-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANFShortTermClone`
+
+    ```azurepowershell-interactive
+    Get-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANFShortTermClone
+    ```
 
     Wait until the `RegistrationState` in the output is "Registered" before continuing. 
 
@@ -62,5 +68,6 @@ Short-term clones are current in preview. To take advantage of the feature, you 
 1. Right-click the short-term clone. Select **Convert short-term clone to volume**.
 
 ## Next steps
+
 * [How Azure NetApp Files snapshots work](snapshots-introduction.md)
 * [Resource limits for Azure NetApp Files](azure-netapp-files-resource-limits.md)

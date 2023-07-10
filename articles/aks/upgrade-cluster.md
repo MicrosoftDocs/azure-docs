@@ -3,14 +3,14 @@ title: Upgrade an Azure Kubernetes Service (AKS) cluster
 description: Learn how to upgrade an Azure Kubernetes Service (AKS) cluster to get the latest features and security updates.
 ms.topic: article
 ms.custom: event-tier1-build-2022, devx-track-azurecli
-ms.date: 04/21/2023
+ms.date: 05/22/2023
 ---
 
 # Upgrade an Azure Kubernetes Service (AKS) cluster
 
-Part of the AKS cluster lifecycle involves performing periodic upgrades to the latest Kubernetes version. It’s important you apply the latest security releases, or upgrade to get the latest features. This article shows you how to check for, configure, and apply upgrades to your AKS cluster.
+Part of the AKS cluster lifecycle involves performing periodic upgrades to the latest Kubernetes version. It's important you apply the latest security releases, or upgrade to get the latest features. This article shows you how to check for, configure, and apply upgrades to your AKS cluster.
 
-For AKS clusters that use multiple node pools or Windows Server nodes, see [Upgrade a node pool in AKS][nodepool-upgrade]. To upgrade a specific node pool without doing a Kubernetes cluster upgrade, see [Upgrade a specific node pool][specific-nodepool].
+For AKS clusters that use multiple node pools or Windows Server nodes, see [Upgrade a node pool in AKS][nodepool-upgrade]. To upgrade a specific node pool without performing a Kubernetes cluster upgrade, see [Upgrade a specific node pool][specific-nodepool].
 
 ## Kubernetes version upgrades
 
@@ -19,7 +19,10 @@ When you upgrade a supported AKS cluster, Kubernetes minor versions can't be ski
 Skipping multiple versions can only be done when upgrading from an *unsupported version* back to a *supported version*. For example, an upgrade from an unsupported *1.10.x* -> a supported *1.15.x* can be completed if available. When performing an upgrade from an *unsupported version* that skips two or more minor versions, the upgrade is performed without any guarantee of functionality and is excluded from the service-level agreements and limited warranty. If your version is significantly out of date, we recommend you recreate your cluster.
 
 > [!NOTE]
-> Any upgrade operation, whether performed manually or automatically, will upgrade the node image version if not already on the latest. The latest version is contingent on a full AKS release and can be determined by visiting the [AKS release tracker][release-tracker].
+> Any upgrade operation, whether performed manually or automatically, upgrades the node image version if not already using the latest version. The latest version is contingent on a full AKS release and can be determined by visiting the [AKS release tracker][release-tracker].
+
+> [!IMPORTANT]
+> An upgrade operation might fail if you made customizations to AKS agent nodes. For more information see our [Support policy][support-policy-user-customizations-agent-nodes].
 
 ## Before you begin
 
@@ -188,7 +191,7 @@ During the cluster upgrade process, AKS performs the following operations:
 5. In **Kubernetes version**, select your desired version and then select **Save**.
 6. Navigate to your AKS cluster **Overview** page, and select the **Kubernetes version** to confirm the upgrade was successful.
 
-The Azure portal highlights all the deprecated APIs between your current version and newer, available versions you intend to migrate to. For more information, see [the Kubernetes API removal and deprecation process][k8s-deprecation].
+The Azure portal highlights all the deprecated APIs between your current and newer version, and available versions you intend to migrate to. For more information, see [the Kubernetes API removal and deprecation process][k8s-deprecation].
 
 :::image type="content" source="./media/upgrade-cluster/portal-upgrade.png" alt-text="The screenshot of the upgrade blade for an AKS cluster in the Azure portal. The automatic upgrade field shows 'patch' selected, and several APIs deprecated between the selected Kubernetes version and the cluster's current version are described.":::
 
@@ -261,7 +264,7 @@ After receiving the error message, you have two options to mitigate the issue. Y
 
 4. Retry your cluster upgrade.
 
-You can also check past API usage by enabling [Container Insights][container-insights] and exploring kube audit logs.
+You can also check past API usage by enabling [Container Insights][container-insights] and exploring kube audit logs.
 
 ### Bypass validation to ignore API changes
 
@@ -315,7 +318,7 @@ You can set an auto-upgrade channel on your cluster. For more information, see [
 
 AKS uses best-effort zone balancing in node groups. During an upgrade surge, the zones for the surge nodes in Virtual Machine Scale Sets are unknown ahead of time, which can temporarily cause an unbalanced zone configuration during an upgrade. However, AKS deletes surge nodes once the upgrade completes and preserves the original zone balance. If you want to keep your zones balanced during upgrades, you can increase the surge to a multiple of *three nodes*, and Virtual Machine Scale Sets balances your nodes across availability zones with best-effort zone balancing.
 
-If you have PVCs backed by Azure LRS Disks, they’ll be bound to a particular zone. They may fail to recover immediately if the surge node doesn’t match the zone of the PVC. This could cause downtime on your application when the upgrade operation continues to drain nodes but the PVs are bound to a zone. To handle this case and maintain high availability, configure a [Pod Disruption Budget](https://kubernetes.io/docs/tasks/run-application/configure-pdb/) on your application to allow Kubernetes to respect your availability requirements during the drain operation.
+If you have PVCs backed by Azure LRS Disks, they'll be bound to a particular zone. They may fail to recover immediately if the surge node doesn't match the zone of the PVC. This could cause downtime on your application when the upgrade operation continues to drain nodes but the PVs are bound to a zone. To handle this case and maintain high availability, configure a [Pod Disruption Budget](https://kubernetes.io/docs/tasks/run-application/configure-pdb/) on your application to allow Kubernetes to respect your availability requirements during the drain operation.
 
 ## Next steps
 
@@ -351,3 +354,4 @@ This article showed you how to upgrade an existing AKS cluster. To learn more ab
 [specific-nodepool]: node-image-upgrade.md#upgrade-a-specific-node-pool
 [k8s-deprecation]: https://kubernetes.io/blog/2022/11/18/upcoming-changes-in-kubernetes-1-26/#:~:text=A%20deprecated%20API%20is%20one%20that%20has%20been,point%20you%20must%20migrate%20to%20using%20the%20replacement
 [container-insights]:/azure/azure-monitor/containers/container-insights-log-query#resource-logs
+[support-policy-user-customizations-agent-nodes]: support-policies.md#user-customization-of-agent-nodes

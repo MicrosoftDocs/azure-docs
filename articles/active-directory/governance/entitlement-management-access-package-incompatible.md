@@ -11,7 +11,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.topic: how-to
 ms.subservice: compliance
-ms.date: 01/25/2023
+ms.date: 05/31/2023
 ms.author: owinfrey
 ms.reviewer: 
 ms.collection: M365-identity-device-management
@@ -42,7 +42,7 @@ If you’ve been using Microsoft Identity Manager or other on-premises identity 
 
 To use entitlement management and assign users to access packages, you must have one of the following licenses:
 
-- Azure AD Premium P2
+- Microsoft Azure AD Premium P2 or Microsoft Entra ID Governance
 - Enterprise Mobility + Security (EMS) E5 license
 
 ## Configure another access package or group membership as incompatible for requesting access to an access package

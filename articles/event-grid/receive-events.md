@@ -4,7 +4,7 @@ description: Describes how to validate an HTTP endpoint, then receive and deseri
 ms.topic: conceptual
 ms.date: 11/14/2022
 ms.devlang: csharp, javascript
-ms.custom: devx-track-js, devx-track-csharp
+ms.custom: devx-track-csharp
 ---
 
 # Receive events to an HTTP endpoint

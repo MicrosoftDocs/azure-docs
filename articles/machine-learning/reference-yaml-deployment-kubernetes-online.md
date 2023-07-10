@@ -5,7 +5,7 @@ description: Reference documentation for the CLI (v2) Azure Arc-enabled Kubernet
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: mlops
-ms.custom: event-tier1-build-2022
+ms.custom: event-tier1-build-2022, build-2023
 ms.topic: reference
 
 author: Bozhong68
@@ -16,11 +16,11 @@ ms.reviewer: ssalgado
 
 # CLI (v2) Azure Arc-enabled Kubernetes online deployment YAML schema
 
-[!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
+[!INCLUDE [cli v2](includes/machine-learning-cli-v2.md)]
 
 The source JSON schema can be found at https://azuremlschemas.azureedge.net/latest/kubernetesOnlineDeployment.schema.json.
 
-[!INCLUDE [schema note](../../includes/machine-learning-preview-old-json-schema-note.md)]
+[!INCLUDE [schema note](includes/machine-learning-preview-old-json-schema-note.md)]
 
 ## YAML syntax
 
@@ -43,6 +43,7 @@ The source JSON schema can be found at https://azuremlschemas.azureedge.net/late
 | `app_insights_enabled` | boolean | Whether to enable integration with the Azure Application Insights instance associated with your workspace. | | `false` |
 | `scale_settings` | object | The scale settings for the deployment. The two types of scale settings supported are the `default` scale type and the `target_utilization` scale type. <br><br> With the `default` scale type (`scale_settings.type: default`), you can manually scale the instance count up and down after deployment creation by updating the `instance_count` property. <br><br> To configure the `target_utilization` scale type (`scale_settings.type: target_utilization`), see [TargetUtilizationScaleSettings](#targetutilizationscalesettings) for the set of configurable properties. | | |
 | `scale_settings.type` | string | The scale type. | `default`, `target_utilization` | `target_utilization` |
+| `data_collector` | object | Data collection settings for the deployment. See [DataCollector](#datacollector) for the set of configurable properties. | | |
 | `request_settings` | object | Scoring request settings for the deployment. See [RequestSettings](#requestsettings) for the set of configurable properties. | | |
 | `liveness_probe` | object | Liveness probe settings for monitoring the health of the container regularly. See [ProbeSettings](#probesettings) for the set of configurable properties. | | |
 | `readiness_probe` | object | Readiness probe settings for validating if the container is ready to serve traffic. See [ProbeSettings](#probesettings) for the set of configurable properties. | | |
@@ -94,6 +95,19 @@ The source JSON schema can be found at https://azuremlschemas.azureedge.net/late
 | `cpu` | string | The limit for the number of CPU cores for the container. |
 | `memory` | string | The limit for the memory size for the container. |
 | `nvidia.com/gpu` | string | The limit for the number of Nvidia GPU cards for the container |
+
+### DataCollector
+
+| Key | Type | Description | Default value |
+| --- | ---- | ----------- | ------------- |
+| `sampling_rate` | float | The percentage, represented as a decimal rate, of data to collect. For instance, a value of 1.0 represents collecting 100% of data. | `1.0` |
+| `rolling_rate` | string | The rate to partition the data in storage. Value can be: Minute, Hour, Day, Month, Year. | `Hour` |
+| `collections` | object | Set of individual `collection_name`s and their respective settings for this deployment. | |
+| `collections.<collection_name>` | object | Logical grouping of production inference data to collect (example: `model_inputs`). There are two reserved names: `request` and `response`, which respectively correspond to HTTP request and response payload data collection. All other names are arbitrary and definable by the user. <br><br> **Note**: Each `collection_name` should correspond to the name of the `Collector` object used in the deployment `score.py` to collect the production inference data. For more information on payload data collection and data collection with the provided Python SDK, see [Collect data from models in production](how-to-collect-production-data.md). | |
+| `collections.<collection_name>.enabled` | boolean | Whether to enable data collection for the specified `collection_name`. | `'False''` |
+| `collections.<collection_name>.data.name` | string | The name of the data asset to register with the collected data. | `<endpoint>-<deployment>-<collection_name>` |
+| `collections.<collection_name>.data.path` | string | The full Azure Machine Learning datastore path where the collected data should be registered as a data asset. | `azureml://datastores/workspaceblobstore/paths/modelDataCollector/<endpoint_name>/<deployment_name>/<collection_name>` |
+| `collections.<collection_name>.data.version` | integer | The version of the data asset to be registered with the collected data in Blob storage. | `1` |
 
 ## Remarks
 

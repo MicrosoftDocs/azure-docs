@@ -6,7 +6,7 @@ ms.service: healthcare-apis
 ms.subservice: fhir
 ms.custom: devx-track-arm-template
 ms.topic: quickstart
-ms.date: 05/03/2023
+ms.date: 07/05/2023
 ms.author: jasteppe
 ---
 
@@ -30,15 +30,15 @@ In this quickstart, learn how to:
 
 To begin your deployment and complete the quickstart, you must have the following prerequisites:
 
-- An active Azure subscription account. If you don't have an Azure subscription, see [Subscription decision guide](/azure/cloud-adoption-framework/decision-guides/subscriptions/).
+* An active Azure subscription account. If you don't have an Azure subscription, see [Subscription decision guide](/azure/cloud-adoption-framework/decision-guides/subscriptions/).
 
-- **Owner** or **Contributor and User Access Administrator** role assignments in the Azure subscription. For more information, see [What is Azure role-based access control (Azure RBAC)?](../../role-based-access-control/overview.md)
+* **Owner** or **Contributor and User Access Administrator** role assignments in the Azure subscription. For more information, see [What is Azure role-based access control (Azure RBAC)?](../../role-based-access-control/overview.md)
 
-- The Microsoft.HealthcareApis and Microsoft.EventHub resource providers registered with your Azure subscription. To learn more about registering resource providers, see [Azure resource providers and types](../../azure-resource-manager/management/resource-providers-and-types.md).
+* The Microsoft.HealthcareApis and Microsoft.EventHub resource providers registered with your Azure subscription. To learn more about registering resource providers, see [Azure resource providers and types](../../azure-resource-manager/management/resource-providers-and-types.md).
 
 When you have these prerequisites, you're ready to configure the ARM template by using the **Deploy to Azure** button.
 
-## Review the ARM template (Optional)
+## Review the ARM template
 
 The ARM template used to deploy the resources in this quickstart is available at [Azure Quickstart Templates](/samples/azure/azure-quickstart-templates/iotconnectors/) by using the *azuredeploy.json* file on [GitHub](https://github.com/azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.healthcareapis/workspaces/iotconnectors/). 
 
@@ -124,17 +124,27 @@ When deployment is completed, the following resources and access roles are creat
 
 After you have successfully deployed an instance of the MedTech service, you'll still need to provide conforming and valid device and FHIR destination mappings.
 
- * To learn about the device mapping, see [Overview of the MedTech service device mapping](overview-of-device-mapping.md).
+* To learn about the device mapping, see [Overview of the MedTech service device mapping](overview-of-device-mapping.md).
 
- * To learn about the FHIR destination mapping, see [Overview of the MedTech service FHIR destination mapping](overview-of-fhir-destination-mapping.md).
+* To learn about the FHIR destination mapping, see [Overview of the MedTech service FHIR destination mapping](overview-of-fhir-destination-mapping.md).
 
 ## Next steps
 
 In this quickstart, you learned how to deploy the MedTech service in the Azure portal using an ARM template with the **Deploy to Azure** button. 
 
-To learn about other methods for deploying the MedTech service, see
+To learn about other methods of deploying the MedTech service, see
 
 > [!div class="nextstepaction"]
-> [Choose a deployment method for the MedTech service](deploy-choose-method.md)
+> [Choose a deployment method for the MedTech service](deploy-new-choose.md)
+
+For an overview of the MedTech service device data processing stages, see
+
+> [!div class="nextstepaction"]
+> [Overview of the MedTech service device data processing stages](overview-of-device-data-processing-stages.md)
+
+For frequently asked questions (FAQs) about the MedTech service, see
+
+> [!div class="nextstepaction"]
+> [Frequently asked questions about the MedTech service](frequently-asked-questions.md)
 
 FHIR&#174; is a registered trademark of Health Level Seven International, registered in the U.S. Trademark Office and is used with their permission.

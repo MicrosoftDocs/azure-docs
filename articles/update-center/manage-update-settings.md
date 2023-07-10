@@ -4,7 +4,7 @@ description: The article describes how to manage the update settings for your Wi
 ms.service: update-management-center
 author: snehasudhirG
 ms.author: sudhirsneha
-ms.date: 01/30/2023
+ms.date: 05/30/2023
 ms.topic: conceptual
 ---
 

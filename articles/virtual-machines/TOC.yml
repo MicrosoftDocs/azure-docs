@@ -138,7 +138,7 @@
   - name: SAP on Azure
     href: ../sap/index.yml
   - name: Oracle
-    href: ./workloads/oracle/oracle-database-quick-create.md
+    href: ./workloads/oracle/index.yml
   - name: Azure for Gaming
     href: /gaming/azure/
   - name: Elasticsearch
@@ -304,6 +304,8 @@
         href: nd-series.md
       - name: NDv2-series
         href: ndv2-series.md
+      - name: NGads V620-series (preview)
+        href: ngads-v-620-series.md
       - name: NV-series
         href: nv-series.md
       - name: NVv3-series
@@ -381,7 +383,13 @@
         - name: Performance
           href: hbv3-performance.md
       - name: HBv4-series
-        href: hbv4-series.md
+        items:
+        - name: Overview
+          href: hbv4-series-overview.md
+        - name: HBv4-series
+          href: hbv4-series.md
+        - name: Performance
+          href: hbv4-performance.md
       - name: HC-series
         items:
         - name: Overview
@@ -391,7 +399,13 @@
         - name: Performance
           href: hc-series-performance.md
       - name: HX-series
-        href: hx-series.md
+        items:
+        - name: Overview
+          href: hx-series-overview.md
+        - name: HX-series
+          href: hx-series.md
+        - name: Performance
+          href: hx-performance.md
       - name: HPC for HB-series and N-series VMs
         href: overview-hb-hc.md
       - name: Known issues with HB-series and N-series VMs
@@ -399,7 +413,7 @@
       - name: Setup MPI for HPC
         href: setup-mpi.md
       - name: Scaling HPC applications
-        href: compiling-scaling-applications.md        
+        href: compiling-scaling-applications.md
     - name: Previous generations
       displayName: older, retired, expired, deprecated
       href: sizes-previous-gen.md
@@ -661,6 +675,9 @@
         - name: Windows
           displayName: Image builder, images, building, update
           href: ./windows/image-builder-gallery-update-image-version.md
+      - name: How to use AIB triggers to set up an automatic image build (preview)
+        displayName: Image builder, images, building, triggers
+        href: image-builder-triggers-how-to.md
       - name: Store scripts
         displayName: Image builder, images, building, scripts
         href: ./linux/image-builder-user-assigned-identity.md
@@ -673,6 +690,9 @@
       - name: Image Builder Reliability
         displayName: Image builder, images, building, reliability, resiliency, recovery
         href: image-builder-reliability.md
+      - name: Image Optimization
+        displayName: Image builder, images, building, boot, optimization, prefetch
+        href: image-builder-prefetch.md
     - name: Build image with Packer
       items:
       - name: Linux
@@ -1081,8 +1101,16 @@
     - name: Migrate to Availability Zones
       displayName: availability and scale, availability, scale, autoscale, availability zones, AV zones
       href: ../availability-zones/migrate-vm.md
-  - name: Virtual machine scale sets
-    href: ../virtual-machine-scale-sets/flexible-virtual-machine-scale-sets.md
+  - name: Virtual Machine Scale Sets
+    items: 
+    - name: Overview
+      href: ../virtual-machine-scale-sets/flexible-virtual-machine-scale-sets.md
+    - name: Scaling profiles
+      href: ../virtual-machine-scale-sets/virtual-machine-scale-sets-scaling-profile.md
+      maintainContext: true
+    - name: Attach VMs to a scale set
+      href: ../virtual-machine-scale-sets/virtual-machine-scale-sets-attach-detach-vm.md
+      maintainContext: true
   - name: Proximity Placement Groups
     items:
     - name: Overview
@@ -1125,10 +1153,12 @@
     displayname: Performance, cost, perf, disks, disk
   - name: Deploy a ZRS disk
     href: disks-deploy-zrs.md
-  - name: Shared disks
-    href: disks-shared.md
-  - name: Enable shared disks
-    href: disks-shared-enable.md
+  - name: Share a disk between VMs
+    items:
+    - name: About shared disks
+      href: disks-shared.md
+    - name: Enable shared disks
+      href: disks-shared-enable.md
   - name: Encryption
     items:
     - name: Disk encryption overview
@@ -1335,6 +1365,16 @@
       href: ./windows/disks-upload-vhd-to-managed-disk-powershell.md
     - name: Upload a vhd to a disk - CLI
       href: ./linux/disks-upload-vhd-to-managed-disk-cli.md
+    - name: Export to a storage account
+      items:
+      - name: Export a snapshot as a VHD to a storage account - CLI
+        href: ./scripts/copy-snapshot-to-storage-account.md
+      - name: Export a managed disk as a VHD to a storage account - CLI
+        href: ./scripts/copy-managed-disks-vhd-to-storage-account.md
+      - name: Export a snapshot as a VHD to a storage account - PowerShell
+        href: ./scripts/virtual-machines-powershell-sample-copy-snapshot-to-storage-account.md
+      - name: Export a managed disk as a VHD to a storage account - PowerShell
+        href: ./scripts/virtual-machines-powershell-sample-copy-managed-disks-vhd.md
     - name: Download a VHD
       items:
       - name: Linux
@@ -1345,14 +1385,16 @@
         href: ./windows/download-vhd.md
   - name: Migration and conversion
     items:
-    - name: Convert disk to another disk type
+    - name: Change disk types
+      href: disks-convert-types.md
+    - name: Migrate to the same or different subscription
       items:
-      - name: CLI
-        displayName: Convert disk to another disk type
-        href: ./linux/convert-disk-storage.md
-      - name: PowerShell
-        displayName: Convert disk to another disk type
-        href: ./windows/convert-disk-storage.md
+      - name: Copy a managed disk to the same or different subscription - CLI
+        href: ./scripts/copy-managed-disks-to-same-or-different-subscription.md
+      - name: Copy a snapshot to the same or different subscription - CLI
+        href: ./scripts/copy-snapshot-to-same-or-different-subscription.md
+      - name: Copy a snapshot to the same or different subscription - PowerShell
+        href: ./scripts/virtual-machines-powershell-sample-copy-snapshot-to-same-or-different-subscription.md
     - name: Migrate AWS and on-premises disk to Azure
       href: ./windows/on-prem-to-azure.md
     - name: Migrate to premium SSDs with Azure Site Recovery
@@ -1365,7 +1407,7 @@
         href: ./windows/migrate-to-premium-storage-using-azure-site-recovery.md
     - name: Migrate to Managed Disks
       href: ./windows/migrate-to-managed-disks.md
-    - name: Unmanaged Disks retirement starting November 18, 2022
+    - name: Unmanaged Disks retirement
       href: ./unmanaged-disks-deprecation.md
     - name: Unmanaged VM to Managed Disks
       items:
@@ -1375,6 +1417,22 @@
       - name: PowerShell
         displayName: Unmanaged VM to Managed Disks
         href: ./windows/convert-unmanaged-to-managed-disks.md
+  - name: Create resources
+    items:
+      - name: Create a disk from a VHD - CLI 
+        href: ./scripts/create-managed-disk-from-vhd.md
+      - name: Create a disk from a snapshot - CLI
+        href: ./scripts/create-managed-disk-from-snapshot.md
+      - name: Create a disk from a VHD - PowerShell
+        href: ./scripts/virtual-machines-powershell-sample-create-managed-disk-from-vhd.md
+      - name: Create a disk from a snapshot - PowerShell
+        href: ./scripts/virtual-machines-powershell-sample-create-managed-disk-from-snapshot.md
+      - name: Create a snapshot from a VHD - PowerShell
+        href: ./scripts/virtual-machines-powershell-sample-create-snapshot-from-vhd.md
+      - name: Create virtual machine from snapshot - CLI
+        href: ./scripts/create-vm-from-snapshot.md
+      - name: Create virtual machine from existing OS disk - CLI
+        href: ./scripts/create-vm-from-managed-os-disks.md
   - name: Add a data disk
     items:
     - name: Linux
@@ -1445,40 +1503,6 @@
         href: disks-find-unattached-portal.md
     - name: Disks FAQs
       href: faq-for-disks.yml
-  - name: Code samples
-    items:
-    - name: CLI
-      items:
-      - name: Create managed disk from a VHD
-        href: ./scripts/create-managed-disk-from-vhd.md
-      - name: Create a managed disk from a snapshot
-        href: ./scripts/create-managed-disk-from-snapshot.md
-      - name: Copy a managed disk to the same or different subscription
-        href: ./scripts/copy-managed-disks-to-same-or-different-subscription.md
-      - name: Export a snapshot as a VHD to a storage account
-        href: ./scripts/copy-snapshot-to-storage-account.md
-      - name: Export a managed disk as a VHD to a storage account
-        href: ./scripts/copy-managed-disks-vhd-to-storage-account.md
-      - name: Copy a snapshot to the same or different subscription
-        href: ./scripts/copy-snapshot-to-same-or-different-subscription.md
-      - name: Create virtual machine from snapshot
-        href: ./scripts/create-vm-from-snapshot.md
-      - name: Create virtual machine from existing managed OS disk
-        href: ./scripts/create-vm-from-managed-os-disks.md
-    - name: PowerShell
-      items:
-      - name: Create managed disk from a VHD
-        href: ./scripts/virtual-machines-powershell-sample-create-managed-disk-from-vhd.md
-      - name: Create a managed disk from a snapshot
-        href: ./scripts/virtual-machines-powershell-sample-create-managed-disk-from-snapshot.md
-      - name: Copy a snapshot to the same or different subscription
-        href: ./scripts/virtual-machines-powershell-sample-copy-snapshot-to-same-or-different-subscription.md
-      - name: Export a snapshot as a VHD to a storage account
-        href: ./scripts/virtual-machines-powershell-sample-copy-snapshot-to-storage-account.md
-      - name: Export a managed disk as a VHD to a storage account
-        href: ./scripts/virtual-machines-powershell-sample-copy-managed-disks-vhd.md
-      - name: Create a snapshot from a VHD
-        href: ./scripts/virtual-machines-powershell-sample-create-snapshot-from-vhd.md
 - name: Networking
   items:
   - name: Overview
@@ -1558,14 +1582,6 @@
     - name: ARM template
       displayName: Resource Manager
       href: ../ddos-protection/manage-ddos-protection-template.md?toc=/azure/virtual-machines/toc.json
-  - name: Open ports and filter traffic
-    items:
-    - name: CLI
-      href: ../virtual-network/tutorial-filter-network-traffic-cli.md
-    - name: PowerShell
-      href: ../virtual-network/tutorial-filter-network-traffic-powershell.md
-    - name: Portal
-      href: ../virtual-network/tutorial-filter-network-traffic.md
   - name: Migrate a virtual machine public IP address
     href: ../virtual-network/nat-gateway/tutorial-migrate-ilip-nat.md?toc=/azure/virtual-machines/toc.json
   - name: Assign public IP address
@@ -1593,6 +1609,8 @@
   - name: Overview
     displayName: Security Overview
     href: ../security/fundamentals/virtual-machines-overview.md?toc=/azure/virtual-machines/toc.json
+  - name: Zero trust principles
+    href: /security/zero-trust/azure-infrastructure-virtual-machines
   - name: Microsoft Defender for Cloud
     href: ../security-center/security-center-introduction.md
     maintainContext: true
@@ -1613,6 +1631,9 @@
       DisplayName: Trusted Launch, shielded VM
     - name: Deploy Trusted Launch VM
       href: trusted-launch-portal.md
+    - name: Boot integrity monitoring overview
+      href: boot-integrity-monitoring-overview.md
+ 
   - name: Just-in-time access
     href: ../security-center/security-center-just-in-time.md
   - name: Policy

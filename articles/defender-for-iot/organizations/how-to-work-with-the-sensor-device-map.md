@@ -93,6 +93,25 @@ By default, IT devices are automatically aggregated by [subnet](how-to-control-w
 1. Sign into your OT sensor and select **Device map**. 
 1. Select one or more expanded subnets and then select **Collapse All**.
 
+### View traffic details between connected devices
+
+**To view traffic details between connected devices**:
+
+1. Sign into your OT sensor and select **Device map**.
+1. Locate two connected devices on the map. You might need to zoom in on the map to view a device icon, which looks like a monitor.
+1. Click on the line connecting two devices on the map and then :::image type="icon" source="media/how-to-work-with-maps/expand-pane-icon.png" border="false"::: expand the **Connection Properties** pane on the right.  For example:
+
+    :::image type="content" source="media/how-to-work-with-maps/connection-properties.png" alt-text="Screenshot of connection properties on the device map." lightbox="media/how-to-work-with-maps/connection-properties.png":::
+
+1. In the **Connection Properties** pane, you can view traffic details between the two devices, such as:
+
+    - How long ago the connection was first detected.
+    - The IP address of each device.
+    - The status of each device.
+    - The number of alerts for each device.
+    - A chart for total bandwidth.
+    - A chart for top traffic by port.
+
 ## Create a custom device group
 
 In addition to OT sensor's [built-in device groups](#built-in-device-map-groups), create new custom groups as needed to use when highlighting or filtering devices on the map.

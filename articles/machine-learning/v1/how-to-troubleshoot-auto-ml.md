@@ -16,7 +16,7 @@ monikerRange: 'azureml-api-1'
 
 # Troubleshoot automated ML experiments in Python
 
-[!INCLUDE [sdk v1](../../../includes/machine-learning-sdk-v1.md)]
+[!INCLUDE [sdk v1](../includes/machine-learning-sdk-v1.md)]
 
 In this guide, learn how to identify and resolve known issues in your automated machine learning experiments with the [Azure Machine Learning SDK](/python/api/overview/azure/ml/intro).
 
@@ -219,6 +219,6 @@ Instructions for configuring workspace under vnet are available [here.](../tutor
 
 ## Next steps
 
-+ Learn more about [how to train a regression model with Automated machine learning](how-to-auto-train-models-v1.md) or [how to train using Automated machine learning on a remote resource](concept-automated-ml-v1.md#local-remote).
++ Learn more about [how to train a regression model with Automated machine learning](how-to-auto-train-models-v1.md) or [how to train using Automated machine learning on a remote resource](concept-automated-ml.md#local-remote).
 
 + Learn more about [how and where to deploy a model](how-to-deploy-and-where.md).

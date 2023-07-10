@@ -27,7 +27,7 @@ Learn to implement secure hybrid access (SHA) with single sign-on (SSO) to heade
 
 Learn more:
 
-* [Integrate F5 BIG-IP with Azure AD](./f5-aad-integration.md)
+* [Integrate F5 BIG-IP with Azure AD](./f5-integration.md)
 * [Enable SSO for an enterprise application](add-application-portal-setup-sso.md)
 
 ## Scenario description
@@ -185,7 +185,7 @@ Create the BIG-IP SAML service provider and corresponding SAML IdP objects to fe
 5. Scroll down to select the new SAML SP object.
 6. Select **Bind/UnBind IdP Connectors**.
 
-   ![Screenshot of the Bind Unbind IdP Connectors option under the SAML Services Provder tab.](./media/f5-big-ip-header-advanced/idp-connectors.png)
+   ![Screenshot of the Bind Unbind IdP Connectors option under the SAML Services Provider tab.](./media/f5-big-ip-header-advanced/idp-connectors.png)
 
 7. Select **Create New IdP Connector**. 
 8. From the drop-down, select **From Metadata**.

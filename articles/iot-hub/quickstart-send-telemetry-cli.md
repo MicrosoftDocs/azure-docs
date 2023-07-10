@@ -3,7 +3,7 @@ title: Quickstart - Send telemetry to Azure IoT Hub (CLI) quickstart
 description: This quickstart shows developers new to IoT Hub how to get started by using the Azure CLI to create an IoT hub, send telemetry, and view messages between a device and the hub.
 ms.service: iot-hub
 ms.topic: quickstart
-ms.custom: [iot-send-telemetry-cli, iot-p0-scenario, "Role: Cloud Development", devx-track-azurecli, mode-api]
+ms.custom: [iot-send-telemetry-cli, iot-p0-scenario, 'Role: Cloud Development', devx-track-azurecli, mode-api]
 ms.author: timlt
 author: timlt
 ms.date: 11/30/2022
@@ -11,7 +11,7 @@ ms.date: 11/30/2022
 
 # Quickstart: Send telemetry from a device to an IoT hub and monitor it with the Azure CLI
 
-IoT Hub is an Azure service that enables you to ingest high volumes of telemetry from your IoT devices into the cloud for storage or processing. In this codeless quickstart, you use the Azure CLI to create an IoT Hub and a simulated device.  You'll send device telemetry to the hub, and send messages, call methods, and update properties on the device. You'll also use the Azure portal to visualize device metrics. This article shows a basic workflow for developers who use the CLI to interact with an IoT Hub application.
+IoT Hub is an Azure service that enables you to ingest high volumes of telemetry from your IoT devices into the cloud for storage or processing. In this codeless quickstart, you use the Azure CLI to create an IoT hub and a simulated device.  You'll send device telemetry to the hub, and send messages, call methods, and update properties on the device. You'll also use the Azure portal to visualize device metrics. This article shows a basic workflow for developers who use the CLI to interact with an IoT Hub application.
 
 ## Prerequisites
 
@@ -243,7 +243,7 @@ If you continue to the next recommended article, you can keep the resources you'
 
 To delete a resource group by name:
 
-1. Run the [az group delete](/cli/azure/group#az-group-delete) command. This command removes the resource group, the IoT Hub, and the device registration you created.
+1. Run the [az group delete](/cli/azure/group#az-group-delete) command. This command removes the resource group, the IoT hub, and the device registration you created.
 
     ```azurecli
     az group delete --name MyResourceGroup

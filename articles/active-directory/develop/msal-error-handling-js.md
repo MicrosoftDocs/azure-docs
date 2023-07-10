@@ -12,11 +12,11 @@ ms.workload: identity
 ms.date: 11/26/2020
 ms.author: dmwendia
 ms.reviewer: saeeda, hahamil
-ms.custom: aaddev
+ms.custom: aaddev, devx-track-js
 ---
 # Handle errors and exceptions in MSAL.js
 
-[!INCLUDE [Active directory error handling introduction](../../../includes/active-directory-develop-error-handling-introduction.md)]
+[!INCLUDE [Active directory error handling introduction](./includes/error-handling-and-tips/error-handling-introduction.md)]
 
 ## Error handling in MSAL.js
 
@@ -112,7 +112,7 @@ myMSALObj.acquireTokenSilent(request).then(function (response) {
 });
 ```
 
-[!INCLUDE [Active directory error handling claims challenges](../../../includes/active-directory-develop-error-handling-claims-challenges.md)]
+[!INCLUDE [Active directory error handling claims challenges](./includes/error-handling-and-tips/error-handling-claims-challenges.md)]
 
 When getting tokens silently (using `acquireTokenSilent`) using MSAL.js, your application may receive errors when a [Conditional Access claims challenge](v2-conditional-access-dev-guide.md) such as MFA policy is required by an API you're trying to access.
 
@@ -140,11 +140,11 @@ myMSALObj.acquireTokenSilent(accessTokenRequest).then(function(accessTokenRespon
 
 Interactively acquiring the token prompts the user and gives them the opportunity to satisfy the required Conditional Access policy.
 
-When calling an API requiring Conditional Access, you can receive a claims challenge in the error from the API. In this case, you can pass the claims returned in the error to the `claims` parameter in the [access token request object](https://learn.microsoft.com/azure/active-directory/develop/msal-js-pass-custom-state-authentication-request) to satisfy the appropriate policy. 
+When calling an API requiring Conditional Access, you can receive a claims challenge in the error from the API. In this case, you can pass the claims returned in the error to the `claims` parameter in the [access token request object](msal-js-pass-custom-state-authentication-request.md) to satisfy the appropriate policy. 
 
 See [How to use Continuous Access Evaluation enabled APIs in your applications](./app-resilience-continuous-access-evaluation.md) for more detail.
 
-[!INCLUDE [Active directory error handling retries](../../../includes/active-directory-develop-error-handling-retries.md)]
+[!INCLUDE [Active directory error handling retries](./includes/error-handling-and-tips/error-handling-retries.md)]
 
 ## Next steps
 

@@ -5,14 +5,14 @@ services: web-application-firewall
 ms.topic: how-to
 author: vhorne
 ms.service: web-application-firewall
-ms.date: 07/26/2022
+ms.date: 05/18/2023
 ms.author: victorh 
 ms.custom: devx-track-azurepowershell
 ---
 
 # Upgrade Web Application Firewall policies using Azure PowerShell
 
-This script makes it easy to transition from a WAF config or a custom rules-only WAF policy to a full WAF policy. You may see a warning in the portal that says *upgrade to WAF policy*, or you may want the new WAF features such as Geomatch custom rules, per-site WAF policy, and per-URI WAF policy, or the bot mitigation ruleset. To use any of these features, you need a full WAF policy associated to your application gateway. 
+This script makes it easy to transition from a WAF config, or a custom rules-only WAF policy, to a full WAF policy. You may see a warning in the portal that says *upgrade to WAF policy*, or you may want the new WAF features such as Geomatch custom rules, per-site WAF policy, and per-URI WAF policy, or the bot mitigation ruleset. To use any of these features, you need a full WAF policy associated to your application gateway. 
 
 For more information about creating a new WAF policy, see [Create Web Application Firewall policies for Application Gateway](create-waf-policy-ag.md). For information about migrating, see [upgrade to WAF policy](create-waf-policy-ag.md#upgrade-to-waf-policy).
 
@@ -22,13 +22,12 @@ Use the following steps to run the migration script:
 
 1. Open the following  Cloud Shell window, or open one from within the portal.
 2. Copy the script into the Cloud Shell window and run it.
-3. The script asks for Subscription ID, Resource Group name, the name of the Application Gateway that the WAF config is associated with, and the name of the new WAF policy that to create. Once you enter these inputs, the script  runs and creates your new WAF policy
-4. Verify the new WAF policy is associated with your application gateway. Go to the WAF policy in the portal and select the **Associated Application Gateways** tab. Verify the Application Gateway associated with the WAF policy.
+3. The script asks for Subscription ID, Resource Group name, the name of the Application Gateway that the WAF config is associated with, and the name of the new WAF policy that you will create. Once you enter these inputs, the script  runs and creates your new WAF policy
+4. Verify the new WAF policy is associated with your application gateway. Go to the WAF policy in the portal and select the **Associated Application Gateways** tab. Verify the Application Gateway is associated with the WAF policy.
 
 > [!NOTE]
 > The script does not complete a migration if the following conditions exist:
-> - An entire rule is disabled. To complete a migration, make sure an entire rulegroup is not disabled.
-> - An exclusion entry(s) with the *Equals any* operator. To complete a migration, make sure exclusion entries with *Equals Any* operator is not present.
+> - An entire ruleset is disabled. To complete a migration, make sure an entire rulegroup is not disabled.
 >
 > For more information, see the *ValidateInput* function in the script.
 
@@ -95,16 +94,6 @@ function ValidateInput ($appgwName, $resourceGroupName) {
                 }
             }
         }
-
-        # Throw an error when exclusion entry with 'EqualsAny' operator is present
-        if ($appgw.WebApplicationFirewallConfiguration.Exclusions) {
-            foreach ($excl in $appgw.WebApplicationFirewallConfiguration.Exclusions) {
-                if ($null -ne $excl.MatchVariable -and $null -eq $excl.SelectorMatchOperator -and $null -eq $excl.Selector) {
-                    Write-Error " You have an exclusion entry(s) with the 'Equals any' operator. Currently we can't upgrade to a firewall policy with 'Equals Any' operator. This feature will be delivered shortly. To continue, kindly ensure exclusion entries with 'Equals Any' operator is not present. "
-                    return $false
-                }
-            }
-        }
     }
 
     if ($appgw.Sku.Name -ne "WAF_v2" -or $appgw.Sku.Tier -ne "WAF_v2") {
@@ -163,6 +152,12 @@ function createNewTopLevelWafPolicy ($subscriptionId, $resourceGroupName, $appli
                     $exclusionEntry = New-AzApplicationGatewayFirewallPolicyExclusion -MatchVariable  $excl.MatchVariable -SelectorMatchOperator $excl.SelectorMatchOperator -Selector $excl.Selector
                     $_ = $exclusions.Add($exclusionEntry)
                 }
+
+                if ($excl.MatchVariable -and !$excl.SelectorMatchOperator -and !$excl.Selecto) {
+                    # Equals Any exclusion
+                    $exclusionEntry = New-AzApplicationGatewayFirewallPolicyExclusion -MatchVariable  $excl.MatchVariable -SelectorMatchOperator "EqualsAny" -Selector "*"
+                    $_ = $exclusions.Add($exclusionEntry)
+                }
             }
         }
     
@@ -205,6 +200,14 @@ function createNewTopLevelWafPolicy ($subscriptionId, $resourceGroupName, $appli
     Write-Host " firewallPolicy: $wafPolicyName has been created/updated successfully and applied to applicationGateway: $applicationGatewayName!"
     return $wafPolicy
 }
+
+function Main() {
+    Login
+    $policy = createNewTopLevelWafPolicy -subscriptionId $subscriptionId -resourceGroupName $resourceGroupName -applicationGatewayName $applicationGatewayName -wafPolicyName $wafPolicyName
+    return $policy
+}
+
+Main
 
 function Main() {
     Login

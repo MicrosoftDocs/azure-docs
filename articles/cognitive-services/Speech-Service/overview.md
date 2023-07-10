@@ -1,7 +1,7 @@
 ---
 title: What is the Speech service?
 titleSuffix: Azure Cognitive Services
-description: The Speech service provides speech-to-text, text-to-speech, and speech translation capabilities with an Azure resource. Add speech to your applications, tools, and devices with the Speech SDK, Speech Studio, or REST APIs.
+description: The Speech service provides speech to text, text to speech, and speech translation capabilities with an Azure resource. Add speech to your applications, tools, and devices with the Speech SDK, Speech Studio, or REST APIs.
 services: cognitive-services
 author: eric-urban
 manager: nitinme
@@ -14,7 +14,7 @@ ms.author: eur
 
 # What is the Speech service?
 
-The Speech service provides speech-to-text and text-to-speech capabilities with an [Azure Speech resource](~/articles/cognitive-services/cognitive-services-apis-create-account.md?tabs=speech#create-a-new-azure-cognitive-services-resource). You can transcribe speech to text with high accuracy, produce natural-sounding text-to-speech voices, translate spoken audio, and use speaker recognition during conversations. 
+The Speech service provides speech to text and text to speech capabilities with an [Speech resource](~/articles/cognitive-services/cognitive-services-apis-create-account.md?tabs=speech#create-a-new-azure-cognitive-services-resource). You can transcribe speech to text with high accuracy, produce natural-sounding text to speech voices, translate spoken audio, and use speaker recognition during conversations. 
 
 :::image type="content" border="false" source="media/overview/speech-features-highlight.png" alt-text="Image of tiles that highlight some Speech service features.":::
 
@@ -39,20 +39,20 @@ Microsoft uses Speech for many scenarios, such as captioning in Teams, dictation
 
 Speech feature summaries are provided below with links for more information.
 
-### Speech-to-text
+### Speech to text
 
-Use [speech-to-text](speech-to-text.md) to transcribe audio into text, either in [real-time](#real-time-speech-to-text) or asynchronously with [batch transcription](#batch-transcription). 
+Use [speech to text](speech-to-text.md) to transcribe audio into text, either in [real-time](#real-time-speech-to-text) or asynchronously with [batch transcription](#batch-transcription). 
 
 > [!TIP]
-> You can try real-time speech-to-text in [Speech Studio](https://aka.ms/speechstudio/speechtotexttool) without signing up or writing any code.
+> You can try real-time speech to text in [Speech Studio](https://aka.ms/speechstudio/speechtotexttool) without signing up or writing any code.
 
 Convert audio to text from a range of sources, including microphones, audio files, and blob storage. Use speaker diarization to determine who said what and when. Get readable transcripts with automatic formatting and punctuation. 
 
 The base model may not be sufficient if the audio contains ambient noise or includes a lot of industry and domain-specific jargon. In these cases, you can create and train [custom speech models](custom-speech-overview.md) with acoustic, language, and pronunciation data. Custom speech models are private and can offer a competitive advantage. 
 
-### Real-time speech-to-text
+### Real-time speech to text
 
-With [real-time speech-to-text](get-started-speech-to-text.md), the audio is transcribed as speech is recognized from a microphone or file. Use real-time speech-to-text for applications that need to transcribe audio in real-time such as:
+With [real-time speech to text](get-started-speech-to-text.md), the audio is transcribed as speech is recognized from a microphone or file. Use real-time speech to text for applications that need to transcribe audio in real-time such as:
 - Transcriptions, captions, or subtitles for live meetings
 - Contact center agent assist
 - Dictation
@@ -66,7 +66,7 @@ With [real-time speech-to-text](get-started-speech-to-text.md), the audio is tra
 - Contact center post-call analytics
 - Diarization
 
-### Text-to-speech
+### Text to speech
 
 With [text to speech](text-to-speech.md), you can convert input text into humanlike synthesized speech. Use neural voices, which are humanlike voices powered by deep neural networks. Use the [Speech Synthesis Markup Language (SSML)](speech-synthesis-markup.md) to fine-tune the pitch, pronunciation, speaking rate, volume, and more.
 
@@ -75,11 +75,11 @@ With [text to speech](text-to-speech.md), you can convert input text into humanl
 
 ### Speech translation
 
-[Speech translation](speech-translation.md) enables real-time, multilingual translation of speech to your applications, tools, and devices. Use this feature for speech-to-speech and speech-to-text translation.
+[Speech translation](speech-translation.md) enables real-time, multilingual translation of speech to your applications, tools, and devices. Use this feature for speech-to-speech and speech to text translation.
 
 ### Language identification
 
-[Language identification](language-identification.md) is used to identify languages spoken in audio when compared against a list of [supported languages](language-support.md). Use language identification by itself, with speech-to-text recognition, or with speech translation.
+[Language identification](language-identification.md) is used to identify languages spoken in audio when compared against a list of [supported languages](language-support.md). Use language identification by itself, with speech to text recognition, or with speech translation.
 
 ### Speaker recognition
 [Speaker recognition](speaker-recognition-overview.md) provides algorithms that verify and identify speakers by their unique voice characteristics. Speaker recognition is used to answer the question, "Who is speaking?". 
@@ -90,7 +90,7 @@ With [text to speech](text-to-speech.md), you can convert input text into humanl
 
 ### Intent recognition
 
-[Intent recognition](./intent-recognition.md): Use speech-to-text with conversational language understanding to derive user intents from transcribed speech and act on voice commands. 
+[Intent recognition](./intent-recognition.md): Use speech to text with conversational language understanding to derive user intents from transcribed speech and act on voice commands. 
 
 ## Delivery and presence
 
@@ -116,20 +116,56 @@ In some cases, you can't or shouldn't use the [Speech SDK](speech-sdk.md). In th
 
 We offer quickstarts in many popular programming languages. Each quickstart is designed to teach you basic design patterns and have you running code in less than 10 minutes. See the following list for the quickstart for each feature:
 
-* [Speech-to-text quickstart](get-started-speech-to-text.md)
-* [Text-to-speech quickstart](get-started-text-to-speech.md)
+* [Speech to text quickstart](get-started-speech-to-text.md)
+* [Text to speech quickstart](get-started-text-to-speech.md)
 * [Speech translation quickstart](./get-started-speech-translation.md)
 
 ## Code samples
 
 Sample code for the Speech service is available on GitHub. These samples cover common scenarios like reading audio from a file or stream, continuous and single-shot recognition, and working with custom models. Use these links to view SDK and REST samples:
 
-- [Speech-to-text, text-to-speech, and speech translation samples (SDK)](https://github.com/Azure-Samples/cognitive-services-speech-sdk)
+- [Speech to text, text to speech, and speech translation samples (SDK)](https://github.com/Azure-Samples/cognitive-services-speech-sdk)
 - [Batch transcription samples (REST)](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/samples/batch)
-- [Text-to-speech samples (REST)](https://github.com/Azure-Samples/Cognitive-Speech-TTS)
+- [Text to speech samples (REST)](https://github.com/Azure-Samples/Cognitive-Speech-TTS)
 - [Voice assistant samples (SDK)](https://aka.ms/csspeech/samples)
+
+## Responsible AI 
+
+An AI system includes not only the technology, but also the people who will use it, the people who will be affected by it, and the environment in which it is deployed. Read the transparency notes to learn about responsible AI use and deployment in your systems. 
+
+### Speech to text
+
+* [Transparency note and use cases](/legal/cognitive-services/speech-service/speech-to-text/transparency-note?context=/azure/cognitive-services/speech-service/context/context)
+* [Characteristics and limitations](/legal/cognitive-services/speech-service/speech-to-text/characteristics-and-limitations?context=/azure/cognitive-services/speech-service/context/context)
+* [Integration and responsible use](/legal/cognitive-services/speech-service/speech-to-text/guidance-integration-responsible-use?context=/azure/cognitive-services/speech-service/context/context)
+* [Data, privacy, and security](/legal/cognitive-services/speech-service/speech-to-text/data-privacy-security?context=/azure/cognitive-services/speech-service/context/context)
+
+### Pronunciation Assessment
+
+* [Transparency note and use cases](/legal/cognitive-services/speech-service/pronunciation-assessment/transparency-note-pronunciation-assessment?context=/azure/cognitive-services/speech-service/context/context)
+* [Characteristics and limitations](/legal/cognitive-services/speech-service/pronunciation-assessment/characteristics-and-limitations-pronunciation-assessment?context=/azure/cognitive-services/speech-service/context/context)
+
+### Custom Neural Voice
+
+* [Transparency note and use cases](/legal/cognitive-services/speech-service/custom-neural-voice/transparency-note-custom-neural-voice?context=/azure/cognitive-services/speech-service/context/context)
+* [Characteristics and limitations](/legal/cognitive-services/speech-service/custom-neural-voice/characteristics-and-limitations-custom-neural-voice?context=/azure/cognitive-services/speech-service/context/context)
+* [Limited access](/legal/cognitive-services/speech-service/custom-neural-voice/limited-access-custom-neural-voice?context=/azure/cognitive-services/speech-service/context/context)
+* [Responsible deployment of synthetic speech](/legal/cognitive-services/speech-service/custom-neural-voice/concepts-guidelines-responsible-deployment-synthetic?context=/azure/cognitive-services/speech-service/context/context)
+* [Disclosure of voice talent](/legal/cognitive-services/speech-service/disclosure-voice-talent?context=/azure/cognitive-services/speech-service/context/context)
+* [Disclosure of design guidelines](/legal/cognitive-services/speech-service/custom-neural-voice/concepts-disclosure-guidelines?context=/azure/cognitive-services/speech-service/context/context)
+* [Disclosure of design patterns](/legal/cognitive-services/speech-service/custom-neural-voice/concepts-disclosure-patterns?context=/azure/cognitive-services/speech-service/context/context)
+* [Code of conduct](/legal/cognitive-services/speech-service/tts-code-of-conduct?context=/azure/cognitive-services/speech-service/context/context)
+* [Data, privacy, and security](/legal/cognitive-services/speech-service/custom-neural-voice/data-privacy-security-custom-neural-voice?context=/azure/cognitive-services/speech-service/context/context)
+
+### Speaker Recognition
+
+* [Transparency note and use cases](/legal/cognitive-services/speech-service/speaker-recognition/transparency-note-speaker-recognition?context=/azure/cognitive-services/speech-service/context/context)
+* [Characteristics and limitations](/legal/cognitive-services/speech-service/speaker-recognition/characteristics-and-limitations-speaker-recognition?context=/azure/cognitive-services/speech-service/context/context)
+* [Limited access](/legal/cognitive-services/speech-service/speaker-recognition/limited-access-speaker-recognition?context=/azure/cognitive-services/speech-service/context/context)
+* [General guidelines](/legal/cognitive-services/speech-service/speaker-recognition/guidance-integration-responsible-use-speaker-recognition?context=/azure/cognitive-services/speech-service/context/context)
+* [Data, privacy, and security](/legal/cognitive-services/speech-service/speaker-recognition/data-privacy-speaker-recognition?context=/azure/cognitive-services/speech-service/context/context)
 
 ## Next steps
 
-* [Get started with speech-to-text](get-started-speech-to-text.md)
-* [Get started with text-to-speech](get-started-text-to-speech.md)
+* [Get started with speech to text](get-started-speech-to-text.md)
+* [Get started with text to speech](get-started-text-to-speech.md)

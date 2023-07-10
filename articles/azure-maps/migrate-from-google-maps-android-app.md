@@ -7,6 +7,7 @@ ms.author: yuchungchen
 ms.date: 12/1/2021
 ms.topic: tutorial
 ms.service: azure-maps
+ms.custom: devx-track-extended-java
 services: azure-maps
 zone_pivot_groups: azure-maps-android
 ---

@@ -11,7 +11,7 @@ ms.topic: quickstart
 ms.service: cognitive-services
 ms.subservice: bing-local-business
 ms.devlang: java
-ms.custom: devx-track-java, mode-api
+ms.custom: devx-track-java, mode-api, devx-track-extended-java
 ---
 
 # Quickstart: Send a query to the Bing Local Business Search API using Java

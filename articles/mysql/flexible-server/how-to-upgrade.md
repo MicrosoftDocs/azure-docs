@@ -11,7 +11,7 @@ ms.reviewer: maghan
 ms.date: 10/12/2022
 ---
 
-# Major version upgrade in Azure Database for MySQL - Flexible Server (Preview)
+# Major version upgrade in Azure Database for MySQL - Flexible Server
 
 [!INCLUDE[applies-to-mysql-flexible-server](../includes/applies-to-mysql-flexible-server.md)]
 
@@ -74,7 +74,7 @@ To perform a major version upgrade of an Azure Database for MySQL 5.7 server usi
 2.	After you sign in, run the [az mysql server upgrade](/cli/azure/mysql/server#az-mysql-server-upgrade) command.
 
     ```azurecli
-    az mysql server upgrade --name testsvr --resource-group testgroup --subscription MySubscription --version 8.0
+    az mysql flexible-server upgrade --name {your mysql server name} --resource-group {your resource group} --subscription {your subscription id} --version 8
     ```
 
 3.	Under the confirmation prompt, type **y** to confirm or **n** to stop the upgrade process, and then press Enter.

@@ -129,7 +129,7 @@ The following contains regulatory information for Azure Stack Edge Mini R device
 
 The Azure Stack Edge Mini R device is designed for use with NRTL Listed (UL, CSA, ETL, etc.), and IEC/EN 60950-1 or IEC/EN 62368-1 compliant (CE marked) Information Technology equipment.
 
-In countries other than the USA and Canada, network cables (not provided with the equipment) shall not be installed with this equipment if their length is greater than 3 meters.
+In countries/regions other than the USA and Canada, network cables (not provided with the equipment) shall not be installed with this equipment if their length is greater than 3 meters.
 
 The equipment is designed to operate in the following environments:
 
@@ -221,9 +221,9 @@ The  Netgear A6150 WiFi USB Adapter provided with this equipment is intended to 
 **Netgear A6150 Specific Absorption Rate (SAR):** 0.54 W/kg averaged over 10g of tissue
 
  
-This device may operate in all member states of the EU. Observe national/regional and local regulations where the device is used. This device is restricted to indoor use only when operating in the 5150-5350 MHz frequency range in the following countries:  
+This device may operate in all member states of the EU. Observe national/regional and local regulations where the device is used. This device is restricted to indoor use only when operating in the 5150-5350 MHz frequency range in the following countries/regions:  
 
-![EU countries that require indoor use only](./media/azure-stack-edge-mini-r-safety/mini-r-safety-eu-indoor-use-only.png)
+![EU countries/regions that require indoor use only](./media/azure-stack-edge-mini-r-safety/mini-r-safety-eu-indoor-use-only.png)
 
 In accordance with Article 10.8(a) and 10.8(b) of the RED, the following table provides information on the frequency bands used and the maximum RF transmit power of Netgear wireless products for sale in the EU:
 

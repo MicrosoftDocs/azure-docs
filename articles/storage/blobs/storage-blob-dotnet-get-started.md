@@ -9,9 +9,8 @@ ms.author: pauljewell
 ms.service: storage
 ms.topic: how-to
 ms.date: 03/20/2023
-ms.subservice: blobs
 ms.devlang: csharp
-ms.custom: template-how-to, devguide-csharp
+ms.custom: template-how-to, devguide-csharp, devx-track-dotnet
 ---
 
 # Get started with Azure Blob Storage and .NET

@@ -14,7 +14,7 @@ ms.author: v-baolianzou
 
 # Pronunciation assessment in Speech Studio
 
-Pronunciation assessment uses the Speech-to-Text capability to provide subjective and objective feedback for language learners. Practicing pronunciation and getting timely feedback are essential for improving language skills. Assessments driven by experienced teachers can take a lot of time and effort and makes a high-quality assessment expensive for learners. Pronunciation assessment can help make the language assessment more engaging and accessible to learners of all backgrounds. 
+Pronunciation assessment uses the Speech to text capability to provide subjective and objective feedback for language learners. Practicing pronunciation and getting timely feedback are essential for improving language skills. Assessments driven by experienced teachers can take a lot of time and effort and makes a high-quality assessment expensive for learners. Pronunciation assessment can help make the language assessment more engaging and accessible to learners of all backgrounds. 
 
 Pronunciation assessment provides various assessment results in different granularities, from individual phonemes to the entire text input. 
 - At the full-text level, pronunciation assessment offers additional Fluency and Completeness scores: Fluency indicates how closely the speech matches a native speaker's use of silent breaks between words, and Completeness indicates how many words are pronounced in the speech to the reference text input. An overall score aggregated from Accuracy, Fluency and Completeness is then given to indicate the overall pronunciation quality of the given speech.  
@@ -25,7 +25,7 @@ Pronunciation assessment provides various assessment results in different granul
 This article describes how to use the pronunciation assessment tool through the [Speech Studio](https://speech.microsoft.com). You can get immediate feedback on the accuracy and fluency of your speech without writing any code. For information about how to integrate pronunciation assessment in your speech applications, see [How to use pronunciation assessment](how-to-pronunciation-assessment.md).
 
 > [!NOTE]
-> Usage of pronunciation assessment costs the same as standard Speech to Text pay-as-you-go [pricing](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services). Pronunciation assessment doesn't yet support commitment tier pricing.
+> Usage of pronunciation assessment costs the same as standard Speech to text, whether pay-as-you-go or commitment tier [pricing](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services). If you [purchase a commitment tier](../commitment-tier.md) for standard Speech to text, the spend for pronunciation assessment goes towards meeting the commitment.
 > 
 > For information about availability of pronunciation assessment, see [supported languages](language-support.md?tabs=pronunciation-assessment) and [available regions](regions.md#speech-service).
 
@@ -64,9 +64,9 @@ You can also check the pronunciation assessment result in JSON. The word-level, 
 
 ### [Display](#tab/display)
 
-The complete transcription is shown in the **Display** window. If a word is omitted, inserted, or mispronounced compared to the reference text, the word will be highlighted according to the error type. While hovering over each word, you can see accuracy scores for the whole word or specific phonemes. 
+The complete transcription is shown in the **Display** window. If a word is omitted, inserted, or mispronounced compared to the reference text, the word will be highlighted according to the error type. The error types in the pronunciation assessment are represented using different colors. Yellow indicates mispronunciations, gray indicates omissions, and red indicates insertions. This visual distinction makes it easier to identify and analyze specific errors. It provides a clear overview of the error types and frequencies in the spoken audio, helping you focus on areas that need improvement. While hovering over each word, you can see accuracy scores for the whole word or specific phonemes. 
 
-:::image type="content" source="media/pronunciation-assessment/pa-display-omission-zoom.png" alt-text="Screenshot of scores for a word and its phonemes." lightbox="media/pronunciation-assessment/pa-display-omission-full.png":::
+:::image type="content" source="media/pronunciation-assessment/pa-display-omission-full.png" alt-text="Screenshot of error types and scores for a word and its phonemes." lightbox="media/pronunciation-assessment/pa-display-omission-full.png":::
 
 ### [JSON](#tab/json)
 
@@ -243,6 +243,13 @@ During recording a long paragraph, you can pause recording at any time. You can 
 After you press the stop button, you can see **Pronunciation score**, **Accuracy score**, **Fluency score**, and **Completeness score** at the bottom.
 
 :::image type="content" source="media/pronunciation-assessment/pa-after-recording-display-score.png" alt-text="Screenshot of overall assessment scores after recording." lightbox="media/pronunciation-assessment/pa-after-recording-display-score.png":::
+
+## Responsible AI 
+
+An AI system includes not only the technology, but also the people who will use it, the people who will be affected by it, and the environment in which it is deployed. Read the transparency notes to learn about responsible AI use and deployment in your systems. 
+
+* [Transparency note and use cases](/legal/cognitive-services/speech-service/pronunciation-assessment/transparency-note-pronunciation-assessment?context=/azure/cognitive-services/speech-service/context/context)
+* [Characteristics and limitations](/legal/cognitive-services/speech-service/pronunciation-assessment/characteristics-and-limitations-pronunciation-assessment?context=/azure/cognitive-services/speech-service/context/context)
 
 ## Next steps
 

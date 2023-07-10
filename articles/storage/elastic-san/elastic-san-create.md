@@ -2,11 +2,10 @@
 title: Create an Azure Elastic SAN (preview)
 description: Learn how to deploy an Azure Elastic SAN (preview) with the Azure portal, Azure PowerShell module, or Azure CLI.
 author: roygara
-ms.service: storage
+ms.service: azure-elastic-san-storage
 ms.topic: how-to
 ms.date: 03/08/2023
 ms.author: rogarana
-ms.subservice: elastic-san
 ms.custom: references_regions, ignite-2022, devx-track-azurepowershell, devx-track-azurecli
 ---
 
@@ -108,7 +107,7 @@ resourceGroupName="yourResourceGroupNameHere"
 sanLocation="desiredRegion"
 volumeGroupName="desiredVolumeGroupName"
 
-az elastic-san create -n $sanName -g $resourceGroupName -l $sanLocation --base-size-tib 100 --extended-capacity-size-tib 20 --sku “{name:Premium_LRS,tier:Premium}”
+az elastic-san create -n $sanName -g $resourceGroupName -l $sanLocation --base-size-tib 100 --extended-capacity-size-tib 20 --sku "{name:Premium_LRS,tier:Premium}"
 ```
 ---
 

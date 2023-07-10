@@ -224,4 +224,7 @@ Azure Managed Grafana can also access data sources using a service principal set
 ## Next steps
 
 > [!div class="nextstepaction"]
+> [Connect to a data source privately](./how-to-connect-to-data-source-privately.md)
+
+> [!div class="nextstepaction"]
 > [Share an Azure Managed Grafana instance](./how-to-share-grafana-workspace.md)

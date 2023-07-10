@@ -1,5 +1,5 @@
 ---
-title: 'Quickstart: Use ChatGPT (Preview) via the Azure OpenAI Studio'
+title: 'Quickstart: Use GPT-35-Turbo via the Azure OpenAI Studio'
 titleSuffix: Azure OpenAI Service
 description: Walkthrough on how to get started with Azure OpenAI and make your first completions call with Azure OpenAI Studio. 
 services: cognitive-services
@@ -17,23 +17,26 @@ keywords:
 - Access granted to Azure OpenAI in the desired Azure subscription.
 
     Currently, access to this service is granted only by application. You can apply for access to Azure OpenAI by completing the form at [https://aka.ms/oai/access](https://aka.ms/oai/access?azure-portal=true). Open an issue on this repo to contact us if you have an issue.
-- An Azure OpenAI Service resource with either the `gpt-35-turbo` (preview), or the `gpt-4` (preview)<sup>1</sup> models deployed. For more information about model deployment, see the [resource deployment guide](../how-to/create-resource.md).
+- An Azure OpenAI Service resource with either the `gpt-35-turbo` or the `gpt-4`<sup>1</sup> models deployed. For more information about model deployment, see the [resource deployment guide](../how-to/create-resource.md).
 
-<sup>1</sup> **GPT-4 models are currently in preview.** To access these models, existing Azure OpenAI customers can [apply for access by filling out this form](https://aka.ms/oai/get-gpt4).
+<sup>1</sup> **GPT-4 models are currently only available by request.** To access these models, existing Azure OpenAI customers can [apply for access by filling out this form](https://aka.ms/oai/get-gpt4).
+
+> [!div class="nextstepaction"]
+> [I ran into an issue with the prerequisites.](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=STUDIO&Pillar=AOAI&Product=Chatgpt&Page=quickstart&Section=Prerequisites)
 
 ## Go to Azure OpenAI Studio
 
 Navigate to Azure OpenAI Studio at [https://oai.azure.com/](https://oai.azure.com/) and sign-in with credentials that have access to your OpenAI resource. During or after the sign-in workflow, select the appropriate directory, Azure subscription, and Azure OpenAI resource.
 
-From the Azure OpenAI Studio landing page, select **ChatGPT playground (Preview)**
+From the Azure OpenAI Studio landing page, select **Chat playground**.
 
-:::image type="content" source="../media/quickstarts/chatgpt-playground.png" alt-text="Screenshot of the Azure OpenAI Studio landing page with ChatGPT playground highlighted." lightbox="../media/quickstarts/chatgpt-playground.png":::
+:::image type="content" source="../media/quickstarts/chatgpt-playground.png" alt-text="Screenshot of the Azure OpenAI Studio landing page with Chat playground highlighted." lightbox="../media/quickstarts/chatgpt-playground.png":::
 
 ## Playground
 
-Start exploring OpenAI capabilities with a no-code approach through the Azure OpenAI Studio ChatGPT playground. From this page, you can quickly iterate and experiment with the capabilities.
+Start exploring OpenAI capabilities with a no-code approach through the Azure OpenAI Studio Chat playground. From this page, you can quickly iterate and experiment with the capabilities.
 
-:::image type="content" source="../media/quickstarts/chatgpt-playground-load.png" alt-text="Screenshot of the ChatGPT playground page." lightbox="../media/quickstarts/chatgpt-playground-load.png":::
+:::image type="content" source="../media/quickstarts/chatgpt-playground-load.png" alt-text="Screenshot of the Chat playground page." lightbox="../media/quickstarts/chatgpt-playground-load.png":::
 
 ### Assistant setup
 
@@ -43,7 +46,7 @@ You can use the **Assistant setup** dropdown to select a few pre-loaded **System
 
 **Add few-shot examples** allows you to provide conversational examples that are used by the model for [in-context learning](/azure/cognitive-services/openai/overview#in-context-learning).
 
-At any time while using the ChatGPT playground you can select **View code** to see Python, curl, and json code samples pre-populated based on your current chat session and settings selections. You can then take this code and write an application to complete the same task you're currently performing with the playground.
+At any time while using the Chat playground you can select **View code** to see Python, curl, and json code samples pre-populated based on your current chat session and settings selections. You can then take this code and write an application to complete the same task you're currently performing with the playground.
 
 ### Chat session
 
@@ -55,12 +58,12 @@ Select the **Clear chat** button to delete the current conversation history.
 
 | **Name**            | **Description**   |
 |:--------------------|:-------------------------------------------------------------------------------|
-| Deployments         | Your deployment name that is associated with a specific model. For ChatGPT, you need to use the `gpt-35-turbo` model. |
+| Deployments         | Your deployment name that is associated with a specific model. |
 | Temperature         | Controls randomness. Lowering the temperature means that the model produces more repetitive and deterministic responses. Increasing the temperature results in more unexpected or creative responses. Try adjusting temperature or Top P but not both. |
 | Max length (tokens) | Set a limit on the number of tokens per model response. The API supports a maximum of 4096 tokens shared between the prompt (including system message, examples, message history, and user query) and the model's response. One token is roughly four characters for typical English text.|
 | Top probabilities   | Similar to temperature, this controls randomness but uses a different method. Lowering Top P narrows the model’s token selection to likelier tokens. Increasing Top P lets the model choose from tokens with both high and low likelihood. Try adjusting temperature or Top P but not both.|
 | Multi-turn conversations | Select the number of past messages to include in each new API request. This helps give the model context for new user queries. Setting this number to 10 results in five user queries and five system responses.|
-| Stop sequences      | Stop sequence make the model end its response at a desired point. The model response ends before the specified sequence, so it won't contain the stop sequence text. For ChatGPT, using `<|im_end|>` ensures that the model response doesn't generate a follow-up user query. You can include as many as four stop sequences.|
+| Stop sequences      | Stop sequence make the model end its response at a desired point. The model response ends before the specified sequence, so it won't contain the stop sequence text. For GPT-35-Turbo, using `<|im_end|>` ensures that the model response doesn't generate a follow-up user query. You can include as many as four stop sequences.|
 
 ### Show panels
 
@@ -87,7 +90,7 @@ import os
 import openai
 openai.api_type = "azure"
 openai.api_base = "https://docs-test-001.openai.azure.com/"
-openai.api_version = "2023-03-15-preview"
+openai.api_version = "2023-05-15"
 openai.api_key = os.getenv("OPENAI_API_KEY")
 
 response = openai.ChatCompletion.create(
@@ -101,22 +104,27 @@ response = openai.ChatCompletion.create(
   stop=None)
 ```
 
+> [!div class="nextstepaction"]
+> [I ran into an issue with the playground.](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=STUDIO&Pillar=AOAI&Product=Chatgpt&Page=quickstart&Section=Set-up)
+
 ### Understanding the prompt structure
 
-If you examine the sample from **View code** you'll notice some unique tokens that weren't part of a typical GPT completion call. ChatGPT was trained to use special tokens to delineate different parts of the prompt. Content is provided to the model in between `<|im_start|>` and `<|im_end|>` tokens. The prompt begins with a system message that can be used to prime the model by including context or instructions for the model. After that, the prompt contains a series of messages between the user and the assistant.
+If you examine the sample from **View code** you'll notice some unique tokens that weren't part of a typical GPT completion call. GPT-35-Turbo was trained to use special tokens to delineate different parts of the prompt. Content is provided to the model in between `<|im_start|>` and `<|im_end|>` tokens. The prompt begins with a system message that can be used to prime the model by including context or instructions for the model. After that, the prompt contains a series of messages between the user and the assistant.
 
 The assistant's response to the prompt will then be returned below the `<|im_start|>assistant` token and will end with `<|im_end|>` denoting that the assistant has finished its response. You can also use the **Show raw syntax** toggle button to display these tokens within the chat session panel.
 
-The [ChatGPT how-to guide](../how-to/chatgpt.md) provides an in-depth introduction into the new prompt structure and how to use the `gpt-35-turbo` model effectively.
+The [GPT-35-Turbo & GPT-4 how-to guide](../how-to/chatgpt.md) provides an in-depth introduction into the new prompt structure and how to use the `gpt-35-turbo` model effectively.
+
+[!INCLUDE [deploy-web-app](deploy-web-app.md)]
 
 ## Clean up resources
 
-Once you're done testing out the ChatGPT playground, if you want to clean up and remove an OpenAI resource, you can delete the resource or resource group. Deleting the resource group also deletes any other resources associated with it.
+Once you're done testing out the Chat playground, if you want to clean up and remove an OpenAI resource, you can delete the resource or resource group. Deleting the resource group also deletes any other resources associated with it.
 
 - [Portal](../../cognitive-services-apis-create-account.md#clean-up-resources)
 - [Azure CLI](../../cognitive-services-apis-create-account-cli.md#clean-up-resources)
 
 ## Next steps
 
-* Learn more about how to work with ChatGPT and the new `gpt-35-turbo` model with the [ChatGPT how-to guide](../how-to/chatgpt.md).
+* Learn more about how to work with the new `gpt-35-turbo` model with the [GPT-35-Turbo & GPT-4 how-to guide](../how-to/chatgpt.md).
 * For more examples check out the [Azure OpenAI Samples GitHub repository](https://aka.ms/AOAICodeSamples)

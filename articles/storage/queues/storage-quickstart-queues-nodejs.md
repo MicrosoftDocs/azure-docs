@@ -1,12 +1,11 @@
 ---
 title: 'Quickstart: Azure Queue Storage client library for JavaScript'
-description: Learn how to use the Azure Queue Storage client library for JavaScript to create a queue and add messages to it. Then learn how to read and delete messages from the queue. You'll also learn how to delete a queue.
+description: Learn how to use the Azure Queue Storage client library for JavaScript to create a queue and add messages to it. Then learn how to read and delete messages from the queue. You also learn how to delete a queue.
 author: pauljewellmsft
 ms.author: pauljewell
-ms.date: 12/15/2022
+ms.date: 06/29/2023
 ms.topic: quickstart
-ms.service: storage
-ms.subservice: queues
+ms.service: azure-queue-storage
 ms.devlang: javascript
 ms.custom: devx-track-js, mode-api, passwordless-js
 ---
@@ -23,6 +22,7 @@ Use the Azure Queue Storage client library for JavaScript to:
 - Add messages to a queue
 - Peek at messages in a queue
 - Update a message in a queue
+- Get the queue length
 - Receive messages from a queue
 - Delete messages from a queue
 - Delete a queue
@@ -93,7 +93,7 @@ From the project directory:
 
 1. Open a new text file in your code editor
 1. Add `require` calls to load Azure and Node.js modules
-1. Create the structure for the program, including very basic exception handling
+1. Create the structure for the program, including basic exception handling
 
     Here's the code:
 
@@ -139,9 +139,9 @@ For example, your app can authenticate using your Azure CLI sign-in credentials 
 
 Azure Queue Storage is a service for storing large numbers of messages. A queue message can be up to 64 KB in size. A queue may contain millions of messages, up to the total capacity limit of a storage account. Queues are commonly used to create a backlog of work to process asynchronously. Queue Storage offers three types of resources:
 
-- The storage account
-- A queue in the storage account
-- Messages within the queue
+- **Storage account**: All access to Azure Storage is done through a storage account. For more information about storage accounts, see [Storage account overview](../common/storage-account-overview.md)
+- **Queue**: A queue contains a set of messages. All messages must be in a queue. Note that the queue name must be all lowercase. For information on naming queues, see [Naming Queues and Metadata](/rest/api/storageservices/Naming-Queues-and-Metadata).
+- **Message**: A message, in any format, of up to 64 KB. A message can remain in the queue for a maximum of 7 days. For version 2017-07-29 or later, the maximum time-to-live can be any positive number, or -1 indicating that the message doesn't expire. If this parameter is omitted, the default time-to-live is seven days.
 
 The following diagram shows the relationship between these resources.
 
@@ -161,6 +161,7 @@ These example code snippets show you how to do the following actions with the Az
 - [Add messages to a queue](#add-messages-to-a-queue)
 - [Peek at messages in a queue](#peek-at-messages-in-a-queue)
 - [Update a message in a queue](#update-a-message-in-a-queue)
+- [Get the queue length](#get-the-queue-length)
 - [Receive messages from a queue](#receive-messages-from-a-queue)
 - [Delete messages from a queue](#delete-messages-from-a-queue)
 - [Delete a queue](#delete-a-queue)
@@ -171,7 +172,7 @@ These example code snippets show you how to do the following actions with the Az
 
 [!INCLUDE [default-azure-credential-sign-in-no-vs](../../../includes/passwordless/default-azure-credential-sign-in-no-vs.md)]
 
-Once authenticated, you can create and authorize a `QueueClient` object using `DefaultAzureCredential` to access queue data in the storage account. `DefaultAzureCredential` will automatically discover and use the account you signed in with in the previous step.
+Once authenticated, you can create and authorize a `QueueClient` object using `DefaultAzureCredential` to access queue data in the storage account. `DefaultAzureCredential` automatically discovers and uses the account you signed in with in the previous step.
 
 To authorize using `DefaultAzureCredential`, make sure you've added the **@azure/identity** package, as described in [Install the packages](#install-the-packages). Also, be sure to load the **@azure/identity** module in the *index.js* file:
 
@@ -179,7 +180,7 @@ To authorize using `DefaultAzureCredential`, make sure you've added the **@azure
 const { DefaultAzureCredential } = require('@azure/identity');
 ```
 
-Decide on a name for the queue and create an instance of the [`QueueClient`](/javascript/api/@azure/storage-queue/queueclient) class, using `DefaultAzureCredential` for authorization. We'll use this client object to create and interact with the queue resource in the storage account.
+Decide on a name for the queue and create an instance of the [`QueueClient`](/javascript/api/@azure/storage-queue/queueclient) class, using `DefaultAzureCredential` for authorization. We use this client object to create and interact with the queue resource in the storage account.
 
 > [!IMPORTANT]
 > Queue names may only contain lowercase letters, numbers, and hyphens, and must begin with a letter or a number. Each hyphen must be preceded and followed by a non-hyphen character. The name must also be between 3 and 63 characters long. For more information about naming queues, see [Naming queues and metadata](/rest/api/storageservices/naming-queues-and-metadata).
@@ -213,7 +214,7 @@ Add this code inside the `main` method:
 const AZURE_STORAGE_CONNECTION_STRING = process.env.AZURE_STORAGE_CONNECTION_STRING;
 ```
 
-Decide on a name for the queue and create an instance of the [`QueueClient`](/javascript/api/@azure/storage-queue/queueclient) class, using the connection string for authorization. We'll use this client object to create and interact with the queue resource in the storage account.
+Decide on a name for the queue and create an instance of the [`QueueClient`](/javascript/api/@azure/storage-queue/queueclient) class, using the connection string for authorization. We use this client object to create and interact with the queue resource in the storage account.
 
 > [!IMPORTANT]
 > Queue names may only contain lowercase letters, numbers, and hyphens, and must begin with a letter or a number. Each hyphen must be preceded and followed by a non-hyphen character. The name must also be between 3 and 63 characters long. For more information, see [Naming queues and metadata](/rest/api/storageservices/naming-queues-and-metadata).
@@ -229,6 +230,24 @@ const queueClient = new QueueClient(AZURE_STORAGE_CONNECTION_STRING, queueName);
 ```
 
 ---
+
+> [!NOTE]
+> Messages sent using the [`QueueClient`](/javascript/api/@azure/storage-queue/queueclient) class must be in a format that can be included in an XML request with UTF-8 encoding. To include markup in the message, the contents of the message must either be XML-escaped or Base64-encoded.
+
+Queues messages are stored as strings. If you need to send a different data type, you must serialize that data type into a string when sending the message and deserialize the string format when reading the message.
+
+To convert **JSON** to a string format and back again in Node.js, use the following helper functions:
+
+```javascript
+function jsonToBase64(jsonObj) {
+    const jsonString = JSON.stringify(jsonObj)
+    return  Buffer.from(jsonString).toString('base64')
+}
+function encodeBase64ToJson(base64String) {
+    const jsonString = Buffer.from(base64String,'base64').toString()
+    return JSON.parse(jsonString)
+}
+``` 
 
 ### Create a queue
 
@@ -264,7 +283,7 @@ console.log("Messages added, requestId:", sendMessageResponse.requestId);
 
 ### Peek at messages in a queue
 
-Peek at the messages in the queue by calling the [`peekMessages`](/javascript/api/@azure/storage-queue/queueclient#peekmessages-queuepeekmessagesoptions-) method. This method retrieves one or more messages from the front of the queue but doesn't alter the visibility of the message.
+Peek at the messages in the queue by calling the [`peekMessages`](/javascript/api/@azure/storage-queue/queueclient#peekmessages-queuepeekmessagesoptions-) method. This method retrieves one or more messages from the front of the queue but doesn't alter the visibility of the message. By default, `peekMessages` peeks at a single message.
 
 Add this code to the end of the `main` function:
 
@@ -297,6 +316,15 @@ updateMessageResponse = await queueClient.updateMessage(
 console.log("Message updated, requestId:", updateMessageResponse.requestId);
 ```
 
+### Get the queue length
+
+The [`getProperties`](/javascript/api/@azure/storage-queue/queueclient#getproperties-queuegetpropertiesoptions-) method returns metadata about the queue, including the approximate number of messages waiting in the queue.
+
+```javascript
+const properties = await queueClient.getProperties();
+console.log("Approximate queue length: ", properties.approximateMessagesCount);
+```
+
 ### Receive messages from a queue
 
 Download previously added messages by calling the [`receiveMessages`](/javascript/api/@azure/storage-queue/queueclient#receivemessages-queuereceivemessageoptions-) method. In the `numberOfMessages` field, pass in the maximum number of messages to receive for this call.
@@ -312,11 +340,13 @@ const receivedMessagesResponse = await queueClient.receiveMessages({ numberOfMes
 console.log("Messages received, requestId:", receivedMessagesResponse.requestId);
 ```
 
+When calling the `receiveMessages` method, you can optionally specify values in [QueueReceiveMessageOptions](/javascript/api/@azure/storage-queue/queuereceivemessageoptions) to customize message retrieval. You can specify a value for `numberOfMessages`, which is the number of messages to retrieve from the queue. The default is 1 message and the maximum is 32 messages. You can also specify a value for `visibilityTimeout`, which hides the messages from other operations for the timeout period. The default is 30 seconds.
+
 ### Delete messages from a queue
 
-Delete messages from the queue after they're received and processed. In this case, processing is just displaying the message on the console.
+You can delete messages from the queue after they're received and processed. In this case, processing is just displaying the message on the console.
 
-Delete messages by calling the [`deleteMessage`](/javascript/api/@azure/storage-queue/queueclient#deletemessage-string--string--queuedeletemessageoptions-) method. Any messages not explicitly deleted will eventually become visible in the queue again for another chance to process them.
+Delete messages by calling the [`deleteMessage`](/javascript/api/@azure/storage-queue/queueclient#deletemessage-string--string--queuedeletemessageoptions-) method. Any messages not explicitly deleted eventually become visible in the queue again for another chance to process them.
 
 Add this code to the end of the `main` function:
 

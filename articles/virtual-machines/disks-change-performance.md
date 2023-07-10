@@ -2,11 +2,10 @@
 title: Performance tiers for Azure managed disks
 description: Learn about performance tiers for managed disks.
 author: roygara
-ms.service: storage
+ms.service: azure-disk-storage
 ms.topic: how-to
-ms.date: 08/30/2022
+ms.date: 05/23/2023
 ms.author: rogarana
-ms.subservice: disks
 ms.custom: references_regions
 ---
 
@@ -17,6 +16,8 @@ ms.custom: references_regions
 The performance of your Azure managed disk is set when you create your disk, in the form of its performance tier. When you set the provisioned size of your disk, a performance tier is automatically selected. The performance tier determines the IOPS and throughput your managed disk has. The performance tier can be changed at deployment or afterwards, without changing the size of the disk and without downtime.
 
 Changing the performance tier allows you to prepare for and meet higher demand without using your disk's bursting capability. It can be more cost-effective to change your performance tier rather than rely on bursting, depending on how long the additional performance is necessary. This is ideal for events that temporarily require a consistently higher level of performance, like holiday shopping, performance testing, or running a training environment. To handle these events, you can switch a disk to a higher performance tier without downtime, for as long as you need the additional performance. You can then return to the original tier without downtime when the additional performance is no longer necessary.
+
+To learn more about how the performance of a disk works with the performance of a virtual machine, see [Virtual machine and disk performance](disks-performance.md).
 
 ## Restrictions
 
