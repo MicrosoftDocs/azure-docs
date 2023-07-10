@@ -53,26 +53,26 @@ This section describes how you can assign the necessary permissions to a managed
 1. Copy the name of your managed identity from the Azure portal. For example: The screenshot below shows the name of a system assigned managed identity associated with an Azure Logic Apps workflow called "CSV2SCIMBulkUpload". 
      [![Screenshot of managed identity name.](media/inbound-provisioning-api-grant-access/managed-identity-name.png)](media/inbound-provisioning-api-grant-access/managed-identity-name.png#lightbox) 
 1. Run the following PowerShell script to assign permissions to your managed identity. 
-  ```powershell
-  Install-Module Microsoft.Graph -Scope CurrentUser
-
-  Connect-MgGraph -Scopes "Application.Read.All","AppRoleAssignment.ReadWrite.All,RoleManagement.ReadWrite.Directory"
-  Select-MgProfile Beta
-  $graphApp = Get-MgServicePrincipal -Filter "AppId eq '00000003-0000-0000-c000-000000000000'"
+     ```powershell
+     Install-Module Microsoft.Graph -Scope CurrentUser
+     
+     Connect-MgGraph -Scopes "Application.Read.All","AppRoleAssignment.ReadWrite.All,RoleManagement.ReadWrite.Directory"
+     Select-MgProfile Beta
+     $graphApp = Get-MgServicePrincipal -Filter "AppId eq '00000003-0000-0000-c000-000000000000'"
   
-  $PermissionName = "SynchronizationData-User.Upload"
-  $AppRole = $graphApp.AppRoles | `
-  Where-Object {$_.Value -eq $PermissionName -and $_.AllowedMemberTypes -contains "Application"}
-  $managedID = Get-MgServicePrincipal -Filter "DisplayName eq 'CSV2SCIMBulkUpload'"
-  New-MgServicePrincipalAppRoleAssignment -PrincipalId $managedID.Id -ServicePrincipalId $managedID.Id -ResourceId $graphApp.Id -AppRoleId $AppRole.Id
+     $PermissionName = "SynchronizationData-User.Upload"
+     $AppRole = $graphApp.AppRoles | `
+     Where-Object {$_.Value -eq $PermissionName -and $_.AllowedMemberTypes -contains "Application"}
+     $managedID = Get-MgServicePrincipal -Filter "DisplayName eq 'CSV2SCIMBulkUpload'"
+     New-MgServicePrincipalAppRoleAssignment -PrincipalId $managedID.Id -ServicePrincipalId $managedID.Id -ResourceId $graphApp.Id -AppRoleId $AppRole.Id
 
-  $PermissionName = "AuditLog.Read.All"
-  $AppRole = $graphApp.AppRoles | `
-  Where-Object {$_.Value -eq $PermissionName -and $_.AllowedMemberTypes -contains "Application"}
-  $managedID = Get-MgServicePrincipal -Filter "DisplayName eq 'CSV2SCIMBulkUpload'"
-  New-MgServicePrincipalAppRoleAssignment -PrincipalId $managedID.Id -ServicePrincipalId $managedID.Id -ResourceId $graphApp.Id -AppRoleId $AppRole.Id
+     $PermissionName = "AuditLog.Read.All"
+     $AppRole = $graphApp.AppRoles | `
+     Where-Object {$_.Value -eq $PermissionName -and $_.AllowedMemberTypes -contains "Application"}
+     $managedID = Get-MgServicePrincipal -Filter "DisplayName eq 'CSV2SCIMBulkUpload'"
+     New-MgServicePrincipalAppRoleAssignment -PrincipalId $managedID.Id -ServicePrincipalId $managedID.Id -ResourceId $graphApp.Id -AppRoleId $AppRole.Id
 
-   ```
+     ```
 1. To confirm that the permission was applied, find the managed identity service principal under **Enterprise Applications** in Azure AD. Remove the **Application type** filter to see all service principals. 
      [![Screenshot of managed identity principal.](media/inbound-provisioning-api-grant-access/managed-identity-principal.png)](media/inbound-provisioning-api-grant-access/managed-identity-principal.png#lightbox) 
 1. Click on the **Permissions** blade under **Security**. Ensure the permission is set. 
@@ -81,6 +81,6 @@ This section describes how you can assign the necessary permissions to a managed
 
 
 ## Next steps
-[Invoke inbound provisioning API using cURL](inbound-provisioning-api-curl-tutorial.md)
-[Frequently asked questions about API-driven inbound provisioning](inbound-provisioning-api-faqs.md)
+- [Invoke inbound provisioning API using cURL](inbound-provisioning-api-curl-tutorial.md)
+- [Frequently asked questions about API-driven inbound provisioning](inbound-provisioning-api-faqs.md)
 
