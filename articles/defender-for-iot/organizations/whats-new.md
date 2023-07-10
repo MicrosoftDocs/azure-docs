@@ -27,7 +27,11 @@ Features released earlier than nine months ago are described in the [What's new 
 
 Starting July 5, existing customers can migrate their legacy Defender for IoT purchasing plans to a **Microsoft 365** plan, based on site-based, Microsoft 365 licenses.
 
-On the **Plans and pricing** page, edit your plan and select the **Microsoft 365** plan instead of your current monthly or annual plan. Then, edit any relevant sites to match your newly licensed site sizes. <!--for example TBD-->
+On the **Plans and pricing** page, edit your plan and select the **Microsoft 365** plan instead of your current monthly or annual plan. For example:
+
+:::image type="content" source="media/release-notes/migrate-to-365.png" alt-text="Screenshot of updating your pricing plan to Microsoft 365.":::
+
+Make sure to edit any relevant sites to match your newly licensed site sizes. <!--for example TBD-->
 
 For more information, see [Migrate from a legacy OT plan](how-to-manage-subscriptions.md#migrate-from-a-legacy-ot-plan) and [Defender for IoT subscription billing](billing.md).
 
