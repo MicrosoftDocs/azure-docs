@@ -309,8 +309,9 @@ ml_client = MLClient(
 )
 
 ci_minimal_name = "ci-name"
+ci_start_time = "2023-06-21T11:47:00" #specify your start time in the format yyyy-mm-ddThh:mm:ss
 
-rec_trigger = RecurrenceTrigger(start_time="yyyy-mm-ddThh:mm:ss", time_zone=TimeZone.INDIA_STANDARD_TIME, frequency="week", interval=1, schedule=RecurrencePattern(week_days=["Friday"], hours=15, minutes=[30]))
+rec_trigger = RecurrenceTrigger(start_time=ci_start_time, time_zone=TimeZone.INDIA_STANDARD_TIME, frequency="week", interval=1, schedule=RecurrencePattern(week_days=["Friday"], hours=15, minutes=[30]))
 myschedule = ComputeStartStopSchedule(trigger=rec_trigger, action="start")
 com_sch = ComputeSchedules(compute_start_stop=[myschedule])
 
