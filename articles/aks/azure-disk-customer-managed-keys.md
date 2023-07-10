@@ -3,7 +3,7 @@ title: Use a customer-managed key to encrypt Azure disks in Azure Kubernetes Ser
 description: Bring your own keys (BYOK) to encrypt AKS OS and Data disks.
 ms.topic: article
 ms.custom: devx-track-azurecli
-ms.date: 07/05/2023
+ms.date: 07/10/2023
 ---
 
 # Bring your own keys (BYOK) with Azure disks in Azure Kubernetes Service (AKS)
@@ -135,10 +135,10 @@ To create a regular cluster using network-attached OS disks encrypted with your 
 az aks create -n myAKSCluster -g myResourceGroup --node-osdisk-diskencryptionset-id $diskEncryptionSetId --generate-ssh-keys --node-osdisk-type Managed
 ```
 
-To create a cluster with ephemeral OS disk encrypted with your key, you can do so by specifying the `--node-osdisk-type=Ephemeral` argument.
+To create a cluster with ephemeral OS disk encrypted with your key, you can do so by specifying the `--node-osdisk-type=Ephemeral` argument. You also need to specify the argument `--node-vm-size` because the default vm size is too small and doesn't support ephemeral OS disk.
 
 ```azurecli-interactive
-az aks create -n myAKSCluster -g myResourceGroup --node-osdisk-diskencryptionset-id $diskEncryptionSetId --generate-ssh-keys --node-osdisk-type Ephemeral
+az aks create -n myAKSCluster -g myResourceGroup --node-osdisk-diskencryptionset-id $diskEncryptionSetId --generate-ssh-keys --node-osdisk-type Ephemeral --node-vm-size Standard_DS3_v2
 ```
 
 When new node pools are added to the cluster, the customer-managed key provided during the create process is used to encrypt the OS disk. The following example shows how to deploy a new node pool with an ephemeral OS disk.
