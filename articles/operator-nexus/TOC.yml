@@ -113,12 +113,6 @@
       href: troubleshoot-internet-host-virtual-machine.md
     - name: Troubleshoot BMM reboot issues
       href: troubleshoot-bmm-node-reboot.md
-- name: Sample Deployment
-  items:
-    - name: VNF Deployment
-      href: template-virtualized-network-function-deployment.md
-    - name: CNF Deployment
-      href: template-cloud-native-network-function-deployment.md
 - name: Reference
   items:
     - name: Instance to On-Premises WAN Connectivity
