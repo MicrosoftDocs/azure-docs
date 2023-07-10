@@ -28,7 +28,32 @@ This page is updated regularly with the latest developments in Azure Private 5G 
 
 **Type:** New release
 
-**Date available:** July 3, 2023
+**Date available:** July 5, 2023
+
+### Configuration changes to Packet Core without a reinstall and changes to MCC, MNC
+
+**Type:** New feature
+
+**Date available:** July 5, 2023
+
+It is now possible to:
+- attach a new or existing data network
+- modify an attached data network's configuration
+  
+followed by a few minutes of downtime, but not a packet core reinstall.
+
+For details, see [Modify a packet core instance](https://learn.microsoft.com/en-us/azure/private-5g-core/modify-packet-core).
+
+### PLMN configuration
+
+**Type:** New feature
+
+**Date available:** July 5, 2023
+
+You can now change the public land mobile network (PLMN) identifier, comprising a Mobile Country Code (MCC) and Mobile Network Code (MNC), on an existing private mobile network. Previously, this required recreating the network with the new configuration.
+
+To change your PLMN configuration, see [Deploy a private mobile network through Azure Private 5G Core](https://learn.microsoft.com/en-us/azure/private-5g-core/how-to-guide-deploy-a-private-mobile-network-azure-portal).
+
 
 ## May 2023
 
@@ -39,6 +64,27 @@ This page is updated regularly with the latest developments in Azure Private 5G 
 **Date available:** May 31, 2023
 
 The 2305 release for the Azure Private 5G Core packet core is now available. For more information, see [Azure Private 5G Core 2305 release notes](azure-private-5g-core-release-notes-2305.md).
+
+### Easier creation of a site using PowerShell
+
+**Type:** New feature
+
+**Date available:** May 31, 2023
+
+New-MobileNetworkSite now supports additional parameter which make it easier to create a Site and its dependants resources.
+
+For details, see [Create additional Packet Core instances for a site using the Azure portal](https://learn.microsoft.com/en-us/azure/private-5g-core/create-additional-packet-core)
+ 
+### Multiple Packet Cores under the same Site
+
+**Type:** New feature
+
+**Date available:** May 1, 2023
+
+From the web portal it is now possible to add multiple packet core in the same site 
+
+For details, see [Create a Site and dependant resources](https://learn.microsoft.com/en-us/azure/private-5g-core/deploy-private-mobile-network-with-site-powershell#create-a-site-and-dependant-resources)
+
 
 ## March 2023
 
