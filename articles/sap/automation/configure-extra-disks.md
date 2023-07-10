@@ -80,14 +80,17 @@ Create a file using the structure shown below and save the file in the same fold
 > The path to the disk configuration needs to be relative to the folder containing the tfvars file.
 
 
-The following sample code is an example configuration file. It defines three data disks (LUNs 0, 1, and 2), a log disk (LUN 9, using the Ultra SKU) and a backup disk (LUN 13, using the standard SSDN SKU). The application tier servers (Application, Central Services amd Web Dispatchers) will be deployed with jus a single 'sap' data disk.
+The following sample code is an example configuration file. It defines three data disks (LUNs 0, 1, and 2), a log disk (LUN 9, using the Ultra SKU) and a backup disk (LUN 13). The application tier servers (Application, Central Services amd Web Dispatchers) will be deployed with jus a single 'sap' data disk.
+
+The three data disks will be striped using LVM. The log disk will be mounted as a single disk. The backup disk will be mounted as a single disk.
+
 
 ```json
 {
   "db" : {
     "Default": {
       "compute": {
-        "vm_size"                 : "Standard_D4s_v3",
+        "vm_size"                 : "Standard_E20ds_v4",
         "swap_size_gb"            : 2
       },
       "storage": [

@@ -213,6 +213,11 @@ The process of scaling storage is performed online, without causing any downtime
 
 Remember that storage can only be scaled up, not down.
 
+## Limitations 
+
+1. During preview, storage auto-grow cannot be configured for HA / Read replica-enabled servers and we are going to support this very soon.
+2. Storage Autogrow does not trigger when there is a high WAL usage to avoid unnecessary autogrow events. 
+
 
 ## Backup
 

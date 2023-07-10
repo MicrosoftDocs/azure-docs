@@ -2,8 +2,7 @@
 title: Enable AD DS authentication for Azure file shares
 description: Learn how to enable Active Directory Domain Services authentication over SMB for Azure file shares. Your domain-joined Windows virtual machines can then access Azure file shares by using AD DS credentials. 
 author: khdownie
-ms.service: storage
-ms.subservice: files
+ms.service: azure-file-storage
 ms.topic: how-to
 ms.date: 03/28/2023
 ms.author: kendownie 

@@ -2,11 +2,10 @@
 title: What's new in Azure Files and Azure File Sync
 description: Learn about new features and enhancements in Azure Files and Azure File Sync.
 author: khdownie
-ms.service: storage
+ms.service: azure-file-storage
 ms.topic: conceptual
 ms.date: 05/24/2023
 ms.author: kendownie
-ms.subservice: files
 ---
 
 # What's new in Azure Files
