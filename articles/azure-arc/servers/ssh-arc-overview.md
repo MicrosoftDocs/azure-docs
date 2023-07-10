@@ -122,8 +122,8 @@ In order to use the SSH connect feature, you must update the Service Configurati
 
 If you're using a nondefault port for your SSH connection, replace port 22 with your desired port in the previous command.
 
-### Optional: Install AAD login extension
-The `Azure AD based SSH Login – Azure Arc` VM extension can be added from the extensions menu of the Arc server. The AAD login extension can also be installed locally via a package manager via: `apt-get install aadsshlogin` or the following command.
+### Optional: Install Azure AD login extension
+The `Azure AD based SSH Login – Azure Arc` VM extension can be added from the extensions menu of the Arc server. The Azure AD login extension can also be installed locally via a package manager via: `apt-get install aadsshlogin` or the following command.
 
 ```az connectedmachine extension create --machine-name <arc enabled server name> --resource-group <resourcegroup> --publisher Microsoft.Azure.ActiveDirectory --name AADSSHLogin --type AADSSHLoginForLinux --location <location>```
 

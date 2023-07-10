@@ -29,7 +29,7 @@ Resolution:
 - Provide the path to the folder that contains the SSH client executables by using the ```--ssh-client-folder``` parameter.
 - Ensure that the folder is in the PATH environment variable for Azure PowerShell
 
-### Azure PowerShell module version mis-match 
+### Azure PowerShell module version mismatch 
 This issue occurs when the installed Azure PowerShell submodule, Az.Ssh.ArcProxy, isn't supported by the installed version of Az.Ssh. Error:
 
 - `This version of Az.Ssh only supports version 1.x.x of the Az.Ssh.ArcProxy PowerShell Module. The Az.Ssh.ArcProxy module {ModulePath} version is {ModuleVersion}, and it is not supported by this version of the Az.Ssh module. Check that this version of Az.Ssh is the latest available.`
@@ -106,7 +106,7 @@ This issue occurs when the current user doesn't have the proper role assignment 
 - `Request for Azure Relay Information Failed: (AuthorizationFailed) The client '\<user name\>' with object id '\<ID\>' does not have authorization to perform action 'Microsoft.HybridConnectivity/endpoints/listCredentials/action' over scope '/subscriptions/\<Subscription ID\>/resourceGroups/\<Resource Group\>/providers/Microsoft.HybridCompute/machines/\<Machine Name\>/providers/Microsoft.HybridConnectivity/endpoints/default' or the scope is invalid. If access was recently granted, please refresh your credentials.`
 
 Resolution:
-- Ensure that you have the Virtual Machine Local user Login role on the resource you're connecting to. If using Azure AD login, ensure you have the Virtual Machine User Login or the Virtual Machine Administrator Login roles and that the AAD SSH Login extension is installed on the Arc-Enabled Server.
+- Ensure that you have the Virtual Machine Local user Login role on the resource you're connecting to. If using Azure AD login, ensure you have the Virtual Machine User Login or the Virtual Machine Administrator Login roles and that the Azure AD SSH Login extension is installed on the Arc-Enabled Server.
 
 ### HybridConnectivity RP not registered
 
