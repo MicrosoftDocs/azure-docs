@@ -72,9 +72,9 @@ The 2305 release for the Azure Private 5G Core packet core is now available. For
 
 **Date available:** May 31, 2023
 
-New-MobileNetworkSite now supports additional parameter which make it easier to create a Site and its dependants resources.
+New-MobileNetworkSite now supports an additional parameter that makes it easier to create a site and its dependant resources.
 
-For details, see [Create additional Packet Core instances for a site using the Azure portal](https://learn.microsoft.com/en-us/azure/private-5g-core/create-additional-packet-core)
+For details, see [Create additional Packet Core instances for a site using the Azure portal](https://learn.microsoft.com/en-us/azure/private-5g-core/create-additional-packet-core).
  
 ### Multiple Packet Cores under the same Site
 
@@ -82,9 +82,9 @@ For details, see [Create additional Packet Core instances for a site using the A
 
 **Date available:** May 1, 2023
 
-From the web portal it is now possible to add multiple packet core in the same site 
+It is now possible to add multiple packet cores in the same site using the Azure portal. 
 
-For details, see [Create a Site and dependant resources](https://learn.microsoft.com/en-us/azure/private-5g-core/deploy-private-mobile-network-with-site-powershell#create-a-site-and-dependant-resources)
+For details, see [Create a Site and dependant resources](https://learn.microsoft.com/en-us/azure/private-5g-core/deploy-private-mobile-network-with-site-powershell#create-a-site-and-dependant-resources).
 
 
 ## March 2023

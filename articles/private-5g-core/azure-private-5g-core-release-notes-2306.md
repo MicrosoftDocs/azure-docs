@@ -24,10 +24,10 @@ Packet core versions are supported until two subsequent versions have been relea
   The following configuration can now be changed without reinstalling the packet core:
   - Adding an attached data network
   - Modifying attached data network configuration: 
-  - Dynamic UE IP pool prefixes
-  - Static UE IP pool prefixes
-  - Network address and port translation parameters
-  - DNS addresses
+    - Dynamic UE IP pool prefixes
+    - Static UE IP pool prefixes
+    - Network address and port translation parameters
+    - DNS addresses
 
 To change your packet core configuration, see [Modify a packet core instance](https://learn.microsoft.com/en-us/azure/private-5g-core/modify-packet-core).
 
