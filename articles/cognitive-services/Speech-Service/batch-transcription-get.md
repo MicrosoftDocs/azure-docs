@@ -285,9 +285,9 @@ The contents of each transcription result file are formatted as JSON, as shown i
 ```json
 {
   "source": "...",
-  "timestamp": "2022-09-16T09:30:21Z",  
-  "durationInTicks": 41200000,
-  "duration": "PT4.12S",
+  "timestamp": "2023-07-10T14:28:16Z",
+  "durationInTicks": 25800000,
+  "duration": "PT2.58S",
   "combinedRecognizedPhrases": [
     {
       "channel": 0,
@@ -300,39 +300,62 @@ The contents of each transcription result file are formatted as JSON, as shown i
   "recognizedPhrases": [
     {
       "recognitionStatus": "Success",
-      "speaker": 1,
       "channel": 0,
-      "offset": "PT0.07S",
-      "duration": "PT1.59S",
-      "offsetInTicks": 700000.0,
-      "durationInTicks": 15900000.0,
-
+      "offset": "PT0.76S",
+      "duration": "PT1.32S",
+      "offsetInTicks": 7600000.0,
+      "durationInTicks": 13200000.0,
       "nBest": [
         {
-          "confidence": 0.898652852,
+          "confidence": 0.5643338,
           "lexical": "hello world",
           "itn": "hello world",
           "maskedITN": "hello world",
           "display": "Hello world.",
-
-          "words": [
+          "displayWords": [
             {
-              "word": "hello",
-              "offset": "PT0.09S",
-              "duration": "PT0.48S",
-              "offsetInTicks": 900000.0,
-              "durationInTicks": 4800000.0,
-              "confidence": 0.987572
+              "displayText": "Hello",
+              "offset": "PT0.76S",
+              "duration": "PT0.76S",
+              "offsetInTicks": 7600000.0,
+              "durationInTicks": 7600000.0
             },
             {
-              "word": "world",
-              "offset": "PT0.59S",
-              "duration": "PT0.16S",
-              "offsetInTicks": 5900000.0,
-              "durationInTicks": 1600000.0,
-              "confidence": 0.906032
+              "displayText": "world.",
+              "offset": "PT1.52S",
+              "duration": "PT0.56S",
+              "offsetInTicks": 15200000.0,
+              "durationInTicks": 5600000.0
             }
           ]
+        },
+        {
+          "confidence": 0.1769063,
+          "lexical": "helloworld",
+          "itn": "helloworld",
+          "maskedITN": "helloworld",
+          "display": "helloworld"
+        },
+        {
+          "confidence": 0.49964225,
+          "lexical": "hello worlds",
+          "itn": "hello worlds",
+          "maskedITN": "hello worlds",
+          "display": "hello worlds"
+        },
+        {
+          "confidence": 0.4995761,
+          "lexical": "hello worm",
+          "itn": "hello worm",
+          "maskedITN": "hello worm",
+          "display": "hello worm"
+        },
+        {
+          "confidence": 0.49418187,
+          "lexical": "hello word",
+          "itn": "hello word",
+          "maskedITN": "hello word",
+          "display": "hello word"
         }
       ]
     }
