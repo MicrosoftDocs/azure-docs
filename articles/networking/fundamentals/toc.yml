@@ -8,10 +8,18 @@
   items:
   - name: Create a virtual network
     href: ../../virtual-network/quick-create-portal.md?toc=/azure/networking/fundamentals/toc.json
+  - name: Create a public load balancer
+    href: ../../load-balancer/quickstart-load-balancer-standard-public-portal.md?toc=/azure/networking/fundamentals/toc.json
+  - name: Create a front door
+    href: ../../frontdoor/create-front-door-portal.md?toc=/azure/networking/fundamentals/toc.json
 - name: Tutorials
   items:
+  - name: Deploy and manage a VPN gateway
+    href: ../../vpn-gateway/tutorial-create-gateway-portal.md?toc=/azure/networking/fundamentals/toc.json
   - name: Restrict network access
     href: ../../virtual-network/tutorial-restrict-network-access-to-resources.md?toc=/azure/networking/fundamentals/toc.json
+  - name: Deploy and configure Azure Firewall using the Azure portal
+    href: ../../firewall/tutorial-firewall-deploy-portal-policy.md?toc=/azure/networking/fundamentals/toc.json
 - name: Samples
   items:
   - name: Azure Resource Graph queries
@@ -29,6 +37,8 @@
       href: ../working-remotely-support.md?toc=/azure/networking/fundamentals/toc.json  
     - name: Virtual networks
       href: ../../virtual-network/virtual-network-vnet-plan-design-arm.md?toc=/azure/networking/fundamentals/toc.json
+    - name: Hub-spoke network topology in Azure
+      href: /azure/architecture/reference-architectures/hybrid-networking/hub-spoke?toc=/azure/networking/fundamentals/toc.json
     - name: Cross-premises connectivity - VPN
       items:
       - name: VPN Gateway
