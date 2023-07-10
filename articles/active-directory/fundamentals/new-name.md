@@ -30,7 +30,7 @@ All features and capabilities are still available in the product. Licensing, ter
 
 Service plan display names will change on October 1, 2023. Microsoft Entra ID Free, Microsoft Entra ID P1, and Microsoft Entra ID P2 will be the new names of standalone offers, and all capabilities included in the current Azure AD plans remain the same. Microsoft Entra ID – currently known as Azure AD – will continue to be included in Microsoft 365 licensing plans, including Microsoft 365 E3 and Microsoft 365 E5. Details on pricing and what’s included are available on the [pricing and free trials page](https://aka.ms/PricingEntra).
 
-:::image type="content" source="./media/new-name/azure-ad-new-name.png" alt-text="Diagram showing the new name for Azure AD and Azure AD External Identities." border="false" lightbox="./media/new-name/azure-ad-new-name-highres.png":::
+:::image type="content" source="./media/new-name/azure-ad-new-name.png" alt-text="Diagram showing the new name for Azure AD and Azure AD External Identities." border="false" lightbox="./media/new-name/azure-ad-new-name-high-res.png":::
 
 During 2023, you may see both the current Azure AD name and the new Microsoft Entra ID name in support area paths. For self-service support, look for the topic path of "Microsoft Entra" or "Azure Active Directory/Microsoft Entra ID."
 
