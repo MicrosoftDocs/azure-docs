@@ -6,14 +6,14 @@ author: mbender-ms
 ms.service: virtual-network
 ms.topic: conceptual
 ms.workload: infrastructure-services
-ms.date: 03/09/2023
+ms.date: 07/10/2023
 ms.author: mbender
 ms.custom: template-concept, engagement-fy23
 ---
 
 # Azure networking services overview
 
-The networking services in Azure provide a variety of networking capabilities that can be used together or separately. Select any of the following key capabilities to learn more about them:
+The networking services in Azure provide various networking capabilities that can be used together or separately. Select any of the following key capabilities to learn more about them:
 - [**Connectivity services**](#connect): Connect Azure resources and on-premises resources using any or a combination of these networking services in Azure - Virtual Network (VNet), Virtual WAN, ExpressRoute, VPN Gateway, Virtual network NAT Gateway, Azure DNS, Peering service, Azure Virtual Network Manager, Route Server, and Azure Bastion.
 - [**Application protection services**](#protect): Protect your applications  using any or a combination of these networking services in Azure - Load Balancer, Private Link, DDoS protection, Firewall, Network Security Groups, Web Application Firewall, and Virtual Network Endpoints.
 - [**Application delivery services**](#deliver): Deliver applications in the Azure network using any or a combination of these networking services in Azure - Content Delivery Network (CDN), Azure Front Door Service, Traffic Manager, Application Gateway, Internet Analyzer, and Load Balancer.
@@ -31,6 +31,12 @@ Azure Virtual Network (VNet) is the fundamental building block for your private 
 - **Communicate with on-premises networks**: You can connect your on-premises computers and networks to a virtual network using [VPN Gateway](../../vpn-gateway/vpn-gateway-about-vpngateways.md) or [ExpressRoute](../../expressroute/expressroute-introduction.md).
 
 For more information, see [What is Azure Virtual Network?](../../virtual-network/virtual-networks-overview.md)
+
+### <a name="avnm"></a>Azure Virtual Network Manager
+
+Azure Virtual Network Manager is a management service that enables you to group, configure, deploy, and manage virtual networks globally across subscriptions. With Virtual Network Manager, you can define [network groups](../../virtual-network-manager/concept-network-groups.md) to identify and logically segment your virtual networks. Then you can determine the [connectivity](../../virtual-network-manager/concept-connectivity-configuration.md) and [security configurations](../../virtual-network-manager/concept-security-admins.md) you want and apply them across all the selected virtual networks in network groups at once. For more information, see [What is Azure Virtual Network Manager?](../../virtual-network-manager/overview.md).
+
+:::image type="content" source="../../virtual-network-manager/media/create-virtual-network-manager-portal/virtual-network-manager-resources-diagram.png" alt-text="Diagram of resources deployed for a mesh virtual network topology with Azure virtual network manager.":::
 
 ### <a name="expressroute"></a>ExpressRoute
 ExpressRoute enables you to extend your on-premises networks into the Microsoft cloud over a private connection facilitated by a connectivity provider. This connection is private. Traffic doesn't go over the internet. With ExpressRoute, you can establish connections to Microsoft cloud services, such as Microsoft Azure, Microsoft 365, and Dynamics 365.  For more information, see [What is ExpressRoute?](../../expressroute/expressroute-introduction.md)
@@ -68,7 +74,7 @@ Azure DNS is a hosting service for DNS domains that provides name resolution by 
 
 ### <a name="bastion"></a>Azure Bastion
 
-Azure Bastion is a service that you can deploy to let you connect to a virtual machine using your browser and the Azure portal, or via the native SSH or RDP client already installed on your local computer. The Azure Bastion service is a fully platform-managed PaaS service that you provision inside your virtual network. It provides secure and seamless RDP/SSH connectivity to your virtual machines directly from the Azure portal over TLS. When you connect via Azure Bastion, your virtual machines don't need a public IP address, agent, or special client software. For more information, see [What is Azure Bastion?](../../bastion/bastion-overview.md)
+Azure Bastion is a service that you can deploy to let you connect to a virtual machine using your browser and the Azure portal, or via the native SSH or RDP client already installed on your local computer. The Azure Bastion service is a fully platform-managed PaaS service that you deploy inside your virtual network. It provides secure and seamless RDP/SSH connectivity to your virtual machines directly from the Azure portal over TLS. When you connect via Azure Bastion, your virtual machines don't need a public IP address, agent, or special client software. For more information, see [What is Azure Bastion?](../../bastion/bastion-overview.md)
 
 :::image type="content" source="../../bastion/media/bastion-overview/architecture.png" alt-text="Diagram showing Azure Bastion architecture.":::
 
@@ -77,10 +83,6 @@ Virtual Network NAT (network address translation) simplifies outbound-only Inter
 For more information, see [What is virtual network NAT gateway?](../../virtual-network/nat-gateway/nat-overview.md)
 
 :::image type="content" source="./media/networking-overview/flow-map.png" alt-text="Virtual network NAT gateway":::
-
-### <a name="avnm"></a>Azure Virtual Network Manager
-
-Azure Virtual Network Manager is a management service that enables you to group, configure, deploy, and manage virtual networks globally across subscriptions. With Virtual Network Manager, you can define network groups to identify and logically segment your virtual networks. Then you can determine the connectivity and security configurations you want and apply them across all the selected virtual networks in network groups at once. For more information, see [What is Azure Virtual Network Manager?](../../virtual-network-manager/overview.md).
 
 ### <a name="routeserver"></a>Route Server
 
@@ -112,9 +114,9 @@ For more information about Azure Firewall, see the [Azure Firewall documentation
 :::image type="content" source="./media/networking-overview/firewall-threat.png" alt-text="Firewall overview":::
 
 ### <a name="waf"></a>Web Application Firewall
-[Azure Web Application Firewall](../../web-application-firewall/overview.md) (WAF) provides protection to your web applications from common web exploits and vulnerabilities such as SQL injection, and cross site scripting. Azure WAF provides out of box protection from OWASP top 10 vulnerabilities via managed rules. Additionally customers can also configure custom rules, which are customer managed rules to provide additional protection based on source IP range, and request attributes such as headers, cookies, form data fields or query string parameters.
+[Azure Web Application Firewall](../../web-application-firewall/overview.md) (WAF) provides protection to your web applications from common web exploits and vulnerabilities such as SQL injection, and cross site scripting. Azure WAF provides out of box protection from OWASP top 10 vulnerabilities via managed rules. Additionally customers can also configure custom rules, which are customer managed rules to provide extra protection based on source IP range, and request attributes such as headers, cookies, form data fields or query string parameters.
 
-Customers can choose to deploy [Azure WAF with Application Gateway](../../web-application-firewall/ag/ag-overview.md) which provides regional protection to entities in public and private address space. Customers can also choose to deploy [Azure WAF with Front Door](../../web-application-firewall/afds/afds-overview.md) which provides protection at the network edge to public endpoints.
+Customers can choose to deploy [Azure WAF with Application Gateway](../../web-application-firewall/ag/ag-overview.md), which provides regional protection to entities in public and private address space. Customers can also choose to deploy [Azure WAF with Front Door](../../web-application-firewall/afds/afds-overview.md) which provides protection at the network edge to public endpoints.
 
 :::image type="content" source="./media/networking-overview/waf-overview.png" alt-text="Web Application Firewall":::
 
