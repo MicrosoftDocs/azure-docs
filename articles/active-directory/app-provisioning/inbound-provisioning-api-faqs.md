@@ -13,7 +13,7 @@ ms.author: jfields
 ms.reviewer: chmutali
 ---
 
-# Frequently asked questions about API-driven inbound provisioning
+# Frequently asked questions about API-driven inbound provisioning (Public preview)
 
 This article answers frequently asked questions (FAQs) about API-driven inbound provisioning.
 
@@ -28,7 +28,7 @@ There are significant differences between the Provisioning /bulkUpload API and t
 - **IT admin retains control**: With API-driven inbound provisioning, the IT admin has more control on how the incoming identity data is processed and mapped to Azure AD attributes. They can define scoping rules to exclude certain types of identity data (for example, contractor data) and use transformation functions to derive new values before setting the attribute values on the user profile.
 
 
-## Is the inbound provisioning /bulkUpload API a true/standardized SCIM Endpoint?
+## Is the inbound provisioning /bulkUpload API a standard SCIM Endpoint?
 
 The MS Graph inbound provisioning /bulkUpload API uses SCIM schema in the request payload, but it's *not* a standardized SCIM API endpoint. Here's why.
 

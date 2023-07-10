@@ -13,9 +13,12 @@ ms.author: jfields
 ms.reviewer: chmutali
 ---
 
-# API-driven inbound provisioning concepts
+# API-driven inbound provisioning concepts (Public preview)
 
 This document provides a conceptual overview of the Azure AD API-driven inbound user provisioning.
+
+> [!IMPORTANT]
+> API-driven inbound provisioning is currently in public preview and is governed by [Preview Terms of Use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## Introduction
 
@@ -25,9 +28,9 @@ With API-driven inbound provisioning, the Azure AD provisioning service now supp
 
 ## Supported Scenarios
 
-Several inbound user provisioning scenarios are enabled using API-driven inbound provisioning. This diagram demonstrates the most common scenarios. 
+Several inbound user provisioning scenarios are enabled using API-driven inbound provisioning. This diagram demonstrates the most common scenarios.
 
-:::image type="content" source="media/inbound-provisioning-api-concepts/api-workflow-scenarios.png" alt-text="Diagram that shows API scenarios." lightbox="media/application-provisioning-api-concepts/api-workflow-scenarios.png":::
+:::image type="content" source="media/inbound-provisioning-api-concepts/api-workflow-scenarios.png" alt-text="Diagram that shows API scenarios." lightbox="media/inbound-provisioning-api-concepts/api-workflow-scenarios.png":::
 
 ### Scenario 1: Enable IT teams to import HR data extracts using any automation tool
 Flat files, CSV files and SQL staging tables are commonly used in enterprise integration scenarios. Employee, contractor and vendor information is periodically exported into one of these formats and an automation tool is used to sync this data with enterprise identity directories. With API-driven inbound provisioning, IT teams can use any automation tool of their choice (example: PowerShell scripts or Azure Logic Apps) to modernize and simplify this integration.   
@@ -49,7 +52,7 @@ In all the above scenarios, the integration is greatly simplified as Azure AD pr
 2. IT Admin provides endpoint access details to the API developer/partner/system integrator.
 3. The API developer/partner/system integrator builds an API client to send authoritative identity data to Azure AD.
 4. The API client reads identity data from the authoritative source.
-5. The API client sends a POST request to provisioning [/bulkUpload](/graph/api/synchronization-synchronizationjob-post-bulkupload?view=graph-rest-beta) API endpoint associated with the provisioning app. 
+5. The API client sends a POST request to provisioning [/bulkUpload](/graph/api/synchronization-synchronizationjob-post-bulkupload) API endpoint associated with the provisioning app. 
     >[!NOTE] 
     > The API client doesn't need perform any comparisons between the source attributes and the target attribute values to determine what operation (create/update/enable/disable) to perform. This is automatically handled by the provisioning service. The API client simply uploads the identity data read received from the source system as-is as a bulk request using the SCIM schema. 
 1. If successful, an ```Accepted 202 Status``` is returned. 
@@ -61,7 +64,7 @@ In all the above scenarios, the integration is greatly simplified as Azure AD pr
 
 ### Key features of API-driven inbound user provisioning
 
-- Delivered as a provisioning app that that exposes an *asynchronous* Microsoft Graph provisioning [/bulkUpload](/graph/api/synchronization-synchronizationjob-post-bulkupload?view=graph-rest-beta) API endpoint accessed using valid OAuth token.
+- Delivered as a provisioning app that that exposes an *asynchronous* Microsoft Graph provisioning [/bulkUpload](/graph/api/synchronization-synchronizationjob-post-bulkupload) API endpoint accessed using valid OAuth token.
 - Tenant admins must grant API clients interacting with this provisioning app the Graph permission `SynchronizationData-User.Upload`. 
 - The Graph API endpoint accepts valid bulk request payloads using SCIM schema elements.
 - With SCIM schema extensions, you can send any attribute in the payload. 
@@ -69,7 +72,7 @@ In all the above scenarios, the integration is greatly simplified as Azure AD pr
 - Each API endpoint is associated with a specific provisioning app in Azure AD. You can integrate multiple data sources by creating a provisioning app for each data source. 
 - Incoming bulk request payloads are processed in near real-time.
 - Admins can check provisioning progress by viewing the [provisioning logs](../reports-monitoring/concept-provisioning-logs.md). 
-- API clients can track progress by querying [provisioning logs API](/graph/api/resources/provisioningobjectsummary?view=graph-rest-1.0).
+- API clients can track progress by querying [provisioning logs API](/graph/api/resources/provisioningobjectsummary).
 
 ## Next steps
 [Frequently asked questions about API-driven inbound provisioning](inbound-provisioning-api-faqs.md)
