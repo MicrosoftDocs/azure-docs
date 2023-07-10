@@ -1,11 +1,11 @@
 ---
 title: Create an Azure Operator Nexus virtual machine by using Azure CLI
-description: Learn how to create an Azure Operator Nexus VM for VNF workloads
+description: Learn how to create an Azure Operator Nexus virtual machine (VM) for virtual network function (VNF) workloads
 author: dramasamy
 ms.author: dramasamy
 ms.service: azure-operator-nexus
 ms.topic: how-to
-ms.date: 03/10/2023
+ms.date: 07/10/2023
 ms.custom: template-how-to-pattern
 ---
 
@@ -117,5 +117,5 @@ After a few minutes, the command completes and returns information about the vir
 [!INCLUDE [quickstart-cleanup](./includes/virtual-machine/quickstart-cleanup.md)]
 
 ## Next steps
-You've successfully created a Nexus virtual machine. You can now use the virtual machine to host virtual network functions (VNFs).
 
+You've successfully created a Nexus virtual machine. You can now use the virtual machine to host virtual network functions (VNFs).

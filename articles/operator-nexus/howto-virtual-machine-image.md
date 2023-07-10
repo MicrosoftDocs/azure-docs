@@ -1,6 +1,6 @@
 ---
 title: Create image for Azure Operator Nexus virtual machine
-description: Create container image for Azure Operator Nexus virtual machine
+description: Create container image for Operator Nexus virtual machine
 author: dramasamy
 ms.author: dramasamy
 ms.service: azure-operator-nexus
@@ -11,7 +11,7 @@ ms.custom: template-how-to-pattern
 
 # Create image for Azure Operator Nexus virtual machine
 
-In this article, you learn how to create a container image that can be used to create a virtual machine in Azure Operator Nexus. Specifically, you learn how to add a virtual disk to the container image. Once the container image is built and pushed to an Azure container registry, it can be used to create a virtual machine in Azure Operator Nexus.
+In this article, you learn how to create a container image that can be used to create a virtual machine in Operator Nexus. Specifically, you learn how to add a virtual disk to the container image. Once the container image is built and pushed to an Azure container registry, it can be used to create a virtual machine in Operator Nexus.
 
 ## Prerequisites
 
@@ -47,7 +47,7 @@ Ensure you have an operational Azure Container Registry (ACR) and Docker install
    * Container disks should be based on the `scratch` image, which is an empty base image that contains no files or directories other than the image itself. Using `scratch` as the base image ensures that the container image is as small as possible and only includes the necessary files for the VNF.
 
 
-## Create image for Azure Operator Nexus virtual machine
+## Steps to create image for Operator Nexus virtual machine
 
 You can create an image for your VNF by using the provided script. It generates a Dockerfile that copies the VNF  disk image file into the container's `/disk` directory.
 
