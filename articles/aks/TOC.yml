@@ -448,8 +448,8 @@
               href: http-proxy.md
         - name: Ingress
           items:
-            - name: Use Web Application Routing add-on
-              href: web-app-routing.md
+            - name: Use Application Routing add-on
+              href: app-routing.md
             - name: Use Application Gateway Ingress Controller add-on
               href: ../application-gateway/tutorial-ingress-controller-add-on-existing.md
               maintainContext: true
