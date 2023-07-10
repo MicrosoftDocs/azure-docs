@@ -33,7 +33,7 @@ The initiatives apply to new machines you create and machines you modify, but no
 
 ## Support for custom images
 
-To enable onboarding Dependency Agent on custom images, the `scopeToSupportedImages` parameter is set to `false` by default in all Azure Monitoring Agent-based VM insights policy and initiative definitions. Set this parameter to `true` if you to allow deploying only virtual machines with supported images.  
+Azure Monitoring Agent-based VM insights policy and initiative definitions have a `scopeToSupportedImages` parameter that's set to `false` by default to enable onboarding Dependency Agent on custom images. Set this parameter to `true`to disallow the use of custom images.  
 
 ## Assign a VM insights policy initiative
 
