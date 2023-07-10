@@ -70,7 +70,7 @@ When you're specifying the language to use for the expression, the following val
 | JSONPath            | `JsonPath` |
 | JMESPath            | `JmesPath` |
 
-Because JSONPath is the default expression language, it's not required to include the expression language within a CalculatedContent template:
+Because JSONPath is the default expression language, it's not required to include the expression language within a CalculatedContent template.
 
 ```json
 "templateType": "CalculatedContent",

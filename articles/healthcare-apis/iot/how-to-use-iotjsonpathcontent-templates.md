@@ -22,7 +22,7 @@ IotJsonPathContent templates can be used when the MedTech service ingests device
 
 The MedTech service IotJsonPathContent templates support the JSON expression language JSONPath. Expressions are used to identify which template to use with a given JSON device message (for example: TypeMatchExpression) and to extract specific values that are required to create a normalized message (for example: PatientIdExpression, ValueExpression, etc.). IotJsonPathContent templates are similar to the CalculatedContent templates except the DeviceIdExpression and TimestampExpression aren't supported.
 
-> [!IMPORTANT]
+> [!NOTE]
 > JMESPath is not supported by IotJsonPathContent templates.
 
 An expression is defined as:
@@ -37,14 +37,15 @@ In the following example, `typeMatchExpression` is defined as:
 "templateType": "IotJsonPathContent",
 "template": {
    "typeName": "heartrate",
-   "typeMatchExpression": "$..[?(@heartRate)]"
-  },
+   "typeMatchExpression": "$..[?(@heartRate)]",
+...
+}
 ``` 
 
 > [!IMPORTANT]
-> The MedTech service will use the device id defined in Azure IoT Hub as the FHIR resource device identifier. If the MedTech service is setup to use an identity resolution type of **Lookup**, a Device resource with a matching device identifier **must** exist in the FHIR service or an error will occur when the device message is processed. If the MedTech service identity resolution type is set to **Create**, a `patientIdExpression` must be included in the device message so that a new Patient resource and Device resource can be created if they do not already exist.
+> The MedTech service will use the device ID defined in IoT hub as the FHIR resource device identifier. If the MedTech service is setup to use an identity resolution type of **Lookup**, a Device resource with a matching device identifier **must** exist in the FHIR service or an error will occur when the device message is processed. If the MedTech service identity resolution type is set to **Create**, a `patientIdExpression` must be included in the device message so that a new Patient resource and Device resource can be created if they do not already exist.
 
-If your MedTech service is set up to ingest device messages from an Azure IoT Hub, you aren't required to use IotJsonPathContent templates. CalculatedContent templates can be used assuming that you correctly define the DeviceIdExpression and TimestampExpression.
+If your MedTech service is set up to ingest device messages from an IoT hub, you aren't required to use IotJsonPathContent templates. CalculatedContent templates can be used assuming that you correctly define the DeviceIdExpression and TimestampExpression.
 
 The IotJsonPathContent templates allow matching on and extracting values from a device message read from an Azure Event Hubs event hub through the following expressions:
 
@@ -61,13 +62,7 @@ The IotJsonPathContent templates allow matching on and extracting values from a 
 
 ## Expression languages
 
-When you're specifying the language to use for the expression, the following values are valid:
-
-| Expression language |Value       |
-|---------------------|------------|
-| JSONPath            | `JsonPath` |
-
-Because JSONPath is the default expression language, it's not required to include the expression language within an IotJsonPathContent template:
+JSONPath is the default expression language, and inclusion of an expression language within an IotJsonPathContent template isn't supported. If you attempt to specify the expression language in an expression object, the IotJsonPathContent template containing the expression object fails.
 
 ```json
 "templateType": "IotJsonPathContent",
