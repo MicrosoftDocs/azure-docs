@@ -1,5 +1,5 @@
 ---
-title: Storage Auto grow - Azure portal - Azure Database for PostgreSQL - Flexible Server
+title: Storage auto-grow - Azure portal - Azure Database for PostgreSQL - Flexible Server
 description: This article describes how you can configure storage autogrow using the Azure portal in Azure Database for PostgreSQL - Flexible Server
 ms.service: postgresql
 ms.subservice: flexible-server
@@ -10,7 +10,7 @@ author: kabharati
 ms.date: 06/24/2022
 ---
 
-# Storage Auto grow using the Azure portal in Azure Database for PostgreSQL - Flexible Server
+# Storage auto-grow using the Azure portal in Azure Database for PostgreSQL - Flexible Server
 
 
 [!INCLUDE [applies-to-postgresql-Flexible-server](../includes/applies-to-postgresql-Flexible-server.md)]
@@ -21,7 +21,7 @@ This article describes how you can configure an Azure Database for PostgreSQL se
 When a server reaches the allocated storage limit, the server is marked as read-only. However, if you enable storage auto grow, the server storage increases to accommodate the growing data. For servers with less than 1 TiB of provisioned storage, the autogrow feature activates when storage consumption reaches 80%. For servers with 1 TB or more of storage, autogrow activates at 90% consumption. 
 
 
-## Enable Storage Autogrow for Existing Servers
+## Enable storage auto-grow for existing servers
 
 Follow these steps to enable Storage Autogrow on your Azure Database for PostgreSQL Flexible server.
 
@@ -33,21 +33,21 @@ Follow these steps to enable Storage Autogrow on your Azure Database for Postgre
 
 4. Select **Save** on apply the changes.
 
-![Screenshot showing Storage Autogrowth.](./media/how-to-auto-grow-storage-portal/storage-auto-grow.png)
+   ![Screenshot showing Storage Autogrowth.](./media/how-to-auto-grow-storage-portal/storage-auto-grow.png)
 
 
 5. A notification confirms that auto grow was successfully enabled.
 
   
-## Enable Storage Autogrow during Server Provisioning
+## Enable storage auto-grow during server provisioning
 
 1. In the Azure portal, during server provisioning, under **Compute + storage** select  **Configure server** 
 
- ![Screenshot showing configure server during provisoining.](./media/how-to-auto-grow-storage-portal/create-server-storage-auto-grow.png)
+    ![Screenshot showing configure server during provisioning.](./media/how-to-auto-grow-storage-portal/create-server-storage-auto-grow.png)
 
 2. In the **Storage Auto-growth** section, checkmark to enable storage auto grow. 
 
-![Screenshot showing Storage Autogrowth during provisioning.](./media/how-to-auto-grow-storage-portal/server-provisioning-storage-auto-grow.png)
+   ![Screenshot showing Storage Autogrowth during provisioning.](./media/how-to-auto-grow-storage-portal/server-provisioning-storage-auto-grow.png)
 
 ## Next steps
 
