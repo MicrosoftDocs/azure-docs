@@ -5,7 +5,7 @@ author: stevenmatthew
 ms.author: shaas
 ms.service: storage-mover
 ms.topic: how-to
-ms.date: 07/07/2023
+ms.date: 07/10/2023
 ms.custom: template-how-to
 ---
 
@@ -70,15 +70,28 @@ Azure Storage Mover supports migration scenarios using NFS and SMB. The steps to
 
 ### [Azure portal](#tab/portal)
 
-   To create an endpoint using the Navigate to the [Azure portal](https://portal.azure.com), navigate to the **Storage mover** resource page. Select **Storage endpoints** from within the navigation pane as shown in the sample image to access your endpoints.
+   1. To create an endpoint using the Navigate to the [Azure portal](https://portal.azure.com), navigate to the **Storage mover** resource page. Select **Storage endpoints** from within the navigation pane as shown in the sample image to access your endpoints.
 
-   :::image type="content" source="media/endpoint-manage/storage-mover.png" alt-text="Image of the Storage Mover resource page within the Azure Portal showing the location of the Storage Endpoints link." lightbox="media/endpoint-manage/storage-mover-lrg.png":::
+      :::image type="content" source="media/endpoint-manage/storage-mover.png" alt-text="Image of the Storage Mover resource page within the Azure Portal showing the location of the Storage Endpoints link." lightbox="media/endpoint-manage/storage-mover-lrg.png":::
 
-   The default **Source endpoints** view displays the names of any provisioned source endpoints and a summary of their associated data. You can select the **Destination endpoints** filter to view the corresponding destination endpoints.
+   1. The default **Source endpoints** view displays the names of any provisioned source endpoints and a summary of their associated data. You can select the **Destination endpoints** filter to view the corresponding destination endpoints.
 
-   Select **Create endpoint** to expand the endpoint type menu. Depending on your use case, select either **Create source** or **Create target endpoint** to open the **Create endpoint** pane as shown in the following image.
+      Select **Create endpoint** to expand the **Endpoint type** menu. Depending on your use case, select either **Create source** or **Create target endpoint** to open the **Create endpoint** pane as shown in the following image.
 
-   :::image type="content" source="media/endpoint-manage/endpoint-create.png" alt-text="Image of the Endpoint Overview screen highlighting the location of the Create Endpoint link" lightbox="media/endpoint-manage/endpoint-create-lrg.png":::
+      :::image type="content" source="media/endpoint-manage/endpoint-create.png" alt-text="Image of the Endpoint Overview screen highlighting the location of the Create Endpoint link" lightbox="media/endpoint-manage/endpoint-create-lrg.png":::
+
+   1. Within the **Create Endpoint** pane, provide values for the required **Host name or IP** and **Share name** values. You may also add an optional **Description** value of up to 1024 characters in length. Next, select **Protocol version** to expand the protocol selection menu and select the appropriate option for your source target.
+   
+      Storage mover agents use secrets stored within Key Vault to connect to SMB endpoints. When you create an SMB source endpoint, you need to provide the name of the Key Vault containing the secrets, as well as the names of the secrets themselves.
+
+      First, select **Key vault** to expand the menu and select the name of the Key Vault containing your secrets. You can supply a value with which to filter the list of Key Vaults if necessary.
+
+      :::image type="content" source="media/endpoint-manage/key-vault.png" alt-text="Image of the Create Source pane showing the drop-down list containg a resource group's Key Vaults":::
+
+      After you've selected the appropriate Key Vault, you can supply values for the required **Select secret for username** and **Select secret for password** values. You can select the **Select secret** button to enable enable and select the username and password values. Alternatively, you can supply a value corresponding to the username and password secret from the Key Vault URI after enabling the **Enter secret from URI** option.
+
+      - If you choose SMB, do this
+      - If you choose NFS, do this
 
 ### [PowerShell](#tab/powershell)
 
