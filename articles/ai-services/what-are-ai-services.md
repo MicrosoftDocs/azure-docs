@@ -29,14 +29,17 @@ Select a service from the table below and learn how it can help you meet your de
 | ![Azure Cognitive Search icon](media/service-icons/cognitive-search.svg) Azure Cognitive Search | Bring AI-powered cloud search to your mobile and web apps |
 | ![Azure OpenAI Service icon](media/service-icons/language.svg) Azure OpenAI | Perform a wide variety of natural language tasks |
 | ![Bot service icon](media/service-icons/bot-services.svg) Bot Service | Create bots and connect them across channels |
+| ![Content Moderator icon](media/service-icons/content-moderator.svg) Content Moderator | Detect potentially offensive or unwanted content |
 | ![Content Safety icon](media/service-icons/content-safety.svg) Content Safety | An AI service that detects unwanted contents |
 | ![Custom Vision icon](media/service-icons/custom-vision.svg) Custom Vision | Customize image recognition to fit your business |
 | ![Document Intelligence icon](media/service-icons/document-intelligence.svg) Document Intelligence | Turn documents into usable data at a fraction of the time and cost |
 | ![Face icon](media/service-icons/face.svg) Face | Detect and identify people and emotions in images |
 | ![Immersive Reader icon](media/service-icons/immersive-reader.svg) Immersive Reader | Help users read and comprehend text |
 | ![Language icon](media/service-icons/language.svg) Language | Build apps with industry-leading natural language understanding capabilities |
+| ![Language Understanding icon](media/service-icons/luis.svg) Language understanding (retired) | Understand natural language in your apps |
 | ![Metrics Advisor icon](media/service-icons/metrics-advisor.svg) Metrics Advisor | An AI service that detects unwanted contents |
 | ![Personalizer icon](media/service-icons/personalizer.svg) Personalizer | Create rich, personalized experiences for each user |
+| ![QnA Maker icon](media/service-icons/luis.svg) QnA maker (retired) | Distill information into easy-to-navigate questions and answers |
 | ![Speech icon](media/service-icons/speech.svg) Speech | Speech to text, text to speech, translation and speaker recognition |
 | ![Translator icon](media/service-icons/translator.svg) Translator | Translate more than 100 languages and dialects |
 | ![Video Indexer icon](media/service-icons/video-indexer.svg) Video Indexer | Extract actionable insights from your videos |

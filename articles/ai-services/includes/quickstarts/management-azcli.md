@@ -54,7 +54,7 @@ az account list-locations --query "[].{Region:name}" --out table
 After you have your Azure location, create a new resource group in the Azure CLI using the [az group create](/cli/azure/group#az-group-create) command. In the example below, replace the Azure location `westus2` with one of the Azure locations available for your subscription.
 
 ```azurecli-interactive
-az group create --name cognitive-services-resource-group --location westus2
+az group create --name ai-services-resource-group --location westus2
 ```
 
 ## Create an Azure AI services resource
@@ -65,7 +65,7 @@ When you create a new resource, you'll need to know the kind of service you want
 
 [!INCLUDE [SKUs and pricing](sku-pricing.md)]
 
-You can find a list of available Cognitive Service "kinds" with the [az cognitiveservices account list-kinds](/cli/azure/cognitiveservices/account#az-cognitiveservices-account-list-kinds) command:
+You can find a list of available Azure AI services "kinds" with the [az cognitiveservices account list-kinds](/cli/azure/cognitiveservices/account#az-cognitiveservices-account-list-kinds) command:
 
 ```azurecli-interactive
 az cognitiveservices account list-kinds
@@ -75,14 +75,14 @@ az cognitiveservices account list-kinds
 
 To create and subscribe to a new Azure AI services resource, use the [az cognitiveservices account create](/cli/azure/cognitiveservices/account#az-cognitiveservices-account-create) command. This command adds a new billable resource to the resource group you created earlier. When you create your new resource, you'll need to know the "kind" of service you want to use, along with its pricing tier (or SKU) and an Azure location:
 
-You can create an F0 (free) resource for Anomaly Detector, named `anomaly-detector-resource` with the command below.
+You can create a Standard S0 multi-service resource named `multi-service-resource` with the command below.
 
 ```azurecli-interactive
-az cognitiveservices account create --name anomaly-detector-resource --resource-group cognitive-services-resource-group  --kind AnomalyDetector --sku F0 --location westus2 --yes
+az cognitiveservices account create --name multi-service-resource --resource-group ai-services-resource-group  --kind CognitiveServices --sku F0 --location westus2 --yes
 ```
 
 > [!Tip]
-> If your subscription doesn't allow you to create a Cognitive Service resource, you may need to enable the privilege of that [Azure resource provider](../../../azure-resource-manager/management/resource-providers-and-types.md#register-resource-provider) using the [Azure portal](../../../azure-resource-manager/management/resource-providers-and-types.md#azure-portal), [PowerShell command](../../../azure-resource-manager/management/resource-providers-and-types.md#azure-powershell) or an [Azure CLI command](../../../azure-resource-manager/management/resource-providers-and-types.md#azure-cli). If you are not the subscription owner, ask the _Subscription Owner_ or someone with a role of _admin_ to complete the registration for you or ask for the **/register/action** privileges to be granted to your account.
+> If your subscription doesn't allow you to create an Azure AI services resource, you may need to enable the privilege of that [Azure resource provider](../../../azure-resource-manager/management/resource-providers-and-types.md#register-resource-provider) using the [Azure portal](../../../azure-resource-manager/management/resource-providers-and-types.md#azure-portal), [PowerShell command](../../../azure-resource-manager/management/resource-providers-and-types.md#azure-powershell) or an [Azure CLI command](../../../azure-resource-manager/management/resource-providers-and-types.md#azure-cli). If you are not the subscription owner, ask the *Subscription Owner* or someone with a role of *admin* to complete the registration for you or ask for the **/register/action** privileges to be granted to your account.
 
 ## Get the keys for your resource
 
@@ -92,13 +92,13 @@ To log into your local installation of the Command-Line Interface(CLI), use the 
 az login
 ```
 
-Use the [az cognitiveservices account keys list](/cli/azure/cognitiveservices/account/keys#az-cognitiveservices-account-keys-list) command to get the keys for your Cognitive Service resource.
+Use the [az cognitiveservices account keys list](/cli/azure/cognitiveservices/account/keys#az-cognitiveservices-account-keys-list) command to get the keys for your resource.
 
 ```azurecli-interactive
-    az cognitiveservices account keys list  --name anomaly-detector-resource --resource-group cognitive-services-resource-group
+az cognitiveservices account keys list  --name multi-service-resource --resource-group ai-services-resource-group
 ```
 
-[!INCLUDE [cognitive-services-environment-variables](../cognitive-services-environment-variables.md)]
+[!INCLUDE [environment-variables](../../includes/quickstarts/environment-variables.md)]
 
 ## Pricing tiers and billing
 
@@ -109,10 +109,10 @@ Pricing tiers (and the amount you get billed) are based on the number of transac
 
 ## Get current quota usage for your resource
 
-Use the [az cognitiveservices account list-usage](/cli/azure/cognitiveservices/account#az-cognitiveservices-account-list-usage) command to get the usage for your Cognitive Service resource.
+Use the [az cognitiveservices account list-usage](/cli/azure/cognitiveservices/account#az-cognitiveservices-account-list-usage) command to get the usage for your resource.
 
 ```azurecli-interactive
-az cognitiveservices account list-usage --name anomaly-detector-resource --resource-group cognitive-services-resource-group --subscription subscription-name
+az cognitiveservices account list-usage --name multi-service-resource --resource-group ai-services-resource-group --subscription subscription-name
 ```
 
 ## Clean up resources
@@ -122,7 +122,7 @@ If you want to clean up and remove an Azure AI services resource, you can delete
 To remove the resource group and its associated resources, use the az group delete command.
 
 ```azurecli-interactive
-az group delete --name cognitive-services-resource-group
+az group delete --name ai-services-resource-group
 ```
 
 If you need to recover a deleted resource, see [Recover deleted Azure AI services resources](../../manage-resources.md).

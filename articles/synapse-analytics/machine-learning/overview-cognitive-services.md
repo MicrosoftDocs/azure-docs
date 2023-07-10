@@ -666,5 +666,5 @@ The following tutorials provide complete examples of using Cognitive Services in
 ## Next steps
 
 - [Machine Learning capabilities in Azure Synapse Analytics](what-is-machine-learning.md)
-- [What are Cognitive Services?](../../ai-services/what-are-ai-services.md)
+- [What are Azure AI services?](../../ai-services/what-are-ai-services.md)
 - [Use a sample notebook from the Synapse Analytics gallery](quickstart-gallery-sample-notebook.md)
