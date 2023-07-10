@@ -5,10 +5,9 @@ description: A checklist of proven practices for use with Table storage in devel
 services: storage
 author: pauljewellmsft
 ms.author: pauljewell
-ms.service: storage
+ms.service: azure-table-storage
 ms.topic: overview
 ms.date: 10/10/2019
-ms.subservice: tables
 ms.devlang: csharp
 ms.custom: devx-track-csharp, devx-track-dotnet
 ---

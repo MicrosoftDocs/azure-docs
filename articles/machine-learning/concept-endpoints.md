@@ -17,7 +17,7 @@ ms.date: 02/07/2023
 
 # Endpoints for inference in production
 
-[!INCLUDE [dev v2](../../includes/machine-learning-dev-v2.md)]
+[!INCLUDE [dev v2](includes/machine-learning-dev-v2.md)]
 
 After you train machine learning models or pipelines, you need to deploy them to production so that others can use them for _inference_. Inference is the process of applying new input data to the machine learning model or pipeline to generate outputs. While these outputs are typically referred to as "predictions," inferencing can be used to generate outputs for other machine learning tasks, such as classification and clustering. In Azure Machine Learning, you perform inferencing by using __endpoints and deployments__. Endpoints and deployments allow you to decouple the interface of your production workload from the implementation that serves it.
 
