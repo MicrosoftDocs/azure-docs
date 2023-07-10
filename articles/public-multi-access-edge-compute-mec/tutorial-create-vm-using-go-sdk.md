@@ -29,7 +29,7 @@ In this tutorial, you learn how to:
 
 - Add an allowlisted subscription to your Azure account, which allows you to deploy resources in Azure public MEC. If you don't have an active allowed subscription, contact the [Azure public MEC product team](https://aka.ms/azurepublicmec).
 
-### Upgrade Go version
+### Install Go
 
 You could download and install the latest version of Go from [here](https://go.dev/doc/install). It will replace the existing Go on your machine. If you want to install multiple Go versions on the same machine, you could refer this [doc](https://go.dev/doc/manage-install).
 
@@ -90,34 +90,170 @@ These values can be obtained from the portal, here's the instructions:
 
 The new SDK uses Go modules for versioning and dependency management.
 
-As an example, to install the Azure Compute module, you would run :
+Run following command to install the packages for this tutorial under your project folder:
 
 ```sh
-go get github.com/Azure/azure-sdk-for-go/sdk/resourcemanager/compute/armcompute
+go get github.com/Azure/azure-sdk-for-go/sdk/resourcemanager/compute/armcompute/v5
+go get github.com/Azure/azure-sdk-for-go/sdk/resourcemanager/network/armnetwork/v3
+go get github.com/Azure/azure-sdk-for-go/sdk/resourcemanager/resources/armresources
 go get github.com/Azure/azure-sdk-for-go/sdk/azcore
 go get github.com/Azure/azure-sdk-for-go/sdk/azidentity
 ```
 
 
-## Create a virtual machine  
+## Provision a virtual machine
 
-1. Add the latest compute Go SDK to your import list. For example:
+```go
+package main
 
-   ```go
-   import ( 
-     "github.com/Azure/azure-sdk-for-go/sdk/resourcemanager/compute/armcompute/v5" 
-   ) 
-   ```
+import (
+	"context"
+	"github.com/Azure/azure-sdk-for-go/sdk/azcore/to"
+	"github.com/Azure/azure-sdk-for-go/sdk/azidentity"
+	"github.com/Azure/azure-sdk-for-go/sdk/resourcemanager/compute/armcompute/v5"
+	"github.com/Azure/azure-sdk-for-go/sdk/resourcemanager/network/armnetwork/v3"
+	"github.com/Azure/azure-sdk-for-go/sdk/resourcemanager/resources/armresources"
+	"log"
+	"os"
+)
 
-1. Use the following sample as a guide on how to use the Go SDK. You must add the `ExtendedLocation` attribute to the VM API call.
+func main() {
+	subscriptionId := os.Getenv("AZURE_SUBSCRIPTION_ID")
 
-   ```go
-	clientFactory, err := armcompute.NewClientFactory(subscriptionId, cred, nil)
+	cred, err := azidentity.NewDefaultAzureCredential(nil)
+	if err != nil {
+		log.Fatalf("authentication failure: %+v", err)
+	}
+
+	// client factory
+	resourcesClientFactory, err := armresources.NewClientFactory(subscriptionId, cred, nil)
 	if err != nil {
 		log.Fatalf("cannot create client factory: %+v", err)
 	}
-    virtualMachinesClientCreateOrUpdateResponsePoller, err := clientFactory.NewVirtualMachinesClient().BeginCreateOrUpdate(
-	    context.Background(),
+
+	computeClientFactory, err := armcompute.NewClientFactory(subscriptionId, cred, nil)
+	if err != nil {
+		log.Fatalf("cannot create client factory: %+v", err)
+	}
+
+	networkClientFactory, err := armnetwork.NewClientFactory(subscriptionId, cred, nil)
+	if err != nil {
+		log.Fatalf("cannot create client factory: %+v", err)
+	}
+
+	// Step 1: Provision a resource group
+	_, err = resourcesClientFactory.NewResourceGroupsClient().CreateOrUpdate(
+		context.Background(),
+		"resourceGroupName",
+		armresources.ResourceGroup{
+			Location: to.Ptr("westus"),
+		},
+		nil,
+	)
+	if err != nil {
+		log.Fatal("cannot create resources group:", err)
+	}
+
+	// Step 2: Provision a virtual network
+	virtualNetworksClientCreateOrUpdateResponsePoller, err := networkClientFactory.NewVirtualNetworksClient().BeginCreateOrUpdate(
+		context.Background(),
+		"resourceGroupName",
+		"virtualNetworkName",
+		armnetwork.VirtualNetwork{
+			Location: to.Ptr("westus"),
+			Properties: &armnetwork.VirtualNetworkPropertiesFormat{
+				AddressSpace: &armnetwork.AddressSpace{
+					AddressPrefixes: []*string{
+						to.Ptr("10.0.0.0/16"),
+					},
+				},
+				Subnets: []*armnetwork.Subnet{
+					{
+						Name: to.Ptr("test-1"),
+						Properties: &armnetwork.SubnetPropertiesFormat{
+							AddressPrefix: to.Ptr("10.0.0.0/24"),
+						},
+					},
+				},
+			},
+		},
+		nil,
+	)
+	if err != nil {
+		log.Fatal("network creation failed", err)
+	}
+	virtualNetworksClientCreateOrUpdateResponse, err := virtualNetworksClientCreateOrUpdateResponsePoller.PollUntilDone(context.Background(), nil)
+	if err != nil {
+		log.Fatal("cannot create virtual network:", err)
+	}
+	subnetID := *virtualNetworksClientCreateOrUpdateResponse.Properties.Subnets[0].ID
+
+	// Step 3: Provision an IP address
+	publicIPAddressesClientCreateOrUpdateResponsePoller, err := networkClientFactory.NewPublicIPAddressesClient().BeginCreateOrUpdate(
+		context.Background(),
+		"<resourceGroupName>",
+		"<publicIPName>",
+		armnetwork.PublicIPAddress{
+			Name:     to.Ptr("publicIPName"),
+			Location: to.Ptr("westus"),
+			ExtendedLocation: &armnetwork.ExtendedLocation{
+				Name: to.Ptr("microsoftlosangeles1"),
+				Type: to.Ptr(armnetwork.ExtendedLocationTypesEdgeZone),
+			},
+			SKU: &armnetwork.PublicIPAddressSKU{
+				Name: to.Ptr(armnetwork.PublicIPAddressSKUNameStandard),
+			},
+			Properties: &armnetwork.PublicIPAddressPropertiesFormat{
+				PublicIPAllocationMethod: to.Ptr(armnetwork.IPAllocationMethodStatic),
+			},
+		},
+		nil,
+	)
+	if err != nil {
+		log.Fatal("public ip creation failed", err)
+	}
+	publicIPAddressesClientCreateOrUpdateResponse, err := publicIPAddressesClientCreateOrUpdateResponsePoller.PollUntilDone(context.Background(), nil)
+	if err != nil {
+		log.Fatal("cannot create public ip: ", err)
+	}
+
+	// Step 4: Provision the network interface client
+	interfacesClientCreateOrUpdateResponsePoller, err := networkClientFactory.NewInterfacesClient().BeginCreateOrUpdate(
+		context.Background(),
+		"resourceGroupName",
+		"networkInterfaceName",
+		armnetwork.Interface{
+			Location: to.Ptr("westus"),
+			Properties: &armnetwork.InterfacePropertiesFormat{
+				EnableAcceleratedNetworking: to.Ptr(true),
+				IPConfigurations: []*armnetwork.InterfaceIPConfiguration{
+					{
+						Name: to.Ptr("ipconfig1"),
+						Properties: &armnetwork.InterfaceIPConfigurationPropertiesFormat{
+							Subnet: &armnetwork.Subnet{
+								ID: to.Ptr(subnetID),
+							},
+							PublicIPAddress: &armnetwork.PublicIPAddress{
+								ID: publicIPAddressesClientCreateOrUpdateResponse.ID,
+							},
+						},
+					},
+				},
+			},
+		},
+		nil,
+	)
+	if err != nil {
+		log.Fatal("interface creation failed", err)
+	}
+	interfacesClientCreateOrUpdateResponse, err := interfacesClientCreateOrUpdateResponsePoller.PollUntilDone(context.Background(), nil)
+	if err != nil {
+		log.Fatal("cannot create interface:", err)
+	}
+
+	// Step 5: Provision the virtual machine
+	virtualMachinesClientCreateOrUpdateResponsePoller, err := computeClientFactory.NewVirtualMachinesClient().BeginCreateOrUpdate(
+		context.Background(),
 		"resourceGroupName",
 		"vmName",
 		armcompute.VirtualMachine{
@@ -158,160 +294,11 @@ go get github.com/Azure/azure-sdk-for-go/sdk/azidentity
 		nil,
 	)
 	if err != nil {
-		log.Fatalf("failed to finish the request: %v", err)
+		log.Fatal("virtual machine creation failed", err)
 	}
 	_, err = virtualMachinesClientCreateOrUpdateResponsePoller.PollUntilDone(context.Background(), nil)
 	if err != nil {
-		log.Fatalf("failed to pull the result: %v", err)
-	}
-   ```
-
-## Create a public IP address
-
-1. Add the latest network Go SDK to your import list.
-
-   ```go
-   import ( 
-     "github.com/Azure/azure-sdk-for-go/sdk/resourcemanager/network/armnetwork/v3"
-   ) 
-   ```
-
-2. Use the following Go sample as a guide on how to create a public IP address. Azure public MEC supports only the Standard SKU with static allocation for public IPs.
-
-   ```go
-	clientFactory, err := armnetwork.NewClientFactory(subscriptionId, cred, nil)
-	if err != nil {
-		log.Fatalf("cannot create client factory: %+v", err)
-	}
-	publicIPAddressesClientCreateOrUpdateResponsePoller, err := clientFactory.NewPublicIPAddressesClient().BeginCreateOrUpdate(
-		context.Background(),
-		"<resourceGroupName>",
-		"<publicIPName>",
-		armnetwork.PublicIPAddress{
-			Name:     to.Ptr("publicVMIP"),
-			Location: to.Ptr("westus"),
-			ExtendedLocation: &armnetwork.ExtendedLocation{
-				Name: to.Ptr("microsoftlosangeles1"),
-				Type: to.Ptr(armnetwork.ExtendedLocationTypesEdgeZone),
-			},
-			SKU: &armnetwork.PublicIPAddressSKU{
-				Name: to.Ptr(armnetwork.PublicIPAddressSKUNameStandard),
-			},
-			Properties: &armnetwork.PublicIPAddressPropertiesFormat{
-				PublicIPAllocationMethod: to.Ptr(armnetwork.IPAllocationMethodStatic),
-			},
-		},
-		nil,
-	)
-	if err != nil {
-		fmt.Printf("Public IP creation failed %v", err)
-	}
-	_, err = publicIPAddressesClientCreateOrUpdateResponsePoller.PollUntilDone(context.Background(), nil)
-	if err != nil {
-		fmt.Printf("Cannot create Public IP: %v", err)
-	}
-   ```
-
-## Deploy a virtual network and public IP address
-
-Use the following Go sample as a guide to deploy a virtual network and public IP address in an Azure public MEC solution. Populate the `<edgezoneid>` field with a valid value.
-
-```go
-package main
-
-import (
-	"context"
-	"fmt"
-	"log"
-	"os"
-
-	"github.com/Azure/azure-sdk-for-go/sdk/azcore/to"
-	"github.com/Azure/azure-sdk-for-go/sdk/azidentity"
-	"github.com/Azure/azure-sdk-for-go/sdk/resourcemanager/network/armnetwork/v3"
-)
-
-func main() {
-	subscriptionId := os.Getenv("AZURE_SUBSCRIPTION_ID")
-
-	cred, err := azidentity.NewDefaultAzureCredential(nil)
-	if err != nil {
-		log.Fatalf("authentication failure: %+v", err)
-	}
-
-	// create a VirtualNetworks client
-	clientFactory, err := armnetwork.NewClientFactory(subscriptionId, cred, nil)
-	if err != nil {
-		log.Fatalf("cannot create client factory: %+v", err)
-	}
-
-	virtualNetworksClientCreateOrUpdateResponsePoller, err := clientFactory.NewVirtualNetworksClient().BeginCreateOrUpdate(
-		context.Background(),
-		"resourceGroupName",
-		"vnetName",
-		armnetwork.VirtualNetwork{
-			Location: to.Ptr("westus"),
-			ExtendedLocation: &armnetwork.ExtendedLocation{
-				Name: to.Ptr("<edgezoneid>"),
-				Type: to.Ptr(armnetwork.ExtendedLocationTypesEdgeZone),
-			},
-			Properties: &armnetwork.VirtualNetworkPropertiesFormat{
-				AddressSpace: &armnetwork.AddressSpace{
-					AddressPrefixes: []*string{
-						to.Ptr("10.0.0.0/8"),
-					},
-				},
-				Subnets: []*armnetwork.Subnet{
-					{
-						Name: to.Ptr("subnet1"),
-						Properties: &armnetwork.SubnetPropertiesFormat{
-							AddressPrefix: to.Ptr("10.0.0.0/16"),
-						},
-					},
-					{
-						Name: to.Ptr("subnet2"),
-						Properties: &armnetwork.SubnetPropertiesFormat{
-							AddressPrefix: to.Ptr("10.1.0.0/16"),
-						},
-					},
-				},
-			},
-		},
-		nil,
-	)
-	if err != nil {
-		fmt.Printf("VNet creation failed %v", err)
-	}
-	_, err = virtualNetworksClientCreateOrUpdateResponsePoller.PollUntilDone(context.Background(), nil)
-	if err != nil {
-		fmt.Printf("cannot create a Vnet: %v", err)
-	}
-
-	publicIPAddressesClientCreateOrUpdateResponsePoller, err := clientFactory.NewPublicIPAddressesClient().BeginCreateOrUpdate(
-		context.Background(),
-		"<resourceGroupName>",
-		"<publicIPName>",
-		armnetwork.PublicIPAddress{
-			Name:     to.Ptr("<publicIPName>"),
-			Location: to.Ptr("westus"),
-			ExtendedLocation: &armnetwork.ExtendedLocation{
-				Name: to.Ptr("microsoftlosangeles1"),
-				Type: to.Ptr(armnetwork.ExtendedLocationTypesEdgeZone),
-			},
-			SKU: &armnetwork.PublicIPAddressSKU{
-				Name: to.Ptr(armnetwork.PublicIPAddressSKUNameStandard),
-			},
-			Properties: &armnetwork.PublicIPAddressPropertiesFormat{
-				PublicIPAllocationMethod: to.Ptr(armnetwork.IPAllocationMethodStatic),
-			},
-		},
-		nil,
-	)
-	if err != nil {
-		fmt.Printf("Public IP creation failed %v", err)
-	}
-	_, err = publicIPAddressesClientCreateOrUpdateResponsePoller.PollUntilDone(context.Background(), nil)
-	if err != nil {
-		fmt.Printf("Cannot create Public IP: %v", err)
+		log.Fatal("cannot create virtual machine:", err)
 	}
 }
 ```
