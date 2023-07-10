@@ -71,6 +71,8 @@ Zone redundant public IP addresses can be used with no zone NAT gateway resource
 
 The recommendation is to configure a NAT gateway to individual availability zones. Additionally, it should be attached to subnets with private instances from the same zone. For more information about availability zones and Azure NAT Gateway, see [Availability zones design considerations] (/azure/nat-gateway/nat-availability-zones#design-considerations).
 
+:::image type="content" source="./media/nat-availability-zones/multiple-zonal-nat-gateways.png" alt-text="Diagram of zonal isolation by creating zonal stacks.":::
+
 After a NAT gateway is deployed, the zone selection can't be changed.
 
 ## Protocols
