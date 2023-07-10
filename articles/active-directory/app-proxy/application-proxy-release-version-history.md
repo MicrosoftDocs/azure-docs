@@ -39,8 +39,8 @@ June 20, 2023: Released for download. This version is only available for install
 
 ### Fixed issues
 - Silent registration of connector with credentials. See [Create an unattended installation script for the Azure Active Directory Application Proxy connector](application-proxy-register-connector-powershell.md) for more details.
-- Fixed dropping of cookie “Secure” and “HttpOnly” attributes on the cookies passed by backend servers when there are trailing spaces in these attributes.
-- Fixed "Set-Cookie" header with empty value.
+- Fixed dropping of “Secure” and “HttpOnly” attributes on the cookies passed by backend servers when there are trailing spaces in these attributes.
+- Fixed services crash when back-end server of an application sets "Set-Cookie" header with empty value.
 
 ## 1.5.2846.0
 
