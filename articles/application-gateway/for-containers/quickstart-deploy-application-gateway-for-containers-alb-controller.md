@@ -122,7 +122,7 @@ You need to complete the following tasks prior to deploying Application Gateway 
 	az identity create --resource-group $RESOURCE_GROUP --name $IDENTITY_RESOURCE_NAME
 	principalId="$(az identity show -g $RESOURCE_GROUP -n $IDENTITY_RESOURCE_NAME --query principalId -otsv)"
 
-    	echo "Waiting 60 seconds to allow for delegation of the identity..."
+    	echo "Waiting 60 seconds to allow for replication of the identity..."
     	sleep 60
  
 	echo "Apply Contributor and AppGW For Containers Configuration Manager Role on the identity"
