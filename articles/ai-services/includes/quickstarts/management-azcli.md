@@ -14,8 +14,6 @@ ms.custom: mode-api, devx-track-azurecli
 ms.devlang: azurecli
 ---
 
-# Quickstart: Create an Azure AI services resource using the Azure CLI
-
 Use this quickstart to create an Azure AI services resource using [Azure Command-Line Interface (CLI)](/cli/azure/install-azure-cli) commands. After you create the resource, use the keys and endpoint generated for you to authenticate your applications.
 
 Azure AI services are cloud-based artificial intelligence (AI) services that help developers build cognitive intelligence into applications without having direct AI or data science skills or knowledge. They are available through REST APIs and client library SDKs in popular development languages. Azure AI services enables developers to easily add cognitive features into their applications with cognitive solutions that can see, hear, speak, and analyze.
@@ -24,8 +22,8 @@ Azure AI services are cloud-based artificial intelligence (AI) services that hel
 
 * A valid Azure subscription - [Create one](https://azure.microsoft.com/free/cognitive-services) for free.
 * The [Azure CLI](/cli/azure/install-azure-cli)
-* [!INCLUDE [contributor-requirement](./includes/quickstarts/contributor-requirement.md)]
-* [!INCLUDE [terms-azure-portal](./includes/quickstarts/terms-azure-portal.md)]
+* [!INCLUDE [contributor-requirement](contributor-requirement.md)]
+* [!INCLUDE [terms-azure-portal](terms-azure-portal.md)]
 
 ## Install the Azure CLI and sign in
 
@@ -65,7 +63,7 @@ az group create --name cognitive-services-resource-group --location westus2
 
 When you create a new resource, you'll need to know the kind of service you want to use, along with the [pricing tier](https://azure.microsoft.com/pricing/details/cognitive-services/) (or SKU) you want. You'll use this and other information as parameters when you create the resource.
 
-[!INCLUDE [SKUs and pricing](./includes/quickstarts/sku-pricing.md)]
+[!INCLUDE [SKUs and pricing](sku-pricing.md)]
 
 You can find a list of available Cognitive Service "kinds" with the [az cognitiveservices account list-kinds](/cli/azure/cognitiveservices/account#az-cognitiveservices-account-list-kinds) command:
 
@@ -100,7 +98,7 @@ Use the [az cognitiveservices account keys list](/cli/azure/cognitiveservices/ac
     az cognitiveservices account keys list  --name anomaly-detector-resource --resource-group cognitive-services-resource-group
 ```
 
-[!INCLUDE [cognitive-services-environment-variables](../../includes/cognitive-services-environment-variables.md)]
+[!INCLUDE [cognitive-services-environment-variables](../cognitive-services-environment-variables.md)]
 
 ## Pricing tiers and billing
 
@@ -127,4 +125,4 @@ To remove the resource group and its associated resources, use the az group dele
 az group delete --name cognitive-services-resource-group
 ```
 
-If you need to recover a deleted resource, see [Recover deleted Azure AI services resources](manage-resources.md).
+If you need to recover a deleted resource, see [Recover deleted Azure AI services resources](../../manage-resources.md).

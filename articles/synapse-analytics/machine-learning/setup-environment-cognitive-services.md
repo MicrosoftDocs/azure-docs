@@ -29,7 +29,7 @@ To work with big data in Azure AI services, first create an Azure AI services re
 
 ### Cloud services
 
-Cloud-based Azure AI services are intelligent algorithms hosted in Azure. These services are ready for use without training, you just need an internet connection. You can [create resources for Azure AI services in the Azure portal](../../ai-services/cognitive-services-apis-create-account.md) or with the [Azure CLI](../../ai-services/cognitive-services-apis-create-account-cli.md).
+Cloud-based Azure AI services are intelligent algorithms hosted in Azure. These services are ready for use without training, you just need an internet connection. You can [create resources for Azure AI services in the Azure portal](../../ai-services/multi-service-resource.md?pivots=azportal) or with the [Azure CLI](../../ai-services/multi-service-resource.md?pivots=azcli).
 
 ### Containerized services (optional)
 

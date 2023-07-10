@@ -16,9 +16,9 @@ ms.author: pafarley
 
 Each request to an Azure AI service must include an authentication header. This header passes along a resource key or authentication token, which is used to validate your subscription for a service or group of services. In this article, you'll learn about three ways to authenticate a request and the requirements for each.
 
-* Authenticate with a [single-service](#authenticate-with-a-single-service-subscription-key) or [multi-service](#authenticate-with-a-multi-service-subscription-key) resource key
+* Authenticate with a [single-service](#authenticate-with-a-single-service-resource-key) or [multi-service](#authenticate-with-a-multi-service-resource-key) resource key
 * Authenticate with a [token](#authenticate-with-an-access-token)
-* Authenticate with [Azure Active Directory (AAD)](#authenticate-with-azure-active-directory)
+* Authenticate with [Azure Active Directory (AAD)](#authenticate-with-an-access-token)
 
 ## Prerequisites
 

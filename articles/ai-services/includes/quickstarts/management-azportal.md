@@ -15,7 +15,7 @@ ms.author: aahi
 ## Prerequisites
 
 * A valid Azure subscription - [Create one for free](https://azure.microsoft.com/free/cognitive-services/).
-* [!INCLUDE [contributor-requirement](./includes/quickstarts/contributor-requirement.md)]
+* [!INCLUDE [contributor-requirement](./contributor-requirement.md)]
 
 ## Create a new Azure Cognitive Services resource
 
@@ -38,7 +38,7 @@ The multi-service resource is named **Cognitive Services** in the portal. The mu
     | **Name** | A descriptive name for your Azure AI services resource. For example, *MyCognitiveServicesResource*. |
     | **Pricing tier** | The cost of your Azure AI services account depends on the options you choose and your usage. For more information, see the API [pricing details](https://azure.microsoft.com/pricing/details/cognitive-services/).
 
-    :::image type="content" source="media/cognitive-services-apis-create-account/resource_create_screen-multi.png" alt-text="Multi-service resource creation screen":::
+    :::image type="content" source="../../media/cognitive-services-apis-create-account/resource_create_screen-multi.png" alt-text="Multi-service resource creation screen":::
 
 1. Configure other settings for your resource as needed, read and accept the conditions (as applicable), and then select **Review + create**.
 
@@ -49,11 +49,11 @@ The multi-service resource is named **Cognitive Services** in the portal. The mu
 
 1. After your resource is successfully deployed, select **Next Steps** > **Go to resource**.
 
-    :::image type="content" source="media/cognitive-services-apis-create-account/cognitive-services-resource-deployed.png" alt-text="Get resource keys screen":::
+    :::image type="content" source="../../media/cognitive-services-apis-create-account/cognitive-services-resource-deployed.png" alt-text="Get resource keys screen":::
 
 1. From the quickstart pane that opens, you can access the resource endpoint and manage keys.
 
-[!INCLUDE [cognitive-services-environment-variables](../../includes/cognitive-services-environment-variables.md)]
+[!INCLUDE [cognitive-services-environment-variables](../../cognitive-services-environment-variables.md)]
 
 ## Clean up resources
 
@@ -64,9 +64,5 @@ If you want to clean up and remove an Azure AI services subscription, you can de
 1. If you want to delete the entire resource group, select the resource group name. On the next page, Select **Delete resource group**, and confirm.
 1. If you want to delete only the Cognitive Service resource, select the resource group to see all the resources within it. On the next page, select the resource that you want to delete, select the ellipsis menu for that row, and select **Delete**.
 
-If you need to recover a deleted resource, see [Recover deleted Azure AI services resources](manage-resources.md).
+If you need to recover a deleted resource, see [Recover deleted Azure AI services resources](../../manage-resources.md).
 
-## See also
-
-- [Azure AI services overview](overview.md)
-- [Responsible use of AI](responsible-use.md)
