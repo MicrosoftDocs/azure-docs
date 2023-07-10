@@ -73,7 +73,7 @@ You can also find the latest Azure Virtual WAN updates and subscribe to the RSS 
 |Feature|Remote User connectivity/Point-to-site VPN|[Dual-RADIUS server](virtual-wan-point-to-site-portal.md)|Ability to specify primary and backup RADIUS servers to service authentication traffic.|March 2021| |
 |Feature|Remote User connectivity/Point-to-site VPN|[Custom IPsec policies](point-to-site-ipsec.md)|Ability to specify connection/encryption parameters for IKEv2 point-to-site connections.|March 2021|Only supported for IKEv2- based connections.<br><br>View the [list of available parameters](point-to-site-ipsec.md). |
 |SKU|Remote User connectivity/Point-to-site VPN|[Support up to 100K users connected to a single hub](about-client-address-pools.md)|Increased maximum number of concurrent users connected to a single gateway to 100,000.|March 2021| |
-|Feature|Remote User connectivity/Point-to-site VPN|Multiple-authentication methods|Ability for a single gateway to use multiple authentication mechanisms.|March 2021|Only supported for OpenVPN-based gateways.|
+|Feature|Remote User connectivity/Point-to-site VPN|Multiple-authentication methods|Ability for a single gateway to use multiple authentication mechanisms.|June 2023|Supported for gateways running all protocol combinations. Note that Azure AD authentication still required used of OpenVPN|
 
 ## Preview
 
