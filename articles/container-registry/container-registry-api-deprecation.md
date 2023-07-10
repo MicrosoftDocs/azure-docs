@@ -28,7 +28,7 @@ You may be consuming this API via one or more SDKs. Use a newer API version by u
 
 The following API versions are ready for retirement/deprecation. In some cases, they're no longer in the product.
 
-| API version        | Deprecation First Announcement | Plan to end support |
+| API version        | Deprecation first announcement | Plan to end support |
 | ------------------ | ------------------------------ | ------------------- |
 | 2016-06-27-preview | July 17, 2023                  | October 16, 2023    |
 | 2017-06-01-preview | July 17, 2023                  | October 16, 2023    |
