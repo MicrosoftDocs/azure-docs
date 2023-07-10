@@ -221,7 +221,7 @@ Remember that storage can only be scaled up, not down.
 
 3. Storage Autogrow does not trigger when there is high WAL usage.
 
- [!NOTE]
+> [!NOTE]
 > Storage auto-grow never triggers offline increase.
 
 
