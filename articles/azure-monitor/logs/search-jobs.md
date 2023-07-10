@@ -270,7 +270,7 @@ You can use all functions and binary operators within these operators.
 The charge for a search job is based on: 
 
 - Search job execution - the amount of data the search job scans.
-- Search job results - the amount of data the search job finds and are ingested into the results table, based on the regular log data ingestion prices.
+- Search job results - the amount of data the search job finds and is ingested into the results table, based on the regular log data ingestion prices.
 
 For example, if your table holds 500 GB per day, for a search over 30 days, you'll be charged for 15,000 GB of scanned data. 
 If the search job finds 1,000 records that match the search query, you'll be charged for ingesting these 1,000 records into the results table. 
