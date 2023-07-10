@@ -6,6 +6,7 @@ ms.author: vibansa
 ms.manager: abhemraj
 ms.topic: tutorial
 ms.date: 06/29/2023
+ms.service: azure-migrate
 ms.custom: mvc, subject-rbac-steps, engagement-fy23
 #Customer intent: As an VMware admin, I want to discover my on-premises servers running in a VMware environment.
 ---

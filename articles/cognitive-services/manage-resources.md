@@ -7,7 +7,7 @@ author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: how-to
-ms.date: 07/02/2021
+ms.date: 07/05/2023
 ms.author: aahi
 ---
 
@@ -40,9 +40,7 @@ To recover a deleted cognitive service resource, use the following commands. Whe
 
 # [Azure portal](#tab/azure-portal)
 
-If you need to recover a deleted resource, navigate to the hub of the cognitive services API type and select "Manage deleted resources" from the menu. For example, if you would like to recover an "Anomaly detector" resource, search for "Anomaly detector" in the search bar and select the service to get to the "Anomaly detector" hub which lists deleted resources.
-
-:::image type="content" source="media/recovery-deleted-resource.png" alt-text="A screenshot showing the Anomaly detector hub, which lets you recover deleted resources." lightbox="media/recovery-deleted-resource.png":::
+If you need to recover a deleted resource, navigate to the hub of the cognitive services API type and select "Manage deleted resources" from the menu. For example, if you would like to recover an "Anomaly detector" resource, search for "Anomaly detector" in the search bar and select the service. Then select **Manage deleted resources**.
 
 Select the subscription in the dropdown list to locate the deleted resource you would like to recover. Select one or more of the deleted resources and click **Recover**. 
 
@@ -111,11 +109,7 @@ To purge a deleted cognitive service resource, use the following commands. Where
 
 If you need to purge a deleted resource, the steps are similar to recovering a deleted resource.
 
-Navigate to the hub of the cognitive services API type of your deleted resource. For example, if you would like to purge an "Anomaly detector" resource, search for "Anomaly detector" in the search bar. Select the service to get to the "Anomaly detector" hub which lists deleted resources.
-
-Select **Manage deleted resources** from the menu. 
-
-:::image type="content" source="media/recovery-deleted-resource.png" alt-text="A screenshot showing the Anomaly detector hub, which lets you purge deleted resources." lightbox="media/recovery-deleted-resource.png":::
+Navigate to the hub of the cognitive services API type of your deleted resource. For example, if you would like to purge an "Anomaly detector" resource, search for "Anomaly detector" in the search bar and select the service. Then select **Manage deleted resources** from the menu.
 
 Select the subscription in the dropdown list to locate the deleted resource you would like to purge.
 Select one or more deleted resources and click **Purge**.

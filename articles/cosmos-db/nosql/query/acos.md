@@ -1,53 +1,62 @@
 ---
-title: ACOS in Azure Cosmos DB query language
-description: Learn about how the ACOS (arccosine) SQL system function in Azure Cosmos DB returns the angle, in radians, whose cosine is the specified numeric expression
-author: ginamr
+title: ACOS
+titleSuffix: Azure Cosmos DB for NoSQL
+description: An Azure Cosmos DB for NoSQL system function that returns the trigonometric arccosine of the specified angle.
+author: jcodella
+ms.author: jacodel
+ms.reviewer: sidandrews
 ms.service: cosmos-db
 ms.subservice: nosql
-ms.topic: conceptual
-ms.date: 03/03/2020
-ms.author: girobins
-ms.custom: query-reference, ignite-2022
+ms.topic: reference
+ms.date: 07/01/2023
+ms.custom: query-reference
 ---
-# ACOS (Azure Cosmos DB)
+
+# ACOS (NoSQL query)
+
 [!INCLUDE[NoSQL](../../includes/appliesto-nosql.md)]
 
- Returns the angle, in radians, whose cosine is the specified numeric expression; also called arccosine.  
+Returns the trigonometric arccosine of the specified numeric value. The arccosine is the angle, in radians, whose cosine is the specified numeric expression.
   
 ## Syntax
-  
+
 ```sql
 ACOS(<numeric_expr>)  
 ```  
-  
+
 ## Arguments
-  
-*numeric_expr*  
-   Is a numeric expression.  
-  
+
+| | Description |
+| --- | --- |
+| **`numeric_expr`** | A numeric expression. |
+
 ## Return types
-  
-  Returns a numeric expression.  
-  
+
+Returns a numeric expression.  
+
 ## Examples
-  
-  The following example returns the `ACOS` of -1.  
-  
+
+The following example calculates the arccosine of the specified values using the function.
+
 ```sql
-SELECT ACOS(-1) AS acos 
-```  
-  
- Here's the result set.  
-  
+SELECT VALUE {
+  arccosine: ACOS(-1)
+}
+```
+
 ```json
-[{"acos": 3.1415926535897931}]  
+[
+  {
+    "arccosine": 3.141592653589793
+  }
+]
 ```  
 
 ## Remarks
 
-This system function won't utilize the index.
+- This system function doesn't use the index.
 
 ## Next steps
 
 - [System functions Azure Cosmos DB](system-functions.yml)
-- [Introduction to Azure Cosmos DB](../../introduction.md)
+- [`COS`](cos.md)

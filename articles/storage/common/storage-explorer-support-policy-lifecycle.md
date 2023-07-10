@@ -4,7 +4,7 @@ description: Overview of the support policy and lifecycle for Azure Storage Expl
 services: storage
 author: MRayermannMSFT
 manager: jinglouMSFT
-ms.service: storage
+ms.service: azure-storage
 ms.topic: article
 ms.date: 07/10/2020
 ms.author: marayerm
