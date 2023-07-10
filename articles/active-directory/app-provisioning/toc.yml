@@ -35,13 +35,17 @@ items:
         href: on-premises-web-services-connector.md
       - name: Provisioning with custom connectors
         href: on-premises-custom-connector.md
+    - name: API-driven provisioning tutorials
+      items:
+      - name: Configure API-driven provisioning app
+        href: inbound-provisioning-api-configure-app.md
+      - name: Quickstart with cURL
+        href: inbound-provisioning-api-curl-tutorial.md
     - name: Customize attribute mappings
       href: customize-application-attributes.md
   - name: Concepts
     expanded: true
     items: 
-     - name: Inbound User Provisioning API concepts
-       href: application-provisioning-api-concepts.md
      - name: How application provisioning works
        href: how-provisioning-works.md
      - name: Plan an application provisioning deployment
@@ -58,6 +62,8 @@ items:
        href: sap-successfactors-integration-reference.md
      - name: Understand Workday integration 
        href: workday-integration-reference.md
+     - name: Understand API-driven inbound provisioning 
+       href: inbound-provisioning-api-concepts.md
      - name: Partner driven integrations
        href: partner-driven-integrations.md
   - name: How-to guides
@@ -119,9 +125,9 @@ items:
         href: hr-manager-update-issues.md
       - name: HR writeback issues
         href: hr-writeback-issues.md
-    - name: Troubleshooting Inbound Provisioning Application
+    - name: Troubleshoot API-driven inbound provisioning
       items: 
-      - name: Inbound Provisioning API issues
+      - name: Inbound provisioning API issues
         href: inbound-provisioning-api-issues.md
     - name: Enable accidental deletions prevention
       href: accidental-deletions.md
@@ -147,10 +153,10 @@ items:
       href: on-premises-migrate-microsoft-identity-manager.md
     - name: Prepare AD LDS for provisioning from Azure AD
       href: on-premises-ldap-connector-prepare-directory.md
+    - name: Frequently asked questions (FAQs) about API-driven inbound provisioning 
+      href: inbound-provisioning-faqs.md
   - name: Resources
     items:
-    - name: Frequently asked questions (FAQs) about the Inbound Provisioning API 
-      href: faqs.md
     - name: Support and help options for developers
       href: ../develop/developer-support-help-options.md
     - name: Azure feedback forum

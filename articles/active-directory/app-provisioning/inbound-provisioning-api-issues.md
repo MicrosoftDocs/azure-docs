@@ -22,38 +22,67 @@ This document covers commonly encountered errors and issues with inbound provisi
 
 ### Invalid data format 
 
-When a valid SCIM bulk request payload is sent to the provisioning API endpoint, a ```invalid data format``` HTTP 400 response code displays.
+**Issue description**
+* You are getting the error message 'Invalid Data Format" with HTTP 400 (Bad Request) response code.
+
+**Probable causes**
+1. You are sending a valid bulk request as per the provisioning [/bulkUpload](/graph/api/synchronization-synchronizationjob-post-bulkupload?view=graph-rest-beta) API specs, but you have not set the HTTP Request Header 'Content-Type' to `application/scim+json`. 
+2. You are sending a bulk request that does not comply to the provisioning [/bulkUpload](/graph/api/synchronization-synchronizationjob-post-bulkupload?view=graph-rest-beta) API specs.
 
 **Resolution:**
-Ensure the HTTP Request has the Content-Type header set to the value ```application/scim+json```.
+1. Ensure the HTTP Request has the `Content-Type` header set to the value ```application/scim+json```.
+1. Ensure that the bulk request payload complies to the provisioning [/bulkUpload](/graph/api/synchronization-synchronizationjob-post-bulkupload?view=graph-rest-beta) API specs.
 
 ### There's nothing in the provisioning logs
 
-The provisioning logs update on 40-minute cycles, so you won't see the results of your provisioning job immediately. In the future, we'll support provision-on-demand for the API. 
+**Issue description**
+* You sent a request to the provisioning /bulkUpload API endpoint and you got a HTTP 202 response code, but there is no data in the provisioning logs corresponding to your request. 
+
+**Probable causes**
+1. Your API-driven provisioning app is paused. 
+1. The provisioning service is yet to update the provisioning logs with the bulk request processing details. 
 
 **Resolution:**
-Verify that your job is in the start state. If not, make sure to select **Start Provisioning**.
+1. Verify that your provisioning app is running. If it is not running, select the menu option **Start provisioning** to process the data.
+1. Expect 5 to 10 minute delay between processing the request and writing to the provisioning logs. If your API client is sending data to the provisioning /bulkUpload API endpoint introduce a time delay between the request invocation and provisioning logs query. 
 
-### Unauthorized error while calling the Provisioning API
+### Forbidden 403 response code 
 
-- One possible issue is that your access token has expired.
+**Issue description**
+* You sent a request to the provisioning /bulkUpload API endpoint and you got a HTTP 403 (Forbidden) response code. 
+
+**Probable causes**
+* The Graph permission `SynchronizationData-User.Upload` is not assigned to your API client. 
+
 **Resolution:**
-Obtain a new access token.
+* Assign your API client the Graph permission `SynchronizationData-User.Upload` and retry the operation. 
 
-- A second possible issue is that the user isn't assigned the **Application Administrator** role. 
+### Unauthorized 401 response code
+
+**Issue description**
+* You sent a request to the provisioning /bulkUpload API endpoint and you got a HTTP 401 (Unauthorized) response code. The error code displays "InvalidAuthenticationToken" with a message that the "Access token has expired or is not yet valid.".  
+
+**Probable causes**
+* Your access token has expired. 
+
 **Resolution:**
-Ensure to check permissions and assign the **Application Administrator** roles to the user running the job.
+* Generate a new access token for your API client. 
 
 ### The job enters quarantine state
-If your job immediately enters a quarantine state after you start provisioning, it's most likely caused by not having set the notification email prior to starting the job. 
+
+**Issue description**
+* You just started the provisioning app and it is in quarantine state. 
+
+**Probable causes**
+* You have not set the notification email prior to starting the job. 
 
 **Resolution:**
 Go to the Edit Provisioning tab. Under **Settings** you''ll see a checkbox next to **Send an email notification when a failure occurs** and a field to input your **Notification Email**. Make sure to check the box, provide your email, and save the change. Click on **Restart provisioning** to get the job out of quarantine. 
 
 ### User creation - Invalid UPN
 
-If a user fails to get provisioned check the provisioning logs troubleshooting tab. 
-If the error code is: ```AzureActiveDirectoryInvalidUserPrincipalNam``` then you need to update the User Principal Name mapping. 
+**Issue description**
+There is a user provisioning failure. The provisioning logs displays the error code: ```AzureActiveDirectoryInvalidUserPrincipalName```.  
 
 **Resolution:**
 1. Got to the **Edit Attribute Mappings** page.
@@ -61,21 +90,19 @@ If the error code is: ```AzureActiveDirectoryInvalidUserPrincipalNam``` then you
 3. Copy and paste this expression into the expression box:
 ```Join("", Replace([userName], , "(?<Suffix>@(.)*)", "Suffix", "", , ), RandomString(3, 3, 0, 0, 0, ), "@", DefaultDomain())```
 
-This fixes the issue in the getting started steps with the sample users provided by appending a random number to the UPN value accepted by Azure AD. 
+This fixes the issue by appending a random number to the UPN value accepted by Azure AD. 
 
 ### User creation failed - Invalid domain
-If a user fails to get provisioned check the provisioning logs troubleshooting tab. 
-If the error code states that the ```domain does not exist```, then you need to update the User Principal Name mapping. 
+
+**Issue description**
+There is a user provisioning failure. The provisioning logs displays an error message that states ```domain does not exist```.  
 
 **Resolution:**
 1. Go to the **Edit Attribute Mappings** page. 
 2. Select the ```UserPrincipalName``` mapping and copy and paste this expression into the expression input box: 
 ```Join("", Replace([userName], , "(?<Suffix>@(.)*)", "Suffix", "", , ), RandomString(3, 3, 0, 0, 0, ), "@", DefaultDomain())```
 
-This fixes the issue in the getting started steps with the sample users provided by appending a random number to the UPN value accepted by Azure AD. 
-
-
 ## Next steps
 
-* [Learn more about the Inbound Provisioning API](application-provisioning-api-concepts.md)
+* [Learn more about API-driven inbound provisioning](application-provisioning-api-concepts.md)
 
