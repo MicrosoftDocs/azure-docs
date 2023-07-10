@@ -4,7 +4,10 @@
 >*  We need to test failover
 >*  Datalake is not supported
 
-Storage Accounts operate differently than other services.  Instead of having a redundant node, like Azure SQL Multi-region HA, or a secondary web app setup for redundancy, Storage Accounts replicate to a secondary region and fail over in an emergency.
+Storage accounts work different than many other Azure services when it comes to high availability configurations.  Instead of having a secondary instance that is deployed by the customer to a region of their selection, storage accounts configured to be [geo-redundant](./storage-account-overview#types-of-storage-accounts.md) use a specific secondary region based on the main region, to align with [regional pairs](../../reliability/cross-region-replication-azure).  Customers can fail over to the secondary region, or the storage account will automatically fail over when a regional outage occurs.
+
+This means that customers don't need to play to have a second
+
 That means that you don't plan to have a second SA (you could but its uncommon and you have to solve for file sync and pay more), you plan to fail over your SA.
 The Storage Account depends on DNS for routing if you are doing a Private Endpoint
 You need a secondary set of PrivateLink DNS Zones for Storage Services in your secondary region so that the resources in your secondary region can resolve to the PE in your secondary region, for the storage account that has been failed over.
