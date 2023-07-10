@@ -4,7 +4,7 @@ description: Describes how to deploy a web application to Azure Spring Apps.
 author: KarlErickson
 ms.service: spring-apps
 ms.topic: quickstart
-ms.date: 06/21/2023
+ms.date: 07/11/2023
 ms.custom: devx-track-java, devx-track-extended-java, devx-track-azurecli, mode-other, event-tier1-build-2022, engagement-fy23
 ms.author: xiada
 zone_pivot_groups: spring-apps-plan-selection
@@ -36,8 +36,8 @@ The following diagram shows the architecture of the system:
 
 This article provides the following options for deploying to Azure Spring Apps:
 
-- Azure portal - This is a more conventional way to create resources and deploy applications step by step. It's suitable for Spring developers who are using Azure cloud services for the first time.
-- Azure Developer CLI: This is a more efficient way to automatically create resources and deploy applications through simple commands, and it covers application code, infrastructure as code files needed to provision the Azure resources. It's suitable for Spring developers who are familiar with Azure cloud services.
+- Azure portal - This is a more conventional way to create resources and deploy applications step by step. This approach is suitable for Spring developers who are using Azure cloud services for the first time.
+- Azure Developer CLI: This is a more efficient way to automatically create resources and deploy applications through simple commands, and it covers application code and infrastructure as code files needed to provision the Azure resources. This approach is suitable for Spring developers who are familiar with Azure cloud services.
 
 ::: zone-end
 
@@ -45,13 +45,13 @@ This article provides the following options for deploying to Azure Spring Apps:
 
 ::: zone pivot="sc-standard"
 
-#### [Azure portal](#tab/Azure-portal)
+### [Azure portal](#tab/Azure-portal)
 
 - An Azure subscription. If you don't have a subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
 - [Git](https://git-scm.com/downloads).
 - [Java Development Kit (JDK)](/java/azure/jdk/), version 17.
 
-#### [Azure Developer CLI](#tab/Azure-Developer-CLI)
+### [Azure Developer CLI](#tab/Azure-Developer-CLI)
 
 - An Azure subscription. If you don't have a subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
 - [Git](https://git-scm.com/downloads).
@@ -97,7 +97,7 @@ This article provides the following options for deploying to Azure Spring Apps:
 
 ## 5. Validate the web app
 
-Now you can access the deployed app to see whether it works.
+Now you can access the deployed app to see whether it works. Use the following steps to validate:
 
 ::: zone pivot="sc-consumption-plan"
 
@@ -141,7 +141,7 @@ Now you can access the deployed app to see whether it works.
 
 1. Access the application with the output application URL. The page should appear as you saw in localhost.
 
-1. From the navigation pane of the Azure Spring Apps instance overview page, select **Logs** to check the app's logs:
+1. From the navigation pane of the Azure Spring Apps instance overview page, select **Logs** to check the app's logs.
 
    :::image type="content" source="media/quickstart-deploy-web-app/logs.png" alt-text="Screenshot of the Azure portal showing the Azure Spring Apps logs page." lightbox="media/quickstart-deploy-web-app/logs.png":::
 

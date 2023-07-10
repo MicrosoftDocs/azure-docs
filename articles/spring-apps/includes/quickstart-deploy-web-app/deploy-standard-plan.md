@@ -3,7 +3,7 @@ author: KarlErickson
 ms.author: xiada
 ms.service: spring-apps
 ms.topic: include
-ms.date: 05/24/2022
+ms.date: 07/11/2023
 ---
 
 <!--
@@ -15,11 +15,11 @@ For clarity of structure, a separate markdown file is used to describe how to de
 
 ## 2. Prepare the Spring project
 
-First we need to prepare the Spring project to run locally.
+First, prepare the Spring project to run locally.
 
-#### [Azure portal](#tab/Azure-portal)
+### [Azure portal](#tab/Azure-portal)
 
-Use the following steps to clone and run the app locally.
+Although you use the Azure portal in later steps, you must use the Bash command line to prepare the project locally. Use the following steps to clone and run the app locally. These steps use the 
 
 1. Use the following command to clone the sample project from GitHub:
 
@@ -34,7 +34,7 @@ Use the following steps to clone and run the app locally.
    ./mvnw clean package
    ```
 
-1. Use the following command to run the sample application by Maven:
+1. Use the following command to run the sample application by using Maven:
 
    ```bash
    java -jar web/target/simple-todo-web-0.0.1-SNAPSHOT.jar
@@ -42,20 +42,20 @@ Use the following steps to clone and run the app locally.
 
 1. Go to `http://localhost:8080` in your browser to access the application.
 
-#### [Azure Developer CLI](#tab/Azure-Developer-CLI)
+### [Azure Developer CLI](#tab/Azure-Developer-CLI)
 
-Use AZD to initialize the web application from the Azure Developer CLI templates.
+Use the following steps to initialize the web application from the Azure Developer CLI templates:
 
-1. Open a terminal, create a new empty folder, and change directory to it.
-2. Run the following command to initialize the project.
+1. Open a terminal, create a new empty folder, and then change directory to it.
+2. Run the following command to initialize the project:
 
    ```bash
    azd init --template https://github.com/Azure-Samples/ASA-Samples-Web-Application
    ```
 
-   Command interaction description:
+   The following list describes the command interactions:
 
-   - **OAuth2 login**: You need to authorize the login to Azure based on the OAuth2 protocol.
+   - **OAuth2 login**: Authorize the login to Azure based on the OAuth2 protocol.
    - **Please enter a new environment name**: Provide an environment name, which is used as a suffix for the resource group created to hold all the Azure resources. This name should be unique within your Azure subscription.
 
    The console outputs messages similar to the following example:
@@ -78,23 +78,23 @@ Use AZD to initialize the web application from the Azure Developer CLI templates
 
 The main resources required to run this sample are an Azure Spring Apps instance and an Azure Database for PostgreSQL instance. This section provides the steps to create these resources.
 
-#### [Azure portal](#tab/Azure-portal)
+### [Azure portal](#tab/Azure-portal)
 
 ### 3.1. Sign in to the Azure portal
 
-Open your web browser and go to the [portal](https://portal.azure.com/). Enter your credentials to sign in to the portal. The default view is your service dashboard.
+Open your web browser and go to the [Azure portal](https://portal.azure.com/). Enter your credentials to sign in to the portal. The default view is your service dashboard.
 
 ### 3.2. Create an Azure Spring Apps instance
 
-1. Select **Create a resource (+)** in the upper-left corner of the portal.
+Use the following steps to create a service instance:
+
+1. Select **Create a resource** in the corner of the portal.
 
 1. Select **Compute** > **Azure Spring Apps**.
 
    :::image type="content" source="../../media/quickstart-deploy-web-app/create-service-instance.png" alt-text="Screenshot of the Azure portal showing the Create a resource page with Azure Spring Apps highlighted." lightbox="../../media/quickstart-deploy-web-app/create-service-instance.png":::
 
 1. Fill out the **Basics** form with the following information:
-
-   :::image type="content" source="../../media/quickstart-deploy-web-app/create-basics.png" alt-text="Screenshot of the Azure portal showing the Create Azure Spring Apps page." lightbox="../../media/quickstart-deploy-web-app/create-basics.png":::
 
    | Setting        | Suggested Value                  | Description                                                                                                                                                                                                                                                                                        |
    |----------------|----------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -103,11 +103,13 @@ Open your web browser and go to the [portal](https://portal.azure.com/). Enter y
    | Name           | *myasa*                          | A unique name that identifies your Azure Spring Apps service. The name must be between 4 and 32 characters long and can contain only lowercase letters, numbers, and hyphens. The first character of the service name must be a letter and the last character must be either a letter or a number. |
    | Plan           | *Basic*                          | Pricing Tier determines the resource and cost associated with your instance.                                                                                                                                                                                                                       |
    | Region         | The region closest to your users | The location that is closest to your users.                                                                                                                                                                                                                                                        |
-   | Zone Redundant | Unchecked                        | Whether to create your Azure Spring Apps service in an Azure availability zone, this could only be supported in several regions at the moment.                                                                                                                                                     |
+   | Zone Redundant | Unchecked                        | Whether to create your Azure Spring Apps service in an Azure availability zone. Currently, this feature is supported only in some regions.                                                                                                                                                         |
+
+   :::image type="content" source="../../media/quickstart-deploy-web-app/create-basics.png" alt-text="Screenshot of the Azure portal showing the Create Azure Spring Apps page." lightbox="../../media/quickstart-deploy-web-app/create-basics.png":::
 
 1. Select **Review and Create** to review your selections. Select **Create** to provision the Azure Spring Apps instance.
 
-1. On the toolbar, select the **Notifications** icon (a bell) to monitor the deployment process. Once the deployment is done, you can select **Pin to dashboard**, which creates a tile for this service on your Azure portal dashboard as a shortcut to the service's **Overview** page. Selecting **Go to resource** opens the service's **Overview** page.
+1. On the toolbar, select the **Notifications** icon (a bell) to monitor the deployment process. Once the deployment is done, you can select **Pin to dashboard**, which creates a tile for this service on your Azure portal dashboard as a shortcut to the service's **Overview** page. Select **Go to resource** to open the service's **Overview** page.
 
    :::image type="content" source="../../media/quickstart-deploy-web-app/notifications.png" alt-text="Screenshot of the Azure portal showing the Overview page with the Notifications pane open." lightbox="../../media/quickstart-deploy-web-app/notifications.png":::
 
@@ -116,6 +118,8 @@ Open your web browser and go to the [portal](https://portal.azure.com/). Enter y
 [!INCLUDE [provision-postgresql-flexible](./provision-postgresql.md)]
 
 ### 3.4. Connect app instance to PostgreSQL instance
+
+Use the following steps to connect your service instances:
 
 1. Go to your Azure Spring Apps instance in the Azure portal.
 
@@ -131,17 +135,29 @@ Open your web browser and go to the [portal](https://portal.azure.com/). Enter y
 
    :::image type="content" source="../../media/quickstart-deploy-web-app/app-service-connector.png" alt-text="Screenshot of the Azure portal showing the Service Connector page with the Create button highlighted." lightbox="../../media/quickstart-deploy-web-app/app-service-connector.png":::
 
-1. Fill out the **Basics** form with the following information:
+1. Fill out the **Basics** tab with the following information:
+
+   - **Service type**: **DB for PostgreSQL flexible server**
+   - **Connection name**: *postgresql_e1974*
+   - **Subscription**: select your subscription.
+   - **PostgreSQL flexible server**: *my-demo-pgsql*
+   - **PostgreSQL database**: *todo*
+   - **Client type**: **SpringBoot**
 
    :::image type="content" source="../../media/quickstart-deploy-web-app/app-service-connector-basics.png" alt-text="Screenshot of the Azure portal showing the Basics tab of the Create connection pane for connecting to PostgreSQL." lightbox="../../media/quickstart-deploy-web-app/app-service-connector-basics.png":::
 
-1. Configure the **Authentication** options:
+1. Configure the **Authentication** tab with the following information:
+
+   - **Select the authentication type you'd like to use between your compute service and target service.**: Select **Connection string**.
+   - **Continue with...**: Select **Database credentials**
+   - **Username**: *myadmin*
+   - **Password**: Enter your password.
 
    :::image type="content" source="../../media/quickstart-deploy-web-app/app-service-connector-authentication.png" alt-text="Screenshot of the Azure portal showing the Authentication tab of the Create connection pane with the Connection string option highlighted." lightbox="../../media/quickstart-deploy-web-app/app-service-connector-authentication.png":::
 
-1. Select **Review and Create** to review your selections. Select **Create** to create the connection.
+1. Select **Review and Create** to review your selections, then select **Create** to create the connection.
 
-#### [Azure Developer CLI](#tab/Azure-Developer-CLI)
+### [Azure Developer CLI](#tab/Azure-Developer-CLI)
 
 1. Run the following command to log in Azure with OAuth2. Ignore this step if you've already logged in.
 
@@ -149,57 +165,59 @@ Open your web browser and go to the [portal](https://portal.azure.com/). Enter y
    azd auth login
    ```
 
-1. Run the following command to provision the template's infrastructure to Azure.
+1. Run the following command to provision the template's infrastructure to Azure:
 
    ```bash
    azd provision
    ```
 
-   Command interaction description:
+   The following list describes the command interactions:
+
    - **Please select an Azure Subscription to use**: Use arrows to move, type to filter, then press <kbd>ENTER</kbd>.
    - **Please select an Azure location to use**: Use arrows to move, type to filter, then press <kbd>ENTER</kbd>.
 
    > [!NOTE]
-   > This template may only be used with the following Azure locations:
+   > You can use this template only with the following Azure locations:
    >
-   >  - Australia East
-   >  - Brazil South
-   >  - Canada Central
-   >  - Central US
-   >  - East Asia
-   >  - East US
-   >  - East US 2
-   >  - Germany West Central
-   >  - Japan East
-   >  - Korea Central
-   >  - North Central US
-   >  - North Europe
-   >  - South Central US
-   >  - UK South
-   >  - West Europe
-   >  - West US
+   > - Australia East
+   > - Brazil South
+   > - Canada Central
+   > - Central US
+   > - East Asia
+   > - East US
+   > - East US 2
+   > - Germany West Central
+   > - Japan East
+   > - Korea Central
+   > - North Central US
+   > - North Europe
+   > - South Central US
+   > - UK South
+   > - West Europe
+   > - West US
    >
-   >  If you attempt to use the template with an unsupported region, the provision step will fail.
+   > If you attempt to use the template with an unsupported region, the provision step fails.
 
 ---
 
 ## 4. Deploy the app to Azure Spring Apps
 
-Now we can deploy the app to Azure Spring Apps.
+You can now deploy the app to Azure Spring Apps.
 
-#### [Azure portal](#tab/Azure-portal)
+### [Azure portal](#tab/Azure-portal)
 
-Use the [Maven plugin for Azure Spring Apps](https://github.com/microsoft/azure-maven-plugins/wiki/Azure-Spring-Apps) to deploy.
+Use the following steps to deploy using the [Maven plugin for Azure Spring Apps](https://github.com/microsoft/azure-maven-plugins/wiki/Azure-Spring-Apps):
 
-1. Navigate to the sample project directory and execute the following command to config the app in Azure Spring Apps:
+1. Navigate to the sample project directory and run the following command to configure the app in Azure Spring Apps:
 
    ```bash
    ./mvnw com.microsoft.azure:azure-spring-apps-maven-plugin:1.17.0:config
    ```
 
-   Command interaction description:
-   - **Select Maven child module**: Select the module to configure, enter the number for the web module.
-   - **OAuth2 login**: You need to authorize the login to Azure based on the OAuth2 protocol.
+   The following list describes the command interactions:
+
+   - **Select Maven child module**: Select the module to configure, then enter the number for the web module.
+   - **OAuth2 login**: Authorize the login to Azure based on the OAuth2 protocol.
    - **Select subscription**: Select the subscription list number of the Azure Spring Apps instance you created, which defaults to the first subscription in the list. If you use the default number, press <kbd>ENTER</kbd> directly.
    - **Select Azure Spring Apps**: Select the number of the Azure Spring Apps instance you created. If you use the default number, press <kbd>ENTER</kbd> directly.
    - **Expose public access for this app?**: Press <kbd>y</kbd>.
@@ -211,10 +229,11 @@ Use the [Maven plugin for Azure Spring Apps](https://github.com/microsoft/azure-
    ./mvnw com.microsoft.azure:azure-spring-apps-maven-plugin:1.17.0:deploy
    ```
 
-   Command interaction description:
-    - **OAuth2 login**: You need to authorize the login to Azure based on the OAuth2 protocol.
+   The following list describes the command interactions:
 
-   After the command is executed, you can see the following log signs that the deployment was successful.
+   - **OAuth2 login**: You need to authorize the login to Azure based on the OAuth2 protocol.
+
+   After the command is executed, you can see output similar to the following example, which indicates that the deployment was successful:
 
    ```output
    [INFO] Deployment(default) is successfully updated.
@@ -223,19 +242,19 @@ Use the [Maven plugin for Azure Spring Apps](https://github.com/microsoft/azure-
    [INFO] Application url: https://<your-azure-spring-apps-name>-simple-todo-web.azuremicroservices.io
    ```
 
-   The output **Application url** is the endpoint to access the todo application.
+   The output **Application url** is the endpoint to access the `todo`` application.
 
-#### [Azure Developer CLI](#tab/Azure-Developer-CLI)
+### [Azure Developer CLI](#tab/Azure-Developer-CLI)
 
-Use AZD to package the app, provision the Azure resources required by the web application, and then deploy to Azure Spring Apps.
+Use the following steps to package the app, provision the Azure resources required by the web application, and then deploy to Azure Spring Apps:
 
-1. Run the following command to package a deployable copy of your application
+1. Run the following command to package a deployable copy of your application:
 
    ```bash
    azd package
    ```
 
-1. Run the following command to deploy the application code to those newly provisioned resources.
+1. Run the following command to deploy the application code to those newly provisioned resources:
 
    ```bash
    azd deploy
@@ -253,9 +272,9 @@ Use AZD to package the app, provision the Azure resources required by the web ap
    https://portal.azure.com/#@/resource/subscriptions/<>your-subscription-id/resourceGroups/rg-<your-environment-name>-<a-random-string>/overview
    ```
 
-   The output **Endpoint** is the endpoint to access the todo application.
+   The output **Endpoint** is the endpoint to access the `todo` application.
 
 > [!NOTE]
-> You can also use `azd up` to combine the previous three commands: `azd package` (packages a deployable copy of your application), `azd provision` (provisions Azure resources), and `azd deploy` (deploys application code). See more details from [Azure-Samples/ASA-Samples-Web-Application](https://github.com/Azure-Samples/ASA-Samples-Web-Application).
+> You can also use `azd up` to combine the previous three commands: `azd package` (packages a deployable copy of your application), `azd provision` (provisions Azure resources), and `azd deploy` (deploys application code). For more information, see [Azure-Samples/ASA-Samples-Web-Application](https://github.com/Azure-Samples/ASA-Samples-Web-Application).
 
 ---

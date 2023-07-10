@@ -3,7 +3,7 @@ author: KarlErickson
 ms.author: xiada
 ms.service: spring-apps
 ms.topic: include
-ms.date: 05/24/2022
+ms.date: 07/11/2023
 ---
 
 <!--
@@ -30,7 +30,7 @@ Use the following steps to clone and run the app locally.
    ./mvnw clean package
    ```
 
-3. Use the following command to run the sample application by Maven:
+3. Use the following command to run the sample application by using Maven:
 
    ```bash
    java -jar web/target/simple-todo-web-0.0.1-SNAPSHOT.jar
@@ -61,21 +61,21 @@ export CONNECTION=<connection-name>
 
 ### 3.2. Create a new resource group
 
-Use the following steps to create a new resource group.
+Use the following steps to create a new resource group:
 
-1. Use the following command to sign in to the Azure CLI.
+1. Use the following command to sign in to the Azure CLI:
 
    ```azurecli
    az login
    ```
 
-1. Use the following command to set the default location.
+1. Use the following command to set the default location:
 
    ```azurecli
    az configure --defaults location=${LOCATION}
    ```
 
-1. Use the following command to list all available subscriptions to determine the subscription ID to use.
+1. Use the following command to list all available subscriptions to determine the subscription ID to use:
 
    ```azurecli
    az account list --output table
@@ -87,13 +87,13 @@ Use the following steps to create a new resource group.
    az account set --subscription <subscription-ID>
    ```
 
-1. Use the following command to create a resource group.
+1. Use the following command to create a resource group:
 
    ```azurecli
    az group create --resource-group ${RESOURCE_GROUP}
    ```
 
-1. Use the following command to set the newly created resource group as the default resource group.
+1. Use the following command to set the newly created resource group as the default resource group:
 
    ```azurecli
    az configure --defaults group=${RESOURCE_GROUP}
@@ -159,7 +159,7 @@ Specifying `0.0.0.0` enables public access from any resources deployed within Az
 
 ### 3.5. Connect app instance to PostgreSQL instance
 
-After the application instance and the PostgreSQL instance are created, the application instance can't access the PostgreSQL instance directly. Use the following steps to enable the app to connect to the PostgreSQL instance.
+After the application instance and the PostgreSQL instance are created, the application instance can't access the PostgreSQL instance directly. Use the following steps to enable the app to connect to the PostgreSQL instance:
 
 1. Use the following command to get the PostgreSQL instance's fully qualified domain name:
 
@@ -183,13 +183,11 @@ After the application instance and the PostgreSQL instance are created, the appl
 
 ## 4. Deploy the app to Azure Spring Apps
 
-Now that the cloud environment is prepared, the application is ready to deploy.
+Now that the cloud environment is prepared, the application is ready to deploy. Use the following command to deploy the app:
 
-1. Use the following command to deploy the app:
-
-   ```azurecli
-   az spring app deploy \
-       --service ${AZURE_SPRING_APPS_NAME} \
-       --name ${APP_NAME} \
-       --artifact-path web/target/simple-todo-web-0.0.1-SNAPSHOT.jar
-   ```
+```azurecli
+az spring app deploy \
+    --service ${AZURE_SPRING_APPS_NAME} \
+    --name ${APP_NAME} \
+    --artifact-path web/target/simple-todo-web-0.0.1-SNAPSHOT.jar
+```
