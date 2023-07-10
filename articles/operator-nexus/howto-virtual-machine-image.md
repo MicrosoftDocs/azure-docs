@@ -93,7 +93,7 @@ required_vars=(
     "ACR_NAME"                  # Azure Container Registry name
     "CONTAINER_IMAGE_NAME"      # Name of the container image
     "CONTAINER_IMAGE_TAG"       # Tag for the container image
-    "VNF_IMAGE"                 # VNF image (URL, local file, or full local path)
+    "VNF_IMAGE"                 # VNF image (URL or file path)
 )
 
 # Verify if required environment variables are set
