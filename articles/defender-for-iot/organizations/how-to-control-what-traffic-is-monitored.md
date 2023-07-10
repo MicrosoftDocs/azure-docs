@@ -67,7 +67,9 @@ While the OT network sensor automatically learns the subnets in your network, we
 
 **To fine-tune your detected subnets**:
 
-1. Sign into your OT sensor as an Admin user and select **System settings** > **Basic** > **Subnets**.
+1. Sign into your OT sensor as an Admin user and select **System settings** > **Basic** > **Subnets**. For example:
+
+    i:::image type="content" source="media/how-to-control-what-traffic-is-monitored/define-subnets.png" alt-text="Screenshot of the Subnets page in the OT sensor settings.":::
 
 1. Update the subnets listed using any of the following options:
 

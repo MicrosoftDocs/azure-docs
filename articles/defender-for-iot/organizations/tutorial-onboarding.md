@@ -223,12 +223,12 @@ This procedure describes how to install the sensor software on your VM.
 
 1. Power on the VM, and open a console.
 
-1. When the installation boots, you're prompted to start the installation process. Select the **Install iot-sensor-<version number>** item to continue. For example:
+1. When the installation boots, you're prompted to start the installation process. Select the **Install iot-sensor-`<version number>`** item to continue. For example:
 
     :::image type="content" source="media/install-software-ot-sensor/initial-install-screen.png" alt-text="Screenshot of the initial installation screen.":::
 
     > [!NOTE]
-    > If you're using a legacy BIOS version, you're prompted to select a language and the installation options are presented at the top left instead of in the center. When prompted, select `English` and then the the **Install iot-sensor-<version number> option to continue.
+    > If you're using a legacy BIOS version, you're prompted to select a language and the installation options are presented at the top left instead of in the center. When prompted, select `English` and then the the **Install iot-sensor-`<version number>`** option to continue.
 
     The installation begins, giving you updated status messages as it goes. The entire installation process takes up to 20-30 minutes, and may vary depending on the type of media you're using.
 
@@ -241,7 +241,7 @@ This procedure describes how to install the sensor software on your VM.
     UID: 91F14D56-C1E4-966F-726F-006A527C61D
     ```
 
-You'll use the default IP address provided to access your sensor for [initial setup and activation](/ot-deploy/activate-deploy-sensor.md).
+You'll use the default IP address provided to access your sensor for [initial setup and activation](ot-deploy/activate-deploy-sensor.md).
 
 ### Post-installation validation
 
@@ -347,13 +347,13 @@ This procedure describes how to activate your new OT sensor.
 
 ### Define SSL/TLS certificate settings
 
-Use the **Certificates** tab to deploy an SSL/TLS certificate on your OT sensor. While we recommend that you use a [CA-signed certificate](/ot-deploy/create-ssl-certificates.md) for all production environments, for the sake of this tutorial, you'll select to use a self-signed certificate. 
+Use the **Certificates** tab to deploy an SSL/TLS certificate on your OT sensor. While we recommend that you use a [CA-signed certificate](ot-deploy/create-ssl-certificates.md) for all production environments, for the sake of this tutorial, you'll select to use a self-signed certificate. 
 
 **To define SSL/TLS certificate settings**:
 
 1. In the **Certificates** tab, select **Use Locally generated self-signed certificate (Not recommended)**, and then select the **Confirm** option.
 
-For more information, see [SSL/TLS certificate requirements for on-premises resources](best-practices/certificate-requirements.md) and [Create SSL/TLS certificates for OT appliances](/ot-deploy/create-ssl-certificates.md).
+For more information, see [SSL/TLS certificate requirements for on-premises resources](best-practices/certificate-requirements.md) and [Create SSL/TLS certificates for OT appliances](ot-deploy/create-ssl-certificates.md).
 
 1. Select **Finish** to complete the initial setup and open your sensor console.
 
