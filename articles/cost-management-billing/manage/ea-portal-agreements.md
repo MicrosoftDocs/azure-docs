@@ -171,13 +171,13 @@ Partners can use the markup feature (on Azure EA portal or Azure portal) after a
 | Microsoft Azure Storage | Five storage accounts, each of a maximum size of 100 TB each. | You can increase the number of storage accounts to up to 20 per subscription. If you require more storage accounts, add more subscriptions. |
 | SQL Azure | 149 databases of either type (for example, Web Edition or Business Edition). |   |
 | Access Control | 50 Namespaces per account. 100 million Access Control transactions per month |   |
-| Service Bus | 50 Namespaces per account. 40 Service Bus connections | Customers purchasing Service Bus connections through connection packs have quotas equal to the midpoint between the connection pack they purchased and the next highest connection pack amount. Customers choosing a 500 Pack will have a quota of 750. |
+| Service Bus | 50 Namespaces per account. 40 Service Bus connections | Customers purchasing Service Bus connections through connection packs have quotas equal to the midpoint between the connection pack they purchased and the next highest connection pack amount. Customers choosing a 500 Pack have a quota of 750. |
 
 ## Resource Prepayment
 
-Microsoft will provide services to you up to at least the level of the associated usage included in the monthly Prepayment that you purchased (the Service Prepayment). However, all other increases in usage levels of service resources are subject to the availability of these service resources. For example, adding to the number of compute instances running, or increasing the amount of storage in use.
+Microsoft provides services to you up to at least the level of the associated usage included in the monthly Prepayment that you purchased (the Service Prepayment). However, all other increases in usage levels of service resources are subject to the availability of these service resources. For example, adding to the number of compute instances running, or increasing the amount of storage in use.
 
-Quotas described above aren't Service Prepayment. You can determine the number of simultaneous small compute instances, or their equivalent, that Microsoft provides as part of a Service Prepayment. Divide the number of committed small compute instance hours purchased for a month by the number of hours in the shortest month of the year. For example, February – 672 hours.
+Quotas described previously aren't Service Prepayment. You can determine the number of simultaneous small compute instances, or their equivalent, that Microsoft provides as part of a Service Prepayment. Divide the number of committed small compute instance hours purchased for a month by the number of hours in the shortest month of the year. For example, February – 672 hours.
 
 ## Requesting a quota increase
 
@@ -214,17 +214,18 @@ EA customer can view price sheet in Azure portal. See [view price sheet in Azure
 1. Select **+Add Subscription**.
 1. Select **Purchase**.
 
-The first time you add a subscription to an account, you'll need to provide your contact information. When you add more subscriptions later, your contact information will be populated for you.
+The first time you add a subscription to an account, you need to provide your contact information. When you add more subscriptions later, your contact information is populated for you.
 
-The first time you add a subscription to your account, you'll be asked to accept the MOSA agreement and a Rate Plan. These sections aren't Applicable to Enterprise Agreement Customers, but are currently necessary to create your subscription. Your Microsoft Azure Enterprise Agreement Enrollment Amendment supersedes the above items and your contractual relationship won't change. Select the box indicating you accept the terms.
+The first time you add a subscription to your account, you're asked to accept the MOSA agreement and a Rate Plan. These sections aren't Applicable to Enterprise Agreement Customers, but are currently necessary to create your subscription. Your Microsoft Azure Enterprise Agreement Enrollment Amendment supersedes the above items and your contractual relationship doesn't change. Select the box indicating you accept the terms.
 
 **Step Two: Update subscription name**
 
-All new subscriptions will be added with the default *Microsoft Azure Enterprise* subscription name. It's important to update the subscription name to differentiate it from the other subscriptions within your Enterprise Enrollment and ensure that it's recognizable on reports at the enterprise level.
+All new subscriptions are added with the default *Microsoft Azure Enterprise* subscription name. It's important to update the subscription name to differentiate it from the other subscriptions within your Enterprise Enrollment and ensure that it's recognizable on reports at the enterprise level.
 
 Select **Subscriptions**, select the subscription you created, and then select **Edit Subscription Details.**
 
-Update the subscription name and service administrator and select the checkmark. The subscription name will appear on reports and it will also be the name of the project associated with the subscription on the development portal.
+Update the subscription name and service administrator and select the checkmark. The subscription name appears on reports and it's also the name of the project associated with the subscription on the development portal.
+
 New subscriptions may take up to 24 hours to propagate in the subscriptions list.
 
 Only account owners can view and manage subscriptions.
@@ -235,13 +236,13 @@ Direct customer can create and edit subscription in Azure portal. See [manage su
 
 **Account owner showing in pending status**
 
-When new Account Owners (AO) are added to the enrollment for the first time, they'll always show as `pending` under status. When you receive the activation welcome email, the AO can sign in to activate their account. This activation will update their account status from `pending` to `active`.
+When new Account Owners (AO) are added to the enrollment for the first time, they always have `pending` under status. When you receive the activation welcome email, the AO can sign in to activate their account. This activation updates their account status from `pending` to `active`.
 
 **Usages being charged after Plan SKUs are purchased**
 
 This scenario occurs when the customer has deployed services under the wrong enrollment number or selected the wrong services.
 
-To validate if you're deploying under the right enrollment, you can check your included units information via the price sheet. Sign in as an Enterprise Administrator and select **Reports** on the left navigation and select **Price Sheet** tab. Select the Download symbol in the top-right corner and find the corresponding Plan SKU part numbers with filter on column "Included Quantity" and select values greater than "0".
+To validate if you're deploying under the right enrollment, you can check your included units information via the price sheet. Sign in as an Enterprise Administrator and select **Reports** on the left navigation and select **Price Sheet** tab. Select the Download symbol in the top-right corner and find the corresponding Plan SKU part numbers with filter on column **Included Quantity** and select values greater than "0."
 
 Ensure that your OMS plan is showing on the price sheet under included units. If there are no included units for OMS plan on your enrollment, your OMS plan may be under another enrollment. Contact Azure Enterprise Portal Support at [https://aka.ms/AzureEntSupport](https://aka.ms/AzureEntSupport).
 
