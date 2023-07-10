@@ -26,7 +26,7 @@ Here is a list of related resources:
 | Understand Azure AD Application Proxy connectors | Find out more about [connector management](application-proxy-connectors.md) and how connectors [auto-upgrade](application-proxy-connectors.md#automatic-updates). |
 | Azure AD Application Proxy Connector Download    | [Download the latest connector](https://download.msappproxy.net/subscription/d3c8b69d-6bf7-42be-a529-3fe9c2e70c90/connector/download). |
 
-## 1.5.3417.0
+## 1.5.3437.0
 
 ### Release status
 
@@ -39,6 +39,8 @@ June 20, 2023: Released for download. This version is only available for install
 
 ### Fixed issues
 - Silent registration of connector with credentials. See [Create an unattended installation script for the Azure Active Directory Application Proxy connector](application-proxy-register-connector-powershell.md) for more details.
+- Fixed dropping of cookie “Secure” and “HttpOnly” attributes on the cookies passed by backend servers when there are trailing spaces in these attributes.
+- Fixed "Set-Cookie" header with empty value.
 
 ## 1.5.2846.0
 
