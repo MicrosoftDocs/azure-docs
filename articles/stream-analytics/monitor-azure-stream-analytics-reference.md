@@ -39,6 +39,15 @@ This section lists all the automatically collected platform metrics collected fo
 ### Partition ID dimension
 [!INCLUDE [metrics-dimension-partition-id](./includes/metrics-dimension-partition-id.md)]
 
+## Resource logs
+
+[!INCLUDE [resource-logs](./includes/resource-logs.md)]
+
+### Resource logs schema
+
+[!INCLUDE [resource-logs-schema](./includes/resource-logs-schema.md)]
+
+
 ## Activity log
 The following table lists the operations that Azure Stream Analytics may record in the Activity log. This set of operations is a subset of the possible entries you might find in the activity log.
 
