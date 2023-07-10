@@ -13,15 +13,24 @@ ms.date: 06/28/2023
 
 # RedisPubSubTrigger Azure Function
 
-The `RedisPubSubTrigger` subscribes to a specific channel pattern using [`PSUBSCRIBE`](https://redis.io/commands/psubscribe/), and surfaces messages received on those channels to the function.
+Redis features [publish/subscribe functionality](https://redis.io/docs/interact/pubsub/) that enables messages to be sent to Redis and broadcast to subscribers. The `RedisPubSubTrigger` enables Azure Functions to be triggered on pub/sub activity. The `RedisPubSubTrigger`subscribes to a specific channel pattern using [`PSUBSCRIBE`](https://redis.io/commands/psubscribe/), and surfaces messages received on those channels to the function.
+
+### Prerequisites and limitations
+
+- The `RedisPubSubTrigger` isn't capable of listening to [keyspace notifications](https://redis.io/docs/manual/keyspace-notifications/) on clustered caches.
+- Basic tier functions don't support triggering on `keyspace` or `keyevent` notifications through the `RedisPubSubTrigger`.
+- The `RedisPubSubTrigger` isn't supported on a [consumption plan](/azure/azure-functions/consumption-plan) because Redis PubSub requires clients to always be actively listening to receive all messages. For consumption plans, your function might miss certain messages published to the channel.
+- Functions with the `RedisPubSubTrigger` should not be scaled out to multiple instances. Each instance listens and processes each pubsub message, resulting in duplicate processing
+
+### Scope of availability for functions triggers
+
+|Tier     | Basic | Standard, Premium  | Enterprise, Enterprise Flash  |
+|---------|:---------:|:---------:|:---------:|
+|Pub/Sub Trigger  | Yes  | Yes  |  Yes  |
 
 > [!WARNING]
 > This trigger isn't supported on a [consumption plan](/azure/azure-functions/consumption-plan) because Redis PubSub requires clients to always be actively listening to receive all messages. For consumption plans, your function might miss certain messages published to the channel.
 >
-
-> [!NOTE]
-> Functions with the `RedisPubSubTrigger` should not be scaled out to multiple instances.
-> Each instance listens and processes each pubsub message, resulting in duplicate processing.
 
 ## Triggering on keyspace notifications
 
@@ -39,94 +48,86 @@ Because these events are published on pub/sub channels, the `RedisPubSubTrigger`
 > [!IMPORTANT]
 > In Azure Cache for Redis, `keyspace` events must be enabled before notifications are published. For more information, see [Advanced Settings](/azure/azure-cache-for-redis/cache-configure#keyspace-notifications-advanced-settings).
 
-### Prerequisites and limitations
-
-- The `RedisPubSubTrigger` isn't capable of listening to [keyspace notifications](https://redis.io/docs/manual/keyspace-notifications/) on clustered caches.
-- Basic tier functions don't support triggering on `keyspace` or `keyevent` notifications through the `RedisPubSubTrigger`.
-- The `RedisPubSubTrigger` isn't supported with consumption functions.
-
-### Scope of availability for functions triggers
-
-|Tier     | Basic | Standard, Premium  | Enterprise, Enterprise Flash  |
-|---------|:---------:|:---------:|:---------:|
-|Pub/Sub  | Yes  | Yes  |  Yes  |
-
-## Example
+## Examples
 
 ::: zone pivot="programming-language-csharp"
 
-This sample listens to the channel "channel" at a localhost Redis instance at `127.0.0.1:6379`
+This sample listens to the channel `pubsubTest`.
 
 ```csharp
 [FunctionName(nameof(PubSubTrigger))]
 public static void PubSubTrigger(
-    [RedisPubSubTrigger(ConnectionString = "127.0.0.1:6379", Channel = "channel")] RedisMessageModel model,
+    [RedisPubSubTrigger("redisConnectionString", "pubsubTest")] string message,
     ILogger logger)
 {
-    logger.LogInformation(JsonSerializer.Serialize(model));
+    logger.LogInformation(message);
 }
 ```
 
-This sample listens to any keyspace notifications for the key `myKey` in a localhost Redis instance at `127.0.0.1:6379`.
+This sample listens to any keyspace notifications for the key `myKey`.
 
 ```csharp
 
-[FunctionName(nameof(PubSubTrigger))]
-public static void PubSubTrigger(
-    [RedisPubSubTrigger(ConnectionString = "127.0.0.1:6379", Channel = "__keyspace@0__:myKey")] RedisMessageModel model,
+[FunctionName(nameof(KeyspaceTrigger))]
+public static void KeyspaceTrigger(
+    [RedisPubSubTrigger("redisConnectionString", "__keyspace@0__:myKey")] string message,
     ILogger logger)
 {
-    logger.LogInformation(JsonSerializer.Serialize(model));
+    logger.LogInformation(message);
 }
 ```
 
-This sample listens to any `keyevent` notifications for the delete command [`DEL`](https://redis.io/commands/del/) in a localhost Redis instance at `127.0.0.1:6379`.
+This sample listens to any `keyevent` notifications for the delete command [`DEL`](https://redis.io/commands/del/).
 
 ```csharp
-[FunctionName(nameof(PubSubTrigger))]
-public static void PubSubTrigger(
-    [RedisPubSubTrigger(ConnectionString = "127.0.0.1:6379", Channel = "__keyevent@0__:del")] RedisMessageModel model,
+[FunctionName(nameof(KeyeventTrigger))]
+public static void KeyeventTrigger(
+    [RedisPubSubTrigger("redisConnectionString", "__keyevent@0__:del")] string message,
     ILogger logger)
 {
-    logger.LogInformation(JsonSerializer.Serialize(model));
+    logger.LogInformation(message);
 }
 ```
 
 ::: zone-end
 ::: zone pivot="programming-language-java"
 
+This sample listens to the channel `pubsubTest`.
+
 ```java
 @FunctionName("PubSubTrigger")
     public void PubSubTrigger(
             @RedisPubSubTrigger(
                 name = "message",
-                connectionStringSetting = "redisLocalhost",
-                channel = "channel")
+                connectionStringSetting = "redisConnectionString",
+                channel = "pubsubTest")
                 String message,
             final ExecutionContext context) {
             context.getLogger().info(message);
     }
 ```
+This sample listens to any keyspace notifications for the key `myKey`.
 
 ```java
 @FunctionName("KeyspaceTrigger")
     public void KeyspaceTrigger(
             @RedisPubSubTrigger(
                 name = "message",
-                connectionStringSetting = "redisLocalhost",
+                connectionStringSetting = "redisConnectionString",
                 channel = "__keyspace@0__:myKey")
                 String message,
             final ExecutionContext context) {
             context.getLogger().info(message);
     }
 ```
+This sample listens to any `keyevent` notifications for the delete command [`DEL`](https://redis.io/commands/del/).
 
 ```java
  @FunctionName("KeyeventTrigger")
     public void KeyeventTrigger(
             @RedisPubSubTrigger(
                 name = "message",
-                connectionStringSetting = "redisLocalhost",
+                connectionStringSetting = "redisConnectionString",
                 channel = "__keyevent@0__:del")
                 String message,
             final ExecutionContext context) {
@@ -138,25 +139,144 @@ public static void PubSubTrigger(
 ::: zone-end
 ::: zone pivot="programming-language-javascript"
 
-TBD
-<!--Content and samples from the JavaScript tab in ##Examples go here.-->
+Each sample uses the same `index.js` file, with binding data in the `function.json` file determining on which channel the trigger will occur. Here is the `index.js` file:
 
-::: zone-end
-::: zone pivot="programming-language-powershell"
+```node
+module.exports = async function (context, message) {
+    context.log(message);
+}
+```
 
-TBD
-<!--Content and samples from the PowerShell tab in ##Examples go here.-->
-
-::: zone-end
-::: zone pivot="programming-language-python"
+Here is binding data to listen to the channel `pubsubTest`:
 
 ```json
 {
   "bindings": [
     {
       "type": "redisPubSubTrigger",
-      "connectionStringSetting": "redisLocalhost",
-      "channel": "channel",
+      "connectionStringSetting": "redisConnectionString",
+      "channel": "pubsubTest",
+      "name": "message",
+      "direction": "in"
+    }
+  ],
+  "scriptFile": "index.js"
+}
+```
+
+Here is binding data to listen to keyspace notifications for the key `myKey`:
+```json
+{
+  "bindings": [
+    {
+      "type": "redisPubSubTrigger",
+      "connectionStringSetting": "redisConnectionString",
+       "channel": "__keyspace@0__:myKey",
+      "name": "message",
+      "direction": "in"
+    }
+  ],
+  "scriptFile": "index.js"
+}
+```
+
+Here is binding data to listen to `keyevent` notifications for the delete command [`DEL`](https://redis.io/commands/del/):
+
+```json
+{
+  "bindings": [
+    {
+      "type": "redisPubSubTrigger",
+      "connectionStringSetting": "redisConnectionString",
+      "channel": "__keyevent@0__:del",
+      "name": "message",
+      "direction": "in"
+    }
+  ],
+  "scriptFile": "index.js"
+}
+```
+
+::: zone-end
+::: zone pivot="programming-language-powershell"
+
+Each sample uses the same `run.ps1` file, with binding data in the `function.json` file determining on which channel the trigger will occur. Here is the `run.ps1` file:
+
+```powershell
+param($message, $TriggerMetadata)
+Write-Host $message
+```
+Here is binding data to listen to the channel `pubsubTest`:
+
+```json
+{
+  "bindings": [
+    {
+      "type": "redisPubSubTrigger",
+      "connectionStringSetting": "redisConnectionString",
+      "channel": "pubsubTest",
+      "name": "message",
+      "direction": "in"
+    }
+  ],
+  "scriptFile": "run.ps1"
+}
+```
+
+Here is binding data to listen to keyspace notifications for the key `myKey`:
+```json
+{
+  "bindings": [
+    {
+      "type": "redisPubSubTrigger",
+      "connectionStringSetting": "redisConnectionString",
+       "channel": "__keyspace@0__:myKey",
+      "name": "message",
+      "direction": "in"
+    }
+  ],
+  "scriptFile": "run.ps1"
+}
+```
+
+Here is binding data to listen to `keyevent` notifications for the delete command [`DEL`](https://redis.io/commands/del/):
+
+```json
+{
+  "bindings": [
+    {
+      "type": "redisPubSubTrigger",
+      "connectionStringSetting": "redisConnectionString",
+      "channel": "__keyevent@0__:del",
+      "name": "message",
+      "direction": "in"
+    }
+  ],
+  "scriptFile": "run.ps1"
+}
+```
+
+::: zone-end
+::: zone pivot="programming-language-python"
+
+Each sample uses the same `__init__.py` file, with binding data in the `function.json` file determining on which channel the trigger will occur. Here is the `__init__.py` file:
+
+```python
+import logging
+
+def main(message: str):
+    logging.info(message)
+```
+
+Here is binding data to listen to the channel `pubsubTest`:
+
+```json
+{
+  "bindings": [
+    {
+      "type": "redisPubSubTrigger",
+      "connectionStringSetting": "redisConnectionString",
+      "channel": "pubsubTest",
       "name": "message",
       "direction": "in"
     }
@@ -165,12 +285,13 @@ TBD
 }
 ```
 
+Here is binding data to listen to keyspace notifications for the key `myKey`:
 ```json
 {
   "bindings": [
     {
       "type": "redisPubSubTrigger",
-      "connectionStringSetting": "redisLocalhost",
+      "connectionStringSetting": "redisConnectionString",
       "channel": "__keyspace@0__:myKey",
       "name": "message",
       "direction": "in"
@@ -179,13 +300,14 @@ TBD
   "scriptFile": "__init__.py"
 }
 ```
+Here is binding data to listen to `keyevent` notifications for the delete command [`DEL`](https://redis.io/commands/del/):
 
 ```json
 {
   "bindings": [
     {
       "type": "redisPubSubTrigger",
-      "connectionStringSetting": "redisLocalhost",
+      "connectionStringSetting": "redisConnectionString",
       "channel": "__keyevent@0__:del",
       "name": "message",
       "direction": "in"
@@ -204,8 +326,8 @@ TBD
 | Parameter | Description|
 |---|---|
 |  |
-| `ConnectionString`| connection string to the cache instance. For example: `<cacheName>.redis.cache.windows.net:6380,password=...` |
-|  `Channel`| |
+| `ConnectionStringSetting`| Name of the setting in the appsettings that holds the to the Redis cache connection string (eg `<cacheName>.redis.cache.windows.net:6380,password=...`). |
+|  `Channel`| pubsub channel that the trigger should listen to. Supports glob-style channel patterns. This field can be resolved using `INameResolver`. |
 
 ::: zone-end
 ::: zone pivot="programming-language-java"
@@ -214,9 +336,9 @@ TBD
 
 | Parameter | Description|
 |---|---|
-|`name`|  |
-| `connectionStringSetting`| Connection string
-| `channel`| |
+|`name`| Name of the variable holding the value returned by the function. |
+| `connectionStringSetting`| Name of the setting in the appsettings that holds the to the Redis cache connection string (eg `<cacheName>.redis.cache.windows.net:6380,password=...`) |
+| `channel`| pubsub channel that the trigger should listen to. Supports glob-style channel patterns. |
 
 ::: zone-end
 ::: zone pivot="programming-language-javascript,programming-language-powershell,programming-language-python"
@@ -227,33 +349,29 @@ TBD
 
 | function.json property | Description|
 |---|---|
-|`type`|  |
+|`type`| Trigger type. For the pubsub trigger, this is always `redisPubSubTrigger`. |
 | `connectionStringSetting`| Connection string to the cache instance. For example: `<cacheName>.redis.cache.windows.net:6380,password=...`|
-| `channel`| |
-|  `name`|  |
-| `direction` |  |
+| `channel`| Name of the pubsub channel that is being subscribed to |
+|  `name`| Name of the variable holding the value returned by the function. |
+| `direction` | Must be set to `in`.  |
 
 ::: zone-end
 
-## Usage
+## Output
 
-All triggers return a `RedisMessageModel` object that has two fields:
-
-- `Trigger`: The pubsub channel, list key, or stream key that the function is listening to.
-- `Message`: The pubsub message, list element, or stream element.
+Work in progress
 
 ::: zone pivot="programming-language-csharp"
 
 ```csharp
-namespace Microsoft.Azure.WebJobs.Extensions.Redis
-{
-  public class RedisMessageModel
-  {
-    public string Trigger { get; set; }
-    public string Message { get; set; }
-  }
-}
-```
+## Output Types
+
+| Output Type | Description|
+|---|---|
+|  |
+| [`StackExchange.Redis.ChannelMessage`](https://github.com/StackExchange/StackExchange.Redis/blob/main/src/StackExchange.Redis/ChannelMessageQueue.cs)| The value returned by `StackExchange.Redis`. |
+| [`StackExchange.Redis.RedisValue`](https://github.com/StackExchange/StackExchange.Redis/blob/main/src/StackExchange.Redis/RedisValue.cs)| `string`, `byte[]`, `ReadOnlyMemory<byte>`: The message from the channel. |
+| `Custom`| The trigger uses Json.NET serialization to map the message from the channel from a `string` into a custom type. |
 
 <!--Any usage information specific to isolated worker process, including types. -->
 
@@ -285,12 +403,6 @@ TBD
 
 ::: zone pivot="programming-language-python"
 
-```python
-class RedisMessageModel:
-    def __init__(self, trigger, message):
-        self.Trigger = trigger
-        self.Message = message
-```
 <!--Any usage information from the Python tab in ## Usage. -->
 ::: zone-end
 
