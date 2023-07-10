@@ -30,7 +30,7 @@ In order to use Private Link with Azure Virtual Desktop, you need the following 
 To use of Private Link with Azure Virtual Desktop, first you need to re-register the *Microsoft.DesktopVirtualization* resource provider and register the *Azure Virtual Desktop Private Link* feature on your Azure subscription.
 
 > [!IMPORTANT]
-> You need to do re-register the resource provider and register the feature for each subscription you want to use Private Link with Azure Virtual Desktop.
+> You need to re-register the resource provider and register the feature for each subscription you want to use Private Link with Azure Virtual Desktop.
 
 ### Re-register the resource provider
 
@@ -48,7 +48,7 @@ To re-register the *Microsoft.DesktopVirtualization* resource provider:
 
 ### Register the feature
 
-To register the *Azure Virtual Desktop Private Link Public* feature:
+To register the *Azure Virtual Desktop Private Link* feature:
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
@@ -77,7 +77,7 @@ To create a private endpoint for the *global* sub-resource used for the initial 
 > [!IMPORTANT]
 > - Only create one private endpoint for the *global* sub-resource for all your Azure Virtual Desktop deployments. If you've already created this, go to [Feed download](#feed-download).
 > 
-> A private endpoint to the global sub-resource of any workspace controls the shared fully qualified domain name (FQDN) for initial feed discovery. This in turn enables feed discovery for all workspaces. Because the workspace connected to the private endpoint is so important, deleting it will cause all feed discovery processes to stop working. We recommend you create an unused placeholder workspace for the global sub-resource.
+> - A private endpoint to the global sub-resource of any workspace controls the shared fully qualified domain name (FQDN) for initial feed discovery. This in turn enables feed discovery for all workspaces. Because the workspace connected to the private endpoint is so important, deleting it will cause all feed discovery processes to stop working. We recommend you create an unused placeholder workspace for the global sub-resource.
 
 # [Portal](#tab/portal)
 
