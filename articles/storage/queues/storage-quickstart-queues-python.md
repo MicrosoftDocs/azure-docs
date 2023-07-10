@@ -7,8 +7,7 @@ author: pauljewellmsft
 ms.author: pauljewell
 ms.date: 06/29/2023
 ms.topic: quickstart
-ms.service: storage
-ms.subservice: queues
+ms.service: azure-queue-storage
 ms.devlang: python
 ms.custom: devx-track-python, mode-api, py-fresh-zinc, passwordless-python
 ---

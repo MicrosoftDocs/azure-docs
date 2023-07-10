@@ -6,7 +6,7 @@ services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
-ms.date: 06/01/2023
+ms.date: 07/05/2023
 
 ms.author: justinha
 author: justinha
@@ -90,8 +90,9 @@ If you're assigned the *Authentication Administrator* role, you can require user
 1. On the left, select **Azure Active Directory** > **Users** > **All users**.
 1. Choose the user you wish to perform an action on and select **Authentication methods**. At the top of the window, then choose one of the following options for the user:
    - **Reset Password** resets the user's password and assigns a temporary password that must be changed on the next sign-in.
-- **Require Re-register MFA** deactivates the user's hardware OATH tokens and deletes the following authentication methods from this user: phone numbers, Microsoft Authenticator apps and software OATH tokens. If needed, the user is requested to set up a new MFA authentication method the next time they sign in.
-
+   - **Require Re-register MFA** makes it so that when the user signs in next time, they're requested to set up a new MFA authentication method.
+      > [!NOTE]
+      > The user's currently registered authentication methods aren't deleted when an admin requires re-registration for MFA. After a user re-registers for MFA, we recommend they review their security info and delete any previously registered authentication methods that are no longer usable.
    - **Revoke MFA Sessions** clears the user's remembered MFA sessions and requires them to perform MFA the next time it's required by the policy on the device.
    
     :::image type="content" source="media/howto-mfa-userdevicesettings/manage-authentication-methods-in-azure.png" alt-text="Manage authentication methods from the Azure portal":::

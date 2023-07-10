@@ -88,7 +88,7 @@ Configure your app deployed to Azure Spring Apps to connect to an Azure SQL Data
 1. Use the following command to check the creation result:
 
    ```azurecli
-   CONNECTION_NAME=$(az spring connection list \
+   export CONNECTION_NAME=$(az spring connection list \
       --resource-group $SPRING_APP_RESOURCE_GROUP \
       --service $SPRING_APP_SERVICE_NAME \
       --app $APP_NAME  \

@@ -64,6 +64,12 @@ Use the following table to determine supported styles and roles for each neural 
 
 [!INCLUDE [Language support include](includes/language-support/voice-styles-and-roles.md)]
 
+### Viseme
+
+This table lists all the locales supported for [Viseme](speech-synthesis-markup-structure.md#viseme-element). For more information about Viseme, see [Get facial position with viseme](how-to-speech-synthesis-viseme.md) and [Viseme element](speech-synthesis-markup-structure.md#viseme-element). 
+
+[!INCLUDE [Language support include](includes/language-support/viseme.md)]
+
 ### Prebuilt neural voices
 
 Each prebuilt neural voice supports a specific language and dialect, identified by locale. You can try the demo and hear the voices in the [Voice Gallery](https://speech.microsoft.com/portal/voicegallery).
@@ -90,7 +96,7 @@ With the cross-lingual feature (preview), you can transfer your custom neural vo
 
 # [Pronunciation assessment](#tab/pronunciation-assessment)
 
-The table in this section summarizes the locales supported for Pronunciation assessment, and each language is available on all [Speech to text regions](regions.md#speech-service). You should specify the language that you're learning or practicing to improve pronunciation. The default language is set as `en-US`. If you know your target learning language, set the locale accordingly. For example, if you're learning British English, you should specify the language as `en-GB`. If you're teaching a broader language, such as Spanish, and are uncertain about which locale to select, you can run various accent models (`es-ES`, `es-MX`) to determine the one that achieves the highest score to suit your specific scenario.
+The table in this section summarizes the 19 locales supported for pronunciation assessment, and each language is available on all [Speech to text regions](regions.md#speech-service). Latest update extends support from English to 18 additional languages and quality enhancements to existing features, including accuracy, fluency and miscue assessment. You should specify the language that you're learning or practicing improving pronunciation. The default language is set as `en-US`. If you know your target learning language, [set the locale](how-to-pronunciation-assessment.md#get-pronunciation-assessment-results) accordingly. For example, if you're learning British English, you should specify the language as `en-GB`. If you're teaching a broader language, such as Spanish, and are uncertain about which locale to select, you can run various accent models (`es-ES`, `es-MX`) to determine the one that achieves the highest score to suit your specific scenario. 
 
 [!INCLUDE [Language support include](includes/language-support/pronunciation-assessment.md)]
 

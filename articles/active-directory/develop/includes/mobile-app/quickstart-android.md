@@ -451,7 +451,7 @@ Unlike the [auth_config_single_account.json](#auth_config_single_accountjson) co
 }
 ```
 
-[!INCLUDE [Help and support](../../../../../includes/active-directory-develop-help-support-include.md)]
+[!INCLUDE [Help and support](../error-handling-and-tips/help-support-include.md)]
 
 ## Next steps
 

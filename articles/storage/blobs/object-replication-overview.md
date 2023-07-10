@@ -8,7 +8,6 @@ ms.service: storage
 ms.topic: conceptual
 ms.date: 05/04/2023
 ms.author: normesta
-ms.subservice: blobs
 ms.custom: engagement-fy23
 ---
 
