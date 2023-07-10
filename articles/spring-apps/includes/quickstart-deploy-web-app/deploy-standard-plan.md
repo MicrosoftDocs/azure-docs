@@ -56,7 +56,7 @@ Use AZD to initialize the web application from the Azure Developer CLI templates
    Command interaction description:
 
    - **OAuth2 login**: You need to authorize the login to Azure based on the OAuth2 protocol.
-   - **Please enter a new environment name**: Provide an environment name, which will be used as a suffix for the resource group that will be created to hold all Azure resources. This name should be unique within your Azure subscription.
+   - **Please enter a new environment name**: Provide an environment name, which is used as a suffix for the resource group created to hold all the Azure resources. This name should be unique within your Azure subscription.
 
    The console outputs messages similar to the following example:
 
@@ -143,7 +143,7 @@ Open your web browser and go to the [portal](https://portal.azure.com/). Enter y
 
 #### [Azure Developer CLI](#tab/Azure-Developer-CLI)
 
-1. Run the following command to log in Azure with OAuth2, ignore this step if you have already logged in.
+1. Run the following command to log in Azure with OAuth2. Ignore this step if you've already logged in.
 
    ```bash
    azd auth login
@@ -156,8 +156,8 @@ Open your web browser and go to the [portal](https://portal.azure.com/). Enter y
    ```
 
    Command interaction description:
-   - **Please select an Azure Subscription to use**: Use arrows to move, type to filter, then press Enter.
-   - **Please select an Azure location to use**: Use arrows to move, type to filter, then press Enter.
+   - **Please select an Azure Subscription to use**: Use arrows to move, type to filter, then press <kbd>ENTER</kbd>.
+   - **Please select an Azure location to use**: Use arrows to move, type to filter, then press <kbd>ENTER</kbd>.
 
    > [!NOTE]
    > This template may only be used with the following Azure locations:
@@ -200,10 +200,10 @@ Use the [Maven plugin for Azure Spring Apps](https://github.com/microsoft/azure-
    Command interaction description:
    - **Select Maven child module**: Select the module to configure, enter the number for the web module.
    - **OAuth2 login**: You need to authorize the login to Azure based on the OAuth2 protocol.
-   - **Select subscription**: Select the subscription list number of the Azure Spring Apps instance you just created, which defaults to the first subscription in the list. If you use the default number, press Enter directly.
-   - **Select Azure Spring Apps**: Select the number of the Azure Spring Apps instance you just created, If you use the default number, press Enter directly.
-   - **Expose public access for this app?**: Enter *y*.
-   - **Confirm to save all the above configurations (Y/n)**: Enter *y*. If Enter *n*, the configuration will not be saved in the pom files.
+   - **Select subscription**: Select the subscription list number of the Azure Spring Apps instance you created, which defaults to the first subscription in the list. If you use the default number, press <kbd>ENTER</kbd> directly.
+   - **Select Azure Spring Apps**: Select the number of the Azure Spring Apps instance you created. If you use the default number, press <kbd>ENTER</kbd> directly.
+   - **Expose public access for this app?**: Press <kbd>y</kbd>.
+   - **Confirm to save all the above configurations (Y/n)**: Press <kbd>y</kbd>. If you press <kbd>n</kbd>, the configuration isn't saved in the POM files.
 
 1. Use the following command to deploy the app:
 
@@ -227,7 +227,7 @@ Use the [Maven plugin for Azure Spring Apps](https://github.com/microsoft/azure-
 
 #### [Azure Developer CLI](#tab/Azure-Developer-CLI)
 
-Use AZD to package the app, provision the Azure resources required by the web application and then deploy to Azure Spring Apps.
+Use AZD to package the app, provision the Azure resources required by the web application, and then deploy to Azure Spring Apps.
 
 1. Run the following command to package a deployable copy of your application
 

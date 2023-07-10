@@ -34,7 +34,7 @@ The following diagram shows the architecture of the system:
 
 ::: zone pivot="sc-standard"
 
-This article provides 2 options for deploying to Azure Spring Apps:
+This article provides the following options for deploying to Azure Spring Apps:
 
 - Azure portal - This is a more conventional way to create resources and deploy applications step by step. It's suitable for Spring developers who are using Azure cloud services for the first time.
 - Azure Developer CLI: This is a more efficient way to automatically create resources and deploy applications through simple commands, and it covers application code, infrastructure as code files needed to provision the Azure resources. It's suitable for Spring developers who are familiar with Azure cloud services.
@@ -97,7 +97,7 @@ This article provides 2 options for deploying to Azure Spring Apps:
 
 ## 5. Validate the web app
 
-Now we can access the deployed app to see wether it works.
+Now you can access the deployed app to see whether it works.
 
 ::: zone pivot="sc-consumption-plan"
 

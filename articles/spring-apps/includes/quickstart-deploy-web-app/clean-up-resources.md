@@ -17,29 +17,29 @@ If you plan to continue working with subsequent quickstarts and tutorials, you m
 
 #### [Azure portal](#tab/Azure-portal)
 
-You can delete the Azure resource group, which includes all the resources in the resource group. To delete the entire resource group, including the newly created service:
+You can delete the Azure resource group, which includes all the resources in the resource group. Use the following steps to delete the entire resource group, including the newly created service:
 
-1. Locate your resource group in the portal. On the menu on the left, select **Resource groups**. Then select the name of your resource group, such as the example, **myresourcegroup**.
+1. Locate your resource group in the Azure portal. On the navigation menu, select **Resource groups**, then select the name of your resource group.
 
-1. On your resource group page, select **Delete**. Enter the name of your resource group, such as the example, **myresourcegroup**, in the text box to confirm deletion. Select Delete.
+1. On your resource group page, select **Delete**. Enter the name of your resource group in the text box to confirm deletion, then select **Delete**.
 
 #### [Azure Developer CLI](#tab/Azure-Developer-CLI)
 
-1. Run the following command to delete all the Azure resources used in this sample application.
+Use the following command to delete all the Azure resources used in this sample application.
 
-   ```bash
-   azd down
-   ```
+```bash
+azd down
+```
 
-   Command interaction description:
+The following list describes the command interactions:
 
-   - **Total resources to delete: \<resources-total>, are you sure you want to continue?**: Enter *y*.
-   - **Would you like to permanently delete these resources instead, allowing their names to be reused?**: Enter *y*. Enter *n* if you want to reuse the Key Vault.
+- **Total resources to delete: \<resources-total>, are you sure you want to continue?**: Press <kbd>y</kbd>.
+- **Would you like to permanently delete these resources instead, allowing their names to be reused?**: Press <kbd>y</kbd>. Press <kbd>n</kbd> if you want to reuse the Key Vault.
 
-   The console outputs messages similar to the following example:
+The console outputs messages similar to the following example:
 
-   ```output
-   SUCCESS: Your Azure resources have been deleted.
-   ```
+```output
+SUCCESS: Your Azure resources have been deleted.
+```
 
 ---
