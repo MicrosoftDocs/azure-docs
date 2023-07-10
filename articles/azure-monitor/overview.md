@@ -12,25 +12,30 @@ ms.reviewer: robb
 
 Azure Monitor is a comprehensive monitoring solution for collecting, analyzing, and responding to telemetry from your cloud and on-premises environments. You can use Azure Monitor to maximize the availability and performance of your applications and services.
 
-Azure Monitor collects and aggregates the data from every layer and component of your system into a common data platform. It correlates data across multiple Azure subscriptions and tenants, in addition to hosting data for other services. Because this data is stored together, it can be correlated and analyzed using a common set of tools. The data can then be used for analysis and visualizations to help you understand how your applications are performing and respond automatically to system events.
+Azure Monitor collects and aggregates the data from every layer and component of your system across multiple Azure and non-Azure subscrtiptions and tenants into a common data platform.  The data is stored together and so can be correlated, analyzed and visualized using a common set of tools. This process helps you understand how your applications are performing and so you can respond automatically to system events.
 
-Use Azure Monitor to monitor these types of resources in Azure, other clouds, or on-premises:
+The following diagram gives a high-level view of Azure Monitor. All the various parts are explained later in this article.  
 
-  - Applications
-  - Virtual machines
-  - Guest operating systems
-  - Containers including Prometheus metrics
-  - Databases
-  - Security events in combination with Azure Sentinel
-  - Networking events and health in combination with Network Watcher
-  - Custom sources that use the APIs to get data into Azure Monitor
+:::image type="content" source="media/overview/overview-simple-20230707-opt.svg" alt-text="Diagram that shows an overview of Azure Monitor with data sources on the left sending data to a central data platform and features of Azure Monitor on the right that use the collected data." border="false" lightbox="media/overview/overview-blowout-20230707-opt.svg":::
+
+Azure Monitor can monitor these types of resources in Azure, other clouds, or on-premises:
+
+- Applications
+- Virtual machines
+- Guest operating systems
+- Containers including Prometheus metrics
+- Databases
+- Security events in combination with Azure Sentinel
+- Networking events and health in combination with Network Watcher
+- Custom sources that use the APIs to get data into Azure Monitor
 
 You can also export monitoring data from Azure Monitor into other systems so you can:
 
-  - Integrate with other third-party and open-source monitoring and visualization tools
-  - Integrate with ticketing and other ITSM systems
+- Integrate with other third-party and open-source monitoring and visualization tools
+- Integrate with ticketing and other ITSM systems
 
 If you are a System Center Operations Manager (SCOM) user, Azure Monitor now includes a preview of Azure Monitor [SCOM Managed Instance (SCOM MI)](./vm/scom-managed-instance-overview.md). SCOM MI is a cloud-hosted version of SCOM and allows you to move your on-premises SCOM installation to Azure.
+
 
 ## Monitoring, observability, and artificial intelligence for IT operations
 
@@ -46,7 +51,7 @@ Artificial Intelligence for IT Operations (AIOps) improves service quality and r
 
 ## High level architecture
 
-The following diagram gives a high-level view of Azure Monitor. 
+The previous high level diagram gives a high-level view of Azure Monitor. 
 
 :::image type="content" source="media/overview/overview-simple-20230707-opt.svg" alt-text="Diagram that shows an overview of Azure Monitor with data sources on the left sending data to a central data platform and features of Azure Monitor on the right that use the collected data." border="false" lightbox="media/overview/overview-blowout-20230707-opt.svg":::
 
@@ -227,6 +232,8 @@ SCOM MI currently uses it's own separate traditional SCOM alerting mechanism in 
 
 You may need to integrate Azure Monitor with other systems or to build custom solutions that use your monitoring data. These Azure services work with Azure Monitor to provide integration capabilities. Below are only a few of the possible integrations.
 
+:::image type="content" source="media/overview/integrate-box-opt.svg" alt-text="Diagram that shows the Respond part of the Consumption section of the Azure Monitor system." border="false" lightbox="media/overview/integrate-box-opt.svg":::
+
 |Azure service  |Description  |
 |---------|---------|
 |[Event Hubs](../event-hubs/event-hubs-about.md)|Azure Event Hubs is a streaming platform and event ingestion service. It can transform and store data by using any real-time analytics provider or batching/storage adapters. Use Event Hubs to stream Azure Monitor data to partner SIEM and monitoring tools.|
@@ -235,8 +242,7 @@ You may need to integrate Azure Monitor with other systems or to build custom so
 |[API](/rest/api/monitor/)|Multiple APIs are available to read and write metrics and logs to and from Azure Monitor in addition to accessing generated alerts. You can also configure and retrieve alerts. With APIs, you have unlimited possibilities to build custom solutions that integrate with Azure Monitor.|
 |[Azure Logic Apps](../logic-apps/logic-apps-overview.md)|Azure Logic Apps is a service you can use to automate tasks and business processes by using workflows that integrate with different systems and services with little or no code. Activities are available that read and write metrics and logs in Azure Monitor. You can use Logic Apps to [customize responses and perform other actions in response to to Azure Monitor alerts](alerts/alerts-logic-apps.md).  You can also perform other [more complex actions](logs/logicapp-flow-connector.md) when the Azure Monitor infrastructure doesn't already supply a built-it method.|
 |[Azure Functions](../azure-functions/functions-overview.md)| Similar to Azure Logic Apps, Azure Functions give you the ability to pre process and post process monitoring data as well as perform complex action beyond the scope of typical Azure Monitor alerts. Azure Functions uses code however providing additional flexibility over Logic Apps.
-|Azure DevOps | Azure Monitor Application Insights gives you the ability to create workitems with monitoring data embedding in it. For more information see [Work Item Integration](app/work-item-integration.md)| 
-
+|Azure DevOps and GitHub | Azure Monitor Application Insights gives you the ability to create [Work Item Integration](app/work-item-integration.md) with monitoring data embedding in it. Additional options include [release annotations](/app/annotations.md) and [continuous monitoring](/app/continuous-monitoring.md). |
 
 
 ## Next steps
