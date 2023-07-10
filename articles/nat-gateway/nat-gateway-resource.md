@@ -36,7 +36,7 @@ The following subnet configurations can’t be used with a NAT gateway:
 
 * A NAT gateway can’t be attached to subnets from different virtual networks.
 
-* A NAT gateway can’t be used with a gateway subnet. A gateway subnet is a designated subnet for a VPN gateway to send encrypted traffic between an Azure virtual network and on-premises location.
+* A NAT gateway can’t be used with a gateway subnet. A gateway subnet is a designated subnet for a VPN gateway to send encrypted traffic between an Azure virtual network and on-premises location. For more information about the gateway subnet, see [Gateway subnet](/azure/vpn-gateway/vpn-gateway-about-vpn-gateway-settings#gwsub).
 
 ## Static public IP addresses
 
