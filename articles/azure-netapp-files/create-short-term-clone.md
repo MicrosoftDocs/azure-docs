@@ -52,12 +52,14 @@ Short-term clones are currently in preview. To take advantage of the feature, yo
 
 1. Select **Snapshots**.
 1. Right-click the snapshot you want to clone. Select **Create short-term clone from snapshot**.
+1. Confirm you understand that the short-term clone will automatically convert to a regular volume 28 days after the clone completes, which may incur costs due to a capacity pool automatically resizing. 
 1. Complete the required fields in the **Create short term clone volume** menu:
 
 	Provide a **Volume name**.
 	Select a **Capacity pool**.
 	Choose if you want to **Delete base snapshot** once the short-term clone is created. 
 	Provide a **Quota** value.
+    Confirm if the short-term clone is a **Large volume** (greater than 100 GiB).
 
 1. Select **Review and create**.
 <!-- time expectation -->
@@ -67,7 +69,10 @@ Short-term clones are currently in preview. To take advantage of the feature, yo
 
 1. In the **Volume** menu, locate the short-term clone you want to convert.
 1. Right-click the short-term clone. Select **Convert short-term clone to volume**.
-<!-- confirm -->
+1. Confirm the conversion is successful by checking the **Volume overview** page. You will know the conversion has succeeded when the **Short-term clone volume** field displays **No**.
+
+    >[!NOTE]
+    >Short-term clones may fail to convert even when triggered automatically at the end of the 28 day period. The conversion may fail due to a capacity pool resize issue or a volume issue. Consult activity logs for further information. 
 
 ## Next steps
 
