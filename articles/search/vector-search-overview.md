@@ -94,7 +94,11 @@ In order to create effective embeddings for vector search, it's important to tak
 
 For example, documents that talk about different species of dogs would be clustered close together in the embedding space. Documents about cats would be close together, but farther from the dogs cluster while still being in the neighborhood for animals. Dissimilar concepts such as cloud computing would be much farther away. In practice, these embedding spaces are very abstract and don't have well-defined, human-interpretable meanings, but the core idea stays the same.
 
-Popular vector similarity metrics include: `euclidean distance`, `cosine similarity`, and `dot product`.
+Popular vector similarity metrics include the following, which are all supported by Azure Cognitive Search. 
+
++ `euclidean`: Also known as _l2-norm_, this measures the length of the vector difference between two vectors.
++ `cosine`: This measures the angle between two vectors, and is not affected by differing vector lengths.
++ `dotProduct`: This measures both the length of each of the pair of two vectors, and the angle between them. For normalized vectors, this is identical to `cosine` similarity, but slightly more performant.
 
 ### Approximate Nearest Neighbors
 
