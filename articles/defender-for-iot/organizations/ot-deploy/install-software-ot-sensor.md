@@ -98,14 +98,14 @@ This procedure describes how to install the Defender for IoT software you'd down
 
     - **Virtual mount** – use iLO for HPE appliances, or iDRAC for Dell appliances to boot the ISO file.
 
-1. When the installation boots, you're prompted to start the installation process. Either select the **Install iot-sensor-<version number>** item to continue, or leave the wizard to make the selection automatically on its own. 
+1. When the installation boots, you're prompted to start the installation process. Either select the **Install iot-sensor-`<version number>`** item to continue, or leave the wizard to make the selection automatically on its own. 
 
     The wizard automatically selects to install the software after 30 seconds of waiting. For example:
 
     :::image type="content" source="../media/install-software-ot-sensor/initial-install-screen.png" alt-text="Screenshot of the initial installation screen.":::
 
     > [!NOTE]
-    > If you're using a legacy BIOS version, you're prompted to select a language and the installation options are presented at the top left instead of in the center. When prompted, select `English` and then the the **Install iot-sensor-<version number> option to continue.
+    > If you're using a legacy BIOS version, you're prompted to select a language and the installation options are presented at the top left instead of in the center. When prompted, select `English` and then the the **Install iot-sensor-`<version number>`** option to continue.
 
     The installation begins, giving you updated status messages as it goes. The entire installation process takes up to 20-30 minutes, and may vary depending on the type of media you're using.
 
