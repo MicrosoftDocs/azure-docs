@@ -114,7 +114,7 @@ After a few minutes, the command completes and returns information about the vir
 
 ## Clean up resources
 
-[!INCLUDE [quickstart-cleanup](./includes/kubernetes-cluster/quickstart-cleanup.md)]
+[!INCLUDE [quickstart-cleanup](./includes/virtual-machine/quickstart-cleanup.md)]
 
 ## Next steps
 You've successfully created a Nexus virtual machine. You can now use the virtual machine to host virtual network functions (VNFs).
