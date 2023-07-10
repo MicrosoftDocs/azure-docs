@@ -89,7 +89,7 @@ Here are the primary constraints with using cross-tenant synchronization across 
 
 :::image type="content" source="./media/overview/multi-tenant-cross-tenant-sync.png" alt-text="Diagram that shows using cross-tenant synchronization across tenants." lightbox="./media/overview/multi-tenant-cross-tenant-sync.png":::
 
-## Multi-tenant organization feature (Preview)
+## Multi-tenant organization (Preview)
 
 > [!IMPORTANT]
 > Multi-tenant organization is currently in PREVIEW.
