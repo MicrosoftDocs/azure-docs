@@ -22,6 +22,14 @@ To help you stay up to date with the latest developments, this article covers:
 
 This page is updated regularly with the latest developments in Azure Private 5G Core.
 
+## June 2023
+
+### Packet core 2306
+
+**Type:** New release
+
+**Date available:** July 3, 2023
+
 ## May 2023
 
 ### Packet core 2305

@@ -2665,6 +2665,8 @@
         href: twic-tutorial.md  
       - name: Twilio Sendgrid
         href: twilio-sendgrid-tutorial.md  
+      - name: Uber
+        href: uber-tutorial.md
       - name: Uberflip
         href: uberflip-tutorial.md
       - name: Udemy Business SAML
