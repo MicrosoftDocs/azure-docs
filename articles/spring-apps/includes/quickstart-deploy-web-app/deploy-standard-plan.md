@@ -113,7 +113,7 @@ Open your web browser and go to the [portal](https://portal.azure.com/). Enter y
 
 ### 3.3. Prepare the PostgreSQL instance
 
-[!INCLUDE [provision-psql-flexible](./provision-psql.md)]
+[!INCLUDE [provision-postgresql-flexible](./provision-postgresql.md)]
 
 ### 3.4. Connect app instance to PostgreSQL instance
 
