@@ -42,15 +42,20 @@ To learn more about uploading a blob with Java, see [Upload a blob with Java](st
 
 ## Change the access tier for an existing block blob
 
-You can change the access tier of an existing block blob by using one of the following functions:
+You can change the access tier of an existing block blob by using one of the following methods:
 
 - [setAccessTier](/java/api/com.azure.storage.blob.specialized.blobclientbase#com-azure-storage-blob-specialized-blobclientbase-setaccesstier(com-azure-storage-blob-models-accesstier))
+- [setAccessTierWithResponse](/java/api/com.azure.storage.blob.specialized.blobclientbase#method-details)
 
-The following code example shows how to change the access tier for an existing blob to `Cool`:
+The following code example shows how to change the access tier to Cool for an existing blob:
 
 :::code language="java" source="~/azure-storage-snippets/blobs/howto/Java/blob-devguide/blob-devguide-blobs/src/main/java/com/blobs/devguide/blobs/BlobAccessTier.java" id="Snippet_ChangeAccessTier":::
 
-If you're rehydrating an archived blob, use the [setAccessTierWithResponse](/java/api/com.azure.storage.blob.specialized.blobclientbase#method-details) method and set the `priority` parameter to `High` or `Standard`. You can also pass in a [BlobSetAccessTierOptions](/java/api/com.azure.storage.blob.options.blobsetaccesstieroptions) instance with rehydration priority and additional configuration options.
+If you're rehydrating an archived blob, use the [setAccessTierWithResponse](/java/api/com.azure.storage.blob.specialized.blobclientbase#method-details) method, and optionally set the `priority` parameter to High or Standard. You can also pass in a [BlobSetAccessTierOptions](/java/api/com.azure.storage.blob.options.blobsetaccesstieroptions) instance with the rehydration priority and other configuration options.
+
+The following code example shows how to rehydrate an archived blob by changing the access tier to Hot:
+
+:::code language="java" source="~/azure-storage-snippets/blobs/howto/Java/blob-devguide/blob-devguide-blobs/src/main/java/com/blobs/devguide/blobs/BlobAccessTier.java" id="Snippet_RehydrateUsingSetAccessTier":::
 
 ## Copy a blob to a different access tier
 
@@ -58,7 +63,7 @@ You can change the access tier of an existing block blob by specifying an access
 
 You can use the [setTier](/java/api/com.azure.storage.blob.options.blobbegincopyoptions#com-azure-storage-blob-options-blobbegincopyoptions-settier(com-azure-storage-blob-models-accesstier)) method to specify the [AccessTier](/java/api/com.azure.storage.blob.models.accesstier) as `HOT`, `COOL`, `COLD`, or `ARCHIVE`. If you're rehydrating a blob from the archive tier using a copy operation, use the [setRehydratePriority](/java/api/com.azure.storage.blob.options.blobbegincopyoptions#com-azure-storage-blob-options-blobbegincopyoptions-setrehydratepriority(com-azure-storage-blob-models-rehydratepriority)) method to specify the [RehydratePriority](/java/api/com.azure.storage.blob.models.rehydratepriority) as `HIGH` or `STANDARD`.
 
-The following code example shows how to rehydrate an archived blob to the `Hot` tier using a copy operation:
+The following code example shows how to rehydrate an archived blob to the Hot tier using a copy operation:
 
 :::code language="java" source="~/azure-storage-snippets/blobs/howto/Java/blob-devguide/blob-devguide-blobs/src/main/java/com/blobs/devguide/blobs/BlobAccessTier.java" id="Snippet_RehydrateUsingCopy":::
 
