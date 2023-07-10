@@ -4,7 +4,7 @@ description: An overview of Azure Elastic SAN Preview networking options, includ
 author: roygara
 ms.service: storage
 ms.topic: conceptual
-ms.date: 07/07/2023
+ms.date: 07/10/2023
 ms.author: rogarana
 ms.subservice: elastic-san
 ms.custom: 
@@ -21,7 +21,7 @@ There are two types of virtual network endpoints you can configure to allow acce
 - [Storage service endpoints](#storage-service-endpoints)
 - [Private endpoints](#private-endpoints)
 
-To decide which option is best for you, see [Compare Private Endpoints and Service Endpoints](../../virtual-network/vnet-integration-for-azure-services.md#compare-private-endpoints-and-service-endpoints). Generally, you should use private endpoints instead of service endpoints. Private Link offers better capabilities in terms of privately accessing PaaS services from on-premises, built-in data exfiltration protection and mapping a service to a Private IP address in your own network. For more information, see [Azure Private Link](../../private-link/private-endpoint-overview.md).  
+To decide which option is best for you, see [Compare Private Endpoints and Service Endpoints](../../virtual-network/vnet-integration-for-azure-services.md#compare-private-endpoints-and-service-endpoints). Generally, you should use private endpoints instead of service endpoints. Private Link offers better capabilities in terms of privately accessing PaaS services from on-premises, built-in data exfiltration protection and mapping a service to Private IP addresses in your own network. For more information, see [Azure Private Link](../../private-link/private-endpoint-overview.md).  
 
 After configuring endpoints, you can configure network rules to further control access to your Elastic SAN volume group. Once the endpoints and network rules have been configured, clients can connect to volumes in the group to process their workloads.
 
@@ -51,7 +51,7 @@ Private endpoints have several advantages over service endpoints, including:
 
 For a complete comparison of private endpoints to service endpoints, see [Compare Private Endpoints and Service Endpoints](../../virtual-network/vnet-integration-for-azure-services.md#compare-private-endpoints-and-service-endpoints).
 
-Although private links are networking components, unlike service endpoints, they are not enabled from the virtual network in the Azure portal. You typically create them from the volume group page. Traffic between the virtual network and the Elastic SAN is routed over an optimal path on the Azure backbone network. Unlike service endpoints, you don't need to configure network rules to allow traffic from a private endpoint since the storage firewall only controls access through public endpoints.
+Traffic between the virtual network and the Elastic SAN is routed over an optimal path on the Azure backbone network. Unlike service endpoints, you don't need to configure network rules to allow traffic from a private endpoint since the storage firewall only controls access through public endpoints.
 
 For details on how to configure private endpoints, see [Enable private endpoint](elastic-san-networking.md#configure-private-endpoint).
 
