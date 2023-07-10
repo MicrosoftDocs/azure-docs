@@ -66,8 +66,8 @@ landingContent:
              url: concepts-observability.md 
       - linkListType: how-to-guide
         links:
-           - text: Monitor AKS-Hybrid Cluster
-             url: howto-monitor-aks-h-cluster.md      
+           - text: Monitor Nexus Kubernetes cluster
+             url: howto-monitor-naks-cluster.md
            - text: Monitor VMs for VNF
              url: howto-monitor-virtualized-network-functions-virtual-machines.md
            - text: Cluster metrics configuration management

@@ -20,6 +20,9 @@ Azure Virtual Desktop updates regularly. This article is where you'll find out a
 
 Make sure to check back here often to keep up with new updates.
 
+> [!TIP]
+> See [What's new in documentation](whats-new-documentation.md), where we highlight new and updated articles for Azure Virtual Desktop.
+
 ## April 2023
 
 Here's what changed in April 2023:

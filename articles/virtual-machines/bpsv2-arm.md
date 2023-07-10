@@ -28,11 +28,11 @@ Bpsv2 VMs offer up to 16 vCPU and 64 GiB of RAM and are optimized for scale-out 
 [Nested Virtualization](/virtualization/hyper-v-on-windows/user-guide/nested-virtualization): Not Supported <br>
 <br> 
 
-| Size               | vCPU | RAM | Base CPU Performance of VM (%) | Initial Credits (#) | Credits banked/hour | Max Banked Credits (#) | Max uncached disk throughput: IOPS/M8ps | Max burst uncached disk throughput: IOPS/MBps | Max Data Disks | Max Network Bandwidth (Gbps) | Max NICs |
+| Size               | vCPU | RAM | Base CPU Performance / vCPU (%) | Initial Credits (#) | Credits banked/hour | Max Banked Credits (#) | Max uncached disk throughput: IOPS/M8ps | Max burst uncached disk throughput: IOPS/MBps | Max Data Disks | Max Network Bandwidth (Gbps) (up to) | Max NICs |
 |--------------------|------|-----|--------------------------------|---------------------|---------------------|------------------------|-----------------------------------------|-----------------------------------------------|----------------|------------------------------|----------|
 | Standard_B2pts_v2  | 2    | 1   | 20%                            | 60                  | 24                  | 576                    | 3750/85                                 | 10,000/960                                    | 4              | 6.250                        | 2        |
-| Standard_B2pls_v2  | 2    | 4   | 30%                            | 60                  | 24                  | 576                    | 3750/85                                 | 10,000/960                                    | 4              | 6.50                         | 2        |
-| Standard_B2ps_v2   | 2    | 8   | 40%                            | 60                  | 24                  | 576                    | 3750/85                                 | 10,000/960                                    | 4              | 6.50                         | 2        |
+| Standard_B2pls_v2  | 2    | 4   | 30%                            | 60                  | 24                  | 576                    | 3750/85                                 | 10,000/960                                    | 4              | 6.250                         | 2        |
+| Standard_B2ps_v2   | 2    | 8   | 40%                            | 60                  | 24                  | 576                    | 3750/85                                 | 10,000/960                                    | 4              | 6.250                         | 2        |
 | Standard_B4pls_v2  | 4    | 8   | 30%                            | 120                 | 48                  | 1152                   | 6,400/145                               | 20,000/960                                    | 8              | 6.250                        | 2        |
 | Standard_B4ps_v2   | 4    | 16  | 40%                            | 120                 | 48                  | 1152                   | 6,400/145                               | 20,000/960                                    | 8              | 6.250                        | 2        |
 | Standard_B8pls_v2  | 8    | 16  | 30%                            | 240                 | 96                  | 2304                   | 12,800/290                              | 20,000/960                                    | 16             | 6.250                        | 2        |
@@ -40,8 +40,8 @@ Bpsv2 VMs offer up to 16 vCPU and 64 GiB of RAM and are optimized for scale-out 
 | Standard_B16pls_v2 | 16   | 32  | 30%                            | 480                 | 192                 | 4608                   | 25,600/600                              | 40,000/960                                    | 32             | 6.250                        | 4        |
 | Standard_B16ps_v2  | 16   | 64  | 40%                            | 480                 | 192                 | 4608                   | 25,600/600                              | 40,000/960                                    | 32             | 6.250                        | 4        |
 
-<sup>*</sup> These IOPs values can be guaranteed by using [Gen2 VMs](generation-2.md)<br>
-<sup>1</sup> Accelerated networking is required and turned on by default on all Ddv5 virtual machines.<br>
+<sup>*</sup> Accelerated networking is required and turned on by default on all Dpsv5 machines <br>
+
 
 
 
@@ -61,6 +61,6 @@ Bpsv2 VMs offer up to 16 vCPU and 64 GiB of RAM and are optimized for scale-out 
 - [High performance compute](sizes-hpc.md)
 - [Previous generations](sizes-previous-gen.md)
 
-Pricing Calculator: [Pricing Calculator](https://azure.microsoft.com/pricing/calculator/)
+
 
 More information on Disks Types: [Disk Types](./disks-types.md#ultra-disks)
