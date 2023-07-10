@@ -12,7 +12,7 @@ ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.topic: how-to
-ms.date: 07/06/2023
+ms.date: 07/10/2023
 ms.author: anfdocs
 ---
 # Restore a backup to a new volume
@@ -35,7 +35,10 @@ Restoring a backup creates a new volume with the same protocol type. This articl
 
 * Restoring a backup to a new volume is not dependent on the networking type used by the source volume. You can restore the backup of a volume configured with Basic networking to a volume configured with Standard networking and vice versa.
 
-> [!CAUTION]
+* See [Restoring volume backups from vaulted snapshots](snapshots-introduction.md#restoring-volume-backups-from-vaulted-snapshots) for more information. 
+
+
+> [!IMPORTANT]
 > Running multiple concurrent volume restores using Azure NetApp Files backup may increase the time it takes for each individual, in-progress restore to complete. As such, if time is a factor to you, you should prioritize and sequentialize the most important volume restores and wait until the restores are complete before starting another, lower priority, volume restores.  
 
 See [Requirements and considerations for Azure NetApp Files backup](backup-requirements-considerations.md) for more considerations about using Azure NetApp Files backup.
@@ -77,3 +80,4 @@ See [Requirements and considerations for Azure NetApp Files backup](backup-requi
 * [Delete backups of a volume](backup-delete.md)
 * [Volume backup metrics](azure-netapp-files-metrics.md#volume-backup-metrics)
 * [Azure NetApp Files backup FAQs](faq-backup.md)
+* [How Azure NetApp Files snapshots work](snapshots-introduction.md)
