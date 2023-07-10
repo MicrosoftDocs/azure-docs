@@ -13,13 +13,9 @@ ms.date: 07/14/2022
 You can manage your Azure Service Fabric applications and services through Visual Studio. Once you've [set up your development environment](service-fabric-get-started.md), you can use Visual Studio to create Service Fabric applications, add services, or package, register, and deploy applications in your local development cluster.
 
 > [!NOTE]
-With the transition from ADAL to MSAL, administrators are now required to explicitly grant permission to the Visual Studio client for publishing applications by adding below in  the cluster's AAD App Registration.
-> - VS 2022 and future versions:
-04f0c124-f2bc-4f59-8241-bf6df9866bbd 
-
-> - VS2019 and below:
-872cd9fa-d31f-45e0-9eab-6e460a02d1f1
-
+> With the transition from ADAL to MSAL, administrators are now required to explicitly grant permission to the Visual Studio client for publishing applications by adding the following in the cluster's Azure AD App Registration.
+> - Visual Studio 2022 and future versions: 04f0c124-f2bc-4f59-8241-bf6df9866bbd 
+> - Visual Studio 2019 and earlier: 872cd9fa-d31f-45e0-9eab-6e460a02d1f1
 
 ## Deploy your Service Fabric application
 By default, deploying an application combines the following steps into one simple operation:
