@@ -10,7 +10,7 @@ ms.topic: conceptual
 ms.date: 07/18/2023
 ms.author: vikurpad
 ms.custom: references_regions
-monikerRange: 'form-recog-3.0.0'
+monikerRange: 'doc-intel-3.0.0'
 ---
 
 
@@ -109,7 +109,7 @@ Tabular fields are also useful when extracting repeating information within a do
 * Train a custom model:
 
   > [!div class="nextstepaction"]
-  > [How to train a model](how-to-guides/build-a-custom-model.md?view=form-recog-3.0.0&preserve-view=true)
+  > [How to train a model](how-to-guides/build-a-custom-model.md?view=doc-intel-3.0.0&preserve-view=true)
 
 * Learn more about custom template models:
 

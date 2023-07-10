@@ -9,7 +9,7 @@ ms.subservice: forms-recognizer
 ms.topic: overview
 ms.date: 07/18/2023
 ms.author: lajanuar
-monikerRange: 'form-recog-3.0.0'
+monikerRange: 'doc-intel-3.0.0'
 ---
 
 

@@ -13,11 +13,11 @@ ms.date: 07/18/2023
 
 # Language support for Document Intelligence
 
-::: moniker range="form-recog-3.0.0"
+::: moniker range="doc-intel-3.0.0"
 [!INCLUDE [applies to v3.0](includes/applies-to-v3-0.md)]
 ::: moniker-end
 
-::: moniker range="form-recog-3.0.0"
+::: moniker range="doc-intel-3.0.0"
 
 This article covers the supported languages for text and field **extraction (by feature)** and **[detection (Read only)](#detected-languages-read-api)**. Both groups are mutually exclusive.
 
@@ -33,7 +33,7 @@ The following lists include the currently GA languages in the most recent v3.0 v
 >
 > Document Intelligence's deep learning based universal models extract all multi-lingual text in your documents, including text lines with mixed languages, and do not require specifying a language code. Do not provide the language code as the parameter unless you are sure about the language and want to force the service to apply only the relevant model. Otherwise, the service may return incomplete and incorrect text.
 
-To use the v3.0-supported languages, refer to the [v3.0 REST API migration guide](v3-migration-guide.md) to understand the differences from the v2.1 GA API and explore the [v3.0 SDK and REST API quickstarts](quickstarts/get-started-sdks-rest-api.md?view=form-recog-3.0.0&preserve-view=true).
+To use the v3.0-supported languages, refer to the [v3.0 REST API migration guide](v3-migration-guide.md) to understand the differences from the v2.1 GA API and explore the [v3.0 SDK and REST API quickstarts](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-3.0.0&preserve-view=true).
 
 ### Handwritten text
 
@@ -420,11 +420,11 @@ The [Read API](concept-read.md) supports detecting the following languages in yo
 
 ::: moniker-end
 
-::: moniker range="form-recog-2.1.0"
+::: moniker range="doc-intel-2.1.0"
 [!INCLUDE [applies to v2.1](includes/applies-to-v2-1.md)]
 ::: moniker-end
 
-::: moniker range="form-recog-2.1.0"
+::: moniker range="doc-intel-2.1.0"
 
 This table lists the written languages supported by each Document Intelligence service.
 
@@ -538,13 +538,13 @@ This technology is currently available for US driver licenses and the biographic
 
 ## Next steps
 
-::: moniker range="form-recog-3.0.0"
+::: moniker range="doc-intel-3.0.0"
 
 > [!div class="nextstepaction"]
 > [Try Document Intelligence Studio](https://formrecognizer.appliedai.azure.com/studio)
 ::: moniker-end
 
-::: moniker range="form-recog-2.1.0"
+::: moniker range="doc-intel-2.1.0"
 > [!div class="nextstepaction"]
 > [Try Document Intelligence Sample Labeling tool](https://aka.ms/fott-2.1-ga)
 ::: moniker-end

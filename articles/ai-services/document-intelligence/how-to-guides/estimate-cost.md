@@ -9,7 +9,7 @@ ms.subservice: forms-recognizer
 ms.topic: how-to
 ms.date: 07/18/2023
 ms.author: luzhan
-monikerRange: '>=form-recog-2.1.0'
+monikerRange: '>=doc-intel-2.1.0'
 ---
 
 

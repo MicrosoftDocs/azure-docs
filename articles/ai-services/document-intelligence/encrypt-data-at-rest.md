@@ -10,7 +10,7 @@ ms.topic: conceptual
 ms.date: 07/18/2023
 ms.author: egeaney
 ms.custom: applied-ai-non-critical-form
-monikerRange: '>=form-recog-2.1.0'
+monikerRange: '>=doc-intel-2.1.0'
 ---
 
 

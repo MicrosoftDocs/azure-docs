@@ -9,7 +9,7 @@ ms.subservice: forms-recognizer
 ms.topic: quickstart
 ms.date: 07/18/2023
 ms.author: lajanuar
-monikerRange: 'form-recog-3.0.0'
+monikerRange: 'doc-intel-3.0.0'
 ---
 
 
@@ -19,7 +19,7 @@ monikerRange: 'form-recog-3.0.0'
 
 [!INCLUDE [applies to v3.0](../includes/applies-to-v3-0.md)]
 
-[Document Intelligence Studio](https://formrecognizer.appliedai.azure.com/) is an online tool for visually exploring, understanding, and integrating features from the Document Intelligence service in your applications. You can get started by exploring the pretrained models with sample or your own documents. You can also create projects to build custom template models and reference the models in your applications using the [Python SDK](get-started-sdks-rest-api.md?view=form-recog-3.0.0&preserve-view=true) and other quickstarts.
+[Document Intelligence Studio](https://formrecognizer.appliedai.azure.com/) is an online tool for visually exploring, understanding, and integrating features from the Document Intelligence service in your applications. You can get started by exploring the pretrained models with sample or your own documents. You can also create projects to build custom template models and reference the models in your applications using the [Python SDK](get-started-sdks-rest-api.md?view=doc-intel-3.0.0&preserve-view=true) and other quickstarts.
 
 > [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE56n49]
 
@@ -147,7 +147,7 @@ CORS should now be configured to use the storage account from Document Intellige
     :::image border="true" type="content" source="../media/sas-tokens/upload-blob-window.png" alt-text="Screenshot: upload blob window in the Azure portal.":::
 
 > [!NOTE]
-> By default, the Studio will use form documents that are located at the root of your container. However, you can use data organized in folders by specifying the folder path in the Custom form project creation steps. *See* [**Organize your data in subfolders**](../how-to-guides/build-a-custom-model.md?view=form-recog-2.1.0&preserve-view=true#organize-your-data-in-subfolders-optional)
+> By default, the Studio will use form documents that are located at the root of your container. However, you can use data organized in folders by specifying the folder path in the Custom form project creation steps. *See* [**Organize your data in subfolders**](../how-to-guides/build-a-custom-model.md?view=doc-intel-2.1.0&preserve-view=true#organize-your-data-in-subfolders-optional)
 
 ## Custom models
 
@@ -235,7 +235,7 @@ To label for signature detection: (Custom form only)
 ## Next steps
 
 * Follow our [**Document Intelligence v3.0 migration guide**](../v3-migration-guide.md) to learn the differences from the previous version of the REST API.
-* Explore our [**v3.0 SDK quickstarts**](get-started-sdks-rest-api.md?view=form-recog-3.0.0&preserve-view=true) to try the v3.0 features in your applications using the new SDKs.
-* Refer to our [**v3.0 REST API quickstarts**](get-started-sdks-rest-api.md?view=form-recog-3.0.0&preserve-view=true) to try the v3.0 features using the new REST API.
+* Explore our [**v3.0 SDK quickstarts**](get-started-sdks-rest-api.md?view=doc-intel-3.0.0&preserve-view=true) to try the v3.0 features in your applications using the new SDKs.
+* Refer to our [**v3.0 REST API quickstarts**](get-started-sdks-rest-api.md?view=doc-intel-3.0.0&preserve-view=true) to try the v3.0 features using the new REST API.
 
 [Get started with the Document Intelligence Studio](https://formrecognizer.appliedai.azure.com).

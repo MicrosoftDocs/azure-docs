@@ -9,7 +9,7 @@ ms.subservice: forms-recognizer
 ms.topic: whats-new
 ms.date: 07/18/2023
 ms.author: lajanuar
-monikerRange: '>=form-recog-2.1.0'
+monikerRange: '>=doc-intel-2.1.0'
 ms.custom: references_regions
 ---
 
@@ -31,9 +31,9 @@ Document Intelligence service is updated on an ongoing basis. Bookmark this page
 
 **Introducing refreshed documentation for Build 2023**
 
-* [🆕 Document Intelligence Overview](overview.md?view=form-recog-3.0.0&preserve-view=true) has enhanced navigation, structured access points, and enriched images.
+* [🆕 Document Intelligence Overview](overview.md?view=doc-intel-3.0.0&preserve-view=true) has enhanced navigation, structured access points, and enriched images.
 
-* [🆕 Choose a Document Intelligence model](choose-model-feature.md?view=form-recog-3.0.0&preserve-view=true) provides guidance for choosing the best Document Intelligence solution for your projects and workflows.
+* [🆕 Choose a Document Intelligence model](choose-model-feature.md?view=doc-intel-3.0.0&preserve-view=true) provides guidance for choosing the best Document Intelligence solution for your projects and workflows.
 
 ## April 2023
 
@@ -87,7 +87,7 @@ Document Intelligence service is updated on an ongoing basis. Bookmark this page
 * Select Document Intelligence containers for v3.0 are now available for use!
 * Currently **Read v3.0** and **Layout v3.0** containers are available.
 
-  For more information, _see_ [Install and run Document Intelligence containers](containers/install-run.md?view=form-recog-3.0.0&preserve-view=true)
+  For more information, _see_ [Install and run Document Intelligence containers](containers/install-run.md?view=doc-intel-3.0.0&preserve-view=true)
 
 ---
 
@@ -520,7 +520,7 @@ Document Intelligence service is updated on an ongoing basis. Bookmark this page
   * [**Document Intelligence Studio**](https://formrecognizer.appliedai.azure.com) adds new demos for Read, W2, Hotel receipt samples, and support for training the new custom neural models.
   * [**Language Expansion**](language-support.md) Document Intelligence Read, Layout, and Custom Form add support for 42 new languages including Arabic, Hindi, and other languages using Arabic and Devanagari scripts to expand the coverage to 164 languages. Handwritten language support expands to Japanese and Korean.
 
-* Get started with the new [REST API](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v3-0-preview-2/operations/AnalyzeDocument), [Python](quickstarts/get-started-sdks-rest-api.md?view=form-recog-3.0.0&preserve-view=true), or [.NET](quickstarts/get-started-sdks-rest-api.md?view=form-recog-3.0.0&preserve-view=true) SDK for the v3.0 preview API.
+* Get started with the new [REST API](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v3-0-preview-2/operations/AnalyzeDocument), [Python](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-3.0.0&preserve-view=true), or [.NET](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-3.0.0&preserve-view=true) SDK for the v3.0 preview API.
 
 * Document Intelligence model data extraction
 
@@ -590,7 +590,7 @@ Document Intelligence service is updated on an ongoing basis. Bookmark this page
   * **Tables and text extraction enhancements** Layout now supports extracting single row tables also called key-value tables. Text extraction enhancements include better processing of digital PDFs and Machine Readable Zone (MRZ) text in identity documents, along with general performance.
   * [**Document Intelligence Studio**](https://formrecognizer.appliedai.azure.com) To simplify use of the service, you can now access the Document Intelligence Studio to test the different prebuilt models or label and train a custom model
 
-  * Get started with the new [REST API](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1/operations/AnalyzeWithCustomForm), [Python](quickstarts/get-started-sdks-rest-api.md?view=form-recog-3.0.0&preserve-view=true), or [.NET](quickstarts/get-started-sdks-rest-api.md?view=form-recog-3.0.0&preserve-view=true) SDK for the v3.0 preview API.
+  * Get started with the new [REST API](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1/operations/AnalyzeWithCustomForm), [Python](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-3.0.0&preserve-view=true), or [.NET](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-3.0.0&preserve-view=true) SDK for the v3.0 preview API.
 
 * Document Intelligence model data extraction
 
@@ -914,7 +914,7 @@ Document Intelligence service is updated on an ongoing basis. Bookmark this page
 
     > [Learn more about Layout extraction](concept-layout.md)
 
-  * **Client library update** - The latest versions of the [client libraries](~/articles/ai-services/document-intelligence/how-to-guides/use-sdk-rest-api.md?view=form-recog-2.1.0&preserve-view=true) for .NET, Python, Java, and JavaScript support the Document Intelligence 2.1 API.
+  * **Client library update** - The latest versions of the [client libraries](~/articles/ai-services/document-intelligence/how-to-guides/use-sdk-rest-api.md?view=doc-intel-2.1.0&preserve-view=true) for .NET, Python, Java, and JavaScript support the Document Intelligence 2.1 API.
   * **New language supported: Japanese** - The following new languages are now supported: for `AnalyzeLayout` and `AnalyzeCustomForm`: Japanese (`ja`). [Language support](language-support.md)
   * **Text line style indication (handwritten/other) (Latin languages only)** - Document Intelligence now outputs an `appearance` object classifying whether each text line is handwritten style or not, along with a confidence score. This feature is supported only for Latin languages.
   * **Quality improvements** - Extraction improvements including single digit extraction improvements.
@@ -945,7 +945,7 @@ Document Intelligence service is updated on an ongoing basis. Bookmark this page
 
 * **v2.0** includes the following update:
 
-  * The [client libraries](~/articles/ai-services/document-intelligence/how-to-guides/use-sdk-rest-api.md?view=form-recog-2.1.0&preserve-view=true) for NET, Python, Java, and JavaScript have entered General Availability.
+  * The [client libraries](~/articles/ai-services/document-intelligence/how-to-guides/use-sdk-rest-api.md?view=doc-intel-2.1.0&preserve-view=true) for NET, Python, Java, and JavaScript have entered General Availability.
 
   **New samples** are available on GitHub.
 
@@ -1092,19 +1092,19 @@ This release introduces the Document Intelligence 2.0. In the next sections, you
 
 ## Next steps
 
-::: moniker range="form-recog-3.0.0"
+::: moniker range="doc-intel-3.0.0"
 
 * Try processing your own forms and documents with the [Document Intelligence Studio](https://formrecognizer.appliedai.azure.com/studio)
 
-* Complete a [Document Intelligence quickstart](quickstarts/get-started-sdks-rest-api.md?view=form-recog-3.0.0&preserve-view=true) and get started creating a document processing app in the development language of your choice.
+* Complete a [Document Intelligence quickstart](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-3.0.0&preserve-view=true) and get started creating a document processing app in the development language of your choice.
 
 ::: moniker-end
 
-::: moniker range="form-recog-2.1.0"
+::: moniker range="doc-intel-2.1.0"
 
 * Try processing your own forms and documents with the [Document Intelligence Sample Labeling tool](https://fott-2-1.azurewebsites.net/)
 
-* Complete a [Document Intelligence quickstart](quickstarts/get-started-sdks-rest-api.md?view=form-recog-2.1.0&preserve-view=true) and get started creating a document processing app in the development language of your choice.
+* Complete a [Document Intelligence quickstart](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-2.1.0&preserve-view=true) and get started creating a document processing app in the development language of your choice.
 
 ::: moniker-end
 
