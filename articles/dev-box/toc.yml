@@ -19,7 +19,7 @@ items:
   items:
     - name: Connect with Remote Desktop App 
       href: tutorial-connect-to-dev-box-with-remote-desktop-app.md
-    - name: Set dev box project limits
+    - name: Limit number of dev boxes per project
       href: tutorial-dev-box-limits.md  
 - name: Concepts
   expanded: true
