@@ -51,7 +51,7 @@ If you're configuring inbound user provisioning to on-premises Active Directory,
 
 5. In the **Name** field, rename the application to meet your naming requirements, then click **Create**.
 
-  [![Screenshot of Get started button.](media/inbound-provisioning-api-configure-app/provisioning-create-inbound-provisioning-app.png)](media/inbound-provisioning-api-configure-app/provisioning-create-inbound-provisioning-app.png#lightbox)
+  [![Screenshot of create app.](media/inbound-provisioning-api-configure-app/provisioning-create-inbound-provisioning-app.png)](media/inbound-provisioning-api-configure-app/provisioning-create-inbound-provisioning-app.png#lightbox)
 
   > [!NOTE]
   > If you plan to ingest data from multiple sources, each with their own sync rules, you can create multiple apps and give each app a descriptive name; for example, Provision-Employees-From-CSV-to-AD or Provision-Contractors-From-SQL-to-AD.
@@ -78,7 +78,7 @@ Depending on the app you selected, use one of the following sections to complete
 1. Refer to the steps documented here to [install and configure the provisioning agent](https://go.microsoft.com/fwlink/?linkid=2241216). This step registers your on-premises Active Directory domains with your Azure AD tenant.
 1. Once the agent registration is successful, select your domain in the drop-down **Active Directory domain** and specify the distinguished name of the OU where new user accounts are created by default.
 
-  [![Screenshot of provisioning agent banner](media/inbound-provisioning-api-configure-app/provisioning-ad-domain-and-ou.png)](media/inbound-provisioning-api-configure-app/provisioning-ad-domain-and-ou.png#lightbox)
+  [![Screenshot of Active Directory domain selected](media/inbound-provisioning-api-configure-app/provisioning-ad-domain-and-ou.png)](media/inbound-provisioning-api-configure-app/provisioning-ad-domain-and-ou.png#lightbox)
 
   > [!NOTE]
   > If your AD domain is not visible in the **Active Directory Domain** dropdown list, reload the provisioning app in the browser. Click on **View on-premises agents for your domain** to ensure that your agent status is healthy.
