@@ -78,8 +78,7 @@ Starting Service Fabric version 10.0 there's a newer version of the container im
    |ContainerImageCleanupInterval |Time interval for cleaning up unused container images.  |
    |ContainerImageTTL |Time to live for container images once they're eligible for removal (not referenced by containers on the VM and the application is deleted(if ContainerImageDeletionOnAppInstanceDeletionEnabled is enabled)).  |
    |ContainerImageDeletionOnAppInstanceDeletionEnabled |Setting to enable or disable deletion of expired ttl container images only after application has been deleted as well.  |
-   |ContainerImagesToSkip |When set enables the container runtime to skip deleting images that match any of the set of regular expressions. The \| character separates each expression. Example: "mcr.microsoft.com/.+\|docker.io/library/alpine:latest" - this 
-   example matches everything prefixed with "mcr.microsoft.com/" and matches exactly "docker.io/library/alpine:latest". By default we don't delete the known Windows base images microsoft/windowsservercore or microsoft/nanoserver.  |
+   |ContainerImagesToSkip |When set enables the container runtime to skip deleting images that match any of the set of regular expressions. The \| character separates each expression. Example: "mcr.microsoft.com/.+\|docker.io/library/alpine:latest" - this example matches everything prefixed with "mcr.microsoft.com/" and matches exactly "docker.io/library/alpine:latest". By default we don't delete the known Windows base images microsoft/windowsservercore or microsoft/nanoserver.  |
 
 ## Next steps
 See the following article for related information:
