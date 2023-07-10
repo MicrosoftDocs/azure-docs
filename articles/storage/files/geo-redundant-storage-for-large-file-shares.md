@@ -2,11 +2,10 @@
 title: Azure Files geo-redundancy for large file shares (preview)
 description: Azure Files geo-redundancy for large file shares (preview) significantly improves standard SMB file share capacity and performance limits when using geo-redundant storage (GRS) and geo-zone redundant storage (GZRS) options.
 author: khdownie
-ms.service: storage
+ms.service: azure-file-storage
 ms.topic: conceptual
 ms.date: 05/24/2023
 ms.author: kendownie
-ms.subservice: files
 ms.custom: references_regions
 ---
 
