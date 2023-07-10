@@ -1,9 +1,5 @@
 # Failover Considerations for Storage Accounts with Private Endpoints
 
-**NOTES**
-*  We need to test failover
-*  Datalake is not supported
-
 Storage accounts work different than many other Azure services when it comes to high availability configurations.  Instead of having a secondary instance that is deployed by the customer to a region of their selection, storage accounts configured to be [geo-redundant](./storage-account-overview#types-of-storage-accounts.md) use a specific secondary region based on the main region, to align with [regional pairs](azure/reliability/cross-region-replication-azure).  Customers can fail over to the secondary region, or the storage account will automatically fail over when a regional outage occurs.
 
 This means that customers don't need to plan to have a second storage account already running in their second region; the SKU used in the primary region will address this.  You could have multiple storage accounts and use customer managed operations to move data between them, but this is an uncommon parent.
@@ -17,52 +13,63 @@ However, there are additional considerations needed if you are using [private en
 > [!NOTE]
 > Not all storage account types support geo-redundant storage (GRS) or read-access geo-redundant storage (RA-GRS).  For example, data lakes deployed with premium block blob can only be locally redundant or zone redundant in a single region.  Review [Azure Storage redundancy](./storage-redundancy.md) to make sure your scenario is supported.
 
-
 ## Example Architecture
 
-You need a secondary set of PrivateLink DNS Zones for Storage Services in your secondary region so that the resources in your secondary region can resolve to the PE in your secondary region, for the storage account that has been failed over.
-If doing active/active, have PEs in both prestaged and able to handle traffic.  PEs do not need to be in the same region as the Storage Account.  If DR only, you still want them there, but you have less to consider.
+This architecture uses a primary and secondary region that can be used to handle active/active or failover scenarios.  Each has a hub deployed with necessary networking infrastructure, and a spoke where the application that leverages the storage account is housed.
 
-If you have a very high Recovery Time Objective (6 hours) - You can make changes to the environment to help with the failover and not have the zone.  But do you want to be messing with DNS during an outage - no way.
-
-To be safe you need:
-
-1. Two Privatelink DNS zones for the storage services - one in primary one in secondary
-2. Have two Private Endpoints - one primary, one in secondary - for each storage service
-3. Enable DNS Zone Group for Primary-to-Primary and Secondary-to-Secondary
+The geo-redundant storage account deployed is deployed in the primary region, but has private endpoints for its blob endpoint in both regions.  
 
 ![Image of PE environment](./media/storage-failover-private-endpoints/storage-failover-pe-topology.png)
 
+The two private endpoints cannot use the same Private DNS Zone for the same endpoint - so in turn, each region will have its own Private DNS Zone.  This zone will then be attached to the hub network for the region, and be used by their region following the [DNS forwarder scenario](../../private-link/private-endpoint-dns.md#virtual-network-and-on-premises-workloads-using-a-dns-forwarder) for private endpoints.
+
+As a result, regardless of the region of the VM trying to access the private endpoint, there is a local endpoint available that can access the storage blob, regardless of the region the storage account is currently operating in.
+
+For connections from a data center, a VPN connection would be made to the hub network in the region.  However, for DNS resolution, each data center would have its conditional forward set up to only one of the two DNS resolver server sets, to ensure that it resolves to the closest network location.
+
 ## Failover Scenarios
 
-### Scenario 1 - Storage Account Failover 
+This topology supports the following scenarios:
 
-The Storage Account fails over to the paired region, but the network routing stays the same.
+### Scenario 1 - Storage Account Failover
 
-The Private Endpoint should not be impacted, and the service continues to run in the primary region unchanged.
+In this scenario, an issue with the storage account requires it to be failed over to the secondary regions.  With storage accounts that are zone redundant as well as geo-redundant, these outages are uncommon, but should still be planned for.
 
-No DNS consideration appears to be needed.
+When the storage account is failed over to the paired secondary region, network routing stays the same.  No changes to DNS are needed - each region can continue to use its local endpoint to communicate with the storage account.
+
+Connections from an on-prem data center connected by VPN would continue to operate as well.  Each endpoint can respond to connections routed to it, and both hub networks are able to resolve to a valid endpoint.
+
+When the service is restored in the primary region, the storage account can be failed over.
 
 ### Scenario 2 - Other Services Failover
 
-Due to an environmental issue, the primary region is unable to support the resources that connect to the Storage Account.  VMs, Function Apps, or whatever.  But networking and the storage account are still possible.
+In this scenario, there is an issue with the services that connect to the storage account.  In our environment, this is diagrammed as being virtual machines, but they could be application services or other services.
 
-Resources redeployed in the secondary region can route through Hub to Hub to access the Private Endpoint in the Secondary Region.  They can use the same DNS in both Primary and Secondary Regions
+These resources need to be failed over to the secondary region following their own process.  VMs might use Azure Site Recovery to replicate VMs prior to the outage, or you might deploy a new instance of your web app in the secondary region.
 
-This is probably very uncommon.
+Once the services are active in the secondary region, they can begin to connect to the storage account through its regional endpoint.  No changes are needed for it to support connections.
+
+Connections from an on-prem data center connected by VPN would continue to operate as long as the service outage doesn't impact the DNS resolution services in the hub.  If the hub is disabled, such as due to a VM service outage, then the conditional forwarders in the data center would need to be adjusted to point to the secondary region until the service is restored.
+
+When the service is restored in the primary region, the services can be failed back and on-prem DNS reset.
+
+> [!NOTE]
+> If you only need to connect to the storage account from on-prem for administrative tasks, a jump box in the secondary region could be used instead of updating DNS in the primary region.  On-prem DNS only needs to be updated if you need direct connection to the storage account from systems on-prem.
 
 ### Scenario 3 - Whole Region Outage
 
-The primary region is unavailable.  The storage account fails over to the secondary region, and then the customer redeploys/fails over their resources to the secondary region.
+In this scenario, there is a regional outage of sufficient scope as both the storage account and other services need to be failed over.
 
-In this event, the 
+This operates like a combination of Scenario 1 and Scenario 2.  The storage account is failed over, as are the Azure services.  The primary region is effectively unable to operate, but the services can continue to operate in the secondary region until the service is used.
+
+Similar to Scenario 2, if the primary hug is unable to handle DNS responses to its endpoint, or there are other networking outages, then the conditional forwarders on-prem should be updated to the secondary region.
+
+When the services are restored, resources can be failed back, and on-prem DNS can be reset back to its normal configuration.
 
 ### Scenario 4 - Running in HA
 
-### Scenario 5 - Connecting from On-Prem
+In this scenario, you have your workload running in an active/active mode.  There is compute resources running in both the primary and secondary region, and clients are connecting to either region based off of load balancing rules.
 
-On-Prem:
+In it, both services can communicate to the storage account through their regional private endpoints.  See [Azure network round-trip latency statistics](../../networking/azure-network-latency.md) to review latency between regions.
 
-If the on-prem DNS service has a conditional forwarder to Azure Primary Zone, part of the DR Failover to the secondary Zone must involve changing the forwarder to the Secondary Zone, IF IT IS NEEDED IN A DR SCENARIO
-
-Alternatively, Jump Boxes can be used to access the secondary environment as a degraded service in line with their RLO.
+If there is a regional outage, the load balancing front end should redirect all application traffic to the active region.
