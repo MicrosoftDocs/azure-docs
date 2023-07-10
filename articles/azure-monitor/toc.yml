@@ -1296,7 +1296,7 @@ items:
       href: alerts/alerts-types.md
     - name: Alert rules
       items:
-        - name: Create a new alert rule
+        - name: Create or edit an alert rule
           href: alerts/alerts-create-new-alert-rule.md
         - name: Manage alert rules
           href: alerts/alerts-manage-alert-rules.md
