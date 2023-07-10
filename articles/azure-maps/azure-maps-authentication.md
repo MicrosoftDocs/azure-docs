@@ -112,11 +112,12 @@ When you configure Azure RBAC, you choose a security principal and apply it to a
 The following role definition types exist to support application scenarios.
 
 | Azure Role Definition                    | Description                                                                                                    |
-| :--------------------------------------- | :------------------------------------------------------------------------------------------------------------- |
+| :--------------------------------------- | :------------------------------------------------- |
 | Azure Maps Search and Render Data Reader | Provides access to only search and render Azure Maps REST APIs to limit access to basic web browser use cases. |
-| Azure Maps Data Reader                   | Provides access to immutable Azure Maps REST APIs.                                                             |
-| Azure Maps Data Contributor              | Provides access to mutable Azure Maps REST APIs. Mutability, defined by the actions: write and delete.         |
-| Custom Role Definition                   | Create a crafted role to enable flexible restricted access to Azure Maps REST APIs.                            |
+| Azure Maps Data Reader                   | Provides access to immutable Azure Maps REST APIs. |
+| Azure Maps Data Contributor              | Provides access to mutable Azure Maps REST APIs. Mutability, defined by the actions: write and delete. |
+| Azure Maps Data Read and Batch Role      |  This role can be used to assign read and batch actions on Azure Maps. |
+| Custom Role Definition                   | Create a crafted role to enable flexible restricted access to Azure Maps REST APIs. |
 
 Some Azure Maps services may require elevated privileges to perform write or delete actions on Azure Maps REST APIs. Azure Maps Data Contributor role is required for services, which provide write or delete actions. The following table describes what services Azure Maps Data Contributor is applicable when using write or delete actions. When only read actions are required, the Azure Maps Data Reader role can be used in place of the Azure Maps Data Contributor role.
 
