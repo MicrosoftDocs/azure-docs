@@ -84,7 +84,7 @@ The Azure IoT EdgeHub dev tool provides a local development and debug experience
 The IoT EdgeHub dev tool was designed to work in tandem with the Visual Studio and Visual Studio Code extensions, as well as with the IoT Edge dev tool. The dev tool supports inner loop development as well as outer loop testing, so it integrates with other DevOps tools too.
 
 > [!IMPORTANT]
-> The IoT EdgeHub dev tool is in [maintenance mode](https://github.com/Azure/iotedgehubdev/issues/396). consider using a virtual machine, physical device or [EFLOW](https://github.com/Azure/iotedge-eflow).
+> The IoT EdgeHub dev tool is in [maintenance mode](https://github.com/Azure/iotedgehubdev/issues/396). Consider using a [Linux virtual machine with IoT Edge runtime installed](quickstart-linux.md), physical device, or [EFLOW](https://github.com/Azure/iotedge-eflow).
 
 For more information and to install, see [Azure IoT EdgeHub dev tool](https://pypi.org/project/iotedgehubdev/).
 
