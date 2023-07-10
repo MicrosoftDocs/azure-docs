@@ -141,6 +141,7 @@ items:
     - name: Customer responsibilities for Standard consumption and dedicated plan in a virtual network
       href: standard-consumption-customer-responsibilities.md
   - name: Basic/Standard plan
+    items:
     - name: Provisioning
       items:
       - name: Provision using Bicep
@@ -328,6 +329,7 @@ items:
       - name: Tomcat
         href: /azure/developer/java/migration/migrate-tomcat-to-azure-spring-apps?toc=/azure/spring-apps/toc.json&bc=/azure/spring-apps/breadcrumb/toc.json
   - name: Enterprise plan
+    items:
     - name: Provisioning
       items:
       - name: Provision using Bicep
