@@ -14,9 +14,7 @@ ms.reviewer: nicholepet
 # Customer intent: As a new or existing customer, I want to learn more about the new name for Azure Active Directory (Azure AD) and understand the impact the name change may have on other products, new or existing license(s), what I need to do, and where I can learn more about Microsoft Entra products.
 ---
 
-# New name for Azure Active Directory
-
-## Azure AD is being renamed to Microsoft Entra ID
+# Azure AD is being renamed to Microsoft Entra ID
 
 To unify the [Microsoft Entra](/entra) product family, reflect the progression to modern multicloud identity security, and simplify secure access experiences for all, we're renaming Azure Active Directory (Azure AD) to Microsoft Entra ID.  
 
