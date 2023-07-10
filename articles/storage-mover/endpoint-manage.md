@@ -70,13 +70,15 @@ Azure Storage Mover supports migration scenarios using NFS and SMB. The steps to
 
 ### [Azure portal](#tab/portal)
 
-   To create an endpoint using the Navigate to the [Azure portal](https://portal.azure.com), navigate to the **Storage mover** resource page. Select **Storage endpoints** from within the navigation pane as shown in the following image.
+   To create an endpoint using the Navigate to the [Azure portal](https://portal.azure.com), navigate to the **Storage mover** resource page. Select **Storage endpoints** from within the navigation pane as shown in the sample image to access your endpoints.
 
    :::image type="content" source="media/endpoint-manage/storage-mover.png" alt-text="Image of the Storage Mover resource page within the Azure Portal showing the location of the Storage Endpoints link." lightbox="media/endpoint-manage/storage-mover-lrg.png":::
 
-   1. Select **Create project** to open the **Create a Project** pane. Provide a project name value in the **Project name** field, but leave the **Project description** field empty. Finally, select **Create** to provision the project.
+   The default **Source endpoints** view displays the names of any provisioned source endpoints and a summary of their associated data. You can select the **Destination endpoints** filter to view the corresponding destination endpoints.
 
-       :::image type="content" source="media/resource-hierarchy/resource-hierarchy-large.png" alt-text="Image of the Create Endpoint screen" lightbox="media/project-manage/project-explorer-create-lrg.png":::
+   Select **Create endpoint** to expand the endpoint type menu. Depending on your use case, select either **Create source** or **Create target endpoint** to open the **Create endpoint** pane as shown in the following image.
+
+   :::image type="content" source="media/endpoint-manage/endpoint-create.png" alt-text="Image of the Endpoint Overview screen highlighting the location of the Create Endpoint link" lightbox="media/endpoint-manage/endpoint-create-lrg.png":::
 
 ### [PowerShell](#tab/powershell)
 
