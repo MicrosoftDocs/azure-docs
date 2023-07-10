@@ -1,6 +1,6 @@
 ---
 title: Linux VMs with Azure MANA
-description: Learn how MANA Accelerated Networking can improve the networking performance of Linux VMs on Azure.
+description: Learn how the Microsoft Azure Network Adapter can improve the networking performance of Linux VMs on Azure.
 author: mattmcinnes
 ms.service: virtual-network
 ms.topic: how-to
