@@ -33,6 +33,7 @@ Configuration settings for [Durable Functions](../articles/azure-functions/durab
       "trackingStoreConnectionStringName": "TrackingStorage",
       "trackingStoreNamePrefix": "DurableTask",
       "useLegacyPartitionManagement": true,
+      "useTablePartitionManagement": false,
       "workItemQueueVisibilityTimeout": "00:05:00",
     },
     "tracing": {
