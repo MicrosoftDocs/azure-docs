@@ -10,7 +10,7 @@
     href: require-tou.md
 - name: Tutorials
   items:
-  - name: Require Azure AD Multifactor Authentication
+  - name: Require multifactor Authentication
     href: ../authentication/tutorial-enable-azure-mfa.md?toc=/azure/active-directory/conditional-access/toc.json&bc=/azure/active-directory/conditional-access/breadcrumb/toc.json
 - name: Concepts
   expanded: false
@@ -23,7 +23,7 @@
     items: 
      - name: Users and groups
        href: concept-conditional-access-users-groups.md
-     - name: Cloud apps or actions
+     - name: Target resources
        href: concept-conditional-access-cloud-apps.md
      - name: Conditions
        href: concept-conditional-access-conditions.md
@@ -108,7 +108,7 @@
     href: block-legacy-authentication.md
   - name: Require terms of use
     href: terms-of-use.md
-  - name: Sign-in frequency and browser persistence controls
+  - name: Sign-in frequency and browser persistence control
     href: howto-conditional-access-session-lifetime.md
   - name: Troubleshooting
     items:

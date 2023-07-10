@@ -615,6 +615,9 @@
   - name: Genomics
     tocHref: /azure/genomics/
     topicHref: /azure/genomics/
+  - name: Global Secure Access
+    tocHref: /azure/global-secure-access
+    topicHref: /azure/global-secure-access
   - name: Governance
     tocHref: /azure/governance/
     topicHref: /azure/governance/
