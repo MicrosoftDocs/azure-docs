@@ -86,7 +86,6 @@ It is now possible to add multiple packet cores in the same site using the Azure
 
 For details, see [Create a Site and dependant resources](deploy-private-mobile-network-with-site-powershell.md#create-a-site-and-dependant-resources).
 
-
 ## March 2023
 
 ### Packet core 2303
