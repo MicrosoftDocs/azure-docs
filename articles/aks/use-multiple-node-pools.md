@@ -163,8 +163,8 @@ Use the following instructions to migrate your Ubuntu nodes to Azure Linux nodes
 > [!NOTE]
 > When adding a new Azure Linux node pool, you need to add at least one as `--mode System`. Otherwise, AKS won't allow you to delete your existing Ubuntu node pool.
 
-2. [Cordon the existing Ubuntu nodes](cordon-and-drain).
-3. [Drain the existing Ubuntu nodes](drain-nodes).
+2. [Cordon the existing Ubuntu nodes][cordon-and-drain.md].
+3. [Drain the existing Ubuntu nodes][drain-nodes].
 4. Remove the existing Ubuntu nodes using the `az aks delete` command.
 
 ```azurecli-interactive
@@ -303,7 +303,7 @@ Kubernetes upgrades for a cluster's control plane and node pools are validated  
 
 As your application workload demands change, you may need to scale the number of nodes in a node pool. The number of nodes can be scaled up or down.
 
-<!--If you scale down, nodes are carefully [cordoned and drained](kubernetes-drain) to minimize disruption to running applications.-->
+<!--If you scale down, nodes are carefully [cordoned and drained][kubernetes-drain] to minimize disruption to running applications.-->
 
 To scale the number of nodes in a node pool, use the [`az aks node pool scale`][az-aks-nodepool-scale] command. The following example scales the number of nodes in *mynodepool* to *5*:
 
@@ -362,7 +362,7 @@ AKS offers a separate feature to automatically scale node pools with a feature c
 If you no longer need a pool, you can delete it and remove the underlying VM nodes. To delete a node pool, use the [`az aks node pool delete`][az-aks-nodepool-delete] command and specify the node pool name. The following example deletes the *mynodepool* created in the previous steps:
 
 > [!CAUTION]
-> When you delete a node pool, AKS doesn't perform cordon and drain, and there are no recovery options for data loss that may occur when you delete a node pool. If pods can't be scheduled on other node pools, those applications become unavailable. Make sure you don't delete a node pool when in-use applications don't have data backups or the ability to run on other node pools in your cluster. To minimize the disruption of rescheduling pods currently running on the node pool you are going to delete, perform a cordon and drain on all nodes in the node pool before deleting. For more information, see [cordon and drain node pools](cordon-and-drain).
+> When you delete a node pool, AKS doesn't perform cordon and drain, and there are no recovery options for data loss that may occur when you delete a node pool. If pods can't be scheduled on other node pools, those applications become unavailable. Make sure you don't delete a node pool when in-use applications don't have data backups or the ability to run on other node pools in your cluster. To minimize the disruption of rescheduling pods currently running on the node pool you are going to delete, perform a cordon and drain on all nodes in the node pool before deleting. For more information, see [cordon and drain node pools][cordon-and-drain].
 
 ```azurecli-interactive
 az aks nodepool delete -g myResourceGroup --cluster-name myAKSCluster --name mynodepool --no-wait
@@ -409,7 +409,7 @@ It takes a few minutes to delete the nodes and the node pool.
 
 As your application workloads demands, you may associate node pools to capacity reservation groups already created. This ensures guaranteed capacity is allocated for your node pools.  
 
-For more information on the capacity reservation groups, review [Capacity Reservation Groups](capacity-reservation-groups).
+For more information on the capacity reservation groups, review [Capacity Reservation Groups][capacity-reservation-groups].
 
 ### Register preview feature
 
@@ -475,7 +475,7 @@ az aks delete -g MyRG --cluster-name MyMC
 
 In the previous examples to create a node pool, a default VM size was used for the nodes created in the cluster. A more common scenario is for you to create node pools with different VM sizes and capabilities. For example, you may create a node pool that contains nodes with large amounts of CPU or memory, or a node pool that provides GPU support. In the next step, you [use taints and tolerations](#setting-node-pool-taints) to tell the Kubernetes scheduler how to limit access to pods that can run on these nodes.
 
-In the following example, create a GPU-based node pool that uses the *Standard_NC6* VM size. These VMs are powered by the NVIDIA Tesla K80 card. For information on available VM sizes, see [Sizes for Linux virtual machines in Azure](vm-sizes).
+In the following example, create a GPU-based node pool that uses the *Standard_NC6* VM size. These VMs are powered by the NVIDIA Tesla K80 card. For information on available VM sizes, see [Sizes for Linux virtual machines in Azure][vm-sizes].
 
 Create a node pool using the [`az aks node pool add`][az-aks-nodepool-add] command again. This time, specify the name *gpunodepool*, and use the `--node-vm-size` parameter to specify the *Standard_NC6* size:
 
@@ -578,7 +578,7 @@ The taint information is visible in Kubernetes for handling scheduling rules for
 * A **taint** is applied to a node that indicates only specific pods can be scheduled on them.
 * A **toleration** is then applied to a pod that allows them to *tolerate* a node's taint.
 
-For more information on how to use advanced Kubernetes scheduled features, see [Best practices for advanced scheduler features in AKS](taints-tolerations)
+For more information on how to use advanced Kubernetes scheduled features, see [Best practices for advanced scheduler features in AKS][taints-tolerations]
 
 In the previous step, you applied the *sku=gpu:NoSchedule* taint when you created your node pool. The following basic example YAML manifest uses a toleration to allow the Kubernetes scheduler to run an NGINX pod on a node in that node pool.
 
@@ -638,15 +638,15 @@ Only pods that have this toleration applied can be scheduled on nodes in *taintn
 
 ### Setting node pool labels
 
-For more information on using labels with node pools, see [Use labels in an Azure Kubernetes Service (AKS) cluster](use-labels).
+For more information on using labels with node pools, see [Use labels in an Azure Kubernetes Service (AKS) cluster][use-labels].
 
 ### Setting node pool Azure tags
 
-For more information on using Azure tags with node pools, see [Use Azure tags in Azure Kubernetes Service (AKS)](use-tags).
+For more information on using Azure tags with node pools, see [Use Azure tags in Azure Kubernetes Service (AKS)][use-tags].
 
 ## Add a FIPS-enabled node pool
 
-For more information on enabling Federal Information Process Standard (FIPS) for your AKS cluster, see [Enable Federal Information Process Standard (FIPS) for Azure Kubernetes Service (AKS) node pools](enable-fips-nodes).
+For more information on enabling Federal Information Process Standard (FIPS) for your AKS cluster, see [Enable Federal Information Process Standard (FIPS) for Azure Kubernetes Service (AKS) node pools][enable-fips-nodes].
 
 ## Manage node pools using a Resource Manager template
 
@@ -782,11 +782,11 @@ az group delete --name myResourceGroup2 --yes --no-wait
 
 * Learn more about [system node pools][use-system-pool].
 
-* In this article, you learned how to create and manage multiple node pools in an AKS cluster. For more information about how to control pods across node pools, see [Best practices for advanced scheduler features in AKS](operator-best-practices-advanced-scheduler).
+* In this article, you learned how to create and manage multiple node pools in an AKS cluster. For more information about how to control pods across node pools, see [Best practices for advanced scheduler features in AKS][operator-best-practices-advanced-scheduler].
 
-* To create and use Windows Server container node pools, see [Create a Windows Server container in AKS](aks-quickstart-windows-cli).
+* To create and use Windows Server container node pools, see [Create a Windows Server container in AKS][aks-quickstart-windows-cli].
 
-* Use [proximity placement groups](reduce-latency-ppg) to reduce latency for your AKS applications.
+* Use [proximity placement groups][reduce-latency-ppg] to reduce latency for your AKS applications.
 
 * Use [instance-level public IP addresses](use-node-public-ips.md) to make your nodes able to serve traffic directly.
 
