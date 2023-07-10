@@ -100,7 +100,7 @@ To learn more, see [SFTP permission model](secure-file-transfer-protocol-support
 
 - To resolve the `Failed to update SFTP settings for account 'accountname'. Error: The value 'True' isn't allowed for property isSftpEnabled.` error, ensure that the following prerequisites are met at the storage account level:
 
-  - The account needs to be a general-purpose v2 or premium block blob accounts.
+  - The account needs to be a general-purpose v2 or premium block blob account.
   
   - The account needs to have hierarchical namespace enabled on it.
 
