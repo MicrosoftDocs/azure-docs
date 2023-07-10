@@ -30,7 +30,7 @@ These policies are deprecated and will be removed in the future. We recommend yo
 
 ## Replacement VM insights policies
 
-These policies replace the deprecated policies. 
+These policies replace the deprecated policies: 
 
 - [Configure Linux Machines to be associated with a Data Collection Rule or a Data Collection Endpoint](https://ms.portal.azure.com/#view/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2f2ea82cdd-f2e8-4500-af75-67a2e084ca74) 
 - [Configure Windows Machines to be associated with a Data Collection Rule or a Data Collection Endpoint](https://ms.portal.azure.com/#view/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2feab1f514-22e3-42e3-9a1f-e1dc9199355c)
