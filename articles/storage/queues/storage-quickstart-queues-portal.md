@@ -6,8 +6,7 @@ ms.author: normesta
 ms.reviewer: dineshm
 ms.date: 08/13/2020
 ms.topic: quickstart
-ms.service: storage
-ms.subservice: queues
+ms.service: azure-queue-storage
 ms.custom: mode-ui
 ---
 
