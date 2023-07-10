@@ -296,16 +296,19 @@ Prior to a scheduled shutdown, users will see a notification alerting them that 
 
 ```python
 from azure.ai.ml.entities import ComputeInstance, ComputeSchedules, ComputeStartStopSchedule, RecurrenceTrigger, RecurrencePattern
-from azure.ai.ml import MLClient
 from azure.ai.ml.constants import TimeZone
+from azure.ai.ml import MLClient
 from azure.identity import DefaultAzureCredential
 
-subscription_id = "sub-id"
-resource_group = "rg-name"
-workspace = "ws-name"
-# get a handle to the workspace
+# authenticate
+credential = DefaultAzureCredential()
+
+# Get a handle to the workspace
 ml_client = MLClient(
-    DefaultAzureCredential(), subscription_id, resource_group, workspace
+    credential=credential,
+    subscription_id="<SUBSCRIPTION_ID>",
+    resource_group_name="<RESOURCE_GROUP>",
+    workspace_name="<AML_WORKSPACE_NAME>",
 )
 
 ci_minimal_name = "ci-name"
