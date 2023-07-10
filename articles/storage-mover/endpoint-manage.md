@@ -78,20 +78,25 @@ Azure Storage Mover supports migration scenarios using NFS and SMB. The steps to
 
       Select **Create endpoint** to expand the **Endpoint type** menu. Depending on your use case, select either **Create source** or **Create target endpoint** to open the **Create endpoint** pane as shown in the following image.
 
-      :::image type="content" source="media/endpoint-manage/endpoint-create.png" alt-text="Image of the Endpoint Overview screen highlighting the location of the Create Endpoint link" lightbox="media/endpoint-manage/endpoint-create-lrg.png":::
+      :::image type="content" source="media/endpoint-manage/endpoint-create.png" alt-text="Image of the Endpoint Overview page highlighting the location of the Create Endpoint link" lightbox="media/endpoint-manage/endpoint-create-lrg.png":::
 
    1. Within the **Create Endpoint** pane, provide values for the required **Host name or IP** and **Share name** values. You may also add an optional **Description** value of up to 1024 characters in length. Next, select **Protocol version** to expand the protocol selection menu and select the appropriate option for your source target.
    
-      Storage mover agents use secrets stored within Key Vault to connect to SMB endpoints. When you create an SMB source endpoint, you need to provide the name of the Key Vault containing the secrets, as well as the names of the secrets themselves.
+      Storage mover agents use secrets stored within Key Vault to connect to SMB endpoints. If you create an SMB source endpoint, you need to provide the name of the Key Vault containing the secrets, as well as the names of the secrets themselves.
 
       First, select **Key vault** to expand the menu and select the name of the Key Vault containing your secrets. You can supply a value with which to filter the list of Key Vaults if necessary.
 
       :::image type="content" source="media/endpoint-manage/key-vault.png" alt-text="Image of the Create Source pane showing the drop-down list containg a resource group's Key Vaults":::
 
-      After you've selected the appropriate Key Vault, you can supply values for the required **Select secret for username** and **Select secret for password** values. You can select the **Select secret** button to enable enable and select the username and password values. Alternatively, you can supply a value corresponding to the username and password secret from the Key Vault URI after enabling the **Enter secret from URI** option.
+      After you've selected the appropriate Key Vault, you can supply values for the required **Select secret for username** and **Select secret for password** fields. These values can be supplied by providing the URI to the secrets, or by selecting the secrets from a list. Select the **Select secret** button to enable the menu and select the username and password values. Alternatively, you can enable the **Enter secret from URI** option and supply the apprpriate URI to the username and password secret.
 
-      - If you choose SMB, do this
-      - If you choose NFS, do this
+      The values for host and share name are concatenated to form the full migration source path. The path value is displayed in the **Full source path** field. Copy the path provided and verify that you're able to access it before committing your changes. Finally, when you've confirmed that all values are correct and that you can access the source path, select **Create** to add your new endpoint.
+
+      :::image type="content" source="media/endpoint-manage/secrets.png" alt-text="Image of the Endpoint Overview page with the newly created endpoint displayed."  lightbox="media/endpoint-manage/secrets-lrg.png":::
+
+      Your new endpoint is deployed and now appears within your list of endpoints as show in the following example image.
+
+      :::image type="content" source="media/endpoint-manage/endpoint-added.png" alt-text="Image of the Endpoint Overview page with the newly created endpoint displayed."  lightbox="media/endpoint-manage/endpoint-added-lrg.png":::
 
 ### [PowerShell](#tab/powershell)
 
