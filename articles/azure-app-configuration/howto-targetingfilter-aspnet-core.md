@@ -175,7 +175,7 @@ To see the effects of this feature flag, build and run the application. Initiall
 
 Now sign in as `test@contoso.com`, using the password you set when registering. The *Beta* item now appears on the toolbar, because `test@contoso.com` is specified as a targeted user.
 
-Now sign in as `testuser@contoso.com`, using the password you set when registering. The *Beta* item doesn't appear on the toolbar, because `testuser@contoso.com` is specified as a excluded user.
+Now sign in as `testuser@contoso.com`, using the password you set when registering. The *Beta* item doesn't appear on the toolbar, because `testuser@contoso.com` is specified as an excluded user.
 
 The following video shows this behavior in action.
 
@@ -184,7 +184,7 @@ The following video shows this behavior in action.
 
 You can create additional users with `@contoso.com` and `@contoso-xyz.com` email addresses to see the behavior of the group settings.
 
-Users with `contoso-xyz.com` email addresses will not see the *Beta* item. While, 50% of these users with `@contoso.com` email addresses will see the *Beta* item. The other 50% won't see the *Beta* item.
+Users with `contoso-xyz.com` email addresses will not see the *Beta* item. While 50% of these users with `@contoso.com` email addresses will see the *Beta* item, the other 50% won't see the *Beta* item.
 
 ## Next steps
 
