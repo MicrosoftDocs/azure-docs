@@ -43,13 +43,13 @@ Follow these steps to enable Storage Autogrow on you Azure Database for PostgreS
 
 1. In the Azure portal, during server provisioning, under **Compute + storage** select  **Configure server** 
 
- ![Screenshot showing Storage Autogrowth.](./media/how-to-auto-grow-storage-portal/create-server-storage-auto-grow.png)
+ ![Screenshot showing configure server during provisoining.](./media/how-to-auto-grow-storage-portal/create-server-storage-auto-grow.png)
 
 2. In the **Storage Auto-growth** section, checkmark to enable storage auto grow. 
 
-![Screenshot showing Storage Autogrowth.](./media/how-to-auto-grow-storage-portal/server-provisioning-storage-auto-grow.png)
+![Screenshot showing Storage Autogrowth during provisioning.](./media/how-to-auto-grow-storage-portal/server-provisioning-storage-auto-grow.png)
 
 ## Next steps
 
 
-Learn about [how to create alerts on metrics](how-to-alert-on-metric.md).
+- Learn about [service limits](concepts-limits.md).
