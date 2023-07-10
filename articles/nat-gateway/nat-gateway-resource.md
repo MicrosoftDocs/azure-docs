@@ -53,7 +53,7 @@ A NAT gateway can be associated with static public IP addresses or public IP pre
 
 SNAT port inventory is provided by the public IP addresses, public IP prefixes or both attached to a NAT gateway. SNAT port inventory is made available on-demand to all instances within a subnet attached to the NAT gateway. No preallocation of SNAT ports per instance is required.
 
-For more information about SNAT ports and Azure NAT Gateway, see [Source Network Address Translation (SNAT) with Azure NAT Gateway](nat-gateway-resource.md).
+For more information about SNAT ports and Azure NAT Gateway, see [Source Network Address Translation (SNAT) with Azure NAT Gateway](nat-gateway-snat.md).
 
 When multiple subnets within a virtual network are attached to the same NAT gateway resource, the SNAT port inventory provided by NAT Gateway is shared across all subnets.
 
