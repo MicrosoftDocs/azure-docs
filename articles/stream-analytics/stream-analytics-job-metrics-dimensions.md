@@ -11,19 +11,19 @@ ms.date: 10/12/2022
 # Dimensions for Azure Stream Analytics metrics
 Azure Stream Analytics provides a serverless, distributed streaming processing service. Jobs can run on one or more distributed streaming nodes, which the service automatically manages. The input data is partitioned and allocated to different streaming nodes for processing. 
 
-[!INCLUDE [metrics-demensions](./includes/metrics-demensions.md)]
+[!INCLUDE [metrics-dimensions](./includes/metrics-dimensions.md)]
 
 ## Logical Name dimension
 
-[!INCLUDE [metrics-dimension-logical-name](./includes/metrics-demension-logical-name.md)]
+[!INCLUDE [metrics-dimension-logical-name](./includes/metrics-dimension-logical-name.md)]
 
 ## Node Name dimension
 
-[!INCLUDE [metrics-dimension-node-name](./includes/metrics-demension-node-name.md)]
+[!INCLUDE [metrics-dimension-node-name](./includes/metrics-dimension-node-name.md)]
 
 ## Partition ID dimension
 
-[!INCLUDE [metrics-partition-id](./includes/metrics-demension-partition-id.md)]
+[!INCLUDE [metrics-partition-id](./includes/metrics-dimension-partition-id.md)]
 
 
 ## Next steps
