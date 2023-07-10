@@ -5,7 +5,7 @@ services: static-web-apps
 author: craigshoemaker
 ms.service: static-web-apps
 ms.topic:  how-to
-ms.date: 06/22/2023
+ms.date: 07/10/2023
 ms.author: cshoe
 ---
 
@@ -41,4 +41,7 @@ To disable traffic splitting, select the **Traffic splitting** to open the setti
 
 Remove all nonproduction environments from the list and save your changes.
 
-## Monitoring and adjusting Traffic
+## Next steps
+
+> [!div class="nextstepaction"]
+> [Use preview environments](preview-environments.md)
