@@ -143,7 +143,7 @@ Now you can access the deployed app to see whether it works.
 
 1. From the navigation pane of the Azure Spring Apps instance overview page, select **Logs** to check the app's logs:
 
-   :::image type="content" source="media/quickstart-deploy-web-app/13-asa-logs.png" alt-text="Screenshot of the Azure portal showing the Azure Spring Apps logs page." lightbox="media/quickstart-deploy-web-app/13-asa-logs.png":::
+   :::image type="content" source="media/quickstart-deploy-web-app/logs.png" alt-text="Screenshot of the Azure portal showing the Azure Spring Apps logs page." lightbox="media/quickstart-deploy-web-app/logs.png":::
 
 ::: zone-end
 

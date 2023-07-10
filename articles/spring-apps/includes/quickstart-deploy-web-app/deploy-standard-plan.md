@@ -1,5 +1,5 @@
 ---
-author: karlerickson
+author: KarlErickson
 ms.author: xiada
 ms.service: spring-apps
 ms.topic: include
@@ -90,11 +90,11 @@ Open your web browser and go to the [portal](https://portal.azure.com/). Enter y
 
 1. Select **Compute** > **Azure Spring Apps**.
 
-   :::image type="content" source="../../media/quickstart-deploy-web-app/1-asa-create-service.png" alt-text="Screenshot of the Azure portal showing the Create a resource page with Azure Spring Apps highlighted." lightbox="../../media/quickstart-deploy-web-app/1-asa-create-service.png":::
+   :::image type="content" source="../../media/quickstart-deploy-web-app/create-service-instance.png" alt-text="Screenshot of the Azure portal showing the Create a resource page with Azure Spring Apps highlighted." lightbox="../../media/quickstart-deploy-web-app/create-service-instance.png":::
 
 1. Fill out the **Basics** form with the following information:
 
-   :::image type="content" source="../../media/quickstart-deploy-web-app/2-asa-create-basics.png" alt-text="Screenshot of the Azure portal showing the Create Azure Spring Apps page." lightbox="../../media/quickstart-deploy-web-app/2-asa-create-basics.png":::
+   :::image type="content" source="../../media/quickstart-deploy-web-app/create-basics.png" alt-text="Screenshot of the Azure portal showing the Create Azure Spring Apps page." lightbox="../../media/quickstart-deploy-web-app/create-basics.png":::
 
    | Setting        | Suggested Value                  | Description                                                                                                                                                                                                                                                                                        |
    |----------------|----------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -109,7 +109,7 @@ Open your web browser and go to the [portal](https://portal.azure.com/). Enter y
 
 1. On the toolbar, select the **Notifications** icon (a bell) to monitor the deployment process. Once the deployment is done, you can select **Pin to dashboard**, which creates a tile for this service on your Azure portal dashboard as a shortcut to the service's **Overview** page. Selecting **Go to resource** opens the service's **Overview** page.
 
-   :::image type="content" source="../../media/quickstart-deploy-web-app/3-asa-notifications.png" alt-text="Screenshot of the Azure portal showing the Overview page with the Notifications pane open." lightbox="../../media/quickstart-deploy-web-app/3-asa-notifications.png":::
+   :::image type="content" source="../../media/quickstart-deploy-web-app/notifications.png" alt-text="Screenshot of the Azure portal showing the Overview page with the Notifications pane open." lightbox="../../media/quickstart-deploy-web-app/notifications.png":::
 
 ### 3.3. Prepare the PostgreSQL instance
 
@@ -123,21 +123,21 @@ Open your web browser and go to the [portal](https://portal.azure.com/). Enter y
 
 1. On the **Create App** page, fill in the app name and select *Java 17* as the runtime platform.
 
-   :::image type="content" source="../../media/quickstart-deploy-web-app/9-asa-create-app.png" alt-text="Screenshot of the Azure portal showing the Create app pane." lightbox="../../media/quickstart-deploy-web-app/9-asa-create-app.png":::
+   :::image type="content" source="../../media/quickstart-deploy-web-app/create-app.png" alt-text="Screenshot of the Azure portal showing the Create app pane." lightbox="../../media/quickstart-deploy-web-app/create-app.png":::
 
 1. Select **Create** to finish the app creation and select the app to view details.
 
 1. Select **Service Connector** from the navigation pane to create a new service connection.
 
-   :::image type="content" source="../../media/quickstart-deploy-web-app/10-asa-app-service-connector.png" alt-text="Screenshot of the Azure portal showing the Service Connector page with the Create button highlighted." lightbox="../../media/quickstart-deploy-web-app/10-asa-app-service-connector.png":::
+   :::image type="content" source="../../media/quickstart-deploy-web-app/app-service-connector.png" alt-text="Screenshot of the Azure portal showing the Service Connector page with the Create button highlighted." lightbox="../../media/quickstart-deploy-web-app/app-service-connector.png":::
 
 1. Fill out the **Basics** form with the following information:
 
-   :::image type="content" source="../../media/quickstart-deploy-web-app/11-asa-app-service-connector-basics.png" alt-text="Screenshot of the Azure portal showing the Basics tab of the Create connection pane for connecting to PostgreSQL." lightbox="../../media/quickstart-deploy-web-app/11-asa-app-service-connector-basics.png":::
+   :::image type="content" source="../../media/quickstart-deploy-web-app/app-service-connector-basics.png" alt-text="Screenshot of the Azure portal showing the Basics tab of the Create connection pane for connecting to PostgreSQL." lightbox="../../media/quickstart-deploy-web-app/app-service-connector-basics.png":::
 
 1. Configure the **Authentication** options:
 
-   :::image type="content" source="../../media/quickstart-deploy-web-app/12-asa-app-service-connector-auth.png" alt-text="Screenshot of the Azure portal showing the Authentication tab of the Create connection pane with the Connection string option highlighted." lightbox="../../media/quickstart-deploy-web-app/12-asa-app-service-connector-auth.png":::
+   :::image type="content" source="../../media/quickstart-deploy-web-app/app-service-connector-authentication.png" alt-text="Screenshot of the Azure portal showing the Authentication tab of the Create connection pane with the Connection string option highlighted." lightbox="../../media/quickstart-deploy-web-app/app-service-connector-authentication.png":::
 
 1. Select **Review and Create** to review your selections. Select **Create** to create the connection.
 

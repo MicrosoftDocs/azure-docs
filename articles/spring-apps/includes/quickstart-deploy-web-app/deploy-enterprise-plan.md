@@ -1,5 +1,5 @@
 ---
-author: karlerickson
+author: KarlErickson
 ms.author: xiada
 ms.service: spring-apps
 ms.topic: include
