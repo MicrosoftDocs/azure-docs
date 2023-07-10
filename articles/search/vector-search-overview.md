@@ -71,7 +71,7 @@ You can use other Azure services to provide embeddings and data storage.
 
 + Azure Cognitive Search can automatically index vector data from two data sources: [Azure blob indexers](search-howto-indexing-azure-blob-storage.md) and [Azure Cosmos DB for NoSQL indexers](search-howto-index-cosmosdb.md). For more information, see [Add vector fields to a search index.](vector-search-how-to-create-index.md)
 
-+ [LangChain](https://python.langchain.com/docs/get_started/introduction.html) is a framework for developing applications powered by language models. Use the [Azure Cognitive Search vector store integraton](https://python.langchain.com/docs/modules/data_connection/vectorstores/integrations/azuresearch) to simplify the creation of applications using LLMs with Azure Cognitive Search as your vector datastore.
++ [LangChain](https://docs.langchain.com/docs/) is a framework for developing applications powered by language models. Use the [Azure Cognitive Search vector store integration](https://python.langchain.com/docs/modules/data_connection/vectorstores/integrations/azuresearch) to simplify the creation of applications using LLMs with Azure Cognitive Search as your vector datastore.
 
 + [Semantic kernel](https://github.com/microsoft/semantic-kernel/blob/main/README.md) is a lightweight SDK enabling integration of AI Large Language Models (LLMs) with conventional programming languages. It's useful for chunking large documents in a larger workflow that sends inputs to embedding models.
 
@@ -99,13 +99,13 @@ For example, documents that talk about different species of dogs would be cluste
 
 Popular vector similarity metrics include the following, which are all supported by Azure Cognitive Search. 
 
-+ `euclidean`: Also known as _l2-norm_, this measures the length of the vector difference between two vectors.
++ `euclidean` (also known as `L2 norm`): This measures the length of the vector difference between two vectors.
 + `cosine`: This measures the angle between two vectors, and is not affected by differing vector lengths.
 + `dotProduct`: This measures both the length of each of the pair of two vectors, and the angle between them. For normalized vectors, this is identical to `cosine` similarity, but slightly more performant.
 
 ### Approximate Nearest Neighbors
 
-Approximate Nearest Neighbor search (ANN) is a class of algorithms for finding matches in vector space. This class of algorithms employs different data structures or data partitioning methods to significantly reduce the search space to accelerate query processing. The specific approach depends on the algorithm. While sacrificing some accuracy, these algorithms offer scalable and faster retrieval of approximate nearest neighbors, which makes them ideal for balancing accuracy and efficiency in modern information retrieval applications. You may adjust the parameters of your algorithm to fine-tune the recall, latency, memory, and disk footprint requirements of your search application.
+Approximate Nearest Neighbor search (ANN) is a class of algorithms for finding matches in vector space. This class of algorithms employs different data structures or data partitioning methods to significantly reduce the search space to accelerate query processing. The specific approach depends on the algorithm. While this approach sacrifices some accuracy, these algorithms offer scalable and faster retrieval of approximate nearest neighbors, which makes them ideal for balancing accuracy and efficiency in modern information retrieval applications. You may adjust the parameters of your algorithm to fine-tune the recall, latency, memory, and disk footprint requirements of your search application.
 
 Azure Cognitive Search uses Hierarchical Navigation Small Worlds (HNSW), which is a leading algorithm optimized for high-recall, low-latency applications where data distribution is unknown or can change frequently.
 
