@@ -17,12 +17,13 @@ In this article, you'll learn the steps to move a Log Analytics workspace to ano
 > To learn more about how to move Azure resources through the Azure portal, PowerShell, the Azure CLI, or the REST API, see [Move resources to a new resource group or subscription](../../azure-resource-manager/management/move-resource-group-and-subscription.md).
 
 > [!IMPORTANT]
-> You can't move a workspace to a different region by using this procedure. Follow the steps in the article [Move a Log Analytics workspace to another region](./move-workspace-region.md) to move a workspace across regions.
+> You can't move a workspace to a different region by using this procedure. To move a workspace across regions, see [Move a Log Analytics workspace to another region](./move-workspace-region.md).
 
 ## Permissions required
 
-- Verify, `Microsoft.AzureActiveDirectory/b2cDirectories/read`
-- To delete a solution, you need `Microsoft.OperationsManagement/solutions/delete` permissions on it, 
+- To verify the Azure Active Directory tenant, you need `Microsoft.AzureActiveDirectory/b2cDirectories/read` permissions, as provided by the [Log Analytics Reader built-in role](./manage-access.md#log-analytics-reader), for example.
+- To delete a solution, you need `Microsoft.OperationsManagement/solutions/delete` permissions on it, as provided by the [Log Analytics Contributor built-in role](./manage-access.md#log-analytics-contributor), for example.
+- To move a Log Analytics workspace, you need `Microsoft.OperationalInsights/workspaces/delete` and `Microsoft.OperationalInsights/workspaces/write` permissions on it, as provided by the [Log Analytics Contributor built-in role](./manage-access.md#log-analytics-contributor), for example.
 
 ## Verify the Azure Active Directory tenant
 The workspace source and destination subscriptions must exist within the same Azure Active Directory tenant. Use Azure PowerShell to verify that both subscriptions have the same tenant ID.
