@@ -2,11 +2,10 @@
 title: StorSimple 1200 migration to Azure File Sync
 description: Learn how to migrate a StorSimple 1200 series virtual appliance to Azure File Sync.
 author: khdownie
-ms.service: storage
+ms.service: azure-file-storage
 ms.topic: how-to
 ms.date: 01/12/2023
 ms.author: kendownie
-ms.subservice: files
 ---
 
 # StorSimple 1200 migration to Azure File Sync
