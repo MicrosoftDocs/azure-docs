@@ -273,6 +273,7 @@ app = func.FunctionApp()
 app.register_functions(bp) 
 ```
 
+> [!NOTE]
 > Durable Functions (DF) also supports blueprints. To use them with DF, will need to register your DF blueprint triggers and bindings functions using the [`azure-functions-durable`](https://pypi.org/project/azure-functions-durable) `Blueprint` class, as
 > shown [here](https://github.com/Azure/azure-functions-durable-python/blob/dev/samples-v2/blueprint/durable_blueprints.py). The resulting blueprint can then be registered as normal. See our [sample](https://github.com/Azure/azure-functions-durable-python/tree/dev/samples-v2/blueprint) for an example.
 
