@@ -10,7 +10,7 @@ ms.date: 06/18/2020
 
 Occasionally, an Azure Stream Analytics job unexpectedly stops processing. It's important to be able to troubleshoot this kind of event. Failures can be caused by an unexpected query result, by connectivity to devices, or by an unexpected service outage. The resource logs in Stream Analytics can help you identify the cause of issues when they occur and reduce recovery time.
 
-It is highly recommended to enable resource logs for all jobs as this will greatly help with debugging and monitoring.
+It's highly recommended to enable resource logs for all jobs as it will greatly help with debugging and monitoring.
 
 ## Log types
 
@@ -35,7 +35,7 @@ Activity logs are on by default and give high-level insights into operations per
 
 2. You can see a list of operations that have been performed. Any operation that caused your job to fail has a red info bubble.
 
-3. Click an operation to see its summary view. Information here is often limited. To learn more details about the operation, click **JSON**.
+3. Select an operation to see its summary view. Information here's often limited. To learn more details about the operation, select **JSON**.
 
    ![Stream Analytics activity log operation summary](./media/stream-analytics-job-diagnostic-logs/operation-summary.png)
 
@@ -49,15 +49,15 @@ Activity logs are on by default and give high-level insights into operations per
 
 ## Send diagnostics to Azure Monitor logs
 
-Turning on resource logs and sending them to Azure Monitor logs is highly recommended. They are **off** by default. To turn them on, complete these steps:
+Turning on resource logs and sending them to Azure Monitor logs is highly recommended. They're **off** by default. To turn them on, complete these steps:
 
-1.  Create a Log Analytics workspace if you don't already have one. It is recommended to have your Log Analytics workspace in the same region as your Stream Analytics job.
+1.  Create a Log Analytics workspace if you don't already have one. It's recommended to have your Log Analytics workspace in the same region as your Stream Analytics job.
 
 2.  Sign in to the Azure portal, and navigate to your Stream Analytics job. Under **Monitoring**, select **Diagnostics logs**. Then select **Turn on diagnostics**.
 
     ![Blade navigation to resource logs](./media/stream-analytics-job-diagnostic-logs/diagnostic-logs-monitoring.png)  
 
-2.  Provide a **Name** in **Diagnostic settings name** and check the boxes for **Execution** and **Authoring** under **log**, and **AllMetrics** under **metric**. Then select **Send to Log Analytics** and choose your workspace. Click **Save**.
+2.  Provide a **Name** in **Diagnostic settings name** and check the boxes for **Execution** and **Authoring** under **log**, and **AllMetrics** under **metric**. Then select **Send to Log Analytics** and choose your workspace. Select **Save**.
 
     ![Settings for resources logs](./media/stream-analytics-job-diagnostic-logs/logs-setup.png)
 
@@ -65,7 +65,7 @@ Turning on resource logs and sending them to Azure Monitor logs is highly recomm
 
    ![Screenshot shows the General menu with Logs selected.](./media/stream-analytics-job-diagnostic-logs/diagnostic-logs.png)
 
-4. Stream Analytics provides pre-defined queries that allows you to easily search for the logs that you are interested in. You can select any pre-defined queries on the left pane and then select **Run**. You will see the results of the query in the bottom pane. 
+4. Stream Analytics provides predefined queries that allow you to easily search for the logs that you're interested in. You can select any predefined queries on the left pane and then select **Run**. You'll see the results of the query in the bottom pane. 
 
    ![Screenshot shows Logs for a Stream Analytics job.](./media/stream-analytics-job-diagnostic-logs/logs-example.png)
 
