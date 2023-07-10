@@ -24,7 +24,7 @@ For more information about **Apache Spark in Azure Machine Learning** concepts, 
 ## Prerequisites
 
 # [CLI](#tab/cli)
-[!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
+[!INCLUDE [cli v2](includes/machine-learning-cli-v2.md)]
 - An Azure subscription; if you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free) before you begin.
 - An Azure Machine Learning workspace. See [Create workspace resources](./quickstart-create-resources.md).
 - An Azure Data Lake Storage (ADLS) Gen 2 storage account. See [Create an Azure Data Lake Storage (ADLS) Gen 2 storage account](../storage/blobs/create-data-lake-storage-account.md).
@@ -32,7 +32,7 @@ For more information about **Apache Spark in Azure Machine Learning** concepts, 
 - [Install Azure Machine Learning CLI](./how-to-configure-cli.md?tabs=public).
 
 # [Python SDK](#tab/sdk)
-[!INCLUDE [sdk v2](../../includes/machine-learning-sdk-v2.md)]
+[!INCLUDE [sdk v2](includes/machine-learning-sdk-v2.md)]
 - An Azure subscription; if you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free) before you begin.
 - An Azure Machine Learning workspace. See [Create workspace resources](./quickstart-create-resources.md).
 - An Azure Data Lake Storage (ADLS) Gen 2 storage account. See [Create an Azure Data Lake Storage (ADLS) Gen 2 storage account](../storage/blobs/create-data-lake-storage-account.md).
@@ -126,7 +126,7 @@ That script takes two arguments: `--titanic_data` and `--wrangled_data`. These a
 ## Submit a standalone Spark job
 
 # [CLI](#tab/cli)
-[!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
+[!INCLUDE [cli v2](includes/machine-learning-cli-v2.md)]
 
 > [!TIP]
 > You can submit a Spark job from:
@@ -191,7 +191,7 @@ az ml job create --file <YAML_SPECIFICATION_FILE_NAME>.yaml --subscription <SUBS
 ```
 
 # [Python SDK](#tab/sdk)
-[!INCLUDE [sdk v2](../../includes/machine-learning-sdk-v2.md)]
+[!INCLUDE [sdk v2](includes/machine-learning-sdk-v2.md)]
 
 > [!TIP]
 > You can submit a Spark job from:
@@ -261,7 +261,7 @@ In the above code sample:
 
 # [Studio UI](#tab/studio-ui)
 
-[!INCLUDE [machine-learning-preview-generic-disclaimer](../../includes/machine-learning-preview-generic-disclaimer.md)]
+[!INCLUDE [machine-learning-preview-generic-disclaimer](includes/machine-learning-preview-generic-disclaimer.md)]
 
 First, upload the parameterized Python code `titanic.py` to the Azure Blob storage container for workspace default datastore `workspaceblobstore`. To submit a standalone Spark job using the Azure Machine Learning studio UI:
 

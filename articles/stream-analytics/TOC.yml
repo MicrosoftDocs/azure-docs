@@ -51,7 +51,15 @@
 - name: Samples
   items:
   - name: Code samples
-    href: /samples/browse/?products=azure-stream-analytics
+    items:
+    - name: .NET
+      href: https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/streamanalytics/Azure.ResourceManager.StreamAnalytics/samples/Generated/Samples
+    - name: Java
+      href: https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/streamanalytics/azure-resourcemanager-streamanalytics/src/samples/java/com/azure/resourcemanager/streamanalytics/generated
+    - name: JavaScript and TypeScript
+      href: https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/streamanalytics/arm-streamanalytics/samples/v4
+    - name: Python
+      href: https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/streamanalytics/azure-mgmt-streamanalytics/generated_samples
 - name: Concepts
   items:
   - name: Stream Analytics resource model

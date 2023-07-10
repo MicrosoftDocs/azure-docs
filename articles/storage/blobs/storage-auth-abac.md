@@ -9,7 +9,6 @@ ms.topic: conceptual
 ms.date: 04/21/2023
 ms.author: jammart
 ms.reviewer: nachakra
-ms.subservice: blobs
 ---
 
 # Authorize access to Azure Blob Storage using Azure role assignment conditions

@@ -8,13 +8,16 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 05/05/2023
+ms.date: 06/29/2023
 ---
 # Features of Azure Cognitive Search
 
 Azure Cognitive Search provides a full-text search engine, persistent storage of search indexes, integrated AI used during indexing to extract more text and structure, and APIs and tools. 
 
 The following table summarizes features by category. For more information about how Cognitive Search compares with other search technologies, see [Compare search options](search-what-is-azure-search.md#compare-search-options).
+
+> [!NOTE]
+> Looking for preview features? See the [preview features list](search-api-preview.md).
 
 ## Indexing features
 

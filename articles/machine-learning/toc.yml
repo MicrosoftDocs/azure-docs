@@ -1163,9 +1163,12 @@
       href: how-to-manage-registries.md
     - name: Create & manage compute resources
       items:
-        - name: Compute instance
+        - name: Create compute instance
           displayName: compute target, No public IP
-          href: how-to-create-manage-compute-instance.md
+          href: how-to-create-compute-instance.md
+        - name: Manage compute instance
+          displayName: compute target, No public IP
+          href: how-to-manage-compute-instance.md
         # v1
         - name: Compute instance
           displayName: compute target

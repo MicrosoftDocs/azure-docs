@@ -6,8 +6,8 @@ ms.author: vlrodrig
 ms.service: purview
 ms.subservice: purview-data-policies
 ms.topic: how-to
-ms.date: 03/17/2023
-ms.custom: references_regions, event-tier1-build-2022
+ms.date: 07/06/2023
+ms.custom: references_regions
 ---
 # Provision access by data owner for Azure SQL Database (preview)
 
@@ -76,7 +76,8 @@ This section contains a reference of how relevant Microsoft Purview data policy 
 
 ## Next steps
 Check blog, demo and related how-to guides
-* [Concepts for Microsoft Purview data owner policies](./concept-policies-data-owner.md)
-* [Enable Microsoft Purview data owner policies on all data sources in a subscription or a resource group](./how-to-policies-data-owner-resource-group.md)
-* [Enable Microsoft Purview data owner policies on an Azure Arc-enabled SQL Server](./how-to-policies-data-owner-arc-sql-server.md)
+* Doc: [Concepts for Microsoft Purview data owner policies](./concept-policies-data-owner.md)
+* Doc: [Microsoft Purview data owner policies on all data sources in a subscription or a resource group](./how-to-policies-data-owner-resource-group.md)
+* Doc: [Microsoft Purview data owner policies on an Azure Arc-enabled SQL Server](./how-to-policies-data-owner-arc-sql-server.md)
 * Doc: [Troubleshoot Microsoft Purview policies for SQL data sources](./troubleshoot-policy-sql.md)
+* Blog: [Grant users access to data assets in your enterprise via API](https://aka.ms/AAlg655)

@@ -36,7 +36,7 @@ The code sample can be obtained in two ways:
 
 * [Download it as a ZIP file](https://github.com/AzureADQuickStarts/AppModelv2-NativeClient-DotNet/archive/complete.zip).
 
-[!INCLUDE [active-directory-develop-path-length-tip](../../../../../includes/active-directory-develop-path-length-tip.md)]
+[!INCLUDE [active-directory-develop-path-length-tip](../error-handling-and-tips/path-length-tip.md)]
 
 ## Register the web API (TodoListService)
 
@@ -169,7 +169,7 @@ By default, any personal accounts, such as *outlook.com* or *live.com* accounts,
 
 To specify who can sign in to your application, by changing the `TenantId` property in the *appsettings.json* file.
 
-[!INCLUDE [Help and support](../../../../../includes/active-directory-develop-help-support-include.md)]
+[!INCLUDE [Help and support](../error-handling-and-tips/help-support-include.md)]
 
 ## Next steps
 

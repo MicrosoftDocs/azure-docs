@@ -11,12 +11,12 @@ manager: nitinme
 keywords: ChatGPT
 ---
 
-## Working with the ChatGPT models
+## Working with the Chat models
 
 > [!IMPORTANT]
-> Using GPT-35-Turbo models with the completion endpoint remains in preview. Due to the potential for changes to the underlying ChatML syntax, we strongly recommend using the Chat Completion API/endpoint. The Chat Completion API is the recommended method of interacting with the ChatGPT (gpt-35-turbo) models. The Chat Completion API is also the only way to access the GPT-4 models.
+> Using GPT-35-Turbo models with the completion endpoint remains in preview. Due to the potential for changes to the underlying ChatML syntax, we strongly recommend using the Chat Completion API/endpoint. The Chat Completion API is the recommended method of interacting with the GPT-35-Turbo models. The Chat Completion API is also the only way to access the GPT-4 models.
 
-The following code snippet shows the most basic way to use the ChatGPT models with ChatML. If this is your first time using these models programmatically we recommend starting with our [ChatGPT & GPT-4 Quickstart](../chatgpt-quickstart.md).
+The following code snippet shows the most basic way to use the GPT-35-Turbo models with ChatML. If this is your first time using these models programmatically we recommend starting with our [GPT-35-Turbo & GPT-4 Quickstart](../chatgpt-quickstart.md).
 
 ```python
 import os
@@ -27,7 +27,7 @@ openai.api_version = "2023-05-15"
 openai.api_key = os.getenv("OPENAI_API_KEY")
 
 response = openai.Completion.create(
-  engine="gpt-35-turbo", # The deployment name you chose when you deployed the ChatGPT model
+  engine="gpt-35-turbo", # The deployment name you chose when you deployed the GPT-35-Turbo model
   prompt="<|im_start|>system\nAssistant is a large language model trained by OpenAI.\n<|im_end|>\n<|im_start|>user\nWho were the founders of Microsoft?\n<|im_end|>\n<|im_start|>assistant\n",
   temperature=0,
   max_tokens=500,
@@ -51,16 +51,16 @@ Consider setting `max_tokens` to a slightly higher value than normal such as 300
 
 Unlike previous GPT-3 and GPT-3.5 models, the `gpt-35-turbo` model as well as the `gpt-4` and `gpt-4-32k` models will continue to be updated. When creating a [deployment](../how-to/create-resource.md#deploy-a-model) of these models, you'll also need to specify a model version.
 
-Currently, only version `0301` is available for ChatGPT and `0314` for GPT-4 models. We'll continue to make updated versions available in the future. You can find the model deprecation times for these models on our [models](../concepts/models.md#gpt-35-turbo-0301-and-gpt-4-0314-expiration) page.
+Currently, only version `0301` is available for GPT-35-Turbo and `0314` for GPT-4 models. We'll continue to make updated versions available in the future. You can find the model retirement dates for these models on our [models](../concepts/models.md#gpt-35-turbo-0301-and-gpt-4-0314-retirement) page.
 
 <a id="chatml"></a>
 
 ## Working with Chat Markup Language (ChatML)
 
 > [!NOTE]  
-> OpenAI continues to improve the ChatGPT and the Chat Markup Language used with the models will continue to evolve in the future. We'll keep this document updated with the latest information.
+> OpenAI continues to improve the GPT-35-Turbo and the Chat Markup Language used with the models will continue to evolve in the future. We'll keep this document updated with the latest information.
 
-OpenAI trained the ChatGPT on special tokens that delineate the different parts of the prompt. The prompt starts with a system message that is used to prime the model followed by a series of messages between the user and the assistant.
+OpenAI trained GPT-35-Turbo on special tokens that delineate the different parts of the prompt. The prompt starts with a system message that is used to prime the model followed by a series of messages between the user and the assistant.
 
 The format of a basic ChatML prompt is as follows:
 
@@ -99,11 +99,11 @@ To trigger a response from the model, the prompt should end with `<|im_start|>as
 
 ### Prompt examples
 
-The following section shows examples of different styles of prompts that you could use with the ChatGPT and GPT-4 models. These examples are just a starting point, and you can experiment with different prompts to customize the behavior for your own use cases.
+The following section shows examples of different styles of prompts that you could use with the GPT-35-Turbo and GPT-4 models. These examples are just a starting point, and you can experiment with different prompts to customize the behavior for your own use cases.
 
 #### Basic example
 
-If you want the ChatGPT and GPT-4 models to behave similarly to [chat.openai.com](https://chat.openai.com/), you can use a basic system message like "Assistant is a large language model trained by OpenAI."
+If you want the GPT-35-Turbo and GPT-4 models to behave similarly to [chat.openai.com](https://chat.openai.com/), you can use a basic system message like "Assistant is a large language model trained by OpenAI."
 
 ```
 <|im_start|>system
@@ -156,7 +156,7 @@ What is Azure OpenAI Service?
 
 You can also give few shot examples to the model. The approach for few shot learning has changed slightly because of the new prompt format. You can now include a series of messages between the user and the assistant in the prompt as few shot examples. These examples can be used to seed answers to common questions to prime the model or teach particular behaviors to the model.
 
-This is only one example of how you can use few shot learning with ChatGPT. You can experiment with different approaches to see what works best for your use case.
+This is only one example of how you can use few shot learning with GPT-35-Turbo. You can experiment with different approaches to see what works best for your use case.
 
 ```
 <|im_start|>system
@@ -239,7 +239,7 @@ system_message = f"<|im_start|>system\n{'<your system message>'}\n<|im_end|>"
 messages = [{"sender": "user", "text": user_input}]
 
 response = openai.Completion.create(
-    engine="gpt-35-turbo", # The deployment name you chose when you deployed the ChatGPT model.
+    engine="gpt-35-turbo", # The deployment name you chose when you deployed the GPT-35-Turbo model.
     prompt=create_prompt(system_message, messages),
     temperature=0.5,
     max_tokens=250,
@@ -289,5 +289,5 @@ assert tokens == [100264, 882, 198, 9906, 100265, 100264, 78191]
 ## Next steps
 
 * [Learn more about Azure OpenAI](../overview.md).
-* Get started with the ChatGPT model with [the ChatGPT quickstart](../chatgpt-quickstart.md).
+* Get started with the GPT-35-Turbo model with [the GPT-35-Turbo & GPT-4 quickstart](../chatgpt-quickstart.md).
 * For more examples, check out the [Azure OpenAI Samples GitHub repository](https://aka.ms/AOAICodeSamples)

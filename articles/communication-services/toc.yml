@@ -230,7 +230,17 @@ items:
           - name: Precall
             href: tutorials/virtual-visits/extend-teams/precall.md
           - name: Call
-            href: tutorials/virtual-visits/extend-teams/call.md  
+            href: tutorials/virtual-visits/extend-teams/call.md
+    - name: Calling widget
+      items:
+        - name: Calling widget overview
+          href: tutorials/calling-widget/calling-widget-overview.md
+        - name: 1. Creating your widget
+          href: tutorials/calling-widget/calling-widget-tutorial-part-1-creating-your-widget.md
+        - name: 2. Creating a new window experience
+          href: tutorials/calling-widget/calling-widget-tutorial-part-2-creating-new-window-experience.md
+        - name: 3. (Optional) Embedding your calling experience
+          href: tutorials/calling-widget/calling-widget-tutorial-part-3-embedding-your-calling-experience.md
     - name: Call management
       items:
       - name: Manage calls
@@ -828,7 +838,7 @@ items:
     - name: Call Automation (Java)
       href: https://azure.github.io/azure-sdk-for-java/communication.html#azure-communication-callautomation
     - name: Call Automation (JavaScript)
-      href: https://azure.github.io/azure-sdk-for-js/callautomation.html
+      href: https://azure.github.io/azure-sdk-for-js/communication.html#azure-communication-callautomation
     - name: Call Automation (Python)
       href: https://azure.github.io/azure-sdk-for-python/communication.html#azure-communication-callautomation
   - name: Chat 

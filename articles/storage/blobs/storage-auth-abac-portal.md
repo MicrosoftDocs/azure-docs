@@ -8,7 +8,6 @@ ms.service: storage
 ms.topic: tutorial
 ms.author: jammart
 ms.reviewer: nachakra
-ms.subservice: blobs
 ms.date: 03/15/2023
 
 #Customer intent:

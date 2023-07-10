@@ -40,24 +40,17 @@ To send events from Azure Event Hubs to Azure Monitor Logs, you need these resou
 
 Azure Monitor currently supports ingestion from Event Hubs in these regions:
 
-|	Americas	|	Europe	|	Middle East	|	Africa	|	Asia Pacific	|
-|	-	|	-	|	-	|	-	|	-	|
-|	Brazil South	|	France Central	|	Qatar Central	|	South Africa North	|	Australia Central	|
-|	Brazil Southeast	|	France South	|	UAE Central	|	South Africa West	|	Australia Central 2	|
-|	Canada Central	|	Germany North	|	UAE North	|		|	Australia East	|
-|	Canada East	|	Germany West Central	|		|		|	Central India	|
-|	Central US	|	North Europe	|		|		|	East Asia	|
-|	East US		|	Norway East	|		|		|	Japan East	|
-|	East US 2	|	Norway West	|		|		|	Japan West	|
-|	North Central US	|	Poland Central	|		|		|	Jio India Central	|
-|	South Central US	 |	Sweden Central	|		|		|	Jio India West	|
-|	West Central US	|	Sweden South	|		|		|	South India	|
-|	West US	|	Switzerland North	|		|		|		|
-|	West US 2	|	Switzerland West	|		|		|		|
-|	West US 3	|	UK South	|		|		|		|
-|	|	UK West	|		|		|		|
-|	|	West Europe	|		|		|		|
-
+| Americas | Europe | Middle East | Africa | Asia Pacific |
+| - | - | - | - | - |
+|	Brazil South	|	France Central	|	UAE North	|	South Africa North	|	Australia Central	|
+|	Brazil Southeast	|	North Europe	|		|		|	Australia East	|
+|	Canada Central	|	Norway East	|		|		|	Australia Southeast	|
+|	Canada East	|	Switzerland North	|		|		|	Central India	|
+|	East US	|	Switzerland West	|		|		|	East Asia	|
+|	East US 2	|	UK South	|		|		|	Japan East	|
+|	South Central US	|	UK West	|		|		|	Jio India West	|
+|	West US	|	West Europe	|		|		|	Korea Central	|
+|	West US 3	 |		|		|		|	Southeast Asia	|
 
 ## Collect required information
 
