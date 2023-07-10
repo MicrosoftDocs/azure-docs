@@ -48,9 +48,11 @@ To minimize issues related to rate limits, it's a good idea to use the following
 
 ### How to request increases to the default quotas and limits
 
-Quota increase requests can be submitted from the [Quotas](./how-to/quota.md) page of Azure OpenAI Studio. Please note that due to overwhelming demand, we are not currently approving new quota increase requests. Your request will be queued until it can be filled at a later time.
+Request to increase default quota for rate limit can be submitted from the [Quotas](./how-to/quota.md) page of Azure OpenAI Studio. Please note that due to overwhelming demand, we are not currently approving new quota increase requests. Your request will be queued until it can be filled at a later time.
 
-For other rate limits, please [submit a service request](/azure/cognitive-services/cognitive-services-support-options?context=%2Fazure%2Fcognitive-services%2Fopenai%2Fcontext%2Fcontext).
+The maximum prompt tokens per request veries per model and cannot be changed through service requests.
+
+For other limits, please [submit a service request](/azure/cognitive-services/cognitive-services-support-options?context=%2Fazure%2Fcognitive-services%2Fopenai%2Fcontext%2Fcontext).
 
 ## Next steps
 
