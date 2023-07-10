@@ -1,20 +1,23 @@
 ---
 title: What are Events? - Azure Health Data Services
-description: In this article, you'll learn about Events, its features, integrations, and next steps.
+description: Learn about Events, its features, integrations, and next steps.
 services: healthcare-apis
 author: msjasteppe
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: overview
-ms.date: 07/06/2022
+ms.date: 06/23/2023
 ms.author: jasteppe
 ---
 
 # What are Events?
 
+> [!NOTE]
+> [Fast Healthcare Interoperability Resources (FHIR&#174;)](https://www.hl7.org/fhir/) is an open healthcare specification.
+
 Events are a notification and subscription feature in the Azure Health Data Services. Events enable customers to utilize and enhance the analysis and workflows of structured and unstructured data like vitals and clinical or progress notes, operations data, Internet of Medical Things (IoMT) health data, and medical imaging data. 
 
-When Fast Healthcare Interoperability Resources (FHIR&#174;) resource changes or Digital Imaging and Communications in Medicine (DICOM) image changes are successfully written to the Azure Health Data Services, the Events feature sends notification messages to Events subscribers. These event notification occurrences can be sent to multiple endpoints to trigger automation ranging from starting workflows to sending email and text messages to support the changes occurring from the health data it originated from. The Events feature integrates with the [Azure Event Grid service](../../event-grid/overview.md) and creates a system topic for the Azure Health Data Services Workspace.
+When FHIR resource changes or Digital Imaging and Communications in Medicine (DICOM) image changes are successfully written to the Azure Health Data Services, the Events feature sends notification messages to Events subscribers. These event notification occurrences can be sent to multiple endpoints to trigger automation ranging from starting workflows to sending email and text messages to support the changes occurring from the health data it originated from. The Events feature integrates with the [Azure Event Grid service](../../event-grid/overview.md) and creates a system topic for the Azure Health Data Services Workspace.
 
 > [!IMPORTANT]
 >
@@ -28,7 +31,7 @@ When Fast Healthcare Interoperability Resources (FHIR&#174;) resource changes or
 
 > [!IMPORTANT]
 > 
-> Events currently supports only the following operations:
+> Events currently supports the following operations:
 >
 > - **FhirResourceCreated** - The event emitted after a FHIR resource gets created successfully.
 >
@@ -61,25 +64,25 @@ Use Events to send FHIR resource and DICOM image change messages to services lik
  
 ## Secure
 
-Built on a platform that supports protected health information and customer content data compliance with privacy, safety, and security in mind, the Events messages do not transmit sensitive data as part of the message payload.
+Built on a platform that supports protected health information and customer content data compliance with privacy, safety, and security in mind, the Events messages don't transmit sensitive data as part of the message payload.
 
 Use [Azure Managed identities](../../active-directory/managed-identities-azure-resources/overview.md) to provide secure access from your Event Grid system topic to the Events message receiving endpoints of your choice. 
 
 ## Next steps
 
-For more information about deploying Events, see
+To learn about deploying Events using the Azure portal, see
 
 >[!div class="nextstepaction"]
 >[Deploying Events using the Azure portal](./events-deploy-portal.md)
 
-For frequently asks questions (FAQs) about Events, see
+To learn about frequently asks questions (FAQs) about Events, see
 
 >[!div class="nextstepaction"]
 >[Frequently asked questions about Events](./events-faqs.md)
 
-For Events troubleshooting resources, see
+To learn about troubleshooting Events, see
 
 >[!div class="nextstepaction"]
->[Events troubleshooting guide](./events-troubleshooting-guide.md)
+>[Troubleshoot Events](./events-troubleshooting-guide.md)
 
 FHIR&#174; is a registered trademark of Health Level Seven International, registered in the U.S. Trademark Office and is used with their permission.

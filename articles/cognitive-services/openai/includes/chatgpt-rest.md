@@ -79,7 +79,7 @@ echo export AZURE_OPENAI_ENDPOINT="REPLACE_WITH_YOUR_ENDPOINT_HERE" >> /etc/envi
 
 ## REST API
 
-In a bash shell, run the following command. You will need to replace `gpt-35-turbo` with the deployment name you chose when you deployed the ChatGPT or GPT-4 models. Entering the model name will result in an error unless you chose a deployment name that is identical to the underlying model name.
+In a bash shell, run the following command. You will need to replace `gpt-35-turbo` with the deployment name you chose when you deployed the GPT-35-Turbo or GPT-4 models. Entering the model name will result in an error unless you chose a deployment name that is identical to the underlying model name.
 
 ```bash
 curl $AZURE_OPENAI_ENDPOINT/openai/deployments/gpt-35-turbo/chat/completions?api-version=2023-05-15 \
@@ -116,9 +116,9 @@ Output formatting adjusted for ease of reading, actual output is a single block 
 
 ### Understanding the message structure
 
-The ChatGPT and GPT-4 models are optimized to work with inputs formatted as a conversation.  The `messages` variable passes an array of dictionaries with different roles in the conversation delineated by system, user, and assistant. The system message can be used to prime the model by including context or instructions on how the model should respond.
+The GPT-35-Turbo and GPT-4 models are optimized to work with inputs formatted as a conversation.  The `messages` variable passes an array of dictionaries with different roles in the conversation delineated by system, user, and assistant. The system message can be used to prime the model by including context or instructions on how the model should respond.
 
-The [ChatGPT & GPT-4 how-to guide](../how-to/chatgpt.md) provides an in-depth introduction into the options for communicating with these new models.
+The [GPT-35-Turbo & GPT-4 how-to guide](../how-to/chatgpt.md) provides an in-depth introduction into the options for communicating with these new models.
 
 ## Clean up resources
 
@@ -129,5 +129,5 @@ If you want to clean up and remove an OpenAI resource, you can delete the resour
 
 ## Next steps
 
-* Learn more about how to work with ChatGPT and the GPT-4 models with [our how-to guide](../how-to/chatgpt.md).
+* Learn more about how to work with GPT-35-Turbo and the GPT-4 models with [our how-to guide](../how-to/chatgpt.md).
 * For more examples, check out the [Azure OpenAI Samples GitHub repository](https://aka.ms/AOAICodeSamples)

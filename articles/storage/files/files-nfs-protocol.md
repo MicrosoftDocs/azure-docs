@@ -2,11 +2,10 @@
 title: NFS file shares in Azure Files
 description: Learn about file shares hosted in Azure Files using the Network File System (NFS) protocol.
 author: khdownie
-ms.service: storage
+ms.service: azure-file-storage
 ms.topic: conceptual
 ms.date: 11/15/2022
 ms.author: kendownie
-ms.subservice: files
 ms.custom: references_regions
 ---
 
@@ -16,7 +15,7 @@ Azure Files offers two industry-standard file system protocols for mounting Azur
 This article covers NFS Azure file shares. For information about SMB Azure file shares, see [SMB file shares in Azure Files](files-smb-protocol.md).
 
 > [!IMPORTANT]
-> NFS Azure file shares aren't supported for Windows. Before using NFS Azure file shares in production, see [Troubleshoot NFS Azure file shares](files-troubleshoot-linux-nfs.md) for a list of known issues. NFS access control lists (ACLs) aren't supported.
+> NFS Azure file shares aren't supported for Windows. Before using NFS Azure file shares in production, see [Troubleshoot NFS Azure file shares](/troubleshoot/azure/azure-storage/files-troubleshoot-linux-nfs?toc=/azure/storage/files/toc.json) for a list of known issues. NFS access control lists (ACLs) aren't supported.
 
 ## Common scenarios
 NFS file shares are often used in the following scenarios:
@@ -94,7 +93,7 @@ NFS Azure file shares are only offered on premium file shares, which store data 
 
 ## Workloads
 > [!IMPORTANT]
-> Before using NFS Azure file shares in production, see [Troubleshoot NFS Azure file shares](files-troubleshoot-linux-nfs.md) for a list of known issues.
+> Before using NFS Azure file shares in production, see [Troubleshoot NFS Azure file shares](/troubleshoot/azure/azure-storage/files-troubleshoot-linux-nfs?toc=/azure/storage/files/toc.json) for a list of known issues.
 
 NFS has been validated to work well with workloads such as SAP application layer, database backups, database replication, messaging queues, home directories for general purpose file servers, and content repositories for application workloads.
 

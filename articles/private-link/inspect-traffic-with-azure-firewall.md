@@ -23,7 +23,7 @@ You may need to inspect or block traffic from clients to the services exposed vi
 
 The following limitations apply:
 
-* Network security groups (NSG) traffic is bypassed from private endpoints
+* Network security groups (NSG) traffic is bypassed from private endpoints due to network policies being disabled for a subnet in a virtual network by default. To utilize network policies like User-Defined Routes and Network Security Groups support, network policy support must be enabled for the subnet. This setting is only applicable to private endpoints within the subnet. This setting affects all private endpoints within the subnet. For other resources in the subnet, access is controlled based on security rules in the network security group.
 
 * User-defined routes (UDR) traffic is bypassed from private endpoints. User-defined routes can be used to override traffic destined for the private endpoint.
 

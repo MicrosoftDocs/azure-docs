@@ -490,7 +490,7 @@ additionalContent:
             - text: ISO 27001 security controls
               url: https://azure.microsoft.com/resources/13-effective-security-controls-for-iso-27001-compliance-when-using-microsoft-azure/
             - text: IT-Grundschutz workbook (German)
-              url: https://azure.microsoft.com/resources/it-grundschutz-konformitt-mit-azure/
+              url: /azure/compliance/offerings/offering-germany-it-grundschutz-workbook
             - text: NERC CIP standards and cloud computing
               url: ../azure-government/documentation-government-overview-nerc.md
             - text: NZ GCIO cloud computing considerations

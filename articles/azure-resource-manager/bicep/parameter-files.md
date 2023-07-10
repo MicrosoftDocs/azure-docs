@@ -3,7 +3,7 @@ title: Create parameters files for Bicep deployment
 description: Create parameters file for passing in values during deployment of a Bicep file
 ms.topic: conceptual
 ms.custom: devx-track-bicep
-ms.date: 06/20/2023
+ms.date: 06/26/2023
 ---
 
 # Create parameters files for Bicep deployment
@@ -11,7 +11,7 @@ ms.date: 06/20/2023
 Rather than passing parameters as inline values in your script, you can use a Bicep parameters file with the `.bicepparam` file extension or a JSON parameters file that contains the parameter values. This article shows how to create parameters files.
 
 > [!NOTE]
-> The Bicep parameters file is only supported in Bicep CLI version 0.18.4 or newer.
+> The Bicep parameters file is only supported in [Bicep CLI](./install.md) version 0.18.4 or newer, and [Azure CLI](/azure/install-azure-cli.md) version 2.47.0 or newer.
 
 A single Bicep file can have multiple Bicep parameters files associated with it. However, each Bicep parameters file is intended for one particular Bicep file. This relationship is established using the `using` statement within the Bicep parameters file. For more information, see [Bicep parameters file](#parameters-file).
 
@@ -132,7 +132,7 @@ Use Bicep syntax to declare [objects](./data-types.md#objects) and [arrays](./da
 
 Bicep parameters file has the file extension of `.bicepparam`.
 
-To deploy to different environments, you create more than one parameters file. When you name the parameters files, identify their use such as development and production. For example, use _main.dev.biceparam_ and _main.prod.json_ to deploy resources.
+To deploy to different environments, you create more than one parameters file. When you name the parameters files, identify their use such as development and production. For example, use _main.dev.bicepparam_ and _main.prod.bicepparam_ to deploy resources.
 
 # [JSON parameters file](#tab/JSON)
 
@@ -303,14 +303,14 @@ From Bicep CLI, you can build a Bicep parameters file into a JSON parameters fil
 
 ## Deploy Bicep file with parameters file
 
-From Azure CLI, pass a local parameters file using `@` and the parameters file name. For example, `storage.bicepparam` or `@storage.parameters.json`.
+From Azure CLI, you can pass both a json based local parameters file using `@` and the parameters file name and a .bicepparam based local parameters file just using the file name. For example, `storage.bicepparam` or `@storage.parameters.json`.
 
 ```azurecli
 az deployment group create \
   --name ExampleDeployment \
   --resource-group ExampleGroup \
   --template-file storage.bicep \
-  --parameters @storage.bicepparam
+  --parameters storage.bicepparam
 ```
 
 For more information, see [Deploy resources with Bicep and Azure CLI](./deploy-cli.md#parameters). To deploy _.bicep_ files you need Azure CLI version 2.20 or higher.
@@ -327,7 +327,7 @@ For more information, see [Deploy resources with Bicep and Azure PowerShell](./d
 
 ## Parameter precedence
 
-You can use inline parameters and a local parameters file in the same deployment operation. For example, you can specify some values in the local parameters file and add other values inline during deployment. If you provide values for a parameter in both the local parameters file and inline, the inline value takes precedence.
+You can use inline parameters and a local parameters file in the same deployment operation. For example, you can specify some values in the local parameters file and add other values inline during deployment. If you provide values for a parameter in both the local parameters file and inline, the inline value takes precedence. This feature hasn't been implemented for Bicep parameters file.
 
 It's possible to use an external parameters file, by providing the URI to the file. When you use an external parameters file, you can't pass other values either inline or from a local file. All inline parameters are ignored. Provide all parameter values in the external file.
 

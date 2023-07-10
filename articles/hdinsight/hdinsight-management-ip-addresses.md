@@ -4,7 +4,7 @@ description: Learn which IP addresses you must allow inbound traffic from, in or
 ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
-ms.date: 06/22/2022
+ms.date: 07/10/2023
 ---
 # HDInsight management IP addresses
 

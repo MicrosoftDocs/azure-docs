@@ -57,7 +57,7 @@ To register your application and add the app's registration information to your 
 
 [Download the UWP sample application](https://github.com/Azure-Samples/active-directory-dotnet-native-uwp-v2/archive/msal3x.zip)
 
-[!INCLUDE [active-directory-develop-path-length-tip](../../../../../includes/active-directory-develop-path-length-tip.md)]
+[!INCLUDE [active-directory-develop-path-length-tip](../error-handling-and-tips/path-length-tip.md)]
 
 #### Step 3: Configure the project
 
@@ -154,7 +154,7 @@ authResult = await PublicClientApp.AcquireTokenSilent(scopes, firstAccount)
 * `scopes` contains the scopes being requested, such as `{ "user.read" }` for Microsoft Graph or `{ "api://<Application ID>/access_as_user" }` for custom web APIs.
 * `firstAccount` specifies the first user account in the cache (MSAL supports multiple users in a single app).
 
-[!INCLUDE [Help and support](../../../../../includes/active-directory-develop-help-support-include.md)]
+[!INCLUDE [Help and support](../error-handling-and-tips/help-support-include.md)]
 
 ## Next steps
 

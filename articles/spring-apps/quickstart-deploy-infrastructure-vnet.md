@@ -2,10 +2,10 @@
 title: Quickstart - Provision Azure Spring Apps using an Azure Resource Manager template (ARM template)
 description: This quickstart shows you how to use an ARM template to deploy an Azure Spring Apps cluster into an existing virtual network.
 services: azure-resource-manager
-author: karlerickson
+author: KarlErickson
 ms.service: spring-apps
 ms.topic: quickstart
-ms.custom: subject-armqs, devx-track-java, mode-arm, event-tier1-build-2022, devx-track-arm-template
+ms.custom: subject-armqs, devx-track-java, devx-track-extended-java, mode-arm, event-tier1-build-2022, devx-track-arm-template
 ms.author: rhudson
 ms.date: 05/31/2022
 ---
@@ -128,7 +128,7 @@ In this quickstart, you deployed an Azure Spring Apps instance into an existing 
 * Deploy one of the following sample applications from the following locations:
   * [Pet Clinic App with MySQL Integration](https://github.com/azure-samples/spring-petclinic-microservices)
   * [Simple Hello World](./quickstart.md?pivots=programming-language-java&tabs=Azure-CLI)
-* Use [custom domains](tutorial-custom-domain.md) with Azure Spring Apps.
+* Use [custom domains](how-to-custom-domain.md) with Azure Spring Apps.
 * Expose applications in Azure Spring Apps to the internet using Azure Application Gateway. For more information, see [Expose applications with end-to-end TLS in a virtual network](expose-apps-gateway-end-to-end-tls.md).
 * View the secure end-to-end [Azure Spring Apps reference architecture](reference-architecture.md), which is based on the [Microsoft Azure Well-Architected Framework](/azure/architecture/framework/).
 * Learn more about [Azure Resource Manager](../azure-resource-manager/management/overview.md).

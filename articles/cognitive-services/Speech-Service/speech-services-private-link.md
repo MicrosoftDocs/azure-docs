@@ -10,7 +10,7 @@ ms.subservice: speech-service
 ms.topic: how-to
 ms.date: 04/07/2021
 ms.author: alexeyo
-ms.custom: devx-track-azurepowershell
+ms.custom: devx-track-azurepowershell, devx-track-azurecli
 ---
 
 # Use Speech service through a private endpoint
