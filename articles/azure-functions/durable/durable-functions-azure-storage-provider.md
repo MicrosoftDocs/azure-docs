@@ -22,7 +22,7 @@ A [task hub](durable-functions-task-hubs.md) durably persists all instance state
 
 The Azure Storage provider represents the task hub in storage using the following components:
 
-* Two Azure Tables: two store the instance states. If table partition manager is enabled, one more Table will be introduced to store the partitions distribution.
+* Two Azure Tables store the instance states. If table partition manager is enabled, one more Table will be introduced to store the partitions distribution.
 * One Azure Queue stores the activity messages.
 * One or more Azure Queues store the instance messages. Each of these so-called *control queues* represents a [partition](durable-functions-perf-and-scale.md#partition-count) that is assigned a subset of all instance messages, based on the hash of the instance ID.
 * A few extra blob containers used for lease blobs and/or large messages.
