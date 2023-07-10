@@ -87,7 +87,7 @@ To use your app registration in the client web app sample:
 
 To use your app registration in the web API sample: 
 
-1. In your code editor, open *ToDoListAPI\appsettings.json* file.
+1. In your code editor, open *ms-identity-ciam-dotnet-tutorial/2-Authorization/3-call-own-api-dotnet-core-daemon/ToDoListAPI/appsettings.json* file.
 
 1. Find the placeholder:
     
