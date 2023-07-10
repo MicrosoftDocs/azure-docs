@@ -199,6 +199,8 @@ If you don't have the API Bridge, you must provide your onboarding team with pro
 
 Your onboarding team must arrange synthetic testing of your deployment. This synthetic testing is a series of automated tests lasting at least seven days. It verifies the most important metrics for quality of service and availability.
 
+After launch, synthetic traffic will be sent through your deployment using your test numbers. This traffic is used to continuously check the health of your deployment.
+
 ## 11. Schedule launch
 
 Your launch date is the date that you'll appear to enterprises in the Teams Admin Center. Your onboarding team must arrange this date by making a request to Microsoft Teams.
