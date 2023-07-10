@@ -2,11 +2,10 @@
 title: Enable admin-level read and write access to Azure file shares using Azure Active Directory with Azure Files OAuth over REST (preview)
 description: Authorize access to Azure file shares and directories via the OAuth authentication protocol over REST APIs using Azure Active Directory (Azure AD). Assign Azure roles for access rights. Access files with an Azure AD account.
 author: khdownie
-ms.service: storage
+ms.service: azure-file-storage
 ms.topic: conceptual
 ms.date: 05/11/2023
 ms.author: kendownie
-ms.subservice: files
 ms.custom: devx-track-azurepowershell
 ---
 
