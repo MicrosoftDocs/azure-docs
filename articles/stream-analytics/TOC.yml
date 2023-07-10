@@ -324,6 +324,10 @@
       href: geospatial-scenarios.md
   - name: Monitor
     items:
+    - name: Monitor Azure Stream Analytics
+      href: monitor-azure-stream-analytics.md
+    - name: Moniotring data reference
+      href: monitor-azure-stream-analytics-reference.md
     - name: Monitor jobs - Azure portal
       href: stream-analytics-monitoring.md
     - name: Monitor jobs - PowerShell

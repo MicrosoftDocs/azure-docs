@@ -39,9 +39,15 @@ This section lists all the automatically collected platform metrics collected fo
 ### Partition ID dimension
 [!INCLUDE [metrics-dimension-partition-id](./includes/metrics-dimension-partition-id.md)]
 
+## Activity log
+The following table lists the operations that Azure Stream Analytics may record in the Activity log. This set of operations is a subset of the possible entries you might find in the activity log.
 
-## Get help
-For further assistance, try the [Microsoft Q&A page for Azure Stream Analytics](/answers/topics/azure-stream-analytics.html).
+| Namespace | Description |
+|:----------|:------------|
+| [Microsoft.StreamAnalytics](/azure/role-based-access-control/resource-provider-operations#microsoftstreamanalytics) | The operations that can be created in the Activity log for the Azure Data Share service. |
+
+See [all the possible resource provider operations in the activity log](/azure/role-based-access-control/resource-provider-operations).  For more information on the schema of Activity Log entries, see [Activity Log schema](/azure/azure-monitor/essentials/activity-log-schema). 
+
 
 ## Next steps
 * [Introduction to Azure Stream Analytics](stream-analytics-introduction.md)
