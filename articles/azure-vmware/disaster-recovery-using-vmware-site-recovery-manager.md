@@ -221,7 +221,6 @@ After you've created the site pairing, follow the VMware documentation mentioned
    >[!NOTE]
    >If IP Customization Rules have been defined for network mappings between the Azure VMware Solution environment and the on-premises environment, these rules will not be applied on failback from the Azure VMware Solution environment to the on-premises environment due to a [known issue](https://docs.vmware.com/en/Site-Recovery-Manager/8.3/rn/srm-releasenotes-8-3.html#knownissues) with SRM 8.3.0. You can work around this limitation by removing protection from all VMs in the Protection Group and then reconfiguring protection on them prior to initiating the failback.
 
-
 ## Ongoing management of your VMware SRM solution
 
 While Microsoft aims to simplify VMware SRM and vSphere Replication installation on an Azure VMware Solution private cloud, you are responsible for managing your license and the day-to-day operation of the disaster recovery solution. 
@@ -237,7 +236,6 @@ You can install VMware SRM using an evaluation license or a production license. 
 You can't use pre-existing on-premises VMware SRM licenses for your Azure VMware Solution private cloud. Work with your sales teams and VMware to acquire a new term-based production license of VMware SRM. 
 
 Once a production license of VMware SRM is acquired, you'll be able to use the Azure VMware Solution portal to update VMware SRM with the new production license. 
-
 
 ## Uninstall VMware SRM 
 
