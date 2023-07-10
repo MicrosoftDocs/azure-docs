@@ -60,6 +60,9 @@ You can also select the **Suppression rules** button in the Security Alerts page
 
 :::image type="content" source="media/alerts-suppression-rules/create-new-suppression-rule.png" alt-text="Screenshot of the Create suppression rule button in the Suppression rules page.":::
 
+> [!NOTE]
+> For some alerts, suppression rules are not applicable for certain entities. If the rule is not available, a message will display at the end of the **Create a suppression rule** process.
+
 ## Edit a suppression rule
 
 To edit a rule you've created from the suppression rules page:

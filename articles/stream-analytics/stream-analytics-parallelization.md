@@ -3,7 +3,7 @@ title: Use query parallelization and scale in Azure Stream Analytics
 description: This article describes how to scale Stream Analytics jobs by configuring input partitions, tuning the query definition, and setting job streaming units.
 ms.service: stream-analytics
 ms.custom: event-tier1-build-2022, ignite-2022
-author: ahartoon
+author: anboisve
 ms.author: anboisve
 ms.topic: conceptual
 ms.date: 05/10/2022
@@ -210,19 +210,19 @@ Partitioning a step requires the following conditions:
 When a query is partitioned, the input events are processed and aggregated in separate partition groups, and outputs events are generated for each of the groups. If you want a combined aggregate, you must create a second non-partitioned step to aggregate.
 
 ### Calculate the max streaming units for a job
-All non-partitioned steps together can scale up to six streaming units (SUs) for a Stream Analytics job. In addition, you can add 6 SUs for each partition in a partitioned step.
+All non-partitioned steps together can scale up to one streaming unit (SU V2s) for a Stream Analytics job. In addition, you can add 1 SU V2 for each partition in a partitioned step.
 You can see some **examples** in the table below.
 
 | Query                                               | Max SUs for the job |
 | --------------------------------------------------- | ------------------- |
-| <ul><li>The query contains one step.</li><li>The step isn't partitioned.</li></ul> | 6 |
-| <ul><li>The input data stream is partitioned by 16.</li><li>The query contains one step.</li><li>The step is partitioned.</li></ul> | 96 (6 * 16 partitions) |
-| <ul><li>The query contains two steps.</li><li>Neither of the steps is partitioned.</li></ul> | 6 |
-| <ul><li>The input data stream is partitioned by 3.</li><li>The query contains two steps. The input step is partitioned and the second step isn't.</li><li>The <strong>SELECT</strong> statement reads from the partitioned input.</li></ul> | 24 (18 for partitioned steps + 6 for non-partitioned steps |
+| <ul><li>The query contains one step.</li><li>The step isn't partitioned.</li></ul> | 1 SU V2 |
+| <ul><li>The input data stream is partitioned by 16.</li><li>The query contains one step.</li><li>The step is partitioned.</li></ul> | 16 SU V2 (1 * 16 partitions) |
+| <ul><li>The query contains two steps.</li><li>Neither of the steps is partitioned.</li></ul> | 1 SU V2 |
+| <ul><li>The input data stream is partitioned by 3.</li><li>The query contains two steps. The input step is partitioned and the second step isn't.</li><li>The <strong>SELECT</strong> statement reads from the partitioned input.</li></ul> | 4 SU V2s (3 for partitioned steps + 1 for non-partitioned steps |
 
 ### Examples of scaling
 
-The following query calculates the number of cars within a three-minute window going through a toll station that has three tollbooths. This query can be scaled up to six SUs.
+The following query calculates the number of cars within a three-minute window going through a toll station that has three tollbooths. This query can be scaled up to one SU V2.
 
 ```SQL
     SELECT COUNT(*) AS Count, TollBoothId
@@ -230,7 +230,7 @@ The following query calculates the number of cars within a three-minute window g
     GROUP BY TumblingWindow(minute, 3), TollBoothId, PartitionId
 ```
 
-To use more SUs for the query, both the input data stream and the query must be partitioned. Since the data stream partition is set to 3, the following modified query can be scaled up to 18 SUs:
+To use more SUs for the query, both the input data stream and the query must be partitioned. Since the data stream partition is set to 3, the following modified query can be scaled up to 3 SU V2s:
 
 ```SQL
     SELECT COUNT(*) AS Count, TollBoothId
@@ -254,7 +254,7 @@ Each of the **Input1** partitions will be processed separately by Stream Analyti
     GROUP BY TumblingWindow(minute, 3), TollBoothId
 ```
 
-This query can be scaled to 24 SUs.
+This query can be scaled to 4 SU V2s.
 
 > [!NOTE]
 > If you are joining two streams, make sure that the streams are partitioned by the partition key of the column that you use to create the joins. Also make sure that you have the same number of partitions in both streams.
@@ -271,27 +271,27 @@ The following observations use a Stream Analytics job with stateless (passthroug
 
 |Ingestion Rate (events per second) | Streaming Units | Output Resources  |
 |--------|---------|---------|
-| 1 K     |    1    |  2 TU   |
-| 5 K     |    6    |  6 TU   |
-| 10 K    |    12   |  10 TU  |
+| 1 K     |    1/3    |  2 TU   |
+| 5 K     |    1    |  6 TU   |
+| 10 K    |    2   |  10 TU  |
 
-The [Event Hubs](https://github.com/Azure-Samples/streaming-at-scale/tree/main/eventhubs-streamanalytics-eventhubs) solution scales linearly in terms of streaming units (SU) and throughput, making it the most efficient and performant way to analyze and stream data out of Stream Analytics. Jobs can be scaled up to 396 SU, which roughly translates to processing up to 400 MB/s, or 38 trillion events per day.
+The [Event Hubs](https://github.com/Azure-Samples/streaming-at-scale/tree/main/eventhubs-streamanalytics-eventhubs) solution scales linearly in terms of streaming units (SU) and throughput, making it the most efficient and performant way to analyze and stream data out of Stream Analytics. Jobs can be scaled up to 66 SU V2s, which roughly translates to processing up to 400 MB/s, or 38 trillion events per day.
 
 #### Azure SQL
 |Ingestion Rate (events per second) | Streaming Units | Output Resources  |
 |---------|------|-------|
-|    1 K   |   3  |  S3   |
-|    5 K   |   18 |  P4   |
-|    10 K  |   36 |  P6   |
+|    1 K   |   2/3  |  S3   |
+|    5 K   |   3 |  P4   |
+|    10 K  |   6 |  P6   |
 
 [Azure SQL](https://github.com/Azure-Samples/streaming-at-scale/tree/main/eventhubs-streamanalytics-azuresql)  supports writing in parallel, called Inherit Partitioning, but it's not enabled by default. However, enabling Inherit Partitioning, along with a fully parallel query, may not be sufficient to achieve higher throughputs. SQL write throughputs depend significantly on your database configuration and table schema. The [SQL Output Performance](./stream-analytics-sql-output-perf.md) article has more detail about the parameters that can maximize your write throughput. As noted in the [Azure Stream Analytics output to Azure SQL Database](./stream-analytics-sql-output-perf.md#azure-stream-analytics) article, this solution doesn't scale linearly as a fully parallel pipeline beyond 8 partitions and may need repartitioning before SQL output (see [INTO](/stream-analytics-query/into-azure-stream-analytics#into-shard-count)). Premium SKUs are needed to sustain high IO rates along with overhead from log backups happening every few minutes.
 
 #### Azure Cosmos DB
 |Ingestion Rate (events per second) | Streaming Units | Output Resources  |
 |-------|-------|---------|
-|  1 K   |  3    | 20K RU  |
-|  5 K   |  24   | 60K RU  |
-|  10 K  |  48   | 120K RU |
+|  1 K   |  2/3    | 20K RU  |
+|  5 K   |  4   | 60K RU  |
+|  10 K  |  8   | 120K RU |
 
 [Azure Cosmos DB](https://github.com/Azure-Samples/streaming-at-scale/tree/main/eventhubs-streamanalytics-cosmosdb) output from Stream Analytics has been updated to use native integration under [compatibility level 1.2](./stream-analytics-documentdb-output.md#improved-throughput-with-compatibility-level-12). Compatibility level 1.2 enables significantly higher throughput and reduces RU consumption compared to 1.1, which is the default compatibility level for new jobs. The solution uses Azure Cosmos DB containers partitioned on /deviceId and the rest of solution is identically configured.
 

@@ -9,7 +9,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: conceptual
-ms.date: 12/27/2022
+ms.date: 07/04/2023
 ms.author: pafarley
 ---
 
@@ -31,7 +31,7 @@ Try out the capabilities of face detection quickly and easily using Vision Studi
 
 ## Face ID
 
-The face ID is a unique identifier string for each detected face in an image. Note that Face ID requires limited access approval, which you can apply for by filling out the [intake form](https://aka.ms/facerecognition). For more information, see the Face [limited access page](/legal/cognitive-services/computer-vision/limited-access-identity?context=%2Fazure%2Fcognitive-services%2Fcomputer-vision%2Fcontext%2Fcontext). You can request a face ID in your [Face - Detect](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) API call.
+The face ID is a unique identifier string for each detected face in an image. Face ID requires limited access approval, which you can apply for by filling out the [intake form](https://aka.ms/facerecognition). For more information, see the Face [limited access page](/legal/cognitive-services/computer-vision/limited-access-identity?context=%2Fazure%2Fcognitive-services%2Fcomputer-vision%2Fcontext%2Fcontext). You can request a face ID in your [Face - Detect](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) API call.
 
 ## Face landmarks
 
@@ -49,7 +49,7 @@ The Detection_03 model currently has the most accurate landmark detection. The e
 
 Attributes are a set of features that can optionally be detected by the [Face - Detect](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) API. The following attributes can be detected:
 
-* **Accessories**. Whether the given face has accessories. This attribute returns possible accessories including headwear, glasses, and mask, with confidence score between zero and one for each accessory.
+* **Accessories**. Indicates whether the given face has accessories. This attribute returns possible accessories including headwear, glasses, and mask, with confidence score between zero and one for each accessory.
 * **Age**. The estimated age in years of a particular face.
 * **Blur**. The blurriness of the face in the image. This attribute returns a value between zero and one and an informal rating of low, medium, or high.
 * **Emotion**. A list of emotions with their detection confidence for the given face. Confidence scores are normalized, and the scores across all emotions add up to one. The emotions returned are happiness, sadness, neutral, anger, contempt, disgust, surprise, and fear.
@@ -62,11 +62,11 @@ Attributes are a set of features that can optionally be detected by the [Face - 
 
     ![A head with the pitch, roll, and yaw axes labeled](./media/headpose.1.jpg)
 
-    For more details on how to use these values, see the [Head pose how-to guide](./how-to/use-headpose.md).
-* **Makeup**. Whether the face has makeup. This attribute returns a Boolean value for eyeMakeup and lipMakeup.
-* **Mask**.  Whether the face is wearing a mask. This attribute returns a possible mask type, and a Boolean value to indicate whether nose and mouth are covered.
+    For more information on how to use these values, see the [Head pose how-to guide](./how-to/use-headpose.md).
+* **Makeup**. Indicates whether the face has makeup. This attribute returns a Boolean value for eyeMakeup and lipMakeup.
+* **Mask**.  Indicates whether the face is wearing a mask. This attribute returns a possible mask type, and a Boolean value to indicate whether nose and mouth are covered.
 * **Noise**. The visual noise detected in the face image. This attribute returns a value between zero and one and an informal rating of low, medium, or high.
-* **Occlusion**. Whether there are objects blocking parts of the face. This attribute returns a Boolean value for eyeOccluded, foreheadOccluded, and mouthOccluded.
+* **Occlusion**. Indicates whether there are objects blocking parts of the face. This attribute returns a Boolean value for eyeOccluded, foreheadOccluded, and mouthOccluded.
 * **Smile**. The smile expression of the given face. This value is between zero for no smile and one for a clear smile.
 * **QualityForRecognition** The overall image quality regarding whether the image being used in the detection is of sufficient quality to attempt face recognition on. The value is an informal rating of low, medium, or high. Only "high" quality images are recommended for person enrollment, and quality at or above "medium" is recommended for identification scenarios.
     >[!NOTE]
@@ -81,7 +81,7 @@ Use the following tips to make sure that your input images give the most accurat
 
 * The supported input image formats are JPEG, PNG, GIF (the first frame), BMP. 
 * The image file size should be no larger than 6 MB.
-* The minimum detectable face size is 36 x 36 pixels in an image that is no larger than 1920 x 1080 pixels. Images with larger than 1920 x 1080 pixels have a proportionally larger minimum face size. Reducing the face size might cause some faces not to be detected, even if they are larger than the minimum detectable face size.
+* The minimum detectable face size is 36 x 36 pixels in an image that is no larger than 1920 x 1080 pixels. Images with larger than 1920 x 1080 pixels have a proportionally larger minimum face size. Reducing the face size might cause some faces not to be detected, even if they're larger than the minimum detectable face size.
 * The maximum detectable face size is 4096 x 4096 pixels.
 * Faces outside the size range of 36 x 36 to 4096 x 4096 pixels will not be detected.
 * Some faces might not be recognized because of technical challenges, such as:
@@ -93,9 +93,9 @@ Use the following tips to make sure that your input images give the most accurat
 
 ### Input data with orientation information:
 
-Some input images with JPEG format might contain orientation information in Exchangeable image file format (Exif) metadata. If Exif orientation is available, images will be automatically rotated to the correct orientation before sending for face detection. The face rectangle, landmarks, and head pose for each detected face will be estimated based on the rotated image.
+Some input images with JPEG format might contain orientation information in Exchangeable image file format (EXIF) metadata. If EXIF orientation is available, images are automatically rotated to the correct orientation before sending for face detection. The face rectangle, landmarks, and head pose for each detected face are estimated based on the rotated image.
 
-To properly display the face rectangle and landmarks, you need to make sure the image is rotated correctly. Most of image visualization tools will auto-rotate the image according to its Exif orientation by default. For other tools, you might need to apply the rotation using your own code. The following examples show a face rectangle on a rotated image (left) and a non-rotated image (right).
+To properly display the face rectangle and landmarks, you need to make sure the image is rotated correctly. Most of the image visualization tools automatically rotate the image according to its EXIF orientation by default. For other tools, you might need to apply the rotation using your own code. The following examples show a face rectangle on a rotated image (left) and a non-rotated image (right).
 
 ![Two face images with and without rotation](./media/image-rotation.png)
 
@@ -105,7 +105,7 @@ If you're detecting faces from a video feed, you may be able to improve performa
 
 * **Smoothing**: Many video cameras apply a smoothing effect. You should turn this off if you can because it creates a blur between frames and reduces clarity.
 * **Shutter Speed**: A faster shutter speed reduces the amount of motion between frames and makes each frame clearer. We recommend shutter speeds of 1/60 second or faster.
-* **Shutter Angle**: Some cameras specify shutter angle instead of shutter speed. You should use a lower shutter angle if possible. This will result in clearer video frames.
+* **Shutter Angle**: Some cameras specify shutter angle instead of shutter speed. You should use a lower shutter angle if possible. This results in clearer video frames.
 
     >[!NOTE]
     > A camera with a lower shutter angle will receive less light in each frame, so the image will be darker. You'll need to determine the right level to use.

@@ -10,7 +10,6 @@ ms.topic: how-to
 ms.date: 06/22/2023
 ms.author: pauljewell
 ms.reviewer: dineshm
-ms.subservice: blobs
 ms.devlang: csharp
 ms.custom: devx-track-csharp, devguide-csharp, devx-track-dotnet
 ---

@@ -1,7 +1,7 @@
 ---
 title: "Quickstart - Build and deploy apps to Azure Spring Apps"
 description: Describes app deployment to Azure Spring Apps.
-author: karlerickson
+author: KarlErickson
 ms.author: karler
 ms.service: spring-apps
 ms.topic: quickstart
@@ -246,11 +246,11 @@ Use the following steps to create and deploys apps on Azure Spring Apps using th
    ```azurecli
    az spring app deploy \
        --name api-gateway \
-       --artifact-path spring-petclinic-api-gateway/target/spring-petclinic-api-gateway-3.0.1.jar \
+       --artifact-path spring-petclinic-api-gateway/target/api-gateway-3.0.1.jar \
        --jvm-options="-Xms2048m -Xmx2048m"
    az spring app deploy \
        --name customers-service \
-       --artifact-path spring-petclinic-customers-service/target/spring-petclinic-customers-service-3.0.1.jar \
+       --artifact-path spring-petclinic-customers-service/target/customers-service-3.0.1.jar \
        --jvm-options="-Xms2048m -Xmx2048m"
    ```
 
@@ -302,17 +302,17 @@ az spring app create \
 az spring app deploy \
     --name admin-server \
     --runtime-version Java_17 \
-    --jar-path spring-petclinic-admin-server/target/spring-petclinic-admin-server-3.0.1.jar \
+    --artifact-path spring-petclinic-admin-server/target/admin-server-3.0.1.jar \
     --jvm-options="-Xms1536m -Xmx1536m"
 az spring app deploy \
     --name vets-service \
     --runtime-version Java_17 \
-    --jar-path spring-petclinic-vets-service/target/spring-petclinic-vets-service-3.0.1.jar \
+    --artifact-path spring-petclinic-vets-service/target/vets-service-3.0.1.jar \
     --jvm-options="-Xms1536m -Xmx1536m"
 az spring app deploy \
     --name visits-service \
     --runtime-version Java_17 \
-    --jar-path spring-petclinic-visits-service/target/spring-petclinic-visits-service-3.0.1.jar \
+    --artifact-path spring-petclinic-visits-service/target/visits-service-3.0.1.jar \
     --jvm-options="-Xms1536m -Xmx1536m"
 ```
 

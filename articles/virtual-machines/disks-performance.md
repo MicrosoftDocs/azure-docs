@@ -5,8 +5,7 @@ author: roygara
 ms.author: rogarana
 ms.date: 05/31/2023
 ms.topic: conceptual
-ms.service: storage
-ms.subservice: disks
+ms.service: azure-disk-storage
 ---
 # Virtual machine and disk performance
 
