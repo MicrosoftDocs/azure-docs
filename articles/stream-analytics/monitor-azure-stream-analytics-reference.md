@@ -37,7 +37,7 @@ This section lists all the automatically collected platform metrics collected fo
 [!INCLUDE [metrics-dimension-node-name](./includes/metrics-dimension-node-name.md)]
 
 ### Partition ID dimension
-[!INCLUDE [metrics-dimension-partition-id](./includes/metrics-partition-id.md)]
+[!INCLUDE [metrics-dimension-partition-id](./includes/metrics-dimension-partition-id.md)]
 
 
 ## Get help
