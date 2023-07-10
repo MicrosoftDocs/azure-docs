@@ -2,11 +2,10 @@
 title: Migrate to Azure file shares
 description: Learn how to migrate to Azure file shares and find your migration guide.
 author: khdownie
-ms.service: storage
+ms.service: azure-file-storage
 ms.topic: conceptual
 ms.date: 05/30/2023
 ms.author: kendownie
-ms.subservice: files
 ---
 
 # Migrate to Azure file shares

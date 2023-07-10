@@ -79,7 +79,7 @@ landingContent:
       - linkListType: overview
         links:
           - text: Studio overview
-            url: form-recognizer-studio-overview.md
+            url: studio-overview.md
       - linkListType: get-started
         links:
           - text: Read model
@@ -108,7 +108,7 @@ landingContent:
       - linkListType: quickstart
         links:
         - text: Form Recognizer Studio
-          url: quickstarts/try-v3-form-recognizer-studio.md
+          url: quickstarts/try-form-recognizer-studio.md
         - text: Form Recognizer SDK
           url: quickstarts/get-started-sdks-rest-api.md?view=form-recog-3.0.0&preserve-view=true
       - linkListType: how-to-guide

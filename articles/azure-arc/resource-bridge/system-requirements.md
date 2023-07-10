@@ -37,11 +37,11 @@ These minimum requirements enable most scenarios. However, a partner product may
 
 ## IP address prefix (subnet) requirements
 
-The IP address prefix (subnet) where Arc resource bridge will be deployed requires a minimum prefix of /29. The IP address prefix must have enough available IP addresses for the gateway IP, control plane IP, appliance VM IP, and reserved appliance VM IP.
+The IP address prefix (subnet) where Arc resource bridge will be deployed requires a minimum prefix of /29. The IP address prefix must have enough available IP addresses for the gateway IP, control plane IP, appliance VM IP, and reserved appliance VM IP. Please work with your network engineer to ensure that there is an available subnet with the required available IP addresses and IP address prefix for Arc resource bridge.
 
 The IP address prefix is the subnet's IP address range for the virtual network and subnet mask (IP Mask) in CIDR notation, for example `192.168.7.1/24`. You provide the IP address prefix (in CIDR notation) during the creation of the configuration files for Arc resource bridge. 
 
-Consult your system or network administrator to obtain the IP address prefix in CIDR notation. An IP Subnet CIDR calculator may be used to obtain this value.
+Consult your network engineer to obtain the IP address prefix in CIDR notation. An IP Subnet CIDR calculator may be used to obtain this value.
 
 ## Static configuration
 
@@ -168,7 +168,7 @@ By default, these files are generated in the current CLI directory when `createc
 
 ### Kubeconfig
 
-The appliance VM hosts a management Kubernetes cluster. The kubeconfig is a low-privilege Kubernetes configuration file that is used to maintain the appliance VM. By default, it's generated in the current CLI directory when the `deploy` command completes. The kubeconfig should be saved in a secure location to the management machine, because it's required for maintaining the appliance VM.
+The appliance VM hosts a management Kubernetes cluster. The kubeconfig is a low-privilege Kubernetes configuration file that is used to maintain the appliance VM. By default, it's generated in the current CLI directory when the `deploy` command completes. The kubeconfig should be saved in a secure location to the management machine, because it's required for maintaining the appliance VM. 
 
 ### HCI login configuration file (Azure Stack HCI only)
 
@@ -199,5 +199,6 @@ For instructions to deploy Arc resource bridge on AKS Hybrid, see [How to instal
 - Review the [Azure Arc resource bridge (preview) overview](overview.md) to understand more about features and benefits.
 
 - Learn about [security configuration and considerations for Azure Arc resource bridge (preview)](security-overview.md).
+
 
 

@@ -481,6 +481,11 @@
             "redirect_document_id": true
         },
         {
+            "source_path_from_root": "/articles/defender-for-cloud/enable-enhanced-security.md",
+            "redirect_url": "/azure/defender-for-cloud/enable-all-plans",
+            "redirect_document_id": true
+        },
+        {
             "source_path_from_root": "/articles/security-center/enhanced-security-features-overview.md",
             "redirect_url": "/azure/defender-for-cloud/enhanced-security-features-overview",
             "redirect_document_id": true
@@ -813,6 +818,11 @@
         {
             "source_path_from_root": "/articles/defender-for-cloud/faq-azure-monitor-logs.yml",
             "redirect_url": "/azure/defender-for-cloud/faq-data-collection-agents",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/defender-for-cloud/quickstart-enable-database-protections.md",
+            "redirect_url": "/azure/defender-for-cloud/tutorial-enable-databases-plan",
             "redirect_document_id": true
         },
         {

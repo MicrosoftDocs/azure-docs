@@ -21,6 +21,8 @@ For more information, see [Set a table's log data plan](basic-logs-configure.md)
 > [!NOTE]
 > Billing of queries on Basic Logs is not yet enabled. You can query Basic Logs for free until early 2023.
 
+[!INCLUDE [log-analytics-query-permissions](../../../includes/log-analytics-query-permissions.md)]
+
 ## Limitations
 Queries with Basic Logs are subject to the following limitations:
 ### KQL language limits

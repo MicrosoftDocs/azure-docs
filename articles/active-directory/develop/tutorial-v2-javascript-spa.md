@@ -577,8 +577,7 @@ The Microsoft Graph API requires the `User.Read` scope to read a user's profile.
 > [!NOTE]
 > The user might be prompted for additional consents as you increase the number of scopes.
 
-[!INCLUDE [Help and support](../../../includes/active-directory-develop-help-support-include.md)]
-
+[!INCLUDE [Help and support](./includes/error-handling-and-tips/help-support-include.md)]
 
 ## Next steps
 

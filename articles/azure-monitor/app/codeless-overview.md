@@ -41,7 +41,7 @@ Links are provided to more information for each supported scenario.
 - <a name="Agent">3</a>: An agent must be deployed and configured.
 
 > [!NOTE]
-> Auto-instrumentation was known as "codeless attach" before October 2021.
+> Autoinstrumentation was known as "codeless attach" before October 2021.
 
 ## JavaScript (Web) SDK Loader Script injection by configuration
 

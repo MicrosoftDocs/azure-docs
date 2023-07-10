@@ -18,7 +18,7 @@ ms.author: danlep
 
 # Send errors to Stackify for logging
 
-This article shows an Azure API management policy sample that demonstrates how to add an error logging policy to send errors to Stackify for logging. To set or edit a policy code, follow the steps described in [Set or edit a policy](../set-edit-policies.md). To see other examples, see [policy samples](../policy-reference.md).
+This article shows an Azure API management policy sample that demonstrates how to add an error logging policy to send errors to Stackify for logging. To set or edit a policy code, follow the steps described in [Set or edit a policy](../set-edit-policies.md). To see other examples, see [policy samples](/azure/api-management/policies).
 
 ## Policy
 
@@ -28,7 +28,7 @@ Paste the code into the **on-error** block.
 
 ## Next steps
 
-Learn more about APIM policies:
+Learn more about API Management policies:
 
 + [Transformation policies](../api-management-transformation-policies.md)
-+ [Policy samples](../policy-reference.md)
++ [Policy samples](/azure/api-management/policies)

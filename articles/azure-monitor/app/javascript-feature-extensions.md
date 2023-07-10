@@ -4,7 +4,7 @@ description: Learn how to install and use JavaScript feature extensions (Click A
 services: azure-monitor
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 02/13/2023
+ms.date: 06/23/2023
 ms.devlang: javascript
 ms.custom: devx-track-js
 ms.reviewer: mmcc
@@ -133,110 +133,15 @@ appInsights.loadAppInsights();
 
 ---
 
-### 2. (Optional) Add a framework extension
+> [!TIP]
+> If you want to add a framework extension or you've already added one, see the [React, React Native, and Angular code samples for how to add the Click Analytics plug-in](./javascript-framework-extensions.md#2-add-the-extension-to-your-code).
 
-Add a framework extension, if needed.
+### 2. (Optional) Set the authenticated user context
 
-#### [React](#tab/react)
+If you want to set this optional setting, see [Set the authenticated user context](https://github.com/microsoft/ApplicationInsights-JS/blob/master/API-reference.md#setauthenticatedusercontext). 
 
-```javascript
-import React from 'react';
-import { ApplicationInsights } from '@microsoft/applicationinsights-web';
-import { ReactPlugin } from '@microsoft/applicationinsights-react-js';
-
-var browserHistory = createBrowserHistory({ basename: '' });
-var reactPlugin = new ReactPlugin();
-var clickPluginInstance = new ClickAnalyticsPlugin();
-var clickPluginConfig = {
-  autoCapture: true
-};
-var appInsights = new ApplicationInsights({
-    config: {
-        connectionString: 'YOUR_CONNECTION_STRING_GOES_HERE',
-        extensions: [reactPlugin, clickPluginInstance],
-        extensionConfig: {
-          [reactPlugin.identifier]: { history: browserHistory },
-          [clickPluginInstance.identifier]: clickPluginConfig
-        }
-    }
-});
-appInsights.loadAppInsights();
-```
-
-> [!NOTE] 
-> To add React configuration, see [React configuration](./javascript-framework-extensions.md?tabs=react#add-configuration). For more information on the React plug-in, see [React plug-in](./javascript-framework-extensions.md?tabs=react).
-
-#### [React Native](#tab/reactnative)
-
-```typescript
-import { ApplicationInsights } from '@microsoft/applicationinsights-web';
-import { ReactNativePlugin } from '@microsoft/applicationinsights-react-native';
-import { ClickAnalyticsPlugin } from '@microsoft/applicationinsights-clickanalytics-js';
-
-var clickPluginInstance = new ClickAnalyticsPlugin();
-var clickPluginConfig = {
-  autoCapture: true
-};
-var RNPlugin = new ReactNativePlugin();
-var appInsights = new ApplicationInsights({
-    config: {
-       connectionString: 'YOUR_CONNECTION_STRING_GOES_HERE',
-        extensions: [RNPlugin,  clickPluginInstance],
-        extensionConfig: {
-                  [clickPluginInstance.identifier]: clickPluginConfig
-         }
-    }
-});
-appInsights.loadAppInsights();
-```
-
-> [!NOTE] 
-> For more information on the React Native plug-in, see [React Native plug-in](./javascript-framework-extensions.md?tabs=reactnative).
-
-#### [Angular](#tab/angular)
-
-```javascript
-import { ApplicationInsights } from '@microsoft/applicationinsights-web';
-import { AngularPlugin } from '@microsoft/applicationinsights-angularplugin-js';
-import { ClickAnalyticsPlugin } from '@microsoft/applicationinsights-clickanalytics-js';
-import { Component } from '@angular/core';
-import { Router } from '@angular/router';
-
-@Component({
-  selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
-})
-export class AppComponent {
-    constructor(
-        private router: Router
-    ){
-        var angularPlugin = new AngularPlugin();
-        var clickPluginInstance = new ClickAnalyticsPlugin();
-        var clickPluginConfig = {
-          autoCapture: true
-        };
-        const appInsights = new ApplicationInsights({ config: {
-        connectionString: 'YOUR_CONNECTION_STRING_GOES_HERE',
-        extensions: [angularPlugin, clickPluginInstance],
-        extensionConfig: {
-            [angularPlugin.identifier]: { router: this.router },
-              [clickPluginInstance.identifier]: clickPluginConfig
-        }
-        } });
-        appInsights.loadAppInsights();
-    }
-}
-```
-
-> [!NOTE] 
-> For more information on the Angular plug-in, see [Angular plug-in](./javascript-framework-extensions.md?tabs=angular).
-
----
-
-### 3. (Optional) Set the authenticated user context
-
-If you need to set this optional setting, see [Set the authenticated user context](https://github.com/microsoft/ApplicationInsights-JS/blob/master/API-reference.md#setauthenticatedusercontext). This setting isn't required to use the Click Analytics plug-in.
+> [!NOTE]
+> If you're using a HEART workbook with the Click Analytics plug-in, you don't need to set the authenticated user context to see telemetry data. For more information, see the [HEART workbook documentation](./usage-heart.md#confirm-that-data-is-flowing).
 
 ## Use the plug-in
 
@@ -632,6 +537,5 @@ See the dedicated [troubleshooting article](/troubleshoot/azure/azure-monitor/ap
 - See the [documentation on utilizing HEART workbook](usage-heart.md) for expanded product analytics.
 - See the [GitHub repository](https://github.com/microsoft/ApplicationInsights-JS/tree/master/extensions/applicationinsights-clickanalytics-js) and [npm Package](https://www.npmjs.com/package/@microsoft/applicationinsights-clickanalytics-js) for the Click Analytics Autocollection Plug-in.
 - Use [Events Analysis in the Usage experience](usage-segmentation.md) to analyze top clicks and slice by available dimensions.
-- Use the [Telemetry Viewer extension](https://github.com/microsoft/ApplicationInsights-JS/tree/master/tools/chrome-debug-extension) to list out the individual events in the network payload and monitor the internal calls within Application Insights.
 - See [Log Analytics](../logs/log-analytics-tutorial.md#write-a-query) if you aren’t familiar with the process of writing a query. 
 - Build a [workbook](../visualize/workbooks-overview.md) or [export to Power BI](../logs/log-powerbi.md) to create custom visualizations of click data.

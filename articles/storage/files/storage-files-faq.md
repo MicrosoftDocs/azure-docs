@@ -2,10 +2,9 @@
 title: Frequently asked questions (FAQ) for Azure Files
 description: Get answers to Azure Files frequently asked questions. You can mount Azure file shares concurrently on cloud or on-premises Windows, Linux, or macOS deployments.
 author: khdownie
-ms.service: storage
+ms.service: azure-file-storage
 ms.date: 05/16/2023
 ms.author: kendownie
-ms.subservice: files
 ms.topic: conceptual
 ---
 
@@ -221,5 +220,5 @@ ms.topic: conceptual
     This configuration isn't currently supported for Azure Files. To learn how to set this up using Azure Blob storage, see [Deploy a Cloud Witness for a Failover Cluster](/windows-server/failover-clustering/deploy-cloud-witness).
 
 ## See also
-* [Troubleshoot Azure Files](files-troubleshoot.md)
-* [Troubleshoot Azure File Sync](../file-sync/file-sync-troubleshoot.md)
+* [Troubleshoot Azure Files](/troubleshoot/azure/azure-storage/files-troubleshoot?toc=/azure/storage/files/toc.json)
+* [Troubleshoot Azure File Sync](/troubleshoot/azure/azure-storage/file-sync-troubleshoot?toc=/azure/storage/file-sync/toc.json)

@@ -63,6 +63,7 @@ Locations such as your organization's public network ranges can be marked as tru
 
 - Conditional Access policies can include or exclude these locations.
 - Sign-ins from trusted named locations improve the accuracy of Azure AD Identity Protection's risk calculation, lowering a user's sign-in risk when they authenticate from a location marked as trusted.
+- Locations marked as trusted cannot be deleted. Remove the trusted designation before attempting to delete.
 
 > [!WARNING]
 > Even if you know the network and mark it as trusted does not mean you should exclude it from policies being applied. Verify explicitly is a core principle of a Zero Trust architecture. To find out more about Zero Trust and other ways to align your organization to the guiding principles, see the [Zero Trust Guidance Center](/security/zero-trust/).
