@@ -358,6 +358,10 @@ If your primary email doesn't receive notifications, configure the email address
 
 You may have a limited number of email actions per action group. To check which limits apply to your situation, see [Azure Monitor service limits](../service-limits.md).
 
+> [!NOTE]
+>
+> Action Groups uses two different email providers to ensure email notification delivery. The primary email provider is very resilient and quick but occasionally suffers outages. In this case, the secondary email provider handles email requests. The secondary provider is only a fallback solution. Due to provider differences, an email sent from our secondary provider may have a degraded email experience. The degradation results in slightly different email formatting and content. Since email templates differ in the two systems, maintaining parity across the two systems is not feasible.
+
 When you set up the Resource Manager role:
 
 1. Assign an entity of type **User** to the role.
