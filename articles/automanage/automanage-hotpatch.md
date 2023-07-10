@@ -154,7 +154,7 @@ The VM is assessed automatically every few days and multiple times within any 30
 
 Patches are installed within 30 days of the monthly patch releases, following [availability-first principles](../virtual-machines/automatic-vm-guest-patching.md#availability-first-updates). Patches are installed only during off-peak hours for the VM, depending on the time zone of the VM. The VM must be running during the off-peak hours for patches to be automatically installed. If a VM is powered off during a periodic assessment, the VM is assessed and applicable patches are installed automatically during the next periodic assessment when the VM is powered on. The next periodic assessment usually happens within a few days.
 
-Definition updates and other patches not classified as Critical or Security will not be installed through Automatic VM Guest Patching.
+Definition updates and other patches not classified as Critical or Security won't be installed through Automatic VM Guest Patching.
 
 ## Understanding the patch status for your VM
 
@@ -224,9 +224,9 @@ There are some important considerations to running a supported _Windows Server A
 
 * You can file a [technical support case ticket](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest). For the Service option, search for and select **Virtual Machine running Windows** under Compute. Select **Azure Features** for the problem type and **Automatic VM Guest Patching** for the problem subtype.
 
-### Are VM Scale Sets Uniform Orchestration Supported on Azure-Edition images?
+### Are Azure Virtual Machine Scale Sets Uniform Orchestration Supported on Azure-Edition images?
 
-* The [Windows Server 2022 Azure Edition Images](https://azuremarketplace.microsoft.com/marketplace/apps/microsoftwindowsserver.windowsserver?tab=PlansAndPrice) provide the best in class operating system that includes the innovation built into Windows Server 2022 images plus additional features. Since Azure Edition images support Hotpatching, VM scale sets (VMSS) with Uniform Orchestration cannot be created on these images. The blockade on using VMSS Uniform Orchestration on these images will be lifted once [Auto Guest Patching](https://learn.microsoft.com/azure/virtual-machines/automatic-vm-guest-patching?toc=https%3A%2F%2Flearn.microsoft.com%2F%2Fazure%2Fvirtual-machine-scale-sets%2Ftoc.json&bc=https%3A%2F%2Flearn.microsoft.com%2F%2Fazure%2Fbread%2Ftoc.json) and Hotpatching are supported.
+* The [Windows Server 2022 Azure Edition Images](https://azuremarketplace.microsoft.com/marketplace/apps/microsoftwindowsserver.windowsserver?tab=PlansAndPrice) provide the best in class operating system that includes the innovation built into Windows Server 2022 images plus additional features. Since Azure Edition images support Hotpatching, VM scale sets (VMSS) with Uniform Orchestration can't be created on these images. The blockade on using VMSS Uniform Orchestration on these images will be lifted once [Auto Guest Patching](https://learn.microsoft.com/azure/virtual-machines/automatic-vm-guest-patching?toc=https%3A%2F%2Flearn.microsoft.com%2F%2Fazure%2Fvirtual-machine-scale-sets%2Ftoc.json&bc=https%3A%2F%2Flearn.microsoft.com%2F%2Fazure%2Fbread%2Ftoc.json) and Hotpatching are supported.
 
 ## Next steps
 
