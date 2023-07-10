@@ -98,8 +98,8 @@ You should receive a response body in the following format:
   },
   "properties": {
     "diarizationEnabled": false,
-    "wordLevelTimestampsEnabled": true,
-    "displayFormWordLevelTimestampsEnabled": false,
+    "wordLevelTimestampsEnabled": false,
+    "displayFormWordLevelTimestampsEnabled": true,
     "channels": [
       0,
       1
