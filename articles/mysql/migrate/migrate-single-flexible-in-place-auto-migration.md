@@ -1,6 +1,6 @@
 ---
-title: "In-place auto-migration from Azure Database for MySQL – Single Server to Flexible Server"
-description: This tutorial describes how to configure notifications, review migration details and FAQs for an Azure Database for MySQL Single Server instance schedule for in-place auto-migration to Flexible Server.
+title: "In-place automigration from Azure Database for MySQL – Single Server to Flexible Server"
+description: This tutorial describes how to configure notifications, review migration details and FAQs for an Azure Database for MySQL Single Server instance schedule for in-place automigration to Flexible Server.
 author: adig
 ms.author: adig
 ms.date: 07/10/2023
@@ -12,11 +12,11 @@ ms.custom:
   - devx-track-azurecli
   - mode-api
 ---
-# In-place auto-migration from Azure Database for MySQL – Single Server to Flexible Server
+# In-place automigration from Azure Database for MySQL – Single Server to Flexible Server
 
 [!INCLUDE[applies-to-mysql-single-server](../includes/applies-to-mysql-single-server.md)]
 
-In-place auto-migration from Azure Database for MySQL – Single Server to Flexible Server is a service-initiated in-place migration during planned maintenance window for Single Server database workloads with Basic or General Purpose SKU, data storage used < 10 GiB and no complex features enabled. The eligible servers are identified by the service and are sent an advance notification detailing steps to review migration details.
+In-place automigration from Azure Database for MySQL – Single Server to Flexible Server is a service-initiated in-place migration during planned maintenance window for Single Server database workloads with Basic or General Purpose SKU, data storage used < 10 GiB and no complex features enabled. The eligible servers are identified by the service and are sent an advance notification detailing steps to review migration details.
 
 The in-place migration provides a highly resilient and self-healing offline migration experience during a planned maintenance window, with less than 5 mins of downtime. It uses backup and restore technology for faster migration time. This migration removes the overhead to manually migrate your server and ensure you can take advantage of the benefits of Flexible Server, including better price & performance, granular control over database configuration, and custom maintenance windows. Following described are the key phases of the migration:
 
@@ -29,23 +29,23 @@ The in-place migration provides a highly resilient and self-healing offline migr
 
 ## Configure migration alerts and review migration schedule
 
-Servers eligible for in-place auto-migration are sent an advance notification by the service.
+Servers eligible for in-place automigration are sent an advance notification by the service.
 
-Following described are the ways to check and configure auto-migration notifications:
+Following described are the ways to check and configure automigration notifications:
 
-* Subscription owners for Single Servers scheduled for auto-migration receive an email notification.
+* Subscription owners for Single Servers scheduled for automigration receive an email notification.
 * Configure service health alerts to receive in-place migration schedule and progress notifications via email/SMS by following steps [here](../single-server/concepts-planned-maintenance-notification.md#to-receive-planned-maintenance-notification).
 * Check the in-place migration notification on the Azure portal by following steps [here](../single-server/concepts-planned-maintenance-notification.md#check-planned-maintenance-notification-from-azure-portal).
 
-Following described are the ways to review your migration schedule once you have received the in-place auto-migration notification:
+Following described are the ways to review your migration schedule once you have received the in-place automigration notification:
 
 > [!NOTE]
 > The migration schedule will be locked 7 days prior to the scheduled migration window after which you’ll be unable to reschedule.
 
 * The Single Server overview page for your instance displays a portal banner with information about your migration schedule.
-* For Single Servers scheduled for auto-migration, a new Migration blade is lighted on the portal. You can review the migration schedule by navigating to the Migration blade of your Single Server instance.
-* If you wish to defer the migration, you can defer by a month at a time by navigating to the Migration blade of your single server instance on the Azure portal and re-scheduling the migration by selecting another migration window within a month.
-* If your Single Server has General Purpose SKU, you have the other option to enable High Availability when reviewing the migration schedule. As High Availability can only be enabled during create time for a MySQL Flexible Server, it is highly recommended that you enable this feature when reviewing the migration schedule.
+* For Single Servers scheduled for automigration, a new Migration blade is lighted on the portal. You can review the migration schedule by navigating to the Migration blade of your Single Server instance.
+* If you wish to defer the migration, you can defer by a month at a time by navigating to the Migration blade of your single server instance on the Azure portal and rescheduling the migration by selecting another migration window within a month.
+* If your Single Server has General Purpose SKU, you have the other option to enable High Availability when reviewing the migration schedule. As High Availability can only be enabled during create time for a MySQL Flexible Server, it's highly recommended that you enable this feature when reviewing the migration schedule.
 
 ## How is the target MySQL Flexible Server auto-provisioned?
 
@@ -83,9 +83,9 @@ Copy the following properties from the source Single Server to target Flexible S
 
 **A.** Your Azure Database for MySQL - Single Server instance is eligible for in-place migration to our flagship offering Azure Database for MySQL - Flexible Server. This in-place migration will remove the overhead to manually migrate your server and ensure you can take advantage of the benefits of Flexible Server, including better price & performance, granular control over database configuration, and custom maintenance windows.
 
-**Q. How does the auto-migration take place? What all does it migrate?​**
+**Q. How does the automigration take place? What all does it migrate?​**
 
-**A.** The Flexible Server is provisioned to match the same VCores and storage as that of your Single Server. Next the source Single Server is put to stopped state, data file snapshot is taken and copied to target Flexible Server. The DNS switch is performed to route all existing connections to target and the target Flexible Server is brought online. The auto-migration migrates the entire server’s data files (including schema, data, logins) in addition to server parameters (all modified server parameters on source are copied to target, unmodified server parameters take up the default value defined by Flexible Server) and firewall rules. This is an offline migration where you see downtime of up-to 5 minutes or less.
+**A.** The Flexible Server is provisioned to match the same VCores and storage as that of your Single Server. Next the source Single Server is put to stopped state, data file snapshot is taken and copied to target Flexible Server. The DNS switch is performed to route all existing connections to target and the target Flexible Server is brought online. The automigration migrates the entire server’s data files (including schema, data, logins) in addition to server parameters (all modified server parameters on source are copied to target, unmodified server parameters take up the default value defined by Flexible Server) and firewall rules. This is an offline migration where you see downtime of up-to 5 minutes or less.
 
 **Q. How can I set up or view in-place migration alerts?​**
 
@@ -96,7 +96,7 @@ Copy the following properties from the source Single Server to target Flexible S
 
 **Q. How can I defer the scheduled migration?​**
 
-**A.** You can review the migration schedule by navigating to the Migration blade of your Single Server instance. If you wish to defer the migration, you can defer by a month at the most by navigating to the Migration blade of your single server instance on the Azure portal and re-scheduling the migration by selecting another migration window within a month. Note, the migration details will be locked 7 days prior to the scheduled migration window after which you are be unable to reschedule. This in-place migration can be deferred monthly until 16 September 2024.  
+**A.** You can review the migration schedule by navigating to the Migration blade of your Single Server instance. If you wish to defer the migration, you can defer by a month at the most by navigating to the Migration blade of your single server instance on the Azure portal and re-scheduling the migration by selecting another migration window within a month. Note, the migration details will be locked 7 days prior to the scheduled migration window after which you're unable to reschedule. This in-place migration can be deferred monthly until 16 September 2024.  
 
 **Q. What are some post-migration activities I need to perform?​**
 
@@ -107,15 +107,15 @@ Copy the following properties from the source Single Server to target Flexible S
 
 **Q. What username and connection string would be supported for the migrated Flexible Server?  ​​**
 
-**A.** Both username formats - username@server_name (Single Server format) and username (Flexible Server format) will be supported for the migrated Flexible Server, and hence you are not required to update them to maintain your application continuity post migration. Additionally, both connection string formats (Single and Flexible server format) will also be supported for the migrated Flexible Server.
+**A.** Both username formats - username@server_name (Single Server format) and username (Flexible Server format) will be supported for the migrated Flexible Server, and hence you aren't required to update them to maintain your application continuity post migration. Additionally, both connection string formats (Single and Flexible server format) will also be supported for the migrated Flexible Server.
 
 **Q. How to enable HA (High Availability) for my auto-migrated server??​**
 
-**A.** By default, auto-migration sets up migration to a non-HA instance. As HA can only be enabled at server-create time, you should enable HA before the scheduled auto-migration using the auto-migration schedule edit option on portal. HA can only be enabled for General purpose\Memory Optimized SKUs on target Flexible Server, as Basic to Burstable SKU migration doesn’t support HA configuration.
+**A.** By default, automigration sets up migration to a non-HA instance. As HA can only be enabled at server-create time, you should enable HA before the scheduled automigration using the automigration schedule edit option on portal. HA can only be enabled for General purpose\Memory Optimized SKUs on target Flexible Server, as Basic to Burstable SKU migration doesn’t support HA configuration.
 
 **Q. I see a pricing difference on my potential move from MySQL Basic Single Server to MySQL Flexible Server??​**
 
-**A.** Few servers may see a small price increase after migration (estimated costs can be seen by clicking the auto-migration schedule edit option on the portal), as the minimum storage limit on both offerings is different (5-GiB on Single Server; 20-GiB on Flexible Server) and storage cost (0.1$ on Single Server; 0.115$ on Flexible Server) for Flexible Server is slightly higher than Single Server. For impacted servers, this price increase in Flexible Server provides better throughput and performance compared to Single Server
+**A.** Few servers may see a small price increase after migration (estimated costs can be seen by clicking the automigration schedule edit option on the portal), as the minimum storage limit on both offerings is different (5 GiB on Single Server; 20 GiB on Flexible Server) and storage cost (0.1$ on Single Server; 0.115$ on Flexible Server) for Flexible Server is slightly higher than Single Server. For impacted servers, this price increase in Flexible Server provides better throughput and performance compared to Single Server
 
 ## Next steps
 
