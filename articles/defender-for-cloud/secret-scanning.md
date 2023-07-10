@@ -2,7 +2,7 @@
 title: Manage secrets with agentless secret scanning
 description: Learn how to scan your servers for secrets with Defender for Server's agentless secret scanning.
 ms.topic: overview
-ms.date: 06/29/2023
+ms.date: 07/10/2023
 ---
 
 # Manage secrets with agentless secret scanning
@@ -37,17 +37,7 @@ In addition to detecting SSH private keys, the agentless scanner verifies whethe
 
 - [Enable agentless scanning for machines](enable-vulnerability-assessment-agentless.md#enabling-agentless-scanning-for-machines).
 
-- In Azure environments, your disks can be:
-  - Unencrypted
-  - Encrypted disks must be managed using [Azure Storage encryption](../virtual-machines/disk-encryption.md) with platform-managed keys (PMK)
-
-- On AWS environments, your disks must be unencrypted.
-
-- Required roles and permissions:
-  - **Azure** - Subscription Owner
-  - **AWS** - Administrator Access
-
-Once your subscriptions are protected by the agentless scanner, findings will begin to appear after 12 hours.
+For requirements for agentless scanning, see [Learn about agentless scanning](concept-agentless-data-collection.md#availability).
 
 ## Feature capability
 
@@ -176,7 +166,7 @@ The asset inventory allows you to view the secrets discovered on a specific mach
 
 1. Select the relevant VM.
 
-1. Select **Secrets**.
+1. Go to the **Secrets** tab.
 
 1. Review each plaintext secret that appears with the relevant metadata.
 
