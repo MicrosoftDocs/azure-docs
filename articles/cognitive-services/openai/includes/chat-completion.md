@@ -109,7 +109,7 @@ A conversation with one example answer followed by a question would look like:
 
 ### System role
 
-The system role also known as the system message is included at the beginning of the list. This message provides the initial instructions to the model. You can provide various information in the system role including:
+The system role also known as the system message is included at the beginning of the array. This message provides the initial instructions to the model. You can provide various information in the system role including:
 
 * A brief description of the assistant
 * Personality traits of the assistant
