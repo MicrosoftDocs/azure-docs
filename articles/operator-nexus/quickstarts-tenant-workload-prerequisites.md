@@ -149,7 +149,7 @@ Your VM requires at least one cloud services network. You need the egress endpoi
 
 Once you have created your VM or Kubernetes cluster with this cloud services network, you can use the proxy to reach outside of the virtual machine. Proxy is useful if you need to access resources outside of the virtual machine, such as pulling images or accessing data.
 
-To use the proxy, you need to add the following lines to your virtual machine's environment variables:
+To use the proxy, you need to set the following environment variables:
 
 ```bash
 export HTTP_PROXY=http://169.254.0.11:3128
@@ -158,7 +158,7 @@ export HTTPS_PROXY=http://169.254.0.11:3128
 export https_proxy=http://169.254.0.11:3128
 ```
 
-Once you have added these lines to your environment variables, your virtual machine should be able to reach outside of the virtual network using the proxy.
+Once you have set the environment variables, your virtual machine should be able to reach outside of the virtual network using the proxy.
 
 In order to reach the desired endpoints, you need to add the required egress endpoints to the cloud services network. Egress endpoints can be added using the `--additional-egress-endpoints` parameter when creating the network. Be sure to include any domains needed to pull images or access data, such as `.azurecr.io` or `.docker.io`.
 
