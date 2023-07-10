@@ -121,7 +121,10 @@ You need to complete the following tasks prior to deploying Application Gateway 
 	echo "Creating identity $IDENTITY_RESOURCE_NAME in resource group $RESOURCE_GROUP"
 	az identity create --resource-group $RESOURCE_GROUP --name $IDENTITY_RESOURCE_NAME
 	principalId="$(az identity show -g $RESOURCE_GROUP -n $IDENTITY_RESOURCE_NAME --query principalId -otsv)"
-	
+
+    	echo "Waiting 60 seconds to allow for delegation of the identity..."
+    	sleep 60
+ 
 	echo "Apply Contributor and AppGW For Containers Configuration Manager Role on the identity"
 	az role assignment create --assignee-object-id $principalId --resource-group $mcResourceGroup --role "Contributor"
 	az role assignment create --assignee-object-id $principalId --resource-group $mcResourceGroup --role "fbc52c3f28ad4303a8928a056630b8f1"
@@ -135,7 +138,10 @@ You need to complete the following tasks prior to deploying Application Gateway 
 	    --subject "system:serviceaccount:azure-alb-system:alb-controller-sa"
     ```
 
-2. Install ALB Controller using Helm
+   > [!Note]
+   > Assignment of the managed identity immediately after creation may result in an error that the principalId does not exist. Allow about a minute of time to elapse for the identity to replicate in Azure AD prior to delegating the identity.
+
+3. Install ALB Controller using Helm
 
 	LB Controller can be installed by running the following commands:
 
