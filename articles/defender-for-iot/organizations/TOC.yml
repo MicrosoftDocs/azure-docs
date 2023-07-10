@@ -99,7 +99,7 @@
         - name: Configure active or passive aggregation (TAP)
           href: best-practices/traffic-mirroring-methods.md#active-or-passive-aggregation-tap
         - name: Configure ERSPAN mirroring
-          href: how-to-manage-individual-sensors.md#update-a-sensors-monitoring-interfaces
+          href: how-to-manage-individual-sensors.md#update-a-sensors-monitoring-interfaces-configure-erspan
         - name: Configure mirroring with an ESXi vSwitch
           href: traffic-mirroring/configure-mirror-esxi.md
         - name: Configure mirroring with a Hyper-V vSwitch

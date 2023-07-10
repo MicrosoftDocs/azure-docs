@@ -122,7 +122,7 @@ Before you can start using your Defender for IoT sensor, you'll need to onboard 
 
 1. <a name="activation"></a>Save the downloaded activation file in a location that will be accessible to the user signing into the console for the first time so they can activate the sensor.
 
-    You can also download the file manually by selecting the relevant link in the **Activate your sensor** box. You'll use this file to activate your sensor, as described [below](#activate-your-sensor).
+    You can also download the file manually by selecting the relevant link in the **Activate your sensor** box. You'll use this file to activate your sensor, as described [below](#activate-your-ot-sensor).
 
 1. In the **Add outbound allow rules** box, select the **Download endpoint details** link to download a JSON list of the endpoints you must configure as secure endpoints from your sensor.
 

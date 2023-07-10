@@ -54,7 +54,7 @@ If you want to modify the interfaces used to monitor your traffic after the init
 
 The **Interface configurations** page shows the same options as the **Interface configurations** tab in the [initial setup wizard](ot-deploy/activate-deploy-sensor.md#define-the-interfaces-you-want-to-monitor).
 
-For more information, see [Update a sensor's monitoring interfaces](how-to-manage-individual-sensors.md#update-a-sensors-monitoring-interfaces).
+For more information, see [Update a sensor's monitoring interfaces (configure ERSPAN)](../how-to-manage-individual-sensors.md#update-a-sensors-monitoring-interfaces-configure-erspan).
 
 ### Simplified privileged users
 

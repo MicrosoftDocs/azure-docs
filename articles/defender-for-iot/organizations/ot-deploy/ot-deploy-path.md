@@ -88,7 +88,7 @@ For more information, see:
 - [Configure mirroring with a switch SPAN port](../traffic-mirroring/configure-mirror-span.md)
 - [Configure traffic mirroring with a Remote SPAN (RSPAN) port](../traffic-mirroring/configure-mirror-rspan.md)
 - [Configure active or passive aggregation (TAP)](../best-practices/traffic-mirroring-methods.md#active-or-passive-aggregation-tap)
-- [Update a sensor's monitoring interfaces](../how-to-manage-individual-sensors.md#update-a-sensors-monitoring-interfaces) (ERSPAN)
+- [Update a sensor's monitoring interfaces (configure ERSPAN)](../how-to-manage-individual-sensors.md#update-a-sensors-monitoring-interfaces-configure-erspan)
 - [Configure traffic mirroring with a ESXi vSwitch](../traffic-mirroring/configure-mirror-esxi.md)
 - [Configure traffic mirroring with a Hyper-V vSwitch](../traffic-mirroring/configure-mirror-hyper-v.md)
 
