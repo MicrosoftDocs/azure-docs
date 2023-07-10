@@ -5,7 +5,7 @@ author: msjasteppe
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: how-to
-ms.date: 07/07/2023
+ms.date: 07/10/2023
 ms.author: jasteppe
 ---
 
@@ -18,6 +18,8 @@ This article provides an overview of how to use IotJsonPathContent templates wit
 
 ## IotJsonPathContent template basics
 
+IotJsonPathContent templates can be used when the MedTech service ingests device messages [routed](../../iot-hub/iot-concepts-and-iot-hub.md#message-routing-sends-data-to-other-endpoints) from an [Azure IoT Hub](../../iot-hub/iot-concepts-and-iot-hub.md). When IotJsonPathContent templates are used within the [device mapping](overview-of-device-mapping.md), the MedTech service extracts the device ID and measurement timestamp from metadata provided by an IoT hub. The TimestampExpression and DeviceIdExpression shouldn't be included in IotJsonPathContent templates.
+
 The MedTech service IotJsonPathContent templates support the JSON expression language JSONPath. Expressions are used to identify which template to use with a given JSON device message (for example: TypeMatchExpression) and to extract specific values that are required to create a normalized message (for example: PatientIdExpression, ValueExpression, etc.). IotJsonPathContent templates are similar to the CalculatedContent templates except the DeviceIdExpression and TimestampExpression aren't supported.
 
 > [!IMPORTANT]
@@ -26,10 +28,7 @@ The MedTech service IotJsonPathContent templates support the JSON expression lan
 An expression is defined as:
 
 ```json
-<name of expression> : {
-   "value" : <the expression>,
-   "language": <the expression language>
-}
+<name of expression> : <the expression>
 ```
 
 In the following example, `typeMatchExpression` is defined as:
@@ -38,12 +37,8 @@ In the following example, `typeMatchExpression` is defined as:
 "templateType": "IotJsonPathContent",
 "template": {
    "typeName": "heartrate",
-   "typeMatchExpression": {
-      "value" : "$..[?(@heartRate)]",
-      "language": "JsonPath"
-   },
-...
-}
+   "typeMatchExpression": "$..[?(@heartRate)]"
+  },
 ``` 
 
 > [!IMPORTANT]
@@ -61,7 +56,7 @@ The IotJsonPathContent templates allow matching on and extracting values from a 
 |correlationIdExpression|*Optional*: The expression to extract the correlation identifier. You can use this output to group values into a single observation in the FHIR destination mapping.|`$.matchedToken.correlationId`|
 |values[].valueExpression|The expression to extract the wanted value.|`$.matchedToken.heartRate`|
 
-> [!IMPORTANT]
+> [!NOTE]
 > The **Resolution type** specifies how the MedTech service associates device data with Device resources and Patient resources. The MedTech service reads Device and Patient resources from the FHIR service using [device identifiers](https://www.hl7.org/fhir/r4/device-definitions.html#Device.identifier) and [patient identifiers](https://www.hl7.org/fhir/r4/patient-definitions.html#Patient.identifier). If an [encounter identifier](https://hl7.org/fhir/r4/encounter-definitions.html#Encounter.identifier) is specified and extracted from the device data payload, it's linked to the observation if an encounter exists on the FHIR service with that identifier.  If the [encounter identifier](../../healthcare-apis/release-notes.md#medtech-service) is successfully normalized, but no FHIR Encounter exists with that encounter identifier, a **FhirResourceNotFound** exception is thrown. For more information on configuring the the MedTech service **Resolution type**, see [Configure the Destination tab](deploy-manual-portal.md#configure-the-destination-tab).
 
 ## Expression languages
@@ -99,7 +94,7 @@ In this example, we're using a device message that is capturing `heartRate` data
 
 ```json
 {
-    “heartRate” : “78”
+    heartRate” : “78”
 }
 ```
 
@@ -112,58 +107,58 @@ The IoT hub enriches and routes the device message to the event hub before the M
 
 ```json
 {
-  "Body": {
-    "heartRate": "78"
-  },
-  "Properties": {
-    "iothub-creation-time-utc": "2023-03-13T22:46:01.87500000"
-  },
-  "SystemProperties": {
-    "iothub-connection-device-id": "device01"
-  }
-}    
+    "Body": {
+        "heartRate": "78"
+    },
+    "Properties": {
+        "iothub-creation-time-utc": "2023-03-13T22:46:01.87500000"
+    },
+    "SystemProperties": {
+        "iothub-connection-device-id": "device01"
+    }
+}   
 ```
 We're using this device mapping for the normalization stage:
 
 ```json
 {
-  "templateType": "CollectionContent",
-  "template": [
-    {
-      "templateType": "IotJsonPathContent",
-      "template": {
-        "typeName": "heartRate",
-        "typeMatchExpression": "$..[?(@Body.heartRate)]",
-        "patientIdExpression": "$.SystemProperties.iothub-connection-device-id",
-        "values": [
-          {
-            "required": "true",
-            "valueExpression": "$.Body.heartRate",
-            "valueName": "hr"
-          }
-        ]
-      }
-    }
-  ]
+    "templateType": "CollectionContent",
+    "template": [
+        {
+            "templateType": "IotJsonPathContent",
+            "template": {
+                "typeName": "heartRate",
+                "typeMatchExpression": "$..[?(@Body.heartRate)]",
+                "patientIdExpression": "$.SystemProperties.iothub-connection-device-id",
+                "values": [
+                    {
+                        "required": "true",
+                        "valueExpression": "$.Body.heartRate",
+                        "valueName": "hr"
+                    }
+                ]
+            }
+        }
+    ]
 }
 ```
 
-> [!IMPORTANT]
+> [!NOTE]
 > The MedTech service evaluates `typeMatchExpression` against the incoming device data payload. If the service finds a matching token value, it considers the template a match.
 
 The resulting normalized message will look like this after the normalization stage:
 
 ```json
 {
-  "type": "heartRate",
-  "occurrenceTimeUtc": "2023-03-13T22:46:01.875Z",
-  "deviceId": "device01",
-  "properties": [
-    {
-      "name": "hr",
-      "value": "78"
-    }
-  ]
+    "type": "heartRate",
+    "occurrenceTimeUtc": "2023-03-13T22:46:01.875Z",
+    "deviceId": "device01",
+    "properties": [
+        {
+            "name": "hr",
+            "value": "78"
+        }
+    ]
 }
 ```
 

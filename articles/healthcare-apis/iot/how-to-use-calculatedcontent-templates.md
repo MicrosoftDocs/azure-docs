@@ -5,7 +5,7 @@ author: msjasteppe
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: how-to
-ms.date: 07/07/2023
+ms.date: 07/10/2023
 ms.author: jasteppe
 ---
 
@@ -58,7 +58,7 @@ The CalculatedContent templates allow matching on and extracting values from a d
 |correlationIdExpression|*Optional*: The expression to extract the correlation identifier. You can use this output to group values into a single observation in the FHIR destination mapping.|`$.matchedToken.correlationId`|`@.matchedToken.correlationId`|
 |values[].valueExpression|The expression to extract the wanted value.|`$.matchedToken.heartRate`|`@.matchedToken.heartRate`|
 
-> [!IMPORTANT]
+> [!NOTE]
 > The **Resolution type** specifies how the MedTech service associates device data with Device resources and Patient resources. The MedTech service reads Device and Patient resources from the FHIR service using [device identifiers](https://www.hl7.org/fhir/r4/device-definitions.html#Device.identifier) and [patient identifiers](https://www.hl7.org/fhir/r4/patient-definitions.html#Patient.identifier). If an [encounter identifier](https://hl7.org/fhir/r4/encounter-definitions.html#Encounter.identifier) is specified and extracted from the device data payload, it's linked to the observation if an encounter exists on the FHIR service with that identifier.  If the [encounter identifier](../../healthcare-apis/release-notes.md#medtech-service) is successfully normalized, but no FHIR Encounter exists with that encounter identifier, a **FhirResourceNotFound** exception is thrown. For more information on configuring the the MedTech service **Resolution type**, see [Configure the Destination tab](deploy-manual-portal.md#configure-the-destination-tab).
 
 ## Expression languages
@@ -113,9 +113,9 @@ In this example, we're using a device message that is capturing `heartRate` data
 
 ```json
 {
-  "heartRate": "78",
-  "endDate": "2023-03-13T22:46:01.8750000",
-  "deviceId": "device01"
+    "heartRate": "78",
+    "endDate": "2023-03-13T22:46:01.8750000",
+    "deviceId": "device01"
 }
 ```
 
@@ -123,11 +123,11 @@ The event hub enriches the device message before the MedTech service reads the d
 
 ```json
 {
-  "Body": {
-    "heartRate": "78",
-    "endDate": "2023-03-13T22:46:01.8750000",
-    "deviceId": "device01"
-  }
+    "Body": {
+        "heartRate": "78",
+        "endDate": "2023-03-13T22:46:01.8750000",
+        "deviceId": "device01"
+    }
 }
 ```
 
@@ -135,25 +135,25 @@ We're using this device mapping for the normalization stage:
 
 ```json
 {
-  "templateType": "CollectionContent",
-  "template": [
-    {
-      "templateType": "CalculatedContent",
-      "template": {
-        "typeName": "heartrate",
-        "typeMatchExpression": "$..[?(@heartRate)]",
-        "deviceIdExpression": "$.matchedToken.deviceId",
-        "timestampExpression": "$.matchedToken.endDate",
-        "values": [
-          {
-            "required": true,
-            "valueExpression": "$.matchedToken.heartRate",
-            "valueName": "hr"
-          }
-        ]
-      }
-    }
-  ]
+    "templateType": "CollectionContent",
+    "template": [
+        {
+            "templateType": "CalculatedContent",
+            "template": {
+                "typeName": "heartrate",
+                "typeMatchExpression": "$..[?(@heartRate)]",
+                "deviceIdExpression": "$.matchedToken.deviceId",
+                "timestampExpression": "$.matchedToken.endDate",
+                "values": [
+                    {
+                        "required": true,
+                        "valueExpression": "$.matchedToken.heartRate",
+                        "valueName": "hr"
+                    }
+                ]
+            }
+        }
+    ]
 }
 ```
 
@@ -166,16 +166,16 @@ We're using this device mapping for the normalization stage:
 
 ```json
 {
-  "Body": {
-    "heartRate": "78",
-    "endDate": "2023-03-13T22:46:01.8750000",
-    "deviceId": "device01"
-  },
-  "matchedToken": {
-    "heartRate": "78",
-    "endDate": "2023-03-13T22:46:01.8750000",
-    "deviceId": "device01"
-  }
+    "Body": {
+        "heartRate": "78",
+        "endDate": "2023-03-13T22:46:01.8750000",
+        "deviceId": "device01"
+    },
+    "matchedToken": {
+        "heartRate": "78",
+        "endDate": "2023-03-13T22:46:01.8750000",
+        "deviceId": "device01"
+    }
 }
 ```
 
@@ -183,17 +183,17 @@ The resulting normalized message will look like this after the normalization sta
 
 ```json
 [
-  {
-    "type": "heartrate",
-    "occurrenceTimeUtc": "2023-03-13T22:46:01.875Z",
-    "deviceId": "device01",
-    "properties": [
-      {
-        "name": "hr",
-        "value": "78"
-      }
-    ]
-  }
+    {
+        "type": "heartrate",
+        "occurrenceTimeUtc": "2023-03-13T22:46:01.875Z",
+        "deviceId": "device01",
+        "properties": [
+            {
+                "name": "hr",
+                "value": "78"
+            }
+        ]
+    }
 ]
 ```
 
