@@ -273,9 +273,9 @@
         items:
         - name: Microsoft Azure Network Adapter (MANA) overview
           href: accelerated-networking-mana-overview.md
-        - name: Linux VMs with Azure MANA
+        - name: Linux VMs with MANA
           href: accelerated-networking-mana-linux.md
-        - name: Windows VMs with Azure MANA
+        - name: Windows VMs with MANA
           href: accelerated-networking-mana-windows.md
     - name: TCP/IP Performance Tuning for Azure VMs
       href: virtual-network-tcpip-performance-tuning.md
