@@ -215,8 +215,14 @@ Remember that storage can only be scaled up, not down.
 
 ## Limitations 
 
-1. During preview, storage auto-grow cannot be configured for HA / Read replica-enabled servers and we are going to support this very soon.
-2. Storage Autogrow does not trigger when there is a high WAL usage to avoid unnecessary autogrow events. 
+1. Disk scaling operations are always online except in specific scenarios involving the 4096 GiB boundary. These scenarios include reaching, starting at, or crossing the 4096 GiB limit, such as when scaling from 2048 GiB to 8192 GiB etc. This limitation is due to the underlying Azure Managed disk V1 which needs a manual disk scaling operation. You will receive an informational message in the portal when you approach this limit.
+
+2. Storage auto-grow currently does not work for HA / Read replica-enabled servers; we will support this very soon.
+
+3. Storage Autogrow does not trigger when there is high WAL usage.
+
+> [!NOTE]
+> Storage auto-grow never triggers offline increase.
 
 
 ## Backup
