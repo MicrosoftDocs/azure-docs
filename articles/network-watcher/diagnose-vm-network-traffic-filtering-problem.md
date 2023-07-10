@@ -6,7 +6,7 @@ author: halkazwini
 ms.author: halkazwini
 ms.service: network-watcher
 ms.topic: quickstart
-ms.date: 06/23/2023
+ms.date: 07/10/2023
 ms.custom: template-quickstart, engagement-fy23
 #Customer intent: I need to diagnose and troubleshoot a virtual machine (VM) network traffic filter problem that prevents communication to and from a VM.
 ---
@@ -16,6 +16,9 @@ ms.custom: template-quickstart, engagement-fy23
 Azure allows and denies network traffic to and from a virtual machine based on its [effective security rules](network-watcher-security-group-view-overview.md). These security rules come from the network security groups applied to the virtual machine's network interface and subnet.
 
 In this quickstart, you deploy a virtual machine and use Network Watcher [IP flow verify](network-watcher-ip-flow-verify-overview.md) to test the connectivity to and from different IP addresses. Using the IP flow verify results, you determine the cause of a communication failure and learn how you can resolve it.
+
+:::image type="content" source="./media/diagnose-vm-network-traffic-filtering-problem/-ip-flow-verify-quickstart-diagram.png" alt-text="Diagram shows the resources created in Network Watcher quickstart.":::
+
 
 ## Prerequisites
 
@@ -116,9 +119,9 @@ In this section, you use the IP flow verify capability of Network Watcher to tes
 
     :::image type="content" source="./media/diagnose-vm-network-traffic-filtering-problem/ip-flow-verify-first-test-results.png" alt-text="Screenshot shows the result of IP flow verify to IP address 13.107.21.200." lightbox="./media/diagnose-vm-network-traffic-filtering-problem/ip-flow-verify-first-test-results.png":::
 
-1. Change **Remote IP address** to **10.0.0.10** and repeat the test by selecting **Verify IP flow** button again. The result of the second test indicates that access is allowed to **10.0.0.10** because of the default security rule **AllowVnetOutBound**.
+1. Change **Remote IP address** to **10.0.1.10**, which is a private IP address in **myVNet** address space. Then, repeat the test by selecting **Verify IP flow** button again. The result of the second test indicates that access is allowed to **10.0.1.10** because of the default security rule **AllowVnetOutBound**.
 
-    :::image type="content" source="./media/diagnose-vm-network-traffic-filtering-problem/ip-flow-verify-second-test-results.png" alt-text="Screenshot shows the result of IP flow verify to IP address 10.0.0.10." lightbox="./media/diagnose-vm-network-traffic-filtering-problem/ip-flow-verify-second-test-results.png":::
+    :::image type="content" source="./media/diagnose-vm-network-traffic-filtering-problem/ip-flow-verify-second-test-results.png" alt-text="Screenshot shows the result of IP flow verify to IP address 10.0.1.10." lightbox="./media/diagnose-vm-network-traffic-filtering-problem/ip-flow-verify-second-test-results.png":::
 
 1. Change **Remote IP address** to **10.10.10.10** and repeat the test. The result of the third test indicates that access is denied to **10.10.10.10** because of the default security rule **DenyAllOutBound**.
 
@@ -171,4 +174,4 @@ When no longer needed, delete the resource group and all of the resources it con
 
 In this quickstart, you created a virtual machine and diagnosed inbound and outbound network traffic filters. You learned that network security group rules allow or deny traffic to and from a virtual machine. Learn more about [network security groups](../virtual-network/network-security-groups-overview.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json) and how to [create security rules](../virtual-network/manage-network-security-group.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json#create-a-security-rule).
 
-Even with the proper network traffic filters in place, communication to a virtual machine can still fail, due to routing configuration. To learn how to diagnose virtual machine routing problems, see [Diagnose a virtual machine network routing problem](diagnose-vm-network-routing-problem.md). To diagnose outbound routing, latency, and traffic filtering problems with one tool, see [Troubleshoot connections with Azure Network Watcher](network-watcher-connectivity-portal.md).
+Even with the proper network traffic filters in place, communication to a virtual machine can still fail due to routing configuration. To learn how to diagnose virtual machine routing problems, see [Diagnose a virtual machine network routing problem](diagnose-vm-network-routing-problem.md). To diagnose outbound routing, latency, and traffic filtering problems with one tool, see [Troubleshoot connections with Azure Network Watcher](network-watcher-connectivity-portal.md).
