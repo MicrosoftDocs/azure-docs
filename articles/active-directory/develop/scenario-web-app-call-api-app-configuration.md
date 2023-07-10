@@ -29,7 +29,7 @@ The [Web app that signs in users](scenario-web-app-sign-user-overview.md) scenar
 
 The following Microsoft libraries support web apps:
 
-[!INCLUDE [active-directory-develop-libraries-webapp](../../../includes/active-directory-develop-libraries-webapp.md)]
+[!INCLUDE [active-directory-develop-libraries-webapp](./includes/libraries/libraries-webapp.md)]
 
 Select the tab for the platform you're interested in:
 

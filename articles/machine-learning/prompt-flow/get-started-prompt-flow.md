@@ -61,7 +61,7 @@ Runtime serves as the computing resources required for the application to run, i
 
 In this article, we recommend creating a runtime from Compute Instance. If you're a subscription owner or resource group owner, you have all the permissions needed. If not, first go [ask your subscription owner or resource group owner to grant you permissions](how-to-create-manage-runtime.md#grant-sufficient-permissions-to-use-the-runtime).
 
-Meanwhile check if you have a Compute Instance assigned to you in the workspace. If not, follow [How to create a managed compute instance](../how-to-create-manage-compute-instance.md) to create one. A memory optimized compute is recommended.
+Meanwhile check if you have a Compute Instance assigned to you in the workspace. If not, follow [How to create a managed compute instance](../how-to-create-compute-instance.md) to create one. A memory optimized compute is recommended.
 
 Once you have your Compute Instance running, you can start to create a runtime. Go to **Runtime** tab, select **Create**.
 

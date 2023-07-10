@@ -16,7 +16,7 @@ ms.custom: sdkv2
 
 # Access data from Azure cloud storage during interactive development
 
-[!INCLUDE [sdk v2](../../includes/machine-learning-sdk-v2.md)]
+[!INCLUDE [sdk v2](includes/machine-learning-sdk-v2.md)]
 
 Typically the beginning of a machine learning project involves exploratory data analysis (EDA), data-preprocessing (cleaning, feature engineering), and building prototypes of ML models to validate hypotheses. This *prototyping* phase of the project is highly interactive in nature that lends itself to developing in a Jupyter notebook or an IDE with a *Python interactive console*. In this article you'll learn how to:
 
@@ -32,7 +32,7 @@ Typically the beginning of a machine learning project involves exploratory data 
 * An Azure Machine Learning Datastore. For more information, see [Create datastores](how-to-datastore.md).
 
 > [!TIP]
-> The guidance in this article to access data during interactive development applies to any host that can run a Python session - for example: your local machine, a cloud VM, a GitHub Codespace, etc. We recommend using an Azure Machine Learning compute instance - a fully managed and pre-configured cloud workstation. For more information, see [Create and manage an Azure Machine Learning compute instance](how-to-create-manage-compute-instance.md).
+> The guidance in this article to access data during interactive development applies to any host that can run a Python session - for example: your local machine, a cloud VM, a GitHub Codespace, etc. We recommend using an Azure Machine Learning compute instance - a fully managed and pre-configured cloud workstation. For more information, see [Create an Azure Machine Learning compute instance](how-to-create-compute-instance.md).
 
 > [!IMPORTANT]
 > Ensure you have the latest `azure-fsspec` and `mltable` python libraries installed in your python environment:

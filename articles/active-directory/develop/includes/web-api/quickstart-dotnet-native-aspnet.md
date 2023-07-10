@@ -36,7 +36,7 @@ The code sample can be obtained in two ways:
 
 * [Download it as a ZIP file](https://github.com/AzureADQuickStarts/AppModelv2-NativeClient-DotNet/archive/complete.zip).
 
-[!INCLUDE [active-directory-develop-path-length-tip](../../../../../includes/active-directory-develop-path-length-tip.md)]
+[!INCLUDE [active-directory-develop-path-length-tip](../error-handling-and-tips/path-length-tip.md)]
 
 ## Register the web API (TodoListService)
 
@@ -136,7 +136,7 @@ Start both projects. For Visual Studio users;
 
 1. For both projects choose **Start** as the action
 
-1. Ensure the TodoListService service starts first by moving it to the fist position in the list, using the up arrow.
+1. Ensure the TodoListService service starts first by moving it to the first position in the list, using the up arrow.
 
 Sign in to run your TodoListClient project.
 
@@ -169,7 +169,7 @@ By default, any personal accounts, such as *outlook.com* or *live.com* accounts,
 
 To specify who can sign in to your application, by changing the `TenantId` property in the *appsettings.json* file.
 
-[!INCLUDE [Help and support](../../../../../includes/active-directory-develop-help-support-include.md)]
+[!INCLUDE [Help and support](../error-handling-and-tips/help-support-include.md)]
 
 ## Next steps
 

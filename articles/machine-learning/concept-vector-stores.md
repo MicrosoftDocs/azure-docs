@@ -15,7 +15,7 @@ ms.topic: conceptual
 
 # Vector stores in Azure Machine Learning
 
-[!INCLUDE [machine-learning-preview-generic-disclaimer](../../includes/machine-learning-preview-generic-disclaimer.md)]
+[!INCLUDE [machine-learning-preview-generic-disclaimer](includes/machine-learning-preview-generic-disclaimer.md)]
 
 This concept article helps you use a vector index in Azure Machine Learning for performing Retrieval Augmented Generation. A vector index stores embeddings, which are numerical representations of concepts (data) converted to number sequences, which enable LLMs to understand the relationships between those concepts. Creating vector stores helps you to hook up your data with an LLM and retrieve the data efficiently.
 

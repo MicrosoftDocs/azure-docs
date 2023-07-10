@@ -10,7 +10,6 @@ ms.topic: how-to
 ms.date: 06/06/2023
 ms.author: pauljewell
 ms.reviewer: dineshm
-ms.subservice: blobs
 ms.devlang: python
 ms.custom: devx-track-python, devguide-python
 ---
