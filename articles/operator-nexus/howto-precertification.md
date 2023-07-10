@@ -80,7 +80,7 @@ To ensure an efficient and effective onboarding process for the partner there ar
      - SR-IOV
      - DPDK
    - Review `cloudinit` support for VM based network functions
-   - Microsoft AKS-Hybrid support for tenant workloads, CNI versions for Calico and Cultus
+   - Tenant Kubernetes cluster support for tenant workloads, CNI versions for Calico and Cultus
 
    b. The Operator Nexus platform includes a managed fabric automation service. With an agreement from the partner regarding the network function requirements, Microsoft will engage with the partner and review:
 
@@ -97,7 +97,7 @@ To ensure an efficient and effective onboarding process for the partner there ar
 3. On reviewing the requirements (2a – 2d) and prior to smoke testing, Microsoft will work with the partners to define Azure Resource Manager (ARM) templates:
 
    - for network fabric automation components – L2/L3 isolation-domains, L3 route policies if any for the end-to-end test set-up
-   - for AKS-Hybrid (CNF), VM instance (VNF), workload networks and management networks that describe subcluster networking
+   - for Kubernetes cluster (CNF), VM instance (VNF), workload networks and management networks that describe subcluster networking
    - onboard the helm charts and images to ANFM service and create a vendor image version for deployment into precert lab
    - for deployment of NFs using ANFM with the user data container pods/ VMs configuration properties
    - for deployment of NEP specific config management application
@@ -107,7 +107,7 @@ To ensure an efficient and effective onboarding process for the partner there ar
 
 As a part of technical engagement, the documents that Microsoft will provide to the partner are:
 
-- Operator Nexus runtime specification document and the Azure Resource Manager (ARM) API specification document for creating AKS-Hybrid clusters (CNFs) and VM instances (VNFs) on an Operator Nexus cluster
+- Operator Nexus runtime specification document and the Azure Resource Manager (ARM) API specification document for creating Kubernetes clusters (CNFs) and VM instances (VNFs) on an Operator Nexus cluster
 - Azure Resource Manager API specification document for creating fabric automation components that are required for tenant networking.
 - ARM API specification document for onboarding to ANFM service. The specification will also define the customer facing APIs for deployment of network functions using the ANFM service.
 
@@ -137,7 +137,7 @@ performed by the partners and results reviewed by Microsoft:
 1. Verify that the resources in the ARM template, corresponding to the tenant
    cluster definition, include:
 
-    - AKS-Hybrid cluster/ VM instance
+    - Kubernetes cluster/ VM instance
     - managed fabric resources for isolation-domain and L3 route policies
     - workload networks and management network resources for Kubernetes networks/ VM networks
 
@@ -155,13 +155,13 @@ To validate the internal routing,
    deploy the test tool application inside the Operator Nexus cluster.
 To test the routing across the CE, based on the  application characteristics,
    deploy the test tool application outside the Operator Nexus cluster.
-8. Azure PaaS integration (optional): Microsoft precert environment will be
+1. Azure PaaS integration (optional): Microsoft precert environment will be
    connected to an Azure region using ExpressRoute. The NEP partner can also integrate
    Azure PaaS services with their application. They can verify that the PaaS functionality is working as designed.
-1. After testing is complete, delete NF resources
+2. After testing is complete, delete NF resources
    in the ANFM service and verify that the container pods are removed from the
    subcluster.
-1. Verify all the tenant cluster and fabric components are deleted. Validate that deleting the network fabric
+3. Verify all the tenant cluster and fabric components are deleted. Validate that deleting the network fabric
     resources removes the corresponding configuration on the Network
     devices.
 

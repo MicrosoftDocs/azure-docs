@@ -64,7 +64,7 @@ Storage Appliances represent storage arrays used for persistent data storage in 
 ### Bare Metal Machine
 
 Bare Metal Machines represent the physical servers in a rack. They're lifecycle managed by the Cluster Manager.
-Bare Metal Machines are used by workloads to host Virtual Machines and AKS-Hybrid clusters.
+Bare Metal Machines are used by workloads to host Virtual Machines and Kubetnetes clusters.
 
 ## Workload components
 
@@ -72,7 +72,7 @@ Workload components are resources that you use in hosting your workloads.
 
 ### Network resources
 
-The Network resources represent the virtual networking in support of your workloads hosted on  VMs or AKS-Hybrid clusters. 
+The Network resources represent the virtual networking in support of your workloads hosted on VMs or Kubernetes clusters. 
 There are five Network resource types that represent a network attachment to an underlying isolation-domain. 
 
 - **Cloud Services Network Resource**: provides VMs/Kubernetes clusters access to cloud services such as DNS, NTP, and user-specified Azure PaaS services. You must create at least one Cloud Services Network (CSN) in each of your Operator Nexus instances. Each CSN can be reused by many VMs and/or tenant clusters.
@@ -89,4 +89,4 @@ You can use VMs to host your Virtualized Network Function (VNF) workloads.
 
 ### Nexus Kubernetes cluster
 
-Nexus Kubernetes cluster is Azure Kubernetes Service cluster modified to run on your on-premises Operator Nexus instance. The AKS-Hybrid cluster is designed to host your Containerized Network Function (CNF) workloads.
+Nexus Kubernetes cluster is Azure Kubernetes Service cluster modified to run on your on-premises Operator Nexus instance. The Nexus Kubernetes cluster is designed to host your Containerized Network Function (CNF) workloads.

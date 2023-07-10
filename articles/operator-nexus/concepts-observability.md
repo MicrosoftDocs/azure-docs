@@ -66,9 +66,9 @@ You can also collect data from the tenant layers
 created for running Containerized and Virtualized Network Functions. The log data that can be collected includes:
 
 * Collection of syslog from Virtual Machines (used for either VNFs or CNF workloads).
-* Collection of logs from AKS-Hybrid clusters and the applications deployed on top.
+* Collection of logs from Kubernetes clusters and the applications deployed on top.
 
-You'll need to enable the collection of the logs from the tenant AKS-Hybrid clusters and Virtual Machines.
+You'll need to enable the collection of the logs from the tenant Kubernetes clusters and Virtual Machines.
 You should follow the steps to deploy the [Azure monitoring agents](../azure-monitor/agents/agents-overview.md#install-the-agent-and-configure-data-collection). The data would be collected in your Azure LAW.
 
 ### Operator Nexus Logs storage
