@@ -5,7 +5,7 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: seodec18, devx-track-azurecli, devx-track-go
 ms.devlang: golang
-ms.date: 06/23/2022
+ms.date: 07/10/2023
 ---
 
 # HDInsight SDK for Go (Preview)

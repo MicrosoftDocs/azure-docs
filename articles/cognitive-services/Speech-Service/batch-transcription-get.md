@@ -43,8 +43,8 @@ You should receive a response body in the following format:
   },
   "properties": {
     "diarizationEnabled": false,
-    "wordLevelTimestampsEnabled": true,
-    "displayFormWordLevelTimestampsEnabled": false,
+    "wordLevelTimestampsEnabled": false,
+    "displayFormWordLevelTimestampsEnabled": true,
     "channels": [
       0,
       1
@@ -98,8 +98,8 @@ You should receive a response body in the following format:
   },
   "properties": {
     "diarizationEnabled": false,
-    "wordLevelTimestampsEnabled": true,
-    "displayFormWordLevelTimestampsEnabled": false,
+    "wordLevelTimestampsEnabled": false,
+    "displayFormWordLevelTimestampsEnabled": true,
     "channels": [
       0,
       1
@@ -285,9 +285,9 @@ The contents of each transcription result file are formatted as JSON, as shown i
 ```json
 {
   "source": "...",
-  "timestamp": "2022-09-16T09:30:21Z",  
-  "durationInTicks": 41200000,
-  "duration": "PT4.12S",
+  "timestamp": "2023-07-10T14:28:16Z",
+  "durationInTicks": 25800000,
+  "duration": "PT2.58S",
   "combinedRecognizedPhrases": [
     {
       "channel": 0,
@@ -300,39 +300,62 @@ The contents of each transcription result file are formatted as JSON, as shown i
   "recognizedPhrases": [
     {
       "recognitionStatus": "Success",
-      "speaker": 1,
       "channel": 0,
-      "offset": "PT0.07S",
-      "duration": "PT1.59S",
-      "offsetInTicks": 700000.0,
-      "durationInTicks": 15900000.0,
-
+      "offset": "PT0.76S",
+      "duration": "PT1.32S",
+      "offsetInTicks": 7600000.0,
+      "durationInTicks": 13200000.0,
       "nBest": [
         {
-          "confidence": 0.898652852,
+          "confidence": 0.5643338,
           "lexical": "hello world",
           "itn": "hello world",
           "maskedITN": "hello world",
           "display": "Hello world.",
-
-          "words": [
+          "displayWords": [
             {
-              "word": "hello",
-              "offset": "PT0.09S",
-              "duration": "PT0.48S",
-              "offsetInTicks": 900000.0,
-              "durationInTicks": 4800000.0,
-              "confidence": 0.987572
+              "displayText": "Hello",
+              "offset": "PT0.76S",
+              "duration": "PT0.76S",
+              "offsetInTicks": 7600000.0,
+              "durationInTicks": 7600000.0
             },
             {
-              "word": "world",
-              "offset": "PT0.59S",
-              "duration": "PT0.16S",
-              "offsetInTicks": 5900000.0,
-              "durationInTicks": 1600000.0,
-              "confidence": 0.906032
+              "displayText": "world.",
+              "offset": "PT1.52S",
+              "duration": "PT0.56S",
+              "offsetInTicks": 15200000.0,
+              "durationInTicks": 5600000.0
             }
           ]
+        },
+        {
+          "confidence": 0.1769063,
+          "lexical": "helloworld",
+          "itn": "helloworld",
+          "maskedITN": "helloworld",
+          "display": "helloworld"
+        },
+        {
+          "confidence": 0.49964225,
+          "lexical": "hello worlds",
+          "itn": "hello worlds",
+          "maskedITN": "hello worlds",
+          "display": "hello worlds"
+        },
+        {
+          "confidence": 0.4995761,
+          "lexical": "hello worm",
+          "itn": "hello worm",
+          "maskedITN": "hello worm",
+          "display": "hello worm"
+        },
+        {
+          "confidence": 0.49418187,
+          "lexical": "hello word",
+          "itn": "hello word",
+          "maskedITN": "hello word",
+          "display": "hello word"
         }
       ]
     }
@@ -348,7 +371,7 @@ Depending in part on the request parameters set when you created the transcripti
 |`combinedRecognizedPhrases`|The concatenated results of all phrases for the channel.|
 |`confidence`|The confidence value for the recognition.|
 |`display`|The display form of the recognized text. Added punctuation and capitalization are included.|
-|`displayPhraseElements`|A list of results with display text for each word of the phrase. The `displayFormWordLevelTimestampsEnabled` request property must be set to `true`, otherwise this property is not present.<br/><br/>**Note**: This property is only available with Speech to text REST API version 3.1.|
+|`displayWords`|The timestamps for each word of the transcription. The `displayFormWordLevelTimestampsEnabled` request property must be set to `true`, otherwise this property is not present.<br/><br/>**Note**: This property is only available with Speech to text REST API version 3.1.|
 |`duration`|The audio duration. The value is an ISO 8601 encoded duration.|
 |`durationInTicks`|The audio duration in ticks (1 tick is 100 nanoseconds).|
 |`itn`|The inverse text normalized (ITN) form of the recognized text. Abbreviations such as "Doctor Smith" to "Dr Smith", phone numbers, and other transformations are applied.|

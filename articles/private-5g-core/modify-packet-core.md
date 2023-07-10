@@ -32,24 +32,30 @@ If you want to modify a packet core instance's local access configuration, follo
 
 ## Plan a maintenance window
 
-The following modifications will trigger a packet core reinstall, during which your service will be unavailable:
+The following changes will trigger components of the packet core software to restart, during which your service will be unavailable for approximately 8-12 minutes:
 
 - Attaching a new or existing data network to the packet core instance.
+- Changing the following configuration on an attached data network:
+  - Dynamic UE IP pool prefixes
+  - Static UE IP pool prefixes
+  - Network address and port translation parameters
+  - DNS addresses
+
+The following changes will trigger the packet core to reinstall, during which your service will be unavailable for up to two hours:
+
 - Detaching a data network from the packet core instance.
 - Changing the packet core instance's custom location.
+- Changing the N2, N3 or N6 interface configuration on an attached data network.
 
-Additionally, the following changes don't trigger a packet core reinstall, but will require you to manually perform a reinstall to allow the new configuration to take effect:
+The following changes require you to manually perform a reinstall, during which your service will be unavailable for up to two hours, before they take effect:
 
-- Modifying the access network configuration.
-- Modifying an attached data network's configuration.
+- Changing access network configuration.
 
-If you're making any of these changes to a healthy packet core instance, we recommend running this process during a maintenance window to minimize the impact on your service. You should allow up to two hours for the process to complete.
-
-If your packet core instance is in **Uninstalled**, **Uninstalling** or **Failed** state, or if you're connecting an ASE device for the first time, you won't need a packet core reinstall after making your changes. In this case, you can skip the next step and move to [Select the packet core instance to modify](#select-the-packet-core-instance-to-modify).
+If you're making any of these changes to a healthy packet core instance, we recommend running this process during a maintenance window to minimize the impact on your service. Changes not listed here should not trigger a service interruption, but we recommend using a maintenance window in case of misconfiguration.
 
 ## Back up deployment information
 
-The following list contains the data that will be lost over a packet core reinstall. If you're making a change that requires a reinstall, back up any information you'd like to preserve; after the reinstall, you can use this information to reconfigure your packet core instance.
+The following list contains the data that will be lost over a packet core reinstall. If you're making a change that requires a reinstall, back up any information you'd like to preserve; after the reinstall, you can use this information to reconfigure your packet core instance. If your packet core instance is in **Uninstalled**, **Uninstalling** or **Failed** state, or if you're connecting an ASE device for the first time, you can skip this step and proceed to [Select the packet core instance to modify](#select-the-packet-core-instance-to-modify).
 
 1. Depending on your authentication method when signing in to the [distributed tracing](distributed-tracing.md) and [packet core dashboards](packet-core-dashboards.md):
     - If you use Azure AD, save a copy of the Kubernetes Secret Object YAML file you created in [Create Kubernetes Secret Objects](enable-azure-active-directory.md#create-kubernetes-secret-objects).

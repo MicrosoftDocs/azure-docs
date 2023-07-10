@@ -13,12 +13,13 @@ ms.author: eur
 |Chinese (Mandarin, Simplified)|`zh-CN`|
 |English (Australia)|`en-AU`|
 |English (Canada)|`en-CA` |
-|English (India)|`en-IN`<sup>1</sup> |
+|English (India)|`en-IN` |
 |English (United Kingdom)|`en-GB`|
 |English (United States)|`en-US`|  
 |French (Canada)|`fr-CA`<sup>1</sup> | 
 |French (France)|`fr-FR`|  
 |German (Germany)|`de-DE`|
+|Italian (Italy)|`it-IT`<sup>1</sup>|
 |Japanese (Japan)|`ja-JP`|
 |Korean (Korea)|`ko-KR`<sup>1</sup>|
 |Malay (Malaysia)|`ms-MY`<sup>1</sup>|
