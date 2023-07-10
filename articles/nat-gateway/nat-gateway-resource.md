@@ -16,7 +16,7 @@ This article describes the key components of the NAT gateway resource that enabl
 
 ## NAT Gateway architecture
 
-NAT Gateway leverages software defined networking to operate as a distributed and fully managed service. Because NAT gateway has multiple fault domains, it is able to withstand multiple failures without any impact to the service.
+NAT Gateway uses software defined networking to operate as a distributed and fully managed service. Because NAT gateway has multiple fault domains, it's able to withstand multiple failures without any effect to the service.
 
 NAT gateway provides source network address translation (SNAT) for private instances within subnets of your Azure virtual network. When configured on a subnet, the private IPs within your subnets SNAT to NAT gateway's static public IP addresses to connect outbound to the internet. NAT gateway also provides destination network address translation (DNAT) for response packets to an outbound originated connection only.
 
@@ -24,7 +24,7 @@ NAT gateway provides source network address translation (SNAT) for private insta
 
 *Figure: NAT gateway for outbound to internet*
 
-When a NAT gateway is attached to a subnet within a virtual network, the NAT gateway assumes the subnet’s default next hop type for all outbound traffic directed to the internet. No additional routing configurations are required. NAT gateway does not provide unsolicited inbound connections from the internet. DNAT is only performed for packets that arrive as a response to an outbound packet.
+When a NAT gateway is attached to a subnet within a virtual network, the NAT gateway assumes the subnet’s default next hop type for all outbound traffic directed to the internet. No extra routing configurations are required. NAT gateway doesn't provide unsolicited inbound connections from the internet. DNAT is only performed for packets that arrive as a response to an outbound packet.
 
 ## Subnets
 
@@ -51,7 +51,7 @@ A NAT gateway can be associated with static public IP addresses or public IP pre
 
 ## SNAT ports
 
-SNAT port inventory is provided by the public IP addresses, public IP prefixes or both attached to NAT gateway. SNAT port inventory is made available on-demand to all instances within a subnet attached to NAT gateway. No pre-allocation of SNAT ports per instance is required.
+SNAT port inventory is provided by the public IP addresses, public IP prefixes or both attached to NAT gateway. SNAT port inventory is made available on-demand to all instances within a subnet attached to NAT gateway. No preallocation of SNAT ports per instance is required.
 
 For more information about SNAT ports and Azure NAT Gateway, see [Source Network Address Translation (SNAT) with Azure NAT Gateway](nat-gateway-resource.md).
 
@@ -69,7 +69,7 @@ A NAT gateway can be created in a specific availability zone or placed in **no z
 
 Zone redundant public IP addresses can be used with no zone NAT gateway resources.
 
-It is recommended that NAT gateway be configured to individual availability zones and attached to subnets with private instances from the same zone. For more information about availability zones and Azure NAT Gateway, see [Availability zones design considerations] (/azure/nat-gateway/nat-availability-zones#design-considerations) for more information.
+The recommendation is to configure the NAT gateway to individual availability zones. Additionally, it should be attached to subnets with private instances from the same zone. For more information about availability zones and Azure NAT Gateway, see [Availability zones design considerations] (/azure/nat-gateway/nat-availability-zones#design-considerations).
 
 After NAT gateway is deployed, the zone selection can't be changed.
 
@@ -79,23 +79,23 @@ NAT gateway interacts with IP and IP transport headers of UDP and TCP flows. NAT
 
 ## TCP reset
 
-A TCP reset packet is sent when NAT gateway detects traffic on a connection flow that does not exist. TCP reset is uni-directional for NAT gateway.
+A TCP reset packet is sent when NAT gateway detects traffic on a connection flow that doesn't exist. TCP reset is uni-directional for NAT gateway.
 
 The connection flow may not exist if:
 
 * The connection flow idle timeout was reached and caused the connection to close earlier.
 
-* The sender, either from the Azure network side or from the public internet side, sent traffic after the connection had closed.
+* The sender, either from the Azure network side or from the public internet side, sent traffic after the connection closed.
 
-NAT gateway silently drops a connection flow when the idle timeout of a flow is reached. A TCP reset packet will be sent only upon detecting traffic on the closed connection flow. This means a TCP reset packet may not be sent right away.
+NAT gateway silently drops a connection flow when the idle timeout of a flow is reached. A TCP reset packet is sent only upon detecting traffic on the closed connection flow. This operation means a TCP reset packet may not be sent right away.
 
-A TCP reset packet is sent in response to traffic detected on a non-existing connection flow regardless of whether the traffic is sent from the Azure network side or from the public internet side.
+The system sends a TCP reset packet in response to detecting traffic on a nonexisting connection flow, regardless of whether the traffic originates from the Azure network side or the public internet side.
 
 ## TCP idle timeout
 
-NAT gateway provides a configurable idle timeout range of 4 minutes to 120 minutes for TCP protocols. UDP protocols have a non-configurable idle timeout of 4 minutes.
+NAT gateway provides a configurable idle timeout range of 4 minutes to 120 minutes for TCP protocols. UDP protocols have a nonconfigurable idle timeout of 4 minutes.
 
-When a connection goes idle, NAT gateway holds onto SNAT ports until the connection idle times out. Because long idle timeout timers can unnecessarily increase the likelihood of SNAT port exhaustion, it isn't recommended to increase the TCP idle timeout duration to longer than the default time of 4 minutes. If a flow never goes idle, then it is not impacted by the idle timer.
+When a connection goes idle, NAT gateway holds onto SNAT ports until the connection idle times out. Because long idle timeout timers can unnecessarily increase the likelihood of SNAT port exhaustion, it isn't recommended to increase the TCP idle timeout duration to longer than the default time of 4 minutes. The idle timer doesn't affect a flow that never goes idle.
 
 TCP keepalives can be used to provide a pattern of refreshing long idle connections and endpoint liveness detection. For more information, see these [.NET examples] (/dotnet/api/system.net.servicepoint.settcpkeepalive?view=net-7.0). TCP keepalives appear as duplicate ACKs to the endpoints, are low overhead, and invisible to the application layer.
 
@@ -131,7 +131,7 @@ For UDP traffic, after a connection closes, the port is in hold down for 65 seco
 
 Design recommendations for configuring timers:
 
-- In an idle connection scenario, NAT gateway holds onto SNAT ports until the connection idle times out. Because long idle timeout timers can unnecessarily increase the likelihood of SNAT port exhaustion, it isn't recommended to increase the TCP idle timeout duration to longer than the default time of 4 minutes. If a flow never goes idle, then it is not impacted by the idle timer.
+- In an idle connection scenario, NAT gateway holds onto SNAT ports until the connection idle times out. Because long idle timeout timers can unnecessarily increase the likelihood of SNAT port exhaustion, it isn't recommended to increase the TCP idle timeout duration to longer than the default time of 4 minutes. The idle timer doesn't affect a flow that never goes idle.
 
 - TCP keepalives can be used to provide a pattern of refreshing long idle connections and endpoint liveness detection. TCP keepalives appear as duplicate ACKs to the endpoints, are low overhead, and invisible to the application layer.
 
@@ -145,7 +145,7 @@ Each NAT gateway can provide up to 50 Gbps of throughput. This data throughput i
 
 NAT gateway can support up to 50,000 concurrent connections per public IP address **to the same destination endpoint** over the internet for TCP and UDP. NAT gateway can process 1M packets per second and scale up to 5M packets per second.
 
-The total number of connections that NAT gateway can support at any given time is up to 2 million. While it is possible that NAT gateway can exceed 2 million connections, you have increased risk of connection failures.
+The total number of connections that NAT gateway can support at any given time is up to 2 million. While it's possible that NAT gateway can exceed 2 million connections, you have increased risk of connection failures.
 
 ## Limitations
 
@@ -159,7 +159,7 @@ The total number of connections that NAT gateway can support at any given time i
 
 - IP fragmentation isn't available for NAT gateway.
 
-- NAT gateway does not support Public IP addresses with routing configuration type "internet". To see a list of Azure services that do support routing configuration type "internet" on public IPs, see [supported services for routing over the public internet](/azure/virtual-network/ip-services/routing-preference-overview#supported-services).
+- NAT gateway doesn't support Public IP addresses with routing configuration type **internet**. To see a list of Azure services that do support routing configuration **internet** on public IPs, see [supported services for routing over the public internet](/azure/virtual-network/ip-services/routing-preference-overview#supported-services).
 
 ## Next steps
 
