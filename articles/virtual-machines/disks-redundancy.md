@@ -5,8 +5,7 @@ author: roygara
 ms.author: rogarana
 ms.date: 05/05/2023
 ms.topic: how-to
-ms.service: storage
-ms.subservice: disks
+ms.service: azure-disk-storage
 ms.custom: references_regions
 ---
 

@@ -28,6 +28,10 @@ Update management center (preview) uses maintenance control schedule instead of 
 	> [!Note]
 	> If you set the patch mode to Azure orchestrated (AutomaticByPlatform) but do not enable the **BypassPlatformSafetyChecksOnUserSchedule** flag and do not attach a maintenance configuration to an Azure machine, it is treated as [Automatic Guest patching](../virtual-machines/automatic-vm-guest-patching.md) enabled machine and Azure platform will automatically install updates as per its own schedule. [Learn more](./overview.md#prerequisites).
 
+## Schedule patching in an availability set
+
+1. All VMs in a common [availability set](../virtual-machines/availability-set-overview.md) aren't updated concurrently.
+1. VMs in a common availability set are updated within Update Domain boundaries and, VMs across multiple Update Domains aren't updated concurrently.
 
 ## Schedule recurring updates on single VM
 

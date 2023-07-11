@@ -17,7 +17,7 @@ In this article, you will learn how to generate a refresh token. The following a
   1. Register your app with Azure AD.
   2. Get authorization.
   3. Get a refresh token.
- 
+
 ## Register your app with Azure AD
 To use the Azure Data Manager for Energy platform endpoint, you must register your app using the [Azure app registration portal](https://go.microsoft.com/fwlink/?linkid=2083908). You can use either a Microsoft account or a work or school account to register an app.
 

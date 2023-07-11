@@ -16,7 +16,7 @@ ms.custom: aaddev, devx-track-dotnet
 ---
 # Handle errors and exceptions in MSAL.NET
 
-[!INCLUDE [Active directory error handling introduction](../../../includes/active-directory-develop-error-handling-introduction.md)]
+[!INCLUDE [Active directory error handling introduction](./includes/error-handling-and-tips/error-handling-introduction.md)]
 
 ## Error handling in MSAL.NET
 
@@ -130,13 +130,13 @@ catch (MsalUiRequiredException ex) when (ex.ErrorCode == MsalError.InvalidGrantE
  }
 }
 ```
-[!INCLUDE [Active directory error handling claims challenges](../../../includes/active-directory-develop-error-handling-claims-challenges.md)]
+[!INCLUDE [Active directory error handling claims challenges](./includes/error-handling-and-tips/error-handling-claims-challenges.md)]
 
 When calling an API requiring Conditional Access from MSAL.NET, your application will need to handle claim challenge exceptions. This will appear as an [MsalServiceException](/dotnet/api/microsoft.identity.client.msalserviceexception) where the [Claims](/dotnet/api/microsoft.identity.client.msalserviceexception.claims) property won't be empty.
 
 To handle the claim challenge, you'll need to use the `.WithClaim()` method of the [`PublicClientApplicationBuilder`](/dotnet/api/microsoft.identity.client.publicclientapplicationbuilder) class.
 
-[!INCLUDE [Active directory error handling retries](../../../includes/active-directory-develop-error-handling-retries.md)]
+[!INCLUDE [Active directory error handling retries](./includes/error-handling-and-tips/error-handling-retries.md)]
 
 ### HTTP error codes 500-600
 

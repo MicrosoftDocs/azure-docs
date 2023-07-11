@@ -65,11 +65,12 @@ Next, set up Postman:
 
        :::image type="content" source="media/tutorial-wellbore-ddms/postman-import-files.png" alt-text="Screenshot that shows importing collection and environment files in Postman."  lightbox="media/tutorial-wellbore-ddms/postman-import-files.png":::
   
-1. In the Postman environment, update **CURRENT VALUE** with the information from your [Azure Data Manager for Energy instance details](#get-your-azure-data-manager-for-energy-instance-details).
+1. In the Postman environment, update **CURRENT VALUE** with the information from your Azure Data Manager for Energy instance details
 
    1. In Postman, in the left menu, select **Environments**, and then select **Wellbore DDMS Environment**.
 
-   1. In the **CURRENT VALUE** column, enter the information that's described in the table in [Get your Azure Data Manager for Energy instance details](#get-your-azure-data-manager-for-energy-instance-details).
+   1. In the **CURRENT VALUE** column, enter the information that's described in the table in 'Get your Azure Data Manager for Energy instance details'.
+
 
    :::image type="content" source="media/tutorial-wellbore-ddms/postman-environment-current-values.png" alt-text="Screenshot that shows where to enter current values in the Wellbore DDMS environment.":::
 

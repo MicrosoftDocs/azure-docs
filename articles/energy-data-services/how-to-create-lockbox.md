@@ -43,9 +43,6 @@ To track and approve a request to access customer data, follow these steps:
 
 
 5.	To approve the lockbox request from portal, you can select Approve.
- 
-[![Screenshot of approve or deny a lockbox request.](media/how-to-create-lockbox/approve-deny-lockbox.png)](media/how-to-create-lockbox/approve-deny-lockbox.png#lightbox)
-
 6.	Once the request is approved, the AKS clusters are accessible in the support session.
 7.	The support engineer restarts the AKS cluster to resolve the issue and then disables the support session or the session will expire in 4 to 8 hours.
 

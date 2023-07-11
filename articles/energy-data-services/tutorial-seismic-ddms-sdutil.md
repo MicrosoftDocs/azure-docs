@@ -36,7 +36,7 @@ Unix/Mac
 - [64-bit Python 3.8.3](https://www.python.org/ftp/python/3.8.3/Python-3.8.3.tgz)
 - Apple Xcode C++ Build Tools
 
-The utility requires other modules noted in [requirements.txt](https://community.opengroup.org/osdu/platform/domain-data-mgmt-services/seismic/seismic-dms-suite/seismic-store-sdutil/-/blob/azure/stable/requirements.txt). You could either install the modules as is or install them in virtualenv to keep your host clean from package conflicts. If you don't want to install them in a virtual environment, skip the four virtual environment commands below. Additionally, if you are using Mac instead of Ubuntu or WSL - Ubuntu 20.04, either use `homebrew` instead of `apt-get` as your package manager, or manually install `apt-get`.
+The utility requires other modules noted in requirements.txt. You could either install the modules as is or install them in virtualenv to keep your host clean from package conflicts. If you don't want to install them in a virtual environment, skip the four virtual environment commands below. Additionally, if you are using Mac instead of Ubuntu or WSL - Ubuntu 20.04, either use `homebrew` instead of `apt-get` as your package manager, or manually install `apt-get`.
 
 ```bash
   # check if virtualenv is already installed
@@ -66,7 +66,7 @@ Install required dependencies:
 
 ### Configuration
 
-1. Clone the [sdutil repository](https://community.opengroup.org/osdu/platform/domain-data-mgmt-services/seismic/seismic-dms-suite/seismic-store-sdutil/-/tree/azure/stable) from the community Azure Stable branch and open in your favorite editor.
+1. Clone the [sdutil repository](https://community.opengroup.org/osdu/platform/domain-data-mgmt-services/seismic/home/-/tree/master) from the community Azure Stable branch and open in your favorite editor.
 
 2. Replace the contents of `config.yaml` in the `sdlib` folder with the following yaml and fill in the three templatized values (two instances of `<meds-instance-url>` and one `<put refresh token here...>`):
 

@@ -6,7 +6,7 @@ author: dcurwin
 ms.author: dacurwin
 ms.custom: ignite-2022, devx-track-azurecli
 zone_pivot_groups: k8s-host
-ms.date: 06/14/2023
+ms.date: 06/29/2023
 ---
 
 # Enable Microsoft Defender for Containers
@@ -73,9 +73,9 @@ A full list of supported alerts is available in the [reference table of all Defe
     kubectl get pods --namespace=asc-alerttest-662jfi039n
     ```
 
-    The expected response is "No resource found".
+    The expected response is `No resource found`.
 
-    Within 30 minutes, Defender for Cloud will detect this activity and trigger a security alert.
+    Within 30 minutes, Defender for Cloud detects this activity and trigger a security alert.
 
 1. In the Azure portal, open Microsoft Defender for Cloud's security alerts page and look for the alert on the relevant resource:
 
