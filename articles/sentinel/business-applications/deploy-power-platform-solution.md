@@ -45,11 +45,14 @@ The Microsoft Sentinel Solution for Power Platform ingests and cross-correlates 
 - You can create [Data Collection Rules/Endpoints](/azure/azure-monitor/essentials/data-collection-rule-overview) with the permissions to: 
     - `Microsoft.Insights/DataCollectionEndpoints`, and `Microsoft.Insights/DataCollectionRules`.
     - Assign the Monitoring Metrics Publisher role to the Azure Function. 
-
+- Audit logging is enabled in Microsoft Purview. For more information, see [Turn auditing on or off for Microsoft Purview](/microsoft-365/compliance/audit-log-enable-disable)
+- For the Power Platform inventory connector, have the following resources and configurations set up.
+   - Storage account to use with Azure Data Lake Storage Gen2. For more information see, [Create a storage account to use with Azure Data Lake Storage Gen2](/azure/storage/blobs/create-data-lake-storage-account).
+   - Blob service endpoint URL for the storage account. For more information, see [Get service endpoints for the storage account](/azure/storage/common/storage-account-get-info?tabs=portal#get-service-endpoints-for-the-storage-account).
+   - Power Platform data export process configured to use the Azure Data Lake Storage Gen2 storage account. This process can take up to 48 hours to activate. For more information, see [Set up Microsoft Power Platform self-service analytics to export Power Platform inventory and usage data](/power-platform/admin/self-service-analytics).
 <!--
 
 
-As the Power Platform connectors leverage the Microsoft Purview auditing capabilities, verify that audit logging is enabled in Microsoft Purview: Turn auditing on or off - Microsoft Purview (compliance) | Microsoft Learn
 
 Not sure if you can do all/some of this as you install the Power Platform inventory or if you should do before:
 
@@ -67,15 +70,10 @@ Install the solution from the content hub in Microsoft Sentinel by using the fol
 1. In the Azure portal, search for and select **Microsoft Sentinel**.
 1. Under **Content management**, select **Content hub**.
 1. Search for and select **Power Platform**.
-1. Select **View details**.
+1. Select **Install**.
 1. On the solution details page, select **Create**.
 1. On the **Basics** tab, enter the subscription, resource group, and workspace to deploy the solution.
 1. Select **Review + create** > **Create** to deploy the solution.
-
-## Verify audit logging is enabled for Microsoft Purview
-
-<!-- Make this a prereq? "It may take up to 60 minutes for the change to take effect." -->
-...
 
 ## Enable the data connectors
 
@@ -83,48 +81,31 @@ In Microsoft Sentinel, enable the six data connectors to collect activity logs a
 
 ### Power Platform inventory data connector
 
-Configure and connect the Power Platform inventory data connector to collect Power Apps and Power Automate inventory data.
+To collect Power Apps and Power Automate inventory data, deploy the Azure Resource Manager template to create a function app. To complete the deployment, you need the blob service URL for your the Azure Data Lake Storage Gen2 storage account. After you create the function app, grant the managed identity for the function app access to the storage account.
 
 
 1. In Microsoft Sentinel, under **Configuration**, select **Data connectors**.
-1. Search for and select **Power Platform Inventory**.
-1. Select **Open connector page**... 
+1. Search for and select **Power Platform Inventory (using Azure Functions)**.
+1. Select **Open connector page**. 
+1. Under **Configuration** > **Step 4 - Azure Resource Manager (ARM) Template**, select **Deploy to Azure**.
+1. Under **Project details**, enter the required information like the blob service endpoint URL for the storage account.
+1. Select  **Review + create** > **Create**.
+1. In the Azure portal, search for and select the Azure Data Lake Storage Gen2 storage account you created for this data connector.
+1. Select **Access Control (IAM)**.
+1. Assign the **Storage Blob Data Reader** role to the managed identity for the function app. For more information, see [How to use managed identities for App Service and Azure Functions](/azure/app-service/overview-managed-identity) and  [Assign Azure roles using the Azure portal](/azure/role-based-access-control/role-assignments-portal).
 
-<!-- More steps but unclear what need to set up before you get to this point (what's prereq). Need subscription added to preview and to use preview flag to walk through steps.-->
+### Other data connectors
 
-### Power Apps data connector
-
-Connect the data connector for Power Apps to collect Power Apps activity logs.
+Connect each of the remaining data connectors by completing the following steps.
 
 1. In Microsoft Sentinel, under **Configuration**, select **Data connectors**.
-1. Search for and select **Microsoft Power Apps (Preview)**.
+1. Search for and select the data connectors in the solution that you need to connect like **Microsoft Power Apps**.
 1. Select **Open connector page** > **Connect**.
-
-### Power Platform Connectors data connector
-
-<!-- Consider collapsing these into one section if they're as simple as connecting with no different instructions-->
-
-Connect the data connector for Power Platform  to collect Power Platform connector activity logs.
-
-1. In Microsoft Sentinel, under **Configuration**, select **Data connectors**.
-1. Search for and select **Microsoft Power Platform Connectors**.
-1. Select **Open connector page** > **Connect**.
-
-### Power Platform data loss prevention data connector
-
-Connect the data connector for Power Platform DLP to collect data loss prevention activity logs.
-
-1. In Microsoft Sentinel, under **Configuration**, select **Data connectors**.
-1. Search for and select **Microsoft Power Platform DLP**.
-1. Select **Open connector page** > **Connect**.
-
-### Dynamics 365 data connector
-
-Connect the data connector for Dynamics 365 to collect dataverse and model-driven apps activity logs.
-
-1. In Microsoft Sentinel, under **Configuration**, select **Data connectors**.
-1. Search for and select **Dynamics365**.
-1. Select **Open connector page** > **Connect**.
+1. Repeat these steps for each of the following data connectors that are apart of the Power Platform solution.
+   - **Microsoft Power Apps**
+   - **Microsoft Power Platform Connectors**
+   - **Microsoft Power Platform DLP**
+   - **Microsoft Dataverse**
 
 ## Enable auditing in your Power Platform environment
 
