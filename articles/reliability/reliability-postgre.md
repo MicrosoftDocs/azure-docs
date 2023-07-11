@@ -130,11 +130,7 @@ There are two failover modes.
 
 1. With [**planned failovers**](#failover-process---planned-downtimes) (example: During maintenance window) where the failover is triggered with a known state in which the primary connections are drained, a clean shutdown is performed before the replication is severed. You can also use this to return the primary server to your preferred AZ. 
  
-<<<<<<< HEAD
 2. With [**unplanned failover**](#failover-process---unplanned-downtimes) (example: Primary server node crash), the primary is immediately fenced and hence any in-flight transactions are lost and to be retried by the application. 
-=======
-  2. With [**unplanned failover**](#failover-process---unplanned-downtimes) (example: Primary server node crash), the primary is immediately fenced, and hence any in-flight transactions are lost and to be retried by the application. 
->>>>>>> 7de62acf60d3925e86aa9c12cbb48bd47dc70af2
 
 In both the failover modes, once the replication is severed, the standby server runs the recovery before being promoted as a primary and opens for read/write. With automatic DNS entries updated with the new primary server endpoint, applications can connect to the server using the same endpoint. A new standby server is established in the background that don’t block your application connectivity.
 
@@ -148,21 +144,13 @@ The health of primary and standby servers are continuously monitored, and approp
 
 | **Status** | **Description** |
 | ------- | ------ |
-<<<<<<< HEAD
 | **Initializing** | In the process of creating a new standby server. |
 | **Replicating Data** | After the standby is created, it is catching up with the primary. |
 | **Healthy** | Replication is in steady state and healthy. |
 | **Failing Over** | The database server is in the process of failing over to the standby. |
 | **Removing Standby** | In the process of deleting standby server. | 
 | **Not Enabled** | Zone redundant high availability is not enabled.  |
-=======
-| <b> Initializing | In creating a new standby server. |
-| <b> Replicating Data | After creating the standby, it catches up with the primary. |
-| <b> Healthy | Replication is steady and healthy. |
-| <b> Failing Over | The database server is failing over to standby. |
-| <b> Removing Standby | In deleting the standby server. | 
-| <b> Not Enabled | Zone redundant high availability is not enabled.  |
->>>>>>> 7de62acf60d3925e86aa9c12cbb48bd47dc70af2
+
 
 >[!NOTE]
 > You can enable high availability during server creation or at a later time as well. If you are enabling or disabling high availability during the post-create stage, operating when the primary server activity is low is recommended.
