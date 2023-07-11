@@ -58,6 +58,8 @@ items:
        href: sap-successfactors-integration-reference.md
      - name: Understand Workday integration 
        href: workday-integration-reference.md
+     - name: Understand API-driven inbound provisioning 
+       href: inbound-provisioning-api-concepts.md
      - name: Partner driven integrations
        href: partner-driven-integrations.md
   - name: How-to guides
@@ -117,6 +119,12 @@ items:
         href: hr-manager-update-issues.md
       - name: HR writeback issues
         href: hr-writeback-issues.md
+      - name: Insufficient access rights error
+        href: insufficient-access-rights-error-troubleshooting.md
+    - name: Troubleshoot API-driven inbound provisioning
+      items: 
+      - name: Inbound provisioning API issues
+        href: inbound-provisioning-api-issues.md
     - name: Enable accidental deletions prevention
       href: accidental-deletions.md
     - name: Automate configuration using MS Graph
@@ -141,6 +149,8 @@ items:
       href: on-premises-migrate-microsoft-identity-manager.md
     - name: Prepare AD LDS for provisioning from Azure AD
       href: on-premises-ldap-connector-prepare-directory.md
+    - name: Frequently asked questions (FAQs) about API-driven inbound provisioning 
+      href: inbound-provisioning-api-faqs.md
   - name: Resources
     items:
     - name: Support and help options for developers

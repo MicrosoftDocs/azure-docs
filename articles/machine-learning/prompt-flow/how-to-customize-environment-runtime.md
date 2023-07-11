@@ -290,7 +290,7 @@ To learn more, see [Azure Resource Manager template for custom application as Pr
 
 ## Create custom application as Prompt flow runtime via Compute instance UI
 
-Follow [this document to add custom application](../how-to-create-manage-compute-instance.md#setup-other-custom-applications).
+Follow [this document to add custom application](../how-to-create-compute-instance.md#setup-other-custom-applications).
 
 :::image type="content" source="./media/how-to-customize-environment-runtime/runtime-creation-add-custom-application-ui.png" alt-text="Screenshot of compute showing custom applications. " lightbox = "./media/how-to-customize-environment-runtime/runtime-creation-add-custom-application-ui.png":::
 
