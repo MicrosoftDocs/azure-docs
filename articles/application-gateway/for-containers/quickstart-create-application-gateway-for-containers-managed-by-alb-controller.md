@@ -58,6 +58,26 @@ az network vnet subnet create --name $albSubnetName --resource-group $vnetResour
 albSubnetId=$(az network vnet subnet show --name $albSubnetName --resource-group $vnetResourceGroup --vnet-name $vnetName --query '[id]' --output tsv)
 ```
 
+## Delegate permissions to managed identity
+ALB Controller will need the ability to provision new Application Gateway for Containers resources as well as join the subnet intended for the Application Gateway for Containres association resource.
+
+In this example, we will delegate the _AppGW for Containers Configuration Manager_ role to the resource group the managed cluster and delegate the _Network Contributor_ role to the subnet used by the Application Gateway for Containers association subnet, which contains the _Microsoft.Network/virtualNetworks/subnets/join/action_ permission.
+
+If desired, you can [create and assign a custom role](../../role-based-access-control/custom-roles-portal.md) with the _Microsoft.Network/virtualNetworks/subnets/join/action_ permission to eliminate other permissions contained in the _Network Contributor_ role. Learn more about [managing subnet permissions](../../virtual-network/virtual-network-manage-subnet.md#permissions). 
+
+```azurecli-interactive
+IDENTITY_RESOURCE_NAME='azure-alb-identity'
+
+mcResourceGroup=$(az aks show --resource-group $RESOURCE_GROUP --name $AKS_NAME --query "nodeResourceGroup" -o tsv)
+principalId="$(az identity show -g $RESOURCE_GROUP -n $IDENTITY_RESOURCE_NAME --query principalId -otsv)"
+
+# Delegate AppGw for Containers Configuration Manager role to AKS Managed Cluster RG
+az role assignment create --assignee-object-id $principalId --resource-group $mcResourceGroup --role "fbc52c3f28ad4303a8928a056630b8f1"
+
+# Delegate Network Contributor permission for join to association subnet
+az role assignment create --assignee-object-id $principalId --scope $albSubnetId --role "fbc52c3f28ad4303a8928a056630b8f1"
+```
+
 ## Create ApplicationLoadBalancer kubernetes resource
 
 1. Define the Kubernetes namespace for the ApplicationLoadBalancer resource
