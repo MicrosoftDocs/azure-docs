@@ -95,7 +95,7 @@ Administrators can investigate the Sign-in logs to find cases with **IP address 
 
 1. Azure AD authentication is successful because strict location enforcement isn't applied at the resource level.
 
-   ![Screenshot showing that a Conditional Access policy wasn't applied, because the location is excluded](./media/concept-continuous-access-evaluation-strict-enforcement/conditional-access-policy-details-authentication-success.png)
+   ![Screenshot showing that a Conditional Access policy wasn't applied because the location is excluded.](./media/concept-continuous-access-evaluation-strict-enforcement/conditional-access-policy-details-authentication-success.png)
  
 ### Resource redirect for reevaluation
 
