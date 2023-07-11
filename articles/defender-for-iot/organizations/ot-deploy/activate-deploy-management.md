@@ -27,7 +27,7 @@ Before performing the procedures in this article, you need to have:
 
 - Access to the Azure portal as a [Security Admin](../../../role-based-access-control/built-in-roles.md#security-admin), [Contributor](../../../role-based-access-control/built-in-roles.md#contributor), or [Owner](../../../role-based-access-control/built-in-roles.md#owner) user
 
-- An Defender for IoT OT plan. For more information, see [Add an OT plan to your Azure subscription](../how-to-manage-subscriptions.md#add-an-ot-plan-to-your-azure-subscription).
+- A Defender for IoT OT plan. For more information, see [Add an OT plan to your Azure subscription](../how-to-manage-subscriptions.md#add-an-ot-plan-to-your-azure-subscription).
 
     When you add a plan, you're given the option of downloading an activation file for your on-premises management console. Either use the file you'd downloaded then, or use the steps in this article to download it afresh.
 

@@ -102,7 +102,7 @@ For more information, see the [Microsoft 365 admin center documentation](/micros
 
 If you're an existing customer with a legacy OT plan, we recommend migrating your plan to a site-based Microsoft 365 plan. After you've edited your plan, make sure to update your site details with a site size that matches your Microsoft 365 license.
 
-After migrating your plan to a site-based Microsoft 365 plan, edits are supported only in the Microsoft 365 Admin center.
+After migrating your plan to a site-based Microsoft 365 plan, edits are supported only in the Microsoft 365 admin center.
 
 > [!NOTE]
 > Defender for IoT supports migration for a single subscription only. If you have multiple subscriptions, choose the one you want to migrate, and then move all sensors to that subscription before you update your plan settings.
@@ -146,7 +146,7 @@ This warning indicates you need to update the number of committed devices on the
 
 ### Move existing sensors to a different subscription
 
-If you have multiple legacy subscriptions and are migrating to an Microsoft 365 plan, you'll first need to consolidate your sensors to a single subscription. To do this, you'll need to register the sensors under the new subscription and remove them from the original subscription.
+If you have multiple legacy subscriptions and are migrating to a Microsoft 365 plan, you'll first need to consolidate your sensors to a single subscription. To do this, you'll need to register the sensors under the new subscription and remove them from the original subscription.
 
 - Devices are synchronized from the sensor to the new subscription automatically.
 
