@@ -644,7 +644,7 @@ In-process C# class library functions supports the following types:
 
 # [Extension v3.x](#tab/extensionv3/isolated-process)
 
-Requires you to define a custom type, or use a string. See the [Example section](#example) for examples of using a custom parameter type.
+[!INCLUDE [functions-bindings-event-grid-output-dotnet-isolated-types](../../includes/functions-bindings-event-grid-output-dotnet-isolated-types.md)]
 
 # [Extension v2.x](#tab/extensionv2/isolated-process)
 
