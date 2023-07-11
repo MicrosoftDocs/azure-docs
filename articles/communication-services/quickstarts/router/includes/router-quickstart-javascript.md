@@ -196,5 +196,5 @@ Read about the full set of capabilities of Azure Communication Services Job Rout
 
 <!-- LINKS -->
 
-[subscribe_events]: ../../how-tos/router-sdk/subscribe-events.md
-[offer_issued_event]: ../../how-tos/router-sdk/subscribe-events.md#microsoftcommunicationrouterworkerofferissued
+[subscribe_events]: ../../../how-tos/router-sdk/subscribe-events.md
+[offer_issued_event]: ../../../how-tos/router-sdk/subscribe-events.md#microsoftcommunicationrouterworkerofferissued
