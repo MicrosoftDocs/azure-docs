@@ -1,5 +1,5 @@
 ---
-title: How-to view and remediate runtime threat findings on Defender for Cloud
+title: How-to view and remediate runtime threat findings on Microsoft Defender for Cloud
 description: Learn how to view and remediate runtime threat findings
 ms.service: defender-for-cloud
 ms.custom: build-2023
