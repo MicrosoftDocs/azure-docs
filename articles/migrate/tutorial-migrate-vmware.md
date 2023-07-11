@@ -50,7 +50,7 @@ The Migration and modernization tool runs a lightweight VMware VM appliance that
 - **OVA template**: [Set up](how-to-set-up-appliance-vmware.md) on a VMware VM using a downloaded OVA template.
 - **Script**: [Set up](deploy-appliance-script.md) on a VMware VM or physical machine, using a PowerShell installer script. This method should be used if you can't set up a VM using an OVA template, or if you're in Azure Government.
 
-After creating the appliance, you check that it can connect to Azure Migrate:Server Assessment, configure it for the first time, and register it with the Azure Migrate project.
+After creating the appliance, you check that it can connect to Azure Migrate: Server Assessment, configure it for the first time, and register it with the Azure Migrate project.
 
 ## Replicate VMs
 

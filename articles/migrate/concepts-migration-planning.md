@@ -156,8 +156,9 @@ When you're ready for migration, use the Migration and modernization tool, and t
 Azure Migrate provides an option to customers to upgrade their Windows Server OS seamlessly during the migration. Azure Migrate OS upgrade allows you to move from an older operating system to a newer one while keeping your settings, server roles, and data intact. [Learn more](how-to-upgrade-windows.md).
 
 Azure Migrate OS upgrade uses an Azure VM [Custom script extension](../virtual-machines/extensions/custom-script-windows.md) to perform the following activities for an in-place upgrade experience:
-1. A data disk containing Windows Server setup files is created and attached to the VM.
-2. A Custom Script Extension called `InPlaceOsUpgrade` is enabled on the VM, which downloads a script from the storage account and initiates the upgrade in a quiet mode.
+
+- A data disk containing Windows Server setup files is created and attached to the VM.
+- A Custom Script Extension called `InPlaceOsUpgrade` is enabled on the VM, which downloads a script from the storage account and initiates the upgrade in a quiet mode.
 
 
 ## Next steps

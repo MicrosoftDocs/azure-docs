@@ -9,7 +9,7 @@ ms.date: 07/10/2023
 ms.custom: engagement-fy23
 ---
 
-# Azure Migrate Windows Server Upgrade (Preview)  
+# Azure Migrate Windows Server upgrade (Preview)  
 
 This article describes how to upgrade Windows Server OS while migrating to Azure. Azure Migrate OS upgrade allows you to move from an older operating system to a newer one while keeping your settings, server roles, and data intact. You can move your on-premises server to Azure with an upgraded OS version of Windows Server using Windows upgrade.
 
@@ -58,11 +58,7 @@ To upgrade Windows during the test migration, follow these steps:
 
 5. In the **Replicating machines** tab, right-click the VM to test and select **Test migrate**. 
 
-   :::image type="content" source="./media/how-to-upgrade-windows/test-migration.png" alt-text="Screenshot of test migration option." lightbox="./media/how-to-upgrade-windows/test-migration.png":::
-
 6. Select the **Upgrade available** option. In the pane that appears, select the target OS version that you want to upgrade to and select **Apply**. 
-
-   :::image type="content" source="./media/how-to-upgrade-windows/test-migration-options.png" alt-text="Screenshot of Upgrade available option in Test migration." lightbox="./media/how-to-upgrade-windows/test-migration-options.png":::
 
 7. Select **Test migration** to initiate the test migration followed by the OS upgrade. 
 
@@ -72,7 +68,7 @@ To upgrade Windows during the test migration, follow these steps:
 
 9. After the test is done, right-click the Azure VM in **Replicating machines**, and select **Clean up test migration**. This deletes the test VM and any resources associated with it.  
 
-## Upgrade Windows OS during Migration
+## Upgrade Windows OS during migration
 
 After you've verified that the test migration works as expected, you can migrate the on-premises machines. To upgrade Windows during the migration, follow these steps:
 
@@ -81,15 +77,8 @@ After you've verified that the test migration works as expected, you can migrate
 3. In **Migrate** > **Shut down virtual machines and perform a planned migration with no data loss**, select **Yes** > **OK**.  
    - By default, Azure Migrate shuts down the on-premises VM to ensure minimum data loss.  
    - If you don't want to shut down the VM, select No.  
-
 4. Select the **Upgrade available** option. 
-
-   :::image type="content" source="./media/how-to-upgrade-windows/migrate-upgrade-available.png" alt-text="Screenshot of Upgrade available option in Migration." lightbox="./media/how-to-upgrade-windows/migrate-upgrade-available.png":::
-
-
 5. In the pane that appears, select the target OS version that you want to upgrade to and select **Apply**. The upgrade available option changes to upgrade configured.
-
-   :::image type="content" source="./media/how-to-upgrade-windows/upgrade-available-options.png" alt-text="Screenshot of available server options for upgrade." lightbox="./media/how-to-upgrade-windows/upgrade-available-options.png":::
 
 5. Select **Migrate** to start the migration and the upgrade.  
 
