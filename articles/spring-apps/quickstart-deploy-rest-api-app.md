@@ -19,7 +19,7 @@ ms.custom: devx-track-java, devx-track-extended-java, devx-track-azurecli, mode-
 
 **This article applies to:** ❌ Standard consumption and dedicated (Preview) ✔️ Basic/Standard ❌ Enterprise
 
-This article explains how to deploy a REST API application protected by [Azure Active Directory (Azure AD)](/azure/active-directory/fundamentals/active-directory-whatis.md) to Azure Spring Apps. 
+This article explains how to deploy a REST API application protected by [Azure Active Directory (Azure AD)](../active-directory/fundamentals/active-directory-whatis.md) to Azure Spring Apps. 
 The sample project is a simplified version [Simple ToDo API](https://github.com/Azure-Samples/ASA-Samples-Web-API-Application) based on [Simple Todo](https://github.com/Azure-Samples/ASA-Samples-Web-Application), 
 which only retains the backend program and uses Azure AD to protect the REST APIs.
 These REST APIs are protected by applying role-based access control (RBAC), with the following three permissions to control access for different users
@@ -39,13 +39,13 @@ The following diagram shows the architecture of the system:
 - An Azure subscription. If you don't have a subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
 - [Git](https://git-scm.com/downloads).
 - [Java Development Kit (JDK)](/java/azure/jdk/), version 17.
-- An Azure AD instance. For instructions on creating one, see [Quickstart: Create a new tenant in Azure AD](/azure/active-directory/fundamentals/active-directory-access-create-new-tenant).
+- An Azure AD instance. For instructions on creating one, see [Quickstart: Create a new tenant in Azure AD](../active-directory/fundamentals/active-directory-access-create-new-tenant).
 
 [!INCLUDE [deploy-rest-api-app-with-basic-standard-plan](includes/quickstart-deploy-rest-api-app/deploy-rest-api-with-basic-standard-plan.md)]
 
 ## 5. Validate the app
 
-Now we can validate the REST APIs to see whether it requires necessary permissions.
+Now we can access the REST API to see if it works.
 
 ### Request an access token
 
@@ -102,7 +102,7 @@ This section provides the steps to create a member user in your Azure AD, then t
 
 #### Obtain the access token
 
-This section provides the steps to use [OAuth 2.0 Resource Owner Password Credentials](/azure/active-directory/develop/v2-oauth-ropc.md) method to obtain an access token in Azure AD, then access the REST APIs of the app `SimpleToDoApi`.
+This section provides the steps to use [OAuth 2.0 Resource Owner Password Credentials](../active-directory/develop/v2-oauth-ropc.md) method to obtain an access token in Azure AD, then access the REST APIs of the app `SimpleToDoApi`.
 
 1. Request an access token using the following command. Be sure to replace the placeholders with your own values you created in the previous step.
 
@@ -123,11 +123,11 @@ This section provides the steps to use [OAuth 2.0 Resource Owner Password Creden
 
 This section provides the steps to access the REST APIs of the app `SimpleToDoApi`.
 
-1. Define variables for HTTP request
+1. Define the following variables for HTTP requests:
    
    ```shell
    export SPRING_APPS_NAME=<Azure-Spring-Apps-instance-name>
-   export BEARER_TOKEN=<token-from-previous-step>
+   export BEARER_TOKEN=<access-token-from-previous-step>
    ```
    
 1. Ordinary users create a ToDo list:
@@ -145,25 +145,20 @@ This section provides the steps to access the REST APIs of the app `SimpleToDoAp
    {"id":"1","name":"My List","description":null}
    ```
    
-1. Ordinary users create two ToDo items within a list:
+1. Ordinary users create a ToDo item within a list:
 
    ```shell
    export LIST_ID=<ID-of-the-ToDo-list>
    curl -X POST https://${SPRING_APPS_NAME}-simple-todo-api.azuremicroservices.io/api/simple-todo/lists/${LIST_ID}/items \
     -H "Content-Type: application/json" \
     -H "Authorization: Bearer ${BEARER_TOKEN}" \
-    -d '{"name":"My first ToDo item","listId":"1","state":"todo"}'
-   curl -X POST https://${SPRING_APPS_NAME}-simple-todo-api.azuremicroservices.io/api/simple-todo/lists/${LIST_ID}/items \
-    -H "Content-Type: application/json" \
-    -H "Authorization: Bearer ${BEARER_TOKEN}" \
-    -d '{"name":"My second ToDo item","listId":"1","state":"todo"}'
+    -d "{\"name\":\"My first ToDo item\",\"listId\":\"${LIST_ID}\",\"state\":\"todo\"}"
    ```
 
    After the addition is successful, the ToDo list information will be returned.
 
    ```json
-   {"id":"ID-of-the-ToDo-item","listId":<ID-of-the-ToDo-list>,"name":"My first ToDo item","description":null,"state":"todo","dueDate":"2023-07-11T13:59:24.9033069+08:00","completedDate":null}
-   {"id":"ID-of-the-ToDo-item","listId":<ID-of-the-ToDo-list>,"name":"My second ToDo item","description":null,"state":"todo","dueDate":"2023-07-11T13:59:25.0837529+08:00","completedDate":null} 
+   {"id":"<ID-of-the-ToDo-item>","listId":<ID-of-the-ToDo-list>,"name":"My first ToDo item","description":null,"state":"todo","dueDate":"2023-07-11T13:59:24.9033069+08:00","completedDate":null}
    ```
 
 1. Anonymous users query ToDo list:
@@ -187,8 +182,7 @@ This section provides the steps to access the REST APIs of the app `SimpleToDoAp
    Return ToDo item:
 
    ```json
-   [{"id":"ID-of-the-ToDo-item","listId":<ID-of-the-ToDo-list>,"name":"My first ToDo item","description":null,"state":"todo","dueDate":"2023-07-11T13:59:24.903307+08:00","completedDate":null},
-   {"id":"ID-of-the-ToDo-item","listId":<ID-of-the-ToDo-list>,"name":"My second ToDo item","description":null,"state":"todo","dueDate":"2023-07-11T13:59:25.083753+08:00","completedDate":null}]
+   [{"id":"<ID-of-the-ToDo-item>","listId":<ID-of-the-ToDo-list>,"name":"My first ToDo item","description":null,"state":"todo","dueDate":"2023-07-11T13:59:24.903307+08:00","completedDate":null}]
    ```
    
 1. Ordinary users modify a ToDo item within a list:

@@ -189,7 +189,7 @@ This section provides the steps to expose your REST APIs in Azure AD.
 
 1. Sign in to the [Azure portal](https://portal.azure.com/).
 
-1. If you have access to multiple tenants, use the **Directory + subscription** filter (:::image type="icon" source="media/quickstart-deploy-rest-api-app/portal-directory-subscription-filter.png" border="false":::) to select the tenant in which you want to register an application.
+1. If you have access to multiple tenants, use the **Directory + subscription** filter (:::image type="icon" source="../../media/quickstart-deploy-rest-api-app/portal-directory-subscription-filter.png" border="false":::) to select the tenant in which you want to register an application.
 
 1. Search for and Select **Azure Active Directory**.
 
@@ -228,7 +228,7 @@ This section provides the steps to expose your REST APIs in Azure AD.
     - For **State**, keep **Enabled**.
     - Select **Add scope**.
 
-:::image type="content" source="media/quickstart-deploy-rest-api-app/expose-an-api.png" alt-text="Image that shows the Expose an API of a REST API application." lightbox="media/quickstart-deploy-rest-api-app/expose-an-api.png":::
+:::image type="content" source="../../media/quickstart-deploy-rest-api-app/expose-an-api.png" alt-text="Image that shows the Expose an API of a REST API application." lightbox="../../media/quickstart-deploy-rest-api-app/expose-an-api.png":::
 
 ### Update the application configuration
 
