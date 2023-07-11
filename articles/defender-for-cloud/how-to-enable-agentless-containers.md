@@ -8,7 +8,7 @@ ms.date: 06/01/2023
 
 # Onboard Agentless Container posture in Defender CSPM
 
-Onboarding Agentless Container posture in Defender CSPM will allow you to gain all its [capabilities](concept-agentless-containers.md#capabilities). 
+Onboarding Agentless Container posture in Defender CSPM will allow you to gain all its [capabilities](concept-agentless-containers.md#capabilities).
 
 Defender CSPM includes [two extensions](#what-are-the-extensions-for-agentless-container-posture-management) that allow for agentless visibility into Kubernetes and containers registries across your organization's SDLC and runtime.
 
@@ -34,13 +34,12 @@ A notification message pops up in the top right corner that will verify that the
 
 There are two extensions that provide agentless CSPM functionality:
 
-- **Container registries vulnerability assessments**: Provides agentless containers registries vulnerability assessments. Recommendations are available based on the vulnerability assessment timeline. Learn more about [image scanning](concept-agentless-containers.md#agentless-container-registry-vulnerability-assessment).
+- **Container registries vulnerability assessments**: Provides agentless containers registries vulnerability assessments. Recommendations are available based on the vulnerability assessment timeline. Learn more about [image scanning](agentless-container-registry-vulnerability-assessment.md).
 - **Agentless discovery for Kubernetes**: Provides API-based discovery of information about Kubernetes cluster architecture, workload objects, and setup.
 
 ## How can I onboard multiple subscriptions at once?
 
 To onboard multiple subscriptions at once, you can use this [script](https://github.com/Azure/Microsoft-Defender-for-Cloud/tree/main/Powershell%20scripts/Agentless%20Container%20Posture).
-
 
 ## Why don't I see results from my clusters?
 
@@ -51,24 +50,23 @@ If you don't see results from your clusters, check the following:
 
 ## What can I do if I have stopped clusters?
 
-We do not support or charge stopped clusters. To get the value of agentless capabilities on a stopped cluster, you can rerun the cluster. 
+We do not support or charge stopped clusters. To get the value of agentless capabilities on a stopped cluster, you can rerun the cluster.
 
-## What do I do if I have locked resource groups, subscriptions, or clusters? 
+## What do I do if I have locked resource groups, subscriptions, or clusters?
 
-We suggest that you unlock the locked resource group/subscription/cluster, make the relevant requests manually, and then re-lock the resource group/subscription/cluster by doing the following: 
+We suggest that you unlock the locked resource group/subscription/cluster, make the relevant requests manually, and then re-lock the resource group/subscription/cluster by doing the following:
 
-1.  Enable the feature flag manually via CLI by using [Trusted Access](/azure/aks/trusted-access-feature).
+1. Enable the feature flag manually via CLI by using [Trusted Access](/azure/aks/trusted-access-feature).
 
-
-    ``` CLI 
+    ``` CLI
 
     “az feature register --namespace "Microsoft.ContainerService" --name "TrustedAccessPreview” 
 
-    ``` 
+    ```
 
-2. Perform the bind operation in the CLI: 
+2. Perform the bind operation in the CLI:
 
-    ``` CLI 
+    ``` CLI
 
     az account set -s <SubscriptionId> 
 
@@ -76,12 +74,12 @@ We suggest that you unlock the locked resource group/subscription/cluster, make 
 
     az aks trustedaccess rolebinding create --resource-group <cluster resource group> --cluster-name <cluster name> --name defender-cloudposture --source-resource-id /subscriptions/<SubscriptionId>/providers/Microsoft.Security/pricings/CloudPosture/securityOperators/DefenderCSPMSecurityOperator --roles  "Microsoft.Security/pricings/microsoft-defender-operator" 
 
-    ``` 
+    ```
 
-For locked clusters, you can also do one of the following: 
+For locked clusters, you can also do one of the following:
 
-- Remove the lock. 
-- Perform the bind operation manually by making an API request. 
+- Remove the lock.
+- Perform the bind operation manually by making an API request.
 
 Learn more about [locked resources](/azure/azure-resource-manager/management/lock-resources?tabs=json).
 
@@ -89,15 +87,13 @@ Learn more about [locked resources](/azure/azure-resource-manager/management/loc
 
 Learn more about [supported Kubernetes versions in Azure Kubernetes Service (AKS)](/azure/aks/supported-kubernetes-versions?tabs=azure-cli).
 
- ## Support for exemptions
+## Support for exemptions
 
 You can customize your vulnerability assessment experience by exempting management groups, subscriptions, or specific resources from your secure score. Learn how to [create an exemption](exempt-resource.md) for a resource or subscription.
 
 ## Next Steps
 
-- Learn more about [Trusted Access](/azure/aks/trusted-access-feature). 
+- Learn more about [Trusted Access](/azure/aks/trusted-access-feature).
 - Learn how to [view and remediate vulnerability assessment findings for registry images and running images](view-and-remediate-vulnerability-assessment-findings.md).
 - Learn how to [create an exemption](exempt-resource.md) for a resource or subscription.
 - Learn more about [Cloud Security Posture Management](concept-cloud-security-posture-management.md).
-
-
