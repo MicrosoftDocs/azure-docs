@@ -18,6 +18,38 @@ Azure Spring Apps is improved on an ongoing basis. To help you stay up to date w
 
 This article is updated quarterly, so revisit it regularly. You can also visit [Azure updates](https://azure.microsoft.com/updates/?query=azure%20spring), where you can search for updates or browse by category.
 
+## June 2023
+The following update is now available for the consumption plan:
+
+- **Azure Spring Apps consumption plan**: A new way to pay for Azure Spring Apps. With super-efficient pricing and serverless capabilities, you can deploy apps that scale based on usage, paying only for resources consumed. [Learn More](https://techcommunity.microsoft.com/t5/apps-on-azure-blog/start-from-zero-and-scale-to-zero-azure-spring-apps-consumption/ba-p/3774825).
+
+The following update is now available in all plans:
+
+- **Azure Migrate for Spring Apps**: Discover and assess your Spring workloads for cloud readiness and price estimate of Azure Spring Apps using Azure Migrate. Sign up for private preview on https://aka.ms/discover-spring-apps.
+
+The following update is now available in Basic/Standard plan:
+
+- **Azure Developer CLI (azd) for Azure Spring Apps**: Azure Developer CLI (azd) is an open-source tool that accelerates the time it takes for you to get your application from local development environment to Azure.  You can now initialize, package, provision and deploy a spring application onto Azure Spring Apps with only a few commands.[Try it on our quickstarts](https://learn.microsoft.com/en-us/azure/spring-apps/quickstart-deploy-web-app?tabs=Azure-Developer-CLI&pivots=sc-standard).
+
+The following updates are now available in Enterprise plan:
+
+- **Shareable build result among ASA-E instances (Preview)**: Allow to have full visibility of ASA built images by bring-your-own ACR to support below scenarios: 1) build and test in PREPROD environment and deploy to multiple PROD environments with the verified images; 2) orchestrate secure CICD pipeline to plug in any steps between build and deploy actions.  
+
+- **High Availability support for App Accelerator and App Live View**: App Accelerator and App Live View now support multiple replicas to offer high availability.
+
+- **Spring Cloud Gateway auto scaling**: Spring Cloud Gateway now supports auto scaling to better serve the elastic traffic without the hassling of manual scaling.
+
+- **Application Configuration Service – polyglot support**: Not only for Spring apps, any polyglot app (dotNet, Go, etc.) can be supported to leverage Application Configuration Service to manage its external configurations.
+
+- **Application Configuration Service – enhanced performance and security**: Performance dramatic enhancement in git monitoring operations allowing for faster updates of configuration and certification verification over TLS between it and git repos. [Learn More](https://learn.microsoft.com/en-us/azure/spring-apps/how-to-enterprise-application-configuration-service?tabs=Portal#polyglot-support).
+
+- **1000 app instance support (preview)**: Maximum app instance count in one Azure Spring Apps enterprise service instance now is enlarged to be 1000 to support large scale microservice cluster.
+
+- **App Accelerator certificate verification**: Certification verification over TLS between App Accelerator and git repos.
+
+- **App Live View tooling support**: To better facilitate developer inner loop troubleshooting convenience, App Live View has been integrated into VS Code for developers to quickly open and troubleshoot apps in development.
+
+
 ## March 2023
 
 The following updates are now available in both Basic/Standard and Enterprise plan:
