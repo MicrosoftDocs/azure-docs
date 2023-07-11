@@ -81,7 +81,7 @@ Azure Storage Mover supports migration scenarios using NFS and SMB. The steps to
       :::image type="content" source="media/endpoint-manage/endpoint-create.png" alt-text="Image of the Endpoint Overview page highlighting the location of the Create Endpoint link" lightbox="media/endpoint-manage/endpoint-create-lrg.png":::
 
    1. Within the **Create Endpoint** pane, provide values for the required **Host name or IP** and **Share name** values. You may also add an optional **Description** value of up to 1024 characters in length. Next, select **Protocol version** to expand the protocol selection menu and select the appropriate option for your source target.
-   
+
       Storage mover agents use secrets stored within Key Vault to connect to SMB endpoints. If you create an SMB source endpoint, you need to provide the name of the Key Vault containing the secrets, as well as the names of the secrets themselves.
 
       First, select **Key vault** to expand the menu and select the name of the Key Vault containing your secrets. You can supply a value with which to filter the list of Key Vaults if necessary.
@@ -92,7 +92,7 @@ Azure Storage Mover supports migration scenarios using NFS and SMB. The steps to
 
       The values for host and share name are concatenated to form the full migration source path. The path value is displayed in the **Full source path** field. Copy the path provided and verify that you're able to access it before committing your changes. Finally, when you've confirmed that all values are correct and that you can access the source path, select **Create** to add your new endpoint.
 
-      :::image type="content" source="media/endpoint-manage/secrets.png" alt-text="Image of the Endpoint Overview page with the newly created endpoint displayed."  lightbox="media/endpoint-manage/secrets-lrg.png":::
+      :::image type="content" source="media/endpoint-manage/secrets.png" alt-text="Image of the Create Endpoint pane showing the location of the Secrets options."  lightbox="media/endpoint-manage/secrets-lrg.png":::
 
       Your new endpoint is deployed and now appears within your list of endpoints as show in the following example image.
 
@@ -211,13 +211,17 @@ Follow the steps in this section to view endpoints accessible to your Storage Mo
 
 ### [Azure portal](#tab/portal)
 
-   1. Navigate to the **Storage endpoints** page in the [Azure portal](https://portal.azure.com) to access your endpoints. The default **Source endpoints** view displays the names of your endpoints along with data about their protocol, host, share, and associated job definitions.
+   1. To create an endpoint using the Navigate to the [Azure portal](https://portal.azure.com), navigate to the **Storage mover** resource page. Select **Storage endpoints** from within the navigation pane as shown in the sample image to access your endpoints.
 
-       :::image type="content" source="media/resource-hierarchy/resource-hierarchy.png" alt-text="Image of the Storage Endpoints tab within the Azure Portal showing the default Source Endpoints view" lightbox="media/resource-hierarchy/resource-hierarchy-large.png":::
+      :::image type="content" source="media/endpoint-manage/storage-mover.png" alt-text="Image of the Storage Mover resource page within the Azure Portal showing the location of the Storage Endpoints link." lightbox="media/endpoint-manage/storage-mover-lrg.png":::
 
-   1. Select **Create project** to open the **Create a Project** pane. Provide a project name value in the **Project name** field, but leave the **Project description** field empty. Finally, select **Create** to provision the project.
+   1. After the portal becomes functional, select the checkbox corresponding to the name of the endpoint whose details you want to view. The **Endpoint overview** pane opens, displaying the endpoint's details.
 
-       :::image type="content" source="media/resource-hierarchy/resource-hierarchy-large.png" alt-text="Image of the Create Endpoint screen" lightbox="media/project-manage/project-explorer-create-lrg.png":::
+       :::image type="content" source="media/endpoint-manage/storage-mover.png" alt-text="Image of the Create Endpoint screen" lightbox="mediaendpoint-manage/storage-mover-lrg.png":::
+
+   1. Update the value that you want to edit. Confirm that all data is correct and click **Update** to save your changes.
+
+       :::image type="content" source="media/endpoint-manage/storage-mover.png" alt-text="Image of the Create Endpoint screen" lightbox="mediaendpoint-manage/storage-mover-lrg.png":::
 
 ### [PowerShell](#tab/powershell)
 
