@@ -32,6 +32,14 @@ In addition to providing incremental data feed from analytical store to diverse 
 - Changes can be synchronized "from the Beginning” or “from a given timestamp” or “from now”
 - There's no limitation around the fixed data retention period for which changes are available
 
+## Efficient incremental data capture with internally managed checkpoints
+
+Each change in Cosmos DB container appears exactly once in the CDC feed, and the checkpoints are managed internally for you. This helps to address the below disadvantages of the common pattern of using custom checkpoints based on the “_ts” value:  
+
+ * The “_ts” filter is applied against the data files which does not always guarantee minimal data scan. The internally managed GLSN based checkpoints in the new CDC capability ensure that the incremental data identification is done, just based on the metadata and so guarantees minimal data scanning in each stream.  
+
+* The analytical store sync process does not guarantee “_ts” based ordering which means that there could be cases where an incremental record’s “_ts” is lesser than the last checkpointed “_ts” and could be missed out in the incremental stream. The new CDC does not consider “_ts” to identify the incremental records and thus guarantees that none of the incremental records are missed. 
+
 ## Features
 
 Change data capture in Azure Cosmos DB analytical store supports the following key features.
