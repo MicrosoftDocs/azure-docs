@@ -45,7 +45,7 @@ az network vnet create \
     --address-prefix 10.0.0.0/16 \
     --subnet-name subnet-alb \
     --subnet-prefixes 10.0.0.0/24 \
-    --delegations 'Microsoft.ServiceNetworking/trafficControllers' \
+    --delegations 'Microsoft.ServiceNetworking/trafficControllers'
 ```
 
 ### Reference an existing VNet and Subnet
