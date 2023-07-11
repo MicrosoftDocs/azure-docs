@@ -15,7 +15,7 @@ Azure Kubernetes Service (AKS) and its underlying container model provide increa
 In such environments, using signed container images can enable you to assure deployments are built from a trusted entity and verify images haven't been tampered with since their creation. Image Integrity is a service that allows you to add deploy-time policy enforcement to your AKS clusters to check whether the images are signed.
 
 > [!NOTE]
-> Image Integrity is a feature based on [Eraser](https://learn.microsoft.com/azure/aks/image-cleaner?tabs=azure-cli). On an AKS cluster, the feature name and property name is `ImageIntegrity`, while the relevant Image Cleaner pods' names contain `Eraser`.
+> Image Integrity is a feature based on [Ratify][ratify]. On an AKS cluster, the feature name and property name is `ImageIntegrity`, while the relevant Image Cleaner pods' names contain `Ratify`.
 
 [!INCLUDE [preview features callout](includes/preview/preview-callout.md)]
 
@@ -27,7 +27,7 @@ In such environments, using signed container images can enable you to assure dep
 * An AKS cluster enabled with OIDC Issuer. To create a new cluster or update an existing cluster, see [Configure an AKS cluster with OIDC Issuer](/cluster-configuration#oidc-issuer).
 * The `EnableImageIntegrityPreview` feature flag registered on your Azure subscription. Register the feature flag using the following commands:
   
-    1. Register the `EnableImageIntegrityPreview` feature flag using the [`az feature register`](https://learn.microsoft.com/cli/azure/feature?view=azure-cli-latest#az-feature-register) command.
+    1. Register the `EnableImageIntegrityPreview` feature flag using the [`az feature register`][az-feature-register] command.
 
         ```azurecli
         az feature register --namespace "Microsoft.ContainerService" --name "EnableImageIntegrityPreview"
@@ -35,13 +35,13 @@ In such environments, using signed container images can enable you to assure dep
 
         It may take a few minutes for the status to show as *Registered*.
 
-    2. Verify the registration status using the [`az feature show`](https://learn.microsoft.com/cli/azure/feature?view=azure-cli-latest#az-feature-show) command.
+    2. Verify the registration status using the [`az feature show`][az-feature-show] command.
 
         ```azurecli
         az feature show --namespace "Microsoft.ContainerService" --name "EnableImageIntegrityPreview"
         ```
 
-    3. Once that status shows *Registered*, refresh the registration of the `Microsoft.ContainerService` resource provider using the [`az provider register`](https://learn.microsoft.com/cli/azure/provider?view=azure-cli-latest#az-provider-register) command.
+    3. Once that status shows *Registered*, refresh the registration of the `Microsoft.ContainerService` resource provider using the [`az provider register`][az-provider-register] command.
 
         ```azurecli
         az provider register --namespace Microsoft.ContainerService
@@ -118,3 +118,14 @@ TBD
 ## Next steps
 
 In this article, you learned how to use Image Integrity to ensure only trusted images are deployed to your AKS cluster.
+
+<!--- Internal links ---->
+
+[az-feature-register]: /cli/azure/feature#az_feature_register
+[az-feature-show]: /cli/azure/feature#az_feature_show
+[az-provider-register]: /cli/azure/provider#az_provider_register
+[az-policy-assignment-create]: /cli/azure/policy/assignment#az_policy_assignment_create
+
+<!--- External links ---->
+
+[ratify]: https://github.com/deislabs/ratify
