@@ -208,7 +208,7 @@ Here's how to create a host pool using the [desktopvirtualization](/cli/azure/de
 > In the following examples, you'll need to change the `<placeholder>` values for your own.
 
 [!INCLUDE [include-cloud-shell-local-cli](includes/include-cloud-shell-local-cli.md)]
-1. Use the `az desktopvirtualization hostpool create` command with the following examples to create a host pool. More parameters are available; for more information, see the [az desktopvirtualization hostpool Azure CLI reference](/cli/azure/desktopvirtualization/hostpool).
+2. Use the `az desktopvirtualization hostpool create` command with the following examples to create a host pool. More parameters are available; for more information, see the [az desktopvirtualization hostpool Azure CLI reference](/cli/azure/desktopvirtualization/hostpool).
 
    1. To create a pooled host pool using the *breadth-first* [load-balancing algorithm](host-pool-load-balancing.md) and *Desktop* as the preferred [app group type](environment-setup.md#app-groups), run the following command:
    
@@ -236,7 +236,7 @@ Here's how to create a host pool using the [desktopvirtualization](/cli/azure/de
           --location <AzureRegion>
       ```
 
-1. You can view the properties of your new host pool by running the following command:
+3. You can view the properties of your new host pool by running the following command:
 
    ```azurecli
    az desktopvirtualization hostpool show --name <Name> --resource-group <ResourceGroupName>

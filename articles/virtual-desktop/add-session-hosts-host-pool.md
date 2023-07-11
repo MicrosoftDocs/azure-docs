@@ -69,7 +69,7 @@ Here's how to generate a registration key using the [desktopvirtualization](/cli
 > In the following examples, you'll need to change the `<placeholder>` values for your own.
 
 [!INCLUDE [include-cloud-shell-local-cli](includes/include-cloud-shell-local-cli.md)]
-1. Use the `az desktopvirtualization workspace update` command with the following example to generate a registration key that is valid for 24 hours.
+2. Use the `az desktopvirtualization workspace update` command with the following example to generate a registration key that is valid for 24 hours.
 
    ```azurecli
    az desktopvirtualization hostpool update \
@@ -78,7 +78,7 @@ Here's how to generate a registration key using the [desktopvirtualization](/cli
        --registration-info expiration-time=$(date -d '+24 hours' --iso-8601=ns) registration-token-operation="Update"
    ```
 
-1. Get the registration key and copy it to your clipboard to use later. You can also retrieve the registration key later by running this command again anytime while the registration key is valid.
+3. Get the registration key and copy it to your clipboard to use later. You can also retrieve the registration key later by running this command again anytime while the registration key is valid.
 
    ```azurecli
    az desktopvirtualization hostpool retrieve-registration-token \
