@@ -554,6 +554,8 @@
     - name: Vulnerability assessment for Azure Container Registry
       displayName: ACR, registry, images, qualys
       href: defender-for-containers-vulnerability-assessment-azure.md
+    - name: Vulnerability assessment for Agentless Container registry
+      href: agentless-container-registry-vulnerability-assessment.md
     - name: Vulnerability assessment for Amazon Elastic Container Registry
       displayName: AWS, ECR, registry, images, qualys
       href: defender-for-containers-vulnerability-assessment-elastic.md
