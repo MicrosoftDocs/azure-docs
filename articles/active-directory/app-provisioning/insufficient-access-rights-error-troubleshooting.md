@@ -42,13 +42,13 @@ The Provisioning Agent GMSA account ```provAgentgMSA$``` by default has read/wri
 
 First confirm what is causing the problem.
 To check if Cause-1 is the source of the problem:
-1.    Open the **Active Directory Users and Computers Management Console**.
-2.    Select the OU associated with the user.
-3.    Right click and navigate to **Properties -> Security -> Advanced**.
+1. Open the **Active Directory Users and Computers Management Console**.
+2. Select the OU associated with the user.
+3. Right click and navigate to **Properties -> Security -> Advanced**.
     If the **Enable Inheritance** button is shown, then it's confirmed that Cause-1 is the source of the problem.  
-4.    Click on **Enable Inheritance** so that domain level permissions are applicable to this OU.
->[!NOTE:]
->Please remember to verify the whole hierarchy from domain level down to the OU holding the affected accounts. All Parent OUs/Containers must have inheritance enabled so the permissions applied at the domain level may cascade down to the final object.
+4. Click on **Enable Inheritance** so that domain level permissions are applicable to this OU.
+     >[!NOTE]
+     >Please remember to verify the whole hierarchy from domain level down to the OU holding the affected accounts. All Parent OUs/Containers must have inheritance enabled so the permissions applied at the domain level may cascade down to the final object.
 
 If Cause-1 is not the source of the problem, then potentially Cause-2 is the source of the problem. There are two possible resolution options.
 

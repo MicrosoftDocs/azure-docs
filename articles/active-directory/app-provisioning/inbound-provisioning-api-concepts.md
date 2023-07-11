@@ -22,18 +22,18 @@ This document provides a conceptual overview of the Azure AD API-driven inbound 
 
 ## Introduction
 
-Today enterprises have a variety of authoritative systems of record. To establish end-to-end identity lifecycle, strengthen security posture and stay compliant with with regulations, identity data in Azure Active Directory must be kept in sync with workforce data managed in these systems of record. The *system of record* could be an HR app, a payroll app, a spreadsheet or SQL tables in a database hosted either on-premises or in the cloud. 
+Today enterprises have a variety of authoritative systems of record. To establish end-to-end identity lifecycle, strengthen security posture and stay compliant with regulations, identity data in Azure Active Directory must be kept in sync with workforce data managed in these systems of record. The *system of record* could be an HR app, a payroll app, a spreadsheet or SQL tables in a database hosted either on-premises or in the cloud. 
 
 With API-driven inbound provisioning, the Azure AD provisioning service now supports integration with *any* system of record. Customers and partners can use *any* automation tool of their choice to retrieve workforce data from the system of record and ingest it into Azure AD. The IT admin has full control on how the data is processed and transformed with attribute mappings. Once the workforce data is available in Azure AD, the IT admin can configure appropriate joiner-mover-leaver business processes using [Lifecycle Workflows](../governance/what-are-lifecycle-workflows.md).  
 
-## Supported Scenarios
+## Supported scenarios
 
 Several inbound user provisioning scenarios are enabled using API-driven inbound provisioning. This diagram demonstrates the most common scenarios.
 
 :::image type="content" source="media/inbound-provisioning-api-concepts/api-workflow-scenarios.png" alt-text="Diagram that shows API scenarios." lightbox="media/inbound-provisioning-api-concepts/api-workflow-scenarios.png":::
 
 ### Scenario 1: Enable IT teams to import HR data extracts using any automation tool
-Flat files, CSV files and SQL staging tables are commonly used in enterprise integration scenarios. Employee, contractor and vendor information is periodically exported into one of these formats and an automation tool is used to sync this data with enterprise identity directories. With API-driven inbound provisioning, IT teams can use any automation tool of their choice (example: PowerShell scripts or Azure Logic Apps) to modernize and simplify this integration.   
+Flat files, CSV files and SQL staging tables are commonly used in enterprise integration scenarios. Employee, contractor and vendor information are periodically exported into one of these formats and an automation tool is used to sync this data with enterprise identity directories. With API-driven inbound provisioning, IT teams can use any automation tool of their choice (example: PowerShell scripts or Azure Logic Apps) to modernize and simplify this integration.   
 
 ### Scenario 2: Enable ISVs to build direct integration with Azure AD
 With API-driven inbound provisioning, HR ISVs can ship native synchronization experiences so that changes in the HR system automatically flow into Azure AD and connected on-premises Active Directory domains. For example, an HR app or student information systems app can send data to Azure AD as soon as a transaction is complete or as end-of-day bulk update. 
@@ -60,7 +60,7 @@ In all the above scenarios, the integration is greatly simplified as Azure AD pr
 1. Depending on the provisioning app configured, the user is provisioned either into on-premises Active Directory (for hybrid users) or Azure AD (for cloud-only users).
 1. The API Client then queries the provisioning logs API endpoint for the status of each record sent.
 1. If the processing of any record fails, the API client can check the error details and include records corresponding to the failed operations in the next bulk request (step 5). 
-1. At anytime, the IT Admin can check the status of the provisioning job and view events in the provisioning logs.
+1. At any time, the IT Admin can check the status of the provisioning job and view events in the provisioning logs.
 
 ### Key features of API-driven inbound user provisioning
 

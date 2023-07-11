@@ -1,6 +1,6 @@
 ---
-title: Troubleshoot Inbound Provisioning API
-description: Learn how to troubleshoot issues with the Inbound Provisioning API
+title: Troubleshoot inbound provisioning API
+description: Learn how to troubleshoot issues with the inbound provisioning API
 author: jfields
 manager: amycolannino
 ms.service: active-directory
@@ -12,7 +12,7 @@ ms.author: kenwith
 ms.reviewer: chmutali
 ---
 
-# Troubleshoot Inbound Provisioning API issues (Public preview)
+# Troubleshoot inbound provisioning API issues (Public preview)
 
 ## Introduction
 

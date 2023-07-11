@@ -27,13 +27,13 @@ Depending on how your API client authenticates with Azure AD, you can select bet
 ## Configure a service principal 
 This configuration registers an app in Azure AD that represents the external API client and grants it permission to invoke the inbound provisioning API. The service principal client id and client secret can be used in the OAuth client credentials grant flow. 
 
-1. Login to Microsoft Entra portal (https://entra.microsoft.com) with global administrator or application administrator login credentials. 
+1. Log in to Microsoft Entra portal (https://entra.microsoft.com) with global administrator or application administrator login credentials. 
 1. Browse to **Azure Active Directory** -> **Applications** -> **App registrations**.
 1. Click on the option **New registration**.
 1. Provide an app name, select the default options, and click on **Register**.
      [![Screenshot of app registration.](media/inbound-provisioning-api-grant-access/register-app.png)](media/inbound-provisioning-api-grant-access/register-app.png#lightbox)
 1. Copy the **Application (client) ID** and **Directory (tenant) ID** values from the Overview blade and save it for later use in your API client. 
-     [![Screenshot of app client id.](media/inbound-provisioning-api-grant-access/app-client-id.png)](media/inbound-provisioning-api-grant-access/app-client-id.png#lightbox)  
+     [![Screenshot of app client ID.](media/inbound-provisioning-api-grant-access/app-client-id.png)](media/inbound-provisioning-api-grant-access/app-client-id.png#lightbox)  
 1. In the context menu of the app, select **Certificates & secrets** option. 
 1. Create a new client secret. Provide a description for the secret and expiry date. 
 1. Copy the generated value of the client secret and save it for later use in your API client. 
