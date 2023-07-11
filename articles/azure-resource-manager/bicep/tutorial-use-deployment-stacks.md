@@ -774,7 +774,7 @@ az stack group delete \
   --delete-all
 ```
 
-If you run the delete commands without the **delete all** parameters, the managed resources is detached but not deleted. For example:
+If you run the delete commands without the **delete all** parameters, the managed resources are detached but not deleted. For example:
 
 ```azurecli
 az stack group delete \
@@ -799,7 +799,7 @@ Remove-AzResourceGroupDeploymentStack `
   -DeleteAll
 ```
 
-If you run the delete commands without the **delete all** parameters, the managed resources is detached but not deleted. For example:
+If you run the delete commands without the **delete all** parameters, the managed resources are detached but not deleted. For example:
 
 ```azurepowershell
 Remove-AzResourceGroupDeploymentStack `

@@ -100,7 +100,7 @@ New-AzTemplateSpec `
 
 ---
 
-The format of the template spec id is `/subscriptions/<subscription-id>/resourceGroups/templateSpecRG/providers/Microsoft.Resources/templateSpecs/stackSpec/versions/1.0`.
+The format of the template spec ID is `/subscriptions/<subscription-id>/resourceGroups/templateSpecRG/providers/Microsoft.Resources/templateSpecs/stackSpec/versions/1.0`.
 
 ## Create a deployment stack
 
