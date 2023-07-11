@@ -1,12 +1,11 @@
 ---
-title: Azure Elastic SAN networking Preview overview
+title: Azure Elastic SAN networking Preview concepts
 description: An overview of Azure Elastic SAN Preview networking options, including storage service endpoints, private endpoints, and iSCSI.
 author: roygara
-ms.service: storage
+ms.service: azure-elastic-san-storage
 ms.topic: conceptual
-ms.date: 07/10/2023
+ms.date: 07/11/2023
 ms.author: rogarana
-ms.subservice: elastic-san
 ms.custom: 
 ---
 
