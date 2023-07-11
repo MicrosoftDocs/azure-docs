@@ -1,0 +1,57 @@
+### YamlMime:Landing
+
+title: Azure Large Instances documentation
+summary: Learn how to use Azure Large Instances
+
+metadata:
+  title: Azure Large Instances documentation
+  description: Learn how to use ALI.
+  services: baremetal-infrastructure 
+  ms.service: baremetal-infrastructure
+  ms.topic: landing-page
+  author: jjaygbay1
+  ms.author: jacobjaygbay
+  ms.date: 06/01/2023
+
+# card 1
+landingContent:
+  - title: Azure Large Instances
+    linkLists: 
+      - linkListType: overview
+        links:
+          - text: What is Azure Large Instances?
+            url: what-is-azure-large-instances.md
+          - text: Working with ALI in the Azure portal
+            url: work-with-ali-in-the-azure-portal.md
+
+# card 2
+  - title: Azure Large Instances for Epic
+    linkLists: 
+      - linkListType: concept
+        links:
+          - text: Onboarding requirements
+            url: workloads/epic/onboarding-requirements.md
+          - text: Available SKUs
+            url: workloads/epic/available-skus.md
+      - linkListType: architecture
+        links:
+          - text: Architecture
+            url: workloads/epic/architecture.md 
+      - linkListType: how-to-guide
+        links:
+          - text: Create a volume group
+            url: workloads/epic/create-a-volume-group.md
+          - text: Configure Azure Service health alerts
+            url: workloads/epic/configure-azure-service-health-alerts.md
+          - text: Find your subscription ID
+            url: workloads/epic/find-your-subscription-id.md
+          - text: LUN and WWID mapping
+            url: workloads/epic/lun-and-wwid-mapping.md
+          - text: Quality checks
+            url: workloads/epic/quality-checks.md
+      - linkListType: reference
+        links:
+          - text: Frequently Asked Questions
+            url: workloads/epic/faq.md
+
+
