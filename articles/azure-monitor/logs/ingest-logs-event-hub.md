@@ -1,5 +1,5 @@
 ---
-title: Ingest events from Azure Event Hubs into Azure Monitor Logs
+title: Ingest events from Azure Event Hubs into Azure Monitor Logs (Preview)
 description: Ingest logs from Event Hubs into Azure Monitor Logs 
 services: azure-monitor
 author: guywi-ms
@@ -13,7 +13,7 @@ ms.custom: references_regions
 ---
 
 
-# Tutorial: Ingest events from Azure Event Hubs into Azure Monitor Logs   
+# Tutorial: Ingest events from Azure Event Hubs into Azure Monitor Logs (Preview)
 
 [Azure Event Hubs](../../event-hubs/event-hubs-about.md) is a big data streaming platform that collects events from multiple sources to be ingested by Azure and external services. This article explains how to ingest data directly from an event hub into a Log Analytics workspace.
 
