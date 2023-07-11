@@ -32,7 +32,7 @@ To complete this tutorial, you need the following prerequisites:
 
 In Unity Hub, create a new project with the **2D Core** template to set up the unity project.
 
-:::image type="content" source="../../media/unity/create-a-new-project.png" alt-text="Screenshot showing the New UWP Project window within Visual Studio.":::
+:::image type="content" source="../../media/unity/create-a-new-project.png" alt-text="Screenshot showing the New Unity Project window within Unity Editor.":::
 
 #### Install the package
 
@@ -55,7 +55,7 @@ Open the `Main.unity` and replace the content with following implementation:
 <details>
   <summary>Main.Unity Code</summary>
 
-  ### Main.unity
+### Main.unity
   ```C#
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
@@ -1941,7 +1941,7 @@ The next table listed the classes and interfaces handle some of the major featur
 | `CallAgent` | The `CallAgent` is used to start and manage calls. |
 | `Call` | The `CommunicationCall` is used to manage an ongoing call. |
 | `CallTokenCredential` | The `CallTokenCredential` is used as the token credential to instantiate the `CallAgent`.|
-|` CallIdentifier` | The `CallIdentifier` is used to represent the identity of the user, which can be one of the following options: `UserCallIdentifier`, `PhoneNumberCallIdentifier` etc. |
+| `CallIdentifier` | The `CallIdentifier` is used to represent the identity of the user, which can be one of the following options: `UserCallIdentifier`, `PhoneNumberCallIdentifier` etc. |
 
 ### Authenticate the client
 
