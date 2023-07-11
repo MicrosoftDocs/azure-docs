@@ -61,13 +61,13 @@ The SAP built-in connector significantly differs from the SAP managed connector 
 
 * On-premises connections don't require the on-premises data gateway.
 
-  Instead, the SAP built-in connector sends local network calls to SAP, which means that your logic app workflow must make the SAP instance available in your local network, which is the preferred method using a virtual network. You must also upload to or deploy the nonredistributable SAP client libraries with the your logic app workflow application. For more information, see the [Prerequisites](#prerequisites) in this guide.
+  Instead, the SAP built-in connector sends local network calls to SAP, which means that your logic app workflow must make the SAP instance available in your local network, which is the preferred method using a virtual network. You must also upload to or deploy the non-redistributable SAP client libraries with your logic app workflow application. For more information, see the [Prerequisites](#prerequisites) in this guide.
 
 * The payload size isn't limited to 2.5 MB, so you don't have to use a blob URI for large requests.
 
 * Specific actions are available for **Call BAPI**, **Call RFC**, and **Send IDoc**. These dedicated actions provide a better experience for stateful BAPIs, RFC transactions, and IDoc deduplication, and don't use the older SOAP Windows Communication Foundation (WCF) messaging model.
 
-  The **Call BAPI** action includes up to two responses with the returned JSON, the XML response from the called BAPI, and if auto-commit is used, the BAPI commit or BAPI rollback response as well. This capability addresses the problem with the SAP managed connector where the outcome from the auto-commit is silent and observable only through logs.
+  The **Call BAPI** action includes up to two responses with the returned JSON, the XML response from the called BAPI, and the BAPI commit or BAPI rollback response as well and if you use auto-commit. This capability addresses the problem with the SAP managed connector where the outcome from the auto-commit is silent and observable only through logs.
 
 * No timeouts.
 
