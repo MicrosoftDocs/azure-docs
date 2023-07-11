@@ -5,7 +5,7 @@ ms.topic: how-to
 author: dcurwin
 ms.author: dacurwin
 ms.custom: ignite-2022
-ms.date: 07/10/2023
+ms.date: 07/11/2023
 ---
 
 # Protect your Kubernetes data plane hardening
@@ -28,7 +28,7 @@ Microsoft Defender for Cloud includes a bundle of recommendations that are avail
 
 You can enable the Azure policy for Kubernetes by one of two ways:
 - Enable for all current and future clusters using plan/connector settings
-    - [Enabling for Azure subscriptions or on-prem](#enabling-for-azure-subscriptions-or-on-prem)
+    - [Enabling for Azure subscriptions or on-premises](#enabling-for-azure-subscriptions-or-on-premises)
     - [Enabling for GCP projects](#enabling-for-gcp-projects)
 - [Enable for existing clusters using recommendations (specific clusters or all clusters)](#manually-deploy-the-add-on-to-clusters-using-recommendations-on-specific-clusters). 
 
@@ -41,7 +41,7 @@ You can enable the Azure policy for Kubernetes by one of two ways:
 > [!NOTE]
 > Enablement for AWS via the connector is not supported due to a limitation in EKS that requires the cluster admin to add permissions for a new IAM role on the cluster itself.
 
-#### Enabling for Azure subscriptions or on-prem
+#### Enabling for Azure subscriptions or on-premises
 
 When you enable Microsoft Defender for Containers, the "Azure Policy for Kubernetes" setting is enabled by default for the Azure Kubernetes Service, and for Azure Arc-enabled Kubernetes clusters in the relevant subscription. If you disable the setting on initial configuration you can enable it afterwards manually.
 
@@ -67,7 +67,7 @@ If you disabled the "Azure Policy for Kubernetes" settings under the containers 
 
 When you enable Microsoft Defender for Containers on a GCP connector, the "Azure Policy Extension for Azure Arc" setting is enabled by default for the Google Kubernetes Engine in the relevant project. If you disable the setting on initial configuration you can enable it afterwards manually.
 
-If you disabled the "Azure Policy Extension for Azure Arc" settings under the GCP connector, you can follow the below steps to to [enable it on your GCP connector](https://learn.microsoft.com/azure/defender-for-cloud/defender-for-containers-enable?tabs=aks-deploy-portal%2Ck8s-deploy-asc%2Ck8s-verify-asc%2Ck8s-remove-arc%2Caks-removeprofile-api&pivots=defender-for-container-gke#protect-google-kubernetes-engine-gke-clusters).
+If you disabled the "Azure Policy Extension for Azure Arc" settings under the GCP connector, you can follow the below steps to [enable it on your GCP connector](https://learn.microsoft.com/azure/defender-for-cloud/defender-for-containers-enable?tabs=aks-deploy-portal%2Ck8s-deploy-asc%2Ck8s-verify-asc%2Ck8s-remove-arc%2Caks-removeprofile-api&pivots=defender-for-container-gke#protect-google-kubernetes-engine-gke-clusters).
 
 ### Manually deploy the add-on to clusters using recommendations on specific clusters
 
@@ -90,7 +90,7 @@ Once enabled, the hardening recommendation becomes available (some of the recomm
     - **AWS** - `EKS clusters should have Microsoft Defender's extension for Azure Arc installed`
     - **GCP** - `GKE clusters should have Microsoft Defender's extension for Azure Arc installed`
      
-    :::image type="content" source="./media/kubernetes-workload-protections/azure-kubernetes-service-clusters-recommendation.png" alt-text="Screenshot showing the recommendation **Azure Kubernetes Service clusters should have the Azure Policy add-on for Kubernetes installed**." lightbox="media/kubernetes-workload-protections/azure-kubernetes-service-clusters-recommendation.png":::
+    :::image type="content" source="./media/kubernetes-workload-protections/azure-kubernetes-service-clusters-recommendation.png" alt-text="Screenshot showing the recommendation "Azure Kubernetes Service clusters should have the Azure Policy add-on for Kubernetes installed"." lightbox="media/kubernetes-workload-protections/azure-kubernetes-service-clusters-recommendation.png":::
 
    > [!TIP]
    > The recommendation is included in five different security controls and it doesn't matter which one you select in the next step.
