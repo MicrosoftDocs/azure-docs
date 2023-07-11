@@ -44,7 +44,7 @@ MQTT is a publish-subscribe messaging transport protocol that was designed for c
 - MQTT v3.1.1 features: 
 	- **Persistent sessions** ensure reliability by preserving the client's subscription information and messages when a client disconnects.
 	- **QoS 0 and 1** provide your clients with control over the efficiency and reliability of the communication.
--  Event Grid is adding more MQTT v5 features in the future to align more with the MQTT specifications. The following items detail the current differences in Event Grid's MQTT support from the MQTT v3.1.1 specification: Will message, Retain flag, Message ordering and QoS 2 aren't supported.
+-  Event Grid is adding more MQTT v3.1.1 features in the future to align more with the MQTT specifications. The following items detail the current differences in Event Grid's MQTT support from the MQTT v3.1.1 specification: Will message, Retain flag, Message ordering and QoS 2 aren't supported.
  
 [Learn more about Event Grid’s MQTT support and current limitations.](mqtt-support.md) 
 
