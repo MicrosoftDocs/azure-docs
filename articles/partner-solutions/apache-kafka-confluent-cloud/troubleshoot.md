@@ -75,7 +75,7 @@ If the problem persists, contact [Confluent support](https://support.confluent.i
 - Get started with Apache Kafka on Confluent Cloud - Azure Native ISV Service on
 
     > [!div class="nextstepaction"]
-    > [Azure Portal](https://portal.azure.com/#view/HubsExtension/BrowseResource/resourceType/Microsoft.Confluent%2Forganizations)
+    > [Azure portal](https://portal.azure.com/#view/HubsExtension/BrowseResource/resourceType/Microsoft.Confluent%2Forganizations)
 
     > [!div class="nextstepaction"]
-    > [Azure Marketplace](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/confluentinc.confluent-cloud-azure-prod?tab=Overview)
+    > [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/confluentinc.confluent-cloud-azure-prod?tab=Overview)

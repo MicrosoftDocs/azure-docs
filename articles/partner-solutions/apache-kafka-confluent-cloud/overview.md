@@ -11,7 +11,7 @@ ms.author: franlanglois
 
 Azure Native ISV Services enable you to easily provision, manage, and tightly integrate independent software vendor (ISV) software and services on Azure. This Azure Native ISV Service is developed and managed by Microsoft and Confluent.
 
-You can find Apache Kafka on Confluent Cloud - Azure Native ISV Service in the [Azure Portal](https://portal.azure.com/#view/HubsExtension/BrowseResource/resourceType/Microsoft.Confluent%2Forganizations) or get it on [Azure Marketplace](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/confluentinc.confluent-cloud-azure-prod?tab=Overview).
+You can find Apache Kafka on Confluent Cloud - Azure Native ISV Service in the [Azure portal](https://portal.azure.com/#view/HubsExtension/BrowseResource/resourceType/Microsoft.Confluent%2Forganizations) or get it on [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/confluentinc.confluent-cloud-azure-prod?tab=Overview).
 
 Apache Kafka on Confluent Cloud is an Azure Marketplace offering that provides Apache Kafka as a service. It's fully managed so you can focus on building your applications rather than managing the clusters.
 
@@ -88,7 +88,7 @@ To learn more, see Confluent blog articles about Azure services that integrate w
 - Get started with Apache Kafka on Confluent Cloud - Azure Native ISV Service on
 
     > [!div class="nextstepaction"]
-    > [Azure Portal](https://portal.azure.com/#view/HubsExtension/BrowseResource/resourceType/Microsoft.Confluent%2Forganizations)
+    > [Azure portal](https://portal.azure.com/#view/HubsExtension/BrowseResource/resourceType/Microsoft.Confluent%2Forganizations)
 
     > [!div class="nextstepaction"]
-    > [Azure Marketplace](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/confluentinc.confluent-cloud-azure-prod?tab=Overview)
+    > [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/confluentinc.confluent-cloud-azure-prod?tab=Overview)
