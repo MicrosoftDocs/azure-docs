@@ -14,14 +14,14 @@ ms.author: jasteppe
 > [!NOTE]
 > [Fast Healthcare Interoperability Resources (FHIR&#174;)](https://www.hl7.org/fhir/) is an open healthcare specification.
 
-This article provides guides and resources to troubleshoot Events.
+This article provides resources for troubleshooting Events.
 
 > [!IMPORTANT]
 > FHIR resource and DICOM image change data is only written and event messages are sent when the Events feature is turned on. The Event feature doesn't send messages on past FHIR resource or DICOM image changes or when the feature is turned off.
 
 :::image type="content" source="media/events-overview/events-overview-flow.png" alt-text="Diagram of data flow from users to a FHIR service and then into the Events pipeline" lightbox="media/events-overview/events-overview-flow.png":::
 
-## Events resources for troubleshooting
+## Resources for troubleshooting
 
 > [!IMPORTANT]
 > Events currently supports only the following operations:
@@ -40,10 +40,10 @@ This article provides guides and resources to troubleshoot Events.
 > 
 > For more information about the FHIR service delete types, see [FHIR REST API capabilities for Azure Health Data Services FHIR service](../../healthcare-apis/fhir/fhir-rest-api-capabilities.md).
 
-### Events message structure
+### Events message structures
 
-Use this resource to learn about the Events message structure, required and nonrequired elements, and sample messages: 
-* [Events message structure](./events-message-structure.md)
+Use this resource to learn about the Events message structures, required and nonrequired elements, and see sample Events messages: 
+* [Events message structures](./events-message-structure.md)
 
 ### How to's
 
