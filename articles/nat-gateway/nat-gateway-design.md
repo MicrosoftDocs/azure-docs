@@ -16,7 +16,7 @@ Review this article to familiarize yourself with considerations for designing vi
 
 NAT gateway is recommended for all production workloads where you need to connect to a public endpoint over the internet. Outbound connectivity takes place right away upon deployment of a NAT gateway with a subnet and at least one public IP address. No routing configurations are required to start connecting outbound with NAT gateway. NAT gateway becomes the subnet’s default route to the internet.
 
-In the presence of other outbound configurations within a virtual network, such as Load balancer or instance-level public IPs (IL PIPs), NAT gateway takes precedence for outbound connectivity. All new outbound initiated and return traffic starts using NAT gateway. There's no down time on outbound connectivity after adding NAT gateway to a subnet with existing outbound configurations.
+In the presence of other outbound configurations within a virtual network, such as a load balancer or instance-level public IPs (IL PIPs), NAT gateway takes precedence for outbound connectivity. New outbound initiated traffic and return traffic uses the NAT gateway. There's no down time on outbound connectivity after adding NAT gateway to a subnet with existing outbound configurations.
 
 ## Scale a NAT gateway to meet the demand of a dynamic workload
 
@@ -30,9 +30,9 @@ As SNAT port exhaustion approaches, connection flows may not succeed.
 
 Each NAT gateway public IP address provides 64,512 SNAT ports to make outbound connections. NAT gateway can scale up to over 1 million SNAT ports.
 
-SNAT maps private addresses in your subnet to one or more public IP addresses attached to NAT gateway, rewriting the source address and source port in the process. When making multiple connections to the same destination endpoint, a new SNAT port will be used. A new SNAT port must be used in order to distinguish different connection flows from one another going to the same destination.
+SNAT maps private addresses in your subnet to one or more public IP addresses attached to NAT gateway, rewriting the source address and source port in the process. When multiple connections are made to the same destination endpoint, a new SNAT port is used. A new SNAT port must be used in order to distinguish different connection flows from one another going to the same destination.
 
-Connection flows going to different destination endpoints can reuse the same SNAT port at the same time. SNAT ports connectingsent to different destinations will most likely be reused when possible. As SNAT port exhaustion approaches, flows may not succeed.
+Connection flows going to different destination endpoints can reuse the same SNAT port at the same time. SNAT ports connecting sent to different destinations are reused when possible. As SNAT port exhaustion approaches, flows may not succeed.
 
 For a SNAT example, see [Example SNAT flows for NAT Gateway](nat-gateway-snat.md#example-snat-flows-for-nat-gateway).
 
@@ -47,9 +47,9 @@ Private Link uses the private IP addresses of your virtual machines or other com
 
 ## Provide outbound and inbound connectivity for your Azure virtual network
 
-NAT gateway, load balancer and instance-level public IPs are flow direction awareand can coexist in the same virtual network to provide outbound and inbound connectivity seamlessly. Inbound traffic through a load balancer or instance-level public IPs is translated separately from outbound traffic through NAT gateway.
+NAT gateway, load balancer and instance-level public IPs are flow direction aware and can coexist in the same virtual network to provide outbound and inbound connectivity seamlessly. Inbound traffic through a load balancer or instance-level public IPs is translated separately from outbound traffic through NAT gateway.
 
-Private instances will use NAT gateway for outbound traffic as well as any response traffic to the **outbound originated flow**. Whereas, private instances will use instance-level public IPs or Load balancer for inbound traffic as well as any response traffic to the **inbound originated flow**.
+Private instances use NAT gateway for outbound traffic and any response traffic to the **outbound originated flow**. Private instances use instance-level public IPs or Load balancer for inbound traffic and any response traffic to the **inbound originated flow**.
 
 The following examples demonstrate coexistence of a load balancer or instance-level public IPs with a NAT gateway. Inbound traffic traverses the load balancer or public IP. Outbound traffic traverses the NAT gateway.
 
@@ -62,10 +62,10 @@ The following examples demonstrate coexistence of a load balancer or instance-le
 | Resource | Traffic flow direction | Connectivity method used |
 | --- | --- | --- |
 | VM (Subnet B) | Inbound </br> Outbound | NA </br> NAT gateway |
-| VMSS (Subnet B) | Inbound </br> Outbound | NA </br> NAT gateway |
+| Virtual machine scale set (Subnet B) | Inbound </br> Outbound | NA </br> NAT gateway |
 | VMs (Subnet A) | Inbound </br> Outbound | Instance-level public IP </br> NAT gateway |
 
-The virtual machine uses NAT gateway for outbound and return traffic. Inbound originated traffic passes through the instance level public IP directly associated with the virtual machine in subnet A. The VMSS from subnet B and VMs from subnet B can only egress and receive response traffic through NAT gateway. No inbound originated traffic can be received.
+The virtual machine uses NAT gateway for outbound and return traffic. Inbound originated traffic passes through the instance level public IP directly associated with the virtual machine in subnet A. The virtual machine scale set from subnet B and VMs from subnet B can only egress and receive response traffic through NAT gateway. No inbound originated traffic can be received.
 
 ### A NAT gateway and VM with a standard public load balancer
 
@@ -76,9 +76,9 @@ The virtual machine uses NAT gateway for outbound and return traffic. Inbound or
 | Resource | Traffic flow direction | Connectivity method used |
 | --- | --- | --- |
 | VMs in backend pool | Inbound </br> Outbound | Load balancer </br> NAT gateway |
-| VM and VMSS (Subnet B) | Inbound </br> Outbound | NA </br> NAT gateway |
+| VM and virtual machine scale set (Subnet B) | Inbound </br> Outbound | NA </br> NAT gateway |
 
-NAT Gateway supersedes any outbound configuration from a load-balancing rule or outbound rules on the load balancer. VM instances in the backend pool use NAT gateway to send outbound traffic and receive return traffic. Inbound originated traffic passes through the load balancer for all VM instances within the Load balancer’s backend pool. VM and VMSS from subnet B can only egress and receive response traffic through NAT gateway. No inbound originated traffic can be received.
+NAT Gateway supersedes any outbound configuration from a load-balancing rule or outbound rules on the load balancer. VM instances in the backend pool use NAT gateway to send outbound traffic and receive return traffic. Inbound originated traffic passes through the load balancer for all VM instances within the Load balancer’s backend pool. VM and virtual machine scale set from subnet B can only egress and receive response traffic through NAT gateway. No inbound originated traffic can be received.
 
 ### A NAT gateway and VM with an instance-level public IP and a standard public load balancer
 
@@ -89,7 +89,7 @@ NAT Gateway supersedes any outbound configuration from a load-balancing rule or 
 | Resource | Traffic flow direction | Connectivity method used |
 | --- | --- | --- |
 | VM (Subnet A) | Inbound </br> Outbound | Instance-level public IP </br> NAT gateway |
-| VMSS | Inbound </br> Outbound | NA </br> NAT gateway |
+| Virtual machine scale set | Inbound </br> Outbound | NA </br> NAT gateway |
 | VM (Subnet B) | Inbound </br> Outbound | NA </br> NAT gateway |
 
 The NAT gateway supersedes any outbound configuration from a load-balancing rule or outbound rules on a load balancer and instance level public IPs on a virtual machine. All virtual machines in subnets A and B use NAT gateway exclusively for outbound and return traffic. Instance level public IPs take precedence over load balancer. The VM in subnet A uses the instance level public IP for inbound originating traffic.
