@@ -113,15 +113,6 @@ The following sections explain tools by call phase:
 
 - For more information, please see: [User Facing Diagnostics](user-facing-diagnostics.md).
 
-
-#### Volume Indicator API
-
-- Users may not know they are speaking too quietly, or that their audio isn't being sent or received in the call. You can use the input and output indicator to indicate if a user’s volume is
-  low or absent. You can prompt a user to speak louder through your user interface.
-
-- For more information, please see: [Add volume indicator to your web calling](../../quickstarts/voice-video-calling/get-started-volume-indicator.md)
-
-
 #### Browser support
 
 - You can check if an application is running a supported browser to
@@ -142,9 +133,7 @@ The following sections explain tools by call phase:
 
 #### Video Constraints
 
-- You can improve audio quality in poor network environments by reducing
-  the amount of bandwidth user’s video streams consume. Freeing up
-  bandwidth can improve audio quality in poor network environments.
+- If you know your users will face limited network bandwidth or poor network conditions you can control the network usage of their video connection by using video constraints. By limiting how much bandwidth a user's video stream can consume you can improve audio quality in poor network environments.
 
 - To learn more, see: [Video constraints](video-constraints.md).
 
@@ -160,6 +149,14 @@ notes - Stronger control on network usage, video calls use, implement video cons
 - To learn more, see: [Simulcast](simulcast.md).
 
 remove this -  -->
+
+#### Volume Indicator API
+
+- Users may not know they are speaking too quietly, or that their audio isn't being sent or received in the call. You can use the input and output indicator to indicate if a user’s volume is
+  low or absent. You can prompt a user to speak louder through your user interface.
+
+- For more information, please see: [Add volume indicator to your web calling](../../quickstarts/voice-video-calling/get-started-volume-indicator.md)
+
 
 #### Detailed Media Statistics
 
