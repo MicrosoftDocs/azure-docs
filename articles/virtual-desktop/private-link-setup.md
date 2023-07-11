@@ -140,7 +140,11 @@ Here's how to create a private endpoint for the *connection* sub-resource used f
       location=<Location>
       
       # Get the resource ID of the host pool
-      hostPoolId=$(az desktopvirtualization hostpool show --name <HostPoolName> --resource-group <ResourceGroupName> --query [id] --output tsv)
+      hostPoolId=$(az desktopvirtualization hostpool show \
+          --name <HostPoolName> \
+          --resource-group <ResourceGroupName> \
+          --query [id] \
+          --output tsv)
       
       # Create a service connection and the private endpoint
       az network private-endpoint create \
@@ -162,7 +166,11 @@ Here's how to create a private endpoint for the *connection* sub-resource used f
       location=<Location>
       
       # Get the resource ID of the host pool
-      hostPoolId=$(az desktopvirtualization hostpool show --name <HostPoolName> --resource-group <ResourceGroupName> --query [id] --output tsv)
+      hostPoolId=$(az desktopvirtualization hostpool show \
+          --name <HostPoolName> \
+          --resource-group <ResourceGroupName> \
+          --query [id] \
+          --output tsv)
       
       # Store each private endpoint IP configuration in a variable
       ip1={name:ipconfig1,group-id:connection,member-name:broker,private-ip-address:<IPAddress>}
@@ -361,7 +369,9 @@ To create a private endpoint for the *feed* sub-resource for a workspace, select
 
 # [Azure CLI](#tab/cli)
 
-TODO: ADD
+1. In the same CLI session, create a Private Link service connection for a workspace with the feed sub-resource by running the following commands. In these examples the same virtual network and subnet are used.
+
+1. TODO: ADD
 
 # [Azure PowerShell](#tab/powershell)
 
@@ -452,13 +462,12 @@ TODO: ADD
 > [!IMPORTANT]
 > You need to create private endpoint for the feed sub-resource for each workspace you want to use with the Private Link.
 
-
 ### Initial feed discovery
 
 To create a private endpoint for the *global* sub-resource used for the initial feed discovery, select the relevant tab for your scenario and follow the steps.
 
 > [!IMPORTANT]
-> - Only create one private endpoint for the *global* sub-resource for all your Azure Virtual Desktop deployments. If you've already created this, go to [Feed download](#feed-download).
+> - Only create one private endpoint for the *global* sub-resource for all your Azure Virtual Desktop deployments.
 > 
 > - A private endpoint to the global sub-resource of any workspace controls the shared fully qualified domain name (FQDN) for initial feed discovery. This in turn enables feed discovery for all workspaces. Because the workspace connected to the private endpoint is so important, deleting it will cause all feed discovery processes to stop working. We recommend you create an unused placeholder workspace for the global sub-resource.
 
@@ -510,7 +519,7 @@ To create a private endpoint for the *global* sub-resource used for the initial 
 
 1. *Optional*: Create a placeholder workspace to terminate the global endpoint by following the instructions to [Create a workspace](create-application-group-workspace.md?tabs=cli#create-a-workspace).
 
-1. Create a Private Link service connection for the workspace with the global sub-resource by running the following commands:
+1. In the same CLI session, create a Private Link service connection for the workspace with the global sub-resource by running the following commands:
 
    ```azurepowershell
    # Get the resource ID of the workspace
