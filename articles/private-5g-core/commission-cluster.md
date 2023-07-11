@@ -85,16 +85,6 @@ Additionally, if you go to the Azure portal and navigate to your **Azure Stack E
 
 :::image type="content" source="media/commission-cluster/commission-cluster-ase-resource.png" alt-text="Screenshot of Azure Stack Edge resource in the Azure portal. Azure Kubernetes Service (PREVIEW) is shown under Edge services in the left menu.":::
 
-## Enable high performance networking
-
-Azure Private 5G Core requires high performance networking (HPN) to be enabled on Azure Stack Edge using a minishell command. You can continue to use the minishell session you started in [Enter a minishell session](#enter-a-minishell-session). Run the following command:
-
-```powershell
-Invoke-Command -Session $minishellSession -ScriptBlock {Set-HcsNumaLpMapping -UseSkuPolicy}
-```
-
-Wait for the machine to reboot if necessary (approximately 5 minutes).
-
 ## Set up advanced networking
 
 You now need to configure virtual switches and virtual networks on those switches. You'll use the **Advanced networking** section of the Azure Stack Edge local UI to do this task.
@@ -139,7 +129,7 @@ You can input all the settings on this page before selecting **Apply** at the bo
             - If there's no gateway between the access interface and gNB/RAN, use the gNB/RAN IP address as the gateway address. If there's more than one gNB connected via a switch, choose one of the IP addresses for the gateway.
         - **DNS server** and **DNS suffix** should be left blank.
     1. Select **Modify** to save the configuration for this virtual network.
-    1. Select **Apply** at the bottom of the page and wait for the notification (a bell icon) to confirm that the settings have been applied. Applying the settings will take approximately 15 minutes.
+    1. Select **Apply** at the bottom of the page and wait for the notification (a bell icon) to confirm that the settings have been applied. Applying the settings will take approximately 8 minutes.
     The page should now look like the following image:
 
   :::image type="content" source="media/commission-cluster/commission-cluster-advanced-networking-ase-2.png" alt-text="Screenshot showing Advanced networking, with a table of virtual switch information and a table of virtual network information.":::
@@ -156,7 +146,7 @@ You can input all the settings on this page before selecting **Apply** at the bo
             - If there's no gateway between the access interface and gNB/RAN, use the gNB/RAN IP address as the gateway address. If there's more than one gNB connected via a switch, choose one of the IP addresses for the gateway.
         - **DNS server** and **DNS suffix** should be left blank.
     1. Select **Modify** to save the configuration for this virtual network.
-    1. Select **Apply** at the bottom of the page and wait for the notification (a bell icon) to confirm that the settings have been applied. Applying the settings will take approximately 15 minutes.
+    1. Select **Apply** at the bottom of the page and wait for the notification (a bell icon) to confirm that the settings have been applied. Applying the settings will take approximately 8 minutes.
   The page should now look like the following image:
 
   :::image type="content" source="media/commission-cluster/commission-cluster-advanced-networking.png" alt-text="Screenshot showing Advanced networking, with a table of virtual switch information and a table of virtual network information.":::
@@ -167,7 +157,7 @@ You can input all the settings on this page before selecting **Apply** at the bo
 In the local Azure Stack Edge UI, go to the **Kubernetes (Preview)** page. You'll set up all of the configuration and then apply it once, as you did in [Set up Advanced Networking](#set-up-advanced-networking).
 
 1. Under **Compute virtual switch**, select **Modify**.
-      1. Select the management vswitch (for example, *vswitch-port2*)
+      1. Select the vswitch with compute intent (for example, *vswitch-port2*)
       1. Enter six IP addresses in a range for the node IP addresses on the management network.
       1. Enter one IP address in a range for the service IP address, also on the management network.
       1. Select **Modify** at the bottom of the panel to save the configuration.
@@ -175,7 +165,7 @@ In the local Azure Stack Edge UI, go to the **Kubernetes (Preview)** page. You'l
       1. Enable the virtual network for Kubernetes and add a pool of IP addresses. Add a range of one IP address for the appropriate address (N2, N3, N6-DN1, N6-DN2 or N6-DN3 as collected earlier. For example, *10.10.10.20-10.10.10.20*.
       1. Repeat for each of the N2, N3, N6-DN1, N6-DN2, and N6-DN3 virtual networks.
       1. Select **Modify** at the bottom of the panel to save the configuration.
-1. Select **Apply** at the bottom of the page and wait for the settings to be applied. Applying the settings will take approximately 15 minutes.
+1. Select **Apply** at the bottom of the page and wait for the settings to be applied. Applying the settings will take approximately 5 minutes.
 
 The page should now look like the following image:
 
@@ -283,12 +273,12 @@ The Azure Private 5G Core private mobile network requires a custom location and 
 1. Set the following environment variables using the required values for your deployment:
 
     ```azurecli
-    export SUBSCRIPTION_ID=<subscription ID>
-    export RESOURCE_GROUP_NAME=<resource group name>
-    export LOCATION=<deployment region, for example eastus>
-    export CUSTOM_LOCATION=<custom location for the AKS cluster>
-    export RESOURCE_NAME=<resource name>
-    export TEMP_FILE=./tmpfile
+    $SUBSCRIPTION_ID=<subscription ID>
+    $RESOURCE_GROUP_NAME=<resource group name>
+    $LOCATION=<deployment region, for example eastus>
+    $CUSTOM_LOCATION=<custom location for the AKS cluster>
+    $ARC_CLUSTER_RESOURCE_NAME=<resource name>
+    $TEMP_FILE=./tmpfile
     ```
 
 1. Prepare your shell environment:
@@ -300,7 +290,7 @@ The Azure Private 5G Core private mobile network requires a custom location and 
 1. Create the Network Function Operator Kubernetes extension:
 
     ```azurecli
-    cat > $TEMP_FILE <<EOF
+    Add-Content -Path $TEMP_FILE -Value @"
     {
       "helm.versions": "v3",
       "Microsoft.CustomLocation.ServiceAccount": "azurehybridnetwork-networkfunction-operator",
@@ -311,11 +301,11 @@ The Azure Private 5G Core private mobile network requires a custom location and 
       "helm.release-namespace": "azurehybridnetwork",
       "managed-by": "helm"
     }
-    EOF
+    "@
 
     az k8s-extension create \
     --name networkfunction-operator \
-    --cluster-name "$RESOURCE_NAME" \
+    --cluster-name "$ARC_CLUSTER_RESOURCE_NAME" \
     --resource-group "$RESOURCE_GROUP_NAME" \
     --cluster-type connectedClusters \
     --extension-type "Microsoft.Azure.HybridNetwork" \
@@ -331,7 +321,7 @@ The Azure Private 5G Core private mobile network requires a custom location and 
     ```azurecli
     az k8s-extension create \
     --name packet-core-monitor \
-    --cluster-name "$RESOURCE_NAME" \
+    --cluster-name "$ARC_CLUSTER_RESOURCE_NAME" \
     --resource-group "$RESOURCE_GROUP_NAME" \
     --cluster-type connectedClusters \
     --extension-type "Microsoft.Azure.MobileNetwork.PacketCoreMonitor" \
@@ -347,8 +337,8 @@ The Azure Private 5G Core private mobile network requires a custom location and 
     -g "$RESOURCE_GROUP_NAME" \
     --location "$LOCATION" \
     --namespace azurehybridnetwork \
-    --host-resource-id "/subscriptions/$SUBSCRIPTION_ID/resourceGroups/$RESOURCE_GROUP_NAME/providers/Microsoft.Kubernetes/connectedClusters/$RESOURCE_NAME" \
-    --cluster-extension-ids "/subscriptions/$SUBSCRIPTION_ID/resourceGroups/$RESOURCE_GROUP_NAME/providers/Microsoft.Kubernetes/connectedClusters/$RESOURCE_NAME/providers/Microsoft.KubernetesConfiguration/extensions/networkfunction-operator"
+    --host-resource-id "/subscriptions/$SUBSCRIPTION_ID/resourceGroups/$RESOURCE_GROUP_NAME/providers/Microsoft.Kubernetes/connectedClusters/$ARC_CLUSTER_RESOURCE_NAME" \
+    --cluster-extension-ids "/subscriptions/$SUBSCRIPTION_ID/resourceGroups/$RESOURCE_GROUP_NAME/providers/Microsoft.Kubernetes/connectedClusters/$ARC_CLUSTER_RESOURCE_NAME/providers/Microsoft.KubernetesConfiguration/extensions/networkfunction-operator"
     ```
 
 You should see the new **Custom location** visible as a resource in the Azure portal within the specified resource group. Using the `kubectl get pods -A` command (with access to your *kubeconfig* file) should also show new pods corresponding to the extensions that have been installed. There should be one pod in the *azurehybridnetwork* namespace, and one in the *packet-core-monitor* namespace.
