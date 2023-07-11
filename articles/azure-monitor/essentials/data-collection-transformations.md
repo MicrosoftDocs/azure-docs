@@ -76,7 +76,7 @@ While transformations themselves don't incur direct costs, the following scenari
 - If a transformation increases the size of the incoming data, such as by adding a calculated column, you'll be charged the standard ingestion rate for the extra data.
 - If a transformation reduces the incoming data by more than 50%, you'll be charged for the amount of filtered data above 50%.
 
-To calculate the data processing charge resulting from transformations, use the following formula: [GB filtered out by transformations] - ([Incoming data] / 2). The following table shows examples.
+To calculate the data processing charge resulting from transformations, use the following formula:<br>[GB filtered out by transformations] - ([Incoming data] / 2). The following table shows examples.
 
 | Incoming data | Data dropped by transformation | Resulting data ingested | Data processing charge | Ingestion charge |
 |:---|:-:|:-:|:-:|:-:|
