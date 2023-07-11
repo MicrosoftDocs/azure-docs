@@ -35,7 +35,7 @@
         ]
       },
       {
-        "group": "grp-form-recognizer",
+        "group": "grp-document-intelligence",
         "src": "articles/ai-services/document-intelligence",
         "dest": "./ai-services/document-intelligence/",
         "files": [
@@ -157,7 +157,7 @@
         ]
       },
       {
-        "group": "grp-form-recognizer",
+        "group": "grp-document-intelligence",
         "src": "articles/ai-services/document-intelligence",
         "dest": "./ai-services/document-intelligence/",
         "files": [
@@ -259,9 +259,9 @@
         "dest": "destiotedge",
         "moniker_range": ">=iotedge-1.4"
       },
-      "grp-form-recognizer": {
-        "dest": "destformrecognizer",
-        "moniker_range": ">=form-recog-2.1.0"
+      "grp-document-intelligence": {
+        "dest": "destdocumentintelligence",
+        "moniker_range": ">=doc-intel-2.1.0"
       },
       "grp-machine-learning": {
         "dest": "destmachinelearning",
@@ -1092,7 +1092,7 @@
       },
       "monikerRange": {
         "articles/iot-edge/**/*.md": ">=iotedge-1.4",
-        "articles/ai-services/document-intelligence/**/*.md": ">=form-recog-2.1.0",
+        "articles/ai-services/document-intelligence/**/*.md": ">=doc-intel-2.1.0",
         "articles/machine-learning/**/*.md": "azureml-api-2",
         "articles/machine-learning/v1/**/*.md": "azureml-api-1"
       },
