@@ -4,7 +4,7 @@ titleSuffix: Defender for Cloud
 description: Learn how to manage your attack path analysis and build queries to locate vulnerabilities in your multicloud environment.
 ms.topic: how-to
 ms.custom: ignite-2022
-ms.date: 03/27/2023
+ms.date: 07/10/2023
 ---
 
 # Identify and remediate attack paths
@@ -47,9 +47,9 @@ You can use Attack path analysis  to locate the biggest risks to your environmen
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
-1. Navigate to **Microsoft Defender for Cloud** > **Recommendations** > **Attack path**.
+1. Navigate to **Microsoft Defender for Cloud** > **Attack path analysis**.
 
-    :::image type="content" source="media/how-to-manage-attack-path/attack-path-icon.png" alt-text="Screenshot that shows where the icon is on the recommendations page to get to attack paths." lightbox="media/how-to-manage-attack-path/attack-path-icon.png":::
+    :::image type="content" source="media/how-to-manage-attack-path/attack-path-blade.png" alt-text="Screenshot that shows the attack path analysis blade on the main screen." lightbox="media/how-to-manage-attack-path/attack-path-blade.png":::
 
 1. Select an attack path.
 
@@ -86,7 +86,7 @@ Attack path analysis also gives you the ability to see all recommendations by at
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
-1. Navigate to **Microsoft Defender for Cloud** > **Recommendations** > **Attack paths**.
+1. Navigate to **Microsoft Defender for Cloud** > **Attack path analysis**.
 
 1. Select an attack path.
 
