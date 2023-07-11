@@ -7,7 +7,11 @@ ms.topic: overview
 # What is Azure Blueprints (Preview)?
 
 > [!IMPORTANT]
-> On July 4, 2026, Blueprints (Preview) will be deprecated. To accommodate this change, blueprint definitions and assignments can now be transformed into [Template Specs](../../azure-resource-manager/bicep/template-specs.md) and [Deployment Stacks (Preview)](../../azure-resource-manager/bicep/deployment-stacks.md). Microsoft strongly advises converting or recreating any existing blueprints as Deployment Stacks. For detailed instructions, see [Template Specs](../../azure-resource-manager/bicep/template-specs.md) and [Deployment Stacks](../../azure-resource-manager/bicep/deployment-stacks.md).
+> On July 11, 2026, Blueprints (Preview) will be deprecated. Migrate your existing blueprint definitions and assignments to [Template Specs](../../azure-resource-manager/bicep/template-specs.md) and [Deployment Stacks](../../azure-resource-manager/bicep/deployment-stacks.md). Blueprint artifacts are to be converted to ARM JSON templates or Bicep files used to define deployment stacks. To learn how to author an artifact as an ARM resource, see:
+>
+> - [Policy](/azure/templates/microsoft.authorization/policyassignments?pivots=deployment-language-bicep)
+> - [RBAC](/azure/templates/microsoft.authorization/roleassignments?pivots=deployment-language-bicep)
+> - [Deployments](/azure/templates/microsoft.resources/deployments?pivots=deployment-language-bicep)
 
 Just as a blueprint allows an engineer or an architect to sketch a project's design parameters,
 Azure Blueprints enables cloud architects and central information technology groups to define a
