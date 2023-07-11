@@ -6,7 +6,7 @@ ms.author: anaharris
 ms.topic: conceptual
 ms.service: postgresql
 ms.custom: references_regions, subject-reliability
-ms.date: 02/28/2023
+ms.date: 07/11/2023
 ---
 
 <!--#Customer intent:  I want to understand reliability support in Azure Database for PostgreSQL - Flexible Server so that I can respond to and/or avoid failures in order to minimize downtime and data loss. -->
@@ -131,7 +131,7 @@ There are two failover modes.
 
 1. With [**planned failovers**](#failover-process---planned-downtimes) (example: During maintenance window) where the failover is triggered with a known state in which the primary connections are drained, a clean shutdown is performed before the replication is severed. You can also use this to bring the primary server back to your preferred AZ. 
  
-  2. With [**unplanned failover**](#failover-process---unplanned-downtimes) (example: Primary server node crash), the primary is immediately fenced and hence any in-flight transactions are lost and to be retried by the application. 
+2. With [**unplanned failover**](#failover-process---unplanned-downtimes) (example: Primary server node crash), the primary is immediately fenced and hence any in-flight transactions are lost and to be retried by the application. 
 
 In both the failover modes, once the replication is severed, the standby server runs the recovery before being promoted as a primary, and opened for read/write. With automatic DNS entries updated with the new primary server endpoint, applications can connect to the server using the same server endpoint. A new standby server is established in the background and that don’t block your application connectivity.
 
@@ -145,12 +145,12 @@ The health of primary and standby servers are continuously monitored and appropr
 
 | **Status** | **Description** |
 | ------- | ------ |
-| <b> Initializing | In the process of creating a new standby server. |
-| <b> Replicating Data | After the standby is created, it is catching up with the primary. |
-| <b> Healthy | Replication is in steady state and healthy. |
-| <b> Failing Over | The database server is in the process of failing over to the standby. |
-| <b> Removing Standby | In the process of deleting standby server. | 
-| <b> Not Enabled | Zone redundant high availability is not enabled.  |
+| **Initializing** | In the process of creating a new standby server. |
+| **Replicating Data** | After the standby is created, it is catching up with the primary. |
+| **Healthy** | Replication is in steady state and healthy. |
+| **Failing Over** | The database server is in the process of failing over to the standby. |
+| **Removing Standby** | In the process of deleting standby server. | 
+| **Not Enabled** | Zone redundant high availability is not enabled.  |
 
 >[!NOTE]
 > You can enable high availability during server creation or at a later time as well. If you are enabling or disabling high availability during post-create stage, it is recommended to perform the operation when the primary server activity is low.
@@ -159,7 +159,7 @@ The health of primary and standby servers are continuously monitored and appropr
 
 PostgreSQL client applications are connected to the primary server using the DB server name. Application reads are served directly from the primary server, while commits and writes are confirmed to the application only after the log data is persisted on both the primary server and the standby replica. Due to this additional round-trip, applications can expect elevated latency for writes and commits. You can monitor the health of the high availability on the portal.
 
-:::image type="content" source="./media/business-continuity/concepts-high-availability-steady-state.png" alt-text="high availability - steady state"::: 
+:::image type="content" source="../postgresql/flexible-server/media/business-continuity/concepts-high-availability-steady-state.png" alt-text="high availability - steady state"::: 
 
 1. Clients connect to the flexible server and perform write operations.
 2. Changes are replicated to the standby site.
@@ -188,7 +188,7 @@ For flexible servers configured with high availability, these maintenance activi
 
 After the failover, while a new standby server is being provisioned (which usually takes 5-10 minutes), applications can still connect to the primary server and proceed with their read/write operations. Once the standby server is established, it will start recovering the logs that were generated after the failover. 
 
-:::image type="content" source="./media/business-continuity/concepts-high-availability-failover-state.png" alt-text="high availability - failover"::: 
+:::image type="content" source="../postgresql/flexible-server/media/business-continuity/concepts-high-availability-failover-state.png" alt-text="high availability - failover"::: 
 
 1. Primary database server is down and the clients lose database connectivity. 
 2. Standby server is activated to become the new primary server. The client connects to the new primary server using the same connection string. Having the client application in the same zone as the primary database server reduces latency and improves performance.
@@ -253,7 +253,7 @@ Application downtime starts at step #3 and can resume operation post step #5. Th
 * Please do not perform immediate, back-to-back failovers. Wait for at least 15-20 minutes between failovers, which will  allow the new standby server to be fully established.
 * For the planned failover with reduced downtime, it is recommended to perform during low activity period.
 
-See [this guide](how-to-manage-high-availability-portal.md) for managing high availability.
+See [this guide](../postgresql/flexible-server/how-to-manage-high-availability-portal.md) for managing high availability.
 
 ## Point-in-time restore of HA servers
 
@@ -285,7 +285,7 @@ During planned or unplanned failover events, if the server goes down, the servic
 
 Picture below shows transition for VM and storage failure.
 
-:::image type="content" source="../postgresql/media/business-continuity/concepts-availability-without-zone-redundant-ha-architecture.png" alt-text="Diagram that shows availability without zone redundant ha - steady state." border="false" lightbox="../postgresql/media/business-continuity/concepts-availability-without-zone-redundant-ha-architecture.png"::: 
+:::image type="content" source="../postgresql/flexible-server/media/business-continuity/concepts-availability-without-zone-redundant-ha-architecture.png" alt-text="Diagram that shows availability without zone redundant ha - steady state." border="false" lightbox="../postgresql/flexible-server/media/business-continuity/concepts-availability-without-zone-redundant-ha-architecture.png"::: 
 
 ## Further considerations
 
