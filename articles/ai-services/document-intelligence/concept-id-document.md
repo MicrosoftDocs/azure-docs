@@ -9,8 +9,8 @@ ms.subservice: forms-recognizer
 ms.topic: conceptual
 ms.date: 07/18/2023
 ms.author: lajanuar
-
 ms.custom: references.regions
+monikerRange: '<=doc-intel-3.0.0'
 ---
 
 <!-- markdownlint-disable MD033 -->

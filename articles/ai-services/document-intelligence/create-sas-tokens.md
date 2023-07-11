@@ -8,13 +8,13 @@ ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.date: 07/18/2023
 ms.author: lajanuar
-monikerRange: '>=doc-intel-2.1.0'
+monikerRange: '<=doc-intel-3.1.0'
 ---
 
 
 # Create SAS tokens for storage containers
 
-[!INCLUDE [applies to v3.0 and v2.1](includes/applies-to-v3-0-and-v2-1.md)]
+[!INCLUDE [applies to v3.1, v3.0, v2.1](includes/applies-to-v3-1-v3-0-v2-1.md)]
 
  In this article, learn how to create user delegation, shared access signature (SAS) tokens, using the Azure portal or Azure Storage Explorer. User delegation SAS tokens are secured with Azure AD credentials. SAS tokens provide secure, delegated access to resources in your Azure storage account.
 

@@ -10,6 +10,7 @@ ms.subservice: forms-recognizer
 ms.topic: conceptual
 ms.date: 07/18/2023
 ms.author: lajanuar
+monikerRange: '<=doc-intel-3.0.0'
 ---
 
 

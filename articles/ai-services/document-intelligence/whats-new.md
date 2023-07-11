@@ -9,8 +9,8 @@ ms.subservice: forms-recognizer
 ms.topic: whats-new
 ms.date: 07/18/2023
 ms.author: lajanuar
-monikerRange: '>=doc-intel-2.1.0'
 ms.custom: references_regions
+monikerRange: '<=doc-intel-3.0.0'
 ---
 
 <!-- markdownlint-disable MD024 -->
@@ -20,7 +20,7 @@ ms.custom: references_regions
 
 # What's new in Azure AI Document Intelligence
 
-[!INCLUDE [applies to v3.0 and v2.1](includes/applies-to-v3-0-and-v2-1.md)]
+[!INCLUDE [applies to v3.0 and v2.1](includes/applies-to-v3-0-v2-1.md)]
 
 Document Intelligence service is updated on an ongoing basis. Bookmark this page to stay up to date with release notes, feature enhancements, and our newest documentation.
 

@@ -10,6 +10,7 @@ ms.custom: devx-track-python
 ms.topic: conceptual
 ms.date: 07/18/2023
 ms.author: lajanuar
+monikerRange: '<=doc-intel-3.0.0'
 ---
 
 
@@ -20,7 +21,7 @@ ms.author: lajanuar
 
 # Document Intelligence SDK (GA)
 
-[!INCLUDE [applies to v3.0 and v2.1](includes/applies-to-v3-0-and-v2-1.md)]
+[!INCLUDE [applies to v3.0 and v2.1](includes/applies-to-v3-0-v2-1.md)]
 
 > [!IMPORTANT]
 > For more information on the latest public preview version (**2023-02-28-preview**), *see* [Document Intelligence SDK (preview)](sdk-preview.md)

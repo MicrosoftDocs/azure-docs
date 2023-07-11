@@ -8,6 +8,7 @@ ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: conceptual
 ms.date: 07/18/2023
+monikerRange: '<=doc-intel-3.0.0'
 ---
 
 <!-- markdownlint-disable MD036 -->

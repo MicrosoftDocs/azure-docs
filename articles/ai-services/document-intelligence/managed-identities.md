@@ -9,13 +9,13 @@ ms.subservice: forms-recognizer
 ms.topic: how-to
 ms.date: 07/18/2023
 ms.author: lajanuar
-monikerRange: '>=doc-intel-2.1.0'
+monikerRange: '<=doc-intel-3.1.0'
 ---
 
 
 # Managed identities for Document Intelligence
 
-[!INCLUDE [applies to v3.0 and v2.1](includes/applies-to-v3-0-and-v2-1.md)]
+[!INCLUDE [applies to v3.1, v3.0, v2.1](includes/applies-to-v3-1-v3-0-v2-1.md)]
 
 Managed identities for Azure resources are service principals that create an Azure Active Directory (Azure AD) identity and specific permissions for Azure managed resources:
 

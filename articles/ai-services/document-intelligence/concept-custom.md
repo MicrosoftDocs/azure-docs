@@ -8,8 +8,8 @@ ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: conceptual
 ms.date: 07/18/2023
-monikerRange: '>=doc-intel-2.1.0'
 ms.author: lajanuar
+monikerRange: '<=doc-intel-3.0.0'
 ---
 
 # Azure AI Document Intelligence Custom document models
