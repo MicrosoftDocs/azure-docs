@@ -44,6 +44,8 @@ GPT-3.5 models can understand and generate natural language or code. The most ca
 
 The `gpt-35-turbo` model supports 4096 max input tokens and the `gpt-35-turbo-16k` model supports up to 16,384 tokens.
 
+`gpt-35-turbo` and `gpt-35-turbo-16k` share the same [quota](../how-to/quota.md).
+
 Like GPT-4, use the Chat Completions API to use GPT-3.5 Turbo. To learn more about how to interact with GPT-3.5 Turbo and the Chat Completions API check out our [in-depth how-to](../how-to/chatgpt.md).
 
 ## Embeddings models
