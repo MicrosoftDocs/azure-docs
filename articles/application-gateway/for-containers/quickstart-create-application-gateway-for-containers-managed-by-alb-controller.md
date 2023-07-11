@@ -19,6 +19,43 @@ This guide assumes you're following the "managed by ALB controller" deployment s
 
 Ensure you have first deployed ALB Controller into your Kubernetes cluster.  You may follow the [Quickstart: Deploy Application Gateway for Containers ALB Controller](quickstart-deploy-application-gateway-for-containers-alb-controller.md) guide if you haven't yet deployed the ALB Controller.
 
+### Prepare your virtual network / subnet for Application Gateway for Containers
+
+#### AKS Virtual Network
+If you wish to deploy Application Gateway for Containers into the virtual network containing your AKS cluster, execute the following command to find the cluster's virtual network:
+```azurecli-interactive
+AKS_NAME='<your cluster name>'
+RESOURCE_GROUP='<your resource group>'
+
+mcResourceGroup=$(az aks show --name $AKS_NAME --resource-group $RESOURCE_GROUP --query "nodeResourceGroup" -o tsv)
+clusterSubnetId=$(az vmss list --resource-group $mcResourceGroup --query '[0].virtualMachineProfile.networkProfile.networkInterfaceConfigurations[0].ipConfigurations[0].subnet.id' -o tsv)
+read -d '' vnetName vnetResourceGroup vnetId <<< $(az network vnet show --ids $clusterSubnetId --query '[name, resourceGroup, id]' -o tsv)
+```
+
+Execute the following command to create a new subnet containing at least 250 available IP addresses and enable subnet delegation for the Application Gateway for Containers association resource:
+```azurecli-interactive
+subnetAddressPrefix='<an address space under the vnet that has at least 250 available addresses (/24 or smaller cidr prefix for the subnet)>'
+albSubnetName='subnet-alb' # subnet name can be any non-reserved subnet name (i.e. GatewaySubnet, AzureFirewallSubnet, AzureBastionSubnet would all be invalid)
+az network vnet subnet create \
+  --resource-group $vnetResourceGroup \
+  --vnet-name $vnetName \
+  --name $albSubnetName \
+  --address-prefixes $subnetAddressPrefix \
+  --delegations 'Microsoft.ServiceNetworking/trafficControllers'
+albSubnetId=$(az network vnet subnet show --name $albSubnetName --resource-group $vnetResourceGroup --vnet-name $vnetName --query '[id]' --output tsv)
+```
+
+#### Existing Virtual Network not specific to AKS
+If you wish to create a subnet in an existing virtual network, you can execute the following command to create a new subnet for the Application Gateway for Containers association resource:
+```azurecli-interactive
+vnetResourceGroup=<resource group name of the virtual network>
+vnetName=<name of the virtual network to use>
+subnetAddressPrefix='<an address space under the vnet that has at least 250 available addresses (/24 or smaller cidr prefix for the subnet)>'
+albSubnetName='subnet-alb' # subnet name can be any non-reserved subnet name (i.e. GatewaySubnet, AzureFirewallSubnet, AzureBastionSubnet would all be invalid)
+az network vnet subnet create --name $albSubnetName --resource-group $vnetResourceGroup --vnet-name $vnetName --address-prefixes $subnetAddressPrefix --delegations 'Microsoft.ServiceNetworking/trafficControllers'
+albSubnetId=$(az network vnet subnet show --name $albSubnetName --resource-group $vnetResourceGroup --vnet-name $vnetName --query '[id]' --output tsv)
+```
+
 ## Create ApplicationLoadBalancer kubernetes resource
 
 1. Define the Kubernetes namespace for the ApplicationLoadBalancer resource
