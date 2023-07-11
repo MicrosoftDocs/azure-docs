@@ -36,5 +36,4 @@ Defender for IoT can analyze your firmware for common weaknesses and vulnerabili
 
 ## Next steps
 
-- [Analyze a firmware image.](tutorial-analyze-firmware.md)
-- [What's new in Defender for IoT Firmware analysis?](release-notes-firmware-analysis.md)
+- [Analyze a firmware image](tutorial-analyze-firmware.md)
