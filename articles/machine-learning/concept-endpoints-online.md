@@ -39,11 +39,9 @@ To define an endpoint, you need to specify:
 Azure Machine Learning provides the convenience of using **managed online endpoints** for deploying your ML models in a turnkey manner. This is the _recommended_ way to use online endpoints in Azure Machine Learning. Managed online endpoints work with powerful CPU and GPU machines in Azure in a scalable, fully managed way. These endpoints also take care of serving, scaling, securing, and monitoring your models, to free you from the overhead of setting up and managing the underlying infrastructure. 
 To learn how to deploy to a managed online endpoint, see [Deploy an ML model with an online endpoint](how-to-deploy-online-endpoints.md).
 
-
-### Why to choose managed online endpoints (v2) over ACI/AKS (v1)
+### Why choose managed online endpoints (v2) over ACI/AKS (v1)?
 
 Use of managed online endpoints is the _recommended_ way to use online endpoints in Azure Machine Learning. The following table highlights the key attributes of managed online endpoints that make them superior to ACI/AKS (v1).
-
 
 |Attributes  |Managed online endpoints (v2)  |ACI/AKS (v1)  |
 |---------|---------|---------|
@@ -127,42 +125,23 @@ Azure Machine Learning supports model deployment to online endpoints for coders 
 
 #### No-code model deployment
 
-No-code deployment provides out-of-box inferencing for common frameworks (for example, scikit-learn, TensorFlow, PyTorch, and ONNX) via MLflow and Triton. For no-code deployment, Azure Machine Learning requires that you provide:
-- A model folder or the name and version of the model, if it's already registered in your workspace. This model folder should contain:
-    - ML model file connecting assets/schema for MLflow
-    - model files
-    - `conda.yaml` file that specifies the code environment
-- Settings to specify the instance type and scaling capacity
-
-In turn, Azure Machine Learning ​does the following:
-- Dynamically installs Python packages provided in the `conda.yaml` file during container runtime.
-- Provides an MLflow base image/curated environment that includes a scoring script to use for inferencing.
+No-code deployment provides out-of-box inferencing for common frameworks (for example, scikit-learn, TensorFlow, PyTorch, and ONNX) via MLflow and Triton. 
 
 To learn more about no-code deployment for MLflow models, see [Deploy MLflow models to online endpoints](/azure/machine-learning/how-to-deploy-mlflow-models-online-endpoints).
 
 #### Low-code model deployment
 
-Low-code deployment allows you to provide minimal code along with your ML model for deployment. For low-code deployment, Azure Machine Learning requires that you provide:
-- Model assets or the name and version of registered assets in your workspace. These assets should include:
-    - model files
-    - an Azure Machine Learning environment in which the model runs: either a Docker image with conda dependencies, or a dockerfile​
-    - scoring script to use for inferencing​, that is, code that executes the model on a given input request. The scoring script receives data submitted to a deployed web service and passes it to the model. The script then executes the model and returns its response to the client. The scoring script is specific to your model and must understand the data that the model expects as input and returns as output.
-- Settings to specify the instance type and scaling capacity
+Low-code deployment allows you to provide minimal code along with your ML model for deployment. 
 
-In turn, Azure Machine Learning uses the model assets you specified to create the container that runs in our managed infrastructure, providing all platform features of a managed online endpoint.​ ​To learn more about low-code deployment for ML models, see [Deploy an ML model with an online endpoint](/azure/machine-learning/how-to-deploy-online-endpoints).
+​To learn more about low-code deployment for ML models, see [Deploy an ML model with an online endpoint](/azure/machine-learning/how-to-deploy-online-endpoints).
 
 #### Bring Your Own Container (BYOC) deployment
 
-BYOC deployment lets you virtually bring any containers to run your online endpoint. You can use all the Azure Machine Learning platform features such as autoscaling, GitOps, debugging, and safe rollout to manage your MLOps pipelines​. For BYOC deployment, Azure Machine Learning requires that you provide:
-- an accessible container image location (for example, docker.io, Azure Container Registry (ACR), or Microsoft Container Registry (MCR)) or a Dockerfile that you can build/push with ACR​ for your container
-- Port and route path info for:​
-    - liveness (to check if server is running)​
-    - readiness (to check if model is loaded)​
-    - scoring (send scoring data here)
+BYOC deployment lets you virtually bring any containers to run your online endpoint. You can use all the Azure Machine Learning platform features such as autoscaling, GitOps, debugging, and safe rollout to manage your MLOps pipelines​. 
 
-In turn, Azure Machine Learning provides all the platform features for communicating with your container. To learn how to deploy with custom containers, see [Use a custom container to deploy a model to an online endpoint](/azure/machine-learning/how-to-deploy-custom-container).
+To learn how to deploy with custom containers, see [Use a custom container to deploy a model to an online endpoint](/azure/machine-learning/how-to-deploy-custom-container).
 
-The following table summarizes key points about deployment options to online endpoints:
+The following table highlights key aspects about the online deployment options:
 
 |         |Summary  |Custom code  |Custom dependencies  |Custom base image    |
 |---------|---------|---------|---------|---------|
@@ -199,7 +178,7 @@ To learn more about interactively debugging online endpoints in VS Code, see [De
 
 [!INCLUDE [machine-learning-preview-generic-disclaimer](../../includes/machine-learning-preview-generic-disclaimer.md)]
 
-You can debug your scoring script locally by using the Azure Machine Learning inference HTTP server. The HTTP server is a Python package that exposes your scoring function as an HTTP endpoint and wraps the Flask server code and dependencies into a singular package. It's included in the [prebuilt Docker images for inference](concept-prebuilt-docker-images-inference.md) that are used when deploying a model with Azure Machine Learning. Using the package alone, you can deploy the model locally for production, and you can also easily validate your scoring (entry) script in a local development environment. If there's a problem with the scoring script, the server will return an error and the location where the error occurred. 
+You can debug your scoring script locally by using the Azure Machine Learning inference HTTP server. The HTTP server is a Python package that exposes your scoring function as an HTTP endpoint and wraps the Flask server code and dependencies into a singular package. It's included in the [prebuilt Docker images for inference](concept-prebuilt-docker-images-inference.md) that are used when deploying a model with Azure Machine Learning. Using the package alone, you can deploy the model locally for production, and you can also easily validate your scoring (entry) script in a local development environment. If there's a problem with the scoring script, the server will return an error and the location where the error occurred.
 You can also use Visual Studio Code to debug with the Azure Machine Learning inference HTTP server.
 
 To learn more about debugging with the HTTP server, see [Debugging scoring script with Azure Machine Learning inference HTTP server (preview)](how-to-inference-server-http.md).
