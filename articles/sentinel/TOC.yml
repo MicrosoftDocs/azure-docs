@@ -949,7 +949,7 @@
         href: multiple-workspace-view.md
       - name: Manage your intellectual property in Microsoft Sentinel
         href: mssp-protect-intellectual-property.md
-    - name: Switch to simplified pricing triggers
+    - name: Switch to simplified pricing tiers
       href: enroll-simplified-pricing-tier.md
     - name: Set up customer-managed keys
       href: customer-managed-keys.md
