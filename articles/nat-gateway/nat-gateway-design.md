@@ -14,23 +14,23 @@ Review this article to familiarize yourself with considerations for designing vi
 
 ## Connect to the internet with a NAT gateway
 
-NAT gateway is recommended for all production workloads where you need to connect to a public endpoint over the internet. Outbound connectivity takes place right away upon deployment of a NAT gateway with a subnet and at least one public IP address. No routing configurations are required to start connecting outbound with NAT gateway. NAT gateway becomes the subnet’s default route to the internet.
+NAT Gateway is recommended for all production workloads where you need to connect to a public endpoint over the internet. Outbound connectivity takes place right away upon deployment of a NAT gateway with a subnet and at least one public IP address. No routing configurations are required to start connecting outbound with the NAT gateway. The NAT gateway becomes the subnet’s default route to the internet.
 
-In the presence of other outbound configurations within a virtual network, such as a load balancer or instance-level public IPs (IL PIPs), NAT gateway takes precedence for outbound connectivity. New outbound initiated traffic and return traffic uses the NAT gateway. There's no down time on outbound connectivity after adding NAT gateway to a subnet with existing outbound configurations.
+In the presence of other outbound configurations within a virtual network, such as a load balancer or instance-level public IPs (IL PIPs), the NAT gateway takes precedence for outbound connectivity. New outbound initiated traffic and return traffic uses the NAT gateway. There's no down time on outbound connectivity after adding a NAT gateway to a subnet with existing outbound configurations.
 
 ## Scale a NAT gateway to meet the demand of a dynamic workload
 
-Scaling NAT gateway is primarily a function of managing the shared, available SNAT port inventory.
+Scaling NAT Gateway is primarily a function of managing the shared, available SNAT port inventory.
 
-When you scale your workload, assume that each flow requires a new SNAT port, and then scale the total number of available IP addresses for outbound traffic. Carefully consider the scale you're designing for, and then allocate IP addresses accordingly. NAT gateway needs sufficient SNAT port inventory for expected peak outbound flows for all subnets that are attached to a NAT gateway.
+When you scale your workload, assume that each flow requires a new SNAT port, and then scale the total number of available IP addresses for outbound traffic. Carefully consider the scale you're designing for, and then allocate IP addresses accordingly. NAT Gateway needs sufficient SNAT port inventory for expected peak outbound flows for all subnets that are attached to a NAT gateway.
 
 As SNAT port exhaustion approaches, connection flows may not succeed.
 
 ### Scaling considerations
 
-Each NAT gateway public IP address provides 64,512 SNAT ports to make outbound connections. NAT gateway can scale up to over 1 million SNAT ports.
+Each NAT gateway public IP address provides 64,512 SNAT ports to make outbound connections. A NAT gateway can scale up to over 1 million SNAT ports.
 
-SNAT maps private addresses in your subnet to one or more public IP addresses attached to NAT gateway, rewriting the source address and source port in the process. When multiple connections are made to the same destination endpoint, a new SNAT port is used. A new SNAT port must be used in order to distinguish different connection flows from one another going to the same destination.
+SNAT maps private addresses in your subnet to one or more public IP addresses attached to a NAT gateway, rewriting the source address and source port in the process. When multiple connections are made to the same destination endpoint, a new SNAT port is used. A new SNAT port must be used in order to distinguish different connection flows from one another going to the same destination.
 
 Connection flows going to different destination endpoints can reuse the same SNAT port at the same time. SNAT ports connecting sent to different destinations are reused when possible. As SNAT port exhaustion approaches, flows may not succeed.
 
@@ -47,9 +47,9 @@ Private Link uses the private IP addresses of your virtual machines or other com
 
 ## Provide outbound and inbound connectivity for your Azure virtual network
 
-NAT gateway, load balancer and instance-level public IPs are flow direction aware and can coexist in the same virtual network to provide outbound and inbound connectivity seamlessly. Inbound traffic through a load balancer or instance-level public IPs is translated separately from outbound traffic through NAT gateway.
+A NAT gateway, load balancer and instance-level public IPs are flow direction aware and can coexist in the same virtual network to provide outbound and inbound connectivity seamlessly. Inbound traffic through a load balancer or instance-level public IPs is translated separately from outbound traffic through the NAT gateway.
 
-Private instances use NAT gateway for outbound traffic and any response traffic to the **outbound originated flow**. Private instances use instance-level public IPs or Load balancer for inbound traffic and any response traffic to the **inbound originated flow**.
+Private instances use the NAT gateway for outbound traffic and any response traffic to the **outbound originated flow**. Private instances use instance-level public IPs or a load balancer for inbound traffic and any response traffic to the **inbound originated flow**.
 
 The following examples demonstrate coexistence of a load balancer or instance-level public IPs with a NAT gateway. Inbound traffic traverses the load balancer or public IP. Outbound traffic traverses the NAT gateway.
 
@@ -65,7 +65,7 @@ The following examples demonstrate coexistence of a load balancer or instance-le
 | Virtual machine scale set (Subnet B) | Inbound </br> Outbound | NA </br> NAT gateway |
 | VMs (Subnet A) | Inbound </br> Outbound | Instance-level public IP </br> NAT gateway |
 
-The virtual machine uses NAT gateway for outbound and return traffic. Inbound originated traffic passes through the instance level public IP directly associated with the virtual machine in subnet A. The virtual machine scale set from subnet B and VMs from subnet B can only egress and receive response traffic through NAT gateway. No inbound originated traffic can be received.
+The virtual machine uses the NAT gateway for outbound and return traffic. Inbound originated traffic passes through the instance level public IP directly associated with the virtual machine in subnet A. The virtual machine scale set from subnet B and VMs from subnet B can only egress and receive response traffic through the NAT gateway. No inbound originated traffic can be received.
 
 ### A NAT gateway and VM with a standard public load balancer
 
@@ -78,7 +78,7 @@ The virtual machine uses NAT gateway for outbound and return traffic. Inbound or
 | VMs in backend pool | Inbound </br> Outbound | Load balancer </br> NAT gateway |
 | VM and virtual machine scale set (Subnet B) | Inbound </br> Outbound | NA </br> NAT gateway |
 
-NAT Gateway supersedes any outbound configuration from a load-balancing rule or outbound rules on the load balancer. VM instances in the backend pool use NAT gateway to send outbound traffic and receive return traffic. Inbound originated traffic passes through the load balancer for all VM instances within the Load balancer’s backend pool. VM and virtual machine scale set from subnet B can only egress and receive response traffic through NAT gateway. No inbound originated traffic can be received.
+NAT Gateway supersedes any outbound configuration from a load-balancing rule or outbound rules on the load balancer. VM instances in the backend pool use the NAT gateway to send outbound traffic and receive return traffic. Inbound originated traffic passes through the load balancer for all VM instances within the load balancer’s backend pool. VM and the virtual machine scale set from subnet B can only egress and receive response traffic through the NAT gateway. No inbound originated traffic can be received.
 
 ### A NAT gateway and VM with an instance-level public IP and a standard public load balancer
 
@@ -92,7 +92,7 @@ NAT Gateway supersedes any outbound configuration from a load-balancing rule or 
 | Virtual machine scale set | Inbound </br> Outbound | NA </br> NAT gateway |
 | VM (Subnet B) | Inbound </br> Outbound | NA </br> NAT gateway |
 
-The NAT gateway supersedes any outbound configuration from a load-balancing rule or outbound rules on a load balancer and instance level public IPs on a virtual machine. All virtual machines in subnets A and B use NAT gateway exclusively for outbound and return traffic. Instance level public IPs take precedence over load balancer. The VM in subnet A uses the instance level public IP for inbound originating traffic.
+The NAT gateway supersedes any outbound configuration from a load-balancing rule or outbound rules on a load balancer and instance level public IPs on a virtual machine. All virtual machines in subnets A and B use the NAT gateway exclusively for outbound and return traffic. Instance level public IPs take precedence over load balancer. The VM in subnet A uses the instance level public IP for inbound originating traffic.
 
 ## Monitor outbound network traffic with NSG flow logs
 
@@ -114,6 +114,6 @@ For guides on how to enable NSG flow logs, see [Enabling NSG flow logs](/azure/n
 
 - [Azure NAT Gateway resource](nat-gateway-resource.md).
 
-_ [SNAT and Azure NAT Gateway](nat-gateway-snat.md).
+- [SNAT and Azure NAT Gateway](nat-gateway-snat.md).
 
 - [Azure NAT Gateway FAQ](faq.yml).
