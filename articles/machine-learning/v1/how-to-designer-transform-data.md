@@ -27,7 +27,7 @@ In this article, you'll learn how to:
 
 This how-to is a prerequisite for the [how to retrain designer models](how-to-retrain-designer.md) article. In that article, you'll learn how to use the transformed datasets to train multiple models, with pipeline parameters.
 
-[!INCLUDE [machine-learning-missing-ui](../../../includes/machine-learning-missing-ui.md)]
+[!INCLUDE [machine-learning-missing-ui](../includes/machine-learning-missing-ui.md)]
 
 ## Transform a dataset
 

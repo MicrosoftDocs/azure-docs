@@ -47,6 +47,7 @@ This section provides references for solutions for Linux OSS applications and da
 * [Oracle VM images and their deployment on Microsoft Azure: Shared storage configuration options](../virtual-machines/workloads/oracle/oracle-vm-solutions.md#shared-storage-configuration-options)
 * [Oracle On Azure IaaS Recommended Practices For Success](https://github.com/Azure/Oracle-Workloads-for-Azure/blob/main/Oracle%20on%20Azure%20IaaS%20Recommended%20Practices%20for%20Success.pdf)
 * [Run Your Most Demanding Oracle Workloads in Azure without Sacrificing Performance or Scalability](https://techcommunity.microsoft.com/t5/azure-architecture-blog/run-your-most-demanding-oracle-workloads-in-azure-without/ba-p/3264545)
+* [Oracle database performance on Azure NetApp Files multiple volumes](performance-oracle-multiple-volumes.md)
 * [Oracle database performance on Azure NetApp Files single volumes](performance-oracle-single-volumes.md)
 * [Benefits of using Azure NetApp Files with Oracle Database](solutions-benefits-azure-netapp-files-oracle-database.md)
 * [Oracle Databases on Microsoft Azure Using Azure NetApp Files](https://www.netapp.com/media/17105-tr4780.pdf)
@@ -61,8 +62,8 @@ This section provides references for solutions for Linux OSS applications and da
 
 ### Machine Learning
 *	[Cloudera Machine Learning](https://docs.cloudera.com/machine-learning/cloud/requirements-azure/topics/ml-requirements-azure.html)
-*	[Distributed training in Azure: Lane detection - Solution design](https://www.netapp.com/media/32427-tr-4896-design.pdf)
-*	[Distributed training in Azure: Click-Through Rate Prediction – Solution design](https://docs.netapp.com/us-en/netapp-solutions/ai/aks-anf_introduction.html)
+* [Distributed ML Training for Lane Detection, powered by NVIDIA and Azure NetApp Files](https://techcommunity.microsoft.com/t5/azure-architecture-blog/distributed-ml-training-for-lane-detection-powered-by-nvidia-and/ba-p/3848255)
+* [Distributed ML Training for Click-Through Rate Prediction with NVIDIA, Dask and Azure NetApp Files](https://techcommunity.microsoft.com/t5/azure-architecture-blog/distributed-ml-training-for-click-through-rate-prediction-with/ba-p/3848262)
 
 ### Education
 

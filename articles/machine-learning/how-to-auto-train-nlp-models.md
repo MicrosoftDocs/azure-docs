@@ -16,7 +16,7 @@ ms.date: 06/15/2023
 
 # Set up AutoML to train a natural language processing model 
 
-[!INCLUDE [dev v2](../../includes/machine-learning-dev-v2.md)]
+[!INCLUDE [dev v2](includes/machine-learning-dev-v2.md)]
  
 
 In this article, you learn how to train natural language processing (NLP) models with [automated ML](concept-automated-ml.md) in Azure Machine Learning. You can create NLP models with automated ML via the Azure Machine Learning Python SDK v2 or the Azure Machine Learning CLI v2. 
@@ -29,7 +29,7 @@ You can seamlessly integrate with the [Azure Machine Learning data labeling](how
 
 # [Azure CLI](#tab/cli)
 
-[!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
+[!INCLUDE [cli v2](includes/machine-learning-cli-v2.md)]
 
 * Azure subscription. If you don't have an Azure subscription, sign up to try the [free or paid version of Azure Machine Learning](https://azure.microsoft.com/free/) today.
 
@@ -44,7 +44,7 @@ You can seamlessly integrate with the [Azure Machine Learning data labeling](how
 
 # [Python SDK](#tab/python)
 
- [!INCLUDE [sdk v2](../../includes/machine-learning-sdk-v2.md)]
+ [!INCLUDE [sdk v2](includes/machine-learning-sdk-v2.md)]
 
 * Azure subscription. If you don't have an Azure subscription, sign up to try the [free or paid version of Azure Machine Learning](https://azure.microsoft.com/free/) today.
 
@@ -60,7 +60,7 @@ You can seamlessly integrate with the [Azure Machine Learning data labeling](how
 
     * [Install the `automl` package yourself](https://github.com/Azure/azureml-examples/blob/main/v1/python-sdk/tutorials/automl-with-azureml/README.md#setup-using-a-local-conda-environment), which includes the [default installation](/python/api/overview/azure/ml/install#default-install) of the SDK.
 
-    [!INCLUDE [automl-sdk-version](../../includes/machine-learning-automl-sdk-version.md)]
+    [!INCLUDE [automl-sdk-version](includes/machine-learning-automl-sdk-version.md)]
 
 * This article assumes some familiarity with setting up an automated machine learning experiment. Follow the [how-to](how-to-configure-auto-train.md) to see the main automated machine learning experiment design patterns.
 
@@ -182,7 +182,7 @@ However, there are key differences:
 
 # [Azure CLI](#tab/cli)
 
-[!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
+[!INCLUDE [cli v2](includes/machine-learning-cli-v2.md)]
 
 For CLI v2 automated ml jobs, you configure your experiment in a YAML file like the following. 
 
@@ -190,7 +190,7 @@ For CLI v2 automated ml jobs, you configure your experiment in a YAML file like 
 
 # [Python SDK](#tab/python)
 
- [!INCLUDE [sdk v2](../../includes/machine-learning-sdk-v2.md)]
+ [!INCLUDE [sdk v2](includes/machine-learning-sdk-v2.md)]
 
 
 For Automated ML jobs via the SDK, you configure the job with the specific NLP task function. The following example demonstrates the configuration for `text_classification`.
@@ -230,7 +230,7 @@ Named entity recognition (NER)|`"eng"` <br>  `"deu"` <br> `"mul"`|  English&nbsp
 
 # [Azure CLI](#tab/cli)
 
-[!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
+[!INCLUDE [cli v2](includes/machine-learning-cli-v2.md)]
 
 You can specify your dataset language in the featurization section of your configuration YAML file. BERT is also used in the featurization process of automated ML experiment training, learn more about [BERT integration and featurization in automated ML (SDK v1)](./v1/how-to-configure-auto-features.md#bert-integration-in-automated-ml).
 
@@ -241,7 +241,7 @@ featurization:
 
 # [Python SDK](#tab/python)
 
- [!INCLUDE [sdk v2](../../includes/machine-learning-sdk-v2.md)]
+ [!INCLUDE [sdk v2](includes/machine-learning-sdk-v2.md)]
 
 You can specify your dataset language with the `set_featurization()` method. BERT is also used in the featurization process of automated ML experiment training, learn more about [BERT integration and featurization in automated ML (SDK v1)](./v1/how-to-configure-auto-features.md?view=azureml-api-1&preserve-view=true#bert-integration-in-automated-ml).
 
@@ -257,12 +257,12 @@ You can also run your NLP experiments with distributed training on an Azure Mach
 
 # [Azure CLI](#tab/cli)
 
-[!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
+[!INCLUDE [cli v2](includes/machine-learning-cli-v2.md)]
 
 
 # [Python SDK](#tab/python)
 
- [!INCLUDE [sdk v2](../../includes/machine-learning-sdk-v2.md)]
+ [!INCLUDE [sdk v2](includes/machine-learning-sdk-v2.md)]
 
 
 This is handled automatically by automated ML when the parameters `max_concurrent_iterations = number_of_vms` and `enable_distributed_dnn_training = True` are provided in your `AutoMLConfig` during experiment setup. Doing so, schedules distributed training of the NLP models and automatically scales to every GPU on your virtual machine or cluster of virtual machines. The max number of virtual machines allowed is 32. The training is scheduled with number of virtual machines that is in powers of two.
@@ -280,7 +280,7 @@ In AutoML NLP only hold-out validation is supported and it requires a validation
 
 # [Azure CLI](#tab/cli)
 
-[!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
+[!INCLUDE [cli v2](includes/machine-learning-cli-v2.md)]
 
 To submit your AutoML job, you can run the following CLI v2 command with the path to your .yml file, workspace name, resource group and subscription ID.
 
@@ -291,7 +291,7 @@ az ml job create --file ./hello-automl-job-basic.yml --workspace-name [YOUR_AZUR
 
 # [Python SDK](#tab/python)
 
- [!INCLUDE [sdk v2](../../includes/machine-learning-sdk-v2.md)]
+ [!INCLUDE [sdk v2](includes/machine-learning-sdk-v2.md)]
 
 
 With the `MLClient` created earlier, you can run this `CommandJob` in the workspace.
@@ -311,7 +311,7 @@ ml_client.jobs.stream(returned_job.name)
 
 # [Azure CLI](#tab/cli)
 
- [!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
+ [!INCLUDE [cli v2](includes/machine-learning-cli-v2.md)]
 
 
 See the following sample YAML files for each NLP task.
@@ -322,7 +322,7 @@ See the following sample YAML files for each NLP task.
 
 # [Python SDK](#tab/python)
 
- [!INCLUDE [sdk v2](../../includes/machine-learning-sdk-v2.md)]
+ [!INCLUDE [sdk v2](includes/machine-learning-sdk-v2.md)]
 
 See the sample notebooks for detailed code examples for each NLP task. 
 
@@ -335,7 +335,7 @@ https://github.com/Azure/azureml-examples/blob/main/sdk/python/jobs/automl-stand
 
 ## Model sweeping and hyperparameter tuning (preview) 
 
-[!INCLUDE [preview disclaimer](../../includes/machine-learning-preview-generic-disclaimer.md)]
+[!INCLUDE [preview disclaimer](includes/machine-learning-preview-generic-disclaimer.md)]
 
 AutoML NLP allows you to provide a list of models and combinations of hyperparameters, via the hyperparameter search space in the config. Hyperdrive generates several child runs, each of which is a fine-tuning run for a given NLP model and set of hyperparameter values that were chosen and swept over based on the provided search space.
 
@@ -387,7 +387,7 @@ The same discrete and continuous distribution options that are available for gen
 
 # [Azure CLI](#tab/cli)
 
-[!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
+[!INCLUDE [cli v2](includes/machine-learning-cli-v2.md)]
 
 ```yaml
 limits: 
@@ -420,7 +420,7 @@ search_space:
 
 # [Python SDK](#tab/python)
 
- [!INCLUDE [sdk v2](../../includes/machine-learning-sdk-v2.md)]
+ [!INCLUDE [sdk v2](includes/machine-learning-sdk-v2.md)]
 
 You can set the limits for your model sweeping job: 
 
@@ -481,7 +481,7 @@ AutoML NLP also supports `trial_timeout_minutes`, the maximum amount of time in 
 
 
 
-[!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
+[!INCLUDE [cli v2](includes/machine-learning-cli-v2.md)]
 
 ```yaml
 limits: 
@@ -509,7 +509,7 @@ Parameter | Detail
 You can configure all the sweep related parameters as shown in this example.
 
 
-[!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
+[!INCLUDE [cli v2](includes/machine-learning-cli-v2.md)]
 
 ```yaml
 sweep:

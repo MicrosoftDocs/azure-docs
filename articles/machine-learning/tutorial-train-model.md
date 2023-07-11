@@ -16,7 +16,7 @@ ms.date: 03/15/2023
 
 # Tutorial: Train a model in Azure Machine Learning
 
-[!INCLUDE [sdk v2](../../includes/machine-learning-sdk-v2.md)]
+[!INCLUDE [sdk v2](includes/machine-learning-sdk-v2.md)]
 
 Learn how a data scientist uses Azure Machine Learning to train a model.  In this example, we use the associated credit card dataset to show how you can use Azure Machine Learning for a classification problem. The goal is to predict if a customer has a high likelihood of defaulting on a credit card payment.
 

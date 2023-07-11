@@ -21,7 +21,7 @@ This tutorial describes the steps you need to perform in both Albert and Azure A
 
 ## Supported capabilities
 > [!div class="checklist"]
-> * Create users in Albert.
+> * Update user status in Albert.
 > * Remove users in Albert when they do not require access anymore.
 > * Keep user attributes synchronized between Azure AD and Albert.
 > * [Single sign-on](../manage-apps/add-application-portal-setup-oidc-sso.md) to Albert (recommended).
@@ -40,7 +40,7 @@ The scenario outlined in this tutorial assumes that you already have the followi
 1. Determine what data to [map between Azure AD and Albert](../app-provisioning/customize-application-attributes.md).
 
 ## Step 2. Configure Albert to support provisioning with Azure AD
-Contact Albert support to configure Albert to support provisioning with Azure AD.
+Contact [Albert support](mailto:support@albertinvent.com) to configure Albert to support provisioning with Azure AD.
 
 ## Step 3. Add Albert from the Azure AD application gallery
 

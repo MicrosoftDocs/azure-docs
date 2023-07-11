@@ -15,7 +15,7 @@ ms.date: 07/05/2023
 
 # Manage an Azure Machine Learning compute instance
 
-[!INCLUDE [dev v2](../../includes/machine-learning-dev-v2.md)]
+[!INCLUDE [dev v2](includes/machine-learning-dev-v2.md)]
 
 Learn how to manage a [compute instance](concept-compute-instance.md) in your Azure Machine Learning workspace. 
 
@@ -34,7 +34,7 @@ In this article, you learn how to start, stop, restart, delete) a compute instan
 
 * If using the Python SDK, [set up your development environment with a workspace](how-to-configure-environment.md).  Once your environment is set up, attach to the workspace in your Python script:
 
-  [!INCLUDE [connect ws v2](../../includes/machine-learning-connect-ws-v2.md)]
+  [!INCLUDE [connect ws v2](includes/machine-learning-connect-ws-v2.md)]
 
 ## Manage
 
@@ -49,7 +49,7 @@ You can also [create a schedule](how-to-create-compute-instance.md#schedule-auto
 
 # [Python SDK](#tab/python)
 
-[!INCLUDE [sdk v2](../../includes/machine-learning-sdk-v2.md)]
+[!INCLUDE [sdk v2](includes/machine-learning-sdk-v2.md)]
 
 
 In the examples below, the name of the compute instance is stored in the variable `ci_basic_name`.
@@ -81,7 +81,7 @@ In the examples below, the name of the compute instance is stored in the variabl
 
 # [Azure CLI](#tab/azure-cli)
 
-[!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
+[!INCLUDE [cli v2](includes/machine-learning-cli-v2.md)]
 
 In the examples below, the name of the compute instance is **instance**, in workspace **my-workspace**, in resource group **my-resource-group**.
 
@@ -160,7 +160,7 @@ In your workspace in Azure Machine Learning studio, select Compute, then select 
 
 # [Python SDK](#tab/python)
 
-[!INCLUDE [sdk v2](../../includes/machine-learning-sdk-v2.md)]
+[!INCLUDE [sdk v2](includes/machine-learning-sdk-v2.md)]
 
 ```python
 from azure.ai.ml.entities import ComputeInstance, AmlCompute
@@ -177,7 +177,7 @@ For more information on the classes, methods, and parameters used in this exampl
 
 # [Azure CLI](#tab/azure-cli)
 
-[!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
+[!INCLUDE [cli v2](includes/machine-learning-cli-v2.md)]
 
 ```azurecli
 az ml compute show --name "myci"

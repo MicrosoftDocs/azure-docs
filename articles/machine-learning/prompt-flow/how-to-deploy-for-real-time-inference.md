@@ -9,7 +9,7 @@ ms.topic: how-to
 author: likebupt
 ms.author: keli19
 ms.reviewer: lagayhar
-ms.date: 06/30/2023
+ms.date: 07/07/2023
 ---
 
 
@@ -92,6 +92,12 @@ You can continue to configure the endpoint in wizard, as the endpoint creation w
 #### Allow sharing sample input data for testing purpose only
 
 If the checkbox is selected, the first row of your input data will be used as sample input data for testing the endpoint later.
+
+### Outputs
+
+In this step, you can view all flow outputs, and specify which outputs will be included in the response of the endpoint you deploy.
+
+:::image type="content" source="./media/how-to-deploy-for-real-time-inference/deploy-wizard-outputs.png" alt-text="Screenshot of the outputs step in the deploy wizard." lightbox = "./media/how-to-deploy-for-real-time-inference/deploy-wizard-outputs.png":::
 
 ### Connections
 

@@ -2,11 +2,10 @@
 title: Deprovision your Azure File Sync server endpoint
 description: Guidance on how to deprovision your Azure File Sync server endpoint based on your use case
 author: khdownie
-ms.service: storage
+ms.service: azure-file-storage
 ms.topic: how-to
 ms.date: 6/01/2021
 ms.author: kendownie
-ms.subservice: files
 ---
 
 # Deprovision or delete your Azure File Sync server endpoint
