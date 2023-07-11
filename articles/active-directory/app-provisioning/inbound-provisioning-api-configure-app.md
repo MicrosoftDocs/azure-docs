@@ -43,7 +43,9 @@ If you're configuring inbound user provisioning to on-premises Active Directory,
 4. Enter **API-driven** in the search field, then select the application for your setup:
      * **API-driven Inbound User Provisioning to On-Premises AD**: Select this app if you're provisioning hybrid identities (identities that need both on-premises AD and Azure AD account) from your system of record. Once these accounts are provisioned in on-premises AD, they are automatically synchronized to your Azure AD tenant using Azure AD Connect or Cloud Sync.
      * **API-driven Inbound User Provisioning to Azure AD**: Select this app if you're provisioning cloud-only identities (identities that don't require on-premises AD accounts and only need Azure AD account) from your system of record.
+     
      [![Screenshot of API-driven provisioning apps.](media/inbound-provisioning-api-configure-app/api-driven-inbound-provisioning-apps.png)](media/inbound-provisioning-api-configure-app/api-driven-inbound-provisioning-apps.png#lightbox)
+
 5. In the **Name** field, rename the application to meet your naming requirements, then click **Create**.
 
      [![Screenshot of create app.](media/inbound-provisioning-api-configure-app/provisioning-create-inbound-provisioning-app.png)](media/inbound-provisioning-api-configure-app/provisioning-create-inbound-provisioning-app.png#lightbox)
@@ -86,8 +88,10 @@ Depending on the app you selected, use one of the following sections to complete
 
 1. After setting the Provisioning Mode to **Automatic**, click on **Save** to create the initial configuration of the provisioning job. 
 1. Once the save operation is successful, you will see two more expansion panels – one for **Mappings** and one for **Settings**. Before proceeding to the next step, make sure you provide a valid notification email id and Save the configuration once more. 
+
      [![Screenshot of the notification email box.](media/inbound-provisioning-api-configure-app/provisioning-notification-email.png)](media/inbound-provisioning-api-configure-app/provisioning-notification-email.png#lightbox)
-     > [!NOTE]
+
+          > [!NOTE]
      > Providing the **Notification Email** in **Settings** is mandatory. If the Notification Email is left empty, then the provisioning goes into quarantine when you start the execution.
 1. Click on hyperlink in the **Mappings** expansion panel to view the default attribute mappings. 
      > [!NOTE]

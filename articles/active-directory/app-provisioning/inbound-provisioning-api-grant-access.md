@@ -51,7 +51,9 @@ This section describes how you can assign the necessary permissions to a managed
 
 1. Configure a [managed identity](../managed-identities-azure-resources/overview.md) for use with your Azure resource. 
 1. Copy the name of your managed identity from the Azure portal. For example: The screenshot below shows the name of a system assigned managed identity associated with an Azure Logic Apps workflow called "CSV2SCIMBulkUpload". 
+
       [![Screenshot of managed identity name.](media/inbound-provisioning-api-grant-access/managed-identity-name.png)](media/inbound-provisioning-api-grant-access/managed-identity-name.png#lightbox) 
+
 1. Run the following PowerShell script to assign permissions to your managed identity. 
       ```powershell
       Install-Module Microsoft.Graph -Scope CurrentUser
