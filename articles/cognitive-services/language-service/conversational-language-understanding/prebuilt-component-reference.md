@@ -43,7 +43,7 @@ The following prebuilt components are available in Conversational Language Under
 
 ## Prebuilt components in multilingual projects
 
-In multilingual conversation projects,  you can enable any of the prebuilt components. The component will only be predicted if the language of the query is supported by the prebuilt. The language is either specified in the request or defaults to the primary language of the application if not provided.
+In multilingual conversation projects,  you can enable any of the prebuilt components. The component is only predicted if the language of the query is supported by the prebuilt entity. The language is either specified in the request or defaults to the primary language of the application if not provided.
 
 ## Next steps
 
