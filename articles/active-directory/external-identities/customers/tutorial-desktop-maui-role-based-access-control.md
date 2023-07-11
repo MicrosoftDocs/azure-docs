@@ -19,9 +19,7 @@ In this tutorial, you learn how to:
 
 > [!div class="checklist"]
 >
-> - Add roles for an application.
-> - Assign users and groups to roles
-> - Access the roles in the ID token
+> - Access the roles in the ID token.
 
 ## Prerequisites
 
@@ -34,7 +32,7 @@ Once you configure your customer's tenant, you can retrieve your roles and group
 
 The .NET MAUI needs to check for the app roles claims in the ID token to implement authorization in the client side.
 
-In this tutorial series, you created a .NET MAUI app where you developed the [_ClaimsView.xaml.cs_](tutorial-desktop-app-maui-sign-in-sign-out.md#handle-the-claimsview-data). In this file, we inspect the contents of ID tokens. The value of the roles claim is checked in the following code snippet:
+In this tutorial series, you created a .NET MAUI app where you developed the _ClaimsView.xaml.cs_ to handle `ClaimsView` data. In this file, we inspect the contents of ID tokens. The value of the roles claim is checked in the following code snippet:
 
 ```csharp
 IdTokenClaims = PublicClientSingleton.Instance.MSALClientHelper.AuthResult.ClaimsPrincipal.Claims.Select(c => c.Value);
@@ -46,6 +44,7 @@ If you assign a user to multiple roles, the roles string contains all roles sepa
 - User hasn't been assigned to any role
 - Multiple values in the roles claim when you assign a user to multiple roles
 
+When you define app roles for your app, it is your responsibility to implement authorization logic for those roles.
 
 ## Next steps
 

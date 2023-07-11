@@ -212,6 +212,8 @@ items:
             href: tutorial-mobile-app-maui-sign-in-prepare-app.md
           - name: Sign in and sign out
             href: tutorial-mobile-app-maui-sign-in-sign-out.md
+          - name: Access roles and groups
+            href: tutorial-desktop-maui-role-based-access-control.md
 - name: Concepts
   items: 
     - name: Planning for customer identity and access
