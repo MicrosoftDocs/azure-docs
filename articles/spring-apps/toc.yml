@@ -27,6 +27,7 @@ items:
   - name: Launch your first microservice apps
     href: quickstart-deploy-microservice-apps.md
 - name: Tutorials
+  expanded: true
   items:
   - name: "Run microservice apps (Pet Clinic)"
     items:
