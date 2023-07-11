@@ -15,8 +15,8 @@ ms.custom: UpdateFrequency5, contperf-fy20q4, tracking-python, contperf-fy21q1, 
 
 # Secure an Azure Machine Learning inferencing environment with virtual networks (v1)
 
-[!INCLUDE [sdk v1](../../../includes/machine-learning-sdk-v1.md)]
-[!INCLUDE [cli v1](../../../includes/machine-learning-cli-v1.md)]
+[!INCLUDE [sdk v1](../includes/machine-learning-sdk-v1.md)]
+[!INCLUDE [cli v1](../includes/machine-learning-cli-v1.md)]
 
 
 In this article, you learn how to secure inferencing environments with a virtual network in Azure Machine Learning. This article is specific to the SDK/CLI v1 deployment workflow of deploying a model as a web service.
@@ -47,7 +47,7 @@ In this article you learn how to secure the following inferencing resources in a
 
 [!INCLUDE [network-rbac](../includes/network-rbac.md)]
 
-[!INCLUDE [cli v1 deprecation](../../../includes/machine-learning-cli-v1-deprecation.md)]
+[!INCLUDE [cli v1 deprecation](../includes/machine-learning-cli-v1-deprecation.md)]
 
 ## Limitations
 
@@ -108,7 +108,7 @@ To add AKS in a virtual network to your workspace, use the following steps:
 
 You can also use the Azure Machine Learning SDK to add Azure Kubernetes Service in a virtual network. If you already have an AKS cluster in a virtual network, attach it to the workspace as described in [How to deploy to AKS](how-to-deploy-and-where.md). The following code creates a new AKS instance in the `default` subnet of a virtual network named `mynetwork`:
 
-[!INCLUDE [sdk v1](../../../includes/machine-learning-sdk-v1.md)]
+[!INCLUDE [sdk v1](../includes/machine-learning-sdk-v1.md)]
 
 ```python
 from azureml.core.compute import ComputeTarget, AksCompute
@@ -192,7 +192,7 @@ The following examples demonstrate how to __create a new AKS cluster with a priv
 
 # [Python SDK](#tab/python)
 
-[!INCLUDE [sdk v1](../../../includes/machine-learning-sdk-v1.md)]
+[!INCLUDE [sdk v1](../includes/machine-learning-sdk-v1.md)]
 
 ```python
 import azureml.core

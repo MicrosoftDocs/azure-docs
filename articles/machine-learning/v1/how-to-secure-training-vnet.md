@@ -15,7 +15,7 @@ ms.custom: UpdateFrequency5, contperf-fy20q4, tracking-python, contperf-fy21q1, 
 
 # Secure an Azure Machine Learning training environment with virtual networks (SDKv1)
 
-[!INCLUDE [SDK v1](../../../includes/machine-learning-sdk-v1.md)]
+[!INCLUDE [SDK v1](../includes/machine-learning-sdk-v1.md)]
 
 
 In this article, you learn how to secure training environments with a virtual network in Azure Machine Learning using the Python SDK v1.
@@ -206,7 +206,7 @@ The following configurations are in addition to those listed in the [Prerequisit
 
 # [Compute instance](#tab/instance)
 
-[!INCLUDE [sdk v1](../../../includes/machine-learning-sdk-v1.md)]
+[!INCLUDE [sdk v1](../includes/machine-learning-sdk-v1.md)]
 
 ```python
 import datetime
@@ -238,7 +238,7 @@ except ComputeTargetException:
 
 # [Compute cluster](#tab/cluster)
 
-[!INCLUDE [sdk v1](../../../includes/machine-learning-sdk-v1.md)]
+[!INCLUDE [sdk v1](../includes/machine-learning-sdk-v1.md)]
 
 ```python
 from azureml.core.compute import ComputeTarget, AmlCompute
@@ -278,7 +278,7 @@ except ComputeTargetException:
 
 When the creation process finishes, you train your model. For more information, see [Select and use a compute target for training](how-to-set-up-training-targets.md).
 
-[!INCLUDE [low-pri-note](../../../includes/machine-learning-low-pri-vm.md)]
+[!INCLUDE [low-pri-note](../includes/machine-learning-low-pri-vm.md)]
 
 ## Azure Databricks
 
@@ -294,7 +294,7 @@ For specific information on using Azure Databricks with a virtual network, see [
 > [!IMPORTANT]
 > While previous sections of this article describe configurations required to **create** compute resources, the configuration information in this section is required to **use** these resources to train models.
 
-[!INCLUDE [machine-learning-required-public-internet-access](../../../includes/machine-learning-public-internet-access.md)]
+[!INCLUDE [machine-learning-required-public-internet-access](../includes/machine-learning-public-internet-access.md)]
 
 For information on using a firewall solution, see [Use a firewall with Azure Machine Learning](../how-to-access-azureml-behind-firewall.md).
 
