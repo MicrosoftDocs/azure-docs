@@ -97,6 +97,7 @@ You can customize your vulnerability assessment experience by exempting manageme
 
 - Learn more about [Trusted Access](/azure/aks/trusted-access-feature). 
 - Learn how to [view and remediate vulnerability assessment findings for registry images](view-and-remediate-vulnerability-assessment-findings.md).
+- - Learn how to [view and remediate vulnerabilities for images running on your AKS clusters](view-and-remediate-vulnerabilities-for-images-running-on-aks.md).
 - Learn how to [create an exemption](exempt-resource.md) for a resource or subscription.
 - Learn more about [Cloud Security Posture Management](concept-cloud-security-posture-management.md).
 
