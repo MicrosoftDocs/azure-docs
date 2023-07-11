@@ -50,5 +50,5 @@ When you define app roles for your app, it is your responsibility to implement a
 
 For more information about group claims and making informed decisions regarding the usage of app roles or groups, see:
 
-- [Group overages](/security/zero-trust/develop/configure-tokens-group-claims-app-roles)
+- [Configuring group claims and app roles in tokens](/security/zero-trust/develop/configure-tokens-group-claims-app-roles)
 - [Choose an approach](../../develop/custom-rbac-for-developers.md#choose-an-approach)
