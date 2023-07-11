@@ -69,7 +69,7 @@ POST /indexes/hotels/docs&api-version=2020-06-30
 {
     "search": "inn",
     "scoringProfile": "geo",
-    "scoringParameters": [currentLocation--122.123,44.77233]
+    "scoringParameters": ["currentLocation--122.123,44.77233"]
 }
 ```  
 

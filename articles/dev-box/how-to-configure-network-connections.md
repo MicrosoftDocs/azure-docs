@@ -1,7 +1,7 @@
 ---
 title: Configure network connections
 titleSuffix: Microsoft Dev Box
-description: Learn how to create, delete, attach, and remove Microsoft Dev Box Preview network connections.
+description: Learn how to create, delete, attach, and remove Microsoft Dev Box network connections.
 services: dev-box
 ms.service: dev-box
 author: RoseHJM
@@ -68,11 +68,11 @@ To create a network connection, you need an existing virtual network and subnet.
 
 An organization can control network ingress and egress by using a firewall, network security groups, and even Microsoft Defender.
 
-If your organization routes egress traffic through a firewall, you need to open certain ports to allow the Microsoft Dev Box Preview service to function. For more information, see [Network requirements](/windows-365/enterprise/requirements-network).
+If your organization routes egress traffic through a firewall, you need to open certain ports to allow the Microsoft Dev Box service to function. For more information, see [Network requirements](/windows-365/enterprise/requirements-network).
 
 ## Plan a network connection
 
-The following sections show you how to create and configure a network connection in Microsoft Dev Box Preview.
+The following sections show you how to create and configure a network connection in Microsoft Dev Box .
   
 ### Types of Active Directory join
 
@@ -165,7 +165,7 @@ You need to attach a network connection to a dev center before you can use it in
 
 1. Select the dev center that you created, and then select **Networking**.
 
-1. Select  **+ Add**.
+1. Select **+ Add**.
 
 1. On the **Add network connection** pane, select the network connection that you created earlier, and then select **Add**.
 
