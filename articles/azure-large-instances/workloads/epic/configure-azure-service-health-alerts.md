@@ -12,7 +12,7 @@ ms.date: 06/01/2023
 You can get automatic notifications when there are planned maintenance events or unplanned
 downtime that affects your infrastructure.
 
-Follow these steps to ensure you have Service Health alerts configured:
+Follow these steps to configure Service Health alerts:
 
 1. Go to the [Microsoft Azure portal](https://portal.Azure.Com).
 2. Search for “service health” in the search bar and select **Service Health** from the results.

@@ -11,7 +11,7 @@ ms.date: 06/01/2023
 
 # Working with  ALI in the Azure portal 
 
-In this article, we'll show what you can do in the Azure portal with your implementation of Azure Large Instances (ALI).
+In this article, we'll learn what to do in the Azure portal with your implementation of Azure Large Instances (ALI).
 
 > [!Note]
 > For the time being, you will notice the BareMetal Infrastructure naming convention still in use in the Azure portal. This will be replaced with ALI soon. Until then, BareMetal Infrastructre or BareMetal Instances can be considered synonyms for ALI.
