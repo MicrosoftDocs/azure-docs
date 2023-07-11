@@ -302,6 +302,8 @@
       href: how-to-enable-agentless-containers.md
     - name: View and remediate vulnerability assessment findings for registry images 
       href: view-and-remediate-vulnerability-assessment-findings.md
+    - name: View and remediate vulnerabilities for images running on your AKS clusters 
+      href: view-and-remediate-vulnerabilities-for-images-running-on-aks.md
     - name: Disable vulnerability assessment findings on Container registry images
       href: disable-vulnerability-findings-containers.md  
   - name: Security recommendations
