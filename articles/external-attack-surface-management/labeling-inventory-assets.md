@@ -1,6 +1,5 @@
 ---
 title: Modify inventory assets 
-titleSuffix: Modifying inventory assets
 description: This article outlines how to update assets with customized text labels to categorize and make use of inventory data.
 ms.author: dandennis
 author: dandennis
@@ -125,7 +124,7 @@ After you label assets in your inventory, you can use inventory filters to retri
 
 1. Select **Add filter**.
 
-1. Select **Labels** from the **Filter** dropdown list. Select an operator and choose a label from the dropdown list of options. The following example shows how to search for a single label. You can use the **In** operator to search for multiple labels. For more information on filters, see the [Inventory filters overview](inventory-filters.md).
+1. Select **Labels** from the **Filter** dropdown list. Select an operator and choose a label from the dropdown list of options. The following example shows how to search for a single label. You can use the **In** operator to search for multiple labels. For more information on filters, see the [inventory filters overview](inventory-filters.md).
 
    ![Screenshot that shows the query editor used to apply filters, displaying the Labels filter with possible label values in a dropdown list.](media/labels-10.png)
 
@@ -134,5 +133,5 @@ After you label assets in your inventory, you can use inventory filters to retri
 ## Next steps
 
 - [Inventory filters overview](inventory-filters.md)
-- [Understanding inventory assets](understanding-inventory-assets.md)
-- [Understanding asset details](understanding-asset-details.md)
+- [Understand inventory assets](understanding-inventory-assets.md)
+- [Understand asset details](understanding-asset-details.md)
