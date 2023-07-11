@@ -61,4 +61,4 @@ New Relic manages the APIs for creating and managing resources, and for the stor
     > [Azure Portal](https://portal.azure.com/#view/HubsExtension/BrowseResource/resourceType/NewRelic.Observability%2Fmonitors)
 
     > [!div class="nextstepaction"]
-    > [Azure Marketplace](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/newrelicinc1635200720692.newrelic_liftr_payg?tab=Overview)
+    > [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/newrelicinc1635200720692.newrelic_liftr_payg?tab=Overview)
