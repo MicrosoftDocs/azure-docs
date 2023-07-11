@@ -4,6 +4,7 @@ description: Provides guidance on building a migration plan with Azure Migrate.
 author: rashi-ms
 ms.author: rajosh
 ms.manager: abhemraj
+ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 02/27/2023
 ms.custom: engagement-fy23

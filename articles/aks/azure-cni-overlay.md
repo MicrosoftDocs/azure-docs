@@ -132,7 +132,7 @@ resourceGroup="myResourceGroup"
 location="westcentralus"
 
 az aks update --name $clusterName \
---group $resourceGroup \
+--resource-group $resourceGroup \
 --network-plugin-mode overlay \
 --pod-cidr 192.168.0.0/16
 ```

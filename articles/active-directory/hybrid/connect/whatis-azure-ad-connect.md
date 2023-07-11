@@ -17,12 +17,25 @@ ms.collection: M365-identity-device-management
 
 Azure AD Connect is an on-premises Microsoft application that's designed to meet and accomplish your hybrid identity goals. If you're evaluating how to best meet your goals, you should also consider the cloud-managed solution [Azure AD Connect cloud sync](../cloud-sync/what-is-cloud-sync.md).
 
-[!INCLUDE [Choose cloud sync](../../../../includes/choose-cloud-sync.md)]
 
 > [!div class="nextstepaction"]
 > [Install Microsoft Azure Active Directory Connect](https://www.microsoft.com/download/details.aspx?id=47594)
 > 
-Azure AD Connect provides the following features:
+
+
+ >[!IMPORTANT]
+ >Azure AD Connect V1 has been retired as of August 31, 2022 and is no longer supported. Azure AD Connect V1 installations may **stop working unexpectedly**. If you are still using a Azure AD Connect V1 you need to upgrade to Azure AD Connect V2 immediately.
+
+## Consider moving to Azure AD Connect cloud sync
+Azure AD Connect cloud sync is the future of synchronization for Microsoft.  It will replace Azure AD Connect.  
+
+> [!VIDEO https://www.youtube.com/embed/9T6lKEloq0Q]
+
+Before moving the Azure AD Connect V2.0, you should consider moving to cloud sync.  You can see if cloud sync is right for you, by accessing the [Check sync tool](https://aka.ms/M365Wizard) from the portal or via the link provided.
+
+For more information see [What is cloud sync?](../cloud-sync/what-is-cloud-sync.md)
+
+## Azure AD Connect features
      
 - [Password hash synchronization](whatis-phs.md) - A sign-in method that synchronizes a hash of a users on-premises AD password with Azure AD.
 - [Pass-through authentication](how-to-connect-pta.md) - A sign-in method that allows users to use the same password on-premises and in the cloud, but doesn't require the additional infrastructure of a federated environment.

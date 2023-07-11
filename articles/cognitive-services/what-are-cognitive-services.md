@@ -8,7 +8,7 @@ manager: nitinme
 keywords: cognitive services, cognitive intelligence, cognitive solutions, ai services, cognitive understanding, cognitive features
 ms.service: cognitive-services
 ms.topic: overview
-ms.date: 02/17/2023
+ms.date: 07/04/2023
 ms.author: pafarley
 ms.custom: cog-serv-seo-aug-2020, ignite-fall-2021, build-2023, build-2023-dataai
 ---

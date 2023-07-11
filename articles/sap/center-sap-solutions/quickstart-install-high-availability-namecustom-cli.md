@@ -3,6 +3,7 @@ title: Quickstart - Install software for a Distributed HA SAP system with Azure 
 description: Learn how to  Install software for a Distributed HA SAP system in Azure Center for SAP solutions through Azure CLI.
 ms.service: sap-on-azure
 ms.subservice: center-sap-solutions
+ms.custom: devx-track-azurecli
 ms.topic: quickstart
 ms.date: 05/05/2023
 ms.author: sagarkeswani
@@ -53,7 +54,7 @@ After you [deploy infrastructure](deploy-s4hana.md) and install SAP software wit
     - As you are deploying an HA system, you need to provide the High Availability software configuration with the following two inputs:
         - Fencing Client ID: The client identifier for the STONITH Fencing Agent service principal
         - Fencing Client Password: The password for the Fencing Agent service principal
-- You can use the [sample software installation payload file](https://github.com/Azure/Azure-Center-for-SAP-solutions-preview/blob/main/Payload_Samples/CreatePayload_withTransportDirectory_withHAAvSet_withCustomResourceName.json)
+- You can use the [sample software installation payload file](https://github.com/Azure/Azure-Center-for-SAP-solutions-preview/blob/main/Payload_Samples/InstallPayload_withTransport_withHAAvSet_withCustomResourceName.json)
 
 ## Install SAP software 
 Use [az workloads sap-virtual-instance create](/cli/azure/workloads/sap-virtual-instance?view=azure-cli-latest#az-workloads-sap-virtual-instance-create&preserve-view=true) to install SAP software
@@ -68,4 +69,3 @@ az workloads sap-virtual-instance create -g <Resource Group Name> -n <VIS Name> 
 In this quickstart, you installed SAP software on the deployed infrastructure in Azure for an SAP system with Highly Available architecture type using Azure Center for SAP solutions. You also noted that the resource names were customized for the system while deploying infrastructure. Continue to the next article to learn how to Manage your SAP system on Azure using Virtual Instance for SAP solutions
 > [!div class="nextstepaction"]
 > [Manage a Virtual Instance for SAP solutions](manage-virtual-instance.md)
-

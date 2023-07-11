@@ -115,6 +115,7 @@ curl -i -X POST https://<your-language-resource-endpoint>/language/analyze-text/
       }
     }
   ]
+}
 '
 ```
 If you do not specify `sentenceCount`, the model will determine the summary length. Note that `sentenceCount` is the approximation of the sentence count of the output summary, range 1 to 20.

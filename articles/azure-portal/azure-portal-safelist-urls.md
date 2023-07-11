@@ -125,6 +125,7 @@ azure.status.microsoft (Azure Status)
 storage.azure.com (Azure Storage)
 storage.azure.net (Azure Storage)
 vault.azure.net (Azure Key Vault Service)
+ux.console.azure.com (Azure Cloud Shell)
 ```
 
 ### [U.S. Government Cloud](#tab/us-government-cloud)

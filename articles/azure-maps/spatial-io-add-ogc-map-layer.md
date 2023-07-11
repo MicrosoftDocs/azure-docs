@@ -45,7 +45,7 @@ The following sections outline the web map service features that are supported b
 
 The `url` can be the base URL for the service or a full URL with the query for getting the capabilities of the service. Depending on the details provided, the WFS client may try several standard URL formats to determine how to initially access the service.
 
-The [OGC map layer] sample shows how to overlay an OGC map layer on the map.
+The [OGC map layer] sample shows how to overlay an OGC map layer on the map. For the source code for this sample, see [OGC map layer source code].
 
 :::image type="content" source="./media/spatial-io-add-ogc-map-layer/ogc-map-layer.png"alt-text="A screenshot that shows the snap grid on map.":::
 
@@ -54,7 +54,7 @@ The [OGC map layer] sample shows how to overlay an OGC map layer on the map.
 ---------------------------------------------->
 ## OGC map layer options
 
-The [OGC map layer options] sample demonstrates the different OGC map layer options.
+The [OGC map layer options] sample demonstrates the different OGC map layer options. For the source code for this sample, see [OGC map layer options source code].
 
 :::image type="content" source="./media/spatial-io-add-ogc-map-layer/ogc-map-layer-options.png"alt-text="A screenshot that shows a map along with the OGC map layer options.":::
 
@@ -64,7 +64,7 @@ The [OGC map layer options] sample demonstrates the different OGC map layer opti
 
 ## OGC Web Map Service explorer
 
-The [OGC Web Map Service explorer] sample overlays imagery from the Web Map Services (WMS) and Web Map Tile Services (WMTS) as layers. You may select which layers in the service are rendered on the map. You may also view the associated legends for these layers.
+The [OGC Web Map Service explorer] sample overlays imagery from the Web Map Services (WMS) and Web Map Tile Services (WMTS) as layers. You may select which layers in the service are rendered on the map. You may also view the associated legends for these layers. For the source code for this sample, see [OGC Web Map Service explorer source code].
 
 :::image type="content" source="./media/spatial-io-add-ogc-map-layer/ogc-web-map-service-explorer.png"alt-text="A screenshot that shows a map with a WMTS layer that comes from the world geology survey. On the left of the map is a drop-down list showing the OGC services which can be selected.":::
 
@@ -98,3 +98,7 @@ See the following articles, which contain code samples you could add to your map
 [OGC map layer]: https://samples.azuremaps.com/spatial-io-module/ogc-map-layer-example
 [OGC map layer options]: https://samples.azuremaps.com/spatial-io-module/ogc-map-layer-options
 [OGC Web Map Service explorer]: https://samples.azuremaps.com/spatial-io-module/ogc-web-map-service-explorer
+
+[OGC map layer source code]: https://github.com/Azure-Samples/AzureMapsCodeSamples/blob/main/Samples/Spatial%20IO%20Module/OGC%20map%20layer%20example/OGC%20map%20layer%20example.html
+[OGC map layer options source code]: https://github.com/Azure-Samples/AzureMapsCodeSamples/blob/main/Samples/Spatial%20IO%20Module/OGC%20map%20layer%20options/OGC%20map%20layer%20options.html
+[OGC Web Map Service explorer source code]: https://github.com/Azure-Samples/AzureMapsCodeSamples/blob/main/Samples/Spatial%20IO%20Module/OGC%20Web%20Map%20Service%20explorer/OGC%20Web%20Map%20Service%20explorer.html

@@ -6,7 +6,7 @@ author: kgremban
 ms.service: iot
 services: iot
 ms.topic: conceptual
-ms.date: 05/25/2023
+ms.date: 06/27/2023
 ms.author: kgremban
 ms.custom: [amqp, mqtt, 'Role: IoT Device', 'Role: Cloud Development', iot]
 ---
@@ -31,10 +31,10 @@ The following table explains the differences in MQTT support between the two ser
 | IoT Hub | Event Grid |
 | ------- | ---------- |
 | Client-server model with tight coupling between devices and cloud apps. | Publish-subscribe model that decouples publishers and subscribers. |
-| Limited feature support for MQTT v3.1.1, and limited feature support for [MQTT v5 in preview](./iot-mqtt-5-preview.md). Additional feature support is not planned. | MQTT v3.1.1 and v5 protocol support, with additional feature support and industry compliance planned. |
-| Static, pre-defined topics. | Custom hierarchical topics with wildcard support. |
+| Limited feature support for MQTT v3.1.1, and limited feature support for [MQTT v5 in preview](./iot-mqtt-5-preview.md). More feature support isn't planned. | MQTT v3.1.1 and v5 protocol support, with more feature support and industry compliance planned. |
+| Static, predefined topics. | Custom hierarchical topics with wildcard support. |
 | No support for cloud-to-device broadcasts and device-to-device communication. | Supports device-to-cloud, high fan-out cloud-to-device broadcasts, and device-to-device communication patterns. |
-| 256kb max message size. | 512kb max message size. |
+| 256-kb max message size. | 512-kb max message size. |
 
 ## Connecting to IoT Hub
 
@@ -179,7 +179,7 @@ For more information about using MQTT with modules, see [Publish and subscribe w
 
 ## Samples using MQTT without an Azure IoT SDK
 
-The [IoT MQTT Sample repository](https://github.com/Azure-Samples/IoTMQTTSample), contains C/C++, Python, and CLI samples that show you how to send telemetry messages, receive cloud-to-device messages, and use device twins without using the Azure device SDKs.
+The [IoT MQTT Sample repository](https://github.com/Azure-Samples/IoTMQTTSample) contains C/C++, Python, and CLI samples that show you how to send telemetry messages, receive cloud-to-device messages, and use device twins without using the Azure device SDKs.
 
 The C/C++ samples use the [Eclipse Mosquitto](https://mosquitto.org) library, the Python sample uses [Eclipse Paho](https://www.eclipse.org/paho/), and the CLI samples use `mosquitto_pub`.
 
@@ -437,6 +437,7 @@ To learn more about using MQTT, see:
 
 * [MQTT documentation](https://mqtt.org/)
 * [Use MQTT to develop an IoT device client without using a device SDK](../iot-develop/tutorial-use-mqtt.md)
+* [MQTT application samples](https://github.com/Azure-Samples/MqttApplicationSamples)
 
 To learn more about using IoT device SDKS, see:
 * [Azure IoT SDKs](iot-sdks.md)
