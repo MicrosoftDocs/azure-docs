@@ -73,10 +73,10 @@ The following dependencies are also referenced in an Application Gateway for Con
 ### User-assigned Managed Identity
 - Managed identities for Azure resources eliminate the need to manage credentials in code.
 - A User Managed Identity is required for each Azure Load Balancer Controller to make changes to Application Gateway for Containers
-- _AppGw for Containers Configuration Manager_ is a built-in RBAC role that allows ALB controller to access and configure the Application Gateway for Containers resource.
+- _AppGw for Containers Configuration Manager_ is a built-in RBAC role that allows ALB Controller to access and configure the Application Gateway for Containers resource.
 
  > [!Note]
-> The _AppGw for Containers Configuration Manager_ role has [data action permissions](../../role-based-access-control/role-definitions.md#control-and-data-actions) that the Owner and Contributor roles do not have. It is critical proper permissions are delegated to prevent issues with ALB Controller making changes to the Application Gateawy for Containers service.
+> The _AppGw for Containers Configuration Manager_ role has [data action permissions](../../role-based-access-control/role-definitions.md#control-and-data-actions) that the Owner and Contributor roles do not have. It is critical proper permissions are delegated to prevent issues with ALB Controller making changes to the Application Gateway for Containers service.
 
 ## How Application Gateway for Containers accepts a request
 Each Application Gateway for Containers frontend provides a generated Fully Qualified Domain Name managed by Azure.  The FQDN may be used as-is or customers may opt to mask the FQDN with a CNAME record.
