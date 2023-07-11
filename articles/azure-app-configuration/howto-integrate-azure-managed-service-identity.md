@@ -137,7 +137,7 @@ The following steps describe how to assign the App Configuration Data Reader rol
 
     builder.Configuration.AddAzureAppConfiguration(options =>
         options.Connect(
-            new Uri(builder.Configuration.GetConnectionString("AppConfigEndpoint")),
+            new Uri(builder.Configuration["AppConfig:Endpoint"]),
             new ManagedIdentityCredential()));
     ```
 

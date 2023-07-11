@@ -164,7 +164,7 @@ In a typical scenario, you will update your feature flag values periodically as 
 ```csharp
 config.AddAzureAppConfiguration(options =>
     options.Connect(
-        builder.Configuration.GetConnectionString("AppConfigEndpoint"))
+        builder.Configuration.GetConnectionString("AppConfig"))
             .UseFeatureFlags(featureFlagOptions => {
                 featureFlagOptions.CacheExpirationInterval = TimeSpan.FromMinutes(5);
     }));

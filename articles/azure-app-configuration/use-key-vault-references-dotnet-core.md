@@ -112,7 +112,7 @@ To add a secret to the vault, you need to take just a few additional steps. In t
     builder.Configuration.AddAzureAppConfiguration(options =>
         {
             options.Connect(
-                builder.Configuration.GetConnectionString("AppConfigEndpoint"))
+                builder.Configuration.GetConnectionString("AppConfig"))
                     .ConfigureKeyVault(kv =>
                     {
                         kv.SetCredential(new DefaultAzureCredential());

@@ -40,6 +40,8 @@ Finish the quickstart [Create a .NET app with App Configuration](./quickstart-do
 
 Open the `Program.cs` file and update the code configurations to match the following:
 
+### [ASP.NET Core 6.0+](#tab/core6x)
+
 ```csharp
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Configuration.AzureAppConfiguration;
@@ -74,6 +76,55 @@ if (_refresher != null)
 
 }
 ```
+
+### [ASP.NET Core 3.x](#tab/core3x)
+
+```csharp
+using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.Configuration.AzureAppConfiguration;
+using System;
+using System.Threading.Tasks;
+
+namespace TestConsole
+{
+    class Program
+    {
+        private static IConfiguration _configuration = null;
+        private static IConfigurationRefresher _refresher = null;
+
+        static void Main(string[] args)
+        {
+            var builder = new ConfigurationBuilder();
+            builder.AddAzureAppConfiguration(options =>
+            {
+                options.Connect(Environment.GetEnvironmentVariable("ConnectionString"))
+                        .ConfigureRefresh(refresh =>
+                        {
+                            refresh.Register("TestApp:Settings:Message")
+                                   .SetCacheExpiration(TimeSpan.FromSeconds(10));
+                        });
+
+                _refresher = options.GetRefresher();
+            });
+
+            _configuration = builder.Build();
+            PrintMessage().Wait();
+        }
+
+        private static async Task PrintMessage()
+        {
+            Console.WriteLine(_configuration["TestApp:Settings:Message"] ?? "Hello world!");
+
+            // Wait for the user to press Enter
+            Console.ReadLine();
+
+            await _refresher.TryRefreshAsync();
+            Console.WriteLine(_configuration["TestApp:Settings:Message"] ?? "Hello world!");
+        }
+    }
+}
+
+---
 
 In the `ConfigureRefresh` method, a key within your App Configuration store is registered for change monitoring. The `Register` method has an optional boolean parameter `refreshAll` that can be used to indicate whether all configuration values should be refreshed if the registered key changes. In this example, only the key *TestApp:Settings:Message* will be refreshed. The `SetCacheExpiration` method specifies the minimum time that must elapse before a new request is made to App Configuration to check for any configuration changes. In this example, you override the default expiration time of 30 seconds, specifying a time of 10 seconds instead for demonstration purposes.
 
