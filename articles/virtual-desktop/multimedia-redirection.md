@@ -3,7 +3,7 @@ title: Use multimedia redirection on Azure Virtual Desktop - Azure
 description: How to use multimedia redirection on Azure Virtual Desktop.
 author: dknappettmsft
 ms.topic: how-to
-ms.date: 05/10/2023
+ms.date: 07/18/2023
 ms.author: daknappe
 manager: femila
 ---
@@ -222,7 +222,7 @@ When you enable video status overlay, you'll see a short message at the top of t
 
 1. Toggle **Video Status Overlay** to **on**. You'll need to refresh the webpage for the change to take effect.
 
-## Web RTC call redirection
+## WebRTC call redirection
 
 The following section will show you how to use advanced features for WebRTC call redirection.
 
