@@ -1,6 +1,6 @@
 ---
-title: "Tutorial: Add app roles to .NET MAUI app and receive them in the ID token"
-description: This tutorial demonstrates how to add app roles to .NET Multi-platform App UI (.NET MAUI) shell and receive them in the ID token.
+title: "Tutorial: Add app roles to .NET MAUI and receive them in the ID token"
+description: This tutorial demonstrates how to add app roles to .NET Multi-platform App UI (.NET MAUI) and receive them in the ID token.
 author: henrymbuguakiarie
 manager: mwongerapk
 
@@ -11,7 +11,7 @@ ms.subservice: ciam
 ms.date: 06/05/2023
 ---
 
-# Tutorial: Add app roles to .NET MAUI app and receive them in the ID token
+# Tutorial: Add app roles to .NET MAUI and receive them in the ID token
 
 This tutorial demonstrates how to add app roles to .NET Multi-platform App UI (.NET MAUI) and receive them in the ID token.
 
