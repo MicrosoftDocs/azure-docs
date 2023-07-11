@@ -28,7 +28,7 @@ When you first access your Defender EASM instance, select **Getting Started** in
 
 At this point, the discovery runs in the background. If you selected a preconfigured attack surface from the list of available organizations, you're redirected to the dashboard overview screen where you can view insights into your organization's infrastructure in Preview mode.
 
-Review these dashboard insights to become familiar with your attack surface as you wait for more assets to be discovered and populated in your inventory. For more information on how to derive insights from these dashboards, see [Understanding dashboards](understanding-dashboards.md).
+Review these dashboard insights to become familiar with your attack surface as you wait for more assets to be discovered and populated in your inventory. For more information on how to derive insights from these dashboards, see [Understand dashboards](understanding-dashboards.md).
 
 You can run customized discoveries to detect outlier assets. For example, you might have missing assets. Or perhaps you have other entities to manage that might not be discovered through infrastructure that's clearly linked to your organization.
 
@@ -112,12 +112,12 @@ When you input seeds, remember to validate the appropriate format for each entry
 
 ### Exclusions
 
-Similarly, you can select the **Exclusions** tab to see a list of entities that were excluded from the discovery group. These assets won't be used as discovery seeds or added to your inventory. Exclusions only affect future discovery runs for an individual discovery group.
+Similarly, you can select the **Exclusions** tab to see a list of entities that were excluded from the discovery group. These assets won't be used as discovery seeds or be added to your inventory. Exclusions only affect future discovery runs for an individual discovery group.
 
 The **Type** field displays the category of the excluded entity. The source name is the value that was input in the appropriate type box when you created the discovery group. The final column shows a list of discovery groups where this exclusion is present. Each value is clickable and takes you to the details page for that discovery group.
 
 ## Next steps
 
-- [Discovering your attack surface](discovering-your-attack-surface.md)
-- [Understanding asset details](understanding-asset-details.md)
-- [Understanding dashboards](understanding-dashboards.md)
+- [Discover your attack surface](discovering-your-attack-surface.md)
+- [Understand asset details](understanding-asset-details.md)
+- [Understand dashboards](understanding-dashboards.md)
