@@ -41,17 +41,17 @@ When **Assign Endpoint** on applications in an Azure Spring Apps service instanc
 Find the IP Address for your Spring Cloud services. Customize the value of your Azure Spring Apps instance name based on your real environment.
 
 ```azurecli
-SPRING_CLOUD_NAME='spring-cloud-name'
-SERVICE_RUNTIME_RG=`az spring show \
+export SPRING_CLOUD_NAME='spring-cloud-name'
+export SERVICE_RUNTIME_RG=$(az spring show \
     --resource-group $RESOURCE_GROUP \
     --name $SPRING_CLOUD_NAME \
     --query "properties.networkProfile.serviceRuntimeNetworkResourceGroup" \
-    --output tsv`
-IP_ADDRESS=`az network lb frontend-ip list \
+    --output tsv)
+export IP_ADDRESS=$(az network lb frontend-ip list \
     --lb-name kubernetes-internal \
     --resource-group $SERVICE_RUNTIME_RG \
     --query "[0].privateIpAddress" \
-    --output tsv`
+    --output tsv)
 ```
 
 ---
@@ -84,9 +84,9 @@ The following procedure creates a private DNS zone for an application in the pri
 1. Define variables for your subscription, resource group, and Azure Spring Apps instance. Customize the values based on your real environment.
 
    ```azurecli
-   SUBSCRIPTION='subscription-id'
-   RESOURCE_GROUP='my-resource-group'
-   VIRTUAL_NETWORK_NAME='azure-spring-apps-vnet'
+   export SUBSCRIPTION='subscription-id'
+   export RESOURCE_GROUP='my-resource-group'
+   export VIRTUAL_NETWORK_NAME='azure-spring-apps-vnet'
    ```
 
 1. Sign in to the Azure CLI and choose your active subscription.
@@ -96,7 +96,7 @@ The following procedure creates a private DNS zone for an application in the pri
    az account set --subscription ${SUBSCRIPTION}
    ```
 
-1. Create the private DNS zone. 
+1. Create the private DNS zone.
 
    ```azurecli
    az network private-dns zone create \
@@ -167,14 +167,14 @@ To use the private DNS zone to translate/resolve DNS, you must create an "A" typ
 
 #### [CLI](#tab/azure-CLI)
 
-Use the [IP address](#find-the-ip-for-your-application) to create the A record in your DNS zone. 
+Use the [IP address](#find-the-ip-for-your-application) to create the A record in your DNS zone.
 
 ```azurecli
 az network private-dns record-set a add-record \
-  --resource-group $RESOURCE_GROUP \
-  --zone-name private.azuremicroservices.io \
-  --record-set-name '*' \
-  --ipv4-address $IP_ADDRESS
+    --resource-group $RESOURCE_GROUP \
+    --zone-name private.azuremicroservices.io \
+    --record-set-name '*' \
+    --ipv4-address $IP_ADDRESS
 ```
 
 ---
@@ -200,7 +200,7 @@ After following the procedure in [Deploy Azure Spring Apps in a virtual network]
 Update your app to assign an endpoint to it. Customize the value of your app name based on your real environment.
 
 ```azurecli
-SPRING_CLOUD_APP='your spring cloud app'
+export SPRING_CLOUD_APP='your spring cloud app'
 az spring app update \
     --resource-group $RESOURCE_GROUP \
     --name $SPRING_CLOUD_APP \

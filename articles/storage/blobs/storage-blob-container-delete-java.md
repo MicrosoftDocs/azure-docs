@@ -9,7 +9,6 @@ ms.service: storage
 ms.topic: how-to
 ms.date: 11/15/2022
 ms.author: pauljewell
-ms.subservice: blobs
 ms.devlang: java
 ms.custom: devx-track-java, devguide-java, devx-track-extended-java
 ---

@@ -5,7 +5,7 @@ services: storage
 author: cawaMS
 manager: paulyuk
 ms.assetid:
-ms.service: storage
+ms.service: azure-storage
 ms.topic: conceptual
 ms.date: 03/09/2017
 ms.author: cawa

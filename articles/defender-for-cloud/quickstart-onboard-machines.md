@@ -1,12 +1,12 @@
 ---
-title: Connect your on-premises machine to Defender for Cloud
+title: Connect your on-premises machines to Defender for Cloud
 description: Learn how to connect your on-premises machines to Microsoft Defender for Cloud
 ms.topic: install-set-up-deploy
 ms.date: 06/29/2023
 ms.custom: mode-other
 ---
 
-# Connect your non-Azure machine to Microsoft Defender for Cloud
+# Connect your non-Azure machines to Microsoft Defender for Cloud
 
 Defender for Cloud can monitor the security posture of your non-Azure computers, but first you need to connect them to Azure.
 

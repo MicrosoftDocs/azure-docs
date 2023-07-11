@@ -290,13 +290,17 @@ It measures time from the [`ComponentDidMount`](https://react.dev/reference/reac
 
 #### Explore your data
 
-To see the `React Component Engaged Time (seconds)` in [Metrics Explorer](../essentials/metrics-getting-started.md), go to the Application Insights resource and select the **Metrics** tab. Configure the empty charts to display the custom metric name `React Component Engaged Time (seconds)`. Select the aggregation of your metric and [split](../essentials/metrics-getting-started.md#apply-dimension-filters-and-splitting) by `Component Name`.
+Use  [Metrics Explorer](../essentials/metrics-getting-started.md) to plot a chart for the custom metric name `React Component Engaged Time (seconds)` and [split](../essentials/metrics-getting-started.md#apply-dimension-filters-and-splitting) this custom metric by `Component Name`.
 
 :::image type="content" source="./media/javascript-react-plugin/chart.png" lightbox="./media/javascript-react-plugin/chart.png" alt-text="Screenshot that shows a chart that displays the custom metric React Component Engaged Time (seconds) split by Component Name":::
 
-You can also run custom queries to divide Application Insights data to generate reports and visualizations as per your requirements. In the Azure portal, go to the Application Insights resource, select **Analytics** from the **Overview** tab, and run your query.
+You can also run [custom queries](../logs/log-analytics-tutorial.md) to divide Application Insights data to generate reports and visualizations as per your requirements. Here’s an example of a custom query. Go ahead and paste it directly into the query editor to test it out.
 
-:::image type="content" source="./media/javascript-react-plugin/query.png" lightbox="./media/javascript-react-plugin/query.png" alt-text="Screenshot that shows custom metric query results.":::
+```Kusto
+customMetrics
+| where name contains "React Component Engaged Time (seconds)"
+| summarize avg(value), count() by tostring(customDimensions["Component Name"])
+```
 
 > [!NOTE]
 > It can take up to 10 minutes for new custom metrics to appear in the Azure portal.
