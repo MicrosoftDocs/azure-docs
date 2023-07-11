@@ -10,13 +10,27 @@ ms.reviewer: robb
 ---
 # Azure Monitor overview
 
-Azure Monitor is a comprehensive monitoring solution for collecting, analyzing, and responding to telemetry from your cloud and on-premises environments. You can use Azure Monitor to maximize the availability and performance of your applications and services.
+Azure Monitor is a comprehensive monitoring solution for collecting, analyzing, and responding to telemetry from your cloud and on-premises environments. You can use Azure Monitor to maximize the availability and performance of your applications and services. It helps you understand how your applications are performing and allows you to manually and programmatically respond to system events.
 
-Azure Monitor collects and aggregates the data from every layer and component of your system across multiple Azure and non-Azure subscrtiptions and tenants into a common data platform.  The data is stored together and so can be correlated, analyzed and visualized using a common set of tools. This process helps you understand how your applications are performing and so you can respond automatically to system events.
+Azure Monitor collects and aggregates the data from every layer and component of your system across multiple Azure and non-Azure subscrtiptions and tenants. It stores it in a common data platform for consumption by a common set of tools which can correlate, analyze, visualize and/or respond to the data. You can also integrate in addition Microsoft and non-Microsoft tools.
 
-The following diagram gives a high-level view of Azure Monitor. All the various parts are explained later in this article.  
+The diagram below shows a high level conceptual view of these steps and the flow between them. A more detailed breakdown of the Azure Monitor architecture is shown in the [High level architecture](#high-level-architecture) section below.
 
-:::image type="content" source="media/overview/overview-simple-20230707-opt.svg" alt-text="Diagram that shows an overview of Azure Monitor with data sources on the left sending data to a central data platform and features of Azure Monitor on the right that use the collected data." border="false" lightbox="media/overview/overview-blowout-20230707-opt.svg":::
+:::image type="content" source="media/overview/azure-monitor-high-level-abstraction-opt.svg" alt-text="Diagram that shows an abstracted view of what Azure monitor does as described in the previous paragraph." border="false" lightbox="media/overview/azure-monitor-high-level-abstraction-opt.svg":::
+
+## Monitoring, observability, and artificial intelligence for IT operations
+
+**Observability** is the ability to assess an internal system’s state based on the data it produces. An observability solution analyzes output data, provides an assessment of the system’s health, and offers actionable insights for addressing problems across your IT infrastructure.
+
+Observability wouldn’t be possible without monitoring. Monitoring is the collection and analysis of data pulled from IT systems. When a system is observable, a user can identify the root cause of a performance problem by looking at the data it produces without additional testing or coding. 
+
+The pillars of observability are the different kinds of data that a monitoring tool must collect and analyze to provide sufficient observability of a monitored system. Metrics, logs, and distributed traces are commonly referred to as the pillars of observability. Azure Monitor adds "changes" to these pillars.
+
+Azure Monitor achieves observability by correlating data from multiple pillars and aggregating data across the entire set of monitored resources. Azure Monitor provides a common set of tools to correlate and analyze the data from multiple Azure subscriptions and tenants, in addition to data hosted for other services. 
+
+Artificial Intelligence for IT Operations (AIOps) improves service quality and reliability by using machine learning to process and automatically act on data you collect in Azure Monitor. [Azure Monitor AIOps and machine learning capabilities](./logs/aiops-machine-learning.md) let you detect, diagnose, predict, and respond to potential issues in your IT environment using advanced analytics.
+
+## High level architecture
 
 Azure Monitor can monitor these types of resources in Azure, other clouds, or on-premises:
 
@@ -36,22 +50,7 @@ You can also export monitoring data from Azure Monitor into other systems so you
 
 If you are a System Center Operations Manager (SCOM) user, Azure Monitor now includes a preview of Azure Monitor [SCOM Managed Instance (SCOM MI)](./vm/scom-managed-instance-overview.md). SCOM MI is a cloud-hosted version of SCOM and allows you to move your on-premises SCOM installation to Azure.
 
-
-## Monitoring, observability, and artificial intelligence for IT operations
-
-**Observability** is the ability to assess an internal system’s state based on the data it produces. An observability solution analyzes output data, provides an assessment of the system’s health, and offers actionable insights for addressing problems across your IT infrastructure.
-
-Observability wouldn’t be possible without monitoring. Monitoring is the collection and analysis of data pulled from IT systems. When a system is observable, a user can identify the root cause of a performance problem by looking at the data it produces without additional testing or coding. 
-
-The pillars of observability are the different kinds of data that a monitoring tool must collect and analyze to provide sufficient observability of a monitored system. Metrics, logs, and distributed traces are commonly referred to as the pillars of observability. Azure Monitor adds "changes" to these pillars.
-
-Azure Monitor achieves observability by correlating data from multiple pillars and aggregating data across the entire set of monitored resources. Azure Monitor provides a common set of tools to correlate and analyze the data from multiple Azure subscriptions and tenants, in addition to data hosted for other services. 
-
-Artificial Intelligence for IT Operations (AIOps) improves service quality and reliability by using machine learning to process and automatically act on data you collect in Azure Monitor. [Azure Monitor AIOps and machine learning capabilities](./logs/aiops-machine-learning.md) let you detect, diagnose, predict, and respond to potential issues in your IT environment using advanced analytics.
-
-## High level architecture
-
-The previous high level diagram gives a high-level view of Azure Monitor. 
+The following diagram shows a high-level architecture view of Azure Monitor.
 
 :::image type="content" source="media/overview/overview-simple-20230707-opt.svg" alt-text="Diagram that shows an overview of Azure Monitor with data sources on the left sending data to a central data platform and features of Azure Monitor on the right that use the collected data." border="false" lightbox="media/overview/overview-blowout-20230707-opt.svg":::
 
@@ -61,14 +60,14 @@ The diagram depicts the Azure Monitor system components:
 
 - The **[data sources](data-sources.md)** are the types of data collected from each monitored resource. 
 - The data is **collected and routed** to the data platform. Clicking on the diagram shows these options, which are also called out in detail later in this article. 
-- The **[data platform](data-platform.md)** is made up of the data stores for collected data. Azure Monitor's core data platform has stores for metrics, logs, traces, and changes. SCOM MI uses it's own database hosted in SQL Server Managed Instance.
+- The **[data platform](data-platform.md)** stores the collected monitoring data. Azure Monitor's core data platform has stores for metrics, logs, traces, and changes. SCOM MI uses it's own database hosted in SQL Server Managed Instance.
 - The **consumption** section shows the components that use data from the data platform. 
-  - Azure Monitor's core consumption methods include **insight**, **visualization**, and **analysis** tools. The visualization tools build on the analysis tools and the insights build on top of both the visualization and analysis tools.
+  - Azure Monitor's core consumption methods include tools to provide **insights**, **visualize**, and **analyize** data. The visualization tools build on the analysis tools and the insights build on top of both the visualization and analysis tools.
   - There are additional mechanisms to help you **respond** to incoming monitoring data.
 
 - The **SCOM MI** path uses the traditional Operations Manager console that SCOM customers are already familiar with. 
 
-- Interoperability options are shown in the **integrate** section.  Not all services integrate at all level. SCOM MI only integrates with Power BI.  
+- Interoperability options are shown in the **integrate** section.  Not all services integrate at all levels. SCOM MI only integrates with Power BI.  
 
 ## Data sources
 
