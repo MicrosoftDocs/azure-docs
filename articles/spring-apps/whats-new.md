@@ -19,9 +19,11 @@ Azure Spring Apps is improved on an ongoing basis. To help you stay up to date w
 This article is updated quarterly, so revisit it regularly. You can also visit [Azure updates](https://azure.microsoft.com/updates/?query=azure%20spring), where you can search for updates or browse by category.
 
 ## June 2023
-The following update is now available for the consumption plan:
+The following updates offer two new plans:
 
 - **Azure Spring Apps consumption plan**: A new way to pay for Azure Spring Apps. With super-efficient pricing and serverless capabilities, you can deploy apps that scale based on usage, paying only for resources consumed. [Learn More](https://techcommunity.microsoft.com/t5/apps-on-azure-blog/start-from-zero-and-scale-to-zero-azure-spring-apps-consumption/ba-p/3774825).
+
+- **Azure Spring Apps Consumption and Dedicated plans**: The Standard Dedicated plan provides a fully managed, dedicated environment for running Spring applications on Azure. This plan offers you customizable compute options (including memory-optimized), single tenancy, and high availability to help you achieve price predictability, cost savings, and performance for running Spring applications at scale. [Learn More](https://techcommunity.microsoft.com/t5/apps-on-azure-blog/unleash-spring-apps-in-a-flex-environment-with-azure-spring-apps/ba-p/3828232).
 
 The following update is now available in all plans:
 
