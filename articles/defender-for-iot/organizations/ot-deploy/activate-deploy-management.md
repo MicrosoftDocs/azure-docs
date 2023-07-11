@@ -45,11 +45,7 @@ In a browser, go to the on-premises management console's IP address, and enter t
 
 ## Activate the on-premises management console
 
-Activate your on-premises management console using a downloaded file from the Azure portal. Defender for IoT activation files track the number of devices detected by connected OT sensors against the number of devices covered by your [licenses](../billing.md).
-
-If your sensors detect more devices than you're licensed for, purchase a new license for a larger site. For more information, see [Manage OT plans and licenses](../how-to-manage-subscriptions.md).
-
-Either use an activation file you'd downloaded when [adding your plan](../how-to-manage-subscriptions.md#add-an-ot-plan-to-your-azure-subscription), or use the steps in this procedure to download the activation file afresh.
+Activate your on-premises management console using a downloaded file from the Azure portal. Either use an activation file you'd downloaded when [adding your plan](../how-to-manage-subscriptions.md#add-an-ot-plan-to-your-azure-subscription), or use the steps in this procedure to download the activation file afresh.
 
 **To download the activation file**:
 
