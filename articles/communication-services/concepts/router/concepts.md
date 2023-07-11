@@ -153,6 +153,7 @@ An exception policy controls the behavior of a Job based on a trigger and execut
 - [How to classify a Job](../../how-tos/router-sdk/job-classification.md)
 - [Target a preferred worker](../../how-tos/router-sdk/preferred-worker.md)
 - [Escalate a Job](../../how-tos/router-sdk/escalate-job.md)
+- [Accept or decline a Job](../../how-tos/router-sdk/accept-decline-offer.md)
 - [Subscribe to events](../../how-tos/router-sdk/subscribe-events.md)
 - [Scheduling a job](../../how-tos/router-sdk/scheduled-jobs.md)
 - [How to get estimated wait time and job position](../../how-tos/router-sdk/estimated-wait-time.md)
