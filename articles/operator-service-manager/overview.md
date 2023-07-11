@@ -13,7 +13,7 @@ Azure Operator Service Manager is an Azure service for managing network services
 
 Azure Operator Service Manager expands and improves the Network Function Manager by incorporating technology and ideas from Azure for Operators' on-premises management tools. Its purpose is to manage the convergence of comprehensive, multi-vendor service solutions on a per-site basis. It uses a declarative software and configuration model for the system. It also combines Azure's hyperscaler experience and tooling for error-free Safe Deployment Practices (SDP) across sites grouped in canary tiers.
 
-## Product Features
+## Product features
 
 Azure Operator Service Manager provides an Azure-native abstraction for modeling and realizing a distributed network service using extra resource types in Azure Resource Manager (ARM) through our cloud service. A network service is represented as a network graph comprising multiple network functions, with appropriate policies controlling the data plane to meet each telecom operator's operational needs. Creation of templates of configuration schemas allows for per-site variation that is often required in such deployments.
 
