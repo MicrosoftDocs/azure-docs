@@ -41,23 +41,28 @@ None.
 
 The React plug-in for the Application Insights JavaScript SDK enables:
 
-- Tracking of router changes
+- Track router changes
 - React components usage statistics
+- Track uncaught exceptions
 
 ### [React Native](#tab/reactnative)
 
-The React Native plugin for Application Insights JavaScript SDK collects device information. By default, this plugin automatically collects:
+The React Native plugin for Application Insights JavaScript SDK enables: 
 
-- **Unique Device ID** (Also known as Installation ID.)
-- **Device Model Name** (Such as iPhone XS, Samsung Galaxy Fold, Huawei P30 Pro etc.)
-- **Device Type** (For example, handset, tablet, etc.)
+- Collect device information.
+
+   By default, this plugin automatically collects:
+
+  - **Unique Device ID** (Also known as Installation ID.)
+  - **Device Model Name** (Such as iPhone XS, Samsung Galaxy Fold, Huawei P30 Pro etc.)
+  - **Device Type** (For example, handset, tablet, etc.)
 
 ### [Angular](#tab/angular)
 
-The Angular plugin for the Application Insights JavaScript SDK, enables:
+The Angular plugin for the Application Insights JavaScript SDK enables:
 
-- Tracking of router changes
-- Tracking uncaught exceptions
+- Track router changes
+- Track uncaught exceptions
 
 > [!WARNING]
 > Angular plugin is NOT ECMAScript 3 (ES3) compatible.
@@ -419,7 +424,7 @@ export default MyComponent;
 
 When the Hook is used, a data payload can be provided to it to add more data to the event when it's stored in Application Insights.
 
-### React error boundaries
+### Track uncaught exceptions
 
 [React error boundaries](https://react.dev/reference/react/Component#catching-rendering-errors-with-an-error-boundary) provide a way to gracefully handle an exception when it occurs within a React application. When such an error occurs, it's likely that the exception needs to be logged. The React plug-in for Application Insights provides an error boundary component that automatically logs the error when it occurs.
 
