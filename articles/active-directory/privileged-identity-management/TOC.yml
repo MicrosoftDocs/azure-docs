@@ -116,3 +116,5 @@
     href: /powershell/microsoftgraph/tutorial-pim
   - name: Azure AD service limits
     href: ../enterprise-users/directory-service-limits-restrictions.md
+  - name: PowerShell Migration 
+    href: pim-powershell-migration.md
