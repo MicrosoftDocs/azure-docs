@@ -39,32 +39,35 @@ You can integrate Azure Cache for Redis and Azure Functions to build functions t
 > Redis triggers are not currently supported on consumption functions.
 >
 
+
 ::: zone pivot="programming-language-csharp"
 
 ## Install extension
 
-Client Library
+### [In-process](#tab/in-process)
 
-You need to install `Microsoft.Azure.WebJobs.Extensions.Redis`, which is the extension that allows Redis keyspace notifications to be used as triggers in Azure Functions.
+Functions run in the same process as the Functions host. To learn more, see [Develop C# class library functions using Azure Functions](functions-dotnet-class-library.md).
 
-Install these packages by going to the terminal tab in VS Code and entering the following commands:
+Add the extension to your project by installing [this NuGet package](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.Redis).
 
-```dos
-dotnet add package Microsoft.Azure.WebJobs.Extensions.Redis
+```bash
+dotnet add package Microsoft.Azure.WebJobs.Extensions.Redis --prerelease
 ```
 
-::: zone-end
+### [Isolated process](#tab/isolated-process)
 
-::: zone pivot="programming-language-javascript,programming-language-python,programming-language-java,programming-language-powershell"
+Functions run in an isolated C# worker process. To learn more, see [Guide for running C# Azure Functions in an isolated worker process](dotnet-isolated-process-guide.md).
 
-## Install bundle
+Add the extension to your project by installing [this NuGet package](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker.Extensions.Redis).
 
-Presently, the extension has not been added to the Microsoft.Azure.Functions.ExtensionBundle.
-
-Install the Redis Extension manually for now following this procedure.
-
+```bash
+dotnet add package Microsoft.Azure.Functions.Worker.Extensions.Redis --prerelease
+```
+---
 ::: zone-end
 ::: zone pivot="programming-language-java"
+
+## Install bundle
 
 1. Install the .Net SDK.
 
@@ -74,7 +77,7 @@ Install the Redis Extension manually for now following this procedure.
 1. Remove `extensionBundle` from `host.json`
 
 1. Run `func extensions install --package Microsoft.Azure.WebJobs.Extensions.Redis --version <version>`
-   - `<version>` should be the lateste version of the extenstion from NuGet
+   - `<version>` should be the lateste version of the extension from NuGet.
 
 1. Add the Java library for Redis bindings to the `pom.xml` file:
 
@@ -86,27 +89,17 @@ Install the Redis Extension manually for now following this procedure.
     </dependency>
     ```
 
-1. Replace the existing `Function.java` file with the following code:
+::: zone-end
+::: zone pivot="programming-language-javascript,programming-language-python,programming-language-powershell"
 
-    ```java
-    import com.microsoft.azure.functions.*;
-    import com.microsoft.azure.functions.tation.*;
-    import com.microsoft.azure.functions.s.annotation.*;
-    public class Function {
-      @FunctionName("PubSubTrigger")
-      public void PubSubTrigger(
-        @RedisPubSubTrigger(
-          name = "message",
-          connectionStringSetting = "Redis",
-          channel = "pubsubTest")
-          String message,
-        final ExecutionContext context) {
-        context.getLogger().info("Java tion triggered on pub/sub age '" + message + "' from nel 'pubsubTest'.");
-      }
-    }
-    ```
+## Install bundle
+
+Presently, the extension has not been added to the Microsoft.Azure.Functions.ExtensionBundle.
+
+Install the Redis Extension manually for now following this procedure.
 
 ::: zone-end
+
 
 ## Next steps
 
