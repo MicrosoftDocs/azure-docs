@@ -30,27 +30,26 @@ In this tutorial, you learn how to:
 
 ## Receive groups and roles claims in .NET MAUI
 
-Once you configure your customer's tenant, you can retrieve your roles and groups claims in your client app. The roles and groups claims are both present in the ID token and the access token. Access tokens are only validated in the web APIs for which they were acquired by a client. The client should not validate access tokens.
+Once you configure your customer's tenant, you can retrieve your roles and groups claims in your client app. The roles and groups claims are both present in the ID token and the access token. Access tokens are only validated in the web APIs for which they were acquired by a client. The client shouldn't validate access tokens.
 
 The .NET MAUI needs to check for the app roles claims in the ID token to implement authorization in the client side.
 
-In [.NET MAUI _ClaimsView.xaml.cs_](tutorial-desktop-app-maui-sign-in-sign-out.md#handle-the-claimsview-data), you check the roles claim value as shown in the following code snippet example:
+In this tutorial series, you created a .NET MAUI app where you developed the [_ClaimsView.xaml.cs_](tutorial-desktop-app-maui-sign-in-sign-out.md#handle-the-claimsview-data). In this file, we inspect the contents of ID tokens. The value of the roles claim is checked in the following code snippet:
 
 ```csharp
 IdTokenClaims = PublicClientSingleton.Instance.MSALClientHelper.AuthResult.ClaimsPrincipal.Claims.Select(c => c.Value);
 ```
 
-If you assign a user to multiple roles, the roles string contains all roles separated by a comma, such as Orders.Manager,Store.Manager,.... Make sure you build your application to handle the following conditions:
+If you assign a user to multiple roles, the roles string contains all roles separated by a comma, such as `Orders.Manager, Store.Manager,...`. Make sure you build your application to handle the following conditions:
 
-- Absence of roles claim in the token
-- user hasn't been assigned to any role
+- Absence of roles claims in the token
+- User hasn't been assigned to any role
 - Multiple values in the roles claim when you assign a user to multiple roles
-
 
 
 ## Next steps
 
-For more information on group overages and making informed decisions regarding the usage of app roles or groups, see:
+For more information about group overages and making informed decisions regarding the usage of app roles or groups, see:
 
 - [Group overages](/security/zero-trust/develop/configure-tokens-group-claims-app-roles)
 - [Choose an approach](../../develop/custom-rbac-for-developers.md#choose-an-approach).
