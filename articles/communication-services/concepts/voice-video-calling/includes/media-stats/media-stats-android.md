@@ -10,7 +10,7 @@ MediaStatsCallFeature mediaStatsCallFeature = call.feature(Features.MEDIA_STATS)
 
 The Media Stats feature object have the following API structure:
 - `OnSampleReportedListener`: Event for listening for periodic reports of the Media Stats.
-- `setSampleIntervalInSeconds(int value)`: Sets the interval in seconds of the Media Stats report generation. If not specified, sill use defaults.
+- `setSampleIntervalInSeconds(int value)`: Sets the interval in seconds of the Media Stats report generation. If not specified, sdk use defaults.
 - A `MediaStatsReport` object that contains the definition of the Outgoing and Incoming Media Stats categorized by Audio, Video and Screen Share.
   - `getOutgoingMediaStats()`: The list of Media Stats for Outgoing media.
     - `getAudio()`: The list of Media Stats for the Outgoing Audio.
@@ -20,36 +20,58 @@ The Media Stats feature object have the following API structure:
     - `getAudio()`: The list of Media Stats for the Incoming Audio.
     - `getVideo()`: The list of Media Stats for the Incoming Video.
     - `getScreenShare()`: The list of Media Stats for the Incoming Screen Share. 
-  - `getGeneratedAt()`: The date when the report was generated. 
+  - `getGeneratedAt()`: The date when the report was generated.
+  - `GetIncomingMediaStatsFromParticipant`: Gets the `IncomingMediaStats` for a `RemoteParticipant`.
 
 Then, subscribe to the `addOnSampleReportedListener` event to get regular updates about the current media quality statistics:
 
 ```java
 mediaStatsCallFeature.addOnSampleReportedListener(handleSampleReportedListener);
 // Optional, set the interval for Media Stats report generation
-mediaStatsCallFeature.setSampleReportedIntervalInSevonds(15);
+mediaStatsCallFeature.setSampleReportedIntervalInSeconds(15);
 
 private void handleSampleReportedListener(MediaStatsReportEvent args) {
     // Obtain the Media Stats Report instance.
     MediaStatsReport report = args.getReport();
 
     // Obtain the Outgoing Media Stats for Audio
-    OutgoingAudioMediaStats outgoingAudioMediaStats = report.getOutgoingMediaStats().getAudio();
+    List<OutgoingAudioMediaStats> outgoingAudioMediaStats = report.getOutgoingMediaStats().getAudio();
 
     // Obtain the Outgoing Media Stats for Video
-    OutgoingVideoMediaStats outgoingVideoMediaStats = report.getOutgoingMediaStats().getVideo();
+    List<OutgoingVideoMediaStats> outgoingVideoMediaStats = report.getOutgoingMediaStats().getVideo();
 
     // Obtain the Outgoing Media Stats for Screen Share
-    OutgoingScreenShareMediaStats outgoingScreenShareMediaStats report.getOutgoingMediaStats().getScreenShare();
+    List<OutgoingScreenShareMediaStats> outgoingScreenShareMediaStats report.getOutgoingMediaStats().getScreenShare();
 
     // Obtain the Incoming Media Stats for Audio
-    IncomingAudioMediaStats incomingAudioMediaStats report.getIncomingMediaStats().getAudio();
+    List<IncomingAudioMediaStats> incomingAudioMediaStats report.getIncomingMediaStats().getAudio();
 
     // Obtain the Incoming Media Stats for Video
-    IncomingVideoMediaStats incomingVideoMediaStats report.getIncomingMediaStats().getVideo();
+    List<IncomingVideoMediaStats> incomingVideoMediaStats report.getIncomingMediaStats().getVideo();
 
     // Obtain the Incoming Media Stats for Screen Share
-    IncomingScreenShareMediaStats incomingScreenShareMediaStats report.getIncomingMediaStats().getScreenShare();
+    List<IncomingScreenShareMediaStats> incomingScreenShareMediaStats report.getIncomingMediaStats().getScreenShare();
+}
+```
+
+Also, `MediaStatsReport` have a helper method to obtain the `IncomingMediaStats` for a particular `RemoteParticipant`.
+For example, in order to get the `IncomingMediaStats` for all the `RemoteParticipants` in the call you can:
+
+```java
+private void handleSampleReportedListener(MediaStatsReportEvent args) {
+    List<RemoteParticipant> remoteParticipants = call.RemoteParticipants.ToList<RemoteParticipant>();
+    foreach (RemoteParticipant remoteParticipant in remoteParticipants)
+    {
+        IncomingMediaStatsDetails incomingMediaStatsInfo = report.GetIncomingMediaStatsFromParticipant(remoteParticipant.Identifier);
+        // Obtain the Incoming Media Stats for Audio
+        List<IncomingAudioMediaStats> incomingAudioMediaStats incomingMediaStatsInfo.getAudio();
+    
+        // Obtain the Incoming Media Stats for Video
+        List<IncomingVideoMediaStats> incomingVideoMediaStats incomingMediaStatsInfo.getVideo();
+    
+        // Obtain the Incoming Media Stats for Screen Share
+        List<IncomingScreenShareMediaStats> incomingScreenShareMediaStats incomingMediaStatsInfo.getScreenShare();
+    }
 }
 ```
 
