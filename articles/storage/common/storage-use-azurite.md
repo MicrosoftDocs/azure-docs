@@ -3,7 +3,7 @@ title: Use Azurite emulator for local Azure Storage development
 description: The Azurite open-source emulator provides a free local environment for testing your Azure storage applications.
 author: pauljewellmsft
 ms.author: pauljewell
-ms.date: 04/26/2023
+ms.date: 07/11/2023
 ms.service: azure-storage
 ms.subservice: storage-common-concepts
 ms.topic: how-to
@@ -564,7 +564,7 @@ azurite --oauth basic --cert certname.pem --key certname-key.pem
 
 #### Azure Blob Storage
 
-You can then instantiate a BlobContainerClient, BlobServiceClient, or BlobClient.
+You can then instantiate a `BlobContainerClient`, `BlobServiceClient`, or `BlobClient`. The following examples show how to authorize a `BlobContainerClient` object using three different authorization mechanisms: [DefaultAzureCredential](/dotnet/api/azure.identity.defaultazurecredential), connection string, and shared key. `DefaultAzureCredential` provides a Bearer token-based authentication mechanism, and uses a chain of credential types used for authentication. Once authenticated, this credential provides the OAuth token as part of client instantiation. To learn more, see the [DefaultAzureCredential](/dotnet/api/azure.identity.defaultazurecredential) class reference.
 
 ```csharp
 // With container URL and DefaultAzureCredential
