@@ -35,11 +35,23 @@ To review permissions granted to applications, you need:
 - One of the following roles: Global Administrator, Cloud Application Administrator, Application Administrator.
 - A Service principal owner who isn't an administrator is able to invalidate refresh tokens.
 
+## Restoring permissions
+
+Please see [Restore permissions granted to applications](restore-permissions.md) for information on how to restore permissions that have been revoked or deleted.
+
 :::zone pivot="portal"
 
-## Review permissions
+## Review and revoke permissions
 
-You can access the Azure portal to get contextual PowerShell scripts to perform the actions.
+You can access the Azure portal to view the permissions granted to an app. You can revoke permissions granted by admins for your entire organization, and you can get contextual PowerShell scripts to perform other actions.
+
+To revoke application permissions granted for the entire organization:
+
+1. Sign in to the [Azure portal](https://portal.azure.com) using one of the roles listed in the prerequisites section.
+1. Select **Azure Active Directory**, and then select **Enterprise applications**.
+1. Select the application that you want to restrict access to.
+1. Select **Permissions**. 
+1. The permissions listed in the **Admin consent** tab apply to your entire organization. Choose the permission you would like to remove, select the **...** control for that permission, and then choose **Revoke permission**.
 
 To review application permissions:
 
@@ -242,3 +254,4 @@ Run the following queries to remove appRoleAssignments of users or groups to the
 
 - [Configure user consent setting](configure-user-consent.md)
 - [Configure admin consent workflow](configure-admin-consent-workflow.md)
+- [Restore revoked permissions](restore-permissions.md)

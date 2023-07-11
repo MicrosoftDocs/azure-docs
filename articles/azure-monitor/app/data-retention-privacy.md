@@ -2,7 +2,7 @@
 title: Data retention and storage in Application Insights | Microsoft Docs
 description: Retention and privacy policy statement for Application Insights.
 ms.topic: conceptual
-ms.date: 03/22/2023
+ms.date: 07/10/2023
 ms.custom: devx-track-csharp
 ms.reviewer: saars
 ---
