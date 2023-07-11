@@ -40,7 +40,7 @@ In the following example, a job is created that will be scheduled 3 minutes from
 ```csharp
 await client.CreateJobAsync(new CreateJobOptions(jobId: "job1", channelId: "Voice", queueId: "Callback")
 {
-    MatchingMode = new ScheduleAndSuspendMode(scheduledForUtc: DateTimeOffset.UtcNow.Add(TimeSpan.FromMinutes(3)))
+    MatchingMode = new ScheduleAndSuspendMode(scheduleAt: DateTimeOffset.UtcNow.Add(TimeSpan.FromMinutes(3)))
 });
 ```
 
@@ -54,7 +54,7 @@ await client.createJob("job1", {
     queueId: "Callback",
     matchingMode: {
         scheduleAndSuspendMode: {
-            scheduledForUtc: new Date(Date.now() + 3 * 60000)
+            scheduleAt: new Date(Date.now() + 3 * 60000)
         }
     }
 });
@@ -68,7 +68,7 @@ await client.createJob("job1", {
 client.create_job(job_id = "job1", router_job = RouterJob(
     channel_id = "Voice",
     queue_id = "Callback",
-    matching_mode = ScheduleAndSuspendMode(scheduled_for_utc = datetime.utcnow() + timedelta(minutes = 3))
+    matching_mode = ScheduleAndSuspendMode(scheduled_at = datetime.utcnow() + timedelta(minutes = 3))
 ))
 ```
 

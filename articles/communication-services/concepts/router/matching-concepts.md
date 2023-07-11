@@ -36,18 +36,18 @@ In the following example we register a worker to
 ```csharp
 await client.CreateWorkerAsync(new CreateWorkerOptions(workerId: "worker-1", totalCapacity: 2)
 {
-    QueueIds = new Dictionary<string, QueueAssignment> { ["queue1"] = new(), ["queue2"] = new() },
-    ChannelConfigurations = new Dictionary<string, ChannelConfiguration>
+    QueueIds = { ["queue1"] = new RouterQueueAssignment(), ["queue2"] = new RouterQueueAssignment() },
+    ChannelConfigurations =
     {
-        ["voice"] = new(capacityCostPerJob: 2),
-        ["chat"] = new(capacityCostPerJob: 1)
+        ["voice"] = new ChannelConfiguration(capacityCostPerJob: 2),
+        ["chat"] = new ChannelConfiguration(capacityCostPerJob: 1)
     },
-    Labels = new Dictionary<string, LabelValue>
+    Labels =
     {
-        ["Skill"] = new(11),
-        ["English"] = new(true),
-        ["French"] = new(false),
-        ["Vendor"] = new("Acme")
+        ["Skill"] = new LabelValue(11),
+        ["English"] = new LabelValue(true),
+        ["French"] = new LabelValue(false),
+        ["Vendor"] = new LabelValue("Acme")
     }
 });
 ```
@@ -135,13 +135,13 @@ In the following example, we'll submit a job that
 ```csharp
 await client.CreateJobAsync(new CreateJobOptions("job1", "chat", "queue1")
 {
-    RequestedWorkerSelectors = new List<WorkerSelector>
+    RequestedWorkerSelectors =
     {
-        new(key: "English", labelOperator: LabelOperator.Equal, value: new LabelValue(true)),
-        new(key: "Skill", labelOperator: LabelOperator.GreaterThan, value: new LabelValue(10))
+        new RouterWorkerSelector(key: "English", labelOperator: LabelOperator.Equal, value: new LabelValue(true)),
+        new RouterWorkerSelector(key: "Skill", labelOperator: LabelOperator.GreaterThan, value: new LabelValue(10))
             { Ttl = TimeSpan.FromMinutes(5) }
     },
-    Labels = new Dictionary<string, LabelValue> { ["name"] = new("John") }
+    Labels = { ["name"] = new LabelValue("John") }
 });
 ```
 

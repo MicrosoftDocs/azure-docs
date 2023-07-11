@@ -40,7 +40,7 @@ When these triggers are fired, they'll execute one or more actions and send an [
 
 ## Examples
 
-In the following example, we configure an Exception Policy that will cancel a job before it joins a queue with a length greater than 100.
+In the following example, we configure an exception policy that will cancel a job before it joins a queue with a length greater than 100.
 
 ::: zone pivot="programming-language-csharp"
 

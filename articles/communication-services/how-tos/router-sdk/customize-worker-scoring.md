@@ -1,5 +1,5 @@
 ---	
-title: Azure Function Rule concepts for Azure Communication Services
+title: How to customize how workers are ranked for the best worker distribution mode
 titleSuffix: An Azure Communication Services how-to guide
 description: Learn how to customize how workers are ranked for the best worker mode
 author: rsarkar
@@ -195,14 +195,14 @@ With the aforementioned implementation, for the given job we'll get the followin
 Now that the Azure function app is ready, let us create an instance of **BestWorkerDistribution** mode using Router SDK.
 
 ```csharp
-var administrationClient = new RouterAdministrationClient("<YOUR_ACS_CONNECTION_STRING>");
+var administrationClient = new JobRouterAdministrationClient("<YOUR_ACS_CONNECTION_STRING>");
 
 // Setup Distribution Policy
 var distributionPolicy = await administrationClient.CreateDistributionPolicyAsync(
     new CreateDistributionPolicyOptions(
         distributionPolicyId: "BestWorkerDistributionMode",
-        offerTtl: TimeSpan.FromMinutes(5),
-        mode: new BestWorkerMode { ScoringRule = new FunctionRule(new Uri("<insert function url>")) }
+        offerExpiresAfter: TimeSpan.FromMinutes(5),
+        mode: new BestWorkerMode { ScoringRule = new FunctionRouterRule(new Uri("<insert function url>")) }
     ) { Name = "XBox hardware support distribution" });
 
 // Setup Queue
@@ -215,49 +215,46 @@ var queue = await administrationClient.CreateQueueAsync(
 // Create workers
 var worker1 = await client.CreateWorkerAsync(new CreateWorkerOptions(workerId: "Worker_1", totalCapacity: 100)
     {
-        QueueIds = new Dictionary<string, QueueAssignment> { [queue.Value.Id] = new() },
-        ChannelConfigurations = new Dictionary<string, ChannelConfiguration>
-            { ["Xbox_Chat_Channel"] = new(capacityCostPerJob: 10) },
-        Labels = new Dictionary<string, LabelValue>
+        QueueIds = { [queue.Value.Id] = new RouterQueueAssignment() },
+        ChannelConfigurations = { ["Xbox_Chat_Channel"] = new ChannelConfiguration(capacityCostPerJob: 10) },
+        Labels =
         {
-            ["English"] = new (10),
-            ["HighPrioritySupport"] = new (true),
-            ["HardwareSupport"] = new (true),
-            ["Support_XBOX_SERIES_X"] = new (true),
-            ["ChatSupport"] = new (true),
-            ["XboxSupport"] = new (true)
+            ["English"] = new LabelValue(10),
+            ["HighPrioritySupport"] = new LabelValue(true),
+            ["HardwareSupport"] = new LabelValue(true),
+            ["Support_XBOX_SERIES_X"] = new LabelValue(true),
+            ["ChatSupport"] = new LabelValue(true),
+            ["XboxSupport"] = new LabelValue(true)
         }
     });
 
 var worker2 = await client.CreateWorkerAsync(new CreateWorkerOptions(workerId: "Worker_2", totalCapacity: 100)
     {
-        QueueIds = new Dictionary<string, QueueAssignment> { [queue.Value.Id] = new() },
-        ChannelConfigurations = new Dictionary<string, ChannelConfiguration>
-            { ["Xbox_Chat_Channel"] = new(capacityCostPerJob: 10) },
-        Labels = new Dictionary<string, LabelValue>
+        QueueIds = { [queue.Value.Id] = new RouterQueueAssignment() },
+        ChannelConfigurations = { ["Xbox_Chat_Channel"] = new ChannelConfiguration(capacityCostPerJob: 10) },
+        Labels =
         {
-            ["English"] = new (8),
-            ["HighPrioritySupport"] = new (true),
-            ["HardwareSupport"] = new (true),
-            ["Support_XBOX_SERIES_X"] = new (true),
-            ["ChatSupport"] = new (true),
-            ["XboxSupport"] = new (true)
+            ["English"] = new LabelValue(8),
+            ["HighPrioritySupport"] = new LabelValue(true),
+            ["HardwareSupport"] = new LabelValue(true),
+            ["Support_XBOX_SERIES_X"] = new LabelValue(true),
+            ["ChatSupport"] = new LabelValue(true),
+            ["XboxSupport"] = new LabelValue(true)
         }
     });
 
 var worker3 = await client.CreateWorkerAsync(new CreateWorkerOptions(workerId: "Worker_3", totalCapacity: 100)
     {
-        QueueIds = new Dictionary<string, QueueAssignment> { [queue.Value.Id] = new() },
-        ChannelConfigurations = new Dictionary<string, ChannelConfiguration>
-            { ["Xbox_Chat_Channel"] = new(capacityCostPerJob: 10) },
-        Labels = new Dictionary<string, LabelValue>
+        QueueIds = { [queue.Value.Id] = new RouterQueueAssignment() },
+        ChannelConfigurations = { ["Xbox_Chat_Channel"] = new ChannelConfiguration(capacityCostPerJob: 10) },
+        Labels =
         {
-            ["English"] = new (7),
-            ["HighPrioritySupport"] = new (true),
-            ["HardwareSupport"] = new (true),
-            ["Support_XBOX_SERIES_X"] = new (true),
-            ["ChatSupport"] = new (true),
-            ["XboxSupport"] = new (true)
+            ["English"] = new LabelValue(7),
+            ["HighPrioritySupport"] = new LabelValue(true),
+            ["HardwareSupport"] = new LabelValue(true),
+            ["Support_XBOX_SERIES_X"] = new LabelValue(true),
+            ["ChatSupport"] = new LabelValue(true),
+            ["XboxSupport"] = new LabelValue(true)
         }
     });
 
@@ -267,22 +264,21 @@ var job = await client.CreateJobAsync(
     {
         Priority = 100,
         ChannelReference = "ChatChannel",
-        RequestedWorkerSelectors = new List<WorkerSelector>
+        RequestedWorkerSelectors =
         {
-            new(key: "English", labelOperator: LabelOperator.GreaterThanEqual,
-                value: new LabelValue(7)),
-            new(key: "ChatSupport", labelOperator: LabelOperator.Equal, value: new LabelValue(true)),
-            new(key: "XboxSupport", labelOperator: LabelOperator.Equal, value: new LabelValue(true))
+            new RouterWorkerSelector(key: "English", labelOperator: LabelOperator.GreaterThanEqual, value: new LabelValue(7)),
+            new RouterWorkerSelector(key: "ChatSupport", labelOperator: LabelOperator.Equal, value: new LabelValue(true)),
+            new RouterWorkerSelector(key: "XboxSupport", labelOperator: LabelOperator.Equal, value: new LabelValue(true))
         },
-        Labels = new Dictionary<string, LabelValue>
+        Labels =
         {
-            ["CommunicationType"] = new("Chat"),
-            ["IssueType"] = new("XboxSupport"),
-            ["Language"] = new("en"),
-            ["HighPriority"] = new(true),
-            ["SubIssueType"] = new("ConsoleMalfunction"),
-            ["ConsoleType"] = new("XBOX_SERIES_X"),
-            ["Model"] = new("XBOX_SERIES_X_1TB")
+            ["CommunicationType"] = new LabelValue("Chat"),
+            ["IssueType"] = new LabelValue("XboxSupport"),
+            ["Language"] = new LabelValue("en"),
+            ["HighPriority"] = new LabelValue(true),
+            ["SubIssueType"] = new LabelValue("ConsoleMalfunction"),
+            ["ConsoleType"] = new LabelValue("XBOX_SERIES_X"),
+            ["Model"] = new LabelValue("XBOX_SERIES_X_1TB")
         }
     });
 

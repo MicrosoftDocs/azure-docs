@@ -36,7 +36,7 @@ var distributionPolicy = await administrationClient.CreateDistributionPolicyAsyn
     new CreateDistributionPolicyOptions(
         distributionPolicyId: "Longest_Idle_45s_Min1Max10",
         offerExpiresAfter: TimeSpan.FromSeconds(45),
-        mode: new LongestIdleMode(minConcurrentOffers: 1, maxConcurrentOffers: 10))
+        mode: new LongestIdleMode { MinConcurrentOffers = 1, MaxConcurrentOffers = 10 })
     {
         Name = "Longest Idle matching with a 45s offer expiration; min 1, max 10 offers",
     });
@@ -116,7 +116,7 @@ The Job Router SDK will update an existing queue when the `UpdateQueueAsync` met
 await administrationClient.UpdateQueueAsync(new UpdateQueueOptions(queue.Value.Id)
 {
     Name = "XBOX Updated Queue",
-    Labels = new Dictionary<string, LabelValue>()
+    Labels =
     {
         ["Additional-Queue-Label"] = new LabelValue("ChatQueue")
     }

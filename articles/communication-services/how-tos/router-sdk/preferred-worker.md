@@ -37,9 +37,9 @@ In the following example, a job is created that targets a specific worker. If th
 await client.CreateJobAsync(
     new CreateJobOptions(jobId: "job1", channelId: "Xbox_Chat_Channel", queueId: queue.Value.Id)
     {
-        RequestedWorkerSelectors = new List<WorkerSelector>
+        RequestedWorkerSelectors =
         {
-            new(key: "Id", labelOperator: LabelOperator.Equal, value: new LabelValue("<preferred_worker_id>")) {
+            new WorkerSelector(key: "Id", labelOperator: LabelOperator.Equal, value: new LabelValue("<preferred_worker_id>")) {
                 Expedite = true,
                 ExpireAfterSeconds = 45
             }

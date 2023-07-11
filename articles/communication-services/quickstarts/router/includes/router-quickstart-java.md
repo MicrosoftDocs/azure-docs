@@ -16,7 +16,7 @@ ms.author: williamzhao
 ## Prerequisites
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-- An active Communication Services resource and connection string. [Create a Communication Services resource](../../create-communication-resource.md).
+- An active Communication Services resource and connection string. [Create a Communication Services resource](../../create-communication-resource.md#access-your-connection-strings-and-service-endpoints).
 - [Java Development Kit (JDK)](/java/azure/jdk/?view=azure-java-stable&preserve-view=true) version 8 or above.
 - [Apache Maven](https://maven.apache.org/download.cgi)
 
@@ -36,7 +36,7 @@ mvn archetype:generate -DgroupId=com.communication.quickstart -DartifactId=commu
 
 ### Include the package
 
-You'll need to use the Azure Communication Job Router client library for Java [version 1.0.0-beta.2](https://search.maven.org/artifact/com.azure/azure-communication-job-router/1.0.0-beta.2/jar) or above.
+You'll need to use the Azure Communication Job Router client library for Java [version 1.0.0-beta.1](https://search.maven.org/artifact/com.azure/azure-communication-job-router/1.0.0-beta.1/jar) or above.
 
 #### Include the BOM file
 
@@ -78,7 +78,7 @@ If you want to take dependency on a particular version of the library that isn't
 <dependency>
   <groupId>com.azure</groupId>
   <artifactId>azure-communication-job-router</artifactId>
-  <version>1.0.0-beta.2</version>
+  <version>1.0.0-beta.1</version>
 </dependency>
 ```
 
@@ -116,8 +116,8 @@ Job Router clients can be authenticated using your connection string acquired fr
 ```java
 // Get a connection string to our Azure Communication Services resource.
 String connectionString = "your_connection_string";
-RouterAdministrationClient routerAdminClient = new RouterAdministrationClientBuilder().connectionString(connectionString).buildClient();
-RouterClient routerClient = new RouterClientBuilder().connectionString(connectionString).buildClient();
+JobRouterAdministrationClient routerAdminClient = new JobRouterAdministrationClientBuilder().connectionString(connectionString).buildClient();
+JobRouterClient routerClient = new JobRouterClientBuilder().connectionString(connectionString).buildClient();
 ```
 
 ## Create a distribution policy
@@ -125,7 +125,7 @@ RouterClient routerClient = new RouterClientBuilder().connectionString(connectio
 Job Router uses a distribution policy to decide how Workers will be notified of available Jobs and the time to live for the notifications, known as **Offers**. Create the policy by specifying the **ID**, a **name**, an **offerTTL**, and a distribution **mode**.
 
 ```java
-DistributionPolicy distributionPolicy = routerAdministrationClient.createDistributionPolicy(
+DistributionPolicy distributionPolicy = JobRouterAdministrationClient.createDistributionPolicy(
     new CreateDistributionPolicyOptions(
         "distribution-policy-1",
         Duration.ofMinutes(1),
@@ -252,4 +252,9 @@ Worker worker-1 has closed job 6b83c5ad-5a92-4aa8-b986-3989c791be91
 
 ## Reference documentation
 
-Read about the full set of capabilities of Azure Communication Services Job Router from the [Java SDK reference](/java/api/overview/azure/communication-job-router-readme) or [REST API reference](/rest/api/communication/job-router).
+Read about the full set of capabilities of Azure Communication Services Job Router from the [Java SDK reference](/java/api/overview/azure/communication.jobrouter-readme) or [REST API reference](/rest/api/communication/job-router).
+
+<!-- LINKS -->
+
+[subscribe_events]: ../../how-tos/router-sdk/subscribe-events.md
+[offer_issued_event]: ../../how-tos/router-sdk/subscribe-events.md#microsoftcommunicationrouterworkerofferissued

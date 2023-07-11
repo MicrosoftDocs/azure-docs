@@ -36,16 +36,16 @@ var classificationPolicy = await administrationClient.CreateClassificationPolicy
     new CreateClassificationPolicyOptions(classificationPolicyId: "XBOX_NA_QUEUE_Priority_1_10")
     {
         Name = "Select XBOX Queue and set priority to 1 or 10",
-        QueueSelectors = new List<QueueSelectorAttachment>
+        QueueSelectors =
         {
-            new ConditionalQueueSelectorAttachment(condition: new ExpressionRule("job.Region = \"NA\""),
+            new ConditionalQueueSelectorAttachment(condition: new ExpressionRouterRule("job.Region = \"NA\""),
                 labelSelectors: new List<QueueSelector>
                 {
                     new(key: "Id", labelOperator: LabelOperator.Equal, value: new LabelValue("XBOX_NA_QUEUE"))
                 })
         },
         FallbackQueueId = "XBOX_DEFAULT_QUEUE"
-        PrioritizationRule = new ExpressionRule("If(job.Hardware_VIP = true, 10, 1)"),
+        PrioritizationRule = new ExpressionRouterRule("If(job.Hardware_VIP = true, 10, 1)"),
     });
 ```
 
@@ -122,17 +122,17 @@ The following example will cause the classification policy to evaluate the Job l
 ::: zone pivot="programming-language-csharp"
 
 ```csharp
-await client.CreateJobAsync(new CreateJobWithClassificationPolicyOptions(
+await client.CreateJobWithClassificationPolicyAsync(new CreateJobWithClassificationPolicyOptions(
     jobId: "job1",
     channelId: "voice",
     classificationPolicyId: classificationPolicy.Value.Id)
 {
-    Labels = new Dictionary<string, LabelValue>
+    Labels =
     {
-        ["Region"] = new("NA"),
-        ["Caller_Id"] = new("7805551212"),
-        ["Caller_NPA_NXX"] = new("780555"),
-        ["XBOX_Hardware"] = new(7)
+        ["Region"] = new LabelValue("NA"),
+        ["Caller_Id"] = new LabelValue("7805551212"),
+        ["Caller_NPA_NXX"] = new LabelValue("780555"),
+        ["XBOX_Hardware"] = new LabelValue(7)
     }
 });
 ```
@@ -201,7 +201,7 @@ In this example, the Classification Policy is configured with a static attachmen
 await administrationClient.CreateClassificationPolicyAsync(
     new CreateClassificationPolicyOptions("policy-1")
     {
-        WorkerSelectors = new List<WorkerSelectorAttachment>
+        WorkerSelectors =
         {
             new StaticWorkerSelectorAttachment(new WorkerSelector(
                 key: "Foo", labelOperator: LabelOperator.Equal, value: new LabelValue("Bar")))
@@ -259,7 +259,7 @@ In this example, the Classification Policy is configured with a conditional atta
 await administrationClient.CreateClassificationPolicyAsync(
     new CreateClassificationPolicyOptions("policy-1")
     {
-        WorkerSelectors = new List<WorkerSelectorAttachment>
+        WorkerSelectors =
         {
             new ConditionalWorkerSelectorAttachment(
                 condition: new ExpressionRule("job.Urgent = true"),
@@ -327,7 +327,7 @@ In this example, the Classification Policy is configured to attach a worker sele
 await administrationClient.CreateClassificationPolicyAsync(
     new CreateClassificationPolicyOptions("policy-1")
     {
-        WorkerSelectors = new List<WorkerSelectorAttachment>
+        WorkerSelectors =
         {
             new PassThroughWorkerSelectorAttachment(key: "Foo", labelOperator: LabelOperator.Equal)
         }
@@ -385,7 +385,7 @@ In this example, the Classification Policy is configured with a weighted allocat
 ```csharp
 await administrationClient.CreateClassificationPolicyAsync(new CreateClassificationPolicyOptions("policy-1")
     {
-        WorkerSelectors = new List<WorkerSelectorAttachment>
+        WorkerSelectors =
         {
             new WeightedAllocationWorkerSelectorAttachment(new List<WorkerWeightedAllocation>
             {
@@ -467,9 +467,9 @@ Once the Job Router has received, and classified a Job using a policy, you have 
 ```csharp
 await client.UpdateJobAsync(new UpdateJobOptions("job1") {
     ClassificationPolicyId = classificationPolicy.Value.Id,
-    Labels = new Dictionary<string, LabelValue>
+    Labels =
     {
-        ["Hardware_VIP"] = new(true)
+        ["Hardware_VIP"] = new LabelValue(true)
     }});
 ```
 

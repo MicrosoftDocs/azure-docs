@@ -1282,4 +1282,3 @@ public enum LabelOperator
 
 <!-- LINKS -->
 [event-grid-overview]: ../../../event-grid/overview.md
-[filter-events]: ../../../event-grid/how-to-filter-events.md

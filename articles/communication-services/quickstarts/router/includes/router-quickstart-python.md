@@ -51,8 +51,8 @@ Create a new file called `router-quickstart.py` and add the basic program struct
 import os
 from datetime import datetime, timedelta
 from azure.communication.jobrouter import (
-    RouterClient,
-    RouterAdministrationClient
+    JobRouterClient,
+    JobRouterAdministrationClient
 )
 
 class RouterQuickstart(object):
@@ -70,8 +70,8 @@ Job Router clients can be authenticated using your connection string acquired fr
 ```python
 // Get a connection string to our Azure Communication Services resource.
 connection_string = "your_connection_string"
-router_admin_client = RouterAdministrationClient(connectionString)
-router_client = RouterClient(connectionString)
+router_admin_client = JobRouterAdministrationClient(connectionString)
+router_client = JobRouterClient(connectionString)
 ```
 
 ## Create a distribution policy
@@ -200,4 +200,9 @@ Worker worker-1 has closed job 6b83c5ad-5a92-4aa8-b986-3989c791be91
 
 ## Reference documentation
 
-Read about the full set of capabilities of Azure Communication Services Job Router from the [Java SDK reference](/java/api/overview/azure/communication-job-router-readme) or [REST API reference](/rest/api/communication/job-router).
+Read about the full set of capabilities of Azure Communication Services Job Router from the [Python SDK reference](/python/api/overview/azure/communication.jobrouter-readme) or [REST API reference](/rest/api/communication/jobrouter).
+
+<!-- LINKS -->
+
+[subscribe_events]: ../../how-tos/router-sdk/subscribe-events.md
+[offer_issued_event]: ../../how-tos/router-sdk/subscribe-events.md#microsoftcommunicationrouterworkerofferissued

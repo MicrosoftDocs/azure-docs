@@ -66,8 +66,8 @@ Inspect your deployed function in the Azure portal and locate the function Uri a
 ```csharp
 await administrationClient.CreateClassificationPolicyAsync(
     new CreateClassificationPolicyOptions("policy-1") {
-        PrioritizationRule = new FunctionRule(new Uri("<insert function uri>")) {
-            Credential = new FunctionRuleCredential("<insert function key>")
+        PrioritizationRule = new FunctionRouterRule(new Uri("<insert function uri>")) {
+            Credential = new FunctionRouterRuleCredential("<insert function key>")
         }});
 ```
 
@@ -76,3 +76,7 @@ When a new job is submitted or updated, this function will be called to determin
 ## Errors
 
 If the Azure Function fails or returns a non-200 code, the job will move to the `ClassificationFailed` state and you'll receive a `JobClassificationFailedEvent` from Event Grid containing details of the error.
+
+## Next steps
+
+- [How to customize how workers are ranked for the best worker distribution mode](customize-worker-scoring.md)

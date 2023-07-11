@@ -16,7 +16,7 @@ ms.author: williamzhao
 ## Prerequisites
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-- An active Communication Services resource and connection string. [Create a Communication Services resource](../create-communication-resource.md).
+- An active Communication Services resource and connection string. [Create a Communication Services resource](../../create-communication-resource.md#access-your-connection-strings-and-service-endpoints).
 
 ## Setting up
 
@@ -37,7 +37,7 @@ dotnet build
 
 ### Install the package
 
-Install the Azure Communication Job Router client library for .NET with [NuGet][https://www.nuget.org/]:
+Install the Azure Communication Job Router client library for .NET with [NuGet](https://www.nuget.org/):
 
 ```console
 dotnet add package Azure.Communication.JobRouter
@@ -68,8 +68,8 @@ Job Router clients can be authenticated using your connection string acquired fr
 ```csharp
 // Get a connection string to our Azure Communication Services resource.
 var connectionString = "your_connection_string";
-var routerAdminClient = new RouterAdministrationClient(connectionString);
-var routerClient = new RouterClient(connectionString);
+var routerAdminClient = new JobRouterAdministrationClient(connectionString);
+var routerClient = new JobRouterClient(connectionString);
 ```
 
 ## Create a distribution policy
@@ -77,7 +77,7 @@ var routerClient = new RouterClient(connectionString);
 Job Router uses a distribution policy to decide how Workers will be notified of available Jobs and the time to live for the notifications, known as **Offers**. Create the policy by specifying the **ID**, a **name**, an **offerTTL**, and a distribution **mode**.
 
 ```csharp
-var distributionPolicy = await routerAdministrationClient.CreateDistributionPolicyAsync(
+var distributionPolicy = await routerAdminClient.CreateDistributionPolicyAsync(
     new CreateDistributionPolicyOptions(
         distributionPolicyId: "distribution-policy-1",
         offerExpiresAfter: TimeSpan.FromMinutes(1),
@@ -108,10 +108,10 @@ Now, we can submit a job directly to that queue, with a worker selector that req
 var job = await routerClient.CreateJobAsync(
     new CreateJobOptions(jobId: "job-1", channelId: "voice", queueId: queue.Value.Id)
     {
-        priority: 1,
-        requestedWorkerSelectors: new List<WorkerSelector>
+        Priority = 1,
+        RequestedWorkerSelectors =
         {
-            new (key: "Some-Skill", labelOperator: LabelOperator.GreaterThan, value: new LabelValue(10))
+            new WorkerSelector(key: "Some-Skill", labelOperator: LabelOperator.GreaterThan, value: new LabelValue(10))
         }
     });
 ```
@@ -124,17 +124,17 @@ Now, we create a worker to receive work from that queue, with a label of `Some-S
 var worker = await client.CreateWorkerAsync(
     new CreateWorkerOptions(workerId: "worker-1", totalCapacity: 1)
     {
-        QueueIds = new Dictionary<string, QueueAssignment>
+        QueueIds =
         {
-            [queue.Value.Id] = new()
+            [queue.Value.Id] = new RouterQueueAssignment()
         },
-        Labels = new Dictionary<string, LabelValue>
+        Labels =
         {
-            ["Some-Skill"] = new(11)
+            ["Some-Skill"] = new LabelValue(11)
         },
-        ChannelConfigurations = new Dictionary<string, ChannelConfiguration>
+        ChannelConfigurations =
         {
-            ["voice"] = new (capacityCostPerJob: 1)
+            ["voice"] = new ChannelConfiguration(capacityCostPerJob: 1)
         }
     });
 ```
@@ -200,4 +200,9 @@ Worker worker-1 has closed job 6b83c5ad-5a92-4aa8-b986-3989c791be91
 
 ## Reference documentation
 
-Read about the full set of capabilities of Azure Communication Services Job Router from the [Java SDK reference](/java/api/overview/azure/communication-job-router-readme) or [REST API reference](/rest/api/communication/job-router).
+Read about the full set of capabilities of Azure Communication Services Job Router from the [.NET SDK reference](/dotnet/api/overview/azure/communication.jobrouter-readme) or [REST API reference](/rest/api/communication/jobrouter).
+
+<!-- LINKS -->
+
+[subscribe_events]: ../../how-tos/router-sdk/subscribe-events.md
+[offer_issued_event]: ../../how-tos/router-sdk/subscribe-events.md#microsoftcommunicationrouterworkerofferissued

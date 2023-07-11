@@ -41,14 +41,14 @@ var classificationPolicy = await administrationClient.CreateClassificationPolicy
     new CreateClassificationPolicyOptions(classificationPolicyId: "Classify_XBOX_Voice_Jobs")
     {
         Name = "Classify XBOX Voice Jobs",
-        QueueSelectors = new List<QueueSelectorAttachment>
+        QueueSelectors =
         {
-            new ConditionalQueueSelectorAttachment(condition: new ExpressionRule("job.Escalated = true"), labelSelectors: new List<QueueSelector>
+            new ConditionalQueueSelectorAttachment(condition: new ExpressionRouterRule("job.Escalated = true"), labelSelectors: new List<QueueSelector>
             {
                 new (key: "Id", labelOperator: LabelOperator.Equal, value: new LabelValue("XBOX_Escalation_Queue"))
             })
         },
-        PrioritizationRule = new ExpressionRule("If(job.Escalated = true, 10, 1)"),
+        PrioritizationRule = new ExpressionRouterRule("If(job.Escalated = true, 10, 1)"),
     });
 ```
 

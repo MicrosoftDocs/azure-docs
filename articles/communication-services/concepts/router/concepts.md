@@ -22,15 +22,15 @@ At its core, Job Router operates on a set of key concepts that together create a
 
 Job Router is agnostic to any Azure Communication Services channel primitive helping developers to build a comprehensive omnichannel communication solution. With Job Router, businesses can ensure that every customer interaction is handled efficiently, leading to improved customer experiences and operational efficiency.
 
-# Key Concepts
+## Key Concepts
 
-## Job
+### Job
 
 A Job is a unit of work (demand), which must be routed to an available Worker (supply).
 
 A real-world example is an incoming call or chat in the context of a call center.
 
-### Job lifecycle
+#### Job lifecycle
 
 1. Your application submits a Job via the Job Router SDK.
 1. (Optional) If you specified a [Classification Policy](#classification-policy), the Job is classified and a [JobClassified Event][job_classified_event] is sent via Event Grid.
@@ -42,7 +42,7 @@ A real-world example is an incoming call or chat in the context of a call center
 
 :::image type="content" source="./media/job-lifecycle.svg" alt-text="Diagram that shows the Job lifecycle.":::
 
-## Worker
+### Worker
 
 A Worker is the supply available to handle a Job. When you use the SDK to register a Worker to receive jobs, you can specify:
 
@@ -52,25 +52,25 @@ A Worker is the supply available to handle a Job. When you use the SDK to regist
 
 A real-world example is an agent in a call center.
 
-## Queue
+### Queue
 
 A Queue is an ordered list of jobs, that are waiting to be served to a worker. Workers register with a queue to receive work from it.
 
 A real-world example is a call queue in a call center.
 
-## Channel
+### Channel
 
 A Channel is a grouping of jobs by some type. When a worker registers to receive work, they must also specify for which channels they can handle work, and how much of each can they handle concurrently. Channels are just a string discriminator and aren't explicitly created.
 
 Real-world examples are `voice calls` or `chats` in a call center.
 
-## Offer
+### Offer
 
 An Offer is extended by Job Router to a worker to handle a particular job when it determines a match. You can either accept or decline the offer with the JobRouter SDK. If you ignore the offer, it expires according to the time to live configured on the Distribution Policy.
 
 A real-world example is the ringing of an agent in a call center.
 
-### Offer acceptance flow
+#### Offer acceptance flow
 
 1. When Job Router finds a matching Worker for a Job, it creates an Offer and sends an [OfferIssued Event][offer_issued_event] via [Event Grid][subscribe_events].
 1. The Offer is accepted via the Job Router API.
@@ -78,7 +78,7 @@ A real-world example is the ringing of an agent in a call center.
 1. Job Router sends an [OfferAccepted Event][offer_accepted_event].
 1. Any existing offers to other workers for this same job will be revoked and an [OfferRevoked Event][offer_revoked_event] will be sent.
 
-### Offer decline flow
+#### Offer decline flow
 
 1. When Job Router finds a matching Worker for a Job, it creates an Offer and sends an [OfferIssued Event][offer_issued_event] via [Event Grid][subscribe_events].
 1. The Offer is declined via the Job Router API.
@@ -86,7 +86,7 @@ A real-world example is the ringing of an agent in a call center.
 1. Job Router sends an [OfferDeclined Event][offer_declined_event].
 1. Job Router won't reoffer the declined Offer to the worker unless they deregister and re-register.
 
-### Offer expiry flow
+#### Offer expiry flow
 
 1. When Job Router finds a matching Worker for a Job, it creates an Offer and sends an [OfferIssued Event][offer_issued_event] via [Event Grid][subscribe_events].
 1. The Offer is not accepted or declined within the TTL period defined by the Distribution Policy.
@@ -94,7 +94,7 @@ A real-world example is the ringing of an agent in a call center.
 1. The worker is considered unavailable and will be automatically deregistered.
 1. A [WorkerDeregistered Event][worker_deregistered_event] will be sent.
 
-## Distribution Policy
+### Distribution Policy
 
 A Distribution Policy is a configuration set that controls how jobs in a queue are distributed to workers registered with that queue.
 This configuration includes:
@@ -103,7 +103,7 @@ This configuration includes:
 - The distribution mode, which define the order in which workers are picked when there are multiple available.
 - How many concurrent offers can there be for a given job.
 
-### Distribution modes
+#### Distribution modes
 
 The three types of modes are
 
@@ -111,27 +111,27 @@ The three types of modes are
 - **Longest Idle**: The worker that has not been working on a job for the longest.
 - **Best Worker**: The workers that are best able to handle the job are picked first.  The logic to rank Workers can be customized, with an expression or Azure function to compare two workers. [See example][worker-scoring]
 
-## Labels
+### Labels
 
 You can attach labels to workers, jobs, and queues.  Labels are key value pairs that can be of `string`, `number`, or `boolean` data types.
 
 A real-world example is the skill level of a particular worker or the team or geographic location.
 
-## Label selectors
+### Label selectors
 
 Label selectors can be attached to a job in order to target a subset of workers on the queue.
 
 A real-world example is a condition on an incoming call that the agent must have a minimum level of knowledge of a particular product.
 
-## Classification policy
+### Classification policy
 
 A classification policy can be used to programmatically select a queue, determine job priority, or attach worker label selectors to a job.
 
-## Exception policy
+### Exception policy
 
 An exception policy controls the behavior of a Job based on a trigger and executes a desired action. The exception policy is attached to a Queue so it can control the behavior of Jobs in the Queue.
 
-## Next steps
+### Next steps
 
 - [Quickstart: Submit a job for queuing and routing](../../quickstarts/router/get-started-router.md)
 - [How jobs are matched to workers](matching-concepts.md)
@@ -140,6 +140,9 @@ An exception policy controls the behavior of a Job based on a trigger and execut
 - [Classification concepts](classification-concepts.md)
 - [Distribution modes](distribution-concepts.md)
 - [Exception Policies](exception-policy.md)
+
+#### How To Guides
+
 - [Manage queues](../../how-tos/router-sdk/manage-queue.md)
 - [How to classify a Job](../../how-tos/router-sdk/job-classification.md)
 - [Target a preferred worker](../../how-tos/router-sdk/preferred-worker.md)
@@ -149,18 +152,8 @@ An exception policy controls the behavior of a Job based on a trigger and execut
 - [How to get estimated wait time and job position](../../how-tos/router-sdk/estimated-wait-time.md)
 
 <!-- LINKS -->
-[azure_sub]: https://azure.microsoft.com/free/dotnet/
-[cla]: https://cla.microsoft.com
-[nuget]: https://www.nuget.org/
-[netstandars2mappings]: https://github.com/dotnet/standard/blob/master/docs/versions.md
-[useraccesstokens]: ../../quickstarts/identity/access-tokens.md?pivots=programming-language-csharp
-[communication_resource_docs]: ../../quickstarts/create-communication-resource.md?pivots=platform-azp&tabs=windows
-[communication_resource_create_portal]:  ../../quickstarts/create-communication-resource.md?pivots=platform-azp&tabs=windows
-[communication_resource_create_power_shell]: /powershell/module/az.communication/new-azcommunicationservice
-[communication_resource_create_net]: ../../quickstarts/create-communication-resource.md?pivots=platform-net&tabs=windows
 
 [subscribe_events]: ../../how-tos/router-sdk/subscribe-events.md
-[worker_registered_event]: ../../how-tos/router-sdk/subscribe-events.md#microsoftcommunicationrouterworkerregistered
 [worker_deregistered_event]: ../../how-tos/router-sdk/subscribe-events.md#microsoftcommunicationrouterworkerderegistered
 [job_classified_event]: ../../how-tos/router-sdk/subscribe-events.md#microsoftcommunicationrouterjobclassified
 [job_queued_event]: ../../how-tos/router-sdk/subscribe-events.md#microsoftcommunicationrouterjobqueued

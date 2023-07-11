@@ -46,7 +46,7 @@ In this example a `StaticRule`, which is a subtype of `RouterRule` can be used t
 await administrationClient.CreateClassificationPolicyAsync(
     new CreateClassificationPolicyOptions(classificationPolicyId: "my-policy-id")
     {
-        PrioritizationRule = new StaticRule(new LabelValue(5))
+        PrioritizationRule = new StaticRouterRule(new LabelValue(5))
     });
 ```
 
@@ -91,7 +91,7 @@ In this example an `ExpressionRule` which is a subtype of `RouterRule`, evaluate
 await administrationClient.CreateClassificationPolicyAsync(
     new CreateClassificationPolicyOptions(classificationPolicyId: "my-policy-id")
     {
-        PrioritizationRule = new ExpressionRule("If(job.Escalated = true, 10, 5)") // this will check whether the job has a label "Escalated" set to "true"
+        PrioritizationRule = new ExpressionRouterRule("If(job.Escalated = true, 10, 5)") // this will check whether the job has a label "Escalated" set to "true"
     });
 ```
 

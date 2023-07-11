@@ -16,7 +16,7 @@ ms.author: williamzhao
 ## Prerequisites
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-- An active Communication Services resource and connection string. [Create a Communication Services resource](../../create-communication-resource.md).
+- An active Communication Services resource and connection string. [Create a Communication Services resource](../../create-communication-resource.md#access-your-connection-strings-and-service-endpoints).
 - The latest versions of [Node.js](https://nodejs.org/en/download/) Active LTS and Maintenance LTS versions.
 
 ## Sample code
@@ -26,6 +26,7 @@ You can review and download the sample code for this quick start on [GitHub](htt
 ## Setting up
 
 ### Create a new web application
+
 In a terminal or console window, create a new folder for your application and navigate to it.
 
 ```console
@@ -42,7 +43,7 @@ Create a new file `index.js` where the code for this quickstart will be added.
 
 ### Install the packages
 
-You'll need to use the Azure Communication Job Router client library for JavaScript [version 1.0.0-beta.2](https://www.npmjs.com/package/@azure/communication-job-router) or above.
+You'll need to use the Azure Communication Job Router client library for JavaScript [version 1.0.0-beta.1](https://www.npmjs.com/package/@azure/communication-job-router) or above.
 
 Use the `npm install` command to install the below Communication Services SDKs for JavaScript.
 
@@ -55,7 +56,7 @@ npm install @azure/communication-job-router --save
 In the `index.js` file add the following code. We will be adding the code for the quickstart in the `main` function.
 
 ``` javascript
-const { RouterClient, RouterAdministrationClient } = require('@azure/communication-job-router');
+const { JobRouterClient, JobRouterAdministrationClient } = require('@azure/communication-job-router');
 
 const main = async () => {
   console.log("Azure Communication Services - Job Router Quickstart")
@@ -77,11 +78,11 @@ Job Router clients can be authenticated using your connection string acquired fr
 Add the following code in `index.js` inside the `main` function.
 
 ```javascript
-// create RouterAdministrationClient and RouterClient
+// create JobRouterAdministrationClient and JobRouterClient
 const connectionString = process.env["COMMUNICATION_CONNECTION_STRING"] ||
     "endpoint=https://<resource-name>.communication.azure.com/;<access-key>";
-const routerAdminClient = new RouterAdministrationClient(connectionString);
-const routerClient = new RouterClient(connectionString);
+const routerAdminClient = new JobRouterAdministrationClient(connectionString);
+const routerClient = new JobRouterClient(connectionString);
 ```
 
 ## Create a distribution policy
@@ -191,4 +192,9 @@ Worker worker-1 has closed job 6b83c5ad-5a92-4aa8-b986-3989c791be91
 
 ## Reference documentation
 
-Read about the full set of capabilities of Azure Communication Services Job Router from the [Java SDK reference](/java/api/overview/azure/communication-job-router-readme) or [REST API reference](/rest/api/communication/job-router).
+Read about the full set of capabilities of Azure Communication Services Job Router from the [JavaScript SDK reference](/javascript/api/overview/azure/communication.jobrouter-readme) or [REST API reference](/rest/api/communication/jobrouter).
+
+<!-- LINKS -->
+
+[subscribe_events]: ../../how-tos/router-sdk/subscribe-events.md
+[offer_issued_event]: ../../how-tos/router-sdk/subscribe-events.md#microsoftcommunicationrouterworkerofferissued

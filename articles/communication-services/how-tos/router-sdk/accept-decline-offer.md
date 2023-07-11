@@ -120,7 +120,7 @@ await client.DeclineJobOfferAsync(new DeclineJobOfferOptions(
     workerId: offerIssuedEvent.Data.WorkerId,
     offerId: offerIssuedEvent.Data.OfferId)
 {
-    RetryOfferAfterUtc = DateTime.UtcNow.AddMinutes(5)
+    RetryOfferAt = DateTime.UtcNow.AddMinutes(5)
 });
 ```
 
@@ -131,7 +131,7 @@ await client.DeclineJobOfferAsync(new DeclineJobOfferOptions(
 ```typescript
 // Event handler logic omitted
 await client.declineJobOffer(offerIssuedEvent.data.workerId, offerIssuedEvent.data.offerId, {
-    retryOfferAfterUtc: new Date(Date.now() + 5 * 60 * 1000)
+    retryOfferAt: new Date(Date.now() + 5 * 60 * 1000)
 });
 ```
 
@@ -144,7 +144,7 @@ await client.declineJobOffer(offerIssuedEvent.data.workerId, offerIssuedEvent.da
 client.decline_job_offer(
     worker_id = offerIssuedEvent.data.worker_id,
     offer_id = offerIssuedEvent.data.offer_id,
-    retry_offer_after_utc = datetime.utcnow() + timedelta(minutes = 5))
+    retry_offer_at = datetime.utcnow() + timedelta(minutes = 5))
 ```
 
 ::: zone-end
@@ -155,7 +155,7 @@ client.decline_job_offer(
 // Event handler logic omitted
 client.declineJobOffer(
     new DeclineJobOfferOptions(offerIssuedEvent.getData().getWorkerId(), offerIssuedEvent.getData().getOfferId())
-        .setRetryOfferAfterUtc(OffsetDateTime.now().plusMinutes(5)));
+        .setRetryOfferAt(OffsetDateTime.now().plusMinutes(5)));
 ```
 
 ::: zone-end

@@ -30,14 +30,11 @@ In this example, we configure a worker with total capacity of 100 and set the vo
 var worker = await client.CreateWorkerAsync(
     new CreateWorkerOptions(workerId: "worker1", totalCapacity: 100)
     {
-        QueueIds = new Dictionary<string, QueueAssignment>
+        QueueIds = { ["queue1"] = new RouterQueueAssignment() },
+        ChannelConfigurations =
         {
-            ["queue1"] = new()
-        },
-        ChannelConfigurations = new Dictionary<string, ChannelConfiguration>
-        {
-            ["voice"] = new(capacityCostPerJob: 100),
-            ["chat"] = new(capacityCostPerJob: 20)
+            ["voice"] = new ChannelConfiguration(capacityCostPerJob: 100),
+            ["chat"] = new ChannelConfiguration(capacityCostPerJob: 20)
         }
     });
 ```
@@ -98,15 +95,12 @@ In this example, a worker is configured with total capacity of 100.  Next, the v
 var worker = await client.CreateWorkerAsync(
     new CreateWorkerOptions(workerId: "worker1", totalCapacity: 100)
     {
-        QueueIds = new Dictionary<string, QueueAssignment>
+        QueueIds = { ["queue1"] = new RouterQueueAssignment() },
+        ChannelConfigurations =
         {
-            ["queue1"] = new()
-        },
-        ChannelConfigurations = new Dictionary<string, ChannelConfiguration>
-        {
-            ["voice"] = new(capacityCostPerJob: 60),
-            ["chat"] = new(capacityCostPerJob: 10) { MaxNumberOfJobs = 2},
-            ["email"] = new(capacityCostPerJob: 10) { MaxNumberOfJobs = 2}
+            ["voice"] = new ChannelConfiguration(capacityCostPerJob: 60),
+            ["chat"] = new ChannelConfiguration(capacityCostPerJob: 10) { MaxNumberOfJobs = 2},
+            ["email"] = new ChannelConfiguration(capacityCostPerJob: 10) { MaxNumberOfJobs = 2}
         }
     });
 ```
