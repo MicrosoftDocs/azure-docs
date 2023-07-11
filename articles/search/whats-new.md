@@ -8,7 +8,7 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: overview
 ms.date: 06/29/2023
-ms.custom: references_regions 
+ms.custom: references_regions
 ---
 
 # What's new in Azure Cognitive Search
@@ -22,7 +22,7 @@ Learn about the latest updates to Azure Cognitive Search functionality, docs, an
 
 | Item&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; | Type |  Description |
 |-----------------------------|------|--------------|
-| [**Vector search public preview**](vector-search-overview.md) | Feature | Adds vector fields to a search index for similarity search over vector representations of text, image, and multilingual content. |
+| [**Vector search public preview**](vector-search-overview.md) | Feature | Adds vector fields to a search index for similarity search over vector representations of data. |
 | [**2023-07-01-Preview Search REST API**](/rest/api/searchservice/index-preview) | API | New preview version of the Search REST APIs that adds support for vector search. This API version is inclusive of all preview features. If you're using earlier previews, switch to **2023-07-01-preview** with no loss of functionality.  |
 
 ## May 2023
@@ -76,3 +76,4 @@ Azure Search was renamed to **Azure Cognitive Search** in October 2019 to reflec
 ## Service updates
 
 [Service update announcements](https://azure.microsoft.com/updates/?product=search&status=all) for Azure Cognitive Search can be found on the Azure web site.
+

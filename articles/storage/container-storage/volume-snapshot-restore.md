@@ -2,11 +2,10 @@
 title: Use volume snapshots with Azure Container Storage Preview
 description: Take a point-in-time snapshot of a persistent volume and restore it. You'll create a volume snapshot class, take a snapshot, create a restored persistent volume claim, and deploy a new pod. 
 author: khdownie
-ms.service: storage
+ms.service: azure-container-storage
 ms.topic: how-to
 ms.date: 07/03/2023
 ms.author: kendownie
-ms.subservice: container-storage
 ---
 
 # Use volume snapshots with Azure Container Storage Preview
