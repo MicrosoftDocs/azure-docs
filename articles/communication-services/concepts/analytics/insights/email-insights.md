@@ -47,13 +47,13 @@ This section provides insights into the effectiveness of email notifications and
 
 Overall email insight measures email delivery that assesses effectiveness and efficiency of the email company. This metric enables you to optimize their marketing campaign efforts and improve customer engagement and conversion rate.
 
-:::image type="content" source=""..\media\workbooks\email-insights\email-health.png" alt-text="Screenshot of overall email health campaign ."
+:::image type="content" source=""..\media\workbooks\email-insights\email-health.png" alt-text="Screenshot of overall email health campaign.":::
 
 
 #### Email size
 Email size represents the storage space your emails are taking up, this information will help optimize your mailbox and prevent it from reaching the max size and impact performance.
 
-:::image type="content" source=""..\media\workbooks\email-insights\email-size.png" alt-text="Screenshot of email size."
+:::image type="content" source=""..\media\workbooks\email-insights\email-size.png" alt-text="Screenshot of email size.":::
 
 ### Email Performance:
  This section provides insights into the email delivery rate, delivery log indicating information about      delivered emailed, bounced, blocked, suppression, failed etc. Analyzing the delivery log will help identify any issues or patterns and enable you to troubleshoot delivery problems and improved customer engagement.
@@ -62,7 +62,7 @@ Email size represents the storage space your emails are taking up, this informat
 #### Email Delivery rates 
 Email delivery rates are pivotal to the success of the email marketing campaign, it provides insights into email performance over time. Measuring and monitoring the message delivery performance over extended periods by week or month or specified period.
 
-:::image type="content" source=""..\media\workbooks\email-insights\email-delivery-rate.png" alt-text="Screenshot of email delivery rate ."
+:::image type="content" source=""..\media\workbooks\email-insights\email-delivery-rate.png" alt-text="Screenshot of email delivery rate .":::
 
 #### Failure rate 
 
@@ -73,7 +73,7 @@ Email failure rate represents the different types of unsuccessful email deliveri
 ** Bounce rate: It represents the number of emails that couldn’t be delivered due to recipient’s email address is invalid, email server blocked the delivery or invalid domain name. 
 ** Blocked rate: It represents the number of emails that were not delivered through the recipient’s email server or were blocked by spam filter
 
-:::image type="content" source=""..\media\workbooks\email-insights\email-failure-rate.png" alt-text="Screenshot of email failure rate."
+:::image type="content" source=""..\media\workbooks\email-insights\email-failure-rate.png" alt-text="Screenshot of email failure rate.":::
 
 
 ## More information about workbooks
