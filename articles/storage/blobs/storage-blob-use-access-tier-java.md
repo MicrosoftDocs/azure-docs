@@ -23,7 +23,7 @@ This article shows how to set or change the access tier for a block blob using t
 This article doesn't detail the project setup process. To learn about setting up your project, including package installation, adding `import` directives, and authorizing a client object, see [Get Started with Azure Storage and Java](storage-blob-java-get-started.md). To see the `import` directives used in the code samples for this article, see [Code samples](#code-samples).
 
 You also need the right permissions to set the blob's access tier. To learn more, see the authorization guidance for the following REST API operation:
-    - [Set Blob Tier](/rest/api/storageservices/set-blob-tier#authorization)
+- [Set Blob Tier](/rest/api/storageservices/set-blob-tier#authorization)
 
 [!INCLUDE [storage-dev-guide-about-access-tiers](../../../includes/storage-dev-guides/storage-dev-guide-about-access-tiers.md)]
 
