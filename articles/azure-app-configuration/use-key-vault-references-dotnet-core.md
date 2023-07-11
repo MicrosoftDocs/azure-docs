@@ -5,13 +5,12 @@ services: azure-app-configuration
 documentationcenter: ''
 author: mcleanbyron
 editor: ''
-
 ms.assetid: 
 ms.service: azure-app-configuration
 ms.workload: tbd
 ms.devlang: csharp
 ms.topic: tutorial
-ms.date: 04/08/2020
+ms.date: 07/11/2023
 ms.author: mcleans
 ms.custom: devx-track-csharp, mvc, devx-track-dotnet
 #Customer intent: I want to update my ASP.NET Core application to reference values stored in Key Vault through App Configuration.

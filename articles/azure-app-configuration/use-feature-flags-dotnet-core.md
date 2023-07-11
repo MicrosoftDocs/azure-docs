@@ -11,7 +11,7 @@ ms.service: azure-app-configuration
 ms.workload: tbd
 ms.devlang: csharp
 ms.topic: tutorial
-ms.date: 09/17/2020
+ms.date: 07/11/2023
 ms.author: mcleans
 ms.custom: devx-track-csharp, mvc, devx-track-dotnet
 #Customer intent: I want to control feature availability in my app by using the .NET Core Feature Manager library.
@@ -41,7 +41,6 @@ The .NET feature manager is configured from the framework's native configuration
 
 By default, the feature manager retrieves feature flag configuration from the `"FeatureManagement"` section of the .NET Core configuration data. To use the default configuration location, call the [AddFeatureManagement](/dotnet/api/microsoft.featuremanagement.servicecollectionextensions.addfeaturemanagement) method of the **IServiceCollection** passed into the **ConfigureServices** method of the **Startup** class.
 
-
 ```csharp
 using Microsoft.FeatureManagement;
 
@@ -70,11 +69,9 @@ public class Startup
 }
 ```
 
-
 If you use filters in your feature flags, you must include the [Microsoft.FeatureManagement.FeatureFilters](/dotnet/api/microsoft.featuremanagement.featurefilters) namespace and add a call to [AddFeatureFilter](/dotnet/api/microsoft.featuremanagement.ifeaturemanagementbuilder.addfeaturefilter) specifying the type name of the filter you want to use as the generic type of the method. For more information on using feature filters to dynamically enable and disable functionality, see [Enable staged rollout of features for targeted audiences](./howto-targetingfilter-aspnet-core.md).
 
 The following example shows how to use a built-in feature filter called `PercentageFilter`:
-
 
 
 ```csharp
