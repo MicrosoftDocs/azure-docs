@@ -12,7 +12,7 @@ ms.author: lajanuar
 monikerRange: '<=doc-intel-3.0.0'
 ---
 
-# Azure AI Document Intelligence Custom document models
+# Document Intelligence custom models
 
 ::: moniker range="doc-intel-3.0.0"
 [!INCLUDE [applies to v3.0](includes/applies-to-v3-0.md)]

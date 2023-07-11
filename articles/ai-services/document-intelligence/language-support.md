@@ -13,7 +13,7 @@ monikerRange: '<=doc-intel-3.0.0'
 
 <!-- markdownlint-disable MD036 -->
 
-# Language support for Document Intelligence
+# Language support
 
 ::: moniker range="doc-intel-3.0.0"
 [!INCLUDE [applies to v3.0](includes/applies-to-v3-0.md)]

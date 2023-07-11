@@ -15,7 +15,7 @@ monikerRange: '<=doc-intel-3.0.0'
 <!-- markdownlint-disable MD036 -->
 <!-- markdownlint-disable MD033 -->
 
-# Back up and recover your Document Intelligence models
+# Disaster recovery
 
 ::: moniker range="doc-intel-3.0.0"
 [!INCLUDE [applies to v3.0](includes/applies-to-v3-0.md)]

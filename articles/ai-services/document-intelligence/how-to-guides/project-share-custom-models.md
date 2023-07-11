@@ -13,7 +13,7 @@ monikerRange: 'doc-intel-3.0.0'
 ---
 
 
-# Share custom model projects using Document Intelligence Studio
+# Project sharing using Document Intelligence Studio
 
 Document Intelligence Studio is an online tool to visually explore, understand, train, and integrate features from the Document Intelligence service into your applications. Document Intelligence Studio enables project sharing feature within the custom extraction model. Projects can be shared easily via a project token. The same project token can also be used to import a project.
 

@@ -13,7 +13,7 @@ monikerRange: '<=doc-intel-3.0.0'
 ---
 
 
-# Install and run Document Intelligence containers
+# Install and run containers
 
 <!-- markdownlint-disable MD024 -->
 <!-- markdownlint-disable MD051 -->

@@ -15,7 +15,7 @@ monikerRange: '<=doc-intel-3.0.0'
 
 <!-- markdownlint-disable MD033 -->
 
-# Azure AI Document Intelligence identity document model
+# Document Intelligence identity document model
 
 ::: moniker range="doc-intel-3.0.0"
 [!INCLUDE [applies to v3.0](includes/applies-to-v3-0.md)]

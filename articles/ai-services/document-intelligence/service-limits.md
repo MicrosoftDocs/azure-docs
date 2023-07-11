@@ -14,7 +14,7 @@ monikerRange: '<=doc-intel-3.0.0'
 ---
 
 
-# Document Intelligence service quotas and limits
+# Service quotas and limits
 <!-- markdownlint-disable MD033 -->
 
 ::: moniker range="doc-intel-3.0.0"

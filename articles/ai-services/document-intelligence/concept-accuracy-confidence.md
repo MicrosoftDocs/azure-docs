@@ -15,7 +15,7 @@ monikerRange: '<=doc-intel-3.0.0'
 
 
 
-# Accuracy and confidence scores for custom models
+# Custom models: accuracy and confidence scores
 
 [!INCLUDE [applies to v3.0 and v2.1](includes/applies-to-v3-0-v2-1.md)]
 

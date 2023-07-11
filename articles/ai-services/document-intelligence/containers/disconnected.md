@@ -13,7 +13,7 @@ monikerRange: '<=doc-intel-3.0.0'
 ---
 
 
-# Document Intelligence containers in disconnected environments
+# Containers in disconnected environments
 
 **This article applies to:** ![Document Intelligence v2.1 checkmark](../media/yes-icon.png) **Document Intelligence v2.1**.
 

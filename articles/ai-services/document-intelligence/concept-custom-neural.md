@@ -14,7 +14,7 @@ monikerRange: 'doc-intel-3.0.0'
 ---
 
 
-# Custom neural document model
+# Document Intelligence custom neural model
 
 **This article applies to:** ![Document Intelligence v3.0 checkmark](media/yes-icon.png) **Document Intelligence v3.0**.
 

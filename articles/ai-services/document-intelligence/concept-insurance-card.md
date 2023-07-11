@@ -13,7 +13,7 @@ monikerRange: 'doc-intel-3.0.0'
 ---
 
 
-# Azure AI Document Intelligence health insurance card model
+# Document Intelligence health insurance card model
 
 **This article applies to:** ![Document Intelligence v3.0 checkmark](media/yes-icon.png) **Document Intelligence v3.0**.
 

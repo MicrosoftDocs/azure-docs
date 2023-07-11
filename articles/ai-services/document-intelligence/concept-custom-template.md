@@ -13,7 +13,7 @@ monikerRange: '<=doc-intel-3.0.0'
 ---
 
 
-# Custom template document model
+# Document Intelligence custom template model
 
 ::: moniker range="doc-intel-3.0.0"
 [!INCLUDE [applies to v3.0](includes/applies-to-v3-0.md)]

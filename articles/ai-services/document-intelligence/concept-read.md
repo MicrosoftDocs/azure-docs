@@ -13,7 +13,7 @@ monikerRange: 'doc-intel-3.0.0'
 ---
 
 
-# Document Intelligence read (OCR) model
+# Document Intelligence read model
 
 **This article applies to:** ![Document Intelligence v3.0 checkmark](media/yes-icon.png) **Document Intelligence v3.0**.
 
