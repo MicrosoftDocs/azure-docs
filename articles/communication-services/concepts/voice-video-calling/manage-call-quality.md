@@ -174,13 +174,13 @@ The End of Call Survey provides you with a tool to understand how your end users
 ### After a call ends
 
 
-## Monitoring and troubleshooting call quality
+#### Monitoring and troubleshooting call quality
 
 Before you release and scale your Azure Communication Services calling
 solution, implement these quality and reliability monitoring capabilities
 to ensure you're collecting available logs and metrics. 
 
-### Call Summary and Call Diagnostics Logs
+#### Call Summary and Call Diagnostics Logs
 
 Call logs show you important insights on individual calls and your
 overall quality. For more information, see: [Azure Communication Services Voice Calling and Video Calling logs](../analytics/logs/voice-and-video-logs.md). 
@@ -191,7 +191,7 @@ The following fields provide useful insight on each call's quality and reliabili
 
 - Allows you to monitor the deployment of client versions. See our guidance <u>on **Client Versions**</u> to learn how old client versions can impact quality -->
 
-#### Call errors
+##### Call errors
 
 - The `participantEndReason` is the reason a participant ends a connection. This data helps you identify common trends leading to unplanned call ends (when relevant). See our guidance on [Calling SDK error codes](../troubleshooting-info.md#calling-sdk-error-codes) 
 
@@ -202,7 +202,7 @@ The following fields provide useful insight on each call's quality and reliabili
 
 <!-- #### <span class="mark">DRAFT UIHint later – what is added quality value with Device, skd, custom tag?</span> -->
 
-#### Summarized Media Quality logs
+##### Summarized Media Quality logs
 
 - These three logs provide an overview of the quality during the call.
   <!-- See our guidance on **<u>Media Quality</u>** to learn more. -->
@@ -213,7 +213,7 @@ The following fields provide useful insight on each call's quality and reliabili
 
   - `packetLossRateAvg`
 
-#### End of Call Survey 
+##### End of Call Survey 
 
 #### Start collecting Call logs
 
