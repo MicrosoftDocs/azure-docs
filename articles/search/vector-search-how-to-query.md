@@ -7,7 +7,7 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: how-to
-ms.date: 07/07/2023
+ms.date: 07/10/2023
 ---
 
 # Query vector data in a search index
@@ -15,17 +15,17 @@ ms.date: 07/07/2023
 > [!IMPORTANT]
 > Vector search is in public preview under [supplemental terms of use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). It's available through the Azure portal, preview REST API, and [alpha SDKs](https://github.com/Azure/cognitive-search-vector-pr#readme).
 
-In Azure Cognitive Search, if you added vector fields to a search index, this article explains how to query those fields. It also explains how to combine vector queries with full text search and semantic search for hybrid query scenarios.
+In Azure Cognitive Search, if you added vector fields to a search index, this article explains how to query those fields. It also explains how to combine vector queries with full text search and semantic search for hybrid query combination scenarios.
 
 ## Prerequisites
 
-+ Azure Cognitive Search, in any region and on any tier. However, if you want to also use [semantic search](semantic-search-overview.md) for hybrid queries, your search service must be Basic tier or higher, with [semantic search enabled](semantic-search-overview.md#enable-semantic-search).
-
-  Most existing services support vector search. For a small subset of services created prior to January 2019, an index containing vector fields will fail on creation. In this situation, a new service must be created.
++ Azure Cognitive Search, in any region and on any tier. Most existing services support vector search. For a small subset of services created prior to January 2019, an index containing vector fields will fail on creation. In this situation, a new service must be created.
 
 + A search index containing vector fields. See [Add vector fields to a search index](vector-search-how-to-query.md).
 
 + Use REST API version 2023-07-01-preview or Azure portal to query vector fields. You can also use alpha versions of the Azure SDKs. For more information, see [this readme](https://github.com/Azure/cognitive-search-vector-pr/blob/main/README.md).
+
++ (Optional) If you want to also use [semantic search (preview)](semantic-search-overview.md) and vector search together, your search service must be Basic tier or higher, with [semantic search enabled](semantic-search-overview.md#enable-semantic-search).
 
 ## Check your index for vector fields
 
@@ -107,7 +107,11 @@ The response includes 5 matches, and each result provides a search score, title,
 
 ## Query syntax for hybrid search
 
-A hybrid query combines full text search, semantic search (reranking), and vector search. The search engine runs full text and vector queries in parallel. Semantic ranking is applied to the results from the text search. A single result set is returned in the response.
+A hybrid query combines full text search and vector search. The search engine runs full text and vector queries in parallel. All matches are evaluated for relevance using Reciprocal Rank Fusion (RRF) and a single result set is returned in the response.
+
+You can also write queries that target just the vector fields, or just the text fields, within your search index. For example, besides vector queries, you might also want to write queries that filter by location or search over product names or titles, scenarios for which similarity search isn't a good fit.
+
+The following example is from the [Postman collection of REST APIs](https://github.com/Azure/cognitive-search-vector-pr/tree/main/demo-python) that demonstrate query configurations. It shows a complete request that includes vector search, full text search with filters, and semantic search with captions and answers. Semantic search is an optional premium feature. It's not required for vector search or hybrid search. For content that includes rich descriptive text *and* vectors, it's possible to benefit from all of the search modalities in one request.
 
 ```http
 POST https://{{search-service-name}}.search.windows.net/indexes/{{index-name}}/docs/search?api-version={{api-version}}

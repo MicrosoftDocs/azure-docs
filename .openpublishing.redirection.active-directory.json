@@ -101,6 +101,16 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/active-directory/saas-apps/opentext-fax-tutorial.md",
+      "redirect_url": "/azure/active-directory/saas-apps/xm-fax-and-xm-send-secure-tutorial",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/saas-apps/opentext-directory-services-tutorial.md",
+      "redirect_url": "/azure/active-directory/saas-apps/directory-services-tutorial",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/active-directory/saas-apps/firstbird-tutorial.md",
       "redirect_url": "/azure/active-directory/saas-apps/radancys-employee-referrals-tutorial",
       "redirect_document_id": false

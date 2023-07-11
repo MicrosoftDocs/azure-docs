@@ -2,11 +2,11 @@
 title: Back up SAP HANA System Replication databases on Azure VMs    
 description: In this article, discover how to back up SAP HANA databases with HANA System Replication enabled.
 ms.topic: how-to
-ms.date: 07/06/2023
+ms.date: 07/11/2023
 ms.service: backup
 ms.custom: ignite-2022
-author: jyothisuri
-ms.author: jsuri
+author: AbhishekMallick-MS
+ms.author: v-abhmallick
 ---
 
 # Back up SAP HANA System Replication databases on Azure VMs (preview)
@@ -16,7 +16,7 @@ SAP HANA databases are critical workloads that require a low recovery-point obje
 You can also switch the protection of SAP HANA database on Azure VM (standalone) on Azure Backup to HSR. [Learn more](#switch-database-protection-from-standalone-to-hsr-on-azure-backup).
 
 >[!Note]
->- The support for HSR + Database scenario is currently not available because there is a restriction to have VM and Vault in the same region.
+>- The support for **HSR + DR** scenario is currently not available because there is a restriction to have VM and Vault in the same region.
 >- For more information about the supported configurations and scenarios, see [SAP HANA backup support matrix](sap-hana-backup-support-matrix.md).
 
 ## Prerequisites
