@@ -148,22 +148,7 @@ To install Azure AD Pod Identity to your cluster:
 Kubernetes. We'll use it to install the `application-gateway-kubernetes-ingress` package:
 
 1. Install [Helm](../aks/kubernetes-helm.md) and run the following to add `application-gateway-kubernetes-ingress` helm package:
-
-    - *Kubernetes RBAC enabled* AKS cluster
-
-        ```bash
-        kubectl create serviceaccount --namespace kube-system tiller-sa
-        kubectl create clusterrolebinding tiller-cluster-rule --clusterrole=cluster-admin --serviceaccount=kube-system:tiller-sa
-        helm init --tiller-namespace kube-system --service-account tiller-sa
-        ```
-
-    - *Kubernetes RBAC disabled* AKS cluster
-
-        ```bash
-        helm init
-        ```
-
-1. Add the AGIC Helm repository:
+   Add the AGIC Helm repository:
     ```bash
     helm repo add application-gateway-kubernetes-ingress https://appgwingress.blob.core.windows.net/ingress-azure-helm-package/
     helm repo update
