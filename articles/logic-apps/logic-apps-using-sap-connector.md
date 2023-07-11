@@ -1074,7 +1074,7 @@ You can control this tracing capability at the application level by through the 
 
    * **SAP_RFC_TRACE_LEVEL**: The NCo trace level with **Level4** as the suggested value for typical verbose logging. SAP or Microsoft support might request that you set a different trace level. For more information, see [Trace levels available](#trace-levels).
 
-1. Save your changes, which results in restarting the application. 
+1. Save your changes. This step restarts the application. 
 
 <a name="trace-levels">
 
