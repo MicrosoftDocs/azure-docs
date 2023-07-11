@@ -55,9 +55,31 @@ The SAP connector has different versions, based on [logic app type and host envi
 | **Consumption** | Integration service environment (ISE) | Managed connector, which appears in the designer under the **Enterprise** label, and the ISE-native version, which appears in the designer with the **ISE** label and has different message limits than the managed connector. <br><br>**Note**: Make sure to use the ISE-native version, not the managed version. <br><br>For more information, review the following documentation: <br><br>- [SAP managed connector reference](/connectors/sap/) <br>- [ISE message limits](../logic-apps/logic-apps-limits-and-config.md#message-size-limits) <br>- [Managed connectors in Azure Logic Apps](../connectors/managed.md) |
 | **Standard** | Single-tenant Azure Logic Apps and App Service Environment v3 (Windows plans only) | Managed connector, which appears in the designer under the **Azure** label, and built-in connector (preview), which appears in the designer under the **Built-in** label and is [service provider based](../logic-apps/custom-connector-overview.md#service-provider-interface-implementation). The built-in connector can directly access Azure virtual networks with a connection string without an on-premises data gateway. For more information, review the following documentation: <br><br>- [SAP managed connector reference](/connectors/sap/) <br>- [SAP built-in connector reference](/azure/logic-apps/connectors/built-in/reference/sap/) <br><br>- [Managed connectors in Azure Logic Apps](../connectors/managed.md) <br>- [Built-in connectors in Azure Logic Apps](../connectors/built-in.md) |
 
+## Connector differences
+
+The SAP built-in connector significantly differs from the SAP managed connector and SAP ISE-versioned connector in the following ways:
+
+* On-premises connections don't require the on-premises data gateway.
+
+  Instead, the SAP built-in connector sends local network calls to SAP, which means that your logic app workflow must make the SAP instance available in your local network, which is the preferred method using a virtual network. You must also upload to or deploy the nonredistributable SAP client libraries with the your logic app workflow application. For more information, see the [Prerequisites](#prerequisites) in this guide.
+
+* The payload size isn't limited to 2.5 MB, so you don't have to use a blob URI for large requests.
+
+* Specific actions are available for **Call BAPI**, **Call RFC**, and **Send IDoc**. These dedicated actions provide a better experience for stateful BAPIs, RFC transactions, and IDoc deduplication, and don't use the older SOAP Windows Communication Foundation (WCF) messaging model.
+
+  The **Call BAPI** action includes up to two responses with the returned JSON, the XML response from the called BAPI, and if auto-commit is used, the BAPI commit or BAPI rollback response as well. This capability addresses the problem with the SAP managed connector where the outcome from the auto-commit is silent and observable only through logs.
+
+* No timeouts.
+
+  The SAP built-in connector doesn't use the shared or global connector infrastructure, which means no timeout happens as with the SAP managed connector (two minutes) and the SAP ISE-versioned connector (four minutes). Long-running requests are expected to work as-is without having to implement the webhook long-running request action pattern.
+
+* Enable stateful mode (affinity) for stateless built-in, service provider-based connectors
+
+  For more information, see [Enable stateful mode for stateless built-in, service provider-based connectors](../logic-apps/enable-stateful-affinity-built-in-connectors.md).
+
 <a name="connector-parameters"></a>
 
-### Connector parameters
+## Connector parameters
 
 Along with simple string and number inputs, the SAP connector accepts the following table parameters (`Type=ITAB` inputs):
 
