@@ -18,8 +18,7 @@ ms.subservice: calling
 # Call Quality Tools: Developing a High Quality Calling experience with Azure Communication Services
 
 This article introduces key tools you can use to monitor, troubleshoot,
-and improve call quality in Azure Communication Services. The materials below help you plan for
-the best end-user experience. Ensure you read our calling overview materials first familiarize yourself.
+and improve call quality in Azure Communication Services. The following materials help you plan for the best end-user experience. Ensure you read our calling overview materials first familiarize yourself.
 
 - Voice and Video Calling - [Azure Communication Services Calling SDK
   overview](calling-sdk-features.md)
@@ -34,7 +33,7 @@ solution, implement these quality and reliability monitoring capabilities
 to ensure you're collecting available logs and metrics.
 
 
-You will need to set up these capabilities to find and troubleshoot call-quality issues that come up during your normal operations. Keep in mind, these call data aren't created or stored unless you implement them.
+You need to set up these capabilities to find and troubleshoot call-quality issues that come up during your normal operations. Keep in mind, these call data aren't created or stored unless you implement them.
 
 ### Call Summary and Call Diagnostics Logs
 
@@ -49,7 +48,7 @@ The following fields provide useful insight on each call's quality and reliabili
 
 #### Call errors
 
-- The `participantEndReason` is the reason a participant ends a connection which help you identify common trends leading to unplanned call ends (when relevant). See our guidance on [Calling SDK error codes](../troubleshooting-info.md#calling-sdk-error-codes) 
+- The `participantEndReason` is the reason a participant ends a connection. This data helps you identify common trends leading to unplanned call ends (when relevant). See our guidance on [Calling SDK error codes](../troubleshooting-info.md#calling-sdk-error-codes) 
 
 
 <!-- #### transportType 
@@ -71,10 +70,10 @@ The following fields provide useful insight on each call's quality and reliabili
 
 #### Start collecting Call logs
 
-Please review this documentation to start collecting call logs: [Enable logs via Diagnostic Settings in Azure Monitor](../analytics/enable-logging.md)
+Review this documentation to start collecting call logs: [Enable logs via Diagnostic Settings in Azure Monitor](../analytics/enable-logging.md)
 
 
-- Choose the category group "allLogs" and choose the destination detail of “sSnd to Log Analytics workspace" in order to view an analyze the data in Azure Monitor.
+- Choose the category group "allLogs" and choose the destination detail of “sSnd to Log Analytics workspace" in order to view and analyze the data in Azure Monitor.
 
 <!-- To enable call logs review this documentation
  [Enable and Access Call Summary and Call Diagnostic Logs](../call-logs-azure-monitor-access.md). Then follow these steps: [Enable logs via Diagnostic Settings in Azure Monitor](../analytics/enable-logging.md) -->
@@ -88,14 +87,14 @@ Once you have enabled logs, you can view call insights in your Azure Resource us
 - For examples of deeper suggested analysis see our [Query call logs](../analytics/query-call-logs.md)
 ### Detailed Media Statistics
 
-While our Server log data will give you a summary of the call, our Client Media Quality metrics provide low level metrics. These metrics help indicate issues on the ACS client SDK send and receive. To learn more see: [Media quality statistics](media-quality-sdk.md)
+While our Server log data give you a summary of the call, our Client Media Quality metrics provide low level metrics. These metrics help indicate issues on the ACS client SDK send and receive. To learn more, read: [Media quality statistics](media-quality-sdk.md)
 
 ### End of Call Survey 
 
 The End of Call Survey provides you with a tool to understand how your end users perceive the overall quality and reliability of your JavaScript / Web SDK calling solution. The survey can be modified to various survey formats if already have a survey solution in place. Customer feedback is invaluable, after publishing survey data, you can view the survey results in Azure Monitor for analysis and improvements. Azure Communication Services also uses the survey API results to monitor and improve your quality and reliability.  
 
-- To learn more please see: [End of Call Survey overview](end-of-call-survey-concept.md)
-- To implement please see: [Tutorial: Use End of Call Survey to collect user feedback](../../tutorials/end-of-call-survey-tutorial.md)
+- To learn more, see: [End of Call Survey overview](end-of-call-survey-concept.md)
+- To implement, see: [Tutorial: Use End of Call Survey to collect user feedback](../../tutorials/end-of-call-survey-tutorial.md)
 
 ### Other considerations
 <!-- - Considerations for Teams user data:
@@ -113,9 +112,9 @@ As your users start using Azure Communication Services for calls and meetings, t
 With QoS, you prioritize delay-sensitive network traffic (for example, voice or video streams), allowing it to "cut in line" in front of
 traffic that is less sensitive (like downloading a new app, where an extra second to download isn't a big deal). QoS identifies and marks all packets in real-time streams using Windows Group Policy Objects and a routing feature called Port-based Access Control Lists, which instructs your network to give voice, video, and screen sharing their own dedicated network bandwidth.
 
-Ideally, you'll implement QoS on your internal network while getting ready to roll out your Azure Communication Services solution, but you can do it anytime. If you're small enough, you might not need QoS.
+Ideally, you implement QoS on your internal network while getting ready to roll out your Azure Communication Services solution, but you can do it anytime. If you're small enough, you might not need QoS.
 
-For detailed guidance please see [Network optimization](network-requirements.md#network-optimization).
+For detailed guidance, read: see [Network optimization](network-requirements.md#network-optimization).
 
 ## Prepare your deployment for quality and reliability investigations
 
@@ -193,7 +192,7 @@ can provide. In this scenario, you could utilize our [Video constraints](video-c
 - You can check if an application is running a supported browser to
   ensure they can properly support audio and video calling.
 
-- See: [How to verify if your application is running in a web browser supported by Azure Communication Services](../../how-tos/calling-sdk/browser-support.md).
+- To learn more, see: [How to verify if your application is running in a web browser supported by Azure Communication Services](../../how-tos/calling-sdk/browser-support.md).
 
 ### Video Constraints
 
@@ -201,7 +200,7 @@ can provide. In this scenario, you could utilize our [Video constraints](video-c
   the amount of bandwidth user’s video streams consume. Freeing up
   bandwidth can improve audio quality in poor network environments.
 
-- For more information, please see: [Video constraints](video-constraints.md).
+- To learn more, see: [Video constraints](video-constraints.md).
 
 ### Simulcast
 
@@ -209,7 +208,7 @@ can provide. In this scenario, you could utilize our [Video constraints](video-c
   bandwidth consumption by letting users on poor networks receive
   specialized low fidelity video streams.
 
-- For more information, please see: [Simulcast](simulcast.md).
+- To learn more, see: [Simulcast](simulcast.md).
 
 ### Conflicting call clients
 
