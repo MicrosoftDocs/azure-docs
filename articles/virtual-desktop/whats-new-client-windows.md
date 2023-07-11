@@ -34,7 +34,7 @@ In this release, we've made the following changes:
 - Fixed an issue where Narrator didn't read the error message that appears after the user selects **Detect**.
 - The client now displays an error message after unsuccessfully checking for updates instead of incorrectly displaying a message that says the client is up to date.
 - Added a new RDP file property called "allowed security protocols." This property restricts the list of security protocols the client can negotiate.
-- Fixed an issue where, in Azure Arc, Connection Information dialog gave inconsistent information about identity verfication. 
+- Fixed an issue where, in Azure Arc, Connection Information dialog gave inconsistent information about identity verification. 
 - Added heading-level description to subscribe with URL.
 - Improved client logging, diagnostics, and error classification to help admins troubleshoot connection and feed issues. 
 
