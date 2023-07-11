@@ -109,7 +109,10 @@ The throughput of an Azure NetApp Files volume is a function of the volume size 
 
 While designing the infrastructure for SAP HANA on Azure with Azure NetApp Files, be aware of the recommendations in [NFS v4.1 volumes on Azure NetApp Files for SAP HANA](./hana-vm-operations-netapp.md#sizing-for-hana-database-on-azure-netapp-files).   
 
-The configuration in this article is presented with simple Azure NetApp Files Volumes. For production systems, where performance is a key, we recommend to evaluate the use of [Azure NetApp Files application volume group for SAP HANA](hana-vm-operations-netapp.md#deployment-through-azure-netapp-files-application-volume-group-for-sap-hana-avg) and configure [application volume group for SAP HANA](https://learn.microsoft.com/en-us/azure/azure-netapp-files/application-volume-group-introduction), if necessary. 
+The configuration in this article is presented with simple Azure NetApp Files Volumes. 
+
+> [!IMPORTANT]
+> For production systems, where performance is a key, we recommend to evaluate the use of [Azure NetApp Files application volume group for SAP HANA](hana-vm-operations-netapp.md#deployment-through-azure-netapp-files-application-volume-group-for-sap-hana-avg).   
 
 > [!NOTE]
 > All commands to mount /hana/shared in this article are presented for NFSv4.1 /hana/shared volumes.
