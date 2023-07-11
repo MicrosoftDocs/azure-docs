@@ -735,6 +735,8 @@ items:
             href: storage-blob-lease-java.md
           - name: Manage blob properties and metadata
             href: storage-blob-properties-metadata-java.md
+          - name: Set or change a blob's access tier
+            href: storage-blob-use-access-tier-java.md
           - name: Generate a shared access signature (SAS)
             items:
             - name: Create a user delegation SAS for a blob
