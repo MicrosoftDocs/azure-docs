@@ -40,6 +40,9 @@ Before you begin this tutorial, you should:
 3. Go to the already created project or [create a new project](./create-manage-projects.md)
 4. Verify permissions for your Azure account - Your Azure account needs permissions to create a VM, and write to an Azure managed disk.
 
+> [!NOTE]
+> If you're planning to upgrade your Windows operating system, Azure Migrate may download the Windows SetupDiag for error details in case upgrade fails. Ensure the VM created in Azure post the migration has access to [SetupDiag](https://go.microsoft.com/fwlink/?linkid=870142). In case there is no access to SetupDiag, you may not be able to get detailed OS upgrade failure error codes but the upgrade can still proceed.
+
 ## Set up the Azure Migrate appliance
 
 The Migration and modernization tool runs a lightweight VMware VM appliance that's used for discovery, assessment, and agentless migration of VMware VMs. If you follow the [assessment tutorial](./tutorial-assess-vmware-azure-vm.md), you've already set the appliance up. If  you didn't, set it up now, using one of these methods:
@@ -175,7 +178,7 @@ Do a test migration as follows:
 4. Choose the subnet to which you would like to associate each of the Network Interface Cards (NICs) of the migrated VM.
 
     :::image type="content" source="./media/tutorial-migrate-vmware/test-migration-subnet-selection.png" alt-text="Screenshot shows subnet selection during test migration.":::
-
+1. You have an option to upgrade the Windows Server OS during test migration. To upgrade, select the **Upgrade available** option. In the pane that appears, select the target OS version that you want to upgrade to and select **Apply**. [Learn more](how-to-upgrade-windows.md).
 5. The **Test migration** job starts. Monitor the job in the portal notifications.
 6. After the migration finishes, view the migrated Azure VM in **Virtual Machines** in the Azure portal. The machine name has a suffix **-Test**.
 7. After the test is done, right-click the Azure VM in **Replicating machines**, and click **Clean up test migration**.
@@ -199,6 +202,7 @@ After you've verified that the test migration works as expected, you can migrate
 3. In **Migrate** > **Shut down virtual machines and perform a planned migration with no data loss**, select **Yes** > **OK**.
     - By default Azure Migrate shuts down the on-premises VM, and runs an on-demand replication to synchronize any VM changes that occurred since the last replication occurred. This ensures no data loss.
     - If you don't want to shut down the VM, select **No**
+1. You have an option to upgrade the Windows Server OS during migration. To upgrade, select the **Upgrade available** option. In the pane that appears, select the target OS version that you want to upgrade to and select **Apply**. [Learn more](how-to-upgrade-windows.md).
 4. A migration job starts for the VM. Track the job in Azure notifications.
 5. After the job finishes, you can view and manage the VM from the **Virtual Machines** page.
 
