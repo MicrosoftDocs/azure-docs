@@ -99,6 +99,14 @@ Add the `--ultra-ssd-enabled true` parameter to enable creation of VMs that can 
 
 
 
+
+
+
+
+
+
+
+
 **Other examples**
 
 You can also use [az vm host group create](/cli/azure/vm/host/group#az-vm-host-group-create) to create a host group in availability zone 1 (and no fault domains).
@@ -138,6 +146,14 @@ This example uses [New-AzHostGroup](/powershell/module/az.compute/new-azhostgrou
 
 
 
+
+
+
+
+
+
+
+
 ```azurepowershell-interactive
 $rgName = "myDHResourceGroup"
 $location = "EastUS"
@@ -157,11 +173,35 @@ Add the `-SupportAutomaticPlacement true` parameter to have your VMs and scale s
 
 
 
+
+
+
+
+
+
+
+
 Add the `-EnableUltraSSD` parameter to enable creation of VMs that can support ultra disks.
 
 
 
+
+
+
+
+
+
+
+
 ---
+
+
+
+
+
+
+
+
 
 
 
@@ -206,6 +246,14 @@ In this example, we use [New-AzHost](/powershell/module/az.compute/new-azhost) t
 
 
 
+
+
+
+
+
+
+
+
 ```azurepowershell-interactive
 $dHost = New-AzHost `
    -HostGroupName $hostGroup.Name `
@@ -243,6 +291,14 @@ It will take a few minutes for your VM to be deployed.
 
 
 
+
+
+
+
+
+
+
+
 ### [CLI](#tab/cli)
 
 Create a virtual machine within a dedicated host using [az vm create](/cli/azure/vm#az-vm-create). If you specified an availability zone when creating your host group, you're required to use the same zone when creating the virtual machine. Replace the values like image and host name with your own. If you're creating a Windows VM, remove `--generate-ssh-keys` to be prompted for a password.
@@ -266,9 +322,25 @@ To place the VM on a specific host, use `--host` instead of specifying the host 
 
 
 
+
+
+
+
+
+
+
+
 ### [PowerShell](#tab/powershell)
 
 Create a new VM on our host using [New-AzVM](/powershell/module/az.compute/new-azvm) For this example, because our host group is in zone 1, we need to create the VM in zone 1.
+
+
+
+
+
+
+
+
 
 
 
@@ -286,6 +358,9 @@ New-AzVM `
 
 > [!WARNING]
 > If you create a virtual machine on a host which does not have enough resources, the virtual machine will be created in a FAILED state.
+
+
+
 
 
 ---
@@ -323,6 +398,14 @@ az vmss create \
 ```
 
 If you want to manually choose which host to deploy the scale set to, add `--host` and the name of the host.
+
+
+
+
+
+
+
+
 
 
 
@@ -625,6 +708,14 @@ The output will look similar to the below example:
 
 
 
+
+
+
+
+
+
+
+
 You can check the host health status and how many virtual machines you can still deploy to the host using [Get-AzHost](/powershell/module/az.compute/get-azhost) with the `-InstanceView` parameter.
 
 ```azurepowershell-interactive
@@ -705,6 +796,14 @@ You can restart the entire host, meaning that the host's not **completely** powe
 
 
 
+
+
+
+
+
+
+
+
 ### [Portal](#tab/portal)
 
 1. Search for and select the host.
@@ -741,6 +840,14 @@ To view the status of the restart, you can use the [Get-AzHost](/powershell/modu
 
 
 
+
+
+
+
+
+
+
+
 ```azurepowershell-interactive
 $hostRestartStatus = Get-AzHost -ResourceGroupName myResourceGroup -HostGroupName myHostGroup -Name myDedicatedHost -InstanceView;
 $hostRestartStatus.InstanceView.Statuses[1].DisplayStatus;
@@ -756,24 +863,29 @@ If you would like to move your host and all associated VMs to a newer generation
 - You can only resize to newer generation of hardware in comparison to teh source host i.e. a Dsv3-Type3 host can only be resized to Dsv3-Type4 but **not to** Dsv3-Type2 .
 - Resize will move the host to a different node hence the 'Host Asset Id' will  change but the 'Host Id' will remain the same.
 - Since resize operation involves moving the host and all associated VMs to a different node, host and the VMs will become unavailable during the resize operation
->[!Warning] 
->Resize operation will cause loss of any non persisted data including the data on temp disks, hence save all your work before triggering resize.
+
+> [!Warning]
+> Resize operation will cause loss of any non-persisted data including the data on temp disks, hence save all your work before triggering resize.
+
+> [!Note]
+> During preview hosts in host groups with Fault domain count of '1' might not support resize, this limitation is only temporary and would be removed as we announce general availability of host resize.
+> If the source host is already running on the latest hardware, 'Size' page would display an empty list. If you are looking for enhanced performance, consider switching to a different VM family.
+
 
 ### [Portal](#tab/portal)
 
 1. Search for and select the host.
 1. In the left menu under **Settings** select **Size**.
 1. Once on the the size page from the list of SKUs, select the desired SKU to resize to.
->[!Note]
-> If the source host is already running on the latest hardware, 'Size' page would display an empty list.
-If you are looking for enhanced performance consider switching to a different VM family.
 1. Selecting a target size from the list would enable **Resize** button on the bottom on the page.
 1. Click **Resize**, host's 'Provisioning State' will change from 'Provisioning Succeeded' to 'Updating'
-1. Once the the resizing is complete the host's 'Provisioning State' will revert to 'Provisioning Succeeded'
+1. Once the resizing is complete the host's 'Provisioning State' will revert to 'Provisioning Succeeded'
+
 
 ### [CLI](#tab/cli)
 
-First list the sizes that you can resize incase you are unsure which to resize to.
+First list the sizes that you can resize in case you are unsure which to resize to.
+
 Use [az vm host list-resize-options](/cli/azure/vm#az-vm-host-list-resize-options) [Preview]
 
 ```azurecli-interactive
@@ -798,9 +910,20 @@ az vm host resize \
 PowerShell support for host resize is coming soon.
 
 
+
+
+
 ---
 
 ## Deleting a host
+
+
+
+
+
+
+
+
 
 
 

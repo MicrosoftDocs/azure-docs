@@ -150,7 +150,8 @@ The output from the preceding example with the default values is:
 
 Combines multiple string values and returns the concatenated string, or combines multiple arrays and returns the concatenated array.
 
-In Bicep, use [string interpolation](../bicep/data-types.md#strings) instead of the [`concat`](../bicep/bicep-functions-string.md#concat) function, except in certain cases involving [multi-line strings](../bicep/data-types.md#multi-line-strings).
+In Bicep, use [string interpolation](../bicep/data-types.md#strings) instead of the [`concat()`](../bicep/bicep-functions-string.md#concat) function to improve readability. However, in some cases such as string replacement in [multi-line strings](../bicep/data-types.md#multi-line-strings), you may need to fall back on using the [`concat()`](../bicep/bicep-functions-string.md#concat) function or the [`replace()` function](../bicep/bicep-functions-string.md#replace).
+
 
 ### Parameters
 

@@ -16,6 +16,27 @@ This document contains information about new features and other changes to the M
 
 ## v3 (preview)
 
+### [3.0.0-preview.10] (July 11, 2023)
+
+#### Bug fixes (3.0.0-preview.10)
+
+- Dynamic pixel ratio fixed in underlying maplibre-gl dependency.
+
+- Fixed an issue where `sortKey`, `radialOffset`, `variableAnchor` is not applied when used in `SymbolLayer` options.
+
+#### Installation (3.0.0-preview.10)
+
+The preview is available on [npm][3.0.0-preview.10] and CDN.
+
+- **NPM:** Refer to the instructions at [azure-maps-control@3.0.0-preview.10][3.0.0-preview.10]
+
+- **CDN:** Reference the following CSS and JavaScript in the `<head>` element of an HTML file:
+
+    ```html
+    <link href="https://atlas.microsoft.com/sdk/javascript/mapcontrol/3.0.0-preview.10/atlas.min.css" rel="stylesheet" />
+    <script src="https://atlas.microsoft.com/sdk/javascript/mapcontrol/3.0.0-preview.10/atlas.min.js"></script>
+    ```
+
 ### [3.0.0-preview.9] (June 27, 2023)
 
 #### New features (3.0.0-preview.9)
@@ -24,11 +45,11 @@ This document contains information about new features and other changes to the M
 
 - Elevation APIs: `atlas.sources.ElevationTileSource`, `map.enableElevation(elevationSource, options)`, `map.disableElevation()`
 
-- ability to customize maxPitch / minPitch in `CameraOptions`
+- Ability to customize maxPitch / minPitch in `CameraOptions`
 
 #### Bug fixes (3.0.0-preview.9)
 
-- fixed an issue where accessibility-related duplicated DOM elements may result when `map.setServiceOptions` is called
+- Fixed an issue where accessibility-related duplicated DOM elements may result when `map.setServiceOptions` is called
 
 #### Installation (3.0.0-preview.9)
 
@@ -403,6 +424,7 @@ Stay up to date on Azure Maps:
 > [!div class="nextstepaction"]
 > [Azure Maps Blog]
 
+[3.0.0-preview.10]: https://www.npmjs.com/package/azure-maps-control/v/3.0.0-preview.10
 [3.0.0-preview.9]: https://www.npmjs.com/package/azure-maps-control/v/3.0.0-preview.9
 [3.0.0-preview.8]: https://www.npmjs.com/package/azure-maps-control/v/3.0.0-preview.8
 [3.0.0-preview.7]: https://www.npmjs.com/package/azure-maps-control/v/3.0.0-preview.7

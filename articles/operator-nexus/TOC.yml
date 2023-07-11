@@ -82,15 +82,15 @@
           href: howto-kubernetes-service-load-balancer.md
         - name: Configure role-based access control
           href: howto-kubernetes-cluster-aad-rbac.md
+        - name: Monitor Nexus Kubernetes cluster
+          href: howto-monitor-naks-cluster.md
     - name: Nexus Virtual Machine
       expanded: false
       items:
         - name: Create virtual machine image
           href: howto-virtual-machine-image.md
     - name: Network Fabric Route Policy
-      href: how-to-route-policy.md
-    - name: Monitor AKS-Hybrid Cluster
-      href: howto-monitor-aks-h-cluster.md
+      href: how-to-route-policy.md     
     - name: Monitor VMs for VNF
       href: howto-monitor-virtualized-network-functions-virtual-machines.md
     - name: Cluster metrics configuration management
