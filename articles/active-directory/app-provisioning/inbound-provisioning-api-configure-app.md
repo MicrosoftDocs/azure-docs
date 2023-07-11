@@ -91,7 +91,7 @@ Depending on the app you selected, use one of the following sections to complete
 
      [![Screenshot of the notification email box.](media/inbound-provisioning-api-configure-app/provisioning-notification-email.png)](media/inbound-provisioning-api-configure-app/provisioning-notification-email.png#lightbox)
 
-          > [!NOTE]
+     > [!NOTE]
      > Providing the **Notification Email** in **Settings** is mandatory. If the Notification Email is left empty, then the provisioning goes into quarantine when you start the execution.
 1. Click on hyperlink in the **Mappings** expansion panel to view the default attribute mappings. 
      > [!NOTE]
