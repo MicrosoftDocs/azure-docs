@@ -14,7 +14,13 @@ View task runs and use Azure Monitor metrics to access success.
 
 ## View task runs
 
-For more information about the task report see [Execution reports](storage-task-conditions.md#execution-reports).
+Each task execution produces the following metrics that users can view:
+
+- Count of objects targeted
+
+- Count of operations attempted
+
+- Count of operations succeeded
 
 ## View metrics in storage tasks view
 

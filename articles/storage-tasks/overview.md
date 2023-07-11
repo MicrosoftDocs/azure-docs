@@ -52,7 +52,11 @@ List supported regions here.
 
 ## Pricing and billing
 
-Put any costs associated with using this service here.
+A Task invocation charge for every instance in which a task is triggered on an account.
+
+A meter based on the count of objects targeted (for which object properties are accessed, and conditions are evaluated).
+
+The cost of the underlying operations invoked by the task will be passed through to the storage account as part of the account’s overall transaction cost. This should be reflected on the bill with the Task as the user agent for the transaction.
 
 ## Next steps
 

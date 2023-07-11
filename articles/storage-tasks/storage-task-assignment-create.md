@@ -10,7 +10,7 @@ ms.date: 05/10/2023
 
 # Create and manage a storage task assignment
 
-You can assign, enable, preview a task. Then, after you run a task, you can review the results of that run.
+You can assign and then enable a task. Then, after you run a task, you can review the results of that run.
 
 To learn more about storage task assignments, see [Storage task assignments](storage-task-assignment.md).
 
@@ -21,11 +21,6 @@ Intro of task goes here.
 ## Enable an assignment
 
 Intro of task goes here.
-
-## Preview conditions
-
-Intro of task goes here.
-
 
 ## See also
 
