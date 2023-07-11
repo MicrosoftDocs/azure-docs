@@ -242,7 +242,7 @@ Use the following steps to deploy using the [Maven plugin for Azure Spring Apps]
    [INFO] Application url: https://<your-azure-spring-apps-name>-simple-todo-web.azuremicroservices.io
    ```
 
-   The output **Application url** is the endpoint to access the `todo`` application.
+   The output **Application url** is the endpoint to access the `todo` application.
 
 ### [Azure Developer CLI](#tab/Azure-Developer-CLI)
 
