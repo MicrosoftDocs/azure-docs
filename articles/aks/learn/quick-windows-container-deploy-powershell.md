@@ -30,7 +30,7 @@ The following limitations apply when you create and manage AKS clusters that sup
 
 * You can't delete the first node pool.
 
-The following additional limitations apply to Windows Server node pools:
+The following limitations apply to *Windows Server node pools*:
 
 * The AKS cluster can have a maximum of 10 node pools.
 * The AKS cluster can have a maximum of 100 nodes in each node pool.
@@ -109,7 +109,7 @@ AKS supports Windows Server 2019 and 2022 node pools. Windows Server 2022 is the
 > * Windows Server 2022 requires Kubernetes version 1.23.0 or higher.
 > * Windows Server 2019 is being retired after Kubernetes version 1.32 reaches end of life (EOL) and won't be supported in future releases. For more information about this retirement, see the [AKS release notes][aks-release-notes].
 
-* Add a Windows Server 2022 nod epool using the [`New-AzAksNodePool`][new-azaksnodepool] cmdlet.
+* Add a Windows Server 2022 node pool using the [`New-AzAksNodePool`][new-azaksnodepool] cmdlet.
 
     ```azurepowershell-interactive
     New-AzAksNodePool -ResourceGroupName myResourceGroup -ClusterName myAKSCluster -VmSetType VirtualMachineScaleSets -OsType Windows -OsSKU Windows2019 Windows -Name npwin
@@ -117,7 +117,7 @@ AKS supports Windows Server 2019 and 2022 node pools. Windows Server 2022 is the
 
 ## Connect to the cluster
 
-You use [kubectl][kubectl], the Kubernetes command-line client, to managed your Kubernetes clusters. If you use Azure Cloud Shell, `kubectl` is already installed. To you want to install `kubectl` locally, you can use the `Install-AzAksKubectl` cmdlet.
+You use [kubectl][kubectl], the Kubernetes command-line client, to manage your Kubernetes clusters. If you use Azure Cloud Shell, `kubectl` is already installed. To you want to install `kubectl` locally, you can use the `Install-AzAksKubectl` cmdlet.
 
 1. Configure `kubectl` to connect to your Kubernetes cluster using the [`Import-AzAksCredential`][import-azakscredential] cmdlet. This command downloads credentials and configures the Kubernetes CLI to use them.
 
