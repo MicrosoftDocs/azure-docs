@@ -90,5 +90,5 @@ After you create a resource group, you can create Defender EASM resources in the
 
 ## Next steps
 
-- [Using and managing discovery](using-and-managing-discovery.md)
-- [Understanding dashboards](understanding-dashboards.md)
+- [Use and manage discovery](using-and-managing-discovery.md)
+- [Understand dashboards](understanding-dashboards.md)
