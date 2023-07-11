@@ -47,10 +47,10 @@ There are two ways to install the Azure Communication Calling SDK for Unity.
 
 We need to configure a basic layout to attach our logic. In order to place an outbound call, we need a `TextBox` to provide the User ID of the callee. We also need a `Start/Join call` button and a `Hang up` button.
 
-Create a new scene called `Main` of your project.
+Create a new scene called `Main` in your project.
 
 
-Open the `Main.unity` and replace the content with following implementation: 
+Open the `Main.unity` file and replace the content with following implementation: 
 
 <details>
   <summary>Main.Unity Code</summary>
