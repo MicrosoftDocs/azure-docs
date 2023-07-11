@@ -69,7 +69,6 @@ Here's how to generate a registration key using the [desktopvirtualization](/cli
 > In the following examples, you'll need to change the `<placeholder>` values for your own.
 
 [!INCLUDE [include-cloud-shell-local-cli](includes/include-cloud-shell-local-cli.md)]
-
 1. Use the `az desktopvirtualization workspace update` command with the following example to generate a registration key that is valid for 24 hours.
 
    ```azurecli
@@ -96,7 +95,6 @@ Here's how to generate a registration key using the [Az.DesktopVirtualization](/
 > In the following examples, you'll need to change the `<placeholder>` values for your own.
 
 [!INCLUDE [include-cloud-shell-local-powershell](includes/include-cloud-shell-local-powershell.md)]
-
 1. Use the `New-AzWvdRegistrationInfo` cmdlet with the following example to generate a registration key that is valid for 24 hours.
 
    ```azurepowershell
