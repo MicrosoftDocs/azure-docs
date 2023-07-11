@@ -147,7 +147,7 @@ The following table highlights key aspects about the online deployment options:
 |---------|---------|---------|---------|---------|
 |No-code  | Uses out-of-box inferencing for popular frameworks such as scikit-learn, TensorFlow, PyTorch, and ONNX via MLflow and Triton. | No | No | No |
 |Low-code | Uses secure, publicly published [curated images](/azure/machine-learning/resource-curated-environments) for popular frameworks. You provide scoring script and/or Python dependencies.        |  Yes, bring your scoring script.     |   Yes, bring an Azure Machine Learning environment in which the model runs: either a Docker image with conda dependencies, or a dockerfile​.      |    No     |
-|BYOC     | You provide your complete stack via Azure Machine Learning's support for [custom images](/azure/machine-learning/how-to-deploy-custom-container?view=azureml-api-2&tabs=cli).       |  Yes, bring your scoring script.       |    Yes     |    Yes, bring an accessible container image location (for example, docker.io, Azure Container Registry (ACR), or Microsoft Container Registry (MCR)) or a Dockerfile that you can build/push with ACR​ for your container.    |
+|BYOC     | You provide your complete stack via Azure Machine Learning's support for [custom images](/azure/machine-learning/how-to-deploy-custom-container).       |  Yes, bring your scoring script.       |    Yes     |    Yes, bring an accessible container image location (for example, docker.io, Azure Container Registry (ACR), or Microsoft Container Registry (MCR)) or a Dockerfile that you can build/push with ACR​ for your container.    |
 
 > [!NOTE]
 > AutoML runs create a scoring script and dependencies automatically for users, so you can deploy any AutoML model without authoring additional code (for no-code deployment) or you can modify auto-generated scripts to your business needs (for low-code deployment).​ To learn how to deploy with AutoML models, see [Deploy an AutoML model with an online endpoint](/azure/machine-learning/how-to-deploy-automl-endpoint).
@@ -175,6 +175,7 @@ As with local debugging, you first need to have the [Docker Engine](https://docs
 To learn more about interactively debugging online endpoints in VS Code, see [Debug online endpoints locally in Visual Studio Code](/azure/machine-learning/how-to-debug-managed-online-endpoints-visual-studio-code).
 
 #### Local debugging with the Azure Machine Learning inference HTTP server (preview)
+
 
 [!INCLUDE [machine-learning-preview-generic-disclaimer](../../includes/machine-learning-preview-generic-disclaimer.md)]
 
@@ -219,63 +220,7 @@ The endpoint can also mirror (or copy) traffic from one deployment to another de
 
 To learn how to use traffic mirroring, see [Safe rollout for online endpoints](how-to-safely-rollout-online-endpoints.md).
 
-<!-- ## Managed online endpoints vs Kubernetes online endpoints
-
-There are two types of online endpoints: _managed online endpoints_ and _Kubernetes online endpoints_. 
-
-**Managed online endpoints** help to deploy your ML models in a turnkey manner. Managed online endpoints work with powerful CPU and GPU machines in Azure in a scalable, fully managed way. Managed online endpoints take care of serving, scaling, securing, and monitoring your models, freeing you from the overhead of setting up and managing the underlying infrastructure.
-
-**Kubernetes online endpoints** allow you to deploy models and serve online endpoints at your fully configured and managed [Kubernetes cluster anywhere](./how-to-attach-kubernetes-anywhere.md), with CPUs or GPUs. -->
-
-<!-- The following table highlights the key differences between managed online endpoints and Kubernetes online endpoints. 
-
-|                               | Managed online endpoints                                                                                                          | Kubernetes online endpoints                                                                                             |
-| ----------------------------- | --------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------- |
-| **Recommended users**         | Users who want a managed model deployment and enhanced MLOps experience                                                           | Users who prefer Kubernetes and can self-manage infrastructure requirements                                             |
-| **Node provisioning**         | Managed compute provisioning, update, removal                                                                                     | User responsibility                                                                                                     |
-| **Node maintenance**          | Managed host OS image updates, and security hardening                                                                             | User responsibility                                                                                                     |
-| **Cluster sizing (scaling)** | [Managed manual and autoscale](how-to-autoscale-endpoints.md), supporting additional nodes provisioning                                                             | [Manual and autoscale](how-to-kubernetes-inference-routing-azureml-fe.md#autoscaling), supporting scaling the number of replicas within fixed cluster boundaries                         |
-| **Compute type**              | Managed by the service                                                                                                            | Customer-managed Kubernetes cluster (Kubernetes)                                                                        |
-| **Managed identity**          | [Supported](how-to-access-resources-from-endpoints-managed-identities.md)                                                         | Supported                                                                                                               |
-| **Virtual Network (VNET)**    | [Supported via managed network isolation](how-to-secure-online-endpoint.md)                                                       | User responsibility                                                                                                     |
-| **Out-of-box monitoring & logging** | [Azure Monitor and Log Analytics powered](how-to-monitor-online-endpoints.md) (includes key metrics and log tables for endpoints and deployments) | User responsibility                                                                        |
-| **Logging with Application Insights (legacy)** | Supported                                                                                                        | Supported                                                                                                               |
-| **View costs**                | [Detailed to endpoint / deployment level](how-to-view-online-endpoints-costs.md)                                                  | Cluster level                                                                                                           |
-| **Cost applied to**          | VMs assigned to the deployments                                                                                                   | VMs assigned to the cluster                                                                                             |
-| **Mirrored traffic**          | [Supported](how-to-safely-rollout-online-endpoints.md#test-the-deployment-with-mirrored-traffic)                                 | Unsupported                                                                                                             |
-| **No-code deployment**        | Supported ([MLflow](how-to-deploy-mlflow-models-online-endpoints.md) and [Triton](how-to-deploy-with-triton.md) models)           | Supported ([MLflow](how-to-deploy-mlflow-models-online-endpoints.md) and [Triton](how-to-deploy-with-triton.md) models) | -->
-
-<!-- ### Managed online endpoints
-Managed online endpoints can help streamline your deployment process. Managed online endpoints provide the following benefits over Kubernetes online endpoints:
-- Managed infrastructure
-    - Automatically provisions the compute and hosts the model (you just need to specify the VM type and scale settings) 
-    - Automatically updates and patches the underlying host OS image
-    - Automatically performs node recovery if there's a system failure
-
-- Monitoring and logs
-    - Monitor model availability, performance, and SLA using [native integration with Azure Monitor](how-to-monitor-online-endpoints.md).
-    - Debug deployments using the logs and native integration with [Azure Log Analytics](/azure/azure-monitor/logs/log-analytics-overview).
-
-    :::image type="content" source="media/concept-endpoints/log-analytics-and-azure-monitor.png" alt-text="Screenshot showing Azure Monitor graph of endpoint latency.":::
-
-- View costs 
-    - Managed online endpoints let you [monitor cost at the endpoint and deployment level](how-to-view-online-endpoints-costs.md)
-    
-    :::image type="content" source="media/concept-endpoints/endpoint-deployment-costs.png" alt-text="Screenshot cost chart of an endpoint and deployment.":::
-    > [!NOTE]
-    > Managed online endpoints are based on Azure Machine Learning compute. When using a managed online endpoint, you pay for the compute and networking charges. There is no additional surcharge.
-    >
-    > If you use a virtual network and secure outbound (egress) traffic from the managed online endpoint, there is an additional cost. For egress, three private endpoints are created _per deployment_ for the managed online endpoint. These are used to communicate with the default storage account, Azure Container Registry, and workspace. Additional networking charges may apply. For more information on pricing, see the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator/).
-
-To learn how to deploy to a managed online endpoint, see [Deploy an ML model with an online endpoint](how-to-deploy-online-endpoints.md). -->
-
 ## More capabilities of online endpoints in Azure Machine Learning
-
-### Application Insights integration
-
-All online endpoints integrate with Application Insights to monitor SLAs and diagnose issues. 
-
-However [managed online endpoints](#managed-online-endpoints) also include out-of-box integration with Azure Logs and Azure Metrics.
 
 ### Security
 
@@ -291,17 +236,23 @@ Autoscale automatically runs the right amount of resources to handle the load on
 
 To learn how to configure autoscaling, see [How to autoscale online endpoints](how-to-autoscale-endpoints.md).
 
-### Private endpoint support
+### Managed network isolation
 
-Optionally, you can secure communication with a managed online endpoint by using private endpoints.
+When deploying an ML model to a managed online endpoint, you can secure communication with the online endpoint by using [private endpoints](../private-link/private-endpoint-overview.md).
 
 You can configure security for inbound scoring requests and outbound communications with the workspace and other services separately. Inbound communications use the private endpoint of the Azure Machine Learning workspace. Outbound communications use private endpoints created for the workspace's managed virtual network (preview).
 
 For more information, see [Network isolation with managed online endpoints](concept-secure-online-endpoint.md).
 
-### Managed network isolation
 
 ### Monitoring online endpoints and deployments
+
+
+#### Application Insights integration
+
+All online endpoints integrate with Application Insights to monitor SLAs and diagnose issues. 
+
+However [managed online endpoints](#managed-online-endpoints) also include out-of-box integration with Azure Logs and Azure Metrics.
 
 
 ## Next steps
