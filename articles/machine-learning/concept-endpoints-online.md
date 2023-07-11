@@ -41,7 +41,7 @@ To learn how to deploy to a managed online endpoint, see [Deploy an ML model wit
 
 ### Why choose managed online endpoints (v2) over ACI/AKS (v1)?
 
-Use of managed online endpoints is the _recommended_ way to use online endpoints in Azure Machine Learning. The following table highlights the key attributes of managed online endpoints that make them superior to ACI/AKS (v1).
+Use of managed online endpoints is the _recommended_ way to use online endpoints in Azure Machine Learning. The following table highlights the key attributes of managed online endpoints in comparison to ACI/AKS (v1).
 
 |Attributes  |Managed online endpoints (v2)  |ACI/AKS (v1)  |
 |---------|---------|---------|
@@ -145,9 +145,9 @@ The following table highlights key aspects about the online deployment options:
 
 |         |Summary  |Custom code  |Custom dependencies  |Custom base image    |
 |---------|---------|---------|---------|---------|
-|No-code  | Uses out-of-box inferencing for popular frameworks such as scikit-learn, TensorFlow, PyTorch, and ONNX via MLflow and Triton. | No | No | No |
-|Low-code | Uses secure, publicly published [curated images](/azure/machine-learning/resource-curated-environments) for popular frameworks. You provide scoring script and/or Python dependencies.        |  Yes, bring your scoring script.     |   Yes, bring an Azure Machine Learning environment in which the model runs: either a Docker image with conda dependencies, or a dockerfile​.      |    No     |
-|BYOC     | You provide your complete stack via Azure Machine Learning's support for [custom images](/azure/machine-learning/how-to-deploy-custom-container).       |  Yes, bring your scoring script.       |    Yes     |    Yes, bring an accessible container image location (for example, docker.io, Azure Container Registry (ACR), or Microsoft Container Registry (MCR)) or a Dockerfile that you can build/push with ACR​ for your container.    |
+|**No-code**  | Uses out-of-box inferencing for popular frameworks such as scikit-learn, TensorFlow, PyTorch, and ONNX via MLflow and Triton. | No | No | No |
+|**Low-code** | Uses secure, publicly published [curated images](/azure/machine-learning/resource-curated-environments) for popular frameworks. You provide scoring script and/or Python dependencies.        |  Yes, bring your scoring script.     |   Yes, bring an Azure Machine Learning environment in which the model runs: either a Docker image with conda dependencies, or a dockerfile​.      |    No     |
+|**BYOC**     | You provide your complete stack via Azure Machine Learning's support for [custom images](/azure/machine-learning/how-to-deploy-custom-container).       |  Yes, bring your scoring script.       |    Yes     |    Yes, bring an accessible container image location (for example, docker.io, Azure Container Registry (ACR), or Microsoft Container Registry (MCR)) or a Dockerfile that you can build/push with ACR​ for your container.    |
 
 > [!NOTE]
 > AutoML runs create a scoring script and dependencies automatically for users, so you can deploy any AutoML model without authoring additional code (for no-code deployment) or you can modify auto-generated scripts to your business needs (for low-code deployment).​ To learn how to deploy with AutoML models, see [Deploy an AutoML model with an online endpoint](/azure/machine-learning/how-to-deploy-automl-endpoint).
@@ -243,6 +243,19 @@ You can configure security for inbound scoring requests and outbound communicati
 
 For more information, see [Network isolation with managed online endpoints](concept-secure-online-endpoint.md).
 
+Inbound communication is an endpoint property. To secure the online endpoints incoming scoring requests to your virtual network, set the `public_network_access flag` for the endpoint to disabled.
+
+<!-- M.A.: replace the following table with an include -->
+The following table lists the supported configurations when configuring inbound and outbound communications for an online endpoint:
+
+| Configuration | Inbound </br> (Endpoint property) | Outbound </br> (Deployment property) | Supported? |
+| -------- | -------------------------------- | --------------------------------- | --------- |
+| secure inbound with secure outbound | `public_network_access` is disabled | `egress_public_network_access` is disabled   | Yes |
+| secure inbound with public outbound | `public_network_access` is disabled | `egress_public_network_access` is enabled</br>The workspace must also allow public access as the deployment outbound is to the workspace API. | Yes |
+| public inbound with secure outbound | `public_network_access` is enabled | `egress_public_network_access` is disabled    | Yes |
+| public inbound with public outbound | `public_network_access` is enabled | `egress_public_network_access` is enabled</br>The workspace must also allow public access as the deployment outbound is to the workspace API. | Yes |
+
+To learn more about securing an online endpoint, see [Use network isolation with managed online endpoints](how-to-secure-online-endpoint.md).
 
 ### Monitoring online endpoints and deployments
 
