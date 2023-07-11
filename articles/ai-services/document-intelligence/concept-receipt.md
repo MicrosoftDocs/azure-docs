@@ -159,43 +159,6 @@ See how Document Intelligence extracts data, including time and date of transact
 >[!NOTE]
 > Document Intelligence auto-detects language and locale data.
 
-### [**2022-08-31 (GA)**](#tab/2022-08-31)
-
-#### Thermal receipts (retail, meal, parking, etc.)
-
-| Supported Languages | Details |
-|:--------------------|:-------:|
-|English|United States (`en-US`), Australia (`en-AU`), Canada (`en-CA`), United Kingdom (`en-GB`), India (`en-IN`), United Arab Emirates (`en-AE`)|
-|Croatian|Croatia (`hr-HR`)|
-|Czech|Czechia (`cs-CZ`)|
-|Danish|Denmark (`da-DK`)|
-|Dutch|Netherlands (`nl-NL`)|
-|Finnish|Finland (`fi-FI`)|
-|French|Canada (`fr-CA`), France (`fr-FR`)|
-|German|Germany (`de-DE`)|
-|Hungarian|Hungary (`hu-HU`)|
-|Italian|Italy (`it-IT`)|
-|Japanese|Japan (`ja-JP`)|
-|Latvian|Latvia (`lv-LV`)|
-|Lithuanian|Lithuania (`lt-LT`)|
-|Norwegian|Norway (`no-NO`)|
-|Portuguese|Brazil (`pt-BR`), Portugal (`pt-PT`)|
-|Spanish|Spain (`es-ES`)|
-|Swedish|Sweden (`sv-SE`)|
-|Vietnamese|Vietnam (`vi-VN`)|
-
-#### Hotel receipts
-
-| Supported Languages | Details |
-|:--------------------|:-------:|
-|English|United States (`en-US`)|
-|French|France (`fr-FR`)|
-|German|Germany (`de-DE`)|
-|Italian|Italy (`it-IT`)|
-|Japanese|Japan (`ja-JP`)|
-|Portuguese|Portugal (`pt-PT`)|
-|Spanish|Spain (`es-ES`)|
-
 ### [2023-02-28-preview](#tab/2023-02-28-preview)
 
 #### Thermal receipts (retail, meal, parking, etc.)
@@ -233,6 +196,42 @@ See how Document Intelligence extracts data, including time and date of transact
 |Portuguese|Portugal (`pt-PT`)|
 |Spanish|Spain (`es-ES`)|
 
+### [**2022-08-31 (GA)**](#tab/2022-08-31)
+
+#### Thermal receipts (retail, meal, parking, etc.)
+
+| Supported Languages | Details |
+|:--------------------|:-------:|
+|English|United States (`en-US`), Australia (`en-AU`), Canada (`en-CA`), United Kingdom (`en-GB`), India (`en-IN`), United Arab Emirates (`en-AE`)|
+|Croatian|Croatia (`hr-HR`)|
+|Czech|Czechia (`cs-CZ`)|
+|Danish|Denmark (`da-DK`)|
+|Dutch|Netherlands (`nl-NL`)|
+|Finnish|Finland (`fi-FI`)|
+|French|Canada (`fr-CA`), France (`fr-FR`)|
+|German|Germany (`de-DE`)|
+|Hungarian|Hungary (`hu-HU`)|
+|Italian|Italy (`it-IT`)|
+|Japanese|Japan (`ja-JP`)|
+|Latvian|Latvia (`lv-LV`)|
+|Lithuanian|Lithuania (`lt-LT`)|
+|Norwegian|Norway (`no-NO`)|
+|Portuguese|Brazil (`pt-BR`), Portugal (`pt-PT`)|
+|Spanish|Spain (`es-ES`)|
+|Swedish|Sweden (`sv-SE`)|
+|Vietnamese|Vietnam (`vi-VN`)|
+
+#### Hotel receipts
+
+| Supported Languages | Details |
+|:--------------------|:-------:|
+|English|United States (`en-US`)|
+|French|France (`fr-FR`)|
+|German|Germany (`de-DE`)|
+|Italian|Italy (`it-IT`)|
+|Japanese|Japan (`ja-JP`)|
+|Portuguese|Portugal (`pt-PT`)|
+|Spanish|Spain (`es-ES`)|
 
 ::: moniker-end
 
@@ -303,6 +302,7 @@ See how Document Intelligence extracts data, including time and date of transact
 |`TaxDetails`|`array`|||
 |`TaxDetails.*`|`object`|Extracted line item|1<br>Surface Pro 6<br>$999.00<br>$999.00|
 |`TaxDetails.*.Amount`|`currency`|The amount of the tax detail|$999.00|
+
 #### Hotel receipts (receipt.hotel)
 
 | Field | Type | Description | Example |

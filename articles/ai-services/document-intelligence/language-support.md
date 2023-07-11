@@ -10,6 +10,7 @@ ms.topic: conceptual
 ms.date: 07/18/2023
 ---
 
+<!-- markdownlint-disable MD036 -->
 
 # Language support for Document Intelligence
 
@@ -213,6 +214,15 @@ Use the parameter `api-version=2023-02-28-preview` when using the REST API or th
 |Makhuwa-Meetto  | `mgh` |
 |Makonde | `kde` |
 
+## General document model
+
+>[!NOTE]
+> It's not necessary to specify a locale. This is an optional parameter. The Document Intelligence deep-learning technology will auto-detect the language of the text in your image.
+
+| Model | Language—Locale code | Default |
+|--------|:----------------------|:---------|
+|General document| <ul><li>English (United States)—en-US</li></ul>| English (United States)—en-US|
+
 ## Custom neural model
 
 Language| API Version |
@@ -224,44 +234,17 @@ Language| API Version |
 |Italian | `2023-02-28-preview`|
 |Dutch | `2023-02-28-preview`|
 
-## Receipt model
-
->[!NOTE]
- > It's not necessary to specify a locale. This is an optional parameter. The Document Intelligence deep-learning technology will auto-detect the language of the text in your image.
-
-Receipt supports all English receipts and the following locales:
+## Health insurance card model
 
 |Language| Locale code |
 |:-----|:----:|
-|English |`en-au`|
-|English (Canada)|`en-ca`|
-|English (United Kingdom)|`en-gb`|
-|English (India)|`en-in`|
 |English (United States)| `en-us`|
-|French | `fr` |
-| Spanish | `es` |
 
-## Business card model
-
->[!NOTE]
- > It's not necessary to specify a locale. This is an optional parameter. The Document Intelligence deep-learning technology will auto-detect the language of the text in your image.
-
-Business Card supports all English business cards with the following locales:
+## W-2 form model
 
 |Language| Locale code |
 |:-----|:----:|
-|English |`en-US`, `en-CA`, `en-GB`, `en-IN`|
-|German | de|
-|French | fr|
-|Italian |it|
-|Portuguese |pt|
-|Dutch | nl|
-
-The **2022-06-30** and later releases  include Japanese language support:
-
-|Language| Locale code |
-|:-----|:----:|
-| Japanese | `ja` |
+|English (United States)| `en-us`|
 
 ## Invoice model
 
@@ -275,9 +258,81 @@ Language| Locale code |
 |Portuguese |pt|
 |Dutch | nl|
 
+## Receipt model
+
+>[!NOTE]
+ > It's not necessary to specify a locale. This is an optional parameter. The Document Intelligence deep-learning technology will auto-detect the language of the text in your image.
+
+**Receipt supports all English receipts and the following locales:**
+
+|Language| Locale code |
+|:-----|:----:|
+|English |`en-au`|
+|English (Canada)|`en-ca`|
+|English (United Kingdom)|`en-gb`|
+|English (India)|`en-in`|
+|English (United States)| `en-us`|
+|French | `fr` |
+| Spanish | `es` |
+
+**Thermal receipts (retail, meal, parking, etc.)**
+
+| Supported Languages | Details |
+|:--------------------|:-------:|
+|English|United States (`en-US`), Australia (`en-AU`), Canada (`en-CA`), United Kingdom (`en-GB`), India (`en-IN`), United Arab Emirates (`en-AE`)|
+|Croatian|Croatia (`hr-HR`)|
+|Czech|Czechia (`cs-CZ`)|
+|Danish|Denmark (`da-DK`)|
+|Dutch|Netherlands (`nl-NL`)|
+|Finnish|Finland (`fi-FI`)|
+|French|Canada (`fr-CA`), France (`fr-FR`)|
+|German|Germany (`de-DE`)|
+|Hungarian|Hungary (`hu-HU`)|
+|Italian|Italy (`it-IT`)|
+|Japanese|Japan (`ja-JP`)|
+|Latvian|Latvia (`lv-LV`)|
+|Lithuanian|Lithuania (`lt-LT`)|
+|Norwegian|Norway (`no-NO`)|
+|Portuguese|Brazil (`pt-BR`), Portugal (`pt-PT`)|
+|Spanish|Spain (`es-ES`)|
+|Swedish|Sweden (`sv-SE`)|
+|Vietnamese|Vietnam (`vi-VN`)|
+
+**Hotel receipts**
+
+| Supported Languages | Details |
+|:--------------------|:-------:|
+|English|United States (`en-US`)|
+|French|France (`fr-FR`)|
+|German|Germany (`de-DE`)|
+|Italian|Italy (`it-IT`)|
+|Japanese|Japan (`ja-JP`)|
+|Portuguese|Portugal (`pt-PT`)|
+|Spanish|Spain (`es-ES`)|
+
 ## ID document model
 
 This technology is currently available for US driver licenses and the biographical page from international passports (excluding visa and other travel documents).
+
+Supported document types
+
+| Region | Document Types |
+|--------|----------------|
+|Worldwide|Passport Book, Passport Card|
+|`United States (US)`|Driver License, Identification Card, Residency Permit (Green card), Social Security Card, Military ID|
+|`India (IN)`|Driver License, PAN Card, Aadhaar Card|
+|`Canada (CA)`|Driver License, Identification Card, Residency Permit (Maple Card)|
+|`United Kingdom (GB)`|Driver License, National Identity Card|
+|`Australia (AU)`|Driver License, Photo Card, Key-pass ID (including digital version)|
+
+## Business card model
+
+>[!NOTE]
+ > It's not necessary to specify a locale. This is an optional parameter. The Document Intelligence deep-learning technology will auto-detect the language of the text in your image.
+
+| Model | Language—Locale code | Default |
+|--------|:----------------------|:---------|
+|Business card (v3.0 API)| <ul><li>English (United States)—en-US</li><li> English (Australia)—en-AU</li><li>English (Canada)—en-CA</li><li>English (United Kingdom)—en-GB</li><li>English (India)—en-IN</li><li>English (Japan)—en-JP</li><li>Japanese (Japan)—ja-JP</li></ul>  | Autodetected (en-US or ja-JP) |
 
 ## General Document
 
@@ -509,7 +564,7 @@ This table lists the written languages supported by each Document Intelligence s
 |Zhuang | `za` |
 |Zulu  | `zu` |
 
-## Prebuilt receipt and business card
+## Prebuilt receipt 
 
 >[!NOTE]
  > It's not necessary to specify a locale. This is an optional parameter. The Document Intelligence deep-learning technology will auto-detect the language of the text in your image.
@@ -529,6 +584,15 @@ Prebuilt Receipt and Business Cards support all English receipts and business ca
 Language| Locale code |
 |:-----|:----:|
 |English (United States)|en-us|
+
+## Prebuilt business card
+
+>[!NOTE]
+> It's not necessary to specify a locale. This is an optional parameter. The Document Intelligence deep-learning technology will auto-detect the language of the text in your image.
+
+| Model | Language—Locale code | Default |
+|--------|:----------------------|:---------|
+|Business card (v2.1 API)| <ul><li>English (United States)—en-US</li><li> English (Australia)—en-AU</li><li>English (Canada)—en-CA</li><li>English (United Kingdom)—en-GB</li><li>English (India)—en-IN</li> | Autodetected |
 
 ## Prebuilt identity documents
 

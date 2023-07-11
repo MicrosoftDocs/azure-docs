@@ -106,7 +106,7 @@ Keys can also exist in isolation when the model detects that a key exists, with 
 ## Supported languages and locales
 
 >[!NOTE]
- > It's not necessary to specify a locale. This is an optional parameter. The Document Intelligence deep-learning technology will auto-detect the language of the text in your image.
+> It's not necessary to specify a locale. This is an optional parameter. The Document Intelligence deep-learning technology will auto-detect the language of the text in your image.
 
 | Model | Language—Locale code | Default |
 |--------|:----------------------|:---------|
