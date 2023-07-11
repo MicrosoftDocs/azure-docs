@@ -128,7 +128,7 @@ The following filters require you to manually enter the value you want to use fo
 
 ## Next steps
 
-- [Understanding asset details](understanding-asset-details.md)
+- [Understand asset details](understanding-asset-details.md)
 - [ASN asset filters](asn-asset-filters.md)
 - [Contact asset filters](contact-asset-filters.md)
 - [Domain asset filters](domain-asset-filters.md)
