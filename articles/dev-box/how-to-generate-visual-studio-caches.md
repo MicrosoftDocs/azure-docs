@@ -81,9 +81,9 @@ The generated caches will then be included in the [custom image](how-to-customiz
 
 ## Get started with Visual Studio pre-caching in Microsoft Dev Box
 
-[Download and install Visual Studio 17.7 Preview 2 or later](https://visualstudio.microsoft.com/vs/preview/) to get started. 
+[Download and install Visual Studio 17.7 Preview 3 or later](https://visualstudio.microsoft.com/vs/preview/) to get started. 
 
-We’d love to hear your feedback, input, and suggestions on Visual Studio pre-caching in Dev Box via the [Developer Community](https://visualstudio.microsoft.com/vs/preview/). 
+We’d love to hear your feedback, input, and suggestions on Visual Studio pre-caching in Microsoft Dev Box via the [Developer Community](https://visualstudio.microsoft.com/vs/preview/). 
 
 ## Next steps
 
