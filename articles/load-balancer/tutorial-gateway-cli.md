@@ -6,8 +6,8 @@ author: mbender-ms
 ms.author: mbender
 ms.service: load-balancer
 ms.topic: tutorial
-ms.date: 11/02/2021
-ms.custom: template-tutorial, ignite-fall-2021, devx-track-azurecli
+ms.date: 06/27/2023
+ms.custom: template-tutorial, ignite-fall-2021, devx-track-azurecli, engagement-fy23
 ms.devlang: azurecli
 ---
 

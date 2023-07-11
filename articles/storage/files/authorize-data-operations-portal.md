@@ -2,11 +2,10 @@
 title: Authorize access to Azure file share data in the Azure portal
 description: When you access file data using the Azure portal, the portal makes requests to Azure Files behind the scenes. These requests can be authenticated and authorized using either your Azure AD account or the storage account access key.
 author: khdownie
-ms.service: storage
+ms.service: azure-file-storage
 ms.topic: how-to
 ms.date: 05/23/2023
 ms.author: kendownie
-ms.subservice: files
 ---
 
 # Choose how to authorize access to file data in the Azure portal

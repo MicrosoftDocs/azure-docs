@@ -14,7 +14,8 @@ ms.reviewer: krbain
 ms.collection: M365-identity-device-management
 ---
 
-# Check execution user scope of a workflow
+# Check execution user scope of a workflow 
+
 
 Workflow scheduling will automatically process the workflow for users meeting the workflows execution conditions. This article walks you through the steps to check the users who fall into the execution scope of a workflow. For more information about execution conditions, see: [workflow basics](../governance/understanding-lifecycle-workflows.md#workflow-basics).
 

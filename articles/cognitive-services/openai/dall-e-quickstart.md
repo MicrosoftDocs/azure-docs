@@ -6,6 +6,7 @@ services: cognitive-services
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: openai
+ms.custom: devx-track-python
 ms.topic: quickstart
 author: PatrickFarley
 ms.author: pafarley
@@ -33,4 +34,3 @@ zone_pivot_groups: openai-quickstart-dall-e
 [!INCLUDE [Python SDK quickstart](includes/dall-e-python.md)]
 
 ::: zone-end
-

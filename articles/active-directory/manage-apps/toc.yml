@@ -144,6 +144,8 @@
           href: grant-consent-single-user.md
         - name: Review permissions granted to apps
           href: manage-application-permissions.md
+        - name: Restore revoked permissions
+          href: restore-permissions.md
       - name: Manage user assignment
         href: assign-user-or-group-access-portal.md
       - name: Assign custom security attributes

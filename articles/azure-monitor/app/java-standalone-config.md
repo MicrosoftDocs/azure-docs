@@ -2,7 +2,7 @@
 title: Configuration options - Azure Monitor Application Insights for Java
 description: This article shows you how to configure Azure Monitor Application Insights for Java.
 ms.topic: conceptual
-ms.date: 06/19/2023
+ms.date: 07/10/2023
 ms.devlang: java
 ms.custom: devx-track-java, devx-track-extended-java
 ms.reviewer: mmcc
@@ -254,7 +254,7 @@ and then at the beginning of each request, call:
 Span.current().setAttribute("mycustomer", "xyz");
 ```
 
-Also see: [Add a custom property to a Span](./opentelemetry-enable.md?tabs=java#add-a-custom-property-to-a-span).
+Also see: [Add a custom property to a Span](./opentelemetry-add-modify.md?tabs=java#add-a-custom-property-to-a-span).
 
 ## Connection string overrides (preview)
 
@@ -519,7 +519,7 @@ To send custom metrics using micrometer:
     </dependency>
     ```
 
-1. Use the Micrometer [global registry](https://micrometer.io/docs/concepts#_global_registry) to create a meter:
+1. Use the Micrometer [global registry](https://micrometer.io/?/docs/concepts#_global_registry) to create a meter:
 
     ```java
     static final Counter counter = Metrics.counter("test.counter");

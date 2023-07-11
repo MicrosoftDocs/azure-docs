@@ -11,8 +11,7 @@ ms.workload: identity
 ms.subservice: ciam
 ms.topic: how-to
 ms.date: 05/10/2023
-ms.custom: developer
-
+ms.custom: developer, devx-track-dotnet
 #Customer intent: As a dev, I want to configure my web API settings so as to protect it using Microsoft Entra.
 ---
 
@@ -85,7 +84,10 @@ We specify these permissions in the *appsettings.json* file as configuration par
 
 ```json
 {
-  "AzureAd": {...},
+  "AzureAd": {
+    "Instance": "https://Enter_the_Tenant_Subdomain_Here.ciamlogin.com/",
+    "TenantId": "Enter_the_Tenant_Id_Here",
+    "ClientId": "Enter_the_Application_Id_Here",
     "Scopes": {
       "Read": ["ToDoList.Read", "ToDoList.ReadWrite"],
       "Write": ["ToDoList.ReadWrite"]
@@ -163,7 +165,7 @@ Add the following code in the *Program.cs* file.
 using ToDoListAPI.Context;
 using Microsoft.EntityFrameworkCore;
 
-builder.Services.AddDbContext<TodoContext>(opt =>
+builder.Services.AddDbContext<ToDoContext>(opt =>
     opt.UseInMemoryDatabase("ToDos"));
 ```
 

@@ -47,7 +47,7 @@ ms.custom: aaddev, identityplatformtop40, mode-api
 > > [!div class="nextstepaction"]
 > > <button id="downloadsample" class="download-sample-button">Download the code sample</button>
 > 
-> [!INCLUDE [active-directory-develop-path-length-tip](../../../includes/active-directory-develop-path-length-tip.md)]
+> [!INCLUDE [active-directory-develop-path-length-tip](./includes/error-handling-and-tips/path-length-tip.md)]
 > 
 > #### Step 3: Your app is configured and ready to run
 > We have configured your project with values of your app's properties and it's ready to run.
@@ -127,7 +127,7 @@ ms.custom: aaddev, identityplatformtop40, mode-api
 > | `scopes` | Contains the scopes being requested, such as `{ "user.read" }` for Microsoft Graph or `{ "api://<Application ID>/access_as_user" }` for custom web APIs. |
 > | `firstAccount` | Specifies the first user in the cache (MSAL support multiple users in a single app). |
 > 
-> [!INCLUDE [Help and support](../../../includes/active-directory-develop-help-support-include.md)]
+> [!INCLUDE [Help and support](./includes/error-handling-and-tips/help-support-include.md)]
 > 
 > ## Next steps
 > 

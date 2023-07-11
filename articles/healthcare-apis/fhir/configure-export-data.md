@@ -14,7 +14,7 @@ ms.author: kesheth
 
 The FHIR service supports the `$export` operation [specified by HL7](https://hl7.org/fhir/uv/bulkdata/export/index.html) for exporting FHIR data from a FHIR server. In the FHIR service implementation, calling the `$export` endpoint causes the FHIR service to export data into a pre-configured Azure storage account.
 
-Ensure you are granted with application role -  'FHIR Data exporter role' prior to configuring export. To understand more on application roles, see [Authentication and Authorization for FHIR service](https://learn.microsoft.com/azure/healthcare-apis/authentication-authorization).
+Ensure you are granted with application role - 'FHIR Data exporter role' prior to configuring export. To understand more on application roles, see [Authentication and Authorization for FHIR service](../../healthcare-apis/authentication-authorization.md).
 
 Below are three steps in setting up the `$export` operation for the FHIR service-
 
@@ -73,7 +73,7 @@ The final step is to specify the ADLS Gen2 account that the FHIR service will us
 
 After you've completed this final configuration step, you're ready to export data from the FHIR service. See [How to export FHIR data](./export-data.md) for details on performing `$export` operations with the FHIR service.
 
-> [!Note]
+> [!NOTE]
 > Only storage accounts in the same subscription as the FHIR service are allowed to be registered as the destination for `$export` operations.
 
 ## Securing the FHIR service `$export` operation
@@ -121,7 +121,7 @@ Add-AzStorageAccountNetworkRule -ResourceGroupName $resourceGroupName -Name $sto
 
 After running this command, in the **Firewall** section under **Resource instances** you will see **2 selected** in the **Instance name** dropdown list. These are the names of the workspace instance and FHIR service instance that you just registered as Microsoft Trusted Resources.
 
-  :::image type="content" source="media/export-data/storage-networking-2.png" alt-text="Screenshot of Azure Storage Networking Settings with resource type and instance names." lightbox="media/export-data/storage-networking-2.png":::
+:::image type="content" source="media/export-data/storage-networking-2.png" alt-text="Screenshot of Azure Storage Networking Settings with resource type and instance names." lightbox="media/export-data/storage-networking-2.png":::
 
 You're now ready to securely export FHIR data to the storage account. Note that the storage account is on selected networks and isn't publicly accessible. To securely access the files, you can enable [private endpoints](../../storage/common/storage-private-endpoints.md) for the storage account.
 
@@ -156,13 +156,13 @@ Select **Enabled from selected virtual networks and IP addresses**. Under the Fi
 | West US 2            | 40.64.135.77      |
 
 > [!NOTE]
-> The above steps are similar to the configuration steps described in the document **Converting your data to FHIR**. For more information, see [Configure the ACR firewall](./convert-data.md#step-6-optional-configure-the-azure-container-registry-firewall-for-secure-access).
+> The above steps are similar to the configuration steps described in the document **Converting your data to FHIR**. For more information, see [Configure the ACR firewall](configure-settings-convert-data.md#step-6-configure-the-azure-container-registry-firewall-for-secure-access).
 
 ### Allowing specific IP addresses to access the Azure storage account in the same region
 
 The configuration process for IP addresses in the same region is just like above except a specific IP address range in Classless Inter-Domain Routing (CIDR) format is used instead (i.e., 100.64.0.0/10). The reason why the IP address range (100.64.0.0 – 100.127.255.255) must be specified is because an IP address for the FHIR service will be allocated each time an `$export` request is made.
 
-> [!Note] 
+> [!NOTE] 
 > It is possible that a private IP address within the range of 10.0.2.0/24 may be used, but there is no guarantee that the `$export` operation will succeed in such a case. You can retry if the `$export` request fails, but until an IP address within the range of 100.64.0.0/10 is used, the request will not succeed. This network behavior for IP address ranges is by design. The alternative is to configure the storage account in a different region.
 
 ## Next steps

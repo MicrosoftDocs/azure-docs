@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.topic: tutorial
 ms.subservice: compliance
-ms.date: 03/18/2023
+ms.date: 06/22/2023
 ms.author: owinfrey
 ms.reviewer: krbain
 ms.custom: template-tutorial
@@ -28,7 +28,8 @@ For more information, see [Run a workflow on demand](on-demand-workflow.md).
 
 ## Prerequisites
 
-The preview of lifecycle workflows requires Azure Active Directory (Azure AD) Premium P2. For more information, see [License requirements](what-are-lifecycle-workflows.md#license-requirements).
+[!INCLUDE [Microsoft Entra ID Governance license](../../../includes/active-directory-entra-governance-license.md)]
+
 
 ## Before you begin
 

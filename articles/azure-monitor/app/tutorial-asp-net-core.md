@@ -10,7 +10,7 @@ ms.reviewer: mmcc
 
 # Enable Application Insights for ASP.NET Core applications
 
-This article describes how to enable Application Insights for an [ASP.NET Core](/aspnet/core) application deployed as an Azure Web App. This implementation uses an SDK-based approach. An [auto-instrumentation approach](./codeless-overview.md) is also available.
+This article describes how to enable Application Insights for an [ASP.NET Core](/aspnet/core) application deployed as an Azure Web App. This implementation uses an SDK-based approach. An [autoinstrumentation approach](./codeless-overview.md) is also available.
 
 Application Insights can collect the following telemetry from your ASP.NET Core application:
 
@@ -463,5 +463,5 @@ For the latest updates and bug fixes, see the [release notes](./release-notes.md
 * [Dependency Injection in ASP.NET Core](/aspnet/core/fundamentals/dependency-injection)
 * [Logging in ASP.NET Core](/aspnet/core/fundamentals/logging)
 * [.NET trace logs in Application Insights](./asp-net-trace-logs.md)
-* [Auto-instrumentation for Application Insights](./codeless-overview.md)
+* [Autoinstrumentation for Application Insights](./codeless-overview.md)
 

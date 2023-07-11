@@ -6,7 +6,7 @@ author: msjasteppe
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: reference
-ms.date: 06/16/2022
+ms.date: 06/23/2022
 ms.author: jasteppe
 ---
 
@@ -62,7 +62,7 @@ For a detailed description of the Events message structure and both required and
 
 ## What is the throughput for the Events messages?
 
-The throughput of the FHIR or DICOM service and the Event Grid govern the throughput of FHIR and DICOM events. When a request made to the FHIR service is successful, it returns a 2xx HTTP status code. It also generates a FHIR resource or DICOM image changing event. The current limitation is 5,000 events/second per a workspace for all FHIR or DICOM service instances in it. 
+The throughput of the FHIR or DICOM service and the Event Grid govern the throughput of FHIR and DICOM events. When a request made to the FHIR service is successful, it returns a 2xx HTTP status code. It also generates a FHIR resource or DICOM image changing event. The current limitation is 5,000 events/second per workspace for all FHIR or DICOM service instances in the workspace. 
 
 ## How am I charged for using Events?
 
@@ -76,7 +76,7 @@ You can use the Event Grid filtering feature. There are unique identifiers in th
 
 ## Can I use the same subscriber for multiple workspaces, FHIR accounts, or DICOM accounts?
 
-Yes. We recommend that you use different subscribers for each individual FHIR or DICOM account to process in isolated scopes.
+Yes. We recommend that you use different subscribers for each individual FHIR or DICOM service to process in isolated scopes.
 
 ## Is Event Grid compatible with HIPAA and HITRUST compliance obligations?
 
