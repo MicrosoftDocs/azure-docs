@@ -21,7 +21,7 @@ The Media Stats feature object have the following API structure:
     - `getVideo()`: The list of Media Stats for the Incoming Video.
     - `getScreenShare()`: The list of Media Stats for the Incoming Screen Share. 
   - `getGeneratedAt()`: The date when the report was generated.
-  - `GetIncomingMediaStatsFromParticipant`: Gets the `IncomingMediaStats` for a `RemoteParticipant`.
+  - `getIncomingMediaStatsFromParticipant`: Gets the `IncomingMediaStats` for a `RemoteParticipant`.
 
 Then, subscribe to the `addOnSampleReportedListener` event to get regular updates about the current media quality statistics:
 
@@ -41,16 +41,16 @@ private void handleSampleReportedListener(MediaStatsReportEvent args) {
     List<OutgoingVideoMediaStats> outgoingVideoMediaStats = report.getOutgoingMediaStats().getVideo();
 
     // Obtain the Outgoing Media Stats for Screen Share
-    List<OutgoingScreenShareMediaStats> outgoingScreenShareMediaStats report.getOutgoingMediaStats().getScreenShare();
+    List<OutgoingScreenShareMediaStats> outgoingScreenShareMediaStats = report.getOutgoingMediaStats().getScreenShare();
 
     // Obtain the Incoming Media Stats for Audio
-    List<IncomingAudioMediaStats> incomingAudioMediaStats report.getIncomingMediaStats().getAudio();
+    List<IncomingAudioMediaStats> incomingAudioMediaStats = report.getIncomingMediaStats().getAudio();
 
     // Obtain the Incoming Media Stats for Video
-    List<IncomingVideoMediaStats> incomingVideoMediaStats report.getIncomingMediaStats().getVideo();
+    List<IncomingVideoMediaStats> incomingVideoMediaStats = report.getIncomingMediaStats().getVideo();
 
     // Obtain the Incoming Media Stats for Screen Share
-    List<IncomingScreenShareMediaStats> incomingScreenShareMediaStats report.getIncomingMediaStats().getScreenShare();
+    List<IncomingScreenShareMediaStats> incomingScreenShareMediaStats = report.getIncomingMediaStats().getScreenShare();
 }
 ```
 
@@ -59,18 +59,18 @@ For example, in order to get the `IncomingMediaStats` for all the `RemotePartici
 
 ```java
 private void handleSampleReportedListener(MediaStatsReportEvent args) {
-    List<RemoteParticipant> remoteParticipants = call.RemoteParticipants.ToList<RemoteParticipant>();
-    foreach (RemoteParticipant remoteParticipant in remoteParticipants)
+    List<RemoteParticipant> remoteParticipants = call.getRemoteParticipants();
+    for (RemoteParticipant remoteParticipant : remoteParticipants) {
     {
-        IncomingMediaStatsDetails incomingMediaStatsInfo = report.GetIncomingMediaStatsFromParticipant(remoteParticipant.Identifier);
+        IncomingMediaStatsInfo incomingMediaStatsInfo = report.getIncomingMediaStatsFromParticipant(remoteParticipant.getIdentifier());
         // Obtain the Incoming Media Stats for Audio
-        List<IncomingAudioMediaStats> incomingAudioMediaStats incomingMediaStatsInfo.getAudio();
+        List<IncomingAudioMediaStats> incomingAudioMediaStats = incomingMediaStatsInfo.getAudio();
     
         // Obtain the Incoming Media Stats for Video
-        List<IncomingVideoMediaStats> incomingVideoMediaStats incomingMediaStatsInfo.getVideo();
+        List<IncomingVideoMediaStats> incomingVideoMediaStats = incomingMediaStatsInfo.getVideo();
     
         // Obtain the Incoming Media Stats for Screen Share
-        List<IncomingScreenShareMediaStats> incomingScreenShareMediaStats incomingMediaStatsInfo.getScreenShare();
+        List<IncomingScreenShareMediaStats> incomingScreenShareMediaStats = incomingMediaStatsInfo.getScreenShare();
     }
 }
 ```
