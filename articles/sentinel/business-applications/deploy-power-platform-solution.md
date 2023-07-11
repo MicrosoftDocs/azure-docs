@@ -50,18 +50,6 @@ The Microsoft Sentinel Solution for Power Platform ingests and cross-correlates 
    - Storage account to use with Azure Data Lake Storage Gen2. For more information see, [Create a storage account to use with Azure Data Lake Storage Gen2](/azure/storage/blobs/create-data-lake-storage-account).
    - Blob service endpoint URL for the storage account. For more information, see [Get service endpoints for the storage account](/azure/storage/common/storage-account-get-info?tabs=portal#get-service-endpoints-for-the-storage-account).
    - Power Platform data export process configured to use the Azure Data Lake Storage Gen2 storage account. This process can take up to 48 hours to activate. For more information, see [Set up Microsoft Power Platform self-service analytics to export Power Platform inventory and usage data](/power-platform/admin/self-service-analytics).
-<!--
-
-
-
-Not sure if you can do all/some of this as you install the Power Platform inventory or if you should do before:
-
-Create a an ADLSv2 Storage Account: Refer to the ADLSv2 quickstart guide for details. This storage account is to be used by Power Platform Self Service Analytics.
-
- Collect blob service endpoint URL: Refer to the Azure Storage documentation for details. Take note of the blob service URL for use in ARM deployment e.g. https://<storage_account_name>.blob.core.windows.net
-
-Configure Power Platform self-service analytics: Refer to the Power Platform guide for details. Configure the data export process to use the storage account created in the previous step. Configure data export both for Power Apps and for Power Automate. This process can take up to 48 hours to fully activate.
--->
 
 ## Install the Power Platform solution in Microsoft Sentinel
 
