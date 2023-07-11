@@ -21,7 +21,9 @@ Ensure you have first deployed ALB Controller into your Kubernetes cluster.  You
 
 ### Prepare your virtual network / subnet for Application Gateway for Containers
 
-#### AKS Virtual Network
+If you do not have a subnet available with at least 250 available IP addresses and delegated to the Application Gateway for Containers resource, the following steps can be followed to create a new subnet.
+
+#### New subnet in AKS managed virtual network
 If you wish to deploy Application Gateway for Containers into the virtual network containing your AKS cluster, execute the following command to find the cluster's virtual network:
 ```azurecli-interactive
 AKS_NAME='<your cluster name>'
@@ -45,7 +47,7 @@ az network vnet subnet create \
 albSubnetId=$(az network vnet subnet show --name $albSubnetName --resource-group $vnetResourceGroup --vnet-name $vnetName --query '[id]' --output tsv)
 ```
 
-#### Existing Virtual Network not specific to AKS
+#### New subnet in non-AKS managed virtual network
 If you wish to create a subnet in an existing virtual network, you can execute the following command to create a new subnet for the Application Gateway for Containers association resource:
 ```azurecli-interactive
 vnetResourceGroup=<resource group name of the virtual network>
