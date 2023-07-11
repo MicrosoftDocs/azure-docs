@@ -116,7 +116,7 @@ As you design the infrastructure for SAP HANA on Azure with Azure NetApp Files, 
 The configuration in this article is presented with simple Azure NetApp Files Volumes. 
 
 > [!IMPORTANT]
-> For production systems, where performance is a key, we recommend to evaluate the use of [Azure NetApp Files application volume group for SAP HANA](hana-vm-operations-netapp.md#deployment-through-azure-netapp-files-application-volume-group-for-sap-hana-avg).   
+> For production systems, where performance is a key, we recommend to evaluate and consider using [Azure NetApp Files application volume group for SAP HANA](hana-vm-operations-netapp.md#deployment-through-azure-netapp-files-application-volume-group-for-sap-hana-avg).   
 
 ### Deploy Azure NetApp Files resources  
 

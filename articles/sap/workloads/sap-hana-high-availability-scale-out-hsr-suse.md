@@ -74,7 +74,7 @@ The HANA shared file system `/hana/shared` in the presented architecture can be 
   
 For recommended SAP HANA storage configurations, see [SAP HANA Azure VMs storage configurations](./hana-vm-operations-storage.md). 
 
-If deploying all HANA systems on Azure NetApp Files, for production systems, where performance is a key, we recommend to evaluate the use of [Azure NetApp Files application volume group for SAP HANA](hana-vm-operations-netapp.md#deployment-through-azure-netapp-files-application-volume-group-for-sap-hana-avg).  
+If deploying all HANA systems on Azure NetApp Files, for production systems, where performance is a key, we recommend to evaluate and consider using [Azure NetApp Files application volume group for SAP HANA](hana-vm-operations-netapp.md#deployment-through-azure-netapp-files-application-volume-group-for-sap-hana-avg).  
 
 > [!WARNING]
 > Deploying `/hana/data` and `/hana/log` on NFS on Azure Files is not supported.  
