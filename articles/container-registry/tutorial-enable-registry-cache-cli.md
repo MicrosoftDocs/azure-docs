@@ -3,7 +3,7 @@ title: Enable Cache for ACR (preview) - Azure CLI
 description: Learn how to enable Registry Cachein your Azure Container Registry using Azure CLI.
 ms.topic: tutorial
 ms.custom: devx-track-azurecli
-ms.date: 04/19/2022
+ms.date: 06/17/2022
 ms.author: tejaswikolli
 ---
 
@@ -13,7 +13,7 @@ This article is part three of a six-part tutorial series. [Part one](tutorial-re
 
 ## Prerequisites
 
-* You can use the [Azure Cloud Shell][Azure Cloud Shell] or a local installation of the Azure CLI to run the command examples in this article. If you'd like to use it locally, version 2.0.74 or later is required. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI][Install Azure CLI].
+* You can use the [Azure Cloud Shell][Azure Cloud Shell] or a local installation of the Azure CLI to run the command examples in this article. If you'd like to use it locally, version 2.46.0 or later is required. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI][Install Azure CLI].
 
 ## Configure Cache for ACR (preview)  - Azure CLI
 

@@ -9,17 +9,14 @@ ms.service: machine-learning
 ms.subservice: core
 ms.date: 05/02/2022
 ms.topic: how-to
-ms.custom: UpdateFrequency5, devx-track-python, contperf-fy21q1, event-tier1-build-2022
+ms.custom: UpdateFrequency5, contperf-fy21q1, event-tier1-build-2022
 ---
 
 # Hyperparameter tuning a model with Azure Machine Learning (v1)
 
-[!INCLUDE [cli v1](../../../includes/machine-learning-cli-v1.md)]
-> [!div class="op_single_selector" title1="Select the version of Azure Machine Learning CLI extension you are using:"]
-> * [v1](how-to-tune-hyperparameters.md)
-> * [v2 (current version)](../how-to-tune-hyperparameters.md?view=azureml-api-2&preserve-view=true)
+[!INCLUDE [cli v1](../includes/machine-learning-cli-v1.md)]
      
-[!INCLUDE [cli-version-info](../../../includes/machine-learning-cli-version-1-only.md)]
+[!INCLUDE [cli-version-info](../includes/machine-learning-cli-version-1-only.md)]
 
 Automate efficient hyperparameter tuning by using Azure Machine Learning (v1) [HyperDrive package](/python/api/azureml-train-core/azureml.train.hyperdrive). Learn how to complete the steps required to tune hyperparameters with the [Azure Machine Learning SDK](/python/api/overview/azure/ml/):
 
@@ -483,7 +480,7 @@ print('\n batch size:',parameter_values[7])
 Refer to train-hyperparameter-* notebooks in this folder:
 * [how-to-use-azureml/ml-frameworks](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/ml-frameworks)
 
-[!INCLUDE [aml-clone-in-azure-notebook](../../../includes/aml-clone-for-examples.md)]
+[!INCLUDE [aml-clone-in-azure-notebook](../includes/aml-clone-for-examples.md)]
 
 ## Next steps
 * [Track an experiment](../how-to-log-view-metrics.md)

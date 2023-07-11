@@ -14,10 +14,9 @@ ms.assetid: ad8e5c75-0cf6-4564-ae62-ea1246b4e5f2
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 04/25/2023
+ms.date: 06/29/2023
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-
 ---
 
 # Use Azure to host and run SAP workload scenarios
@@ -26,7 +25,7 @@ When you use Microsoft Azure, you can reliably run your mission-critical SAP wor
 
 Besides hosting SAP NetWeaver and S/4HANA scenarios with the different DBMS on Azure, you can host other SAP workload scenarios, like SAP BI on Azure. Our partnership with SAP resulted in a variety of integration scenarios with the overall Microsoft ecosystem. Check out the **dedicated [Integration section](./integration-get-started.md)** to learn more.
 
-We just announced our  new services of Azure Center for SAP solutions and Azure Monitor for SAP solutions 2.0 entering the public preview stage. These services will give you the possibility to deploy SAP workload on Azure in a highly automated manner in an optimal architecture and configuration. And monitor your Azure infrastructure, OS, DBMS, and ABAP stack deployments on one single pane of glass.
+We just announced our  new services of Azure Center for SAP solutions and Azure Monitor for SAP solutions 2.0 entering the public preview stage. These services give you the possibility to deploy SAP workload on Azure in a highly automated manner in an optimal architecture and configuration. And monitor your Azure infrastructure, OS, DBMS, and ABAP stack deployments on one single pane of glass.
 
 For customers and partners who are focused on deploying and operating their assets in public cloud through Terraform and Ansible, use our SAP on Azure Deployment Automation Framework to jump start your SAP deployments into Azure using our public Terraform and Ansible modules on [github](https://github.com/Azure/sap-automation).
 
@@ -46,8 +45,8 @@ If you have specific questions, we're going to point you to specific documents o
 - Are third-party HA frameworks, besides Windows and Pacemaker supported? Check bottom part of [SAP support note #1928533](https://launchpad.support.sap.com/#/notes/1928533)
 - What Azure storage is best for my scenario? Read [Azure Storage types for SAP workload](./planning-guide-storage.md)
 - Is the Red Hat kernel in Oracle Enterprise Linux supported by SAP? Read SAP [SAP support note #1565179](https://launchpad.support.sap.com/#/notes/1565179)
-- Why are the Azure [Da(s)v4](../../virtual-machines/dav4-dasv4-series.md)/[Ea(s)](../../virtual-machines/eav4-easv4-series.md) VM families not certified for SAP HANA? The Azure Das/Eas VM families are based on AMD processor-driven hardware. SAP HANA doesn't support AMD processors, not even in virtualized scenarios
-- Why am I still getting the message: 'The cpu flags for the RDTSCP instruction or the cpu flags for constant_tsc or nonstop_tsc aren't set or current_clocksource and available_clocksource aren't correctly configured' with SAP HANA, despite the fact that I'm running the most recent Linux kernels. For the answer, check [SAP support note #2791572](https://launchpad.support.sap.com/#/notes/2791572)
+- Why are the Azures [Da(s)v4](../../virtual-machines/dav4-dasv4-series.md)/[Ea(s)](../../virtual-machines/eav4-easv4-series.md) VM families not certified for SAP HANA? The Azure Das/Eas VM families are based on AMD processor-driven hardware. SAP HANA doesn't support AMD processors, not even in virtualized scenarios
+- Why am I still getting the message: 'The cpu flags for the RDTSCP instruction or the cpu flags for constant_tsc or nonstop_tsc aren't set or current_clocksource and available_clocksource aren't correctly configured' with SAP HANA, although I'm running the most recent Linux kernels. For the answer, check [SAP support note #2791572](https://launchpad.support.sap.com/#/notes/2791572)
 - Where can I find architectures for deploying SAP Fiori on Azure? Check out the blog [SAP on Azure: Application Gateway Web Application Firewall (WAF) v2 Setup for Internet facing SAP Fiori Apps](https://blogs.sap.com/2020/12/03/sap-on-azure-application-gateway-web-application-firewall-waf-v2-setup-for-internet-facing-sap-fiori-apps/)
 
 ## Documentation space
@@ -65,6 +64,12 @@ In the SAP workload documentation space, you can find the following areas:
 
 ## Change Log
 
+- Jun 29, 2023: Update important considerations and sizing information in [HA for HANA scale-up with ANF on RHEL](./sap-hana-high-availability-netapp-files-red-hat.md), [HANA scale-out with standby node on Azure VMs with ANF on RHEL](./sap-hana-scale-out-standby-netapp-files-rhel.md)
+- Jun 26, 2023: Update important considerations and sizing information in [HA for HANA Scale-up with ANF on SLES](sap-hana-high-availability-netapp-files-suse.md) and [HANA scale-out with standby node with ANF on SLES](./sap-hana-scale-out-standby-netapp-files-suse.md).
+- Jun 23, 2023: Updated Azure scheduled events for SLES in [Pacemaker set up guide](./high-availability-guide-suse-pacemaker.md#configure-pacemaker-for-azure-scheduled-events).
+- June 1, 2023: Included virtual machine scale set with flexible orchestration guidelines in SAP workload [planning guide](./planning-guide.md).
+- June 1, 2023: Updated high availability guidelines in [HA architecture and scenarios](./sap-high-availability-architecture-scenarios.md), and added additional deployment option in [configuring optimal network latency with SAP applications](./proximity-placement-scenarios.md).
+- June 1, 2023: Release of [virtual machine scale set with flexible orchestration support for SAP workload](./virtual-machine-scale-set-sap-deployment-guide.md).
 - April 25, 2023: Adjust mount options in [HA for HANA Scale-up with ANF on SLES](sap-hana-high-availability-netapp-files-suse.md), [HANA scale-out with standby node with ANF on SLES](./sap-hana-scale-out-standby-netapp-files-suse.md), [HA for HANA Scale-out HA on SLES](sap-hana-high-availability-scale-out-hsr-suse.md), [HA for HANA scale-up with ANF on RHEL](./sap-hana-high-availability-netapp-files-red-hat.md), [HANA scale-out with standby node on Azure VMs with ANF on RHEL](./sap-hana-scale-out-standby-netapp-files-rhel.md), [HA for HANA scale-out on RHEL](./sap-hana-high-availability-scale-out-hsr-rhel.md), [HA for SAP NW on SLES with ANF](./high-availability-guide-suse-netapp-files.md) , [HA for SAP NW on RHEL with ANF](./high-availability-guide-rhel-netapp-files.md) and [HA for SAP NW on SLES with simple mount and NFS](high-availability-guide-suse-nfs-simple-mount.md)
 - April 6, 2023: Updates for RHEL 9 in [Setting up Pacemaker on RHEL in Azure](./high-availability-guide-rhel-pacemaker.md)
 - March 26, 2023: Adding recommended sector size in [SAP HANA Azure virtual machine Premium SSD v2 storage configurations](./hana-vm-premium-ssd-v2.md)

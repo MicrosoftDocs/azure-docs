@@ -96,8 +96,8 @@ The output for each command looks similar to the following example:
 #### Optional parameters
 You can use the following optional parameters with the previous commands:
 
-- `--ksm-metric-annotations-allow-list` is a comma-separated list of Kubernetes annotations keys used in the resource's labels metric. By default, the metric contains only name and namespace labels. To include more annotations, provide a list of resource names in their plural form and Kubernetes annotation keys that you want to allow for them. A single `*` can be provided per resource instead to allow any annotations, but it has severe performance implications.
-- `--ksm-metric-labels-allow-list` is a comma-separated list of more Kubernetes label keys that is used in the resource's labels metric. By default the metric contains only name and namespace labels. To include more labels, provide a list of resource names in their plural form and Kubernetes label keys that you want to allow for them. A single asterisk (`*`) can be provided per resource instead to allow any labels, but it has severe performance implications.
+- `--ksm-metric-annotations-allow-list` is a comma-separated list of Kubernetes annotations keys used in the resource's kube_resource_annotations metric(For ex- kube_pod_annotations is the annotations metric for the pods resource). By default, the kube_resource_annotations(ex - kube_pod_annotations) metric contains only name and namespace labels. To include more annotations, provide a list of resource names in their plural form and Kubernetes annotation keys that you want to allow for them (Example: 'pods=[kubernetes.io/team,...],namespaces=[kubernetes.io/team],...)'. A single `*` can be provided per resource instead to allow any annotations, but it has severe performance implications.
+- `--ksm-metric-labels-allow-list` is a comma-separated list of more Kubernetes label keys that is used in the resource's kube_resource_labels metric kube_resource_labels metric(For ex- kube_pod_labels is the labels metric for the pods resource). By default the kube_resource_labels(ex - kube_pod_labels) metric contains only name and namespace labels. To include more labels, provide a list of resource names in their plural form and Kubernetes label keys that you want to allow for them (Example: 'pods=[app],namespaces=[k8s-label-1,k8s-label-n,...],...)'. A single asterisk (`*`) can be provided per resource instead to allow any labels, but it has severe performance implications.
 - `--enable-windows-recording-rules` lets you enable the recording rule groups required for proper functioning of the Windows dashboards.
 
 **Use annotations and labels.**
@@ -169,7 +169,7 @@ If you're using an existing Azure Managed Grafana instance that's already linked
     | `clusterResourceId` | Resource ID for the AKS cluster. Retrieve from the **JSON view** on the **Overview** page for the cluster. |
     | `clusterLocation` | Location of the AKS cluster. Retrieve from the **JSON view** on the **Overview** page for the cluster. |
     | `metricLabelsAllowlist` | Comma-separated list of Kubernetes labels keys to be used in the resource's labels metric. |
-    | `metricAnnotationsAllowList` | Comma-separated list of more Kubernetes label keys to be used in the resource's labels metric. |
+    | `metricAnnotationsAllowList` | Comma-separated list of more Kubernetes label keys to be used in the resource's annotations metric. |
     | `grafanaResourceId` | Resource ID for the managed Grafana instance. Retrieve from the **JSON view** on the **Overview** page for the Grafana instance. |
     | `grafanaLocation`   | Location for the managed Grafana instance. Retrieve from the **JSON view** on the **Overview** page for the Grafana instance. |
     | `grafanaSku`        | SKU for the managed Grafana instance. Retrieve from the **JSON view** on the **Overview** page for the Grafana instance. Use the **sku.name**. |
@@ -258,7 +258,7 @@ If you're using an existing Azure Managed Grafana instance that's already linked
     | `clusterResourceId` | Resource ID for the AKS cluster. Retrieve from the **JSON view** on the **Overview** page for the cluster. |
     | `clusterLocation` | Location of the AKS cluster. Retrieve from the **JSON view** on the **Overview** page for the cluster. |
     | `metricLabelsAllowlist` | Comma-separated list of Kubernetes labels keys used in the resource's labels metric. |
-    | `metricAnnotationsAllowList` | Comma-separated list of more Kubernetes label keys used in the resource's labels metric. |
+    | `metricAnnotationsAllowList` | Comma-separated list of more Kubernetes label keys used in the resource's annotations metric. |
     | `grafanaResourceId` | Resource ID for the managed Grafana instance. Retrieve from the **JSON view** on the **Overview** page for the Grafana instance. |
     | `grafanaLocation`   | Location for the managed Grafana instance. Retrieve from the **JSON view** on the **Overview** page for the Grafana instance. |
     | `grafanaSku`        | SKU for the managed Grafana instance. Retrieve from the **JSON view** on the **Overview** page for the Grafana instance. Use the **sku.name**. |
@@ -385,6 +385,14 @@ Deploy the template with the parameter file by using any valid method for deploy
 ---
 
 ## Enable Windows metrics collection
+
+> [!NOTE]
+> There is no CPU/Memory limit in windows-exporter-daemonset.yaml so it may over-provision the Windows nodes  
+> For more details see [Resource reservation](https://kubernetes.io/docs/concepts/configuration/windows-resource-management/#resource-reservation)
+>   
+> As you deploy workloads, set resource memory and CPU limits on containers. This also subtracts from NodeAllocatable and helps the cluster-wide scheduler in determining which pods to place on which nodes.
+> Scheduling pods without limits may over-provision the Windows nodes and in extreme cases can cause the nodes to become unhealthy.
+
 
 As of version 6.4.0-main-02-22-2023-3ee44b9e of the Managed Prometheus addon container (prometheus_collector), Windows metric collection has been enabled for the AKS clusters. Onboarding to the Azure Monitor Metrics add-on enables the Windows DaemonSet pods to start running on your node pools. Both Windows Server 2019 and Windows Server 2022 are supported. Follow these steps to enable the pods to collect metrics from your Windows node pools.
 

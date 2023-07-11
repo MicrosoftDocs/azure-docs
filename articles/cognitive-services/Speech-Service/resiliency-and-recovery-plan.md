@@ -44,7 +44,7 @@ Follow these steps to configure your client to monitor for errors:
 
 1.  Find the [list of regionally available endpoints in our documentation](./rest-speech-to-text.md).
 2.  Select a primary and one or more secondary/backup regions from the list.
-3. From Azure portal, create Speech Service resources for each region.
+3. From Azure portal, create Speech service resources for each region.
     -  If you have set a specific quota, you may also consider setting the same quota in the backup regions. See details in [Speech service Quotas and Limits](./speech-services-quotas-and-limits.md).
 
 4.  Each region has its own STS token service. For the primary region and any backup regions your client configuration file needs to know the:
@@ -62,11 +62,11 @@ The recovery from regional failures for this usage type can be instantaneous and
 
 Data assets, models or deployments in one region can't be made visible or accessible in any other region.
 
-You should create Speech Service resources in both a main and a secondary region by following the same steps as used for default endpoints.
+You should create Speech service resources in both a main and a secondary region by following the same steps as used for default endpoints.
 
 ### Custom Speech
 
-Custom Speech Service doesn't support automatic failover. We suggest the following steps to prepare for manual or automatic failover implemented in your client code. In these steps, you replicate custom models in a secondary region. With this preparation, your client code can switch to a secondary region when the primary region fails.
+Custom Speech service doesn't support automatic failover. We suggest the following steps to prepare for manual or automatic failover implemented in your client code. In these steps, you replicate custom models in a secondary region. With this preparation, your client code can switch to a secondary region when the primary region fails.
 
 1.  Create your custom model in one main region (Primary).
 2.  Run the [Models_CopyTo](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-1/operations/Models_CopyTo) operation to replicate the custom model to all prepared regions (Secondary).

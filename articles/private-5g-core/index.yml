@@ -40,6 +40,10 @@ landingContent:
         links:
           - text: How to open a support request 
             url: open-support-request.md
+      - linkListType: concept
+        links:
+          - text: Support lifetime 
+            url: support-lifetime.md
   # Card
   - title: Training
     linkLists:
@@ -146,6 +150,8 @@ landingContent:
             url: distributed-tracing.md
           - text: Local monitoring with packet core dashboards
             url: packet-core-dashboards.md
+          - text: Monitor AP5GC UE usage with Event Hubs (preview)
+            url: ue-usage-event-hub.md
       - linkListType: how-to-guide
         links:
           - text: Perform data plane packet capture for a packet core instance

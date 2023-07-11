@@ -39,7 +39,7 @@ The following example parses an IPv4 CIDR string:
 {
   "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
   "contentVersion": "1.0.0.0",
-  "resources": {},
+  "resources": [],
   "outputs": {
     "v4info": {
       "type": "object",
@@ -68,7 +68,7 @@ The following example parses an IPv6 CIDR string:
 {
   "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
   "contentVersion": "1.0.0.0",
-  "resources": {},
+  "resources": [],
   "outputs": {
     "v6info": {
       "type": "object",
@@ -118,7 +118,7 @@ The following example calculates the first five /24 subnet ranges from the speci
 {
   "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
   "contentVersion": "1.0.0.0",
-  "resources": {},
+  "resources": [],
   "outputs": {
     "v4subnets": {
       "type": "array",
@@ -149,7 +149,7 @@ The following example calculates the first five /52 subnet ranges from the speci
 {
   "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
   "contentVersion": "1.0.0.0",
-  "resources": {},
+  "resources": [],
   "outputs": {
     "v6subnets": {
       "type": "array",
@@ -201,7 +201,7 @@ The following example calculates the first five usable host IP addresses from th
 {
   "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
   "contentVersion": "1.0.0.0",
-  "resources": {},
+  "resources": [],
   "outputs": {
     "v4hosts": {
       "type": "array",
@@ -232,7 +232,7 @@ The following example calculates the first five usable host IP addresses from th
 {
   "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
   "contentVersion": "1.0.0.0",
-  "resources": {},
+  "resources": [],
   "outputs": {
     "v6hosts": {
       "type": "array",

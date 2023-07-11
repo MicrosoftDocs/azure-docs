@@ -20,8 +20,12 @@
       href: m365-workload-docs.md
   - name: Use groups to manage role assignments
     href: groups-concept.md
-  - name: Administrative units  
-    href: administrative-units.md
+  - name: Administrative units
+    items:
+    - name: Administrative units
+      href: administrative-units.md
+    - name: Restricted management
+      href: admin-units-restricted-management.md
   - name: Best practices
     href: best-practices.md
   - name: Security

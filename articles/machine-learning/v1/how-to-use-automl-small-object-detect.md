@@ -13,13 +13,10 @@ ms.custom: UpdateFrequency5, sdkv1, event-tier1-build-2022
 
 # Train a small object detection model with AutoML (preview) (v1)
 
-[!INCLUDE [sdk v1](../../../includes/machine-learning-sdk-v1.md)]
+[!INCLUDE [sdk v1](../includes/machine-learning-sdk-v1.md)]
 
-> [!div class="op_single_selector" title1="Select the version of Azure Machine Learning CLI extension you are using:"]
-> * [v1](how-to-use-automl-small-object-detect-v1.md)
-> * [v2 (current version)](../how-to-use-automl-small-object-detect.md?view=azureml-api-2&preserve-view=true)
 
-[!INCLUDE [cli-version-info](../../../includes/machine-learning-cli-version-1-only.md)]
+[!INCLUDE [cli-version-info](../includes/machine-learning-cli-version-1-only.md)]
 
 
 > [!IMPORTANT]
@@ -39,7 +36,7 @@ When tiling, each image is divided into a grid of tiles. Adjacent tiles overlap 
 
 * An Azure Machine Learning workspace. To create the workspace, see [Create workspace resources](../quickstart-create-resources.md).
 
-* This article assumes some familiarity with how to configure an [automated machine learning experiment for computer vision tasks](how-to-auto-train-image-models-v1.md).
+* This article assumes some familiarity with how to configure an [automated machine learning experiment for computer vision tasks](how-to-auto-train-image-models.md).
 
 ## Supported models
 

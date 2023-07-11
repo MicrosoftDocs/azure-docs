@@ -5,17 +5,12 @@ services: virtual-machines-windows,virtual-network,storage
 documentationcenter: saponazure
 author: rdeltcheva
 manager: juergent
-editor: ''
-tags: azure-resource-manager
-keywords: ''
 ms.service: sap-on-azure
 ms.subservice: sap-vm-workloads
 ms.topic: article
-ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 03/30/2022
+ms.date: 07/03/2023
 ms.author: radeltch
-
 ---
 
 # GlusterFS on Azure VMs on Red Hat Enterprise Linux for SAP NetWeaver
@@ -33,14 +28,14 @@ ms.author: radeltch
 [2243692]:https://launchpad.support.sap.com/#/notes/2243692
 [1999351]:https://launchpad.support.sap.com/#/notes/1999351
 
-[sap-swcenter]:https://support.sap.com/en/my-support/software-downloads.html
-
 [template-file-server]:https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fapplication-workloads%2Fsap%2Fsap-file-server-md%2Fazuredeploy.json
 
 [sap-hana-ha]:sap-hana-high-availability-rhel.md
 
 This article describes how to deploy the virtual machines, configure the virtual machines, and install a GlusterFS cluster that can be used to store the shared data of a highly available SAP system.
 This guide describes how to set up GlusterFS that is used by two SAP systems, NW1 and NW2. The names of the resources (for example virtual machines, virtual networks) in the example assume that you have used the [SAP file server template][template-file-server] with resource prefix **glust**.
+
+Be aware that as documented in [Red Hat Gluster Storage Life Cycle](https://access.redhat.com/support/policy/updates/rhs) Red Hat Gluster Storage will reach end of life at the end of 2024. The configuration will be supported for SAP on Azure until it reaches end of life stage. GlusterFS should not be used for new deployments. We recommend to deploy the SAP shared directories on NFS on Azure Files or Azure NetApp Files volumes as documented in [HA for SAP NW on RHEL with NFS on Azure Files](./high-availability-guide-rhel-nfs-azure-files.md) or [HA for SAP NW on RHEL with Azure NetApp Files](./high-availability-guide-rhel-netapp-files.md).  
 
 Read the following SAP Notes and papers first
 
@@ -73,49 +68,19 @@ Read the following SAP Notes and papers first
 
 ## Overview
 
-To achieve high availability, SAP NetWeaver requires shared storage. GlusterFS is configured in a separate cluster and can be used by multiple SAP systems. Be aware that Red Hat is phasing out Red Hat Gluster Storage. The configuration will be supported for SAP on Azure until it reaches end of life stage as defined in [Red Hat Gluster Storage Life Cycle](https://access.redhat.com/support/policy/updates/rhs). 
-
+To achieve high availability, SAP NetWeaver requires shared storage. GlusterFS is configured in a separate cluster and can be used by multiple SAP systems.  
 
 ![SAP NetWeaver High Availability overview](./media/high-availability-guide-rhel-glusterfs/rhel-glusterfs.png)
 
 ## Set up GlusterFS
 
-You can either use an Azure Template from GitHub to deploy all required Azure resources, including the virtual machines, availability set and network interfaces or you can deploy the resources manually.
-
-### Deploy Linux via Azure Template
-
-The Azure Marketplace contains an image for Red Hat Enterprise Linux that you can use to deploy new virtual machines.
-You can use one of the quickstart templates on GitHub to deploy all required resources. The template deploys the virtual machines, availability set etc.
-Follow these steps to deploy the template:
-
-1. Open the [SAP file server template][template-file-server] in the Azure portal
-1. Enter the following parameters
-   1. Resource Prefix  
-      Enter the prefix you want to use. The value is used as a prefix for the resources that are deployed.
-   2. SAP System Count
-      Enter the number of SAP systems that will use this file server. This will deploy the required number of disks etc.
-   3. Os Type  
-      Select one of the Linux distributions. For this example, select RHEL 7
-   4. Admin Username, Admin Password or SSH key  
-      A new user is created that can be used to log on to the machine.
-   5. Subnet ID  
-      If you want to deploy the VM into an existing VNet where you have a subnet defined the VM should be assigned to, name the ID of that specific subnet. The ID usually looks like /subscriptions/**&lt;subscription ID&gt;**/resourceGroups/**&lt;resource group name&gt;**/providers/Microsoft.Network/virtualNetworks/**&lt;virtual network name&gt;**/subnets/**&lt;subnet name&gt;**
+In this example, the resources were deployed manually via the [Azure portal](https://portal.azure.com/#home).
 
 ### Deploy Linux manually via Azure portal
 
-You first need to create the virtual machines for this cluster.    
+This document assumes that you've already deployed a resource group, [Azure Virtual Network](../../virtual-network/virtual-networks-overview.md), and subnet.
 
-1. Create a Resource Group
-1. Create a Virtual Network
-1. Create an Availability Set  
-   Set max update domain
-1. Create Virtual Machine 1  
-   Use at least RHEL 7, in this example the [Red Hat Enterprise Linux 7.4 image](https://portal.azure.com/#create/RedHat.RedHatEnterpriseLinux74-ARM).  
-   Select Availability Set created earlier  
-1. Create Virtual Machine 2  
-   Use at least RHEL 7, in this example the [Red Hat Enterprise Linux 7.4 image](https://portal.azure.com/#create/RedHat.RedHatEnterpriseLinux74-ARM).  
-   Select Availability Set created earlier  
-1. Add one data disk for each SAP system to both virtual machines.
+Deploy virtual machines for GlusterFS. Choose a suitable RHEL image that is supported for Gluster storage. You can deploy VM in any one of the availability options - scale set, availability zone or availability set.
 
 ### Configure GlusterFS
 
@@ -126,40 +91,45 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
    You can either use a DNS server or modify the /etc/hosts on all nodes. This example shows how to use the /etc/hosts file.
    Replace the IP address and the hostname in the following commands
 
-   <pre><code>sudo vi /etc/hosts
-   </code></pre>
+   ```bash
+   sudo vi /etc/hosts
+   ```
 
    Insert the following lines to /etc/hosts. Change the IP address and hostname to match your environment
 
-   <pre><code># IP addresses of the Gluster nodes
-   <b>10.0.0.40 glust-0</b>
-   <b>10.0.0.41 glust-1</b>
-   <b>10.0.0.42 glust-2</b>
-   </code></pre>
+   ```text
+   # IP addresses of the Gluster nodes
+   10.0.0.40 glust-0
+   10.0.0.41 glust-1
+   10.0.0.42 glust-2
+   ```
 
 1. **[A]** Register
 
    Register your virtual machines and attach it to a pool that contains repositories for RHEL 7 and GlusterFS
 
-   <pre><code>sudo subscription-manager register
-   sudo subscription-manager attach --pool=&lt;pool id&gt;
-   </code></pre>
+   ```bash
+   sudo subscription-manager register
+   sudo subscription-manager attach --pool=<pool id>
+   ```
 
 1. **[A]** Enable GlusterFS repos
 
    In order to install the required packages, enable the following repositories.
 
-   <pre><code>sudo subscription-manager repos --disable "*"
+   ```bash
+   sudo subscription-manager repos --disable "*"
    sudo subscription-manager repos --enable=rhel-7-server-rpms
    sudo subscription-manager repos --enable=rh-gluster-3-for-rhel-7-server-rpms
-   </code></pre>
+   ```
   
 1. **[A]** Install GlusterFS packages
 
    Install these packages on all GlusterFS nodes
 
-   <pre><code>sudo yum -y install redhat-storage-server
-   </code></pre>
+   ```bash
+   sudo yum -y install redhat-storage-server
+   ```
 
    Reboot the nodes after the installation.
 
@@ -167,26 +137,29 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
 
    Add firewall rules to allow client traffic to the GlusterFS nodes.
 
-   <pre><code># list the available zones
+   ```bash
+   # list the available zones
    firewall-cmd --get-active-zones
    
    sudo firewall-cmd --zone=public --add-service=glusterfs --permanent
    sudo firewall-cmd --zone=public --add-service=glusterfs
-   </code></pre>
+   ```
 
 1. **[A]** Enable and start GlusterFS service
 
    Start the GlusterFS service on all nodes.
 
-   <pre><code>sudo systemctl start glusterd
+   ```bash
+   sudo systemctl start glusterd
    sudo systemctl enable glusterd
-   </code></pre>
+   ```
 
 1. **[1]** Create GluserFS
 
    Run the following commands to create the GlusterFS cluster
 
-   <pre><code>sudo gluster peer probe glust-1
+   ```bash
+   sudo gluster peer probe glust-1
    sudo gluster peer probe glust-2
    
    # Check gluster peer status
@@ -201,13 +174,14 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
    # Hostname: glust-2
    # Uuid: 9e340385-12fe-495e-ab0f-4f851b588cba
    # State: Accepted peer request (Connected)
-   </code></pre>
+   ```
 
 1. **[2]** Test peer status
 
    Test the peer status on the second node
 
-   <pre><code>sudo gluster peer status
+   ```bash
+   sudo gluster peer status
    # Number of Peers: 2
    #
    # Hostname: glust-0
@@ -217,13 +191,14 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
    # Hostname: glust-2
    # Uuid: 9e340385-12fe-495e-ab0f-4f851b588cba
    # State: Peer in Cluster (Connected)
-   </code></pre>
+   ```
 
 1. **[3]** Test peer status
 
    Test the peer status on the third node
 
-   <pre><code>sudo gluster peer status
+   ```bash
+   sudo gluster peer status
    # Number of Peers: 2
    #
    # Hostname: glust-0
@@ -233,7 +208,7 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
    # Hostname: glust-1
    # Uuid: 10d43840-fee4-4120-bf5a-de9c393964cd
    # State: Peer in Cluster (Connected)
-   </code></pre>
+   ```
 
 1. **[A]** Create LVM
 
@@ -241,113 +216,119 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
 
    Use these commands for NW1
 
-   <pre><code>sudo pvcreate --dataalignment 1024K /dev/disk/azure/scsi1/lun0
+   ```bash
+   sudo pvcreate --dataalignment 1024K /dev/disk/azure/scsi1/lun0
    sudo pvscan
-   sudo vgcreate --physicalextentsize 256K rhgs-<b>NW1</b> /dev/disk/azure/scsi1/lun0
+   sudo vgcreate --physicalextentsize 256K rhgs-NW1 /dev/disk/azure/scsi1/lun0
    sudo vgscan
-   sudo lvcreate -l 50%FREE -n rhgs-<b>NW1</b>/sapmnt
-   sudo lvcreate -l 20%FREE -n rhgs-<b>NW1</b>/trans
-   sudo lvcreate -l 10%FREE -n rhgs-<b>NW1</b>/sys
-   sudo lvcreate -l 50%FREE -n rhgs-<b>NW1</b>/ascs
-   sudo lvcreate -l 100%FREE -n rhgs-<b>NW1</b>/aers
+   sudo lvcreate -l 50%FREE -n rhgs-NW1/sapmnt
+   sudo lvcreate -l 20%FREE -n rhgs-NW1/trans
+   sudo lvcreate -l 10%FREE -n rhgs-NW1/sys
+   sudo lvcreate -l 50%FREE -n rhgs-NW1/ascs
+   sudo lvcreate -l 100%FREE -n rhgs-NW1/aers
    sudo lvscan
    
-   sudo mkfs.xfs -f -K -i size=512 -n size=8192 /dev/rhgs-<b>NW1</b>/sapmnt
-   sudo mkfs.xfs -f -K -i size=512 -n size=8192 /dev/rhgs-<b>NW1</b>/trans
-   sudo mkfs.xfs -f -K -i size=512 -n size=8192 /dev/rhgs-<b>NW1</b>/sys
-   sudo mkfs.xfs -f -K -i size=512 -n size=8192 /dev/rhgs-<b>NW1</b>/ascs
-   sudo mkfs.xfs -f -K -i size=512 -n size=8192 /dev/rhgs-<b>NW1</b>/aers
+   sudo mkfs.xfs -f -K -i size=512 -n size=8192 /dev/rhgs-NW1/sapmnt
+   sudo mkfs.xfs -f -K -i size=512 -n size=8192 /dev/rhgs-NW1/trans
+   sudo mkfs.xfs -f -K -i size=512 -n size=8192 /dev/rhgs-NW1/sys
+   sudo mkfs.xfs -f -K -i size=512 -n size=8192 /dev/rhgs-NW1/ascs
+   sudo mkfs.xfs -f -K -i size=512 -n size=8192 /dev/rhgs-NW1/aers
    
-   sudo mkdir -p /rhs/<b>NW1</b>/sapmnt
-   sudo mkdir -p /rhs/<b>NW1</b>/trans
-   sudo mkdir -p /rhs/<b>NW1</b>/sys
-   sudo mkdir -p /rhs/<b>NW1</b>/ascs
-   sudo mkdir -p /rhs/<b>NW1</b>/aers
+   sudo mkdir -p /rhs/NW1/sapmnt
+   sudo mkdir -p /rhs/NW1/trans
+   sudo mkdir -p /rhs/NW1/sys
+   sudo mkdir -p /rhs/NW1/ascs
+   sudo mkdir -p /rhs/NW1/aers
    
-   sudo chattr +i /rhs/<b>NW1</b>/sapmnt
-   sudo chattr +i /rhs/<b>NW1</b>/trans
-   sudo chattr +i /rhs/<b>NW1</b>/sys
-   sudo chattr +i /rhs/<b>NW1</b>/ascs
-   sudo chattr +i /rhs/<b>NW1</b>/aers
-
-   echo -e "/dev/rhgs-<b>NW1</b>/sapmnt\t/rhs/<b>NW1</b>/sapmnt\txfs\tdefaults,inode64,nobarrier,noatime,nouuid 0 2" | sudo tee -a /etc/fstab
-   echo -e "/dev/rhgs-<b>NW1</b>/trans\t/rhs/<b>NW1</b>/trans\txfs\tdefaults,inode64,nobarrier,noatime,nouuid 0 2" | sudo tee -a /etc/fstab
-   echo -e "/dev/rhgs-<b>NW1</b>/sys\t/rhs/<b>NW1</b>/sys\txfs\tdefaults,inode64,nobarrier,noatime,nouuid 0 2" | sudo tee -a /etc/fstab
-   echo -e "/dev/rhgs-<b>NW1</b>/ascs\t/rhs/<b>NW1</b>/ascs\txfs\tdefaults,inode64,nobarrier,noatime,nouuid 0 2" | sudo tee -a /etc/fstab
-   echo -e "/dev/rhgs-<b>NW1</b>/aers\t/rhs/<b>NW1</b>/aers\txfs\tdefaults,inode64,nobarrier,noatime,nouuid 0 2" | sudo tee -a /etc/fstab
+   sudo chattr +i /rhs/NW1/sapmnt
+   sudo chattr +i /rhs/NW1/trans
+   sudo chattr +i /rhs/NW1/sys
+   sudo chattr +i /rhs/NW1/ascs
+   sudo chattr +i /rhs/NW1/aers
+   
+   echo -e "/dev/rhgs-NW1/sapmnt\t/rhs/NW1/sapmnt\txfs\tdefaults,inode64,nobarrier,noatime,nouuid 0 2" | sudo tee -a /etc/fstab
+   echo -e "/dev/rhgs-NW1/trans\t/rhs/NW1/trans\txfs\tdefaults,inode64,nobarrier,noatime,nouuid 0 2" | sudo tee -a /etc/fstab
+   echo -e "/dev/rhgs-NW1/sys\t/rhs/NW1/sys\txfs\tdefaults,inode64,nobarrier,noatime,nouuid 0 2" | sudo tee -a /etc/fstab
+   echo -e "/dev/rhgs-NW1/ascs\t/rhs/NW1/ascs\txfs\tdefaults,inode64,nobarrier,noatime,nouuid 0 2" | sudo tee -a /etc/fstab
+   echo -e "/dev/rhgs-NW1/aers\t/rhs/NW1/aers\txfs\tdefaults,inode64,nobarrier,noatime,nouuid 0 2" | sudo tee -a /etc/fstab
+   
    sudo mount -a
-   </code></pre>
+   ```
 
    Use these commands for NW2
 
-   <pre><code>sudo pvcreate --dataalignment 1024K /dev/disk/azure/scsi1/lun1
+   ```bash
+   sudo pvcreate --dataalignment 1024K /dev/disk/azure/scsi1/lun1
    sudo pvscan
-   sudo vgcreate --physicalextentsize 256K rhgs-<b>NW2</b> /dev/disk/azure/scsi1/lun1
+   sudo vgcreate --physicalextentsize 256K rhgs-NW2 /dev/disk/azure/scsi1/lun1
    sudo vgscan
-   sudo lvcreate -l 50%FREE -n rhgs-<b>NW2</b>/sapmnt
-   sudo lvcreate -l 20%FREE -n rhgs-<b>NW2</b>/trans
-   sudo lvcreate -l 10%FREE -n rhgs-<b>NW2</b>/sys
-   sudo lvcreate -l 50%FREE -n rhgs-<b>NW2</b>/ascs
-   sudo lvcreate -l 100%FREE -n rhgs-<b>NW2</b>/aers
+   sudo lvcreate -l 50%FREE -n rhgs-NW2/sapmnt
+   sudo lvcreate -l 20%FREE -n rhgs-NW2/trans
+   sudo lvcreate -l 10%FREE -n rhgs-NW2/sys
+   sudo lvcreate -l 50%FREE -n rhgs-NW2/ascs
+   sudo lvcreate -l 100%FREE -n rhgs-NW2/aers
    
-   sudo mkfs.xfs -f -K -i size=512 -n size=8192 /dev/rhgs-<b>NW2</b>/sapmnt
-   sudo mkfs.xfs -f -K -i size=512 -n size=8192 /dev/rhgs-<b>NW2</b>/trans
-   sudo mkfs.xfs -f -K -i size=512 -n size=8192 /dev/rhgs-<b>NW2</b>/sys
-   sudo mkfs.xfs -f -K -i size=512 -n size=8192 /dev/rhgs-<b>NW2</b>/ascs
-   sudo mkfs.xfs -f -K -i size=512 -n size=8192 /dev/rhgs-<b>NW2</b>/aers
+   sudo mkfs.xfs -f -K -i size=512 -n size=8192 /dev/rhgs-NW2/sapmnt
+   sudo mkfs.xfs -f -K -i size=512 -n size=8192 /dev/rhgs-NW2/trans
+   sudo mkfs.xfs -f -K -i size=512 -n size=8192 /dev/rhgs-NW2/sys
+   sudo mkfs.xfs -f -K -i size=512 -n size=8192 /dev/rhgs-NW2/ascs
+   sudo mkfs.xfs -f -K -i size=512 -n size=8192 /dev/rhgs-NW2/aers
    
-   sudo mkdir -p /rhs/<b>NW2</b>/sapmnt
-   sudo mkdir -p /rhs/<b>NW2</b>/trans
-   sudo mkdir -p /rhs/<b>NW2</b>/sys
-   sudo mkdir -p /rhs/<b>NW2</b>/ascs
-   sudo mkdir -p /rhs/<b>NW2</b>/aers
+   sudo mkdir -p /rhs/NW2/sapmnt
+   sudo mkdir -p /rhs/NW2/trans
+   sudo mkdir -p /rhs/NW2/sys
+   sudo mkdir -p /rhs/NW2/ascs
+   sudo mkdir -p /rhs/NW2/aers
    
-   sudo chattr +i /rhs/<b>NW2</b>/sapmnt
-   sudo chattr +i /rhs/<b>NW2</b>/trans
-   sudo chattr +i /rhs/<b>NW2</b>/sys
-   sudo chattr +i /rhs/<b>NW2</b>/ascs
-   sudo chattr +i /rhs/<b>NW2</b>/aers
+   sudo chattr +i /rhs/NW2/sapmnt
+   sudo chattr +i /rhs/NW2/trans
+   sudo chattr +i /rhs/NW2/sys
+   sudo chattr +i /rhs/NW2/ascs
+   sudo chattr +i /rhs/NW2/aers
    sudo lvscan
    
-   echo -e "/dev/rhgs-<b>NW2</b>/sapmnt\t/rhs/<b>NW2</b>/sapmnt\txfs\tdefaults,inode64,nobarrier,noatime,nouuid 0 2" | sudo tee -a /etc/fstab
-   echo -e "/dev/rhgs-<b>NW2</b>/trans\t/rhs/<b>NW2</b>/trans\txfs\tdefaults,inode64,nobarrier,noatime,nouuid 0 2" | sudo tee -a /etc/fstab
-   echo -e "/dev/rhgs-<b>NW2</b>/sys\t/rhs/<b>NW2</b>/sys\txfs\tdefaults,inode64,nobarrier,noatime,nouuid 0 2" | sudo tee -a /etc/fstab
-   echo -e "/dev/rhgs-<b>NW2</b>/ascs\t/rhs/<b>NW2</b>/ascs\txfs\tdefaults,inode64,nobarrier,noatime,nouuid 0 2" | sudo tee -a /etc/fstab
-   echo -e "/dev/rhgs-<b>NW2</b>/aers\t/rhs/<b>NW2</b>/aers\txfs\tdefaults,inode64,nobarrier,noatime,nouuid 0 2" | sudo tee -a /etc/fstab
+   echo -e "/dev/rhgs-NW2/sapmnt\t/rhs/NW2/sapmnt\txfs\tdefaults,inode64,nobarrier,noatime,nouuid 0 2" | sudo tee -a /etc/fstab
+   echo -e "/dev/rhgs-NW2/trans\t/rhs/NW2/trans\txfs\tdefaults,inode64,nobarrier,noatime,nouuid 0 2" | sudo tee -a /etc/fstab
+   echo -e "/dev/rhgs-NW2/sys\t/rhs/NW2/sys\txfs\tdefaults,inode64,nobarrier,noatime,nouuid 0 2" | sudo tee -a /etc/fstab
+   echo -e "/dev/rhgs-NW2/ascs\t/rhs/NW2/ascs\txfs\tdefaults,inode64,nobarrier,noatime,nouuid 0 2" | sudo tee -a /etc/fstab
+   echo -e "/dev/rhgs-NW2/aers\t/rhs/NW2/aers\txfs\tdefaults,inode64,nobarrier,noatime,nouuid 0 2" | sudo tee -a /etc/fstab
+   
    sudo mount -a
-   </code></pre>
+   ```
 
 1. **[1]** Create the distributed volume
 
    Use the following commands to create the GlusterFS volume for NW1 and start it.
 
-   <pre><code>sudo gluster vol create <b>NW1</b>-sapmnt replica 3 glust-0:/rhs/<b>NW1</b>/sapmnt glust-1:/rhs/<b>NW1</b>/sapmnt glust-2:/rhs/<b>NW1</b>/sapmnt force
-   sudo gluster vol create <b>NW1</b>-trans replica 3 glust-0:/rhs/<b>NW1</b>/trans glust-1:/rhs/<b>NW1</b>/trans glust-2:/rhs/<b>NW1</b>/trans force
-   sudo gluster vol create <b>NW1</b>-sys replica 3 glust-0:/rhs/<b>NW1</b>/sys glust-1:/rhs/<b>NW1</b>/sys glust-2:/rhs/<b>NW1</b>/sys force
-   sudo gluster vol create <b>NW1</b>-ascs replica 3 glust-0:/rhs/<b>NW1</b>/ascs glust-1:/rhs/<b>NW1</b>/ascs glust-2:/rhs/<b>NW1</b>/ascs force
-   sudo gluster vol create <b>NW1</b>-aers replica 3 glust-0:/rhs/<b>NW1</b>/aers glust-1:/rhs/<b>NW1</b>/aers glust-2:/rhs/<b>NW1</b>/aers force
+   ```bash
+   sudo gluster vol create NW1-sapmnt replica 3 glust-0:/rhs/NW1/sapmnt glust-1:/rhs/NW1/sapmnt glust-2:/rhs/NW1/sapmnt force
+   sudo gluster vol create NW1-trans replica 3 glust-0:/rhs/NW1/trans glust-1:/rhs/NW1/trans glust-2:/rhs/NW1/trans force
+   sudo gluster vol create NW1-sys replica 3 glust-0:/rhs/NW1/sys glust-1:/rhs/NW1/sys glust-2:/rhs/NW1/sys force
+   sudo gluster vol create NW1-ascs replica 3 glust-0:/rhs/NW1/ascs glust-1:/rhs/NW1/ascs glust-2:/rhs/NW1/ascs force
+   sudo gluster vol create NW1-aers replica 3 glust-0:/rhs/NW1/aers glust-1:/rhs/NW1/aers glust-2:/rhs/NW1/aers force
    
-   sudo gluster volume start <b>NW1</b>-sapmnt
-   sudo gluster volume start <b>NW1</b>-trans
-   sudo gluster volume start <b>NW1</b>-sys
-   sudo gluster volume start <b>NW1</b>-ascs
-   sudo gluster volume start <b>NW1</b>-aers
-   </code></pre>
+   sudo gluster volume start NW1-sapmnt
+   sudo gluster volume start NW1-trans
+   sudo gluster volume start NW1-sys
+   sudo gluster volume start NW1-ascs
+   sudo gluster volume start NW1-aers
+   ```
 
    Use the following commands to create the GlusterFS volume for NW2 and start it.
 
-   <pre><code>sudo gluster vol create <b>NW2</b>-sapmnt replica 3 glust-0:/rhs/<b>NW2</b>/sapmnt glust-1:/rhs/<b>NW2</b>/sapmnt glust-2:/rhs/<b>NW2</b>/sapmnt force
-   sudo gluster vol create <b>NW2</b>-trans replica 3 glust-0:/rhs/<b>NW2</b>/trans glust-1:/rhs/<b>NW2</b>/trans glust-2:/rhs/<b>NW2</b>/trans force
-   sudo gluster vol create <b>NW2</b>-sys replica 3 glust-0:/rhs/<b>NW2</b>/sys glust-1:/rhs/<b>NW2</b>/sys glust-2:/rhs/<b>NW2</b>/sys force
-   sudo gluster vol create <b>NW2</b>-ascs replica 3 glust-0:/rhs/<b>NW2</b>/ascs glust-1:/rhs/<b>NW2</b>/ascs glust-2:/rhs/<b>NW2</b>/ascs force
-   sudo gluster vol create <b>NW2</b>-aers replica 3 glust-0:/rhs/<b>NW2</b>/aers glust-1:/rhs/<b>NW2</b>/aers glust-2:/rhs/<b>NW2</b>/aers force
+   ```bash
+   sudo gluster vol create NW2-sapmnt replica 3 glust-0:/rhs/NW2/sapmnt glust-1:/rhs/NW2/sapmnt glust-2:/rhs/NW2/sapmnt force
+   sudo gluster vol create NW2-trans replica 3 glust-0:/rhs/NW2/trans glust-1:/rhs/NW2/trans glust-2:/rhs/NW2/trans force
+   sudo gluster vol create NW2-sys replica 3 glust-0:/rhs/NW2/sys glust-1:/rhs/NW2/sys glust-2:/rhs/NW2/sys force
+   sudo gluster vol create NW2-ascs replica 3 glust-0:/rhs/NW2/ascs glust-1:/rhs/NW2/ascs glust-2:/rhs/NW2/ascs force
+   sudo gluster vol create NW2-aers replica 3 glust-0:/rhs/NW2/aers glust-1:/rhs/NW2/aers glust-2:/rhs/NW2/aers force
    
-   sudo gluster volume start <b>NW2</b>-sapmnt
-   sudo gluster volume start <b>NW2</b>-trans
-   sudo gluster volume start <b>NW2</b>-sys
-   sudo gluster volume start <b>NW2</b>-ascs
-   sudo gluster volume start <b>NW2</b>-aers
-   </code></pre>
+   sudo gluster volume start NW2-sapmnt
+   sudo gluster volume start NW2-trans
+   sudo gluster volume start NW2-sys
+   sudo gluster volume start NW2-ascs
+   sudo gluster volume start NW2-aers
+   ```
 
 ## Next steps
 

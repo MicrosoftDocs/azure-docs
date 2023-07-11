@@ -9,8 +9,7 @@ ms.author: pauljewell
 ms.service: storage
 ms.topic: how-to
 ms.date: 11/16/2022
-ms.subservice: blobs
-ms.custom: devx-track-java, devguide-java
+ms.custom: devx-track-java, devguide-java, devx-track-extended-java
 ---
 
 # Get started with Azure Blob Storage and Java

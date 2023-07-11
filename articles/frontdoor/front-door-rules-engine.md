@@ -65,7 +65,7 @@ Rule sets can be configured using Azure Resource Manager templates. For an examp
 
 ## Limitations
 
-For information about quota limits, refer to [Front Door limits, quotas and constraints](../azure-resource-manager/management/azure-subscription-service-limits.md#azure-front-door-standard-and-premium-tier-service-limits).
+For information about quota limits, refer to [Front Door limits, quotas and constraints](../azure-resource-manager/management/azure-subscription-service-limits.md#azure-front-door-standard-and-premium-service-limits).
 
 ## Next steps
 

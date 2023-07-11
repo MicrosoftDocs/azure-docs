@@ -11,7 +11,7 @@ ms.custom:
 
 # Add controls to a map
 
-This article shows you how to add controls to a map. You'll also learn how to create a map with all controls and a [style picker].
+This article shows you how to add controls to a map, including how to create a map with all controls and a [style picker].
 
 ## Add zoom control
 
@@ -66,7 +66,7 @@ map.controls.add(new atlas.control.CompassControl(), {
 
 ## A Map with all controls
 
-Multiple controls can be put into an array and added to the map all at once and positioned in the same area of the map to simplify development. The following adds the standard navigation controls to the map using this approach.
+Multiple controls can be put into an array and added to the map all at once and positioned in the same area of the map to simplify development. The following code snippet adds the standard navigation controls to the map using this approach.
 
 ```javascript
 map.controls.add([
@@ -93,7 +93,7 @@ The style picker control is defined by the [StyleControl] class. For more inform
 
 ## Customize controls
 
-The [Navigation Control Options] sample is a tool to test out the various options for customizing the controls.
+The [Navigation Control Options] sample is a tool to test out the various options for customizing the controls. For the source code for this sample, see [Navigation Control Options source code].
 
 :::image type="content" source="./media/map-add-controls/map-navigation-control-options.png" alt-text="Screenshot showing the Map Navigation Control Options sample, which contains a map displaying zoom, compass, pitch and style controls and options on the left side of the screen that enable you to change the Control Position, Control Style, Zoom Delta, Pitch Delta, Compass Rotation Delta, Picker Styles, and Style Picker Layout properties.":::
 
@@ -145,7 +145,8 @@ See the following articles for full code:
 [PitchControl]: /javascript/api/azure-maps-control/atlas.control.pitchcontrol
 [CompassControl]: /javascript/api/azure-maps-control/atlas.control.compasscontrol
 [StyleControl]: /javascript/api/azure-maps-control/atlas.control.stylecontrol
-[Navigation Control Options]: https://samples.azuremaps.com/?search=Map%20Navigation%20Control%20Options&sample=map-navigation-control-options
+[Navigation Control Options]: https://samples.azuremaps.com/controls/map-navigation-control-options
+[Navigation Control Options source code]: https://github.com/Azure-Samples/AzureMapsCodeSamples/blob/main/Samples/Controls/Map%20Navigation%20Control%20Options/Map%20Navigation%20Control%20Options.html
 [choose a map style]: choose-map-style.md
 [Add a pin]: map-add-pin.md
 [Add a popup]: map-add-popup.md

@@ -30,7 +30,7 @@ STRINGEQUALS(<str_expr1>, <str_expr2> [, <bool_expr>])
    Is the second string expression to compare.  
 
 *bool_expr*
-    Optional value for ignoring case. When set to true, StringEquals will do a case-insensitive search. When unspecified, this value is false.
+    Optional value for ignoring case. When set to true, StringEquals does a case-insensitive search. When unspecified, this value is false.
   
 ## Return types
   
@@ -38,13 +38,13 @@ STRINGEQUALS(<str_expr1>, <str_expr2> [, <bool_expr>])
   
 ## Examples
   
-  The following example checks if "abc" matches "abc" and if "abc" matches "ABC".  
+  The following example checks if "abc" matches "abc" and if "abc" matches "ABC."  
   
 ```sql
 SELECT STRINGEQUALS("abc", "abc", false) AS c1, STRINGEQUALS("abc", "ABC", false) AS c2,  STRINGEQUALS("abc", "ABC", true) AS c3
 ```  
   
- Here is the result set.  
+ Here's the result set.  
   
 ```json
 [
@@ -58,10 +58,9 @@ SELECT STRINGEQUALS("abc", "abc", false) AS c1, STRINGEQUALS("abc", "ABC", false
 
 ## Remarks
 
-Learn about [how this string system function uses the index](string-functions.md).
+- This function performs an index seek.
 
 ## Next steps
 
-- [String functions Azure Cosmos DB](string-functions.md)
-- [System functions Azure Cosmos DB](system-functions.md)
+- [System functions Azure Cosmos DB](system-functions.yml)
 - [Introduction to Azure Cosmos DB](../../introduction.md)

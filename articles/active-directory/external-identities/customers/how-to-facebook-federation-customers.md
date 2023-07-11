@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: ciam
 ms.topic: how-to
-ms.date: 05/24/2023
+ms.date: 06/20/2023
 ms.author: mimart
 ms.custom: it-pro
 
@@ -27,32 +27,30 @@ If you don't already have a Facebook account, sign up at [https://www.facebook.c
 
 1. Sign in to [Facebook for developers](https://developers.facebook.com/apps) with your Facebook developer account credentials.
 1. If you haven't already done so, register as a Facebook developer: Select **Get Started** in the upper-right corner of the page, accept Facebook's policies, and complete the registration steps.
-1. Select **Create App**.
-1. For **Select an app type**, select **customers**, then select **Next**.
-1. Enter an **App Display Name** and a valid **App Contact Email**.
-1. Select **Create App**. This step may require you to accept Facebook platform policies and complete an online security check.
+1. Select **Create App**. Select **Set up Facebook Login**, and then select **Next**.
+1. For **Select an app type**, select **Consumer**, then select **Next**.
+1. Add an app name and a valid app contact mail.
+1. Select **Create app**. This step may require you to accept Facebook platform policies and complete an online security check.
 1. Select **Settings** > **Basic**.
-    1. Copy the value of **App ID**.
-    1. Select **Show** and copy the value of **App Secret**. You use both of them to configure Facebook as an identity provider in your tenant. **App Secret** is an important security credential.
+    1. Copy the value of **App ID**. Then select **Show** and copy the value of **App Secret**. You use both of these values to configure Facebook as an identity provider in your tenant. **App Secret** is an important security credential.
     1. Enter a URL for the **Privacy Policy URL**, for example `https://www.contoso.com/privacy`. The policy URL is a page you maintain to provide privacy information for your application.
     1. Enter a URL for the **Terms of Service URL**, for example `https://www.contoso.com/tos`. The policy URL is a page you maintain to provide terms and conditions for your application.
     1. Enter a URL for the **User Data Deletion**, for example `https://www.contoso.com/delete_my_data`. The User Data Deletion URL is a page you maintain to provide away for users to request that their data be deleted.
-    1. Choose a **Category**, for example `Business and Pages`. Facebook requires this value, but it's not used for Azure AD.
-1. At the bottom of the page, select **Add Platform**, and then select **Website**.
+    1. Choose a **Category**, for example `Business and pages`. Facebook requires this value, but it's not used by Azure AD.
+1. At the bottom of the page, select **Add platform**, select **Website**, and then select **Next**.
 1. In **Site URL**, enter the address of your website, for example `https://contoso.com`. 
-1. Select **Save Changes**.
-1. From the menu, select the **plus** sign or **Add Product** link next to **PRODUCTS**. Under the **Add Products to Your App**, select **Set up** under **Facebook Login**.
-1. From the menu, select **Facebook Login**, select **Settings**.
-1. In **Valid OAuth redirect URIs**, enter the following URIs, replacing `<tenant-ID>` with your customer tenant ID and `<tenant-name>` with your customer tenant name:
+1. Select **Save changes**.
+1. From the menu, select **Products**. Next to **Facebook Login**, select **Configure** > **Settings**.
+1. In **Valid OAuth Redirect URIs**, enter the following URIs, replacing `<tenant-ID>` with your customer tenant ID and `<tenant-name>` with your customer tenant name:
    - `https://login.microsoftonline.com/te/<tenant-ID>/oauth2/authresp`
-   - `https://<tenant-ID>.ciamlogin.com/<tenant-ID>/federation/oidc/www.facebook.com`
-    - `https://<tenant-ID>.ciamlogin.com/<tenant-name>.onmicrosoft.com/federation/oidc/www.facebook.com`
-    - `https://<tenant-ID>.ciamlogin.com/<tenant-ID>/federation/oauth2`
-    - `https://<tenant-ID>.ciamlogin.com/<tenant-name>.onmicrosoft.com/federation/oauth2`
+   - `https://<tenant-name>.ciamlogin.com/<tenant-ID>/federation/oidc/www.facebook.com`
+    - `https://<tenant-name>.ciamlogin.com/<tenant-name>.onmicrosoft.com/federation/oidc/www.facebook.com`
+    - `https://<tenant-name>.ciamlogin.com/<tenant-ID>/federation/oauth2`
+    - `https://<tenant-name>.ciamlogin.com/<tenant-name>.onmicrosoft.com/federation/oauth2`
    > [!NOTE]
    > To find your customer tenant ID, go to the [Microsoft Entra admin center](https://entra.microsoft.com). Under **Azure Active Directory**, select **Overview**. Then select the **Overview** tab and copy the **Tenant ID**.
-1. Select **Save Changes** at the bottom of the page.
-1. To make your Facebook application available to Azure AD, select the Status selector at the top right of the page and turn it **On** to make the Application public, and then select **Switch Mode**. At this point, the Status should change from **Development** to **Live**. For more information, see [Facebook App Development](https://developers.facebook.com/docs/development/release).
+1. Select **Save changes** at the bottom of the page.
+1. At this point, only Facebook application owners can sign in. Because you registered the app, you can sign in with your Facebook account. To make your Facebook application available to your users, from the menu, select **Go live**. Follow all of the steps listed to complete all requirements. You'll likely need to complete the business verification to verify your identity as a business entity or organization. For more information, see [Meta App Development](https://developers.facebook.com/docs/development/release).
 
 ## Configure Facebook federation in Azure AD for customers
 
@@ -65,8 +63,8 @@ After you create the Facebook application, in this step you set the Facebook cli
    <!-- ![Screenshot that shows how to add Facebook identity provider in Azure AD.](./media/sign-in-with-facebook/configure-facebook-idp.png)-->
 
 1. Enter a **Name**. For example, *Facebook*.
-1. For the **Client ID**, enter the Client ID of the Facebook application that you created earlier.
-1. For the **Client secret**, enter the Client Secret that you recorded.
+1. For the **Client ID**, enter the App ID of the Facebook application that you created earlier.
+1. For the **Client secret**, enter the App Secret that you recorded.
 1. Select **Save**.
 
 To configure Facebook federation by using PowerShell, follow these steps:

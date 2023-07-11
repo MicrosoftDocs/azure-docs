@@ -24,6 +24,7 @@ The packet core instances in the Azure Private 5G Core service run on an Arc-ena
 - You will need Owner permission on the resource group for your Azure Stack Edge resource.
     > [!NOTE]
     > Make a note of the Azure Stack Edge's resource group. The AKS cluster and custom location, created in this procedure, must belong to this resource group.
+- Review [Azure Stack Edge virtual machine sizing](azure-stack-edge-virtual-machine-sizing.md#azure-stack-edge-virtual-machine-sizing) to ensure your ASE has enough space available to commission the cluster.
 
 ## Enter a minishell session
 
@@ -136,7 +137,7 @@ You can input all the settings on this page before selecting **Apply** at the bo
           - **VLAN**: 0
           - **Subnet mask** and **Gateway**: Use the correct subnet mask and gateway for the IP address configured on the ASE port (even if the gateway is not set on the ASE port itself).
             - For example, *255.255.255.0* and *10.232.44.1*
-            - If there's no gateway between the access interface and gNB/RAN, use the gNB/RAN IP address as the gateway address. If there's more than one gNB connected via a switch, choose one of the IP addresses for the gateway.
+            - If the subnet does not have a default gateway, use another IP address in the subnet which will respond to ARP requests (such as one of the RAN IP addresses). If there's more than one gNB connected via a switch, choose one of the IP addresses for the gateway.
         - **DNS server** and **DNS suffix** should be left blank.
     1. Select **Modify** to save the configuration for this virtual network.
     1. Select **Apply** at the bottom of the page and wait for the notification (a bell icon) to confirm that the settings have been applied. Applying the settings will take approximately 15 minutes.
@@ -153,7 +154,7 @@ You can input all the settings on this page before selecting **Apply** at the bo
         - **VLAN**: VLAN ID, or 0 if not using VLANs
         - **Subnet mask** and **Gateway** must match the external values for the port.
             - For example, *255.255.255.0* and *10.232.44.1*
-            - If there's no gateway between the access interface and gNB/RAN, use the gNB/RAN IP address as the gateway address. If there's more than one gNB connected via a switch, choose one of the IP addresses for the gateway.
+            - If the subnet does not have a default gateway, use another IP address in the subnet which will respond to ARP requests (such as one of the RAN IP addresses). If there's more than one gNB connected via a switch, choose one of the IP addresses for the gateway.
         - **DNS server** and **DNS suffix** should be left blank.
     1. Select **Modify** to save the configuration for this virtual network.
     1. Select **Apply** at the bottom of the page and wait for the notification (a bell icon) to confirm that the settings have been applied. Applying the settings will take approximately 15 minutes.

@@ -66,7 +66,7 @@ This article describes feature availability in Microsoft Sentinel across differe
 |[Syslog](connect-syslog.md) |GA |&#x2705; |&#x2705; |
 |[Windows DNS Events via AMA (Preview)](connect-dns-ama.md) |Public Preview |&#x2705; |&#10060; |
 |[Windows Firewall](data-connectors/windows-firewall.md) |GA |&#x2705; |&#x2705; |
-|[Windows Forwarded Events (Preview)](connect-services-windows-based.md) |Public Preview |&#x2705; |&#x2705; |
+|[Windows Forwarded Events](connect-services-windows-based.md) |GA |&#x2705; |&#x2705; |
 |[Windows Security Events via AMA](connect-services-windows-based.md) |GA |&#x2705; |&#x2705; |
 
 <sup><a name="logsavailable"></a>1</sup> Supports only sign-in logs and audit logs.

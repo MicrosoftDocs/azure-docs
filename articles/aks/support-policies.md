@@ -141,7 +141,7 @@ Clusters with zero **Ready** nodes (or all **Not Ready**) and zero **Running** V
 
 AKS reserves the right to archive control planes that have been configured out of support guidelines for extended periods equal to and beyond 30 days. AKS maintains backups of cluster etcd metadata and can readily reallocate the cluster. This reallocation is initiated by any PUT operation bringing the cluster back into support, such as an upgrade or scale to active agent nodes.
 
-All clusters in a suspended or deleted subscription will be stopped immediately and deleted after 30 days
+All clusters in a suspended subscription will be stopped immediately and deleted after 90 days. All clusters in a deleted subscription will be deleted immediately. 
 
 ## Unsupported alpha and beta Kubernetes features
 

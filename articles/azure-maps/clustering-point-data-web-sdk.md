@@ -54,7 +54,7 @@ A bubble layer is a great way to render clustered points. Use expressions to sca
 
 To display the size of the cluster on top of the bubble, use a symbol layer with text, and don't use an icon.
 
-For a complete working sample of how to implement displaying clusters using a bubble layer, see [Point Clusters in Bubble Layer] in the [Azure Maps Samples].
+For a complete working sample of how to implement displaying clusters using a bubble layer, see [Point Clusters in Bubble Layer] in the [Azure Maps Samples]. For the source code for this sample, see [Point Clusters in Bubble Layer source code].
 
 :::image type="content" source="./media/cluster-point-data-web-sdk/display-clusters-using-bubble-layer.png" alt-text="Screenshot showing a map displaying clusters using a bubble layer.":::
 
@@ -73,7 +73,7 @@ When visualizing data points, the symbol layer automatically hides symbols that 
 
 Use clustering to show the data points density while keeping a clean user interface. The following sample shows you how to add custom symbols and represent clusters and individual data points using the symbol layer.
 
-For a complete working sample of how to implement displaying clusters using a symbol layer, see [Display clusters with a Symbol Layer] in the [Azure Maps Samples].
+For a complete working sample of how to implement displaying clusters using a symbol layer, see [Display clusters with a Symbol Layer] in the [Azure Maps Samples]. For the source code for this sample, see [Display clusters with a Symbol Layer source code].
 
 :::image type="content" source="./media/cluster-point-data-web-sdk/display-clusters-using-symbol-layer.png" alt-text="Screenshot showing a map displaying clusters with a symbol layer.":::
 
@@ -90,7 +90,7 @@ For a complete working sample of how to implement displaying clusters using a sy
 
 Heat maps are a great way to display the density of data on the map. This visualization method can handle a large number of data points on its own. If the data points are clustered and the cluster size is used as the weight of the heat map, then the heat map can handle even more data. To achieve this option, set the `weight` option of the heat map layer to `['get', 'point_count']`. When the cluster radius is small, the heat map looks nearly identical to a heat map using the unclustered data points, but it performs better. However, the smaller the cluster radius, the more accurate the heat map is, but with fewer performance benefits.
 
-For a complete working sample that demonstrates how to create a heat map that uses clustering on the data source, see [Cluster weighted Heat Map] in the [Azure Maps Samples].
+For a complete working sample that demonstrates how to create a heat map that uses clustering on the data source, see [Cluster weighted Heat Map] in the [Azure Maps Samples]. For the source code for this sample, see [Cluster weighted Heat Map source code].
 
 :::image type="content" source="./media/cluster-point-data-web-sdk/cluster-weighted-heat-map.png" alt-text="Screenshot showing a heat map that uses clustering on the data source.":::
 
@@ -166,7 +166,7 @@ function clusterClicked(e) {
 
 The point data that a cluster represents is spread over an area. In this sample when the mouse is hovered over a cluster, two main behaviors occur. First, the individual data points contained in the cluster are used to calculate a convex hull. Then, the convex hull is displayed on the map to show an area.  A convex hull is a polygon that wraps a set of points like an elastic band and can be calculated using the `atlas.math.getConvexHull` method. All points contained in a cluster can be retrieved from the data source using the `getClusterLeaves` method.
 
-For a complete working sample that demonstrates how to do this, see [Display cluster area with Convex Hull] in the [Azure Maps Samples].
+For a complete working sample that demonstrates how to do this, see [Display cluster area with Convex Hull] in the [Azure Maps Samples]. For the source code for this sample, see [Display cluster area with Convex Hull source code].
 
 :::image type="content" source="./media/cluster-point-data-web-sdk/display-cluster-area.png" alt-text="Screenshot showing a map that displays cluster areas represented by drop pins that show Convex Hull marking the cluster area when selected.":::
 
@@ -183,7 +183,7 @@ For a complete working sample that demonstrates how to do this, see [Display clu
 
 Often clusters are represented using a symbol with the number of points that are within the cluster. But, sometimes it's desirable to customize the style of clusters with more metrics. With cluster aggregates, custom properties can be created and populated using an [aggregate expression] calculation.  Cluster aggregates can be defined in `clusterProperties` option of the `DataSource`.
 
-The [Cluster aggregates] sample uses an aggregate expression. The code calculates a count based on the entity type property of each data point in a cluster. When a user selects a cluster, a popup shows with additional information about the cluster.
+The [Cluster aggregates] sample uses an aggregate expression. The code calculates a count based on the entity type property of each data point in a cluster. When a user selects a cluster, a popup shows with additional information about the cluster. For the source code for this sample, see [Cluster aggregates source code].
 
 :::image type="content" source="./media/cluster-point-data-web-sdk/cluster-aggregates.png" alt-text="Screenshot showing a map that uses clustering defined using data-driven style expression calculation. These calculations aggregate values across all points contained within the cluster.":::
 
@@ -220,8 +220,13 @@ See code examples to add functionality to your app:
 
 [aggregate expression]: data-driven-style-expressions-web-sdk.md#aggregate-expression
 [Azure Maps Samples]: https://samples.azuremaps.com
-[Point Clusters in Bubble Layer]: https://samples.azuremaps.com/?search=bubble%20layer&sample=point-clusters-in-bubble-layer
-[Display clusters with a Symbol Layer]: https://samples.azuremaps.com/?search=symbol%20layer&sample=display-clusters-with-a-symbol-layer
-[Cluster weighted Heat Map]: https://samples.azuremaps.com/?search=heat%20maps&sample=cluster-weighted-heat-map
-[Display cluster area with Convex Hull]: https://samples.azuremaps.com/?search=cluster%20area&sample=display-cluster-area-with-convex-hull
-[Cluster aggregates]: https://samples.azuremaps.com/?search=clusters&sample=cluster-aggregates
+[Point Clusters in Bubble Layer]: https://samples.azuremaps.com/bubble-layer/point-clusters-in-bubble-layer
+[Point Clusters in Bubble Layer source code]: https://github.com/Azure-Samples/AzureMapsCodeSamples/blob/main/Samples/Bubble%20Layer/Point%20Clusters%20in%20Bubble%20Layer/Point%20Clusters%20in%20Bubble%20Layer.html
+[Display clusters with a Symbol Layer]: https://samples.azuremaps.com/symbol-layer/display-clusters-with-a-symbol-layer
+[Display clusters with a Symbol Layer source code]: https://github.com/Azure-Samples/AzureMapsCodeSamples/blob/main/Samples/Symbol%20Layer/Display%20clusters%20with%20a%20Symbol%20layer/Display%20clusters%20with%20a%20Symbol%20layer.html
+[Cluster weighted Heat Map]: https://samples.azuremaps.com/heat-map-layer/cluster-weighted-heat-map
+[Cluster weighted Heat Map source code]: https://github.com/Azure-Samples/AzureMapsCodeSamples/blob/main/Samples/Heat%20Map%20Layer/Cluster%20weighted%20Heat%20Map/Cluster%20weighted%20Heat%20Map.html
+[Display cluster area with Convex Hull]: https://samples.azuremaps.com/spatial-math/display-cluster-area-with-convex-hull
+[Display cluster area with Convex Hull source code]: https://github.com/Azure-Samples/AzureMapsCodeSamples/blob/main/Samples/Spatial%20Math/Display%20cluster%20area%20with%20Convex%20Hull/Display%20cluster%20area%20with%20Convex%20Hull.html
+[Cluster aggregates]: https://samples.azuremaps.com/bubble-layer/cluster-aggregates
+[Cluster aggregates source code]: https://github.com/Azure-Samples/AzureMapsCodeSamples/blob/main/Samples/Bubble%20Layer/Cluster%20aggregates/Cluster%20aggregates.html
