@@ -18,17 +18,20 @@ ms.service: azure-communication-services
 
 Azure Communication Services Job Router is a robust tool designed to optimize the management of customer interactions across various communication applications. Accessible via a suite of SDKs and APIs, Job Router directs each customer interaction, or "job," to the most suitable agent or automated service, or "worker," based on a mix of pre-defined and runtime rules and policies. This ensures a timely and effective response to every customer's needs, leading to improved customer satisfaction, increased productivity, and more efficient use of resources.
 
-At its core, Job Router operates on a set of key concepts that together create a seamless and efficient communication management system. These include Job, Worker, Queue, Channel, Offer, and Distribution Policy. Whether it's managing high volumes of customer interactions in a contact center, routing customer queries to the right department in a large organization, or efficiently handling customer service requests in a retail business, Job Router can do it all. It ensures that every customer interaction is handled by the most suitable agent or automated service, leading to improved customer satisfaction and business efficiency.
+At its core, Job Router operates on a set of key concepts that together create a seamless and efficient communication management system. These include Job, Worker, Queue, Channel, Offer, and Distribution Policy. Whether it's managing high volumes of customer interactions in a contact center, routing customer queries to the right department in a large organization, or efficiently handling customer service requests in a retail business, Job Router can do it all. It ensures that every customer interaction is handled by the most suitable agent or automated service, leading to business efficiency.
 
-Job Router is agnostic to any Azure Communication Services channel primitive helping developers to build a comprehensive omnichannel communication solution. With Job Router, businesses can ensure that every customer interaction is handled efficiently, leading to improved customer experiences and operational efficiency.
+:::image type="content" source="./media/acs-router-architecture-diagram.png" alt-text="Diagram that shows the Job Router Architecture.":::
+
+Job Router is agnostic to any Azure Communication Services channel primitive helping developers to build a comprehensive omnichannel communication solution. With Job Router, businesses can ensure that every customer interaction is handled efficiently, at the right time and in the right channel.
+
+
 
 ## Key Concepts
 
 ### Job
 
 A Job is a unit of work (demand), which must be routed to an available Worker (supply).
-
-A real-world example is an incoming call or chat in the context of a call center.
+An actual instance would be an incoming call or chat in the context of a call center, customer engagement or customer support.
 
 #### Job lifecycle
 
@@ -50,25 +53,25 @@ A Worker is the supply available to handle a Job. When you use the SDK to regist
 - The number of concurrent jobs per [Channel](#channel) that the Worker can handle.
 - A set of [Labels](#labels) that can be used to group and [select](#label-selectors) workers.
 
-A real-world example is an agent in a call center.
+A concrete example of a worker would be a human agent in a customer interaction or contact center scenario.
 
 ### Queue
 
 A Queue is an ordered list of jobs, that are waiting to be served to a worker. Workers register with a queue to receive work from it.
 
-A real-world example is a call queue in a call center.
+To illustrate the concept of a queue let's use a contact center scenario, imagine a situation where multiple callers are placed on hold until a representative, with the right skills, becomes available to handle their calls.
 
 ### Channel
 
-A Channel is a grouping of jobs by some type. When a worker registers to receive work, they must also specify for which channels they can handle work, and how much of each can they handle concurrently. Channels are just a string discriminator and aren't explicitly created.
+A Channel is a grouping of jobs by some type. When a worker registers to receive work, they must also specify for which channels they can handle work, and how much of each can they handle concurrently. Channels are just a string discriminator and aren't explicitly created. A channel could be `voice calls` or `chats`.
 
-Real-world examples are `voice calls` or `chats` in a call center.
+By assigning jobs to different channels, it becomes possible to streamline workflows and allocate resources efficiently based on the specific needs or requirements associated with each channel. 
 
 ### Offer
 
 An Offer is extended by Job Router to a worker to handle a particular job when it determines a match. You can either accept or decline the offer with the JobRouter SDK. If you ignore the offer, it expires according to the time to live configured on the Distribution Policy.
 
-A real-world example is the ringing of an agent in a call center.
+The ringing serves as a tangible example of an offer extended to a worker, and it's an indicator that an interaction is about to take place, signaling the agent to answer the call promptly and engage in a conversation with the customer.
 
 #### Offer acceptance flow
 
@@ -121,7 +124,7 @@ A real-world example is the skill level of a particular worker or the team or ge
 
 Label selectors can be attached to a job in order to target a subset of workers on the queue.
 
-A real-world example is a condition on an incoming call that the agent must have a minimum level of knowledge of a particular product.
+As an example, in the context of a chat channel, consider a real-world scenario where an incoming chat message is subjected to a condition. This condition specifies that the assigned agent must have a minimum level of expertise or knowledge concerning a particular product. This example highlights how label selectors, similar to filters, can be employed to target a subset of agents within the chat channel who possess the required proficiency in the designated product.
 
 ### Classification policy
 
@@ -133,7 +136,10 @@ An exception policy controls the behavior of a Job based on a trigger and execut
 
 ### Next steps
 
-- [Quickstart: Submit a job for queuing and routing](../../quickstarts/router/get-started-router.md)
+- Let's get started with Job Router, check out the [Job Router Quickstart](../../quickstarts/router/get-started-router.md)
+
+#### Lear more about these key Job Router concepts:
+ 
 - [How jobs are matched to workers](matching-concepts.md)
 - [How worker capacity is configured](worker-capacity-concepts.md)
 - [Router Rule concepts](router-rule-concepts.md)
@@ -141,7 +147,7 @@ An exception policy controls the behavior of a Job based on a trigger and execut
 - [Distribution modes](distribution-concepts.md)
 - [Exception Policies](exception-policy.md)
 
-#### How To Guides
+#### Check out our How To Guides
 
 - [Manage queues](../../how-tos/router-sdk/manage-queue.md)
 - [How to classify a Job](../../how-tos/router-sdk/job-classification.md)
