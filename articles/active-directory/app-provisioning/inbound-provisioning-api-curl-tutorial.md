@@ -1,6 +1,6 @@
 ---
 title: Quickstart API-driven inbound provisioning with cURL
-description: Learn how to get started with API-driven inbound provisioning using cURL
+description: Learn how to get started with API-driven inbound provisioning using cURL.
 services: active-directory
 author: jenniferf-skc
 manager: amycolannino
@@ -45,15 +45,15 @@ ms.reviewer: cmmdesai
 1. Under all applications, use the search filter text box to find and open your API-driven provisioning application.
 1. Open the Provisioning blade. The landing page displays the status of the last run.
 1. Click on **View provisioning logs** to open the provisioning logs blade. Alternatively, you can click on the menu option **Monitor -> Provisioning logs**.
-     [![Screenshot of provisioning logs in menu.](media/inbound-provisioning-api-curl-tutorial/access-provisioning-logs.png)](media/inbound-provisioning-api-curl-tutorial/access-provisioning-logs.png#lightbox)
+      [![Screenshot of provisioning logs in menu.](media/inbound-provisioning-api-curl-tutorial/access-provisioning-logs.png)](media/inbound-provisioning-api-curl-tutorial/access-provisioning-logs.png#lightbox)
 1. Click on any record in the provisioning logs to view additional processing details.
 1. The provisioning log details screen displays all the steps executed for a specific user. 
-     [![Screenshot of provisioning logs details.](media/inbound-provisioning-api-curl-tutorial/provisioning-log-details.png)](media/inbound-provisioning-api-curl-tutorial/provisioning-log-details.png#lightbox)
-     * Under the **Import from API** step, see details of user data extracted from the bulk request.
-     * The **Match user** step shows details of any user match based on the matching identifier. If a user match happens, then the provisioning service performs an update operation. If there is no user match, then the provisioning service performs a create operation.
-     * The **Determine if User is in scope** step shows details of scoping filter evaluation. By default, all users are processed. If you have set a scoping filter (example, process only users belonging to the Sales department), the evaluation details of the scoping filter displays in this step.
-     * The **Provision User** step calls out the final processing step and changes applied to the user account.
-     * Use the **Modified properties** tab to view attribute updates.
+      [![Screenshot of provisioning logs details.](media/inbound-provisioning-api-curl-tutorial/provisioning-log-details.png)](media/inbound-provisioning-api-curl-tutorial/provisioning-log-details.png#lightbox)
+      * Under the **Import from API** step, see details of user data extracted from the bulk request.
+      * The **Match user** step shows details of any user match based on the matching identifier. If a user match happens, then the provisioning service performs an update operation. If there is no user match, then the provisioning service performs a create operation.
+      * The **Determine if User is in scope** step shows details of scoping filter evaluation. By default, all users are processed. If you have set a scoping filter (example, process only users belonging to the Sales department), the evaluation details of the scoping filter displays in this step.
+      * The **Provision User** step calls out the final processing step and changes applied to the user account.
+      * Use the **Modified properties** tab to view attribute updates.
 
 ## Next steps
 - [Troubleshoot issues with the inbound provisioning API](inbound-provisioning-api-issues.md)

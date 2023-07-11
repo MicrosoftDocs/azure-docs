@@ -1,6 +1,6 @@
 ---
 title: Configure API-driven inbound provisioning app
-description: Learn how to configure API-driven inbound provisioning app
+description: Learn how to configure API-driven inbound provisioning app.
 services: active-directory
 author: jenniferf-skc
 manager: amycolannino
@@ -66,7 +66,7 @@ Depending on the app you selected, use one of the following sections to complete
 1. Click **Accept terms & download** to download the Azure AD Provisioning Agent.
 1. Refer to the steps documented here to [install and configure the provisioning agent.](https://go.microsoft.com/fwlink/?linkid=2241216). This step registers your on-premises Active Directory domains with your Azure AD tenant.
 1. Once the agent registration is successful, select your domain in the drop-down **Active Directory domain** and specify the distinguished name of the OU where new user accounts are created by default.
-     [![Screenshot of Active Directory domain selected.](media/inbound-provisioning-api-configure-app/pprovisioning-select-active-directory-domain.png)](media/inbound-provisioning-api-configure-app/pprovisioning-select-active-directory-domain.png#lightbox)
+     [![Screenshot of Active Directory domain selected.](media/inbound-provisioning-api-configure-app/provisioning-select-active-directory-domain.png)](media/inbound-provisioning-api-configure-app/provisioning-select-active-directory-domain.png#lightbox)
      > [!NOTE]
      > If your AD domain is not visible in the **Active Directory Domain** dropdown list, reload the provisioning app in the browser. Click on **View on-premises agents for your domain** to ensure that your agent status is healthy.
 1. Click on **Test connection** to ensure that Azure AD can connect to the provisioning agent.

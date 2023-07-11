@@ -53,8 +53,8 @@ In all the above scenarios, the integration is greatly simplified as Azure AD pr
 3. The API developer/partner/system integrator builds an API client to send authoritative identity data to Azure AD.
 4. The API client reads identity data from the authoritative source.
 5. The API client sends a POST request to provisioning [/bulkUpload](/graph/api/synchronization-synchronizationjob-post-bulkupload) API endpoint associated with the provisioning app. 
-    >[!NOTE] 
-    > The API client doesn't need perform any comparisons between the source attributes and the target attribute values to determine what operation (create/update/enable/disable) to perform. This is automatically handled by the provisioning service. The API client simply uploads the identity data read received from the source system as-is as a bulk request using the SCIM schema. 
+     >[!NOTE] 
+     > The API client doesn't need to perform any comparisons between the source attributes and the target attribute values to determine what operation (create/update/enable/disable) to invoke. This is automatically handled by the provisioning service. The API client simply uploads the identity data read from the source system by packaging it as bulk request using SCIM schema constructs. 
 1. If successful, an ```Accepted 202 Status``` is returned. 
 1. The Azure AD Provisioning Service processes the data received, applies the attribute mapping rules and completes user provisioning.
 1. Depending on the provisioning app configured, the user is provisioned either into on-premises Active Directory (for hybrid users) or Azure AD (for cloud-only users).
@@ -66,8 +66,8 @@ In all the above scenarios, the integration is greatly simplified as Azure AD pr
 
 - Delivered as a provisioning app that that exposes an *asynchronous* Microsoft Graph provisioning [/bulkUpload](/graph/api/synchronization-synchronizationjob-post-bulkupload) API endpoint accessed using valid OAuth token.
 - Tenant admins must grant API clients interacting with this provisioning app the Graph permission `SynchronizationData-User.Upload`. 
-- The Graph API endpoint accepts valid bulk request payloads using SCIM schema elements.
-- With SCIM schema extensions, you can send any attribute in the payload. 
+- The Graph API endpoint accepts valid bulk request payloads using SCIM schema constructs.
+- With SCIM schema extensions, you can send any attribute in the bulk request payload. 
 - The rate limit for the inbound provisioning API is 40 bulk upload requests per second. Each bulk request can contain a maximum of 50 user records, thereby supporting an upload rate of 2000 records per second. 
 - Each API endpoint is associated with a specific provisioning app in Azure AD. You can integrate multiple data sources by creating a provisioning app for each data source. 
 - Incoming bulk request payloads are processed in near real-time.
