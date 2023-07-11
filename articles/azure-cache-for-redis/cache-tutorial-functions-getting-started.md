@@ -25,7 +25,7 @@ The following tutorial shows how to implement basic triggers with Azure Cache fo
 
 Create a new **Azure Cache for Redis** instance using the Azure portal or your preferred CLI tool. We use a _Standard C1_ instance, which is a good starting point. Use the [quickstart guide](quickstart-create-redis.md) to get started.
 
-<!-- ![Image](Media/CreateCache.png) -->
+:::image type="content" source="media/cache-tutorial-functions-getting-started/cache-new-standard.png" alt-text="Screenshot of creating a cache in the Azure portal.":::
 
 The default settings should suffice. We use a public endpoint for this demo, but we recommend you use a private endpoint for anything in production.
 
@@ -35,7 +35,7 @@ Creating the cache can take a few minutes, so feel move to the next section whil
 
 If you haven’t installed the functions extension for VS Code, search for _Azure Functions_ in the extensions menu, and select **Install**. If you don’t have the C# extension installed, install it, too.
 
-<!-- ![Image](Media/InstallExtensions.png) -->
+:::image type="content" source="media/cache-tutorial-functions-getting-started/cache-code-editor.png" alt-text="Screenshot of the required extensions installed in VSCode.":::
 
 Next, go to the **Azure** tab, and sign-in to your existing Azure account, or create a new one:
 
@@ -43,7 +43,7 @@ Create a new local folder on your computer to hold the project that you're build
 
 In the Azure tab, create a new functions app by clicking on the lightning bolt icon in the top right of the **Workspace** box in the lower left of the screen.
 
-<!-- ![Image](Media/CreateFunctionProject.png) -->
+:::image type="content" source="media/cache-tutorial-functions-getting-started/cache-create-resource.png" alt-text="Screenshot showing how to add a new function from VSCode.":::
 
 Select the new folder that you’ve created to start the creation of a new Azure Functions project. You get several on-screen prompts. Select:
 
@@ -56,7 +56,7 @@ Select the new folder that you’ve created to start the creation of a new Azure
 
 The new project is created:
 
-<!-- ![Image](Media/VSCodeWorkspace.png) -->
+:::image type="content" source="media/cache-tutorial-functions-getting-started/cache-vscode-workspace.png" alt-text="Screenshot of a workspace in VSCode.":::
 
 ### Install the necessary NuGet package
 
@@ -170,6 +170,7 @@ To connect to your cache, add a `ConnectionStrings` section in the `local.settin
 > [!IMPORTANT]
 > This example is simplified for the tutorial. For production use, we recommend that you use [Azure Key Vault](../service-connector/tutorial-portal-key-vault.md) to store connection string information.
 >
+:::image type="content" source="media/cache-tutorial-functions-getting-started/cache-connection-string.png" alt-text="Screenshot of a connection string for a cache.":::
 
 ### Build and run the code locally
 
@@ -179,7 +180,7 @@ The code should build successfully, which you can track in the Terminal output.
 
 To test the trigger functionality, try creating and deleting the _keyspaceTest_ key. You can use any way you prefer to connect to the cache. An easy way is to use the built-in Console tool in the Azure Cache for Redis portal. Bring up the cache instance in the Azure portal, and select **Console** to open it.
 
-<!-- ![Image](Media/Console.png) -->
+:::image type="content" source="media/cache-tutorial-functions-getting-started/cache-console.png" alt-text="Screenshot of C# code and a connection string.":::
 
 After it's open, try the following commands:
 
@@ -190,17 +191,17 @@ After it's open, try the following commands:
 - `LPUSH listTest test`
 - `XADD streamTest * name Clippy`
 
-<!-- ![Image](Media/Console2.png) -->
+:::image type="content" source="media/cache-tutorial-functions-getting-started/cache-console-output.png" alt-text="Screenshot of a console and some Redis commands and results.":::
 
 You should see the triggers activating in the terminal:
 
-<!-- ![Image](Media/TriggersWorking.png) -->
+:::image type="content" source="media/cache-tutorial-functions-getting-started/cache-triggers-working.png" alt-text="Screenshot of the VSCode editor with code running.":::
 
 ### Deploy code to an Azure function
 
 Create a new Azure function by going back to the Azure tab, expanding your subscription, and right clicking on **Function App**. Select **Create a Function App in Azure…(Advanced)**.
 
-<!-- ![Image](Media/CreateFunctionApp.png) -->
+:::image type="content" source="media/cache-tutorial-functions-getting-started/cache-create-function-app.png" alt-text="Screenshot of creating a function app in VSCode.":::
 
 You see several prompts on information to configure the new functions app:
 
@@ -221,7 +222,7 @@ You see several prompts on information to configure the new functions app:
 
 Wait a few minutes for the new Function App to be created. It appears in the drop down under **Function App** in your subscription. Right click on the new function app and select **Deploy to Function App…**
 
-<!-- ![Image](Media/DeployToFunction.png) -->
+:::image type="content" source="media/cache-tutorial-functions-getting-started/cache-deploy-to-function.png" alt-text="Screenshot of deploying to a function app in VSCode.":::
 
 The app builds and starts deploying. You can track progress in the **Output Window**.
 
@@ -233,6 +234,7 @@ Navigate to your new Function App in the Azure portal and select the **Configura
 
 Once deployment is complete and the connection string information added, open your Function App in the Azure portal and select **Log Stream** from the Resource menu. Wait for log analytics to connect, and then use the Redis console to activate any of the triggers. You should see the triggers being logged here.
 
+:::image type="content" source="media/cache-tutorial-functions-getting-started/cache-log-stream.png" alt-text="Screenshot of log stream for a function app resource in the Resource menu.":::
 <!-- ![Image](Media/LogStream.png) -->
 
 ## Next steps
