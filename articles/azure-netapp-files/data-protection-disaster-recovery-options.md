@@ -12,7 +12,7 @@ ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 07/07/2023
+ms.date: 07/11/2023
 ms.author: anfdocs
 ---
 # Understand data protection and disaster recovery options in Azure NetApp Files
@@ -62,9 +62,10 @@ Cross-zone replication leverages [availability zones](use-availability-zones.md)
 
 ### Benefits 
 
-- Data availability and redundancy across regions 
+- Data availability and redundancy across zones within regions 
 - Bring data into same zone as compute for lowest latency-envelope 
 - Efficient storage-based data replication without load on compute infrastructure  
+- Lower TCO due to absence of data transfer fees
 
 To learn more, see [Understand cross-zone replication](cross-zone-replication-introduction.md). To get started with cross-zone replication, see [Create cross-zone replication relationships for Azure NetApp Files](create-cross-zone-replication.md). 
 
