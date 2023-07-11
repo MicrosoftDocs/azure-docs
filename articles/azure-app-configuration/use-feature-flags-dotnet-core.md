@@ -1,5 +1,5 @@
 ---
-title: Tutorial for using feature flags in a .NET Core app | Microsoft Docs
+title: Tutorial for using feature flags in a .NET app | Microsoft Docs
 description: In this tutorial, you learn how to implement feature flags in .NET Core apps.
 services: azure-app-configuration
 documentationcenter: ''
@@ -19,7 +19,7 @@ ms.custom: devx-track-csharp, mvc, devx-track-dotnet
 
 # Tutorial: Use feature flags in an ASP.NET Core app
 
-The .NET Core Feature Management libraries provide idiomatic support for implementing feature flags in a .NET or ASP.NET Core application. These libraries allow you to declaratively add feature flags to your code so that you don't have to manually write code to enable or disable features with `if` statements.
+The .NET Feature Management libraries provide idiomatic support for implementing feature flags in a .NET or ASP.NET Core application. These libraries allow you to declaratively add feature flags to your code so that you don't have to manually write code to enable or disable features with `if` statements.
 
 The Feature Management libraries also manage feature flag lifecycles behind the scenes. For example, the libraries refresh and cache flag states, or guarantee a flag state to be immutable during a request call. In addition, the ASP.NET Core library offers out-of-the-box integrations, including MVC controller actions, views, routes, and middleware.
 
@@ -37,7 +37,7 @@ In this tutorial, you will learn how to:
 
 To access the .NET Core feature manager, your app must have references to the `Microsoft.FeatureManagement.AspNetCore` NuGet package.
 
-The .NET Core feature manager is configured from the framework's native configuration system. As a result, you can define your application's feature flag settings by using any configuration source that .NET Core supports, including the local *appsettings.json* file or environment variables.
+The .NET feature manager is configured from the framework's native configuration system. As a result, you can define your application's feature flag settings by using any configuration source that .NET supports, including the local *appsettings.json* file or environment variables.
 
 By default, the feature manager retrieves feature flag configuration from the `"FeatureManagement"` section of the .NET Core configuration data. To use the default configuration location, call the [AddFeatureManagement](/dotnet/api/microsoft.featuremanagement.servicecollectionextensions.addfeaturemanagement) method of the **IServiceCollection** passed into the **ConfigureServices** method of the **Startup** class.
 
@@ -97,23 +97,18 @@ Rather than hard coding your feature flags into your application, we recommend t
 The easiest way to connect your ASP.NET Core application to App Configuration is through the configuration provider included in the `Microsoft.Azure.AppConfiguration.AspNetCore` NuGet package. After including a reference to the package, follow these steps to use this NuGet package.
 
 1. Open *Program.cs* file and add the following code.
-    > [!IMPORTANT]
-    > `CreateHostBuilder` replaces `CreateWebHostBuilder` in .NET Core 3.x. Select the correct syntax based on your environment.
 
-    ### [.NET 5.x](#tab/core5x)
+    ### [.NET 6.0+](#tab/core6x)
     
     ```csharp
     using Microsoft.Extensions.Configuration.AzureAppConfiguration;
 
-    public static IHostBuilder CreateHostBuilder(string[] args) =>
-        Host.CreateDefaultBuilder(args)
-            .ConfigureWebHostDefaults(webBuilder =>
-                webBuilder.ConfigureAppConfiguration(config =>
-                {
-                    var settings = config.Build();
-                    config.AddAzureAppConfiguration(options =>
-                        options.Connect(settings["ConnectionStrings:AppConfig"]).UseFeatureFlags());
-                }).UseStartup<Startup>());
+    var builder = WebApplication.CreateBuilder(args);
+    
+    builder.Configuration.AddAzureAppConfiguration(options =>
+            options.Connect(
+                builder.Configuration.GetConnectionString("AppConfigEndpoint"))
+                .UseFeatureFlags());
     ```
 
     ### [.NET Core 3.x](#tab/core3x)
@@ -131,26 +126,23 @@ The easiest way to connect your ASP.NET Core application to App Configuration is
                     options.Connect(settings["ConnectionStrings:AppConfig"]).UseFeatureFlags());
             }).UseStartup<Startup>());
     ```
-        
-    ### [.NET Core 2.x](#tab/core2x)
-    
-    ```csharp
-    using Microsoft.Extensions.Configuration.AzureAppConfiguration;
-
-    public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
-            WebHost.CreateDefaultBuilder(args)
-                    .ConfigureAppConfiguration(config =>
-                    {
-                        var settings = config.Build();
-                        config.AddAzureAppConfiguration(options =>
-                            options.Connect(settings["ConnectionStrings:AppConfig"]).UseFeatureFlags());
-                    }).UseStartup<Startup>();
-    ```
     ---
 
-2. Open *Startup.cs* and update the `Configure` and `ConfigureServices` method to add the built-in middleware called `UseAzureAppConfiguration`. This middleware allows the feature flag values to be refreshed at a recurring interval while the ASP.NET Core web app continues to receive requests.
+2. Update the middleware and service configurations for your app using the following code.
 
+    ### [.NET 6.0+](#tab/core6x)
 
+    Inside the `program.cs` class, register the Azure App Configuration services and middleware on the `builder` and `app` objects:
+
+    ```csharp
+    builder.Services.AddAzureAppConfiguration();
+
+    app.UseAzureAppConfiguration();
+    ```
+
+    ### [.NET Core 3.x](#tab/core3x)
+
+    Open `Startup.cs` and update the `Configure` and `ConfigureServices` method to add the built-in middleware called `UseAzureAppConfiguration`. This middleware allows the feature flag values to be refreshed at a recurring interval while the ASP.NET Core web app continues to receive requests.
 
     ```csharp
     public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
@@ -159,25 +151,38 @@ The easiest way to connect your ASP.NET Core application to App Configuration is
     }
     ```
 
-   ```csharp
-   public void ConfigureServices(IServiceCollection services)
-   {
-       services.AddAzureAppConfiguration();
-   }
-   ```
+    ```csharp
+    public void ConfigureServices(IServiceCollection services)
+    {
+        services.AddAzureAppConfiguration();
+    }
+    ```
+
+    ---
    
 In a typical scenario, you will update your feature flag values periodically as you deploy and enable and different features of your application. By default, the feature flag values are cached for a period of 30 seconds, so a refresh operation triggered when the middleware receives a request would not update the value until the cached value expires. The following code shows how to change the cache expiration time or polling interval to 5 minutes by setting the [CacheExpirationInterval](/dotnet/api/microsoft.extensions.configuration.azureappconfiguration.featuremanagement.featureflagoptions.cacheexpirationinterval) in the call to **UseFeatureFlags**.
 
+### [.NET 6.0+](#tab/core6x)
 
-    
+```csharp
+config.AddAzureAppConfiguration(options =>
+    options.Connect(
+        builder.Configuration.GetConnectionString("AppConfigEndpoint"))
+            .UseFeatureFlags(featureFlagOptions => {
+                featureFlagOptions.CacheExpirationInterval = TimeSpan.FromMinutes(5);
+    }));
+```
+
+### [.NET 3.x](#tab/core3x)
+
 ```csharp
 config.AddAzureAppConfiguration(options =>
     options.Connect(settings["ConnectionStrings:AppConfig"]).UseFeatureFlags(featureFlagOptions => {
         featureFlagOptions.CacheExpirationInterval = TimeSpan.FromMinutes(5);
     }));
-});
 ```
 
+---
 
 ## Feature flag declaration
 
@@ -218,7 +223,7 @@ By convention, the `FeatureManagement` section of this JSON document is used for
 
 For some operations, such as manually checking feature flag values, you need to get an instance of [IFeatureManager](/dotnet/api/microsoft.featuremanagement.ifeaturemanager). In ASP.NET Core MVC, you can access the feature manager `IFeatureManager` through dependency injection. In the following example, an argument of type `IFeatureManager` is added to the signature of the constructor for a controller. The runtime automatically resolves the reference and provides an of the interface when calling the constructor. If you're using an application template in which the controller already has one or more dependency injection arguments in the constructor, such as `ILogger`, you can just add `IFeatureManager` as an additional argument:
 
-### [.NET 5.x](#tab/core5x)
+### [.NET 6.0+](#tab/core6x)
     
 ```csharp
 using Microsoft.FeatureManagement;
@@ -244,22 +249,6 @@ public class HomeController : Controller
     private readonly IFeatureManager _featureManager;
 
     public HomeController(ILogger<HomeController> logger, IFeatureManager featureManager)
-    {
-        _featureManager = featureManager;
-    }
-}
-```
-    
-### [.NET Core 2.x](#tab/core2x)
-
-```csharp
-using Microsoft.FeatureManagement;
-
-public class HomeController : Controller
-{
-    private readonly IFeatureManager _featureManager;
-
-    public HomeController(IFeatureManager featureManager)
     {
         _featureManager = featureManager;
     }
