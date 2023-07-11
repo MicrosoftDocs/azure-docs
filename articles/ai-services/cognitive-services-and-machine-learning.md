@@ -128,8 +128,8 @@ Azure AI services that provide exported models for other machine learning tools:
 
 ## Next steps
 
-* Create your Cognitive Service account in the [Azure portal](multi-service-resource.md?pivots=azportal) or with [Azure CLI](./multi-service-resource.md?pivots=azcli).
-* Learn how to [authenticate](authentication.md) to a Cognitive Service.
+* Create your Azure AI services resource in the [Azure portal](multi-service-resource.md?pivots=azportal) or with [Azure CLI](./multi-service-resource.md?pivots=azcli).
+* Learn how to [authenticate](authentication.md) with your Azure AI service.
 * Use [diagnostic logging](diagnostic-logging.md) for issue identification and debugging. 
-* Deploy a Cognitive Service in a Docker [container](cognitive-services-container-support.md).
+* Deploy an Azure AI service in a Docker [container](cognitive-services-container-support.md).
 * Keep up to date with [service updates](https://azure.microsoft.com/updates/?product=cognitive-services).
