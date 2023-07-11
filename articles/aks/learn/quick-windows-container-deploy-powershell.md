@@ -90,7 +90,7 @@ In this section, we create an AKS cluster with the following configuration:
 
 By default, an AKS cluster is created with a node pool that can run Linux containers. You have to add another node pool that can run Windows Server containers alongside the Linux node pool.
 
-* Add a Windows Server node pool using the `New-AzAksNodePool` cmdlet. The following command creates a new node pool named *npwin* and adds it to *myAKSCluster*. The command also uses the default subnet in the default virtual network created when running `New-AzAksCluster`. An OS SKU isn't specified, so the node pool is set to the default operating system based on the Kubernetes version of the cluster.
+* Add a Windows Server node pool using the [`New-AzAksNodePool`][new-azaksnodepool] cmdlet. The following command creates a new node pool named *npwin* and adds it to *myAKSCluster*. The command also uses the default subnet in the default virtual network created when running `New-AzAksCluster`. An OS SKU isn't specified, so the node pool is set to the default operating system based on the Kubernetes version of the cluster.
 
     ```azurepowershell-interactive
     New-AzAksNodePool -ResourceGroupName myResourceGroup -ClusterName myAKSCluster -VmSetType VirtualMachineScaleSets -OsType Windows -Name npwin
@@ -101,7 +101,7 @@ By default, an AKS cluster is created with a node pool that can run Linux contai
 AKS supports Windows Server 2019 and 2022 node pools. Windows Server 2022 is the default operating system for Kubernetes versions 1.25.0 and higher. Windows Server 2019 is the default OS for earlier versions. To use Windows Server 2019 or Windows Server 2022, you need to specify the following parameters:
 
 * `OsType` set to `Windows`
-* `OsSKU` set to `Windows2019`
+* `OsSKU` set to `Windows2019` *or* `Windows2022`
 
 > [!NOTE]
 >
@@ -131,7 +131,7 @@ You use [kubectl][kubectl], the Kubernetes command-line client, to manage your K
     kubectl get nodes
     ```
 
-    The following example output shows all the nodes in the cluster. Make sure that the status of all nodes is **Ready**:
+    The following example output shows all the nodes in the cluster. Make sure the status of all nodes is **Ready**:
 
     ```output
     NAME                                STATUS   ROLES   AGE    VERSION
