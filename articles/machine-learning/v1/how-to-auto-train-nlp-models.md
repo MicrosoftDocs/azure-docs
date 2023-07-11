@@ -15,12 +15,9 @@ ms.date: 03/15/2022
 
 # Set up AutoML to train a natural language processing model with Python (preview)
 
-[!INCLUDE [sdk v1](../../../includes/machine-learning-sdk-v1.md)]
-> [!div class="op_single_selector" title1="Select the version of the developer platform of Azure Machine Learning  you are using:"]
-> * [v1](how-to-auto-train-nlp-models.md)
-> * [v2 (current version)](../how-to-auto-train-nlp-models.md?view=azureml-api-2&preserve-view=true)
+[!INCLUDE [sdk v1](../includes/machine-learning-sdk-v1.md)]
 
-[!INCLUDE [preview disclaimer](../../../includes/machine-learning-preview-generic-disclaimer.md)]
+[!INCLUDE [preview disclaimer](../includes/machine-learning-preview-generic-disclaimer.md)]
 
 In this article, you learn how to train natural language processing (NLP) models with [automated ML](../concept-automated-ml.md) in the [Azure Machine Learning Python SDK](/python/api/overview/azure/ml/).
 
@@ -40,11 +37,11 @@ You can seamlessly integrate with the [Azure Machine Learning data labeling](../
 * The Azure Machine Learning Python SDK installed. 
 
     To install the SDK you can either, 
-    * Create a compute instance, which automatically installs the SDK and is pre-configured for ML workflows. See [Create and manage an Azure Machine Learning compute instance](../how-to-create-manage-compute-instance.md) for more information. 
+    * Create a compute instance, which automatically installs the SDK and is pre-configured for ML workflows. See [Create and manage an Azure Machine Learning compute instance](../how-to-create-compute-instance.md) for more information. 
 
     * [Install the `automl` package yourself](https://github.com/Azure/azureml-examples/blob/main/v1/python-sdk/tutorials/automl-with-azureml/README.md#setup-using-a-local-conda-environment), which includes the [default installation](/python/api/overview/azure/ml/install#default-install) of the SDK.
 
-    [!INCLUDE [automl-sdk-version](../../../includes/machine-learning-automl-sdk-version.md)]
+    [!INCLUDE [automl-sdk-version](../includes/machine-learning-automl-sdk-version.md)]
     
 
 * This article assumes some familiarity with setting up an automated machine learning experiment. Follow the [tutorial](how-to-auto-train-models-v1.md) or [how-to](../how-to-configure-auto-train.md) to see the main automated machine learning experiment design patterns.

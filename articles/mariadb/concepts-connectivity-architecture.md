@@ -39,11 +39,11 @@ The following table lists the gateway IP addresses of the Azure Database for Mar
 |:----------------|:-------------------------|:-------------------------------------------|:------------------------------------------|
 | Australia Central| 20.36.105.0  | | |
 | Australia Central2     | 20.36.113.0  | | |
-| Australia East | 13.75.149.87, 40.79.161.1     |  | |
-| Australia South East |191.239.192.109, 13.73.109.251     |  | |
+| Australia East | 40.79.161.1, 13.70.112.32    | 13.75.149.87 | |
+| Australia South East |13.77.49.33, 191.239.192.109      | 13.73.109.251 | |
 | Brazil South |191.233.201.8, 191.233.200.16     |  | 104.41.11.5|
 | Canada Central |40.85.224.249     | | |
-| Canada East | 40.86.226.166     | | |
+| Canada East | 40.69.105.32     |40.86.226.166 | |
 | Central US | 23.99.160.139, 52.182.136.37, 52.182.136.38 | 13.67.215.62 | |
 | China East | 139.219.130.35     | | |
 | China East 2 | 40.73.82.1     | | |
@@ -77,7 +77,7 @@ The following table lists the gateway IP addresses of the Azure Database for Mar
 | UAE North | 65.52.248.0     | | |
 | UK South | 51.140.184.11     | | |
 | UK West | 51.141.8.11     | | |
-| West Central US | 13.78.145.25     | | |
+| West Central US |  13.71.193.34    | 13.78.145.25| |
 | West Europe |13.69.105.208, 104.40.169.187 | 40.68.37.158 | 191.237.232.75 |
 | West US |13.86.216.212, 13.86.217.212 |104.42.238.205  | 23.99.34.75|
 | West US 2 | 13.66.226.202     | | |

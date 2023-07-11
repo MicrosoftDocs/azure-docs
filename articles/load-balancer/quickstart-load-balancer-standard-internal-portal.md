@@ -17,6 +17,7 @@ ms.custom: mvc, mode-ui, template-quickstart, engagement-fy23
 Get started with Azure Load Balancer by using the Azure portal to create an internal load balancer for a backend pool with two virtual machines. Additional resources include Azure Bastion, NAT Gateway, a virtual network, and the required subnets.
 
 :::image type="content" source="media/quickstart-load-balancer-standard-internal-portal/internal-load-balancer-resources.png" alt-text="Diagram of resources deployed for internal load balancer.":::
+
 ## Prerequisites
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
@@ -79,9 +80,16 @@ In this section, you'll create a virtual network, subnet, and Azure Bastion host
     | AzureBastionSubnet address space | Enter **10.1.1.0/27** |
     | Public IP Address | Select **Create new**. </br> For **Name**, enter **myBastionIP**. </br> Select **OK**. |
 
+    > [!IMPORTANT]
+
+    > [!INCLUDE [Pricing](../../includes/bastion-pricing.md)]
+
+    >
+
 11. Select the **Review + create** tab or select the **Review + create** button.
 
 12. Select **Create**.
+
 
     > [!NOTE]
     > The virtual network and subnet are created immediately. The Bastion host creation is submitted as a job and will complete within 10 minutes. You can proceed to the next steps while the Bastion host is created.

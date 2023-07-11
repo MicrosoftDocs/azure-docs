@@ -3,9 +3,11 @@ title: 'Quickstart: Create a lab in Azure DevTest Labs using Terraform'
 description: 'In this article, you create a Windows virtual machine in a lab within Azure DevTest Labs using Terraform'
 ms.topic: quickstart
 ms.date: 4/14/2023
-ms.custom: devx-track-terraform, ai-gen-docs
+ms.custom: devx-track-terraform, UpdateFrequency2
 author: TomArcherMsft
 ms.author: tarcher
+content_well_notification: 
+  - AI-contribution
 ---
 
 # Quickstart: Create a lab in Azure DevTest Labs using Terraform
@@ -21,8 +23,6 @@ In this article, you learn how to:
 > * Create a lab within Azure DevTest Labs using [azurerm_dev_test_lab](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/dev_test_lab)
 > * Create a virtual network within Azure DevTest Labs using [azurerm_dev_test_virtual_network](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/dev_test_virtual_network)
 > * Create a Windows virtual machine within Azure DevTest Labs using [azurerm_dev_test_windows_virtual_machine](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/dev_test_windows_virtual_machine)
-
-[!INCLUDE [AI attribution](../../../includes/ai-generated-attribution.md)]
 
 ## Prerequisites
 

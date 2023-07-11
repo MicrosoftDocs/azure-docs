@@ -479,6 +479,8 @@ new PoolAddParameter
     }
 }
 ```
+> [!NOTE]
+> Looking for an example using PowerShell rather than C#? You can find another great example here: [Mount Azure File to Azure Batch Pool](https://techcommunity.microsoft.com/t5/azure-paas-blog/mount-azure-file-share-to-azure-batch-pool-via-azure-powershell/ba-p/2243992).
 
 ## Next steps
 

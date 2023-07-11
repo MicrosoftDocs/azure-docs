@@ -6,7 +6,7 @@ ms.author: athenadsouza
 ms.service: purview
 ms.subservice: purview-data-map
 ms.topic: how-to
-ms.date: 04/04/2023
+ms.date: 06/12/2023
 ms.custom: template-how-to
 ---
 # Discover and govern Azure SQL Database in Microsoft Purview
@@ -37,12 +37,15 @@ When you're setting up a scan, you can further scope it after providing the data
 ### Known limitations
 
 * Microsoft Purview supports a maximum of 800 columns on the schema tab. If there are more than 800 columns, Microsoft Purview will show **Additional-Columns-Truncated**.
-* Column-level lineage is currently not supported on the lineage tab. However, the `columnMapping` attribute on the properties tab for SQL stored procedure runs captures column lineage in plain text.
-* Data lineage extraction is currently not supported for functions or triggers.
-* The lineage extraction scan is scheduled to run every six hours by default. The frequency can't be changed.
-* If SQL views are referenced in stored procedures, they're currently captured as SQL tables.
-* Lineage extraction is currently not supported if your logical server in Azure disables public access or doesn't allow Azure services to access it.
-
+* For [lineage extraction scan](#extract-lineage-preview):
+    * Lineage extraction scan is currently not supported if your logical server in Azure disables public access or doesn't allow Azure services to access it.
+    * Lineage extraction scan is scheduled to run every six hours by default. The frequency can't be changed.
+    * Lineage is captured only when the stored procedure execution transfers data from one table to another. And it's not supported for temporary tables.
+    * Lineage extraction is not supported for functions or triggers.
+    * Note due to the following limitations, currently you may see duplicate assets in the catalog if you have such scenarios.
+        * The object names in assets and fully qualified names follow the case used in stored procedure statements, which may not align with the object case in original data source.
+        * When SQL views are referenced in stored procedures, they're currently captured as SQL tables.
+    
 ## Prerequisites
 
 * An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).

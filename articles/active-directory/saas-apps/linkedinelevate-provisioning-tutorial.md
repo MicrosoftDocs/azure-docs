@@ -25,7 +25,7 @@ The scenario outlined in this tutorial assumes that you already have the followi
 * An administrator account in LinkedIn Elevate with access to the LinkedIn Account Center
 
 > [!NOTE]
-> Azure Active Directory integrates with LinkedIn Elevate using the [SCIM](http://www.simplecloud.info/) protocol.
+> Azure Active Directory integrates with LinkedIn Elevate using the SCIM protocol.
 
 ## Assigning users to LinkedIn Elevate
 

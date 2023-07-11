@@ -19,7 +19,7 @@ keywords:
 
 The completions endpoint can be used for a wide variety of tasks. It provides a simple but powerful text-in, text-out interface to any of our [models](../concepts/models.md). You input some text as a prompt, and the model will generate a text completion that attempts to match whatever context or pattern you gave it. For example, if you give the API the prompt, "As Descartes said, I think, therefore", it will return the completion " I am" with high probability.
 
-The best way to start exploring completions is through our playground in [Azure AI Studio](https://oai.azure.com). It's a simple text box where you can submit a prompt to generate a completion. You can start with a simple example like the following:
+The best way to start exploring completions is through our playground in [Azure OpenAI Studio](https://oai.azure.com). It's a simple text box where you can submit a prompt to generate a completion. You can start with a simple example like the following:
 
 `write a tagline for an ice cream shop`
 
@@ -295,7 +295,7 @@ While all prompts result in completions, it can be helpful to think of text comp
 Vertical farming provides a novel solution for producing food locally, reducing transportation costs and
 ```
 
-This next prompt shows how you can use completion to help write React components. We send some code to the API, and it's able to continue the rest because it has an understanding of the React library. We recommend using models from our Codex series for tasks that involve understanding or generating code. Currently, we support two Codex models: `code-davinci-002` and `code-cushman-001`. For more information about Codex models, see the [Codex models](../concepts/models.md#codex-models) section in [Models](../concepts/models.md).
+This next prompt shows how you can use completion to help write React components. We send some code to the API, and it's able to continue the rest because it has an understanding of the React library. We recommend using models from our Codex series for tasks that involve understanding or generating code. Currently, we support two Codex models: `code-davinci-002` and `code-cushman-001`. For more information about Codex models, see the [Codex models](../concepts/legacy-models.md#codex-models) section in [Models](../concepts/models.md).
 
 ```
 import React from 'react';

@@ -3,7 +3,7 @@ title: Set up Private Link for Azure Virtual Desktop preview - Azure
 description: How to set up Private Link for Azure Virtual Desktop (preview).
 author: Heidilohr
 ms.topic: how-to
-ms.date: 05/10/2023
+ms.date: 06/15/2023
 ms.author: helohr
 manager: femila
 ---
@@ -168,6 +168,9 @@ To control public traffic:
     - If you select the check box, Azure Virtual Desktop session hosts will talk to the Azure Virtual Desktop service over public internet or private endpoints.
 
     - If you don't select the check box, Azure Virtual Desktop session hosts can only talk to the Azure Virtual Desktop service over private endpoint connections.
+
+>[!IMPORTANT]
+>Disabling the **Allow session host access from public network** setting won't affect existing sessions. You must restart the session host VM for the change to take effect on the session host network settings.
 
 ## Network security groups
 

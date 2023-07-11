@@ -52,6 +52,8 @@ The [Symbol layer with built-in icon template] sample demonstrates how to do thi
 
 :::image type="content" source="./media/how-to-use-image-templates-web-sdk/symbol-layer-with-built-in-icon-template.png" alt-text="Screenshot showing a map displaying a symbol layer using the marker-flat image template with a teal primary color and a white secondary color.":::
 
+For the source code for this sample, see [Symbol layer with built-in icon template sample code].
+
 <!-----------------------------------------------------
 <br/>
 <iframe height="500" scrolling="no" title="Symbol layer with built-in icon template" src="//codepen.io/azuremaps/embed/VoQMPp/?height=500&theme-id=0&default-tab=js,result&editable=true" frameborder='no' loading="lazy" allowtransparency="true" allowfullscreen="true">
@@ -64,7 +66,7 @@ The [Symbol layer with built-in icon template] sample demonstrates how to do thi
 
 Once an image template is loaded into the map image sprite, it can be rendered along the path of a line by adding a LineString to a data source and using a symbol layer with a `lineSpacing`option and by referencing the ID of the image resource in the `image` option of th `iconOptions`.
 
-The [Line layer with built-in icon template] demonstrates how to do this. As show in the following screenshot, it renders a red line on the map and uses a symbol layer using the `car` image template with a dodger blue primary color and a white secondary color.
+The [Line layer with built-in icon template] demonstrates how to do this. As show in the following screenshot, it renders a red line on the map and uses a symbol layer using the `car` image template with a dodger blue primary color and a white secondary color. For the source code for this sample, see [Line layer with built-in icon template sample code].
 
 :::image type="content" source="./media/how-to-use-image-templates-web-sdk/line-layer-with-built-in-icon-template.png" alt-text="Screenshot showing a map displaying a line layer marking the route with car icons along the route.":::
 
@@ -84,7 +86,7 @@ The [Line layer with built-in icon template] demonstrates how to do this. As sho
 
 Once an image template is loaded into the map image sprite, it can be rendered as a fill pattern in a polygon layer by referencing the image resource ID in the `fillPattern` option of the layer.
 
-The [Fill polygon with built-in icon template] sample demonstrates how to render a polygon layer using the `dot` image template with a red primary color and a transparent secondary color, as shown in the following screenshot.
+The [Fill polygon with built-in icon template] sample demonstrates how to render a polygon layer using the `dot` image template with a red primary color and a transparent secondary color, as shown in the following screenshot. For the source code for this sample, see [Fill polygon with built-in icon template sample code].
 
 :::image type="content" source="./media/how-to-use-image-templates-web-sdk/fill-polygon-with-built-in-icon-template.png" alt-text="Screenshot showing a map displaying a polygon layer using the dot image template with a red primary color and a transparent secondary color.":::
 
@@ -104,7 +106,7 @@ The [Fill polygon with built-in icon template] sample demonstrates how to render
 
 An image template can be retrieved using the `altas.getImageTemplate` function and used as the content of an HTML marker. The template can be passed into the `htmlContent` option of the marker, and then customized using the `color`, `secondaryColor`, and `text` options.
 
-The [HTML Marker with built-in icon template] sample demonstrates this using the `marker-arrow` template with a red primary color, a pink secondary color, and a text value of "00", as shown in the following screenshot.
+The [HTML Marker with built-in icon template] sample demonstrates this using the `marker-arrow` template with a red primary color, a pink secondary color, and a text value of "00", as shown in the following screenshot. For the source code for this sample, see [HTML Marker with built-in icon template sample code].
 
 :::image type="content" source="./media/how-to-use-image-templates-web-sdk/html-marker-with-built-in-icon-template.png" alt-text="Screenshot showing a map displaying the marker-arrow template with a red primary color, a pink secondary color, and a text value of 00 inside the red arrow.":::
 
@@ -147,7 +149,7 @@ SVG image templates support the following placeholder values:
 | `{scale}` | The SVG image is converted to an png image when added to the map image sprite. This placeholder can be used to scale a template before it's converted to ensure it renders clearly. |
 | `{text}` | The location to render text when used with an HTML Marker. |
 
-The [Add custom icon template to atlas namespace] sample demonstrates how to take an SVG template, and add it to the Azure Maps web SDK as a reusable icon template, as shown in the following screenshot.
+The [Add custom icon template to atlas namespace] sample demonstrates how to take an SVG template, and add it to the Azure Maps web SDK as a reusable icon template, as shown in the following screenshot. For the source code for this sample, see [Add custom icon template to atlas namespace sample code].
 
 :::image type="content" source="./media/how-to-use-image-templates-web-sdk/add-custom-icon-template-to-atlas-namespace.png" alt-text="Screenshot showing a map displaying a polygon layer in the shape of a big green triangle with multiple images of blue anchors inside.":::
 
@@ -551,8 +553,14 @@ See the following articles for more code samples where image templates can be us
 > [Add HTML Makers](map-add-bubble-layer.md)
 
 [Azure Maps Samples]: https://samples.azuremaps.com
-[Symbol layer with built-in icon template]: https://samples.azuremaps.com/?search=symbol%20layer&sample=symbol-layer-with-built-in-icon-template
-[Line layer with built-in icon template]: https://samples.azuremaps.com/?search=template&sample=line-layer-with-built-in-icon-template
-[Fill polygon with built-in icon template]: https://samples.azuremaps.com/?search=template&sample=fill-polygon-with-built-in-icon-template
-[HTML Marker with built-in icon template]: https://samples.azuremaps.com/?search=template&sample=html-marker-with-built-in-icon-template
-[Add custom icon template to atlas namespace]: https://samples.azuremaps.com/?search=template&sample=add-custom-icon-template-to-atlas-namespace
+[Symbol layer with built-in icon template]: https://samples.azuremaps.com/symbol-layer/symbol-layer-with-built-in-icon-template
+[Line layer with built-in icon template]: https://samples.azuremaps.com/line-layer/line-layer-with-built-in-icon-template
+[Fill polygon with built-in icon template]: https://samples.azuremaps.com/polygons/fill-polygon-with-built-in-icon-template
+[HTML Marker with built-in icon template]: https://samples.azuremaps.com/html-markers/html-marker-with-built-in-icon-template
+[Add custom icon template to atlas namespace]: https://samples.azuremaps.com/map/add-custom-icon-template-to-atlas-namespace
+
+[Symbol layer with built-in icon template sample code]: https://github.com/Azure-Samples/AzureMapsCodeSamples/blob/main/Samples/Symbol%20Layer/Symbol%20layer%20with%20built-in%20icon%20template/Symbol%20layer%20with%20built-in%20icon%20template.html
+[Line layer with built-in icon template sample code]: https://github.com/Azure-Samples/AzureMapsCodeSamples/blob/main/Samples/Line%20Layer/Line%20layer%20with%20built-in%20icon%20template/Line%20layer%20with%20built-in%20icon%20template.html
+[Fill polygon with built-in icon template sample code]: https://github.com/Azure-Samples/AzureMapsCodeSamples/blob/main/Samples/Polygons/Fill%20polygon%20with%20built-in%20icon%20template/Fill%20polygon%20with%20built-in%20icon%20template.html
+[HTML Marker with built-in icon template sample code]: https://github.com/Azure-Samples/AzureMapsCodeSamples/blob/main/Samples/HTML%20Markers/HTML%20Marker%20with%20built-in%20icon%20template/HTML%20Marker%20with%20built-in%20icon%20template.html
+[Add custom icon template to atlas namespace sample code]: https://github.com/Azure-Samples/AzureMapsCodeSamples/blob/main/Samples/Map/Add%20custom%20icon%20template%20to%20atlas%20namespace/Add%20custom%20icon%20template%20to%20atlas%20namespace.html

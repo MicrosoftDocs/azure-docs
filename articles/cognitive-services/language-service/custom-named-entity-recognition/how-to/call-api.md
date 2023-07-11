@@ -82,4 +82,4 @@ First you need to get your resource key and endpoint:
 
 ## Next steps
 
-* [Enrich a Cognitive Search index tutorial](../tutorials/cognitive-search.md)
+* [Frequently asked questions](../faq.md)

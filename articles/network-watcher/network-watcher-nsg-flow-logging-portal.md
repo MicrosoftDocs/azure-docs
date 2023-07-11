@@ -194,8 +194,8 @@ In this section, you create an NSG flow log that's saved into the storage accoun
 
     :::image type="content" source="./media/network-watcher-nsg-flow-logging-portal/create-nsg-flow-log.png" alt-text="Screenshot of create NSG flow log page in the Azure portal.":::
 
-> [!NOTE]
-> The Azure portal creates NSG flow logs in the **NetworkWatcherRG** resource group.
+    > [!NOTE]
+    > The Azure portal creates NSG flow logs in the **NetworkWatcherRG** resource group.
 
 1. Select **Review + create**.
 

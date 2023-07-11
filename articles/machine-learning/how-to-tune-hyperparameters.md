@@ -8,19 +8,16 @@ ms.reviewer: ssalgado
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: training
-ms.date: 05/02/2022
+ms.date: 06/7/2023
 ms.topic: how-to
 ms.custom: contperf-fy21q1, event-tier1-build-2022
 ---
 
 # Hyperparameter tuning a model (v2)
 
-[!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
-[!INCLUDE [sdk v2](../../includes/machine-learning-sdk-v2.md)]
+[!INCLUDE [cli v2](includes/machine-learning-cli-v2.md)]
+[!INCLUDE [sdk v2](includes/machine-learning-sdk-v2.md)]
 
-> [!div class="op_single_selector" title1="Select the version of Azure Machine Learning CLI extension you are using:"]
-> * [v1](v1/how-to-tune-hyperparameters.md?view=azureml-api-1&preserve-view=true)
-> * [v2 (current version)](how-to-tune-hyperparameters.md)
 
 Automate efficient hyperparameter tuning using Azure Machine Learning SDK v2 and CLI v2 by way of the SweepJob type. 
 

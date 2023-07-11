@@ -7,7 +7,7 @@ manager: amycolannino
 ms.service: active-directory
 ms.workload: identity
 ms.topic: overview
-ms.date: 01/25/2023
+ms.date: 06/22/2023
 ms.subservice: compliance
 ms.author: owinfrey
 ms.collection: M365-identity-device-management
@@ -21,7 +21,7 @@ The following document provides an overview of a workflow created using Lifecycl
 ## License requirements 
 
 
-[!INCLUDE [Azure AD Premium P2 license](../../../includes/lifecycle-workflows-license.md)]
+[!INCLUDE [Microsoft Entra ID Governance license](../../../includes/active-directory-entra-governance-license.md)]
 
 ## Permissions and Roles
 

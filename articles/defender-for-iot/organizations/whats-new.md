@@ -2,7 +2,7 @@
 title: What's new in Microsoft Defender for IoT
 description: This article describes features available in Microsoft Defender for IoT, across both OT and Enterprise IoT networks, and both on-premises and in the Azure portal.
 ms.topic: whats-new
-ms.date: 05/17/2023
+ms.date: 06/26/2023
 ms.custom: enterprise-iot
 ---
 
@@ -16,11 +16,32 @@ Features released earlier than nine months ago are described in the [What's new 
 > Noted features listed below are in PREVIEW. The [Azure Preview Supplemental Terms](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include other legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 >
 
+## July 2023
+
+|Service area  |Updates  |
+|---------|---------|
+| **OT networks** | [Migrate to site-based licenses](#migrate-to-site-based-licenses) |
+
+
+### Migrate to site-based licenses
+
+Existing customers can now migrate their legacy Defender for IoT purchasing plans to a **Microsoft 365** plan, based on site-based, Microsoft 365 licenses.
+
+On the **Plans and pricing** page, edit your plan and select the **Microsoft 365** plan instead of your current monthly or annual plan. For example:
+
+:::image type="content" source="media/release-notes/migrate-to-365.png" alt-text="Screenshot of updating your pricing plan to Microsoft 365."  lightbox="media/release-notes/migrate-to-365.png":::
+
+Make sure to edit any relevant sites to match your newly licensed site sizes. For example:
+
+:::image type="content" source="media/release-notes/edit-site-size.png" alt-text="Screenshot of editing a site size on the Azure portal."  lightbox="media/release-notes/edit-site-size.png":::
+
+For more information, see [Migrate from a legacy OT plan](how-to-manage-subscriptions.md#migrate-from-a-legacy-ot-plan) and [Defender for IoT subscription billing](billing.md).
+
 ## June 2023
 
 |Service area  |Updates  |
 |---------|---------|
-| **OT networks** | [OT plans billed by site-based licenses](#ot-plans-billed-by-site-based-licenses) |
+| **OT networks** | [OT plans billed by site-based licenses](#ot-plans-billed-by-site-based-licenses) <br> [Security recommendations for OT networks for insecure passwords and critical CVEs](#security-recommendations-for-ot-networks-for-insecure-passwords-and-critical-cves) |
 
 ### OT plans billed by site-based licenses
 
@@ -44,6 +65,20 @@ For more information, see:
 - [Start a Microsoft Defender for IoT trial](getting-started.md)
 - [Manage OT plans on Azure subscriptions](how-to-manage-subscriptions.md)
 - [Onboard OT sensors to Defender for IoT](onboard-sensors.md)
+
+### Security recommendations for OT networks for insecure passwords and critical CVEs
+
+Defender for IoT now provides security recommendations for insecure passwords and for critical CVEs to help customers manage their OT/IoT network security posture.
+
+You can see the following new security recommendations from the Azure portal for detected devices across your networks:
+
+- **Secure your vulnerable devices**: Devices with this recommendation are found with one or more vulnerabilities with a critical severity. We recommend that you follow the steps listed by the device vendor or CISA (Cybersecurity & Infrastructure Agency).
+
+- **Set a secure password for devices with missing authentication**: Devices with this recommendation are found without authentication based on successful sign-ins. We recommend that you enable authentication, and that you set a stronger password with minimum length and complexity.
+
+- **Set a stronger password with minimum length and complexity**: Devices with this recommendation are found with weak passwords based on successful sign-ins. We recommend that you change the device password to a stronger password with minimum length and complexity.
+
+For more information, see [Supported security recommendations](recommendations.md#supported-security-recommendations).
 
 ## May 2023
 
@@ -747,7 +782,6 @@ Check out our new structure to follow through viewing devices and assets, managi
 - [Quickstart: Get started with Defender for IoT](getting-started.md)
 - [Tutorial: Microsoft Defender for IoT trial setup](tutorial-onboarding.md)
 - [Tutorial: Get started with Enterprise IoT](tutorial-getting-started-eiot-sensor.md)
-- [Plan your sensor connections for OT monitoring](best-practices/plan-network-monitoring.md)
 
 > [!NOTE]
 > To send feedback on docs via GitHub, scroll to the bottom of the page and select the **Feedback** option for **This page**. We'd be glad to hear from you!

@@ -31,45 +31,45 @@ The following regions and maximum resources are available to container groups wi
 > [!NOTE]
 > Some regions don't support availability zones (denoted by a 'N/A' in the table), and some regions have availability zones, but ACI doesn't currently leverage the capability (denoted by an 'N' in the table). For more information, see [Azure regions with availability zones][az-region-support].
 
-| Region | Max CPU | Max memory (GB) | VNET max CPU | VNET max memory (GB) | Storage (GB) | GPU SKUs (preview) | Availability Zone support | Confidential SKU (preview) |
+| Region | Max CPU | Max memory (GB) | VNET max CPU | VNET max memory (GB) | Storage (GB) | GPU SKUs (preview) | Availability Zone support | Confidential SKU | Spot containers (preview) |
 | -------- | :---: | :---: | :----: | :-----: | :-------: | :----: | :----: | :----: | :----: |
-| Australia East | 4 | 16 | 4 | 16 | 50 | N/A | Y | N |
-| Australia Southeast | 4 | 16 | 4 | 16 | 50 | N/A | N | N |
-| Brazil South | 4 | 16 | 4 | 16 | 50 | N/A | Y | N |
-| Canada Central | 4 | 16 | 4 | 16 | 50 | N/A | N | N |
-| Canada East | 4 | 16 | 4 | 16 | 50 | N/A | N | N |
-| Central India | 4 | 16 | 4 | 16 | 50 | V100 | N | N |
-| Central US | 4 | 16 | 4 | 16 | 50 | N/A | Y | N |
-| East Asia | 4 | 16 | 4 | 16 | 50 | N/A | N | N |
-| East US | 4 | 16 | 4 | 16 | 50 | K80, P100, V100 | Y | Y |
-| East US 2 | 4 | 16 | 4 | 16 | 50 | N/A | Y | N |
-| France Central | 4 | 16 | 4 | 16 | 50 | N/A | Y| N |
-| Germany West Central | 4 | 16 | 4 | 16 | 50 | N/A | Y | N |
-| Japan East | 4 | 16 | 4 | 16 | 50 | N/A | Y | N |
-| Japan West | 4 | 16 | 4 | 16 | 50 | N/A | N | N |
-| Jio India West | 4 | 16 | 4 | 16 | 50 | N/A | N | N |
-| Korea Central | 4 | 16 | 4 | 16 | 50 | N/A | N | N |
-| North Central US | 4 | 16 | 4 | 16 | 50 | K80, P100, V100 | N | N |
-| North Europe | 4 | 16 | 4 | 16 | 50 | K80 | Y | Y |
-| Norway East | 4 | 16 | 4 | 16 | 50 | N/A | N | N |
-| Norway West | 4 | 16 | 4 | 16 | 50 | N/A | N | N |
-| South Africa North | 4 | 16 | 4 | 16 | 50 | N/A | N | N |
-| South Central US | 4 | 16 | 4 | 16 | 50 | V100 | Y | N |
-| South India | 4 | 16 | 4 | 16 | 50 | K80 | N | N |
-| Southeast Asia | 4 | 16 | 4 | 16 | 50 | P100, V100 | Y | N |
-| Sweden Central | 4 | 16 | 4 | 16 | 50 | N/A | N | N |
-| Sweden South | 4 | 16 | 4 | 16 | 50 | N/A | N | N |
-| Switzerland North | 4 | 16 | 4 | 16 | 50 | N/A | N | N |
-| Switzerland West | 4 | 16 | N/A | N/A | 50 | N/A | N | N |
-| UAE North | 4 | 16 | 4 | 16 | 50 | N/A | N | N |
-| UK South | 4 | 16 | 4 | 16 | 50 | N/A | Y | N |
-| UK West | 4 | 16 | 4 | 16 | 50 | N/A | N | N |
-| West Central US| 4 | 16 | 4 | 16 | 50 | N/A | N | N |
-| West Europe | 4 | 16 | 4 | 16 | 50 | K80, P100, V100 | Y | Y |
-| West India | 4 | 16 | N/A | N/A | 50 | N/A | N | N |
-| West US | 4 | 16 | 4 | 16 | 50 | N/A | N | Y |
-| West US 2 | 4 | 16 | 4 | 16 | 50 | K80, P100, V100 | Y | N |
-| West US 3 | 4 | 16 | 4 | 16 | 50 | N/A | N | N |
+| Australia East | 4 | 16 | 4 | 16 | 50 | N/A | Y | N | N |
+| Australia Southeast | 4 | 16 | 4 | 16 | 50 | N/A | N | N | N |
+| Brazil South | 4 | 16 | 4 | 16 | 50 | N/A | Y | N | N |
+| Canada Central | 4 | 16 | 4 | 16 | 50 | N/A | N | N | N |
+| Canada East | 4 | 16 | 4 | 16 | 50 | N/A | N | N | N |
+| Central India | 4 | 16 | 4 | 16 | 50 | V100 | N | N | N |
+| Central US | 4 | 16 | 4 | 16 | 50 | N/A | Y | N | N |
+| East Asia | 4 | 16 | 4 | 16 | 50 | N/A | N | N | N |
+| East US | 4 | 16 | 4 | 16 | 50 | K80, P100, V100 | Y | Y | N |
+| East US 2 | 4 | 16 | 4 | 16 | 50 | N/A | Y | N | Y |
+| France Central | 4 | 16 | 4 | 16 | 50 | N/A | Y| N | N |
+| Germany West Central | 4 | 16 | 4 | 16 | 50 | N/A | Y | N | N |
+| Japan East | 4 | 16 | 4 | 16 | 50 | N/A | Y | N | N |
+| Japan West | 4 | 16 | 4 | 16 | 50 | N/A | N | N | N |
+| Jio India West | 4 | 16 | 4 | 16 | 50 | N/A | N | N | N |
+| Korea Central | 4 | 16 | 4 | 16 | 50 | N/A | N | N | N |
+| North Central US | 4 | 16 | 4 | 16 | 50 | K80, P100, V100 | N | N | N |
+| North Europe | 4 | 16 | 4 | 16 | 50 | K80 | Y | Y | N |
+| Norway East | 4 | 16 | 4 | 16 | 50 | N/A | N | N | N |
+| Norway West | 4 | 16 | 4 | 16 | 50 | N/A | N | N | N |
+| South Africa North | 4 | 16 | 4 | 16 | 50 | N/A | N | N | N |
+| South Central US | 4 | 16 | 4 | 16 | 50 | V100 | Y | N | N |
+| South India | 4 | 16 | 4 | 16 | 50 | K80 | N | N | N |
+| Southeast Asia | 4 | 16 | 4 | 16 | 50 | P100, V100 | Y | N | N |
+| Sweden Central | 4 | 16 | 4 | 16 | 50 | N/A | N | N | N |
+| Sweden South | 4 | 16 | 4 | 16 | 50 | N/A | N | N | N |
+| Switzerland North | 4 | 16 | 4 | 16 | 50 | N/A | N | N | N |
+| Switzerland West | 4 | 16 | N/A | N/A | 50 | N/A | N | N | N |
+| UAE North | 4 | 16 | 4 | 16 | 50 | N/A | N | N | N |
+| UK South | 4 | 16 | 4 | 16 | 50 | N/A | Y | N | N | 
+| UK West | 4 | 16 | 4 | 16 | 50 | N/A | N | N | N |
+| West Central US| 4 | 16 | 4 | 16 | 50 | N/A | N | N | N |
+| West Europe | 4 | 16 | 4 | 16 | 50 | K80, P100, V100 | Y | Y | Y |
+| West India | 4 | 16 | N/A | N/A | 50 | N/A | N | N | N |
+| West US | 4 | 16 | 4 | 16 | 50 | N/A | N | Y | Y |
+| West US 2 | 4 | 16 | 4 | 16 | 50 | K80, P100, V100 | Y | N | N |
+| West US 3 | 4 | 16 | 4 | 16 | 50 | N/A | N | N | N |
 
 The following maximum resources are available to a container group deployed with [GPU resources](container-instances-gpu.md) (preview).
 

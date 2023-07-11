@@ -5,12 +5,12 @@ description: Learn about using shared access signatures (SAS) to delegate access
 services: storage
 author: tamram
 
-ms.service: storage
+ms.service: azure-storage
 ms.topic: conceptual
-ms.date: 02/16/2023
+ms.date: 06/07/2023
 ms.author: tamram
 ms.reviewer: dineshm
-ms.subservice: common
+ms.subservice: storage-common-concepts
 ---
 
 # Grant limited access to Azure Storage resources using shared access signatures (SAS)
@@ -110,7 +110,7 @@ Client applications provide the SAS URI to Azure Storage as part of a request. T
 
 Here's an example of a service SAS URI, showing the resource URI, the delimiter character ('?'), and the SAS token.
 
-![Components of a service SAS URI](./media/storage-sas-overview/sas-storage-uri.png)
+:::image type="content" source="media/storage-sas-overview/sas-storage-uri.svg" alt-text="Diagram showing the components of a resource URI with SAS token.":::
 
 > [!NOTE]
 > The delimiter character ('?') for the query string is not part of the SAS token. If you generate a SAS token from the portal, PowerShell, Azure CLI, or one of the Azure Storage SDKs, you may need to append the delimiter character to the resource URL.

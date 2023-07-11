@@ -6,7 +6,7 @@ ms.service: spring-apps
 ms.topic: troubleshooting
 ms.date: 10/24/2022
 ms.author: yili7
-ms.custom: devx-track-java
+ms.custom: devx-track-java, devx-track-extended-java
 ---
 
 # Troubleshoot common build issues in Azure Spring Apps
@@ -22,7 +22,7 @@ This article describes how to troubleshoot build issues with your Azure Spring A
 
 The Azure Spring Apps Enterprise plan uses Tanzu Buildpacks to transform your application source code into images. For more information, see [Tanzu Buildpacks](https://docs.vmware.com/en/VMware-Tanzu-Buildpacks/index.html).
 
-When you deploy your app in Azure Spring Apps using the [Azure CLI](/cli/azure/install-azure-cli), you'll see a build log in the Azure CLI console. If the build fails, Azure Spring Apps displays an exit code and error message in the CLI console indicating why the buildpack execution failed during different phases of the buildpack [lifecycle](https://buildpacks.io/docs/concepts/components/lifecycle/).
+When you deploy your app in Azure Spring Apps using the [Azure CLI](/cli/azure/install-azure-cli), you see a build log in the Azure CLI console. If the build fails, Azure Spring Apps displays an exit code and error message in the CLI console indicating why the buildpack execution failed during different phases of the buildpack [lifecycle](https://buildpacks.io/docs/concepts/components/lifecycle/).
 
 The following list describes some common exit codes:
 
@@ -32,7 +32,7 @@ The following list describes some common exit codes:
 
   - The builder you're using doesn't support the language your project used.
 
-    If you're using the default builder, check the language the default builder supports. For more information, see the [Use the default builder to deploy an app](how-to-enterprise-build-service.md#use-the-default-builder-to-deploy-an-app) section of [Use Tanzu Build Service](how-to-enterprise-build-service.md).
+    If you're using the default builder, check the language the default builder supports. For more information, see the [Supported APM types](how-to-enterprise-configure-apm-integration-and-ca-certificates.md#supported-apm-types) section of [How to configure APM integration and CA certificates](how-to-enterprise-configure-apm-integration-and-ca-certificates.md).
 
     If you're using the custom builder, check whether your custom builder's buildpack supports the language your project used.
 

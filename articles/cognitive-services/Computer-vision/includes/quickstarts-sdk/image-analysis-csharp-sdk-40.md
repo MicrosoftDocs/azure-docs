@@ -31,8 +31,6 @@ Use the Image Analysis client SDK for C# to analyze an image to read text and ge
     * You need the key and endpoint from the resource you create to connect your application to the Computer Vision service.
     * You can use the free pricing tier (`F0`) to try the service, and upgrade later to a paid tier for production.
 
-> [!div class="nextstepaction"]
-> <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=CSHARP&Pillar=Vision&Product=Image-analysis&Page=quickstart4&Section=Prerequisites" target="_target">I ran into an issue</a>
 
 ## Set up application
 
@@ -109,8 +107,7 @@ dotnet run
 
 ---
 
-> [!div class="nextstepaction"]
-> <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=CSHARP&Pillar=Vision&Product=Image-analysis&Page=quickstart4&Section=Analyze-image" target="_target">I ran into an issue</a>
+
 
 ## Output
 
@@ -180,8 +177,7 @@ Text:
      Word: 'review', Bounding polygon {{X=560,Y=371},{X=576,Y=371},{X=575,Y=376},{X=559,Y=376}}, Confidence 0.0400 
 ```
 
-> [!div class="nextstepaction"]
-> <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=CSHARP&Pillar=Vision&Product=Image-analysis&Page=quickstart4&Section=Output" target="_target">I ran into an issue</a>
+
 
 ## Clean up resources
 

@@ -361,6 +361,9 @@ Microsoft Defender for Containers provides security alerts on the cluster level 
 
 ## <a name="alerts-resourcemanager"></a>Alerts for Resource Manager
 
+> [!NOTE]
+> Alerts with a **delegated access** indication are triggered due to activity of third-party service providers. learn more about [service providers activity indications](/azure/defender-for-cloud/defender-for-resource-manager-usage).
+
 [Further details and notes](defender-for-resource-manager-introduction.md)
 
 | Alert (alert type)                                                                                                                                                | Description                                                                                                                                                                                                                                                                                                                                                                                                                              | MITRE tactics<br>([Learn more](#intentions)) | Severity |
@@ -411,7 +414,6 @@ Microsoft Defender for Containers provides security alerts on the cluster level 
 | **Usage of PowerZure exploitation toolkit to run an arbitrary code or exfiltrate Azure Automation account credentials**<br>(ARM_PowerZure.RunCodeOnBehalf)        | PowerZure exploitation toolkit detected attempting to run code or exfiltrate Azure Automation account credentials. This was detected by analyzing Azure Resource Manager operations in your subscription.                                                                                                                                                                                                                                | -                                            | High     |
 | **Usage of PowerZure function to maintain persistence in your Azure environment**<br>(ARM_PowerZure.MaintainPersistence)                                          | PowerZure exploitation toolkit detected creating a webhook backdoor to maintain persistence in your Azure environment. This was detected by analyzing Azure Resource Manager operations in your subscription.                                                                                                                                                                                                                            | -                                            | High     |
 | **Suspicious classic role assignment detected (Preview)**<br>(ARM_AnomalousClassicRoleAssignment) | Microsoft Defender for Resource Manager identified a suspicious classic role assignment in your tenant which might indicate that an account in your organization was compromised. The identified operations are designed to provide backward compatibility with classic roles that are no longer commonly used. While this activity may be legitimate, a threat actor might utilize such assignment to grant permissions to another user account under their control. |  Lateral Movement, Defense Evasion  | High |
-
 
 ## <a name="alerts-dns"></a>Alerts for DNS
 
@@ -509,8 +511,6 @@ Microsoft Defender for Containers provides security alerts on the cluster level 
 | **Suspicious outgoing SSH network activity to multiple destinations**<br>(SSH_Outgoing_BF_OneToMany)  | Network traffic analysis detected anomalous outgoing SSH communication to multiple destinations originating from %{Compromised Host} (%{Attacker IP}), a resource in your deployment. When the compromised resource is a load balancer or an application gateway, the suspected outgoing traffic has been originated from to one or more of the resources in the backend pool (of the load balancer or application gateway). Specifically, sampled network data shows your resource connecting to %{Number of Attacked IPs} unique IPs, which is considered abnormal for this environment. This activity may indicate that your resource was compromised and is now used to brute force external SSH end points. Note that this type of activity could possibly cause your IP to be flagged as malicious by external entities.                          | Discovery                                    | Medium   |
 | **Suspicious outgoing SSH network activity**<br>(SSH_Outgoing_BF_OneToOne)                            | Network traffic analysis detected anomalous outgoing SSH communication to %{Victim IP} originating from %{Compromised Host} (%{Attacker IP}), a resource in your deployment. When the compromised resource is a load balancer or an application gateway, the suspected outgoing traffic has been originated from to one or more of the resources in the backend pool (of the load balancer or application gateway). Specifically, sampled network data shows %{Number of Connections} outgoing connections from your resource, which is considered abnormal for this environment. This activity may indicate that your resource was compromised and is now used to brute force external SSH end points. Note that this type of activity could possibly cause your IP to be flagged as malicious by external entities.                                   | Lateral Movement                             | Medium   |
 | **Traffic detected from IP addresses recommended for blocking**                                       | Microsoft Defender for Cloud detected inbound traffic from IP addresses that are recommended to be blocked. This typically occurs when this IP address doesn't communicate regularly with this resource. Alternatively, the IP address has been flagged as malicious by Defender for Cloud's threat intelligence sources.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         | Probing                                      | Low      |
-
-
 
 ## <a name="alerts-azurekv"></a>Alerts for Azure Key Vault
 
@@ -742,3 +742,7 @@ VM_VbScriptHttpObjectAllocation| VBScript HTTP object allocation detected | High
 - [Security alerts in Microsoft Defender for Cloud](alerts-overview.md)
 - [Manage and respond to security alerts in Microsoft Defender for Cloud](managing-and-responding-alerts.md)
 - [Continuously export Defender for Cloud data](continuous-export.md)
+
+
+
+

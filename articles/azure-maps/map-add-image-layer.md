@@ -45,7 +45,7 @@ map.layers.add(new atlas.layer.ImageLayer({
 }));
 ```
 
-For a fully functional sample that shows how to overlay an image of a map of Newark New Jersey from 1922 as an Image layer, see [Simple Image Layer] in the [Azure Maps Samples].
+For a fully functional sample that shows how to overlay an image of a map of Newark New Jersey from 1922 as an Image layer, see [Simple Image Layer] in the [Azure Maps Samples]. For the source code for this sample, see [Simple Image Layer source code].
 
 :::image type="content" source="./media/map-add-image-layer/simple-image-layer.png" alt-text="A screenshot showing a map with an image of a map of Newark New Jersey from 1922 as an Image layer.":::
 
@@ -60,7 +60,7 @@ This sample demonstrates how to add KML ground overlay information as an image l
 
 The code uses the static `getCoordinatesFromEdges` function from the [ImageLayer](/javascript/api/azure-maps-control/atlas.layer.imagelayer) class. It calculates the four corners of the image using the north, south, east, west, and rotation information of the KML ground overlay.
 
-For a fully functional sample that shows how to use a KML Ground Overlay as Image Layer, see [KML Ground Overlay as Image Layer] in the [Azure Maps Samples].
+For a fully functional sample that shows how to use a KML Ground Overlay as Image Layer, see [KML Ground Overlay as Image Layer] in the [Azure Maps Samples]. For the source code for this sample, see [KML Ground Overlay as Image Layer source code].
 
 :::image type="content" source="./media/map-add-image-layer/kml-ground-overlay-as-image-layer.png" alt-text="A screenshot showing a map with a KML Ground Overlay appearing as Image Layer.":::
 
@@ -74,7 +74,7 @@ For a fully functional sample that shows how to use a KML Ground Overlay as Imag
 
 ## Customize an image layer
 
-The image layer has many styling options. For a fully functional sample that shows how the different options of the image layer affect rendering, see [Image Layer Options] in the [Azure Maps Samples].
+The image layer has many styling options. For a fully functional sample that shows how the different options of the image layer affect rendering, see [Image Layer Options] in the [Azure Maps Samples]. For the source code for this sample, see [Image Layer Options source code].
 
 :::image type="content" source="./media/map-add-image-layer/image-layer-options.png" alt-text="A screenshot showing a map with a panel that has the different options of the image layer that affect rendering. In this sample, you can change styling options and see the effect it has on the map.":::
 
@@ -98,7 +98,11 @@ See the following articles for more code samples to add to your maps:
 > [!div class="nextstepaction"]
 > [Add a tile layer](./map-add-tile-layer.md)
 
-[Simple Image Layer]: https://samples.azuremaps.com/?search=image%20layer&sample=simple-image-layer
+[Simple Image Layer]: https://samples.azuremaps.com/image-layer/simple-image-layer
 [Azure Maps Samples]: https://samples.azuremaps.com
-[KML Ground Overlay as Image Layer]: https://samples.azuremaps.com/?search=KML&sample=kml-ground-overlay-as-image-layer
-[Image Layer Options]: https://samples.azuremaps.com/?search=image%20layer&sample=image-layer-options
+[KML Ground Overlay as Image Layer]: https://samples.azuremaps.com/image-layer/kml-ground-overlay-as-image-layer
+[Image Layer Options]: https://samples.azuremaps.com/image-layer/image-layer-options
+
+[Simple Image Layer source code]: https://github.com/Azure-Samples/AzureMapsCodeSamples/blob/main/Samples/Image%20Layer/Simple%20Image%20Layer/Simple%20Image%20Layer.html
+[KML Ground Overlay as Image Layer source code]: https://github.com/Azure-Samples/AzureMapsCodeSamples/blob/main/Samples/Image%20Layer/KML%20Ground%20Overlay%20as%20Image%20Layer/KML%20Ground%20Overlay%20as%20Image%20Layer.html
+[Image Layer Options source code]: https://github.com/Azure-Samples/AzureMapsCodeSamples/blob/main/Samples/Image%20Layer/Image%20Layer%20Options/Image%20Layer%20Options.html
