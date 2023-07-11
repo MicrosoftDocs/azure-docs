@@ -5,7 +5,7 @@ author: normesta
 services: storage
 ms.service: azure-file-storage
 ms.topic: conceptual
-ms.date: 10/06/2022
+ms.date: 07/11/2023
 ms.author: normesta
 ms.devlang: csharp
 ms.custom: monitoring, devx-track-csharp, devx-track-azurepowershell
@@ -374,7 +374,7 @@ For more information on how to write queries, see [Log Analytics tutorial](../..
 
 Azure Monitor alerts proactively notify you when important conditions are found in your monitoring data. They allow you to identify and address issues in your system before your customers notice them. You can set alerts on [metrics](../../azure-monitor/alerts/alerts-metric-overview.md), [logs](../../azure-monitor/alerts/alerts-unified-log.md), and the [activity log](../../azure-monitor/alerts/activity-log-alerts.md). 
 
-To learn more about how to create an alert, see [Create or edit an alert rule](../../azure-monitor/alerts/alerts-create-new-alert-rule).
+To learn more about how to create an alert, see [Create or edit an alert rule](../../azure-monitor/alerts/alerts-create-new-alert-rule.md).
 
 > [!NOTE]  
 > If you create an alert and it's too noisy, adjust the threshold value and alert logic.
@@ -389,9 +389,13 @@ The following table lists some example scenarios to monitor and the proper metri
 
 ### How to create an alert if a file share is throttled
 
-1. In the **Condition** tab of the **Create an alert rule** dialog box, select the **Transactions** metric.
-2. In the **Dimension name** drop-down list of the **Split by dimensions** section, select **Response type**. 
-3. Select the **Dimension values** drop-down list and select the appropriate response types for your file share.
+1. Open the **Create an alert rule** dialog box. For more information, see [Create or edit an alert rule](../../azure-monitor/alerts/alerts-create-new-alert-rule.md).
+
+2. In the **Condition** tab, select the **Transactions** metric.
+
+3. In the **Dimension name** drop-down list, select **Response type**. 
+
+4. In the **Dimension values** drop-down list, select the appropriate response types for your file share.
 
     For standard file shares, select the following response types:
 
@@ -409,53 +413,71 @@ The following table lists some example scenarios to monitor and the proper metri
     - ClientShareIopsThrottlingError
 
    > [!NOTE]
-   > If the response types are not listed in the **Dimension values** drop-down, this means the resource has not been throttled. To add the dimension values, next to the **Dimension values** drop-down list, select **Add custom value**, enter the respone type (for example, **SuccessWithThrottling**), select **OK**, and then repeat these steps to add all applicable response types for your file share.
+   > If the response types are not listed in the **Dimension values** drop-down, this means the resource has not been throttled. To add the dimension values, next to the **Dimension values** drop-down list, select **Add custom value**, enter the response type (for example, **SuccessWithThrottling**), select **OK**, and then repeat these steps to add all applicable response types for your file share.
 
-4. For **premium file shares**, select the **Dimension name** drop-down and select **File Share**. For **standard file shares**, skip to step 6.
+5. For **premium file shares**, select the **Dimension name** drop-down and select **File Share**. For **standard file shares**, skip to step 7.
 
    > [!NOTE]
    > If the file share is a standard file share, the **File Share** dimension will not list the file share(s) because per-share metrics are not available for standard file shares. Throttling alerts for standard file shares will be triggered if any file share within the storage account is throttled and the alert will not identify which file share was throttled. Since per-share metrics are not available for standard file shares, the recommendation is to have one file share per storage account.
 
-5. Click the **Dimension values** drop-down and select the file share(s) that you want to alert on.
+6. Select the **Dimension values** drop-down and select the file share(s) that you want to alert on.
 
-6. Define the alert parameters (threshold value, operator, lookback period, and frequency of evaluation). 
+7. Define the alert parameters (threshold value, operator, lookback period, and frequency of evaluation). 
 
     > [!TIP]
     > If you are using a static threshold, the metric chart can help determine a reasonable threshold value if the file share is currently being throttled. If you're using a dynamic threshold, the metric chart will display the calculated thresholds based on recent data.
 
-7. Select the **Actions** tab to add an action group (email, SMS, etc.) to the alert. You can select an existing action group or create a new action group.
-8. Select the **Details** tab to fill in the details of the alert such as the alert name, description, and severity. 
-9. Select **Review + create** to create the alert.
+8. Select the **Actions** tab to add an action group (email, SMS, etc.) to the alert. You can select an existing action group or create a new action group.
+
+9. Select the **Details** tab to fill in the details of the alert such as the alert name, description, and severity. 
+
+10. Select **Review + create** to create the alert.
 
 ### How to create an alert if the Azure file share size is 80% of capacity
 
-1. In the **Condition** tab of the **Create an alert rule** dialog box, select the **File Capacity** metric.
-2. For **premium file shares**, select the **Dimension name** drop-down list, and then select **File Share**. For **standard file shares**, skip to step 4.
+1. Open the **Create an alert rule** dialog box. For more information, see [Create or edit an alert rule](../../azure-monitor/alerts/alerts-create-new-alert-rule.md).
+
+2. In the **Condition** tab of the **Create an alert rule** dialog box, select the **File Capacity** metric.
+
+3. For **premium file shares**, select the **Dimension name** drop-down list, and then select **File Share**. For **standard file shares**, skip to step 5.
 
    > [!NOTE]
    > If the file share is a standard file share, the **File Share** dimension will not list the file share(s) because per-share metrics are not available for standard file shares. Alerts for standard file shares are based on all file shares in the storage account. Since per-share metrics are not available for standard file shares, the recommendation is to have one file share per storage account.
 
-3. Select the **Dimension values** drop-down and select the file share(s) that you want to alert on.
-4. Enter the **Threshold value** in bytes. For example, if the file share size is 100 TiB and you want to receive an alert when the file share size is 80% of capacity, the threshold value in bytes is 87960930222080.
-5. Define the alert parameters (threshold value, operator, lookback period, and frequency of evaluation).
-6. Select the **Actions** tab to add an action group (email, SMS, etc.) to the alert. You can select an existing action group or create a new action group.
-7. Select the **Details** tab to fill in the details of the alert such as the alert name, description, and severity. 
-8. Select **Review + create** to create the alert.
+4. Select the **Dimension values** drop-down and select the file share(s) that you want to alert on.
+
+5. Enter the **Threshold value** in bytes. For example, if the file share size is 100 TiB and you want to receive an alert when the file share size is 80% of capacity, the threshold value in bytes is 87960930222080.
+
+6. Define the alert parameters (threshold value, operator, lookback period, and frequency of evaluation).
+
+7. Select the **Actions** tab to add an action group (email, SMS, etc.) to the alert. You can select an existing action group or create a new action group.
+
+8. Select the **Details** tab to fill in the details of the alert such as the alert name, description, and severity. 
+
+9. Select **Review + create** to create the alert.
 
 ### How to create an alert if the Azure file share egress has exceeded 500 GiB in a day
 
-1. In the **Condition** tab of the **Create an alert rule** dialog box, select the **Egress** metric.
-2. For **premium file shares**, select the **Dimension name** drop-down list and select **File Share**. For **standard file shares**, skip to step 4.
+1. Open the **Create an alert rule** dialog box. For more information, see [Create or edit an alert rule](../../azure-monitor/alerts/alerts-create-new-alert-rule.md).
+
+2. In the **Condition** tab of the **Create an alert rule** dialog box, select the **Egress** metric.
+
+3. For **premium file shares**, select the **Dimension name** drop-down list and select **File Share**. For **standard file shares**, skip to step 5.
 
    > [!NOTE]
    > If the file share is a standard file share, the **File Share** dimension will not list the file share(s) because per-share metrics are not available for standard file shares. Alerts for standard file shares are based on all file shares in the storage account. Since per-share metrics are not available for standard file shares, the recommendation is to have one file share per storage account.
 
-7. Select the **Dimension values** drop-down and select the file share(s) that you want to alert on.
-8. Enter **536870912000** bytes for Threshold value. 
-9. From the **Check every** drop-down list, select the frequency of evaluation.
-6. Select the **Actions** tab to add an action group (email, SMS, etc.) to the alert. You can select an existing action group or create a new action group.
-7. Select the **Details** tab to fill in the details of the alert such as the alert name, description, and severity. 
-8. Select **Review + create** to create the alert.
+4. Select the **Dimension values** drop-down and select the file share(s) that you want to alert on.
+
+5. Enter **536870912000** bytes for Threshold value. 
+
+6. From the **Check every** drop-down list, select the frequency of evaluation.
+
+7. Select the **Actions** tab to add an action group (email, SMS, etc.) to the alert. You can select an existing action group or create a new action group.
+
+8. Select the **Details** tab to fill in the details of the alert such as the alert name, description, and severity. 
+
+9. Select **Review + create** to create the alert.
 
 ## Next steps
 
