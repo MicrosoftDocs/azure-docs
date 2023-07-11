@@ -161,7 +161,7 @@ The table summarizes VMware vSphere VM support for VMware vSphere VMs you want t
 
 ### Appliance requirements (agent-based)
 
-When you set up the replication appliance using the OVA template provided in the Azure Migrate hub, the appliance runs Windows Server 2016 and complies with the support requirements. If you set up the replication appliance manually on a physical server, then make sure that it complies with the requirements.
+When you set up the replication appliance using the OVA template provided in the Azure Migrate hub, the appliance runs Windows Server 2022 and complies with the support requirements. If you set up the replication appliance manually on a physical server, then make sure that it complies with the requirements.
 
 - Learn about [replication appliance requirements](migrate-replication-appliance.md#appliance-requirements) for VMware vSphere.
 - Install MySQL on the appliance. Learn about [installation options](migrate-replication-appliance.md#mysql-installation).
