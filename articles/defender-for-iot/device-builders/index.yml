@@ -61,5 +61,3 @@ landingContent:
         links:
           - text: What's new for device builders?
             url: release-notes.md
-          - text: What's new in Firmware analysis (preview)?
-            url: release-notes-firmware-analysis.md
