@@ -38,7 +38,7 @@ productDirectory:
   items:
     # Card
     - title: Azure OpenAI
-      imageSrc: ./openai/media/icon/azure-openai-dark.svg
+      imageSrc: ./media/service-icons/azure.svg
       summary: Perform a wide variety of natural language tasks
       url: ./openai/index.yml
     # Card
