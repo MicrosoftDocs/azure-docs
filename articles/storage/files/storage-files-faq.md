@@ -88,8 +88,8 @@ ms.topic: conceptual
     If you're using snapshots as part of the self-managed backup solution for file shares managed by Azure File Sync, your ACLs might not be restored properly to NTFS ACLs if the snapshots were taken before February 24, 2020. If this occurs, consider contacting Azure Support.
 
 * <a id="afs-lastwritetime"></a>
-  **Does Azure File Sync sync the LastWriteTime for directories?**  
-    No, Azure File Sync doesn't sync the LastWriteTime for directories.
+  **Does Azure File Sync sync the LastWriteTime for directories? Why isn't the *date modified* timestamp on a directory updated when files within it are changed?**  
+    No, Azure File Sync doesn't sync the LastWriteTime for directories. Furthermore, Azure Files doesn't update the **date modified** timestamp (LastWriteTime) for directories when files within the directory are changed. This is expected behavior.
     
 ## Security, authentication, and access control
 

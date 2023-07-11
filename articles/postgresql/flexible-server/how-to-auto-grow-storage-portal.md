@@ -1,5 +1,5 @@
 ---
-title: Storage auto-grow - Azure portal - Azure Database for PostgreSQL - Flexible Server
+title: Storage Auto-grow - Azure portal - Azure Database for PostgreSQL - Flexible Server
 description: This article describes how you can configure storage autogrow using the Azure portal in Azure Database for PostgreSQL - Flexible Server
 ms.service: postgresql
 ms.subservice: flexible-server
@@ -10,7 +10,7 @@ author: kabharati
 ms.date: 06/24/2022
 ---
 
-# Storage auto-grow using the Azure portal in Azure Database for PostgreSQL - Flexible Server
+# Storage Autogrow using  Azure portal in Azure Database for PostgreSQL - Flexible Server
 
 
 [!INCLUDE [applies-to-postgresql-Flexible-server](../includes/applies-to-postgresql-Flexible-server.md)]
@@ -18,7 +18,7 @@ ms.date: 06/24/2022
 
 This article describes how you can configure an Azure Database for PostgreSQL server storage to grow without impacting the workload.
 
-When a server reaches the allocated storage limit, the server is marked as read-only. However, if you enable storage auto grow, the server storage increases to accommodate the growing data. For servers with less than 1 TiB of provisioned storage, the autogrow feature activates when storage consumption reaches 80%. For servers with 1 TB or more of storage, autogrow activates at 90% consumption. 
+When a server reaches the allocated storage limit, the server is marked as read-only. However, if you enable storage autogrow, the server storage increases to accommodate the growing data. For servers with less than 1 TiB of provisioned storage, the autogrow feature activates when storage consumption reaches 80%. For servers with 1 TB or more of storage, autogrow activates at 90% consumption. 
 
 
 ## Enable storage auto-grow for existing servers
