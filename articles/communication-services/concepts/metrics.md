@@ -28,7 +28,150 @@ More information on supported aggregation types and time series aggregations can
 
 - **Operation** - All operations or routes that can be called on the Azure Communication Services Chat gateway.
 - **Status Code** - The status code response sent after the request.
-- **StatusSubClass** - The status code series sent after the response. 
+- **StatusSubClass** - The status code series sent after the response.
+
+### Chat API request metric operations
+
+The following operations are available on Chat API request metrics:
+
+| Operation / Route    | Description                                                                                    |
+| -------------------- | ---------------------------------------------------------------------------------------------- |
+| GetChatMessage       | Gets a message by message ID. |
+| ListChatMessages     | Gets a list of chat messages from a thread. |
+| SendChatMessage      | Sends a chat message to a thread. |
+| UpdateChatMessage    | Updates a chat message. |
+| DeleteChatMessage    | Deletes a chat message. |
+| GetChatThread        | Gets a chat thread. |
+| ListChatThreads      | Gets the list of chat threads of a user. |
+| UpdateChatThread     | Updates a chat thread's properties. |
+| CreateChatThread     | Creates a chat thread. |
+| DeleteChatThread     | Deletes a thread. |
+| GetReadReceipts      | Gets read receipts for a thread. |
+| SendReadReceipt      | Sends a read receipt event to a thread, on behalf of a user. |
+| SendTypingIndicator           | Posts a typing event to a thread, on behalf of a user. |
+| ListChatThreadParticipants    | Gets the members of a thread. |
+| AddChatThreadParticipants     | Adds thread members to a thread. If members already exist, no change occurs. |
+| RemoveChatThreadParticipant   | Remove a member from a thread. |
+
+:::image type="content" source="./media/chat-metric.png" alt-text="Chat API Request Metric.":::
+
+If a request is made to an operation that isn't recognized, you receive a "Bad Route" value response.
+
+### SMS API requests
+
+The following operations are available on SMS API request metrics:
+
+| Operation / Route    | Description                                                                                    |
+| -------------------- | ---------------------------------------------------------------------------------------------- |
+| SMSMessageSent       | Sends an SMS message. |
+| SMSDeliveryReportsReceived     | Gets SMS Delivery Reports |
+| SMSMessagesReceived      | Gets SMS messages. |
+
+:::image type="content" source="./media/sms-metric.png" alt-text="SMS API Request Metric.":::
+
+### Authentication API requests
+
+The following operations are available on Authentication API request metrics:
+
+| Operation / Route             | Description                                                                                    |
+| ----------------------------- | ---------------------------------------------------------------------------------------------- |
+| CreateIdentity                | Creates an identity representing a single user. |
+| DeleteIdentity                | Deletes an identity. |
+| CreateToken                   | Creates an access token. |
+| RevokeToken                   | Revokes all access tokens created for an identity before a time given. |
+| ExchangeTeamsUserAccessToken  | Exchange an Azure Active Directory (Azure AD) access token of a Teams user for a new Communication Identity access token with a matching expiration time.|
+
+:::image type="content" source="./media/acs-auth-metrics.png" alt-text="Authentication Request Metric.":::
+
+### Call Automation API requests
+
+The following operations are available on Call Automation API request metrics:
+
+| Operation / Route  | Description                                                                                    |
+| -------------------- | ---------------------------------------------------------------------------------------------- |
+| Create Call           | Create an outbound call to user.
+| Answer Call           | Answer an inbound call. |
+| Redirect Call         | Redirect an inbound call to another user. |
+| Reject Call           | Reject an inbound call. |
+| Transfer Call To Participant   |  Transfer 1:1 call to another user.   |
+| Play                  | Play audio to call participants.  |
+| PlayPrompt            | Play a prompt to users as part of the Recognize action. |
+| Recognize             | Recognize user input from call participants. |
+| Add Participants      |  Add a participant to a call.    |
+| Remove Participants   | Remove a participant from a call.   |
+| HangUp Call           | Hang up your call leg. |
+| Terminate Call        | End the call for all participants.  |
+| Get Call              | Get details about a call.     |
+| Get Participant       |  Get details on a call participant.   |
+| Get Participants      |  Get all participants in a call.   |
+| Delete Call           |  Delete a call.    |
+| Cancel All Media Operations | Cancel all ongoing or queued media operations in a call. |
+
+### Job Router API requests
+
+The following operations are available on Job Router API request metrics:
+
+| Operation / Route  | Description                                                                                    |
+| -------------------- | ---------------------------------------------------------------------------------------------- |
+| UpsertClassificationPolicy | Creates or updates a classification policy.
+| GetClassificationPolicy | Retrieves an existing classification policy by Id. |
+| ListClassificationPolicies | Retrieves existing classification policies |
+| DeleteDistributionPolicy | Delete a classification policy by Id. |
+| UpsertDistributionPolicy | Creates or updates a distribution policy.
+| GetDistributionPolicy | Retrieves an existing distribution policy by Id. |
+| ListDistributionPolicies | Retrieves existing distributionpolicies |
+| DeleteDistributionPolicy | Delete a distribution policy by Id. |
+| UpsertExceptionPolicy | Creates or updates an exception policy. |
+| GetExceptionPolicy | Retrieves an existing exception policy by Id. |
+| ListExceptionPolicies | Retrieves existing exception policies |
+| DeleteExceptionPolicy | Delete an exception policy by Id. |
+| UpsertQueue| Creates or updates a queue.
+| GetQueue | Retrieves an existing queue by Id. |
+| GetQueues | Retrieves existing queues |
+| DeleteQueue | Delete a queue by Id. |
+| GetQueueStatistics | Retrieves a queue's statistics. |
+| UpsertJob | Creates or updates a job.
+| GetJob | Retrieves an existing job by Id. |
+| GetJobs | Retrieves existing jobs |
+| DeleteJob | Delete a queue policy by Id. |
+| ReclassifyJob | Reclassify a job.
+| CancelJob | Submits request to cancel an existing job by Id while supplying free-form cancellation reason. |
+| CompleteJob | Completes an assigned job. |
+| CloseJob | Closes a completed job. |
+| AcceptJobOffer | Accepts an offer to work on a job and returns a 409/Conflict if another agent accepted the job already. |
+| DeclineJobOffer| Declines an offer to work on a job. |
+| UpsertWorker | Creates or updates a worker.
+| GetWorker | Retrieves an existing worker by Id. |
+| GetWorkers | Retrieves existing workers. |
+| DeleteWorker | Deletes a worker and all of its traces. |
+
+### Network Traversal API requests
+
+The following operations are available on Network Traversal API request metrics:
+
+| Operation / Route    | Description                                                                                    |
+| -------------------- | ---------------------------------------------------------------------------------------------- |
+| IssueRelayConfiguration       | Issue configuration for an STUN/TURN server. |
+
+:::image type="content" source="./media/acs-turn-metrics.png" alt-text="TURN Token Request Metric." lightbox="./media/acs-turn-metrics.png":::
+
+### Rooms API requests
+
+The following operations are available on Rooms API request metrics:
+
+| Operation / Route             | Description                                                                                    |
+| ----------------------------- | ---------------------------------------------------------------------------------------------- |
+| CreateRoom                    | Creates a Room. |
+| DeleteRoom                    | Deletes a Room. |
+| GetRoom                       | Gets a Room by Room ID. |
+| PatchRoom                     | Updates a Room by Room ID. |
+| ListRooms                     | Lists all the Rooms for an ACS Resource. |
+| AddParticipants               | Adds participants to a Room.|
+| RemoveParticipants            | Removes participants from a Room. |
+| GetParticipants               | Gets list of participants for a Room. |
+| UpdateParticipants            | Updates list of participants for a Room. |
+
+:::image type="content" source="./media/rooms/rooms-metrics.png" alt-text="Rooms Request Metric.":::
 
 ## Next steps
 

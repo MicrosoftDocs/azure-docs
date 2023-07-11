@@ -35,12 +35,12 @@ mkdir acs-router-quickstart && cd acs-router-quickstart
 
 ### Install the package
 
-You'll need to use the Azure Communication Job Router client library for Python [version 1.0.0b1](https://pypi.org/project/azure-communication-job-router/) or above.
+You'll need to use the Azure Communication Job Router client library for Python [version 1.0.0b1](https://pypi.org/project/azure-communication-jobrouter) or above.
 
 From a console prompt, navigate to the directory containing the router.py file, then execute the following command:
 
 ```console
-pip install azure-communication-job-router
+pip install azure-communication-jobrouter
 ```
 
 ### Set up the app framework

@@ -36,7 +36,7 @@ mvn archetype:generate -DgroupId=com.communication.quickstart -DartifactId=commu
 
 ### Include the package
 
-You'll need to use the Azure Communication Job Router client library for Java [version 1.0.0-beta.1](https://search.maven.org/artifact/com.azure/azure-communication-job-router/1.0.0-beta.1/jar) or above.
+You'll need to use the Azure Communication Job Router client library for Java [version 1.0.0-beta.1](https://search.maven.org/artifact/com.azure/azure-communication-jobrouter/1.0.0-beta.1/jar) or above.
 
 #### Include the BOM file
 
@@ -63,7 +63,7 @@ and then include the direct dependency in the dependencies section without the v
 <dependencies>
   <dependency>
     <groupId>com.azure</groupId>
-    <artifactId>azure-communication-job-router</artifactId>
+    <artifactId>azure-communication-jobrouter</artifactId>
   </dependency>
 </dependencies>
 ```
@@ -72,12 +72,12 @@ and then include the direct dependency in the dependencies section without the v
 
 If you want to take dependency on a particular version of the library that isn't present in the BOM, add the direct dependency to your project as follows.
 
-[//]: # ({x-version-update-start;com.azure:azure-communication-job-router;current})
+[//]: # ({x-version-update-start;com.azure:azure-communication-jobrouter;current})
 
 ```xml
 <dependency>
   <groupId>com.azure</groupId>
-  <artifactId>azure-communication-job-router</artifactId>
+  <artifactId>azure-communication-jobrouter</artifactId>
   <version>1.0.0-beta.1</version>
 </dependency>
 ```
@@ -252,7 +252,7 @@ Worker worker-1 has closed job 6b83c5ad-5a92-4aa8-b986-3989c791be91
 
 ## Reference documentation
 
-Read about the full set of capabilities of Azure Communication Services Job Router from the [Java SDK reference](/java/api/overview/azure/communication.jobrouter-readme) or [REST API reference](/rest/api/communication/job-router).
+Read about the full set of capabilities of Azure Communication Services Job Router from the [Java SDK reference](/java/api/overview/azure/communication.jobrouter-readme) or [REST API reference](/rest/api/communication/jobrouter).
 
 <!-- LINKS -->
 

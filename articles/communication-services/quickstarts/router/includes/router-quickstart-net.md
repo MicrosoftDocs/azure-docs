@@ -43,7 +43,7 @@ Install the Azure Communication Job Router client library for .NET with [NuGet](
 dotnet add package Azure.Communication.JobRouter
 ```
 
-You'll need to use the Azure Communication Job Router client library for .NET [version 1.0.0-beta.2](https://www.nuget.org/packages/Azure.Communication.JobRouter/1.0.0-beta.2) or above.
+You'll need to use the Azure Communication Job Router client library for .NET [version 1.0.0-beta.1](https://www.nuget.org/packages/Azure.Communication.JobRouter/1.0.0-beta.1) or above.
 
 Add the following `using` directives to the top of **Program.cs** to include the JobRouter namespaces.
 
