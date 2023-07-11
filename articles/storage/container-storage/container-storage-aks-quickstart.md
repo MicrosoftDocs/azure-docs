@@ -1,29 +1,30 @@
 ---
-title: Quickstart for installing and configuring Azure Container Storage Preview with Azure Kubernetes Service (AKS)
-description: Learn how to install and configure Azure Container Storage Preview for use with Azure Kubernetes Service. You'll end up with new storage classes that you can use for your Kubernetes workloads.
+title: Quickstart for installing Azure Container Storage Preview for use with Azure Kubernetes Service (AKS)
+description: Learn how to install Azure Container Storage Preview for use with Azure Kubernetes Service. Create an AKS cluster, label the node pool, and install the Azure Container Storage extension.
 author: khdownie
-ms.service: storage
+ms.service: azure-container-storage
 ms.topic: quickstart
-ms.date: 06/28/2023
+ms.date: 07/06/2023
 ms.author: kendownie
-ms.subservice: container-storage
 ms.custom: devx-track-azurecli
 ---
 
 # Quickstart: Install Azure Container Storage Preview for use with Azure Kubernetes Service
-[Azure Container Storage](container-storage-introduction.md) is a cloud-based volume management, deployment, and orchestration service built natively for containers. This Quickstart shows you how to configure and use Azure Container Storage for use with [Azure Kubernetes Service (AKS)](../../aks/intro-kubernetes.md). At the end, you'll have new storage classes that you can use for your Kubernetes workloads, and you can then create a storage pool using one of three block storage options.
+[Azure Container Storage](container-storage-introduction.md) is a cloud-based volume management, deployment, and orchestration service built natively for containers. This Quickstart shows you how to install Azure Container Storage Preview for use with [Azure Kubernetes Service (AKS)](../../aks/intro-kubernetes.md).
 
-[!INCLUDE [azure-cli-prepare-your-environment.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment.md)]
-
-## Getting started
+## Prerequisites
 
 - If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
+- Take note of the Azure subscription ID you'll use for this quickstart. We recommend using a subscription on which you have an [Owner](../../role-based-access-control/built-in-roles.md#owner) role. If you don't have access to one, you can still proceed, but you'll need admin assistance to complete this quickstart.
+
 - Sign up for the public preview by completing the [onboarding survey](https://aka.ms/AzureContainerStoragePreviewSignUp).
 
-- Make sure the identity you're using to create your AKS cluster has the appropriate minimum permissions. For more details, see [Access and identity options for Azure Kubernetes Service](../../aks/concepts-identity.md).
+- This quickstart requires version 2.0.64 or later of the Azure CLI. See [How to install the Azure CLI](/cli/azure/install-azure-cli). If you're using the Bash environment in Azure Cloud Shell, the latest version is already installed. If you plan to run the commands in this quickstart locally instead of in Azure Cloud Shell, be sure to run them with administrative privileges. For more information, see [Quickstart for Bash in Azure Cloud Shell](../../cloud-shell/quickstart.md).
 
-- This article requires version 2.0.64 or later of the Azure CLI. See [How to install the Azure CLI](/cli/azure/install-azure-cli). If you're using Azure Cloud Shell, the latest version is already installed. If you plan to run the commands in this quickstart locally instead of in Azure Cloud Shell, be sure to run them with administrative privileges.
+## Getting started
+
+- [Launch Azure Cloud Shell](https://shell.azure.com), or if you're using a local installation, sign in to the Azure CLI by using the [az login](/cli/azure/reference-index?view=azure-cli-latest#az-login) command.
 
 - If you're using Azure Cloud Shell, you might be prompted to mount storage. Select the Azure subscription where you want to create the storage account and select **Create**.
 

@@ -6,7 +6,7 @@ ms.author: CaihuaRui
 ms.service: spring-apps
 ms.topic: quickstart
 ms.date: 06/21/2023
-ms.custom: devx-track-java
+ms.custom: devx-track-java, devx-track-extended-java, devx-track-azurecli
 ---
 
 # Quickstart: Enable and disable Eureka Server in Azure Spring Apps

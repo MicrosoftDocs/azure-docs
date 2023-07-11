@@ -15,7 +15,7 @@ ms.author: danlep
 The `sql-data-source` resolver policy configures a Transact-SQL (T-SQL) request to an [Azure SQL](/azure/azure-sql/azure-sql-iaas-vs-paas-what-is-overview) database and an optional response to resolve data for an object type and field in a GraphQL schema. The schema must be imported to API Management as a GraphQL API.  
 
 > [!NOTE]
-> This policy is currently in preview.
+> This policy is in preview. Currently, the policy isn't supported in the Consumption tier of API Management.
 
 [!INCLUDE [api-management-policy-generic-alert](../../includes/api-management-policy-generic-alert.md)]
 
@@ -117,7 +117,7 @@ The `sql-data-source` resolver policy configures a Transact-SQL (T-SQL) request 
 ## Usage
 
 - [**Policy scopes:**](./api-management-howto-policies.md#scopes) GraphQL resolver
--  [**Gateways:**](api-management-gateways-overview.md) dedicated, consumption
+-  [**Gateways:**](api-management-gateways-overview.md) dedicated
 
 ### Usage notes
 

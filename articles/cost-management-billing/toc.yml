@@ -126,6 +126,8 @@
         href: manage/cancel-azure-subscription.md
       - name: Manage subscription policies
         href: manage/manage-azure-subscription-policy.md
+      - name: Filter and view subscriptions
+        href: manage/filter-view-subscriptions.md
     - name: Transfer billing products
       items:
       - name: Azure billing product transfers

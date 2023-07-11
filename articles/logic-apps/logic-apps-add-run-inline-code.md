@@ -20,7 +20,7 @@ Currently, the connector only has a single action, which works best for a code s
 
 | Action | Language | Language version | Run duration | Data size | Other notes |
 |--------|----------|------------------|--------------|-----------|-------------|
-| **Execute JavaScript Code** | JavaScript | **Standard**: <br>Node.js 12.x.x or 14.x.x <br><br>**Consumption**: <br>Node.js 8.11.1 <br><br>For more information, review [Standard built-in objects](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects). | Finishes in 5 seconds or fewer. | Handles data up to 50 MB. | - Doesn't require working with the [**Variables** actions](logic-apps-create-variables-store-values.md), which are unsupported by the action. <br><br>- Doesn't support the `require()` function for running JavaScript. |
+| **Execute JavaScript Code** | JavaScript | **Standard**: <br>Node.js 16.x.x <br><br>**Consumption**: <br>Node.js 8.11.1 <br><br>For more information, review [Standard built-in objects](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects). | Finishes in 5 seconds or fewer. | Handles data up to 50 MB. | - Doesn't require working with the [**Variables** actions](logic-apps-create-variables-store-values.md), which are unsupported by the action. <br><br>- Doesn't support the `require()` function for running JavaScript. |
 |||||||
 
 To run code that doesn't fit these attributes, you can [create and call a function through Azure Functions](logic-apps-azure-functions.md) instead.

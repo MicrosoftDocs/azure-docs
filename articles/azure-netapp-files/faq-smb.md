@@ -94,6 +94,8 @@ Azure NetApp Files also supports [`LOCK` response](/openspecs/windows_protocols/
 
 Azure NetApp Files also supports [breaking file locks](troubleshoot-file-locks.md).
 
+To learn more about file locking in Azure NetApp Files, see [file locking](understand-file-locks.md).
+
 ## What network authentication methods are supported for SMB volumes in Azure NetApp Files?
 
 NTLMv2 and Kerberos network authentication methods are supported with SMB volumes in Azure NetApp Files. NTLMv1 and LanManager are disabled and are not supported.

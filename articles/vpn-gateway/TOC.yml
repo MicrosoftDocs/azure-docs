@@ -224,11 +224,7 @@
     - name: BGP diagnostics
       href: bgp-diagnostics.md
     - name: Configure forced tunneling
-      items:
-      - name: Azure PowerShell
-        href: vpn-gateway-forced-tunneling-rm.md
-      - name: Azure PowerShell (classic)
-        href: vpn-gateway-about-forced-tunneling.md
+      href: vpn-gateway-forced-tunneling-rm.md
     - name: Configure gateway transit for VNet peering
       href: vpn-gateway-peering-gateway-transit.md
     - name: Connect AWS and Azure using a BGP-enabled VPN Gateway

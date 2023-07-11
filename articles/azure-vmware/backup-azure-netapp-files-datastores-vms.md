@@ -65,7 +65,6 @@ You must create backup policies before you can use Cloud Backup for Virtual Mach
     | ---- | ---- |
     | VM consistency | Check this box to pause the VMs and create a VMware snapshot each time the backup job runs. <br> When you check the VM consistency box, backup operations might take longer and require more storage space. In this scenario, the VMs are first paused, then VMware performs a VM consistent snapshot. Cloud Backup for Virtual Machines then performs its backup operation, and then VM operations are resumed. <br> VM guest memory is not included in VM consistency snapshots. |
     | Include datastores with independent disks	| Check this box to include any datastores with independent disks that contain temporary data in your backup. | 
-    | Scripts | Enter the fully qualified path of the prescript or postscript that you want the Cloud Backup for Virtual Machines to run before or after backup operations. For example, you can run a script to update Simple Network Management Protocol (SNMP) traps, automate alerts, and send logs. The script path is validated at the time the script is executed. <br> **NOTE**: Prescripts and postscripts must be located on the virtual appliance VM. To enter multiple scripts, press **Enter** after each script path to list each script on a separate line. The semicolon (;) character is not allowed. |
 7. Select **Add** to save your policy.
     You can verify that the policy has been created successfully and review the policy configuration by selecting the policy in the **Policies** page.
 
