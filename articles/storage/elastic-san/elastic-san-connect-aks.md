@@ -31,7 +31,7 @@ The iSCSI CSI driver for Kubernetes is [licensed under the Apache 2.0 license](h
 - Use either the [latest Azure CLI](/cli/azure/install-azure-cli) or install the [latest Azure PowerShell module](/powershell/azure/install-azure-powershell)
 - Meet the [compatibility requirements](https://github.com/kubernetes-csi/csi-driver-iscsi/blob/master/README.md#container-images--kubernetes-compatibility) for the iSCSI CSI driver
 - [Deploy an Elastic SAN Preview](elastic-san-create.md)
-- [Configure virtual network endpoint](elastic-san-networking.md#configure-virtual-network-endpoint)
+- [Configure a virtual network endpoint](elastic-san-networking.md#configure-a-virtual-network-endpoint)
 - [Configure virtual network rules](elastic-san-networking.md#configure-virtual-network-rules)
 
 ## Limitations
