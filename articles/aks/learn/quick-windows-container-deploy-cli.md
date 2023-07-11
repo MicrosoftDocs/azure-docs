@@ -3,7 +3,7 @@ title: Create a Windows Server container on an Azure Kubernetes Service (AKS) cl
 description: Learn how to quickly create a Kubernetes cluster and deploy an application in a Windows Server container in Azure Kubernetes Service (AKS) using Azure CLI.
 ms.topic: article
 ms.custom: event-tier1-build-2022, devx-track-azurecli
-ms.date: 07/10/2023
+ms.date: 07/11/2023
 #Customer intent: As a developer or cluster operator, I want to quickly create an AKS cluster and deploy a Windows Server container so that I can see how to run applications running on a Windows Server container using the managed Kubernetes service in Azure.
 ---
 
@@ -19,14 +19,10 @@ This article assumes a basic understanding of Kubernetes concepts. For more info
 
 [!INCLUDE [azure-cli-prepare-your-environment.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment.md)]
 
-- This article requires version *2.0.64 or later* of the Azure CLI. If using Azure Cloud Shell, the latest version is already installed.
-
-- The identity you use to create your cluster must have the appropriate minimum permissions. For more details on access and identity for AKS, see [Access and identity options for Azure Kubernetes Service (AKS)](../concepts-identity.md).
-
-- If you have multiple Azure subscriptions, select the appropriate subscription ID in which the resources should be billed using the
-[`az account``](/cli/azure/account) command.
-
-- Verify the *Microsoft.OperationsManagement* and *Microsoft.OperationalInsights* providers are registered on your subscription. These are Azure resource providers required to support Container Insights. Check the registration status using the following [`az provider show`][az-provider-show] commands:
+- This article requires version 2.0.64 or later of the Azure CLI. If using Azure Cloud Shell, the latest version is already installed.
+- The identity you use to create your cluster must have the appropriate minimum permissions. For more information on access and identity for AKS, see [Access and identity options for Azure Kubernetes Service (AKS)](../concepts-identity.md).
+- If you have multiple Azure subscriptions, select the appropriate subscription ID in which the resources should be billed using the [`az account`](/cli/azure/account) command.
+- Verify the *Microsoft.OperationsManagement* and *Microsoft.OperationalInsights* providers are registered on your subscription. Check the registration status using the following [`az provider show`][az-provider-show] commands:
 
   ```sh
   az provider show -n Microsoft.OperationsManagement -o table
@@ -49,7 +45,7 @@ The following limitations apply when you create and manage AKS clusters that sup
 
 - You can't delete the first node pool.
 
-The following additional limitations apply to Windows Server node pools:
+The following limitations apply to *Windows Server node pools*:
 
 - The AKS cluster can have a maximum of 10 node pools.
 - The AKS cluster can have a maximum of 100 nodes in each node pool.
@@ -57,9 +53,9 @@ The following additional limitations apply to Windows Server node pools:
 
 ## Create a resource group
 
-An Azure resource group is a logical group in which Azure resources are deployed and managed. When you create a resource group, you're asked to specify a location. This location is where resource group metadata is stored and where your resources run in Azure if you don't specify another region during resource creation.
+An [Azure resource group](../../azure-resource-manager/management/overview.md) is a logical group in which Azure resources are deployed and managed. When you create a resource group, you're asked to specify a location. This location is where resource group metadata is stored and where your resources run in Azure if you don't specify another region during resource creation.
 
-- Create a resource group using the [`az group create][az-group-create] command. The following example creates a resource group named *myResourceGroup* in the *eastus* location.
+- Create a resource group using the [`az group create`][az-group-create] command. The following example creates a resource group named *myResourceGroup* in the *eastus* location.
 
     ```azurecli-interactive
     az group create --name myResourceGroup --location eastus
@@ -123,7 +119,7 @@ In this section, we create an AKS cluster with the following configuration:
     >
     > - If you get a password validation error, verify the password you set meets the [Windows Server password requirements][windows-server-password]. If your password meets the requirements, try creating your resource group in another region. Then try creating the cluster with the new resource group.
     > - If you don't specify an administrator username and password when setting `--vm-set-type VirtualMachineScaleSets` and `--network-plugin azure`, the username is set to *azureuser* and the password is set to a random value.
-    > - The administrator username can't be changed, but you can change the administrator password your AKS cluster uses for Windows Server nodes using `az aks update`. For more details, see [Windows Server node pools FAQ][win-faq-change-admin-creds].
+    > - The administrator username can't be changed, but you can change the administrator password your AKS cluster uses for Windows Server nodes using `az aks update`. For more information, see [Windows Server node pools FAQ][win-faq-change-admin-creds].
 
     After a few minutes, the command completes and returns JSON-formatted information about the cluster. Occasionally, the cluster can take longer than a few minutes to provision. Allow up to 10 minutes for provisioning.
 
@@ -168,7 +164,7 @@ AKS supports Windows Server 2019 and 2022 node pools. Windows Server 2022 is the
 
 ## Connect to the cluster
 
-You use [kubectl][kubectl], the Kubernetes command-line client, to managed your Kubernetes clusters. If you use Azure Cloud Shell, `kubectl` is already installed. To you want to install `kubectl` locally, you can use the [`az aks install-cli][az-aks-install-cli] command.
+You use [kubectl][kubectl], the Kubernetes command-line client, to manage your Kubernetes clusters. If you use Azure Cloud Shell, `kubectl` is already installed. To you want to install `kubectl` locally, you can use the [`az aks install-cli`][az-aks-install-cli] command.
 
 1. Configure `kubectl` to connect to your Kubernetes cluster using the [`az aks get-credentials][az-aks-get-credentials] command. This command downloads credentials and configures the Kubernetes CLI to use them.
 
@@ -176,13 +172,13 @@ You use [kubectl][kubectl], the Kubernetes command-line client, to managed your 
     az aks get-credentials --resource-group myResourceGroup --name myAKSCluster
     ```
 
-2. Verify the connection to your cluster using the [`kubectl get][kubectl-get] command, which returns a list of the cluster nodes.
+2. Verify the connection to your cluster using the [`kubectl get`][kubectl-get] command, which returns a list of the cluster nodes.
 
     ```console
     kubectl get nodes -o wide
     ```
 
-    The following example output shows all nodes in the cluster. Make sure that the status of all nodes is *Ready*:
+    The following example output shows all nodes in the cluster. Make sure the status of all nodes is *Ready*:
 
     ```output
     NAME                                STATUS   ROLES   AGE   VERSION   INTERNAL-IP   EXTERNAL-IP   OS-IMAGE                         KERNEL-VERSION      CONTAINER-RUNTIME
@@ -270,7 +266,7 @@ When the application runs, a Kubernetes service exposes the application front en
     kubectl get service sample --watch
     ```
 
-    Initially, the output shows the *EXTERNAL-IP* for the *sample* service as *pending*:
+    Initially, the output shows the *EXTERNAL-IP* for the sample service as *pending*:
 
     ```output
     NAME               TYPE           CLUSTER-IP   EXTERNAL-IP   PORT(S)        AGE
