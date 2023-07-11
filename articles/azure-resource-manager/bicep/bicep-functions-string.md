@@ -478,15 +478,19 @@ The following example shows how to use the format function.
 param greeting string = 'Hello'
 param name string = 'User'
 param numberToFormat int = 8175133
+param objectToFormat object = { prop: 'value' }
 
 output formatTest string = format('{0}, {1}. Formatted number: {2:N0}', greeting, name, numberToFormat)
+output formatObject string = format('objectToFormat: {0}', objectToFormat)
+
 ```
 
 The output from the preceding example with the default values is:
 
 | Name | Type | Value |
 | ---- | ---- | ----- |
-| formatTest | String | Hello, User. Formatted number: 8,175,133 |
+| formatTest | String | `Hello, User. Formatted number: 8,175,133` |
+| formatObject | String | `objectToFormat: {'prop':'value'}` |
 
 ## guid
 
