@@ -111,7 +111,7 @@ public class App
 
 ## Initialize the Job Router client and administration client
 
-Job Router clients can be authenticated using your connection string acquired from an Azure Communication Services resource in the Azure portal.  We will generate both a client and an administration client to interact with the Job Router service.  The admin client will be used to provision queues and policies, while the client will be used to submit jobs and register workers.  For more information on connection strings, see [access-your-connection-strings-and-service-endpoints](../../create-communication-resource.md#access-your-connection-strings-and-service-endpoints).
+Job Router clients can be authenticated using your connection string acquired from an Azure Communication Services resource in the Azure portal.  We generate both a client and an administration client to interact with the Job Router service.  The admin client is used to provision queues and policies, while the client is used to submit jobs and register workers. For more information on connection strings, see [access-your-connection-strings-and-service-endpoints](../../create-communication-resource.md#access-your-connection-strings-and-service-endpoints).
 
 ```java
 // Get a connection string to our Azure Communication Services resource.
@@ -190,7 +190,7 @@ for (RouterWorkerOffer offer : worker.getOffers()) {
 
 ## Accept the job offer
 
-Then, the worker can accept the job offer by using the SDK, which will assign the job to the worker.
+Then, the worker can accept the job offer by using the SDK, which assigns the job to the worker.
 
 ```java
 AcceptJobOfferResult accept = routerClient.acceptJobOffer(worker.getId(), worker.getOffers().get(0).getOfferId());
@@ -199,7 +199,7 @@ System.out.printf("Worker %s is assigned job %s", worker.getId(), accept.getJobI
 
 ## Complete the job
 
-Once the worker has completed the work associated with the job (e.g. completed the call).
+Once the worker has completed the work associated with the job (for example, completed the call), we complete the job.
 
 ```java
 routerClient.completeJob(new CompleteJobOptions("job-1", accept.getAssignmentId()));

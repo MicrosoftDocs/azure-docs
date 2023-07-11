@@ -39,7 +39,7 @@ Run `npm init` to create a package.json file with default settings.
 npm init -y
 ```
 
-Create a new file `index.js` where the code for this quickstart will be added.
+Create a new file `index.js` where you'll add the code for this quickstart.
 
 ### Install the packages
 
@@ -53,7 +53,7 @@ npm install @azure/communication-job-router --save
 
 ### Set up the app framework
 
-In the `index.js` file add the following code. We will be adding the code for the quickstart in the `main` function.
+In the `index.js` file, add the following code. We'll add the code for the quickstart in the `main` function.
 
 ``` javascript
 const { JobRouterClient, JobRouterAdministrationClient } = require('@azure/communication-job-router');
@@ -73,7 +73,7 @@ main().catch((error) => {
 
 ## Initialize the Job Router client and administration client
 
-Job Router clients can be authenticated using your connection string acquired from an Azure Communication Services resource in the Azure portal.  We will generate both a client and an administration client to interact with the Job Router service.  The admin client will be used to provision queues and policies, while the client will be used to submit jobs and register workers. For more information on connection strings, see [access-your-connection-strings-and-service-endpoints](../../create-communication-resource.md#access-your-connection-strings-and-service-endpoints).
+Job Router clients can be authenticated using your connection string acquired from an Azure Communication Services resource in the Azure portal.  We generate both a client and an administration client to interact with the Job Router service.  The admin client is used to provision queues and policies, while the client is used to submit jobs and register workers. For more information on connection strings, see [access-your-connection-strings-and-service-endpoints](../../create-communication-resource.md#access-your-connection-strings-and-service-endpoints).
 
 Add the following code in `index.js` inside the `main` function.
 
@@ -87,7 +87,7 @@ const routerClient = new JobRouterClient(connectionString);
 
 ## Create a distribution policy
 
-Job Router uses a distribution policy to decide how Workers will be notified of available Jobs and the time to live for the notifications, known as **Offers**. Create the policy by specifying the **ID**, a **name**, an **offerTTL**, and a distribution **mode**.
+Job Router uses a distribution policy to decide how workers are notified of available Jobs and the time to live for the notifications, known as **Offers**. Create the policy by specifying the **ID**, a **name**, an **offerTTL**, and a distribution **mode**.
 
 ```javascript
 const distributionPolicy = await routerAdminClient.createDistributionPolicy("distribution-policy-1", {
@@ -149,7 +149,7 @@ for (const offer of worker.offers) {
 
 ## Accept the job offer
 
-Then, the worker can accept the job offer by using the SDK, which will assign the job to the worker.
+Then, the worker can accept the job offer by using the SDK, which assigns the job to the worker.
 
 ```javascript
 const accept = await routerClient.acceptJobOffer(worker.id, worker.offers[0].offerId);
@@ -158,7 +158,7 @@ console.log(`Worker ${worker.id} is assigned job ${offer.jobId}`);
 
 ## Complete the job
 
-Once the worker has completed the work associated with the job (e.g. completed the call).
+Once the worker has completed the work associated with the job (for example, completed the call), we complete the job.
 
 ```javascript
 await routerClient.completeJob("job-1", accept.assignmentId);

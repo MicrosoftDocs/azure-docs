@@ -65,7 +65,7 @@ if __name__ == '__main__':
 
 ## Initialize the Job Router client and administration client
 
-Job Router clients can be authenticated using your connection string acquired from an Azure Communication Services resource in the Azure portal.  We will generate both a client and an administration client to interact with the Job Router service.  The admin client will be used to provision queues and policies, while the client will be used to submit jobs and register workers.  For more information on connection strings, see [access-your-connection-strings-and-service-endpoints](../../create-communication-resource.md#access-your-connection-strings-and-service-endpoints).
+Job Router clients can be authenticated using your connection string acquired from an Azure Communication Services resource in the Azure portal.  We generate both a client and an administration client to interact with the Job Router service.  The admin client is used to provision queues and policies, while the client is used to submit jobs and register workers. For more information on connection strings, see [access-your-connection-strings-and-service-endpoints](../../create-communication-resource.md#access-your-connection-strings-and-service-endpoints).
 
 ```python
 // Get a connection string to our Azure Communication Services resource.
@@ -157,7 +157,7 @@ for offer in worker.offers:
 
 ## Accept the job offer
 
-Then, the worker can accept the job offer by using the SDK, which will assign the job to the worker.
+Then, the worker can accept the job offer by using the SDK, which assigns the job to the worker.
 
 ```python
 accept = router_client.accept_job_offer(worker_id = worker.id, offer_id = worker.offers[0].offer_id)
@@ -166,7 +166,7 @@ print(f"Worker {worker.id} is assigned job {offer.job_id}")
 
 ## Complete the job
 
-Once the worker has completed the work associated with the job (e.g. completed the call).
+Once the worker has completed the work associated with the job (for example, completed the call), we complete the job.
 
 ```python
 router_client.complete_job(job_id = job.id, assignment_id = accept.assignment_id)

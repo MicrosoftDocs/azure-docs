@@ -63,7 +63,7 @@ static async Task Main(string[] args)
 
 ## Initialize the Job Router client and administration client
 
-Job Router clients can be authenticated using your connection string acquired from an Azure Communication Services resource in the Azure portal.  We will generate both a client and an administration client to interact with the Job Router service.  The admin client will be used to provision queues and policies, while the client will be used to submit jobs and register workers.  For more information on connection strings, see [access-your-connection-strings-and-service-endpoints](../../create-communication-resource.md#access-your-connection-strings-and-service-endpoints).
+Job Router clients can be authenticated using your connection string acquired from an Azure Communication Services resource in the Azure portal.  We generate both a client and an administration client to interact with the Job Router service.  The admin client is used to provision queues and policies, while the client is used to submit jobs and register workers. For more information on connection strings, see [access-your-connection-strings-and-service-endpoints](../../create-communication-resource.md#access-your-connection-strings-and-service-endpoints).
 
 ```csharp
 // Get a connection string to our Azure Communication Services resource.
@@ -155,7 +155,7 @@ foreach (var offer in worker.Value.Offers)
 
 ## Accept the job offer
 
-Then, the worker can accept the job offer by using the SDK, which will assign the job to the worker.
+Then, the worker can accept the job offer by using the SDK, which assigns the job to the worker.
 
 ```csharp
 var accept = await routerClient.AcceptJobOfferAsync(worker.Value.Id, worker.Value.Offers.FirstOrDefault().OfferId);
@@ -164,7 +164,7 @@ Console.WriteLine($"Worker {worker.Value.Id} is assigned job {offer.JobId}");
 
 ## Complete the job
 
-Once the worker has completed the work associated with the job (e.g. completed the call).
+Once the worker has completed the work associated with the job (for example, completed the call), we complete the job.
 
 ```csharp
 await routerClient.CompleteJobAsync(new CompleteJobOptions("job-1", accept.Value.AssignmentId));
