@@ -47,7 +47,7 @@ items:
     href: concept-provisioning-logs.md
   - name: Usage and Insights report
     href: concept-usage-insights-report.md
-  - name: Azure AD logs in Azure Monitor
+  - name: Azure AD log integrations
     href: concept-activity-logs-azure-monitor.md
   - name: Plan a reporting and monitoring deployment
     href: plan-monitoring-and-reporting.md
