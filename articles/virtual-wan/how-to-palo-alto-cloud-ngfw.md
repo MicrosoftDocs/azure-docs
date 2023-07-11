@@ -161,7 +161,7 @@ The following section describes common issues seen when using Palo Alto Networks
 ### Troubleshooting Cloud NGFW creation
 
 * Ensure your Virtual Hubs are deployed in one of the following regions: Central US, East US, East US 2, West Europe or Australia East. Cloud NGFW deployment fails in other regions.
-* Ensure your Virtual Hub was created with the Azure Resource Tag **"hubSaaSPreview" : "true"**. Hubs created without this tag aren't eligible to be used with Cloud NGFW. These tags must be specified at hub creation time and can't be provided after hub deployment. To use Cloud NGFW, you need to create a new Virtual Hub.
+* Ensure your Virtual Hub have the Azure Resource Tag **"hubSaaSPreview" : "true"**. Hubs without this tag aren't eligible to be used with Cloud NGFW. These tags can be specified after hub deployment.
 * Ensure the Routing status of the Virtual Hub is "Provisioned." Attempts to create Cloud NGFW prior to routing being provisioned will fail.
 * Ensure registration to the **PaloAltoNetworks.Cloudngfw** resource provider is successful.
 
