@@ -13,19 +13,18 @@ When Azure Monitor data indicates that there might be a problem with your infras
 
 This article shows you how to create and manage action groups. 
 
-Each action is made up of the following properties:
+Each action is made up of:
 
 - **Type**: The notification that's sent or action that's performed. Examples include sending a voice call, SMS, or email. You can also trigger various types of automated actions.
 - **Name**: A unique identifier within the action group.
 - **Details**: The corresponding details that vary by type.
 
+In general, an action group is a global service. Efforts to make them more available regionally are in development. 
+Global requests from clients can be processed by action group services in any region. If one region of the action group service is down, the traffic is automatically routed and processed in other regions. As a global service, an action group helps provide a disaster recovery solution. Regional requests rely on availability zone redundancy to meet privacy requirements and offer a similar disaster recovery solution.
 
 - You can add up to five action groups to an alert rule.
 - Action groups are executed concurrently, in no specific order.
 - Multiple alert rules can use the same action group.
-
-In general, an action group is a global service. Efforts to make them more available regionally are in development. 
-Global requests from clients can be processed by action group services in any region. If one region of the action group service is down, the traffic is automatically routed and processed in other regions. As a global service, an action group helps provide a disaster recovery solution. Regional requests rely on availability zone redundancy to meet privacy requirements and offer a similar disaster recovery solution.
 
 ## Create an action group in the Azure portal
 
