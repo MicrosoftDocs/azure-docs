@@ -83,7 +83,7 @@ export USERNAME=""
 export PASSWORD=""
 ```
 
-To create a VM image for your Virtual Network Function (VNF), save the provided script as `vnf-image-builder.sh`, set the required environment variables, and execute the script.
+To create a VM image for your Virtual Network Function (VNF), save the provided script as `create-container-disk.sh`, set the required environment variables, and execute the script.
 
 ```bash
 #!/bin/bash
@@ -208,14 +208,14 @@ After executing the script, you'll have a VM image tailored for your Virtual Net
     export CONTAINER_IMAGE_TAG="20.04"
     export VNF_IMAGE="https://cloud-images.ubuntu.com/releases/focal/release/ubuntu-20.04-server-cloudimg-amd64.img"
     ```
-2. Save the provided script as `vnf-image-builder.sh` and make it executable.
+2. Save the provided script as `create-container-disk.sh` and make it executable.
 
     ```bash
-    chmod +x vnf-image-builder.sh
+    chmod +x create-container-disk.sh
     ```
 3. Execute the script.
     ```bash
-    $ ./vnf-image-builder.sh
+    $ ./create-container-disk.sh
       % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
                                      Dload  Upload   Total   Spent    Left  Speed
     100  622M  100  622M    0     0  24.7M      0  0:00:25  0:00:25 --:--:-- 26.5M
