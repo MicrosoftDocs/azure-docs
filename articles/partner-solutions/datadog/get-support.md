@@ -25,7 +25,7 @@ To contact support about the Datadog - An Azure Native ISV Service, select **New
 - Get started with Datadog – An Azure Native ISV Service on
 
     > [!div class="nextstepaction"]
-    > [Azure Portal](https://portal.azure.com/#view/HubsExtension/BrowseResource/resourceType/Microsoft.Datadog%2Fmonitors)
+    > [Azure portal](https://portal.azure.com/#view/HubsExtension/BrowseResource/resourceType/Microsoft.Datadog%2Fmonitors)
 
     > [!div class="nextstepaction"]
-    > [Azure Marketplace](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/datadog1591740804488.dd_liftr_v2?tab=Overview)
+    > [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/datadog1591740804488.dd_liftr_v2?tab=Overview)

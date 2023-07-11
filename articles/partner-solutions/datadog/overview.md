@@ -15,7 +15,7 @@ ms.date: 01/06/2023
 
 Azure Native ISV Services enable you to easily provision, manage, and tightly integrate independent software vendor (ISV) software and services on Azure. This Azure Native ISV Service is developed and managed by Microsoft and Datadog.
 
-You can find Datadog – An Azure Native ISV Service in the [Azure Portal](https://portal.azure.com/#view/HubsExtension/BrowseResource/resourceType/Microsoft.Datadog%2Fmonitors) or get it on the [Azure Marketplace](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/datadog1591740804488.dd_liftr_v2?tab=Overview).
+You can find Datadog – An Azure Native ISV Service in the [Azure portal](https://portal.azure.com/#view/HubsExtension/BrowseResource/resourceType/Microsoft.Datadog%2Fmonitors) or get it on the [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/datadog1591740804488.dd_liftr_v2?tab=Overview).
 
 Datadog is a monitoring and analytics platform for large-scale applications. It encompasses infrastructure monitoring, application performance monitoring, log management, and user-experience monitoring. Datadog aggregates data across your entire stack with 400+ integrations for troubleshooting, alerting, and graphing. You can use it as a single source for troubleshooting, optimizing performance, and cross-team collaboration.
 
@@ -48,7 +48,7 @@ For more help using the Datadog - An Azure Native ISV service, see the following
 - Get started with Datadog – An Azure Native ISV Service on
 
     > [!div class="nextstepaction"]
-    > [Azure Portal](https://portal.azure.com/#view/HubsExtension/BrowseResource/resourceType/Microsoft.Datadog%2Fmonitors)
+    > [Azure portal](https://portal.azure.com/#view/HubsExtension/BrowseResource/resourceType/Microsoft.Datadog%2Fmonitors)
 
     > [!div class="nextstepaction"]
     > [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/datadog1591740804488.dd_liftr_v2?tab=Overview)
