@@ -49,6 +49,8 @@
     items:
     - name: CAE for users
       href: concept-continuous-access-evaluation.md
+    - name: CAE strict enforcement
+      href: concept-continuous-access-evaluation-strict-enforcement.md
     - name: CAE for workload identities
       href: concept-continuous-access-evaluation-workload.md
   - name: Filter for devices
