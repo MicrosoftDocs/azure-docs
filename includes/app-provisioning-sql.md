@@ -102,46 +102,46 @@ The generic SQL connector requires a Data Source Name (DSN) file to connect to t
      
     ![Screenshot that shows ODBC management.](./media/app-provisioning-sql/odbc.png)
 
- 1. Select the **File DSN** tab, and select **Add**. 
+ 2. Select the **File DSN** tab, and select **Add**. 
  
      ![Screenshot that shows the File DSN tab.](./media/app-provisioning-sql/dsn-2.png)
 
- 1. If you're using SQL Server or Azure SQL, select **SQL Server Native Client 11.0** and select **Next**. If you're using another database, select its ODBC driver.
+ 3. If you're using SQL Server or Azure SQL, select **SQL Server Native Client 11.0** and select **Next**. If you're using another database, select its ODBC driver.
 
      ![Screenshot that shows choosing a native client.](./media/app-provisioning-sql/dsn-3.png)
      
- 1. Give the file a name, such as **GenericSQL**, and select **Next**. 
+ 4. Give the file a name, such as **GenericSQL**, and select **Next**. 
      ![Screenshot that shows naming the connector.](./media/app-provisioning-sql/dsn-4.png)
      
- 1. Select **Finish**. 
+ 5. Select **Finish**. 
      
      ![Screenshot that shows Finish.](./media/app-provisioning-sql/dsn-5.png)
      
- 1. Now configure the connection. If the SQL Server is located on a different server computer, then enter the name of the server. Then, select **Next**.  The following steps will differ depending upon which ODBC driver you're using.  These settings assume you're using the driver to connect to SQL Server.
+ 6. Now configure the connection. If the SQL Server is located on a different server computer, then enter the name of the server. Then, select **Next**.  The following steps will differ depending upon which ODBC driver you're using.  These settings assume you're using the driver to connect to SQL Server.
      
      ![Screenshot that shows entering a server name.](./media/app-provisioning-sql/dsn-6.png)
 
- 1. If the user you're running this step as has permissions to connect to the database, then keep Windows authentication selected. If the SQL Server administrator requires a SQL local account, then provide those credentials instead. Then select **Next**.
+ 7. If the user you're running this step as has permissions to connect to the database, then keep Windows authentication selected. If the SQL Server administrator requires a SQL local account, then provide those credentials instead. Then select **Next**.
 
      ![Screenshot that shows Windows authentication.](./media/app-provisioning-sql/dsn-7.png)
 
- 1. Enter the name of the database, which in this sample is **CONTOSO**.
+ 8. Enter the name of the database, which in this sample is **CONTOSO**.
      
      ![Screenshot that shows entering a database name.](./media/app-provisioning-sql/dsn-8.png)
 
- 1. Keep everything default on this screen, and select **Finish**.
+ 9. Keep everything default on this screen, and select **Finish**.
 
      ![Screenshot that shows selecting Finish.](./media/app-provisioning-sql/dsn-9.png)
 
- 1. To check everything is working as expected, select **Test Data Source**.
+ 10. To check everything is working as expected, select **Test Data Source**.
   
      ![Screenshot that shows Test Data Source.](./media/app-provisioning-sql/dsn-10.png)
 
- 1. Make sure the test is successful.
+ 11. Make sure the test is successful.
  
      ![Screenshot that shows success.](./media/app-provisioning-sql/dsn-11.png)
 
- 1. Select **OK** twice. Close the ODBC Data Source Administrator. The DSN connection file is saved by default to your **Documents** folder.
+ 12. Select **OK** twice. Close the ODBC Data Source Administrator. The DSN connection file is saved by default to your **Documents** folder.
 
 
 ## 3. Install and configure the Azure AD Connect Provisioning Agent
@@ -160,9 +160,6 @@ If you have already downloaded the provisioning agent and configured it for anot
  
  :::image type="content" source="media/app-provisioning-sql/download-1.png" alt-text="Screenshot of download location for agent." lightbox="media/app-provisioning-sql/download-1.png":::
      
-   >[!NOTE]
-   >Please use different provisioning agents for on-premises application provisioning and Azure AD Connect Cloud Sync / HR-driven provisioning. All three scenarios should not be managed on the same agent. 
-
  8. Leave the portal and open the provisioning agent installer, agree to the terms of service, and select **next**.
  9. Open the provisioning agent wizard.
  10. In the **Select Extension** step, select **On-premises application provisioning** and then select **Next**.
