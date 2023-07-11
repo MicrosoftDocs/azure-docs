@@ -40,7 +40,7 @@ If you plan to use the same local file server, follow these instructions.
 
 1. [Create a new server endpoint](file-sync-server-endpoint-create.md#create-a-server-endpoint) in the sync group you created and connect it to the same local data.
 
-:::image type="content" source="media/file-sync-share-to-share-migration/migrate-cloud-tiering-off-same-file-server.png" alt-text="Diagram showing the architecture for an Azure File Sync migration with cloud tiering off." lightbox="media/file-sync-share-to-share-migration/migrate-cloud-tiering-off-same-file-server.png":::
+:::image type="content" source="media/file-sync-share-to-share-migration/migrate-cloud-tiering-off-same-file-server.png" alt-text="Diagram showing the architecture for an Azure File Sync migration with cloud tiering off." lightbox="media/file-sync-share-to-share-migration/migrate-cloud-tiering-off-same-file-server.png" border="false":::
 
 ### Move to a new Azure File Sync server
 
@@ -64,7 +64,7 @@ An Azure File Sync registered server can only join one storage sync service, and
 
 Follow these instructions if cloud tiering is on and you're migrating within the same region. You can use your existing Azure File Sync server (see diagram), or optionally create a new server if you're concerned about impacting the existing share.
 
-:::image type="content" source="media/file-sync-share-to-share-migration/migrate-cloud-tiering-on-same-region.png" alt-text="Diagram showing the architecture for a same-region Azure File Sync migration with cloud tiering on." lightbox="media/file-sync-share-to-share-migration/migrate-cloud-tiering-on-same-region.png":::
+:::image type="content" source="media/file-sync-share-to-share-migration/migrate-cloud-tiering-on-same-region.png" alt-text="Diagram showing the architecture for a same-region Azure File Sync migration with cloud tiering on." lightbox="media/file-sync-share-to-share-migration/migrate-cloud-tiering-on-same-region.png" border="false":::
 
 1. Deploy a Windows VM in the same Azure region as the source share. To ensure good performance we recommend a multi-core VM type with at least 56 GiB of memory and premium storage, such as **standard_DS5_v2**.
 
@@ -82,7 +82,7 @@ You can now copy the data.
 
 Follow these instructions if cloud tiering is on and you're migrating to a file share in another Azure region. To migrate across regions, you need to migrate to a new Azure File Sync server connected to the target share (see diagram).
 
-:::image type="content" source="media/file-sync-share-to-share-migration/migrate-cloud-tiering-on-cross-region.png" alt-text="Diagram showing the architecture for a cross-region Azure File Sync migration with cloud tiering on." lightbox="media/file-sync-share-to-share-migration/migrate-cloud-tiering-on-cross-region.png":::
+:::image type="content" source="media/file-sync-share-to-share-migration/migrate-cloud-tiering-on-cross-region.png" alt-text="Diagram showing the architecture for a cross-region Azure File Sync migration with cloud tiering on." lightbox="media/file-sync-share-to-share-migration/migrate-cloud-tiering-on-cross-region.png" border="false":::
 
 1. Create a new storage sync service in the target region and a new sync group attached to your target share. The sync group must be in the same region as the file share and sync service.
 
