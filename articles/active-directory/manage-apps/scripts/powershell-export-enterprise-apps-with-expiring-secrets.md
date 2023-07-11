@@ -1,6 +1,6 @@
 ---
-title: PowerShell sample - Export app registrations with expiring secrets and certificates in Azure Active Directory tenant.
-description: PowerShell example that exports all app registrations with expiring secrets and certificates for the specified apps in your Azure Active Directory tenant.
+title: PowerShell sample - Export enterprise apps with expiring secrets and certificates in Azure Active Directory tenant.
+description: PowerShell example that exports all enterprise apps with expiring secrets and certificates for the specified enterprise apps in your Azure Active Directory tenant.
 services: active-directory
 author: omondiatieno
 manager: CelesteDG
@@ -13,9 +13,9 @@ ms.author: jomondi
 ms.reviewer: mifarca
 ---
 
-# Export app registrations with expiring secrets and certificates
+# Export enterprise apps with expiring secrets and certificates
 
-This PowerShell script example exports all app registrations with secrets and certificates expiring in the next X days (and already expired if you choose so) with their owners for the specified apps from your directory in a CSV file.
+This PowerShell script example exports all enterprise applications with secrets and certificates expiring in the next X days (and already expired if you choose so), with their owners for the specified enterprise apps from your directory in a CSV file.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../../includes/quickstarts-free-trial-note.md)]
 
@@ -23,7 +23,7 @@ This sample requires the [Microsoft Graph PowerShell](/powershell/microsoftgraph
 
 ## Sample script
 
-[!code-azurepowershell[main](~/powershell_scripts/application-management/export-apps-with-expiring-secrets.ps1 "Exports all apps with expiring secrets and certificates for the specified apps in your directory.")]
+[!code-azurepowershell[main](~/powershell_scripts/application-management/export-enterprise-apps-with-expiring-secrets.ps1 "Exports all apps with expiring secrets and certificates for the specified apps in your directory.")]
 
 ## Script explanation
 
@@ -35,8 +35,8 @@ You can modify the "$Path" variable directly in PowerShell, with a CSV file path
 
 | Command | Notes |
 |---|---|
-| [Get-MgApplication](/powershell/module/microsoft.graph.applications/get-mgapplication?view=graph-powershell-1.0&preserve-view=true) | Retrieves an application from your directory. |
-| [Get-MgApplicationOwner](/powershell/module/microsoft.graph.applications/get-mgapplicationowner?view=graph-powershell-1.0&preserve-view=true) | Retrieves the owners of an application from your directory. |
+| [Get-MgServicePrincipal](/powershell/module/microsoft.graph.applications/get-mgserviceprincipal?view=graph-powershell-1.0&preserve-view=true) | Retrieves an enterprise application from your directory. |
+| [Get-MgServicePrincipalOwner](/powershell/module/microsoft.graph.applications/get-mgserviceprincipalowner?view=graph-powershell-1.0&preserve-view=true) | Retrieves the owners of an enterprise application from your directory. |
 
 ## Next steps
 
