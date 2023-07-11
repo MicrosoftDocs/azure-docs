@@ -109,7 +109,6 @@ For guides on how to enable NSG flow logs, see [Enabling NSG flow logs](/azure/n
 
 * NAT Gateway isn't supported in a vWAN hub configuration.
 
-
 ## Related content
 
 - [Azure NAT Gateway resource](nat-gateway-resource.md).
