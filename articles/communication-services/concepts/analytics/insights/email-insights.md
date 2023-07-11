@@ -73,7 +73,7 @@ Email failure rate represents the different types of unsuccessful email deliveri
 ** Bounce rate: It represents the number of emails that couldn’t be delivered due to recipient’s email address is invalid, email server blocked the delivery or invalid domain name. 
 ** Blocked rate: It represents the number of emails that were not delivered through the recipient’s email server or were blocked by spam filter
 
-:::image type="content" source=""..\media\workbooks\email-insights\email-failure-rate.png" alt-text="Screenshot of email failure rate.":::
+:::image type="content" source=""media/workbooks/email-insights/email-failure-rate.png" alt-text="Screenshot of email failure rate.":::
 
 
 ## More information about workbooks
