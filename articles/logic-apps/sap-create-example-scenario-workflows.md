@@ -7,7 +7,7 @@ author: daviburg
 ms.author: daviburg
 ms.reviewer: estfan, azla
 ms.topic: how-to
-ms.date: 05/23/2023
+ms.date: 07/12/2023
 ---
 
 # Create workflows for common SAP integration scenarios in Azure Logic Apps
@@ -457,9 +457,13 @@ Next, create an action to send your IDoc to SAP when the workflow's request trig
 
 <a name="send-flat-file-idocs"></a>
 
-#### Send flat file IDocs to SAP server
+#### Send flat file IDocs to SAP server (Managed connector only)
 
-To send an IDoc using a flat file schema, you can wrap the IDoc in an XML envelope and [follow the general steps to add an SAP action to send an IDoc](#add-sap-action-send-idoc), but with the following changes:
+To send an IDoc using a flat file schema when you use the SAP managed connector, you can wrap the IDoc in an XML envelope and [follow the general steps to add an SAP action to send an IDoc](#add-sap-action-send-idoc), but with the following changes.
+
+> [!NOTE]
+>
+> If you're using the SAP built-in connector, make sure that you don't wrap an IDoc in an XML envelope.
 
 ### Wrap IDoc with XML envelope
 
