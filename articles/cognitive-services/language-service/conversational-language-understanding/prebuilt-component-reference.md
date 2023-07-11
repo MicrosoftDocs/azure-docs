@@ -38,7 +38,7 @@ The following prebuilt components are available in Conversational Language Under
 | URL | Website URLs and Links. | English, Chinese, French, Italian, German, Brazilian Portuguese, Spanish |
 | General.Organization | Companies and corporations. For example: "Microsoft" | English, Chinese, French, Italian, German, Brazilian Portuguese, Spanish |
 | Geography.Location | The name of a location. For example: "Tokyo" |  English, Chinese, French, Italian, German, Brazilian Portuguese, Spanish |
-| IPAddress | An IP address. For example: "192.168.0.4" | English, Chinese, French, Italian, German, Brazilian Portuguese, Spanish |
+| IP Address | An IP address. For example: "192.168.0.4" | English, Chinese, French, Italian, German, Brazilian Portuguese, Spanish |
 
 
 ## Prebuilt components in multilingual projects
