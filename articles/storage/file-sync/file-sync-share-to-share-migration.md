@@ -5,6 +5,7 @@ ms.service: azure-file-storage
 ms.topic: how-to
 ms.date: 07/11/2023
 ms.author: kendownie
+author: khdownie
 ---
 
 # Migrate files from one Azure file share to another when using Azure File Sync

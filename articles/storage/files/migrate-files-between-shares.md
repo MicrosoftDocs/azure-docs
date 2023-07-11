@@ -3,16 +3,17 @@ title: Migrate files between SMB Azure file shares
 description: Learn how to migrate files from one SMB Azure file share to another using common migration tools.
 ms.service: azure-file-storage
 ms.topic: how-to
-ms.date: 06/30/2023
+ms.date: 07/11/2023
 ms.author: kendownie
+author: khdownie
 ---
 
 # Migrate files between SMB Azure file shares
 
-This migration article describes how to migrate files from one SMB Azure file share to another. One common reason to do this is if you need to migrate from a standard file share to a premium file share to get increased performance for your application workload.
+This article describes how to migrate files from one SMB Azure file share to another. One common reason to do this is if you need to migrate from a standard file share to a premium file share to get increased performance for your application workload.
 
 > [!WARNING]
-> If you're using Azure File Sync, the migration process is different than described in this article. Instead, see Migrate files from one Azure file share to another when using Azure File Sync.
+> If you're using Azure File Sync, the migration process is different than described in this article. Instead, see [Migrate files from one Azure file share to another when using Azure File Sync](../file-sync/file-sync-share-to-share-migration.md).
 
 ## Applies to
 | File share type | SMB | NFS |
@@ -21,9 +22,9 @@ This migration article describes how to migrate files from one SMB Azure file sh
 | Standard file shares (GPv2), GRS/GZRS | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
 | Premium file shares (FileStorage), LRS/ZRS | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
 
-## Migrate data using Robocopy
+## Migrate using Robocopy
 
-If you're not using Azure File Sync, you can migrate data using Robocopy, a command-line file copy utility that's built into Windows. Follow these steps.
+Follow these steps to migrate using Robocopy, a command-line file copy utility that's built into Windows.
 
 1. Deploy a Windows virtual machine (VM) in Azure in the same region as your source file share. Keeping the data and networking in Azure will be fast and avoid outbound data transfer charges. For optimal performance, we recommend a multi-core VM type with at least 56 GiB of memory, for example **Standard_DS5_v2**.
 
@@ -51,4 +52,4 @@ If you're not using Azure File Sync, you can migrate data using Robocopy, a comm
 ## See also
 
 - [Migrate to Azure file shares using RoboCopy](storage-files-migration-robocopy.md)
-
+- [Migrate files from one Azure file share to another when using Azure File Sync](../file-sync/file-sync-share-to-share-migration.md)
