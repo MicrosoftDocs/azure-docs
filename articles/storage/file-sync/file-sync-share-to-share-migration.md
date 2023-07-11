@@ -44,7 +44,7 @@ If you plan to use the same local file server, follow these instructions.
 
 ### Move to a new Azure File Sync server
 
-If you want to move to a new local file server, you can use Storage Migration Service (SMS) to:
+If you want to move to a new local file server, you can use [Storage Migration Service](/windows-server/storage/storage-migration-service/overview) (SMS) to:
 
 - Copy over all your share-level permissions
 - Make several passes to catch up with changes that happened during migration
@@ -76,7 +76,7 @@ Follow these instructions if cloud tiering is on and you're migrating within the
 
 1. Set up the target file share as the cloud endpoint of the new sync group. Connect the VM as a server endpoint for the target share, and set the on-premises path to T:\target.
 
-You can now copy the data.
+You can now start the [initial copy](#initial-copy).
 
 ### Migrate across regions
 
@@ -94,7 +94,7 @@ Follow these instructions if cloud tiering is on and you're migrating to a file 
 
 1. Set up the target file share as the cloud endpoint of the new sync group. Connect the VM as a server endpoint for the target share, and set the on-premises path to T:\target.
 
-You can now copy the data.
+You can now start the [initial copy](#initial-copy).
 
 ## Initial copy
 
