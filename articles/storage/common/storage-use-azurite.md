@@ -564,7 +564,7 @@ azurite --oauth basic --cert certname.pem --key certname-key.pem
 
 #### Azure Blob Storage
 
-You can then instantiate a `BlobContainerClient`, `BlobServiceClient`, or `BlobClient`. 
+To interact with Blob Storage resources, you can instantiate a `BlobContainerClient`, `BlobServiceClient`, or `BlobClient`. 
 
 The following examples show how to authorize a `BlobContainerClient` object using three different authorization mechanisms: [DefaultAzureCredential](/dotnet/api/azure.identity.defaultazurecredential), connection string, and shared key. `DefaultAzureCredential` provides a Bearer token-based authentication mechanism, and uses a chain of credential types used for authentication. Once authenticated, this credential provides the OAuth token as part of client instantiation. To learn more, see the [DefaultAzureCredential class reference](/dotnet/api/azure.identity.defaultazurecredential).
 
@@ -588,7 +588,9 @@ var client = new BlobContainerClient(
 
 #### Azure Queue Storage
 
-You can also instantiate a QueueClient or QueueServiceClient.
+To interact with Queue Storage resources, you can instantiate a `QueueClient` or `QueueServiceClient`. 
+
+The following examples show how to create and authorize a `QueueClient` object using three different authorization mechanisms: [DefaultAzureCredential](/dotnet/api/azure.identity.defaultazurecredential), connection string, and shared key. `DefaultAzureCredential` provides a Bearer token-based authentication mechanism, and uses a chain of credential types used for authentication. Once authenticated, this credential provides the OAuth token as part of client instantiation. To learn more, see the [DefaultAzureCredential class reference](/dotnet/api/azure.identity.defaultazurecredential).
 
 ```csharp
 // With queue URL and DefaultAzureCredential
@@ -610,7 +612,9 @@ var client = new QueueClient(
 
 #### Azure Table Storage
 
-You can also instantiate a TableClient or TableServiceClient.
+To interact with Table Storage resources, you can instantiate a `TableClient` or `TableServiceClient`. 
+
+The following examples show how to create and authorize a `TableClient` object using three different authorization mechanisms: [DefaultAzureCredential](/dotnet/api/azure.identity.defaultazurecredential), connection string, and shared key. `DefaultAzureCredential` provides a Bearer token-based authentication mechanism, and uses a chain of credential types used for authentication. Once authenticated, this credential provides the OAuth token as part of client instantiation. To learn more, see the [DefaultAzureCredential class reference](/dotnet/api/azure.identity.defaultazurecredential).
 
 ```csharp
 // With table URL and DefaultAzureCredential
