@@ -250,7 +250,7 @@ Here's how to create a host pool using the [Az.DesktopVirtualization](/powershel
 > In the following examples, you'll need to change the `<placeholder>` values for your own.
 
 [!INCLUDE [include-cloud-shell-local-powershell](includes/include-cloud-shell-local-powershell.md)]
-1. Use the `New-AzWvdHostPool` cmdlet with the following examples to create a host pool. More parameters are available; for more information, see the [New-AzWvdHostPool PowerShell reference](/powershell/module/az.desktopvirtualization/new-azwvdhostpool).
+2. Use the `New-AzWvdHostPool` cmdlet with the following examples to create a host pool. More parameters are available; for more information, see the [New-AzWvdHostPool PowerShell reference](/powershell/module/az.desktopvirtualization/new-azwvdhostpool).
 
    1. To create a pooled host pool using the *breadth-first* [load-balancing algorithm](host-pool-load-balancing.md) and *Desktop* as the preferred [app group type](environment-setup.md#app-groups), run the following command:
    
@@ -284,7 +284,7 @@ Here's how to create a host pool using the [Az.DesktopVirtualization](/powershel
       New-AzWvdHostPool @parameters
       ```
 
-1. You can view the properties of your new host pool by running the following command:
+3. You can view the properties of your new host pool by running the following command:
 
    ```azurepowershell
    Get-AzWvdHostPool -Name <Name> -ResourceGroupName <ResourceGroupName> | FL *

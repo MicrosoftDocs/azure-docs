@@ -95,7 +95,7 @@ Here's how to generate a registration key using the [Az.DesktopVirtualization](/
 > In the following examples, you'll need to change the `<placeholder>` values for your own.
 
 [!INCLUDE [include-cloud-shell-local-powershell](includes/include-cloud-shell-local-powershell.md)]
-1. Use the `New-AzWvdRegistrationInfo` cmdlet with the following example to generate a registration key that is valid for 24 hours.
+2. Use the `New-AzWvdRegistrationInfo` cmdlet with the following example to generate a registration key that is valid for 24 hours.
 
    ```azurepowershell
    $parameters = @{
@@ -107,7 +107,7 @@ Here's how to generate a registration key using the [Az.DesktopVirtualization](/
    New-AzWvdRegistrationInfo @parameters
    ```
 
-1. Get the registration key and copy it to your clipboard to use later. You can also retrieve the registration key later by running this command again anytime while the registration key is valid.
+3. Get the registration key and copy it to your clipboard to use later. You can also retrieve the registration key later by running this command again anytime while the registration key is valid.
 
    ```azurepowershell
    $parameters = @{
