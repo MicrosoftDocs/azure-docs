@@ -5,7 +5,6 @@ description: Learn about security recommendations for Blob storage. Implementing
 author: tamram
 
 ms.service: storage
-ms.subservice: blobs
 ms.topic: conceptual
 ms.date: 04/06/2023
 ms.author: tamram

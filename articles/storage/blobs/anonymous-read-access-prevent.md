@@ -9,7 +9,6 @@ ms.topic: how-to
 ms.date: 05/23/2023
 ms.author: tamram
 ms.reviewer: nachakra
-ms.subservice: blobs
 ms.devlang: powershell, azurecli
 ms.custom: devx-track-azurepowershell, devx-track-azurecli, engagement-fy23, devx-track-arm-template
 ---

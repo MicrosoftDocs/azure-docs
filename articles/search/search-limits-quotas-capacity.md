@@ -9,6 +9,7 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 08/09/2022
+ms.custom: references_regions
 ---
 
 # Service limits in Azure Cognitive Search
@@ -64,7 +65,47 @@ The maximum document size when calling an Index API is approximately 16 megabyte
 
 Document size is actually a limit on the size of the Index API request body. Since you can pass a batch of multiple documents to the Index API at once, the size limit realistically depends on how many documents are in the batch. For a batch with a single document, the maximum document size is 16 MB of JSON.
 
-When estimating document size, remember to consider only those fields that can be consumed by a search service. Any binary or image data in source documents should be omitted from your calculations.  
+When estimating document size, remember to consider only those fields that can be consumed by a search service. Any binary or image data in source documents should be omitted from your calculations.
+
+## Vector index size limits
+
+When you index documents with vector fields, we construct internal vector indexes and use the algorithm parameters you provide. The size of these vector indexes is restricted by the memory reserved for vector search for your service's tier (or SKU).
+
+The service enforces a vector index size quota **for every partition** in your search service. Each extra partition increases the available vector index size quota. This quota is a hard limit to ensure your service remains healthy, which means that further indexing attempts once the limit is exceeded results in failure. You may resume indexing once you free up available quota by either deleting some vector documents or by scaling up in partitions.
+
+The table describes the vector index size quota per partition across the service tiers (or SKU). Use the [Get Service Statistics API (GET /servicestats)](/rest/api/searchservice/get-service-statistics) to retrieve your vector index size quota.
+
+See our [documentation on vector index size](./vector-search-index-size.md) for more details.
+
+### Services created prior to July 1st, 2023
+
+| Tier   | Storage quota (GB) | Vector index size quota per partition (GB) | Approx. floats per partition (assuming 15% overhead) |
+| ----- | ------------------ | ------------------------------------------ | ---------------------------- |
+| Basic | 2                  | 0.5                                        | 115 million                  |
+| S1    | 25                 | 1                                          | 235 million                  |
+| S2    | 100                | 6                                          | 1,400 million                |
+| S3    | 200                | 12                                         | 2,800 million                |
+| L1    | 1,000              | 12                                         | 2,800 million                |
+| L2    | 2,000              | 36                                         | 8,400 million                |
+
+### Services created after July 1st, 2023 in supported regions
+
+Azure Cognitive Search is rolling out increased vector index size limits worldwide for **new search services**, but the team is building out infrastructure capacity in certain regions. Unfortunately, existing services cannot be migrated to the new limits.
+
+The following regions **do not** support increased limits:
+
+- Germany West Central
+- Jio India West
+- Qatar Central
+
+| Tier   | Storage quota (GB) | Vector index size quota per partition (GB) | Approx. floats per partition (assuming 15% overhead) |
+| ----- | ------------------ | ------------------------------------------ | ---------------------------- |
+| Basic | 2                  | 1                                          | 235 million                  |
+| S1    | 25                 | 3                                          | 700 million                  |
+| S2    | 100                | 12                                         | 2,800 million                |
+| S3    | 200                | 36                                         | 8,400 million                |
+| L1    | 1,000              | 12                                         | 2,800 million                |
+| L2    | 2,000              | 36                                         | 8,400 million                |
 
 ## Indexer limits
 

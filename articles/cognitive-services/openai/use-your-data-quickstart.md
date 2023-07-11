@@ -1,5 +1,5 @@
 ---
-title: 'Use your own data with Azure OpenAI Service'
+title: 'Use your own data with Azure OpenAI service'
 titleSuffix: Azure OpenAI
 description: Use this article to import and use your data in Azure OpenAI.
 services: cognitive-services

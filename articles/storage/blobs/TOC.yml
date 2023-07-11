@@ -951,6 +951,10 @@ items:
               href: sas-service-create-python.md
             - name: Create an account SAS
               href: ../common/storage-account-sas-create-python.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
+        - name: Client library configuration options
+          items:
+          - name: Performance tuning for uploads and downloads
+            href: storage-blobs-tune-upload-download-python.md
       - name: Test with a storage emulator
         items:
         - name: Use the Azurite open-source emulator

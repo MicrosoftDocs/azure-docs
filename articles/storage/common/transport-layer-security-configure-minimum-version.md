@@ -5,12 +5,12 @@ description: Configure a storage account to require a minimum version of Transpo
 services: storage
 author: jimmart-dev
 
-ms.service: storage
+ms.service: azure-storage
 ms.topic: how-to
 ms.date: 12/30/2022
 ms.author: jammart
 ms.reviewer: fryu
-ms.subservice: common 
+ms.subservice: storage-common-concepts
 ms.custom: devx-track-azurepowershell, devx-track-azurecli, engagement-fy23
 ms.devlang: azurecli
 ---

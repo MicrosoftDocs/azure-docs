@@ -96,13 +96,13 @@ Use the following steps to provision an Azure Spring Apps service instance.
 1. Use the following commands to retrieve the Resource ID for your Log Analytics Workspace and Azure Spring Apps service instance:
 
    ```azurecli
-   LOG_ANALYTICS_RESOURCE_ID=$(az monitor log-analytics workspace show \
+   export LOG_ANALYTICS_RESOURCE_ID=$(az monitor log-analytics workspace show \
        --resource-group <resource-group-name> \
        --workspace-name <workspace-name> \
        --query id \
        --output tsv)
 
-   AZURE_SPRING_APPS_RESOURCE_ID=$(az spring show \
+   export AZURE_SPRING_APPS_RESOURCE_ID=$(az spring show \
        --resource-group <resource-group-name> \
        --name <Azure-Spring-Apps-service-instance-name> \
        --query id \
@@ -319,7 +319,7 @@ Use the following steps to configure Spring Cloud Gateway and configure routes t
 1. Use the following commands to configure Spring Cloud Gateway API information:
 
    ```azurecli
-   GATEWAY_URL=$(az spring gateway show \
+   export GATEWAY_URL=$(az spring gateway show \
        --resource-group <resource-group-name> \
        --service <Azure-Spring-Apps-service-instance-name> \
        --query properties.url \
@@ -382,7 +382,7 @@ Use the following steps to configure Spring Cloud Gateway and configure routes t
 1. Use the following commands to retrieve the URL for Spring Cloud Gateway:
 
    ```azurecli
-   GATEWAY_URL=$(az spring gateway show \
+   export GATEWAY_URL=$(az spring gateway show \
        --resource-group <resource-group-name> \
        --service <Azure-Spring-Apps-service-instance-name> \
        --query properties.url \
@@ -409,7 +409,7 @@ Use the following steps to configure API Portal.
 1. Use the following commands to retrieve the URL for API Portal:
 
    ```azurecli
-   PORTAL_URL=$(az spring api-portal show \
+   export PORTAL_URL=$(az spring api-portal show \
        --resource-group <resource-group-name> \
        --service <Azure-Spring-Apps-service-instance-name> \
        --query properties.url \
