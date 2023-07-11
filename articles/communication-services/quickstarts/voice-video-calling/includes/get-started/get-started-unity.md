@@ -38,9 +38,9 @@ In Unity Hub, create a new project with the **2D Core** template to set up the u
 
 There are two ways to install the Azure Communication Calling SDK for Unity.
 
-1. Download the [SDK](https://dev.azure.com/aipmr/MixedReality-Unity-Packages/_artifacts/feed/Unity-packages/Npm/com.azure.communication.calling/overview/1.0.0-beta.1) from the public NPM feed and import it in Unity Editor's package manager, found under the Windows tab.
+1. Download the [SDK](https://dev.azure.com/aipmr/MixedReality-Unity-Packages/_artifacts/feed/Unity-packages/Npm/com.azure.communication.calling/overview/1.0.0-beta.1) from the public npm feed and import it in Unity Editor's package manager, found under the Windows tab.
 
-2. Download the [Mixed Reality Feature Tool](https://learn.microsoft.com/en-us/windows/mixed-reality/develop/unity/welcome-to-mr-feature-tool) from Microsoft and install it via the mixed reality tool manager.
+2. Download the [Mixed Reality Feature Tool](https://learn.microsoft.com/windows/mixed-reality/develop/unity/welcome-to-mr-feature-tool) from Microsoft and install it via the mixed reality tool manager.
 
 
 #### Set up the app framework
@@ -2075,4 +2075,4 @@ You can build and run the code on Unity Editor or devices that uses Unity.
 
 You can make an outbound call by providing a user ID in the text field and clicking the `Start Call/Join` button. Calling `8:echo123` connects you with an echo bot, this feature is great for getting started and verifying your audio devices are working.
 
-:::image type="content" source="../../media/unity/run-the-app.png" alt-text="Screenshot showing running the Unity quickstart app":::
+:::image type="content" source="../../media/unity/run-the-app.png" alt-text="Screenshot showing running the Unity quickstart app.":::
