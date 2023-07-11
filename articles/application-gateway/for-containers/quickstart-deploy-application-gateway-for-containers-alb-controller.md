@@ -72,34 +72,7 @@ You need to complete the following tasks prior to deploying Application Gateway 
 		--generate-ssh-key
 	```
 
-2. Delegate a Subnet in the AKS Virtual Network to the Application Gateway for Containers Service.
-
-	Once you have an AKS cluster, identify the virtual network to which the agent pool is connected using the following commands:
-
-	```azurecli-interactive
-	AKS_NAME='<your cluster name>'
-	RESOURCE_GROUP='<your resource group>'
-
-	mcResourceGroup=$(az aks show --name $AKS_NAME --resource-group $RESOURCE_GROUP --query "nodeResourceGroup" -o tsv)
-	clusterSubnetId=$(az vmss list --resource-group $mcResourceGroup --query '[0].virtualMachineProfile.networkProfile.networkInterfaceConfigurations[0].ipConfigurations[0].subnet.id' -o tsv)
-	read -d '' vnetName vnetResourceGroup vnetId <<< $(az network vnet show --ids $clusterSubnetId --query '[name, resourceGroup, id]' -o tsv)
-	echo $vnetId
-	```
-
-	Once the Virtual Network has been identified, create a new subnet with at least 250 available addresses and delegate it to the Application Gateway for Containers service with the following command (note, the minimum size a subnet should be for an Association should be /24):
-
-	```azurecli-interactive
-	subnetAddressPrefix='<an address space under the vnet that has at least 250 available addresses (/24 or smaller cidr prefix for the subnet)>'
-	albSubnetName='subnet-alb' # subnet name can be any non-reserved subnet name (i.e. GatewaySubnet, AzureFirewallSubnet, AzureBastionSubnet would all be invalid)
-	az network vnet subnet create \
-		--resource-group $vnetResourceGroup \
-		--vnet-name $vnetName \
-		--name $albSubnetName \
-		--delegations 'Microsoft.ServiceNetworking/trafficControllers' \
-		--address-prefixes $subnetAddressPrefix
-	```
-
-3. Install Helm.
+2. Install Helm.
 
 	[Helm](https://github.com/helm/helm) is an open-source packaging tool that is used to install ALB controller. Ensure that you have the latest version of helm installed. Instructions on installation can be found [here](https://github.com/helm/helm#install).
 
@@ -141,7 +114,7 @@ You need to complete the following tasks prior to deploying Application Gateway 
    > [!Note]
    > Assignment of the managed identity immediately after creation may result in an error that the principalId does not exist. Allow about a minute of time to elapse for the identity to replicate in Azure AD prior to delegating the identity.
 
-3. Install ALB Controller using Helm
+2. Install ALB Controller using Helm
 
 	ALB Controller can be installed by running the following commands:
 
