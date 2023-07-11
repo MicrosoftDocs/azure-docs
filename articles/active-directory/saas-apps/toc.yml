@@ -310,6 +310,8 @@
         href: bgsonline-tutorial.md
       - name: BIC Process Design
         href: bic-cloud-design-tutorial.md
+      - name: BigPanda
+        href: bigpanda-tutorial.md
       - name: Bime
         href: bime-tutorial.md
       - name: Birst Agile Business Analytics
@@ -456,6 +458,8 @@
         href: checkproof-tutorial.md  
       - name: Cheetah For Benelux
         href: cheetah-for-benelux-tutorial.md
+      - name: Chengliye Smart SMS Platform
+        href: chengliye-smart-sms-platform-tutorial.md
       - name: Cherwell
         href: cherwell-tutorial.md
       - name: Chromeriver
@@ -498,6 +502,8 @@
         href: citrix-cloud-saml-sso-tutorial.md  
       - name: Citrix ShareFile
         href: sharefile-tutorial.md
+      - name: CivicEye SSO
+        href: civic-eye-sso-tutorial.md
       - name: Civic Platform
         href: civic-platform-tutorial.md
       - name: Clarity
@@ -528,6 +534,8 @@
         href: cloud-academy-sso-tutorial.md
       - name: Cloud Management Portal for Microsoft Azure
         href: newsignature-tutorial.md
+      - name: CLOUD ATTENDANCE MANAGEMENT SYSTEM KING OF TIME
+        href: cloud-attendance-management-system-king-of-time-tutorial.md
       - name: CloudCords
         href: cloudcords-tutorial.md
       - name: CloudKnox Permissions Management Platform
@@ -558,6 +566,8 @@
         href: cognician-tutorial.md
       - name: Collaborative Innovation
         href: collaborativeinnovation-tutorial.md
+      - name: Colloquial
+        href: colloquial-tutorial.md
       - name: ColorTokens ZTNA
         href: colortokens-ztna-tutorial.md
       - name: Comeet Recruiting Software
@@ -586,6 +596,8 @@
         href: confluencemicrosoft-tutorial.md
       - name: App Proxy configuration for Confluence SAML SSO
         href: confluence-app-proxy-tutorial.md
+      - name: Connect1
+        href: connect1-tutorial.md
       - name: Consent2Go
         href: consent2go-tutorial.md
       - name: Contentful
@@ -690,12 +702,16 @@
         href: datto-file-protection-tutorial.md
       - name: Datto Workplace Single Sign On
         href: datto-workplace-tutorial.md
+      - name: DB Education Portal for Schools
+        href: db-education-portal-for-schools-tutorial.md
       - name: DDC Web
         href: ddc-web-tutorial.md
       - name: Dealpath
         href: dealpath-tutorial.md
       - name: deBroome Brand Portal
         href: debroome-brand-portal-tutorial.md
+      - name: Deem Mobile
+        href: deem-mobile-tutorial.md
       - name: Degreed
         href: degreed-tutorial.md
       - name: Delivery Solutions
@@ -1803,6 +1819,8 @@
         href: opsgenie-tutorial.md
       - name: Optimizely
         href: optimizely-tutorial.md
+      - name: OptiTurn
+        href: optiturn-tutorial.md
       - name: Oracle Access Manager for Oracle E-Business Suite
         href: oracle-access-manager-for-oracle-ebs-tutorial.md
       - name: Oracle Access Manager for Oracle Retail Merchandising
@@ -2441,6 +2459,8 @@
         href: superannotate-tutorial.md
       - name: Supermood
         href: supermood-tutorial.md
+      - name: SURFconext
+        href: surfconext-tutorial.md
       - name: SURFsecureID - Azure MFA
         href: surfsecureid-azure-mfa-tutorial.md  
       - name: SurveyMonkey Enterprise
@@ -2645,6 +2665,8 @@
         href: twic-tutorial.md  
       - name: Twilio Sendgrid
         href: twilio-sendgrid-tutorial.md  
+      - name: Uber
+        href: uber-tutorial.md
       - name: Uberflip
         href: uberflip-tutorial.md
       - name: Udemy Business SAML
@@ -2683,6 +2705,8 @@
         href: validsign-tutorial.md
       - name: Vault Platform
         href: vault-platform-tutorial.md  
+      - name: Vbrick Rev Cloud
+        href: vbrick-rev-cloud-tutorial.md
       - name: V-Client
         href: v-client-tutorial.md  
       - name: VECOS Releezme Locker management system
@@ -2948,6 +2972,8 @@
         href: airstack-provisioning-tutorial.md
       - name: Akamai Enterprise Application Access
         href: akamai-enterprise-application-access-provisioning-tutorial.md
+      - name: Albert
+        href: albert-provisioning-tutorial.md
       - name: AlertMedia
         href: alertmedia-provisioning-tutorial.md
       - name: AlexisHR
@@ -3046,6 +3072,8 @@
         href: cisco-webex-provisioning-tutorial.md
       - name: Clarizen One
         href: clarizen-one-provisioning-tutorial.md
+      - name: Cleanmail Swiss
+        href: cleanmail-swiss-provisioning-tutorial.md
       - name: Clebex
         href: clebex-provisioning-tutorial.md
       - name: Cloud Academy - SSO
@@ -3328,6 +3356,8 @@
         href: reward-gateway-provisioning-tutorial.md
       - name: RFPIO
         href: rfpio-provisioning-tutorial.md
+      - name: Rhombus Systems
+        href: rhombus-systems-provisioning-tutorial.md
       - name: RingCentral
         href: ringcentral-provisioning-tutorial.md
       - name: Robin
@@ -3408,6 +3438,8 @@
         href: tableau-online-provisioning-tutorial.md
       - name: Talentech
         href: talentech-provisioning-tutorial.md
+      - name: Tanium SSO
+        href: tanium-sso-provisioning-tutorial.md
       - name: Tap App Security
         href: tap-app-security-provisioning-tutorial.md
       - name: Taskize Connect

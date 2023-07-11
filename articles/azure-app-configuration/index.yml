@@ -28,8 +28,6 @@ landingContent:
         links:
         - text: Getting started with Azure App Configuration
           url: /Shows/Azure-Friday/Getting-started-with-Azure-App-Configuration
-        - text: Feature management
-          url: /Shows/NET-Community-Standups/ASPNET-Community-Standup-May-21st-2019-Introducing-MicrosoftFeatureManagement
         - text: Making centralized configuration easy
           url: /Events/dotnetConf/NET-Conf-2019/B210
         - text: Azure App Configuration on Cloud Native Show

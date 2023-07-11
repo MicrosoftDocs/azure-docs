@@ -63,7 +63,7 @@ View [examples and parameter definitions](/cli/azure/keyvault/certificate#az-key
 Downloading as certificate means getting the public portion. If you want both the private key and public metadata then you can download it as secret.
 
 ```azurecli
-az keyvault secret download -–file {nameofcert.pfx}
+az keyvault secret download --file {nameofcert.pfx}
                             [--encoding {ascii, base64, hex, utf-16be, utf-16le, utf-8}]
                             [--id]
                             [--name]

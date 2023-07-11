@@ -14,7 +14,7 @@ ms.assetid: ad8e5c75-0cf6-4564-ae62-ea1246b4e5f2
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 04/25/2023
+ms.date: 06/29/2023
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
 ---
@@ -64,6 +64,9 @@ In the SAP workload documentation space, you can find the following areas:
 
 ## Change Log
 
+- Jun 29, 2023: Update important considerations and sizing information in [HA for HANA scale-up with ANF on RHEL](./sap-hana-high-availability-netapp-files-red-hat.md), [HANA scale-out with standby node on Azure VMs with ANF on RHEL](./sap-hana-scale-out-standby-netapp-files-rhel.md)
+- Jun 26, 2023: Update important considerations and sizing information in [HA for HANA Scale-up with ANF on SLES](sap-hana-high-availability-netapp-files-suse.md) and [HANA scale-out with standby node with ANF on SLES](./sap-hana-scale-out-standby-netapp-files-suse.md).
+- Jun 23, 2023: Updated Azure scheduled events for SLES in [Pacemaker set up guide](./high-availability-guide-suse-pacemaker.md#configure-pacemaker-for-azure-scheduled-events).
 - June 1, 2023: Included virtual machine scale set with flexible orchestration guidelines in SAP workload [planning guide](./planning-guide.md).
 - June 1, 2023: Updated high availability guidelines in [HA architecture and scenarios](./sap-high-availability-architecture-scenarios.md), and added additional deployment option in [configuring optimal network latency with SAP applications](./proximity-placement-scenarios.md).
 - June 1, 2023: Release of [virtual machine scale set with flexible orchestration support for SAP workload](./virtual-machine-scale-set-sap-deployment-guide.md).

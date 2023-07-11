@@ -5,7 +5,7 @@ description: Learn how to set up an Azure AD tenant for P2S Azure AD authenticat
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: how-to
-ms.date: 04/24/2023
+ms.date: 06/23/2023
 ms.author: cherylmc
 
 ---
@@ -57,9 +57,9 @@ The steps in this article require an Azure AD tenant. If you don't have an Azure
    * **Tunnel type:** OpenVPN (SSL)
    * **Authentication type**: Azure Active Directory
 
-   For **Azure Active Directory** values, use the following guidelines for **Tenant**, **Audience**, and **Issuer** values. Replace {AzureAD TenantID} with your tenant ID.
+   For **Azure Active Directory** values, use the following guidelines for **Tenant**, **Audience**, and **Issuer** values. Replace {AzureAD TenantID} with your tenant ID, taking care to remove **{}** from the examples when you replace this value.
 
-   * **Tenant:** TenantID for the Azure AD tenant. Enter the tenant ID that corresponds to your configuration. Make sure the Tenant URL does not have a `\` at the end.
+   * **Tenant:** TenantID for the Azure AD tenant. Enter the tenant ID that corresponds to your configuration. Make sure the Tenant URL does not have a `\` at the end. 
 
      * Azure Public AD: `https://login.microsoftonline.com/{AzureAD TenantID}`
      * Azure Government AD: `https://login.microsoftonline.us/{AzureAD TenantID}`

@@ -15,6 +15,20 @@ Use the Event Grid output binding to write events to a custom topic. You must ha
 
 For information on setup and configuration details, see [How to work with Event Grid triggers and bindings in Azure Functions](event-grid-how-tos.md).
 
+::: zone pivot="programming-language-python"
+Azure Functions supports two programming models for Python. The way that you define your bindings depends on your chosen programming model.
+
+# [v2](#tab/python-v2)
+The Python v2 programming model lets you define bindings using decorators directly in your Python function code. For more information, see the [Python developer guide](functions-reference-python.md?pivots=python-mode-decorators#programming-model).
+
+# [v1](#tab/python-v1)
+The Python v1 programming model requires you to define bindings in a separate *function.json* file in the function folder. For more information, see the [Python developer guide](functions-reference-python.md?pivots=python-mode-configuration#programming-model).
+
+---
+
+This article supports both programming models.
+
+::: zone-end
 
 > [!IMPORTANT]
 > The Event Grid output binding is only available for Functions 2.x and higher.
@@ -432,8 +446,40 @@ Push-OutputBinding -Name Response -Value ([HttpResponseContext]@{
 ::: zone-end  
 ::: zone pivot="programming-language-python"  
 
-The following example shows a trigger binding in a *function.json* file and a [Python function](functions-reference-python.md) that uses the binding. It then sends in an event to the custom topic, as specified by the `topicEndpointUri`.
+The following example shows a trigger binding and a Python function that uses the binding. It then sends in an event to the custom topic, as specified by the `topicEndpointUri`. The example depends on whether you use the [v1 or v2 Python programming model](functions-reference-python.md). 
 
+# [v2](#tab/python-v2)
+
+Here's the function in the function_app.py file:
+
+```python
+import logging
+import azure.functions as func
+import datetime
+
+@app.function_name(name="eventgrid_output")
+@app.route(route="eventgrid_output")
+@app.event_grid_output(
+    arg_name="outputEvent",
+    topic_endpoint_uri="MyEventGridTopicUriSetting",
+    topic_key_setting="MyEventGridTopicKeySetting")
+def eventgrid_output(eventGridEvent: func.EventGridEvent, 
+         outputEvent: func.Out[func.EventGridOutputEvent]) -> None:
+
+    logging.log("eventGridEvent: ", eventGridEvent)
+
+    outputEvent.set(
+        func.EventGridOutputEvent(
+            id="test-id",
+            data={"tag1": "value1", "tag2": "value2"},
+            subject="test-subject",
+            event_type="test-event-1",
+            event_time=datetime.datetime.utcnow(),
+            data_version="1.0"))
+
+```
+
+# [v1](#tab/python-v1)
 Here's the binding data in the *function.json* file:
 
 ```json

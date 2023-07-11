@@ -26,6 +26,12 @@
     href: quick-backup-postgresql-database-portal.md
   - name: Enable Multi-user authorization on Recovery Services vault
     href: enable-multi-user-authorization-quickstart.md
+  - name: Backup SAP HANA System Replication database
+    items:
+    - name: Backup
+      href: quick-backup-hana-cli.md
+    - name: Restore
+      href: quick-restore-hana-cli.md
 - name: Tutorials
   items:
   - name: Back up multiple Azure VMs
@@ -120,6 +126,12 @@
       href: backup-azure-monitor-alert-faq.yml
     - name: FAQ-Protection against Ransomware
       href: protect-backups-from-ransomware-faq.yml
+  - name: Vaults
+    items:
+    - name: Recovery Services vault
+      href: backup-azure-recovery-services-vault-overview.md
+    - name: Backup vault
+      href: backup-vault-overview.md
   - name: Backup center
     href: backup-center-overview.md
   - name: Azure VM backup
@@ -166,8 +178,6 @@
     items:
     - name: Recovery Services vault
       items:
-      - name: Overview
-        href: backup-azure-recovery-services-vault-overview.md
       - name: Create
         href: backup-create-rs-vault.md
       - name: Delete
@@ -178,8 +188,8 @@
         href: backup-azure-manage-windows-server.md
     - name: Backup vault
       items:
-      - name: Overview
-        href: backup-vault-overview.md
+      - name: Create and manage
+        href: create-manage-backup-vault.md
   - name: Backup center
     items:
     - name: Monitor and Operate
