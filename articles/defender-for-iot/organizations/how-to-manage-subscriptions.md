@@ -125,7 +125,7 @@ After migrating your plan to a site-based Microsoft 365 plan, edits are supporte
 
 **To update your site sizes**:
 
-1. In Defender for IoT in the Azure portal, select **Sites and sensors** and then select the name of the site you want to migrate. If you have multiple sites, any sites linked to the plan you migrated are highlighted as needing changes.
+1. In Defender for IoT in the Azure portal, select **Sites and sensors** and then select the name of the site you want to migrate.
 
 1. In the **Edit site** pane, in the **Size** field, edit your site size to match your licensed sites. For example:
 
