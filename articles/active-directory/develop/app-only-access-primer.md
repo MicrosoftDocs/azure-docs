@@ -42,7 +42,7 @@ For example, to read a list of all teams created in an organization, you need to
 
 As a developer, you need to configure all required app-only permissions, also referred to as app roles on your application registration. You can configure your app's requested app-only permissions through the Azure portal or Microsoft Graph. App-only access doesn't support dynamic consent, so you can't request individual permissions or sets of permissions at runtime.
 
-Once you've configured all the permissions your app needs, it must get admin consent [admin consent](../manage-apps/grant-admin-consent.md) for it to access the resources. For example, only users with the global admin role can grant app-only permissions (app roles) for the Microsoft Graph API. Users with other admin roles, like application admin and cloud app admin, are able to grant app-only permissions for other resources. 
+Once you've configured all the permissions your app needs, it must get [admin consent](../manage-apps/grant-admin-consent.md) for it to access the resources. For example, only users with the global admin role can grant app-only permissions (app roles) for the Microsoft Graph API. Users with other admin roles, like application admin and cloud app admin, are able to grant app-only permissions for other resources. 
 
 Admin users can grant app-only permissions by using the Azure portal or by creating grants programmatically through the Microsoft Graph API. You can also prompt for interactive consent from within your app, but this option isn't preferable since app-only access doesn't require a user.
 

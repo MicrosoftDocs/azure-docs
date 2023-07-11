@@ -168,7 +168,7 @@ You should get a status HTTP 201 success.
 
 **Key points:**
 
-+ The "fields" collection includes a required key field, a category field, and pairs of fields (such as "title", "titleVector") for keyword and vector search. Colocating vector and nonvector fields in the same index enables hybrid queries. For instance, you can combine filters, keyword search with semantic ranking, and vectors into a single query operation.
++ The "fields" collection includes a required key field, a category field, and pairs of fields (such as "title", "titleVector") for keyword and vector search. Colocating vector and non-vector fields in the same index enables hybrid queries. For instance, you can combine filters, keyword search with semantic ranking, and vectors into a single query operation.
 
 + Vector fields must be `"type": "Collection(Edm.Single)"` with `"dimensions"` and `"vectorSearchConfiguration"` properties. See [this article](/rest/api/searchservice/preview-api/create-or-update-index) for property descriptions.
 
@@ -275,7 +275,7 @@ The response includes 5 results, and each result provides a search score, title,
 
 ### Single vector search with filter
 
-You can add filters, but the filters are applied to the nonvector content in your index. In this example, the filter applies to the "category" field.
+You can add filters, but the filters are applied to the non-vector content in your index. In this example, the filter applies to the "category" field.
 
 The response is 10 Azure services, with a search score, title, and category for each one. Notice the `select` property. It's used to select specific fields for the response.
 
@@ -304,7 +304,7 @@ api-key: {{admin-api-key}}
 
 ### Cross-field vector search
 
-A cross-field vector query sends a single query across multiple vector fields in your search index. This query example looks for similarity in both `titleVector` and `contentVector`:
+A cross-field vector query sends a single query across multiple vector fields in your search index. This query example looks for similarity in both "titleVector" and "contentVector" and displays scores using [Reciprocal Rank Fusion (RRF)](vector-search-ranking.md#reciprocal-rank-fusion-rrf-for-hybrid-queries):
 
 ```http
 POST https://{{search-service-name}}.search.windows.net/indexes/{{index-name}}/docs/search?api-version={{api-version}}
@@ -329,7 +329,7 @@ api-key: {{admin-api-key}}
 
 ### Multi-query vector search
 
-Multi-query vector search sends multiple queries across multiple vector fields in your search index. This query example looks for similarity in both `titleVector` and `contentVector`, but sends in two different query embeddings respectively. This scenario is ideal for multi-modal use cases where you want to search over a `textVector` field and an `imageVector` field. You can also use this scenario if you have different embedding models with different dimensions in your search index. 
+Multi-query vector search sends multiple queries across multiple vector fields in your search index. This query example looks for similarity in both `titleVector` and `contentVector`, but sends in two different query embeddings respectively. This scenario is ideal for multi-modal use cases where you want to search over a `textVector` field and an `imageVector` field. You can also use this scenario if you have different embedding models with different dimensions in your search index. This also displays scores using [Reciprocal Rank Fusion (RRF)](vector-search-ranking.md#reciprocal-rank-fusion-rrf-for-hybrid-queries).
 
 ```http
 POST https://{{search-service-name}}.search.windows.net/indexes/{{index-name}}/docs/search?api-version={{api-version}}
@@ -446,8 +446,6 @@ api-key: {{admin-api-key}}
 
 ### Semantic hybrid search
 
-In Cognitive Search, semantic search and vector search are separate features, but you can use them together as described in this example. Semantic search adds language representation models that rerank search results based on query intent. This feature is optional and billable for the transactions against the language models.
-
 Assuming that you've [enabled semantic search](semantic-search-overview.md#enable-semantic-search) and your index definition includes a [semantic configuration](semantic-how-to-query-request.md), you can formulate a query that includes vector search, plus keyword search with semantic ranking, caption, answers, and spell check. 
 
 ```http
@@ -481,7 +479,7 @@ api-key: {{admin-api-key}}
 
 ### Semantic hybrid search with filter
 
-Here's the last query in the collection. It's the same hybrid query as the previous example, but with a filter.
+Here's the last query in the collection. It's the same semantic hybrid query as the previous example, but with a filter.
 
 ```http
 POST https://{{search-service-name}}.search.windows.net/indexes/{{index-name}}/docs/search?api-version={{api-version}}
@@ -526,3 +524,5 @@ Azure Cognitive Search is a billable resource. If it's no longer needed, delete 
 ## Next steps
 
 As a next step, we recommend reviewing the demo code for [Python](https://github.com/Azure/cognitive-search-vector-pr/tree/main/demo-python), or [C#](https://github.com/Azure/cognitive-search-vector-pr/tree/main/demo-dotnet).
+
+
