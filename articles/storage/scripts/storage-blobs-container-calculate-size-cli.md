@@ -4,7 +4,6 @@ description: Calculate the size of a container in Azure Blob storage by totaling
 services: storage
 author: stevenmatthew
 ms.service: storage
-ms.subservice: blobs
 ms.devlang: azurecli
 ms.topic: sample
 ms.date: 03/01/2022

@@ -15,11 +15,11 @@ ms.custom: build-2023, devx-track-azurecli
 
 # Workspace managed network isolation (preview)
 
-[!INCLUDE [dev v2](../../includes/machine-learning-dev-v2.md)]
+[!INCLUDE [dev v2](includes/machine-learning-dev-v2.md)]
 
 Azure Machine Learning provides preview support for managed virtual network (VNet) isolation. Managed VNet isolation streamlines and automates your network isolation configuration with a built-in, workspace-level Azure Machine Learning managed virtual network.
 
-[!INCLUDE [machine-learning-preview-generic-disclaimer](../../includes/machine-learning-preview-generic-disclaimer.md)]
+[!INCLUDE [machine-learning-preview-generic-disclaimer](includes/machine-learning-preview-generic-disclaimer.md)]
 
 ## Managed virtual network architecture
 
@@ -52,6 +52,15 @@ The managed virtual network is preconfigured with [required default rules](#list
 ## Prerequisites
 
 Before following the steps in this article, make sure you have the following prerequisites:
+
+> [!IMPORTANT]
+> To use the information in this article, you must enable this preview feature for your subscription. To check whether it has been registered, or to register it, use the steps in the [Set up preview features in Azure subscription](/azure/azure-resource-manager/management/preview-features). Depending on whether you use the Azure portal, Azure CLI, or Azure PowerShell, you may need to register the feature with a different name. Use the following table to determine the name of the feature to register:
+>
+> | Registration method | Feature name |
+> | ----- | ----- |
+> | Azure portal | `Azure Machine Learning Managed Network` |
+> | Azure CLI | `AMLManagedNetworkEnabled` |
+> | Azure PowerShell | `AMLManagedNetworkEnabled` |
 
 # [Azure CLI](#tab/azure-cli)
 
@@ -638,7 +647,7 @@ To enable the [serverless spark jobs](how-to-submit-spark-jobs.md) for the manag
     # whether to provision spark vnet as well
     include_spark = True
 
-    provision_network_result = ml_client.workspaces.begin_provision_network(ws_name, include_spark).result()
+    provision_network_result = ml_client.workspaces.begin_provision_network(workspace_name=ws_name, include_spark=include_spark).result()
     ```
 
     # [Azure portal](#tab/portal)
