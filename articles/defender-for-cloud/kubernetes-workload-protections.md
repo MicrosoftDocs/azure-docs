@@ -90,7 +90,7 @@ Once enabled, the hardening recommendation becomes available (some of the recomm
     - **AWS** - `EKS clusters should have Microsoft Defender's extension for Azure Arc installed`
     - **GCP** - `GKE clusters should have Microsoft Defender's extension for Azure Arc installed`
      
-    :::image type="content" source="./media/kubernetes-workload-protections/azure-kubernetes-service-clusters-recommendation.png" alt-text="Screenshot showing the recommendation "Azure Kubernetes Service clusters should have the Azure Policy add-on for Kubernetes installed"." lightbox="media/kubernetes-workload-protections/azure-kubernetes-service-clusters-recommendation.png":::
+        :::image type="content" source="./media/kubernetes-workload-protections/azure-kubernetes-service-clusters-recommendation.png" alt-text="Screenshot showing the Azure Kubernetes service clusters recommendation." lightbox="media/kubernetes-workload-protections/azure-kubernetes-service-clusters-recommendation.png":::
 
    > [!TIP]
    > The recommendation is included in five different security controls and it doesn't matter which one you select in the next step.
