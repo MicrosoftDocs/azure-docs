@@ -23,6 +23,8 @@ In this article, you'll learn the steps to move a Log Analytics workspace to ano
 
 - To verify the Azure Active Directory tenant, you need `Microsoft.AzureActiveDirectory/b2cDirectories/read` permissions, as provided by the [Log Analytics Reader built-in role](./manage-access.md#log-analytics-reader), for example.
 - To delete a solution, you need `Microsoft.OperationsManagement/solutions/delete` permissions on it, as provided by the [Log Analytics Contributor built-in role](./manage-access.md#log-analytics-contributor), for example.
+- To remove alert rules for the Start/Stop VMs solution, you need `microsoft.insights/scheduledqueryrules/delete` permissions, as provided by the [Monitoring Contributor built-in role](../../role-based-access-control/built-in-roles.md#monitoring-contributor), for example.
+To unlink the Automation account, you need 
 - To move a Log Analytics workspace, you need `Microsoft.OperationalInsights/workspaces/delete` and `Microsoft.OperationalInsights/workspaces/write` permissions on it, as provided by the [Log Analytics Contributor built-in role](./manage-access.md#log-analytics-contributor), for example.
 
 ## Verify the Azure Active Directory tenant
@@ -173,6 +175,10 @@ Use the following procedure to unlink the Automation account from the workspace 
 ### [ REST API](#tab/rest-api)
 
 To move your workspace, use the [Resources - Move Resources API](/rest/api/resources/resources/move-resources).
+
+```http
+POST https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{sourceResourceGroupName}/moveResources?api-version=2021-04-01
+```
 
 ### [CLI](#tab/cli)
 
