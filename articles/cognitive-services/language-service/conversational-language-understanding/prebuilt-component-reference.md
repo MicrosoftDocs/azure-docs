@@ -37,7 +37,7 @@ The following prebuilt components are available in Conversational Language Under
 | Phone Number | US Phone Numbers. For example: "123-456-7890",  "+1 123 456 7890",  "(123)456-7890" | English, Chinese, French, Italian, German, Brazilian Portuguese, Spanish |
 | URL | Website URLs and Links. | English, Chinese, French, Italian, German, Brazilian Portuguese, Spanish |
 | General.Organization | Companies and corporations. For example: "Microsoft" | English, Chinese, French, Italian, German, Brazilian Portuguese, Spanish |
-| Geography.Location | The name of a location. For example: "Tokyo" |
+| Geography.Location | The name of a location. For example: "Tokyo" |  English, Chinese, French, Italian, German, Brazilian Portuguese, Spanish |
 | IPAddress | An IP address. For example: "192.168.0.4" | English, Chinese, French, Italian, German, Brazilian Portuguese, Spanish |
 
 
