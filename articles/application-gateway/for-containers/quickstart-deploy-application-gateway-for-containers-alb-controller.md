@@ -95,12 +95,11 @@ You need to complete the following tasks prior to deploying Application Gateway 
 	az identity create --resource-group $RESOURCE_GROUP --name $IDENTITY_RESOURCE_NAME
 	principalId="$(az identity show -g $RESOURCE_GROUP -n $IDENTITY_RESOURCE_NAME --query principalId -otsv)"
 
-    	echo "Waiting 60 seconds to allow for replication of the identity..."
-    	sleep 60
+	echo "Waiting 60 seconds to allow for replication of the identity..."
+	sleep 60
  
-	echo "Apply Contributor and AppGW For Containers Configuration Manager Role on the identity"
-	az role assignment create --assignee-object-id $principalId --resource-group $mcResourceGroup --role "Contributor"
-	az role assignment create --assignee-object-id $principalId --resource-group $mcResourceGroup --role "fbc52c3f28ad4303a8928a056630b8f1"
+	echo "Apply Reader role to the AKS managed cluster resource group for the newly provisioned identity"
+	az role assignment create --assignee-object-id $principalId --resource-group $mcResourceGroup --role "acdd72a7-3385-48ef-bd42-f606fba81ae7" # Reader role
 	
 	echo "Setup federation with AKS OIDC issuer"
 	AKS_OIDC_ISSUER="$(az aks show -n "$AKS_NAME" -g "$RESOURCE_GROUP" --query "oidcIssuerProfile.issuerUrl" -o tsv)"
