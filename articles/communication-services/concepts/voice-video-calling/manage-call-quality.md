@@ -77,14 +77,7 @@ The following sections explain tools by call phase:
   - By using the network diagnostic tool you can encourage users to use the best network connection they can
     find.
 
-  <!-- - ~~If a user has a poor network connection, you can instruct them to
-    join their audio from [PSTN (Public Switched Telephone Network)
-    voice
-    calling](https://learn.microsoft.com/en-us/azure/communication-services/concepts/telephony/telephony-concept)
-    before they join.~~ -->
 
-  - If their hardware test has an issue, you can notify the users
-    involved to manage expectations and change for future calls.
 
 - For more information, please see: [Network Diagnostics Tool](../developer-tools/network-diagnostic.md).
   <!-- - <span class="mark">Visual</span> - [ACS Network Diagnostic
@@ -94,10 +87,16 @@ The following sections explain tools by call phase:
 
 ##### Pre-Call Diagnostics API
 
-- If you're looking to build your own Network Diagnostic Tool or to perform deeper integration of this tool into your application, you can leverage pre-call diagnostic APIs for the calling SDK.You can run a series of tests to ensure compatibility, connectivity,
-  and device permissions with a test call and give users an opportunity
-  to correct issues before calls begin.
+- If you're looking to build your own Network Diagnostic Tool or to perform deeper integration of this tool into your application, you can leverage Pre-Call diagnostic APIs for the calling SDK. You can run a series of tests to ensure compatibility, connectivity, and device permissions with a test call and give users an opportunity to correct issues before calls begin.
 
+  <!-- - ~~If a user has a poor network connection, you can instruct them to
+    join their audio from [PSTN (Public Switched Telephone Network)
+    voice
+    calling](https://learn.microsoft.com/en-us/azure/communication-services/concepts/telephony/telephony-concept)
+    before they join.~~ -->
+
+  - For example, if their hardware test has an issue, you can notify the users
+    involved to manage expectations and change for future calls.
 
 - For more information, please see: [Pre-Call diagnostic](pre-call-diagnostics.md).
 
@@ -105,11 +104,8 @@ The following sections explain tools by call phase:
 
 #### User Facing Diagnostics (UFDs)
 
-- Provides real-time flags for issues to the user such as having their
-  microphone muted while talking or having a poor network quality. Our
-  user facing diagnostics provides real-time flags for issues to the
-  user such as having their microphone muted while talking or having a
-  poor network quality. You can nudge or act on their behalf. For
+- When a user is in a call it's important to notify them in real-time about issues on their call. User Facing Diagnostics (UFDs) provide real-time flags for issues to the user such as having their
+  microphone muted while talking or having a poor network quality. You can nudge or act on their behalf. For
   example, if there's a network issue identified you can nudge the user
   to change networks or move to a location with a better connection. If
   there's a device issue identified, you can nudge the user to switch
@@ -120,13 +116,10 @@ The following sections explain tools by call phase:
 
 #### Volume Indicator API
 
-- The input and output indicator indicate if a user’s volume is
-  low, you can prompt the user to speak louder.
+- Users may not know they are speaking too quietly, or that their audio isn't being sent or received in the call. You can use the input and output indicator to indicate if a user’s volume is
+  low or absent. You can prompt a user to speak louder through your user interface.
 
 - For more information, please see: [Add volume indicator to your web calling](../../quickstarts/voice-video-calling/get-started-volume-indicator.md)
-
-notes - many times users may be unaware their audio isn't being sent or recieved, or that they are too quiet, you can use dldldldldld to prompt a user to speak louder through your user interface. For 
-
 
 
 #### Browser support
