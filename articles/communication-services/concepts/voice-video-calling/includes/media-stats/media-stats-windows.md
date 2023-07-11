@@ -20,7 +20,8 @@ The Media Stats feature object have the following API structure:
     - `Audio`: The list of Media Stats for the Incoming Audio.
     - `Video`: The list of Media Stats for the Incoming Video.
     - `ScreenShare`: The list of Media Stats for the Incoming Screen Share. 
-  - `GeneratedAt`: The date when the report was generated. 
+  - `GeneratedAt`: The date when the report was generated.
+  - `GetIncomingMediaStatsFromParticipant`: Gets the `IncomingMediaStats` for a `RemoteParticipant`.
 
 Then, subscribe to the `SampleReported` event to get regular updates about the current media quality statistics:
 
@@ -40,16 +41,16 @@ private void MediaStatsCallFeature_SampleReported(object sender, MediaStatsRepor
     IReadOnlyList<OutgoingVideoMediaStats> outgoingVideoMediaStats = report.OutgoingMediaStats.Video;
 
     // Obtain the Outgoing Media Stats for Screen Share
-    IReadOnlyList<OutgoingScreenShareMediaStats> outgoingScreenShareMediaStats report.OutgoingMediaStats.ScreenShare;
+    IReadOnlyList<OutgoingScreenShareMediaStats> outgoingScreenShareMediaStats = report.OutgoingMediaStats.ScreenShare;
 
     // Obtain the Incoming Media Stats for Audio
-    IReadOnlyList<IncomingAudioMediaStats> incomingAudioMediaStats report.IncomingMediaStats.Audio;
+    IReadOnlyList<IncomingAudioMediaStats> incomingAudioMediaStats = report.IncomingMediaStats.Audio;
 
     // Obtain the Incoming Media Stats for Video
-    IReadOnlyList<IncomingVideoMediaStats> incomingVideoMediaStats report.IncomingMediaStats.Video;
+    IReadOnlyList<IncomingVideoMediaStats> incomingVideoMediaStats = report.IncomingMediaStats.Video;
 
     // Obtain the Incoming Media Stats for Screen Share
-    IReadOnlyList<IncomingScreenShareMediaStats< incomingScreenShareMediaStats report.IncomingMediaStats.ScreenShare;
+    IReadOnlyList<IncomingScreenShareMediaStats< incomingScreenShareMediaStats = report.IncomingMediaStats.ScreenShare;
 }
 ```
 
@@ -63,14 +64,15 @@ private void MediaStatsCallFeature_SampleReported(object sender, MediaStatsRepor
     {
         IncomingMediaStatsDetails incomingMediaStatsDetails = report.GetIncomingMediaStatsFromParticipant(remoteParticipant.Identifier);
         // Obtain the Incoming Media Stats for Audio
-        IReadOnlyList<IncomingAudioMediaStats> incomingAudioMediaStats incomingMediaStatsDetails.Audio;
+        IReadOnlyList<IncomingAudioMediaStats> incomingAudioMediaStats = incomingMediaStatsDetails.Audio;
     
         // Obtain the Incoming Media Stats for Video
-        IReadOnlyList<IncomingVideoMediaStats> incomingVideoMediaStats incomingMediaStatsDetails.Video;
+        IReadOnlyList<IncomingVideoMediaStats> incomingVideoMediaStats = incomingMediaStatsDetails.Video;
     
         // Obtain the Incoming Media Stats for Screen Share
-        IReadOnlyList<IncomingScreenShareMediaStats< incomingScreenShareMediaStats incomingMediaStatsDetails.ScreenShare;
+        IReadOnlyList<IncomingScreenShareMediaStats< incomingScreenShareMediaStats = incomingMediaStatsDetails.ScreenShare;
     }
 }
+```
 
 [!INCLUDE [native matrics](media-stats-native-metrics.md)]
