@@ -50,7 +50,7 @@ private void MediaStatsCallFeature_SampleReported(object sender, MediaStatsRepor
     IReadOnlyList<IncomingVideoMediaStats> incomingVideoMediaStats = report.IncomingMediaStats.Video;
 
     // Obtain the Incoming Media Stats for Screen Share
-    IReadOnlyList<IncomingScreenShareMediaStats< incomingScreenShareMediaStats = report.IncomingMediaStats.ScreenShare;
+    IReadOnlyList<IncomingScreenShareMediaStats> incomingScreenShareMediaStats = report.IncomingMediaStats.ScreenShare;
 }
 ```
 
@@ -70,7 +70,7 @@ private void MediaStatsCallFeature_SampleReported(object sender, MediaStatsRepor
         IReadOnlyList<IncomingVideoMediaStats> incomingVideoMediaStats = incomingMediaStatsDetails.Video;
     
         // Obtain the Incoming Media Stats for Screen Share
-        IReadOnlyList<IncomingScreenShareMediaStats< incomingScreenShareMediaStats = incomingMediaStatsDetails.ScreenShare;
+        IReadOnlyList<IncomingScreenShareMediaStats> incomingScreenShareMediaStats = incomingMediaStatsDetails.ScreenShare;
     }
 }
 ```
