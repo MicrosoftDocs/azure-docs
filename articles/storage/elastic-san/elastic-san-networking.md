@@ -21,7 +21,7 @@ To configure network access to your Elastic SAN:
 
 > [!div class="checklist"]
 > - [Configure the virtual network endpoint](#configure-virtual-network-endpoint).
-> - [Configure network rules](#configure-virtual-network-rules) to control the source and type of traffic to your Elastic SAN.
+> - [Configure virtual network rules](#configure-virtual-network-rules) to control the source and type of traffic to your Elastic SAN.
 > - [Configure client connections](#configure-client-connections).
 
 ## Configure virtual network endpoint
