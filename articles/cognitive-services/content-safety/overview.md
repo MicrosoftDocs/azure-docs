@@ -100,7 +100,7 @@ Currently, the public preview features are available in the **F0 and S0** pricin
 
 ### Language availability
 
-This API supports eight languages: English, German, Japanese, Spanish, French, Italian, Portuguese, Chinese. You don't need to specify a language code for text analysis; we automatically detect your input language.
+Content Safety Models have been specifically trained and tested in the following languages: English, German, Japanese, Spanish, French, Italian, Portuguese, and Chinese. However, it can work in all languages, but the quality may vary. In all cases, You should do your own testing to ensure that it works for your application.
 
 ### Region / location
 
