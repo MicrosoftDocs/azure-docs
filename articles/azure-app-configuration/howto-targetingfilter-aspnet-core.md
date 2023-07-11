@@ -160,7 +160,7 @@ The entire *ConfigureServices* method will look like this:
     - The feature flag is always disabled for user `testuser@contoso.com`, because `testuser@contoso.com` is listed in the _Exclude Users_ section.
     - The feature flag is always disabled for users in the `contoso-xyz.com`, because `contoso-xyz.com` is listed in the _Exclude Groups_ section.
     - The feature flag is always enabled for user `test@contoso.com`, because `test@contoso.com` is listed in the _Include Users_ section.
-    - The feature flag is enabled for 50% of other users in the _contoso.com_ group, because _contoso.com_ is listed in the _Include Groups_ section with a _Percentage_ of _50_.
+    - The feature flag is enabled for 50% of users in the _contoso.com_ group, because _contoso.com_ is listed in the _Include Groups_ section with a _Percentage_ of _50_.
     - The feature is always disabled for all other users, because the _Default percentage_ is set to _0_.
 
 1. Select **Add** to save the targeting filter.
@@ -184,7 +184,7 @@ The following video shows this behavior in action.
 
 You can create additional users with `@contoso.com` and `@contoso-xyz.com` email addresses to see the behavior of the group settings.
 
-Users with `contoso-xyz.com` email addresses will not see the *Beta* item. While 50% of these users with `@contoso.com` email addresses will see the *Beta* item, the other 50% won't see the *Beta* item.
+Users with `contoso-xyz.com` email addresses will not see the *Beta* item. While 50% of users with `@contoso.com` email addresses will see the *Beta* item, the other 50% won't see the *Beta* item.
 
 ## Next steps
 
