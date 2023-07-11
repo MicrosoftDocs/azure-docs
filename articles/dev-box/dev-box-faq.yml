@@ -27,12 +27,14 @@ sections:
           When you create a generalized VM to capture to an image, the following issues can impact provisioning and startup times:
           1. Enable the Read/Write cache on the OS disk. 
              - To verify, open the Azure portal and navigate to the image. Select **JSON view**, and make sure `properties.storageProfile.osDisk.caching` value is `ReadWrite`.
-          2. Create the image using the following sysprep options: `/mode:vm flag: Sysprep /generalize /oobe /mode:vm`.
-             - This prevents a lengthy search for and installation of drivers during the first boot.
+          2. Create the image using the following sysprep options:
+            `/mode:vm flag: Sysprep /generalize /oobe /mode:vm`.
+             - These options prevent a lengthy search for and installation of drivers during the first boot.
           3. Enable nested virtualization in your base image.
              - In the UI, open **Turn Windows features on or off** and select **Virtual Machine Platform**. 
              - Or run the following PowerShell command, Enable-WindowsOptionalFeature -FeatureName VirtualMachinePlatform -Online 
-          4. Disable the reserved storage state feature in the image by using the following command: `DISM.exe /Online /Set-ReservedStorageState /State:Disabled`.   
+          4. Disable the reserved storage state feature in the image by using the following command: 
+            `DISM.exe /Online /Set-ReservedStorageState /State:Disabled`.   
 
           For more information, see: [Compute gallery image requirements](how-to-configure-azure-compute-gallery.md#compute-gallery-image-requirements).
 
@@ -41,6 +43,21 @@ sections:
                 You can check your Dev Box quota using either: 
                 - REST API - [Usages - List By Location - REST API (Azure Dev Center) | Microsoft Learn](/rest/api/devcenter/administrator/usages/list-by-location?tabs=HTTP)
                 - CLI - [az devcenter admin usage | Microsoft Learn |](/cli/azure/devcenter/admin/usage?view=azure-cli-latest) 
+
+  - name: Dev Box hibernation
+    questions:
+      - question: Can I use auto-stop schedules to hibernate Dev Boxes on a schedule? # Question.
+        answer: 
+          The ability to use auto-stop schedules to initiate hibernation is in Preview.
+
+      - question: I enabled hibernation on a Dev Box definition, but my Dev Box definition reports that hibernation couldn't be enabled. # Question.
+        answer: |
+          - We recommend using the Visual Studio for Dev Box marketplace images, either directly, or as base images for generating your custom image.
+          - The Windows + OS optimizations image contain optimized power settings, and they can't be used with hibernation.  
+          - If you're using a custom Azure Compute Gallery image, enable hibernation on your Azure Compute Gallery image before enabling hibernation on your Dev Box definition.
+          - If hibernation can't be enabled on the definition even after you enable it on your gallery image, your custom image likely has a Windows configuration that prevents hibernation. 
+
+            For more information, see [Settings not compatible with hibernation](how-to-configure-dev-box-hibernation.md#settings-not-compatible-with-hibernation).
 
 additionalContent: |
     ## Next steps

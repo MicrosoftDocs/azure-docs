@@ -28,33 +28,30 @@
       displayName: regulatory, compliance, regulatory compliance, common questions, faq, frequently asked questions
       href: faq-regulatory-compliance.yml
 
-- name: Quickstarts
-  items:
-  - name: Enable Defender for Cloud on your Azure subscription
-    displayName: enable, defender for cloud, activate, turn on
-    href: get-started.md
 
 - name: Deploy
   items:
-  - name: Connect your hybrid and multicloud environments
+  - name: Connect environments and enable all plans
     expanded: false
     items:
-    - name: Connect your on-premises machines
-      displayName: azure stack, ash, windows, linux, hybrid, arc, on-premises
-      href: quickstart-onboard-machines.md
+    - name: Connect your Azure subscriptions
+      displayName: enable, defender for cloud, activate, turn on
+      href: connect-azure-subscription.md
     - name: Connect your AWS accounts
       displayName: hybrid, multicloud, multicloud, amazon, arc, AWS, accounts
       href: quickstart-onboard-aws.md
     - name: Connect your GCP projects
       displayName: hybrid, multicloud, multicloud, google, gcp
       href: quickstart-onboard-gcp.md
-    - name: Connect non-Azure machines with Defender for Endpoint
-      displayName: azure stack, ash, windows, linux, hybrid, defender for endpoint
-      href: onboard-machines-with-defender-for-endpoint.md
-  - name: Enable all plans
-    displayName: enable, plans, security, protect
-    href: enable-all-plans.md
-  - name: Protect individual resources
+    - name: Connect individual non-Azure machines
+      items:
+      - name: Connect machines with Defender for Endpoint
+        displayName: azure stack, ash, windows, linux, hybrid, defender for endpoint
+        href: onboard-machines-with-defender-for-endpoint.md
+      - name: Connect machines with Azure Arc
+        displayName: azure stack, ash, windows, linux, hybrid, arc, on-premises
+        href: quickstart-onboard-machines.md
+  - name: Enable specific Defender plans
     expanded: false
     items:
     - name: Protect your resources with Defender CSPM
@@ -74,9 +71,9 @@
       href: tutorial-enable-storage-plan.md
     - name: Protect containers with Defender for Containers
       items:
-      - name: Protect your Azure containers (AKS) 
+      - name: Protect your Azure containers
         href: tutorial-enable-containers-azure.md
-      - name: Protect your on-premises and IaaS (Arc) devices 
+      - name: Protect your on-premises and IaaS Kubernetes clusters
         href: tutorial-enable-containers-arc.md
       - name: Protect your Amazon Web Service (AWS) accounts containers
         href: tutorial-enable-container-aws.md
