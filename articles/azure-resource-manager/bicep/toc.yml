@@ -255,7 +255,7 @@
     displayName: parameters,variables,resources,outputs,condition,syntax
   - name: Data types
     href: data-types.md
-    displayName: supported types,arrays,booleans,integers,objects,strings,secure
+    displayName: supported types,arrays,booleans,integers,objects,strings,secure,interpolation
   - name: User-defined data types (type)
     displayName: custom
     href: user-defined-data-types.md
@@ -293,16 +293,16 @@
     items:
     - name: Resource group
       href: deploy-to-resource-group.md
-      displayName: deployment commands,multiple resource groups
+      displayName: deployment commands,multiple resource groups,scope
     - name: Subscription
       href: deploy-to-subscription.md
-      displayName: Azure Policy,policy,access control
+      displayName: Azure Policy,policy,access control,scope
     - name: Management group
       href: deploy-to-management-group.md
-      displayName: policy,Azure Policy
+      displayName: policy,Azure Policy,scope
     - name: Tenant
       href: deploy-to-tenant.md
-      displayName: assign role
+      displayName: assign role,scope
   - name: Functions
     items:
     - name: All functions
@@ -394,7 +394,7 @@
   - name: Provide parameters
     items:
     - name: Parameters file
-      displayName: comments,metadata,
+      displayName: comments,metadata,bicepparam
       href: parameter-files.md
     - name: Sensitive values
       displayName: key vault

@@ -2,11 +2,10 @@
 title: Introduction to Azure Elastic SAN Preview
 description: An overview of Azure Elastic SAN Preview, a service that enables you to create a virtual SAN to act as the storage for multiple compute options.
 author: roygara
-ms.service: storage
+ms.service: azure-elastic-san-storage
 ms.topic: overview
 ms.date: 05/02/2023
 ms.author: rogarana
-ms.subservice: elastic-san
 ms.custom: ignite-2022
 ---
 

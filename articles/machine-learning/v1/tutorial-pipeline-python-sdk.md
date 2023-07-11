@@ -14,7 +14,7 @@ ms.custom: UpdateFrequency5, devx-track-python, sdkv1, event-tier1-build-2022, i
 
 # Tutorial: Build an Azure Machine Learning pipeline for image classification
 
-[!INCLUDE [sdk v1](../../../includes/machine-learning-sdk-v1.md)]
+[!INCLUDE [sdk v1](../includes/machine-learning-sdk-v1.md)]
 
 > [!NOTE]
 > For a tutorial that uses SDK v2 to build a pipeline, see [Tutorial: Use ML pipelines for production ML workflows with Python SDK v2 in a Jupyter Notebook](../tutorial-pipeline-python-sdk.md).
@@ -385,7 +385,7 @@ Don't complete this section if you plan to run other Azure Machine Learning tuto
 
 ### Stop the compute instance
 
-[!INCLUDE [aml-stop-server](../../../includes/aml-stop-server.md)]
+[!INCLUDE [aml-stop-server](../includes/aml-stop-server.md)]
 
 ### Delete everything
 

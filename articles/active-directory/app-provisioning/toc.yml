@@ -35,6 +35,8 @@ items:
         href: on-premises-web-services-connector.md
       - name: Provisioning with custom connectors
         href: on-premises-custom-connector.md
+      - name: Provisioning to SAP ECC 7.0
+        href: on-premises-sap-connector-configure.md
     - name: Customize attribute mappings
       href: customize-application-attributes.md
   - name: Concepts

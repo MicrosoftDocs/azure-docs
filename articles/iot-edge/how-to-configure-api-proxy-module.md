@@ -1,10 +1,10 @@
 ---
-title: Configure API proxy module - Azure IoT Edge | Microsoft Docs
+title: Configure API proxy module for Azure IoT Edge
 description: Learn how to customize the API proxy module for IoT Edge gateway hierarchies.
 author: PatAltimore
 
 ms.author: patricka
-ms.date: 01/05/2023
+ms.date: 07/06/2023
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
@@ -50,7 +50,7 @@ Currently, the default environment variables include:
 | -------------------- | ----------- |
 | `PROXY_CONFIG_ENV_VAR_LIST` | List all the variables that you intend to update in a comma-separated list. This step prevents accidentally modifying the wrong configuration settings.
 | `NGINX_DEFAULT_TLS` | Specifies the list of TLS protocol(s) to be enabled. See NGINX's [ssl_protocols](https://nginx.org/docs/http/ngx_http_ssl_module.html#ssl_protocols).<br><br>Default is 'TLSv1.2'. |
-| `NGINX_DEFAULT_PORT` | Changes the port that the nginx proxy listens to. If you update this environment variable, make sure the port you select is also exposed in the module dockerfile and declared as a port binding in the deployment manifest.<br><br>Default is 443.<br><br>When deployed from the Azure Marketplace, the default port is updated to 8000, to prevent conflicts with the edgeHub module. For more information, see [Minimize open ports](#minimize-open-ports). |
+| `NGINX_DEFAULT_PORT` | Changes the port that the nginx proxy listens to. If you update this environment variable, you must expose the port in the module dockerfile and declare the port binding in the deployment manifest. For more information, see [Expose proxy port](#expose-proxy-port).<br><br>Default is 443.<br><br>When deployed from the Azure Marketplace, the default port is updated to 8000, to prevent conflicts with the edgeHub module. For more information, see [Minimize open ports](#minimize-open-ports). |
 | `DOCKER_REQUEST_ROUTE_ADDRESS` | Address to route docker requests. Modify this variable on the top layer device to point to the registry module.<br><br>Default is the parent hostname. |
 | `BLOB_UPLOAD_ROUTE_ADDRESS` | Address to route blob registry requests. Modify this variable on the top layer device to point to the blob storage module.<br><br>Default is the parent hostname. |
 
@@ -163,6 +163,27 @@ Configure the following module on any **lower layer** for this scenario:
        }
     }
     ```  
+
+## Expose proxy port
+
+Port 8000 is exposed by default from the docker image. If a different nginx proxy port is used, add the **ExposedPorts** section declaring the port in the deployment manifest. For example, if you change the nginx proxy port to 8001, add the following to the deployment manifest:
+
+```
+{
+   "ExposedPorts": {
+      "8001/tcp": {}
+   },
+   "HostConfig": {
+      "PortBindings": {
+            "8001/tcp": [
+               {
+                  "HostPort": "8001"
+               }
+            ]
+      }
+   }
+}
+```
 
 ## Enable blob upload
 
