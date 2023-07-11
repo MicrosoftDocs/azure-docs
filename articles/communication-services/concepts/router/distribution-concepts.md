@@ -60,7 +60,7 @@ Workers would be matched in order: D, C, A, B
 Worker D has the lowest load ratio (0), so Worker D will be offered the job first.  Workers A and C are tied with the same load ratio (0.6).  However, Worker C has been available for a longer time (7 minutes ago) than Worker A (5 minutes ago), so Worker C will be matched before Worker A.  Finally, Worker B will be matched last since Worker B has the highest load ratio (0.75).
 
 ## Best worker mode
-The workers that are best able to handle the job are picked first.  The logic to rank Workers can be customized, with an expression or Azure function to compare two workers by specifying a Scoring Rule. [See example][worker-scoring]
+The workers that are best able to handle the job are picked first.  The logic to rank Workers can be customized, with an expression or Azure function to compare two workers by specifying a Scoring Rule. [See example](../../how-tos/router-sdk/customize-worker-scoring.md)
 
 When a Scoring Rule isn't provided, this distribution mode will use the default scoring method instead, which evaluates workers based on how the job's labels and selectors match with the worker's labels.  The algorithms are outlined below.
 
