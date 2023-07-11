@@ -21,7 +21,7 @@ This article introduces key tools you can use to monitor, troubleshoot,
 and improve call quality in Azure Communication Services. The materials below help you plan for
 the best end-user experience. Ensure you read our calling overview materials first familiarize yourself.
 
-- Calling - [Azure Communication Services Calling SDK
+- Voice and Video Calling - [Azure Communication Services Calling SDK
   overview](calling-sdk-features.md)
 
 - Phone Calling - [Public Switched Telephone Network (PSTN) integration
