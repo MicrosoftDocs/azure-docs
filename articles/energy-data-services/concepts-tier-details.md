@@ -14,17 +14,17 @@ Azure Data Manager for Energy is available in two tiers; Standard and Developer.
 
 
 ## Developer Tier 
-The Developer tier of Azure Data Manager is designed for software vendors and end user operators looking for more flexibility and speed in building out new applications and testing their [OSDU&trade;](https://osduforum.org) Data Platform backed solutions. The Developer tier provides users with the same high bar of security features, and application integration services as the Standard tier at a lower cost and with reduced resource capacity. Organizations can isolate and manage their test and production environments more cost-effectively. Use cases for the Developer tier of Azure Data Manager for Energy include:
+The Developer tier of Azure Data Manager for Energy is designed for users who want more flexibility and speed in building out new applications and testing their [OSDU&trade;](https://osduforum.org) Data Platform backed solutions. The Developer tier provides users with the same high bar of security features, and application integration services as the Standard tier at a lower cost and with reduced resource capacity. Organizations can isolate and manage their test and production environments more cost-effectively. Use cases for the Developer tier of Azure Data Manager for Energy includes the following:
 
 * Evaluating and creating data migration strategy
-* Building proof of concents and business case demonstrations
+* Building proof of concepts and business case demonstrations
 * Defining deployment pipeline
 * Validating application compatibility
 * Validating security features such as Customer Managed Encryption Keys (CMEK)
 * Implementing sensitive data classification
 * Testing new [OSDU&trade;](https://osduforum.org) Data Platform releases
-* Validating data by ingesting in a safe pre-production environment
-* Testing new 3rd party or in-house applications 
+* Validating data by ingesting in a safe pre production environment
+* Testing new third party or in-house applications 
 * Validating service updates
 * Testing API functionality
 
@@ -32,14 +32,14 @@ Customers can isolate their test and production environments in a safe and effec
 
 
 ## Standard Tier 
-The Standard tier of Azure Data Manager for energy is ideal for customers' production ready scenarios. These include:
+The Standard tier of Azure Data Manager for energy is ideal for customers' production ready scenarios. These include the following:
 
-* Operationalizing domain workflows (such as siesmic or well log)
+* Operationalizing domain workflows (such as seismic or well log)
 * Deploying and testing predictive reservoir models to a production environment on the cloud
 * Running subsurface models
-* Migrating siesmic data across applications
+* Migrating seismic data across applications
 
-The standard tier is designed for production scenarios as it provdides high availability, reliabiity and scale. The Standard tier includes the following:
+The standard tier is designed for production scenarios as it provides high availability, reliability and scale. The Standard tier includes the following:
 
 * Availability Zones
 * Disaster Recovery
@@ -53,8 +53,8 @@ The standard tier is designed for production scenarios as it provdides high avai
 ## Tier Details
 | Features | Developer Tier | Standard Tier |
 | ------------ | ------- |  ------- |
-Recommended Use Cases | Non Production scenario such as [OSDU&trade;](https://osduforum.org) testing, data validation, feature testing, troubleshooting, training, and proof of concepts. | Production data availability and business workflows
-[OSDU&trade;](https://osduforum.org) Compatibility| Yes | Yes
+Recommended Use Cases | Non-Production scenario such as [OSDU&trade;](https://osduforum.org) Data Platform testing, data validation, feature testing, troubleshooting, training, and proof of concepts. | Production data availability and business workflows
+[OSDU&trade;](https://osduforum.org) Data Platform Compatibility| Yes | Yes
 Pre Integration w/ Leading Industry Apps | Yes | Yes
 Support | Yes | Yes
 Azure Customer Managed Encryption Keys|Yes| Yes
