@@ -75,7 +75,7 @@ The SAP built-in connector significantly differs from the SAP managed connector 
 
 * Enable stateful mode (affinity) for stateless built-in, service provider-based connectors
 
-  For more information, see [Enable stateful mode for stateless built-in, service provider-based connectors](../logic-apps/enable-stateful-affinity-built-in-connectors.md).
+  For more information, see [Enable stateful mode for stateless built-in, service provider-based connectors](../connectors/enable-stateful-affinity-built-in-connectors.md).
 
 <a name="connector-parameters"></a>
 
