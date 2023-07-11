@@ -274,7 +274,7 @@ DELETE https://management.azure.com/providers/Microsoft.Insights/monitoredObject
 **URI Parameters**
 
 | Name | In | Type | Description |
-|:---|:---|:---|:---|:---|
+|:---|:---|:---|:---|
 | ``MOResourceId` | path | string | Full resource ID of the MO created in step 2. Example: 'providers/Microsoft.Insights/monitoredObjects/{AADTenantId}' |
 | ``associationName` | path | string | The name of the association. The name is case insensitive. Example: 'assoc01' |
 
