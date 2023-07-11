@@ -1068,13 +1068,15 @@ You can control this tracing capability at the application level by through the 
 
 1. On the resource menu, under **Settings**, select **Configuration** to review the application settings.
 
-1. On the **Configuration**, add the following application settings:
+1. On the **Configuration** page, add the following application settings:
 
    * **SAP_RFC_TRACE_DIRECTORY**: The directory where to store the NCo trace files, for example, **C:\home\LogFiles\NCo**.
 
-   * **SAP_RFC_TRACE_LEVEL**: The NCo trace level with **Level4** as the suggested value for typical verbose logging. SAP or Microsoft support might request that you set a different trace level. For more information, see [Trace levels available](#trace-levels).
+   * **SAP_RFC_TRACE_LEVEL**: The NCo trace level with **Level4** as the suggested value for typical verbose logging. SAP or Microsoft support might request that you set a [different trace level](#trace-levels).
 
-1. Save your changes. This step restarts the application. 
+   For more information about adding application settings, see [Edit host and app settings for Standard logic app workflows](edit-app-settings-host-settings.md#manage-app-settings).
+
+1. Save your changes. This step restarts the application.
 
 <a name="trace-levels">
 
