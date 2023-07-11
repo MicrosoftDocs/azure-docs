@@ -28,12 +28,12 @@ Only authorized users in your tenant can view and manage Microsoft Support acces
 
 ## Scenarios and workflow
 
-A support access request may be used for several specific support scenarios. At this time, the following cross-tenant scenario is covered by this process:
+A support access request may be used for several specific support scenarios. At this time, the following cross-tenant scenario is covered by the support access process:
 
 - The Microsoft Support engineer needs access to diagnostic data in a *resource tenant* that is different from the tenant in which the support request was created, known as the *support request tenant*.  
 - The support engineer creates a support access request for the *resource tenant*.
 - An administrator of *both* tenants approves the Microsoft Support access request.
-- With approval, the support engineer only has access to the data in the approved *resource tenant*. 
+- With approval, the support engineer has access to the data only in the approved *resource tenant*. 
 - Closing the support request automatically revokes the support engineer's access to your identity data.
 
 This cross-tenant scenario is the primary scenario where a support access request is necessary. In these scenarios, Microsoft approved access is visible only in the resource tenant. To preserve cross-tenant privacy, an administrator of the *support request tenant* is unable to see whether an administrator of the *resource tenant* has manually removed this approval. 
