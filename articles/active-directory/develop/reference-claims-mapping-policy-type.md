@@ -34,140 +34,101 @@ The following table lists the sets of claims that define how and when they're us
 
 The following claims are in the restricted claim set for a JWT.
 
-- `.`
-- `_claim_names`
-- `_claim_sources`
-- `aai`
-- `access_token`
-- `account_type`
-- `acct`
-- `acr`
-- `acrs`
-- `actor`
-- `ageGroup`
-- `aio`
-- `altsecid`
-- `amr`
-- `app_chain`
-- `app_displayname`
-- `app_res`
-- `appctx`
-- `appctxsender`
-- `appid`
-- `appidacr`
-- `at_hash`
-- `auth_time`
-- `azp`
-- `azpacr`
-- `c_hash`
-- `ca_enf`
-- `ca_policy_result`
-- `capolids_latebind`
-- `capolids`
-- `cc`
-- `cnf`
-- `code`
-- `controls_auds`
-- `controls`
-- `credential_keys`
-- `ctry`
-- `deviceid`
-- `domain_dns_name`
-- `domain_netbios_name`
-- `e_exp`
-- `email`
-- `endpoint`
-- `enfpolids`
-- `expires_on`
-- `fido_auth_data`
-- `fwd_appidacr`
-- `fwd`
-- `graph`
-- `group_sids`
-- `groups`
-- `hasgroups`
-- `haswids`
-- `home_oid`
-- `home_puid`
-- `home_tid`
-- `identityprovider`
-- `idp`
-- `idtyp`
-- `in_corp`
-- `instance`
-- `inviteTicket`
-- `ipaddr`
-- `isbrowserhostedapp`
-- `isViral`
-- `login_hint`
-- `mam_compliance_url`
-- `mam_enrollment_url`
-- `mam_terms_of_use_url`
-- `mdm_compliance_url`
-- `mdm_enrollment_url`
-- `mdm_terms_of_use_url`
-- `msproxy`
-- `nameid`
-- `nickname`
-- `nonce`
-- `oid`
-- `on_prem_id`
-- `onprem_sam_account_name`
-- `onprem_sid`
-- `openid2_id`
-- `origin_header`
-- `platf`
-- `polids`
-- `pop_jwk`
-- `preferred_username`
-- `primary_sid`
-- `prov_data`
-- `puid`
-- `pwd_exp`
-- `pwd_url`
-- `rdp_bt`
-- `refresh_token_issued_on`
-- `refreshtoken`
-- `rh`
-- `roles`
-- `rt_type`
-- `scp`
-- `secaud`
-- `sid`
-- `sid`
-- `signin_state`
-- `source_anchor`
-- `src1`
-- `src2`
-- `sub`
-- `target_deviceid`
-- `tbid`
-- `tbidv2`
-- `tenant_ctry`
-- `tenant_display_name`
-- `tenant_region_scope`
-- `tenant_region_sub_scope`
-- `thumbnail_photo`
-- `tid`
-- `tokenAutologonEnabled`
-- `trustedfordelegation`
-- `ttr`
-- `unique_name`
-- `upn`
-- `user_setting_sync_url`
-- `uti`
-- `ver`
-- `verified_primary_email`
-- `verified_secondary_email`
-- `vnet`
-- `wamcompat_client_info`
-- `wamcompat_id_token`
-- `wamcompat_scopes`
-- `wids`
-- `xcb2b_rclient`
-- `xcb2b_rcloud`
-- `xcb2b_rtenant`
-- `ztdid`
+| Claim Name | Claim Name | 
+| ---- | ---- |
+|`.`|`isViral`|
+|`_claim_names`|`jwk`|
+|`_claim_sources`|`key_id`|
+|`aai`|`key_type`|
+|`access_token`|`login_hint`|
+|`account_type`|`mam_compliance_url`|
+|`acct`|`mam_enrollment_url`|
+|`acr`|`mam_terms_of_use_url`|
+|`acrs`|`mdm_compliance_url`|
+|`actor`|`mdm_enrollment_url`|
+|`actortoken`|`mdm_terms_of_use_url`|
+|`ageGroup`|`msgraph_host`|
+|`aio`|`msproxy`|
+|`altsecid`|`nameid`|
+|`amr`|`nbf`|
+|`app_chain`|`netbios_name`|
+|`app_displayname`|`nickname`|
+|`app_res`|`nonce`|
+|`appctx`|`oid`|
+|`appctxsender`|`on_prem_id`|
+|`appid`|`onprem_sam_account_name`|
+|`appidacr`|`onprem_sid`|
+|`assertion`|`openid2_id`|
+|`at_hash`|`origin_header`|
+|`aud`|`password`|
+|`auth_data`|`platf`|
+|`auth_time`|`polids`|
+|`authorization_code`|`pop_jwk`|
+|`azp`|`preferred_username`|
+|`azpacr`|`previous_refresh_token`|
+|`bk_claim`|`primary_sid`|
+|`bk_enclave`|`prov_data`|
+|`bk_pub`|`puid`|
+|`brk_client_id`|`pwd_exp`|
+|`brk_redirect_uri`|`pwd_url`|
+|`c_hash`|`rdp_bt`|
+|`ca_enf`|`redirect_uri`|
+|`ca_policy_result`|`refresh_token`|
+|`capolids`|`refresh_token_issued_on`|
+|`capolids_latebind`|`refreshtoken`|
+|`cc`|`request_nonce`|
+|`cert_token_use`|`resource`|
+|`child_client_id`|`rh`|
+|`child_redirect_uri`|`role`|
+|`client_id`|`roles`|
+|`client_ip`|`rp_id`|
+|`cloud_graph_host_name`|`rt_type`|
+|`cloud_instance_host_name`|`scope`|
+|`cloud_instance_name`|`scp`|
+|`CloudAssignedMdmId`|`secaud`|
+|`cnf`|`sid`|
+|`code`|`sid`|
+|`controls`|`signature`|
+|`controls_auds`|`signin_state`|
+|`credential_keys`|`source_anchor`|
+|`csr`|`src1`|
+|`csr_type`|`src2`|
+|`ctry`|`sub`|
+|`deviceid`|`target_deviceid`|
+|`dns_names`|`tbid`|
+|`domain_dns_name`|`tbidv2`|
+|`domain_netbios_name`|`tenant_ctry`|
+|`e_exp`|`tenant_display_name`|
+|`email`|`tenant_id`|
+|`endpoint`|`tenant_region_scope`|
+|`enfpolids`|`tenant_region_sub_scope`|
+|`exp`|`thumbnail_photo`|
+|`expires_on`|`tid`|
+|`extn. as prefix`|`tokenAutologonEnabled`|
+|`fido_auth_data`|`trustedfordelegation`|
+|`fido_ver`|`ttr`|
+|`fwd`|`unique_name`|
+|`fwd_appidacr`|`upn`|
+|`grant_type`|`user_agent`|
+|`graph`|`user_setting_sync_url`|
+|`group_sids`|`username`|
+|`groups`|`uti`|
+|`hasgroups`|`ver`|
+|`hash_alg`|`verified_primary_email`|
+|`haswids`|`verified_secondary_email`|
+|`home_oid`|`vnet`|
+|`home_puid`|`vsm_binding_key`|
+|`home_tid`|`wamcompat_client_info`|
+|`iat`|`wamcompat_id_token`|
+|`identityprovider`|`wamcompat_scopes`|
+|`idp`|`wids`|
+|`idtyp`|`win_ver`|
+|`in_corp`|`x5c_ca`|
+|`instance`|`xcb2b_rclient`|
+|`inviteTicket`|`xcb2b_rcloud`|
+|`ipaddr`|`xcb2b_rtenant`|
+|`isbrowserhostedapp`|`ztdid`|
+|`iss`|   |
 
 > [!NOTE]
 > Any claim starting with `xms_` is restricted.
@@ -200,14 +161,36 @@ The following table lists the SAML claims that are in the restricted claim set.
 |`http://schemas.microsoft.com/ws/2008/06/identity/claims/groups`|
 |`http://schemas.microsoft.com/ws/2008/06/identity/claims/role`|
 |`http://schemas.microsoft.com/ws/2008/06/identity/claims/wids`|
+|`http://schemas.microsoft.com/ws/2008/06/identity/claims/windowsaccountname`|
+|`http://schemas.microsoft.com/ws/2008/06/identity/claims/primarysid`|
+|`http://schemas.microsoft.com/ws/2008/06/identity/claims/primarygroupsid`|
+|`http://schemas.microsoft.com/ws/2008/06/identity/claims/role`|
+|`http://schemas.microsoft.com/identity/claims/scope`|
+|`http://schemas.microsoft.com/ws/2008/06/identity/claims/confirmationkey`|
+|`http://schemas.microsoft.com/ws/2008/06/identity/claims/denyonlyprimarygroupsid`|
+|`http://schemas.microsoft.com/ws/2008/06/identity/claims/denyonlyprimarysid`|
+|`http://schemas.microsoft.com/ws/2008/06/identity/claims/denyonlywindowsdevicegroup`|
+|`http://schemas.microsoft.com/ws/2008/06/identity/claims/expired`|
+|`http://schemas.microsoft.com/ws/2008/06/identity/claims/groupsid`|
+|`http://schemas.microsoft.com/ws/2008/06/identity/claims/ispersistent`|
+|`http://schemas.microsoft.com/ws/2008/06/identity/claims/samlissuername`|
+|`http://schemas.microsoft.com/ws/2008/06/identity/claims/windowsdeviceclaim`|
+|`http://schemas.microsoft.com/ws/2008/06/identity/claims/windowsdevicegroup`|
+|`http://schemas.microsoft.com/ws/2008/06/identity/claims/windowsfqbnversion`|
+|`http://schemas.microsoft.com/ws/2008/06/identity/claims/windowsuserclaim`|
+|`http://schemas.microsoft.com/ws/2008/06/identity/claims/windowssubauthority`|
 |`http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier`|
-| `http://schemas.microsoft.com/ws/2008/06/identity/claims/windowsaccountname` |
-| `http://schemas.microsoft.com/ws/2008/06/identity/claims/primarysid` |
-| `http://schemas.microsoft.com/ws/2008/06/identity/claims/primarygroupsid` |
-| `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/sid` |
-| `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/x500distinguishedname` |
-| `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/upn`  |
-| `http://schemas.microsoft.com/ws/2008/06/identity/claims/role` |
+|`http://schemas.xmlsoap.org/ws/2005/05/identity/claims/sid`|
+|`http://schemas.xmlsoap.org/ws/2005/05/identity/claims/x500distinguishedname`|
+|`http://schemas.xmlsoap.org/ws/2005/05/identity/claims/upn`|
+|`http://schemas.xmlsoap.org/ws/2005/05/identity/claims/authentication`|
+|`http://schemas.xmlsoap.org/ws/2005/05/identity/claims/authorizationdecision`|
+|`http://schemas.xmlsoap.org/ws/2005/05/identity/claims/denyonlysid`|
+|`http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress`|
+|`http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name`|
+|`http://schemas.xmlsoap.org/ws/2005/05/identity/claims/privatepersonalidentifier`|
+|`http://schemas.xmlsoap.org/ws/2005/05/identity/claims/spn`|
+|`http://schemas.xmlsoap.org/ws/2009/09/identity/claims/actor`|
 
 These claims are restricted by default, but aren't restricted if you [set the AcceptMappedClaims property](saml-claims-customization.md) to `true` in your app manifest *or* have a [custom signing key](saml-claims-customization.md):
 
