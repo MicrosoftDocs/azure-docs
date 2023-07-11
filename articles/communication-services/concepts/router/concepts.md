@@ -138,7 +138,7 @@ An exception policy controls the behavior of a Job based on a trigger and execut
 
 - Let's get started with Job Router, check out the [Job Router Quickstart](../../quickstarts/router/get-started-router.md)
 
-#### Lear more about these key Job Router concepts:
+#### Learn more about these key Job Router concepts:
  
 - [How jobs are matched to workers](matching-concepts.md)
 - [How worker capacity is configured](worker-capacity-concepts.md)
