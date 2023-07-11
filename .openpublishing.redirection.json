@@ -1,6 +1,11 @@
 {
     "redirections": [
         {
+            "source_path": "articles/cloud-services-extended-support/deploy-visual-studio.md",
+            "redirect_url": "/visualstudio/azure/cloud-services-extended-support?context=%2Fazure%2Fcloud-services-extended-support%2Fcontext%2Fcontext",
+            "redirect_document_id": false
+        },
+        {
             "source_path": "articles/storsimple/storsimple-configure-backup-target-using-backup-exec.md",
             "redirect_url": "/azure/storsimple/storsimple-overview",
             "redirect_document_id": false
