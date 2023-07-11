@@ -4,7 +4,7 @@ titleSuffix: Azure OpenAI
 description: Learn about the different model capabilities that are available with Azure OpenAI. 
 ms.service: cognitive-services
 ms.topic: conceptual 
-ms.date: 07/06/2023
+ms.date: 07/11/2023
 ms.custom: event-tier1-build-2022, references_regions, build-2023, build-2023-dataai
 manager: nitinme
 author: mrbullwinkle #ChrisHMSFT
@@ -80,8 +80,8 @@ These models can only be used with the Chat Completion API.
 |  --- |  --- | --- | --- | --- |
 | `gpt-4` <sup>1,</sup><sup>2</sup> (0314)     |  East US, France Central |  N/A                | 8,192                | September 2021         |
 | `gpt-4-32k` <sup>1,</sup><sup>2</sup> (0314)  |  East US, France Central |  N/A                | 32,768               | September 2021         |
-| `gpt-4` <sup>1</sup> (0613)     |  East US, France Central |  N/A                | 8,192                | September 2021         |
-| `gpt-4-32k` <sup>1</sup> (0613)  |  East US, France Central |  N/A                | 32,768               | September 2021         |
+| `gpt-4` <sup>1</sup> (0613)     |  East US, France Central, Japan East, North Central US |  N/A                | 8,192                | September 2021         |
+| `gpt-4-32k` <sup>1</sup> (0613)  |  East US, France Central, Japan East, North Central US |  N/A                | 32,768               | September 2021         |
 
 <sup>1</sup> The model is [only available by request](https://aka.ms/oai/get-gpt4).<br>
 <sup>2</sup> Version `0314` of gpt-4 and gpt-4-32k will be retired on January 4, 2024.  See [model updates](#model-updates) for model upgrade behavior.
@@ -93,8 +93,8 @@ GPT-3.5 Turbo is used with the Chat Completion API. GPT-3.5 Turbo (0301) can als
 |  Model ID  |   Base model Regions   | Fine-Tuning Regions | Max Request (tokens) | Training Data (up to)  |
 |  --------- |  --------------------- | ------------------- | -------------------- | ---------------------- |
 | `gpt-35-turbo`<sup>1</sup> (0301) | East US, France Central, South Central US, UK South, West Europe | N/A | 4,096 | Sep 2021 |
-| `gpt-35-turbo` (0613) | East US, France Central, UK South | N/A | 4,096 | Sep 2021 |
-| `gpt-35-turbo-16k` (0613) | East US, France Central, UK South | N/A | 16,384 | Sep 2021 |
+| `gpt-35-turbo` (0613) | East US, France Central, Japan East, North Central US, UK South | N/A | 4,096 | Sep 2021 |
+| `gpt-35-turbo-16k` (0613) | East US, France Central, Japan East, North Central US, UK South | N/A | 16,384 | Sep 2021 |
 
 <sup>1</sup> Version `0301` of gpt-35-turbo will be retired on January 4, 2024.  See [model updates](#model-updates) for model upgrade behavior.
 
