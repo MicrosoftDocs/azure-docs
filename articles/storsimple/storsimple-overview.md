@@ -1,6 +1,6 @@
 ---
 title: StorSimple 8000 series solution overview | Microsoft Docs
-description: Describes StorSimple data copy resources, data migration, device decommission operations, end of support, tiering, virtual device, and storage management, and introduces key terms used in StorSimple.
+description: Describes StorSimple data copy resources, data migration, device decommission operations, end of support, tiering, virtual device, and storage management.
 services: storsimple
 documentationcenter: NA
 author: alkohli
@@ -13,7 +13,7 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.custom: devx-track-azurepowershell
 ms.workload: TBD
-ms.date: 06/22/2023
+ms.date: 07/10/2023
 ms.author: alkohli
 ROBOTS: NOINDEX
 ---
@@ -62,7 +62,7 @@ Decommission operations can't be undone. We recommend that you complete your dat
     ```
     To instead reset a single controller, use the [Reset-HcsFactoryDefault](https://learn.microsoft.com/previous-versions/windows/powershell-scripting/dn688132(v=wps.630)) cmdlet with the *-scope* parameter.
 
-    The system reboots multiple times. You'll be notified when the reset has successfully completed. Depending on the system model, it can take 45-60 minutes for an 8100 device and 60-90 minutes for an 8600 to finish this process.
+    The system reboots multiple times. You're notified when the reset has successfully completed. Depending on the system model, it can take 45-60 minutes for an 8100 device and 60-90 minutes for an 8600 to finish this process.
 
 **Step 3. Shut down the device.**
 
@@ -118,6 +118,47 @@ This section explains how to shut down a running or a failed StorSimple device f
 **Step 3.2** - Repeat the previous step to shut down the active controller.
 
 **Step 3.3** - You must now look at the back plane of the device. After the two controllers are shut down, the status LEDs on both the controllers should be blinking red. To turn off the device completely at this time, flip the power switches on both Power and Cooling Modules (PCMs) to the OFF position. This turns off the device.
+
+## Create a support request
+
+Use the following steps to create a support ticket for StorSimple data copy, data migration, and device decommission operations.
+
+1. In Azure portal, type **help** in the search bar and then select **Help + Support**.
+
+    ![Screenshot of the Help and support page in Azure portal.](./media/storsimple-overview/storsimple-help-and-support-1.png)
+
+1. On the **Help + Support** page, select **Create a support request.**
+
+    ![Screenshot of the Create a support request page in Azure portal.](./media/storsimple-overview/storsimple-create-a-support-request-2.png)
+
+1. On the **New support request** page, provide the required information:
+   -	Provide a brief **Summary** of the issue.
+   -	Specify **Technical** as the **Issue type**.
+   -	Specify the affected **Subscription**.
+   -	Specify **All services**. You must specify **All services** because **StorSimple Manager Service** is no longer available.
+   -	For **Service type**, specify **Azure StorSimple 8000 Series**. 
+   -	For **Problem type**, Specify **StorSimple Migration Utility**.
+   - To continue, select **Next**.
+
+      ![Screenshot of the Help and Support page in Azure portal.](./media/storsimple-overview/storsimple-new-support-request-3.png)   
+  
+1. If the **Solutions** page appears, select **Return to support request** and then select **Next**.
+
+1. On the **Additional details** tab, provide additional details and contact information:
+
+   - Specify the time when the problem started, a description, and  upload relevant files, if applicable.
+   -	Specify **Yes** or **No** for **Advanced diagnostic information** collection.
+   -	Your support plan will be generated based on your subscription. Specify severity, your preferred contact method, and language. 
+   -	Specify **Contact information**: First name, Last name, Email, Phone, and Country/region.
+   -	To continue, select **Next**.
+
+        ![Screenshot of Support details in Azure portal.](./media/storsimple-overview/storsimple-support-details-5.png)
+
+1. On the **Review + create** tab, review the summary of your case. To continue, select **Create**. 
+
+    ![Screenshot of the Review and create support request page in Azure portal.](./media/storsimple-overview/storsimple-support-review-details-6.png)
+
+Microsoft Support will use this information to reach out to you for additional details and diagnosis. A Support engineer will contact you as soon as possible to proceed with your request.
 
 ## Next steps
 
