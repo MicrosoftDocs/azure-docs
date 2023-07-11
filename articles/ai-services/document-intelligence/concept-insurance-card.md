@@ -104,7 +104,7 @@ See how data is extracted from health insurance cards using the Document Intelli
 |`Payer.PhoneNumber`|`phoneNumber`|Payer phone number|+1 (987) 213-5674|
 |`Plan`|`object`|||
 |`Plan.Number`|`string`|Plan number|456|
-|`Plan.Name`|`string`|Plan name - If see Medicaid -> then Medicaid|HEALTH SAVINGS PLAN|
+|`Plan.Name`|`string`|Plan name - Medicaid -> then Medicaid|HEALTH SAVINGS PLAN|
 |`Plan.Type`|`string`|Plan type|PPO|
 
 ### Migration guide and REST API v3.0

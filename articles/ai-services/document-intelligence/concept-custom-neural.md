@@ -94,8 +94,6 @@ As of October 18, 2022, Document Intelligence custom neural model training will 
 * US Gov Arizona
 * US Gov Virginia
 
-
-
 > [!TIP]
 > You can [copy a model](disaster-recovery.md#copy-api-overview) trained in one of the select regions listed to **any other region** and use it accordingly.
 >
@@ -111,7 +109,7 @@ Custom neural models can generalize across different formats of a single documen
 
 ### Field naming
 
-When you label the data, labeling the field relevant to the value improves the accuracy of the key-value pairs extracted. For example, for a field value containing the supplier ID, consider naming the field "supplier_id". Field names should be in the language of the document.
+When you label the data, labeling the field relevant to the value improves the accuracy of the key-value pairs extracted. For example, for a field value containing the supplier ID, consider naming the field *supplier_id*. Field names should be in the language of the document.
 
 ### Labeling contiguous values
 
@@ -122,7 +120,7 @@ Value tokens/words of one field must be either
 
 ### Representative data
 
-Values in training cases should be diverse and representative. For example, if a field is named "date", values for this field should be a date. synthetic value like a random string can affect model performance.
+Values in training cases should be diverse and representative. For example, if a field is named *date*, values for this field should be a date. synthetic value like a random string can affect model performance.
 
 ## Current Limitations
 

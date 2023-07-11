@@ -162,7 +162,7 @@ A style element describes the font style to apply to text content.  The content 
 
 #### Language
 
-A language element describes the detected language for content specified via spans into the global content property.  The detected language is specified via a [BCP-47 language tag](https://en.wikipedia.org/wiki/IETF_language_tag) to indicate the primary language and optional script and region information.  For example, English and traditional Chinese are recognized as "en" and "zh-Hant", respectively.  Regional spelling differences for UK English may lead the text to be detected as "en-GB".  Language elements don't cover text without a dominant language (ex. numbers).
+A language element describes the detected language for content specified via spans into the global content property.  The detected language is specified via a [BCP-47 language tag](https://en.wikipedia.org/wiki/IETF_language_tag) to indicate the primary language and optional script and region information.  For example, English and traditional Chinese are recognized as "en" and *zh-Hant*, respectively.  Regional spelling differences for UK English may lead the text to be detected as *en-GB*.  Language elements don't cover text without a dominant language (ex. numbers).
 
 ### Semantic elements
 

@@ -47,13 +47,13 @@ If your app or business depends on the use of a Document Intelligence custom mod
 
 The process for copying a custom model consists of the following steps:
 
-1. First you issue a copy authorization request to the target resource&mdash;that is, the resource that will receive the copied model. You get back the URL of the newly created target model, which will receive the copied model.
-1. Next you send the copy request to the source resource&mdash;the resource that contains the model to be copied with the payload (copy authorization) returned from the previous call. You'll get back a URL that you can query to track the progress of the operation.
-1. You'll use your source resource credentials to query the progress URL until the operation is a success. With v3.0, you can also query the new model ID in the target resource to get the status of the new model.
+1. First you issue a copy authorization request to the target resource&mdash;that is, the resource that receives the copied model. You receive back the URL of the newly created target model that receives the copied model.
+1. Next you send the copy request to the source resource&mdash;the resource that contains the model to be copied with the payload (copy authorization) returned from the previous call. You receive back a URL that you can query to track the progress of the operation.
+1. You use your source resource credentials to query the progress URL until the operation is a success. With v3.0, you can also query the new model ID in the target resource to get the status of the new model.
 
 ## Generate Copy authorization request
 
-The following HTTP request gets copy authorization from your target resource. You'll need to enter the endpoint and key of your target resource as headers.
+The following HTTP request gets copy authorization from your target resource. You need to enter the endpoint and key of your target resource as headers.
 
 ```http
 POST https://{TARGET_FORM_RECOGNIZER_RESOURCE_ENDPOINT}/formrecognizer/documentModels:authorizeCopy?api-version=2022-08-31
@@ -69,7 +69,7 @@ Request body
 }
 ```
 
-You'll get a `200` response code with response body that contains the JSON payload required to initiate the copy.
+You receive a `200` response code with response body that contains the JSON payload required to initiate the copy.
 
 ```json
 {
@@ -84,7 +84,7 @@ You'll get a `200` response code with response body that contains the JSON paylo
 
 ## Start Copy operation
 
-The following HTTP request starts the copy operation on the source resource. You'll need to enter the endpoint and key of your source resource as the url and header. Notice that the request URL contains the model ID of the source model you want to copy.
+The following HTTP request starts the copy operation on the source resource. You need to enter the endpoint and key of your source resource as the url and header. Notice that the request URL contains the model ID of the source model you want to copy.
 
 ```http
 POST {{source-endpoint}}formrecognizer/documentModels/{model-to-be-copied}:copyTo?api-version=2022-08-31
@@ -104,7 +104,7 @@ The body of your request is the response from the previous step.
 }
 ```
 
-You'll get a `202\Accepted` response with an Operation-Location header. This value is the URL that you'll use to track the progress of the operation. Copy it to a temporary location for the next step.
+You receive a `202\Accepted` response with an Operation-Location header. This value is the URL that you use to track the progress of the operation. Copy it to a temporary location for the next step.
 
 ```http
 HTTP/1.1 202 Accepted
@@ -129,7 +129,7 @@ You can also use the **[Get model](https://westus.dev.cognitive.microsoft.com/do
 GET https://{YOUR-ENDPOINT}/formrecognizer/documentModels/{modelId}?api-version=2022-08-31" -H "Ocp-Apim-Subscription-Key: {YOUR-KEY}
 ```
 
-In the response body, you'll see information about the model. Check the `"status"` field for the status of the model.
+In the response body, you see information about the model. Check the `"status"` field for the status of the model.
 
 ```http
 HTTP/1.1 200 OK
@@ -139,7 +139,7 @@ Content-Type: application/json; charset=utf-8
 
 ## cURL sample code
 
-The following code snippets use cURL to make API calls outlined in the steps above. You'll still need to fill in the model IDs and subscription information specific to your own resources.
+The following code snippets use cURL to make API calls. You also need to fill in the model IDs and subscription information specific to your own resources.
 
 ### Generate Copy authorization
 
@@ -214,20 +214,20 @@ If the operation was successful, the document model can be accessed using the [*
 
 The process for copying a custom model consists of the following steps:
 
-1. First you issue a copy authorization request to the target resource&mdash;that is, the resource that will receive the copied model. You get back the URL of the newly created target model, which will receive the copied model.
-1. Next you send the copy request to the source resource&mdash;the resource that contains the model to be copied with the payload (copy authorization) returned from the previous call. You'll get back a URL that you can query to track the progress of the operation.
-1. You'll use your source resource credentials to query the progress URL until the operation is a success.
+1. First you issue a copy authorization request to the target resource&mdash;that is, the resource that receives the copied model. You receive back the URL of the newly created target model that receives the copied model.
+1. Next you send the copy request to the source resource&mdash;the resource that contains the model to be copied with the payload (copy authorization) returned from the previous call. You receive back a URL that you can query to track the progress of the operation.
+1. You use your source resource credentials to query the progress URL until the operation is a success.
 
 ## Generate authorization request
 
-The following HTTP request generates a copy authorization from your target resource. You'll need to enter the endpoint and key of your target resource as headers.
+The following HTTP request generates a copy authorization from your target resource. You need to enter the endpoint and key of your target resource as headers.
 
 ```http
 POST https://{TARGET_FORM_RECOGNIZER_RESOURCE_ENDPOINT}/formrecognizer/v2.1/custom/models/copyAuthorization
 Ocp-Apim-Subscription-Key: {TARGET_FORM_RECOGNIZER_RESOURCE_KEY}
 ```
 
-You'll get a `201\Created` response with a `modelId` value in the body. This string is the ID of the newly created (blank) model. The `accessToken` is needed for the API to copy data to this resource, and the `expirationDateTimeTicks` value is the expiration of the token. Save all three of these values to a secure location.
+You receive a `201\Created` response with a `modelId` value in the body. This string is the ID of the newly created (blank) model. The `accessToken` is needed for the API to copy data to this resource, and the `expirationDateTimeTicks` value is the expiration of the token. Save all three of these values to a secure location.
 
 ```http
 HTTP/1.1 201 Created
@@ -237,14 +237,14 @@ Location: https://{TARGET_FORM_RECOGNIZER_RESOURCE_ENDPOINT}/formrecognizer/v2.1
 
 ## Start the copy operation
 
-The following HTTP request starts the Copy operation on the source resource. You'll need to enter the endpoint and key of your source resource as headers. Notice that the request URL contains the model ID of the source model you want to copy.
+The following HTTP request starts the Copy operation on the source resource. You need to enter the endpoint and key of your source resource as headers. Notice that the request URL contains the model ID of the source model you want to copy.
 
 ```http
 POST https://{SOURCE_FORM_RECOGNIZER_RESOURCE_ENDPOINT}/formrecognizer/v2.1/custom/models/<your model ID>/copy HTTP/1.1
 Ocp-Apim-Subscription-Key: {SOURCE_FORM_RECOGNIZER_RESOURCE_KEY}
 ```
 
-The body of your request needs to have the following format. You'll need to enter the resource ID and region name of your target resource. You can find your resource ID on the **Properties** tab of your resource in the Azure portal, and you can find the region name on the **Keys and endpoint** tab. You'll also need the model ID, access token, and expiration value that you copied from the previous step.
+The body of your request needs to have the following format. You need to enter the resource ID and region name of your target resource. You can find your resource ID on the **Properties** tab of your resource in the Azure portal, and you can find the region name on the **Keys and endpoint** tab. You also need the model ID, access token, and expiration value that you copied from the previous step.
 
 ```json
 {
@@ -254,7 +254,7 @@ The body of your request needs to have the following format. You'll need to ente
 }
 ```
 
-You'll get a `202\Accepted` response with an Operation-Location header. This value is the URL that you'll use to track the progress of the operation. Copy it to a temporary location for the next step.
+You receive a `202\Accepted` response with an Operation-Location header. This value is the URL that you use to track the progress of the operation. Copy it to a temporary location for the next step.
 
 ```http
 HTTP/1.1 202 Accepted
@@ -273,7 +273,7 @@ GET https://{SOURCE_FORM_RECOGNIZER_RESOURCE_ENDPOINT}/formrecognizer/v2.1/custo
 Ocp-Apim-Subscription-Key: {SOURCE_FORM_RECOGNIZER_RESOURCE_KEY}
 ```
 
-Your response will vary depending on the status of the operation. Look for the `"status"` field in the JSON body. If you're automating this API call in a script, we recommend querying the operation once every second.
+The response varies depending on the status of the operation. Look for the `"status"` field in the JSON body. If you're automating this API call in a script, we recommend querying the operation once every second.
 
 ```http
 HTTP/1.1 200 OK
@@ -290,7 +290,7 @@ GET https://{TARGET_FORM_RECOGNIZER_RESOURCE_ENDPOINT}/formrecognizer/v2.1/custo
 Ocp-Apim-Subscription-Key: {TARGET_FORM_RECOGNIZER_RESOURCE_KEY}
 ```
 
-In the response body, you'll see information about the model. Check the `"status"` field for the status of the model.
+In the response body, you receive information about the model. Check the `"status"` field for the status of the model.
 
 ```http
 HTTP/1.1 200 OK
@@ -300,7 +300,7 @@ Content-Type: application/json; charset=utf-8
 
 ## cURL code samples
 
-The following code snippets use cURL to make API calls outlined in the steps above. You'll still need to fill in the model IDs and subscription information specific to your own resources.
+The following code snippets use cURL to make API calls. You also need to fill in the model IDs and subscription information specific to your own resources.
 
 ### Generate copy authorization
 
@@ -329,9 +329,9 @@ curl -i GET "https://<SOURCE_FORM_RECOGNIZER_RESOURCE_ENDPOINT>/formrecognizer/v
 |Error|Resolution|
 |:--|:--|
 | 400 / Bad Request with `"code:" "1002"` | Indicates validation error or badly formed copy request. Common issues include: a) Invalid or modified `copyAuthorization` payload. b) Expired value for `expirationDateTimeTicks` token (`copyAuthorization` payload is valid for 24 hours). c) Invalid or unsupported `targetResourceRegion`. d) Invalid or malformed `targetResourceId` string.
-|"Authorization failure due to missing or invalid authorization claims".| Occurs when the `copyAuthorization` payload or content is modified from what was returned by the `copyAuthorization` API. Ensure that the payload is the same exact content that was returned from the earlier `copyAuthorization` call.|
-|"Couldn't retrieve authorization metadata".| Indicates that the `copyAuthorization` payload is being reused with a copy request. A copy request that succeeds won't allow any further requests that use the same `copyAuthorization` payload. If you raise a separate error (like the ones noted below) and you later retry the copy with the same authorization payload, this error gets raised. The resolution is to generate a new `copyAuthorization` payload and then reissue the copy request.|
-|"Data transfer request isn't allowed as it downgrades to a less secure data protection scheme".| Occurs when copying between an `AEK` enabled resource to a non `AEK` enabled resource. To allow copying encrypted model to the target as unencrypted specify `x-ms-forms-copy-degrade: true` header with the copy request.|
+|*Authorization failure due to missing or invalid authorization claims*.| Occurs when the `copyAuthorization` payload or content is modified from the `copyAuthorization` API. Ensure that the payload is the same exact content that was returned from the earlier `copyAuthorization` call.|
+|*Couldn't retrieve authorization metadata*.| Indicates that the `copyAuthorization` payload is being reused with a copy request. A copy request that succeeds doesn't allow any further requests that use the same `copyAuthorization` payload. If you raise a separate error and you later retry the copy with the same authorization payload, this error gets raised. The resolution is to generate a new `copyAuthorization` payload and then reissue the copy request.|
+|*Data transfer request isn't allowed as it downgrades to a less secure data protection scheme*.| Occurs when copying between an `AEK` enabled resource to a non `AEK` enabled resource. To allow copying encrypted model to the target as unencrypted specify `x-ms-forms-copy-degrade: true` header with the copy request.|
 |"Couldn't fetch information for Cognitive resource with ID...". | Indicates that the Azure resource indicated by the `targetResourceId` isn't a valid Cognitive resource or doesn't exist. Verify and reissue the copy request to resolve this issue.</br> Ensure the resource is valid and exists in the specified region, such as, `westus2`|
 
 ::: moniker-end
