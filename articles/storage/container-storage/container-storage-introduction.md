@@ -2,11 +2,10 @@
 title: Introduction to Azure Container Storage Preview
 description: An overview of Azure Container Storage Preview, a service built natively for containers that enables customers to create and manage volumes for running production-scale stateful container applications.
 author: khdownie
-ms.service: storage
+ms.service: azure-container-storage
 ms.topic: overview
-ms.date: 06/09/2023
+ms.date: 07/03/2023
 ms.author: kendownie
-ms.subservice: container-storage
 ms.custom: references_regions
 ---
 

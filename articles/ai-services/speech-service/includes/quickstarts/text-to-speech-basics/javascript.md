@@ -88,7 +88,7 @@ Follow these steps to create a Node.js console application for speech synthesis.
 Run your new console application to start speech synthesis to a file:
 
 ```console
-node.exe SpeechSynthesis.js
+node SpeechSynthesis.js
 ```
 
 > [!IMPORTANT]

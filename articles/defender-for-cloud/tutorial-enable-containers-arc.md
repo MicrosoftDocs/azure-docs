@@ -1,22 +1,14 @@
 ---
-title: Protect your on-premises device with the Defender for Containers - Microsoft Defender for Cloud
+title: Protect your on-premises Kubernetes clusters with Defender for Containers - Microsoft Defender for Cloud
 titleSuffix: Microsoft Defender for Cloud
-description: Learn how to enable the Defender for Containers plan on your on-premises device for Microsoft Defender for Cloud.
+description: Learn how to enable the Defender for Containers plan on your on-premises devices for Microsoft Defender for Cloud.
 ms.topic: install-set-up-deploy
 ms.date: 06/27/2023
 ---
 
-# Protect your on-premises device with the Defender for Containers
+# Protect your on-premises Kubernetes clusters with Defender for Containers
 
 Defender for Containers in Microsoft Defender for Cloud is the cloud-native solution that is used to secure your containers so you can improve, monitor, and maintain the security of your clusters, containers, and their applications.
-
-Defender for Containers assists you with the three core aspects of container security:
-
-- [**Environment hardening**](defender-for-containers-introduction.md#hardening) - Defender for Containers protects your Kubernetes clusters whether they're running on Azure Kubernetes Service, Kubernetes on-premises/IaaS, or Amazon EKS. Defender for Containers continuously assesses clusters to provide visibility into misconfigurations and guidelines to help mitigate identified threats.
-
-- [**Vulnerability assessment**](defender-for-containers-introduction.md#vulnerability-assessment) - Vulnerability assessment and management tools for images stored in ACR registries and running in Azure Kubernetes Service.
-
-- [**Run-time threat protection for nodes and clusters**](defender-for-containers-introduction.md#run-time-protection-for-kubernetes-nodes-and-clusters) - Threat protection for clusters and Linux nodes generates security alerts for suspicious activities.
 
 Learn more about [Overview of Microsoft Defender for Containers](defender-for-containers-introduction.md).
 
@@ -28,9 +20,7 @@ You can learn more about Defender for Container's pricing on the [pricing page](
 
 - You must [enable Microsoft Defender for Cloud](get-started.md#enable-defender-for-cloud-on-your-azure-subscription) on your Azure subscription.
 
-- Connect your [non-Azure machines](quickstart-onboard-machines.md).
-
-- Ensure the following [Azure Arc-enabled Kubernetes network requirements](../azure-arc/kubernetes/quickstart-connect-cluster.md) are validated.
+- Ensure the following [Azure Arc-enabled Kubernetes network requirements](../azure-arc/kubernetes/network-requirements.md) are validated and [connect the Kubernetes cluster to Azure Arc](../azure-arc/kubernetes/quickstart-connect-cluster.md).
 
 - Validate the following endpoints are configured for outbound access so that the Defender extension can connect to Microsoft Defender for Cloud to send security data and events:
 
@@ -41,8 +31,6 @@ You can learn more about Defender for Container's pricing on the [pricing page](
     | login.microsoftonline.com  | 443  |
 
 - [Connect the Kubernetes cluster to Azure Arc](../azure-arc/kubernetes/quickstart-connect-cluster.md)
-
-- Complete the [prerequisites listed under the generic cluster extensions documentation](../azure-arc/kubernetes/extensions.md).
 
 ## Enable the Defender for Containers plan
 
@@ -66,7 +54,7 @@ If you would prefer to [assign a custom workspace](defender-for-containers-enabl
 
 1. Select **Save**.
 
-## Deploy the Defender extension in Azure
+## Deploy the Defender extension on Arc-enabled Kubernetes clusters that were onboarded to an Azure subscription
 
 You can enable the Defender for Containers plan and deploy all of the relevant components in different ways. We walk you through the steps to accomplish this using the Azure portal. Learn how to [deploy the Defender extension](/azure/defender-for-cloud/defender-for-containers-enable?pivots=defender-for-container-arc&tabs=aks-deploy-portal%2Ck8s-deploy-asc%2Ck8s-verify-asc%2Ck8s-remove-arc%2Caks-removeprofile-api#deploy-the-defender-extension) with REST API, Azure CLI or with a Resource Manager template.
 

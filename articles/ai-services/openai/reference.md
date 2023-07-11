@@ -177,7 +177,7 @@ curl https://YOUR_RESOURCE_NAME.openai.azure.com/openai/deployments/YOUR_DEPLOYM
 
 ## Chat completions
 
-Create completions for chat messages with the ChatGPT  and GPT-4  models. 
+Create completions for chat messages with the GPT-35-Turbo and GPT-4  models. 
 
 **Create chat completions**
 

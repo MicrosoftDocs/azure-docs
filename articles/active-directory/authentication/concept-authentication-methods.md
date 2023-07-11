@@ -107,6 +107,8 @@ Administrators can view user authentication methods in the Azure portal. Usable 
 
 Each authentication method can become non-usable for different reasons. For example, a Temporary Access Pass may expire, or FIDO2 security key may fail attestation. The portal will be updated to provide the reason for why the method is non-usable. 
 
+Authentication methods that are no longer available due to "Require re-register multifactor authentication" are also displayed here.
+
 :::image type="content" border="true" source="media/concept-authentication-methods/non-usable.png" alt-text="Screenshot of non-usable authentication methods." :::
 
 

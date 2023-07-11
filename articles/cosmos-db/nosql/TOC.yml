@@ -640,6 +640,8 @@
               href: performance-tips-dotnet-sdk-v3.md
             - name: Performance tips for .NET SDK v2
               href: performance-tips.md
+            - name: Tune connection configurations for Azure Cosmos DB .NET SDK v3
+              href: tune-connection-configurations-net-sdk-v3.md
         - name: Java
           items:
             - name: Best practices for Java SDK

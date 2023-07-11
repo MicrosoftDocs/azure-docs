@@ -20,7 +20,7 @@ Azure Monitor provides two experiences for consuming distributed trace data: the
 
 To enable distributed tracing for an application, add the right agent, SDK, or library to each service based on its programming language.
 
-### Enable via Application Insights through auto-instrumentation or SDKs
+### Enable via Application Insights through autoinstrumentation or SDKs
 
 The Application Insights agents and SDKs for .NET, .NET Core, Java, Node.js, and JavaScript all support distributed tracing natively. Instructions for installing and configuring each Application Insights SDK are available for:
 
