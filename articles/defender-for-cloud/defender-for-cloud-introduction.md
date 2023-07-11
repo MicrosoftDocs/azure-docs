@@ -35,8 +35,6 @@ The security of your cloud and on-premises resources depends on proper configura
 
 Defender for Cloud includes Foundational CSPM capabilities for free. You can also enable advanced CSPM capabilities by enabling the Defender CSPM plan.
 
-
-
 | Capability | What problem does it solve? | Get started | Defender plan and pricing |
 |--|--|--|--|
 | [Centralized policy management](security-policy-concept.md) | Define the security conditions that you want to maintain across your environment. The policy translates to recommendations that identify resource configurations that violate your security policy. The [Microsoft cloud security benchmark](concept-regulatory-compliance.md) is a built-in standard that applies security principles with detailed technical implementation guidance for Azure and other cloud providers (such as AWS and GCP). | [Customize a security policy](custom-security-policies.md) | Foundational CSPM (Free) |
@@ -65,6 +63,8 @@ When your environment is threatened, security alerts right away indicate the nat
 | [Infrastructure service insights](asset-inventory.md) | Diagnose weaknesses in your application infrastructure that can leave your environment susceptible to attack. | - [Identify attacks targeting applications running over App Service](defender-for-app-service-introduction.md)</br>- [Detect attempts to exploit Key Vault accounts](defender-for-key-vault-introduction.md)</br>- [Get alerted on suspicious Resource Manager operations](defender-for-resource-manager-introduction.md)</br>- [Expose anomalous DNS activities](defender-for-dns-introduction.md) | - [Defender for App Service](https://azure.microsoft.com/pricing/details/defender-for-cloud/)</br></br>- [Defender for Key Vault](https://azure.microsoft.com/pricing/details/defender-for-cloud/)</br></br>- [Defender for Resource Manager](https://azure.microsoft.com/pricing/details/defender-for-cloud/)</br></br>- [Defender for DNS](https://azure.microsoft.com/pricing/details/defender-for-cloud/)|
 | [Security alerts](alerts-overview.md) | Get informed of real-time events that threaten the security of your environment. Alerts are categorized and assigned severity levels to indicate proper responses. | [Manage security alerts]( managing-and-responding-alerts.md) | [Any workload protection Defender plan](#protect-cloud-workloads) |
 | [Security incidents](alerts-overview.md#what-are-security-incidents) | Correlate alerts to identify attack patterns and integrate with Security Information and Event Management (SIEM), Security Orchestration Automated Response (SOAR), and IT Service Management (ITSM) solutions to respond to threats and limit the risk to your resources. | [Export alerts to SIEM, SOAR, or ITSM systems](export-to-siem.md) | [Any workload protection Defender plan](#protect-cloud-workloads) |
+
+[!INCLUDE [Defender for DNS note](./includes/defender-for-dns-note.md)]
 
 ## Learn More
 

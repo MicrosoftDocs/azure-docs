@@ -7,7 +7,7 @@ ms.date: 01/08/2023
 
 # Prevent misconfigurations with Enforce/Deny recommendations
 
-Security misconfigurations are a major cause of security incidents. Defender for Cloud can help *prevent* misconfigurations of new resources regarding specific recommendations. 
+Security misconfigurations are a major cause of security incidents. Defender for Cloud can help *prevent* misconfigurations of new resources regarding specific recommendations.
 
 This feature can help keep your workloads secure and stabilize your secure score.
 
@@ -25,7 +25,7 @@ The ability to secure configurations can be found at the top of the resource det
 
     :::image type="content" source="./media/implement-security-recommendations/recommendation-deny-button.png" alt-text="Recommendation page with Deny button highlighted.":::
 
-    The configuration pane opens listing the scope options. 
+    The configuration pane opens listing the scope options.
 
 1. Set the scope by selecting the relevant subscription or management group.
 
@@ -41,7 +41,7 @@ The ability to secure configurations can be found at the top of the resource det
 
     :::image type="content" source="./media/implement-security-recommendations/recommendation-enforce-button.png" alt-text="Recommendation page with Enforce button highlighted.":::
 
-    The configuration pane opens with all of the policy configuration options. 
+    The configuration pane opens with all of the policy configuration options.
 
     :::image type="content" source="./media/implement-security-recommendations/recommendation-enforce-config.png" alt-text="Enforce configuration options.":::
 
@@ -80,6 +80,8 @@ These recommendations can be used with the **enforce** option:
 - Diagnostic logs in Logic Apps should be enabled
 - Diagnostic logs in Search services should be enabled
 - Diagnostic logs in Service Bus should be enabled
+
+[!INCLUDE [Defender for DNS note](./includes/defender-for-dns-note.md)]
 
 ## Next steps
 
