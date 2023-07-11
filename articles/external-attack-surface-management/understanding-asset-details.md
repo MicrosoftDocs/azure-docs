@@ -55,7 +55,7 @@ This section includes high-level information that's key to understanding your as
 
 ### Network
 
-The following IP address information provides more context about the usage of the IP.
+The following IP address information provides more context about the use of the IP.
 
 | Name | Definition | Asset types |
 |--|--|--|
@@ -66,7 +66,7 @@ The following IP address information provides more context about the usage of th
 
 ### Block information
 
-The following data specific to IP blocks provides contextual information about its use.
+The following data is specific to IP blocks and provides contextual information about its use.
 
 | Name | Definition | Asset types |
 |--|--|--|
@@ -260,5 +260,5 @@ Many organizations opt to obfuscate their registry information. Sometimes contac
 
 ## Next steps
 
-- [Understanding dashboards](understanding-dashboards.md)
-- [Using and managing discovery](using-and-managing-discovery.md)
+- [Understand dashboards](understanding-dashboards.md)
+- [Use and manage discovery](using-and-managing-discovery.md)
