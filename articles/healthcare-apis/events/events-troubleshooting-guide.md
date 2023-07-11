@@ -48,7 +48,7 @@ Use this resource to learn about the Events message structures, required and non
 ### How to's
 
 Use this resource to learn how to deploy Events in the Azure portal: 
-* [How to deploy Events using the Azure portal](./events-deploy-portal.md)
+* [Deploy Events using the Azure portal](./events-deploy-portal.md)
 
 > [!IMPORTANT]
 > The Event Subscription requires access to whichever endpoint you chose to send Events messages to. For more information, see [Enable managed identity for a system topic](../../event-grid/enable-identity-system-topics.md).
@@ -64,6 +64,8 @@ Use this resource to learn how to export Event Grid system topics diagnostic log
 If you have a technical question about Events or if you have a support related issue, see [Create a support request](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview) and complete the required fields under the **Problem description** tab. For more information about Azure support options, see [Azure support plans](https://azure.microsoft.com/support/options/#support-plans). 
 
 ## Next steps
+In this tutorial, you were provided resources for troubleshooting Events.
+
 To learn about the frequently asked questions (FAQs) about Events, see
 
 > [!div class="nextstepaction"]

@@ -332,7 +332,9 @@ In this article, learn about the Events message structures, required and nonrequ
 
 ## Next steps
 
-To learn about deploying Events using the Azure portal, see
+In this article, you learned about the Events message structures.
+
+To learn how to deploy Events using the Azure portal, see
 
 > [!div class="nextstepaction"]
 > [Deploy Events using the Azure portal](events-deploy-portal.md)
