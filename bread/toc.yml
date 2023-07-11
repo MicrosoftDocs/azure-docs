@@ -80,9 +80,6 @@
     tocHref: /azure/api-management/
     topicHref: /azure/api-management/
     items:
-    - name: Policies
-      tocHref: /azure/api-management/policies/
-      topicHref: /azure/api-management/policy-samples/
     - name: Azure PowerShell
       tocHref: /azure/api-management/scripts/
       topicHref: /azure/api-management/powershell-samples/

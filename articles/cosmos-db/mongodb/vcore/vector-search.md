@@ -89,7 +89,7 @@ This command creates a `vector-ivf` index against the `vectorContent` property i
 
 ### Add vectors to your database
 
-To add vectors to your database's collection, you first need to create the embeddings by using your own model, [Azure OpenAI Embeddings](https://github.com/MicrosoftDocs/azure-docs/blob/main/articles/cognitive-services/openai/tutorials/embeddings.md), or another API (such as [Hugging Face on Azure](https://azure.microsoft.com/solutions/hugging-face-on-azure/)). In this example, new documents are added through sample embeddings:
+To add vectors to your database's collection, you first need to create the embeddings by using your own model, [Azure OpenAI Embeddings](../../../cognitive-services/openai/tutorials/embeddings.md), or another API (such as [Hugging Face on Azure](https://azure.microsoft.com/solutions/hugging-face-on-azure/)). In this example, new documents are added through sample embeddings:
 
 ```javascript
 db.exampleCollection.insertMany([
