@@ -62,7 +62,7 @@ The deployments of ALI units for Epic between different tenants aren't visible t
 ALI units for Epic deployed in different tenants can't communicate directly with each other on the ALI for Epic stamp level. Only ALI units for Epic within one tenant can communicate with each other on the ALI for Epic stamp level.
 
 A deployed tenant in the ALI stamp is assigned to one Azure subscription for billing purposes. For a network, it can be accessed from virtual networks of other Azure subscriptions within the same Azure enrollment.
-If you deploy with another Azure subscription in the same Azure region, you also can choose to ask for a separated ALI tenant.
+If you deploy with another Azure subscription in the same Azure region, you also request for a separated ALI tenant.
 
 
 ## Next steps

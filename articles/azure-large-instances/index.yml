@@ -51,7 +51,7 @@ landingContent:
             url: workloads/epic/quality-checks.md
       - linkListType: reference
         links:
-          - text: Frequently Asked Questions
+          - text: FAQs
             url: workloads/epic/faq.md
 
 
