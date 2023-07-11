@@ -5,7 +5,7 @@ services: static-web-apps
 author: craigshoemaker
 ms.service: static-web-apps
 ms.topic:  tutorial
-ms.date: 06/26/2023
+ms.date: 07/11/2023
 ms.author: cshoe
 keywords: "static web apps authorization, assign user roles, custom roles"
 ---
