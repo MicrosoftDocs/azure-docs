@@ -53,4 +53,24 @@ private void MediaStatsCallFeature_SampleReported(object sender, MediaStatsRepor
 }
 ```
 
+Also, `MediaStatsReport` have a helper method to obtain the `IncomingMediaStats` for a particular `RemoteParticipant`.
+For example, in order to get the `IncomingMediaStats` for all the `RemoteParticipants` in the call you can:
+
+```csharp
+private void MediaStatsCallFeature_SampleReported(object sender, MediaStatsReportEventArgs args)
+    List<RemoteParticipant> remoteParticipants = call.RemoteParticipants.ToList<RemoteParticipant>();
+    foreach (RemoteParticipant remoteParticipant in remoteParticipants)
+    {
+        IncomingMediaStatsDetails incomingMediaStatsDetails = report.GetIncomingMediaStatsFromParticipant(remoteParticipant.Identifier);
+        // Obtain the Incoming Media Stats for Audio
+        IReadOnlyList<IncomingAudioMediaStats> incomingAudioMediaStats incomingMediaStatsDetails.Audio;
+    
+        // Obtain the Incoming Media Stats for Video
+        IReadOnlyList<IncomingVideoMediaStats> incomingVideoMediaStats incomingMediaStatsDetails.Video;
+    
+        // Obtain the Incoming Media Stats for Screen Share
+        IReadOnlyList<IncomingScreenShareMediaStats< incomingScreenShareMediaStats incomingMediaStatsDetails.ScreenShare;
+    }
+}
+
 [!INCLUDE [native matrics](media-stats-native-metrics.md)]
