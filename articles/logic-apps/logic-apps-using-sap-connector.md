@@ -1036,6 +1036,65 @@ See the steps for [SAP logging for Consumption logic apps in multi-tenant workfl
 
 ---
 
+## Enable SAP client library (NCo) logging and tracing (Built-in connector only)
+
+When you have to investigate any problems with this component, you can set up custom text file-based NCo tracing, which SAP or Microsoft support might request from you. By default, this capability is disabled because enabling this trace might negatively affect performance and quickly consume the application host's disk space.
+
+You can control this tracing capability at the application level by through the following settings:
+
+1. In the [Azure portal](https://portal.azure.com), open your Standard logic app resource.
+
+1. On the resource menu, under **Settings**, select **Configuration** to review the application settings.
+
+1. On the **Configuration**, add the following application settings:
+
+   * **SAP_RFC_TRACE_DIRECTORY**: The directory where to store the NCo trace files, for example, **C:\home\LogFiles\NCo**.
+
+   * **SAP_RFC_TRACE_LEVEL**: The NCo trace level with **Level4** as the suggested value for typical verbose logging. SAP or Microsoft support might request that you set a different trace level. For more information, see [Trace levels available](#trace-levels).
+
+1. Save your changes, which restarts the application.
+
+<a name="trace-levels">
+
+### Trace levels available
+
+| Value | Description |
+|-------|-------------|
+| Level1 | The level for tracing remote function calls. |
+| Level2 | The level for tracing remote function calls and public API method calls. |
+| Level3 | The level for tracing remote function calls, public API method calls, and internal API method calls. |
+| Level4 | The level for tracing remote function calls, public API method calls, internal API method calls, hex dumps for the RFC protocol, and network-related information. |
+| Locking | Writes data to the trace files that shows when threads request, acquire, and release locks on objects. |
+| Metadata | Traces the metadata involved in a remote function call for each call. |
+| None | The level for suppressing all trace output. |
+| ParameterData | Traces the container data sent and received during each remote function call. |
+| Performance | Writes data to the trace files that can help with analyzing performance issues. |
+| PublicAPI | Traces most methods of the public API, except for getters, setters, or related methods. |
+| InternalAPI | Traces most methods of the internal API, except for getters, setters, or related methods. |
+| RemoteFunctionCall | Traces remote function calls. |
+| RfcData | Traces the bytes sent and received during each remote function call. |
+| SessionProvider | Traces all methods of the currently used implementation of **ISessionProvider**. |
+| SetValue | Writes information to the trace files regarding values set for parameters of functions, or fields of structures or tables. |
+
+### View the trace
+
+1. On Standard logic app resource menu, under **Development Tools**, select **Advanced Tools** > **Go**.
+
+1. On the **Kudu** toolbar, select **Debug Console** > **CMD**.
+
+1. Browse to the folder for the application setting named **$SAP_RFC_TRACE_DIRECTORY**.
+
+   A new folder named **NCo**, or whatever folder name that you used, appears for the application setting value, **C:\home\LogFiles\NCo**, that you set earlier.
+
+   After you open the **$SAP_RFC_TRACE_DIRECTORY** folder, you'll find a file named **dev_nco_rfc.log**, one or multiple files named **dev_nco_rfcNNNN.log**, and one or multiple files named **dev_nco_rfcNNNN.trc** where **NNNN** is a thread identifier.
+
+1. To view the contant in a log or trace file, select the **Edit** button next to a file.
+
+   > [!NOTE]
+   >
+   > If you download a log or trace file that's open and currently used by the application, 
+   > your download might result in an empty file.
+
 ## Send SAP telemetry for on-premises data gateway to Azure Application Insights
 
 With the August 2021 update for the on-premises data gateway, SAP connector operations can send telemetry data from the SAP NCo client library and traces from the Microsoft SAP Adapter to [Application Insights](../azure-monitor/app/app-insights-overview.md), which is a capability in Azure Monitor. This telemetry primarily includes the following data:
