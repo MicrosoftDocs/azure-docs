@@ -11,7 +11,7 @@ ms.custom: references_regions
 
 When Azure Monitor data indicates that there might be a problem with your infrastructure or application, an alert is triggered. Alerts can contain action groups, which are a collection of notification preferences. Azure Monitor, Azure Service Health, and Azure Advisor use action groups to notify users about the alert and take an action.
 
-This article shows you how to create and manage action groups. Depending on your requirements, you can configure various alerts to use the same action group or different action groups.
+This article shows you how to create and manage action groups. 
 
 Each action is made up of the following properties:
 
@@ -21,6 +21,8 @@ Each action is made up of the following properties:
 
 In general, an action group is a global service. Efforts to make them more available regionally are in development. 
 Global requests from clients can be processed by action group services in any region. If one region of the action group service is down, the traffic is automatically routed and processed in other regions. As a global service, an action group helps provide a disaster recovery solution. Regional requests rely on availability zone redundancy to meet privacy requirements and offer a similar disaster recovery solution.
+
+ An alert rule can contain up to five action groups. The action groups are implemented concurrently, in no specific order. You can have multiple alerts use the same action group.
 
 ## Create an action group in the Azure portal
 
