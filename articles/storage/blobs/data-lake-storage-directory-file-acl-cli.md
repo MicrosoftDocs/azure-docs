@@ -5,8 +5,7 @@ description: Use the Azure CLI to manage directories and files in storage accoun
 services: storage
 author: normesta
 
-ms.service: storage
-ms.subservice: data-lake-storage-gen2
+ms.service: azure-data-lake-storage
 ms.topic: how-to
 ms.date: 02/17/2021
 ms.author: normesta

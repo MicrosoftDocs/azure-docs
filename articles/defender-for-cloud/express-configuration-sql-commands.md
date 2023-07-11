@@ -2,8 +2,8 @@
 title: Express configuration PowerShell wrapper module
 description: In this article, you can review the express configuration SQL vulnerability assessment PowerShell commands reference and copy example scripts to use in your environments.
 ms.topic: sample
-author: ElazarK
-ms.author: elkrieger
+author: dcurwin
+ms.author: dacurwin
 ms.date: 06/01/2023
 ---
 

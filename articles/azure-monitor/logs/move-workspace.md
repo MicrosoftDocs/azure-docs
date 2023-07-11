@@ -4,7 +4,7 @@ description: Learn how to move your Log Analytics workspace to another subscript
 ms.topic: conceptual
 ms.service:  azure-monitor
 ms.reviewer: yossiy
-ms.date: 09/01/2022
+ms.date: 07/06/2023
 ms.custom: devx-track-azurepowershell
 
 ---
@@ -35,7 +35,7 @@ Consider these points before you move a Log Analytics workspace:
   - Start/Stop VMs during off-hours
   - Microsoft Defender for Cloud
 - Workspace keys (both primary and secondary) are regenerated with a workspace move operation. If you keep a copy of your workspace keys in Azure Key Vault, update them with the new keys generated after the workspace is moved.
-- Connected [Log Analytics agents](../agents/log-analytics-agent.md) remain connected and keep sending data to the workspace after the move. [Azure Monitor Agent](../agents/azure-monitor-agent-overview.md) will be disconnected via data collection rules during the move and should be reconfigured after the move.
+- Connected [Log Analytics agents](../agents/log-analytics-agent.md) and [Azure Monitor Agent](../agents/azure-monitor-agent-overview.md) remain connected to the workspace after the move with no interruption to ingestion.
 
 >[!IMPORTANT]
 > **Microsoft Sentinel customers**

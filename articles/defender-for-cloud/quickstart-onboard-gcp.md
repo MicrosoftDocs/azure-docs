@@ -110,7 +110,7 @@ To have full visibility to Microsoft Defender for Servers security content, ensu
     - **Manual installation** - You can manually connect your VM instances to Azure Arc for servers. Instances in projects with Defender for Servers plan enabled that aren't connected to Arc are surfaced by the recommendation `GCP VM instances should be connected to Azure Arc`. Select the **Fix** option in the recommendation to install Azure Arc on the selected machines.
 
     > [!NOTE]
-    > The respective Azure Arc servers for EC2 instances or GCP virtual machines that no longer exist (and the respective Azure Arc servers with a status of ["Disconnected" or "Expired"](/azure/azure-arc/servers/overview)) will be removed after 7 days. This process removes irrelevant Azure ARC entities, ensuring only Azure Arc servers related to existing instances are displayed.
+    > The respective Azure Arc servers for EC2 instances or GCP virtual machines that no longer exist (and the respective Azure Arc servers with a status of ["Disconnected" or "Expired"](/azure/azure-arc/servers/overview)) will be removed after 7 days. This process removes irrelevant Azure Arc entities, ensuring only Azure Arc servers related to existing instances are displayed.
 
 - Ensure you've fulfilled the [network requirements for Azure Arc](../azure-arc/servers/network-requirements.md?tabs=azure-cloud).
 

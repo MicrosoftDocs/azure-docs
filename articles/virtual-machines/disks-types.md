@@ -5,8 +5,7 @@ author: roygara
 ms.author: rogarana
 ms.date: 06/13/2023
 ms.topic: conceptual
-ms.service: storage
-ms.subservice: disks
+ms.service: azure-disk-storage
 ms.custom: references_regions, ignite-2022
 ---
 

@@ -3,10 +3,12 @@ title: 'Quickstart: Create a mesh network topology with Azure Virtual Network Ma
 description: 'In this article, you create a mesh network topology with Azure Virtual Network Manager using Terraform'
 ms.service: virtual-network-manager
 ms.topic: quickstart
-ms.custom: devx-track-terraform, ai-gen-docs
+ms.custom: devx-track-terraform
 author: mbender-ms
 ms.author: mbender
 ms.date: 6/7/2023
+content_well_notification: 
+  - AI-contribution
 ---
 
 # Quickstart: Create a mesh network topology with Azure Virtual Network Manager using Terraform
@@ -34,8 +36,6 @@ In this article, you learn how to:
 > * Create a network manager static member using [azurerm_network_manager_static_member](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/network_manager_static_member).
 > * Create a network manager connectivity configuration using [azurerm_network_manager_connectivity_configuration](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/network_manager_connectivity_configuration).
 > * Create a network manager deployment using [azurerm_network_manager_deployment](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/network_manager_deployment).
-
-[!INCLUDE [AI attribution](../../includes/ai-generated-attribution.md)]
 
 ## Prerequisites
 
