@@ -35,8 +35,8 @@ az network alb frontend create -g rg-test -n test-frontend --alb-name alb-test
 
 To create an association resource, you first need to reference a subnet for Application Gateway for Containers to establish connectivity to.  Ensure the subnet for an Application Gateway for Containers association is at least a class C or larger (/24 or smaller CIDR prefix).
 
-### Create a new VNET and Subnet
-The following command will create a new virtual network, subnet with at least 250 IP addresses available, and enable subnet delegation for the Application Gateway for Containers association resource to be able to deploy into the subnet.  Subnet delegation for the Application Gateway for Containers service is identified by the Microsoft.ServiceNetworking/trafficControllers resource type.
+### Create a new VNET, subnet, and subnet delegation
+The following command will create a new virtual network and subnet with at least 250 IP addresses available.
 
 ```azurecli-interactive
 az network vnet create \
@@ -45,9 +45,17 @@ az network vnet create \
     --address-prefix 10.0.0.0/16 \
     --subnet-name subnet-alb \
     --subnet-prefixes 10.0.0.0/24 \
-    --delegations 'Microsoft.ServiceNetworking/trafficControllers'
 ```
 
+Enable subnet delegation for the Application Gateway for Containers service is identified by the Microsoft.ServiceNetworking/trafficControllers resource type.
+```azurecli-interactive
+az network vnet subnet update \
+    --resource-group rg-test  \
+    --name subnet-alb \
+    --vnet-name vnet-test \
+    --delegations 'Microsoft.ServiceNetworking/trafficControllers'
+```
+ 
 ### Reference an existing VNet and Subnet
 To reference an existing subnet, execute the following command to get the resource ID of the subnet:
 ```azurecli-interactive
