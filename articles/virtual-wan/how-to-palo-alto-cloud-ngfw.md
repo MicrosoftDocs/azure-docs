@@ -80,7 +80,7 @@ To create a new virtual WAN, use the steps in the following article:
 ## Known limitations
 
 * Palo Alto Networks Cloud NGFW is only available in the following Azure regions: Central US, East US, East US 2, West Europe and Australia East. Other Azure regions are on the roadmap.
-* Palo Alto Networks Cloud NGFW can only be deployed in new Virtual WAN hubs deployed with Azure resource tag **"hubSaaSPreview : true"**. Using existing Virtual Hubs with Palo Alto Networks Cloud NGFW is on the roadmap.
+* Palo Alto Networks Cloud NGFW can only be deployed in Virtual WAN hubs with Azure resource tag **"hubSaaSPreview : true"**, adding tags is also supported after the creation of hubs.
 * Palo Alto Networks Cloud NGFW can't be deployed with Network Virtual Appliances in the Virtual WAN hub. 
 * For routing between Virtual WAN and Palo Alto Networks Cloud NGFW to work properly, your entire network (on-premises and Virtual Networks) must be within RFC-1918 (subnets within 10.0.0.0/8, 192.168.0.0/16, 172.16.0.0/12). For example, you may not use a subnet such as 40.0.0.0/24 within your Virtual Network or on-premises. Traffic to 40.0.0.0/24 may not be routed properly.  
 * All other limitations in the [Routing Intent and Routing policies documentation limitations section](how-to-routing-policies.md) apply to Palo Alto Networks Cloud NGFW deployments in Virtual WAN.
