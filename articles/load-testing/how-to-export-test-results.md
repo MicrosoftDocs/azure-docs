@@ -139,7 +139,7 @@ You can use [JMeter Backend Listeners](https://jmeter.apache.org/usermanual/comp
 
 You can use the backend listeners available by default in JMeter, backend listeners from https://jmeter-plugins.org, or a custom backend listener in the form of a Java archive (JAR) file. 
 
-A sample JMeter script that uses a [backend iistener for Azure Application Insights](https://github.com/adrianmo/jmeter-backend-azure) is available here.
+A sample JMeter script that uses a [backend iistener for Azure Application Insights](https://github.com/adrianmo/jmeter-backend-azure) is available [here](https://github.com/Azure-Samples/azure-load-testing-samples/tree/main/jmeter-backend-listeners).
 
 The following code snippet shows an example of a backend listener, for Azure Application Insights, in a JMX file:
 :::code language="xml" source="~/azure-load-testing-samples/jmeter-backend-listeners/sample-backend-listener-appinsights.jmx" range="85-126" :::
