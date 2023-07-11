@@ -9,16 +9,17 @@ ms.subservice: forms-recognizer
 ms.topic: how-to
 ms.date: 07/18/2023
 ms.author: lajanuar
+monikerRange: '<=doc-intel-3.0.0'
 ---
 
 
 # Build and train a custom model
 
-::: moniker range="form-recog-3.0.0"
+::: moniker range="doc-intel-3.0.0"
 [!INCLUDE [applies to v3.0](../includes/applies-to-v3-0.md)]
 ::: moniker-end
 
-::: moniker range="form-recog-3.0.0"
+::: moniker range="doc-intel-3.0.0"
 Document Intelligence models require as few as five training documents to get started. If you have at least five documents, you can get started training a custom model. You can train either a [custom template model (custom form)](../concept-custom-template.md) or a [custom neural model (custom document)](../concept-custom-neural.md). The training process is identical for both models and this document walks you through the process of training either model.
 
 ## Custom model input requirements
@@ -27,11 +28,11 @@ First, make sure your training data set follows the input requirements for Docum
 
 ::: moniker-end
 
-::: moniker range="form-recog-3.0.0"
+::: moniker range="doc-intel-3.0.0"
 [!INCLUDE [input requirements](../includes/input-requirements.md)]
 ::: moniker-end
 
-::: moniker range="form-recog-3.0.0"
+::: moniker range="doc-intel-3.0.0"
 
 ## Training data tips
 
@@ -141,9 +142,9 @@ Congratulations you've trained a custom model in the Document Intelligence Studi
 
 ::: moniker-end
 
-::: moniker range="form-recog-2.1.0"
+::: moniker range="doc-intel-2.1.0"
 
-**Applies to:** ![Document Intelligence v2.1 checkmark](../media/yes-icon.png) **Document Intelligence v2.1**. **Other versions:** [Document Intelligence v3.0](../how-to-guides/build-a-custom-model.md?view=form-recog-3.0.0&preserve-view=true?view=form-recog-3.0.0&preserve-view=true)
+**Applies to:** ![Document Intelligence v2.1 checkmark](../media/yes-icon.png) **Document Intelligence v2.1**. **Other versions:** [Document Intelligence v3.0](../how-to-guides/build-a-custom-model.md?view=doc-intel-3.0.0&preserve-view=true?view=doc-intel-3.0.0&preserve-view=true)
 
 When you use the Document Intelligence custom model, you provide your own training data to the [Train Custom Model](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1/operations/TrainCustomModelAsync) operation, so that the model can train to your industry-specific forms. Follow this guide to learn how to collect and prepare data to train the model effectively.
 
@@ -157,11 +158,11 @@ First, make sure your training data set follows the input requirements for Docum
 
 ::: moniker-end
 
-::: moniker range="form-recog-2.1.0"
+::: moniker range="doc-intel-2.1.0"
 [!INCLUDE [input requirements](../includes/input-requirements.md)]
 ::: moniker-end
 
-::: moniker range="form-recog-2.1.0"
+::: moniker range="doc-intel-2.1.0"
 
 ## Training data tips
 

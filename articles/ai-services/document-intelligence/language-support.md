@@ -8,16 +8,18 @@ ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: conceptual
 ms.date: 07/18/2023
+monikerRange: '<=doc-intel-3.0.0'
 ---
 
+<!-- markdownlint-disable MD036 -->
 
-# Language support for Document Intelligence
+# Language support
 
-::: moniker range="form-recog-3.0.0"
+::: moniker range="doc-intel-3.0.0"
 [!INCLUDE [applies to v3.0](includes/applies-to-v3-0.md)]
 ::: moniker-end
 
-::: moniker range="form-recog-3.0.0"
+::: moniker range="doc-intel-3.0.0"
 
 This article covers the supported languages for text and field **extraction (by feature)** and **[detection (Read only)](#detected-languages-read-api)**. Both groups are mutually exclusive.
 
@@ -33,7 +35,7 @@ The following lists include the currently GA languages in the most recent v3.0 v
 >
 > Document Intelligence's deep learning based universal models extract all multi-lingual text in your documents, including text lines with mixed languages, and do not require specifying a language code. Do not provide the language code as the parameter unless you are sure about the language and want to force the service to apply only the relevant model. Otherwise, the service may return incomplete and incorrect text.
 
-To use the v3.0-supported languages, refer to the [v3.0 REST API migration guide](v3-migration-guide.md) to understand the differences from the v2.1 GA API and explore the [v3.0 SDK and REST API quickstarts](quickstarts/get-started-sdks-rest-api.md?view=form-recog-3.0.0&preserve-view=true).
+To use the v3.0-supported languages, refer to the [v3.0 REST API migration guide](v3-migration-guide.md) to understand the differences from the v2.1 GA API and explore the [v3.0 SDK and REST API quickstarts](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-3.0.0&preserve-view=true).
 
 ### Handwritten text
 
@@ -213,6 +215,15 @@ Use the parameter `api-version=2023-02-28-preview` when using the REST API or th
 |Makhuwa-Meetto  | `mgh` |
 |Makonde | `kde` |
 
+## General document model
+
+>[!NOTE]
+> It's not necessary to specify a locale. This is an optional parameter. The Document Intelligence deep-learning technology will auto-detect the language of the text in your image.
+
+| Model | Language—Locale code | Default |
+|--------|:----------------------|:---------|
+|General document| <ul><li>English (United States)—en-US</li></ul>| English (United States)—en-US|
+
 ## Custom neural model
 
 Language| API Version |
@@ -224,44 +235,17 @@ Language| API Version |
 |Italian | `2023-02-28-preview`|
 |Dutch | `2023-02-28-preview`|
 
-## Receipt model
-
->[!NOTE]
- > It's not necessary to specify a locale. This is an optional parameter. The Document Intelligence deep-learning technology will auto-detect the language of the text in your image.
-
-Receipt supports all English receipts and the following locales:
+## Health insurance card model
 
 |Language| Locale code |
 |:-----|:----:|
-|English |`en-au`|
-|English (Canada)|`en-ca`|
-|English (United Kingdom)|`en-gb`|
-|English (India)|`en-in`|
 |English (United States)| `en-us`|
-|French | `fr` |
-| Spanish | `es` |
 
-## Business card model
-
->[!NOTE]
- > It's not necessary to specify a locale. This is an optional parameter. The Document Intelligence deep-learning technology will auto-detect the language of the text in your image.
-
-Business Card supports all English business cards with the following locales:
+## W-2 form model
 
 |Language| Locale code |
 |:-----|:----:|
-|English |`en-US`, `en-CA`, `en-GB`, `en-IN`|
-|German | de|
-|French | fr|
-|Italian |it|
-|Portuguese |pt|
-|Dutch | nl|
-
-The **2022-06-30** and later releases  include Japanese language support:
-
-|Language| Locale code |
-|:-----|:----:|
-| Japanese | `ja` |
+|English (United States)| `en-us`|
 
 ## Invoice model
 
@@ -275,9 +259,81 @@ Language| Locale code |
 |Portuguese |pt|
 |Dutch | nl|
 
+## Receipt model
+
+>[!NOTE]
+ > It's not necessary to specify a locale. This is an optional parameter. The Document Intelligence deep-learning technology will auto-detect the language of the text in your image.
+
+**Receipt supports all English receipts and the following locales:**
+
+|Language| Locale code |
+|:-----|:----:|
+|English |`en-au`|
+|English (Canada)|`en-ca`|
+|English (United Kingdom)|`en-gb`|
+|English (India)|`en-in`|
+|English (United States)| `en-us`|
+|French | `fr` |
+| Spanish | `es` |
+
+**Thermal receipts (retail, meal, parking, etc.)**
+
+| Supported Languages | Details |
+|:--------------------|:-------:|
+|English|United States (`en-US`), Australia (`en-AU`), Canada (`en-CA`), United Kingdom (`en-GB`), India (`en-IN`), United Arab Emirates (`en-AE`)|
+|Croatian|Croatia (`hr-HR`)|
+|Czech|Czechia (`cs-CZ`)|
+|Danish|Denmark (`da-DK`)|
+|Dutch|Netherlands (`nl-NL`)|
+|Finnish|Finland (`fi-FI`)|
+|French|Canada (`fr-CA`), France (`fr-FR`)|
+|German|Germany (`de-DE`)|
+|Hungarian|Hungary (`hu-HU`)|
+|Italian|Italy (`it-IT`)|
+|Japanese|Japan (`ja-JP`)|
+|Latvian|Latvia (`lv-LV`)|
+|Lithuanian|Lithuania (`lt-LT`)|
+|Norwegian|Norway (`no-NO`)|
+|Portuguese|Brazil (`pt-BR`), Portugal (`pt-PT`)|
+|Spanish|Spain (`es-ES`)|
+|Swedish|Sweden (`sv-SE`)|
+|Vietnamese|Vietnam (`vi-VN`)|
+
+**Hotel receipts**
+
+| Supported Languages | Details |
+|:--------------------|:-------:|
+|English|United States (`en-US`)|
+|French|France (`fr-FR`)|
+|German|Germany (`de-DE`)|
+|Italian|Italy (`it-IT`)|
+|Japanese|Japan (`ja-JP`)|
+|Portuguese|Portugal (`pt-PT`)|
+|Spanish|Spain (`es-ES`)|
+
 ## ID document model
 
 This technology is currently available for US driver licenses and the biographical page from international passports (excluding visa and other travel documents).
+
+Supported document types
+
+| Region | Document Types |
+|--------|----------------|
+|Worldwide|Passport Book, Passport Card|
+|`United States (US)`|Driver License, Identification Card, Residency Permit (Green card), Social Security Card, Military ID|
+|`India (IN)`|Driver License, PAN Card, Aadhaar Card|
+|`Canada (CA)`|Driver License, Identification Card, Residency Permit (Maple Card)|
+|`United Kingdom (GB)`|Driver License, National Identity Card|
+|`Australia (AU)`|Driver License, Photo Card, Key-pass ID (including digital version)|
+
+## Business card model
+
+>[!NOTE]
+ > It's not necessary to specify a locale. This is an optional parameter. The Document Intelligence deep-learning technology will auto-detect the language of the text in your image.
+
+| Model | Language—Locale code | Default |
+|--------|:----------------------|:---------|
+|Business card (v3.0 API)| <ul><li>English (United States)—en-US</li><li> English (Australia)—en-AU</li><li>English (Canada)—en-CA</li><li>English (United Kingdom)—en-GB</li><li>English (India)—en-IN</li><li>English (Japan)—en-JP</li><li>Japanese (Japan)—ja-JP</li></ul>  | Autodetected (en-US or ja-JP) |
 
 ## General Document
 
@@ -420,11 +476,11 @@ The [Read API](concept-read.md) supports detecting the following languages in yo
 
 ::: moniker-end
 
-::: moniker range="form-recog-2.1.0"
+::: moniker range="doc-intel-2.1.0"
 [!INCLUDE [applies to v2.1](includes/applies-to-v2-1.md)]
 ::: moniker-end
 
-::: moniker range="form-recog-2.1.0"
+::: moniker range="doc-intel-2.1.0"
 
 This table lists the written languages supported by each Document Intelligence service.
 
@@ -509,7 +565,7 @@ This table lists the written languages supported by each Document Intelligence s
 |Zhuang | `za` |
 |Zulu  | `zu` |
 
-## Prebuilt receipt and business card
+## Prebuilt receipt 
 
 >[!NOTE]
  > It's not necessary to specify a locale. This is an optional parameter. The Document Intelligence deep-learning technology will auto-detect the language of the text in your image.
@@ -530,6 +586,15 @@ Language| Locale code |
 |:-----|:----:|
 |English (United States)|en-us|
 
+## Prebuilt business card
+
+>[!NOTE]
+> It's not necessary to specify a locale. This is an optional parameter. The Document Intelligence deep-learning technology will auto-detect the language of the text in your image.
+
+| Model | Language—Locale code | Default |
+|--------|:----------------------|:---------|
+|Business card (v2.1 API)| <ul><li>English (United States)—en-US</li><li> English (Australia)—en-AU</li><li>English (Canada)—en-CA</li><li>English (United Kingdom)—en-GB</li><li>English (India)—en-IN</li> | Autodetected |
+
 ## Prebuilt identity documents
 
 This technology is currently available for US driver licenses and the biographical page from international passports (excluding visa and other travel documents).
@@ -538,13 +603,13 @@ This technology is currently available for US driver licenses and the biographic
 
 ## Next steps
 
-::: moniker range="form-recog-3.0.0"
+::: moniker range="doc-intel-3.0.0"
 
 > [!div class="nextstepaction"]
 > [Try Document Intelligence Studio](https://formrecognizer.appliedai.azure.com/studio)
 ::: moniker-end
 
-::: moniker range="form-recog-2.1.0"
+::: moniker range="doc-intel-2.1.0"
 > [!div class="nextstepaction"]
 > [Try Document Intelligence Sample Labeling tool](https://aka.ms/fott-2.1-ga)
 ::: moniker-end

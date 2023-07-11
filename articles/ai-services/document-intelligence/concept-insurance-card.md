@@ -9,11 +9,11 @@ ms.subservice: forms-recognizer
 ms.topic: conceptual
 ms.date: 07/18/2023
 ms.author: lajanuar
-monikerRange: 'form-recog-3.0.0'
+monikerRange: 'doc-intel-3.0.0'
 ---
 
 
-# Azure AI Document Intelligence health insurance card model
+# Document Intelligence health insurance card model
 
 **This article applies to:** ![Document Intelligence v3.0 checkmark](media/yes-icon.png) **Document Intelligence v3.0**.
 
@@ -29,7 +29,7 @@ Document Intelligence v3.0 supports the prebuilt health insurance card model wit
 
 | Feature | Resources | Model ID |
 |----------|-------------|-----------|
-|**health insurance card model**|<ul><li> [**Document Intelligence Studio**](https://formrecognizer.appliedai.azure.com)</li><li>[**REST API**](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2022-08-31/operations/AnalyzeDocument)</li><li>[**C# SDK**](quickstarts/get-started-sdks-rest-api.md?view=form-recog-3.0.0&preserve-view=true#prebuilt-model)</li><li>[**Python SDK**](quickstarts/get-started-sdks-rest-api.md?view=form-recog-3.0.0&preserve-view=true#prebuilt-model)</li><li>[**Java SDK**](quickstarts/get-started-sdks-rest-api.md?view=form-recog-3.0.0&preserve-view=true#prebuilt-model)</li><li>[**JavaScript SDK**](quickstarts/get-started-sdks-rest-api.md?view=form-recog-3.0.0&preserve-view=true#prebuilt-model)</li></ul>|**prebuilt-healthInsuranceCard.us**|
+|**health insurance card model**|<ul><li> [**Document Intelligence Studio**](https://formrecognizer.appliedai.azure.com)</li><li>[**REST API**](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2022-08-31/operations/AnalyzeDocument)</li><li>[**C# SDK**](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-3.0.0&preserve-view=true#prebuilt-model)</li><li>[**Python SDK**](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-3.0.0&preserve-view=true#prebuilt-model)</li><li>[**Java SDK**](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-3.0.0&preserve-view=true#prebuilt-model)</li><li>[**JavaScript SDK**](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-3.0.0&preserve-view=true#prebuilt-model)</li></ul>|**prebuilt-healthInsuranceCard.us**|
 
 ### Try Document Intelligence
 
@@ -104,7 +104,7 @@ See how data is extracted from health insurance cards using the Document Intelli
 |`Payer.PhoneNumber`|`phoneNumber`|Payer phone number|+1 (987) 213-5674|
 |`Plan`|`object`|||
 |`Plan.Number`|`string`|Plan number|456|
-|`Plan.Name`|`string`|Plan name - If see Medicaid -> then Medicaid|HEALTH SAVINGS PLAN|
+|`Plan.Name`|`string`|Plan name - Medicaid -> then Medicaid|HEALTH SAVINGS PLAN|
 |`Plan.Type`|`string`|Plan type|PPO|
 
 ### Migration guide and REST API v3.0
@@ -117,4 +117,4 @@ See how data is extracted from health insurance cards using the Document Intelli
 
 * Try processing your own forms and documents with the [Document Intelligence Studio](https://formrecognizer.appliedai.azure.com/studio)
 
-* Complete a [Document Intelligence quickstart](quickstarts/get-started-sdks-rest-api.md?view=form-recog-3.0.0&preserve-view=true) and get started creating a document processing app in the development language of your choice.
+* Complete a [Document Intelligence quickstart](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-3.0.0&preserve-view=true) and get started creating a document processing app in the development language of your choice.

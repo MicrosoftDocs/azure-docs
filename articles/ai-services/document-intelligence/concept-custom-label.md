@@ -10,11 +10,11 @@ ms.topic: conceptual
 ms.date: 07/18/2023
 ms.author: vikurpad
 ms.custom: references_regions
-monikerRange: 'form-recog-3.0.0'
+monikerRange: 'doc-intel-3.0.0'
 ---
 
 
-# Best practices: Generating Document Intelligence labeled dataset
+# Best practices: generating labeled datasets
 
 Custom models (template and neural) require a labeled dataset of at least five documents to train a model. The quality of the labeled dataset affects the accuracy of the trained model. This guide helps you learn more about generating a model with high accuracy by assembling a diverse dataset and provides best practices for labeling your documents.
 
@@ -109,7 +109,7 @@ Tabular fields are also useful when extracting repeating information within a do
 * Train a custom model:
 
   > [!div class="nextstepaction"]
-  > [How to train a model](how-to-guides/build-a-custom-model.md?view=form-recog-3.0.0&preserve-view=true)
+  > [How to train a model](how-to-guides/build-a-custom-model.md?view=doc-intel-3.0.0&preserve-view=true)
 
 * Learn more about custom template models:
 

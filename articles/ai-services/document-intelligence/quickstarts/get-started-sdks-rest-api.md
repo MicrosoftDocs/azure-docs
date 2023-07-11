@@ -11,16 +11,17 @@ ms.topic: quickstart
 ms.date: 07/18/2023
 ms.author: lajanuar
 zone_pivot_groups: programming-languages-set-formre
+monikerRange: '<=doc-intel-3.0.0'
 ---
 
 
 # Get started with Document Intelligence
 
-::: moniker range="form-recog-3.0.0"
+::: moniker range="doc-intel-3.0.0"
 [!INCLUDE [applies to v3.0](../includes/applies-to-v3-0.md)]
 ::: moniker-end
 
-::: moniker range="form-recog-3.0.0"
+::: moniker range="doc-intel-3.0.0"
 
 Get started with the latest version of Azure AI Document Intelligence. Azure AI Document Intelligence is a cloud-based Azure AI service that uses machine learning to extract key-value pairs, text, tables and key data from your documents. You can easily integrate Document Intelligence models into your workflows and applications by using an SDK in the programming language of your choice or calling the REST API.  For this quickstart, we recommend that you use the free service while you're learning the technology. Remember that the number of free pages is limited to 500 per month.
 
@@ -30,7 +31,7 @@ To learn more about Document Intelligence features and development options, visi
 
 ::: zone pivot="programming-language-csharp"
 
-::: moniker range="form-recog-3.0.0"
+::: moniker range="doc-intel-3.0.0"
 [!INCLUDE [C# SDK](includes/v3-csharp-sdk.md)]
 ::: moniker-end
 
@@ -38,7 +39,7 @@ To learn more about Document Intelligence features and development options, visi
 
 ::: zone pivot="programming-language-java"
 
-::: moniker range="form-recog-3.0.0"
+::: moniker range="doc-intel-3.0.0"
 [!INCLUDE [Java SDK](includes/v3-java-sdk.md)]
 ::: moniker-end
 
@@ -46,7 +47,7 @@ To learn more about Document Intelligence features and development options, visi
 
 ::: zone pivot="programming-language-javascript"
 
-::: moniker range="form-recog-3.0.0"
+::: moniker range="doc-intel-3.0.0"
 [!INCLUDE [NodeJS SDK](includes/v3-javascript-sdk.md)]
 ::: moniker-end
 
@@ -54,7 +55,7 @@ To learn more about Document Intelligence features and development options, visi
 
 ::: zone pivot="programming-language-python"
 
-::: moniker range="form-recog-3.0.0"
+::: moniker range="doc-intel-3.0.0"
 [!INCLUDE [Python SDK](includes/v3-python-sdk.md)]
 ::: moniker-end
 
@@ -62,13 +63,13 @@ To learn more about Document Intelligence features and development options, visi
 
 ::: zone pivot="programming-language-rest-api"
 
-::: moniker range="form-recog-3.0.0"
+::: moniker range="doc-intel-3.0.0"
 [!INCLUDE [REST API](includes/v3-rest-api.md)]
 ::: moniker-end
 
 ::: zone-end
 
-::: moniker range="form-recog-3.0.0"
+::: moniker range="doc-intel-3.0.0"
 That's it, congratulations!
 
 In this quickstart, you used a form Document Intelligence model to analyze various forms and documents. Next, explore the Document Intelligence Studio and reference documentation to learn about Document Intelligence API in depth.
@@ -79,14 +80,14 @@ In this quickstart, you used a form Document Intelligence model to analyze vario
 > [**Try the Document Intelligence Studio**](https://formrecognizer.appliedai.azure.com/studio)
 
 > [!div class="nextstepaction"]
-> [**Explore our how-to documentation and take a deeper dive into Document Intelligence models**](../how-to-guides/use-sdk-rest-api.md?view=form-recog-3.0.0&preserve-view=true)
+> [**Explore our how-to documentation and take a deeper dive into Document Intelligence models**](../how-to-guides/use-sdk-rest-api.md?view=doc-intel-3.0.0&preserve-view=true)
 ::: moniker-end
 
-::: moniker range="form-recog-2.1.0"
+::: moniker range="doc-intel-2.1.0"
 [!INCLUDE [applies to v2.1](../includes/applies-to-v2-1.md)]
 ::: moniker-end
 
-::: moniker range="form-recog-2.1.0"
+::: moniker range="doc-intel-2.1.0"
 
 Get started with Azure AI Document Intelligence using the programming language of your choice or the REST API. Document Intelligence is a cloud-based Azure AI service that uses machine learning to extract key-value pairs, text, and tables from your documents. You can easily call Document Intelligence models by integrating our client library SDKs into your workflows and applications. We recommend that you use the free service when you're learning the technology. Remember that the number of free pages is limited to 500 per month.
 
@@ -96,7 +97,7 @@ To learn more about Document Intelligence features and development options, visi
 
 ::: zone pivot="programming-language-csharp"
 
-::: moniker range="form-recog-2.1.0"
+::: moniker range="doc-intel-2.1.0"
 [!INCLUDE [C# SDK](includes/get-started/csharp.md)]
 ::: moniker-end
 
@@ -104,7 +105,7 @@ To learn more about Document Intelligence features and development options, visi
 
 ::: zone pivot="programming-language-java"
 
-::: moniker range="form-recog-2.1.0"
+::: moniker range="doc-intel-2.1.0"
 [!INCLUDE [Java SDK](includes/get-started/java.md)]
 ::: moniker-end
 
@@ -112,7 +113,7 @@ To learn more about Document Intelligence features and development options, visi
 
 ::: zone pivot="programming-language-javascript"
 
-::: moniker range="form-recog-2.1.0"
+::: moniker range="doc-intel-2.1.0"
 [!INCLUDE [NodeJS SDK](includes/get-started/javascript.md)]
 ::: moniker-end
 
@@ -120,7 +121,7 @@ To learn more about Document Intelligence features and development options, visi
 
 ::: zone pivot="programming-language-python"
 
-::: moniker range="form-recog-2.1.0"
+::: moniker range="doc-intel-2.1.0"
 [!INCLUDE [Python SDK](includes/get-started/python.md)]
 ::: moniker-end
 
@@ -128,13 +129,13 @@ To learn more about Document Intelligence features and development options, visi
 
 ::: zone pivot="programming-language-rest-api"
 
-::: moniker range="form-recog-2.1.0"
+::: moniker range="doc-intel-2.1.0"
 [!INCLUDE [REST API](includes/get-started/rest-api.md)]
 ::: moniker-end
 
 ::: zone-end
 
-::: moniker range="form-recog-2.1.0"
+::: moniker range="doc-intel-2.1.0"
 
 That's it, congratulations! In this quickstart, you used Document Intelligence models to analyze various forms in different ways.
 
@@ -145,6 +146,6 @@ That's it, congratulations! In this quickstart, you used Document Intelligence m
 * The v3.0 Studio supports any model trained with v2.1 labeled data.
 
 * You can refer to the API migration guide for detailed information about migrating from v2.1 to v3.0.
-* *See* our [**REST API**](get-started-sdks-rest-api.md?view=form-recog-3.0.0&preserve-view=true) or [**C#**](get-started-sdks-rest-api.md?view=form-recog-3.0.0&preserve-view=true), [**Java**](get-started-sdks-rest-api.md?view=form-recog-3.0.0&preserve-view=true), [**JavaScript**](get-started-sdks-rest-api.md?view=form-recog-3.0.0&preserve-view=true), or [**Python**](get-started-sdks-rest-api.md?view=form-recog-3.0.0&preserve-view=true) SDK quickstarts to get started with the v3.0 version.
+* *See* our [**REST API**](get-started-sdks-rest-api.md?view=doc-intel-3.0.0&preserve-view=true) or [**C#**](get-started-sdks-rest-api.md?view=doc-intel-3.0.0&preserve-view=true), [**Java**](get-started-sdks-rest-api.md?view=doc-intel-3.0.0&preserve-view=true), [**JavaScript**](get-started-sdks-rest-api.md?view=doc-intel-3.0.0&preserve-view=true), or [**Python**](get-started-sdks-rest-api.md?view=doc-intel-3.0.0&preserve-view=true) SDK quickstarts to get started with the v3.0 version.
 
 ::: moniker-end

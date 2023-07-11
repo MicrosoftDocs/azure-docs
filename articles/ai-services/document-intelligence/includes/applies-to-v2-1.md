@@ -10,4 +10,4 @@ ms.topic: include
 ms.date: 07/18/2023
 ---
 
-**This article applies to:** ![Document Intelligence v2.1 checkmark](../media/yes-icon.png) **Document Intelligence v2.1**. **Later version:** [Document Intelligence v3.0](?view=form-recog-3.0.0&preserve-view=true)
+**This article applies to:** ![Document Intelligence v2.1 checkmark](../media/yes-icon.png) **Document Intelligence v2.1**. **Later version:** [Document Intelligence v3.0](?view=doc-intel-3.0.0&preserve-view=true)

@@ -1,7 +1,7 @@
 ### YamlMime:Landing
 
 title: Azure AI Document Intelligence documentation # < 60 chars
-summary: Azure AI Document Intelligence is a cloud-based Azure AI service that uses machine-learning models to extract key-value pairs, text, and tables from your documents. Document Intelligence analyzes your forms and documents, extracts text and data, maps field relationships as key-value pairs, and returns a structured JSON output. You quickly get accurate results that are tailored to your specific content without excessive manual intervention or extensive data science expertise. Use Document Intelligence to automate your data processing in applications and workflows, enhance data-driven strategies, and enrich document search capabilities. # < 160 chars
+summary: Azure Form Recognizer is now Azure AI Document Intelligence, a cloud-based Azure AI service that uses machine-learning models to extract key-value pairs, text, and tables from your documents. Document Intelligence analyzes your forms and documents, extracts text and data, maps field relationships as key-value pairs, and returns a structured JSON output. You quickly get accurate results that are tailored to your specific content without excessive manual intervention or extensive data science expertise. Use Document Intelligence to automate your data processing in applications and workflows, enhance data-driven strategies, and enrich document search capabilities. # < 160 chars
 
 metadata:
   title: Document Intelligence documentation - Quickstarts, Tutorials, API Reference - Azure AI services | Microsoft Docs
@@ -110,7 +110,7 @@ landingContent:
         - text: Document Intelligence Studio
           url: quickstarts/try-document-intelligence-studio.md
         - text: Document Intelligence SDK
-          url: quickstarts/get-started-sdks-rest-api.md?view=form-recog-3.0.0&preserve-view=true
+          url: quickstarts/get-started-sdks-rest-api.md?view=doc-intel-3.0.0&preserve-view=true
       - linkListType: how-to-guide
         links:
           - text: Create a Document Intelligence resource
@@ -118,13 +118,13 @@ landingContent:
           - text: Migrate to Document Intelligence v3.0
             url: v3-migration-guide.md
           - text: Use the read model
-            url: how-to-guides/use-sdk-rest-api.md?view=form-recog-3.0.0&preserve-view=true
+            url: how-to-guides/use-sdk-rest-api.md?view=doc-intel-3.0.0&preserve-view=true
           - text: Create SAS tokens for storage containers
             url: create-sas-tokens.md
           - text: Build a custom model (v3.0)
-            url:  how-to-guides/build-a-custom-model.md?view=form-recog-3.0.0&preserve-view=true
+            url:  how-to-guides/build-a-custom-model.md?view=doc-intel-3.0.0&preserve-view=true
           - text: Compose custom models (v3.0)
-            url: how-to-guides/compose-custom-models.md?view=form-recog-3.0.0&preserve-view=true
+            url: how-to-guides/compose-custom-models.md?view=doc-intel-3.0.0&preserve-view=true
           - text: Install and run Document Intelligence containers
             url: containers/install-run.md
           - text: Create and use managed identities

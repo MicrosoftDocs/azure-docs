@@ -1,5 +1,5 @@
 ---
-title: Choose the best Document Intelligence model
+title: Choose the best Document Intelligence model for your applications and workflows
 titleSuffix: Azure AI services
 description: Choose the best Document Intelligence model to meet your needs.
 author: laujan
@@ -9,14 +9,14 @@ ms.subservice: forms-recognizer
 ms.topic: overview
 ms.date: 07/18/2023
 ms.author: lajanuar
-monikerRange: 'form-recog-3.0.0'
+monikerRange: 'doc-intel-3.0.0'
 ---
 
 
 
 
 
-# Which Document Intelligence model should I use?
+# Which model should I choose?
 
 Azure AI Document Intelligence supports a wide variety of models that enable you to add intelligent document processing to your applications and optimize your workflows. Selecting the right model is essential to ensure the success of your enterprise. In this article, we explore the available Document Intelligence models and provide guidance for how to choose the best solution for your projects.
 

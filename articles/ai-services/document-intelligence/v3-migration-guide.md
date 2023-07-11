@@ -9,7 +9,7 @@ ms.subservice: forms-recognizer
 ms.topic: how-to
 ms.date: 07/18/2023
 ms.author: lajanuar
-monikerRange: '>=form-recog-2.1.0'
+monikerRange: '<=doc-intel-3.0.0'
 ---
 
 
@@ -36,7 +36,7 @@ The `2022-08-31` API has a few updates from the preview API versions:
 
 Document Intelligence v3.0  introduces several new features and capabilities:
 
-* [Document Intelligence REST API](quickstarts/get-started-sdks-rest-api.md?view=form-recog-3.0.0&preserve-view=true) has been redesigned for better usability.
+* [Document Intelligence REST API](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-3.0.0&preserve-view=true) has been redesigned for better usability.
 * [**General document (v3.0)**](concept-general-document.md) model is a new API that extracts text, tables, structure, and key-value pairs, from forms and documents.
 * [**Custom neural model (v3.0)**](concept-custom-neural.md) is a new custom model type to extract fields from structured and unstructured documents.
 * [**Receipt (v3.0)**](concept-receipt.md) model supports single-page hotel receipt processing.
