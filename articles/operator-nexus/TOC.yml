@@ -95,7 +95,7 @@
       href: howto-monitor-virtualized-network-functions-virtual-machines.md
     - name: Cluster metrics configuration management
       href: howto-cluster-metrics-configuration-management.md
-    - name: Pre-certification
+    - name: Precertification
       href: howto-precertification.md
     - name: Tracking asynchronous operations
       href: howto-track-async-operations-cli.md
@@ -115,7 +115,7 @@
       href: troubleshoot-bmm-node-reboot.md
 - name: Reference
   items:
-    - name: Instance to On-Premises WAN Connectivity
+    - name: Instance to on-premises WAN Connectivity
       href: reference-customer-edge-provider-edge-connectivity.md
     - name: List of metrics collected
       href: List-of-metrics-collected.md
