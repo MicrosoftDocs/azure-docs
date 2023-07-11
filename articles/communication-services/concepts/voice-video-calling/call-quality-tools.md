@@ -71,9 +71,13 @@ The following fields provide useful insight on each call's quality and reliabili
 
 #### Start collecting Call logs
 
-To enable call logs review this documentation [Enable and Access Call Summary and Call Diagnostic Logs](../call-logs-azure-monitor-access.md). Then follow these steps: [Enable logs via Diagnostic Settings in Azure Monitor](../analytics/enable-logging.md)
+Please review this documentation to start collecting call logs: [Enable logs via Diagnostic Settings in Azure Monitor](../analytics/enable-logging.md)
 
-- If you aren't sure which data to collect, choose “all logs” and “send to log analytics workspace.”
+
+- Choose the category group "allLogs" and choose the destination detail of “sSnd to Log Analytics workspace" in order to view an analyze the data in Azure Monitor.
+
+<!-- To enable call logs review this documentation
+ [Enable and Access Call Summary and Call Diagnostic Logs](../call-logs-azure-monitor-access.md). Then follow these steps: [Enable logs via Diagnostic Settings in Azure Monitor](../analytics/enable-logging.md) -->
 
 #### Examine call quality with Voice and Video Insights Preview
 
