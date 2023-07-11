@@ -84,10 +84,10 @@ For an in-depth description of workbooks, refer to the [Azure Monitor Workbooks]
 
 The **Insights** dashboards provided with your **Communication Service** resource can be customized by clicking on the **Edit** button on the top navigation bar:
 
-:::image type="content" source="media/workbooks/dashboard-editing.png" alt-text="Screenshot of dashboard editing process.":::
+:::image type="content" source="../media/workbooks/dashboard-editing.png" alt-text="Screenshot of dashboard editing process.":::
 
 Editing these dashboards doesn't modify the **Insights** tab, but rather creates a separate workbook that can be accessed on your resource’s Workbooks tab:
 
-:::image type="content" source="media/workbooks/workbooks-tab.png" alt-text="Screenshot of the workbooks tab.":::
+:::image type="content" source="../media/workbooks/workbooks-tab.png" alt-text="Screenshot of the workbooks tab.":::
 
 For an in-depth description of workbooks, refer to the [Azure Monitor Workbooks](../../../../azure-monitor/visualize/workbooks-overview.md) documentation.
