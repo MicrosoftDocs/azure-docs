@@ -10,7 +10,7 @@ ms.topic: conceptual
 ms.date: 07/18/2023
 ms.author: vikurpad
 ms.custom: references_regions
-monikerRange: 'form-recog-3.0.0'
+monikerRange: 'doc-intel-3.0.0'
 ---
 
 
@@ -162,7 +162,7 @@ A style element describes the font style to apply to text content.  The content 
 
 #### Language
 
-A language element describes the detected language for content specified via spans into the global content property.  The detected language is specified via a [BCP-47 language tag](https://en.wikipedia.org/wiki/IETF_language_tag) to indicate the primary language and optional script and region information.  For example, English and traditional Chinese are recognized as "en" and "zh-Hant", respectively.  Regional spelling differences for UK English may lead the text to be detected as "en-GB".  Language elements don't cover text without a dominant language (ex. numbers).
+A language element describes the detected language for content specified via spans into the global content property.  The detected language is specified via a [BCP-47 language tag](https://en.wikipedia.org/wiki/IETF_language_tag) to indicate the primary language and optional script and region information.  For example, English and traditional Chinese are recognized as "en" and *zh-Hant*, respectively.  Regional spelling differences for UK English may lead the text to be detected as *en-GB*.  Language elements don't cover text without a dominant language (ex. numbers).
 
 ### Semantic elements
 
@@ -274,4 +274,4 @@ The semantic schema of a document type is described via the fields it may contai
 
 * Try processing your own forms and documents with [Document Intelligence Studio](https://formrecognizer.appliedai.azure.com/studio)
 
-* Complete a [Document Intelligence quickstart](quickstarts/get-started-sdks-rest-api.md?view=form-recog-3.0.0&preserve-view=true) and get started creating a document processing app in the development language of your choice.
+* Complete a [Document Intelligence quickstart](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-3.0.0&preserve-view=true) and get started creating a document processing app in the development language of your choice.

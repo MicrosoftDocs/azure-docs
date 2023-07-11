@@ -10,17 +10,18 @@ ms.subservice: forms-recognizer
 ms.topic: conceptual
 ms.date: 07/18/2023
 ms.author: lajanuar
+monikerRange: '<=doc-intel-3.0.0'
 ---
 
 
-# Document Intelligence service quotas and limits
+# Service quotas and limits
 <!-- markdownlint-disable MD033 -->
 
-::: moniker range="form-recog-3.0.0"
+::: moniker range="doc-intel-3.0.0"
 [!INCLUDE [applies to v3.0](includes/applies-to-v3-0.md)]
 ::: moniker-end
 
-::: moniker range="form-recog-2.1.0"
+::: moniker range="doc-intel-2.1.0"
 [!INCLUDE [applies to v2.1](includes/applies-to-v2-1.md)]
 ::: moniker-end
 
@@ -28,7 +29,7 @@ This article contains both a quick reference and detailed description of Azure A
 
 ## Model usage
 
-::: moniker range="form-recog-3.0.0"
+::: moniker range="doc-intel-3.0.0"
 
 > [!div class="checklist"]
 >
@@ -37,7 +38,7 @@ This article contains both a quick reference and detailed description of Azure A
 > * [**Document Intelligence Studio v3.0**](quickstarts/try-document-intelligence-studio.md)
 ::: moniker-end
 
-::: moniker range="form-recog-2.1.0"
+::: moniker range="doc-intel-2.1.0"
 
 > [!div class="checklist"]
 >
@@ -64,7 +65,7 @@ This article contains both a quick reference and detailed description of Azure A
 | **Max number of Neural models** | 100 | 500 |
 | Adjustable | No | No |
 
-::: moniker range="form-recog-3.0.0"
+::: moniker range="doc-intel-3.0.0"
 
 ## Custom model usage
 
@@ -96,7 +97,7 @@ This article contains both a quick reference and detailed description of Azure A
 
 ::: moniker-end
 
-::: moniker range="form-recog-2.1.0"
+::: moniker range="doc-intel-2.1.0"
 
 ## Custom model limits
 
@@ -116,13 +117,13 @@ This article contains both a quick reference and detailed description of Azure A
 
 ::: moniker-end
 
-::: moniker range=">=form-recog-2.1.0"
+::: moniker range=">=doc-intel-2.1.0"
 
 > <sup>1</sup> For **Free (F0)** pricing tier see also monthly allowances at the [pricing page](https://azure.microsoft.com/pricing/details/form-recognizer/).</br>
 > <sup>2</sup> See [best practices](#example-of-a-workload-pattern-best-practice), and [adjustment instructions(#create-and-submit-support-request).</br>
 > <sup>3</sup> Neural models training count is reset every calendar month. Open a support request to increase the monthly training limit.
 ::: moniker-end
-::: moniker range="form-recog-3.0.0"
+::: moniker range="doc-intel-3.0.0"
 > <sup>4</sup> This limit applies to all documents found in your training dataset folder prior to any labeling-related updates.
 ::: moniker-end
 
@@ -130,7 +131,7 @@ This article contains both a quick reference and detailed description of Azure A
 
 Before requesting a quota increase (where applicable), ensure that it's necessary. Document Intelligence service uses autoscaling to bring the required computational resources in "on-demand"  and at the same time to keep the customer costs low, deprovision unused resources by not maintaining an excessive amount of hardware capacity.
 
-If your application returns Response Code 429 (*Too many requests*) and your workload is within the defined limits: most likely, the service is scaling up to your demand, but hasn't yet reached the required scale. Thus the service doesn't immediately have enough resources to serve the request. This state is transient and shouldn't last long. For more information, *see* [Quotas and Limits quick reference](#document-intelligence-service-quotas-and-limits))
+If your application returns Response Code 429 (*Too many requests*) and your workload is within the defined limits: most likely, the service is scaling up to your demand, but hasn't yet reached the required scale. Thus the service doesn't immediately have enough resources to serve the request. This state is transient and shouldn't last long.
 
 ### General best practices to mitigate throttling during autoscaling
 

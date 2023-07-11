@@ -61,6 +61,15 @@ A custom model can be used to augment the base model to improve recognition of d
 
 Customization options vary by language or locale. To verify support, see [Language and voice support for the Speech service](./language-support.md?tabs=stt).
 
+## Responsible AI 
+
+An AI system includes not only the technology, but also the people who will use it, the people who will be affected by it, and the environment in which it is deployed. Read the transparency notes to learn about responsible AI use and deployment in your systems. 
+
+* [Transparency note and use cases](/legal/cognitive-services/speech-service/speech-to-text/transparency-note?context=/azure/cognitive-services/speech-service/context/context)
+* [Characteristics and limitations](/legal/cognitive-services/speech-service/speech-to-text/characteristics-and-limitations?context=/azure/cognitive-services/speech-service/context/context)
+* [Integration and responsible use](/legal/cognitive-services/speech-service/speech-to-text/guidance-integration-responsible-use?context=/azure/cognitive-services/speech-service/context/context)
+* [Data, privacy, and security](/legal/cognitive-services/speech-service/speech-to-text/data-privacy-security?context=/azure/cognitive-services/speech-service/context/context)
+
 ## Next steps
 
 - [Get started with speech to text](get-started-speech-to-text.md)

@@ -9,34 +9,35 @@ ms.subservice: forms-recognizer
 ms.topic: how-to
 ms.date: 07/18/2023
 ms.author: lajanuar
+monikerRange: '<=doc-intel-3.0.0'
 ---
 
 
-# Install and run Document Intelligence containers
+# Install and run containers
 
 <!-- markdownlint-disable MD024 -->
 <!-- markdownlint-disable MD051 -->
 
-::: moniker range="form-recog-3.0.0"
+::: moniker range="doc-intel-3.0.0"
 [!INCLUDE [applies to v3.0](../includes/applies-to-v3-0.md)]
 ::: moniker-end
 
-::: moniker range="form-recog-2.1.0"
+::: moniker range="doc-intel-2.1.0"
 [!INCLUDE [applies to v2.1](../includes/applies-to-v2-1.md)]
 ::: moniker-end
 
 Azure AI Document Intelligence is an Azure AI service that lets you build automated data processing software using machine-learning technology. Document Intelligence enables you to identify and extract text, key/value pairs, selection marks, table data, and more from your form documents. The results are delivered as structured data that includes the relationships in the original file.
 
-::: moniker range="form-recog-3.0.0"
+::: moniker range="doc-intel-3.0.0"
 In this article you learn how to download, install, and run Document Intelligence containers. Containers enable you to run the Document Intelligence service in your own environment. Containers are great for specific security and data governance requirements.
 
 * **Read**, **Layout**, **General Document**, **ID Document**,  **Receipt**, **Invoice**, and **Custom** models are supported by Document Intelligence v3.0 containers.
 
-* **Business Card** model is currently only supported in the [v2.1 containers](install-run.md?view=form-recog-2.1.0&preserve-view=true).
+* **Business Card** model is currently only supported in the [v2.1 containers](install-run.md?view=doc-intel-2.1.0&preserve-view=true).
 
 ::: moniker-end
 
-::: moniker range="form-recog-2.1.0"
+::: moniker range="doc-intel-2.1.0"
 
 > [!IMPORTANT]
 >
@@ -70,7 +71,7 @@ You also need the following to use Document Intelligence containers:
 |---------|----------|
 |**Azure CLI (command-line interface)** | The [Azure CLI](/cli/azure/install-azure-cli) enables you to use a set of online commands to create and manage Azure resources. It's available to install in Windows, macOS, and Linux environments and can be run in a Docker container and Azure Cloud Shell. |
 
-:::moniker range="form-recog-2.1.0"
+:::moniker range="doc-intel-2.1.0"
 You also need a **Azure AI Vision API resource to process business cards, ID documents, or Receipts**.
 
 * You can access the Recognize Text feature as either an Azure resource (the REST API or SDK) or a **cognitive-services-recognize-text** [container](../../../ai-services/Computer-vision/computer-vision-how-to-install-containers.md#get-the-container-image).
@@ -106,7 +107,7 @@ The host is a x64-based computer that runs the Docker container. It can be a com
 #### Required supporting containers
 
 The following table lists the supporting container(s) for each Document Intelligence container you download. For more information, see the [Billing](#billing) section.
-:::moniker range="form-recog-2.1.0"
+:::moniker range="doc-intel-2.1.0"
 
 | Feature container | Supporting container(s) |
 |---------|-----------|
@@ -118,7 +119,7 @@ The following table lists the supporting container(s) for each Document Intellig
 | **Custom** | **Custom API**, **Custom Supervised**, **Lay&#8203;out**|
 :::moniker-end
 
-:::moniker range="form-recog-3.0.0"
+:::moniker range="doc-intel-3.0.0"
 Feature container | Supporting container(s) |
 |---------|-----------|
 | **Read** | Not required |
@@ -137,7 +138,7 @@ Feature container | Supporting container(s) |
 >
 > The minimum and recommended values are based on Docker limits and *not* the host machine resources.
 
-:::moniker range="form-recog-3.0.0"
+:::moniker range="doc-intel-3.0.0"
 
 ##### Document Intelligence containers
 
@@ -153,7 +154,7 @@ Feature container | Supporting container(s) |
 
 :::moniker-end
 
-:::moniker range="form-recog-2.1.0"
+:::moniker range="doc-intel-2.1.0"
 
 ##### Read, Layout, and prebuilt containers
 
@@ -202,7 +203,7 @@ The following host machine requirements are applicable to **train and analyze** 
 > [!IMPORTANT]
 > The keys are used to access your Document Intelligence resource. Do not share your keys. Store them securely, for example, using Azure Key Vault. We also recommend regenerating these keys regularly. Only one key is necessary to make an API call. When regenerating the first key, you can use the second key for continued access to the service.
 
-:::moniker range="form-recog-3.0.0"
+:::moniker range="doc-intel-3.0.0"
 
 ### [Read](#tab/read)
 
@@ -723,7 +724,7 @@ POST http://localhost:5000/formrecognizer/documentModels:build?api-version=2022-
 
 :::moniker-end
 
-:::moniker range="form-recog-2.1.0"
+:::moniker range="doc-intel-2.1.0"
 
 ### [Read](#tab/read)
 
@@ -1201,7 +1202,7 @@ docker-compose down
 
 The Document Intelligence containers send billing information to Azure by using a Document Intelligence resource on your Azure account.
 
-:::moniker range="form-recog-3.0.0"
+:::moniker range="doc-intel-3.0.0"
 Queries to the container are billed at the pricing tier of the Azure resource that's used for the `Key`. You're billed for each container instance used to process your documents and images.
 
 > [!NOTE]
@@ -1209,7 +1210,7 @@ Queries to the container are billed at the pricing tier of the Azure resource th
 Azure AI containers aren't licensed to run without being connected to the metering / billing endpoint. Containers must be enabled to always communicate billing information with the billing endpoint. Azure AI containers don't send customer data, such as the image or text that's being analyzed, to Microsoft.
 :::moniker-end
 
-:::moniker range="form-recog-2.1.0"
+:::moniker range="doc-intel-2.1.0"
 Queries to the container are billed at the pricing tier of the Azure resource that's used for the `Key`. You're billed for each container instance used to process your documents and images. Thus, If you use the business card feature, you're billed for the Document Intelligence `BusinessCard` and `Azure AI Vision Read` container instances. For the invoice feature, you're billed for the Document Intelligence `Invoice` and `Layout` container instances. *See*, [Document Intelligence](https://azure.microsoft.com/pricing/details/form-recognizer/) and Azure AI Vision [Read feature](https://azure.microsoft.com/pricing/details/cognitive-services/computer-vision/) container pricing.
 
 Azure AI containers aren't licensed to run without being connected to the metering / billing endpoint. Containers must be enabled to always communicate billing information with the billing endpoint. Azure AI containers don't send customer data, such as the image or text that's being analyzed, to Microsoft.

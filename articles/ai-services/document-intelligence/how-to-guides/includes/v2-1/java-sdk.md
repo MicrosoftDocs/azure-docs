@@ -29,7 +29,7 @@ ms.author: lajanuar
 * Once you have your Azure subscription, <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer"  title="Create a Document Intelligence resource"  target="_blank">create a Document Intelligence resource </a> in the Azure portal to get your key and endpoint. After it deploys, select **Go to resource**.
   * You need the key and endpoint from the resource you create to connect your application to the Document Intelligence API. Paste your key and endpoint into the sample code.
   * You can use the free pricing tier (`F0`) to try the service, and upgrade later to a paid tier for production.
-* An Azure Storage blob that contains a set of training data. See [Build a training data set for a custom model](../../build-a-custom-model.md?view=form-recog-2.1.0&preserve-view=true) for tips and options for putting together your training data set. For this project, you can use the files under the **Train** folder of the [sample data set](https://go.microsoft.com/fwlink/?linkid=2090451) (download and extract *sample_data.zip*).
+* An Azure Storage blob that contains a set of training data. See [Build a training data set for a custom model](../../build-a-custom-model.md?view=doc-intel-2.1.0&preserve-view=true) for tips and options for putting together your training data set. For this project, you can use the files under the **Train** folder of the [sample data set](https://go.microsoft.com/fwlink/?linkid=2090451) (download and extract *sample_data.zip*).
 
 
 ## Setting up
@@ -454,7 +454,7 @@ Azure SDKs for Java offer a consistent logging story to help aid in troubleshoot
 For this project, you used the Document Intelligence Java client library to train models and analyze forms in different ways. Next, learn tips to create a better training data set and produce more accurate models.
 
 > [!div class="nextstepaction"]
-> [Build a training data set](../../build-a-custom-model.md?view=form-recog-2.1.0&preserve-view=true)
+> [Build a training data set](../../build-a-custom-model.md?view=doc-intel-2.1.0&preserve-view=true)
 
 * [What is Document Intelligence?](../../../overview.md)
 

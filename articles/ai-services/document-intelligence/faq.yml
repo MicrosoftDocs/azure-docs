@@ -9,11 +9,11 @@ metadata:
   ms.topic: faq
   ms.date: 06/23/2023
   ms.author: lajanuar
-  monikerRange: '>=form-recog-2.1.0'
+  monikerRange: '<=doc-intel-3.1.0'
 
-title: Document Intelligence frequently asked questions
+title: Frequently asked questions (FAQ)
 summary: |
-   [!INCLUDE [applies to v3.0 and v2.1](includes/applies-to-v3-0-and-v2-1.md)]
+   [!INCLUDE [applies to v3.0 and v2.1](includes/applies-to-v3-0-v2-1.md)]
 sections:
   - name: General concepts
     questions:
@@ -304,7 +304,7 @@ sections:
 
             - If your images are low quality, use a larger data set (more than five training documents).
 
-            Learn more about [building a training data set](how-to-guides/build-a-custom-model.md?view=form-recog-2.1.0&preserve-view=true)
+            Learn more about [building a training data set](how-to-guides/build-a-custom-model.md?view=doc-intel-2.1.0&preserve-view=true)
 
       - question: |
           What are best practices for training a highly accurate custom model?
@@ -332,7 +332,7 @@ sections:
       - question: |
           How many custom models can I compose into a single custom model?
         answer: |
-           With the [Model Compose](how-to-guides/compose-custom-models.md?view=form-recog-2.1.0&preserve-view=true#create-a-composed-model) operation, you can assign up to 200 models to a single model ID.
+           With the [Model Compose](how-to-guides/compose-custom-models.md?view=doc-intel-2.1.0&preserve-view=true#create-a-composed-model) operation, you can assign up to 200 models to a single model ID.
 
            - When you make the Analyze request with a composed modelID, Document Intelligence classifies the submitted form, chooses the best model, and returns the results.
 

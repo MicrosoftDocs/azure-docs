@@ -13,7 +13,7 @@ ms.custom: devx-track-js
 
 # Use the Azure Maps services module
 
-The Azure Maps Web SDK provides a *services module*. This module is a helper library that makes it easy to use the Azure Maps REST services in web or Node.js applications by using JavaScript or TypeScript.
+The Azure Maps Web SDK provides a [services module]. This module is a helper library that makes it easy to use the Azure Maps REST services in web or Node.js applications by using JavaScript or TypeScript.
 
 ## Use the services module in a webpage
 
@@ -256,29 +256,39 @@ If directly accessing the Azure Maps REST services, change the URL domain to `at
 Learn more about the classes and methods used in this article:
 
 > [!div class="nextstepaction"]
-> [MapsURL](/javascript/api/azure-maps-rest/atlas.service.mapsurl)
+> [MapsURL]
 
 > [!div class="nextstepaction"]
-> [SearchURL](/javascript/api/azure-maps-rest/atlas.service.searchurl)
+> [SearchURL]
 
 > [!div class="nextstepaction"]
-> [RouteURL](/javascript/api/azure-maps-rest/atlas.service.routeurl)
+> [RouteURL]
 
 > [!div class="nextstepaction"]
-> [SubscriptionKeyCredential](/javascript/api/azure-maps-rest/atlas.service.subscriptionkeycredential)
+> [SubscriptionKeyCredential]
 
 > [!div class="nextstepaction"]
-> [TokenCredential](/javascript/api/azure-maps-rest/atlas.service.tokencredential)
+> [TokenCredential]
 
 For more code samples that use the services module, see these articles:
 
 > [!div class="nextstepaction"]
-> [Show search results on the map](./map-search-location.md)
+> [Show search results on the map]
 
 > [!div class="nextstepaction"]
-> [Get information from a coordinate](./map-get-information-from-coordinate.md)
+> [Get information from a coordinate]
 
 > [!div class="nextstepaction"]
-> [Show directions from A to B](./map-route.md)
+> [Show directions from A to B]
+
+[MapsURL]: /javascript/api/azure-maps-rest/atlas.service.mapsurl
+[SearchURL]: /javascript/api/azure-maps-rest/atlas.service.searchurl
+[RouteURL]: /javascript/api/azure-maps-rest/atlas.service.routeurl
+[SubscriptionKeyCredential]: /javascript/api/azure-maps-rest/atlas.service.subscriptionkeycredential
+[TokenCredential]: /javascript/api/azure-maps-rest/atlas.service.tokencredential
+[Show search results on the map]: map-search-location.md
+[Get information from a coordinate]: map-get-information-from-coordinate.md
+[Show directions from A to B]: map-route.md
 
 [Authentication with Azure Maps]: azure-maps-authentication.md
+[services module]: https://www.npmjs.com/package/azure-maps-rest

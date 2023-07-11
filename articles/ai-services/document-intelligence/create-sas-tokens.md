@@ -8,13 +8,13 @@ ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.date: 07/18/2023
 ms.author: lajanuar
-monikerRange: '>=form-recog-2.1.0'
+monikerRange: '<=doc-intel-3.1.0'
 ---
 
 
 # Create SAS tokens for storage containers
 
-[!INCLUDE [applies to v3.0 and v2.1](includes/applies-to-v3-0-and-v2-1.md)]
+[!INCLUDE [applies to v3.1, v3.0, v2.1](includes/applies-to-v3-1-v3-0-v2-1.md)]
 
  In this article, learn how to create user delegation, shared access signature (SAS) tokens, using the Azure portal or Azure Storage Explorer. User delegation SAS tokens are secured with Azure AD credentials. SAS tokens provide secure, delegated access to resources in your Azure storage account.
 
@@ -81,7 +81,7 @@ To get started, you need:
     :::image type="content" source="media/sas-tokens/upload-blob-window.png" alt-text="Screenshot that shows the Upload blob window in the Azure portal.":::
 
    > [!NOTE]
-   > By default, the REST API uses form documents located at the root of your container. You can also use data organized in subfolders if specified in the API call. For more information, see [Organize your data in subfolders](how-to-guides/build-a-custom-model.md?view=form-recog-2.1.0&preserve-view=true#organize-your-data-in-subfolders-optional).
+   > By default, the REST API uses form documents located at the root of your container. You can also use data organized in subfolders if specified in the API call. For more information, see [Organize your data in subfolders](how-to-guides/build-a-custom-model.md?view=doc-intel-2.1.0&preserve-view=true#organize-your-data-in-subfolders-optional).
 
 ## Use the Azure portal
 
@@ -179,4 +179,4 @@ That's it! You've learned how to create SAS tokens to authorize how clients acce
 ## Next step
 
 > [!div class="nextstepaction"]
-> [Build a training data set](how-to-guides/build-a-custom-model.md?view=form-recog-2.1.0&preserve-view=true)
+> [Build a training data set](how-to-guides/build-a-custom-model.md?view=doc-intel-2.1.0&preserve-view=true)

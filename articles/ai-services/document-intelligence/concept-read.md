@@ -9,11 +9,11 @@ ms.subservice: forms-recognizer
 ms.topic: conceptual
 ms.date: 07/18/2023
 ms.author: lajanuar
-monikerRange: 'form-recog-3.0.0'
+monikerRange: 'doc-intel-3.0.0'
 ---
 
 
-# Document Intelligence read (OCR) model
+# Document Intelligence read model
 
 **This article applies to:** ![Document Intelligence v3.0 checkmark](media/yes-icon.png) **Document Intelligence v3.0**.
 
@@ -51,7 +51,7 @@ Document Intelligence v3.0 supports the following resources:
 
 | Model | Resources | Model ID |
 |----------|------------|------------|
-|**Read model**| <ul><li>[**Document Intelligence Studio**](https://formrecognizer.appliedai.azure.com)</li><li>[**REST API**](how-to-guides/use-sdk-rest-api.md?view=form-recog-3.0.0&preserve-view=true)</li><li>[**C# SDK**](how-to-guides/use-sdk-rest-api.md?view=form-recog-3.0.0&preserve-view=true?pivots=programming-language-csharp)</li><li>[**Python SDK**](how-to-guides/use-sdk-rest-api.md?view=form-recog-3.0.0&preserve-view=true?pivots=programming-language-python)</li><li>[**Java SDK**](how-to-guides/use-sdk-rest-api.md?view=form-recog-3.0.0&preserve-view=true?pivots=programming-language-java)</li><li>[**JavaScript**](how-to-guides/use-sdk-rest-api.md?view=form-recog-3.0.0&preserve-view=true?pivots=programming-language-javascript)</li></ul>|**prebuilt-read**|
+|**Read model**| <ul><li>[**Document Intelligence Studio**](https://formrecognizer.appliedai.azure.com)</li><li>[**REST API**](how-to-guides/use-sdk-rest-api.md?view=doc-intel-3.0.0&preserve-view=true)</li><li>[**C# SDK**](how-to-guides/use-sdk-rest-api.md?view=doc-intel-3.0.0&preserve-view=true?pivots=programming-language-csharp)</li><li>[**Python SDK**](how-to-guides/use-sdk-rest-api.md?view=doc-intel-3.0.0&preserve-view=true?pivots=programming-language-python)</li><li>[**Java SDK**](how-to-guides/use-sdk-rest-api.md?view=doc-intel-3.0.0&preserve-view=true?pivots=programming-language-java)</li><li>[**JavaScript**](how-to-guides/use-sdk-rest-api.md?view=doc-intel-3.0.0&preserve-view=true?pivots=programming-language-javascript)</li></ul>|**prebuilt-read**|
 
 ## Try OCR in Document Intelligence
 
@@ -254,11 +254,11 @@ Complete a Document Intelligence quickstart:
 
 > [!div class="checklist"]
 >
-> * [**REST API**](how-to-guides/use-sdk-rest-api.md?view=form-recog-3.0.0&preserve-view=true)
-> * [**C# SDK**](how-to-guides/use-sdk-rest-api.md?view=form-recog-3.0.0&preserve-view=true?pivots=programming-language-csharp)
-> * [**Python SDK**](how-to-guides/use-sdk-rest-api.md?view=form-recog-3.0.0&preserve-view=true?pivots=programming-language-python)
-> * [**Java SDK**](how-to-guides/use-sdk-rest-api.md?view=form-recog-3.0.0&preserve-view=true?pivots=programming-language-java)
-> * [**JavaScript**](how-to-guides/use-sdk-rest-api.md?view=form-recog-3.0.0&preserve-view=true?pivots=programming-language-javascript)</li></ul>
+> * [**REST API**](how-to-guides/use-sdk-rest-api.md?view=doc-intel-3.0.0&preserve-view=true)
+> * [**C# SDK**](how-to-guides/use-sdk-rest-api.md?view=doc-intel-3.0.0&preserve-view=true?pivots=programming-language-csharp)
+> * [**Python SDK**](how-to-guides/use-sdk-rest-api.md?view=doc-intel-3.0.0&preserve-view=true?pivots=programming-language-python)
+> * [**Java SDK**](how-to-guides/use-sdk-rest-api.md?view=doc-intel-3.0.0&preserve-view=true?pivots=programming-language-java)
+> * [**JavaScript**](how-to-guides/use-sdk-rest-api.md?view=doc-intel-3.0.0&preserve-view=true?pivots=programming-language-javascript)</li></ul>
 
 Explore our REST API:
 

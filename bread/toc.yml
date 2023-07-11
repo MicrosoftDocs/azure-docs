@@ -80,9 +80,6 @@
     tocHref: /azure/api-management/
     topicHref: /azure/api-management/
     items:
-    - name: Policies
-      tocHref: /azure/api-management/policies/
-      topicHref: /azure/api-management/policy-samples/
     - name: Azure PowerShell
       tocHref: /azure/api-management/scripts/
       topicHref: /azure/api-management/powershell-samples/
@@ -596,6 +593,9 @@
   - name: Genomics
     tocHref: /azure/genomics/
     topicHref: /azure/genomics/
+  - name: Global Secure Access
+    tocHref: /azure/global-secure-access
+    topicHref: /azure/global-secure-access
   - name: Governance
     tocHref: /azure/governance/
     topicHref: /azure/governance/

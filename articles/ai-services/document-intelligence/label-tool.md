@@ -9,7 +9,7 @@ ms.subservice: forms-recognizer
 ms.topic: how-to
 ms.date: 07/18/2023
 ms.author: lajanuar
-monikerRange: 'form-recog-2.1.0'
+monikerRange: 'doc-intel-2.1.0'
 ---
 
 <!-- markdownlint-disable MD001 -->
@@ -25,7 +25,7 @@ monikerRange: 'form-recog-2.1.0'
 > * For an enhanced experience and advanced model quality, try the [Document Intelligence v3.0 Studio](https://formrecognizer.appliedai.azure.com/studio).
 > * The v3.0 Studio supports any model trained with v2.1 labeled data.
 > * You can refer to the [API migration guide](v3-migration-guide.md) for detailed information about migrating from v2.1 to v3.0.
-> * *See* our [**REST API**](quickstarts/get-started-sdks-rest-api.md?view=form-recog-3.0.0&preserve-view=true) or [**C#**](quickstarts/get-started-sdks-rest-api.md?view=form-recog-3.0.0&preserve-view=true), [**Java**](quickstarts/get-started-sdks-rest-api.md?view=form-recog-3.0.0&preserve-view=true), [**JavaScript**](quickstarts/get-started-sdks-rest-api.md?view=form-recog-3.0.0&preserve-view=true), or [Python](quickstarts/get-started-sdks-rest-api.md?view=form-recog-3.0.0&preserve-view=true) SDK quickstarts to get started with the V3.0.
+> * *See* our [**REST API**](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-3.0.0&preserve-view=true) or [**C#**](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-3.0.0&preserve-view=true), [**Java**](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-3.0.0&preserve-view=true), [**JavaScript**](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-3.0.0&preserve-view=true), or [Python](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-3.0.0&preserve-view=true) SDK quickstarts to get started with the V3.0.
 
 In this article, you use the Document Intelligence REST API with the Sample Labeling tool to train a custom model with manually labeled data.
 
@@ -256,7 +256,7 @@ Once you've defined your table tag, tag the cell values.
 
 Choose the Train icon on the left pane to open the Training page. Then select the **Train** button to begin training the model. Once the training process completes, you see the following information:
 
-* **Model ID** - The ID of the model that was created and trained. Each training call creates a new model with its own ID. Copy this string to a secure location; you need it if you want to do prediction calls through the [REST API](~/articles/ai-services/document-intelligence/how-to-guides/use-sdk-rest-api.md?view=form-recog-2.1.0&preserve-view=true?pivots=programming-language-rest-api&tabs=preview%2cv2-1) or [client library guide](~/articles/ai-services/document-intelligence/how-to-guides/use-sdk-rest-api.md?view=form-recog-2.1.0&preserve-view=true).
+* **Model ID** - The ID of the model that was created and trained. Each training call creates a new model with its own ID. Copy this string to a secure location; you need it if you want to do prediction calls through the [REST API](~/articles/ai-services/document-intelligence/how-to-guides/use-sdk-rest-api.md?view=doc-intel-2.1.0&preserve-view=true?pivots=programming-language-rest-api&tabs=preview%2cv2-1) or [client library guide](~/articles/ai-services/document-intelligence/how-to-guides/use-sdk-rest-api.md?view=doc-intel-2.1.0&preserve-view=true).
 * **Average Accuracy** - The model's average accuracy. You can improve model accuracy by adding and labeling more forms, then retraining to create a new model. We recommend starting by labeling five forms and adding more forms as needed.
 * The list of tags, and the estimated accuracy per tag.
 
@@ -318,4 +318,4 @@ In this quickstart, you've learned how to use the Document Intelligence Sample L
 > [Train with labels using Python](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/python/FormRecognizer/rest/python-labeled-data.md)
 
 * [What is Document Intelligence?](overview.md)
-* [Document Intelligence quickstart](~/articles/ai-services/document-intelligence/how-to-guides/use-sdk-rest-api.md?view=form-recog-2.1.0&preserve-view=true)
+* [Document Intelligence quickstart](~/articles/ai-services/document-intelligence/how-to-guides/use-sdk-rest-api.md?view=doc-intel-2.1.0&preserve-view=true)

@@ -9,7 +9,7 @@ ms.subservice: forms-recognizer
 ms.topic: conceptual
 ms.date: 07/18/2023
 ms.author: lajanuar
-monikerRange: 'form-recog-3.0.0'
+monikerRange: 'doc-intel-3.0.0'
 ---
 
 <!-- markdownlint-disable MD033 -->
@@ -55,7 +55,7 @@ Document Intelligence v3.0 supports the following tools:
 
 | Feature | Resources | Model ID
 |----------|----------|---------------|
-| **General document model**|<ul ><li>[**Document Intelligence Studio**](https://formrecognizer.appliedai.azure.com)</li><li>[**REST API**](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2022-08-31/operations/AnalyzeDocument)</li><li>[**C# SDK**](quickstarts/get-started-sdks-rest-api.md?view=form-recog-3.0.0&preserve-view=true)</li><li>[**Python SDK**](quickstarts/get-started-sdks-rest-api.md?view=form-recog-3.0.0&preserve-view=true)</li><li>[**Java SDK**](quickstarts/get-started-sdks-rest-api.md?view=form-recog-3.0.0&preserve-view=true)</li><li>[**JavaScript SDK**](quickstarts/get-started-sdks-rest-api.md?view=form-recog-3.0.0&preserve-view=true)</li></ul>|**prebuilt-document**|
+| **General document model**|<ul ><li>[**Document Intelligence Studio**](https://formrecognizer.appliedai.azure.com)</li><li>[**REST API**](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2022-08-31/operations/AnalyzeDocument)</li><li>[**C# SDK**](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-3.0.0&preserve-view=true)</li><li>[**Python SDK**](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-3.0.0&preserve-view=true)</li><li>[**Java SDK**](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-3.0.0&preserve-view=true)</li><li>[**JavaScript SDK**](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-3.0.0&preserve-view=true)</li></ul>|**prebuilt-document**|
 
 ### Try Document Intelligence
 
@@ -106,7 +106,7 @@ Keys can also exist in isolation when the model detects that a key exists, with 
 ## Supported languages and locales
 
 >[!NOTE]
- > It's not necessary to specify a locale. This is an optional parameter. The Document Intelligence deep-learning technology will auto-detect the language of the text in your image.
+> It's not necessary to specify a locale. This is an optional parameter. The Document Intelligence deep-learning technology will auto-detect the language of the text in your image.
 
 | Model | Language—Locale code | Default |
 |--------|:----------------------|:---------|

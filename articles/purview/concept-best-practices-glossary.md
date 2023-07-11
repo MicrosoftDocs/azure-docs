@@ -31,7 +31,7 @@ The adoption by your organization of the business glossary will depend on you pr
 ## Why is a common business glossary needed?
 
 Without a common business glossary an organization's performance, culture, operations, and strategy often will adversely hinder the business. You'll observe, in this hindrance, a condition in which cultural differences arise grounded in an inconsistent business language. These inconsistencies about the business language are communicated between team members and prevents them from using their relevant data assets as a competitive advantage.
-You'll also observe when there are language barriers, in which, most organizations will spend more time pursuing non-productive and non-collaborative activities as they need to rely on more detailed interactions to reach the same meaning and understanding for their data assets. 
+You'll also observe when there are language barriers, in which, most organizations will spend more time pursuing nonproductive and noncollaborative activities as they need to rely on more detailed interactions to reach the same meaning and understanding for their data assets. 
 
 ## Recommendations for implementing new glossary terms
 
@@ -75,7 +75,7 @@ When building new term templates in Microsoft Purview, review the following cons
 - Glossary terms provide fours status: Draft, Approved, Expired, Alert. Draft isn't officially implemented, Approved is official/stand/approved for production, Expired means should no longer be used, Alert need to pay more attention.
 For more information, see [the import and export glossary terms article.](./how-to-import-export-glossary.md)
 
-## Recommendations for exporting glossary terms 
+## Recommendations for exporting glossary terms
 
 Exporting terms may be useful in Microsoft Purview account to account, backup, or disaster recovery scenarios.
 
@@ -87,7 +87,9 @@ Microsoft Purview supports having multiple business glossaries managed within Mi
 - You want to give management of the glossary to experts in their separate regions/departments/organizations/teams/etc.
 - Glossary terms and needs are different and have no overlap between regions/departments/organizations/teams/etc.
 
-## Glossary Management 
+## Glossary Management
+
+- Related terms are bi-directional. For example: If I have term A and term B. I add B as a related term to term A. Now term B appears under term A's related terms, and term A appears under term B's related terms.
 
 ### Recommendations for assigning terms to assets
 

@@ -10,6 +10,7 @@ ms.topic: conceptual
 ms.date: 07/18/2023
 ms.author: lajanuar
 ms.custom: applied-ai-non-critical-form
+monikerRange: 'doc-intel-2.1.0'
 ---
 
 

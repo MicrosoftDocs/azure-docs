@@ -9,16 +9,17 @@ ms.subservice: forms-recognizer
 ms.topic: conceptual
 ms.date: 07/18/2023
 ms.author: lajanuar
+monikerRange: '<=doc-intel-3.0.0'
 ---
 
 
-# Azure AI Document Intelligence layout model
+# Document Intelligence layout model
 
-::: moniker range="form-recog-3.0.0"
+::: moniker range="doc-intel-3.0.0"
 [!INCLUDE [applies to v3.0](includes/applies-to-v3-0.md)]
 ::: moniker-end
 
-::: moniker range="form-recog-2.1.0"
+::: moniker range="doc-intel-2.1.0"
 [!INCLUDE [applies to v2.1](includes/applies-to-v2-1.md)]
 ::: moniker-end
 
@@ -35,7 +36,7 @@ The following illustration shows the typical components in an image of a sample 
 
 :::image type="content" source="media/document-layout-example.png" alt-text="Illustration of document layout example.":::
 
-::: moniker range="form-recog-3.0.0"
+::: moniker range="doc-intel-3.0.0"
 
 ***Sample form processed with [Document Intelligence Studio](https://formrecognizer.appliedai.azure.com/studio/layout)***
 
@@ -47,11 +48,11 @@ Document Intelligence v3.0 supports the following tools:
 
 | Feature | Resources | Model ID |
 |----------|------------|------------|
-|**Layout model**| <ul><li>[**Document Intelligence Studio**](https://formrecognizer.appliedai.azure.com)</li><li>[**REST API**](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2022-08-31/operations/AnalyzeDocument)</li><li>[**C# SDK**](quickstarts/get-started-sdks-rest-api.md?view=form-recog-3.0.0&preserve-view=true)</li><li>[**Python SDK**](quickstarts/get-started-sdks-rest-api.md?view=form-recog-3.0.0&preserve-view=true)</li><li>[**Java SDK**](quickstarts/get-started-sdks-rest-api.md?view=form-recog-3.0.0&preserve-view=true)</li><li>[**JavaScript SDK**](quickstarts/get-started-sdks-rest-api.md?view=form-recog-3.0.0&preserve-view=true)</li></ul>|**prebuilt-layout**|
+|**Layout model**| <ul><li>[**Document Intelligence Studio**](https://formrecognizer.appliedai.azure.com)</li><li>[**REST API**](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2022-08-31/operations/AnalyzeDocument)</li><li>[**C# SDK**](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-3.0.0&preserve-view=true)</li><li>[**Python SDK**](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-3.0.0&preserve-view=true)</li><li>[**Java SDK**](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-3.0.0&preserve-view=true)</li><li>[**JavaScript SDK**](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-3.0.0&preserve-view=true)</li></ul>|**prebuilt-layout**|
 
 ::: moniker-end
 
-::: moniker range="form-recog-2.1.0"
+::: moniker range="doc-intel-2.1.0"
 
 **Sample document processed with [Document Intelligence Sample Labeling tool layout model](https://fott-2-1.azurewebsites.net/layout-analyze)**:
 
@@ -61,13 +62,13 @@ Document Intelligence v3.0 supports the following tools:
 
 ## Input requirements
 
-::: moniker range="form-recog-3.0.0"
+::: moniker range="doc-intel-3.0.0"
 
 [!INCLUDE [input requirements](./includes/input-requirements.md)]
 
 ::: moniker-end
 
-::: moniker range="form-recog-2.1.0"
+::: moniker range="doc-intel-2.1.0"
 
 * Supported file formats: JPEG, PNG, PDF, and TIFF
 * For PDF and TIFF, up to 2000 pages are processed. For free tier subscribers, only the first two pages are processed.
@@ -85,7 +86,7 @@ See how data, including text, tables, table headers, selection marks, and struct
 
  :::image type="content" source="media/containers/keys-and-endpoint.png" alt-text="Screenshot: keys and endpoint location in the Azure portal.":::
 
-::: moniker range="form-recog-3.0.0"
+::: moniker range="doc-intel-3.0.0"
 
 ## Document Intelligence Studio
 
@@ -109,7 +110,7 @@ See how data, including text, tables, table headers, selection marks, and struct
 
 ::: moniker-end
 
-::: moniker range="form-recog-2.1.0"
+::: moniker range="doc-intel-2.1.0"
 
 ## Document Intelligence Sample Labeling tool
 
@@ -149,7 +150,7 @@ See how data, including text, tables, table headers, selection marks, and struct
 
 *See* [Language Support](language-support.md) for a complete list of supported handwritten and printed languages.
 
-::: moniker range="form-recog-3.0.0"
+::: moniker range="doc-intel-3.0.0"
 
 ### Data extraction
 
@@ -171,7 +172,7 @@ The paragraph roles are best used with unstructured documents.  Paragraph roles 
 
 ::: moniker-end
 
-::: moniker range="form-recog-2.1.0"
+::: moniker range="doc-intel-2.1.0"
 
 ### Data extraction support
 
@@ -183,11 +184,11 @@ Document Intelligence v2.1 supports the following tools:
 
 | Feature | Resources |
 |----------|-------------------------|
-|**Layout API**| <ul><li>[**Document Intelligence labeling tool**](https://fott-2-1.azurewebsites.net/layout-analyze)</li><li>[**REST API**](./how-to-guides/use-sdk-rest-api.md?pivots=programming-language-rest-api&preserve-view=true&tabs=windows&view=form-recog-2.1.0#analyze-layout)</li><li>[**Client-library SDK**](~/articles/ai-services/document-intelligence/how-to-guides/use-sdk-rest-api.md?view=form-recog-2.1.0&preserve-view=true)</li><li>[**Document Intelligence Docker container**](containers/install-run.md?branch=main&tabs=layout#run-the-container-with-the-docker-compose-up-command)</li></ul>|
+|**Layout API**| <ul><li>[**Document Intelligence labeling tool**](https://fott-2-1.azurewebsites.net/layout-analyze)</li><li>[**REST API**](./how-to-guides/use-sdk-rest-api.md?pivots=programming-language-rest-api&preserve-view=true&tabs=windows&view=doc-intel-2.1.0#analyze-layout)</li><li>[**Client-library SDK**](~/articles/ai-services/document-intelligence/how-to-guides/use-sdk-rest-api.md?view=doc-intel-2.1.0&preserve-view=true)</li><li>[**Document Intelligence Docker container**](containers/install-run.md?branch=main&tabs=layout#run-the-container-with-the-docker-compose-up-command)</li></ul>|
 
 ::: moniker-end
 
-::: moniker range="form-recog-3.0.0"
+::: moniker range="doc-intel-3.0.0"
 
 ## Model extraction
 
@@ -408,7 +409,7 @@ For large multi-page documents, use the `pages` query parameter to indicate spec
 
 ::: moniker-end
 
-::: moniker range="form-recog-2.1.0"
+::: moniker range="doc-intel-2.1.0"
 
 ### Natural reading order output (Latin only)
 
@@ -473,18 +474,18 @@ Layout API also extracts selection marks from documents. Extracted selection mar
 
 ## Next steps
 
-::: moniker range="form-recog-3.0.0"
+::: moniker range="doc-intel-3.0.0"
 
 * [Learn how to process your own forms and documents](quickstarts/try-document-intelligence-studio.md) with the [Document Intelligence Studio](https://formrecognizer.appliedai.azure.com/studio)
 
-* Complete a [Document Intelligence quickstart](quickstarts/get-started-sdks-rest-api.md?view=form-recog-3.0.0&preserve-view=true) and get started creating a document processing app in the development language of your choice.
+* Complete a [Document Intelligence quickstart](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-3.0.0&preserve-view=true) and get started creating a document processing app in the development language of your choice.
 
 ::: moniker-end
 
-::: moniker range="form-recog-2.1.0"
+::: moniker range="doc-intel-2.1.0"
 
 * [Learn how to process your own forms and documents](quickstarts/try-sample-label-tool.md) with the [Document Intelligence Sample Labeling tool](https://fott-2-1.azurewebsites.net/)
 
-* Complete a [Document Intelligence quickstart](quickstarts/get-started-sdks-rest-api.md?view=form-recog-2.1.0&preserve-view=true) and get started creating a document processing app in the development language of your choice.
+* Complete a [Document Intelligence quickstart](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-2.1.0&preserve-view=true) and get started creating a document processing app in the development language of your choice.
 
 ::: moniker-end

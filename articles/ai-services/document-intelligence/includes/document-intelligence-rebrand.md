@@ -7,4 +7,5 @@ ms.date: 07/18/2023
 ms.author: lajanuar
 ---
 > [!NOTE]
-> Form Recognizer has been rebranded to Document Intelligence.
+>
+> Azure Form Recognizer is now **Azure AI Document Intelligence**.

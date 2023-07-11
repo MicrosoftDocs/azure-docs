@@ -10,7 +10,7 @@ ms.custom: devx-track-python
 ms.topic: conceptual
 ms.date: 07/18/2023
 ms.author: lajanuar
-monikerRange: 'form-recog-3.0.0'
+monikerRange: 'doc-intel-3.0.0'
 ---
 
 
@@ -322,7 +322,7 @@ For more information, *see* [Authenticate the client](https://github.com/Azure/a
 
 ### 4. Build your application
 
-Create a client object to interact with the Document Intelligence SDK, and then call methods on that client object to interact with the service. The SDKs provide both synchronous and asynchronous methods. For more insight, try a [quickstart](quickstarts/get-started-sdks-rest-api.md?view=form-recog-3.0.0&preserve-view=true) in a language of your choice.
+Create a client object to interact with the Document Intelligence SDK, and then call methods on that client object to interact with the service. The SDKs provide both synchronous and asynchronous methods. For more insight, try a [quickstart](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-3.0.0&preserve-view=true) in a language of your choice.
 
 ## Help options
 

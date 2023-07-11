@@ -10,11 +10,11 @@ ms.topic: conceptual
 ms.date: 07/18/2023
 ms.author: lajanuar
 ms.custom: references_regions
-monikerRange: 'form-recog-3.0.0'
+monikerRange: 'doc-intel-3.0.0'
 ---
 
 
-# Custom neural document model
+# Document Intelligence custom neural model
 
 **This article applies to:** ![Document Intelligence v3.0 checkmark](media/yes-icon.png) **Document Intelligence v3.0**.
 
@@ -94,8 +94,6 @@ As of October 18, 2022, Document Intelligence custom neural model training will 
 * US Gov Arizona
 * US Gov Virginia
 
-
-
 > [!TIP]
 > You can [copy a model](disaster-recovery.md#copy-api-overview) trained in one of the select regions listed to **any other region** and use it accordingly.
 >
@@ -111,7 +109,7 @@ Custom neural models can generalize across different formats of a single documen
 
 ### Field naming
 
-When you label the data, labeling the field relevant to the value improves the accuracy of the key-value pairs extracted. For example, for a field value containing the supplier ID, consider naming the field "supplier_id". Field names should be in the language of the document.
+When you label the data, labeling the field relevant to the value improves the accuracy of the key-value pairs extracted. For example, for a field value containing the supplier ID, consider naming the field *supplier_id*. Field names should be in the language of the document.
 
 ### Labeling contiguous values
 
@@ -122,7 +120,7 @@ Value tokens/words of one field must be either
 
 ### Representative data
 
-Values in training cases should be diverse and representative. For example, if a field is named "date", values for this field should be a date. synthetic value like a random string can affect model performance.
+Values in training cases should be diverse and representative. For example, if a field is named *date*, values for this field should be a date. synthetic value like a random string can affect model performance.
 
 ## Current Limitations
 
@@ -137,7 +135,7 @@ Custom neural models are only available in the [v3 API](v3-migration-guide.md).
 
 | Document Type | REST API | SDK | Label and Test Models|
 |--|--|--|--|
-| Custom document | [Document Intelligence 3.0 ](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2022-08-31/operations/AnalyzeDocument)| [Document Intelligence SDK](quickstarts/get-started-sdks-rest-api.md?view=form-recog-3.0.0&preserve-view=true)| [Document Intelligence Studio](https://formrecognizer.appliedai.azure.com/studio)
+| Custom document | [Document Intelligence 3.0 ](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2022-08-31/operations/AnalyzeDocument)| [Document Intelligence SDK](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-3.0.0&preserve-view=true)| [Document Intelligence Studio](https://formrecognizer.appliedai.azure.com/studio)
 
 The build operation to train model supports a new ```buildMode``` property, to train a custom neural model, set the ```buildMode``` to ```neural```.
 

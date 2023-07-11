@@ -15,7 +15,7 @@ A line layer can be used to render `LineString` and `MultiLineString` features a
 > [!TIP]
 > Line layers by default will render the coordinates of polygons as well as lines in a data source. To limit the layer such that it only renders LineString features set the `filter` property of the layer to `['==', ['geometry-type'], 'LineString']` or `['any', ['==', ['geometry-type'], 'LineString'], ['==', ['geometry-type'], 'MultiLineString']]` if you want to include MultiLineString features as well.
 
-The following code shows how to create a line. Add the line to a data source, then render it with a line layer using the [LineLayer](/javascript/api/azure-maps-control/atlas.layer.linelayer) class.
+The following code shows how to create a line. Add the line to a data source, then render it with a line layer using the [LineLayer] class.
 
 ```javascript
 //Create a data source and add it to the map.
@@ -41,11 +41,11 @@ The following screenshot shows a sample of the above functionality.
 </iframe>
 ----------------------------------------------------------------------->
 
-Line layers can be styled using [LineLayerOptions](/javascript/api/azure-maps-control/atlas.linelayeroptions) and [Use data-driven style expressions](data-driven-style-expressions-web-sdk.md).
+Line layers can be styled using [LineLayerOptions] and [Use data-driven style expressions].
 
 ## Add symbols along a line
 
-The following sample demonstrates how to add arrow icons along a line on the map. When using a symbol layer, set the "placement" option to "line". This option will render the symbols along the line and rotate the icons (0 degrees = right).
+The following sample demonstrates how to add arrow icons along a line on the map. When using a symbol layer, set the `placement` option to `line`. This option renders the symbols along the line and rotates the icons (0 degrees = right).
 
 ```javascript
 function InitMap()
@@ -121,7 +121,7 @@ function InitMap()
 }
 ```
 
-This code will create a map that appears as follows:
+This code creates a map that appears as follows:
 
 :::image type="content" source="./media/map-add-line-layer/add-symbols-along-a-line.png"alt-text="A screenshot showing a line layer on an Azure Maps map with arrow symbols along the line.":::
 
@@ -133,7 +133,7 @@ This code will create a map that appears as follows:
 ----------------------------------------------------------------------->
 
 > [!TIP]
-> The Azure Maps web SDK provides several customizable image templates you can use with the symbol layer. For more information, see the [How to use image templates](how-to-use-image-templates-web-sdk.md) document.
+> The Azure Maps web SDK provides several customizable image templates you can use with the symbol layer. For more information, see the [How to use image templates] document.
 
 <a name="line-stroke-gradient"></a>
 
@@ -168,31 +168,37 @@ The Line layer has several styling options. For a fully functional sample that i
 Learn more about the classes and methods used in this article:
 
 > [!div class="nextstepaction"]
-> [LineLayer](/javascript/api/azure-maps-control/atlas.layer.linelayer) 
+> [LineLayer]
 
 > [!div class="nextstepaction"]
-> [LineLayerOptions](/javascript/api/azure-maps-control/atlas.linelayeroptions)
+> [LineLayerOptions]
 
 See the following articles for more code samples to add to your maps:
 
 > [!div class="nextstepaction"]
-> [Create a data source](create-data-source-web-sdk.md)
+> [Create a data source]
 
 > [!div class="nextstepaction"]
-> [Add a popup](map-add-popup.md)
+> [Add a popup]
 
 > [!div class="nextstepaction"]
-> [Use data-driven style expressions](data-driven-style-expressions-web-sdk.md)
+> [Use data-driven style expressions]
 
 > [!div class="nextstepaction"]
-> [How to use image templates](how-to-use-image-templates-web-sdk.md)
+> [How to use image templates]
 
 > [!div class="nextstepaction"]
-> [Add a polygon layer](map-add-shape.md)
+> [Add a polygon layer]
 
-[Line with Stroke Gradient]: https://samples.azuremaps.com/line-layer/line-with-stroke-gradient
+[Add a polygon layer]: map-add-shape.md
+[Add a popup]: map-add-popup.md
 [Azure Maps Samples]: https://samples.azuremaps.com
-[Line Layer Options]: https://samples.azuremaps.com/line-layer/line-layer-options
-
-[Line with Stroke Gradient source code]: https://github.com/Azure-Samples/AzureMapsCodeSamples/blob/main/Samples/Line%20Layer/Line%20with%20Stroke%20Gradient/Line%20with%20Stroke%20Gradient.html
+[Create a data source]: create-data-source-web-sdk.md
+[How to use image templates]: how-to-use-image-templates-web-sdk.md
 [Line Layer Options source code]: https://github.com/Azure-Samples/AzureMapsCodeSamples/blob/main/Samples/Line%20Layer/Line%20Layer%20Options/Line%20Layer%20Options.html
+[Line Layer Options]: https://samples.azuremaps.com/line-layer/line-layer-options
+[Line with Stroke Gradient source code]: https://github.com/Azure-Samples/AzureMapsCodeSamples/blob/main/Samples/Line%20Layer/Line%20with%20Stroke%20Gradient/Line%20with%20Stroke%20Gradient.html
+[Line with Stroke Gradient]: https://samples.azuremaps.com/line-layer/line-with-stroke-gradient
+[LineLayer]: /javascript/api/azure-maps-control/atlas.layer.linelayer
+[LineLayerOptions]: /javascript/api/azure-maps-control/atlas.linelayeroptions
+[Use data-driven style expressions]: data-driven-style-expressions-web-sdk.md
