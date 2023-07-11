@@ -18,17 +18,17 @@ zone_pivot_groups: acs-plat-web-ios-android-windows
 To help understand media quality in VoIP and Video calls using Azure Communication Services, we have a feature called "Media quality statistics" that you can use to examine the low-level audio, video, and screen-sharing quality metrics for incoming and outgoing call metrics.
 
 ::: zone pivot="platform-web"
-[!INCLUDE [Media Stats for Web](./includes/medias-stats/media-stats-web.md)]
+[!INCLUDE [Media Stats for Web](./includes/media-stats/media-stats-web.md)]
 ::: zone-end
 
 ::: zone pivot="platform-android"
-[!INCLUDE [Media Stats for Android](./includes/medias-stats/media-stats-android.md)]
+[!INCLUDE [Media Stats for Android](./includes/media-stats/media-stats-android.md)]
 ::: zone-end
 
 ::: zone pivot="platform-ios"
-[!INCLUDE [Media Stats for iOS](./includes/medias-stats/media-stats-ios.md)]
+[!INCLUDE [Media Stats for iOS](./includes/media-stats/media-stats-ios.md)]
 ::: zone-end
 
 ::: zone pivot="platform-windows"
-[!INCLUDE [Media Stats for Windows](./includes/medias-stats/media-stats-windows.md)]
+[!INCLUDE [Media Stats for Windows](./includes/media-stats/media-stats-windows.md)]
 ::: zone-end
