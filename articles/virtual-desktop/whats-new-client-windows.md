@@ -32,7 +32,7 @@ In this release, we've made the following changes:
 - Control types for text now correctly reflect that they're "text" and not "custom." 
 - Updated File and URI Launch Dialog Error Handling to be more specific and user-friendly. 
 - Fixed an issue where Narrator didn't read the error message that appears after the user selects **Detect**.
-- The client now displays an error message after unsuccessfully checking for updates instead of displaying a generic "no updates available" message.
+- The client now displays an error message after unsuccessfully checking for updates instead of incorrectly displaying a message that says the client is up to date.
 - Added a new RDP file property called "allowed security protocols." This property restricts the list of security protocols the client can negotiate.
 - Fixed an issue where, in Azure Arc, Connection Information dialog gave inconsistent information about identity verfication. 
 - Added heading-level description to subscribe with URL.
