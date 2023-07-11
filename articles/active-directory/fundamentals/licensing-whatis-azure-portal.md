@@ -10,7 +10,7 @@ ms.service: active-directory
 ms.subservice: fundamentals
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 06/22/2023
+ms.date: 07/11/2023
 ms.author: barclayn
 ms.reviewer: krbain
 ms.custom: "it-pro, seodec18"
