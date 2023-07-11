@@ -8,7 +8,7 @@ ms.author: pauljewell
 
 ms.service: storage
 ms.topic: how-to
-ms.date: 07/06/2023
+ms.date: 07/11/2023
 ms.subservice: blobs
 ms.devlang: java
 ms.custom: devx-track-java, devguide-java
@@ -51,11 +51,13 @@ The following code example shows how to change the access tier to Cool for an ex
 
 :::code language="java" source="~/azure-storage-snippets/blobs/howto/Java/blob-devguide/blob-devguide-blobs/src/main/java/com/blobs/devguide/blobs/BlobAccessTier.java" id="Snippet_ChangeAccessTier":::
 
-If you're rehydrating an archived blob, use the [setAccessTierWithResponse](/java/api/com.azure.storage.blob.specialized.blobclientbase#method-details) method, and optionally set the `priority` parameter to `HIGH` or `STANDARD`. You can also pass in a [BlobSetAccessTierOptions](/java/api/com.azure.storage.blob.options.blobsetaccesstieroptions) instance with the rehydration priority and other configuration options.
+If you're rehydrating an archived blob, use the [setAccessTierWithResponse](/java/api/com.azure.storage.blob.specialized.blobclientbase#method-details) method. Set the `tier` parameter to a valid [AccessTier](/java/api/com.azure.storage.blob.models.accesstier) value of `HOT`, `COOL`, `COLD`, or `ARCHIVE`. You can optionally set the `priority` parameter to a valid [RehydratePriority](/java/api/com.azure.storage.blob.models.rehydratepriority) value `HIGH` or `STANDARD`.
 
 The following code example shows how to rehydrate an archived blob by changing the access tier to Hot:
 
 :::code language="java" source="~/azure-storage-snippets/blobs/howto/Java/blob-devguide/blob-devguide-blobs/src/main/java/com/blobs/devguide/blobs/BlobAccessTier.java" id="Snippet_RehydrateUsingSetAccessTier":::
+
+The [setAccessTierWithResponse](/java/api/com.azure.storage.blob.specialized.blobclientbase#method-details) method can also accept a [BlobSetAccessTierOptions](/java/api/com.azure.storage.blob.options.blobsetaccesstieroptions) parameter to specify configuration options.
 
 ## Copy a blob to a different access tier
 
