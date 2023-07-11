@@ -13,6 +13,8 @@ ms.author: cshoe
 
 Traffic splitting allows you to divert a percentage of traffic to different [branch environments](./branch-environments.md).
 
+Traffic splitting is only available on the [Standard hosting plan](plans.md).
+
 ## Split traffic
 
 Before you can split traffic between branches, you first need to have open pull requests to create separate environments.
