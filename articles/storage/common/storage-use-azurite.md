@@ -3,7 +3,7 @@ title: Use Azurite emulator for local Azure Storage development
 description: The Azurite open-source emulator provides a free local environment for testing your Azure storage applications.
 author: pauljewellmsft
 ms.author: pauljewell
-ms.date: 04/26/2023
+ms.date: 07/11/2023
 ms.service: azure-storage
 ms.subservice: storage-common-concepts
 ms.topic: how-to
@@ -433,7 +433,7 @@ azurite --oauth basic --cert path/server.pem --key path/key.pem
 > [!NOTE]
 > OAuth requires an HTTPS endpoint. Make sure HTTPS is enabled by providing `--cert` switch along with the `--oauth` switch.
 
-Azurite supports basic authentication by specifying the `basic` parameter to the `--oauth` switch. Azurite performs basic authentication, like validating the incoming bearer token, checking the issuer, audience, and expiry. Azurite doesn't check the token signature or permissions.
+Azurite supports basic authentication by specifying the `basic` parameter to the `--oauth` switch. Azurite performs basic authentication, like validating the incoming bearer token, checking the issuer, audience, and expiry. Azurite doesn't check the token signature or permissions. To learn more about authorization, see [Authorization for tools and SDKs](#authorization-for-tools-and-sdks).
 
 ### Skip API Version Check
 
@@ -455,7 +455,7 @@ azurite --disableProductStyleUrl
 
 Connect to Azurite from Azure Storage SDKs or tools, like [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/), by using any authentication strategy. Authentication is required. Azurite supports authorization with OAuth, Shared Key, and shared access signatures (SAS). Azurite also supports anonymous access to public containers.
 
-If you're using the Azure SDKs, start Azurite with the `--oauth basic and --cert --key/--pwd` options.
+If you're using the Azure SDKs, start Azurite with the `--oauth basic and --cert --key/--pwd` options. To learn more about using Azurite with the Azure SDKs, see [Azure SDKs](#azure-sdks).
 
 ### Well-known storage account and key
 
@@ -564,7 +564,9 @@ azurite --oauth basic --cert certname.pem --key certname-key.pem
 
 #### Azure Blob Storage
 
-You can then instantiate a BlobContainerClient, BlobServiceClient, or BlobClient.
+To interact with Blob Storage resources, you can instantiate a `BlobContainerClient`, `BlobServiceClient`, or `BlobClient`. 
+
+The following examples show how to authorize a `BlobContainerClient` object using three different authorization mechanisms: [DefaultAzureCredential](/dotnet/api/azure.identity.defaultazurecredential), connection string, and shared key. `DefaultAzureCredential` provides a Bearer token-based authentication mechanism, and uses a chain of credential types used for authentication. Once authenticated, this credential provides the OAuth token as part of client instantiation. To learn more, see the [DefaultAzureCredential class reference](/dotnet/api/azure.identity.defaultazurecredential).
 
 ```csharp
 // With container URL and DefaultAzureCredential
@@ -586,7 +588,9 @@ var client = new BlobContainerClient(
 
 #### Azure Queue Storage
 
-You can also instantiate a QueueClient or QueueServiceClient.
+To interact with Queue Storage resources, you can instantiate a `QueueClient` or `QueueServiceClient`. 
+
+The following examples show how to create and authorize a `QueueClient` object using three different authorization mechanisms: [DefaultAzureCredential](/dotnet/api/azure.identity.defaultazurecredential), connection string, and shared key. `DefaultAzureCredential` provides a Bearer token-based authentication mechanism, and uses a chain of credential types used for authentication. Once authenticated, this credential provides the OAuth token as part of client instantiation. To learn more, see the [DefaultAzureCredential class reference](/dotnet/api/azure.identity.defaultazurecredential).
 
 ```csharp
 // With queue URL and DefaultAzureCredential
@@ -608,7 +612,9 @@ var client = new QueueClient(
 
 #### Azure Table Storage
 
-You can also instantiate a TableClient or TableServiceClient.
+To interact with Table Storage resources, you can instantiate a `TableClient` or `TableServiceClient`. 
+
+The following examples show how to create and authorize a `TableClient` object using three different authorization mechanisms: [DefaultAzureCredential](/dotnet/api/azure.identity.defaultazurecredential), connection string, and shared key. `DefaultAzureCredential` provides a Bearer token-based authentication mechanism, and uses a chain of credential types used for authentication. Once authenticated, this credential provides the OAuth token as part of client instantiation. To learn more, see the [DefaultAzureCredential class reference](/dotnet/api/azure.identity.defaultazurecredential).
 
 ```csharp
 // With table URL and DefaultAzureCredential

@@ -130,6 +130,8 @@ items:
     items:
     - name: Get a phone number
       href: quickstarts/telephony/get-phone-number.md
+    - name: Get a trial phone number
+      href: quickstarts/telephony/get-trial-phone-number.md
     - name: Make an outbound call
       href: quickstarts/call-automation/quickstart-make-an-outbound-call.md
     - name: Add outbound phone calling to your app
@@ -703,6 +705,8 @@ items:
       items:
       - name: Overview
         href: concepts/telephony/telephony-concept.md
+      - name: Trial phone numbers
+        href: concepts/telephony/trial-phone-numbers-faq.md
       - name: Pricing
         href: concepts/pstn-pricing.md
       - name: Phone number types
