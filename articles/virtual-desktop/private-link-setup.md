@@ -76,6 +76,8 @@ To create a private endpoint for the *connection* sub-resource for connections t
 
 # [Portal](#tab/portal)
 
+Here's how to create a private endpoint for the *connection* sub-resource for connections to a host pool using the Azure portal.
+
 1. Sign in to the [Azure portal](https://portal.azure.com/).
 
 1. In the search bar, type *Azure Virtual Desktop* and select the matching service entry to go to the Azure Virtual Desktop overview.
@@ -122,16 +124,94 @@ To create a private endpoint for the *connection* sub-resource for connections t
 
 # [Azure CLI](#tab/cli)
 
-TODO: ADD
+Here's how to create a private endpoint for the *connection* sub-resource used for connections to a host pool using the [network](/cli/azure/network) and [desktopvirtualization](/cli/azure/desktopvirtualization) extensions for Azure CLI.
+
+> [!IMPORTANT]
+> In the following examples, you'll need to change the `<placeholder>` values for your own.
+
+[!INCLUDE [include-cloud-shell-local-cli](includes/include-cloud-shell-local-cli.md)]
+
+2. Create a Private Link service connection and the private endpoint for a host pool with the connection sub-resource by running the commands in one of the following examples.
+
+   1. To create a private endpoint with a dynamically allocated IP addresses:
+   
+      ```azurecli
+      # Specify the Azure region. This must be the same region as your virtual network and session hosts.
+      location=<Location>
+      
+      # Get the resource ID of the host pool
+      hostPoolId=$(az desktopvirtualization hostpool show --name <HostPoolName> --resource-group <ResourceGroupName> --query [id] --output tsv)
+      
+      # Create a service connection and the private endpoint
+      az network private-endpoint create \
+          --name <PrivateEndpointName> \
+          --resource-group <ResourceGroupName> \
+          --location $location \
+          --vnet-name <VNetName> \
+          --subnet <SubnetName> \
+          --connection-name <ConnectionName> \
+          --private-connection-resource-id $hostPoolId \
+          --group-id connection
+          --output table
+      ```
+
+   1. To create a private endpoint with statically allocated IP addresses:
+   
+      ```azurecli
+      # Specify the Azure region. This must be the same region as your virtual network and session hosts.
+      location=<Location>
+      
+      # Get the resource ID of the host pool
+      hostPoolId=$(az desktopvirtualization hostpool show --name <HostPoolName> --resource-group <ResourceGroupName> --query [id] --output tsv)
+      
+      # Store each private endpoint IP configuration in a variable
+      ip1={name:ipconfig1,group-id:connection,member-name:broker,private-ip-address:<IPAddress>}
+      ip2={name:ipconfig2,group-id:connection,member-name:diagnostics,private-ip-address:<IPAddress>}
+      ip3={name:ipconfig3,group-id:connection,member-name:gateway-ring-map,private-ip-address:<IPAddress>}
+      ip4={name:ipconfig4,group-id:connection,member-name:web,private-ip-address:<IPAddress>}
+      
+      # Create a service connection and the private endpoint
+      az network private-endpoint create \
+          --name <PrivateEndpointName> \
+          --resource-group <ResourceGroupName> \
+          --location $location \
+          --vnet-name <VNetName> \
+          --subnet <SubnetName> \
+          --connection-name <ConnectionName> \
+          --private-connection-resource-id $hostPoolId \
+          --group-id connection \
+          --ip-configs [$ip1,$ip2,$ip3,$ip4] \
+          --output table
+      ```
+
+   Your output should be similar to the following. Check that **ProvisioningState** is **Succeeded**.
+
+   ```output
+   CustomNetworkInterfaceName    Location    Name                  ProvisioningState    ResourceGroup
+   ----------------------------  ----------  --------------------  -------------------  ---------------
+                                 uksouth     endpoint-hp01         Succeeded            privatelink
+   ```
 
 # [Azure PowerShell](#tab/powershell)
 
-Here's how to create a private endpoint for the *connection* sub-resource used for the feed download.
+Here's how to create a private endpoint for the *connection* sub-resource used for connections to a host pool using the [Az.Network](/powershell/module/az.network/) and [Az.DesktopVirtualization](/powershell/module/az.desktopvirtualization/) PowerShell modules.
 
-1. In the same PowerShell session, create a Private Link service connection for a host pool with the connection sub-resource by running the following commands. In these example the same virtual network and subnet are used.
+> [!IMPORTANT]
+> In the following examples, you'll need to change the `<placeholder>` values for your own.
+
+[!INCLUDE [include-cloud-shell-local-powershell](includes/include-cloud-shell-local-powershell.md)]
+
+2. Get the details of the virtual network and subnet you want to use for the private endpoint and store them in a variable by running the following commands:
 
    ```azurepowershell
-   # Get the details of the host pool
+   # Get the subnet details for the virtual network
+   $subnet = (Get-AzVirtualNetwork -Name <VNetName> -ResourceGroupName <ResourceGroupName>).Subnets | ? Name -eq <SubnetName>
+   ```
+
+3. Create a Private Link service connection for a host pool with the connection sub-resource by running the following commands.
+
+   ```azurepowershell
+   # Get the resource ID of the host pool
    $hostPoolId = (Get-AzWvdHostPool -Name <HostPoolName> -ResourceGroupName <ResourceGroupName>).Id
 
    # Create the service connection
@@ -144,7 +224,7 @@ Here's how to create a private endpoint for the *connection* sub-resource used f
    $serviceConnection = New-AzPrivateLinkServiceConnection @parameters
    ```
 
-1. Finally, create the private endpoint by running the following commands in one of the following examples.
+4. Finally, create the private endpoint by running the commands in one of the following examples.
 
    1. To create a private endpoint with a dynamically allocated IP addresses:
    
@@ -285,12 +365,10 @@ TODO: ADD
 
 # [Azure PowerShell](#tab/powershell)
 
-Here's how to create a private endpoint for the *feed* sub-resource used for the feed download.
-
-1. In the same PowerShell session, create a Private Link service connection for a workspace with the feed sub-resource by running the following commands. In these example the same virtual network and subnet are used.
+1. In the same PowerShell session, create a Private Link service connection for a workspace with the feed sub-resource by running the following commands. In these examples the same virtual network and subnet are used.
 
    ```azurepowershell
-   # Get the details of the workspace
+   # Get the resource ID of the workspace
    $workspaceId = (Get-AzWvdWorkspace -Name <WorkspaceName> -ResourceGroupName <ResourceGroupName>).Id
 
    # Create the service connection
@@ -303,7 +381,7 @@ Here's how to create a private endpoint for the *feed* sub-resource used for the
    $serviceConnection = New-AzPrivateLinkServiceConnection @parameters
    ```
 
-1. Finally, create the private endpoint by running the following commands in one of the following examples.
+1. Finally, create the private endpoint by running the commands in one of the following examples.
 
    1. To create a private endpoint with a dynamically allocated IP address:
    
@@ -386,8 +464,6 @@ To create a private endpoint for the *global* sub-resource used for the initial 
 
 # [Portal](#tab/portal)
 
-Here's how to create a private endpoint for the *global* sub-resource used for the initial feed discovery using the Azure portal.
-
 1. From the Azure Virtual Desktop overview, select **Workspaces**, then select the name of a workspace you want to use for the global sub-resource.
 
    1. *Optional*: Instead, create a placeholder workspace to terminate the global endpoint by following the instructions to [Create a workspace](create-application-group-workspace.md?tabs=portal#create-a-workspace).
@@ -432,59 +508,28 @@ Here's how to create a private endpoint for the *global* sub-resource used for t
 
 # [Azure CLI](#tab/cli)
 
-Here's how to create a private endpoint for the *global* sub-resource used for the initial feed discovery using the [network](/cli/azure/network) extension for Azure CLI.
+1. *Optional*: Create a placeholder workspace to terminate the global endpoint by following the instructions to [Create a workspace](create-application-group-workspace.md?tabs=cli#create-a-workspace).
 
-> [!IMPORTANT]
-> In the following examples, you'll need to change the `<placeholder>` values for your own.
-
-[!INCLUDE [include-cloud-shell-local-cli](includes/include-cloud-shell-local-cli.md)]
-
-2. Get the details of the virtual network and subnet you want to use for the private endpoint and store them in a variable by running the following commands:
-
-   ```azurecli
-   # Get the subnet details for the virtual network
-   subnet=$(az network vnet subnet show --vnet-name <VNetName> --name <SubnetName> --resource-group <ResourceGroupName>)
-   ```
-
-3. *Optional*: Create a placeholder workspace to terminate the global endpoint by following the instructions to [Create a workspace](create-application-group-workspace.md?tabs=cli#create-a-workspace).
-
-4. Create a Private Link service connection for the workspace with the global sub-resource by running the following commands:
+1. Create a Private Link service connection for the workspace with the global sub-resource by running the following commands:
 
    ```azurepowershell
-   # Get the details of the workspace
+   # Get the resource ID of the workspace
    workspaceId=$(az desktopvirtualization workspace show --name <WorkspaceName> --resource-group <ResourceGroupName> --query [id] --output tsv)
 
    # Create the service connection
    TODO: 
    ```
 
-5. TODO:
+1. TODO:
 
 # [Azure PowerShell](#tab/powershell)
 
-Here's how to create a private endpoint for the *global* sub-resource used for the initial feed discovery using the [Az.Network](/powershell/module/az.network/) PowerShell module.
+1. *Optional*: Create a placeholder workspace to terminate the global endpoint by following the instructions to [Create a workspace](create-application-group-workspace.md?tabs=powershell#create-a-workspace).
 
-> [!IMPORTANT]
-> In the following examples, you'll need to change the `<placeholder>` values for your own.
-
-[!INCLUDE [include-cloud-shell-local-powershell](includes/include-cloud-shell-local-powershell.md)]
-
-2. Get the details of the virtual network and subnet you want to use for the private endpoint and store them in a variable by running the following commands:
+1. In the same PowerShell session, create a Private Link service connection for the workspace with the global sub-resource by running the following commands. In these examples the same virtual network and subnet are used.
 
    ```azurepowershell
-   # Get the virtual network details
-   $vnet = Get-AzVirtualNetwork -Name <VNetName> -ResourceGroupName <ResourceGroupName>
-
-   # Get the subnet details
-   $subnet = ($vnet).Subnets | ? Name -eq <SubnetName>
-   ```
-
-3. *Optional*: Create a placeholder workspace to terminate the global endpoint by following the instructions to [Create a workspace](create-application-group-workspace.md?tabs=powershell#create-a-workspace).
-
-4. Create a Private Link service connection for the workspace with the global sub-resource by running the following commands:
-
-   ```azurepowershell
-   # Get the details of the workspace
+   # Get the resource ID of the workspace
    $workspaceId = (Get-AzWvdWorkspace -Name <WorkspaceName> -ResourceGroupName <ResourceGroupName>).Id
 
    # Create the service connection
@@ -497,7 +542,7 @@ Here's how to create a private endpoint for the *global* sub-resource used for t
    $serviceConnection = New-AzPrivateLinkServiceConnection @parameters
    ```
 
-5. Finally, create the private endpoint by running the following commands in one of the following examples.
+1. Finally, create the private endpoint by running the commands in one of the following examples.
 
    1. To create a private endpoint with a dynamically allocated IP address:
    
