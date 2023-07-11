@@ -19,10 +19,13 @@ Each action is made up of the following properties:
 - **Name**: A unique identifier within the action group.
 - **Details**: The corresponding details that vary by type.
 
+
+- You can add up to five action groups to an alert rule.
+- Action groups are executed concurrently, in no specific order.
+- Multiple alert rules can use the same action group.
+
 In general, an action group is a global service. Efforts to make them more available regionally are in development. 
 Global requests from clients can be processed by action group services in any region. If one region of the action group service is down, the traffic is automatically routed and processed in other regions. As a global service, an action group helps provide a disaster recovery solution. Regional requests rely on availability zone redundancy to meet privacy requirements and offer a similar disaster recovery solution.
-
- An alert rule can contain up to five action groups. The action groups are implemented concurrently, in no specific order. You can have multiple alerts use the same action group.
 
 ## Create an action group in the Azure portal
 

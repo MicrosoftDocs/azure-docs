@@ -24,21 +24,21 @@ The **Alerts** summary pane summarizes the alerts fired in the last 24 hours. Yo
 
 To see more information about a specific alert instance, select the alert instance to open the **Alert details** page.
 
-    :::image type="content" source="media/alerts-managing-alert-instances/alerts-page.png" alt-text="Screenshot that shows the Alerts summary page in the Azure portal.":::
+  :::image type="content" source="media/alerts-managing-alert-instances/alerts-page.png" alt-text="Screenshot that shows the Alerts summary page in the Azure portal.":::
 
 
 
 ## View alerts as a timeline (preview)
 
-You can see your alerts in a timeline view. In this view, you can see the number of alerts fired in a specific time range and filter the alerts by severity, resource, and more. You can also select a specific time range to see the alerts fired in that time range.
+You can see your alerts in a timeline view. In this view, you can see the number of alerts fired in a specific time range. 
 
 To see the alerts in a timeline view, select **View as timeline** at the top of the Alerts summary page.
 
-    :::image type="content" source="media/alerts-managing-alert-instances/alerts-view-timeline.png" alt-text="Screenshot that shows the view timeline button in the Alerts summary page in the Azure portal.":::
+  :::image type="content" source="media/alerts-managing-alert-instances/alerts-view-timeline.png" alt-text="Screenshot that shows the view timeline button in the Alerts summary page in the Azure portal.":::
 
-The alerts are grouped by the time they were fired. You can see the number of alerts fired in a specific time range and the number of alerts fired in the last 24 hours. You can also see the number of alerts fired in the last 24 hours by severity.
+The timeline shows you which resource the alerts were fired on to give you context of the alert in your Azure hierarchy. The alerts are grouped by the time they were fired. You can filter the alerts by severity, resource, and more. You can also select a specific time range to see the alerts fired in that time range.
 
-    :::image type="content" source="media/alerts-managing-alert-instances/alerts-timeline.png" alt-text="Screenshot that shows the Alerts timeline page in the Azure portal.":::
+  :::image type="content" source="media/alerts-managing-alert-instances/alerts-timeline.png" alt-text="Screenshot that shows the Alerts timeline page in the Azure portal.":::
 ## Alert details page
 
 The **Alert details** page provides more information about the selected alert:
