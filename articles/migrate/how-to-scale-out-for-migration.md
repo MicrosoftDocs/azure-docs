@@ -57,7 +57,7 @@ To add a scale-out appliance, follow the steps mentioned below:
 
 ### 2. Download the installer for the scale-out appliance
 
-In **Download Azure Migrate appliance**, click  **Download**. You need to download the PowerShell installer script to deploy the scale-out appliance on an existing server running Windows Server 2016 and with the required hardware configuration (32-GB RAM, 8 vCPUs, around 80 GB of disk storage and internet access, either directly or through a proxy).
+In **Download Azure Migrate appliance**, click  **Download**. You need to download the PowerShell installer script to deploy the scale-out appliance on an existing server running Windows Server 2022 and with the required hardware configuration (32-GB RAM, 8 vCPUs, around 80 GB of disk storage and internet access, either directly or through a proxy).
 
 :::image type="content" source="./media/how-to-scale-out-for-migration/download-scale-out.png" alt-text="Download script for scale-out appliance":::
 
