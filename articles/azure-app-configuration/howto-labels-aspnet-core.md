@@ -49,7 +49,7 @@ var builder = WebApplication.CreateBuilder(args);
 
 builder.Configuration.AddAzureAppConfiguration(options =>
     {
-            options.Connect(builder.Configuration["AppConfig:Endpoint"])
+            options.Connect(builder.Configuration.GetConnectionString("AppConfig"))
                 // Load configuration values with no label
                 .Select(KeyFilter.Any, LabelFilter.Null)
                 // Override with any configuration values specific to current hosting env
