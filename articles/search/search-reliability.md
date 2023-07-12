@@ -146,9 +146,9 @@ Some points to remember when evaluating the options:
 
 Cognitive Search provides a [multi-region deployment sample](https://github.com/Azure-Samples/azure-search-multiple-regions) that uses Azure Traffic Manager for request redirection. 
 
-Azure Traffic Manager is primarily used for routing network traffic across different endpoints based on specific routing methods (such as priority, performance, or geographic location). It acts at the DNS level to direct incoming requests to the appropriate endpoint. However, it doesn't have inherent knowledge of the health or availability of specific services like Azure Cognitive Search. 
+Azure Traffic Manager is primarily used for routing network traffic across different endpoints based on specific routing methods (such as priority, performance, or geographic location). It acts at the DNS level to direct incoming requests to the appropriate endpoint. However, it doesn't have inherent knowledge of the health or availability of specific services like Azure Cognitive Search. You can't put a search service directly behind Traffic Manager.
 
-If you're using Traffic Manager, the assumption is that requests flow to Traffic Manager, then to a search client, and finally to a search service on the backend. If one search service goes down, the search client starts failing, and Traffic Manager fails over to the remaining client.
+Instead, if you're using Traffic Manager, the assumption is that requests flow to Traffic Manager, then to a search client, and finally to a search service on the backend. If one search service goes down, the search client starts failing, and Traffic Manager fails over to the remaining client.
 
 ![Search apps connecting through Azure Traffic Manager][4]
 
