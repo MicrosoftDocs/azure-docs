@@ -82,7 +82,8 @@ read
 
 ---
 
-[!INCLUDE [Register Azure resource for subscription](./includes/register-resource-subscription.md)]
+> [!Tip]
+> If your subscription doesn't allow you to create an Azure AI services resource, you may need to enable the privilege of that [Azure resource provider](../azure-resource-manager/management/resource-providers-and-types.md#register-resource-provider) using the [Azure portal](../azure-resource-manager/management/resource-providers-and-types.md#azure-portal), [PowerShell command](../azure-resource-manager/management/resource-providers-and-types.md#azure-powershell) or an [Azure CLI command](../azure-resource-manager/management/resource-providers-and-types.md#azure-cli). If you are not the subscription owner, ask the *Subscription Owner* or someone with a role of *admin* to complete the registration for you or ask for the **/register/action** privileges to be granted to your account.
 
 ## Review deployed resources
 
@@ -133,7 +134,7 @@ If you need to recover a deleted resource, see [Recover deleted Azure AI service
 ## See also
 
 * See **[Authenticate requests to Azure AI services](authentication.md)** on how to securely work with Azure AI services.
-* See **[What are Azure AI services?](./what-are-cognitive-services.md)** to get a list of different categories within Azure AI services.
+* See **[What are Azure AI services?](./what-are-ai-services.md)** for a list of Azure AI services.
 * See **[Natural language support](language-support.md)** to see the list of natural languages that Azure AI services supports.
 * See **[Use Azure AI services as containers](cognitive-services-container-support.md)** to understand how to use Azure AI services on-prem.
 * See **[Plan and manage costs for Azure AI services](plan-manage-costs.md)** to estimate cost of using Azure AI services.

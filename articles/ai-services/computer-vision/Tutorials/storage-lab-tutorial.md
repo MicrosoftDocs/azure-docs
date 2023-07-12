@@ -379,9 +379,9 @@ Now you have a way to view the images you uploaded. The next step is to do more 
 
 You'll need to create a Vision resource for your Azure account; this resource manages your access to Azure's Azure AI Vision service. 
 
-1. Follow the instructions in [Create an Azure AI services resource](../../cognitive-services-apis-create-account.md) to create a Vision resource.
+1. Follow the instructions in [Create an Azure AI services resource](../../multi-service-resource.md?pivots=azportal) to create a multi-service resource or a Vision resource.
 
-1. Then go to the menu for your resource group and click the Azure AI Vision API subscription that you created. Copy the URL under **Endpoint** to somewhere you can easily retrieve it in a moment. Then select **Show access keys**.
+1. Then go to the menu for your resource group and select the Vision resource that you created. Copy the URL under **Endpoint** to somewhere you can easily retrieve it in a moment. Then select **Show access keys**.
 
     ![Azure portal page with the endpoint URL and access keys link outlined](Images/copy-vision-endpoint.png)
     

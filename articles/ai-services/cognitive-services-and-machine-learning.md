@@ -14,7 +14,7 @@ ms.date: 10/28/2021
 
 Azure AI services provides machine learning capabilities to solve general problems such as analyzing text for emotional sentiment or analyzing images to recognize objects or faces. You don't need special machine learning or data science knowledge to use these services.
 
-[Azure AI services](./what-are-cognitive-services.md) is a group of services, each supporting different, generalized prediction capabilities. The services are divided into different categories to help you find the right service. 
+[Azure AI services](./what-are-ai-services.md) is a group of services, each supporting different, generalized prediction capabilities. The services are divided into different categories to help you find the right service. 
 
 |Service category|Purpose|
 |--|--|
@@ -128,8 +128,8 @@ Azure AI services that provide exported models for other machine learning tools:
 
 ## Next steps
 
-* Create your Cognitive Service account in the [Azure portal](cognitive-services-apis-create-account.md) or with [Azure CLI](./cognitive-services-apis-create-account-cli.md).
-* Learn how to [authenticate](authentication.md) to a Cognitive Service.
+* Create your Azure AI services resource in the [Azure portal](multi-service-resource.md?pivots=azportal) or with [Azure CLI](./multi-service-resource.md?pivots=azcli).
+* Learn how to [authenticate](authentication.md) with your Azure AI service.
 * Use [diagnostic logging](diagnostic-logging.md) for issue identification and debugging. 
-* Deploy a Cognitive Service in a Docker [container](cognitive-services-container-support.md).
+* Deploy an Azure AI service in a Docker [container](cognitive-services-container-support.md).
 * Keep up to date with [service updates](https://azure.microsoft.com/updates/?product=cognitive-services).

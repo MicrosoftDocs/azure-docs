@@ -83,9 +83,9 @@ By adding up reward scores, your final reward may be outside the expected score 
 
 * **Use a reward score for how good the personalization worked**: Personalizing a movie suggestion would hopefully result in the user watching the movie and giving it a high rating. Since the movie rating probably depends on many things (the quality of the acting, the mood of the user), it is not a good reward signal for how well *the personalization* worked. The user watching the first few minutes of the movie, however, may be a better signal of personalization effectiveness and sending a reward of 1 after 5 minutes will be a better signal.
 
-* **Rewards only apply to RewardActionID**: Personalizer applies the rewards to understand the efficacy of the action specified in RewardActionID. If you choose to display other actions and the user clicks on them, the reward should be zero.
+* **Rewards only apply to RewardActionID**: Personalizer applies the rewards to understand the efficacy of the action specified in RewardActionID. If you choose to display other actions and the user selects them, the reward should be zero.
 
-* **Consider unintended consequences**: Create reward functions that lead to responsible outcomes with [ethics and responsible use](ethics-responsible-use.md).
+* **Consider unintended consequences**: Create reward functions that lead to responsible outcomes with [ethics and responsible use](responsible-use-cases.md).
 
 * **Use Incremental Rewards**: Adding partial rewards for smaller user behaviors helps Personalizer to achieving better rewards. This incremental reward allows the algorithm to know it's getting closer to engaging the user in the final desired behavior.
     * If you are showing a list of movies, if the user hovers over the first one for a while to see more information, you can determine that some user-engagement happened. The behavior can count with a reward score of 0.1.

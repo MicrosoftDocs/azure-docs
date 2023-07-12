@@ -34,7 +34,7 @@ You can apply Personalizer in situations where you meet or can implement the fol
 |Content|You have a place in your application where making a contextual decision of what to show to users will improve that goal.|
 |Content quantity|You have fewer than 50 actions to rank per call.|
 |Aggregate data|The best choice can and should be learned from collective user behavior and total reward score.|
-|Ethical use|The use of machine learning for personalization follows [responsible use guidelines](ethics-responsible-use.md) and choices you chose.
+|Ethical use|The use of machine learning for personalization follows [responsible use guidelines](responsible-use-cases.md) and choices you chose.
 |Best single option|The contextual decision can be expressed as ranking the best option (action) from a limited set of choices.|
 |Scored result|How well the ranked choice worked for your application can be determined by measuring some aspect of user behavior, and expressing it in a _[reward score](concept-rewards.md)_.|
 |Relevant timing|The reward score doesn't bring in too many confounding or external factors. The experiment duration is low enough that the reward score can be computed while it's still relevant.|
@@ -107,4 +107,4 @@ In some architectures, the above sequence may be hard to implement. In that case
 
 ## Next steps
 
-[Ethics & responsible use](ethics-responsible-use.md).
+[Ethics & responsible use](responsible-use-cases.md).

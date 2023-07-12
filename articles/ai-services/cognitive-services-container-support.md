@@ -80,7 +80,7 @@ Azure AI services containers provide the following set of Docker containers, eac
 |[Personalizer](./personalizer/what-is-personalizer.md) |F0, S0|**Personalizer** ([image](https://go.microsoft.com/fwlink/?linkid=2083928&clcid=0x409))|Azure AI Personalizer is a cloud-based API service that allows you to choose the best experience to show to your users, learning from their real-time behavior.|
 -->
 
-Additionally, some containers are supported in the Azure AI services [multi-service resource](cognitive-services-apis-create-account.md) offering. You can create one single Azure AI services All-In-One resource and use the same billing key across supported services for the following services:
+Additionally, some containers are supported in the Azure AI services [multi-service resource](multi-service-resource.md?pivots=azportal) offering. You can create one single Azure AI services All-In-One resource and use the same billing key across supported services for the following services:
 
 * Azure AI Vision
 * LUIS
