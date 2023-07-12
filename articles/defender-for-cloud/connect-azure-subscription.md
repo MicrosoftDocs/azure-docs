@@ -1,12 +1,12 @@
 ---
-title: Enable Microsoft Defender for Cloud on your Azure subscription
-description: Learn how to enable Microsoft Defender for Cloud's enhanced security features.
+title: Connect your Azure subscriptions to Microsoft Defender for Cloud
+description: Learn how to connect your Azure subscriptions to Microsoft Defender for Cloud 
 ms.topic: install-set-up-deploy
 ms.date: 07/10/2023
 ms.custom: mode-other
 ---
 
-# Enable Microsoft Defender for Cloud
+# Connect your Azure subscriptions
 
 In this guide, you'll learn how to enable Microsoft Defender for Cloud on your Azure subscription.
 
