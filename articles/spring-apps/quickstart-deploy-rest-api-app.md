@@ -22,7 +22,7 @@ ms.custom: devx-track-java, devx-track-extended-java, devx-track-azurecli, mode-
 This article explains how to deploy a REST API application protected by [Azure Active Directory (Azure AD)](../active-directory/fundamentals/active-directory-whatis.md) to Azure Spring Apps. 
 The sample project is a simplified version [Simple ToDo API](https://github.com/Azure-Samples/ASA-Samples-Web-API-Application) based on [Simple Todo](https://github.com/Azure-Samples/ASA-Samples-Web-Application), 
 which only retains the backend program and uses Azure AD to protect the REST APIs.
-These REST APIs are protected by applying role-based access control (RBAC), with the following three permissions to control access for different users
+These REST APIs are protected by applying role-based access control (RBAC), with the following three permissions to control access for different users:
 
 - Anonymous user, who can only read the ToDo data.
 - Ordinary user, who can read, create and modify the ToDo data.
@@ -142,7 +142,7 @@ This section provides the steps to access the REST APIs of the app `SimpleToDoAp
    After the addition is successful, the ToDo list information will be returned.
 
    ```json
-   {"id":"1","name":"My List","description":null}
+   {"id":"<ID-of-the-ToDo-list>","name":"My List","description":null}
    ```
    
 1. Ordinary users create a ToDo item within a list:
