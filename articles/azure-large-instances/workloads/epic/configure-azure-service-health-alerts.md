@@ -4,7 +4,7 @@ description: Explains how to configure Azure service health alerts.
 ms.topic: conceptual
 author: jjaygbay1
 ms.author: jacobjaygbay
-ms.service: baremetal-infrastructure
+ms.service: azure-large-instances
 ms.date: 06/01/2023
 ---
 # Configure Azure Service Health alerts

@@ -4,7 +4,7 @@ description: Provides a list of ALI for Epic SKUs.
 ms.topic: conceptual
 author: jjaygbay1
 ms.author: jacobjaygbay
-ms.service: baremetal-infrastructure
+ms.service: azure-large-instances
 ms.date: 06/01/2023
 ---
 

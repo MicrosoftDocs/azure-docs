@@ -1,0 +1,57 @@
+### YamlMime:Landing
+
+title: ALI for Epic documentation
+summary: Learn how to use Azure Large Instances for Epic
+
+metadata:
+  title: Azure Large Instances for Epic documentation
+  description: Learn how to use ALI for Epic.
+  services: baremetal-infrastructure 
+  ms.service: baremetal-infrastructure
+  ms.topic: landing-page
+  author: jjaygbay1
+  ms.author: jacobjaygbay
+  ms.date: 06/01/2023
+
+
+# card 1
+landingContent:
+  - title: Overview
+    linkLists: 
+      - linkListType: overview
+        links:
+ 
+
+# card 2
+  - title: Get started
+    linkLists: 
+      - linkListType: how-to-guide
+        links:
+          - text: Onboarding requirements
+            url: onboarding-requirements.md
+          - text: Quality checks
+            url: quality-checks.md 
+          - text: Find your subscription Id
+            url: find-your-subscription-id.md
+
+ 
+
+# card 3
+  - title: Solution architecture
+    linkLists: 
+      - linkListType: concept
+        links:
+          - text: Architecture
+            url: architecture.md
+
+ 
+
+# card 4
+  - title: Configuration
+    linkLists: 
+      - linkListType: how-to-guide
+        links:
+          - text: Configure Azure Service Health alerts
+            url: configure-azure-service-health-alerts.md
+          - text: Create a volume group
+            url: create-a-volume-group.md

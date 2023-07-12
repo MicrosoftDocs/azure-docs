@@ -3,7 +3,7 @@ title: What is Azure Large Instances?
 description: Provides an overview of Azure Large Instances.
 author: jjaygbay1
 ms.author: jacobjaygbay
-ms.service: baremetal-infrastructure
+ms.service: azure-large-instances
 ms.custom: references_regions
 ms.topic: conceptual
 ms.date: 06/01/2023
@@ -11,33 +11,28 @@ ms.date: 06/01/2023
 
 #  What is Azure Large Instances?
 
-Microsoft Azure offers a cloud infrastructure with a wide range of integrated cloud services to meet your business needs. 
-In some cases, though, you may need to run services on Azure large servers without a virtualization layer.
-You may need root access and control over the operating system (OS).
-To meet this need, Azure offers Azure Large Instances (ALI) for several high-value, mission-critical applications.
+While Microsoft Azure offers a cloud infrastructure with a wide range of integrated cloud services to meet your business needs,   
+in some cases, you may need to run services on Azure large servers without a virtualization layer. You may also require root access and control over the operating system (OS). To meet these needs, Azure offers Azure Large Instances (ALI) for several high-value, mission-critical applications.
 
-Azure Large Instances is comprised of dedicated large instances (compute instances). It features:
+ALI is comprised of dedicated large compute instances with the following key features:
 
-* High-performance storage appropriate to the application (Fiber Channel).
-Storage can also be shared across ALI to enable features like scale-out clusters or high availability pairs with failed-node-fencing capability. 
+- High-performance storage appropriate to the application (Fiber Channel).
+    Storage can also be shared across ALI to enable features like scale-out clusters or high availability pairs with failed-node-fencing capability. 
 
-* A set of function-specific virtual LANs (VLANs) in an isolated environment.
+- A set of function-specific virtual LANs (VLANs) in an isolated environment. 
+    This environment also has special VLANs you can access if you're running virtual machines (VMs) on one or more Azure Virtual Networks (VNets) in your Azure subscription.
+    The entire environment is represented as a resource group in that subscription.
 
-This environment also has special VLANs you can access if you're running virtual machines (VMs) on one or more Azure Virtual Networks (VNets) in your Azure subscription.
-The entire environment is represented as a resource group in that subscription.
-
-A large set of ALI SKUs is available with Optane memory.
-Azure offers the largest range of Azure Large Instances in a hyperscale cloud.
+- A large set of ALI SKUs is available with Optane memory.
+    Azure offers the largest range of Azure Large Instances in a hyperscale cloud.
 
 ## Why ALI?
 
 Some workloads in the enterprise consist of technologies that just aren't designed to run in a typical virtualized cloud setting.
-They require special architecture, certified hardware, or extraordinarily large sizes.
-Although those technologies have the most sophisticated data protection and business continuity features, those features aren't built for the virtualized cloud.
+They require special architecture, certified hardware, or extraordinarily large servers. Although those technologies have the most sophisticated data protection and business continuity features, they aren't built for the virtualized cloud.
 They're more sensitive to latencies and noisy neighbors and require more control over change management and maintenance activity.
 
-ALI is built, certified, and tested for a select set of such applications.
-Azure was the first to offer such solutions and has since led with the largest portfolio and most sophisticated systems.
+ALI is built, certified, and tested for a select set of such applications. Azure was the first to offer such solutions and has since led with the largest portfolio and most sophisticated systems.
 
 ## ALI benefits
 
@@ -47,7 +42,7 @@ You manage OS and application installation according to your needs.
 For security, the instances are provisioned within your Azure Virtual Network (VNet) with no internet connectivity.
 Only services running on your virtual machines (VMs), and other Azure services in same Tier 2 network, can communicate with your implementation of ALI.
 
-ALI offers these benefits:
+ALI offers the following benefits:
 
 * Non-hypervised ALI, single tenant ownership
 * Low latency between Azure hosted application VMs to ALI implementations (0.35 ms)
@@ -86,14 +81,13 @@ ALI for specialized workloads is available in the following Azure regions:
 
 ## Managing ALI in Azure
 
-Depending on your needs, the application topologies of Azure Large Instances can be complex.
-You may deploy multiple instances in one or more locations. The instances can have shared or dedicated storage, and specialized LAN and WAN connections
+Depending on your needs, the application topologies of ALI can be complex. You may deploy multiple instances in one or more locations. The instances can have shared or dedicated storage, and specialized LAN and WAN connections
 Therefore, for ALI, Azure offers a consultation with a CSA/GBB in the field who can work with you.
 
 By the time your ALI implementation has been provisioned, the OS, networks, storage volumes, placements in zones and regions, and WAN connections between locations have already been configured.
 You're set to register your OS licenses (BYOL), configure the OS, and install the application layer.
 
-You'll see all the Azure Large instance resources, and their state and attributes, in the Azure portal.
+You'll see all the ALI resources, and their state and attributes, in the Azure portal.
 You can also operate the instances and open service requests and support tickets from there.
 
 ## ALI stamp
@@ -124,8 +118,6 @@ The Linux OS version for ALI is Red Hat Enterprise Linux (RHEL) 8.4.
 
 >[!Note}
 > Remember, ALI is a BYOL model.
-
-
 
 Microsoft loads base image with RHEL 8.4, but customers can choose to upgrade to newer versions in collaboration with Microsoft team.
 

@@ -4,30 +4,28 @@ description: Shows how to what you can do in the Azure portal with ALI.
 ms.topic: conceptual
 author: jjaygbay1
 ms.author: jacobjaygbay
-ms.service: baremetal-infrastructure
+ms.service: azure-large-instances
 ms.custom: devx-track-azurecli
 ms.date: 06/01/2023
 ---
 
 # Working with  ALI in the Azure portal 
 
-In this article, we'll learn what to do in the Azure portal with your implementation of Azure Large Instances (ALI).
+In this article, you learn what to do in the Azure portal with your implementation of Azure Large Instances (ALI).
 
 > [!Note]
-> For the time being, you will notice the BareMetal Infrastructure naming convention still in use in the Azure portal. This will be replaced with ALI soon. Until then, BareMetal Infrastructre or BareMetal Instances can be considered synonyms for ALI.
+> For the time being, you will notice the BareMetal Infrastructure naming convention is still in use in the Azure portal. This will be replaced with ALI soon. Until then, BareMetal Infrastructre or BareMetal Instances can be considered synonyms with ALI.
 
 ## Register the resource provider
 
-An Azure resource provider for ALI enables you to see the instances in the Azure portal.
-By default, the Azure subscription you use for ALI deployments registers the ALI resource provider.
-If you don't see your deployed ALI, register the resource provider with your subscription.
+An Azure resource provider for ALI enables you to see the instances in the Azure portal. By default, the Azure subscription you use for ALI deployments registers the ALI resource provider. If you don't see your deployed ALI, register the resource provider with your subscription.
 
 You can register the Azure Large Instance resource provider using the Azure portal or the Azure CLI.
 
 ### [Portal](#tab/azure-portal)
 
 
-You'll need to list your subscription in the Azure portal and then double-click the subscription used to deploy your ALI instance.
+You need to list your subscription in the Azure portal and then double-click the subscription used to deploy your ALI instance.
 
 1. Sign in to the Azure portal.
 2. On the Azure portal menu, select **All services**.
@@ -78,8 +76,7 @@ For more information about resource providers, see [Azure resource providers and
 
 ## ALI instances in the Azure portal
 
-When you submit an ALI deployment request, specify the Azure subscription you're connecting to the ALI instance.
-Use the same subscription you use to deploy the application layer that works against the ALI.
+When you submit an ALI deployment request, specify the Azure subscription you're connecting to the ALI instance. Use the same subscription you use to deploy the application layer that works against the ALI.
 
  During the deployment of your ALI, a new [Azure resource group](../azure-resource-manager/management/manage-resources-portal.md) is created in the Azure subscription you used in the deployment request.
 This new resource group lists the ALI you've deployed in that subscription.
