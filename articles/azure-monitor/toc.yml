@@ -1541,13 +1541,13 @@ items:
   - name: Supported metrics
     items:
     - name: Resource metrics
-      href: essentials/metrics-supported.md
+      href: /azure/azure-monitor/reference/supported-metrics/metrics-index?branch=pr-en-us-1115
     - name: Metrics in alerts
       href: alerts/alerts-metric-near-real-time.md
   - name: Log sources
     items:
     - name: Supported resource log categories
-      href: essentials/resource-logs-categories.md
+      href: /azure/azure-monitor/reference/supported-logs/logs-index?branch=pr-en-us-1115
     - name: Resource log schemas
       href: essentials/resource-logs-schema.md
     - name: Activity log schema
