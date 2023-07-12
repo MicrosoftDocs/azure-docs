@@ -15,11 +15,11 @@ ms.date: 06/29/2023
 > [!IMPORTANT]
 > Vector search is in public preview under [supplemental terms of use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). It's available through the Azure portal, preview REST API, and [alpha SDKs](https://github.com/Azure/cognitive-search-vector-pr#readme).
 
-This article describes several approaches for chunking large documents so that you can generate embeddings for vector search.
+This article describes several approaches for chunking large documents so that you can generate embeddings for vector search. Chunking is only required if source documents are too large for the maximum input size imposed by models. 
 
 ## Why is chunking important?
 
-The models used to generate embedding vectors have maximum limits on the text fragments provided as input. For example, the maximum length of input text for the [Azure OpenAI](/azure/cognitive-services/openai/how-to/embeddings) embedding models is 8,191 tokens. Given that each token is around 4 tokens for common OpenAI models, this maximum limit is equivalent to around 6000 words of text. If you're using these models to generate embeddings, it's critical that the input text stays under the limit. Partitioning your content into chunks ensures that your data can be processed by the Large Language Models (LLM) used for indexing and queries. 
+The models used to generate embedding vectors have maximum limits on the text fragments provided as input. For example, the maximum length of input text for the [Azure OpenAI](/azure/cognitive-services/openai/how-to/embeddings) embedding models is 8,191 tokens. Given that each token is around 4 characters of text for common OpenAI models, this maximum limit is equivalent to around 6000 words of text. If you're using these models to generate embeddings, it's critical that the input text stays under the limit. Partitioning your content into chunks ensures that your data can be processed by the Large Language Models (LLM) used for indexing and queries. 
 
 ## How chunking fits into the workflow
 
@@ -42,7 +42,7 @@ Here are some common chunking techniques, starting with the most widely used met
 
 ### Content overlap considerations
 
-When chunking data, overlapping a small amount of text between chunks can help preserve context. We recommend starting with an overlap of approximately 10%. For example, given a fixed chunk size of 256 tokens, you would begin testing with an overlap of 25 tokens. The actual amount of overlap varies depending on the type of data and the specific use case, but we have found that 10-15% works for many scenarios.
+When you chunk data, overlapping a small amount of text between chunks can help preserve context. We recommend starting with an overlap of approximately 10%. For example, given a fixed chunk size of 256 tokens, you would begin testing with an overlap of 25 tokens. The actual amount of overlap varies depending on the type of data and the specific use case, but we have found that 10-15% works for many scenarios.
 
 ### Factors for chunking data
 
@@ -126,4 +126,5 @@ This sample is built on LangChain, Azure OpenAI, and Azure Cognitive Search.
 + [Understanding embeddings in Azure OpenAI Service](/azure/cognitive-services/openai/concepts/understand-embeddings)
 + [Learn how to generate embeddings](/azure/cognitive-services/openai/how-to/embeddings?tabs=console)
 + [Tutorial: Explore Azure OpenAI Service embeddings and document search](/azure/cognitive-services/openai/tutorials/embeddings?tabs=command-line)
+
 

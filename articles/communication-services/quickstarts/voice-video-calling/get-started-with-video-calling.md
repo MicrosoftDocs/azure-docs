@@ -8,7 +8,7 @@ ms.date: 06/30/2021
 ms.topic: quickstart
 ms.service: azure-communication-services
 ms.subservice: calling
-zone_pivot_groups: acs-plat-web-ios-android-windows
+zone_pivot_groups: acs-plat-web-ios-android-windows-unity
 ms.custom: mode-api, devx-track-js
 ---
 
@@ -28,6 +28,10 @@ ms.custom: mode-api, devx-track-js
 
 ::: zone pivot="platform-windows"
 [!INCLUDE [Video calling with Windows](./includes/video-calling/video-calling-windows.md)]
+::: zone-end
+
+::: zone pivot="platform-unity"
+[!INCLUDE [Video calling with Unity](./includes/video-calling/video-calling-unity.md)]
 ::: zone-end
 
 ## Clean up resources
