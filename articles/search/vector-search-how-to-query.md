@@ -143,7 +143,7 @@ api-key: {{admin-api-key}}
 
 ## Query syntax for vector query over multiple fields
 
-You can set "vector.fields" property to multiple vector fields. For example, the Postman collection has vector fields named titleVector and contentVector. Your vector query executes over both the titleVector and contentVector fields, which must have the same embedding space.
+You can set "vector.fields" property to multiple vector fields. For example, the Postman collection has vector fields named titleVector and contentVector. Your vector query executes over both the titleVector and contentVector fields, which must have the same embedding space since they share the same query vector.
 
 ```http
 POST https://{{search-service-name}}.search.windows.net/indexes/{{index-name}}/docs/search?api-version={{api-version}}
