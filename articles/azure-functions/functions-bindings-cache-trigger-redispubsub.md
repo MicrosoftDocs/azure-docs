@@ -363,7 +363,6 @@ Work in progress
 
 ::: zone pivot="programming-language-csharp"
 
-```csharp
 ## Output Types
 
 | Output Type | Description|
