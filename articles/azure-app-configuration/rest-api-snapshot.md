@@ -542,7 +542,8 @@ Required: ``{name}``, ``{api-version}``
 GET /kv?snapshot={name}&api-version={api-version}
 ```
 
-**Note:** Attempting to list the items of a snapshot that is not in the `ready` or `archived` state will result in an empty list response.
+>[!Note]
+>Attempting to list the items of a snapshot that isn't in the `ready` or `archived` state will result in an empty list response.
 
 ### Request specific fields
 
