@@ -177,7 +177,7 @@ This value may be useful if you want to redirect logs to a location other than c
 ```javascript
 // redirect log output
 AzureLogger.log = (...args) => {
-  console.log(...args); // to console, file, buffer, REST API..
+  console.log(...args); // to console, file, buffer, REST API, etc...
 };
 ```
 
