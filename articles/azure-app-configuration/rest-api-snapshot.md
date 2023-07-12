@@ -464,7 +464,7 @@ Content-Type: application/vnd.microsoft.appconfig.snapshot+json
 ```
 
 **Response:**
-Return the recovered snapshot snapshot
+Return the recovered snapshot
 
 ```http
 HTTP/1.1 200 OK
