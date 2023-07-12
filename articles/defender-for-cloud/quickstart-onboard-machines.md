@@ -6,7 +6,7 @@ ms.date: 06/29/2023
 ms.custom: mode-other
 ---
 
-# Connect on-premises machines to Microsoft Defender for Cloud
+# Connect your non-Azure machines to Microsoft Defender for Cloud
 
 Microsoft Defender for Cloud can monitor the security posture of your on-premises computers, but first you need to connect them to Azure.
 
