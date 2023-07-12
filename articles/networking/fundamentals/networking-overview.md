@@ -33,7 +33,7 @@ This section describes services that provide connectivity between Azure resource
 
 ### <a name="avnm"></a>Azure Virtual Network Manager
 
-[Azure Virtual Network Manager](../../virtual-network-manager/overview.md). is a management service that enables you to group, configure, deploy, and manage virtual networks globally across subscriptions. With Virtual Network Manager, you can define [network groups](../../virtual-network-manager/concept-network-groups.md) to identify and logically segment your virtual networks. Then you can determine the [connectivity](../../virtual-network-manager/concept-connectivity-configuration.md) and [security configurations](../../virtual-network-manager/concept-security-admins.md) you want and apply them across all the selected virtual networks in network groups at once.
+[Azure Virtual Network Manager](../../virtual-network-manager/overview.md) is a management service that enables you to group, configure, deploy, and manage virtual networks globally across subscriptions. With Virtual Network Manager, you can define [network groups](../../virtual-network-manager/concept-network-groups.md) to identify and logically segment your virtual networks. Then you can determine the [connectivity](../../virtual-network-manager/concept-connectivity-configuration.md) and [security configurations](../../virtual-network-manager/concept-security-admins.md) you want and apply them across all the selected virtual networks in network groups at once.
 
 :::image type="content" source="../../virtual-network-manager/media/create-virtual-network-manager-portal/virtual-network-manager-resources-diagram.png" alt-text="Diagram of resources deployed for a mesh virtual network topology with Azure virtual network manager.":::
 
@@ -131,7 +131,7 @@ You can filter network traffic to and from Azure resources in an Azure virtual n
 
 ### <a name="serviceendpoints"></a>Service endpoints
 
-[Virtual Network (VNet) service endpoints](../../virtual-network/virtual-network-service-endpoints-overview.md). extend your virtual network private address space and the identity of your VNet to the Azure services, over a direct connection. Endpoints allow you to secure your critical Azure service resources to only your virtual networks. Traffic from your VNet to the Azure service always remains on the Microsoft Azure backbone network.
+[Virtual Network (VNet) service endpoints](../../virtual-network/virtual-network-service-endpoints-overview.md) extend your virtual network private address space and the identity of your VNet to the Azure services, over a direct connection. Endpoints allow you to secure your critical Azure service resources to only your virtual networks. Traffic from your VNet to the Azure service always remains on the Microsoft Azure backbone network.
 
 :::image type="content" source="./media/networking-overview/vnet-service-endpoints-overview.png" alt-text="Virtual network service endpoints":::
 
