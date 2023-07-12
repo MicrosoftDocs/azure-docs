@@ -34,7 +34,7 @@ An extension bundle reference is defined by the `extensionBundle` section in a *
 
 [!INCLUDE [functions-extension-bundles-json](../../includes/functions-extension-bundles-json.md)]
 
-The following table lists the currently available versions of the default *Microsoft.Azure.Functions.ExtensionBundle* bundle and links to the extensions they include.
+The following table lists the currently available version ranges of the default *Microsoft.Azure.Functions.ExtensionBundle* bundles and links to the extensions they include.
 
 | Bundle version | Version in host.json | Included extensions |
 | --- | --- | --- |
@@ -44,9 +44,8 @@ The following table lists the currently available versions of the default *Micro
 | 4.x | `[4.0.0, 5.0.0)` | See [extensions.json](https://github.com/Azure/azure-functions-extension-bundles/blob/v4.x/src/Microsoft.Azure.Functions.ExtensionBundle/extensions.json) used to generate the bundle<sup>1</sup> |
 
 
-
 > [!NOTE]
-> Even though host.json supports custom ranges for `version`, you should use a version range value from this table.  For example `[4.0.0, 5.0.0)`.
+> Even though host.json supports custom ranges for `version`, you should use a version range value from this table. For example `[3.3.0, 4.0.0)`.
 
 ## Explicitly install extensions
 
