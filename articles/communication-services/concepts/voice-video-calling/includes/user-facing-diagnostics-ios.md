@@ -75,19 +75,19 @@ extension CallObserver: MediaDiagnosticsDelegate {
   }
     
   func mediaDiagnostics(_ mediaDiagnostics: MediaDiagnostics,
-                        didChangeIsMicrophoneMuteUnexpectedly args: DiagnosticFlagChangedEventArgs) {
+                        didChangeIsMicrophoneMutedUnexpectedly args: DiagnosticFlagChangedEventArgs) {
     let newValue = args.value
     // Handle the diagnostic event value changed...
   }
     
   func mediaDiagnostics(_ mediaDiagnostics: MediaDiagnostics,
-                        didChangeIsZeroSpeakerDevicesEnumerated args: DiagnosticFlagChangedEventArgs) {
+                        didChangeIsZeroSpeakerDevicesAvailable args: DiagnosticFlagChangedEventArgs) {
     let newValue = args.value
     // Handle the diagnostic event value changed...                            
   }
     
   func mediaDiagnostics(_ mediaDiagnostics: MediaDiagnostics,
-                        didChangeIsZeroMicrophoneDevicesEnumerated args: DiagnosticFlagChangedEventArgs) {
+                        didChangeIsZeroMicrophoneDevicesAvailable args: DiagnosticFlagChangedEventArgs) {
     let newValue = args.value
     // Handle the diagnostic event value changed...
   }
@@ -99,13 +99,13 @@ extension CallObserver: MediaDiagnosticsDelegate {
   }
     
   func mediaDiagnostics(_ mediaDiagnostics: MediaDiagnostics,
-                        didChangeIsSpeakerNotFunctioningDeviceInUse args: DiagnosticFlagChangedEventArgs) {
+                        didChangeIsSpeakerBusy args: DiagnosticFlagChangedEventArgs) {
     let newValue = args.value
     // Handle the diagnostic event value changed...
   }
     
   func mediaDiagnostics(_ mediaDiagnostics: MediaDiagnostics,
-                        didChangeIsMicrophoneNotFunctioningDeviceInUse args: DiagnosticFlagChangedEventArgs) {
+                        didChangeIsMicrophoneBusy args: DiagnosticFlagChangedEventArgs) {
     let newValue = args.value
     // Handle the diagnostic event value changed...
   }

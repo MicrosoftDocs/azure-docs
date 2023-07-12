@@ -76,11 +76,11 @@ DiagnosticsCallFeature diagnosticsCallFeature = call.feature(Features.LOCAL_USER
 NetworkDiagnostics networkDiagnostics = diagnosticsCallFeature.getNetwork();
 MediaDiagnostics mediaDiagnostics = diagnosticsCallFeature.getMedia();
 
-NetworkDiagnosticValues latestNetwork = networkDiagnostics.getLatest();
+NetworkDiagnosticValues latestNetwork = networkDiagnostics.getLatestDiagnostics();
 Boolean lastNetworkValue = latestNetwork.isNetworkUnavailable(); // null if there isn't a value for this diagnostic.
 DiagnosticQuality lastReceiveQualityValue = latestNetwork.getNetworkReceiveQuality(); //  UNKNOWN if there isn't a value for this diagnostic.
 
-MediaDiagnosticValues latestMedia = networkDiagnostics.getLatest();
+MediaDiagnosticValues latestMedia = networkDiagnostics.getLatestDiagnostics();
 Boolean lastSpeakerNotFunctionValue = latestMedia.isSpeakerNotFunctioning(); // null if there isn't a value for this diagnostic.
 
 // Use the last values ...
