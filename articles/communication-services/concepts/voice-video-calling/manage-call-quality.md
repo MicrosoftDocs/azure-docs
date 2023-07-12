@@ -56,10 +56,10 @@ can provide. In this scenario, you could utilize our [Video constraints](video-c
 
 ## Implement existing quality and reliability capabilities before deployment
 
-Before you release and scale your Azure Communication Services calling
-solution, implement the following capabilities to prevent and diagnose common quality and reliability issues that can occur in normal operation. Keep in mind, some of these call data aren't created or stored unless you implement them.
+Before you launch and scale your Azure Communication Services calling
+solution, implement the following capabilities to support a high quality calling experience. These tools help prevent common quality and reliability calling issues from happening and diagnose issues if they occur. Keep in mind, some of these call data aren't created or stored unless you implement them.
 
-The following sections explain tools by call phase: 
+The following sections detail the tools to implement at different phases of a call: 
 - **Before a call**
 - **During a call**
 - **After a call**
@@ -94,7 +94,7 @@ The Network Diagnostic Tool provides a hosted experience for
   connecting to the service to ensure a great call experience. The tool
   performs diagnostics on the network, devices, and call quality.
 
-  - By using the network diagnostic tool you can encourage users to resolve reliability issues and improve their network connection before joining a call. 
+  - By using the network diagnostic tool, you can encourage users to resolve reliability issues and improve their network connection before joining a call. 
 
 
 
@@ -106,7 +106,7 @@ The Network Diagnostic Tool provides a hosted experience for
 
 #### Pre-Call Diagnostics API
 
-Maybe you want to build your own Network Diagnostic Tool or to perform a deeper integration of this tool into your application. If so, you can leverage the Pre-Call diagnostic APIs for that power the Network Diagnostic Tool for the calling SDK. This let's you run a series of tests to ensure compatibility, connectivity, and device permissions with a test call and give users an opportunity to correct issues before calls begin or perform specific checks when troubleshooting quality and reliability issues.
+Maybe you want to build your own Network Diagnostic Tool or to perform a deeper integration of this tool into your application. If so, you can use the Pre-Call diagnostic APIs that run the Network Diagnostic Tool for the calling SDK. This let's you run a series of tests to ensure compatibility, connectivity, and device permissions with a test call and give users an opportunity to correct issues before calls begin or perform specific checks when troubleshooting quality and reliability issues.
 
   <!-- - ~~If a user has a poor network connection, you can instruct them to
     join their audio from [PSTN (Public Switched Telephone Network)
