@@ -78,7 +78,7 @@ The following sections explain tools by call phase:
 
 ### Network Diagnostic Tool 
 
-The Network Diagnostic Tool Provides a hosted experience for
+The Network Diagnostic Tool provides a hosted experience for
   developers to validate call readiness during development. You can
   check if a user’s device and network conditions are optimal for
   connecting to the service to ensure a great call experience. The tool
