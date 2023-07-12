@@ -21,7 +21,7 @@ ms.author: williamzhao
 
 ## Sample code
 
-You can review and download the sample code for this quick start on [GitHub](https://github.com/Azure-Samples/communication-services-javascript-quickstarts/tree/main/router-quickstart).
+You can review and download the sample code for this quick start on [GitHub](https://github.com/Azure-Samples/communication-services-javascript-quickstarts/tree/main/job-router-quickstart).
 
 ## Setting up
 
@@ -153,7 +153,7 @@ Then, the worker can accept the job offer by using the SDK, which assigns the jo
 
 ```javascript
 const accept = await routerClient.acceptJobOffer(worker.id, worker.offers[0].offerId);
-console.log(`Worker ${worker.id} is assigned job ${offer.jobId}`);
+console.log(`Worker ${worker.id} is assigned job ${accept.jobId}`);
 ```
 
 ## Complete the job
@@ -162,7 +162,7 @@ Once the worker has completed the work associated with the job (for example, com
 
 ```javascript
 await routerClient.completeJob("job-1", accept.assignmentId);
-console.log(`Worker ${worker.id} has completed job ${offer.jobId}`);
+console.log(`Worker ${worker.id} has completed job ${accept.jobId}`);
 ```
 
 ## Close the job
@@ -171,7 +171,7 @@ Once the worker is ready to take on new jobs, the worker should close the job.  
 
 ```javascript
 await routerClient.closeJob("job-1", accept.assignmentId, { dispositionCode: "Resolved" });
-console.log(`Worker ${worker.id} has closed job ${offer.jobId}`);
+console.log(`Worker ${worker.id} has closed job ${accept.jobId}`);
 ```
 
 ## Run the code

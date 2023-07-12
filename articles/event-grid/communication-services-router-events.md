@@ -1,19 +1,19 @@
 ---
-title: Azure Communication Services - Job router events
-description: This article describes how to use Azure Communication Services as an Event Grid event source for Job Router Events.
+title: Azure Communication Services - Job Router events
+description: This article describes how to use Azure Communication Services as an Event Grid event source for Job Router events.
 ms.topic: conceptual
 ms.date: 07/12/2023
-author: jasonshave
-ms.author: jassha
+author: WilliamZhao
+ms.author: williamzhao
 ---
 
-# Azure Communication Services - Job router events
+# Azure Communication Services - Job Router events
 
-This article provides the properties, schema and attributes for communication services Job Router events. For an introduction to event schemas, see [Azure Event Grid event schema](event-schema.md).
+This article provides the properties and schema for communication services job router events. For an introduction to event schemas, see [Azure Event Grid event schema](event-schema.md). These events are emitted for Azure Communication Services throughout the job and worker lifecycles.
 
-## Job Router events
+## Events types
 
-Azure Communication Services emits the following Job Router events:
+Azure Communication Services emits the following job router event types:
 
 | Events | Subdomain | Description |
 |------|:------------:| ---------- |
@@ -35,13 +35,19 @@ Azure Communication Services emits the following Job Router events:
 | [`RouterWorkerOfferDeclined`](#microsoftcommunicationrouterworkerofferdeclined) | `Worker` | An offer to a worker was declined |
 | [`RouterWorkerOfferRevoked`](#microsoftcommunicationrouterworkerofferrevoked)  | `Worker` | An offer to a worker was revoked |
 | [`RouterWorkerOfferExpired`](#microsoftcommunicationrouterworkerofferexpired)  | `Worker` | An offer to a worker has expired |
-| [`RouterWorkerRegistered`](#microsoftcommunicationrouterworkerregistered)  | `Worker` | A worker has been registered |
-| [`RouterWorkerDeregistered`](#microsoftcommunicationrouterworkerderegistered)  | `Worker` | A worker has been deregistered |
+| [`RouterWorkerRegistered`](#microsoftcommunicationrouterworkerregistered)  | `Worker` | A worker has been registered (status changed from inactive/draining to active) |
+| [`RouterWorkerDeregistered`](#microsoftcommunicationrouterworkerderegistered)  | `Worker` | A worker has been deregistered (status changed from active to inactive/draining) |
 | [`RouterWorkerDeleted`](#microsoftcommunicationrouterworkerdeleted)  | `Worker` | A worker has been deleted |
+
+## Event responses
+
+When an event is triggered, the Event Grid service sends data about that event to subscribing endpoints.
+
+This section contains an example of what that data would look like for each event.
 
 ### Microsoft.Communication.RouterJobReceived
 
-[Back to Event Catalog](#events-catalog)
+[Back to Event Catalog](#events-types)
 
 ```json
 {
@@ -103,7 +109,7 @@ _**Attribute list**_
 
 ### Microsoft.Communication.RouterJobClassified
 
-[Back to Event Catalog](#events-catalog)
+[Back to Event Catalog](#events-types)
 
 ```json
 {
@@ -170,7 +176,7 @@ _**Attribute list**_
 
 ### Microsoft.Communication.RouterJobQueued
 
-[Back to Event Catalog](#events-catalog)
+[Back to Event Catalog](#events-types)
 
 ```json
 {
@@ -234,7 +240,7 @@ _**Attribute list**_
 
 ### Microsoft.Communication.RouterJobClassificationFailed
 
-[Back to Event Catalog](#events-catalog)
+[Back to Event Catalog](#events-types)
 
 ```json
 {
@@ -288,7 +294,7 @@ _**Attribute list**_
 
 ### Microsoft.Communication.RouterJobCompleted
 
-[Back to Event Catalog](#events-catalog)
+[Back to Event Catalog](#events-types)
 
 ```json
 {
@@ -336,7 +342,7 @@ _**Attribute list**_
 
 ### Microsoft.Communication.RouterJobClosed
 
-[Back to Event Catalog](#events-catalog)
+[Back to Event Catalog](#events-types)
 
 ```json
 {
@@ -386,7 +392,7 @@ _**Attribute list**_
 
 ### Microsoft.Communication.RouterJobCancelled
 
-[Back to Event Catalog](#events-catalog)
+[Back to Event Catalog](#events-types)
 
 ```json
 {
@@ -434,7 +440,7 @@ _**Attribute list**_
 
 ### Microsoft.Communication.RouterJobExceptionTriggered
 
-[Back to Event Catalog](#events-catalog)
+[Back to Event Catalog](#events-types)
 
 ```json
 {
@@ -480,7 +486,7 @@ _**Attribute list**_
 
 ### Microsoft.Communication.RouterJobWorkerSelectorsExpired
 
-[Back to Event Catalog](#events-catalog)
+[Back to Event Catalog](#events-types)
 
 ```json
 {
@@ -541,7 +547,7 @@ _**Attribute list**_
 
 ### Microsoft.Communication.RouterJobUnassigned
 
-[Back to Event Catalog](#events-catalog)
+[Back to Event Catalog](#events-types)
 
 ```json
 {
@@ -588,7 +594,7 @@ _**Attribute list**_
 
 ### Microsoft.Communication.RouterJobWaitingForActivation
 
-[Back to Event Catalog](#events-catalog)
+[Back to Event Catalog](#events-types)
 
 ```json
 {
@@ -655,7 +661,7 @@ _**Attribute list**_
 
 ### Microsoft.Communication.RouterJobSchedulingFailed
 
-[Back to Event Catalog](#events-catalog)
+[Back to Event Catalog](#events-types)
 
 ```json
 {
@@ -721,7 +727,7 @@ _**Attribute list**_
 
 ### Microsoft.Communication.RouterJobDeleted
 
-[Back to Event Catalog](#events-catalog)
+[Back to Event Catalog](#events-types)
 
 ```json
 {
@@ -762,7 +768,7 @@ _**Attribute list**_
 
 ### Microsoft.Communication.RouterWorkerOfferIssued
 
-[Back to Event Catalog](#events-catalog)
+[Back to Event Catalog](#events-types)
 
 ```json
 {
@@ -815,7 +821,7 @@ _**Attribute list**_
 
 ### Microsoft.Communication.RouterWorkerOfferAccepted
 
-[Back to Event Catalog](#events-catalog)
+[Back to Event Catalog](#events-types)
 
 ```json
 {
@@ -867,7 +873,7 @@ _**Attribute list**_
 
 ### Microsoft.Communication.RouterWorkerOfferDeclined
 
-[Back to Event Catalog](#events-catalog)
+[Back to Event Catalog](#events-types)
 
 ```json
 {
@@ -903,7 +909,7 @@ _**Attribute list**_
 
 ### Microsoft.Communication.RouterWorkerOfferRevoked
 
-[Back to Event Catalog](#events-catalog)
+[Back to Event Catalog](#events-types)
 
 ```json
 {
@@ -938,7 +944,7 @@ _**Attribute list**_
 
 ### Microsoft.Communication.RouterWorkerOfferExpired
 
-[Back to Event Catalog](#events-catalog)
+[Back to Event Catalog](#events-types)
 
 ```json
 {
@@ -973,7 +979,7 @@ _**Attribute list**_
 
 ### Microsoft.Communication.RouterWorkerRegistered
 
-[Back to Event Catalog](#events-catalog)
+[Back to Event Catalog](#events-types)
 
 ```json
 {
@@ -1032,7 +1038,7 @@ _**Attribute list**_
 
 ### Microsoft.Communication.RouterWorkerDeregistered
 
-[Back to Event Catalog](#events-catalog)
+[Back to Event Catalog](#events-types)
 
 ```json
 {
@@ -1056,7 +1062,7 @@ _**Attribute list**_
 
 ### Microsoft.Communication.RouterWorkerDeleted
 
-[Back to Event Catalog](#events-catalog)
+[Back to Event Catalog](#events-types)
 
 ```json
 {

@@ -17,6 +17,7 @@ ms.author: williamzhao
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - An active Communication Services resource and connection string. [Create a Communication Services resource](../../create-communication-resource.md#access-your-connection-strings-and-service-endpoints).
+- The latest version [.NET client library](https://dotnet.microsoft.com/download/dotnet) for your operating system.
 
 ## Setting up
 
@@ -49,16 +50,6 @@ Add the following `using` directives to the top of **Program.cs** to include the
 
 ```csharp
 using Azure.Communication.JobRouter;
-using Azure.Communication.JobRouter.Models;
-```
-
-Update `Main` function signature to be `async` and return a `Task`.
-
-```csharp
-static async Task Main(string[] args)
-{
-  ...
-}
 ```
 
 ## Initialize the Job Router client and administration client
@@ -111,7 +102,7 @@ var job = await routerClient.CreateJobAsync(
         Priority = 1,
         RequestedWorkerSelectors =
         {
-            new WorkerSelector(key: "Some-Skill", labelOperator: LabelOperator.GreaterThan, value: new LabelValue(10))
+            new RouterWorkerSelector(key: "Some-Skill", labelOperator: LabelOperator.GreaterThan, value: new LabelValue(10))
         }
     });
 ```
@@ -121,7 +112,7 @@ var job = await routerClient.CreateJobAsync(
 Now, we create a worker to receive work from that queue, with a label of `Some-Skill` equal to 11 and capacity on `my-channel`.
 
 ```csharp
-var worker = await client.CreateWorkerAsync(
+var worker = await routerClient.CreateWorkerAsync(
     new CreateWorkerOptions(workerId: "worker-1", totalCapacity: 1)
     {
         QueueIds =
@@ -159,7 +150,7 @@ Then, the worker can accept the job offer by using the SDK, which assigns the jo
 
 ```csharp
 var accept = await routerClient.AcceptJobOfferAsync(worker.Value.Id, worker.Value.Offers.FirstOrDefault().OfferId);
-Console.WriteLine($"Worker {worker.Value.Id} is assigned job {offer.JobId}");
+Console.WriteLine($"Worker {worker.Value.Id} is assigned job {accept.Value.JobId}");
 ```
 
 ## Complete the job
@@ -168,7 +159,7 @@ Once the worker has completed the work associated with the job (for example, com
 
 ```csharp
 await routerClient.CompleteJobAsync(new CompleteJobOptions("job-1", accept.Value.AssignmentId));
-Console.WriteLine($"Worker {worker.Value.Id} has completed job {offer.JobId}");
+Console.WriteLine($"Worker {worker.Value.Id} has completed job {accept.Value.JobId}");
 ```
 
 ## Close the job
@@ -179,7 +170,7 @@ Once the worker is ready to take on new jobs, the worker should close the job.  
 await routerClient.CloseJobAsync(new CloseJobOptions("job-1", accept.Value.AssignmentId) {
     DispositionCode = "Resolved"
 });
-Console.WriteLine($"Worker {worker.Value.Id} has closed job {offer.JobId}");
+Console.WriteLine($"Worker {worker.Value.Id} has closed job {accept.Value.JobId}");
 ```
 
 ## Run the code

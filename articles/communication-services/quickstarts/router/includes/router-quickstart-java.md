@@ -31,7 +31,7 @@ You can review and download the sample code for this quick start on [GitHub](htt
 In a console window (such as cmd, PowerShell, or Bash), use the `mvn` command below to create a new console app with the name `router-quickstart`. This command creates a simple "Hello World" Java project with a single source file: **App.java**.
 
 ```console
-mvn archetype:generate -DgroupId=com.communication.quickstart -DartifactId=communication-quickstart -DarchetypeArtifactId=maven-archetype-quickstart -DarchetypeVersion=1.4 -DinteractiveMode=false
+mvn archetype:generate -DgroupId=com.communication.jobrouter.quickstart -DartifactId=jobrouter-quickstart-java -DarchetypeArtifactId=maven-archetype-quickstart -DarchetypeVersion=1.4 -DinteractiveMode=false
 ```
 
 ### Include the package
@@ -101,7 +101,7 @@ import java.util.*;
 
 public class App
 {
-    public static void main( String[] args ) throws IOException
+    public static void main(String[] args) throws IOException
     {
         System.out.println("Azure Communication Services - Job Router Quickstart");
         // Quickstart code goes here
@@ -125,7 +125,7 @@ JobRouterClient routerClient = new JobRouterClientBuilder().connectionString(con
 Job Router uses a distribution policy to decide how Workers will be notified of available Jobs and the time to live for the notifications, known as **Offers**. Create the policy by specifying the **ID**, a **name**, an **offerTTL**, and a distribution **mode**.
 
 ```java
-DistributionPolicy distributionPolicy = JobRouterAdministrationClient.createDistributionPolicy(
+DistributionPolicy distributionPolicy = routerAdminClient.createDistributionPolicy(
     new CreateDistributionPolicyOptions(
         "distribution-policy-1",
         Duration.ofMinutes(1),
@@ -138,7 +138,7 @@ DistributionPolicy distributionPolicy = JobRouterAdministrationClient.createDist
 Create the Queue by specifying an **ID**, **name**, and provide the **Distribution Policy** object's ID you created above.
 
 ```java
-Queue queue = routerAdminClient.createQueue(
+RouterQueue queue = routerAdminClient.createQueue(
     new CreateQueueOptions("queue-1",distributionPolicy.getId())
         .setName("My queue")
 );
@@ -152,9 +152,8 @@ Now, we can submit a job directly to that queue, with a worker selector that req
 RouterJob job = routerClient.createJob(
     new CreateJobOptions("job-1", "voice", queue.getId())
         .setPriority(1)
-        .setRequestedWorkerSelectors(new ArrayList<WorkerSelector>() {{
-            add(new WorkerSelector("Some-Skill", LabelOperator.GREATER_THAN, new LabelValue(10)));
-        }}));
+        .setRequestedWorkerSelectors(List.of(
+            new RouterWorkerSelector("Some-Skill", LabelOperator.GREATER_THAN, new LabelValue(10)))));
 ```
 
 ## Create a worker
@@ -183,7 +182,7 @@ However, we could also wait a few seconds and then query the worker directly aga
 ```java
 Thread.sleep(3000);
 worker = routerClient.getWorker(worker.getId());
-for (RouterWorkerOffer offer : worker.getOffers()) {
+for (RouterJobOffer offer : worker.getOffers()) {
     System.out.printf("Worker %s has an active offer for job %s", worker.getId(), offer.getJobId());
 }
 ```
@@ -233,7 +232,7 @@ mvn package
 Execute the app
 
 ```console
-mvn exec:java -Dexec.mainClass="com.communication.quickstart.App" -Dexec.cleanupDaemonThreads=false
+mvn exec:java -Dexec.mainClass="com.communication.jobrouter.quickstart.App" -Dexec.cleanupDaemonThreads=false
 ```
 
 The expected output describes each completed action:

@@ -21,7 +21,7 @@ ms.author: williamzhao
 
 ## Sample code
 
-You can review and download the sample code for this quick start on [GitHub](https://github.com/Azure-Samples/communication-services-python-quickstarts/tree/main/job-router-quickstart).
+You can review and download the sample code for this quick start on [GitHub](https://github.com/Azure-Samples/communication-services-python-quickstarts/tree/main/jobrouter-quickstart).
 
 ## Setting up
 
@@ -30,14 +30,14 @@ You can review and download the sample code for this quick start on [GitHub](htt
 In a terminal or console window, create a new folder for your application and navigate to it.
 
 ```console
-mkdir acs-router-quickstart && cd acs-router-quickstart
+mkdir jobrouter-quickstart && cd jobrouter-quickstart
 ```
 
 ### Install the package
 
 You'll need to use the Azure Communication Job Router client library for Python [version 1.0.0b1](https://pypi.org/project/azure-communication-jobrouter) or above.
 
-From a console prompt, navigate to the directory containing the router.py file, then execute the following command:
+From a console prompt, execute the following command:
 
 ```console
 pip install azure-communication-jobrouter
@@ -68,10 +68,10 @@ if __name__ == '__main__':
 Job Router clients can be authenticated using your connection string acquired from an Azure Communication Services resource in the Azure portal.  We generate both a client and an administration client to interact with the Job Router service.  The admin client is used to provision queues and policies, while the client is used to submit jobs and register workers. For more information on connection strings, see [access-your-connection-strings-and-service-endpoints](../../create-communication-resource.md#access-your-connection-strings-and-service-endpoints).
 
 ```python
-// Get a connection string to our Azure Communication Services resource.
+# Get a connection string to our Azure Communication Services resource.
 connection_string = "your_connection_string"
-router_admin_client = JobRouterAdministrationClient(connectionString)
-router_client = JobRouterClient(connectionString)
+router_admin_client = JobRouterAdministrationClient(connection_string)
+router_client = JobRouterClient(connection_string)
 ```
 
 ## Create a distribution policy
@@ -161,7 +161,7 @@ Then, the worker can accept the job offer by using the SDK, which assigns the jo
 
 ```python
 accept = router_client.accept_job_offer(worker_id = worker.id, offer_id = worker.offers[0].offer_id)
-print(f"Worker {worker.id} is assigned job {offer.job_id}")
+print(f"Worker {worker.id} is assigned job {accept.job_id}")
 ```
 
 ## Complete the job
@@ -170,7 +170,7 @@ Once the worker has completed the work associated with the job (for example, com
 
 ```python
 router_client.complete_job(job_id = job.id, assignment_id = accept.assignment_id)
-print(f"Worker {worker.id} has completed job {offer.job_id}")
+print(f"Worker {worker.id} has completed job {accept.job_id}")
 ```
 
 ## Close the job
@@ -179,12 +179,12 @@ Once the worker is ready to take on new jobs, the worker should close the job.  
 
 ```python
 router_client.close_job(job_id = job.id, assignment_id = accept.assignment_id, disposition_code = "Resolved")
-print(f"Worker {worker.id} has closed job {offer.job_id}")
+print(f"Worker {worker.id} has closed job {accept.job_id}")
 ```
 
 ## Run the code
 
-To run the code, make sure you are on the directory where your `rooms-quickstart.py` file is.
+To run the code, make sure you are on the directory where your `router-quickstart.py` file is.
 
 ```console
 python router-quickstart.py
