@@ -19,7 +19,7 @@ This article describes reliability support in Azure Container Instances (ACI) an
 
 ## Availability zone support
 
-[!INCLUDE [next step](includes/reliability-availability-zone-description-include.md)]
+[!INCLUDE [Availability zone description](includes/reliability-availability-zone-description-include.md)]
 
 Azure Container Instances supports *zonal* container group deployments, meaning the instance is pinned to a specific, self-selected availability zone. The availability zone is specified at the container group level. Containers within a container group can't have unique availability zones. To change your container group's availability zone, you must delete the container group and create another container group with the new availability zone.
 

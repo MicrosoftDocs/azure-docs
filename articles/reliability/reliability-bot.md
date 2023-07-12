@@ -23,7 +23,7 @@ For more information on deploying bots with local data residency and regional co
 
 ## Availability zone support
 
-[!INCLUDE [next step](includes/reliability-availability-zone-description-include.md)]
+[!INCLUDE [Availability zone description](includes/reliability-availability-zone-description-include.md)]
 
 For regional bots, Azure Bot Service supports zone redundancy by default.  You don't need to set it up or reconfigure for availability zone support. 
 

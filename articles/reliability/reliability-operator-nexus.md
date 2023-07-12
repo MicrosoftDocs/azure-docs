@@ -19,7 +19,7 @@ This article describes reliability support in Azure Operator Nexus and covers in
 
 ## Availability zone support
 
-[!INCLUDE [next step](includes/reliability-availability-zone-description-include.md)]
+[!INCLUDE [Availability zone description](includes/reliability-availability-zone-description-include.md)]
 
 Azure Operator Nexus offers availability zone-redundant deployments by default. Operator Nexus components, such as Cluster Manager and Network Fabric Controller are all deployed on an Azure Kubernetes Service (AKS) cluster that's enabled with availability zones. Other service dependencies, such as Storage Account Service, and KeyVault are also configured with availability zone-redundancy.
 
