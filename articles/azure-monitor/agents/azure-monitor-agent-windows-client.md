@@ -107,7 +107,7 @@ Since MO is a tenant level resource, the scope of the permission would be higher
 
 #### 1. Assign ‘Monitored Object Contributor’ role to the operator
 
-This step grants the ability to create and link a monitored object to a user.
+This step grants the ability to create and link a monitored object to a user or group.
 
 **Request URI**
 ```HTTP
@@ -139,7 +139,7 @@ PUT https://management.azure.com/providers/microsoft.insights/providers/microsof
 | Name | Description |
 |:---|:---|
 | roleDefinitionId | Fixed value: Role definition ID of the 'Monitored Objects Contributor' role: `/providers/Microsoft.Authorization/roleDefinitions/56be40e24db14ccf93c37e44c597135b` |
-| principalId | Provide the `Object Id` of the identity of the user to which the role needs to be assigned. It may be the user who elevated at the beginning of step 1, or another user who will perform later steps. |
+| principalId | Provide the `Object Id` of the identity of the user to which the role needs to be assigned. It may be the user who elevated at the beginning of step 1, or another user or group who will perform later steps. |
 
 After this step is complete, **reauthenticate** your session and **reacquire** your ARM bearer token.
 
@@ -216,6 +216,71 @@ PUT https://management.azure.com/providers/Microsoft.Insights/monitoredObjects/{
 | Name | Description |
 |:---|:---|
 | `dataCollectionRuleID` | The resource ID of an existing Data Collection Rule that you created in the **same region** as the Monitored Object. |
+
+#### 4. List associations to Monitored Object
+If you need to view the associations, you can list them for the Monitored Object.
+
+**Permissions required**: Anyone who has ‘Reader’ at an appropriate scope can perform this operation, similar to that assigned in step 1.
+
+**Request URI**
+```HTTP
+GET https://management.azure.com/{MOResourceId}/providers/microsoft.insights/datacollectionruleassociations/?api-version=2021-09-01-preview
+```
+**Sample Request URI**
+```HTTP
+GET https://management.azure.com/providers/Microsoft.Insights/monitoredObjects/{AADTenantId}/providers/microsoft.insights/datacollectionruleassociations/?api-version=2021-09-01-preview
+```
+
+```JSON
+{
+  "value": [
+    {
+      "id": "/subscriptions/703362b3-f278-4e4b-9179-c76eaf41ffc2/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/myVm/providers/Microsoft.Insights/dataCollectionRuleAssociations/myRuleAssociation",
+      "name": "myRuleAssociation",
+      "type": "Microsoft.Insights/dataCollectionRuleAssociations",
+      "properties": {
+        "dataCollectionRuleId": "/subscriptions/703362b3-f278-4e4b-9179-c76eaf41ffc2/resourceGroups/myResourceGroup/providers/Microsoft.Insights/dataCollectionRules/myCollectionRule",
+        "provisioningState": "Succeeded"
+      },
+      "systemData": {
+        "createdBy": "user1",
+        "createdByType": "User",
+        "createdAt": "2021-04-01T12:34:56.1234567Z",
+        "lastModifiedBy": "user2",
+        "lastModifiedByType": "User",
+        "lastModifiedAt": "2021-04-02T12:34:56.1234567Z"
+      },
+      "etag": "070057da-0000-0000-0000-5ba70d6c0000"
+    }
+  ],
+  "nextLink": null
+}
+```
+
+#### 5. Disassociate DCR to Monitored Object
+If you need to remove an association of a Data Collection Rule (DCR) to the Monitored Object. 
+
+**Permissions required**: Anyone who has ‘Monitored Object Contributor’ at an appropriate scope can perform this operation, as assigned in step 1.
+
+**Request URI**
+```HTTP
+DELETE https://management.azure.com/{MOResourceId}/providers/microsoft.insights/datacollectionruleassociations/{associationName}?api-version=2021-09-01-preview
+```
+**Sample Request URI**
+```HTTP
+DELETE https://management.azure.com/providers/Microsoft.Insights/monitoredObjects/{AADTenantId}/providers/microsoft.insights/datacollectionruleassociations/{associationName}?api-version=2021-09-01-preview
+```
+
+**URI Parameters**
+
+| Name | In | Type | Description |
+|---|---|---|---|
+| `MOResourceId` | path | string | Full resource ID of the MO created in step 2. Example: 'providers/Microsoft.Insights/monitoredObjects/{AADTenantId}' |
+| `associationName` | path | string | The name of the association. The name is case insensitive. Example: 'assoc01' |
+
+**Headers**
+- Authorization: ARM Bearer Token
+- Content-Type: Application/json
 
 
 ### Using PowerShell for onboarding

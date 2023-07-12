@@ -1,7 +1,7 @@
 ---
 title: Connected Machine agent prerequisites
 description: Learn about the prerequisites for installing the Connected Machine agent for Azure Arc-enabled servers.
-ms.date: 06/02/2023
+ms.date: 07/11/2023
 ms.topic: conceptual
 ms.custom: devx-track-azurepowershell
 ---
@@ -43,7 +43,7 @@ Azure Arc supports the following Windows and Linux operating systems. Only x86-6
 * Azure Stack HCI
 * Azure Linux 1.0, 2.0
 * Ubuntu 16.04, 18.04, 20.04, and 22.04 LTS
-* Debian 10 and 11
+* Debian 10, 11, and 12
 * CentOS Linux 7 and 8
 * Rocky Linux 8
 * SUSE Linux Enterprise Server (SLES) 12 SP3-SP5 and 15
