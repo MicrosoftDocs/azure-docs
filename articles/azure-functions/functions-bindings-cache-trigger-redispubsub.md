@@ -350,21 +350,21 @@ Here is binding data to listen to `keyevent` notifications for the delete comman
 | function.json property | Description|
 |---|---|
 |`type`| Trigger type. For the pubsub trigger, this is always `redisPubSubTrigger`. |
-| `connectionStringSetting`| Connection string to the cache instance. For example: `<cacheName>.redis.cache.windows.net:6380,password=...`|
+| `connectionStringSetting`| Name of the setting in the appsettings that holds the to the Redis cache connection string (eg `<cacheName>.redis.cache.windows.net:6380,password=...`)|
 | `channel`| Name of the pubsub channel that is being subscribed to |
 |  `name`| Name of the variable holding the value returned by the function. |
 | `direction` | Must be set to `in`.  |
 
 ::: zone-end
 
+>[!IMPORTANT]
+>The `connectionStringSetting` parameter does not hold the Redis cache connection string itself. Instead, it points to the name of the environment variable that holds the connection string. This makes the application more secure. For more information, see [Redis connection string](functions-bindings-cache.md#redis-connection-string).
+>
+
+
 ## Output
 
-Work in progress
-
 ::: zone pivot="programming-language-csharp"
-
-## Output Types
-
 | Output Type | Description|
 |---|---|
 |  |
@@ -378,32 +378,26 @@ Work in progress
 <!--Any of the below pivots can be combined if the usage info is identical.-->
 ::: zone pivot="programming-language-java"
 
-```java
-public class RedisMessageModel {
-    public String Trigger;
-    public String Message;
-}
-```
+| Output Type | Description|
+|---|---|
+|  |
+| [`StackExchange.Redis.ChannelMessage`](https://github.com/StackExchange/StackExchange.Redis/blob/main/src/StackExchange.Redis/ChannelMessageQueue.cs)| The value returned by `StackExchange.Redis`. |
+| [`StackExchange.Redis.RedisValue`](https://github.com/StackExchange/StackExchange.Redis/blob/main/src/StackExchange.Redis/RedisValue.cs)| `string`, `byte[]`, `ReadOnlyMemory<byte>`: The message from the channel. |
+| `Custom`| The trigger uses Json.NET serialization to map the message from the channel from a `string` into a custom type. |
 
-<!--Any usage information from the Java tab in ## Usage. -->
-
-::: zone-end
-::: zone pivot="programming-language-javascript,programming-language-powershell"
-
-TBD
-<!--Any usage information from the JavaScript tab in ## Usage. -->
 
 ::: zone-end
+::: zone pivot="programming-language-javascript,programming-language-powershell,programming-language-python"
 
-TBD
-<!--Any usage information from the PowerShell tab in ## Usage. -->
+| Output Type | Description|
+|---|---|
+|  |
+| [`StackExchange.Redis.ChannelMessage`](https://github.com/StackExchange/StackExchange.Redis/blob/main/src/StackExchange.Redis/ChannelMessageQueue.cs)| The value returned by `StackExchange.Redis`. |
+| [`StackExchange.Redis.RedisValue`](https://github.com/StackExchange/StackExchange.Redis/blob/main/src/StackExchange.Redis/RedisValue.cs)| `string`, `byte[]`, `ReadOnlyMemory<byte>`: The message from the channel. |
+| `Custom`| The trigger uses Json.NET serialization to map the message from the channel from a `string` into a custom type. |
 
 ::: zone-end
 
-::: zone pivot="programming-language-python"
-
-<!--Any usage information from the Python tab in ## Usage. -->
-::: zone-end
 
 ## Next steps
 
