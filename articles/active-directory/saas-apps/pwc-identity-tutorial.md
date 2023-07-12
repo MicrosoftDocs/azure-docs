@@ -49,7 +49,7 @@ To configure the integration of PwC Identity into Azure AD, you need to add PwC 
 1. In the **Add from the gallery** section, type **PwC Identity** in the search box.
 1. Select **PwC Identity** from results panel and then add the app. Wait a few seconds while the app is added to your tenant.
 
- Alternatively, you can also use the [Enterprise App Configuration Wizard](https://portal.office.com/AdminPortal/home?Q=Docs#/azureadappintegration). In this wizard, you can add an application to your tenant, add users/groups to the app, assign roles, as well as walk through the SSO configuration as well. [Learn more about Microsoft 365 wizards.](/microsoft-365/admin/misc/azure-ad-setup-guides)
+ Alternatively, you can also use the [Enterprise App Configuration Wizard](https://portal.office.com/AdminPortal/home?Q=Docs#/azureadappintegration). In this wizard, you can add an application to your tenant, add users/groups to the app, assign roles, and walk through the SSO configuration as well. [Learn more about Microsoft 365 wizards.](/microsoft-365/admin/misc/azure-ad-setup-guides)
 
 ## Configure and test Azure AD SSO for PwC Identity
 
@@ -129,11 +129,11 @@ In this section, you create a user called Britta Simon in PwC Identity. Work wit
 
 In this section, you test your Azure AD single sign-on configuration with following options. 
 
-* Click on **Test this application** in Azure portal. This will redirect to PwC Identity Sign-on URL where you can initiate the login flow. 
+* Click on **Test this application** in Azure portal. This will redirect to PwC Identity Sign on URL where you can initiate the login flow. 
 
-* Go to PwC Identity Sign-on URL directly and initiate the login flow from there.
+* Go to PwC Identity Sign on URL directly and initiate the login flow from there.
 
-* You can use Microsoft My Apps. When you click the PwC Identity tile in the My Apps, this will redirect to PwC Identity Sign-on URL. For more information about the My Apps, see [Introduction to the My Apps](../user-help/my-apps-portal-end-user-access.md).
+* You can use Microsoft My Apps. When you click the PwC Identity tile in the My Apps, this will redirect to PwC Identity Sign on URL. For more information about the My Apps, see [Introduction to the My Apps](../user-help/my-apps-portal-end-user-access.md).
 
 ## Next steps
 
