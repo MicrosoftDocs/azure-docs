@@ -318,6 +318,6 @@ For a complete example of a zone-redundant scale set and network resources, see 
 
 <!-- IF (SERVICE IS ZONAL) -->
 
-<!-- Indicate here whether the customer can set up resources of the service to failover to another zone. If they can set up failover resources, provide a link to documentation for this procedure. If such documentation doesn’t exist, create the document, and then link to it from here. -->
+<!--Test Indicate here whether the customer can set up resources of the service to failover to another zone. If they can set up failover resources, provide a link to documentation for this procedure. If such documentation doesn’t exist, create the document, and then link to it from here. -->
 
 <!-- END IF (SERVICE IS ZONAL) -->
