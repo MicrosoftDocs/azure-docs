@@ -137,6 +137,15 @@ __Reason__: Batch Deployments can be configured with a `timeout` value that indi
 
 __Solution__: Increase the `timemout` value of the deployment by updating the deployment. These properties are configured in the parameter `retry_settings`. By default, a `timeout=30` and `retries=3` is configured. When deciding the value of the `timeout`, take into consideration the number of files being processed on each batch and the size of each of those files. You can also decrease them to account for more mini-batches of smaller size and hence quicker to execute. 
 
+
+### ScriptExecution.StreamAccess.Authentication
+
+__Message logged__: ScriptExecutionException was caused by StreamAccessException. StreamAccessException was caused by AuthenticationException.
+
+__Reason__: The compute cluster where the deployment is running can't mount the storage where the data asset is located. The managed identity of the compute don't have permissions to perform the mount.
+
+__Solutions__: Ensure the identity associated with the compute cluster where your deployment is running has at least has at least [Storage Blob Data Reader](../role-based-access-control/built-in-roles.md#storage-blob-data-reader) access to the storage account. Only storage account owners can [change your access level via the Azure portal](../storage/blobs/assign-azure-role-data-access.md).
+
 ### Dataset initialization failed
 
 __Message logged__: Dataset initialization failed: UserErrorException: Message: Cannot mount Dataset(id='xxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx', name='None', version=None). Source of the dataset is either not accessible or does not contain any data.

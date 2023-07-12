@@ -13841,7 +13841,7 @@
         {
             "source_path_from_root": "/articles/load-balancer/use-existing-lb-vmss-cli.md",
             "redirect_url": "/azure/load-balancer/configure-vm-scale-set-cli",
-            "redirect_document_id": ""
+            "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/load-balancer/load-balancer-get-started-internet-classic-portal.md",
@@ -23996,6 +23996,21 @@
         {
             "source_path_from_root": "/articles/networking/connectivty-interoperability-data-plane.md",
             "redirect_url": "/azure/networking/manage-apps/connectivity-interoperability-data-plane",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/operator-nexus/howto-hybrid-aks.md",
+            "redirect_url": "/azure/operator-nexus/howto-kubernetes-cluster-agent-pools",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/operator-nexus/template-virtualized-network-function-deployment.md",
+            "redirect_url": "/azure/operator-nexus/quickstarts-tenant-workload-deployment",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/operator-nexus/template-cloud-native-network-function-deployment.md",
+            "redirect_url": "/azure/operator-nexus/quickstarts-kubernetes-cluster-deployment-cli",
             "redirect_document_id": false
         },
         {
