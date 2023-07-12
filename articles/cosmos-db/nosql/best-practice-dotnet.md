@@ -113,7 +113,7 @@ Applications that distribute usage across multiple tenants where each tenant is 
 
 However, when each tenant is represented by a **different Azure Cosmos DB account** [connections](sdk-connection-modes.md#direct-mode-connection-architecture) can increase beyond the environment limits and cause [connectivity issues](conceptual-resilient-sdk-applications.md#client-instances-and-connections). While the singleton pattern still applies (one client for each account for the lifetime of the application), if the volume of tenants is high, the number of clients would also be high.
 
-It is recommended in these cases to:
+It's recommended in these cases to:
 
 * Understand the limitations of the compute environment (CPU and connection resources).
 * Based on the limitations, understand the limit of client instances / tenants a single compute instance can handle.
