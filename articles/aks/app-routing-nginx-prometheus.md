@@ -134,7 +134,7 @@ Then upload the desired dashboard file and click on **Load**.
 
 ### Ingress-nginx controller dashboard
 
-This dashboard gives you visibility of request volume, connections, success rates, config reloads and configs out of sync. You can also use it to view the network IO pressure, memory and CPU use of the ingress controller. Finally, it also shows the  P50, P95, and P99 percentile response times of your ingresses and their throughput.
+This dashboard gives you visibility of request volume, connections, success rates, config reloads and configs out of sync. You can also use it to view the network IO pressure, memory and CPU use of the ingress controller. Finally, it also shows the P50, P95, and P99 percentile response times of your ingresses and their throughput.
 
 You can download this dashboard from [GitHub][grafana-nginx-dashboard].
 
@@ -142,7 +142,7 @@ You can download this dashboard from [GitHub][grafana-nginx-dashboard].
 
 ### Request handling performance dashboard
 
-This dashboard gives you visibility into the request handling performance of the different ingress upstream destinations, which are your application's endpoints that the ingress controller is forwarding traffic to. It shows the P50, P95 and P99 percentile of total request and upstream response times. You can also view aggregates of request errors and latency. Use this dashboard to review and improve the performance and scalbility of your applications.
+This dashboard gives you visibility into the request handling performance of the different ingress upstream destinations, which are your applications' endpoints that the ingress controller is forwarding traffic to. It shows the P50, P95 and P99 percentile of total request and upstream response times. You can also view aggregates of request errors and latency. Use this dashboard to review and improve the performance and scalbility of your applications.
 
 You can download this dashboard from [GitHub][grafana-nginx-request-performance-dashboard].
 
