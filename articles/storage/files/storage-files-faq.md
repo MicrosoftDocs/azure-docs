@@ -105,7 +105,7 @@ ms.topic: conceptual
 
   Using ABE with Azure Files isn't currently supported, but you can [use DFS-N with SMB Azure file shares](files-manage-namespaces.md#access-based-enumeration-abe).
    
-### AD DS & Azure AD DS Authentication
+### Identity-based authentication
 * <a id="ad-support-devices"></a>
 **Does Azure Active Directory Domain Services (Azure AD DS) support SMB access using Azure AD credentials from devices joined to or registered with Azure AD?**
 
