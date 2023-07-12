@@ -38,11 +38,11 @@ items:
   expanded: true
 - name: Concepts
   items:
-  - name: Resources
+  - name: NAT gateway resource
     href: nat-gateway-resource.md
   - name: Metrics and alerts
     href: nat-metrics.md
-  - name: Resource Health
+  - name: Resource health
     href: resource-health.md
   - name: Availability zones
     href: nat-availability-zones.md
