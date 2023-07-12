@@ -124,14 +124,6 @@ There are two [official ingress-nginx dashboards](https://github.com/kubernetes/
 - Ingress-nginx controller dashboard
 - Request handling performance dashboard
 
-To import a Grafana dashboard, expand the left menu and click on **Import** under Dashboards.
-
-![Screenshot of a browser showing the Grafana instance with Import dashboard highlighted](media/app-routing/grafana-import.png)
-
-Then upload the desired dashboard file and click on **Load**.
-
-![Screenshot of a browser showing the Grafana instance import dashboard dialog](media/app-routing/grafana-import-json.png)
-
 ### Ingress-nginx controller dashboard
 
 This dashboard gives you visibility of request volume, connections, success rates, config reloads and configs out of sync. You can also use it to view the network IO pressure, memory and CPU use of the ingress controller. Finally, it also shows the P50, P95, and P99 percentile response times of your ingresses and their throughput.
@@ -148,6 +140,15 @@ You can download this dashboard from [GitHub][grafana-nginx-request-performance-
 
 ![Screenshot of a browser showing the ingress-nginx request handling performance dashboard on Grafana](media/app-routing/grafana-dashboard-2.png)
 
+### Importing a dashboard
+
+To import a Grafana dashboard, expand the left menu and click on **Import** under Dashboards.
+
+![Screenshot of a browser showing the Grafana instance with Import dashboard highlighted](media/app-routing/grafana-import.png)
+
+Then upload the desired dashboard file and click on **Load**.
+
+![Screenshot of a browser showing the Grafana instance import dashboard dialog](media/app-routing/grafana-import-json.png)
 ## Next steps
 
 - You can configure scaling your workloads using ingress metrics scraped with Prometheus using [Kubernetes Event Driven Autoscaler (KEDA)][KEDA]. Learn more about [integrating KEDA with AKS][keda-prometheus].
