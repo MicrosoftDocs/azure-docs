@@ -113,8 +113,8 @@ This section provides the steps to use [OAuth 2.0 Resource Owner Password Creden
    export PASSWORD='<user-password>'
    export TENANT_ID=<tenant-ID-of-your-Azure-AD>
    curl -H "Content-Type: application/x-www-form-urlencoded" \
-     -d "grant_type=password&client_id=$CLIENT_ID&scope=api://simple-todo/SimpleToDo.Admin&client_secret=$CLIENT_SECRET&username=$USERNAME&password=$PASSWORD" \
-     "https://login.microsoftonline.com/$TENANT_ID/oauth2/v2.0/token"
+     -d "grant_type=password&client_id=${CLIENT_ID}&scope=api://simple-todo/SimpleToDo.User%20api://simple-todo/SimpleToDo.Admin&client_secret=${CLIENT_SECRET}&username=${USERNAME}&password=${PASSWORD}" \
+     "https://login.microsoftonline.com/${TENANT_ID}/oauth2/v2.0/token"
    ```
 
 1. Look for the **access_token** value, and then record it for later use. You need it to access REST APIs.
