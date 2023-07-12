@@ -116,10 +116,16 @@ When user's use unsupported browsers it can be difficult to diagnose call issues
 
 - To learn more, see: [How to verify if your application is running in a web browser supported by Azure Communication Services](../../how-tos/calling-sdk/browser-support.md).
 
-<!-- If they run network diagnostics tool / pre-call this would already be checked, what's the use case here? -->
 
-<!-- 
-why not run only device access, enumeration, separately?  -->
+### Conflicting call clients
+
+Sometimes users may have multiple browser tabs running separate instances of Azure
+  Communication Services. This can happen if they forgot to close their previous tab, or they were unable to join a call initially and start their call join experience from an email link which opened a separate mobile browser tab. However it happens this can cause disruptions to audio and video
+  behavior on the target call. You can pro-actively notify customers to close their excess tabs, or circumvent this from happening with useful messaging if they are unable to join a call initially.
+
+ - To check if user has multiple instances
+  of ACS running in a browser, see: [How to detect if an application using Azure Communication Services' SDK is active in multiple tabs of a browser](../../how-tos/calling-sdk/is-sdk-active-in-multiple-tabs.md).
+
 ## During a call
 
 **In-call communication** – During a call, a user’s network conditions
@@ -143,16 +149,6 @@ When a user is in a call it's important to proactively notify them in real-time 
 
 
 - For more information, please see: [User Facing Diagnostics](user-facing-diagnostics.md).
-
-
-### Conflicting call clients
-
-Sometimes users may have multiple browser tabs running separate instances of Azure
-  Communication Services. This can happen if they forgot to close their previous tab, or they were unable to join a call initially and start their call join experience from an email link which opened a separate mobile browser tab. However it happens this can cause disruptions to audio and video
-  behavior on the target call. You can pro-actively notify customers to close their excess tabs, or circumvent this from happening with useful messaging if they are unable to join a call initially.
-
- - To check if user has multiple instances
-  of ACS running in a browser, see: [How to detect if an application using Azure Communication Services' SDK is active in multiple tabs of a browser](../../how-tos/calling-sdk/is-sdk-active-in-multiple-tabs.md).
 
 
 ### Video Constraints
@@ -181,7 +177,7 @@ Since network conditions can change during a call, users can report poor audio a
 
 ### End of Call Survey 
 
-The End of Call Survey provides you with a tool to understand how your end users perceive the overall quality and reliability of your JavaScript / Web SDK calling solution. The survey can be modified to various survey formats if already have a survey solution in place. Customer feedback is invaluable, after publishing survey data, you can view the survey results in Azure Monitor for analysis and improvements. Azure Communication Services also uses the survey API results to monitor and improve your quality and reliability.  
+Customer feedback is invaluable, the End of Call Survey provides you with a tool to understand how your end users perceive the overall quality and reliability of your JavaScript / Web SDK calling solution. The survey can be modified to various survey formats if already have a survey solution in place. After publishing survey data, you can view the survey results in Azure Monitor for analysis and improvements. Azure Communication Services also uses the survey API results to monitor and improve your quality and reliability.  
 
 - To learn more, see: [End of Call Survey overview](end-of-call-survey-concept.md)
 - To implement, see: [Tutorial: Use End of Call Survey to collect user feedback](../../tutorials/end-of-call-survey-tutorial.md)
@@ -191,12 +187,8 @@ The End of Call Survey provides you with a tool to understand how your end users
 ## After a call
 ### Monitoring and troubleshooting call quality
 
-Before you release and scale your Azure Communication Services calling
-solution, implement these quality and reliability monitoring capabilities
-to ensure you're collecting available logs and metrics. 
-
-**Analyze call data** – By collecting Media Statistics, User Facing
-  Diagnostics, and pre-call API information you can review calls with
+**Analyze call data** – By collecting data such as Media Statistics, User Facing
+  Diagnostics, and pre-call API information during a call you can review calls with
   poor quality to conduct root cause analysis. For example, media
   quality statistics showing high levels of packet loss and jitter
   without any user facing diagnostics could indicate poor network
@@ -211,7 +203,9 @@ to ensure you're collecting available logs and metrics.
   and video, you can proactively disable a user’s video or nudge a user
   to disable their video.
 
-
+Before you release and scale your Azure Communication Services calling
+solution, implement these quality and reliability monitoring capabilities
+to ensure you collecting available logs and metrics. These call data aren't stored unless you implement them.
 ### Call Summary and Call Diagnostics Logs
 
 Call logs show you important insights on individual calls and your
