@@ -99,7 +99,7 @@ To check if the **BypassPlatformSafetyChecksOnUserSchedule** is enabled, go to *
 **Enable on Windows VMs**
 
 ```
-PUT on `/subscriptions/subscription_id/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/myVirtualMachine?api-version=2023-03-01` 
+PATCH on `/subscriptions/subscription_id/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/myVirtualMachine?api-version=2023-03-01` 
 ```
 
 ```json
@@ -125,7 +125,7 @@ PUT on `/subscriptions/subscription_id/resourceGroups/myResourceGroup/providers/
 **Enable on Linux VMs**
 
 ```
-PUT on `/subscriptions/subscription_id/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/myVirtualMachine?api-version=2023-03-01` 
+PATCH on `/subscriptions/subscription_id/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/myVirtualMachine?api-version=2023-03-01` 
 ```
 
 ```json
@@ -198,7 +198,7 @@ To update the patch mode, follow these steps:
 **Enable on Windows VMs**
 
 ```
-PUT on `/subscriptions/subscription_id/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/myVirtualMachine?api-version=2023-03-01` 
+PATCH on `/subscriptions/subscription_id/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/myVirtualMachine?api-version=2023-03-01` 
 ```
 
 ```json
@@ -225,7 +225,7 @@ PUT on `/subscriptions/subscription_id/resourceGroups/myResourceGroup/providers/
 **Enable on Linux VMs**
 
 ```
-PUT on `/subscriptions/subscription_id/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/myVirtualMachine?api-version=2023-03-01` 
+PATCH on `/subscriptions/subscription_id/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/myVirtualMachine?api-version=2023-03-01` 
 ```
 
 ```json

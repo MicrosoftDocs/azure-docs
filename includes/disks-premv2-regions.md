@@ -18,7 +18,7 @@ Currently only available in the following regions:
 - Japan East (Two availability zones)
 - Korea Central (Two availability zones)
 - Sweden Central (Three availability zone)
-- Switzerland North (Two availability zones)
+- Switzerland North (Three availability zones)
 - UK South (Three availability zones)
 - Central US (One availability zone)
 - East US (Three availability zones)
