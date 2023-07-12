@@ -257,7 +257,7 @@ GET /snapshot?$select=name,status&api-version={api-version} HTTP/1.1
 | filters | yes | n/a | Count <br/> &nbsp;&nbsp;&nbsp;&nbsp; minimum: 1<br/> &nbsp;&nbsp;&nbsp;&nbsp; maximum: 3 |
 | filters[\<index\>].key | yes | n/a | |
 | tags | no | {} | |
-| filters[\<index\>].label | no | null | Multi-match label filters (E.g.: "*", "comma,separated") are not supported with 'key' composition type. |
+| filters[\<index\>].label | no | null | Multi-match label filters (E.g.: "*", "comma,separated") aren't supported with 'key' composition type. |
 | composition_type | no | key | |
 | retention_period | no | Standard tier <br/>&nbsp;&nbsp;&nbsp;&nbsp; 2592000 (30 days) <br/> Free tier <br/> &nbsp;&nbsp;&nbsp;&nbsp; 604800 (7 days) | Standard tier <br/> &nbsp;&nbsp;&nbsp;&nbsp; minimum: 3600 (1 hour) <br/> &nbsp;&nbsp;&nbsp;&nbsp; maximum: 7776000 (90 days) <br/> Free tier <br/> &nbsp;&nbsp;&nbsp;&nbsp; minimum: 3600 (1 hour) <br/> &nbsp;&nbsp;&nbsp;&nbsp; maximum: 604800 (7 days) |
 
@@ -391,7 +391,7 @@ An archived snapshot will be assigned an expiration date, based off the retentio
 After the expiration date passes, the snapshot will be permanently deleted.
 At any time before the expiration date, the snapshot's items can still be listed.
 
-Archiving a snapshot that is already `archived` does not affect the snapshot.
+Archiving a snapshot that is already `archived` doesn't affect the snapshot.
 
 - Required: `{name}`, `{status}`, `{api-version}`
 
@@ -448,7 +448,7 @@ Content-Type: application/problem+json; charset="utf-8"
 A snapshot in the `archived` state can be recovered.
 Once the snapshot is recovered the snapshot's expiration date is removed.
 
-Recovering a snapshot that is already `ready` does not affect the snapshot.
+Recovering a snapshot that is already `ready` doesn't affect the snapshot.
 
 - Required: `{name}`, `{status}`, `{api-version}`
 
