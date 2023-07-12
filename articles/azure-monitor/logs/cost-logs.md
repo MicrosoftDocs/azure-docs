@@ -67,7 +67,7 @@ Azure Commitment Discounts, such as discounts received from [Microsoft Enterpris
 
 ## Dedicated clusters
 
-An [Azure Monitor Logs dedicated cluster](logs-dedicated-clusters.md) is a collection of workspaces in a single managed Azure Data Explorer cluster. Dedicated clusters support advanced features, such as [customer-managed keys](customer-managed-keys.md), and use the same commitment-tier pricing model as workspaces, although they must have a commitment level of at least 500 GB per day. Any usage above the commitment level (overage) is billed at that same price per GB as provided by the current commitment tier. There's no pay-as-you-go option for clusters.
+An [Azure Monitor Logs dedicated cluster](logs-dedicated-clusters.md) is a collection of workspaces in a single managed Azure Data Explorer cluster. Dedicated clusters support advanced features, such as [customer-managed keys](customer-managed-keys.md), and use the same commitment-tier pricing model as workspaces, although they must have a commitment level of at least 100 GB per day. Any usage above the commitment level (overage) is billed at that same price per GB as provided by the current commitment tier. There's no pay-as-you-go option for clusters.
 
 The cluster commitment tier has a 31-day commitment period after the commitment level is increased. During the commitment period, the commitment tier level can't be reduced, but it can be increased at any time. When workspaces are associated to a cluster, the data ingestion billing for those workspaces is done at the cluster level by using the configured commitment tier level.
 
