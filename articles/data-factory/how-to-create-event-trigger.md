@@ -66,7 +66,7 @@ This section shows you how to create a storage event trigger within the Azure Da
 
 1. Select whether or not your trigger ignores blobs with zero bytes.
 
-1. After you configure you trigger, click on **Next: Data preview**. This screen shows the existing blobs matched by your storage event trigger configuration. Make sure you've specific filters. Configuring filters that are too broad can match a large number of files created/deleted and may significantly impact your cost. Once your filter conditions have been verified, click **Finish**.
+1. After you configure your trigger, click on **Next: Data preview**. This screen shows the existing blobs matched by your storage event trigger configuration. Make sure you've specific filters. Configuring filters that are too broad can match a large number of files created/deleted and may significantly impact your cost. Once your filter conditions have been verified, click **Finish**.
 
     :::image type="content" source="media/how-to-create-event-trigger/event-based-trigger-image-3.png" alt-text="Screenshot of storage event trigger preview page.":::
 
