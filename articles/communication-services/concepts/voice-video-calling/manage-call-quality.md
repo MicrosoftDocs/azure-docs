@@ -60,9 +60,9 @@ Before you release and scale your Azure Communication Services calling
 solution, implement the following capabilities to prevent and diagnose common quality and reliability issues that can occur in normal operation. Keep in mind, some of these call data aren't created or stored unless you implement them.
 
 The following sections explain tools by call phase: 
-- Before a call
-- During a call
-- After a call
+- **Before a call**
+- **During a call**
+- **After a call**
 
 ## Before a call
 **Pre-call readiness** – By using the pre-call checks ACS provides,
@@ -71,17 +71,19 @@ The following sections explain tools by call phase:
   connection is poor you can suggest they turn off their video before
   joining the call to have a better audio connection. 
 
-<!-- ~~You could also
+<!-- This is not possible yet ... ~~You could also
   have callers with poor network conditions join from [PSTN (Public
   Switched Telephone Network) voice
   calling](https://learn.microsoft.com/en-us/azure/communication-services/concepts/telephony/telephony-concept).~~ -->
-++ Permissions section.
 
-needs OS level permissions.
 
-needs device permission.
+<!-- TODO need to add a Permissions section. - filippos for input
 
-needs to return true for both Audio and Video. If false then know issues. --->> Blog post on this best practice . . . 
+- needs OS level permissions.
+
+- needs device permission.
+
+- needs to return true for both Audio and Video. If false then know issues. review the Blog post on this best practice . . .  -->
 
 
 ### Network Diagnostic Tool 
@@ -92,7 +94,7 @@ The Network Diagnostic Tool provides a hosted experience for
   connecting to the service to ensure a great call experience. The tool
   performs diagnostics on the network, devices, and call quality.
 
-  - By using the network diagnostic tool you can encourage users to resolve reliability issues and improve their network connection before joining a call.
+  - By using the network diagnostic tool you can encourage users to resolve reliability issues and improve their network connection before joining a call. 
 
 
 
@@ -104,7 +106,7 @@ The Network Diagnostic Tool provides a hosted experience for
 
 #### Pre-Call Diagnostics API
 
-If you're looking to build your own Network Diagnostic Tool or to perform a deeper integration of this tool into your application, you can leverage Pre-Call diagnostic APIs for the calling SDK. You can run a series of tests to ensure compatibility, connectivity, and device permissions with a test call and give users an opportunity to correct issues before calls begin.
+Maybe you want to build your own Network Diagnostic Tool or to perform a deeper integration of this tool into your application. If so, you can leverage the Pre-Call diagnostic APIs for that power the Network Diagnostic Tool for the calling SDK. This let's you run a series of tests to ensure compatibility, connectivity, and device permissions with a test call and give users an opportunity to correct issues before calls begin or perform specific checks when troubleshooting quality and reliability issues.
 
   <!-- - ~~If a user has a poor network connection, you can instruct them to
     join their audio from [PSTN (Public Switched Telephone Network)
@@ -112,17 +114,17 @@ If you're looking to build your own Network Diagnostic Tool or to perform a deep
     calling](https://learn.microsoft.com/en-us/azure/communication-services/concepts/telephony/telephony-concept)
     before they join.~~ -->
 
-  - For example, if their hardware test has an issue, you can notify the users
-    involved to manage expectations and change for future calls.
+  - For example, if a user's hardware test has an issue, you can notify the users
+    involved to manage expectations and change for future calls. 
 
 - For more information, please see: [Pre-Call diagnostic](pre-call-diagnostics.md).
 
-### Browser support
+<!-- ### Browser support
 
 When user's use unsupported browsers it can be difficult to diagnose call issues after they occur. To optimize call quality check if an application is running a supported browser before user's join to
   ensure they can properly support audio and video calling.
 
-- To learn more, see: [How to verify if your application is running in a web browser supported by Azure Communication Services](../../how-tos/calling-sdk/browser-support.md).
+- To learn more, see: [How to verify if your application is running in a web browser supported by Azure Communication Services](../../how-tos/calling-sdk/browser-support.md). -->
 
 
 ### Conflicting call clients
@@ -195,9 +197,9 @@ Customer feedback is invaluable, the End of Call Survey provides you with a tool
 ## After a call
 ### Monitor and troubleshoot call quality and reliability
 
-**Analyze call data** – We recommend you collect data such as Media Statistics, User Facing
-  Diagnostics, and pre-call API information so you can review calls with
-  poor quality to conduct root cause analysis. For example, media
+**Analyze call data** – By collecting call data such as Media Statistics, User Facing
+  Diagnostics, and pre-call API information you can review calls with
+  poor quality to conduct root cause analysis when troubleshooting issues. For example, a User Facing Diagnostic that is generated during a call may tell you the user had  media
   quality statistics showing high levels of packet loss and jitter
   without any user facing diagnostics could indicate poor network
   conditions. You can examine your Quality of Service network policy
