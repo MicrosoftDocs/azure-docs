@@ -51,7 +51,7 @@ To manage the service settings, open the **Settings** section and add a new entr
 
 :::image type="content" source="media/how-to-enterprise-application-configuration-service/config-service-settings-repositories.png" alt-text="Screenshot of the Azure portal showing the Application Configuration Service page with the Settings tab and Repositories section highlighted." lightbox="media/how-to-enterprise-application-configuration-service/config-service-settings-repositories.png":::
 
-The following table describes properties for each entry.
+The following table describes the properties for each entry.
 
 | Property      | Required? | Description                                                                                                                                                                                                                                                                                                                                  |
 |---------------|-----------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -70,9 +70,11 @@ Configuration is pulled from Git backends using what you define in a pattern. A 
 
 ### Authentication
 
-The following image shows the three types of repository authentication supported by Application Configuration Service for Tanzu.
+The following screenshot shows the three types of repository authentication supported by Application Configuration Service for Tanzu.
 
 :::image type="content" source="media/how-to-enterprise-application-configuration-service/config-service-auth.png" alt-text="Screenshot of the Azure portal showing the Application Configuration Service page with the Authentication type menu highlighted." lightbox="media/how-to-enterprise-application-configuration-service/config-service-auth.png":::
+
+The following list describes the three authentication types:
 
 - Public repository.
 
@@ -216,14 +218,15 @@ az spring application-configuration-service git repo add \
 
 ---
 
-## Configure TLS certificate to access Git backend with self-signed certificate for Gen2
+## Configure the TLS certificate to access the Git backend with a self-signed certificate for Gen2
 
 This is an optional step. If you use a self-signed certificate for the Git backend, you must configure the TLS certificate to access the Git backend.
-You will need to upload the certificate to Azure Spring Apps first. For more information, see the [Import a certificate](how-to-use-tls-certificate.md#import-a-certificate) section of [Use TLS/SSL certificates in your application in Azure Spring Apps](how-to-use-tls-certificate.md).
+
+You need to upload the certificate to Azure Spring Apps first. For more information, see the [Import a certificate](how-to-use-tls-certificate.md#import-a-certificate) section of [Use TLS/SSL certificates in your application in Azure Spring Apps](how-to-use-tls-certificate.md).
 
 ### [Azure portal](#tab/Portal)
 
-Use the following steps to configure TLS certificate:
+Use the following steps to configure the TLS certificate:
 
 1. Navigate to your service resource, and then select **Application Configuration Service**.
 1. Select **Settings** and add or update a new entry in the **Repositories** section with the Git backend information.
@@ -232,7 +235,7 @@ Use the following steps to configure TLS certificate:
 
 ### [Azure CLI](#tab/Azure-CLI)
 
-Use the following Azure CLI commands to to configure TLS certificate:
+Use the following Azure CLI commands to to configure the TLS certificate:
 
 ```azurecli
 az spring application-configuration-service git repo add \
