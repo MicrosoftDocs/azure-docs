@@ -104,7 +104,7 @@ Global Secure Access remote networks can be viewed and managed using Microsoft G
 1. Sign in to [Graph Explorer](https://aka.ms/ge).
 1. Select POST as the HTTP method. 
 1. Select BETA as the API version. 
-1. Add the following query to use Create Branches API (add hyperlink to the Graph API) 
+1. Add the following query to use Create Branches API 
     ```
     POST https://graph.microsoft.com/beta/networkaccess/connectivity/branches 
     { 
