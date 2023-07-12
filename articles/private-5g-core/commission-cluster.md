@@ -74,15 +74,17 @@ Run the following commands at the PowerShell prompt, specifying the object ID yo
 
 ```powershell
 Invoke-Command -Session $minishellSession -ScriptBlock {Set-HcsKubeClusterArcInfo -CustomLocationsObjectId *object ID*}
-
-Invoke-Command -Session $minishellSession -ScriptBlock {Enable-HcsAzureKubernetesService -f}
 ```
 
-Once you've run these commands, you should see an updated option in the local UI – **Kubernetes** becomes **Kubernetes (Preview)** as shown in the following image.
+Once you've run this command, you should see an updated option in the local UI – **Kubernetes** becomes **Kubernetes (Preview)** as shown in the following image.
 
 :::image type="content" source="media/commission-cluster/commission-cluster-kubernetes-preview.png" alt-text="Screenshot of configuration menu, with Kubernetes (Preview) highlighted.":::
 
-Additionally, if you go to the Azure portal and navigate to your **Azure Stack Edge** resource, you should see an **Azure Kubernetes Service** option. You'll set up the Azure Kubernetes Service in [Start the cluster and set up Arc](#start-the-cluster-and-set-up-arc).
+Select the **This Kubernetes cluster is for Azure Private 5G Core or SAP Digital Manufacturing Cloud workloads** checkbox.
+
+:::image type="content" source="media/commission-cluster/commission-cluster-checkbox.png" alt-text="Screenshot of the local UI with AP5GC configuration selected.":::
+
+If you go to the Azure portal and navigate to your **Azure Stack Edge** resource, you should see an **Azure Kubernetes Service** option. You'll set up the Azure Kubernetes Service in [Start the cluster and set up Arc](#start-the-cluster-and-set-up-arc).
 
 :::image type="content" source="media/commission-cluster/commission-cluster-ase-resource.png" alt-text="Screenshot of Azure Stack Edge resource in the Azure portal. Azure Kubernetes Service (PREVIEW) is shown under Edge services in the left menu.":::
 
