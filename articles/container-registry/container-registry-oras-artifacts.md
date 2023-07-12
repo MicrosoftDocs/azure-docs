@@ -390,7 +390,7 @@ In this article, a graph of supply chain artifacts is created, discovered, promo
 
 <!-- LINKS - external -->
 [docker-install]:           https://www.docker.com/get-started/
-[oci-artifact-manifest]:    https://github.com/opencontainers/image-spec/blob/main/artifact.md/
+[oci-artifact-manifest]:    https://github.com/opencontainers/image-spec/blob/main/manifest.md
 [oci-artifact-referrers]:   https://github.com/opencontainers/distribution-spec/blob/main/spec.md#listing-referrers/
 [oci-spec]:                 https://github.com/opencontainers/distribution-spec/blob/main/spec.md/
 [oci-1_1-spec]:             https://github.com/opencontainers/distribution-spec/releases/tag/v1.1.0-rc1

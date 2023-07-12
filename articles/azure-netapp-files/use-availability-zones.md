@@ -48,7 +48,7 @@ Latency is subject to availability zone latency for within availability zone acc
 
 ## Azure regions with availability zones
 
-For a list of regions that that currently support availability zones, refer to [Azure regions with availability zones](../availability-zones/az-overview.md#azure-regions-with-availability-zones).
+For a list of regions that that currently support availability zones, see [Azure regions with availability zone support](../reliability/availability-zones-service-support.md).
 
 ## Next steps
 

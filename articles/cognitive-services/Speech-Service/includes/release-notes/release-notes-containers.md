@@ -6,6 +6,31 @@ ms.date: 03/16/2023
 ms.author: eur
 ---
 
+### 2023-June release
+Add support for the latest model versions:
+- Custom speech to text 4.0.0
+- Speech to text 4.0.0
+- Neural text to speech 2.14.0
+
+On-premises speech to text images are upgraded to .NET 6.0
+Upgrade display models for locales including `en-us`, `ar-eg`, `ar-bh`, `ja-jp`, `ko-kr`, and more.
+Upgrade the speech to text container component to address vulnerability issues.
+
+Add support for locale voices `de-DE-AmalaNeural`,`de-AT-IngridNeural`,`de-AT-JonasNeural`, and `en-US-JennyMultilingualNeural`
+
+### 2023-May release
+
+Add support for the latest model versions:
+- Custom speech to text 3.14.0
+- Speech to text 3.14.0
+- Neural text to speech 2.13.0
+
+Fix the `he-IL` punctuation issue
+
+Fix vulnerability issues
+
+Add new locale voice `en-US-MichelleNeural`and `es-MX-CandelaNeural`
+
 ### 2023-April release
 
 Security Updates

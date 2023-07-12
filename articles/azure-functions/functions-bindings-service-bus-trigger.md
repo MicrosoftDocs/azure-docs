@@ -5,7 +5,7 @@ ms.assetid: daedacf0-6546-4355-a65c-50873e74f66b
 ms.topic: reference
 ms.date: 04/04/2023
 ms.devlang: csharp, java, javascript, powershell, python
-ms.custom: "devx-track-csharp, devx-track-python"
+ms.custom: devx-track-csharp, devx-track-python, devx-track-extended-java, devx-track-js
 zone_pivot_groups: programming-languages-set-functions-lang-workers
 ---
 
@@ -221,7 +221,7 @@ app = func.FunctionApp()
 @app.function_name(name="ServiceBusQueueTrigger1")
 @app.service_bus_queue_trigger(arg_name="msg", 
                                queue_name="<QUEUE_NAME>", 
-                               connection="<CONNECTION_SETTING">)
+                               connection="<CONNECTION_SETTING>")
 def test_function(msg: func.ServiceBusMessage):
     logging.info('Python ServiceBus queue trigger processed message: %s',
                  msg.get_body().decode('utf-8'))
@@ -516,7 +516,7 @@ In [C# class libraries](functions-dotnet-class-library.md), the attribute's cons
 
 # [Extension 5.x and higher](#tab/extensionv5/isolated-process)
 
-Messaging-specific types are not yet supported.
+[!INCLUDE [functions-bindings-service-bus-trigger-dotnet-isolated-types](../../includes/functions-bindings-service-bus-trigger-dotnet-isolated-types.md)]
 
 # [Functions 2.x and higher](#tab/functionsv2/isolated-process)
 

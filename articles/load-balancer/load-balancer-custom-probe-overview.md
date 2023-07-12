@@ -20,6 +20,18 @@ Health probes support multiple protocols. The availability of a specific health 
 | **[Probe protocol](#probe-protocol)** | TCP, HTTP, HTTPS | TCP, HTTP |
 | **[Probe down behavior](#probe-down-behavior)** | All probes down, all TCP flows continue. | All probes down, all TCP flows expire. | 
 
+## Probe properties
+
+Health probes have the following properties:
+
+| Health Probe property name | Details|
+| --- | --- | 
+| Name | Name of the health probe. This is a naame you get to define for your health probe |
+| Protocol | Protocol of health probe. This is the protocol type you would like the health probe to leverage. Options are: TCP, HTTP, HTTPS |
+| Port | Port of the health probe. The destination port you would like the health probe to use when it connects to the virtual machine to check it's health |
+| Interval (seconds) | Interval of health probe. The amount of time (in seconds) between different probe two consecutive health check attemps to the virtual machine |
+| Used by | The list of load balancer rules using this specific health probe. You should have at least one rule using the health probe for it to be effective |
+
 ## Probe configuration
 
 Health probe configuration consists of the following elements:

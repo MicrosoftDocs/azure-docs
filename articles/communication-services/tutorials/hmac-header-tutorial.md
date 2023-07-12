@@ -11,6 +11,7 @@ ms.date: 06/30/2021
 ms.topic: tutorial
 ms.service: azure-communication-services
 ms.subservice: identity
+ms.custom: devx-track-python
 zone_pivot_groups: acs-programming-languages-csharp-python
 ---
 

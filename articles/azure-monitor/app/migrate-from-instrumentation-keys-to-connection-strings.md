@@ -28,7 +28,7 @@ This article walks you through migrating from [instrumentation keys](separate-re
 1. Configure the Application Insights SDK by following [How to set connection strings](sdk-connection-string.md#set-a-connection-string).
 
 > [!IMPORTANT]
-> Using both a connection string and instrumentation key isn't recommended. Whichever was set last takes precedence.
+> Using both a connection string and instrumentation key isn't recommended. Whichever was set last takes precedence. Also, using both could lead to [missing data](#missing-data).
 
 ## Migration at scale
 
@@ -128,13 +128,13 @@ This section provides answers to common questions.
 
 The connection string is also included in the Resource Manager resource properties for your Application Insights resource, under the field name `ConnectionString`.
 
-### How does this affect auto-instrumentation?
+### How does this affect autoinstrumentation?
 
-Auto-instrumentation scenarios aren't affected.
+Autoinstrumentation scenarios aren't affected.
 
-### Can I use Azure AD authentication with auto-instrumentation?
+### Can I use Azure AD authentication with autoinstrumentation?
 
-You can't enable [Azure AD authentication](azure-ad-authentication.md) for [auto-instrumentation](codeless-overview.md) scenarios. We have plans to address this limitation in the future.
+You can't enable [Azure AD authentication](azure-ad-authentication.md) for [autoinstrumentation](codeless-overview.md) scenarios. We have plans to address this limitation in the future.
 
 ### What's the difference between global and regional ingestion?
 

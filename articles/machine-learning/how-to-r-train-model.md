@@ -14,7 +14,7 @@ ms.devlang: r
 
 # Run an R job to train a model
 
-[!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
+[!INCLUDE [cli v2](includes/machine-learning-cli-v2.md)]
 
 This article explains how to take the R script that you [adapted to run in production](how-to-r-modify-script-for-production.md) and set it up to run as an R job using the Azure Machine Learning CLI V2.
 

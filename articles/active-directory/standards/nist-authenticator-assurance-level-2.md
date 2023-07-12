@@ -37,8 +37,8 @@ The following table has authenticator types permitted for AAL2:
 | Hardware protected certificate (smartcard/security key/TPM) <br> FIDO 2 security key <br> Windows Hello for Business with hardware TPM | Multi-factor crypto hardware |
 |Microsoft Authenticator app (Passwordless)  | Multi-factor out-of-band
 | **Additional methods** |  |
-| Password <br> **AND** <br>- Microsoft Authenticator app (Push Notification) <br>- **OR** <br>- Phone (SMS) | Memorized secret <br>**AND**<br> Single-factor out-of-band |
-| Password <br> **AND** <br>- OATH hardware tokens (preview) <br>- **OR**<br>- Microsoft Authenticator app (OTP)<br>- **OR**<br>- OATH software tokens | Memorized secret <br>**AND** <br>Single-factor OTP|
+| Password <br> **AND** <br>- Microsoft Authenticator app (Push Notification) <br>- **OR** <br>- Microsoft Authenticator Lite (Push Notification) <br>- **OR** <br>- Phone (SMS) | Memorized secret <br>**AND**<br> Single-factor out-of-band |
+| Password <br> **AND** <br>- OATH hardware tokens (preview) <br>- **OR**<br>- Microsoft Authenticator app (OTP)<br>- **OR**<br>- Microsoft Authenticator Lite (OTP)<br>- **OR** <br>- OATH software tokens | Memorized secret <br>**AND** <br>Single-factor OTP|
 | Password <br>**AND** <br>- Single-factor software certificate <br>- **OR**<br>- Azure AD joined  with software TPM <br>- **OR**<br>- Hybrid Azure AD joined with software TPM  <br>- **OR**<br>- Compliant mobile device | Memorized secret <br>**AND**<br> Single-factor crypto software |
 | Password <br>**AND**<br>- Azure AD joined with hardware TPM <br>- **OR**<br>- Hybrid Azure AD joined with hardware TPM| Memorized secret <br>**AND**<br>Single-factor crypto hardware |
 

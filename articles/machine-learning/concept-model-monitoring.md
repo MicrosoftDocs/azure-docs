@@ -18,7 +18,7 @@ ms.custom: devplatv2
 
 In this article, you'll learn about model monitoring in Azure Machine Learning, the signals and metrics you can monitor, and the recommended practices for using model monitoring.
 
-[!INCLUDE [machine-learning-preview-generic-disclaimer](../../includes/machine-learning-preview-generic-disclaimer.md)]
+[!INCLUDE [machine-learning-preview-generic-disclaimer](includes/machine-learning-preview-generic-disclaimer.md)]
 
 Model monitoring is the last step in the machine learning end-to-end lifecycle. This step tracks model performance in production and aims to understand it from both data science and operational perspectives. Unlike traditional software systems, the behavior of machine learning systems is governed not just by rules specified in code, but also by model behavior learned from data. Data distribution changes, training-serving skew, data quality issues, shift in environment, or consumer behavior changes can all cause models to become stale and their performance to degrade to the point that they fail to add business value or start to cause serious compliance issues in highly regulated environments.
 
@@ -37,7 +37,7 @@ Azure Machine Learning provides the following capabilities for continuous model 
 * **Flexibility to define your monitoring signal**. If the built-in monitoring signals aren't suitable for your business scenario, you can define your own monitoring signal with a custom monitoring signal component.
 * **Flexibility to bring your own production inference data**. If you deploy models outside of Azure Machine Learning, or if you deploy models to Azure Machine Learning batch endpoints, you can collect production inference data and use that data in Azure Machine Learning for model monitoring.
 * **Flexibility to select data window**. You have the flexibility to select a data window for both the target dataset and the baseline dataset.
-    * By default, the data window for production inference data (the target dataset) is your monitoring frequency. That is, all data collected in the past monitoring period before the monitoring job is run will be used as the target dataset. You can use `lookback_period_days` to adjust the data window for the target dataset if needed.
+    * By default, the data window for production inference data (the target dataset) is your monitoring frequency. That is, all data collected in the past monitoring period before the monitoring job is run will be used as the target dataset. You can use `data_window_size` to adjust the data window for the target dataset if needed.
     * By default, the data window for the baseline dataset is the full dataset. You can adjust the data window by using either the date range or the `trailing_days` parameter.
 
 ## Monitoring signals and metrics
@@ -48,7 +48,7 @@ Azure Machine Learning model monitoring (preview) supports the following list of
 |--|--|--|--|--|--|
 | Data drift | Data drift tracks changes in the distribution of a model's input data by comparing it to the model's training data or recent past production data. | Jensen-Shannon Distance, Population Stability Index, Normalized Wasserstein Distance, Two-Sample Kolmogorov-Smirnov Test, Pearson's Chi-Squared Test | Classification (tabular data), Regression (tabular data) | Production data - model inputs | Recent past production data or training data |
 | Prediction drift | Prediction drift tracks changes in the distribution of a model's prediction outputs by comparing it to validation or test labeled data or recent past production data. | Jensen-Shannon Distance, Population Stability Index, Normalized Wasserstein Distance, Chebyshev Distance, Two-Sample Kolmogorov-Smirnov Test, Pearson's Chi-Squared Test | Classification (tabular data), Regression (tabular data) | Production data - model outputs | Recent past production data or validation data |
-| Data quality | Data quality tracks the data integrity of a model's input by comparing it to the model's training data or recent past production data. The data quality checks include checking for null values, type mismatch, or out-of-bounds of values. | Null value rate, type error rate, out-of-bound rate | Classification (tabular data), Regression (tabular data) | production data - model inputs | Recent past production data or training data |
+| Data quality | Data quality tracks the data integrity of a model's input by comparing it to the model's training data or recent past production data. The data quality checks include checking for null values, type mismatch, or out-of-bounds of values. | Null value rate, data type error rate, out-of-bounds rate | Classification (tabular data), Regression (tabular data) | production data - model inputs | Recent past production data or training data |
 | Feature attribution drift | Feature attribution drift tracks the importance or contributions of features to prediction outputs in production by comparing it to feature importance at training time | Normalized discounted cumulative gain | Classification (tabular data), Regression (tabular data) | Production data | Training data |
 
 ## How model monitoring works in Azure Machine Learning

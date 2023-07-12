@@ -1,5 +1,5 @@
 ---
-title: 'Quickstart: Multi-device Conversation - Speech Service'
+title: 'Quickstart: Multi-device Conversation - Speech service'
 titleSuffix: Azure Cognitive Services
 description: In this quickstart, you'll learn how to create and join clients to a multi-device conversation by using the Speech SDK.
 services: cognitive-services

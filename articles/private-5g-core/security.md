@@ -63,7 +63,7 @@ For more information on how to generate a Key Vault certificate, see [Certificat
 
 ## Personally identifiable information
 
-[Diagnostics packages](gather-diagnostics.md) may contain information from your site which may, depending on use, include data such as personal data, customer data, and system-generated logs. During this procedure, when providing the diagnostics package's *shared access signature* (SAS) URL to Azure support, you are explicitly giving Azure support permission to access the diagnostics package and any information that it contains. You should confirm that this is acceptable under your company's privacy policies and agreements.
+[Diagnostics packages](gather-diagnostics.md) may contain information from your site which may, depending on use, include data such as personal data, customer data, and system-generated logs. When providing the diagnostics package to Azure support, you are explicitly giving Azure support permission to access the diagnostics package and any information that it contains. You should confirm that this is acceptable under your company's privacy policies and agreements.
 
 ### Access authentication
 

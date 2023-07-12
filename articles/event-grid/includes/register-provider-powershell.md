@@ -7,7 +7,7 @@
  ms.topic: include
  ms.date: 07/05/2018
  ms.author: spelluru
- ms.custom: include file, devx-track-azurepowershell
+ms.custom: include file
 ---
 
 ## Enable Event Grid resource provider

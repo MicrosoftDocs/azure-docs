@@ -9,8 +9,7 @@ ms.author: pauljewell
 ms.service: storage
 ms.topic: how-to
 ms.date: 11/16/2022
-ms.subservice: blobs
-ms.custom: devx-track-java, devguide-java
+ms.custom: devx-track-java, devguide-java, devx-track-extended-java
 ---
 
 # Get started with Azure Blob Storage and Java
@@ -173,3 +172,4 @@ The following guides show you how to use each of these classes to build your app
 | [Delete and restore](storage-blob-delete-java.md) | Delete blobs, and if soft-delete is enabled, restore deleted blobs.  |
 | [Find blobs using tags](storage-blob-tags-java.md) | Set and retrieve tags as well as use tags to find blobs. |
 | [Manage properties and metadata (blobs)](storage-blob-properties-metadata-java.md) | Get and set properties and metadata for blobs. |
+| [Set or change a blob's access tier](storage-blob-use-access-tier-java.md) | Set or change the access tier for a block blob. |

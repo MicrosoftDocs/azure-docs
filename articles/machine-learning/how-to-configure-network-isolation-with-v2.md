@@ -16,14 +16,6 @@ ms.date: 09/07/2022
 # Network Isolation Change with Our New API Platform on Azure Resource Manager
 
 In this article, you'll learn about network isolation changes with our new v2 API platform on Azure Resource Manager (ARM) and its effect on network isolation.
-
-
-## Prerequisites
-
-* The [Azure Machine Learning Python SDK v1](/python/api/overview/azure/ml/install) or [Azure CLI extension for machine learning v1](./v1/reference-azure-machine-learning-cli.md).
-
-    > [!IMPORTANT]
-    > The v1 extension (`azure-cli-ml`) version must be 1.41.0 or greater. Use the `az version` command to view version information.
  
 ## What is the new API platform on Azure Resource Manager (ARM)
 
@@ -91,6 +83,10 @@ After the parameter has been implemented, the default value of the flag depends 
 To update v1_legacy_mode, use the following steps:
 
 # [Python SDK](#tab/python)
+
+
+> [!IMPORTANT]
+> If you want to disable the v2 API, use the [Azure Machine Learning Python SDK v1](/python/api/overview/azure/ml/install).
 
 To disable v1_legacy_mode, use [Workspace.update](/python/api/azureml-core/azureml.core.workspace(class)#update-friendly-name-none--description-none--tags-none--image-build-compute-none--service-managed-resources-settings-none--primary-user-assigned-identity-none--allow-public-access-when-behind-vnet-none-) and set `v1_legacy_mode=false`.
 

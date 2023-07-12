@@ -6,7 +6,7 @@ ms.author: jingwang
 ms.service: purview
 ms.subservice: purview-data-map
 ms.topic: how-to
-ms.date: 04/20/2023
+ms.date: 06/12/2023
 ms.custom: template-how-to
 ---
 
@@ -188,17 +188,30 @@ To create and run a new scan, follow these steps:
 
     1. **Warehouse**: Specify the name of the warehouse instance used to empower scan in capital case. The default role assigned to the user specified in the credential must have USAGE rights on this warehouse.
 
-    1. **Databases**: Specify one or more database instance names to import in capital case. Separate the names in the list with a semi-colon (;). The default role assigned to the user specified in the credential must have adequate rights on the database objects.
-
-    1. **Schema**: List subset of schemas to import expressed as a semicolon separated list. For example, `schema1; schema2`. All user schemas are imported if that list is empty. All system schemas and objects are ignored by default.
+    1. **Databases**: Specify one or more database instance names to import in capital case. Separate the names in the list with a semi-colon (;). For example, `db1;db2`. The default role assigned to the user specified in the credential must have adequate rights on the database objects.
         
-        Acceptable schema name patterns using SQL LIKE expressions syntax include using %. For example: `A%; %B; %C%; D`:
+        Acceptable database name patterns using SQL LIKE expressions syntax include using %. For example: `A%;%B;%C%;D`:
+        * Start with A or
+        * End with B or
+        * Contain C or
+        * Equal D
+
+    1. **Schema**: List subset of schemas to import expressed as a semicolon separated list. For example, `schema1;schema2`. All user schemas are imported if that list is empty. All system schemas and objects are ignored by default.
+        
+        Acceptable schema name patterns using SQL LIKE expressions syntax include using %. For example: `A%;%B;%C%;D`:
         * Start with A or
         * End with B or
         * Contain C or
         * Equal D
 
         Usage of NOT and special characters aren't acceptable.
+
+    1. **Stored procedure details**: Controls the number of details imported from stored procedures:
+
+        - Signature: The name and parameters of stored procedures.
+        - Code, signature: The name, parameters and code of stored procedures.
+        - Lineage, code, signature: The name, parameters and code of stored procedures, and the data lineage derived from the code.
+        - None: Stored procedure details aren't included.
 
     1. **Maximum memory available** (applicable when using self-hosted integration runtime): Maximum memory (in GB) available on customer's VM to be used by scanning processes. It's dependent on the size of Snowflake source to be scanned.
 

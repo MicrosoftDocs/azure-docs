@@ -11,7 +11,7 @@ ms.date: 06/30/2021
 ms.author: peiliu
 ms.reviewer: mikben
 zone_pivot_groups: acs-azcli-js-csharp-java-python
-ms.custom: mode-other
+ms.custom: mode-other, devx-track-extended-java, devx-track-js, devx-track-python
 ---
 
 # Quickstart: Authenticate using Azure Active Directory

@@ -62,8 +62,10 @@
       items:
       - name: Integrate a storage account
         href: ../cdn/cdn-create-a-storage-account-with-cdn.md?toc=/azure/frontdoor/TOC.json
-      - name: Create a profile and endpoint
+      - name: Create a profile and endpoint - Portal
         href: ../cdn/cdn-create-new-endpoint.md?toc=/azure/frontdoor/TOC.json
+      - name: Create a profile and endpoint - Azure CLI
+        href: ../cdn/scripts/cli/cdn-azure-cli-create-endpoint.md?toc=/azure/frontdoor/TOC.json
       - name: Create profile and endpoint - Bicep
         displayName: ARM, Resource Manager, Template
         href: ../cdn/create-profile-endpoint-bicep.md?toc=/azure/frontdoor/TOC.json
@@ -96,33 +98,6 @@
           href: ../cdn/cdn-custom-ssl.md?toc=/azure/frontdoor/TOC.json
         - name: Set caching rules
           href: ../cdn/cdn-caching-rules-tutorial.md?toc=/azure/frontdoor/TOC.json
-- name: Samples
-  items:
-    - name: Front Door
-      items:
-      - name: Standard/Premium
-        items:
-        - name: Bicep and Resource Manager Templates
-          href: front-door-quickstart-template-samples.md?pivots=front-door-standard-premium
-        - name: Terraform
-          href: terraform-samples.md?pivots=front-door-standard-premium
-      - name: Classic
-        items:
-        - name: Bicep and Resource Manager Templates
-          href: front-door-quickstart-template-samples.md?pivots=front-door-classic
-        - name: Deploy custom domain - Azure CLI
-          href: scripts/custom-domain.md
-        - name: Terraform
-          href: terraform-samples.md?pivots=front-door-classic
-    - name: CDN
-      items:
-        - name: Code samples
-          href: https://azure.microsoft.com/resources/samples/?service=cdn
-        - name: Microsoft (classic)
-          items:
-            - name: Create a profile and endpoint - Azure CLI
-              displayName: az cdn profile, az cdn endpoint, az cdn origin, az cdn custom-domain, cdn origin-group      
-              href: ../cdn/scripts/cli/cdn-azure-cli-create-endpoint.md?toc=/azure/frontdoor/TOC.json
 - name: Concepts
   items :
   - name: Front Door
@@ -278,10 +253,14 @@
       - name: Configure
         items:
         - name: Upgrade to Premium tier
-          href: tier-upgrade.md
-        - name: Configure endpoints
+          items:
+          - name: Azure portal
+            href: tier-upgrade.md
+          - name: Azure PowerShell
+            href: tier-upgrade-powershell.md
+        - name: Configure a new endpoint
           href: how-to-configure-endpoints.md
-        - name: Origins in origin group
+        - name: Add origins to origin group
           href: how-to-configure-origin.md
         - name: Set up managed identity
           href: managed-identity.md
@@ -336,9 +315,17 @@
     - name : Classic
       items:
       - name: Migrate to Standard or Premium tier
-        href: migrate-tier.md
+        items:
+        - name: Azure portal
+          href: migrate-tier.md
+        - name: Azure PowerShell
+          href: migrate-tier-powershell.md
       - name: Add a custom domain
-        href: front-door-custom-domain.md
+        items:
+        - name: Azure portal
+          href: front-door-custom-domain.md
+        - name: Azure CLI
+          href: scripts/custom-domain.md
       - name: Configure HTTPS on a custom domain
         href: front-door-custom-domain-https.md
       - name: Add a root or apex domain
@@ -646,6 +633,10 @@
         href: /cli/azure/afd
       - name: Azure PowerShell
         href: /powershell/module/az.cdn
+      - name: Bicep and Resource Manager Templates
+        href: front-door-quickstart-template-samples.md?pivots=front-door-standard-premium
+      - name: Terraform
+        href: terraform-samples.md?pivots=front-door-standard-premium
       - name: REST API
         href: /rest/api/frontdoor
       - name: Python SDK
@@ -660,6 +651,10 @@
         href: /cli/azure/afd/
       - name: Azure PowerShell
         href: /powershell/module/az.frontdoor
+      - name: Bicep and Resource Manager Templates
+        href: front-door-quickstart-template-samples.md?pivots=front-door-classic
+      - name: Terraform
+        href: terraform-samples.md?pivots=front-door-classic
       - name: REST API
         href: /rest/api/frontdoor/#front-door-classic
       - name: JavaScript SDK

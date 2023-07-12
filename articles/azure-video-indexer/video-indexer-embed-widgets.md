@@ -4,7 +4,7 @@ description: Learn how to embed Azure Video Indexer widgets in your apps.
 ms.topic: how-to
 ms.date: 01/10/2023
 ms.author: juliako
-ms.custom: devx-track-js
+ms.custom:
 ---
 
 # Embed Azure Video Indexer widgets in your apps

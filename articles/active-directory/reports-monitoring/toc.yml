@@ -105,6 +105,10 @@ items:
     href: /graph/api/resources/directoryaudit
   - name: Azure AD recommendations API reference
     href: /graph/api/resources/recommendations-api-overview
+  - name: Application credential activity API reference
+    href: /graph/api/resources/appcredentialsigninactivity
+  - name: Application sign-in activity API reference
+    href: /graph/api/resources/serviceprincipalsigninactivity
   - name: Sign-in logs API reference
     href: /graph/api/resources/signin
   - name: Audit activities

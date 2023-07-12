@@ -4,7 +4,7 @@ description: This tutorial shows you how to send messages to Azure Service Bus t
 ms.date: 04/12/2023
 ms.topic: quickstart
 ms.devlang: java
-ms.custom: mode-api
+ms.custom: mode-api, devx-track-extended-java
 ---
 
 # Send messages to an Azure Service Bus topic and receive messages from subscriptions to the topic (Java)

@@ -174,7 +174,7 @@ df = spark.read\
      .format("cosmos.olap")\
      .option("spark.synapse.linkedService","<your-linked-service-name>")\
      .option("spark.synapse.container","<your-container-name>")\
-     .option("spark.synapse.dropColumn","FirstName,LastName")\
+     .option("spark.cosmos.dropColumn","FirstName,LastName")\
      .load()
      
 # Removing multiple columns:
@@ -182,7 +182,7 @@ df = spark.read\
      .format("cosmos.olap")\
      .option("spark.synapse.linkedService","<your-linked-service-name>")\
      .option("spark.synapse.container","<your-container-name>")\
-     .option("spark.synapse.dropColumn","FirstName,LastName;StreetName,StreetNumber")\
+     .option("spark.cosmos.dropColumn","FirstName,LastName;StreetName,StreetNumber")\
      .option("spark.cosmos.dropMultiColumnSeparator", ";")\
      .load()  
 ```

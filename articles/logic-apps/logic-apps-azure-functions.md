@@ -6,7 +6,7 @@ ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: how-to
 ms.date: 03/07/2023
-ms.custom: devx-track-js
+ms.custom:
 ---
 
 # Create and run code from workflows in Azure Logic Apps using Azure Functions

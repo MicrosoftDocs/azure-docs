@@ -25,8 +25,7 @@ Get started with facial recognition using the Face REST API. The Face service pr
     * You can use the free pricing tier (`F0`) to try the service, and upgrade later to a paid tier for production.
 * [PowerShell version 6.0+](/powershell/scripting/install/installing-powershell-core-on-windows), or a similar command-line application.
 
-> [!div class="nextstepaction"]
-> <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=REST&Pillar=Vision&Product=Face&Page=quickstart&Section=Prerequisites" target="_target">I ran into an issue</a>
+
 
 ## Identify and verify faces
 
@@ -77,8 +76,7 @@ Get started with facial recognition using the Face REST API. The Face service pr
 
     The response should give you a boolean verification result along with a confidence value.
 
-> [!div class="nextstepaction"]
-> <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=REST&Pillar=Vision&Product=Face&Page=quickstart&Section=Identify-faces" target="_target">I ran into an issue</a>
+
 
 ## Clean up resources
 

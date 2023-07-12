@@ -79,7 +79,7 @@ items:
         href: sap-higher-availability-architecture-scenarios.md
       - name: Azure Availability Zones for SAP workloads
         href: high-availability-zones.md
-      - name: Azure Proximity Placement Groups for optimal network latency with SAP applications
+      - name: Configuration options for optimal network latency with SAP applications
         href: proximity-placement-scenarios.md
       - name: Public endpoint connectivity with Azure Load Balancer
         href: high-availability-guide-standard-load-balancer-outbound-connections.md

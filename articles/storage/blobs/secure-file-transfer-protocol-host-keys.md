@@ -4,7 +4,6 @@ titleSuffix: Azure Storage
 description: Find a list of valid host keys when using an SFTP client to connect with Azure Blob Storage.
 author: normesta
 
-ms.subservice: blobs
 ms.service: storage
 ms.topic: reference
 ms.date: 09/28/2022

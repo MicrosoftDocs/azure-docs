@@ -9,7 +9,7 @@ ms.service: data-factory
 ms.subservice: orchestration
 ms.topic: conceptual
 ms.date: 08/09/2022
-ms.custom: devx-track-python, devx-track-azurepowershell, synapse, devx-track-azurecli, devx-track-arm-template
+ms.custom: devx-track-python, devx-track-azurepowershell, synapse, devx-track-azurecli, devx-track-arm-template, devx-track-dotnet
 ---
 
 # Create a trigger that runs a pipeline on a schedule

@@ -37,13 +37,13 @@ The following table maps service types to corresponding required data types:
 
 | Service type | Agent (Windows Service name) | Purpose | Data type generated  |
 | --- | --- | --- | --- |  
-| Azure AD Connect (Sync) | Azure AD Connect Health Sync Insights Service | Collect AAD Connect-specific information (connectors, synchronization rules, etc.) | - AadSyncService-SynchronizationRules <br />  - AadSyncService-Connectors <br /> - AadSyncService-GlobalConfigurations  <br />  - AadSyncService-RunProfileResults <br /> - AadSyncService-ServiceConfigurations <br /> - AadSyncService-ServiceStatus   |
-|  | Azure AD Connect Health Sync Monitoring Service | Collect AAD Connect-specific perf counters, ETW traces, files | Performance counter |
+| Azure AD Connect (Sync) | Azure AD Connect Health Sync Insights Service | Collect Azure AD Connect-specific information (connectors, synchronization rules, etc.) | - AadSyncService-SynchronizationRules <br />  - AadSyncService-Connectors <br /> - AadSyncService-GlobalConfigurations  <br />  - AadSyncService-RunProfileResults <br /> - AadSyncService-ServiceConfigurations <br /> - AadSyncService-ServiceStatus   |
+|  | Azure AD Connect Health Sync Monitoring Service | Collect Azure AD Connect-specific perf counters, ETW traces, files | Performance counter |
 | AD DS | Azure AD Connect Health AD DS Insights Service | Perform synthetic tests, collect topology information, replication metadata |  - Adds-TopologyInfo-Json <br /> - Common-TestData-Json (creates the test results)   | 
 |  | Azure AD Connect Health AD DS Monitoring Service | Collect ADDS-specific perf counters, ETW traces, files | - Performance counter  <br /> - Common-TestData-Json (uploads the test results)  |
-| AD FS | Azure AD Connect Health AD FS Diagnostics Service | Perform synthetic tests | TestResult (creates the test results) | 
-| | Azure AD Connect Health AD FS Insights Service  | Collect ADFS usage metrics | Adfs-UsageMetrics |
-| | Azure AD Connect Health AD FS Monitoring Service | Collect ADFS-specific perf counters, ETW traces, files | TestResult (uploads the test results) |
+| AD FS | Microsoft Azure AD Connect Health Agent | Perform synthetic tests | TestResult (creates the test results) | 
+| | Microsoft Azure AD Connect Health Agent  | Collect ADFS usage metrics | Adfs-UsageMetrics |
+| | Microsoft Azure AD Connect Health Agent | Collect ADFS-specific perf counters, ETW traces, files | TestResult (uploads the test results) |
 
 ## Troubleshooting steps 
 
@@ -53,7 +53,7 @@ The steps required to diagnose the issue is given below. The first is a set of b
 > This alert follows Connect Health [data retention policy](reference-connect-health-user-privacy.md#data-retention-policy)
 
 * Make sure the latest versions of the agents are installed. View [release history](reference-connect-health-version-history.md). 
-* Make sure that Azure AD Connect Health Agents services are **running** on the machine. For example, Connect Health for AD FS should have three services.
+* Make sure that Microsoft Azure AD Connect Health Agents services are **running** on the machine. For example, Connect Health for AD FS should have two services.
   ![Verify Azure AD Connect Health](./media/how-to-connect-health-agent-install/install5.png)
 
 * Make sure to go over and meet the [requirements section](how-to-connect-health-agent-install.md#requirements).

@@ -31,7 +31,7 @@ Organizations with compliance requirements or risk management plans will have se
 
 To use Azure AD for an access review of access to an application, you must have one of the following licenses in your tenant:
 
-* Azure AD Premium P2
+* Microsoft Azure AD Premium P2 or Microsoft Entra ID Governance
 * Enterprise Mobility + Security (EMS) E5 license
 
 While using the access reviews feature does not require users to have those licenses assigned to them to use the feature, you'll need to have at least as many licenses in your tenant as the number of member (non-guest) users who will be configured as reviewers.

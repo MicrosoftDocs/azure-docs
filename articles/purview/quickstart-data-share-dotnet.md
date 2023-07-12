@@ -8,7 +8,7 @@ ms.subservice: purview-data-share
 ms.devlang: csharp
 ms.topic: quickstart
 ms.date: 02/16/2023
-ms.custom: mode-api, references-regions
+ms.custom: mode-api, references-regions, devx-track-azurepowershell, devx-track-dotnet
 ---
 
 # Quickstart: Share and receive data with the Microsoft Purview Data Sharing .NET SDK
