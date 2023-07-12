@@ -21,13 +21,17 @@ Ensure you have first deployed ALB Controller into your Kubernetes cluster.  You
 
 ## Create the Application Gateway for Containers resource
 
+Execute the following command to create the Application Gateway for Containers resource.
+
 ```azurecli-interactive
-RESOURCE_GROUP='<your resource group>'
-AGFC_NAME='alb-test'
+RESOURCE_GROUP='<your resource group name>'
+AGFC_NAME='alb-test' # Name of the Application Gateway for Containers resource to be created
 az network alb create -g $RESOURCE_GROUP -n $AGFC_NAME
 ```
 
 ## Create a Frontend resource
+
+Execute the following command to create the Application Gateway for Containers frontend resource.
 
 ```azurecli-interactive
 FRONTEND_NAME='test-frontend'
