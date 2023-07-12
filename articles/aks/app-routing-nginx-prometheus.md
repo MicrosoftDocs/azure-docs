@@ -166,14 +166,14 @@ Learn more about [integrating KEDA with AKS][keda-prometheus].
 
 <!-- LINKS - internal -->
 [az-aks-create]: /cli/azure/aks#az-aks-create
-[app-routing]: ./app-routing
+[app-routing]: /azure/aks/app-routing
 [managed-prometheus]: /azure/azure-monitor/essentials/prometheus-metrics-overview
 [managed-prometheus-configure]: /azure/azure-monitor/containers/container-insights-prometheus
 [managed-prometheus-custom-annotations]: /azure/azure-monitor/essentials/prometheus-metrics-scrape-configuration#pod-annotation-based-scraping
 [managed-grafana]: /azure/managed-grafana/overview
 [create-grafana]: /azure/managed-grafana/quickstart-managed-grafana-portal
 [access-grafana]: /azure/managed-grafana/quickstart-managed-grafana-portal#access-your-managed-grafana-instance
-[keda]: ./keda-about
+[keda]: /azure/aks/keda-about
 [keda-prometheus]: /azure/azure-monitor/essentials/integrate-keda#scalers
 [az-aks-show]: /cli/azure/aks#az-aks-show
 [az-aks-enable-addons]: /cli/azure/aks#az-aks-enable-addons
