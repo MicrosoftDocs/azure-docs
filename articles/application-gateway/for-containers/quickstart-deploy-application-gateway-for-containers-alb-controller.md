@@ -48,7 +48,7 @@ You need to complete the following tasks prior to deploying Application Gateway 
 	
 	```azurecli-interactive
  	AKS_NAME='<your cluster name>'
-	RESOURCE_GROUP='<the resource group of your AKS cluster>'
+	RESOURCE_GROUP='<your resource group name>'
 	az aks update -g $RESOURCE_GROUP -n $AKS_NAME --enable-oidc-issuer --enable-workload-identity --no-wait
 	```
 
@@ -56,7 +56,7 @@ You need to complete the following tasks prior to deploying Application Gateway 
  
 	```azurecli-interactive
 	AKS_NAME='<your cluster name>'
-	RESOURCE_GROUP='<the resource group of your AKS cluster>'
+	RESOURCE_GROUP='<your resource group name>'
 	LOCATION='northeurope' # The list of available regions may grow as we roll out to more preview regions
 	VM_SIZE='<the size of the vm in AKS>' # The size needs to be available in your location
 
@@ -85,7 +85,7 @@ You need to complete the following tasks prior to deploying Application Gateway 
 1. Create a user managed identity for ALB controller and federate the identity as Pod Identity to use in the AKS cluster.
 
     ```azurecli-interactive
-	RESOURCE_GROUP='<your resource group>'
+	RESOURCE_GROUP='<your resource group name>'
 	AKS_NAME='<your aks cluster name>'
 	IDENTITY_RESOURCE_NAME='azure-alb-identity'
 	
