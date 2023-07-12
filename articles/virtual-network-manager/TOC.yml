@@ -29,6 +29,8 @@
     href: faq.md
   - name: Use cases
     href: concept-use-cases.md
+  - name: limitations
+    href: concept-limitations.md
   - name: Scope
     href: concept-network-manager-scope.md
   - name: Network groups
