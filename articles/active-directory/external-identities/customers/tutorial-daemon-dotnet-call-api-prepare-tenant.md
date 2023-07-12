@@ -1,11 +1,11 @@
 ---
 title: "Tutorial: Register and configure .NET daemon app authentication details in a customer tenant"
-description: Learn about how to prepare your Azure Active Directory (Azure AD) tenant for customers to acquire an access token using client credentials flow in your dotnet daemon application
-services: active-directory
+description: Learn about how to prepare your Azure Active Directory (Azure AD) for customers tenant to acquire an access token using client credentials flow in your dotnet daemon application
+services: active-directorya
 author: SHERMANOUKO
 manager: mwongerapk
 
-ms.author: kengaderdus
+ms.author: shermanouko
 ms.service: active-directory
 ms.subservice: ciam
 ms.topic: tutorial

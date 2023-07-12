@@ -14,13 +14,11 @@ ms.date: 06/30/2023
 #Customer intent: As a dev, devops, I want to configure a sample dotnet daemon application that calls an API protected by Azure Active Directory (Azure AD) for customers tenant
 ---
 
-# Call an API in a sample dotnet daemon application 
+# Call an API in a sample .NET daemon application 
 
-This article uses a sample dotnet daemon application to show you how a daemon app acquires a token to call a protected web API. Azure Active Directory (Azure AD) for customers protects the Web API. 
+This article uses a sample dotnet daemon application to show you how a daemon application acquires a token to call a protected web API. Azure Active Directory (Azure AD) for customers protects the Web API. 
 
 A daemon application acquires a token on behalf of itself (not on behalf of a user). Users can't interact with a daemon application because it requires its own identity. This type of application requests an access token by using its application identity and presenting its application ID, credential (password or certificate), and application ID URI to Azure AD. 
-
-A daemon app uses the standard [OAuth 2.0 client credentials grant](../../develop/v2-oauth2-client-creds-grant-flow.md). To simplify the process of acquiring the token, the sample we use in this article uses [Microsoft Authentication Library for dotnet](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet).
 
 ## Prerequisites
 
@@ -38,7 +36,7 @@ In this step, you create the daemon and the web API application registrations, a
 
 [!INCLUDE [active-directory-b2c-app-integration-add-user-flow](./includes/register-app/register-api-app.md)]
 
-### Configure app roles
+### Configure application roles
 
 [!INCLUDE [active-directory-b2c-app-integration-add-user-flow](./includes/register-app/add-app-role.md)]
 
@@ -46,7 +44,7 @@ In this step, you create the daemon and the web API application registrations, a
 
 [!INCLUDE [active-directory-b2c-app-integration-add-user-flow](./includes/register-app/add-optional-claims-access.md)]
 
-### Register the daemon app
+### Register the daemon application
 
 [!INCLUDE [active-directory-b2c-register-app](./includes/register-app/register-client-app-common.md)]
 
@@ -54,34 +52,34 @@ In this step, you create the daemon and the web API application registrations, a
 
 [!INCLUDE [active-directory-b2c-app-integration-add-user-flow](./includes/register-app/add-app-client-secret.md)]
 
-### Grant API permissions to the daemon app
+### Grant API permissions to the daemon application
 
 [!INCLUDE [active-directory-b2c-app-integration-add-user-flow](./includes/register-app/grant-api-permissions-app-permissions.md)]
 
 ##  Clone or download sample daemon application and web API
 
-To get the web app sample code, you can do either of the following tasks:
+To get the web application sample code, you can do either of the following tasks:
 
 - [Download the .zip file](https://github.com/Azure-Samples/ms-identity-ciam-dotnet-tutorial/archive/refs/heads/main.zip) or clone the sample web application from GitHub by running the following command:
 
     ```console
         git clone https://github.com/Azure-Samples/ms-identity-ciam-dotnet-tutorial.git
     ```
-If you choose to download the *.zip* file, extract the sample app file to a folder where the total length of the path is 260 or fewer characters.
+If you choose to download the *.zip* file, extract the sample application file to a folder where the total length of the path is 260 or fewer characters.
 
-## Configure the sample daemon app and API
+## Configure the sample daemon application and API
 
-To use your app registration in the client web app sample:
+To use your app registration in the client web application sample:
 
-1. In your code editor, open *ToDoListClient\appsettings.json* file.
+1. In your code editor, open *ms-identity-ciam-dotnet-tutorial/2-Authorization/3-call-own-api-dotnet-core-daemon/ToDoListClient/appsettings.json* file.
 
 1. Find the placeholder:
 
-    - `Enter_the_Application_Id_Here` and replace it with the Application (client) ID of the daemon app you registered earlier.
+    - `Enter_the_Application_Id_Here` and replace it with the Application (client) ID of the daemon application you registered earlier.
      
     - `Enter_the_Tenant_Subdomain_Here` and replace it with the Directory (tenant) subdomain. For example, if your tenant primary domain is `contoso.onmicrosoft.com`, use `contoso`. If you don't have your tenant name, learn how to [read your tenant details](how-to-create-customer-tenant-portal.md#get-the-customer-tenant-details). 
     
-    - `Enter_the_Client_Secret_Here` and replace it with the daemon app secret value you copied earlier.
+    - `Enter_the_Client_Secret_Here` and replace it with the daemon application secret value you copied earlier.
     
     - `Enter_the_Web_Api_Application_Id_Here` and replace it with the Application (client) ID of the web API you copied earlier.
 
@@ -97,7 +95,7 @@ To use your app registration in the web API sample:
     
     - `Enter_the_Tenant_Subdomain_Here` and replace it with the Directory (tenant) subdomain. For example, if your tenant primary domain is `contoso.onmicrosoft.com`, use `contoso`. If you don't have your tenant name, learn how to [read your tenant details](how-to-create-customer-tenant-portal.md#get-the-customer-tenant-details).
 
-##  Run and test sample daemon app and API 
+##  Run and test sample daemon application and API 
 
 1. Open a console window, then run the web API by using the following commands:
 
@@ -112,7 +110,7 @@ To use your app registration in the web API sample:
     dotnet run
     ```
 
-If your daemon app and web API successfully run, you should see something similar to the following JSON array in your console window
+If your daemon application and web API successfully run, you should see something similar to the following JSON array in your console window
 
 ```bash
 Posting a to-do...
@@ -149,7 +147,7 @@ There are no to-do's in server
 
 ## How it works
 
-The dotnet daemon app uses [OAuth 2.0 client credentials grant](../../develop/v2-oauth2-client-creds-grant-flow.md) to acquire an access token for itself and not for the user. The access token that the app requests contains the permissions represented as roles. The client credential flow uses this set of permissions in place of user scopes for application tokens. You [exposed these application permissions](#configure-app-roles) in the web API earlier, then [granted them to the daemon app](#grant-api-permissions-to-the-daemon-app).
+The daemon application use [OAuth2.0 client credentials grant](../../develop/v2-oauth2-client-creds-grant-flow.md) to acquire an access token for itself and not for the user. The access token that the app requests contains the permissions represented as roles. The client credential flow uses this set of permissions in place of user scopes for application tokens. You [exposed these application permissions](#configure-application-roles) in the web API earlier, then [granted them to the daemon app](#grant-api-permissions-to-the-daemon-application). The daemon app in this article uses [Microsoft Authentication Library for dotnet](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet) to simplify the process of acquiring a token.
 
 On the API side, the web API must verify that the access token has the required permissions (application permissions). The web API rejects access tokens that doesn't have the required permissions. 
 

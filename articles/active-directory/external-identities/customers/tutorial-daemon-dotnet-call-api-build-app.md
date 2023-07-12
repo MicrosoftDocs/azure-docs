@@ -1,5 +1,5 @@
 ---
-title: "Tutorial: Call a protected web API from your dotnet daemon application"
+title: "Tutorial: Call a protected web API from your .NET daemon application"
 description: Learn about how to call a protected web API from your .NET client daemon app. 
 services: active-directory
 author: SHERMANOUKO
@@ -39,12 +39,13 @@ Before continuing with this tutorial, ensure you have all of the following items
 
     - `GET /api/todolist` to get all todos.
     - `POST /api/todolist` to add a todo.
+- [.NET 7.0](https://dotnet.microsoft.com/download/dotnet/7.0) or later. 
+- [Visual Studio Code](https://code.visualstudio.com/download) or another code editor.
 
 ##  1. Create a .NET daemon app
 
-1. Open the [integrated terminal](https://code.visualstudio.com/docs/editor/integrated-terminal).
-1. Navigate to the folder where you want your project to live.
-1. Initialize a .NET console app and navigate to its root folder
+1. Open your terminal and navigate to the folder where you want your project to live.
+1. Initialize a .NET console app and navigate to its root folder.
 
     ```dotnetcli
     dotnet new console -n ToDoListClient
@@ -102,7 +103,7 @@ dotnet add package Microsoft.Identity.Web.DownstreamApi
 
 ## 4. Add models
 
-Navigate to the root of your project folder and create a models folder. In the models folder, create a *ToDo.cs* file and add the following code:
+Navigate to the root of your project folder and create a *models* folder. In the *models* folder, create a *ToDo.cs* file and add the following code:
 
 ```csharp
 using System;
@@ -119,7 +120,7 @@ public class ToDo
 
 ## 5. Acquire access token
 
-You have now configured the required items in for your client daemon app. In this step, you write the code that enables the daemon app to acquire an access token.
+You have now configured the required items in for your daemon application. In this step, you write the code that enables the daemon app to acquire an access token.
 
 1. Open the *program.cs* file in your code editor and delete its contents.
 1. Add your packages to the file.
@@ -174,6 +175,8 @@ var firstNewToDo = await toDoApiClient.PostForAppAsync<ToDo, ToDo>(
         Owner = Guid.NewGuid(),
         Description = "Bake bread"
     });
+
+await DisplayToDosFromServer();
     
 async Task DisplayToDosFromServer()
 {
