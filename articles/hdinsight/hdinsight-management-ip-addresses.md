@@ -8,7 +8,7 @@ ms.date: 07/12/2023
 ---
 # HDInsight management IP addresses
 
-This article lists the IP addresses used by Azure HDInsight health and management services. If you use network security groups (NSGs) or user-defined routes (UDRs) you may need to add some of these IP addresses to the allowlist for inbound network traffic.
+This article lists the IP addresses used by Azure HDInsight health and management services. If you use network security groups (NSGs) or user-defined routes (UDRs), you may need to add some of these IP addresses to the allowlist for inbound network traffic.
 
 ## Introduction
  
@@ -17,7 +17,7 @@ This article lists the IP addresses used by Azure HDInsight health and managemen
 
 If you use network security groups (NSGs) or user-defined routes (UDRs) to control inbound traffic to your HDInsight cluster, you must ensure that your cluster can communicate with critical Azure health and management services.  Some of the IP addresses for these services are region-specific, and some of them apply to all Azure regions. You may also need to allow traffic from the Azure DNS service if you aren't using custom DNS.
 
-If you need IP addresses for a region not listed here, you can use the [Service Tag Discovery API](../virtual-network/service-tags-overview.md#use-the-service-tag-discovery-api) to find IP addresses for your region. If you are unable to use the API, download the [service tag JSON file](../virtual-network/service-tags-overview.md#discover-service-tags-by-using-downloadable-json-files) and search for your desired region.
+If you need IP addresses for a region not listed here, you can use the [Service Tag Discovery API](../virtual-network/service-tags-overview.md#use-the-service-tag-discovery-api) to find IP addresses for your region. If you're unable to use the API, download the [service tag JSON file](../virtual-network/service-tags-overview.md#discover-service-tags-by-using-downloadable-json-files) and search for your desired region.
 
 HDInsight does validation for these rules with cluster creation and scaling to prevent further errors. If validation doesn't pass, creation and scaling fail.
 
@@ -49,7 +49,7 @@ For information on the IP addresses to use for Azure Government, see the [Azure 
 
 For more information, see [Control network traffic](./control-network-traffic.md).
 
-If you're using user-defined routes (UDRs), you should specify a route and allow outbound traffic from the virtual network to the above IPs with the next hop set to "Internet".
+If you're using user-defined routes (UDRs), you should specify a route and allow outbound traffic from the virtual network to the above IPs with the next hop set to "Internet."
 
 ## Next steps
 
