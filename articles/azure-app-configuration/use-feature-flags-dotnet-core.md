@@ -35,11 +35,21 @@ In this tutorial, you will learn how to:
 
 ## Set up feature management
 
-To access the .NET Core feature manager, your app must have references to the `Microsoft.FeatureManagement.AspNetCore` NuGet package.
+To access the .NET feature manager, your app must have references to the `Microsoft.FeatureManagement.AspNetCore` NuGet package.
 
-The .NET feature manager is configured from the framework's native configuration system. As a result, you can define your application's feature flag settings by using any configuration source that .NET supports, including the local *appsettings.json* file or environment variables.
+The .NET feature manager is configured from the framework's native configuration system. As a result, you can define your application's feature flag settings by using any configuration source that .NET supports, including the local `appsettings.json` file or environment variables.
 
 By default, the feature manager retrieves feature flag configuration from the `"FeatureManagement"` section of the .NET Core configuration data. To use the default configuration location, call the [AddFeatureManagement](/dotnet/api/microsoft.featuremanagement.servicecollectionextensions.addfeaturemanagement) method of the **IServiceCollection** passed into the **ConfigureServices** method of the **Startup** class.
+
+### [.NET 6.0+](#tab/core6x)
+
+```csharp
+using Microsoft.FeatureManagement;
+
+builder.Services.AddFeatureManagement();
+```
+
+### [.NET 3.0+](#tab/core3x)
 
 ```csharp
 using Microsoft.FeatureManagement;
@@ -48,13 +58,24 @@ public class Startup
 {
     public void ConfigureServices(IServiceCollection services)
     {
-        ...
         services.AddFeatureManagement();
     }
 }
 ```
 
+---
+
 You can specify that feature management configuration should be retrieved from a different configuration section by calling [Configuration.GetSection](/dotnet/api/microsoft.web.administration.configuration.getsection) and passing in the name of the desired section. The following example tells the feature manager to read from a different section called `"MyFeatureFlags"` instead:
+
+### [.NET 6.0+](#tab/core6x)
+
+```csharp
+using Microsoft.FeatureManagement;
+
+builder.Services.AddFeatureManagement(Configuration.GetSection("MyFeatureFlags"));
+```
+
+### [.NET 3.0+](#tab/core3x)
 
 ```csharp
 using Microsoft.FeatureManagement;
@@ -69,10 +90,22 @@ public class Startup
 }
 ```
 
+---
+
 If you use filters in your feature flags, you must include the [Microsoft.FeatureManagement.FeatureFilters](/dotnet/api/microsoft.featuremanagement.featurefilters) namespace and add a call to [AddFeatureFilter](/dotnet/api/microsoft.featuremanagement.ifeaturemanagementbuilder.addfeaturefilter) specifying the type name of the filter you want to use as the generic type of the method. For more information on using feature filters to dynamically enable and disable functionality, see [Enable staged rollout of features for targeted audiences](./howto-targetingfilter-aspnet-core.md).
 
 The following example shows how to use a built-in feature filter called `PercentageFilter`:
 
+### [.NET 6.0+](#tab/core6x)
+
+```csharp
+using Microsoft.FeatureManagement;
+
+builder.Services.AddFeatureManagement()
+    .AddFeatureFilter<PercentageFilter>();
+```
+
+### [.NET 3.0+](#tab/core3x)
 
 ```csharp
 using Microsoft.FeatureManagement;
@@ -82,12 +115,13 @@ public class Startup
 {
     public void ConfigureServices(IServiceCollection services)
     {
-        ...
         services.AddFeatureManagement()
                 .AddFeatureFilter<PercentageFilter>();
     }
 }
 ```
+
+---
 
 Rather than hard coding your feature flags into your application, we recommend that you keep feature flags outside the application and manage them separately. Doing so allows you to modify flag states at any time and have those changes take effect in the application right away. The Azure App Configuration service provides a dedicated portal UI for managing all of your feature flags. The Azure App Configuration service also delivers the feature flags to your application directly through its .NET Core client libraries.
 
