@@ -1,7 +1,7 @@
 ---
 title: Deploy Azure dedicated hosts
 description: Deploy VMs and scale sets to dedicated hosts.
-author: vamckMS
+author: mattmcinnes
 ms.author: mattmcinnes
 ms.service: azure-dedicated-host
 ms.topic: how-to
@@ -9,7 +9,6 @@ ms.workload: infrastructure
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
 ms.date: 07/12/2023
 ms.reviewer: vamckMS
-#Customer intent: As an IT administrator, I want to learn about more about using a dedicated host for my Azure virtual machines
 ---
 
 # Deploy VMs and scale sets to dedicated hosts
@@ -96,16 +95,6 @@ az vm host group create \
 Add the `--automatic-placement true` parameter to have your VMs and scale set instances automatically placed on hosts, within a host group. For more information, see [Manual vs. automatic placement](dedicated-hosts.md#manual-vs-automatic-placement).
 
 Add the `--ultra-ssd-enabled true` parameter to enable creation of VMs that can support ultra disks.
-
-
-
-
-
-
-
-
-
-
 
 **Other examples**
 
@@ -213,7 +202,6 @@ $dHost = New-AzHost `
    -AutoReplaceOnFailure True `
    -PlatformFaultDomain 1
 ```
-
 
 ---
 

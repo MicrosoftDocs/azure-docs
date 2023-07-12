@@ -1,15 +1,15 @@
 ---
- title: Dedicated hosts include file
- description: Include file for dedicated hosts resize functionality
- services: virtual-machines
- author: mattmcinnes
- ms.topic: include
- ms.service: virtual-machines
- ms.subservice: azure-dedicated-host
- ms.date: 07/12/2023
- ms.author: mattmcinnes
- ms.reviewer: vamckMS
- ms.custom: include file
+title: Dedicated hosts include file
+description: Include file for dedicated hosts resize functionality
+services: virtual-machines
+author: mattmcinnes
+ms.topic: include
+ms.service: virtual-machines
+ms.subservice: azure-dedicated-host
+ms.date: 07/12/2023
+ms.author: mattmcinnes
+ms.reviewer: vamckMS
+ms.custom: include file
 ---
 
 Moving a host and all associated VMs to newer generation hardware can be done through the host resize feature. Resize simplifies the migration process and avoids having to manually create new hosts and move all VMs individually.
