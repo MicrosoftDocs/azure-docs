@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: sample
-ms.date: 03/09/2021
+ms.date: 07/12/2023
 ms.author: jomondi
 ms.reviewer: mifarca
 ---

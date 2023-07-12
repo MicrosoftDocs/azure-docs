@@ -29,7 +29,7 @@ You also can easily ensure that guest users have appropriate access. You can ask
 
 ## Prerequisites
 
-- Azure AD Premium P2
+- Microsoft Azure AD Premium P2 or Microsoft Entra ID Governance
 
 For more information, [License requirements](access-reviews-overview.md#license-requirements).
 

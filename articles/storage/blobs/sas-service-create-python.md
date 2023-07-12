@@ -9,7 +9,6 @@ ms.topic: how-to
 ms.date: 06/09/2023
 ms.author: pauljewell
 ms.reviewer: nachakra
-ms.subservice: blobs
 ms.devlang: python
 ms.custom: devx-track-python, devguide-python, engagement-fy23
 ---

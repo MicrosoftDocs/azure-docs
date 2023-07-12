@@ -34,18 +34,6 @@ This page updates monthly, so revisit it regularly. If you're looking for items 
 
 ## June 2023
 
-### Public Preview - Availability of Exchange Hybrid in Azure AD Connect cloud sync
-
-**Type:** New feature   
-**Service category:** Directory Management                       
-**Product capability:** Azure Active Directory Connect Cloud Sync                
-
-
-
-Exchange hybrid capability allows for the coexistence of Exchange mailboxes both on-premises and in Microsoft 365. Cloud Sync synchronizes a specific set of Exchange-related attributes from Azure AD back into your on-premises directory and to any forests that's disconnected (no network trust needed between them). With this capability, existing customers who have this feature enabled in Azure AD Connect sync can now migrate and leverage this feature with Azure AD cloud sync. For more information, see: ADD LINK
-
----
-
 ### Public Preview - New provisioning connectors in the Azure AD Application Gallery - June 2023
 
 **Type:** New feature   
@@ -87,7 +75,7 @@ The Entitlement Management service can now be targeted in the conditional access
 **Service category:** Azure Mobile App                             
 **Product capability:** End User Experiences                  
 
-The Azure Mobile app now includes a section for Azure Active Directory. Within Azure Active Directory on mobile, user can search for and view more details about user and groups. Additionally, permitted users can invite guest users to their active tenant, assign group memberships and ownerships for users, and view user sign-in logs. For more information, see: [What is Azure Active Directory?](../fundamentals/active-directory-whatis.md).
+The Azure Mobile app now includes a section for Azure Active Directory. Within Azure Active Directory on mobile, user can search for and view more details about user and groups. Additionally, permitted users can invite guest users to their active tenant, assign group memberships and ownerships for users, and view user sign-in logs. For more information, see: [Get the Azure mobile app](https://azure.microsoft.com/get-started/azure-portal/mobile-app/).
 
 ---
 
@@ -173,16 +161,6 @@ Hybrid IT Admins can now sync both Active Directory and Azure AD Directory Exten
 **Product capability:** Access Control               
 
 Restricted Management Administrative Units allow you to restrict modification of users, security groups, and device in Azure AD so that only designated administrators can make changes.  Global Administrators and other tenant-level administrators can't modify the users, security groups, or devices that are added to a restricted management admin unit. For more information, see: [Restricted management administrative units in Azure Active Directory (Preview)](../roles/admin-units-restricted-management.md).
-
----
-
-### Public Preview - Real-Time Threat Intelligence Detections
-
-**Type:** New feature   
-**Service category:** Identity Protection                        
-**Product capability:** Identity Security & Protection              
-
-To address emerging attacks, Identity Protection now includes Real-Time Threat Intelligence Detections, also referred to as Rapid Response Detections. When emerging attacks occur, Identity Protection will now dynamically issue new detections in response to these attacks. These detections utilize Microsoft’s threat intelligence in real-time, meaning Identity Protection detects emerging patterns of compromise during sign-in and challenge the user accordingly. For more information, see: ADD LINK
 
 ---
 
@@ -379,7 +357,7 @@ The Azure AD on-premises application provisioning feature now supports both the 
 **Service category:** Identity Protection                          
 **Product capability:** Identity Security & Protection               
 
-Identity Protection has added a new detection, using the Microsoft Threat Intelligence database, to detect sign-in's performed from IP addresses of known nation state and cyber-crime actors and allow customers to block these sign-in's by using risk-based conditional access policies. For more information, see: [Sign-in risk](../identity-protection/concept-identity-protection-risks.md#sign-in-risk).
+Identity Protection has added a new detection, using the Microsoft Threat Intelligence database, to detect sign-ins performed from IP addresses of known nation state and cyber-crime actors and allow customers to block these sign-ins by using risk-based conditional access policies. For more information, see: [Sign-in risk](../identity-protection/concept-identity-protection-risks.md).
 
 ---
 
@@ -830,7 +808,7 @@ Unfamiliar sign-in properties risk detection now provides risk reasons as to whi
 
 Identity Protection now surfaces the unfamiliar properties in the Azure portal on UX and in API as *Additional Info* with a user-friendly description explaining that *the following properties are unfamiliar for this sign-in of the given user*. 
 
-There's no additional work to enable this feature, the unfamiliar properties are shown by default. For more information, see: [Sign-in risk](../identity-protection/concept-identity-protection-risks.md#sign-in-risk).
+There's no additional work to enable this feature, the unfamiliar properties are shown by default. For more information, see: [Sign-in risk](../identity-protection/concept-identity-protection-risks.md).
 
 
 ---
