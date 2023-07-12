@@ -3,11 +3,10 @@ title: Release notes for the Azure File Sync agent
 description: Read the release notes for the Azure File Sync agent, which lets you centralize your organization's file shares in Azure Files.
 services: storage
 author: wmgries
-ms.service: storage
+ms.service: azure-file-storage
 ms.topic: conceptual
 ms.date: 4/18/2023
 ms.author: wgries
-ms.subservice: files
 ---
 
 # Release notes for the Azure File Sync agent
