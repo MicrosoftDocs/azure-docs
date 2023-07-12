@@ -41,9 +41,9 @@ None.
 
 The React plug-in for the Application Insights JavaScript SDK enables:
 
-- Track router changes
+- Track router history
 - React components usage statistics
-- Track uncaught exceptions
+- Track errors
 
 ### [React Native](#tab/reactnative)
 
@@ -57,12 +57,14 @@ The React Native plugin for Application Insights JavaScript SDK enables:
   - **Device Model Name** (Such as iPhone XS, Samsung Galaxy Fold, Huawei P30 Pro etc.)
   - **Device Type** (For example, handset, tablet, etc.)
 
+- Track errors
+
 ### [Angular](#tab/angular)
 
 The Angular plugin for the Application Insights JavaScript SDK enables:
 
-- Track router changes
-- Track uncaught exceptions
+- Track router history
+- Track errors
 
 > [!WARNING]
 > Angular plugin is NOT ECMAScript 3 (ES3) compatible.
@@ -247,9 +249,11 @@ export class AppComponent {
 
 ## Add configuration
 
-### [React](#tab/react)
+This section covers configuration settings for the framework extensions for Application Insights JavaScript SDK.
 
-### React router configuration
+### Track router history
+
+### [React](#tab/react)
 
 | Name    | Type   | Required? | Default | Description |
 |---------|--------|-----------|---------|------------------|
@@ -269,7 +273,120 @@ var appInsights = new ApplicationInsights({
 appInsights.loadAppInsights();
 ```
 
-### React components usage tracking
+### [React Native](#tab/reactnative)
+
+Not supported.
+
+### [Angular](#tab/angular)
+
+| Name    | Type   | Required? | Default | Description |
+|---------|--------|-----------|---------|------------------|
+| router  | object | Optional  | null    | Angular router for enabling Application Insights PageView tracking. |
+
+The following code example shows how to enable tracking of router history.
+
+```javascript
+import { Component } from '@angular/core';
+import { ApplicationInsights } from '@microsoft/applicationinsights-web';
+import { AngularPlugin } from '@microsoft/applicationinsights-angularplugin-js';
+import { Router } from '@angular/router';
+
+
+
+@Component({
+  selector: 'app-root',
+  templateUrl: './app.component.html',
+  styleUrls: ['./app.component.css']
+})
+export class AppComponent {
+    constructor(
+        private router: Router
+    ){
+        var angularPlugin = new AngularPlugin();
+        const appInsights = new ApplicationInsights({ config: {
+        connectionString: 'YOUR_CONNECTION_STRING',
+        extensions: [angularPlugin],
+        extensionConfig: {
+            [angularPlugin.identifier]: { router: this.router }
+        }
+        } });
+        appInsights.loadAppInsights();
+    }
+}
+```
+
+---
+
+### Track errors
+
+#### [React](#tab/react)
+
+[React error boundaries](https://react.dev/reference/react/Component#catching-rendering-errors-with-an-error-boundary) provide a way to gracefully handle an exception when it occurs within a React application. When such an error occurs, it's likely that the exception needs to be logged. The React plug-in for Application Insights provides an error boundary component that automatically logs the error when it occurs.
+
+```javascript
+import React from "react";
+import { reactPlugin } from "./AppInsights";
+import { AppInsightsErrorBoundary } from "@microsoft/applicationinsights-react-js";
+
+const App = () => {
+    return (
+        <AppInsightsErrorBoundary onError={() => <h1>I believe something went wrong</h1>} appInsights={reactPlugin}>
+            /* app here */
+        </AppInsightsErrorBoundary>
+    );
+};
+```
+
+The `AppInsightsErrorBoundary` requires two props to be passed to it. They're the `ReactPlugin` instance created for the application and a component to be rendered when an error occurs. When an unhandled error occurs, `trackException` is called with the information provided to the error boundary, and the `onError` component appears.
+
+#### [React Native](#tab/reactnative)
+
+Error tracking is enabled by default. If you want to disable it, set `disableExceptionCollection` to `true`.
+
+```javascript
+import { ApplicationInsights } from '@microsoft/applicationinsights-web';
+
+var RNPlugin = new ReactNativePlugin();
+var appInsights = new ApplicationInsights({
+    config: {
+        connectionString: 'YOUR_CONNECTION_STRING_GOES_HERE',
+        disableExceptionCollection: true,
+        extensions: [RNPlugin]
+    }
+});
+appInsights.loadAppInsights();
+```
+
+#### [Angular](#tab/angular)
+
+To track uncaught exceptions, set up ApplicationinsightsAngularpluginErrorService in `app.module.ts`:
+
+> [!IMPORTANT]
+> When using the ErrorService, there is an implicit dependency on the `@microsoft/applicationinsights-analytics-js` extension. you MUST include either the `'@microsoft/applicationinsights-web'` or include the `@microsoft/applicationinsights-analytics-js` extension. Otherwise, unhandled errors caught by the error service will not be sent.
+
+```js
+import { ApplicationinsightsAngularpluginErrorService } from '@microsoft/applicationinsights-angularplugin-js';
+
+@NgModule({
+  ...
+  providers: [
+    {
+      provide: ErrorHandler,
+      useClass: ApplicationinsightsAngularpluginErrorService
+    }
+  ]
+  ...
+})
+export class AppModule { }
+```
+
+---
+
+## Add configuration (remaining)
+
+### [React](#tab/react)
+
+### Track components usage
 
 To instrument React components with usage tracking, apply the `withAITracking` higher-order component function. To enable Application Insights for a component, wrap `withAITracking` around the component:
 
@@ -310,11 +427,7 @@ customMetrics
 > [!NOTE]
 > It can take up to 10 minutes for new custom metrics to appear in the Azure portal.
 
-### Use React Hooks
-
-[React Hooks](https://react.dev/reference/react) are an approach to state and lifecycle management in a React application without relying on class-based React components. The Application Insights React plug-in provides several Hooks integrations that operate in a similar way to the higher-order component approach.
-
-#### Use React Context
+### Use React Context
 
 The React Hooks for Application Insights are designed to use [React Context](https://react.dev/learn/passing-data-deeply-with-context) as a containing aspect for it. To use Context, initialize Application Insights, and then import the Context object:
 
@@ -381,7 +494,7 @@ It operates like the higher-order component, but it responds to Hooks lifecycle 
 
 #### useTrackEvent
 
-The `useTrackEvent` Hook is used to track any custom event that an application might need to track, such as a button click or other API call. It takes four arguments:
+Use the `useTrackEvent` Hook to track any custom event that an application might need to track, such as a button click or other API call. It takes four arguments:
 
 -   Application Insights instance, which can be obtained from the `useAppInsightsContext` Hook.
 -   Name for the event.
@@ -424,58 +537,11 @@ export default MyComponent;
 
 When the Hook is used, a data payload can be provided to it to add more data to the event when it's stored in Application Insights.
 
-### Track uncaught exceptions
-
-[React error boundaries](https://react.dev/reference/react/Component#catching-rendering-errors-with-an-error-boundary) provide a way to gracefully handle an exception when it occurs within a React application. When such an error occurs, it's likely that the exception needs to be logged. The React plug-in for Application Insights provides an error boundary component that automatically logs the error when it occurs.
-
-```javascript
-import React from "react";
-import { reactPlugin } from "./AppInsights";
-import { AppInsightsErrorBoundary } from "@microsoft/applicationinsights-react-js";
-
-const App = () => {
-    return (
-        <AppInsightsErrorBoundary onError={() => <h1>I believe something went wrong</h1>} appInsights={reactPlugin}>
-            /* app here */
-        </AppInsightsErrorBoundary>
-    );
-};
-```
-
-The `AppInsightsErrorBoundary` requires two props to be passed to it. They're the `ReactPlugin` instance created for the application and a component to be rendered when an error occurs. When an unhandled error occurs, `trackException` is called with the information provided to the error boundary, and the `onError` component appears.
-
 ### [React Native](#tab/reactnative)
 
-### IDeviceInfoModule
+### Collect device information
 
-Interface to abstract how the plugin can access the Device Info. This interface is a stripped down version of the `react-native-device-info` interface and is mostly supplied for testing.
-
-```typescript
-export interface IDeviceInfoModule {
-    /**
-     * Returns the Device Model
-     */
-    getModel: () => string;
-
-    /**
-     * Returns the device type
-     */
-    getDeviceType: () => string;
-
-    /**
-     * Returns the unique Id for the device. To support both the current version and previous
-     * versions react-native-device-info, this may return either a `string` or `Promise<string>`.
-     * When a promise is returned, the plugin will "wait" for the promise to `resolve` or `reject`
-     * before processing any events. This WILL cause telemetry to be BLOCKED until either of these
-     * states, so when returning a Promise, it MUST `resolve` or `reject`. Tt can't just never resolve.
-     * There is a default timeout configured via `uniqueIdPromiseTimeout` to automatically unblock
-     * event processing when this issue occurs.
-     */
-    getUniqueId: () => Promise<string> | string;
-}
-```
-
-If events are getting "blocked" because the `Promise` returned via `getUniqueId` is never resolved / rejected, you can call `setDeviceId()` on the plugin to "unblock" this waiting state. There is also an automatic timeout configured via `uniqueIdPromiseTimeout` (defaults to 5 seconds), which will internally call `setDeviceId()` with any previously configured value.
+Device information is automatically collected when you add the plug-in.
 
 ### Disable automatic device info collection
 
@@ -523,30 +589,38 @@ var appInsights = new ApplicationInsights({
 appInsights.loadAppInsights();
 ```
 
-### [Angular](#tab/angular)
+### Override the device information
 
-### Track uncaught exceptions
+Use the `IDeviceInfoModule` interface to abstract how the plug-in can access the Device Info. This interface is a stripped down version of the `react-native-device-info` interface and is mostly supplied for testing.
 
-To track uncaught exceptions, set up ApplicationinsightsAngularpluginErrorService in `app.module.ts`:
+```typescript
+export interface IDeviceInfoModule {
+    /**
+     * Returns the Device Model
+     */
+    getModel: () => string;
 
-> [!IMPORTANT]
-> When using the ErrorService, there is an implicit dependency on the `@microsoft/applicationinsights-analytics-js` extension. you MUST include either the `'@microsoft/applicationinsights-web'` or include the `@microsoft/applicationinsights-analytics-js` extension. Otherwise, unhandled errors caught by the error service will not be sent.
+    /**
+     * Returns the device type
+     */
+    getDeviceType: () => string;
 
-```js
-import { ApplicationinsightsAngularpluginErrorService } from '@microsoft/applicationinsights-angularplugin-js';
-
-@NgModule({
-  ...
-  providers: [
-    {
-      provide: ErrorHandler,
-      useClass: ApplicationinsightsAngularpluginErrorService
-    }
-  ]
-  ...
-})
-export class AppModule { }
+    /**
+     * Returns the unique Id for the device. To support both the current version and previous
+     * versions react-native-device-info, this may return either a `string` or `Promise<string>`.
+     * When a promise is returned, the plugin will "wait" for the promise to `resolve` or `reject`
+     * before processing any events. This WILL cause telemetry to be BLOCKED until either of these
+     * states, so when returning a Promise, it MUST `resolve` or `reject`. Tt can't just never resolve.
+     * There is a default timeout configured via `uniqueIdPromiseTimeout` to automatically unblock
+     * event processing when this issue occurs.
+     */
+    getUniqueId: () => Promise<string> | string;
+}
 ```
+
+If events are getting "blocked" because the `Promise` returned via `getUniqueId` is never resolved / rejected, you can call `setDeviceId()` on the plugin to "unblock" this waiting state. There is also an automatic timeout configured via `uniqueIdPromiseTimeout` (defaults to 5 seconds), which will internally call `setDeviceId()` with any previously configured value.
+
+### [Angular](#tab/angular)
 
 ### Chain more custom error handlers
 
