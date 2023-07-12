@@ -2,7 +2,7 @@
 title: Release notes for Microsoft Defender for Cloud
 description: This page is updated frequently with the latest updates in Defender for Cloud.
 ms.topic: overview
-ms.date: 07/09/2023
+ms.date: 07/12/2023
 ---
 
 # What's new in Microsoft Defender for Cloud?
@@ -26,10 +26,24 @@ Updates in July include:
 
 |Date |Update  |
 |---------|---------|
-|July 9 | [Support for disabling specific vulnerability findings](#support-for-disabling-specific-vulnerability-findings)
+| July 12 | [New Security alert in Defender for Servers plan 2: Detecting Potential Attacks leveraging Azure VM GPU driver extensions](#new-security-alert-in-defender-for-servers-plan-2-detecting-potential-attacks-leveraging-azure-vm-gpu-driver-extensions)
+| July 9 | [Support for disabling specific vulnerability findings](#support-for-disabling-specific-vulnerability-findings)
 | July 1 | [Data Aware Security Posture is now Generally Available](#data-aware-security-posture-is-now-generally-available) |
 
-### Support for disabling specific vulnerability findings
+
+### New security alert in Defender for Servers plan 2: detecting potential attacks leveraging Azure VM GPU driver extensions
+
+July 12, 2023
+
+This alert focuses on identifying suspicious activities leveraging Azure virtual machine **GPU driver extensions** and provides insights into attackers' attempts to compromise your virtual machines. The alert targets suspicious deployments of GPU driver extensions; such extensions are often abused by threat actors to utilize the full power of the GPU card and perform cryptojacking.
+
+| Alert Display Name <br> (Alert Type)  | Description | Severity | MITRE Tactic  |
+|---------|---------|---------|---------|
+| Suspicious installation of GPU extension in your virtual machine (Preview) <br> (VM_GPUDriverExtensionUnusualExecution) | Suspicious installation of a GPU extension was detected in your virtual machine by analyzing the Azure Resource Manager operations in your subscription. Attackers may use the GPU driver extension to install GPU drivers on your virtual machine via the Azure Resource Manager to perform cryptojacking. | Low | Impact |
+
+For a complete list of alerts, see the [reference table for all security alerts in Microsoft Defender for Cloud](alerts-reference.md).
+
+ ### Support for disabling specific vulnerability findings
 
 July 9, 2023
 
