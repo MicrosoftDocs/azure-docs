@@ -1,7 +1,7 @@
 ---
 title: How to prepare to deliver Extended Security Updates for Windows Server 2012 through Azure Arc
 description: Learn how to prepare to deliver Extended Security Updates for Windows Server 2012 through Azure Arc.
-ms.date: 07/06/2023
+ms.date: 07/12/2023
 ms.topic: conceptual
 ---
 
@@ -41,7 +41,4 @@ To prepare for this new offer, you need to plan and prepare to onboard your mach
 - **Networking:** Connectivity options include public endpoint, proxy server, and private link or Azure Express Route. Review the [networking prerequisites](network-requirements.md) to prepare their non-Azure environment for deployment to Azure Arc.
 
 We recommend you deploy your machines to Azure Arc in preparation for when the related Azure services deliver supported functionality to manage ESU. Once these machines are onboarded to Azure Arc-enabled servers, you'll have visibility into their ESU coverage and enroll through the Azure portal or using Azure Policy one month before Windows Server 2012 end of support. Billing for this service starts from October 2023, after Windows Server 2012 end of support.
-
-<!-->
-## Next steps
 
