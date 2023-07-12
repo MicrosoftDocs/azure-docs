@@ -69,7 +69,7 @@ echo $ALB_SUBNET_ID
 # [Reference existing VNet and Subnet](#tab/new-vnet)
 To reference an existing subnet, execute the following command to get the resource ID of the subnet:
 ```azurecli-interactive
-albSubnetId=az network vnet subnet list --resource-group $RESOURCE_GROUP --vnet-name vnet-test --query "[?name=='subnet-alb'].id" --output tsv
+ALB_SUBNET_ID=az network vnet subnet list --resource-group $RESOURCE_GROUP --vnet-name vnet-test --query "[?name=='subnet-alb'].id" --output tsv
 echo $ALB_SUBNET_ID
 ```
 
