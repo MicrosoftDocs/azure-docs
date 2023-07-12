@@ -214,6 +214,8 @@ az spring application-configuration-service git repo add \
     --label <git-branch-name>
 ```
 
+---
+
 ## Configure TLS certificate to access Git backend with self-signed certificate for Gen2
 
 This is an optional step. If you use a self-signed certificate for the Git backend, you must configure the TLS certificate to access the Git backend.
