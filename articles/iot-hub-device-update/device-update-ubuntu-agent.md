@@ -148,6 +148,10 @@ Read the license terms before you use a package. Your installation and use of a 
        },
    ```
 
+   :::image type="content" source="media/import-update/device-twin-ppr.png" alt-text="Screenshot that shows twin with tag information." lightbox="media/import-update/device-twin-ppr.png":::
+
+   _This screenshot shows the section where the tag needs to be added in the twin._
+
 ## Import the update
 
 1. Go to [Device Update releases](https://github.com/Azure/iot-hub-device-update/releases) in GitHub and select the **Assets** dropdown list. Download `Tutorial_IoTEdge_PackageUpdate.zip` by selecting it. Extract the contents of the folder to discover a sample APT manifest (sample-1.0.2-aziot-edge-apt-manifest.json) and its corresponding import manifest (sample-1.0.2-aziot-edge-importManifest.json).
