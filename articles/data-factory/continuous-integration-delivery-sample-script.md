@@ -36,12 +36,12 @@ The sample scripts to stop/ start triggers and update global parameters during r
 The following sample script can be used to stop triggers before deployment and restart them afterward. The script also includes code to delete resources that have been removed. Save the script in an Azure DevOps  git repository and reference it via an Azure PowerShell task the latest Azure PowerShell version.
 
 
-When running a pre-deployment script, you will need to specify a variation of the following parameters in the **Script Arguments** field.
+When running a predeployment script, you need to specify a variation of the following parameters in the **Script Arguments** field.
 
 `-armTemplate "$(System.DefaultWorkingDirectory)/<your-arm-template-location>" -ResourceGroupName <your-resource-group-name> -DataFactoryName <your-data-factory-name>  -predeployment $true -deleteDeployment $false`
 
 
-When running a post-deployment script, you will need to specify a variation of the following parameters in the **Script Arguments** field.
+When running a postdeployment script, you need to specify a variation of the following parameters in the **Script Arguments** field.
 
 `-armTemplate "$(System.DefaultWorkingDirectory)/<your-arm-template-location>" -ResourceGroupName <your-resource-group-name> -DataFactoryName <your-data-factory-name>  -predeployment $false -deleteDeployment $true`
 
@@ -50,8 +50,8 @@ When running a post-deployment script, you will need to specify a variation of t
 
 :::image type="content" source="media/continuous-integration-delivery/continuous-integration-image11.png" alt-text="Azure PowerShell task":::
 
-## Script execution and paramters - YAML Pipelines
-The following YAML code excecutes a script that can be used to stop triggers before deployment and restart them afterward. The script also includes code to delete resources that have been removed. If following the [New CI/CD Flow](continuous-integration-delivery-improvements.md) this script will be exported as part of artifact created via the npm publish package.
+## Script execution and parameters - YAML Pipelines
+The following YAML code executes a script that can be used to stop triggers before deployment and restart them afterward. The script also includes code to delete resources that have been removed. If you're following the steps outlined in [New CI/CD Flow](continuous-integration-delivery-improvements.md), this script is exported as part of artifact created via the npm publish package.
 
 ### Stop ADF Triggers
 ```
