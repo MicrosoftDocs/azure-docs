@@ -4,7 +4,7 @@ description: Learn about how to register an app in the customer tenant.
 services: active-directory
 author: csmulligan
 ms.author: cmulligan
-manager: celestedg
+manager: CelesteDG
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: ciam
@@ -71,7 +71,7 @@ This app signs in users. You can add delegated permissions to it, by following t
 
 [!INCLUDE [grant permision for signing in users](../customers/includes/register-app/grant-api-permission-sign-in.md)] 
 
-### If you want to call an API follow the steps below (optional):
+### To call an API follow the steps below (optional):
 [!INCLUDE [grant permisions for calling an API](../customers/includes/register-app/grant-api-permission-call-api.md)] 
 
 If you'd like to learn how to expose the permissions by adding a link, go to the [Web API](how-to-register-ciam-app.md?tabs=webapi) section.
@@ -122,7 +122,7 @@ This app signs in users. You can add delegated permissions to it, by following t
 ### Create a client secret 
 [!INCLUDE [add a client secret](../customers/includes/register-app/add-app-client-secret.md)]
 
-### If you want to call an API follow the steps below (optional):
+### To call an API follow the steps below (optional):
 [!INCLUDE [grant permissions for calling an API](../customers/includes/register-app/grant-api-permission-call-api.md)] 
 
 ## Next steps
@@ -139,7 +139,7 @@ This app signs in users. You can add delegated permissions to it, by following t
 
 [!INCLUDE [expose permissions](../customers/includes/register-app/add-api-scopes.md)]
 
-### If you want to add app roles follow the steps below (optional):
+### To add app roles follow the steps below (optional):
 
 [!INCLUDE [configure app roles](../customers/includes/register-app/add-app-role.md)]
 
@@ -181,7 +181,7 @@ The following steps show you how to register your app in the admin center:
 ### Add delegated permissions
 [!INCLUDE [grant permission for signing in users](../customers/includes/register-app/grant-api-permission-sign-in.md)]
 
-### If you want to call an API follow the steps below (optional):
+### To call an API follow the steps below (optional):
 [!INCLUDE [grant permissions for calling an API](../customers/includes/register-app/grant-api-permission-call-api.md)] 
 
 ## Next steps
@@ -194,7 +194,7 @@ The following steps show you how to register your app in the admin center:
 
 [!INCLUDE [register daemon app](../customers/includes/register-app/register-daemon-app.md)]
 
-### If you want to call an API follow the steps below (optional)
+### To call an API follow the steps below (optional)
 A daemon app signs-in as itself using the [OAuth 2.0 client credentials flow](/azure/active-directory/develop/v2-oauth2-client-creds-grant-flow), you add application permissions, which is required by apps that authenticate as themselves:
 
 [!INCLUDE [register daemon app](../customers/includes/register-app/grant-api-permissions-app-permissions.md)]
@@ -203,3 +203,16 @@ A daemon app signs-in as itself using the [OAuth 2.0 client credentials flow](/a
  
 - Learn more about a [daemon app that calls a web API in the daemon's name](/azure/active-directory/develop/authentication-flows-app-scenarios#daemon-app-that-calls-a-web-api-in-the-daemons-name)
 - [Create a sign-up and sign-in user flow](how-to-user-flow-sign-up-sign-in-customers.md)
+
+# [Microsoft Graph API](#tab/graphapi)
+## How to register a Microsoft Graph API application?
+[!INCLUDE [register client app](../customers/includes/register-app/register-client-app-common.md)]
+
+### Grant API Access to your application
+[!INCLUDE [grant api access to app](../customers/includes/register-app/grant-api-access-app.md)]
+
+### Create a client secret 
+[!INCLUDE [add app client secret](../customers/includes/register-app/add-app-client-secret.md)]
+
+## Next steps
+- Learn more how to manage [Azure Active Directory for customers resources with Microsoft Graph](microsoft-graph-operations.md)
