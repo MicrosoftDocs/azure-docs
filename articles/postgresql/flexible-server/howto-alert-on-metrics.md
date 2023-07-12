@@ -69,7 +69,7 @@ You can configure and get information about alert rules using:
 
 Azure Database for PostgreSQL Flexible server also supports multi-resource metric alert rule. You can monitor at scale by applying the same metric alert rule to multiple Flexible server instances in the same Azure region. Individual notifications are sent for each monitored resource.
 
-To [set up a new metric alert rule](../../azure-monitor/alerts/alerts-create-new-alert-rule.md#metric-alert), in the alert rule creation experience, in Scope definition (step 5.)  from the previous section use the checkboxes to select all the Azure PostgreSQL Flexible Server instances you want the rule to be applied to. 
+To [set up a new metric alert rule](../../azure-monitor/alerts/alerts-create-new-alert-rule.md), in the alert rule creation experience, in Scope definition (step 5.)  from the previous section use the checkboxes to select all the Azure PostgreSQL Flexible Server instances you want the rule to be applied to. 
 
 > [!IMPORTANT]
 > The resources you select must be within the same resource type, location, and subscription. Resources that do not fit these criteria are not selectable.
