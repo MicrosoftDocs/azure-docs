@@ -119,7 +119,9 @@ Maybe you want to build your own Network Diagnostic Tool or to perform a deeper 
 
 - For more information, please see: [Pre-Call diagnostic](pre-call-diagnostics.md).
 
-<!-- ### Browser support
+<!-- NOTE - developers can run a separate browser test now, but there's no use case specific to just doing that check we should highlight here.
+
+### Browser support
 
 When user's use unsupported browsers it can be difficult to diagnose call issues after they occur. To optimize call quality check if an application is running a supported browser before user's join to
   ensure they can properly support audio and video calling.
@@ -195,30 +197,12 @@ Customer feedback is invaluable, the End of Call Survey provides you with a tool
 
 
 ## After a call
-### Monitor and troubleshoot call quality and reliability
-
-**Analyze call data** – By collecting call data such as Media Statistics, User Facing
-  Diagnostics, and pre-call API information you can review calls with
-  poor quality to conduct root cause analysis when troubleshooting issues. For example, a User Facing Diagnostic that is generated during a call may tell you the user had  media
-  quality statistics showing high levels of packet loss and jitter
-  without any user facing diagnostics could indicate poor network
-  conditions. You can examine your Quality of Service network policy
-  to see if there was an unnecessary Virtual Private Network (VPN) that
-  added more network overhead to certain calls, or if an external clients
-  unmanaged network caused poor quality.
-
-  - **Note:** As a rule, we recommend prioritizing a user’s Audio
-  connection bandwidth before their video connection and both audio and video before
-  other network traffic. If a network is unable to support both audio
-  and video, you can proactively disable a user’s video or nudge a user
-  to disable their video.
-
-Before you release and scale your Azure Communication Services calling
+**Monitor and troubleshoot call quality and reliability** - Before you release and scale your Azure Communication Services calling
 solution, implement these additional quality and reliability monitoring capabilities
 to ensure you collecting available logs and metrics. These call data aren't stored unless you implement them.
 ### Call Summary and Call Diagnostics Logs
 
-After a call ends, Summary and Diagnostic logs are created to let you investigate individual calls and monitor your overall call quality and reliability. The following fields provide useful insight on user's  call's quality and reliability. 
+After a call ends, call logs are created to to help you investigate individual calls and monitor your overall call quality and reliability. The following fields provide useful insight on user's call quality and reliability. 
 
 
 - For more information, see: [Azure Communication Services Voice Calling and Video Calling logs](../analytics/logs/voice-and-video-logs.md). 
@@ -272,7 +256,19 @@ Once you have enabled logs, you can view call insights in your Azure Resource us
 
 
 #### End of Call Survey 
-Once you enable diagnostic settings to capture your survey data you can use our sample [call log queries](../analytics/query-call-logs.md) in Azure Log Analytics to analyze your user's perceived quality experience. 
+Once you enable diagnostic settings to capture your survey data you can use our sample [call log queries](../analytics/query-call-logs.md) in Azure Log Analytics to analyze your user's perceived quality experience. User feedback can show you call issues you didn't know you had and help you prioritize your quality improvements. 
+
+### Analyze your call data
+By collecting call data such as Media Statistics, User Facing Diagnostics, and pre-call API information you can review calls with
+  poor quality to conduct root cause analysis when troubleshooting issues. For example, a user may have an hour long call and report poor audio at one point in the call. 
+
+The call may have fired a User Facing Diagnostic telling you there was a severe problem with the incoming or outgoing media steam quality. If you've stored the [detailed media statistics](media-quality-sdk.md) from the call you can review when the UFD occurred to see if the video stream experienced high levels of packet loss, jitter, or latency around this time or if there were only issues on the audio stream. If both audio and video streams were impacted it could indicate a poor network condition due to an external client's unmanaged network, unnecessary network traffic at the same time due to improper Quality of Service (QoS) network prioritization policies, or an unnecessary Virtual Private Network (VPN). All of which can impact call quality. 
+
+  - **Note:** As a rule, we recommend prioritizing a user’s Audio
+  connection bandwidth before their video connection and both audio and video before
+  other network traffic. If a network is unable to support both audio
+  and video, you can proactively disable a user’s video or nudge a user
+  to disable their video.
 
 ### Other considerations
 <!-- - Considerations for Teams user data:
