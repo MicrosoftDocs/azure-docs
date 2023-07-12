@@ -16,7 +16,7 @@ ms.author: jeedes
 
 # Azure Active Directory SSO integration with SSO for Jama Connect®
 
-In this article, you'll learn how to integrate SSO for Jama Connect® with Azure Active Directory (Azure AD). Jama Software®’s industry-leading platform helps teams manage requirements with Live Traceability™ through the systems development process for proven cycle time reduction and quality improvement. When you integrate SSO for Jama Connect® with Azure AD, you can:
+In this article, you learn how to integrate SSO for Jama Connect® with Azure Active Directory (Azure AD). Jama Software®’s industry-leading platform helps teams manage requirements with Live Traceability™ through the systems development process for proven cycle time reduction and quality improvement. When you integrate SSO for Jama Connect® with Azure AD, you can:
 
 * Control in Azure AD who has access to SSO for Jama Connect®.
 * Enable your users to be automatically signed-in to SSO for Jama Connect® with their Azure AD accounts.
@@ -83,7 +83,7 @@ To configure single sign-on on **SSO for Jama Connect®** side, you need to send
 
 ### Create SSO for Jama Connect® test user
 
-In this section, a user called B.Simon is created in SSO for Jama Connect®. SSO for Jama Connect® supports just-in-time user provisioning, which is enabled by default. There is no action item for you in this section. If a user doesn't already exist in SSO for Jama Connect®, a new one is created after authentication.
+In this section, a user called B.Simon is created in SSO for Jama Connect®. SSO for Jama Connect® supports just-in-time user provisioning, which is enabled by default. There's no action item for you in this section. If a user doesn't already exist in SSO for Jama Connect®, a new one is created after authentication.
 
 ## Test SSO 
 
