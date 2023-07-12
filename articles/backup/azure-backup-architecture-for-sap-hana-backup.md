@@ -5,8 +5,8 @@ ms.topic: conceptual
 ms.date: 06/20/2023
 ms.service: backup
 ms.custom: ignite-2022
-author: jyothisuri
-ms.author: jsuri
+author: AbhishekMallick-MS
+ms.author: v-abhmallick
 ---
 # Azure Backup architecture for SAP HANA backup
 
