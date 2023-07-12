@@ -56,17 +56,6 @@ az network vnet create \
     --subnet-prefixes $SUBNET_ADDRESS_PREFIX \
 ```
 
-Enable subnet delegation for the Application Gateway for Containers service is identified by the Microsoft.ServiceNetworking/trafficControllers resource type.
-```azurecli-interactive
-az network vnet subnet update \
-    --resource-group $VNET_RESOURCE_GROUP  \
-    --name $ALB_SUBNET_NAME \
-    --vnet-name $VNET_NAME \
-    --delegations 'Microsoft.ServiceNetworking/trafficControllers'
-ALB_SUBNET_ID=$(az network vnet subnet list --resource-group $VNET_RESOURCE_GROUP --vnet-name $VNET_NAME --query "[?name=='subnet-alb'].id" --output tsv)
-echo $ALB_SUBNET_ID
-```
-
 # [Reference existing VNet and Subnet](#tab/existing-vnet-subnet)
 To reference an existing subnet, execute the following command to get the resource ID of the subnet:
 ```azurecli-interactive
@@ -78,6 +67,17 @@ echo $ALB_SUBNET_ID
 ```
 
 ---
+
+Enable subnet delegation for the Application Gateway for Containers service is identified by the Microsoft.ServiceNetworking/trafficControllers resource type.
+```azurecli-interactive
+az network vnet subnet update \
+    --resource-group $VNET_RESOURCE_GROUP  \
+    --name $ALB_SUBNET_NAME \
+    --vnet-name $VNET_NAME \
+    --delegations 'Microsoft.ServiceNetworking/trafficControllers'
+ALB_SUBNET_ID=$(az network vnet subnet list --resource-group $VNET_RESOURCE_GROUP --vnet-name $VNET_NAME --query "[?name=='$ALB_SUBNET_NAME'].id" --output tsv)
+echo $ALB_SUBNET_ID
+```
 
 ### Delegate permissions to managed identity
 ALB Controller will need the ability to provision new Application Gateway for Containers resources as well as join the subnet intended for the Application Gateway for Containers association resource.
