@@ -1,8 +1,8 @@
 - name: ALI for Epic documentation
   href: index.yml
-- name: Get started 
+- name: Getting started
   items:
-  - name: Onboarding requirements 
+  - name: Onboarding requirements
     href: onboarding-requirements.md
   - name: Quality checks
     href: quality-checks.md
@@ -11,8 +11,8 @@
 - name: Solution architecture
   items:
   - name: Architecture
-    href: architecture.md 
-  - name: Available SKUs 
+    href: architecture.md
+  - name: Available SKUs
     href: available-skus.md
 - name: Configuration
    items:
