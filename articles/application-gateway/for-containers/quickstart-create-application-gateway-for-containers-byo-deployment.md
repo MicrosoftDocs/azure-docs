@@ -22,7 +22,7 @@ Ensure you have first deployed ALB Controller into your Kubernetes cluster.  You
 ## Create the Application Gateway for Containers resource
 
 ```azurecli-interactive
-RESOURCE_GROUP='rg-test'
+RESOURCE_GROUP='<the resource group of your AKS cluster>'
 AGFC_NAME='alb-test'
 az network alb create -g $RESOURCE_GROUP -n $AGFC_NAME
 ```
@@ -43,13 +43,14 @@ To create an association resource, you first need to reference a subnet for Appl
 The following command will create a new virtual network and subnet with at least 250 IP addresses available.
 
 ```azurecli-interactive
-VNET_NAME=<name of the virtual network to use>
+VNET_NAME='<name of the virtual network to use>'
+VNET_RESOURCE_GROUP='<the resource group of your VNET>'
 VNET_ADDRESS_PREFIX='<address space of the vnet that will contain various subnets.  The vnet must be able to handle at least 250 available addresses (/24 or smaller cidr prefix for the subnet)>'
 SUBNET_ADDRESS_PREFIX='<an address space under the vnet that has at least 250 available addresses (/24 or smaller cidr prefix for the subnet)>'
 ALB_SUBNET_NAME='subnet-alb' # subnet name can be any non-reserved subnet name (i.e. GatewaySubnet, AzureFirewallSubnet, AzureBastionSubnet would all be invalid)
 az network vnet create \
     --name $VNET_NAME \
-    --resource-group $RESOURCE_GROUP \
+    --resource-group $VNET_RESOURCE_GROUP \
     --address-prefix $VNET_ADDRESS_PREFIX \
     --subnet-name $ALB_SUBNET_NAME \
     --subnet-prefixes $SUBNET_ADDRESS_PREFIX \
@@ -58,25 +59,28 @@ az network vnet create \
 Enable subnet delegation for the Application Gateway for Containers service is identified by the Microsoft.ServiceNetworking/trafficControllers resource type.
 ```azurecli-interactive
 az network vnet subnet update \
-    --resource-group $RESOURCE_GROUP  \
+    --resource-group $VNET_RESOURCE_GROUP  \
     --name $ALB_SUBNET_NAME \
     --vnet-name $VNET_NAME \
     --delegations 'Microsoft.ServiceNetworking/trafficControllers'
-ALB_SUBNET_ID=$(az network vnet subnet list --resource-group $RESOURCE_GROUP --vnet-name $VNET_NAME --query "[?name=='subnet-alb'].id" --output tsv)
+ALB_SUBNET_ID=$(az network vnet subnet list --resource-group $VNET_RESOURCE_GROUP --vnet-name $VNET_NAME --query "[?name=='subnet-alb'].id" --output tsv)
 echo $ALB_SUBNET_ID
 ```
 
 # [Reference existing VNet and Subnet](#tab/existing-vnet-subnet)
 To reference an existing subnet, execute the following command to get the resource ID of the subnet:
 ```azurecli-interactive
-ALB_SUBNET_ID=$(az network vnet subnet list --resource-group $RESOURCE_GROUP --vnet-name vnet-test --query "[?name=='subnet-alb'].id" --output tsv)
+VNET_NAME='<name of the virtual network to use>'
+VNET_RESOURCE_GROUP='<the resource group of your VNET>'
+ALB_SUBNET_NAME='subnet-alb' # subnet name can be any non-reserved subnet name (i.e. GatewaySubnet, AzureFirewallSubnet, AzureBastionSubnet would all be invalid)
+ALB_SUBNET_ID=$(az network vnet subnet list --resource-group $VNET_RESOURCE_GROUP --vnet-name $VNET_NAME --query "[?name=='$ALB_SUBNET_NAME'].id" --output tsv)
 echo $ALB_SUBNET_ID
 ```
 
 ---
 
 ### Delegate permissions to managed identity
-ALB Controller will need the ability to provision new Application Gateway for Containers resources as well as join the subnet intended for the Application Gateway for Containres association resource.
+ALB Controller will need the ability to provision new Application Gateway for Containers resources as well as join the subnet intended for the Application Gateway for Containers association resource.
 
 In this example, we will delegate the _AppGW for Containers Configuration Manager_ role to the resource group and delegate the _Network Contributor_ role to the subnet used by the Application Gateway for Containers association subnet, which contains the _Microsoft.Network/virtualNetworks/subnets/join/action_ permission.
 
