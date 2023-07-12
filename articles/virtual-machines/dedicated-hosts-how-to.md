@@ -411,7 +411,7 @@ Start-AzVM `
 ## Move a VM from dedicated host to multi-tenant infrastructure
 You can move a VM that is running on a dedicated host to multi-tenant infrastructure, but the VM must first be Stop\Deallocated.
 
-- Make sure that your subscription have sufficient vCPU quota for the VM in the region where
+- Make sure that your subscription has sufficient vCPU quota for the VM in the region where
 - Your multi-tenant VM will be scheduled in the same region and zone as the dedicated host
 
 ### [Portal](#tab/portal)
