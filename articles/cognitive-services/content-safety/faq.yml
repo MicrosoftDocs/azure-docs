@@ -42,7 +42,7 @@ sections:
       - question: |
           How does billing work for the Azure AI Content Safety service?
         answer: |
-          In the S tier, there are two types of APIs. For the Text API, the service is billed for the amount of text records submitted to the service. For the Image API, the service is billed for the amount of images submitted to the service.
+          In the S tier, there are two types of APIs. For the Text API, the service is billed for the amount of text records submitted to the service. For the Image API, the service is billed for the number of images submitted to the service.
       - question: |
           What happens if I exceed the transaction limit on my free tier for Azure AI Content Safety?
         answer: |
