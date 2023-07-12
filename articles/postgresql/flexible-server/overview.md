@@ -29,7 +29,7 @@ This article provides an overview and introduction to the core concepts of flexi
 
 Azure Database for PostgreSQL - Flexible Server is a fully managed database service designed to provide more granular control and flexibility over database management functions and configuration settings. The service generally provides more flexibility and server configuration customizations based on user requirements. The flexible server architecture allows users to collocate the database engine with the client tier for lower latency and choose high availability within a single availability zone and across multiple availability zones. Flexible servers also provide better cost optimization controls with the ability to stop/start your server and a burstable compute tier ideal for workloads that don't need full compute capacity continuously. The service supports the community version of [PostgreSQL 11, 12, 13, and 14](./concepts-supported-versions.md). The service is available in various [Azure regions](https://azure.microsoft.com/global-infrastructure/services/).
 
-:::image type="content" source="./media/overview/overview-flexible-server.png" alt-text="Flexible Server - Overview." lightbox="./media/overview/overview-flexible-server.png":::
+:::image type="content" source="./media/overview/overview-flexible-server.png" alt-text="Diagram of Flexible Server - Overview." lightbox="./media/overview/overview-flexible-server.png":::
 
 Flexible servers are best suited for
 
@@ -43,7 +43,7 @@ The flexible server deployment model is designed to support high availability wi
 
 If zone redundant high availability is configured, the service provisions and maintains a warm standby server across the availability zone within the same Azure region. The data changes on the source server are synchronously replicated to the standby server to ensure zero data loss. With zone redundant high availability, once the planned or unplanned failover event is triggered, the standby server comes online immediately and is available to process incoming transactions. This allows the service resiliency from availability zone failure within an Azure region that supports multiple availability zones, as shown in the picture below.
 
-:::image type="content" source="./media/business-continuity/concepts-zone-redundant-high-availability-architecture.png" alt-text="Zone redundant high availability" lightbox="./media/business-continuity/concepts-zone-redundant-high-availability-architecture.png":::
+:::image type="content" source="./media/business-continuity/concepts-zone-redundant-high-availability-architecture.png" alt-text="Diagram of Zone redundant high availability." lightbox="./media/business-continuity/concepts-zone-redundant-high-availability-architecture.png":::
 
 See [High availability document](./concepts-high-availability.md) for more details.
 
