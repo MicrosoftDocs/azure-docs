@@ -25,38 +25,96 @@ After completing this article, you'll be able to:
 1. Create an identity for your web app using an Azure AD app registration in Azure Pipelines
 1. Configure Azure App Service authentication to enable user sign-in in Azure Pipelines.
 
-## Create a tenant
+## Prerequisites
 
-1. Join the Microsoft 365 Developer Program (recommended), or manually create a tenant
-1. Get an Azure AD subscription (optional)
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- An Azure DevOps organization. [Create one for free](/azure/devops/pipelines/get-started/pipelines-sign-up).
+- An ability to run pipelines on Microsoft-hosted agents. You can either purchase a [parallel job](https://learn.microsoft.com/en-us/azure/devops/pipelines/licensing/concurrent-jobs) or you can request a free tier.
+- An Azure Active Directory [tenant](azure/active-directory/develop/quickstart-create-new-tenant).
+- A [GitHub username](https://github.com), Git is [setup locally](https://docs.github.com/en/get-started/quickstart/set-up-git).
 
+## Create and clone a repo in GitHub
 
-## Set up your Azure DevOps environment
+[Create a new repo](https://docs.github.com/en/get-started/quickstart/create-a-repo?tool=webui) in GitHub, specify a name like "PipelinesTest".  Add a .gitignore file with **.getignore template: VisualStudio**.
 
-Get the sample application
+Open a terminal window and change the current working directory to the location where you want the cloned directory:
 
-1. Prepare Visual Studio
-1. Configure Git
-1. Get the source code
-1. Build and run the web app locally
+```
+cd c:\temp\
+```
+
+Enter the following command to clone the repo:
+
+```
+git clone https://github.com/YOUR-USERNAME/PipelinesTest
+cd PipelinesTest
+```
+
+## Create an ASP.NET web app
+
+1. Open a terminal window on your machine to a working directory. Create a new .NET web app using the [dotnet new webapp](/dotnet/core/tools/dotnet-new#web-options) command, and then change directories into the newly created app.
+
+```dotnetcli
+dotnet new webapp -n PipelinesTest --framework net7.0
+cd PipelinesTest
+```
+
+From the same terminal session, run the application locally using the dotnet run command.
+
+```dotnetcli
+dotnet run --urls=https://localhost:5001/
+```
+
+Open a web browser, and navigate to the app at `https://localhost:5001`.
+
+You see the template ASP.NET Core 7.0 web app displayed in the page.
+
+Enter CTRL-C to stop running the web app.
+
+## Push the sample to GitHub
+
+Commit your changes and push to GitHub:
+
+```
+git add .
+git commit -m "Initial check-in"
+git push origin main
+```
 
 ## Set up your Azure DevOps environment
 
 1. Add a user to Azure DevOps
-1. Get the Azure DevOps project
-    1. Run the template
-    1. Set your project's visibility
-    1. Create a service connection
-1. Set up the project locally
-    1. Configure Git
-    1. Clone your fork locally
-    1. Set the upstream remote
-        
-## Create a multi-stage build and release pipeline in Azure Pipelines
+Create a new project:
 
-1. Create/update pipeline variables
-1. Deploy the web app to Azure App Service
-1. See the deployed website on App Service
+1. Select **New project**.
+1. Enter a **Project name**, such as "PipelinesTest".
+1. Select **Private** visibility.
+1. Select **Create**.
+
+Add a service connection:
+
+1. Select **Project settings**.
+1. In the left navigation pane, select **Service connections** and then **Create service connection**.
+1. Select **Azure Resource Manager** and then **Next**.
+1. Select **Service principal (automatic)** and then **Next**.
+1. Select **Subscription** for **scope level** and select your subscription.  Enter a service connection name such as "PipelinesTextServiceConnetion" and select **Next**.
+        
+## Create the pipeline
+
+1. Go to **Pipelines**, and then select **Create Pipeline**.
+1. Select **GitHub  YAML**.  
+
+1. On the **Connect** tab, select GitHub. When prompted, enter your GitHub credentials.
+
+1. When the list of repositories appears, select your `PipelinesTest` repository.
+
+1. You might be redirected to GitHub to install the Azure Pipelines app. If so, select **Approve & install**.
+1. In **Configure your pipeline**, select the **Starter pipeline**.
+
+1. When the **Configure** tab appears, select **ASP.NET Core**.
+
+1. When your new pipeline appears, take a look at the YAML to see what it does. When you're ready, select **Save and run**. To commit your changes to GitHub and start the pipeline, choose Commit directly to the main branch and select Save and run a second time. If prompted to grant permission with a message like This pipeline needs permission to access a resource before this run can continue, choose View and follow the prompts to permit access.
+
 
 ## Build and deploy the web app to Azure App Service
 
