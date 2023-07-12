@@ -6,7 +6,7 @@ author: duongau
 ms.service: expressroute
 ms.topic: conceptual
 ms.workload: infrastructure-services
-ms.date: 05/29/2023
+ms.date: 07/12/2023
 ms.author: duau
 ms.custom: references_regions, template-concept, engagement-fy23
 ---
