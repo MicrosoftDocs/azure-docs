@@ -2,7 +2,7 @@
 title: Important changes coming to Microsoft Defender for Cloud
 description: Upcoming changes to Microsoft Defender for Cloud that you might need to be aware of and for which you might need to plan 
 ms.topic: overview
-ms.date: 06/21/2023
+ms.date: 07/12/2023
 ---
 
 # Important upcoming changes to Microsoft Defender for Cloud
@@ -24,6 +24,7 @@ If you're looking for the latest release notes, you can find them in the [What's
 | [General availability release of agentless container posture in Defender CSPM](#general-availability-ga-release-of-agentless-container-posture-in-defender-cspm) | July 2023 |
 | [Business model and pricing updates for Defender for Cloud plans](#business-model-and-pricing-updates-for-defender-for-cloud-plans) | July 2023 |
 | [Change to the Log Analytics daily cap](#change-to-the-log-analytics-daily-cap) | September 2023 |
+| [Deprecate and replace recommendations App Service Client Certificates](#deprecate-and-replace-recommendations-app-service-client-certificates) | August 2023 |
 
 ### Replacing the "Key Vaults should have purge protection enabled" recommendation with combined recommendation "Key Vaults should have deletion protection enabled". 
 
@@ -125,6 +126,20 @@ Existing customers of Defender for Key-Vault, Defender for Azure Resource Manage
 - **Defender for DNS**: Defender for Servers Plan 2 customers will gain access to Defender for DNS value as part of Defender for Servers Plan 2 at no extra cost. Customers that have both Defender for Server Plan 2 and Defender for DNS will no longer be charged for Defender for DNS. Defender for DNS will no longer be available as a standalone plan. 
 
 For more information on all of these plans, check out the [Defender for Cloud pricing page](https://azure.microsoft.com/pricing/details/defender-for-cloud/?v=17.23h) 
+
+### Deprecate and replace recommendations App Service Client Certificates
+
+**Estimated date for change: August 2023**
+
+App Service policies are set to be deprecated and replaced with a new version compatible with HTTP 2.0 which doesn't currently support client certificates on App Service. The existing policies that enforce client certificates require an additional check to determine if Http 2.0 is being used by the app. Adding this additional check requires a change to the policy "effect" from Audit to AuditIfNotExists. Policy "effect" changes require deprecation of the old version of the policy and the creation of a replacement.
+
+Policies in this scope:
+- App Service apps should have Client Certificates (Incoming client certificates) enabled
+- App Service app slots should have Client Certificates (Incoming client certificates) enabled
+- Function apps should have Client Certificates (Incoming client certificates) enabled
+- Function app slots should have Client Certificates (Incoming client certificates) enabled
+
+Customers who are currently using this policy will need to ensure they have the new policies with similar names enabled and assigned to their intended scope.
 
 ### Change to the Log Analytics daily cap
 
