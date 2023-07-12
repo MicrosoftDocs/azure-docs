@@ -19,9 +19,6 @@ recoveries](concepts-backup.md#restore) for a
 cluster using backups. You can restore either to the earliest backup or to
 a custom restore point within your retention period.
 
-> [!IMPORTANT]
-> If the **Restore** option isn't present for your cluster, open an Azure support request to restore your cluster.
-
 ## Restore to the earliest restore point
 
 Follow these steps to restore your cluster to its
