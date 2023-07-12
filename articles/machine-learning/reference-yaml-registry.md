@@ -33,7 +33,7 @@ The source JSON schema can be found at [https://azuremlschemasprod.azureedge.net
 | `tags` | object | Dictionary of tags for the registry. | | |
 | `location` | string | **Required.** The primary location of the registry. | | |
 | `replication_locations` | object | **Required.** List of locations where the associated resources of the registry will be replicated. The list must include the primary location of registry. | | |
-| `publicNetworkAccess` | string | Whether public endpoint access is allowed if the registry will be using Private Link. | `enabled`, `disabled` | `disabled` |
+| `public_network_access` | string | Whether public endpoint access is allowed if the registry will be using Private Link. | `enabled`, `disabled` | `enabled` |
 
 ## Remarks
 

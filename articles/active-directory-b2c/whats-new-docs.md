@@ -25,14 +25,14 @@ Welcome to what's new in Azure Active Directory B2C documentation. This article 
 ### Updated articles
 
 - [Tutorial: Create an Azure Active Directory B2C tenant](tutorial-create-tenant.md) - [Azure AD B2C] Azure AD B2C Go-Local opt-in feature
-- [Tutorial: Configure security analytics for Azure Active Directory B2C data with Microsoft Sentinel](configure-security-analytics-sentinel.md) - Removing product name from filename and links. Exempt from Acrolinx by prior arrangement
-- [Tutorial: Configure Azure Active Directory B2C with Azure Web Application Firewall](partner-web-application-firewall.md) - Removing product name from filename and links. Exempt from Acrolinx by prior arrangement
+- [Tutorial: Configure security analytics for Azure Active Directory B2C data with Microsoft Sentinel](configure-security-analytics-sentinel.md) - Removing product name from filename and links. 
+- [Tutorial: Configure Azure Active Directory B2C with Azure Web Application Firewall](partner-web-application-firewall.md) - Removing product name from filename and links. 
 - [Title not found in: #240919](azure-ad-external-identities-videos.md) - Delete azure-ad-external-identities-videos.md
-- [Build a global identity solution with funnel-based approach](b2c-global-identity-funnel-based-design.md) - Removing product name from filename and links. Exempt from Acrolinx by prior arrangement
-- [Azure Active Directory B2C global identity framework proof of concept for funnel-based configuration](b2c-global-identity-proof-of-concept-funnel.md) - Removing product name from filename and links. Exempt from Acrolinx by prior arrangement
-- [Azure Active Directory B2C global identity framework proof of concept for region-based configuration](b2c-global-identity-proof-of-concept-regional.md) - Removing product name from filename and links. Exempt from Acrolinx by prior arrangement
-- [Build a global identity solution with region-based approach](b2c-global-identity-region-based-design.md) - Removing product name from filename and links. Exempt from Acrolinx by prior arrangement
-- [Azure Active Directory B2C global identity framework](b2c-global-identity-solutions.md) - Removing product name from filename and links. Exempt from Acrolinx by prior arrangement
+- [Build a global identity solution with funnel-based approach](b2c-global-identity-funnel-based-design.md) - Removing product name from filename and links.
+- [Azure Active Directory B2C global identity framework proof of concept for funnel-based configuration](b2c-global-identity-proof-of-concept-funnel.md) - Removing product name from filename and links. 
+- [Azure Active Directory B2C global identity framework proof of concept for region-based configuration](b2c-global-identity-proof-of-concept-regional.md) - Removing product name from filename and links.
+- [Build a global identity solution with region-based approach](b2c-global-identity-region-based-design.md) - Removing product name from filename and links. 
+- [Azure Active Directory B2C global identity framework](b2c-global-identity-solutions.md) - Removing product name from filename and links. 
 - [Azure Active Directory B2C: What's new](whats-new-docs.md) - [Azure AD B2C] What is new May 2023
 - [Use the Azure portal to create and delete consumer users in Azure AD B2C](manage-users-portal.md) - [Azure AD B2C] Revoke user's session
 - [Monitor Azure AD B2C with Azure Monitor](azure-monitor.md) - Added steps to disable Azure monitor

@@ -531,6 +531,7 @@ MLflow models can be deployed to online endpoints without indicating a scoring s
 You will typically select this workflow when:
 
 > [!div class="checklist"]
+> - The model doesn't have a `PyFunc` flavor on it.
 > - You need to customize the way the model is run, for instance, use an specific flavor to load it with `mlflow.<flavor>.load_model()`.
 > - You need to do pre/pos processing in your scoring routine when it is not done by the model itself.
 > - The output of the model can't be nicely represented in tabular data. For instance, it is a tensor representing an image.

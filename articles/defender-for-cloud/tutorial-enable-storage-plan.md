@@ -1,12 +1,12 @@
 ---
-title: Protect your storage with the Defender for Storage plan - Microsoft Defender for Cloud
+title: Protect your storage accounts with the Defender for Storage plan - Microsoft Defender for Cloud
 titleSuffix: Microsoft Defender for Cloud
 description: Learn how to enable the Defender for Storage on your Azure subscription for Microsoft Defender for Cloud.
 ms.topic: install-set-up-deploy
 ms.date: 06/29/2023
 ---
 
-# Protect your storage with Defender for Storage
+# Protect your storage accounts with Defender for Storage
 
 Defender for Storage in Microsoft Defender for Cloud is an Azure-native layer of security intelligence that detects unusual and potentially harmful attempts to access or exploit your storage accounts. It uses advanced threat detection capabilities and [Microsoft Threat Intelligence](https://go.microsoft.com/fwlink/?linkid=2128684) data to provide contextual security alerts. Those alerts also include steps to mitigate the detected threats and prevent future attacks.
 

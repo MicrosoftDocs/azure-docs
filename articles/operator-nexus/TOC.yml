@@ -77,6 +77,8 @@
           href: howto-kubernetes-cluster-huge-pages.md
         - name: Configure service load balancer
           href: howto-kubernetes-service-load-balancer.md
+        - name: Configure role-based access control
+          href: howto-kubernetes-cluster-aad-rbac.md
     - name: Network Fabric Route Policy
       href: how-to-route-policy.md      
     - name: AKS-Hybrid

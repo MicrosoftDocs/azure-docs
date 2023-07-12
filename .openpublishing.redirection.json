@@ -1696,6 +1696,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/sentinel/sap/configure-transport.md",
+            "redirect_url": "/azure/sentinel/sap/sap-deploy-troubleshoot",
+            "redirect_document_id": false
+        },
+        {
             "source_path": "articles/backup/sap-hana-db-manage.md",
             "redirect_url": "/azure/backup/sap-hana-database-manage",
             "redirect_document_id": false
@@ -23632,11 +23637,6 @@
           "source_path_from_root": "/articles/azure-monitor/app/java-standalone-arguments.md",
           "redirect_url": "/azure/azure-monitor/app/java-get-started-supplemental",
           "redirect_document_id": true
-        },
-        {
-          "source_path_from_root": "/articles/healthcare-apis/dicom/dicom-cast-access-request.md",
-          "redirect_url": "/azure/healthcare-apis/dicom/dicom-cast-overview",
-          "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/virtual-network/nat-gateway/faq.yml",

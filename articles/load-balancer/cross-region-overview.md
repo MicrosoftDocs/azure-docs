@@ -87,7 +87,7 @@ Floating IP can be configured at both the global IP level and regional IP level.
 
 ### Health Probes
 
-Azure cross-region Load Balancer utilizes the health of the backend regional load balancers when deciding where to distribute traffic to. Health checks by cross-region load balancer are done automatically every 20 seconds, given that a user has set up health probes on their regional load balancer.  
+Azure cross-region Load Balancer utilizes the health of the backend regional load balancers when deciding where to distribute traffic to. Health checks by cross-region load balancer are done automatically every 5 seconds, given that a user has set up health probes on their regional load balancer.  
 
 ## Build cross region solution on existing Azure Load Balancer
 

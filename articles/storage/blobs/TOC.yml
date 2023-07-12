@@ -941,6 +941,8 @@ items:
             href: storage-blob-lease-python.md
           - name: Manage blob properties and metadata
             href: storage-blob-properties-metadata-python.md
+          - name: Set or change a blob's access tier
+            href: storage-blob-use-access-tier-python.md
           - name: Generate a shared access signature (SAS)
             items:
             - name: Create a user delegation SAS for a blob

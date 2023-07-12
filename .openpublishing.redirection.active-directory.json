@@ -2731,7 +2731,7 @@
     },
     {
       "source_path_from_root": "/articles/active-directory/develop/howto-add-branding-in-azure-ad-apps.md",
-      "redirect_url": "/azure/active-directory/develop/howto-add-branding-in-apps.md",
+      "redirect_url": "/azure/active-directory/develop/howto-add-branding-in-apps",
       "redirect_document_id": false
     },
     {
