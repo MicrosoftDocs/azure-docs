@@ -137,9 +137,9 @@ The easiest way to connect your ASP.NET Core application to App Configuration is
     var builder = WebApplication.CreateBuilder(args);
     
     builder.Configuration.AddAzureAppConfiguration(options =>
-            options.Connect(
-                builder.Configuration.GetConnectionString("AppConfigEndpoint"))
-                .UseFeatureFlags());
+        options.Connect(
+            builder.Configuration["ConnectionStrings:AppConfig"])
+            .UseFeatureFlags());
     ```
 
     ### [.NET Core 3.x](#tab/core3x)
@@ -198,7 +198,7 @@ In a typical scenario, you will update your feature flag values periodically as 
 ```csharp
 config.AddAzureAppConfiguration(options =>
     options.Connect(
-        builder.Configuration.GetConnectionString("AppConfig"))
+        builder.Configuration["ConnectionStrings:AppConfig"])
             .UseFeatureFlags(featureFlagOptions => {
                 featureFlagOptions.CacheExpirationInterval = TimeSpan.FromMinutes(5);
     }));
