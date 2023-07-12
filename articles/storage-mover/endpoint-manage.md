@@ -19,8 +19,8 @@ REVIEW Stephen/Fabian: Reviewed - Stephen
 REVIEW Engineering: not reviewed
 EDIT PASS: started
 
-Initial doc score: 86
-Current doc score: 100 (1332 words and 0 issues)
+Initial doc score: 93
+Current doc score: 100 (2001 words and 0 issues)
 
 !########################################################
 -->
@@ -45,7 +45,7 @@ Currently, endpoints support NFS (Network File System) and SMB (Server Message B
 
  SMB uses the ACL (access control list) concept and user-based authentication to provide access to shared files for selected users. To maintain security, Storage Mover relies on Azure Key Vault integration to securely store and tightly control access to user credentials and other secrets. Storage mover agent resources can then connect to your SMB endpoints with Key Vault rather than with unsecure hard-coded credentials. This approach greatly reduces the chance that secrets may be accidentally leaked. After configuring your local file share source, add secrets for both `username` and `password` to Key Vault. You need to supply your both your Key Vault's URI and the names of the secrets when creating your SMB endpoints.
 
-In addition to Key Vault secrets, your agents must be granted access to your Key Vault and target storage account resources. This access is provided by the Azure role-based access control (Azure RBAC) authorization system, which assigns roles to your agents' managed identities. It's important to note that the required RBAC role assignments are created for you when SMB endpoints are created within the Azure portal. Endpoints created programmatically require you to make these assignments manually:
+In addition to Key Vault secrets, your agents must be granted access to your Key Vault and target storage account resources. This access is provided by the Azure RBAC (role-based access control) authorization system, which assigns roles to your agents' managed identities. It's important to note that the required RBAC role assignments are created for you when SMB endpoints are created within the Azure portal. Endpoints created programmatically require you to make these assignments manually:
 
 |Role                                        |Resource                                                   |
 |--------------------------------------------|-----------------------------------------------------------|
@@ -66,13 +66,13 @@ Before you can create a job definition, you need to create endpoints for your so
 > [!CAUTION]
 > Renaming endpoint resources is not supported. It's a good idea to ensure that you've named the project appropriately since you will not be able to change the project name after it is provisioned. To circumvent this, you may choose to create a new endpoint with the same properties and a different name as shown in a later section. Refer to the [resource naming convention](../azure-resource-manager/management/resource-name-rules.md#microsoftstoragesync) to choose a supported name.
 
-Azure Storage Mover supports migration scenarios using NFS and SMB. The steps to create the endpoints are very similar. The key differentiator between the creation of SMB and NFS endpoints is the use of Azure Key Vault to securely store the source fileshare's shared credential. The shared credentials stored within Key Vault will be accessed by agents when a migration job is run. Access to Key Vault secrets are managed by granting an RBAC role assignment to the agent's managed identity.  
+Azure Storage Mover supports migration scenarios using NFS and SMB. The steps to create the endpoints are similar. The key differentiator between the creation of SMB and NFS endpoints is the use of Azure Key Vault to securely store the source fileshare's shared credential. When a migration job is run, the agents use the shared credential stored within Key Vault. Access to Key Vault secrets are managed by granting an RBAC role assignment to the agent's managed identity.  
 
 ### [Azure portal](#tab/portal)
 
    1. To create an endpoint using the [Azure portal](https://portal.azure.com), navigate to the **Storage mover** resource page. Select **Storage endpoints** from within the navigation pane as shown in the sample image to access your endpoints.
 
-      :::image type="content" source="media/endpoint-manage/storage-mover.png" alt-text="Image of the Storage Mover resource page within the Azure Portal showing the location of the Storage Endpoints link." lightbox="media/endpoint-manage/storage-mover-lrg.png":::
+      :::image type="content" source="media/endpoint-manage/storage-mover.png" alt-text="Image of the Storage Mover resource page within the Azure portal showing the location of the Storage Endpoints link." lightbox="media/endpoint-manage/storage-mover-lrg.png":::
 
    1. The default **Source endpoints** view displays the names of any provisioned source endpoints and a summary of their associated data. You can select the **Destination endpoints** filter to view the corresponding destination endpoints.
 
@@ -82,13 +82,13 @@ Azure Storage Mover supports migration scenarios using NFS and SMB. The steps to
 
    1. Within the **Create Endpoint** pane, provide values for the required **Host name or IP** and **Share name** values. You may also add an optional **Description** value of up to 1024 characters in length. Next, select **Protocol version** to expand the protocol selection menu and select the appropriate option for your source target.
 
-      Storage mover agents use secrets stored within Key Vault to connect to SMB endpoints. If you create an SMB source endpoint, you need to provide the name of the Key Vault containing the secrets, as well as the names of the secrets themselves.
+      Storage mover agents use secrets stored within Key Vault to connect to SMB endpoints. When you create an SMB source endpoint, you need to provide both the name of the Key Vault containing the secrets and the names of the secrets themselves.
 
       First, select **Key vault** to expand the menu and select the name of the Key Vault containing your secrets. You can supply a value with which to filter the list of Key Vaults if necessary.
 
       :::image type="content" source="media/endpoint-manage/key-vault.png" alt-text="Image of the Create Source pane showing the drop-down list containg a resource group's Key Vaults":::
 
-      After you've selected the appropriate Key Vault, you can supply values for the required **Select secret for username** and **Select secret for password** fields. These values can be supplied by providing the URI to the secrets, or by selecting the secrets from a list. Select the **Select secret** button to enable the menu and select the username and password values. Alternatively, you can enable the **Enter secret from URI** option and supply the apprpriate URI to the username and password secret.
+      After you've selected the appropriate Key Vault, you can supply values for the required **Select secret for username** and **Select secret for password** fields. These values can be supplied by providing the URI to the secrets, or by selecting the secrets from a list. Select the **Select secret** button to enable the menu and select the username and password values. Alternatively, you can enable the **Enter secret from URI** option and supply the appropriate URI to the username and password secret.
 
       The values for host and share name are concatenated to form the full migration source path. The path value is displayed in the **Full source path** field. Copy the path provided and verify that you're able to access it before committing your changes. Finally, when you've confirmed that all values are correct and that you can access the source path, select **Create** to add your new endpoint.
 
@@ -213,13 +213,13 @@ Follow the steps in this section to view endpoints accessible to your Storage Mo
 
    1. To create an endpoint using the Navigate to the [Azure portal](https://portal.azure.com), navigate to the **Storage mover** resource page. Select **Storage endpoints** from within the navigation pane as shown in the sample image to access your endpoints.
 
-      :::image type="content" source="media/endpoint-manage/storage-mover.png" alt-text="Image of the Storage Mover resource page within the Azure Portal showing the location of the Storage Endpoints link." lightbox="media/endpoint-manage/storage-mover-lrg.png":::
+      :::image type="content" source="media/endpoint-manage/storage-mover.png" alt-text="Image of the Storage Mover resource page within the Azure portal showing the location of the Storage Endpoints link." lightbox="media/endpoint-manage/storage-mover-lrg.png":::
 
    1. After the portal becomes functional, select the checkbox corresponding to the name of the endpoint whose details you want to view. The **Endpoint overview** pane opens, displaying the endpoint's details.
 
        :::image type="content" source="media/endpoint-manage/storage-mover.png" alt-text="Image of the Create Endpoint screen" lightbox="media/endpoint-manage/storage-mover-lrg.png":::
 
-   1. Update the value that you want to edit. Confirm that all data is correct and click **Update** to save your changes.
+   1. Update the value that you want to edit. Confirm that all data is correct and select **Update** to save your changes.
 
        :::image type="content" source="media/endpoint-manage/storage-mover.png" alt-text="Image of the Create Endpoint screen" lightbox="media/endpoint-manage/storage-mover-lrg.png":::
 
@@ -318,17 +318,17 @@ The removal of an endpoint resource should be a relatively rare occurrence in yo
 
    1. To delete an endpoint using the [Azure portal](https://portal.azure.com), navigate to the **Storage mover** resource page. Select **Storage endpoints** from within the navigation pane to access your endpoints as indicated in the following image.
 
-      :::image type="content" source="media/endpoint-manage/storage-mover.png" alt-text="Image of the Storage Mover resource page within the Azure Portal showing the location of the Storage Endpoints link." lightbox="media/endpoint-manage/storage-mover-lrg.png":::
+      :::image type="content" source="media/endpoint-manage/storage-mover.png" alt-text="Image of the Storage Mover resource page within the Azure portal showing the location of the Storage Endpoints link." lightbox="media/endpoint-manage/storage-mover-lrg.png":::
 
    1. The default **Source endpoints** view displays the names of any provisioned source endpoints and a summary of their associated data. You can select the **Destination endpoints** filter to view the corresponding destination endpoints.
 
-      Locate the name of the endpoint you want to delete and select the corresponding checkbox. After verifying that that you've selected the appropriate endpoint, select **Delete** as shown in the following image.
+      Locate the name of the endpoint you want to delete and select the corresponding checkbox. After verifying that you've selected the appropriate endpoint, select **Delete** as shown in the following image.
 
-      :::image type="content" source="media/endpoint-manage/endpoint-delete.png" alt-text="Image of the Storage Mover resource page within the Azure Portal showing the location of the Delete button." lightbox="media/endpoint-manage/endpoint-delete-lrg.png":::
+      :::image type="content" source="media/endpoint-manage/endpoint-delete.png" alt-text="Image of the Storage Mover resource page within the Azure portal showing the location of the Delete button." lightbox="media/endpoint-manage/endpoint-delete-lrg.png":::
 
       Your new endpoint is deleted and no longer appears within your list of endpoints as show in the following example image.
 
-      :::image type="content" source="media/endpoint-manage/endpoint-without.png" alt-text="Image of the Endpoint Overview page inferring a newly-deleted endpoint."  lightbox="media/endpoint-manage/endpoint-without-lrg.png":::
+      :::image type="content" source="media/endpoint-manage/endpoint-without.png" alt-text="Image of the Endpoint Overview page inferring a newly deleted endpoint."  lightbox="media/endpoint-manage/endpoint-without-lrg.png":::
 
 # [PowerShell](#tab/powershell)
 
