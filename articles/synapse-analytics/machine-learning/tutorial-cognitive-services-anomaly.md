@@ -79,7 +79,7 @@ A Spark table named **anomaly_detector_testing_data** should now appear in the d
 
 Provide the following details to configure Anomaly Detector:
 
-- **Azure Cognitive Services linked service**: As part of the prerequisite steps, you created a linked service to your [Azure AI service](tutorial-configure-cognitive-services-synapse.md) . Select it here.
+- **Azure Cognitive Services linked service**: As part of the prerequisite steps, you created a linked service to your [Azure AI service](tutorial-configure-cognitive-services-synapse.md). Select it here.
 
 - **Granularity**: The rate at which your data is sampled. Choose **monthly**. 
 
