@@ -74,7 +74,7 @@ After you've completed the prerequisites, navigate to [Document Intelligence Stu
 
 In the following example, we use the General Documents feature. The steps to use other pretrained features like [W2 tax form](https://formrecognizer.appliedai.azure.com/studio/prebuilt?formType=tax.us.w2), [Read](https://formrecognizer.appliedai.azure.com/studio/read), [Layout](https://formrecognizer.appliedai.azure.com/studio/layout), [Invoice](https://formrecognizer.appliedai.azure.com/studio/prebuilt?formType=invoice), [Receipt](https://formrecognizer.appliedai.azure.com/studio/prebuilt?formType=receipt), [Business card](https://formrecognizer.appliedai.azure.com/studio/prebuilt?formType=businessCard), and [ID documents](https://formrecognizer.appliedai.azure.com/studio/prebuilt?formType=idDocument) models are similar.
 
-   :::image border="true" type="content" source="../media/quickstarts/form-recognizer-general-document-demo-preview3.gif" alt-text="Selecting the General Document API to analysis a document in the Document Intelligence Studio.":::
+   :::image border="true" type="content" source="../media/quickstarts/select-general-document.png" alt-text="Selecting the General Document API to analysis a document in the Document Intelligence Studio.":::
 
 1. Select a Document Intelligence service feature from the Studio home page.
 
@@ -176,6 +176,7 @@ To create custom models, you start with configuring your project:
 ### Labeling as tables
 
 > [!NOTE]
+>
 > * With the release of API versions 2022-06-30-preview and later, custom template models will add support for [cross page tabular fields (tables)](../concept-custom-template.md#tabular-fields).
 > * With the release of API versions 2022-06-30-preview and later, custom neural models will support [tabular fields (tables)](../concept-custom-template.md#tabular-fields) and models trained with API version 2022-08-31, or later will accept tabular field labels.
 
