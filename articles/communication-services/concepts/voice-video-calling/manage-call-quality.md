@@ -185,10 +185,10 @@ Customer feedback is invaluable, the End of Call Survey provides you with a tool
 
 
 ## After a call
-### Monitoring and troubleshooting call quality
+### Monitor and troubleshoot call quality and reliability
 
-**Analyze call data** – By collecting data such as Media Statistics, User Facing
-  Diagnostics, and pre-call API information during a call you can review calls with
+**Analyze call data** – We recommend you collect data such as Media Statistics, User Facing
+  Diagnostics, and pre-call API information so you can review calls with
   poor quality to conduct root cause analysis. For example, media
   quality statistics showing high levels of packet loss and jitter
   without any user facing diagnostics could indicate poor network
@@ -204,14 +204,15 @@ Customer feedback is invaluable, the End of Call Survey provides you with a tool
   to disable their video.
 
 Before you release and scale your Azure Communication Services calling
-solution, implement these quality and reliability monitoring capabilities
+solution, implement these additional quality and reliability monitoring capabilities
 to ensure you collecting available logs and metrics. These call data aren't stored unless you implement them.
 ### Call Summary and Call Diagnostics Logs
 
-Call logs show you important insights on individual calls and your
-overall quality. For more information, see: [Azure Communication Services Voice Calling and Video Calling logs](../analytics/logs/voice-and-video-logs.md). 
+After a call ends, Summary and Diagnostic logs are created to let you investigate individual calls and monitor your overall call quality and reliability. The following fields provide useful insight on user's  call's quality and reliability. 
 
-The following fields provide useful insight on each call's quality and reliability. 
+
+- For more information, see: [Azure Communication Services Voice Calling and Video Calling logs](../analytics/logs/voice-and-video-logs.md). 
+
 
 <!-- #### sdkVersion 
 
@@ -230,7 +231,7 @@ The following fields provide useful insight on each call's quality and reliabili
 
 #### Summarized Media Quality logs
 
-- These three logs provide an overview of the quality during the call.
+- These three logs provide summarize the average media quality during the call.
   <!-- See our guidance on **<u>Media Quality</u>** to learn more. -->
 
   - `roundTripTimeAvg`
@@ -239,12 +240,10 @@ The following fields provide useful insight on each call's quality and reliabili
 
   - `packetLossRateAvg`
 
-#### End of Call Survey 
 
 ### Start collecting Call logs
 
 Review this documentation to start collecting call logs: [Enable logs via Diagnostic Settings in Azure Monitor](../analytics/enable-logging.md)
-
 
 - Choose the category group "allLogs" and choose the destination detail of “Send to Log Analytics workspace" in order to view and analyze the data in Azure Monitor.
 
@@ -262,26 +261,20 @@ Once you have enabled logs, you can view call insights in your Azure Resource us
 <!-- #### Detailed Media Statistics -->
 
 
+#### End of Call Survey 
+Once you enable diagnostic settings to capture your survey data you can use our sample [call log queries](../analytics/query-call-logs.md) in Azure Log Analytics to analyze your user's perceived quality experience. 
+
 ### Other considerations
 <!-- - Considerations for Teams user data:
     - [Azure logs and metrics for Teams external users](../interop/guest/monitor-logs-metrics.md) -->
 
-- What if I don’t have access to my customer’s Azure portal to view
-  these data? 
+- If you don't have access to your customer’s Azure portal to view data tied to their Azure Resource ID you can query their workspaces to improve quality on their behalf? 
     - [Create a log query across multiple workspaces and apps in Azure Monitor](../../../azure-monitor/logs/cross-workspace-query.md)
-
-
-
-
-
-
-
 
 
 ## Next Steps
 
 - Continue to learn other best practices, see: [Best practices: Azure Communication Services calling SDKs](../best-practices.md)
-
 
 -	Learn how to use the Log Analytics workspace, see: [Log Analytics Tutorial](../../../../articles/azure-monitor/logs/log-analytics-tutorial.md)
 
