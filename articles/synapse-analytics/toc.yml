@@ -1494,7 +1494,7 @@ items:
       - name: Azure Machine Learning
         displayName: linked service
         href: machine-learning/quickstart-integrate-azure-machine-learning.md
-      - name: Cognitive Services
+      - name: Azure AI services
         displayName: linked service, configure
         href: ./machine-learning/tutorial-configure-cognitive-services-synapse.md
   - name: Concepts

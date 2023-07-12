@@ -19,12 +19,12 @@ SynapseML expands the distributed machine learning solution of Apache Spark by a
 Synapse Spark provide built-in SynapseML libraries including:
 
 - [Vowpal Wabbit](https://github.com/VowpalWabbit/vowpal_wabbit) – Library services for Machine learning to enable Text analytics like sentiment analysis in tweets.
-- [Cognitive Services on Spark](https://arxiv.org/abs/1810.08744) – To combine the feature of Azure Cognitive Services in SparkML pipelines in order to derive solution design for cognitive data modeling services like anomaly detection.
+- [MMLSpark: Unifying Machine Learning Ecosystems at Massive Scales](https://arxiv.org/abs/1810.08744) – To combine the feature of Azure AI services in SparkML pipelines in order to derive solution design for cognitive data modeling services like anomaly detection.
 - [LightGBM](https://github.com/Microsoft/LightGBM) – LightGBM is a gradient boosting framework that uses tree based learning algorithms. It is designed to be distributed and higher efficiency.
 - Conditional KNN - Scalable KNN Models with Conditional Queries.
 - HTTP on Spark – Enables distributed Microservices orchestration in integrating Spark and HTTP protocol-based accessibility.
 
-This tutorial covers samples using Azure Cognitive Services in SynapseML for 
+This tutorial covers samples using Azure AI services in SynapseML for 
 
 - Text Analytics - get the sentiment (or mood) of a set of sentences.
 - Computer Vision - get the tags (one-word descriptions) associated with a set of images.
@@ -37,7 +37,7 @@ If you don't have an Azure subscription, [create a free account before you begin
 
 - [Azure Synapse Analytics workspace](../get-started-create-workspace.md) with an Azure Data Lake Storage Gen2 storage account configured as the default storage. You need to be the *Storage Blob Data Contributor* of the Data Lake Storage Gen2 file system that you work with.
 - Spark pool in your Azure Synapse Analytics workspace. For details, see [Create a Spark pool in Azure Synapse](../get-started-analyze-spark.md).
-- Pre-configuration steps described in the tutorial [Configure Cognitive Services in Azure Synapse](./tutorial-configure-cognitive-services-synapse.md).
+- Pre-configuration steps described in the tutorial [Configure Azure AI services in Azure Synapse](./tutorial-configure-cognitive-services-synapse.md).
 
 
 ## Get started
@@ -45,20 +45,16 @@ To get started, import SynapseML and configurate service keys.
 
 ```python
 import synapse.ml
-
 from synapse.ml.cognitive import *
 from notebookutils import mssparkutils
 
-# A general Cognitive Services key for Text Analytics and Computer Vision (or use separate keys that belong to each service)
+# An Azure AI services multi-service resource key for Text Analytics and Computer Vision (or use separate keys that belong to each service)
 cognitive_service_key = mssparkutils.credentials.getSecret("ADD_YOUR_KEY_VAULT_NAME", "ADD_YOUR_SERVICE_KEY","ADD_YOUR_KEY_VAULT_LINKED_SERVICE_NAME") 
 # A Bing Search v7 subscription key
 bingsearch_service_key = mssparkutils.credentials.getSecret("ADD_YOUR_KEY_VAULT_NAME", "ADD_YOUR_BING_SEARCH_KEY","ADD_YOUR_KEY_VAULT_LINKED_SERVICE_NAME")
 # An Anomaly Dectector subscription key
 anomalydetector_key = mssparkutils.credentials.getSecret("ADD_YOUR_KEY_VAULT_NAME", "ADD_YOUR_ANOMALY_KEY","ADD_YOUR_KEY_VAULT_LINKED_SERVICE_NAME")
-
-
 ```
-
 
 ## Text analytics sample
 
@@ -77,7 +73,7 @@ df_sentences = spark.createDataFrame([
 # Run the Text Analytics service with options
 sentiment = (TextSentiment()
     .setTextCol("text")
-    .setLocation("eastasia") # Set the location of your cognitive service
+    .setLocation("eastasia") # Set the location of your Azure AI services resource
     .setSubscriptionKey(cognitive_service_key)
     .setOutputCol("sentiment")
     .setErrorCol("error")
@@ -99,7 +95,6 @@ display(sentiment.transform(df_sentences).select("text", col("sentiment")[0].get
 ## Computer vision sample
 [Computer Vision](../../ai-services/computer-vision/index.yml) analyzes images to identify structure such as faces, objects, and natural-language descriptions. In this sample, we tag the follow image. Tags are one-word descriptions of things in the image like recognizable objects, people, scenery, and actions.
 
-
 ![image](https://raw.githubusercontent.com/Azure-Samples/cognitive-services-sample-data-files/master/ComputerVision/Images/objects.jpg)
 
 ```python
@@ -110,7 +105,7 @@ df_images = spark.createDataFrame([
 
 # Run the Computer Vision service. Analyze Image extracts information from/about the images.
 analysis = (AnalyzeImage()
-    .setLocation("eastasia") # Set the location of your cognitive service
+    .setLocation("eastasia") # Set the location of your Azure AI services resource
     .setSubscriptionKey(cognitive_service_key)
     .setVisualFeatures(["Categories","Color","Description","Faces","Objects","Tags"])
     .setOutputCol("analysis_results")
@@ -214,7 +209,6 @@ anamoly_detector = (SimpleDetectAnomalies()
 
 # Show the full results of the analysis with the anomalies marked as "True"
 display(anamoly_detector.transform(df_timeseriesdata).select("timestamp", "value", "anomalies.isAnomaly"))
-
 ```
 
 ### Expected results
@@ -250,7 +244,7 @@ df = spark.createDataFrame([("https://mmlspark.blob.core.windows.net/datasets/Sp
 # Run the Speech-to-text service to translate the audio into text
 speech_to_text = (SpeechToTextSDK()
     .setSubscriptionKey(service_key)
-    .setLocation("northeurope") # Set the location of your cognitive service
+    .setLocation("northeurope") # Set the location of your Azure AI services resource
     .setOutputCol("text")
     .setAudioDataCol("url")
     .setLanguage("en-US")
