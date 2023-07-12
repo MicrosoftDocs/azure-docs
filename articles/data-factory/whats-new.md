@@ -24,6 +24,28 @@ This page is updated monthly, so revisit it regularly.  For older months' update
 
 Check out our [What's New video archive](https://www.youtube.com/playlist?list=PLt4mCx89QIGS1rQlNt2-7iuHHAKSomVLv) for all of our monthly update videos.
 
+## June 2023
+
+### Continuous integration and continuous deployment
+
+NPM package now supports pre-downloaded bundle for building ARM templates. If your firewall setting is blocking direct download for your NPM package, you can now pre-load the package upfront, and let NPM package consume local version instead. This is a super boost for your CI/CD pipeline, in a firewalled environment.
+
+### Region expansion
+
+Azure Data Factory is now available in Sweden Central. You can co-locate your ETL workflow in this new region if you are utilizing the region for storing and managing your modern data warehouse. [Learn more](https://techcommunity.microsoft.com/t5/azure-data-factory-blog/continued-region-expansion-azure-data-factory-just-became/ba-p/3857249)
+
+### Data movement
+
+Securing outbound traffic with Azure Data Factory's outbound network rules is now supported. Outbound allow listing of FQDN is a network security practice that allows organizations to control outbound traffic from their networks to specific, approved domain names. Outbound rules apply to pipeline activities such as Copy, Dataflows, Web, Webhook, and Azure Function activities. These rules also apply to authoring scenarios like data preview and test connection. [Learn more](https://techcommunity.microsoft.com/t5/azure-data-factory-blog/securing-outbound-traffic-with-azure-data-factory-s-outbound/ba-p/3844032)
+
+### Connectors
+
+The Amazon S3 connector is now supported as a sink destination using Mapping Data Flows. Azure Data Factory supports writing data to non-Azure destinations and we have now added Amazon S3 to that list. To write data to Amazon S3, create a data flow in your pipeline and choose Amazon S3 as your sink. [Learn more](connector-amazon-simple-storage-service.md)
+
+### Data flow
+
+We introduce optional Source settings for DelimitedText and JSON sources in top-level CDC resource. The top-level CDC resource in data factory now supports optional source configurations for Delimited and JSON sources. You can now select the column/row delimiters for delimited sources and set the document type for JSON sources. [Learn more](https://techcommunity.microsoft.com/t5/azure-data-factory-blog/introducing-optional-source-settings-for-delimitedtext-and-json/ba-p/3824274)
+
 ## May 2023
 
 ### Data Factory in Microsoft Fabric
