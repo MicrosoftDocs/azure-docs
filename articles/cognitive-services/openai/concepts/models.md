@@ -4,7 +4,7 @@ titleSuffix: Azure OpenAI
 description: Learn about the different model capabilities that are available with Azure OpenAI. 
 ms.service: cognitive-services
 ms.topic: conceptual 
-ms.date: 07/06/2023
+ms.date: 07/11/2023
 ms.custom: event-tier1-build-2022, references_regions, build-2023, build-2023-dataai
 manager: nitinme
 author: mrbullwinkle #ChrisHMSFT
@@ -44,6 +44,8 @@ GPT-3.5 models can understand and generate natural language or code. The most ca
 
 The `gpt-35-turbo` model supports 4096 max input tokens and the `gpt-35-turbo-16k` model supports up to 16,384 tokens.
 
+`gpt-35-turbo` and `gpt-35-turbo-16k` share the same [quota](../how-to/quota.md).
+
 Like GPT-4, use the Chat Completions API to use GPT-3.5 Turbo. To learn more about how to interact with GPT-3.5 Turbo and the Chat Completions API check out our [in-depth how-to](../how-to/chatgpt.md).
 
 ## Embeddings models
@@ -78,8 +80,8 @@ These models can only be used with the Chat Completion API.
 |  --- |  --- | --- | --- | --- |
 | `gpt-4` <sup>1,</sup><sup>2</sup> (0314)     |  East US, France Central |  N/A                | 8,192                | September 2021         |
 | `gpt-4-32k` <sup>1,</sup><sup>2</sup> (0314)  |  East US, France Central |  N/A                | 32,768               | September 2021         |
-| `gpt-4` <sup>1</sup> (0613)     |  East US, France Central |  N/A                | 8,192                | September 2021         |
-| `gpt-4-32k` <sup>1</sup> (0613)  |  East US, France Central |  N/A                | 32,768               | September 2021         |
+| `gpt-4` <sup>1</sup> (0613)     |  East US, France Central, Japan East, North Central US |  N/A                | 8,192                | September 2021         |
+| `gpt-4-32k` <sup>1</sup> (0613)  |  East US, France Central, Japan East, North Central US |  N/A                | 32,768               | September 2021         |
 
 <sup>1</sup> The model is [only available by request](https://aka.ms/oai/get-gpt4).<br>
 <sup>2</sup> Version `0314` of gpt-4 and gpt-4-32k will be retired on January 4, 2024.  See [model updates](#model-updates) for model upgrade behavior.
