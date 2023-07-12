@@ -111,7 +111,7 @@ For workloads that have heavy create payloads, set the `EnableContentResponseOnW
 
 Applications that distribute usage across multiple tenants where each tenant is represented by a different database, container, or partition key **within the same Azure Cosmos DB account** should use a single client instance. A single client instance can interact with all the databases, containers, and partition keys within an account, and it's best practice to use the [singleton pattern](performance-tips-dotnet-sdk-v3.md#sdk-usage). 
 
-However, when each tenant is represented by a **different Azure Cosmos DB account** [connections](sdk-connection-modes.md#direct-mode) can increase beyond the environment limits and cause [connectivity issues](conceptual-resilient-sdk-applications.md#client-instances-and-connections). While the singleton pattern still applies (one client for each account for the lifetime of the application), if the volume of tenants is high, the number of clients would also be high.
+However, when each tenant is represented by a **different Azure Cosmos DB account**, it's required to create a separate client instance per account. The singleton pattern still applies for each client (one client for each account for the lifetime of the application), but if the volume of tenants is high, the number of clients can be difficult to manage. [Connections](sdk-connection-modes.md#direct-mode) can increase beyond the limits of the compute environment and cause [connectivity issues](conceptual-resilient-sdk-applications.md#client-instances-and-connections). 
 
 It's recommended in these cases to:
 
