@@ -881,7 +881,7 @@ productDirectory:
         - developer-tools
       url: /azure/developer/github/github-actions
     # Card
-    - title: Microsoft Dev Box (Preview)
+    - title: Microsoft Dev Box
       summary: Streamline development with secure, ready-to-code workstations in the cloud 
       imageSrc: https://static.docs.com/ui/media/product/azure/dev-box.svg
       azureCategories:
