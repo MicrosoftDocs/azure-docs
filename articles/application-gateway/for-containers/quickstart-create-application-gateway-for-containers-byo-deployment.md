@@ -94,7 +94,7 @@ If desired, you can [create and assign a custom role](../../role-based-access-co
 ```azurecli-interactive
 IDENTITY_RESOURCE_NAME='azure-alb-identity'
 
-resourceGroupId=$(az group show --name $RESOURCE_GROUP --query id -otsv | tr -d '\r')
+resourceGroupId=$(az group show --name $RESOURCE_GROUP --query id -otsv)
 principalId=$(az identity show -g $RESOURCE_GROUP -n $IDENTITY_RESOURCE_NAME --query principalId -otsv)
 
 # Delegate AppGw for Containers Configuration Manager role to RG containing Application Gateway for Containers resource
