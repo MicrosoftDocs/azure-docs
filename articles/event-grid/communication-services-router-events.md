@@ -27,8 +27,8 @@ Azure Communication Services emits the following job router event types:
 | [`RouterJobExceptionTriggered`](#microsoftcommunicationrouterjobexceptiontriggered) | `Job` | A job exception has been triggered |
 | [`RouterJobWorkerSelectorsExpired`](#microsoftcommunicationrouterjobworkerselectorsexpired)  | `Job` |  One or more worker selectors on a job have expired  |
 | [`RouterJobUnassigned`](#microsoftcommunicationrouterjobunassigned)  | `Job` |  An already assigned job  has been uassigned from a worker |
-| [`RouterScheduledJobWaitingForActivation`](#microsoftcommunicationrouterjobwaitingforactivation)  | `Job` |  A scheduled job's requested scheduled time has arrive, Router is waiting on contoso to act on the job |
-| [`RouterScheduledJobFailed`](#microsoftcommunicationrouterjobschedulingfailed)  | `Job` |  A scheduled job was requested however, Router failed to create one |
+| [`RouterJobWaitingForActivation`](#microsoftcommunicationrouterjobwaitingforactivation)  | `Job` |  A scheduled job's requested scheduled time has arrive, Router is waiting on contoso to act on the job |
+| [`RouterJobSchedulingFailed`](#microsoftcommunicationrouterjobschedulingfailed)  | `Job` |  A scheduled job was requested however, Router failed to create one |
 | [`RouterJobDeleted`](#microsoftcommunicationrouterjobdeleted)  | `Job` |  A job has been deleted |
 | [`RouterWorkerOfferIssued`](#microsoftcommunicationrouterworkerofferissued) | `Worker` | A job was offered to a worker |
 | [`RouterWorkerOfferAccepted`](#microsoftcommunicationrouterworkerofferaccepted) | `Worker` | An offer to a worker was accepted |

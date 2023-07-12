@@ -33,7 +33,7 @@ In the context of a call center, customers may want to receive a scheduled callb
 
 ## Create a job using the ScheduleAndSuspendMode
 
-In the following example, a job is created that will be scheduled 3 minutes from now by setting the `MatchingMode` to `ScheduleAndSuspendMode` with a `scheduledForUtc` parameter.  This assumes that you've already [created a queue](manage-queue.md) with the queueId `Callback` and that there is an active [worker registered](../../concepts/router/matching-concepts.md) to the queue with available capacity on the `Voice` channel.
+In the following example, a job is created that will be scheduled 3 minutes from now by setting the `MatchingMode` to `ScheduleAndSuspendMode` with a `scheduleAt` parameter.  This assumes that you've already [created a queue](manage-queue.md) with the queueId `Callback` and that there is an active [worker registered](../../concepts/router/matching-concepts.md) to the queue with available capacity on the `Voice` channel.
 
 ::: zone pivot="programming-language-csharp"
 
