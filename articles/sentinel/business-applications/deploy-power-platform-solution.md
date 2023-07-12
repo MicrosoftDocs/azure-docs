@@ -11,28 +11,8 @@ ms.date: 07/06/2023
 
 # Deploy the Microsoft Sentinel solution for Microsoft Power Platform 
 
-The Microsoft Sentinel solution for Power Platform allows you to monitor and detect suspicious or malicious activities in your Power Platform environment. The solution collects activity logs from different Power Platform components and inventory data. It analyzes those activity logs to detect threats and suspicious activities like the following activities:
-
-- Power Apps execution from unauthorized geographies
-- Suspicious data destruction by Power Apps
-- Mass deletion of Power Apps
-- Phishing attacks made possible through Power Apps
-- Power Automate flows activity by departing employees
-- Microsoft Power Platform connectors added to the environment
-- Update or removal of Microsoft Power Platform data loss prevention policies
-
-The Microsoft Sentinel Solution for Power Platform ingests and cross-correlates activity logs and inventory data from multiple sources. So, the solution requires that you enable the following data connectors that are available as part of the solution.
-
-
-|Connector name  |Data collected  |Log Analytics tables |
-|---------|---------|---------|
-|Power Platform Inventory (using Azure Functions)   |  Power Apps and Power Automate inventory data       |   PowerApps_CL, PowerPlatrformEnvironments_CL      |
-|Microsoft Power Apps (Preview)   |    Power Apps activity logs     |  PowerAppsActivity       |
-|Microsoft Power Automate (Preview)     |  Power Automate activity logs       |   PowerAutomateActivity      |
-|Microsoft Power Platform Connectors (Preview)    |   Power Platform connector activity logs      |     PowerPlatformConnectorActivity    |
-|Microsoft Power Platform DLP (Preview)     |     Data loss prevention activity logs   |    PowerPlatformDlpActivity     |
-|Dynamics 365   |    Dataverse and model-driven apps activity logging     |   Dynamics365Activity      |
-
+The Microsoft Sentinel solution for Power Platform allows you to monitor and detect suspicious or malicious activities in your Power Platform environment. The solution collects activity logs from different Power Platform components and inventory data. For more information, see [Microsoft Sentinel solution for Microsoft Power Platform overview](power-platform-solution-overview.md).
+ 
 > [!IMPORTANT]
 > The Microsoft Sentinel solution for Power Platform is currently in PREVIEW. The [Azure Preview Supplemental Terms](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
@@ -158,5 +138,5 @@ After you've waited for Microsoft Sentinel to ingest the data, complete the foll
 
 In this article, you learned how to deploy the Microsoft Sentinel solution for Power Platform.
 
-<!--Create new article specific to the analytic rule details? -->
-For more information about how to manage the solution components and enable security content, see [Discover and deploy out-of-the-box content](/azure/sentinel/sentinel-solutions-deploy).
+- To review the solution content available with this solution, see [Microsoft Sentinel solution for Microsoft Power Platform: security content reference](power-platform-solution-security-content.md).
+- To manage the solution components and enable security content, see [Discover and deploy out-of-the-box content](/azure/sentinel/sentinel-solutions-deploy).
