@@ -74,10 +74,19 @@ dotnet add package Microsoft.Azure.Functions.Worker.Extensions.Redis --prereleas
 1. Create a Java function project. You could use Maven:
    `mvn archetype:generate -DarchetypeGroupId=com.microsoft.azure -DarchetypeArtifactId=azure-functions-archetype -DjavaVersion=8`
 
-1. Remove `extensionBundle` from `host.json`
-
-1. Run `func extensions install --package Microsoft.Azure.WebJobs.Extensions.Redis --version <version>`
-   - `<version>` should be the lateste version of the extension from NuGet.
+1. Add the extension bundle by adding or replacing the following code in your _host.json_ file:
+```json
+{
+  "version": "2.0",
+  "extensionBundle": {
+    "id": "Microsoft.Azure.Functions.ExtensionBundle.Preview",
+    "version": "[4.11.*, 5.0.0)"
+  }
+}
+```
+>[!WARNING]
+>The Redis extension is currently only available in a preview bundle release.
+>
 
 1. Add the Java library for Redis bindings to the `pom.xml` file:
 
@@ -94,11 +103,25 @@ dotnet add package Microsoft.Azure.Functions.Worker.Extensions.Redis --prereleas
 
 ## Install bundle
 
-Presently, the extension has not been added to the Microsoft.Azure.Functions.ExtensionBundle.
+Add the extension bundle by adding or replacing the following code in your _host.json_ file:
+```json
+{
+  "version": "2.0",
+  "extensionBundle": {
+    "id": "Microsoft.Azure.Functions.ExtensionBundle.Preview",
+    "version": "[4.11.*, 5.0.0)"
+  }
+}
+```
 
-Install the Redis Extension manually for now following this procedure.
+>[!WARNING]
+>The Redis extension is currently only available in a preview bundle release.
+>
 
 ::: zone-end
+
+## host.json settings
+
 
 
 ## Next steps
