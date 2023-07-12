@@ -8,6 +8,7 @@
  ms.subservice: azure-dedicated-host
  ms.date: 07/12/2023
  ms.author: mattmcinnes
+ ms.reviewer: vamckMS
  ms.custom: include file
 ---
 

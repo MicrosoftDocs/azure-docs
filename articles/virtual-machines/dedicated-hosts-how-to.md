@@ -8,7 +8,7 @@ ms.topic: how-to
 ms.workload: infrastructure
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
 ms.date: 07/12/2023
-ms.reviewer: vakavuru
+ms.reviewer: vamckMS
 #Customer intent: As an IT administrator, I want to learn about more about using a dedicated host for my Azure virtual machines
 ---
 
