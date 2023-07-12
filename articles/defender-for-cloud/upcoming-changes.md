@@ -131,7 +131,7 @@ For more information on all of these plans, check out the [Defender for Cloud pr
 
 **Estimated date for change: August 2023**
 
-App Service policies are set to be deprecated and replaced with a new version compatible with HTTP 2.0 which doesn't currently support client certificates on App Service. The existing policies that enforce client certificates require an additional check to determine if Http 2.0 is being used by the app. Adding this additional check requires a change to the policy "effect" from Audit to AuditIfNotExists. Policy "effect" changes require deprecation of the old version of the policy and the creation of a replacement.
+App Service policies are set to be deprecated and replaced so that they only monitor apps using HTTP 1.1 since HTTP 2.0 on App Service doesn't support client certificates. The existing policies that enforce client certificates require an additional check to determine if Http 2.0 is being used by the app. Adding this additional check requires a change to the policy "effect" from Audit to AuditIfNotExists. Policy "effect" changes require deprecation of the old version of the policy and the creation of a replacement.
 
 Policies in this scope:
 - App Service apps should have Client Certificates (Incoming client certificates) enabled
