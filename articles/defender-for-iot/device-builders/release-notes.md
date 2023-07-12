@@ -21,7 +21,7 @@ For more information, see [Upgrade the Microsoft Defender for IoT micro agent](u
 
 Microsoft Defender for IoT Firmware analysis is now available in public preview. Defender for IoT can analyze your device firmware for common weaknesses and vulnerabilities, and provide insight into your firmware security. This analysis is useful whether you build the firmware in-house or receive firmware from your supply chain. 
 
-For more information, see [Firmware analysis for device builders](overview-firmware-analysis.md)
+For more information, see [Firmware analysis for device builders](overview-firmware-analysis.md).
 
 :::image type="content" source="media/tutorial-firmware-analysis/overview.png" alt-text="Screenshot that shows clicking view results button for a detailed analysis of the firmware image.":::
 

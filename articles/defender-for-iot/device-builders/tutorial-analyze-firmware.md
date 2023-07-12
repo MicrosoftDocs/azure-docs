@@ -34,12 +34,12 @@ If this is your first interaction with **Firmware analysis,** then you'll need t
 
 1. Sign into the Azure portal and go to Defender for IoT.
 
-    :::image type="content" source="media/tutorial-firmware-analysis/defender_portal.png" alt-text="Screenshot that shows the Defender for IoT portal.":::
+    :::image type="content" source="media/tutorial-firmware-analysis/defender-portal.png" alt-text="Screenshot that shows the Defender for IoT portal.":::
 
-1. Select **Firmware analysis** 
+1. Select **Firmware analysis**.
 1. Select a region to use for storage.
 
-    :::image type="content" source="media/tutorial-firmware-analysis/select_region.png" alt-text="Screenshot that shows selecting an Azure Region.":::
+    :::image type="content" source="media/tutorial-firmware-analysis/select-region.png" alt-text="Screenshot that shows selecting an Azure Region.":::
 
 ## Upload a firmware image for analysis
 
@@ -70,7 +70,7 @@ The analysis time will vary based on the size of the firmware image and the numb
 
 1. Select the row of the firmware you want to view. The **Firmware overview** pane shows basic data about the firmware on the right.
 
-    :::image type="content" source="media/tutorial-firmware-analysis/firmware_details.png" alt-text="Screenshot that shows clicking the row with the firmware image to see the side panel details.":::
+    :::image type="content" source="media/tutorial-firmware-analysis/firmware-details.png" alt-text="Screenshot that shows clicking the row with the firmware image to see the side panel details.":::
     
 1. Select **View results** to drill down for more details.
 
@@ -102,5 +102,5 @@ After you delete an image, there's no way to retrieve the image or the associate
 
 ## Next steps
 
-For more information, see [Firmware analysis for device builders](overview-firmware-analysis.md)
+For more information, see [Firmware analysis for device builders](overview-firmware-analysis.md).
 
