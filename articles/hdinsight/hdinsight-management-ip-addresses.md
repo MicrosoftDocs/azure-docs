@@ -43,7 +43,7 @@ Allow traffic from the following IP addresses for Azure HDInsight health and man
 Allow traffic from the IP addresses listed for the Azure HDInsight health and management services in the specific Azure region where your resources are located, refer the following note:
 
 > [!IMPORTANT]  
-> We recommend to use [service tag](hdinsight-service-tags.md) feature for network security groups. If you require region specific service tags, please refer the [Azure IP Ranges and Service Tags – Public Cloud](https://www.microsoft.com/en-us/download/confirmation.aspx?id=56519)
+> We recommend to use [service tag](hdinsight-service-tags.md) feature for network security groups. If you require region specific service tags, please refer the [Azure IP Ranges and Service Tags – Public Cloud](https://www.microsoft.com/download/confirmation.aspx?id=56519)
 
 For information on the IP addresses to use for Azure Government, see the [Azure Government Intelligence + Analytics](../azure-government/compare-azure-government-global-azure.md) document.
 
