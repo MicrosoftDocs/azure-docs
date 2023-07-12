@@ -229,17 +229,6 @@ Azure national clouds are isolated from each other and from global commercial Az
 
 To learn more<br/>see [ExpressRoute in China](https://www.azure.cn/home/features/expressroute/).
 
-### Germany
-
-| Service provider | Microsoft Azure | Office 365 | Locations |
-| --- | --- | --- | --- |
-| **[Colt](https://www.colt.net/direct-connect/azure/)** |Supported |Not Supported |Frankfurt |
-| **[Equinix](https://www.equinix.com/partners/microsoft-azure/)** |Supported |Not Supported |Frankfurt |
-| **e-shelter** |Supported |Not Supported |Berlin |
-| **Interxion** |Supported |Not Supported |Frankfurt |
-| **[Megaport](https://www.megaport.com/services/microsoft-expressroute/)** |Supported  | Not Supported | Berlin |
-| **[T-Systems](https://geschaeftskunden.telekom.de/vernetzung-digitalisierung/produkt/intraselect)** |Supported |Not Supported |Berlin |
-
 ## Connectivity through Exchange providers
 
 If your connectivity provider isn't listed in previous sections, you can still create a connection.
