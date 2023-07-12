@@ -20,27 +20,27 @@ Moving a host and all associated VMs to newer generation hardware can be done th
 
 Resize limitations:
 - Host can only be resized to an ADH within the same VM family. A Dsv3-Type3 host can be resized to Dsv3-Type4 but **not** to an **E**sv3-Type4.
-- You can only resize to newer generation of hardware than that of the source host. A Dsv3-Type3 host can be resized to Dsv3-Type4 but **not** Dsv3-Type2.
-- Resizing will change the 'Host Asset Id'. The 'Host Id' will remain the same.
-- The host and all associated VMs will become unavailable during the resize operation.
+- You can only resize to newer generation of hardware. A Dsv3-Type3 host can be resized to Dsv3-Type4 but **not** Dsv3-Type2.
+- Resizing changes the 'Host Asset ID'. The 'Host ID' remains the same.
+- The host and all associated VMs becomes unavailable during the resize operation.
 
 > [!Warning]
-> The resize operation will cause the loss of any non-persistent data such as temp disk data. Save all your work to persistent data storage before triggering resize.
+> The resize operation causes the loss of any non-persistent data such as temp disk data. Save all your work to persistent data storage before triggering resize.
 
 > [!Note]
 > During the public preview, hosts in host groups with Fault domain count of '1' might not support resize. This limitation is only temporary and will be removed as we announce general availability of host resize.
 > 
-> If the source host is already running on the latest hardware, 'Size' page would display an empty list. If you are looking for enhanced performance, consider switching to a different VM family.
+> If the source host is already running on the latest hardware, 'Size' page would display an empty list. If you're looking for enhanced performance, consider switching to a different VM family.
 
 
 ### [Portal](#tab/portal)
 
 1. Search for and select the host.
-1. In the left menu under **Settings** select **Size**.
-1. Once on the the size page from the list of SKUs, select the desired SKU to resize to.
+1. In the left menu under **Settings**, select **Size**.
+1. Once on the size page from the list of SKUs, select the desired SKU to resize to.
 1. Selecting a target size from the list would enable **Resize** button on the bottom on the page.
-1. Click **Resize**, host's 'Provisioning State' will change from 'Provisioning Succeeded' to 'Updating'
-1. Once the resizing is complete the host's 'Provisioning State' will revert to 'Provisioning Succeeded'
+1. Click **Resize**, host's 'Provisioning State' changes from 'Provisioning Succeeded' to 'Updating'
+1. Once the resizing is complete, the host's 'Provisioning State' reverts to 'Provisioning Succeeded'
 
 
 ### [CLI](#tab/cli)
