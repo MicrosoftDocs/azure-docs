@@ -467,6 +467,20 @@ items:
         href: concepts/analytics/insights/email-insights.md
       - name: Export SDK telemetry to Application Insights
         href: quickstarts/telemetry-application-insights.md
+  - name: Job Router
+    items: 
+    - name: Manage queues 
+      href: how-tos/router-sdk/manage-queue.md
+    - name: Classify a job
+      href: how-tos/router-sdk/job-classification.md
+    - name: Accept or decline a job
+      href: how-tos/router-sdk/accept-decline-offer.md
+    - name: Get wait time and job position
+      href: how-tos/router-sdk/estimated-wait-time.md
+    - name: Events
+      items:
+      - name: Subscribe to Job Router Events
+        href: how-tos/router-sdk/subscribe-events.md
 - name: Samples 
   items:
   - name: Voice and Video
@@ -814,8 +828,12 @@ items:
     items:
     - name: Overview
       href: concepts/router/concepts.md
-    - name : Events
-      href: how-tos/router-sdk/subscribe-events.md
+     - name: Events
+      items:
+      - name: Overview
+        href: ../event-grid/event-schema-communication-services.md
+      - name: Job Router events
+        href: ../event-grid/communication-services-router.md
     - name: Analytics
       items:
       - name: Job Router logs
