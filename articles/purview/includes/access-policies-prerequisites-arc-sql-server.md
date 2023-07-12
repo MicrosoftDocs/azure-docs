@@ -4,11 +4,12 @@ ms.author: vlrodrig
 ms.service: purview
 ms.subservice: purview-data-policies
 ms.topic: include
-ms.date: 06/27/2023
+ms.date: 07/12/2023
 ms.custom: references_regions
 ---
 - Get [SQL Server on-premises version 2022](https://www.microsoft.com/en-us/sql-server/sql-server-downloads) running on Windows and install it. You can try the free Developer edition.
-- Next, onboard the [SQL Server instance with Azure Arc](/sql/sql-server/azure-arc/connect-with-installer).
+- [Register a list of resource providers](/azure/azure-arc/servers/prerequisites#azure-resource-providers) in the subscription you will use to onboard the SQL Server instance to Azure Arc
+- Configure your permissions and then onboard the [SQL Server instance with Azure Arc](/sql/sql-server/azure-arc/connect-with-installer).
 - Enable [Azure Active Directory authentication in SQL Server](/sql/relational-databases/security/authentication-access/azure-ad-authentication-sql-server-setup-tutorial). For a simpler setup, follow [this article](/sql/relational-databases/security/authentication-access/azure-ad-authentication-sql-server-automation-setup-tutorial#setting-up-azure-ad-admin-using-the-azure-portal).
 
 #### Region support
