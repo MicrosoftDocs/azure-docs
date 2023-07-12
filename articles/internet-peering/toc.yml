@@ -26,6 +26,8 @@
     href: walkthrough-communications-services-partner.md
   - name: Peering maintenance notification walkthrough
     href: walkthrough-device-maintenance-notification.md
+  - name: Monitoring and Telemetry Walkthrough
+    href: walkthrough-monitoring-and-telemetry.md
   - name: Associate peer ASN to Azure subscription
     items:
     - name: Portal
