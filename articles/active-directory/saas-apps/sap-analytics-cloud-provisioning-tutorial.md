@@ -1,6 +1,6 @@
 ---
 title: 'Tutorial: Configure SAP Analytics Cloud for automatic user provisioning with Azure Active Directory'
-description: Learn how to automatically provision and de-provision user accounts from Azure AD to SAP Analytics Cloud.
+description: Learn how to automatically provision and deprovision user accounts from Azure AD to SAP Analytics Cloud.
 services: active-directory
 documentationcenter: ''
 author: twimmers
@@ -19,7 +19,7 @@ ms.author: thwimmer
 
 # Tutorial: Configure SAP Analytics Cloud for automatic user provisioning
 
-This tutorial describes the steps you need to perform in both SAP Analytics Cloud and Azure Active Directory (Azure AD) to configure automatic user provisioning. When configured, Azure AD automatically provisions and de-provisions users and groups to [SAP Analytics Cloud](https://www.sapanalytics.cloud/) using the Azure AD Provisioning service. For important details on what this service does, how it works, and frequently asked questions, see [Automate user provisioning and deprovisioning to SaaS applications with Azure Active Directory](../app-provisioning/user-provisioning.md). 
+This tutorial describes the steps you need to perform in both SAP Analytics Cloud and Azure Active Directory (Azure AD) to configure automatic user provisioning. When configured, Azure AD automatically provisions and deprovisions users and groups to [SAP Analytics Cloud](https://www.sapanalytics.cloud/) using the Azure AD Provisioning service. For important details on what this service does, how it works, and frequently asked questions, see [Automate user provisioning and deprovisioning to SaaS applications with Azure Active Directory](../app-provisioning/user-provisioning.md). 
 
 > [!NOTE]
 > We are working with SAP to deploy a new gallery application that provides a single point to configure your SAP Analytics Cloud application.
@@ -36,7 +36,7 @@ This tutorial describes the steps you need to perform in both SAP Analytics Clou
 The scenario outlined in this tutorial assumes that you already have the following prerequisites:
 
 * [An Azure AD tenant](../develop/quickstart-create-new-tenant.md) 
-* A user account in Azure AD with [permission](../roles/permissions-reference.md) to configure provisioning (e.g. Application Administrator, Cloud Application administrator, Application Owner, or Global Administrator). 
+* A user account in Azure AD with [permission](../roles/permissions-reference.md) to configure provisioning (for example, Application Administrator, Cloud Application administrator, Application Owner, or Global Administrator). 
 * A SAP Analytics Cloud tenant
 * A user account on SAP Identity Provisioning admin console with Admin permissions. Make sure you have access to the proxy systems in the Identity Provisioning admin console. If you don't see the **Proxy Systems** tile, create an incident for component **BC-IAM-IPS** to request access to this tile.
 * An OAuth client with authorization grant Client Credentials in SAP Analytics Cloud. To learn how, see: [Managing OAuth Clients and Trusted Identity Providers](https://help.sap.com/viewer/00f68c2e08b941f081002fd3691d86a7/release/en-US/4f43b54398fc4acaa5efa32badfe3df6.html)
@@ -48,7 +48,7 @@ The scenario outlined in this tutorial assumes that you already have the followi
 ## Step 1. Plan your provisioning deployment
 
 1. Learn about [how the provisioning service works](../app-provisioning/user-provisioning.md).
-2. Determine who will be in [scope for provisioning](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
+2. Determine who is in [scope for provisioning](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
 3. Determine what data to [map between Azure AD and SAP Analytics Cloud](../app-provisioning/customize-application-attributes.md). 
 
 ## Step 2. Configure SAP Analytics Cloud to support SSO with Azure AD
@@ -58,12 +58,12 @@ Follow the set of instructions available for our SAP Cloud analytics SSO [tutori
 
 ## Step 3. Create AAD Groups for your SAP business roles
 
-Follow the instructions available [here](roles/groups-create-eligible?tabs=ms-powershell.md) to create AAD groups for your SAP roles
+Create AAD groups for your SAP business roles
 
 
 ## Step 4. Map the created groups to your SAP business roles 
 
-Go to [SAP Help Portal](https://help.sap.com/docs/identity-provisioning/identity-provisioning/microsoft-azure-active-directory) to map the created groups t ypur business roles. If you get stuck, you can get further guidance from [SAP Blogs](https://blogs.sap.com/2022/02/04/provision-users-from-microsoft-azure-ad-to-sap-cloud-identity-services-identity-authentication/)  
+Go to [SAP Help Portal](https://help.sap.com/docs/identity-provisioning/identity-provisioning/microsoft-azure-active-directory) to map the created groups to your business roles. If you get stuck, you can get further guidance from [SAP Blogs](https://blogs.sap.com/2022/02/04/provision-users-from-microsoft-azure-ad-to-sap-cloud-identity-services-identity-authentication/)  
 
 
 ## Step 5. Assign Users as members of the AAD Groups 
