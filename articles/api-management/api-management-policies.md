@@ -104,4 +104,4 @@ For more information about working with policies, see:
 
 + [Tutorial: Transform and protect your API](transform-api.md)
 + [Set or edit policies](set-edit-policies.md)
-+ [Policy samples](./policies/index.md)	
++ [Policy snippets repo](https://github.com/Azure/api-management-policy-snippets)	

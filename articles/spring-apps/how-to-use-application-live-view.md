@@ -116,9 +116,9 @@ You can monitor Application Live View using the Azure portal or Azure CLI.
 
 ### [Azure portal](#tab/Portal)
 
-You can view the state of Application Live View in the Azure portal on the **Overview** tab of the **Developer Tools (Preview)** page.
+You can view the state of Application Live View in the Azure portal on the **Overview** tab of the **Developer Tools** page.
 
-:::image type="content" source="media/how-to-use-application-live-view/application-live-view-enabled.png" alt-text="Screenshot of the Developer Tools (Preview) page showing the Overview tab." lightbox="media/how-to-use-application-live-view/application-live-view-enabled.png":::
+:::image type="content" source="media/how-to-use-application-live-view/application-live-view-enabled.png" alt-text="Screenshot of the Developer Tools page showing the Overview tab." lightbox="media/how-to-use-application-live-view/application-live-view-enabled.png":::
 
 ### [Azure CLI](#tab/Azure-CLI)
 
@@ -219,16 +219,16 @@ If you have already enabled Dev Tools Portal and exposed a public endpoint, use 
 
 Use the following steps to manage Application Live View using the Azure portal:
 
-1. Navigate to your service resource, and then select **Developer Tools (Preview)**.
+1. Navigate to your service resource, and then select **Developer Tools**.
 1. Select **Manage tools**.
 
-   :::image type="content" source="media/how-to-use-application-live-view/manage.png" alt-text="Screenshot of the Developer Tools (Preview) page." lightbox="media/how-to-use-application-live-view/manage.png":::
+   :::image type="content" source="media/how-to-use-application-live-view/manage.png" alt-text="Screenshot of the Developer Tools page." lightbox="media/how-to-use-application-live-view/manage.png":::
 
 1. Select the **Enable App Live View** checkbox, and then select **Save**.
 
    :::image type="content" source="media/how-to-use-application-live-view/check-enable.png" alt-text="Screenshot of the Developer Tools section showing the Enable App Live View checkbox." lightbox="media/how-to-use-application-live-view/check-enable.png":::
 
-1. You can then view the state of Application Live View on the **Developer Tools (Preview)**.
+1. You can then view the state of Application Live View on the **Developer Tools**.
 
    :::image type="content" source="media/how-to-use-application-live-view/check-enable.png" alt-text="Screenshot of the Developer Tools section showing the Enable App Live View checkbox." lightbox="media/how-to-use-application-live-view/check-enable.png":::
 
