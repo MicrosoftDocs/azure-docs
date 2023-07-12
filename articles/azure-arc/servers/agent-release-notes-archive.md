@@ -2,7 +2,7 @@
 title: Archive for What's new with Azure Connected Machine agent
 description: Release notes for Azure Connected Machine agent versions older than six months
 ms.topic: overview
-ms.date: 06/02/2023
+ms.date: 07/11/2023
 ms.custom: references_regions
 ---
 
@@ -15,6 +15,19 @@ The Azure Connected Machine agent receives improvements on an ongoing basis. Thi
 - Previous releases
 - Known issues
 - Bug fixes
+
+## Version 1.28 - March 2023
+
+Download for [Windows](https://download.microsoft.com/download/5/9/7/59789af8-5833-4c91-8dc5-91c46ad4b54f/AzureConnectedMachineAgent.msi) or [Linux](manage-agent.md#installing-a-specific-version-of-the-agent)
+
+### Fixed
+
+- Improved reliability of delete requests for extensions
+- More frequent reporting of VM UUID (system firmware identifier) changes
+- Improved reliability when writing changes to agent configuration files
+- JSON output for `azcmagent connect` now includes Azure portal URL for the server
+- Linux installation script now installs the `gnupg` package if it's missing on Debian operating systems
+- Removed weekly restarts for the extension and guest configuration services
 
 ## Version 1.27 - February 2023
 
