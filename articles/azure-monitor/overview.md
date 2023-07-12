@@ -104,7 +104,7 @@ Click on the diagram to see a larger version of the data collection in context.
 
 |Collection method|Description  |
 |---------|---------|
-|[Application instrumentation](app/app-insights-overview.md)| Application Insights is enabled through either [Auto-Instrumentation (agent)](app/codeless-overview.md#what-is-auto-instrumentation-for-azure-monitor-application-insights) or by adding the Application Insights SDK to your application code. In addition, Application Insights is in process of implementing [Open Telemetry](./app/opentelemetry-overview.md). For more information, reference [How do I instrument an application?](app/app-insights-overview.md#how-do-i-instrument-an-application).|
+|[Application instrumentation](app/app-insights-overview.md)| Application Insights is enabled through either [Auto-Instrumentation (agent)](app/codeless-overview.md) or by adding the Application Insights SDK to your application code. In addition, Application Insights is in process of implementing [Open Telemetry](./app/opentelemetry-overview.md). For more information, reference [How do I instrument an application?](app/app-insights-overview.md#how-do-i-instrument-an-application).|
 |[Agents](agents/agents-overview.md)|Agents can collect monitoring data from the guest operating system of Azure and hybrid virtual machines.|
 |[Data collection rules](essentials/data-collection-rule-overview.md)|Use data collection rules to specify what data should be collected, how to transform it, and where to send it.|
 |Zero Config| Data is automatically sent to a destination without user configuration. Platform metrics are the most common example.  |
@@ -231,17 +231,17 @@ SCOM MI currently uses it's own separate traditional SCOM alerting mechanism in 
 
 You may need to integrate Azure Monitor with other systems or to build custom solutions that use your monitoring data. These Azure services work with Azure Monitor to provide integration capabilities. Below are only a few of the possible integrations.
 
-:::image type="content" source="media/overview/integrate-box-opt.svg" alt-text="Diagram that shows the Respond part of the Consumption section of the Azure Monitor system." border="false" lightbox="media/overview/integrate-box-opt.svg":::
+:::image type="content" source="media/overview/integrate-box-opt.svg" alt-text="Diagram that shows the Integrate part of the Consumption section of the Azure Monitor system." border="false" lightbox="media/overview/integrate-box-opt.svg":::
 
 |Azure service  |Description  |
 |---------|---------|
 |[Event Hubs](../event-hubs/event-hubs-about.md)|Azure Event Hubs is a streaming platform and event ingestion service. It can transform and store data by using any real-time analytics provider or batching/storage adapters. Use Event Hubs to stream Azure Monitor data to partner SIEM and monitoring tools.|
-|[Azure Storage](../storage/overview.md)| Export data to Azure storage for less expensive, long-term archival of monitoring data for auditing or compliance purposes. 
-|Hosted and Managed Partners | Many [external partners](partners.md) integrate with Azure Monitor. Azure Monitor has partnered with other monitoring providers to provide an [Azure-hosted version of their products](azure/partner-solutions/) to make interoperability easier. Examples include Elastic, Datadog, Logz.io, and Dynatrace. 
+|[Azure Storage](../storage/common/storage-introduction.md)| Export data to Azure storage for less expensive, long-term archival of monitoring data for auditing or compliance purposes. 
+|Hosted and Managed Partners | Many [external partners](partners.md) integrate with Azure Monitor. Azure Monitor has partnered with other monitoring providers to provide an [Azure-hosted version of their products](/azure/partner-solutions/) to make interoperability easier. Examples include Elastic, Datadog, Logz.io, and Dynatrace. 
 |[API](/rest/api/monitor/)|Multiple APIs are available to read and write metrics and logs to and from Azure Monitor in addition to accessing generated alerts. You can also configure and retrieve alerts. With APIs, you have unlimited possibilities to build custom solutions that integrate with Azure Monitor.|
 |[Azure Logic Apps](../logic-apps/logic-apps-overview.md)|Azure Logic Apps is a service you can use to automate tasks and business processes by using workflows that integrate with different systems and services with little or no code. Activities are available that read and write metrics and logs in Azure Monitor. You can use Logic Apps to [customize responses and perform other actions in response to to Azure Monitor alerts](alerts/alerts-logic-apps.md).  You can also perform other [more complex actions](logs/logicapp-flow-connector.md) when the Azure Monitor infrastructure doesn't already supply a built-it method.|
 |[Azure Functions](../azure-functions/functions-overview.md)| Similar to Azure Logic Apps, Azure Functions give you the ability to pre process and post process monitoring data as well as perform complex action beyond the scope of typical Azure Monitor alerts. Azure Functions uses code however providing additional flexibility over Logic Apps.
-|Azure DevOps and GitHub | Azure Monitor Application Insights gives you the ability to create [Work Item Integration](app/work-item-integration.md) with monitoring data embedding in it. Additional options include [release annotations](/app/annotations.md) and [continuous monitoring](/app/continuous-monitoring.md). |
+|Azure DevOps and GitHub | Azure Monitor Application Insights gives you the ability to create [Work Item Integration](app/work-item-integration.md) with monitoring data embedding in it. Additional options include [release annotations](app/annotations.md) and [continuous monitoring](app/continuous-monitoring.md). |
 
 
 ## Next steps
