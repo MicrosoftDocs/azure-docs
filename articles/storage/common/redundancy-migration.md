@@ -336,9 +336,9 @@ If you choose to perform a manual migration, downtime is required but you have m
 
 ## Timing and frequency
 
-If you initiate a conversion from the Azure portal, the conversion process could take up to 72 hours to actually begin. It could take longer to start if you request a conversion by opening a support request. If a customer-initiated conversion does not enter the "In Progress" status within 96 hours of initiating the request, submit a support request to Microsoft to determine why. To monitor the progress of a customer-initiated conversion, see [Monitoring customer-initiated conversion progress](#monitoring-customer-initiated-conversion-progress).
+If you initiate a zone-redundancy [conversion](#customer-initiated-conversion) from the Azure portal, the conversion process could take up to 72 hours to actually begin. It could take longer to start if you [request a conversion by opening a support request](#support-requested-conversion). If a customer-initiated conversion does not enter the "In Progress" status within 96 hours of initiating the request, submit a support request to Microsoft to determine why. To monitor the progress of a customer-initiated conversion, see [Monitoring customer-initiated conversion progress](#monitoring-customer-initiated-conversion-progress).
 
-There is no SLA for completion of a conversion. If you need more control over when a replication change begins and finishes, consider a [Manual migration](#manual-migration). Generally, the more data you have in your account, the longer it takes to replicate that data to other zones or regions.
+There is no SLA for completion of a conversion. If you need more control over when a conversion begins and finishes, consider a [Manual migration](#manual-migration). Generally, the more data you have in your account, the longer it takes to replicate that data to other zones or regions.
 
 After changing a replication setting, you must wait 72 hours before changing it again. For example, going from LRS to GZRS is a 2-step process. You must add zone redundancy in one operation, then add geo-redundancy in a second. After going from LRS to ZRS, you must wait 72 hours before going from ZRS to GZRS.
 
