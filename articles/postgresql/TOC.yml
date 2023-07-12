@@ -469,6 +469,8 @@
         href: ../app-service/tutorial-python-postgresql-app.md
   - name: Concepts
     items:
+    - name: Reliability
+      href: ../reliability/reliability-postgre.md?toc=/azure/postgresql/toc.json&bc=/azure/bread/toc.json
     - name: Servers
       href: flexible-server/concepts-servers.md
     - name: Supported versions

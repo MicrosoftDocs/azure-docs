@@ -290,3 +290,10 @@ The picture below shows the transition between VM and storage failure.
 ## Further considerations
 
 However, you don't need an availability configuration to protect your server from unplanned outages. A flexible server offers local redundant storage with three copies of data, zone-redundant backup (in regions where it is supported), and built-in server resiliency to automatically restart a crashed server and relocate the server to another physical node. Zone redundant HA will provide higher uptime by performing an automatic failover to another running (standby) server in another zone and thus provides zone-resilient high availability with zero data loss.
+
+## Next steps
+> [!div class="nextstepaction"]
+> [Azure Database for PostgreSQL documentation](azure/postgresql/)
+
+> [!div class="nextstepaction"]
+> [Reliability in Azure](availability-zones-overview.md)
