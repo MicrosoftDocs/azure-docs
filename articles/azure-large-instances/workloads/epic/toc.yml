@@ -1,9 +1,5 @@
 - name: ALI for Epic documentation
   href: index.yml
-- name: Overview
-  items:
-  - name: 
-    href: 
 - name: Get started 
   items:
   - name: Onboarding requirements 

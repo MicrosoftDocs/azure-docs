@@ -20,7 +20,8 @@ landingContent:
     linkLists: 
       - linkListType: overview
         links:
- 
+          - text: Overview
+            url: index.yml
 
 # card 2
   - title: Get started
@@ -34,8 +35,6 @@ landingContent:
           - text: Find your subscription Id
             url: find-your-subscription-id.md
 
- 
-
 # card 3
   - title: Solution architecture
     linkLists: 
@@ -43,8 +42,6 @@ landingContent:
         links:
           - text: Architecture
             url: architecture.md
-
- 
 
 # card 4
   - title: Configuration

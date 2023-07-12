@@ -29,29 +29,6 @@ landingContent:
     linkLists: 
       - linkListType: concept
         links:
-          - text: Onboarding requirements
-            url: workloads/epic/onboarding-requirements.md
-          - text: Available SKUs
-            url: workloads/epic/available-skus.md
-      - linkListType: architecture
-        links:
-          - text: Architecture
-            url: workloads/epic/architecture.md 
-      - linkListType: how-to-guide
-        links:
-          - text: Create a volume group
-            url: workloads/epic/create-a-volume-group.md
-          - text: Configure Azure Service health alerts
-            url: workloads/epic/configure-azure-service-health-alerts.md
-          - text: Find your subscription ID
-            url: workloads/epic/find-your-subscription-id.md
-          - text: LUN and WWID mapping
-            url: workloads/epic/lun-and-wwid-mapping.md
-          - text: Quality checks
-            url: workloads/epic/quality-checks.md
-      - linkListType: reference
-        links:
-          - text: FAQs
-            url: workloads/epic/faq.md
-
-
+          - text: About ALI for EPIC
+            url: workloads/epic/index.yml
+  
