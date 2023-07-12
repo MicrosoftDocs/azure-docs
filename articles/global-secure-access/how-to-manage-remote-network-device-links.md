@@ -70,26 +70,31 @@ You can add a device link to a remote network at any time.
 ## Add a device link using Microsoft Graph API
 
 1. Sign in to the [Graph Explorer](https://aka.ms/ge). 
-1. Select `GET` as the HTTP method from the dropdown. 
+1. Select `POST` as the HTTP method from the dropdown. 
 1. Set the API version to beta. 
 1. Enter the following query:
 
 ```http
 POST https://graph.microsoft.com/beta/networkaccess/connectivity/branches/BRANCH_ID/deviceLinks
 	{
-            "name": "CPE Link 2",
-            "ipAddress": "20.125.118.220",
-            "version": "1.0.0",
-            "deviceVendor": "Other",
-            "bgpConfiguration": {
-                "ipAddress": "172.16.11.6",
-                "asn": 8888
-            },
-            "tunnelConfiguration": {
-                "@odata.type": "#microsoft.graph.networkaccess.tunnelConfigurationIKEv2Default",
-                "preSharedKey": "Detective5OutgrowDiligence"
-            }
-        }
+	    "name": "CPE2",
+	    "ipAddress": "100.1.1.56",
+	    "BandwidthCapacityInMbps": "Mbps250",
+	    "bgpConfiguration": {
+	        "LocalIpAddress": "10.1.1.28",
+	        "PeerIpAddress": "10.1.1.28",
+	        "asn": 5555
+	    },
+	    "tunnelConfiguration": {
+	        "@odata.type": "#microsoft.graph.networkaccess.tunnelConfigurationIKEv2Default",
+	        "preSharedKey": "secret.ppk"
+	    },
+	    "redundancyConfiguration": {
+	    "redundancyTier": "zoneRedundancy",
+	    "zoneLocalIpAddress": "1.1.1.12"
+	    },
+	    "deviceVendor": "citrix"
+	}
 
 ```
 
@@ -100,6 +105,18 @@ If your remote network has device links added, they appear in the **Links** colu
 To delete a device link, navigate to the device link details page and select the **Delete** icon. A confirmation dialog appears. Select **Delete** to confirm the deletion.
 
 ![Screenshot of the delete icon for remote network device links.](media/how-to-manage-remote-network-device-links/delete-device-link.png)
+
+## Delete a device link using Microsoft Graph API
+
+1. Sign in to the [Graph Explorer](https://aka.ms/ge). 
+1. Select `DELETE` as the HTTP method from the dropdown. 
+1. Set the API version to beta. 
+1. Enter the following query:
+
+```http
+DELETE https://graph.microsoft.com/beta/networkaccess/connectivity/branches/BRANCH_ID/deviceLinks/LINK_ID
+
+```
 
 [!INCLUDE [Public preview important note](./includes/public-preview-important-note.md)]
 

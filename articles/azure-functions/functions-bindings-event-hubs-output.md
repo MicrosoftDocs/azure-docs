@@ -54,7 +54,7 @@ public static string Run([TimerTrigger("0 */5 * * * *")] TimerInfo myTimer, ILog
 }
 ```
 
-The following example shows how to use the `IAsyncCollector` interface to send a batch of messages. This scenario is common when you are processing messages coming from one Event Hub and sending the result to another Event Hub.
+The following example shows how to use the `IAsyncCollector` interface to send a batch of messages. This scenario is common when you are processing messages coming from one event hub and sending the result to another event hub.
 
 ```csharp
 [FunctionName("EH2EH")]
@@ -69,12 +69,12 @@ public static async Task Run(
         string newEventBody = DoSomething(eventData);
         
         // Queue the message to be sent in the background by adding it to the collector.
-        // If only the event is passed, an Event Hub partition to be be assigned via
+        // If only the event is passed, an Event Hubs partition to be be assigned via
         // round-robin for each batch.
         await outputEvents.AddAsync(new EventData(newEventBody));
         
         // If your scenario requires that certain events are grouped together in an
-        // Event Hub partition, you can specify a partition key.  Events added with 
+        // Event Hubs partition, you can specify a partition key.  Events added with 
         // the same key will always be assigned to the same partition.        
         await outputEvents.AddAsync(new EventData(newEventBody), "sample-key");
     }
@@ -251,7 +251,7 @@ def main(timer: func.TimerRequest) -> str:
 
 ::: zone-end
 ::: zone pivot="programming-language-java"
-The following example shows a Java function that writes a message containing the current time to an Event Hub.
+The following example shows a Java function that writes a message containing the current time to an event hub.
 
 ```java
 @FunctionName("sendTime")
@@ -262,7 +262,7 @@ public String sendTime(
  }
 ```
 
-In the [Java functions runtime library](/java/api/overview/azure/functions/runtime), use the `@EventHubOutput` annotation on parameters whose value would be published to Event Hub.  The parameter should be of type `OutputBinding<T>` , where `T` is a POJO or any native Java type.
+In the [Java functions runtime library](/java/api/overview/azure/functions/runtime), use the `@EventHubOutput` annotation on parameters whose value would be published to Event Hubs.  The parameter should be of type `OutputBinding<T>` , where `T` is a POJO or any native Java type.
 
 ::: zone-end
 ::: zone pivot="programming-language-csharp"
@@ -322,7 +322,7 @@ For Python functions defined by using *function.json*, see the [Configuration](#
 ::: zone pivot="programming-language-java"  
 ## Annotations
 
-In the [Java functions runtime library](/java/api/overview/azure/functions/runtime), use the [EventHubOutput](/java/api/com.microsoft.azure.functions.annotation.eventhuboutput) annotation on parameters whose value would be published to Event Hub. The following settings are supported on the annotation:
+In the [Java functions runtime library](/java/api/overview/azure/functions/runtime), use the [EventHubOutput](/java/api/com.microsoft.azure.functions.annotation.eventhuboutput) annotation on parameters whose value would be published to Event Hubs. The following settings are supported on the annotation:
 
 + [name](/java/api/com.microsoft.azure.functions.annotation.eventhuboutput.name)
 + [dataType](/java/api/com.microsoft.azure.functions.annotation.eventhuboutput.datatype)
@@ -400,7 +400,7 @@ Send messages by using a method parameter such as `out string paramName`. To wri
 
 # [Extension v5.x+](#tab/extensionv5/isolated-process)
 
-Requires you to define a custom type, or use a string. 
+[!INCLUDE [functions-bindings-event-hubs-output-dotnet-isolated-types](../../includes/functions-bindings-event-hubs-output-dotnet-isolated-types.md)]
 
 # [Extension v3.x+](#tab/extensionv3/isolated-process)
 
@@ -436,11 +436,11 @@ Send messages by using a method parameter such as `out string paramName`, where 
 ::: zone-end  
 ::: zone pivot="programming-language-java" 
 
-There are two options for outputting an Event Hub message from a function by using the [EventHubOutput](/java/api/com.microsoft.azure.functions.annotation.eventhuboutput) annotation:
+There are two options for outputting an Event Hubs message from a function by using the [EventHubOutput](/java/api/com.microsoft.azure.functions.annotation.eventhuboutput) annotation:
 
-- **Return value**: By applying the annotation to the function itself, the return value of the function is persisted as an Event Hub message.
+- **Return value**: By applying the annotation to the function itself, the return value of the function is persisted as an Event Hubs message.
 
-- **Imperative**: To explicitly set the message value, apply the annotation to a specific parameter of the type [`OutputBinding<T>`](/java/api/com.microsoft.azure.functions.OutputBinding), where `T` is a POJO or any native Java type. With this configuration, passing a value to the `setValue` method persists the value as an Event Hub message.
+- **Imperative**: To explicitly set the message value, apply the annotation to a specific parameter of the type [`OutputBinding<T>`](/java/api/com.microsoft.azure.functions.OutputBinding), where `T` is a POJO or any native Java type. With this configuration, passing a value to the `setValue` method persists the value as an Event Hubs message.
 ::: zone-end
 ::: zone pivot="programming-language-powershell" 
  
@@ -453,11 +453,11 @@ Access the output event by using `context.bindings.<name>` where `<name>` is the
 ::: zone-end  
 ::: zone pivot="programming-language-python"  
 
-There are two options for outputting an Event Hub message from a function:
+There are two options for outputting an Event Hubs message from a function:
 
-- **Return value**: Set the `name` property in *function.json* to `$return`. With this configuration, the function's return value is persisted as an Event Hub message.
+- **Return value**: Set the `name` property in *function.json* to `$return`. With this configuration, the function's return value is persisted as an Event Hubs message.
 
-- **Imperative**: Pass a value to the [set](/python/api/azure-functions/azure.functions.out#set-val--t-----none) method of the parameter declared as an [Out](/python/api/azure-functions/azure.functions.out) type. The value passed to `set` is persisted as an Event Hub message.
+- **Imperative**: Pass a value to the [set](/python/api/azure-functions/azure.functions.out#set-val--t-----none) method of the parameter declared as an [Out](/python/api/azure-functions/azure.functions.out) type. The value passed to `set` is persisted as an Event Hubs message.
 
 ::: zone-end
 
@@ -467,7 +467,7 @@ There are two options for outputting an Event Hub message from a function:
 
 | Binding | Reference |
 |---|---|
-| Event Hub | [Operations Guide](/rest/api/eventhub/publisher-policy-operations) |
+| Event Hubs | [Operations Guide](/rest/api/eventhub/publisher-policy-operations) |
 
 ## Next steps
 

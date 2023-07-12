@@ -68,7 +68,7 @@ You can learn more about Defender for Container's pricing on the [pricing page](
 
 ## Deploy the solution to specific clusters
 
-If you disabled any of the default auto provisioning configurations to Off, during the [GCP connector onboarding process](quickstart-onboard-gcp.md#configure-the-containers-plan), or afterwards. You need to manually install Azure Arc-enabled Kubernetes, the Defender extension, and the Azure Policy extensions to each of your GKE clusters to get the full security value out of Defender for Containers.
+If you disabled any of the default auto provisioning configurations to Off, during the [GCP connector onboarding process](quickstart-onboard-gcp.md#configure-the-defender-for-containers-plan), or afterwards. You need to manually install Azure Arc-enabled Kubernetes, the Defender extension, and the Azure Policy extensions to each of your GKE clusters to get the full security value out of Defender for Containers.
 
 There are two dedicated Defender for Cloud recommendations you can use to install the extensions (and Arc if necessary):
 

@@ -3,7 +3,7 @@ author: kengaderdus
 ms.service: active-directory
 ms.subservice: ciam
 ms.topic: include
-ms.date: 06/13/2023
+ms.date: 07/12/2023
 ms.author: kengaderdus
 ---
 Once you've added app roles in your application, administrator can assign users and groups to the roles. Assignment of users and groups to roles can be done through the admin center, or programmatically using [Microsoft Graph](/graph/api/user-post-approleassignments). When the users assigned to the various app roles sign in to the application, their tokens have their assigned roles in the `roles` claim.
@@ -11,7 +11,7 @@ Once you've added app roles in your application, administrator can assign users 
 To assign users and groups to application roles by using the Azure portal:
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as a Conditional Access Administrator, Security Administrator, or Global Administrator.
-1. Make sure you're using the directory that contains your Azure AD customer tenant: Select the **Directories + subscriptions** icon for switching directories in the toolbar, and then find your customer tenant in the list. If it's not the current directory, select **Switch**.
+1. Make sure you're using the directory that contains your Azure AD customer tenant: Select the **Directories + subscriptions** icon :::image type="icon" source="../../media/common/portal-directory-subscription-filter.png" border="false"::: for switching directories in the toolbar, and then find your customer tenant in the list. If it's not the current directory, select **Switch**.
 1. In the left menu, under **Applications**, select **Enterprise applications**.
 1. Select **All applications** to view a list of all your applications. If your application doesn't appear in the list, use the filters at the top of the **All applications** list to restrict the list, or scroll down the list to locate your application.
 1. Select the application in which you want to assign users or security group to roles.

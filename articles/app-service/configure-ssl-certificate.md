@@ -257,7 +257,7 @@ Public certificates are supported in the *.cer* format.
 
    | Setting | Description |
    |-|-|
-   | **CER certificate file** | Select your .pfx file. |
+   | **CER certificate file** | Select your .cer file. |
    | **Certificate friendly name** | The certificate name that will be shown in your web app. |
 
 1. When you're done, select **Add**.
