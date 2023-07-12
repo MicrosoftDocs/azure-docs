@@ -36,7 +36,7 @@ Follow these steps to create a user flow a customer can use to sign in or sign u
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com/).
 
-1. If you have access to multiple tenants, use the **Directories + subscriptions** filter :::image type="icon" source="../../media/common/portal-directory-subscription-filter.png" border="false"::: in the top menu to switch to your customer tenant.
+1. If you have access to multiple tenants, use the **Directories + subscriptions** filter :::image type="icon" source="media/common/portal-directory-subscription-filter.png" border="false"::: in the top menu to switch to your customer tenant.
 
 1. In the left pane, select **Azure Active Directory** > **External Identities** > **User flows**.
 

@@ -28,7 +28,7 @@ You can create a personalized sign-in experience for users who sign in using a s
 ## Add browser language under Company branding
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com/).
-1. If you have access to multiple tenants, use the **Directories + subscriptions** filter :::image type="icon" source="../../media/common/portal-directory-subscription-filter.png" border="false"::: in the top menu to switch to the customer tenant you created earlier.
+1. If you have access to multiple tenants, use the **Directories + subscriptions** filter :::image type="icon" source="media/common/portal-directory-subscription-filter.png" border="false"::: in the top menu to switch to the customer tenant you created earlier.
 1. In the search bar, type and select **Company branding**.
 1. Under **Browser language customizations**, select **Add browser language**. 
 
@@ -88,7 +88,7 @@ The following languages are supported in the customer tenant:
 Language customization in the customer tenant allows your user flow to accommodate different languages to suit your customer's needs.  You can use languages to modify the strings displayed to your customers as part of the attribute collection process during sign-up.
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com/).
-2. If you have access to multiple tenants, use the **Directories + subscriptions** filter :::image type="icon" source="../../media/common/portal-directory-subscription-filter.png" border="false"::: in the top menu to switch to the customer tenant you created earlier.
+2. If you have access to multiple tenants, use the **Directories + subscriptions** filter :::image type="icon" source="media/common/portal-directory-subscription-filter.png" border="false"::: in the top menu to switch to the customer tenant you created earlier.
 3. In the left menu, select **Azure Active Directory** > **External Identities**.
 4. Select **User flows**.
 5. Select the user flow that you want to enable for translations.

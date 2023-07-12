@@ -13,11 +13,7 @@ The following steps show you how to register your daemon app in the Microsoft En
 
 1. If you have access to multiple tenants, make sure you use the directory that contains your Azure AD for customers tenant:
     
-<<<<<<< HEAD
     1. Select the **Directories + subscriptions** icon :::image type="icon" source="../../media/common/portal-directory-subscription-filter.png" border="false"::: in the toolbar. 
-=======
-    1. Select the **Directories + subscriptions** icon ![Icon for switching directories.](media/common/portal-directory-subscription-filter.png) in the toolbar. 
->>>>>>> a50c20538e0756364e52c30c9729ef7efcced9ac
     
     1. On the **Portal settings | Directories + subscriptions** page, find your Azure AD for customers directory in the **Directory name** list, and then select **Switch**. 
 

@@ -65,7 +65,7 @@ An administrator can choose to dismiss a user's risk in the Microsoft Entra admi
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com).
 
-1. Make sure you're using the directory that contains your Azure AD customer tenant: Select the Directories + subscriptions icon :::image type="icon" source="../../media/common/portal-directory-subscription-filter.png" border="false"::: in the toolbar and find your customer tenant in the list. If it's not the current directory, select **Switch**.
+1. Make sure you're using the directory that contains your Azure AD customer tenant: Select the Directories + subscriptions icon :::image type="icon" source="media/common/portal-directory-subscription-filter.png" border="false"::: in the toolbar and find your customer tenant in the list. If it's not the current directory, select **Switch**.
 
 1. Browse to **Azure Active Directory** > **Protect & secure** > **Security Center**.
 
