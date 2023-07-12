@@ -23,7 +23,7 @@ This table shows the VM SKUs that are supported for Azure Machine Learning manag
 
 | Relative Size | General Purpose | Compute Optimized | Memory Optimized | GPU |
 | ---           | ---             | ---               | ---              | --- |
-| V.Small       | Standard_DS1_v2 <br/> Standard_DS2_v2 <br/> Standard_D2a_v4 <br/> Standard_D2as_v4 | Standard_F2s_v2 | Standard_E2s_v3  | Standard_NC4as_T4_v3 |
+| X-Small       | Standard_DS1_v2 <br/> Standard_DS2_v2 <br/> Standard_D2a_v4 <br/> Standard_D2as_v4 | Standard_F2s_v2 | Standard_E2s_v3  | Standard_NC4as_T4_v3 |
 | Small         | Standard_DS3_v2 <br/> Standard_D4a_v4 <br/> Standard_D4as_v4                       | Standard_F4s_v2 <br/> Standard_FX4mds  | Standard_E4s_v3  | Standard_NC6s_v2 <br/> Standard_NC6s_v3 <br/> Standard_NC8as_T4_v3 |
 | Medium        | Standard_DS4_v2 </br> Standard_D8a_v4 </br> Standard_D8as_v4 | Standard_F8s_v2 </br> Standard_FX12mds | Standard_E8s_v3 | Standard_NC12s_v2 <br/> Standard_NC12s_v3 <br/> Standard_NC16as_T4_v3 |
 | Large         | Standard_DS5_v2 </br> Standard_D16a_v4 </br> Standard_D16as_v4 | Standard_F16s_v2 | Standard_E16s_v3 | Standard_NC24s_v2 <br/> Standard_NC24s_v3 <br/> Standard_NC64as_T4_v3 </br> Standard_NC24ads_A100_v4 |
