@@ -126,7 +126,7 @@ This custom role can do everything in the workspace except for the following act
 
 To deploy this custom role, use the following Azure CLI command:
 
-```azurecli-interactive 
+```azurecli 
 az role definition create --role-definition data_scientist_role.json
 ```
 
@@ -138,7 +138,7 @@ For more information on custom roles, see [Azure custom roles](/azure/role-based
 
 For more information on the operations (actions and not actions) usable with custom roles, see [Resource provider operations](/azure/role-based-access-control/resource-provider-operations#microsoftmachinelearningservices). You can also use the following Azure CLI command to list operations:
 
-```azurecli-interactive
+```azurecli
 az provider operation show –n Microsoft.MachineLearningServices
 ```
 
@@ -146,13 +146,13 @@ az provider operation show –n Microsoft.MachineLearningServices
 
 In the Azure CLI, run the following command:
 
-```azurecli-interactive
+```azurecli
 az role definition list --subscription <sub-id> --custom-role-only true
 ```
 
 To view the role definition for a specific custom role, use the following Azure CLI command. The `<role-name>` should be in the same format returned by the command above:
 
-```azurecli-interactive
+```azurecli
 az role definition list -n <role-name> --subscription <sub-id>
 ```
 
@@ -160,7 +160,7 @@ az role definition list -n <role-name> --subscription <sub-id>
 
 In the Azure CLI, run the following command:
 
-```azurecli-interactive
+```azurecli
 az role definition update --role-definition update_def.json --subscription <sub-id>
 ```
 
