@@ -828,7 +828,7 @@ items:
     items:
     - name: Overview
       href: concepts/router/concepts.md
-     - name: Events
+    - name: Events
       items:
       - name: Overview
         href: ../event-grid/event-schema-communication-services.md
