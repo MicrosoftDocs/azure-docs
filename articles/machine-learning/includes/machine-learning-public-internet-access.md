@@ -55,7 +55,7 @@ You may also need to allow __outbound__ traffic to Visual Studio Code and non-Mi
 | `*.anaconda.org` | Used to get repo data. |
 | `pypi.org` | Used to list dependencies from the default index, if any, and the index isn't overwritten by user settings. If the index is overwritten, you must also allow `*.pythonhosted.org`. |
 | `cloud.r-project.org` | Used when installing CRAN packages for R development. |
-| `*pytorch.org` | Used by some examples based on PyTorch. |
+| `*.pytorch.org` | Used by some examples based on PyTorch. |
 | `*.tensorflow.org` | Used by some examples based on Tensorflow. |
 | `code.visualstudio.com` | Required to download and install Visual Studio Code desktop. This isn't required for Visual Studio Code Web. |
 | `update.code.visualstudio.com`</br>`*.vo.msecnd.net` | Used to retrieve Visual Studio Code server bits that are installed on the compute instance through a setup script. |

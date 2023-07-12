@@ -11,9 +11,9 @@ ms.custom: references_regions
 
 When Azure Monitor data indicates that there might be a problem with your infrastructure or application, an alert is triggered. Alerts can contain action groups, which are a collection of notification preferences. Azure Monitor, Azure Service Health, and Azure Advisor use action groups to notify users about the alert and take an action.
 
-This article shows you how to create and manage action groups. Depending on your requirements, you can configure various alerts to use the same action group or different action groups.
+This article shows you how to create and manage action groups. 
 
-Each action is made up of the following properties:
+Each action is made up of:
 
 - **Type**: The notification that's sent or action that's performed. Examples include sending a voice call, SMS, or email. You can also trigger various types of automated actions.
 - **Name**: A unique identifier within the action group.
@@ -21,6 +21,10 @@ Each action is made up of the following properties:
 
 In general, an action group is a global service. Efforts to make them more available regionally are in development. 
 Global requests from clients can be processed by action group services in any region. If one region of the action group service is down, the traffic is automatically routed and processed in other regions. As a global service, an action group helps provide a disaster recovery solution. Regional requests rely on availability zone redundancy to meet privacy requirements and offer a similar disaster recovery solution.
+
+- You can add up to five action groups to an alert rule.
+- Action groups are executed concurrently, in no specific order.
+- Multiple alert rules can use the same action group.
 
 ## Create an action group in the Azure portal
 
@@ -336,6 +340,10 @@ When an email address is rate limited, a notification is sent to communicate tha
 
 ## Email Azure Resource Manager
 
+> [!NOTE]
+>
+> Action Groups uses two different email providers to ensure email notification delivery. The primary email provider is very resilient and quick but occasionally suffers outages. In this case, the secondary email provider handles email requests. The secondary provider is only a fallback solution. Due to provider differences, an email sent from our secondary provider may have a degraded email experience. The degradation results in slightly different email formatting and content. Since email templates differ in the two systems, maintaining parity across the two systems is not feasible.
+
 When you use Azure Resource Manager for email notifications, you can send email to the members of a subscription's role. Email is only sent to Azure Active Directory (Azure AD) **user** members of the role. Email isn't sent to Azure AD groups or service principals.
 
 A notification email is sent only to the primary email address.
@@ -357,10 +365,6 @@ If your primary email doesn't receive notifications, configure the email address
    :::image type="content" source="media/action-groups/active-directory-add-primary-email.png" alt-text="Screenshot that shows a user profile page in the Azure portal. The Edit button and the Email box are called out." border="true":::
 
 You may have a limited number of email actions per action group. To check which limits apply to your situation, see [Azure Monitor service limits](../service-limits.md).
-
-> [!NOTE]
->
-> Action Groups uses two different email providers to ensure email notification delivery. The primary email provider is very resilient and quick but occasionally suffers outages. In this case, the secondary email provider handles email requests. The secondary provider is only a fallback solution. Due to provider differences, an email sent from our secondary provider may have a degraded email experience. The degradation results in slightly different email formatting and content. Since email templates differ in the two systems, maintaining parity across the two systems is not feasible.
 
 When you set up the Resource Manager role:
 

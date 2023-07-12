@@ -443,7 +443,7 @@ The following output parameter types are supported by all C# modalities and exte
 | **byte[]** | Use for writing binary data messages. When the parameter value is null when the function exits, Functions doesn't create a message. |
 | **Object** | When a message contains JSON, Functions serializes the object into a JSON message payload. When the parameter value is null when the function exits, Functions creates a message with a null object.|
 
-Messaging-specific parameter types contain additional message metadata. The specific types supported by the Event Grid Output binding depend on the Functions runtime version, the extension package version, and the C# modality used.
+Messaging-specific parameter types contain additional message metadata. The specific types supported by the output binding depend on the Functions runtime version, the extension package version, and the C# modality used.
 
 # [Extension v5.x](#tab/extensionv5/in-process)
 
@@ -469,7 +469,7 @@ Use the [BrokeredMessage](/dotnet/api/microsoft.servicebus.messaging.brokeredmes
 
 # [Extension 5.x and higher](#tab/extensionv5/isolated-process)
 
-Messaging-specific types are not yet supported. 
+[!INCLUDE [functions-bindings-service-bus-output-dotnet-isolated-types](../../includes/functions-bindings-service-bus-output-dotnet-isolated-types.md)]
 
 # [Functions 2.x and higher](#tab/functionsv2/isolated-process)
 
