@@ -56,12 +56,10 @@ back up and running:
 
 * If the new server is meant to replace the original server, redirect clients
   and client applications to the new server
-* Ensure appropriate networking settings for private or public access are in place for
+* Ensure appropriate [networking settings for private or public access](./concepts-security-overview.md#network-security) are in place for
   users to connect. These settings aren't copied from the original cluster.
-* Adjust PostgreSQL server parameters as needed. The parameters aren't copied
-  from the original cluster.
-* Ensure appropriate logins and database level permissions are in place.
-* Configure alerts, as appropriate.
+* Ensure appropriate [logins](./howto-create-users.md) and database level permissions are in place.
+* Configure [alerts](./howto-alert-on-metric.md#suggested-alerts), as appropriate.
 
 ## Next steps
 
