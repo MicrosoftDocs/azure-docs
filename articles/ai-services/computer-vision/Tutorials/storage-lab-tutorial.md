@@ -49,15 +49,15 @@ In this section, you'll use the [Azure portal](https://portal.azure.com?WT.mc_id
 1. To create a storage account, select **+ Create a resource** in the ribbon on the left. Then select **Storage**, followed by **Storage account**.
 
     ![Creating a storage account](Images/new-storage-account.png)
-1. Enter a unique name for the storage account in **Name** field and make sure a green check mark appears next to it. The name is important, because it forms one part of the URL through which blobs created under this account are accessed. Place the storage account in a new resource group named "IntellipixResources," and select the region nearest you. Finish by clicking the **Review + create** button at the bottom of the screen to create the new storage account.
+1. Enter a unique name for the storage account in **Name** field and make sure a green check mark appears next to it. The name is important, because it forms one part of the URL through which blobs created under this account are accessed. Place the storage account in a new resource group named "IntellipixResources," and select the region nearest you. Finish by selecting the **Review + create** button at the bottom of the screen to create the new storage account.
     > [!NOTE]
     > Storage account names can be 3 to 24 characters in length and can only contain numbers and lowercase letters. In addition, the name you enter must be unique within Azure. If someone else has chosen the same name, you'll be notified that the name isn't available with a red exclamation mark in the **Name** field.
    
     ![Specifying parameters for a new storage account](Images/create-storage-account.png)
-1. Select **Resource groups** in the ribbon on the left. Then click the "IntellipixResources" resource group.
+1. Select **Resource groups** in the ribbon on the left. Then select the "IntellipixResources" resource group.
 
     ![Opening the resource group](Images/open-resource-group.png)
-1. In the tab that opens for the resource group, click the storage account you created. If the storage account isn't there yet, you can select **Refresh** at the top of the tab until it appears.
+1. In the tab that opens for the resource group, select the storage account you created. If the storage account isn't there yet, you can select **Refresh** at the top of the tab until it appears.
 
     ![Opening the new storage account](Images/open-storage-account.png)
 1. In the tab for the storage account, select **Blobs** to view a list of containers associated with this account.
@@ -75,7 +75,7 @@ In this section, you'll use the [Azure portal](https://portal.azure.com?WT.mc_id
 
     ![The new containers](Images/new-containers.png)
 
-1. Close the "Blob service" screen. Select **Access keys** in the menu on the left side of the storage-account screen, and then click the **Copy** button next to **KEY** for **key1**. Paste this access key into your favorite text editor for later use.
+1. Close the "Blob service" screen. Select **Access keys** in the menu on the left side of the storage-account screen, and then select the **Copy** button next to **KEY** for **key1**. Paste this access key into your favorite text editor for later use.
 
     ![Copying the access key](Images/copy-storage-account-access-key.png)
 
@@ -87,11 +87,11 @@ You've now created a storage account to hold images uploaded to the app you're g
 [Azure Storage Explorer](http://storageexplorer.com/) is a free tool that provides a graphical interface for working with Azure Storage on PCs running Windows, macOS, and Linux. It provides most of the same functionality as the Azure portal and offers other features like the ability to view blob metadata. In this section, you'll use the Microsoft Azure Storage Explorer to view the containers you created in the previous section.
 
 1. If you haven't installed Storage Explorer or would like to make sure you're running the latest version, go to http://storageexplorer.com/ and download and install it.
-1. Start Storage Explorer. If you're asked to sign in, do so using your Microsoft account&mdash;the same one that you used to sign in to the Azure portal. If you don't see the storage account in Storage Explorer's left pane, click the **Manage Accounts** button highlighted below and make sure both your Microsoft account and the subscription used to create the storage account have been added to Storage Explorer.
+1. Start Storage Explorer. If you're asked to sign in, do so using your Microsoft account&mdash;the same one that you used to sign in to the Azure portal. If you don't see the storage account in Storage Explorer's left pane, select the **Manage Accounts** button highlighted below and make sure both your Microsoft account and the subscription used to create the storage account have been added to Storage Explorer.
 
     ![Managing accounts in Storage Explorer](Images/add-account.png)
 
-1. Click the small arrow next to the storage account to display its contents, and then click the arrow next to **Blob Containers**. Confirm that the containers you created appear in the list.
+1. Select the small arrow next to the storage account to display its contents, and then select the arrow next to **Blob Containers**. Confirm that the containers you created appear in the list.
 
     ![Viewing blob containers](Images/storage-explorer.png)
 
@@ -314,7 +314,7 @@ In this section, you'll create a new Web app in Visual Studio and add code to im
 
 1. Open the `"thumbnails"` container in Storage Explorer. Open one of the blobs to view the thumbnail images generated from the image uploads.
 
-The app doesn't yet offer a way to view the original images that you uploaded. Ideally, clicking an image thumbnail should display the original image. You'll add that feature next.
+The app doesn't yet offer a way to view the original images that you uploaded. Ideally, selecting an image thumbnail should display the original image. You'll add that feature next.
 
 <a name="Exercise4"></a>
 ## Add a lightbox for viewing photos
@@ -364,11 +364,11 @@ In this section, you'll use a free, open-source JavaScript library to add a ligh
     }
     ```
 
-1. Save your changes and press **Ctrl+F5** to launch the application in your browser. Then click one of the images you uploaded earlier. Confirm that a lightbox appears and shows an enlarged view of the image.
+1. Save your changes and press **Ctrl+F5** to launch the application in your browser. Then select one of the images you uploaded earlier. Confirm that a lightbox appears and shows an enlarged view of the image.
 
     ![An enlarged image](Images/lightbox-image.png)
 
-1. Click the **X** in the lower-right corner of the lightbox to dismiss it.
+1. Select the **X** in the lower-right corner of the lightbox to dismiss it.
 
 Now you have a way to view the images you uploaded. The next step is to do more with those images.
 
@@ -505,7 +505,7 @@ In this section, you will add a search box to the home page, enabling users to d
     }
     ```
 
-    This is the method that's called when the user clicks the **Search** button added in the previous step. It refreshes the page and includes a search parameter in the URL.
+    This is the method that's called when the user selects the **Search** button added in the previous step. It refreshes the page and includes a search parameter in the URL.
 
 1. Replace the **Index** method with the following implementation:
 
@@ -567,7 +567,7 @@ In this section, you will add a search box to the home page, enabling users to d
 
 1. Launch the application again and upload several photos. Feel free to use your own photos, not just the ones provided with the tutorial.
 
-1. Type a keyword such as "river" into the search box. Then click the **Search** button.
+1. Type a keyword such as "river" into the search box. Then select the **Search** button.
 
     ![Performing a search](Images/enter-search-term.png)
 
@@ -575,7 +575,7 @@ In this section, you will add a search box to the home page, enabling users to d
 
     ![Search results](Images/search-results.png)
 
-1. Click the browser's back button to display all of the images again.
+1. Select the browser's back button to display all of the images again.
 
 You're almost finished. It's time to deploy the app to the cloud.
 
@@ -584,11 +584,11 @@ You're almost finished. It's time to deploy the app to the cloud.
 
 In this section, you'll deploy the app to Azure from Visual Studio. You will allow Visual Studio to create an Azure Web App for you, preventing you from having to go into the Azure portal and create it separately.
 
-1. Right-click the project in Solution Explorer and select **Publish...** from the context menu. Make sure **Microsoft Azure App Service** and **Create New** are selected, and then click the **Publish** button.
+1. Right-click the project in Solution Explorer and select **Publish...** from the context menu. Make sure **Microsoft Azure App Service** and **Create New** are selected, and then select the **Publish** button.
 
     ![Publishing the app](Images/publish-1.png)
 
-1. In the next dialog, select the "IntellipixResources" resource group under **Resource Group**. Click the **New...** button next to "App Service Plan" and create a new App Service Plan in the same location you selected for the storage account in [Create a storage account](#Exercise1), accepting the defaults everywhere else. Finish by clicking the **Create** button.
+1. In the next dialog, select the "IntellipixResources" resource group under **Resource Group**. Select the **New...** button next to "App Service Plan" and create a new App Service Plan in the same location you selected for the storage account in [Create a storage account](#Exercise1), accepting the defaults everywhere else. Finish by selecting the **Create** button.
 
     ![Creating an Azure Web App](Images/publish-2.png)
 

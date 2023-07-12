@@ -39,7 +39,7 @@ Let's start by enabling diagnostic logging using the Azure portal.
 4. Enter a name for the setting. Then select **Archive to a storage account** and **Send to log Analytics**.
 5. When prompted to configure, select the storage account and OMS workspace that you'd like to use to store you diagnostic logs. **Note**: If you don't have a storage account or OMS workspace, follow the prompts to create one.
 6. Select **Audit**, **RequestResponse**, and **AllMetrics**. Then set the retention period for your diagnostic log data. If a retention policy is set to zero, events for that log category are stored indefinitely.
-7. Click **Save**.
+7. Select **Save**.
 
 It can take up to two hours before logging data is available to query and analyze. So don't worry if you don't see anything right away.
 

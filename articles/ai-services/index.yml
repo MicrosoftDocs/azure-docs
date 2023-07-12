@@ -123,15 +123,17 @@ additionalContent:
       items:
         - title: Demo & customization studios
           links:
+            - text: Azure OpenAI
+              url: https://oai.azure.com/
             - text: Speech
               url: https://speech.microsoft.com/
             - text: Language
-              url: https://studio.azureml.net/
+              url: https://language.cognitive.azure.com/
             - text: Vision
               url: https://portal.vision.cognitive.azure.com/
             - text: Custom Vision
               url: https://www.customvision.ai/
-            - text: Form Recognizer
+            - text: Document Intelligence
               url: https://formrecognizer.appliedai.azure.com/
             - text: Content Safety
               url: https://contentsafety.cognitive.azure.com/

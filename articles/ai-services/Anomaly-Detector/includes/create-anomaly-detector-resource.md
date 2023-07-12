@@ -24,7 +24,7 @@ ms.author: mbullwin
     |Pricing Tier|`F0` - 10 Calls per second, 20K Transactions per month. <br> Or:<br> `S0` - 80 Calls per second|
     |Resource Group|Select an available resource group|
 
-1. Click **Create** and wait for the resource to be created. After it is created, navigate to the resource page
+1. Select **Create** and wait for the resource to be created. After it is created, navigate to the resource page
 1. Collect configured `endpoint` and an API key:
 
     |Keys and Endpoint tab in the portal|Setting|Value|

@@ -42,12 +42,12 @@ To recover a deleted cognitive service resource, use the following commands. Whe
 
 If you need to recover a deleted resource, navigate to the hub of the Azure AI services API type and select "Manage deleted resources" from the menu. For example, if you would like to recover an "Anomaly detector" resource, search for "Anomaly detector" in the search bar and select the service. Then select **Manage deleted resources**.
 
-Select the subscription in the dropdown list to locate the deleted resource you would like to recover. Select one or more of the deleted resources and click **Recover**. 
+Select the subscription in the dropdown list to locate the deleted resource you would like to recover. Select one or more of the deleted resources and select **Recover**. 
 
 :::image type="content" source="media/managing-deleted-resource.png" alt-text="A screenshot showing deleted resources you can recover." lightbox="media/managing-deleted-resource.png":::
 
 > [!NOTE] 
-> It can take a couple of minutes for your deleted resource(s) to recover and show up in the list of the resources. Click on the **Refresh** button in the menu to update the list of resources.
+> It can take a couple of minutes for your deleted resource(s) to recover and show up in the list of the resources. Select the **Refresh** button in the menu to update the list of resources.
 
 # [Rest API](#tab/rest-api)
 
@@ -112,7 +112,7 @@ If you need to purge a deleted resource, the steps are similar to recovering a d
 Navigate to the hub of the Azure AI services API type of your deleted resource. For example, if you would like to purge an "Anomaly detector" resource, search for "Anomaly detector" in the search bar and select the service. Then select **Manage deleted resources** from the menu.
 
 Select the subscription in the dropdown list to locate the deleted resource you would like to purge.
-Select one or more deleted resources and click **Purge**.
+Select one or more deleted resources and select **Purge**.
 Purging will permanently delete an Azure AI services resource. 
 
 :::image type="content" source="media/managing-deleted-resource.png" alt-text="A screenshot showing a list of resources that can be purged." lightbox="media/managing-deleted-resource.png":::
