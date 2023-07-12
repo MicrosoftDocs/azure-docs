@@ -9,7 +9,7 @@ ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 05/29/2023
+ms.date: 07/11/2023
 ms.author: sarahlipsey
 ms.reviewer: hafowler  
 ms.collection: M365-identity-device-management
@@ -52,15 +52,13 @@ The recommendations listed in the following table are currently available in pub
 |---- |---- |---- |---- |
 | [Convert per-user MFA to Conditional Access MFA](recommendation-turn-off-per-user-mfa.md) | Users | All licenses | Generally available |
 | [Migrate applications from AD FS to Azure AD](recommendation-migrate-apps-from-adfs-to-azure-ad.md) | Applications | All licenses | Generally available |
-| [Migrate from ADAL to MSAL](recommendation-migrate-from-adal-to-msal.md) | Applications | All licenses | Generally available* |
+| [Migrate from ADAL to MSAL](recommendation-migrate-from-adal-to-msal.md) | Applications | All licenses | Generally available |
 | [Migrate to Microsoft Authenticator](recommendation-migrate-to-authenticator.md) | Users | All licenses | Preview |
 | [Minimize MFA prompts from known devices](recommendation-mfa-from-known-devices.md)  | Users | All licenses | Generally available |
 | [Remove unused applications](recommendation-remove-unused-apps.md) | Applications | Azure AD Premium P2 | Preview |
 | [Remove unused credentials from applications](recommendation-remove-unused-credential-from-apps.md) | Applications | Azure AD Premium P2 | Preview |
 | [Renew expiring application credentials](recommendation-renew-expiring-application-credential.md) | Applications | Azure AD Premium P2 | Preview |
 | [Renew expiring service principal credentials](recommendation-renew-expiring-service-principal-credential.md) | Applications | Azure AD Premium P2 | Preview |
-
-*The Migrate from ADAL to MSAL recommendation is generally available, but rolling out in phases. If you don't see this recommendation in your tenant, check back later.
 
 Azure AD only displays the recommendations that apply to your tenant, so you may not see all supported recommendations listed.
 

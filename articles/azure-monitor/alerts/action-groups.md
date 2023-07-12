@@ -340,10 +340,6 @@ When an email address is rate limited, a notification is sent to communicate tha
 
 ## Email Azure Resource Manager
 
-> [!NOTE]
->
-> Action Groups uses two different email providers to ensure email notification delivery. The primary email provider is very resilient and quick but occasionally suffers outages. In this case, the secondary email provider handles email requests. The secondary provider is only a fallback solution. Due to provider differences, an email sent from our secondary provider may have a degraded email experience. The degradation results in slightly different email formatting and content. Since email templates differ in the two systems, maintaining parity across the two systems is not feasible.
-
 When you use Azure Resource Manager for email notifications, you can send email to the members of a subscription's role. Email is only sent to Azure Active Directory (Azure AD) **user** members of the role. Email isn't sent to Azure AD groups or service principals.
 
 A notification email is sent only to the primary email address.
