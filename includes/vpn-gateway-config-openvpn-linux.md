@@ -63,7 +63,11 @@
     ```
     sudo openvpn --config <name and path of your VPN profile file>&
     ```
+1. To disconnect using command line, type the following command:
 
+   ```
+   sudo pkill openvpn
+   ```
 1. To connect using the GUI, go to system settings.
 
 1. Click **+** to add a new VPN connection.
