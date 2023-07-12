@@ -191,7 +191,7 @@ Since network conditions can change during a call, users can report poor audio a
 ### Optimal Video Count
 During a group call with 2 or more participants a user's video quality can fluctuate due to changes in network conditions and their specific hardware limitations. By using the Optimal Video Count API, you can improve user call quality by understanding how many video streams their local endpoint can render at a time without worsening quality. By implementing this feature, you can preserve the call quality and bandwidth of local endpoints that would otherwise attempt to render video poorly. The API exposes the property, optimalVideoCount, which dynamically changes in response to the network and hardware capabilities of a local endpoint. This information is available at runtime and updates throughout the call letting you adjust a user’s visual experience as network and hardware conditions change.
 
-- To implement, see our Remove Video Quality section on managing video within our web platform: [Remote video quality](/azure/communication-services/how-tos/calling-sdk/manage-video?pivots=platform-web)
+- To implement, visit web platform guidance [Manage Video](/azure/communication-services/how-tos/calling-sdk/manage-video?pivots=platform-web) and review the section titled Remote Video Quality. 
 
 <!-- NOTE - cannot link the URL to a sub-header within a pivoted document -->
 ### End of Call Survey 
