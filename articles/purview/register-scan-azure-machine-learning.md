@@ -22,7 +22,7 @@ This integration between Azure Machine Learning and Microsoft Purview applies an
 
 |**Metadata Extraction**|  **Full Scan**  |**Incremental Scan**|**Scoped Scan**|**Classification**|**Labeling**|**Access Policy**|**Lineage**|**Data Sharing**|
 |---|---|---|---|---|---|---|---|---|
-| [Yes](#register)| Yes | Yes | No | No | No| No| Yes | No |
+| [Yes](#register)| Yes | Yes | No | No | No| No| [Yes](#lineage) | No |
 
 When scanning the Azure Machine Learning source, Microsoft Purview supports:
 
@@ -56,6 +56,8 @@ This section describes how to register an Azure Machine Learning workspace in Mi
 
 1. In **Register sources**, select **Azure Machine Learning (Preview)** > **Continue**.
 
+    :::image type="content" source="./media/register-scan-azure-machine-learning/register-source.png" alt-text="Screenshot of the Azure Machine Learning source entry.":::
+
 1. On the **Register sources (Azure Machine Learning)** screen, do the following:
 
     1. For **Name**, enter a friendly name that Microsoft Purview lists as the data source for the workspace.
@@ -69,6 +71,48 @@ This section describes how to register an Azure Machine Learning workspace in Mi
 ## Scan
 
 After you register your Azure Machine Learning workspace, the metadata will be automatically pushed to Microsoft Purview on a daily basis.
+
+## Browse and discover
+
+To access the browse experience for data assets from your Azure Machine Learning workspace, select __Browse Assets__.
+
+:::image type="content" source="./media/register-scan-azure-machine-learning/browse-assets.png" alt-text="Screenshot of the browse assets selection." lightbox="./media/register-scan-azure-machine-learning/browse-assets.png":::
+
+### Browse by collection
+
+Browse by collection allows you to explore the different collections you're a data reader or curator for.
+
+:::image type="content" source="./media/register-scan-azure-machine-learning/browse-by-collection.png" alt-text="Screenshot of browsing by collection." lightbox="./media/register-scan-azure-machine-learning/browse-by-collection.png":::
+
+### Browse by source type
+
+1. On the browse by source types page, select __Azure Machine Learning__.
+
+    :::image type="content" source="./media/register-scan-azure-machine-learning/browse-by-type.png" alt-text="Screenshot of the Azure Machine Learning source type." lightbox="./media/register-scan-azure-machine-learning/browse-by-type.png":::
+
+1. The top-level assets under your selected data type are listed. Pick one of the assets to further explore its contents. For example, after selecting Azure Machine Learning, you'll see a list of workspaces with assets in the data catalog.
+
+    :::image type="content" source="./media/register-scan-azure-machine-learning/top-level-assets.png" alt-text="Screenshot of the top level assets." lightbox="./media/register-scan-azure-machine-learning/top-level-assets.png":::
+
+1. Selecting one of the workspaces displays the child assets.
+
+    :::image type="content" source="./media/register-scan-azure-machine-learning/child-assets.png" alt-text="Screenshot of child assets." lightbox="./media/register-scan-azure-machine-learning/child-assets.png":::
+
+1. From the list, you can select on any of the asset items to view details. For example, selecting one of the Azure Machine Learning job assets displays the details of the job.
+
+    :::image type="content" source="./media/register-scan-azure-machine-learning/asset-details.png" alt-text="Screenshot of asset details." lightbox="./media/register-scan-azure-machine-learning/asset-details.png":::
+
+## Lineage
+
+To view lineage information, select an asset and then select the __Lineage__ tab. From the lineage tab, you can see the asset's relationships when applicable. You can see what source data was used (if registered in Purview), the data asset created in Azure Machine Learning, any jobs, and finally the resulting machine learning model. In more advanced scenarios, you can see:
+
+- If multiple data sources were used
+- Multiple stages of training on multiple data assets
+- If multiple models were created from the same data sources
+
+:::image type="content" source="./media/register-scan-azure-machine-learning/asset-lineage.png" alt-text="Screenshot of the asset lineage." lightbox="./media/register-scan-azure-machine-learning/asset-lineage.png":::
+
+For more information on lineage in general, see [data lineage](concept-data-lineage.md) and [lineage users guide](catalog-lineage-user-guide.md).
 
 ## Next steps
 

@@ -10,11 +10,6 @@ ms.custom: ignite-fall-2021
 
 # Connect Azure Active Directory (Azure AD) data to Microsoft Sentinel
 
-> [!IMPORTANT]
-> As indicated below, some of the available log types are currently in **PREVIEW**. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
-
-[!INCLUDE [reference-to-feature-availability](includes/reference-to-feature-availability.md)]
-
 You can use Microsoft Sentinel's built-in connector to collect data from [Azure Active Directory](../active-directory/fundamentals/active-directory-whatis.md) and stream it into Microsoft Sentinel. The connector allows you to stream the following log types:
 
 - [**Sign-in logs**](../active-directory/reports-monitoring/concept-all-sign-ins.md), which contain information about interactive user sign-ins where a user provides an authentication factor.
@@ -31,6 +26,10 @@ You can use Microsoft Sentinel's built-in connector to collect data from [Azure 
 
 - [**Provisioning logs**](../active-directory/reports-monitoring/concept-provisioning-logs.md) (also in **PREVIEW**), which contain system activity information about users, groups, and roles provisioned by the Azure AD provisioning service. 
 
+> [!IMPORTANT]
+> Some of the available log types are currently in **PREVIEW**. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+
+[!INCLUDE [reference-to-feature-availability](includes/reference-to-feature-availability.md)]
 
 ## Prerequisites
 
@@ -41,6 +40,7 @@ You can use Microsoft Sentinel's built-in connector to collect data from [Azure 
 - Your user must be assigned the [Global Administrator](../active-directory/roles/permissions-reference.md#global-administrator) or [Security Administrator](../active-directory/roles/permissions-reference.md#security-administrator) roles on the tenant you want to stream the logs from.
 
 - Your user must have read and write permissions to the Azure AD diagnostic settings in order to be able to see the connection status.
+- Install the solution for **Azure Active Directory** from the **Content Hub** in Microsoft Sentinel. For more information, see [Discover and manage Microsoft Sentinel out-of-the-box content](sentinel-solutions-deploy.md).
 
 ## Connect to Azure Active Directory
 

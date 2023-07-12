@@ -9,8 +9,7 @@ manager: kavithag
 tags: azure-service-management
 
 ms.assetid:
-ms.service: storage
-ms.subservice: disks
+ms.service: azure-disk-storage
 ms.devlang: azurecli
 ms.topic: sample
 ms.tgt_pltfrm: vm-linux
@@ -63,6 +62,10 @@ diskEncryptionSetName=myName
 #Provide the target disk encryption set resource group
 diskEncryptionResourceGroup=myGroup
 
+#Required for Premium SSD v2 and Ultra Disks
+#Provide the Availability Zone you'd like the disk to be created in, default is 1
+zone=1
+
 #Set the context to the subscription Id where Managed Disk will be created
 az account set --subscription $subscriptionId
 
@@ -75,6 +78,7 @@ diskEncryptionSetId=$(az disk-encryption-set show --name $diskEncryptionSetName 
 #Create a new Managed Disks using the snapshot Id
 #Note that managed disk will be created in the same location as the snapshot
 #To change the location, add the --location parameter
+#If you're creating a Premium SSD v2 or an Ultra Disk, add "--zone $zone" to the end of the command
 az disk create -g $resourceGroupName -n $diskName --source $snapshotId --disk-encryption-set $diskEncryptionSetID --location eastus2euap
 ```
 
@@ -92,8 +96,8 @@ This script uses following commands to create a managed disk from a snapshot. Ea
 
 | Command | Notes |
 |---|---|
-| [az snapshot show](/cli/azure/snapshot) | Gets all the properties of a snapshot using the name and resource group properties of the snapshot. Id property is used to create managed disk.  |
-| [az disk create](/cli/azure/disk) | Creates a managed disk using snapshot Id of a managed snapshot |
+| [az snapshot show](/cli/azure/snapshot) | Gets all the properties of a snapshot using the name and resource group properties of the snapshot. ID property is used to create managed disk.  |
+| [az disk create](/cli/azure/disk) | Creates a managed disk using snapshot ID of a managed snapshot |
 
 ## Next steps
 

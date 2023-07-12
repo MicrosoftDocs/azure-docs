@@ -11,8 +11,7 @@ ms.workload: identity
 ms.subservice: ciam
 ms.topic: how-to
 ms.date: 05/22/2023
-ms.custom: developer
-
+ms.custom: developer, devx-track-js
 #Customer intent: As a dev, devops, I want to create a Node.js daemon application that acquires an access token, then calls an API protected by Azure Active Directory (Azure AD) for customers tenant
 ---
 
@@ -43,7 +42,7 @@ The application you build uses [Microsoft Authentication Library (MSAL) for Node
 
 - [Visual Studio Code](https://code.visualstudio.com/download) or another code editor.
 
-- Azure AD for customers tenant. If you don't already have one, [sign up for a free trial](https://aka.ms/ciam-free-trial?wt.mc_id=ciamcustomertenantfreetrial_linkclick_content_cnl). 
+- Azure AD for customers tenant. If you don't already have one, <a href="https://aka.ms/ciam-free-trial?wt.mc_id=ciamcustomertenantfreetrial_linkclick_content_cnl" target="_blank">sign up for a free trial</a>. 
 
 
 If you want to run a sample Node.js daemon application to get a feel of how things work, complete the steps in [Call an API in a sample Node.js daemon application](how-to-daemon-node-sample-call-api.md).

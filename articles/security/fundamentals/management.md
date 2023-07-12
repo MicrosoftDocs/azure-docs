@@ -161,7 +161,7 @@ Don't assume that because a workstation has been locked down that other common s
 | Don't store account passwords unencrypted or un-hashed in application storage (such as in spreadsheets, SharePoint sites, or file shares). |Establish security management principles and system hardening policies, and apply them to your development environment. |
 | Don't share accounts and passwords between administrators, or reuse passwords across multiple user accounts or services, particularly those for social media or other nonadministrative activities. |Create a dedicated Microsoft account to manage your Azure subscription, an account that is not used for personal email. |
 | Don't email configuration files. |Configuration files and profiles should be installed from a trusted source (for example, an encrypted USB flash drive), not from a mechanism that can be easily compromised, such as email. |
-| Don't use weak or simple logon passwords. |Enforce strong password policies, expiration cycles (changeon-first-use), console timeouts, and automatic account lockouts. Use a client password management system with multi-factor authentication for password vault access. |
+| Don't use weak or simple logon passwords. |Enforce strong password policies, expiration cycles (change-on-first-use), console timeouts, and automatic account lockouts. Use a client password management system with multi-factor authentication for password vault access. |
 | Don't expose management ports to the Internet. |Lock down Azure ports and IP addresses to restrict management access. |
 | - | Use firewalls, VPNs, and NAP for all management connections. |
 

@@ -109,5 +109,5 @@ Azure Web PubSub uses Kusto tables from Azure Monitor Logs. You can query these 
 ## See also
 
 
-- See [Monitoring Azure SignalR](howto-azure-monitor.md) for a description of monitoring Azure Web PubSub.
+- See [Monitoring Azure Web PubSub](howto-azure-monitor.md) for a description of monitoring Azure Web PubSub.
 - See [Monitoring Azure resources with Azure Monitor](../azure-monitor/essentials/monitor-azure-resource.md) for details on monitoring Azure resources.

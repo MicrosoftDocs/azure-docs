@@ -17,7 +17,7 @@ ms.custom: aaddev
 
 # Logging in MSAL for iOS/macOS
 
-[!INCLUDE [MSAL logging introduction](../../../includes/active-directory-develop-error-logging-introduction.md)]
+[!INCLUDE [MSAL logging introduction](./includes/error-handling-and-tips/error-logging-introduction.md)]
 
 ## [Objective-C](#tab/objc)
 

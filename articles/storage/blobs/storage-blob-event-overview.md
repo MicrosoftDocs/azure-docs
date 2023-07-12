@@ -6,7 +6,6 @@ ms.author: normesta
 ms.date: 02/15/2023
 ms.topic: conceptual
 ms.service: storage
-ms.subservice: blobs
 ms.reviewer: dineshm
 ---
 

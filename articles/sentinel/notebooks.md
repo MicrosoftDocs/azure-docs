@@ -4,6 +4,7 @@ description: Learn about Jupyter notebooks with the Microsoft Sentinel hunting c
 author: cwatson-cat
 ms.author: cwatson
 ms.topic: conceptual
+ms.custom: devx-track-python
 ms.date: 01/05/2023
 ---
 

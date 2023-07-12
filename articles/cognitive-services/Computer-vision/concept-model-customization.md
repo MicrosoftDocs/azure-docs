@@ -75,7 +75,7 @@ The following table describes the limits on the scale of your custom model proje
 | Min # training images per category  | 2                               | 2                               |
 | Max # tags per image                | multiclass: 1                   | NA                              |
 | Max # regions per image             | NA                              | 1,000                           |
-| Max # categories                    | 2,000                           | 1,000                           |
+| Max # categories                    | 2,500                           | 1,000                           |
 | Min # categories                    | 2                               | 1                               |
 | Max image size (Training)           | 20 MB                            | 20 MB                            |
 | Max image size (Prediction)         | Sync: 6 MB, Batch: 20 MB          | Sync: 6 MB, Batch: 20 MB          |

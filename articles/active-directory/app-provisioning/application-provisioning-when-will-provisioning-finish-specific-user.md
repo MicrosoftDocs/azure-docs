@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.subservice: app-provisioning
 ms.workload: identity
 ms.topic: how-to
-ms.date: 05/04/2023
+ms.date: 06/29/2023
 ms.author: kenwith
 ms.reviewer: arvinh
 ---
@@ -61,16 +61,16 @@ The time it takes for a given user to be provisioned depends mainly on whether y
 The following table summarizes synchronization times for common provisioning scenarios. In these scenarios, the source system is Azure AD and the target system is a SaaS application. The sync times are derived from a statistical analysis of sync jobs for the SaaS applications ServiceNow, Workplace, Salesforce, and G Suite.
 
 
-| Scope configuration | Users, groups, and members in scope | Initial cycle time | Incremental cycle time |
-| -------- | -------- | -------- | -------- |
-| Sync assigned users and groups only |  < 1,000 |  < 30 minutes | < 30 minutes |
-| Sync assigned users and groups only |  1,000 - 10,000 | 142 - 708 minutes | < 30 minutes |
-| Sync assigned users and groups only |   10,000 - 100,000 | 1,170 - 2,340 minutes | < 30 minutes |
-| Sync all users and groups in Azure AD |  < 1,000 | < 30 minutes  | < 30 minutes |
-| Sync all users and groups in Azure AD |  1,000 - 10,000 | < 30 - 120 minutes | < 30 minutes |
-| Sync all users and groups in Azure AD |  10,000 - 100,000  | 713 - 1,425 minutes | < 30 minutes |
-| Sync all users in Azure AD|  < 1,000  | < 30 minutes | < 30 minutes |
-| Sync all users in Azure AD | 1,000 - 10,000  | 43 - 86 minutes | < 30 minutes |
+| Scope configuration | Users, groups, and members in scope | Initial cycle time |
+| -------- | -------- | -------- | 
+| Sync assigned users and groups only |  < 1,000 |  < 30 minutes |
+| Sync assigned users and groups only |  1,000 - 10,000 | 142 - 708 minutes | 
+| Sync assigned users and groups only |   10,000 - 100,000 | 1,170 - 2,340 minutes |
+| Sync all users and groups in Azure AD |  < 1,000 | < 30 minutes  | 
+| Sync all users and groups in Azure AD |  1,000 - 10,000 | < 30 - 120 minutes | 
+| Sync all users and groups in Azure AD |  10,000 - 100,000  | 713 - 1,425 minutes |
+| Sync all users in Azure AD|  < 1,000  | < 30 minutes |
+| Sync all users in Azure AD | 1,000 - 10,000  | 43 - 86 minutes |
 
 For the configuration **Sync assigned user and groups only**, you can use the following formulas to determine the approximate minimum and maximum expected **initial cycle** times:
 
@@ -92,6 +92,8 @@ Summary of factors that influence the time it takes to complete an **initial cyc
 - The number and sizes of assigned groups. Syncing assigned groups takes longer than syncing users. Both the number and the sizes of the assigned groups impact performance. If an application has [mappings enabled for group object sync](customize-application-attributes.md#editing-group-attribute-mappings), group properties such as group names and memberships are synced in addition to users. These syncs take longer than only syncing user objects.
 
 - If performance becomes an issue, and you're attempting to provision most users and groups in your tenant, then use scoping filters. Scoping filters allow you to fine tune the data that the provisioning service extracts from Azure AD by filtering out users based on specific attribute values. For more information on scoping filters, see [Attribute-based application provisioning with scoping filters](define-conditional-rules-for-provisioning-user-accounts.md).
+
+In most cases, the **incremental cycle** completes in 30 minutes. However, when there are hundreds or thousands of user changes or group membership changes, the incremental cycle time will increase proportionally with the number of changes to process and can take several hours. Using **sync assigned users and groups** and minimizing the number of users / groups in scope for provisioning will help to reduce the sync time.
 
 ## Next steps
 [Automate user provisioning and deprovisioning to SaaS applications with Azure Active Directory](user-provisioning.md)

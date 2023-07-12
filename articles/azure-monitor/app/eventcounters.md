@@ -3,7 +3,7 @@ title: Event counters in Application Insights | Microsoft Docs
 description: Monitor system and custom .NET/.NET Core EventCounters in Application Insights.
 ms.topic: conceptual
 ms.date: 09/20/2019
-ms.custom: devx-track-csharp
+ms.custom: devx-track-csharp, devx-track-dotnet
 ms.reviewer: cithomas
 ---
 
@@ -135,4 +135,3 @@ Live Metrics do not show EventCounters as of today. Use Metric Explorer or Analy
 ## <a name="next"></a>Next steps
 
 * [Dependency tracking](./asp-net-dependencies.md)
-

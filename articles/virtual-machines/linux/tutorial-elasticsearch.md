@@ -8,6 +8,7 @@ ms.service: virtual-machines
 ms.collection: linux
 ms.workload: infrastructure-services
 ms.devlang: azurecli
+ms.custom: devx-track-azurecli
 ms.topic: how-to
 ms.date: 10/11/2017
 ms.author: routlaw

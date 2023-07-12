@@ -11,8 +11,7 @@ ms.workload: identity
 ms.subservice: ciam
 ms.topic: how-to
 ms.date: 05/10/2023
-ms.custom: developer
-
+ms.custom: developer, devx-track-dotnet
 #Customer intent: As a dev, devops, I want to learn about how to enable authentication in my ASP.NET browserless app with Azure Active Directory (Azure AD) for customers tenant
 ---
 
@@ -32,7 +31,7 @@ The article series is broken down into the following steps:
 
 - [Visual Studio Code](https://code.visualstudio.com/download) or another code editor.
 
-- Azure AD for customers tenant. If you don't already have one, [sign up for a free trial](https://aka.ms/ciam-free-trial).
+- Azure AD for customers tenant. If you don't already have one, <a href="https://aka.ms/ciam-free-trial?wt.mc_id=ciamcustomertenantfreetrial_linkclick_content_cnl" target="_blank">sign up for a free trial</a>.
 
 ##  OAuth 2.0 device authorization grant flow
 

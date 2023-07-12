@@ -14,7 +14,7 @@ ms.devlang: r
 
 # Run an R job to train a model
 
-[!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
+[!INCLUDE [cli v2](includes/machine-learning-cli-v2.md)]
 
 This article explains how to take the R script that you [adapted to run in production](how-to-r-modify-script-for-production.md) and set it up to run as an R job using the Azure Machine Learning CLI V2.
 
@@ -154,7 +154,7 @@ Once you've submitted the job, you can check the status and results in studio:
 Finally, once the training job is complete, register your model if you want to deploy it.  Start in the studio from the page showing your job details.
 
 1. On the toolbar at the top, select **+ Register model**.
-1. Select **MLflow** for the **Model type**.
+1. Select **Unspecified type** for the **Model type**.
 1. Select the folder which contains the model.
 1. Select **Next**.
 1. Supply the name you wish to use for your model.  Add **Description**, **Version**, and **Tags** if you wish.

@@ -12,9 +12,8 @@ ms.workload: identity
 ms.date: 11/07/2019
 ms.author: dmwendia
 ms.reviewer: nacanuma
-ms.custom: aaddev, devx-track-java
+ms.custom: aaddev, devx-track-java, devx-track-extended-java
 #Customer intent: As an application developer using the Microsoft Authentication Library for Java (MSAL4J), I want to learn how to persist the token cache so that it is available to a new instance of my application.
-
 ---
 
 # Custom token cache serialization in MSAL for Java

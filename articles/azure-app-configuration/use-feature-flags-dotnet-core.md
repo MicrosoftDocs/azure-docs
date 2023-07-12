@@ -13,8 +13,7 @@ ms.devlang: csharp
 ms.topic: tutorial
 ms.date: 09/17/2020
 ms.author: mcleans
-ms.custom: "devx-track-csharp, mvc"
-
+ms.custom: devx-track-csharp, mvc, devx-track-dotnet
 #Customer intent: I want to control feature availability in my app by using the .NET Core Feature Manager library.
 ---
 

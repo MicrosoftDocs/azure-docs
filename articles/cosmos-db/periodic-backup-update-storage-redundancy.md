@@ -8,7 +8,7 @@ ms.reviewer: sidandrews
 ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 03/21/2023
-ms.custom: ignite-2022
+ms.custom: ignite-2022, devx-track-azurecli, devx-track-azurepowershell
 ---
 
 # Update periodic backup storage redundancy for Azure Cosmos DB

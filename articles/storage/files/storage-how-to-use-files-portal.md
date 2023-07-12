@@ -2,11 +2,10 @@
 title: Quickstart for creating and using Azure file shares
 description: Learn how to create and use Azure file shares with the Azure portal, Azure CLI, or Azure PowerShell. Create a storage account, create an SMB Azure file share, and use your Azure file share.
 author: khdownie
-ms.service: storage
+ms.service: azure-file-storage
 ms.topic: quickstart
 ms.date: 01/03/2023
 ms.author: kendownie
-ms.subservice: files
 ms.custom: engagement-fy23, mode-ui, devx-track-azurecli, devx-track-azurepowershell
 ms.devlang: azurecli
 #Customer intent: As an IT admin new to Azure Files, I want to try out Azure Files so I can determine whether I want to subscribe to the service.
@@ -17,7 +16,7 @@ ms.devlang: azurecli
 
 ## Applies to
 
-This Quickstart only applies to SMB Azure file shares. Standard and premium SMB file shares support locally redundant storage (LRS) and zone-redundant storage (ZRS). Standard file shares also support geo-redundant storage (GRS) and geo-zone-redundant storage (GZRS) options. For more information, see [Azure Storage redundancy](../common/storage-redundancy.md).
+This Quickstart only applies to SMB Azure file shares. Standard and premium SMB file shares support locally redundant storage (LRS) and zone-redundant storage (ZRS). Standard file shares also support geo-redundant storage (GRS) and geo-zone-redundant storage (GZRS) options. For more information, see [Azure Files redundancy](files-redundancy.md).
 
 | File share type | SMB | NFS |
 |-|:-:|:-:|

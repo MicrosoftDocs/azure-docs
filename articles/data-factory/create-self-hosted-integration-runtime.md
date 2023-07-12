@@ -8,7 +8,7 @@ ms.topic: conceptual
 author: lrtoyou1223
 ms.author: lle
 ms.date: 06/16/2022
-ms.custom: devx-track-azurepowershell, synapse
+ms.custom: synapse
 ---
 
 # Create and configure a self-hosted integration runtime
@@ -75,7 +75,7 @@ Installation of the self-hosted integration runtime on a domain controller isn't
 - Copy-activity runs happen with a specific frequency. Processor and RAM usage on the machine follows the same pattern with peak and idle times. Resource usage also depends heavily on the amount of data that is moved. When multiple copy jobs are in progress, you see resource usage go up during peak times.
 - Tasks might fail during extraction of data in Parquet, ORC, or Avro formats. For more on Parquet, see [Parquet format in Azure Data Factory](./format-parquet.md#using-self-hosted-integration-runtime). File creation runs on the self-hosted integration machine. To work as expected, file creation requires the following prerequisites:
   - [Visual C++ 2010 Redistributable](https://download.microsoft.com/download/3/2/2/3224B87F-CFA0-4E70-BDA3-3DE650EFEBA5/vcredist_x64.exe) Package (x64)
-  - Java Runtime (JRE) version 11 from a JRE provider such as [Eclipse Temurin](https://adoptium.net/temurin/releases/?version=11). Ensure that the JAVA_HOME environment variable is set to the JDK folder (and not just the JRE folder) you may also need to add the bin folder to your system's PATH environment variable.
+  - Java Runtime (JRE) version 11 from a JRE provider such as [Microsoft OpenJDK 11](https://aka.ms/download-jdk/microsoft-jdk-11.0.19-windows-x64.msi) or [Eclipse Temurin 11](https://adoptium.net/temurin/releases/?version=11). Ensure that the *JAVA_HOME* system environment variable is set to the JDK folder (not just the JRE folder) you may also need to add the bin folder to your system's PATH environment variable.
   >[!NOTE]
   >It might be necessary to adjust the Java settings if memory errors occur, as described in the [Parquet format](./format-parquet.md#using-self-hosted-integration-runtime) documentation.
   
@@ -372,7 +372,39 @@ You also need to make sure that Microsoft Azure is in your company's allowlist. 
    - Public: https://www.microsoft.com/download/details.aspx?id=56519
    - US Gov: https://www.microsoft.com/download/details.aspx?id=57063 
    - Germany: https://www.microsoft.com/download/details.aspx?id=57064 
-   - China: https://www.microsoft.com/download/details.aspx?id=57062 
+   - China: https://www.microsoft.com/download/details.aspx?id=57062
+
+### Configure proxy server settings when using a private endpoint
+
+If your company's network architure involves the use of private endpoints and for security reasons, and your company's policy does not allow a direct internet connection from the VM hosting the Self Hosted Integration Runtime to the Azure Data Factory service URL, then you will need to allow bypass the ADF Service URL for full connectivity. The following procedure provides instructions for updating the diahost.exe.config file. You should also repeat these steps for the diawp.exe.config file.
+
+1. In File Explorer, make a safe copy of _C:\Program Files\Microsoft Integration Runtime\4.0\Shared\diahost.exe.config_ as a backup of the original file.
+1. Open Notepad running as administrator.
+1. In Notepad, open _C:\Program Files\Microsoft Integration Runtime\4.0\Shared\diahost.exe.config_.
+1. Find the default **system.net** tag as shown here:
+
+    ```xml
+    <system.net>
+        <defaultProxy useDefaultCredentials="true" />
+    </system.net>
+    ```
+
+    You can then add bypasslist details as shown in the following example:
+
+    ```xml
+    <system.net>
+      <defaultProxy>
+          <bypasslist>
+              <add address = "[adfresourcename].[adfresourcelocation].datafactory.azure.net" />
+          </bypasslist>
+          <proxy 
+          usesystemdefault="True"
+          proxyaddress="http://proxy.domain.org:8888/"
+          bypassonlocal="True"
+          />
+      </defaultProxy>
+    </system.net>
+    ```
 
 ### Possible symptoms for issues related to the firewall and proxy server
 

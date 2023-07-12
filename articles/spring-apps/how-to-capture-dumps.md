@@ -6,7 +6,7 @@ ms.author: karler
 ms.service: spring-apps
 ms.topic: how-to
 ms.date: 01/21/2022
-ms.custom: devx-track-java, event-tier1-build-2022
+ms.custom: devx-track-java, devx-track-extended-java, event-tier1-build-2022
 ---
 
 # Capture heap dump and thread dump manually and use Java Flight Recorder in Azure Spring Apps
@@ -78,9 +78,15 @@ The default value for `duration` is 60 seconds.
 Use the following steps to generate a heap or thread dump of your app in Azure Spring Apps.
 
 1. In the Azure portal, navigate to your target app, then select **Troubleshooting**.
-2. In the **Troubleshooting** pane, select the app instance and the type of dump you'd like to collect.
-3. In the **File path** field, specify the mount path of your persistent storage.
-4. Select **Collect**.
+
+   :::image type="content" source="media/how-to-capture-dumps/app-troubleshooting.png" alt-text="Screenshot of the Azure portal showing the app Overview page with the Troubleshooting button highlighted." lightbox="media/how-to-capture-dumps/app-troubleshooting.png":::
+
+1. In the **Troubleshooting** pane, select the app instance and the type of dump you'd like to collect.
+
+   :::image type="content" source="media/how-to-capture-dumps/heap-dump.png" alt-text="Screenshot of the Azure portal Troubleshooting pane." lightbox="media/how-to-capture-dumps/heap-dump.png":::
+
+1. In the **File path** field, specify the mount path of your persistent storage.
+1. Select **Collect**.
 
 ## Get your diagnostic files
 

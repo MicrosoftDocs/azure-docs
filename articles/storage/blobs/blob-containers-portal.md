@@ -9,7 +9,6 @@ ms.service: storage
 ms.topic: how-to
 ms.date: 07/18/2022
 ms.author: shaas
-ms.subservice: blobs
 ---
 
 # Manage blob containers using the Azure portal
@@ -116,6 +115,9 @@ To generate an SAS token using the [Azure portal](https://portal.azure.com), fol
     :::image type="content" source="media/blob-containers-portal/generate-container-sas-sml.png" alt-text="Screenshot showing how to generate a SAS for a container within the Azure portal." lightbox="media/blob-containers-portal/generate-container-sas-lrg.png":::
 
 1. Copy and paste the blob SAS token and blob SAS url values in a secure location. They'll only be displayed once and can't be retrieved after the window is closed.
+
+> [!NOTE]
+> The SAS token returned by the portal does not include the delimiter character ('?') for the URL query string. If you are appending the SAS token to a resource URL, remember to append the delimiter character to the resource URL before appending the SAS token.
 
 ### Create a stored access or immutability policy
 

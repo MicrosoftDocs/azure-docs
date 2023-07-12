@@ -3,7 +3,7 @@ title: Overview of enhanced soft delete for Azure Backup (preview)
 description: This article gives an overview of enhanced soft delete for Azure Backup.
 ms.topic: conceptual
 ms.custom: references_regions
-ms.date: 05/15/2023
+ms.date: 06/29/2023
 ms.service: backup
 author: jyothisuri
 ms.author: jsuri
@@ -45,7 +45,8 @@ The key benefits of enhanced soft delete are:
 ## Supported regions
 
 - Enhanced soft delete is available in all Azure public regions.
-- Soft delete of recovery points is currently in preview in West Central US, North Europe, and Australia East. Support in other regions will be added shortly.
+- Soft delete of recovery points is now available in all Azure public regions.
+
 ## Supported scenarios
 
 - Enhanced soft delete is supported for Recovery Services vaults and Backup vaults. Also, it's supported for new and existing vaults.
@@ -86,7 +87,7 @@ This feature helps to retain these recovery points for an additional duration, a
 
 >[!Note]
 >- Soft delete of recovery points is not supported for log recovery points in SQL and SAP HANA workloads.
->- Thisfeature is currently available in selected Azure regions only. [Learn more](#supported-scenarios).
+>- This feature is currently available in selected Azure regions only. [Learn more](#supported-scenarios).
 
 ## Pricing
 

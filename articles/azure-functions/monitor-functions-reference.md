@@ -23,10 +23,10 @@ There are two metrics specific to Functions that are of interest:
 
 | Metric | Description |
 | ---- | ---- |
-| **FunctionExecutionCount** | Function execution count indicates the number of times your function app has executed. This value correlates to the number of times a function runs in your app. |
+| **FunctionExecutionCount** | Function execution count indicates the number of times your function app has executed. This value correlates to the number of times a function runs in your app. This metric isn't currently supported for Premium and Dedicated (App Service) plans running on Linux.|
 | **FunctionExecutionUnits** | Function execution units are a combination of execution time and your memory usage.  Memory data isn't a metric currently available through Azure Monitor. However, if you want to optimize the memory usage of your app, can use the performance counter data collected by Application Insights. This metric isn't currently supported for Premium and Dedicated (App Service) plans running on Linux.|
 
-These metrics are used specifically when [estimating Consumption plan costs](functions-consumption-costs.md).
+These metrics are used specifically when [estimating Consumption plan costs](functions-consumption-costs.md). 
 
 ### General App Service metrics
 

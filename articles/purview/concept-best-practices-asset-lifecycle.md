@@ -1,19 +1,19 @@
 ---
 title: Microsoft Purview asset management processes 
-description: This article provides process and best practice guidance to effectively manage the lifecycle of assets in the Microsoft Purview data catalog.
+description: This article provides process and best practice guidance to effectively manage the lifecycle of assets in the Microsoft Purview Data Catalog.
 author: Jubairp
 ms.author: jubairpatel
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: conceptual
-ms.date: 01/06/2022
+ms.date: 05/26/2023
 ---
 
 # Business processes for managing data effectively
 
-As data and content has a lifecycle that requires active management (for example, acquisition - processing - disposal) assets in the Microsoft Purview data catalog need active management in a similar way. "Assets" in the catalog include the technical metadata that describes collection, lineage and scan information. Metadata describing the business structure of data such as glossary, classifications and ownership also needs to be managed. 
- 
-To manage data assets, responsible people in the organization must understand how and when to apply data governance processes and manage workflows. 
+As data and content has a lifecycle that requires active management (for example, acquisition - processing - disposal) assets in the Microsoft Purview Data Catalog need active management in a similar way. "Assets" in the catalog include the technical metadata that describes collection, lineage and scan information. Metadata describing the business structure of data such as glossary, classifications and ownership also needs to be managed.
+
+To manage data assets, responsible people in the organization must understand how and when to apply data governance processes and manage workflows.
 
 ## Why do you need business processes for managing assets in Microsoft Purview data governance?
 
@@ -21,16 +21,16 @@ An organization employing [Microsoft Purview data governance solutions](/purview
 
 ### Benefits
 
-- Agreed definition and structure of data is required for the Microsoft Purview data catalog to provide effective data search and protection functionality at scale across organizations' data estates. 
- 
-- Defining and using processes for asset lifecycle management is key to maintaining accurate asset metadata, which will improve usability of the catalog and the ability to protect relevant data. 
- 
-- Business users looking for data will be more likely to use the catalog to search for data when it is maintained using data governance processes.
+- Agreed definition and structure of data. This is required for the Microsoft Purview Data Catalog to provide effective data search and protection functionality at scale across organizations' data estates. 
 
-### Best practice processes that should be considered when starting the data governance journey with Microsoft Purview: 
+- A well defined process for asset lifecycle management. This is key to maintain accurate asset metadata, which improves usability of the catalog and the ability to protect relevant data. 
 
-- **Capture and maintain assets** - Understand how to initially structure and record assets in the catalog for management 
-- **Glossary and Classification management** - Understand how to effectively manage the catalog metadata needed to apply and maintain a business glossary
+- Business users looking for data are more likely to use the catalog to search for data when it's maintained using data governance processes.
+
+### Best practice processes that should be considered when starting the data governance journey with Microsoft Purview:
+
+- **Capture and maintain assets** - Understand how to initially structure and record assets in the catalog for management
+- **Glossary and Classification management** - Understand how to effectively manage the catalog metadata needed to apply for the ingested assets and how to and maintain a business glossary and custom classifications
 - **Moving and deleting assets** – Managing collections and assets by understanding how to move assets from one collection to another or delete asset metadata from Microsoft Purview
 
 ## Data curator organizational personas
@@ -42,19 +42,19 @@ The [Data Curator](catalog-permissions.md) role in Microsoft Purview controls re
 
 - Data Owner or Data Expert:
 
-    - A Data Owner is typically a senior business stakeholder with authority and budget who is accountable for overseeing the quality and protection of a data subject area. This person is accountable for making decisions on who has the right to access data and how it is used.
+    - A Data Owner is typically a senior business stakeholder with authority and budget who is accountable for overseeing the quality and protection of a data subject area. This person is accountable for making decisions on who has the right to access data and how it's used.
 
     - A Data Expert is an individual who is an authority in the business process, data manufacturing process or data consumption patterns. 
 
 - Data Steward or Data Custodian
 
-    - A Data Steward is typically a business professional responsible for overseeing the definition, quality and management of a data subject area or data entity. They are typically experts in the data domain and work with other data stewards to make decisions on how to apply all aspects of data management. 
+    - A Data Steward is typically a business professional responsible for overseeing the definition, quality and management of a data subject area or data entity. They're typically experts in the data domain and work with other data stewards to make decisions on how to apply all aspects of data management. 
     
     - A Data Custodian is an individual responsible for performing one or more data controls. 
 
 ## 1. Capture and maintain assets
 
-This process describes the high-level steps and suggested roles to capture and maintain assets in the Microsoft Purview data catalog.
+This process describes the high-level steps and suggested roles to capture and maintain assets in the Microsoft Purview Data Catalog.
 
 :::image type="content" source="media/concept-best-practices/assets-capturing-asset-metadata.png" alt-text="Business Process 1 - Capturing and Maintaining Assets."lightbox="media/concept-best-practices/assets-capturing-asset-metadata.png" border="true":::
 
@@ -66,13 +66,13 @@ This process describes the high-level steps and suggested roles to capture and m
 | 2 | [How to create and manage collections](how-to-create-and-manage-collections.md)
 | 3 & 4 | [Understand Microsoft Purview access and permissions](catalog-permissions.md)
 | 5 | [Microsoft Purview supported sources](purview-connector-overview.md) <br> [Microsoft Purview private endpoint networking](catalog-private-link.md) |
-| 6 | [How to manage multi-cloud data sources](manage-data-sources.md)
+| 6 | [How to manage data sources in Microsoft Purview](manage-data-sources.md)
 | 7 | [Best practices for scanning data sources in Microsoft Purview](concept-best-practices-scanning.md)
 | 8, 9 & 10 | [Search the data catalog](how-to-search-catalog.md)  <br>   [Browse the data catalog](how-to-browse-catalog.md)
 
 ## 2. Glossary and classification maintenance
 
-This process describes the high-level steps and roles to manage and define the business glossary and classifications metadata to enrich the Microsoft Purview data catalog. 
+This process describes the high-level steps and roles to manage and define the business glossary and classifications metadata to enrich the Microsoft Purview Data Catalog. 
 
 :::image type="content" source="media/concept-best-practices/assets-maintaining-glossary-and-classifications.png" alt-text="Business Process 2 - Maintaining glossary and classifications"lightbox="media/concept-best-practices/assets-maintaining-glossary-and-classifications.png" border="true":::
 
@@ -94,7 +94,7 @@ This process describes the high-level steps and roles to manage and define the b
 
 ## 3. Moving assets between collections
 
-This process describes the high-level steps and roles to move assets between collections using the Microsoft Purview portal. 
+This process describes the high-level steps and roles to move assets between collections using the Microsoft Purview compliance portal. 
 
 :::image type="content" source="media/concept-best-practices/assets-moving-assets-between-collections.png" alt-text="Business Process 3 - Moving assets between collections"lightbox="media/concept-best-practices/assets-moving-assets-between-collections.png" border="true":::
 
@@ -110,21 +110,21 @@ This process describes the high-level steps and roles to move assets between col
 | 7 | [Browse the Microsoft Purview Catalog](how-to-browse-catalog.md) 
 
 > [!Note]
-> It is not currently possible to bulk move assets from one collection to another using the Microsoft Purview portal. 
+> It is not currently possible to bulk move assets from one collection to another using the Microsoft Purview compliance portal. 
 
 ## 4. Deleting asset metadata
 
-This process describes the high-level steps and roles to delete asset metadata from the data catalog using the Microsoft Purview portal. 
+This process describes the high-level steps and roles to delete asset metadata from the data catalog using the Microsoft Purview compliance portal. 
 
 Asset Metadata may need to be deleted manually for many reasons: 
 
-- To remove asset metadata where the data is deleted (if a full re-scan is not performed)
+- To remove asset metadata where the data is deleted (if a full re-scan isn't performed)
 - To remove asset metadata where the data is purged according to its retention period
 - To reduce/manage the size of the data map 
 
 
 > [!Note]
-> Before deleting assets, please refer to the how-to guide to review considerations: [How to delete assets](catalog-asset-details.md#deleting-assets)
+> Before deleting assets, please refer to the how-to guide to review considerations: [How to delete assets](catalog-asset-details.md#delete-asset)
 
 :::image type="content" source="media/concept-best-practices/assets-deleting-asset-metadata.png" alt-text="Business Process 4 - Deleting Assets in Microsoft Purview"lightbox="media/concept-best-practices/assets-deleting-asset-metadata.png" border="true":::
 
@@ -135,7 +135,7 @@ Asset Metadata may need to be deleted manually for many reasons:
 | 1 & 2 | Manual steps |  
 | 3 | [Data catalog lineage user guide](catalog-lineage-user-guide.md)
 | 4 | Manual step
-| 5 | [How to view, edit and delete assets](catalog-asset-details.md#deleting-assets) 
+| 5 | [How to view, edit and delete assets](catalog-asset-details.md#delete-asset) 
 | 6 | [Scanning best practices](concept-best-practices-scanning.md)
 
 > [!Note] 

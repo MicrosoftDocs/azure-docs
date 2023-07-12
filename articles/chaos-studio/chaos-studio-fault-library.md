@@ -1,18 +1,18 @@
 ---
-title: Chaos Studio fault and action library
-description: Understand the available actions you can use with Chaos Studio, including any prerequisites and parameters.
+title: Azure Chaos Studio Preview fault and action library
+description: Understand the available actions you can use with Azure Chaos Studio Preview, including any prerequisites and parameters.
 services: chaos-studio
 author: prasha-microsoft 
 ms.topic: article
 ms.date: 06/16/2022
 ms.author: prashabora
 ms.service: chaos-studio
-ms.custom: ignite-fall-2021, ignite-2022
+ms.custom: ignite-fall-2021, ignite-2022, devx-track-arm-template
 ---
 
-# Chaos Studio fault and action library
+# Azure Chaos Studio Preview fault and action library
 
-The faults listed in this article are currently available for use. To understand which resource types are supported, see [Supported resource types and role assignments for Chaos Studio](./chaos-studio-fault-providers.md).
+The faults listed in this article are currently available for use. To understand which resource types are supported, see [Supported resource types and role assignments for Azure Chaos Studio Preview](./chaos-studio-fault-providers.md).
 
 ## Time delay
 
@@ -20,7 +20,7 @@ The faults listed in this article are currently available for use. To understand
 |-|-|
 | Fault provider | N/A |
 | Supported OS types | N/A |
-| Description | Adds a time delay before, between, or after other actions. This fault is useful for waiting for the effect of a fault to appear in a service, or for waiting for an activity outside of the experiment to complete. An example is waiting for autohealing to occur before injecting another fault. |
+| Description | Adds a time delay before, between, or after other experiment actions. This is not a fault and is used to synchronize actions within an experiment. Use this action to wait for the impact of a fault to appear in a service, or wait for an activity outside of the experiment to complete. For example, waiting for autohealing to occur before injecting another fault.|
 | Prerequisites | N/A |
 | Urn | urn:csci:microsoft:chaosStudio:timedDelay/1.0 |
 | Duration | The duration of the delay in ISO 8601 format (for example, PT10M). |
@@ -358,7 +358,7 @@ Currently, the Windows agent doesn't reduce memory pressure when other applicati
 |-|-|
 | Capability name | TimeChange-1.0 |
 | Target type | Microsoft-Agent |
-| Supported OS types | Windows. |
+| Supported OS types | Windows |
 | Description | Changes the system time of the VM where it's injected and resets the time at the end of the experiment or if the experiment is canceled. |
 | Prerequisites | None. |
 | Urn | urn:csci:microsoft:agent:timeChange/1.0 |
