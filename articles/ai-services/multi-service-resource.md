@@ -24,7 +24,7 @@ You can access Azure AI services through two different resources: A multi-servic
     * Consolidates billing from the services you use.
 * Single-service resource:
     * Access a single Azure AI service with a unique key and endpoint for each service created. 
-    * Most Azure AI servives offer a free tier to try it out.
+    * Most Azure AI services offer a free tier to try it out.
 
 Azure AI services are represented by Azure [resources](../azure-resource-manager/management/manage-resources-portal.md) that you create under your Azure subscription. After you create a resource, you can use the keys and endpoint generated to authenticate your applications.
 
