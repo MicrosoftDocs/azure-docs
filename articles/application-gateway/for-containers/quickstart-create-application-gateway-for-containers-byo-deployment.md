@@ -36,9 +36,10 @@ az network alb frontend create -g $RESOURCE_GROUP -n $FRONTEND_NAME --alb-name $
 
 ## Create an Association resource
 
-To create an association resource, you first need to reference a subnet for Application Gateway for Containers to establish connectivity to.  Ensure the subnet for an Application Gateway for Containers association is at least a class C or larger (/24 or smaller CIDR prefix).
+### Delegate a subnet to association resource
+To create an association resource, you first need to reference a subnet for Application Gateway for Containers to establish connectivity to.  Ensure the subnet for an Application Gateway for Containers association is at least a class C or larger (/24 or smaller CIDR prefix).  For this step, you may either create a new VNET, subnet, and enable subnet delegation, or reuse an existing subnet and enable subnet delegation on it.
 
-### Create a new VNET, subnet, and subnet delegation
+# [New VNet, Subnet, and Subnet Delegation](#tab/new-vnet)
 The following command will create a new virtual network and subnet with at least 250 IP addresses available.
 
 ```azurecli-interactive
@@ -64,13 +65,15 @@ az network vnet subnet update \
 ALB_SUBNET_ID=az network vnet subnet list --resource-group $RESOURCE_GROUP --vnet-name $VNET_NAME --query "[?name=='subnet-alb'].id" --output tsv
 echo $ALB_SUBNET_ID
 ```
- 
-### Reference an existing VNet and Subnet
+
+# [Reference existing VNet and Subnet](#tab/new-vnet)
 To reference an existing subnet, execute the following command to get the resource ID of the subnet:
 ```azurecli-interactive
 albSubnetId=az network vnet subnet list --resource-group $RESOURCE_GROUP --vnet-name vnet-test --query "[?name=='subnet-alb'].id" --output tsv
 echo $ALB_SUBNET_ID
 ```
+
+---
 
 ### Delegate permissions to managed identity
 ALB Controller will need the ability to provision new Application Gateway for Containers resources as well as join the subnet intended for the Application Gateway for Containres association resource.
