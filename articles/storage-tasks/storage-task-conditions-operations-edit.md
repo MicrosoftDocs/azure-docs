@@ -12,7 +12,7 @@ ms.date: 05/10/2023
 
 You can use a visual editor to define the conditions and operations of a storage task.
 
-An _operation_ is an that is action taken on each object that meets the conditions defined in the task. A _condition_ defines the relationship between a property and a value. To execute an operation defined in the storage task, the terms of that relationship must be met by each object. 
+An _operation_ is an that is action taken on each object that meets the conditions defined in the task. A _condition_ defines the relationship between a property and a value. To execute an operation defined in the storage task, the terms of that relationship must be met by each object.
 
 To learn more, see [Storage task conditions and operations](storage-task-conditions-operations.md).
 
@@ -21,7 +21,7 @@ To learn more, see [Storage task conditions and operations](storage-task-conditi
 Navigate to the storage task in the Azure portal and then under **Storage task management**, select **Conditions**.
 
 > [!div class="mx-imgBorder"]
-> ![Screenshot of the Conditions button and the Conditions editor.](./media/storage-task-conditions-operations-edit/storage-task-condition-editor.png)
+> ![Screenshot of the Conditions button and the Conditions editor](./media/storage-task-conditions-operations-edit/storage-task-condition-editor.png)
 
 The **Visual builder** tab of the **Conditions** pane appears. You can add and remove conditions and operations by using controls that appear in this tab.
 

@@ -73,7 +73,7 @@ To learn more about conditions and operations, see [storage task conditions and 
 
 ## Assignments tab
 
-An _assignment_ identifies a storage account target. It also contains properties that can narrow the scope of target objects and specify when and how often a task should run.
+An _assignment_ identifies a storage account and a subset of objects in that account that the task will target. An assignment also defines when the task runs and where execution reports are stored.
 
 To add an assignment, select **Add assignment**. This step is optional. You don't have to add an assignment to create the task.
 

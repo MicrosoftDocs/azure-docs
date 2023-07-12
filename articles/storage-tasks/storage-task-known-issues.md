@@ -14,6 +14,10 @@ ms.author: normesta
 
 Introduction goes here.
 
+## Storage accounts
+
+During the public preview, you can target only storage accounts that are in the same region as the storage tasks.
+
 ## Scale limits
 
 | Scale factor | Supported limit |

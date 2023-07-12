@@ -9,12 +9,11 @@ ms.service: storage-tasks
 ms.topic: conceptual
 ms.date: 05/10/2023
 ms.author: normesta
-
 ---
 
 # Storage Task assignment
 
-Put something here.
+An _assignment_ identifies a storage account and a subset of objects in that account that the task will target. An assignment also defines when the task runs and where execution reports are stored.
 
 > [!IMPORTANT]
 > Storage Tasks is currently in PREVIEW and is available in the following regions: \<List regions here\>.
@@ -29,6 +28,7 @@ To create an assignment, see [Create and manage a Storage Task assignment](stora
 
 Something here about storage account targets, number of accounts supported and other constraints along with blob prefix and other details.
 There is a maximum of 10 tasks per storage account.
+You can target only storage accounts in the same region.
 
 ## Targeting specific objects
 
