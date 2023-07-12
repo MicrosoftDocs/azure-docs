@@ -38,14 +38,14 @@ These policies replace the deprecated policies:
 ## Migrate from deprecated VM insights policies to replacement policies
 
 1. Download a VM insights data collection rule:  
-    - To collect only VM insights metrics, download [ama-vmi-default-perf-dcr]() under OnboardingTemplates/DeployDcr/PerfOnlyDcr/DeployDcrTemplate.json
-    - To collect VM insights performance metrics and Service Map data, download [ama-vmi-default-perfAndda-dcr] under OnboardingTemplates/DeployDcr/PerfAndMapDcr/DeployDcrTemplate.json
+    - To collect only VM insights metrics, download [ama-vmi-default-perf-dcr](). 
+    - To collect VM insights performance metrics and Service Map data, download [ama-vmi-default-perfAndda-dcr]().
 
 1. Deploy the VM insights data collection rule using an ARM template, as described in [Quickstart: Create and deploy ARM templates by using the Azure portal](../../azure-resource-manager/templates/quickstart-create-templates-use-the-portal.md#edit-and-deploy-the-template).
 
-    1. Make sure to select **Build your own template in the editor** and **Load file** to upload the template you downloaded in the previous step.
+    1. Select **Build your own template in the editor** > **Load file** to upload the template you downloaded in the previous step.
 
-    1. When the data collection rule deployment is complete, select **Go to resource**, select **JSON View** and copy the data collection rule's **Resource ID**.
+    1. When the data collection rule deployment is complete, select **Go to resource** > **JSON View** and copy the data collection rule's **Resource ID**.
 
 1. Assign a [replacement policy](#replacement-vm-insights-policies): 
 
