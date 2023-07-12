@@ -25,24 +25,24 @@ Explain what an assignment is.
 
 To create an assignment, see [Create and manage a Storage Task assignment](storage-task-assignment-create.md).
 
-## Scope of the assignment
+## Targeting a storage account
 
 Something here about storage account targets, number of accounts supported and other constraints along with blob prefix and other details.
 There is a maximum of 10 tasks per storage account.
 
-## Filters that target specific objects
+## Targeting specific objects
 
 Put something here.
 
-## Triggers that determine when the task runs
+## Determining when a task runs
 
 What sets it off - run now? on a schedule?
 
-## Run status (enabled or disabled)
+## Enabling and disabling the assignment
 
 Enabled/disabled.
 
-## Authorization to perform operations on a storage account
+## Authorizing access to a storage account
 
 When you create a task assignment, choose an Azure Built-in or custom role that has the permission necessary to perform the tasks that you've defined against the target storage account. If you prefer to use a custom role, make sure that your role contains the RBAC actions necessary to perform the tasks. This section describes the least privileged built-in Azure role as well as the RBAC actions required by each operation if you choose to create a custom role.
 
