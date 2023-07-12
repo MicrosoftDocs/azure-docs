@@ -69,6 +69,9 @@ You can configure the following logs for Azure Machine Learning:
 | AmlComputeClusterNodeEvent (deprecated) | Events from nodes within an Azure Machine Learning compute cluster. |
 | AmlComputeJobEvent | Events from jobs running on Azure Machine Learning compute. |
 | AmlComputeCpuGpuUtilization | ML services compute CPU and GPU utilization logs. |
+| AmlOnlineEndpointTrafficLog | Logs for traffic to online endpoints. |
+| AmlOnlineEndpointConsoleLog | Logs that the containers for online endpoints write to the console. |
+| AmlOnlineEndpointEventLog | Logs for events regarding the life cycle of online endpoints. |
 | AmlRunStatusChangedEvent | ML run status changes. |
 | ModelsChangeEvent | Events when ML model is accessed created or deleted. |
 | ModelsReadEvent | Events when ML model is read. |
