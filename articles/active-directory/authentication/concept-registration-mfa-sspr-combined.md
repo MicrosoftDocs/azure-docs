@@ -171,6 +171,13 @@ Or, you can specify a tenant by URL to access security information.
 
 `https://mysignins.microsoft.com/security-info/?tenantId=<Tenant ID>`
 
+> [!NOTE]
+> Customers attempting to register or manage security info through combined registration or the My Sign-ins page should utilize a modern browser such as Microsoft Edge. 
+>
+>Utilizing IE11 to create a webview or browser in applications will not work as expected in all scenarios and is not officially supported.
+>
+>Applications that have not been updated and are still utilzing Azure AD Authentication Library(ADAL) that rely on legacy webviews can fallback to older versions of IE. In these scenarios, users will experience a blank page when directed to the My Sign-ins page. In order to resolve this issue, a modern browser must be utilized.
+
 ## Next steps
 
 To get started, see the tutorials to [enable self-service password reset](tutorial-enable-sspr.md) and [enable Azure AD Multi-Factor Authentication](tutorial-enable-azure-mfa.md).
