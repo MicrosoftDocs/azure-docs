@@ -173,7 +173,7 @@ Learn more about [integrating KEDA with AKS][keda-prometheus].
 [managed-grafana]: /azure/managed-grafana/overview
 [create-grafana]: /azure/managed-grafana/quickstart-managed-grafana-portal
 [access-grafana]: /azure/managed-grafana/quickstart-managed-grafana-portal#access-your-managed-grafana-instance
-[keda]: /azure/keda-about
+[keda]: ./keda-about
 [keda-prometheus]: /azure/azure-monitor/essentials/integrate-keda#scalers
 [az-aks-show]: /cli/azure/aks#az-aks-show
 [az-aks-enable-addons]: /cli/azure/aks#az-aks-enable-addons
