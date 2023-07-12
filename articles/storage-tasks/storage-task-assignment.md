@@ -25,61 +25,99 @@ Explain what an assignment is.
 
 To create an assignment, see [Create and manage a Storage Task assignment](storage-task-assignment-create.md).
 
-## Status
-
-Enabled/disabled.
-
-## Execution context
+## Scope of the assignment
 
 Something here about storage account targets, number of accounts supported and other constraints along with blob prefix and other details.
 There is a maximum of 10 tasks per storage account.
 
-## Trigger
+## Filters that target specific objects
+
+Put something here.
+
+## Triggers that determine when the task runs
 
 What sets it off - run now? on a schedule?
 
-## Task runs
+## Run status (enabled or disabled)
 
-Task runs generate an execution report as well as events that other applications can subscribe to through the event grid. Task runs also generate Azure Monitor metrics that you can view in the overview page of the storage task.
+Enabled/disabled.
 
-### Execution reports
+## Authorization to perform operations on a storage account
 
-When a run completes, an execution report is generated. Explain how to access this report.
+When you create a task assignment, choose an Azure Built-in or custom role that has the permission necessary to perform the tasks that you've defined against the target storage account. If you prefer to use a custom role, make sure that your role contains the RBAC actions necessary to perform the tasks. This section describes the least privileged built-in Azure role as well as the RBAC actions required by each operation if you choose to create a custom role.
 
-The report is formatted as a CSV file. Each row of the report contains the details about the execution of the operation on each object that is targeted by the task. The completion report is stored at the path specified by the report element of the task definition and follows the naming convention of `<taskId>-<completionTimestamp>.csv`.
+To learn how to assign an Azure role during task assignment, see [Create and manage a storage task assignment](storage-task-assignment-create.md).
 
-The following table describes the columns of information that appear in the execution report:
+### SetBlobTier
 
-| Name | Description |
-|--|--|
-| Blob path | The fully qualified name of the blob. |
-| Version ID / Snapshot | The ID of the version or snapshot of this task. This field is empty if the object is a base blob. |
-| Condition effect | This field contains a value of `true` if the application of the defined conditions on the object evaluates true; otherwise `false`. |
-| Operation status | This field contains a value of `Success` or `Failed`. This field is empty if the application of the defined conditions on the object evaluates to false. |
-| Status code | This field is empty if the application of the defined conditions on the object evaluates to false. |
-| Error message | This field is empty if the application of the defined conditions on the object evaluates to false. |
+The SetBlobTier operation requires the [Storage Blob Data Contributor](../role-based-access-control/built-in-roles.md#storage-blob-data-contributor) built-in role.
 
-The following example shows an execution report:
+If you prefer to create a custom role, then that role must contain the following RBAC actions:
 
-`Put example here`
+- Microsoft.Storage/storageAccounts/blobServices/read
 
-### Events
+- Microsoft.Storage/storageAccounts/blobServices/write
 
-Task runs generate `Task Started` and `Task Completed` events which other applications can subscribe through Event Grid.
+- Microsoft.Storage/storageAccounts/blobServices/containers/write
 
-Link to the schema for these events and any other information about how to subscribe to events.
+- Microsoft.Storage/storageAccounts/blobServices/containers/read
 
-### Metrics
+- Microsoft.Storage/storageAccounts/blobServices/containers/read
 
-Each task execution produces the following metrics that users can view:
+- Microsoft.Storage/storageAccounts/blobServices/containers/write
 
-- Count of objects targeted
+- Microsoft.Storage/storageAccounts/blobServices/containers/delete
 
-- Count of operations attempted
+### SetBlobTags
 
-- Count of operations succeeded
+The SetBlobTags operation requires the [Storage Blob Data Contributor](../role-based-access-control/built-in-roles.md#storage-blob-data-contributor) built-in role.
 
-Link to information about how to view these metrics
+If you prefer to create a custom role, then that role must contain the Microsoft.Storage/storageAccounts/blobServices/containers/blobs/tags/write RBAC action.
+
+### SetBlobImmutabilityPolicy
+
+The SetBlobImmutabilityPolicy operation requires the [Storage Blob Data Contributor](../role-based-access-control/built-in-roles.md#storage-blob-data-contributor) built-in role.
+
+If you prefer to create a custom role, then that role must contain the following RBAC actions:
+
+- Microsoft.Storage/storageAccounts/blobServices/containers/immutabilityPolicies/write
+
+- Microsoft.Storage/storageAccounts/blobServices/containers/immutabilityPolicies/read
+
+- Microsoft.Storage/storageAccounts/blobServices/containers/immutabilityPolicies/delete
+
+- Microsoft.Storage/storageAccounts/blobServices/containers/immutabilityPolicies/extend/action
+
+- Microsoft.Storage/storageAccounts/blobServices/containers/immutabilityPolicies/lock/action
+
+### SetBlobLegalHold
+
+The SetBlobLegalHold operation requires the [Storage Blob Data Contributor](../role-based-access-control/built-in-roles.md#storage-blob-data-contributor) built-in role.
+
+If you prefer to create a custom role, then that role must contain the following RBAC actions:
+
+- Microsoft.Storage/storageAccounts/blobServices/containers/setLegalHold/action
+
+- Microsoft.Storage/storageAccounts/blobServices/containers/clearLegalHold/action
+
+### DeleteBlob
+
+The DeleteBlob operation requires the [Storage Blob Data Contributor](../role-based-access-control/built-in-roles.md#storage-blob-data-contributor) built-in role.
+
+If you prefer to create a custom role, then that role must contain the Microsoft.Storage/storageAccounts/blobServices/containers/delete RBAC action.
+
+### UndeleteBlob
+
+The UndeleteBlob operation requires the [Storage Blob Data Contributor](../role-based-access-control/built-in-roles.md#storage-blob-data-contributor) built-in role.
+
+If you prefer to create a custom role, then that role must contain the following RBAC actions:
+
+- Microsoft.Storage/storageAccounts/blobServices/containers/write
+
+- Microsoft.Storage/storageAccounts/blobServices/containers/delete  
+
+To assign a role to the storage task, `put guidance here`.
+
 
 ## See also
 

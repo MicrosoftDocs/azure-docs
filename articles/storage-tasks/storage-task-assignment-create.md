@@ -26,4 +26,4 @@ Intro of task goes here.
 
 - [Azure Storage Tasks Overview](overview.md)
 - [Storage task assignments](storage-task-assignment.md)
-- [Review task results](storage-task-review-runs-resolve-problems.md)
+- [Storage task runs](storage-task-runs.md)

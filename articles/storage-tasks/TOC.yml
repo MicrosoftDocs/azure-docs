@@ -13,12 +13,14 @@ items:
   expanded: true
 - name: Concepts
   items: 
+  - name: Storage task authorization
+    href: storage-task-authorization.md
   - name: Storage task conditions & operations
     href: storage-task-conditions-operations.md
   - name: Storage task assignments
     href: storage-task-assignment.md
-  - name: Storage task authorization
-    href: storage-task-authorization.md
+  - name: Storage task runs
+    href: storage-task-runs.md
   - name: Monitor Azure Storage Tasks
     href: monitor-storage-tasks.md
   expanded: true
@@ -30,8 +32,6 @@ items:
     href: storage-task-conditions-operations-edit.md
   - name: Create and manage an assignment
     href: storage-task-assignment-create.md
-  - name: Review results
-    href: storage-task-review-runs-resolve-problems.md
   expanded: true
 - name: Reference
   items:
