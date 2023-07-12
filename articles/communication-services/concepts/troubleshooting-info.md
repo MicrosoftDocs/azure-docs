@@ -165,7 +165,7 @@ The Azure Communication Services Calling SDK relies internally on [@azure/logger
 Use the `setLogLevel` method from the `@azure/logger` package to configure the log output level. Create a logger and pass it into the CallClient constructor:
 
 ```javascript
-import { setLogLevel, createClientLogger } from '@azure/logger';
+import { setLogLevel, createClientLogger, AzureLogger } from '@azure/logger';
 setLogLevel('verbose');
 let logger = createClientLogger('ACS');
 const callClient = new CallClient({ logger });
