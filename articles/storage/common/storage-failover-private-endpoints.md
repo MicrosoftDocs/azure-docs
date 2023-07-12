@@ -29,7 +29,14 @@ For connections from a data center, a VPN connection would be made to the hub ne
 
 ## Failover Scenarios
 
-This topology supports the following scenarios:
+This topology supports the following scenarios, and each scenario has its own considerations for DNS failover.
+
+| Scenario | Description | DNS Considerations |
+|---|---|---|
+| [Scenario 1 - Storage Account Failover](#scenario-1---storage-account-failover) | A service interruption to the storage account hosted in the primary region requires it to be failed over to a secondary region. | No changes required. |
+| [Scenario 2 - Other Services Failover](#scenario-2---other-services-failover) | A service interruption to services in the primary region require them to be failed over to a secondary region.  The storage account does not need to be failed over.  | If the DNS servers hosted in the primary region are among those impacted by the outage, then the conditional forwarders from on-prem need to be updated to the secondary region. |
+| [Scenario 3 - Whole Region Outage](#scenario-3---whole-region-outage) | A service interruption to multiple services in a region require both the storage account and other services to be failed over. | Conditional forwarders from on-prem DNS need to be updated to the secondary region. |
+| [Scenario 4 - Running in HA](#scenario-4---running-in-ha) | The services and storage accounts are working in Azure in an active/active configuration. | If a region's DNS or storage account is impacted, conditional forwarders on-prem need to be updated to un-impacted regions. |
 
 ### Scenario 1 - Storage Account Failover
 
@@ -62,7 +69,7 @@ In this scenario, there is a regional outage of sufficient scope as both the sto
 
 This operates like a combination of Scenario 1 and Scenario 2.  The storage account is failed over, as are the Azure services.  The primary region is effectively unable to operate, but the services can continue to operate in the secondary region until the service is used.
 
-Similar to Scenario 2, if the primary hug is unable to handle DNS responses to its endpoint, or there are other networking outages, then the conditional forwarders on-prem should be updated to the secondary region.
+Similar to Scenario 2, if the primary hub is unable to handle DNS responses to its endpoint, or there are other networking outages, then the conditional forwarders on-prem should be updated to the secondary region.
 
 When the services are restored, resources can be failed back, and on-prem DNS can be reset back to its normal configuration.
 
@@ -73,3 +80,5 @@ In this scenario, you have your workload running in an active/active mode.  Ther
 In it, both services can communicate to the storage account through their regional private endpoints.  See [Azure network round-trip latency statistics](../../networking/azure-network-latency.md) to review latency between regions.
 
 If there is a regional outage, the load balancing front end should redirect all application traffic to the active region.
+
+For connectivity from on-prem data center locations, if a region's DNS or storage account is impacted by an outage, then conditional forwarders from the data center need to be set to regions that are still available.  This will not impact the solution in Azure itself.
