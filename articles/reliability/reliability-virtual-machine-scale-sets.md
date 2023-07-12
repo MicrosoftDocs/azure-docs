@@ -46,11 +46,9 @@ For more information on when to use scale sets instead of VMs, see [When to use 
 
 ----
 
-#### :::image type="icon" source="../reliability/media/icon-recommendation-high.svg"::: **VMSS-5: VMSS Autoscale is set to Manual scale** 
+#### :::image type="icon" source="../reliability/media/icon-recommendation-high.svg"::: **VMSS-5: Use autoscale based on custom metrics and schedules.** 
 
-Use VMSS Protection Policy in case you want specific instances to be treated differently from the rest of the scale set instance.
-
-As your application processes traffic, there can be situations where you want specific instances to be treated differently from the rest of the scale set instance. For example, certain instances in the scale set could be performing long-running operations, and you don’t want these instances to be scaled-in until the operations complete. You might also have specialized a few instances in the scale set to perform additional or different tasks than the other members of the scale set. You require these ‘special’ VMs not to be modified with the other instances in the scale set. Instance protection provides the additional controls to enable these and other scenarios for your application.
+[Autoscale is a built-in feature of Azure Monitor](../azure-monitor/autoscale/autoscale-overview.md) that helps the performance and cost-effectiveness of your resources by adding and removing instances based on demand. In addition, you can choose to scale your resources manually to a specific instance count or in accordance with metric(s) thresholds. You can also schedule instance counts that scale during designated time windows.
 
 # [Azure Resource Graph](#tab/graph)
 
@@ -59,21 +57,30 @@ As your application processes traffic, there can be situations where you want sp
 ----
 
 
-#### :::image type="icon" source="../reliability/media/icon-recommendation-low.svg"::: **VMSS-6: VMSS Custom scale-in policies is not set to default** 
+#### :::image type="icon" source="../reliability/media/icon-recommendation-low.svg"::: **VMSS-6: Set the VMSS Custom scale-in to the default policy** 
 
-The default custom scale-in policy provides the best algorithm and flexibility for the majority of the scenarios. Use the Newest and Oldest policies when workload requires oldest or newest VMs to be deleted.
+>[!IMPORTANT]
+>Flexible orchestration for Virtual Machine Scale Sets does not currently support scale-in policy.
+
+The [VMSS custom scale-in policy feature](../virtual-machine-scale-sets/virtual-machine-scale-sets-scale-in-policy.md) gives you a way to configure the order in which virtual machines are scaled-in. There are three scale in policy configurations:
+
+- [Default](../virtual-machine-scale-sets/virtual-machine-scale-sets-scale-in-policy.md?WT.mc_id=Portal-Microsoft_Azure_Monitoring#default-scale-in-policy)
+- [NewestVM](../virtual-machine-scale-sets/virtual-machine-scale-sets-scale-in-policy.md?WT.mc_id=Portal-Microsoft_Azure_Monitoring#newestvm-scale-in-policy)
+- [OldestVM](../virtual-machine-scale-sets/virtual-machine-scale-sets-scale-in-policy.md?WT.mc_id=Portal-Microsoft_Azure_Monitoring#oldestvm-scale-in-policy)
 
 A Virtual Machine Scale Set deployment can be scaled-out or scaled-in based on an array of metrics, including platform and user-defined custom metrics. While a scale-out creates new virtual machines based on the scale set model, a scale-in affects running virtual machines that may have different configurations and/or functions as the scale set workload evolves.
 
-Users do not need to specify a scale-in policy if they just want the default ordering to be followed.
+It's not necessary that you specify a scale-in policy if you only want the default ordering to be followed, as the default custom scale-in policy provides the best algorithm and flexibility for the majority of the scenarios. The default ordering is as follows:
 
-Note that balancing across availability zones or fault domains does not move instances across availability zones or fault domains. The balancing is achieved through deletion of virtual machines from the unbalanced availability zones or fault domains until the distribution of virtual machines becomes balanced.
+1. Balance virtual machines across availability zones (if the scale set is deployed with availability zone support).
+1. Balance virtual machines across fault domains (best effort).
+1. Delete virtual machine with the highest instance ID.
 
-The scale-in policy feature provides users a way to configure the order in which virtual machines are scaled-in, by way of three scale-in configurations:
+Only use the *Newest* and *Oldest* policies when your workload requires that the oldest or newest VMs should be deleted after balancing across availability zones.
 
-- Default
-- NewestVM
-- OldestVM
+>[!NOTE]
+>Balancing across availability zones or fault domains doesn't move instances across availability zones or fault domains. The balancing is achieved through the deletion of virtual machines from the unbalanced availability zones or fault domains until the distribution of virtual machines becomes balanced.
+
 
 # [Azure Resource Graph](#tab/graph)
 
@@ -85,7 +92,7 @@ The scale-in policy feature provides users a way to configure the order in which
 
 #### :::image type="icon" source="../reliability/media/icon-recommendation-high.svg"::: **VMSS-4: Enable automatic repair policy** 
 
-To achieve high availability for applications by maintaining a set of healthy instances, [enable automatic instance repairs](../virtual-machine-scale-sets/virtual-machine-scale-sets-automatic-instance-repairs.md#requirements-for-using-automatic-instance-repairs) for Azure Virtual Machine Scale Sets. When the Application Health extension or load balancer health probes find that an instance is unhealthy, automatic instance repairs immediately deletes the unhealthy instance and creates a new one to replace it.
+To achieve high availability for applications, [enable automatic instance repairs](../virtual-machine-scale-sets/virtual-machine-scale-sets-automatic-instance-repairs.md#requirements-for-using-automatic-instance-repairs) to maintain a set of healthy instances. When the Application Health extension or Load Balancer health probes find that an instance is unhealthy, automatic instance repairs deletes the unhealthy instance and creates a new one to replace it.
 
 A grace period can be set using the property `automaticRepairsPolicy.gracePeriod`. The grace period, specified in minutes and in ISO 8601 format, can range between 10 to 90 minutes, and has a default value of 30 minutes.
 
@@ -97,11 +104,11 @@ A grace period can be set using the property `automaticRepairsPolicy.gracePeriod
 
 ### Disaster recovery
 
-#### :::image type="icon" source="../reliability/media/icon-recommendation-low.svg"::: **VMSS-2: Protection Policy is disabled for all VMSS instances** 
+#### :::image type="icon" source="../reliability/media/icon-recommendation-low.svg"::: **VMSS-2: Use VMSS Protection Policy to treat specific VM instances differently** 
 
-Use VMSS Protection Policy in case you want specific instances to be treated differently from the rest of the scale set instance.
+Use [VMSS Protection Policy](../-machine-scale-sets/virtual-machine-scale-sets-instance-protection.md) if you want specific instances to be treated differently from the rest of the scale set instance.
 
-As your application processes traffic, there can be situations where you want specific instances to be treated differently from the rest of the scale set instance. For example, certain instances in the scale set could be performing long-running operations, and you don’t want these instances to be scaled-in until the operations complete. You might also have specialized a few instances in the scale set to perform additional or different tasks than the other members of the scale set. You require these ‘special’ VMs not to be modified with the other instances in the scale set. Instance protection provides the additional controls to enable these and other scenarios for your application.
+As your application processes traffic, there can be situations where you want specific instances to be treated differently from the rest of the scale set instance. For example, certain instances in the scale set could be performing long-running operations, and you don’t want these instances to be scaled-in until the operations complete. You might also have specialized a few instances in the scale set to perform different tasks than other members of the scale set. You require these special VMs not to be modified with the other instances in the scale set. Instance protection provides the additional controls to enable these and other scenarios for your application.
 
 # [Azure Resource Graph](#tab/graph)
 
@@ -110,9 +117,9 @@ As your application processes traffic, there can be situations where you want sp
 ----
 ### Monitoring
 
-#### :::image type="icon" source="../reliability/media/icon-recommendation-medium.svg"::: **VMSS-3: VMSS Application health monitoring is not enabled** 
+#### :::image type="icon" source="../reliability/media/icon-recommendation-medium.svg"::: **VMSS-3: Enable VMSS Application health monitoring** 
 
-Monitoring your application health is an important signal for managing and upgrading your deployment. Azure Virtual Machine Scale Sets provide support for Rolling Upgrades including Automatic OS-Image Upgrades and Automatic VM Guest Patching, which rely on health monitoring of the individual instances to upgrade your deployment. You can also use Application Health Extension to monitor the application health of each instance in your scale set and perform instance repairs using Automatic Instance Repairs.
+Monitoring your application health is an important signal for managing and upgrading your deployment. Azure Virtual Machine Scale Sets provide support for rolling upgrades, including Automatic OS-Image Upgrades and Automatic VM Guest Patching, which rely on health monitoring of the individual instances to upgrade your deployment. You can also use [Application Health Extension](../virtual-machine-scale-sets/virtual-machine-scale-sets-health-extension.md) to monitor the application health of each instance in your scale set and perform instance repairs using Automatic Instance Repairs.
 
 
 # [Azure Resource Graph](#tab/graph)
