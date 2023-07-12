@@ -101,7 +101,7 @@ You use the [.NET command-line interface (CLI)](/dotnet/core/tools/) to create a
     setx ConnectionString "connection-string-of-your-app-configuration-store"
     ```
 
-    Restart the command prompt to allow the change to take effect. Print the value of the environment variable to validate that it is set properly.
+    Restart the command prompt to allow the change to take effect. Print the value of the environment variable to validate that it's set properly.
 
     ### [PowerShell](#tab/powershell)
 
@@ -119,7 +119,7 @@ You use the [.NET command-line interface (CLI)](/dotnet/core/tools/) to create a
     export ConnectionString='connection-string-of-your-app-configuration-store'
     ```
 
-    Restart the command prompt to allow the change to take effect. Print the value of the environment variable to validate that it is set properly.
+    Restart the command prompt to allow the change to take effect. Print the value of the environment variable to validate that it's set properly.
 
     ### [Linux](#tab/linux)
 
@@ -129,7 +129,7 @@ You use the [.NET command-line interface (CLI)](/dotnet/core/tools/) to create a
     export ConnectionString='connection-string-of-your-app-configuration-store'
     ```
 
-    Restart the command prompt to allow the change to take effect. Print the value of the environment variable to validate that it is set properly.
+    Restart the command prompt to allow the change to take effect. Print the value of the environment variable to validate that it's set properly.
 
     ---
 

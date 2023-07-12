@@ -128,7 +128,7 @@ The following steps describe how to assign the App Configuration Data Reader rol
     using Azure.Identity;
     ```
 
-1. If you wish to access only values stored directly in App Configuration, update the `CreateWebHostBuilder` method by replacing the `config.AddAzureAppConfiguration()` method (this method is found in the `Microsoft.Azure.AppConfiguration.AspNetCore` package).
+1. To access values stored in App Configuration, update the `Builder` configuration to use the the `AddAzureAppConfiguration()` method.
 
     ### [.NET 6.0+](#tab/core6x)
 
