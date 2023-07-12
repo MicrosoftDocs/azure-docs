@@ -37,10 +37,21 @@ az network alb frontend create -g $RESOURCE_GROUP -n $FRONTEND_NAME --alb-name $
 ## Create an Association resource
 
 ### Delegate a subnet to association resource
-To create an association resource, you first need to reference a subnet for Application Gateway for Containers to establish connectivity to.  Ensure the subnet for an Application Gateway for Containers association is at least a class C or larger (/24 or smaller CIDR prefix).  For this step, you may either create a new VNET, subnet, and enable subnet delegation, or reuse an existing subnet and enable subnet delegation on it.
+To create an association resource, you first need to reference a subnet for Application Gateway for Containers to establish connectivity to.  Ensure the subnet for an Application Gateway for Containers association is at least a class C or larger (/24 or smaller CIDR prefix).  For this step, you may either reuse an existing subnet and enable subnet delegation on it. or create a new VNET, subnet, and enable subnet delegation. 
 
-# [New VNet, Subnet, and Subnet Delegation](#tab/new-vnet-subnet)
-The following command will create a new virtual network and subnet with at least 250 IP addresses available.
+# [Reference existing VNet and Subnet](#tab/existing-vnet-subnet)
+To reference an existing subnet, execute the following command to set the variables for reference to the subnet in later steps.
+```azurecli-interactive
+VNET_NAME='<name of the virtual network to use>'
+VNET_RESOURCE_GROUP='<the resource group of your VNET>'
+ALB_SUBNET_NAME='subnet-alb' # subnet name can be any non-reserved subnet name (i.e. GatewaySubnet, AzureFirewallSubnet, AzureBastionSubnet would all be invalid)
+```
+
+# [New VNet and Subnet](#tab/new-vnet-subnet)
+If you would like to use a new virtual network for the Application Gateway for Containers association resource, you can create a new vnet with the following commands.
+
+> [!WARNING]
+> Upon creation of the virtual network, ensure you establish connectivity between this virtual network/subnet and the AKS node pool to enable communication between Application Gateway for Containers and the pods running in AKS. This may be achieved by establishing [virtual network peering](../../virtual-network/virtual-network-peering-overview.md) between both virtual networks.
 
 ```azurecli-interactive
 VNET_NAME='<name of the virtual network to use>'
@@ -56,19 +67,9 @@ az network vnet create \
     --subnet-prefixes $SUBNET_ADDRESS_PREFIX \
 ```
 
-# [Reference existing VNet and Subnet](#tab/existing-vnet-subnet)
-To reference an existing subnet, execute the following command to get the resource ID of the subnet:
-```azurecli-interactive
-VNET_NAME='<name of the virtual network to use>'
-VNET_RESOURCE_GROUP='<the resource group of your VNET>'
-ALB_SUBNET_NAME='subnet-alb' # subnet name can be any non-reserved subnet name (i.e. GatewaySubnet, AzureFirewallSubnet, AzureBastionSubnet would all be invalid)
-ALB_SUBNET_ID=$(az network vnet subnet list --resource-group $VNET_RESOURCE_GROUP --vnet-name $VNET_NAME --query "[?name=='$ALB_SUBNET_NAME'].id" --output tsv)
-echo $ALB_SUBNET_ID
-```
-
 ---
 
-Enable subnet delegation for the Application Gateway for Containers service is identified by the Microsoft.ServiceNetworking/trafficControllers resource type.
+Enable subnet delegation for the Application Gateway for Containers service.  The delegation for Application Gateway for Containers is identified by the _Microsoft.ServiceNetworking/trafficControllers_ resource type.
 ```azurecli-interactive
 az network vnet subnet update \
     --resource-group $VNET_RESOURCE_GROUP  \
