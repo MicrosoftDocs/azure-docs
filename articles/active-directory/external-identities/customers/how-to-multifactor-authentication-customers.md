@@ -35,7 +35,11 @@ Create a Conditional Access policy in your customer tenant that prompts users fo
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as a Conditional Access Administrator, Security Administrator, or Global Administrator.
 
+<<<<<<< HEAD
 1. Make sure you're using the directory that contains your Azure AD customer tenant: Select the **Directories + subscriptions** icon :::image type="icon" source="../../media/common/portal-directory-subscription-filter.png" border="false"::: in the toolbar and find your customer tenant in the list. If it's not the current directory, select **Switch**.
+=======
+1. Make sure you're using the directory that contains your Azure AD customer tenant: Select the **Directories + subscriptions** icon ![Icon for switching directories.](media/how-to-multifactor-authentication-customers/switch-directory.png) in the toolbar and find your customer tenant in the list. If it's not the current directory, select **Switch**.
+>>>>>>> a50c20538e0756364e52c30c9729ef7efcced9ac
 
 1. Browse to **Azure Active Directory** > **Protect & secure** > **Security Center**.
 
