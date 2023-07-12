@@ -217,11 +217,11 @@ Follow the steps in this section to view endpoints accessible to your Storage Mo
 
    1. After the portal becomes functional, select the checkbox corresponding to the name of the endpoint whose details you want to view. The **Endpoint overview** pane opens, displaying the endpoint's details.
 
-       :::image type="content" source="media/endpoint-manage/storage-mover.png" alt-text="Image of the Create Endpoint screen" lightbox="mediaendpoint-manage/storage-mover-lrg.png":::
+       :::image type="content" source="media/endpoint-manage/storage-mover.png" alt-text="Image of the Create Endpoint screen" lightbox="media/endpoint-manage/storage-mover-lrg.png":::
 
    1. Update the value that you want to edit. Confirm that all data is correct and click **Update** to save your changes.
 
-       :::image type="content" source="media/endpoint-manage/storage-mover.png" alt-text="Image of the Create Endpoint screen" lightbox="mediaendpoint-manage/storage-mover-lrg.png":::
+       :::image type="content" source="media/endpoint-manage/storage-mover.png" alt-text="Image of the Create Endpoint screen" lightbox="media/endpoint-manage/storage-mover-lrg.png":::
 
 ### [PowerShell](#tab/powershell)
 
@@ -328,7 +328,7 @@ The removal of an endpoint resource should be a relatively rare occurrence in yo
 
       Your new endpoint is deleted and no longer appears within your list of endpoints as show in the following example image.
 
-      :::image type="content" source="media/endpoint-manage/endpoint-without.png" alt-text="Image of the Endpoint Overview page with the newly created endpoint displayed."  lightbox="media/endpoint-manage/endpoint-without-lrg.png":::
+      :::image type="content" source="media/endpoint-manage/endpoint-without.png" alt-text="Image of the Endpoint Overview page inferring a newly-deleted endpoint."  lightbox="media/endpoint-manage/endpoint-without-lrg.png":::
 
 # [PowerShell](#tab/powershell)
 
