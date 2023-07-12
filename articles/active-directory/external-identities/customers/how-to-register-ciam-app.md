@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: ciam
 ms.topic: how-to
-ms.date: 05/09/2023
+ms.date: 07/12/2023
 
 ms.custom: it-pro
 
@@ -42,7 +42,7 @@ The following steps show you how to register your app in the admin center:
 
 1. If you have access to multiple tenants, make sure you use the directory that contains your Azure AD for customers tenant:
     
-    1. Select the **Directories + subscriptions** icon in the portal toolbar. 
+    1. Select the **Directories + subscriptions** icon :::image type="icon" source="media/common/portal-directory-subscription-filter.png" border="false"::: in the portal toolbar. 
     
     1. On the **Portal settings | Directories + subscriptions** page, find your Azure AD for customers directory in the **Directory name** list, and then select **Switch**. 
 
@@ -90,7 +90,7 @@ The following steps show you how to register your app in the admin center:
 
 1. If you have access to multiple tenants, make sure you use the directory that contains your Azure AD for customers tenant:
     
-    1. Select the **Directories + subscriptions** icon in the portal toolbar. 
+    1. Select the **Directories + subscriptions** icon :::image type="icon" source="media/common/portal-directory-subscription-filter.png" border="false"::: in the portal toolbar. 
     
     1. On the **Portal settings | Directories + subscriptions** page, find your Azure AD for customers directory in the **Directory name** list, and then select **Switch**. 
 
@@ -156,7 +156,7 @@ The following steps show you how to register your app in the admin center:
 
 1. If you have access to multiple tenants, make sure you use the directory that contains your Azure AD for customers tenant:
     
-    1. Select the **Directories + subscriptions** icon in the portal toolbar. 
+    1. Select the **Directories + subscriptions** icon :::image type="icon" source="media/common/portal-directory-subscription-filter.png" border="false"::: in the portal toolbar. 
     
     1. On the **Portal settings | Directories + subscriptions** page, find your Azure AD for customers directory in the **Directory name** list, and then select **Switch**. 
 
