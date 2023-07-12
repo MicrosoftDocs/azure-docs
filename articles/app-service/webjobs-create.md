@@ -1,13 +1,12 @@
 ---
 title: Run background tasks with WebJobs
 description: Learn how to use WebJobs to run background tasks in Azure App Service. Choose from a variety of script formats and run them with CRON expressions.
-author: ggailey777
 
 ms.assetid: af01771e-54eb-4aea-af5f-f883ff39572b
 ms.topic: conceptual
-ms.date: 6/25/2021
-ms.author: glenga
-ms.reviewer: msangapu;suwatch;pbatum;naren.soni
+ms.date: 7/30/2023
+ms.author: cephalin
+ms.reviewer: msangapu;suwatch;pbatum;naren.soni;glenga
 ms.custom: seodec18
 #Customer intent: As a web developer, I want to leverage background tasks to keep my application running smoothly.
 adobe-target: true
@@ -67,34 +66,26 @@ when making changes in one don't forget the other two.
 
 1. In the [Azure portal](https://portal.azure.com), go to the **App Service** page of your App Service web app, API app, or mobile app.
 
-1. In the left pane of your app's **App Service** page, search for and select **WebJobs**.
+1. From the left pane, select **WebJobs**, then select **Add**.
 
-   ![Select WebJobs](./media/web-sites-create-web-jobs/select-webjobs.png)
+    :::image type="content" source="media/webjobs-create/add-webjob.png" alt-text="Screenshot that shows how to add a WebJob in an App Service app in the portal.":::
 
-1. On the **WebJobs** page, select **Add**.
+1. Fill in the **Add WebJob** settings as specified in the table, then select **Create Webjob**.
 
-    ![WebJob page](./media/web-sites-create-web-jobs/wjblade.png)
-
-1. Fill in the **Add WebJob** settings as specified in the table.
-
-   ![Screenshot that shows the Add WebJob settings that you need to configure.](./media/web-sites-create-web-jobs/addwjcontinuous.png)
+    :::image type="content" source="media/webjobs-create/configure-new-continuous-webjob.png" alt-text="Screenshot that shows how to configure a mult-instance continuous WebJob for an App Service app.":::
 
    | Setting      | Sample value   | Description  |
    | ------------ | ----------------- | ------------ |
    | **Name** | myContinuousWebJob | A name that is unique within an App Service app. Must start with a letter or a number and cannot contain special characters other than "-" and "_". |
    | **File Upload** | ConsoleApp.zip | A *.zip* file that contains your executable or script file as well as any supporting files needed to run the program or script. The supported executable or script file types are listed in the [Supported file types](#acceptablefiles) section. |
    | **Type** | Continuous | The [WebJob types](#webjob-types) are described earlier in this article. |
-   | **Scale** | Multi instance | Available only for Continuous WebJobs. Determines whether the program or script runs on all instances or just one instance. The option to run on multiple instances doesn't apply to the Free or Shared [pricing tiers](https://azure.microsoft.com/pricing/details/app-service/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio). | 
+   | **Scale** | Multi Instance | Available only for Continuous WebJobs. Determines whether the program or script runs on all instances or just one instance. The option to run on multiple instances doesn't apply to the Free or Shared [pricing tiers](https://azure.microsoft.com/pricing/details/app-service/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio). | 
 
-1. Select **OK**. 
+1. The new WebJob appears on the **WebJobs** page. If you see a message that says the WebJob was added, but you don't see it, select **Refresh**. 
 
-   The new WebJob appears on the **WebJobs** page. If you see a message that says the WebJob was added, but you don't see it, select **Refresh**. 
+1. To stop or restart a continuous WebJob, right-click the WebJob in the list and select the **Stop** or **Run** button, then confirm your selection.
 
-   ![List of WebJobs](./media/web-sites-create-web-jobs/list-continuous-webjob.png)
-
-1. To stop or restart a continuous WebJob, right-click the WebJob in the list and select **Stop** or **Start**.
-
-    ![Stop a continuous WebJob](./media/web-sites-create-web-jobs/continuousstop.png)
+    :::image type="content" source="media/webjobs-create/continuous-webjob-stop.png" alt-text="Screenshot that shows how to stop a continuous WebJob in the Azure portal.":::
 
 ## <a name="CreateOnDemand"></a> Create a manually triggered WebJob
 
@@ -103,38 +94,28 @@ Several steps in the three "Create..." sections are identical;
 when making changes in one don't forget the other two.
 -->
 
-1. In the [Azure portal](https://portal.azure.com), search for and select **App Services**. 
+1. In the [Azure portal](https://portal.azure.com), go to the **App Service** page of your App Service web app, API app, or mobile app.
 
-1. Select your web app, API app, or mobile app from the list. 
+1. From the left pane, select **WebJobs**, then select **Add**.
 
-1. In the left pane of your app's **App Service** page, select **WebJobs**.
+    :::image type="content" source="media/webjobs-create/add-webjob.png" alt-text="Screenshot that shows how to add a WebJob in an App Service app in the portal (manually triggered WebJob).":::
 
-   ![Select WebJobs](./media/web-sites-create-web-jobs/select-webjobs.png)
+1. Fill in the **Add WebJob** settings as specified in the table, then select **Create Webjob**.
 
-2. On the **WebJobs** page, select **Add**.
-
-    ![WebJob page](./media/web-sites-create-web-jobs/wjblade.png)
-
-1. Fill in the **Add WebJob** settings as specified in the table. 
-
-   ![Screenshot that shows the settings that need to be set for creating a manually triggered WebJob.](./media/web-sites-create-web-jobs/addwjtriggered.png)
+    :::image type="content" source="media/webjobs-create/configure-new-triggered-webjob.png" alt-text="Screenshot that shows how to configure a manually triggered WebJob for an App Service app.":::
 
    | Setting      | Sample value   | Description  |
    | ------------ | ----------------- | ------------ |
    | **Name** | myTriggeredWebJob | A name that is unique within an App Service app. Must start with a letter or a number and cannot contain special characters other than "-" and "_".|
-   | **File Upload** | ConsoleApp.zip | A *.zip* file that contains your executable or script file as well as any supporting files needed to run the program or script. The supported executable or script file types are listed in the [Supported file types](#acceptablefiles) section. |
+   | **File Upload** | ConsoleApp1.zip | A *.zip* file that contains your executable or script file as well as any supporting files needed to run the program or script. The supported executable or script file types are listed in the [Supported file types](#acceptablefiles) section. |
    | **Type** | Triggered | The [WebJob types](#webjob-types) are described previously in this article. |
    | **Triggers** | Manual | |
 
-4. Select **OK**.
+1. The new WebJob appears on the **WebJobs** page. If you see a message that says the WebJob was added, but you don't see it, select **Refresh**. 
 
-   The new WebJob appears on the **WebJobs** page. If you see a message that says the WebJob was added, but you don't see it, select **Refresh**.  
+1. To run a manually triggered WebJob, right-click the WebJob in the list and select the **Run** button, then confirm your selection.
 
-   ![List of WebJobs-triggered](./media/web-sites-create-web-jobs/list-triggered-webjob.png)
-
-7. To run the WebJob, right-click its name in the list and select **Run**.
-   
-    ![Run WebJob](./media/web-sites-create-web-jobs/runondemand.png)
+    :::image type="content" source="media/webjobs-create/triggered-webjob-run.png" alt-text="Screenshot that shows how to run a manually triggered WebJob in the Azure portal.":::
 
 ## <a name="CreateScheduledCRON"></a> Create a scheduled WebJob
 
@@ -145,21 +126,15 @@ Several steps in the three "Create..." sections are identical;
 when making changes in one don't forget the other two.
 -->
 
-1. In the [Azure portal](https://portal.azure.com), search for and select **App Services**. 
+1. In the [Azure portal](https://portal.azure.com), go to the **App Service** page of your App Service web app, API app, or mobile app.
 
-1. Select your web app, API app, or mobile app from the list. 
+1. From the left pane, select **WebJobs**, then select **Add**.
 
-1. In the left pane of your app's **App Service** page, select **WebJobs**.
+    :::image type="content" source="media/webjobs-create/add-webjob.png" alt-text="Screenshot that shows how to add a WebJob in an App Service app in the portal (scheduled WebJob).":::
 
-   ![Select WebJobs](./media/web-sites-create-web-jobs/select-webjobs.png)
+1. Fill in the **Add WebJob** settings as specified in the table, then select **Create Webjob**.
 
-1. On the **WebJobs** page, select **Add**.
-
-   ![WebJob page](./media/web-sites-create-web-jobs/wjblade.png)
-
-3. Fill in the **Add WebJob** settings as specified in the table.
-
-   ![Add WebJob page](./media/web-sites-create-web-jobs/addwjscheduled.png)
+    :::image type="content" source="media/webjobs-create/configure-new-scheduled-webjob.png" alt-text="Screenshot that shows how to configure a scheduled WebJob in an App Service app.":::
 
    | Setting      | Sample value   | Description  |
    | ------------ | ----------------- | ------------ |
@@ -169,11 +144,11 @@ when making changes in one don't forget the other two.
    | **Triggers** | Scheduled | For the scheduling to work reliably, enable the Always On feature. Always On is available only in the Basic, Standard, and Premium pricing tiers.|
    | **CRON Expression** | 0 0/20 * * * * | [CRON expressions](#ncrontab-expressions) are described in the following section. |
 
-4. Select **OK**.
+1. The new WebJob appears on the **WebJobs** page. If you see a message that says the WebJob was added, but you don't see it, select **Refresh**. 
 
-   The new WebJob appears on the **WebJobs** page. If you see a message that says the WebJob was added, but you don't see it, select **Refresh**.  
+1. The scheduled WebJob is run at the schedule defined by the CRON expression. To run it manually at anytime, right-click the WebJob in the list and select the **Run** button, then confirm your selection.
 
-   ![List of WebJobs-scheduled](./media/web-sites-create-web-jobs/list-scheduled-webjob.png)
+    :::image type="content" source="media/webjobs-create/scheduled-webjob-run.png" alt-text="Screenshot that shows how to run a manually scheduled WebJob in the Azure portal.":::
 
 ## NCRONTAB expressions
 
@@ -197,26 +172,27 @@ You can also [add an application setting](configure-common.md#configure-app-sett
 
 ## <a name="ViewJobHistory"></a> View the job history
 
-1. Select the WebJob and then to see the history, select **Logs**.
-   
-   ![Logs button](./media/web-sites-create-web-jobs/wjbladelogslink.png)
+1. For the WebJob you want to see, select **Logs**.
 
+    :::image type="content" source="media/webjobs-create/open-logs.png" alt-text="Screenshot that shows how to access logs for a WebJob.":::
+   
 2. In the **WebJob Details** page, select a time to see details for one run.
    
-   ![WebJob Details](./media/web-sites-create-web-jobs/webjobdetails.png)
+    :::image type="content" source="media/webjobs-create/webjob-details-page.png" alt-text="Screenshot that shows how to choose a WebJob run to see its detailed logs.":::
 
-3. In the **WebJob Run Details** page, select **Toggle Output** to see the text of the log contents.
-   
-    ![Web job run details](./media/web-sites-create-web-jobs/webjobrundetails.png)
+3. In the **WebJob Run Details** page, you can select **download** to get a text file of the logs, or select the **WebJobs** breadcrumb link at the top of the page to see logs for a different WebJob.
 
-   To see the output text in a separate browser window, select **download**. To download the text itself, right-click **download** and use your browser options to save the file contents.
-   
-5. Select the **WebJobs** breadcrumb link at the top of the page to go to a list of WebJobs.
+## WebJob statuses
 
-    ![WebJob breadcrumb](./media/web-sites-create-web-jobs/breadcrumb.png)
-   
-    ![List of WebJobs in history dashboard](./media/web-sites-create-web-jobs/webjobslist.png)
-   
+Below is a list of common WebJob statuses:
+
+- **Initializing**  The site was just started and the WebJob is doing it's initialization process.
+- **Starting**  The WebJob is starting up.
+- **Running**  The WebJob is running.
+- **PendingRestart**  A continuous WebJob exits in less than 2 minutes since it started for any reason, and App Service waits 60 seconds before restarting the WebJob. If the continuous WebJob exits after the 2 minute mark, App Service doesn't wait the 60 seconds and restarts the WebJob immediately. 
+- **Stopped**  The WebJob was stopped (usually from the Azure portal) and is currently not running and will not be running until you start it again manually, even for a continuous or scheduled WebJob.
+- **Aborted**  This can occur for a number of reasons, such as when a long-running WebJob reaches the timeout marker.
+
 ## <a name="NextSteps"></a> Next steps
 
 The Azure WebJobs SDK can be used with WebJobs to simplify many programming tasks. For more information, see [What is the WebJobs SDK](https://github.com/Azure/azure-webjobs-sdk/wiki).
