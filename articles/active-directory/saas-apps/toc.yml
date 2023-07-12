@@ -634,6 +634,8 @@
         href: costpoint-tutorial.md
       - name: Count Me In - Operations Dashboard
         href: count-me-in-operations-dashboard-tutorial.md
+      - name: Couchbase Capella - SSO
+        href: couchbase-capella-sso-tutorial.md
       - name: Coupa
         href: coupa-tutorial.md
       - name: Coupa Risk Assess
