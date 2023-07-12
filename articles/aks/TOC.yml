@@ -450,7 +450,7 @@
           items:
             - name: Use application routing add-on 
               items:
-              - name: Getting started with application routing using ingress-nginx
+              - name: Application routing add-on overview
                 href: app-routing.md
               - name: Monitor application routing ingress-nginx using Prometheus
                 href: app-routing-nginx-prometheus.md

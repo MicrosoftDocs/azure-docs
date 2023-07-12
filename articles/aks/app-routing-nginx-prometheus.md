@@ -5,7 +5,7 @@ ms.subservice: aks-networking
 ms.custom: devx-track-azurecli
 author: sabbour
 ms.topic: how-to
-ms.date: 10/07/2023
+ms.date: 07/12/2023
 ms.author: asabbour
 ---
 
@@ -124,15 +124,17 @@ There are two [official ingress-nginx dashboards](https://github.com/kubernetes/
 
 To import a Grafana dashboard, expand the left menu and click on **Import** under Dashboards.
 
-![Screenshot of a browser showing the Grafana dashboard with Import dashboard highlighted](media/app-routing/grafana-import.png)
+![Screenshot of a browser showing the Grafana instance with Import dashboard highlighted](media/app-routing/grafana-import.png)
 
 Then upload the desired dashboard file and click on **Load**.
 
-![Screenshot of a browser showing the Grafana dashboard with Import dashboard highlighted](media/app-routing/grafana-import-json.png)
+![Screenshot of a browser showing the Grafana instance import dashboard dialog](media/app-routing/grafana-import-json.png)
 
 ### Ingress-nginx controller dashboard
 
-![Screenshot of a browser showing the Grafana dashboard with Import dashboard highlighted](media/app-routing/grafana-dashboard.png)
+You can download this dashboard from [GitHub][grafana-nginx-dashboard].
+
+![Screenshot of a browser showing the ingress-nginx dashboard on Grafana](media/app-routing/grafana-dashboard.png)
 
 **Features**
 
@@ -144,7 +146,9 @@ Then upload the desired dashboard file and click on **Load**.
 
 ### Request handling performance dashboard
 
-![Screenshot of a browser showing the Grafana dashboard with Import dashboard highlighted](media/app-routing/grafana-dashboard-2.png)
+You can download this dashboard from [GitHub][grafana-nginx-request-performance-dashboard].
+
+![Screenshot of a browser showing the ingress-nginx request handling performance dashboard on Grafana](media/app-routing/grafana-dashboard-2.png)
 
 **Features**
 
@@ -163,14 +167,14 @@ Learn more about [integrating KEDA with AKS][keda-prometheus].
 <!-- LINKS - internal -->
 [az-aks-create]: /cli/azure/aks#az-aks-create
 [app-routing]: ./app-routing
-[managed-prometheus]: /azure-monitor/essentials/prometheus-metrics-overview
-[managed-prometheus-configure]: /azure-monitor/containers/container-insights-prometheus
-[managed-prometheus-custom-annotations]: /azure-monitor/essentials/prometheus-metrics-scrape-configuration#pod-annotation-based-scraping
-[managed-grafana]: /managed-grafana/overview
-[create-grafana]: /managed-grafana/quickstart-managed-grafana-portal
-[access-grafana]: /managed-grafana/quickstart-managed-grafana-portal#access-your-managed-grafana-instance
-[keda]: /keda-about
-[keda-prometheus]: /azure-monitor/essentials/integrate-keda#scalers
+[managed-prometheus]: /azure/azure-monitor/essentials/prometheus-metrics-overview
+[managed-prometheus-configure]: /azure/azure-monitor/containers/container-insights-prometheus
+[managed-prometheus-custom-annotations]: /azure/azure-monitor/essentials/prometheus-metrics-scrape-configuration#pod-annotation-based-scraping
+[managed-grafana]: /azure/managed-grafana/overview
+[create-grafana]: /azure/managed-grafana/quickstart-managed-grafana-portal
+[access-grafana]: /azure/managed-grafana/quickstart-managed-grafana-portal#access-your-managed-grafana-instance
+[keda]: /azure/keda-about
+[keda-prometheus]: /azure/azure-monitor/essentials/integrate-keda#scalers
 [az-aks-show]: /cli/azure/aks#az-aks-show
 [az-aks-enable-addons]: /cli/azure/aks#az-aks-enable-addons
 [az-aks-disable-addons]: /cli/azure/aks#az-aks-disable-addons
@@ -194,3 +198,5 @@ Learn more about [integrating KEDA with AKS][keda-prometheus].
 [external-dns]: https://github.com/kubernetes-incubator/external-dns
 [kubectl]: https://kubernetes.io/docs/reference/kubectl/
 [kubectl-apply]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#apply
+[grafana-nginx-dashboard]: https://raw.githubusercontent.com/kubernetes/ingress-nginx/main/deploy/grafana/dashboards/request-handling-performance.json
+[grafana-nginx-request-performance-dashboard]: https://raw.githubusercontent.com/kubernetes/ingress-nginx/main/deploy/grafana/dashboards/request-handling-performance.json
