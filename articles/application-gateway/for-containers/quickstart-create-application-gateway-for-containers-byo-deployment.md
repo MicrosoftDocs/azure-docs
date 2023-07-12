@@ -94,13 +94,14 @@ If desired, you can [create and assign a custom role](../../role-based-access-co
 ```azurecli-interactive
 IDENTITY_RESOURCE_NAME='azure-alb-identity'
 
-principalId="$(az identity show -g $RESOURCE_GROUP -n $IDENTITY_RESOURCE_NAME --query principalId -otsv)"
+resourceGroupId=$(az group show --name $RESOURCE_GROUP --query id -otsv)
+principalId=$(az identity show -g $RESOURCE_GROUP -n $IDENTITY_RESOURCE_NAME --query principalId -otsv)
 
 # Delegate AppGw for Containers Configuration Manager role to RG containing Application Gateway for Containers resource
-az role assignment create --assignee-object-id $principalId --resource-group $RESOURCE_GROUP --role "fbc52c3f28ad4303a8928a056630b8f1"
+az role assignment create --assignee-object-id $principalId --scope $resourceGroupId --role "fbc52c3f-28ad-4303-a892-8a056630b8f1"
 
 # Delegate Network Contributor permission for join to association subnet
-az role assignment create --assignee-object-id $principalId --scope $ALB_SUBNET_ID --role "fbc52c3f28ad4303a8928a056630b8f1"
+az role assignment create --assignee-object-id $principalId --scope $ALB_SUBNET_ID --role "4d97b98b-1d4f-4787-a291-c67834d212e7"
 ```
 
 ### Create an association resource
