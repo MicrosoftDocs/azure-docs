@@ -106,7 +106,7 @@ The Network Diagnostic Tool provides a hosted experience for
 
 #### Pre-Call Diagnostics API
 
-Maybe you want to build your own Network Diagnostic Tool or to perform a deeper integration of this tool into your application. If so, you can use the Pre-Call diagnostic APIs that run the Network Diagnostic Tool for the calling SDK. This let's you run a series of tests to ensure compatibility, connectivity, and device permissions with a test call and give users an opportunity to correct issues before calls begin or perform specific checks when troubleshooting quality and reliability issues.
+Maybe you want to build your own Network Diagnostic Tool or to perform a deeper integration of this tool into your application. If so, you can use the Pre-Call diagnostic APIs that run the Network Diagnostic Tool for the calling SDK. The Pre-Call Diagnostics API lets you customize the experience in your user interface. You can then run the same series of tests that the Network Diagnostic Tool uses to ensure compatibility, connectivity, and device permissions with a test call. You can decide the best way to tell users how to correct issues before calls begin. You can also perform specific checks when troubleshooting quality and reliability issues.
 
   <!-- - ~~If a user has a poor network connection, you can instruct them to
     join their audio from [PSTN (Public Switched Telephone Network)
@@ -131,9 +131,9 @@ When user's use unsupported browsers it can be difficult to diagnose call issues
 
 ### Conflicting call clients
 
-Sometimes users may have multiple browser tabs running separate instances of Azure
-  Communication Services. This can happen if they forgot to close their previous tab, or they were unable to join a call initially and start their call join experience from an email link which opened a separate mobile browser tab. However it happens this can cause disruptions to audio and video
-  behavior on the target call. You can pro-actively notify customers to close their excess tabs, or circumvent this from happening with useful messaging if they are unable to join a call initially.
+Because Azure Communication Services Voice and Video calls run on web and mobile browsers your users may have multiple browser tabs running separate instances of the Azure
+  Communication Services calling SDK. This can happen for various reasons. Maybe the user forget to close their previous tab. Maybe the user couldn't join a call without a meeting organizer present and they re-attempt to open the meeting join url link, which opens a separate mobile browser tab. No matter how a user ends up with multiple call browser tabs at the same time, it causes disruptions to audio and video
+  behavior on the call they're trying to participate in, referred to as the target call. You should make sure there aren't multiple browser tabs open before a call starts, and also monitor during the whole call lifecycle. You can pro-actively notify customers to close their excess tabs, or help them join a call correctly with useful messaging if they're unable to join a call initially.
 
  - To check if user has multiple instances
   of ACS running in a browser, see: [How to detect if an application using Azure Communication Services' SDK is active in multiple tabs of a browser](../../how-tos/calling-sdk/is-sdk-active-in-multiple-tabs.md).
@@ -141,11 +141,11 @@ Sometimes users may have multiple browser tabs running separate instances of Azu
 ## During a call
 
 **In-call communication** – During a call, a user’s network conditions
-  can worsen or they may run into reliability and compatibility issues, all of which can result in a poor calling experience. This section will help you leverage capabilities to manage issues in a call and communicate with your users. 
+  can worsen or they may run into reliability and compatibility issues, all of which can result in a poor calling experience. This section helps you apply capabilities to manage issues in a call and communicate with your users. 
 
 ### User Facing Diagnostics (UFDs)
 
-When a user is in a call it's important to proactively notify them in real-time about issues on their call. User Facing Diagnostics (UFDs) provide real-time flags for issues to the user such as having their
+When a user is in a call, it's important to proactively notify them in real-time about issues on their call. User Facing Diagnostics (UFDs) provide real-time flags for issues to the user such as having their
   microphone muted while talking or having a poor network quality. You can nudge or act on their behalf. In addition to messaging, you can consider proactive approaches to protect the limited bandwidth a user has. You can tailor your user interface messages to best suite your scenarios. If you find users
   don’t consistently turn off their video upon receiving a notification
  from you, then you can proactively turn a user’s video off to
@@ -165,14 +165,14 @@ When a user is in a call it's important to proactively notify them in real-time 
 
 ### Video Constraints
 
-Video streams consume large amounts of network bandwidth. If you know your users will face limited network bandwidth or poor network conditions you can reduce control the network usage of a user's video connection with video constraints. By proactively limiting how much bandwidth a user's video stream can consume you can improve audio quality in poor network environments.
+Video streams consume large amounts of network bandwidth, if you know your users have limited network bandwidth or poor network conditions you can reduce control the network usage of a user's video connection with video constraints. When you limit the amount of bandwidth a user's video stream can consume you can protect the bandwidth needed for good audio quality in poor network environments.
 
 - To learn more, see: [Video constraints](video-constraints.md).
 
 
 ### Volume Indicator
 
-Sometimes users can't hear each other because they are speaking too quietly or their audio isn't received by another user. Since they will not know they are speaking too quietly, or if someone else can't hear them in a call. You can use the input and output indicator to indicate if a user’s volume is low or absent and prompt a user to speak louder or investigate an audio device issue through your user interface.
+Sometimes users can't hear each other, maybe the speaker is too quiet, the listener's device doesn't receive the audio packets, or there's an audio device issue blocking the sound. Users don't know when they're speaking too quietly, or when the other person can't hear them. You can use the input and output indicator to indicate if a user’s volume is low or absent and prompt a user to speak louder or investigate an audio device issue through your user interface.
 
 - For more information, please see: [Add volume indicator to your web calling](../../quickstarts/voice-video-calling/get-started-volume-indicator.md)
 
@@ -180,12 +180,18 @@ Sometimes users can't hear each other because they are speaking too quietly or t
 ### Detailed Media Statistics
 
 
-Since network conditions can change during a call, users can report poor audio and video quality even if they started the call without issue. Our detailed Media statistics let you monitor calls in progress and proactively notify users when network conditions worsen but do not generate a User Facing Diagnostic (UFD). 
+Since network conditions can change during a call, users can report poor audio and video quality even if they started the call without issue. Our Media statistics give you detailed quality metrics on each inbound and outbound audio, video, and screen share stream. These detailed insights help you monitor calls in progress, show users their network quality status throughout a call, and debug individual calls.  
 
-- These metrics help indicate issues on the ACS client SDK send and receive media streams. As an example, you can actively monitor the outgoing video stream's `availableBitrate`, notice a persistent drop below the recommended 1.5Mbps and notify the user their video quality is degraded. 
+- These metrics help indicate issues on the ACS client SDK send and receive media streams. As an example, you can actively monitor the outgoing video stream's `availableBitrate`, notice a persistent drop below the recommended 1.5 Mbps and notify the user their video quality is degraded. 
 
-- It is important to note that our Server Log data give you an overall summary of the call after it ends, but our detailed Media Statistics provide low level metrics that can be used during a call.  
+- It's important to note that our Server Log data only give you an overall summary of the call after it ends. Our detailed Media Statistics provide low level metrics throughout the call duration for use in during the call and afterwards for deeper analysis.  
 - To learn more, read: [Media quality statistics](media-quality-sdk.md)
+
+
+### Optimal Video Count
+During a group call with 2 or more participants a user's video quality can fluctuate due to changes in network conditions and their specific hardware limitations. By using the Optimal Video Count API, you can improve user call quality by understanding how many video streams their local endpoint can render at a time without worsening quality. By implementing this feature, you can preserve the call quality and bandwidth of local endpoints that would otherwise attempt to render video poorly. The API exposes the property, optimalVideoCount, which dynamically changes in response to the network and hardware capabilities of a local endpoint. This information is available at runtime and updates throughout the call letting you adjust a user’s visual experience as network and hardware conditions change.
+
+- To implement, see our guidance on managing video during calls while using our web platform: [Remote video quality](/azure/communication-services/how-tos/calling-sdk/manage-video?pivots=platform-web)
 
 ### End of Call Survey 
 
@@ -198,11 +204,11 @@ Customer feedback is invaluable, the End of Call Survey provides you with a tool
 
 ## After a call
 **Monitor and troubleshoot call quality and reliability** - Before you release and scale your Azure Communication Services calling
-solution, implement these additional quality and reliability monitoring capabilities
+solution, implement these quality and reliability monitoring capabilities
 to ensure you collecting available logs and metrics. These call data aren't stored unless you implement them.
 ### Call Summary and Call Diagnostics Logs
 
-After a call ends, call logs are created to to help you investigate individual calls and monitor your overall call quality and reliability. The following fields provide useful insight on user's call quality and reliability. 
+After a call ends, call logs are created to help you investigate individual calls and monitor your overall call quality and reliability. The following fields provide useful insight on user's call quality and reliability. 
 
 
 - For more information, see: [Azure Communication Services Voice Calling and Video Calling logs](../analytics/logs/voice-and-video-logs.md). 
@@ -225,7 +231,7 @@ After a call ends, call logs are created to to help you investigate individual c
 
 #### Summarized Media Quality logs
 
-- These three logs provide summarize the average media quality during the call.
+- These three logs give you insight on the average media quality during the call.
   <!-- See our guidance on **<u>Media Quality</u>** to learn more. -->
 
   - `roundTripTimeAvg`
@@ -262,11 +268,11 @@ Once you enable diagnostic settings to capture your survey data you can use our 
 By collecting call data such as Media Statistics, User Facing Diagnostics, and pre-call API information you can review calls with
   poor quality to conduct root cause analysis when troubleshooting issues. For example, a user may have an hour long call and report poor audio at one point in the call. 
 
-The call may have fired a User Facing Diagnostic telling you there was a severe problem with the incoming or outgoing media steam quality. If you've stored the [detailed media statistics](media-quality-sdk.md) from the call you can review when the UFD occurred to see if the video stream experienced high levels of packet loss, jitter, or latency around this time or if there were only issues on the audio stream. If both audio and video streams were impacted it could indicate a poor network condition due to an external client's unmanaged network, unnecessary network traffic at the same time due to improper Quality of Service (QoS) network prioritization policies, or an unnecessary Virtual Private Network (VPN). All of which can impact call quality. 
+The call may have fired a User Facing Diagnostic indicating a severe problem with the incoming or outgoing media steam quality. By storing the [detailed media statistics](media-quality-sdk.md) from the call you can review when the UFD occurred to see if there were high levels of packet loss, jitter, or latency around this time indicating a poor network condition. You explore whether the network was impacted by an external client's unmanaged network, unnecessary network traffic due to improper Quality of Service (QoS) network prioritization policies, or an unnecessary Virtual Private Network (VPN) for example.
 
   - **Note:** As a rule, we recommend prioritizing a user’s Audio
   connection bandwidth before their video connection and both audio and video before
-  other network traffic. If a network is unable to support both audio
+  other network traffic. When a network is unable to support both audio
   and video, you can proactively disable a user’s video or nudge a user
   to disable their video.
 
