@@ -1,18 +1,17 @@
 ---
 
-title: Backend MTLS with Application Gateway for Containers
-titlesuffix: Azure Application Load Balancer
+title: Backend MTLS with Application Gateway for Containers (preview)
 description: Learn how to configure Application Gateway for Containers with support for backend MTLS authentication.
 services: application-gateway
 author: greglin
 ms.service: application-gateway
 ms.subservice: traffic-controller
 ms.topic: how-to
-ms.date: 7/7/2023
+ms.date: 07/12/2023
 ms.author: greglin
 ---
 
-# Backend MTLS with Application Gateway for Containers
+# Backend MTLS with Application Gateway for Containers (preview)
 
 This document helps set up an example application that uses the following resources from Gateway API:
 - [Gateway](https://gateway-api.sigs.k8s.io/concepts/api-overview/#gateway) - creating a gateway with one https listener
@@ -20,6 +19,10 @@ This document helps set up an example application that uses the following resour
 - [BackendTLSPolicy](api-specification-kubernetes.md#backendtlspolicy) - creating a backend TLS policy that has a client and CA certificate for the backend service referenced in the HTTPRoute
 
 ## Prerequisites
+
+> [!IMPORTANT]
+> Application Gateway for Containers is currently in [Private Preview](/support/legal/preview-supplemental-terms), and is intended for evaluation purposes only.
+
 1. If following the BYO deployment strategy, ensure you have set up your Application Gateway for Containers resources and [ALB Controller](quickstart-deploy-application-gateway-for-containers-alb-controller.md)
 2. If following the ALB managed deployment strategy, ensure you have provisioned your [ALB Controller](quickstart-deploy-application-gateway-for-containers-alb-controller.md) and provisioned the Application Gateway for Containers resources via the  [ApplicationLoadBalancer custom resource](quickstart-create-application-gateway-for-containers-managed-by-alb-controller.md).
 3. Deploy sample HTTP application
@@ -39,7 +42,8 @@ This document helps set up an example application that uses the following resour
 
 # [ALB managed deployment](#tab/alb-managed)
 
-1. Create a Gateway
+Create a gateway:
+
 ```bash
 kubectl apply -f - <<EOF
 apiVersion: gateway.networking.k8s.io/v1beta1
@@ -231,7 +235,7 @@ status:
       namespace: test-infra
   ```
 
-3. Create a BackendTLSPolicy
+Create a BackendTLSPolicy
 
 ```bash
 kubectl apply -f - <<EOF

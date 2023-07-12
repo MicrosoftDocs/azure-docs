@@ -1,24 +1,27 @@
 ---
 
-title: SSL Offloading with Application Gateway for Containers
-titlesuffix: Azure Application Load Balancer
-description: Learn how to configure SSL Offloading with Application Gateway for Containers.
+title: SSL offloading with Application Gateway for Containers (preview)
+description: Learn how to configure SSL offloading with Application Gateway for Containers.
 services: application-gateway
 author: greglin
 ms.service: application-gateway
 ms.subservice: traffic-controller
 ms.topic: how-to
-ms.date: 7/7/2023
+ms.date: 07/12/2023
 ms.author: greglin
 ---
 
-# SSL Offloading with Application Gateway for Containers
+# SSL offloading with Application Gateway for Containers (preview)
 
 This document helps set up an example application that uses the following resources from Gateway API:
 - [Gateway](https://gateway-api.sigs.k8s.io/concepts/api-overview/#gateway) - creating a gateway with one https listener
 - [HTTPRoute](https://gateway-api.sigs.k8s.io/v1alpha2/api-types/httproute/) - creating an HTTP route that references a backend service
 
 ## Prerequisites
+
+> [!IMPORTANT]
+> Application Gateway for Containers is currently in [Private Preview](/support/legal/preview-supplemental-terms), and is intended for evaluation purposes only.
+
 1. If following the BYO deployment strategy, ensure you have set up your Application Gateway for Containers resources and [ALB Controller](quickstart-deploy-application-gateway-for-containers-alb-controller.md)
 2. If following the ALB managed deployment strategy, ensure you have provisioned your [ALB Controller](quickstart-deploy-application-gateway-for-containers-alb-controller.md) and provisioned the Application Gateway for Containers resources via the  [ApplicationLoadBalancer custom resource](quickstart-create-application-gateway-for-containers-managed-by-alb-controller.md).
 3. Deploy sample HTTPS application

@@ -1,18 +1,17 @@
 ---
 
-title: Application Gateway for Containers API Specification for Kubernetes
-titlesuffix: Azure Application Load Balancer
-description: This article provides documentation for Application Gateway for Containers's API specification for Kubernetes.
+title: Application Gateway for Containers API Specification for Kubernetes (preview)
+description: This article provides documentation for Application Gateway for Containers' API specification for Kubernetes.
 services: application-gateway
 author: greglin
 ms.service: application-gateway
 ms.subservice: traffic-controller
 ms.topic: article
-ms.date: 7/7/2023
+ms.date: 7/12/2023
 ms.author: greglin
 ---
 
-# Application Gateway for Containers API Specification for Kubernetes
+# Application Gateway for Containers API specification for Kubernetes (preview)
 
 ## Packages
 

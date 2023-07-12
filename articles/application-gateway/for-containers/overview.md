@@ -1,24 +1,24 @@
 ---
 
-title: What is Application Gateway for Containers
-titlesuffix: Azure Application Load Balancer
+title: What is Application Gateway for Containers (preview)
 description: Overview of Azure Application Load Balancer Application Gateway for Containers features, resources, architecture, and implementation. Learn how Application Gateway for Containers works and how to use Application Gateway for Containers resources in Azure.
 services: application-gateway
 author: greglin
+ms.custom: references_regions
 ms.service: application-gateway
 ms.subservice: traffic-controller
 ms.topic: overview
-ms.date: 7/7/2023
+ms.date: 07/12/2023
 ms.author: greglin
 ---
 
-# What is Application Gateway for Containers?
+# What is Application Gateway for Containers (preview)?
 
 Application Gateway for Containers is the evolution of Application Gateway Ingress Controller (AGIC) offered as a fully managed Azure Service, providing application (layer 7) Load Balancing and Dynamic Traffic Management capabilities for workloads running in a Kubernetes cluster. Application Gateway for Containers extends Azure's Application Load Balancing portfolio and is offered as new SKU under Application Gateway product family.
 
 The existing Application Gateway Ingress Controller (AGIC) is a Kubernetes application, which makes it possible for Azure Kubernetes Service (AKS) customers to use Azure's native Application Gateway Application load-balancer. In its current form Application Gateway Ingress Controller (AGIC) monitors a subset of Kubernetes Resources for changes and applies them to the Application Gateway utilizing Azure Resource Manager (ARM).
 
-Application Gateway for Containers offers an elastic and scalable ingress to AKS clusters and comprises a new data plane as well as control plane with new set of ARM APIs, different from existing Application Gateway. Application Gateway for Containers is outside the AKS cluster data plane and is responsible for ingress. It's controlled by an ALB controller component that runs inside the AKS cluster and adheres to Kubernetes' Gateway APIs.
+Application Gateway for Containers offers an elastic and scalable ingress to AKS clusters and comprises a new data plane as well as control plane with new set of ARM APIs, different from existing Application Gateway. Application Gateway for Containers is outside the AKS cluster data plane and is responsible for ingress. It's controlled by an ALB controller component that runs inside the AKS cluster and adheres to Kubernetes Gateway APIs.
 
 ## Features
 
@@ -47,6 +47,7 @@ Application Gateway for Containers supports the following features for traffic m
 - Availability zone resiliency
 
 ### Deployment strategies
+
 There are two deployment strategies for management of Application Gateway for Containers:
 
 - **Bring your own (BYO) deployment:** In this deployment strategy, deployment and lifecycle of the Application Gateway for Containers resource, Association and Frontend resource is assumed via Azure portal, CLI, PowerShell, Terraform, etc. and referenced in configuration within Kubernetes.
@@ -54,12 +55,13 @@ There are two deployment strategies for management of Application Gateway for Co
 - **Managed by ALB Controller:** In this deployment strategy ALB Controller deployed in Kubernetes is responsible for the lifecycle of the Application Gateway for Containers resource and its sub resources. ALB Controller creates Application Gateway for Containers resource when an ApplicationLoadBalancer custom resource is defined on the cluster and its lifecycle is based on the lifecycle of the custom resource.
   - **In Gateway API:** Every time a Gateway resource is created referencing the ApplicationLoadBalancer resource, ALB Controller provisions a new Frontend resource and manage its lifecycle based on the lifecycle of the Gateway resource.
 
-### Supported Regions
+### Supported regions
+
 Application Gateway for Containers is currently offered in the following regions:
 - North Central US
 - North Europe
 
-### Implementation of Gateway API
+### Implementation of gateway API
 
 ALB Controller implements version [v1beta1](https://gateway-api.sigs.k8s.io/references/spec/#gateway.networking.k8s.io/v1beta1) of the [Gateway API](https://gateway-api.sigs.k8s.io/)
 
@@ -70,11 +72,11 @@ ALB Controller implements version [v1beta1](https://gateway-api.sigs.k8s.io/refe
 | [HTTPRoute](https://gateway-api.sigs.k8s.io/references/spec/#gateway.networking.k8s.io%2fv1beta1.HTTPRoute)                | Yes   | Currently doesn't support [HTTPRouteFilter](https://gateway-api.sigs.k8s.io/references/spec/#gateway.networking.k8s.io/v1beta1.HTTPRouteFilter) |
 | [ReferenceGrant](https://gateway-api.sigs.k8s.io/references/spec/#gateway.networking.k8s.io%2fv1alpha2.ReferenceGrant)     | Yes   | Currently supports version v1alpha1 of this api |
 
-### Implementation of custom CRDs in ALB Controller 
+### Implementation of custom CRDs in ALB controller 
 
 ALB Controller supports a few custom CRDs, details on these can be found [here](api-types-kubernetes.md).
 
-## Reporting Issues
+## Reporting issues
 
 For feedback, post a new idea in [feedback.azure.com](https://feedback.azure.com/)
 For issues, raise a support request via the Azure portal on your Application Gateway for Containers resource.

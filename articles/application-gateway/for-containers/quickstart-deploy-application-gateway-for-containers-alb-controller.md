@@ -1,5 +1,5 @@
 ---
-title: 'Quickstart: Deploy Application Gateway for Containers ALB Controller'
+title: 'Quickstart: Deploy Application Gateway for Containers ALB Controller (preview)'
 titlesuffix: Azure Application Load Balancer
 description: In this quickstart, you learn how to provision the Application Gateway for Containers ALB Controller in an AKS cluster.
 services: application-gateway
@@ -7,17 +7,20 @@ author: greglin
 ms.service: application-gateway
 ms.subservice: traffic-controller
 ms.topic: quickstart
-ms.date: 7/7/2023
+ms.date: 07/12/2023
 ms.author: greglin
 ---
 
-# Quickstart: Deploy Application Gateway for Containers ALB Controller
+# Quickstart: Deploy Application Gateway for Containers ALB Controller (preview)
 
 [ALB Controller](concepts-how-application-gateway-for-containers-works.md#application-gateway-for-containers-alb-controller) is responsible for translating Gateway API and Ingress API configuration within Kubernetes to load balancing rules within Application Gateway for Containers.  The following guide walks through the steps needed to provision ALB Controller into a new or existing AKS cluster.
 
 ## Prerequisites
 
 You need to complete the following tasks prior to deploying Application Gateway for Containers on Azure and installing ALB Controller on your cluster:
+
+> [!IMPORTANT]
+> Application Gateway for Containers is currently in [Private Preview](/support/legal/preview-supplemental-terms), and is intended for evaluation purposes only.
 
 1. Prepare your Azure subscription and your `az-cli` client.
 
@@ -37,7 +40,7 @@ You need to complete the following tasks prior to deploying Application Gateway 
 	az extension add --name alb
 	```
 
-1. Create an AKS cluster for your workload.
+2. Create an AKS cluster for your workload.
 
 	> **Prerequisites**
 	> The AKS cluster needs to be in the [regions where Application Gateway for Containers is available](overview.md#supported-regions)
@@ -72,7 +75,7 @@ You need to complete the following tasks prior to deploying Application Gateway 
 		--generate-ssh-key
 	```
 
-2. Install Helm.
+3. Install Helm.
 
 	[Helm](https://github.com/helm/helm) is an open-source packaging tool that is used to install ALB controller. Ensure that you have the latest version of helm installed. Instructions on installation can be found [here](https://github.com/helm/helm#install).
 
@@ -82,6 +85,7 @@ You need to complete the following tasks prior to deploying Application Gateway 
 	```
 
 ## Install ALB Controller
+
 1. Create a user managed identity for ALB controller and federate the identity as Pod Identity to use in the AKS cluster.
 
     ```azurecli-interactive
@@ -149,7 +153,7 @@ You need to complete the following tasks prior to deploying Application Gateway 
     ```
     You should see that the GatewayClass has a condition that reads **Valid GatewayClass** . This indicates that a default GatewayClass has been set up and that any gateway resources that reference this GatewayClass is managed by ALB Controller automatically.
 
-## Next Steps - Link your ALB Controller to Application Gateway for Containers
+## Next Steps - Link your ALB controller to Application Gateway for Containers
 
 Now that you have successfully installed an ALB Controller on your cluster you can provision the Application Gateway For Containers resources in Azure.
 

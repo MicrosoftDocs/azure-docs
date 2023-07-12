@@ -1,18 +1,17 @@
 ---
 
-title: How Application Gateway for Containers works
-titlesuffix: Azure Application Load Balancer
+title: How Application Gateway for Containers works  (preview)
 description: This article provides information about how Application Gateway for Containers accepts incoming requests and routes them to a backend target.
 services: application-gateway
 author: greglin
 ms.service: application-gateway
 ms.subservice: traffic-controller
 ms.topic: conceptual
-ms.date: 7/7/2023
+ms.date: 07/12/2023
 ms.author: greglin
 ---
 
-# How Application Gateway for Containers works
+# How Application Gateway for Containers works (preview)
 
 Application Gateway for Containers is made up of three components:
 - Application Gateway for Containers
@@ -26,7 +25,7 @@ The following dependencies are also referenced in an Application Gateway for Con
 
 ![Diagram depicting traffic from the Internet ingressing into Application Gateway for Containers and being sent to backend pods in AKS.](./media/concepts-how-traffic-controller-works/application-gateway-for-containers-kubernetes-conceptual.png)
 
-## Application Gateway for Containers Concepts
+## Application Gateway for Containers concepts
 
 ### Application Gateway for Containers
 - Application Gateway for Containers is an Azure parent resource that deploys the control plane
@@ -34,7 +33,7 @@ The following dependencies are also referenced in an Application Gateway for Con
 - Application Gateway for Containers has two child resources; associations and frontends
   - Child resources are exclusive to only their parent Application Gateway for Containers and may not be referenced by additional Application Gateway for Containers
 
-### Application Gateway for Containers Frontends
+### Application Gateway for Containers frontends
 - An Application Gateway for Containers Frontend resource is an Azure child resource of the Application Gateway for Containers parent resource
 - An Application Gateway for Containers Frontend defines the entry point client traffic should be received by a given Application Gateway for Containers
    - A frontend can't be associated to multiple Application Gateway for Containers
@@ -42,7 +41,7 @@ The following dependencies are also referenced in an Application Gateway for Con
    - Private IP addresses are currently unsupported
 - A single Application Gateway for Containers can support multiple Frontends
 
-### Application Gateway for Containers Association
+### Application Gateway for Containers association
 - An Application Gateway for Containers Association resource is an Azure child resource of the Application Gateway for Containers parent resource
 - An Application Gateway for Containers Association defines a connection point into a virtual network.  An association is a 1:1 mapping of an association resource to an Azure Subnet that has been delegated.
 - Application Gateway for Containers is designed to allow for multiple associations
@@ -60,17 +59,19 @@ The following dependencies are also referenced in an Application Gateway for Con
    - alb-controller pod is responsible for orchestrating customer intent to Application Gateway for Containers load balancing configuration
    - alb-controller-bootstrap pod is responsible for management of CRDs
 
-## Azure / General concepts
+## Azure / general concepts
 
 ### Private IP address
 - A private IP address isn't explicitly defined as an Azure Resource Manager resource.  A private IP address would refer to a specific host address within a given virtual network's subnet.
 
-### Subnet Delegation
+### Subnet delegation
+
 - Microsoft.ServiceNetworking/trafficControllers is the namespace adopted by Application Gateway for Containers and may be delegated to a virtual network's subnet.
 - When delegation occurs, provisioning of Application Gateway for Containers resources doesn't happen, nor is there an exclusive mapping to an Application Gateway for Containers association resource.
 - Any number of subnets can have a subnet delegation that is the same or different to Application Gateway for Containers.  Once defined, no other resources, other than the defined service, can be provisioned into the subnet unless explicitly defined by the service's implementation.
 
-### User-assigned Managed Identity
+### User-assigned managed identity
+
 - Managed identities for Azure resources eliminate the need to manage credentials in code.
 - A User Managed Identity is required for each Azure Load Balancer Controller to make changes to Application Gateway for Containers
 - _AppGw for Containers Configuration Manager_ is a built-in RBAC role that allows ALB Controller to access and configure the Application Gateway for Containers resource.
@@ -79,6 +80,7 @@ The following dependencies are also referenced in an Application Gateway for Con
 > The _AppGw for Containers Configuration Manager_ role has [data action permissions](../../role-based-access-control/role-definitions.md#control-and-data-actions) that the Owner and Contributor roles do not have. It is critical proper permissions are delegated to prevent issues with ALB Controller making changes to the Application Gateway for Containers service.
 
 ## How Application Gateway for Containers accepts a request
+
 Each Application Gateway for Containers frontend provides a generated Fully Qualified Domain Name managed by Azure.  The FQDN may be used as-is or customers may opt to mask the FQDN with a CNAME record.
 
 Before a client sends a request to Application Gateway for Containers, the client resolves a CNAME that points to the frontend's FQDN; or the client may directly resolve the FQDN provided by Application Gateway for Containers by using a DNS server.
@@ -91,7 +93,7 @@ A set of routing rules evaluates how the request for that hostname should be ini
 
 ## How Application Gateway for Containers routes a request
 
-### Modifications to the request
+### Modifications to the Request
 Application Gateway for Containers inserts three additional headers to all requests before requests are initiated from Application Gateway for Containers to a backend target:
 - x-forwarded-for
 - x-forwarded-proto

@@ -1,21 +1,23 @@
 ---
-title: 'Quickstart: Create Application Gateway for Containers managed by ALB Controller'
-titlesuffix: Azure Application Load Balancer
+title: 'Quickstart: Create Application Gateway for Containers managed by ALB Controller (preview)'
 description: In this quickstart, you learn how to provision the Application Gateway for Containers resources via Kubernetes definition.
 services: application-gateway
 author: greglin
 ms.service: application-gateway
 ms.subservice: traffic-controller
 ms.topic: quickstart
-ms.date: 7/7/2023
+ms.date: 07/12/2023
 ms.author: greglin
 ---
 
-# Quickstart: Create Application Gateway for Containers managed by ALB Controller
+# Quickstart: Create Application Gateway for Containers managed by ALB Controller (preview)
 
 This guide assumes you're following the "managed by ALB controller" deployment strategy, where all the Application Gateway for Containers resources are managed by ALB controller and lifecycle is determined by definition of the resources defined in Kubernetes.  ALB Controller creates the Application Gateway for Containers resource when an _ApplicationLoadBalancer_ custom resource is defined on the cluster. Application Gateway for Containers' lifecycle is based on the lifecycle of the custom resource.
 
 ## Prerequisites
+
+> [!IMPORTANT]
+> Application Gateway for Containers is currently in [Private Preview](/support/legal/preview-supplemental-terms), and is intended for evaluation purposes only.
 
 Ensure you have first deployed ALB Controller into your Kubernetes cluster.  You may follow the [Quickstart: Deploy Application Gateway for Containers ALB Controller](quickstart-deploy-application-gateway-for-containers-alb-controller.md) guide if you haven't yet deployed the ALB Controller.
 
@@ -61,6 +63,7 @@ ALB_SUBNET_ID=$(az network vnet subnet show --name $ALB_SUBNET_NAME --resource-g
 ```
 
 ## Delegate permissions to managed identity
+
 ALB Controller will need the ability to provision new Application Gateway for Containers resources as well as join the subnet intended for the Application Gateway for Containres association resource.
 
 In this example, we will delegate the _AppGW for Containers Configuration Manager_ role to the resource group the managed cluster and delegate the _Network Contributor_ role to the subnet used by the Application Gateway for Containers association subnet, which contains the _Microsoft.Network/virtualNetworks/subnets/join/action_ permission.
@@ -82,7 +85,7 @@ az role assignment create --assignee-object-id $principalId --resource-group $mc
 az role assignment create --assignee-object-id $principalId --scope $ALB_SUBNET_ID --role "4d97b98b-1d4f-4787-a291-c67834d212e7"
 ```
 
-## Create ApplicationLoadBalancer kubernetes resource
+## Create ApplicationLoadBalancer Kubernetes resource
 
 1. Define the Kubernetes namespace for the ApplicationLoadBalancer resource
 

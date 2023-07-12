@@ -1,24 +1,27 @@
 ---
 
-title: Traffic Splitting with Application Gateway for Containers
-titlesuffix: Azure Application Load Balancer
+title: Traffic Splitting with Application Gateway for Containers (preview)
 description: Learn how to configure traffic splitting / weighted round robin with Application Gateway for Containers.
 services: application-gateway
 author: greglin
 ms.service: application-gateway
 ms.subservice: traffic-controller
 ms.topic: how-to
-ms.date: 7/7/2023
+ms.date: 07/12/2023
 ms.author: greglin
 ---
 
-# Traffic Splitting with Application Gateway for Containers
+# Traffic splitting with Application Gateway for Containers (preview)
 
 This document helps set up an example application that uses the following resources from Gateway API:
 - [Gateway](https://gateway-api.sigs.k8s.io/concepts/api-overview/#gateway) - creating a gateway with one http listener
 - [HTTPRoute](https://gateway-api.sigs.k8s.io/v1alpha2/api-types/httproute/) - creating an HTTP route that references two backend services having different weights
 
 ## Prerequisites
+
+> [!IMPORTANT]
+> Application Gateway for Containers is currently in [Private Preview](/support/legal/preview-supplemental-terms), and is intended for evaluation purposes only.
+
 1. If following the BYO deployment strategy, ensure you have set up your Application Gateway for Containers resources and [ALB Controller](quickstart-deploy-application-gateway-for-containers-alb-controller.md)
 2. If following the ALB managed deployment strategy, ensure you have provisioned your [ALB Controller](quickstart-deploy-application-gateway-for-containers-alb-controller.md) and provisioned the Application Gateway for Containers resources via the  [ApplicationLoadBalancer custom resource](quickstart-create-application-gateway-for-containers-managed-by-alb-controller.md).3
 3. Deploy sample HTTP application
@@ -32,11 +35,12 @@ This document helps set up an example application that uses the following resour
   - 2 services called `backend-v1` and `backend-v2` in the `test-infra` namespace
   - 2 deployments called `backend-v1` and `backend-v2` in the `test-infra` namespace
 
-## Deploy the required gateway api objects
+## Deploy the required gateway API objects
 
 # [ALB managed deployment](#tab/alb-managed)
 
-1. Create a Gateway
+Create a gateway:
+
 ```bash
 kubectl apply -f - <<EOF
 apiVersion: gateway.networking.k8s.io/v1beta1
@@ -221,7 +225,7 @@ status:
       namespace: test-infra
   ```
 
-## Test access to the application
+## Test Access to the Application
 
 Now we're ready to send some traffic to our sample application, via the FQDN assigned to the frontend. Use the command below to get the FQDN.
 

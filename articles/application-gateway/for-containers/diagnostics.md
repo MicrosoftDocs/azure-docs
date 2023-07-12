@@ -1,17 +1,16 @@
 ---
-title: Diagnostic Logs for Application Gateway for Containers
-titlesuffix: Azure Application Load Balancer
+title: Diagnostic Logs for Application Gateway for Containers (preview)
 description: Learn how to enable access logs for Application Gateway for Containers
 services: application-gateway
 author: greglin
 ms.service: application-gateway
 ms.subservice: traffic-controller
 ms.topic: article
-ms.date: 7/7/2023
+ms.date: 07/12/2023
 ms.author: greglin
 ---
 
-# Diagnostic logs for Application Gateway for Containers
+# Diagnostic logs for Application Gateway for Containers (preview)
 
 Learn how to troubleshoot common problems in Application Gateway for Containers.
 

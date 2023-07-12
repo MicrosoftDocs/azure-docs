@@ -1,21 +1,23 @@
 ---
-title: 'Quickstart: Create Application Gateway for Containers - Bring your own deployment'
-titlesuffix: Azure Application Load Balancer
+title: 'Quickstart: Create Application Gateway for Containers - bring your own deployment (preview)'
 description: In this quickstart, you learn how to provision and manage the Application Gateway for Containers Azure resources independent from Kubernetes configuration.
 services: application-gateway
 author: greglin
 ms.service: application-gateway
 ms.subservice: traffic-controller
 ms.topic: quickstart
-ms.date: 7/7/2023
+ms.date: 07/12/2023
 ms.author: greglin
 ---
 
-# Quickstart: Create Application Gateway for Containers - Bring your own deployment
+# Quickstart: Create Application Gateway for Containers - bring your own deployment (preview)
 
 This guide assumes you're following the "bring your own" deployment strategy, where ALB Controller references the Application Gateway for Containers resources precreated in Azure. It's assumed that resource lifecycles are managed in Azure, independent from what is defined within Kubernetes. 
 
 ## Prerequisites
+
+> [!IMPORTANT]
+> Application Gateway for Containers is currently in [Private Preview](/support/legal/preview-supplemental-terms), and is intended for evaluation purposes only.
 
 Ensure you have first deployed ALB Controller into your Kubernetes cluster.  You may follow the [Quickstart: Deploy Application Gateway for Containers ALB Controller](quickstart-deploy-application-gateway-for-containers-alb-controller.md) guide if you haven't yet deployed the ALB Controller.
 
@@ -29,7 +31,7 @@ AGFC_NAME='alb-test' # Name of the Application Gateway for Containers resource t
 az network alb create -g $RESOURCE_GROUP -n $AGFC_NAME
 ```
 
-## Create a Frontend resource
+## Create a frontend resource
 
 Execute the following command to create the Application Gateway for Containers frontend resource.
 
@@ -38,9 +40,10 @@ FRONTEND_NAME='test-frontend'
 az network alb frontend create -g $RESOURCE_GROUP -n $FRONTEND_NAME --alb-name $AGFC_NAME
 ```
 
-## Create an Association resource
+## Create an association resource
 
 ### Delegate a subnet to association resource
+
 To create an association resource, you first need to reference a subnet for Application Gateway for Containers to establish connectivity to.  Ensure the subnet for an Application Gateway for Containers association is at least a class C or larger (/24 or smaller CIDR prefix).  For this step, you may either reuse an existing subnet and enable subnet delegation on it. or create a new VNET, subnet, and enable subnet delegation. 
 
 # [Reference existing VNet and Subnet](#tab/existing-vnet-subnet)
@@ -85,6 +88,7 @@ echo $ALB_SUBNET_ID
 ```
 
 ### Delegate permissions to managed identity
+
 ALB Controller will need the ability to provision new Application Gateway for Containers resources as well as join the subnet intended for the Application Gateway for Containers association resource.
 
 In this example, we will delegate the _AppGW for Containers Configuration Manager_ role to the resource group and delegate the _Network Contributor_ role to the subnet used by the Application Gateway for Containers association subnet, which contains the _Microsoft.Network/virtualNetworks/subnets/join/action_ permission.
@@ -105,6 +109,7 @@ az role assignment create --assignee-object-id $principalId --scope $ALB_SUBNET_
 ```
 
 ### Create an association resource
+
 Execute the following command to create the association resource and connect it to the referenced subnet
 ```azurecli-interactive
 ASSOCIATION_NAME='association-test'
