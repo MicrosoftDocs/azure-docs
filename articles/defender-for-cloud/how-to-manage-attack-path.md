@@ -167,7 +167,7 @@ While you're [investigating and remediating an attack path](#investigate-and-rem
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
-1. Navigate to **Microsoft Defender for Cloud** > **Recommendations** > **Attack paths**.
+1. Navigate to **Microsoft Defender for Cloud** > **Attack path analysis**.
 
 1. Select an attack path.
 
