@@ -55,6 +55,12 @@ az network vnet subnet update \
     --vnet-name vnet-test \
     --delegations 'Microsoft.ServiceNetworking/trafficControllers'
 ```
+ 
+### Reference an existing VNet and Subnet
+To reference an existing subnet, execute the following command to get the resource ID of the subnet:
+```azurecli-interactive
+az network vnet subnet list --resource-group rg-test --vnet-name vnet-test --query "[?name=='subnet-alb'].id" --output tsv
+```
 
 ### Delegate permissions to managed identity
 ALB Controller will need the ability to provision new Application Gateway for Containers resources as well as join the subnet intended for the Application Gateway for Containres association resource.
@@ -75,14 +81,9 @@ az role assignment create --assignee-object-id $principalId --resource-group $RE
 # Delegate Network Contributor permission for join to association subnet
 az role assignment create --assignee-object-id $principalId --scope $albSubnetId --role "fbc52c3f28ad4303a8928a056630b8f1"
 ```
- 
-### Reference an existing VNet and Subnet
-To reference an existing subnet, execute the following command to get the resource ID of the subnet:
-```azurecli-interactive
-az network vnet subnet list --resource-group rg-test --vnet-name vnet-test --query "[?name=='subnet-alb'].id" --output tsv
-```
 
-Execute the following command to create the Association resource and connect it to the referenced subnet
+### Create an association resource
+Execute the following command to create the association resource and connect it to the referenced subnet
 ```azurecli-interactive
 az network alb association create -g rg-test -n association-test --alb-name alb-test --subnet /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/yyyyy/providers/Microsoft.Network/virtualNetworks/zzzzzz/subnets/subnet-alb
 ```
