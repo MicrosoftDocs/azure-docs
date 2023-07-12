@@ -15,7 +15,7 @@ ms.custom: UpdateFrequency5, devx-track-python, data4ml, sdkv1, event-tier1-buil
 
 # Monitor and collect data from ML web service endpoints
 
-[!INCLUDE [sdk v1](../../../includes/machine-learning-sdk-v1.md)]
+[!INCLUDE [sdk v1](../includes/machine-learning-sdk-v1.md)]
 
 In this article, you learn how to collect data from models deployed to web service endpoints in Azure Kubernetes Service (AKS) or Azure Container Instances (ACI). Use [Azure Application Insights](../../azure-monitor/app/app-insights-overview.md) to collect the following data from an endpoint:
 * Output data

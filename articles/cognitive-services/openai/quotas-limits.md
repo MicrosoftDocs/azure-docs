@@ -23,7 +23,7 @@ The following sections provide you with a quick guide to the default quotas and 
 | Limit Name | Limit Value |
 |--|--|
 | OpenAI resources per region per Azure subscription | 30 |
-| Default quota per model and region for a subscription (in tokens-per-minute)<sup>1</sup> |Text-Davinci-003: 120 K <br> GPT-4: 20 K <br> GPT-4-32K: 60 K  <br> All others: 240 K |
+| Default quota per model and region (in tokens-per-minute)<sup>1</sup> |Text-Davinci-003: 120 K <br> GPT-4: 20 K <br> GPT-4-32K: 60 K  <br> All others: 240 K |
 | Default DALL-E quota limits | 2 concurrent requests |
 | Maximum prompt tokens per request | Varies per model. For more information, see [Azure OpenAI Service models](./concepts/models.md)|
 | Max fine-tuned model deployments | 2 |

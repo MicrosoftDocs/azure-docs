@@ -15,7 +15,7 @@ ms.date: 07/05/2023
 
 # Tutorial: Upload, access and explore your data in Azure Machine Learning
 
-[!INCLUDE [sdk v2](../../includes/machine-learning-sdk-v2.md)]
+[!INCLUDE [sdk v2](includes/machine-learning-sdk-v2.md)]
 
 In this tutorial you learn how to:
 
