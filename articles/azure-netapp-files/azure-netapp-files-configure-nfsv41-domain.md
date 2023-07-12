@@ -11,20 +11,34 @@ ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.topic: how-to
-ms.date: 04/05/2023
+ms.date: 07/12/2023
 ms.author: anfdocs
 ---
 # Configure NFSv4.1 domain for Azure NetApp Files
 
-NFSv4 introduces the concept of an authentication domain. Azure NetApp Files supports root-only user mapping from the service to the NFS client. To use the NFSv4.1 functionality with Azure NetApp Files, you need to update the NFS client.
+NFSv4.1 introduces the concept of an authentication domain. Azure NetApp Files uses the default value `defaultv4iddomain.com` for authentication domain. Each NFS client has its own default configuration to authenticate users that want to access files on authenticated volumes. If authentication domain settings on the NFS client and Azure NetApp Files do not match, file access may be denied and user mapping may fail.  
+
+The following sections describe how to configure Linux-based NFS clients correct to properly authenticate and allow access.  
 
 ## Default behavior of user/group mapping
 
-Root mapping defaults to the `nobody` user because the NFSv4 domain is set to `localdomain` by default. When you mount an Azure NetApp Files NFSv4.1 volume as `root`, you see file permissions as follows:  
+The root user mapping can illustrate what happens if there is a mismatch between the Azure NetApp Files and NFS clients. The installation process of an application often requires the use of the root user. Azure NetApp Files can be configured to allow root access. 
 
-![Default behavior of user/group mapping for NFSv4.1](../media/azure-netapp-files/azure-netapp-files-nfsv41-default-behavior-user-group-mapping.png)
+In the following scenario, the root scenario has mounted a volume on a Linux client that retains its default configuration of `localdomain` for the authentication domain. This domain differs from the Azure NetApp Files default configuration `defaultv4iddomain.com`.
 
-As the above example shows, the user for `file1` should be `root`, but it maps to `nobody` by default. This article shows you how to set the `file1` user to `root` by changing the `idmap Domain` setting to the default domain `defaultv4iddomain.com`.  
+:::image type="content" source="../media/azure-netapp-files/azure-netapp-files-nfsv41-default-behavior-user-group-mapping.png." alt-text="Screenshot of file directory output." lightbox="../media/azure-netapp-files/azure-netapp-files-nfsv41-default-behavior-user-group-mapping.png":::
+
+In the listing of the files in the directory, `file1` shows as being mapped to `nobody`, when it should be owned by the root user. 
+
+There are two ways to adjust the authentication domain on both sides: Azure NetApp Files as NFS server and Linux as NFS clients: 
+
+1. **Central user management**: If you're already using a central user management such as Active Directory Domain Services (AD DS), you can configure their Linux clients to use LDAP and set the domain configured in AD DS as authentication domain. At the server side, you must enable the AD domain service for Azure NetApp Files and create LDAP-enabled volumes. The LDAP-enabled volumes automatically use the domain configured in AD DS as their authentication domain.
+
+    For more information about this process, see [Enable Active Directory Domain Services (AD DS) LDAP authentication for NFS volumes](configure-ldap-extended-groups.md). 
+
+1. **Manually configure the Linux client**: If you are not using a central user management for your Linux clients, you can manually configure the Linux clients to match the default authentication domain of Azure NetApp Files for non-LDAP enabled volumes.  
+
+In this section we’ll focus on how to configure the Linux client and how to change the Azure NetApp Files authentication domain for all non-LDAP enabled volumes. 
 
 ## Configure NFSv4.1 domain for server
 
