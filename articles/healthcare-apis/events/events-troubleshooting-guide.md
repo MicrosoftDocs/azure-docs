@@ -6,7 +6,7 @@ author: msjasteppe
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: troubleshooting
-ms.date: 07/11/2023
+ms.date: 07/12/2023
 ms.author: jasteppe
 ---
 # Troubleshoot Events
@@ -53,18 +53,18 @@ Use this resource to learn how to deploy Events in the Azure portal:
 > [!IMPORTANT]
 > The Event Subscription requires access to whichever endpoint you chose to send Events messages to. For more information, see [Enable managed identity for a system topic](../../event-grid/enable-identity-system-topics.md).
 
-Use this resource to learn how to display Events metrics: 
-* [How to display metrics](./events-display-metrics.md)
+Use this resource to learn how to use Events metrics: 
+* [How to use Events metrics](./events-display-metrics.md)
 
-Use this resource to learn how to export Event Grid system topics diagnostic logs and metrics: 
-* [How to export Event Grid system topics diagnostic and metrics logs](./events-export-logs-metrics.md)
+Use this resource to learn how to enable diagnostic settings for Events: 
+* [How to enable diagnostic settings for Events](./events-export-logs-metrics.md)
 
 ## Contact support
 
 If you have a technical question about Events or if you have a support related issue, see [Create a support request](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview) and complete the required fields under the **Problem description** tab. For more information about Azure support options, see [Azure support plans](https://azure.microsoft.com/support/options/#support-plans). 
 
 ## Next steps
-In this tutorial, you were provided resources for troubleshooting Events.
+In this article, you were provided resources for troubleshooting Events.
 
 To learn about the frequently asked questions (FAQs) about Events, see
 
