@@ -26,7 +26,7 @@ The root user mapping can illustrate what happens if there is a mismatch between
 
 In the following scenario, the root scenario has mounted a volume on a Linux client that retains its default configuration of `localdomain` for the authentication domain. This domain differs from the Azure NetApp Files default configuration `defaultv4iddomain.com`.
 
-:::image type="content" source="../media/azure-netapp-files/azure-netapp-files-nfsv41-default-behavior-user-group-mapping.png." alt-text="Screenshot of file directory output." lightbox="../media/azure-netapp-files/azure-netapp-files-nfsv41-default-behavior-user-group-mapping.png":::
+:::image type="content" source="../media/azure-netapp-files/azure-netapp-files-nfsv41-default-behavior-user-group-mapping.png" alt-text="Screenshot of file directory output." lightbox="../media/azure-netapp-files/azure-netapp-files-nfsv41-default-behavior-user-group-mapping.png":::
 
 In the listing of the files in the directory, `file1` shows as being mapped to `nobody`, when it should be owned by the root user. 
 
