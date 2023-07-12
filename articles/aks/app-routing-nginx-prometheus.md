@@ -1,5 +1,5 @@
 ---
-title: Monitor the ingress-nginx controller metrics in the Application Routing add-on with Prometheus (preview)
+title: Monitor the ingress-nginx controller metrics in the application routing add-on with Prometheus (preview)
 description: Configure Prometheus to scrape the ingress-nginx controller metrics.
 ms.subservice: aks-networking
 ms.custom: devx-track-azurecli
@@ -11,9 +11,9 @@ ms.author: asabbour
 
 # Monitor the ingress-nginx controller metrics in the application routing add-on with Prometheus (preview)
 
-When using the ingress-nginx controller with the Application Routing add-on, the controller exposes a number of metrics for requests, the nginx process, the controller, and admission that can be helpful in analyzing the performance and usage of your application.
+The ingress-nginx controller in the application routing add-on exposes many metrics for requests, the nginx process, and the controller that can be helpful in analyzing the performance and usage of your application.
 
-The Application Routing add-on exposes the Promehteus metrics endpoint at `/metrics` on port 10254.
+The application routing add-on exposes the Prometheus metrics endpoint at `/metrics` on port 10254.
 
 [!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
 
@@ -25,7 +25,7 @@ The Application Routing add-on exposes the Promehteus metrics endpoint at `/metr
 
 ## Validating the metrics endpoint
 
-To validate the metrics are being collected, you can setup a port forward to one of the ingress-nginx controller pods.
+To validate the metrics are being collected, you can set up a port forward to one of the ingress-nginx controller pods.
 
 ```bash
 kubectl get pods -n app-routing-system
@@ -55,10 +55,10 @@ Azure Monitor managed service for Prometheus is a fully managed Prometheus-compa
 
 ### Enable pod annotation based scraping
 
-Once your cluster is configured with the Azure Monitor agent, you'll also need to [apply a ConfigMap to provide scraping configuration][managed-prometheus-custom-annotations] called `ama-metrics-prometheus-config` in the `kube-system` namespace to enable the agent to scrape based on Pod annotations, which are added to the ingress-nginx pods.
+Once your cluster is configured with the Azure Monitor agent, [apply a ConfigMap to provide scraping configuration][managed-prometheus-custom-annotations] called `ama-metrics-prometheus-config` in the `kube-system` namespace to enable the agent to scrape based on Pod annotations, which are added to the ingress-nginx pods.
 
 > [!CAUTION]
-> This will replace your existing `ama-metrics-prometheus-config` ConfigMap in the `kube-system`. If you already have a configuration, you may want to take a backup or merge it with the below.
+> This will replace your existing `ama-metrics-prometheus-config` ConfigMap in the `kube-system`. If you already have a configuration, you may want to take a backup or merge it with this configuration.
 
 ```bash
 kubectl apply -f - <<EOF
