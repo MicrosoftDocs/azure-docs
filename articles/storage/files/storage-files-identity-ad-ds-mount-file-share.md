@@ -32,6 +32,9 @@ Before you can mount the Azure file share, make sure you've gone through the fol
 - If you're mounting the file share from a client that has previously connected to the file share using your storage account key, make sure that you've disconnected the share, removed the persistent credentials of the storage account key, and are currently using AD DS credentials for authentication. For instructions on how to remove cached credentials with storage account key and delete existing SMB connections before initializing a new connection with AD DS or Azure AD credentials, follow the two-step process on the [FAQ page](./storage-files-faq.md#ad-ds--azure-ad-ds-authentication).
 - Your client must have line of sight to your AD DS. If your machine or VM is outside of the network managed by your AD DS, you'll need to enable VPN to reach AD DS for authentication.
 
+> [!NOTE]
+> Using the canonical name (CNAME) to mount an Azure file share isn't currently supported while using identity-based authentication in single-forest AD environments.
+
 ## Mount the file share from a domain-joined VM
 
 Run the PowerShell script below or [use the Azure portal](storage-files-quick-create-use-windows.md#map-the-azure-file-share-to-a-windows-drive) to persistently mount the Azure file share and map it to drive Z: on Windows. If Z: is already in use, replace it with an available drive letter. The script will check to see if this storage account is accessible via TCP port 445, which is the port SMB uses. Remember to replace the placeholder values with your own values. For more information, see [Use an Azure file share with Windows](storage-how-to-use-files-windows.md).
