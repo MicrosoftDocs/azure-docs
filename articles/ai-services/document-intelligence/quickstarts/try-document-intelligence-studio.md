@@ -74,7 +74,7 @@ After you've completed the prerequisites, navigate to [Document Intelligence Stu
 
 In the following example, we use the General Documents feature. The steps to use other pretrained features like [W2 tax form](https://formrecognizer.appliedai.azure.com/studio/prebuilt?formType=tax.us.w2), [Read](https://formrecognizer.appliedai.azure.com/studio/read), [Layout](https://formrecognizer.appliedai.azure.com/studio/layout), [Invoice](https://formrecognizer.appliedai.azure.com/studio/prebuilt?formType=invoice), [Receipt](https://formrecognizer.appliedai.azure.com/studio/prebuilt?formType=receipt), [Business card](https://formrecognizer.appliedai.azure.com/studio/prebuilt?formType=businessCard), and [ID documents](https://formrecognizer.appliedai.azure.com/studio/prebuilt?formType=idDocument) models are similar.
 
-   :::image border="true" type="content" source="../media/quickstarts/select-general-document.png" alt-text="Selecting the General Document API to analysis a document in the Document Intelligence Studio.":::
+   :::image border="true" type="content" source="../media/quickstarts/select-general-document.png" alt-text="Screenshot showing selection of the General Document API to analyze a document in the Document Intelligence Studio.":::
 
 1. Select a Document Intelligence service feature from the Studio home page.
 
