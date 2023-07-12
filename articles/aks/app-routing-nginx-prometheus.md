@@ -151,7 +151,7 @@ You can download this dashboard from [GitHub][grafana-nginx-request-performance-
 ## Next steps
 
 - You can configure scaling your workloads using ingress metrics scraped with Prometheus using [Kubernetes Event Driven Autoscaler (KEDA)][KEDA]. Learn more about [integrating KEDA with AKS][keda-prometheus].
-- Create and run a load test with [Azure Load Testing][azure-load-testing] to test performance and optimize the scalability of your applications.
+- Create and run a load test with [Azure Load Testing][azure-load-testing] to test workload performance and optimize the scalability of your applications.
 
 <!-- LINKS - internal -->
 [az-aks-create]: /cli/azure/aks#az-aks-create
