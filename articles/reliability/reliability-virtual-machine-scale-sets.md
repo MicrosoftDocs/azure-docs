@@ -24,19 +24,21 @@ For an architectural overview of reliability in Azure, see [Azure reliability](/
 
 | Category | Priority |Recommendation |  
 |---------------|--------|---|
-| [**Scalability**](#scalablity) |:::image type="icon" source="../reliability/media/icon-recommendation-medium.svg":::| [VMSS-1: Deploy using Flexible scale set instead of simple Virtual Machines](#-vm-1-run-production-workloads-on-two-or-more-vms-using-vmss-flex) |
-| |:::image type="icon" source="../reliability/media/icon-recommendation-high.svg":::| [VMSS-5: VMSS Autoscale is set to Manual scale](#-vm-1-run-production-workloads-on-two-or-more-vms-using-vmss-flex) |
-| |:::image type="icon" source="../reliability/media/icon-recommendation-low.svg":::| [VMSS-6: VMSS Custom scale-in policies is not set to default](#-vm-1-run-production-workloads-on-two-or-more-vms-using-vmss-flex) |
-| [**High Availability**](#high-availability) |:::image type="icon" source="../reliability/media/icon-recommendation-high.svg":::| [VMSS-4: Automatic repair policy is not enabled](#-vm-1-run-production-workloads-on-two-or-more-vms-using-vmss-flex) |
-| [**Disaster Recovery**](#distaster-recovery) |:::image type="icon" source="../reliability/media/icon-recommendation-low.svg":::| [VMSS-2: Protection Policy is disabled for all VMSS instances](#-vm-1-run-production-workloads-on-two-or-more-vms-using-vmss-flex) |
-| [**Monitoring**](#monitoring) |:::image type="icon" source="../reliability/media/icon-recommendation-medium.svg":::| [VMSS-3: VMSS Application health monitoring is not enabled](#-vm-1-run-production-workloads-on-two-or-more-vms-using-vmss-flex) |
+| [**Scalability**](#scalablity) |:::image type="icon" source="../reliability/media/icon-recommendation-medium.svg":::| [VMSS-1: Deploy using Flexible scale set instead of simple Virtual Machines](#vmss-1-deploy-using-flexible-scale-set-instead-of-simple-vms) |
+| |:::image type="icon" source="../reliability/media/icon-recommendation-high.svg":::| [VMSS-5: VMSS Autoscale is set to Manual scale](#vmss-5-vmss-autoscale-is-set-to-manual-scale) |
+| |:::image type="icon" source="../reliability/media/icon-recommendation-low.svg":::| [VMSS-6: VMSS Custom scale-in policies is not set to default](#vmss-6-vmss-custom-scale-in-policies-is-not-set-to-default) |
+| [**High Availability**](#high-availability) |:::image type="icon" source="../reliability/media/icon-recommendation-high.svg":::| [VMSS-4: Automatic repair policy is not enabled](#vmss-4-automatic-repair-policy-is-not-enabled) |
+| [**Disaster Recovery**](#distaster-recovery) |:::image type="icon" source="../reliability/media/icon-recommendation-low.svg":::| [VMSS-2: Protection Policy is disabled for all VMSS instances](#vmss-2-protection-policy-is-disabled-for-all-vmss-instances) |
+| [**Monitoring**](#monitoring) |:::image type="icon" source="../reliability/media/icon-recommendation-medium.svg":::| [VMSS-3: VMSS Application health monitoring is not enabled](#vmss-3-vmss-application-health-monitoring-is-not-enabled) |
 
 
 ### Scalability
 
-#### :::image type="icon" source="../reliability/media/icon-recommendation-medium.svg"::: **VMSS-1: Deploy using Flexible scale set instead of simple Virtual Machines** 
+#### :::image type="icon" source="../reliability/media/icon-recommendation-medium.svg"::: **VMSS-1: Deploy VMs with flexible orchestration mode** 
 
-Even single instance VMs should be deployed into a scale set using the Flexible orchestration mode to future-proof your application for scaling and availability. Flexible orchestration offers high availability guarantees (up to 1000 VMs) by spreading VMs across fault domains in a region or within an Availability Zone.
+All VMs -even single instance VMs - should be deployed into a scale set using [flexible orchestration](../virtual-machine-scale-sets/virtual-machine-scale-sets-orchestration-modes.md#scale-sets-with-flexible-orchestration.md) mode to future-proof your application for scaling and availability. Flexible orchestration offers high availability guarantees (up to 1000 VMs) by spreading VMs across fault domains in a region or within an availability zone.
+
+For more information on when to use scale sets instead of VMs, see [When to use scale sets instead of virtual machines?](../virtual-machine-scale-sets/virtual-machine-scale-sets-design-overview.md#when-to-use-scale-sets-instead-of-virtual-machines)
 
 # [Azure Resource Graph](#tab/graph)
 
@@ -81,11 +83,11 @@ The scale-in policy feature provides users a way to configure the order in which
 
 ### High availability
 
-#### :::image type="icon" source="../reliability/media/icon-recommendation-high.svg"::: **VMSS-4: Automatic repair policy is not enabled** 
+#### :::image type="icon" source="../reliability/media/icon-recommendation-high.svg"::: **VMSS-4: Enable automatic repair policy** 
 
-Enabling automatic instance repairs for Azure Virtual Machine Scale Sets helps achieve high availability for applications by maintaining a set of healthy instances. The Application Health extension or Load balancer health probes may find that an instance is unhealthy. Automatic instance repairs will automatically perform instance repairs by deleting the unhealthy instance and creating a new one to replace it.
+To achieve high availability for applications by maintaining a set of healthy instances, [enable automatic instance repairs](../virtual-machine-scale-sets/virtual-machine-scale-sets-automatic-instance-repairs.md#requirements-for-using-automatic-instance-repairs) for Azure Virtual Machine Scale Sets. When the Application Health extension or load balancer health probes find that an instance is unhealthy, automatic instance repairs immediately deletes the unhealthy instance and creates a new one to replace it.
 
-Grace period is specified in minutes in ISO 8601 format and can be set using the property automaticRepairsPolicy.gracePeriod. Grace period can range between 10 minutes and 90 minutes, and has a default value of 30 minutes.
+A grace period can be set using the property `automaticRepairsPolicy.gracePeriod`. The grace period, specified in minutes and in ISO 8601 format, can range between 10 to 90 minutes, and has a default value of 30 minutes.
 
 # [Azure Resource Graph](#tab/graph)
 
@@ -121,12 +123,194 @@ Monitoring your application health is an important signal for managing and upgra
 
 ## Availability zone support
 
-Azure availability zones are at least three physically separate groups of datacenters within each Azure region. Datacenters within each zone are equipped with independent power, cooling, and networking infrastructure. In the case of a local zone failure, availability zones are designed so that if the one zone is affected, regional services, capacity, and high availability are supported by the remaining two zones.
-
-Failures can range from software and hardware failures to events such as earthquakes, floods, and fires. Tolerance to failures is achieved with redundancy and logical isolation of Azure services. For more detailed information on availability zones in Azure, see [Regions and availability zones](/azure/availability-zones/az-overview).
-
-Azure availability zones-enabled services are designed to provide the right level of reliability and flexibility. They can be configured in two ways. They can be either zone redundant, with automatic replication across zones, or zonal, with instances pinned to a specific zone. You can also combine these approaches. For more information on zonal vs. zone-redundant architecture, see [Build solutions with availability zones](/azure/architecture/high-availability/building-solutions-for-high-availability).
+[!INCLUDE [next step](includes/reliability-availability-zone-description-include.md)]
 
 With [Azure virtual machine scale sets](flexible-virtual-machine-scale-sets.md) you can create and manage a group of load balanced VMs. The number of VM instances can automatically increase or decrease in response to demand or a defined schedule. Scale sets provide high availability to your applications, and allow you to centrally manage, configure, and update many VMs. There's no cost for the scale set itself. You only pay for each VM instance that you create.
 
-Virtual machines in a scale set can be deployed into multiple availability zones, a single availability zone, or regionally. Availability zone deployment options may differ based on the [orchestration mode](../virtual-machine-scale-sets/virtual-machine-scale-sets-orchestration-modes.md?context=/azure/virtual-machines/context/context).
+Virtual machine scale sets supports both zonal and zone-redundant deployments within a region:
+
+- **Zonal deployment.** When you create a scale set in a single zone, you control which zone all the VM instances of that set run in. The scale set is managed and autoscales only within that zone. 
+- **Zone redundant deployment.**  A zone-redundant scale set lets you create a single scale set that spans multiple zones. By default, as VM instances are created, they are evenly balanced across zones.
+
+
+### Prerequisites
+
+1. To use availability zones, your scale set must be created in a [supported Azure region](./availability-zones-service-support.md).
+
+1. Make sure you use the correct orchestration mode.  
+    - [Flexible orchestration](../virtual-machine-scale-sets/virtual-machine-scale-sets-orchestration-modes.md#scale-sets-with-flexible-orchestration.md) supports both zonal and zone redundancy.
+
+    - [Uniform orchestration](../virtual-machine-scale-sets/virtual-machine-scale-sets-orchestration-modes.md#scale-sets-with-uniform-orchestration) only supports zone redundancy across availability zoness.
+
+1. When you deploy a regional (non-zonal) scale set into one or more zones as of API version 2017-12-01, you have the following availability options: 
+
+
+#### Create a machine scale set with availability zones enabled
+
+You can create a scale set that uses availability zones with one of the following methods:
+
+
+# [Azure portal](#tab/portal)
+
+The process to create a scale set that uses a zonal deployment is the same as detailed in the [getting started article](quick-create-portal.md). When you select a supported Azure region, you can create a scale set in one or more available zones, as shown in the following example:
+
+![Create a scale set in a single availability zone](media/virtual-machine-scale-sets-use-availability-zones/vmss-az-portal.png)
+
+The scale set and supporting resources, such as the Azure load balancer and public IP address, are created in the single zone that you specify.
+
+# [Azure CLI](#tab/cli)
+
+
+### Zonal scale set
+
+The following example creates a single-zone scale set named *myScaleSet* in zone *1*:
+
+```azurecli
+az vmss create \
+    --resource-group myResourceGroup \
+    --name myScaleSet \
+    --image <SKU image> \
+    --upgrade-policy-mode automatic \
+    --admin-username azureuser \
+    --generate-ssh-keys \
+    --zones 1
+```
+
+For a complete example of a single-zone scale set and network resources, see [this sample CLI script](scripts/cli-sample-single-availability-zone-scale-set.md#sample-script)
+
+### Zone-redundant scale set
+
+To create a zone-redundant scale set, you use a *Standard* SKU public IP address and load balancer. For enhanced redundancy, the *Standard* SKU creates zone-redundant network resources. For more information, see [Azure Load Balancer Standard overview](../load-balancer/load-balancer-overview.md) and [Standard Load Balancer and Availability Zones](../load-balancer/load-balancer-standard-availability-zones.md).
+
+To create a zone-redundant scale set, specify multiple zones with the `--zones` parameter. The following example creates a zone-redundant scale set named *myScaleSet* across zones *1,2,3*:
+
+```azurecli
+az vmss create \
+    --resource-group myResourceGroup \
+    --name myScaleSet \
+    --image <SKU Image> \
+    --upgrade-policy-mode automatic \
+    --admin-username azureuser \
+    --generate-ssh-keys \
+    --zones 1 2 3
+```
+
+It takes a few minutes to create and configure all the scale set resources and VMs in the zone(s) that you specify. For a complete example of a zone-redundant scale set and network resources, see [this sample CLI script](scripts/cli-sample-zone-redundant-scale-set.md#sample-script)
+
+# [Azure PowerShell](#tab/powershell)
+
+
+### Zonal scale set
+
+The following example creates a single-zone scale set named *myScaleSet* in *East US 2* zone *1*. The Azure network resources for virtual network, public IP address, and load balancer are automatically created. When prompted, provide your own desired administrative credentials for the VM instances in the scale set:
+
+```powershell
+New-AzVmss `
+  -ResourceGroupName "myResourceGroup" `
+  -Location "EastUS2" `
+  -VMScaleSetName "myScaleSet" `
+  -VirtualNetworkName "myVnet" `
+  -SubnetName "mySubnet" `
+  -PublicIpAddressName "myPublicIPAddress" `
+  -LoadBalancerName "myLoadBalancer" `
+  -UpgradePolicy "Automatic" `
+  -Zone "1"
+```
+
+### Zone-redundant scale set
+
+To create a zone-redundant scale set, specify multiple zones with the `-Zone` parameter. The following example creates a zone-redundant scale set named *myScaleSet* across *East US 2* zones *1, 2, 3*. The zone-redundant Azure network resources for virtual network, public IP address, and load balancer are automatically created. When prompted, provide your own desired administrative credentials for the VM instances in the scale set:
+
+```powershell
+New-AzVmss `
+  -ResourceGroupName "myResourceGroup" `
+  -Location "EastUS2" `
+  -VMScaleSetName "myScaleSet" `
+  -VirtualNetworkName "myVnet" `
+  -SubnetName "mySubnet" `
+  -PublicIpAddressName "myPublicIPAddress" `
+  -LoadBalancerName "myLoadBalancer" `
+  -UpgradePolicy "Automatic" `
+  -Zone "1", "2", "3"
+```
+
+# [Azure Resource Manager templates](#tab/resource)
+
+The process to create a scale set that uses an Availability Zone is the same as detailed in the getting started article for [Linux](quick-create-template-linux.md) or [Windows](quick-create-template-windows.md). To use Availability Zones, you must create your scale set in a supported Azure region. Add the `zones` property to the *Microsoft.Compute/virtualMachineScaleSets* resource type in your template and specify which zone to use (such as zone *1*, *2*, or *3*).
+
+
+### Single-zone scale set
+
+The following example creates a Linux single-zone scale set named *myScaleSet* in *East US 2* zone *1*:
+
+```json
+{
+  "type": "Microsoft.Compute/virtualMachineScaleSets",
+  "name": "myScaleSet",
+  "location": "East US 2",
+  "apiVersion": "2017-12-01",
+  "zones": ["1"],
+  "sku": {
+    "name": "Standard_A1",
+    "capacity": "2"
+  },
+  "properties": {
+    "upgradePolicy": {
+      "mode": "Automatic"
+    },
+    "virtualMachineProfile": {
+      "storageProfile": {
+        "osDisk": {
+          "caching": "ReadWrite",
+          "createOption": "FromImage"
+        },
+        "imageReference":  {
+          "publisher": "myPublisher",
+          "offer": "myOffer",
+          "sku": "mySKU",
+          "version": "latest"
+        }
+      },
+      "osProfile": {
+        "computerNamePrefix": "myvmss",
+        "adminUsername": "azureuser",
+        "adminPassword": "P@ssw0rd!"
+      }
+    }
+  }
+}
+```
+
+For a complete example of a single-zone scale set and network resources, see [this sample Resource Manager template](https://github.com/Azure/vm-scale-sets/blob/master/z_deprecated/preview/zones/singlezone.json)
+
+### Zone-redundant scale set
+
+To create a zone-redundant scale set, specify multiple values in the `zones` property for the *Microsoft.Compute/virtualMachineScaleSets* resource type. The following example creates a zone-redundant scale set named *myScaleSet* across *East US 2* zones *1,2,3*:
+
+```json
+{
+  "type": "Microsoft.Compute/virtualMachineScaleSets",
+  "name": "myScaleSet",
+  "location": "East US 2",
+  "apiVersion": "2017-12-01",
+  "zones": [
+        "1",
+        "2",
+        "3"
+      ]
+}
+```
+If you create a public IP address or a load balancer, specify the *"sku": { "name": "Standard" }"* property to create zone-redundant network resources. You also need to create a Network Security Group and rules to permit any traffic. For more information, see [Azure Load Balancer Standard overview](../load-balancer/load-balancer-overview.md) and [Standard Load Balancer and Availability Zones](../load-balancer/load-balancer-standard-availability-zones.md).
+
+For a complete example of a zone-redundant scale set and network resources, see [this sample Resource Manager template](https://github.com/Azure/vm-scale-sets/blob/master/z_deprecated/preview/zones/multizone.json)
+
+
+----
+
+### Zonal failover support
+
+<!-- IF (SERVICE IS ZONAL) -->
+
+<!-- Indicate here whether the customer can set up resources of the service to failover to another zone. If they can set up failover resources, provide a link to documentation for this procedure. If such documentation doesn’t exist, create the document, and then link to it from here. -->
+
+<!-- END IF (SERVICE IS ZONAL) -->
