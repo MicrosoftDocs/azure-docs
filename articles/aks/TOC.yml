@@ -452,7 +452,7 @@
               items:
               - name: Application routing add-on overview
                 href: app-routing.md
-              - name: Monitor application routing ingress-nginx using Prometheus
+              - name: Monitor using Prometheus and Grafana
                 href: app-routing-nginx-prometheus.md
             - name: Use Application Gateway Ingress Controller add-on
               href: ../application-gateway/tutorial-ingress-controller-add-on-existing.md
