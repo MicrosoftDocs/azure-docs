@@ -50,7 +50,7 @@ In addition to Key Vault secrets, your agents must be granted access to your Key
 |Role                                        |Resource                                                   |
 |--------------------------------------------|-----------------------------------------------------------|
 |*Key Vault Secrets User*                    | Key Vault resource used to store your SMB credentials     |
-|*Storage File Data Privileged Contributor*  | Storage Account resource to containing your migrated data |
+|*Storage File Data Privileged Contributor*  | Storage Account resource containing your migrated data    |
 
 ### NFS endpoints
 
@@ -316,9 +316,9 @@ The removal of an endpoint resource should be a relatively rare occurrence in yo
 
 # [Azure portal](#tab/portal)
 
-   1. Navigate to the **Storage endpoints** page in the [Azure portal](https://portal.azure.com) to access your endpoints. The default **Source endpoints** view displays the names of your endpoints along with data about their protocol, host, share, and associated job definitions.
+   1. To create an endpoint using the Navigate to the [Azure portal](https://portal.azure.com), navigate to the **Storage mover** resource page. Select **Storage endpoints** from within the navigation pane as shown in the sample image to access your endpoints.
 
-       :::image type="content" source="media/resource-hierarchy/resource-hierarchy.png" alt-text="Image of the Storage Endpoints tab within the Azure Portal showing the default Source Endpoints view" lightbox="media/resource-hierarchy/resource-hierarchy-large.png":::
+      :::image type="content" source="media/endpoint-manage/storage-mover.png" alt-text="Image of the Storage Mover resource page within the Azure Portal showing the location of the Storage Endpoints link." lightbox="media/endpoint-manage/storage-mover-lrg.png":::
 
    1. Select **Create project** to open the **Create a Project** pane. Provide a project name value in the **Project name** field, but leave the **Project description** field empty. Finally, select **Create** to provision the project.
 

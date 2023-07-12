@@ -26,6 +26,8 @@ items:
     href: agent-deploy.md
   - name: Register an agent
     href: agent-register.md
+  - name: Create endpoints
+    href: endpoint-manage.md  
   - name: Define a migration project
     href: project-manage.md
   - name: Define and start migration job
