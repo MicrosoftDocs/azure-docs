@@ -1,6 +1,6 @@
 ---
 title: Run background tasks with WebJobs
-description: Learn how to use WebJobs to run background tasks in Azure App Service. Choose from a variety of script formats and run them with CRON expressions.
+description: Learn how to use WebJobs to run background tasks in Azure App Service. Choose from various script formats and run them with CRON expressions.
 
 ms.assetid: af01771e-54eb-4aea-af5f-f883ff39572b
 ms.topic: conceptual
@@ -19,12 +19,12 @@ adobe-target-content: ./webjobs-create-ieux
 
 Deploy WebJobs by using the [Azure portal](https://portal.azure.com) to upload an executable or script. You can run background tasks in the Azure App Service.
 
-If instead of the Azure App Service you are using Visual Studio 2019 to develop and deploy WebJobs, see [Deploy WebJobs using Visual Studio](webjobs-dotnet-deploy-vs.md).
+If instead of the Azure App Service, you're using Visual Studio to develop and deploy WebJobs, see [Deploy WebJobs using Visual Studio](webjobs-dotnet-deploy-vs.md).
 
 ## Overview
-WebJobs is a feature of [Azure App Service](index.yml) that enables you to run a program or script in the same instance as a web app, API app, or mobile app. There is no additional cost to use WebJobs.
+WebJobs is a feature of [Azure App Service](index.yml) that enables you to run a program or script in the same instance as a web app, API app, or mobile app. There's no extra cost to use WebJobs.
 
-You can use the Azure WebJobs SDK with WebJobs to simplify many programming tasks. WebJobs is not yet supported for App Service on Linux. For more information, see [What is the WebJobs SDK](https://github.com/Azure/azure-webjobs-sdk/wiki).
+You can use the Azure WebJobs SDK with WebJobs to simplify many programming tasks. WebJobs aren't supported for App Service on Linux yet. For more information, see [What is the WebJobs SDK](https://github.com/Azure/azure-webjobs-sdk/wiki).
 
 Azure Functions provides another way to run programs and scripts. For a comparison between WebJobs and Functions, see [Choose between Flow, Logic Apps, Functions, and WebJobs](../azure-functions/functions-compare-logic-apps-ms-flow-webjobs.md).
 
@@ -76,8 +76,8 @@ when making changes in one don't forget the other two.
 
    | Setting      | Sample value   | Description  |
    | ------------ | ----------------- | ------------ |
-   | **Name** | myContinuousWebJob | A name that is unique within an App Service app. Must start with a letter or a number and cannot contain special characters other than "-" and "_". |
-   | **File Upload** | ConsoleApp.zip | A *.zip* file that contains your executable or script file as well as any supporting files needed to run the program or script. The supported executable or script file types are listed in the [Supported file types](#acceptablefiles) section. |
+   | **Name** | myContinuousWebJob | A name that is unique within an App Service app. Must start with a letter or a number and must not contain special characters other than "-" and "_". |
+   | **File Upload** | ConsoleApp.zip | A *.zip* file that contains your executable or script file and any supporting files needed to run the program or script. The supported executable or script file types are listed in the [Supported file types](#acceptablefiles) section. |
    | **Type** | Continuous | The [WebJob types](#webjob-types) are described earlier in this article. |
    | **Scale** | Multi Instance | Available only for Continuous WebJobs. Determines whether the program or script runs on all instances or just one instance. The option to run on multiple instances doesn't apply to the Free or Shared [pricing tiers](https://azure.microsoft.com/pricing/details/app-service/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio). | 
 
@@ -106,8 +106,8 @@ when making changes in one don't forget the other two.
 
    | Setting      | Sample value   | Description  |
    | ------------ | ----------------- | ------------ |
-   | **Name** | myTriggeredWebJob | A name that is unique within an App Service app. Must start with a letter or a number and cannot contain special characters other than "-" and "_".|
-   | **File Upload** | ConsoleApp1.zip | A *.zip* file that contains your executable or script file as well as any supporting files needed to run the program or script. The supported executable or script file types are listed in the [Supported file types](#acceptablefiles) section. |
+   | **Name** | myTriggeredWebJob | A name that is unique within an App Service app. Must start with a letter or a number and must not contain special characters other than "-" and "_".|
+   | **File Upload** | ConsoleApp1.zip | A *.zip* file that contains your executable or script file and any supporting files needed to run the program or script. The supported executable or script file types are listed in the [Supported file types](#acceptablefiles) section. |
    | **Type** | Triggered | The [WebJob types](#webjob-types) are described previously in this article. |
    | **Triggers** | Manual | |
 
@@ -138,8 +138,8 @@ when making changes in one don't forget the other two.
 
    | Setting      | Sample value   | Description  |
    | ------------ | ----------------- | ------------ |
-   | **Name** | myScheduledWebJob | A name that is unique within an App Service app. Must start with a letter or a number and cannot contain special characters other than "-" and "_". |
-   | **File Upload** | ConsoleApp.zip | A *.zip* file that contains your executable or script file as well as any supporting files needed to run the program or script. The supported executable or script file types are listed in the [Supported file types](#acceptablefiles) section. |
+   | **Name** | myScheduledWebJob | A name that is unique within an App Service app. Must start with a letter or a number and must not contain special characters other than "-" and "_". |
+   | **File Upload** | ConsoleApp.zip | A *.zip* file that contains your executable or script file and any supporting files needed to run the program or script. The supported executable or script file types are listed in the [Supported file types](#acceptablefiles) section. |
    | **Type** | Triggered | The [WebJob types](#webjob-types) are described earlier in this article. |
    | **Triggers** | Scheduled | For the scheduling to work reliably, enable the Always On feature. Always On is available only in the Basic, Standard, and Premium pricing tiers.|
    | **CRON Expression** | 0 0/20 * * * * | [CRON expressions](#ncrontab-expressions) are described in the following section. |
@@ -168,7 +168,7 @@ To learn more, see [Scheduling a triggered WebJob](webjobs-dotnet-deploy-vs.md#s
 
 You can manage the running state individual WebJobs running in your site in the [Azure portal](https://portal.azure.com). Just go to **Settings** > **WebJobs**, choose the WebJob, and you can start and stop the WebJob. You can also view and modify the password of the webhook that runs the WebJob.  
 
-You can also [add an application setting](configure-common.md#configure-app-settings) named `WEBJOBS_STOPPED` with a value of `1` to stop all WebJobs running on your site. This can be handy as a way to prevent conflicting WebJobs from running both in staging and production slots. You can similarly use a value of `1` for the `WEBJOBS_DISABLE_SCHEDULE` setting to disable triggered WebJobs in the site or a staging slot. For slots, remember to enable the **Deployment slot setting** option so that the setting itself doesn't get swapped.    
+You can also [add an application setting](configure-common.md#configure-app-settings) named `WEBJOBS_STOPPED` with a value of `1` to stop all WebJobs running on your site. You can use this method to prevent conflicting WebJobs from running both in staging and production slots. You can similarly use a value of `1` for the `WEBJOBS_DISABLE_SCHEDULE` setting to disable triggered WebJobs in the site or a staging slot. For slots, remember to enable the **Deployment slot setting** option so that the setting itself doesn't get swapped.    
 
 ## <a name="ViewJobHistory"></a> View the job history
 
@@ -186,11 +186,11 @@ You can also [add an application setting](configure-common.md#configure-app-sett
 
 Below is a list of common WebJob statuses:
 
-- **Initializing**  The site was just started and the WebJob is doing it's initialization process.
+- **Initializing**  The app has just started and the WebJob is going through its initialization process.
 - **Starting**  The WebJob is starting up.
 - **Running**  The WebJob is running.
-- **PendingRestart**  A continuous WebJob exits in less than 2 minutes since it started for any reason, and App Service waits 60 seconds before restarting the WebJob. If the continuous WebJob exits after the 2 minute mark, App Service doesn't wait the 60 seconds and restarts the WebJob immediately. 
-- **Stopped**  The WebJob was stopped (usually from the Azure portal) and is currently not running and will not be running until you start it again manually, even for a continuous or scheduled WebJob.
+- **PendingRestart**  A continuous WebJob exits in less than two minutes since it started for any reason, and App Service waits 60 seconds before restarting the WebJob. If the continuous WebJob exits after the two-minute mark, App Service doesn't wait the 60 seconds and restarts the WebJob immediately. 
+- **Stopped**  The WebJob was stopped (usually from the Azure portal) and is currently not running and won't run until you start it again manually, even for a continuous or scheduled WebJob.
 - **Aborted**  This can occur for a number of reasons, such as when a long-running WebJob reaches the timeout marker.
 
 ## <a name="NextSteps"></a> Next steps
