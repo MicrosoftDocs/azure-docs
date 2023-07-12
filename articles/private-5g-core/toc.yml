@@ -114,8 +114,6 @@ items:
       href: upgrade-packet-core-arm-template.md
     - name: Reinstall a packet core instance
       href: reinstall-packet-core.md
-    - name: Remove a data network
-      href: remove-data-network.md
   - name: Policy control
     items:
     - name: Collect the required information for a service
