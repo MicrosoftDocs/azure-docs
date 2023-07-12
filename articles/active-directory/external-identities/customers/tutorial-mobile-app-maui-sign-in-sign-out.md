@@ -214,4 +214,4 @@ Run the app by pressing _F5_ or select the _play button_ at the top of Visual St
 ## Next Steps
 
 > [!div class="nextstepaction"]
-> [Tutorial: Add app roles to .NET MAUI app and receive them in the ID token](tutorial-desktop-maui-role-based-access-control.md)
+> [Tutorial: Add app roles to .NET MAUI and receive them in the ID token](tutorial-mobile-maui-role-based-access-control.md)
