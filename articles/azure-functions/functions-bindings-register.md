@@ -45,7 +45,7 @@ The following table lists the currently available version ranges of the default 
 
 
 > [!NOTE]
-> Even though host.json supports custom ranges for `version`, you should use a version range value from this table. For example `[3.3.0, 4.0.0)`.
+> Even though host.json supports custom ranges for `version`, you should use a version range value from this table, such as  `[3.3.0, 4.0.0)`.
 
 ## Explicitly install extensions
 
@@ -58,4 +58,3 @@ For portal-only development, you need to manually create an extensions.csproj fi
 ## Next steps
 > [!div class="nextstepaction"]
 > [Azure Function trigger and binding example](./functions-bindings-example.md)
-
