@@ -71,7 +71,7 @@ az network vnet create \
     --resource-group $VNET_RESOURCE_GROUP \
     --address-prefix $VNET_ADDRESS_PREFIX \
     --subnet-name $ALB_SUBNET_NAME \
-    --subnet-prefixes $SUBNET_ADDRESS_PREFIX \
+    --subnet-prefixes $SUBNET_ADDRESS_PREFIX
 ```
 
 ---
