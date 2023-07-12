@@ -29,33 +29,33 @@ If you wish to deploy Application Gateway for Containers into the virtual networ
 AKS_NAME='<your cluster name>'
 RESOURCE_GROUP='<your resource group>'
 
-mcResourceGroup=$(az aks show --name $AKS_NAME --resource-group $RESOURCE_GROUP --query "nodeResourceGroup" -o tsv)
-clusterSubnetId=$(az vmss list --resource-group $mcResourceGroup --query '[0].virtualMachineProfile.networkProfile.networkInterfaceConfigurations[0].ipConfigurations[0].subnet.id' -o tsv)
-read -d '' vnetName vnetResourceGroup vnetId <<< $(az network vnet show --ids $clusterSubnetId --query '[name, resourceGroup, id]' -o tsv)
+MC_RESOURCE_GROUP=$(az aks show --name $AKS_NAME --resource-group $RESOURCE_GROUP --query "nodeResourceGroup" -o tsv)
+CLUSTER_SUBNET_ID=$(az vmss list --resource-group $MC_RESOURCE_GROUP --query '[0].virtualMachineProfile.networkProfile.networkInterfaceConfigurations[0].ipConfigurations[0].subnet.id' -o tsv)
+read -d '' VNET_NAME VNET_RESOURCE_GROUP VNET_ID <<< $(az network vnet show --ids $CLUSTER_SUBNET_ID --query '[name, resourceGroup, id]' -o tsv)
 ```
 
 Execute the following command to create a new subnet containing at least 250 available IP addresses and enable subnet delegation for the Application Gateway for Containers association resource:
 ```azurecli-interactive
-subnetAddressPrefix='<an address space under the vnet that has at least 250 available addresses (/24 or smaller cidr prefix for the subnet)>'
-albSubnetName='subnet-alb' # subnet name can be any non-reserved subnet name (i.e. GatewaySubnet, AzureFirewallSubnet, AzureBastionSubnet would all be invalid)
+SUBNET_ADDRESS_PREFIX='<an address space under the vnet that has at least 250 available addresses (/24 or smaller cidr prefix for the subnet)>'
+ALB_SUBNET_NAME='subnet-alb' # subnet name can be any non-reserved subnet name (i.e. GatewaySubnet, AzureFirewallSubnet, AzureBastionSubnet would all be invalid)
 az network vnet subnet create \
-  --resource-group $vnetResourceGroup \
-  --vnet-name $vnetName \
-  --name $albSubnetName \
-  --address-prefixes $subnetAddressPrefix \
+  --resource-group $VNET_RESOURCE_GROUP \
+  --vnet-name $VNET_NAME \
+  --name $ALB_SUBNET_NAME \
+  --address-prefixes $SUBNET_ADDRESS_PREFIX \
   --delegations 'Microsoft.ServiceNetworking/trafficControllers'
-albSubnetId=$(az network vnet subnet show --name $albSubnetName --resource-group $vnetResourceGroup --vnet-name $vnetName --query '[id]' --output tsv)
+ALB_SUBNET_ID=$(az network vnet subnet show --name $ALB_SUBNET_NAME --resource-group $VNET_RESOURCE_GROUP --vnet-name $VNET_NAME --query '[id]' --output tsv)
 ```
 
 #### New subnet in non-AKS managed virtual network
 If you wish to create a subnet in an existing virtual network, you can execute the following command to create a new subnet for the Application Gateway for Containers association resource:
 ```azurecli-interactive
-vnetResourceGroup=<resource group name of the virtual network>
-vnetName=<name of the virtual network to use>
-subnetAddressPrefix='<an address space under the vnet that has at least 250 available addresses (/24 or smaller cidr prefix for the subnet)>'
-albSubnetName='subnet-alb' # subnet name can be any non-reserved subnet name (i.e. GatewaySubnet, AzureFirewallSubnet, AzureBastionSubnet would all be invalid)
-az network vnet subnet create --name $albSubnetName --resource-group $vnetResourceGroup --vnet-name $vnetName --address-prefixes $subnetAddressPrefix --delegations 'Microsoft.ServiceNetworking/trafficControllers'
-albSubnetId=$(az network vnet subnet show --name $albSubnetName --resource-group $vnetResourceGroup --vnet-name $vnetName --query '[id]' --output tsv)
+VNET_RESOURCE_GROUP=<resource group name of the virtual network>
+VNET_NAME=<name of the virtual network to use>
+SUBNET_ADDRESS_PREFIX='<an address space under the vnet that has at least 250 available addresses (/24 or smaller cidr prefix for the subnet)>'
+ALB_SUBNET_NAME='subnet-alb' # subnet name can be any non-reserved subnet name (i.e. GatewaySubnet, AzureFirewallSubnet, AzureBastionSubnet would all be invalid)
+az network vnet subnet create --name $ALB_SUBNET_NAME --resource-group $VNET_RESOURCE_GROUP --vnet-name $VNET_NAME --address-prefixes $SUBNET_ADDRESS_PREFIX --delegations 'Microsoft.ServiceNetworking/trafficControllers'
+ALB_SUBNET_ID=$(az network vnet subnet show --name $ALB_SUBNET_NAME --resource-group $VNET_RESOURCE_GROUP --vnet-name $VNET_NAME --query '[id]' --output tsv)
 ```
 
 ## Delegate permissions to managed identity
@@ -68,14 +68,14 @@ If desired, you can [create and assign a custom role](../../role-based-access-co
 ```azurecli-interactive
 IDENTITY_RESOURCE_NAME='azure-alb-identity'
 
-mcResourceGroup=$(az aks show --resource-group $RESOURCE_GROUP --name $AKS_NAME --query "nodeResourceGroup" -o tsv)
+MC_RESOURCE_GROUP=$(az aks show --name $AKS_NAME --resource-group $RESOURCE_GROUP --query "nodeResourceGroup" -o tsv)
 principalId="$(az identity show -g $RESOURCE_GROUP -n $IDENTITY_RESOURCE_NAME --query principalId -otsv)"
 
 # Delegate AppGw for Containers Configuration Manager role to AKS Managed Cluster RG
-az role assignment create --assignee-object-id $principalId --resource-group $mcResourceGroup --role "fbc52c3f28ad4303a8928a056630b8f1"
+az role assignment create --assignee-object-id $principalId --resource-group $MC_RESOURCE_GROUP --role "fbc52c3f28ad4303a8928a056630b8f1"
 
 # Delegate Network Contributor permission for join to association subnet
-az role assignment create --assignee-object-id $principalId --scope $albSubnetId --role "fbc52c3f28ad4303a8928a056630b8f1"
+az role assignment create --assignee-object-id $principalId --scope $ALB_SUBNET_ID --role "fbc52c3f28ad4303a8928a056630b8f1"
 ```
 
 ## Create ApplicationLoadBalancer kubernetes resource
@@ -102,7 +102,7 @@ metadata:
   namespace: alb-test-infra
 spec:
   associations:
-  - $albSubnetId
+  - $ALB_SUBNET_ID
 EOF
 ```
 
