@@ -49,7 +49,7 @@ using Microsoft.FeatureManagement;
 builder.Services.AddFeatureManagement();
 ```
 
-### [.NET 3.0+](#tab/core3x)
+### [.NET Core 3.x](#tab/core3x)
 
 ```csharp
 using Microsoft.FeatureManagement;
@@ -75,7 +75,7 @@ using Microsoft.FeatureManagement;
 builder.Services.AddFeatureManagement(Configuration.GetSection("MyFeatureFlags"));
 ```
 
-### [.NET 3.0+](#tab/core3x)
+### [.NET Core 3.x](#tab/core3x)
 
 ```csharp
 using Microsoft.FeatureManagement;
@@ -105,7 +105,7 @@ builder.Services.AddFeatureManagement()
     .AddFeatureFilter<PercentageFilter>();
 ```
 
-### [.NET 3.0+](#tab/core3x)
+### [.NET Core 3.x](#tab/core3x)
 
 ```csharp
 using Microsoft.FeatureManagement;
@@ -204,7 +204,7 @@ config.AddAzureAppConfiguration(options =>
     }));
 ```
 
-### [.NET 3.x](#tab/core3x)
+### [.NET Core 3.x](#tab/core3x)
 
 ```csharp
 config.AddAzureAppConfiguration(options =>
@@ -246,9 +246,6 @@ By convention, the `FeatureManagement` section of this JSON document is used for
 * `FeatureA` is *on*.
 * `FeatureB` is *off*.
 * `FeatureC` specifies a filter named `Percentage` with a `Parameters` property. `Percentage` is a configurable filter. In this example, `Percentage` specifies a 50-percent probability for the `FeatureC` flag to be *on*. For a how-to guide on using feature filters, see [Use feature filters to enable conditional feature flags](./howto-feature-filters-aspnet-core.md).
-
-
-
 
 ## Use dependency injection to access IFeatureManager 
 
