@@ -24,7 +24,7 @@ Use the following steps to clone and run the app locally.
 1. Use the following command to clone the sample project from GitHub:
 
    ```bash
-   git clone https://github.com/Azure-Samples/ASA-Samples-Web-Application.git
+   git clone https://github.com/moarychan/ASA-Samples-Web-API-Application.git
    ```
 
 1. If you want to run locally, please complete the [Update the application configuration](#update-the-application-configuration) steps and then execute the following command to run the sample application by Maven.
@@ -43,7 +43,7 @@ Use AZD to initialize the web application from the Azure Developer CLI templates
 2. Run the following command to initialize the project.
 
     ```bash
-    azd init --template Azure-Samples/ASA-Samples-API-Application
+    azd init --template moarychan/ASA-Samples-Web-API-Application
     ```
 
    Command interaction description:
@@ -58,7 +58,7 @@ Use AZD to initialize the web application from the Azure Developer CLI templates
     (✓) Done: Initialized git repository
     (✓) Done: Downloading template code to: <your-local-path>
 
-    ? Please enter a new environment name: [? for help] (simple-todo-api-dev) <your-env-name>
+    ? Please enter a new environment name: [? for help] (<your-local-path>-dev) <your-env-name>
 
     ? Please enter a new environment name: <your-env-name>
 
@@ -322,7 +322,7 @@ Use AZD to package the app, provision the Azure resources required by the web ap
    WARNING: Feature 'springapp' is in alpha stage.
    To learn more about alpha features and their support, visit https://aka.ms/azd-feature-stages.
    
-   (✓) Done: Deploying simple-todo-api
+   Deploying service simple-todo-api (Fetching endpoints for spring app service)
    - Endpoint: https://<your-Azure-Spring-Apps-instance-name>-simple-todo-api.azuremicroservices.io/
    
    
