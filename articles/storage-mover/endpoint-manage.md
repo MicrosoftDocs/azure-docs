@@ -70,7 +70,7 @@ Azure Storage Mover supports migration scenarios using NFS and SMB. The steps to
 
 ### [Azure portal](#tab/portal)
 
-   1. To create an endpoint using the Navigate to the [Azure portal](https://portal.azure.com), navigate to the **Storage mover** resource page. Select **Storage endpoints** from within the navigation pane as shown in the sample image to access your endpoints.
+   1. To create an endpoint using the [Azure portal](https://portal.azure.com), navigate to the **Storage mover** resource page. Select **Storage endpoints** from within the navigation pane as shown in the sample image to access your endpoints.
 
       :::image type="content" source="media/endpoint-manage/storage-mover.png" alt-text="Image of the Storage Mover resource page within the Azure Portal showing the location of the Storage Endpoints link." lightbox="media/endpoint-manage/storage-mover-lrg.png":::
 
@@ -316,13 +316,19 @@ The removal of an endpoint resource should be a relatively rare occurrence in yo
 
 # [Azure portal](#tab/portal)
 
-   1. To create an endpoint using the Navigate to the [Azure portal](https://portal.azure.com), navigate to the **Storage mover** resource page. Select **Storage endpoints** from within the navigation pane as shown in the sample image to access your endpoints.
+   1. To delete an endpoint using the [Azure portal](https://portal.azure.com), navigate to the **Storage mover** resource page. Select **Storage endpoints** from within the navigation pane to access your endpoints as indicated in the following image.
 
       :::image type="content" source="media/endpoint-manage/storage-mover.png" alt-text="Image of the Storage Mover resource page within the Azure Portal showing the location of the Storage Endpoints link." lightbox="media/endpoint-manage/storage-mover-lrg.png":::
 
-   1. Select **Create project** to open the **Create a Project** pane. Provide a project name value in the **Project name** field, but leave the **Project description** field empty. Finally, select **Create** to provision the project.
+   1. The default **Source endpoints** view displays the names of any provisioned source endpoints and a summary of their associated data. You can select the **Destination endpoints** filter to view the corresponding destination endpoints.
 
-       :::image type="content" source="media/resource-hierarchy/resource-hierarchy-large.png" alt-text="Image of the Create Endpoint screen" lightbox="media/project-manage/project-explorer-create-lrg.png":::
+      Locate the name of the endpoint you want to delete and select the corresponding checkbox. After verifying that that you've selected the appropriate endpoint, select **Delete** as shown in the following image.
+
+      :::image type="content" source="media/endpoint-manage/endpoint-delete.png" alt-text="Image of the Storage Mover resource page within the Azure Portal showing the location of the Delete button." lightbox="media/endpoint-manage/endpoint-delete-lrg.png":::
+
+      Your new endpoint is deleted and no longer appears within your list of endpoints as show in the following example image.
+
+      :::image type="content" source="media/endpoint-manage/endpoint-without.png" alt-text="Image of the Endpoint Overview page with the newly created endpoint displayed."  lightbox="media/endpoint-manage/endpoint-without-lrg.png":::
 
 # [PowerShell](#tab/powershell)
 
