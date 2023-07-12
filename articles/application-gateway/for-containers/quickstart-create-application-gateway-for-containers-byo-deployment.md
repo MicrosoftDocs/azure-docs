@@ -22,7 +22,7 @@ Ensure you have first deployed ALB Controller into your Kubernetes cluster.  You
 ## Create the Application Gateway for Containers resource
 
 ```azurecli-interactive
-RESOURCE_GROUP='<the resource group of your AKS cluster>'
+RESOURCE_GROUP='<your resource group>'
 AGFC_NAME='alb-test'
 az network alb create -g $RESOURCE_GROUP -n $AGFC_NAME
 ```
