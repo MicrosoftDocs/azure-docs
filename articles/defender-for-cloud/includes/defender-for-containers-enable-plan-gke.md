@@ -29,7 +29,7 @@ To protect your GKE clusters, you'll need to enable the Containers plan on the r
 
     :::image type="content" source="../media/defender-for-containers-enable-plan-gke/containers-on.png" alt-text="Screenshot that shows the containers plan is toggled to on.":::
 
-1. (Optional) [Configure the containers plan](../quickstart-onboard-gcp.md#configure-the-containers-plan).
+1. (Optional) [Configure the containers plan](../quickstart-onboard-gcp.md#configure-the-defender-for-containers-plan).
 
 1. Select the **Copy** button.
 
@@ -43,7 +43,7 @@ The connector will update after the script executes. This process can take up to
 
 ### Deploy the solution to specific clusters
 
-If you disabled any of the default auto provisioning configurations to Off, during the [GCP connector onboarding process](../quickstart-onboard-gcp.md#configure-the-containers-plan), or afterwards. You'll need to manually install Azure Arc-enabled Kubernetes, the Defender extension, and the Azure Policy extensions to each of your GKE clusters to get the full security value out of Defender for Containers.
+If you disabled any of the default auto provisioning configurations to Off, during the [GCP connector onboarding process](../quickstart-onboard-gcp.md#configure-the-defender-for-containers-plan), or afterwards. You'll need to manually install Azure Arc-enabled Kubernetes, the Defender extension, and the Azure Policy extensions to each of your GKE clusters to get the full security value out of Defender for Containers.
 
 There are 2 dedicated Defender for Cloud recommendations you can use to install the extensions (and Arc if necessary):
 -	`GKE clusters should have Microsoft Defender's extension for Azure Arc installed`
