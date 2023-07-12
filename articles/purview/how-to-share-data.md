@@ -241,6 +241,7 @@ There are a couple possible reasons:
 * The data source isn't registered in Microsoft Purview. Refer to the registration steps for [Blob Storage](register-scan-azure-blob-storage-source.md) and [ADLSGen2](register-scan-adls-gen2.md) respectively. Performing a scan isn't necessary.
 * Data source is registered to a Microsoft Purview collection that you don't have a minimum of Data Reader permission to. Refer to [Microsoft Purview catalog permissions](catalog-permissions.md) and reach out to your collection admin for access.
 
+
 ### Can't create shares or edit shares
 
 * You don't have permission to the data store where you want to share data from. Check the [prerequisites](#prerequisites-to-share-data) for required data store permissions.
@@ -248,6 +249,7 @@ There are a couple possible reasons:
 ### Can't view list of shares in the storage account asset
 
  * You don't have enough permissions the data store that you want to see shares of. You need a minimum of **Reader** role on the source storage account to see a read-only view of sent shares and received shares. You can find more details on the [ADLS Gen2](register-scan-adls-gen2.md#data-sharing) or [Blob storage](register-scan-azure-blob-storage-source.md#data-sharing) data source page.
+ * Azure Storage with ZRS SKU are not supported as purview data share
 
 ## Next steps
 
