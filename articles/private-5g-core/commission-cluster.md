@@ -303,41 +303,41 @@ The Azure Private 5G Core private mobile network requires a custom location and 
     }
     "@
 
-    az k8s-extension create \
-    --name networkfunction-operator \
-    --cluster-name "$ARC_CLUSTER_RESOURCE_NAME" \
-    --resource-group "$RESOURCE_GROUP_NAME" \
-    --cluster-type connectedClusters \
-    --extension-type "Microsoft.Azure.HybridNetwork" \
-    --auto-upgrade-minor-version "true" \
-    --scope cluster \
-    --release-namespace azurehybridnetwork \
-    --release-train preview \
+    az k8s-extension create `
+    --name networkfunction-operator `
+    --cluster-name "$ARC_CLUSTER_RESOURCE_NAME" `
+    --resource-group "$RESOURCE_GROUP_NAME" `
+    --cluster-type connectedClusters `
+    --extension-type "Microsoft.Azure.HybridNetwork" `
+    --auto-upgrade-minor-version "true" `
+    --scope cluster `
+    --release-namespace azurehybridnetwork `
+    --release-train preview `
     --config-settings-file $TEMP_FILE 
     ```
 
 1. Create the Packet Core Monitor Kubernetes extension:
 
     ```azurecli
-    az k8s-extension create \
-    --name packet-core-monitor \
-    --cluster-name "$ARC_CLUSTER_RESOURCE_NAME" \
-    --resource-group "$RESOURCE_GROUP_NAME" \
-    --cluster-type connectedClusters \
-    --extension-type "Microsoft.Azure.MobileNetwork.PacketCoreMonitor" \
-    --release-train stable \
+    az k8s-extension create `
+    --name packet-core-monitor `
+    --cluster-name "$ARC_CLUSTER_RESOURCE_NAME" `
+    --resource-group "$RESOURCE_GROUP_NAME" `
+    --cluster-type connectedClusters `
+    --extension-type "Microsoft.Azure.MobileNetwork.PacketCoreMonitor" `
+    --release-train stable `
     --auto-upgrade true 
     ```
 
 1. Create the custom location:
 
     ```azurecli
-    az customlocation create \
-    -n "$CUSTOM_LOCATION" \
-    -g "$RESOURCE_GROUP_NAME" \
-    --location "$LOCATION" \
-    --namespace azurehybridnetwork \
-    --host-resource-id "/subscriptions/$SUBSCRIPTION_ID/resourceGroups/$RESOURCE_GROUP_NAME/providers/Microsoft.Kubernetes/connectedClusters/$ARC_CLUSTER_RESOURCE_NAME" \
+    az customlocation create `
+    -n "$CUSTOM_LOCATION" `
+    -g "$RESOURCE_GROUP_NAME" `
+    --location "$LOCATION" `
+    --namespace azurehybridnetwork `
+    --host-resource-id "/subscriptions/$SUBSCRIPTION_ID/resourceGroups/$RESOURCE_GROUP_NAME/providers/Microsoft.Kubernetes/connectedClusters/$ARC_CLUSTER_RESOURCE_NAME" `
     --cluster-extension-ids "/subscriptions/$SUBSCRIPTION_ID/resourceGroups/$RESOURCE_GROUP_NAME/providers/Microsoft.Kubernetes/connectedClusters/$ARC_CLUSTER_RESOURCE_NAME/providers/Microsoft.KubernetesConfiguration/extensions/networkfunction-operator"
     ```
 
