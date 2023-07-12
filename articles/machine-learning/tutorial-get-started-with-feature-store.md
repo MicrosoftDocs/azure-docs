@@ -46,15 +46,45 @@ Before you proceed with this article, make sure you cover these prerequisites:
    (Optional): If you use a new resource group for this tutorial, you can easily delete all the resource by deleting the resource group
 
 ## Prepare the notebook environment for development
-Note: This tutorial uses an Azure Machine Learning spark notebook for development.
+Note: This tutorial uses an Azure Machine Learning Spark notebook for development.
 
-1. Install the [Azure Machine Learning Python SDK](https://aka.ms/sdk-v2-install)
+1. In the Azure Machine Learning studio environment, first select **Notebooks** in the left nav, and then select the **Samples** tab. Select the **featurestore_sample** directory
+
+   Samples -> SDK v2 -> sdk -> python -> featurestore_sample
+
+and then select **Clone**, as shown in this screenshot:
+
+   :::image type="content" source="media/tutorial-get-started-with-feature-store/clone-featurestore-example-notebooks.png" lightbox="media/tutorial-get-started-with-feature-store/clone-featurestore-example-notebooks.png" alt-text="Screenshot showing selection of the featurestore_sample directory in Azure Machine Learning studio UI.":::
+
+The workspace of the user has the **featurestore_sample** resource available by default.
+
+1. The **Select target directory** panel opens next. Select the User directory, in this case **testUser**, and then select **Clone**, as shown in this screenshot:
+
+   :::image type="content" source="media/tutorial-get-started-with-feature-store/select-target-directory.png" lightbox="media/tutorial-get-started-with-feature-store/select-target-directory.png" alt-text="Screenshot showing selection of the target directory location in Azure Machine Learning studio UI for the featurestore_sample resource.":::
+
+1. To configure the notebook environment, you must upload the **conda.yml** file. Select **Notebooks** in the left nav, and then select the **Samples** tab. Select the **env** directory
+
+   Samples -> SDK v2 -> sdk -> python -> featurestore_sample -> project -> env
+
+and then select **Download**, as shown in this screenshot:
+
+   :::image type="content" source="media/tutorial-get-started-with-feature-store/download-conda-file.png" lightbox="media/tutorial-get-started-with-feature-store/download-conda-file.png" alt-text="Screenshot showing selection of the conda.yml file in Azure Machine Learning studio UI.":::
+
+This step downloads the Conda file to your local machine. The user workspace has the **conda.yml** file available, for download, by default.
+
+1. Open the **conda.yml** file download directory, as shown in this screenshot:
+
+   :::image type="content" source="media/tutorial-get-started-with-feature-store/open-conda-file-location.png" lightbox="media/tutorial-get-started-with-feature-store/open-conda-file-location.png" alt-text="Screenshot showing the opening of the conda.yml file download directory.":::
+
+1. At the Azure Machine Learning environment, open the notebook, and select **Configure Session**, as shown in this screenshot:
+
+   :::image type="content" source="media/tutorial-get-started-with-feature-store/open-configure-session.png" lightbox="media/tutorial-get-started-with-feature-store/open-configure-session.png" alt-text="Screenshot showing Open Configure Session for this notebook.":::
+
+1. At the **Configure Session** panel, select **Python packages**. To upload the Conda file, select **Upload Conda file**, **Browse** to the Conda file in the directory selected earlier, and select **Apply**, as shown in this screenshot:
+
+   :::image type="content" source="media/tutorial-get-started-with-feature-store/upload-conda-file.png" lightbox="media/tutorial-get-started-with-feature-store/upload-conda-file.png" alt-text="Screenshot showing the Conda file upload.":::
 
 <!--
-
-   Verify that the block below covers the original intended material it replaced.
-
- -->
 
 1. [!INCLUDE [open or create notebook](includes/prereq-open-or-create.md)]
     * [!INCLUDE [new notebook](includes/prereq-new-notebook.md)]
@@ -67,6 +97,7 @@ Note: This tutorial uses an Azure Machine Learning spark notebook for developmen
     **Samples/SDK v2/sdk/python/featurestore_sample/notebooks/sdk_only**
 
     folders, located in the studio folder section. [!INCLUDE [clone notebook](includes/prereq-clone-notebook.md)]
+-->
 
 <!--
 
@@ -82,11 +113,11 @@ Note: This tutorial uses an Azure Machine Learning spark notebook for developmen
 
 [!notebook-python[] (~/azureml-examples-main/sdk/python/featurestore_sample/notebooks/sdk_only/1. Develop a feature set and register with managed feature store.ipynb?name=root-dir)]
 
-### [Python SDK](#tab/python)
+### [SDK Track](#tab/SDK-track)
 
 Not applicable
 
-### [Azure CLI](#tab/cli)
+### [SDK and CLI Track](#tab/SDK-and-CLI-track)
 
 ### Set up the CLI
 
@@ -107,11 +138,22 @@ Not applicable
 > [!NOTE]
 > Feature store Vs Project workspace: You'll use a feature store to reuse features across projects. You'll use a project workspace (an Azure Machine Learning workspace) to train and inference models, by leveraging features from feature stores. Many project workspaces can share and reuse the same feature store.
 
-### [Python SDK](#tab/python)
+### [SDK Track](#tab/SDK-track)
 
-**Content TBD**
+This tutorial uses two SDKs:
+1. The Feature Store CRUD SDK
+    * You'll use the same MLClient (package name azure-ai-ml) SDK that you use with the Azure ML workspace. Feature store is implemented as a type of workspace. As a result, this SDK is used for feature store CRUD operations (Create, Update, and Delete) for feature store, feature set, and feature store entity.
 
-### [Azure CLI](#tab/cli)
+1. The feature store core SDK
+    * This SDK (azureml-featurestore) is intended for feature set development and consumption (you'll learn more about these operations later):
+    * Develop feature set specification and retrieve feature data using it
+    * List/Get registered feature sets
+    * Generate/resolve feature retrieval spec
+    * Generate training/inference data using a point-in-time join
+
+This tutorial doesn't require explicit installation of those SDKs, because the instructions already explain the process. The **conda YAML** instructions in the earlier step cover this step.
+
+### [SDK and CLI Track](#tab/SDK-and-CLI-track)
 
 This tutorial uses the Feature store core SDK, and the CLI for CRUD (create / update / delete) operations. It uses the Python SDK only for Feature set development and testing. This approach is useful for GitOps or CI / CD scenarios, where CLI / yaml is preferred.
 1. You'll use the CLI for CRUD (create / update / delete) operations, on feature store, feature set, and feature store entity
@@ -139,11 +181,11 @@ You don't need to explicitly install these resources for this tutorial, because 
 
 1. Create the feature store
 
-   ### [Python SDK](#tab/python)
+   ### [SDK Track](#tab/SDK-track)
 
    [!notebook-python[] (~/azureml-examples-main/sdk/python/featurestore_sample/notebooks/sdk_only/1. Develop a feature set and register with managed feature store.ipynb?name=create-fs)]
 
-   ### [Azure CLI](#tab/cli)
+   ### [SDK and CLI Track](#tab/SDK-and-CLI-track)
 
    [!notebook-python[] (~/azureml-examples-main/sdk/python/featurestore_sample/notebooks/sdk_and_cli/1. Develop a feature set and register with managed feature store.ipynb?name=create-fs-cli)]
 
@@ -209,7 +251,7 @@ We'll build a feature set named `transactions` that has rolling window aggregate
 
 As a best practice, entities help enforce use of the same join key definition across feature sets that use the same logical entities. Examples of entities can include accounts, customers, etc. Entities are typically created once, and then reused across feature sets. For information, see [feature store concepts](./concept-top-level-entities-in-managed-feature-store.md).
 
-   ### [Python SDK](#tab/python)
+   ### [SDK Track](#tab/SDK-track)
 
    1. Initialize the Feature Store CRUD client
 
@@ -223,7 +265,7 @@ As a best practice, entities help enforce use of the same join key definition ac
 
       [!notebook-python[] (~/azureml-examples-main/sdk/python/featurestore_sample/notebooks/sdk_only/1. Develop a feature set and register with managed feature store.ipynb?name=register-acct-entity)]
 
-   ### [Azure CLI](#tab/cli)
+   ### [SDK and CLI Track](#tab/SDK-and-CLI-track)
 
    1. Initialize the Feature Store CRUD client
 
@@ -237,11 +279,11 @@ As a best practice, entities help enforce use of the same join key definition ac
 
 You can register a feature set asset with the feature store. In this way, you can share and reuse that asset with others. Feature set asset registration offers managed capabilities, such as versioning and materialization (we'll learn more about managed capabilities in this tutorial series).
 
-   ### [Python SDK](#tab/python)
+   ### [SDK Track](#tab/SDK-track)
 
    [!notebook-python[] (~/azureml-examples-main/sdk/python/featurestore_sample/notebooks/sdk_only/1. Develop a feature set and register with managed feature store.ipynb?name=register-txn-fset)]
 
-   ### [Azure CLI](#tab/cli)
+   ### [SDK and CLI Track](#tab/SDK-and-CLI-track)
 
    [!notebook-python[] (~/azureml-examples-main/sdk/python/featurestore_sample/notebooks/sdk_and_cli/1. Develop a feature set and register with managed feature store.ipynb?name=register-txn-fset-cli)]
 
