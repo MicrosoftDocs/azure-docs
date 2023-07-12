@@ -27,7 +27,7 @@ If you do not have a subnet available with at least 250 available IP addresses a
 If you wish to deploy Application Gateway for Containers into the virtual network containing your AKS cluster, execute the following command to find the cluster's virtual network:
 ```azurecli-interactive
 AKS_NAME='<your cluster name>'
-RESOURCE_GROUP='<your resource group>'
+RESOURCE_GROUP='<your resource group name>'
 
 MC_RESOURCE_GROUP=$(az aks show --name $AKS_NAME --resource-group $RESOURCE_GROUP --query "nodeResourceGroup" -o tsv)
 CLUSTER_SUBNET_ID=$(az vmss list --resource-group $MC_RESOURCE_GROUP --query '[0].virtualMachineProfile.networkProfile.networkInterfaceConfigurations[0].ipConfigurations[0].subnet.id' -o tsv)
