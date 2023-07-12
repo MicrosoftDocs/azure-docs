@@ -39,7 +39,7 @@ The following diagram shows the architecture of the system:
 - An Azure subscription. If you don't have a subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
 - [Git](https://git-scm.com/downloads).
 - [Java Development Kit (JDK)](/java/azure/jdk/), version 17.
-- An Azure AD instance. For instructions on creating one, see [Quickstart: Create a new tenant in Azure AD](../active-directory/fundamentals/active-directory-access-create-new-tenant).
+- An Azure AD instance. For instructions on creating one, see [Quickstart: Create a new tenant in Azure AD](../active-directory/fundamentals/create-new-tenant).
 
 [!INCLUDE [deploy-rest-api-app-with-basic-standard-plan](includes/quickstart-deploy-rest-api-app/deploy-rest-api-with-basic-standard-plan.md)]
 
