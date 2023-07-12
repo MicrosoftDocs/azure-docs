@@ -103,14 +103,14 @@ Use the environment variable names and application properties listed below to co
 > |-----------------------------------|--------------------------------------|--------------------------------------------------------------------------------------------------------------------------|
 > | Azure_SQL_CONNECTIONSTRING        | Azure SQL Database connection string | `jdbc:sqlserver://<sql-server>.database.windows.net:1433;databaseName=<sql-database>;authentication=ActiveDirectoryMSI;` |
 
-#### Java Database Java Database Connectivity (JDBC) User-assigned managed identity
+#### Java Database Connectivity (JDBC) User-assigned managed identity
 
 > [!div class="mx-tdBreakAll"]
 > | Default environment variable name | Description                          | Sample value                                                                                                             |
 > |-----------------------------------|--------------------------------------|--------------------------------------------------------------------------------------------------------------------------|
 > | Azure_SQL_CONNECTIONSTRING        | Azure SQL Database connection string | `jdbc:sqlserver://<sql-server>.database.windows.net:1433;databaseName=<sql-database>;msiClientId=<xxxxxxxxxxxx>;authentication=ActiveDirectoryMSI;` |
 
-#### Java Database Java Database Connectivity (JDBC) Service principal
+#### Java Database Connectivity (JDBC) Service principal
  
 > [!div class="mx-tdBreakAll"]
 > | Default environment variable name | Description                          | Sample value                                                                                                             |
