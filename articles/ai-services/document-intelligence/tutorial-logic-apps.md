@@ -149,7 +149,7 @@ At this point, you should have a Document Intelligence resource and a OneDrive f
 
 ## Create automation flow
 
-::: moniker range="form-recog-3.0.0"
+::: moniker range="doc-intel-3.0.0"
 
 Now that you have the Logic App connector resource set up and configured, let's create the automation flow and test it out!
 
@@ -242,7 +242,7 @@ Now that you have the Logic App connector resource set up and configured, let's 
 
 ::: moniker-end
 
-::: moniker range="form-recog-2.1.0"
+::: moniker range="doc-intel-2.1.0"
 
 Now that you have the Logic App connector resource set up and configured, the only thing left is to create the automation flow and test it out!
 
@@ -347,7 +347,7 @@ Now that we've created the flow, the last thing to do is to test it and make sur
 
 IMAGE here 
 
-    :::image border="true" type="content" source="media/logic-apps-tutorial/connector-demo-seventeen.gif" alt-text="GIF of sample run of Logic App.":::
+  :::image border="true" type="content" source="media/logic-apps-tutorial/connector-demo-seventeen.gif" alt-text="GIF of sample run of Logic App.":::
 
 1. Check your email and you should see a new email with the information we specified.
 
