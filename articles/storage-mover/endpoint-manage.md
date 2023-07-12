@@ -20,14 +20,14 @@ REVIEW Engineering: not reviewed
 EDIT PASS: started
 
 Initial doc score: 93
-Current doc score: 100 (2001 words and 0 issues)
+Current doc score: 100 (2032 words and 0 issues)
 
 !########################################################
 -->
 
 # Manage Azure Storage Mover endpoints
 
-While the term *endpoint* is often used in networking, it's used in the context of the Storage Mover service to describe a storage location with a high level of detail. An endpoint contains the path to the storage location and additional information. Endpoints are used in the creation of a job definition. Only certain types of endpoints may be used as a source or a target, respectively.
+While the term *endpoint* is often used in networking, it's used in the context of the Storage Mover service to describe a storage location with a high level of detail. An endpoint resource contains the path to the storage location and other relevant information. Endpoints are used in the creation of a job definition. Only certain types of endpoints may be used as a source or a target, respectively.
 
 This article guides you through the creation and management of Azure Storage Mover endpoints. To follow these examples, you need a top-level storage mover resource. If you haven't yet created one, follow the steps within the [Create a Storage Mover resource](storage-mover-create.md) article before continuing.
 
@@ -35,38 +35,37 @@ After you complete the steps within this article, you'll be able to create and m
 
 ## Endpoint resource overview
 
-Within the Azure Storage Mover resource hierarchy, a migration project is used to organize migration jobs into logical tasks or components. A migration project in turn contains at least one job definition, which describes each data source and target endpoint for your project. The [Understanding the Storage Mover resource hierarchy](resource-hierarchy.md) article contains more detailed information about the relationship between a Storage Mover and its projects.
+Within the Azure Storage Mover resource hierarchy, a migration project is used to organize migration jobs into logical tasks or components. A migration project in turn contains at least one job definition, which describes both the source and target locations for your migration project. The [Understanding the Storage Mover resource hierarchy](resource-hierarchy.md) article contains more detailed information about the relationship between a Storage Mover and its projects.
 
-Because migrations require well defined source and target locations, endpoint resources are parented to the top-level storage mover resource. This placement allows you to reuse endpoints across any number of job definitions. While there's a single endpoint resource, the properties of each endpoint may vary based on its type. For example, NFS shares, SMB shares, and Azure Storage blob container endpoints each require fundamentally different information.
+Because migrations require well-defined source and target locations and can be independently reused, endpoint resources are parented to the top-level storage mover resource. This placement allows you to reuse endpoints across any number of job definitions. While there's only a single endpoint resource, the properties of each endpoint may vary based on its type. For example, NFS shares, SMB shares, and Azure Storage blob container endpoints each require fundamentally different information.
 
 Currently, endpoints support NFS (Network File System) and SMB (Server Message Block) protocols.
 
 ### SMB endpoints
 
- SMB uses the ACL (access control list) concept and user-based authentication to provide access to shared files for selected users. To maintain security, Storage Mover relies on Azure Key Vault integration to securely store and tightly control access to user credentials and other secrets. Storage mover agent resources can then connect to your SMB endpoints with Key Vault rather than with unsecure hard-coded credentials. This approach greatly reduces the chance that secrets may be accidentally leaked. After configuring your local file share source, add secrets for both `username` and `password` to Key Vault. You need to supply your both your Key Vault's URI and the names of the secrets when creating your SMB endpoints.
+ SMB uses the ACL (access control list) concept and user-based authentication to provide access to shared files for selected users. To maintain security, Storage Mover relies on Azure Key Vault integration to securely store and tightly control access to user credentials and other secrets. During a migration, storage mover agent resources  connect to your SMB endpoints with Key Vault secrets rather than with unsecure hard-coded credentials. This approach greatly reduces the chance that secrets may be accidentally leaked.
 
-In addition to Key Vault secrets, your agents must be granted access to your Key Vault and target storage account resources. This access is provided by the Azure RBAC (role-based access control) authorization system, which assigns roles to your agents' managed identities. It's important to note that the required RBAC role assignments are created for you when SMB endpoints are created within the Azure portal. Endpoints created programmatically require you to make these assignments manually:
+After your local file share source is configured, add secrets for both `username` and `password` to your Key Vault. You need to supply both your Key Vault's name or URI, and the names of the credential secrets when creating your SMB endpoints.
 
-|Role                                        |Resource                                                   |
-|--------------------------------------------|-----------------------------------------------------------|
-|*Key Vault Secrets User*                    | Key Vault resource used to store your SMB credentials     |
-|*Storage File Data Privileged Contributor*  | Storage Account resource containing your migrated data    |
+Your agents require access to your Key Vault and target storage resources. Agent access is provided by the Azure RBAC (role-based access control) authorization system, which is used to assign roles to your agents' managed identities. It's important to note that the required RBAC role assignments are created for you when SMB endpoints are created within the Azure portal. Any endpoint created programmatically requires you to make the following assignments manually:
+
+|Role                                        |Resource                                                            |
+|--------------------------------------------|--------------------------------------------------------------------|
+|*Key Vault Secrets User*                    | The Key Vault resource used to store your SMB source's credential  |
+|*Storage File Data Privileged Contributor*  | Your target file share resource                                    |
 
 ### NFS endpoints
 
 This paragraph discusses the NFS-specific endpoints. Hostname/IP address and share name.
 
-## Create endpoints
+## Creating endpoints
 
-Before you can create a job definition, you need to create endpoints for your source and target data sources. In this example, leave the **description** field blank; it's added within the [View and edit an endpoint's properties](#view-and-edit-an-endpoints-properties) section later in this article.
+Before you can create a job definition, you need to create endpoints for your source and target data sources.
 
 > [!IMPORTANT]
-> If you have not yet deployed a Storage Mover resource using the resource provider, you'll need to create your top level resource.
+> If you have not yet deployed a Storage Mover resource using the resource provider, you'll need to create your top level resource before attempting the steps in this example.
 
-> [!CAUTION]
-> Renaming endpoint resources is not supported. It's a good idea to ensure that you've named the project appropriately since you will not be able to change the project name after it is provisioned. To circumvent this, you may choose to create a new endpoint with the same properties and a different name as shown in a later section. Refer to the [resource naming convention](../azure-resource-manager/management/resource-name-rules.md#microsoftstoragesync) to choose a supported name.
-
-Azure Storage Mover supports migration scenarios using NFS and SMB. The steps to create the endpoints are similar. The key differentiator between the creation of SMB and NFS endpoints is the use of Azure Key Vault to securely store the source fileshare's shared credential. When a migration job is run, the agents use the shared credential stored within Key Vault. Access to Key Vault secrets are managed by granting an RBAC role assignment to the agent's managed identity.  
+Azure Storage Mover supports migration scenarios using NFS and SMB. The steps to create the endpoints are similar. The key differentiator between the creation of NFS- and SMB-enabled endpoints is the use of Azure Key Vault to store the shared credential for SMB resources. When a migration job is run, the agents use the shared credential stored within Key Vault. Access to Key Vault secrets are managed by granting an RBAC role assignment to the agent's managed identity.
 
 ### [Azure portal](#tab/portal)
 
@@ -118,6 +117,9 @@ Azure Storage Mover supports migration scenarios using NFS and SMB. The steps to
 
    See the [Install Azure PowerShell](/powershell/azure/install-azure-powershell) article for more help installing Azure PowerShell.
 
+   > [!CAUTION]
+   > Renaming endpoint resources is not supported. It's a good idea to ensure that you've named the project appropriately since you won't be able to change much of the endpoint name after it is provisioned. You may, however, choose to create a new endpoint with the same properties and a different name as shown in a later section. Refer to the [resource naming convention](../azure-resource-manager/management/resource-name-rules.md#microsoftstoragesync) to choose a supported name.
+
    You need to supply values for the required parameters. The `-Description` parameter is optional and is added in a later section.
 
    1. It's always a good idea to create and use variables to store lengthy or potentially complex strings.
@@ -128,13 +130,18 @@ Azure Storage Mover supports migration scenarios using NFS and SMB. The steps to
       $subscriptionID    = "[Subscription GUID]"
       $resourceGroupName = "[Resource group name]"
       $storageMoverName  = "[Storage mover resource's name]"
-      $sourceHost        = "[SMB file share's host name or IP address]"
-      $sourceShare       = "[SMB file share's name]"
+      $sourceHost        = "[Source share's host name or IP address]"
+      $sourceShare       = "[Source share's name]"
       $targetResourceID  = "/subscriptions/[GUID]/resourceGroups/demoResrouceGroup/"
       $targetResourceID += "providers/Microsoft.Storage/storageAccounts/demoAccount"
-      $targetFileshare   = "[Target fileshare name]"
+
+      ## For SMB endpoints 
+      $smbFileshare      = "[Target fileshare name]"
       $usernameURI       = "https://demo.vault.azure.net/secrets/demoUser"
       $passwordURI       = "https://demo.vault.azure.net/secrets/demoPassword"
+
+      ## For NFS endpoints
+      $nfsContainer      = "[Blob container target]"
       
       ```
 
@@ -146,7 +153,7 @@ Azure Storage Mover supports migration scenarios using NFS and SMB. The steps to
       
       ```
 
-   1. After you've successfully connected, you can create a new SMB source endpoint by using the `New-AzStorageMoverSmbEndpoint` cmdlet as shown in the following example.
+   1. After you've successfully connected, you can create your new endpoint resources. Use the `New-AzStorageMoverSmbEndpoint` cmdlet to create an SMB endpoint as shown in the following example.
 
       ```powershell
 
@@ -161,7 +168,20 @@ Azure Storage Mover supports migration scenarios using NFS and SMB. The steps to
        
       ```
 
-   1. Create a corresponding SMB file share endpoint by using the `New-AzStorageMoverAzStorageSmbFileShareEndpoint` cmdlet as shown.
+      Create new NFS source endpoint by using the `New-AzStorageMoverNfsEndpoint` cmdlet as shown.
+
+      ```powershell
+
+      New-AzStorageMoverNfsEndpoint `
+          -Name "nfsSourceEndpoint" `
+          -ResourceGroupName $resourceGroupName `
+          -StorageMoverName $storageMoverName `
+          -Host $sourceHost `
+          -Export $sourceShare `
+       
+      ```
+
+   1. Next, create a corresponding destination endpoint. To create a new SMB fileshare, use the `New-AzStorageMoverAzStorageSmbFileShareEndpoint` cmdlet as shown in the following example.
 
       ```powershell
 
@@ -174,7 +194,20 @@ Azure Storage Mover supports migration scenarios using NFS and SMB. The steps to
 
       ```
 
-      The following sample response contains the `ProvisioningState` property whose value indicates that the endpoint was successfully created.
+      Use the `New-AzStorageMoverAzStorageContainerEndpoint` PowerShell cmdlet to create a new NFS blob container. The following example provides provisioning guidance.
+
+      ```powershell
+
+      New-AzStorageMoverAzStorageContainerEndpoint `
+        -Name "nfsTargetEndpoint" `
+        -ResourceGroupName $resourceGroupName `
+        -StorageMoverName $storageMoverName `
+        -BlobContainerName $targetEpContainer `
+        -StorageAccountResourceId $targetResourceID `
+
+      ```
+
+      The following sample response contains the `ProvisioningState` property, which indicates that the endpoint was successfully created.
 
       ```Response
 
@@ -225,7 +258,7 @@ Follow the steps in this section to view endpoints accessible to your Storage Mo
 
 ### [PowerShell](#tab/powershell)
 
-1. Use the `Get-AzStorageMoverProject` cmdlet to retrieve a list of projects resources. Optionally, you can supply a `-Name` parameter value to retrieve a specific project resource. Calling the cmdlet without the optional parameter returns a list of all provisioned projects within your resource group.
+1. Use the `Get-AzStorageMoverEndpoint` cmdlet to retrieve a list of endpoint resources. Optionally, you can supply a `-Name` parameter value to retrieve a specific resource. Calling the cmdlet without the optional parameter returns a list of all provisioned endpoints associated with your storage mover resource.
 
    The following example retrieves a specific project resource by specifying the **demoTarget** name value.
 
