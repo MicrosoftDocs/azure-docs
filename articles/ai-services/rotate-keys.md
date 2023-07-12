@@ -31,5 +31,5 @@ Keys can be rotated using the following procedure:
 
 ## See also
 
-* [What is Azure AI services?](./what-are-cognitive-services.md)
+* [What are Azure AI services?](./what-are-ai-services.md)
 * [Azure AI services security features](./security-features.md)

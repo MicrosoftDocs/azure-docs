@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial: Anomaly detection with Cognitive Services'
-description: Learn how to use Cognitive Services for anomaly detection in Azure Synapse Analytics.
+title: 'Tutorial: Anomaly detection with Azure AI services'
+description: Learn how to use Azure AI Anomaly Detector for anomaly detection in Azure Synapse Analytics.
 ms.service: synapse-analytics
 ms.subservice: machine-learning
 ms.topic: tutorial
@@ -11,15 +11,15 @@ ms.author: negust
 ms.custom: ignite-fall-2021
 ---
 
-# Tutorial: Anomaly detection with Cognitive Services
+# Tutorial: Anomaly detection with Azure AI services
 
-In this tutorial, you'll learn how to easily enrich your data in Azure Synapse Analytics with [Azure Cognitive Services](../../ai-services/index.yml). You'll use [Anomaly Detector](../../ai-services/anomaly-detector/index.yml) to find anomalies. A user in Azure Synapse can simply select a table to enrich for detection of anomalies.
+In this tutorial, you'll learn how to easily enrich your data in Azure Synapse Analytics with [Azure AI services](../../ai-services/index.yml). You'll use [Azure AI Anomaly Detector](../../ai-services/anomaly-detector/index.yml) to find anomalies. A user in Azure Synapse can simply select a table to enrich for detection of anomalies.
 
 This tutorial covers:
 
 > [!div class="checklist"]
 > - Steps for getting a Spark table dataset that contains time series data.
-> - Use of a wizard experience in Azure Synapse to enrich data by using Anomaly Detector in Cognitive Services.
+> - Use of a wizard experience in Azure Synapse to enrich data by using Anomaly Detector.
 
 If you don't have an Azure subscription, [create a free account before you begin](https://azure.microsoft.com/free/).
 

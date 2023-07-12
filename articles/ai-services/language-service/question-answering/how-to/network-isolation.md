@@ -12,7 +12,7 @@ ms.custom: language-service-question-answering, ignite-fall-2021
 
 #  Network isolation and private endpoints
 
-The steps below describe how to restrict public access to question answering resources as well as how to enable Azure Private Link. Protect a Azure AI services resource from public access by [configuring the virtual network](../../../cognitive-services-virtual-networks.md?tabs=portal).
+The steps below describe how to restrict public access to question answering resources as well as how to enable Azure Private Link. Protect an Azure AI services resource from public access by [configuring the virtual network](../../../cognitive-services-virtual-networks.md?tabs=portal).
 
 ## Private Endpoints
 
@@ -55,7 +55,7 @@ This will establish a private endpoint connection between language resource and 
 
 ## Restrict access to Cognitive Search resource
 
-Follow the steps below to restrict public access to question answering language resources. Protect a Azure AI services resource from public access by [configuring the virtual network](../../../cognitive-services-virtual-networks.md?tabs=portal).
+Follow the steps below to restrict public access to question answering language resources. Protect an Azure AI services resource from public access by [configuring the virtual network](../../../cognitive-services-virtual-networks.md?tabs=portal).
 
 After restricting access to Cognitive Service resource based on VNet, To browse projects on Language Studio from your on-premises network or your local browser.
 - Grant access to [on-premises network](../../../cognitive-services-virtual-networks.md?tabs=portal#configuring-access-from-on-premises-networks).

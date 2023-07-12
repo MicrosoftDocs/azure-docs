@@ -94,5 +94,5 @@ Yes. This is a list of regional endpoints that you can use with Azure AI service
 
 ## See also
 
-* [What are the Azure AI services?](./what-are-cognitive-services.md)
+* [What are Azure AI services?](./what-are-ai-services.md)
 * [Authentication](authentication.md)

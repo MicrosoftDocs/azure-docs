@@ -59,7 +59,7 @@ With Azure AI services for big data you can embed continuously improving, intell
 * **UI**: N/A - Code only
 * **Subscription(s)**: Azure account + Azure AI services resources
 
-If you want to learn more about big data for Azure AI services, a good place to start is with the [overview](./big-data/cognitive-services-for-big-data.md). If you're ready to start building, try our [Python](./big-data/samples-python.md) or [Scala](./big-data/samples-scala.md) samples.
+To learn more about big data for Azure AI services, see [Cognitive Services in Azure Synapse Analytics](../synapse-analytics/machine-learning/overview-cognitive-services.md). 
 
 ### Azure Functions and Azure Service Web Jobs
 
@@ -139,6 +139,5 @@ Language Understanding and the Speech service offer continuous integration and c
 Many of the Azure AI services can be deployed in containers for on-premises access and use. Using these containers gives you the flexibility to bring Azure AI services closer to your data for compliance, security, or other operational reasons. For a complete list of Azure AI containers, see [On-premises containers for Azure AI services](./cognitive-services-container-support.md).
 
 ## Next steps
-<!--
-* Learn more about low code development options for Azure AI services -->
-* [Create a Azure AI services resource and start building](./cognitive-services-apis-create-account.md?tabs=multiservice%252clinux)
+
+* [Create a multi-service resource and start building](./multi-service-resource.md?pivots=azportal)

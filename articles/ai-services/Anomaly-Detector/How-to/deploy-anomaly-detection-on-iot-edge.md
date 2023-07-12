@@ -22,7 +22,7 @@ Learn how to deploy the Azure AI services [Anomaly Detector](../anomaly-detector
 * Install the [Azure CLI](/cli/azure/install-azure-cli).
 * An [IoT Hub](../../../iot-hub/iot-hub-create-through-portal.md) and an [IoT Edge](../../../iot-edge/quickstart-linux.md) device.
 
-[!INCLUDE [Create a Azure AI Anomaly Detector resource](../includes/create-anomaly-detector-resource.md)]
+[!INCLUDE [Create an Azure AI Anomaly Detector resource](../includes/create-anomaly-detector-resource.md)]
 
 ## Deploy the Anomaly Detection module to the edge
 

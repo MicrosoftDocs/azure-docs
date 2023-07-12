@@ -401,8 +401,8 @@ Using this approach, you can use embeddings as a search mechanism across documen
 
 If you created an OpenAI resource solely for completing this tutorial and want to clean up and remove an OpenAI resource, you'll need to delete your deployed models, and then delete the resource or associated resource group if it's dedicated to your test resource. Deleting the resource group also deletes any other resources associated with it.
 
-- [Portal](../../cognitive-services-apis-create-account.md#clean-up-resources)
-- [Azure CLI](../../cognitive-services-apis-create-account-cli.md#clean-up-resources)
+- [Portal](../../multi-service-resource.md?pivots=azportal#clean-up-resources)
+- [Azure CLI](../../multi-service-resource.md?pivots=azcli#clean-up-resources)
 
 ## Next steps
 

@@ -12,7 +12,7 @@ ms.date: 05/31/2023
 
 # Attach an Azure AI multi-service resource to a skillset in Azure Cognitive Search
 
-When configuring an optional [AI enrichment pipeline](cognitive-search-concept-intro.md) in Azure Cognitive Search, you can enrich a limited number of documents free of charge. For larger and more frequent workloads, you should attach a billable [**Azure AI multi-service resource**](../ai-services/cognitive-services-apis-create-account.md). 
+When configuring an optional [AI enrichment pipeline](cognitive-search-concept-intro.md) in Azure Cognitive Search, you can enrich a limited number of documents free of charge. For larger and more frequent workloads, you should attach a billable [**Azure AI multi-service resource**](../ai-services/multi-service-resource.md?pivots=azportal). 
 
 A multi-service resource references a subset of "Azure AI services" as the offering, rather than individual services, with access granted through a single API key. This key is specified in a [**skillset**](/rest/api/searchservice/create-skillset) and allows Microsoft to charge you for using these services:
 
@@ -34,7 +34,7 @@ If you leave the property unspecified, your search service attempts to use the f
 
 1. [Sign in to Azure portal](https://portal.azure.com).
 
-1. Create an [Azure AI multi-service resource](../ai-services/cognitive-services-apis-create-account.md) in the [same region](#same-region-requirement) as your search service.
+1. Create an [Azure AI multi-service resource](../ai-services/multi-service-resource.md?pivots=azportal) in the [same region](#same-region-requirement) as your search service.
 
 1. Add the key to a skillset definition:
 
@@ -46,7 +46,7 @@ If you leave the property unspecified, your search service attempts to use the f
 
 ### [**REST**](#tab/cogkey-rest)
 
-1. Create an [Azure AI multi-service resource](../ai-services/cognitive-services-apis-create-account.md) in the [same region](#same-region-requirement) as your search service.
+1. Create an [Azure AI multi-service resource](../ai-services/multi-service-resource.md?pivots=azportal) in the [same region](#same-region-requirement) as your search service.
 
 1. Create or update a skillset, specifying `cognitiveServices` section in the body of the [skillset request](/rest/api/searchservice/create-skillset):
 

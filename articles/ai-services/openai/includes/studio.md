@@ -77,8 +77,8 @@ The accuracy of the response can vary per model. The Davinci based model in this
 
 If you want to clean up and remove an OpenAI resource, you can delete the resource or resource group. Deleting the resource group also deletes any other resources associated with it.
 
-- [Portal](../../cognitive-services-apis-create-account.md#clean-up-resources)
-- [Azure CLI](../../cognitive-services-apis-create-account-cli.md#clean-up-resources)
+- [Portal](../../multi-service-resource.md?pivots=azportal#clean-up-resources)
+- [Azure CLI](../../multi-service-resource.md?pivots=azcli#clean-up-resources)
 
 ## Next steps
 

@@ -41,8 +41,8 @@ Get started with the Content Safety Studio, REST API, or client SDKs to do basic
 
 If you want to clean up and remove an Azure AI services subscription, you can delete the resource or resource group. Deleting the resource group also deletes any other resources associated with it.
 
-- [Portal](../cognitive-services-apis-create-account.md#clean-up-resources)
-- [Azure CLI](../cognitive-services-apis-create-account-cli.md#clean-up-resources)
+- [Portal](../multi-service-resource.md?pivots=azportal#clean-up-resources)
+- [Azure CLI](../multi-service-resource.md?pivots=azcli#clean-up-resources)
 
 ## Next steps
 Configure filters for each category and test on datasets using [Content Safety Studio](studio-quickstart.md), export the code and deploy.
