@@ -22,13 +22,16 @@ Ensure you have first deployed ALB Controller into your Kubernetes cluster.  You
 ## Create the Application Gateway for Containers resource
 
 ```azurecli-interactive
-az network alb create -g rg-test -n alb-test
+RESOURCE_GROUP='rg-test'
+AGFC_NAME='alb-test'
+az network alb create -g $RESOURCE_GROUP -n $AGFC_NAME
 ```
 
 ## Create a Frontend resource
 
 ```azurecli-interactive
-az network alb frontend create -g rg-test -n test-frontend --alb-name alb-test
+FRONTEND_NAME='test-frontend'
+az network alb frontend create -g $RESOURCE_GROUP -n $FRONTEND_NAME --alb-name $AGFC_NAME
 ```
 
 ## Create an Association resource
@@ -39,27 +42,34 @@ To create an association resource, you first need to reference a subnet for Appl
 The following command will create a new virtual network and subnet with at least 250 IP addresses available.
 
 ```azurecli-interactive
+VNET_NAME=<name of the virtual network to use>
+VNET_ADDRESS_PREFIX='<address space of the vnet that will contain various subnets.  The vnet must be able to handle at least 250 available addresses (/24 or smaller cidr prefix for the subnet)>'
+subnetAddressPrefix='<an address space under the vnet that has at least 250 available addresses (/24 or smaller cidr prefix for the subnet)>'
+ALB_SUBNET_NAME='subnet-alb' # subnet name can be any non-reserved subnet name (i.e. GatewaySubnet, AzureFirewallSubnet, AzureBastionSubnet would all be invalid)
 az network vnet create \
-    --name vnet-test \
-    --resource-group rg-test \
-    --address-prefix 10.0.0.0/16 \
-    --subnet-name subnet-alb \
-    --subnet-prefixes 10.0.0.0/24 \
+    --name $VNET_NAME \
+    --resource-group $RESOURCE_GROUP \
+    --address-prefix $VNET_ADDRESS_PREFIX \
+    --subnet-name $ALB_SUBNET_NAME \
+    --subnet-prefixes $subnetAddressPrefix \
 ```
 
 Enable subnet delegation for the Application Gateway for Containers service is identified by the Microsoft.ServiceNetworking/trafficControllers resource type.
 ```azurecli-interactive
 az network vnet subnet update \
-    --resource-group rg-test  \
-    --name subnet-alb \
-    --vnet-name vnet-test \
+    --resource-group $RESOURCE_GROUP  \
+    --name $ALB_SUBNET_NAME \
+    --vnet-name $VNET_NAME \
     --delegations 'Microsoft.ServiceNetworking/trafficControllers'
+ALB_SUBNET_ID=az network vnet subnet list --resource-group $RESOURCE_GROUP --vnet-name $VNET_NAME --query "[?name=='subnet-alb'].id" --output tsv
+echo $ALB_SUBNET_ID
 ```
  
 ### Reference an existing VNet and Subnet
 To reference an existing subnet, execute the following command to get the resource ID of the subnet:
 ```azurecli-interactive
-az network vnet subnet list --resource-group rg-test --vnet-name vnet-test --query "[?name=='subnet-alb'].id" --output tsv
+albSubnetId=az network vnet subnet list --resource-group $RESOURCE_GROUP --vnet-name vnet-test --query "[?name=='subnet-alb'].id" --output tsv
+echo $ALB_SUBNET_ID
 ```
 
 ### Delegate permissions to managed identity
@@ -70,7 +80,6 @@ In this example, we will delegate the _AppGW for Containers Configuration Manage
 If desired, you can [create and assign a custom role](../../role-based-access-control/custom-roles-portal.md) with the _Microsoft.Network/virtualNetworks/subnets/join/action_ permission to eliminate other permissions contained in the _Network Contributor_ role. Learn more about [managing subnet permissions](../../virtual-network/virtual-network-manage-subnet.md#permissions). 
 
 ```azurecli-interactive
-RESOURCE_GROUP='rg-test'
 IDENTITY_RESOURCE_NAME='azure-alb-identity'
 
 principalId="$(az identity show -g $RESOURCE_GROUP -n $IDENTITY_RESOURCE_NAME --query principalId -otsv)"
@@ -79,13 +88,14 @@ principalId="$(az identity show -g $RESOURCE_GROUP -n $IDENTITY_RESOURCE_NAME --
 az role assignment create --assignee-object-id $principalId --resource-group $RESOURCE_GROUP --role "fbc52c3f28ad4303a8928a056630b8f1"
 
 # Delegate Network Contributor permission for join to association subnet
-az role assignment create --assignee-object-id $principalId --scope $albSubnetId --role "fbc52c3f28ad4303a8928a056630b8f1"
+az role assignment create --assignee-object-id $principalId --scope $ALB_SUBNET_ID --role "fbc52c3f28ad4303a8928a056630b8f1"
 ```
 
 ### Create an association resource
 Execute the following command to create the association resource and connect it to the referenced subnet
 ```azurecli-interactive
-az network alb association create -g rg-test -n association-test --alb-name alb-test --subnet /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/yyyyy/providers/Microsoft.Network/virtualNetworks/zzzzzz/subnets/subnet-alb
+ASSOCIATION_NAME='association-test'
+az network alb association create -g $RESOURCE_GROUP -n $ASSOCIATION_NAME --alb-name $AGFC_NAME --subnet $ALB_SUBNET_ID
 ```
 
 ## Next steps
