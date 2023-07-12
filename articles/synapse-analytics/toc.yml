@@ -1561,7 +1561,7 @@ items:
         - name: Computer Vision with Apache Spark (SynapseML)
           displayName: cognitive services, ai services, score model, applications
           href: ./machine-learning/tutorial-computer-vision-use-mmlspark.md        
-        - name: Form Recognizer with Apache Spark (SynapseML)
+        - name: Document Intelligence with Apache Spark (SynapseML)
           displayName: cognitive services, ai services, score model, applications
           href: ./machine-learning/tutorial-form-recognizer-use-mmlspark.md
         - name: Translator with Apache Spark (SynapseML)

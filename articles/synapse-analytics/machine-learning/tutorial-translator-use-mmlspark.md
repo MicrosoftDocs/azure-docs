@@ -49,7 +49,7 @@ from pyspark.sql.functions import col, flatten
 Use the linked translator you configured in the [pre-configuration steps](tutorial-configure-cognitive-services-synapse.md) . 
 
 ```python
-cognitive_service_name = "<Your linked service for translator>"
+ai_service_name = "<Your linked service for translator>"
 ```
 
 ## Translate Text
@@ -61,7 +61,7 @@ df = spark.createDataFrame([
 ], ["text",])
 
 translate = (Translate()
-    .setLinkedService(cognitive_service_name)
+    .setLinkedService(ai_service_name)
     .setTextCol("text")
     .setToLanguage(["zh-Hans", "fr"])
     .setOutputCol("translation")
@@ -90,7 +90,7 @@ transliterateDf =  spark.createDataFrame([
 ], ["text",])
 
 transliterate = (Transliterate()
-    .setLinkedService(cognitive_service_name)
+    .setLinkedService(ai_service_name)
     .setLanguage("ja")
     .setFromScript("Jpan")
     .setToScript("Latn")
@@ -119,7 +119,7 @@ detectDf =  spark.createDataFrame([
 ], ["text",])
 
 detect = (Detect()
-    .setLinkedService(cognitive_service_name)
+    .setLinkedService(ai_service_name)
     .setTextCol("text")
     .setOutputCol("result"))
 
@@ -145,7 +145,7 @@ bsDf =  spark.createDataFrame([
 ], ["text",])
 
 breakSentence = (BreakSentence()
-    .setLinkedService(cognitive_service_name)
+    .setLinkedService(ai_service_name)
     .setTextCol("text")
     .setOutputCol("result"))
 
@@ -170,7 +170,7 @@ dictDf = spark.createDataFrame([
 ], ["text",])
 
 dictionaryLookup = (DictionaryLookup()
-    .setLinkedService(cognitive_service_name)
+    .setLinkedService(ai_service_name)
     .setFromLanguage("en")
     .setToLanguage("es")
     .setTextCol("text")
@@ -199,7 +199,7 @@ dictDf = spark.createDataFrame([
 ], ["textAndTranslation",])
 
 dictionaryExamples = (DictionaryExamples()
-    .setLinkedService(cognitive_service_name)
+    .setLinkedService(ai_service_name)
     .setFromLanguage("en")
     .setToLanguage("es")
     .setTextAndTranslationCol("textAndTranslation")

@@ -39,7 +39,7 @@ df = spark.createDataFrame([
 
 # Run the Azure AI Vision service. Analyze Image extracts infortmation from/about the images.
 analysis = (AnalyzeImage()
-    .setLinkedService(cognitive_service_name)
+    .setLinkedService(ai_service_name)
     .setVisualFeatures(["Categories","Color","Description","Faces","Objects","Tags"])
     .setOutputCol("analysis_results")
     .setImageUrlCol("image")
@@ -67,7 +67,7 @@ df = spark.createDataFrame([
     ], ["url", ])
 
 ri = (ReadImage()
-    .setLinkedService(cognitive_service_name)
+    .setLinkedService(ai_service_name)
     .setImageUrlCol("url")
     .setOutputCol("ocr"))
 
@@ -88,7 +88,7 @@ df = spark.createDataFrame([
     ], ["url", ])
 
 gt =  (GenerateThumbnails()
-    .setLinkedService(cognitive_service_name)
+    .setLinkedService(ai_service_name)
     .setHeight(50)
     .setWidth(50)
     .setSmartCropping(True)
@@ -118,7 +118,7 @@ df = spark.createDataFrame([
     ], ["url", ])
 
 ti = (TagImage()
-    .setLinkedService(cognitive_service_name)
+    .setLinkedService(ai_service_name)
     .setImageUrlCol("url")
     .setOutputCol("tags"))
 
@@ -140,7 +140,7 @@ df = spark.createDataFrame([
     ], ["url", ])
 
 di = (DescribeImage()
-    .setLinkedService(cognitive_service_name)
+    .setLinkedService(ai_service_name)
     .setMaxCandidates(3)
     .setImageUrlCol("url")
     .setOutputCol("descriptions"))
@@ -162,7 +162,7 @@ df = spark.createDataFrame([
     ], ["url", ])
 
 celeb =  (RecognizeDomainSpecificContent()
-    .setLinkedService(cognitive_service_name)
+    .setLinkedService(ai_service_name)
     .setModel("celebrities")
     .setImageUrlCol("url")
     .setOutputCol("celebs"))

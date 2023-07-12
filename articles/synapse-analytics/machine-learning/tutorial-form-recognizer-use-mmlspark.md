@@ -48,7 +48,7 @@ from synapse.ml.cognitive import *
 Use the linked Document Intelligence you configured in the [pre-configuration steps](tutorial-configure-cognitive-services-synapse.md) . 
 
 ```python
-cognitive_service_name = "<Your linked service for Document Intelligence>"
+ai_service_name = "<Your linked service for Document Intelligence>"
 ```
 
 
@@ -68,7 +68,7 @@ imageDf = spark.createDataFrame([
 ], ["source",])
 
 analyzeLayout = (AnalyzeLayout()
-                 .setLinkedService(cognitive_service_name)
+                 .setLinkedService(ai_service_name)
                  .setImageUrlCol("source")
                  .setOutputCol("layout")
                  .setConcurrency(5))
@@ -101,7 +101,7 @@ imageDf2 = spark.createDataFrame([
 ], ["image",])
 
 analyzeReceipts = (AnalyzeReceipts()
-                 .setLinkedService(cognitive_service_name)
+                 .setLinkedService(ai_service_name)
                  .setImageUrlCol("image")
                  .setOutputCol("parsed_document")
                  .setConcurrency(5))
@@ -125,7 +125,7 @@ imageDf3 = spark.createDataFrame([
 ], ["source",])
 
 analyzeBusinessCards = (AnalyzeBusinessCards()
-                 .setLinkedService(cognitive_service_name)
+                 .setLinkedService(ai_service_name)
                  .setImageUrlCol("source")
                  .setOutputCol("businessCards")
                  .setConcurrency(5))
@@ -150,7 +150,7 @@ imageDf4 = spark.createDataFrame([
 ], ["source",])
 
 analyzeInvoices = (AnalyzeInvoices()
-                 .setLinkedService(cognitive_service_name)
+                 .setLinkedService(ai_service_name)
                  .setImageUrlCol("source")
                  .setOutputCol("invoices")
                  .setConcurrency(5))
@@ -174,7 +174,7 @@ imageDf5 = spark.createDataFrame([
 ], ["source",])
 
 analyzeIDDocuments = (AnalyzeIDDocuments()
-                 .setLinkedService(cognitive_service_name)
+                 .setLinkedService(ai_service_name)
                  .setImageUrlCol("source")
                  .setOutputCol("ids")
                  .setConcurrency(5))

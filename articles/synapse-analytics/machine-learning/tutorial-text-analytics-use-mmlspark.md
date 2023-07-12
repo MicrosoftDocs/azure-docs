@@ -48,7 +48,7 @@ from pyspark.sql.functions import col
 Use the linked text analytics you configured in the [pre-configuration steps](tutorial-configure-cognitive-services-synapse.md) . 
 
 ```python
-cognitive_service_name = "<Your linked service for text analytics>"
+ai_service_name = "<Your linked service for text analytics>"
 ```
 
 ## Text Sentiment

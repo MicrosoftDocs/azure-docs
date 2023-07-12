@@ -14,7 +14,9 @@ ms.date: 02/14/2023
 
 Using pretrained models from Azure AI services, you can enrich your data with artificial intelligence (AI) in Azure Synapse Analytics.
 
-[Azure AI services](../../ai-services/what-are-ai-services.md) are cloud-based services that add cognitive intelligence to your data even if you don't have AI or data science skills. There are a few ways that you can use a subset of Azure AI services with your data in Synapse Analytics:
+[Azure AI services](../../ai-services/what-are-ai-services.md) help developers and organizations rapidly create intelligent, cutting-edge, market-ready, and responsible applications with out-of-the-box and pre-built and customizable APIs and models. 
+
+There are a few ways that you can use a subset of Azure AI services with your data in Synapse Analytics:
 
 - The "Cognitive Services" wizard in Synapse Analytics generates PySpark code in a Synapse notebook that connects to a with Azure AI services using data in a Spark table. Then, using pretrained machine learning models, the service does the work for you to add AI to your data. Check out [Sentiment analysis wizard](tutorial-cognitive-services-sentiment.md) and [Anomaly detection wizard](tutorial-cognitive-services-anomaly.md) for more details.
 
@@ -25,12 +27,6 @@ Using pretrained models from Azure AI services, you can enrich your data with ar
 ## Get started
 
 The tutorial, [Pre-requisites for using Azure AI services in Azure Synapse](tutorial-configure-cognitive-services-synapse.md), walks you through a couple steps you need to perform before using Azure AI services in Synapse Analytics.
-
-## Azure AI services
-
-:::image type="content" source="media/overview-cognitive-services/cog_services_on_spark_2.svg" alt-text="Decorative image of SynapseML Azure AI services.":::
-
-[Azure AI services](https://azure.microsoft.com/services/cognitive-services/) are a suite of APIs, SDKs, and services available to help developers build intelligent applications without having direct AI or data science skills or knowledge by enabling developers to easily add cognitive features into their applications. The goal of Azure AI services is to help developers create applications that can see, hear, speak, understand, and even begin to reason. 
 
 ## Usage
 
@@ -96,7 +92,7 @@ The tutorial, [Pre-requisites for using Azure AI services in Azure Synapse](tuto
 
 ### Search
 - [Bing Image search](https://azure.microsoft.com/services/cognitive-services/bing-image-search-api/) ([Scala](https://mmlspark.blob.core.windows.net/docs/0.10.2/scala/com/microsoft/azure/synapse/ml/cognitive/BingImageSearch.html), [Python](https://mmlspark.blob.core.windows.net/docs/0.10.2/pyspark/synapse.ml.cognitive.html#module-synapse.ml.cognitive.BingImageSearch))
-- [Azure Cognitive search](../../search/search-what-is-azure-search.md) ([Scala](https://mmlspark.blob.core.windows.net/docs/0.10.2/scala/index.html#com.microsoft.azure.synapse.ml.cognitive.search.AzureSearchWriter$), [Python](https://mmlspark.blob.core.windows.net/docs/0.10.2/pyspark/synapse.ml.cognitive.html#module-synapse.ml.cognitive.AzureSearchWriter))
+- [Azure Cognitive Search](../../search/search-what-is-azure-search.md) ([Scala](https://mmlspark.blob.core.windows.net/docs/0.10.2/scala/index.html#com.microsoft.azure.synapse.ml.cognitive.search.AzureSearchWriter$), [Python](https://mmlspark.blob.core.windows.net/docs/0.10.2/pyspark/synapse.ml.cognitive.html#module-synapse.ml.cognitive.AzureSearchWriter))
 
 ## Prerequisites
 
@@ -509,7 +505,7 @@ display(
 )
 ```
 
-## Azure Cognitive search sample
+## Azure Cognitive Search sample
 
 In this example, we show how you can enrich data using Cognitive Skills and write to an Azure Search Index using SynapseML.
 

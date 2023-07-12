@@ -49,7 +49,7 @@ from synapse.ml.cognitive import *
 from notebookutils import mssparkutils
 
 # An Azure AI services multi-service resource key for Text Analytics and Computer Vision (or use separate keys that belong to each service)
-cognitive_service_key = mssparkutils.credentials.getSecret("ADD_YOUR_KEY_VAULT_NAME", "ADD_YOUR_SERVICE_KEY","ADD_YOUR_KEY_VAULT_LINKED_SERVICE_NAME") 
+ai_service_key = mssparkutils.credentials.getSecret("ADD_YOUR_KEY_VAULT_NAME", "ADD_YOUR_SERVICE_KEY","ADD_YOUR_KEY_VAULT_LINKED_SERVICE_NAME") 
 # A Bing Search v7 subscription key
 bingsearch_service_key = mssparkutils.credentials.getSecret("ADD_YOUR_KEY_VAULT_NAME", "ADD_YOUR_BING_SEARCH_KEY","ADD_YOUR_KEY_VAULT_LINKED_SERVICE_NAME")
 # An Anomaly Dectector subscription key
@@ -74,7 +74,7 @@ df_sentences = spark.createDataFrame([
 sentiment = (TextSentiment()
     .setTextCol("text")
     .setLocation("eastasia") # Set the location of your Azure AI services resource
-    .setSubscriptionKey(cognitive_service_key)
+    .setSubscriptionKey(ai_service_key)
     .setOutputCol("sentiment")
     .setErrorCol("error")
     .setLanguageCol("language"))
@@ -106,7 +106,7 @@ df_images = spark.createDataFrame([
 # Run the Computer Vision service. Analyze Image extracts information from/about the images.
 analysis = (AnalyzeImage()
     .setLocation("eastasia") # Set the location of your Azure AI services resource
-    .setSubscriptionKey(cognitive_service_key)
+    .setSubscriptionKey(ai_service_key)
     .setVisualFeatures(["Categories","Color","Description","Faces","Objects","Tags"])
     .setOutputCol("analysis_results")
     .setImageUrlCol("image")
