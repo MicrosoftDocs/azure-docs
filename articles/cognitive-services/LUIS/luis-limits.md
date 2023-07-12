@@ -9,6 +9,9 @@ ms.date: 03/21/2022
 
 # Limits for your LUIS model and keys
 
+[!INCLUDE [deprecation notice](./includes/deprecation-notice.md)]
+
+
 LUIS has several limit areas. The first is the [model limit](#model-limits), which controls intents, entities, and features in LUIS. The second area is [quota limits](#resource-usage-and-limits) based on resource type. A third area of limits is the [keyboard combination](#keyboard-controls) for controlling the LUIS website. A fourth area is the [world region mapping](luis-reference-regions.md) between the LUIS authoring website and the LUIS [endpoint](luis-glossary.md#endpoint) APIs.
 
 ## Model limits

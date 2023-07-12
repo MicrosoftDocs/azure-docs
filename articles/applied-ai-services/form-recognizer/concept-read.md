@@ -1,23 +1,33 @@
 ---
-title: Read OCR - Form Recognizer
+title: OCR for documents - Form Recognizer
 titleSuffix: Azure Applied AI Services
-description: Learn concepts related to Read OCR API analysis with Form Recognizer API—usage and limits.
+description: Extract print and handwritten text from scanned and digital documents with Form Recognizer's Read OCR model.
 author: laujan
 manager: nitinme
 ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: conceptual
-ms.date: 08/22/2022
+ms.date: 05/23/2023
 ms.author: lajanuar
-recommendations: false
-ms.custom: ignite-fall-2021
+monikerRange: 'form-recog-3.0.0'
 ---
 
-# Form Recognizer Read OCR model
+# Form Recognizer read (OCR) model
 
-Form Recognizer v3.0 includes the new Read Optical Character Recognition (OCR) model. The Read OCR model extracts typeface and handwritten text including mixed languages in documents. The Read OCR model can detect lines, words, locations, and languages and is the core of all other Form Recognizer models. Layout, general document, custom, and prebuilt models all use the Read OCR model as a foundation for extracting texts from documents.
+**This article applies to:** ![Form Recognizer v3.0 checkmark](media/yes-icon.png) **Form Recognizer v3.0**.
 
-## Supported document types
+> [!NOTE]
+>
+> For extracting text from external images like labels, street signs, and posters, use the [Computer Vision v4.0 preview Read](../../cognitive-services/Computer-vision/concept-ocr.md) feature optimized for general, non-document images with a performance-enhanced synchronous API that makes it easier to embed OCR in your user experience scenarios.
+>
+
+Form Recognizer v3.0's Read Optical Character Recognition (OCR) model runs at a higher resolution than Computer Vision Read and extracts print and handwritten text from PDF documents and scanned images. It also includes preview support for extracting text from Microsoft Word, Excel, PowerPoint, and HTML documents. It detects paragraphs, text lines, words, locations, and languages. The Read model is the underlying OCR engine for other Form Recognizer prebuilt models like Layout, General Document, Invoice, Receipt, Identity (ID) document, in addition to custom models.
+
+## What is OCR for documents?
+
+Optical Character Recognition (OCR) for documents is optimized for large text-heavy documents in multiple file formats and global languages. It includes features like higher-resolution scanning of document images for better handling of smaller and dense text; paragraph detection; and fillable form management. OCR capabilities also include advanced scenarios like single character boxes and accurate extraction of key fields commonly found in invoices, receipts, and other prebuilt scenarios.
+
+## Read OCR supported document types
 
 > [!NOTE]
 >
@@ -36,15 +46,15 @@ Form Recognizer v3.0 includes the new Read Optical Character Recognition (OCR) m
 
 ## Development options
 
-The following resources are supported by Form Recognizer v3.0:
+Form Recognizer v3.0 supports the following resources:
 
 | Model | Resources | Model ID |
 |----------|------------|------------|
-|**prebuilt-read**| <ul><li>[**Form Recognizer Studio**](https://formrecognizer.appliedai.azure.com)</li><li>[**REST API**](how-to-guides/use-prebuilt-read.md?pivots=programming-language-rest-api)</li><li>[**C# SDK**](how-to-guides/use-prebuilt-read.md?pivots=programming-language-csharp)</li><li>[**Python SDK**](how-to-guides/use-prebuilt-read.md?pivots=programming-language-python)</li><li>[**Java SDK**](how-to-guides/use-prebuilt-read.md?pivots=programming-language-java)</li><li>[**JavaScript**](how-to-guides/use-prebuilt-read.md?pivots=programming-language-javascript)</li></ul>|**prebuilt-read**|
+|**Read model**| <ul><li>[**Form Recognizer Studio**](https://formrecognizer.appliedai.azure.com)</li><li>[**REST API**](how-to-guides/use-sdk-rest-api.md?view=form-recog-3.0.0&preserve-view=true)</li><li>[**C# SDK**](how-to-guides/use-sdk-rest-api.md?view=form-recog-3.0.0&preserve-view=true?pivots=programming-language-csharp)</li><li>[**Python SDK**](how-to-guides/use-sdk-rest-api.md?view=form-recog-3.0.0&preserve-view=true?pivots=programming-language-python)</li><li>[**Java SDK**](how-to-guides/use-sdk-rest-api.md?view=form-recog-3.0.0&preserve-view=true?pivots=programming-language-java)</li><li>[**JavaScript**](how-to-guides/use-sdk-rest-api.md?view=form-recog-3.0.0&preserve-view=true?pivots=programming-language-javascript)</li></ul>|**prebuilt-read**|
 
-## Try Form Recognizer
+## Try OCR in Form Recognizer
 
-Try extracting text from forms and documents using the Form Recognizer Studio. You'll need the following assets:
+Try extracting text from forms and documents using the Form Recognizer Studio. You need the following assets:
 
 * An Azure subscription—you can [create one for free](https://azure.microsoft.com/free/cognitive-services/)
 
@@ -52,7 +62,7 @@ Try extracting text from forms and documents using the Form Recognizer Studio. Y
 
  :::image type="content" source="media/containers/keys-and-endpoint.png" alt-text="Screenshot: keys and endpoint location in the Azure portal.":::
 
-### Form Recognizer Studio 
+### Form Recognizer Studio
 
 > [!NOTE]
 > Currently, Form Recognizer Studio doesn't support Microsoft Word, Excel, PowerPoint, and HTML file formats in the Read version v3.0.
@@ -78,13 +88,60 @@ Try extracting text from forms and documents using the Form Recognizer Studio. Y
 
 ## Supported languages and locales
 
-Form Recognizer v3.0 version supports several languages for the read model. *See* our [Language Support](language-support.md) for a complete list of supported handwritten and printed languages.
+Form Recognizer v3.0 version supports several languages for the read OCR model. *See* our [Language Support](language-support.md) for a complete list of supported handwritten and printed languages.
 
 ## Data detection and extraction
 
-### Paragraphs <sup>🆕</sup>
+### Microsoft Office and HTML text extraction
 
-The Read model extracts all identified blocks of text in the `paragraphs` collection as a top level object under `analyzeResults`. Each entry in this collection represents a text block and includes the extracted text as`content`and the bounding `polygon` coordinates. The `span` information points to the text fragment within the top level `content` property that contains the full text from the document.
+Use the parameter `api-version=2022-06-30-preview` when using the REST API or the corresponding SDKs of that API version to preview text extraction from Microsoft Word, Excel, PowerPoint, and HTML files. The following illustration shows extraction of the digital text and text from the images embedded in the Word document by running OCR on the images.
+
+:::image type="content" source="media/office-to-ocr.png" alt-text="Screenshot of a Microsoft Word document extracted by Form Recognizer Read OCR.":::
+
+The page units in the model output are computed as shown:
+
+ **File format**   | **Computed page unit**   | **Total pages**  |
+| --- | --- | --- |
+|Word  | Up to 3,000 characters = 1 page unit, Each embedded image = 1 page unit | Total pages of up to 3,000 characters each + Total embedded images |
+|Excel  | Each worksheet = 1 page unit, Each embedded image = 1 page unit | Total worksheets + Total images
+|PowerPoint |  Each slide = 1 page unit, Each embedded image = 1 page unit | Total slides + Total images
+|HTML | Up to 3,000 characters = 1 page unit, embedded or linked images not supported | Total pages of up to 3,000 characters each |
+
+ ### Barcode extraction
+
+The Read OCR model extracts all identified barcodes in the `barcodes` collection as a top level object under `content`. Inside the `content`, detected barcodes are represented as `:barcode:`. Each entry in this collection represents a barcode and includes the barcode type as `kind` and the embedded barcode content as `value` along with its `polygon` coordinates. Initially, barcodes appear at the end of each page. Here, the `confidence` is hard-coded for the public preview (`2023-02-28`) release.
+
+#### Supported barcode types
+
+| **Barcode Type**   | **Example**   |
+| --- | --- |
+| QR Code |:::image type="content" source="media/barcodes/qr-code.png" alt-text="Screenshot of the QR Code.":::|
+| Code 39 |:::image type="content" source="media/barcodes/code-39.png" alt-text="Screenshot of the Code 39.":::|
+| Code 128 |:::image type="content" source="media/barcodes/code-128.png" alt-text="Screenshot of the Code 128.":::|
+| UPC (UPC-A & UPC-E) |:::image type="content" source="media/barcodes/upc.png" alt-text="Screenshot of the UPC.":::|
+| PDF417 |:::image type="content" source="media/barcodes/pdf-417.png" alt-text="Screenshot of the PDF417.":::|
+
+```json
+"content": ":barcode:",
+  "pages": [
+    {
+      "pageNumber": 1,
+      "barcodes": [
+        {
+          "kind": "QRCode",
+          "value": "http://test.com/",
+          "span": { ... },
+          "polygon": [...],
+          "confidence": 1
+        }
+      ]
+    }
+  ]
+```
+
+### Paragraphs extraction
+
+The Read OCR model in Form Recognizer extracts all identified blocks of text in the `paragraphs` collection as a top level object under `analyzeResults`. Each entry in this collection represents a text block and includes the extracted text as`content`and the bounding `polygon` coordinates. The `span` information points to the text fragment within the top-level `content` property that contains the full text from the document.
 
 ```json
 "paragraphs": [
@@ -95,9 +152,10 @@ The Read model extracts all identified blocks of text in the `paragraphs` collec
     }
 ]
 ```
-### Language detection <sup>🆕</sup>
 
-Read adds [language detection](language-support.md#detected-languages-read-api) as a new feature for text lines. Read will predict the detected primary language for each text line along with the `confidence` in the `languages` collection under `analyzeResult`.
+### Language detection
+
+The Read OCR model in Form Recognizer adds [language detection](language-support.md#detected-languages-read-api) as a new feature for text lines. Read predicts the detected primary language for each text line along with the `confidence` in the `languages` collection under `analyzeResult`.
 
 ```json
 "languages": [
@@ -113,21 +171,8 @@ Read adds [language detection](language-support.md#detected-languages-read-api) 
     },
 ]
 ```
-### Microsoft Office and HTML support (preview) <sup>🆕</sup>
-Use the parameter `api-version=2022-06-30-preview when using the REST API or the corresponding SDKs of that API version to preview the support for Microsoft Word, Excel, PowerPoint, and HTML files. 
 
-:::image type="content" source="media/office-to-ocr.png" alt-text="Screenshot of a Microsoft Word document extracted by Form Recognizer Read OCR.":::
-
-The page units in the model output are computed as shown:
-
- **File format**   | **Computed page unit**   | **Total pages**  |
-| --- | --- | --- |
-|Word (preview) | Up to 3,000 characters = 1 page unit, Each embedded image = 1 page unit | Total pages of up to 3,000 characters each + Total embedded images |
-|Excel (preview) | Each worksheet = 1 page unit, Each embedded image = 1 page unit | Total worksheets + Total images
-|PowerPoint (preview)|  Each slide = 1 page unit, Each embedded image = 1 page unit | Total slides + Total images
-|HTML (preview)| Up to 3,000 characters = 1 page unit, embedded or linked images not supported | Total pages of up to 3,000 characters each |
-
-### Pages
+### Extract pages from documents
 
 The page units in the model output are computed as shown:
 
@@ -153,11 +198,11 @@ The page units in the model output are computed as shown:
 ]
 ```
 
-### Text lines and words
+### Extract text lines and words
 
-Read extracts print and handwritten style text as `lines` and `words`. The model outputs bounding `polygon` coordinates and `confidence` for the extracted words. The `styles` collection includes any handwritten style for lines if detected along with the spans pointing to the associated text. This feature applies to [supported handwritten languages](language-support.md).
+The Read OCR model extracts print and handwritten style text as `lines` and `words`. The model outputs bounding `polygon` coordinates and `confidence` for the extracted words. The `styles` collection includes any handwritten style for lines if detected along with the spans pointing to the associated text. This feature applies to [supported handwritten languages](language-support.md).
 
-For the preview of Microsoft Word, Excel, PowerPoint, and HTML file support, Read will extract all embedded text as is. For any embedded images, it will run OCR on the images to extract text and append the text from each image as an added entry to the `pages` collection. These added entries will include the extracted text lines and words, their bounding polygons, confidences, and the spans pointing to the associated text.
+For the preview of Microsoft Word, Excel, PowerPoint, and HTML file support, Read extracts all embedded text as is. For any embedded images, it runs OCR on the images to extract text and append the text from each image as an added entry to the `pages` collection. These added entries include the extracted text lines and words, their bounding polygons, confidences, and the spans pointing to the associated text.
 
 ```json
 "words": [
@@ -176,6 +221,7 @@ For the preview of Microsoft Word, Excel, PowerPoint, and HTML file support, Rea
     }
 ]
 ```
+
 ### Select page (s) for text extraction
 
 For large multi-page PDF documents, use the `pages` query parameter to indicate specific page numbers or page ranges for text extraction.
@@ -183,17 +229,35 @@ For large multi-page PDF documents, use the `pages` query parameter to indicate 
 > [!NOTE]
 > For the preview of Microsoft Word, Excel, PowerPoint, and HTML file support, the Read API ignores the pages parameter and extracts all pages by default.
 
+### Handwritten style for text lines (Latin languages only)
+
+The response includes classifying whether each text line is of handwriting style or not, along with a confidence score. This feature is only supported for Latin languages. The following example shows an example JSON snippet.
+
+```json
+"styles": [
+{
+    "confidence": 0.95,
+    "spans": [
+    {
+        "offset": 509,
+        "length": 24
+    }
+    "isHandwritten": true
+    ]
+}
+```
+
 ## Next steps
 
 Complete a Form Recognizer quickstart:
 
 > [!div class="checklist"]
 >
-> * [**REST API**](how-to-guides/use-prebuilt-read.md?pivots=programming-language-rest-api)
-> * [**C# SDK**](how-to-guides/use-prebuilt-read.md?pivots=programming-language-csharp)
-> * [**Python SDK**](how-to-guides/use-prebuilt-read.md?pivots=programming-language-python)
-> * [**Java SDK**](how-to-guides/use-prebuilt-read.md?pivots=programming-language-java)
-> * [**JavaScript**](how-to-guides/use-prebuilt-read.md?pivots=programming-language-javascript)</li></ul>
+> * [**REST API**](how-to-guides/use-sdk-rest-api.md?view=form-recog-3.0.0&preserve-view=true)
+> * [**C# SDK**](how-to-guides/use-sdk-rest-api.md?view=form-recog-3.0.0&preserve-view=true?pivots=programming-language-csharp)
+> * [**Python SDK**](how-to-guides/use-sdk-rest-api.md?view=form-recog-3.0.0&preserve-view=true?pivots=programming-language-python)
+> * [**Java SDK**](how-to-guides/use-sdk-rest-api.md?view=form-recog-3.0.0&preserve-view=true?pivots=programming-language-java)
+> * [**JavaScript**](how-to-guides/use-sdk-rest-api.md?view=form-recog-3.0.0&preserve-view=true?pivots=programming-language-javascript)</li></ul>
 
 Explore our REST API:
 

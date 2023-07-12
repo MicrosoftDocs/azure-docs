@@ -6,13 +6,13 @@ ms.reviewer: fcabrera
 ms.service: iot-edge
 services: iot-edge
 ms.topic: conceptual
-ms.date: 07/12/2022
+ms.date: 7/22/2022
 ms.author: patricka
 ---
 
 # Azure IoT Edge for Linux on Windows virtual multiple NIC configurations
 
-[!INCLUDE [iot-edge-version-all-supported](../../includes/iot-edge-version-all-supported.md)]
+[!INCLUDE [iot-edge-version-1.4](includes/iot-edge-version-1.4.md)]
 
 By default, the Azure IoT Edge for Linux on Windows (EFLOW) virtual machine has a single network interface card (NIC) assigned. However, you can configure the EFLOW VM with multiple network interfaces by using the EFLOW support for attaching multiple network interfaces to the virtual machine. This functionality may be helpful in numerous scenarios where you may have a networking division or separation into different networks or zones. In order to connect the EFLOW virtual machine to the different networks, you may need to attach different network interface cards to the EFLOW virtual machine. 
 
@@ -29,13 +29,13 @@ For more information about networking concepts and configurations, see [Azure Io
 - Virtual switch different from the default one used during EFLOW installation. For more information on creating a virtual switch, see [Create a virtual switch for Azure IoT Edge for Linux on Windows](./how-to-create-virtual-switch.md).
 
 ## Create and assign a virtual switch
-During the EFLOW VM deployment, the VM had a switched assigned for all the communications between the Windows host OS and the virtual machine. This will always be the switch used for VM lifecycle management communications, and it's not possible to delete it. 
+During the EFLOW VM deployment, the VM had a switch assigned for all communications between the Windows host OS and the virtual machine. You always use the switch for VM lifecycle management communications, and it's not possible to delete it. 
 
-The following steps in this section show how to assign a network interface to the EFLOW virtual machine. Ensure that the virtual switch being used and the networking configuration aligns with your networking environment. For more information about networking concepts like type of switches, DHCP and DNS, see [Azure IoT Edge for Linux on Windows networking](./iot-edge-for-linux-on-windows-networking.md).
+The following steps in this section show how to assign a network interface to the EFLOW virtual machine. Ensure that the virtual switch and the networking configuration align with your networking environment. For more information about networking concepts like type of switches, DHCP and DNS, see [Azure IoT Edge for Linux on Windows networking](./iot-edge-for-linux-on-windows-networking.md).
 
 1. Open an elevated _PowerShell_ session by starting with **Run as Administrator**.
 
-1. Check the virtual switch to be assigned to the EFLOW VM is available.
+1. Check that the virtual switch you assign to the EFLOW VM is available.
     ```powershell
     Get-VMSwitch -Name "{switchName}" -SwitchType {switchType}
     ```
@@ -49,7 +49,7 @@ The following steps in this section show how to assign a network interface to th
     ```
     :::image type="content" source="./media/how-to-configure-multiple-nics/ps-cmdlet-add-eflow-network.png" alt-text="EFLOW attach virtual switch":::
 
-1. Check that the virtual switch was correctly assigned to the EFLOW VM.
+1. Check that you correctly assigned the virtual switch to the EFLOW VM.
     ```powershell
     Get-EflowNetwork -vSwitchName "{switchName}"
     ```
@@ -58,13 +58,13 @@ For more information about attaching a virtual switch to the EFLOW VM, see [Powe
 
 
 ## Create and assign a network endpoint
-Once the virtual switch was successfully assigned to the EFLOW VM, you need to create a networking endpoint assigned to virtual switch to finalize the network interface creation. If you're using Static IP, ensure to use the appropriate parameters: _ip4Address_, _ip4GatewayAddress_ and _ip4PrefixLength_.
+Once you successfully assign the virtual switch to the EFLOW VM, create a networking endpoint assigned to virtual switch to finalize the network interface creation. If you're using Static IP, ensure to use the appropriate parameters: _ip4Address_, _ip4GatewayAddress_ and _ip4PrefixLength_.
 
 1. Open an elevated _PowerShell_ session by starting with **Run as Administrator**.
 
 1. Create the EFLOW VM network endpoint
 
-    - If you're using DHCP, no Static IP parameters are needed.
+    - If you're using DHCP, you don't need Static IP parameters.
         ```powershell
         Add-EflowVmEndpoint -vSwitchName "{switchName}" -vEndpointName "{EndpointName}"
         ```
@@ -81,7 +81,7 @@ Once the virtual switch was successfully assigned to the EFLOW VM, you need to c
 
         :::image type="content" source="./media/how-to-configure-multiple-nics/ps-cmdlet-add-eflow-endpoint.png" alt-text="EFLOW attach network endpoint":::
 
-1. Check that the network endpoint was correctly created and assigned to the EFLOW VM. You should see the two network interfaces assigned to the virtual machine.
+1. Check that you correctly created the network endpoint and assigned it to the EFLOW VM. You should see two network interfaces assigned to the virtual machine.
     ```powershell
     Get-EflowVmEndpoint
     ``` 
@@ -92,7 +92,7 @@ For more information about creating and attaching a network endpoint to the EFLO
 
 
 ## Check the VM network configurations
-The final step is to make sure the networking configurations were applied correctly and the EFLOW VM has the new network interface configured. The new interface will show up as _"eth1"_ if it's the first extra interface added to the VM. 
+The final step is to make sure the networking configurations applied correctly and the EFLOW VM has the new network interface configured. The new interface shows up as _"eth1"_ if it's the first extra interface added to the VM. 
 
 1. Open PowerShell in an elevated session. You can do so by opening the **Start** pane on Windows and typing in "PowerShell". Right-click the **Windows PowerShell** app that shows up and select **Run as administrator**.
 
@@ -105,9 +105,9 @@ The final step is to make sure the networking configurations were applied correc
     ifconfig
     ``` 
     
-    The default interface **eth0** is the one used for all the VM management. You should see another interface, like **eth1**, which is the new interface that was assigned to the VM. Following the examples above, if you previously assigned a new endpoint with the static IP 192.168.0.103 you should see the interface **eth1** with the _inet addr: 192.168.0.103_.
+    The default interface **eth0** is the one used for all the VM management. You should see another interface, like **eth1**, which is the new interface you assigned to the VM. Following the examples, if you previously assigned a new endpoint with the static IP 192.168.0.103 you should see the interface **eth1** with the _inet addr: 192.168.0.103_.
 
-   ![EFLOW VM network interfaces](./media/how-to-configure-multiple-nics/ps-cmdlet-eflow-ifconfig.png)
+   :::image type="content" source="./media/how-to-configure-multiple-nics/ps-cmdlet-eflow-ifconfig.png" alt-text="Screenshot of EFLOW virtual machine network interfaces.":::
 
 ## Next steps
-Follow the steps in [How to configure networking for Azure IoT Edge for Linux on Windows](./how-to-configure-iot-edge-for-linux-on-windows-networking.md) to make sure all the networking configurations were applied correctly.
+Follow the steps in [How to configure networking for Azure IoT Edge for Linux on Windows](./how-to-configure-iot-edge-for-linux-on-windows-networking.md) to make sure you applied all the networking configurations correctly.

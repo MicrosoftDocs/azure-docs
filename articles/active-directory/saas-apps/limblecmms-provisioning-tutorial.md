@@ -1,16 +1,16 @@
 ---
-title: 'Tutorial: Configure LimbleCMMS for automatic user provisioning with Azure Active Directory | Microsoft Docs'
+title: 'Tutorial: Configure LimbleCMMS for automatic user provisioning with Azure Active Directory'
 description: Learn how to automatically provision and de-provision user accounts from Azure AD to LimbleCMMS.
 services: active-directory
 author: twimmers
 writer: twimmers
-manager: beatrizd
+manager: jeedes
 ms.assetid: 5e0d5369-7230-4a16-bc3f-9eac2bc80a8c
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 06/07/2021
+ms.date: 11/21/2022
 ms.author: thwimmer
 ---
 

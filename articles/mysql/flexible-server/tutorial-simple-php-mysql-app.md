@@ -35,11 +35,11 @@ In this tutorial, you'll learn how to:
 - The [Azure Command-Line Interface (CLI)](/cli/azure/install-azure-cli).
 - An Azure subscription [!INCLUDE [flexible-server-free-trial-note](../includes/flexible-server-free-trial-note.md)]
 
-## Create an Azure Database for MySQL flexible server
+## Create an Azure Database for MySQL - Flexible Server
 
 First, we'll provision a MySQL flexible server with public access connectivity, configure firewall rules to allow the application to access the server, and create a production database. 
 
-To learn how to use private access connectivity instead and isolate app and database resources in a virtual network, see [Tutorial: Connect an App Services Web app to an Azure Database for MySQL flexible server in a virtual network](tutorial-webapp-server-vnet.md).
+To learn how to use private access connectivity instead and isolate app and database resources in a virtual network, see [Tutorial: Connect an App Services Web app to an Azure Database for MySQL - Flexible Server in a virtual network](tutorial-webapp-server-vnet.md).
 
 ### Create a resource group
 

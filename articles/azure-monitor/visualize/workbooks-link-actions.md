@@ -2,7 +2,8 @@
 title: Azure Workbooks link actions 
 description: This article explains how to use link actions in Azure Workbooks.
 ms.topic: conceptual
-ms.date: 07/05/2022
+ms.custom: devx-track-arm-template
+ms.date: 06/21/2023
 ms.author: abbyweisberg
 ms.reviewer: gardnerjr
 ---
@@ -52,7 +53,7 @@ When you use the link renderer, the following settings are available:
 |View to open| Allows you to select one of the actions enumerated above. |
 |Menu item| If **Resource Overview** is selected, this menu item is in the resource's overview. You can use it to open alerts or activity logs instead of the "overview" for the resource. Menu item values are different for each Azure Resource type.|
 |Link label| If specified, this value appears in the grid column. If this value isn't specified, the value of the cell appears. If you want another value to appear, like a heatmap or icon, don't use the link renderer. Instead, use the appropriate renderer and select the **Make this item a link** option. |
-|Open link in Context Blade| If specified, the link is opened as a pop-up "context" view on the right side of the window instead of opening as a full view. |
+|Open link in Context pane| If specified, the link is opened as a pop-up "context" view on the right side of the window instead of opening as a full view. |
 
 When you use the **Make this item a link** option, the following settings are available:
 
@@ -61,7 +62,7 @@ When you use the **Make this item a link** option, the following settings are av
 |Link value comes from| When a cell is displayed as a renderer with a link, this field specifies where the "link" value to be used in the link comes from. You can select from a dropdown of the other columns in the grid. For example, the cell might be a heatmap value. But perhaps you want the link to open the **Resource Overview** for the resource ID in the row. In that case, you would set the link value to come from the **Resource ID** field.
 |View to open| Same as above. |
 |Menu item| Same as above. |
-|Open link in Context Blade| Same as above. |
+|Open link in Context pane| Same as above. |
 
 ## Azure Resource Manager deployment link settings
 
@@ -75,7 +76,7 @@ This section defines where the template should come from and the parameters used
 |:------------- |:-------------|
 |Resource group id comes from| The resource ID is used to manage deployed resources. The subscription is used to manage deployed resources and costs. The resource groups are used like folders to organize and manage all your resources. If this value isn't specified, the deployment will fail. Select from **Cell**, **Column**, **Parameter**, and **Static Value** in [Link sources](#link-sources).|
 |ARM template URI from| The URI to the ARM template itself. The template URI needs to be accessible to the users who will deploy the template. Select from **Cell**, **Column**, **Parameter**, and **Static Value** in [Link sources](#link-sources). For more information, see [Azure quickstart templates](https://azure.microsoft.com/resources/templates/).|
-|ARM Template Parameters|Defines the template parameters used for the template URI defined earlier. These parameters are used to deploy the template on the run page. The grid contains an **Expand** toolbar button to help fill the parameters by using the names defined in the template URI and set to static empty values. This option can only be used when there are no parameters in the grid and the template URI has been set. The lower section is a preview of what the parameter output looks like. Select **Refresh** to update the preview with current changes. Parameters are typically values. References are something that could point to key vault secrets that the user has access to. <br/><br/> **Template Viewer blade limitation** doesn't render reference parameters correctly and will show up as null/value. As a result, users won't be able to correctly deploy reference parameters from the **Template Viewer** tab.|
+|ARM Template Parameters|Defines the template parameters used for the template URI defined earlier. These parameters are used to deploy the template on the run page. The grid contains an **Expand** toolbar button to help fill the parameters by using the names defined in the template URI and set to static empty values. This option can only be used when there are no parameters in the grid and the template URI has been set. The lower section is a preview of what the parameter output looks like. Select **Refresh** to update the preview with current changes. Parameters are typically values. References are something that could point to key vault secrets that the user has access to. <br/><br/> **Template Viewer pane limitation** doesn't render reference parameters correctly and will show up as null/value. As a result, users won't be able to correctly deploy reference parameters from the **Template Viewer** tab.|
 
 ![Screenshot that shows the Template Settings tab.](./media/workbooks-link-actions/template-settings.png)
 

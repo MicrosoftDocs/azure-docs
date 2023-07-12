@@ -16,6 +16,8 @@ ms.custom: cogserv-non-critical-speech, devx-track-csharp
 
 # Integrate with a client application using Speech SDK
 
+[!INCLUDE [deprecation notice](./includes/custom-commands-retire.md)]
+
 In this article, you learn how to make requests to a published Custom Commands application from the Speech SDK running in an UWP application. In order to establish a connection to the Custom Commands application, you need:
 
 - Publish a Custom Commands application and get an application identifier (App ID)
@@ -120,7 +122,7 @@ Add the code-behind source so that the application works as expected. The code-b
 - A simple implementation to ensure microphone access, wired to a button handler
 - Basic UI helpers to present messages and errors in the application
 - A landing point for the initialization code path that will be populated later
-- A helper to play back text-to-speech (without streaming support)
+- A helper to play back text to speech (without streaming support)
 - An empty button handler to start listening that will be populated later
 
 Add the code-behind source as follows:
@@ -302,19 +304,19 @@ Add the code-behind source as follows:
 1. Add the following code to the method body of `InitializeDialogServiceConnector`
 
    ```csharp
-   // This code creates the `DialogServiceConnector` with your subscription information.
-   // create a DialogServiceConfig by providing a Custom Commands application id and Cognitive Services subscription key
-   // the RecoLanguage property is optional (default en-US); note that only en-US is supported in Preview
+   // This code creates the `DialogServiceConnector` with your resource information.
+   // create a DialogServiceConfig by providing a Custom Commands application id and Speech resource key
+   // The RecoLanguage property is optional (default en-US); note that only en-US is supported in Preview
    const string speechCommandsApplicationId = "YourApplicationId"; // Your application id
-   const string speechSubscriptionKey = "YourSpeechSubscriptionKey"; // Your subscription key
-   const string region = "YourServiceRegion"; // The subscription service region. 
+   const string speechSubscriptionKey = "YourSpeechSubscriptionKey"; // Your Speech resource key
+   const string region = "YourServiceRegion"; // The Speech resource region. 
 
    var speechCommandsConfig = CustomCommandsConfig.FromSubscription(speechCommandsApplicationId, speechSubscriptionKey, region);
    speechCommandsConfig.SetProperty(PropertyId.SpeechServiceConnection_RecoLanguage, "en-us");
    connector = new DialogServiceConnector(speechCommandsConfig);
    ```
 
-1. Replace the strings `YourApplicationId`, `YourSpeechSubscriptionKey`, and `YourServiceRegion` with your own values for your app, speech subscription, and [region](regions.md)
+1. Replace the strings `YourApplicationId`, `YourSpeechSubscriptionKey`, and `YourServiceRegion` with your own values for your app, speech key, and [region](regions.md)
 
 1. Append the following code snippet to the end of the method body of `InitializeDialogServiceConnector`
 
@@ -357,7 +359,7 @@ Add the code-behind source as follows:
    // once audio capture is completed
    connector.Recognized += (sender, recognitionEventArgs) =>
    {
-       NotifyUser($"Final speech-to-text result: '{recognitionEventArgs.Result.Text}'");
+       NotifyUser($"Final speech to text result: '{recognitionEventArgs.Result.Text}'");
    };
 
    // SessionStarted will notify when audio begins flowing to the service for a turn

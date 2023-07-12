@@ -6,17 +6,17 @@ author: PatAltimore
 ms.service: iot-edge
 services: iot-edge
 ms.topic: conceptual
-ms.date: 11/19/2019
+ms.date: 09/22/2022
 ms.author: patricka
 ---
 
 # Connect Modbus TCP devices through an IoT Edge device gateway
 
-[!INCLUDE [iot-edge-version-all-supported](../../includes/iot-edge-version-all-supported.md)]
+[!INCLUDE [iot-edge-version-all-supported](includes/iot-edge-version-all-supported.md)]
 
 If you want to connect IoT devices that use Modbus TCP or RTU protocols to an Azure IoT hub, you can use an IoT Edge device as a gateway. The gateway device reads data from your Modbus devices, then communicates that data to the cloud using a supported protocol.
 
-![Modbus devices connect to IoT Hub through IoT Edge gateway](./media/deploy-modbus-gateway/diagram.png)
+:::image type="content" source="./media/deploy-modbus-gateway/diagram.png" alt-text="Screenshot of Modbus devices that connect to IoT Hub through IoT Edge gateway.":::
 
 This article covers how to create your own container image for a Modbus module (or you can use a prebuilt sample) and then deploy it to the IoT Edge device that will act as your gateway.
 
@@ -32,7 +32,7 @@ This article assumes that you're using Modbus TCP protocol. For more information
 
 If you want to test the Modbus gateway functionality, Microsoft has a sample module that you can use. You can access the module from the Azure Marketplace, [Modbus](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft_iot.edge-modbus?tab=Overview), or with the image URI, `mcr.microsoft.com/azureiotedge/modbus:1.0`.
 
-If you want to create your own module and customize it for your environment, there is an open-source [Azure IoT Edge Modbus module](https://github.com/Azure/iot-edge-modbus) project on GitHub. Follow the guidance in that project to create your own container image. To create a container image, refer to [Develop C# modules in Visual Studio](./how-to-visual-studio-develop-module.md) or [Develop modules in Visual Studio Code](how-to-vs-code-develop-module.md). Those articles provide instructions on creating new modules and publishing container images to a registry.
+If you want to create your own module and customize it for your environment, there is an open-source [Azure IoT Edge Modbus module](https://github.com/Azure/iot-edge-modbus) project on GitHub. Follow the guidance in that project to create your own container image. To create a container image, refer to [Develop C# modules in Visual Studio](./how-to-visual-studio-develop-module.md) or [Develop Azure IoT Edge modules using Visual Studio Code](tutorial-develop-for-linux.md). Those articles provide instructions on creating new modules and publishing container images to a registry.
 
 ## Try the solution
 
@@ -40,7 +40,7 @@ This section walks through deploying Microsoft's sample Modbus module to your Io
 
 1. On the [Azure portal](https://portal.azure.com/), go to your IoT hub.
 
-2. Go to **IoT Edge** and click on your IoT Edge device.
+2. Go to **Devices** and select your IoT Edge device.
 
 3. Select **Set modules**.
 

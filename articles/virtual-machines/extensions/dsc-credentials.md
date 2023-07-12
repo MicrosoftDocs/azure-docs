@@ -6,16 +6,17 @@ ms.service: virtual-machines
 ms.subservice: extensions
 author: bobbytreed
 ms.author: robreed
+ms.reviewer: erd
 ms.collection: windows
-ms.date: 05/02/2018
-ms.custom: devx-track-azurepowershell
-
+ms.date: 03/06/2023
+ms.custom:
 ---
 # Pass credentials to the Azure DSCExtension handler
 
 This article covers the Desired State Configuration (DSC) extension for Azure. For an overview of the DSC extension handler, see [Introduction to the Azure Desired State Configuration extension handler](dsc-overview.md).
 
-
+> [!NOTE]
+> Before you enable the DSC extension, we would like you to know that a newer version of DSC is now generally available, managed by a feature of Azure Automange named [machine configuration](../../governance/machine-configuration/overview.md). The machine configuration feature combines features of the Desired State Configuration (DSC) extension handler, Azure Automation State Configuration, and the most commonly requested features from customer feedback. Machine configuration also includes hybrid machine support through [Arc-enabled servers](../../azure-arc/servers/overview.md).
 
 ## Pass in credentials
 

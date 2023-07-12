@@ -5,18 +5,23 @@ description: Learn how to configure Bastion to use Kerberos authentication via t
 author: cherylmc
 ms.service: bastion
 ms.topic: how-to
-ms.date: 08/03/2022
+ms.date: 06/12/2023
 ms.author: cherylmc
 
 ---
 
-# How to configure Bastion for Kerberos authentication using the Azure portal (Preview)
+# Configure Bastion for Kerberos authentication using the Azure portal
 
 This article shows you how to configure Azure Bastion to use Kerberos authentication. Kerberos authentication can be used with both the Basic and the Standard Bastion SKUs. For more information about Kerberos authentication, see the [Kerberos authentication overview](/windows-server/security/kerberos/kerberos-authentication-overview). For more information about Azure Bastion, see [What is Azure Bastion?](bastion-overview.md)
 
-> [!NOTE]
-> During Preview, the Kerberos setting for Azure Bastion can be configured in the Azure portal only.
->
+## Considerations
+
+* The Kerberos setting for Azure Bastion can be configured in the Azure portal only and not with native client.
+* VMs migrated from on-premises to Azure are not currently supported for Kerberos. 
+* Cross-realm authentication is not currently supported for Kerberos. 
+* Changes to DNS server are not currently supported for Kerberos. After making any changes to DNS server, you will need to delete and re-create the Bastion resource.
+* If additional DC (domain controllers) are added, Bastion will only recognize the first DC.
+* If additional DCs are added for different domains, the added domains cannot successfully authenticate with Kerberos.
 
 ## Prerequisites
 
@@ -55,6 +60,9 @@ In this section, the following steps help you modify your virtual network and ex
 
 ## To verify Bastion is using Kerberos
 
+> [!NOTE] 
+> You must use the User Principal Name (UPN) to sign in using Kerberos.
+
 Once you have enabled Kerberos on your Bastion resource, you can verify that it's actually using Kerberos for authentication to the target domain-joined VM.
 
 1. Sign into the target VM (either via Bastion or not). Search for "Edit Group Policy" from the taskbar and open the **Local Group Policy Editor**.
@@ -62,6 +70,371 @@ Once you have enabled Kerberos on your Bastion resource, you can verify that it'
 1. Find the policy **Networking security: Restrict NTLM: Incoming NTLM Traffic** and set it to **Deny all domain accounts**. Because Bastion uses NTLM for authentication when Kerberos is disabled, this setting ensures that NTLM-based authentication is unsuccessful for future sign-in attempts on the VM.
 1. End the VM session.
 1. Connect to the target VM again using Bastion. Sign-in should succeed, indicating that Bastion used Kerberos (and not NTLM) for authentication.
+
+## Quickstart: Setup Bastion with Kerberos - Resource Manager template
+
+### Review the template
+
+```
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "location": {
+      "defaultValue": "[resourceGroup().location]",
+      "type": "string"
+    },
+    "defaultNsgName": {
+      "type": "string",
+      "defaultValue": "Default-nsg"
+    },
+    "VnetName": {
+      "type": "string",
+      "defaultValue": "myVnet"
+    },
+    "ClientVMName": {
+      "defaultValue": "Client-vm",
+      "type": "string"
+    },
+    "ServerVMName": {
+      "defaultValue": "Server-vm",
+      "type": "string"
+    },
+    "vmsize": {
+      "defaultValue": "Standard_DS1_v2",
+      "type": "string",
+      "metadata": {
+        "description": "VM SKU to deploy"
+      }
+    },
+    "ServerVMUsername": {
+      "type": "string",
+      "defaultValue": "serveruser",
+      "metadata": {
+        "description": "Admin username on all VMs."
+      }
+    },
+    "ServerVMPassword": {
+      "type": "securestring",
+      "metadata": {
+        "description": "Admin password on all VMs."
+      }
+    },
+    "SafeModeAdministratorPassword": {
+      "type": "securestring",
+      "metadata": {
+        "description": "See https://learn.microsoft.com/en-us/powershell/module/addsdeployment/install-addsdomaincontroller?view=windowsserver2022-ps#-safemodeadministratorpassword"
+      }
+    },
+    "ClientVMUsername": {
+      "type": "string",
+      "defaultValue": "clientuser",
+      "metadata": {
+        "description": "username on ClientVM."
+      }
+    },
+    "ClientVMPassword": {
+      "type": "securestring",
+      "metadata": {
+        "description": "password on ClientVM."
+      }
+    },
+    "ServerVmImage": {
+      "type": "object",
+      "defaultValue": {
+        "offer": "WindowsServer",
+        "publisher": "MicrosoftWindowsServer",
+        "sku": "2019-Datacenter",
+        "version": "latest"
+      }
+    },
+    "ClientVmImage": {
+      "type": "object",
+      "defaultValue": {
+        "offer": "Windows",
+        "publisher": "microsoftvisualstudio",
+        "sku": "Windows-10-N-x64",
+        "version": "latest"
+      }
+    },
+    "publicIPAllocationMethod": {
+      "type": "string",
+      "defaultValue": "Static"
+    },
+    "BastionName": {
+      "defaultValue": "Bastion",
+      "type": "string"
+    },
+    "BastionPublicIPName": {
+        "defaultValue": "Bastion-ip",
+        "type": "string"
+    }
+  },
+  "variables": {
+    "DefaultSubnetId": "[concat(resourceId('Microsoft.Network/virtualNetworks', parameters('VnetName')), '/subnets/default')]",
+    "ClientVMSubnetId": "[concat(resourceId('Microsoft.Network/virtualNetworks', parameters('VnetName')), '/subnets/clientvm-subnet')]",
+    "DNSServerIpAddress": "10.16.0.4",
+    "ClientVMPrivateIpAddress": "10.16.1.4"
+  },
+  "resources": [
+    {
+      "apiVersion": "2020-03-01",
+      "name": "[parameters('VnetName')]",
+      "type": "Microsoft.Network/virtualNetworks",
+      "location": "[parameters('location')]",
+      "properties": {
+        "dhcpOptions": {
+          "dnsServers": [ "[variables('DNSServerIpAddress')]" ]
+        },
+        "subnets": [
+          {
+            "name": "default",
+            "properties": {
+              "addressPrefix": "10.16.0.0/24"
+            }
+          },
+          {
+            "name": "clientvm-subnet",
+            "properties": {
+              "addressPrefix": "10.16.1.0/24"
+            }
+          },
+          {
+            "name": "AzureBastionSubnet",
+            "properties": {
+              "addressPrefix": "10.16.2.0/24"
+            }
+          }
+        ],
+        "addressSpace": {
+          "addressPrefixes": [
+            "10.16.0.0/16"
+          ]
+        }
+      }
+    },
+    {
+      "type": "Microsoft.Network/networkInterfaces",
+      "apiVersion": "2018-10-01",
+      "name": "[concat(parameters('ServerVMName'), 'Nic')]",
+      "location": "[parameters('location')]",
+      "dependsOn": [
+        "[concat('Microsoft.Network/virtualNetworks/', parameters('VnetName'))]"
+      ],
+      "properties": {
+        "ipConfigurations": [
+          {
+            "name": "[concat(parameters('ServerVMName'), 'NicIpConfig')]",
+            "properties": {
+              "privateIPAllocationMethod": "Static",
+              "privateIPAddress": "[variables('DNSServerIpAddress')]",
+              "subnet": {
+                "id": "[variables('DefaultSubnetId')]"
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "type": "Microsoft.Compute/virtualMachines",
+      "apiVersion": "2020-06-01",
+      "name": "[parameters('ServerVMName')]",
+      "location": "[parameters('location')]",
+      "dependsOn": [
+        "[concat('Microsoft.Network/networkInterfaces/', parameters('ServerVMName'), 'Nic')]"
+      ],
+      "properties": {
+        "hardwareProfile": {
+          "vmSize": "[parameters('vmSize')]"
+        },
+        "osProfile": {
+          "AdminUsername": "[parameters('ServerVMUsername')]",
+          "AdminPassword": "[parameters('ServerVMPassword')]",
+          "computerName": "[parameters('ServerVMName')]"
+        },
+        "storageProfile": {
+          "imageReference": "[parameters('ServerVmImage')]",
+          "osDisk": {
+            "createOption": "FromImage",
+            "managedDisk": {
+              "storageAccountType": "Standard_LRS"
+            }
+          }
+        },
+        "networkProfile": {
+          "networkInterfaces": [
+            {
+              "id": "[ResourceId('Microsoft.Network/networkInterfaces/', concat(parameters('ServerVMName'), 'Nic'))]"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "type": "Microsoft.Compute/virtualMachines/extensions",
+      "apiVersion": "2021-04-01",
+      "name": "[concat(parameters('ServerVMName'),'/', 'PromoteToDomainController')]",
+      "location": "[parameters('location')]",
+      "dependsOn": [
+        "[concat('Microsoft.Compute/virtualMachines/',parameters('ServerVMName'))]"
+      ],
+      "properties": {
+        "publisher": "Microsoft.Compute",
+        "type": "CustomScriptExtension",
+        "typeHandlerVersion": "1.7",
+        "autoUpgradeMinorVersion": true,
+        "settings": {
+          "commandToExecute": "[concat('powershell.exe -Command \"Install-windowsfeature AD-domain-services; Import-Module ADDSDeployment;$Secure_String_Pwd = ConvertTo-SecureString ',parameters('SafeModeAdministratorPassword'),' -AsPlainText -Force; Install-ADDSForest -DomainName \"bastionkrb.test\" -SafeModeAdministratorPassword $Secure_String_Pwd -Force:$true')]"
+          }
+      }
+    },
+    {
+      "type": "Microsoft.Network/networkInterfaces",
+      "apiVersion": "2018-10-01",
+      "name": "[concat(parameters('ClientVMName'), 'Nic')]",
+      "location": "[parameters('location')]",
+      "dependsOn": [
+        "[concat('Microsoft.Network/virtualNetworks/', parameters('VnetName'))]",
+        "[concat('Microsoft.Compute/virtualMachines/', parameters('ServerVMName'))]"
+      ],
+      "properties": {
+        "ipConfigurations": [
+          {
+            "name": "[concat(parameters('ClientVMName'), 'NicIpConfig')]",
+            "properties": {
+              "privateIPAllocationMethod": "Static",
+              "privateIPAddress": "[variables('ClientVMPrivateIpAddress')]",
+              "subnet": {
+                "id": "[variables('ClientVMSubnetId')]"
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "type": "Microsoft.Compute/virtualMachines",
+      "apiVersion": "2020-06-01",
+      "name": "[parameters('ClientVMName')]",
+      "location": "[parameters('location')]",
+      "dependsOn": [
+        "[concat('Microsoft.Network/networkInterfaces/', parameters('ClientVMName'), 'Nic')]"
+      ],
+      "properties": {
+        "hardwareProfile": {
+          "vmSize": "[parameters('vmSize')]"
+        },
+        "osProfile": {
+          "AdminUsername": "[parameters('ClientVMUsername')]",
+          "AdminPassword": "[parameters('ClientVMPassword')]",
+          "computerName": "[parameters('ClientVMName')]"
+        },
+        "storageProfile": {
+          "imageReference": "[parameters('ClientVmImage')]",
+          "osDisk": {
+            "createOption": "FromImage",
+            "managedDisk": {
+              "storageAccountType": "Standard_LRS"
+            }
+          }
+        },
+        "networkProfile": {
+          "networkInterfaces": [
+            {
+              "id": "[ResourceId('Microsoft.Network/networkInterfaces/', concat(parameters('ClientVMName'), 'Nic'))]"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "type": "Microsoft.Compute/virtualMachines/extensions",
+      "apiVersion": "2021-04-01",
+      "name": "[concat(parameters('ClientVMName'),'/', 'DomainJoin')]",
+      "location": "[parameters('location')]",
+      "dependsOn": [
+        "[concat('Microsoft.Compute/virtualMachines/',parameters('ClientVMName'))]",
+        "[concat('Microsoft.Compute/virtualMachines/', parameters('ServerVMName'),'/extensions/', 'PromoteToDomainController')]",
+        "[concat('Microsoft.Network/bastionHosts/', parameters('BastionName'))]"
+      ],
+      "properties": {
+        "publisher": "Microsoft.Compute",
+        "type": "CustomScriptExtension",
+        "typeHandlerVersion": "1.7",
+        "autoUpgradeMinorVersion": true,
+        "settings": {
+          "commandToExecute": "[concat('powershell.exe -Command Set-ItemProperty -Path HKLM:\\SYSTEM\\CurrentControlSet\\Control\\Lsa\\MSV1_0\\ -Name RestrictReceivingNTLMTraffic -Value 1; $Pass= ConvertTo-SecureString -String ',parameters('ServerVMPassword'),' -AsPlainText -Force; $Credential = New-Object -TypeName System.Management.Automation.PSCredential -ArgumentList \"AD\\serveruser\", $Pass; do { try { $joined = add-computer -computername Client-vm -domainname bastionkrb.test –credential $Credential -passthru -restart –force; } catch {}} while ($joined.HasSucceeded -ne $true)')]"
+          }
+      }
+    },
+    {
+      "apiVersion": "2020-11-01",
+      "type": "Microsoft.Network/publicIPAddresses",
+      "name": "[parameters('BastionPublicIPName')]",
+      "location": "[resourceGroup().location]",
+      "sku": {
+        "name": "Standard"
+      },
+      "properties": {
+        "publicIPAllocationMethod": "Static"
+      },
+      "tags": {}
+    },
+    {
+        "type": "Microsoft.Network/bastionHosts",
+        "apiVersion": "2020-11-01",
+        "name": "[parameters('BastionName')]",
+        "location": "[resourceGroup().location]",
+        "dependsOn": [
+            "[concat('Microsoft.Network/virtualNetworks/', parameters('VnetName'))]",
+            "[concat('Microsoft.Network/publicIpAddresses/', parameters('BastionPublicIPName'))]"
+        ],
+        "sku": {
+            "name": "Standard"
+        },
+        "properties": {
+            "enableKerberos": "true",
+            "ipConfigurations": [
+                {
+                    "name": "IpConf",
+                    "properties": {
+                        "privateIPAllocationMethod": "Dynamic",
+                        "publicIPAddress": {
+                            "id": "[resourceId('Microsoft.Network/publicIpAddresses', parameters('BastionPublicIPName'))]"
+                        },
+                        "subnet": {
+                            "id": "[concat(resourceId('Microsoft.Network/virtualNetworks', parameters('VnetName')), '/subnets/AzureBastionSubnet')]"
+                        }
+                    }
+                }
+            ]
+        }
+    }
+  ]
+}
+```
+
+The following resources have been defined in the template:
+- Deploys the following Azure resources: 
+  - [**Microsoft.Network/virtualNetworks**](/azure/templates/microsoft.network/virtualnetworks): create an Azure virtual network.
+  - [**Microsoft.Network/bastionHosts**](/azure/templates/microsoft.network/bastionHosts): create a Standard SKU Bastion with a public IP and Kerberos feature enabled
+  - Create a Windows 10 ClientVM and a Windows Server 2019 ServerVM
+- Have the DNS Server of the VNET point to the private IP address of the ServerVM (domain controller).
+- Runs a Custom Script Extension on the ServerVM to promote it to a domain controller with domain name: `bastionkrb.test`.
+- Runs a Custom Script Extension on the ClientVM to have it: 
+  - **Restrict NTLM: Incoming NTLM traffic** = Deny all domain accounts (this is to ensure Kerberos is used for authentication).
+  - Domain-join the `bastionkrb.test` domain.
+
+## Deploy the template
+To setup Kerberos, deploy the ARM template above by running the following PS cmd: 
+```
+New-AzResourceGroupDeployment -ResourceGroupName <your-rg-name> -TemplateFile "<path-to-template>\KerberosDeployment.json"`
+```
+## Review deployed resources
+Now, login to ClientVM using Bastion with Kerberos authentication:
+- credentials: username = `serveruser@bastionkrb.test` and password = `<password-entered-during-deployment>`.
+
 
 ## Next steps
 

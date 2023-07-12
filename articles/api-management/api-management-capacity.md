@@ -31,7 +31,7 @@ To follow the steps in this article, you must have:
 
 + An API Management instance. For more information, see [Create an Azure API Management instance](get-started-create-service-instance.md).
 
-[!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
+[!INCLUDE [availability-capacity.md](../../includes/api-management-availability-capacity.md)]
 
 ## What is capacity
 

@@ -4,19 +4,19 @@ titleSuffix: Azure Machine Learning
 description: Learn how to train and register a Keras deep neural network classification model running on TensorFlow using Azure Machine Learning SDK (v1).
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: core
-ms.author: larryfr
-author: blackmist
-ms.reviewer: peterlu
-ms.date: 09/28/2020
+ms.subservice: training
+ms.author: balapv
+author: balapv
+ms.reviewer: mopeakande
+ms.date: 11/04/2022
 ms.topic: how-to
-ms.custom: sdkv1, event-tier1-build-2022
+ms.custom: UpdateFrequency5, sdkv1, event-tier1-build-2022
 #Customer intent: As a Python Keras developer, I need to combine open-source with a cloud platform to train, evaluate, and deploy my deep learning models at scale.
 ---
 
 # Train Keras models at scale with Azure Machine Learning (SDK v1)
 
-[!INCLUDE [sdk v1](../../../includes/machine-learning-sdk-v1.md)]
+[!INCLUDE [sdk v1](../includes/machine-learning-sdk-v1.md)]
 
 In this article, learn how to run your Keras training scripts with Azure Machine Learning.
 
@@ -41,12 +41,12 @@ Run this code on either of these environments:
  - Your own Jupyter Notebook server
 
     - [Install the Azure Machine Learning SDK](/python/api/overview/azure/ml/install) (>= 1.15.0).
-    - [Create a workspace configuration file](../how-to-configure-environment.md#workspace).
+    - [Create a workspace configuration file](how-to-configure-environment.md).
     - [Download the sample script files](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/ml-frameworks/keras/train-hyperparameter-tune-deploy-with-keras) `keras_mnist.py` and `utils.py`
 
     You can also find a completed [Jupyter Notebook version](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/ml-frameworks/keras/train-hyperparameter-tune-deploy-with-keras/train-hyperparameter-tune-deploy-with-keras.ipynb) of this guide on the GitHub samples page. The notebook includes expanded sections covering intelligent hyperparameter tuning, model deployment, and notebook widgets.
 
-[!INCLUDE [gpu quota](../../../includes/machine-learning-gpu-quota-prereq.md)]
+[!INCLUDE [gpu quota](../includes/machine-learning-gpu-quota-prereq.md)]
 
 ## Set up the experiment
 
@@ -105,7 +105,7 @@ dataset = dataset.register(workspace=ws,
 
 Create a compute target for your training job to run on. In this example, create a GPU-enabled Azure Machine Learning compute cluster.
 
-[!INCLUDE [gpu quota](../../../includes/machine-learning-gpu-quota.md)]
+[!INCLUDE [gpu quota](../includes/machine-learning-gpu-quota.md)]
 
 ```Python
 cluster_name = "gpu-cluster"
@@ -123,13 +123,13 @@ except ComputeTargetException:
     compute_target.wait_for_completion(show_output=True, min_node_count=None, timeout_in_minutes=20)
 ```
 
-[!INCLUDE [low-pri-note](../../../includes/machine-learning-low-pri-vm.md)]
+[!INCLUDE [low-pri-note](../includes/machine-learning-low-pri-vm.md)]
 
 For more information on compute targets, see the [what is a compute target](../concept-compute-target.md) article.
 
 ### Define your environment
 
-Define the Azure ML [Environment](../concept-environments.md) that encapsulates your training script's dependencies.
+Define the Azure Machine Learning [Environment](../concept-environments.md) that encapsulates your training script's dependencies.
 
 First, define your conda dependencies in a YAML file; in this example the file is named `conda_dependencies.yml`.
 
@@ -137,7 +137,7 @@ First, define your conda dependencies in a YAML file; in this example the file i
 channels:
 - conda-forge
 dependencies:
-- python=3.6.2
+- python=3.7
 - pip:
   - azureml-defaults
   - tensorflow-gpu==2.0.0
@@ -145,9 +145,9 @@ dependencies:
   - matplotlib
 ```
 
-Create an Azure ML environment from this conda environment specification. The environment will be packaged into a Docker container at runtime.
+Create an Azure Machine Learning environment from this conda environment specification. The environment will be packaged into a Docker container at runtime.
 
-By default if no base image is specified, Azure ML will use a CPU image `azureml.core.environment.DEFAULT_CPU_IMAGE` as the base image. Since this example runs training on a GPU cluster, you will need to specify a GPU base image that has the necessary GPU drivers and dependencies. Azure ML maintains a set of base images published on Microsoft Container Registry (MCR) that you can use, see the [Azure/AzureML-Containers](https://github.com/Azure/AzureML-Containers) GitHub repo for more information.
+By default if no base image is specified, Azure Machine Learning will use a CPU image `azureml.core.environment.DEFAULT_CPU_IMAGE` as the base image. Since this example runs training on a GPU cluster, you will need to specify a GPU base image that has the necessary GPU drivers and dependencies. Azure Machine Learning maintains a set of base images published on Microsoft Container Registry (MCR) that you can use, see the [Azure/AzureML-Containers](https://github.com/Azure/AzureML-Containers) GitHub repo for more information.
 
 ```python
 keras_env = Environment.from_conda_specification(name='keras-env', file_path='conda_dependencies.yml')
@@ -173,7 +173,7 @@ dataset.to_path()
 
 Create a ScriptRunConfig object to specify the configuration details of your training job, including your training script, environment to use, and the compute target to run on.
 
-Any arguments to your training script will be passed via command line if specified in the `arguments` parameter. The DatasetConsumptionConfig for our FileDataset is passed as an argument to the training script, for the `--data-folder` argument. Azure ML will resolve this DatasetConsumptionConfig to the mount-point of the backing datastore, which can then be accessed from the training script.
+Any arguments to your training script will be passed via command line if specified in the `arguments` parameter. The DatasetConsumptionConfig for our FileDataset is passed as an argument to the training script, for the `--data-folder` argument. Azure Machine Learning will resolve this DatasetConsumptionConfig to the mount-point of the backing datastore, which can then be accessed from the training script.
 
 ```python
 from azureml.core import ScriptRunConfig
@@ -194,7 +194,7 @@ src = ScriptRunConfig(source_directory=script_folder,
 For more information on configuring jobs with ScriptRunConfig, see [Configure and submit training runs](how-to-set-up-training-targets.md).
 
 > [!WARNING]
-> If you were previously using the TensorFlow estimator to configure your Keras training jobs, please note that Estimators have been deprecated as of the 1.19.0 SDK release. With Azure ML SDK >= 1.15.0, ScriptRunConfig is the recommended way to configure training jobs, including those using deep learning frameworks. For common migration questions, see the [Estimator to ScriptRunConfig migration guide](how-to-migrate-from-estimators-to-scriptrunconfig.md).
+> If you were previously using the TensorFlow estimator to configure your Keras training jobs, please note that Estimators have been deprecated as of the 1.19.0 SDK release. With Azure Machine Learning SDK >= 1.15.0, ScriptRunConfig is the recommended way to configure training jobs, including those using deep learning frameworks. For common migration questions, see the [Estimator to ScriptRunConfig migration guide](how-to-migrate-from-estimators-to-scriptrunconfig.md).
 
 ### Submit your run
 

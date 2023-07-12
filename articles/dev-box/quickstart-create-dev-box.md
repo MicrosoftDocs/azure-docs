@@ -1,83 +1,80 @@
 ---
-title: Create a Microsoft Dev Box
-description: This quickstart shows you how to create a Microsoft Dev Box and connect to it through a browser.
+title: 'Quickstart: Create a dev box'
+titleSuffix: Microsoft Dev Box
+description: In this quickstart, you learn how to create a dev box and connect to it through a browser.
 services: dev-box
 ms.service: dev-box
 ms.topic: quickstart
 author: RoseHJM
 ms.author: rosemalcolm
-ms.date: 07/29/2022
+ms.date: 04/25/2023
+#Customer intent: As a dev box user, I want to understand how to create and access a dev box so that I can start work.
 ---
-<!-- 
-  Customer intent:
-	As a Dev Box User I want to understand how to create and access a dev box so that I can start work.
- -->
 
 # Quickstart: Create a dev box by using the developer portal
 
-Get started with Microsoft Dev Box by creating a dev box through the developer portal. After creating the dev box, you connect to it with a remote desktop (RD) session through a browser, or through a remote desktop app. 
+In this quickstart, you get started with Microsoft Dev Box by creating a dev box through the developer portal. After you create the dev box, you can connect to it with a Remote Desktop session through a browser or through a Remote Desktop app.
 
-You can create and manage multiple dev boxes as a dev box user. Create a dev box for each task that you're working on, and create multiple dev boxes within a single project to help streamline your workflow. 
-
-In this quickstart, you will:
-
-* [Create a dev box](#create-a-dev-box)
-* [Connect to a dev box](#connect-to-a-dev-box)
+You can create and manage multiple dev boxes as a dev box user. Create a dev box for each task that you're working on, and create multiple dev boxes within a single project to help streamline your workflow.
 
 ## Prerequisites
 
-- Permissions as a [Dev Box User](./quickstart-configure-dev-box-project.md#provide-access-to-a-dev-box-project) for a project that has an available dev box pool. If you don't have permissions to a project, contact your administrator.
+To complete this quickstart, you need:
+
+- Permissions as a [Dev Box User](quickstart-configure-dev-box-service.md#6-provide-access-to-a-dev-box-project) for a project that has an available dev box pool. If you don't have permissions to a project, contact your administrator.
 
 ## Create a dev box
 
 1. Sign in to the [developer portal](https://aka.ms/devbox-portal).
 
 2. Select **+ Add dev box**.
-   :::image type="content" source="./media/quickstart-create-dev-box/dev-portal-welcome.png" alt-text="Screenshot of the developer portal showing the Add dev box button.":::
+
+   :::image type="content" source="./media/quickstart-create-dev-box/dev-portal-welcome.png" alt-text="Screenshot of the developer portal and the button for adding a dev box.":::
 
 3. In **Add a dev box**, enter the following values:
 
    |Name|Value|
    |----|----|
-   |**Name**|A name for your dev box. Dev box names must be unique within a project.|
+   |**Name**|Enter a name for your dev box. Dev box names must be unique within a project.|
    |**Project**|Select a project from the dropdown list. |
-   |**Dev box pool**|Select a pool from the dropdown list. The dev box pool dropdown lists all the dev box pools for the selected project. |
- 
-   :::image type="content" source="./media/quickstart-create-dev-box/add-dev-box.png" alt-text="Screenshot of the Add a dev box dialog box.":::
+   |**Dev box pool**|Select a pool from the dropdown list, which includes all the dev box pools for that project. |
 
-4. Select **Add** to begin creating your dev box. 
+   :::image type="content" source="./media/quickstart-create-dev-box/add-dev-box.png" alt-text="Screenshot of the dialog for adding a dev box.":::
 
-5. You can track the progress of creation in the developer portal home page. 
+4. Select **Add** to begin creating your dev box.
 
-   :::image type="content" source="./media/quickstart-create-dev-box/dev-portal-creating.png" alt-text="Screenshot of the developer portal showing the dev box card with the status Creating.":::
+5. Use the home page of the developer portal to track the progress of creation.
 
-[!INCLUDE [dev box runs on creation note](./includes/note-dev-box-runs-on-creation.md)]   
+   :::image type="content" source="./media/quickstart-create-dev-box/dev-portal-creating.png" alt-text="Screenshot of the developer portal that shows the dev box card with a status of Creating.":::
+
+[!INCLUDE [dev box runs on creation note](./includes/note-dev-box-runs-on-creation.md)]
+
 ## Connect to a dev box
-Once you've provisioned your dev box, you can access it in multiple ways. 
 
-### Browser
-
-For quick access in a browser tab, the developer portal links directly to a browser session through which you can connect to and use your dev box.
+After you provision a dev box, one way to access it quickly is through a browser:
 
 1. Sign in to the [developer portal](https://aka.ms/devbox-portal).
 
-1. To connect to a dev box, select **Open in browser**.
+1. Select **Open in browser**.
 
-   :::image type="content" source="./media/quickstart-create-dev-box/dev-portal-card-rdp.png" alt-text="Screenshot of dev box card showing the Open in browser option.":::
+   :::image type="content" source="./media/quickstart-create-dev-box/dev-portal-card-rdp.png" alt-text="Screenshot of dev box card that shows the option for opening in a browser.":::
 
-A new tab will open with an RD session to your dev box.
+A new tab opens with a Remote Desktop session through which you can use your dev box.
 
 ## Clean up resources
 
-When no longer needed, you can delete your dev box.
+When you no longer need your dev box, you can delete it:
+
 1. Sign in to the [developer portal](https://aka.ms/devbox-portal).
 
-1. For the dev box you want to delete, from the setting menu, select **Delete**.
-   :::image type="content" source="./media/quickstart-create-dev-box/dev-portal-delete-dev-box.png" alt-text="Screenshot of the dev box Settings menu with the Delete option highlighted."::: 
+1. For the dev box you that you want to delete, from the **Actions** menu, select **Delete**.
+
+   :::image type="content" source="./media/quickstart-create-dev-box/dev-portal-delete-dev-box.png" alt-text="Screenshot of the menu command for deleting a dev box.":::
 
 1. To confirm the deletion, select **Delete**.
-   :::image type="content" source="./media/quickstart-create-dev-box/dev-portal-delete-dev-box-confirm.png" alt-text="Screenshot of the Delete dev box confirmation message with the Delete button highlighted.":::  
+
+   :::image type="content" source="./media/quickstart-create-dev-box/dev-portal-delete-dev-box-confirm.png" alt-text="Screenshot of the Delete button in the confirmation message about deleting a dev box."::: 
 
 ## Next steps
 
-In this quickstart, you created a dev box through the developer portal. To learn how to connect to a dev box using a remote desktop app, see [Tutorial: Use the Remote Desktop client to connect to a dev box](./tutorial-connect-to-dev-box-with-remote-desktop-app.md).
+In this quickstart, you created a dev box through the developer portal and connected to it by using a browser. To learn how to connect to a dev box by using a Remote Desktop app, see [Tutorial: Use a Remote Desktop client to connect to a dev box](./tutorial-connect-to-dev-box-with-remote-desktop-app.md).

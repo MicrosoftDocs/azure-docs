@@ -1,16 +1,16 @@
 ---
-title: 'Tutorial: Configure Whimsical for automatic user provisioning with Azure Active Directory | Microsoft Docs'
+title: 'Tutorial: Configure Whimsical for automatic user provisioning with Azure Active Directory'
 description: Learn how to automatically provision and de-provision user accounts from Azure AD to Whimsical.
 services: active-directory
 author: twimmers
 writer: twimmers
-manager: beatrizd
+manager: jeedes
 ms.assetid: 4457a724-ed81-4f7b-bb3e-70beea80cb51
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 05/11/2022
+ms.date: 11/21/2022
 ms.author: thwimmer
 ---
 

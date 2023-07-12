@@ -2,12 +2,13 @@
 title: Outputs in Bicep
 description: Describes how to define output values in Bicep
 ms.topic: conceptual
-ms.date: 02/20/2022
+ms.custom: devx-track-bicep
+ms.date: 09/28/2022
 ---
 
 # Outputs in Bicep
 
-This article describes how to define output values in a Bicep file. You use outputs when you need to return values from the deployed resources.
+This article describes how to define output values in a Bicep file. You use outputs when you need to return values from the deployed resources. You are limited to 64 outputs in a Bicep file. For more information, see [Template limits](../templates/best-practices.md#template-limits).
 
 ## Define output values
 
@@ -142,6 +143,10 @@ az deployment group show \
 ```
 
 ---
+
+## Object sorting in outputs
+
+[!INCLUDE [JSON object ordering](../../../includes/resource-manager-object-ordering-bicep.md)]
 
 ## Next steps
 

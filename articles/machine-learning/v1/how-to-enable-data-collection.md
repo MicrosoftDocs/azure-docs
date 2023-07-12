@@ -10,11 +10,11 @@ ms.author: scottpolly
 author: s-polly
 ms.date: 08/16/2022
 ms.topic: how-to
-ms.custom: data4ml, sdkv1, event-tier1-build-2022
+ms.custom: UpdateFrequency5, data4ml, sdkv1, event-tier1-build-2022
 ---
 # Collect data from models in production
 
-[!INCLUDE [sdk v1](../../../includes/machine-learning-sdk-v1.md)]
+[!INCLUDE [sdk v1](../includes/machine-learning-sdk-v1.md)]
 
 This article shows how to collect data from an Azure Machine Learning model deployed on an Azure Kubernetes Service (AKS) cluster. The collected data is then stored in Azure Blob storage.
 
@@ -27,6 +27,24 @@ Once collection is enabled, the data you collect helps you:
 * Make better decisions about when to retrain or optimize your model.
 
 * Retrain your model with the collected data.
+
+## Limitations
+
+* The model data collection feature can only work with Ubuntu 18.04 image.
+
+>[!IMPORTANT]
+>
+> As of 03/10/2023, the Ubuntu 18.04 image is now deprecated. **Support for Ubuntu 18.04 images will be dropped starting January 2023 when it reaches EOL on April 30, 2023.** 
+>
+> The MDC feature is incompatible with any other image than Ubuntu 18.04, which is no available after the Ubuntu 18.04 image is deprecated.
+>
+> mMore information you can refer to:
+> * [openmpi3.1.2-ubuntu18.04 release-notes](https://github.com/Azure/AzureML-Containers/blob/master/base/cpu/openmpi3.1.2-ubuntu18.04/release-notes.md)
+> * [data science virtual machine release notes](../data-science-virtual-machine/release-notes.md#september-20-2022)
+
+>[!NOTE]
+>
+> The data collection feature is currently in preview, any preview features are not recommended for production workloads.
 
 ## What is collected and where it goes
 
@@ -56,15 +74,15 @@ The path to the output data in the blob follows this syntax:
 - If you don't have an Azure subscription, create a
  [free account](https://azure.microsoft.com/free/) before you begin.
 
-- An Azure Machine Learning workspace, a local directory containing your scripts, and the Azure Machine Learning SDK for Python must be installed. To learn how to install them, see [How to configure a development environment](../how-to-configure-environment.md).
+- An Azure Machine Learning workspace, a local directory containing your scripts, and the Azure Machine Learning SDK for Python must be installed. To learn how to install them, see [How to configure a development environment](how-to-configure-environment.md).
 
 - You need a trained machine-learning model to be deployed to AKS. If you don't have a model, see the [Train image classification model](../tutorial-train-deploy-notebook.md) tutorial.
 
 - You need an AKS cluster. For information on how to create one and deploy to it, see [Deploy machine learning models to Azure](how-to-deploy-and-where.md).
 
-- [Set up your environment](../how-to-configure-environment.md) and install the [Azure Machine Learning Monitoring SDK](/python/api/overview/azure/ml/install).
+- [Set up your environment](how-to-configure-environment.md) and install the [Azure Machine Learning Monitoring SDK](/python/api/overview/azure/ml/install).
 
-- Use a docker image based on Ubuntu 18.04, which is shipped with `libssl 1.0.0`, the essential dependency of [modeldatacollector](/python/api/azureml-monitoring/azureml.monitoring.modeldatacollector.modeldatacollector). You can refer to [prebuilt images](/azure/machine-learning/concept-prebuilt-docker-images-inference).
+- Use a docker image based on Ubuntu 18.04, which is shipped with `libssl 1.0.0`, the essential dependency of [modeldatacollector](/python/api/azureml-monitoring/azureml.monitoring.modeldatacollector.modeldatacollector). You can refer to [prebuilt images](../concept-prebuilt-docker-images-inference.md).
 
 ## Enable data collection
 

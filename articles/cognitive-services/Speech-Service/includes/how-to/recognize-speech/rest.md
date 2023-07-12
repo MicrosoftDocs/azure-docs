@@ -15,7 +15,7 @@ author: eur
 At a command prompt, run the following command. Insert the following values into the command:
 - Your subscription key for the Speech service.
 - Your Speech service region.
-- The path for input audio files. You can generate audio files by using [text-to-speech](../../../get-started-text-to-speech.md).
+- The path for input audio files. You can generate audio files by using [text to speech](../../../get-started-text-to-speech.md).
 
 ```curl
 curl --location --request POST 'https://INSERT_REGION_HERE.stt.speech.microsoft.com/speech/recognition/conversation/cognitiveservices/v1?language=en-US' \
@@ -35,4 +35,4 @@ You should receive a response with a JSON body like the following one:
 }
 ```
 
-For more information, see the [speech-to-text REST API reference](../../../rest-speech-to-text.md).
+For more information, see the [Speech to text REST API reference](../../../rest-speech-to-text.md).

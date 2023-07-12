@@ -5,22 +5,20 @@ author: linda33wj
 ms.author: jingwang
 ms.service: purview
 ms.subservice: purview-data-map
-ms.topic: how-to #Required; leave this attribute/value as-is.
-ms.date: 05/04/2022
-ms.custom: template-how-to #Required; leave this attribute/value as-is.
+ms.topic: how-to
+ms.date: 04/20/2023
+ms.custom: template-how-to
 ---
 
-# Connect to and manage MongoDB in Microsoft Purview (Preview)
+# Connect to and manage MongoDB in Microsoft Purview
 
 This article outlines how to register MongoDB, and how to authenticate and interact with MongoDB in Microsoft Purview. For more information about Microsoft Purview, read the [introductory article](overview.md).
 
-[!INCLUDE [feature-in-preview](includes/feature-in-preview.md)]
-
 ## Supported capabilities
 
-|**Metadata Extraction**|  **Full Scan**  |**Incremental Scan**|**Scoped Scan**|**Classification**|**Access Policy**|**Lineage**|**Data Sharing**|
-|---|---|---|---|---|---|---|---|
-| [Yes](#register)| [Yes](#scan)| No | [Yes](#scan) | No | No| No | No |
+|**Metadata Extraction**|  **Full Scan**  |**Incremental Scan**|**Scoped Scan**|**Classification**|**Labeling**|**Access Policy**|**Lineage**|**Data Sharing**|
+|---|---|---|---|---|---|---|---|---|
+| [Yes](#register)| [Yes](#scan)| No | [Yes](#scan) | No | No| No| No | No |
 
 The supported MongoDB versions are 2.6 to 5.1.
 
@@ -28,10 +26,16 @@ When scanning MongoDB source, Microsoft Purview supports extracting technical me
 
 - Server
 - Databases
-- Collections
-- Views
+- Collections including the schema
+- Views including the schema
+
+During scan, Microsoft Purview retrieves and analyzes sample documents to infer the collection/view schema. The sample size is configurable.
 
 When setting up scan, you can choose to scan one or more MongoDB database(s) entirely, or further scope the scan to a subset of collections matching the given name(s) or name pattern(s).
+
+### Known limitations
+
+When object is deleted from the data source, currently the subsequent scan won't automatically remove the corresponding asset in Microsoft Purview.
 
 ## Prerequisites
 
@@ -45,7 +49,7 @@ When setting up scan, you can choose to scan one or more MongoDB database(s) ent
 
     * Ensure [JDK 11](https://www.oracle.com/java/technologies/downloads/#java11) is installed on the machine where the self-hosted integration runtime is installed. Restart the machine after you newly install the JDK for it to take effect.
 
-    * Ensure Visual C++ Redistributable for Visual Studio 2012 Update 4 is installed on the self-hosted integration runtime machine. If you don't have this update installed, [you can download it here](https://www.microsoft.com/download/details.aspx?id=30679).
+    * Ensure Visual C++ Redistributable (version Visual Studio 2012 Update 4 or newer) is installed on the self-hosted integration runtime machine. If you don't have this update installed, [you can download it here](/cpp/windows/latest-supported-vc-redist).
 
 ## Register
 
@@ -117,10 +121,7 @@ To create and run a new scan, do the following:
 
         Usage of NOT and special characters aren't acceptable.
 
-    1. **Number of sample documents**: Number of sample documents to be analyzed for schema extraction. Default is 1000.
-
-        > [!NOTE]
-        > Currently, schema extraction is not yet supported.
+    1. **Number of sample documents**: Number of sample documents to be analyzed for schema extraction. Default is 10.
 
     1. **Maximum memory available** (applicable when using self-hosted integration runtime): Maximum memory (in GB) available on customer's VM to be used by scanning processes. It's dependent on the size of MongoDB source to be scanned.
 

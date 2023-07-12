@@ -2,11 +2,11 @@
 title: 'Quickstart: Deploy your first container app using the Azure portal'
 description: Deploy your first application to Azure Container Apps using the Azure portal.
 services: container-apps
-author: cebundy
+author: craigshoemaker
 ms.service: container-apps
 ms.topic: quickstart
 ms.date: 12/13/2021
-ms.author: v-bcatherine
+ms.author: cshoe
 ms.custom: mode-ui, event-tier1-build-2022
 ---
 
@@ -21,9 +21,6 @@ In this quickstart, you create a secure Container Apps environment and deploy yo
 An Azure account with an active subscription is required. If you don't already have one, you can [create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F). Also, please make sure to have the Resource Provider "Microsoft.App" registered.
 
 ## Setup
-
-> [!NOTE]
-> An Azure Container Apps environment can be deployed as a zone redundant resource in regions where support is available. This is a deployment-time only configuration option.
 
 <!-- Create -->
 [!INCLUDE [container-apps-create-portal-steps.md](../../includes/container-apps-create-portal-steps.md)]
@@ -55,4 +52,4 @@ If you're not going to continue to use this application, you can delete the Azur
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Environments in Azure Container Apps](environment.md)
+> [Communication between microservices](communicate-between-microservices.md)

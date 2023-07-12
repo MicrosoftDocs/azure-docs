@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 01/19/2022
+ms.date: 11/21/2022
 ms.author: jeedes
 ---
 # Tutorial: Azure AD SSO integration with Showpad
@@ -76,7 +76,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
     `https://<company-name>.showpad.biz`
     
 	b. In the **Sign on URL** text box, type a URL using the following pattern:
-    `https://<comapany-name>.showpad.biz/login`
+    `https://<company-name>.showpad.biz/login`
 
 	> [!NOTE]
 	> These values are not real. Update these values with the actual Identifier and Sign on URL. Contact [Showpad Client support team](https://help.showpad.com/) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.

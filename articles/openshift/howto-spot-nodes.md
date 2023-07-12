@@ -1,8 +1,8 @@
 ---
 title: Use Azure Spot Virtual Machines in an Azure Red Hat OpenShift (ARO) cluster
 description: Discover how to utilize Azure Spot Virtual Machines in Azure Red Hat OpenShift (ARO)
-author: nilsanderselde
-ms.author: suvetriv
+author: johnmarco
+ms.author: johnmarc
 ms.service: azure-redhat-openshift
 keywords: spot, nodes, aro, deploy, openshift, red hat
 ms.topic: how-to
@@ -19,6 +19,8 @@ Using Azure Spot Virtual Machines allows you to take advantage of our unused cap
 ## Before you begin
 
 Before getting started, ensure that you have an Azure Red Hat Openshift cluster deployed. If you need an ARO cluster, see the [ARO quickstart](tutorial-create-cluster.md) for a public cluster, or the [private cluster tutorial](howto-create-private-cluster-4x.md) for a private cluster. The steps to configure your cluster to use Spot VMs are the same for both private and public clusters.
+
+An ARO cluster should always have at least three worker nodes that are non-Spot VMs, and three control nodes. An ARO cluster can't have any spot VM-based control nodes.
 
 ## Add Spot VMs
 
@@ -50,20 +52,20 @@ aro-cluster-5t2dj-worker-eastus2   1         1         1       1           2d22h
 aro-cluster-5t2dj-worker-eastus3   1         1         1       1           2d22h
 ```
 
-Next, you'll describe the MachineSet deployed. Replace \<machineset\> with one of the MachineSets listed above and output this to a file.
+Next, you'll describe the MachineSet deployed. Replace \<machineset\> with one of the MachineSets listed above and output it to a file.
 
 ```azurecli-interactive
 oc get machineset <machineset> -n openshift-machine-api -o yaml > spotmachineset.yaml
 ```
 
-You will need to change the following parameters in the MachineSet:
+You'll need to change the following parameters in the MachineSet:
 - `metadata.name`
 - `spec.selector.matchLabels.machine.openshift.io/cluster-api-machineset`
 - `spec.template.metadata.labels.machine.openshift.io/cluster-api-machineset`
 - `spec.template.spec.providerSpec.value.spotVMOptions` (Add this field, and set it to `{}`.)
 
 
-An abridged example of Spot MachineSet YAML is below. It highlights the key changes you need to make when basing a new Spot MachineSet on an existing worker MachineSet, including some additional information for context. (It does not represent an entire, functional MachineSet; many fields have been omitted below.)
+Below is an abridged example of Spot MachineSet YAML that highlights the key changes you need to make when basing a new Spot MachineSet on an existing worker MachineSet, including some additional information for context. (The example doesn't represent an entire, functional MachineSet; many fields have been omitted below.)
 
 ```
 apiVersion: machine.openshift.io/v1beta1
@@ -100,7 +102,7 @@ To validate that your MachineSet has been successfully created, run the followin
 oc get machinesets -n openshift-machine-api
 ```
 
-Here is a sample output. Your Machineset is ready once you have machines in the "Ready" state.
+Here's a sample output. Your Machineset is ready once you have machines in the "Ready" state.
 ```
   NAME                                    DESIRED   CURRENT   READY   AVAILABLE   AGE
 aro-cluster-5t2dj-worker-eastus1           1         1         1       1           3d1h
@@ -111,7 +113,7 @@ spot                                       1         1         1       1        
 
 ## Schedule interruptible workloads
 
-It's recommended to add a taint to the Spot nodes to prevent noninterruptible nodes from being scheduled on them, and to add tolerations of this taint to any pods that you want scheduled on them. You can taint the nodes via the MachineSet spec.
+It's recommended to add a taint to the Spot nodes to prevent non-interruptible nodes from being scheduled on them, and to add tolerations of this taint to any pods you want scheduled on them. You can taint the nodes via the MachineSet spec.
 
 For example, you can add the following YAML to `spec.template.spec`:
 
@@ -122,21 +124,21 @@ For example, you can add the following YAML to `spec.template.spec`:
           value: 'true'
 ```
 
-This would prevent pods from being scheduled on the resultant node unless they had a toleration for `spot='true'` taint, and it would evict any pods lacking that toleration.
+This prevents pods from being scheduled on the resultant node unless they had a toleration for `spot='true'` taint, and it would evict any pods lacking that toleration.
 
 To learn more about applying taints and tolerations, read [Controlling pod placement using node taints](https://docs.openshift.com/container-platform/4.7/nodes/scheduling/nodes-scheduler-taints-tolerations.html).
 
 ## Quota
 
-Machines may go into a failed state due to quota issues if the quota for the machine type you are using is too low for a brief moment, even if it should eventually be enough (for example, one node is still deleting when another is being created). Because of this, it's recommended to set quota for the machine type you'll be using for Spot instances to be slightly higher than should be needed (maybe by 2*n, where n is the number of cores used by a machine). This overhead would avoid having to remedy failed machines, which, though relatively simple, is still manual intervention.
+Machines may go into a failed state due to quota issues if the quota for the machine type you're using is too low for a brief moment, even if it should eventually be enough (for example, one node is still deleting when another is being created). Because of this, it's recommended to set quota for the machine type you'll be using for Spot instances to be slightly higher than should be needed (maybe by 2*n, where n is the number of cores used by a machine). This overhead would avoid having to remedy failed machines, which, though relatively simple, is still manual intervention.
 
 ## Node readiness
 
-As is explained in the Spot VM documentation linked above, VMs go into Deallocated provisioning state when they are no longer available, or no longer available at the maximum price specified.
+As is explained in the Spot VM documentation linked above, VMs go into Deallocated provisioning state when they're no longer available, or no longer available at the maximum price specified.
 
 This will manifest itself in OpenShift as **Not Ready** nodes. The machines will remain healthy, in phase **Provisioned as node**.
 
-They will return to being **Ready** once the VMs are available again
+They'll return to being **Ready** once the VMs are available again
 
 ## Troubleshooting
 
@@ -146,4 +148,4 @@ If a node is stuck for a long period of time in Not Ready state after its VM was
 
 ### Spot Machine stuck in Failed state
 
-If a machine (OpenShift object) that uses a Spot VM is stuck in a Failed state, try deleting it manually. If it cannot be deleted due to a 403 because the VM no longer exists, then edit the machine and remove the finalizers.
+If a machine (OpenShift object) that uses a Spot VM is stuck in a Failed state, try deleting it manually. If it can't be deleted due to a 403 because the VM no longer exists, then edit the machine and remove the finalizers.

@@ -1,11 +1,11 @@
 ---
-title: 'Tutorial: Configure CheckProof for automatic user provisioning with Azure Active Directory | Microsoft Docs'
+title: 'Tutorial: Configure CheckProof for automatic user provisioning with Azure Active Directory'
 description: Learn how to automatically provision and de-provision user accounts from Azure AD to CheckProof.
 services: active-directory
 documentationcenter: ''
 author: twimmers
 writer: twimmers
-manager: beatrizd
+manager: jeedes
 
 ms.assetid: b036510b-bf7a-4284-ac17-41a5b10e2b55
 ms.service: active-directory
@@ -13,7 +13,7 @@ ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.topic: tutorial
-ms.date: 06/21/2021
+ms.date: 11/21/2022
 ms.author: thwimmer
 ---
 

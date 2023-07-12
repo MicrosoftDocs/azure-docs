@@ -19,7 +19,7 @@ ms.collection: M365-identity-device-management
 
 # Azure Active Directory security operations guide
 
-Microsoft has a successful and proven approach to [Zero Trust security](https://aka.ms/Zero-Trust) using [Defense in Depth](https://us-cert.cisa.gov/bsi/articles/knowledge/principles/defense-in-depth) principles that use identity as a control plane. Organizations continue to embrace a hybrid workload world for scale, cost savings, and security. Azure Active Directory (Azure AD) plays a pivotal role in your strategy for identity management. Recently, news surrounding identity and security compromise has increasingly prompted enterprise IT to consider their identity security posture as a measurement of defensive security success.
+Microsoft has a successful and proven approach to [Zero Trust security](https://aka.ms/Zero-Trust) using [Defense in Depth](https://www.cisa.gov/sites/default/files/recommended_practices/NCCIC_ICS-CERT_Defense_in_Depth_2016_S508C.pdf) principles that use identity as a control plane. Organizations continue to embrace a hybrid workload world for scale, cost savings, and security. Azure Active Directory (Azure AD) plays a pivotal role in your strategy for identity management. Recently, news surrounding identity and security compromise has increasingly prompted enterprise IT to consider their identity security posture as a measurement of defensive security success.
 
 Increasingly, organizations must embrace a mixture of on-premises and cloud applications, which users access with both on–premises and cloud-only accounts. Managing users, applications, and devices both on-premises and in the cloud poses challenging scenarios.
 
@@ -80,9 +80,9 @@ Microsoft has many products and services that enable you to customize your IT en
 * Cloud-based Azure environments
 
   * [Monitor sign-ins with the Azure AD sign-in log](../reports-monitoring/concept-all-sign-ins.md)
-  * [Audit activity reports in the Azure Active Directory portal](../reports-monitoring/concept-audit-logs.md)
+  * [Audit activity reports in the Azure portal](../reports-monitoring/concept-audit-logs.md)
   * [Investigate risk with Azure Active Directory Identity Protection](../identity-protection/howto-identity-protection-investigate-risk.md) 
-  * [Connect Azure AD Identity Protection data to Microsoft Sentinel](../../sentinel/data-connectors-reference.md#azure-active-directory-identity-protection)
+  * [Connect Azure AD Identity Protection data to Microsoft Sentinel](../../sentinel/data-connectors/azure-active-directory-identity-protection.md)
 
 * Active Directory Domain Services (AD DS)
 

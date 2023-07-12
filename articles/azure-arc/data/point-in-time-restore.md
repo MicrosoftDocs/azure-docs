@@ -25,13 +25,16 @@ You can restore a database to a point-in-time within a pre-configured retention 
 You can check the retention setting for an Azure Arc-enabled SQL managed instance as follows:
 
 For **Direct** connected mode:
-```
+
+```azurecli
 az sql mi-arc show --name <SQL instance name> --resource-group <resource-group>
 #Example
 az sql mi-arc show --name sqlmi --resource-group myresourcegroup
 ```
+
 For **Indirect** connected mode:
-```
+
+```azurecli
 az sql mi-arc show --name <SQL instance name> --k8s-namespace <SQL MI namespace> --use-k8s
 #Example
 az sql mi-arc show --name sqlmi --k8s-namespace arc --use-k8s
@@ -160,7 +163,7 @@ The Retention period for an Azure Arc-enabled SQL managed instance can be reconf
 
 
 
-The ```--retention-period```  can be changed for a SQL Managed Instance-Azure Arc as follows. The below command applies to both ```direct``` and ```indirect``` connected modes. 
+The `--retention-period` can be changed for a SQL Managed Instance-Azure Arc as follows. The below command applies to both `direct` and `indirect` connected modes. 
 
 
 ```azurecli
@@ -168,6 +171,7 @@ az sql mi-arc update  --name <SQLMI name> --k8s-namespace <namespace>  --use-k8s
 ```
 
 For example:
+
 ```azurecli
 az sql mi-arc update  --name sqlmi --k8s-namespace arc  --use-k8s --retention-days 10
 ```
@@ -206,4 +210,4 @@ Point-in-time restore to Azure Arc-enabled SQL Managed Instance has the followin
 
 [Start by creating a Data Controller](create-data-controller-indirect-cli.md)
 
-[Already created a Data Controller? Create an Azure Arc-enabled SQL Managed Instance](create-sql-managed-instance.md)
+[Create an Azure Arc-enabled SQL Managed Instance](create-sql-managed-instance.md)

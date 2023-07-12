@@ -40,7 +40,7 @@ landingContent:
       - linkListType: learn
         links:
           - text: Module - Intro to Azure Arc-enabled Kubernetes
-            url: /learn/modules/intro-to-arc-enabled-kubernetes
+            url: /training/modules/intro-to-arc-enabled-kubernetes
 
   - title: Deploy configurations using GitOps
     linkLists:
@@ -55,7 +55,7 @@ landingContent:
     linkLists:
      - linkListType: sample
        links:
-          - text: Jumpstart
+          - text: Jumpstart for Azure Arc-enabled Kubernetes
             url: https://azurearcjumpstart.io/azure_arc_jumpstart/azure_arc_k8s/
   
   - title: Manage your cluster
@@ -79,6 +79,8 @@ landingContent:
         links:
           - text: Manage deployments and configurations for hybrid Kubernetes clusters
             url: /azure/architecture/hybrid/arc-hybrid-kubernetes
+          - text: Azure Arc landing zone accelerator for hybrid and multicloud
+            url: https://aka.ms/ArcLZAcceleratorReady
 
   - title: API reference
     linkLists:

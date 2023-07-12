@@ -5,7 +5,7 @@ author: cwatson-cat
 ms.author: cwatson
 ms.custom: subject-cost-optimization
 ms.topic: how-to
-ms.date: 02/22/2022
+ms.date: 07/05/2023
 ---
 
 # Manage and monitor costs for Microsoft Sentinel
@@ -24,8 +24,7 @@ For information about assigning access to Azure Cost Management data, see [Assig
 
 
 ## View costs by using cost analysis
-
-As you use Azure resources with Microsoft Sentinel, you incur costs. Azure resource usage unit costs vary by time intervals such as seconds, minutes, hours, and days, or by unit usage, like bytes and megabytes. As soon as Microsoft Sentinel use starts, it incurs costs, and you can see the costs in [cost analysis](../cost-management/quick-acm-cost-analysis.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn).
+As you use Azure resources with Microsoft Sentinel, you incur costs. Azure resource usage unit costs vary by time intervals such as seconds, minutes, hours, and days, or by unit usage, like bytes and megabytes. As soon as Microsoft Sentinel starts to analyze billable data, it incurs costs. View these costs by using cost analysis in the Azure portal. For more information, see [Start using cost analysis](../cost-management/quick-acm-cost-analysis.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn).
 
 When you use cost analysis, you view Microsoft Sentinel costs in graphs and tables for different time intervals. Some examples are by day, current and prior month, and year. You also view costs against budgets and forecasted costs. Switching to longer views over time can help you identify spending trends. And you see where overspending might have occurred. If you've created budgets, you can also easily see where they're exceeded.
 
@@ -43,13 +42,13 @@ For example, to see charts of your daily costs for a certain time frame:
 
    :::image type="content" source="media/billing-monitor-costs/cost-management.png" alt-text="Screenshot of a cost management + billing cost analysis screen." lightbox="media/billing-monitor-costs/cost-management.png":::
 
-You could also apply further controls. For example, to view only the costs associated with Microsoft Sentinel, select **Add filter**, select **Service name**, and then select the service names **Sentinel**, **log analytics**, and **azure monitor**.
+You could also apply further controls. For example, to view only the costs associated with Microsoft Sentinel, select **Add filter**, select **Service name**, and then select the service names **Sentinel**, **Log Analytics**, and **Azure Monitor**.
 
 Microsoft Sentinel data ingestion volumes appear under **Security Insights** in some portal Usage Charts.
 
-The Microsoft Sentinel pricing tiers don't include Log Analytics charges. To change your pricing tier commitment for Log Analytics, see [Change pricing tier for Log Analytics workspace](../azure-monitor/logs/change-pricing-tier.md).
+The Microsoft Sentinel classic pricing tiers don't include Log Analytics charges, so you may see those charges billed separately. Microsoft Sentinel simplified pricing combines the two costs into one set of tiers. To learn more about Microsoft Sentinel's simplified pricing tiers, see [Simplified pricing tiers](billing.md#simplified-pricing-tiers).
 
-For more information, see [Create budgets](#create-budgets) and [Reduce costs in Microsoft Sentinel](billing-monitor-costs.md).
+For more information on reducing costs, see [Create budgets](#create-budgets) and [Reduce costs in Microsoft Sentinel](billing-monitor-costs.md).
 
 ## Using Azure Prepayment with Microsoft Sentinel
 
@@ -123,6 +122,10 @@ The Microsoft Sentinel GitHub community provides the [`Send-IngestionCostAlert`]
 
 ## Define a data volume cap in Log Analytics
 
+> [!IMPORTANT]
+> Starting September 18, 2023, the Log Analytics Daily Cap will no longer exclude the below set of data types from the daily cap, and all billable data types will be capped if the daily cap is met. This change improves your ability to fully contain costs from higher-than-expected data ingestion. 
+> If you have a Daily Cap set on your workspace which has [Microsoft Defender for Servers](/azure/defender-for-cloud/plan-defender-for-servers-select-plan) or Microsoft Sentinel, be sure that the cap is high enough to accommodate this change. Also, be sure to set an alert so that you are notified as soon as your Daily Cap is met, see [Set daily cap on Log Analytics workspace](../azure-monitor/logs/daily-cap.md). 
+
 In Log Analytics, you can enable a daily volume cap that limits the daily ingestion for your workspace. The daily cap can help you manage unexpected increases in data volume, stay within your limit, and limit unplanned charges.
 
 To define a daily volume cap, select **Usage and estimated costs** in the left navigation of your Log Analytics workspace, and then select **Daily cap**. Select **On**, enter a daily volume cap amount, and then select **OK**.
@@ -131,7 +134,25 @@ To define a daily volume cap, select **Usage and estimated costs** in the left n
 
 The **Usage and estimated costs** screen also shows your ingested data volume trend in the past 31 days, and the total retained data volume.
 
-The daily cap doesn't limit collection of all data types. Security data is excluded from the cap. For more information about managing the daily cap in Log Analytics, see [Set daily cap on Log Analytics workspace](../azure-monitor/logs/daily-cap.md).
+Until September 18, 2023, the following is true. If a workspace enabled the ⁠[Microsoft Defenders for Servers](/azure/defender-for-cloud/plan-defender-for-servers-select-plan) solution after June 19, 2017, some security related data types are collected for Microsoft Defender for Cloud or Microsoft Sentinel despite any daily cap configured. The following data types will be subject to this special exception from the daily cap:
+
+- WindowsEvent
+- SecurityAlert
+- SecurityBaseline
+- SecurityBaselineSummary
+- SecurityDetection
+- SecurityEvent
+- WindowsFirewall
+- MaliciousIPCommunication
+- LinuxAuditLog
+- SysmonEvent
+- ProtectionStatus
+- Update
+- UpdateSummary 
+- CommonSecurityLog
+- Syslog
+
+For more information about managing the daily cap in Log Analytics, see [Set daily cap on Log Analytics workspace](../azure-monitor/logs/daily-cap.md).
 
 ## Next steps
 
@@ -139,5 +160,5 @@ The daily cap doesn't limit collection of all data types. Security data is exclu
 - Learn [how to optimize your cloud investment with Azure Cost Management](../cost-management-billing/costs/cost-mgt-best-practices.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn).
 - Learn more about managing costs with [cost analysis](../cost-management-billing/costs/quick-acm-cost-analysis.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn).
 - Learn about how to [prevent unexpected costs](../cost-management-billing/understand/analyze-unexpected-charges.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn).
-- Take the [Cost Management](/learn/paths/control-spending-manage-bills?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn) guided learning course.
+- Take the [Cost Management](/training/paths/control-spending-manage-bills?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn) guided learning course.
 - For more tips on reducing Log Analytics data volume, see [Azure Monitor best practices - Cost management](../azure-monitor/best-practices-cost.md).

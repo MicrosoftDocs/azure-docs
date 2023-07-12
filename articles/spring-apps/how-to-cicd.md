@@ -1,12 +1,12 @@
 ---
 title: Automate application deployments to Azure Spring Apps
 description: Describes how to use the Azure Spring Apps task for Azure Pipelines.
-author: karlerickson
+author: KarlErickson
 ms.service: spring-apps
 ms.topic: conceptual
 ms.date: 09/13/2021
 ms.author: karler
-ms.custom: devx-track-java, event-tier1-build-2022
+ms.custom: devx-track-java, devx-track-extended-java, event-tier1-build-2022, devx-track-arm-template
 zone_pivot_groups: programming-languages-spring-apps
 ---
 
@@ -15,7 +15,7 @@ zone_pivot_groups: programming-languages-spring-apps
 > [!NOTE]
 > Azure Spring Apps is the new name for the Azure Spring Cloud service. Although the service has a new name, you'll see the old name in some places for a while as we work to update assets such as screenshots, videos, and diagrams.
 
-**This article applies to:** ✔️ Basic/Standard tier ✔️ Enterprise tier
+**This article applies to:** ✔️ Basic/Standard ✔️ Enterprise
 
 This article shows you how to use the [Azure Spring Apps task for Azure Pipelines](/azure/devops/pipelines/tasks/deploy/azure-spring-cloud) to deploy applications.
 
@@ -64,6 +64,7 @@ steps:
     Action: 'Deploy'
     AzureSpringCloud: $(serviceName)
     AppName: 'testapp'
+    DeploymentType: 'Artifacts'
     UseStagingDeployment: false
     DeploymentName: 'default'
     Package: $(workingDirectory)/src/$(planetAppName)/publish-deploy-planet.zip
@@ -77,6 +78,7 @@ steps:
     Action: 'Deploy'
     AzureSpringCloud: $(serviceName)
     AppName: 'testapp'
+    DeploymentType: 'Artifacts'
     UseStagingDeployment: false
     DeploymentName: 'default'
     Package: $(workingDirectory)/src/$(solarAppName)/publish-deploy-solar.zip
@@ -132,6 +134,7 @@ To deploy using a pipeline, follow these steps:
        Action: 'Deploy'
        AzureSpringCloud: <your Azure Spring Apps service>
        AppName: <app-name>
+       DeploymentType: 'Artifacts'
        UseStagingDeployment: false
        DeploymentName: 'default'
        Package: ./target/your-result-jar.jar
@@ -158,6 +161,7 @@ steps:
     Action: 'Deploy'
     AzureSpringCloud: <your Azure Spring Apps service>
     AppName: <app-name>
+    DeploymentType: 'Artifacts'
     UseStagingDeployment: true
     Package: ./target/your-result-jar.jar
 - task: AzureSpringCloud@0
@@ -220,9 +224,47 @@ To deploy directly to Azure without a separate build step, use the following pip
     Action: 'Deploy'
     AzureSpringCloud: <your Azure Spring Apps service>
     AppName: <app-name>
+    DeploymentType: 'Artifacts'
     UseStagingDeployment: false
     DeploymentName: 'default'
     Package: $(Build.SourcesDirectory)
+```
+
+### Deploy from custom image
+
+To deploy directly from an existing container image, use the following pipeline template.
+
+```yaml
+- task: AzureSpringCloud@0
+  inputs:
+    azureSubscription: '<your service connection name>'
+    Action: 'Deploy'
+    AzureSpringCloud: '<your Azure Spring Apps service>'
+    AppName: '<app-name>'
+    DeploymentType: 'CustomContainer'
+    UseStagingDeployment: false
+    DeploymentName: 'default'
+    ContainerRegistry: 'docker.io'  # or your Azure Container Registry, e.g: 'contoso.azurecr.io'
+    RegistryUsername: '$(username)'
+    RegistryPassword: '$(password)'
+    ContainerImage: '<your image tag>'
+```
+
+### Deploy and specify a builder (Enterprise plan only)
+
+If you're using the Azure Spring Apps Enterprise plan, you can also specify which builder to use for deploy actions using the `builder` option, as shown in the following example. For more information, see [Use Tanzu Build Service](how-to-enterprise-build-service.md).
+
+```yaml
+- task: AzureSpringCloud@0
+  inputs:
+    azureSubscription: '<your-service-connection-name>'
+    Action: 'Deploy'
+    AzureSpringCloud: '<your-Azure-Spring-Apps-service-instance-name>'
+    AppName: '<app-name>'
+    UseStagingDeployment: false
+    DeploymentName: 'default'
+    Package: './target/your-result-jar.jar'
+    Builder: '<your-Tanzu-Build-Service-Builder-resource>'
 ```
 
 ::: zone-end

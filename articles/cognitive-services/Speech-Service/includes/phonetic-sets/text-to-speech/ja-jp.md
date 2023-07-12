@@ -1,8 +1,16 @@
+---
+author: eric-urban
+ms.service: cognitive-services
+ms.subservice: speech-service
+ms.topic: include
+ms.author: eur
+---
+
 The Speech service phone set for `ja-JP` is based on the native phone [Kana](https://en.wikipedia.org/wiki/Kana) set.
 
 Please see the following tables for kana and corresponding viseme in parentheses.
 
-### Katakana
+### Katakana for ja-JP
 
 | Katakana |ア        | イ              | ウ              | エ              | オ              |
 |-----|----------|----------------|----------------|----------------|----------------|
@@ -18,7 +26,7 @@ Please see the following tables for kana and corresponding viseme in parentheses
 | **ワ**   | ワ (7,2)  | n/a | n/a | n/a | ヲ (19,8)       |
 ||ン (19)   | n/a | n/a | n/a | n/a |
 
-### Katakana diacritics
+### Katakana diacritics for ja-JP
 
 | Katakana diacritics | ア        | イ        | ウ        | エ        | オ        |
 |-----|----------|----------|----------|----------|----------|
@@ -28,7 +36,7 @@ Please see the following tables for kana and corresponding viseme in parentheses
 | **バ**   | バ (21,2) | ビ (21,6) | ブ (21,6) | ベ (21,4) | ボ (21,8) |
 | **パ**   | パ (21,2) | ピ (21,6) | プ (21,6) | ペ (21,4) | ポ (21,8) |
 
-### Katakana Yōon
+### Katakana Yōon for ja-JP
 
 |Katakana Yōon|  ャ  | ュ   | ョ   |
 |-----|:------:|--------|--------|
@@ -45,7 +53,7 @@ Please see the following tables for kana and corresponding viseme in parentheses
 |**ビ**|  ビャ(21,6,2)  | ビュ(21,6,6)   | ビョ(21,6,8)   |
 |**ピ**|  ピャ(21,6,2)  | ピュ(21,6,6)   | ピョ(21,6,8)   |
 
-#### Examples
+#### Examples for ja-JP
 
 | Character | `sapi`  | `ipa`       |
 |-----------|---------|-------------|

@@ -5,7 +5,7 @@ services: azure-monitor
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 07/05/2022
+ms.date: 06/21/2023
 ---
 
 # Graph visualizations
@@ -15,6 +15,9 @@ Azure Workbooks graph visualizations support visualizing arbitrary graphs based 
 The following graph shows data flowing in and out of a computer via various ports to and from external computers. It's colored by type, for example, computer vs. port vs. external IP. The edge sizes correspond to the amount of data flowing in between. The underlying data comes from KQL query targeting VM connections.
 
 [![Screenshot that shows a tile summary view.](./media/workbooks-graph-visualizations/graph.png)](./media/workbooks-graph-visualizations/graph.png#lightbox)
+
+Watch this video to learn how to create graphs and use links in Azure Workbooks.
+> [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE5ah5O]
 
 ## Add a graph
 

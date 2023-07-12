@@ -2,9 +2,9 @@
 title: Troubleshoot the Azure Monitor agent on Linux virtual machines and scale sets
 description: Guidance for troubleshooting issues on Linux virtual machines, scale sets with Azure Monitor agent and Data Collection Rules.
 ms.topic: conceptual
-author: shseth
-ms.author: shseth
-ms.date: 5/3/2022
+author: guywi-ms
+ms.author: guywild
+ms.date: 5/31/2023
 ms.custom: references_region
 ms.reviewer: shseth
 
@@ -20,7 +20,7 @@ Follow the steps below to troubleshoot the latest version of the Azure Monitor a
 1. **Carefully review the [prerequisites here](./azure-monitor-agent-manage.md#prerequisites).**  
 
 2. **Verify that the extension was successfully installed and provisioned, which installs the agent binaries on your machine**:  
-	1. Open Azure portal > select your virtual machine > Open **Settings** : **Extensions + applications** blade from left menu > 'AzureMonitorLinuxAgent'should show up with Status: 'Provisioning succeeded'  
+	1. Open Azure portal > select your virtual machine > Open **Settings** : **Extensions + applications** from the pane on the left > 'AzureMonitorLinuxAgent'should show up with Status: 'Provisioning succeeded'  
 	2. If you don't see the extension listed, check if machine can reach Azure and find the extension to install using the command below:  
 		```azurecli
 		az vm extension image list-versions --location <machine-region> --name AzureMonitorLinuxAgent --publisher Microsoft.Azure.Monitor
@@ -32,7 +32,7 @@ Follow the steps below to troubleshoot the latest version of the Azure Monitor a
 3. **Verify that the agent is running**:  
 	1. Check if the agent is emitting heartbeat logs to Log Analytics workspace using the query below. Skip if 'Custom Metrics' is the only destination in the DCR:
 		```Kusto
-		Heartbeat | where Category == "Azure Monitor Agent" and 'Computer' == "<computer-name>" | take 10
+		Heartbeat | where Category == "Azure Monitor Agent" and Computer == "<computer-name>" | take 10
 		```	 
 	2. Check if the agent service is running
 		```
@@ -43,7 +43,7 @@ Follow the steps below to troubleshoot the latest version of the Azure Monitor a
 	
 4. **Verify that the DCR exists and is associated with the virtual machine:**  
 	1. If using Log Analytics workspace as destination, verify that DCR exists in the same physical region as the Log Analytics workspace.  
-	2. Open Azure portal > select your data collection rule > Open **Configuration** : **Resources** blade from left menu > You should see the virtual machine listed here. 
+	2. Open Azure portal > select your data collection rule > Open **Configuration** : **Resources** from the pane on the left > You should see the virtual machine listed here. 
 	3. If not listed, click 'Add' and select your virtual machine from the resource picker. Repeat across all DCRs. 
 	4. If none of the above helps, [file a ticket](#file-a-ticket) with **Summary** as 'DCR not found or associated' and **Problem type** as 'I need help configuring data collection from a VM'.
 
@@ -52,20 +52,9 @@ Follow the steps below to troubleshoot the latest version of the Azure Monitor a
 	2. If not, [file a ticket](#file-a-ticket) with **Summary** as 'AMA unable to download DCR config' and **Problem type** as 'I need help with Azure Monitor Linux Agent'.  
 
 
-## Issues collecting Performance counters
 
 ## Issues collecting Syslog
-Here's how AMA collects syslog events:  
-
-- AMA installs an output configuration for the system syslog daemon during the installation process. The configuration file specifies the way events flow between the syslog daemon and AMA.
-- For `rsyslog` (most Linux distributions), the configuration file is `/etc/rsyslog.d/10-azuremonitoragent.conf`. For `syslog-ng`, the configuration file is `/etc/syslog-ng/conf.d/azuremonitoragent.conf`.
-- AMA listens to a UNIX domain socket to receive events from `rsyslog` / `syslog-ng`. The socket path for this communication is `/run/azuremonitoragent/default_syslog.socket`
-- The syslog daemon will use queues when AMA ingestion is delayed, or when AMA isn't reachable.
-- AMA ingests syslog events via the aforementioned socket and filters them based on facility / severity combination from DCR configuration in `/etc/opt/microsoft/azuremonitoragent/config-cache/configchunks/`. Any `facility` / `severity` not present in the DCR will be dropped.
-- AMA attempts to parse events in accordance with **RFC3164** and **RFC5424**. Additionally, it knows how to parse the message formats listed [here](./azure-monitor-agent-overview.md#data-sources-and-destinations).
-- AMA identifies the destination endpoint for Syslog events from the DCR configuration and attempts to upload the events. 
-	> [!NOTE]
-	> AMA uses local persistency by default, all events received from `rsyslog` / `syslog-ng` are queued in `/var/opt/microsoft/azuremonitoragent/events` before being uploaded.  
+For more information on how to troubleshoot syslog issues with Azure Monitor Agent, see [here](azure-monitor-agent-troubleshoot-linux-vm-rsyslog.md).  
 	
 - The quality of service (QoS) file `/var/opt/microsoft/azuremonitoragent/log/mdsd.qos` provides CSV-format 15-minute aggregations of the processed events and contains the information on the amount of the processed syslog events in the given timeframe. **This file is useful in tracking Syslog event ingestion drops**.  
 
@@ -95,6 +84,7 @@ Here's how AMA collects syslog events:
 	3. If none of the above helps, [file a ticket](#file-a-ticket) with **Summary** as 'Syslog DCR not available' and **Problem type** as 'I need help configuring data collection from a VM'.
 3. Validate the layout of the Syslog collection workflow to ensure all necessary pieces are in place and accessible:
 	1. For `rsyslog` users, ensure the `/etc/rsyslog.d/10-azuremonitoragent.conf` file is present, isn't empty, and is accessible by the `rsyslog` daemon (syslog user).
+		1. Check your rsyslog configuration at `/etc/rsyslog.conf` and `/etc/rsyslog.d/*` to see if you have any inputs bound to a non-default ruleset, as messages from these inputs won't be forwarded to Azure Monitor Agent. For instance, messages from an input configured with a non-default ruleset like `input(type="imtcp" port="514" `**`ruleset="myruleset"`**`)` won't be forward.
 	2. For `syslog-ng` users, ensure the `/etc/syslog-ng/conf.d/azuremonitoragent.conf` file is present, isn't empty, and is accessible by the `syslog-ng` daemon (syslog user).
 	3. Ensure the file `/run/azuremonitoragent/default_syslog.socket` exists and is accessible by `rsyslog` or `syslog-ng` respectively.
 	4. Check for a corresponding drop in count of processed syslog events in `/var/opt/microsoft/azuremonitoragent/log/mdsd.qos`. If such drop isn't indicated in the file, [file a ticket](#file-a-ticket) with **Summary** as 'Syslog data dropped in pipeline' and **Problem type** as 'I need help with Azure Monitor Linux Agent'.
@@ -108,5 +98,7 @@ Here's how AMA collects syslog events:
 	> Ensure to remove trace flag setting **-T 0x2002** after the debugging session, since it generates many trace statements that could fill up the disk more quickly or make visually parsing the log file difficult.
 6. If none of the above helps, [file a ticket](#file-a-ticket) with **Summary** as 'AMA fails to collect syslog events' and **Problem type** as 'I need help with Azure Monitor Linux Agent'. 
 
+## Troubleshooting issues on Arc-enabled server
+If after checking basic troubleshooting steps you don't see the Azure Monitor Agent emitting logs or find  **'Failed to get MSI token from IMDS endpoint'**  errors in `mdsd.err` log file, it's likely `syslog` user isn't a member of the group `himds`. Add `syslog` user to `himds` user group if the user isn't a member of this group. Create user `syslog` and the group `syslog`, if necessary, and make sure that the user is in that group. For more information check out Azure Arc-enabled server authentication requirements [here](../../azure-arc/servers/managed-identity-authentication.md).
 
 [!INCLUDE [azure-monitor-agent-file-a-ticket](../../../includes/azure-monitor-agent/azure-monitor-agent-file-a-ticket.md)]

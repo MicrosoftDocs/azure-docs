@@ -1,8 +1,9 @@
 ---
 title: Create eligible authorizations
 description: When onboarding customers to Azure Lighthouse, you can let users in your managing tenant elevate their role on a just-in-time basis. 
-ms.date: 02/14/2022
+ms.date: 11/28/2022
 ms.topic: how-to
+ms.custom: devx-track-arm-template
 ---
 
 # Create eligible authorizations
@@ -12,11 +13,6 @@ When onboarding customers to Azure Lighthouse, you create authorizations to gran
 Creating eligible authorizations lets you minimize the number of permanent assignments of users to privileged roles, helping to reduce security risks related to privileged access by users in your tenant.
 
 This topic explains how eligible authorizations work and how to create them when [onboarding a customer to Azure Lighthouse](onboard-customer.md).
-
-> [!IMPORTANT]
-> Eligible authorizations are currently in public preview.
-> This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
-> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## License requirements
 

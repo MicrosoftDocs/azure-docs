@@ -3,11 +3,11 @@ title: Collect on Performance Counters in Azure Cloud Services (classic) | Micro
 description: Learn how to discover, use, and create performance counters in Cloud Services with Azure Diagnostics and Application Insights.
 ms.topic: article
 ms.service: cloud-services
-ms.date: 10/14/2020
+ms.date: 02/21/2023
 author: hirenshah1
 ms.author: hirshah
 ms.reviewer: mimckitt
-ms.custom: 
+ms.custom: compute-evergreen
 ---
 
 # Collect performance counters for your Azure Cloud Service (classic)

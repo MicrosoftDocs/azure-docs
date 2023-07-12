@@ -1,6 +1,6 @@
 ---
-title: What's new in Azure Database for MySQL Single Server
-description: Learn about recent updates to Azure Database for MySQL - Single server, a relational database service in the Microsoft cloud based on the MySQL Community Edition.
+title: What's new in Azure Database for MySQL single server
+description: Learn about recent updates to Azure Database for MySQL - Single Server, a relational database service in the Microsoft cloud based on the MySQL Community Edition.
 author: hjtoland3
 ms.service: mysql
 ms.subservice: single-server
@@ -14,9 +14,17 @@ ms.date: 06/20/2022
 
 [!INCLUDE[applies-to-mysql-single-server](../includes/applies-to-mysql-single-server.md)]
 
+[!INCLUDE[azure-database-for-mysql-single-server-deprecation](../includes/azure-database-for-mysql-single-server-deprecation.md)]
+
 Azure Database for MySQL is a relational database service in the Microsoft cloud. The service is based on the [MySQL Community Edition](https://www.mysql.com/products/community/) (available under the GPLv2 license) database engine and supports versions 5.6(retired), 5.7, and 8.0. [Azure Database for MySQL - Single Server](./overview.md#azure-database-for-mysql---single-server) is a deployment mode that provides a fully managed database service with minimal requirements for customizations of database. The Single Server platform is designed to handle most database management functions such as patching, backups, high availability, and security, all with minimal user configuration and control.
 
 This article summarizes new releases and features in Azure Database for MySQL - Single Server beginning in January 2021. Listings appear in reverse chronological order, with the most recent updates first.
+
+## September 2022
+
+Clients’ devices using SSL to connect to Azure Database for MySQL – Single Server instances must have their CA certificates updated. To address compliance requirements, starting October 2022 the CA certificates were changed from BaltimoreCyberTrustRoot to DigiCertGlobalRootG2.
+To avoid interruption of your application's availability as a result of certificates being unexpectedly revoked, or to update a certificate that has been revoked, use the steps explained in the [article](./concepts-certificate-rotation.md#create-a-combined-ca-certificate), to maintain connectivity.  
+Use the steps mentioned to [create a combined certificate](./concepts-certificate-rotation.md#create-a-combined-ca-certificate) and connect to your server but do not remove BaltimoreCyberTrustRoot certificate until we send a communication to remove it.
 
 ## May 2022
 
@@ -25,7 +33,7 @@ Users can now change the value of the innodb_ft_server_stopword_table parameter 
 
 **Known Issues**
 
-Customers using PHP driver with [enableRedirect](./how-to-redirection.md) can no longer connect to the Azure Database for MySQL Single Server, as the CA certificates of the host servers were changed from BaltimoreCyberTrustRoot to DigiCertGlobalRootG2 to address compliance requirements. For successful connections to your database using PHP driver with enableRedirect please visit this [link](./concepts-certificate-rotation.md#do-i-need-to-make-any-changes-on-my-client-to-maintain-connectivity).
+Customers using PHP driver with [enableRedirect](./how-to-redirection.md) can no longer connect to the Azure Database for MySQL single server, as the CA certificates of the host servers were changed from BaltimoreCyberTrustRoot to DigiCertGlobalRootG2 to address compliance requirements. For successful connections to your database using PHP driver with enableRedirect please visit this [link](./concepts-certificate-rotation.md#do-i-need-to-make-any-changes-on-my-client-to-maintain-connectivity).
 
 ## March 2022
 
@@ -101,7 +109,7 @@ This release of Azure Database for MySQL - Single Server includes the following 
 
   With this release, the parameter `redirect_enabled` will be enabled by default. Redirection aims to reduce network latency between client applications and MySQL servers by allowing applications to connect directly to backend server nodes. Support for redirection in PHP applications is available through the [mysqlnd_azure](https://github.com/microsoft/mysqlnd_azure) extension, developed by Microsoft. For more information, see the article [Connect to Azure Database for MySQL with redirection](how-to-redirection.md).
 
->[!Note]
+>[!NOTE]
 > * Redirection does not work with Private link setup. If you are using Private link for Azure Database for MySQL, you might encounter connection issue. To resolve the issue, make sure the parameter redirect_enabled is set to “OFF” and the client application is restarted.</br>
 > * If you have a PHP application that uses the mysqlnd_azure redirection driver to connect to Azure Database for MySQL (with redirection enabled by default), you might face a data encoding issue that impacts your insert transactions..</br>
 > To resolve this issue, either:

@@ -7,7 +7,7 @@ ms.topic: quickstart
 ms.service: iot-dps
 services: iot-dps
 author: mumian
-ms.custom: mvc, subject-bicepqs
+ms.custom: mvc, subject-bicepqs, devx-track-azurepowershell, devx-track-bicep, devx-track-azurecli
 ---
 
 # Quickstart: Set up the IoT Hub Device Provisioning Service (DPS) with Bicep
@@ -22,7 +22,7 @@ This quickstart uses [Azure PowerShell](../azure-resource-manager/bicep/deploy-p
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](../../includes/azure-cli-prepare-your-environment-no-header.md)]
+[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment-no-header.md)]
 
 [!INCLUDE [azure-powershell-requirements-no-header.md](../../includes/azure-powershell-requirements-no-header.md)]
 
@@ -46,7 +46,7 @@ Save a copy of the Bicep file locally as **main.bicep**.
 
 Sign in to your Azure account and select your subscription.
 
-1. To log in Azure at the command prompt:
+1. Sign in to Azure at the command prompt:
 
     # [CLI](#tab/CLI)
 
@@ -166,9 +166,9 @@ Sign in to your Azure account and select your subscription.
 
 ## Clean up resources
 
-Other quickstarts in this collection build upon this quickstart. If you plan to continue on to work with subsequent quickstarts or with the tutorials, do not clean up the resources created in this quickstart. If you do not plan to continue, you can use the Azure PowerShell or Azure CLI to delete the resource group and all of its resources.
+Other quickstarts in this collection build upon this quickstart. If you plan to continue on to work with subsequent quickstarts or with the tutorials, don't clean up the resources created in this quickstart. If you don't plan to continue, you can use Azure PowerShell or Azure CLI to delete the resource group and all of its resources.
 
-To delete a resource group and all its resources from the Azure portal, just open the resource group and click **Delete resource group** and the top.
+To delete a resource group and all its resources from the Azure portal, just open the resource group and select **Delete resource group** and the top.
 
 To delete the resource group deployed:
 
@@ -185,11 +185,11 @@ Remove-AzResourceGroup -name exampleRG
 ```
 
 ---
-You can also delete resource groups and individual resources using the Azure portal, PowerShell, or REST APIs, as well as with supported platform SDKs published for Azure Resource Manager or IoT Hub Device Provisioning Service.
+You can also delete resource groups and individual resources using the Azure portal, PowerShell, or REST APIs, or with supported platform SDKs.
 
 ## Next steps
 
-In this quickstart, you've deployed an IoT hub and a Device Provisioning Service instance, and linked the two resources. To learn how to use this setup to provision a device, continue to the quickstart for creating a device.
+In this quickstart, you deployed an IoT hub and a Device Provisioning Service instance, and linked the two resources. To learn how to use this setup to provision a device, continue to the quickstart for creating a device.
 
 > [!div class="nextstepaction"]
 > [Quickstart: Provision a simulated symmetric key device](./quick-create-simulated-device-symm-key.md)

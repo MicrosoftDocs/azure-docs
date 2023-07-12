@@ -9,8 +9,9 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 06/20/2022
+ms.date: 03/14/2023
 ms.author: justinha
+ms.reviewer: xyuan
 
 ---
 # Virtual network design considerations and configuration options for Azure Active Directory Domain Services
@@ -108,14 +109,24 @@ The following sections cover network security groups and Inbound and Outbound po
 
 ### Inbound connectivity
 
-The following network security group Inbound rules are required for the managed domain to provide authentication and management services. Don't edit or delete these network security group rules for the virtual network subnet your managed domain is deployed into.
+The following network security group Inbound rules are required for the managed domain to provide authentication and management services. Don't edit or delete these network security group rules for the virtual network subnet for your managed domain.
 
-| Inbound port number | Protocol | Source                             | Destination | Action | Required | Purpose |
-|:-----------:|:--------:|:----------------------------------:|:-----------:|:------:|:--------:|:--------|
-| 5986        | TCP      | AzureActiveDirectoryDomainServices | Any         | Allow  | Yes      | Management of your domain. |
-| 3389        | TCP      | CorpNetSaw                         | Any         | Allow  | Optional      | Debugging for support. |
+| Source      | Source service tag                 | Source port ranges |  Destination  | Service | Destination port ranges | Protocol | Action | Required | Purpose |
+|:-----------:|:----------------------------------:|:------------------:|:-------------:|:-------:|:-----------------------:|:--------:|:------:|:--------:|:--------|
+| Service tag | AzureActiveDirectoryDomainServices | *                  | Any           | WinRM   | 5986            | TCP | Allow | Yes | Management of your domain. |
+| Service tag | CorpNetSaw                         | *                  | Any           | RDP     | 3389            | TCP | Allow | Optional | Debugging for support |
 
-An Azure standard load balancer is created that requires these rules to be place. This network security group secures Azure AD DS and is required for the managed domain to work correctly. Don't delete this network security group. The load balancer won't work correctly without it.
+
+Note that the **CorpNetSaw** service tag isn't available by using Azure portal, and the network security group rule for **CorpNetSaw** has to be added by using [PowerShell](powershell-create-instance.md#create-a-network-security-group).
+
+Azure AD DS also relies on the Default Security rules AllowVnetInBound and AllowAzureLoadBalancerInBound.
+
+:::image type="content" border="true" source="./media/network-considerations/nsg.png" alt-text="Screenshot of network security group rules.":::
+
+The AllowVnetInBound rule allows all traffic within the VNet which allows the DCs to properly communicate and replicate as well as allow domain join and other domain services to domain members. For more information about required ports for Windows, see [Service overview and network port requirements for Windows](/troubleshoot/windows-server/networking/service-overview-and-network-port-requirements).
+
+
+The AllowAzureLoadBalancerInBound rule is also required so that the service can properly communicate over the loadbalancer to manage the DCs. This network security group secures Azure AD DS and is required for the managed domain to work correctly. Don't delete this network security group. The load balancer won't work correctly without it. 
 
 If needed, you can [create the required network security group and rules using Azure PowerShell](powershell-create-instance.md#create-a-network-security-group).
 
@@ -129,8 +140,6 @@ If needed, you can [create the required network security group and rules using A
 ### Outbound connectivity
 
 For Outbound connectivity, you can either keep **AllowVnetOutbound** and **AllowInternetOutBound** or restrict Outbound traffic by using ServiceTags listed in the following table. The ServiceTag for AzureUpdateDelivery must be added via [PowerShell](powershell-create-instance.md).
-
-Filtered Outbound traffic is not supported on Classic deployments.
 
 
 | Outbound port number | Protocol | Source | Destination   | Action | Required | Purpose |
@@ -148,13 +157,7 @@ Filtered Outbound traffic is not supported on Classic deployments.
 
 * Used to perform management tasks using PowerShell remoting in your managed domain.
 * Without access to this port, your managed domain can't be updated, configured, backed-up, or monitored.
-* For managed domains that use a Resource Manager-based virtual network, you can restrict inbound access to this port to the *AzureActiveDirectoryDomainServices* service tag.
-    * For legacy managed domains using a Classic-based virtual network, you can restrict inbound access to this port to the following source IP addresses: *52.180.183.8*, *23.101.0.70*, *52.225.184.198*, *52.179.126.223*, *13.74.249.156*, *52.187.117.83*, *52.161.13.95*, *104.40.156.18*, and *104.40.87.209*.
-
-    > [!NOTE]
-    > In 2017, Azure AD Domain Services became available to host in an Azure Resource Manager network. Since then, we have been able to build a more secure service using the Azure Resource Manager's modern capabilities. Because Azure Resource Manager deployments fully replace classic deployments, Azure AD DS classic virtual network deployments will be retired on March 1, 2023.
-    >
-    > For more information, see the [official deprecation notice](https://azure.microsoft.com/updates/we-are-retiring-azure-ad-domain-services-classic-vnet-support-on-march-1-2023/)
+* You can restrict inbound access to this port to the *AzureActiveDirectoryDomainServices* service tag.
 
 ### Port 3389 - management using remote desktop
 

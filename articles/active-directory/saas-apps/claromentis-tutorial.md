@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with Claromentis | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with Claromentis'
 description: Learn how to configure single sign-on between Azure Active Directory and Claromentis.
 services: active-directory
 author: jeevansd
@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 06/11/2021
+ms.date: 11/21/2022
 ms.author: jeedes
 ---
 
@@ -91,7 +91,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
     | `https://<CUSTOMER_SITE_URL>/login?no_auto=0` |
     |
 	> [!NOTE]
-	> These values are not real. Update these values with the actual Reply URL and Sign-on URL which is explained later in the turorial.
+	> These values are not real. Update these values with the actual Reply URL and Sign-on URL which is explained later in the tutorial.
 
 1. On the **Set up single sign-on with SAML** page, in the **SAML Signing Certificate** section,  find **Federation Metadata XML** and select **Download** to download the certificate and save it on your computer.
 

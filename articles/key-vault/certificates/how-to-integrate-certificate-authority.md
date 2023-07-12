@@ -84,7 +84,7 @@ DigicertCA is now in the certificate authority list.
 
 ### Azure portal (GlobalSign)
 
-1.	To add DigiCert certificate authority, go to the key vault you want to add it to. 
+1.	To add GlobalSign certificate authority, go to the key vault you want to add it to. 
 2.	On the Key Vault property page, select **Certificates**.
 3.	Select the **Certificate Authorities** tab:
 :::image type="content" source="../media/certificates/how-to-integrate-certificate-authority/select-certificate-authorities.png" alt-text="Screenshot that shows selecting the Certificate Authorities tab.":::
@@ -109,10 +109,10 @@ GlobalSignCA is now in the certificate authority list.
 
 You can use Azure PowerShell to create and manage Azure resources by using commands or scripts. Azure hosts Azure Cloud Shell, an interactive shell environment that you can use through the Azure portal in a browser.
 
-If you choose to install and use PowerShell locally, you need Azure AZ PowerShell module 1.0.0 or later to complete the procedures here. Type `$PSVersionTable.PSVersion` to determine the version. If you need to upgrade, see [Install Azure AZ PowerShell module](/powershell/azure/install-az-ps). If you're running PowerShell locally, you also need to run `Login-AzAccount` to create a connection with Azure:
+If you choose to install and use PowerShell locally, you need Azure AZ PowerShell module 1.0.0 or later to complete the procedures here. Type `$PSVersionTable.PSVersion` to determine the version. If you need to upgrade, see [Install Azure AZ PowerShell module](/powershell/azure/install-azure-powershell). If you're running PowerShell locally, you also need to run `Connect-AzAccount` to create a connection with Azure:
 
 ```azurepowershell-interactive
-Login-AzAccount
+Connect-AzAccount
 ```
 
 1.  Create an Azure resource group by using [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup). A resource group is a logical container into which Azure resources are deployed and managed. 

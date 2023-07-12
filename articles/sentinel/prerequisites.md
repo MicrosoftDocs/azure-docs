@@ -1,11 +1,10 @@
 ---
 title: Prerequisites for deploying Microsoft Sentinel
 description: Learn about pre-deployment activities and prerequisites for deploying Microsoft Sentinel.
-author: batamig
-ms.author: bagol
+author: limwainstein
+ms.author: lwainstein
 ms.topic: conceptual
-ms.date: 11/09/2021
-ms.custom: ignite-fall-2021
+ms.date: 01/09/2023
 ---
 
 # Pre-deployment activities and prerequisites for deploying Microsoft Sentinel

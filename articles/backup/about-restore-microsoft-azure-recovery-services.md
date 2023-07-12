@@ -4,6 +4,8 @@ description: Learn about the restore options available with the Microsoft Azure 
 ms.reviewer: mepand
 ms.topic: conceptual
 ms.date: 05/07/2021
+author: jyothisuri
+ms.author: jsuri
 ---
 # About restore using the Microsoft Azure Recovery Services (MARS) agent 
 

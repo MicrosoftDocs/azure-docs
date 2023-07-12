@@ -1,21 +1,22 @@
 ---
-title: Enable and manage Azure Storage Analytics metrics (classic) | Microsoft Docs
+title: Enable and manage Azure Storage Analytics metrics (classic)
 description: Learn how to enable, edit, and view Azure Storage Analytics metrics.
 author: normesta
-ms.service: storage
+ms.service: azure-storage
 ms.topic: conceptual
-ms.date: 01/29/2021
+ms.date: 10/03/2022
 ms.author: normesta
 ms.reviewer: fryu
-ms.subservice: common
-ms.custom: monitoring, devx-track-azurepowershell
+ms.subservice: storage-common-concepts
+ms.devlang: csharp
+ms.custom: monitoring
 ---
 
 # Enable and manage Azure Storage Analytics metrics (classic)
 
 [Azure Storage Analytics](storage-analytics.md) provides metrics for all storage services for blobs, queues, and tables. You can use the [Azure portal](https://portal.azure.com) to configure which metrics are recorded for your account, and configure charts that provide visual representations of your metrics data. This article shows you how to enable and manage metrics. To learn how to enable logs, see [Enable and manage Azure Storage Analytics logs (classic)](manage-storage-analytics-logs.md).
 
-We recommend you review [Azure Monitor for Storage](./storage-insights-overview.md?toc=%2fazure%2fazure-monitor%2ftoc.json). It is a feature of Azure Monitor that offers comprehensive monitoring of your Azure Storage accounts by delivering a unified view of your Azure Storage services performance, capacity, and availability. It does not require you to enable or configure anything, and you can immediately view these metrics from the pre-defined interactive charts and other visualizations included.
+We recommend you review [Azure Monitor for Storage](./storage-insights-overview.md?toc=/azure/azure-monitor/toc.json). It is a feature of Azure Monitor that offers comprehensive monitoring of your Azure Storage accounts by delivering a unified view of your Azure Storage services performance, capacity, and availability. It does not require you to enable or configure anything, and you can immediately view these metrics from the pre-defined interactive charts and other visualizations included.
 
 > [!NOTE]
 > There are costs associated with examining monitoring data in the Azure portal. For more information, see [Storage Analytics](storage-analytics.md).
@@ -42,7 +43,7 @@ We recommend you review [Azure Monitor for Storage](./storage-insights-overview.
    > [!div class="mx-imgBorder"]
    > ![Configure logging in the Azure portal.](./media/manage-storage-analytics-logs/enable-diagnostics.png)
 
-   To set the data retention policy, move the **Retention (days)** slider or enter the number of days of data to retain, from 1 to 365. The default for new storage accounts is seven days. If you do not want to set a retention policy, enter zero. If there is no retention policy, it is up to you to delete the monitoring data.
+   To set the data retention policy, move the **Retention (days)** slider or enter the number of days of data to retain, from 1 to 365. The default for new storage accounts is seven days. If you do not want to set a retention policy, leave the **Delete data** checkbox unchecked. If there is no retention policy, it is up to you to delete the log data.
 
    > [!WARNING]
    > Metics are stored as data in your account. Metric data can accumulate in your account over time which can increase the cost of storage. If you need metric data for only a small period of time, you can reduce your costs by modifying the data retention policy. Stale metrics data (data older than your retention policy) is deleted by the system. We recommend setting a retention policy based on how long you want to retain the metrics data for your account. See [Billing on storage metrics](storage-analytics-metrics.md#billing-on-storage-metrics) for more information.
@@ -113,26 +114,9 @@ You can disable metrics collection and logging by setting **Status** to **Off**.
 
    For information about how to configure the Azure PowerShell cmdlets to work with your Azure subscription and how to select the default storage account to use, see [Install and configure Azure PowerShell](/powershell/azure/).
 
-### [.NET v12 SDK](#tab/dotnet)
+### [.NET](#tab/dotnet)
 
 :::code language="csharp" source="~/azure-storage-snippets/queues/howto/dotnet/dotnet-v12/Monitoring.cs" id="snippet_EnableDiagnosticLogs":::
-
-For more information about using a .NET language to configure storage metrics, see [Azure Storage client libraries for .NET](/dotnet/api/overview/azure/storage).
-
-For general information about configuring storage metrics by using the REST API, see [Enabling and configuring Storage Analytics](/rest/api/storageservices/Enabling-and-Configuring-Storage-Analytics).
-
-### [.NET v11 SDK](#tab/dotnet11)
-
-```csharp
-var storageAccount = CloudStorageAccount.Parse(connStr);  
-var queueClient = storageAccount.CreateCloudQueueClient();  
-var serviceProperties = queueClient.GetServiceProperties();
-
-serviceProperties.HourMetrics.MetricsLevel = MetricsLevel.Service;  
-serviceProperties.HourMetrics.RetentionDays = 10;
-
-queueClient.SetServiceProperties(serviceProperties);  
-```
 
 For more information about using a .NET language to configure storage metrics, see [Azure Storage client libraries for .NET](/dotnet/api/overview/azure/storage).
 
@@ -276,4 +260,4 @@ Once you've added charts to your dashboard, you can further customize them as de
 
 - To learn more about Storage Analytics, see [Storage Analytics](storage-analytics.md) for Storage Analytics.
 - [Configure Storage Analytics logs](manage-storage-analytics-logs.md).
-- Learn more about the the metrics schema. See [Storage Analytics metrics table schema](/rest/api/storageservices/storage-analytics-metrics-table-schema).
+- Learn more about the metrics schema. See [Storage Analytics metrics table schema](/rest/api/storageservices/storage-analytics-metrics-table-schema).

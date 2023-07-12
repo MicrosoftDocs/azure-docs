@@ -1,11 +1,12 @@
 ---
 title: Onboard on-premises servers in VMware virtual environment to Azure Arc   
 description: Onboard on-premises servers in VMware virtual environment to Azure Arc    
-author: deseelam
-ms.author: deseelam
-ms.manager: bsiva
+author: vijain
+ms.author: vijain
 ms.topic: how-to
-ms.date: 04/27/2022
+ms.date: 01/31/2023
+ms.service: azure-migrate
+ms.custom: engagement-fy23
 ---
 
 # Onboard on-premises servers in VMware virtual environment to Azure Arc   
@@ -89,9 +90,9 @@ Once the vCenter Server discovery has been completed, software inventory (discov
 4. Provide the **Azure Active Directory service principal** details for onboarding at scale. Review this article to [create a service principal using the Azure portal or Azure PowerShell.](../azure-arc/servers/onboard-service-principal.md#create-a-service-principal-for-onboarding-at-scale) <br/>
 
     The following inputs are required:
-    - **Directory (tenant) ID** - The [unique identifier (GUID)](../active-directory/develop/howto-create-service-principal-portal.md#get-tenant-and-app-id-values-for-signing-in) that represents your dedicated instance of Azure AD. 
-    - **Application (client) ID** - The [unique identifier (GUID)](../active-directory/develop/howto-create-service-principal-portal.md#get-tenant-and-app-id-values-for-signing-in) that represents the application ID of the service principal.
-    - **Service principal secret (application secret)** - The [client secret](../active-directory/develop/howto-create-service-principal-portal.md#option-2-create-a-new-application-secret) for password-based authentication. 
+    - **Directory (tenant) ID** - The [unique identifier (GUID)](../active-directory/develop/howto-create-service-principal-portal.md#sign-in-to-the-application) that represents your dedicated instance of Azure AD. 
+    - **Application (client) ID** - The [unique identifier (GUID)](../active-directory/develop/howto-create-service-principal-portal.md#sign-in-to-the-application) that represents the application ID of the service principal.
+    - **Service principal secret (application secret)** - The [client secret](../active-directory/develop/howto-create-service-principal-portal.md#option-3-create-a-new-application-secret) for password-based authentication. 
     
 5. _Optional_: Provide the **proxy server IP address** or the name and **port number** if your discovered servers require a proxy server to connect to the Internet. Enter the value in the format `http://<proxyURL>:<proxyport>`. This proxy server used by the discovered servers can be different from the proxy server required by the appliance server  to connect to the Internet (provided in the prerequisites section in the appliance configuration manager).   
 
@@ -122,7 +123,7 @@ Once the vCenter Server discovery has been completed, software inventory (discov
 
 If you receive an error when onboarding to Azure Arc using the Azure Migrate appliance, the following section can help identify the probable cause and suggested steps to resolve your problem. 
 
-If you don't see the error code listed below or if the error code starts with **_AZCM_**, refer to [this guide for troubleshooting Azure Arc](../azure-arc/servers/troubleshoot-agent-onboard.md)
+If you don't see the error code listed below or if the error code starts with **_AZCM_**, refer to [this guide for troubleshooting Azure Arc](../azure-arc/servers/troubleshoot-agent-onboard.md).
 
 ### Error 60001 - UnableToConnectToPhysicalServer  
 

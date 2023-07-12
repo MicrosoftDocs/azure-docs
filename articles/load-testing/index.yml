@@ -12,7 +12,7 @@ metadata:
   ms.collection: collection
   ms.author: nicktrog
   author: ntrogh
-  ms.date: 05/05/2022
+  ms.date: 03/24/2023
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | sample | tutorial | video | whats-new
 
@@ -34,13 +34,23 @@ landingContent:
         links:
           - text: 'Create & run a load test'
             url: quickstart-create-and-run-load-test.md
+          - text: 'Automate load tests with CI/CD'
+            url: quickstart-add-load-test-cicd.md
       - linkListType: tutorial
         links:
           - text: Identify performance bottlenecks
             url: tutorial-identify-bottlenecks-azure-portal.md
-          - text: Set up automated regression testing (Azure Pipelines)
-            url: tutorial-cicd-azure-pipelines.md
+          - text: Set up automated regression testing with CI/CD
+            url: tutorial-identify-performance-regression-with-cicd.md
 
+  # Card
+  - title: Scenarios
+    linkLists:
+      - linkListType: concept
+        links:
+          - text: Load test Azure App Service apps
+            url: concept-load-test-app-service.md
+  
   # Card
   - title: Configure load tests
     linkLists:
@@ -54,6 +64,8 @@ landingContent:
             url: how-to-define-test-criteria.md
           - text: Use JMeter user properties
             url: how-to-configure-user-properties.md
+          - text: Customize tests with JMeter plugins
+            url: how-to-use-jmeter-plugins.md
 
   # Card
   - title: Run load tests
@@ -62,6 +74,10 @@ landingContent:
         links:
           - text: Create a load test with a JMeter script
             url: how-to-create-and-run-load-test-with-jmeter-script.md
+          - text: Set up automated regression testing with CI/CD
+            url: tutorial-cicd-azure-pipelines.md
+          - text: Test applications with authentication
+            url: how-to-test-secured-endpoints.md
           - text: Test a private endpoint with VNET injection
             url: how-to-test-private-endpoint.md
           - text: Read data from a CSV file
@@ -76,21 +92,9 @@ landingContent:
             url: how-to-compare-multiple-test-runs.md
           - text: Configure server-side monitoring
             url: how-to-monitor-server-side-metrics.md
-          - text: Get insights from App Service Diagnostics
-            url: how-to-appservice-insights.md
           - text: Export test results for custom reporting
             url: how-to-export-test-results.md
 
-  # Card
-  - title: Automate load tests
-    linkLists:
-      - linkListType: tutorial
-        links:
-          - text: Automate load testing with Azure Pipelines
-            url: tutorial-cicd-azure-pipelines.md
-          - text: Automate load testing with GitHub Actions
-            url: tutorial-cicd-github-actions.md
-            
   # Card
   - title: Security
     linkLists:

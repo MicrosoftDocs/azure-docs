@@ -1,5 +1,15 @@
 {
-  "redirections": [
+  "redirections": [    
+  {
+    "source_path": "use-blob-storage-checkpoint-store-azure-stack-hub.md",
+    "redirect_url": "/azure/event-hubs/troubleshoot-checkpoint-store-issues",
+    "redirect_document_id": false
+  },  
+  {
+    "source_path": "event-hubs-tutorial-visualize-anomalies.md",
+    "redirect_url": "/azure/stream-analytics/stream-analytics-real-time-fraud-detection",
+    "redirect_document_id": false
+  },  
   {
     "source_path": "event-hubs-api-overview.md",
     "redirect_url": "/azure/event-hubs/event-hubs-samples",
@@ -101,6 +111,11 @@
     "redirect_document_id": false
   },
   {
+    "source_path": "event-hubs-for-kafka-ecosystem-overview.md",
+    "redirect_url": "/azure/event-hubs/azure-event-hubs-kafka-overview",
+    "redirect_document_id": false
+  },  
+  {
     "source_path": "event-hubs-go-get-started-receive-eph.md",
     "redirect_url": "/azure/event-hubs/event-hubs-go-get-started-send",
     "redirect_document_id": false
@@ -120,6 +135,11 @@
     "redirect_url": "/azure/event-hubs/event-hubs-java-get-started-send",
     "redirect_document_id": false
   },
+  {
+    "source_path": "event-hubs-java-get-started-send-legacy.md",
+    "redirect_url": "/azure/event-hubs/event-hubs-java-get-started-send",
+    "redirect_document_id": false
+  },    
   {
     "source_path": "event-hubs-java-get-started-receive-eph.md",
     "redirect_url": "/azure/event-hubs/event-hubs-java-get-started-send",

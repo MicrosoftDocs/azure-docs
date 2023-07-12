@@ -1,11 +1,11 @@
 ---
-title: 'Tutorial: Configure SAP Analytics Cloud for automatic user provisioning with Azure Active Directory | Microsoft Docs'
+title: 'Tutorial: Configure SAP Analytics Cloud for automatic user provisioning with Azure Active Directory'
 description: Learn how to automatically provision and de-provision user accounts from Azure AD to SAP Analytics Cloud.
 services: active-directory
 documentationcenter: ''
 author: twimmers
 writer: twimmers
-manager: beatrizd
+manager: jeedes
 
 ms.assetid: 27d12989-efa8-4254-a4ad-8cb6bf09d839
 ms.service: active-directory
@@ -13,7 +13,7 @@ ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.topic: tutorial
-ms.date: 08/13/2020
+ms.date: 11/21/2022
 ms.author: thwimmer
 ---
 
@@ -106,7 +106,7 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 	![Screenshot of the Provisioning Mode dropdown list with the Automatic option called out.](common/provisioning-automatic.png)
 
-5. Under the **Admin Credentials** section, input the tenant URL value retrieved earlier in **Tenant URL**. Input the access token value retrieved earlier in **Secret Token**. Click **Test Connection** to ensure Azure AD can connect to InVision. If the connection fails, ensure your SAP Analytics Cloud account has Admin permissions and try again.
+5. Under the **Admin Credentials** section, input the tenant URL value retrieved earlier in **Tenant URL**. Input the access token value retrieved earlier in **Secret Token**. Click **Test Connection** to ensure Azure AD can connect to SAP Analytics Cloud. If the connection fails, ensure your SAP Analytics Cloud account has Admin permissions and try again.
 
  	![Screenshot shows the Admin Credentials dialog box, where you can enter your Tenant U R L and Secret Token.](./media/sap-analytics-cloud-provisioning-tutorial/provisioning.png)
 

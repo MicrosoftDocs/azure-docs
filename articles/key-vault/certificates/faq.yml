@@ -116,7 +116,7 @@ sections:
    
           You can create this type of certificate in Key Vault if your DigiCert account allows it. For this type of certificate, validation is performed by DigiCert. If validation fails, the DigiCert support team can help. You can add information when you create a certificate by defining the information in `subjectName`.
 
-          For example: `SubjectName="CN = docs.microsoft.com, OU = Microsoft Corporation, O = Microsoft Corporation, L = Redmond, S = WA, C = US"`.
+          For example: `SubjectName="CN = learn.microsoft.com, OU = Microsoft Corporation, O = Microsoft Corporation, L = Redmond, S = WA, C = US"`.
       - question: Does it take longer to create a DigiCert certificate via integration than it does to acquire it directly from DigiCert?
         answer: |
           No. When you create a certificate, the verification process might take time. DigiCert controls that process.

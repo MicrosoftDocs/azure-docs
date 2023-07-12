@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory integration with LINE WORKS | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory integration with LINE WORKS'
 description: Learn how to configure single sign-on between Azure Active Directory and LINE WORKS.
 services: active-directory
 author: jeevansd
@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 09/30/2020
+ms.date: 11/21/2022
 ms.author: jeedes
 ---
 # Tutorial: Azure Active Directory integration with LINE WORKS
@@ -118,7 +118,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 ## Configure LINE WORKS SSO
 
-To configure single sign-on on **LINE WORKS** side, please read the [LINE WORKS SSO documents](https://developers.worksmobile.com/jp/document/1001080101) and configure a LINE WORKS setting.
+To configure single sign-on on **LINE WORKS** side, please read the [LINE WORKS SSO documents](https://jp1-developers.worksmobile.com/jp/docs/?lang=en) and configure a LINE WORKS setting.
 
 > [!NOTE]
 > You need to convert the downloaded Certificate file from .cert to .pem

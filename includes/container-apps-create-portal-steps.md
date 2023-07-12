@@ -36,7 +36,7 @@ Next, create an environment for your container app.
 
     | Setting | Value |
     |--|--|
-    | Region | Select **Canada Central**. |
+    | Region | Select **Central US**. |
 
 1. In the *Create Container Apps environment* field, select the **Create new** link.
 1. In the *Create Container Apps Environment* page on the *Basics* tab, enter the following values:
@@ -53,6 +53,6 @@ Next, create an environment for your container app.
     |--|--|
     | Name | Enter **my-container-apps-logs**. |
   
-    The *Location* field is pre-filled with *Canada Central* for you.
+    The *Location* field is pre-filled with *Central US* for you.
 
 1. Select **OK**.

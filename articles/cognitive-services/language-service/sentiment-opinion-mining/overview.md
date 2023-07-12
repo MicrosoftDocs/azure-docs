@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-service
 ms.topic: overview
-ms.date: 07/27/2022
+ms.date: 01/12/2023
 ms.author: aahi
 ms.custom: language-service-sentiment-opinion-mining, ignite-fall-2021
 ---
@@ -19,16 +19,9 @@ Sentiment analysis and opinion mining are features offered by [Azure Cognitive S
 
 Both sentiment analysis and opinion mining work with a variety of [written languages](./language-support.md).
 
-* [**Quickstarts**](quickstart.md) are getting-started instructions to guide you through making requests to the service.
-* [**How-to guides**](how-to/call-api.md) contain instructions for using the service in more specific or customized ways.
-
 ## Sentiment analysis 
 
 The sentiment analysis feature provides sentiment labels (such as "negative", "neutral" and "positive") based on the highest confidence score found by the service at a sentence and document-level. This feature also returns confidence scores between 0 and 1 for each document & sentences within it for positive, neutral and negative sentiment. 
-
-### Deploy on premises using Docker containers
-
-Use the available Docker container to [deploy sentiment analysis on-premises](how-to/use-containers.md). These docker containers enable you to bring the service closer to your data for compliance, security, or other operational reasons.
 
 ## Opinion mining
 
@@ -36,9 +29,14 @@ Opinion mining is a feature of sentiment analysis. Also known as aspect-based se
 
 [!INCLUDE [Typical workflow for pre-configured language features](../includes/overview-typical-workflow.md)]
 
+## Get started with sentiment analysis
+
+[!INCLUDE [development options](./includes/development-options.md)]
+
+
 ## Responsible AI 
 
-An AI system includes not only the technology, but also the people who will use it, the people who will be affected by it, and the environment in which it is deployed. Read the [transparency note for sentiment analysis](/legal/cognitive-services/language-service/transparency-note-sentiment-analysis?context=/azure/cognitive-services/language-service/context/context) to learn about responsible AI use and deployment in your systems. You can also see the following articles for more information:
+An AI system includes not only the technology, but also the people who use it, the people who will be affected by it, and the environment in which it's deployed. Read the [transparency note for sentiment analysis](/legal/cognitive-services/language-service/transparency-note-sentiment-analysis?context=/azure/cognitive-services/language-service/context/context) to learn about responsible AI use and deployment in your systems. You can also see the following articles for more information:
 
 [!INCLUDE [Developer reference](../includes/reference-samples-text-analytics.md)] 
 

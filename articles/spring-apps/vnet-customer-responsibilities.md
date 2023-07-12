@@ -1,20 +1,20 @@
 ---
-title:  "Customer responsibilities running Azure Spring Apps in vnet"
-description: This article describes customer responsibilities running Azure Spring Apps in vnet.
-author: karlerickson
+title:  "Customer responsibilities running Azure Spring Apps in a virtual network"
+description: This article describes customer responsibilities running Azure Spring Apps in a virtual network.
+author: KarlErickson
 ms.author: karler
 ms.service: spring-apps
 ms.topic: conceptual
 ms.date: 11/02/2021
-ms.custom: devx-track-java, event-tier1-build-2022
+ms.custom: devx-track-java, devx-track-extended-java, event-tier1-build-2022
 ---
 
-# Customer responsibilities for running Azure Spring Apps in VNET
+# Customer responsibilities for running Azure Spring Apps in a virtual network
 
 > [!NOTE]
 > Azure Spring Apps is the new name for the Azure Spring Cloud service. Although the service has a new name, you'll see the old name in some places for a while as we work to update assets such as screenshots, videos, and diagrams.
 
-**This article applies to:** ✔️ Basic/Standard tier ✔️ Enterprise tier
+**This article applies to:** ✔️ Basic/Standard ✔️ Enterprise
 
 This article includes specifications for the use of Azure Spring Apps in a virtual network.
 
@@ -37,7 +37,6 @@ The following list shows the resource requirements for Azure Spring Apps service
 
 | Destination Endpoint                                                                                                                                                    | Port             | Use                                       | Note                                                                                                                                                            |
 |-------------------------------------------------------------------------------------------------------------------------------------------------------------------------|------------------|-------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| \*:1194 *or* [ServiceTag](../virtual-network/service-tags-overview.md#available-service-tags) - AzureCloud:1194                                                         | UDP:1194         | Underlying Kubernetes Cluster management. |                                                                                                                                                                 |
 | \*:443 *or* [ServiceTag](../virtual-network/service-tags-overview.md#available-service-tags) - AzureCloud:443                                                           | TCP:443          | Azure Spring Apps Service Management.     | Information of service instance "requiredTraffics" could be known in resource payload, under "networkProfile" section.                                          |
 | \*:123 *or* ntp.ubuntu.com:123                                                                                                                                          | UDP:123          | NTP time synchronization on Linux nodes.  |                                                                                                                                                                 |
 | \*.azurecr.io:443 *or* [ServiceTag](../virtual-network/service-tags-overview.md#available-service-tags) - AzureContainerRegistry:443                                      | TCP:443          | Azure Container Registry.                 | Can be replaced by enabling *Azure Container Registry* [service endpoint in virtual network](../virtual-network/virtual-network-service-endpoints-overview.md). |

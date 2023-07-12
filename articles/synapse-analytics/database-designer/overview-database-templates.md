@@ -7,7 +7,7 @@ ms.reviewer: wiassaf
 ms.service: synapse-analytics
 ms.subservice: database-editor
 ms.topic: overview
-ms.date: 11/02/2021
+ms.date: 05/17/2023
 ms.custom: template-overview, ignite-fall-2021
 ---
 
@@ -41,6 +41,7 @@ A typical database template addresses the core requirements of a specific indust
 
 Currently, you can choose from the following database templates in Azure Synapse Studio to start creating your lake database: 
 
+* **Airlines** - For companies operating passenger or cargo airline services.
 * **Agriculture** - For companies engaged in growing crops, raising livestock, and dairy production.
 * **Automotive** - For companies manufacturing automobiles, heavy vehicles, tires, and other automotive components.
 * **Banking** - For companies providing a wide range of banking and related financial services.
@@ -49,15 +50,18 @@ Currently, you can choose from the following database templates in Azure Synapse
 * **Freight & Logistics** - For companies that provide freight and logistics services.
 * **Fund Management** - For companies that manage investment funds for investors.
 * **Genomics** - For companies acquiring and analyzing genomic data about human beings or other species.
-* **Healthcare Insurance** - For organizations providing insurance to cover healthcare needs (sometimes know as Payors).
+* **Government** - For organizations controlling, regulating or providing services to a country/region, state or province, or community.
+* **Healthcare Insurance** - For organizations providing insurance to cover healthcare needs (sometimes known as Payors).
 * **Healthcare Provider** - For organizations providing healthcare services.
 * **Life Insurance & Annuities** - For companies that provide life insurance, sell annuities, or both.
 * **Manufacturing** - For companies engaged in discrete manufacturing of a wide range of products.
+* **Mining** - For companies extracting and processing minerals.
 * **Oil & Gas** - For companies that are involved in various phases of the Oil & Gas value chain.
 * **Pharmaceuticals** - For companies engaged in creating, manufacturing, and marketing pharmaceutical and bio-pharmaceutical products and medical devices.
 * **Property & Casualty Insurance** - For companies that provide insurance against risks to property and various forms of liability coverage.
 * **R&D and Clinical Trials** - For companies involved in research and development and clinical trials of pharmaceutical products or devices.
 * **Retail** - For sellers of consumer goods or services to customers through multiple channels.
+* **Travel Services** - For companies providing booking services for airlines, hotels, car rentals, cruises, and vacation packages.
 * **Utilities** - For gas, electric, and water utilities; power generators; and water desalinators.
  
 As emission and carbon management is an important discussion in all industries, so we've included those components in all the available database templates. These components make it easy for companies who need to track and report their direct and indirect greenhouse gas emissions.

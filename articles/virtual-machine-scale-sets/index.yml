@@ -1,17 +1,17 @@
 ### YamlMime:Landing
 
 title: Virtual Machine Scale Sets documentation
-summary: Azure virtual machine scale sets let you create and manage a group of load balanced and autoscaling VMs.
+summary: Azure Virtual Machine Scale Sets let you create and manage a group of load balanced and autoscaling VMs.
 
 metadata:
   title: Virtual Machine Scale Sets documentation
-  description: Learn how to create, configure, manage, and autoscale virtual machine scale sets.
+  description: Learn how to create, configure, manage, and autoscale Virtual Machine Scale Sets.
   ms.service: virtual-machine-scale-sets
   ms.topic: landing-page
   author: ju-shim
   ms.author: jushiman
   ms.reviewer: mimckitt
-  ms.date: 03/30/2022
+  ms.date: 11/22/2022
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | sample | tutorial | video | whats-new
 
@@ -19,11 +19,11 @@ landingContent:
 # Cards and links should be based on top customer tasks or top subjects
 # Start card title with a verb
   # Card
-  - title: About virtual machine scale sets
+  - title: About Virtual Machine Scale Sets
     linkLists:
       - linkListType: overview
         links:
-          - text: What are virtual machine scale sets?
+          - text: What are Virtual Machine Scale Sets?
             url: overview.md
           - text: Frequently asked questions (FAQ)
             url: virtual-machine-scale-sets-faq.yml
@@ -85,10 +85,10 @@ landingContent:
     linkLists:
       - linkListType: learn
         links:
-          - text: Build a scalable application with virtual machine scale sets
-            url: /learn/modules/build-app-with-scale-sets/
+          - text: Build a scalable application with Virtual Machine Scale Sets
+            url: /training/modules/build-app-with-scale-sets/
           - text: Create a Windows virtual machine in Azure
-            url: /learn/modules/create-windows-virtual-machine-in-azure/
+            url: /training/modules/create-windows-virtual-machine-in-azure/
 
 
 # Card

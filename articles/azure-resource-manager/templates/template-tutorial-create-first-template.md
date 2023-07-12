@@ -4,11 +4,9 @@ description: Create your first Azure Resource Manager template (ARM template). I
 author: mumian
 ms.date: 06/15/2022
 ms.topic: tutorial
+ms.custom: devx-track-arm-template
 ms.author: jgao
-ms.custom: devx-track-azurepowershell
-
 #Customer intent: As a developer new to Azure deployment, I want to learn how to use Visual Studio Code to create and edit Azure Resource Manager templates, so I can use them to deploy Azure resources.
-
 ---
 
 # Tutorial: Create and deploy your first ARM template
@@ -17,7 +15,7 @@ This tutorial introduces you to Azure Resource Manager templates (ARM templates)
 
 This tutorial is the first of a series. As you progress through the series, you modify the starting template, step by step, until you explore all of the core parts of an ARM template. These elements are the building blocks for more complex templates. We hope by the end of the series you're confident in creating your own templates and ready to automate your deployments with templates.
 
-If you want to learn about the benefits of using templates and why you should automate deployments with templates, see [ARM template overview](overview.md). To learn about ARM templates through a guided set of [Learn modules](/learn), see [Deploy and manage resources in Azure by using JSON ARM templates](/learn/paths/deploy-manage-resource-manager-templates).
+If you want to learn about the benefits of using templates and why you should automate deployments with templates, see [ARM template overview](overview.md). To learn about ARM templates through a guided set of [Learn modules](/training), see [Deploy and manage resources in Azure by using JSON ARM templates](/training/paths/deploy-manage-resource-manager-templates).
 
 If you don't have a Microsoft Azure subscription, [create a free account](https://azure.microsoft.com/free/) before you begin.
 
@@ -36,7 +34,7 @@ Templates are JavaScript Object Notation (JSON) files. To create templates, you 
 
 You also need either Azure PowerShell or Azure Command-Line Interface (CLI) to deploy the template. If you use Azure CLI, you need to have version 2.37.0 or later. For the installation instructions, see:
 
-- [Install Azure PowerShell](/powershell/azure/install-az-ps)
+- [Install Azure PowerShell](/powershell/azure/install-azure-powershell)
 - [Install Azure CLI on Windows](/cli/azure/install-azure-cli-windows)
 - [Install Azure CLI on Linux](/cli/azure/install-azure-cli-linux)
 - [Install Azure CLI on macOS](/cli/azure/install-azure-cli-macos)

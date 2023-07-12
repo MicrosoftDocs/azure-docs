@@ -1,6 +1,6 @@
 ---
-title: Enable Profiler for ASP.NET Core web applications hosted in Linux on App Services | Microsoft Docs
-description: Learn how to enable Profiler on your ASP.NET Core web application hosted in Linux on App Services.
+title: Enable Profiler for ASP.NET Core web apps hosted in Linux on App Service | Microsoft Docs
+description: Learn how to enable Profiler on your ASP.NET Core web application hosted in Linux on Azure App Service.
 ms.topic: conceptual
 ms.devlang: csharp
 ms.custom: devx-track-csharp
@@ -8,24 +8,27 @@ ms.date: 07/18/2022
 ms.reviewer: charles.weininger
 ---
 
-# Enable Profiler for ASP.NET Core web applications hosted in Linux on App Services
+# Enable Profiler for ASP.NET Core web apps hosted in Linux on App Service
 
-Using Profiler, you can track how much time is spent in each method of your live ASP.NET Core web apps that are hosted in Linux on Azure App Service. While this guide focuses on web apps hosted in Linux, you can experiment using Linux, Windows, and Mac development environments.
+By using Profiler, you can track how much time is spent in each method of your live ASP.NET Core web apps that are hosted in Linux on Azure App Service. This article focuses on web apps hosted in Linux. You can also experiment by using Linux, Windows, and Mac development environments.
 
-In this guide, you'll:
+In this article, you:
 
 > [!div class="checklist"]
 > - Set up and deploy an ASP.NET Core web application hosted on Linux.
 > - Add Application Insights Profiler to the ASP.NET Core web application.
- 
+
 ## Prerequisites
 
-- Install the [latest and greatest .NET Core SDK](https://dotnet.microsoft.com/download/dotnet).
-- Install Git by following the instructions at [Getting Started - Installing Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git).
+- Install the [latest .NET Core SDK](https://dotnet.microsoft.com/download/dotnet).
+- Install Git by following the instructions at [Getting started: Installing Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git).
+- Review the following samples for context:
+  - [Enable Service Profiler for containerized ASP.NET Core Application (.NET 6)](https://github.com/microsoft/ApplicationInsights-Profiler-AspNetCore/tree/main/examples/EnableServiceProfilerForContainerAppNet6)
+  - [Application Insights Profiler for Worker Service example](https://github.com/microsoft/ApplicationInsights-Profiler-AspNetCore/tree/main/examples/ServiceProfilerInWorkerNet6)
 
 ## Set up the project locally
 
-1. Open a Command Prompt window on your machine.
+1. Open a command prompt window on your machine.
 
 1. Create an ASP.NET Core MVC web application:
 
@@ -41,30 +44,31 @@ In this guide, you'll:
    dotnet add package Microsoft.ApplicationInsights.Profiler.AspNetCore
    ```
 
-1. In your preferred code editor, enable Application Insights and Profiler in `Program.cs`:
+1. In your preferred code editor, enable Application Insights and Profiler in `Program.cs`. [Add custom Profiler settings, if applicable](https://github.com/microsoft/ApplicationInsights-Profiler-AspNetCore/blob/main/Configurations.md).
+
+   For `WebAPI`:
 
     ```csharp
-    public void ConfigureServices(IServiceCollection services)
-    {
-        services.AddApplicationInsightsTelemetry(); // Add this line of code to enable Application Insights.
-        services.AddServiceProfiler(); // Add this line of code to Enable Profiler
-        services.AddControllersWithViews();
-    }
+    // Add services to the container.
+    builder.Services.AddApplicationInsightsTelemetry();
+    builder.Services.AddServiceProfiler();
     ```
 
-1. Add a line of code in the **HomeController.cs** section to randomly delay a few seconds:
+   For `Worker`:
 
     ```csharp
-    using System.Threading;
-    ...
-
-    public IActionResult About()
+    IHost host = Host.CreateDefaultBuilder(args)
+        .ConfigureServices(services =>
         {
-            Random r = new Random();
-            int delay = r.Next(5000, 10000);
-            Thread.Sleep(delay);
-            return View();
-        }
+            services.AddApplicationInsightsTelemetryWorkerService();
+            services.AddServiceProfiler();
+            
+            // Assuming Worker is your background service class.
+            services.AddHostedService<Worker>();
+        })
+        .Build();
+    
+    await host.RunAsync();
     ```
 
 1. Save and commit your changes to the local repository:
@@ -77,29 +81,29 @@ In this guide, you'll:
 
 ## Create the Linux web app to host your project
 
-1. In the Azure portal, create a web app environment by using App Service on Linux:
+1. In the Azure portal, create a web app environment by using App Service on Linux.
 
-   :::image type="content" source="./media/profiler-aspnetcore-linux/create-web-app.png" alt-text="Screenshot of creating the Linux web app.":::
+   :::image type="content" source="./media/profiler-aspnetcore-linux/create-web-app.png" alt-text="Screenshot that shows creating the Linux web app.":::
 
-1. Go to your new web app resource and select **Deployment Center** > **FTPS credentials** to create the deployment credentials. Make note of your credentials to use later.
+1. Go to your new web app resource and select **Deployment Center** > **FTPS credentials** to create the deployment credentials. Make a note of your credentials to use later.
 
-   :::image type="content" source="./media/profiler-aspnetcore-linux/credentials.png" alt-text="Screenshot of creating the deployment credentials.":::    
+   :::image type="content" source="./media/profiler-aspnetcore-linux/credentials.png" alt-text="Screenshot that shows creating the deployment credentials.":::    
 
-1. Click **Save**.
-1. Select the **Settings** tab. 
-1. In the drop-down, select **Local Git** to set up a local Git repository in the web app.
+1. Select **Save**.
+1. Select the **Settings** tab.
+1. In the dropdown, select **Local Git** to set up a local Git repository in the web app.
 
-   :::image type="content" source="./media/profiler-aspnetcore-linux/deployment-options.png" alt-text="Screenshot of view deployment options in a drop-down.":::    
+   :::image type="content" source="./media/profiler-aspnetcore-linux/deployment-options.png" alt-text="Screenshot that shows view deployment options in a dropdown.":::    
 
-1. Click **Save** to create a Git repository with a Git Clone Uri. 
+1. Select **Save** to create a Git repository with a Git clone URI.
 
-   :::image type="content" source="./media/profiler-aspnetcore-linux/local-git-repo.png" alt-text="Screenshot of setting up the local Git repository.":::    
+   :::image type="content" source="./media/profiler-aspnetcore-linux/local-git-repo.png" alt-text="Screenshot that shows setting up the local Git repository.":::    
 
-   For more deployment options, see [App Service documentation](../../app-service/deploy-best-practices.md).
+   For more deployment options, see the [App Service documentation](../../app-service/deploy-best-practices.md).
 
 ## Deploy your project
 
-1. In your Command Prompt window, browse to the root folder for your project. Add a Git remote repository to point to the repository on App Service:
+1. In your command prompt window, browse to the root folder for your project. Add a Git remote repository to point to the repository on App Service:
 
     ```console
     git remote add azure https://<username>@<app_name>.scm.azurewebsites.net:443/<app_name>.git
@@ -108,7 +112,7 @@ In this guide, you'll:
     * Use the **username** that you used to create the deployment credentials.
     * Use the **app name** that you used to create the web app by using App Service on Linux.
 
-2. Deploy the project by pushing the changes to Azure:
+1. Deploy the project by pushing the changes to Azure:
 
     ```console
     git push azure main
@@ -138,60 +142,60 @@ In this guide, you'll:
 
 ## Add Application Insights to monitor your web app
 
-You can add Application Insights to your web app either via:
+You have three options to add Application Insights to your web app:
 
-- The Enablement blade in the Azure portal,
-- The Configuration blade in the Azure portal, or 
-- Manually adding to your web app settings.
+- By using the **Application Insights** pane in the Azure portal.
+- By using the **Configuration** pane in the Azure portal.
+- By manually adding to your web app settings.
 
-# [Enablement blade](#tab/enablement)
+# [Application Insights pane](#tab/enablement)
 
-1. In your web app on the Azure portal, select **Application Insights** in the left side menu. 
-1. Click **Turn on Application Insights**. 
+1. In your web app on the Azure portal, select **Application Insights** on the left pane. 
+1. Select **Turn on Application Insights**.
 
-   :::image type="content" source="./media/profiler-aspnetcore-linux/turn-on-app-insights.png" alt-text="Screenshot of turning on Application Insights.":::    
+   :::image type="content" source="./media/profiler-aspnetcore-linux/turn-on-app-insights.png" alt-text="Screenshot that shows turning on Application Insights.":::    
 
 1. Under **Application Insights**, select **Enable**.
 
-   :::image type="content" source="./media/profiler-aspnetcore-linux/enable-app-insights.png" alt-text="Screenshot of enabling Application Insights.":::    
+   :::image type="content" source="./media/profiler-aspnetcore-linux/enable-app-insights.png" alt-text="Screenshot that shows enabling Application Insights.":::    
 
-1. Under **Link to an Application Insights resource**, either create a new resource or select an existing resource. For this example, we'll create a new resource.
+1. Under **Link to an Application Insights resource**, either create a new resource or select an existing resource. For this example, we create a new resource.
 
-   :::image type="content" source="./media/profiler-aspnetcore-linux/link-app-insights.png" alt-text="Screenshot of linking your Application Insights to a new or existing resource.":::    
+   :::image type="content" source="./media/profiler-aspnetcore-linux/link-app-insights.png" alt-text="Screenshot that shows linking Application Insights to a new or existing resource.":::    
 
-1. Click **Apply** > **Yes** to apply and confirm.
+1. Select **Apply** > **Yes** to apply and confirm.
 
-# [Configuration blade](#tab/config)
+# [Configuration pane](#tab/config)
 
-1. [Create an Application Insights resource](../app/create-workspace-resource.md) in the same Azure subscription as your App Service.
-1. Navigate to the Application Insights resource.
+1. [Create an Application Insights resource](../app/create-workspace-resource.md) in the same Azure subscription as your App Service instance.
+1. Go to the Application Insights resource.
 1. Copy the **Instrumentation Key** (iKey).
-1. In your web app on the Azure portal, select **Configuration** in the left side menu. 
-1. Click **New application setting**.
+1. In your web app in the Azure portal, select **Configuration** on the left pane.
+1. Select **New application setting**.
 
-   :::image type="content" source="./media/profiler-aspnetcore-linux/new-setting-configuration.png" alt-text="Screenshot of adding new application setting in the configuration blade.":::    
+   :::image type="content" source="./media/profiler-aspnetcore-linux/new-setting-configuration.png" alt-text="Screenshot that shows adding a new application setting in the Configuration pane.":::    
 
-1. Add the following settings in the **Add/Edit application setting** pane, using your saved iKey:
+1. Add the following settings in the **Add/Edit application setting** pane by using your saved iKey:
 
    | Name | Value |
    | ---- | ----- |
    | APPINSIGHTS_INSTRUMENTATIONKEY | [YOUR_APPINSIGHTS_KEY] |
 
-   :::image type="content" source="./media/profiler-aspnetcore-linux/add-ikey-settings.png" alt-text="Screenshot of adding iKey to the settings pane.":::    
+   :::image type="content" source="./media/profiler-aspnetcore-linux/add-ikey-settings.png" alt-text="Screenshot that shows adding the iKey to the Settings pane.":::    
 
-1. Click **OK**.
+1. Select **OK**.
 
-   :::image type="content" source="./media/profiler-aspnetcore-linux/save-app-insights-key.png" alt-text="Screenshot of saving the application insights key settings.":::    
+   :::image type="content" source="./media/profiler-aspnetcore-linux/save-app-insights-key.png" alt-text="Screenshot that shows saving the Application Insights key settings.":::    
 
-1. Click **Save**.
+1. Select **Save**.
 
 # [Web app settings](#tab/appsettings)
 
-1. [Create an Application Insights resource](../app/create-workspace-resource.md) in the same Azure subscription as your App Service.
-1. Navigate to the Application Insights resource.
+1. [Create an Application Insights resource](../app/create-workspace-resource.md) in the same Azure subscription as your App Service instance.
+1. Go to the Application Insights resource.
 1. Copy the **Instrumentation Key** (iKey).
-1. In your preferred code editor, navigate to your ASP.NET Core project's `appsettings.json` file.
-1. Add the following and insert your copied iKey:
+1. In your preferred code editor, go to your ASP.NET Core project's `appsettings.json` file.
+1. Add the following code and insert your copied iKey:
 
    ```json
    "ApplicationInsights":
@@ -205,6 +209,6 @@ You can add Application Insights to your web app either via:
 ---
 
 ## Next steps
-Learn how to...
+
 > [!div class="nextstepaction"]
 > [Generate load and view Profiler traces](./profiler-data.md)

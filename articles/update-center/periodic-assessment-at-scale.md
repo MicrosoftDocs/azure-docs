@@ -12,8 +12,6 @@ ms.topic: conceptual
 
 This article describes how to enable Periodic Assessment for your machines at scale using Azure Policy. Periodic Assessment is a setting on your machine that enables you to see the latest updates available for your machines and removes the hassle of performing assessment manually every time you need to check the update status. Once you enable this setting, update management center (preview) fetches updates on your machine once every 24 hours.
 
->[!NOTE]
->  You must [register for the periodic assessement](./enable-machines.md?branch=release-updatecenterv2-publicpreview&tabs=portal-periodic%2cps-periodic-assessment%2ccli-periodic-assessment%2crest-periodic-assessment) in your Azure subscription to enable this feature. 
 
 ## Enable Periodic assessment for your Azure machines using Policy
 1. Go to **Policy** from the Azure portal and under **Authoring**, go to **Definitions**. 

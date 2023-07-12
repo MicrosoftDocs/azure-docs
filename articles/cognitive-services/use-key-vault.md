@@ -4,6 +4,7 @@ description: Learn how to develop Cognitive Services applications securely by us
 author: aahill
 ms.author: aahi
 ms.service: cognitive-services
+ms.custom: devx-track-extended-java, devx-track-js, devx-track-python
 ms.topic: how-to
 ms.date: 09/13/2022
 zone_pivot_groups: programming-languages-set-twenty-eight
@@ -11,7 +12,7 @@ zone_pivot_groups: programming-languages-set-twenty-eight
 
 # Develop Azure Cognitive Services applications with Key Vault
 
-Use this article to learn how to develop Cognitive Services applications securely by using [Azure Key Vault](/azure/key-vault/general/overview). 
+Use this article to learn how to develop Cognitive Services applications securely by using [Azure Key Vault](../key-vault/general/overview.md). 
 
 Key Vault reduces the chances that secrets may be accidentally leaked, because you won't store security information in your application. 
 
@@ -21,7 +22,7 @@ Key Vault reduces the chances that secrets may be accidentally leaked, because y
 
 * A valid Azure subscription - [Create one for free](https://azure.microsoft.com/free)
 * [Visual Studio IDE](https://visualstudio.microsoft.com/vs/)
-* An [Azure Key Vault](/azure/key-vault/general/quick-create-portal)
+* An [Azure Key Vault](../key-vault/general/quick-create-portal.md)
 * [A multi-service resource or a resource for a specific service](./cognitive-services-apis-create-account.md)
 
 ::: zone-end
@@ -30,8 +31,8 @@ Key Vault reduces the chances that secrets may be accidentally leaked, because y
 
 * A valid Azure subscription - [Create one for free](https://azure.microsoft.com/free).
 * [Python 3.7 or later](https://www.python.org/)
-* [Azure CLI](/cli/azure/install-azure-cli) or [Azure PowerShell](/powershell/azure/install-az-ps)
-* An [Azure Key Vault](/azure/key-vault/general/quick-create-portal)
+* [Azure CLI](/cli/azure/install-azure-cli) or [Azure PowerShell](/powershell/azure/install-azure-powershell)
+* An [Azure Key Vault](../key-vault/general/quick-create-portal.md)
 * [A multi-service resource or a resource for a specific service](./cognitive-services-apis-create-account.md)
 
 ::: zone-end
@@ -40,8 +41,8 @@ Key Vault reduces the chances that secrets may be accidentally leaked, because y
 
 * A valid Azure subscription - [Create one for free](https://azure.microsoft.com/free).
 * [Java Development Kit (JDK) version 8 or above](/azure/developer/java/fundamentals/)
-* [Azure CLI](/cli/azure/install-azure-cli) or [Azure PowerShell](/powershell/azure/install-az-ps)
-* An [Azure Key Vault](/azure/key-vault/general/quick-create-portal)
+* [Azure CLI](/cli/azure/install-azure-cli) or [Azure PowerShell](/powershell/azure/install-azure-powershell)
+* An [Azure Key Vault](../key-vault/general/quick-create-portal.md)
 * [A multi-service resource or a resource for a specific service](./cognitive-services-apis-create-account.md)
 
 ::: zone-end
@@ -50,8 +51,8 @@ Key Vault reduces the chances that secrets may be accidentally leaked, because y
 
 * A valid Azure subscription - [Create one for free](https://azure.microsoft.com/free).
 * [Current Node.js v14 LTS or later](https://nodejs.org/)
-* [Azure CLI](/cli/azure/install-azure-cli) or [Azure PowerShell](/powershell/azure/install-az-ps)
-* An [Azure Key Vault](/azure/key-vault/general/quick-create-portal)
+* [Azure CLI](/cli/azure/install-azure-cli) or [Azure PowerShell](/powershell/azure/install-azure-powershell)
+* An [Azure Key Vault](../key-vault/general/quick-create-portal.md)
 * [A multi-service resource or a resource for a specific service](./cognitive-services-apis-create-account.md)
 
 ::: zone-end
@@ -74,7 +75,7 @@ Some Cognitive Services require different information to authenticate API calls,
 
 ## Add your credentials to your key vault
 
-For your application to retrieve and use your credentials to authenticate API calls, you will need to add them to your [key vault secrets](/azure/key-vault/secrets/about-secrets). 
+For your application to retrieve and use your credentials to authenticate API calls, you will need to add them to your [key vault secrets](../key-vault/secrets/about-secrets.md). 
 
 Repeat these steps to generate a secret for each required resource credential. For example, a key and endpoint. These secret names will be used later to authenticate your application.
 
@@ -259,7 +260,7 @@ If you're using a multi-service resource or Language resource, you can update [y
 
 [!INCLUDE [key-vault-cli-authentication](includes/key-vault-cli-authentication.md)]
 
-## Create a python application
+## Create a Python application
 
 Create a new folder named `keyVaultExample`. Then use your preferred code editor to create a file named `program.py` inside the newly created folder. 
 
@@ -594,8 +595,8 @@ If you're using a multi-service resource or Language resource, you can update [y
 
 ## Next steps
 
-* See [What are Cognitive Services](./what-are-cognitive-services.md) for available features you can develop along with [Azure key vault](/azure/key-vault/general/).  
+* See [What are Cognitive Services](./what-are-cognitive-services.md) for available features you can develop along with [Azure Key Vault](../key-vault/general/index.yml).  
 * For additional information on secure application development, see:
-    * [Best practices for using Azure Key Vault](/azure/key-vault/general/best-practices)
+    * [Best practices for using Azure Key Vault](../key-vault/general/best-practices.md)
     * [Cognitive Services security](cognitive-services-security.md)
     * [Azure security baseline for Cognitive Services](/security/benchmark/azure/baselines/cognitive-services-security-baseline?toc=/azure/cognitive-services/TOC.json)

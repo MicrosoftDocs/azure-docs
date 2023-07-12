@@ -3,10 +3,9 @@ title: Deploy a ZRS managed disk
 description: Learn how to deploy a managed disk that uses zone-redundant storage (ZRS).
 author: roygara
 ms.author: rogarana
-ms.date: 09/01/2021
+ms.date: 05/05/2023
 ms.topic: how-to
-ms.service: storage
-ms.subservice: disks
+ms.service: azure-disk-storage
 ms.custom: references_regions, devx-track-azurepowershell, devx-track-azurecli 
 ms.devlang: azurecli
 ---
@@ -20,6 +19,10 @@ For conceptual information on ZRS, see [Zone-redundant storage for managed disks
 ## Limitations
 
 [!INCLUDE [disk-storage-zrs-limitations](../../includes/disk-storage-zrs-limitations.md)]
+
+## Regional availability
+
+[!INCLUDE [disk-storage-zrs-regions](../../includes/disk-storage-zrs-regions.md)]
 
 # [Azure portal](#tab/portal)
 
@@ -128,7 +131,7 @@ az vm create -g $rgName \
 --subnet $vmNamePrefix"_subnet"
 
 ```
-#### Create a virtual machine scale set with ZRS Disks
+#### Create a Virtual Machine Scale Set with ZRS Disks
 ```azurecli
 location=westus2
 rgName=yourRGName
@@ -279,7 +282,7 @@ $vm2 = Add-AzVMDataDisk -VM $vm1 -Name $sharedDiskName -CreateOption Attach -Man
 update-AzVm -VM $vm1 -ResourceGroupName $rgName
 ```
 
-#### Create a virtual machine scale set with ZRS Disks
+#### Create a Virtual Machine Scale Set with ZRS Disks
 ```powershell
 $vmLocalAdminUser = "yourLocalAdminUser"
 $vmLocalAdminSecurePassword = ConvertTo-SecureString "yourVMPassword" -AsPlainText -Force
@@ -399,7 +402,7 @@ New-AzResourceGroupDeployment -ResourceGroupName $resourceGroupName `
 -dataDiskType $sharedDataDiskType
 ```
 
-#### Create a virtual machine scale set with ZRS Disks
+#### Create a Virtual Machine Scale Set with ZRS Disks
 
 ```
 $vmssName="yourVMSSName"

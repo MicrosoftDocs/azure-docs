@@ -37,7 +37,7 @@ To redirect the user post-sign-in to a custom URL, use the `post_login_redirect_
 
 ## Client-directed sign-in
 
-In a client-directed sign-in, the application signs in the user to the identity provider using a provider-specific SDK. The application code then submits the resulting authentication token to App Service for validation (see [Authentication flow](overview-authentication-authorization.md#authentication-flow)) using an HTTP POST request. The [Azure Mobile Apps SDKs](https://github.com/Azure/azure-mobile-apps) use this sign-in flow. This validation itself doesn't actually grant you access to the desired app resources, but a successful validation will give you a session token that you can use to access app resources.
+In a client-directed sign-in, the application signs in the user to the identity provider using a provider-specific SDK. The application code then submits the resulting authentication token to App Service for validation (see [Authentication flow](overview-authentication-authorization.md#authentication-flow)) using an HTTP POST request. This validation itself doesn't actually grant you access to the desired app resources, but a successful validation will give you a session token that you can use to access app resources.
 
 To validate the provider token, App Service app must first be configured with the desired provider. At runtime, after you retrieve the authentication token from your provider, post the token to `/.auth/login/<provider>` for validation. For example:
 
@@ -56,7 +56,7 @@ The token format varies slightly according to the provider. See the following ta
 | `microsoftaccount` | `{"access_token":"<access_token>"}` or `{"authentication_token": "<token>"`| `authentication_token` is preferred over `access_token`. The `expires_in` property is optional. <br/> When requesting the token from Live services, always request the `wl.basic` scope. |
 | `google` | `{"id_token":"<id_token>"}` | The `authorization_code` property is optional. Providing an `authorization_code` value will add an access token and a refresh token to the token store. When specified, `authorization_code` can also optionally be accompanied by a `redirect_uri` property. |
 | `facebook`| `{"access_token":"<user_access_token>"}` | Use a valid [user access token](https://developers.facebook.com/docs/facebook-login/access-tokens) from Facebook. |
-| `twitter` | `{"access_token":"<access_token>", "access_token_secret":"<acces_token_secret>"}` | |
+| `twitter` | `{"access_token":"<access_token>", "access_token_secret":"<access_token_secret>"}` | |
 | | | |
 
 If the provider token is validated successfully, the API returns with an `authenticationToken` in the response body, which is your session token. 
@@ -91,7 +91,7 @@ Here's a simple sign-out link in a webpage:
 <a href="/.auth/logout">Sign out</a>
 ```
 
-By default, a successful sign-out redirects the client to the URL `/.auth/logout/done`. You can change the post-sign-out redirect page by adding the `post_logout_redirect_uri` query parameter. For example:
+By default, a successful sign-out redirects the client to the URL `/.auth/logout/complete`. You can change the post-sign-out redirect page by adding the `post_logout_redirect_uri` query parameter. For example:
 
 ```
 GET /.auth/logout?post_logout_redirect_uri=/index.html

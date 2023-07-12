@@ -1,42 +1,68 @@
 ---
 title: Linux distributions endorsed on Azure
-description: Learn about Linux on Azure-endorsed distributions, including guidelines for Ubuntu, CentOS, Oracle, and SUSE.
+description: Learn about Linux on Azure-endorsed distributions, including information about Ubuntu, CentOS, Oracle, Flatcar, Debian, Red Hat, and SUSE.
 services: virtual-machines
-author: danielsollondon
+author: srijang
 ms.service: virtual-machines
 ms.collection: linux
-ms.workload: infrastructure-services
 ms.topic: conceptual
-ms.date: 04/06/2021
-ms.author: guybo
-ms.reviewer: mattmcinnes
+ms.date: 09/29/2022
+ms.author: srijangupta
+ms.reviewer: cynthn
+ms.custom: engagement-fy23
 ---
 
 # Endorsed Linux distributions on Azure
 
 **Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Flexible scale sets :heavy_check_mark: Uniform scale sets 
 
-Partners provide Linux images in Azure Marketplace. Microsoft works with various Linux communities to add even more flavors to the Endorsed Distribution list. For distributions that are not available from the Marketplace, you can always bring your own Linux by following the guidelines at [Create and upload a virtual hard disk that contains the Linux operating system](./create-upload-generic.md).
+Partners provide Linux images in Azure Marketplace. For distributions that are not available from the Marketplace, you can always bring your own Linux by following the guidelines at [Create and upload a virtual hard disk that contains the Linux operating system](./create-upload-generic.md).
 
-## Supported distributions and versions
 
-The following table lists the Linux distributions and versions that are supported on Azure. For more information, see [Support for Linux images in Microsoft Azure](https://support.microsoft.com/help/2941892/support-for-linux-and-open-source-technology-in-azure).
+For more information, see [Support for Linux images in Microsoft Azure](https://support.microsoft.com/help/2941892/support-for-linux-and-open-source-technology-in-azure).
 
 The Linux Integration Services (LIS) drivers for Hyper-V and Azure are kernel modules that Microsoft contributes directly to the upstream Linux kernel. Some LIS drivers are built into the distribution's kernel by default. Older distributions that are based on Red Hat Enterprise (RHEL)/CentOS are available as a separate download at [Linux Integration Services Version 4.2 for Hyper-V and Azure](https://www.microsoft.com/download/details.aspx?id=55106). For more information, see [Linux kernel requirements](create-upload-generic.md#linux-kernel-requirements).
 
 The Azure Linux Agent is already pre-installed on Azure Marketplace images and is typically available from the distribution's package repository. Source code can be found on [GitHub](https://github.com/azure/walinuxagent).
 
-| Distribution | Version | Drivers | Agent |
-| --- | --- | --- | --- |
-| CentOS by Rogue Wave Software (formerly known as OpenLogic) |CentOS 6.x, 7.x, 8.x |CentOS 6.3: [LIS download](https://www.microsoft.com/download/details.aspx?id=55106)<p>CentOS 6.4+: In kernel |Package: In [repo](http://olcentgbl.trafficmanager.net/openlogic/6/openlogic/x86_64/RPMS/) under "WALinuxAgent" <br/>Source code: [GitHub](https://github.com/Azure/WALinuxAgent) |
-| [CoreOS](https://coreos.com/docs/running-coreos/cloud-providers/azure/)<p> CoreOS is now [end of life](https://coreos.com/os/eol/) as of May 26, 2020. |No Longer Available | | |
-| Debian by credativ | 9.x (LTS), 10.x, 11.x |In kernel |Package: In repo under "waagent" <br/>Source code: [GitHub](https://github.com/Azure/WALinuxAgent) |
-|Flatcar Container Linux by Kinvolk| Pro, Stable, Beta| In kernel | wa-linux-agent is installed already in /usr/share/oem/bin/waagent |
-| Oracle Linux by Oracle |6.x, 7.x, 8.x |In kernel |Package: In repo under "WALinuxAgent" <br/>Source code: [GitHub](https://go.microsoft.com/fwlink/p/?LinkID=250998) |
-| [Red Hat Enterprise Linux by Red Hat](../workloads/redhat/overview.md) |7.x, 8.x |In kernel |Package: In repo under "WALinuxAgent" <br/>Source code: [GitHub](https://github.com/Azure/WALinuxAgent) |
-| SUSE Linux Enterprise by SUSE |SLES/SLES for SAP 11.x, 12.x, 15.x <br/> [SUSE Public Cloud Image Lifecycle](https://www.suse.com/c/suse-public-cloud-image-life-cycle/) |In kernel |Package:<p> for 11 in [Cloud:Tools](https://build.opensuse.org/project/show/Cloud:Tools) repo<br>for 12 included in "Public Cloud" Module under "python-azure-agent"<br/>Source code: [GitHub](https://go.microsoft.com/fwlink/p/?LinkID=250998) |
-| openSUSE by SUSE |openSUSE Leap 15.x |In kernel |Package: In [Cloud:Tools](https://build.opensuse.org/project/show/Cloud:Tools) repo under "python-azure-agent" <br/>Source code: [GitHub](https://github.com/Azure/WALinuxAgent) |
-| Ubuntu by Canonical |Ubuntu Server and Pro. 18.x, 20.x 22.x<p>Information about extended support for Ubuntu 14.04 pro and 16.04 pro can be found here: [Ubuntu Extended Security Maintenance](https://www.ubuntu.com/esm). |In kernel |Package: In repo under "walinuxagent" <br/>Source code: [GitHub](https://github.com/Azure/WALinuxAgent) |
+
+## Partners
+
+
+### credativ
+
+[https://www.credativ.de/en/portfolio/support/open-source-support-center/](https://www.credativ.de/en/portfolio/support/open-source-support-center/)
+
+credativ is an independent consulting and services company that specializes in the development and implementation of professional solutions by using free software. As leading open-source specialists, credativ has international recognition with many IT departments that use their support. In conjunction with Microsoft, credativ is preparing Debian images. The images are specially designed to run on Azure and can be easily managed via the platform. credativ will also support the long-term maintenance and updating of the Debian images for Azure through its Open Source Support Centers.
+
+### Kinvolk
+[https://www.flatcar-linux.org/](https://www.flatcar-linux.org/)
+
+Kinvolk is the team behind Flatcar Container Linux, continuing the original CoreOS vision for a minimal, immutable, and auto-updating foundation for containerized applications. As a minimal distro, Flatcar contains just those packages required for deploying containers. Its immutable file system guarantees consistency and security, while its auto-update capabilities, enable you to be always up-to-date with the latest security fixes. Kinvolk was [acquired by Microsoft](https://azure.microsoft.com/blog/microsoft-acquires-kinvolk-to-accelerate-containeroptimized-innovation/) in April 2021 and, post-acquisition, continues its mission to support the Flatcar Container Linux community.
+
+### Oracle
+
+[https://www.oracle.com/technetwork/topics/cloud/faq-1963009.html](https://www.oracle.com/technetwork/topics/cloud/faq-1963009.html)
+
+Oracle's strategy is to offer a broad portfolio of solutions for public and private clouds. The strategy gives customers choice and flexibility in how they deploy Oracle software in Oracle clouds and other clouds. Oracle's partnership with Microsoft enables customers to deploy Oracle software to Microsoft public and private clouds with the confidence of certification and support from Oracle.  Oracle's commitment and investment in Oracle public and private cloud solutions is unchanged.
+
+### Red Hat
+
+[https://www.redhat.com/en/partners/strategic-alliance/microsoft](https://www.redhat.com/en/partners/strategic-alliance/microsoft)
+
+The world's leading provider of open-source solutions, Red Hat helps more than 90% of Fortune 500 companies solve business challenges, align their IT and business strategies, and prepare for the future of technology. Red Hat achieves this by providing secure solutions through an open business model and an affordable, predictable subscription model.
+
+### SUSE
+
+[https://www.suse.com/suse-linux-enterprise-server-on-azure](https://www.suse.com/suse-linux-enterprise-server-on-azure)
+
+SUSE Linux Enterprise Server on Azure is a proven platform that provides superior reliability and security for cloud computing. SUSE's versatile Linux platform seamlessly integrates with Azure cloud services to deliver an easily manageable cloud environment. With more than 9,200 certified applications from more than 1,800 independent software vendors for SUSE Linux Enterprise Server, SUSE ensures that workloads running supported in the data center can be confidently deployed on Azure.
+
+### Canonical
+
+[https://ubuntu.com/azure](https://ubuntu.com/azure)
+
+Canonical produces official Ubuntu images for Microsoft Azure and continuously tracks and delivers updates to these, ensuring security and stability are built from the moment your virtual machines launch. Canonical works closely with Microsoft to optimize Ubuntu images on Azure and ensure Ubuntu supports the latest cloud features as they are released. Ubuntu powers more mission-critical workloads on Azure than any other operating system.
 
 ## Image update cadence
 
@@ -54,49 +80,4 @@ In most cases, you will find these kernels pre-installed on the default images i
 - [Ubuntu Azure-Tuned Kernel](https://blog.ubuntu.com/2017/09/21/microsoft-and-canonical-increase-velocity-with-azure-tailored-kernel)
 - [Flatcar Container Linux Pro](https://azuremarketplace.microsoft.com/marketplace/apps/kinvolk.flatcar_pro)
 
-## Partners
 
-### CoreOS
-
-CoreOS is scheduled to be [end of life](https://coreos.com/os/eol/) by May 26, 2020.
-Microsoft has two (2) channels of migration for CoreOS users.
-
-- Flatcar by Kinvolk (see the "Flatcar Container Linux by Kinvolk" entry.)
-- [Fedora Core OS](https://docs.fedoraproject.org/en-US/fedora-coreos/provisioning-azure/) (customers must upload their own image. Here is the [migration documentation](https://docs.fedoraproject.org/en-US/fedora-coreos/migrate-cl/)).
-
-### credativ
-
-[https://www.credativ.de/en/portfolio/support/open-source-support-center/](https://www.credativ.de/en/portfolio/support/open-source-support-center/)
-
-credativ is an independent consulting and services company that specializes in the development and implementation of professional solutions by using free software. As leading open-source specialists, credativ has international recognition with many IT departments that use their support. In conjunction with Microsoft, credativ is preparing Debian images. The images are specially designed to run on Azure and can be easily managed via the platform. credativ will also support the long-term maintenance and updating of the Debian images for Azure through its Open Source Support Centers.
-
-### Kinvolk
-[https://www.flatcar-linux.org/](https://www.flatcar-linux.org/)
-
-Kinvolk is the team behind Flatcar Container Linux, continuing the original CoreOS vision for a minimal, immutable, and auto-updating foundation for containerized applications. As a minimal distro, Flatcar contains just those packages required for deploying containers. Its immutable file system guarantees consistency and security, while its auto-update capabilities, enable you to be always up-to-date with the latest security fixes. Kinvolk was [acquired by Microsoft](https://azure.microsoft.com/blog/microsoft-acquires-kinvolk-to-accelerate-containeroptimized-innovation/) in April 2021 and, post-acquisition, continues its mission to support the Flatcar Container Linux community.
-
-### Oracle
-
-[https://www.oracle.com/technetwork/topics/cloud/faq-1963009.html](https://www.oracle.com/technetwork/topics/cloud/faq-1963009.html)
-
-Oracle's strategy is to offer a broad portfolio of solutions for public and private clouds. The strategy gives customers choice and flexibility in how they deploy Oracle software in Oracle clouds and other clouds. Oracle's partnership with Microsoft enables customers to deploy Oracle software in Microsoft public and private clouds with the confidence of certification and support from Oracle.  Oracle's commitment and investment in Oracle public and private cloud solutions is unchanged.
-
-### Red Hat
-
-[https://www.redhat.com/en/partners/strategic-alliance/microsoft](https://www.redhat.com/en/partners/strategic-alliance/microsoft)
-
-The world's leading provider of open-source solutions, Red Hat helps more than 90% of Fortune 500 companies solve business challenges, align their IT and business strategies, and prepare for the future of technology. Red Hat achieves this by providing secure solutions through an open business model and an affordable, predictable subscription model.
-
-### SUSE
-
-[https://www.suse.com/suse-linux-enterprise-server-on-azure](https://www.suse.com/suse-linux-enterprise-server-on-azure)
-
-SUSE Linux Enterprise Server on Azure is a proven platform that provides superior reliability and security for cloud computing. SUSE's versatile Linux platform seamlessly integrates with Azure cloud services to deliver an easily manageable cloud environment. With more than 9,200 certified applications from more than 1,800 independent software vendors for SUSE Linux Enterprise Server, SUSE ensures that workloads running supported in the data center can be confidently deployed on Azure.
-
-### Canonical
-
-[https://www.ubuntu.com/cloud/azure](https://www.ubuntu.com/cloud/azure)
-
-Canonical engineering and open community governance drive Ubuntu's success in client, server, and cloud computing, which includes personal cloud services for consumers. Canonical's vision of a unified, free platform in Ubuntu, from phone to cloud, provides a family of coherent interfaces for the phone, tablet, TV, and desktop. This vision makes Ubuntu the first choice for diverse institutions from public cloud providers to the makers of consumer electronics and a favorite among individual technologists.
-
-With developers and engineering centers around the world, Canonical is uniquely positioned to partner with hardware makers, content providers, and software developers to bring Ubuntu solutions to market for PCs, servers, and handheld devices.

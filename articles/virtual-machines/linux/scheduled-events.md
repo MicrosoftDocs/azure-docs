@@ -7,10 +7,10 @@ ms.subservice: scheduled-events
 ms.collection: linux
 ms.topic: how-to
 ms.workload: infrastructure-services
-ms.date: 06/01/2020
+ms.custom: devx-track-python
+ms.date: 01/25/2023
 ms.author: ericrad
 ms.reviewer: mimckitt
-
 ---
 
 # Azure Metadata Service: Scheduled Events for Linux VMs
@@ -20,6 +20,8 @@ ms.reviewer: mimckitt
 Scheduled Events is an Azure Metadata Service that gives your application time to prepare for virtual machine (VM) maintenance. It provides information about upcoming maintenance events (for example, reboot) so that your application can prepare for them and limit disruption. It's available for all Azure Virtual Machines types, including PaaS and IaaS on both Windows and Linux. 
 
 For information about Scheduled Events on Windows, see [Scheduled Events for Windows VMs](../windows/scheduled-events.md).
+
+Scheduled events provide proactive notifications about upcoming events, for reactive information about events that have already happened see [VM availability information in Azure Resource Graph](../resource-graph-availability.md) and [Create availability alert rule for Azure virtual machine](../../azure-monitor/vm/tutorial-monitor-vm-alert-availability.md). 
 
 > [!Note] 
 > Scheduled Events is generally available in all Azure Regions. See [Version and Region Availability](#version-and-region-availability) for latest release information.
@@ -50,17 +52,16 @@ Scheduled Events provides events in the following use cases:
   Metadata Service exposes information about running VMs by using a REST endpoint that's accessible from within the VM. The information is available via a nonroutable IP so that it's not exposed outside the VM.
 
 ### Scope
-Scheduled events are delivered to:
+Scheduled events are delivered to and can be acknowledged by:
 
 - Standalone Virtual Machines.
-- All the VMs in a cloud service.
+- All the VMs in an [Azure cloud service (classic)](../../cloud-services/index.yml). 
 - All the VMs in an availability set.
-- All the VMs in an availability zone. 
 - All the VMs in a scale set placement group. 
 
 > [!NOTE]
 > Scheduled Events for all virtual machines (VMs) in a Fabric Controller (FC) tenant are delivered to all VMs in a FC tenant. FC tenant equates to a standalone VM, an entire Cloud Service, an entire Availability Set, and a Placement Group for a VM Scale Set (VMSS) regardless of Availability Zone usage. 
-> For example, if you have 100 VMs in a availability set and there is an update to one of them, the scheduled event will go to all 100, whereas if there are 100 single VMs in a zone, then event will only go to the VM which is getting impacted.
+> For example, if you have 100 VMs in a availability set and there's an update to one of them, the scheduled event will go to all 100, whereas if there are 100 single VMs in a zone, then event will only go to the VM which is getting impacted.
 
 As a result, check the `Resources` field in the event to identify which VMs are affected.
 
@@ -69,7 +70,7 @@ For VNET enabled VMs, Metadata Service is available from a static nonroutable IP
 
  > `http://169.254.169.254/metadata/scheduledevents?api-version=2020-07-01`
 
-If the VM is not created within a Virtual Network, the default cases for cloud services and classic VMs, additional logic is required to discover the IP address to use. 
+If the VM isn't created within a Virtual Network, the default cases for cloud services and classic VMs, extra logic is required to discover the IP address to use. 
 To learn how to [discover the host endpoint](https://github.com/azure-samples/virtual-machines-python-scheduled-events-discover-endpoint-for-non-vnet-vm), see this sample.
 
 ### Version and Region Availability
@@ -80,7 +81,7 @@ The Scheduled Events service is versioned. Versions are mandatory; the current v
 | 2020-07-01 | General Availability | All | <li> Added support for Event Duration |
 | 2019-08-01 | General Availability | All | <li> Added support for EventSource |
 | 2019-04-01 | General Availability | All | <li> Added support for Event Description |
-| 2019-01-01 | General Availability | All | <li> Added support for virtual machine scale sets EventType 'Terminate' |
+| 2019-01-01 | General Availability | All | <li> Added support for Virtual Machine Scale Sets EventType 'Terminate' |
 | 2017-11-01 | General Availability | All | <li> Added support for Spot VM eviction EventType 'Preempt'<br> | 
 | 2017-08-01 | General Availability | All | <li> Removed prepended underscore from resource names for IaaS VMs<br><li>Metadata header requirement enforced for all requests | 
 | 2017-03-01 | Preview | All | <li>Initial release |
@@ -90,15 +91,15 @@ The Scheduled Events service is versioned. Versions are mandatory; the current v
 > Previous preview releases of Scheduled Events supported {latest} as the api-version. This format is no longer supported and will be deprecated in the future.
 
 ### Enabling and Disabling Scheduled Events
-Scheduled Events is enabled for your service the first time you make a request for events. You should expect a delayed response in your first call of up to two minutes.
+Scheduled Events are enabled for your service the first time you make a request for events. You should expect a delayed response in your first call of up to two minutes. Scheduled Events are disabled for your service if it doesn't make a request for 24 hours.
 
-Scheduled Events is disabled for your service if it does not make a request for 24 hours.
+Scheduled events are disabled by default for [VMSS Guest OS upgrades or reimages](../../virtual-machine-scale-sets/virtual-machine-scale-sets-automatic-upgrade.md). To enable scheduled events for these operations, first enable them using [OSImageNotificationProfile](https://learn.microsoft.com/rest/api/compute/virtual-machine-scale-sets/create-or-update?tabs=HTTP#osimagenotificationprofile). 
 
 ### User-initiated Maintenance
 User-initiated VM maintenance via the Azure portal, API, CLI, or PowerShell results in a scheduled event. You then can test the maintenance preparation logic in your application, and your application can prepare for user-initiated maintenance.
 
-If you restart a VM, an event with the type `Reboot` is scheduled. If you redeploy a VM, an event with the type `Redeploy` is scheduled. Typically events with a user event source can be immediately approved to avoid a delay on user-initiated actions.
-
+If you restart a VM, an event with the type `Reboot` is scheduled. If you redeploy a VM, an event with the type `Redeploy` is scheduled. Typically events with a user event source can be immediately approved to avoid a delay on user-initiated actions. We advise having a primary and secondary VM communicating and approving user generated scheduled events in case the primary VM becomes unresponsive. This arrangement will prevent delays in recovering your application back to a good state.  
+	
 ## Use the API
 
 ### Headers
@@ -154,14 +155,14 @@ In the case where there are scheduled events, the response contains an array of 
 | - | - |
 | Document Incarnation | Integer that increases when the events array changes. Documents with the same incarnation contain the same event information, and the incarnation will be incremented when an event changes. |
 | EventId | Globally unique identifier for this event. <br><br> Example: <br><ul><li>602d9444-d2cd-49c7-8624-8643e7171297  |
-| EventType | Impact this event causes. <br><br> Values: <br><ul><li> `Freeze`: The Virtual Machine is scheduled to pause for a few seconds. CPU and network connectivity may be suspended, but there is no impact on memory or open files.<li>`Reboot`: The Virtual Machine is scheduled for reboot (non-persistent memory is lost). This event is made available on a best effort basis <li>`Redeploy`: The Virtual Machine is scheduled to move to another node (ephemeral disks are lost). <li>`Preempt`: The Spot Virtual Machine is being deleted (ephemeral disks are lost). <li> `Terminate`: The virtual machine is scheduled to be deleted. |
+| EventType | Impact this event causes. <br><br> Values: <br><ul><li> `Freeze`: The Virtual Machine is scheduled to pause for a few seconds. CPU and network connectivity may be suspended, but there's no impact on memory or open files.<li>`Reboot`: The Virtual Machine is scheduled for reboot (non-persistent memory is lost). This event is made available on a best effort basis <li>`Redeploy`: The Virtual Machine is scheduled to move to another node (ephemeral disks are lost). This event is delivered on a best effort basis. <li>`Preempt`: The Spot Virtual Machine is being deleted (ephemeral disks are lost). <li> `Terminate`: The virtual machine is scheduled to be deleted. |
 | ResourceType | Type of resource this event affects. <br><br> Values: <ul><li>`VirtualMachine`|
 | Resources| List of resources this event affects. <br><br> Example: <br><ul><li> ["FrontEnd_IN_0", "BackEnd_IN_0"] |
 | EventStatus | Status of this event. <br><br> Values: <ul><li>`Scheduled`: This event is scheduled to start after the time specified in the `NotBefore` property.<li>`Started`: This event has started.</ul> No `Completed` or similar status is ever provided. The event is no longer returned when the event is finished.
 | NotBefore| Time after which this event can start. The event is guaranteed to not start before this time. Will be blank if the event has already started <br><br> Example: <br><ul><li> Mon, 19 Sep 2016 18:29:47 GMT  |
 | Description | Description of this event. <br><br> Example: <br><ul><li> Host server is undergoing maintenance. |
 | EventSource | Initiator of the event. <br><br> Example: <br><ul><li> `Platform`: This event is initiated by platform. <li>`User`: This event is initiated by user. |
-| DurationInSeconds | The expected duration of the interruption caused by the event. <br><br> Example: <br><ul><li> `9`: The interruption caused by the event will last for 9 seconds. <li>`-1`: The default value used if the impact duration is either unknown or not applicable. |
+| DurationInSeconds | The expected duration of the interruption caused by the event. <br><br> Example: <br><ul><li> `9`: The interruption caused by the event will last for 9 seconds. <li> `0`: The event won't interrupt the VM or impact its availability (for example, update to the network) <li>`-1`: The default value used if the impact duration is either unknown or not applicable. |
 
 ### Event Scheduling
 Each event is scheduled a minimum amount of time in the future based on the event type. This time is reflected in an event's `NotBefore` property. 
@@ -171,11 +172,12 @@ Each event is scheduled a minimum amount of time in the future based on the even
 | Freeze| 15 minutes |
 | Reboot | 15 minutes |
 | Redeploy | 10 minutes |
-| Preempt | 30 seconds |
 | Terminate | [User Configurable](../../virtual-machine-scale-sets/virtual-machine-scale-sets-terminate-notification.md#enable-terminate-notifications): 5 to 15 minutes |
 
+Once an event is scheduled it will move into the started state after it is either approved or the not before time passes. However in rare cases the operation will be cancelled by Azure before it starts. In that case the event will be removed from the Events array and the impact will not occur as previously scheduled. 
+	
 > [!NOTE] 
-> In some cases, Azure is able to predict host failure due to degraded hardware and will attempt to mitigate disruption to your service by scheduling a migration. Affected virtual machines will receive a scheduled event with a `NotBefore` that is typically a few days in the future. The actual time varies depending on the predicted failure risk assessment. Azure tries to give 7 days' advance notice when possible, but the actual time varies and might be smaller if the prediction is that there is a high chance of the hardware failing imminently. To minimize risk to your service in case the hardware fails before the system-initiated migration, we recommend that you self-redeploy your virtual machine as soon as possible.
+> In some cases, Azure is able to predict host failure due to degraded hardware and will attempt to mitigate disruption to your service by scheduling a migration. Affected virtual machines will receive a scheduled event with a `NotBefore` that is typically a few days in the future. The actual time varies depending on the predicted failure risk assessment. Azure tries to give 7 days' advance notice when possible, but the actual time varies and might be smaller if the prediction is that there's a high chance of the hardware failing imminently. To minimize risk to your service in case the hardware fails before the system-initiated migration, we recommend that you self-redeploy your virtual machine as soon as possible.
 	
 >[!NOTE]
 > In the case the host node experiences a hardware failure Azure will bypass the minimum notice period an immediately begin the recovery process for affected virtual machines. This reduces recovery time in the case that the affected VMs are unable to respond. During the recovery process an event will be created for all impacted VMs with `EventType = Reboot` and `EventStatus = Started`.
@@ -199,7 +201,7 @@ The following JSON sample is expected in the `POST` request body. The request sh
 }
 ```
 
-The service will always return a 200 success code in the case of a valid event ID, even if it was already approved by a different VM. A 400 error code indicates that the request header or payload was malformed. 
+The service will always return a 200 success code for a valid event ID, even if it was already approved by a different VM. A 400 error code indicates that the request header or payload was malformed. 
 
 
 #### Bash sample
@@ -225,9 +227,9 @@ def confirm_scheduled_event(event_id):
 > Acknowledging an event allows the event to proceed for all `Resources` in the event, not just the VM that acknowledges the event. Therefore, you can choose to elect a leader to coordinate the acknowledgement, which might be as simple as the first machine in the `Resources` field.
 
 ## Example Responses
-The following is an example of a series of events that were seen by two VMs that were live migrated to another node. 
+The following response is an example of a series of events that were seen by two VMs that were live migrated to another node. 
 
-The `DocumentIncarnation` is changing every time there is new information in `Events`. An approval of the event would allow the freeze to proceed for both WestNO_0 and WestNO_1. The `DurationInSeconds` of -1 indicates that the platform does not know how long the operation will take. 
+The `DocumentIncarnation` is changing every time there's new information in `Events`. An approval of the event would allow the freeze to proceed for both WestNO_0 and WestNO_1. The `DurationInSeconds` of -1 indicates that the platform doesn't know how long the operation will take. 
 
 ```JSON
 {
@@ -251,7 +253,7 @@ The `DocumentIncarnation` is changing every time there is new information in `Ev
                        "NotBefore":  "Mon, 11 Apr 2022 22:26:58 GMT",
                        "Description":  "Virtual machine is being paused because of a memory-preserving Live Migration operation.",
                        "EventSource":  "Platform",
-                       "DurationInSeconds":  -1
+                       "DurationInSeconds":  5
                    }
                ]
 }
@@ -271,7 +273,7 @@ The `DocumentIncarnation` is changing every time there is new information in `Ev
                        "NotBefore":  "",
                        "Description":  "Virtual machine is being paused because of a memory-preserving Live Migration operation.",
                        "EventSource":  "Platform",
-                       "DurationInSeconds":  -1
+                       "DurationInSeconds":  5
                    }
                ]
 }
@@ -352,7 +354,7 @@ def advanced_sample(last_document_incarnation):
             int(event["DurationInSeconds"]) < 9):
             confirm_scheduled_event(event["EventId"])
             
-        # Events that may be impactful (eg. Reboot or redeploy) may need custom 
+        # Events that may be impactful (for example, Reboot or redeploy) may need custom 
         # handling for your application
         else: 
             #TODO Custom handling for impactful events

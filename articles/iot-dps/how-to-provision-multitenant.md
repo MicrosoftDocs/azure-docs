@@ -1,19 +1,21 @@
 ---
-title: Tutorial - Provision devices for geolatency in Azure IoT Hub Device Provisioning Service
+title: Tutorial - Provision devices for geo latency in DPS
+titleSuffix: Azure IoT Hub Device Provisioning Service
 description: This tutorial shows how to provision devices for geolocation/geolatency with your Device Provisioning Service (DPS) instance
 author: kgremban
+
 ms.author: kgremban
 ms.topic: tutorial
 ms.date: 08/24/2022
 ms.service: iot-dps
-services: iot-dps
+ms.custom: devx-track-azurecli
 ---
 
-# Tutorial: Provision for geolatency
+# Tutorial: Provision for geo latency
 
-This tutorial shows how to securely provision multiple simulated symmetric key devices to a group of IoT Hubs using an [allocation policy](concepts-service.md#allocation-policy). IoT Hub Device Provisioning Service (DPS) supports a variety of allocation scenarios through its built-in allocation policies and its support for custom allocation policies.
+This tutorial shows how to securely provision multiple simulated symmetric key devices to a group of IoT Hubs using an [allocation policy](concepts-service.md#allocation-policy). IoT Hub Device Provisioning Service (DPS) supports various allocation scenarios through its built-in allocation policies and its support for custom allocation policies.
 
-Provisioning for **Geolocation/ GeoLatency** is a common allocation scenario. As a device moves between locations, network latency is improved by having the device provisioned to the IoT hub that's closest to each location. In this scenario, a group of IoT hubs, which span across regions, are selected for enrollments. The built-in **Lowest latency** allocation policy is selected for these enrollments. This policy causes the Device Provisioning Service to evaluate device latency and determine the closet IoT hub out of the group of IoT hubs.
+Provisioning for *Geolocation/Geo latency* is a common allocation scenario. As a device moves between locations, network latency is improved by having the device provisioned to the IoT hub that's closest to each location. In this scenario, a group of IoT hubs, which span across regions, are selected for enrollments. The built-in **Lowest latency** allocation policy is selected for these enrollments. This policy causes the Device Provisioning Service to evaluate device latency and determine the closet IoT hub out of the group of IoT hubs.
 
 This tutorial uses a simulated device sample from the [Azure IoT C SDK](https://github.com/Azure/azure-iot-sdk-c) to demonstrate how to provision devices across regions. You'll perform the following steps in this tutorial:
 
@@ -33,7 +35,7 @@ This tutorial uses a simulated device sample from the [Azure IoT C SDK](https://
 
 * Complete the steps in [Set up IoT Hub Device Provisioning Service with the Azure portal](./quick-setup-auto-provision.md).
 
-[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](../../includes/azure-cli-prepare-your-environment-no-header.md)]
+[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment-no-header.md)]
 
 ## Create two regional IoT hubs
 
@@ -64,63 +66,55 @@ In this section, you'll create an Azure resource group, and two new regional IoT
 
     This command may take a few minutes to complete.
 
-## Create an enrollment for geolatency
+## Create an enrollment for geo latency
 
-In this section, you'll create a new enrollment group for the your devices.  
+In this section, you'll create a new enrollment group for your devices.  
 
 For simplicity, this tutorial uses [Symmetric key attestation](concepts-symmetric-key-attestation.md) with the enrollment. For a more secure solution, consider using [X.509 certificate attestation](concepts-x509-attestation.md) with a chain of trust.
 
-1. In the Azure portal, select your Device Provisioning Service.
+1. Sign in to the [Azure portal](https://portal.azure.com) and navigate to your Device Provisioning Service instance.
 
-2. In the **Settings** menu, select **Manage enrollments**.
+1. Select **Manage enrollments** from the **Settings** section of the navigation menu.
 
-3. Select **+ Add enrollment group**.
+1. Select **Add enrollment group**.
 
-4. On the **Add Enrollment Group** page, enter the following information:
+1. On the **Registration + provisioning** tab of the **Add enrollment group** page, provide the following information to configure the enrollment group details:
 
-    **Group name**: Enter *contoso-us-devices*. The enrollment group name is a case-insensitive string (up to 128 characters long) of alphanumeric characters plus the special characters: `'-'`, `'.'`, `'_'`, `':'`. The last character must be alphanumeric or dash (`'-'`).
+   | Field | Description |
+   | :--- | :--- |
+   | **Attestation** |Select **Symmetric key** as the **Attestation mechanism**.|
+   | **Symmetric key settings** |Check the **Generate symmetric keys automatically** box. |
+   | **Group name** | Name your group *contoso-us-devices*, or provide your own group name. The enrollment group name is a case-insensitive string (up to 128 characters long) of alphanumeric characters plus the special characters: `'-'`, `'.'`, `'_'`, `':'`. The last character must be alphanumeric or dash (`'-'`). |
 
-    **Attestation Type**: Select *Symmetric Key*.
+1. Select **Next: IoT hubs**.
 
-    **Auto Generate Keys**: This checkbox should already be checked.
+1. Use the following steps to add your two IoT hubs to the enrollment group:
 
-    **Select how you want to assign devices to hubs**: Select *Lowest latency*.
+   1. On the **IoT hubs** tab of the **Add enrollment group** page, select **Add link to IoT hub** in the **Target IoT hubs** section.
 
-5. Select **Link a new IoT Hub**
+   1. On the **Add link to IoT hub** page, select the IoT hub that you created in the *eastus* region and assign it the *iothubowner* access.
 
-    :::image type="content" source="./media/how-to-provision-multitenant/create-multitenant-enrollment.png" alt-text="Add enrollment group for symmetric key attestation and lowest latency.":::
+   1. Select **Save**.
 
-6. On the **Add link to IoT hub** page, enter the following information:
+   1. Select **Add link to IoT hub** again, and follow the same steps to add the IoT hub that you created in the *westus2* region.
 
-    **Subscription**: If you have multiple subscriptions, choose the subscription where you created the regional IoT hubs.
+   1. In the **Target IoT hubs** dropdown menu, select both IoT hubs.
 
-    **IoT hub**: Select the IoT hub that you created for the *eastus* location.
+1. For the **Allocation policy**, select **Lowest latency**.
 
-    **Access Policy**: Select *iothubowner*.
+1. Select **Review + create**.
 
-    :::image type="content" source="./media/how-to-provision-multitenant/link-regional-hubs.png" alt-text="Link the regional IoT hubs with the provisioning service.":::
+1. On the **Review + create** tab, verify all of your values then select **Create**.
 
-7. Select **Save**.
+1. Once your enrollment group is created, select its name *contoso-us-devices* from the enrollment groups list.
 
-8. Repeat Steps 5 through 7 for the second IoT hub that you created for the *westgus* location.
-
-9. Select the two IoT Hubs you created in the **Select the IoT hubs this group can be assigned to** drop down.
-
-    :::image type="content" source="./media/how-to-provision-multitenant/enrollment-regional-hub-group.png" alt-text="Select the linked IoT hubs.":::
-
-10. Select **Save**
-
-11. Select *contoso-us-devices* in the enrollment groups list.
-
-12. Copy the *Primary Key*. This key will be used later to generate unique device keys for both simulated devices.
-
-    :::image type="content" source="./media/how-to-provision-multitenant/copy-primary-key.png" alt-text="Copy the primary key.":::
+1. Copy the *Primary key*. This key will be used later to generate unique device keys for both simulated devices.
 
 ## Create regional Linux VMs
 
-In this section, you'll create two regional Linux virtual machines (VMs). These VMs will run a device simulation sample from each region to demonstrate device provisioning for devices from both regions.
+In this section, you create two regional Linux virtual machines (VMs), one in **West US 2** and one in **East US 2**. These VMs run a device simulation sample from each region to demonstrate device provisioning for devices from both regions.
 
-To make clean-up easier, these VMs will be added to the same resource group that contains the IoT hubs that were created, *contoso-us-resource-group*. However, the VMs will run in separate regions (**West US 2** and **East US**).
+To make clean-up easier, add these VMs to the same resource group that contains the IoT hubs that were created, *contoso-us-resource-group*.
 
 1. In the Azure Cloud Shell, run the following command to create an **East US** region VM after making the following parameter changes in the command:
 
@@ -142,7 +136,7 @@ To make clean-up easier, these VMs will be added to the same resource group that
     --public-ip-sku Standard
     ```
 
-    This command will take a few minutes to complete. 
+    This command will take a few minutes to complete.
 
 2. Once the command has completed, copy the **publicIpAddress** value for your East US region VM.
 
@@ -203,7 +197,7 @@ For each VM:
 
 2. Find and copy the tag name for the [latest release](https://github.com/Azure/azure-iot-sdk-c/releases/latest) of the SDK.
 
-3. Clone the [Azure IoT C SDK](https://github.com/Azure/azure-iot-sdk-c) on both VMs.  Use the tag you found in the previous step as the value for the `-b` parameter:
+3. Clone the [Azure IoT Device SDK for C](https://github.com/Azure/azure-iot-sdk-c) on both VMs. Use the tag you found in the previous step as the value for the `-b` parameter, for example: `lts_01_2023`.
 
     ```bash
     git clone -b <release-tag> https://github.com/Azure/azure-iot-sdk-c.git
@@ -250,14 +244,14 @@ For each VM:
 
 ## Derive unique device keys
 
-When using symmetric key attestation with group enrollments, you don't use the enrollment group keys directly. Instead, you derive a unique key from the enrollment group key for each device. For more information, see [Group Enrollments with symmetric keys](concepts-symmetric-key-attestation.md#group-enrollments).
+When using symmetric key attestation with group enrollments, you don't use the enrollment group keys directly. Instead, you derive a unique key from the enrollment group key for each device.
 
-In this part of the tutorial, you'll generate a device key from the you group master key to compute an [HMAC-SHA256](https://wikipedia.org/wiki/HMAC) of the unique registration ID for the device. The result will then be converted into Base64 format.
+In this part of the tutorial, you'll generate a device key from the group master key to compute an [HMAC-SHA256](https://wikipedia.org/wiki/HMAC) of the unique registration ID for the device. The result will then be converted into Base64 format.
 
 >[!IMPORTANT]
 >Don't include your group master key in your device code.
 
-For **both** *eastus* and *westus 2* devices:
+For **both** *eastus* and *westus2* devices:
 
 1. Generate your unique key using **openssl**. You'll use the following Bash shell script (replace `{primary-key}` with the enrollment group's **Primary Key** that you copied earlier and replace `{contoso-simdevice}`with your own unique registration ID for each device. The registration ID is a case-insensitive string (up to 128 characters long) of alphanumeric characters plus the special characters: `'-'`, `'.'`, `'_'`, `':'`. The last character must be alphanumeric or dash (`'-'`).
 
@@ -317,7 +311,7 @@ The sample code simulates a device boot sequence that sends the provisioning req
     //prov_dev_set_symmetric_key_info("<symm_registration_id>", "<symmetric_Key>");
     ```
 
-    Uncomment the function calls, and replace the placeholder values (including the angle brackets) with the unique registration IDs and derived device keys for each device that you derived in the previous section. The keys shown below are for example purposes only. Use the keys you generated earlier.
+    Uncomment the function calls, and replace the placeholder values (including the angle brackets) with the unique registration IDs and derived device keys for each device that you derived in the previous section. The keys shown below are examples. Use the keys you generated earlier.
 
     East US:
     ```c
@@ -403,11 +397,7 @@ To delete the resource group by name:
 
 ## Next steps
 
-* To learn more about reprovisioning, see:
+To learn more about custom allocation policies, see
 
 > [!div class="nextstepaction"]
-> [IoT Hub Device reprovisioning concepts](concepts-device-reprovision.md)
-
-* To learn more about deprovisioning, see
-> [!div class="nextstepaction"]
-> [How to deprovision devices that were previously auto-provisioned](how-to-unprovision-devices.md)
+> [Understand custom allocation policies](concepts-custom-allocation.md)

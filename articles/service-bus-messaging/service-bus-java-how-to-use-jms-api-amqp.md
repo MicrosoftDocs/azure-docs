@@ -4,7 +4,7 @@ description: Use the Java Message Service (JMS) with Azure Service Bus and the A
 ms.topic: article
 ms.date: 09/20/2021
 ms.devlang: java
-ms.custom: seo-java-july2019, seo-java-august2019, seo-java-september2019, devx-track-java
+ms.custom: seo-java-july2019, seo-java-august2019, seo-java-september2019, devx-track-java, devx-track-extended-java
 ---
 
 # Use Java Message Service 1.1 with Azure Service Bus standard and AMQP 1.0
@@ -23,7 +23,7 @@ Support for AMQP 1.0 in Service Bus means that you can use the queuing and publi
 
 ## Get started with Service Bus
 
-This article assumes that you already have a Service Bus namespace that contains a queue named `basicqueue`. If you don't, you can [create the namespace and queue](service-bus-create-namespace-portal.md) by using the [Azure portal](https://portal.azure.com). For more information about how to create Service Bus namespaces and queues, see [Get started with Service Bus queues](service-bus-dotnet-get-started-with-queues.md).
+This article assumes that you already have a Service Bus namespace that contains a queue named `basicqueue`. If you don't, you can [create the namespace and queue](service-bus-quickstart-portal.md#create-a-namespace-in-the-azure-portal) by using the [Azure portal](https://portal.azure.com). For more information about how to create Service Bus namespaces and queues, see [Get started with Service Bus queues](service-bus-dotnet-get-started-with-queues.md).
 
 > [!NOTE]
 > Partitioned queues and topics also support AMQP. For more information, see [Partitioned messaging entities](service-bus-partitioning.md) and [AMQP 1.0 support for Service Bus partitioned queues and topics](./service-bus-amqp-protocol-guide.md).

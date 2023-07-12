@@ -66,6 +66,10 @@ articles/service-health @rboucher
 /articles/security-center/ @memildin
 /includes/*security-controls*.md @memildin
 
+# Defender for Cloud
+
+/articles/defender-for-cloud @dcurwin @ElazarK
+
 # DDOS Protection
 /articles/ddos-protection @aletheatoh @anupamvi
 
@@ -73,7 +77,7 @@ articles/service-health @rboucher
 /articles/lighthouse/ @JnHs
 
 # Healthcare APIs
-/articles/healthcare-apis/ @ginalee-dotcom
+/articles/healthcare-apis/ @ranvijaykumar @mikaelweave
 
 # Configuration
 *.json @SyntaxC4 @snoviking

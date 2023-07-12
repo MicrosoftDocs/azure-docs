@@ -3,6 +3,7 @@ title: High Memory Utilization
 description: Troubleshooting guide for high memory utilization in Azure Database for PostgreSQL - Flexible Server
 ms.author: sbalijepalli
 author: sarat0681
+ms.reviewer: maghan
 ms.service: postgresql
 ms.subservice: flexible-server
 ms.topic: conceptual
@@ -13,11 +14,10 @@ ms.date: 08/03/2022
 
 This article introduces common scenarios and root causes that might lead to high memory utilization in [Azure Database for PostgreSQL - Flexible Server](overview.md). 
 
-In this article, you will learn: 
+In this article, you learn: 
 
 - Tools to identify high memory utilization.
 - Reasons for high memory & remedial actions.
-
 
 ## Tools to identify high memory utilization 
 
@@ -32,10 +32,10 @@ For proactive monitoring, configure alerts on the metrics. For step-by-step guid
 ### Query Store
 
 Query Store automatically captures the history of queries and their runtime statistics, and it retains them for your review. 
+
 Query Store can correlate wait event information with query run time statistics. Use Query Store to identify queries that have high memory consumption during the period of interest. 
 
 For more information on setting up and using Query Store, review [Query Store](./concepts-query-store.md).
-
 
 ## Reasons and remedial actions
 
@@ -52,7 +52,7 @@ The `work_mem` parameter specifies the amount of memory to be used by intern
 
 If the workload has many short-running queries with simple joins and minimal sort operations, it's advised to keep lower `work_mem`. If there are a few active queries with complex joins and sorts, then it's advised to set a higher value for work_mem. 
 
-It is tough to get the value of `work_mem` right.  If you notice high memory utilization or out-of-memory issues, consider decreasing `work_mem`. 
+It's tough to get the value of `work_mem` right.  If you notice high memory utilization or out-of-memory issues, consider decreasing `work_mem`. 
 
 A safer setting for `work_mem` is `work_mem = Total RAM / Max_Connections / 16 `
 
@@ -60,9 +60,8 @@ The default value of `work_mem` = 4 MB. You can set the `work_mem` value on mult
 
 A good strategy is to monitor memory consumption during peak times. 
 
-If disk sorts are happening during this time and there is plenty of unused memory, increase `work_mem` gradually until you're able to reach a good balance between available and used memory
+If disk sorts are happening during this time and there's plenty of unused memory, increase `work_mem` gradually until you're able to reach a good balance between available and used memory
 Similarly, if the memory use looks high, reduce `work_mem`. 
-
 
 #### Maintenance_Work_Mem 
 
@@ -74,12 +73,11 @@ If `maintenance_work_mem` is set to 1 GB, then all sessions combined will use 3 
 
 A high `maintenance_work_mem` value along with multiple running sessions for vacuuming/index creation/adding foreign keys can cause high memory utilization. The maximum allowed value for the `maintenance_work_mem` server parameter in Azure Database for Flexible Server  is 2 GB.
 
-
 #### Shared buffers 
 
 The `shared_buffers` parameter determines how much memory is dedicated to the server for caching data. The objective of shared buffers is to reduce DISK I/O.
 
-A reasonable setting for shared buffers is 25% of RAM. Setting a value of greater than 40% of RAM is not recommended for most common workloads. 
+A reasonable setting for shared buffers is 25% of RAM. Setting a value of greater than 40% of RAM isn't recommended for most common workloads. 
 
 ### Max connections 
 
@@ -91,7 +89,7 @@ select count(*) from pg_stat_activity;
 
 When the number of connections to a database is high, memory consumption also increases.
 
-In situations where there are a lot of database connections, consider using a connection pooler like PgBouncer.
+In situations where there are many database connections, consider using a connection pooler like PgBouncer.
 
 For more details on PgBouncer, review:
 
@@ -99,19 +97,16 @@ For more details on PgBouncer, review:
 
 [Best Practices](https://techcommunity.microsoft.com/t5/azure-database-for-postgresql/connection-handling-best-practice-with-postgresql/ba-p/790883).
 
-
 Azure Database for Flexible Server offers PgBouncer as a built-in connection pooling solution. For more information, see [PgBouncer](./concepts-pgbouncer.md).
-
 
 ### Explain Analyze 
 
-Once high memory-consuming queries have been identified from Query Store, use **EXPLAIN** and **EXPLAIN ANALYZE** to investigate further and tune them.
-
+Once high memory-consuming queries have been identified from Query Store, use **EXPLAIN,** and **EXPLAIN ANALYZE** to investigate further and tune them.
 
 For more information on the **EXPLAIN** command, review [Explain Plan](https://www.postgresql.org/docs/current/sql-explain.html).
 
 ## Next steps
 
-- Troubleshoot and tune Autovacuum [Autovacuum Tuning](./how-to-high-cpu-utilization.md).
+- Troubleshoot and tune Autovacuum [Autovacuum Tuning](./how-to-autovacuum-tuning.md).
 - Troubleshoot High CPU Utilization [High CPU Utilization](./how-to-high-cpu-utilization.md).
 - Configure server parameters [Server Parameters](./howto-configure-server-parameters-using-portal.md).

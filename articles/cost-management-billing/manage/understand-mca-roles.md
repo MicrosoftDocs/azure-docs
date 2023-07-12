@@ -6,7 +6,7 @@ ms.reviewer: amberb
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
-ms.date: 07/22/2022
+ms.date: 10/10/2022
 ms.author: banders
 ---
 
@@ -26,7 +26,7 @@ The following table describes the billing roles you use to manage your billing a
 
 |Role|Description|
 |---|---|
-|Billing account owner (called Organization owner for Marketplace purchases) |Manage everything for billing account|
+|Billing account owner |Manage everything for billing account|
 |Billing account contributor|Manage everything except permissions on the billing account|
 |Billing account reader|Read-only view of everything on billing account|
 |Billing profile owner|Manage everything for billing profile|

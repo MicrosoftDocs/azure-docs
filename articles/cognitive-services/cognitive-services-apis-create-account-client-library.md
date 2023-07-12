@@ -11,7 +11,7 @@ ms.topic: quickstart
 ms.date: 06/04/2021
 ms.author: pafarley
 zone_pivot_groups: programming-languages-set-ten
-ms.custom: mode-api
+ms.custom: mode-api, devx-track-dotnet, devx-track-extended-java, devx-track-js, devx-track-python
 ---
 
 # Quickstart: Create a Cognitive Services resource using the Azure Management client library

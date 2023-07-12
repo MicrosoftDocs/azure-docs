@@ -15,6 +15,9 @@ ms.author: azfuncdf
 
 This section describes the features of Durable Functions that are added in version 2.x.
 
+> [!NOTE]
+> This section does not apply to Durable Functions in dotnet isolated worker. For that, see [durable functions isolated process overview](./durable-functions-dotnet-isolated-overview.md).
+
 ### Durable entities
 
 In Durable Functions 2.x, we introduced a new [entity functions](durable-functions-entities.md) concept.
@@ -117,7 +120,7 @@ The following table represents the main changes:
 
 In the case where an abstract base class contained virtual methods, these virtual methods have been replaced by extension methods defined in `DurableContextExtensions`.
 
-#### function.json changes (JavaScript and C# Script)
+#### function.json changes
 
 In Durable Functions 1.x, the orchestration client binding uses a `type` of `orchestrationClient`. Version 2.x uses `durableClient` instead.
 

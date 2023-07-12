@@ -1,4 +1,12 @@
-### Vowels
+---
+author: eric-urban
+ms.service: cognitive-services
+ms.subservice: speech-service
+ms.topic: include
+ms.author: eur
+---
+
+### Vowels for ko-KR
 
 | `ipa` | `viseme` | Example 1| Example 2| Example 3|
 |-------|----------|--------|---------|--------|
@@ -24,7 +32,7 @@
 | `j͡o` | 6,8      | 요구가    | 사용중지    | 가거든요   |
 | `j͡u` | 6,7      | 유가적    | 경제교류가   | 소유     |
 
-### Consonant
+### Consonant for ko-KR
 
 | `ipa` | `viseme` | Example 1| Example 2| Example 3|
 |-------|----------|--------|---------|--------|

@@ -1,0 +1,62 @@
+### YamlMime:Landing
+
+title: Azure Native New Relic Service
+summary: Azure Native New Relic Service provides a native integrated experience for monitoring where you can create and manage New Relic accounts.
+
+metadata:
+  title: Azure Native New Relic Service documentation
+  description: Azure Native New Relic Service offers a monitoring solution for your Azure workloads by using a streamlined workflow.
+  ms.topic: landing-page
+  author: flang-msft
+  ms.author: franlanglois
+  ms.date: 01/16/2023
+
+# linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
+
+landingContent:
+  # Card (optional)
+  - title: About Azure Native New Relic Service
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: What is Azure Native New Relic Service?
+            url: new-relic-overview.md
+      - linkListType: how-to-guide
+        links:
+          - text: Complete the prerequisites
+            url: new-relic-how-to-configure-prereqs.md
+          - text: Manage a resource by using the portal
+            url: new-relic-how-to-manage.md
+
+  # Card
+  - title: Create an Azure Native New Relic Service resource
+    linkLists:
+      - linkListType: quickstart
+        links:
+          - text: Create a new resource
+            url: new-relic-create.md
+          - text: Link to an existing New Relic account
+            url: new-relic-link-to-existing.md
+      - linkListType: how-to-guide
+        links:
+          - text: Troubleshoot a resource
+            url: new-relic-troubleshoot.md
+
+  # Card
+  # - title: Explore reference content
+  #   linkLists:
+  #     - linkListType: reference
+  #       links:
+  #         - text: Python
+  #           url: /python/api/overview/azure/new-relic
+  #         - text: JavaScript
+  #           url: /javascript/api/overview/azure/new-relic
+  #         - text: .NET
+  #           url: /dotnet/api/overview/azure/new-relic
+  #         - text: Java
+  #           url: /java/api/overview/azure/new-relic
+  #         - text: REST API
+  #           url: /rest/api/new-relic
+#          - text: Azure PowerShell
+#            url: 
+          

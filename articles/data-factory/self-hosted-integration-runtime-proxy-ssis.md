@@ -6,13 +6,13 @@ ms.subservice: integration-services
 ms.topic: conceptual
 author: chugugrace
 ms.author: chugu
-ms.custom: seo-lt-2019, devx-track-azurepowershell
-ms.date: 02/16/2022
+ms.custom: seo-lt-2019
+ms.date: 02/28/2023
 ---
 
 # Configure a self-hosted IR as a proxy for an Azure-SSIS IR
 
-[!INCLUDE[appliesto-adf-asa-preview-md](includes/appliesto-adf-asa-preview-md.md)]
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 This article describes how to run SQL Server Integration Services (SSIS) packages on an Azure-SSIS Integration Runtime (Azure-SSIS IR) with a self-hosted integration runtime (self-hosted IR) configured as a proxy. 
 
@@ -38,6 +38,23 @@ You then set up your self-hosted IR in the same data factory where your Azure-SS
 
 Finally, you download and install the latest version of self-hosted IR, as well as the additional drivers and runtime, on your on-premises machine or Azure virtual machine (VM), as follows:
 - Download and install the latest version of [self-hosted IR](https://www.microsoft.com/download/details.aspx?id=39717).
+
+- Enable SSIS package execution on self-hosted integration runtime node if self-hosted IR version is **5.28.0** or later.
+
+  **ExecuteSsisPackage** property is newly introduced from self-hosted IR version **5.28.0**. Use below self-hosted IR command line action to enable or disable SSIS package execution: 
+    
+    - -EnableExecuteSsisPackage		Enable SSIS package execution on self-hosted IR node.
+    
+    - -DisableExecuteSsisPackage	Disable SSIS package execution on self-hosted IR node.
+  
+    - -GetExecuteSsisPackage 
+  
+  Self-hosted IR command line details refer to [Set up an existing self-hosted IR via local PowerShell](create-self-hosted-integration-runtime.md?tabs=data-factory#set-up-an-existing-self-hosted-ir-via-local-powershell).
+  
+  Newly installed self-hosted IR node with version 5.28.0 or later, ExecuteSsisPackage property is by default **disabled**.
+  
+  Existing self-hosted IR node updated to version 5.28.0 or later, ExecuteSsisPackage property is by default **enabled**
+
 - If you use Object Linking and Embedding Database (OLEDB), Open Database Connectivity (ODBC), or ADO.NET connectors in your packages, download and install the relevant drivers on the same machine where your self-hosted IR is installed, if you haven't done so already.  
 
   If you use the earlier version of the OLEDB driver for SQL Server (SQL Server Native Client [SQLNCLI]), [download the 64-bit version](https://www.microsoft.com/download/details.aspx?id=50402).  
@@ -64,6 +81,9 @@ If you haven't already done so, create an Azure Blob Storage linked service in t
 - For **Data Store**, select **Azure Blob Storage**.  
 - For **Connect via integration runtime**, select **AutoResolveIntegrationRuntime** (not your self-hosted IR), so we can ignore it and use your Azure-SSIS IR instead to fetch access credentials for your Azure Blob Storage.
 - For **Authentication method**, select **Account key**, **SAS URI**, **Service Principal**, **Managed Identity**, or **User-Assigned Managed Identity**.  
+
+>[!TIP]
+>If your data factory instance is Git-enabled, a linked service without key authentication will not be immediately published, which means you cannot save the integration runtime that depends on the linked service in your feature-branch. Authenticating with account key or SAS URI will immediately publish the linked service.
 
 >[!TIP]
 >If you select the **Service Principal** method, grant your service principal at least a *Storage Blob Data Contributor* role. For more information, see [Azure Blob Storage connector](connector-azure-blob-storage.md#linked-service-properties). If you select the **Managed Identity**/**User-Assigned Managed Identity** method, grant the specified system/user-assigned managed identity for your ADF a proper role to access Azure Blob Storage. For more information, see [Access Azure Blob Storage using Azure Active Directory (Azure AD) authentication with the specified system/user-assigned managed identity for your ADF](/sql/integration-services/connection-manager/azure-storage-connection-manager#managed-identities-for-azure-resources-authentication).

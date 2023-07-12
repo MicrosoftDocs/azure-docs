@@ -3,11 +3,11 @@ title: Save searches and pin data assets in Azure Data Catalog
 description: How-to for saving data sources and data assets for later use in Azure Data Catalog.
 ms.service: data-catalog
 ms.topic: how-to
-ms.date: 02/10/2022
+ms.date: 12/16/2022
 ---
 # Save searches and pin data assets in Azure Data Catalog
 
-[!INCLUDE [Microsoft Purview redirect](../../includes/data-catalog-use-purview.md)]
+[!INCLUDE [Microsoft Purview redirect](includes/catalog-to-purview-migration-flag.md)]
 
 ## Introduction
 

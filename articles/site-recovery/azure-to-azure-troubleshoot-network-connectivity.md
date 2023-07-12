@@ -1,9 +1,10 @@
 ---
 title: Troubleshoot connectivity for Azure to Azure disaster recovery with Azure Site Recovery
 description: Troubleshoot connectivity issues in Azure VM disaster recovery
-author: v-pgaddala
+author: ankitaduttaMSFT
 manager: rochakm
 ms.topic: how-to
+ms.service: site-recovery
 ms.date: 04/06/2020
 ---
 

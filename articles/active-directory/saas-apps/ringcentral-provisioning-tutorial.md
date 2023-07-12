@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Configure RingCentral for automatic user provisioning with Azure Active Directory | Microsoft Docs'
+title: 'Tutorial: Configure RingCentral for automatic user provisioning with Azure Active Directory'
 description: Learn how to automatically provision and de-provision user accounts from Azure AD to RingCentral.
 services: active-directory
 author: twimmers
@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 10/30/2019
+ms.date: 11/21/2022
 ms.author: thwimmer
 ---
 

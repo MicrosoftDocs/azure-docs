@@ -26,6 +26,9 @@ In each iteration, a rolling deployment replaces instances of an application's p
 
 Using **Continuous-delivery**, you can configure rolling updates to your virtual machines within the Azure portal.
 
+[!IMPORTANT] Virtual Machine's Continuous delivery setting will be retired on March 31, 2023. [Learn more](?source=recommendations#retirement)
+
+
 1. Sign in to [Azure portal](https://portal.azure.com/) and navigate to a virtual machine.
 
 1. Select **Continuous delivery**, and then select **Configure**.
@@ -75,3 +78,26 @@ Using **Continuous-delivery**, you can configure rolling updates to your virtual
 
 - [Configure the canary deployment strategy](./tutorial-azure-devops-canary-strategy.md)
 - [Configure the blue-green deployment strategy](./tutorial-azure-devops-blue-green-strategy.md)
+
+## Retirement
+
+Continuous delivery setting of Virtual Machines will be retired on March 31, 2023. Please switch to directly using Azure DevOps to create customized pipelines for deployment to Azure VMs. Release pipeline [Stage Templates](/azure/devops/pipelines/release/env-templates) and [Deployments Groups](/azure/devops/pipelines/process/deployment-group-phases) Azure DevOps' features provide similar experiences.
+
+### Migration Steps
+
+There is no migration required as VM CD experience does not store any information itself, it just helps users with their Day 0 getting started experience on Azure and Azure DevOps. Users will still be able to perform all operations from Azure DevOps after retirement. You won't be able to create and view pipelines from the Azure portal anymore. 
+
+### FAQ
+
+Where can I set up my CD pipeline after this experience is deprecated?  
+
+You won't be able to view or create Azure DevOps pipelines from an Azure portal Virtual Machine blade after retirement. You still can go to Azure DevOps portal and view or update pipelines. 
+
+Will I lose my earlier configured pipelines? 
+
+No.  Your pipelines will still be available in Azure DevOps. 
+
+ 
+How can I configure different deployment strategies? 
+
+The current experience uses [deployment groups](/azure/devops/pipelines/process/deployment-group-phases) to create deployment strategies. You can use deployment groups or release pipeline [Stage Templates](/azure/devops/pipelines/release/env-templates) to build your pipeline with templates.

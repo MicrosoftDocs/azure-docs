@@ -6,7 +6,7 @@ author: jianleishen
 ms.service: data-factory
 ms.subservice: data-movement
 ms.topic: troubleshooting
-ms.date: 08/10/2022
+ms.date: 11/08/2022
 ms.author: jianleishen
 ms.custom: has-adal-ref, synapse
 ---
@@ -108,12 +108,35 @@ This article provides suggestions to troubleshoot common problems with the Azure
     1. The file name contains `_metadata`.
     2. The file name starts with `.` (dot).
 
+### Error code: ADLSGen2ForbiddenError
+
+- **Message**: `ADLS Gen2 failed for forbidden: Storage operation % on % get failed with 'Operation returned an invalid status code 'Forbidden'.`
+
+- **Cause**: There are two possible causes:
+
+    1. The integration runtime is blocked by network access in Azure storage account firewall settings.
+    2. The service principal or managed identity doesn’t have enough permission to access the data.
+
+- **Recommendation**:
+
+    1. Check your Azure storage account network settings to see whether the public network access is disabled. If disabled, use a managed virtual network integration runtime  and create a private endpoint  to access. For more information, see [Managed virtual network](managed-virtual-network-private-endpoint.md) and [Build a copy pipeline using managed VNet and private endpoints](tutorial-copy-data-portal-private.md).
+
+    1. If you have enabled selected virtual networks and IP addresses in your Azure storage account network setting:
+
+        1. It's possible because some IP address ranges of your integration runtime are not allowed by your storage account firewall settings. Add the Azure integration runtime IP addresses or the self-hosted integration runtime IP address to your storage account firewall. For Azure integration runtime IP addresses, see  [Azure Integration Runtime IP addresses](azure-integration-runtime-ip-addresses.md), and to learn how to add IP ranges in the storage account firewall,   see [Managing IP network rules](../storage/common/storage-network-security.md#managing-ip-network-rules).
+
+        1. If you allow trusted Azure services to access this storage account in the firewall, you must use [managed identity authentication](connector-azure-data-lake-storage.md#managed-identity) in copy activity.
+
+         For more information about the Azure storage account firewalls settings, see [Configure Azure Storage firewalls and virtual networks](../storage/common/storage-network-security.md).
+
+    1. If you use service principal or managed identity authentication, grant service principal or managed identity appropriate permissions to do copy. For source, at least the **Storage Blob Data Reader** role. For sink, at least the **Storage Blob Data Contributor** role. For more information, see [Copy and transform data in Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md#service-principal-authentication).
+
 ## Next steps
 
 For more troubleshooting help, try these resources:
 
 - [Connector troubleshooting guide](connector-troubleshoot-guide.md)
-- [Data Factory blog](https://azure.microsoft.com/blog/tag/azure-data-factory/)
+- [Data Factory blog](https://techcommunity.microsoft.com/t5/azure-data-factory-blog/bg-p/AzureDataFactoryBlog)
 - [Data Factory feature requests](/answers/topics/azure-data-factory.html)
 - [Azure videos](https://azure.microsoft.com/resources/videos/index/?sort=newest&services=data-factory)
 - [Microsoft Q&A page](/answers/topics/azure-data-factory.html)

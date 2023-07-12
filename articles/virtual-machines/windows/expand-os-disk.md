@@ -3,12 +3,11 @@ title: Expand virtual hard disks attached to a Windows VM in an Azure
 description: Expand the size of the virtual hard disks attached to a virtual machine using Azure PowerShell in the Resource Manager deployment model.
 author: kirpasingh
 manager: roshar
-ms.service: storage
+ms.service: azure-disk-storage
 ms.collection: windows
 ms.topic: article
-ms.date: 09/08/2022
+ms.date: 02/07/2023
 ms.author: kirpas
-ms.subservice: disks
 ms.custom: devx-track-azurepowershell, references_regions, ignite-fall-2021
 ---
 # How to expand virtual hard disks attached to a Windows virtual machine
@@ -26,7 +25,7 @@ When you create a new virtual machine (VM) in a resource group by deploying an i
 
 ## Expand without downtime
 
-You can now expand your data disks without deallocating your VM.
+You can expand data disks without deallocating your VM. The host cache setting of your disk doesn't change whether or not you can expand a data disk without deallocating your VM.
 
 This feature has the following limitations:
 
@@ -150,6 +149,30 @@ When you've expanded the disk for the VM, you need to go into the OS and expand 
 1. Follow the steps you should be able to see the disk with updated capacity:
 
     :::image type="content" source="media/expand-os-disk/disk-mgr-3.png" alt-text="Screenshot showing the larger C: volume in Disk Manager.":::
+
+## Expanding without downtime classic VM SKU support
+
+If you're using a classic VM SKU, it might not support expanding disks without downtime.
+
+Use the following PowerShell script to determine which VM SKUs it's available with:
+
+```azurepowershell
+Connect-AzAccount
+$subscriptionId="yourSubID"
+$location="desiredRegion"
+Set-AzContext -Subscription $subscriptionId
+$vmSizes=Get-AzComputeResourceSku -Location $location | where{$_.ResourceType -eq 'virtualMachines'}
+
+foreach($vmSize in $vmSizes){
+    foreach($capability in $vmSize.Capabilities)
+    {
+       if(($capability.Name -eq "EphemeralOSDiskSupported" -and $capability.Value -eq "True") -or ($capability.Name -eq "PremiumIO" -and $capability.Value -eq "True") -or ($capability.Name -eq "HyperVGenerations" -and $capability.Value -match "V2"))
+        {
+            $vmSize.Name
+       }
+   }
+}
+```
 
 ## Next steps
 

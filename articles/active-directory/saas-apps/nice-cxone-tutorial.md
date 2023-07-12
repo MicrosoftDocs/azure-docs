@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 08/26/2022
+ms.date: 11/21/2022
 ms.author: jeedes
 
 ---
@@ -79,7 +79,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
     | **Identifier** |
     |----------|
-    | `https://cxone.niceincontact,com/<guid>` |
+    | `https://cxone.niceincontact.com/<guid>` |
     | `https://cxone-gov.niceincontact.com/<guid>` |
 
     b. In the **Reply URL** textbox, type a URL using one of the following patterns:

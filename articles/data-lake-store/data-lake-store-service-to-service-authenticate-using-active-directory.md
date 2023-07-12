@@ -4,10 +4,10 @@ description: Learn how to achieve service-to-service authentication with Azure D
 
 author: normesta
 ms.service: data-lake-store
+ms.custom: devx-track-extended-java
 ms.topic: how-to
 ms.date: 05/29/2018
 ms.author: normesta
-
 ---
 # Service-to-service authentication with Azure Data Lake Storage Gen1 using Azure Active Directory
 > [!div class="op_single_selector"]
@@ -39,9 +39,9 @@ While following the instructions at the preceding link, make sure you select **W
 ## Step 2: Get application ID, authentication key, and tenant ID
 When programmatically logging in, you need the ID for your application. If the application runs under its own credentials, you also need an authentication key.
 
-* For instructions on how to retrieve the application ID and authentication key (also called the client secret) for your application, see [Get application ID and authentication key](../active-directory/develop/howto-create-service-principal-portal.md#get-tenant-and-app-id-values-for-signing-in).
+* For instructions on how to retrieve the application ID and authentication key (also called the client secret) for your application, see [Get application ID and authentication key](../active-directory/develop/howto-create-service-principal-portal.md#sign-in-to-the-application).
 
-* For instructions on how to retrieve the tenant ID, see [Get tenant ID](../active-directory/develop/howto-create-service-principal-portal.md#get-tenant-and-app-id-values-for-signing-in).
+* For instructions on how to retrieve the tenant ID, see [Get tenant ID](../active-directory/develop/howto-create-service-principal-portal.md#sign-in-to-the-application).
 
 ## Step 3: Assign the Azure AD application to the Azure Data Lake Storage Gen1 account file or folder
 
@@ -97,5 +97,3 @@ In this article, you created an Azure AD web application and gathered the inform
 * [Service-to-service authentication with Data Lake Storage Gen1 using .NET SDK](data-lake-store-service-to-service-authenticate-net-sdk.md)
 * [Service-to-service authentication with Data Lake Storage Gen1 using Python](data-lake-store-service-to-service-authenticate-python.md)
 * [Service-to-service authentication with Data Lake Storage Gen1 using REST API](data-lake-store-service-to-service-authenticate-rest-api.md)
-
-

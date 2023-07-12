@@ -1,20 +1,20 @@
 ---
-title: Configure Microsoft Sentinel Solution for SAP
-description: This article shows you how to configure the deployed Microsoft Sentinel Solution for SAP
-author: MSFTandrelom
-ms.author: andrelom
+title: Configure Microsoft Sentinel solution for SAP® applications
+description: This article shows you how to configure the deployed Microsoft Sentinel solution for SAP® applications
+author: limwainstein
+ms.author: lwainstein
 ms.topic: how-to
-ms.date: 04/27/2022
+ms.date: 03/10/2023
 ---
 
-# Configure Microsoft Sentinel Solution for SAP
+# Configure Microsoft Sentinel solution for SAP® applications
 
 [!INCLUDE [Banner for top of topics](../includes/banner.md)]
 
-This article provides best practices for configuring the Microsoft Sentinel Solution for SAP. The full deployment process is detailed in a whole set of articles linked under [Deployment milestones](deployment-overview.md#deployment-milestones).
+This article provides best practices for configuring the Microsoft Sentinel solution for SAP® applications. The full deployment process is detailed in a whole set of articles linked under [Deployment milestones](deployment-overview.md#deployment-milestones).
 
 > [!IMPORTANT]
-> Some components of the Microsoft Sentinel Solution for SAP are currently in PREVIEW. The [Azure Preview Supplemental Terms](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+> Some components of the Microsoft Sentinel solution for SAP® applications are currently in PREVIEW. The [Azure Preview Supplemental Terms](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 >
 
 Deployment of the data collector agent and solution in Microsoft Sentinel provides you with the ability to monitor SAP systems for suspicious activities and identify threats. However, for best results, best practices for operating the solution strongly recommend carrying out several additional configuration steps that are very dependent on the SAP deployment.
@@ -27,21 +27,28 @@ Track your SAP solution deployment journey through this series of articles:
 
 1. [Deployment prerequisites](prerequisites-for-deploying-sap-continuous-threat-monitoring.md)
 
+1. [Work with the solution across multiple workspaces](cross-workspace.md) (PREVIEW)
+
 1. [Prepare SAP environment](preparing-sap.md)
 
-1. [Deploy data connector agent](deploy-data-connector-agent-container.md)
+1. [Configure auditing](configure-audit.md)
 
-1. [Deploy SAP security content](deploy-sap-security-content.md)
+1. [Deploy the Microsoft Sentinel solution for SAP applications® from the content hub](deploy-sap-security-content.md)
 
-1. **Configure Microsoft Sentinel Solution for SAP (*You are here*)**
+1. [Deploy data connector agent](deploy-data-connector-agent-container.md) 
 
-1. Optional deployment steps
-   - [Configure auditing](configure-audit.md)
+1. **Configure Microsoft Sentinel solution for SAP® applications (*You are here*)**
+
+1. Optional deployment steps   
    - [Configure data connector to use SNC](configure-snc.md)
+   - [Collect SAP HANA audit logs](collect-sap-hana-audit-logs.md)
+   - [Configure audit log monitoring rules](configure-audit-log-rules.md)
+   - [Deploy SAP connector manually](sap-solution-deploy-alternate.md)
+   - [Select SAP ingestion profiles](select-ingestion-profiles.md)
 
 ## Configure watchlists
 
-Microsoft Sentinel Solution for SAP configuration is accomplished by providing customer-specific information in the provisioned watchlists.
+Microsoft Sentinel solution for SAP® applications configuration is accomplished by providing customer-specific information in the provisioned watchlists.
 
 > [!NOTE]
 >
@@ -82,10 +89,10 @@ All of these watchlists identify sensitive actions or data that can be carried o
 - SAP - Privileged Users
 - SAP - Critical Authorizations
 
-The Microsoft Sentinel Solution for SAP uses User Master data gathered from SAP systems to identify which users, profiles, and roles should be considered sensitive. Some sample data is included in the watchlists, though we recommend you consult with the SAP BASIS team to identify sensitive users, roles and profiles and populate the watchlists accordingly.
+The Microsoft Sentinel solution for SAP® applications uses User Master data gathered from SAP systems to identify which users, profiles, and roles should be considered sensitive. Some sample data is included in the watchlists, though we recommend you consult with the SAP BASIS team to identify sensitive users, roles and profiles and populate the watchlists accordingly.
 
 ## Start enabling analytics rules
-By default, all analytics rules provided in the Microsoft Sentinel Solution for SAP are provided as [alert rule templates](../manage-analytics-rule-templates.md#manage-template-versions-for-your-scheduled-analytics-rules-in-microsoft-sentinel). We recommend a staged approach, where a few rules are created from templates at a time, allowing time for fine tuning each scenario.
+By default, all analytics rules provided in the Microsoft Sentinel solution for SAP® applications are provided as [alert rule templates](../manage-analytics-rule-templates.md#manage-template-versions-for-your-scheduled-analytics-rules-in-microsoft-sentinel). We recommend a staged approach, where a few rules are created from templates at a time, allowing time for fine tuning each scenario.
  We consider the following rules to be easiest to implement, so best to start with those:
 
 1. Change in Sensitive Privileged User
@@ -93,25 +100,75 @@ By default, all analytics rules provided in the Microsoft Sentinel Solution for 
 3. Sensitive privileged user logon
 4. Sensitive privileged user makes a change in other
 5. Sensitive privilege user password change and login
-6. Brute force (RFC)
-7. Function module tested
-8. The SAP audit log monitoring analytics rules
+6. Function module tested
 
-#### Configuring the SAP audit log monitoring analytics rules
-The two [SAP Audit log monitor rules](sap-solution-security-content.md#built-in-sap-analytics-rules-for-monitoring-the-sap-audit-log) are delivered as ready to run out of the box, and allow for further fine tuning using watchlists:
-- **SAP_Dynamic_Audit_Log_Monitor_Configuration**
-  The **SAP_Dynamic_Audit_Log_Monitor_Configuration** is a watchlist detailing all available SAP standard audit log message IDs and can be extended to contain additional message IDs you might create on your own using ABAP enhancements on your SAP NetWeaver systems.This watchlist allows for customizing an SAP message ID (=event type), at different levels:
-    -	Severities per production/ non-production systems -for example, debugging activity gets “High” for production systems, and “Disabled” for other systems
-    -	Assigning different thresholds for production/ non-production systems- which are considered as “speed limits”. Setting a threshold of 60 events an hour, will trigger an incident if more than 30 events were observed within 30 minutes
-    -	Assigning Rule Types- either “Deterministic” or “AnomaliesOnly” determines by which manner this event is considered
-    -	Roles and Tags to Exclude- specific users can be excluded from specific event types. This field can either accept SAP roles, SAP profiles or Tags:
-        -	Listing SAP roles or SAP profiles ([see User Master data collection](sap-solution-deploy-alternate.md#configuring-user-master-data-collection)) would exclude any user bearing those roles/ profiles from these event types for the same SAP system. For example, specifying the “BASIC_BO_USERS” ABAP role for the RFC related event types will ensure Business Objects users won't trigger incidents when making massive RFC calls.
-        - Listing tags to be used as identifiers. Tagging an event type works just like specifying SAP roles or profiles, except that tags can be created within the Sentinel workspace, allowing the SOC personnel freedom in excluding users per activity without the dependency on the SAP team. For example, the audit message IDs AUB (authorization changes) and AUD (User master record changes) are assigned with the tag “MassiveAuthChanges”. Users assigned with this tag are excluded from the checks for these activities. Running the workspace function **SAPAuditLogConfigRecommend** will produce a list of recommended tags to be assigned to users, such as 'Add the tags ["GenericTablebyRFCOK"] to user SENTINEL_SRV using the SAP_User_Config watchlist'
-- **SAP_User_Config** 
-  This configuration-based watchlist is there to allow for specifying user related tags and other active directory identifiers for the SAP user. Tags are then used for identifying the user in specific contexts. For example, assigning the user GRC_ADMIN with the tag “MassiveAuthChanges” will prevent incidents from being created on user master record and authorization events made by GRC_ADMIN.
+## Enable or disable the ingestion of specific SAP logs
 
-More information is available [in this blog](https://aka.ms/Sentinel4sapDynamicDeterministicAuditRuleBlog)
+To enable or disable the ingestion of a specific log:
+ 
+1. Edit the *systemconfig.ini* file located under */opt/sapcon/SID/* on the connector's VM. 
+1. Inside the configuration file, locate the relevant log and do one of the following:
+    - To enable the log, change the value to `True`. 
+    - To disable the log, change the value to `False`.
 
+For example, to stop ingestion for the `ABAPJobLog`, change its value to `False`:
 
+```
+ABAPJobLog = False
+```
+Review the list of available logs in the [Systemconfig.ini file reference](reference-systemconfig.md#logs-activation-status-section).
 
+You can also [stop ingesting the user master data tables](sap-solution-deploy-alternate.md#configuring-user-master-data-collection).
 
+> [!NOTE]
+>
+> Once you stop one of the logs or tables, the workbooks and analytics queries that use that log may not work.
+> [Understand which log each workbook uses](sap-solution-security-content.md#built-in-workbooks) and [understand which log each analytic rule uses](sap-solution-security-content.md#built-in-analytics-rules).
+
+## Stop log ingestion and disable the connector
+
+To stop ingesting SAP logs into the Microsoft Sentinel workspace, and to stop the data stream from the Docker container, run this command: 
+
+```
+docker stop sapcon-[SID]
+```
+
+The Docker container stops and doesn't send any more SAP logs to the Microsoft Sentinel workspace. This stops both the ingestion and billing for the SAP system related to the connector.
+
+If you need to reenable the Docker container, run this command: 
+
+```
+docker start sapcon-[SID]
+```
+
+## Remove the user role and the optional CR installed on your ABAP system
+
+To remove the user role and optional CR imported to your system, import the deletion CR *NPLK900259* into your ABAP system.
+
+## Next steps
+
+Learn more about the Microsoft Sentinel solution for SAP® applications:
+
+- [Deploy Microsoft Sentinel solution for SAP® applications](deployment-overview.md)
+- [Prerequisites for deploying Microsoft Sentinel solution for SAP® applications](prerequisites-for-deploying-sap-continuous-threat-monitoring.md)
+- [Deploy SAP Change Requests (CRs) and configure authorization](preparing-sap.md)
+- [Deploy and configure container hosting the SAP data connector agent](deploy-data-connector-agent-container.md)
+- [Deploy SAP security content](deploy-sap-security-content.md)
+- [Monitor the health of your SAP system](../monitor-sap-system-health.md)
+- [Deploy the Microsoft Sentinel for SAP data connector with SNC](configure-snc.md)
+- [Enable and configure SAP auditing](configure-audit.md)
+- [Collect SAP HANA audit logs](collect-sap-hana-audit-logs.md)
+
+Troubleshooting:
+
+- [Troubleshoot your Microsoft Sentinel solution for SAP® applications deployment](sap-deploy-troubleshoot.md)
+
+Reference files:
+
+- [Microsoft Sentinel solution for SAP® applications data reference](sap-solution-log-reference.md)
+- [Microsoft Sentinel solution for SAP® applications: security content reference](sap-solution-security-content.md)
+- [Kickstart script reference](reference-kickstart.md)
+- [Update script reference](reference-update.md)
+- [Systemconfig.ini file reference](reference-systemconfig.md)
+
+For more information, see [Microsoft Sentinel solutions](../sentinel-solutions.md).

@@ -2,7 +2,8 @@
 title: Template functions
 description: Describes the functions to use in an Azure Resource Manager template (ARM template) to retrieve values, work with strings and numerics, and retrieve deployment information.
 ms.topic: conceptual
-ms.date: 05/02/2022
+ms.custom: devx-track-arm-template
+ms.date: 05/12/2023
 ---
 
 # ARM template functions
@@ -66,6 +67,14 @@ For Bicep files, use the [array](../bicep/bicep-functions-array.md) functions.
 <a id="lessorequals" aria-hidden="true"></a>
 <a id="greater" aria-hidden="true"></a>
 <a id="greaterorequals" aria-hidden="true"></a>
+
+## CIDR functions
+
+The following functions are available for working with CIDR. All of these functions are in the `sys` namespace.
+
+* [parseCidr](./template-functions-cidr.md#parsecidr)
+* [cidrSubnet](./template-functions-cidr.md#cidrsubnet)
+* [cidrHost](./template-functions-cidr.md#cidrhost)
 
 ## Comparison functions
 

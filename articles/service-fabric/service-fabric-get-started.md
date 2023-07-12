@@ -6,7 +6,7 @@ ms.author: tomcassidy
 author: tomvcassidy
 ms.service: service-fabric
 services: service-fabric
-ms.date: 07/14/2022
+ms.date: 03/02/2023
 ---
 
 # Prepare your development environment on Windows
@@ -32,8 +32,8 @@ For latest Runtime and SDK you can download from below:
 
 | Package |Version|
 | --- | --- |
-|[Install Service fabric runtime for Windows](https://download.microsoft.com/download/b/8/a/b8a2fb98-0ec1-41e5-be98-9d8b5abf7856/MicrosoftServiceFabric.9.0.1048.9590.exe) | 9.0.1048 |
-|[Install Service Fabric SDK](https://download.microsoft.com/download/b/8/a/b8a2fb98-0ec1-41e5-be98-9d8b5abf7856/MicrosoftServiceFabricSDK.6.0.1048.msi) | 6.0.1048 |
+|[Install Service Fabric Runtime for Windows](https://download.microsoft.com/download/b/8/a/b8a2fb98-0ec1-41e5-be98-9d8b5abf7856/MicrosoftServiceFabric.9.1.1833.9590.exe) | 9.1.1833 |
+|[Install Service Fabric SDK](https://download.microsoft.com/download/b/8/a/b8a2fb98-0ec1-41e5-be98-9d8b5abf7856/MicrosoftServiceFabricSDK.6.1.1833.msi) | 6.1.1833 |
 
 You can find direct links to the installers for previous releases on [Service Fabric Releases](https://github.com/microsoft/service-fabric/tree/master/release_notes)
 

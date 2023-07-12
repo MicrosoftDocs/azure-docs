@@ -1,5 +1,5 @@
 ---
-title: Sign-in risk-based Conditional Access - Azure Active Directory
+title: Sign-in risk-based multifactor authentication
 description: Create Conditional Access policies using Identity Protection sign-in risk
 
 services: active-directory
@@ -11,15 +11,15 @@ ms.date: 08/22/2022
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: amycolannino
-ms.reviewer: calebb, davidspo
+ms.reviewer: calebb, lhuangnorth
 
 ms.collection: M365-identity-device-management
 ---
-# Conditional Access: Sign-in risk-based Conditional Access
+# Common Conditional Access policy: Sign-in risk-based multifactor authentication
 
 Most users have a normal behavior that can be tracked, when they fall outside of this norm it could be risky to allow them to just sign in. You may want to block that user or maybe just ask them to perform multifactor authentication to prove that they're really who they say they are. 
 
-A sign-in risk represents the probability that a given authentication request isn't authorized by the identity owner. Organizations with Azure AD Premium P2 licenses can create Conditional Access policies incorporating [Azure AD Identity Protection sign-in risk detections](../identity-protection/concept-identity-protection-risks.md#sign-in-risk). 
+A sign-in risk represents the probability that a given authentication request isn't authorized by the identity owner. Organizations with Azure AD Premium P2 licenses can create Conditional Access policies incorporating [Azure AD Identity Protection sign-in risk detections](../identity-protection/concept-identity-protection-risks.md). 
 
 There are two locations where this policy may be configured, Conditional Access and Identity Protection. Configuration using a Conditional Access policy is the preferred method providing more context including enhanced diagnostic data, report-only mode integration, Graph API support, and the ability to utilize other Conditional Access attributes like sign-in frequency in the policy.
 
@@ -31,7 +31,7 @@ Organizations can choose to deploy this policy using the steps outlined below or
 
 ## Enable with Conditional Access policy
 
-1. Sign in to the **Azure portal** as a Global Administrator, Security Administrator, or Conditional Access Administrator.
+1. Sign in to the **Azure portal** as a Conditional Access Administrator, Security Administrator, or Global Administrator.
 1. Browse to **Azure Active Directory** > **Security** > **Conditional Access**.
 1. Select **New policy**.
 1. Give your policy a name. We recommend that organizations create a meaningful standard for the names of their policies.

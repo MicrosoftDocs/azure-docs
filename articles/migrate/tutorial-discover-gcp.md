@@ -5,8 +5,9 @@ author: Vikram1988
 ms.author: vibansa
 ms.manager: abhemraj
 ms.topic: tutorial
-ms.date: 04/27/2022
-ms.custom: mvc, subject-rbac-steps
+ms.service: azure-migrate
+ms.date: 07/10/2023
+ms.custom: mvc, subject-rbac-steps, engagement-fy23
 #Customer intent: As a server admin I want to discover my GCP instances.
 ---
 
@@ -69,15 +70,11 @@ If you just created a free Azure account, you're the owner of your subscription.
 
     ![Add role assignment page in Azure portal.](../../includes/role-based-access-control/media/add-role-assignment-page.png)
 
-  To register the appliance, your Azure account needs **permissions to register Azure Active Directory apps**.
+1. To register the appliance, your Azure account needs **permissions to register Azure Active Directory apps**.
 
-1. In the Azure portal, navigate to **Azure Active Directory** > **Users** > **User Settings**.
+1. In the portal, go to **Azure Active Directory** > **Users**.
 
-1. In **User settings**, verify that Azure AD users can register applications (set to **Yes** by default).
-
-    ![Verify in User Settings that users can register Active Directory apps.](./media/tutorial-discover-gcp/register-apps.png)
-
-1. In case the 'App registrations' setting is set to 'No', request the tenant/global admin to assign the required permission. Alternately, the tenant/global admin can assign the **Application Developer** role to an account to allow the registration of Azure Active Directory App. [Learn more](../active-directory/fundamentals/active-directory-users-assign-role-azure-portal.md).
+1. Request the tenant or global admin to assign the [Application Developer role](../active-directory/roles/permissions-reference.md#application-developer) to the account to allow Azure AD app registration by users. [Learn more](../active-directory/roles/manage-roles-portal.md#assign-a-role).
 
 ## Prepare GCP instances
 
@@ -89,13 +86,13 @@ Set up an account that the appliance can use to access servers on  GCP.
         * Performance Monitor Users
         * Performance Log users.
 * For **Linux servers**:
-    * You need a root account on the Linux servers that you want to discover. If you are not able to provide a root account, refer to the instructions in the [support matrix](migrate-support-matrix-physical.md#physical-server-requirements) for an alternative.
+    * You need a root account on the Linux servers that you want to discover. If you aren't able to provide a root account, refer to the instructions in the [support matrix](migrate-support-matrix-physical.md#permissions-for-linux-server) for an alternative.
     * Azure Migrate uses password authentication when discovering GCP instances. GCP instances don't support password authentication by default. Before you can discover instance, you need to enable password authentication.
         1. Sign into each Linux  machine.
         2. Open the sshd_config file: vi /etc/ssh/sshd_config
         3. In the file, locate the **PasswordAuthentication** line, and change the value to **yes**.
         4. Save the file and close it. Restart the ssh service.
-    * If you are using a root user to discover your Linux servers, ensure root login is allowed on the servers.
+    * If you're using a root user to discover your Linux servers, ensure root login is allowed on the servers.
         1. Sign into each Linux machine
         2. Open the sshd_config file: vi /etc/ssh/sshd_config
         3. In the file, locate the **PermitRootLogin** line, and change the value to **yes**.
@@ -107,7 +104,7 @@ Set up a new project.
 
 1. In the Azure portal > **All services**, search for **Azure Migrate**.
 2. Under **Services**, select **Azure Migrate**.
-3. In **Overview**, select **Create project**.
+3. In **Get started**, select **Create project**.
 4. In **Create project**, select your Azure subscription and resource group. Create a resource group if you don't have one.
 5. In **Project Details**, specify the project name and the geography in which you want to create the project. Review supported geographies for [public](migrate-support-matrix.md#public-cloud) and [government clouds](migrate-support-matrix.md#azure-government).
 
@@ -142,10 +139,10 @@ To set up the appliance, you:
 
 1. In **Migration goals** > **Servers, databases and web apps** > **Azure Migrate: Discovery and assessment**, select **Discover**.
 2. In **Discover servers** > **Are your servers virtualized?**, select **Physical or other (AWS, GCP, Xen, etc.)**.
-3. In **1:Generate project key**, provide a name for the Azure Migrate appliance that you will set up for discovery of your GCP virtual servers. The name should be alphanumeric with 14 characters or fewer.
-4. Click **Generate key** to start the creation of the required Azure resources. Do not close the Discover servers page during the creation of resources.
+3. In **1:Generate project key**, provide a name for the Azure Migrate appliance that you'll set up for discovery of your GCP virtual servers. The name should be alphanumeric with 14 characters or fewer.
+4. Click **Generate key** to start the creation of the required Azure resources. Don't close the Discover servers page during the creation of resources.
 5. After the successful creation of the Azure resources, a **project key** is generated.
-6. Copy the key as you will need it to complete the registration of the appliance during its configuration.
+6. Copy the key as you'll need it to complete the registration of the appliance during its configuration.
 
 ### 2. Download the installer script
 
@@ -165,13 +162,13 @@ Check that the zipped file is secure before you deploy it.
 
         **Scenario** | **Download** | **Hash value**
         --- | --- | ---
-        Physical (85 MB) | [Latest version](https://go.microsoft.com/fwlink/?linkid=2191847) | 277C53620DB299F57E3AC5A65569E9720F06190A245476810B36BF651C8B795B
+        Physical (85 MB) | [Latest version](https://go.microsoft.com/fwlink/?linkid=2191847) | 967FC3B8A5C467C303D86C8889EB4E0D4A8A7798865CBFBDF23E425D4EE425CA 
 
     - For Azure Government:
 
         **Scenario** | **Download** | **Hash value**
         --- | --- | ---
-        Physical (85 MB) | [Latest version](https://go.microsoft.com/fwlink/?linkid=2191847) | 277C53620DB299F57E3AC5A65569E9720F06190A245476810B36BF651C8B795B
+        Physical (85 MB) | [Latest version](https://go.microsoft.com/fwlink/?linkid=2191847) | 967FC3B8A5C467C303D86C8889EB4E0D4A8A7798865CBFBDF23E425D4EE425CA 
  
 
 ### 3. Run the Azure Migrate installer script
@@ -241,11 +238,11 @@ In the configuration manager, select **Set up prerequisites**, and then complete
 	2. The appliance will verify the key and start the auto-update service, which updates all the services on the appliance to their latest versions. When the auto-update has run, you can select **View appliance services** to see the status and versions of the services running on the appliance server.
     3. To register the appliance, you need to select **Login**. In **Continue with Azure Login**, select **Copy code & Login** to copy the device code (you must have a device code to authenticate with Azure) and open an Azure Login prompt in a new browser tab. Make sure you've disabled the pop-up blocker in the browser to see the prompt.
     
-        :::image type="content" source="./media/tutorial-discover-vmware/device-code.png" alt-text="Screenshot that shows where to copy the device code and log in.":::
+        :::image type="content" source="./media/tutorial-discover-vmware/device-code.png" alt-text="Screenshot that shows where to copy the device code and sign in.":::
     4. In a new tab in your browser, paste the device code and sign in by using your Azure username and password. Signing in with a PIN isn't supported.
 	    > [!NOTE]
-        > If you close the login tab accidentally without logging in, refresh the browser tab of the appliance configuration manager to display the device code and Copy code & Login button.
-	5. After you successfully log in, return to the browser tab that displays the appliance configuration manager. If the Azure user account that you used to log in has the required permissions for the Azure resources that were created during key generation, appliance registration starts.
+        > If you close the sign in tab accidentally without logging in, refresh the browser tab of the appliance configuration manager to display the device code and Copy code & Login button.
+	5. After you successfully sign in, return to the browser tab that displays the appliance configuration manager. If the Azure user account that you used to sign in has the required permissions for the Azure resources that were created during key generation, appliance registration starts.
 
         After the appliance is successfully registered, to see the registration details, select **View details**.
 
@@ -256,34 +253,39 @@ You can *rerun prerequisites* at any time during appliance configuration to chec
 
 Now, connect from the appliance to the GCP servers to be discovered, and start the discovery.
 
-1. In **Step 1: Provide credentials for discovery of Windows and Linux physical or virtual servers​**, click on **Add credentials**.
-1. For Windows server, select the source type as **Windows Server**, specify a friendly name for credentials, add the username and password. Click on **Save**.
-1. If you are using password-based authentication for Linux server, select the source type as **Linux Server (Password-based)**, specify a friendly name for credentials, add the username and password. Click on **Save**.
-1. If you are using SSH key-based authentication for Linux server, you can select source type as **Linux Server (SSH key-based)**, specify a friendly name for credentials, add the username, browse and select the SSH private key file. Click on **Save**.
+1. In **Step 1: Provide credentials for discovery of Windows and Linux physical or virtual servers​**, select **Add credentials**.
+1. For Windows server, select the source type as **Windows Server**, specify a friendly name for credentials, add the username and password. Select **Save**.
+1. If you're using password-based authentication for Linux server, select the source type as **Linux Server (Password-based)**, specify a friendly name for credentials, add the username and password. Select **Save**.
+1. If you're using SSH key-based authentication for Linux server, you can select source type as **Linux Server (SSH key-based)**, specify a friendly name for credentials, add the username, browse and select the SSH private key file. Select **Save**.
 
     - Azure Migrate supports the SSH private key generated by ssh-keygen command using RSA, DSA, ECDSA, and ed25519 algorithms.
-    - Currently Azure Migrate does not support passphrase-based SSH key. Use an SSH key without a passphrase.
-    - Currently Azure Migrate does not support SSH private key file generated by PuTTY.
+    - Currently Azure Migrate doesn't support passphrase-based SSH key. Use an SSH key without a passphrase.
+    - Currently Azure Migrate doesn't support SSH private key file generated by PuTTY.
     - Azure Migrate supports OpenSSH format of the SSH private key file as shown below:
     
     ![Image of SSH private key supported format.](./media/tutorial-discover-physical/key-format.png)
 
 
-2. If you want to add multiple credentials at once, click on **Add more** to save and add more credentials. 
-3. In **Step 2:Provide physical or virtual server details​**, click on **Add discovery source** to specify the server **IP address/FQDN** and the friendly name for credentials to connect to the server.
-4. You can either **Add single item** at a time or **Add multiple items** in one go. There is also an option to provide server details through **Import CSV**.
+2. If you want to add multiple credentials at once, select **Add more** to save and add more credentials. 
+   > [!Note]
+   > By default, the credentials will be used to gather data about the installed applications, roles, and features, and also to collect dependency data from Windows and Linux servers, unless you disable the slider to not perform these features (as instructed in the last step).
+3. In **Step 2:Provide physical or virtual server details​**, select **Add discovery source** to specify the server **IP address/FQDN** and the friendly name for credentials to connect to the server.
+4. You can either **Add single item** at a time or **Add multiple items** in one go. There's also an option to provide server details through **Import CSV**.
 
-    - If you choose **Add single item**, you can choose the OS type, specify friendly name for credentials, add server **IP address/FQDN** and click on **Save**.
-    - If you choose **Add multiple items**, you can add multiple records at once by specifying server **IP address/FQDN** with the friendly name for credentials in the text box. Verify** the added records and click on **Save**.
-    - If you choose **Import CSV** _(selected by default)_, you can download a CSV template file, populate the file with the server **IP address/FQDN** and friendly name for credentials. You then import the file into the appliance, **verify** the records in the file and click on **Save**.
+    - If you choose **Add single item**, you can choose the OS type, specify friendly name for credentials, add server **IP address/FQDN** and select **Save**.
+    - If you choose **Add multiple items**, you can add multiple records at once by specifying server **IP address/FQDN** with the friendly name for credentials in the text box. Verify** the added records and select **Save**.
+    - If you choose **Import CSV** _(selected by default)_, you can download a CSV template file, populate the file with the server **IP address/FQDN** and friendly name for credentials. You then import the file into the appliance, **verify** the records in the file and select **Save**.
 
 5. On clicking **Save**, the appliance will try validating the connection to the servers added and show the **Validation status** in the table against each server.
     - If validation fails for a server, review the error by clicking on **Validation failed** in the Status column of the table. Fix the issue, and validate again.
-    - To remove a server, click on **Delete**.
+    - To remove a server, select **Delete**.
 6. You can **revalidate** the connectivity to servers anytime before starting the discovery.
 1. Before initiating discovery, you can choose to disable the slider to not perform software inventory and agentless dependency analysis on the added servers. You can change this option at any time.
 
     :::image type="content" source="./media/tutorial-discover-physical/disable-slider.png" alt-text="Screenshot that shows where to disable the slider.":::
+1. To perform discovery of SQL Server instances and databases, you can add additional credentials (Windows domain/non-domain, SQL authentication credentials) and the appliance will attempt to automatically map the credentials to the SQL servers. If you add domain credentials, the appliance will authenticate the credentials against Active Directory of the domain to prevent any user accounts from locking out. To check validation of the domain credentials, follow these steps:
+  - In the configuration manager credentials table, see **Validation status** for domain credentials. Only the domain credentials are validated.
+  - If validation fails, you can select a Failed status to see the validation error. Fix the issue, and then select **Revalidate credentials** to reattempt validation of the credentials.
 
 ### Start discovery
 

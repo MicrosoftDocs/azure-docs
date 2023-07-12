@@ -8,7 +8,7 @@ ms.service: data-factory
 ms.subservice: data-movement
 ms.topic: conceptual
 ms.custom: synapse
-ms.date: 08/24/2022
+ms.date: 10/23/2022
 ---
 
 # Copy and transform data in Azure Blob Storage by using Azure Data Factory or Azure Synapse Analytics
@@ -80,6 +80,7 @@ The following sections provide details about properties that are used to define 
 
 This Blob storage connector supports the following authentication types. See the corresponding sections for details.
 
+- [Anonymous authentication](#anonymous-authentication)
 - [Account key authentication](#account-key-authentication)
 - [Shared access signature authentication](#shared-access-signature-authentication)
 - [Service principal authentication](#service-principal-authentication)
@@ -92,6 +93,44 @@ This Blob storage connector supports the following authentication types. See the
 
 >[!NOTE]
 >Azure HDInsight and Azure Machine Learning activities only support authentication that uses Azure Blob Storage account keys.
+
+### Anonymous authentication
+
+The following properties are supported for storage account key authentication in Azure Data Factory or Synapse pipelines:
+
+| Property | Description | Required |
+|:--- |:--- |:--- |
+| type | The `type` property must be set to `AzureBlobStorage` (suggested) or `AzureStorage` (see the following notes). | Yes |
+| containerUri | Specify the Azure Blob container URI which has enabled Anonymous read access by taking this format `https://<AccountName>.blob.core.windows.net/<ContainerName>` and [Configure anonymous public read access for containers and blobs](../storage/blobs/anonymous-read-access-configure.md#set-the-public-access-level-for-a-container) | Yes |
+| connectVia | The [integration runtime](concepts-integration-runtime.md) to be used to connect to the data store. You can use the Azure integration runtime or the self-hosted integration runtime (if your data store is in a private network). If this property isn't specified, the service uses the default Azure integration runtime. | No |
+
+**Example:**
+
+```json
+
+{
+    "name": "AzureBlobStorageAnonymous",
+    "properties": {
+        "annotations": [],
+        "type": "AzureBlobStorage",
+        "typeProperties": {
+            "containerUri": "https:// <accountname>.blob.core.windows.net/ <containername>",
+            "authenticationType": "Anonymous"
+        },
+        "connectVia": {
+            "referenceName": "<name of Integration Runtime>",
+            "type": "IntegrationRuntimeReference"
+        }
+    }
+}
+```
+
+**Examples UI**:
+
+The UI experience will be like below. This sample will use the Azure open dataset as the source. If you want to get the open [dataset bing_covid-19_data.csv](https://pandemicdatalake.blob.core.windows.net/public/curated/covid-19/bing_covid-19_data/latest/bing_covid-19_data.csv), you just need to choose **Authentication type** as **Anonymous** and fill in Container URI with `https://pandemicdatalake.blob.core.windows.net/public`.
+
+:::image type="content" source="media/connector-azure-blob-storage/anonymous-ui.png" alt-text="Screenshot of configuration for Anonymous examples UI.":::
+
 
 ### Account key authentication
 
@@ -238,7 +277,7 @@ For general information about Azure Storage service principal authentication, se
 
 To use service principal authentication, follow these steps:
 
-1. Register an application entity in Azure Active Directory (Azure AD) by following [Register your application with an Azure AD tenant](../storage/common/storage-auth-aad-app.md#register-your-application-with-an-azure-ad-tenant). Make note of these values, which you use to define the linked service:
+1. Register an application with the Microsoft Identity platform. To learn how, see [Quickstart: Register an application with the Microsoft identity platform](../active-directory/develop/quickstart-register-app.md). Make note of these values, which you use to define the linked service:
 
     - Application ID
     - Application key
@@ -629,7 +668,7 @@ Format specific settings are located in the documentation for that format. For m
 
 In source transformation, you can read from a container, folder, or individual file in Azure Blob Storage. Use the **Source options** tab to manage how the files are read. 
 
-:::image type="content" source="media/data-flow/sourceOptions1.png" alt-text="Source options":::
+:::image type="content" source="media/data-flow/source-options-1.png" alt-text="Screenshot of source options tab in mapping data flow source transformation.":::
 
 **Wildcard paths:** Using a wildcard pattern will instruct the service to loop through each matching folder and file in a single source transformation. This is an effective way to process multiple files within a single flow. Add multiple wildcard matching patterns with the plus sign that appears when you hover over your existing wildcard pattern.
 
@@ -651,7 +690,7 @@ Wildcard examples:
 
 First, set a wildcard to include all paths that are the partitioned folders plus the leaf files that you want to read.
 
-:::image type="content" source="media/data-flow/partfile2.png" alt-text="Partition source file settings":::
+:::image type="content" source="media/data-flow/part-file-2.png" alt-text="Screenshot of partition source file settings in mapping data flow source transformation.":::
 
 Use the **Partition root path** setting to define what the top level of the folder structure is. When you view the contents of your data via a data preview, you'll see that the service will add the resolved partitions found in each of your folder levels.
 
@@ -684,7 +723,7 @@ In this case, all files that were sourced under `/data/sales` are moved to `/bac
 
 **Filter by last modified:** You can filter which files you process by specifying a date range of when they were last modified. All datetimes are in UTC. 
 
-**Enable change data capture:** If true, you will get new or changed files only from the last run. Initial load of full snapshot data will always be gotten in the first run, followed by capturing new or changed files only in next runs. For more details, see [Change data capture](#change-data-capture-preview).
+**Enable change data capture:** If true, you will get new or changed files only from the last run. Initial load of full snapshot data will always be gotten in the first run, followed by capturing new or changed files only in next runs. 
 
 :::image type="content" source="media/data-flow/enable-change-data-capture.png" alt-text="Screenshot showing Enable change data capture.":::
 
@@ -847,15 +886,11 @@ To learn details about the properties, check [Delete activity](delete-activity.m
 ]
 ```
 
-## Change data capture (preview) 
+## Change data capture 
 
-Azure Data Factory can get new or changed files only from Azure Blob Storage by enabling **Enable change data capture (Preview)** in the mapping data flow source transformation. With this connector option, you can read new or updated files only and apply transformations before loading transformed data into destination datasets of your choice.
+Azure Data Factory can get new or changed files only from Azure Blob Storage by enabling **Enable change data capture ** in the mapping data flow source transformation. With this connector option, you can read new or updated files only and apply transformations before loading transformed data into destination datasets of your choice. Pleaser refer to [Change Data Capture](concepts-change-data-capture.md) for details.
  
-Make sure you keep the pipeline and activity name unchanged, so that the checkpoint can always be recorded from the last run to get changes from there. If you change your pipeline name or activity name, the checkpoint will be reset, and you will start from the beginning in the next run.
-
-When you debug the pipeline, the **Enable change data capture (Preview)** works as well. Be aware that the checkpoint will be reset when you refresh your browser during the debug run. After you are satisfied with the result from debug run, you can publish and trigger the pipeline. It will always start from the beginning regardless of the previous checkpoint recorded by debug run. 
-
-In the monitoring section, you always have the chance to rerun a pipeline. When you are doing so, the changes are always gotten from the checkpoint record in your selected pipeline run. 
+. 
 
 ## Next steps
 

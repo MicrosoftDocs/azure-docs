@@ -2,7 +2,7 @@
  title: include file
  description: include file
  services: cognitive-services
- author: aahill
+ author: jboback
  ms.service: cognitive-services
  ms.topic: include
  ms.date: 08/15/2022

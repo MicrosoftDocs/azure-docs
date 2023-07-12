@@ -1,11 +1,11 @@
 ---
-title: 'Tutorial: Configure TravelPerk for automatic user provisioning with Azure Active Directory | Microsoft Docs'
+title: 'Tutorial: Configure TravelPerk for automatic user provisioning with Azure Active Directory'
 description: Learn how to automatically provision and deprovision user accounts from Azure AD to TravelPerk.
 services: active-directory
 documentationcenter: ''
 author: twimmers
 writer: twimmers
-manager: beatrizd
+manager: jeedes
 
 ms.assetid: 3e40f87d-8624-4b14-b098-80ff916103c3
 ms.service: active-directory
@@ -13,7 +13,7 @@ ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.topic: tutorial
-ms.date: 02/22/2021
+ms.date: 11/21/2022
 ms.author: thwimmer
 ---
 

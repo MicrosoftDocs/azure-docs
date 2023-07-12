@@ -2,13 +2,16 @@
 title: Manage an Azure Automation Run As account
 description: This article tells how to manage your Azure Automation Run As account with PowerShell or from the Azure portal.
 services: automation
-ms.subservice:
-ms.date: 08/02/2021
+ms.date: 05/05/2023
 ms.topic: conceptual 
-ms.custom: devx-track-azurepowershell
 ---
 
 # Manage an Azure Automation Run As account
+
+> [!IMPORTANT]
+> Azure Automation Run As Account will retire on September 30, 2023 and will be replaced with Managed Identities. Before that date, you'll need to start migrating your runbooks to use [managed identities](automation-security-overview.md#managed-identities). For more information, see [migrating from an existing Run As accounts to managed identity](https://learn.microsoft.com/azure/automation/migrate-run-as-accounts-managed-identity?tabs=run-as-account#sample-scripts) to start migrating the runbooks from Run As account to managed identities before 30 September 2023.
+
+
 
 Run As accounts in Azure Automation provide authentication for managing resources on the Azure Resource Manager or Azure Classic deployment model using Automation runbooks and other Automation features. 
 
@@ -22,7 +25,7 @@ To learn more about Azure Automation account authentication, permissions require
 
 ## <a name="cert-renewal"></a>Renew a self-signed certificate
 
-The self-signed certificate that you have created for the Run As account expires one year from the date of creation. At some point before your Run As account expires, you must renew the certificate. You can renew it any time before it expires.
+The self-signed certificate that you have created for the Run As account expires one month from the date of creation. At some point before your Run As account expires, you must renew the certificate. You can renew it any time before it expires.
 
 When you renew the self-signed certificate, the current valid certificate is retained to ensure that any runbooks that are queued up or actively running, and that authenticate with the Run As account, aren't negatively affected. The certificate remains valid until its expiration date.
 
@@ -158,30 +161,9 @@ You can allow Azure Automation to verify if Key Vault and your Run As account se
 
 You can use the [Extend-AutomationRunAsAccountRoleAssignmentToKeyVault.ps1](https://aka.ms/AA5hugb) script in the PowerShell Gallery to grant your Run As account permissions to Key Vault. See [Assign a Key Vault access policy](../key-vault/general/assign-access-policy-powershell.md) for more details on setting permissions on Key Vault.
 
-## Resolve misconfiguration issues for Run As accounts
-
-Some configuration items necessary for a Run As or Classic Run As account might have been deleted or created improperly during initial setup. Possible instances of misconfiguration include:
-
-* Certificate asset
-* Connection asset
-* Run As account removed from the Contributor role
-* Service principal or application in Azure AD
-
-For such misconfiguration instances, the Automation account detects the changes and displays a status of *Incomplete* on the Run As Accounts properties pane for the account.
-
-:::image type="content" source="media/manage-run-as-account/automation-account-run-as-config-incomplete.png" alt-text="Incomplete Run As account configuration.":::
-
-When you select the Run As account, the account properties pane displays the following error message:
-
-```text
-The Run As account is incomplete. Either one of these was deleted or not created - Azure Active Directory Application, Service Principal, Role, Automation Certificate asset, Automation Connect asset - or the Thumbprint is not identical between Certificate and Connection. Please delete and then re-create the Run As Account.
-```
-
-You can quickly resolve these Run As account issues by [deleting](delete-run-as-account.md) and [re-creating](create-run-as-account.md) the Run As account.
 
 ## Next steps
 
 * [Application Objects and Service Principal Objects](../active-directory/develop/app-objects-and-service-principals.md).
 * [Certificates overview for Azure Cloud Services](../cloud-services/cloud-services-certs-create.md).
-* To create or re-create a Run As account, see [Create a Run As account](create-run-as-account.md).
 * If you no longer need to use a Run As account, see [Delete a Run As account](delete-run-as-account.md).

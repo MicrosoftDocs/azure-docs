@@ -12,7 +12,7 @@ Before you can use a custom keyword, you need to create a keyword using the [Cus
 > Custom keyword models, and the resulting `.table` files, can **only** be created in Speech Studio.
 > You cannot create custom keywords from the SDK or with REST calls.
 
-1. Go to the [Speech Studio](https://aka.ms/sdsdk-speechportal) and **Sign in**. If you don't have a speech subscription, go to [**Create Speech Services**](https://go.microsoft.com/fwlink/?linkid=2086754).
+1. Go to the [Speech Studio](https://aka.ms/sdsdk-speechportal) and **Sign in**. If you don't have a speech subscription, go to [**Create Speech Services**](https://portal.azure.com/#create/Microsoft.CognitiveServicesSpeechServices).
 
 1. On the [Custom Keyword](https://aka.ms/sdsdk-wakewordportal) page, select **Create a new project**. 
 

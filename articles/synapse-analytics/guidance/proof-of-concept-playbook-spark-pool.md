@@ -1,10 +1,11 @@
 ---
 title: "Synapse POC playbook: Big data analytics with Apache Spark pool in Azure Synapse Analytics"
 description: "A high-level methodology for preparing and running an effective Azure Synapse Analytics proof of concept (POC) project for Apache Spark pool."
-author: peter-myers
-ms.author: v-petermyers
+author: SnehaGunda
+ms.author: sngun
 ms.reviewer: sngun
 ms.service: synapse-analytics
+ms.custom: ignite-2022
 ms.topic: conceptual
 ms.date: 05/23/2022
 ---
@@ -31,7 +32,7 @@ Before you begin planning your Spark POC project:
 Before you start preparing for the POC project, we recommend you first read the [Apache Spark documentation](../../hdinsight/spark/apache-spark-overview.md).
 
 > [!TIP]
-> If you're new to Spark pools, we recommend you work through the [Perform data engineering with Azure Synapse Apache Spark Pools](/learn/paths/perform-data-engineering-with-azure-synapse-apache-spark-pools/) learning path.
+> If you're new to Spark pools, we recommend you work through the [Perform data engineering with Azure Synapse Apache Spark Pools](/training/paths/perform-data-engineering-with-azure-synapse-apache-spark-pools/) learning path.
 
 By now you should have determined that there are no immediate blockers and then you can start preparing for your POC. If you are new to Apache Spark Pools in Azure Synapse Analytics you can refer to [this documentation](../spark/apache-spark-overview.md) where you can get an overview of the Spark architecture and learn how it works in Azure Synapse.
 
@@ -120,8 +121,8 @@ Here's an example of the needed level of specificity in planning:
 - **Goal D:** We will have tested the data ingestion rate of incremental data loading and will have the data points to estimate the data ingestion and processing time window to the data lake and/or the dedicated SQL pool.
 - **Output D:** We will have tested the data ingestion rate and can determine whether our data ingestion and processing requirements can be met with the identified approach.
     - **Test D1:** Test the daily update data ingestion and processing.
-    - **Test D1:** Test the processed data load to the dedicated SQL pool table from the Spark pool. For more information, see [Azure Synapse Dedicated SQL Pool Connector for Apache Spark](../spark/synapse-spark-sql-pool-import-export.md).
-    - **Test D1:** Execute the daily update load process concurrently while running end user queries.
+    - **Test D2:** Test the processed data load to the dedicated SQL pool table from the Spark pool. For more information, see [Azure Synapse Dedicated SQL Pool Connector for Apache Spark](../spark/synapse-spark-sql-pool-import-export.md).
+    - **Test D3:** Execute the daily update load process concurrently while running end user queries.
 
 Be sure to refine your tests by adding multiple testing scenarios. Azure Synapse makes it easy to test different scale (varying number of worker nodes, size of the worker nodes like small, medium, and large) to compare performance and behavior.
 
@@ -129,7 +130,7 @@ Here are some testing scenarios:
 
 - **Spark pool test A:** We will execute data processing across multiple node types (small, medium, and large) as well as different numbers of worker nodes.
 - **Spark pool test B:** We will load/retrieve processed data from the Spark pool to the dedicated SQL pool by using [the connector](../spark/synapse-spark-sql-pool-import-export.md).
-- **Spark pool test C:** We will load/retrieve processed data from the Spark pool to Cosmos DB by using Azure Synapse Link.
+- **Spark pool test C:** We will load/retrieve processed data from the Spark pool to Azure Cosmos DB via Azure Synapse Link.
 
 ### Evaluate the POC dataset
 

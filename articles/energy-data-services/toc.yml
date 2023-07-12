@@ -1,0 +1,112 @@
+- name: Microsoft Azure Data Manager for Energy Documentation
+  href: index.yml
+- name: Overview
+  items:
+    - name: About Microsoft Azure Data Manager for Energy
+      displayName: Overview
+      href: overview-microsoft-energy-data-services.md
+    - name: About Domain Data Management Services (DDMS)
+      displayName: DDMS overview
+      href: overview-ddms.md
+    - name: What's new
+      items:
+        - name: Release notes
+          href: release-notes.md
+- name: Quickstarts
+  expanded: true
+  items:
+    - name: Create a Microsoft Azure Data Manager for Energy instance
+      href: quickstart-create-microsoft-energy-data-services-instance.md
+- name: Tutorials
+  items:
+    - name: Ingest CSV wellbore data
+      href: tutorial-csv-ingestion.md
+    - name: Ingest manifests
+      href: tutorial-manifest-ingestion.md
+    - name: Use Seismic Store DDMS sdutil
+      href: tutorial-seismic-ddms-sdutil.md
+    - name: Use Seismic Store DDMS APIs
+      href: tutorial-seismic-ddms.md
+    - name: Use Wellbore DDMS APIs
+      href: tutorial-wellbore-ddms.md
+    - name: Use Well Delivery DDMS APIs
+      href: tutorial-well-delivery-ddms.md
+    - name: Use Petrel DDMS APIs
+      href: tutorial-petrel-ddms.md
+- name: Concepts
+  items:
+    - name: CSV parser ingestion
+      href: concepts-csv-parser-ingestion.md
+    - name: Manifest ingestion
+      href: concepts-manifest-ingestion.md
+    - name: Indexing and search
+      href: concepts-index-and-search.md
+    - name: Domain Data Management Services (DDMS)
+      href: concepts-ddms.md
+    - name: Entitlements
+      href: concepts-entitlements.md
+    - name: Reliability
+      items:
+        - name: Reliability overview 
+          href: reliability-energy-data-services.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
+          displayName: availability zones, high-availability, zone redundancy
+    - name: Tier details
+      href: concepts-tier-details.md
+- name: How-to guides
+  items:
+    - name: Administration
+      items:
+        - name: Manage users
+          href: how-to-manage-users.md
+        - name: Manage legal tags
+          href: how-to-manage-legal-tags.md
+        - name: Manage data partitions
+          href: how-to-add-more-data-partitions.md
+    - name: Monitoring
+      items:
+        - name: Airflow task logs integration with Azure Monitor
+          href: how-to-integrate-airflow-logs-with-azure-monitor.md
+        - name: Elastic logs integration with Azure Monitor
+          href: how-to-integrate-elastic-logs-with-azure-monitor.md
+        - name: Integrate OSDU Service Logs with Azure Monitor
+          href: how-to-integrate-osdu-service-logs-with-azure-monitor.md
+    - name: Security
+      items:
+        - name: Set up Private Links
+          href: how-to-set-up-private-links.md
+        - name: Set up Customer managed encryption keys (CMEK)
+          href: how-to-manage-data-security-and-encryption.md
+        - name: Set up Lockbox
+          href: how-to-create-lockbox.md
+        - name: Set up Managed Identity
+          href: how-to-use-managed-identity.md  
+        - name: Set up Resource sharing (CORS)
+          href: how-to-enable-cors.md
+        - name: Set up audit logs
+          href: how-to-manage-audit-logs.md
+    - name: Load datasets
+      href: https://github.com/Azure/osdu-data-load-tno
+    - name: Convert SEG-Y to ZGY
+      href: how-to-convert-segy-to-zgy.md
+    - name: Convert SEG-Y to oVDS
+      href: how-to-convert-segy-to-ovds.md
+    - name: Generate a refresh token
+      href: how-to-generate-refresh-token.md
+    - name: Upload large files using file service
+      href: how-to-upload-large-files-using-file-service.md
+- name: References
+  items:
+  - name: REST API
+    items:
+    - name: Data plane
+      href: https://microsoft.github.io/adme-samples/
+- name: Resources
+  items:
+  - name: FAQ
+    href: faq-energy-data-services.yml
+  - name: Region availability
+    href: https://azure.microsoft.com/explore/global-infrastructure/products-by-region/?products=energy-data-services&regions=all
+  - name: Partners
+    href: resources-partner-solutions.md
+  - name: Pricing
+    href: https://azure.microsoft.com/pricing/details/energy-data-services/

@@ -2,10 +2,9 @@
 title: "Tutorial: Migrate Azure Database for MySQL - Single Server to Flexible Server offline using DMS via the Azure portal"
 titleSuffix: "Azure Database Migration Service"
 description: "Learn to perform an offline migration from Azure Database for MySQL - Single Server to Flexible Server by using Azure Database Migration Service."
-author: "adig"
-ms.author: "adig"
-manager: "pariks"
-ms.reviewer: ""
+author: karlaescobar
+ms.author: karlaescobar
+ms.reviewer: maghan
 ms.date: 09/17/2022
 ms.service: dms
 ms.topic: tutorial
@@ -109,6 +108,7 @@ With these best practices in mind, create your target flexible server and then c
     * Additionally, if migrating non-table objects, be sure to use the same name for the target schema as is used on the source.
   * Configure the server parameters on the target flexible server as follows:
     * Set the TLS version and require_secure_transport server parameter to match the values on the source server.
+    * Set the sql_mode server parameter to match the values on the source server.
     * Configure server parameters on the target server to match any non-default values used on the source server.
     * To ensure faster data loads when using DMS, configure the following server parameters as described.
       * max_allowed_packet – set to 1073741824 (i.e., 1 GB) to prevent any connection issues due to large rows.
@@ -159,9 +159,8 @@ To register the Microsoft.DataMigration resource provider, perform the following
 6. To the right of **Pricing tier**, select **Configure tier**.
     :::image type="content" source="media/tutorial-azure-mysql-single-to-flex-offline/7-project-details.png" alt-text="Screenshot of a Select Configure Tier.":::
 
-7. On the **Configure** page, select the pricing tier and number of vCores for your DMS instance, and then select **Apply**.
-
-    For more information on DMS costs and pricing tiers, see the [pricing page](https://aka.ms/dms-pricing).
+7. On the **Configure** page, select the **Premium** pricing tier with 4 vCores for your DMS instance, and then select **Apply**.
+    DMS Premium 4-vCore is free for 6 months (183 days) from the DMS service creation date before incurring any charges. For more information on DMS costs and pricing tiers, see the [pricing page](https://aka.ms/dms-pricing).
     :::image type="content" source="media/tutorial-azure-mysql-single-to-flex-offline/8-configure-pricing-tier.png" alt-text="Screenshot of a Select Pricing tier.":::
 
     Next, we need to specify the VNet that will provide the DMS instance with access to the source single server and the target flexible server.
@@ -190,6 +189,8 @@ To register the Microsoft.DataMigration resource provider, perform the following
 11. Select **Go to resource**.
      :::image type="content" source="media/tutorial-azure-mysql-single-to-flex-offline/9-1-go-to-resource.png" alt-text="Screenshot of a Select Go to resource.":::
 
+12. Identify the IP address of the DMS instance from the resource overview page and create a firewall rule for your source single server and target flexible server allow-listing the IP address of the DMS instance.
+
 ### Create a migration project
 
 To create a migration project, perform the following steps.  
@@ -213,15 +214,15 @@ To create a migration project, perform the following steps.
 
 To configure your DMS migration project, perform the following steps.
 
-1. On the **Select source** screen, specify the connection details for the source MySQL instance.
-       :::image type="content" source="media/tutorial-azure-mysql-single-to-flex-offline/13-select-source-offline.png" alt-text="Screenshot of an Add source details screen.":::
+1. To proceed with the offline migration, before you configure **Select source** on the screen, open a new window tab and navigate to your source server's overview page on Azure portal and proceed to the **Server Parameters** blade. Configure the value of **read_only** server parameter for the source server as **ON** .
 
-2. To proceed with the offline migration, select the **Make Source Server Read Only** check box.
-
-    Selecting this check box prevents Write/Delete operations on the source server during migration, which ensures the data integrity of the target database as the source is migrated. When you make your source server read only as part of the migration process, all the databases on the source server, regardless of whether they're selected for migration, will be read-only.
+    Setting the source server to read only mode by updating the server parameter before starting the migration prevents Write/Delete operations on the source server during migration, which ensures the data integrity of the target database as the source is migrated.
 
     > [!NOTE]
-    > Alternately, if you were performing an online migration, you would select the **Enable Transactional Consistency** check box. For more information about consistent backup, see [MySQL Consistent Backup](./migrate-azure-mysql-consistent-backup.md).
+    > Alternately, if you were performing an online migration, you would select the **Enable Transactional Consistency** check box on the Select source screen. For more information about consistent backup, see [MySQL Consistent Backup](./migrate-azure-mysql-consistent-backup.md).
+
+2. Navigate back to your migration project configuration screen and on the **Select source** screen, specify the connection details for the source MySQL instance.
+       :::image type="content" source="media/tutorial-azure-mysql-single-to-flex-offline/offline-migration-wizard-updated.png" alt-text="Screenshot of an Add source details screen.":::
 
 3. Select **Next : Select target>>**, and then, on the **Select target** screen, specify the connection details for the target flexible server.
        :::image type="content" source="media/tutorial-azure-mysql-single-to-flex-offline/15-select-target.png" alt-text="Screenshot of a Select target.":::

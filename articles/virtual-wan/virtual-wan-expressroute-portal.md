@@ -4,13 +4,13 @@ description: In this tutorial, learn how to use Azure Virtual WAN to create Expr
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: tutorial
-ms.date: 05/25/2022
+ms.date: 04/28/2023
 ms.author: cherylmc
 # Customer intent: As someone with a networking background, I want to connect my corporate on-premises network(s) to my VNets using Virtual WAN and ExpressRoute.
 ---
 # Tutorial: Create an ExpressRoute association to Virtual WAN - Azure portal
 
-This tutorial shows you how to use Virtual WAN to connect to your resources in Azure over an ExpressRoute circuit. For more information about Virtual WAN and Virtual WAN resources, see the [Virtual WAN Overview](virtual-wan-about.md).
+This tutorial shows you how to use Virtual WAN to connect to your resources in Azure over an ExpressRoute circuit. For more conceptual information about ExpressRoute in Virtual WAN, see [About ExpressRoute in Virtual WAN](virtual-wan-expressroute-about.md). You can also create this configuration using the [PowerShell](expressroute-powershell.md) steps.
 
 In this tutorial, you learn how to:
 
@@ -29,11 +29,11 @@ Verify that you've met the following criteria before beginning your configuratio
 
 * You have a virtual network that you want to connect to. Verify that none of the subnets of your on-premises networks overlap with the virtual networks that you want to connect to. To create a virtual network in the Azure portal, see the [Quickstart](../virtual-network/quick-create-portal.md).
 
-* Your virtual network doesn't have any virtual network gateways. If your virtual network has a gateway (either VPN or ExpressRoute), you must remove all gateways. This configuration requires that virtual networks are connected instead, to the Virtual WAN hub gateway.
+* Your virtual network doesn't have any virtual network gateways. If your virtual network has a gateway (either VPN or ExpressRoute), you must remove all gateways. This configuration requires that virtual networks are connected instead to the Virtual WAN hub gateway.
 
 * Obtain an IP address range for your hub region. The hub is a virtual network that is created and used by Virtual WAN. The address range that you specify for the hub can't overlap with any of your existing virtual networks that you connect to. It also can't overlap with your address ranges that you connect to on-premises. If you're unfamiliar with the IP address ranges located in your on-premises network configuration, coordinate with someone who can provide those details for you.
 
-* The ExpressRoute circuit must be a Premium or Standard circuit in order to connect to the hub gateway.
+* The following ExpressRoute circuit SKUs can be connected to the hub gateway: Local, Standard, and Premium.
 
 * If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
@@ -43,9 +43,8 @@ Verify that you've met the following criteria before beginning your configuratio
 
 ## <a name="hub"></a>Create a virtual hub and gateway
 
-A virtual hub is a virtual network that is created and used by Virtual WAN. It can contain various gateways, such as VPN and ExpressRoute. In this section, you'll create an ExpressRoute gateway for your virtual hub. You can either create the gateway when you [create a new virtual hub](#newhub), or you can create the gateway in an [existing hub](#existinghub) by editing it.
+In this section, you'll create an ExpressRoute gateway for your virtual hub. You can either create the gateway when you [create a new virtual hub](#newhub), or you can create the gateway in an [existing hub](#existinghub) by editing it.
 
-ExpressRoute gateways are provisioned in units of 2 Gbps. 1 scale unit = 2 Gbps with support up to 10 scale units = 20 Gbps. It takes about 30 minutes for a virtual hub and gateway to fully create.
 
 ### <a name="newhub"></a>To create a new virtual hub and a gateway
 
@@ -87,15 +86,11 @@ In this section, you create the peering connection between your hub and a VNet. 
     * **Connection name** - Name your connection.
     * **Hubs** - Select the hub you want to associate with this connection.
     * **Subscription** - Verify the subscription.
-    * **Virtual network** - Select the virtual network you want to connect to this hub. The virtual network can't have an already existing virtual network gateway (neither VPN, nor ExpressRoute).
+    * **Virtual network** - Select the virtual network you want to connect to this hub. The virtual network can't have an already existing virtual network gateway (neither VPN nor ExpressRoute).
 
 ## <a name="connectcircuit"></a>Connect your circuit to the hub gateway
 
 Once the gateway is created, you can connect an [ExpressRoute circuit](../expressroute/expressroute-howto-circuit-portal-resource-manager.md) to it.
-
-* ExpressRoute Standard or Premium circuits that are in ExpressRoute Global Reach-supported locations can connect to a Virtual WAN ExpressRoute gateway and enjoy all Virtual WAN transit capabilities (VPN-to-VPN, VPN, and ExpressRoute transit).
-
-* ExpressRoute Standard and Premium circuits that are in non-Global Reach locations can connect to Azure resources, but won't be able to use Virtual WAN transit capabilities. ExpressRoute Local is also supported with Azure Virtual WAN virtual hubs.
 
 ### To connect the circuit to the hub gateway
 
@@ -123,7 +118,6 @@ Use the authorization key and circuit URI you were provided in order to connect.
 
 After the circuit connection is established, the hub connection status will indicate 'this hub', implying the connection is established to the hub ExpressRoute gateway. Wait approximately 5 minutes before you test connectivity from a client behind your ExpressRoute circuit, for example, a VM in the VNet that you created earlier.
 
-If you have sites connected to a Virtual WAN VPN gateway in the same hub as the ExpressRoute gateway, you can have bidirectional connectivity between VPN and ExpressRoute end points. Dynamic routing (BGP) is supported. The ASN of the gateways in the hub is fixed and can't be edited at this time.
 
 ## To change the size of a gateway
 
@@ -142,6 +136,11 @@ If you would like the Azure virtual hub to advertise the default route 0.0.0.0/0
 
    :::image type="content" source="./media/virtual-wan-expressroute-portal/defaultroute2.png" alt-text="Screenshot shows enable propagate default route." border="false":::
 
+## To see your Virtual WAN connection from the ExpressRoute circuit blade
+
+Navigate to the **Connections** blade for your ExpressRoute circuit to see each ExpressRoute gateway that your ExpressRoute circuit is connected to. 
+   :::image type="content" source="./media/virtual-wan-expressroute-portal/view-expressroute-connection.png" alt-text="Screenshot shows the initial container page." lightbox="./media/virtual-wan-expressroute-portal/view-expressroute-connection.png":::
+
 ## <a name="cleanup"></a>Clean up resources
 
 When you no longer need the resources that you created, delete them. Some of the Virtual WAN resources must be deleted in a certain order due to dependencies. Deleting can take about 30 minutes to complete.
@@ -150,7 +149,7 @@ When you no longer need the resources that you created, delete them. Some of the
 
 ## Next steps
 
-Next, to learn more about Virtual WAN, see:
+Next, to learn more about ExpressRoute in Virtual WAN, see:
 
 > [!div class="nextstepaction"]
-> * [Virtual WAN FAQ](virtual-wan-faq.md)
+> * [About ExpressRoute in Virtual WAN](virtual-wan-expressroute-about.md)

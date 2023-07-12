@@ -1,14 +1,15 @@
 ---
-title: Create a custom query in Permissions Management
-description: How to create a custom query in the Audit dashboard in Permissions Management.
+title: Create a custom query in Microsoft Entra Permissions Management
+description: How to create a custom query in the Audit dashboard in Microsoft Entra Permissions Management.
 services: active-directory
-author: kenwith
-manager: rkarlin
-ms.service: ciem
+author: jenniferf-skc
+manager: amycolannino
+ms.service: active-directory 
+ms.subservice: ciem
 ms.workload: identity
 ms.topic: how-to
-ms.date: 02/23/2022
-ms.author: kenwith
+ms.date: 06/16/2023
+ms.author: jfields
 ---
 
 # Create a custom query

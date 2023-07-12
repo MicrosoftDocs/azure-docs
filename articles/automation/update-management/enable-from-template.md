@@ -3,9 +3,9 @@ title: Enable Update Management using Azure Resource Manager template
 description: This article tells how to use an Azure Resource Manager template to enable Update Management.
 services:  automation
 ms.subservice: update-management
+ms.custom: devx-track-arm-template
 ms.topic: conceptual
 ms.date: 09/18/2020 
-ms.custom: devx-track-azurepowershell
 ---
 
 # Enable Update Management using Azure Resource Manager template

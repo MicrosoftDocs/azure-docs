@@ -1,6 +1,6 @@
 ---
-title: What is entitlement management? - Azure AD
-description: Get an overview of Azure Active Directory entitlement management and how you can use it to manage access to groups, applications, and SharePoint Online sites for internal and external users.
+title: What is entitlement management?
+description: Get an overview of entitlement management and how you can use it to manage access to groups, applications, and SharePoint Online sites for internal and external users.
 services: active-directory
 documentationCenter: ''
 author: owinfreyatl
@@ -11,7 +11,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.topic: overview
 ms.subservice: compliance
-ms.date: 08/01/2022
+ms.date: 05/31/2023
 ms.author: owinfrey
 ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
@@ -21,13 +21,13 @@ ms.custom: contperf-fy21q1
 #Customer intent: As a administrator, I want learn about entitlement management so that see how I can use it to manage access to resources in my organization.
 
 ---
-# What is Azure AD entitlement management?
+# What is entitlement management?
 
-Azure Active Directory (Azure AD) entitlement management is an [identity governance](identity-governance-overview.md) feature that  enables organizations to manage identity and access lifecycle at scale, by automating access request workflows, access assignments, reviews, and expiration.
+Entitlement management is an [identity governance](identity-governance-overview.md) feature that  enables organizations to manage identity and access lifecycle at scale, by automating access request workflows, access assignments, reviews, and expiration.
 
 Employees in organizations need access to various groups, applications, and SharePoint Online sites to perform their job. Managing this access is challenging, as requirements change. New applications are added or users need more access rights.  This scenario gets more complicated when you collaborate with outside organizations. You may not know who in the other organization needs access to your organization's resources, and they won't know what applications, groups, or sites your organization is using.
 
-Azure AD entitlement management can help you more efficiently manage access to groups, applications, and SharePoint Online sites for internal users, and also for users outside your organization who need access to those resources.
+Entitlement management can help you more efficiently manage access to groups, applications, and SharePoint Online sites for internal users, and also for users outside your organization who need access to those resources.
 
 ## Why use entitlement management?
 
@@ -41,7 +41,7 @@ These problems are compounded for users who need access from another organizatio
 - No one person may know all of the specific individuals in other organization's directories to be able to invite them
 - Even if they were able to invite these users, no one in that organization may remember to manage all of the users' access consistently
 
-Azure AD entitlement management can help address these challenges.  To learn more about how customers have been using Azure AD entitlement management, you can read the [Avanade case study](https://customers.microsoft.com/story/avanade-professional-services-azure-canada) and the [Centrica case study](https://customers.microsoft.com/story/757467-centrica-energy-azure).  This video provides an overview of entitlement management and its value:
+Entitlement management can help address these challenges.  To learn more about how customers have been using entitlement management, you can read the [Mississippi Division of Medicaid](https://customers.microsoft.com/story/1509263251891323344-mississippi-medicaid-microsoft-security-solutions), [Storebrand](https://customers.microsoft.com/story/1540760473505561700-storebrand-banking-microsoft-security-solutions) and [Avanade](https://customers.microsoft.com/story/avanade-professional-services-azure-canada) case studies.  This video provides an overview of entitlement management and its value:
 
 >[!VIDEO https://www.youtube.com/embed/_Lss6bFrnQ8]
 
@@ -59,13 +59,13 @@ Here are some of capabilities of entitlement management:
 
 You can also read the [common scenarios](entitlement-management-scenarios.md), or watch videos, including
 
-- [How to deploy Azure AD entitlement management in your organization](https://www.youtube.com/watch?v=zaaKvaaYwI4)
-- [How to monitor and scale your use of Azure AD entitlement management](https://www.youtube.com/watch?v=omtNJ7ySjS0)
+- [How to deploy entitlement management in your organization](https://www.youtube.com/watch?v=zaaKvaaYwI4)
+- [How to monitor and scale your use of entitlement management](https://www.youtube.com/watch?v=omtNJ7ySjS0)
 - [How to delegate in entitlement management](https://www.youtube.com/watch?v=Fmp1eBxzrqw)
 
 ## What are access packages and what resources can I manage with them?
 
-Entitlement management introduces to Azure AD the concept of an *access package*. An access package is a bundle of all the resources with the access a user needs to work on a project or perform their task. Access packages are used to govern access for your internal employees, and also users outside your organization.
+Entitlement management introduces the concept of an *access package*. An access package is a bundle of all the resources with the access a user needs to work on a project or perform their task. Access packages are used to govern access for your internal employees, and also users outside your organization.
 
  Here are the types of resources you can manage user's access to, with entitlement management:
 
@@ -107,14 +107,16 @@ The following diagram shows an example of the different elements in entitlement 
 
 Access packages don't replace other mechanisms for access assignment.  They're most appropriate in situations such as:
 
+- Migrating access policy definitions from a third party [enterprise role management](identity-governance-organizational-roles.md) to Azure AD.
 - Employees need time-limited access for a particular task.  For example, you might use group-based licensing and a dynamic group to ensure all employees have an Exchange Online mailbox, and then use access packages for situations in which employees need more access rights. For example, rights to read departmental resources from another department.
 - Access that requires the approval of an employee's manager or other designated individuals.
-- Departments wish to manage their own access policies for their resources without IT involvement.  
+- Access that should be assigned automatically to people in a particular part of an organization during their time in that job role, but also available for people elsewhere in the organization, or in a business partner organization, to request.
+- Departments wish to manage their own access policies for their resources without IT involvement.
 - Two or more organizations are collaborating on a project, and as a result, multiple users from one organization will need to be brought in via Azure AD B2B to access another organization's resources.
 
 ## How do I delegate access?
 
- Access packages are defined in containers called *catalogs*.  You can have a single catalog for all your access packages, or you can designate individuals to create and own their own catalogs. An administrator can add resources to any catalog, but a non-administrator can only add to a catalog the resources that they own. A catalog owner can add other users as catalog co-owners, or as access package managers.  These scenarios are described further in the article [delegation and roles in Azure AD entitlement management](entitlement-management-delegate.md).
+ Access packages are defined in containers called *catalogs*.  You can have a single catalog for all your access packages, or you can designate individuals to create and own their own catalogs. An administrator can add resources to any catalog, but a non-administrator can only add to a catalog the resources that they own. A catalog owner can add other users as catalog co-owners, or as access package managers.  These scenarios are described further in the article [delegation and roles in entitlement management](entitlement-management-delegate.md).
 
 ## Summary of terminology
 
@@ -136,13 +138,11 @@ To better understand entitlement management and its documentation, you can refer
 
 ## License requirements
 
-[!INCLUDE [Azure AD Premium P2 license](../../../includes/active-directory-p2-license.md)]
-
-Specialized clouds, such as Azure Germany, and Azure China 21Vianet, aren't currently available for use.
+[!INCLUDE [active-directory-p2-governance-license.md](../../../includes/active-directory-p2-governance-license.md)]
 
 ### How many licenses must you have?
 
-Ensure that your directory has at least as many Azure AD Premium P2 licenses as you have:
+Ensure that your directory has at least as many Microsoft Azure AD Premium P2 or Microsoft Entra ID Governance licenses as you have:
 
 - Member users who *can* request an access package.
 - Member users who *request* an access package.
@@ -150,19 +150,19 @@ Ensure that your directory has at least as many Azure AD Premium P2 licenses as 
 - Member users who *review assignments* for an access package.
 - Member users who have a *direct assignment* or an *automatic assignment* to an access package.
 
-For guest users, licensing needs will depend on the [licensing model](../external-identities/external-identities-pricing.md) you’re using. However, the below guest users’ activities are considered Azure AD Premium P2 usage:
+For guest users, licensing needs will depend on the [licensing model](../external-identities/external-identities-pricing.md) you’re using. However, the below guest users’ activities are considered Microsoft Azure AD Premium P2 or Microsoft Entra ID Governance usage:
 - Guest users who *request* an access package.
 - Guest users who *approve requests* for an access package.
 - Guest users who *review assignments* for an access package.
 - Guest users who have a *direct assignment* to an access package.
 
-Azure AD Premium P2 licenses are **not** required for the following tasks:
+Microsoft Azure AD Premium P2 or Microsoft Entra ID Governance licenses are **not** required for the following tasks:
 
 - No licenses are required for users with the Global Administrator role who set up the initial catalogs, access packages, and policies, and delegate administrative tasks to other users.
 - No licenses are required for users who have been delegated administrative tasks, such as catalog creator, catalog owner, and access package manager.
 - No licenses are required for guests who have **a privilege to request access packages** but they **do not choose** to request them.
 
-For more information about licenses, see [Assign or remove licenses using the Azure Active Directory portal](../fundamentals/license-users-groups.md).
+For more information about licenses, see [Assign or remove licenses using the Azure portal](../fundamentals/license-users-groups.md).
 
 ### Example license scenarios
 

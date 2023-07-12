@@ -2,7 +2,7 @@
 title: Move single-page app to production
 description: Learn how to build a single-page application (move to production)
 services: active-directory
-author: mmacy
+author: OwenRichards1
 manager: CelesteDG
 
 ms.service: active-directory
@@ -10,16 +10,16 @@ ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
 ms.date: 05/07/2019
-ms.author: marsma
+ms.author: owenrichards
 ms.custom: aaddev
-#Customer intent: As an application developer, I want to know how to write a single-page application by using the Microsoft identity platform.
+#Customer intent: As an application developer, I want to know how to write a single-page application by using the Microsoft identity platform. 
 ---
 
 # Single-page application: Move to production
 
 Now that you know how to acquire a token to call web APIs, here are some things to consider when moving your application to production.
 
-[!INCLUDE [Common steps to move to production](../../../includes/active-directory-develop-scenarios-production.md)]
+[!INCLUDE [Common steps to move to production](./includes/scenarios/scenarios-production.md)]
 
 ## Deploy your app
 

@@ -1,12 +1,14 @@
 ---
-title:  Access control and security for Azure IoT Hub Device Provisioning Service | Microsoft Docs
-description: Overview on how to control access to Azure IoT Hub Device Provisioning Service (DPS), includes links to in-depth articles on Azure Active Directory integration (Public Preview) and SAS options.
+title:  Access control and security for Azure DPS
+titleSuffix: Azure IoT Hub Device Provisioning Service
+description: Overview on controlling access to Azure IoT Hub Device Provisioning Service, links to articles on Azure Active Directory integration and SAS options.
 author: jesusbar
+
 ms.author: jesusbar
 ms.service: iot-dps
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 04/20/2022
-ms.custom: ['Role: Cloud Development', 'Role: Azure IoT Hub Device Provisioning Service (DPS)', 'Role: Operations', devx-track-js, devx-track-csharp]
+ms.custom: ['Role: Cloud Development', 'Role: Azure IoT Hub Device Provisioning Service (DPS)', 'Role: Operations', devx-track-csharp]
 ---
 
 # Control access to Azure IoT Hub Device Provisioning Service (DPS)

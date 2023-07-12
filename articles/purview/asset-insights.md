@@ -35,12 +35,10 @@ For more information to create and complete a scan, see [the manage data sources
 
 In Microsoft Purview Data Estate Insights, you can get an overview of the assets that have been scanned into the Data Map and view key gaps that can be closed by governance stakeholders, for better governance of the data estate.
 
-> [!NOTE]
-> After you have scanned your source types, give asset insights 3-8 hours to reflect the new assets. The delay may be due to high traffic in deployment region or size of your workload. For further information, please contact support.
+1. Open the Microsoft Purview governance portal by:
 
-1. Navigate to your Microsoft Purview account in the Azure portal.
-
-1. On the **Overview** page, in the **Get Started** section, select the **Open Microsoft Purview governance portal** tile.
+   - Browsing directly to [https://web.purview.azure.com](https://web.purview.azure.com) and selecting your Microsoft Purview account.
+   - Opening the [Azure portal](https://portal.azure.com), searching for and selecting the Microsoft Purview account. Selecting the [**the Microsoft Purview governance portal**](https://web.purview.azure.com/) button.
 
    :::image type="content" source="./media/asset-insights/portal-access.png" alt-text="Screenshot of Microsoft Purview account in Azure portal with the Microsoft Purview governance portal button highlighted.":::
 

@@ -1,7 +1,7 @@
 ---
-title: What is custom text classification (preview) in Azure Cognitive Services for Language?
+title: Custom text classification - Azure Cognitive Services
 titleSuffix: Azure Cognitive Services
-description: Learn how use custom text classification.
+description: Customize an AI model to classify documents and other content using Azure Cognitive Services.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -50,7 +50,7 @@ Creating a custom text classification project typically involves several differe
 
 Follow these steps to get the most out of your model:
 
-1. **Define your schema**: Know your data and identify the [classes](glossary.md#class) you want differentiate between, avoid ambiguity.
+1. **Define your schema**: Know your data and identify the [classes](glossary.md#class) you want differentiate between, to avoid ambiguity.
 
 2. **Label your data**: The quality of data labeling is a key factor in determining model performance. Documents that belong to the same class should always have the same class, if you have a document that can fall into two classes use  **Multi label classification** projects. Avoid class ambiguity, make sure that your classes are clearly separable from each other, especially with single label classification projects.
 

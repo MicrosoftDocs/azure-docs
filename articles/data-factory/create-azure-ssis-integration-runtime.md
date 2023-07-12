@@ -4,15 +4,15 @@ description: Learn how to create an Azure-SSIS integration runtime in Azure Data
 ms.service: data-factory
 ms.subservice: integration-services
 ms.topic: conceptual
-ms.date: 02/15/2022
+ms.date: 04/12/2023
 author: chugugrace
 ms.author: chugu 
-ms.custom: devx-track-azurepowershell
+ms.custom:
 ---
 
 # Create an Azure-SSIS integration runtime
 
-[!INCLUDE[appliesto-adf-asa-preview-md](includes/appliesto-adf-asa-preview-md.md)]
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 This article provides steps for provisioning an Azure-SQL Server Integration Services (SSIS) integration runtime (IR) in Azure Data Factory (ADF) and Azure Synapse Pipelines. An Azure-SSIS IR supports:
 
@@ -20,7 +20,7 @@ This article provides steps for provisioning an Azure-SQL Server Integration Ser
 - Running packages deployed into file system, Azure Files, or SQL Server database (MSDB) hosted by Azure SQL Managed Instance (Package Deployment Model)
 
 > [!NOTE] 
-> Azure-SSIS IR in Azure Synapse Analytics is in public preview, please check [limitations](https://aka.ms/AAfq9i3) for preview.
+> There are certain features that are not available for Azure-SSIS IR in Azure Synapse Analytics, please check the [limitations](https://aka.ms/AAfq9i3).
 
 After an Azure-SSIS IR is provisioned, you can use familiar tools to deploy and run your packages in Azure. These tools are already Azure-enabled and include SQL Server Data Tools (SSDT), SQL Server Management Studio (SSMS), and command-line utilities like [dtutil](/sql/integration-services/dtutil-utility) and [AzureDTExec](./how-to-invoke-ssis-package-azure-enabled-dtexec.md).
 
@@ -64,7 +64,7 @@ These articles shows how to provision an Azure-SSIS IR by using the [Azure porta
 
   - You want to connect to on-premises data stores from SSIS packages running on your Azure-SSIS IR without configuring a self-hosted IR.
 
-- **Azure PowerShell (optional)**. Follow the instructions in [How to install and configure Azure PowerShell](/powershell/azure/install-az-ps), if you want to run a PowerShell script to provision your Azure-SSIS IR.
+- **Azure PowerShell (optional)**. Follow the instructions in [How to install and configure Azure PowerShell](/powershell/azure/install-azure-powershell), if you want to run a PowerShell script to provision your Azure-SSIS IR.
 
 ### Regional support
 

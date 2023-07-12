@@ -21,7 +21,7 @@ Create a **POST** request using the following URL, headers, and JSON body to sta
 |Placeholder  |Value  | Example |
 |---------|---------|---------|
 |`{ENDPOINT}`     | The endpoint for authenticating your API request.   | `https://<your-custom-subdomain>.cognitiveservices.azure.com` |
-|`{API-VERSION}`     | The version of the API you are calling. The value referenced here is for the latest released [model version](../../../concepts/model-lifecycle.md#choose-the-model-version-used-on-your-data). | `2022-05-01` |
+|`{API-VERSION}`     | The [version](../../../concepts/model-lifecycle.md#api-versions) of the API you are calling. | `2023-04-01` |
 
 
 ### Headers
@@ -90,7 +90,7 @@ Once you send the request, you will get the following response for the predictio
       "entities": [
         {
           "category": "entity1",
-          "text": 'text1",
+          "text": "text1",
           "offset": 29,
           "length": 12,
           "confidenceScore": 1

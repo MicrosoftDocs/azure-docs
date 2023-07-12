@@ -2,16 +2,16 @@
 title: Access the Azure Health Data Services FHIR service using Postman
 description: This article describes how to access Azure Health Data Services FHIR service with Postman.
 services: healthcare-apis
-author: ginalee-dotcom
+author: expekesheth
 ms.service: healthcare-apis
 ms.topic: tutorial
 ms.date: 06/06/2022
-ms.author: mikaelw
+ms.author: kesheth
 ---
 
 # Access using Postman
 
-In this article, we'll walk through the steps of accessing the Azure Health Data Services (hear by called FHIR service) with [Postman](https://www.getpostman.com/).
+In this article, we'll walk through the steps of accessing the Azure Health Data Services (hereafter called FHIR service) with [Postman](https://www.getpostman.com/).
 
 ## Prerequisites
 
@@ -60,6 +60,8 @@ Open Postman, select the **workspace**, **collection**, and **environment** you 
 
 [ ![Screenshot of create a new request.](media/postman/postman-create-new-request.png) ](media/postman/postman-create-new-request.png#lightbox)
 
+To perform health check on FHIR service, enter `{{fhirurl}}/health/check` in the GET request, and select 'Send'. You should be able to see Status of FHIR service - HTTP Status code response with 200 and OverallStatus as "Healthy" in response, means your health check is succesful.
+
 ## Get capability statement
 
 Enter `{{fhirurl}}/metadata` in the `GET`request, and select `Send`. You should see the capability statement of the FHIR service.
@@ -83,6 +85,9 @@ Create a new `POST` request:
     - **client_secret**: `{{clientsecret}}`
     - **resource**: `{{fhirurl}}`
     
+> [!NOTE] 
+> In the scenarios where the FHIR service audience parameter is not mapped to the FHIR service endpoint url. The resource parameter value should be mapped to Audience value under FHIR Service Authentication blade.
+      
 3. Select the **Test** tab and enter in the text section: `pm.environment.set("bearerToken", pm.response.json().access_token);` To make the value available to the collection, use the pm.collectionVariables.set method. For more information on the set method and its scope level, see [Using variables in scripts](https://learning.postman.com/docs/sending-requests/variables/#defining-variables-in-scripts).
 4. Select **Save** to save the settings.
 5. Select **Send**. You should see a response with the Azure AD access token, which is saved to the variable `bearerToken` automatically. You can then use it in all FHIR service API requests.
@@ -162,4 +167,6 @@ In this article, you learned how to access the FHIR service in Azure Health Data
 >[!div class="nextstepaction"]
 >[What is FHIR service?](overview.md)
 
+
+For a starter collection of sample Postman queries, please see our [samples repo](https://github.com/Azure-Samples/azure-health-data-services-samples/tree/main/samples/sample-postman-queries) on Github.  
 FHIR&#174; is a registered trademark of [HL7](https://hl7.org/fhir/) and is used with the permission of HL7.

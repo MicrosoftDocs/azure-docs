@@ -9,11 +9,11 @@ ms.author: eur
 
 |Language|Locales (BCP-47)|
 |-----|-----|
-Arabic|`ar-DZ`<br/>`ar-BH`<br/>`ar-EG`<br/>`ar-IQ`<br/>`ar-OM`<br/>`ar-SY`|
+Arabic|`ar-AE`<br/>`ar-BH`<br/>`ar-DZ`<br/>`ar-EG`<br/>`ar-IQ`<br/>`ar-JO`<br/>`ar-KW`<br/>`ar-LY`<br/>`ar-MA`<br/>`ar-OM`<br/>`ar-QA`<br/>`ar-SA`<br/>`ar-SY`<br/>`ar-YE`|
+|Bengali|`bn-IN`|
 |Bulgarian|`bg-BG`|
 |Catalan|`ca-ES`|
-|Chinese, Mandarin|`zh-CN`<br/>`zh-TW`|
-|Chinese, Traditional|`zh-HK`|
+|Chinese|`zh-CN`<br/>`zh-HK`<br/>`zh-TW`|
 |Croatian|`hr-HR`|
 |Czech|`cs-CZ`|
 |Danish|`da-DK`|
@@ -25,12 +25,15 @@ Arabic|`ar-DZ`<br/>`ar-BH`<br/>`ar-EG`<br/>`ar-IQ`<br/>`ar-OM`<br/>`ar-SY`|
 |German|`de-DE`|
 |Greek|`el-GR`|
 |Gujarati|`gu-IN`|
+|Hebrew|`he-IL`|
 |Hindi|`hi-IN`|
 |Hungarian|`hu-HU`|
 |Indonesian|`id-ID`|
 |Irish|`ga-IE`|
 |Italian|`it-IT`|
 |Japanese|`ja-JP`|
+|Kannada|`kn-IN`|
+|Malayalam|`ml-IN`|
 |Korean|`ko-KR`|
 |Latvian|`lv-LV`|
 |Lithuanian|`lt-LT`|
@@ -50,3 +53,4 @@ Arabic|`ar-DZ`<br/>`ar-BH`<br/>`ar-EG`<br/>`ar-IQ`<br/>`ar-OM`<br/>`ar-SY`|
 |Thai|`th-TH`|
 |Turkish|`tr-TR`|
 |Ukrainian|`uk-UA`|
+|Vietnamese|`vi-VN`|

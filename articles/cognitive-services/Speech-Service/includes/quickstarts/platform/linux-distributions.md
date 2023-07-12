@@ -9,26 +9,39 @@ ms.author: eur
 > [!IMPORTANT]
 > Use the most recent LTS release of the Linux distribution. For example, if you are using Ubuntu 20.04 LTS, use the latest release of Ubuntu 20.04.X.
 
-For a native application, the Speech SDK relies on `libMicrosoft.CognitiveServices.Speech.core.so`. Make sure the target architecture (x86, x64) matches the application. Depending on the Linux version, more dependencies might be required:
+The Speech SDK depends on the following Linux system libraries:
 
 - The shared libraries of the GNU C library, including the POSIX Threads Programming library, `libpthreads`
-- The OpenSSL library (`libssl`) version 1.x
+- The OpenSSL library (`libssl`) version 1.x and certificates (`ca-certificates`)
 - The shared library for ALSA applications (`libasound`)
+- You should also install `ca-certificates` to establish a secure websocket and avoid the `WS_OPEN_ERROR_UNDERLYING_IO_OPEN_FAILED` error.
+
+> [!IMPORTANT]
+> The Speech SDK does not yet support OpenSSL 3.0, which is the default in Ubuntu 22.04 and Debian 12. 
+
+To install OpenSSL 1.x from sources on Debian/Ubuntu based systems that don't have it, do:
+```Bash
+wget -O - https://www.openssl.org/source/openssl-1.1.1u.tar.gz | tar zxf -
+cd openssl-1.1.1u
+./config --prefix=/usr/local
+make -j $(nproc)
+sudo make install_sw install_ssldirs
+sudo ldconfig -v
+export SSL_CERT_DIR=/etc/ssl/certs
+```
+Notes on installation:
+- Check https://www.openssl.org/source/ for the latest OpenSSL 1.x version to use.
+- The setting of `SSL_CERT_DIR` must be in effect systemwide or at least in the console where applications that use the Speech SDK are launched from, otherwise OpenSSL 1.x installed in `/usr/local` may not find certificates.
+- Ensure that the console output from `ldconfig -v` includes `/usr/local/lib` as it should on modern systems by default. If this isn't the case, set `LD_LIBRARY_PATH` (with the same scope as `SSL_CERT_DIR`) to add `/usr/local/lib` to the library path:
+  ```Bash
+  export LD_LIBRARY_PATH=/usr/local/lib:$LD_LIBRARY_PATH
+  ```
 
 # [Ubuntu 18.04/20.04/22.04](#tab/ubuntu)
 
 ```Bash
 sudo apt-get update
-sudo apt-get install build-essential libssl-dev libasound2 wget
-```
-
-> [!IMPORTANT]
-> On Ubuntu 22.04, install `libssl1.1` either as a [binary package](http://security.ubuntu.com/ubuntu/pool/main/o/openssl/) such as `libssl1.1_1.1.1l-1ubuntu1.3_amd64.deb`, or by compiling it from sources. The Speech SDK does not support OpenSSL 3.0, which is the default in Ubuntu 22.04.
-
-Here's an example of installing `libssl1.1` on Ubuntu 22.04:
-```Bash
-wget http://security.ubuntu.com/ubuntu/pool/main/o/openssl/libssl1.1_1.1.1l-1ubuntu1.3_amd64.deb
-sudo dpkg -i libssl1.1_1.1.1l-1ubuntu1.3_amd64.deb
+sudo apt-get install build-essential libssl-dev ca-certificates libasound2 wget
 ```
 
 # [Debian 9/10/11](#tab/debian)
@@ -37,7 +50,7 @@ To use the Speech SDK in Alpine Linux, create a Debian chroot environment as doc
 
 ```Bash
 sudo apt-get update
-sudo apt-get install build-essential libssl-dev libasound2 wget
+sudo apt-get install build-essential libssl-dev ca-certificates libasound2 wget
 ```
 
 # [RHEL 7/8 and CentOS 7/8](#tab/rhel-centos)

@@ -1,22 +1,23 @@
 ---
-title: 'Register and scan Azure Cosmos Database (SQL API)'
-description: This article outlines the process to register an Azure Cosmos data source (SQL API) in Microsoft Purview including instructions to authenticate and interact with the Azure Cosmos database
+title: 'Connect to Azure Cosmos DB for SQL API'
+description: This article outlines the process to register an Azure Cosmos DB instance in Microsoft Purview including instructions to authenticate and interact with the Azure Cosmos DB database
 author: athenads
 ms.author: athenadsouza
 ms.service: purview
+ms.subservice: purview-data-map
 ms.topic: how-to
 ms.date: 09/14/2022
-ms.custom: template-how-to, ignite-fall-2021
+ms.custom: template-how-to, ignite-fall-2021, ignite-2022
 ---
-# Connect to Azure Cosmos database (SQL API) in Microsoft Purview
+# Connect to Azure Cosmos DB for SQL API in Microsoft Purview
 
-This article outlines the process to register an Azure Cosmos database (SQL API) in Microsoft Purview including instructions to authenticate and interact with the Azure Cosmos database source
+This article outlines the process to register and scan Azure Cosmos DB for SQL API instance in Microsoft Purview, including instructions to authenticate and interact with the Azure Cosmos DB database source
 
 ## Supported capabilities
 
-|**Metadata Extraction**|  **Full Scan**  |**Incremental Scan**|**Scoped Scan**|**Classification**|**Access Policy**|**Lineage**|**Data Sharing**|
-|---|---|---|---|---|---|---|---|
-| [Yes](#register) | [Yes](#scan)|[No](#scan) | [Yes](#scan)|[Yes](#scan)|No|No** | No |
+|**Metadata Extraction**|  **Full Scan**  |**Incremental Scan**|**Scoped Scan**|**Classification**|**Labeling**|**Access Policy**|**Lineage**|**Data Sharing**|
+|---|---|---|---|---|---|---|---|---|
+| [Yes](#register) | [Yes](#scan)|[No](#scan) | [Yes](#scan)|[Yes](#scan)|[Yes](create-sensitivity-label.md)|No|No** | No |
 
 \** Lineage is supported if dataset is used as a source/sink in [Data Factory Copy activity](how-to-link-azure-data-factory.md) 
 
@@ -30,15 +31,18 @@ This article outlines the process to register an Azure Cosmos database (SQL API)
 
 ## Register
 
-This section will enable you to register the Azure Cosmos database (SQL API) and set up an appropriate authentication mechanism to ensure successful scanning of the data source.
+This section will enable you to register the Azure Cosmos DB for SQL API instance and set up an appropriate authentication mechanism to ensure successful scanning of the data source.
 
 ### Steps to register
 
 It is important to register the data source in Microsoft Purview prior to setting up a scan for the data source.
 
-1. Go to the [Azure portal](https://portal.azure.com), and navigate to the **Microsoft Purview accounts** page and select your _Purview account_
+1. Open the Microsoft Purview governance portal by:
 
-1. **Open Microsoft Purview governance portal** and navigate to the **Data Map --> Collections**
+   * Browsing directly to [https://web.purview.azure.com](https://web.purview.azure.com) and selecting your Microsoft Purview account.
+   * Opening the [Azure portal](https://portal.azure.com), searching for and selecting the Microsoft Purview account. Select the [**the Microsoft Purview governance portal**](https://web.purview.azure.com/) button.
+
+1. Navigate to the **Data Map --> Collections**
 
     :::image type="content" source="media/register-scan-azure-cosmos-database/register-cosmos-db-open-purview-studio.png" alt-text="Screenshot that navigates to the Sources link in the Data Map":::
 
@@ -46,11 +50,11 @@ It is important to register the data source in Microsoft Purview prior to settin
 
     :::image type="content" source="media/register-scan-azure-cosmos-database/register-cosmos-db-collections.png" alt-text="Screenshot that shows the collection menu to create collection hierarchy":::
 
-1. Navigate to the appropriate collection under the **Sources** menu and select the **Register** icon to register a new Azure Cosmos database
+1. Navigate to the appropriate collection under the **Sources** menu and select the **Register** icon to register a new Azure Cosmos DB database
 
     :::image type="content" source="media/register-scan-azure-cosmos-database/register-cosmos-db-register-data-source.png" alt-text="Screenshot that shows the collection used to register the data source":::
 
-1. Select the **Azure Cosmos DB (SQL API)** data source and select **Continue**
+1. Select the **Azure Cosmos DB for SQL API** data source and select **Continue**
 
     :::image type="content" source="media/register-scan-azure-cosmos-database/register-cosmos-db-select-data-source.png" alt-text="Screenshot that allows selection of the data source":::
 
@@ -58,7 +62,7 @@ It is important to register the data source in Microsoft Purview prior to settin
 
     :::image type="content" source="media/register-scan-azure-cosmos-database/register-cosmos-db-data-source-details.png" alt-text="Screenshot that shows the details to be entered in order to register the data source":::
 
-1. The _Azure Cosmos database_ storage account will be shown under the selected Collection
+1. The _Azure Cosmos DB database_ storage account will be shown under the selected Collection
 
     :::image type="content" source="media/register-scan-azure-cosmos-database/register-cosmos-db-collection-mapping.png" alt-text="Screenshot that shows the data source mapped to the collection to initiate scanning":::
 
@@ -66,9 +70,9 @@ It is important to register the data source in Microsoft Purview prior to settin
 
 ### Authentication for a scan
 
-In order to have access to scan the data source, an authentication method in the Azure Cosmos database Storage account needs to be configured.
+In order to have access to scan the data source, an authentication method in the Azure Cosmos DB database Storage account needs to be configured.
 
-There is only one way to set up authentication for Azure Cosmos Database:
+There is only one way to set up authentication for Azure Cosmos DB Database:
 
 **Account Key** - Secrets can be created inside an Azure Key Vault to store credentials in order to enable access for Microsoft Purview to scan data sources securely using the secrets. A secret can be a storage account key, SQL login password or a password.
 
@@ -79,7 +83,7 @@ There is only one way to set up authentication for Azure Cosmos Database:
 
 You need to get your access key and store in the key vault:
 
-1. Navigate to your Azure Cosmos database storage account
+1. Navigate to your Azure Cosmos DB database storage account
 1. Select **Settings > Keys**
 
     :::image type="content" source="media/register-scan-azure-cosmos-database/register-cosmos-db-access-keys.png" alt-text="Screenshot that shows the access keys in the storage account":::

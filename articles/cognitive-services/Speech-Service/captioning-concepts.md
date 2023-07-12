@@ -7,6 +7,7 @@ author: eric-urban
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
+ms.custom: devx-track-extended-java, devx-track-go, devx-track-js, devx-track-python
 ms.topic: conceptual
 ms.date: 06/02/2022
 ms.author: eur
@@ -32,13 +33,18 @@ The following are aspects to consider when using captioning:
 * Consider output formats such as SRT (SubRip Text) and WebVTT (Web Video Text Tracks). These can be loaded onto most video players such as VLC, automatically adding the captions on to your video.
 
 > [!TIP]
+> Try the [Speech Studio](https://aka.ms/speechstudio/captioning) and choose a sample video clip to see real-time or offline processed captioning results. 
+> 
 > Try the [Azure Video Indexer](../../azure-video-indexer/video-indexer-overview.md) as a demonstration of how you can get captions for videos that you upload. 
 
-Captioning can accompany real time or pre-recorded speech. Whether you're showing captions in real time or with a recording, you can use the [Speech SDK](speech-sdk.md) or [Speech CLI](spx-overview.md) to recognize speech and get transcriptions. You can also use the [Batch transcription API](batch-transcription.md) for pre-recorded video. 
+Captioning can accompany real-time or pre-recorded speech. Whether you're showing captions in real-time or with a recording, you can use the [Speech SDK](speech-sdk.md) or [Speech CLI](spx-overview.md) to recognize speech and get transcriptions. You can also use the [Batch transcription API](batch-transcription.md) for pre-recorded video. 
 
 ## Caption output format
 
 The Speech service supports output formats such as SRT (SubRip Text) and WebVTT (Web Video Text Tracks). These can be loaded onto most video players such as VLC, automatically adding the captions on to your video.
+
+> [!TIP]
+> The Speech service provides [profanity filter](display-text-format.md#profanity-filter) options. You can specify whether to mask, remove, or show profanity. 
 
 The [SRT](https://docs.fileformat.com/video/srt/) (SubRip Text) timespan output format is `hh:mm:ss,fff`. 
 
@@ -48,7 +54,7 @@ The [SRT](https://docs.fileformat.com/video/srt/) (SubRip Text) timespan output 
 Welcome to applied Mathematics course 201.
 ```
 
-The [WebVTT](https://www.w3.org/TR/webvtt1/#introduction) (Web Video Text Tracks) timespan output format is `hh:mm:ss,fff`. 
+The [WebVTT](https://www.w3.org/TR/webvtt1/#introduction) (Web Video Text Tracks) timespan output format is `hh:mm:ss.fff`. 
 
 ```
 WEBVTT
@@ -63,13 +69,13 @@ Welcome to applied Mathematics course 201.
 
 ## Input audio to the Speech service
 
-For real time captioning, use a microphone or audio input stream instead of file input. For examples of how to recognize speech from a microphone, see the [Speech to text quickstart](get-started-speech-to-text.md) and [How to recognize speech](how-to-recognize-speech.md) documentation. For more information about streaming, see [How to use the audio input stream](how-to-use-audio-input-streams.md).
+For real-time captioning, use a microphone or audio input stream instead of file input. For examples of how to recognize speech from a microphone, see the [Speech to text quickstart](get-started-speech-to-text.md) and [How to recognize speech](how-to-recognize-speech.md) documentation. For more information about streaming, see [How to use the audio input stream](how-to-use-audio-input-streams.md).
 
 For captioning of a prerecording, send file input to the Speech service. For more information, see [How to use compressed input audio](how-to-use-codec-compressed-audio-input-streams.md).
 
 ## Caption and speech synchronization 
 
-You'll want to synchronize captions with the audio track, whether it's done in real time or with a prerecording. 
+You'll want to synchronize captions with the audio track, whether it's done in real-time or with a prerecording. 
 
 The Speech service returns the offset and duration of the recognized speech. 
 
@@ -86,7 +92,7 @@ Consider when to start displaying captions, and how many words to show at a time
 
 For captioning of prerecorded speech or wherever latency isn't a concern, you could wait for the complete transcription of each utterance before displaying any words. Given the final offset and duration of each word in an utterance, you know when to show subsequent words at pace with the soundtrack.
 
-Real time captioning presents tradeoffs with respect to latency versus accuracy. You could show the text from each `Recognizing` event as soon as possible. However, if you can accept some latency, you can improve the accuracy of the caption by displaying the text from the `Recognized` event. There's also some middle ground, which is referred to as "stable partial results". 
+Real-time captioning presents tradeoffs with respect to latency versus accuracy. You could show the text from each `Recognizing` event as soon as possible. However, if you can accept some latency, you can improve the accuracy of the caption by displaying the text from the `Recognized` event. There's also some middle ground, which is referred to as "stable partial results". 
 
 You can request that the Speech service return fewer `Recognizing` events that are more accurate. This is done by setting the `SpeechServiceResponse_StablePartialResultThreshold` property to a value between `0` and `2147483647`. The value that you set is the number of times a word has to be recognized before the Speech service returns a `Recognizing` event. For example, if you set the `SpeechServiceResponse_StablePartialResultThreshold` property value to `5`, the Speech service will affirm recognition of a word at least five times before returning the partial results to you with a `Recognizing` event.
 
@@ -160,68 +166,6 @@ RECOGNIZING: Text=welcome to applied
 RECOGNIZING: Text=welcome to applied mathematics
 RECOGNIZED: Text=Welcome to applied Mathematics course 201.
 ```
-
-## Profanity filter 
-
-You can specify whether to mask, remove, or show profanity in recognition results. 
-
-> [!NOTE]
-> Microsoft also reserves the right to mask or remove any word that is deemed inappropriate. Such words will not be returned by the Speech service, whether or not you enabled profanity filtering.
-
-The profanity filter options are:
-- `Masked`: Replaces letters in profane words with asterisk (*) characters. This is the default option.
-- `Raw`: Include the profane words verbatim.
-- `Removed`: Removes profane words.
-
-For example, to remove profane words from the speech recognition result, set the profanity filter to `Removed` as shown here:
-
-::: zone pivot="programming-language-csharp"
-```csharp
-speechConfig.SetProfanity(ProfanityOption.Removed);
-```
-::: zone-end
-::: zone pivot="programming-language-cpp"
-```cpp
-speechConfig->SetProfanity(ProfanityOption::Removed);
-```
-::: zone-end
-::: zone pivot="programming-language-go"
-```go
-speechConfig.SetProfanity(common.Removed)
-```
-::: zone-end
-::: zone pivot="programming-language-java"
-```java
-speechConfig.setProfanity(ProfanityOption.Removed);
-```
-::: zone-end
-::: zone pivot="programming-language-javascript"
-```javascript
-speechConfig.setProfanity(sdk.ProfanityOption.Removed);
-```
-::: zone-end
-::: zone pivot="programming-language-objectivec"
-```objective-c
-[self.speechConfig setProfanityOptionTo:SPXSpeechConfigProfanityOption.SPXSpeechConfigProfanityOption_ProfanityRemoved];
-```
-::: zone-end
-::: zone pivot="programming-language-swift"
-```swift
-self.speechConfig!.setProfanityOptionTo(SPXSpeechConfigProfanityOption_ProfanityRemoved)
-```
-::: zone-end
-::: zone pivot="programming-language-python"
-```python
-speech_config.set_profanity(speechsdk.ProfanityOption.Removed)
-```
-::: zone-end
-::: zone pivot="programming-language-cli"
-```console
-spx recognize --file caption.this.mp4 --format any --profanity masked --output vtt file - --output srt file -
-```
-::: zone-end
-
-Profanity filter is applied to the result `Text` and `MaskedNormalizedForm` properties. Profanity filter isn't applied to the result `LexicalForm` and `NormalizedForm` properties. Neither is the filter applied to the word level results.
 
 ## Language identification
 

@@ -3,8 +3,8 @@ title: Determine causes of non-compliance
 description: When a resource is non-compliant, there are many possible reasons. Discover what caused the non-compliance quickly and easily.
 ms.date: 06/09/2022
 ms.topic: how-to
-ms.author: timwarner
-author: timwarner-msft
+ms.author: davidsmatlak
+author: davidsmatlak
 ---
 # Determine causes of non-compliance
 
@@ -140,13 +140,9 @@ its corresponding explanation:
 | NonModifiablePolicyAlias            | NonModifiableAliasConflict: The alias '{alias}' is not modifiable in requests using API version '{apiVersion}'. This error happens when a request using an API version where the alias does not support the 'modify' effect or only supports the 'modify' effect with a different token type.                                                                                                                   |
 | AppendPoliciesNotApplicable         | AppendPoliciesUnableToAppend: The aliases: '{ aliases }' are not modifiable in requests using API version: '{ apiVersion }'. This can happen in requests using API versions for which the aliases do not support the 'modify' effect, or support the 'modify' effect with a different token type.                                                                                                               |
 | ConflictingAppendPolicies           | ConflictingAppendPolicies: Found conflicting policy assignments that modify the '{notApplicableFields}' field. Policy identifiers: '{policy}'.  Please contact the subscription administrator to update the policy assignments.                                                                                                                                                                                 |
-|                                     |
 | AppendPoliciesFieldsExist           | AppendPoliciesFieldsExistWithDifferentValues: Policy assignments attempted to append fields which already exist in the request with different values. Fields: '{existingFields}'. Policy identifiers: '{policy}'. Please contact the subscription administrator to update the policies.                                                                                                                         |
-|                                     |
 | AppendPoliciesUndefinedFields       | AppendPoliciesUndefinedFields: Found policy definition that refers to an undefined field property for API version '{apiVersion}'. Fields: '{nonExistingFields}'. Policy identifiers: '{policy}'. Please contact the subscription administrator to update the policies.                                                                                                                                          |
-|                                     |
 | MissingRegistrationForType          | MissingRegistrationForResourceType: The subscription is not registered for the resource type '{ResourceType}'. Please check that the resource type exists and that the resource type is registered.                                                                                                                                                                                                             |
-|                                     |
 | AmbiguousPolicyEvaluationPaths      | The request content has one or more ambiguous paths: '{0}' required by policies: '{1}'.                                                                                                                                                                                                                                                                                                                         |
 | InvalidResourceNameWildcardPosition | The policy assignment '{0}' associated with the policy definition '{1}' could not be evaluated. The resource name '{2}' within an ifNotExists condition contains the wildcard '?' character in an invalid position. Wildcards can only be located at the end of the name in a segment by themselves (ex. TopLevelResourceName/?). Please either fix the policy or remove the policy assignment to unblock.      |
 | TooManyResourceNameSegments         | The policy assignment '{0}' associated with the policy definition '{1}' could not be evaluated. The resource name '{2}' within an ifNotExists condition contains too many name segments. The number of name segments must be equal to or less than the number of type segments (excluding the resource provider namespace). Please either fix the policy definition or remove the policy assignment to unblock. |
@@ -219,7 +215,7 @@ The guest configuration feature can be used outside of Azure Policy assignments.
 For example,
 [Azure AutoManage](../../../automanage/index.yml)
 creates guest configuration assignments, or you might
-[assign configurations when you deploy machines](../../machine-configuration/machine-configuration-create-assignment.md).
+[assign configurations when you deploy machines](../../machine-configuration/how-to-create-assignment.md).
 
 To view all guest configuration assignments across your tenant, from the Azure
 portal open the **Guest Assignments** page. To view detailed compliance

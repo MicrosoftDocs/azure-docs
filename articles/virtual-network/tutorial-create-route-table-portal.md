@@ -4,14 +4,14 @@ titlesuffix: Azure Virtual Network
 description: In this tutorial, learn how to route network traffic with a route table using the Azure portal.
 services: virtual-network
 documentationcenter: virtual-network
-author: mbender-ms
+author: asudbring
 ms.service: virtual-network
 ms.topic: tutorial
 ms.tgt_pltfrm: virtual-network
 ms.workload: infrastructure
 ms.date: 06/27/2022
-ms.author: mbender
-ms.custom: template-tutorial #Required; leave this attribute/value as-is.
+ms.author: allensu
+ms.custom: template-tutorial
 # Customer intent: I want to route traffic from one subnet, to a different subnet, through a network virtual appliance.
 ---
 
@@ -24,10 +24,10 @@ In this tutorial, you learn how to:
 > [!div class="checklist"]
 > * Create a virtual network and subnets
 > * Create an NVA that routes traffic
+> * Deploy virtual machines (VMs) into different subnets
 > * Create a route table
 > * Create a route
 > * Associate a route table to a subnet
-> * Deploy virtual machines (VMs) into different subnets
 > * Route traffic from one subnet to another through an NVA
 
 This tutorial uses the Azure portal. You can also complete it using the [Azure CLI](tutorial-create-route-table-cli.md) or [PowerShell](tutorial-create-route-table-powershell.md).
@@ -91,6 +91,9 @@ In this section, you'll create a virtual network, three subnets, and a bastion h
     | AzureBastionSubnet address space | Enter *10.0.3.0/24*. |
     | Public IP Address | Select **Create new**. </br> Enter *myBastionIP* for **Name**. </br> Select **OK**. |
 
+    >[!NOTE]
+    >[!INCLUDE [Pricing](../../includes/bastion-pricing.md)]
+
 12. Select the **Review + create** tab or select the **Review + create** button.
 
 13. Select **Create**.
@@ -141,70 +144,6 @@ Network virtual appliances (NVAs) are virtual machines that help with network fu
 5. Select the **Review + create** tab, or select **Review + create** button at the bottom of the page.
   
 6. Review the settings, and then select **Create**.
-
-## Create a route table
-
-In this section, you'll create a route table.
-
-1. From the Azure portal menu, select **+ Create a resource** > **Networking** > **Route table**, or search for *Route table* in the portal search box.
-
-3. Select **Create**.
-
-4. On the **Basics** tab of **Create route table**, enter or select this information:
-
-    | Setting | Value |
-    | ------- | ----- |
-    | **Project details** |   |
-    | Subscription | Select your subscription.|
-    | Resource group | Select **myResourceGroup**. |
-    | **Instance details** |    |
-    | Region | Select **East US**. |
-    | Name | Enter *myRouteTablePublic*. |
-    | Propagate gateway routes | Select **Yes**. |
-
-    :::image type="content" source="./media/tutorial-create-route-table-portal/create-route-table.png" alt-text="Screenshot showing Basics tab of Create route table in Azure portal." border="true":::
-
-5. Select the **Review + create** tab, or select the blue **Review + create** button at the bottom of the page.
-
-## Create a route
-
-In this section, you'll create a route in the route table that you created in the previous steps.
-
-1. Select **Go to resource** or Search for *myRouteTablePublic* in the portal search box.
-
-3. In the **myRouteTablePublic** page, select **Routes** from the **Settings** section.
-
-4. In the **Routes** page, select the **+ Add** button.
-
-5. In **Add route**, enter or select this information:
-
-    | Setting | Value |
-    | ------- | ----- |
-    | Route name | Enter *ToPrivateSubnet*. |
-    | Address prefix destination | Select **IP Addresses**. |
-    | Destination IP addresses/CIDR ranges| Enter *10.0.1.0/24* (The address range of the **Private** subnet created earlier). |
-    | Next hop type | Select **Virtual appliance**. |
-    | Next hop address | Enter *10.0.2.4* (The address of **myVMNVA** VM created earlier in the **DMZ** subnet). |
-
-    :::image type="content" source="./media/tutorial-create-route-table-portal/add-route-inline.png" alt-text="Screenshot showing Add route configuration in Azure portal." lightbox="./media/tutorial-create-route-table-portal/add-route-expanded.png":::
-
-6. Select **Add**.
-
-## Associate a route table to a subnet
-
-In this section, you'll associate the route table that you created in the previous steps to a subnet.
-
-1. Search for *myVirtualNetwork* in the portal search box.
-
-3. In the **myVirtualNetwork** page, select **Subnets** from the **Settings** section.
-
-4. In the virtual network's subnet list, select **Public**.
-
-5. In **Route table**, select **myRouteTablePublic** that you created in the previous steps. 
-
-6. Select **Save** to associate your route table to the **Public** subnet.
-
-    :::image type="content" source="./media/tutorial-create-route-table-portal/associate-route-table-inline.png" alt-text="Screenshot showing Associate route table to the Public subnet in the virtual network in Azure portal." lightbox="./media/tutorial-create-route-table-portal/associate-route-table-expanded.png":::
 
 ## Create public and private virtual machines
 
@@ -370,6 +309,70 @@ In this section, you'll turn on IP forwarding for the operating system of **myVM
     ```powershell
     Restart-Computer
     ```
+
+## Create a route table
+
+In this section, you'll create a route table.
+
+1. From the Azure portal menu, select **+ Create a resource** > **Networking** > **Route table**, or search for *Route table* in the portal search box.
+
+3. Select **Create**.
+
+4. On the **Basics** tab of **Create route table**, enter or select this information:
+
+    | Setting | Value |
+    | ------- | ----- |
+    | **Project details** |   |
+    | Subscription | Select your subscription.|
+    | Resource group | Select **myResourceGroup**. |
+    | **Instance details** |    |
+    | Region | Select **East US**. |
+    | Name | Enter *myRouteTablePublic*. |
+    | Propagate gateway routes | Select **Yes**. |
+
+    :::image type="content" source="./media/tutorial-create-route-table-portal/create-route-table.png" alt-text="Screenshot showing Basics tab of Create route table in Azure portal." border="true":::
+
+5. Select the **Review + create** tab, or select the blue **Review + create** button at the bottom of the page.
+
+## Create a route
+
+In this section, you'll create a route in the route table that you created in the previous steps.
+
+1. Select **Go to resource** or Search for *myRouteTablePublic* in the portal search box.
+
+3. In the **myRouteTablePublic** page, select **Routes** from the **Settings** section.
+
+4. In the **Routes** page, select the **+ Add** button.
+
+5. In **Add route**, enter or select this information:
+
+    | Setting | Value |
+    | ------- | ----- |
+    | Route name | Enter *ToPrivateSubnet*. |
+    | Address prefix destination | Select **IP Addresses**. |
+    | Destination IP addresses/CIDR ranges| Enter *10.0.1.0/24* (The address range of the **Private** subnet created earlier). |
+    | Next hop type | Select **Virtual appliance**. |
+    | Next hop address | Enter *10.0.2.4* (The address of **myVMNVA** VM created earlier in the **DMZ** subnet). |
+
+    :::image type="content" source="./media/tutorial-create-route-table-portal/add-route-inline.png" alt-text="Screenshot showing Add route configuration in Azure portal." lightbox="./media/tutorial-create-route-table-portal/add-route-expanded.png":::
+
+6. Select **Add**.
+
+## Associate a route table to a subnet
+
+In this section, you'll associate the route table that you created in the previous steps to a subnet.
+
+1. Search for *myVirtualNetwork* in the portal search box.
+
+3. In the **myVirtualNetwork** page, select **Subnets** from the **Settings** section.
+
+4. In the virtual network's subnet list, select **Public**.
+
+5. In **Route table**, select **myRouteTablePublic** that you created in the previous steps. 
+
+6. Select **Save** to associate your route table to the **Public** subnet.
+
+    :::image type="content" source="./media/tutorial-create-route-table-portal/associate-route-table-inline.png" alt-text="Screenshot showing Associate route table to the Public subnet in the virtual network in Azure portal." lightbox="./media/tutorial-create-route-table-portal/associate-route-table-expanded.png":::
 
 ## Test the routing of network traffic
 

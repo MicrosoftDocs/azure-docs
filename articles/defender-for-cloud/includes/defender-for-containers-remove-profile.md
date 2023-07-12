@@ -1,9 +1,10 @@
 ---
-author: ElazarK
 ms.service: defender-for-cloud
+ms.custom: ignite-2022
 ms.topic: include
-ms.date: 07/14/2022
-ms.author: elkrieger
+ms.date: 06/01/2023
+ms.author: dacurwin
+author: dcurwin
 ---
 ## Remove the Defender profile
 
@@ -12,7 +13,7 @@ To remove this - or any - Defender for Cloud extension, it's not enough to turn 
 - **Enabling** auto provisioning, potentially impacts *existing* and *future* machines.
 - **Disabling** auto provisioning for an extension, only affects the *future* machines - nothing is uninstalled by disabling auto provisioning.
 
-Nevertheless, to ensure the Defender for Containers components aren't automatically provisioned to your resources from now on, disable auto provisioning of the extensions as explained in [Configure auto provisioning for agents and extensions from Microsoft Defender for Cloud](../enable-data-collection.md).
+Nevertheless, to ensure the Defender for Containers components aren't automatically provisioned to your resources from now on, disable auto provisioning of the extensions as explained in [Configure auto provisioning for agents and extensions from Microsoft Defender for Cloud](../monitoring-components.md).
 
 You can remove the profile using the REST API or a Resource Manager template as explained in the tabs below.
 
@@ -74,7 +75,7 @@ Request body parameters:
 1. To verify that the profile was successfully removed, run the following command:
 
     ```console
-    kubectl get pods -n azuredefender
+    kubectl get pods -n kube-system | grep microsoft-defender
     ```
 
     When the profile is removed, you should see that no pods are returned in the `get pods` command. It might take a few minutes for the pods to be deleted.

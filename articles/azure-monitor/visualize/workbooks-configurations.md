@@ -7,7 +7,7 @@ manager: carmonm
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 07/05/2022
+ms.date: 06/21/2023
 ---
 
 # Workbook configuration options
@@ -82,7 +82,7 @@ There are several ways that you can create interactive reports and experiences i
 
  - **Parameters**: When you update a [parameter](workbooks-parameters.md), any control that uses the parameter automatically refreshes and redraws to reflect the new value. This behavior is how most of the Azure portal reports support interactivity. Workbooks provide this functionality in a straightforward manner with minimal user effort.
  - **Grid, tile, and chart selections**: You can construct scenarios where selecting a row in a grid updates subsequent charts based on the content of the row. For example, you might have a grid that shows a list of requests and some statistics like failure counts. You can set it up so that if you select the row of a request, the detailed charts below update to show only that request. Learn how to [set up a grid row click](#set-up-a-grid-row-click).
- - **Grid cell clicks**: You can add interactivity with a special type of grid column renderer called a [link renderer](#link-renderer-actions). A link renderer converts a grid cell into a hyperlink based on the contents of the cell. Workbooks support many kinds of link renderers including renderers that open resource overview blades, property bag viewers, and Application Insights search, usage, and transaction tracing. Learn how to [set up a grid cell click](#set-up-grid-cell-clicks).
+ - **Grid cell clicks**: You can add interactivity with a special type of grid column renderer called a [link renderer](#link-renderer-actions). A link renderer converts a grid cell into a hyperlink based on the contents of the cell. Workbooks support many kinds of link renderers including renderers that open resource overview panes, property bag viewers, and Application Insights search, usage, and transaction tracing. Learn how to [set up a grid cell click](#set-up-grid-cell-clicks).
  - **Conditional visibility**: You can make controls appear or disappear based on the values of parameters. This way you can have reports that look different based on user input or telemetry state. For example, you can show consumers a summary when there are no issues. You can also show detailed information when there's something wrong. Learn how to [set up conditional visibility](#set-conditional-visibility).
  - **Export parameters with multi-selections**: You can export parameters from query and metrics workbook components when a row or multiple rows are selected. Learn how to [set up multi-selects in grids and charts](#set-up-multi-selects-in-grids-and-charts).
 

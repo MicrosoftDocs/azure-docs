@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 06/29/2022
+ms.date: 11/21/2022
 ms.author: jeedes
 ---
 # Tutorial: Azure AD SSO integration with Riskware
@@ -131,7 +131,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 1. On the top right, click **Maintenance** to open the maintenance page.
 
-	![Screenshot shows the Riskware Configurations maintain.](./media/riskware-tutorial/maintain.png "Maintainance")
+	![Screenshot shows the Riskware Configurations maintain.](./media/riskware-tutorial/maintain.png "Maintenance")
 
 1. In the maintenance page, click **Authentication**.
 

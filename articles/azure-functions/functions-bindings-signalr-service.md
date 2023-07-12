@@ -2,6 +2,7 @@
 title: Azure Functions SignalR Service bindings
 description: Understand how to use SignalR Service bindings with Azure Functions.
 ms.topic: reference
+ms.custom: devx-track-extended-java, devx-track-js, devx-track-python
 ms.date: 03/04/2022
 zone_pivot_groups: programming-languages-set-functions-lang-workers
 ---
@@ -30,7 +31,7 @@ Add the extension to your project by installing this [NuGet package].
 
 # [Isolated process](#tab/isolated-process)
 
-Functions execute in an isolated C# worker process. To learn more, see [Guide for running C# Azure Functions in an isolated process](dotnet-isolated-process-guide.md).
+Functions execute in an isolated C# worker process. To learn more, see [Guide for running C# Azure Functions in an isolated worker process](dotnet-isolated-process-guide.md).
 
 Add the extension to your project by installing this [NuGet package](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker.Extensions.SignalRService/).
 

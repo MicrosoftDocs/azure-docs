@@ -6,8 +6,8 @@ ms.subservice: authoring
 ms.topic: conceptual
 author: nabhishek
 ms.author: abnarain
-ms.date: 01/31/2022
-ms.custom: devx-track-azurepowershell
+ms.date: 05/05/2023
+ms.custom:
 ---
 
 # Global parameters in Azure Data Factory
@@ -64,62 +64,6 @@ We strongly recommend using the new mechanism of including global parameters in 
 >You cannot use  ‘-‘ in the parameter name. You will receive an errorcode "{"code":"BadRequest","message":"ErrorCode=InvalidTemplate,ErrorMessage=The expression >'pipeline().globalParameters.myparam-dbtest-url' is not valid: .....}". But, you can use the ‘_’ in the parameter name. 
 
 
-
-### Deploying using PowerShell (older mechanism)
-
-> [!NOTE]
-> This is not required if you're including global parameters using the 'Manage hub' -> 'ARM template' -> 'Include global parameters in an ARM template' since you can deploy the ARM with the ARM templates without breaking the Factory-level configurations. For backward compatability we will continue to support it. 
-
-The following steps outline how to deploy global parameters via PowerShell. This is useful when your target factory has a factory-level setting such as customer-managed key.
-
-When you publish a factory or export an ARM template with global parameters, a folder called *globalParameters* is created with a file called *your-factory-name_GlobalParameters.json*. This file is a JSON object that contains each global parameter type and value in the published factory.
-
-:::image type="content" source="media/author-global-parameters/global-parameters-adf-publish.png" alt-text="Publishing global parameters":::
-
-If you're deploying to a new environment such as TEST or PROD, it's recommended to create a copy of this global parameters file and overwrite the appropriate environment-specific values. When you republish the original global parameters file will get overwritten, but the copy for the other environment will be untouched.
-
-For example, if you have a factory named 'ADF-DEV' and a global parameter of type string named 'environment' with a value 'dev', when you publish a file named *ADF-DEV_GlobalParameters.json* will get generated. If deploying to a test factory named 'ADF_TEST', create a copy of the JSON file (for example named ADF-TEST_GlobalParameters.json) and replace the parameter values with the environment-specific values. The parameter 'environment' may have a value 'test' now. 
-
-:::image type="content" source="media/author-global-parameters/powershell-task.png" alt-text="Deploying global parameters":::
-
-Use the below PowerShell script to promote global parameters to additional environments. Add an Azure PowerShell DevOps task before your ARM Template deployment. In the DevOps task, you must specify the location of the new parameters file, the target resource group, and the target data factory.
-
-> [!NOTE]
-> To deploy global parameters using PowerShell, you must use at least version 4.4.0 of the Az module.
-
-```powershell
-param
-(
-    [parameter(Mandatory = $true)] [String] $globalParametersFilePath,
-    [parameter(Mandatory = $true)] [String] $resourceGroupName,
-    [parameter(Mandatory = $true)] [String] $dataFactoryName
-)
-
-Import-Module Az.DataFactory
-
-$newGlobalParameters = New-Object 'system.collections.generic.dictionary[string,Microsoft.Azure.Management.DataFactory.Models.GlobalParameterSpecification]'
-
-Write-Host "Getting global parameters JSON from: " $globalParametersFilePath
-$globalParametersJson = Get-Content $globalParametersFilePath
-
-Write-Host "Parsing JSON..."
-$globalParametersObject = [Newtonsoft.Json.Linq.JObject]::Parse($globalParametersJson)
-
-# $gp in $factoryFileObject.properties.globalParameters.GetEnumerator()) 
-# may  be used in case you use non-standard location for global parameters. It is not recommended. 
-foreach ($gp in $globalParametersObject.GetEnumerator()) {
-    Write-Host "Adding global parameter:" $gp.Key
-    $globalParameterValue = $gp.Value.ToObject([Microsoft.Azure.Management.DataFactory.Models.GlobalParameterSpecification])
-    $newGlobalParameters.Add($gp.Key, $globalParameterValue)
-} 
-
-$dataFactory = Get-AzDataFactoryV2 -ResourceGroupName $resourceGroupName -Name $dataFactoryName
-$dataFactory.GlobalParameters = $newGlobalParameters
-
-Write-Host "Updating" $newGlobalParameters.Count "global parameters."
-
-Set-AzDataFactoryV2 -InputObject $dataFactory -Force -PublicNetworkAccess $dataFactory.PublicNetworkAccess
-```
 
 ## Next steps
 

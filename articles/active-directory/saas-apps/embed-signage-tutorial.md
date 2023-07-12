@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 10/01/2021
+ms.date: 11/21/2022
 ms.author: jeedes
 
 ---
@@ -116,7 +116,10 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 ## Configure embed signage SSO
 
-1. Log in to your embed signage company site as an administrator.
+
+
+
+1. In a different web browser window, sign in to your up Embed Signage company site as an administrator
 
 1. Go to **Account settings** and click **Security** > **Single sign on**.
 

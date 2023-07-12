@@ -1,16 +1,18 @@
 ---
-title: Create Datadog - Azure partner solutions
+title: Create Datadog
 description: This article describes how to use the Azure portal to create an instance of Datadog.
-ms.topic: quickstart
-ms.date: 06/08/2022
 author: flang-msft
+
+ms.topic: quickstart
+ms.date: 01/06/2023
 ms.author: franlanglois
 ms.custom: references_regions, mode-other
+
 ---
 
-# QuickStart: Get started with Datadog by creating new instance
+# QuickStart: Get started with Datadog - An Azure Native ISV Service by creating new instance
 
-In this quickstart, you'll create a new instance of Datadog. You can either create a new Datadog organization or [link to an existing Datadog organization](link-to-existing-organization.md).
+In this quickstart, you'll create a new instance of Datadog - An Azure Native ISV Service. You can either create a new Datadog organization or [link to an existing Datadog organization](link-to-existing-organization.md).
 
 ## Prerequisites
 
@@ -61,9 +63,9 @@ Use Azure resource tags to configure which metrics and logs are sent to Datadog.
 
 Tag rules for sending **metrics** are:
 
-- By default, metrics are collected for all resources, except virtual machines, virtual machine scale sets, and app service plans.
-- Virtual machines, virtual machine scale sets, and app service plans with _Include_ tags send metrics to Datadog.
-- Virtual machines, virtual machine scale sets, and app service plans with _Exclude_ tags don't send metrics to Datadog.
+- By default, metrics are collected for all resources, except virtual machines, Virtual Machine Scale Sets, and App Service plans.
+- Virtual machines, Virtual Machine Scale Sets, and App Service plan with _Include_ tags send metrics to Datadog.
+- Virtual machines, Virtual Machine Scale Sets, and App Service plan with _Exclude_ tags don't send metrics to Datadog.
 - If there's a conflict between inclusion and exclusion rules, exclusion takes priority.
 
 Tag rules for sending **logs** are:
@@ -73,7 +75,7 @@ Tag rules for sending **logs** are:
 - Azure resources with _Exclude_ tags don't send logs to Datadog.
 - If there's a conflict between inclusion and exclusion rules, exclusion takes priority.
 
-For example, the following screenshot shows a tag rule where only those virtual machines, virtual machine scale sets, and app service plans tagged as _Datadog = True_ send metrics to Datadog.
+For example, the following screenshot shows a tag rule where only those virtual machines, Virtual Machine Scale Sets, and App Service plan tagged as _Datadog = True_ send metrics to Datadog.
 
 :::image type="content" source="media/create/config-metrics-logs.png" alt-text="Screenshot of how to configure metrics and logs in Azure for Datadog.":::
 
@@ -137,5 +139,11 @@ When the process completes, select **Go to Resource** to see the Datadog resourc
 
 ## Next steps
 
-> [!div class="nextstepaction"]
-> [Manage the Datadog resource](manage.md)
+- [Manage the Datadog resource](manage.md)
+- Get started with Datadog – An Azure Native ISV Service on
+
+    > [!div class="nextstepaction"]
+    > [Azure portal](https://portal.azure.com/#view/HubsExtension/BrowseResource/resourceType/Microsoft.Datadog%2Fmonitors)
+
+    > [!div class="nextstepaction"]
+    > [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/datadog1591740804488.dd_liftr_v2?tab=Overview)

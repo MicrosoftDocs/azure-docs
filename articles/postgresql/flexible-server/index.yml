@@ -31,7 +31,7 @@ landingContent:
             url: quickstart-create-server-portal.md
       - linkListType: tutorial
         links:
-          - text: Create a Django app with flexible server
+          - text: Create a Django app with Flexible Server
             url: tutorial-django-app-service-postgres.md
       - linkListType: whats-new
         links:
@@ -51,7 +51,7 @@ landingContent:
             url: concepts-networking.md
           - text: Firewall Rules
             url: concepts-firewall-rules.md
-          - text: Postgres versions
+          - text: PostgreSQL versions
             url: concepts-supported-versions.md
           - text: Extensions
             url: concepts-extensions.md

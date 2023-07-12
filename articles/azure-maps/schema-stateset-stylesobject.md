@@ -1,13 +1,12 @@
 ---
 title:  StylesObject Schema reference guide for Dynamic Azure Maps
 description: Reference guide to the dynamic Azure Maps StylesObject schema and syntax.
-author: stevemunk
-ms.author: v-munksteve
-ms.date: 12/07/2020
+author: brendansco 
+ms.author: brendanc 
+ms.date: 02/17/2023
 ms.topic: reference
 ms.service: azure-maps
 services: azure-maps
-
 ---
 
 # StylesObject Schema reference guide for dynamic Maps
@@ -18,13 +17,11 @@ services: azure-maps
 
 A `StyleObject` is one of the following style rules:
 
- * [`BooleanTypeStyleRule`](#booleantypestylerule)
- * [`NumericTypeStyleRule`](#numerictypestylerule)
- * [`StringTypeStyleRule`](#stringtypestylerule)
+* [`BooleanTypeStyleRule`](#booleantypestylerule)
+* [`NumericTypeStyleRule`](#numerictypestylerule)
+* [`StringTypeStyleRule`](#stringtypestylerule)
 
 The JSON below shows example usage of each of the three style types.  The `BooleanTypeStyleRule` is used to determine the dynamic style for features whose `occupied` property is true and false.  The `NumericTypeStyleRule` is used to determine the style for features whose `temperature` property falls within a certain range. Finally, the `StringTypeStyleRule` is used to match specific styles to `meetingType`.
-
-
 
 ```json
  "styles": [
@@ -234,3 +231,10 @@ The following JSON illustrates a `BooleanTypeStyleRule` *state* named `occupied`
     ]
 }
 ```
+
+## Next steps
+
+Learn more about Creator for indoor maps by reading:
+
+> [!div class="nextstepaction"]
+> [Creator for indoor maps](creator-indoor-maps.md)

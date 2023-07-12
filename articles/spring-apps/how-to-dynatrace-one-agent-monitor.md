@@ -1,12 +1,12 @@
 ---
-title:  "How to monitor Spring Boot apps with Dynatrace Java OneAgent"
+title:  How to monitor Spring Boot apps with Dynatrace Java OneAgent
 description: How to use Dynatrace Java OneAgent to monitor Spring Boot applications in Azure Spring Apps
-author:  karlerickson
+author:  KarlErickson
 ms.author: karler
 ms.service: spring-apps
 ms.topic: how-to
 ms.date: 06/07/2022
-ms.custom: devx-track-java, devx-track-azurecli, event-tier1-build-2022
+ms.custom: devx-track-java, devx-track-extended-java, devx-track-azurecli, event-tier1-build-2022
 ms.devlang: azurecli
 ---
 
@@ -15,7 +15,7 @@ ms.devlang: azurecli
 > [!NOTE]
 > Azure Spring Apps is the new name for the Azure Spring Cloud service. Although the service has a new name, you'll see the old name in some places for a while as we work to update assets such as screenshots, videos, and diagrams.
 
-**This article applies to:** ✔️ Basic/Standard tier ✔️ Enterprise tier
+**This article applies to:** ✔️ Standard consumption and dedicated (Preview) ✔️ Basic/Standard ❌️ Enterprise
 
 This article shows you how to use Dynatrace OneAgent to monitor Spring Boot applications in Azure Spring Apps.
 
@@ -79,21 +79,19 @@ az spring app deploy \
         DT_CONNECTION_POINT=<your-communication-endpoint>
 ```
 
-#### Option 2: Portal
+#### Option 2: Azure portal
 
 To add the key/value pairs using the Azure portal, use the following steps:
 
-1. Navigate to the list of your existing applications.
+1. In your Azure Spring Apps instance, select **Apps** in the navigation pane.
 
-   :::image type="content" source="media/dynatrace-oneagent/existing-applications.png" alt-text="Screenshot of the Azure portal showing the Azure Spring Apps Apps section." lightbox="media/dynatrace-oneagent/existing-applications.png":::
+   :::image type="content" source="media/how-to-dynatrace-one-agent-monitor/existing-applications.png" alt-text="Screenshot of the Azure portal showing the Apps page for an Azure Spring Apps instance." lightbox="media/how-to-dynatrace-one-agent-monitor/existing-applications.png":::
 
-1. Select an application to navigate to the **Overview** page of the application.
+1. Select the application from the list, and then select **Configuration** in the navigation pane.
 
-   :::image type="content" source="media/dynatrace-oneagent/overview-application.png" alt-text="Screenshot of the application's Overview section." lightbox="media/dynatrace-oneagent/overview-application.png":::
+1. Use the **Environment variables** tab to add or update the variables used by your application.
 
-1. Select **Configurations** to add, update, or delete values in the **Environment variables** section for the application.
-
-   :::image type="content" source="media/dynatrace-oneagent/configuration-application.png" alt-text="Screenshot of the 'Environment variables' tab of the application's Configuration section." lightbox="media/dynatrace-oneagent/configuration-application.png":::
+   :::image type="content" source="media/how-to-dynatrace-one-agent-monitor/configuration-application.png" alt-text="Screenshot of the Azure portal showing the Configuration page for an app with the Environment variables tab selected." lightbox="media/how-to-dynatrace-one-agent-monitor/configuration-application.png":::
 
 ## Automate provisioning
 
@@ -112,7 +110,7 @@ environment_variables = {
 }
 ```
 
-### Automate provisioning using an Bicep file
+### Automate provisioning using a Bicep file
 
 To configure the environment variables in a Bicep file, add the following code to the file, replacing the *\<...>* placeholders with your own values. For more information, see [Microsoft.AppPlatform Spring/apps/deployments](/azure/templates/microsoft.appplatform/spring/apps/deployments?tabs=bicep).
 
@@ -149,41 +147,41 @@ After you add the environment variables to your application, Dynatrace starts co
 
 You can find the **Service flow** from **\<your-app-name>/Details/Service flow**:
 
-:::image type="content" source="media/dynatrace-oneagent/spring-cloud-dynatrace-app-flow.png" alt-text="Screenshot of the Dynatrace 'Service flow' report." lightbox="media/dynatrace-oneagent/spring-cloud-dynatrace-app-flow.png":::
+:::image type="content" source="media/how-to-dynatrace-one-agent-monitor/spring-cloud-dynatrace-app-flow.png" alt-text="Screenshot of the Dynatrace 'Service flow' report." lightbox="media/how-to-dynatrace-one-agent-monitor/spring-cloud-dynatrace-app-flow.png":::
 
 You can find the **Method hotspots** from **\<your-app-name>/Details/Method hotspots**:
 
-:::image type="content" source="media/dynatrace-oneagent/spring-cloud-dynatrace-hotspots.png" alt-text="Screenshot of the 'Method hotspots' report." lightbox="media/dynatrace-oneagent/spring-cloud-dynatrace-hotspots.png":::
+:::image type="content" source="media/how-to-dynatrace-one-agent-monitor/spring-cloud-dynatrace-hotspots.png" alt-text="Screenshot of the 'Method hotspots' report." lightbox="media/how-to-dynatrace-one-agent-monitor/spring-cloud-dynatrace-hotspots.png":::
 
 You can find the **Database statements** from **\<your-app-name>/Details/Response time analysis**:
 
-:::image type="content" source="media/dynatrace-oneagent/spring-cloud-dynatrace-database-contribution.png" alt-text="Screenshot of the 'Response time analysis' report and the 'Database statements' section." lightbox="media/dynatrace-oneagent/spring-cloud-dynatrace-database-contribution.png":::
+:::image type="content" source="media/how-to-dynatrace-one-agent-monitor/spring-cloud-dynatrace-database-contribution.png" alt-text="Screenshot of the 'Response time analysis' report and the 'Database statements' section." lightbox="media/how-to-dynatrace-one-agent-monitor/spring-cloud-dynatrace-database-contribution.png":::
 
 Next, go to the **Multidimensional analysis** section.
 
 You can find the **Top database statements** from **Multidimensional analysis/Top database statements**:
 
-:::image type="content" source="media/dynatrace-oneagent/spring-cloud-dynatrace-top-database.png" alt-text="Screenshot of the 'Top database statements' report." lightbox="media/dynatrace-oneagent/spring-cloud-dynatrace-top-database.png":::
+:::image type="content" source="media/how-to-dynatrace-one-agent-monitor/spring-cloud-dynatrace-top-database.png" alt-text="Screenshot of the 'Top database statements' report." lightbox="media/how-to-dynatrace-one-agent-monitor/spring-cloud-dynatrace-top-database.png":::
 
 You can find the **Exceptions overview** from **Multidimensional analysis/Exceptions overview**:
 
-:::image type="content" source="media/dynatrace-oneagent/spring-cloud-dynatrace-exception-analysis.png" alt-text="Screenshot of the 'Exceptions overview' report." lightbox="media/dynatrace-oneagent/spring-cloud-dynatrace-exception-analysis.png":::
+:::image type="content" source="media/how-to-dynatrace-one-agent-monitor/spring-cloud-dynatrace-exception-analysis.png" alt-text="Screenshot of the 'Exceptions overview' report." lightbox="media/how-to-dynatrace-one-agent-monitor/spring-cloud-dynatrace-exception-analysis.png":::
 
 Next, go to the **Profiling and optimization** section.
 
 You can find the **CPU analysis** from **Profiling and optimization/CPU analysis**:
 
-:::image type="content" source="media/dynatrace-oneagent/spring-cloud-dynatrace-cpu-analysis.png" alt-text="Screenshot of the 'C P U analysis' report." lightbox="media/dynatrace-oneagent/spring-cloud-dynatrace-cpu-analysis.png":::
+:::image type="content" source="media/how-to-dynatrace-one-agent-monitor/spring-cloud-dynatrace-cpu-analysis.png" alt-text="Screenshot of the 'CPU analysis' report." lightbox="media/how-to-dynatrace-one-agent-monitor/spring-cloud-dynatrace-cpu-analysis.png":::
 
 Next, go to the **Databases** section.
 
 You can find **Backtrace** from **Databases/Details/Backtrace**:
 
-:::image type="content" source="media/dynatrace-oneagent/spring-cloud-dynatrace-database-backtrace.png" alt-text="Screenshot of the Backtrace report." lightbox="media/dynatrace-oneagent/spring-cloud-dynatrace-database-backtrace.png":::
+:::image type="content" source="media/how-to-dynatrace-one-agent-monitor/spring-cloud-dynatrace-database-backtrace.png" alt-text="Screenshot of the Backtrace report." lightbox="media/how-to-dynatrace-one-agent-monitor/spring-cloud-dynatrace-database-backtrace.png":::
 
 ## View Dynatrace OneAgent logs
 
-By default, Azure Spring Apps will print the *info* level logs of the Dynatrace OneAgent to `STDOUT`. The logs will be mixed with the application logs. You can find the explicit agent version from the application logs.
+By default, Azure Spring Apps prints the *info* level logs of the Dynatrace OneAgent to `STDOUT`. The logs are mixed with the application logs. You can find the explicit agent version from the application logs.
 
 You can also get the logs of the Dynatrace agent from the following locations:
 
@@ -191,21 +189,21 @@ You can also get the logs of the Dynatrace agent from the following locations:
 * Azure Spring Apps Application Insights
 * Azure Spring Apps LogStream
 
-You can apply some environment variables provided by Dynatrace to configure logging for the Dynatrace OneAgent. For example, `DT_LOGLEVELCON` controls the level of logs.
+You can apply some environment variables provided by Dynatrace to configure logging for the Dynatrace OneAgent. For example, `DT_LOGLEVELCON` controls the level of logs. The default value for `DT_LOGLEVELCON` is `info`. You can disable the logs of the agent by setting `DT_LOGLEVELCON` to `off`. If logging is disabled, Dynatrace support requests that you first enable logging to diagnose any agent issues effectively. You must then restart the app, which is necessary for the change to take effect. For other log levels, consult the Dynatrace support team.
 
 > [!CAUTION]
-> We strongly recommend that you do not override the default logging behavior provided by Azure Spring Apps for Dynatrace. If you do, the logging scenarios above will be blocked, and the log file(s) may be lost. For example, you should not output the `DT_LOGLEVELFILE` environment variable to your applications.
+> We strongly recommend that you don't override the default logging behavior provided by Azure Spring Apps for Dynatrace. If you do, the logging scenarios previously described are blocked, and the log file(s) may be lost. For example, you shouldn't output the `DT_LOGLEVELFILE` environment variable to your applications.
 
 ## Dynatrace OneAgent upgrade
 
-The Dynatrace OneAgent auto-upgrade is disabled and will be upgraded quarterly with the JDK. Agent upgrade may affect the following scenarios:
+The Dynatrace OneAgent auto-upgrade is disabled and is upgraded quarterly with the JDK. Agent upgrade may affect the following scenarios:
 
-* Existing applications using Dynatrace OneAgent before upgrade will be unchanged, but will require restart or redeploy to engage the new version of Dynatrace OneAgent.
-* Applications created after upgrade will use the new version of Dynatrace OneAgent.
+* Existing applications using Dynatrace OneAgent before upgrade are unchanged, but require restart or redeploy to engage the new version of Dynatrace OneAgent.
+* Applications created after upgrade use the new version of Dynatrace OneAgent.
 
-## VNet injection instance outbound traffic configuration
+## Virtual network injection instance outbound traffic configuration
 
-For a VNet injection instance of Azure Spring Apps, you need to make sure the outbound traffic for Dynatrace communication endpoints is configured correctly for Dynatrace OneAgent. For information about how to get `communicationEndpoints`, see [Deployment API - GET connectivity information for OneAgent](https://www.dynatrace.com/support/help/dynatrace-api/environment-api/deployment/oneagent/get-connectivity-info/). For more information, see [Customer responsibilities for running Azure Spring Apps in VNET](vnet-customer-responsibilities.md).
+For a virtual network injection instance of Azure Spring Apps, you need to make sure the outbound traffic for Dynatrace communication endpoints is configured correctly for Dynatrace OneAgent. For information about how to get `communicationEndpoints`, see [Deployment API - GET connectivity information for OneAgent](https://www.dynatrace.com/support/help/dynatrace-api/environment-api/deployment/oneagent/get-connectivity-info/). For more information, see [Customer responsibilities for running Azure Spring Apps in a virtual network](vnet-customer-responsibilities.md).
 
 ## Dynatrace support model
 
@@ -213,4 +211,4 @@ For information about limitations when deploying Dynatrace OneAgent in applicati
 
 ## Next steps
 
-* [Use distributed tracing with Azure Spring Apps](how-to-distributed-tracing.md)
+* [Use Application Insights Java In-Process Agent in Azure Spring Apps](how-to-application-insights.md)

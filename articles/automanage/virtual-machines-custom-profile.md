@@ -4,6 +4,7 @@ description: Learn how to create a custom profile in Azure Automanage and select
 author: ju-shim
 ms.service: automanage
 ms.workload: infrastructure
+ms.custom: devx-track-arm-template
 ms.topic: how-to
 ms.date: 08/01/2022
 ms.author: jushiman
@@ -87,7 +88,7 @@ The following ARM template will create an Automanage custom profile. Details on 
     "resources": [
       {
         "type": "Microsoft.Automanage/configurationProfiles",
-        "apiVersion": "2021-04-30-preview",
+        "apiVersion": "2022-05-04",
         "name": "[parameters('customProfileName')]",
         "location": "[parameters('location')]",
         "properties": {

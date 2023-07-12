@@ -1,14 +1,14 @@
 ---
 title: Regions - Speech service
 titleSuffix: Azure Cognitive Services
-description: A list of available regions and endpoints for the Speech service, including speech-to-text, text-to-speech, and speech translation.
+description: A list of available regions and endpoints for the Speech service, including speech to text, text to speech, and speech translation.
 services: cognitive-services
 author: eric-urban
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 07/27/2022
+ms.date: 09/16/2022
 ms.author: eur
 ms.custom: references_regions, ignite-fall-2021
 ---
@@ -28,7 +28,7 @@ Keep in mind the following points:
 
 ## Speech service
 
-The following regions are supported for Speech service features such as speech-to-text, text-to-speech, pronunciation assessment, and translation. The geographies are listed in alphabetical order.
+The following regions are supported for Speech service features such as speech to text, text to speech, pronunciation assessment, and translation. The geographies are listed in alphabetical order.
 
 | Geography | Region | Region identifier |
 | ----- | ----- | ----- |
@@ -54,7 +54,7 @@ The following regions are supported for Speech service features such as speech-t
 | US | Central US | `centralus` |
 | US | East US | `eastus` <sup>1,2,3,4,5</sup>|
 | US | East US 2 | `eastus2` <sup>1,2,4,5</sup>|
-| US | North Central US | `northcentralus` <sup>1,4,6</sup>|
+| US | North Central US | `northcentralus` <sup>4,6</sup>|
 | US | South Central US | `southcentralus` <sup>1,2,3,4,5,6</sup>|
 | US | West Central US | `westcentralus` <sup>5</sup>|
 | US | West US | `westus` <sup>2,5</sup>|

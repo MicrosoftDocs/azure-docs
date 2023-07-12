@@ -100,7 +100,7 @@ Although not required for this example, you can configure more settings for an A
 
 To begin using Azure CLI:
 
-[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](../../includes/azure-cli-prepare-your-environment-no-header.md)]
+[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment-no-header.md)]
 
 To add an operation to your test API, run the [az apim api operation create](/cli/azure/apim/api/operation#az-apim-api-operation-create) command:
 
@@ -149,7 +149,7 @@ Keep this operation for use in the rest of this article.
 1. Select **Save**.
 
     > [!TIP]
-    > A yellow bar with the text **Mocking is enabled** displays. This indicates that the responses returned from API Management are mocked by the [mocking policy](api-management-advanced-policies.md#mock-response) and aren't produced by the backend.
+    > A yellow bar with the text **Mocking is enabled** displays. This indicates that the responses returned from API Management are mocked by the [mocking policy](mock-response-policy.md) and aren't produced by the backend.
 
 ## Test the mocked API
 

@@ -1,10 +1,10 @@
 ---
 title: Details of the policy definition structure
 description: Describes how policy definitions are used to establish conventions for Azure resources in your organization.
-ms.date: 06/27/2022
+ms.date: 08/29/2022
 ms.topic: conceptual
-ms.author: timwarner
-author: timwarner-msft
+ms.author: davidsmatlak
+author: davidsmatlak
 ---
 # Azure Policy definition structure
 
@@ -136,23 +136,18 @@ see [Tag support for Azure resources](../../../azure-resource-manager/management
 
 The following Resource Provider modes are fully supported:
 
-- `Microsoft.Kubernetes.Data` for managing your Kubernetes clusters on or off Azure. Definitions
-  using this Resource Provider mode use effects _audit_, _deny_, and _disabled_. This mode supports
-  custom definitions as a _public preview_. See
-  [Create policy definition from constraint template](../how-to/extension-for-vscode.md#create-policy-definition-from-constraint-template) to create a
-  custom definition from an existing [Open Policy Agent](https://www.openpolicyagent.org/) (OPA)
-  GateKeeper v3
-  [constraint template](https://open-policy-agent.github.io/gatekeeper/website/docs/howto/#constraint-templates). Use
-  of the [EnforceOPAConstraint](./effects.md#enforceopaconstraint) effect is _deprecated_.
+- `Microsoft.Kubernetes.Data` for managing Kubernetes clusters and components such as pods, containers, and ingresses. Supported for Azure Kubernetes Service clusters and [Azure Arc-enabled Kubernetes clusters](../../../aks/intro-kubernetes.md). Definitions
+  using this Resource Provider mode use effects _audit_, _deny_, and _disabled_. 
 - `Microsoft.KeyVault.Data` for managing vaults and certificates in
   [Azure Key Vault](../../../key-vault/general/overview.md). For more information on these policy
   definitions, see
   [Integrate Azure Key Vault with Azure Policy](../../../key-vault/general/azure-policy.md).
+- `Microsoft.Network.Data` for managing [Azure Virtual Network Manager](../../../virtual-network-manager/overview.md) custom membership policies using Azure Policy.
 
 The following Resource Provider modes are currently supported as a **[preview](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)**:
 
-- `Microsoft.Network.Data` for managing [Azure Virtual Network Manager](../../../virtual-network-manager/overview.md) custom membership policies using Azure Policy.
-- `Microsoft.Kubernetes.Data` for Azure Policy components that target [Azure Kubernetes Service (AKS)](../../../aks/intro-kubernetes.md) resources such as pods, namespaces, and ingresses.
+- `Microsoft.ManagedHSM.Data` for managing [Managed HSM](../../../key-vault/managed-hsm/azure-policy.md) keys using Azure Policy.
+- `Microsoft.DataFactory.Data` for using Azure Policy to deny [Azure Data Factory](../../../data-factory/introduction.md) outbound traffic domain names not specified in an allow list.
 
 > [!NOTE]
 >Unless explicitly stated, Resource Provider modes only support built-in policy definitions, and exemptions are not supported at the component-level.
@@ -185,7 +180,7 @@ _common_ properties used by Azure Policy and in built-ins. Each `metadata` prope
 
 ## Parameters
 
-Parameters help simplify your policy management by reducing the number of policy definitions. Think 
+Parameters help simplify your policy management by reducing the number of policy definitions. Think
 of parameters like the fields on a form - `name`, `address`, `city`, `state`. These parameters
 always stay the same, however their values change based on the individual filling out the form.
 Parameters work the same way when building policies. By including parameters in a policy definition,
@@ -1031,7 +1026,7 @@ Azure Policy supports the following types of effect:
 - **Deny**: generates an event in the activity log and fails the request
 - **DeployIfNotExists**: deploys a related resource if it doesn't already exist
 - **Disabled**: doesn't evaluate resources for compliance to the policy rule
-- **Modify**: adds, updates, or removes the defined tags from a resource or subscription
+- **Modify**: adds, updates, or removes the defined set of fields in the request
 - **EnforceOPAConstraint** (deprecated): configures the Open Policy Agent admissions controller with
   Gatekeeper v3 for self-managed Kubernetes clusters on Azure
 - **EnforceRegoPolicy** (deprecated): configures the Open Policy Agent admissions controller with
@@ -1180,7 +1175,7 @@ Limits to the size of objects that are processed by policy functions during poli
 }
 ```
 
-The length of the string created by the `concat()` function depends of the value of properties in the evaluated resource.
+The length of the string created by the `concat()` function depends on the value of properties in the evaluated resource.
 
 | Limit | Value | Example |
 |:---|:---|:---|

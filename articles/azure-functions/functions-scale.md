@@ -3,29 +3,29 @@ title: Azure Functions scale and hosting
 description: Learn how to choose between Azure Functions Consumption plan and Premium plan.
 ms.assetid: 5b63649c-ec7f-4564-b168-e0a74cb7e0f3
 ms.topic: conceptual
-ms.date: 04/22/2022
-
-ms.custom: H1Hack27Feb2017,devdivchpfy22
-
+ms.date: 05/04/2023
+ms.custom: H1Hack27Feb2017, devdivchpfy22, build-2023
 ---
 # Azure Functions hosting options
 
-When you create a function app in Azure, you must choose a hosting plan for your app. There are three basic hosting plans available for Azure Functions: [Consumption plan], [Premium plan], and [Dedicated (App Service) plan][Dedicated plan]. All hosting plans are generally available (GA) on both Linux and Windows virtual machines.
+When you create a function app in Azure, you must choose a hosting plan for your app. There are three basic Azure Functions hosting plans provided by Azure Functions: [Consumption plan], [Premium plan], and [Dedicated (App Service) plan][Dedicated plan]. These hosting plans are facilitated by Azure App Service infrastructure and are generally available (GA) on both Linux and Windows virtual machines. 
 
-The hosting plan you choose dictates the following behaviors:
+The Azure Functions hosting plan you choose dictates the following behaviors:
 
 * How your function app is scaled.
 * The resources available to each function app instance.
 * Support for advanced functionality, such as Azure Virtual Network connectivity.
 
-This article provides a detailed comparison between the various hosting plans, along with [Kubernetes-based hosting](functions-kubernetes-keda.md).
+In addition to Azure Functions hosting, you can also host containerized function apps in containers can also be deployed to Kubernetes clusters and to Azure Container Apps. If you choose to host your functions in a Kubernetes cluster, consider using an [Azure Arc-enabled Kubernetes cluster](../azure-arc/kubernetes/overview.md). To learn more about deploying custom container apps, see [Azure Container Apps hosting of Azure Functions](./functions-container-apps-hosting.md).  
+
+This article provides a detailed comparison between the various hosting plans, including container-based hosting options.
 
 > [!NOTE]
-> If you choose to host your functions in a Kubernetes cluster, consider using an [Azure Arc-enabled Kubernetes cluster](../azure-arc/kubernetes/overview.md). Hosting on an Azure Arc-enabled Kubernetes cluster is currently in preview. To learn more, see [App Service, Functions, and Logic Apps on Azure Arc](../app-service/overview-arc-integration.md).  
+> Hosting Azure Functions containers on both Azure Arc-enabled Kubernetes clusters and Azure Container Apps is currently in preview. 
 
 ## Overview of plans
 
-The following is a summary of the benefits of the three main hosting plans for Functions:
+The following is a summary of the benefits of the three main Azure Functions hosting plans:
 
 | Plan | Benefits |
 | --- | --- |  
@@ -38,6 +38,7 @@ The comparison tables in this article also include the following hosting options
 | Hosting option | Details |
 | --- | --- |  
 |**[ASE][Dedicated plan]** | App Service Environment (ASE) is an App Service feature that provides a fully isolated and dedicated environment for securely running App Service apps at high scale.<br/><br/>ASEs are appropriate for application workloads that require: <br/><br/>✔ Very high scale.<br/>✔ Full compute isolation and secure network access.<br/>✔ High memory usage.|  
+| **[Azure Container Apps](./functions-container-apps-hosting.md)** | Azure Container Apps is a fully managed environment that enables you to run microservices and containerized applications on a serverless platform. Azure Container Apps let you run your functions with the power of the underlying Azure Kubernetes Service (AKS) while removing the complexity of having to work with Kubernetes APIs.  | 
 | **Kubernetes**<br/>([Direct][Kubernetes] or<br/>[Azure Arc](../app-service/overview-arc-integration.md)) | Kubernetes provides a fully isolated and dedicated environment running on top of the Kubernetes platform.<br/><br/> Kubernetes is appropriate for application workloads that require: <br/>✔ Custom hardware requirements.<br/>✔ Isolation and secure network access.<br/>✔ Ability to run in hybrid or multi-cloud environment.<br/>✔ Run alongside existing Kubernetes applications and services.|  
 
 The remaining tables in this article compare the plans on various features and behaviors. For a cost comparison between dynamic hosting plans (Consumption and Premium), see the [Azure Functions pricing page](https://azure.microsoft.com/pricing/details/functions/). For pricing of the various Dedicated plan options, see the [App Service pricing page](https://azure.microsoft.com/pricing/details/app-service/windows/). 
@@ -69,13 +70,13 @@ Maximum instances are given on a per-function app (Consumption) or per-plan (Pre
 | Plan | Scale out | Max # instances | 
 | --- | --- | --- |
 | **[Consumption plan]** | [Event driven](event-driven-scaling.md). Scale out automatically, even during periods of high load. Azure Functions infrastructure scales CPU and memory resources by adding additional instances of the Functions host, based on the number of incoming trigger events. | **Windows:** 200<br/>**Linux:** 100<sup>1</sup>  | 
-| **[Premium plan]** | [Event driven](event-driven-scaling.md). Scale out automatically, even during periods of high load. Azure Functions infrastructure scales CPU and memory resources by adding additional instances of the Functions host, based on the number of events that its functions are triggered on. | **Windows:** 100<br/>**Linux:** 20-40<sup>2</sup>| 
-| **[Dedicated plan]**<sup>3</sup> | Manual/autoscale |10-20| 
+| **[Premium plan]** | [Event driven](event-driven-scaling.md). Scale out automatically, even during periods of high load. Azure Functions infrastructure scales CPU and memory resources by adding additional instances of the Functions host, based on the number of events that its functions are triggered on. | **Windows:** 100<br/>**Linux:** 20-100<sup>2</sup>| 
+| **[Dedicated plan]**<sup>3</sup> | Manual/autoscale |10-30| 
 | **[ASE][Dedicated plan]**<sup>3</sup> | Manual/autoscale |100 | 
 | **[Kubernetes]**  | Event-driven autoscale for Kubernetes clusters using [KEDA](https://keda.sh). | Varies&nbsp;by&nbsp;cluster&nbsp;&nbsp;| 
 
 <sup>1</sup> During scale-out, there's currently a limit of 500 instances per subscription per hour for Linux apps on a Consumption plan.  <br/>
-<sup>2</sup> In some regions, Linux apps on a Premium plan can scale to 40 instances. For more information, see the [Premium plan article](functions-premium-plan.md#region-max-scale-out). <br/>
+<sup>2</sup> In some regions, Linux apps on a Premium plan can scale to 100 instances. For more information, see the [Premium plan article](functions-premium-plan.md#region-max-scale-out). <br/>
 <sup>3</sup> For specific limits for the various App Service plan options, see the [App Service plan limits](../azure-resource-manager/management/azure-subscription-service-limits.md#app-service-limits).
 
 ## Cold start behavior

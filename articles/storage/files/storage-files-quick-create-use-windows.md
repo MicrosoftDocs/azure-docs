@@ -2,18 +2,17 @@
 title: Tutorial - Create an SMB Azure file share and connect it to a Windows virtual machine using the Azure portal
 description: This tutorial covers how to create an SMB Azure file share using the Azure portal, connect it to a Windows VM, upload a file to the file share, create a snapshot, and restore the share from the snapshot.
 author: khdownie
-ms.service: storage
+ms.service: azure-file-storage
 ms.topic: tutorial
-ms.date: 03/23/2022
+ms.date: 10/24/2022
 ms.author: kendownie
-ms.subservice: files
 ms.custom: mode-ui
 #Customer intent: As an IT admin new to Azure Files, I want to try out Azure file shares so I can determine whether I want to subscribe to the service.
 ---
 
 # Tutorial: Create an SMB Azure file share and connect it to a Windows VM using the Azure portal
 
-Azure Files offers fully managed file shares in the cloud that are accessible via the industry standard [Server Message Block (SMB) protocol](/windows/win32/fileio/microsoft-smb-protocol-and-cifs-protocol-overview) or [Network File System (NFS) protocol](https://en.wikipedia.org/wiki/Network_File_System). In this tutorial, you will learn a few ways you can use an SMB Azure file share in a Windows virtual machine (VM).
+Azure Files offers fully managed file shares in the cloud that are accessible via the industry standard [Server Message Block (SMB) protocol](/windows/win32/fileio/microsoft-smb-protocol-and-cifs-protocol-overview) or [Network File System (NFS) protocol](https://en.wikipedia.org/wiki/Network_File_System). In this tutorial, you'll learn a few ways you can use an SMB Azure file share in a Windows virtual machine (VM).
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
@@ -36,23 +35,9 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 ### Create a storage account
 
-Before you can work with an Azure file share, you have to create an Azure storage account.
+Before you can work with an Azure file share, you must create an Azure storage account.
 
-1. Sign in to the [Azure portal](https://portal.azure.com).
-1. On the Azure portal menu, select **All services**. In the list of resources, type **Storage Accounts**. As you begin typing, the list filters based on your input. Select **Storage Accounts**.
-1. On the **Storage Accounts** window that appears, choose **+ New**.
-1. On the **Basics** tab, select the subscription in which to create the storage account.
-1. Under the **Resource group** field, select your desired resource group, or create a new resource group.
-1. Next, enter a name for your storage account. The name you choose must be unique across Azure. The name also must be between 3 and 24 characters in length, and may include only numbers and lowercase letters.
-1. Select a region for your storage account, or use the default region.
-1. Select a performance tier. The default tier is *Standard*.
-1. Specify how the storage account will be replicated. The default redundancy option is *Geo-redundant storage (GRS)*.
-1. Select **Review + Create** to review your storage account settings and create the account.
-1. Select **Create**.
-
-The following image shows the settings on the **Basics** tab for a new storage account:
-
-:::image type="content" source="media/storage-files-quick-create-use-windows/account-create-portal.png" alt-text="Screenshot showing how to create a storage account in the Azure portal." lightbox="media/storage-files-quick-create-use-windows/account-create-portal.png":::
+[!INCLUDE [storage-files-create-storage-account-portal](../../../includes/storage-files-create-storage-account-portal.md)]
 
 ### Create an Azure file share
 

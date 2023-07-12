@@ -1,27 +1,30 @@
 ---
-title: Release notes - Speech Service
+title: What's new - Speech service
 titleSuffix: Azure Cognitive Services
-description: A running log of Speech Service feature releases, improvements, bug fixes, and known issues.
+description: Find out about new releases and features for the Azure Cognitive Service for Speech.
 services: cognitive-services
 manager: nitinme
 author: eric-urban
 ms.author: eur
 ms.service: cognitive-services
 ms.subservice: speech-service
-ms.topic: reference
-ms.date: 03/22/2022
+ms.topic: release-notes
+ms.date: 03/16/2023
 ms.custom: ignite-fall-2021, references_regions
 ---
 
-# Speech Service release notes
+# What's new in Azure Cognitive Service for Speech?
 
-See below for information about changes to Speech services and resources.
+Azure Cognitive Service for Speech is updated on an ongoing basis. To stay up-to-date with recent developments, this article provides you with information about new releases and features.
 
-## What's new?
+## Recent highlights
 
-* Speech SDK 1.23.0 and Speech CLI 1.23.0 were released in July 2022. See details below.
-* Custom speech-to-text container v3.1.0 released in March 2022, with support to get display models.
-* TTS Service July 2022, new voices in Public Preview and new viseme feature blend shapes were released. See details below.
+* Speech SDK 1.30.0 was released in July 2023.
+* Speech to text and text to speech container versions were updated in March 2023.
+* Some Speech Studio [scenarios](speech-studio-overview.md#speech-studio-scenarios) are available to try without an Azure subscription.
+* Custom Speech to text container disconnected mode was released in January 2023.
+* Text to speech Batch synthesis API is available in public preview.
+* Speech to text REST API version 3.1 is generally available.
 
 ## Release notes
 
@@ -35,13 +38,13 @@ See below for information about changes to Speech services and resources.
 
 [!INCLUDE [speech-cli](./includes/release-notes/release-notes-cli.md)]
 
-# [Text-to-speech service](#tab/text-to-speech)
+# [Text to speech service](#tab/text-to-speech)
 
-[!INCLUDE [text-to-speech](./includes/release-notes/release-notes-tts.md)]
+[!INCLUDE [text to speech](./includes/release-notes/release-notes-tts.md)]
 
-# [Speech-to-text service](#tab/speech-to-text)
+# [Speech to text service](#tab/speech-to-text)
 
-[!INCLUDE [speech-to-text](./includes/release-notes/release-notes-stt.md)]
+[!INCLUDE [speech to text](./includes/release-notes/release-notes-stt.md)]
 
 # [Containers](#tab/containers)
 

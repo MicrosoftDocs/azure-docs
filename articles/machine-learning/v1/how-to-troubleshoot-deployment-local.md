@@ -5,11 +5,11 @@ description: Try a local model deployment as a first step in troubleshooting mod
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: mlops
-ms.author: ssalgado
+ms.author: joburges
 author: ssalgadodev
 ms.date: 08/15/2022
 ms.topic: troubleshooting
-ms.custom: devx-track-python, deploy, contperf-fy21q2, sdkv1, event-tier1-build-2022
+ms.custom: UpdateFrequency5, deploy, contperf-fy21q2, sdkv1, event-tier1-build-2022
 #Customer intent: As a data scientist, I want to try a local deployment so that I can troubleshoot my model deployment problems.
 ---
 
@@ -32,7 +32,7 @@ Try a local model deployment as a first step in troubleshooting deployment to Az
     * The Azure Machine Learning inference HTTP server [(preview)](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) is a Python package that allows you to easily validate your entry script (`score.py`) in a local development environment. If there's a problem with the scoring script, the server will return an error. It will also return the location where the error occurred.
     * The server can also be used when creating validation gates in a continuous integration and deployment pipeline. For example, start the server with thee candidate script and run the test suite against the local endpoint.
 
-## Azure Machine learning inference HTTP server
+## Azure Machine Learning inference HTTP server
 
 The local inference server allows you to quickly debug your entry script (`score.py`). In case the underlying score script has a bug, the server will fail to initialize or serve the model. Instead, it will throw an exception & the location where the issues occurred. [Learn more about Azure Machine Learning inference HTTP Server](../how-to-inference-server-http.md)
 
@@ -65,7 +65,7 @@ You can find a sample [local deployment notebook](https://github.com/Azure/Machi
 
 To deploy locally, modify your code to use `LocalWebservice.deploy_configuration()` to create a deployment configuration. Then use `Model.deploy()` to deploy the service. The following example deploys a model (contained in the model variable) as a local web service:
 
-[!INCLUDE [sdk v1](../../../includes/machine-learning-sdk-v1.md)]
+[!INCLUDE [sdk v1](../includes/machine-learning-sdk-v1.md)]
 
 ```python
 from azureml.core.environment import Environment
@@ -152,5 +152,4 @@ You can address the error by increasing the value of `memory_gb` in `deployment_
 Learn more about deployment:
 
 * [How to troubleshoot remote deployments](how-to-troubleshoot-deployment.md)
-* [Azure Machine Learning inference HTTP Server](../how-to-inference-server-http.md)
-* [How to run and debug experiments locally](../how-to-debug-visual-studio-code.md)
+* [How to run and debug experiments locally](how-to-debug-visual-studio-code.md)

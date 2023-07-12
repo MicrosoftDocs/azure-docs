@@ -8,7 +8,7 @@ ms.service: data-factory
 ms.subservice: data-movement
 ms.topic: conceptual
 ms.custom: synapse
-ms.date: 01/25/2022
+ms.date: 02/08/2023
 ---
 
 # Copy data from or to SAP Cloud for Customer (C4C) using Azure Data Factory or Synapse Analytics

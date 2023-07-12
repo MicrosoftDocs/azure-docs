@@ -2,7 +2,7 @@
 title: Register daemon apps that call web APIs
 description: Learn how to build a daemon app that calls web APIs - app registration
 services: active-directory
-author: jmprieur
+author: Dickson-Mwendia
 manager: CelesteDG
 
 ms.service: active-directory
@@ -10,7 +10,8 @@ ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
 ms.date: 12/01/2021
-ms.author: jmprieur
+ms.author: dmwendia
+ms.reviewer: jmprieur
 ms.custom: aaddev
 #Customer intent: As an application developer, I want to know how to write a daemon app that can call web APIs by using the Microsoft identity platform for developers.
 ---
@@ -42,7 +43,7 @@ Daemon applications require that a tenant admin pre-consent to the application c
 
 If you're an ISV building a multitenant application, you should read the section [Deployment - case of multitenant daemon apps](scenario-daemon-production.md#deployment---multitenant-daemon-apps).
 
-[!INCLUDE [Pre-requisites](../../../includes/active-directory-develop-scenarios-registration-client-secrets.md)]
+[!INCLUDE [Pre-requisites](./includes/scenarios/scenarios-prerequisites.md)]
 
 ## Next steps
 
