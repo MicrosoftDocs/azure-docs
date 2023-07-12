@@ -63,7 +63,7 @@ If you're an owner of a workspace, you can add and remove roles for the workspac
 - [REST API](/azure/role-based-access-control/role-assignments-rest)
 - [Azure Resource Manager templates](/azure/role-based-access-control/role-assignments-template)
 
-For example, use [Azure CLI](../role-based-access-control/role-assignments-cli) to assign contributor role to joe@contoso.com for resource group "this-rg" with the following command:
+For example, use [Azure CLI](/azure/role-based-access-control/role-assignments-cli) to assign contributor role to joe@contoso.com for resource group "this-rg" with the following command:
 
 ```azurecli 
 az role assignment create --role "Contributor" --assignee "joe@contoso.com" --resource-group this-rg
@@ -606,13 +606,13 @@ Here are a few things to be aware of while you use Azure role-based access contr
 
 - When there are two role assignments to the same Azure Active Directory user with conflicting sections of Actions/NotActions, your operations listed in NotActions from one role might not take effect if they are also listed as Actions in another role. To learn more about how Azure parses role assignments, read [How Azure RBAC determines if a user has access to a resource](/azure/role-based-access-control/overview#how-azure-rbac-determines-if-a-user-has-access-to-a-resource)
 
-[!INCLUDE [network-rbac](includes/network-rbac)]
+[!INCLUDE [network-rbac](includes/network-rbac.md)]
 
 - It can sometimes take up to 1 hour for your new role assignments to take effect over cached permissions across the stack.
 
 ## Next steps
 
-- [Enterprise security overview](concept-enterprise-security)
-- [Virtual network isolation and privacy overview](how-to-network-security-overview)
-- [Tutorial: Train and deploy a model](tutorial-train-deploy-notebook)
+- [Enterprise security overview](concept-enterprise-security.md)
+- [Virtual network isolation and privacy overview](how-to-network-security-overview.md)
+- [Tutorial: Train and deploy a model](tutorial-train-deploy-notebook.md)
 - [Resource provider operations](/azure/role-based-access-control/resource-provider-operations#microsoftmachinelearningservices)
