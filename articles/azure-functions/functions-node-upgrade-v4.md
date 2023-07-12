@@ -79,11 +79,9 @@ Otherwise, you define the file structure by setting the `main` field in your *pa
   - `src/index.js`
   - `src/functions/*.js`
 
-Be sure to define a `main` field in your *package.json* file.
-
 ## Switch the order of arguments
 
-The trigger input, instead of the invocation context, is now the first argument to your function handler. The invocation context, now the second argument, was simplified in v4 and isn't as required as the trigger input. You can leave it off if you aren't using it.
+The trigger input, instead of the invocation context, is now the first argument to your function handler. The invocation context, now the second argument, is simplified in v4 and isn't as required as the trigger input. You can leave it off if you aren't using it.
 
 Switch the order of your arguments. For example, if you're using an HTTP trigger, switch `(context, request)` to either `(request, context)` or just `(request)` if you aren't using the context.
 
@@ -150,7 +148,7 @@ module.exports = async function (context, req) {
 
 ---
 
-We recommend that you move the configuration from your *function.json* file to your code. The type of the trigger corresponds to a method on the `app` object in the new model. For example, if you use an `httpTrigger` type in `function.json`, call `app.http()` in your code to register the function. If you use `timerTrigger`, call `app.timer()`.
+Move the configuration from your *function.json* file to your code. The type of the trigger corresponds to a method on the `app` object in the new model. For example, if you use an `httpTrigger` type in `function.json`, call `app.http()` in your code to register the function. If you use `timerTrigger`, call `app.timer()`.
 
 ## Review your usage of context
 
@@ -250,7 +248,7 @@ Not possible.
 
 The HTTP request and response types are now a subset of the [fetch standard](https://developer.mozilla.org/docs/Web/API/fetch). They're no longer unique to Azure Functions. 
 
-The types use the [`undici`](https://undici.nodejs.org/) package in Node.js. It follows the fetch standard and is [currently being integrated](https://github.com/nodejs/undici/issues/1737) into Node.js core.
+The types use the [`undici`](https://undici.nodejs.org/) package in Node.js. This package follows the fetch standard and is [currently being integrated](https://github.com/nodejs/undici/issues/1737) into Node.js core.
 
 ### HttpRequest
 
@@ -376,7 +374,7 @@ The types use the [`undici`](https://undici.nodejs.org/) package in Node.js. It 
 
 ---
 
-Update any logic by using the HTTP request or response types to match the new methods. If you're using TypeScript, you'll receive build errors if you use old methods.
+Update any logic by using the HTTP request or response types to match the new methods. If you're using TypeScript, you'll get build errors if you use old methods.
 
 ## Troubleshoot
 
