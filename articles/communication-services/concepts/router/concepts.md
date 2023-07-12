@@ -158,6 +158,7 @@ An exception policy controls the behavior of a Job based on a trigger and execut
 - [Scheduling a job](../../how-tos/router-sdk/scheduled-jobs.md)
 - [How to get estimated wait time and job position](../../how-tos/router-sdk/estimated-wait-time.md)
 - [Customize workers scoring](../../how-tos/router-sdk/customize-worker-scoring.md)
+- [Use Azure Function rule engine](../../how-tos/router-sdk/azure-function.md)
 
 <!-- LINKS -->
 
