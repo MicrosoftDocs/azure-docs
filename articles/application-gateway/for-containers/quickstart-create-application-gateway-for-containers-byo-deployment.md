@@ -87,7 +87,7 @@ IDENTITY_RESOURCE_NAME='azure-alb-identity'
 
 principalId="$(az identity show -g $RESOURCE_GROUP -n $IDENTITY_RESOURCE_NAME --query principalId -otsv)"
 
-# Delegate AppGw for Containers Configuration Manager role to AKS Managed Cluster RG
+# Delegate AppGw for Containers Configuration Manager role to RG containing Application Gateway for Containers resource
 az role assignment create --assignee-object-id $principalId --resource-group $RESOURCE_GROUP --role "fbc52c3f28ad4303a8928a056630b8f1"
 
 # Delegate Network Contributor permission for join to association subnet
