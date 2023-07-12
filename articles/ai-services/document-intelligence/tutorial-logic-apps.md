@@ -14,15 +14,15 @@ monikerRange: '<=doc-intel-3.0.0'
 
 # Tutorial: Use  Document intelligence with Azure Logic Apps
 
-::: moniker range="form-recog-3.0.0"
+::: moniker range="doc-intel-3.0.0"
 [!INCLUDE [applies to v3.0](../includes/applies-to-v3-0.md)]
 ::: moniker-end
 
-::: moniker range="form-recog-2.1.0"
+::: moniker range="doc-intel-2.1.0"
 [!INCLUDE [applies to v2.1](includes/applies-to-v2-1.md)]
 ::: moniker-end
 
-::: moniker range="form-recog-3.0.0"
+::: moniker range="doc-intel-3.0.0"
 
 > [!IMPORTANT]
 >
@@ -30,7 +30,7 @@ monikerRange: '<=doc-intel-3.0.0'
 
 ::: moniker-end
 
-::: moniker range="form-recog-2.1.0"
+::: moniker range="doc-intel-2.1.0"
 
 > [!IMPORTANT]
 >
@@ -69,7 +69,7 @@ To complete this tutorial, you need the following resources:
     :::image border="true" type="content" source="media/containers/keys-and-endpoint.png" alt-text="Still photo showing how to access resource key and endpoint URL.":::
 
     > [!TIP]
-    > For more information, *see* [**create a Document intelligence resource**](create-a-form-recognizer-resource.md).
+    > For more information, *see* [**create a Document intelligence resource**](create-document-intelligence-resource.md).
 
 * A free [**OneDrive**](https://onedrive.live.com/signup) or [**OneDrive for Business**](https://www.microsoft.com/microsoft-365/onedrive/onedrive-for-business) cloud storage account.
 
@@ -139,7 +139,7 @@ At this point, you should have a Document intelligence resource and a OneDrive f
 
 ## Create automation flow
 
-::: moniker range="form-recog-3.0.0"
+::: moniker range="doc-intel-3.0.0"
 
 Now that you have the Logic App connector resource set up and configured, the only thing left is to create the automation flow and test it out!
 
@@ -228,7 +228,7 @@ Now that you have the Logic App connector resource set up and configured, the on
 
 :::moniker-end
 
-::: moniker range="form-recog-2.1.0"
+::: moniker range="doc-intel-2.1.0"
 
 Now that you have the Logic App connector resource set up and configured, the only thing left is to create the automation flow and test it out!
 
