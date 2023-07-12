@@ -32,7 +32,7 @@ Each NAT gateway public IP address provides 64,512 SNAT ports to make outbound c
 
 SNAT maps private addresses in your subnet to one or more public IP addresses attached to a NAT gateway, rewriting the source address and source port in the process. When multiple connections are made to the same destination endpoint, a new SNAT port is used. A new SNAT port must be used in order to distinguish different connection flows from one another going to the same destination.
 
-Connection flows going to different destination endpoints can reuse the same SNAT port at the same time. SNAT ports connecting sent to different destinations are reused when possible. As SNAT port exhaustion approaches, flows may not succeed.
+Connection flows going to different destination endpoints can reuse the same SNAT port at the same time. SNAT port connections sent to different destinations are reused when possible. As SNAT port exhaustion approaches, flows may not succeed.
 
 For a SNAT example, see [Example SNAT flows for NAT Gateway](nat-gateway-snat.md#example-snat-flows-for-nat-gateway).
 
@@ -43,7 +43,7 @@ Connecting from your Azure virtual network to Azure PaaS services can be done di
 Private Link uses the private IP addresses of your virtual machines or other compute resources from your Azure network to directly connect privately and securely to Azure PaaS services over the Azure backbone. See a list of available Azure services that Private Link supports.
 
 > [!NOTE]
-> Microsoft recommends use of Azure Private Link for secure and private access to services hosted on Azure platform. [Service endpoints](/azure/virtual-network/virtual-network-service-endpoints-overview) can also be used to connect directly to Azure PaaS services over the Azure backbone.
+> Microsoft recommends use of Azure Private Link for secure and private access to services hosted in Azure. [Service endpoints](/azure/virtual-network/virtual-network-service-endpoints-overview) can also be used to connect directly to Azure PaaS services over the Azure backbone.
 
 ## Provide outbound and inbound connectivity for your Azure virtual network
 
