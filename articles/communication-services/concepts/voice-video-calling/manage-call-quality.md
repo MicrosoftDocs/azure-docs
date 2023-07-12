@@ -75,6 +75,14 @@ The following sections explain tools by call phase:
   have callers with poor network conditions join from [PSTN (Public
   Switched Telephone Network) voice
   calling](https://learn.microsoft.com/en-us/azure/communication-services/concepts/telephony/telephony-concept).~~ -->
+++ Permissions section.
+
+needs OS level permissions.
+
+needs device permission.
+
+needs to return true for both Audio and Video. If false then know issues. --->> Blog post on this best practice . . . 
+
 
 ### Network Diagnostic Tool 
 
