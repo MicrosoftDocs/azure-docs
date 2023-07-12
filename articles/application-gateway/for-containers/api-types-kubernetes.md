@@ -11,7 +11,7 @@ ms.date: 07/12/2023
 ms.author: greglin
 ---
 
-# Application Gateway for Containers API yypes for Kubernetes (preview)
+# Application Gateway for Containers API types for Kubernetes (preview)
 
 ## API Types
 The following API types are supported by Application Gateway for Containers.

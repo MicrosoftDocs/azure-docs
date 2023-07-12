@@ -34,16 +34,16 @@ The following dependencies are also referenced in an Application Gateway for Con
   - Child resources are exclusive to only their parent Application Gateway for Containers and may not be referenced by additional Application Gateway for Containers
 
 ### Application Gateway for Containers frontends
-- An Application Gateway for Containers Frontend resource is an Azure child resource of the Application Gateway for Containers parent resource
-- An Application Gateway for Containers Frontend defines the entry point client traffic should be received by a given Application Gateway for Containers
+- An Application Gateway for Containers frontend resource is an Azure child resource of the Application Gateway for Containers parent resource
+- An Application Gateway for Containers frontend defines the entry point client traffic should be received by a given Application Gateway for Containers
    - A frontend can't be associated to multiple Application Gateway for Containers
    - Each frontend provides a unique FQDN that can be referenced by a customer's CNAME record 
    - Private IP addresses are currently unsupported
-- A single Application Gateway for Containers can support multiple Frontends
+- A single Application Gateway for Containers can support multiple frontends
 
-### Application Gateway for Containers association
-- An Application Gateway for Containers Association resource is an Azure child resource of the Application Gateway for Containers parent resource
-- An Application Gateway for Containers Association defines a connection point into a virtual network.  An association is a 1:1 mapping of an association resource to an Azure Subnet that has been delegated.
+### Application Gateway for Containers associations
+- An Application Gateway for Containers association resource is an Azure child resource of the Application Gateway for Containers parent resource
+- An Application Gateway for Containers association defines a connection point into a virtual network.  An association is a 1:1 mapping of an association resource to an Azure Subnet that has been delegated.
 - Application Gateway for Containers is designed to allow for multiple associations
    - At this time, the current number of associations is currently limited to 1
 - During creation of an association, the underlying data plane is provisioned and connected to a subnet within the defined virtual network's subnet
@@ -93,7 +93,8 @@ A set of routing rules evaluates how the request for that hostname should be ini
 
 ## How Application Gateway for Containers routes a request
 
-### Modifications to the Request
+### Modifications to the request
+
 Application Gateway for Containers inserts three additional headers to all requests before requests are initiated from Application Gateway for Containers to a backend target:
 - x-forwarded-for
 - x-forwarded-proto
