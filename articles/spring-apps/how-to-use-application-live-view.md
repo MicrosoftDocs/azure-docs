@@ -208,7 +208,7 @@ Use the following steps to deploy an app and monitor it in Application Live View
        --query properties.url \
        --output tsv
    ```
-   You can also access the Application Live View through VS Code, see [Use Application Live View in VS Code](#use-application-live-view-in-vs-code).
+   You can also access the Application Live View using Visual Studio Code (VS Code). For more inforamtion, see [Use Application Live View in VS Code](#use-application-live-view-in-vs-code).
 
 ## Manage Application Live View in existing Enterprise plan instances
 
@@ -232,8 +232,6 @@ Use the following steps to manage Application Live View using the Azure portal:
 1. You can then view the state of Application Live View on the **Developer Tools (Preview)**.
 
    :::image type="content" source="media/how-to-use-application-live-view/check-enable.png" alt-text="Screenshot of the Developer Tools section showing the Enable App Live View checkbox." lightbox="media/how-to-use-application-live-view/check-enable.png":::
-
-
 
 ### [Azure CLI](#tab/Azure-CLI)
 
