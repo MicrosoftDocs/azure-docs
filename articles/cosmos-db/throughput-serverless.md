@@ -25,11 +25,11 @@ Azure Cosmos DB is available in two different capacity modes: [provisioned throu
 | Best suited for | Workloads with sustained traffic requiring predictable performance | Workloads with intermittent or unpredictable traffic and low average-to-peak traffic ratio |
 | How it works | For each of your containers, you configure some amount of provisioned throughput expressed in [Request Units (RUs)](request-units.md) per second. Every second, this quantity of Request Units is available for your database operations. Provisioned throughput can be updated manually or adjusted automatically with [autoscale](provision-throughput-autoscale.md). | You run your database operations against your containers without having to configure any previously provisioned capacity. |
 | Geo-distribution | Available (unlimited number of Azure regions) | Unavailable (serverless accounts can only run in a single Azure region) |
-| Maximum storage per container | Unlimited | 50 GB<sup>1</sup> |
+| Maximum storage per container | Unlimited | 1 TB<sup>1</sup> |
 | Performance | < 10-ms latency for point-reads and writes covered by SLA | < 10-ms latency for point-reads and < 30 ms for writes covered by SLO |
 | Billing model | Billing is done on a per-hour basis for the RU/s provisioned, regardless of how many RUs were consumed. | Billing is done on a per-hour basis for the number of RUs consumed by your database operations. |
 
-<sup>1</sup> Serverless containers up to 1 TB are currently in preview with Azure Cosmos DB. To try the new feature, register the *"Azure Cosmos DB Serverless 1 TB Container Preview"* [preview feature in your Azure subscription](../azure-resource-manager/management/preview-features.md).
+<sup>1</sup> Serverless containers up to 1 TB is GA. Maximum RU/sec availability is dependent on data stored in the container. See, [Serverless Performance](serverless-performance.md)
 
 ## Estimating your expected consumption
 
