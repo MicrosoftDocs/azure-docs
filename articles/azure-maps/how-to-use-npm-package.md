@@ -40,7 +40,7 @@ To begin, install `style-loader` and `css-loader`:
 npm install --save-dev style-loader css-loader
 ```
 
-Inside your source file, import `atlas.min.css`:
+Inside your source file, import _atlas.min.css_:
 
 ```js
 import "azure-maps-control/dist/atlas.min.css";
@@ -65,7 +65,7 @@ Refer to the following section for a complete example.
 
 ## Create a map in a node.js application
 
-You can embed a map in a web page by using the map control npm package.
+Embed a map in a web page using the map control npm package.
 
 1. Create a new project
 
@@ -73,7 +73,7 @@ You can embed a map in a web page by using the map control npm package.
     npm init
     ```
 
-    `npm init` is a command that helps you create a package.json file for your node project. It asks you some questions and generates the file based on your answers. You can also use -y or –yes to skip the questions and use the default values. The package.json file contains information about your project, such as its name, version, dependencies, scripts, etc.
+    `npm init` is a command that helps you create a _package.json_ file for your node project. It asks you some questions and generates the file based on your answers. You can also use `-y` or `–yes` to skip the questions and use the default values. The _package.json_ file contains information about your project, such as its name, version, dependencies, scripts, etc.
 
 2. Install the latest [azure-maps-control] package.
   
@@ -87,7 +87,7 @@ You can embed a map in a web page by using the map control npm package.
     npm install --save-dev webpack webpack-cli style-loader css-loader
     ```
 
-4. Update `package.json` by adding a new script for `"build": "webpack"`. The file should now look something like the following.
+4. Update _package.json_ by adding a new script for `"build": "webpack"`. The file should now look something like the following:
 
     ```js
     {
@@ -113,7 +113,7 @@ You can embed a map in a web page by using the map control npm package.
     }
     ```
 
-5. Create a Webpack config file named `webpack.config.js` in the project's root folder. Include these settings in the config file.
+5. Create a Webpack config file named _webpack.config.js_ in the project's root folder. Include these settings in the config file.
 
     ```js
     module.exports = {
@@ -134,7 +134,7 @@ You can embed a map in a web page by using the map control npm package.
     };
     ```
 
-6. Add a new JavaScript file at `./src/js/main.js` with this code.
+6. Add a new JavaScript file at _./src/js/main.js_ with this code.
     
     ```js
     import * as atlas from "azure-maps-control";
@@ -155,7 +155,7 @@ You can embed a map in a web page by using the map control npm package.
     document.body.onload = onload;
     ```
 
-7. Add a new HTML file named `index.html` in the project's root folder with this content.
+7. Add a new HTML file named _index.html_ in the project's root folder with this content:
 
     ```html
     <!DOCTYPE html>
@@ -182,6 +182,7 @@ You can embed a map in a web page by using the map control npm package.
     ```
 
     Your project should now have the following files:
+
     ```
     ├───node_modules
     ├───index.html
@@ -193,13 +194,13 @@ You can embed a map in a web page by using the map control npm package.
             └───main.js
     ```
 
-8. Run the following command to generate a JavaScript file at `./dist/bundle.js`
+8. Run the following command to generate a JavaScript file at _./dist/bundle.js_
 
     ```powershell
     npm run build
     ```
 
-9. Open the file `index.html` in your web browser and view the rendered map. It should look like the following image:
+9. Open the file _index.html_ in your web browser and view the rendered map. It should look like the following image:
 
 :::image type="content" source="./media/how-to-use-npm-package/map-of-the-world.png" alt-text="A screenshot showing a map of the world.":::
 
@@ -225,6 +226,7 @@ The following sample shows how to import a module and use it in your application
     ```
 
 3. Use `spatial.io.ogc.WKT.read()` to parse the text.
+
     ```js
     import * as atlas from "azure-maps-control";
     import * as spatial from "azure-maps-spatial-io";
