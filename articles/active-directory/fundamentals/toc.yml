@@ -23,7 +23,7 @@ items:
     href: how-subscriptions-associated-directory.md
   - name: Add your privacy info
     href: properties-area.md
-  - name: Add company branding (preview)
+  - name: Add company branding
     href: how-to-customize-branding.md
 - name: Users, groups, and licenses
   expanded: false
@@ -144,7 +144,7 @@ items:
   - name: Legacy and deprecated features
     expanded: false
     items:
-    - name: Add company branding (legacy)
+    - name: Add company branding (deprecated)
       href: customize-branding.md
     - name: Create or delete a user (legacy)
       href: add-users-azure-active-directory.md

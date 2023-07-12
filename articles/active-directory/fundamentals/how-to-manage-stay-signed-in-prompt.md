@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: fundamentals
 ms.topic: how-to
-ms.date: 03/28/2023
+ms.date: 07/12/2023
 ms.author: sarahlipsey
 ms.reviewer: almars
 ms.custom: "it-pro"
@@ -20,6 +20,8 @@ ms.collection: M365-identity-device-management
 The **Stay signed in?** prompt appears after a user successfully signs in. This process is known as **Keep me signed in** (KMSI) and was previously part of the [customize branding](how-to-customize-branding.md) process.
 
 This article covers how the KMSI process works, how to enable it for customers, and how to troubleshoot KMSI issues.
+
+[!INCLUDE [<portal-update>](../includes/portal-update.md)]
 
 ## How does it work? 
 

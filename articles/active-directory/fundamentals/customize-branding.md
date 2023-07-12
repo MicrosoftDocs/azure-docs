@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: fundamentals
 ms.topic: how-to
-ms.date: 03/01/2023
+ms.date: 07/12/2023
 ms.author: sarahlipsey
 ms.reviewer: kexia
 ms.custom: "it-pro, seodec18, fasttrack-edit"
@@ -22,7 +22,7 @@ When users authenticate into your corporate intranet or web-based applications, 
 
 This article covers how to customize the company branding for sign-in experiences for your users. 
 
-An updated experience for adding company branding is available as an Azure AD preview feature. To opt in and explore the new experience, go to **Azure AD** > **Preview features** and enable the **Enhanced Company Branding** feature. Check out the updated documentation on [how to customize branding](how-to-customize-branding.md).
+An updated experience for adding company branding is generally available as Microsoft Entra ID feature. Check out the updated documentation on [how to customize branding](how-to-customize-branding.md).
 
 ## Role and license requirements
 
