@@ -293,7 +293,7 @@ However, you don't need an availability configuration to protect your server fro
 
 ## Next steps
 > [!div class="nextstepaction"]
-> [Azure Database for PostgreSQL documentation](azure/postgresql/)
+> [Azure Database for PostgreSQL documentation](/azure/postgresql/)
 
 > [!div class="nextstepaction"]
 > [Reliability in Azure](availability-zones-overview.md)
