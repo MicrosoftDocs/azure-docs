@@ -12,11 +12,11 @@ ms.custom: template-how-to
 
 # Azure Peering Monitoring and Telemetry walkthrough
 
-In this article, you learn how to use the Azure Portal to view various metrics associated with a (direct or exchange) peering
+In this article, you learn how to use the Azure portal to view various metrics associated with a (direct or exchange) peering
 
-## View recieved routes
+## View received routes
 
-All peering partners (direct or exchange) can view the routes they have announced to Microsoft through their peering sessions under **Recieved Routes** tab under the **Settings** section  of their Peering's page. 
+All peering partners (direct or exchange) can view the routes they have announced to Microsoft through their peering sessions under **Received Routes** tab under the **Settings** section  of their Peering's page. 
 
     :::image type="content" source="./media/walkthrough-monitoring-and-telemetry/peering-recieved-routes.png" alt-text="Screenshot shows how to view recieved routes in the Azure portal." lightbox="./media/walkthrough-monitoring-and-telemetry/peering-recieved-routes.png":::
 
@@ -51,13 +51,13 @@ All peering service resources display the following metrics for their peering se
 -  Session availability
     - Provider primary peering session availability
 
-        This indicates the state of the Border Gateway Protocol session between the peering service provider and Microsoft at the priamry peering location.
+        This indicates the state of the Border Gateway Protocol session between the peering service provider and Microsoft at the primary peering location.
 
         :::image type="content" source="./media/walkthrough-monitoring-and-telemetry/peering-service-primary-session-availability.png" alt-text="Screenshot shows how to view the provider primary peering session availability under a specific peering service in the Azure portal." lightbox="./media/walkthrough-monitoring-and-telemetry/peering-service-primary-session-availability.png":::
 
     - Provider backup  peering session availability
 
-        This indicates the state of the Border Gateway Protocol session between the peering service provider and Microsoft at the backup peering location if there is one selected for the peering service.
+        This indicates the state of the Border Gateway Protocol session between the peering service provider and Microsoft at the backup peering location if there's one selected for the peering service.
 
         :::image type="content" source="./media/walkthrough-monitoring-and-telemetry/peering-service-backup-session-availability.png" alt-text="Screenshot shows how to view the provider backup peering session availability under a specific peering service in the Azure portal." lightbox="./media/walkthrough-monitoring-and-telemetry/peering-service-backup-session-availability.png":::
 
@@ -67,7 +67,7 @@ All peering service prefix resources display the following metrics for their pee
 
 - Peering service prefix latency
 
-    This shows the median latencies observed over time for prefixes registered under a peering service under the **Overview** section of a Peering Service Prefix's page. Latency for prefixes which are smaller than /24 are shown at the /24 level. 
+    This shows the median latencies observed over time for prefixes registered under a peering service under the **Overview** section of a Peering Service Prefix's page. Latency for prefixes that are smaller than /24 are shown at the /24 level. 
 
     :::image type="content" source="./media/walkthrough-monitoring-and-telemetry/peering-service-prefix-latency-telemetry.png" alt-text="Screenshot shows how to view the peering service prefix latency under a specific peering service prefix in the Azure portal." lightbox="./media/walkthrough-monitoring-and-telemetry/peering-service-prefix-latency-telemetry.png":::
 
