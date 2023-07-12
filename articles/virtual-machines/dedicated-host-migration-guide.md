@@ -55,7 +55,7 @@ To migrate your workloads and avoid Dedicated Host SKU retirement, follow the di
 
 ### Manual migration
 
-This includes steps for manually placed VMs, automatically placed VMs, and virtual machine scale sets (VMSS) on your Dedicated Hosts:
+This includes steps for manually placed VMs, automatically placed VMs, and virtual machine scale sets on your Dedicated Hosts:
 
 #### [Manually Placed VMs](#tab/manualVM)
 
@@ -76,7 +76,7 @@ This includes steps for manually placed VMs, automatically placed VMs, and virtu
 5.  Delete the old Dedicated Host.
 6.	Start the VM(s).
 
-#### [VMSS](#tab/VMSS)
+#### [Virtual Machine Scale Sets](#tab/VMSS)
 
 1.	Choose a target Dedicated Host SKU to migrate to. 
 2.	Ensure you have quota for the VM family associated with the target Dedicated Host SKU in your given region.
