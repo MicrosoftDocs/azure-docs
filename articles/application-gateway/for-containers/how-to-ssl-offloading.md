@@ -20,7 +20,7 @@ This document helps set up an example application that uses the following resour
 ## Prerequisites
 
 > [!IMPORTANT]
-> Application Gateway for Containers is currently in [Private Preview](/support/legal/preview-supplemental-terms), and is intended for evaluation purposes only.
+> Application Gateway for Containers is currently in [Private Preview](https://azure.microsoft.com/support/legal/preview-supplemental-terms), and is intended for evaluation purposes only.
 
 1. If following the BYO deployment strategy, ensure you have set up your Application Gateway for Containers resources and [ALB Controller](quickstart-deploy-application-gateway-for-containers-alb-controller.md)
 2. If following the ALB managed deployment strategy, ensure you have provisioned your [ALB Controller](quickstart-deploy-application-gateway-for-containers-alb-controller.md) and provisioned the Application Gateway for Containers resources via the  [ApplicationLoadBalancer custom resource](quickstart-create-application-gateway-for-containers-managed-by-alb-controller.md).

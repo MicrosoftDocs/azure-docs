@@ -85,7 +85,7 @@ For issues, raise a support request via the Azure portal on your Application Gat
 
 For Application Gateway for Containers pricing information, see [Application Gateway pricing](https://azure.microsoft.com/pricing/details/application-gateway/).
 
-While in Public Preview, Application Gateway for Containers follows [Preview supplemental terms](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+While in Public Preview, Application Gateway for Containers follows [Preview supplemental terms](https://azure.microsoft.comhttps://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## What's new
 

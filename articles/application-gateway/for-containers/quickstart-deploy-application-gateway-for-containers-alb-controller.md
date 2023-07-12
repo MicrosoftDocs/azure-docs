@@ -20,7 +20,7 @@ ms.author: greglin
 You need to complete the following tasks prior to deploying Application Gateway for Containers on Azure and installing ALB Controller on your cluster:
 
 > [!IMPORTANT]
-> Application Gateway for Containers is currently in [Private Preview](/support/legal/preview-supplemental-terms), and is intended for evaluation purposes only.
+> Application Gateway for Containers is currently in [Private Preview](https://azure.microsoft.com/support/legal/preview-supplemental-terms), and is intended for evaluation purposes only.
 
 1. Prepare your Azure subscription and your `az-cli` client.
 
