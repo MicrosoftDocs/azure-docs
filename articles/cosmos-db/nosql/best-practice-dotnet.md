@@ -5,7 +5,7 @@ author: StefArroyo
 ms.service: cosmos-db
 ms.subservice: nosql
 ms.topic: how-to
-ms.date: 03/14/2023
+ms.date: 07/12/2023
 ms.author: esarroyo
 ms.reviewer: mjbrown
 ms.custom: cosmos-db-video, devx-track-dotnet
@@ -98,7 +98,7 @@ services.AddSingleton<CosmosClient>(serviceProvider =>
 
 ## Best practices when using Gateway mode
 
-Increase `System.Net MaxConnections` per host when you use Gateway mode. Azure Cosmos DB requests are made over HTTPS/REST when you use Gateway mode. They're subject to the default connection limit per hostname or IP address. You might need to set `MaxConnections` to a higher value (from 100 through 1,000) so that the client library can use multiple simultaneous connections to Azure Cosmos DB. In .NET SDK 1.8.0 and later, the default value for `ServicePointManager.DefaultConnectionLimit` is 50. To change the value, you can set `Documents.Client.ConnectionPolicy.MaxConnectionLimit` to a higher value.
+Increase `System.Net MaxConnections` per host when you use Gateway mode. Azure Cosmos DB requests are made over HTTPS/REST when you use Gateway mode. They're subject to the default connection limit per hostname or IP address. You might need to set `MaxConnections` to a higher value (from 100 through 1,000) so that the client library can use multiple simultaneous connections to Azure Cosmos DB. In .NET SDK 1.8.0 and later, the default value for `ServicePointManager.DefaultConnectionLimit` is 50. To change the value, you can set `CosmosClientOptions.GatewayModeMaxConnectionLimit` to a higher value.
 
 ## Best practices for write-heavy workloads
 
@@ -107,6 +107,21 @@ For workloads that have heavy create payloads, set the `EnableContentResponseOnW
 > [!IMPORTANT]
 > Setting `EnableContentResponseOnWrite` to `false` will also disable the response from a trigger operation.
 
+## Best practices for multi-tenant applications
+
+Applications that distribute usage across multiple tenants where each tenant is represented by a different database, or container, or partition key **within the same Azure Cosmos DB account**, the [singleton pattern applies](performance-tips-dotnet-sdk-v3.md#sdk-usage). A single client instance can interact with all the databases, containers, and partition keys within an account.
+
+However, when each tenant is represented by a **different Azure Cosmos DB account** [connections](sdk-connection-modes.md#direct-mode-connection-architecture) can increase beyond the environment limits and cause [connectivity issues](conceptual-resilient-sdk-applications.md#client-instances-and-connections). While the singleton pattern still applies (one client for each account for the lifetime of the application), if the volume of tenants is high, the number of clients would also be high.
+
+It is recommended in these cases to:
+
+* Understand the limitations of the compute environment (CPU and connection resources).
+* Based on the limitations, understand the limit of client instances / tenants a single compute instance can handle.
+* Evaluate tenant distribution across instances. If each compute instance can successfully handle a certain limited amount of tenants, load balancing and routing of tenants to different compute instances would allow for scaling as the number of tenants grow.
+* For sparse workloads, consider using a Least Frequently Used cache as the structure to hold the client instances, disposing clients for tenants that have no access within an expected window of time. .NET provides constructs like [MemoryCacheEntryOptions](dotnet/api/microsoft.extensions.caching.memory.memorycacheentryoptions), where [RegisterPostEvictionCallback](/dotnet/api/microsoft.extensions.caching.memory.memorycacheentryextensions.registerpostevictioncallback) can be used to **dispose inactive clients** and [SetSlidingExpiration](/dotnet/api/microsoft.extensions.caching.memory.memorycacheentryextensions.setslidingexpiration) can be used to define the maximum inactive time to hold the connections for.
+* Evaluate using [Gateway mode](sdk-connection-modes.md#available-connectivity-modes) to reduce the number of network connections.
+* When using [Direct mode](sdk-connection-modes.md#direct-mode-connection-architecture) consider adjusting [CosmosClientOptions.IdleTcpConnectionTimeout](/dotnet/api/microsoft.azure.cosmos.cosmosclientoptions.idletcpconnectiontimeout) and [CosmosClientOptions.PortReuseMode](/dotnet/api/microsoft.azure.cosmos.cosmosclientoptions.portreusemode) on the [direct mode configuration](tune-connection-configurations-net-sdk-v3.md) to close unused connections and keep the [volume of connections](sdk-connection-modes.md#volume-of-connections) under control.
+
 ## Next steps
 
 For a sample application that's used to evaluate Azure Cosmos DB for high-performance scenarios on a few client machines, see [Performance and scale testing with Azure Cosmos DB](performance-testing.md).
@@ -114,5 +129,4 @@ For a sample application that's used to evaluate Azure Cosmos DB for high-perfor
 To learn more about designing your application for scale and high performance, see [Partitioning and scaling in Azure Cosmos DB](../partitioning-overview.md).
 
 Trying to do capacity planning for a migration to Azure Cosmos DB? You can use information about your existing database cluster for capacity planning.
-* If all you know is the number of vCores and servers in your existing database cluster, read about [estimating request units using vCores or vCPUs](../convert-vcore-to-request-unit.md) 
 * If you know typical request rates for your current database workload, read about [estimating request units using Azure Cosmos DB capacity planner](estimate-ru-with-capacity-planner.md)
