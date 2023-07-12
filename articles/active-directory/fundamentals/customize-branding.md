@@ -16,7 +16,7 @@ ms.custom: "it-pro, seodec18, fasttrack-edit"
 ms.collection: M365-identity-device-management
 ---
 
-# Configure your company branding
+# Add your company branding
 
 When users authenticate into your corporate intranet or web-based applications, Azure Active Directory (Azure AD) provides the identity and access management (IAM) service. You can add company branding that applies to all these sign-in experiences to create a consistent experience for your users.
 
