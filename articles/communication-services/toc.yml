@@ -166,10 +166,14 @@ items:
       href: quickstarts/email/add-multiple-senders.md
     - name: Add multiple sender addresses with ACS Management SDKs
       href: quickstarts/email/add-multiple-senders-mgmt-sdks.md
+  - name: Job Router
+    items: 
+      - name: Submit a job for queuing and routing
+        href: quickstarts/router/get-started-router.md
   - name: Network Traversal
     items:
     - name: Access TURN relays
-      href: quickstarts/relay-token.md  
+      href: quickstarts/relay-token.md      
 - name: Tutorials
   items:
   - name: SMS
@@ -806,6 +810,18 @@ items:
         href: concepts/analytics/logs/email-logs.md
       - name: Email metrics overview
         href: concepts/email-metrics.md
+  - name: Job Router
+    items:
+    - name: Overview
+      href: concepts/router/concepts.md
+    - name : Events
+      href: how-tos/router-sdk/subscribe-events.md
+    - name: Analytics
+      items:
+      - name: Job Router logs
+        href: concepts/analytics/logs/router-logs.md
+      - name: Job Router metrics
+        href: concepts/router/metrics.md
   - name: Network Traversal
     items:
     - name: Overview
