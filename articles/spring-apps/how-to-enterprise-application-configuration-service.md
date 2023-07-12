@@ -23,14 +23,14 @@ This article shows you how to use Application Configuration Service for VMware T
 
 With Application Configuration Service for Tanzu, you have a central place to manage external properties for applications across all environments. To understand the differences from Spring Cloud Config Server in Basic/Standard, see the [Use Application Configuration Service for external configuration](./how-to-migrate-standard-tier-to-enterprise-tier.md#use-application-configuration-service-for-external-configuration) section of [Migrate an Azure Spring Apps Basic or Standard plan instance to the Enterprise plan](./how-to-migrate-standard-tier-to-enterprise-tier.md).
 
-Application Configuration Service is offered in two versions: Gen1 and Gen2. The Gen1 version mainly serves existing customers for backward compatibility purposes, and is supported only until April 30, 2024. New service instances should use Gen2. The Gen2 version uses [flux](https://fluxcd.io/) as the backend to communicate with Git repositories, and provides much better performance compared to Gen1.
+Application Configuration Service is offered in two versions: Gen1 and Gen2. The Gen1 version mainly serves existing customers for backward compatibility purposes, and is supported only until April 30, 2024. New service instances should use Gen2. The Gen2 version uses [flux](https://fluxcd.io/) as the backend to communicate with Git repositories, and provides better performance compared to Gen1.
 
 The following table shows some benchmark data for your reference. However, the Git repository size is a key factor with significant impact on the performance data. We recommend that you store only the necessary configuration files in the Git repository in order to keep it small.
 
 | Application Configuration Service generation | Duration to refresh under 100 patterns | Duration to refresh under 250 patterns | Duration to refresh under 500 patterns |
 |----------------------------------------------|----------------------------------------|----------------------------------------|----------------------------------------|
-| Gen1                                         | 330s                                   | 840s                                   | 1500s                                  |
-| Gen2                                         | 13s                                    | 100s                                   | 378s                                   |
+| Gen1                                         | 330 s                                  | 840 s                                  | 1500 s                                 |
+| Gen2                                         | 13 s                                   | 100 s                                  | 378 s                                  |
 
 Gen2 also provides more security verifications when you connect to a remote Git repository. Gen2 requires a secure connection if you're using HTTPS, and verifies the correct host key and host algorithm when using an SSH connection.
 
@@ -111,7 +111,7 @@ To validate access to the target URI, select **Validate**. After validation comp
 
 ## Upgrade from Gen1 to Gen2
 
-Application Configuration Service Gen2 provides much better performance compared to Gen1, especially when you have a large number of configuration files. We recommend using Gen2, especially because Gen1 is being retired soon. The upgrade from Gen1 to Gen2 is zero downtime, but we still recommend that you test in a staging environment before moving to a production environment.
+Application Configuration Service Gen2 provides better performance compared to Gen1, especially when you have a large number of configuration files. We recommend using Gen2, especially because Gen1 is being retired soon. The upgrade from Gen1 to Gen2 is zero downtime, but we still recommend that you test in a staging environment before moving to a production environment.
 
 Gen2 requires more configuration properties than Gen1 when using SSH authentication. You need to update the configuration properties in your application to make it work with Gen2. The following table shows the required properties for Gen2 when using SSH authentication:
 
@@ -220,7 +220,7 @@ az spring application-configuration-service git repo add \
 
 ## Configure the TLS certificate to access the Git backend with a self-signed certificate for Gen2
 
-This is an optional step. If you use a self-signed certificate for the Git backend, you must configure the TLS certificate to access the Git backend.
+This step is optional. If you use a self-signed certificate for the Git backend, you must configure the TLS certificate to access the Git backend.
 
 You need to upload the certificate to Azure Spring Apps first. For more information, see the [Import a certificate](how-to-use-tls-certificate.md#import-a-certificate) section of [Use TLS/SSL certificates in your application in Azure Spring Apps](how-to-use-tls-certificate.md).
 
@@ -235,7 +235,7 @@ Use the following steps to configure the TLS certificate:
 
 ### [Azure CLI](#tab/Azure-CLI)
 
-Use the following Azure CLI commands to to configure the TLS certificate:
+Use the following Azure CLI commands to configure the TLS certificate:
 
 ```azurecli
 az spring application-configuration-service git repo add \
