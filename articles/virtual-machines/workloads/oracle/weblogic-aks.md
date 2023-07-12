@@ -6,7 +6,7 @@ ms.service: virtual-machines
 ms.subservice: oracle
 ms.collection: linux
 ms.topic: article
-ms.date: 07-12-2023
+ms.date: 07/12/2023
 ms.author: rezar
 ms.reviewer: cynthn
 ms.custom: devx-track-java, devx-track-javaee, devx-track-javaee-wls, devx-track-javaee-wls-aks
