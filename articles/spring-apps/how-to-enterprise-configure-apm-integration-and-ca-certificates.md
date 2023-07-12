@@ -43,7 +43,7 @@ Azure Spring Apps supports CA certificates for all language family buildpacks, b
 | Buildpack         | ApplicationInsights | New Relic | AppDynamics | Dynatrace | ElasticAPM |
 |-------------------|---------------------|-----------|-------------|-----------|------------|
 | Java              | ✔                  | ✔         | ✔          | ✔         | ✔         |
-| Dotnet            |                     | ✔         |             | ✔        |            |
+| .NET              |                     | ✔        |             | ✔         |            |
 | Go                |                     |           |             | ✔        |            |
 | Python            |                     |           |             |           |            |
 | NodeJS            |                     | ✔        | ✔           | ✔        | ✔          |
