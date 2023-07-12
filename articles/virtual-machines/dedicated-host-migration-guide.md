@@ -6,7 +6,7 @@ ms.author: vakavuru
 ms.reviewer: mattmcinnes
 ms.service: azure-dedicated-host
 ms.topic: how-to
-ms.date: 01/23/2023
+ms.date: 07/12/2023
 ---
 
 # Azure Dedicated Host SKU Retirement Migration Guide
@@ -45,7 +45,11 @@ We recommend migrating your existing VMs to one of the following Dedicated Host 
 
 Note that both the Esv3-Type3 and Esv3-Type4 won't be impacted by the 31 March 2023 retirement date. We recommend moving to either the Esv3-Type3 or Esv3-Type4 based on regional availability, pricing, and your organization’s needs.
 
-## Migration steps
+## Automatic migration (Resize)
+
+[!INCLUDE [dedicated-hosts-resize](includes/dedicated-hosts-resize.md)]
+
+## Manual migration
 
 To migrate your workloads to avoid Dedicated Host SKU retirement, please go through the respective steps for your manually placed VMs, automatically VMs, and virtual machine scale set on your Dedicated Host:
 
