@@ -94,7 +94,7 @@ Complete the following steps to enable Azure AD single sign-on in the Azure port
 
 	![Screenshot shows to copy configuration appropriate URL.](common/copy-configuration-urls.png "Metadata")
 
-## Configure Couchbase Capella - SSO SSO
+## Configure Couchbase Capella - SSO
 
 To configure single sign-on on **Couchbase Capella - SSO** side, you need to send the downloaded **Certificate (Raw)** and appropriate copied URLs from Azure portal to [Couchbase Capella - SSO support team](mailto:support@couchbase.com). They set this setting to have the SAML SSO connection set properly on both sides
 
