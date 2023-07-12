@@ -12,12 +12,10 @@ ms.topic: how-to
 
 # Optimize the Visual Studio experience on Microsoft Dev Box
 
-> [!NOTE]
-> Visual Studio caches is currently in public preview. This information relates to a feature that may be substantially modified before it's released. Microsoft makes no warranties, expressed or implied, with respect to the information provided here.
+> [!IMPORTANT]
+> Visual Studio precaching for Microsoft Dev Box is currently in public preview. This information relates to a feature that may be substantially modified before it's released. Microsoft makes no warranties, expressed or implied, with respect to the information provided here.
 
-With Visual Studio 17.7 Preview 3, you can try precaching of Visual Studio solutions for Microsoft Dev Box. You can now prepare and save the data Visual Studio needs to generate during startup, as part of your customized dev box image. This means that when you create a dev box from a custom image including Visual Studio caches, you can log onto a Microsoft Dev Box and start working on your project immediately.
-
-When loading projects, Visual Studio indexes files and generates metadata to enable the full suite of [IDE](/visualstudio/get-started/visual-studio-ide) capabilities. As a result, Visual Studio can sometimes take a considerable amount of time when you load large projects for the first time. However, with Microsoft Dev Box and Visual Studio 17.7 Preview 3, you can now pregenerate this data and make it available to Visual Studio even before you log in to a new dev box.
+With Visual Studio 17.7 Preview 3, you can try precaching of Visual Studio solutions for Microsoft Dev Box. When loading projects, Visual Studio indexes files and generates metadata to enable the full suite of [IDE](/visualstudio/get-started/visual-studio-ide) capabilities. As a result, Visual Studio can sometimes take a considerable amount of time when loading large projects for the first time. However, with Microsoft Dev Box and Visual Studio 17.7 Preview 3, you can now pregenerate this startup data and make it available to Visual Studio as part of your customized dev box image. This means that when you create a dev box from a custom image including Visual Studio caches, you can log onto a Microsoft Dev Box and start working on your project immediately.
 
 Benefits of precaching your Visual Studio solution on a dev box image include:
 - You can reduce the time it takes to load your solution for the first time. 
@@ -34,7 +32,7 @@ To leverage pre-caching of your source code and IDE customizations on Microsoft 
 - Create a dev center and configure the Microsoft Dev Box service. If you don't have one available, follow the steps in [Create a dev center](quickstart-configure-dev-box-service.md) to configure a dev box.
 - [Create a custom VM image for Dev Box](how-to-customize-devbox-azure-image-builder.md) that includes your source code and pregenerated caches. 
 
-This article guides you through the creation of an Azure Resource Manager template. In the following sections, you'll modify that template to include processes to [generate the Visual Studio solution cache](#enable-caches-in-dev-box-images) and further improve Visual Studio performance by [preparing the git commit graph](#enable-git-commit-graph-optimizations) for your project.
+  This article guides you through the creation of an Azure Resource Manager template. In the following sections, you'll modify that template to include processes to [generate the Visual Studio solution cache](#enable-caches-in-dev-box-images) and further improve Visual Studio performance by [preparing the git commit graph](#enable-git-commit-graph-optimizations) for your project.
 
 You can then use the resulting image to [create new dev boxes](quickstart-configure-dev-box-service.md#3-create-a-dev-box-definition) for your team.
 
