@@ -15,9 +15,9 @@ ms.custom: subject-reliability, references_regions
 
 Across Azure, [reliability](../reliability/overview.md) means resiliency and availability if there's a service outage or degradation. In Cognitive Search, reliability can be achieved within a single service or through multiple search services in separate regions.
 
-+ Deploy a single search service in a specified region, and then add multiple replicas to scale indexing and query workloads for high availability. If your search service meets the requirements for [availability zone support](#availability-zone-support), replicas are automatically provisioned in different physical data centers for extra resiliency.
++ Deploy a single search service and scale up for high availability. You can add multiple replicas to handle higher indexing and query workloads. If your search service [supports availability zones](#availability-zone-support), replicas are automatically provisioned in different physical data centers for extra resiliency.
 
-+ Deploy multiple search services across different geographic regions. All search workloads are fully contained within a single service that runs in a single geographic region. In a multi-service scenario, you should use indexers or coordinate the indexing workloads to ensure each search service provides the same content and user experience.
++ Deploy multiple search services across different geographic regions. All search workloads are fully contained within a single service that runs in a single geographic region, but in a multi-service scenario, you have options for synchronizing content so that it's the same across all services. You can also set up a load balancing option to redistribute requests or fail over if there's a service outage.
 
 For business continuity and recovery from disasters at a regional level, plan on a cross-regional topology, consisting of multiple search services having identical configuration and content. Your custom script or code provides the "fail over" mechanism to an alternate search service if one suddenly becomes unavailable.
 
@@ -130,17 +130,17 @@ If you're using the Azure Cognitive Search REST API to [push content to your sea
 
 ### Fail over or redirect requests
 
-Once data is synchronized, the next task is to ensure indexing and query requests reach a viable search service if one becomes overloaded or unavailable. Azure provides several [load balancing options](/azure/architecture/guide/technology-choices/load-balancing-overview). Some guidelines for choosing options include:
+If you need redundancy at the request level, Azure provides several [load balancing options](/azure/architecture/guide/technology-choices/load-balancing-overview):
 
 + [Azure Traffic Manager](/azure/traffic-manager/traffic-manager-overview), used to route requests to multiple geo-located websites that are then backed by multiple search services. 
 + [Application Gateway](/azure/application-gateway/overview), used to load balance between servers in a region at the application layer.
 + [Azure Front Door](/azure/frontdoor/front-door-overview), used to optimize global routing of web traffic and provide global failover.
 
-Some points to remember when evaluating the options:
+Some points to remember when evaluating load balancing options:
 
 + Search is a backend service that accepts query and indexing requests from a client. If possible, use the same load balancing option for both the client app and search to mitigate costs and complexity.
 
-+ Search endpoints are reached through a public internet connection by default. If you set up a private endpoint for client connections from within a virtual network, use [Application Gateway](/azure/application-gateway/overview).
++ Search endpoints are reached through a public internet connection by default. If you set up a private endpoint for client connections that originate from within a virtual network, use [Application Gateway](/azure/application-gateway/overview).
 
 + Requests to a search service must be authenticated. For access to search operations, the caller must have role-based permissions or provide an API key on the request.
 
