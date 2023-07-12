@@ -209,11 +209,10 @@ A daemon app signs-in as itself using the [OAuth 2.0 client credentials flow](/a
 [!INCLUDE [register client app](../customers/includes/register-app/register-client-app-common.md)]
 
 ## Grant API Access to your application
-[!INCLUDE [add app client secret](../customers/includes/register-app/add-app-client-secret.md)]
+[!INCLUDE [grant api access to app](../customers/includes/register-app/grant-api-access-app.md)]
 
 ## Create a client secret 
 [!INCLUDE [add app client secret](../customers/includes/register-app/add-app-client-secret.md)]
-
 
 ## Next steps
 - Learn more how to manage [Azure Active Directory for customers resources with Microsoft Graph](microsoft-graph-operations.md)
