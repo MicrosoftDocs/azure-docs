@@ -2,7 +2,7 @@
 author: alkohli
 ms.service: databox  
 ms.topic: include
-ms.date: 07/11/2023
+ms.date: 07/12/2023
 ms.author: alkohli
 ---
 
@@ -53,10 +53,10 @@ These sizes are supported for GPU VMs on your device and are optimized for compu
 | **Standard_NC4as_T4_v3**  | 4     | 28            | 176                 | 2000                           | 48000                               | 2300                             | 1    | 16                | 4         |
 | **Standard_NC8as_T4_v3**  | 8     | 56            | 352                 | 2000                           | 48000                               | 2300                             | 1    | 16                | 8         |
 | **Standard_NC16as_T4_v3**   | 16    | 110            | 352                 | 2000                           | 48000                               | 2300                             | 1    | 16                | 8         |
-| **Standard_NC16as_T4_v1**   |
-| **Standard_NC32as_T4_v3**   |
-| **Standard_NC32as_T4_v1**   |
-| **Standard_NC32as_2T4_v1**  |
+| **Standard_NC16as_T4_v1**   | yy    | yyy           | yyy                 | yyyy                            | yyyyy                               | yyyy                             | y    | yy                | y         |   
+| **Standard_NC32as_T4_v3**   | yy    | yyy           | yyy                 | yyyy                            | yyyyy                               | yyyy                             | y    | yy                | y         |
+| **Standard_NC32as_T4_v1**   | yy    | yyy           | yyy                 | yyyy                            | yyyyy                               | yyyy                             | y    | yy                | y         |
+| **Standard_NC32as_2T4_v1**  | yy    | yyy           | yyy                 | yyyy                            | yyyyy                               | yyyy                             | y    | yy                | y         |
 
 
 For more information, see [NCasT4_v3-series](../articles/virtual-machines/nct4-v3-series.md).
