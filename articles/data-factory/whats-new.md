@@ -28,7 +28,7 @@ Check out our [What's New video archive](https://www.youtube.com/playlist?list=P
 
 ### Continuous integration and continuous deployment
 
-NPM package now supports pre-downloaded bundle for building ARM templates. If your firewall setting is blocking direct download for your NPM package, you can now pre-load the package upfront, and let NPM package consume local version instead. This is a super boost for your CI/CD pipeline, in a firewalled environment.
+NPM package now supports pre-downloaded bundle for building ARM templates. If your firewall setting is blocking direct download for your NPM package, you can now pre-load the package upfront, and let NPM package consume local version instead. This is a super boost for your CI/CD pipeline in a firewalled environment.
 
 ### Region expansion
 
@@ -36,11 +36,11 @@ Azure Data Factory is now available in Sweden Central. You can co-locate your ET
 
 ### Data movement
 
-Securing outbound traffic with Azure Data Factory's outbound network rules is now supported. Outbound allow listing of FQDN is a network security practice that allows organizations to control outbound traffic from their networks to specific, approved domain names. Outbound rules apply to pipeline activities such as Copy, Dataflows, Web, Webhook, and Azure Function activities. These rules also apply to authoring scenarios like data preview and test connection. [Learn more](https://techcommunity.microsoft.com/t5/azure-data-factory-blog/securing-outbound-traffic-with-azure-data-factory-s-outbound/ba-p/3844032)
+Securing outbound traffic with Azure Data Factory's outbound network rules is now supported. [Learn more](https://techcommunity.microsoft.com/t5/azure-data-factory-blog/securing-outbound-traffic-with-azure-data-factory-s-outbound/ba-p/3844032)
 
 ### Connectors
 
-The Amazon S3 connector is now supported as a sink destination using Mapping Data Flows. Azure Data Factory supports writing data to non-Azure destinations and we have now added Amazon S3 to that list. To write data to Amazon S3, create a data flow in your pipeline and choose Amazon S3 as your sink. [Learn more](connector-amazon-simple-storage-service.md)
+The Amazon S3 connector is now supported as a sink destination using Mapping Data Flows. [Learn more](connector-amazon-simple-storage-service.md)
 
 ### Data flow
 
@@ -137,28 +137,6 @@ Express virtual network injection for SSIS in Azure Data Factory is generally av
 
 Continued region expansion - Azure Data Factory is now available in China North 3 [Learn more](https://azure.microsoft.com/explore/global-infrastructure/products-by-region/?products=data-factory)
 
-## November 2022
-
- 
-### Data flow
-
-- Incremental only is available in SAP CDC - get changes only from SAP system without initial full load  [Learn more](connector-sap-change-data-capture.md?tabs=data-factory#mapping-data-flow-properties)
-- Source partitions in initial full data load of SAP CDC to improve performance  [Learn more](connector-sap-change-data-capture.md?tabs=data-factory#mapping-data-flow-properties)
-- A new pipeline template - Load multiple objects with big amounts from SAP via SAP CDC [Learn more](solution-template-replicate-multiple-objects-sap-cdc.md?tabs=data-factory)
-
-### Data Movement
-- Support to Azure Databricks through private link from a Data Factory managed virtual network [Learn more](managed-virtual-network-private-endpoint.md?tabs=data-factory#supported-data-sources-and-services)
-
-### User Interface
-3 Pipeline designer enhancements added to ADF Studio preview experience 
-- Dynamic content flyout - make it easier to set dynamic content in your pipeline activities without using the expression builder  [Learn more](how-to-manage-studio-preview-exp.md?tabs=data-factory#dynamic-content-flyout)
-- Error message relocation to status column - make it easier for you to view errors when you see a Failed pipeline run [Learn more](how-to-manage-studio-preview-exp.md?tabs=data-factory#error-message-relocation-to-status-column)
-- Container view - in Author Tab, Pipeline can change output view from list to container [Learn more](how-to-manage-studio-preview-exp.md?tabs=data-factory#container-view)
-
-
-### Continuous integration and continuous deployment
-
-In auto publish config, disable publish button is available to void overwriting the last automated publish deployment [Learn more](source-control.md?tabs=data-factory#editing-repo-settings)
 
 ## More information
 
