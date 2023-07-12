@@ -44,14 +44,14 @@ The following command will create a new virtual network and subnet with at least
 ```azurecli-interactive
 VNET_NAME=<name of the virtual network to use>
 VNET_ADDRESS_PREFIX='<address space of the vnet that will contain various subnets.  The vnet must be able to handle at least 250 available addresses (/24 or smaller cidr prefix for the subnet)>'
-subnetAddressPrefix='<an address space under the vnet that has at least 250 available addresses (/24 or smaller cidr prefix for the subnet)>'
+SUBNET_ADDRESS_PREFIX='<an address space under the vnet that has at least 250 available addresses (/24 or smaller cidr prefix for the subnet)>'
 ALB_SUBNET_NAME='subnet-alb' # subnet name can be any non-reserved subnet name (i.e. GatewaySubnet, AzureFirewallSubnet, AzureBastionSubnet would all be invalid)
 az network vnet create \
     --name $VNET_NAME \
     --resource-group $RESOURCE_GROUP \
     --address-prefix $VNET_ADDRESS_PREFIX \
     --subnet-name $ALB_SUBNET_NAME \
-    --subnet-prefixes $subnetAddressPrefix \
+    --subnet-prefixes $SUBNET_ADDRESS_PREFIX \
 ```
 
 Enable subnet delegation for the Application Gateway for Containers service is identified by the Microsoft.ServiceNetworking/trafficControllers resource type.
