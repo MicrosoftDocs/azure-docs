@@ -182,7 +182,7 @@ You need to create a role assignment that provides access to Azure SignalR Servi
 
 [!INCLUDE [functions-azurewebjobsstorage-permissions](../../includes/functions-azurewebjobsstorage-permissions.md)]
 
-
+---
 
 #### Common properties for identity-based connections
 
