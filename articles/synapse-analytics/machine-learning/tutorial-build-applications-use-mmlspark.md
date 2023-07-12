@@ -93,7 +93,7 @@ display(sentiment.transform(df_sentences).select("text", col("sentiment")[0].get
 | I am so happy today, its sunny! | positive |
 
 ## Computer vision sample
-[Computer Vision](../../ai-services/computer-vision/index.yml) analyzes images to identify structure such as faces, objects, and natural-language descriptions. In this sample, we tag the follow image. Tags are one-word descriptions of things in the image like recognizable objects, people, scenery, and actions.
+[Computer Vision](../../ai-services/computer-vision/index.yml) analyzes images to identify structure such as faces, objects, and natural-language descriptions. In this sample, we tag the following image. Tags are one-word descriptions of things in the image like recognizable objects, people, scenery, and actions.
 
 ![image](https://raw.githubusercontent.com/Azure-Samples/cognitive-services-sample-data-files/master/ComputerVision/Images/objects.jpg)
 
