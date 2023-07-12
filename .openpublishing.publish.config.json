@@ -75,6 +75,12 @@
       "branch_mapping": {}
     },
     {
+      "path_to_root": "ms-identity-ciam-dotnet-tutorial",
+      "url": "https://github.com/Azure-Samples/ms-identity-ciam-dotnet-tutorial",
+      "branch": "main",
+      "branch_mapping": {}
+    },
+    {
       "path_to_root": "_themes",
       "url": "https://github.com/Microsoft/templates.docs.msft",
       "branch": "main",
@@ -408,12 +414,6 @@
       "path_to_root": "azureml-examples-main",
       "url": "https://github.com/azure/azureml-examples",
       "branch": "main",
-      "branch_mapping": {}
-    },
-    {
-      "path_to_root": "azureml-examples-vj",
-      "url": "https://github.com/azure/azureml-examples",
-      "branch": "vijetajo-patch-2",
       "branch_mapping": {}
     },
     {
@@ -1045,7 +1045,6 @@
   ".openpublishing.redirection.baremetal-infrastructure.json",
   ".openpublishing.redirection.defender-for-cloud.json",
   ".openpublishing.redirection.defender-for-iot.json",
-  ".openpublishing.redirection.healthcare-apis.json",
   ".openpublishing.redirection.iot-hub-device-update.json",
   ".openpublishing.redirection.json",
   ".openpublishing.redirection.key-vault.json",
@@ -1076,6 +1075,7 @@
   "articles/event-grid/.openpublishing.redirection.event-grid.json",
   "articles/event-hubs/.openpublishing.redirection.event-hubs.json",
   "articles/hdinsight/.openpublishing.redirection.hdinsight.json",
+  "articles/healthcare-apis/.openpublishing.redirection.healthcare-apis.json",
   "articles/iot-accelerators/.openpublishing.redirection.iot-accelerators.json",
   "articles/iot-central/.openpublishing.redirection.iot-central.json",
   "articles/iot-develop/.openpublishing.redirection.iot-develop.json",

@@ -4,6 +4,7 @@ description: Configure Azure firewall and user-defined routes for Azure Containe
 ms.author: tomcassidy
 author: tomvcassidy
 ms.service: container-instances
+ms.custom: devx-track-azurecli
 services: container-instances
 ms.topic: how-to
 ms.date: 05/03/2022

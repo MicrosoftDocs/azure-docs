@@ -29,7 +29,7 @@ You need to access a license server if you plan to use the Autodesk network lice
 
 To use network licensing with Autodesk software, [AutoDesk provides detailed steps](https://knowledge.autodesk.com/customer-service/network-license-administration/install-and-configure-network-license) to install Autodesk Network License Manager on your license server.  You can host the license server in your on-premises network, or on an Azure virtual machine (VM) within in an Azure virtual network.
 
-After setting up your license server, you need to enable [advanced networking](how-to-connect-vnet-injection.md#connect-the-virtual-network-during-lab-plan-creation) when you create the lab plan.
+After setting up your license server, you need to enable [advanced networking](how-to-connect-vnet-injection.md) when you create the lab plan.
 
 Autodesk-generated license files embed the MAC address of the license server.  If you decide to host your license server by using an Azure VM, it’s important to make sure that your license server’s MAC address doesn’t change. If the MAC address changes, you need to regenerate your licensing files. To prevent your MAC address from changing:
 
@@ -39,7 +39,7 @@ Autodesk-generated license files embed the MAC address of the license server.  I
 For more information, see [Set up a license server as a shared resource](./how-to-create-a-lab-with-shared-resource.md).
 
 > [!IMPORTANT]
-> You must enable [advanced networking](how-to-connect-vnet-injection.md#connect-the-virtual-network-during-lab-plan-creation) when creating your lab plan. You can't enable advanced networking for an existing lab plan.
+> You must enable [advanced networking](how-to-connect-vnet-injection.md) when creating your lab plan. You can't enable advanced networking for an existing lab plan.
 
 ## Lab configuration
 

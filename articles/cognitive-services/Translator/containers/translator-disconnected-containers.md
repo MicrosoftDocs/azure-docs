@@ -7,7 +7,7 @@ author: laujan
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: reference
-ms.date: 02/01/2023
+ms.date: 06/27/2023
 ms.author: lajanuar
 ---
 
@@ -23,7 +23,7 @@ ms.author: lajanuar
 Before attempting to run a Docker container in an offline environment, make sure you're familiar with the following requirements to successfully download and use the container:
 
 * Host computer requirements and recommendations.
-* The Docker `pull` command you'll use to download the container.
+* The Docker `pull` command to download the container.
 * How to validate that a container is running.
 * How to send queries to the container's endpoint, once it's running.
 
@@ -89,9 +89,9 @@ docker pull mcr.microsoft.com/azure-cognitive-services/translator/text-translati
 
 ## Configure the container to run in a disconnected environment
 
-Now that you've downloaded your container, you'll need to execute the `docker run` command with the following parameters:
+Now that you've downloaded your container, you need to execute the `docker run` command with the following parameters:
 
-* **`DownloadLicense=True`**. This parameter will download a license file that will enable your Docker container to run when it isn't connected to the internet. It also contains an expiration date, after which the license file will be invalid to run the container. You can only use the license file in corresponding approved container.
+* **`DownloadLicense=True`**. This parameter downloads a license file that enables your Docker container to run when it isn't connected to the internet. It also contains an expiration date, after which the license file is invalid to run the container. You can only use the license file in corresponding approved container.
 * **`Languages={language list}`**. You must include this parameter to download model files for the [languages](../language-support.md) you want to translate.
 
 > [!IMPORTANT]
@@ -102,10 +102,10 @@ The following example shows the formatting for the `docker run` command with pla
 | Placeholder | Value | Format|
 |-------------|-------|---|
 | `[image]` | The container image you want to use. | `mcr.microsoft.com/azure-cognitive-services/translator/text-translation` |
-| `{LICENSE_MOUNT}` | The path where the license will be downloaded, and mounted.  | `/host/license:/path/to/license/directory` |
- | `{MODEL_MOUNT_PATH}`| The path where the machine translation models will be downloaded, and mounted.  Your directory structure must be formatted as **/usr/local/models** | `/host/translator/models:/usr/local/models`|
+| `{LICENSE_MOUNT}` | The path where the license is downloaded, and mounted.  | `/host/license:/path/to/license/directory` |
+ | `{MODEL_MOUNT_PATH}`| The path where the machine translation models are downloaded, and mounted.  Your directory structure must be formatted as **/usr/local/models** | `/host/translator/models:/usr/local/models`|
 | `{ENDPOINT_URI}` | The endpoint for authenticating your service request. You can find it on your resource's **Key and endpoint** page, in the Azure portal. | `https://<your-custom-subdomain>.cognitiveservices.azure.com` |
-| `{API_KEY}` | The key for your Text Analytics resource. You can find it on your resource's **Key and endpoint** page, in the Azure portal. |`{string}`|
+| `{API_KEY}` | The key for your Text Translation resource. You can find it on your resource's **Key and endpoint** page, in the Azure portal. |`{string}`|
 | `{LANGUAGES_LIST}` | List of language codes separated by commas. It's mandatory to have English (en) language as part of the list.| `en`, `fr`, `it`, `zu`, `uk` |
 | `{CONTAINER_LICENSE_DIRECTORY}` | Location of the license folder on the container's local filesystem.  | `/path/to/license/directory` |
 
@@ -154,8 +154,8 @@ Placeholder | Value | Format|
 | `[image]`| The container image you want to use. | `mcr.microsoft.com/azure-cognitive-services/translator/text-translation` |
  `{MEMORY_SIZE}` | The appropriate size of memory to allocate for your container. | `16g` |
 | `{NUMBER_CPUS}` | The appropriate number of CPUs to allocate for your container. | `4` |
-| `{LICENSE_MOUNT}` | The path where the license will be located and mounted.  | `/host/translator/license:/path/to/license/directory` |
-|`{MODEL_MOUNT_PATH}`| The path where the machine translation models will be downloaded, and mounted.  Your directory structure must be formatted as **/usr/local/models** | `/host/translator/models:/usr/local/models`|
+| `{LICENSE_MOUNT}` | The path where the license is located and mounted.  | `/host/translator/license:/path/to/license/directory` |
+|`{MODEL_MOUNT_PATH}`| The path where the machine translation models are downloaded, and mounted.  Your directory structure must be formatted as **/usr/local/models** | `/host/translator/models:/usr/local/models`|
 |`{MODELS_DIRECTORY_LIST}`|List of comma separated directories each having a machine translation model. | `/usr/local/models/enu_esn_generalnn_2022240501,/usr/local/models/esn_enu_generalnn_2022240501` |
 | `{OUTPUT_PATH}` | The output path for logging [usage records](#usage-records). | `/host/output:/path/to/output/directory` |
 | `{CONTAINER_LICENSE_DIRECTORY}` | Location of the license folder on the container's local filesystem.  | `/path/to/license/directory` |
@@ -197,7 +197,7 @@ When operating Docker containers in a disconnected environment, the container wi
 
 #### Arguments for storing logs
 
-When run in a disconnected environment, an output mount must be available to the container to store usage logs. For example, you would include `-v /host/output:{OUTPUT_PATH}` and `Mounts:Output={OUTPUT_PATH}` in the following example, replacing `{OUTPUT_PATH}` with the path where the logs will be stored:
+When run in a disconnected environment, an output mount must be available to the container to store usage logs. For example, you would include `-v /host/output:{OUTPUT_PATH}` and `Mounts:Output={OUTPUT_PATH}` in the following example, replacing `{OUTPUT_PATH}` with the path where the logs are stored:
 
   **Example `docker run` command**
 
@@ -211,7 +211,7 @@ The container provides two endpoints for returning records regarding its usage.
 
 #### Get all records
 
-The following endpoint will provide a report summarizing all of the usage collected in the mounted billing record directory.
+The following endpoint provides a report summarizing all of the usage collected in the mounted billing record directory.
 
 ```HTTP
 https://<service>/records/usage-logs/
@@ -221,7 +221,7 @@ https://<service>/records/usage-logs/
 
   `http://localhost:5000/records/usage-logs`
 
-The usage-logs endpoint will return a JSON response similar to the following example:
+The usage-logs endpoint returns a JSON response similar to the following example:
 
 ```json
 {
@@ -238,13 +238,13 @@ The usage-logs endpoint will return a JSON response similar to the following exa
 
 #### Get records for a specific month
 
-The following endpoint will provide a report summarizing usage over a specific month and year:
+The following endpoint provides a report summarizing usage over a specific month and year:
 
 ```HTTP
 https://<service>/records/usage-logs/{MONTH}/{YEAR}
 ```
 
-This usage-logs endpoint will return a JSON response similar to the following example:
+This usage-logs endpoint returns a JSON response similar to the following example:
 
 ```json
 {
@@ -261,17 +261,17 @@ This usage-logs endpoint will return a JSON response similar to the following ex
 
 ### Purchase a different commitment plan for disconnected containers
 
-Commitment plans for disconnected containers have a calendar year commitment period. When you purchase a plan, you'll be charged the full price immediately. During the commitment period, you can't change your commitment plan, however you can purchase more unit(s) at a pro-rated price for the remaining days in the year. You have until midnight (UTC) on the last day of your commitment, to end a commitment plan.
+Commitment plans for disconnected containers have a calendar year commitment period. When you purchase a plan, you're charged the full price immediately. During the commitment period, you can't change your commitment plan, however you can purchase more unit(s) at a pro-rated price for the remaining days in the year. You have until midnight (UTC) on the last day of your commitment, to end a commitment plan.
 
 You can choose a different commitment plan in the **Commitment tier pricing** settings of your resource under the **Resource Management** section.
 
 ### End a commitment plan
 
- If you decide that you don't want to continue purchasing a commitment plan, you can set your resource's auto-renewal to **Do not auto-renew**. Your commitment plan will expire on the displayed commitment end date. After this date, you won't be charged for the commitment plan. You'll be able to continue using the Azure resource to make API calls, charged at pay-as-you-go pricing. You'll have until midnight (UTC) on the last day of the year to end a commitment plan for disconnected containers. If you do so, you won't be charged for the following year.
+ If you decide that you don't want to continue purchasing a commitment plan, you can set your resource's autorenewal to **Do not auto-renew**. Your commitment plan expires on the displayed commitment end date. After this date, you won't be charged for the commitment plan. You're still able to continue using the Azure resource to make API calls, charged at pay-as-you-go pricing. You have until midnight (UTC) on the last day of the year to end a commitment plan for disconnected containers. If you do so, you avoid charges for the following year.
 
 ## Troubleshooting
 
-Run the container with an output mount and logging enabled. These settings will enable the container to generate log files that are helpful for troubleshooting issues that occur while starting or running the container.
+Run the container with an output mount and logging enabled. These settings enable the container to generate log files that are helpful for troubleshooting issues that occur while starting or running the container.
 
 > [!TIP]
 > For more troubleshooting information and guidance, see [Disconnected containers Frequently asked questions (FAQ)](../../containers/disconnected-container-faq.yml).

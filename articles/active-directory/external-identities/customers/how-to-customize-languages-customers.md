@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: ciam
 ms.topic: how-to
-ms.date: 05/09/2023
+ms.date: 07/12/2023
 ms.custom: it-pro
 
 #Customer intent: As a dev, devops, or it admin, I want to learn about how to add customized browser languages to my app's authentication experience.
@@ -28,7 +28,7 @@ You can create a personalized sign-in experience for users who sign in using a s
 ## Add browser language under Company branding
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com/).
-1. If you have access to multiple tenants, use the **Directories + subscriptions** filter in the top menu to switch to the customer tenant you created earlier.
+1. If you have access to multiple tenants, use the **Directories + subscriptions** filter :::image type="icon" source="media/common/portal-directory-subscription-filter.png" border="false"::: in the top menu to switch to the customer tenant you created earlier.
 1. In the search bar, type and select **Company branding**.
 1. Under **Browser language customizations**, select **Add browser language**. 
 
@@ -88,7 +88,7 @@ The following languages are supported in the customer tenant:
 Language customization in the customer tenant allows your user flow to accommodate different languages to suit your customer's needs.  You can use languages to modify the strings displayed to your customers as part of the attribute collection process during sign-up.
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com/).
-2. If you have access to multiple tenants, use the **Directories + subscriptions** filter in the top menu to switch to the customer tenant you created earlier.
+2. If you have access to multiple tenants, use the **Directories + subscriptions** filter :::image type="icon" source="media/common/portal-directory-subscription-filter.png" border="false"::: in the top menu to switch to the customer tenant you created earlier.
 3. In the left menu, select **Azure Active Directory** > **External Identities**.
 4. Select **User flows**.
 5. Select the user flow that you want to enable for translations.
@@ -166,7 +166,7 @@ You can modify any or all of these attributes in the downloaded file. For exampl
    :::image type="content" source="media/how-to-customize-languages-customers/customized-attributes.png" alt-text="Screenshot of the modified sign-up page attributes.":::
 
 > [!IMPORTANT] 
-> In the customer tenant, we have two options to add custom text to the sign-up and sign-in experience. The function is available under each user flow during language customization and under [Company Branding](https://github.com/csmulligan/entra-previews/blob/PP3/docs/PP3_Customize%20CIAM%20neutral%20branding.md#customize-the-neutral-default-authentication-experience-for-the-ciam-tenant). Although we have to ways to customize strings (via Company branding and via User flows), both ways modify the same JSON file. The most recent change made either via User flows or via Company branding will always override the previous one.
+> In the customer tenant, we have two options to add custom text to the sign-up and sign-in experience. The function is available under each user flow during language customization and under [Company Branding](/azure/active-directory/external-identities/customers/how-to-customize-branding-customers). Although we have to ways to customize strings (via Company branding and via User flows), both ways modify the same JSON file. The most recent change made either via User flows or via Company branding will always override the previous one.
 
 ## Right-to-left language support
 

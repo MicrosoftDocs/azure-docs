@@ -27,7 +27,7 @@ The Azure Linux Container Host offers the following key benefits:
 
 > [!NOTE]
 >
-> The Azure Linux Container Host supports the NCv3 series and NCasT4_v3 series VM sizes. The NC A100 v4 series is currently not supported.
+> For GPU workloads, Azure Linux doesn't support NC A100 v4 series. All other VM SKUs that are available on AKS are available with Azure Linux.
 >
 > If there are any areas you would like to have priority, please file an issue in the [AKS GitHub repository](https://github.com/Azure/AKS/issues).
 

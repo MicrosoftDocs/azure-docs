@@ -145,7 +145,8 @@ This step is only required if you didn't enable Azure Key Vault Provider for Sec
     ```yml
     prometheus:
       prometheusSpec:
-        cluster: <CLUSTER-NAME>  
+        externalLabels:
+          cluster: <CLUSTER-NAME>  
   
         ##	Azure Managed Prometheus currently exports some default mixins in Grafana.  
         ##  These mixins are compatible with data scraped by Azure Monitor agent on your 

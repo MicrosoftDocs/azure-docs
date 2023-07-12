@@ -1,6 +1,11 @@
 {
     "redirections": [
     {
+        "source_path_from_root": "/articles/machine-learning/how-to-create-manage-compute-instance.md",
+        "redirect_url": "/azure/machine-learning/how-to-create-compute-instance",
+        "redirect_document_id": true
+    },
+    {
         "source_path_from_root": "/articles/machine-learning/v-fake/tutorial-train-deploy-notebook.md",
         "redirect_url": "/azure/machine-learning/tutorial-train-deploy-notebook",
         "redirect_document_id": false
@@ -187,8 +192,8 @@
     },
     {
         "source_path_from_root": "/articles/machine-learning/v-fake/how-to-create-manage-compute-instance.md",
-        "redirect_url": "/azure/machine-learning/how-to-create-manage-compute-instance",
-        "redirect_document_id": true
+        "redirect_url": "/azure/machine-learning/how-to-create-compute-instance",
+        "redirect_document_id": false
     },
     {
         "source_path_from_root": "/articles/machine-learning/v-fake/how-to-create-machine-learning-pipelines.md",
@@ -217,7 +222,7 @@
     },
     {
         "source_path_from_root": "/articles/machine-learning/v-fake/azure-machine-learning-release-notes.md",
-        "redirect_url": "/articles/machine-learning/azure-machine-learning-release-notes",
+        "redirect_url": "/azure/machine-learning/azure-machine-learning-release-notes",
         "redirect_document_id": false
     },
     {
@@ -253,7 +258,7 @@
     {
         "source_path_from_root": "/articles/machine-learning/v-fake/concept-model-management-and-deployment.md",
         "redirect_url": "/azure/machine-learning/concept-model-management-and-deployment",
-        "redirect_document_id": false 
+        "redirect_document_id": false
     },
     {
         "source_path_from_root": "/articles/machine-learning/how-to-set-up-vs-code-remote.md",
@@ -283,7 +288,7 @@
     {
         "source_path_from_root": "/articles/machine-learning/v-fake/how-to-export-delete-data.md",
         "redirect_url": "/azure/machine-learning/how-to-export-delete-data.md",
-        "redirect_document_id": false   
+        "redirect_document_id": false
     },
     {
         "source_path_from_root": "/articles/machine-learning/v-fake/how-to-configure-auto-features.md",
@@ -365,7 +370,7 @@
         "redirect_url": "/azure/machine-learning/how-to-train-model",
         "redirect_document_id": false
     },
-   
+
     {
         "source_path_from_root": "/articles/machine-learning/how-to-train-with-rest.md",
         "redirect_url": "/azure/machine-learning/how-to-train-model",
@@ -1681,6 +1686,11 @@
         "redirect_document_id": false
     },
     {
+        "source_path_from_root": "/articles/machine-learning/how-to-train-with-datasets.md",
+        "redirect_url": "/azure/machine-learning/how-to-read-write-data-v2",
+        "redirect_document_id": false
+    },
+    {
         "source_path_from_root": "/articles/machine-learning/v-fake/how-to-train-with-datasets.md",
         "redirect_url": "/azure/machine-learning/how-to-train-with-datasets",
         "redirect_document_id": true
@@ -1753,8 +1763,8 @@
     {
         "source_path_from_root": "/articles/machine-learning/service/how-to-save-write-experiment-files.md",
         "redirect_url": "/azure/machine-learning/v1/how-to-save-write-experiment-files",
-        "redirect_document_id": false  
-    },    
+        "redirect_document_id": false
+    },
     {
         "source_path_from_root": "/articles/machine-learning/service/how-to-run-batch-predictions.md",
         "redirect_url": "/azure/machine-learning/how-to-run-batch-predictions",
@@ -2281,6 +2291,11 @@
         "redirect_document_id": false
     },
     {
+        "source_path_from_root": "/articles/machine-learning/reference-pipeline-yaml.md",
+        "redirect_url": "/azure/machine-learning/reference-yaml-job-pipeline",
+        "redirect_document_id": false
+    },
+    {
         "source_path_from_root": "/articles/machine-learning/reference-online-endpoint-yaml.md",
         "redirect_url": "reference-yaml-endpoint-online",
         "redirect_document_id": true
@@ -2289,6 +2304,11 @@
         "source_path_from_root": "/articles/machine-learning/v-fake/reference-azure-machine-learning-cli.md",
         "redirect_url": "/azure/machine-learning/reference-azure-machine-learning-cli",
         "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/machine-learning/reference-azure-machine-learning-cli.md",
+        "redirect_url": "/azure/machine-learning/how-to-configure-cli",
+        "redirect_document_id": true
     },
     {
         "source_path_from_root": "/articles/machine-learning/r-developers-guide.md",
@@ -2987,8 +3007,13 @@
     },
     {
         "source_path_from_root": "/articles/machine-learning/v-fake/how-to-attach-compute-targets.md",
-        "redirect_url": "/azure/machine-learning/how-to-attach-compute-targets",
+        "redirect_url": "/azure/machine-learning/how-to-train-model",
         " redirect_document_id": true
+    },
+    {
+        "source_path_from_root": "/articles/machine-learning/v1/how-to-attach-compute-targets.md",
+        "redirect_url": "/azure/machine-learning/how-to-train-model",
+        "redirect_document_id": false
     },
     {
         "source_path_from_root": "/articles/machine-learning/how-to-attach-arc-kubernetes.md",
@@ -3932,12 +3957,17 @@
     },
     {
         "source_path_from_root": "/articles/machine-learning/how-to-use-batch-endpoint-sdk-v2.md",
-        "redirect_url": "/azure/machine-learning/how-to-use-batch-endpoint",
+        "redirect_url": "/azure/machine-learning/concept-endpoints-batch",
         "redirect_document_id": false
     },
     {
         "source_path_from_root": "/articles/machine-learning/how-to-use-batch-endpoints-studio.md",
-        "redirect_url": "/azure/machine-learning/how-to-use-batch-endpoint",
+        "redirect_url": "/azure/machine-learning/concept-endpoints-batch",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/machine-learning/how-to-use-batch-endpoints.md",
+        "redirect_url": "/azure/machine-learning/concept-endpoints-batch",
         "redirect_document_id": false
     },
     {
@@ -4007,7 +4037,7 @@
     },
     {
         "source_path_from_root": "/articles/machine-learning/batch-inference/how-to-use-batch-endpoint.md",
-        "redirect_url": "/azure/machine-learning/how-to-use-batch-endpoint",
+        "redirect_url": "/azure/machine-learning/concept-endpoints-batch",
         "redirect_document_id": true
     },
     {

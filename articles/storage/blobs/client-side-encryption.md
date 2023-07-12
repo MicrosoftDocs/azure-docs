@@ -10,7 +10,6 @@ ms.topic: article
 ms.date: 12/12/2022
 ms.author: pauljewell
 ms.reviewer: ozgun
-ms.subservice: blobs
 ms.devlang: csharp
 ms.custom: devx-track-csharp
 ---

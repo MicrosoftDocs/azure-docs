@@ -1,54 +1,69 @@
 ---
-title: SQUARE in Azure Cosmos DB query language
-description: Learn about SQL system function SQUARE in Azure Cosmos DB.
-author: ginamr
+title: SQUARE
+titleSuffix: Azure Cosmos DB for NoSQL
+description: An Azure Cosmos DB for NoSQL system function that returns the square of the specified numeric value.
+author: jcodella
+ms.author: jacodel
+ms.reviewer: sidandrews
 ms.service: cosmos-db
 ms.subservice: nosql
-ms.topic: conceptual
-ms.date: 03/04/2020
-ms.author: girobins
-ms.custom: query-reference, ignite-2022
+ms.topic: reference
+ms.date: 07/01/2023
+ms.custom: query-reference
 ---
-# SQUARE (Azure Cosmos DB)
+
+# SQUARE (NoSQL query)
+
 [!INCLUDE[NoSQL](../../includes/appliesto-nosql.md)]
 
- Returns the square of the specified numeric value.  
+Returns the square of the specified numeric value.  
   
 ## Syntax
   
 ```sql
 SQUARE(<numeric_expr>)  
-```  
-  
+```
+
 ## Arguments
-  
-*numeric_expr*  
-   Is a numeric expression.  
-  
+
+| | Description |
+| --- | --- |
+| **`numeric_expr`** | A numeric expression. |
+
 ## Return types
-  
-  Returns a numeric expression.  
+
+Returns a numeric expression.  
   
 ## Examples
-  
-  The following example returns the squares of numbers 1-3.  
-  
+
+The following example returns the squares of various numbers.
+
 ```sql
-SELECT SQUARE(1) AS s1, SQUARE(2.0) AS s2, SQUARE(3) AS s3  
-```  
-  
- Here is the result set.  
-  
+SELECT VALUE {
+    squareZero: SQUARE(0),
+    squareOne: SQUARE(1),
+    squareTwo: SQUARE(2),
+    squareThree: SQUARE(3),
+    squareNull: SQUARE(null)
+}
+```
+
 ```json
-[{s1: 1, s2: 4, s3: 9}]  
-```  
+[
+  {
+    "squareZero": 0,
+    "squareOne": 1,
+    "squareTwo": 4,
+    "squareThree": 9
+  }
+]
+```
 
 ## Remarks
 
-This system function will not utilize the index.
+- This system function doesn't utilize the index.
 
 ## Next steps
 
-- [Mathematical functions Azure Cosmos DB](mathematical-functions.md)
-- [System functions Azure Cosmos DB](system-functions.md)
+- [System functions Azure Cosmos DB](system-functions.yml)
 - [Introduction to Azure Cosmos DB](../../introduction.md)

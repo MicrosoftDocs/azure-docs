@@ -21,6 +21,8 @@ In this quickstart, you use the Azure portal to add an enterprise application to
 
 It's recommended that you use a nonproduction environment to test the steps in this quickstart.
 
+[!INCLUDE [portal updates](../includes/portal-update.md)]
+
 ## Prerequisites
 
 To add an enterprise application to your Azure AD tenant, you need:

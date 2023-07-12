@@ -9,7 +9,6 @@ ms.topic: conceptual
 ms.date: 05/09/2023
 ms.author: jammart
 ms.reviewer: nachakra
-ms.subservice: blobs
 ---
 
 # Security considerations for Azure role assignment conditions in Azure Blob Storage

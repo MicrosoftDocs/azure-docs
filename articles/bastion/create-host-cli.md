@@ -5,7 +5,7 @@ description: Learn how to deploy Azure Bastion using CLI
 author: cherylmc
 ms.service: bastion
 ms.topic: how-to
-ms.date: 06/01/2023
+ms.date: 06/08/2023
 ms.author: cherylmc
 # Customer intent: As someone with a networking background, I want to deploy Bastion and connect to a VM.
 ms.custom: ignite-fall-2021, devx-track-azurecli 
@@ -26,7 +26,9 @@ In this article, you create a virtual network (if you don't already have one), d
 * [Azure PowerShell](bastion-create-host-powershell.md)
 * [Quickstart - deploy with default settings](quickstart-host-portal.md)
 
-## Prerequisites
+[!INCLUDE [DNS private zone](../../includes/bastion-private-dns-zones-non-support.md)]
+
+## Before beginning
 
 ### Azure subscription
 
@@ -36,13 +38,13 @@ Verify that you have an Azure subscription. If you don't already have an Azure s
 
 [!INCLUDE [Cloud Shell CLI](../../includes/vpn-gateway-cloud-shell-cli.md)]
 
-> [!NOTE]
-> The use of Azure Bastion with Azure Private DNS Zones is not supported at this time. Before you begin, please make sure that the virtual network where you plan to deploy your Bastion resource is not linked to a private DNS zone.
->
-
 ## <a name="createhost"></a>Deploy Bastion
 
 This section helps you deploy Azure Bastion using Azure CLI.
+
+> [!IMPORTANT]
+> [!INCLUDE [Pricing](../../includes/bastion-pricing.md)]
+>
 
 1. If you don't already have a virtual network, create a resource group and a virtual network using [az group create](/cli/azure/group#az-group-create) and [az network vnet create](/cli/azure/network/vnet#az-network-vnet-create).
 
@@ -69,8 +71,6 @@ This section helps you deploy Azure Bastion using Azure CLI.
    ```
 
 1. Use [az network bastion create](/cli/azure/network/bastion#az-network-bastion-create) to create a new Azure Bastion resource for your virtual network. It takes about 10 minutes for the Bastion resource to create and deploy.
-
-   [!INCLUDE [Pricing](../../includes/bastion-pricing.md)]
 
    The following example deploys Bastion using the **Basic** SKU tier. The SKU determines the features that your Bastion deployment supports. You can also deploy using the **Standard** SKU. If you don't specify a SKU in your command, the SKU defaults to Standard.  For more information, see [Bastion SKUs](configuration-settings.md#skus).
 

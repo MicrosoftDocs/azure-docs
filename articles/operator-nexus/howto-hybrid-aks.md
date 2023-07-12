@@ -6,7 +6,7 @@ ms.author: dramasamy
 ms.service: azure-operator-nexus 
 ms.topic: how-to
 ms.date: 02/02/2023
-ms.custom: template-how-to
+ms.custom: template-how-to, devx-track-azurecli
 ---
 
 # How to manage and lifecycle the AKS-Hybrid cluster
