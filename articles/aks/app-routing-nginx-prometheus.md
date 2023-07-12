@@ -59,6 +59,8 @@ Once your cluster is configured with the Azure Monitor agent, [apply a ConfigMap
 
 > [!CAUTION]
 > This will replace your existing `ama-metrics-prometheus-config` ConfigMap in the `kube-system`. If you already have a configuration, you may want to take a backup or merge it with this configuration.
+>
+> You can backup an existing `ama-metrics-prometheus-config` ConfigMap by running `kubectl get configmap ama-metrics-prometheus-config -n kube-system -o yaml > ama-metrics-prometheus-config-backup.yaml`
 
 ```bash
 kubectl apply -f - <<EOF
