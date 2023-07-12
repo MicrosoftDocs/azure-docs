@@ -19,7 +19,7 @@ This PowerShell script example exports all app registrations with secrets and ce
 
 [!INCLUDE [quickstarts-free-trial-note](../../../../includes/quickstarts-free-trial-note.md)]
 
-This sample requires the [Microsoft Graph PowerShell](/powershell/microsoftgraph/installation?view=graph-powershell-beta) SDK module.
+This sample requires the [Microsoft Graph PowerShell](/powershell/microsoftgraph/installation) SDK module.
 
 ## Sample script
 
@@ -40,6 +40,6 @@ You can modify the "$Path" variable directly in PowerShell, with a CSV file path
 
 ## Next steps
 
-For more information on the Microsoft Graph PowerShell module, see [Microsoft Graph PowerShell module overview](/powershell/microsoftgraph/installation?view=graph-powershell-beta).
+For more information on the Microsoft Graph PowerShell module, see [Microsoft Graph PowerShell module overview](/powershell/microsoftgraph/installation).
 
 For other PowerShell examples for Application Management, see [Azure Microsoft Graph PowerShell examples for Application Management](../app-management-powershell-samples.md).
