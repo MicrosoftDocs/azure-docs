@@ -208,10 +208,10 @@ A daemon app signs-in as itself using the [OAuth 2.0 client credentials flow](/a
 ## How to register a Microsoft Graph API application?
 [!INCLUDE [register client app](../customers/includes/register-app/register-client-app-common.md)]
 
-## Grant API Access to your application
+### Grant API Access to your application
 [!INCLUDE [grant api access to app](../customers/includes/register-app/grant-api-access-app.md)]
 
-## Create a client secret 
+### Create a client secret 
 [!INCLUDE [add app client secret](../customers/includes/register-app/add-app-client-secret.md)]
 
 ## Next steps
