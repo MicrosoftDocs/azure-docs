@@ -67,7 +67,7 @@ The Service Bus connector has different versions, based on [logic app workflow t
 
 ### Peek-lock
 
-In Standard logic app workflows, peek-lock operations are available only for *stateless* workflows, not stateful workflows.
+In Standard logic app workflows, peek-lock operations are available only for *stateless* workflows by default. To run this operation in stateful mode, see [Enable stateful mode for stateless built-in connectors](../connectors/enable-stateful-affinity-built-in-connectors.md).
 
 ### Limit on saved sessions in connector cache
 
