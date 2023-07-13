@@ -222,6 +222,7 @@ inputs:
 ```
 
 ---
+
 ## Skip building the API
 
 If you want to skip building the API, you can bypass the automatic build and deploy the API built in a previous step.
