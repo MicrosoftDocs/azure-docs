@@ -8,19 +8,32 @@ ms.custom: references_regions
 ms.service: application-gateway
 ms.subservice: traffic-controller
 ms.topic: overview
-ms.date: 07/12/2023
+ms.date: 07/13/2023
 ms.author: greglin
 ---
 
 # What is Application Gateway for Containers (preview)?
 
-Application Gateway for Containers is the evolution of Application Gateway Ingress Controller (AGIC) offered as a fully managed Azure Service, providing application (layer 7) Load Balancing and Dynamic Traffic Management capabilities for workloads running in a Kubernetes cluster. Application Gateway for Containers extends Azure's Application Load Balancing portfolio and is offered as new SKU under Application Gateway product family.
+Application Gateway for Containers is a new application (layer 7) load balancing and dynamic traffic management product for workloads running in a Kubernetes cluster. It extends Azure's Application Load Balancing portfolio and is offered as new SKU under the Application Gateway product family. For more information about current generally available Azure load balancing solutions, see [Load-balancing options](/azure/architecture/guide/technology-choices/load-balancing-overview).
 
-The existing Application Gateway Ingress Controller (AGIC) is a Kubernetes application, which makes it possible for Azure Kubernetes Service (AKS) customers to use Azure's native Application Gateway Application load-balancer. In its current form Application Gateway Ingress Controller (AGIC) monitors a subset of Kubernetes Resources for changes and applies them to the Application Gateway utilizing Azure Resource Manager (ARM).
+Application Gateway for Containers is the evolution of [Application Gateway Ingress Controller](../ingress-controller-overview.md) (AGIC). The existing AGIC solution is a [Kubernetes](/azure/aks) application that makes it possible for Azure Kubernetes Service (AKS) customers to use Azure's native Application Gateway application load-balancer. In its current form, AGIC monitors a subset of Kubernetes Resources for changes and applies them to the Application Gateway, utilizing Azure Resource Manager (ARM). 
 
-Application Gateway for Containers offers an elastic and scalable ingress to AKS clusters and comprises a new data plane as well as control plane with new set of ARM APIs, different from existing Application Gateway. Application Gateway for Containers is outside the AKS cluster data plane and is responsible for ingress. It's controlled by an ALB controller component that runs inside the AKS cluster and adheres to Kubernetes Gateway APIs.
+Application Gateway for Containers provides an elastic and scalable ingress to AKS clusters and comprises a new data plane, as well as control plane, with new set of ARM APIs. These APIs are different from the current implementation of Application Gateway. Application Gateway for Containers is outside the AKS cluster data plane and is responsible for ingress. The service is managed by an ALB controller component that runs inside the AKS cluster and adheres to Kubernetes Gateway APIs. For more information, see [How Application Gateway for Containers works](concepts-how-application-gateway-for-containers-works.md).
+
+## Benefits
+
+- Application Gateway for Containers improves on AKS orchestration by [increasing performance](#load-balancing-features) to sub second update times to add or move pods, routes and probes. 
+- Another significant benefit of Application Gateway for Containers over AGIC are the flexible [deployment strategies](#deployment-strategies) that it offers. 
+- Aplication Gateway for Containers offers an elastic and scalable ingress to AKS clusters and comprises a new data plane as well as control plane with [new set of ARM APIs](#implementation-of-gateway-api), different from existing Application Gateway.
 
 ## Features
+
+Application Gateway for Containers offers some entirely features at release, such as:
+- Traffic splitting 
+- Weighted round robin 
+- Mutual authentication to the backend target
+- Improved AKS orchestration
+- Flexible deployment strategies
 
 ### Load balancing features
 
