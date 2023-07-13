@@ -222,17 +222,17 @@
                   - name: Deploy and run MLflow models in Spark jobs
                     href: how-to-deploy-mlflow-model-spark-jobs.md
       - name: Use R with Azure Machine Learning
-            items:
-              - name: Bring R workloads
-                href: how-to-r-overview-r-capabilities.md
-              - name: Interactive R development
-                href: how-to-r-interactive-development.md
-              - name: Adapt R scripts for production
-                href: how-to-r-modify-script-for-production.md
-              - name: Train R model
-                href: how-to-r-train-model.md
-              - name: Deploy R model
-                href: how-to-r-deploy-r-model.md
+        items:
+          - name: Bring R workloads
+            href: how-to-r-overview-r-capabilities.md
+          - name: Interactive R development
+            href: how-to-r-interactive-development.md
+          - name: Adapt R scripts for production
+            href: how-to-r-modify-script-for-production.md
+          - name: Train R model
+            href: how-to-r-train-model.md
+          - name: Deploy R model
+            href: how-to-r-deploy-r-model.md
   - name: TBD
     items:
       - name: Create and manage files
