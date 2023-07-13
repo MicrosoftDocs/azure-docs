@@ -29,7 +29,7 @@ Create a new **Azure Cache for Redis** instance using the Azure portal or your p
 
 The default settings should suffice. We use a public endpoint for this demo, but we recommend you use a private endpoint for anything in production.
 
-Creating the cache can take a few minutes, so feel move to the next section while creating the cache completes.
+Creating the cache can take a few minutes. You can move to the next section while creating the cache completes.
 
 ### Set up Visual Studio Code
 
@@ -39,11 +39,11 @@ If you haven’t installed the functions extension for VS Code, search for _Azur
 
 Next, go to the **Azure** tab, and sign-in to your existing Azure account, or create a new one:
 
-Create a new local folder on your computer to hold the project that you're building. In our example, we use “AzureRedisFunctionDemo”.
+Create a new local folder on your computer to hold the project that you're building. In our example, we use _RedisAzureFunctionDemo_.
 
-In the Azure tab, create a new functions app by clicking on the lightning bolt icon in the top right of the **Workspace** box in the lower left of the screen.
+In the Azure tab, create a new functions app by clicking on the lightning bolt icon in the top right of the **Workspace** tab .
 
-:::image type="content" source="media/cache-tutorial-functions-getting-started/cache-create-resource.png" alt-text="Screenshot showing how to add a new function from VSCode.":::
+:::image type="content" source="media/cache-tutorial-functions-getting-started/cache-add-resource.png" alt-text="Screenshot showing how to add a new function from VSCode.":::
 
 Select the new folder that you’ve created to start the creation of a new Azure Functions project. You get several on-screen prompts. Select:
 
@@ -70,15 +70,17 @@ dotnet add package Microsoft.Azure.WebJobs.Extensions.Redis --prerelease
 
 ### Configure cache
 
-Go to your newly created Azure Cache for Redis instance. Two steps are needed here.
+1. Go to your newly created Azure Cache for Redis instance.
 
-First,  enable **keyspace notifications** on the cache to trigger on keys and commands. Go to your cache in the Azure portal and select the **Advanced settings** from the Resource menu. Scroll down to the field labeled _notify-keyspace-events_ and enter “KEA”. Then select Save at the top of the window. “KEA” is a configuration string that enables keyspace notifications for all keys and events. More information on keyspace configuration strings can be found [here](https://redis.io/docs/manual/keyspace-notifications/).
+1. Go to your cache in the Azure portal and select the **Advanced settings** from the Resource menu. Scroll down to the field labeled _notify-keyspace-events_ and enter “KEA”. You have enabled **keyspace notifications** on the cache to trigger on keys and commands.
 
-<!-- ![Image](Media/KeyspaceNotifications.png) -->
+1. Then select **Save** at the top of the window. “KEA” is a configuration string that enables keyspace notifications for all keys and events. More information on keyspace configuration strings can be found [here](https://redis.io/docs/manual/keyspace-notifications/).
 
-Second, select **Access keys** from the Resource menu and write down/copy the Primary connection string field. We use the access key to connect to the cache.
+   :::image type="content" source="media/cache-tutorial-functions-getting-started/cache-keyspace-notifications.png" alt-text="Screenshot of Advanced settings selected in the Resource menu and notify-keyspace-events highlighted with a red box.":::
 
-<!-- ![Image](Media/AccessKeys.png) -->
+1. Select **Access keys** from the Resource menu and write down/copy the Primary connection string field. This string is used to connect to the cache.
+
+   :::image type="content" source="media/cache-tutorial-functions-getting-started/cache-access-keys.png" alt-text="Screenshot showing ":::
 
 ### Set up the example code
 
@@ -150,6 +152,7 @@ This tutorial shows multiple different ways to trigger on Redis activity:
 1. _StreamTrigger_, which looks for changes to the stream `streamTest`
 
 ### Connect to your cache
+
 In order to trigger on Redis activity, you need to pass in the connection string of your cache instance. This information will be stored in the `local.settings.json` file that was automatically created in your folder. Using the [local settings file](../azure-functions/functions-run-local.md#local-settings) is recommended as a security best practice.
 
 To connect to your cache, add a `ConnectionStrings` section in the `local.settings.json` file and add your connection string using the parameter `redisConnectionString`. It should look like this:
@@ -165,7 +168,7 @@ To connect to your cache, add a `ConnectionStrings` section in the `local.settin
 }
 ```
 
-<!-- ![Image](Media/ConnectionString.png) -->
+![Image](media/cache-tutorial-functions-getting-started/cache-connection-string.png)
 
 > [!IMPORTANT]
 > This example is simplified for the tutorial. For production use, we recommend that you use [Azure Key Vault](../service-connector/tutorial-portal-key-vault.md) to store connection string information.
@@ -174,34 +177,34 @@ To connect to your cache, add a `ConnectionStrings` section in the `local.settin
 
 ### Build and run the code locally
 
-Switch to the **Run and debug** tab in VS Code and select the green arrow to debug the code locally. If you don’t have Azure Functions core tools installed, you're prompted to do so. In that case, you’ll need to restart VS Code after installing.
+1. Switch to the **Run and debug** tab in VS Code and select the green arrow to debug the code locally. If you don’t have Azure Functions core tools installed, you're prompted to do so. In that case, you’ll need to restart VS Code after installing.
 
-The code should build successfully, which you can track in the Terminal output.
+   The code should build successfully, which you can track in the Terminal output.
 
-To test the trigger functionality, try creating and deleting the _keyspaceTest_ key. You can use any way you prefer to connect to the cache. An easy way is to use the built-in Console tool in the Azure Cache for Redis portal. Bring up the cache instance in the Azure portal, and select **Console** to open it.
+1. To test the trigger functionality, try creating and deleting the _keyspaceTest_ key. You can use any way you prefer to connect to the cache. An easy way is to use the built-in Console tool in the Azure Cache for Redis portal. Bring up the cache instance in the Azure portal, and select **Console** to open it.
 
-:::image type="content" source="media/cache-tutorial-functions-getting-started/cache-console.png" alt-text="Screenshot of C# code and a connection string.":::
+   :::image type="content" source="media/cache-tutorial-functions-getting-started/cache-console.png" alt-text="Screenshot of C# code and a connection string.":::
 
-After it's open, try the following commands:
+1. After it's open, try the following commands:
 
-- `SET keyspaceTest 1`
-- `SET keyspaceTest 2`
-- `DEL keyspaceTest`
-- `PUBLISH pubsubTest testMessage`
-- `LPUSH listTest test`
-- `XADD streamTest * name Clippy`
+    - `SET keyspaceTest 1`
+    - `SET keyspaceTest 2`
+    - `DEL keyspaceTest`
+    - `PUBLISH pubsubTest testMessage`
+    - `LPUSH listTest test`
+    - `XADD streamTest * name Clippy`
 
 :::image type="content" source="media/cache-tutorial-functions-getting-started/cache-console-output.png" alt-text="Screenshot of a console and some Redis commands and results.":::
 
-You should see the triggers activating in the terminal:
+1. You should see the triggers activating in the terminal:
 
 :::image type="content" source="media/cache-tutorial-functions-getting-started/cache-triggers-working.png" alt-text="Screenshot of the VSCode editor with code running.":::
 
 ### Deploy code to an Azure function
 
-Create a new Azure function by going back to the Azure tab, expanding your subscription, and right clicking on **Function App**. Select **Create a Function App in Azure…(Advanced)**.
+1. Create a new Azure function by going back to the Azure tab, expanding your subscription, and right clicking on **Function App**. Select **Create a Function App in Azure…(Advanced)**.
 
-:::image type="content" source="media/cache-tutorial-functions-getting-started/cache-create-function-app.png" alt-text="Screenshot of creating a function app in VSCode.":::
+   :::image type="content" source="media/cache-tutorial-functions-getting-started/cache-create-function-app.png" alt-text="Screenshot of creating a function app in VSCode.":::
 
 You see several prompts on information to configure the new functions app:
 
@@ -235,7 +238,6 @@ Navigate to your new Function App in the Azure portal and select the **Configura
 Once deployment is complete and the connection string information added, open your Function App in the Azure portal and select **Log Stream** from the Resource menu. Wait for log analytics to connect, and then use the Redis console to activate any of the triggers. You should see the triggers being logged here.
 
 :::image type="content" source="media/cache-tutorial-functions-getting-started/cache-log-stream.png" alt-text="Screenshot of log stream for a function app resource in the Resource menu.":::
-<!-- ![Image](Media/LogStream.png) -->
 
 ## Next steps
 
