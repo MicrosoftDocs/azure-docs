@@ -270,7 +270,7 @@ Use the following steps to view the Application Live View dashboard for a servic
 
 1. In Visual Studio Code, open the Azure Spring Apps extension, and then sign in to your Azure account.
 1. Expand the service instance that you want to monitor and right-click to select the service instance.
-1. Select **Open Application Live View** from the menu. This will open the Application Live View dashboard in your default browser.
+1. Select **Open Application Live View** from the menu to open the Application Live View dashboard in your default browser.
 
    :::image type="content" source="media/how-to-use-application-live-view/vscode-open-service.png" alt-text="Screenshot of the VS Code extension showing the Open Application Live View option for a service instance." lightbox="media/how-to-use-application-live-view/vscode-open-service.png":::
 
