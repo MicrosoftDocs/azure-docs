@@ -24,7 +24,7 @@ In this article, you'll learn the steps to move a Log Analytics workspace to ano
 - To verify the Azure Active Directory tenant, you need `Microsoft.AzureActiveDirectory/b2cDirectories/read` permissions, as provided by the [Log Analytics Reader built-in role](./manage-access.md#log-analytics-reader), for example.
 - To delete a solution, you need `Microsoft.OperationsManagement/solutions/delete` permissions on it, as provided by the [Log Analytics Contributor built-in role](./manage-access.md#log-analytics-contributor), for example.
 - To remove alert rules for the Start/Stop VMs solution, you need `microsoft.insights/scheduledqueryrules/delete` permissions, as provided by the [Monitoring Contributor built-in role](../../role-based-access-control/built-in-roles.md#monitoring-contributor), for example.
-To unlink the Automation account, you need 
+- To unlink the Automation account, you need `Microsoft.OperationalInsights/workspaces/linkedServices/delete` permissons on the linked workspace, as provided by the [Log Analytics Contributor built-in role](./manage-access.md#log-analytics-contributor), for example.
 - To move a Log Analytics workspace, you need `Microsoft.OperationalInsights/workspaces/delete` and `Microsoft.OperationalInsights/workspaces/write` permissions on it, as provided by the [Log Analytics Contributor built-in role](./manage-access.md#log-analytics-contributor), for example.
 
 ## Verify the Azure Active Directory tenant
@@ -139,7 +139,10 @@ Remove-AzResource -ResourceType 'Microsoft.OperationsManagement/solutions' -Reso
 ---
 
 ### Remove alert rules for the Start/Stop VMs solution
-To remove the **Start/Stop VMs** solution, you also need to remove the alert rules created by the solution. Use the following procedure in the Azure portal to remove these rules:
+
+To remove the **Start/Stop VMs** solution, you also need to remove the alert rules created by the solution.
+
+### [Portal](#tab/azure-portal)
 
 1. Open the **Monitor** menu and then select **Alerts**.
 1. Select **Manage alert rules**.
@@ -151,14 +154,69 @@ To remove the **Start/Stop VMs** solution, you also need to remove the alert rul
 
     [![Screenshot that shows deleting rules.](media/move-workspace/delete-rules.png)](media/move-workspace/delete-rules.png#lightbox)
 
+### [REST API](#tab/rest-api)
+
+Delete the following alert rules by calling the Scheduled Query Rules - Delete API:
+
+   - AutoStop_VM_Child
+   - ScheduledStartStop_Parent
+   - SequencedStartStop_Parent
+
+```http
+DELETE https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Insights/scheduledQueryRules/{ruleName}?api-version=2023-03-15-preview
+```
+
+### [CLI](#tab/cli)
+
+Run the [az monitor scheduled-query delete](/cli/azure/monitor/scheduled-query#az-monitor-scheduled-query-delete) command:
+
+```azurecli
+az monitor scheduled-query delete [--ids]
+                                  [--name]
+                                  [--resource-group]
+                                  [--subscription]
+                                  [--yes]
+```
+
+### [PowerShell](#tab/PowerShell)
+
+Run the [Remove-AzScheduledQueryRule](/powershell/module/az.monitor/remove-azscheduledqueryrule) command.
+
+---
+
 ## Unlink the Automation account
-Use the following procedure to unlink the Automation account from the workspace by using the Azure portal:
+
+### [Portal](#tab/azure-portal)
 
 1. Open the **Automation accounts** menu and then select the account to remove.
 1. On the **Related Resources** section of the menu, select **Linked workspace**.
 1. Select **Unlink workspace** to unlink the workspace from your Automation account.
 
     [![Screenshot that shows unlinking a workspace.](media/move-workspace/unlink-workspace.png)](media/move-workspace/unlink-workspace.png#lightbox)
+
+### [ REST API](#tab/rest-api)
+
+Call the [Linked Services - Delete API](/rest/api/loganalytics/linked-services/delete).
+
+```http
+DELETE https://management.azure.com/subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/providers/Microsoft.OperationalInsights/workspaces/{workspaceName}/linkedServices/{linkedServiceName}?api-version=2020-08-01
+```
+
+### [CLI](#tab/cli)
+
+Run the [az monitor log-analytics workspace linked-service delete](/cli/azure/monitor/log-analytics/workspace/linked-service) command:
+
+```azurecli
+az monitor log-analytics workspace linked-service delete -g MyResourceGroup -n cluster --workspace-name MyWorkspace
+```
+
+Specify `automation` as the name of the linkedServices resource.
+
+### [PowerShell](#tab/PowerShell)
+
+Not supported.
+
+---
 
 ## Move your workspace
 
