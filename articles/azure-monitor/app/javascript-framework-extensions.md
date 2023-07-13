@@ -50,7 +50,7 @@ The React plug-in for the Application Insights JavaScript SDK enables:
 
 The React Native plugin for Application Insights JavaScript SDK enables: 
 
-- Track device errors 
+- Track errors 
 - Collect device information
 
    By default, this plugin automatically collects:
