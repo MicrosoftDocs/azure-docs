@@ -110,7 +110,8 @@ az role assignment create --assignee-object-id $principalId --scope $ALB_SUBNET_
 
 ### Create an association resource
 
-Execute the following command to create the association resource and connect it to the referenced subnet
+Execute the following command to create the association resource and connect it to the referenced subnet.  It can take 5-6 minutes for the Application Gateway for Containers association to be created.
+
 ```azurecli-interactive
 ASSOCIATION_NAME='association-test'
 az network alb association create -g $RESOURCE_GROUP -n $ASSOCIATION_NAME --alb-name $AGFC_NAME --subnet $ALB_SUBNET_ID
