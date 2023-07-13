@@ -64,33 +64,35 @@ Under **Operations** > **Snapshots (preview)**, select **Create a new snapshot**
 
     | Key            | Value          | Label    | Included in snapshot                                                                                              |
     |----------------|----------------|----------|-------------------------------------------------------------------------------------------------------------------|
-    | *app2/bgcolor* | *Light Gray*   | *label2* | No: doesn't have the right prefix/starts with for key.
+    | *app2/bgcolor* | *Light Gray*   | *label2* | No: doesn't start with *app1*.
     | *app1/color*   | *Black*        | No label | No: doesn't have the label *label2* or *label1*.
     | *app1/color*   | *Blue*         | *label1* | Yes: Has the right label *label1* from the last of applicable filters.
-    | *app1/color*   | *Green*        | *label2* | No: Has the right label *label2* but isn't the last  applicable filters.
+    | *app1/color*   | *Green*        | *label2* | No: Same key with label *label1* selected by the second filter overrides this one though it has the selected label, *label2*.
     | *app1/color*   | *Yellow*       | *label3* | No: doesn't have the label *label2* or *label1*.
     | *app1/message* | *Hello*        | *label1* | Yes: Has the right label *label1* from the last of applicable filters.
-    | *app1/message* | *Hi!*          | *label2* | No: Has the right label *label2* but isn't the last  applicable filters.
-    | *app2/message* | *Good morning!*| *label1* | No: doesn't have the right prefix/starts with for key.
+    | *app1/message* | *Hi!*          | *label2* | No:  Same key with label *label1* selected by the second filter overrides this one though it has the selected label, *label2*.
+    | *app2/message* | *Good morning!*| *label1* | No: doesn't start with *app1*.
 
 ## Create sample snapshots
 
-To create sample snapshots and check how the snapshots feature work, use the snapshot sandbox. This sandbox contains sample data you can play with to better understand how snapshots composition type and filters work.
+To create sample snapshots and check how the snapshots feature work, use the snapshot sandbox. This sandbox contains sample data you can play with to better understand how snapshot's composition type and filters work.
 
 1. In **Operations** > **Snapshots (preview)** > **Active snapshots**, select **Test in sandbox**.
 1. Review the sample data and practice creating snapshots by filling out the form with a composition type and one or more filters.
 1. Select **Create** to generate the sample snapshot.
 1. Check out the snapshot result generated under **Generated sample snapshot**. The sample snapshot displays all keys that are included in the sample snapshot, according to your selection.
 
+   > [!NOTE]
+   > Azure portal will show error on Snapshots blade if the App Config store has only AAD authentication enabled. It is a known issue and we are working on supporting the scenario.
 ## Manage active snapshots
 
-The page under **Operations** > **Snapshots (preview)** displays two tabs: **Active snapshots** and **Archived snapshots**. Select **Active snapshots** to view the list of all active snapshots in an App configuration store.
+The page under **Operations** > **Snapshots (preview)** displays two tabs: **Active snapshots** and **Archived snapshots**. Select **Active snapshots** to view the list of all active snapshots in an App Configuration store.
 
    :::image type="content" source="./media/snapshots-view-list.png" alt-text="Screenshot of the list of active snapshots.":::
 
 ### View existing snapshot
 
-In the **Active snapshots** tab, select the ellipsis **...** on the right of an existing snapshot and select **View** to view a snapshot This action opens a Snapshot details page that displays the snapshot's settings and the key-values included in the snapshot.
+In the **Active snapshots** tab, select the ellipsis **...** on the right of an existing snapshot and select **View** to view a snapshot. This action opens a Snapshot details page that displays the snapshot's settings and the key-values included in the snapshot.
 
    :::image type="content" source="./media/snapshot-details-view.png" alt-text="Screenshot of the detailed view of an active snapshot.":::
 
@@ -102,13 +104,13 @@ In the **Active snapshots** tab, select the ellipsis **...** on the right of an 
 
 ## Manage archived snapshots
 
-Go to **Operations** > **Snapshots (preview)** > **Archived snapshots** to view the list of all archived snapshots in an App configuration store. Archived snapshots remain there for the duration that was selected during their creation, that is, for 30 days (by default) or less.
+Go to **Operations** > **Snapshots (preview)** > **Archived snapshots** to view the list of all archived snapshots in an App Configuration store. Archived snapshots remain there for the retention period that was selected during their creation.
 
    :::image type="content" source="./media/archived-snapshots.png" alt-text="Screenshot of the list of archived snapshots.":::
 
 ### View archived snapshot
 
-Detailed view of snapshot is available in the archive state as well. In the **Archived snapshots** tab, select the ellipsis **...** on the right of an existing snapshot and select **View** to view a snapshot This action opens a Snapshot details page that displays the snapshot's settings and the key-values included in the snapshot.
+Detailed view of snapshot is available in the archive state as well. In the **Archived snapshots** tab, select the ellipsis **...** on the right of an existing snapshot and select **View** to view a snapshot. This action opens a Snapshot details page that displays the snapshot's settings and the key-values included in the snapshot.
 
    :::image type="content" source="./media/archived-snapshots-details.png" alt-text="Screenshot of the detailed view of an archived snapshot.":::
 
