@@ -117,14 +117,6 @@ The following code example shows how to rename a subdirectory:
 
 :::code language="python" source="~/azure-storage-snippets/blobs/howto/python/python-v12/crud_datalake.py" id="Snippet_RenameDirectory":::
 
-## Delete a directory
-
-Delete a directory by calling the [DataLakeDirectoryClient.delete_directory](/python/api/azure-storage-file-datalake/azure.storage.filedatalake.datalakedirectoryclient#azure-storage-filedatalake-datalakedirectoryclient-delete-directory) method.
-
-This example deletes a directory named `my-directory`.
-
-:::code language="python" source="~/azure-storage-snippets/blobs/howto/python/python-v12/crud_datalake.py" id="Snippet_DeleteDirectory":::
-
 ## Upload a file to a directory
 
 First, create a file reference in the target directory by creating an instance of the **DataLakeFileClient** class. Upload a file by calling the [DataLakeFileClient.append_data](/python/api/azure-storage-file-datalake/azure.storage.filedatalake.datalakefileclient#azure-storage-filedatalake-datalakefileclient-append-data) method. Make sure to complete the upload by calling the [DataLakeFileClient.flush_data](/python/api/azure-storage-file-datalake/azure.storage.filedatalake.datalakefileclient#azure-storage-filedatalake-datalakefileclient-flush-data) method.
@@ -155,6 +147,16 @@ List directory contents by calling the [FileSystemClient.get_paths](/python/api/
 This example, prints the path of each subdirectory and file that is located in a directory named `my-directory`.
 
 :::code language="python" source="~/azure-storage-snippets/blobs/howto/python/python-v12/crud_datalake.py" id="Snippet_ListFilesInDirectory":::
+
+## Delete a directory
+
+You can delete a directory using the following method:
+
+- [DataLakeDirectoryClient.delete_directory](/python/api/azure-storage-file-datalake/azure.storage.filedatalake.datalakedirectoryclient#azure-storage-filedatalake-datalakedirectoryclient-delete-directory)
+
+The following code example shows how to delete a directory:
+
+:::code language="python" source="~/azure-storage-snippets/blobs/howto/python/python-v12/crud_datalake.py" id="Snippet_DeleteDirectory":::
 
 ## See also
 
