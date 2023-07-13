@@ -86,7 +86,7 @@ Create an assignment for each storage account you want to target. A storage task
 The assignment is disabled by default. To enable the assignment so that it will be scheduled to run, select the checkbox that appears beside the assignment, and then select **Enable**.
 
 > [!div class="mx-imgBorder"]
-> ![Screenshot of the Enable button in the Assignments page.](./media/storage-task-assignment-create/assignment-enable.png).
+> ![Screenshot of the Enable button in the Assignments page.](./media/storage-task-assignment-create/assignment-enable.png)
 
 After the task runs, an execution report is generated and then stored in the container that you specified when you created the assignment. For more information about that report as well as how to view metrics that capture the number of objects targeted, the number of operations attempted, and the number of operations that succeeded, see [Storage task runs](storage-task-runs.md).
 
