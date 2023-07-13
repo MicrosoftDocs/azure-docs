@@ -17,8 +17,8 @@ Instance Readiness Testing (IRT) is a framework built to orchestrate real world 
 
 1. Linux environment (tested on Ubuntu)
 1. Knowledge of networks to use for the test
-    * Networks to use for the test will be specified in a "network-blueprint.jsonc" file, see Confirguration section below.
-1. curl or wget to download IRT package
+    * Networks to use for the test are specified in a "network-blueprint.jsonc" file, see [Input Configuration](#input-configuration).
+2. curl or wget to download IRT package
 
 ## Before Execution
 
@@ -26,24 +26,24 @@ Instance Readiness Testing (IRT) is a framework built to orchestrate real world 
 1. Extract the tarball to the local file system: `mkdir -p irt && tar xf nexus-irt.tar.gz --directory ./irt`
 1. Switch to the new directory `cd irt`
 1. If needed run `setup.sh` to initially set up an environment.
-    * `setup.sh` assumes a non-root user and attempts to use `sudo` which will install:
+    * `setup.sh` assumes a non-root user and attempts to use `sudo`, which installs:
         1. `jq` version 1.6
         1. `yq` version 4.33
         1. `azcopy` version 10
-        1. `az` Azure CLI minimum version not known, please stay up to date.
+        1. `az` Azure CLI minimum version not known, stay up to date.
         1. `elinks` for viewing html files on the command line
         1. `tree` for viewing directory structures
         1. `moreutils` utilities for viewing progress from the ACI container
 1. If desired, set up a storage account to archive test results over time. For help, see the [Instructions](#uploading-results-to-your-own-archive)
-1. Log into azure, if not already logged in: `az login --use-device`
+1. Log into Azure, if not already logged in: `az login --use-device`
     * User should have `Contributor` role
-1. Create an Azure Managed Identity for the container to use (Will default to CloudTest Managed Identity if not provided)
+2. Create an Azure Managed Identity for the container to use.
     * Using the provided script: `MI_RESOURCE_GROUP="<your resource group> MI_NAME="<managed identity name>" SUBSCRIPTION="<subscription>" ./create-managed-identity.sh`
     * Can be created manually va the Azure Portal, refer to the script for needed permissions
-1. Create a service principal and aad secutiry group. The service principal will be used to make operations during the test, the group informs the kubernetes cluster of valid users, so the service principal must be a part of the aad secturiy group.
+3. Create a service principal and aad secutiry group. The service principal is used to make operations during the test, the group informs the kubernetes cluster of valid users, so the service principal must be a part of the aad secturiy group.
     * You can provide your own, or use our provided script, here's an example on how it could be executed; `AAD_GROUP_NAME=external-test-aad-group-8 SERVICE_PRINCIPAL_NAME=external-test-sp-8 ./irt/create-service-principal.sh`
-    * This script will print four key value pairs for you to include in your input file, described below.
-1. If necessary, create the Isolation Domains required to execute the tests. They are not lifecycled as part of this test scenario.
+    * This script prints four key/value pairs for you to include in your input file.
+4. If necessary, create the Isolation Domains required to execute the tests. They are not lifecycled as part of this test scenario.
    * **Note:** if deploying isolation domains, your network blueprint must define at least one external network per isolation domain. see `networks-blueprint.example.yml` for help configuring your network blueprint.
    * `create-l3-isolation-domains.sh` takes one parameter, a path to your networks blueprint file; here's an example of the script being invoked:
      * `create-l3-isolation-domains.sh ./networks-blueprint.yml`
@@ -70,10 +70,11 @@ The network blueprint input schema for IRT is defined in the networks-blueprint.
 
 ## Results
 
-1. A file named `summary-<cluster_name>-<timestamp>.html` will be present after execution and will have all the testing results. It can be viewed:
+1. A file named `summary-<cluster_name>-<timestamp>.html` is downloaded at the end of the run and will have all the testing results. It can be viewed:
     1. From any browser
-    1. using elinks or lynx, i.e. `elinks summary-<cluster_name>-<timestamp>..html`, to view from the command line
-    1. If you provide an SAS Token & URL for the `PUBLISH_RESULTS_TO` parameter, the archive storage container will contain your results, and can be previewed by navigating to the link presented to you at the end of the IRT run.
+    1. using elinks or lynx to view from the command line; for example:
+       1.  `elinks summary-<cluster_name>-<timestamp>..html`
+    1. If you provide an SAS Token & URL for the `PUBLISH_RESULTS_TO` parameter the results will be uploaded to the blob container you specified. It can be previewed by navigating to the link presented to you at the end of the IRT run.
 
 ### Uploading Results to Your Own Archive
 
