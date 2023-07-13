@@ -22,7 +22,7 @@ Microsoft recommends that you use a GPv2 storage account for most scenarios. You
 | Maximum number of storage accounts with standard endpoints per region per subscription, including standard and premium storage accounts. | 250 by default, 500 by request<sup>1</sup> |
 | Maximum number of storage accounts with Azure DNS zone endpoints (preview) per region per subscription, including standard and premium storage accounts. | 5000 (preview) |
 | Default maximum storage account capacity | 5 PiB <sup>2</sup> |
-| Maximum number of blob containers, blobs, file shares, tables, queues, entities, or messages per storage account. | No limit |
+| Maximum number of blob containers, blobs, directories and subdirectories(If Hierarchical Namespace is enabled), file shares, tables, queues, entities, or messages per storage account. | No limit |
 | Default maximum request rate per storage account | 20,000 requests per second<sup>2</sup> |
 | Default maximum ingress per general-purpose v2 and Blob storage account in the following regions (LRS/GRS):<br /><ul><li>Australia East</li><li>Central US</li><li>East Asia</li><li>East US 2</li><li>Japan East</li><li>Korea Central</li><li>North Europe</li><li>South Central US</li><li>Southeast Asia</li><li>UK South</li><li>West Europe</li><li>West US</li></ul> | 60 Gbps<sup>2</sup> |
 | Default maximum ingress per general-purpose v2 and Blob storage account in the following regions (ZRS):<br /><ul><li>Australia East</li><li>Central US</li><li>East US</li><li>East US 2</li><li>Japan East</li><li>North Europe</li><li>South Central US</li><li>Southeast Asia</li><li>UK South</li><li>West Europe</li><li>West US 2</li></ul> | 60 Gbps<sup>2</sup> |
