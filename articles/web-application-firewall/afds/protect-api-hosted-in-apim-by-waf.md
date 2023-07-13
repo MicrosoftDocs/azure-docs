@@ -15,7 +15,7 @@ There are a growing number of enterprises adhering to API-first approach for the
 
 [Azure Web Application Firewall (WAF)](../overview.md) is an Azure Networking product that protects APIs from various of [OWASP top 10](https://owasp.org/www-project-top-ten/) web attacks, CVE’s, and malicious bot attacks.
 
-This article describes how to use [Azure Web Application Firewall on Azure Front Door](afds-overview.md) to protect APIs hosted on [What is Azure API Management?](../../api-management/api-management-key-concepts.md)
+This article describes how to use [Azure Web Application Firewall on Azure Front Door](afds-overview.md) to protect APIs hosted on [Azure API Management](../../api-management/api-management-key-concepts.md)
 
 ## Create an APIM instance and publish an API in APIM that generates a mock API response
 
@@ -41,7 +41,7 @@ This article describes how to use [Azure Web Application Firewall on Azure Front
    :::image type="content" source="../media/protect-api-hosted-in-apim-by-waf/apim-200-OK.png" alt-text="A screenshot showing the mock response created.":::
 
 
-3. Deselect **Subscription required** check box under the API settings tab and select save.
+3. Deselect **Subscription required** check box under the API settings tab and select **Save**.
 
 4. Test the mock responses from the APIM interface. You should receive a **200 OK** response.
 
@@ -86,22 +86,22 @@ Requests routed through the Front Door include headers specific to your Front Do
  
 1. Copy the Front Door ID from the AFD overview page.
 
-   :::image type="content" source="../media/protect-api-hosted-in-apim-by-waf/afd-endpoint-fd-id.png" alt-text="A screenshot showing the AFD ID.":::
+   :::image type="content" source="../media/protect-api-hosted-in-apim-by-waf/afd-endpoint-fd-id.png" alt-text="A screenshot showing the AFD ID." lightbox="../media/protect-api-hosted-in-apim-by-waf/afd-endpoint-fd-id.png":::
 
 
 2. Access the APIM API page, select the Book API, select **Design** and **All operations**.  In the Inbound policy, select **+ Add policy**.
 
-   :::image type="content" source="../media/protect-api-hosted-in-apim-by-waf/apim-inbound-policy.png" alt-text="A screenshot showing how to add an inbound policy.":::
+   :::image type="content" source="../media/protect-api-hosted-in-apim-by-waf/apim-inbound-policy.png" alt-text="A screenshot showing how to add an inbound policy." lightbox="../media/protect-api-hosted-in-apim-by-waf/apim-inbound-policy.png":::
 
 3. Select Other policies
 
-   :::image type="content" source="../media/protect-api-hosted-in-apim-by-waf/apim-other-policies.png" alt-text="A screenshot showing other policies selected.":::
+   :::image type="content" source="../media/protect-api-hosted-in-apim-by-waf/apim-other-policies.png" alt-text="A screenshot showing other policies selected." lightbox="../media/protect-api-hosted-in-apim-by-waf/apim-other-policies.png":::
 
 4. Select “Show snippets" and select **Check HTTP header**.
 
-   :::image type="content" source="../media/protect-api-hosted-in-apim-by-waf/apim-check-http-header.png" alt-text="A screenshot showing check header selected.":::
+   :::image type="content" source="../media/protect-api-hosted-in-apim-by-waf/apim-check-http-header.png" alt-text="A screenshot showing check header selected." lightbox="../media/protect-api-hosted-in-apim-by-waf/apim-check-http-header.png":::
 
-   Add the following code to the inbound policy for HTTP header `_X-Azure-FDID_`. Replace the `_{FrontDoorId}_`  with the AFD ID copied in the first step of this section.
+   Add the following code to the inbound policy for HTTP header `X-Azure-FDID`. Replace the `{FrontDoorId}`  with the AFD ID copied in the first step of this section.
 
 
    ```
@@ -111,7 +111,7 @@ Requests routed through the Front Door include headers specific to your Front Do
 
    ```
 
-   :::image type="content" source="../media/protect-api-hosted-in-apim-by-waf/apim-final-check-header.png" alt-text="A screenshot showing the final policy configuration.":::
+   :::image type="content" source="../media/protect-api-hosted-in-apim-by-waf/apim-final-check-header.png" alt-text="A screenshot showing the final policy configuration." lightbox="../media/protect-api-hosted-in-apim-by-waf/apim-final-check-header.png":::
 
    Select **Save**.
 
@@ -127,7 +127,7 @@ Requests routed through the Front Door include headers specific to your Front Do
 
 3. Under the “Security Policies” section, verify that the WAF policy “bookwafpolicy” is provisioned.
 
-4. Select `__bookwafpolicy__` and verify that the `__bookwafpolicy__` has Managed rules provisioned. The latest versions of Microsoft_DefaultRueSet and Microsoft_BotManagerRuleSet is provisioned which protects the origin against OWASP top 10 vulnerabilities and malicious bot attacks.
+4. Select `bookwafpolicy` and verify that the `bookwafpolicy` has Managed rules provisioned. The latest versions of Microsoft_DefaultRueSet and Microsoft_BotManagerRuleSet is provisioned which protects the origin against OWASP top 10 vulnerabilities and malicious bot attacks.
 
    :::image type="content" source="../media/protect-api-hosted-in-apim-by-waf/book-waf-policy.png" alt-text="A screenshot showing the WAF policy for managed rules.":::
 
@@ -143,7 +143,7 @@ At this point, the end-to-end call is set up, and the API is protected by Azure 
 
    :::image type="content" source="../media/protect-api-hosted-in-apim-by-waf/block-direct-access.png" alt-text="A screenshot showing APIM inaccessible through the Internet.":::
 
-3. Now try to invoke the AFD endpoint URL via any OWASP Top 10 attack or bot attack and you should receive `__REQUEST IS BLOCKED__` message and the request is blocked. The API has been protected from web attack by Azure Web Application Firewall.
+3. Now try to invoke the AFD endpoint URL via any OWASP Top 10 attack or bot attack and you should receive `REQUEST IS BLOCKED` message and the request is blocked. The API has been protected from web attack by Azure Web Application Firewall.
 
 ## Related content
 
