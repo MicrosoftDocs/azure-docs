@@ -310,10 +310,6 @@ In some cases, you may wish for your workflow to continue even if some secrets a
 
 By doing so, the workflow will proceed without deploying the content, instead of stopping or failing due to the absence of any deployment secrets.
 
-Follow these steps:
-
-- Set `SKIP_DEPLOY_ON_MISSING_SECRETS` to `true`.
-
 # [GitHub Actions](#tab/github-actions)
 
 ```yaml
@@ -323,12 +319,11 @@ with:
   azure_static_web_apps_api_token: ${{ secrets.AZURE_STATIC_WEB_APPS_API_TOKEN }}
   repo_token: ${{ secrets.GITHUB_TOKEN }}
   action: 'upload'
-  app_location: 'src/dist'
+  app_location: 'src'
   api_location: 'api'
-  output_location: ''
-  skip_app_build: true
-env: # Add environment variables here
-  SKIP_DEPLOY_ON_MISSING_SECRETS: true 
+  output_location: 'public'
+env:
+  SKIP_DEPLOY_ON_MISSING_SECRETS: true
 ```
 
 # [Azure Pipelines](#tab/azure-devops)
@@ -337,12 +332,11 @@ env: # Add environment variables here
 ...
 
 inputs:
-  app_location: 'src/dist'
+  app_location: 'src'
   api_location: 'api'
-  output_location: '' # Leave this empty
-  skip_app_build: true
+  output_location: 'public'
   azure_static_web_apps_api_token: $(deployment_token)
-env: # Add environment variables here
+env:
   SKIP_DEPLOY_ON_MISSING_SECRETS: true
 ```
 
