@@ -487,7 +487,7 @@ The following features aren't supported in Azure Spring Apps due to the limitati
 > [!NOTE]
 > In the following different language build and deploy configuration sections, `--build-env` means the environment is used in the build phase. `--env` means the environment is used in the runtime phase.
 > 
-> We recommend that you specify the language version in case the default version changes. Taking Java as an example, use `--build-env BP_JVM_VERSION=11.*` to specify Java 11 as the JDK version. For other languages, you can get the environment variable name in the following descriptions for each language.
+> We recommend that you specify the language version in case the default version changes. For example, use `--build-env BP_JVM_VERSION=11.*` to specify Java 11 as the JDK version. For other languages, you can get the environment variable name in the following descriptions for each language.
 
 ### Deploy Java applications
 
