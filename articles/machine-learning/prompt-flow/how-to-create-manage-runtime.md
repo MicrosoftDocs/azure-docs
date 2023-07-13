@@ -77,7 +77,6 @@ If you didn't have compute instance, create a new one: [Create and manage an Azu
 
         > [!NOTE]
         > - We are going to perform an automatic restart of your compute instance. Please ensure that you do not have any tasks or jobs running on it, as they may be affected by the restart.
-        > - To build your custom environment, please use an image from public docker hub. We do not support custom environments built with images from ACR at this time.
 
     1. To use an existing custom application as a runtime, choose the option "existing".
         This option is available if you have previously created a custom application on a compute instance. For more information on how to create and use a custom application as a runtime, learn more about [how to create custom application as runtime](how-to-customize-environment-runtime.md#create-a-custom-application-on-compute-instance-that-can-be-used-as-prompt-flow-runtime).
@@ -175,6 +174,7 @@ You can also assign these permissions manually through the UI.
 
     > [!NOTE]
     > This operation may take several minutes to take effect.
+    > If your compute instance behind VNet, please follow [Compute instance behind VNet](#compute-instance-behind-vnet) to configure the network.
 
 To learn more:
 - [Manage access to an Azure Machine Learning workspace](../how-to-assign-roles.md?view=azureml-api-2&tabs=labeler&preserve-view=true)
@@ -205,7 +205,8 @@ Go to runtime detail page and select update button at the top. You can change ne
 
 :::image type="content" source="./media/how-to-create-manage-runtime/runtime-update-env.png" alt-text="Screenshot of the runtime detail page with updated selected. " lightbox = "./media/how-to-create-manage-runtime/runtime-update-env.png":::
 
-If you used a custom environment, you need to rebuild it using latest Prompt flow image first, and then update your runtime with the new custom environment.
+> [!NOTE]
+> If you used a custom environment, you need to rebuild it using latest prompt flow image first, and then update your runtime with the new custom environment.
 
 ## Troubleshooting guide for runtime
 
@@ -223,7 +224,7 @@ If you just assigned the permissions, it will take a few minutes to take effect.
 
 :::image type="content" source="./media/how-to-create-manage-runtime/ci-failed-runtime-not-ready.png" alt-text="Screenshot of a failed run on the runtime detail page. " lightbox = "./media/how-to-create-manage-runtime/ci-failed-runtime-not-ready.png":::
 
-First, go to the Compute Instance terminal and run `docker ps` to find the root cause. You can follow the steps in the [Manually customize conda packages in CI runtime](how-to-customize-environment-runtime.md#manually-customize-conda-packages-in-ci-runtime) section.
+First, go to the Compute Instance terminal and run `docker ps` to find the root cause. 
 
 Use  `docker images`  to check if the image was pulled successfully. If your image was pulled successfully, check if the Docker container is running. If it's already running, locate this runtime, which will attempt to restart the runtime and compute instance.
 
@@ -243,7 +244,7 @@ Go to the compute instance terminal and run  `docker logs -<runtime_container_na
 
 This because you're cloning a flow from others that is using compute instance as runtime. As compute instance runtime is user isolated, you need to create your own compute instance runtime or select a managed online deployment/endpoint runtime, which can be shared with others.
 
-#### Compute instance behind vnet
+#### Compute instance behind VNet
 
 If your compute instance is behind a VNet, you need to make the following changes to ensure that your compute instance can be used in prompt flow:
 - Please follow [required-public-internet-access](../how-to-secure-workspace-vnet.md#required-public-internet-access) to set your CI network configuration.

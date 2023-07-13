@@ -185,3 +185,4 @@ Review these articles related to analyzing service performance.
 + [Performance tips](search-performance-tips.md)
 + [Choose a service tier](search-sku-tier.md)
 + [Manage capacity](search-capacity-planning.md)
++ [Case Study: Use Cognitive Search to Support Complex AI Scenarios](https://techcommunity.microsoft.com/t5/azure-ai/case-study-effectively-using-cognitive-search-to-support-complex/ba-p/2804078)

@@ -4,7 +4,7 @@ titleSuffix: Azure Machine Learning
 description: 'Use CLI (v1) or SDK (v1) to deploy your Azure Machine Learning models as a web service using Azure Kubernetes Service.'
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: mlops
+ms.subservice: inferencing
 ms.topic: how-to
 ms.custom: UpdateFrequency5, contperf-fy21q1, deploy, cliv1, sdkv1
 author: bozhong68
