@@ -24,7 +24,7 @@ landingContent:
             url: index.yml
 
 # card 2
-  - title: Get started
+  - title: Getting started
     linkLists: 
       - linkListType: how-to-guide
         links:
