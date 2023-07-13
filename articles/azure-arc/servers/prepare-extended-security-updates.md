@@ -44,5 +44,6 @@ We recommend you deploy your machines to Azure Arc in preparation for when the r
 
 ## Next steps
 
+* Learn about best practices and design patterns through the [Azure Arc landing zone accelerator for hybrid and multicloud](/azure/cloud-adoption-framework/scenarios/hybrid/arc-enabled-servers/eslz-identity-and-access-management).
 * Learn more about [Arc-enabled servers](overview.md) and how they work with Azure through the Azure Connected Machine agent.
 * Explore options for [onboarding your machines](plan-at-scale-deployment.md) to Azure Arc-enabled servers.
