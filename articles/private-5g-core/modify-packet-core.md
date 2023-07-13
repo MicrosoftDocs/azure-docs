@@ -142,8 +142,6 @@ To make changes to a data network attached to your packet core instance:
 
 ## Remove an attached data network
 
-The data network that you want to delete must have no SIM policies associated with it. If the data network has one or more associated SIM policies data network removal will be prevented.
-
 To remove a data network attached to the packet core:
 
 1. Select the checkbox for the data network you want to delete.
@@ -151,6 +149,7 @@ To remove a data network attached to the packet core:
 
 :::image type="content" source="media/modify-packet-core/modify-packet-core-delete-attached-data-network.png" alt-text="Screenshot of the Azure portal showing a selected data network and delete button.":::
 
+This change will require a manual packet core reinstall to take effect, see [Next steps](#next-steps).
 
 ## Submit and verify changes
 
@@ -163,7 +162,9 @@ To remove a data network attached to the packet core:
 
     - If you made changes to the packet core configuration, check that the fields under **Connected ASE device**, **Azure Arc Custom Location** and **Access network** contain the updated information.
     - If you made changes to the attached data networks, check that the fields under **Data networks** contain the updated information.
-1. If you removed an attached data network from the packet core, you must remove the data network from the resource group:
+1. If you removed an attached data network from the packet core and it is no longer attached to any packet cores or referenced by any SIM policies, you may remove the data network from the resource group:  
+    > [!NOTE]
+    > The data network that you want to delete must have no SIM policies associated with it. If the data network has one or more associated SIM policies data network removal will be prevented.
     1. Navigate to the resource group containing your AP5GC resources.
     1. Select the checkbox for the data network resource you want to delete.
     1. Select **Delete**
