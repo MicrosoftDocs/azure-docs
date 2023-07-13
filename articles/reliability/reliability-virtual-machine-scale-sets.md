@@ -206,7 +206,7 @@ az vmss create \
     --zones 1 2 3
 ```
 
-It takes a few minutes to create and configure all the scale set resources and VMs in the zone(s) that you specify. For a complete example of a zone-redundant scale set and network resources, see [this sample CLI script](scripts/cli-sample-zone-redundant-scale-set.md#sample-script)
+It takes a few minutes to create and configure all the scale set resources and VMs in the zone(s) that you specify. For a complete example of a zone-redundant scale set and network resources, see [this sample CLI script](../virtual-machine-scale-sets/scripts/cli-sample-zone-redundant-scale-set.md#sample-script)
 
 # [Azure PowerShell](#tab/powershell)
 
@@ -247,7 +247,7 @@ New-AzVmss `
 
 # [Azure Resource Manager templates](#tab/resource)
 
-The process to create a scale set that uses an Availability Zone is the same as detailed in the getting started article for [Linux](quick-create-template-linux.md) or [Windows](quick-create-template-windows.md). To use Availability Zones, you must create your scale set in a supported Azure region. Add the `zones` property to the *Microsoft.Compute/virtualMachineScaleSets* resource type in your template and specify which zone to use (such as zone *1*, *2*, or *3*).
+The process to create a scale set that uses an availability zone is the same as detailed in the getting started article for [Linux](../virtual-machine-scale-sets/quick-create-template-linux.md) or [Windows](../virtual-machine-scale-sets/quick-create-template-windows.md). To use availability zones, you must create your scale set in a supported Azure region. Add the `zones` property to the *Microsoft.Compute/virtualMachineScaleSets* resource type in your template and specify which zone to use (such as zone *1*, *2*, or *3*).
 
 
 ### Single-zone scale set
@@ -328,7 +328,6 @@ If your VMSS has been deployed in a zone redundant configuration, across multipl
 
 #### Zone outage preparation and recovery
 
-You can set up your VMSS to failover to another zone using the Site Recovery service. For more information, see [Site Recovery](../site-recovery/site-recovery-overview.md).
 
 ### Low-latency design
 
@@ -397,7 +396,7 @@ When you deploy a scale set, you also have the option to deploy with a single [p
 > [Reliability in Azure](/azure/reliability/availability-zones-overview)
 
 > [!div class="nextstepaction"]
-> [Deploy applications on Virtual Machine Scale Sets](tutorial-install-apps-cli.md) 
+> [Deploy applications on Virtual Machine Scale Sets](../virtual-machine-scale-sets/tutorial-install-apps-cli.md) 
 
 > [!div class="nextstepaction"]
-> [Use autoscale with Virtual Machine Scale Sets](tutorial-autoscale-cli.md).
+> [Use autoscale with Virtual Machine Scale Sets](../virtual-machine-scale-sets/tutorial-autoscale-cli.md).
