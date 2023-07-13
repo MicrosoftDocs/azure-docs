@@ -18,7 +18,7 @@ For an architectural overview of reliability in Azure, see [Azure reliability](/
 
 ## Reliability recommendations
 
-[!INCLUDE [Reliability recommendations](includes/reliability-recommendations-include.md)]
+[!INCLUDE [Reliability recommendations](includes/reliability-availability-zone-description-include.md)]
 
 ### Reliability recommendations summary
 
