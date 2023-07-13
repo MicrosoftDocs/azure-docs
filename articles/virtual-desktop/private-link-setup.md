@@ -133,7 +133,7 @@ Here's how to create a private endpoint for the *connection* sub-resource used f
 
 2. Create a Private Link service connection and the private endpoint for a host pool with the connection sub-resource by running the commands in one of the following examples.
 
-   1. To create a private endpoint with a dynamically allocated IP addresses:
+   1. To create a private endpoint with a dynamically allocated IP address:
    
       ```azurecli
       # Specify the Azure region. This must be the same region as your virtual network and session hosts.
@@ -200,7 +200,7 @@ Here's how to create a private endpoint for the *connection* sub-resource used f
                                  uksouth     endpoint-hp01         Succeeded            privatelink
    ```
 
-3. You'll need to [configure DNS for your private endpoint](../private-link/private-endpoint-dns.md) to resolve the DNS name of the private endpoint in the virtual network. The private DNS zone name is `privatelink.wvd.microsoft.com`. For the steps to create and configure the private DNS zone with Azure CLI, see [Configure the private DNS zone](../private-link/create-private-endpoint-cli.md#configure-the-private-dns-zone).
+3. You need to [configure DNS for your private endpoint](../private-link/private-endpoint-dns.md) to resolve the DNS name of the private endpoint in the virtual network. The private DNS zone name is `privatelink.wvd.microsoft.com`. For the steps to create and configure the private DNS zone with Azure CLI, see [Configure the private DNS zone](../private-link/create-private-endpoint-cli.md#configure-the-private-dns-zone).
 
 # [Azure PowerShell](#tab/powershell)
 
@@ -236,7 +236,7 @@ Here's how to create a private endpoint for the *connection* sub-resource used f
 
 4. Finally, create the private endpoint by running the commands in one of the following examples.
 
-   1. To create a private endpoint with a dynamically allocated IP addresses:
+   1. To create a private endpoint with a dynamically allocated IP address:
    
       ```azurepowershell
       # Specify the Azure region. This must be the same region as your virtual network and session hosts.
@@ -316,7 +316,7 @@ Here's how to create a private endpoint for the *connection* sub-resource used f
    privatelink       endpoint-hp01   uksouth  Succeeded
    ```
 
-5. You'll need to [configure DNS for your private endpoint](../private-link/private-endpoint-dns.md) to resolve the DNS name of the private endpoint in the virtual network. The private DNS zone name is `privatelink.wvd.microsoft.com`. For the steps to create and configure the private DNS zone with Azure PowerShell, see [Configure the private DNS zone](../private-link/create-private-endpoint-powershell.md#configure-the-private-dns-zone).
+5. You need to [configure DNS for your private endpoint](../private-link/private-endpoint-dns.md) to resolve the DNS name of the private endpoint in the virtual network. The private DNS zone name is `privatelink.wvd.microsoft.com`. For the steps to create and configure the private DNS zone with Azure PowerShell, see [Configure the private DNS zone](../private-link/create-private-endpoint-powershell.md#configure-the-private-dns-zone).
 
 ---
 
@@ -375,7 +375,7 @@ To create a private endpoint for the *feed* sub-resource for a workspace, select
 
 1. In the same Bash session, create a Private Link service connection and the private endpoint for a workspace with the feed sub-resource by running the following commands.
 
-   1. To create a private endpoint with a dynamically allocated IP addresses:
+   1. To create a private endpoint with a dynamically allocated IP address:
    
       ```azurecli
       # Specify the Azure region. This must be the same region as your virtual network.
@@ -440,11 +440,11 @@ To create a private endpoint for the *feed* sub-resource for a workspace, select
                                  uksouth     endpoint-ws01         Succeeded            privatelink
    ```
 
-1. You'll need to [configure DNS for your private endpoint](../private-link/private-endpoint-dns.md) to resolve the DNS name of the private endpoint in the virtual network. The private DNS zone name is `privatelink.wvd.microsoft.com`. For the steps to create and configure the private DNS zone with Azure CLI, see [Configure the private DNS zone](../private-link/create-private-endpoint-cli.md#configure-the-private-dns-zone).
+1. You need to [configure DNS for your private endpoint](../private-link/private-endpoint-dns.md) to resolve the DNS name of the private endpoint in the virtual network. The private DNS zone name is `privatelink.wvd.microsoft.com`. For the steps to create and configure the private DNS zone with Azure CLI, see [Configure the private DNS zone](../private-link/create-private-endpoint-cli.md#configure-the-private-dns-zone).
 
 # [Azure PowerShell](#tab/powershell)
 
-1. In the same PowerShell session, create a Private Link service connection for a workspace with the feed sub-resource by running the following commands. In these examples the same virtual network and subnet are used.
+1. In the same PowerShell session, create a Private Link service connection for a workspace with the feed sub-resource by running the following commands. In these examples, the same virtual network and subnet are used.
 
    ```azurepowershell
    # Get the resource ID of the workspace
@@ -526,7 +526,7 @@ To create a private endpoint for the *feed* sub-resource for a workspace, select
    privatelink       endpoint-ws01   uksouth  Succeeded
    ```
 
-1. You'll need to [configure DNS for your private endpoint](../private-link/private-endpoint-dns.md) to resolve the DNS name of the private endpoint in the virtual network. The private DNS zone name is `privatelink.wvd.microsoft.com`. For the steps to create and configure the private DNS zone with Azure PowerShell, see [Configure the private DNS zone](../private-link/create-private-endpoint-powershell.md#configure-the-private-dns-zone).
+1. You need to [configure DNS for your private endpoint](../private-link/private-endpoint-dns.md) to resolve the DNS name of the private endpoint in the virtual network. The private DNS zone name is `privatelink.wvd.microsoft.com`. For the steps to create and configure the private DNS zone with Azure PowerShell, see [Configure the private DNS zone](../private-link/create-private-endpoint-powershell.md#configure-the-private-dns-zone).
 
 ---
 
@@ -592,7 +592,7 @@ To create a private endpoint for the *global* sub-resource used for the initial 
 
 1. In the same Bash session, create a Private Link service connection and the private endpoint for the workspace with the global sub-resource by running the following commands:
 
-   1. To create a private endpoint with a dynamically allocated IP addresses:
+   1. To create a private endpoint with a dynamically allocated IP address:
    
       ```azurecli
       # Specify the Azure region. This must be the same region as your virtual network.
@@ -656,13 +656,13 @@ To create a private endpoint for the *global* sub-resource used for the initial 
                                  uksouth     endpoint-global       Succeeded            privatelink
    ```
 
-1. You'll need to [configure DNS for your private endpoint](../private-link/private-endpoint-dns.md) to resolve the DNS name of the private endpoint in the virtual network. The private DNS zone name is `privatelink-global.wvd.microsoft.com`. For the steps to create and configure the private DNS zone with Azure CLI, see [Configure the private DNS zone](../private-link/create-private-endpoint-cli.md#configure-the-private-dns-zone).
+1. You need to [configure DNS for your private endpoint](../private-link/private-endpoint-dns.md) to resolve the DNS name of the private endpoint in the virtual network. The private DNS zone name is `privatelink-global.wvd.microsoft.com`. For the steps to create and configure the private DNS zone with Azure CLI, see [Configure the private DNS zone](../private-link/create-private-endpoint-cli.md#configure-the-private-dns-zone).
 
 # [Azure PowerShell](#tab/powershell)
 
 1. *Optional*: Create a placeholder workspace to terminate the global endpoint by following the instructions to [Create a workspace](create-application-group-workspace.md?tabs=powershell#create-a-workspace).
 
-1. In the same PowerShell session, create a Private Link service connection for the workspace with the global sub-resource by running the following commands. In these examples the same virtual network and subnet are used.
+1. In the same PowerShell session, create a Private Link service connection for the workspace with the global sub-resource by running the following commands. In these examples, the same virtual network and subnet are used.
 
    ```azurepowershell
    # Get the resource ID of the workspace
@@ -734,7 +734,7 @@ To create a private endpoint for the *global* sub-resource used for the initial 
    privatelink       endpoint-global uksouth  Succeeded
    ```
 
-1. You'll need to [configure DNS for your private endpoint](../private-link/private-endpoint-dns.md) to resolve the DNS name of the private endpoint in the virtual network. The private DNS zone name is `privatelink-global.wvd.microsoft.com`. For the steps to create and configure the private DNS zone with Azure PowerShell, see [Configure the private DNS zone](../private-link/create-private-endpoint-powershell.md#configure-the-private-dns-zone).
+1. You need to [configure DNS for your private endpoint](../private-link/private-endpoint-dns.md) to resolve the DNS name of the private endpoint in the virtual network. The private DNS zone name is `privatelink-global.wvd.microsoft.com`. For the steps to create and configure the private DNS zone with Azure PowerShell, see [Configure the private DNS zone](../private-link/create-private-endpoint-powershell.md#configure-the-private-dns-zone).
 
 ---
 
