@@ -181,7 +181,7 @@ Use [IoT Hub Device SDKs](/azure/iot-hub/iot-hub-devguide-sdks#azure-iot-hub-dev
 
 For all sensor telemetry events, "timestamp" is a mandatory property and has to be in ISO 8601 format (YYYY-MM-DDTHH:MM:SSZ).
 
-You're now all set to start pushing sensor data for all sensors using the respective connection string provided for each sensor. However, sensor data should be sent in a JSON format as defined by Data Manager for Agriculture. Refer to the telemetry schema that follows:
+You're now all set to start pushing sensor data for all sensors using the respective connection string provided for each sensor. However, sensor data should be sent in the format defined in sensor data model in Step 3. Refer to the telemetry schema that follows:
 
 ```json
 {
