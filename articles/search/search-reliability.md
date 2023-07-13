@@ -17,7 +17,7 @@ Across Azure, [reliability](../reliability/overview.md) means resiliency and ava
 
 + Deploy a single search service and scale up for high availability. You can add multiple replicas to handle higher indexing and query workloads. If your search service [supports availability zones](#availability-zone-support), replicas are automatically provisioned in different physical data centers for extra resiliency.
 
-+ Deploy multiple search services across different geographic regions. All search workloads are fully contained within a single service that runs in a single geographic region, but in a multi-service scenario, you have options for synchronizing content so that it's the same across all services. You can also set up a load balancing option to redistribute requests or fail over if there's a service outage.
++ Deploy multiple search services across different geographic regions. All search workloads are fully contained within a single service that runs in a single geographic region, but in a multi-service scenario, you have options for synchronizing content so that it's the same across all services. You can also set up a load balancing solution to redistribute requests or fail over if there's a service outage.
 
 For business continuity and recovery from disasters at a regional level, plan on a cross-regional topology, consisting of multiple search services having identical configuration and content. Your custom script or code provides the "fail over" mechanism to an alternate search service if one suddenly becomes unavailable.
 
@@ -82,7 +82,7 @@ Availability zones for Cognitive Search are supported in the following regions:
 | West US 3 | June 02, 2021 or later |
 
 > [!NOTE]
-> Availability zones don't impact the [Azure Cognitive Search Service Level Agreement](https://azure.microsoft.com/support/legal/sla/search/v1_0/). You still need three or more replicas for query high availability.
+> Availability zones don't change the terms of the [Azure Cognitive Search Service Level Agreement](https://azure.microsoft.com/support/legal/sla/search/v1_0/). You still need three or more replicas for query high availability.
 
 ## Multiple services in separate geographic regions
 
@@ -128,7 +128,7 @@ Here's a high-level visual of what that architecture would look like.
 
 If you're using the Azure Cognitive Search REST API to [push content to your search index](tutorial-optimize-indexing-push-api.md), you can keep your various search services in sync by pushing changes to all search services whenever an update is required. In your code, make sure to handle cases where an update to one search service fails but succeeds for other search services.
 
-### Fail over or redirect requests
+### Fail over or redirect query requests
 
 If you need redundancy at the request level, Azure provides several [load balancing options](/azure/architecture/guide/technology-choices/load-balancing-overview):
 
@@ -136,19 +136,21 @@ If you need redundancy at the request level, Azure provides several [load balanc
 + [Application Gateway](/azure/application-gateway/overview), used to load balance between servers in a region at the application layer.
 + [Azure Front Door](/azure/frontdoor/front-door-overview), used to optimize global routing of web traffic and provide global failover.
 
-Some points to remember when evaluating load balancing options:
+Some points to keep in mind when evaluating load balancing options:
 
-+ Search is a backend service that accepts query and indexing requests from a client. If possible, use the same load balancing option for both the client app and search to mitigate costs and complexity.
++ Search is a backend service that accepts query and indexing requests from a client. 
+
++ Requests from the client to a search service must be authenticated. For access to search operations, the caller must have role-based permissions or provide an API key on the request.
 
 + Search endpoints are reached through a public internet connection by default. If you set up a private endpoint for client connections that originate from within a virtual network, use [Application Gateway](/azure/application-gateway/overview).
 
-+ Requests to a search service must be authenticated. For access to search operations, the caller must have role-based permissions or provide an API key on the request.
++ Cognitive Search accepts requests addressed to the `<your-search-service-name>.search.windows.net` endpoint. If you reach the same endpoint using a different DNS name in the host header, such as a CNAME, the request is rejected.
 
-Cognitive Search provides a [multi-region deployment sample](https://github.com/Azure-Samples/azure-search-multiple-regions) that uses Azure Traffic Manager for request redirection. 
+Cognitive Search provides a [multi-region deployment sample](https://github.com/Azure-Samples/azure-search-multiple-regions) that uses Azure Traffic Manager for request redirection if the primary endpoint fails. This solution is useful when you route to a search-enabled client that only calls a search service in the same region.
 
-Azure Traffic Manager is primarily used for routing network traffic across different endpoints based on specific routing methods (such as priority, performance, or geographic location). It acts at the DNS level to direct incoming requests to the appropriate endpoint. However, it doesn't have inherent knowledge of the health or availability of specific services like Azure Cognitive Search. You can't put a search service directly behind Traffic Manager.
+Azure Traffic Manager is primarily used for routing network traffic across different endpoints based on specific routing methods (such as priority, performance, or geographic location). It acts at the DNS level to direct incoming requests to the appropriate endpoint. If an endpoint that Traffic Manager is servicing begins refusing requests, traffic is routed to another endpoint.
 
-Instead, if you're using Traffic Manager, the assumption is that requests flow to Traffic Manager, then to a search client, and finally to a search service on the backend. If one search service goes down, the search client starts failing, and Traffic Manager fails over to the remaining client.
+Traffic Manager doesn't have inherent knowledge of the health or availability of specific services like Azure Cognitive Search. You can't put a search service directly behind Traffic Manager. Instead, the assumption is that requests flow to Traffic Manager, then to a search-enabled web client, and finally to a search service on the backend. The client and service are located in the same region. If one search service goes down, the search client starts failing, and Traffic Manager redirects to the remaining client.
 
 ![Search apps connecting through Azure Traffic Manager][4]
 
