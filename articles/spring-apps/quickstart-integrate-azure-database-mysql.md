@@ -186,7 +186,7 @@ Repeat to update app configuration action for the app `customers-service`, which
 
 ## Validate the apps
 
-Follow the [Verify the services](./quickstart-deploy-apps.md?pivots=programming-language-java#verify-the-services) section in the [Quickstart: Build and deploy apps to Azure Spring Apps](quickstart-deploy-apps.md) topic to validate the Pet Clinic service and query records from the MySQL database to confirm the database connection.
+Follow the [Verify the services](./quickstart-deploy-apps.md?pivots=programming-language-java#verify-the-services) section in the [Quickstart: Build and deploy apps to Azure Spring Apps](quickstart-deploy-apps.md) article to validate the Pet Clinic service and query records from the MySQL database to confirm the database connection.
 
 ## Clean up resources
 
