@@ -252,7 +252,7 @@ export class AppComponent {
 
 ---
 
-## Add configuration
+## Configuration
 
 This section covers configuration settings for the framework extensions for Application Insights JavaScript SDK.
 
