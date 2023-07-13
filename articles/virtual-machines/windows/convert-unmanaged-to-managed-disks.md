@@ -23,7 +23,8 @@ If you have existing Windows virtual machines (VMs) that use unmanaged disks, yo
 
 * Review [the FAQ about migration to Managed Disks](../faq-for-disks.yml).
 
-* Before converting, make sure all the VM extensions are in the 'Provisioning succeeded' state or the migration will fail.
+* Ensure the VM is in a healthy sate before converting.
+
 
 [!INCLUDE [virtual-machines-common-convert-disks-considerations](../../../includes/virtual-machines-common-convert-disks-considerations.md)]
 
