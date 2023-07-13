@@ -53,7 +53,7 @@ Now, the Book API has been created. A successful call to this URL returns a **20
 The Microsoft-managed Default Rule Set is based on the [OWASP Core Rule Set](https://github.com/coreruleset/coreruleset//) and includes Microsoft Threat Intelligence rules.
 
 > [!NOTE]
-> Managed Rule Set is not available for Azure Front Door Standard SKU. For more information about the different SKUs, see [Azure Front Door tier comparison](../../frontdoor/standard-premium/tier-comparison.md#feature-comparison-between-tiers)
+> Managed Rule Set is not available for Azure Front Door Standard SKU. For more information about the different SKUs, see [Azure Front Door tier comparison](../../frontdoor/standard-premium/tier-comparison.md#feature-comparison-between-tiers).
 
 
 Use the steps described in quick create option to create an Azure Front Door Premium profile with an associated WAF security policy in the same resource group:
