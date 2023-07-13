@@ -35,34 +35,23 @@ In this tutorial, you use the Azure CLI to complete the following tasks:
 Sign in with Azure CLI by `az login`.
 If you're using Cloud Shell or already logged in, check and confirm your account with `az account show`.
 
-#### Azure Active Directory
-
-Service Connector needs to access Azure Active Directory to get information of your account and managed identity of hosting service. You can use the following command to check if your device can access Azure Active Directory.
-
-```azurecli
-az ad signed-in-user show
-```
-
-If you get an error code `AADSTS530003`, please ask your IT department for help with joining this device to Azure Active Directory. For more information, please refer to [Azure AD joined devices](../active-directory/devices/concept-azure-ad-join.md).
-
-
 #### Network connectivity
 
 ::: zone pivot="postgresql"
 
-If your database server is in Virtual Network, please make sure your environment can access the server in the Virtual Network.
+If your database server is in Virtual Network, please make sure your environment that run Azure CLI command can access the server in the Virtual Network.
 
 ::: zone-end
 
 ::: zone pivot="mysql"
 
-If your database server is in Virtual Network, please make sure your environment can access the server in the Virtual Network.
+If your database server is in Virtual Network, please make sure your environment that run Azure CLI command can access the server in the Virtual Network.
 
 ::: zone-end
 
 ::: zone pivot="sql"
 
-If your database server disallows public access, please make sure your environment can access the server through private endpoint.
+If your database server disallows public access, please make sure your environment that run Azure CLI command can access the server through private endpoint.
 
 ::: zone-end
 
@@ -74,9 +63,12 @@ If your database server disallows public access, please make sure your environme
 
 Next, we would take Azure App Service as an example to create a connection of managed identity. If you use Azure Spring Apps or Azure Container Apps, please replace `webapp` with `spring` or `container` in the following command.
 
+> [!NOTE]
+> If you use Azure Portal, go to the Service Connector blade of [Azure App Service](./quickstart-portal-app-service-connection.md), [Azure Spring Apps](./quickstart-portal-spring-cloud-connection.md), or [Azure Container Apps](./quickstart-portal-container-apps.md), and click **Create** to create a connection. Azure Portal will automatically compose the command for you and trigger the command execution on Cloud Shell.
+
 ::: zone pivot="postgresql"
 
-### [System managed identity](#tab/system)
+### [System assigned managed identity](#tab/system)
 
 ```azurecli
 az webapp connection create postgres-flexible \
@@ -89,7 +81,7 @@ az webapp connection create postgres-flexible \
     --client-type java
 ```
 
-### [User managed identity](#tab/user)
+### [User assigned managed identity](#tab/user)
 
 ```azurecli
 az webapp connection create postgres-flexible \
@@ -139,7 +131,7 @@ IDENTITY_RESOURCE_ID=$(az identity create \
 
 Then, connect your app to a MySQL database with a system-assigned managed identity using Service Connector.
 
-### [System managed identity](#tab/system)
+### [System assigned managed identity](#tab/system)
 
 ```azurecli
 az webapp connection create mysql-flexible \
@@ -152,7 +144,7 @@ az webapp connection create mysql-flexible \
     --client-type java
 ```
 
-### [User managed identity](#tab/user)
+### [User assigned managed identity](#tab/user)
 
 ```azurecli
 az webapp connection create mysql-flexible \
@@ -185,7 +177,7 @@ As for `--client-type`, you can use `az webapp connection create mysql-flexible 
 
 ::: zone pivot="sql"
 
-### [System managed identity](#tab/system)
+### [System assigned managed identity](#tab/system)
 
 ```azurecli
 az webapp connection create sql \
@@ -198,7 +190,7 @@ az webapp connection create sql \
     --client-type dotnet
 ```
 
-### [User managed identity](#tab/user)
+### [User assigned managed identity](#tab/user)
 
 ```azurecli
 az webapp connection create sql \
@@ -236,7 +228,11 @@ This Service Connector command will do the following tasks in the background:
 
 For Azure Spring Apps and Azure Container Apps, the operations are similar.
 
-For above tasks, the following permissions may be required to create passwordless connection with Service Connector:
+### Troubleshooting
+
+#### Permission
+If you meet any permission related error, firstly, check Azure CLI signed-in user with command `az account show`. Make sure you login with the right account.
+Secondly, check if you have the following permissions that may be required to create passwordless connection with Service Connector:
 
 ::: zone pivot="postgresql"
 
@@ -256,7 +252,7 @@ For above tasks, the following permissions may be required to create passwordles
 | Permission | Operation |
 | --- | --- |
 | Microsoft.DBforMySQL/flexibleServers/read | Required to get information of database server |
-| Microsoft.DBforMySQL/flexibleServers/write | Required to add the provided user managed identity to database server |
+| Microsoft.DBforMySQL/flexibleServers/write | Required to add the provided User assigned managed identity to database server |
 | Microsoft.DBforMySQL/flexibleServers/firewallRules/write | Required to create firewall rule in case the local IP address is blocked |
 | Microsoft.DBforMySQL/flexibleServers/firewallRules/delete | Required to revert the firewall rule created by Service Connector to avoid security issue |
 | Microsoft.DBforMySQL/flexibleServers/administrators/read | Required to check if Azure CLI login user is a database server Azure AD administrator |
@@ -279,6 +275,20 @@ For above tasks, the following permissions may be required to create passwordles
 
 In some cases, the permissions aren't required. For example, if the CLI login user is already an Active Directory Administrator on SQL server, then you don't need to have `Microsoft.Sql/servers/administrators/write` permission.
 
+#### Azure Active Directory
+
+If you get an error `ERROR: AADSTS530003: Your device is required to be managed to access this resource.`, ask your IT department for help with joining this device to Azure Active Directory. For more information, please refer to [Azure AD joined devices](../active-directory/devices/concept-azure-ad-join.md).
+
+Service Connector needs to access Azure Active Directory to get information of your account and managed identity of hosting service. You can use the following command to check if your device can access Azure Active Directory.
+
+```azurecli
+az ad signed-in-user show
+```
+
+If you don't login interactively, you may also get the error and `Interactive authentication is needed`. Please login with `az login` command.
+
+
+---
 
 ## Connect to database with Azure Active Directory authentication
 
@@ -311,6 +321,15 @@ After creating the connection, you can use the connection string in your applica
     String url = System.getenv("AZURE_POSTGRESQL_CONNECTIONSTRING");  
     Connection connection = DriverManager.getConnection(url + "&authenticationPluginClassName=com.Azure.identity.extensions.jdbc.postgresql.AzurePostgresqlAuthenticationPlugin");
     ```
+
+For more information, see 
+* [Tutorial: Connect to PostgreSQL Database from a Java Quarkus Container App without secrets using a managed identity](../container-apps/tutorial-java-quarkus-connect-managed-identity-postgresql-database.md)
+* [Tutorial: Connect to a PostgreSQL Database from Java Tomcat App Service without secrets using a managed identity](../app-service/tutorial-java-tomcat-connect-managed-identity-postgresql-database.md)
+* [Quickstart: Use Java and JDBC with Azure Database for PostgreSQL Flexible Server](../postgresql/flexible-server/connect-java.md?tabs=passwordless#connect-to-the-database)
+
+### [Spring](#tab/spring)
+
+For Spring application, if you create connection with option `--client-type springboot`, Service Connector will set the properties `spring.datasource.passwordless_enabled`, `spring.datasource.url`, `spring.datasource.username` to Azure Spring Apps. Please remove the `spring.datatsource.password` in configuration if it's set before. Then add the dependencies to your Spring application as the tutorial [Bind an Azure Database for PostgreSQL to your application in Azure Spring Apps](../spring-apps/how-to-bind-postgres.md#prepare-your-java-project)
 
 ### [Dotnet](#tab/dotnet)
 For other language, there's not plugin or library for passwordless connection, you can get access token of the managed identity or service principal as the password to connect database. For example, in .NET, you can use [Azure.Identity](https://www.nuget.org/packages/Azure.Identity/) to get access token of managed identity or service principal.
@@ -362,11 +381,6 @@ namespace NpgsqlConnectionExample
 
 ---
 
-For more information, see 
-* [Bind an Azure Database for PostgreSQL to your application in Azure Spring Apps](../spring-apps/how-to-bind-postgres.md)
-* [Tutorial: Connect to PostgreSQL Database from a Java Quarkus Container App without secrets using a managed identity](../container-apps/tutorial-java-quarkus-connect-managed-identity-postgresql-database.md)
-* [Tutorial: Connect to a PostgreSQL Database from Java Tomcat App Service without secrets using a managed identity](../app-service/tutorial-java-tomcat-connect-managed-identity-postgresql-database.md)
-* [Quickstart: Use Java and JDBC with Azure Database for PostgreSQL Flexible Server](../postgresql/flexible-server/connect-java.md?tabs=passwordless#connect-to-the-database)
 
 :::zone-end
 
@@ -394,6 +408,11 @@ For more information, see
     String url = System.getenv("AZURE_MYSQL_CONNECTIONSTRING");  
     Connection connection = DriverManager.getConnection(url + "&defaultAuthenticationPlugin=com.azure.identity.extensions.jdbc.mysql.AzureMysqlAuthenticationPlugin&authenticationPlugins=com.azure.identity.extensions.jdbc.mysql.AzureMysqlAuthenticationPlugin");
     ```
+
+### [Spring](#tab/spring)
+
+For Spring application, if you create connection with option `--client-type springboot`, Service Connector will set the properties `spring.datasource.passwordless_enabled`, `spring.datasource.url`, `spring.datasource.username` to Azure Spring Apps. Please remove the `spring.datatsource.password` in configuration if it's set before. Then add the dependencies to your Spring application as the tutorial [Connect an Azure Database for MySQL instance to your application in Azure Spring Apps](../spring-apps/how-to-bind-mysql.md#prepare-your-java-project)
+
 
 ### [Dotnet](#tab/dotnet)
 
@@ -437,7 +456,6 @@ namespace MysqlConnectionExample
 ---
 
 For more information, see 
-* [Connect an Azure Database for MySQL instance to your application in Azure Spring Apps](../spring-apps/how-to-bind-mysql.md)
 * [Use Java and JDBC with Azure Database for MySQL - Flexible Server](../mysql/flexible-server/connect-java.md?tabs=passwordless)
 
 :::zone-end
@@ -472,6 +490,11 @@ public class Main {
     }
 }
 ```
+
+### [Spring](#tab/spring)
+
+For Spring application, if you create connection with option `--client-type springboot`, Service Connector will set the properties `spring.datasource.url` with value format `jdbc:sqlserver://<sql-server>.database.windows.net:1433;databaseName=<sql-db>;authentication=ActiveDirectoryMSI;` to Azure Spring Apps. You needs to remove the `spring.datatsource.password` in configuration if it's set before. Then you need to add the dependencies to your Spring application as the tutorial [Bind an Azure Database for PostgreSQL to your application in Azure Spring Apps](/azure/developer/java/spring-framework/migrate-sql-database-to-passwordless-connection?tabs=spring%2Capp-service%2Cassign-role-service-connector#2-migrate-the-app-code-to-use-passwordless-connections)
+
 
 ### [Dotnet](#tab/dotnet)
 For managed identity authentication, see [Using Active Directory Managed Identity authentication](/sql/connect/ado-net/sql/azure-active-directory-authentication#using-active-directory-service-principal-authentication)
