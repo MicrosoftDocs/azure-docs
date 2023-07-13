@@ -129,9 +129,10 @@ cd ~/Azure_SAP_Automated_Deployment/samples/WORKSPACES
     export ARM_SUBSCRIPTION_ID="${subscriptionId}"
     export CONFIG_REPO_PATH="${HOME}/Azure_SAP_Automated_Deployment/samples/Terraform/WORKSPACES"
     export SAP_AUTOMATION_REPO_PATH="${HOME}/Azure_SAP_Automated_Deployment/sap-automation"
+    export TF_VAR_app_registration_app_id="XXXXXXXXXXXXXXXXXXXX"
+    export TF_VAR_webapp_client_secret="XXXXXXXXXXXXXXXXXXXXX"
 
-
-    ${SAP_AUTOMATION_REPO_PATH}/deploy/scripts/deploy_controlplane.sh                                                                             \
+    ${SAP_AUTOMATION_REPO_PATH}/deploy/scripts/prepare_region.sh                                                                                  \
         --deployer_parameter_file DEPLOYER/${env_code}-${region_code}-DEP00-INFRASTRUCTURE/${env_code}-${region_code}-DEP00-INFRASTRUCTURE.tfvars \
         --library_parameter_file "LIBRARY/${env_code}-${region_code}-SAP_LIBRARY/${env_code}-${region_code}-SAP_LIBRARY.tfvars"                   \
         --subscription "${subscriptionId}"                                                                                                        \
