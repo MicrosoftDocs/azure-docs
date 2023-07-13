@@ -115,18 +115,9 @@ To delete the solution, call the [Resources - Delete API](/rest/api/resources/re
 DELETE https://management.azure.com/subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{parentResourcePath}/{resourceType}/{resourceName}?api-version=2021-04-01
 ```
 
-In the URL, you need to specify the following information for the solution you want to delete:
-
-- `subscriptionId`
-- `resourceGroupName`
-- `resourceProviderNamespace`
-- `parentResourcePath`
-- `resourceType`
-- `resourceName`
-
 ### [CLI](#tab/cli)
 
-To remove solutions, run the [az resource delete](cli/azure/resource#az-resource-delete) command. You need to specify the name of the resource, resource type, and resource group for the solution you want to delete:
+To remove solutions, run the [az resource delete](/cli/azure/resource#az-resource-delete) command. You need to specify the name of the resource, resource type, and resource group for the solution you want to delete:
 
 ```azurecli
 az resource delete --name <resource-name> --resource-type <resource-type> --resource-group <resource-group-name>
@@ -174,7 +165,11 @@ DELETE https://management.azure.com/subscriptions/{subscriptionId}/resourceGroup
 
 ### [CLI](#tab/cli)
 
-Run the [az monitor scheduled-query delete](/cli/azure/monitor/scheduled-query#az-monitor-scheduled-query-delete) command:
+Delete the following alert rules by runing the [az monitor scheduled-query delete](/cli/azure/monitor/scheduled-query#az-monitor-scheduled-query-delete) command:
+
+- AutoStop_VM_Child
+- ScheduledStartStop_Parent
+- SequencedStartStop_Parent
 
 ```azurecli
 az monitor scheduled-query delete [--ids]
@@ -186,7 +181,11 @@ az monitor scheduled-query delete [--ids]
 
 ### [PowerShell](#tab/PowerShell)
 
-Run the [Remove-AzScheduledQueryRule](/powershell/module/az.monitor/remove-azscheduledqueryrule) command.
+Delete the following alert rules by running the [Remove-AzScheduledQueryRule](/powershell/module/az.monitor/remove-azscheduledqueryrule) command: 
+
+- AutoStop_VM_Child
+- ScheduledStartStop_Parent
+- SequencedStartStop_Parent
 
 ---
 
@@ -194,11 +193,7 @@ Run the [Remove-AzScheduledQueryRule](/powershell/module/az.monitor/remove-azsch
 
 ### [Portal](#tab/azure-portal)
 
-1. Open the **Automation accounts** menu and then select the account to remove.
-1. On the **Related Resources** section of the menu, select **Linked workspace**.
-1. Select **Unlink workspace** to unlink the workspace from your Automation account.
-
-    [![Screenshot that shows unlinking a workspace.](media/move-workspace/unlink-workspace.png)](media/move-workspace/unlink-workspace.png#lightbox)
+See [Delete a standalone Automation account linked to workspace](../../automation/delete-account.md#delete-a-standalone-automation-account-linked-to-workspace).
 
 ### [ REST API](#tab/rest-api)
 
@@ -238,7 +233,7 @@ Not supported.
 
 ### [ REST API](#tab/rest-api)
 
-To move your workspace, use the [Resources - Move Resources API](/rest/api/resources/resources/move-resources).
+To move your workspace, call the [Resources - Move Resources API](/rest/api/resources/resources/move-resources).
 
 ```http
 POST https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{sourceResourceGroupName}/moveResources?api-version=2021-04-01
@@ -246,11 +241,17 @@ POST https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/
 
 ### [CLI](#tab/cli)
 
-To move your workspace, use the [az resource move](/cli/azure/resource#az-resource-move) command
+To move your workspace, run the [az resource move](/cli/azure/resource#az-resource-move) command:
+
+```azurecli
+az resource move --destination-group
+                 --ids
+                 [--destination-subscription-id]
+```
 
 ### [PowerShell](#tab/PowerShell)
 
-To move your workspace, use the [Move-AzResource](/powershell/module/AzureRM.Resources/Move-AzureRmResource) cmdlet as shown in the following example:
+To move your workspace, run the [Move-AzResource](/powershell/module/AzureRM.Resources/Move-AzureRmResource) cmdlet as shown in the following example:
 
 ```powershell
 Move-AzResource -ResourceId "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/MyResourceGroup01/providers/Microsoft.OperationalInsights/workspaces/MyWorkspace" -DestinationSubscriptionId "00000000-0000-0000-0000-000000000000" -DestinationResourceGroupName "MyResourceGroup02"
