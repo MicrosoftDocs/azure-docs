@@ -3,7 +3,7 @@ title: About Azure Site Recovery
 description: Provides an overview of the Azure Site Recovery service, and summarizes disaster recovery and migration deployment scenarios.
 ms.topic: overview
 ms.service: site-recovery
-ms.date: 12/14/2022
+ms.date: 07/12/2023
 ms.custom: MVC
 ms.author: ankitadutta
 author: ankitaduttaMSFT
@@ -19,6 +19,8 @@ Azure Recovery Services contributes to your BCDR strategy:
 
 - **Site Recovery service**: Site Recovery helps ensure business continuity by keeping business apps and workloads running during outages. Site Recovery [replicates](azure-to-azure-quickstart.md) workloads running on physical and virtual machines (VMs) from a primary site to a secondary location. When an outage occurs at your primary site, you fail over to a secondary location, and access apps from there. After the primary location is running again, you can fail back to it.
 - **Backup service**: The [Azure Backup](../backup/index.yml) service keeps your data safe and recoverable.
+
+Azure Site Recovery has an option of *High Churn*, enabling you to configure disaster recovery for Azure VMs having data churn up to 100 MB/s. This helps you to enable disaster recovery for more IO intensive workloads. [Learn more](../site-recovery/concepts-azure-to-azure-high-churn-support.md).
 
 Site Recovery can manage replication for:
 
