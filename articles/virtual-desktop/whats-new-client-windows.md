@@ -4,7 +4,7 @@ description: Learn about recent changes to the Remote Desktop client for Windows
 ms.topic: release-notes
 author: heidilohr
 ms.author: helohr
-ms.date: 07/06/2023
+ms.date: 07/11/2023
 ---
 
 # What's new in the Remote Desktop client for Windows
@@ -18,7 +18,25 @@ The following table lists the current versions available for the public and Insi
 | Release | Latest version | Download |
 |---------|----------------|----------|
 | Public  | 1.2.4419       | [Windows 64-bit](https://go.microsoft.com/fwlink/?linkid=2139369) *(most common)*<br />[Windows 32-bit](https://go.microsoft.com/fwlink/?linkid=2139456)<br />[Windows ARM64](https://go.microsoft.com/fwlink/?linkid=2139370) |
-| Insider | 1.2.4419       | [Windows 64-bit](https://go.microsoft.com/fwlink/?linkid=2139233) *(most common)*<br />[Windows 32-bit](https://go.microsoft.com/fwlink/?linkid=2139144)<br />[Windows ARM64](https://go.microsoft.com/fwlink/?linkid=2139368) |
+| Insider | 1.2.4485       | [Windows 64-bit](https://go.microsoft.com/fwlink/?linkid=2139233) *(most common)*<br />[Windows 32-bit](https://go.microsoft.com/fwlink/?linkid=2139144)<br />[Windows ARM64](https://go.microsoft.com/fwlink/?linkid=2139368) |
+
+## Updates for version 1.2.4485 (Insider)
+
+*Date published: July 11, 2023*
+
+Download: [Windows 64-bit](https://go.microsoft.com/fwlink/?linkid=2139233), [Windows 32-bit](https://go.microsoft.com/fwlink/?linkid=2139144), [Windows ARM64](https://go.microsoft.com/fwlink/?linkid=2139368)
+
+In this release, we've made the following changes: 
+
+- Narrator now describes the toggle button in the display settings side panel as "toggle button" instead of "button."
+- Control types for text now correctly reflect that they're "text" and not "custom." 
+- Updated File and URI Launch Dialog Error Handling to be more specific and user-friendly. 
+- Fixed an issue where Narrator didn't read the error message that appears after the user selects **Detect**.
+- The client now displays an error message after unsuccessfully checking for updates instead of incorrectly displaying a message that says the client is up to date.
+- Added a new RDP file property called "allowed security protocols." This property restricts the list of security protocols the client can negotiate.
+- Fixed an issue where, in Azure Arc, Connection Information dialog gave inconsistent information about identity verification. 
+- Added heading-level description to subscribe with URL.
+- Improved client logging, diagnostics, and error classification to help admins troubleshoot connection and feed issues. 
 
 ## Updates for version 1.2.4419
 

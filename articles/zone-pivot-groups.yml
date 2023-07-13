@@ -705,6 +705,8 @@ groups:
   pivots:
   - id: programming-language-rest
     title: REST
+  - id: programming-language-csharp
+    title: C#
   - id: programming-language-python
     title: Python
 - id: programming-languages-set-two-with-js-spx
@@ -1412,6 +1414,20 @@ groups:
     title: iOS
   - id: platform-windows
     title: Windows
+- id: acs-plat-web-ios-android-windows-unity
+  title: Platform
+  prompt: Choose a platform
+  pivots:
+  - id: platform-web
+    title: Web
+  - id: platform-android
+    title: Android
+  - id: platform-ios
+    title: iOS
+  - id: platform-windows
+    title: Windows
+  - id: platform-unity
+    title: Unity
 - id: acs-plat-android-web-ios
   title: Platform
   prompt: Choose a platform

@@ -48,7 +48,7 @@ The goal of Azure AD registered - also known as Workplace joined - devices is to
 
 Azure AD registered devices are signed in to using a local account like a Microsoft account on a Windows 10 or newer device. These devices have an Azure AD account for access to organizational resources. Access to resources in the organization can be limited based on that Azure AD account and Conditional Access policies applied to the device identity.
 
-Administrators can further control these Azure AD registered devices by enrolling the device(s) into Mobile Device Management (MDM) tools like Microsoft Intune. MDM provides a means to enforce organization-required configurations like requiring storage to be encrypted, password complexity, and security software kept updated. 
+Azure AD Registration is not the same as device enrolment. If Administrators permit users to enrol their devices, organisations can further control these Azure AD registered devices by enrolling the device(s) into Mobile Device Management (MDM) tools like Microsoft Intune. MDM provides a means to enforce organization-required configurations like requiring storage to be encrypted, password complexity, and security software kept updated. 
 
 Azure AD registration can be accomplished when accessing a work application for the first time or manually using the Windows 10 or Windows 11 Settings menu. 
 

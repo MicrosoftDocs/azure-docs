@@ -89,7 +89,7 @@ Currently, only version `0301` is available for GPT-35-Turbo and `0314` for GPT-
 
 ## Working with the Chat Completion API
 
-OpenAI trained the GPT-35-Turbo and GPT-4 models to accept input formatted as a conversation. The messages parameter takes an array of dictionaries with a conversation organized by role.
+OpenAI trained the GPT-35-Turbo and GPT-4 models to accept input formatted as a conversation. The messages parameter takes an array of message objects with a conversation organized by role. When using the Python API a list of dictionaries is used.
 
 The format of a basic Chat Completion is as follows:
 
@@ -202,8 +202,8 @@ For example, for an entity extraction scenario, you might use the following prom
 
 The examples so far have shown you the basic mechanics of interacting with the Chat Completion API. This example shows you how to create a conversation loop that performs the following actions:
 
-- Continuously takes console input, and properly formats it as part of the messages array as user role content.
-- Outputs responses that are printed to the console and formatted and added to the messages array as assistant role content.
+- Continuously takes console input, and properly formats it as part of the messages list as user role content.
+- Outputs responses that are printed to the console and formatted and added to the messages list as assistant role content.
 
 This means that every time a new question is asked, a running transcript of the conversation so far is sent along with the latest question. Since the model has no memory, you need to send an updated transcript with each new question or the model will lose context of the previous questions and answers.
 
@@ -217,16 +217,16 @@ openai.api_key = os.getenv("OPENAI_API_KEY")
 
 conversation=[{"role": "system", "content": "You are a helpful assistant."}]
 
-while(True):
+while True:
     user_input = input()      
     conversation.append({"role": "user", "content": user_input})
 
     response = openai.ChatCompletion.create(
         engine="gpt-3.5-turbo", # The deployment name you chose when you deployed the GPT-35-turbo or GPT-4 model.
-        messages = conversation
+        messages=conversation
     )
 
-    conversation.append({"role": "assistant", "content": response['choices'][0]['message']['content']})
+    conversation.append({"role": "assistant", "content": response["choices"][0]["message"]["content"]})
     print("\n" + response['choices'][0]['message']['content'] + "\n")
 ```
 
@@ -234,7 +234,7 @@ When you run the code above you will get a blank console window. Enter your firs
 
 ## Managing conversations
 
-The previous example will run until you hit the model's token limit. With each question asked, and answer received, the `messages` array grows in size. The token limit for `gpt-35-turbo` is 4096 tokens, whereas the token limits for `gpt-4` and `gpt-4-32k` are 8192 and 32768 respectively. These limits include the token count from both the message array sent and the model response. The number of tokens in the messages array combined with the value of the `max_tokens` parameter must stay under these limits or you'll receive an error.
+The previous example will run until you hit the model's token limit. With each question asked, and answer received, the `messages` list grows in size. The token limit for `gpt-35-turbo` is 4096 tokens, whereas the token limits for `gpt-4` and `gpt-4-32k` are 8192 and 32768 respectively. These limits include the token count from both the message list sent and the model response. The number of tokens in the messages list combined with the value of the `max_tokens` parameter must stay under these limits or you'll receive an error.
 
 It's your responsibility to ensure the prompt and completion falls within the token limit. This means that for longer conversations, you need to keep track of the token count and only send the model a prompt that falls within the limit.
 
@@ -249,15 +249,16 @@ The code requires tiktoken `0.3.0`. If you have an older version run `pip instal
 import tiktoken
 import openai
 import os
+
 openai.api_type = "azure"
 openai.api_version = "2023-05-15" 
-openai.api_base = os.getenv("OPENAI_API_BASE")  # Your Azure OpenAI resource's endpoint value .
+openai.api_base = os.getenv("OPENAI_API_BASE")  # Your Azure OpenAI resource's endpoint value.
 openai.api_key = os.getenv("OPENAI_API_KEY")
 
 system_message = {"role": "system", "content": "You are a helpful assistant."}
 max_response_tokens = 250
-token_limit= 4096
-conversation=[]
+token_limit = 4096
+conversation = []
 conversation.append(system_message)
 
 def num_tokens_from_messages(messages, model="gpt-3.5-turbo-0301"):
@@ -272,19 +273,19 @@ def num_tokens_from_messages(messages, model="gpt-3.5-turbo-0301"):
     num_tokens += 2  # every reply is primed with <im_start>assistant
     return num_tokens
 
-while(True):
+while True:
     user_input = input("")     
     conversation.append({"role": "user", "content": user_input})
     conv_history_tokens = num_tokens_from_messages(conversation)
 
-    while (conv_history_tokens+max_response_tokens >= token_limit):
+    while conv_history_tokens + max_response_tokens >= token_limit:
         del conversation[1] 
         conv_history_tokens = num_tokens_from_messages(conversation)
-        
+
     response = openai.ChatCompletion.create(
         engine="gpt-35-turbo", # The deployment name you chose when you deployed the GPT-35-Turbo or GPT-4 model.
-        messages = conversation,
-        temperature=.7,
+        messages=conversation,
+        temperature=0.7,
         max_tokens=max_response_tokens,
     )
 
@@ -292,11 +293,11 @@ while(True):
     print("\n" + response['choices'][0]['message']['content'] + "\n")
 ```
 
-In this example once the token count is reached the oldest messages in the conversation transcript will be removed. `del` is used instead of `pop()` for efficiency, and we start at index 1 so as to always preserve the system message and only remove user/assistant messages. Over time, this method of managing the conversation can cause the conversation quality to degrade as the model will gradually lose context of the earlier portions of the conversation.
+In this example, once the token count is reached, the oldest messages in the conversation transcript will be removed. `del` is used instead of `pop()` for efficiency, and we start at index 1 so as to always preserve the system message and only remove user/assistant messages. Over time, this method of managing the conversation can cause the conversation quality to degrade as the model will gradually lose context of the earlier portions of the conversation.
 
-An alternative approach is to limit the conversation duration to the max token length or a certain number of turns. Once the max token limit is reached and the model would lose context if you were to allow the conversation to continue, you can prompt the user that they need to begin a new conversation and clear the messages array to start a brand new conversation with the full token limit available.
+An alternative approach is to limit the conversation duration to the max token length or a certain number of turns. Once the max token limit is reached and the model would lose context if you were to allow the conversation to continue, you can prompt the user that they need to begin a new conversation and clear the messages list to start a brand new conversation with the full token limit available.
 
-The token counting portion of the code demonstrated previously, is a simplified version of one of [OpenAI's cookbook examples](https://github.com/openai/openai-cookbook/blob/main/examples/How_to_format_inputs_to_ChatGPT_models.ipynb).
+The token counting portion of the code demonstrated previously is a simplified version of one of [OpenAI's cookbook examples](https://github.com/openai/openai-cookbook/blob/main/examples/How_to_format_inputs_to_ChatGPT_models.ipynb).
 
 ## Next steps
 

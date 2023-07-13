@@ -17,7 +17,7 @@ ms.custom: aaddev, identityplatformtop40, contperf-fy21q1, contperf-fy21q2, cont
 
 # Quickstart: Register an application with the Microsoft identity platform
 
-[!INCLUDE [quickstart-register-app](../../../includes/active-directory-develop-quickstart-register-app.md)]
+[!INCLUDE [quickstart-register-app](./includes/registration/quickstart-register-app.md)]
 
 
 ## Next steps
