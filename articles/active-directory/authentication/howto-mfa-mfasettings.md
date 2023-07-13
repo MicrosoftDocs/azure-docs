@@ -1,6 +1,6 @@
 ---
 title: Configure Azure AD Multi-Factor Authentication
-description: Learn how to configure settings for Azure AD Multi-Factor Authentication in the Azure portal
+description: Learn how to configure settings for Azure AD Multi-Factor Authentication
 
 services: multi-factor-authentication
 ms.service: active-directory
@@ -18,9 +18,9 @@ ms.custom: contperf-fy20q4
 ---
 # Configure Azure AD Multi-Factor Authentication settings
 
-To customize the end-user experience for Azure AD Multi-Factor Authentication, you can configure options for settings like account lockout thresholds or fraud alerts and notifications. Some settings are available directly in the Azure portal for Azure Active Directory (Azure AD), and some are in a separate Azure AD Multi-Factor Authentication portal.
+To customize the end-user experience for Azure AD Multi-Factor Authentication, you can configure options for settings like account lockout thresholds or fraud alerts and notifications. 
  
-The following Azure AD Multi-Factor Authentication settings are available in the Azure portal:
+The following Azure AD Multi-Factor Authentication settings are available:
 
 | Feature | Description |
 | ------- | ----------- |

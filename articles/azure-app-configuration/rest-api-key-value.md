@@ -311,7 +311,7 @@ Content-Type: application/problem+json; charset="utf-8"
     "title": "Modifing key '{key}' is not allowed",
     "name": "{key}",
     "detail": "The key is read-only. To allow modification unlock it first.",
-    "status": "409"
+    "status": 409
 }
 ```
 

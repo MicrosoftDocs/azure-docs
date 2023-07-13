@@ -71,6 +71,9 @@ landingContent:
             url: selective-disk-backup-restore.md
           - text: SAP HANA System Replication backup (preview)
             url: sap-hana-database-about.md#back-up-a-hana-system-with-replication-enabled-preview
+          - text: Cross Region Restore for PostgreSQL (preview)
+            url: backup-vault-overview.md#cross-region-restore-support-for-postgresql-using-azure-backup-preview
+
   # Card
   - title: Back up Azure VMs
     linkLists:
