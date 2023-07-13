@@ -15,7 +15,7 @@ zone_pivot_groups: programming-languages-portal-cli-sdk
 
 # Quickstart: Create a multi-service resource for Azure AI services
 
-Use this quickstart to create and managea multi-service resource for Azure AI services. A multi-service resource allows you to access multiple Azure AI services with a single key and endpoint. It also consolidates billing from the services you use.
+Use this quickstart to create and manage a multi-service resource for Azure AI services. A multi-service resource allows you to access multiple Azure AI services with a single key and endpoint. It also consolidates billing from the services you use.
 
 You can access Azure AI services through two different resources: A multi-service resource, or a single-service one.
 

@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Text Analytics with Cognitive Service'
+title: 'Tutorial: Text Analytics with Azure AI services'
 description: Learn how to use text analytics in Azure Synapse Analytics.
 ms.service: synapse-analytics
 ms.subservice: machine-learning
@@ -11,9 +11,9 @@ ms.author: ruxu
 ms.custom: ignite-fall-2021
 ---
 
-# Tutorial: Text Analytics with Cognitive Service
+# Tutorial: Text Analytics with Azure AI services
 
-[Text Analytics](../../ai-services/language-service/index.yml) is an [Azure Cognitive Service](../../ai-services/index.yml) that enables you to perform  text mining and text analysis with Natural Language Processing (NLP) features. In this tutorial, you'll learn how to use [Text Analytics](../../ai-services/language-service/index.yml) to analyze unstructured text on Azure Synapse Analytics.
+[Text Analytics](../../ai-services/language-service/index.yml) is an [Azure AI services](../../ai-services/index.yml) that enables you to perform  text mining and text analysis with Natural Language Processing (NLP) features. In this tutorial, you'll learn how to use [Text Analytics](../../ai-services/language-service/index.yml) to analyze unstructured text on Azure Synapse Analytics.
 
 This tutorial demonstrates using text analytics with [SynapseML](https://github.com/microsoft/SynapseML) to:
 
@@ -31,7 +31,7 @@ If you don't have an Azure subscription, [create a free account before you begin
 
 - [Azure Synapse Analytics workspace](../get-started-create-workspace.md) with an Azure Data Lake Storage Gen2 storage account configured as the default storage. You need to be the *Storage Blob Data Contributor* of the Data Lake Storage Gen2 file system that you work with.
 - Spark pool in your Azure Synapse Analytics workspace. For details, see [Create a Spark pool in Azure Synapse](../quickstart-create-sql-pool-studio.md).
-- Pre-configuration steps described in the tutorial [Configure Cognitive Services in Azure Synapse](tutorial-configure-cognitive-services-synapse.md).
+- Pre-configuration steps described in the tutorial [Configure Azure AI services in Azure Synapse](tutorial-configure-cognitive-services-synapse.md).
 
 
 ## Get started
@@ -48,7 +48,7 @@ from pyspark.sql.functions import col
 Use the linked text analytics you configured in the [pre-configuration steps](tutorial-configure-cognitive-services-synapse.md) . 
 
 ```python
-cognitive_service_name = "<Your linked service for text analytics>"
+ai_service_name = "<Your linked service for text analytics>"
 ```
 
 ## Text Sentiment
@@ -60,7 +60,7 @@ The Text Sentiment Analysis provides a way for detecting the sentiment labels (s
 df = spark.createDataFrame([
   ("I am so happy today, its sunny!", "en-US"),
   ("I am frustrated by this rush hour traffic", "en-US"),
-  ("The cognitive services on spark aint bad", "en-US"),
+  ("The Azure AI services on spark aint bad", "en-US"),
 ], ["text", "language"])
 
 # Run the Text Analytics service with options
@@ -85,7 +85,7 @@ display(results
 |---|---|
 |I am so happy today, its sunny!|positive|
 |I am frustrated by this rush hour traffic|negative|
-|The cognitive services on spark aint bad|positive|
+|The Azure AI services on spark aint bad|positive|
 
 ---
 

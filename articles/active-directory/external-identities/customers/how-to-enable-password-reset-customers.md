@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: ciam
 ms.topic: how-to
-ms.date: 05/09/2023
+ms.date: 07/12/2023
 ms.author: cmulligan
 ms.custom: it-pro
 
@@ -35,7 +35,7 @@ The following screenshots show the self-service password rest flow. From the app
 ## Enable self-service password reset for customers
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com/).
-1. If you have access to multiple tenants, use the **Directories + subscriptions** filter in the top menu to switch to the customer tenant you created earlier.
+1. If you have access to multiple tenants, use the **Directories + subscriptions** filter :::image type="icon" source="media/common/portal-directory-subscription-filter.png" border="false"::: in the top menu to switch to the customer tenant you created earlier.
 1. In the navigation pane, select **Azure Active Directory**.
 1. Select **External Identities** > **User flows**.
 1. From the list of **User flows**, select the user flow you want to enable SSPR.

@@ -118,8 +118,7 @@ First, you can create a notebook in Azure Databricks. For other Spark cluster pr
     from mmlspark.cognitive import *
     from pyspark.sql.functions import col
     
-    # Add your region and subscription key from the Language service (or a general Cognitive Services key)
-    # If using a multi-region Azure AI services resource, delete the placeholder text: service_region = ""
+    # Add your region and subscription key from the Language service
     service_key = "ADD-SUBSCRIPTION-KEY-HERE"
     service_region = "ADD-SERVICE-REGION-HERE"
     
@@ -159,5 +158,5 @@ First, you can create a notebook in Azure Databricks. For other Spark cluster pr
 
 ## Next steps
 
-- [Cognitive Services in Azure Synapse Analytics](./overview-cognitive-services.md)
+- [Azure AI services in Azure Synapse Analytics](./overview-cognitive-services.md)
 - [Tutorial: Sentiment analysis with Azure AI Language](./tutorial-cognitive-services-sentiment.md)
