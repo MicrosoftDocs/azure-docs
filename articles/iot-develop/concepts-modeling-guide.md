@@ -128,6 +128,9 @@ This article describes how to design and author your own models and covers topic
 
 To learn more, see the [Digital Twins Definition Language](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/README.md) specification.
 
+> [!NOTE]
+> IoT Central currently supports [DTDL v2](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/DTDL.v2.md) with an [IoT Central extension](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/DTDL.iotcentral.v2.md).
+
 ## Model structure
 
 Properties, telemetry, and commands are grouped into interfaces. This section describes how you can use interfaces to describe simple and complex models by using components and inheritance.
@@ -665,6 +668,9 @@ To learn more, see [Device models repository](concepts-model-repository.md).
 ### Use
 
 Applications, such as IoT Central, use device models. In IoT Central, a model is part of the device template that describes the capabilities of the device. IoT Central uses the device template to dynamically build a UI for the device, including dashboards and analytics.
+
+> [!NOTE]
+> IoT Central defines some extensions to the DTDL language. To learn more, see [IoT Central extension](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/DTDL.iotcentral.v2.md).
 
 A custom solution can use the [digital twins model parser](concepts-model-parser.md) to understand the capabilities of a device that implements the model. To learn more, see [Use IoT Plug and Play models in an IoT solution](concepts-model-discovery.md).
 

@@ -6,7 +6,7 @@ ms.service: data-share
 ms.topic: article
 ms.date: 10/31/2022
 ms.author: sidontha 
-ms.custom: devx-track-azurepowershell
+ms.custom:
 ---
 
 # Use PowerShell to monitor the usage of a sent data share

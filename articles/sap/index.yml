@@ -101,6 +101,12 @@ landingContent:
             url: ./automation/supportability.md
           - text: Get started with the automation framework
             url: ./automation/get-started.md
+          - text: Plan your deployment of the automation framework
+            url: ./automation/plan-deployment.md
+      - linkListType: quickstart
+        links:
+          - text: Configure Azure DevOps Services for automation framework
+            url: ./automation/configure-devops.md
 
   - title: SAP on Azure Large Instances
     linkLists:
@@ -121,4 +127,27 @@ landingContent:
       - linkListType: how-to-guide
         links:
           - text: How to install SAP HANA on Azure Large Instances
-            url: ./large-instances/hana-example-installation.md  
+            url: ./large-instances/hana-example-installation.md
+
+  - title: SAP and Microsoft integrations
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: What scenarios are available and how do I get started?
+            url: ./workloads/integration-get-started.md
+          - text: How do you integrate with SAP RISE?
+            url: ./workloads/rise-integration.md
+      - linkListType: how-to-guide
+        links:
+          - text: How to configure M365 Exchange Online for SAP
+            url: ./workloads/exchange-online-integration-sap-email-outbound.md
+          - text: How to expose SAP Process Orchestration on Azure securely
+            url: ./workloads/exchange-online-integration-sap-email-outbound.md
+      - linkListType: quickstart
+        links:
+          - text: Deploy an ERP extension using SAP's Cloud SDK on Azure in one click
+            url: https://github.com/Azure-Samples/app-service-javascript-sap-cloud-sdk-quickstart
+          - text: Use free developer accounts for SAP BTP, M365 and Azure
+            url: ./workloads/integration-get-started.md#free-developer-accounts
+          - text: Use SAP ABAP platform and SAP BTP, ABAP environment to integrate with Microsoft
+            url: https://blogs.sap.com/2023/06/06/kick-start-your-sap-abap-platform-integration-journey-with-microsoft

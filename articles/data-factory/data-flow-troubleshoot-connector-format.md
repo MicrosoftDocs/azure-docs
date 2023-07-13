@@ -832,7 +832,7 @@ For the Snowflake VARIANT, it can only accept the data flow value that is struct
 For more help with troubleshooting, see these resources:
 
 *  [Troubleshoot mapping data flows in Azure Data Factory](data-flow-troubleshoot-guide.md)
-*  [Data Factory blog](https://azure.microsoft.com/blog/tag/azure-data-factory/)
+*  [Data Factory blog](https://techcommunity.microsoft.com/t5/azure-data-factory-blog/bg-p/AzureDataFactoryBlog)
 *  [Data Factory feature requests](/answers/topics/azure-data-factory.html)
 *  [Azure videos](https://azure.microsoft.com/resources/videos/index/?sort=newest&services=data-factory)
 *  [Stack Overflow forum for Data Factory](https://stackoverflow.com/questions/tagged/azure-data-factory)

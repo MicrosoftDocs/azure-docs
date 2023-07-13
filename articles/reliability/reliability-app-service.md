@@ -6,7 +6,7 @@ ms.author: anaharris
 ms.topic: overview
 ms.custom: subject-reliability
 ms.service: app-service
-ms.date: 05/05/2023 
+ms.date: 05/22/2023 
 ---
 
 
@@ -25,7 +25,7 @@ To explore how Azure App Service can bolster the resiliency of your application 
 
 ## Availability zone support
 
-Azure availability zones are at least three physically separate groups of datacenters within each Azure region. Datacenters within each zone are equipped with independent power, cooling, and networking infrastructure. Availability zones are designed to ensure high availability in the case of a local zone failure.  When one zone experiences a failure, the remaining two zones support all regional services, capacity, and high availability.  Failures can range from software and hardware failures to events such as earthquakes, floods, and fires. Tolerance to failures is achieved with redundancy and logical isolation of Azure services. For more detailed information on availability zones in Azure, see [Regions and availability zones](/azure/availability-zones/az-overview).
+[!INCLUDE [Availability zone description](includes/reliability-availability-zone-description-include.md)]
 
 Azure App Service can be deployed across [availability zones (AZ)](../reliability/availability-zones-overview.md) to help you achieve resiliency and reliability for your business-critical workloads. This architecture is also known as zone redundancy.
 
@@ -71,6 +71,7 @@ Availability zone support is a property of the App Service plan. The following a
     - Korea Central
     - North Europe
     - Norway East
+    - Poland Central
     - Qatar Central
     - South Africa North
     - South Central US
@@ -83,6 +84,7 @@ Availability zone support is a property of the App Service plan. The following a
     - West US 2
     - West US 3
     - Azure China - China North 3
+    - Azure Government - US Gov Virginia
 
 
 - To see which regions support availability zones for App Service Environment v3, see [Regions](../app-service/environment/overview.md#regions).

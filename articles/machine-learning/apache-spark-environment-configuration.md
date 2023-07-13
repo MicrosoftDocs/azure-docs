@@ -1,34 +1,27 @@
 --- 
-title: Apache Spark - Environment Configuration
+title: Apache Spark - environment configuration
 titleSuffix: Azure Machine Learning
 description: Learn how to configure your Apache Spark environment for interactive data wrangling
 author: ynpandey
-ms.author: franksolomon
+ms.author: yogipandey
 ms.reviewer: franksolomon
 ms.service: machine-learning
 ms.subservice: mldata
 ms.topic: how-to
-ms.date: 03/06/2023
+ms.date: 05/22/2023
 #Customer intent: As a Full Stack ML Pro, I want to perform interactive data wrangling in Azure Machine Learning with Apache Spark.
 ---
 
-# Quickstart: Interactive Data Wrangling with Apache Spark in Azure Machine Learning (preview)
+# Quickstart: Interactive Data Wrangling with Apache Spark in Azure Machine Learning
 
-[!INCLUDE [preview disclaimer](../../includes/machine-learning-preview-generic-disclaimer.md)]
+To handle interactive Azure Machine Learning notebook data wrangling, Azure Machine Learning integration with Azure Synapse Analytics provides easy access to the Apache Spark framework. This access allows for Azure Machine Learning Notebook interactive data wrangling.
 
-To handle interactive Azure Machine Learning notebook data wrangling, Azure Machine Learning integration with Azure Synapse Analytics (preview) provides easy access to the Apache Spark framework. This access allows for Azure Machine Learning Notebook interactive data wrangling.
-
-In this quickstart guide, you learn how to perform interactive data wrangling using Azure Machine Learning Managed (Automatic) Synapse Spark compute, Azure Data Lake Storage (ADLS) Gen 2 storage account, and user identity passthrough.
+In this quickstart guide, you learn how to perform interactive data wrangling using Azure Machine Learning serverless Spark compute, Azure Data Lake Storage (ADLS) Gen 2 storage account, and user identity passthrough.
 
 ## Prerequisites
 - An Azure subscription; if you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free) before you begin.
 - An Azure Machine Learning workspace. See [Create workspace resources](./quickstart-create-resources.md).
 - An Azure Data Lake Storage (ADLS) Gen 2 storage account. See [Create an Azure Data Lake Storage (ADLS) Gen 2 storage account](../storage/blobs/create-data-lake-storage-account.md).
-- To enable this feature:
-  1. Navigate to the Azure Machine Learning studio UI
-  2. In the icon section at the top right of the screen, select **Manage preview features** (megaphone icon)
-  3. In the **Managed preview feature** panel, toggle the **Run notebooks and jobs on managed Spark** feature to **on**
-  :::image type="content" source="./media/apache-spark-environment-configuration/how-to-enable-managed-spark-preview.png" lightbox="media/apache-spark-environment-configuration/how-to-enable-managed-spark-preview.png" alt-text="Screenshot showing the option to enable the Managed Spark preview.":::
 
 ## Store Azure storage account credentials as secrets in Azure Key Vault
 
@@ -113,20 +106,20 @@ Once the user identity has the appropriate roles assigned, data in the Azure sto
 
 ## Ensuring resource access for Spark jobs
 
-Spark jobs can use either a managed identity or user identity passthrough to access data and other resources. The following table summarizes the different mechanisms for resource access while using Azure Machine Learning serverless Spark compute (preview) and attached Synapse Spark pool.
+To access data and other resources, Spark jobs can use either a managed identity or user identity passthrough. The following table summarizes the different mechanisms for resource access while using Azure Machine Learning serverless Spark compute and attached Synapse Spark pool.
 
 |Spark pool|Supported identities|Default identity|
 | ---------- | -------------------- | ---------------- |
-|Serverless Spark compute (preview)|User identity and managed identity|User identity|
+|Serverless Spark compute|User identity and managed identity|User identity|
 |Attached Synapse Spark pool|User identity and managed identity|Managed identity - compute identity of the attached Synapse Spark pool|
 
-If the CLI or SDK code defines an option to use managed identity, Azure Machine Learning serverless Spark compute (preview) relies on a user-assigned managed identity attached to the workspace. You can attach a user-assigned managed identity to an existing Azure Machine Learning workspace using Azure Machine Learning CLI v2, or with `ARMClient`.
+If the CLI or SDK code defines an option to use managed identity, Azure Machine Learning serverless Spark compute relies on a user-assigned managed identity attached to the workspace. You can attach a user-assigned managed identity to an existing Azure Machine Learning workspace using Azure Machine Learning CLI v2, or with `ARMClient`.
 
 ## Next steps
 
-- [Apache Spark in Azure Machine Learning (preview)](./apache-spark-azure-ml-concepts.md)
-- [Attach and manage a Synapse Spark pool in Azure Machine Learning (preview)](./how-to-manage-synapse-spark-pool.md)
-- [Interactive Data Wrangling with Apache Spark in Azure Machine Learning (preview)](./interactive-data-wrangling-with-apache-spark-azure-ml.md)
-- [Submit Spark jobs in Azure Machine Learning (preview)](./how-to-submit-spark-jobs.md)
+- [Apache Spark in Azure Machine Learning](./apache-spark-azure-ml-concepts.md)
+- [Attach and manage a Synapse Spark pool in Azure Machine Learning](./how-to-manage-synapse-spark-pool.md)
+- [Interactive Data Wrangling with Apache Spark in Azure Machine Learning](./interactive-data-wrangling-with-apache-spark-azure-ml.md)
+- [Submit Spark jobs in Azure Machine Learning](./how-to-submit-spark-jobs.md)
 - [Code samples for Spark jobs using Azure Machine Learning CLI](https://github.com/Azure/azureml-examples/tree/main/cli/jobs/spark)
 - [Code samples for Spark jobs using Azure Machine Learning Python SDK](https://github.com/Azure/azureml-examples/tree/main/sdk/python/jobs/spark)

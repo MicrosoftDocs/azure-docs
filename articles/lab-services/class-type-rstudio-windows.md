@@ -37,7 +37,7 @@ If you choose to have a shared R Server for the students, the server should be s
 If you choose to use any external resources, you’ll need to [Connect to your virtual network in Azure Lab Services](how-to-connect-vnet-injection.md) with your lab plan.
 
 > [!IMPORTANT]
-> [Advanced networking](how-to-connect-vnet-injection.md#connect-the-virtual-network-during-lab-plan-creation) must be enabled during the creation of your lab plan.  It can't be added later.
+> [Advanced networking](how-to-connect-vnet-injection.md) must be enabled during the creation of your lab plan.  It can't be added later.
 
 ### Lab plan settings
 

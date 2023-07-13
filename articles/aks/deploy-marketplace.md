@@ -95,6 +95,12 @@ az provider register --namespace Microsoft.KubernetesConfiguration --wait
 
 ## Verify the deployment
 
+### [Portal](#tab/azure-portal)
+
+Verify the deployment navigating to the cluster you recently installed the extension on, then navigate to "Extensions + Applications", where you'll see the extension status:
+
+   :::image type="content" source="./media/deploy-marketplace/verify-inline.png" lightbox="./media/deploy-marketplace/verify.png" alt-text="The Azure portal page for the A K S cluster is shown. 'Extensions + Applications' is selected, and the deployed extension is listed.":::
+
 ### [Azure CLI](#tab/azure-cli)
 
 Verify the deployment by using the following command to list the extensions that are running on your cluster:
@@ -103,12 +109,6 @@ Verify the deployment by using the following command to list the extensions that
 az k8s-extension list --cluster-name <clusterName> --resource-group <resourceGroupName> --cluster-type managedClusters
 ```
 
-### [Portal](#tab/azure-portal)
-
-Verify the deployment navigating to the cluster you recently installed the extension on, then navigate to "Extensions + Applications", where you'll see the extension status:
-
-   :::image type="content" source="./media/deploy-marketplace/verify-inline.png" lightbox="./media/deploy-marketplace/verify.png" alt-text="The Azure portal page for the A K S cluster is shown. 'Extensions + Applications' is selected, and the deployed extension is listed.":::
-
 ---
 
 ## Manage the offer lifecycle
@@ -116,14 +116,6 @@ Verify the deployment navigating to the cluster you recently installed the exten
 For lifecycle management, an Azure Kubernetes offer is represented as a cluster extension for AKS. For more information, see [Cluster extensions for AKS][cluster-extensions].
 
 Purchasing an offer from Azure Marketplace creates a new instance of the extension on your AKS cluster.
-
-### [Azure CLI](#tab/azure-cli)
-
-You can view the extension instance from the cluster by using the following command:
-
-```azurecli-interactive
-az k8s-extension show --name <extension-name> --cluster-name <clusterName> --resource-group <resourceGroupName> --cluster-type managedClusters
-```
 
 ### [Portal](#tab/azure-portal)
 
@@ -143,6 +135,19 @@ To manage settings of your installed extension, you can edit the configuration s
 
 ![Screenshot of Cluster-extension-config-settings.](media/deploy-marketplace/cluster-extension-config-settings.png)
 
+### [Azure CLI](#tab/azure-cli)
+
+You can view the extension instance from the cluster by using the following command:
+
+```azurecli-interactive
+az k8s-extension show --name <extension-name> --cluster-name <clusterName> --resource-group <resourceGroupName> --cluster-type managedClusters
+```
+
+
+
+
+
+
 
 
 ---
@@ -161,17 +166,20 @@ To monitor billing and usage information for the offer that you deployed:
 
 You can delete a purchased plan for an Azure container offer by deleting the extension instance on the cluster.
 
-### [Azure CLI](#tab/azure-cli)
 
-```azurecli-interactive
-az k8s-extension delete --name <extension-name> --cluster-name <clusterName> --resource-group <resourceGroupName> --cluster-type managedClusters
-```
 
 ### [Portal](#tab/azure-portal)
 
 Select an application, then select the uninstall button to remove the extension from your cluster:
 
 :::image type="content" source="./media/deploy-marketplace/uninstall-inline.png" alt-text="The Azure portal page for the A K S cluster is shown. The deployed extension is listed with the 'uninstall' button highlighted." lightbox="./media/deploy-marketplace/uninstall.png":::
+
+### [Azure CLI](#tab/azure-cli)
+
+```azurecli-interactive
+az k8s-extension delete --name <extension-name> --cluster-name <clusterName> --resource-group <resourceGroupName> --cluster-type managedClusters
+```
+
 
 ---
 
@@ -191,6 +199,12 @@ If you experience issues, see the [troubleshooting checklist for failed deployme
 [billing]: ../cost-management-billing/costs/quick-acm-cost-analysis.md
 
 [marketplace-troubleshoot]: /troubleshoot/azure/azure-kubernetes/troubleshoot-failed-kubernetes-deployment-offer
+
+
+
+
+
+- Learn more about [deploying a Kubernetes application programmatically using Azure CLI](/azure/aks/deploy-application-az-cli)
 
 
 

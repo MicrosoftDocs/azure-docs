@@ -7,7 +7,7 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: tutorial
 ms.date: 02/09/2023
-ms.custom: "engagement-fy23"
+ms.custom: engagement-fy23, devx-track-dotnet
 ms.reviewer: janicericketts
 #Customer intent: As a developer, I want to add authentication to a Blazor app.
 ---
@@ -28,7 +28,7 @@ In this tutorial:
 
 ## Prerequisites
 
-- [.NET Core 7.0 SDK](https://dotnet.microsoft.com/en-us/download/dotnet/7.0)
+- [.NET 7 SDK](https://dotnet.microsoft.com/download/dotnet/7.0)
 - An Azure account that has an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - The Azure account must have permission to manage applications in Azure AD. Any of the following Azure AD roles include the required permissions:
   - [Application administrator](../roles/permissions-reference.md#application-administrator)

@@ -8,6 +8,7 @@ manager: CelesteDG
 
 ms.service: active-directory
 ms.workload: identity
+ms.custom: build-2023
 ms.topic: how-to
 ms.date: 08/24/2021
 ms.author: kengaderdus

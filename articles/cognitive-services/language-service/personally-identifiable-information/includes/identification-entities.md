@@ -128,11 +128,11 @@ This category contains the following entity:
 ## Government and country/region-specific identification
 
 > [!NOTE]
-> The following financial and country-specific entities are not returned with the `domain=phi` parameter:
+> The following financial and country/region-specific entities are not returned with the `domain=phi` parameter:
 > * Passport numbers
 > * Tax IDs
 
-The following entities are grouped and listed by country:
+The following entities are grouped and listed by country/region:
 
 ### Argentina
 
@@ -992,7 +992,7 @@ The following entities are grouped and listed by country:
    :::column-end:::
 :::row-end:::
 
-### Hong Kong
+### Hong Kong Special Administrative Region
 
 :::row:::
     :::column span="":::

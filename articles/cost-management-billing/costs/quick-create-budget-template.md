@@ -84,7 +84,7 @@ The template used in this quickstart is from [Azure Quickstart Templates](https:
 
 One Azure resource is defined in the template:
 
-* [Microsoft.Consumption/budgets](/azure/templates/microsoft.consumption/budgets): Create an Azure budget.
+* [Microsoft.Consumption/budgets](/azure/templates/microsoft.consumption/budgets): Create a budget.
 
 ### Deploy the template
 
@@ -128,7 +128,7 @@ The template used in this quickstart is from [Azure Quickstart Templates](https:
 
 One Azure resource is defined in the template:
 
-* [Microsoft.Consumption/budgets](/azure/templates/microsoft.consumption/budgets): Create an Azure budget.
+* [Microsoft.Consumption/budgets](/azure/templates/microsoft.consumption/budgets): Create a budget.
 
 ### Deploy the template
 
@@ -173,7 +173,7 @@ The template used in this quickstart is from [Azure Quickstart Templates](https:
 
 One Azure resource is defined in the template:
 
-* [Microsoft.Consumption/budgets](/azure/templates/microsoft.consumption/budgets): Create an Azure budget.
+* [Microsoft.Consumption/budgets](/azure/templates/microsoft.consumption/budgets): Create a budget.
 
 ### Deploy the template
 
@@ -264,7 +264,7 @@ Write-Host "Press [ENTER] to continue..."
 
 ## Next steps
 
-In this quickstart, you created an Azure budget and deployed it. To learn more about Cost Management and Billing and Azure Resource Manager, continue on to the articles below.
+In this quickstart, you created a budget and deployed it. To learn more about Cost Management and Billing and Azure Resource Manager, continue on to the articles below.
 
 - Read the [Cost Management and Billing](../cost-management-billing-overview.md) overview
 - [Create budgets](tutorial-acm-create-budgets.md) in the Azure portal

@@ -123,15 +123,19 @@ This flag is visible when the user edits a virtual network connection, a VPN con
 
 ## <a name="security"></a>Security and policy control
 
-The Azure Virtual WAN hubs interconnect all the networking end points across the hybrid network and potentially see all transit network traffic. Virtual WAN hubs can be converted to Secured Virtual Hubs by deploying the Azure Firewall inside VWAN hubs to enable cloud-based security, access, and policy control. Orchestration of Azure Firewalls in virtual WAN hubs can be performed by Azure Firewall Manager.
+The Azure Virtual WAN hubs interconnect all the networking end points across the hybrid network and potentially see all transit network traffic. Virtual WAN hubs can be converted to Secure Virtual Hubs by deploying a bump-in-the-wire security solution in the hub. You can deploy Azure Firewall, select Next-Generation Firewall Network Virtual Appliances or security software-as-a-service (SaaS) inside of Virtual WAN hubs to enable cloud-based security, access, and policy control. You can configure Virtual WAN to route traffic to security solutions in the hub using [Virtual Hub Routing Intent](how-to-routing-policies.md).
 
-[Azure Firewall Manager](../firewall-manager/index.yml) provides the capabilities to manage and scale security for global transit networks. Azure Firewall Manager provides ability to centrally manage routing, global policy management, advanced Internet security services via third-party along with the Azure Firewall. To learn about how to secure your private and internet traffic, please see [Virtual Hub Routing Intent] (how-to-routing-policies.md).
+
+Orchestration of Azure Firewalls in virtual WAN hubs can be performed by Azure Firewall Manager. [Azure Firewall Manager](../firewall-manager/index.yml) provides the capabilities to manage and scale security for global transit networks. Azure Firewall Manager provides ability to centrally manage routing, global policy management, advanced Internet security services via third-party along with the Azure Firewall.
+
+For more information on deploying and orchestrating Next-Generation Firewall Network Virtual Appliances in the Virtual WAN hub, see [Integrated Network Virtual Appliances in the Virtual Hub](about-nva-hub.md). For more information on SaaS security solutions that can be deployed in the Virtual WAN hub, see [software-as-a-service](how-to-palo-alto-cloud-ngfw.md).
+
 
 :::image type="content" source="./media/virtual-wan-global-transit-network-architecture/secured-hub.png" alt-text="Diagram of secured virtual hub with Azure Firewall." lightbox="./media/virtual-wan-global-transit-network-architecture/secured-hub.png":::
 
 **Figure 5: Secured virtual hub with Azure Firewall**
 
-Azure Firewall to the virtual WAN supports the following global secured transit connectivity paths. The letters in parentheses map to Figure 5.
+Virtual WAN supports the following global secured transit connectivity paths. While the diagram and traffic patterns in this section describe Azure Firewall use cases, the same traffic patterns are supported with Network Virtual Appliances and SaaS security solutions deployed in the hub. The letters in parentheses map to Figure 5.
 
 * VNet-to-VNet secure transit (e)
 * VNet-to-Internet or third-party Security Service (i)
@@ -139,13 +143,14 @@ Azure Firewall to the virtual WAN supports the following global secured transit 
 
 ### VNet-to-VNet secured transit (e)
 
-The VNet-to-VNet secured transit enables VNets to connect to each other via the Azure Firewall in the virtual WAN hub.
+The VNet-to-VNet secured transit enables VNets to connect to each other via the Azure Firewall in the Virtual WAN hub.
 
 ### VNet-to-Internet or third-party Security Service (i)
 
 The VNet-to-Internet enables VNets to connect to the internet via the Azure Firewall in the virtual WAN hub. Traffic to internet via supported third-party security services doesn't flow through the Azure Firewall. You can configure Vnet-to-Internet path via supported third-party security service using Azure Firewall Manager.  
 
 ### Branch-to-Internet or third-party Security Service (j)
+
 The Branch-to-Internet enables branches to connect to the internet via the Azure Firewall in the virtual WAN hub. Traffic to internet via supported third-party security services doesn't flow through the Azure Firewall. You can configure Branch-to-Internet path via supported third-party security service using Azure Firewall Manager. 
 
 ### Branch-to-branch secured transit cross-region (f)
@@ -154,15 +159,10 @@ Branches can be connected to a secured virtual hub with Azure Firewall using Exp
 
 This option lets enterprises leverage the Azure backbone to connect branches. However, even though this capability is available, you should weigh the benefits of connecting branches over Azure Virtual WAN vs. using a private WAN.  
 
-> [!NOTE]
-> Inter-hub processing of traffic via firewall is currently not supported. Traffic between hubs will be routed to the proper branch within the secured virtual hub, however traffic will bypass the Azure Firewall in each hub.
 
 ### Branch-to-VNet secured transit (g)
 
 The Branch-to-VNet secured transit enables branches to communicate with virtual networks in the same region as the virtual WAN hub as well as another virtual network connected to another virtual WAN hub in another region.
-
-> [!NOTE]
-> Inter-hub with firewall is currently not supported. Traffic between hubs will move directly bypassing the Azure Firewall in each hub.  Traffic via a connection destined to a virtual network in the same region will be processed by the Azure Firewall in the secured hub.
 
 
 ### How do I enable default route (0.0.0.0/0) in a Secured Virtual Hub

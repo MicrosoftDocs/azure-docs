@@ -72,7 +72,7 @@ Although this deployment changes no other relying parties in your AD FS farm, yo
 
 ## Plan the project
 
-When technology projects fail, it's typically because of mismatched expectations on impact, outcomes, and responsibilities. To avoid these pitfalls, [ensure that you're engaging the right stakeholders](../../fundamentals/active-directory-deployment-plans.md) and that stakeholder roles in the project are well understood.
+When technology projects fail, it's typically because of mismatched expectations on impact, outcomes, and responsibilities. To avoid these pitfalls, [ensure that you're engaging the right stakeholders](../../fundamentals/deployment-plans.md) and that stakeholder roles in the project are well understood.
 
 ### Plan communications
 
@@ -448,4 +448,4 @@ For a full list of steps to take to completely remove AD FS from the environment
 ## Next steps
 
 - [Learn about migrating applications](../../manage-apps/migration-resources.md)
-- [Deploy other identity features](../../fundamentals/active-directory-deployment-plans.md)
+- [Deploy other identity features](../../fundamentals/deployment-plans.md)

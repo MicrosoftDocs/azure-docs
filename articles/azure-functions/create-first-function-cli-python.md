@@ -16,7 +16,7 @@ In this article, you use command-line tools to create a Python function that res
 This article covers both Python programming models supported by Azure Functions. Use the selector at the top to choose your programming model.  
 
 >[!NOTE]
->The Python v2 programming model for Functions is currently in Preview. To learn more about the Python v2 programming model, see the [Developer Reference Guide](functions-reference-python.md).
+>The v2 programming model provides a decorator based approach to create functions. To learn more about the Python v2 programming model, see the [Developer Reference Guide](functions-reference-python.md).
 
 Completing this quickstart incurs a small cost of a few USD cents or less in your Azure account.
 
@@ -32,7 +32,7 @@ Before you begin, you must have the following requirements in place:
 + The [Azure Functions Core Tools](functions-run-local.md#v2) version 4.x.
 ::: zone-end
 ::: zone pivot="python-mode-decorators"  
-+ The [Azure Functions Core Tools](functions-run-local.md#v2) version 4.0.4785 or later.
++ The [Azure Functions Core Tools](functions-run-local.md#v2) version 4.2.1 or later.
 ::: zone-end  
 + One of the following tools for creating Azure resources:
 
@@ -278,7 +278,6 @@ Use the following commands to create these items. Both Azure CLI and PowerShell 
     ---
 
     ::: zone pivot="python-mode-decorators" 
-    In the current v2 programming model preview, choose a region from one of the following locations: France Central, West Central US, North Europe, China East, East US, or North Central US.
     ::: zone-end
 
     > [!NOTE]

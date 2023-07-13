@@ -120,20 +120,8 @@ The template takes one parameter: **ipMask**, which is a single IPv4 address or 
 
 To deploy the template, follow the instructions for [Azure Resource Manager](../azure-resource-manager/templates/deploy-powershell.md).
 
-## Trusted services
-The following services are the trusted services for Azure Relay.
-- Azure Event Grid
-- Azure IoT Hub
-- Azure Stream Analytics
-- Azure Monitor
-- Azure API Management
-- Azure Synapse
-- Azure Data Explorer
-- Azure IoT Central
-- Azure Healthcare Data Services
-- Azure Digital Twins
-- Azure Arc
 
+[!INCLUDE [trusted-services](./includes/trusted-services.md)]
 
 ## Next steps
 To learn about other network security-related features, see [Network security](network-security.md).

@@ -4,7 +4,7 @@ description: How the endpoint protection solutions are discovered and identified
 ms.topic: conceptual
 ms.author: dacurwin
 author: dcurwin
-ms.date: 03/08/2022
+ms.date: 06/15/2023
 ---
 # Endpoint protection assessment and recommendations in Microsoft Defender for Cloud
 
@@ -137,4 +137,4 @@ Microsoft Antimalware extension logs are available at:
 
 ### Support
 
-For more help, contact the Azure experts on the [MSDN Azure and Stack Overflow forums](https://azure.microsoft.com/support/forums/). Or file an Azure support incident. Go to the [Azure support site](https://azure.microsoft.com/support/options/) and select Get support. For information about using Azure Support, read the [Microsoft Azure support FAQ](https://azure.microsoft.com/support/faq/).
+For more help, contact the Azure experts on the [MSDN Azure and Stack Overflow forums](https://azure.microsoft.com/support/forums/). Or file an Azure support incident. Go to the [Azure support site](https://azure.microsoft.com/support/options/) and select Get support. For information about using Azure Support, read the [Microsoft Azure support common questions](https://azure.microsoft.com/support/faq/).

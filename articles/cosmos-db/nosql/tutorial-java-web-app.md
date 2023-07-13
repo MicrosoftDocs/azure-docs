@@ -9,7 +9,7 @@ ms.topic: tutorial
 ms.date: 03/29/2022
 ms.author: sidandrews
 ms.reviewer: mjbrown
-ms.custom: devx-track-java, ignite-2022
+ms.custom: devx-track-java, ignite-2022, devx-track-extended-java
 ---
 
 # Tutorial: Build a Java web application using Azure Cosmos DB and the API for NoSQL

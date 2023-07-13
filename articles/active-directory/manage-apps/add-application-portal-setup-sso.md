@@ -24,6 +24,8 @@ Azure AD has a gallery that contains thousands of pre-integrated applications th
 
 It is recommended that you use a non-production environment to test the steps in this article.
 
+[!INCLUDE [portal updates](../includes/portal-update.md)]
+
 ## Prerequisites
 
 To configure SSO, you need:

@@ -14,9 +14,9 @@ ms.author: mbullwin
 keywords: anomaly detection, machine learning, algorithms
 ---
 
-# Best practices for using the Multivariate Anomaly Detection API
+# Best practices for using the Multivariate Anomaly Detector API
 
-This article will provide guidance around recommended practices to follow when using the multivariate Anomaly Detection (MVAD) APIs. 
+This article provides guidance around recommended practices to follow when using the multivariate Anomaly Detector (MVAD) APIs. 
 In this tutorial, you'll:
 
 > [!div class="checklist"]
@@ -27,7 +27,7 @@ In this tutorial, you'll:
 
 ## API usage
 
-Follow the instructions in this section to avoid errors while using MVAD. If you still get errors, please refer to the [full list of error codes](./troubleshoot.md) for explanations and actions to take.
+Follow the instructions in this section to avoid errors while using MVAD. If you still get errors, refer to the [full list of error codes](./troubleshoot.md) for explanations and actions to take.
 
 [!INCLUDE [mvad-input-params](../includes/mvad-input-params.md)]
 
@@ -49,7 +49,7 @@ Now you're able to run your code with MVAD APIs without any error. What could be
 * The underlying model of MVAD has millions of parameters. It needs a minimum number of data points to learn an optimal set of parameters. The empirical rule is that you need to provide **5,000 or more data points (timestamps) per variable** to train the model for good accuracy. In general, the more the training data, better the accuracy. However, in cases when you're not able to accrue that much data, we still encourage you to experiment with less data and see if the compromised accuracy is still acceptable.
 * Every time when you call the inference API, you need to ensure that the source data file contains just enough data points. That is normally `slidingWindow` + number of data points that **really** need inference results. For example, in a streaming case when every time you want to inference on **ONE** new timestamp, the data file could contain only the leading `slidingWindow` plus **ONE** data point; then you could move on and create another zip file with the same number of data points (`slidingWindow` + 1) but moving ONE step to the "right" side and submit for another inference job. 
 
-    Anything beyond that or "before" the leading sliding window won't impact the inference result at all and may only cause performance downgrade.Anything below that may lead to an `NotEnoughInput` error.
+    Anything beyond that or "before" the leading sliding window won't impact the inference result at all and may only cause performance downgrade. Anything below that may lead to an `NotEnoughInput` error.
 
 
 ### Timestamp round-up
@@ -76,9 +76,9 @@ In a group of variables (time series), each variable may be collected from an in
 | 12:01:34  | 1.7   |
 | 12:02:04  | 2.0   |
 
-We have two variables collected from two sensors which send one data point every 30 seconds. However, the sensors aren't sending data points at a strict even frequency, but sometimes earlier and sometimes later. Because MVAD will take into consideration correlations between different variables, timestamps must be properly aligned so that the metrics can correctly reflect the condition of the system. In the above example, timestamps of variable 1 and variable 2 must be properly 'rounded' to their frequency before alignment.
+We have two variables collected from two sensors which send one data point every 30 seconds. However, the sensors aren't sending data points at a strict even frequency, but sometimes earlier and sometimes later. Because MVAD takes into consideration correlations between different variables, timestamps must be properly aligned so that the metrics can correctly reflect the condition of the system. In the above example, timestamps of variable 1 and variable 2 must be properly 'rounded' to their frequency before alignment.
 
-Let's see what happens if they're not pre-processed. If we set `alignMode` to be `Outer` (which means union of two sets), the merged table will be
+Let's see what happens if they're not pre-processed. If we set `alignMode` to be `Outer` (which means union of two sets), the merged table is:
 
 | timestamp | Variable-1 | Variable-2 |
 | --------- | -------- | -------- |
@@ -93,9 +93,9 @@ Let's see what happens if they're not pre-processed. If we set `alignMode` to be
 | 12:02:04  | `nan`    | 2.0      |
 | 12:02:08  | 1.3      | `nan`    |
 
-`nan` indicates missing values. Obviously, the merged table isn't what you might have expected. Variable 1 and variable 2 interleave, and the MVAD model can't extract information about correlations between them. If we set `alignMode` to `Inner`, the merged table will be empty as there's no common timestamp in variable 1 and variable 2.
+`nan` indicates missing values. Obviously, the merged table isn't what you might have expected. Variable 1 and variable 2 interleave, and the MVAD model can't extract information about correlations between them. If we set `alignMode` to `Inner`, the merged table is empty as there's no common timestamp in variable 1 and variable 2.
 
-Therefore, the timestamps of variable 1 and variable 2 should be pre-processed (rounded to the nearest 30-second timestamps) and the new time series are
+Therefore, the timestamps of variable 1 and variable 2 should be pre-processed (rounded to the nearest 30-second timestamps) and the new time series are:
 
 *Variable-1*
 
@@ -149,7 +149,7 @@ There are some limitations in both the training and inference APIs, you should b
 ## Model quality
 
 ### How to deal with false positive and false negative in real scenarios?
-We have provided severity which indicates the significance of anomalies. False positives may be filtered out by setting up a threshold on the severity. Sometimes too many false positives may appear when there are pattern shifts in the inference data. In such cases a model may need to be retrained on new data. If the training data contains too many anomalies, there could be false negatives in the detection results. This is because the model learns patterns from the training data and anomalies may bring bias to the model. Thus proper data cleaning may help reduce false negatives.
+We have provided severity that indicates the significance of anomalies. False positives may be filtered out by setting up a threshold on the severity. Sometimes too many false positives may appear when there are pattern shifts in the inference data. In such cases a model may need to be retrained on new data. If the training data contains too many anomalies, there could be false negatives in the detection results. This is because the model learns patterns from the training data and anomalies may bring bias to the model. Thus proper data cleaning may help reduce false negatives.
  
 ### How to estimate which model is best to use according to training loss and validation loss?
 Generally speaking, it's hard to decide which model is the best without a labeled dataset. However, we can leverage the training and validation losses to have a rough estimation and discard those bad models. First, we need to observe whether training losses converge. Divergent losses often indicate poor quality of the model. Second, loss values may help identify whether underfitting or overfitting occurs. Models that are underfitting or overfitting may not have desired performance. Third, although the definition of the loss function doesn't reflect the detection performance directly, loss values may be an auxiliary tool to estimate model quality. Low loss value is a necessary condition for a good model, thus we may discard models with high loss values.

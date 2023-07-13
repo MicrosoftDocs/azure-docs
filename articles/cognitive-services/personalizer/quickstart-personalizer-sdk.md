@@ -9,7 +9,7 @@ ms.subservice: personalizer
 ms.topic: quickstart
 ms.date: 02/02/2023
 ms.devlang: csharp, javascript, python
-ms.custom: cog-serv-seo-aug-2020, mode-api
+ms.custom: cog-serv-seo-aug-2020, mode-api, devx-track-extended-java, devx-track-js, devx-track-python
 keywords: personalizer, Azure personalizer, machine learning
 zone_pivot_groups: programming-languages-set-six
 ---

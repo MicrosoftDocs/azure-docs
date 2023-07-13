@@ -45,11 +45,12 @@ Access Container insights in the Azure portal from **Containers** in the **Monit
 - [Azure Container Instances](../../container-instances/container-instances-overview.md).
 - Self-managed Kubernetes clusters hosted on [Azure Stack](/azure-stack/user/azure-stack-kubernetes-aks-engine-overview) or on-premises.
 - [Azure Arc-enabled Kubernetes](../../azure-arc/kubernetes/overview.md).
+- AKS for ARM64 nodes.
 
 Container insights supports clusters running the Linux and Windows Server 2019 operating system. The container runtimes it supports are Moby and any CRI-compatible runtime such as CRI-O and ContainerD. Docker is no longer supported as a container runtime as of September 2022. For more information about this deprecation, see the [AKS release notes][aks-release-notes].
 
 >[!NOTE]
-> Container insights support for Windows Server 2022 operating system and AKS for ARM nodes is in public preview.
+> Container insights support for Windows Server 2022 operating system is in public preview.
 
 ## Next steps
 

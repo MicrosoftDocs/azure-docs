@@ -7,6 +7,7 @@ author: PatrickFarley
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
+ms.custom: build-2023
 ms.topic: whats-new
 ms.date: 12/27/2022
 ms.author: pafarley
@@ -16,13 +17,25 @@ ms.author: pafarley
 
 Learn what's new in the service. These items may be release notes, videos, blog posts, and other types of information. Bookmark this page to stay up to date with new features, enhancements, fixes, and documentation updates.
 
+## May 2023
+
+### Image Analysis 4.0 Product Recognition (public preview)
+
+The Product Recognition APIs let you analyze photos of shelves in a retail store. You can detect the presence and absence of products and get their bounding box coordinates. Use it in combination with model customization to train a model to identify your specific products. You can also compare Product Recognition results to your store's planogram document. [Product Recognition](./concept-shelf-analysis.md).
+
+## April 2023
+
+### Face limited access tokens
+
+Independent software vendors (ISVs) can manage the Face API usage of their clients by issuing access tokens that grant access to Face features which are normally gated. This allows client companies to use the Face API without having to go through the formal approval process. [Use limited access tokens](how-to/identity-access-token.md).
+
 ## March 2023
 
 ### Computer Vision Image Analysis 4.0 SDK public preview
 
 The [Florence foundation model](https://www.microsoft.com/en-us/research/project/projectflorence/) is now integrated into Azure Computer Vision. The improved Vision Services enable developers to create market-ready, responsible computer vision applications across various industries. Customers can now seamlessly digitize, analyze, and connect their data to natural language interactions, unlocking powerful insights from their image and video content to support accessibility, drive acquisition through SEO, protect users from harmful content, enhance security, and improve incident response times. For more information, see [Announcing Microsoft's Florence foundation model](https://aka.ms/florencemodel).
 
-### Computer Vision Image Analysis 4.0 SDK (public preview)
+### Image Analysis 4.0 SDK (public preview)
 
 Image Analysis 4.0 is now available through client library SDKs in C#, C++, and Python. This update also includes the Florence-powered image captioning and dense captioning at human parity performance.
 

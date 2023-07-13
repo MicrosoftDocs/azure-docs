@@ -77,7 +77,7 @@ Conversational language understanding is only available in some Azure regions. S
 |:-|:-|:-|
 |Authoring API|POST|10 per minute|
 |Authoring API|GET|100 per minute|
-|Predection API|GET/POST|1,000 per minute|
+|Prediction API|GET/POST|1,000 per minute|
 
 ## Quota limits
 
