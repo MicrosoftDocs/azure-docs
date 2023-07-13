@@ -29,7 +29,7 @@ Use the following table to learn about changes including deprecations, retiremen
 
 |Functionality, feature, or service|Change|Change date |
 |---|---|---:|
-|[System-preferred authentication methods](https://learn.microsoft.com/en-us/azure/active-directory/authentication/concept-system-preferred-multifactor-authentication)|Feature change|Sometime after GA|
+|[System-preferred authentication methods](../authentication/concept-system-preferred-multifactor-authentication.md)|Feature change|Sometime after GA|
 |[Azure AD Graph API](https://aka.ms/aadgraphupdate)|Start of phased retirement|Jul 2023|
 |[Terms of Use experience](https://techcommunity.microsoft.com/t5/microsoft-entra-azure-ad-blog/microsoft-entra-change-announcements-march-2023-train/ba-p/2967448)|Feature change|Jul 2023|
 |[Azure AD PowerShell and MSOnline PowerShell](https://aka.ms/aadgraphupdate)|Deprecation|Mar 30, 2024|
