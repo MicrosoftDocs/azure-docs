@@ -29,7 +29,7 @@
       href: quickstart-wordpress.md
     - name: Deploy Go (experimental)
       href: quickstart-golang.md
-- name: Deployment
+- name: Deployment and configuration
   items:
     - name: Deployment best practices
       href: deploy-best-practices.md
@@ -55,7 +55,7 @@
           href: configure-language-java.md
         - name: Configure Ruby
           href: configure-language-ruby.md
-    - name: Deploy an app
+    - name: Deployment methods
       items:
         - name: Use ZIP or WAR
           href: deploy-zip.md

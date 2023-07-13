@@ -2,18 +2,18 @@
 title: Back up SAP HANA System Replication databases on Azure VMs    
 description: In this article, discover how to back up SAP HANA databases with HANA System Replication enabled.
 ms.topic: how-to
-ms.date: 07/11/2023
+ms.date: 07/14/2023
 ms.service: backup
 ms.custom: ignite-2022
 author: AbhishekMallick-MS
 ms.author: v-abhmallick
 ---
 
-# Back up SAP HANA System Replication databases on Azure VMs (preview)
+# Back up SAP HANA System Replication databases on Azure VMs
 
 SAP HANA databases are critical workloads that require a low recovery-point objective (RPO) and long-term retention. This article describes how you can back up SAP HANA databases that are running on Azure virtual machines (VMs) to an Azure Backup Recovery Services vault by using [Azure Backup](backup-overview.md).
 
-You can also switch the protection of SAP HANA database on Azure VM (standalone) on Azure Backup to HSR. [Learn more](#switch-database-protection-from-standalone-to-hsr-on-azure-backup).
+You can also switch the protection of SAP HANA database on Azure VM (standalone) on Azure Backup to HSR. [Learn more](#possible-scenarios-to-protect-hsr-nodes-on-azure-backup).
 
 >[!Note]
 >- The support for **HSR + DR** scenario is currently not available because there is a restriction to have VM and Vault in the same region.
@@ -58,6 +58,8 @@ When a failover occurs, the users are replicated to the new primary, but *hdbuse
    hdbuserstore set SYSTEMKEY localhost:30013@SYSTEMDB <custom-user> '<some-password>'
    hdbuserstore set SYSTEMKEY <load balancer host/ip>:30013@SYSTEMDB <custom-user> '<some-password>'
    ```
+
+   :::image type="content" source="./media/sap-hana-database-with-hana-system-replication-backup/pass-custom-backup-user-key-to-script-as-parameter-architecture.png" alt-text="Diagram explains the flow to pass the custom backup user key to the script as a parameter." lightbox="./media/sap-hana-database-with-hana-system-replication-backup/pass-custom-backup-user-key-to-script-as-parameter-architecture.png":::
 
    >[!Note]
    >You can create a custom backup key using the load balancer host/IP instead of local host to use Virtual IP (VIP).
@@ -230,29 +232,45 @@ Backups run in accordance with the policy schedule. Learn how to [run an on-dema
 
 You can run an on-demand backup using SAP HANA native clients to local file-system instead of Backint. Learn more how to [manage operations using SAP native clients](sap-hana-database-manage.md#manage-operations-using-sap-hana-native-clients).
 
-## Switch database protection from standalone to HSR on Azure Backup 
+
+## Possible scenarios to protect HSR nodes on Azure Backup
 
 You can now switch the protection of SAP HANA database on Azure VM (standalone) on Azure Backup to HSR. If you’ve already configured HSR and protecting only the primary node using Azure Backup, you can modify the configuration to protect both primary and secondary nodes.
 
-Follow these steps:
+### Two standalone/HSR nodes never protected using SAP HANA Database backup on Azure VM
 
-1. On standalone VM, Primary node, or Secondary node (once protected using Azure Backup), go to *vault* > **Backup Items** > **SAP HANA in Azure VM** > **View Details** > **Stop backup**, and then select **Retain backup data** > **Stop backup** to stop backup and retain data.
-
-2. (Mandatory) [Run the latest preregistration script](sap-hana-database-with-hana-system-replication-backup.md#run-the-preregistration-script) on both primary and condary VM nodes
-
-   The preregistration script contains the HSR attributes.
-
-3. [Configure HSR manually](sap-hana-database-with-hana-system-replication-backup.md#configure-backup).
-You can also configure the backup with clustering tools, such as **Pacemaker**.
-
-   Skip this step if HSR configuration is complete.
-
-4. Add the Primary and secondary nodes to Azure Backup, [rediscover the databases](sap-hana-database-with-hana-system-replication-backup.md#discover-the-databases), and [resume protection](sap-hana-database-manage.md#resume-protection-for-an-sap-hana-database-or-hana-instance).
+1. (Mandatory) [Run the latest preregistration script on both primary and secondary VM nodes](#run-the-preregistration-script).
 
    >[!Note]
-   >For HSR deployments, Protected Instance cost is charged to HSR container. Two nodes (primary and secondary) will form a single HSR logical container and storage cost is charged as applicable.
+   >HSR-based attributes are added to the latest preregistration script - //link here )
 
-5. Before a planned failover, [ensure that both VMs/Nodes are registered to the vault (physical and logical registration)](sap-hana-database-manage.md#verify-the-registration-status-of-vms-or-nodes-to-the-vault).
+1. Configure HSR manually or using any clustering tools, such as **pacemaker**,
+
+   Skip to the next step if HSR configuration is already complete.
+
+1. Discover and configure backup for those VMs.
+
+   >[!Note]
+   >For HSR deployments, Protected Instance cost is charged to HSR logical container (two nodes - primary and secondary) will form a single HSR logical container.
+
+1. Before a planned failover, [ensure that both VMs/Nodes are registered to the vault (physical and logical registration)](sap-hana-database-manage.md#verify-the-registration-status-of-vms-or-nodes-to-the-vault).
+
+### Two standalone VMs/ One standalone VM already protected using SAP HANA Database backup on Azure VM
+
+1. To stop backup and retain data, go to the *vault* > **Backup Items** > **SAP HANA in Azure VM**, and then select **View Details** > **Stop backup** > **Retain backup data** > **Stop backup**.
+1. (Mandatory) [Run the latest preregistration script on both primary and secondary VM nodes](#run-the-preregistration-script).
+
+   >[!Note]
+   >HSR-based attributes are added to the latest preregistration script - //link here )
+
+1. Configure HSR manually or using any clustering tools like pacemaker.
+
+1. Discover the VMs and configure backup on HSR logical instance.
+
+   >[!Note]
+   >For HSR deployments, Protected Instance cost will be charged to HSR logical container (two nodes - primary and / secondary) will form a single HSR logical container.
+
+1. Before a planned failover, [ensure that both VMs/Nodes are registered to the vault (physical and logical registration)](sap-hana-database-manage.md#verify-the-registration-status-of-vms-or-nodes-to-the-vault).
 
 ## Next steps
 
