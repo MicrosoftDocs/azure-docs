@@ -92,6 +92,8 @@
         href: ahrtemis-tutorial.md
       - name: Air
         href: air-tutorial.md
+      - name: Airbase
+        href: airbase-tutorial.md
       - name: Airstack
         href: airstack-tutorial.md
       - name: Airtable
