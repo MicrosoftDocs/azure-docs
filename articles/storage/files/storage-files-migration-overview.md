@@ -4,7 +4,7 @@ description: Learn how to migrate to Azure file shares and find your migration g
 author: khdownie
 ms.service: azure-file-storage
 ms.topic: conceptual
-ms.date: 07/12/2023
+ms.date: 07/13/2023
 ms.author: kendownie
 ---
 
@@ -46,7 +46,7 @@ Taking the previous information into account, you can see that the target storag
 Unlike object storage in Azure blobs, an Azure file share can natively store file metadata. Azure file shares also preserve the file and folder hierarchy, attributes, and permissions. NTFS permissions can be stored on files and folders because they're on-premises.
 
 > [!IMPORTANT]
-> If you're migrating on-premises file servers to Azure File Sync, set the ACL for the root directory of the file share prior to copying a large number of files. Changes to permissions for root ACLs can take up to a day to propagate, especially for a large migration.
+> If you're migrating on-premises file servers to Azure File Sync, set the ACLs for the root directory of the file share **before** copying a large number of files, as changes to permissions for root ACLs can take up to a day to propagate if done after a large file migration.
 
 A user of Active Directory, which is their on-premises domain controller, can natively access an Azure file share. So can a user of Azure Active Directory Domain Services (Azure AD DS). Each uses their current identity to get access based on share permissions and on file and folder ACLs. This behavior is similar to a user connecting to an on-premises file share.
 
