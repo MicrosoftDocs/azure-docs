@@ -35,7 +35,7 @@ landingContent:
           - text: Find your subscription Id
             url: find-your-subscription-id.md
 
-# card 3
+# card 2
   - title: Solution architecture
     linkLists: 
       - linkListType: concept
@@ -43,7 +43,7 @@ landingContent:
           - text: Architecture
             url: architecture.md
 
-# card 4
+# card 3
   - title: Configuration
     linkLists: 
       - linkListType: how-to-guide
