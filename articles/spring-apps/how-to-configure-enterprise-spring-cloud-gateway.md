@@ -41,13 +41,13 @@ To integrate with the API portal for VMware Tanzu, VMware Spring Cloud Gateway a
 
 - Azure CLI version 2.0.67 or later. For more information, see [How to install the Azure CLI](/cli/azure/install-azure-cli).
 
-## Enable or disable VMWare Spring Cloud Gateway
+## Enable or disable VMware Spring Cloud Gateway
 
-You can enable and disable VMWare Spring Cloud Gateway after creation of the service instance by using the Azure portal or the Azure CLI. Before you disable VMWare Spring Cloud Gateway, you must unassign its endpoint and remove all route configurations.
+You can enable and disable VMware Spring Cloud Gateway after creation of the service instance by using the Azure portal or the Azure CLI. Before you disable VMware Spring Cloud Gateway, you must unassign its endpoint and remove all route configurations.
 
 ### [Azure portal](#tab/Azure-portal)
 
-Use the following steps to enable or disable VMWare Spring Cloud Gateway by using the Azure portal:
+Use the following steps to enable or disable VMware Spring Cloud Gateway by using the Azure portal:
 
 1. Go to your service resource, and then select **Spring Cloud Gateway**.
 1. Select **Manage**.
