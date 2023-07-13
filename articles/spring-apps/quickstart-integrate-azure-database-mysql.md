@@ -172,13 +172,13 @@ az spring app update \
 
 ### [Portal](#tab/azure-portal)
 
-1. Go to the Azure Spring Apps instance overview page, select **Apps** from the navigation menu, and select the application **customers-service** from the list.
+1. Go to the Azure Spring Apps instance overview page, select **Apps** from the navigation menu, and then select the **customers-service** application from the list.
 
 1. On the **customers-service Overview** page, select **Configuration** from the navigation menu.
 
-1. On the **Configuration** page, select **Environment variables** tab page, enter `SPRING_PROFILES_ACTIVE` for **Key**, enter `mysql` for **Value**, then select **Save**
+1. On the **Configuration** page, select **Environment variables** tab page, enter `SPRING_PROFILES_ACTIVE` for **Key**, enter `mysql` for **Value**, and then select **Save**.
 
-   :::image type="content" source="media/quickstart-integrate-azure-database-mysql/app-customers-service-config-env.png" alt-text="Screenshot of Azure portal showing config env for customers-service app" lightbox="media/quickstart-integrate-azure-database-mysql/app-customers-service-config-env.png":::
+   :::image type="content" source="media/quickstart-integrate-azure-database-mysql/app-customers-service-config-env.png" alt-text="Screenshot of the Azure portal showing the configuration settings for the customers-service app." lightbox="media/quickstart-integrate-azure-database-mysql/app-customers-service-config-env.png":::
 
 ---
 
@@ -186,8 +186,7 @@ Repeat to update app configuration action for the app `customers-service`, which
 
 ## Validate the apps
 
-You can follow the section [Verify the services](./quickstart-deploy-apps.md?pivots=programming-language-java#verify-the-services) to validate the PetClinic service
-and query records from the MySQL database to confirm the database connection.
+Follow the [Verify the services](./quickstart-deploy-apps.md?pivots=programming-language-java#verify-the-services) section in the [Quickstart: Build and deploy apps to Azure Spring Apps](quickstart-deploy-apps.md) topic to validate the Pet Clinic service and query records from the MySQL database to confirm the database connection.
 
 ## Clean up resources
 
