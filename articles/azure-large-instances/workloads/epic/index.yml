@@ -24,7 +24,7 @@ landingContent:
             url: index.yml
 
 # card 2
-  - title: Architecture
+  - title: Solution architecture
     linkLists: 
       - linkListType: concept
         links:
