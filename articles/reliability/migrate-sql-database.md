@@ -61,7 +61,7 @@ Follow the steps below to perform migration for a single database or an elastic 
 
 # [PowerShell](#tab/powershell)
 
-Open PowerShell as Administrator and run the following command (replace the placeholders in "<>" with your resource names):
+Open PowerShell as Administrator and run the following command (replace the placeholders in "<>" with your resource names). Note that `<server_name>` should not include `.database.windows.net`.
 
 ```powershell
    Set-AzSqlDatabase -ResourceGroupName “<Resource_Group_Name>” -ServerName “<Server_Name>” -DatabaseName “<Database_Name>” -ZoneRedundant 
