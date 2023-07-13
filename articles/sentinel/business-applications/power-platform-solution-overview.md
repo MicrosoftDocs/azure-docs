@@ -22,9 +22,18 @@ The Microsoft Sentinel solution for Power Platform allows you to monitor and det
 > [!IMPORTANT]
 > The Microsoft Sentinel solution for Power Platform is currently in PREVIEW. The [Azure Preview Supplemental Terms](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
+## Why you should install the solution
+
+ The Microsoft Sentinel solution for Microsoft Power Platform helps organizations to:
+
+- Collect Microsoft Power Platform and Power Apps activity logs, audits, and events into the Microsoft Sentinel workspace.
+- Detect execution of suspicious, malicious, or illegitimate activities within Microsoft Power Platform and Power Apps.
+- Investigate threats detected in Microsoft Power Platform and Power Apps and contextualize them with other user activities across the organization.
+- Respond to Microsoft Power Platform-related and Power Apps-related threats and incidents in a simple and canned manner manually, automatically, or through a predefined workflow.
+
 ## What the solution includes
 
-The Microsoft Sentinel solution for Power Platform includes six data connectors and several analytic rules.
+The Microsoft Sentinel solution for Power Platform includes several data connectors and analytic rules.
 
 ### Data connectors
 
@@ -41,7 +50,7 @@ The Microsoft Sentinel solution for Power Platform ingests and cross-correlates 
 
 ### Analytic rules
 
-The solution includes analytics rules to detect suspicious activity in your Power Platform environment, like multiple apps deleted, data destruction after publishing a new app, and more. For more information, see [Microsoft Sentinel solution for Microsoft Power Platform: security content reference](power-platform-security-solution-content.md).
+The solution includes analytics rules to detect threats and suspicious activity in your Power Platform environment. These activities include Power Apps being run from unauthorized geographies, suspicious data destruction by Power Apps, mass deletion of Power Apps, and more. For more information, see [Microsoft Sentinel solution for Microsoft Power Platform: security content reference](power-platform-security-solution-content.md).
 
 ## Next steps
 
