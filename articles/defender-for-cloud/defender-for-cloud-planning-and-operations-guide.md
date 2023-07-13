@@ -18,6 +18,7 @@ This guide is for the use of:
 
 This guide provides background information on ow *Defender for Cloud* fits into your organization's security requirements and cloud management model. 
 It's important to understand how different individuals or teams in your organization use the service to apply secure development and operations, monitoring, governance, and incident response needs. 
+
 When planning to use *Defender for Cloud*, the key areas you need to take into consideration are:
 
 - Security Roles and Access Controls
