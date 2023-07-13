@@ -623,15 +623,16 @@ Make note of both IP addresses. Use the IPs to verify the outbound connectivity 
 1. Close the bastion connection to **myVM**.
 
 ---
+
 ## Clean up resources
 
 When your finished with the resources created in this article, delete the resource group and all of the resources it contains.
 
 # [**Portal**](#tab/dual-stack-outbound-portal)
 
-[!INCLUDE [portal-clean-up-tabs.md](../../includes/portal-clean-up.md)]
+[!INCLUDE [portal-clean-up-tabs.md](../../includes/portal-clean-up-tabs.md)]
 
-# [**CLI**](#tab/dual-stack-outbound--cli)
+# [**CLI**](#tab/dual-stack-outbound-cli)
 
 Use [az group delete](/cli/azure/group#az-group-delete) to delete the resource group and the resources it contains.
 
