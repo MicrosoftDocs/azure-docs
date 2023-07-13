@@ -5,6 +5,7 @@ description: Learn about the changes you need to make to your code to swap back 
 author: mrbullwinkle #dereklegenzoff
 ms.author: mbullwin #delegenz
 ms.service: cognitive-services
+ms.subservice: openai
 ms.custom: devx-track-python
 ms.topic: how-to
 ms.date: 05/24/2023
