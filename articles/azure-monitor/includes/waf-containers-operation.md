@@ -15,4 +15,4 @@ ms.date: 03/30/2023
 
 | Recommendation | Benefit |
 |:---|:---|
-| | |
+| Configure resource-specific resource logs. | |

@@ -47,7 +47,7 @@ The following table lists [dimensions](../azure-monitor/essentials/data-platform
 
 ## Resource logs
 
-The following table lists the resource log categories you can collect for AKS. These are the logs for AKS control plane components. See [Configure monitoring](monitor-aks.md#configure-monitoring) for information on creating a diagnostic setting to collect these logs and recommendations on which to enable. See [How to query logs from Container insights](../azure-monitor/containers/container-insights-log-query.md#resource-logs) for query examples.
+The following table lists the resource log categories you can collect for AKS. These are the logs for AKS control plane components. See [Collection and routing](monitor-aks.md#collection-and-routing) for information on creating a diagnostic setting to collect these logs. See [How to query logs from Container insights](../azure-monitor/containers/container-insights-log-query.md#resource-logs) for query examples.
 
 For reference, see a list of [all resource logs category types supported in Azure Monitor](../azure-monitor/essentials/resource-logs-schema.md). 
 
@@ -70,11 +70,18 @@ For reference, see a list of [all resource logs category types supported in Azur
 
 This section refers to all of the Azure Monitor Logs tables relevant to AKS and available for query by Log Analytics.
 
+- [AKS Audit](https://learn.microsoft.com/en-us/azure/azure-monitor/reference/tables/aksaudit)
+- [AKS Audit Admin](https://learn.microsoft.com/en-us/azure/azure-monitor/reference/tables/aksauditadmin) 
+- [AKS Control Plane](https://learn.microsoft.com/en-us/azure/azure-monitor/reference/tables/akscontrolplane)
+
+
 |Resource Type | Notes |
 |-------|-----|
 | [Kubernetes services](/azure/azure-monitor/reference/tables/tables-resourcetype#kubernetes-services) | Follow this link for a list of all tables used by AKS and a description of their structure. |
 
 For a reference of all Azure Monitor Logs / Log Analytics tables, see the [Azure Monitor Log Table Reference](/azure/azure-monitor/reference/tables/tables-resourcetype).
+
+
 
 ## Activity log
 
