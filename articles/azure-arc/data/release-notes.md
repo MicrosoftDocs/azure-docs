@@ -21,7 +21,7 @@ This article highlights capabilities, features, and enhancements recently releas
 
 ### Image tag
 
-`v1.20.0_2023-07-11`
+`v1.21.0_2023-07-11`
 
 For complete release version information, review [Version log](version-log.md#july-11-2023).
 
