@@ -63,7 +63,7 @@ If your database server disallows public access, please make sure your environme
 
 Next, we would take Azure App Service as an example to create a connection of managed identity. 
 
-If you use Azure Spring Apps, use `az spring connection create` instead, for more examples, see [Connect Azure Spring Apps to the Azure database](/azure/developer/java/spring-framework/deploy-passwordless-spring-database-app#connect-azure-spring-apps-to-the-azure-database). 
+If you use Azure Spring Apps, use `az spring connection create` instead. For more examples, see [Connect Azure Spring Apps to the Azure database](/azure/developer/java/spring-framework/deploy-passwordless-spring-database-app#connect-azure-spring-apps-to-the-azure-database). 
 
 If you use Azure Container Apps, use `az containerapp connection create` instead. For more examples, see [Create and connect a PostgreSQL database with identity connectivity](../container-apps/tutorial-java-quarkus-connect-managed-identity-postgresql-database.md?tabs=flexible#5-create-and-connect-a-postgresql-database-with-identity-connectivity).
 
