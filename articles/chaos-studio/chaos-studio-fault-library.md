@@ -349,7 +349,7 @@ Currently, the Windows agent doesn't reduce memory pressure when other applicati
 ```
 
 ### Limitations
-* **Windows**: Service-friendly names aren't supported. Use `sc.exe query` in the command prompt to explore service names.
+* **Windows**: Display names for services aren't supported. Use `sc.exe query` in the command prompt to explore service names.
 * **Linux**: Other service types besides systemd, like sysvinit, aren't supported.
 
 ## Time change
@@ -403,7 +403,7 @@ Currently, the Windows agent doesn't reduce memory pressure when other applicati
 | Prerequisites | None. |
 | Urn | urn:csci:microsoft:agent:killProcess/1.0 |
 | Parameters (key, value) |  |
-| processName | Name of a process running on a VM (without the .exe). |
+| processName | Name of a process to continuously kill (without the .exe). The process does not need to be running when the fault begins executing. |
 | killIntervalInMilliseconds | Amount of time the fault waits in between successive kill attempts in milliseconds. |
 | virtualMachineScaleSetInstances | An array of instance IDs when this fault is applied to a virtual machine scale set. Required for virtual machine scale sets. |
 
@@ -536,6 +536,11 @@ Currently, the Windows agent doesn't reduce memory pressure when other applicati
 }
 ```
 
+### Limitations
+
+* The agent-based network faults currently only support IPv4 addresses.
+
+
 ## Network disconnect
 
 | Property | Value |
@@ -580,8 +585,11 @@ Currently, the Windows agent doesn't reduce memory pressure when other applicati
 }
 ```
 
-> [!WARNING]
-> The network disconnect fault only affects new connections. Existing *active* connections continue to persist. You can restart the service or process to force connections to break.
+### Limitations
+
+* The agent-based network faults currently only support IPv4 addresses.
+* The network disconnect fault only affects new connections. Existing active connections continue to persist. You can restart the service or process to force connections to break.
+* On Windows, the network disconnect fault currently only works with TCP or UDP packets.
 
 ## Network disconnect with firewall rule
 
@@ -627,6 +635,10 @@ Currently, the Windows agent doesn't reduce memory pressure when other applicati
 }
 ```
 
+### Limitations
+
+* The agent-based network faults currently only support IPv4 addresses.
+
 ## Azure Resource Manager virtual machine shutdown
 | Property | Value |
 |-|-|
@@ -663,7 +675,7 @@ Currently, the Windows agent doesn't reduce memory pressure when other applicati
 
 ## Azure Resource Manager virtual machine scale set instance shutdown
 
-This fault has two available versions that you can use, Version 1.0 and Version 2.0.
+This fault has two available versions that you can use, Version 1.0 and Version 2.0. The main difference is that Version 2.0 allows you to filter by availability zones, only shutting down instances within a specified zone or zones.
 
 ### Version 1.0
 
@@ -864,7 +876,7 @@ Currently, only virtual machine scale sets configured with the **Uniform** orche
       "parameters": [
         {
             "key": "jsonSpec",
-            "value": "{\"action\":\"pod-failure\",\"mode\":\"one\",\"duration\":\"30s\",\"selector\":{\"labelSelectors\":{\"app.kubernetes.io\/component\":\"tikv\"}}}"
+            "value": "{\"action\":\"pod-failure\",\"mode\":\"one\",\"selector\":{\"labelSelectors\":{\"app.kubernetes.io\/component\":\"tikv\"}}}"
         }
     ],
       "selectorid": "myResources"
@@ -932,7 +944,7 @@ Currently, only virtual machine scale sets configured with the **Uniform** orche
       "parameters": [
         {
             "key": "jsonSpec",
-            "value": "{\"action\":\"latency\",\"mode\":\"one\",\"selector\":{\"labelSelectors\":{\"app\":\"etcd\"}},\"volumePath\":\"\/var\/run\/etcd\",\"path\":\"\/var\/run\/etcd\/**\/*\",\"delay\":\"100ms\",\"percent\":50,\"duration\":\"400s\"}"
+            "value": "{\"action\":\"latency\",\"mode\":\"one\",\"selector\":{\"labelSelectors\":{\"app\":\"etcd\"}},\"volumePath\":\"\/var\/run\/etcd\",\"path\":\"\/var\/run\/etcd\/**\/*\",\"delay\":\"100ms\",\"percent\":50}"
         }
     ],
       "selectorid": "myResources"
@@ -1034,7 +1046,7 @@ Currently, only virtual machine scale sets configured with the **Uniform** orche
       "parameters": [
         {
             "key": "jsonSpec",
-            "value": "{\"mode\":\"all\",\"selector\":{\"labelSelectors\":{\"app\":\"nginx\"}},\"target\":\"Request\",\"port\":80,\"method\":\"GET\",\"path\":\"\/api\",\"abort\":true,\"duration\":\"5m\",\"scheduler\":{\"cron\":\"@every 10m\"}}"
+            "value": "{\"mode\":\"all\",\"selector\":{\"labelSelectors\":{\"app\":\"nginx\"}},\"target\":\"Request\",\"port\":80,\"method\":\"GET\",\"path\":\"\/api\",\"abort\":true,\"scheduler\":{\"cron\":\"@every 10m\"}}"
         }
     ],
       "selectorid": "myResources"
@@ -1089,8 +1101,8 @@ Currently, only virtual machine scale sets configured with the **Uniform** orche
 | Parameters (key, value) |  |
 | name | A unique name for the security rule that's created. The fault fails if another rule already exists on the NSG with the same name. Must begin with a letter or number. Must end with a letter, number, or underscore. May contain only letters, numbers, underscores, periods, or hyphens. |
 | protocol | Protocol for the security rule. Must be Any, TCP, UDP, or ICMP. |
-| sourceAddresses | A string that represents a JSON-delimited array of CIDR-formatted IP addresses. Can also be a service tag name for an inbound rule, for example, `AppService`. An asterisk `*` can also be used to match all source IPs. |
-| destinationAddresses | A string that represents a JSON-delimited array of CIDR-formatted IP addresses. Can also be a service tag name for an outbound rule, for example, `AppService`. An asterisk `*` can also be used to match all destination IPs. |
+| sourceAddresses | A string that represents a JSON-delimited array of CIDR-formatted IP addresses. Can also be a [service tag name](../virtual-network/service-tags-overview.md) for an inbound rule, for example, `AppService`. An asterisk `*` can also be used to match all source IPs. |
+| destinationAddresses | A string that represents a JSON-delimited array of CIDR-formatted IP addresses. Can also be a [service tag name](../virtual-network/service-tags-overview.md) for an outbound rule, for example, `AppService`. An asterisk `*` can also be used to match all destination IPs. |
 | action | Security group access type. Must be either Allow or Deny. |
 | destinationPortRanges | A string that represents a JSON-delimited array of single ports and/or port ranges, such as 80 or 1024-65535. |
 | sourcePortRanges | A string that represents a JSON-delimited array of single ports and/or port ranges, such as 80 or 1024-65535. |
