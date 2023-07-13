@@ -22,7 +22,7 @@ In such environments, using signed container images can enable you to assure dep
 ## Prerequisites
 
 * An Azure subscription. If you don't have an Azure subscription, you can create a [free account](https://azure.microsoft.com/free).
-* Azure CLI version x.x.x or later. Run `az --version` to find the current version. If you need to install or upgrade, see [Install Azure CLI](../../cli/azure/install-azure-cli.md).
+* [Azure CLI][azure-cli-install] or [Azure PowerShell][azure-powershell-install] and the `aks-preview` 0.5.96 or later CLI extension installed.
 * The Azure Policy add-on for AKS. If you don't have this add-on installed, see [Install Azure Policy add-on for AKS](../governance/policy/concepts/policy-for-kubernetes#install-azure-policy-add-on-for-aks).
 * An AKS cluster enabled with OIDC Issuer. To create a new cluster or update an existing cluster, see [Configure an AKS cluster with OIDC Issuer](/cluster-configuration#oidc-issuer).
 * The `EnableImageIntegrityPreview` feature flag registered on your Azure subscription. Register the feature flag using the following commands:
@@ -57,19 +57,20 @@ In such environments, using signed container images can enable you to assure dep
 
 ## How Image Integrity works
 
-Enabling Image Integrity on your cluster also deploys a Ratify pod. This Ratify pod performs the following tasks:
+Enabling Image Integrity on your cluster also deploys a `Ratify` pod. This `Ratify` pod performs the following tasks: 1. Reconciles certificates from Azure Key Vault per the configuration you set up through `Ratify` CRDs. 2. Accesses images stored in ACR when validation requests come from `Gatekeeper`. 
 
-1. Reconciles certificates from Azure Key Vault per the configuration you set up through Ratify CRDs.
-2. Accesses images stored in ACR when validation requests comes from Gatekeeper.
-3. Determines whether the target image is signed with a trusted cert and therefore considered as *trusted*.
-4. Gatekeeper then consumes the validation results and returns the compliance state to Azure Policy for it to decide whether to allow the deployment request.
+`Ratify` will then determine whether the target image is signed with a trusted cert and therefore considered as *trusted*.`Gatekeeper` will consume the validation results and return the compliance state to Azure Policy to decide whether to allow the deployment request.
+
++Architect Diagram+
 
 ## Enable Image Integrity on your AKS cluster
 
 > [!NOTE]
-> Image signature verification is a governance-oriented scenario and is closely working with the Azure Policy. We recommend using AKS built-in policy to enable Image Integrity.
+> Image signature verification is a governance-oriented scenario and is closely working with the Azure Policy. We recommend using AKS built-in policy to enable Image Integrity. Learn more about the [Image Integrity policy](TBDpolicylink) 
 
-# [Azure CLI](#tab/azure-cli)
+You can enable Image Integrity on your AKS cluster by creating a policy assigment through the following methods:
+
+### [Azure CLI](#tab/azure-cli)
 
 * Create a policy assignment with the AKS policy initiative *`[Preview]: Use Image Integrity to ensure only trusted images are deployed`* using the [`az policy assignment create`][az-policy-assignment-create] command.
 
@@ -79,7 +80,7 @@ Enabling Image Integrity on your cluster also deploys a Ratify pod. This Ratify 
 
     The `Ratify` pod is deployed after you enable the feature.
 
-# [Azure portal](#tab/azure-portal)
+### [Azure portal](#tab/azure-portal)
 
 1. In the Azure portal, navigate to the Azure Policy service named **Policy**.
 2. Select **Definitions**.
@@ -91,7 +92,22 @@ Enabling Image Integrity on your cluster also deploys a Ratify pod. This Ratify 
 
 ---
 
-## Set up verification policy rules
+## Set up verification configurations
+For Image Integrity to properly verify the target signed image, you will need to set up `Ratify` configurations through K8s [CRDs](https://kubernetes.io/docs/concepts/extend-kubernetes/api-extension/custom-resources/#customresourcedefinitions) using natively supported `kubectl` commands.
+
+> [!NOTE]
+> Set up Image Inetgrity configurations through CRD is a temporary behavior for public preview. It is likely to change once GA.
+
+Here's a sample CRD for you to try as a quickstart, see more examples at [Ratify CRDs](https://github.com/deislabs/ratify/blob/main/docs/reference/ratify-configuration.md)
+
+++SAMPLE CRD++
+
+Run the following command to update the CRD:
+
+```azurecli
+kubectl apply -f .../ratify/config/samples/config_v1alpha1_verifier_schemavalidator.yaml
+```
+
 
 ## Deploy two sample images to your AKS cluster
 
