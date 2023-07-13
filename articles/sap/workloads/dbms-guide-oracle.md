@@ -9,7 +9,7 @@ ms.service: sap-on-azure
 ms.subservice: sap-vm-workloads
 ms.topic: article
 ms.workload: infrastructure
-ms.date: 08/24/2022
+ms.date: 07/13/2023
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
 ---
@@ -232,8 +232,8 @@ Databases of 100+ TB are already running productive on this combination. To star
 
 More general information
 
-- [TR-3633: Oracle Databases on NetApp ONTAP \| NetApp](https://www.netapp.com/pdf.html?item=/media/8744-tr3633pdf.pdf)
-- [NFS best practice and implementation guide \| TR-4067 (netapp.com)](https://www.netapp.com/media/10720-tr-4067.pdf)
+- [Solution architectures using Azure NetApp Files | Oracle](../../azure-netapp-files/azure-netapp-files-solution-architectures.md#oracle)
+- [Solution architectures using Azure NetApp Files | SAP on anyDB](../../azure-netapp-files/azure-netapp-files-solution-architectures.md#sap-anydb)
 
 Mirror Log is required on dNFS ANF Production systems.
 
