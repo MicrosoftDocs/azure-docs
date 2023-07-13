@@ -185,7 +185,7 @@ Since network conditions can change during a call, users can report poor audio a
 - These metrics help indicate issues on the ACS client SDK send and receive media streams. As an example, you can actively monitor the outgoing video stream's `availableBitrate`, notice a persistent drop below the recommended 1.5 Mbps and notify the user their video quality is degraded. 
 
 - It's important to note that our Server Log data only give you an overall summary of the call after it ends. Our detailed Media Statistics provide low level metrics throughout the call duration for use in during the call and afterwards for deeper analysis.  
-- To learn more, read: [Media quality statistics](media-quality-sdk.md)
+- To learn more, see: [Media quality statistics](media-quality-sdk.md)
 
 
 ### Optimal video count
@@ -271,7 +271,7 @@ By collecting call data such as Media Statistics, User Facing Diagnostics, and p
 
 The call may have fired a User Facing Diagnostic indicating a severe problem with the incoming or outgoing media steam quality. By storing the [detailed media statistics](media-quality-sdk.md) from the call you can review when the UFD occurred to see if there were high levels of packet loss, jitter, or latency around this time indicating a poor network condition. You explore whether the network was impacted by an external client's unmanaged network, unnecessary network traffic due to improper Quality of Service (QoS) network prioritization policies, or an unnecessary Virtual Private Network (VPN) for example.
 
-> [!Note] 
+> [!NOTE] 
 > As a rule, we recommend prioritizing a user’s Audio connection bandwidth before their video connection and both audio and video before other network traffic. When a network is unable to support both audio and video, you can proactively disable a user’s video or nudge a user to disable their video.
 
 ### Other considerations
