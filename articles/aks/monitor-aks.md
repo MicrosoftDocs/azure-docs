@@ -15,7 +15,7 @@ When you have critical applications and business processes relying on Azure reso
 
 
 > [!IMPORTANT]
-> This article provides basic information for getting started monitoring an AKS cluster. For complete monitoring, you need to leverage other services such as [Azure Monitor managed service for Prometheus](../essentials/prometheus-metrics-overview.md) and [Container Insights](container-insights-overview.md). See [Configure Kubernetes monitoring using Azure services](monitor-kubernetes-configure.md) for details on configuring these services and links to other articles for leveraging them for complete monitoring of your Kubernetes environment.
+> This article provides basic information for getting started monitoring an AKS cluster. For complete monitoring, you need to leverage other services such as [Azure Monitor managed service for Prometheus](../azure-monitor/essentials/prometheus-metrics-overview.md) and [Container Insights](../azure-monitor/containers/container-insights-overview.md). See [Configure Kubernetes monitoring using Azure services](../azure-monitor/containers/monitor-kubernetes-configure.md) for details on configuring these services and links to other articles for leveraging them for complete monitoring of your Kubernetes environment.
 > 
 
 ## Monitoring overview page in Azure portal

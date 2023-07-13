@@ -70,9 +70,9 @@ For reference, see a list of [all resource logs category types supported in Azur
 
 This section refers to all of the Azure Monitor Logs tables relevant to AKS and available for query by Log Analytics.
 
-- [AKS Audit](https://learn.microsoft.com/en-us/azure/azure-monitor/reference/tables/aksaudit)
-- [AKS Audit Admin](https://learn.microsoft.com/en-us/azure/azure-monitor/reference/tables/aksauditadmin) 
-- [AKS Control Plane](https://learn.microsoft.com/en-us/azure/azure-monitor/reference/tables/akscontrolplane)
+- [AKS Audit](/azure/azure-monitor/reference/tables/aksaudit)
+- [AKS Audit Admin](/azure/azure-monitor/reference/tables/aksauditadmin) 
+- [AKS Control Plane](/azure/azure-monitor/reference/tables/akscontrolplane)
 
 
 |Resource Type | Notes |
