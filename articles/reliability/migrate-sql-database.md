@@ -121,7 +121,17 @@ To enable zone redundancy, see [Databases - Create Or Update in ARM](/rest/api/s
 Open PowerShell as Administrator and run the following command (replace the placeholders in "<>" with your resource names):
 
 ```powershell
-    Set-AzSqlElasticPool -ResourceGroupName “<Resource_Group_Name>” -ServerName “<Server_Name>” -ElasticPoolName “<Elastic_Pool_Name>” -ZoneRedundant 
+Connect-AzAccount
+$subscriptionid = <'your subscription id here'>
+Set-AzContext -SubscriptionId $subscriptionid
+
+$parameters = @{
+    ResourceGroupName = '<Resource_Group_Name>'
+    ServerName = '<Server_Name>'
+    ElasticPoolName = '<Elastic_Pool_Name>'
+}
+
+Set-AzSqlElasticPool  @parameters -ZoneRedundant 
 ```
 
 
