@@ -447,7 +447,7 @@ The following procedure describes how to capture traces by using the [Time Trave
    ```
 
 1. In the `tasklist` command output, find the process identifier (`PID`) of *lsass.exe*.
-1. Run the following time travel debugging command ([TTD.exe](/windows-hardware/drivers/debugger/time-travel-debugging-ttd-exe-command-line-util)) to begin a time travel tracing session of the *lsass.exe* process:
+1. Run the following time travel debugging command (*[TTD.exe](/windows-hardware/drivers/debugger/time-travel-debugging-ttd-exe-command-line-util)*) to begin a time travel tracing session of the *lsass.exe* process:
 
    ```cmd
    TTD.exe -attach <lsass-pid> -out c:\temp
