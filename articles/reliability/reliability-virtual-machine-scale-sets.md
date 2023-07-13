@@ -36,7 +36,7 @@ For an architectural overview of reliability in Azure, see [Azure reliability](/
 
 #### :::image type="icon" source="../reliability/media/icon-recommendation-medium.svg"::: **VMSS-1: Deploy VMs with flexible orchestration mode** 
 
-All VMs -even single instance VMs - should be deployed into a scale set using [flexible orchestration](../virtual-machine-scale-sets/virtual-machine-scale-sets-orchestration-modes.md#scale-sets-with-flexible-orchestration.md) mode to future-proof your application for scaling and availability. Flexible orchestration offers high availability guarantees (up to 1000 VMs) by spreading VMs across fault domains in a region or within an availability zone.
+All VMs -even single instance VMs - should be deployed into a scale set using [flexible orchestration](../virtual-machine-scale-sets/virtual-machine-scale-sets-orchestration-modes.md#scale-sets-with-flexible-orchestration) mode to future-proof your application for scaling and availability. Flexible orchestration offers high availability guarantees (up to 1000 VMs) by spreading VMs across fault domains in a region or within an availability zone.
 
 For more information on when to use scale sets instead of VMs, see [When to use scale sets instead of virtual machines?](../virtual-machine-scale-sets/virtual-machine-scale-sets-design-overview.md#when-to-use-scale-sets-instead-of-virtual-machines)
 
@@ -106,7 +106,7 @@ A grace period can be set using the property `automaticRepairsPolicy.gracePeriod
 
 #### :::image type="icon" source="../reliability/media/icon-recommendation-low.svg"::: **VMSS-2: Use VMSS Protection Policy to treat specific VM instances differently** 
 
-Use [VMSS Protection Policy](../-machine-scale-sets/virtual-machine-scale-sets-instance-protection.md) if you want specific instances to be treated differently from the rest of the scale set instance.
+Use [VMSS Protection Policy](../virtual-machine-scale-sets/virtual-machine-scale-sets-instance-protection.md) if you want specific instances to be treated differently from the rest of the scale set instance.
 
 As your application processes traffic, there can be situations where you want specific instances to be treated differently from the rest of the scale set instance. For example, certain instances in the scale set could be performing long-running operations, and you don’t want these instances to be scaled-in until the operations complete. You might also have specialized a few instances in the scale set to perform different tasks than other members of the scale set. You require these special VMs not to be modified with the other instances in the scale set. Instance protection provides the extra controls to enable these and other scenarios for your application.
 
@@ -145,7 +145,7 @@ Virtual machine scale sets supports both zonal and zone-redundant deployments wi
 1. To use availability zones, your scale set must be created in a [supported Azure region](./availability-zones-service-support.md).
 
 1. Make sure you use the correct orchestration mode.  
-    - [Flexible orchestration](../virtual-machine-scale-sets/virtual-machine-scale-sets-orchestration-modes.md#scale-sets-with-flexible-orchestration.md) supports both zonal and zone redundancy.
+    - [Flexible orchestration](../virtual-machine-scale-sets/virtual-machine-scale-sets-orchestration-modes.md#scale-sets-with-flexible-orchestration) supports both zonal and zone redundancy.
 
     - [Uniform orchestration](../virtual-machine-scale-sets/virtual-machine-scale-sets-orchestration-modes.md#scale-sets-with-uniform-orchestration) only supports zone redundancy across availability zoness.
 
@@ -163,9 +163,9 @@ You can create a scale set that uses availability zones with one of the followin
 
 # [Azure portal](#tab/portal)
 
-The process to create a scale set that uses a zonal deployment is the same as detailed in the [getting started article](quick-create-portal.md). When you select a supported Azure region, you can create a scale set in one or more available zones, as shown in the following example:
+The process to create a scale set that uses a zonal deployment is the same as detailed in the [getting started article](../virtual-machine-scale-sets/quick-create-portal.md). When you select a supported Azure region, you can create a scale set in one or more available zones, as shown in the following example:
 
-![Create a scale set in a single availability zone](media/virtual-machine-scale-sets-use-availability-zones/vmss-az-portal.png)
+![Create a scale set in a single availability zone](../virtual-machine-scale-sets/media/virtual-machine-scale-sets-use-availability-zones/vmss-az-portal.png)
 
 The scale set and supporting resources, such as the Azure load balancer and public IP address, are created in the single zone that you specify.
 
@@ -187,7 +187,7 @@ az vmss create \
     --zones 1
 ```
 
-For a complete example of a single-zone scale set and network resources, see [this sample CLI script](scripts/cli-sample-single-availability-zone-scale-set.md#sample-script)
+For a complete example of a single-zone scale set and network resources, see [this sample CLI script](../virtual-machine-scale-sets/scripts/cli-sample-single-availability-zone-scale-set.md#sample-script)
 
 ### Zone-redundant scale set
 
@@ -386,7 +386,7 @@ To use best-effort zone balance, set *zoneBalance* to *false*. This setting is t
 > [!IMPORTANT]
 > Placement groups only apply to Virtual Machine Scale Sets running in Uniform orchestration mode.
 
-When you deploy a scale set, you also have the option to deploy with a single [placement group](../virtual-machine-scale-sets-placement-groups.md) per availability zone, or with multiple per zone. For regional (non-zonal) scale sets, the choice is to have a single placement group in the region or to have multiple in the region. If the scale set property called `singlePlacementGroup` is set to false, the scale set can be composed of multiple placement groups and has a range of 0-1,000 VMs. When set to the default value of true, the scale set is composed of a single placement group, and has a range of 0-100 VMs. For most workloads, we recommend multiple placement groups, which allows for greater scale. In API version *2017-12-01*, scale sets default to multiple placement groups for single-zone and cross-zone scale sets, but they default to single placement group for regional (non-zonal) scale sets.
+When you deploy a scale set, you also have the option to deploy with a single [placement group](../virtual-machine-scale-sets/virtual-machine-scale-sets-placement-groups.md) per availability zone, or with multiple per zone. For regional (non-zonal) scale sets, the choice is to have a single placement group in the region or to have multiple in the region. If the scale set property called `singlePlacementGroup` is set to false, the scale set can be composed of multiple placement groups and has a range of 0-1,000 VMs. When set to the default value of true, the scale set is composed of a single placement group, and has a range of 0-100 VMs. For most workloads, we recommend multiple placement groups, which allows for greater scale. In API version *2017-12-01*, scale sets default to multiple placement groups for single-zone and cross-zone scale sets, but they default to single placement group for regional (non-zonal) scale sets.
 
 ## Next steps
 > [!div class="nextstepaction"]
