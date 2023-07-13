@@ -58,7 +58,7 @@ To schedule recurring updates on a single VM, follow these steps:
 		- Start on
 		- Maintenance window (in hours)
 		> [!NOTE]
-        > The upper maintenance window is 3.55 hours.
+        > The upper maintenance window is 3 hours 55 mins.
 		- Repeats (monthly, daily or weekly)
 		- Add end date
 		- Schedule summary

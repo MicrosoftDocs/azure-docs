@@ -92,6 +92,8 @@
         href: ahrtemis-tutorial.md
       - name: Air
         href: air-tutorial.md
+      - name: Airbase
+        href: airbase-tutorial.md
       - name: Airstack
         href: airstack-tutorial.md
       - name: Airtable
@@ -634,6 +636,8 @@
         href: costpoint-tutorial.md
       - name: Count Me In - Operations Dashboard
         href: count-me-in-operations-dashboard-tutorial.md
+      - name: Couchbase Capella - SSO
+        href: couchbase-capella-sso-tutorial.md
       - name: Coupa
         href: coupa-tutorial.md
       - name: Coupa Risk Assess
@@ -1733,6 +1737,8 @@
         href: netop-portal-tutorial.md
       - name: Netskope Cloud Security
         href: netskope-cloud-security-tutorial.md
+      - name: Netskope Cloud Exchange Administration Console
+        href: netskope-cloud-exchange-administration-console-tutorial.md
       - name: Netskope User Authentication
         href: netskope-user-authentication-tutorial.md
       - name: Netsparker Enterprise
@@ -2063,8 +2069,8 @@
         href: quickhelp-tutorial.md
       - name: Qumu Cloud
         href: qumucloud-tutorial.md
-      - name: R and D Tax Credit Services
-        href: r-and-d-tax-credit-services-tutorial.md
+      - name: PwC Identity
+        href: pwc-identity-tutorial.md
       - name: Rackspace SSO
         href: rackspacesso-tutorial.md
       - name: Radancy's Employee Referrals
@@ -2433,6 +2439,8 @@
         href: sprinklr-tutorial.md
       - name: SSOGEN Azure AD SSO Gateway for Oracle E Business Suite EBS, PeopleSoft, and JDE
         href: ssogen-tutorial.md
+      - name: SSO for Jama Connect®
+        href: sso-for-jama-connect-tutorial.md
       - name: Stackby
         href: stackby-tutorial.md
       - name: Standard for Success Accreditation
@@ -2859,6 +2867,8 @@
         href: workteam-tutorial.md
       - name: Workware
         href: workware-tutorial.md
+      - name: Worthix App
+        href: worthix-app-tutorial.md
       - name: Wrike
         href: wrike-tutorial.md
       - name: Wúru App
