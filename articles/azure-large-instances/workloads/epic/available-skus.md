@@ -9,7 +9,7 @@ ms.date: 06/01/2023
 ---
 
 # Available SKUs
-
+This article provides a list of available ALI for Epic<sup>®</sup> SKUs.
 ## Azure Large Instances availability by region
 
 * West Europe

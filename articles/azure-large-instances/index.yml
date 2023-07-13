@@ -29,6 +29,6 @@ landingContent:
     linkLists: 
       - linkListType: concept
         links:
-          - text: Azure Large Instances for EPIC
+          - text: Azure Large Instances for Epic
             url: workloads/epic/index.yml
   

@@ -10,7 +10,7 @@ ms.date: 06/01/2023
 
 # ALI for Epic onboarding requirements
 
-This article suggests actions to take after you receive an environment from the Microsoft ALI team.
+This article explains the actions to take after you receive an environment from the Microsoft ALI team.
 
 ## Azure portal
 

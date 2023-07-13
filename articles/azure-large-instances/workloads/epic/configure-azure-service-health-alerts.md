@@ -8,6 +8,7 @@ ms.service: azure-large-instances
 ms.date: 06/01/2023
 ---
 # Configure Azure Service Health alerts
+This article explains how to configure Azure Service Health alerts.
 
 You can get automatic notifications when there are planned maintenance events or unplanned
 downtime that affects your infrastructure.

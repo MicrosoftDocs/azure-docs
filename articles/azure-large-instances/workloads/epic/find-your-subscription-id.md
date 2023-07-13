@@ -9,6 +9,7 @@ ms.date: 06/01/2023
 ---
 
 # Find your subscription ID
+This article explains how to find your ALI for Epic subscription ID.
 
 A *Subscription ID* is a unique identifier for your service in Azure. 
 You need it when interacting with the Microsoft Support team. 

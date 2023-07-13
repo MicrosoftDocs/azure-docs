@@ -9,6 +9,7 @@ ms.date: 06/01/2023
 ---
 
 # ALI for Epic architecture 
+This article provides an overview of ALI for Epic <sup>®</sup> architecture.
 
 Epic Architecture consists of the following tiers: 
 

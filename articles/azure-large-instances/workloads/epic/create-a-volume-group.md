@@ -9,8 +9,7 @@ ms.date: 06/01/2023
 ---
 
 # Create a volume group
-
-
+This article explains how to create an ALI for EpicEpic<sup>®</sup> volume group.  
 
 1. Discover storage using the following command.
 

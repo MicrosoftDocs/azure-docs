@@ -9,6 +9,8 @@ ms.date: 06/01/2023
 ---
 
 # Quality checks
+This article provides an overview of Azure Large Instances for Epic<sup>®</sup> quality checks.
+
 The Microsoft operations team performs a series of extensive quality checks to ensure that customers' requests to run ALI for Epic<sup>®</sup> are fulfilled accurately, and that infrastructure is healthy before handover.
 However, customers are advised to perform their own checks to ensure services have been provided as requested, including the following:
 
