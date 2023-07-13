@@ -49,7 +49,7 @@ Follow the steps below to perform migration for a single database or an elastic 
 
 1. Under **Settings** select **Compute + Storage**. 
 
-1. Select **Yes** for **Would you like to make this database zone redundant?**.
+1. Select **Yes** for **Would you like to make this database zone redundant?**
 
 1. Select **Apply**.
 
