@@ -6,7 +6,7 @@ author: cherylmc
 ms.author: cherylmc
 ms.service: vpn-gateway
 ms.topic: tutorial
-ms.date: 06/28/2023
+ms.date: 07/13/2023
 
 ---
 
@@ -14,9 +14,9 @@ ms.date: 06/28/2023
 
 This tutorial helps you create and manage a virtual network gateway (VPN gateway) using the Azure portal. The VPN gateway is just one part of a connection architecture to help you securely access resources within a VNet.
 
-The following diagram shows the virtual network and the VPN gateway that you create using the steps in this article. You can later create different types of connections, such as  [Site-to-Site](tutorial-site-to-site-portal.md) and [Point-to-site](point-to-site-about.md) to connect to this virtual network via the VPN gateway.
+The left side of the following diagram shows the virtual network and the VPN gateway that you create using the steps in this article. You can later add different types of connections, such as  [Site-to-Site](tutorial-site-to-site-portal.md) and [Point-to-site](point-to-site-about.md). See [VPN Gateway design](design.md) to view different design architectures that you can build.
 
-:::image type="content" source="./media/tutorial-create-gateway-portal/gateway-diagram.png" alt-text="Diagram of VNet and VPN gateway." lightbox="./media/tutorial-create-gateway-portal/gateway-expand.png":::
+:::image type="content" source="./media/tutorial-create-gateway-portal/gateway.png" alt-text="Diagram of VNet and VPN gateway." lightbox="./media/tutorial-create-gateway-portal/gateway-diagram-expand.png":::
 
 If you want to learn more about the configuration settings used in this tutorial, see [About VPN Gateway configuration settings](vpn-gateway-about-vpn-gateway-settings.md). For more information about VPN Gateway, see [What is VPN Gateway?](vpn-gateway-about-vpngateways.md)
 
@@ -103,7 +103,7 @@ these resources using the following steps:
 
 ## Next steps
 
-Once you have a VPN gateway, you can configure connections. The following articles will help you create a few of the most common configurations:
+Once you have a VPN gateway, you can configure connections. The following articles help you create a few of the most common configurations:
 
 > [!div class="nextstepaction"]
 > [Site-to-Site VPN connections](./tutorial-site-to-site-portal.md)
