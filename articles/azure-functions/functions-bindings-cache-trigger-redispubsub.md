@@ -139,7 +139,7 @@ This sample listens to any `keyevent` notifications for the delete command [`DEL
 ::: zone-end
 ::: zone pivot="programming-language-javascript"
 
-Each sample uses the same `index.js` file, with binding data in the `function.json` file determining on which channel the trigger will occur. Here is the `index.js` file:
+First, create a new folder called `PubSubTrigger` and add two files to the folder: `index.js` and `function.json`. Each sample uses the same `index.js` file, with binding data in the `function.json` file determining on which channel the trigger will occur. Here is the `index.js` file:
 
 ```node
 module.exports = async function (context, message) {
@@ -200,7 +200,7 @@ Here is binding data to listen to `keyevent` notifications for the delete comman
 ::: zone-end
 ::: zone pivot="programming-language-powershell"
 
-Each sample uses the same `run.ps1` file, with binding data in the `function.json` file determining on which channel the trigger will occur. Here is the `run.ps1` file:
+First, create a new folder called `PubSubTrigger` and add two files to the folder: `run.ps1` and `function.json'. Each sample uses the same `run.ps1` file, with binding data in the `function.json` file determining on which channel the trigger will occur. Here is the `run.ps1` file:
 
 ```powershell
 param($message, $TriggerMetadata)
@@ -258,8 +258,11 @@ Here is binding data to listen to `keyevent` notifications for the delete comman
 
 ::: zone-end
 ::: zone pivot="programming-language-python"
+>[!NOTE]
+>The [v2 programming model](functions-reference-python) for Python in Azure Functions is not yet supported.
+>
 
-Each sample uses the same `__init__.py` file, with binding data in the `function.json` file determining on which channel the trigger will occur. Here is the `__init__.py` file:
+First, create a new folder called `PubSubTrigger` and add two files to the folder: `__init__.py` and `function.json'. Each sample uses the same `__init__.py` file, with binding data in the `function.json` file determining on which channel the trigger will occur. Here is the `__init__.py` file:
 
 ```python
 import logging
