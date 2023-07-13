@@ -30,6 +30,9 @@ To validate the metrics are being collected, you can set up a port forward to on
 
 ```bash
 kubectl get pods -n app-routing-system
+```
+
+```bash
 NAME                            READY   STATUS    RESTARTS   AGE
 external-dns-667d54c44b-jmsxm   1/1     Running   0          4d6h
 nginx-657bb8cdcf-qllmx          1/1     Running   0          4d6h
@@ -40,6 +43,9 @@ Now forward a local port to port 10254 on one of the nginx pods.
 
 ```bash
 kubectl port-forward nginx-657bb8cdcf-qllmx -n app-routing-system :10254
+```
+
+```bash 
 Forwarding from 127.0.0.1:43307 -> 10254
 Forwarding from [::1]:43307 -> 10254
 ```
