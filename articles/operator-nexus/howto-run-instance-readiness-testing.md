@@ -25,8 +25,8 @@ Instance Readiness Testing (IRT) is a framework built to orchestrate real world 
 1. Download nexus-irt.tar.gz from aka.ms/nexus-irt `curl -Lo nexus-irt.tar.gz aka.ms/nexus-irt`
 1. Extract the tarball to the local file system: `mkdir -p irt && tar xf nexus-irt.tar.gz --directory ./irt`
 1. Switch to the new directory `cd irt`
-1. If needed run `setup.sh` to initially set-up an environment.
-    * `setup.sh` assumes a non-root user and attempts to use `sudo`, which installs:
+1. If needed run `setup.sh` to initially set up an environment.
+    * `setup.sh` assumes a nonroot user and attempts to use `sudo`, which installs:
         1. `jq` version 1.6
         1. `yq` version 4.33
         1. `azcopy` version 10
@@ -34,13 +34,13 @@ Instance Readiness Testing (IRT) is a framework built to orchestrate real world 
         1. `elinks` for viewing html files on the command line
         1. `tree` for viewing directory structures
         1. `moreutils` utilities for viewing progress from the ACI container
-1. If desired, setup a storage account to archive test results over time. For help, see the [Instructions](#uploading-results-to-your-own-archive)
+1. If desired, set up a storage account to archive test results over time. For help, see the [Instructions](#uploading-results-to-your-own-archive)
 1. Log into Azure, if not already logged in: `az login --use-device`
     * User should have `Contributor` role
 2. Create an Azure Managed Identity for the container to use.
     * Using the provided script: `MI_RESOURCE_GROUP="<your resource group> MI_NAME="<managed identity name>" SUBSCRIPTION="<subscription>" ./create-managed-identity.sh`
     * Can be created manually via the Azure portal, refer to the script for needed permissions
-3. Create a service principal and aad security group. The service principal is used to make operations during the test, the group informs the kubernetes cluster of valid users, so the service principal must be a part of the aad security group.
+3. Create a service principal and security group. The service principal is used to make operations during the test, the group informs the kubernetes cluster of valid users, so the service principal must be a part of the security group.
     * You can provide your own, or use our provided script, here's an example of how it could be executed; `AAD_GROUP_NAME=external-test-aad-group-8 SERVICE_PRINCIPAL_NAME=external-test-sp-8 ./irt/create-service-principal.sh`
     * This script prints four key/value pairs for you to include in your input file.
 4. If necessary, create the Isolation Domains required to execute the tests. They aren't lifecycled as part of this test scenario.
@@ -70,19 +70,19 @@ The network blueprint input schema for IRT is defined in the networks-blueprint.
 
 ## Results
 
-1. A file named `summary-<cluster_name>-<timestamp>.html` is downloaded at the end of the run and will have all the testing results. It can be viewed:
+1. A file named `summary-<cluster_name>-<timestamp>.html` is downloaded at the end of the run and contains the testing results. It can be viewed:
     1. From any browser
     1. using elinks or lynx to view from the command line; for example:
        1.  `elinks summary-<cluster_name>-<timestamp>..html`
-    1. If you provide an SAS Token & URL for the `PUBLISH_RESULTS_TO` parameter the results will be uploaded to the blob container you specified. It can be previewed by navigating to the link presented to you at the end of the IRT run.
+    1. When SAS Token & URL is provided for the `PUBLISH_RESULTS_TO` parameter the results are uploaded to the blob container you specified. It can be previewed by navigating to the link presented to you at the end of the IRT run.
 
 ### Uploading Results to Your Own Archive
 
-1. We offer a supplementary script, `create-archive-storage.sh` to allow you to set up a storage container to store your results. The script generates an SAS Token for a storage container that is valid for three days. If the storage container, storage account, or resource group don't exist, the script will create them.
+1. We offer a supplementary script, `create-archive-storage.sh` to allow you to set up a storage container to store your results. The script generates an SAS Token for a storage container that is valid for three days. The script will create a storage container, storage account, and resource group if they don't already exist.
    1. The script expects the following environment variables to be defined:
       1. RESOURCE_GROUP
       1. SUBSCRIPTION
       1. STORAGE_ACCOUNT_NAME
       1. STORAGE_CONTAINER_NAME
-1. Copy the last output from the script, into your IRT YAML input. The output will look like this;
+1. Copy the last output from the script, into your IRT YAML input. The output looks like this;
    * `PUBLISH_RESULTS_TO="<sas-token>"`
