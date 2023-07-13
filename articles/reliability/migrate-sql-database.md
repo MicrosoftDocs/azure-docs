@@ -131,7 +131,7 @@ To enable zone redundancy, see [Elastic Pools - Create Or Update in ARM](/rest/a
 
 ---
 
-## Option 2: Redeployment (Hyperscale)
+## Redeployment (Hyperscale)
 
 For the Hyperscale service tier, zone redundancy support can only be specified during database creation and can't be modified once the database is provisioned. If you wish to gain zone redundancy support, you need to perform a data transfer from your existing Hyperscale service tier single database. To perform the transfer and enable the zone redundancy option, a clone must be created using database copy, point-in-time restore, or geo-replica.  
 
@@ -139,7 +139,7 @@ For the Hyperscale service tier, zone redundancy support can only be specified d
 
 - There are two modes of redeployment (Online and Offline): 
 
-    - **Database copy and point-in-time restore methods (Offline mode)** create a transactionally consistent database at a certain point in time. As a result, any data changes performed after the copy or restore operation have been initiated won't be available on the copied or restored database.
+    - **Database copy and point-in-time restore methods (Offline mode)** creates a transactionally consistent database at a certain point in time. As a result, any data changes performed after the copy or restore operation have been initiated won't be available on the copied or restored database.
     
     - **Geo replica method (Online mode)** is a mode of redeployment wherein any data changes from source is synchronized to target.  
 
