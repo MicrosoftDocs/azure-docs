@@ -11,7 +11,7 @@ ms.service: azure-maps
 
 # Get shape data
 
-This article shows you how to get data of shapes that are drawn on the map. We use the [drawingManager.getSource()] function. There are various scenarios when you want to extract geojson data of a drawn shape and use it elsewhere.  
+This article shows you how to get data of shapes that are drawn on the map. We use the **drawingManager.getSource()** function inside [drawing manager](/javascript/api/azure-maps-drawing-tools/atlas.drawing.drawingmanager#getsource--). There are various scenarios when you want to extract geojson data of a drawn shape and use it elsewhere.  
 
 ## Get data from drawn shape
 
@@ -36,30 +36,24 @@ The [Get drawn shapes from drawing manager] code sample allows you to draw a sha
 
 ## Next steps
 
-Learn how to use other features of the drawing tools module:
+Learn how to use additional features of the drawing tools module:
 
 > [!div class="nextstepaction"]
-> [React to drawing events]
+> [React to drawing events](drawing-tools-events.md)
 
 > [!div class="nextstepaction"]
-> [Interaction types and keyboard shortcuts]
+> [Interaction types and keyboard shortcuts](drawing-tools-interactions-keyboard-shortcuts.md)
 
 Learn more about the classes and methods used in this article:
 
 > [!div class="nextstepaction"]
-> [Map]
+> [Map](/javascript/api/azure-maps-control/atlas.map)
 
 > [!div class="nextstepaction"]
-> [Drawing manager]
+> [Drawing manager](/javascript/api/azure-maps-drawing-tools/atlas.drawing.drawingmanager)
 
 > [!div class="nextstepaction"]
-> [Drawing toolbar]
+> [Drawing toolbar](/javascript/api/azure-maps-drawing-tools/atlas.control.drawingtoolbar)
 
-[Drawing manager]: /javascript/api/azure-maps-drawing-tools/atlas.drawing.drawingmanager
-[Drawing toolbar]: /javascript/api/azure-maps-drawing-tools/atlas.control.drawingtoolbar
-[drawingManager.getSource()]: /javascript/api/azure-maps-drawing-tools/atlas.drawing.drawingmanager#getsource--
-[Get drawn shapes from drawing manager sample code]: https://github.com/Azure-Samples/AzureMapsCodeSamples/blob/main/Samples/Drawing%20Tools%20Module/Get%20drawn%20shapes%20from%20drawing%20manager/Get%20drawn%20shapes%20from%20drawing%20manager.html
 [Get drawn shapes from drawing manager]: https://samples.azuremaps.com/drawing-tools-module/get-drawn-shapes-from-drawing-manager
-[Interaction types and keyboard shortcuts]: drawing-tools-interactions-keyboard-shortcuts.md
-[Map]: /javascript/api/azure-maps-control/atlas.map
-[React to drawing events]: drawing-tools-events.md
+[Get drawn shapes from drawing manager sample code]: https://github.com/Azure-Samples/AzureMapsCodeSamples/blob/main/Samples/Drawing%20Tools%20Module/Get%20drawn%20shapes%20from%20drawing%20manager/Get%20drawn%20shapes%20from%20drawing%20manager.html
