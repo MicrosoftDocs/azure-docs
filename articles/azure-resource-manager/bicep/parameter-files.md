@@ -303,7 +303,7 @@ From Bicep CLI, you can build a Bicep parameters file into a JSON parameters fil
 
 ## Deploy Bicep file with parameters file
 
-From Azure CLI, pass a local parameters file using `@` and the parameters file name. For example, `storage.bicepparam` or `@storage.parameters.json`.
+From Azure CLI, you can pass both a json based local parameters file using `@` and the parameters file name and a .bicepparam based local parameters file just using the file name. For example, `storage.bicepparam` or `@storage.parameters.json`.
 
 ```azurecli
 az deployment group create \

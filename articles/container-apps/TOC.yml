@@ -121,6 +121,8 @@
         href: client-certificate-authorization.md
       - name: Configure traffic-splitting
         href: traffic-splitting.md
+      - name: Blue/Green deployment
+        href: blue-green-deployment.md
       - name: Session affinity
         href: sticky-sessions.md
         displayName: Sticky sessions

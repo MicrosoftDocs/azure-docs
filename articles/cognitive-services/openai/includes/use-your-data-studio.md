@@ -28,7 +28,8 @@ Navigate to [Azure OpenAI Studio](https://oai.azure.com/) and sign-in with crede
 1. In the pane that appears, select **Upload files** under **Select data source**. Select **Upload files**. Azure OpenAI needs both a storage resource and a search resource to access and index your data.
 
     > [!TIP]
-    > For a list of supported data sources, see [Data source options](../concepts/use-your-data.md#data-source-options)
+    > * For a list of supported data sources, see [Data source options](../concepts/use-your-data.md#data-source-options)
+    > *  For documents and datasets with long text, we recommend using the available [data preparation script](../concepts/use-your-data.md#ingesting-your-data-into-azure-cognitive-search). 
 
     1. For Azure OpenAI to access your storage account, you will need to turn on [Cross-origin resource sharing (CORS)](https://go.microsoft.com/fwlink/?linkid=2237228). If CORS isn't already turned on for the Azure Blob storage resource, select **Turn on CORS**. 
 
@@ -38,9 +39,6 @@ Navigate to [Azure OpenAI Studio](https://oai.azure.com/) and sign-in with crede
 
 
 1. On the **Upload files** pane, select **Browse for a file** and select the files you want to upload. Then select **Upload files**. Then select **Next**.
-
-    > [!NOTE]
-    > The supported file formats for local index creation are: `.txt`, `.md`, `.html`, `.pdf`, `.docx`, and `.pptx`.
 
 1. Review the details you entered, and select **Save and close**. You can now chat with the model and it will use information from your data to construct the response.
 

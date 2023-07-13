@@ -118,7 +118,7 @@ Queries from serverless SQL pool to Cosmos DB Analytical Store using OPENROWSET 
 
 **Status**: Resolved
 
-## Azure Synapse Analytics Apache Spark pool active known issues summary
+## Azure Synapse Analytics Apache Spark pool recently closed known issues summary
 
 ### Failed to write to SQL Dedicated Pool from Synapse Spark using Azure Synapse Dedicated SQL Pool Connector for Apache Spark when using notebooks in pipelines
 

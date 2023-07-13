@@ -278,19 +278,19 @@
   - name: Troubleshoot
     items:
     - name: Troubleshoot Azure Files
-      href: files-troubleshoot.md
+      href: /troubleshoot/azure/azure-storage/files-troubleshoot?toc=/azure/storage/files/toc.json
     - name: Troubleshoot Azure Files connectivity (SMB)
-      href: files-troubleshoot-smb-connectivity.md
+      href: /troubleshoot/azure/azure-storage/files-troubleshoot-smb-connectivity?toc=/azure/storage/files/toc.json
     - name: Troubleshoot Azure Files authentication (SMB)
-      href: files-troubleshoot-smb-authentication.md
+      href: /troubleshoot/azure/azure-storage/files-troubleshoot-smb-authentication?toc=/azure/storage/files/toc.json
     - name: Troubleshoot Azure Files performance
-      href: files-troubleshoot-performance.md
+      href: /troubleshoot/azure/azure-storage/files-troubleshoot-performance?toc=/azure/storage/files/toc.json
     - name: Troubleshoot general SMB issues on Linux
-      href: files-troubleshoot-linux-smb.md
+      href: /troubleshoot/azure/azure-storage/files-troubleshoot-linux-smb?toc=/azure/storage/files/toc.json
     - name: Troubleshoot general NFS issues on Linux
-      href: files-troubleshoot-linux-nfs.md
+      href: /troubleshoot/azure/azure-storage/files-troubleshoot-linux-nfs?toc=/azure/storage/files/toc.json
     - name: Create file share throttling alerts
-      href: files-troubleshoot-create-alerts.md
+      href: /troubleshoot/azure/azure-storage/files-troubleshoot-create-alerts?toc=/azure/storage/files/toc.json
     - name: Troubleshoot backing up file shares
       href: ../../backup/troubleshoot-azure-files.md?toc=/azure/storage/files/toc.json
 - name: Reference

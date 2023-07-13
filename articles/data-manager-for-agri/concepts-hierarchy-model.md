@@ -11,9 +11,7 @@ ms.custom: template-concept
 
 # Hierarchy model to organize agriculture related data
 
-> [!NOTE]
-> Microsoft Azure Data Manager for Agriculture is currently in preview. For legal terms that apply to features that are in beta, in preview, or otherwise not yet released into general availability, see the [**Supplemental Terms of Use for Microsoft Azure Previews**](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
-> Microsoft Azure Data Manager for Agriculture requires registration and is available to only approved customers and partners during the preview period. To request access to Microsoft Data Manager for Agriculture during the preview period, use this [**form**](https://aka.ms/agridatamanager).
+[!INCLUDE [public-preview-notice.md](includes/public-preview-notice.md)]
 
 To generate actionable insights data related to growers, farms, and fields should be organized in a well defined manner. Firms operating in the agriculture industry often perform longitudinal studies and need high quality data to generate insights. Data Manager for Agriculture  organizes agronomic data in the below manner.
 

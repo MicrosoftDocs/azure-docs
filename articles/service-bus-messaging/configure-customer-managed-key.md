@@ -592,9 +592,8 @@ Here are more details:
 ## Considerations when using geo-disaster recovery
 
 ### Geo-disaster recovery - encryption with system-assigned identities
-To enable encryption of Microsoft-managed key with a customer managed key, an [access policy](../key-vault/general/secure-your-key-vault.md) is set up for a system-assigned managed identity on the specified Azure KeyVault. This ensures controlled access to the Azure KeyVault from the Azure Service Bus namespace.
+To enable encryption of Microsoft-managed key with a customer managed key, an [access policy](../key-vault/general/secure-your-key-vault.md) is set up for a system-assigned managed identity on the specified Azure KeyVault. This step ensures controlled access to the Azure KeyVault from the Azure Service Bus namespace. Therefore, you need to follow these steps: 
 
-Due to this:
 
 - If [Geo disaster recovery](service-bus-geo-dr.md) is already enabled for the Service Bus namespace and you're looking to enable customer managed key, then
     - Break the pairing.

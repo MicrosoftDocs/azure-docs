@@ -34,7 +34,7 @@ Query and searching experiments and runs is also available using the MLflow REST
 
 ### Prerequisites
 
-[!INCLUDE [mlflow-prereqs](../../includes/machine-learning-mlflow-prereqs.md)]
+[!INCLUDE [mlflow-prereqs](includes/machine-learning-mlflow-prereqs.md)]
 
 ## Query and search experiments
 

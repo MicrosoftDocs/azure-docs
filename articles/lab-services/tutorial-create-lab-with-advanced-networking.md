@@ -288,7 +288,7 @@ First, let's start and connect to a lab VM from each lab.  Complete the followin
 1. Select the **State** slider to change the state from **Stopped** to **Starting**.
 
     > [!NOTE]
-    > When an educator turns on a student VM, quota for the student isn't affected. Quota for a user specifies the number of lab hours available to a student outside of the scheduled class time. For more information on quotas, see [Set quotas for users](how-to-configure-student-usage.md?#set-quotas-for-users).
+    > When an educator turns on a student VM, quota for the student isn't affected. Quota for a user specifies the number of lab hours available to a student outside of the scheduled class time. For more information on quotas, see [Set quotas for users](how-to-manage-lab-users.md?#set-quotas-for-users).
 1. Once the **State** is **Running**, select the connect icon for the running VM.  Open the download RDP file to connect to the VM.  For more information about connection experiences on different operating systems, see [Connect to a lab VM](connect-virtual-machine.md).
 
 :::image type="content" source="media/tutorial-create-lab-with-advanced-networking/virtual-machine-pool-running-vm.png" alt-text="Screen shot of virtual machine pool page for Azure Lab Services lab.":::
@@ -314,4 +314,4 @@ If you're not going to continue to use this application, delete the virtual netw
 ## Next steps
 
 >[!div class="nextstepaction"]
->[Add students to the labs](how-to-configure-student-usage.md)
+>[Add students to the labs](how-to-manage-lab-users.md)

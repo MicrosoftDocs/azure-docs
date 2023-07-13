@@ -21,7 +21,7 @@ To make this process as simple as possible, and to ensure no data loss, this art
 ## Migrate Disk volumes
 
 > [!NOTE]
-> The labels `failure-domain.beta.kubernetes.io/zone` and `failure-domain.beta.kubernetes.io/region` have been deprecated in AKS 1.24 and removed in 1.26. If your existing persistent volumes are still using nodeAffinity matching these two labels, you need to change them to `topology.kubernetes.io/zone` and `topology.kubernetes.io/region` labels in the new persistent volume setting.
+> The labels `failure-domain.beta.kubernetes.io/zone` and `failure-domain.beta.kubernetes.io/region` have been deprecated in AKS 1.24 and removed in 1.28. If your existing persistent volumes are still using nodeAffinity matching these two labels, you need to change them to `topology.kubernetes.io/zone` and `topology.kubernetes.io/region` labels in the new persistent volume setting.
 
 Migration from in-tree to CSI is supported using two migration options:
 
@@ -144,7 +144,7 @@ The following are important considerations to evaluate:
           csi:
             driver: disk.csi.azure.com
             volumeAttributes:
-              csi.storage.k8s.io/pv/name: $PV-csi
+              csi.storage.k8s.io/pv/name: $PV
               csi.storage.k8s.io/pvc/name: $PVC-csi
               csi.storage.k8s.io/pvc/namespace: $NAMESPACE
               requestedsizegib: "$STORAGE_SIZE"
@@ -511,8 +511,8 @@ Migration from in-tree to CSI is supported by creating a static volume:
 
 ## Next steps
 
-For more about storage best practices, see [Best practices for storage and backups in Azure Kubernetes Service][aks-storage-backups-best-practices].
-
+- For more information about storage best practices, see [Best practices for storage and backups in Azure Kubernetes Service][aks-storage-backups-best-practices].
+- Protect your newly migrated CSI Driver based PVs by [backing them up using Azure Backup for AKS](../backup/azure-kubernetes-service-cluster-backup.md).
 <!-- LINKS - internal -->
 [install-azure-cli]: /cli/azure/install-azure-cli
 [aks-rbac-cluster-admin-role]: manage-azure-rbac.md#create-role-assignments-for-users-to-access-the-cluster

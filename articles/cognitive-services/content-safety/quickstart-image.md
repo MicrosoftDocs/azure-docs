@@ -7,7 +7,7 @@ author: PatrickFarley
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: content-safety
-ms.custom: build-2023
+ms.custom: build-2023, devx-track-python
 ms.topic: quickstart
 ms.date: 05/08/2023
 ms.author: pafarley
@@ -26,6 +26,12 @@ Get started with the Content Studio, REST API, or client SDKs to do basic image 
 ::: zone pivot="programming-language-rest"
 
 [!INCLUDE [REST API quickstart](./includes/quickstarts/rest-quickstart-image.md)]
+
+::: zone-end
+
+::: zone pivot="programming-language-csharp"
+
+[!INCLUDE [.NET SDK quickstart](./includes/quickstarts/csharp-quickstart-image.md)]
 
 ::: zone-end
 

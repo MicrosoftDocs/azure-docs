@@ -35,7 +35,7 @@ param agentPoolZones array = []
 param agentPoolMode string = 'User'
 
 @description('The configurations for the initial agent pool')
-param initialPoolAgentOptions object = {}
+param agentOptions object = {}
 // {
 //   "hugepagesCount": integer,
 //   "hugepagesSize": "2M/1G"
@@ -104,7 +104,7 @@ resource agentPools 'Microsoft.NetworkCloud/kubernetesClusters/agentPools@2023-0
     vmSkuName: agentVmSku
     labels: empty(labels) ? null : labels
     taints: empty(taints) ? null : taints
-    agentOptions: empty(initialPoolAgentOptions) ? null : initialPoolAgentOptions
+    agentOptions: empty(agentOptions) ? null : agentOptions
     availabilityZones: empty(agentPoolZones) ? null : agentPoolZones
     upgradeSettings: {
       maxSurge: '1'

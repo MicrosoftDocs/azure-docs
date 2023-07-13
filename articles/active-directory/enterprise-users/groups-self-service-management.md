@@ -10,7 +10,7 @@ ms.service: active-directory
 ms.subservice: enterprise-users
 ms.workload: identity
 ms.topic: how-to
-ms.date: 01/09/2023
+ms.date: 06/12/2023
 ms.author: barclayn
 ms.reviewer: krbain
 ms.custom: "it-pro;seo-update-azuread-jan"
@@ -52,6 +52,7 @@ Groups created in | Security group default behavior | Microsoft 365 group defaul
    > In November 2023, the setting **Restrict users access to My Groups** will change to **Restrict users ability to see and edit security groups in My Groups.** If the setting is currently set to ‘Yes,’ end users will be able to access My Groups in November 2023, but will not be able to see security groups.
 
 3. Set **Owners can manage group membership requests in the Access Panel** to **Yes**.
+
 
 4. Set **Restrict user ability to access groups features in the Access Panel** to **No**.
 
