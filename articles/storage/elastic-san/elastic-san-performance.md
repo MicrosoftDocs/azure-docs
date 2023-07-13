@@ -61,10 +61,10 @@ In this scenario, no throttling occurs at either the VM or SAN level. The SAN it
 
 |Workload  |Requested IOPS  |Served IOPS  |Spike time and duration  |
 |---------|---------|---------|---------|
-|AKS workload     |         |         |         |
-|Workload 1     |         |         |         |
-|Workload 2     |         |         |         |
-|Workload 3     |6         |         |         |
+|AKS workload     |2,000         |2,000         |         |
+|Workload 1     |10,000         |10,000         |         |
+|Workload 2     |10,000         |10,000         |         |
+|Workload 3     |64,000         |64,000         |         |
 
 
 In this scenario, workload 3 peaks for roughly 30 minutes at noon, requesting 65,000 IOPS (the max IOPS requirements of that workload) for the entire spike. At the same time, the other workloads continue operating normally but, haven't peaked. Workload 1 runs at 10k IOPS, the AKS cluster is running at 2k IOPS, and workload 2 is running at 10k IOPS. The total IOPS of these workloads are less than the maximum IOPS of the SAN and less than each of the VM's supported IOPS. If the remaining workloads spike at different points of time, like if workload 2 peaks at 2 pm and the spike lasts for ~45 minutes, then workload 1 peaks at 4 pm and the spike lasts for ~1 hour. As long as none of the other respective workloads are close to the peaks, the SAN distributes its available IOPS and handle the extra demand transparently. This is the ideal configuration for a SAN when sharing workloads. It's best to have enough performance to handle occasional workload peaks, and the normal operations of each workload.
