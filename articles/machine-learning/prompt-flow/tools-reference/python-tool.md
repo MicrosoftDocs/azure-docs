@@ -85,7 +85,7 @@ Create a custom connection that stores all your LLM API KEY or other required cr
 
 1. Go to Prompt flow in your workspace, then go to **connections** tab.
 2. Select **Create** and select **Custom**.
-    :::image type="content" source="../media/how-to-integrate-with-langchain/custom-connection-1.png" alt-text="Screenshot of flows on the connections tab highlighting the custom button in the create drop-down menu. " lightbox = "../media/how-to-integrate-with-langchain/custom-connection-1.png":::
+    :::image type="content" source="../media/how-to-integrate-with-langchain/custom-connection-1.png" alt-text="Screenshot of flows on the connections tab highlighting the custom button in the drop-down menu. " lightbox = "../media/how-to-integrate-with-langchain/custom-connection-1.png":::
 1. In the right panel, you can define your connection name, and you can add multiple *Key-value pairs* to store your credentials and keys by selecting **Add key-value pairs**.
     :::image type="content" source="../media/how-to-integrate-with-langchain/custom-connection-2.png" alt-text="Screenshot of add custom connection point to the add key-value pairs button. " lightbox = "./media/how-to-integrate-with-langchain/custom-connection-2.png":::
 
@@ -98,7 +98,7 @@ Create a custom connection that stores all your LLM API KEY or other required cr
 
 To consume a custom connection in your python code, follow these steps:
 
-1. In the code section in your python node, import custom connection library `from promptflow.connections import CustomConnection`, and define a input parameter of type `CustomConnection` in the tool function.
+1. In the code section in your python node, import custom connection library `from promptflow.connections import CustomConnection`, and define an input parameter of type `CustomConnection` in the tool function.
     :::image type="content" source="../media/how-to-integrate-with-langchain/custom-connection-python-node-1.png" alt-text="Screenshot of doc search chain node highlighting the custom connection. " lightbox = "./media/how-to-integrate-with-langchain/custom-connection-python-node-1.png":::
 1. Parse the input to the input section, then select your target custom connection in the value dropdown.
     :::image type="content" source="../media/how-to-integrate-with-langchain/custom-connection-python-node-2.png" alt-text="Screenshot of the chain node highlighting the connection. " lightbox = "./media/how-to-integrate-with-langchain/custom-connection-python-node-2.png":::
