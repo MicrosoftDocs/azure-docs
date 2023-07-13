@@ -14,7 +14,7 @@ ms.custom: template-tutorial, devx-track-azurecli
 
 In this tutorial, learn how to configure NAT gateway and a public load balancer to a dual stack subnet in order to allow for outbound connectivity for v4 workloads using NAT gateway and v6 workloads using Public Load balancer.
 
-NAT gateway supports the use of IPv4 public IP addresses for outbound connectivity whereas load balancer supports both IPv4 and IPv6 public IP addresses. When NAT gateway with an IPv4 public IP is present with a load balancer using an IPv4 public IP address, NAT gateway takes precedence over load balancer for providing outbound connectivity. When a NAT gateway is deployed in a dual-stack network with a IPv6 load balancer, IPv4 outbound traffic is handled by the NAT gateway, and IPv6 outbound traffic is handled by the load balancer.
+NAT gateway supports the use of IPv4 public IP addresses for outbound connectivity whereas load balancer supports both IPv4 and IPv6 public IP addresses. When NAT gateway with an IPv4 public IP is present with a load balancer using an IPv4 public IP address, NAT gateway takes precedence over load balancer for providing outbound connectivity. When a NAT gateway is deployed in a dual-stack network with a IPv6 load balancer, IPv4 outbound traffic uses the NAT gateway, and IPv6 outbound traffic uses the load balancer.
 
 In this tutorial, you learn how to:
 
