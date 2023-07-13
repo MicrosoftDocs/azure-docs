@@ -153,16 +153,25 @@ Once you've submitted the job, you can check the status and results in studio:
 
 Finally, once the training job is complete, register your model if you want to deploy it.  Start in the studio from the page showing your job details.
 
+1. Once your job completes, select **Outputs + logs** to view outputs of the job.
+1. Open the **Outputs** section to verify that **crate.bin** and **MLmodel** are present.  If not, check the logs to see if there was an error.
 1. On the toolbar at the top, select **+ Register model**.
-1. Select **Unspecified type** for the **Model type**.
-1. Select the folder which contains the model.
+
+    :::image type="content" source="media/how-to-r-train-model/register-model.png" alt-text="Screenshot shows the Job section of studio with the Ouputs section open.":::
+
+1. For **Model type**, change the default from **MLflow** to **Unspecified type**.
+1. For **Job output** select **models**, the folder which contains the model.
 1. Select **Next**.
 1. Supply the name you wish to use for your model.  Add **Description**, **Version**, and **Tags** if you wish.
 1. Select **Next**.
 1. Review the information.
 1. Select **Register**.
 
-You'll see a confirmation that the model is registered. 
+At the top of the page, you'll see a confirmation that the model is registered.  The confirmation will look similar to this:
+
+:::image type="content" source="media/how-to-r-train-model/registered.png" alt-text="Screenshot shows example of successful registration.":::
+
+Select **Click here to go to this model.** if you wish to view the registered model details.
 
 ## Next steps
  
