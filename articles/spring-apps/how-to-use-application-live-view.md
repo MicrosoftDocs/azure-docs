@@ -286,7 +286,7 @@ Use the following steps to view the Application Live View page for an app:
 
 ### Troubleshoot Application Live View issues
 
-If you try to open Application Live View for a service instance or an app that has not enabled Application Live View or exposed a public endpoint, you'll see an error message.
+If you try to open Application Live View for a service instance or an app that hasn't enabled Application Live View or exposed a public endpoint, you see an error message.
 
   :::image type="content" source="media/how-to-use-application-live-view/vscode-not-enabled.png" alt-text="Screenshot of the error message showing Application Live View not enabled and public endpoint not accessible." lightbox="media/how-to-use-application-live-view/vscode-not-enabled.png":::
 
