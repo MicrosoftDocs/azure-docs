@@ -4,7 +4,7 @@ title: ALI for Epic documentation
 summary: Learn how to use Azure Large Instances for Epic
 
 metadata:
-  title: Azure Large Instances for Epic documentation
+  title: Azure Large Instances for Epic workload documentation
   description: Learn how to use ALI for Epic.
   services: baremetal-infrastructure 
   ms.service: baremetal-infrastructure
@@ -24,33 +24,10 @@ landingContent:
             url: index.yml
 
 # card 2
-  - title: Getting started
-    linkLists: 
-      - linkListType: how-to-guide
-        links:
-          - text: Onboarding requirements
-            url: onboarding-requirements.md
-          - text: Quality checks
-            url: quality-checks.md 
-          - text: Find your subscription Id
-            url: find-your-subscription-id.md
-
-# card 2
-  - title: Solution architecture
-    linkLists: 
-      - linkListType: concept
-        links:
-          - text: ALI for Epic architecture
-            url: architecture.md
-          - text: Available SKUs
-            url: available-skus.md
-
-# card 3
   - title: Configuration
     linkLists: 
       - linkListType: how-to-guide
         links:
           - text: Configure Azure Service Health alerts
             url: configure-azure-service-health-alerts.md
-          - text: Create a volume group
-            url: create-a-volume-group.md
+          

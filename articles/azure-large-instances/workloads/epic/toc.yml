@@ -1,24 +1,12 @@
-- name: ALI for Epic documentation
+- name: ALI for Epic workload documentation
   href: index.yml
-- name: Getting started
-  items:
-  - name: Onboarding requirements
-    href: onboarding-requirements.md
-  - name: Quality checks
-    href: quality-checks.md
-  - name: Find your subscription ID
-    href: find-your-subscription-id.md
 - name: Solution architecture
   items:
   - name: Architecture
     href: architecture.md
-  - name: Available SKUs
-    href: available-skus.md
 - name: Configuration
   items:
    - name: Configure Azure Service Health alerts
      href: configure-azure-service-health-alerts.md
-   - name: Create a volume group
-     href: create-a-volume-group.md
 - name: FAQ
   href: faq.md

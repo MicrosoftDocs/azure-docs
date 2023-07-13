@@ -10,7 +10,7 @@ ms.date: 06/01/2023
 
 # Azure Large Instances NETAPP storage data protection with Azure CVO   
 
-This article describes the end-to-end setup steps to move data between ALI for Epic<sup>®</sup> NETAPP storage and Azure CVO (NETAPP Cloud volume ONTAP). This setup enables ALI NETAPP storage data backup/restore/update use cases.
+This article describes the end-to-end setup steps to move data between ALI for Epic<sup>®</sup> workload  NETAPP storage and Azure CVO (NETAPP Cloud volume ONTAP). This setup enables ALI NETAPP storage data backup/restore/update use cases.
 It's intended to help you gain a better understanding of end-to-end solution architecture and the key setup processes involved.
 For a more detailed, step-by-step implementation of the solution,
 consult your NETAPP professional service/account representative and MSFT account representative for ALI integration.

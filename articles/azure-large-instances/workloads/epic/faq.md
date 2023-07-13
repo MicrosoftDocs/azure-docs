@@ -10,11 +10,11 @@ ms.date: 06/01/2023
 
 # Frequently asked questions about Epic on Azure Large Instances
 
-This article provides answers to frequently asked questions about Azure Large Instances (ALI) for EpicEpic<sup>®</sup> workloads.
+This article provides answers to frequently asked questions about Azure Large Instances (ALI) for the Epic<sup>®</sup> workload.
 
 ## In which regions is this service available?
 
-ALI for Epic is available in the following regions:
+ALI for the Epic workload is available in the following regions:
 
 * East US
 * US West2
