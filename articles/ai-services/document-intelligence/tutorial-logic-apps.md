@@ -165,7 +165,7 @@ Now that you have the Logic App connector resource set up and configured, let's 
 
 1. After your account is connected, select the folder you created earlier in your OneDrive or OneDrive for Business account. Leave the other default values in place.
 
-  :::image type="content" source="media/logic-apps-tutorial/when-file-created.png" alt-text="Screenshot of the 'When a file is created window.":::
+    :::image type="content" source="media/logic-apps-tutorial/when-file-created.png" alt-text="Screenshot of the 'When a file is created window.":::
 
 1. Next, we're going to add a new step to the workflow. Select **➕ New step** button underneath the newly created OneDrive node.
 
@@ -175,18 +175,18 @@ MONIKER 3.00 HERE
 
 1. A new node should be added to the Logic App designer view. Search for "Form Recognizer (Document Intelligence forthcoming)" in the search bar and select **Analyze Document for Prebuilt or Custom models (v3.0 API)** from the list.
 
-  :::image type="content" source="media/logic-apps-tutorial/analyze-prebuilt-document-action.png" alt-text="Screenshot of the Analyze Document for Prebuilt or Custom models (v3.0 API) selection button.":::
+    :::image type="content" source="media/logic-apps-tutorial/analyze-prebuilt-document-action.png" alt-text="Screenshot of the Analyze Document for Prebuilt or Custom models (v3.0 API) selection button.":::
 
 1. Now, you should see a window to create your connection. Specifically, you're going to connect your Document Intelligence resource to the Logic Apps Designer Studio:
 
     * Enter a **Connection name**. It should be something easy to remember.
     * Enter the Document Intelligence resource **Endpoint URL** and **Account Key** that you copied previously. If you skipped this step earlier or lost the strings, you can navigate back to your Document Intelligence resource and copy them again. When you're done, select **Create**.
 
-    :::image type="content" source="media/logic-apps-tutorial/create-logic-app-connector.png" alt-text="Screenshot of the logic app connector dialog window":::
+      :::image type="content" source="media/logic-apps-tutorial/create-logic-app-connector.png" alt-text="Screenshot of the logic app connector dialog window":::
 
 1. You should see the selection parameters window for the **Analyze Document for Prebuilt or Custom Models (v3.0 API)** connector.
 
-  :::image type="content" source="media/logic-apps-tutorial/prebuilt-model-select-window.png" alt-text="Screenshot of the prebuilt model selection window.":::
+      :::image type="content" source="media/logic-apps-tutorial/prebuilt-model-select-window.png" alt-text="Screenshot of the prebuilt model selection window.":::
 
 1. Complete the fields as follows:
 
@@ -194,21 +194,21 @@ MONIKER 3.00 HERE
     * **Document/Image File Content**. Select this field. A dynamic content pop-up should appear. If it doesn't, select the **Add dynamic content** button below the field and choose **File content**. This step is essentially sending the file(s) to be analyzed to the Document Intelligence prebuilt-invoice model. Once you see the **File content** badge show in the **Document /Image file content** field, you've completed this step correctly.
     * **Document/Image URL**. We skip this field because we are using the file content from the OneDrive folder.
 
-    :::image type="content" source="media/logic-apps-tutorial/add-file-content.png" alt-text="Screenshot of add file content window.":::
+      :::image type="content" source="media/logic-apps-tutorial/add-file-content.png" alt-text="Screenshot of add file content window.":::
 
 1. We need to add a few more steps. Once again, select the **➕ New step** button to add another action.
 
 1. In the **Choose an operation** search bar, enter *Control* and select the **Control** tile.
 
-  :::image type="content" source="media/logic-apps-tutorial/select-control-tile.png" alt-text="Screenshot of the control tile from the 'choose an operation' menu.":::
+    :::image type="content" source="media/logic-apps-tutorial/select-control-tile.png" alt-text="Screenshot of the control tile from the 'choose an operation' menu.":::
 
 1. Scroll down and select the **For each Control** tile from the **Control** list.
 
-  :::image type="content" source="media/logic-apps-tutorial/for-each-tile.png" alt-text="Screenshot of the 'For each Control' tile from the 'Control' menu. ":::
+    :::image type="content" source="media/logic-apps-tutorial/for-each-tile.png" alt-text="Screenshot of the 'For each Control' tile from the 'Control' menu. ":::
 
 1. In the **For each** step window there is a field labeled **Select an output from previous steps**. Select this field. A dynamic content pop-up should appear. If it doesn't, select the **Add dynamic content** button below the field and choose **documents**.
 
-  :::image type="content" source="media/logic-apps-tutorial/dynamic-content-documents.png" alt-text="Screenshot of the dynamic content list.":::
+    :::image type="content" source="media/logic-apps-tutorial/dynamic-content-documents.png" alt-text="Screenshot of the dynamic content list.":::
 
 1. Now, select **Add an Action** from within the **For each** step window.
 
@@ -216,7 +216,7 @@ MONIKER 3.00 HERE
 
 1. In the actions list, scroll down until you find **Send an email (V2)** and select this action.
 
-  :::image type="content" source="media/logic-apps-tutorial/outlook-send-email.png" alt-text="Screenshot of Send an email (V2) action button.":::
+    :::image type="content" source="media/logic-apps-tutorial/outlook-send-email.png" alt-text="Screenshot of Send an email (V2) action button.":::
 
 1. Just like with OneDrive, you're asked to sign into your Outlook or Office 365 Outlook account. After you sign in, you should see a window where we're going to format the email that with the dynamic content that Document Intelligence extracts from the invoice.
 
@@ -229,7 +229,7 @@ MONIKER 3.00 HERE
 
 1. In order to access a specific field, we select the **add the dynamic content** button and select the **Expression** tab.
 
-  :::image type="content" source="media/logic-apps-tutorial/function-expression-field.png" alt-text="Screenshot of the expression function field.":::
+    :::image type="content" source="media/logic-apps-tutorial/function-expression-field.png" alt-text="Screenshot of the expression function field.":::
 
 1. In  the **ƒx** box, copy and paste the above formula and replace **FIELD-NAME** with the name of the field we want to extract. For the full list of available fields, refer to the concept page for the given API. In this case, we use the [prebuilt-invoice model field extraction values](concept-invoice.md#field-extraction).
 
@@ -239,51 +239,54 @@ MONIKER 3.00 HERE
 
     * **Subject**. Enter ***Invoice received from:*** and then add the following expression:
 
-    ```powerappsfl
+        ```powerappsfl
 
-      items('For_each')?['fields']?['VendorName']?['content']
-    ```
+          items('For_each')?['fields']?['VendorName']?['content']
+        ```
 
     * **Body**. We're going to add specific information about the invoice:
 
       * Type ***Invoice ID:*** and, using the same method as before, append the following expression:
 
-      ```powerappsfl
+         ```powerappsfl
 
-      items('For_each')?['fields']?['InvoiceId']?['content']
-      ```
+         items('For_each')?['fields']?['InvoiceId']?['content']
+         ```
 
       * On a new line type ***Invoice due date:*** and append the following expression:
 
-    ```powerappsfl
+        ```powerappsfl
 
-      items('For_each')?['fields']?['DueDate']?['content']
-    ```
+          items('For_each')?['fields']?['DueDate']?['content']
+        ```
 
       * Type ***Amount due:*** and append the following expression:
 
-    ```powerappsfl
+        ```powerappsfl
 
-      items('For_each')?['fields']?['AmountDue']?['content']
-    ```
+          items('For_each')?['fields']?['AmountDue']?['content']
+        ```
 
       * Lastly, because the amount due is an important number, we also want to send the confidence score for this extraction in the email. To do this type ***Amount due (confidence):***  and append the following expression:
 
-    ```powerappsfl
+        ```powerappsfl
 
-      items('For_each')?['fields']?['AmountDue']?['confidence']
-    ```
+          items('For_each')?['fields']?['AmountDue']?['confidence']
+        ```
 
-      :::image type="content" source="media/logic-apps-tutorial/connector-demo-fifteen.png" alt-text="Image of completed Outlook node.":::
+    * When you're done, the window should look similar to the following image:
+
+      :::image type="content" source="media/logic-apps-tutorial/send-email-with-functions.png" alt-text="Screenshot of the 'Send an email (V2)' window with completed fields.":::
 
 1. **Select Save in the upper left corner**.
 
-    :::image type="content" source="media/logic-apps-tutorial/connector-demo-sixteen.png" alt-text="Image of completed connector flow.":::
+    :::image type="content" source="media/logic-apps-tutorial/logic-apps-designer-save.png" alt-text="Screenshot of the Logic Apps Designer save button.":::
 
 > [!NOTE]
 >
-> * The Logic App designer will automatically add a "for each loop" around the send email action. This is normal due to output format that may return more than one invoice from PDFs in the future.
 > * The current version only returns a single invoice per PDF.
+> * The "For each loop" is required around the send email action to enable an output format that may return more than one invoice from PDFs in the future.
+
 <!-- :::moniker-end -->
 
 :::moniker range="doc-intel-2.1.0"
@@ -350,13 +353,15 @@ IMAGE here
 
     * **Body**. We're going to add specific information about the invoice:
 
-      1. Type ***Invoice ID:*** and append the dynamic content **Invoice ID field Invoice ID**.
+      * Type ***Invoice ID:*** and append the dynamic content **Invoice ID field Invoice ID**.
 
-      1. On a new line type ***Invoice due date:*** and append the dynamic content **Invoice date field invoice date (date)**.
+      * On a new line type ***Invoice due date:*** and append the dynamic content **Invoice date field invoice date (date)**.
 
-      1. Type ***Amount due:*** and append the dynamic content **Amount due field Amount due (number)**.
+      * Type ***Amount due:*** and append the dynamic content **Amount due field Amount due (number)**.
 
-      1. Lastly, because the amount due is an important number we also want to send the confidence score for this extraction in the email. To do this type ***Amount due (confidence):***  and add the dynamic content **Amount due field confidence of amount due**. When you're done, the window should look similar to the following image.
+      * Lastly, because the amount due is an important number we also want to send the confidence score for this extraction in the email. To do this type ***Amount due (confidence):***  and add the dynamic content **Amount due field confidence of amount due**. When you're done, the window should look similar to the following image.
+
+        :::image type="content" source="media/logic-apps-tutorial/send-email-with-functions.png" alt-text="Screenshot of the 'Send an email (V2)' window with completed fields.":::
 
       :::image border="true" type="content" source="media/logic-apps-tutorial/connector-demo-fifteen.png" alt-text="Image of completed Outlook node.":::
 
@@ -377,25 +382,41 @@ Let's quickly review what we've done before we test our flow:
 
 > [!div class="checklist"]
 >
-> * We created a trigger—in this case scenario, the trigger is when a file is created in a pre-specified folder in our OneDrive account.
-> * We added a Document Intelligence action to our flow—in this scenario we decided to use the invoice API to automatically analyze the invoices from the OneDrive folder.
-> * We added an Outlook.com action to our flow—for this scenario we sent some of the analyzed invoice data to a pre-determined email address.
+> * We created a trigger—in this scenario. The trigger is activated when a file is created in a pre-specified folder in our OneDrive account.
+> * We added a Document Intelligence action to our flow. In this scenario, we decided to use the invoice API to automatically analyze an invoice from the OneDrive folder.
+> * We added an Outlook.com action to our flow. We sent some of the analyzed invoice data to a pre-determined email address.
 
 Now that we've created the flow, the last thing to do is to test it and make sure that we're getting the expected behavior.
 
-1. Now, to test the Logic App first open a new tab and navigate to the OneDrive folder you set up at the beginning of this tutorial. Add this file to the OneDrive folder [Sample invoice.](https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/form-recognizer/invoice-logic-apps-tutorial.pdf)
+1. To test the Logic App first open a new tab and navigate to the OneDrive folder you set up at the beginning of this tutorial. Add this file to the OneDrive folder [Sample invoice.](https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/form-recognizer/invoice-logic-apps-tutorial.pdf)
 
 1. Return to the Logic App designer tab and select the **Run trigger** button and select **Run** from the drop-down menu.
 
-1. You should see a sample run of your Logic App run if all the steps have green check marks it means the run was successful.
+    :::image type="content" source="media/logic-apps-tutorial/trigger-run.png" alt-text="Screenshot of 'Run trigger' and 'Run' buttons.":::
 
-IMAGE here
+1. You should see a message in the upper=right corner indicating that the trigger was successful:
 
-  :::image border="true" type="content" source="media/logic-apps-tutorial/connector-demo-seventeen.gif" alt-text="GIF of sample run of Logic App.":::
+   :::image type="content" source="media/logic-apps-tutorial/trigger-successful.png" alt-text="Screenshot of 'Successful trigger' message.":::
 
-1. Check your email and you should see a new email with the information we specified.
+1. Navigate to your Logic App overview page by selecting your app name link in the upper-left corner.
+
+    :::image type="content" source="media/logic-apps-tutorial/navigate-to-overview.png" alt-text="Screenshot of navigate to overview page link.":::
+
+1. Check the status, to see if the run succeeded or failed. You can select the status indicator to check which steps were successful. 
+
+  :::image border="true" type="content" source="media/logic-apps-tutorial/succeeded-failed-indicator.png" alt-text="Screenshot of 'Succeeded' or 'Failed' status.":::
+
+1. If your run failed, check the failed step to ensure that you entered the correct information.
+
+   :::image type="content" source="media/logic-apps-tutorial/failed-run-step.png" alt-text="Screenshot of failed step.":::
+
+1. Once achieve a successful run, check your email. You should see a new email with the information we specified.
+
+    :::image type="content" source="media/logic-apps-tutorial/invoice-received.png" alt-text="Screenshot of received email message.":::
 
 1. Be sure to [disable or delete](../../logic-apps/manage-logic-apps-with-azure-portal.md#disable-or-enable-a-single-logic-app) your logic App after you're done so usage stops.
+
+    :::image type="content" source="media/logic-apps-tutorial/disable-delete.png" alt-text="Screenshot of disable and delete buttons.":::
 
 Congratulations! You've officially completed this tutorial.
 
