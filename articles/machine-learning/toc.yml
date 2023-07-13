@@ -205,22 +205,22 @@
               - name: Manage experiments and runs with MLflow
                 href: how-to-track-experiments-mlflow.md
           - name: Deploy & consume models
-              items:
-                - name: Guidelines for deploying MLflow models
-                  displayName: mlflow models deployment plugin
-                  href: how-to-deploy-mlflow-models.md
-                - name: Online inference
-                  items:
-                    - name: Deploy MLflow models to online endpoints
-                      href: how-to-deploy-mlflow-models-online-endpoints.md
-                    - name: Progressive rollout of MLflow models to Online Endpoints
-                      href: how-to-deploy-mlflow-models-online-progressive.md
-                - name: Batch inference
-                  items:
-                    - name: Deploy MLflow models to Batch Endpoints
-                      href: how-to-mlflow-batch.md
-                    - name: Deploy and run MLflow models in Spark jobs
-                      href: how-to-deploy-mlflow-model-spark-jobs.md
+            items:
+              - name: Guidelines for deploying MLflow models
+                displayName: mlflow models deployment plugin
+                href: how-to-deploy-mlflow-models.md
+              - name: Online inference
+                items:
+                  - name: Deploy MLflow models to online endpoints
+                    href: how-to-deploy-mlflow-models-online-endpoints.md
+                  - name: Progressive rollout of MLflow models to Online Endpoints
+                    href: how-to-deploy-mlflow-models-online-progressive.md
+              - name: Batch inference
+                items:
+                  - name: Deploy MLflow models to Batch Endpoints
+                    href: how-to-mlflow-batch.md
+                  - name: Deploy and run MLflow models in Spark jobs
+                    href: how-to-deploy-mlflow-model-spark-jobs.md
       - name: Use R with Azure Machine Learning
             items:
               - name: Bring R workloads
