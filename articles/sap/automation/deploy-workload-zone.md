@@ -119,6 +119,8 @@ export    region_code="<region_code>"
 
 export DEPLOYMENT_REPO_PATH="${HOME}/Azure_SAP_Automated_Deployment/sap-automation"
 export ARM_SUBSCRIPTION_ID="${subscriptionId}"
+export CONFIG_REPO_PATH="${HOME}/Azure_SAP_Automated_Deployment/samples/Terraform/WORKSPACES"
+export SAP_AUTOMATION_REPO_PATH="${HOME}/Azure_SAP_Automated_Deployment/sap-automation"
 
 ${DEPLOYMENT_REPO_PATH}/deploy/scripts/prepare_region.sh                                                                                       \
     --deployer_parameter_file DEPLOYER/${env_code}-${region_code}-DEP00-INFRASTRUCTURE/${env_code}-${region_code}-DEP00-INFRASTRUCTURE.tfvars  \
