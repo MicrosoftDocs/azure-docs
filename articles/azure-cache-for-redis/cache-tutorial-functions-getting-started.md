@@ -168,12 +168,12 @@ To connect to your cache, add a `ConnectionStrings` section in the `local.settin
 }
 ```
 
-![Image](media/cache-tutorial-functions-getting-started/cache-connection-string.png)
+:::image type="content" source="media/cache-tutorial-functions-getting-started/cache-connection-string.png" alt-text="Screenshot of a connection string for a cache.":::
 
 > [!IMPORTANT]
 > This example is simplified for the tutorial. For production use, we recommend that you use [Azure Key Vault](../service-connector/tutorial-portal-key-vault.md) to store connection string information.
 >
-:::image type="content" source="media/cache-tutorial-functions-getting-started/cache-connection-string.png" alt-text="Screenshot of a connection string for a cache.":::
+
 
 ### Build and run the code locally
 
