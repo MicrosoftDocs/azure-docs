@@ -9,14 +9,14 @@ ms.author: shermanouko
 ms.service: active-directory
 ms.subservice: ciam
 ms.topic: sample
-ms.date: 06/30/2023
+ms.date: 07/13/2023
 
-#Customer intent: As a dev, devops, I want to configure a sample dotnet daemon application that calls an API protected by Azure Active Directory (Azure AD) for customers tenant
+#Customer intent: As a dev, devops, I want to configure a sample .NET daemon application that calls an API protected by Azure Active Directory (Azure AD) for customers tenant
 ---
 
 # Call an API in a sample .NET daemon application 
 
-This article uses a sample dotnet daemon application to show you how a daemon application acquires a token to call a protected web API. Azure Active Directory (Azure AD) for customers protects the Web API. 
+This article uses a sample .NET daemon application to show you how a daemon application acquires a token to call a protected web API. Azure Active Directory (Azure AD) for customers protects the Web API. 
 
 A daemon application acquires a token on behalf of itself (not on behalf of a user). Users can't interact with a daemon application because it requires its own identity. This type of application requests an access token by using its application identity and presenting its application ID, credential (password or certificate), and application ID URI to Azure AD. 
 
@@ -147,7 +147,7 @@ There are no to-do's in server
 
 ## How it works
 
-The daemon application use [OAuth2.0 client credentials grant](../../develop/v2-oauth2-client-creds-grant-flow.md) to acquire an access token for itself and not for the user. The access token that the app requests contains the permissions represented as roles. The client credential flow uses this set of permissions in place of user scopes for application tokens. You [exposed these application permissions](#configure-application-roles) in the web API earlier, then [granted them to the daemon app](#grant-api-permissions-to-the-daemon-application). The daemon app in this article uses [Microsoft Authentication Library for dotnet](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet) to simplify the process of acquiring a token.
+The daemon application use [OAuth2.0 client credentials grant](../../develop/v2-oauth2-client-creds-grant-flow.md) to acquire an access token for itself and not for the user. The access token that the app requests contains the permissions represented as roles. The client credential flow uses this set of permissions in place of user scopes for application tokens. You [exposed these application permissions](#configure-application-roles) in the web API earlier, then [granted them to the daemon app](#grant-api-permissions-to-the-daemon-application). The daemon app in this article uses [Microsoft Authentication Library for .NET](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet) to simplify the process of acquiring a token.
 
 On the API side, the web API must verify that the access token has the required permissions (application permissions). The web API rejects access tokens that doesn't have the required permissions. 
 

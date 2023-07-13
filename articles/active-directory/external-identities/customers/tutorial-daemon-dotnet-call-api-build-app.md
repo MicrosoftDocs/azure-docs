@@ -9,7 +9,7 @@ ms.author: shermanouko
 ms.service: active-directory
 ms.subservice: ciam
 ms.topic: tutorial
-ms.date: 06/30/2023
+ms.date: 07/13/2023
 ---
 
 # Tutorial: Call a protected web API from your .NET daemon application
