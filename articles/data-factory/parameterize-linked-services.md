@@ -54,8 +54,8 @@ All the linked service types are supported for parameterization.
 - Azure SQL Managed Instance
 - Azure Synapse Analytics 
 - Azure Table Storage
-- DB2
 - Dataverse
+- DB2
 - Dynamics 365
 - Dynamics AX
 - Dynamics CRM
@@ -123,3 +123,5 @@ Refer to the [JSON sample](#json) to add ` parameters` section to define paramet
 	}
 }
 ```
+
+
