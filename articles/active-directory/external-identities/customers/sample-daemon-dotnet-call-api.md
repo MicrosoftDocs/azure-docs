@@ -151,7 +151,6 @@ The daemon application use [OAuth2.0 client credentials grant](../../develop/v2-
 
 On the API side, the web API must verify that the access token has the required permissions (application permissions). The web API rejects access tokens that doesn't have the required permissions. 
 
-## Next steps
+## See also
 
-> [!div class="nextstepaction"]
-> [Build a .NET daemon app that calls an API >](./tutorial-daemon-dotnet-call-api-prepare-tenant.md)
+See the tutorial on how to [build your own .NET daemon app that calls an API](./tutorial-daemon-dotnet-call-api-prepare-tenant.md)
