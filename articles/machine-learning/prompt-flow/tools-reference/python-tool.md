@@ -1,7 +1,7 @@
 ---
 title: Python tool in Azure Machine Learning prompt flow (preview)
 titleSuffix: Azure Machine Learning
-description: Users are empowered by the Python Tool to offer customized code snippets as self-contained executable nodes in Prompt flow.
+description: The Python Tool empowers users to offer customized code snippets as self-contained executable nodes in Prompt flow.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -14,7 +14,7 @@ ms.date: 06/30/2023
 
 # Python tool (preview)
 
-Users are empowered by the Python Tool to offer customized code snippets as self-contained executable nodes in Prompt flow. Users can effortlessly create Python tools, edit code, and verify results with ease.
+The Python Tool empowers users to offer customized code snippets as self-contained executable nodes in Prompt flow. Users can effortlessly create Python tools, edit code, and verify results with ease.
 
 > [!IMPORTANT]
 > Prompt flow is currently in public preview. This preview is provided without a service-level agreement, and is not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
@@ -77,7 +77,7 @@ Outputs:
 
 ## How to consume custom connection in Python Tool?
 
-If you are developing a python tool that requires calling external services with authentication, you can leverage the custom connection in prompt flow. This allows you to securely store the access key then retrieve it in your python code.
+If you are developing a python tool that requires calling external services with authentication, you can use the custom connection in prompt flow. It allows you to securely store the access key then retrieve it in your python code.
 
 ### Create a custom connection
 

@@ -108,7 +108,7 @@ After you have a properly structured flow and are done moving the code to specif
 
 To utilize a [custom connection](#create-a-custom-connection) that stores all the required keys and credentials, follow these steps:
 
-1. In the python tools, import custom connection library `from promptflow.connections import CustomConnection`, and define a input parameter of type `CustomConnection` in the tool function.
+1. In the python tools, import custom connection library `from promptflow.connections import CustomConnection`, and define an input parameter of type `CustomConnection` in the tool function.
     :::image type="content" source="./media/how-to-integrate-with-langchain/custom-connection-python-node-1.png" alt-text="Screenshot of doc search chain node highlighting the custom connection. " lightbox = "./media/how-to-integrate-with-langchain/custom-connection-python-node-1.png":::
 1. Parse the input to the input section, then select your target custom connection in the value dropdown.
     :::image type="content" source="./media/how-to-integrate-with-langchain/custom-connection-python-node-2.png" alt-text="Screenshot of the chain node highlighting the connection. " lightbox = "./media/how-to-integrate-with-langchain/custom-connection-python-node-2.png":::
