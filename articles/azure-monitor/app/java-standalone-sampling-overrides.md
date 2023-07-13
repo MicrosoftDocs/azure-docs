@@ -79,7 +79,6 @@ so if you want to match a value that contains `abc` anywhere in it, then you nee
 A sampling override can specify multiple attribute criteria, in which case all of them must match for the sampling
 override to match.
 
-
 If one of the sampling overrides matches, then its sampling percentage is used to decide whether to sample the span or
 not.
 
