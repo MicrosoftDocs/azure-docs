@@ -11,34 +11,40 @@ ms.custom: devx-track-azurepowershell
 
 # Move a Log Analytics workspace to a different subscription or resource group
 
-In this article, you'll learn the steps to move a Log Analytics workspace to another resource group or subscription in the same region. 
+In this article, you'll learn the steps to move a Log Analytics workspace. 
 
 > [!TIP] 
 > To learn more about how to move Azure resources through the Azure portal, PowerShell, the Azure CLI, or the REST API, see [Move resources to a new resource group or subscription](../../azure-resource-manager/management/move-resource-group-and-subscription.md).
 
-> [!IMPORTANT]
-> You can't move a workspace to a different region by using this procedure. To move a workspace across regions, see [Move a Log Analytics workspace to another region](./move-workspace-region.md).
+## Prerequisites
+
+- The subscription or resource group where you want to move your Log Analytics workspace must be located in the same region as the Log Analytics workspace you're moving.
+   > [!NOTE]
+   > To move a workspace across regions, see [Move a Log Analytics workspace to another region](./move-workspace-region.md).
+- The move operation requires that no services can be linked to the workspace. Prior to the move, delete solutions that rely on linked services, including an Azure Automation account. These solutions must be removed before you can unlink your Automation account. Data collection for the solutions will stop and their tables will be removed from the UI, but data will remain in the workspace per the table retention period. When you add solutions after the move, ingestion is restored and tables become visible with data. Linked services include:
+  - Update management
+  - Change tracking
+  - Start/Stop VMs during off-hours
+  - Microsoft Defender for Cloud
+- Connected [Log Analytics agents](../agents/log-analytics-agent.md) and [Azure Monitor Agent](../agents/azure-monitor-agent-overview.md) remain connected to the workspace after the move with no interruption to ingestion.
+- Microsoft Sentinel can't be deployed on the Log Analytics workspace.
 
 ## Permissions required
 
-- To verify the Azure Active Directory tenant, you need `Microsoft.AzureActiveDirectory/b2cDirectories/read` permissions, as provided by the [Log Analytics Reader built-in role](./manage-access.md#log-analytics-reader), for example.
-- To delete a solution, you need `Microsoft.OperationsManagement/solutions/delete` permissions on it, as provided by the [Log Analytics Contributor built-in role](./manage-access.md#log-analytics-contributor), for example.
-- To remove alert rules for the Start/Stop VMs solution, you need `microsoft.insights/scheduledqueryrules/delete` permissions, as provided by the [Monitoring Contributor built-in role](../../role-based-access-control/built-in-roles.md#monitoring-contributor), for example.
-- To unlink the Automation account, you need `Microsoft.OperationalInsights/workspaces/linkedServices/delete` permissons on the linked workspace, as provided by the [Log Analytics Contributor built-in role](./manage-access.md#log-analytics-contributor), for example.
-- To move a Log Analytics workspace, you need `Microsoft.OperationalInsights/workspaces/delete` and `Microsoft.OperationalInsights/workspaces/write` permissions on it, as provided by the [Log Analytics Contributor built-in role](./manage-access.md#log-analytics-contributor), for example.
+| Action | Permissions required |
+|:---|:---|
+| Verify the Azure Active Directory tenant. | `Microsoft.AzureActiveDirectory/b2cDirectories/read` permissions, as provided by the [Log Analytics Reader built-in role](./manage-access.md#log-analytics-reader), for example. |
+| Delete a solution. | `Microsoft.OperationsManagement/solutions/delete` permissions on the solution, as provided by the [Log Analytics Contributor built-in role](./manage-access.md#log-analytics-contributor), for example. |
+| Remove alert rules for the Start/Stop VMs solution. | `microsoft.insights/scheduledqueryrules/delete` permissions, as provided by the [Monitoring Contributor built-in role](../../role-based-access-control/built-in-roles.md#monitoring-contributor), for example. |
+| Unlink the Automation account | `Microsoft.OperationalInsights/workspaces/linkedServices/delete` permissons on the linked Log Analytics workspace, as provided by the [Log Analytics Contributor built-in role](./manage-access.md#log-analytics-contributor), for example. |
+| Move a Log Analytics workspace. | `Microsoft.OperationalInsights/workspaces/delete` and `Microsoft.OperationalInsights/workspaces/write` permissions on the Log Analytics workspace, as provided by the [Log Analytics Contributor built-in role](./manage-access.md#log-analytics-contributor), for example. |
 
 ## Workspace move considerations
 
 Consider these points before you move a Log Analytics workspace:
 
 - Managed solutions that are installed in the workspace will be moved in this operation.
-- The move operation requires that no services can be linked to the workspace. Solutions that rely on linked services must be removed prior to the move, including an Azure Automation account. These solutions must be removed before you can unlink your Automation account. Data collection for the solutions will stop and their tables will be removed from the UI, but data will remain in the workspace per the table retention period. When you add solutions after the move, ingestion is restored and tables become visible with data. Linked services include:
-  - Update management
-  - Change tracking
-  - Start/Stop VMs during off-hours
-  - Microsoft Defender for Cloud
 - Workspace keys (both primary and secondary) are regenerated with a workspace move operation. If you keep a copy of your workspace keys in Azure Key Vault, update them with the new keys generated after the workspace is moved.
-- Connected [Log Analytics agents](../agents/log-analytics-agent.md) and [Azure Monitor Agent](../agents/azure-monitor-agent-overview.md) remain connected to the workspace after the move with no interruption to ingestion.
 
 >[!IMPORTANT]
 > **Microsoft Sentinel customers**
