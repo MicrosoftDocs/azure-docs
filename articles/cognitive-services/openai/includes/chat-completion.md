@@ -261,8 +261,9 @@ token_limit = 4096
 conversation = []
 conversation.append(system_message)
 
-def num_tokens_from_messages(messages, model="gpt-3.5-turbo-0301"):
-    encoding = tiktoken.encoding_for_model(model)
+
+def num_tokens_from_messages(messages):
+    encoding= tiktoken.get_encoding("cl100k_base")  #model to encoding mapping https://github.com/openai/tiktoken/blob/main/tiktoken/model.py
     num_tokens = 0
     for message in messages:
         num_tokens += 4  # every message follows <im_start>{role/name}\n{content}<im_end>\n
