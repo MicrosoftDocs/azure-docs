@@ -49,7 +49,9 @@ from azure.storage.filedatalake._models import ContentSettings
 
 ## Authorize access and connect to data resources
 
-To work with the code examples in this article, you need to create an authorized [DataLakeServiceClient](/python/api/azure-storage-file-datalake/azure.storage.filedatalake.datalakeserviceclient) instance that represents the storage account. You can authorize a `DataLakeServiceClient` using Azure Active Directory (Azure AD), an account access key, or a shared access signature (SAS).
+To work with the code examples in this article, you need to create an authorized [DataLakeServiceClient](/python/api/azure-storage-file-datalake/azure.storage.filedatalake.datalakeserviceclient) instance that represents the storage account. This client object can be used to create
+
+You can authorize a `DataLakeServiceClient` object using Azure Active Directory (Azure AD), an account access key, or a shared access signature (SAS).
 
 ### [Azure AD](#tab/azure-ad)
 
@@ -73,7 +75,7 @@ To learn more about generating and managing SAS tokens, see the following articl
 
 ### [Account key](#tab/account-key)
 
-You can authorize access to data using your account access keys (Shared Key). This example creates a [DataLakeServiceClient](/python/api/azure-storage-file-datalake/azure.storage.filedatalake.datalakeserviceclient) instance that is authorized with the account key.
+You can authorize access to data using your account access keys (Shared Key). The following code example creates a [DataLakeServiceClient](/python/api/azure-storage-file-datalake/azure.storage.filedatalake.datalakeserviceclient) instance that is authorized with the account key:
 
 :::code language="python" source="~/azure-storage-snippets/blobs/howto/python/python-v12/crud_datalake.py" id="Snippet_AuthorizeWithKey":::
 
@@ -83,25 +85,35 @@ You can authorize access to data using your account access keys (Shared Key). Th
 
 ## Create a container
 
-A container acts as a file system for your files. You can create one by calling the [DataLakeServiceClient.create_file_system method](/python/api/azure-storage-file-datalake/azure.storage.filedatalake.datalakeserviceclient#azure-storage-filedatalake-datalakeserviceclient-create-file-system).
+A container acts as a file system for your files. You can create a container using the following method:
 
-This example creates a container named `my-file-system`.
+- [DataLakeServiceClient.create_file_system](/python/api/azure-storage-file-datalake/azure.storage.filedatalake.datalakeserviceclient#azure-storage-filedatalake-datalakeserviceclient-create-file-system)
+
+The following code example creates a container and returns a `FileSystemClient` object for later use:
 
 :::code language="python" source="~/azure-storage-snippets/blobs/howto/python/python-v12/crud_datalake.py" id="Snippet_CreateContainer":::
 
 ## Create a directory
 
-Create a directory reference by calling the [FileSystemClient.create_directory](/python/api/azure-storage-file-datalake/azure.storage.filedatalake.filesystemclient#azure-storage-filedatalake-filesystemclient-create-directory) method.
+You can create a directory reference in the container using the following method:
+
+- [FileSystemClient.create_directory](/python/api/azure-storage-file-datalake/azure.storage.filedatalake.filesystemclient#azure-storage-filedatalake-filesystemclient-create-directory)
 
 This example adds a directory named `my-directory` to a container.
+
+The following code example adds a directory to a container and returns a `DataLakeDirectoryClient` object for later use:
 
 :::code language="python" source="~/azure-storage-snippets/blobs/howto/python/python-v12/crud_datalake.py" id="Snippet_CreateDirectory":::
 
 ## Rename or move a directory
 
-Rename or move a directory by calling the [DataLakeDirectoryClient.rename_directory](/python/api/azure-storage-file-datalake/azure.storage.filedatalake.datalakedirectoryclient#azure-storage-filedatalake-datalakedirectoryclient-rename-directory) method. Pass the path of the desired directory a parameter.
+You can rename or move a directory using the following method:
 
-This example renames a subdirectory to the name `my-directory-renamed`.
+- [DataLakeDirectoryClient.rename_directory](/python/api/azure-storage-file-datalake/azure.storage.filedatalake.datalakedirectoryclient#azure-storage-filedatalake-datalakedirectoryclient-rename-directory)
+
+Pass the path with the new directory name in the `new_name` argument. The value must have the following format: {filesystem}/{directory}/{subdirectory}.
+
+The following code example shows how to rename a subdirectory:
 
 :::code language="python" source="~/azure-storage-snippets/blobs/howto/python/python-v12/crud_datalake.py" id="Snippet_RenameDirectory":::
 
