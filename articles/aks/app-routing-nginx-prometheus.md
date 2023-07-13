@@ -62,61 +62,75 @@ Azure Monitor managed service for Prometheus is a fully managed Prometheus-compa
 
 ### Enable pod annotation based scraping
 
-Once your cluster is configured with the Azure Monitor agent, [apply a ConfigMap to provide scraping configuration][managed-prometheus-custom-annotations] called `ama-metrics-prometheus-config` in the `kube-system` namespace to enable the agent to scrape based on Pod annotations, which are added to the ingress-nginx pods.
+Once your cluster is updated with the Azure Monitor agent, you need to configure the agent to enable scraping based on Pod annotations, which are added to the ingress-nginx pods. One way to set this setting is in the [`ama-metrics-settings-configmap`](https://aka.ms/azureprometheus-addon-settings-configmap) ConfigMap in the `kube-system` namespace.
 
 > [!CAUTION]
-> This will replace your existing `ama-metrics-prometheus-config` ConfigMap in the `kube-system`. If you already have a configuration, you may want to take a backup or merge it with this configuration.
+> This will replace your existing [`ama-metrics-settings-configmap`] ConfigMap in the `kube-system`. If you already have a configuration, you may want to take a backup or merge it with this configuration.
 >
-> You can backup an existing `ama-metrics-prometheus-config` ConfigMap by running `kubectl get configmap ama-metrics-prometheus-config -n kube-system -o yaml > ama-metrics-prometheus-config-backup.yaml`
+> You can backup an existing `ama-metrics-settings-config` ConfigMap if it exists by running `kubectl get configmap ama-metrics-settings-configmap -n kube-system -o yaml > ama-metrics-settings-configmap-backup.yaml`
+
+The following configuration sets the `podannotationnamespaceregex` parameter to `.*` to scrape all namespaces.
 
 ```bash
 kubectl apply -f - <<EOF
 kind: ConfigMap
 apiVersion: v1
 metadata:
-  name: ama-metrics-prometheus-config
+  name: ama-metrics-settings-configmap
   namespace: kube-system
 data:
-  prometheus-config: |-
-    global:
-      scrape_interval: 10s
-    scrape_configs:
-    - job_name: kubernetespods-sample
-
-      kubernetes_sd_configs:
-      - role: pod
-
-      relabel_configs:
-      # Scrape only pods with the annotation: prometheus.io/scrape = true
-      - source_labels: [__meta_kubernetes_pod_annotation_prometheus_io_scrape]
-        action: keep
-        regex: true
-
-      # If prometheus.io/path is specified, scrape this path instead of /metrics
-      - source_labels: [__meta_kubernetes_pod_annotation_prometheus_io_path]
-        action: replace
-        target_label: __metrics_path__
-        regex: (.+)
-
-      # If prometheus.io/scheme is specified, scrape with this scheme instead of http
-      - source_labels: [__meta_kubernetes_pod_annotation_prometheus_io_scheme]
-        action: replace
-        regex: (http|https)
-        target_label: __scheme__
-
-      # Include the pod namespace as a label for each metric
-      - source_labels: [__meta_kubernetes_namespace]
-        action: replace
-        target_label: kubernetes_namespace
-
-      # Include the pod name as a label for each metric
-      - source_labels: [__meta_kubernetes_pod_name]
-        action: replace
-        target_label: kubernetes_pod_name
-
-      # [Optional] Include all pod labels as labels for each metric
-      - action: labelmap
-        regex: __meta_kubernetes_pod_label_(.+)
+  schema-version:
+    #string.used by agent to parse config. supported versions are {v1}. Configs with other schema versions will be rejected by the agent.
+    v1
+  config-version:
+    #string.used by customer to keep track of this config file's version in their source control/repository (max allowed 10 chars, other chars will be truncated)
+    ver1
+  prometheus-collector-settings: |-
+    cluster_alias = ""
+  default-scrape-settings-enabled: |-
+    kubelet = true
+    coredns = false
+    cadvisor = true
+    kubeproxy = false
+    apiserver = false
+    kubestate = true
+    nodeexporter = true
+    windowsexporter = false
+    windowskubeproxy = false
+    kappiebasic = true
+    prometheuscollectorhealth = false
+  # Regex for which namespaces to scrape through pod annotation based scraping.
+  # This is none by default. Use '.*' to scrape all namespaces of annotated pods.
+  pod-annotation-based-scraping: |-
+    podannotationnamespaceregex = ".*"
+  default-targets-metrics-keep-list: |-
+    kubelet = ""
+    coredns = ""
+    cadvisor = ""
+    kubeproxy = ""
+    apiserver = ""
+    kubestate = ""
+    nodeexporter = ""
+    windowsexporter = ""
+    windowskubeproxy = ""
+    podannotations = ""
+    kappiebasic = ""
+    minimalingestionprofile = true
+  default-targets-scrape-interval-settings: |-
+    kubelet = "30s"
+    coredns = "30s"
+    cadvisor = "30s"
+    kubeproxy = "30s"
+    apiserver = "30s"
+    kubestate = "30s"
+    nodeexporter = "30s"
+    windowsexporter = "30s"
+    windowskubeproxy = "30s"
+    kappiebasic = "30s"
+    prometheuscollectorhealth = "30s"
+    podannotations = "30s"
+  debug-mode: |-
+    enabled = false
 EOF
 ```
 
