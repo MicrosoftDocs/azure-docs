@@ -86,7 +86,7 @@ Outbound access on port `53` is required for communication with DNS servers. If 
 
 ### FQDN dependencies
 
-To operate properly, each [self-hosted gateway](self-hosted-gateway-overview.md) needs outbound connectivity on port 443 to the following endpoints associated with its cloud-based API Management instance:
+To operate properly, the API Management service needs outbound connectivity on port 443 to the following endpoints associated with its cloud-based API Management instance:
 
 | Description | Required | Notes |
 |:------------|:---------------------|:------|

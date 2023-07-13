@@ -22,7 +22,7 @@ In this article, learn about MAU and Go Local billing, linking Azure AD B2C tena
 
 ## MAU overview
 
-A monthly active user (MAU) is a unique user that performs an authentication within a given month. A user that authenticates multiple times within a given month is counted as one MAU. Customers aren't charged for a MAU’s subsequent authentications during the month, nor for inactive users. Authentications may include:
+A monthly active user (MAU) is a unique user that performs an authentication within a given month. A user that authenticates at least once within a given month is counted as one MAU. Customers aren't charged for a MAU’s subsequent authentications during the month, nor for inactive users. Authentications may include:
 
 - Active, interactive sign in by the user. For example, [sign-up or sign in](add-sign-up-and-sign-in-policy.md), [self-service password reset](add-password-reset-policy.md), or any type of [user flow](user-flow-overview.md) or [custom policy](custom-policy-overview.md).
 - Passive, non-interactive sign in such as [single sign-on (SSO)](session-behavior.md), or any type of token acquisition. For example, authorization code flow, token refresh, or [resource owner password credentials flow](add-ropc-policy.md).

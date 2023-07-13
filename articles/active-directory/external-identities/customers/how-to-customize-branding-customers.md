@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: ciam
 ms.topic: how-to
-ms.date: 04/21/2023
+ms.date: 07/12/2023
 ms.author: cmulligan
 ms.custom: it-pro
 
@@ -56,7 +56,7 @@ The following image displays the neutral default branding of the customer tenant
 Before you customize any settings, the neutral default branding will appear in your sign-in and sign-up pages. You can customize this default experience with a custom background image or color, favicon, layout, header, and footer. You can also upload a [custom CSS](/azure/active-directory/fundamentals/reference-company-branding-css-template). 
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com/).
-1. If you have access to multiple tenants, use the **Directories + subscriptions** filter in the top menu to switch to the customer tenant you created earlier.
+1. If you have access to multiple tenants, use the **Directories + subscriptions** filter :::image type="icon" source="media/common/portal-directory-subscription-filter.png" border="false"::: in the top menu to switch to the customer tenant you created earlier.
 1. In the search bar, type and select **Company branding**.
 1. Under **Default sign-in** select **Edit**.
 
@@ -174,7 +174,7 @@ Your customer tenant name replaces the Microsoft banner logo in the neutral defa
 :::image type="content" source="media/how-to-customize-branding-customers/tenant-name.png" alt-text="Screenshot of the tenant name." lightbox="media/how-to-customize-branding-customers/tenant-name.png":::
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com/).
-1. If you have access to multiple tenants, use the **Directories + subscriptions** filter in the top menu to switch to the customer tenant you created earlier.
+1. If you have access to multiple tenants, use the **Directories + subscriptions** filter :::image type="icon" source="media/common/portal-directory-subscription-filter.png" border="false"::: in the top menu to switch to the customer tenant you created earlier.
 1. In the search bar, type and select **Properties**.
 1. Edit the **Name** field. 
 
@@ -187,7 +187,7 @@ Your customer tenant name replaces the Microsoft banner logo in the neutral defa
 When no longer needed, you can remove the sign-in customization from your customer tenant via the Azure portal.  
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com/).
-1. If you have access to multiple tenants, use the **Directories + subscriptions** filter in the top menu to switch to the customer tenant you created earlier.
+1.If you have access to multiple tenants, use the **Directories + subscriptions** filter :::image type="icon" source="media/common/portal-directory-subscription-filter.png" border="false"::: in the top menu to switch to the customer tenant you created earlier.
 1. In the search bar, type and select **Company branding**.
 1. Under **Default sign-in experience**, select **Edit**.
 1.	Remove the elements you no longer need.

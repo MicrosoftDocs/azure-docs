@@ -7,7 +7,7 @@ ms.author: asirveda # external contributor: paly@vmware.com
 ms.service: spring-apps
 ms.topic: quickstart
 ms.date: 05/31/2022
-ms.custom: devx-track-java, service-connector, devx-track-azurecli
+ms.custom: devx-track-java, devx-track-extended-java, service-connector, devx-track-azurecli
 ---
 
 # Quickstart: Integrate with Azure Database for PostgreSQL and Azure Cache for Redis
@@ -194,7 +194,7 @@ The following steps show how to bind applications running in the Azure Spring Ap
 1. Use the following command to retrieve the database connection information:
 
    ```azurecli
-   POSTGRES_CONNECTION_STR=$(az spring connection show \
+   export POSTGRES_CONNECTION_STR=$(az spring connection show \
        --resource-group <resource-group-name> \
        --service <Azure-Spring-Apps-service-instance-name> \
        --deployment default \
@@ -219,7 +219,7 @@ The following steps show how to bind applications running in the Azure Spring Ap
 1. Use the following commands to retrieve Redis connection information and update the Cart Service application:
 
    ```azurecli
-   REDIS_CONN_STR=$(az spring connection show \
+   export REDIS_CONN_STR=$(az spring connection show \
        --resource-group <resource-group-name> \
        --service <Azure-Spring-Apps-service-instance-name> \
        --deployment default \
@@ -238,7 +238,7 @@ The following steps show how to bind applications running in the Azure Spring Ap
 Retrieve the URL for Spring Cloud Gateway and explore the updated application. You can use the output from the following command to explore the application:
 
 ```azurecli
-GATEWAY_URL=$(az spring gateway show \
+export GATEWAY_URL=$(az spring gateway show \
     --resource-group <resource-group-name> \
     --service <Azure-Spring-Apps-service-instance-name> | jq -r '.properties.url')
 

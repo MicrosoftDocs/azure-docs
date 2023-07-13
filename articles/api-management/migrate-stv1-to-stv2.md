@@ -4,10 +4,10 @@ description: Follow the steps in this article to migrate your Azure API Manageme
 
 author: dlepow
 ms.service: api-management
+ms.custom: devx-track-azurecli
 ms.topic: how-to
 ms.date: 04/17/2023
 ms.author: danlep
-
 ---
 
 # Migrate an API Management instance hosted on the stv1 platform to stv2
