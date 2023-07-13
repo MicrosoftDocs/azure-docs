@@ -103,21 +103,21 @@ The following table summarizes the different preset styles according to differen
 
 | Speaking style    | Language |
 |-------------|----------|
-| angry       | English (United States)<br> Chinese (Mandarin, Simplified)<br> Japanese (Japan)  |
-| calm        | Chinese (Mandarin, Simplified)|
-| chat        | Chinese (Mandarin, Simplified) |
-| cheerful    | English (United States) <br> Chinese (Mandarin, Simplified) <br>Japanese (Japan)|
-| disgruntled |   Chinese (Mandarin, Simplified) |
+| angry       | English (United States)<br> Chinese (Mandarin, Simplified)(preview)<br> Japanese (Japan)(preview)  |
+| calm        | Chinese (Mandarin, Simplified)(preview)|
+| chat        | Chinese (Mandarin, Simplified)(preview) |
+| cheerful    | English (United States) <br> Chinese (Mandarin, Simplified)(preview) <br>Japanese (Japan)(preview)|
+| disgruntled |   Chinese (Mandarin, Simplified)(preview) |
 | excited     | English (United States) |
-| fearful     |    Chinese (Mandarin, Simplified) |
+| fearful     |    Chinese (Mandarin, Simplified)(preview) |
 | friendly    | English (United States) |
 | hopeful     | English (United States) |
-| sad         |  English (United States)<br>Chinese (Mandarin, Simplified)<br>Japanese (Japan)|
+| sad         |  English (United States)<br>Chinese (Mandarin, Simplified)(preview)<br>Japanese (Japan)(preview)|
 | shouting    |  English (United States)  |
 | terrified   |   English (United States)  |
 | unfriendly  |   English (United States)|
 | whispering  |  English (United States)  |
-| serious     |  Chinese (Mandarin, Simplified) |
+| serious     |  Chinese (Mandarin, Simplified)(preview) |
 
 --- 
 
