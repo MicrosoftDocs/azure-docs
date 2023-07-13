@@ -1,0 +1,153 @@
+---
+title:        Protect APIs hosted in APIM using Azure Web Application Firewall with Azure Front Door
+description:  This article guides you through a process of creating an API in APIM and protects it from a web application attack using Azure Web Application Firewall integrated with Azure Front Door.
+author:      sowmyam2019 # GitHub alias
+ms.author:   sowmyam # Microsoft alias
+ms.service:  web-application-firewall
+ms.topic:    how-to
+ms.reviewer: vhorne
+ms.date: 07/13/2023
+---
+
+# Protect APIs hosted on API Management using Azure Web Application Firewall 
+
+There are a growing number of enterprises adhering to API-first approach for their internal applications, and the number and complexity of security attacks against web applications is constantly evolving. This situation requires enterprises to adopt a strong security strategy to protect APIs from various web application attacks.
+
+[Azure Web Application Firewall (WAF)](https://learn.microsoft.com/azure/web-application-firewall/overview)) is an Azure Networking product that protects APIs from various of [OWASP top 10](https://owasp.org/www-project-top-ten/) web attacks, CVE’s, and malicious bot attacks.
+
+This article describes how to use [Azure Web Application Firewall (WAF) on Azure Front Door](https://learn.microsoft.com/azure/web-application-firewall/afds/afds-overview) to protect APIs hosted on [Azure API Management (APIM)](https://learn.microsoft.com/azure/api-management/api-management-key-concepts). 
+
+
+## Create an APIM instance and publish an API in APIM that generates a mock API response
+
+1. Create an APIM instance
+
+   [Quickstart - Create an Azure API Management instance](https://learn.microsoft.com/azure/api-management/get-started-create-service-instance)
+
+   The following screenshot shows that an APIM instance called **contoso-afd-apim-resource** has been created. It can take up to 30 to 40 minutes to create and activate an API Management service. 
+
+   :::image type="content" source="../media/protect-api-hosted-in-apim-by-waf/contoso-main-page.png" alt-text="A screenshot showing the APIM instance created.":::
+
+
+2. Create an API and generate mock API responses
+   [Tutorial - Mock API responses in API Management - Azure portal](https://learn.microsoft.com/azure/api-management/mock-api-responses?tabs=azure-portal).
+
+   Replace the name of API from **Test API** given in the above tutorial with **Book API**.
+
+   The Book API does a GET operation for `_/test_` as the URL path for the API. You can see the response for the API is set as **200 OK** with content type as application/json with text as `{“Book”:” $100”}`.
+
+   :::image type="content" source="../media/protect-api-hosted-in-apim-by-waf/apim-get-test.png" alt-text="A screenshot showing the GET operation defined in APIM.":::
+
+    ![A screenshot showing the mock response created.](https://github.com/sowmyam2019/azure-docs-pr/assets/49657746/34b54a96-8eb1-43f1-8241-765b5d33602a)
+
+
+3. Deselect **Subscription required** check box under the API settings tab and select save.
+
+4. Test the mock responses from the APIM interface. You should receive a **200 OK** response.
+
+Now, the Book API has been created. A successful call to this URL returns a **200 OK** response and returns the price of a book as $100.
+
+
+## Create an Azure Front Door Premium instance with APIM hosted API as the origin
+
+The Microsoft-managed Default Rule Set is based on the [OWASP Core Rule Set](https://github.com/coreruleset/coreruleset//) and includes Microsoft Threat Intelligence rules.
+
+> [!Note]
+>
+> Managed Rule Set is not available for Azure Front Door Standard SKU. For more information about the different SKUs, see [Feature comparison between tiers](https://learn.microsoft.com/azure/frontdoor/standard-premium/tier-comparison#feature-comparison-between-tiers)
+
+Use the steps described in quick create option to create an Azure Front Door Premium profile with an associated WAF security policy in the same resource group:
+
+Quick create: [ Create an Azure Front Door profile - Azure portal](https://learn.microsoft.com/azure/frontdoor/create-front-door-portal)
+
+Use the following settings when creating the Azure Front Door profile:
+- Name: myAzureFrontDoor
+- Endpoint Name: bookfrontdoor
+- Origin type: API Management
+- Origin host name: contoso-afd-apim-resource.azure-api.net(contoso-afd-apim-resource)
+- WAF policy: Create a new WAF policy with name **bookwafpolicy**.
+
+All other settings remain at default values.
+
+## Enable Azure Web Application Firewall in prevention mode
+
+Select the "bookwafpolicy" Azure WAF policy  and ensure the Policy mode is set to ["Prevention" in the overview tab of the policy](https://learn.microsoft.com/azure/web-application-firewall/afds/waf-front-door-create-portal#change-mode).
+
+Azure WAF detection mode is used for testing and validating the policy. Detection doesn't block the call but logs all threats detected, while prevention mode blocks the call if an attack is detected. Typically, you test the scenario before switching to prevention model. For this exercise, we switch to prevention mode.  
+[WAF modes](https://learn.microsoft.com/azure/web-application-firewall/afds/afds-overview#waf-modes) has more information about various WAF policy modes.
+
+
+## Restrict APIM access through the Azure Front Door only
+
+Requests routed through the Front Door include headers specific to your Front Door configuration. You can configure the [APIM Check Header](https://learn.microsoft.com/azure/api-management/api-management-policies#access-restriction-policies) as an inbound APIM policy to filter incoming requests based on the unique value of the X-Azure-FDID HTTP request header that is sent to API Management. This header value is the Azure Front Door ID, which is available on the AFD Overview page.
+
+ 
+1. Copy the Front Door ID from the AFD overview page.
+
+   :::image type="content" source="../media/protect-api-hosted-in-apim-by-waf/afd-endpoint-fd-id.png" alt-text="A screenshot showing the AFD ID.":::
+
+
+2. Access the APIM API page, select the Book API, select **Design** and **All operations**.  In the Inbound policy, select **+ Add policy**.
+
+   :::image type="content" source="../media/protect-api-hosted-in-apim-by-waf/apim-inbound-policy.png" alt-text="A screenshot showing how to add an inbound policy.":::
+
+3. Select Other policies
+
+   :::image type="content" source="../media/protect-api-hosted-in-apim-by-waf/apim-other-policies.png" alt-text="A screenshot showing other policies selected.":::
+
+4. Select “Show snippets" and select **Check HTTP header**.
+
+   :::image type="content" source="../media/protect-api-hosted-in-apim-by-waf/apim-check-http-header.png" alt-text="A screenshot showing check header selected.":::
+
+Add the following code to the inbound policy for Http header `_X-Azure-FDID_`. Replace the `_{FrontDoorId}_`  with the AFD ID copied in the first step of this section.
+
+
+```
+<check-header name="X-Azure-FDID" failed-check-httpcode="403" failed-check-error-message="Invalid request" ignore-case="false">
+        <value>{FrontDoorId}</value>
+</check-header>
+
+```
+
+:::image type="content" source="../media/protect-api-hosted-in-apim-by-waf/apim-final-check-header.png" alt-text="A screenshot showing the final policy configuration.":::
+
+Select **Save**.
+
+At this point, APIM access is restricted to the Azure Front Door endpoint only.
+
+## Verify the API call is routed through Azure Front Door and protected by Azure Web Application Firewall
+
+1. Obtain the newly created Azure Front Door endpoint from the “Front Door Manager”
+
+:::image type="content" source="../media/protect-api-hosted-in-apim-by-waf/afd-get-endpoint.png" alt-text="A screenshot showing the AFD endpoint selected.":::
+
+2. Look at origin groups and confirm that the origin host name is __contoso-afd-apim-resource.azure-api.net.__ This step verifies that the APIM instance is an origin in the newly configured Azure Front Door premium.
+
+3. Under the “Security Policies” section, verify that the WAF policy “bookwafpolicy” is provisioned.
+
+4. Select `__bookwafpolicy__` and verify that the `__bookwafpolicy__` has Managed rules provisioned. The latest versions of Microsoft_DefaultRueSet and Microsoft_BotManagerRuleSet is provisioned which protects the origin against OWASP top 10 vulnerabilities and malicious bot attacks.
+
+   :::image type="content" source="../media/protect-api-hosted-in-apim-by-waf/book-waf-policy.png" alt-text="A screenshot showing the WAF policy for managed rules.":::
+
+
+At this point, the end-to-end call is set up, and the API is protected by Azure Web Application Firewall.
+
+ 
+
+## Verify the setup
+
+1. Access the API through the Azure Front Door endpoint from your browser. The API should return the following response:
+
+   :::image type="content" source="../media/protect-api-hosted-in-apim-by-waf/test-book-thru-fd.png" alt-text="A screenshot showing API access through AFD endpoint.":::
+
+2. Verify that APIM isn't accessible directly over the Internet and accessible only via the AFD:
+
+   :::image type="content" source="../media/protect-api-hosted-in-apim-by-waf/block-direct-access.png" alt-text="A screenshot showing APIM inaccessible through the Internet.":::
+
+3. Now try to invoke the AFD endpoint URL via any OWASP Top 10 attack or bot attack and you should receive `__REQUEST IS BLOCKED__` message and the request is blocked. The API has been protected from web attack by Azure Web Application Firewall.
+
+## Related content
+
+- Learn more about [Azure Web Application Firewall](https://learn.microsoft.com/azure/web-application-firewall/overview)
+- Learn more about how [APIM protects against OWASP API top 10](https://docs.microsoft.com/azure/api-management/mitigate-owasp-api-threats)
+- Learn more about configuring Azure Front Door with other APIM specific capabilities at [Configure Azure Front Door in front of Azure API Management](/azure/api-management/front-door-api-management)
