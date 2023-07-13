@@ -6,9 +6,7 @@ ms.date: 07/08/2023
 ms.author: DaybreakQuip
 ---
 
-In this quickstart, you learn how to start a call using the Azure Communication Services Calling SDK for Unity.
-
-You can download the sample app from [GitHub](https://github.com/Azure-Samples/communication-services-dotnet-quickstarts/tree/main/Calling).
+In this quickstart, you learn how to start a call using the Azure Communication Services Calling SDK for Unity. For receiving and rendering video frames on the Unity platform, refer to the [Raw Media Access Quickstart](../../get-started-raw-media-access.md).
 
 ### Prerequisites
 
@@ -55,8 +53,8 @@ Open the `Main.unity` file and replace the content with following implementation
 <details>
   <summary>Main.Unity Code</summary>
 
-  ### Main.unity
-  ```C#
+### Main.unity
+```C#
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
 --- !u!29 &1
@@ -280,7 +278,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   callStatus: {fileID: 1529611528}
-  videoPlayer: {fileID: 1257895143}
+  videoPlayer: {fileID: 0}
 --- !u!4 &293984671
 Transform:
   m_ObjectHideFlags: 0
@@ -890,7 +888,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1843906927}
-  m_RootOrder: 5
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -994,78 +992,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1184525248}
   m_CullTransparentMesh: 1
---- !u!1 &1257895141
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1257895142}
-  - component: {fileID: 1257895143}
-  m_Layer: 5
-  m_Name: Video Player
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!224 &1257895142
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1257895141}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1843906927}
-  m_RootOrder: 4
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 100, y: 100}
-  m_Pivot: {x: 0.5, y: 0.5}
---- !u!328 &1257895143
-VideoPlayer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1257895141}
-  m_Enabled: 1
-  m_VideoClip: {fileID: 0}
-  m_TargetCameraAlpha: 1
-  m_TargetCamera3DLayout: 0
-  m_TargetCamera: {fileID: 0}
-  m_TargetTexture: {fileID: 8400000, guid: df2250827ba8a43439d63958484db662, type: 2}
-  m_TimeReference: 0
-  m_TargetMaterialRenderer: {fileID: 0}
-  m_TargetMaterialProperty: <noninit>
-  m_RenderMode: 2
-  m_AspectRatio: 2
-  m_DataSource: 1
-  m_PlaybackSpeed: 1
-  m_AudioOutputMode: 2
-  m_TargetAudioSources:
-  - {fileID: 0}
-  m_DirectAudioVolumes:
-  - 1
-  m_Url: 
-  m_EnabledAudioTracks: 01
-  m_DirectAudioMutes: 00
-  m_ControlledAudioTrackCount: 1
-  m_PlayOnAwake: 1
-  m_SkipOnDrop: 1
-  m_Looping: 0
-  m_WaitForFirstFrame: 1
-  m_FrameReadyEventEnabled: 0
-  m_VideoShaders: []
 --- !u!1 &1332239153
 GameObject:
   m_ObjectHideFlags: 0
@@ -1099,7 +1025,7 @@ RectTransform:
   m_Children:
   - {fileID: 1917486034}
   m_Father: {fileID: 1843906927}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -1231,7 +1157,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1843906927}
-  m_RootOrder: 6
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -1334,79 +1260,6 @@ CanvasRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1529611526}
-  m_CullTransparentMesh: 1
---- !u!1 &1663627034
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1663627035}
-  - component: {fileID: 1663627038}
-  - component: {fileID: 1663627037}
-  m_Layer: 5
-  m_Name: RawImage
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!224 &1663627035
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1663627034}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 6.5, y: 5, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1843906927}
-  m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 192, y: 108}
-  m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1663627037
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1663627034}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1344c3c82d62a2a41a3576d8abb8e3ea, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
-  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
-  m_Maskable: 1
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-  m_Texture: {fileID: 8400000, guid: df2250827ba8a43439d63958484db662, type: 2}
-  m_UVRect:
-    serializedVersion: 2
-    x: 0
-    y: 0
-    width: 1
-    height: 1
---- !u!222 &1663627038
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1663627034}
   m_CullTransparentMesh: 1
 --- !u!1 &1676708952
 GameObject:
@@ -1576,7 +1429,7 @@ RectTransform:
   m_Children:
   - {fileID: 438770861}
   m_Father: {fileID: 1843906927}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -1823,10 +1676,8 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 963546687}
-  - {fileID: 1663627035}
   - {fileID: 1732033234}
   - {fileID: 1332239154}
-  - {fileID: 1257895142}
   - {fileID: 1184525249}
   - {fileID: 1529611527}
   m_Father: {fileID: 0}
@@ -1984,7 +1835,6 @@ using System;
 using UnityEngine;
 using System.Linq;
 using UnityEngine.UI;
-using UnityEngine.Video;
 using TMPro;
 
 /// <summary>
@@ -2006,8 +1856,6 @@ public class AppManager : MonoBehaviour
     public TMP_Text callStatus;
 
     public static AppManager Instance;
-
-    public VideoPlayer videoPlayer;
 
     private void Awake()
     {
@@ -2064,12 +1912,6 @@ public class AppManager : MonoBehaviour
     }
 #endregion
 
-    public void playVideo(string videoUrl)
-    {
-        videoPlayer.url = videoUrl;
-        videoPlayer.Play();
-    }
-
     //Used For Updating the UI
     private void Update()
     {
@@ -2092,7 +1934,7 @@ public class AppManager : MonoBehaviour
 
 ```
 
-In the GameObject called AppManager, drag the newly created script into its script component. Drag the Status text object into the Call Status text field to enable UI updates of the Call state. Drag the video player object into the Video Player field to enable the video player. Create a new render texture and set the appropriate dimension size, such as 1920 x 1080, and in raw image, set the render texture to the one you just created. This will enable video playback.
+In the GameObject called AppManager, drag the newly created script into its script component. Drag the Status text object into the Call Status text field to enable UI updates of the Call state. The SDK provides video through URI, but currently, Unity's video player may not support URI playback.
 
 ### Object model
 
@@ -2215,9 +2057,6 @@ private async void OnIncomingVideoStreamStateChangedAsync(IncomingVideoStream in
                 case VideoStreamKind.RemoteIncoming:
                     var remoteVideoStream = incomingVideoStream as RemoteVideoStream;
                     var uri = await remoteVideoStream.StartAsync();
-
-                    playVideo(uri.ToString());
-
                     break;
 
                 case VideoStreamKind.RawIncoming:
