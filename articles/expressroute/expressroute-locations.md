@@ -6,7 +6,7 @@ author: duongau
 ms.service: expressroute
 ms.topic: conceptual
 ms.workload: infrastructure-services
-ms.date: 05/29/2023
+ms.date: 07/12/2023
 ms.author: duau
 ms.custom: references_regions, template-concept, engagement-fy23
 ---
@@ -136,7 +136,7 @@ The following table shows locations by service provider. If you want to view ava
 | **[Next Generation Data](https://vantage-dc-cardiff.co.uk/)** | Supported | Supported | Newport(Wales) |
 | **[NEXTDC](https://www.nextdc.com/services/axon-ethernet/microsoft-expressroute)** | Supported | Supported | Melbourne<br/>Perth<br/>Sydney<br/>Sydney2 |
 | **NL-IX** | Supported | Supported | Amsterdam2<br/>Dublin2 |
-| **[NOS](https://www.nos.pt/empresas/corporate/cloud/cloud/Pages/nos-cloud-connect.aspx)** | Supported | Supported | Amsterdam2<br/>Madrid |
+| **[NOS](https://www.nos.pt/empresas/solucoes/cloud/cloud-publica/nos-cloud-connect)** | Supported | Supported | Amsterdam2<br/>Madrid |
 | **[NTT Communications](https://www.ntt.com/en/services/network/virtual-private-network.html)** | Supported | Supported | Amsterdam<br/>Hong Kong<br/>London<br/>Los Angeles<br/>New York<br/>Osaka<br/>Singapore<br/>Sydney<br/>Tokyo<br/>Washington DC |
 | **NTT Communications India Network Services Pvt Ltd** | Supported | Supported | Chennai<br/>Mumbai |
 | **NTT Communications - Flexible InterConnect** |Supported |Supported | Jakarta<br/>Osaka<br/>Singapore2<br/>Tokyo<br/>Tokyo2 |
@@ -302,7 +302,7 @@ If you're remote and don't have fiber connectivity, or you want to explore other
 | **[Nianet](https://www.globalconnect.dk/)** |Equinix | Amsterdam<br/>Frankfurt |
 | **[Oncore Cloud Service Inc](https://www.oncore.cloud/services/ue-for-expressroute)**| Equinix | Montreal<br/>Toronto |
 | **[POST Telecom Luxembourg](https://business.post.lu/grandes-entreprises/telecom-ict/telecom)**| Equinix | Amsterdam |
-| **[Proximus](https://www.proximus.be/en/id_b_cl_proximus_external_cloud_connect/companies-and-public-sector/discover/magazines/expert-blog/proximus-external-cloud-connect.html)**| Equinix | Amsterdam<br/>Dublin<br/>London<br/>Paris |
+| **[Proximus](https://www.proximus.be/en/id_cl_explore/companies-and-public-sector/networks/corporate-networks/explore.html)**| Equinix | Amsterdam<br/>Dublin<br/>London<br/>Paris |
 | **[QSC AG](https://www2.qbeyond.de/en/)** |Interxion | Frankfurt |  
 | **[RETN](https://retn.net/products/cloud-connect)** | Equinix | Amsterdam |
 | **Rogers** | Cologix<br/>Equinix | Montreal<br/>Toronto |
@@ -370,7 +370,7 @@ Enabling private connectivity to fit your needs can be challenging, based on the
 | **[FlexManage](https://www.flexmanage.com/cloud)** | North America |
 | **[Lightstream](https://www.lightstream.tech/partners/microsoft-azure/)** | North America |
 | **[The IT Consultancy Group](https://itconsult.com.au/)** | Australia |
-| **[MOQdigital](https://www.moqdigital.com/insights)** | Australia |
+| **[MOQdigital](https://www.brennanit.com.au/solutions/cloud-services/)** | Australia |
 | **[MSG Services](https://www.msg-services.de/it-services/managed-services/cloud-outsourcing/)** | Europe (Germany) |
 | **[Nelite](https://www.exakis-nelite.com/offres/)** | Europe |
 | **[New Signature](https://www.cognizant.com/us/en/services/cloud-solutions/microsoft-business-group)** | Europe |
