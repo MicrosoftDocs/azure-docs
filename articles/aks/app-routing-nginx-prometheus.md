@@ -10,7 +10,7 @@ ms.date: 07/12/2023
 ms.author: asabbour
 ---
 
-# Monitor the ingress-nginx controller metrics in the application routing add-on with Prometheus (preview)
+# Monitor the ingress-nginx controller metrics in the application routing add-on with Prometheus in Grafana (preview)
 
 The ingress-nginx controller in the application routing add-on exposes many metrics for requests, the nginx process, and the controller that can be helpful in analyzing the performance and usage of your application.
 
