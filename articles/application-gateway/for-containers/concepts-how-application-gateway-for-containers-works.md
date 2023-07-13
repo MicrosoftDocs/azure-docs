@@ -23,7 +23,7 @@ The following dependencies are also referenced in an Application Gateway for Con
 - Subnet Delegation
 - User-assigned Managed Identity
 
-![Diagram depicting traffic from the Internet ingressing into Application Gateway for Containers and being sent to backend pods in AKS.](./media/concepts-how-traffic-controller-works/application-gateway-for-containers-kubernetes-conceptual.png)
+![Diagram depicting traffic from the Internet ingressing into Application Gateway for Containers and being sent to backend pods in AKS.](./media/concepts-how-application-gateway-for-containers-works/application-gateway-for-containers-kubernetes-conceptual.png)
 
 ## Application Gateway for Containers concepts
 
