@@ -20,7 +20,7 @@ Currently only available in the following regions:
 - South Africa North (Three availability zones)
 - South Central US (Three availability zones)
 - Southeast Asia (Two availability zones)
-- Sweden Central (Three availability zone)
+- Sweden Central (Three availability zones)
 - Switzerland North (Three availability zones)
 - UK South (Three availability zones)
 - West Europe (Three availability zones)
