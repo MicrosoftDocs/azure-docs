@@ -202,7 +202,6 @@ with the text "exporting span".
 Note that only attributes set at the start of the span are available for sampling,
 so attributes such as `http.status_code` which are captured later on cannot be used for sampling.
 
-
 ## Troubleshooting
 
 If you use `regexp` and the sampling override does not work, please try with the `.*` regex. If the sampling now works, it means
