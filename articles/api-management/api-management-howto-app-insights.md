@@ -174,6 +174,11 @@ To improve performance issues, skip:
 >
 >
 
+## Troubleshooting
+
+Addressing the issue of telemetry data flow from API Management to Application Insights:
++ Investigate whether a linked Azure Monitor Private Link Scope (AMPLS) resource exists within the VNet where the API Management resource is connected. AMPLS resources have a global scope across subscriptions and are responsible for managing data query and ingestion for all Azure Monitor resources. It's possible that the AMPLS has been configured with a Private-Only access mode specifically for data ingestion. In such instances, include the Application Insights resource and its associated Log Analytics resource in the AMPLS. Once this addition is made, the API Management data will be successfully ingested into the Application Insights resource, resolving the telemetry data transmission issue.
+
 ## Next steps
 
 + Learn more about [Azure Application Insights](/azure/application-insights/).
