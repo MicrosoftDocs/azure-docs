@@ -248,7 +248,7 @@ You can now switch the protection of SAP HANA database on Azure VM (standalone) 
 1. (Mandatory) [Run the latest preregistration script on both primary and secondary VM nodes](#run-the-preregistration-script).
 
    >[!Note]
-   >HSR-based attributes are added to the latest preregistration script - //link here )
+   >HSR-based attributes are added to the latest preregistration script -
 
 1. Configure HSR manually or using any clustering tools, such as **pacemaker**,
 
