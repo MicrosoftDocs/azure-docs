@@ -2456,18 +2456,23 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/active-directory/fundamentals/company-branding.md",
+      "redirect_url": "/azure/active-directory/fundamentals/how-to-customize-branding",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/active-directory/active-directory-add-company-branding.md",
-      "redirect_url": "/azure/active-directory/customize-branding",
+      "redirect_url": "/azure/active-directory/fundamentals/how-to-customize-branding",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/active-directory/active-directory-branding-custom-signon-azure-portal.md",
-      "redirect_url": "/azure/active-directory/customize-branding",
+      "redirect_url": "/azure/active-directory/fundamentals/how-to-customize-branding",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/active-directory/active-directory-branding-localize-azure-portal.md",
-      "redirect_url": "/azure/active-directory/customize-branding",
+      "redirect_url": "/azure/active-directory/fundamentals/how-to-customize-branding",
       "redirect_document_id": false
     },
     {
