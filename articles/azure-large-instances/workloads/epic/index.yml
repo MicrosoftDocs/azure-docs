@@ -24,6 +24,14 @@ landingContent:
             url: index.yml
 
 # card 2
+  - title: Architecture
+    linkLists: 
+      - linkListType: concept
+        links:
+          - text: Architecture
+            url: architecture.md
+
+# card 3
   - title: Configuration
     linkLists: 
       - linkListType: how-to-guide
