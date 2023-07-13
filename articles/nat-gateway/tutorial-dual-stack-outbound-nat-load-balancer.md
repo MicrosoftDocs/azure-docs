@@ -6,7 +6,7 @@ author: asudbring
 ms.author: allensu
 ms.service: nat-gateway
 ms.topic: tutorial
-ms.date: 07/12/2023
+ms.date: 07/13/2023
 ms.custom: template-tutorial, devx-track-azurecli
 ---
 
@@ -570,13 +570,35 @@ Make note of both IP addresses. Use the IPs to verify the outbound connectivity 
 
 1. Select **vm-1**.
 
-1. In the **Overview** of **myVM**, select **Connect** then **Bastion**. 
+1. In the **Overview** of **myVM**, select **Connect** then **Bastion**. Select **Use Bastion**
 
 1. Enter the username and password you created when you created the virtual machine.
 
 1. Select **Connect**.
 
+1. At the command line, enter the following command to verify the IPv4 address.
 
+    ```bash
+    curl -4 icanhazip.com
+    ```
+
+    ```output
+    azureuser@vm-1:~$ curl -4 icanhazip.com
+    20.230.191.5
+    ```
+
+1. At the command line, enter the following command to verify the IPv4 address.
+
+    ```bash
+    curl -6 icanhazip.com
+    ```
+
+    ```output
+    azureuser@vm-1:~$ curl -6 icanhazip.com
+    2603:1030:c02:8::14
+    ```
+
+1. Close the bastion connection to **vm-1**.
 
 # [**CLI**](#tab/dual-stack-outbound-cli)
 

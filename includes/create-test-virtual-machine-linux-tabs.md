@@ -27,7 +27,7 @@ The following procedure creates a test virtual machine (VM) named **vm-1** in th
     | Virtual machine name | Enter **vm-1**. |
     | Region | Select **East US 2**. |
     | Availability options | Select **No infrastructure redundancy required**. |
-    | Security type | Leave the default of **Standard**. |
+    | Security type | Select **Standard**. |
     | Image | Select **Ubuntu Server 22.04 LTS - x64 Gen2**. |
     | VM architecture | Leave the default of **x64**. |
     | Size | Select a size. |
