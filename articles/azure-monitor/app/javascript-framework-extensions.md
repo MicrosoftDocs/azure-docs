@@ -387,11 +387,11 @@ export class AppModule { }
 
 ---
 
-## Configuration (other)
+### Configuration (other)
 
-### [React](#tab/react)
+#### [React](#tab/react)
 
-### Track components usage
+#### Track components usage
 
 To instrument React components with usage tracking, apply the `withAITracking` higher-order component function. To enable Application Insights for a component, wrap `withAITracking` around the component:
 
@@ -415,7 +415,7 @@ export default withAITracking(reactPlugin, MyComponent);
 
 It measures time from the [`ComponentDidMount`](https://react.dev/reference/react/Component#componentdidmount) event through the [`ComponentWillUnmount`](https://react.dev/reference/react/Component#componentwillunmount) event. To make the result more accurate, it subtracts the time in which the user was idle by using `React Component Engaged Time = ComponentWillUnmount timestamp - ComponentDidMount timestamp - idle time`.
 
-#### Explore your data
+##### Explore your data
 
 Use  [Metrics Explorer](../essentials/metrics-getting-started.md) to plot a chart for the custom metric name `React Component Engaged Time (seconds)` and [split](../essentials/metrics-getting-started.md#apply-dimension-filters-and-splitting) this custom metric by `Component Name`.
 
@@ -432,7 +432,7 @@ customMetrics
 > [!NOTE]
 > It can take up to 10 minutes for new custom metrics to appear in the Azure portal.
 
-### Use React Context
+#### Use Application Insights with React Context
 
 The React Hooks for Application Insights are designed to use [React Context](https://react.dev/learn/passing-data-deeply-with-context) as a containing aspect for it. To use Context, initialize Application Insights, and then import the Context object:
 
@@ -473,7 +473,7 @@ const MyComponent = () => {
 export default MyComponent;
 ```
 
-#### useTrackMetric
+##### useTrackMetric
 
 The `useTrackMetric` Hook replicates the functionality of the `withAITracking` higher-order component, without adding another component to the component structure. The Hook takes two arguments:
 
@@ -497,7 +497,7 @@ export default MyComponent;
 
 It operates like the higher-order component, but it responds to Hooks lifecycle events rather than a component lifecycle. If there's a need to run on particular interactions, the Hook needs to be explicitly provided to user events.
 
-#### useTrackEvent
+##### useTrackEvent
 
 Use the `useTrackEvent` Hook to track any custom event that an application might need to track, such as a button click or other API call. It takes four arguments:
 
@@ -542,13 +542,13 @@ export default MyComponent;
 
 When the Hook is used, a data payload can be provided to it to add more data to the event when it's stored in Application Insights.
 
-### [React Native](#tab/reactnative)
+#### [React Native](#tab/reactnative)
 
-### Collect device information
+#### Collect device information
 
 Device information is automatically collected when you add the plug-in.
 
-### Disable automatic device info collection
+#### Disable automatic device info collection
 
 If you don’t want to collect the device information, you can set `disableDeviceCollection` to `true`. 
 
@@ -566,7 +566,7 @@ var appInsights = new ApplicationInsights({
 appInsights.loadAppInsights();
 ```
 
-### Use your own device info collection class
+#### Use your own device info collection class
 
 If you want to override your own device’s information, you can use `myDeviceInfoModule` to collect your own device information. 
 
@@ -594,7 +594,7 @@ var appInsights = new ApplicationInsights({
 appInsights.loadAppInsights();
 ```
 
-### Override the device information
+#### Override the device information
 
 Use the `IDeviceInfoModule` interface to abstract how the plug-in can access the Device Info. This interface is a stripped down version of the `react-native-device-info` interface and is mostly supplied for testing.
 
@@ -625,9 +625,9 @@ export interface IDeviceInfoModule {
 
 If events are getting "blocked" because the `Promise` returned via `getUniqueId` is never resolved / rejected, you can call `setDeviceId()` on the plugin to "unblock" this waiting state. There is also an automatic timeout configured via `uniqueIdPromiseTimeout` (defaults to 5 seconds), which will internally call `setDeviceId()` with any previously configured value.
 
-### [Angular](#tab/angular)
+#### [Angular](#tab/angular)
 
-### Chain more custom error handlers
+#### Chain more custom error handlers
 
 To chain more custom error handlers:
 
