@@ -155,7 +155,7 @@ You can download this dashboard from [GitHub][grafana-nginx-dashboard].
 
 ### Request handling performance dashboard
 
-This dashboard gives you visibility into the request handling performance of the different ingress upstream destinations, which are your applications' endpoints that the ingress controller is forwarding traffic to. It shows the P50, P95 and P99 percentile of total request and upstream response times. You can also view aggregates of request errors and latency. Use this dashboard to review and improve the performance and scalbility of your applications.
+This dashboard gives you visibility into the request handling performance of the different ingress upstream destinations, which are your applications' endpoints that the ingress controller is forwarding traffic to. It shows the P50, P95 and P99 percentile of total request and upstream response times. You can also view aggregates of request errors and latency. Use this dashboard to review and improve the performance and scalability of your applications.
 
 You can download this dashboard from [GitHub][grafana-nginx-request-performance-dashboard].
 
