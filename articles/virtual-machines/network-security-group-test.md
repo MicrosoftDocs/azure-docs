@@ -5,7 +5,7 @@ author: halkazwini
 ms.author: halkazwini
 ms.service: virtual-machines
 ms.topic: how-to
-ms.date: 06/23/2023
+ms.date: 07/13/2023
 ms.custom: template-how-to, engagement-fy23
 ---
 
@@ -21,7 +21,7 @@ In this article, you learn how to use **Network security group test** to check i
 
 - Sign in to the [Azure portal](https://portal.azure.com/?WT.mc_id=A261C142F) with your Azure account.
 
-- An Azure virtual machine (VM). If you don't have one, create [a virtual machine](./windows/quick-create-portal.md).
+- An Azure virtual machine (VM). If you don't have one, create [a Linux VM](./linux/quick-create-portal.md) or [a Windows VM](./windows/quick-create-portal.md).
 
 ## Test inbound connections
 
