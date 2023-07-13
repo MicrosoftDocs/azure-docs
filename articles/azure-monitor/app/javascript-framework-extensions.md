@@ -42,14 +42,16 @@ None.
 The React plug-in for the Application Insights JavaScript SDK enables:
 
 - Track router history
-- React components usage statistics
 - Track errors
+- Track components usage
+- Use React Context
 
 ### [React Native](#tab/reactnative)
 
 The React Native plugin for Application Insights JavaScript SDK enables: 
 
-- Collect device information.
+- Track device errors 
+- Collect device information
 
    By default, this plugin automatically collects:
 
@@ -57,7 +59,9 @@ The React Native plugin for Application Insights JavaScript SDK enables:
   - **Device Model Name** (Such as iPhone XS, Samsung Galaxy Fold, Huawei P30 Pro etc.)
   - **Device Type** (For example, handset, tablet, etc.)
 
-- Track errors
+- Disable automatic device info collection
+- Use your own device info collection class
+- Override the device information
 
 ### [Angular](#tab/angular)
 
@@ -65,6 +69,7 @@ The Angular plugin for the Application Insights JavaScript SDK enables:
 
 - Track router history
 - Track errors
+- Chain more custom error handlers
 
 > [!WARNING]
 > Angular plugin is NOT ECMAScript 3 (ES3) compatible.
