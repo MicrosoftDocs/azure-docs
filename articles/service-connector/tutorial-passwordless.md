@@ -170,7 +170,7 @@ az webapp connection create mysql-flexible \
     --client-type java
 ```
 
-As for `--client-type`, you can use `az webapp connection create mysql-flexible -h` to get the supported client types and choose the one which matches your application.
+As for `--client-type`, you can use `az webapp connection create mysql-flexible -h` to get the supported client types and choose the one that matches your application.
 
 ::: zone-end
 
@@ -219,7 +219,7 @@ As for `--client-type`, you can use `az webapp connection create sql -h` to get 
 
 ::: zone-end
 
-This Service Connector command will do the following tasks in the background:
+This Service Connector command does the following tasks in the background:
 
 - Enable system-assigned managed identity, or assign a user identity for the app `$APPSERVICE_NAME` hosted by Azure App Service.
 - Set the Azure Active Directory admin to the current signed-in user.
@@ -285,7 +285,7 @@ Service Connector needs to access Azure Active Directory to get information of y
 az ad signed-in-user show
 ```
 
-If you don't login interactively, you may also get the error and `Interactive authentication is needed`. Please login with `az login` command.
+If you don't login interactively, you may also get the error and `Interactive authentication is needed`. Please log in with `az login` command.
 
 
 ---
@@ -329,7 +329,7 @@ For more information, see
 
 ### [Spring](#tab/spring)
 
-For Spring application, if you create connection with option `--client-type springboot`, Service Connector will set the properties `spring.datasource.passwordless_enabled`, `spring.datasource.url`, `spring.datasource.username` to Azure Spring Apps. Please remove the `spring.datatsource.password` in configuration if it's set before. Then add the dependencies to your Spring application as the tutorial [Bind an Azure Database for PostgreSQL to your application in Azure Spring Apps](../spring-apps/how-to-bind-postgres.md#prepare-your-java-project)
+For Spring application, if you create connection with option `--client-type springboot`, Service Connector will set the properties `spring.datasource.passwordless_enabled`, `spring.datasource.url`, `spring.datasource.username` to Azure Spring Apps. Remove the `spring.datatsource.password` in configuration if it's set before. Then add the dependencies to your Spring application as the tutorial [Bind an Azure Database for PostgreSQL to your application in Azure Spring Apps](../spring-apps/how-to-bind-postgres.md#prepare-your-java-project)
 
 ### [Dotnet](#tab/dotnet)
 For other language, there's not plugin or library for passwordless connection, you can get access token of the managed identity or service principal as the password to connect database. For example, in .NET, you can use [Azure.Identity](https://www.nuget.org/packages/Azure.Identity/) to get access token of managed identity or service principal.
@@ -379,6 +379,12 @@ namespace NpgsqlConnectionExample
 }
 ```
 
+### [Others](#tab/others)
+For other languages, you can use the connection string and user name that Service Connector set to the environment variables to connect the database. For environment variables detail, see [Integrate Azure Database for PostgreSQL with Service Connector](./how-to-integrate-postgres.md)
+
+For code tutorial, see [Connect to Azure databases from App Service without secrets using a managed identity](/azure/app-service/tutorial-connect-msi-azure-database?tabs=postgresql#3-modify-your-code)
+
+
 ---
 
 
@@ -411,7 +417,7 @@ namespace NpgsqlConnectionExample
 
 ### [Spring](#tab/spring)
 
-For Spring application, if you create connection with option `--client-type springboot`, Service Connector will set the properties `spring.datasource.passwordless_enabled`, `spring.datasource.url`, `spring.datasource.username` to Azure Spring Apps. Please remove the `spring.datatsource.password` in configuration if it's set before. Then add the dependencies to your Spring application as the tutorial [Connect an Azure Database for MySQL instance to your application in Azure Spring Apps](../spring-apps/how-to-bind-mysql.md#prepare-your-java-project)
+For Spring application, if you create connection with option `--client-type springboot`, Service Connector will set the properties `spring.datasource.passwordless_enabled`, `spring.datasource.url`, `spring.datasource.username` to Azure Spring Apps. Remove the `spring.datatsource.password` in configuration if it's set before. Then add the dependencies to your Spring application as the tutorial [Connect an Azure Database for MySQL instance to your application in Azure Spring Apps](../spring-apps/how-to-bind-mysql.md#prepare-your-java-project)
 
 
 ### [Dotnet](#tab/dotnet)
@@ -452,6 +458,12 @@ namespace MysqlConnectionExample
     }
 }
 ```
+
+
+### [Others](#tab/others)
+For other languages, you can use the connection string and user name that Service Connector set to the environment variables to connect the database. For environment variables detail, see [Integrate Azure Database for MySQL with Service Connector](./how-to-integrate-mysql.md)
+
+For code tutorial, see [Connect to Azure databases from App Service without secrets using a managed identity](/azure/app-service/tutorial-connect-msi-azure-database?tabs=mysql#3-modify-your-code)
 
 ---
 
@@ -510,6 +522,11 @@ using (SqlConnection conn = new SqlConnection(ConnectionString)) {
     conn.Open();
 }
 ```
+
+### [Others](#tab/others)
+For other languages, you can use the connection string and user name that Service Connector set to the environment variables to connect the database. For environment variables detail, see [Integrate Azure SQL Database with Service Connector](./how-to-integrate-sql-database.md)
+
+For code tutorial, see [Connect to Azure databases from App Service without secrets using a managed identity](/azure/app-service/tutorial-connect-msi-azure-database?tabs=sqldatabase#3-modify-your-code)
 
 ---
 
