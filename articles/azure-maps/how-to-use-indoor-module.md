@@ -13,7 +13,7 @@ ms.custom: devx-track-js
 
 # Use the Azure Maps Indoor Maps module with custom styles (preview)
 
-The Azure Maps Web SDK includes the *Azure Maps Indoor* module, enabling you to render indoor maps created in Azure Maps Creator services.
+The Azure Maps Web SDK includes an [Indoor Maps] module, enabling you to render indoor maps created in Azure Maps Creator services.
 
 When you create an indoor map using Azure Maps Creator, default styles are applied. Azure Maps Creator now also supports customizing the styles of the different elements of your indoor maps using the [Style Rest API], or the [visual style editor].
 
@@ -63,11 +63,13 @@ To use the globally hosted Azure Content Delivery Network version of the *Azure 
       ```
 
       Inside your source file, import atlas-indoor.min.css:
+
       ```js
       import "azure-maps-indoor/dist/atlas-indoor.min.css";
       ```
 
       Then add loaders to the module rules portion of the Webpack config:
+
       ```js
       module.exports = {
         module: {
@@ -292,33 +294,38 @@ For a live demo of an indoor map with available source code, see [Creator Indoor
 Read about the APIs that are related to the *Azure Maps Indoor* module:
 
 > [!div class="nextstepaction"]
-> [Drawing package requirements](drawing-requirements.md)
+> [Drawing package requirements]
 
 >[!div class="nextstepaction"]
-> [Creator for indoor maps](creator-indoor-maps.md)
+> [Creator for indoor maps]
 
 Learn more about how to add more data to your map:
 
 > [!div class="nextstepaction"]
-> [Indoor Maps dynamic styling](indoor-map-dynamic-styling.md)
+> [Indoor Maps dynamic styling]
 
 > [!div class="nextstepaction"]
-> [Code samples](/samples/browse/?products=azure-maps)
+> [Code samples]
 
 [Azure Content Delivery Network]: #embed-the-indoor-maps-module
 [Azure Maps account]: quick-demo-map-app.md#create-an-azure-maps-account
 [Azure Maps Creator resource]: how-to-manage-creator.md
+[Indoor Maps]: https://www.npmjs.com/package/azure-maps-indoor
 [Azure Maps service geographic scope]: geographic-scope.md
 [azure-maps-indoor package]: https://www.npmjs.com/package/azure-maps-indoor
+[Code samples]: /samples/browse/?products=azure-maps
 [Create custom styles for indoor maps]: how-to-create-custom-styles.md
+[Creator for indoor maps]: creator-indoor-maps.md
 [Creator Indoor Maps]: https://samples.azuremaps.com/?sample=creator-indoor-maps
+[Drawing package requirements]: drawing-requirements.md
 [dynamic map styling]: indoor-map-dynamic-styling.md
+[Indoor Maps dynamic styling]: indoor-map-dynamic-styling.md
 [map configuration API]: /rest/api/maps/v20220901preview/map-configuration
 [map configuration]: creator-indoor-maps.md#map-configuration
 [Style Rest API]: /rest/api/maps/v20220901preview/style
+[style-loader]: https://webpack.js.org/loaders/style-loader
 [Subscription key]: quick-demo-map-app.md#get-the-subscription-key-for-your-account
 [Tileset List API]: /rest/api/maps/v2/tileset/list
 [Use Creator to create indoor maps]: tutorial-creator-indoor-maps.md
-[visual style editor]: https://azure.github.io/Azure-Maps-Style-Editor/
-[Webpack]: https://webpack.js.org/
-[style-loader]: https://webpack.js.org/loaders/style-loader/
+[visual style editor]: https://azure.github.io/Azure-Maps-Style-Editor
+[Webpack]: https://webpack.js.org

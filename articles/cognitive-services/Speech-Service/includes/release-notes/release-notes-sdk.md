@@ -6,6 +6,33 @@ ms.date: 11/01/2022
 ms.author: eur
 ---
 
+### Speech SDK 1.30.0: July 2023 release
+
+#### New Features
+
+* **C++, C#, Java** - Added support for `DisplayWords` in Embedded Speech Recognition's detailed result.
+* **Objective-C/Swift** - Added support for `ConnectionMessageReceived` event in Objective-C/Swift.
+* **Objective-C/Swift** - Improved keyword-spotting models for iOS. This change has increased the size of the certain packages which contain iOS binaries (like NuGet, XCFramework). We are working on to reduce the size for future releases.
+
+#### Bug fixes
+
+* Fixed a memory leak when using speech recognizer with PhraseListGrammar, as reported by a customer ([GitHub issue](https://github.com/Azure-Samples/cognitive-services-speech-sdk/issues/1978)).
+* Fixed a deadlock in Text-to-Speech (TTS) open connection API.
+
+#### Additional notes
+
+* **Java** - Some internally used, `public` Java API methods were changed to package `internal`, `protected` or `private`. This change should not impact developers, as we do not expect applications to be using those. Noted here for transparency.
+
+#### Samples
+
+* New Pronunciation Assessment samples on how to specify a learning language in your own application
+  - **C#**: See [sample code](https://github.com/Azure-Samples/cognitive-services-speech-sdk/blob/master/samples/csharp/sharedcontent/console/speech_recognition_samples.cs#LL1086C13-L1086C98).
+  - **C++**: See [sample code](https://github.com/Azure-Samples/cognitive-services-speech-sdk/blob/master/samples/cpp/windows/console/samples/speech_recognition_samples.cpp#L624).
+  - **javascript**: See [sample code](https://github.com/Azure-Samples/cognitive-services-speech-sdk/blob/master/samples/js/node/pronunciationAssessmentContinue.js#LL37C4-L37C52).
+  - **Objective-C**: See [sample code](https://github.com/Azure-Samples/cognitive-services-speech-sdk/blob/master/samples/objective-c/ios/speech-samples/speech-samples/ViewController.m#L862).
+  - **Python**: See [sample code](https://github.com/Azure-Samples/cognitive-services-speech-sdk/blob/master/samples/python/console/speech_sample.py#LL937C1-L937C1).
+  - **Swift**: See [sample code](https://github.com/Azure-Samples/cognitive-services-speech-sdk/blob/master/samples/swift/ios/speech-samples/speech-samples/ViewController.swift#L224). 
+
 ### Speech SDK 1.29.0: June 2023 release
 
 #### New Features
