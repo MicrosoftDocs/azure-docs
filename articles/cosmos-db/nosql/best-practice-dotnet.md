@@ -115,8 +115,8 @@ However, when each tenant is represented by a **different Azure Cosmos DB accoun
 
 It's recommended in these cases to:
 
-* Understand the limitations of the compute environment (CPU and connection resources).
-* Based on the limitations, understand the limit of client instances / tenants a single compute instance can handle.
+* Understand the limitations of the compute environment (CPU and connection resources). We recommend using VMs with at least 4-cores and 8-GB memory whenever possible.
+* Based on the limitations of the compute environment, determine the number of client instances (and therefore number of tenants) a single compute instance can handle. You can [estimate the number of connections](sdk-connection-modes.md#volume-of-connections) that will be opened per client depending on the connection mode chosen.
 * Evaluate tenant distribution across instances. If each compute instance can successfully handle a certain limited amount of tenants, load balancing and routing of tenants to different compute instances would allow for scaling as the number of tenants grow.
 * For sparse workloads, consider using a Least Frequently Used cache as the structure to hold the client instances and dispose clients for tenants that haven't been accessed within a time window. One option in .NET is [MemoryCacheEntryOptions](/dotnet/api/microsoft.extensions.caching.memory.memorycacheentryoptions), where [RegisterPostEvictionCallback](/dotnet/api/microsoft.extensions.caching.memory.memorycacheentryextensions.registerpostevictioncallback) can be used to **dispose inactive clients** and [SetSlidingExpiration](/dotnet/api/microsoft.extensions.caching.memory.memorycacheentryextensions.setslidingexpiration) can be used to define the maximum time to hold inactive connections.
 * Evaluate using [Gateway mode](sdk-connection-modes.md#available-connectivity-modes) to reduce the number of network connections.
