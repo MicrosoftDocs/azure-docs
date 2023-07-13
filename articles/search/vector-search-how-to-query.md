@@ -141,9 +141,9 @@ api-key: {{admin-api-key}}
 }
 ```
 
-## Query syntax for cross-field vector query
+## Query syntax for vector query over multiple fields
 
-You can set "vector.fields" property to multiple vector fields. For example, the Postman collection has vector fields named titleVector and contentVector. Your query can include both titleVector and contentVector.
+You can set "vector.fields" property to multiple vector fields. For example, the Postman collection has vector fields named titleVector and contentVector. Your vector query executes over both the titleVector and contentVector fields, which must have the same embedding space since they share the same query vector.
 
 ```http
 POST https://{{search-service-name}}.search.windows.net/indexes/{{index-name}}/docs/search?api-version={{api-version}}
@@ -166,26 +166,36 @@ api-key: {{admin-api-key}}
 }
 ```
 
-## Query syntax for multi-modal vector queries
+## Query syntax for multiple vector queries
 
-You can issue a search request with multiple query vectors using the `vectors` query parameter. The queries execute concurrently over the same embedding space in the search index, looking for similarities in each of the vector fields. The result set is a union of the documents that matched all vector queries. A common example of this query request is when using models such as [CLIP](https://openai.com/research/clip) for a multi-modal vector search.
+You can issue a search request containing multiple query vectors using the `vectors` query parameter. The queries execute concurrently in the search index, each one looking for similarities in the target vector fields. The result set is a union of the documents that matched both vector queries. A common example of this query request is when using models such as [CLIP](https://openai.com/research/clip) for a multi-modal vector search where the same model can vectorize image and non-image content.
 
-You must use REST for this scenario. Currently, there isn't support for multiple vector fields in the alpha SDKs.
+You must use REST for this scenario. Currently, there isn't support for multiple vector queries in the alpha SDKs.
 
 + `vectors.value` property contains the vector query generated from the embedding model used to create image and text vectors in the search index. 
-+ `vectors.fields` contains the image vectors and text vectors in the search index.
++ `vectors.fields` contains the image vectors and text vectors in the search index. This is the searchable data.
 + `vectors.k` is the number of nearest neighbor matches to include in results.
 
 ```http
 {
     "vectors": [ 
         {
-            "value": [1.0, 2.0],
+            "value": [
+                -0.001111111,
+                0.018708462,
+                -0.013770515,
+            . . .
+            ],
             "fields": "myimagevector",
             "k": 5
         },
         {
-            "value": [1.0, 2.0, 3.0],
+            "value": [
+                -0.002222222,
+                0.018708462,
+                -0.013770515,
+            . . .
+            ],
             "fields": "mytextvector",
             "k": 5
         }

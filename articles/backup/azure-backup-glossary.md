@@ -4,8 +4,8 @@ description: This article defines terms helpful for use with Azure Backup.
 ms.topic: conceptual
 ms.custom: devx-track-azurepowershell, devx-track-arm-template, devx-track-azurecli
 ms.date: 12/21/2020
-author: jyothisuri
-ms.author: jsuri
+author: AbhishekMallick-MS
+ms.author: v-abhmallick
 ---
 
 # Azure Backup glossary
