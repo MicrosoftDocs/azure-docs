@@ -58,7 +58,7 @@ This scope is integrated with [update management center](../update-center/overvi
     :::image type="content" source="./media/maintenance-configurations/add-schedule-maintenance-window.png" alt-text="Screenshot of the upper maintenance window minimum time specification.":::
 - The upper maintenance window is 3 hour and 55 minutes.
 - A minimum of 1 hour and 30 minutes is required for the maintenance window.
-- There is no limit to the recurrence of your schedule.
+- The minimum value of recurrent window is 6 hours i.e. the value of repeat should be at least 6 hours.
 
 To learn more about this topic, checkout [update management center and scheduled patching](../update-center/scheduled-patching.md)
 
