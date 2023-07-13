@@ -22,14 +22,14 @@ Decision makers who review users' access and perform access reviews can use syst
 
 ## Prerequisites
  
-- Azure AD Premium P2
+Creating a review on [inactive user](#inactive-user-recommendations) and with [user-to-group affiliation](#user-to-group-affiliation) recommendations require a Microsoft Entra ID Governance license.
  
 For more information, see [License requirements](access-reviews-overview.md#license-requirements).
 
 ## Inactive user recommendations
 A user is considered 'inactive' if they haven't signed into the tenant within the last 30 days. This behavior is adjusted for reviews of application assignments, which checks each user's last activity in the app as opposed to the entire tenant. When inactive user recommendations are enabled for an access review, the last sign-in date for each user is evaluated once the review starts, and any user that has not signed-in within 30 days are given a recommended action of Deny. Additionally, when these decision helpers are enabled, reviewers are able to see the last sign-in date for all users being reviewed. This sign-in date, and the resulting recommendation, is determined when the review begins and won't get updated while the review is in-progress.
 
-## User-to-Group Affiliation (preview)
+## User-to-Group Affiliation
 Making the review experience easier and more accurate empowers IT admins and reviewers to make more informed decisions. This Machine Learning based recommendation opens the journey to automate access reviews, thereby enabling intelligent automation and reducing access rights attestation fatigue.
 
 User-to-Group Affiliation in an organization’s chart is defined as two or more users who share similar characteristics in an organization's reporting structure.
@@ -40,6 +40,8 @@ If this decision helper is enabled by the creator of the access review, reviewer
 
 > [!NOTE]
 > This feature is only available for users in your directory. A user should have a manager attribute and should be a part of an organizational hierarchy for the User-to-group Affiliation to work.
+>
+>Groups with more than 600 users are not supported.
 
 The following image has an example of an organization's reporting structure in a cosmetics company: 
 

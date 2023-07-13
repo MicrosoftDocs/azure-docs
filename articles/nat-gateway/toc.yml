@@ -38,11 +38,11 @@ items:
   expanded: true
 - name: Concepts
   items:
-  - name: Resources
+  - name: NAT gateway resource
     href: nat-gateway-resource.md
   - name: Metrics and alerts
     href: nat-metrics.md
-  - name: Resource Health
+  - name: Resource health
     href: resource-health.md
   - name: Availability zones
     href: nat-availability-zones.md
@@ -50,6 +50,10 @@ items:
     items:
     - name: NAT gateway security baseline
       href: /security/benchmark/azure/baselines/virtual-network-nat-security-baseline
+  - name: SNAT with NAT gateway
+    href: nat-gateway-snat.md
+  - name: NAT gateway design guidance
+    href: nat-gateway-design.md
 - name: How-to
   items:
   - name: Manage NAT gateway

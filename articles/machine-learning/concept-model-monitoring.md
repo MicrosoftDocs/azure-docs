@@ -18,7 +18,7 @@ ms.custom: devplatv2
 
 In this article, you'll learn about model monitoring in Azure Machine Learning, the signals and metrics you can monitor, and the recommended practices for using model monitoring.
 
-[!INCLUDE [machine-learning-preview-generic-disclaimer](../../includes/machine-learning-preview-generic-disclaimer.md)]
+[!INCLUDE [machine-learning-preview-generic-disclaimer](includes/machine-learning-preview-generic-disclaimer.md)]
 
 Model monitoring is the last step in the machine learning end-to-end lifecycle. This step tracks model performance in production and aims to understand it from both data science and operational perspectives. Unlike traditional software systems, the behavior of machine learning systems is governed not just by rules specified in code, but also by model behavior learned from data. Data distribution changes, training-serving skew, data quality issues, shift in environment, or consumer behavior changes can all cause models to become stale and their performance to degrade to the point that they fail to add business value or start to cause serious compliance issues in highly regulated environments.
 

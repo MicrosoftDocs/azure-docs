@@ -28,9 +28,9 @@ A Terraform configuration is a document that defines the resources that are need
 
 ## Limitations
 
-[!INCLUDE [register-namespace](../../includes/machine-learning-register-namespace.md)]
+[!INCLUDE [register-namespace](includes/machine-learning-register-namespace.md)]
 
-[!INCLUDE [application-insight](../../includes/machine-learning-application-insight.md)]
+[!INCLUDE [application-insight](includes/machine-learning-application-insight.md)]
 
 ## Declare the Azure provider
 
@@ -123,7 +123,7 @@ There are several options to connect to your private link endpoint workspace. To
 
 ### Resource provider errors
 
-[!INCLUDE [machine-learning-resource-provider](../../includes/machine-learning-resource-provider.md)]
+[!INCLUDE [machine-learning-resource-provider](includes/machine-learning-resource-provider.md)]
 
 ## Next steps
 

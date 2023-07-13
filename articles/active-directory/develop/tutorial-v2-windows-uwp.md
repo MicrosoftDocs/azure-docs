@@ -541,7 +541,7 @@ You enable [integrated authentication on federated domains](#enable-integrated-a
 
 **Workaround:** Select **Sign in with other options**. Then select **Sign in with a username and password**. Select **Provide your password**. Then go through the phone authentication process.
 
-[!INCLUDE [Help and support](../../../includes/active-directory-develop-help-support-include.md)]
+[!INCLUDE [Help and support](./includes/error-handling-and-tips/help-support-include.md)]
 
 ## Next steps
 

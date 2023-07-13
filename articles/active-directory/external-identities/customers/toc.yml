@@ -8,6 +8,8 @@ items:
       href: overview-customers-ciam.md 
     - name: Demo overview
       href: overview-solutions-customers.md
+    - name: What's new in docs?
+      href: whats-new-docs.md
 - name: Quickstarts
   expanded: true
   items: 

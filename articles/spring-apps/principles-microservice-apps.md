@@ -1,7 +1,7 @@
 ---
 title:  Java and base OS for Azure Spring Apps apps
 description: Principles for maintaining healthy Java and base operating system for Azure Spring Apps apps
-author: karlerickson
+author: KarlErickson
 ms.author: karler
 ms.service: spring-apps
 ms.topic: conceptual

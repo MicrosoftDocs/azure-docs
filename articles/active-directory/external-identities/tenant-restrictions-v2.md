@@ -102,11 +102,26 @@ When your users need access to external organizations and apps, we recommend ena
 
 ### Tenant restrictions and Microsoft Teams
 
-For greater control over access to Teams meetings, you can use [Federation Controls](/microsoftteams/manage-external-access) in Teams to allow or block specific tenants, along with tenant restrictions V2 to block anonymous access to Teams meetings. Tenant restrictions prevent users from using an externally issued identity to join Teams meetings.
+Teams by default has open federation, which means we do not block anyone joining a meeting hosted by an external tenant. For greater control over access to Teams meetings, you can use [Federation Controls](/microsoftteams/manage-external-access) in Teams to allow or block specific tenants, along with tenant restrictions V2 to block anonymous access to Teams meetings. To enforce tenant restrictions for Teams, you need to configure tenant restrictions V2 in your Azure AD cross-tenant access settings. You also need to set up Federation Controls in the Teams Admin portal and restart Teams. Tenant restrictions implemented on the corporate proxy won't block anonymous access to Teams meetings, SharePoint files, and other resources that don't require authentication.
 
+- Teams currently allows users to join <i>any</i> externally hosted meeting using their corporate/home provided identity. You can use outbound cross-tenant access settings to control users with corporate/home provided identity to join externally hosted Teams meetings.
+- Tenant restrictions prevent users from using an externally issued identity to join Teams meetings.
+
+#### Pure Anonymous Meeting join
+
+Tenant restrictions V2 automatically block all unauthenticated and externally-issued identity access to externally-hosted Teams meetings.
 For example, suppose Contoso uses Teams Federation Controls to block the Fabrikam tenant. If someone with a Contoso device uses a Fabrikam account to join a Contoso Teams meeting, they're allowed into the meeting as an anonymous user. Now, if Contoso also enables tenant restrictions V2, Teams blocks anonymous access, and the user isn't able to join the meeting.
 
-To enforce tenant restrictions for Teams, you need to configure tenant restrictions V2 in your Azure AD cross-tenant access settings. You also need to set up Federation Controls in the Teams Admin portal and restart Teams. Tenant restrictions implemented on the corporate proxy won't block anonymous access to Teams meetings, SharePoint files, and other resources that don't require authentication.
+#### Meeting join using an externally issued identity
+
+You can configure the tenant restrictions V2 policy to allow specific users or groups with externally issued identities to join specific externally hosted Teams meetings. With this configuration, users can sign in to Teams with their externally issued identities and join the specified tenant's externally hosted Teams meetings.
+
+There is currently a known issue where, if Teams federation is off, Teams blocks a home identity authenticated session from joining externally hosted Teams meetings.
+
+| Auth identity | Authenticated session  | Result |
+|----------------------|---------|---------|
+|Anonymous (no authenticated session) <br></br> Example: A user tries to use an unauthenticated session, for example in an InPrivate browser window, to access a Teams meeting. | Not authenticated |  Access to the Teams meeting is blocked by Tenant restrictions V2 |
+|Externally issued identity (authenticated session)<br></br> Example: A user uses any identity other than their home identity (for example, user@externaltenant.com) | Authenticated as an externally-issued identity |  Allow or block access to the Teams meeting per Tenant restrictions V2 policy. If allowed by the policy, the user can join the meeting. Otherwise access is blocked. <br></br> Note: There is currently a known issue where, if Teams is not explicitly federated with the external tenant, Teams and Tenant restrictions V2 block users using a home identity authenticated session from joining externally hosted Teams meetings.  
 
 ### Tenant restrictions V2 and SharePoint Online
 

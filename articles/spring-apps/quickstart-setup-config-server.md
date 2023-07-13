@@ -1,7 +1,7 @@
 ---
 title: "Quickstart: Set up Spring Cloud Config Server for Azure Spring Apps"
 description: Describes the setup of Azure Spring Apps Config Server for app deployment.
-author: karlerickson
+author: KarlErickson
 ms.author: karler
 ms.service: spring-apps
 ms.topic: quickstart
