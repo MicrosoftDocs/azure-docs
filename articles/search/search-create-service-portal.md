@@ -43,7 +43,7 @@ Paid (or billable) search occurs when you choose a billable tier (Basic or above
 
 1. Click the plus sign (**"+ Create Resource"**) in the top-left corner.
 
-1. Use the search bar to find "Azure Cognitive Search" or navigate to the resource through **Web** > **Azure Cognitive Search**.
+1. Use the search bar to find "Azure Cognitive Search".
 
 :::image type="content" source="media/search-create-service-portal/find-search3.png" lightbox="media/search-create-service-portal/find-search3.png" alt-text="Screenshot of the Create Resource page in the portal." border="true":::
 
