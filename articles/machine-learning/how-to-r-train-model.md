@@ -154,7 +154,7 @@ Once you've submitted the job, you can check the status and results in studio:
 Finally, once the training job is complete, register your model if you want to deploy it.  Start in the studio from the page showing your job details.
 
 1. Once your job completes, select **Outputs + logs** to view outputs of the job.
-1. Open the **Outputs** section to verify that **crate.bin** and **MLmodel** are present.  If not, check the logs to see if there was an error.
+1. Open the **models** section to verify that **crate.bin** and **MLmodel** are present.  If not, check the logs to see if there was an error.
 1. On the toolbar at the top, select **+ Register model**.
 
     :::image type="content" source="media/how-to-r-train-model/register-model.png" alt-text="Screenshot shows the Job section of studio with the Outputs section open.":::
