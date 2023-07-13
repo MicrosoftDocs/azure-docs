@@ -329,7 +329,7 @@ Before you can send notifications to Teams from your pipelines, you must create 
                 "targets": [
                     {
                         "os": "default",
-                        "uri": "@{concat('https://synapse.azure.com/monitoring/pipelineruns/',pipeline().parameters.runId,'?factory=/subscriptions/',pipeline().parameters.subscription,'/resourceGroups/',pipeline().parameters.resourceGroup,'/providers/Microsoft.DataFactory/factories/',pipeline().DataFactory)}"
+                        "uri": "@{concat('https://web.azuresynapse.net/monitoring/pipelineruns/',pipeline().parameters.runId,'?workspace=%2Fsubscriptions%2F',pipeline().parameters.subscription,'%2FresourceGroups%2F',pipeline().parameters.resourceGroup,'%2Fproviders%2FMicrosoft.Synapse%2Fworkspaces%2F',pipeline().DataFactory)}"
                     }
                 ]
             }
