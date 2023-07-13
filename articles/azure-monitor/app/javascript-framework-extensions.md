@@ -387,7 +387,7 @@ export class AppModule { }
 
 ---
 
-## Add configuration (remaining)
+## Configuration (other)
 
 ### [React](#tab/react)
 
