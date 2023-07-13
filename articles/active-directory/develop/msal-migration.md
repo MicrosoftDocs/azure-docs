@@ -24,7 +24,7 @@ If any of your applications use the Azure Active Directory Authentication Librar
 - No new features have been added to ADAL since June 30, 2020.
 
 > [!WARNING]
-> If you choose not to migrate to MSAL before ADAL support ends in June 2023, you put your app's security at risk. Existing apps that use ADAL will continue to work after the end-of-support date but Microsoft will no longer release security fixes on ADAL. Learn more in [the official announcement](https://aka.ms/adal-eos).
+> Azure Active Directory Authentication Library (ADAL) has been deprecated. While existing apps that use ADAL will continue to work, Microsoft will no longer release security fixes on ADAL. Use the [Microsoft Authentication Library (MSAL)](/entra/msal/) to avoid putting your app's security at risk.
 
 ## Why switch to MSAL?
 
