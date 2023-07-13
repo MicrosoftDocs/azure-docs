@@ -169,7 +169,7 @@ To create a geo-replica of the database:
         SELECT * FROM sys.dm_operation_status;
     ```
 
-1. Once the database seeding is finished, perform a planned (no data loss) failover to make the zone redundant target database as primary.  
+1. Once the database seeding is finished, perform a planned (no data loss) failover to make the zone redundant target database as primary.  Use the [sys.dm_geo_replication_link_status](/sql/relational-databases/system-dynamic-management-views/sys-dm-geo-replication-link-status-azure-sql-database?view=azuresqldb-current&preserve-view=true) to view the status of the geo-replication state. The `replication_state_desc` is `CATCH_UP` when the secondary database is in a transactionally consistent state. In the [sys.dm_operation_status](sql/relational-databases/system-dynamic-management-views/sys-dm-operation-status-azure-sql-database?view=azuresqldb-current&preserve-view=true) dynamic management view, look for `state_desc` to be `COMPLETED` when the seeding operation has completed.
 
 1. Update the server name in the connection strings for the application to reflect the new zone redundant database.
 
