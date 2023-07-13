@@ -113,9 +113,9 @@ Zone-redundant and zonal gateways (gateway SKUs that have *AZ* in the name) both
 
 For non-zone-redundant and non-zonal gateways (gateway SKUs that do *not* have *AZ* in the name), dynamic IP address assignment is supported. When you use a dynamic IP address, the IP address doesn't change after it has been assigned to your VPN gateway. The only time the VPN gateway IP address changes is when the gateway is deleted and then re-created. The VPN gateway public IP address doesn't change when you resize, reset, or complete other internal maintenance and upgrades of your VPN gateway.
 
-### What impact will the retirement of Basic Public IP have on my VPN gateway?
+### What impact will the retirement of Basic SKU public IP addresses have on my VPN gateway?
 
-The retirement of Basic Public IP has been officially announced. We are actively implementing measures to ensure the uninterrupted functioning of VPN gateways created using Basic Public IPs. Customers are not required to take any action regarding their existing VPN gateways. However, in light of Basic Public IP's impending retirement, we highly recommend that customers utilize **Standard** public IPs when creating any any new VPN gateways.
+The retirement of Basic SKU public IP addresses has been officially announced. We're actively implementing measures to ensure the uninterrupted functioning of VPN gateways that were created using Basic SKU public IP addresses. You are not required to take any action regarding their existing VPN gateways. However, in light of Basic SKU public IP's impending retirement, we highly recommend that you use **Standard** SKU public IPs when creating new VPN gateways.
 
 ### How does my VPN tunnel get authenticated?
 
