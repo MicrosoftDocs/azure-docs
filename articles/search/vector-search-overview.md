@@ -93,7 +93,7 @@ In order to create effective embeddings for vector search, it's important to tak
 
 ### What is the embedding space?
 
-*Embedding space* is the corpus for vector search. Machine learning models create the embedding space by mapping individual words, phrases, or documents (for natural language processing), images, or other forms of data into a representation comprised of a vector of real numbers representing a coordinate in a high-dimensional space. In this embedding space, similar items are located close together, and dissimilar items are located farther apart. 
+*Embedding space* is the corpus for vector queries. Within a search index, it's all of the vector fields populated with embeddings from the same embedding model. Machine learning models create the embedding space by mapping individual words, phrases, or documents (for natural language processing), images, or other forms of data into a representation comprised of a vector of real numbers representing a coordinate in a high-dimensional space. In this embedding space, similar items are located close together, and dissimilar items are located farther apart. 
 
 For example, documents that talk about different species of dogs would be clustered close together in the embedding space. Documents about cats would be close together, but farther from the dogs cluster while still being in the neighborhood for animals. Dissimilar concepts such as cloud computing would be much farther away. In practice, these embedding spaces are abstract and don't have well-defined, human-interpretable meanings, but the core idea stays the same.
 
@@ -107,7 +107,7 @@ Popular vector similarity metrics include the following, which are all supported
 
 Approximate Nearest Neighbor search (ANN) is a class of algorithms for finding matches in vector space. This class of algorithms employs different data structures or data partitioning methods to significantly reduce the search space to accelerate query processing. The specific approach depends on the algorithm. While this approach sacrifices some accuracy, these algorithms offer scalable and faster retrieval of approximate nearest neighbors, which makes them ideal for balancing accuracy and efficiency in modern information retrieval applications. You may adjust the parameters of your algorithm to fine-tune the recall, latency, memory, and disk footprint requirements of your search application.
 
-Azure Cognitive Search uses Hierarchical Navigation Small Worlds (HNSW), which is a leading algorithm optimized for high-recall, low-latency applications where data distribution is unknown or can change frequently.
+Azure Cognitive Search uses Hierarchical Navigable Small Worlds (HNSW), which is a leading ANN algorithm optimized for high-recall, low-latency applications where data distribution is unknown or can change frequently.
 
 > [!NOTE]
 > Finding the true set of [_k_ nearest neighbors](https://en.wikipedia.org/wiki/K-nearest_neighbors_algorithm) requires comparing the input vector exhaustively against all vectors in the dataset. While each vector similarity calculation is relatively fast, performing these exhaustive comparisons across large datasets is computationally expensive and slow due to the sheer number of comparisons. For example, if a dataset contains 10 million 1,000-dimensional vectors, computing the distance between the query vector and all vectors in the dataset would require scanning 37 GB of data (assuming single-precision floating point vectors) and a high number of similarity calculations.

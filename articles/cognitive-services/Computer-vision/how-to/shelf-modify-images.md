@@ -8,8 +8,8 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: how-to
-ms.date: 04/26/2023
-ms.author: pafarley
+ms.date: 07/10/2023
+ms.author: ginle
 ms.custom: references_regions, build-2023
 ---
 
@@ -45,7 +45,7 @@ To run the image stitching operation on a set of images, follow these steps:
 1. Copy the following `curl` command into a text editor.
 
     ```bash
-    curl.exe -H "Ocp-Apim-Subscription-Key: <subscriptionKey>" -H "Content-Type: application/json" "https://<endpoint>/vision/v4.0-preview.1/operations/shelfanalysis-productunderstanding:stitch" --output <your_filename> -d "{
+    curl.exe -H "Ocp-Apim-Subscription-Key: <subscriptionKey>" -H "Content-Type: application/json" "<endpoint>/computervision/imagecomposition:stitch?api-version=2023-04-01-preview" --output <your_filename> -d "{
         'images': [
             {
             'url':'<your_url_string>'
@@ -84,7 +84,7 @@ To correct the perspective distortion in the composite image, follow these steps
 1. Copy the following `curl` command into a text editor.
 
     ```bash
-    curl.exe -H "Ocp-Apim-Subscription-Key: <subscriptionKey>" -H "Content-Type: application/json" "https://<endpoint>/vision/v4.0-preview.1/operations/shelfanalysis-productunderstanding:rectify" --output <your_filename> -d "{
+    curl.exe -H "Ocp-Apim-Subscription-Key: <subscriptionKey>" -H "Content-Type: application/json" "<endpoint>/computervision/imagecomposition:rectify?api-version=2023-04-01-preview" --output <your_filename> -d "{
       'url': '<your_url_string>',
       'controlPoints': {
         'topLeft': {

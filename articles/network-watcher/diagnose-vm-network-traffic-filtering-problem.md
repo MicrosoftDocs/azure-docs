@@ -6,7 +6,7 @@ author: halkazwini
 ms.author: halkazwini
 ms.service: network-watcher
 ms.topic: quickstart
-ms.date: 07/10/2023
+ms.date: 07/12/2023
 ms.custom: template-quickstart, engagement-fy23
 #Customer intent: I need to diagnose and troubleshoot a virtual machine (VM) network traffic filter problem that prevents communication to and from a VM.
 ---
@@ -165,11 +165,11 @@ IP flow verify checks Azure default and configured security rules. If the checks
 
 When no longer needed, delete the resource group and all of the resources it contains:
 
-1. In the search box at the top of the portal, enter *myResourceGroup*. When you see **myResourceGroup** in the search results, select it.
+1. In the search box at the top of the portal, enter ***myResourceGroup***. When you see **myResourceGroup** in the search results, select it.
 
 1. Select **Delete resource group**.
 
-1. Enter *myResourceGroup* for **TYPE THE RESOURCE GROUP NAME:** and select **Delete**.
+1. Enter ***myResourceGroup*** for **Enter resource group name to confirm deletion** and select **Delete**.
 
 ## Next steps
 

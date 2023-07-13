@@ -144,12 +144,16 @@
       href: /security/benchmark/azure/baselines/azure-load-balancer-security-baseline?toc=/azure/load-balancer/TOC.json
 - name: How-to
   items:
-  - name: Manage health probes
-    href: manage-probes-how-to.md
   - name: Backend Pool management
     href: backend-pool-management.md
   - name: Retrieve metadata using the Azure IMDS
     href: howto-load-balancer-imds.md
+  - name: Health probes
+    items:
+    - name: Manage health probes
+      href: manage-probes-how-to.md
+    - name: Create a custom HTTP/HTTPS health probe
+      href: create-custom-http-health-probe-howto.md
   - name: Load Balancer metrics
     items:
     - name: Get Load Balancer metrics with Azure Monitor CLI
