@@ -21,7 +21,7 @@ Evaluates a boolean expression and returns the result of one of two expressions 
 ## Syntax
 
 ```sql
-IIF(<bool_expr>, <true_expr>, <false_expr>)
+IIF(<bool_expr>, <true_expr>, <notTrue_expr>)
 ```
 
 ## Arguments
@@ -30,7 +30,7 @@ IIF(<bool_expr>, <true_expr>, <false_expr>)
 | --- | --- |
 | **`bool_expr`** | A boolean expression, which is evaluated and used to determine which of the two supplemental expressions to use. |
 | **`true_expr`** | The expression to return if the boolean expression evaluated to `true`. |
-| **`false_expr`** | The expression to return if the boolean expression evaluated to `false`. |
+| **`notTrue_expr`** | The expression to return if the boolean expression evaluated to not `true`. |
 
 ## Return types
 
@@ -52,6 +52,28 @@ SELECT VALUE {
   {
     "evalTrue": 123,
     "evalFalse": 456
+  }
+]
+```
+
+This example evaluates a static non-boolean expression and returns one of two potential expressions.
+
+```sql
+SELECT VALUE {
+    eval1: IIF(123, 123, 456),
+    eval2: IIF("ABC", 123, 456),
+    eval3: IIF([1,2,3], 123, 456),
+    eval4: IIF({"name": "Alice", "age": 20}, 123, 456)
+}
+```
+
+```json
+[
+  {
+    "eval1": 456,
+    "eval2": 456,
+    "eval3": 456,
+    "eval4": 456
   }
 ]
 ```
