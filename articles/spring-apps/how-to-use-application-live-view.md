@@ -280,7 +280,7 @@ Use the following steps to view the Application Live View page for an app:
 
 1. In Visual Studio Code, open the Azure Spring Apps extension, and then sign in to your Azure account.
 1. Expand the service instance and the app that you want to monitor. Right-click the app.
-1. Select **Open Application Live View** from the menu. This will open the Application Live View page for the app in your default browser.
+1. Select **Open Application Live View** from the menu to open the Application Live View page for the app in your default browser.
 
    :::image type="content" source="media/how-to-use-application-live-view/vscode-open-app.png" alt-text="Screenshot of the VS Code extension showing the Open Application Live View option for an app." lightbox="media/how-to-use-application-live-view/vscode-open-app.png":::
 
