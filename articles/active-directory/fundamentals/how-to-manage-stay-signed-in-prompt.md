@@ -21,8 +21,6 @@ The **Stay signed in?** prompt appears after a user successfully signs in. This 
 
 This article covers how the KMSI process works, how to enable it for customers, and how to troubleshoot KMSI issues.
 
-[!INCLUDE [<portal-update>](../includes/portal-update.md)]
-
 ## How does it work? 
 
 If a user answers **Yes** to the **'Stay signed in?'** prompt, a persistent authentication cookie is issued. The cookie must be stored in session for KMSI to work. KMSI won't work with locally stored cookies. If KMSI isn't enabled, a non-persistent cookie is issued and lasts for 24 hours or until the browser is closed. 
