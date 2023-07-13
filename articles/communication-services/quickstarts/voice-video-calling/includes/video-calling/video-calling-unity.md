@@ -54,6 +54,7 @@ Open the `Main.unity` file and replace the content with following implementation
   <summary>Main.Unity Code</summary>
 
 ### Main.unity
+```C#
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
 --- !u!29 &1
