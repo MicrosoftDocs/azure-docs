@@ -14,9 +14,9 @@
     href: quality-checks.md
   - name: Find your subscription ID
     href: find-your-subscription-id.md
-  - name: Create a support ticket
-    href: create-a-support-ticket.md
+  - name: Create a volume group
+    href: create-a-volume-group.md
 - name: Workloads
   items:
-  - name: Azure Large Instances for Epic
+  - name: Azure Large Instances for the Epic workload
     href: ./workloads/epic/index.yml
