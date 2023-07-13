@@ -43,7 +43,7 @@ Filters: Filters help you focus on the data that is most relevant to your needs 
 ### Overview:
 This section provides insights into the effectiveness of email notifications and message performance to enable identification of patterns impacting message delivery. This graph measures the Total messages sent, messages delivered, messages failed, and messages blocked, message viewed, and message clicked, and the size of the message sent & delivered. 
 
-#### Overall Email health
+#### Overall email health
 
 Overall email insight measures email delivery that assesses effectiveness and efficiency of the email company. This metric enables you to optimize their marketing campaign efforts and improve customer engagement and conversion rate.
 
@@ -55,11 +55,11 @@ Email size represents the storage space your emails are taking up, this informat
 
 :::image type="content" source="../media/workbooks/email-insights/email-size.png" alt-text="Screenshot of email size.":::
 
-### Email Performance:
+### Email performance:
  This section provides insights into the email delivery rate, delivery log indicating information about      delivered emailed, bounced, blocked, suppression, failed etc. Analyzing the delivery log will help identify any issues or patterns and enable you to troubleshoot delivery problems and improved customer engagement.
    
 
-#### Email Delivery rates 
+#### Email delivery rates 
 Email delivery rates are pivotal to the success of the email marketing campaign, it provides insights into email performance over time. Measuring and monitoring the message delivery performance over extended periods by week or month or specified period.
 
 :::image type="content" source="../media/workbooks/email-insights/email-delivery-rate.png" alt-text="Screenshot of email delivery rate .":::
