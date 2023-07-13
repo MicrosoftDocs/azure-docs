@@ -39,42 +39,54 @@ You can integrate Azure Cache for Redis and Azure Functions to build functions t
 > Redis triggers are not currently supported on consumption functions.
 >
 
+
 ::: zone pivot="programming-language-csharp"
 
 ## Install extension
 
-Client Library
+### [In-process](#tab/in-process)
 
-You need to install `Microsoft.Azure.WebJobs.Extensions.Redis`, which is the extension that allows Redis keyspace notifications to be used as triggers in Azure Functions.
+Functions run in the same process as the Functions host. To learn more, see [Develop C# class library functions using Azure Functions](functions-dotnet-class-library.md).
 
-Install these packages by going to the terminal tab in VS Code and entering the following commands:
+Add the extension to your project by installing [this NuGet package](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.Redis).
 
-```dos
-dotnet add package Microsoft.Azure.WebJobs.Extensions.Redis
+```bash
+dotnet add package Microsoft.Azure.WebJobs.Extensions.Redis --prerelease
 ```
 
-::: zone-end
+### [Isolated process](#tab/isolated-process)
 
-::: zone pivot="programming-language-javascript,programming-language-python,programming-language-java,programming-language-powershell"
+Functions run in an isolated C# worker process. To learn more, see [Guide for running C# Azure Functions in an isolated worker process](dotnet-isolated-process-guide.md).
 
-## Install bundle
+Add the extension to your project by installing [this NuGet package](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker.Extensions.Redis).
 
-Presently, the extension has not been added to the Microsoft.Azure.Functions.ExtensionBundle.
-
-Install the Redis Extension manually for now following this procedure.
-
+```bash
+dotnet add package Microsoft.Azure.Functions.Worker.Extensions.Redis --prerelease
+```
+---
 ::: zone-end
 ::: zone pivot="programming-language-java"
+
+## Install bundle
 
 1. Install the .Net SDK.
 
 1. Create a Java function project. You could use Maven:
    `mvn archetype:generate -DarchetypeGroupId=com.microsoft.azure -DarchetypeArtifactId=azure-functions-archetype -DjavaVersion=8`
 
-1. Remove `extensionBundle` from `host.json`
-
-1. Run `func extensions install --package Microsoft.Azure.WebJobs.Extensions.Redis --version <version>`
-   - `<version>` should be the lateste version of the extenstion from NuGet
+1. Add the extension bundle by adding or replacing the following code in your _host.json_ file:
+```json
+{
+  "version": "2.0",
+  "extensionBundle": {
+    "id": "Microsoft.Azure.Functions.ExtensionBundle.Preview",
+    "version": "[4.11.*, 5.0.0)"
+  }
+}
+```
+>[!WARNING]
+>The Redis extension is currently only available in a preview bundle release.
+>
 
 1. Add the Java library for Redis bindings to the `pom.xml` file:
 
@@ -86,27 +98,31 @@ Install the Redis Extension manually for now following this procedure.
     </dependency>
     ```
 
-1. Replace the existing `Function.java` file with the following code:
+::: zone-end
+::: zone pivot="programming-language-javascript,programming-language-python,programming-language-powershell"
 
-    ```java
-    import com.microsoft.azure.functions.*;
-    import com.microsoft.azure.functions.tation.*;
-    import com.microsoft.azure.functions.s.annotation.*;
-    public class Function {
-      @FunctionName("PubSubTrigger")
-      public void PubSubTrigger(
-        @RedisPubSubTrigger(
-          name = "message",
-          connectionStringSetting = "Redis",
-          channel = "pubsubTest")
-          String message,
-        final ExecutionContext context) {
-        context.getLogger().info("Java tion triggered on pub/sub age '" + message + "' from nel 'pubsubTest'.");
-      }
-    }
-    ```
+## Install bundle
+
+Add the extension bundle by adding or replacing the following code in your _host.json_ file:
+```json
+{
+  "version": "2.0",
+  "extensionBundle": {
+    "id": "Microsoft.Azure.Functions.ExtensionBundle.Preview",
+    "version": "[4.11.*, 5.0.0)"
+  }
+}
+```
+
+>[!WARNING]
+>The Redis extension is currently only available in a preview bundle release.
+>
 
 ::: zone-end
+
+## Redis connection string
+Azure Cache for Redis triggers and bindings have a required property for the cache connection string. The connection string can be found on the [**Access keys**](../azure-cache-for-redis/cache-configure#access-keys) menu in the Azure Cache for Redis portal. The Redis trigger or binding will look for an environmental variable holding the connection string with the name passed to the `ConnectionStringSetting` parameter. In local development, this can be defined using the [local.settings.json](../azure-functions/functions-develop-local#local-settings-file) file. When deployed to Azure, [application settings](../azure-functions/functions-how-to-use-azure-function-app-settings) can be used. 
+
 
 ## Next steps
 
