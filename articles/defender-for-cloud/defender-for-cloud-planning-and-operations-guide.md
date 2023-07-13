@@ -68,7 +68,7 @@ With *Defender for Cloud*, these individuals can effectively fulfill their diver
 
 - Monitors and responds to security alerts at any time.
 
-- ~~Escalates~~ Reports (?) to Cloud Workload Owner or IT Security Analyst.
+- Reports to Cloud Workload Owner or IT Security Analyst.
 
 **Sam (Security Analyst)**
 
