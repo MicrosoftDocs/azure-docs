@@ -22,9 +22,9 @@ With Azure Machine Learning, you can import data from a local machine or an exis
 
 An Azure Machine Learning datastore serves as a *reference* to an *existing* Azure storage account. An Azure Machine Learning datastore offers these benefits:
 
-1. A common, easy-to-use API that interacts with different storage types (Blob/Files/ADLS).
-1. Easier discovery of useful datastores in team operations.
-1. For credential-based access (service principal/SAS/key), Azure Machine Learning datastore secures connection information. This way, you won't need to place that information in your scripts.
+- A common, easy-to-use API that interacts with different storage types (Blob/Files/ADLS).
+- Easier discovery of useful datastores in team operations.
+- For credential-based access (service principal/SAS/key), Azure Machine Learning datastore secures connection information. This way, you won't need to place that information in your scripts.
 
 When you create a datastore with an existing Azure storage account, you can choose between two different authentication methods:
 
