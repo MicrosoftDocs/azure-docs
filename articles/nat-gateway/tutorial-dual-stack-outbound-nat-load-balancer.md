@@ -129,7 +129,8 @@ az network bastion create \
     --name bastion \
     --public-ip-address public-ip \
     --vnet-name vnet-1 \
-    --location eastus2
+    --location eastus2 \
+    --sku basic
 ```
 
 ---
@@ -219,7 +220,7 @@ Use [az network vnet subnet update](/cli/azure/network/vnet/subnet#az_network_vn
 
 ```azurecli-interactive
 az network vnet subnet update \
-    --address-prefixes 10.1.0.0/24 2404:f800:8000:122::/64 \
+    --address-prefixes 10.0.0.0/24 2404:f800:8000:122::/64 \
     --name subnet-1 \
     --vnet-name vnet-1 \
     --resource-group test-rg
@@ -279,13 +280,13 @@ Use [az network nsg rule create](/cli/azure/network/nsg/rule#az-network-nsg-rule
 az network nsg rule create \
     --resource-group test-rg \
     --nsg-name nsg-1 \
-    --name rdp-rule \
+    --name ssh-rule \
     --protocol '*' \
     --direction inbound \
     --source-address-prefix '*' \
     --source-port-range '*' \
     --destination-address-prefix '*' \
-    --destination-port-range 3389 \
+    --destination-port-range 22 \
     --access allow \
     --priority 200
 ```
@@ -328,9 +329,6 @@ az vm create \
     --resource-group test-rg \
     --name vm-1 \
     --image Ubuntu2204 \
-    --public-ip-address "" \
-    --vnet-name vnet-1 \
-    --subnet subnet-1 \
     --admin-username azureuser \
     --authentication-type password \
     --nics nic-1    
@@ -575,7 +573,7 @@ Make note of both IP addresses. Use the IPs to verify the outbound connectivity 
 
 1. Select **vm-1**.
 
-1. In the **Overview** of **myVM**, select **Connect** then **Bastion**. Select **Use Bastion**
+1. In the **Overview** of **vm-1**, select **Connect** then **Bastion**. Select **Use Bastion**
 
 1. Enter the username and password you created when you created the virtual machine.
 
@@ -613,7 +611,7 @@ Make note of both IP addresses. Use the IPs to verify the outbound connectivity 
 
 1. Select **vm-1**.
 
-1. In the **Overview** of **myVM**, select **Connect** then **Bastion**. Select **Use Bastion**
+1. In the **Overview** of **vm-1**, select **Connect** then **Bastion**. Select **Use Bastion**
 
 1. Enter the username and password you created when you created the virtual machine.
 
