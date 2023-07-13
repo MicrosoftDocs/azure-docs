@@ -74,7 +74,5 @@ More information about Azure AD multifactor authentication can be found in the a
 
 ## Next steps
 
-- [Enable Azure AD self-service password reset](../authentication/howto-sspr-deployment.md)
-- [Enable Azure AD multifactor authentication](../authentication/howto-mfa-getstarted.md)
 - [Enable Azure AD multifactor authentication registration policy](howto-identity-protection-configure-mfa-policy.md)
 - [Enable sign-in and user risk policies](howto-identity-protection-configure-risk-policies.md)

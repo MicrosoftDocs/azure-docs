@@ -22,7 +22,7 @@ Operations run on an Azure Service Bus namespace are of two kinds
 
 > [!IMPORTANT]
 > - Service Bus Explorer doesn't support **management operations** and **sessions**. 
-> - Service Bus Explorer doesn't support sending or receiving **large messages**. 
+> - We advice against using the Service Bus Explorer for larger messages, as this may result in timeouts, depending on the message size, network latency between client and Service Bus service etc. Instead, we recommend that you use your own client to work with larger messages, where you can specify your own timeout values.
 
 
 ## Prerequisites
@@ -88,7 +88,7 @@ With the peek functionality, you can use the Service Bus Explorer to view the to
 
 ### Peek a message with advanced options
 
-With the peek with options functionality, you can use the Service Bus Explorer to view the top messages in a queue, subscription or the dead-letter queue, specifying the number of messages to peek, and the sequence number to start peeking from.
+The peek with options functionality allows you to use the Service Bus Explorer to view the top messages in a queue, subscription or the dead-letter queue, specifying the number of messages to peek, and the sequence number to start the peek operation.
 
 1. To peek messages with advanced options, select **Peek Mode** in the Service Bus Explorer dropdown.
 

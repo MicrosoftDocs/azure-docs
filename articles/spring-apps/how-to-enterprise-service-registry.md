@@ -1,7 +1,7 @@
 ---
 title: How to Use Tanzu Service Registry with the Azure Spring Apps Enterprise plan
 description: How to use Tanzu Service Registry with the Azure Spring Apps Enterprise plan.
-author: karlerickson
+author: KarlErickson
 ms.author: yoterada
 ms.service: spring-apps
 ms.topic: how-to

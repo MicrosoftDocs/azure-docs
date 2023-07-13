@@ -1,5 +1,6 @@
 ---
-title: Drawing tools module | Microsoft Azure Maps
+title: Drawing tools module
+titleSuffix: Microsoft Azure Maps
 description: In this article, you'll learn how to set drawing options data using the Microsoft Azure Maps Web SDK
 author: dubiety
 ms.author: yuchungchen
@@ -10,7 +11,7 @@ ms.service: azure-maps
 
 # Use the drawing tools module
 
-The Azure Maps Web SDK provides a *drawing tools module*. This module makes it easy to draw and edit shapes on the map using an input device such as a mouse or touch screen. The core class of this module is the [drawing manager](/javascript/api/azure-maps-drawing-tools/atlas.drawing.drawingmanager#setoptions-drawingmanageroptions-). The drawing manager provides all the capabilities needed to draw and edit shapes on the map. It can be used directly, and it's integrated with a custom toolbar UI. You can also use the built-in [drawing toolbar](/javascript/api/azure-maps-drawing-tools/atlas.control.drawingtoolbar) class.
+The Azure Maps Web SDK provides a [drawing tools module]. This module makes it easy to draw and edit shapes on the map using an input device such as a mouse or touch screen. The core class of this module is the [drawing manager](/javascript/api/azure-maps-drawing-tools/atlas.drawing.drawingmanager#setoptions-drawingmanageroptions-). The drawing manager provides all the capabilities needed to draw and edit shapes on the map. It can be used directly, and it's integrated with a custom toolbar UI. You can also use the built-in [drawing toolbar](/javascript/api/azure-maps-drawing-tools/atlas.control.drawingtoolbar) class.
 
 ## Loading the drawing tools module in a webpage
 
@@ -27,11 +28,39 @@ The Azure Maps Web SDK provides a *drawing tools module*. This module makes it e
 
       `npm install azure-maps-drawing-tools`
 
-      Then, import the JavaScript and CSS stylesheet in a source file:
+      Then, import the JavaScript in a source file:
 
       ```js
       import * as drawing from "azure-maps-drawing-tools";
+      ```
+
+      You would also need to embed the CSS Style Sheet for various controls to display correctly. If you're using a JavaScript bundler to bundle the dependencies and package your code, refer to your bundler's documentation on how it's done. For [Webpack], it's commonly done via a combination of `style-loader` and `css-loader` with documentation available at [style-loader].
+
+      To begin, install style-loader and css-loader:
+
+      ```powershell
+      npm install --save-dev style-loader css-loader
+      ```
+
+      Inside your source file, import atlas-drawing.min.css:
+
+      ```js
       import "azure-maps-drawing-tools/dist/atlas-drawing.min.css";
+      ```
+
+      Then add loaders to the module rules portion of the Webpack config:
+
+      ```js
+      module.exports = {
+        module: {
+          rules: [
+            {
+              test: /\.css$/i,
+              use: ["style-loader", "css-loader"]
+            }
+          ]
+        }
+      };
       ```
 
 ## Use the drawing manager directly
@@ -63,11 +92,11 @@ The following image is an example of drawing mode of the `DrawingManager`. Selec
 
 The drawing manager supports three different ways of interacting with the map to draw shapes.
 
-* `click` - Coordinates are added when the mouse or touch is clicked.
-* `freehand ` - Coordinates are added when the mouse or touch is dragged on the map. 
-* `hybrid` - Coordinates are added when the mouse or touch is clicked or dragged.
+- `click` - Coordinates are added when the mouse or touch is clicked.
+- `freehand` - Coordinates are added when the mouse or touch is dragged on the map. 
+- `hybrid` - Coordinates are added when the mouse or touch is clicked or dragged.
 
-The following code enables the polygon drawing mode and sets the type of drawing interaction that the drawing manager should adhere to `freehand`. 
+The following code enables the polygon drawing mode and sets the type of drawing interaction that the drawing manager should adhere to `freehand`.
 
 ```javascript
 //Create an instance of the drawing manager and set drawing mode.
@@ -186,4 +215,7 @@ Learn more about the classes and methods used in this article:
 > [Drawing toolbar](/javascript/api/azure-maps-drawing-tools/atlas.control.drawingtoolbar)
 
 [Drawing manager options]: https://samples.azuremaps.com/drawing-tools-module/drawing-manager-options
+[Webpack]: https://webpack.js.org/
+[style-loader]: https://webpack.js.org/loaders/style-loader/
 [Drawing manager options source code]: https://github.com/Azure-Samples/AzureMapsCodeSamples/blob/main/Samples/Drawing%20Tools%20Module/Drawing%20manager%20options/Drawing%20manager%20options.html
+[drawing tools module]: https://www.npmjs.com/package/azure-maps-drawing-tools
