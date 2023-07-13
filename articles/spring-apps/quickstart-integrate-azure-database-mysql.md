@@ -57,7 +57,7 @@ Use [Service Connector](../service-connector/overview.md) to connect the app hos
    az provider register --namespace Microsoft.ServiceLinker
    ```
 
-1. Run the `az spring connection create` command to create a service connection between the app `customers-service` and the Azure MySQL database. Replace the placeholders below with your own information. Use single quotes around the value for MySQL server `secret`.
+1. Run the `az spring connection create` command to create a service connection between the `customers-service` app and the Azure MySQL database. Replace the following placeholders with your own information. Use single quotes around the value for MySQL server `secret`.
 
    | Setting                   | Description                                                                                    |
    |---------------------------|------------------------------------------------------------------------------------------------|
