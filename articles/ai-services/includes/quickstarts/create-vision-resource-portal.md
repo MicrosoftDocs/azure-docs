@@ -38,7 +38,7 @@ ms.author: pafarley
     | **Create options** | Custom Vision uses two separate resources together. The **Training** resource lets you train models, and the **Prediction** resource lets you publish and query models. Select **Both** if you're starting the project from scratch. |
     | **Subscription** | Select one of your available Azure subscriptions. |
     | **Resource group** | The Azure resource group that contains your Azure AI services resource. You can create a new group or add it to a pre-existing group. |
-    | **Region** | The location of your cognitive service instance. Different locations may introduce latency, but have no impact on the runtime availability of your resource. |
+    | **Region** | The location of your Azure AI service resource. Different locations may introduce latency, but have no impact on the runtime availability of your resource. |
     | **Name** | A descriptive name for your Azure AI services resource. For example, *MyCognitiveServicesResource*. |
     | **Training pricing tier** | The cost of your Azure AI services account depends on the options you choose and your usage. For more information, see the API [pricing details](../../custom-vision-service/limits-and-quotas.md).|
     | **Prediction pricing tier** | The cost of your Azure AI services account depends on the options you choose and your usage. For more information, see the API [pricing details](../../custom-vision-service/limits-and-quotas.md).
@@ -54,7 +54,7 @@ ms.author: pafarley
     |--|--|
     | **Subscription** | Select one of your available Azure subscriptions. |
     | **Resource group** | Select the Azure resource group that contains your Azure AI services resource. You can create a new group or add it to a pre-existing group. |
-    | **Region** | The location of your cognitive service instance. Different locations may introduce latency, but have no impact on the runtime availability of your resource. |
+    | **Region** | The location of your Azure AI service resource. Different locations may introduce latency, but have no impact on the runtime availability of your resource. |
     | **Name** | A descriptive name for your Azure AI services resource. For example, *MyCognitiveServicesResource*. |
     | **Pricing tier** | The cost of your Azure AI services account depends on the options you choose and your usage. For more information, see [service quotas and limits](../../../ai-services/document-intelligence/service-limits.md) and [pricing details](https://azure.microsoft.com/pricing/details/form-recognizer/).|
 

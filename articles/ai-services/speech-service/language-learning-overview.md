@@ -23,7 +23,7 @@ The [Pronunciation Assessment](pronunciation-assessment-tool.md) feature is desi
 
 The Pronunciation Assessment feature offers several benefits for educators, service providers, and students. 
 - For educators, it provides instant feedback, eliminates the need for time-consuming oral language assessments, and offers consistent and comprehensive assessments. 
-- For service providers, it offers high real-time capabilities, worldwide Speech cognitive service and supports growing global business. 
+- For service providers, it offers high real-time capabilities, worldwide Azure AI Speech and supports growing global business. 
 - For students and learners, it provides a convenient way to practice and receive feedback, authoritative scoring to compare with native pronunciation and helps to follow the exact text order for long sentences or full documents.
 
 ## Speech to text 
@@ -34,10 +34,7 @@ Azure [Speech to text](speech-to-text.md) supports real-time language identifica
 
 [Text to speech](text-to-speech.md) prebuilt neural voices can read out learning materials natively and empower self-served learning. A broad portfolio of [languages and voices](language-support.md?tabs=tts) are supported for AI teacher, content read aloud capabilities, and more. Microsoft is continuously working on bringing new languages to the world. 
 
-
 [Custom Neural Voice](custom-neural-voice.md) is available for you to create a customized synthetic voice for your applications. Education companies are using this technology to personalize language learning, by creating unique characters with distinct voices that match the culture and background of their target audience. 
-
-
 
 ## Next steps
 

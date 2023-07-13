@@ -23,7 +23,7 @@ Natural language processing (NLP) allows your client application, such as a chat
 
 LUIS and question answering solve different problems. LUIS determines the intent of a user's text (known as an utterance), while question answering determines the answer to a user's text (known as a query).
 
-To pick the correct service, you need to understand the user text coming from your client application, and what information it needs to get from the Cognitive Service features.
+To pick the correct service, you need to understand the user text coming from your client application, and what information it needs to get from the Azure AI service features.
 
 As an example, if your chat bot receives the text "How do I get to the Human Resources building on the Seattle north campus", use the table below to understand how each service works with the text.
 

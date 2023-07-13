@@ -16,7 +16,7 @@ ms.author: aahi
 This article provides instructions on how to recover an Azure AI services resource that is already deleted. The article also provides instructions on how to purge a deleted resource.
 
 > [!NOTE]
-> The instructions in this article are applicable to both a multi-service resource and a single-service resource. A multi-service resource enables access to multiple Azure AI services using a single key and endpoint. On the other hand, a single-service resource enables access to just that specific cognitive service for which the resource was created.
+> The instructions in this article are applicable to both a multi-service resource and a single-service resource. A multi-service resource enables access to multiple Azure AI services using a single key and endpoint. On the other hand, a single-service resource enables access to just that specific Azure AI service for which the resource was created.
 
 ## Prerequisites
 
@@ -30,7 +30,7 @@ Your subscription must have `Microsoft.CognitiveServices/locations/resourceGroup
 
 ## Recover a deleted resource 
 
-To recover a deleted cognitive service resource, use the following commands. Where applicable, replace:
+To recover a deleted Azure AI services resource, use the following commands. Where applicable, replace:
 
 * `{subscriptionID}` with your Azure subscription ID
 * `{resourceGroup}` with your resource group
@@ -94,7 +94,7 @@ az resource create --subscription {subscriptionID} -g {resourceGroup} -n {resour
 
 Once you delete a resource, you won't be able to create another one with the same name for 48 hours. To create a resource with the same name, you will need to purge the deleted resource.
 
-To purge a deleted cognitive service resource, use the following commands. Where applicable, replace:
+To purge a deleted Azure AI services resource, use the following commands. Where applicable, replace:
 
 * `{subscriptionID}` with your Azure subscription ID
 * `{resourceGroup}` with your resource group

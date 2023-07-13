@@ -49,7 +49,7 @@ Customer-managed keys are available in all Azure Search regions.
 
 ## Encryption of data in transit
 
-Language Studio runs in the user's browser. Every action triggers a direct call to the respective Cognitive Service API. Hence, question answering is compliant for data in transit.
+Language Studio runs in the user's browser. Every action triggers a direct call to the respective Azure AI services API. Hence, question answering is compliant for data in transit.
 
 ## Next steps
 

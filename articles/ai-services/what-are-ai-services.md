@@ -27,7 +27,7 @@ Select a service from the table below and learn how it can help you meet your de
 | --- | --- |
 | ![Anomaly Detector icon](media/service-icons/anomaly-detector.svg) [Anomaly Detector](./Anomaly-Detector/index.yml) | Identify potential problems early on |
 | ![Azure Cognitive Search icon](media/service-icons/cognitive-search.svg) [Azure Cognitive Search](../search/index.yml) | Bring AI-powered cloud search to your mobile and web apps |
-| ![Azure OpenAI Service icon](media/service-icons/language.svg) [Azure OpenAI](./openai/index.yml) | Perform a wide variety of natural language tasks |
+| ![Azure OpenAI Service icon](media/service-icons/azure.svg) [Azure OpenAI](./openai/index.yml) | Perform a wide variety of natural language tasks |
 | ![Bot service icon](media/service-icons/bot-services.svg) [Bot Service](/composer/) | Create bots and connect them across channels |
 | ![Content Moderator icon](media/service-icons/content-moderator.svg) [Content Moderator](./content-moderator/index.yml) (retired) | Detect potentially offensive or unwanted content |
 | ![Content Safety icon](media/service-icons/content-safety.svg) [Content Safety](./content-safety/index.yml) | An AI service that detects unwanted contents |

@@ -40,7 +40,7 @@ Issues with this approach:
 * The new container has a separate name and tag from the original container.
 * In order to change these settings, you will have to change the values of the Dockerfile, rebuild the image, and republish to your registry.
 * If someone gets access to your container registry or your local host, they can run the container and use the Azure AI services endpoints.
-* If your Cognitive Service doesn't require input mounts, don't add the `COPY` lines to your Dockerfile.
+* If the Azure AI service that you're using doesn't require input mounts, don't add the `COPY` lines to your Dockerfile.
 
 Create Dockerfile, pulling from the existing Azure AI services container you want to use, then use docker commands in the Dockerfile to set or pull in information the container needs.
 

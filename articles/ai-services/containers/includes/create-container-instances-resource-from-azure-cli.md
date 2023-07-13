@@ -72,7 +72,7 @@ az container create -g <resource-group> -f my-aci.yaml
 The output of the command is `Running...` if valid, after sometime the output changes to a JSON string representing the newly created ACI resource. The container image is more than likely not be available for a while, but the resource is now deployed.
 
 > [!TIP]
-> Pay close attention to the locations of public preview Azure Cognitive Service offerings, as the YAML will needed to be adjusted accordingly to match the location.
+> Pay close attention to the locations of Azure AI services in public preview, as the YAML will needed to be adjusted accordingly to match the location.
 
 [azure-container-create]: /cli/azure/container#az_container_create
 [template-format]: /azure/templates/Microsoft.ContainerInstance/2018-10-01/containerGroups#template-format

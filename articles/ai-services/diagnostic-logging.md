@@ -13,7 +13,7 @@ ms.author: pafarley
 
 # Enable diagnostic logging for Azure AI services
 
-This guide provides step-by-step instructions to enable diagnostic logging for an Azure AI service. These logs provide rich, frequent data about the operation of a resource that are used for issue identification and debugging. Before you continue, you must have an Azure account with a subscription to at least one Cognitive Service, such as [Speech Services](./speech-service/overview.md), or [LUIS](./luis/what-is-luis.md).
+This guide provides step-by-step instructions to enable diagnostic logging for an Azure AI service. These logs provide rich, frequent data about the operation of a resource that are used for issue identification and debugging. Before you continue, you must have an Azure account with a subscription to at least one Azure AI service, such as [Speech Services](./speech-service/overview.md), or [LUIS](./luis/what-is-luis.md).
 
 ## Prerequisites
 

@@ -37,7 +37,7 @@ az login
 
 ## Assign yourself to the Cognitive Services User role
 
-Assigning yourself to the "Cognitive Services User" role will allow you to use your account for access to the specific Azure AI services resource
+Assigning yourself to the "Cognitive Services User" role will allow you to use your account for access to the specific Azure AI services resource.
 
 1. Get your user information
 

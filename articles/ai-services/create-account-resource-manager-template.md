@@ -55,7 +55,7 @@ One Azure resource is defined in the Bicep file: [Microsoft.CognitiveServices/ac
     | **Subscription** | Select an Azure subscription. |
     | **Resource group** | Select **Create new**, enter a unique name for the resource group, and then select **OK**. |
     | **Region** | Select a region.  For example, **East US** |
-    | **Cognitive Service Name** | Replace with a unique name for your resource. You will need the name in the next section when you validate the deployment. |
+    | **Cognitive Service Name** | Replace with a unique name for your Azure AI services resource. You will need the name in the next section when you validate the deployment. |
     | **Location** | Replace with the region used above. |
     | **Sku** | The [pricing tier](https://azure.microsoft.com/pricing/details/cognitive-services/) for your resource. |
 

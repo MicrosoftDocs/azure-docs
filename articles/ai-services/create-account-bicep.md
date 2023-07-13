@@ -21,7 +21,7 @@ Azure AI services are cloud-based artificial intelligence (AI) services that hel
 
 ## Things to consider
 
-Using Bicep to create a Cognitive Service resource lets you create a multi-service resource. This enables you to:
+Using Bicep to create an Azure AI services resource lets you create a multi-service resource. This enables you to:
 
 * Access multiple Azure AI services with a single key and endpoint.
 * Consolidate billing from the services you use.
