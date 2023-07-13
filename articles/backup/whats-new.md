@@ -74,7 +74,7 @@ For more information, see [Back up a HANA system with replication enabled](sap-h
 
 Azure Backup allows you to replicate your backups to an additional Azure paired region by using Geo-redundant Storage (GRS) to protect your backups from regional outages. When you enable the backups with GRS, the backups in the secondary region become accessible only when Microsoft declares an outage in the primary region.
 
-For more information, see [Cross Region Restore support for PostgreSQL using Azure Backup (preview)](backup-vault-overview.md#cross-region-restore-support-for-postgresql-using-azure-backup-preview).
+For more information, see [Cross Region Restore support for PostgreSQL using Azure Backup](backup-vault-overview.md#cross-region-restore-support-for-postgresql-using-azure-backup).
 
 ## Microsoft Azure Backup Server v4 is now generally available
 
