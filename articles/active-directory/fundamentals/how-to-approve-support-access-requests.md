@@ -10,15 +10,15 @@ ms.service: active-directory
 ms.topic: troubleshooting
 ms.subservice: fundamentals
 ms.workload: identity
-ms.date: 07/10/2023
+ms.date: 07/13/2023
 ms.collection: M365-identity-device-management
 
 ---
 # Approving Microsoft Support access requests (preview)
 
-In many situations, enabling the collection of **Advanced diagnostic information** during the creation of a support access request is sufficient for Microsoft Support to troubleshoot your issue. In some situations though, a separate approval may be needed to allow Microsoft support to access your identity diagnostic data.
+In many situations, enabling the collection of **Advanced diagnostic information** during the creation of a support access request is sufficient for Microsoft Support to troubleshoot your issue. In some situations though, a separate approval may be needed to allow Microsoft Support to access your identity diagnostic data.
 
-Microsoft Support access requests enable you to give Microsoft Support engineers access to [diagnostic data](concept-diagnostic-data-access.md) in your identity service to help solve support requests you submitted to Microsoft. You can use the Azure Active Directory (Azure AD) administration portal and the Microsoft Entra admin center to manage Microsoft Support access requests (preview).
+Microsoft Support access requests (preview) enable you to give Microsoft Support engineers access to [diagnostic data](concept-diagnostic-data-access.md) in your identity service to help solve support requests you submitted to Microsoft. You can use the Azure Active Directory (Azure AD) administration portal and the Microsoft Entra admin center to manage Microsoft Support access requests (preview).
 
 This article describes how the process works and how to approve Microsoft Support access requests.
 
@@ -28,10 +28,12 @@ Only authorized users in your tenant can view and manage Microsoft Support acces
 
 ## Scenarios and workflow
 
-A support access request may be used for several specific support scenarios. At this time, the following cross-tenant scenario is covered by the support access process:
+A support access request may be needed when a support request is submitted to Microsoft Support from a tenant that is different from the tenant where the issue is occurring. This scenario is known as a *cross-tenant* scenario. The *resource tenant* is the tenant where the issue is occurring and the tenant where the support request was created is known as the *support request tenant*.
 
-- The Microsoft Support engineer needs access to diagnostic data in a *resource tenant* that is different from the tenant in which the support request was created, known as the *support request tenant*.  
-- The support engineer creates a support access request for the *resource tenant*.
+Let's take a closer look at the workflow for this scenario:
+
+- A support request is submitted from a tenant that is different from the tenant where the issue is occurring. 
+- A Microsoft Support engineer creates a support access request to access identity diagnostic data for the *resource tenant*.
 - An administrator of *both* tenants approves the Microsoft Support access request.
 - With approval, the support engineer has access to the data only in the approved *resource tenant*. 
 - Closing the support request automatically revokes the support engineer's access to your identity data.
@@ -45,7 +47,7 @@ When you receive a notification for a Microsoft Support Access Request in your t
 
 ### See your pending requests
 
-1. Sign in to the [Azure portal](https://portal.azure.com) and navigate to **Diagnose and solve problems**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com/) and navigate to **Diagnose and solve problems**.
 
 1. Select **Pending requests** from the **Microsoft Support Access Requests (Preview)** section at the bottom of the page.    
 

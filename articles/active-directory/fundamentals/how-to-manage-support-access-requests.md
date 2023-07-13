@@ -16,7 +16,7 @@ ms.collection: M365-identity-device-management
 ---
 # Manage Microsoft Support access requests (preview)
 
-You can use the Azure Active Directory (Azure AD) administration portal to manage Microsoft Support access requests (preview). Microsoft Support access requests enable you to give Microsoft Support engineers access to [diagnostic data](concept-diagnostic-data-access.md) in your identity service to help solve support requests you submitted to Microsoft.
+You can use the Microsoft Entra admin center to manage Microsoft Support access requests (preview). Microsoft Support access requests enable you to give Microsoft Support engineers access to [diagnostic data](concept-diagnostic-data-access.md) in your identity service to help solve support requests you submitted to Microsoft.
 
 ## Prerequisites
 

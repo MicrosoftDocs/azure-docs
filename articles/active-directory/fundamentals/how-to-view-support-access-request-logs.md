@@ -10,7 +10,7 @@ ms.service: active-directory
 ms.topic: troubleshooting
 ms.subservice: fundamentals
 ms.workload: identity
-ms.date: 07/11/2023
+ms.date: 07/13/2023
 ms.collection: M365-identity-device-management
 
 ---
@@ -68,3 +68,8 @@ There are three activities that can be associated with cross-tenant Microsoft Su
 - Creation of a support access approval
 - Manual removal of Microsoft Support access before your support request is closed
 - Removal of Microsoft Support access upon closure of your support request
+
+## Next steps
+
+- [Manage Microsoft Support access requests](how-to-manage-support-access-requests.md)
+- [Learn about audit logs](../../active-directory/reports-monitoring/concept-audit-logs.md)
