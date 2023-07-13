@@ -119,17 +119,17 @@ Requests routed through the Front Door include headers specific to your Front Do
 
 ## Verify the API call is routed through Azure Front Door and protected by Azure Web Application Firewall
 
-1. Obtain the newly created Azure Front Door endpoint from the “Front Door Manager”
+1. Obtain the newly created Azure Front Door endpoint from the **Front Door Manager**.
 
-   :::image type="content" source="../media/protect-api-hosted-in-apim-by-waf/afd-get-endpoint.png" alt-text="A screenshot showing the AFD endpoint selected.":::
+   :::image type="content" source="../media/protect-api-hosted-in-apim-by-waf/afd-get-endpoint.png" alt-text="A screenshot showing the AFD endpoint selected." lightbox="../media/protect-api-hosted-in-apim-by-waf/afd-get-endpoint.png:::
 
 2. Look at origin groups and confirm that the origin host name is __contoso-afd-apim-resource.azure-api.net.__ This step verifies that the APIM instance is an origin in the newly configured Azure Front Door premium.
 
-3. Under the “Security Policies” section, verify that the WAF policy “bookwafpolicy” is provisioned.
+3. Under the **Security Policies** section, verify that the WAF policy **bookwafpolicy** is provisioned.
 
-4. Select `bookwafpolicy` and verify that the `bookwafpolicy` has Managed rules provisioned. The latest versions of Microsoft_DefaultRueSet and Microsoft_BotManagerRuleSet is provisioned which protects the origin against OWASP top 10 vulnerabilities and malicious bot attacks.
+4. Select **bookwafpolicy** and verify that the **bookwafpolicy** has Managed rules provisioned. The latest versions of Microsoft_DefaultRueSet and Microsoft_BotManagerRuleSet is provisioned which protects the origin against OWASP top 10 vulnerabilities and malicious bot attacks.
 
-   :::image type="content" source="../media/protect-api-hosted-in-apim-by-waf/book-waf-policy.png" alt-text="A screenshot showing the WAF policy for managed rules.":::
+   :::image type="content" source="../media/protect-api-hosted-in-apim-by-waf/book-waf-policy.png" alt-text="A screenshot showing the WAF policy for managed rules." lightbox="../media/protect-api-hosted-in-apim-by-waf/book-waf-policy.png":::
 
 At this point, the end-to-end call is set up, and the API is protected by Azure Web Application Firewall.
 
