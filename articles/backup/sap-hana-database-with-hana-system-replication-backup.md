@@ -59,7 +59,7 @@ When a failover occurs, the users are replicated to the new primary, but *hdbuse
    hdbuserstore set SYSTEMKEY <load balancer host/ip>:30013@SYSTEMDB <custom-user> '<some-password>'
    ```
 
-   :::image type="content" source="./media/sap-hana-database-with-hana-system-replication-backup/pass-custom-backup-user-key-to-script-as-parameter-architecture.png" alt-text="Diagram explains the flow to pass the custom backup user key to the script as a parameter." lightbox="./media/sap-hana-database-with-hana-system-replication-backup/pass-custom-backup-user-key-to-script-as-parameter-architecture.png":::
+   :::image type="content" source="./media/sap-hana-database-with-hana-system-replication-backup/pass-custom-backup-user-key-to-script-as-parameter-architecture.png" alt-text="Disgram explains the flow to pass the custom backup user key to the script as a parameter." lightbox="./media/sap-hana-database-with-hana-system-replication-backup/pass-custom-backup-user-key-to-script-as-parameter-architecture.png":::
 
    >[!Note]
    >You can create a custom backup key using the load balancer host/IP instead of local host to use Virtual IP (VIP).
