@@ -33,7 +33,7 @@ ms.custom: include file
  :::image type="content" source="media/active-directory-cloud-sync-how-to-install/new-ux-5.png" alt-text="Screenshot of the select extensions screen." lightbox="media/active-directory-cloud-sync-how-to-install/new-ux-5.png":::
 
  >[!NOTE]
- >If you are installing the provisioning agent for use with [on-premsise app provisioning](../articles/active-directory/app-provisioning/on-premises-application-provisioning-architecture.md) then select **On-premises application provisioning (Azure AD to application)**.
+ >If you are installing the provisioning agent for use with (on-premsise app provisioning)(../articles/active-directory/app-provisioning/on-premises-application-provisioning-architecture.md) then select On-premises application provisioning (Azure AD to application).
 
  10. Sign in with your Azure AD global administrator account.  If you have Internet Explorer enhanced security enabled, it will block the sign-in.  If so, close the installation, [disable Internet Explorer enhanced security](/troubleshoot/developer/browsers/security-privacy/enhanced-security-configuration-faq), and restart the **Azure AD Connect Provisioning Agent Package**  installation.
 
