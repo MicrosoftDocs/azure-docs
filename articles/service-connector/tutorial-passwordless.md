@@ -331,7 +331,7 @@ For more information, see
 
 For Spring application, if you create connection with option `--client-type springboot`, Service Connector will set the properties `spring.datasource.passwordless_enabled`, `spring.datasource.url`, `spring.datasource.username` to Azure Spring Apps. Remove the `spring.datatsource.password` in configuration if it's set before. Then add the dependencies to your Spring application as the tutorial [Bind an Azure Database for PostgreSQL to your application in Azure Spring Apps](../spring-apps/how-to-bind-postgres.md#prepare-your-java-project)
 
-### [Dotnet](#tab/dotnet)
+### [.NET](#tab/dotnet)
 For other language, there's not plugin or library for passwordless connection, you can get access token of the managed identity or service principal as the password to connect database. For example, in .NET, you can use [Azure.Identity](https://www.nuget.org/packages/Azure.Identity/) to get access token of managed identity or service principal.
 
 ```csharp
@@ -420,7 +420,7 @@ For code tutorial, see [Connect to Azure databases from App Service without secr
 For Spring application, if you create connection with option `--client-type springboot`, Service Connector will set the properties `spring.datasource.passwordless_enabled`, `spring.datasource.url`, `spring.datasource.username` to Azure Spring Apps. Remove the `spring.datatsource.password` in configuration if it's set before. Then add the dependencies to your Spring application as the tutorial [Connect an Azure Database for MySQL instance to your application in Azure Spring Apps](../spring-apps/how-to-bind-mysql.md#prepare-your-java-project)
 
 
-### [Dotnet](#tab/dotnet)
+### [.NET](#tab/dotnet)
 
 For other language, there's not plugin or library for passwordless connection, you can get access token of the managed identity or service principal as the password to connect database. For example, in .NET, you can use [Azure.Identity](https://www.nuget.org/packages/Azure.Identity/) to get access token of managed identity or service principal.
 
@@ -508,7 +508,7 @@ public class Main {
 For Spring application, if you create connection with option `--client-type springboot`, Service Connector will set the properties `spring.datasource.url` with value format `jdbc:sqlserver://<sql-server>.database.windows.net:1433;databaseName=<sql-db>;authentication=ActiveDirectoryMSI;` to Azure Spring Apps. You needs to remove the `spring.datatsource.password` in configuration if it's set before. Then you need to add the dependencies to your Spring application as the tutorial [Migrate a Java application to use passwordless connections with Azure SQL Database](/azure/developer/java/spring-framework/migrate-sql-database-to-passwordless-connection?tabs=spring%2Capp-service%2Cassign-role-service-connector#2-migrate-the-app-code-to-use-passwordless-connections)
 
 
-### [Dotnet](#tab/dotnet)
+### [.NET](#tab/dotnet)
 For managed identity authentication, see [Using Active Directory Managed Identity authentication](/sql/connect/ado-net/sql/azure-active-directory-authentication#using-active-directory-service-principal-authentication)
 
 ```csharp
