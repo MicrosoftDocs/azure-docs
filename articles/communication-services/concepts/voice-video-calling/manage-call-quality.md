@@ -36,7 +36,7 @@ traffic that is less sensitive (like downloading a new app, where an extra secon
 
 Ideally, you implement QoS on your internal network while getting ready to roll out your Azure Communication Services solution, but you can do it anytime. If you're small enough, you might not need QoS.
 
-For detailed guidance, read: see [Network optimization](network-requirements.md#network-optimization).
+For detailed guidance, see: [Network optimization](network-requirements.md#network-optimization).
 
 ## Prepare your deployment for quality and reliability investigations
 
@@ -163,21 +163,21 @@ When a user is in a call, it's important to proactively notify them in real-time
 - For more information, please see: [User Facing Diagnostics](user-facing-diagnostics.md).
 
 
-### Video Constraints
+### Video constraints
 
 Video streams consume large amounts of network bandwidth, if you know your users have limited network bandwidth or poor network conditions you can reduce control the network usage of a user's video connection with video constraints. When you limit the amount of bandwidth a user's video stream can consume you can protect the bandwidth needed for good audio quality in poor network environments.
 
 - To learn more, see: [Video constraints](video-constraints.md).
 
 
-### Volume Indicator
+### Volume indicator
 
 Sometimes users can't hear each other, maybe the speaker is too quiet, the listener's device doesn't receive the audio packets, or there's an audio device issue blocking the sound. Users don't know when they're speaking too quietly, or when the other person can't hear them. You can use the input and output indicator to indicate if a user’s volume is low or absent and prompt a user to speak louder or investigate an audio device issue through your user interface.
 
 - For more information, please see: [Add volume indicator to your web calling](../../quickstarts/voice-video-calling/get-started-volume-indicator.md)
 
 
-### Detailed Media Statistics
+### Detailed media statistics
 
 
 Since network conditions can change during a call, users can report poor audio and video quality even if they started the call without issue. Our Media statistics give you detailed quality metrics on each inbound and outbound audio, video, and screen share stream. These detailed insights help you monitor calls in progress, show users their network quality status throughout a call, and debug individual calls.  
@@ -188,7 +188,7 @@ Since network conditions can change during a call, users can report poor audio a
 - To learn more, read: [Media quality statistics](media-quality-sdk.md)
 
 
-### Optimal Video Count
+### Optimal video count
 During a group call with 2 or more participants a user's video quality can fluctuate due to changes in network conditions and their specific hardware limitations. By using the Optimal Video Count API, you can improve user call quality by understanding how many video streams their local endpoint can render at a time without worsening quality. By implementing this feature, you can preserve the call quality and bandwidth of local endpoints that would otherwise attempt to render video poorly. The API exposes the property, optimalVideoCount, which dynamically changes in response to the network and hardware capabilities of a local endpoint. This information is available at runtime and updates throughout the call letting you adjust a user’s visual experience as network and hardware conditions change.
 
 - To implement, visit web platform guidance [Manage Video](/azure/communication-services/how-tos/calling-sdk/manage-video?pivots=platform-web) and review the section titled Remote Video Quality. 
@@ -242,7 +242,7 @@ After a call ends, call logs are created to help you investigate individual call
   - `packetLossRateAvg`
 
 
-### Start collecting Call logs
+### Start collecting call logs
 
 Review this documentation to start collecting call logs: [Enable logs via Diagnostic Settings in Azure Monitor](../analytics/enable-logging.md)
 
@@ -262,7 +262,7 @@ Once you have enabled logs, you can view call insights in your Azure Resource us
 <!-- #### Detailed Media Statistics -->
 
 
-#### End of Call Survey 
+#### End of Call Survey
 Once you enable diagnostic settings to capture your survey data you can use our sample [call log queries](../analytics/query-call-logs.md) in Azure Log Analytics to analyze your user's perceived quality experience. User feedback can show you call issues you didn't know you had and help you prioritize your quality improvements. 
 
 ### Analyze your call data
@@ -271,7 +271,8 @@ By collecting call data such as Media Statistics, User Facing Diagnostics, and p
 
 The call may have fired a User Facing Diagnostic indicating a severe problem with the incoming or outgoing media steam quality. By storing the [detailed media statistics](media-quality-sdk.md) from the call you can review when the UFD occurred to see if there were high levels of packet loss, jitter, or latency around this time indicating a poor network condition. You explore whether the network was impacted by an external client's unmanaged network, unnecessary network traffic due to improper Quality of Service (QoS) network prioritization policies, or an unnecessary Virtual Private Network (VPN) for example.
 
-  - **Note:** As a rule, we recommend prioritizing a user’s Audio
+[!Note] 
+As a rule, we recommend prioritizing a user’s Audio
   connection bandwidth before their video connection and both audio and video before
   other network traffic. When a network is unable to support both audio
   and video, you can proactively disable a user’s video or nudge a user
@@ -285,7 +286,7 @@ The call may have fired a User Facing Diagnostic indicating a severe problem wit
     - [Create a log query across multiple workspaces and apps in Azure Monitor](../../../azure-monitor/logs/cross-workspace-query.md)
 
 
-## Next Steps
+## Next steps
 
 - Continue to learn other best practices, see: [Best practices: Azure Communication Services calling SDKs](../best-practices.md)
 
@@ -296,10 +297,12 @@ The call may have fired a User Facing Diagnostic indicating a severe problem wit
 
 <!-- Comment this out - add to the toc.yml file at row 583.
 
-    - name: Quality and Reliability
+    - name: Monitor and manage call quality
       items:
-      - name: Call Quality Tools
+      - name: Manage call quality
         href: concepts/voice-video-calling/manage-call-quality.md
+        displayName: diagnostics, Survey, feedback, quality, reliability, users, end, call, quick
       - name: End of Call Survey
         href: concepts/voice-video-calling/end-of-call-survey-concept.md
+        displayName: diagnostics, Survey, feedback, quality, reliability, users, end, call, quick
  -->
