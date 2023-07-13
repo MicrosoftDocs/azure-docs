@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: devices
 ms.topic: troubleshooting
-ms.date: 7/5/2023
+ms.date: 7/14/2023
 
 ms.author: v-leedennis
 author: DennisLee-DennisLee
@@ -428,6 +428,8 @@ Common general network-related issues.
 
 #### Time travel traces
 
+The following procedure describes how to capture traces by using the [Time Travel Debugging](/windows-hardware/drivers/debugger/time-travel-debugging-overview) (TTD) feature.
+
 > [!WARNING]  
 > Time travel traces contain personal data. In addition, Local Security Authority Subsystem Service (LSASS or *lsass.exe*) traces contain extremely sensitive information. When you handle these traces, make sure that you use best practices for the storage and sharing of this type of information.
 
@@ -445,7 +447,7 @@ Common general network-related issues.
    ```
 
 1. In the `tasklist` command output, find the process identifier (`PID`) of *lsass.exe*.
-1. Run the following time travel debugging (TTD) command to begin a time travel tracing session of the *lsass.exe* process:
+1. Run the following time travel debugging command ([TTD.exe](/windows-hardware/drivers/debugger/time-travel-debugging-ttd-exe-command-line-util)) to begin a time travel tracing session of the *lsass.exe* process:
 
    ```cmd
    TTD.exe -attach <lsass-pid> -out c:\temp
