@@ -11,7 +11,7 @@ ms.date: 7/14/2023
 ms.author: v-leedennis
 author: DennisLee-DennisLee
 editor: v-jsitser
-ms.reviewer: azureidcic, gudlapreethi
+ms.reviewer: gudlapreethi, bemey, filuz, robgarcia
 ---
 # Troubleshoot primary refresh token issues on Windows devices
 
