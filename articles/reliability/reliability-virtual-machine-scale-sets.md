@@ -24,11 +24,11 @@ For an architectural overview of reliability in Azure, see [Azure reliability](/
 
 | Category | Priority |Recommendation |  
 |---------------|--------|---|
-| [**Scalability**](#scalablity) |:::image type="icon" source="../reliability/media/icon-recommendation-medium.svg":::| [VMSS-1: Deploy using Flexible scale set instead of simple Virtual Machines](#vmss-1-deploy-using-flexible-scale-set-instead-of-simple-vms) |
+| [**Scalability**](#scalability) |:::image type="icon" source="../reliability/media/icon-recommendation-medium.svg":::| [VMSS-1: Deploy using Flexible scale set instead of simple Virtual Machines](#vmss-1-deploy-using-flexible-scale-set-instead-of-simple-vms) |
 | |:::image type="icon" source="../reliability/media/icon-recommendation-high.svg":::| [VMSS-5: VMSS Autoscale is set to Manual scale](#vmss-5-vmss-autoscale-is-set-to-manual-scale) |
 | |:::image type="icon" source="../reliability/media/icon-recommendation-low.svg":::| [VMSS-6: VMSS Custom scale-in policies is not set to default](#vmss-6-vmss-custom-scale-in-policies-is-not-set-to-default) |
 | [**High Availability**](#high-availability) |:::image type="icon" source="../reliability/media/icon-recommendation-high.svg":::| [VMSS-4: Automatic repair policy is not enabled](#vmss-4-automatic-repair-policy-is-not-enabled) |
-| [**Disaster Recovery**](#distaster-recovery) |:::image type="icon" source="../reliability/media/icon-recommendation-low.svg":::| [VMSS-2: Protection Policy is disabled for all VMSS instances](#vmss-2-protection-policy-is-disabled-for-all-vmss-instances) |
+| [**Disaster Recovery**](#disaster-recovery) |:::image type="icon" source="../reliability/media/icon-recommendation-low.svg":::| [VMSS-2: Protection Policy is disabled for all VMSS instances](#vmss-2-protection-policy-is-disabled-for-all-vmss-instances) |
 | [**Monitoring**](#monitoring) |:::image type="icon" source="../reliability/media/icon-recommendation-medium.svg":::| [VMSS-3: VMSS Application health monitoring is not enabled](#vmss-3-vmss-application-health-monitoring-is-not-enabled) |
 
 
@@ -151,6 +151,10 @@ Virtual machine scale sets supports both zonal and zone-redundant deployments wi
 
 1. When you deploy a regional (non-zonal) scale set into one or more zones as of API version 2017-12-01, you have the following availability options: 
 
+
+### SLA improvements
+
+Because availability zones are physically separate and provide distinct power source, network, and cooling, SLAs (Service-level agreements) increase. For more information, see the [SLA for Microsoft Online Services](https://www.microsoft.com/licensing/docs/view/Service-Level-Agreements-SLA-for-Online-Services).
 
 #### Create a machine scale set with availability zones enabled
 
@@ -316,8 +320,37 @@ For a complete example of a zone-redundant scale set and network resources, see 
 
 ### Zonal failover support
 
-<!-- IF (SERVICE IS ZONAL) -->
+### Fault tolerance
 
-<!--Test Indicate here whether the customer can set up resources of the service to failover to another zone. If they can set up failover resources, provide a link to documentation for this procedure. If such documentation doesn’t exist, create the document, and then link to it from here. -->
+### Zone down experience
 
-<!-- END IF (SERVICE IS ZONAL) -->
+If your VMSS has been deployed in a zone redundant configuration, across multiple availability zones, VMSS will automatically failover to another availability zone in the case of a zone outage. 
+
+#### Zone outage preparation and recovery
+
+You can set up your VMSS to failover to another zone using the Site Recovery service. For more information, see [Site Recovery](../site-recovery/site-recovery-overview.md).
+
+### Low-latency design
+
+Zonal deployment is recommended when super low latency is required, and can be achieved by using VMSS Flex and PPGs for resources alignment. You can combine VMs with other services such as zonal load balancer, IP, NAT Gateway, and especially those services that are running on physical HW/Azure Large Instances (AVS, SAP, Epic, Oracle).
+
+### Safe deployment techniques
+
+### Availability zone redeployment and migration
+
+## Disaster recovery: cross-region failover
+
+### Cross-region disaster recovery in multi-region geography
+
+#### Outage detection, notification, and management
+#### Set up disaster recovery and outage detection 
+
+### Single-region geography disaster recovery
+
+### Capacity and proactive disaster recovery resiliency
+
+## Additional guidance
+
+## Next steps
+> [!div class="nextstepaction"]
+> [Reliability in Azure](/azure/reliability/availability-zones-overview)
