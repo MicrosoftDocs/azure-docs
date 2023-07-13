@@ -21,7 +21,7 @@ The application routing add-on exposes the Prometheus metrics endpoint at `/metr
 ## Prerequisites
 
 - An Azure Kubernetes Service (AKS) cluster with the [application routing add-on enabled][app-routing].
-- A Prometheus instance, such as [Azure Monitor managed service for Prometheus][managed-prometheus].
+- A Prometheus instance, such as [Azure Monitor managed service for Prometheus][managed-prometheus-configure].
 - A Grafana instance, such as [Azure Managed Grafana][managed-grafana].
 
 ## Validating the metrics endpoint
@@ -165,7 +165,7 @@ Then upload the desired dashboard file and click on **Load**.
 [az-aks-create]: /cli/azure/aks#az-aks-create
 [app-routing]: /azure/aks/app-routing
 [managed-prometheus]: /azure/azure-monitor/essentials/prometheus-metrics-overview
-[managed-prometheus-configure]: /azure/azure-monitor/containers/container-insights-prometheus
+[managed-prometheus-configure]: /azure/azure-monitor/essentials/prometheus-metrics-enable?tabs=cli
 [managed-prometheus-custom-annotations]: /azure/azure-monitor/essentials/prometheus-metrics-scrape-configuration#pod-annotation-based-scraping
 [managed-grafana]: /azure/managed-grafana/overview
 [create-grafana]: /azure/managed-grafana/quickstart-managed-grafana-portal
