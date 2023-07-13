@@ -52,7 +52,7 @@ Forwarding from [::1]:43307 -> 10254
 
 Note the local port (`43307` in this case) and open http://localhost:43307/metrics in your browser. You should see the ingress-nginx controller metrics loading.
 
-![Screenshot of the Prometheus metrics in the browser](./media/app-routing/prometheus-metrics.png)
+![Screenshot of the Prometheus metrics in the browser.](./media/app-routing/prometheus-metrics.png)
 
 You can now terminate the `port-forward` process to close the forwarding.
 
@@ -137,7 +137,7 @@ This dashboard gives you visibility of request volume, connections, success rate
 
 You can download this dashboard from [GitHub][grafana-nginx-dashboard].
 
-![Screenshot of a browser showing the ingress-nginx dashboard on Grafana](media/app-routing/grafana-dashboard.png)
+![Screenshot of a browser showing the ingress-nginx dashboard on Grafana.](media/app-routing/grafana-dashboard.png)
 
 ### Request handling performance dashboard
 
@@ -145,17 +145,17 @@ This dashboard gives you visibility into the request handling performance of the
 
 You can download this dashboard from [GitHub][grafana-nginx-request-performance-dashboard].
 
-![Screenshot of a browser showing the ingress-nginx request handling performance dashboard on Grafana](media/app-routing/grafana-dashboard-2.png)
+![Screenshot of a browser showing the ingress-nginx request handling performance dashboard on Grafana.](media/app-routing/grafana-dashboard-2.png)
 
 ### Importing a dashboard
 
 To import a Grafana dashboard, expand the left menu and click on **Import** under Dashboards.
 
-![Screenshot of a browser showing the Grafana instance with Import dashboard highlighted](media/app-routing/grafana-import.png)
+![Screenshot of a browser showing the Grafana instance with Import dashboard highlighted.](media/app-routing/grafana-import.png)
 
 Then upload the desired dashboard file and click on **Load**.
 
-![Screenshot of a browser showing the Grafana instance import dashboard dialog](media/app-routing/grafana-import-json.png)
+![Screenshot of a browser showing the Grafana instance import dashboard dialog.](media/app-routing/grafana-import-json.png)
 ## Next steps
 
 - You can configure scaling your workloads using ingress metrics scraped with Prometheus using [Kubernetes Event Driven Autoscaler (KEDA)][KEDA]. Learn more about [integrating KEDA with AKS][keda-prometheus].
