@@ -7,6 +7,4 @@
   - name: Working with ALI in the Azure portal
     href: work-with-ali-in-the-azure-portal.md
 - name: Azure Large Instances for Epic
-  items: 
-  - name: Azure Large Instances for Epic
-    href: ./workloads/epic/index.yml
+  href: ./workloads/epic/index.yml
