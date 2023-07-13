@@ -58,6 +58,12 @@ The following issues are ones we're already aware of, so you won't need to repor
 
 - If you enabled the **Enable video playback for all sites** setting in the multimedia redirection extension pop-up and see issues on a supported WebRTC audio calling site, disable the setting and try again.
 
+## Call redirection
+
+If you can start a call with MMR enabled and can see the green phone icon on the extension icon while calling, but the call quality is low, you should contact the app provider for help.
+
+If calls aren't going through, certain features don't work as expected while MMR is enabled, or MMR won't enable at all, you must submit a [Microsoft support ticket](../azure-portal/supportability/how-to-create-azure-support-request.md).
+
 ## Log collection
 
 If you encounter any issues, you can collect logs from the extension and provide them to your IT admin or support.
@@ -69,14 +75,6 @@ To enable log collection:
 1. Select **Show Advanced Settings**.
 
 1. For **Collect logs**, select **Start**.
-
-## Call redirection
-
-MMR call redirection only affects the connection between the local client device and the telephone app server. Call redirection offloads WebRTC calls from Azure VMs to local client devices to reduce latency and improve call quality. However, after the connection is established, call quality becomes dependent on the website or app providers just as it would with a non-redirected call. Therefore, when you run into problems with call redirection, you may need to contact outside help.
-
-If you can start a call with MMR enabled and can see the green phone icon on the extension icon while calling, but the call quality is low, you should contact the app provider for help.
-
-If calls aren't going through, certain features don't work as expected while MMR is enabled, or MMR won't enable at all, you must submit a [Microsoft support ticket](../azure-portal/supportability/how-to-create-azure-support-request.md).
 
 ## Next steps
 
