@@ -36,7 +36,7 @@ In this article, you'll learn the steps to move a Log Analytics workspace.
 | Verify the Azure Active Directory tenant. | `Microsoft.AzureActiveDirectory/b2cDirectories/read` permissions, as provided by the [Log Analytics Reader built-in role](./manage-access.md#log-analytics-reader), for example. |
 | Delete a solution. | `Microsoft.OperationsManagement/solutions/delete` permissions on the solution, as provided by the [Log Analytics Contributor built-in role](./manage-access.md#log-analytics-contributor), for example. |
 | Remove alert rules for the Start/Stop VMs solution. | `microsoft.insights/scheduledqueryrules/delete` permissions, as provided by the [Monitoring Contributor built-in role](../../role-based-access-control/built-in-roles.md#monitoring-contributor), for example. |
-| Unlink the Automation account | `Microsoft.OperationalInsights/workspaces/linkedServices/delete` permissons on the linked Log Analytics workspace, as provided by the [Log Analytics Contributor built-in role](./manage-access.md#log-analytics-contributor), for example. |
+| Unlink the Automation account | `Microsoft.OperationalInsights/workspaces/linkedServices/delete` permissions on the linked Log Analytics workspace, as provided by the [Log Analytics Contributor built-in role](./manage-access.md#log-analytics-contributor), for example. |
 | Move a Log Analytics workspace. | `Microsoft.OperationalInsights/workspaces/delete` and `Microsoft.OperationalInsights/workspaces/write` permissions on the Log Analytics workspace, as provided by the [Log Analytics Contributor built-in role](./manage-access.md#log-analytics-contributor), for example. |
 
 ## Workspace move considerations
@@ -165,7 +165,7 @@ DELETE https://management.azure.com/subscriptions/{subscriptionId}/resourceGroup
 
 ### [CLI](#tab/cli)
 
-Delete the following alert rules by runing the [az monitor scheduled-query delete](/cli/azure/monitor/scheduled-query#az-monitor-scheduled-query-delete) command:
+Delete the following alert rules by running the [az monitor scheduled-query delete](/cli/azure/monitor/scheduled-query#az-monitor-scheduled-query-delete) command:
 
 - AutoStop_VM_Child
 - ScheduledStartStop_Parent
