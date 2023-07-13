@@ -35,8 +35,8 @@ landingContent:
             url: quality-checks.md
           - text: Find your subscription ID
             url: find-your-subscription-id.md
-          - text: Create an Azure Large Instance
-            url: create-an-azure-large-instance.md
+          - text: Create a volume group
+            url: create-a-volume-group.md
 
 # card 3
   - title: Workloads
