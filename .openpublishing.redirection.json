@@ -13841,7 +13841,7 @@
         {
             "source_path_from_root": "/articles/load-balancer/use-existing-lb-vmss-cli.md",
             "redirect_url": "/azure/load-balancer/configure-vm-scale-set-cli",
-            "redirect_document_id": ""
+            "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/load-balancer/load-balancer-get-started-internet-classic-portal.md",
