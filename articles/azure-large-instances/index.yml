@@ -25,10 +25,10 @@ landingContent:
             url: work-with-ali-in-the-azure-portal.md
 
 # card 2
-  - title: Azure Large Instances for Epic
+  - title: Workloads
     linkLists: 
       - linkListType: concept
         links:
-          - text: About ALI for EPIC
+          - text: Azure Large Instances for EPIC
             url: workloads/epic/index.yml
   
