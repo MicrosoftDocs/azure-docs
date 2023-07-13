@@ -78,7 +78,7 @@ The network blueprint input schema for IRT is defined in the networks-blueprint.
 
 ### Uploading Results to Your Own Archive
 
-1. We offer a supplementary script, `create-archive-storage.sh` to allow you to set up a storage container to store your results. The script generates an SAS Token for a storage container that is valid for three days. The script will create a storage container, storage account, and resource group if they don't already exist.
+1. We offer a supplementary script, `create-archive-storage.sh` to allow you to set up a storage container to store your results. The script generates an SAS Token for a storage container that is valid for three days. The script creates a storage container, storage account, and resource group if they don't already exist.
    1. The script expects the following environment variables to be defined:
       1. RESOURCE_GROUP
       1. SUBSCRIPTION
