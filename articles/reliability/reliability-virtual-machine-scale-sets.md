@@ -124,13 +124,13 @@ Monitoring your application health is an important signal for managing and upgra
 
 # [Azure Resource Graph](#tab/graph)
 
-:::code language="kusto" source="~/azure-proactive-resiliency-library/docs/content/services/compute/virtual-machine-scale-sets/code/vm-3/vm-3.kql":::
+:::code language="kusto" source="~/azure-proactive-resiliency-library/docs/content/services/compute/virtual-machine-scale-sets/code/vmss-3/vmss-3.kql":::
 
 ----
 
 ## Availability zone support
 
-[!INCLUDE [next step](includes/reliability-availability-zone-description-include.md)]
+[!INCLUDE [Availability zone description](./includes/reliability-availability-zone-description-include.md)]
 
 With [Azure virtual machine scale sets](flexible-virtual-machine-scale-sets.md) you can create and manage a group of load balanced VMs. The number of VM instances can automatically increase or decrease in response to demand or a defined schedule. Scale sets provide high availability to your applications, and allow you to centrally manage, configure, and update many VMs. There's no cost for the scale set itself. You only pay for each VM instance that you create.
 
