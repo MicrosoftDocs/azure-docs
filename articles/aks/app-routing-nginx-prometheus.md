@@ -65,7 +65,7 @@ Azure Monitor managed service for Prometheus is a fully managed Prometheus-compa
 Once your cluster is updated with the Azure Monitor agent, you need to configure the agent to enable scraping based on Pod annotations, which are added to the ingress-nginx pods. One way to set this setting is in the [`ama-metrics-settings-configmap`](https://aka.ms/azureprometheus-addon-settings-configmap) ConfigMap in the `kube-system` namespace.
 
 > [!CAUTION]
-> This will replace your existing [`ama-metrics-settings-configmap`] ConfigMap in the `kube-system`. If you already have a configuration, you may want to take a backup or merge it with this configuration.
+> This will replace your existing `ama-metrics-settings-configmap` ConfigMap in the `kube-system`. If you already have a configuration, you may want to take a backup or merge it with this configuration.
 >
 > You can backup an existing `ama-metrics-settings-config` ConfigMap if it exists by running `kubectl get configmap ama-metrics-settings-configmap -n kube-system -o yaml > ama-metrics-settings-configmap-backup.yaml`
 
