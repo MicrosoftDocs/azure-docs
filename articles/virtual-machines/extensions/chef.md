@@ -4,8 +4,9 @@ description: Deploy the Chef Client to a virtual machine using the Chef VM Exten
 ms.topic: article
 ms.service: virtual-machines
 ms.subservice: extensions
+ms.custom: devx-track-azurecli
 ms.author: gabsta
-author: MsGabsta
+author: GabstaMSFT
 ms.collection: linux
 ms.date: 09/21/2018
 ---

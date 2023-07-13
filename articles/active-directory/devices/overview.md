@@ -6,12 +6,12 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: devices
 ms.topic: overview
-ms.date: 02/07/2022
+ms.date: 01/24/2023
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: amycolannino
-ms.reviewer: sandeo, ravenn, spunukol, jogro, jploegert
+ms.reviewer: sandeo, jogro, jploegert
 
 ms.collection: M365-identity-device-management
 ---
@@ -27,7 +27,7 @@ There are three ways to get a device identity:
 - Azure AD join
 - Hybrid Azure AD join
 
-Device identities are a prerequisite for scenarios like [device-based Conditional Access policies](../conditional-access/require-managed-devices.md) and [Mobile Device Management with Microsoft Endpoint Manager](/mem/endpoint-manager-overview).
+Device identities are a prerequisite for scenarios like [device-based Conditional Access policies](../conditional-access/require-managed-devices.md) and [Mobile Device Management with the Microsoft Intune family of products](/mem/endpoint-manager-overview).
 
 ## Modern device scenario
 

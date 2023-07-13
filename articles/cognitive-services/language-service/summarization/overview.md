@@ -8,16 +8,18 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-service
 ms.topic: overview
-ms.date: 12/06/2022
+ms.date: 01/12/2023
 ms.author: jboback
 ms.custom: language-service-summarization, ignite-fall-2021, event-tier1-build-2022, ignite-2022
 ---
 
-# What is document and conversation summarization (preview)?
+# What is document and conversation summarization?
 
 [!INCLUDE [availability](includes/regional-availability.md)]
 
 Summarization is one of the features offered by [Azure Cognitive Service for Language](../overview.md), a collection of machine learning and AI algorithms in the cloud for developing intelligent applications that involve written language. Use this article to learn more about this feature, and how to use it in your applications.
+
+Custom Summarization enables users to build custom AI models to summarize unstructured text, such as contracts or novels. By creating a Custom Summarization project, developers can iteratively label data, train, evaluate, and improve model performance before making it available for consumption. The quality of the labeled data greatly impacts model performance. To simplify building and customizing your model, the service offers a custom web portal that can be accessed through the [Language studio](https://aka.ms/languageStudio). You can easily get started with the service by following the steps in this [quickstart](custom/quickstart.md). 
 
 # [Document summarization](#tab/document-summarization)
 
@@ -116,24 +118,8 @@ Conversation summarization feature would simplify the text into the following:
 
 ## Get started with summarization
 
-# [Document summarization](#tab/document-summarization)
+[!INCLUDE [development options](./includes/development-options.md)]
 
-To use this feature, you submit raw unstructured text for analysis and handle the API output in your application. Analysis is performed as-is, with no additional customization to the model used on your data. There are two ways to use summarization:
-
-|Development option  |Description  | Links |
-|---------|---------|---------|
-| Language Studio    | A web-based platform that enables you to try document summarization without needing writing code. | • [Language Studio website](https://language.cognitive.azure.com/tryout/summarization) <br> • [Quickstart: Use Language Studio](../language-studio.md) |
-| REST API or Client library (Azure SDK)     | Integrate document summarization into your applications using the REST API, or the client library available in a variety of languages. | • [Quickstart: Use document summarization](quickstart.md) |
-
-# [Conversation summarization](#tab/conversation-summarization)
-
-To use this feature, you submit raw text for analysis and handle the API output in your application. Analysis is performed as-is, with no additional customization to the model used on your data. There are two ways to use conversation summarization:
-
-|Development option  |Description  | Links |
-|---------|---------|---------|
-| REST API     | Integrate conversation summarization into your applications using the REST API. | [Quickstart: Use conversation summarization](quickstart.md?tabs=conversation-summarization&pivots=rest-api) |
-
----
 
 ## Input requirements and service limits
 

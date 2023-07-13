@@ -8,7 +8,7 @@ ms.author: msangapu
 | Resource | Free | Shared | Basic | Standard | Premium (v1-v3) | Isolated </th> |
 | --- | --- | --- | --- | --- | --- | --- |
 | [Web, mobile, or API apps](https://azure.microsoft.com/services/app-service/) per [Azure App Service plan](../articles/app-service/overview-hosting-plans.md)<sup>1</sup> |10 |100 |Unlimited<sup>2</sup> |Unlimited<sup>2</sup> |Unlimited<sup>2</sup> |Unlimited<sup>2</sup>|
-| [App Service plan](../articles/app-service/overview-hosting-plans.md) |10 per region |10 per resource group |100 per resource group |100 per resource group |100 per resource group |100 per resource group|
+| [App Service plan](../articles/app-service/overview-hosting-plans.md) |10 per region<br><br>1 free Linux App Service plan per region |10 per resource group |100 per resource group |100 per resource group |100 per resource group |100 per resource group|
 | Compute instance type |Shared |Shared |Dedicated<sup>3</sup> |Dedicated<sup>3</sup> |Dedicated<sup>3</sup></p> |Dedicated<sup>3</sup>|
 | [Scale out](../articles/app-service/manage-scale-up.md) (maximum instances) |1 shared |1 shared |3 dedicated<sup>3</sup> |10 dedicated<sup>3</sup> | 20 dedicated for v1; 30 dedicated for v2 and v3.<sup>3</sup>|100 dedicated<sup>4</sup>|
 | Storage<sup>5</sup> |1 GB<sup>5</sup> |1 GB<sup>5</sup> |10 GB<sup>5</sup> |50 GB<sup>5</sup> |250 GB<sup>5</sup> |1 TB<sup>12</sup> <br/><br/> The available storage quota is 999 GB. |
@@ -34,7 +34,7 @@ ms.author: msangapu
 | [WebJobs](../articles/app-service/webjobs-create.md)<sup>10</sup> |X |X |X |X |X |X |
 | [Endpoint monitoring](../articles/app-service/web-sites-monitor.md) | | |X |X |X |X |
 | [Staging slots](../articles/app-service/deploy-staging-slots.md) per app| | | |5 |20 |20 |
-| [Testing in Production](../articles/app-service/deploy-staging-slots.md#route-traffic)| | | |X |X |X |
+| [Testing in Production](../articles/app-service/deploy-staging-slots.md#route-production-traffic-automatically)| | | |X |X |X |
 | [Diagnostic Logs](../articles/app-service/troubleshoot-diagnostic-logs.md) | X | X | X | X | X | X |
 | Kudu | X | X | X | X | X | X |
 | [Authentication and Authorization](../articles/app-service/overview-authentication-authorization.md) | X | X | X | X | X | X |

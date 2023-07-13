@@ -1,12 +1,12 @@
 ---
 title: 'Quickstart: Use Java and JDBC with Azure Database for PostgreSQL Flexible Server'
-description: In this quickstart, you learn how to use Java and JDBC with an Azure Database for PostgreSQL Flexible server.
+description: In this quickstart, you learn how to use Java and JDBC with an Azure Database for PostgreSQL Flexible Server.
 ms.service: postgresql
 ms.subservice: flexible-server
 ms.author: sunila
 author: sunilagarwal
 ms.reviewer: ""
-ms.custom: mvc, devcenter, devx-track-azurecli, mode-api, passwordless-java
+ms.custom: mvc, devcenter, devx-track-azurecli, mode-api, passwordless-java, devx-track-extended-java
 ms.topic: quickstart
 ms.devlang: java
 ms.date: 11/07/2022
@@ -206,7 +206,7 @@ az postgres flexible-server db create \
 Next, create a non-admin user and grant all permissions to the database.
 
 > [!NOTE]
-> You can read more detailed information about creating PostgreSQL users in [Create users in Azure Database for PostgreSQL](/azure/PostgreSQL/flexible-server/how-to-create-users).
+> You can read more detailed information about managing PostgreSQL users in [Manage Azure Active Directory users - Azure Database for PostgreSQL - Flexible Server](how-to-manage-azure-ad-users.md).
 
 #### [Passwordless (Recommended)](#tab/passwordless)
 
@@ -285,7 +285,7 @@ Using your favorite IDE, create a new Java project using Java 8 or above, and ad
       </dependency>
       <dependency>
         <groupId>com.azure</groupId>
-        <artifactId>azure-identity-providers-jdbc-postgresql</artifactId>
+        <artifactId>azure-identity-extensions</artifactId>
         <version>1.0.0</version>
       </dependency>
     </dependencies>

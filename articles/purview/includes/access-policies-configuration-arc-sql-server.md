@@ -24,7 +24,7 @@ This section describes the steps to configure SQL Server on Azure Arc to use Mic
 1. Select the button to **Check for Microsoft Purview Governance**. Wait while the request is processed. While that happens, this message will be displayed at the top of the page. You may need to scroll up to see it. 
    ![Screenshot that shows Arc-SQL agent is processing a request](../media/how-to-policies-data-owner-sql/arc-sql-processing-request.png)
 
-1. Do a browser refresh. At the bottom of the page, confirm that the Microsoft Purview Governance Status shows `Governed`
+1. At the bottom of the page, confirm that the Microsoft Purview Governance Status shows `Governed`. Note that **it may take up to 30 minutes** for the correct status to be reflected. Continue doing a browser refresh until that happens. 
 
 1. Confirm that the Microsoft Purview Endpoint points to the Microsoft Purview account where you registered this data source and enabled the *Data use management*
 

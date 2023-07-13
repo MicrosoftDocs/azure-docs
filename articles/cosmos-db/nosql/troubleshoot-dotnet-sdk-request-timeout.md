@@ -4,7 +4,7 @@ description: Learn how to diagnose and fix .NET SDK request timeout exceptions.
 author: seesharprun
 ms.service: cosmos-db
 ms.subservice: nosql
-ms.date: 09/16/2022
+ms.date: 02/15/2023
 ms.author: sidandrews
 ms.topic: troubleshooting
 ms.reviewer: mjbrown
@@ -28,13 +28,17 @@ When evaluating the case for timeout errors:
 
 The SDK has two distinct alternatives to control timeouts, each with a different scope.
 
-### RequestTimeout
+### Request level timeouts
 
-The `CosmosClientOptions.RequestTimeout` (or `ConnectionPolicy.RequestTimeout` for SDK v2) configuration allows you to set a timeout that affects each individual network request. An operation started by a user can span multiple network requests (for example, there could be throttling). This configuration would apply for each network request on the retry. This timeout isn't an end-to-end operation request timeout.
+The `CosmosClientOptions.RequestTimeout` (or `ConnectionPolicy.RequestTimeout` for SDK v2) configuration allows you to set a timeout for the network request after the request left the SDK and is on the network, until a response is received.
+
+The `CosmosClientOptions.OpenTcpConnectionTimeout` (or `ConnectionPolicy.OpenTcpConnectionTimeout` for SDK v2) configuration allows you to set a timeout for the time spent opening an initial connection. Once a connection is opened, subsequent requests will use the connection.
+
+An operation started by a user can span multiple network requests, for example, retries. These two configurations are per-request, not end-to-end for an operation.
 
 ### CancellationToken
 
-All the async operations in the SDK have an optional CancellationToken parameter. This [CancellationToken](/dotnet/standard/threading/how-to-listen-for-cancellation-requests-by-polling) parameter is used throughout the entire operation, across all network requests. In between network requests, the cancellation token might be checked and an operation canceled if the related token is expired. The cancellation token should be used to define an approximate expected timeout on the operation scope.
+All the async operations in the SDK have an optional CancellationToken parameter. This [CancellationToken](/dotnet/standard/threading/how-to-listen-for-cancellation-requests-by-polling) parameter is used throughout the entire operation, across all network requests and retries. In between network requests, the cancellation token might be checked and an operation canceled if the related token is expired. The cancellation token should be used to define an approximate expected timeout on the operation scope.
 
 > [!NOTE]
 > The `CancellationToken` parameter is a mechanism where the library will check the cancellation when it [won't cause an invalid state](https://devblogs.microsoft.com/premier-developer/recommended-patterns-for-cancellationtoken/). The operation might not cancel exactly when the time defined in the cancellation is up. Instead, after the time is up, it cancels when it's safe to do so.
@@ -53,7 +57,7 @@ These exceptions are safe to retry on and can be treated as [timeouts](conceptua
 
 #### Solution
 
-Verify the configured time in your `CancellationToken`, make sure that it's greater than your [RequestTimeout](#requesttimeout) and the [CosmosClientOptions.OpenTcpConnectionTimeout](/dotnet/api/microsoft.azure.cosmos.cosmosclientoptions.opentcpconnectiontimeout) (if you're using [Direct mode](sdk-connection-modes.md)). 
+Verify the configured time in your `CancellationToken`, make sure that it's greater than your [RequestTimeout](#request-level-timeouts) and the [CosmosClientOptions.OpenTcpConnectionTimeout](/dotnet/api/microsoft.azure.cosmos.cosmosclientoptions.opentcpconnectiontimeout) (if you're using [Direct mode](sdk-connection-modes.md)). 
 If the available time in the `CancellationToken` is less than the configured timeouts, and the SDK is facing [transient connectivity issues](conceptual-resilient-sdk-applications.md#timeouts-and-connectivity-related-failures-http-408503), the SDK won't be able to retry and will throw `CosmosOperationCanceledException`.
 
 ### High CPU utilization

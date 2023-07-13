@@ -3,7 +3,7 @@ title: Understanding inventory assets
 description: Microsoft's proprietary discovery technology recursively searches for infrastructure with observed connections to known legitimate assets.
 author: danielledennis
 ms.author: dandennis
-ms.service: security
+ms.service: defender-easm
 ms.date: 07/14/2022
 ms.topic: conceptual
 ---

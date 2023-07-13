@@ -6,13 +6,16 @@ ms.author: jingwang
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
-ms.date: 03/14/2022
+ms.date: 03/07/2023
 ---
 # How to connect Azure Data Share and Microsoft Purview
 
 This article discusses how to connect your [Azure Data Share](../data-share/overview.md) account with Microsoft Purview and govern the shared datasets (both outgoing and incoming) in your data estate. Various data governance personas can discover and track lineage of data across boundaries like organizations, departments and even data centers.
 
-## Common Scenarios
+>[!IMPORTANT]
+> This article is about lineage for the [Azure Data Share service](../data-share/overview.md). If you are using data sharing in Microsoft Purview, use this article for lineage: [Microsoft Purview Data Sharing lineage](how-to-lineage-purview-data-sharing.md).
+
+## Common scenarios
 
 Data Share Lineage is aimed to provide detailed information for root cause analysis and impact analysis.
 
@@ -36,10 +39,10 @@ To connect your Azure Data Share and Microsoft Purview account, do the following
 
 1. Connect your Azure Data Share to your Microsoft Purview account.
 
-    1. In the Microsoft Purview portal, you can go to **Management Center** and connect your Azure Data Share under the **External connections** section.
+    1. In the Microsoft Purview governance portal, you can go to **Management Center** and connect your Azure Data Share under the **External connections** section.
     1. Select **+ New** on the top bar, find your Azure Data Share in the pop-up side bar and add the Data Share account. Run a snapshot job after connecting your Data Share to Microsoft Purview account, so that the Data Share assets and lineage information is visible in Microsoft Purview.
 
-       :::image type="content" source="media/how-to-link-azure-data-share/connect-to-data-share.png" alt-text="Management center to link Azure Data Share":::
+       :::image type="content" source="media/how-to-link-azure-data-share/connect-to-data-share.png" alt-text="Screenshot of the management center to link Azure Data Share.":::
 
 1. Execute your snapshot in Azure Data Share.
 
@@ -51,7 +54,7 @@ To connect your Azure Data Share and Microsoft Purview account, do the following
 
     - In the home page of Microsoft Purview account, select **Browse by asset type** and select the **Azure Data Share** tile. You can search for an account name, share name, share snapshot, or partner organization. Otherwise apply filters on the Search result page for account name, share type (sent vs received shares).
 
-       :::image type="content" source="media/how-to-link-azure-data-share/azure-data-share-search-result-page.png" alt-text="Azure Data share in Search result page":::
+       :::image type="content" source="media/how-to-link-azure-data-share/azure-data-share-search-result-page.png" alt-text="Screenshot of Azure Data share in the search result page.":::
 
     >[!Important]
     >For Data Share assets to show in Microsoft Purview, a snapshot job must be run after you connect your Data Share to Microsoft Purview.
@@ -60,7 +63,7 @@ To connect your Azure Data Share and Microsoft Purview account, do the following
 
     - From the Microsoft Purview search result page, choose the Data share snapshot (received/sent) and select the **Lineage** tab, to see a lineage graph with upstream and downstream dependencies.
 
-    :::image type="content" source="media/how-to-link-azure-data-share/azure-data-share-lineage.png" alt-text="Lineage of Datasets shared using Azure Data Share":::
+    :::image type="content" source="media/how-to-link-azure-data-share/azure-data-share-lineage.png" alt-text="Screenshot of the lineage of datasets shared using Azure Data Share.":::
 
 ## Next steps
 

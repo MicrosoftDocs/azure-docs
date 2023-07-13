@@ -1,5 +1,5 @@
 ---
-title: Add or delete users - Azure Active Directory | Microsoft Docs
+title: Add or delete users
 description: Instructions about how to add new users or delete existing users using Azure Active Directory.
 services: active-directory
 author: shlipsey3
@@ -38,7 +38,7 @@ You can create a new user for your organization or invite an external user from 
 
    - **Identity:** Add a user name and display name for the user. **User name** and **Name** are required and can't contain accent characters. You can also add a first and last name. 
 
-     The domain part of the user name must use either the initial default domain name, *\<yourdomainname>.onmicrosoft.com*, or a custom domain name, such as *contoso.com*. For more information about how to create a custom domain name, see [Add your custom domain name using the Azure Active Directory portal](add-custom-domain.md).   
+     The domain part of the user name must use either the initial default domain name, *\<yourdomainname>.onmicrosoft.com*, or a custom domain name, such as *contoso.com*. For more information about how to create a custom domain name, see [Add your custom domain name using the Azure portal](add-custom-domain.md).   
 
    - **Groups and roles:** Optional. Add the user to one or more existing groups. Group membership can be set at any time. For more information about adding users to groups, see the [manage groups article](how-to-manage-groups.md).
 
@@ -66,7 +66,7 @@ If you have an environment with both Azure Active Directory (cloud) and Windows 
 
 ## Delete a user
 
-You can delete an existing user using Azure Active Directory portal.
+You can delete an existing user using Azure portal.
 
 - You must have a Global Administrator, Privileged Authentication Administrator or User Administrator role assignment to delete users in your organization.
 - Global Admins and Privileged Authentication Admins can delete any users including other admins.

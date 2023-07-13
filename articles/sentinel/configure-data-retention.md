@@ -5,7 +5,7 @@ author: cwatson-cat
 ms.author: cwatson
 ms.service: microsoft-sentinel
 ms.topic: tutorial 
-ms.date: 10/03/2022
+ms.date: 01/05/2023
 ms.custom: template-tutorial
 #Customer intent: As an Azure account administrator, I want to archive older but less used data to save retention costs.
 ---

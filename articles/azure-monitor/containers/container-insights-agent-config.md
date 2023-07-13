@@ -45,6 +45,12 @@ The following table describes the settings you can configure to control metric c
 
 ConfigMap is a global list and there can be only one ConfigMap applied to the agent. You can't have another ConfigMap overruling the collections.
 
+### Agent settings for outbound proxy with Azure Monitor Private Link Scope (AMPLS)
+
+| Key | Data type | Value | Description |
+|--|--|--|--|
+| `[agent_settings.proxy_config] ignore_proxy_settings =` | Boolean | True or false | Set this value to true to ignore proxy settings. On both AKS & Arc K8s environments, if your cluster is configured with forward proxy, then proxy settings are automatically applied and used for the agent. For certain configurations, such as, with AMPLS + Proxy, you may with for the proxy config to be ignored. . By default, this setting is set to `false`. |
+
 ## Configure and deploy ConfigMaps
 
 To configure and deploy your ConfigMap configuration file to your cluster:
@@ -65,6 +71,7 @@ To configure and deploy your ConfigMap configuration file to your cluster:
     Example: `kubectl apply -f container-azm-ms-agentconfig.yaml`
 
 The configuration change can take a few minutes to finish before taking effect. Then all Azure Monitor Agent pods in the cluster will restart. The restart is a rolling restart for all Azure Monitor Agent pods, so not all of them restart at the same time. When the restarts are finished, a message similar to this example includes the following result: `configmap "container-azm-ms-agentconfig" created`.
+
 
 ## Verify configuration
 

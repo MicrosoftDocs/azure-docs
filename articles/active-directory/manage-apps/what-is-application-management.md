@@ -10,6 +10,8 @@ ms.topic: overview
 ms.workload: identity
 ms.date: 12/07/2022
 ms.author: jomondi
+ms.reviewer: ergreenl
+ms.custom: enterprise-apps
 ---
 
 # What is application management in Azure Active Directory?
@@ -63,7 +65,7 @@ You can [manage user consent settings](configure-user-consent.md) to choose whet
 
 In situations where users are unable to consent to the permissions an application is requesting, consider configuring the admin consent workflow. The workflow allows users to provide a justification and request an administrator's review and approval of an application. To learn how to configure admin consent workflow in your Azure AD tenant, see [Configure admin consent workflow](configure-admin-consent-workflow.md).
 
-As an administrator, you can [grant tenant-wide admin consent](grant-admin-consent.md) to an application. Tenant-wide admin consent is necessary when an application requires permissions that regular users aren't allowed to grant. granting tenant-wide admin consent also allows organizations to implement their own review processes. Always carefully review the permissions the application is requesting before granting consent. When an application has been granted tenant-wide admin consent, all users are able to sign into the application unless it has been configured to require user assignment.
+As an administrator, you can [grant tenant-wide admin consent](grant-admin-consent.md) to an application. Tenant-wide admin consent is necessary when an application requires permissions that regular users aren't allowed to grant. Granting tenant-wide admin consent also allows organizations to implement their own review processes. Always carefully review the permissions the application is requesting before granting consent. When an application has been granted tenant-wide admin consent, all users are able to sign into the application unless it has been configured to require user assignment.
 
 ### Single sign-on
 
@@ -126,6 +128,10 @@ Your Azure AD reporting and monitoring solution depends on your legal, security,
 ## Clean up
 
 You can clean up access to applications. For example, [removing a user’s access](methods-for-removing-user-access.md). You can also [disable how a user signs in](disable-user-sign-in-portal.md). And finally, you can delete the application if it's no longer needed for the organization. For more information on how to delete an enterprise application from your Azure AD tenant, see [Quickstart: Delete an enterprise application](delete-application-portal.md).
+
+## Guided walkthrough
+
+For a guided walkthrough of many of the recommendations in this article, see the [Microsoft 365 Secure your cloud apps with Single Sign On (SSO) guided walkthrough](https://go.microsoft.com/fwlink/?linkid=2221502).
 
 ## Next steps
 

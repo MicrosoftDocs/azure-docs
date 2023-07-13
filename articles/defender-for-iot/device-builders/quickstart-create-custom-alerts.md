@@ -2,7 +2,7 @@
 title: Create custom alerts
 description: Understand, create, and assign custom device alerts for the Microsoft Defender for IoT security service.
 ms.topic: how-to
-ms.date: 11/09/2021
+ms.date: 01/01/2023
 ---
 
 # Create custom alerts

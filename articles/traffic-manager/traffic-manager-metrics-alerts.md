@@ -4,11 +4,11 @@ description: In this article, learn the metrics and alerts available for Traffic
 services: traffic-manager
 author: greg-lindsay
 ms.service: traffic-manager
-ms.topic: article
-ms.tgt_pltfrm: na
+ms.topic: conceptual
 ms.workload: infrastructure-services
-ms.date: 06/11/2018
+ms.date: 04/27/2023
 ms.author: greglin
+ms.custom: template-concept
 ---
 
 # Traffic Manager metrics and alerts

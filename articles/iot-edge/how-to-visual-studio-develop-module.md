@@ -74,15 +74,6 @@ This article assumes that you use a machine running Windows as your development 
 * Download and install a [Docker compatible container management system](support.md#container-engines) on your development machine to build and run your module images. For example, install [Docker Community Edition](https://docs.docker.com/install/).
 * To develop modules with **Linux containers**, use a Windows computer that meets the [requirements for Docker Desktop](https://docs.docker.com/docker-for-windows/install/#what-to-know-before-you-install).
 
-<!-- 1.1 -->
-:::moniker range="iotedge-2018-06"
-* To develop modules with **Windows containers**, use a Windows computer running version 1809/build 17763 or newer. For more information, see, [Windows containers](support.md#windows-containers).
-
-* Set the container engine to run in either Linux container mode or Windows container mode, depending on the type of modules you're developing.
-
-:::moniker-end
-<!-- end 1.1 -->
-
 * Create an [Azure Container Registry](../container-registry/index.yml) or [Docker Hub](https://docs.docker.com/docker-hub/repos/#viewing-repository-tags) to store your module images.
 
   > [!TIP]
@@ -125,7 +116,7 @@ In our solution, we're going to build three projects. The main module that conta
 
 1. Select **Add** to add your module to the project.
 
-   ![Add Application and Module](./media/how-to-visual-studio-develop-csharp-module/add-module.png)
+   :::image type="content" source="./media/how-to-visual-studio-develop-csharp-module/add-module.png" alt-text="Screenshot of how to add Application and Module.":::
 
    > [!NOTE]
    >If you have an existing IoT Edge project, you can change the repository URL by opening the **module.json** file. The repository URL is located in the *repository* property of the JSON file.
@@ -136,7 +127,7 @@ Now, you have an IoT Edge project and an IoT Edge module in your Visual Studio s
 
 In your solution, there are two project level folders including a main project folder and a single module folder. For example, you may have a main project folder named *AzureIotEdgeApp1* and a module folder named *IotEdgeModule1*. The main project folder contains your deployment manifest.
 
-The module project folder contains a file for your module code named either `program.cs` or `main.c` depending on the language you chose. This folder also contains a file named `module.json` that describes the metadata of your module. Various Docker files included here provide the information needed to build your module as a Windows or Linux container.
+The module project folder contains a file for your module code named either `Program.cs` or `main.c` depending on the language you chose. This folder also contains a file named `module.json` that describes the metadata of your module. Various Docker files included here provide the information needed to build your module as a Windows or Linux container.
 
 ### Deployment manifest of your project
 
@@ -232,15 +223,6 @@ To initialize the tool in Visual Studio:
 
 Typically, you'll want to test and debug each module before running it within an entire solution with multiple modules. The IoT Edge simulator tool allows you to run a single module in isolation a send messages over port 53000.
 
-<!-- 1.1 -->
-:::moniker range="iotedge-2018-06"
->[!TIP]
->Depending on the type of IoT Edge module you are developing, you may need to enable the correct Docker container mode: either Linux or Windows. From the Docker Desktop menu, you can toggle between the two types of modes. Select **Switch to Windows containers** or select **Switch to Linux containers**. For this tutorial, we use Linux.
->
->:::image type="content" source="./media/how-to-visual-studio-develop-module/system-tray.png" alt-text="Screenshot of how to find and select the menu item named 'Switch to Windows containers'.":::
-:::moniker-end
-<!-- end 1.1 -->
-
 1. In **Solution Explorer**, select and highlight the module project folder (for example, *IotEdgeModule1*). Set the custom module as the startup project. Select **Project** > **Set as StartUp Project** from the menu.
 
 1. Press **F5** or select the run toolbar button to start the IoT Edge simulator for a single module. It may take 10 to 20 seconds the initially.
@@ -251,7 +233,7 @@ Typically, you'll want to test and debug each module before running it within an
 
 1. Set a breakpoint to inspect the module.
 
-   * If developing in C#, set a breakpoint in the `PipeMessage()` function in **Program.cs**.
+   * If developing in C#, set a breakpoint in the `PipeMessage()` function in **ModuleBackgroundService.cs**.
    * If using C, set a breakpoint in the `InputQueue1Callback()` function in **main.c**.
 
 1. Test the module by sending a message. When debugging a single module, the simulator listens on the default port 53000 for messages. To send a message to your module, run the following curl command from a command shell like **Git Bash** or **WSL Bash**.
@@ -307,7 +289,7 @@ After you're done developing a single module, you might want to run and debug an
 
 1. Set a breakpoint to inspect the modules.
 
-   * If developing in C#, set a breakpoint in the `PipeMessage()` function in **Program.cs**.
+   * If developing in C#, set a breakpoint in the `PipeMessage()` function in **ModuleBackgroundService.cs**.
    * If using C, set a breakpoint in the `InputQueue1Callback()` function in **main.c**.
 
 1. Create breakpoints in each module and then press **F5** to run and debug multiple modules simultaneously. You should see multiple .NET Core console app windows, with each window representing a different module.

@@ -2,7 +2,7 @@
 title: Indexing configuration guide
 description: This article explains the configuration options of indexing process with Azure Video Indexer.
 ms.topic: conceptual
-ms.date: 11/01/2022
+ms.date: 04/27/2023
 ms.author: juliako
 author: DavidDyckman
 ---
@@ -68,19 +68,19 @@ Below are the indexing type options with details of their insights provided. To 
 
 ### Audio only  
 
-- **Basic**: Indexes and extract insights by using audio only (ignoring video) and provides the following insights: transcription, translation, formatting of output captions and subtitles.
-- **Standard**: Indexes and extract insights by using audio only (ignoring video) and provides the following insights: transcription, translation, formatting of output captions and subtitles, emotions, keywords, named entities (brands, locations, people), sentiments, speakers, and topics.   
-- **Advanced**: Indexes and extract insights by using audio only (ignoring video) and provides the following insights: transcription, translation, formatting of output captions and subtitles, audio effects (preview), emotions, keywords, named entities (brands, locations, people), sentiments, speakers, and articles.   
+- **Basic**: Indexes and extract insights by using audio only (ignoring video) and provides the following insights: transcription, translation, formatting of output captions and subtitles (closed captions).
+- **Standard**: Indexes and extract insights by using audio only (ignoring video) and provides the following insights: transcription, translation, formatting of output captions and subtitles (closed captions), automatic language detection, emotions, keywords, named entities (brands, locations, people), sentiments, speakers, topic extraction, and textual content moderation.   
+- **Advanced**: Indexes and extract insights by using audio only (ignoring video) and provides the following insights: transcription, translation, formatting of output captions and subtitles (closed captions), automatic language detection, audio event detection, emotions, keywords, named entities (brands, locations, people), sentiments, speakers, topic extraction, and textual content moderation.   
 
 ### Video only 
 
-- **Standard**: Indexes and extract insights by using video only (ignoring audio) and provides the following insights: labels (OCR), named entities (OCR - brands, locations, people), OCR, people, scenes (keyframes and shots), and topics (OCR). 
-- **Advanced**: Indexes and extract insights by using video only (ignoring audio) and provides the following insights: labels (OCR), matched person (preview), named entities (OCR - brands, locations, people), OCR, observed people (preview), people, scenes (keyframes and shots), and topics (OCR). 
+- **Standard**: Indexes and extract insights by using video only (ignoring audio) and provides the following insights: labels (OCR), named entities (OCR - brands, locations, people), OCR, people, scenes (keyframes and shots), black frames, visual content moderation, and topic extraction (OCR). 
+- **Advanced**: Indexes and extract insights by using video only (ignoring audio) and provides the following insights: labels (OCR), matched person (preview), named entities (OCR - brands, locations, people), OCR, observed people (preview), people, scenes (keyframes and shots), clapperboard detection, digital pattern detection, featured clothing insight, textless slate detection, textual logo detection, black frames, visual content moderation, and topic extraction (OCR). 
 
 ### Audio and Video   
 
-- **Standard**: Indexes and extract insights by using audio and video and provides the following insights: transcription, translation, formatting of output captions and subtitles, audio effects (preview), emotions, keywords, named entities (brands, locations, people), OCR, people, sentiments, speakers, and topics.   
-- **Advanced**: Indexes and extract insights by using audio and video and provides the following insights: transcription, translation, formatting of output captions and subtitles, audio effects (preview), emotions, keywords, matched person (preview), named entities (brands, locations, people), OCR, observed people (preview), people, sentiments, speakers, and topics.   
+- **Standard**: Indexes and extract insights by using audio and video and provides the following insights: transcription, translation, formatting of output captions and subtitles (closed captions), automatic language detection, emotions, keywords, named entities (brands, locations, people), OCR, scenes (keyframes and shots), black frames, visual content moderation, people, sentiments, speakers, topic extraction, and textual content moderation.   
+- **Advanced**: Indexes and extract insights by using audio and video and provides the following insights: transcription, translation, formatting of output captions and subtitles (closed captions), automatic language detection, textual content moderation, audio event detection, emotions, keywords, matched person, named entities (brands, locations, people), OCR, observed people (preview), people, clapperboard detection, digital pattern detection, featured clothing insight, textless slate detection, sentiments, speakers, scenes (keyframes and shots), textual logo detection, black frames, visual content moderation, and topic extraction.   
 
 ### Streaming quality options 
 
@@ -110,9 +110,9 @@ When indexing a video, default streaming settings are applied. Below are the str
     Output minutes (standard encoder): 130 x $0.015/minute = $1.95. 
 - **No streaming**: Insights are generated but no streaming operation is performed and the video isn't available on the Azure Video Indexer website.  When No streaming is selected, you aren't billed for encoding. 
 
-### Customizing content models - People/Animated characters and Brand categories 
+### Customizing content models 
 
-Azure Video Indexer allows you to customize some of its models to be adapted to your specific use case. These models include animated characters, brands, language, and person. If you have customized models, this section enables you to configure if one of the created models should be used for the indexing. 
+Azure Video Indexer allows you to customize some of its models to be adapted to your specific use case. These models include brands, language, and person. If you have customized models, this section enables you to configure if one of the created models should be used for the indexing. 
 
 ## Next steps
 

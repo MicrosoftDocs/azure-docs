@@ -6,9 +6,9 @@ author: jesscioffi
 services: machine-learning
 ms.service: data-science-vm
 ms.custom: devx-track-python
-
 ms.author: jcioffi
-ms.date: 06/23/2022
+ms.reviewer: mattmcinnes
+ms.date: 04/18/2023
 ms.topic: reference
 
 
@@ -135,7 +135,7 @@ The following Azure tools are installed on the VM:
 * **Azure libraries**: The following are some of the pre-installed libraries.
   
   * **Python**: The Azure-related libraries in Python are *azure*, *azureml*, *pydocumentdb*, and *pyodbc*. With the first three libraries, you can access Azure storage services, Azure Machine Learning, and Azure Cosmos DB (a NoSQL database on Azure). The fourth library, pyodbc (along with the Microsoft ODBC driver for SQL Server), enables access to SQL Server, Azure SQL Database, and Azure Synapse Analytics from Python by using an ODBC interface. Enter **pip list** to see all the listed libraries. Be sure to run this command in both the Python 2.7 and 3.5 environments.
-  * **R**: The Azure-related libraries in R are AzureML and RODBC.
+  * **R**: The Azure-related libraries in R are Azure Machine Learning and RODBC.
   * **Java**: The list of Azure Java libraries can be found in the directory /dsvm/sdk/AzureSDKJava on the VM. The key libraries are Azure storage and management APIs, Azure Cosmos DB, and JDBC drivers for SQL Server.  
 
 ## Azure Machine Learning

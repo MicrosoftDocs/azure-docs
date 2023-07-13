@@ -6,12 +6,12 @@ ms.author: hophan
 ms.service: purview
 ms.subservice: purview-data-map
 ms.topic: conceptual
-ms.date: 12/09/2021
+ms.date: 02/15/2023
 ---
 
 # Microsoft Purview backup and recovery for migration best practices  
 
-This article provides guidance on backup and recovery strategy when your organization has Microsoft Purview in production deployment. You can also use this general guideline to implement account migration. The scope of this article is to cover [manual BCDR methods](disaster-recovery.md) where you could automate using APIs. There's some key information to consider upfront: 
+This article provides guidance on backup and recovery strategy when your organization has [Microsoft Purview unified data governance solutions](/purview/purview#microsoft-purview-unified-data-governance-solutions) in production deployment. You can also use this general guideline to implement account migration. The scope of this article is to cover [manual BCDR methods](disaster-recovery.md) where you could automate using APIs. There's some key information to consider upfront: 
 
 - It isn't advisable to back up "scanned" assets' details. You should only back up the curated data such as mapping of classifications and glossaries on assets. The only case when you need to back up assets' details is when you have custom assets via custom `typeDef`.
 
@@ -45,9 +45,9 @@ The backup should allow saving a point in time copy of the following configurati
 Backup strategy is determined by restore strategy, or more specifically how long it will take to restore things when a disaster occurs. To answer that, you may need to engage with the affected stakeholders (the business owners) and understand what the required recovery objectives are.
 
 There are three main requirements to take into consideration:
-* **Recover Time Objective (RTO)** – This defines the maximum allowable downtime following a disaster for which ideally the system should be back operational.
-* **Recovery Point Objective (RPO)** – This defines the acceptable amount of data loss that is ok following a disaster. Normally this is expressed as a timeframe in hours or minutes.
-* **Recovery Level Object (RLO)** – This defines the granularity of the data being restored. It could be a SQL server, a set of databases, tables, records, etc.
+* **Recover Time Objective (RTO)** – Defines the maximum allowable downtime following a disaster for which ideally the system should be back operational.
+* **Recovery Point Objective (RPO)** – Defines the acceptable amount of data loss that is ok following a disaster. Normally RPO is expressed as a timeframe in hours or minutes.
+* **Recovery Level Object (RLO)** – Defines the granularity of the data being restored. It could be a SQL server, a set of databases, tables, records, etc.
 
 ### High availability
 In computing, the term availability is used to describe the period of time when a service is available, and the time required by a system to respond to a request made by a user. For Microsoft Purview, high availability means ensuring that Microsoft Purview instances are available if there's a problem that is local to a data center or single region in the cloud region.

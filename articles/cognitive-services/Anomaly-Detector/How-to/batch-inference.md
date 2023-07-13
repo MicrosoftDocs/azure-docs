@@ -30,6 +30,8 @@ You could choose the batch inference API, or the streaming inference API for det
 
 To perform batch inference, provide the blob URL containing the inference data, the start time, and end time. For inference data volume, at least `1 sliding window` length and at most **20000** timestamps.
 
+To get better performance, we recommend you send out no more than 150,000 data points per batch inference. *(Data points = Number of variables * Number of timestamps)*
+
 This inference is asynchronous, so the results aren't returned immediately. Notice that you need to save in a variable the link of the results in the **response header** which contains the `resultId`, so that you may know where to get the results afterwards.
 
 Failures are usually caused by model issues or data issues. You can't perform inference if the model isn't ready or the data link is invalid. Make sure that the training data and inference data are consistent, meaning they should be **exactly** the same variables but with different timestamps. More variables, fewer variables, or inference with a different set of variables won't pass the data verification phase and errors will occur. Data verification is deferred so that you'll get error messages only when you query the results.

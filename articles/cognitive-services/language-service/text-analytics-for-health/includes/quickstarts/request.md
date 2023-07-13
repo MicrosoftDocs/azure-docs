@@ -11,9 +11,9 @@ ms.custom: ignite-fall-2021
 
 
 ```bash
-curl -i -X POST https://your-Language-endpoint-here/language/analyze-text/jobs?api-version=2022-05-15-preview \
+curl -i -X POST $LANGUAGE_ENDPOINT/language/analyze-text/jobs?api-version=2022-05-15-preview \
 -H "Content-Type: application/json" \
--H "Ocp-Apim-Subscription-Key: your-Language-key-here" \
+-H "Ocp-Apim-Subscription-Key: $LANGUAGE_KEY" \
 -d '{"analysisInput":{"documents": [{"text": "The doctor prescried 200mg Ibuprofen.","language": "en","id": "1"}]},"tasks":[{"taskId": "analyze 1","kind": "Healthcare","parameters": {"fhirVersion": "4.0.1"}}]}'
 ```
 
@@ -26,13 +26,12 @@ https://your-resource.cognitiveservices.azure.com/language/analyze-text/jobs/{JO
 To get the results of the request, use the following cURL command. Be sure to replace `{JOB-ID}` with the numerical ID value you received from the previous `operation-location` response header:
 
 ```bash
-curl -X GET  https://your-Language-endpoint-here/language/analyze-text/jobs/{JOB-ID}?api-version=2022-05-15-preview \
+curl -X GET  $LANGUAGE_ENDPOINT/language/analyze-text/jobs/{JOB-ID}?api-version=2022-05-15-preview \
 -H "Content-Type: application/json" \
--H "Ocp-Apim-Subscription-Key: your-Language-key-here"
+-H "Ocp-Apim-Subscription-Key: $LANGUAGE_KEY"
 ```
 
-> [!div class="nextstepaction"]
-> <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=REST API&Pillar=Language&Product=Text-analytics-for-health&Page=quickstart&Section=Text-analytics-for-health" target="_target">I ran into an issue</a>
+
 
 ### JSON response
 

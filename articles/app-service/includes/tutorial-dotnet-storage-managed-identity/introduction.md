@@ -38,7 +38,9 @@ In this tutorial, you learn how to:
 
 ## Prerequisites
 
-* A web application running on Azure App Service that has the [App Service authentication/authorization module enabled](../../scenario-secure-app-authentication-app-service.md).
+* A web application running on Azure App Service:
+    * [.NET quickstart](../../quickstart-dotnetcore.md)
+    * [JavaScript quickstart](../../quickstart-nodejs.md)
 
 ## Enable managed identity on an app
 

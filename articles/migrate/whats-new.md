@@ -5,13 +5,39 @@ ms.topic: overview
 author: Vikram1988
 ms.author: vibansa
 ms.manager: abhemraj
-ms.date: 12/14/2022
-ms.custom: mvc
+ms.service: azure-migrate
+ms.date: 06/06/2023
+ms.custom: mvc, engagement-fy23
 ---
 
 # What's new in Azure Migrate
 
 [Azure Migrate](migrate-services-overview.md) helps you to discover, assess, and migrate on-premises servers, apps, and data to the Microsoft Azure cloud. This article summarizes new releases and features in Azure Migrate.
+
+## Update (June 2023)
+- Envision security cost savings with [Microsoft Defender for Cloud (MDC)](https://www.microsoft.com/security/business/cloud-security/microsoft-defender-cloud) using Azure Migrate business case. 
+- Resolve issues impacting the performance data collection and accuracy of Azure VM and Azure VMware Solution assessment recommendation and improve the confidence ratings of assessments.[Learn more](common-questions-discovery-assessment.md).
+
+## Update (May 2023)
+- SQL Server discovery and assessment in Azure Migrate is now Generally Available (GA). [Learn more](concepts-azure-sql-assessment-calculation.md).
+
+## Update (April 2023)
+- Build a quick business case for servers imported via a .csv file. [Learn more](tutorial-discover-import.md)
+- Build business case using Azure Migrate for:
+    - Servers and workloads running in your Microsoft Hyper-V and Physical/ Bare-metal environments as well as IaaS services of other public cloud.
+    - SQL Server Always On Failover Cluster Instances and Always On Availability Groups. [Learn more](how-to-discover-applications.md).
+- Envision savings with Azure Hybrid Benefits by bringing your existing Windows Server licenses to Azure using Azure VM assessments. 
+## Update (March 2023)
+- Support for discovery and assessment of web apps for Azure app service for Hyper-V and Physical servers. [Learn more](how-to-create-azure-app-service-assessment.md).
+
+## Update (February 2023)
+- Discovery and assessment of SQL Server Always On Failover Cluster Instances and Always On Availability Groups is now supported. [Learn more](how-to-discover-applications.md).
+- Public Preview: Modernize your ASP.NET web apps onto Azure Kubernetes Service (AKS) directly through Azure Migrate. [Learn more](tutorial-modernize-asp-net-aks.md).
+
+## Update (January 2023)
+- Envision savings with [Azure Savings Plan for compute](https://azure.microsoft.com/pricing/offers/savings-plan-compute) (ASP) savings option with Azure Migrate business case and assessments. ASP as a savings option assumption/setting is now available for business case, Azure VM assessment, Azure SQL assessment, and Azure App Service assessment. 
+- Support for export of business case report into an .xlsx workbook from the portal. [Learn more](common-questions-business-case.md#how-can-i-export-the-business-case).
+- Azure Migrate is now supported in Sweden geography. [Learn more](migrate-support-matrix.md#public-cloud).
 
 ## Update (December 2022)
 - General Availability: Perform software inventory and agentless dependency analysis at-scale for Hyper-V virtual machines and bare metal servers or servers running on other clouds like AWS, GCP etc.
@@ -38,7 +64,6 @@ Learn more on how to perform [software inventory](how-to-discover-applications.m
 ## Update (October 2022)
 
 - Support for export of errors and notifications from the portal for software inventory and agentless dependency.
-- Private preview: Plan replication. This is a new feature added to the Migration and Modernization tool of Azure Migrate. It helps to estimate the time and resources required for replication and migration of the discovered servers. This feature will help in planning the replication and migration schedule. Currently, the feature is available for VMware agentless migrations.  To enroll for private preview, please fill this [form](https://forms.office.com/pages/responsepage.aspx?id=v4j5cvGGr0GRqy180BHbR2QMeqnlmM1An_w4S8FpvJ5UNEQ1VEgzNUpEUE0xODBHVUdVVUxGMUdVNS4u).
 
 ## Update (September 2022)
 
@@ -54,7 +79,7 @@ Learn more on how to perform [software inventory](how-to-discover-applications.m
 
 ## Update (June 2022)
 
-- Perform at-scale agentless migration of ASP.NET web apps running on IIS web servers hosted on a Windows OS in a VMware environment. [Learn more.](tutorial-migrate-webapps.md)
+- Perform at-scale agentless migration of ASP.NET web apps running on IIS web servers hosted on a Windows OS in a VMware environment. [Learn more.](tutorial-modernize-asp-net-appservice-code.md)
 
 ## Update (May 2022)
 - Upgraded the Azure SQL assessment experience to identify the ideal migration target for your SQL deployments across Azure SQL MI, SQL Server on Azure VM, and Azure SQL DB:
@@ -173,7 +198,7 @@ Azure Migrate supports deployments in Azure Government.
 
 A script-based installation is now available to set up the [Azure Migrate appliance](migrate-appliance.md):
 
-- The script-based installation is an alternative to the .OVA (VMware)/VHD (Hyper-V) installation of the appliance.
+- The script-based installation is an alternative to the *.OVA* (VMware)/VHD (Hyper-V) installation of the appliance.
 - It provides a PowerShell installer script that can be used to set up the appliance for VMware/Hyper-V on an existing machine running Windows Server 2016.
 
 ## Update (November 2019)

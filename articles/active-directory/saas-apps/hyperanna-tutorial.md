@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory integration with HyperAnna | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory integration with HyperAnna'
 description: Learn how to configure single sign-on between Azure Active Directory and HyperAnna.
 services: active-directory
 author: jeevansd

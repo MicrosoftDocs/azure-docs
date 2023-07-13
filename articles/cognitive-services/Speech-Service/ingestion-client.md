@@ -1,7 +1,7 @@
 ---
 title: Ingestion Client - Speech service
 titleSuffix: Azure Cognitive Services
-description: In this article we describe a tool released on GitHub that enables customers push audio files to Speech Service easily and quickly 
+description: In this article we describe a tool released on GitHub that enables customers push audio files to Speech service easily and quickly 
 services: cognitive-services
 author: eric-urban
 manager: nitinme
@@ -35,18 +35,17 @@ See the [Getting Started Guide for the Ingestion Client](https://github.com/Azur
 The Ingestion Client works by connecting a dedicated [Azure storage](https://azure.microsoft.com/product-categories/storage/) account to custom [Azure Functions](https://azure.microsoft.com/services/functions/) in a serverless fashion to pass transcription requests to the service. The transcribed audio files land in the dedicated [Azure Storage container](https://azure.microsoft.com/product-categories/storage/). 
 
 > [!IMPORTANT]
-> Pricing varies depending on the mode of operation (batch vs real time) as well as the Azure Function SKU selected. By default the tool will create a Premium Azure Function SKU to handle large volume. Visit the [Pricing](https://azure.microsoft.com/pricing/details/functions/) page for more information.
+> Pricing varies depending on the mode of operation (batch vs real-time) as well as the Azure Function SKU selected. By default the tool will create a Premium Azure Function SKU to handle large volume. Visit the [Pricing](https://azure.microsoft.com/pricing/details/functions/) page for more information.
 
 Internally, the tool uses Speech and Language services, and follows best practices to handle scale-up, retries and failover. The following schematic describes the resources and connections.
 
 :::image type="content" source="media/ingestion-client/architecture-1.png" alt-text="Diagram that shows the Ingestion Client Architecture.":::
 
-The following Speech service features are used by the Ingestion Client:
+The following Speech service feature is used by the Ingestion Client:
 
-- [Batch speech-to-text](./batch-transcription.md): Transcribe large amounts of audio files asynchronously including speaker diarization and is typically used in post-call analytics scenarios. Diarization is the process of recognizing and separating speakers in mono channel audio data.
-- [Speaker identification](./speaker-recognition-overview.md): Helps you determine an unknown speaker’s identity within a group of enrolled speakers and is typically used for call center customer verification scenarios or fraud detection.
+- [Batch speech to text](./batch-transcription.md): Transcribe large amounts of audio files asynchronously including speaker diarization and is typically used in post-call analytics scenarios. Diarization is the process of recognizing and separating speakers in mono channel audio data.
 
-Language service features used by the Ingestion Client:
+Here are some Language service features that are used by the Ingestion Client:
 
 - [Personally Identifiable Information (PII) extraction and redaction](../language-service/personally-identifiable-information/how-to-call-for-conversations.md): Identify, categorize, and redact sensitive information in conversation transcription.
 - [Sentiment analysis and opinion mining](../language-service/sentiment-opinion-mining/overview.md): Analyze transcriptions and associate positive, neutral, or negative sentiment at the utterance and conversation-level.

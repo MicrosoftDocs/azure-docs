@@ -5,7 +5,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: tutorial
-ms.date: 1/05/2022
+ms.date: 01/30/2023
 ms.author: justinha
 author: justinha
 ms.reviewer: tilarso
@@ -94,6 +94,9 @@ An administrator can manually provide this contact information, or users can go 
 
 1. To apply the registration settings, select **Save**.
 
+> [!NOTE]
+> The interruption to request to register contact information during signing in, will only occur, if the conditions configured on the settings are met, and will only apply to users and admin accounts that are enabled to reset passwords using Azure Active Directory self-service password reset. 
+
 ## Set up notifications and customizations
 
 To keep users informed about account activity, you can set up Azure AD to send email notifications when an SSPR event happens. These notifications can cover both regular user accounts and admin accounts. For admin accounts, this notification provides another layer of awareness when a privileged administrator account password is reset using SSPR. Azure AD will notify all global admins when someone uses SSPR on an admin account.
@@ -142,6 +145,10 @@ If you no longer want to use the SSPR functionality you have set up as part of t
 ## FAQs
 
 This section explains common questions from administrators and end-users who try SSPR:
+
+- Why aren't on-premises password policies displayed during SSPR?
+
+  At this time, Azure AD Connect and cloud sync don't support sharing password policy details with the cloud. SSPR only displays the cloud password policy details, and can't show on-premises policies.
 
 - Why do federated users wait up to 2 minutes after they see **Your password has been reset** before they can use passwords that are synchronized from on-premises?
 

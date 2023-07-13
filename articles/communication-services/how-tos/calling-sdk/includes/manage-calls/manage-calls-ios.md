@@ -31,6 +31,9 @@ self.callAgent?.startCall(participants: callees, options: StartCallOptions()) { 
 ```
 
 ### Place a 1:n call with users and PSTN
+> [!NOTE]
+> Please check [details of PSTN calling offering](../../../../concepts/numbers/sub-eligibility-number-capability.md). For preview program access, [apply to the early adopter program](https://aka.ms/ACS-EarlyAdopter).
+
 To place the call to PSTN, you have to specify a phone number acquired with Communication Services.
 
 ```swift

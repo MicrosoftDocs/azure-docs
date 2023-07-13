@@ -7,7 +7,7 @@ ms.author: jacodel
 ms.manager: nitinme
 ms.service: cognitive-services
 ms.subservice: personalizer
-ms.topic: overview
+ms.topic: whats-new
 ms.date: 05/28/2021
 ---
 # What's new in Personalizer

@@ -108,7 +108,7 @@ For example, DNSHOSTNAME="purviewprofisee.southcentralus.cloudapp.azure.com". Su
         - Set the redirect URL to: https://\<your-deployment-url>/profisee/auth/signin-microsoft
             - Your deployment URL is the URL you'll have provided Profisee in step 1
 
-1. [Create a service principal](../active-directory/develop/howto-create-service-principal-portal.md#register-an-application-with-azure-ad-and-create-a-service-principal) that Microsoft Purview will use to take some actions on itself during this Profisee deployment. To create a service principal, create an application like you did in the previous step, then [create an application secret](../active-directory/develop/howto-create-service-principal-portal.md#option-2-create-a-new-application-secret). Save the **Object ID** for the application, and the **Value** of the secret you created for later use.
+1. [Create a service principal](../active-directory/develop/howto-create-service-principal-portal.md#register-an-application-with-azure-ad-and-create-a-service-principal) that Microsoft Purview will use to take some actions on itself during this Profisee deployment. To create a service principal, create an application like you did in the previous step, then [create an application secret](../active-directory/develop/howto-create-service-principal-portal.md#option-3-create-a-new-application-secret). Save the **Object ID** for the application, and the **Value** of the secret you created for later use.
     - Give this service principal (using the name or Object ID to locate it) **Data Curator** permissions on the root collection of your Microsoft Purview account.
 
 1. Go to [https://github.com/Profisee/kubernetes](https://github.com/Profisee/kubernetes) and select Microsoft Purview [**Azure ARM**](https://github.com/profisee/kubernetes/blob/master/Azure-ARM/README.md#deploy-profisee-platform-on-to-aks-using-arm-template).
@@ -131,7 +131,7 @@ For example, DNSHOSTNAME="purviewprofisee.southcentralus.cloudapp.azure.com". Su
 1. For your Profisee configuration, you can have your information stored in Key Vault or supply the details during deployment. 
     1. Choose your Profisee version, and provide your admin user account and license. 
     1. Select to configure using Microsoft Purview.
-    1. For the Application Registration Client ID, provide the [**application (client) ID**](../active-directory/develop/howto-create-service-principal-portal.md#get-tenant-and-app-id-values-for-signing-in) for the [application registration you created earlier](#microsoft-purview---profisee-integration-deployment-on-azure-kubernetes-service-aks).
+    1. For the Application Registration Client ID, provide the [**application (client) ID**](../active-directory/develop/howto-create-service-principal-portal.md#sign-in-to-the-application) for the [application registration you created earlier](#microsoft-purview---profisee-integration-deployment-on-azure-kubernetes-service-aks).
     1. Select your Microsoft Purview account.
     1. Add the **object ID** for the [service principal you created earlier](#microsoft-purview---profisee-integration-deployment-on-azure-kubernetes-service-aks).
     1. Add the value for the secret you created for that service principal.

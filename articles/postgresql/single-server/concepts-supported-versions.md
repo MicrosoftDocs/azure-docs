@@ -15,6 +15,8 @@ adobe-target: true
 
 [!INCLUDE [applies-to-postgresql-single-server](../includes/applies-to-postgresql-single-server.md)]
 
+[!INCLUDE [azure-database-for-postgresql-single-server-deprecation](../includes/azure-database-for-postgresql-single-server-deprecation.md)]
+
 Please see [Azure Database for PostgreSQL versioning policy](concepts-version-policy.md) for support policy details.
 
 Azure Database for PostgreSQL currently supports the following major versions:

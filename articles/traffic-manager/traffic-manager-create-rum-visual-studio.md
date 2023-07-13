@@ -7,11 +7,10 @@ author: greg-lindsay
 ms.service: traffic-manager
 ms.devlang: java
 ms.topic: how-to
-ms.tgt_pltfrm: 
 ms.workload: infrastructure
 ms.date: 07/13/2023
 ms.author: greglin
-ms.custom: devx-track-java
+ms.custom: template-how-to, devx-track-java
 ---
 
 # How to send Real User Measurements to Traffic Manager with Visual Studio App Center

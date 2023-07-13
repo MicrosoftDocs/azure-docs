@@ -5,13 +5,14 @@ author: rashijoshi
 ms.author: rajosh
 ms.manager: abhemraj
 ms.topic: conceptual
-ms.date: 12/12/2022
+ms.service: azure-migrate
+ms.date: 06/06/2023
 ms.custom: engagement-fy23
 ---
 
 # Assessment - Common questions
 
-This article answers common questions about assessments in Azure Migrate. If you've other questions, check these resources:
+This article answers common questions about assessments in Azure Migrate. If you have other questions, check these resources:
 
 - [General questions](resources-faq.md) about Azure Migrate
 - Questions about the [Azure Migrate appliance](common-questions-appliance.md)
@@ -24,7 +25,7 @@ Review the supported geographies for [public](migrate-support-matrix.md#public-c
 
 ## How many servers can I discover with an appliance?
 
-You can discover up to 10,000 servers from VMware environment, up to 5,000 servers from Hyper-V environment, and up to 1000 physical servers by using a single appliance. If you've more servers, read about [scaling a Hyper-V assessment](scale-hyper-v-assessment.md), [scaling a VMware assessment](scale-vmware-assessment.md), or [scaling a physical server assessment](scale-physical-assessment.md).
+You can discover up to 10,000 servers from VMware environment, up to 5,000 servers from Hyper-V environment, and up to 1000 physical servers by using a single appliance. If you have more servers, read about [scaling a Hyper-V assessment](scale-hyper-v-assessment.md), [scaling a VMware assessment](scale-vmware-assessment.md), or [scaling a physical server assessment](scale-physical-assessment.md).
 
 ## How do I choose the assessment type?
 
@@ -36,7 +37,7 @@ You can discover up to 10,000 servers from VMware environment, up to 5,000 serve
 
 ## Why is performance data missing for some/all servers in my Azure VM and/or AVS assessment report?
 
-For "Performance-based" assessment, the assessment report export says 'PercentageOfCoresUtilizedMissing' or 'PercentageOfMemoryUtilizedMissing' when the Azure Migrate appliance can't collect performance data for the on-premises servers. Check:
+For "Performance-based" assessment, the assessment report export says 'PercentageOfCoresUtilizedMissing' or 'PercentageOfMemoryUtilizedMissing' when the Azure Migrate appliance can't collect performance data for the on-premises servers. You can check the *Resolve issues* blade on the Azure Migrate hub page for detailed issues or check the following manually:
 
 - If the servers are powered on for the duration for which you're creating the assessment
 - If only memory counters are missing and you're trying to assess servers in Hyper-V environment. In this scenario, enable dynamic memory on the servers and 'Recalculate' the assessment to reflect the latest changes. The appliance can collect memory utilization values for severs in Hyper-V environment only when the server has dynamic memory enabled.
@@ -45,6 +46,14 @@ For "Performance-based" assessment, the assessment report export says 'Percentag
 
     > [!Note]
     > If any of the performance counters are missing, Azure Migrate: Server Assessment falls back to the allocated cores/memory on-premises and recommends a VM size accordingly.
+
+## How can I understand details of errors causing performance data collection issues?
+
+You can now understand what errors you need to remediate to resolve performance data collection issues in Azure VM and Azure VMware Solution assessments. Follow these steps:
+- Go to Azure Migrate > **Servers, databases and web apps** > **Migration goals**, select **Resolve issues** on the Discovery and assessment tool.
+- Select **Affected objects** next to the assessment and select the link in the error ID column to review the error details and remediation actions.
+
+You can also review these errors/issues while creating the assessment in the **Select servers to assess** step or in the readiness tab of an existing assessment. If you don't see any errors/issues in the assessment but see non-zero errors in the resolve issues blade, recalculate the assessment to see the issues within the assessment blade. 
 
 ## Why is performance data missing for some/all SQL instances/databases in my Azure SQL assessment?
 
@@ -84,11 +93,11 @@ By design, in Hyper-V if maximum memory provisioned is less than what is require
 
 ## I see a banner on my assessment that the assessment now also considers processor parameters. What will be the impact of recalculating the assessment?
 
-The assessment now considers processor parameters such as number of operational cores, sockets, etc. and calculating its optimal performance over a period in a simulated environment. This is done to benchmark all processor-based available processor information. Recalculate your assessments to see the updated recommendations.
+The assessment now considers processor parameters such as number of operational cores, sockets, etc. and calculates its optimal performance over a period in a simulated environment. This is done to benchmark all processor-based available processor information. Recalculate your assessments to see the updated recommendations.
 
-The processor benchmark numbers are now considered along with the resource utilization to ensure, we match the processor performance of your on-premises VMware environment and recommend the target Azure SKU sizes accordingly. This is a way to further improve the assessment recommendations to match your performance needs more closely.
+The processor benchmark numbers are now considered along with the resource utilization to ensure, we match the processor performance of your on-premises VMware, Hyper-V, and Physical servers and recommend the target Azure SKU sizes accordingly. This is a way to further improve the assessment recommendations to match your performance needs more closely.
 
-Due to this, the target Azure VM cost can differ from your earlier assessments of the same target. Also, the number of cores allocated in the target Azure SKU could also vary if the processor performance of target is a match for your on-premises VMware environment.
+Due to this, the target Azure VM cost can differ from your earlier assessments of the same target. Also, the number of cores allocated in the target Azure SKU could also vary if the processor performance of target is a match for your on-premises VMware, Hyper-V, and Physical servers.
 
 ## For scenarios where customers choose "as on premises", is there any impact due to processor benchmarking?
 
@@ -96,7 +105,7 @@ No, there will be no impact as we don't consider it for as on premises scenario.
 
 ## I see an increase in my monthly costs after I recalculate my assessments? Is this the most optimized cost for me?
 
-If you've selected all available options for your “VM Series” in your assessment settings, you will get the most optimized cost recommendation for your VMs. However, if you choose only some of the available options for the VM series, the recommendation might skip the most optimized option for you while assigning you an Azure VM SKU while matching your processor performance numbers.
+If you've selected all available options for your “VM Series” in your assessment settings, you'll get the most optimized cost recommendation for your VMs. However, if you choose only some of the available options for the VM series, the recommendation might skip the most optimized option for you while assigning you an Azure VM SKU while matching your processor performance numbers.
 
 ## Why can't I see all Azure VM families in the Azure VM assessment properties?
 
@@ -200,7 +209,7 @@ You can create a single **Azure SQL** assessment consisting of desired SQL serve
 
 ## The storage cost in my Azure SQL assessment is zero
 
-For Azure SQL Managed Instance, there's no storage cost added for the first 32 GB/instance/month storage and additional storage cost is added for storage in 32 GB increments. [Learn More](https://azure.microsoft.com/pricing/details/azure-sql/sql-managed-instance/single/).
+For Azure SQL Managed Instance, there's no storage cost added for the first 32 GB/instance/month storage and additional storage cost is added for storage in 32-GB increments. [Learn More](https://azure.microsoft.com/pricing/details/azure-sql/sql-managed-instance/single/).
 
 ## I can't see some groups when I am creating an Azure VMware Solution (AVS) assessment
 

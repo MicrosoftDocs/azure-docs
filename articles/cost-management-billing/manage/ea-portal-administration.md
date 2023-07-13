@@ -3,7 +3,7 @@ title: Azure EA portal administration
 description: This article explains the common tasks that an administrator accomplishes in the Azure EA portal.
 author: bandersmsft
 ms.author: banders
-ms.date: 08/08/2022
+ms.date: 07/05/2023
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: enterprise
@@ -15,16 +15,12 @@ ms.custom: contperf-fy21q1
 
 This article explains the common tasks that an administrator accomplishes in the Azure EA portal (https://ea.azure.com). The Azure EA portal is an online management portal that helps customers manage the cost of their Azure EA services. For introductory information about the Azure EA portal, see the [Get started with the Azure EA portal](ea-portal-get-started.md) article.
 
-> [!NOTE]
-> We recommend that direct EA Azure customers use Cost Management + Billing in the Azure portal to manage their enrollment and billing instead of using the EA portal. For more information about enrollment management in the Azure portal, see [Get started with the Azure portal for direct Enterprise Agreement customers](ea-direct-portal-get-started.md).
->
-> As of October 10, 2022 direct EA customers won’t be able to manage their billing account in the EA portal. Instead, they must use the Azure portal. 
-> 
-> This change doesn’t affect direct Azure Government EA enrollments or indirect EA (an indirect EA is one where a customer signs an agreement with a Microsoft partner) enrollments. Both continue using the EA portal to manage their enrollment.
+> [!IMPORTANT]
+> The Azure EA portal is getting deprecated. Direct and indirect EA Azure customers now use Cost Management + Billing features in the Azure portal to manage their enrollment and billing *instead of using the EA portal*. For more information about enrollment management in the Azure portal, see  [Get started with EA billing in the Azure portal](ea-direct-portal-get-started.md).
 
 ## Activate your enrollment
 
-To activate your service, the initial enterprise administrator opens the [Azure Enterprise portal](https://ea.azure.com) and signs in using the email address from the invitation email.
+To activate your enrollment, the initial enterprise administrator signs in to the [Azure Enterprise portal](https://ea.azure.com) using their work, school, or Microsoft account.
 
 If you've been set up as the enterprise administrator, you don't need to receive the activation email. Go to [Azure Enterprise portal](https://ea.azure.com) and sign in with your work, school, or Microsoft account email address and password.
 
@@ -50,7 +46,7 @@ Make sure that you have the user's email address and preferred authentication me
 
 #### If you're not an enterprise administrator
 
-If you're not an enterprise administrator, contact an enterprise administrator to request that they add you to an enrollment. The enterprise administrator uses the preceding steps to add you as an enterprise administrator. After you're added to an enrollment, you receive an activation email.
+If you're not an enterprise administrator, contact an enterprise administrator to request that they add you to an enrollment. The enterprise administrator uses the preceding steps to add you as an enterprise administrator. After you're added to an enrollment, you receive an activation email. After the account is registered, it's activated in about 5 to 10 minutes.
 
 #### If your enterprise administrator can't help you
 

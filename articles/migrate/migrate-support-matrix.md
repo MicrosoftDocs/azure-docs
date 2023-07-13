@@ -1,11 +1,11 @@
 ---
 title: Azure Migrate support matrix
 description: Provides a summary of support settings and limitations for the Azure Migrate service.
-author: v-ksreedevan
-ms.author: v-ksreedevan
+author: jyothisuri
+ms.author: jsuri
 ms.manager: abhemraj
 ms.topic: conceptual
-ms.date: 12/12/2022
+ms.date: 01/03/2023
 ms.custom: engagement-fy23
 ---
 
@@ -96,6 +96,7 @@ Japan |  Japan East or Japan West
 Jio India | Jio India West 
 Korea | Korea Central
 Norway | Norway East
+Sweden | Sweden Central
 Switzerland | Switzerland North
 United Arab Emirates | UAE North
 United Kingdom | UK South or UK West

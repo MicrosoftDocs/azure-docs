@@ -3,16 +3,15 @@ title: Tutorial - Configure Enrollment over Secure Transport Server (EST) for Az
 description: This tutorial shows you how to set up an Enrollment over Secure Transport (EST) server for Azure IoT Edge.
 author: PatAltimore
 ms.author: patricka
-ms.date: 07/06/2022
+ms.date: 03/16/2023
 ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
-monikerRange: ">=iotedge-2020-11"
 ---
 
 # Tutorial: Configure Enrollment over Secure Transport Server for Azure IoT Edge
 
-[!INCLUDE [iot-edge-version-202011](includes/iot-edge-version-202011.md)]
+[!INCLUDE [iot-edge-version-1.4](includes/iot-edge-version-1.4.md)]
 
 With Azure IoT Edge, you can configure your devices to use an Enrollment over Secure Transport (EST) server to manage x509 certificates.
 
@@ -82,10 +81,12 @@ The Dockerfile uses Ubuntu 18.04, a [Cisco library called `libest`](https://gith
     # Setting the root CA expiration to 20 years
     RUN sed -i "s|-days 365|-days 7300 |g" ./createCA.sh
      
-    ## If you want to host your EST server in the cloud (for example, an Azure Container Instance),
-    ## change myestserver.westus.azurecontainer.io to the fully qualified DNS name of your EST server 
-    ## and uncomment the next line.
-    # RUN sed -i "s|ip6-localhost|myestserver.westus.azurecontainer.io |g" ./ext.cnf
+    ## If you want to host your EST server remotely (for example, an Azure Container Instance),
+    ## change myestserver.westus.azurecontainer.io to the fully qualified DNS name of your EST server
+    ## OR, change the IP address
+    ## and uncomment the corresponding line.
+    # RUN sed -i "s|DNS.2 = ip6-localhost|DNS.2 = myestserver.westus.azurecontainer.io|g" ./ext.cnf
+    # RUN sed -i "s|IP.2 = ::1|IP.2 = <YOUR EST SERVER IP ADDRESS>|g" ./ext.cnf
      
     # Set EST server certificate to be valid for 10 years
     RUN sed -i "s|-keyout \$EST_SERVER_PRIVKEY -subj|-keyout \$EST_SERVER_PRIVKEY -days 7300 -subj |g" ./createCA.sh
@@ -130,11 +131,13 @@ The Dockerfile uses Ubuntu 18.04, a [Cisco library called `libest`](https://gith
 
 Each device requires the Certificate Authority (CA) certificate that is associated to a device identity certificate.
 
-1. On the IoT Edge device, create the `/var/aziot` directory if it doesn't exist then change directory to it.
+1. On the IoT Edge device, create the `/var/aziot/certs` directory if it doesn't exist then change directory to it.
 
     ```bash
-    # Create the /var/aziot/certs directory if it doesn't exist
-    sudo mkdir -p /var/aziot/certs
+   # If the certificate directory doen't exist, create, set ownership, and set permissions
+   sudo mkdir -p /var/aziot/certs
+   sudo chown aziotcs:aziotcs /var/aziot/certs
+   sudo chmod 755 /var/aziot/certs
 
     # Change directory to /var/aziot/certs
     cd /var/aziot/certs
@@ -146,11 +149,14 @@ Each device requires the Certificate Authority (CA) certificate that is associat
     openssl s_client -showcerts -verify 5 -connect localhost:8085 < /dev/null | sudo awk '/BEGIN/,/END/{ if(/BEGIN/){a++}; out="cert"a".pem"; print >out}' && sudo cp cert2.pem cacert.crt.pem
     ```
 
-1. Certificates should be owned by the key service user **aziotks**. Set the ownership to **aziotks** for all the certificate files.
+1. Certificates should be owned by the key service user **aziotcs**. Set the ownership to **aziotcs** for all the certificate files and set permissions. For more information about certificate ownership and permissions, see [Permission requirements](how-to-manage-device-certificates.md#permission-requirements).
 
-    ```bash
-    sudo chown aziotks:aziotks /var/aziot/certs/*.pem
-    ```
+   ```bash
+   # Give aziotcs ownership to certificates
+   sudo chown -R aziotcs:aziotcs /var/aziot/certs
+   # Read and write for aziotcs, read-only for others
+   sudo find /var/aziot/certs -type f -name "*.*" -exec chmod 644 {} \;
+   ```
 
 ## Provision IoT Edge device using DPS
 
@@ -220,7 +226,10 @@ On the IoT Edge device, update the IoT Edge configuration file to use device cer
     [provisioning.attestation]
     method = "x509"
     registration_id = "myiotedgedevice"
-    identity_cert = { method = "est", common_name = "myiotedgedevice" }
+
+    [provisioning.attestation.identity_cert]
+    method = "est"
+    common_name = "myiotedgedevice"
 
     # Auto renewal settings for the identity cert
     # Available only from IoT Edge 1.3 and above

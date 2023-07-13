@@ -14,7 +14,7 @@ ms.custom: seodec18, devx-track-azurepowershell, template-tutorial
 > [!div class="op_single_selector"]
 > * [Azure portal](expressroute-howto-linkvnet-portal-resource-manager.md)
 > * [PowerShell](expressroute-howto-linkvnet-arm.md)
-> * [Azure CLI](howto-linkvnet-cli.md)
+> * [Azure CLI](expressroute-howto-linkvnet-cli.md)
 > * [PowerShell (classic)](expressroute-howto-linkvnet-classic.md)
 >
 
@@ -224,7 +224,11 @@ Register-AzProviderFeature -FeatureName ExpressRoutePrivateEndpointGatewayBypass
 
 > [!NOTE]
 > You can use [Connection Monitor](how-to-configure-connection-monitor.md) to verify that your traffic is reaching the destination using FastPath.
->
+> 
+
+> [!NOTE]
+> FastPath and Private Link feature onboarding requires time to be enabled after request. You can expect about two weeks of delay until request is completed, so we encourage you to plan your deployment in advance with these timelines into consideration.
+> 
 
 ## Enroll in ExpressRoute FastPath features (preview)
 

@@ -1,5 +1,4 @@
 ---
-# Mandatory fields.
 title: Set up an instance and authentication (CLI)
 titleSuffix: Azure Digital Twins
 description: See how to set up an instance of the Azure Digital Twins service using the CLI
@@ -8,12 +7,11 @@ ms.author: baanders # Microsoft employees only
 ms.date: 11/17/2022
 ms.topic: how-to
 ms.service: digital-twins
-ms.custom: contperf-fy22q2, engagement-fy23
+ms.custom: contperf-fy22q2, engagement-fy23, devx-track-azurecli
 ms.devlang: azurecli
 
 # Optional fields. Don't forget to remove # if you need a field.
 # ms.custom: can-be-multiple-comma-separated
-# ms.reviewer: MSFT-alias-of-reviewer
 # manager: MSFT-alias-of-manager-or-PM-counterpart
 ---
 
@@ -25,7 +23,7 @@ This article covers the steps to set up a new Azure Digital Twins instance, incl
 
 [!INCLUDE [digital-twins-setup-steps.md](../../includes/digital-twins-setup-steps.md)]
 
-[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment.md)]
 
 [!INCLUDE [CLI setup for Azure Digital Twins](../../includes/digital-twins-cli.md)]
 
@@ -56,12 +54,12 @@ Use the CLI command below for your chosen type of managed identity.
 
 #### System-assigned identity command
 
-To create an Azure Digital Twins instance with *system-assigned identity* enabled, you can add an `--assign-identity` parameter to the `az dt create` command that's used to create the instance. (For more information about this command, see its [reference documentation](/cli/azure/dt#az-dt-create) or the [general instructions for setting up an Azure Digital Twins instance](how-to-set-up-instance-cli.md#create-the-azure-digital-twins-instance)).
+To create an Azure Digital Twins instance with *system-assigned identity* enabled, you can add an `--mi-system-assigned` parameter to the `az dt create` command that's used to create the instance. (For more information about the creation command, see its [reference documentation](/cli/azure/dt#az-dt-create) or the [general instructions for setting up an Azure Digital Twins instance](how-to-set-up-instance-cli.md#create-the-azure-digital-twins-instance)).
 
-To create an instance with a system-assigned identity, add the  `--assign-identity` parameter like this:
+To create an instance with a system-assigned identity, add the  `--mi-system-assigned` parameter like this:
 
 ```azurecli-interactive
-az dt create --dt-name <new-instance-name> --resource-group <resource-group> --assign-identity
+az dt create --dt-name <new-instance-name> --resource-group <resource-group> --mi-system-assigned
 ```
 
 #### User-assigned identity command
@@ -130,16 +128,16 @@ Use the CLI commands below for your chosen type of managed identity.
 
 ### System-assigned identity commands
 
-The command to enable a *system-assigned* identity for an existing instance is the same `az dt create` command that's used to [create a new instance with a system-assigned identity](#system-assigned-identity-command). Instead of providing a new name of an instance to create, you can provide the name of an instance that already exists. Then, make sure to add the `--assign-identity` parameter.
+The command to enable a *system-assigned* identity for an existing instance is the same `az dt create` command that's used to [create a new instance with a system-assigned identity](#system-assigned-identity-command). Instead of providing a new name of an instance to create, you can provide the name of an instance that already exists. Then, make sure to add the `--mi-system-assigned` parameter.
 
 ```azurecli-interactive
-az dt create --dt-name <name-of-existing-instance> --resource-group <resource-group> --assign-identity
+az dt create --dt-name <name-of-existing-instance> --resource-group <resource-group> --mi-system-assigned
 ```
 
-To disable system-assigned identity on an instance where it's currently enabled, use the following command to set `--assign-identity` to `false`.
+To disable system-assigned identity on an instance where it's currently enabled, use the following command to set `--mi-system-assigned` to `false`.
 
 ```azurecli-interactive
-az dt create --dt-name <name-of-existing-instance> --resource-group <resource-group> --assign-identity false
+az dt create --dt-name <name-of-existing-instance> --resource-group <resource-group> --mi-system-assigned false
 ```
 
 ### User-assigned identity commands
@@ -158,9 +156,9 @@ az dt identity remove --dt-name <name-of-existing-instance> --resource-group <re
 
 ### Considerations for disabling managed identities
 
-It's important to consider the effects that any changes to the identity or its roles can have on the resources that use it. If you're [using managed identities with your Azure Digital Twins endpoints](how-to-route-with-managed-identity.md) or for [data history](how-to-use-data-history.md) and the identity is disabled, or a necessary role is removed from it, the endpoint or data history connection can become inaccessible and the flow of events will be disrupted.
+It's important to consider the effects that any changes to the identity or its roles can have on the resources that use it. If you're [using managed identities with your Azure Digital Twins endpoints](how-to-create-endpoints.md#endpoint-options-identity-based-authentication) or for [data history](concepts-data-history.md) and the identity is disabled, or a necessary role is removed from it, the endpoint or data history connection can become inaccessible and the flow of events will be disrupted.
 
-To continue using an endpoint that was set up with a managed identity that's now been disabled, you'll need to delete the endpoint and [re-create it](how-to-manage-routes.md#create-an-endpoint-for-azure-digital-twins) with a different authentication type. It may take up to an hour for events to resume delivery to the endpoint after this change.
+To continue using an endpoint that was set up with a managed identity that's now been disabled, you'll need to delete the endpoint and [re-create it](how-to-create-endpoints.md) with a different authentication type. It may take up to an hour for events to resume delivery to the endpoint after this change.
 
 ## Next steps
 

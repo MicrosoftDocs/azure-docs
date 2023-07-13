@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with Penji | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with Penji'
 description: Learn how to configure single sign-on between Azure Active Directory and Penji.
 services: active-directory
 author: jeevansd

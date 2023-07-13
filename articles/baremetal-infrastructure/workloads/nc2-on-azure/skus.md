@@ -4,7 +4,7 @@ description: Learn about SKU options for NC2 on Azure, including core, RAM, stor
 ms.topic: conceptual
 ms.subservice: baremetal-nutanix
 ms.custom: engagement-fy23
-ms.date: 10/13/2022
+ms.date: 04/01/2023
 ---
 
 # SKUs
@@ -20,7 +20,7 @@ The following table presents component options for each available SKU.
 |Core|Intel 6140, 36 Core, 2.3 GHz|Intel 6240, 36 Core, 2.6 GHz|
 |vCPUs|72|72|
 |RAM|576 GB|768 GB|
-|Storage|18.56 TB (8 x 1.92 TB SATA SSD, 2x1.6TB NVMe)|19.95 TB (2x375G Optane, 6x3.2TB NVMe)|
+|Storage|18.56 TB (8 x 1.92 TB SATA SSD, 2x1.6TB NVMe)|20.7 TB (2x750 GB Optane, 6x3.2 TB NVMe)|
 |Network (available bandwidth between nodes)|25 Gbps|25 Gbps|
 
 ## Next steps

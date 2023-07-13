@@ -1,10 +1,11 @@
 ---
 title: Select a VMware migration option with the Migration and modernization tool
 description: Provides an overview of options for migrating VMware VMs to Azure with the Migration and modernization tool
-author: anvar-ms
-ms.author: anvar
-ms.manager: bsiva
+author: piyushdhore-microsoft 
+ms.author: piyushdhore
+ms.manager: vijain
 ms.topic: conceptual
+ms.service: azure-migrate
 ms.date: 12/12/2022
 ms.custom: engagement-fy23
 ---

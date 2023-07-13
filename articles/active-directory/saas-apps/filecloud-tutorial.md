@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory integration with FileCloud | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory integration with FileCloud'
 description: Learn how to configure single sign-on between Azure Active Directory and FileCloud.
 services: active-directory
 author: jeevansd

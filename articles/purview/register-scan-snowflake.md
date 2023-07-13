@@ -5,9 +5,9 @@ author: linda33wj
 ms.author: jingwang
 ms.service: purview
 ms.subservice: purview-data-map
-ms.topic: how-to #Required; leave this attribute/value as-is.
-ms.date: 10/21/2022
-ms.custom: template-how-to #Required; leave this attribute/value as-is.
+ms.topic: how-to
+ms.date: 06/12/2023
+ms.custom: template-how-to
 ---
 
 # Connect to and manage Snowflake in Microsoft Purview
@@ -16,9 +16,9 @@ This article outlines how to register Snowflake, and how to authenticate and int
 
 ## Supported capabilities
 
-|**Metadata Extraction**|  **Full Scan**  |**Incremental Scan**|**Scoped Scan**|**Classification**|**Access Policy**|**Lineage**|**Data Sharing**|
-|---|---|---|---|---|---|---|---|
-| [Yes](#register)| [Yes](#scan)| No | [Yes](#scan) | No | No| [Yes](#lineage) | No|
+|**Metadata Extraction**|  **Full Scan**  |**Incremental Scan**|**Scoped Scan**|**Classification**|**Labeling**|**Access Policy**|**Lineage**|**Data Sharing**|
+|---|---|---|---|---|---|---|---|---|
+| [Yes](#register)| [Yes](#scan)| No | [Yes](#scan) | [Yes](#scan) | No| No| [Yes](#lineage) | No|
 
 When scanning Snowflake source, Microsoft Purview supports:
 
@@ -41,6 +41,10 @@ When scanning Snowflake source, Microsoft Purview supports:
 
 When setting up scan, you can choose to scan one or more Snowflake database(s) entirely, or further scope the scan to a subset of schemas matching the given name(s) or name pattern(s).
 
+### Known limitations
+
+When object is deleted from the data source, currently the subsequent scan won't automatically remove the corresponding asset in Microsoft Purview.
+
 ## Prerequisites
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
@@ -52,7 +56,7 @@ When setting up scan, you can choose to scan one or more Snowflake database(s) e
 
 - If your data store isn't publicly accessible, set up the latest [self-hosted integration runtime](https://www.microsoft.com/download/details.aspx?id=39717). For more information, see [the create and configure a self-hosted integration runtime guide](manage-integration-runtimes.md).
     - Ensure [JDK 11](https://www.oracle.com/java/technologies/downloads/#java11) is installed on the machine where the self-hosted integration runtime is installed. Restart the machine after you newly install the JDK for it to take effect.
-    - Ensure Visual C++ Redistributable for Visual Studio 2012 Update 4 is installed on the self-hosted integration runtime machine. If you don't have this update installed, [you can download it here](https://www.microsoft.com/download/details.aspx?id=30679).
+    - Ensure Visual C++ Redistributable (version Visual Studio 2012 Update 4 or newer) is installed on the self-hosted integration runtime machine. If you don't have this update installed, [you can download it here](/cpp/windows/latest-supported-vc-redist).
 
 ### Required permissions for scan
 
@@ -184,17 +188,30 @@ To create and run a new scan, follow these steps:
 
     1. **Warehouse**: Specify the name of the warehouse instance used to empower scan in capital case. The default role assigned to the user specified in the credential must have USAGE rights on this warehouse.
 
-    1. **Databases**: Specify one or more database instance names to import in capital case. Separate the names in the list with a semi-colon (;). The default role assigned to the user specified in the credential must have adequate rights on the database objects.
-
-    1. **Schema**: List subset of schemas to import expressed as a semicolon separated list. For example, `schema1; schema2`. All user schemas are imported if that list is empty. All system schemas and objects are ignored by default.
+    1. **Databases**: Specify one or more database instance names to import in capital case. Separate the names in the list with a semi-colon (;). For example, `db1;db2`. The default role assigned to the user specified in the credential must have adequate rights on the database objects.
         
-        Acceptable schema name patterns using SQL LIKE expressions syntax include using %. For example: `A%; %B; %C%; D`:
+        Acceptable database name patterns using SQL LIKE expressions syntax include using %. For example: `A%;%B;%C%;D`:
+        * Start with A or
+        * End with B or
+        * Contain C or
+        * Equal D
+
+    1. **Schema**: List subset of schemas to import expressed as a semicolon separated list. For example, `schema1;schema2`. All user schemas are imported if that list is empty. All system schemas and objects are ignored by default.
+        
+        Acceptable schema name patterns using SQL LIKE expressions syntax include using %. For example: `A%;%B;%C%;D`:
         * Start with A or
         * End with B or
         * Contain C or
         * Equal D
 
         Usage of NOT and special characters aren't acceptable.
+
+    1. **Stored procedure details**: Controls the number of details imported from stored procedures:
+
+        - Signature: The name and parameters of stored procedures.
+        - Code, signature: The name, parameters and code of stored procedures.
+        - Lineage, code, signature: The name, parameters and code of stored procedures, and the data lineage derived from the code.
+        - None: Stored procedure details aren't included.
 
     1. **Maximum memory available** (applicable when using self-hosted integration runtime): Maximum memory (in GB) available on customer's VM to be used by scanning processes. It's dependent on the size of Snowflake source to be scanned.
 
@@ -204,6 +221,10 @@ To create and run a new scan, follow these steps:
         :::image type="content" source="media/register-scan-snowflake/scan.png" alt-text="scan Snowflake" border="true":::
 
 1. Select **Continue**.
+
+1. Select a **scan rule set** for classification. You can choose between the system default, existing custom rule sets, or [create a new rule set](create-a-scan-rule-set.md) inline. Check the [Classification](apply-classifications.md) article to learn more.
+    > [!NOTE] 
+    > If you are using Self-hosted runtime then you will need to upgrade to version 5.26.404.1 or higher to use Snowflake classification. You can find the latest version of Microsoft Integration runtime [here](https://www.microsoft.com/download/details.aspx?id=39717).
 
 1. Choose your **scan trigger**. You can set up a schedule or ran the scan once.
 
@@ -223,7 +244,7 @@ Go to the asset -> lineage tab, you can see the asset relationship when applicab
         
 ## Troubleshooting tips
 
-- Check your account identifer in the source registration step. Don't include `https://` part at the front.
+- Check your account identifier in the source registration step. Don't include `https://` part at the front.
 - Make sure the warehouse name and database name are in capital case on the scan setup page.
 - Check your key vault. Make sure there are no typos in the password.
 - Check the credential you set up in Microsoft Purview. The user you specify must have a default role with the necessary access rights to both the warehouse and the database you're trying to scan. See [Required permissions for scan](#required-permissions-for-scan). USE `DESCRIBE USER;` to verify the default role of the user you've specified for Microsoft Purview.

@@ -57,7 +57,7 @@ When you configure your WAF, you can decide how the WAF handles requests that ex
 
 For example, if the anomaly score is 5 or greater on a request, and the WAF is in Prevention mode with the anomaly score action set to block, the request is blocked. If the anomaly score is 5 or greater on a request, and the WAF is in Detection mode, the request is logged but not blocked.
 
-A single *Critical* rule match is enough for the WAF to block a request when in Prevention mode with anomaly score action set to block, because the overall anomaly score is 5. However, one *Warning* rule match only increases the anomaly score by 3, which isn't enough by itself to block the traffic. When an anomaly rule is triggered it will show a "matched" action in the logs. If the anomly score is 5 or greater, there will be a separate rule triggered with the "blocked" action in the logs assuming the anomaly score action is set to block.
+A single *Critical* rule match is enough for the WAF to block a request when in Prevention mode with anomaly score action set to block, because the overall anomaly score is 5. However, one *Warning* rule match only increases the anomaly score by 3, which isn't enough by itself to block the traffic. When an anomaly rule is triggered it will show a "matched" action in the logs. If the anomly score is 5 or greater, there will be a separate rule triggered with the anomaly score action configured for the rule set. Default anomaly score action is block which will result in log entry with action “blocked”.
 
 When your WAF uses older version of the default rule set (before DRS 2.0), your WAF runs in the traditional mode. Traffic that matches any rule is considered independently of any other rule matches. In traditional mode, you don't have visibility into the complete set of rules that a specific request matched.
 
@@ -1069,6 +1069,8 @@ The following rule groups and rules are available when using Web Application Fir
 |---|---|
 |Bot100100|Malicious bots detected by threat intelligence|
 |Bot100200|Malicious bots that have falsified their identity|
+ 
+ Bot100100 scans both client IP addresses and IPs in the X-Forwarded-For header.
 
 ### <a name="bot200"></a> Good bots
 |RuleId|Description|
@@ -1084,8 +1086,10 @@ The following rule groups and rules are available when using Web Application Fir
 |Bot300300|General purpose HTTP clients and SDKs|
 |Bot300400|Service agents|
 |Bot300500|Site health monitoring services|
-|Bot300600|Unknown bots detected by threat intelligence<br />(This rule also includes IP addresses matched to the Tor network.)|
+|Bot300600|Unknown bots detected by threat intelligence|
 |Bot300700|Other bots|
+
+Bot300600 scans both client IP addresses and IPs in the X-Forwarded-For header.
 
 ---
 
@@ -1093,3 +1097,4 @@ The following rule groups and rules are available when using Web Application Fir
 ## Next steps
 
 - [Custom rules for Web Application Firewall with Azure Front Door](waf-front-door-custom-rules.md)
+- [Learn more about Azure network security](../../networking/security/index.yml)

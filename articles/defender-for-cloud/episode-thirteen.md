@@ -2,7 +2,7 @@
 title: Defender for Storage
 description: Learn about the capabilities available in Defender for Storage.
 ms.topic: reference
-ms.date: 06/16/2022
+ms.date: 04/27/2023
 ---
 
 # Defender for Storage

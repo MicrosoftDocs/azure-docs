@@ -23,7 +23,7 @@ Learn how to configure the code for your single-page application (SPA).
 
 The following Microsoft libraries support single-page apps:
 
-[!INCLUDE [active-directory-develop-libraries-spa](../../../includes/active-directory-develop-libraries-spa.md)]
+[!INCLUDE [active-directory-develop-libraries-spa](./includes/libraries/libraries-spa.md)]
 
 ## Application code configuration
 

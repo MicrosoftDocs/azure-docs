@@ -7,7 +7,7 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: how-to
-ms.date: 10/14/2022
+ms.date: 04/18/2023
 ---
 
 # Configure relevance scoring
@@ -18,10 +18,10 @@ Configuration changes are scoped to individual indexes, which means you can adju
 
 ## Default scoring algorithm
 
-Depending on the age of your search service, Azure Cognitive Search supports two [similarity scoring algorithms](index-similarity-and-scoring.md) for assigning relevance to results in a full text search query:
+Depending on the age of your search service, Azure Cognitive Search supports two [similarity scoring algorithms](index-similarity-and-scoring.md) for a full text search query:
 
-+ An *Okapi BM25* algorithm, used in all search services created after July 15, 2020
-+ A *classic similarity* algorithm, used by all search services created before July 15, 2020
++ Okapi BM25 algorithm (after July 15, 2020)
++ Classic similarity algorithm (before July 15, 2020)
 
 BM25 ranking is the default because it tends to produce search rankings that align better with user expectations. It includes [parameters](#set-bm25-parameters) for tuning results based on factors such as document size. For search services created after July 2020, BM25 is the only scoring algorithm. If you try to set "similarity" to ClassicSimilarity on a new service, an HTTP 400 error will be returned because that algorithm is not supported by the service.
 

@@ -1,11 +1,11 @@
 ---
-title: Configure B2B collaboration cross-tenant access - Azure AD
+title: Configure B2B collaboration cross-tenant access
 description: Use cross-tenant collaboration settings to manage how you collaborate with other Azure AD organizations. Learn how to configure  outbound access to external organizations and inbound access from external Azure AD for B2B collaboration.
 services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: how-to
-ms.date: 06/30/2022
+ms.date: 05/31/2023
 
 ms.author: mimart
 author: msmimart
@@ -185,7 +185,19 @@ With inbound settings, you select which external users and groups will be able t
 
     ![Screenshot showing trust settings.](media/cross-tenant-access-settings-b2b-collaboration/inbound-trust-settings.png)
 
+1. (This step applies to **Organizational settings** only.) Review the **Automatic redemption** option:
+
+   - **Automatically redeem invitations with the tenant** &lt;tenant&gt;: Check this setting if you want to automatically redeem invitations. If so, users from the specified tenant won't have to accept the consent prompt the first time they access this tenant using cross-tenant synchronization, B2B collaboration, or B2B direct connect. This setting will only suppress the consent prompt if the specified tenant checks this setting for outbound access as well.
+
+    ![Screenshot that shows the inbound Automatic redemption check box.](../media/external-identities/inbound-consent-prompt-setting.png)
+
 1. Select **Save**.
+
+### Allow users to sync into this tenant
+
+If you select **Inbound access** of the added organization, you'll see the **Cross-tenant sync** tab and the **Allow users sync into this tenant** check box. Cross-tenant synchronization is a one-way synchronization service in Azure AD that automates creating, updating, and deleting B2B collaboration users across tenants in an organization. For more information, see [Configure cross-tenant synchronization](../multi-tenant-organizations/cross-tenant-synchronization-configure.md) and the [Multi-tenant organizations documentation](../multi-tenant-organizations/index.yml).
+
+:::image type="content" source="media/cross-tenant-access-settings-b2b-collaboration/cross-tenant-sync-tab.png" alt-text="Screenshot that shows the Cross-tenant sync tab with the Allow users sync into this tenant check box." lightbox="media/cross-tenant-access-settings-b2b-collaboration/cross-tenant-sync-tab.png":::
 
 ## Modify outbound access settings
 
@@ -264,6 +276,20 @@ With outbound settings, you select which of your users and groups will be able t
    - When you're done selecting applications, choose **Select**.
 
     ![Screenshot showing selecting applications for b2b collaboration.](media/cross-tenant-access-settings-b2b-collaboration/outbound-b2b-collaboration-add-apps.png)
+
+1. Select **Save**.
+
+### To change outbound trust settings
+
+(This section applies to **Organizational settings** only.)
+
+1. Select the **Trust settings** tab.
+
+1. Review the **Automatic redemption** option:
+
+   - **Automatically redeem invitations with the tenant** &lt;tenant&gt;: Check this setting if you want to automatically redeem invitations. If so, users from this tenant don't have to accept the consent prompt the first time they access the specified tenant using cross-tenant synchronization, B2B collaboration, or B2B direct connect. This setting will only suppress the consent prompt if the specified tenant checks this setting for inbound access as well.
+
+    ![Screenshot that shows the outbound Automatic redemption check box.](../media/external-identities/outbound-consent-prompt-setting.png)
 
 1. Select **Save**.
 

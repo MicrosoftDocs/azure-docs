@@ -1,5 +1,5 @@
 ---
-title: Text-to-speech API reference (REST) - Speech service
+title: Text to speech API reference (REST) - Speech service
 titleSuffix: Azure Cognitive Services
 description: Learn how to use the REST API to convert text into synthesized speech.
 services: cognitive-services
@@ -13,34 +13,34 @@ ms.author: eur
 ms.custom: references_regions
 ---
 
-# Text-to-speech REST API
+# Text to speech REST API
 
 The Speech service allows you to [convert text into synthesized speech](#convert-text-to-speech) and [get a list of supported voices](#get-a-list-of-voices) for a region by using a REST API. In this article, you'll learn about authorization options, query options, how to structure a request, and how to interpret a response.
 
 > [!TIP]
-> Use cases for the text-to-speech REST API are limited. Use it only in cases where you can't use the [Speech SDK](speech-sdk.md). For example, with the Speech SDK you can [subscribe to events](how-to-speech-synthesis.md#subscribe-to-synthesizer-events) for more insights about the text-to-speech processing and results.
+> Use cases for the text to speech REST API are limited. Use it only in cases where you can't use the [Speech SDK](speech-sdk.md). For example, with the Speech SDK you can [subscribe to events](how-to-speech-synthesis.md#subscribe-to-synthesizer-events) for more insights about the text to speech processing and results.
 
-The text-to-speech REST API supports neural text-to-speech voices, which support specific languages and dialects that are identified by locale. Each available endpoint is associated with a region. A Speech resource key for the endpoint or region that you plan to use is required. Here are links to more information:
+The text to speech REST API supports neural text to speech voices, which support specific languages and dialects that are identified by locale. Each available endpoint is associated with a region. A Speech resource key for the endpoint or region that you plan to use is required. Here are links to more information:
 
-- For a complete list of voices, see [Language and voice support for the Speech service](language-support.md?tabs=stt-tts).
+- For a complete list of voices, see [Language and voice support for the Speech service](language-support.md?tabs=tts).
 - For information about regional availability, see [Speech service supported regions](regions.md#speech-service).
 - For Azure Government and Azure China endpoints, see [this article about sovereign clouds](sovereign-clouds.md).
 
 > [!IMPORTANT]
 > Costs vary for prebuilt neural voices (called *Neural* on the pricing page) and custom neural voices (called *Custom Neural* on the pricing page). For more information, see [Speech service pricing](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/).
 
-Before you use the text-to-speech REST API, understand that you need to complete a token exchange as part of authentication to access the service. For more information, see [Authentication](#authentication).
+Before you use the text to speech REST API, understand that you need to complete a token exchange as part of authentication to access the service. For more information, see [Authentication](#authentication).
 
 ## Get a list of voices
 
 You can use the `tts.speech.microsoft.com/cognitiveservices/voices/list` endpoint to get a full list of voices for a specific region or endpoint. Prefix the voices list endpoint with a region to get a list of voices for that region. For example, to get a list of voices for the `westus` region, use the `https://westus.tts.speech.microsoft.com/cognitiveservices/voices/list` endpoint. For a list of all supported regions, see the [regions](regions.md) documentation.
 
 > [!NOTE]
-> [Voices and styles in preview](language-support.md?tabs=stt-tts) are only available in three service regions: East US, West Europe, and Southeast Asia.
+> [Voices and styles in preview](language-support.md?tabs=tts) are only available in three service regions: East US, West Europe, and Southeast Asia.
 
 ### Request headers
 
-This table lists required and optional headers for text-to-speech requests:
+This table lists required and optional headers for text to speech requests:
 
 | Header | Description | Required or optional |
 |--------|-------------|---------------------|
@@ -71,7 +71,7 @@ curl --location --request GET 'https://YOUR_RESOURCE_REGION.tts.speech.microsoft
 
 ### Sample response
 
-You should receive a response with a JSON body that includes all supported locales, voices, gender, styles, and other details. This JSON example shows partial results to illustrate the structure of a response:
+You should receive a response with a JSON body that includes all supported locales, voices, gender, styles, and other details. The `WordsPerMinute` property for each voice can be used to estimate the length of the output speech. This JSON example shows partial results to illustrate the structure of a response:
 
 ```json
 [  
@@ -207,13 +207,13 @@ The `cognitiveservices/v1` endpoint allows you to convert text to speech by usin
 
 ### Regions and endpoints
 
-These regions are supported for text-to-speech through the REST API. Be sure to select the endpoint that matches your Speech resource region.
+These regions are supported for text to speech through the REST API. Be sure to select the endpoint that matches your Speech resource region.
 
 [!INCLUDE [](includes/cognitive-services-speech-service-endpoints-text-to-speech.md)]
 
 ### Request headers
 
-This table lists required and optional headers for text-to-speech requests:
+This table lists required and optional headers for text to speech requests:
 
 | Header | Description | Required or optional |
 |--------|-------------|---------------------|
@@ -224,7 +224,7 @@ This table lists required and optional headers for text-to-speech requests:
 
 ### Request body
 
-If you're using a custom neural voice, the body of a request can be sent as plain text (ASCII or UTF-8). Otherwise, the body of each `POST` request is sent as [SSML](speech-synthesis-markup.md). SSML allows you to choose the voice and language of the synthesized speech that the text-to-speech feature returns. For a complete list of supported voices, see [Language and voice support for the Speech service](language-support.md?tabs=stt-tts).
+If you're using a custom neural voice, the body of a request can be sent as plain text (ASCII or UTF-8). Otherwise, the body of each `POST` request is sent as [SSML](speech-synthesis-markup.md). SSML allows you to choose the voice and language of the synthesized speech that the text to speech feature returns. For a complete list of supported voices, see [Language and voice support for the Speech service](language-support.md?tabs=tts).
 
 ### Sample request
 
@@ -242,7 +242,7 @@ User-Agent: <Your application name>
 
 <speak version='1.0' xml:lang='en-US'><voice xml:lang='en-US' xml:gender='Male'
     name='en-US-ChristopherNeural'>
-        Microsoft Speech Service Text-to-Speech API
+        I'm excited to try text to speech!
 </voice></speak>
 ```
 <sup>*</sup> For the Content-Length, you should use your own content length. In most cases, this value is calculated automatically.

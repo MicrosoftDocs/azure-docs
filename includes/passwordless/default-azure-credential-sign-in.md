@@ -10,7 +10,7 @@ ms.author: alexwolf
 ms.custom: include file
 ---
 
-Make sure you're authenticated with the same Azure AD account you assigned the role to. You can authenticate via the Azure CLI, Visual Studio, or Azure PowerShell.
+For local development, make sure you're authenticated with the same Azure AD account you assigned the role to. You can authenticate via popular development tools, such as the Azure CLI or Azure PowerShell. The development tools with which you can authenticate vary across languages.
 
 ### [Azure CLI](#tab/sign-in-azure-cli)
 
@@ -32,7 +32,7 @@ Sign-in using the Azure AD account you assigned a role to previously.
 
 ### [Visual Studio Code](#tab/sign-in-visual-studio-code)
 
-You will need to [install the Azure CLI](/cli/azure/install-azure-cli) to work with `DefaultAzureCredential` through Visual Studio code.
+You will need to [install the Azure CLI](/cli/azure/install-azure-cli) to work with `DefaultAzureCredential` through Visual Studio Code.
 
 On the main menu of Visual Studio Code, navigate to **Terminal > New Terminal**.
 

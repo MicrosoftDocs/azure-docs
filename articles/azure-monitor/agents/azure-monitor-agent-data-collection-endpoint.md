@@ -2,9 +2,7 @@
 title: Define Azure Monitor Agent network settings
 description: Define network settings and enable network isolation for Azure Monitor Agent.
 ms.topic: conceptual
-author: shseth
-ms.author: shseth
-ms.date: 11/01/2022
+ms.date: 5/1/2023
 ms.custom: references_region
 ms.reviewer: shseth
 
@@ -15,7 +13,9 @@ Azure Monitor Agent supports connecting by using direct proxies, Log Analytics g
 
 ## Virtual network service tags
 
-Azure Monitor Agent supports [Azure virtual network service tags](../../virtual-network/service-tags-overview.md). Both *AzureMonitor* and *AzureResourceManager* tags are required.
+Azure Monitor Agent supports [Azure virtual network service tags](../../virtual-network/service-tags-overview.md). Both *AzureMonitor* and *AzureResourceManager* tags are required. 
+
+Azure Virtual network service tags can be used to define network access controls on [network security groups](../../virtual-network/network-security-groups-overview.md#security-rules), [Azure Firewall](../../firewall/service-tags.md), and user-defined routes. Use service tags in place of specific IP addresses when you create security rules and routes. For scenarios where Azure virtual network service tags can not be used, the Firewall requirements are given below.
 
 ## Firewall requirements
 
@@ -30,7 +30,7 @@ Azure Monitor Agent supports [Azure virtual network service tags](../../virtual-
 | Azure China | Replace '.com' above with '.cn' | Same as above | Same as above | Same as above| Same as above |
 
 >[!NOTE]
-> If you use private links on the agent, you must also add the [data collection endpoints (DCEs)](../essentials/data-collection-endpoint-overview.md#components-of-a-data-collection-endpoint).
+> If you use private links on the agent, you must **only** add the [private data collection endpoints (DCEs)](../essentials/data-collection-endpoint-overview.md#components-of-a-data-collection-endpoint). The agent does not use the non-private endpoints listed above when using private links/data collection endpoints.
 > The Azure Monitor Metrics (custom metrics) preview isn't available in Azure Government and Azure China clouds.
 
 ## Proxy configuration
@@ -47,7 +47,7 @@ The Azure Monitor Agent extensions for Windows and Linux can communicate either 
     ![Diagram that shows a flowchart to determine the values of settings and protectedSettings parameters when you enable the extension.](media/azure-monitor-agent-overview/proxy-flowchart.png)
 
     > [!NOTE]
-    > Azure Monitor Agent for Linux doesn't support system proxy via environment variables such as `http_proxy` and `https_proxy`.
+    > Setting Linux system proxy via environment variables such as `http_proxy` and `https_proxy` is only supported using Azure Monitor Agent for Linux version 1.24.2 and above.
 
 1. After you determine the `Settings` and `ProtectedSettings` parameter values, provide these other parameters when you deploy Azure Monitor Agent. Use PowerShell commands, as shown in the following examples:
 
@@ -70,7 +70,7 @@ Set-AzVMExtension -ExtensionName AzureMonitorLinuxAgent -ExtensionType AzureMoni
 # [Windows Arc-enabled server](#tab/PowerShellWindowsArc)
 
 ```powershell
-$settings = @{"proxy" = @{mode = "application"; address = "http://[address]:[port]"; auth = "true"}}
+$settings = @{"proxy" = @{mode = "application"; address = "http://[address]:[port]"; auth = true}}
 $protectedSettings = @{"proxy" = @{username = "[username]"; password = "[password]"}}
 
 New-AzConnectedMachineExtension -Name AzureMonitorWindowsAgent -ExtensionType AzureMonitorWindowsAgent -Publisher Microsoft.Azure.Monitor -ResourceGroupName <resource-group-name> -MachineName <arc-server-name> -Location <arc-server-location> -Setting $settings -ProtectedSetting $protectedSettings
@@ -79,7 +79,7 @@ New-AzConnectedMachineExtension -Name AzureMonitorWindowsAgent -ExtensionType Az
 # [Linux Arc-enabled server](#tab/PowerShellLinuxArc)
 
 ```powershell
-$settings = @{"proxy" = @{mode = "application"; address = "http://[address]:[port]"; auth = "true"}}
+$settings = @{"proxy" = @{mode = "application"; address = "http://[address]:[port]"; auth = true}}
 $protectedSettings = @{"proxy" = @{username = "[username]"; password = "[password]"}}
 
 New-AzConnectedMachineExtension -Name AzureMonitorLinuxAgent -ExtensionType AzureMonitorLinuxAgent -Publisher Microsoft.Azure.Monitor -ResourceGroupName <resource-group-name> -MachineName <arc-server-name> -Location <arc-server-location> -Setting $settings -ProtectedSetting $protectedSettings
@@ -106,7 +106,8 @@ By default, Azure Monitor Agent connects to a public endpoint to connect to your
 
 ### Create a data collection endpoint
 
-[Create a data collection endpoint](../essentials/data-collection-endpoint-overview.md#create-data-collection-endpoint) for each of your regions so that agents can connect instead of using the public endpoint. An agent can only connect to a DCE in the same region. If you have agents in multiple regions, you must create a DCE in each one.
+[Create a data collection endpoint](../essentials/data-collection-endpoint-overview.md#create-a-data-collection-endpoint) for each of your regions so that agents can connect instead of using the public endpoint. An agent can only connect to a DCE in the same region. If you have agents in multiple regions, you must create a DCE in each one.
+
 ### Create a private link
 
 With [Azure Private Link](../../private-link/private-link-overview.md), you can securely link Azure platform as a service (PaaS) resources to your virtual network by using private endpoints. An Azure Monitor private link connects a private endpoint to a set of Azure Monitor resources that define the boundaries of your monitoring network. That set is called an Azure Monitor Private Link Scope. For information on how to create and configure your AMPLS, see [Configure your private link](../logs/private-link-configure.md).

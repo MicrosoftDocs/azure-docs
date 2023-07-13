@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: overview
-ms.date: 12/06/2022
+ms.date: 01/29/2023
 
 ms.author: justinha
 author: custorod
@@ -30,7 +30,7 @@ Persistent session tokens are stored as persistent cookies on the web browser's 
 | ESTSAUTHLIGHT | Common  | Contains Session GUID Information. Lite session state cookie used exclusively by client-side JavaScript in order to facilitate OIDC sign-out. Security feature. |
 | SignInStateCookie | Common | Contains list of services accessed to facilitate sign-out. No user information. Security feature. |
 | CCState | Common | Contains session information state to be used between Azure AD and the [Azure AD Backup Authentication Service](../conditional-access/resilience-defaults.md). |
-| buid | Common | Tracks browser related information. Used for service telemetry and protection mechanisms. |
+| build | Common | Tracks browser related information. Used for service telemetry and protection mechanisms. |
 | fpc | Common | Tracks browser related information. Used for tracking requests and throttling. |
 | esctx | Common | Session context cookie information. For CSRF protection. Binds a request to a specific browser instance so the request can't be replayed outside the browser. No user information. |
 | ch | Common | ProofOfPossessionCookie. Stores the Proof of Possession cookie hash to the user agent. |

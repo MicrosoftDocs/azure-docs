@@ -6,7 +6,7 @@ ms.author: vlrodrig
 ms.service: purview
 ms.subservice: purview-data-policies
 ms.topic: conceptual
-ms.date: 03/20/2022
+ms.date: 07/06/2023
 ---
 
 # Concepts for Microsoft Purview data owner policies (preview)
@@ -64,10 +64,10 @@ The end-user identity from Azure Active Directory for whom this policy statement
 
 ### Example
 
-Deny Read on Data Asset:
+Allow Read on Data Asset:
 */subscription/finance/resourcegroups/prod/providers/Microsoft.Storage/storageAccounts/finDataLake/blobservice/default/containers/FinData to group Finance-analyst*
 
-In the above policy statement, the effect is *Deny*, the action is *Read*, the data resource is Azure Storage container *FinData*, and the subject is Azure Active Directory group *Finance-analyst*. If any user that belongs to this group attempts to read data from the storage container *FinData*, the request will be denied.
+In the above policy statement, the effect is *Allow*, the action is *Read*, the data resource is Azure Storage container *FinData*, and the subject is Azure Active Directory group *Finance-analyst*. If any user that belongs to this group attempts to read data from the storage container *FinData*, the request will be allowed.
 
 ### Hierarchical enforcement of policies
 
@@ -88,7 +88,7 @@ Then let’s assume that user ‘user1’, who is part of two groups:
 *Finance-analyst* and *Finance-contractors*, executes a call to blob read API. Since both policies will be applicable, Microsoft Purview will choose the most restrictive one, which is *Deny* of *Read*. Thus, the access request will be denied.
 
 > [!Note]
-> Currently, the only supported effect is **Allow**.
+> As mentioned in the Effect section above, currently, the only supported effect is **Allow**. The above example is to explain how multiple policies on a single asset are evaluated.
 
 ## Policy publishing
 
@@ -97,7 +97,11 @@ A newly created policy exists in the draft mode state, only visible in Microsoft
 A policy published to a data source could contain references to an asset belonging to a different data source. Such references will be ignored since the asset in question does not exist in the data source where the policy is applied.
 
 ## Next steps
-Check the tutorials on how to create policies in Microsoft Purview that work on specific data systems such as Azure Storage:
+Check the guides on how to create policies in Microsoft Purview that get enforced in specific data systems. Beyond the UI, you can now also the data owners API
+* Doc: [Provision access to Azure Storage datasets](how-to-policies-data-owner-storage.md)
+* Doc: [Provision access to all data sources in a subscription or a resource group](./how-to-policies-data-owner-resource-group.md)
+* Doc: [Provision access to Azure SQL Database assets](how-to-policies-data-owner-azure-sql-db.md)
+* Doc: [Provision access to SQL Server 2022 (Arc-enabled) assets](how-to-policies-data-owner-arc-sql-server.md)
+* Blog: [Grant users access to data assets in your enterprise via API](https://aka.ms/AAlg655)
 
-* [Access provisioning by data owner to Azure Storage datasets](how-to-policies-data-owner-storage.md)
-* [Enable Microsoft Purview data owner policies on all data sources in a subscription or a resource group](./how-to-policies-data-owner-resource-group.md)
+

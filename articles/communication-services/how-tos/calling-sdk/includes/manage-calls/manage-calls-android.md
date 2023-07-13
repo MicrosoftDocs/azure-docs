@@ -25,8 +25,8 @@ call oneToOneCall = callAgent.startCall(appContext, participants, startCallOptio
 ```
 
 ### Place a 1:n call with users and PSTN
-> [!WARNING]
-> Currently PSTN calling is not available
+> [!NOTE]
+> Please check [details of PSTN calling offering](../../../../concepts/numbers/sub-eligibility-number-capability.md). For preview program access, [apply to the early adopter program](https://aka.ms/ACS-EarlyAdopter).
 
 To place a 1:n call to a user and a PSTN number you have to specify the phone number of callee.
 Your Communication Services resource must be configured to allow PSTN calling:

@@ -63,6 +63,19 @@ Use the following steps to assign the required permissions:
 
 2. In case the **App registrations** settings is set to *No*, request the tenant/global admin to assign the required permission. Alternately, the tenant/global admin can assign the Application Developer role to an account to allow the registration of Azure Active Directory App.
 
+## Grant required permissions to the vault
+
+You will also need to grant the managed identity permissions to the cache storage accounts. You can create the storage account in advance and use the same for enabling replication. 
+
+Ensure that the following role permissions are present depending on the type of storage account:
+
+- Resource Manager based storage accounts (Standard Type):
+  - [Contributor](../role-based-access-control/built-in-roles.md#contributor)
+  - [Storage Blob Data Contributor](../role-based-access-control/built-in-roles.md#storage-blob-data-contributor)
+- Resource Manager based storage accounts (Premium Type):
+  - [Contributor](../role-based-access-control/built-in-roles.md#contributor)
+  - [Storage Blob Data Owner](../role-based-access-control/built-in-roles.md#storage-blob-data-owner)
+
 ## Prepare an account for automatic discovery
 
 Site Recovery needs access to VMware servers to:
@@ -112,7 +125,7 @@ Follow these steps to enable replication:
 
 4.	Search the source machine name to protect it. To review the selected machines, select **Selected resources**.
 
-5. After you select the list of VMs, select **Next** to proceed to source settings. Here, select the replication appliance and VM credentials. These credentials will be used to push mobility agent on the machine by Azure Site Recovery replication appliance to complete enabling Azure Site Recovery. Ensure accurate credentials are chosen.
+5. After you select the list of VMs, select **Next** to proceed to source settings. Here, select the [replication appliance](#appliance-selection) and VM credentials. These credentials will be used to push mobility agent on the machine by Azure Site Recovery replication appliance to complete enabling Azure Site Recovery. Ensure accurate credentials are chosen.
 
    >[!NOTE]
    >For Linux OS, ensure to provide the root credentials. For Windows OS, a user account with admin privileges should be added. These credentials will be used to push Mobility Service on to the source machine during enable replication operation.
@@ -165,6 +178,10 @@ Follow these steps to enable replication:
 
     A job is created to enable replication of the selected machines. To track the progress, navigate to Site Recovery jobs in the recovery services vault.
 
+## Appliance selection
+
+- You can select any of the Azure Site Recovery replication appliances registered under a vault to protect a machine.
+- Same replication appliance can be used both for forward and backward protection operations, if it is in a non-critical state. It should not impact the performance of the replications.
 
 ## Next steps
 After enabling replication, run a drill to make sure everything's working as expected.

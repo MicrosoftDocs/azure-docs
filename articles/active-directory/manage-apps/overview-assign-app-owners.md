@@ -2,17 +2,18 @@
 title: Overview of enterprise application ownership
 description: Learn about enterprise application ownership in Azure Active Directory
 services: active-directory
-author: saipradeepb23
+author: omondiatieno
 manager: celesteDG
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: app-mgmt
 ms.topic: conceptual
 ms.date: 12/05/2022
-ms.author: saibandaru
+ms.author: jomondi
+ms.reviewer: saibandaru
+ms.custom: enterprise-apps
 
 #Customer intent: As an Azure AD administrator, I want to learn about enterprise application ownership.
-
 ---
 
 # Overview of enterprise application ownership in Azure Active Directory

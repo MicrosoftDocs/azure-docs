@@ -16,7 +16,7 @@ ms.author: aahi
 # Service limits for Azure Cognitive Service for Language
 
 > [!NOTE]
-> This article only describes the limits for pre-configured features in Azure Cognitive Service for Language:
+> This article only describes the limits for preconfigured features in Azure Cognitive Service for Language:
 > To see the service limits for customizable features, see the following articles: 
 > * [Custom classification](../custom-classification/service-limits.md)
 > * [Custom NER](../custom-named-entity-recognition/service-limits.md)
@@ -32,9 +32,9 @@ Use this article to find the limits for the size, and rates that you can send da
 * [Sentiment analysis and opinion mining](../sentiment-opinion-mining/overview.md)
 * [Language detection](../language-detection/overview.md)
 
-When using features of the Language service, keep the following in mind:
+When using features of the Language service, keep the following information in mind:
 
-* Pricing is not affected by data or rate limits. Pricing is based on the number of text records you send to the API, and is subject to your Language resource's [pricing details](https://aka.ms/unifiedLanguagePricing).
+* Pricing is independent of data or rate limits. Pricing is based on the number of text records you send to the API, and is subject to your Language resource's [pricing details](https://aka.ms/unifiedLanguagePricing).
     * A text record is measured as 1000 characters. 
 * Data and rate limits are based on the number of documents you send to the API. If you need to analyze larger documents than the limit allows, you can break the text into smaller chunks of text before sending them to the API. 
 * A document is a single string of text characters.  
@@ -45,18 +45,17 @@ The following limit specifies the maximum number of characters that can be in a 
 
 | Feature | Value |
 |------------------------|---------------|
-| Conversation issue and resolution summarization| 40,000 characters as measured by [StringInfo.LengthInTextElements](/dotnet/api/system.globalization.stringinfo.lengthintextelements).|
-| Text Analytics for health | 30,720 characters as measured by [StringInfo.LengthInTextElements](/dotnet/api/system.globalization.stringinfo.lengthintextelements).  | 
-| All other pre-configured features (synchronous) | 5,120 as measured by [StringInfo.LengthInTextElements](/dotnet/api/system.globalization.stringinfo.lengthintextelements). If you need to submit larger documents, consider using the feature asynchronously (described below). |
-| All other pre-configured features ([asynchronous](use-asynchronously.md))  | 125,000 characters across all submitted documents, as measured by [StringInfo.LengthInTextElements](/dotnet/api/system.globalization.stringinfo.lengthintextelements) (maximum of 25 documents). |
+| Text Analytics for health | 125,000 characters as measured by [StringInfo.LengthInTextElements](/dotnet/api/system.globalization.stringinfo.lengthintextelements).  | 
+| All other preconfigured features (synchronous) | 5,120 as measured by [StringInfo.LengthInTextElements](/dotnet/api/system.globalization.stringinfo.lengthintextelements). If you need to submit larger documents, consider using the feature asynchronously. |
+| All other preconfigured features ([asynchronous](use-asynchronously.md))  | 125,000 characters across all submitted documents, as measured by [StringInfo.LengthInTextElements](/dotnet/api/system.globalization.stringinfo.lengthintextelements) (maximum of 25 documents). |
 
-If a document exceeds the character limit, the API will behave differently depending on how you're sending requests.
+If a document exceeds the character limit, the API behaves differently depending on how you're sending requests.
 
 If you're sending requests synchronously:
-* The API won't process a document that exceeds the maximum size, and will return an invalid document error for it. If an API request has multiple documents, the API will continue processing them if they are within the character limit.
+* The API doesn't process documents that exceed the maximum size, and returns an invalid document error for it. If an API request has multiple documents, the API continues processing them if they are within the character limit.
 
 If you're sending requests [asynchronously](use-asynchronously.md):
-* The API will reject the entire request and return a `400 bad request` error if any document within it exceeds the maximum size.
+* The API rejects the entire request and returns a `400 bad request` error if any document within it exceeds the maximum size.
 
 ## Maximum request size
 
@@ -64,11 +63,11 @@ The following limit specifies the maximum size of documents contained in the ent
 
 | Feature | Value |
 |------------------------|---------------|
-| All pre-configured features  | 1MB |
+| All preconfigured features  | 1 MB |
 
 ## Maximum documents per request
 
-Exceeding the following document limits will generate an HTTP 400 error code.
+Exceeding the following document limits generates an HTTP 400 error code.
 
 > [!NOTE] 
 > When sending asynchronous API requests, you can send a maximum of 25 documents per request.
@@ -84,11 +83,11 @@ Exceeding the following document limits will generate an HTTP 400 error code.
 | Personally Identifying Information (PII) detection | 5 |
 | Document summarization | 25 |
 | Entity Linking | 5 |
-| Text Analytics for health  | 10 for the web-based API, 1000 for the container. |
+| Text Analytics for health  |25 for the web-based API, 1000 for the container. (125,000 characters in total) |
 
 ## Rate limits
 
-Your rate limit will vary with your [pricing tier](https://azure.microsoft.com/pricing/details/cognitive-services/text-analytics/). These limits are the same for both versions of the API. These rate limits don't apply to the Text Analytics for health container, which does not have a set rate limit.
+Your rate limit varies with your [pricing tier](https://azure.microsoft.com/pricing/details/cognitive-services/text-analytics/). These limits are the same for both versions of the API. These rate limits don't apply to the Text Analytics for health container, which doesn't have a set rate limit.
 
 | Tier          | Requests per second | Requests per minute |
 |---------------|---------------------|---------------------|

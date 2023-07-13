@@ -29,6 +29,9 @@ The **Read** call takes images and documents as its input. They have the followi
 * The file size of images must be less than 500 MB (4 MB for the free tier) and dimensions at least 50 x 50 pixels and at most 10000 x 10000 pixels. PDF files do not have a size limit.
 * The minimum height of the text to be extracted is 12 pixels for a 1024 x 768 image. This corresponds to about 8 font point text at 150 DPI.
 
+>[!NOTE]
+> You don't need to crop an image for text lines. Send the whole image to Read API and it will recognize all texts.
+
 ## Determine how to process the data (optional)
 
 ### Specify the OCR model
@@ -100,7 +103,7 @@ It returns a JSON response that contains a **status** field with the following p
 You call this operation iteratively until it returns with the **succeeded** value. Use an interval of 1 to 2 seconds to avoid exceeding the requests per second (RPS) rate.
 
 > [!NOTE]
-> The free tier limits the request rate to 20 calls per minute. The paid tier allows 10 requests per second (RPS) that can be increased upon request. Note your Azure resource identfier and region, and open an Azure support ticket or contact your account team to request a higher request per second (RPS) rate.
+> The free tier limits the request rate to 20 calls per minute. The paid tier allows 30 requests per second (RPS) that can be increased upon request. Note your Azure resource identfier and region, and open an Azure support ticket or contact your account team to request a higher request per second (RPS) rate.
 
 When the **status** field has the `succeeded` value, the JSON response contains the extracted text content from your image or document. The JSON response maintains the original line groupings of recognized words. It includes the extracted text lines and their bounding box coordinates. Each text line includes all extracted words with their coordinates and confidence scores.
 

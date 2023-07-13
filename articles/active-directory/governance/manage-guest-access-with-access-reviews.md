@@ -3,7 +3,7 @@ title: Manage guest access with access reviews
 description: Manage guest users as members of a group or assigned to an application with Azure Active Directory access reviews
 services: active-directory
 documentationcenter: ''
-author: amsliu
+author: owinfreyATL
 manager: amycolannino
 editor: markwahl-msft
 ms.service: active-directory
@@ -11,8 +11,8 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.subservice: compliance
-ms.date: 08/23/2021
-ms.author: amsliu
+ms.date: 06/28/2023
+ms.author: owinfrey
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
 ---
@@ -22,14 +22,14 @@ ms.collection: M365-identity-device-management
 
 With access reviews, you can easily enable collaboration across organizational boundaries by using the [Azure AD B2B feature](../external-identities/what-is-b2b.md). Guest users from other tenants can be [invited by administrators](../external-identities/add-users-administrator.md) or by [other users](../external-identities/what-is-b2b.md). This capability also applies to social identities such as Microsoft accounts.
 
-You also can easily ensure that guest users have appropriate access. You can ask the guests themselves or a decision maker to participate in an access review and recertify (or attest) to the guests' access. The reviewers can give their input on each user's need for continued access, based on suggestions from Azure AD. When an access review is finished, you can then make changes and remove access for guests who no longer need it.
+You also can easily ensure that guest users have appropriate access. You can ask the guests themselves or a decision maker to participate in an access review and re-certify (or attest) to the guests' access. The reviewers can give their input on each user's need for continued access, based on suggestions from Azure AD. When an access review is finished, you can then make changes and remove access for guests who no longer need it.
 
 > [!NOTE]
 > This document focuses on reviewing guest users' access. If you want to review all users' access, not just guests, see [Manage user access with access reviews](manage-user-access-with-access-reviews.md). If you want to review users' membership in administrative roles, such as global administrator, see [Start an access review in Azure AD Privileged Identity Management](../privileged-identity-management/pim-create-azure-ad-roles-and-resource-roles-review.md).
 
 ## Prerequisites
 
-- Azure AD Premium P2
+- Microsoft Azure AD Premium P2 or Microsoft Entra ID Governance
 
 For more information, [License requirements](access-reviews-overview.md#license-requirements).
 
@@ -115,11 +115,11 @@ In some organizations, guests might not be aware of their group memberships.
 
 2. To create an access review for that group, select the reviewers to be the members themselves. For more information, see [Create an access review of groups or applications](create-access-review.md).
 
-3. Ask each guest to review their own membership. By default, each guest who accepted an invitation receives an email from Azure AD with a link to the access review in your organization's access panel. Azure AD has instructions for guests on how to [review access to groups or applications](perform-access-review.md).  Those guests who didn't accept their invite will appear in the review results as "Not Notified".
+3. Ask each guest to review their own membership. By default, each guest who accepted an invitation receives an email from Azure AD with a link to the access review in your organization's access panel. Azure AD has instructions for guests on how to [review access to groups or applications](perform-access-review.md).  Those guests who didn't accept their invite appears in the review results as "Not Notified".
 
 4. After the reviewers give input, stop the access review. For more information, see [Complete an access review of groups or applications](complete-access-review.md).
 
-5. You can automatically delete the guest users Azure AD B2B accounts as part of an access review when you are configuring an Access review for **Select Team + Groups**. This option is not available for **All Microsoft 365 groups with guest users**.
+5. You can automatically delete the guest users Azure AD B2B accounts as part of an access review when you're configuring an Access review for **Select Team + Groups**. This option isn't available for **All Microsoft 365 groups with guest users**.
 
 ![Screenshot showing page to create access review.](media/manage-guest-access-with-access-reviews/new-access-review.png)
 
@@ -129,4 +129,4 @@ This will immediately block sign in to the guest user account and then automatic
 
 ## Next steps
 
-[Create an access review of groups or applications](create-access-review.md)
+- [Create an access review of groups or applications](create-access-review.md)

@@ -5,6 +5,7 @@ author: ut-karsh
 ms.author: umaheshwari
 ms.service: cognitive-services
 ms.subservice: speech-service
+ms.custom: devx-track-extended-java, devx-track-js, devx-track-python
 ms.topic: how-to 
 ms.date: 09/01/2022 
 zone_pivot_groups: programming-languages-set-two-with-js-spx
@@ -49,7 +50,7 @@ Now try Speech Studio to see how phrase list can improve recognition accuracy.
 > [!NOTE]
 > You may be prompted to select your Azure subscription and Speech resource, and then acknowledge billing for your region. 
 
-1. Go to **Real-time Speech-to-text** in [Speech Studio](https://aka.ms/speechstudio/speechtotexttool). 
+1. Go to **Real-time Speech to text** in [Speech Studio](https://aka.ms/speechstudio/speechtotexttool). 
 1. You test speech recognition by uploading an audio file or recording audio with a microphone. For example, select **record audio with a microphone** and then say "Hi Rehaan, this is Jessie from Contoso bank. " Then select the red button to stop recording. 
 1. You should see the transcription result in the **Test results** text box. If "Rehaan", "Jessie", or "Contoso" were recognized incorrectly, you can add the terms to a phrase list in the next step.
 1. Select **Show advanced options** and turn on **Phrase list**. 
@@ -153,10 +154,11 @@ spx --% recognize --file "your\path\to\audio.wav" --phrases @phrases.txt
 
 ::: zone-end
 
+Allowed characters include locale-specific letters and digits, white space characters, and special characters such as +, \-, $, :, (, ), {, }, \_, ., ?, @, \\, ’, &, \#, %, \^, \*, \`, \<, \>, ;, \/. Other special characters are removed internally from the phrase.
+
 ## Next steps
 
 Check out more options to improve recognition accuracy.
 
 > [!div class="nextstepaction"]
 > [Custom Speech](custom-speech-overview.md)
-

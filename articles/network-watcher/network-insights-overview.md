@@ -3,8 +3,8 @@ title: Azure Monitor Network Insights
 description: An overview of Azure Monitor Network Insights, which provides a comprehensive view of health and metrics for all deployed network resources without any configuration.
 ms.topic: conceptual
 ms.service: network-watcher
-author: Sagav28
-ms.author: saggupta
+author: halkazwini
+ms.author: halkazwini
 ms.date: 09/28/2022
 ms.reviewer: shijain
 ms.custom: subject-monitoring, ignite-2022
@@ -12,7 +12,7 @@ ms.custom: subject-monitoring, ignite-2022
 
 # Azure Monitor Network Insights
 
-Azure Monitor Network Insights provides a comprehensive and visual representation through [topologies](network-insights-topology.md), of [health](../service-health/resource-health-checks-resource-types.md) and [metrics](../azure-monitor/essentials/metrics-supported.md) for all deployed network resources, without requiring  any configuration. It also provides access to network monitoring capabilities like [Connection Monitor](../network-watcher/connection-monitor-overview.md), [flow logging for network security groups (NSGs)](../network-watcher/network-watcher-nsg-flow-logging-overview.md), and [Traffic Analytics](../network-watcher/traffic-analytics.md). And it provides other network [diagnostic](../network-watcher/network-watcher-monitoring-overview.md#diagnostics) features.
+Azure Monitor Network Insights provides a comprehensive and visual representation through [topologies](network-insights-topology.md), of [health](../service-health/resource-health-checks-resource-types.md) and [metrics](../azure-monitor/essentials/metrics-supported.md) for all deployed network resources, without requiring  any configuration. It also provides access to network monitoring capabilities like [Connection Monitor](../network-watcher/connection-monitor-overview.md), [flow logging for network security groups (NSGs)](../network-watcher/network-watcher-nsg-flow-logging-overview.md), and [Traffic Analytics](../network-watcher/traffic-analytics.md). And it provides other network [diagnostic](../network-watcher/network-watcher-monitoring-overview.md#network-diagnostics-tools) features.
 
 Azure Monitor Network Insights is structured around these key components of monitoring:
 - [Topology](#topology)

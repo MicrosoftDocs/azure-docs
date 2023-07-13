@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with Datadog | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with Datadog'
 description: Learn how to configure single sign-on between Azure Active Directory and Datadog.
 services: active-directory
 author: jeevansd

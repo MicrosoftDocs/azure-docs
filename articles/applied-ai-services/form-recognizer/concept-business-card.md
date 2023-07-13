@@ -7,11 +7,10 @@ manager: nitinme
 ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: conceptual
-ms.date: 11/14/2022
+ms.date: 05/23/2023
 ms.author: lajanuar
-recommendations: false
 ---
-<!-- markdownlint-disable MD033 -->
+<!-- markdownlint-disable MD033 -->
 
 # Azure Form Recognizer business card model
 
@@ -23,7 +22,7 @@ recommendations: false
 [!INCLUDE [applies to v2.1](includes/applies-to-v2-1.md)]
 ::: moniker-end
 
-The Form Recognizer business card model combines powerful Optical Character Recognition (OCR) capabilities with deep learning models to analyze and extract key information from business card images. The API analyzes printed business cards; extracts key information such as first name, last name, company name, email address, and phone number;  and returns a structured JSON data representation.
+The Form Recognizer business card model combines powerful Optical Character Recognition (OCR) capabilities with deep learning models to analyze and extract data from business card images. The API analyzes printed business cards; extracts key information such as first name, last name, company name, email address, and phone number;  and returns a structured JSON data representation.
 
 ## Business card data extraction
 
@@ -48,7 +47,7 @@ Business cards are a great way to represent a business or a professional. The co
 
 ::: moniker range="form-recog-3.0.0"
 
-The following tools are supported by Form Recognizer v3.0:
+Form Recognizer v3.0 supports the following tools:
 
 | Feature | Resources | Model ID |
 |----------|-------------|-----------|
@@ -58,7 +57,7 @@ The following tools are supported by Form Recognizer v3.0:
 
 ::: moniker range="form-recog-2.1.0"
 
-The following tools are supported by Form Recognizer v2.1:
+Form Recognizer v2.1 supports the following tools:
 
 | Feature | Resources |
 |----------|-------------------------|
@@ -68,7 +67,7 @@ The following tools are supported by Form Recognizer v2.1:
 
 ### Try business card data extraction
 
-See how data, including name, job title, address, email, and company name, is extracted from business cards. You'll need the following resources:
+See how data, including name, job title, address, email, and company name, is extracted from business cards. You need the following resources:
 
 * An Azure subscription—you can [create one for free](https://azure.microsoft.com/free/cognitive-services/)
 
@@ -125,7 +124,7 @@ See how data, including name, job title, address, email, and company name, is ex
 
     :::image type="content" source="media/fott-select-form-type.png" alt-text="Screenshot of the select-form-type dropdown menu.":::
 
-1. Select **Run analysis**. The Form Recognizer Sample Labeling tool will call the Analyze Prebuilt API and analyze the document.
+1. Select **Run analysis**. The Form Recognizer Sample Labeling tool calls the Analyze Prebuilt API and analyze the document.
 
 1. View the results - see the key-value pairs extracted, line items, highlighted text extracted and tables detected.
 

@@ -1,11 +1,11 @@
 ---
-title: 'Tutorial: Configure Segment for automatic user provisioning with Azure Active Directory | Microsoft Docs'
+title: 'Tutorial: Configure Segment for automatic user provisioning with Azure Active Directory'
 description: Learn how to automatically provision and de-provision user accounts from Azure AD to Segment.
 services: active-directory
 documentationcenter: ''
 author: twimmers
 writer: twimmers
-manager: beatrizd
+manager: jeedes
 
 ms.assetid: 20939a92-5f48-4ef7-ab95-042e70ec1e0e
 ms.service: active-directory

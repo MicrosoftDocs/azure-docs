@@ -2,7 +2,7 @@
 title: User management for Microsoft Defender for IoT
 description: Learn about the different options for user and user role management for Microsoft Defender for IoT.
 ms.date: 11/13/2022
-ms.topic: conceptual
+ms.topic: overview
 ---
 
 # Microsoft Defender for IoT user management
@@ -11,9 +11,9 @@ Microsoft Defender for IoT provides tools both in the Azure portal and on-premis
 
 ## Azure users for Defender for IoT
 
-In the Azure portal, users are managed at the subscription level with [Azure Active Directory](/azure/active-directory/) and [Azure role-based access control (RBAC)](/azure/role-based-access-control/overview). Azure subscription users can have one or more user roles, which determine the data and actions they can access from the Azure portal, including in Defender for IoT.
+In the Azure portal, users are managed at the subscription level with [Azure Active Directory](../../active-directory/index.yml) and [Azure role-based access control (RBAC)](../../role-based-access-control/overview.md). Azure subscription users can have one or more user roles, which determine the data and actions they can access from the Azure portal, including in Defender for IoT.
 
-Use the [portal](/azure/role-based-access-control/quickstart-assign-role-user-portal) or [PowerShell](/azure/role-based-access-control/tutorial-role-assignments-group-powershell) to assign your Azure subscription users with the specific roles they'll need to view data and take action, such as whether they'll be viewing alert or device data, or managing pricing plans and sensors.
+Use the [portal](../../role-based-access-control/quickstart-assign-role-user-portal.md) or [PowerShell](../../role-based-access-control/tutorial-role-assignments-group-powershell.md) to assign your Azure subscription users with the specific roles they'll need to view data and take action, such as whether they'll be viewing alert or device data, or managing pricing plans and sensors.
 
 For more information, see [Manage users on the Azure portal](manage-users-portal.md) and [Azure user roles for OT and Enterprise IoT monitoring](roles-azure.md)
 
@@ -41,10 +41,9 @@ Defender for IoT's integration with Active Directory supports LDAP v3 and the fo
 
 For more information, see:
 
-- [Integrate OT sensor users with Active Directory](manage-users-sensor.md#integrate-ot-sensor-users-with-active-directory)
+- [Configure an Active Directory connection](manage-users-sensor.md#configure-an-active-directory-connection)
 - [Integrate on-premises management console users with Active Directory](manage-users-on-premises-management-console.md#integrate-users-with-active-directory)
-- [Other firewall rules for external services (optional)](how-to-set-up-your-network.md#other-firewall-rules-for-external-services-optional).
-
+- [Other firewall rules for external services (optional)](networking-requirements.md#other-firewall-rules-for-external-services-optional).
 
 ### On-premises global access groups
 
@@ -59,12 +58,12 @@ For example, the following diagram shows how you can allow security analysts fro
 For more information, see [Define global access permission for on-premises users](manage-users-on-premises-management-console.md#define-global-access-permission-for-on-premises-users).
 
 > [!TIP]
-> Access groups and rules help to implement zero-trust strategies by controlling where users manage and analyze devices on Defender for IoT sensors and the on-premises management console. For more information, see [Gain insight into global, regional, and local threats](how-to-gain-insight-into-global-regional-and-local-threats.md).
+> Access groups and rules help to implement Zero Trust strategies by controlling where users manage and analyze devices on Defender for IoT sensors and the on-premises management console. For more information, see [Zero Trust and your OT/IoT networks](concept-zero-trust.md).
 >
 
 ## Next steps
 
-- [Manage Azure subscription users](/azure/role-based-access-control/quickstart-assign-role-user-portal)
+- [Manage Azure subscription users](../../role-based-access-control/quickstart-assign-role-user-portal.md)
 - [Create and manage users on an OT network sensor](manage-users-sensor.md)
 - [Create and manage users on an on-premises management console](manage-users-on-premises-management-console.md)
 

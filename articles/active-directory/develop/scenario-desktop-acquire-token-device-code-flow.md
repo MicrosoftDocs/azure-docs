@@ -11,7 +11,7 @@ ms.topic: conceptual
 ms.workload: identity
 ms.date: 10/07/2022
 ms.author: dmwendia
-ms.custom: aaddev, devx-track-python
+ms.custom: aaddev
 #Customer intent: As an application developer, I want to know how to write a desktop app that calls web APIs by using the Microsoft identity platform.
 ---
 
@@ -68,7 +68,7 @@ static async Task<AuthenticationResult> GetATokenForGraph()
     }
     catch (MsalUiRequiredException ex)
     {
-        // No token found in the cache or AAD insists that a form interactive auth is required (e.g. the tenant admin turned on MFA)
+        // No token found in the cache or Azure AD insists that a form interactive auth is required (e.g. the tenant admin turned on MFA)
         // If you want to provide a more complex user experience, check out ex.Classification
 
         return await AcquireByDeviceCodeAsync(pca);
@@ -253,7 +253,7 @@ if accounts:
     result = app.acquire_token_silent(config["scope"], account=chosen)
 
 if not result:
-    logging.info("No suitable token exists in cache. Let's get a new one from AAD.")
+    logging.info("No suitable token exists in cache. Let's get a new one from Azure AD.")
 
     flow = app.initiate_device_flow(scopes=config["scope"])
     if "user_code" not in flow:

@@ -7,7 +7,7 @@ ms.service: container-apps
 ms.topic: reference
 ms.date: 05/26/2022
 ms.author: cshoe
-ms.custom: ignite-fall-2021, event-tier1-build-2022
+ms.custom: ignite-fall-2021, event-tier1-build-2022, devx-track-arm-template, build-2023
 ---
 
 # Container Apps ARM template API specification
@@ -184,7 +184,7 @@ Changes made to the `template` section are [revision-scope changes](revisions.md
 
 ### <a name="container-app-examples"></a>Examples
 
-For details on health probes, refer to [Heath probes in Azure Container Apps](./health-probes.md).
+For details on health probes, refer to [Health probes in Azure Container Apps](./health-probes.md).
 
 # [ARM template](#tab/arm-template)
 
@@ -217,7 +217,7 @@ The following example ARM template deploys a container app.
   "variables": {},
   "resources": [
     {
-      "apiVersion": "2022-03-01",
+      "apiVersion": "2022-11-01-preview",
       "type": "Microsoft.App/containerApps",
       "name": "[parameters('containerappName')]",
       "location": "[parameters('location')]",
@@ -278,6 +278,10 @@ The following example ARM template deploys a container app.
                   "secretRef": "mysecret"
                 }
               ],
+              "command": [
+                "npm",
+                "start"
+              ],
               "resources": {
                 "cpu": 0.5,
                 "memory": "1Gi"
@@ -330,6 +334,10 @@ The following example ARM template deploys a container app.
                 {
                   "mountPath": "/myfiles",
                   "volumeName": "azure-files-volume"
+                },
+                {
+                  "mountPath": "/mysecrets",
+                  "volumeName": "mysecrets"
                 }
               ]
             }
@@ -347,6 +355,16 @@ The following example ARM template deploys a container app.
               "name": "azure-files-volume",
               "storageType": "AzureFile",
               "storageName": "myazurefiles"
+            },
+            {
+              "name": "mysecrets",
+              "storageType": "Secret",
+              "secrets": [
+                {
+                  "secretRef": "mysecret",
+                  "path": "mysecret.txt"
+                }
+              ]
             }
           ]
         }
@@ -365,7 +383,6 @@ The following example YAML configuration deploys a container app when used with 
 - [`az containerapp revision copy`](/cli/azure/containerapp?view=azure-cli-latest&preserve-view=true#az-containerapp-revision-copy)
 
 ```yaml
-kind: containerapp
 location: canadacentral
 name: mycontainerapp
 resourceGroup: myresourcegroup
@@ -392,7 +409,7 @@ properties:
     registries:
       - passwordSecretRef: myregistrypassword
         server: myregistry.azurecr.io
-        username: myregistrye
+        username: myregistry
     dapr:
       appId: mycontainerapp
       appPort: 80
@@ -408,6 +425,9 @@ properties:
             value: 80
           - name: secret_name
             secretRef: mysecret
+        command:
+          - npm
+          - start
         resources:
           cpu: 0.5
           memory: 1Gi
@@ -435,9 +455,27 @@ properties:
                   value: "startup probe"
             initialDelaySeconds: 3
             periodSeconds: 3
+        volumeMounts:
+          - mountPath: /myempty
+            volumeName: myempty
+          - mountPath: /myfiles
+            volumeName: azure-files-volume
+          - mountPath: /mysecrets
+            volumeName: mysecrets
     scale:
       minReplicas: 1
       maxReplicas: 3
+    volumes:
+      - name: myempty
+        storageType: EmptyDir
+      - name: azure-files-volume
+        storageType: AzureFile
+        storageName: myazurefiles
+      - name: mysecrets
+        storageType: Secret
+        secrets:
+          - secretRef: mysecret
+            path: mysecret.txt
 ```
 
 ---

@@ -5,7 +5,7 @@ ms.topic: quickstart
 ms.tgt_pltfrm: dotnet
 ms.date: 11/08/2022
 ms.devlang: csharp
-ms.custom: contperf-fy22q2, mode-api, passwordless-dotnet
+ms.custom: contperf-fy22q2, mode-api, passwordless-dotnet, devx-track-dotnet
 ---
 
 # Get started with Azure Service Bus topics and subscriptions (.NET)
@@ -449,7 +449,7 @@ In this section, you'll add code to retrieve messages from the subscription.
     //
     // Create the clients that we'll use for sending and processing messages.
     // TODO: Replace the <NAMESPACE-CONNECTION-STRING> placeholder
-    client = new ServiceBusClient("<NAMESPACE-CONNECTION-STRING>">);
+    client = new ServiceBusClient("<NAMESPACE-CONNECTION-STRING>");
 
     // create a processor that we can use to process the messages
     // TODO: Replace the <TOPIC-NAME> and <SUBSCRIPTION-NAME> placeholders
@@ -596,7 +596,7 @@ In this section, you'll add code to retrieve messages from the subscription.
     //
     // Create the clients that we'll use for sending and processing messages.
     // TODO: Replace the <NAMESPACE-CONNECTION-STRING> placeholder
-    client = new ServiceBusClient("<NAMESPACE-CONNECTION-STRING>">);
+    client = new ServiceBusClient("<NAMESPACE-CONNECTION-STRING>");
 
     // create a processor that we can use to process the messages
     // TODO: Replace the <TOPIC-NAME> and <SUBSCRIPTION-NAME> placeholders

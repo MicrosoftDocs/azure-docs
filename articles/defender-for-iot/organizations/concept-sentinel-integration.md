@@ -2,7 +2,7 @@
 title: OT threat monitoring in enterprise security operation center (SOC) teams - Microsoft Defender for IoT
 description: Learn about how integration with Microsoft Sentinel can help security operation center teams bridge the gap between IT and OT security.
 ms.date: 03/24/2022
-ms.topic: conceptual
+ms.topic: integration
 ---
 
 # OT threat monitoring in enterprise SOCs
@@ -25,7 +25,7 @@ Microsoft Sentinel is a scalable cloud service for security information event ma
 
 In Microsoft Sentinel, the Defender for IoT data connector and solution brings out-of-the-box security content to SOC teams, helping them to view, analyze and respond to OT security alerts, and understand the generated incidents in the broader organizational threat contents.
 
-Install the Defender for IoT data connector alone to stream your OT network alerts to Microsoft Sentinel. Then, also install the **Microsoft Defender for IoT** solution the extra value of IoT/OT-specific analytics rules, workbooks, and SOAR playbooks, as well as incident mappings to [MITRE ATT&CK for ICS](https://collaborate.mitre.org/attackics/index.php/Overview).
+Install the Defender for IoT data connector alone to stream your OT network alerts to Microsoft Sentinel. Then, also install the **Microsoft Defender for IoT** solution the extra value of IoT/OT-specific analytics rules, workbooks, and SOAR playbooks, as well as incident mappings to [MITRE ATT&CK for ICS techniques](https://attack.mitre.org/techniques/ics/).
 
 ### Integrated detection and response
 
@@ -39,6 +39,12 @@ The following table shows how both the OT team, on the Defender for IoT side, an
 |SOC teams move the incident to *Active* and start investigating, using network connections and events, workbooks, and the OT device entity page     |  **OT incident investigation**       |    Alerts are moved to *Active*, and OT teams investigate using PCAP data, detailed reports, and other device details     |
 |SOC teams respond with OT playbooks and notebooks     |  **OT incident response**       |  OT teams either suppress the alert or learn it for next time, as needed       |
 |After the threat is mitigated, SOC teams close the incident     |  **OT incident closure**       | After the threat is mitigated, OT teams close the alert        |
+
+### Alert status synchronizations
+
+Alert status changes are synchronized from Microsoft Sentinel to Defender for IoT only, and not from Defender for IoT to Microsoft Sentinel.
+
+If you integrate Defender for IoT with Microsoft Sentinel, we recommend that you manage your alert statuses together with the related incidents in Microsoft Sentinel.
 
 ## Microsoft Sentinel incidents for Defender for IoT
 
@@ -103,7 +109,7 @@ SecurityAlert
 After you've installed the Microsoft Defender for IoT solution and deployed the [AD4IoT-AutoAlertStatusSync](iot-advanced-threat-monitoring.md#update-alert-statuses-in-defender-for-iot) playbook, alert status changes are synchronized from Microsoft Sentinel to Defender for IoT. Alert status changes are *not* synchronized from Defender for IoT to Microsoft Sentinel.
 
 > [!IMPORTANT]
-> We recommend that you manage your alert statuses together with the related incidents in Microsoft Sentinel. For more information, see [Work with incident tasks in Microsoft Sentinel](/azure/sentinel/work-with-tasks).
+> We recommend that you manage your alert statuses together with the related incidents in Microsoft Sentinel. For more information, see [Work with incident tasks in Microsoft Sentinel](../../sentinel/work-with-tasks.md).
 >
 
 ### Defender for IoT incidents in Microsoft Sentinel
@@ -119,6 +125,7 @@ SecurityIncident
 
 For more information, see:
 
+- [Integrations with Microsoft and partner services](integrate-overview.md)
 - [Tutorial: Connect Microsoft Defender for IoT with Microsoft Sentinel](../../sentinel/iot-solution.md)
 - [Detect threats out-of-the-box with Defender for IoT data](../../sentinel/iot-advanced-threat-monitoring.md#detect-threats-out-of-the-box-with-defender-for-iot-data)
 - [Create custom analytics rules to detect threats](../../sentinel/detect-threats-custom.md)

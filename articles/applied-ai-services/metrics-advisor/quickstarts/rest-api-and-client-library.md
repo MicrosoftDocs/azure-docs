@@ -1,8 +1,7 @@
 ---
 title: Metrics Advisor client libraries REST API
-titleSuffix: Azure Cognitive Services
+titleSuffix: Azure Applied AI Services
 description: Use this quickstart to connect your applications to the Metrics Advisor API from Azure Cognitive Services.
-services: cognitive-services
 author: mrbullwinkle
 manager: nitinme
 ms.service: applied-ai-services
@@ -11,7 +10,7 @@ ms.topic: quickstart
 ms.date: 11/07/2022
 ms.author: mbullwin
 zone_pivot_groups: programming-languages-metrics-monitor
-ms.custom: mode-api
+ms.custom: mode-api, devx-track-extended-java, devx-track-js, devx-track-python
 ---
 
 # Quickstart: Use the client libraries or REST APIs to customize your solution

@@ -5,7 +5,7 @@
  author: kgremban
  ms.service: iot-hub
  ms.topic: include
- ms.date: 10/21/2021
+ ms.date: 12/20/2022
  ms.author: kgremban
  ms.custom: include file
 ---
@@ -23,9 +23,9 @@ In this section, you create a device identity in the identity registry in your I
 
     [!INCLUDE [iot-hub-pii-note-naming-device](iot-hub-pii-note-naming-device.md)]
 
-1. After the device is created, open the device from the list in the **Devices** pane. Copy the **Primary Connection String**. This connection string is used by device code to communicate with the hub.
+1. After the device is created, open the device from the list in the **Devices** pane. Copy the value of **Primary connection string**. This connection string is used by device code to communicate with the IoT hub.
 
-    By default, the keys and connection strings are masked as they're sensitive information. If you click the eye icon, they're revealed. It's not necessary to reveal them to copy them with the copy button.
+    By default, the keys and connection strings are masked because they're sensitive information. If you click the eye icon, they're revealed. It's not necessary to reveal them to copy them with the copy button.
 
     :::image type="content" source="./media/iot-hub-include-create-device/device-details.png" alt-text="Screen capture that shows the device connection string." border="true" lightbox="./media/iot-hub-include-create-device/device-details.png":::
 

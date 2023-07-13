@@ -65,7 +65,7 @@ In an Azure Cosmos DB account configured with **multi-region writes**, data can 
 
 Learn more about database transactions and optimistic concurrency control in the following articles:
 
-- [Working with Azure Cosmos DB databases, containers and items](../account-databases-containers-items.md)
+- [Working with Azure Cosmos DB databases, containers and items](../resource-model.md)
 - [Consistency levels](../consistency-levels.md)
 - [Conflict types and resolution policies](../conflict-resolution-policies.md)
 - [Using TransactionalBatch](transactional-batch.md)

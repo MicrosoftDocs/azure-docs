@@ -6,7 +6,7 @@ ms.author: karler
 ms.topic: how-to
 ms.service: spring-apps
 ms.date: 09/17/2021
-ms.custom: devx-track-java, devx-track-azurecli, event-tier1-build-2022
+ms.custom: devx-track-java, devx-track-extended-java, devx-track-azurecli, event-tier1-build-2022
 ---
 
 # How to configure Palo Alto for Azure Spring Apps
@@ -16,7 +16,7 @@ ms.custom: devx-track-java, devx-track-azurecli, event-tier1-build-2022
 
 **This article applies to:** ✔️ Java ✔️ C#
 
-**This article applies to:** ✔️ Basic/Standard tier ✔️ Enterprise tier
+**This article applies to:** ✔️ Basic/Standard ✔️ Enterprise
 
 This article describes how to use Azure Spring Apps with a Palo Alto firewall.
 

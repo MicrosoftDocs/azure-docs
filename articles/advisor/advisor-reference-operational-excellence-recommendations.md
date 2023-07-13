@@ -192,13 +192,13 @@ Learn more about [Kubernetes service - UseAzurePolicyForKubernetes (Disable the 
 
 This cluster is not using ephemeral OS disks which can provide lower read/write latency, along with faster node scaling and cluster upgrades
 
-Learn more about [Kubernetes service - UseEphemeralOSdisk (Use Ephemeral OS disk)](../aks/cluster-configuration.md#ephemeral-os).
+Learn more about [Kubernetes service - UseEphemeralOSdisk (Use Ephemeral OS disk)](../aks/concepts-storage.md#ephemeral-os-disk).
 
-### Use Uptime SLA
+### Free and Standard tiers for AKS control plane management
 
-This cluster has not enabled Uptime SLA, and it limited to an SLO of 99.5%
+This cluster has not enabled the Standard tier which includes the Uptime SLA by default, and is limited to an SLO of 99.5%.
 
-Learn more about [Kubernetes service - UseUptimeSLA (Use Uptime SLA)](../aks/uptime-sla.md).
+Learn more about [Kubernetes service - Free and Standard Tier](../aks/free-standard-pricing-tiers.md).
 
 ### Deprecated Kubernetes API in 1.22 has been found
 

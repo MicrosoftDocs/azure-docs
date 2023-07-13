@@ -2,12 +2,12 @@
 title: Azure VM Disaster Recovery - High Churn support (Public Preview) 
 description: Describes how to protect your Azure VMs having high churning workloads 
 services: site-recovery
-author: v-pgaddala
+author: ankitaduttaMSFT
 manager: gaggupta
 ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 12/07/2022
-ms.author: v-pgaddala
+ms.author: ankitadutta
 ---
 
 # Azure VM Disaster Recovery - High Churn Support (Public Preview)
@@ -21,7 +21,7 @@ Azure Site Recovery supports churn (data change rate) up to 100 MB/s per VM. You
 - Source disks must be Managed Disks.
 
 >[!Warning]
->Azure Site Recovery recommends using *High Churn* while using following regions only as the Source region or the Target region: Japan East, Japan West, UK South, UK West, West US, West US 2, East Asia, East US, East US 2, Australia East, Australia Southeast, Canada East, Canada Central, Central US, West India and Southeast Asia. When using *High Churn* with any other regions outside the regions in the list, replication and/or reprotection may fail.
+> This Public Preview feature has been expanded in [all public regions](../site-recovery/azure-to-azure-support-matrix.md#region-support) where Azure Site Recovery is supported. However, this feature is not available in any Government cloud regions. When using *High Churn* with any other regions outside the supported regions, replication and/or reprotection may fail.
 
 ## Data change limits
 
@@ -49,7 +49,7 @@ The following table summarizes Site Recovery limits:
 
 ### From Recovery Service Vault 
 
-1. Select source VMs on which you want to enable replication. To enable replication, follow the steps [here](/azure/site-recovery/azure-to-azure-how-to-enable-replication).
+1. Select source VMs on which you want to enable replication. To enable replication, follow the steps [here](./azure-to-azure-how-to-enable-replication.md).
 
 2. Under **Replication Settings** > **Storage**, select **View/edit storage configuration**. The **Customize target settings** page opens.
   
@@ -109,4 +109,3 @@ The following table summarizes Site Recovery limits:
 
 - **High Churn** uses *Premium Block Blob* storage accounts which may have higher cost implications as compared to **Normal Churn** which uses *Standard* storage accounts. For more information, see [pricing](https://azure.microsoft.com/pricing/details/storage/blobs/).
 - For High churn VMs, more data changes may get replicated to target for **High churn** compared to **Normal churn**. This may lead to more network cost.
-

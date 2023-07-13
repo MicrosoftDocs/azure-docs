@@ -6,12 +6,12 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
-ms.date: 08/22/2022
+ms.date: 06/01/2023
 
 ms.author: justinha
 author: justinha
 manager: amycolannino
-ms.reviewer: jsimmons
+ms.reviewer: mimanans
 
 ms.collection: M365-identity-device-management
 ---
@@ -92,9 +92,11 @@ The following core requirements apply:
     | --- | --- |
     |`https://login.microsoftonline.com`|Authentication requests|
     |`https://enterpriseregistration.windows.net`|Azure AD Password Protection functionality|
+    |`https://autoupdate.msappproxy.net` | Azure AD Password Protection auto-upgrade functionality |
 
 > [!NOTE]
 > Some endpoints, such as the CRL endpoint, are not addressed in this article. For a list of all supported endpoints, see [Microsoft 365 URLs and IP address ranges](/microsoft-365/enterprise/urls-and-ip-address-ranges#microsoft-365-common-and-office-online).
+>In addition, other endpoints are required for Azure portal authentication. For more information, see [Azure portal URLs for proxy bypass](/azure/azure-portal/azure-portal-safelist-urls?tabs=public-cloud#azure-portal-urls-for-proxy-bypass).
 
 ### Azure AD Password Protection DC agent
 
@@ -163,6 +165,7 @@ Choose one or more servers to host the Azure AD Password Protection proxy servic
 * You can run the Azure AD Password Protection proxy service on a domain controller for testing, but that domain controller then requires internet connectivity. This connectivity can be a security concern. We recommend this configuration for testing only.
 * We recommend at least two Azure AD Password Protection proxy servers per forest for redundancy, as noted in the previous section on [high availability considerations](#high-availability-considerations).
 * It's not supported to run the Azure AD Password Protection proxy service on a read-only domain controller.
+* If necessary, you can remove the proxy service by using **Add or remove programs**. No manual cleanup of the state that the proxy service maintains is needed.
 
 To install the Azure AD Password Protection proxy service, complete the following steps:
 
@@ -248,6 +251,8 @@ To install the Azure AD Password Protection proxy service, complete the followin
 
     Registration of the Azure AD Password Protection proxy service is necessary only once in the lifetime of the service. After that, the Azure AD Password Protection proxy service will automatically perform any other necessary maintenance.
 
+1. To make sure that the changes have taken effect, run `Test-AzureADPasswordProtectionProxyHealth -TestAll`. For help resolving errors, see [Troubleshoot: On-premises Azure AD Password Protection](howto-password-ban-bad-on-premises-troubleshoot.md).
+
 1. Now register the on-premises Active Directory forest with the necessary credentials to communicate with Azure by using the `Register-AzureADPasswordProtectionForest` PowerShell cmdlet.
 
     > [!NOTE]
@@ -300,6 +305,8 @@ To install the Azure AD Password Protection proxy service, complete the followin
     Registration of the Active Directory forest is necessary only once in the lifetime of the forest. After that, the Azure AD Password Protection DC agents in the forest automatically perform any other necessary maintenance. After `Register-AzureADPasswordProtectionForest` runs successfully for a forest, additional invocations of the cmdlet succeed, but are unnecessary.
     
     For `Register-AzureADPasswordProtectionForest` to succeed, at least one DC running Windows Server 2012 or later must be available in the Azure AD Password Protection proxy server's domain. The Azure AD Password Protection DC agent software doesn't have to be installed on any domain controllers prior to this step.
+
+1. To make sure that the changes have taken effect, run `Test-AzureADPasswordProtectionProxyHealth -TestAll`. For help resolving errors, see [Troubleshoot: On-premises Azure AD Password Protection](howto-password-ban-bad-on-premises-troubleshoot.md).
 
 ### Configure the proxy service to communicate through an HTTP proxy
 

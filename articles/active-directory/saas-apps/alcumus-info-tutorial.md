@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory integration with Alcumus Info Exchange | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory integration with Alcumus Info Exchange'
 description: Learn how to configure single sign-on between Azure Active Directory and Alcumus Info Exchange.
 services: active-directory
 author: jeevansd

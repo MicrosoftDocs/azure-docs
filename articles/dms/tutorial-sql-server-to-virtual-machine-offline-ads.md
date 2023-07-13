@@ -2,16 +2,13 @@
 title: "Tutorial: Migrate SQL Server to SQL Server on Azure Virtual Machines offline in Azure Data Studio"
 titleSuffix: Azure Database Migration Service
 description: Learn how to migrate on-premises SQL Server to SQL Server on Azure Virtual Machines offline by using Azure Data Studio and Azure Database Migration Service.
-services: dms
-author: kbarlett001
-ms.author: kebarlet
-manager: 
+author: croblesm
+ms.author: roblescarlos
 ms.reviewer: cawrites
+ms.date: 06/07/2023
 ms.service: dms
-ms.workload: data-services
-ms.custom: "seo-lt-2019"
 ms.topic: tutorial
-ms.date: 10/05/2021
+ms.custom: seo-lt-2019
 ---
 
 # Tutorial: Migrate SQL Server to SQL Server on Azure Virtual Machines offline in Azure Data Studio
@@ -63,8 +60,8 @@ Before you begin the tutorial:
 
   > [!IMPORTANT]
   >
+  > - The Azure SQL Migration extension for Azure Data Studio doesn't take database backups, or neither initiate any database backups on your behalf. Instead, the service uses existing database backup files for the migration.
   > - If your database backup files are in an SMB network share, [create an Azure storage account](../storage/common/storage-account-create.md) that Database Migration Service can use to upload database backup files to and to migrate databases. Make sure you create the Azure storage account in the same region where you create your instance of Database Migration Service.
-  > - Database Migration Service doesn't initiate any backups. Instead, the service uses existing backups for the migration. You might already have these backups as part of your disaster recovery plan.
   > - You can write each backup to either a separate backup file or to multiple backup files. Appending multiple backups such as full and transaction logs into a single backup media isn't supported.
   > - You can provide compressed backups to reduce the likelihood of experiencing potential issues associated with migrating large backups.
 
@@ -82,7 +79,7 @@ Before you begin the tutorial:
     | Domain names                                          | Outbound port | Description                |
     | ----------------------------------------------------- | -------------- | ---------------------------|
     | Public cloud: `{datafactory}.{region}.datafactory.azure.net`<br />or `*.frontend.clouddatahub.net` <br /><br /> Azure Government: `{datafactory}.{region}.datafactory.azure.us` <br /><br /> Azure China: `{datafactory}.{region}.datafactory.azure.cn` | 443            | Required by the self-hosted integration runtime to connect to Database Migration Service. <br/><br/>For a newly created data factory in a public cloud, locate the fully qualified domain name (FQDN) from your self-hosted integration runtime key, in the format `{datafactory}.{region}.datafactory.azure.net`. <br /><br /> For an existing data factory, if you don't see the FQDN in your self-hosted integration key, use `*.frontend.clouddatahub.net` instead. |
-    | `download.microsoft.com`    | 443            | Required by the self-hosted integration runtime for downloading the updates. If you have disabled auto-update, you can skip configuring this domain. |
+    | `download.microsoft.com`    | 443            | Required by the self-hosted integration runtime for downloading the updates. If you have disabled autoupdate, you can skip configuring this domain. |
     | `*.core.windows.net`          | 443            | Used by the self-hosted integration runtime that connects to the Azure storage account to upload database backups from your network share |
 
     > [!TIP]
@@ -156,7 +153,7 @@ To open the Migrate to Azure SQL wizard:
     >
     > If your database backups are already in an Azure storage blob container, you don't need to set up a self-hosted integration runtime.
   
-   For backups that are located on a network share, enter or select the following information:
+- For backups that are located on a network share, enter or select the following information:
 
     |Name    |Description  |
     |---------|-------------|
@@ -167,16 +164,44 @@ To open the Migrate to Azure SQL wizard:
     |**Password**     |The Windows credential (password) that has read access to the network share to retrieve the backup files.         |
     |**Target database name** |You can modify the target database name during the migration process.            |
 
-    For backups that are stored in an Azure storage blob container, enter or select the following information:
+- For backups that are stored in an Azure storage blob container, enter or select the following information:
 
     |Name    |Description  |
     |---------|-------------|
     |**Target database name** |You can modify the target database name during the migration process.            |
     |**Storage account details** |The resource group, storage account, and container where backup files are located.  
     |**Last Backup File** |The file name of the last backup of the database you're migrating.
-
+    
     > [!IMPORTANT]
     > If loopback check functionality is enabled and the source SQL Server and file share are on the same computer, the source won't be able to access the file share by using the FQDN. To fix this issue, [disable loopback check functionality](https://support.microsoft.com/help/926642/error-message-when-you-try-to-access-a-server-locally-by-using-its-fqd).
+
+- The [Azure SQL migration extension for Azure Data Studio](./migration-using-azure-data-studio.md) no longer requires specific configurations on your Azure Storage account network settings to migrate your SQL Server databases to Azure. However, depending on your database backup location and desired storage account network settings, there are a few steps needed to ensure your resources can access the Azure Storage account. See the following table for the various migration scenarios and network configurations:
+
+    | Scenario | SMB network share | Azure Storage account container |
+    | --- | --- | --- |
+    | Enabled from all networks | No extra steps | No extra steps |
+    | Enabled from selected virtual networks and IP addresses |  [See 1a](#1a---azure-blob-storage-network-configuration) | [See 2a](#2a---azure-blob-storage-network-configuration-private-endpoint)| 
+    | Enabled from selected virtual networks and IP addresses + private endpoint   | [See 1b](#1b---azure-blob-storage-network-configuration) | [See 2b](#2b---azure-blob-storage-network-configuration-private-endpoint) | 
+
+    ### 1a - Azure Blob storage network configuration
+    If you have your Self-Hosted Integration Runtime (SHIR) installed on an Azure VM, see section [1b - Azure Blob storage network configuration](#1b---azure-blob-storage-network-configuration). If you have your Self-Hosted Integration Runtime (SHIR) installed on your on-premises network, you need to add your client IP address of the hosting machine in your Azure Storage account as so: 
+    
+    :::image type="content" source="media/tutorial-sql-server-to-virtual-machine-offline-ads/storage-networking-details.png" alt-text="Screenshot that shows the storage account network details":::
+    
+    To apply this specific configuration, connect to the Azure portal from the SHIR machine, open the Azure Storage account configuration, select **Networking**, and then mark the **Add your client IP address** checkbox. Select **Save** to make the change persistent. See section [2a - Azure Blob storage network configuration (Private endpoint)](#2a---azure-blob-storage-network-configuration-private-endpoint) for the remaining steps.
+    
+    ### 1b - Azure Blob storage network configuration
+    If your SHIR is hosted on an Azure VM, you need to add the virtual network of the VM to the Azure Storage account since the Virtual Machine has a nonpublic IP address that can't be added to the IP address range section. 
+    
+    :::image type="content" source="media/tutorial-sql-server-to-virtual-machine-offline-ads/storage-networking-firewall.png" alt-text="Screenshot that shows the storage account network firewall configuration.":::
+    
+    To apply this specific configuration, locate your Azure Storage account, from the **Data storage** panel select **Networking**, then mark the **Add existing virtual network** checkbox. A new panel opens up, select the subscription, virtual network, and subnet of the Azure VM hosting the Integration Runtime. This information can be found on the **Overview** page of the Azure Virtual Machine. The subnet may say **Service endpoint required** if so, select **Enable**. Once everything is ready, save the updates. Refer to section [2a - Azure Blob storage network configuration (Private endpoint)a](#2a---azure-blob-storage-network-configuration-private-endpoint) for the remaining required steps.
+    
+    ### 2a - Azure Blob storage network configuration (Private endpoint)
+    If your backups are placed directly into an Azure Storage Container, all the above steps are unnecessary since there's no Integration Runtime communicating with the Azure Storage account. However, we still need to ensure that the target SQL Server instance can communicate with the Azure Storage account to restore the backups from the container. To apply this specific configuration, follow the instructions in section [1b - Azure Blob storage network configuration](#1b---azure-blob-storage-network-configuration), specifying the target SQL instance Virtual Network when filling out the "Add existing virtual network" popup.
+    
+    ### 2b - Azure Blob storage network configuration (Private endpoint)
+    If you have a private endpoint set up on your Azure Storage account, follow the steps outlined in section [2a - Azure Blob storage network configuration (Private endpoint)](#2a---azure-blob-storage-network-configuration-private-endpoint). However, you need to select the subnet of the private endpoint, not just the target SQL Server subnet. Ensure the private endpoint is hosted in the same VNet as the target SQL Server instance. If it isn't, create another private endpoint using the process in the Azure Storage account configuration section.
 
 ## Create a Database Migration Service instance
 
@@ -252,8 +277,16 @@ In **Step 7: Summary** in the Migrate to Azure SQL wizard, review the configurat
 
 After all database backups are restored on the instance of SQL Server on Azure Virtual Machines, an automatic migration cutover is initiated by Database Migration Service to ensure that the migrated database is ready to use. The migration status changes from **In progress** to **Succeeded**.
 
+## Limitations
+
+Migrating to SQL Server on Azure VMs by using the Azure SQL extension for Azure Data Studio has the following limitations: 
+
+[!INCLUDE [sql-vm-limitations](includes/sql-virtual-machines-limitations.md)]
+
+
 ## Next steps
 
 - Complete a quickstart to [migrate a database to SQL Server on Azure Virtual Machines by using the T-SQL RESTORE command](/azure/azure-sql/migration-guides/virtual-machines/sql-server-to-sql-on-azure-vm-individual-databases-guide).
 - Learn more about [SQL Server on Azure Windows Virtual Machines](/azure/azure-sql/virtual-machines/windows/sql-server-on-azure-vm-iaas-what-is-overview).
--Learn how to [connect apps to SQL Server on Azure Virtual Machines](/azure/azure-sql/virtual-machines/windows/ways-to-connect-to-sql).
+- Learn how to [connect apps to SQL Server on Azure Virtual Machines](/azure/azure-sql/virtual-machines/windows/ways-to-connect-to-sql).
+- To troubleshoot, review [Known issues](known-issues-azure-sql-migration-azure-data-studio.md).

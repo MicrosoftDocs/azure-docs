@@ -1,13 +1,13 @@
 ---
 
-title: Allow or block invites to specific organizations - Azure AD
+title: Allow or block invites to specific organizations
 description: Shows how an administrator can use the Azure portal or PowerShell to set an access or blocklist to allow or block B2B users from certain domains.
 
 services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: how-to
-ms.date: 08/31/2022
+ms.date: 04/17/2023
 
 ms.author: mimart
 author: msmimart
@@ -47,9 +47,9 @@ To add a blocklist:
 2. Select **Azure Active Directory** > **Users** > **User settings**.
 3. Under **External users**, select **Manage external collaboration settings**.
 4. Under **Collaboration restrictions**, select **Deny invitations to the specified domains**.
-5. Under **TARGET DOMAINS**, enter the name of one of the domains that you want to block. For multiple domains, enter each domain on a new line. For example:
+5. Under **Target domains**, enter the name of one of the domains that you want to block. For multiple domains, enter each domain on a new line. For example:
 
-   ![Screenshot showing the deny option with added domains.](./media/allow-deny-list/DenyListSettings.png)
+    :::image type="content" source="media/allow-deny-list/DenyListSettings.PNG" alt-text="Screenshot showing the deny option with added domains.":::
  
 6. When you're done, select **Save**.
 
@@ -68,9 +68,9 @@ To add an allowlist:
 2. Select **Azure Active Directory** > **Users** > **User settings**.
 3. Under **External users**, select **Manage external collaboration settings**.
 4. Under **Collaboration restrictions**, select **Allow invitations only to the specified domains (most restrictive)**.
-5. Under **TARGET DOMAINS**, enter the name of one of the domains that you want to allow. For multiple domains, enter each domain on a new line. For example:
+5. Under **Target domains**, enter the name of one of the domains that you want to allow. For multiple domains, enter each domain on a new line. For example:
 
-   ![Screenshot showing the allow option with added domains.](./media/allow-deny-list/AllowListSettings.png)
+    :::image type="content" source="media/allow-deny-list/AllowlistSettings.PNG" alt-text="Screenshot showing the allow option with added domains.":::
  
 6. When you're done, select **Save**.
 
@@ -162,7 +162,5 @@ Remove-AzureADPolicy -Id $currentpolicy.Id
 
 ## Next steps
 
-- For an overview of Azure AD B2B, see [What is Azure AD B2B collaboration?](what-is-b2b.md)
-- To learn more about managing B2B collaboration in your organization, see [External collaboration settings](external-collaboration-settings-configure.md).
-
-- For information about Conditional Access and B2B collaboration, see [Conditional Access for B2B collaboration users](authentication-conditional-access.md).
+- [Cross-tenant access settings](cross-tenant-access-settings-b2b-collaboration.md)
+- [External collaboration settings](external-collaboration-settings-configure.md).

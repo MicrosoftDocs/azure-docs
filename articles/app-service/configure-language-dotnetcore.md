@@ -3,11 +3,10 @@ title: Configure ASP.NET Core apps
 description: Learn how to configure a ASP.NET Core app in the native Windows instances, or in a pre-built Linux container, in Azure App Service. This article shows the most common configuration tasks. 
 
 ms.devlang: csharp
-ms.custom: devx-track-csharp, devx-track-azurecli
+ms.custom: devx-track-csharp, devx-track-azurecli, devx-track-dotnet
 ms.topic: article
 ms.date: 06/02/2020
 zone_pivot_groups: app-service-platform-windows-linux
-
 ---
 
 # Configure an ASP.NET Core app for Azure App Service
@@ -122,7 +121,7 @@ namespace SomeNamespace
 }
 ```
 
-If you configure an app setting with the same name in App Service and in *appsettings.json*, for example, the App Service value takes precedence over the *appsettings.json* value. The local *appsettings.json* value lets you debug the app locally, but the App Service value lets your run the app in production with production settings. Connection strings work in the same way. This way, you can keep your application secrets outside of your code repository and access the appropriate values without changing your code.
+If you configure an app setting with the same name in App Service and in *appsettings.json*, for example, the App Service value takes precedence over the *appsettings.json* value. The local *appsettings.json* value lets you debug the app locally, but the App Service value lets you run the app in production with production settings. Connection strings work in the same way. This way, you can keep your application secrets outside of your code repository and access the appropriate values without changing your code.
 
 ::: zone pivot="platform-linux"
 > [!NOTE]

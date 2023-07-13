@@ -2,9 +2,8 @@
 title: Best practices for cluster security
 titleSuffix: Azure Kubernetes Service
 description: Learn the cluster operator best practices for how to manage cluster security and upgrades in Azure Kubernetes Service (AKS)
-services: container-service
 ms.topic: conceptual
-ms.date: 04/07/2021
+ms.date: 03/02/2023
 
 ---
 
@@ -71,10 +70,6 @@ spec:
         except:
         - 169.254.169.254/32
 ```
-
-> [!NOTE]
-> Alternatively you can use [Pod Identity](./use-azure-ad-pod-identity.md) though this is in Public Preview.  It has a pod (NMI) that runs as a DaemonSet on each node in the AKS cluster. NMI intercepts security token requests to the Azure Instance Metadata Service on each node, redirect them to itself and validates if the pod has access to the identity it's requesting a token for and fetch the token from the Azure AD tenant on behalf of the application.
->
 
 ## Secure container access to resources
 
@@ -152,14 +147,14 @@ AppArmor profiles are added using the `apparmor_parser` command.
         command: [ "sh", "-c", "echo 'Hello AppArmor!' && sleep 1h" ]
     ```
 
-1. With the pod deployed, verify the *hello-apparmor* pod shows a *blocked* status by running the following command:
+2. With the pod deployed, run the following command and verify the *hello-apparmor* pod shows a *Running* status:
 
     ```
     kubectl get pods
 
     NAME             READY   STATUS    RESTARTS   AGE
     aks-ssh          1/1     Running   0          4m2s
-    hello-apparmor   0/1     Blocked   0          50s
+    hello-apparmor   0/1     Running   0          50s
     ```
 
 For more information about AppArmor, see [AppArmor profiles in Kubernetes][k8s-apparmor].

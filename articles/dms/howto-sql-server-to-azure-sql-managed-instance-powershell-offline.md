@@ -2,16 +2,16 @@
 title: "PowerShell: Migrate SQL Server to SQL Managed Instance offline"
 titleSuffix: Azure Database Migration Service
 description: Learn to offline migrate from SQL Server to Azure SQL Managed Instance by using Azure PowerShell and the Azure Database Migration Service.
-services: database-migration
 author: croblesm
 ms.author: roblescarlos
-manager: craigg
 ms.reviewer: craigg
-ms.service: dms
-ms.workload: data-services
-ms.custom: "seo-lt-2019,fasttrack-edit, devx-track-azurepowershell"
-ms.topic: how-to
 ms.date: 12/16/2020
+ms.service: dms
+ms.topic: how-to
+ms.custom:
+  - seo-lt-2019
+  - fasttrack-edit
+  - devx-track-azurepowershell
 ---
 
 # Migrate SQL Server to SQL Managed Instance offline with PowerShell & Azure Database Migration Service
@@ -344,4 +344,4 @@ Remove-AzDms -ResourceGroupName myResourceGroup -ServiceName MyDMS
 
 Find out more about Azure Database Migration Service in the article [What is the Azure Database Migration Service?](./dms-overview.md).
 
-For information about additional migrating scenarios (source/target pairs), see the Microsoft [Database Migration Guide](https://datamigration.microsoft.com/).
+For information about additional migrating scenarios (source/target pairs), see the Microsoft [Database Migration Guide](/data-migration/).

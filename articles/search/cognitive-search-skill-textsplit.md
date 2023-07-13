@@ -26,7 +26,7 @@ Parameters are case-sensitive.
 | Parameter name	 | Description |
 |--------------------|-------------|
 | `textSplitMode`    | Either `pages` or `sentences` | 
-| `maximumPageLength` | Only applies if `textSplitMode` is set to `pages`. This refers to the maximum page length in characters as measured by `String.Length`. The minimum value is 300, the maximum is 100000, and the default value is 10000.  The algorithm will do its best to break the text on sentence boundaries, so the size of each chunk may be slightly less than `maximumPageLength`. | 
+| `maximumPageLength` | Only applies if `textSplitMode` is set to `pages`. This refers to the maximum page length in characters as measured by `String.Length`. The minimum value is 300, the maximum is 100000, and the default value is 5000.  The algorithm will do its best to break the text on sentence boundaries, so the size of each chunk may be slightly less than `maximumPageLength`. | 
 | `defaultLanguageCode`	| (optional) One of the following language codes: `am, bs, cs, da, de, en, es, et, fr, he, hi, hr, hu, fi, id, is, it, ja, ko, lv, no, nl, pl, pt-PT, pt-BR, ru, sk, sl, sr, sv, tr, ur, zh-Hans`. Default is English (en). Few things to consider:<ul><li>Providing a language code is useful to avoid cutting a word in half for non-whitespace languages such as Chinese, Japanese, and Korean.</li><li>If you do not know the language (i.e. you need to split the text for input into the [LanguageDetectionSkill](cognitive-search-skill-language-detection.md)), the default of English (en) should be sufficient. </li></ul>  |
 
 

@@ -1,6 +1,6 @@
 ---
-title: Create and manage Azure IoT Central dashboards | Microsoft Docs
-description: Learn how to create and manage application and personal dashboards in Azure IoT Central.
+title: Create and manage Azure IoT Central dashboards
+description: Learn how to create and manage application and personal dashboards in Azure IoT Central. Customize dashboards by using tiles.
 author: dominicbetts
 ms.author: dobett
 ms.date: 11/03/2022

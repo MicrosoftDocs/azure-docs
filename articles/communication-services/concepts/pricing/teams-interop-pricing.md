@@ -10,6 +10,7 @@ ms.author: tchladek
 ms.date: 08/01/2022
 ms.topic: conceptual
 ms.service: azure-communication-services
+ms.subservice: teams-interop
 ---
 # Teams interoperability pricing
 
@@ -61,7 +62,7 @@ Teams users participating in Teams meetings and calls generate usage on Azure Co
 
 | Action | Tool | Price|
 |--------|------| -----|
-| Send message | [Graph API](/graph/teams-licenses) | $0 or $0.00075|
+| Send message | [Graph API](/graph/teams-licenses) | $0 |
 | Receive message | [Graph API](/graph/teams-licenses) | $0 or $0.00075|
 | Teams users participate in Teams meeting with audio, video, screen sharing, and TURN services | Azure Communication Services | $0.004 per minute |
 

@@ -11,6 +11,7 @@ ms.service: notification-hubs
 ms.workload: mobile
 ms.tgt_pltfrm: android
 ms.devlang: java
+ms.custom: devx-track-extended-java
 ms.topic: article
 ms.date: 08/07/2020
 ms.author: sethm

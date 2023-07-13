@@ -34,7 +34,7 @@ specified in the storage section of the
 
 To complete this how-to guide, you need:
 
-- The [Az PowerShell module](/powershell/azure/install-az-ps) installed locally or
+- The [Az PowerShell module](/powershell/azure/install-azure-powershell) installed locally or
   [Azure Cloud Shell](https://shell.azure.com/) in the browser
 - An [Azure Database for MySQL server](quickstart-create-mysql-server-database-using-azure-powershell.md)
 

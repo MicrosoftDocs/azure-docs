@@ -1,16 +1,13 @@
 ---
 title: Known issues with migrations to Azure MySQL Database
 description: Learn about known migration issues associated with migrations to Azure MySQL Database
-services: database-migration
 author: karlaescobar
 ms.author: karlaescobar
-manager: sanjaymi
 ms.reviewer: sanjaymi
-ms.service: dms
-ms.workload: data-services
-ms.custom: mvc
-ms.topic: troubleshooting
 ms.date: 10/04/2022
+ms.service: dms
+ms.topic: troubleshooting
+ms.custom: mvc
 ---
 
 # Known Issues With Migrations To Azure Database for MySQL

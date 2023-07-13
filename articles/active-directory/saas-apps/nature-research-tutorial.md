@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with Nature Research | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with Nature Research'
 description: Learn how to configure single sign-on between Azure Active Directory and Nature Research.
 services: active-directory
 author: jeevansd

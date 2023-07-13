@@ -15,10 +15,6 @@ ms.custom: mimckitt
 
 To expand your available storage, Azure [Virtual Machine Scale Sets](./index.yml) support VM instances with attached data disks. You can attach data disks when the scale set is created, or to an existing scale set.
 
-> [!NOTE]
-> When you create a scale set with attached data disks, you need to mount and format the disks from within a VM to use them (just like for standalone Azure VMs). A convenient way to complete this process is to use a Custom Script Extension that calls a script to partition and format all the data disks on a VM. For examples of this, see [Azure CLI](tutorial-use-disks-cli.md#prepare-the-data-disks) [Azure PowerShell](tutorial-use-disks-powershell.md#prepare-the-data-disks).
-
-
 ## Create and manage disks in a scale set
 For detailed information on how to create a scale set with attached data disks, prepare and format, or add and remove data disks, see one of the following tutorials:
 
@@ -87,6 +83,6 @@ Data disks specified in the scale set model are always empty. However, you may a
 
 
 ## Additional notes
-Support for Azure Managed disks and scale set attached data disks is available in API version [_2016-04-30-preview_](https://github.com/Azure/azure-rest-api-specs/blob/master/specification/compute/resource-manager/Microsoft.Compute/preview/2016-04-30-preview/compute.json) or later of the Microsoft.Compute API.
+Support for Azure Managed disks and scale set attached data disks is available in API version [_2016-04-30-preview_](https://github.com/Azure/azure-rest-api-specs/blob/main/specification/compute/resource-manager/Microsoft.Compute/ComputeRP/stable/2021-11-01/compute.json) or later of the Microsoft.Compute API.
 
 Azure portal support for attached data disks in scale sets is limited. Depending on your requirements you can use Azure templates, CLI, PowerShell, SDKs, and REST API to manage attached disks.

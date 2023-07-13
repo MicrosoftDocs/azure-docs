@@ -7,7 +7,7 @@ author: stevevi
 ms.author: stevevi
 ms.custom: references_regions
 recommendations: false
-ms.date: 09/20/2022
+ms.date: 06/08/2023
 ---
 
 # Compare Azure Government and global Azure
@@ -23,7 +23,7 @@ You're responsible for designing and deploying your applications to meet [US exp
 Azure Government services operate the same way as the corresponding services in global Azure, which is why most of the existing online Azure documentation applies equally well to Azure Government. However, there are some key differences that developers working on applications hosted in Azure Government must be aware of. For more information, see [Guidance for developers](./documentation-government-developer-guide.md). As a developer, you must know how to connect to Azure Government and once you connect you'll mostly have the same experience as in global Azure.
 
 > [!NOTE]
-> This article has been updated to use the new Azure PowerShell Az module. You can still use the AzureRM module, which will continue to receive bug fixes until at least December 2020. To learn more about the new Az module and AzureRM compatibility, see [**Introducing the new Azure PowerShell Az module**](/powershell/azure/new-azureps-module-az). For Az module installation instructions, see [**Install the Azure Az PowerShell module**](/powershell/azure/install-az-ps).
+> This article has been updated to use the new Azure PowerShell Az module. You can still use the AzureRM module, which will continue to receive bug fixes until at least December 2020. To learn more about the new Az module and AzureRM compatibility, see [**Introducing the new Azure PowerShell Az module**](/powershell/azure/new-azureps-module-az). For Az module installation instructions, see [**Install the Azure Az PowerShell module**](/powershell/azure/install-azure-powershell).
 
 You can use AzureCLI or PowerShell to obtain Azure Government endpoints for services you provisioned:
 
@@ -127,17 +127,16 @@ This section outlines variations and considerations when using **Azure Bot Servi
 
 ### [Azure Bot Service](/azure/bot-service/)
 
-The following Azure Bot Service **features aren't currently available** in Azure Government (updated 16 August 2021):
+The following Azure Bot Service **features aren't currently available** in Azure Government:
 
 - Bot Framework Composer integration
 - Channels (due to availability of dependent services)
-  - Teams Channel
   - Direct Line Speech Channel
   - Telephony Channel (Preview)
   - Microsoft Search Channel (Preview)
   - Kik Channel (deprecated)
 
-For more information, see [How do I create a bot that uses US Government data center](/azure/bot-service/bot-service-resources-faq-ecosystem#how-do-i-create-a-bot-that-uses-the-us-government-data-center).
+For information on how to deploy Bot Framework and Azure Bot Service bots to Azure Government, see [Configure Bot Framework bots for US Government customers](/azure/bot-service/how-to-deploy-gov-cloud-high).
 
 ### [Azure Machine Learning](../machine-learning/index.yml)
 
@@ -204,18 +203,14 @@ The following Azure Database for MySQL **features aren't currently available** i
 
 ### [Azure Database for PostgreSQL](../postgresql/index.yml)
 
+For Flexible Server availability in Azure Government regions, see [Azure Database for PostgreSQL – Flexible Server](../postgresql/flexible-server/overview.md#azure-regions).
+
 The following Azure Database for PostgreSQL **features aren't currently available** in Azure Government:
 
-- Hyperscale (Citus) deployment option
-- The following features of the Single server deployment option
+- Azure Cosmos DB for PostgreSQL, formerly Azure Database for PostgreSQL – Hyperscale (Citus). For more information about supported regions, see [Regional availability for Azure Cosmos DB for PostgreSQL](../cosmos-db/postgresql/resources-regions.md).
+- The following features of the Single Server deployment option
   - Advanced Threat Protection
   - Backup with long-term retention
-
-### [Azure SQL Managed Instance](/azure/azure-sql/managed-instance/sql-managed-instance-paas-overview)
-
-The following Azure SQL Managed Instance **features aren't currently available** in Azure Government:
-
-- Long-term retention
 
 ## Developer tools
 
@@ -233,14 +228,23 @@ This section outlines variations and considerations when using Identity services
 
 For feature variations and limitations, see [Cloud feature availability](../active-directory/authentication/feature-availability.md).
 
+For information on how to use Power BI capabilities for collaboration between Azure and Azure Government, see [Cross-cloud B2B](/power-bi/enterprise/service-admin-azure-ad-b2b#cross-cloud-b2b).
+
 The following features have known limitations in Azure Government:
 
 - Limitations with B2B Collaboration in supported Azure US Government tenants:
   - For more information about B2B collaboration limitations in Azure Government and to find out if B2B collaboration is available in your Azure Government tenant, see [Azure AD B2B in government and national clouds](../active-directory/external-identities/b2b-government-national-clouds.md).
-  - B2B collaboration via Power BI isn't supported. When you invite a guest user from within Power BI, the B2B flow isn't used and the guest user won't appear in the tenant's user list. If a guest user is invited through other means, they'll appear in the Power BI user list, but any sharing request to the user will fail and display a 403 Forbidden error.
 
 - Limitations with multi-factor authentication:
     - Trusted IPs isn't supported in Azure Government. Instead, use Conditional Access policies with named locations to establish when multi-factor authentication should and shouldn't be required based off the user's current IP address.
+
+### [Azure Active Directory B2C](../active-directory-b2c/index.yml)
+
+Azure Active Directory B2C is **not available** in Azure Government.
+
+### [Microsoft Authentication Library (MSAL)](../active-directory/develop/msal-overview.md)
+
+The Microsoft Authentication Library (MSAL) enables developers to acquire security tokens from the Microsoft identity platform to authenticate users and access secured web APIs. For feature variations and limitations, see [National clouds and MSAL](../active-directory/develop/msal-national-cloud.md).
 
 ## Management and governance
 
@@ -288,11 +292,11 @@ For more information, see [Connect Operations Manager to Azure Monitor](../azure
 
 Application Insights (part of Azure Monitor) enables the same features in both Azure and Azure Government. This section describes the supplemental configuration that is required to use Application Insights in Azure Government.
 
-**Visual Studio** - In Azure Government, you can enable monitoring on your ASP.NET, ASP.NET Core, Java, and Node.js based applications running on Azure App Service. For more information, see [Application monitoring for Azure App Service overview](../azure-monitor/app/azure-web-apps.md). In Visual Studio, go to Tools|Options|Accounts|Registered Azure Clouds|Add New Azure Cloud and select Azure US Government as the Discovery endpoint. After that, adding an account in File|Account Settings will prompt you for which cloud you want to add from.
+**Visual Studio** – In Azure Government, you can enable monitoring on your ASP.NET, ASP.NET Core, Java, and Node.js based applications running on Azure App Service. For more information, see [Application monitoring for Azure App Service overview](../azure-monitor/app/azure-web-apps.md). In Visual Studio, go to Tools|Options|Accounts|Registered Azure Clouds|Add New Azure Cloud and select Azure US Government as the Discovery endpoint. After that, adding an account in File|Account Settings will prompt you for which cloud you want to add from.
 
-**SDK endpoint modifications** - In order to send data from Application Insights to an Azure Government region, you'll need to modify the default endpoint addresses that are used by the Application Insights SDKs. Each SDK requires slightly different modifications, as described in [Application Insights overriding default endpoints](../azure-monitor/app/create-new-resource.md#application-insights-overriding-default-endpoints).
+**SDK endpoint modifications** – In order to send data from Application Insights to an Azure Government region, you'll need to modify the default endpoint addresses that are used by the Application Insights SDKs. Each SDK requires slightly different modifications, as described in [Application Insights overriding default endpoints](/previous-versions/azure/azure-monitor/app/create-new-resource#override-default-endpoints).
 
-**Firewall exceptions** - Application Insights uses several IP addresses. You might need to know these addresses if the app that you're monitoring is hosted behind a firewall. For more information, see [IP addresses used by Azure Monitor](../azure-monitor/app/ip-addresses.md) from where you can download Azure Government IP addresses.
+**Firewall exceptions** – Application Insights uses several IP addresses. You might need to know these addresses if the app that you're monitoring is hosted behind a firewall. For more information, see [IP addresses used by Azure Monitor](../azure-monitor/app/ip-addresses.md) from where you can download Azure Government IP addresses.
 
 >[!NOTE]
 >Although these addresses are static, it's possible that we'll need to change them from time to time. All Application Insights traffic represents outbound traffic except for availability monitoring and webhooks, which require inbound firewall rules.
@@ -341,6 +345,16 @@ This section outlines variations and considerations when using Networking servic
 
 For an overview of ExpressRoute, see [What is Azure ExpressRoute?](../expressroute/expressroute-introduction.md). For an overview of how **BGP communities** are used with ExpressRoute in Azure Government, see [BGP community support in National Clouds](../expressroute/expressroute-routing.md#bgp-community-support-in-national-clouds).
 
+### [Azure Front Door](../frontdoor/index.yml)
+
+Azure Front Door Standard and Premium tiers are available in public preview in Azure Government regions US Gov Arizona and US Gov Texas. During public preview, the following Azure Front Door **features aren't supported** in Azure Government:
+
+- Managed certificate for enabling HTTPS; instead, you need to use your own certificate.
+- [Migration](../frontdoor/tier-migration.md) from classic to Standard/Premium tier.
+- [Managed identity integration](../frontdoor/managed-identity.md) for Azure Front Door Standard/Premium access to Azure Key Vault for your own certificate.
+- [Tier upgrade](../frontdoor/tier-upgrade.md) from Standard to Premium.
+- Web Application Firewall (WAF) policies creation via WAF portal extension; instead, WAF policies can be created via Azure Front Door Standard/Premium portal extension. Updates and deletions to WAF policies and rules are supported on WAF portal extension.
+
 ### [Private Link](../private-link/index.yml)
 
 - For Private Link services availability, see [Azure Private Link availability](../private-link/availability.md).
@@ -352,7 +366,11 @@ Traffic Manager health checks can originate from certain IP addresses for Azure 
 
 ## Security
 
-This section outlines variations and considerations when using Security services in the Azure Government environment. For service availability, see [Products available by region](https://azure.microsoft.com/global-infrastructure/services/?products=azure-sentinel,azure-dedicated-hsm,information-protection,application-gateway,vpn-gateway,security-center,key-vault,active-directory-ds,ddos-protection,active-directory&regions=usgov-non-regional,us-dod-central,us-dod-east,usgov-arizona,usgov-texas,usgov-virginia&rar=true).
+This section outlines variations and considerations when using Security services in the Azure Government environment. For service availability, see [Products available by region](https://azure.microsoft.com/global-infrastructure/services/?products=payment-hsm,azure-sentinel,azure-dedicated-hsm,information-protection,application-gateway,vpn-gateway,security-center,key-vault,active-directory-ds,ddos-protection,active-directory&regions=usgov-non-regional,us-dod-central,us-dod-east,usgov-arizona,usgov-texas,usgov-virginia&rar=true).
+
+### [Microsoft Defender for Endpoint](/microsoft-365/security/defender-endpoint/)
+
+For feature variations and limitations, see [Microsoft Defender for Endpoint for US Government customers](/microsoft-365/security/defender-endpoint/gov).
 
 ### [Microsoft Defender for IoT](../defender-for-iot/index.yml)
 
@@ -373,12 +391,6 @@ For feature variations and limitations, see [Cloud feature availability for US G
 ## Storage
 
 This section outlines variations and considerations when using Storage services in the Azure Government environment. For service availability, see [Products available by region](https://azure.microsoft.com/global-infrastructure/services/?products=hpc-cache,managed-disks,storsimple,backup,storage&regions=usgov-non-regional,us-dod-central,us-dod-east,usgov-arizona,usgov-texas,usgov-virginia&rar=true).
-
-### [Azure managed disks](../virtual-machines/managed-disks-overview.md)
-
-The following Azure managed disks **features aren't currently available** in Azure Government:
-
-- Zone-redundant storage (ZRS)
 
 ### [Azure NetApp Files](../azure-netapp-files/index.yml)
 

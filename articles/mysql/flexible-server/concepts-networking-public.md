@@ -1,5 +1,5 @@
 ---
-title: Public Network Access overview - Azure Database for MySQL Flexible Server
+title: Public Network Access overview - Azure Database for MySQL - Flexible Server
 description: Learn about public access networking option in the Flexible Server deployment option for Azure Database for MySQL
 author: vivgk
 ms.author: vivgk
@@ -14,7 +14,7 @@ ms.topic: conceptual
 
 [!INCLUDE[applies-to-mysql-flexible-server](../includes/applies-to-mysql-flexible-server.md)]
 
-This article describes the public connectivity option for your server. You learn in detail the concepts to create an Azure Database for MySQL flexible server that is accessible securely through the internet.
+This article describes the public connectivity option for your server. You learn in detail the concepts to create an Azure Database for MySQL - Flexible Server that is accessible securely through the internet.
 
 ## Public access (allowed IP addresses)
 
@@ -53,6 +53,9 @@ Consider the following points when access to the Microsoft Azure Database for My
     - Get static IP addressing instead for your client computers, and then add the static IP address as a firewall rule.
 
 - **Firewall rule is not available for IPv6 format:** The firewall rules must be in IPv4 format. If you specify firewall rules in IPv6 format, it shows the validation error.
+
+> [!NOTE]  
+> We recommend you use the fully qualified domain name (FQDN) '<servername>.mysql.database.azure.com' in connection strings when connecting to your flexible server. The server's IP address is not guaranteed to remain static. Using the FQDN will help you avoid making changes to your connection string.
 
 ## Next steps
 

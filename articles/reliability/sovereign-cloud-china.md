@@ -7,7 +7,7 @@ ms.topic: conceptual
 ms.date: 10/27/2022
 ms.author: anaharris
 ms.reviewer: cynthn
-ms.custom: references_regions
+ms.custom: references_regions, subject-reliability
 ---
 
 # Availability of services for Microsoft Azure operated by 21Vianet
@@ -25,10 +25,17 @@ This section outlines variations and considerations when using Azure Bot Service
 
 | Product | Unsupported, limited, and/or modified features | Notes |
 |---------|--------|------------|
-|Azure Machine learning| See [Azure Machine Learning feature availability across Azure in China cloud regions](../machine-learning/reference-machine-learning-cloud-parity.md#azure-china-21vianet). | |
+|Azure Machine Learning| See [Azure Machine Learning feature availability across Azure in China cloud regions](../machine-learning/reference-machine-learning-cloud-parity.md#azure-china-21vianet). | |
 | Cognitive Services: Speech| See [Cognitive Services: Azure in China - Speech service](../cognitive-services/speech-service/sovereign-clouds.md?tabs=c-sharp.md#azure-china)  ||
 | Cognitive Services: Speech|For feature variations and limitations, including API endpoints, see [Translator in sovereign clouds](../cognitive-services/translator/sovereign-clouds.md?tabs=china).|
 
+### Azure AD External Identities
+
+This section outlines variations and considerations when using Azure AD External Identities B2B collaboration.  
+
+| Product | Unsupported, limited, and/or modified features | Notes |
+|---------|--------|------------|
+| Azure AD External Identities | For Azure AD External Identities B2B feature variations in Microsoft Azure for customers in China, see [Azure AD B2B in national clouds](../active-directory/external-identities/b2b-government-national-clouds.md) and [Microsoft cloud settings (Preview)](../active-directory/external-identities/cross-cloud-settings.md).  |
 
 ### Media
 
@@ -36,7 +43,15 @@ This section outlines variations and considerations when using Media services.
 
 | Product | Unsupported, limited, and/or modified features | Notes |
 |---------|--------|------------|
-| Azure Media Services | For Azure Media Services v3 feature variations in Azure in China, see [Azure Media Services v3 clouds and regions availability](/azure/media-services/latest/azure-clouds-regions#china).  |  
+| Azure Media Services | For Azure Media Services v3 feature variations in Microsoft Azure for customers in China, see [Azure Media Services v3 clouds and regions availability](/azure/media-services/latest/azure-clouds-regions#china).  | 
+
+### Microsoft Authentication Library (MSAL) 
+
+This section outlines variations and considerations when using Microsoft Authentication Library (MSAL) services. 
+
+| Product | Unsupported, limited, and/or modified features | Notes |
+|---------|--------|------------|
+| Microsoft Authentication Library (MSAL)  | For feature variations and limitations, see [National clouds and MSAL](../active-directory/develop/msal-national-cloud.md).  |  
 
 ### Networking
 
@@ -46,10 +61,48 @@ This section outlines variations and considerations when using Networking servic
 |---------|--------|------------|
 | Private Link| <li>For Private Link services availability, see [Azure Private Link availability](../private-link/availability.md).<li>For Private DNS zone names, see [Azure Private Endpoint DNS configuration](../private-link/private-endpoint-dns.md#government). |
 
+### Security
+
+This section outlines variations and considerations when using Security services. 
+
+| Product | Unsupported, limited, and/or modified features | Notes |
+|---------|--------|------------|
+| Microsoft Sentinel| For Microsoft Sentinel availability, see [Microsoft Sentinel availability](../sentinel/feature-availability.md). |
+
+### Azure Container Apps
+
+This section outlines variations and considerations when using Azure Container Apps services. 
+
+| Product | Unsupported, limited, and/or modified features | Notes |
+|---------|--------|------------|
+| Azure Monitor| The Azure Monitor integration is not supported in Azure China |
+
+### Microsoft Cost Management + Billing
+
+This section outlines variations and considerations when using Microsoft Cost Management + Billing features and APIs.
+
+#### Azure Retail Rates API for China
+
+The [Azure Retail Prices API for China](/rest/api/cost-management/retail-prices/azure-retail-prices-china) article is applicable only to Azure China. The preview API is available only in Azure China and isn't available in Azure Global.
+
+#### Markup - China
+
+The [Markup - China](../cost-management-billing/manage/markup-china.md) article is applicable only to Azure China. The Markup feature is available only in Azure China and isn't available in Azure Global.
+
+## Azure in China Account Sign in
+
+The table below lists ways to connect to your Azure account in Azure Global vs. Azure in China.
+
+
+| Sign in description | Azure Global | Azure in China |
+|--------------|-----------|------| 
+| Sign into Azure with an authenticated account for use with Azure Resource Manager| Connect-AzureAccount | Connect-AzureAccount -Environment AzureChinaCloud|
+| Sign into Azure Active Directory with Microsoft Graph PowerShell | Connect-MgGraph | Connect-MgGraph -AzureEnvironment China|
+| Sign into your Azure classic portal account | Add-AzureAccount | Add-AzureAccount -Environment AzureChinaCloud |
 
 ## Azure in China REST endpoints
 
-The table below lists API endpoints in Azure vs. Azure in China for accessing and managing some of the more common services. 
+The table below lists API endpoints in Azure Global vs. Azure in China for accessing and managing some of the more common services. 
 
 For IP rangers for Azure in China, download [Azure Datacenter IP Ranges in China](https://www.microsoft.com/download/confirmation.aspx?id=57062).
 
@@ -66,23 +119,24 @@ For IP rangers for Azure in China, download [Azure Datacenter IP Ranges in China
 | Azure Resource Manager | [https://management.azure.com](https://management.azure.com/) | [https://management.chinacloudapi.cn](https://management.chinacloudapi.cn/) |
 | Azure portal | [https://portal.azure.com](https://portal.azure.com/) | [https://portal.azure.cn](https://portal.azure.cn/) |
 | SQL Database | \*.database.windows.net | \*.database.chinacloudapi.cn |
-| SQL Azure DB management API | [https://management.database.windows.net](https://management.database.windows.net/) | [https://management.database.chinacloudapi.cn](https://management.database.chinacloudapi.cn/) |
+| SQL Azure DB management API | `https://management.database.windows.net` | `https://management.database.chinacloudapi.cn` |
 | Azure Service Bus | \*.servicebus.windows.net | \*.servicebus.chinacloudapi.cn |
 | Azure SignalR Service| \*.service.signalr.net | \*.signalr.azure.cn |
 | Azure Time Series Insights | \*.timeseries.azure.com \*.insights.timeseries.azure.cn | \*.timeseries.azure.cn \*.insights.timeseries.azure.cn |
 | Azure Access Control Service | \*.accesscontrol.windows.net | \*.accesscontrol.chinacloudapi.cn |
 | Azure HDInsight | \*.azurehdinsight.net | \*.azurehdinsight.cn |
-| SQL DB import/export service endpoint | |  1. China East [https://sh1prod-dacsvc.chinacloudapp.cn/dacwebservice.svc](https://sh1prod-dacsvc.chinacloudapp.cn/dacwebservice.svc) <br>2. China North [https://bj1prod-dacsvc.chinacloudapp.cn/dacwebservice.svc](https://bj1prod-dacsvc.chinacloudapp.cn/dacwebservice.svc) |
+| SQL DB import/export service endpoint | |  1. China East `https://sh1prod-dacsvc.chinacloudapp.cn/dacwebservice.svc` <br>2. China North `https://bj1prod-dacsvc.chinacloudapp.cn/dacwebservice.svc` |
 | MySQL PaaS | | \*.mysqldb.chinacloudapi.cn |
 | Azure Service Fabric cluster | \*.cloudapp.azure.com | \*.chinaeast.chinacloudapp.cn |
 | Azure Spring Cloud| \*.azuremicroservices.io | \*.microservices.azure.cn |
 | Azure Active Directory (Azure AD) | \*.onmicrosoft.com | \*.partner.onmschina.cn |
 | Azure AD logon | [https://login.microsoftonline.com](https://login.windows.net/) | [https://login.partner.microsoftonline.cn](https://login.chinacloudapi.cn/) |
 | Microsoft Graph | [https://graph.microsoft.com](https://graph.microsoft.com/) | [https://microsoftgraph.chinacloudapi.cn](https://microsoftgraph.chinacloudapi.cn/) |
-| Azure Cognitive Services | <https://api.projectoxford.ai/face/v1.0> | <https://api.cognitive.azure.cn/face/v1.0> |
+| Azure Cognitive Services | `https://api.projectoxford.ai/face/v1.0` | `https://api.cognitive.azure.cn/face/v1.0` |
 | Azure Bot Services | <\*.botframework.com> | <\*.botframework.azure.cn> |
 | Azure Key Vault API | \*.vault.azure.net | \*.vault.azure.cn |
-| Sign in with PowerShell: <br>- Azure classic portal <br>- Azure Resource Manager <br>- Azure AD| - Add-AzureAccount<br>- Connect-AzureRmAccount <br> - Connect-msolservice |  - Add-AzureAccount -Environment AzureChinaCloud <br> - Connect-AzureRmAccount -Environment AzureChinaCloud <br>- Connect-msolservice -AzureEnvironment AzureChinaCloud |
+| Azure Container Apps Default Domain | \*.azurecontainerapps.io | No default domain is provided for external environment. The [custom domain](/azure/container-apps/custom-domains-certificates) is required.  |
+| Azure Container Apps Event Stream Endpoint | \<region\>.azurecontainerapps.dev | \<region\>.chinanorth3.azurecontainerapps-dev.cn  |
 
 ### Application Insights
 

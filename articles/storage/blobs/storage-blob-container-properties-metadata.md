@@ -10,7 +10,7 @@ ms.service: storage
 ms.topic: how-to
 ms.date: 03/28/2022
 ms.devlang: csharp
-ms.custom: devx-track-csharp, devguide-csharp
+ms.custom: devx-track-csharp, devguide-csharp, devx-track-dotnet
 ---
 
 # Manage container properties and metadata with .NET
@@ -22,6 +22,8 @@ Blob containers support system properties and user-defined metadata, in addition
 - **System properties**: System properties exist on each Blob storage resource. Some of them can be read or set, while others are read-only. Under the covers, some system properties correspond to certain standard HTTP headers. The Azure Storage client library for .NET maintains these properties for you.
 
 - **User-defined metadata**: User-defined metadata consists of one or more name-value pairs that you specify for a Blob storage resource. You can use metadata to store additional values with the resource. Metadata values are for your own purposes only, and do not affect how the resource behaves.
+
+    Metadata name/value pairs are valid HTTP headers and should adhere to all restrictions governing HTTP headers. For more information about metadata naming requirements, see [Metadata names](/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata#metadata-names).
 
 ## Retrieve container properties
 
@@ -41,10 +43,6 @@ You can specify metadata as one or more name-value pairs on a blob or container 
 - [SetMetadata](/dotnet/api/azure.storage.blobs.blobcontainerclient.setmetadata)
 - [SetMetadataAsync](/dotnet/api/azure.storage.blobs.blobcontainerclient.setmetadataasync)
 
-Metadata name/value pairs are valid HTTP headers, and so should adhere to all restrictions governing HTTP headers. Metadata names must be valid HTTP header names and valid C# identifiers, may contain only ASCII characters, and should be treated as case-insensitive. Metadata values containing non-ASCII characters should be Base64-encoded or URL-encoded.
-
-Metadata names maintain the case used when they were created, but are case-insensitive when set or read. If two or more metadata headers using the same name are submitted for a resource, Azure Blob storage returns HTTP error code 400 (Bad Request).
-
 The following code example sets metadata on a container.
 
 :::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/dotnet-v12/Metadata.cs" id="Snippet_AddContainerMetadata":::
@@ -58,9 +56,18 @@ Then, read the values, as shown in the example below.
 
 :::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/dotnet-v12/Metadata.cs" id="Snippet_ReadContainerMetadata":::
 
-## See also
+## Resources
 
-- [Get started with Azure Blob Storage and .NET](storage-blob-dotnet-get-started.md)
-- [Get Container Properties operation](/rest/api/storageservices/get-container-properties)
-- [Set Container Metadata operation](/rest/api/storageservices/set-container-metadata)
-- [Get Container Metadata operation](/rest/api/storageservices/get-container-metadata)
+To learn more about setting and retrieving container properties and metadata using the Azure Blob Storage client library for .NET, see the following resources.
+
+### REST API operations
+
+The Azure SDK for .NET contains libraries that build on top of the Azure REST API, allowing you to interact with REST API operations through familiar .NET paradigms. The client library methods for setting and retrieving properties and metadata use the following REST API operations:
+
+- [Get Container Properties](/rest/api/storageservices/get-container-properties) (REST API)
+- [Set Container Metadata](/rest/api/storageservices/set-container-metadata) (REST API)
+- [Get Container Metadata](/rest/api/storageservices/get-container-metadata) (REST API)
+
+The `GetProperties` and `GetPropertiesAsync` methods retrieve container properties and metadata by calling both the [Get Blob Properties](/rest/api/storageservices/get-blob-properties) operation and the [Get Blob Metadata](/rest/api/storageservices/get-blob-metadata) operation.
+
+[!INCLUDE [storage-dev-guide-resources-dotnet](../../../includes/storage-dev-guides/storage-dev-guide-resources-dotnet.md)]

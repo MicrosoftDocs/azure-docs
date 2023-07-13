@@ -4,7 +4,7 @@ titleSuffix: Azure Digital Twins
 description: Learn about identifying, exporting, and deleting personal data from Azure Digital Twins.
 author: baanders
 ms.author: baanders
-ms.date: 8/04/2022
+ms.date: 6/20/2023
 ms.topic: conceptual
 ms.service: digital-twins
 services: digital-twins
@@ -26,6 +26,12 @@ Azure Digital Twins considers *personal data* to be data associated with its adm
 Azure Digital Twins stores the [Azure Active Directory](../active-directory/fundamentals/active-directory-whatis.md) **object ID** of users with access to the environment. Azure Digital Twins in the Azure portal displays user email addresses, but these email addresses aren't stored within Azure Digital Twins. They're dynamically looked up in Azure Active Directory, using the Azure Active Directory object ID.
 
 The digital representations called *digital twins* in Azure Digital Twins represent entities in real-world environments, and are associated with identifiers. Microsoft maintains no information and has no access to data that would allow identifiers to be correlated to users. Many of the digital twins in Azure Digital Twins don't directly represent personal entities—typical objects represented might be an office meeting room, or a factory floor. However, users may consider some entities to be personally identifiable, and at their discretion may maintain their own asset or inventory tracking methods that tie digital twins to individuals. Azure Digital Twins manages and stores all data associated with digital twins as if it were personal data.
+
+### Regional replication
+
+By default, the customer data stored in Azure Digital Twins is replicated to the corresponding [geo-paired region](../availability-zones/cross-region-replication-azure.md) for disaster recovery capabilities. For regions with built-in data residency requirements, customer data is always kept within the same region.
+
+For more information about regional replication and disaster recovery in Azure Digital Twins, see [Cross region DR](concepts-high-availability-disaster-recovery.md).
 
 ## Export personal data
 

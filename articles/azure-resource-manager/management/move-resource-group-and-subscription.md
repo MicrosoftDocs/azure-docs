@@ -2,8 +2,10 @@
 title: Move resources to a new subscription or resource group
 description: Use Azure Resource Manager to move resources to a new resource group or subscription.
 ms.topic: conceptual
-ms.date: 11/04/2022
-ms.custom: devx-track-azurecli, devx-track-azurepowershell
+ms.date: 04/24/2023
+ms.custom: devx-track-azurecli, devx-track-azurepowershell, devx-track-arm-template, devx-track-python
+content_well_notification: 
+  - AI-contribution
 ---
 
 # Move resources to a new resource group or subscription
@@ -25,23 +27,6 @@ If you use the resource ID anywhere, you'll need to change that value. For examp
 ## Checklist before moving resources
 
 There are some important steps to do before moving a resource. By verifying these conditions, you can avoid errors.
-
-1. The resources you want to move must support the move operation. For a list of which resources support move, see [Move operation support for resources](move-support-resources.md).
-
-1. Some services have specific limitations or requirements when moving resources. If you're moving any of the following services, check that guidance before moving.
-
-   * If you're using Azure Stack Hub, you can't move resources between groups.
-   * [App Services move guidance](./move-limitations/app-service-move-limitations.md)
-   * [Azure DevOps Services move guidance](/azure/devops/organizations/billing/change-azure-subscription?toc=/azure/azure-resource-manager/toc.json)
-   * [Classic deployment model move guidance](./move-limitations/classic-model-move-limitations.md) - Classic Compute, Classic Storage, Classic Virtual Networks, and Cloud Services
-   * [Networking move guidance](./move-limitations/networking-move-limitations.md)
-   * [Recovery Services move guidance](../../backup/backup-azure-move-recovery-services-vault.md?toc=/azure/azure-resource-manager/toc.json)
-   * [Virtual Machines move guidance](./move-limitations/virtual-machines-move-limitations.md)
-   * To move an Azure subscription to a new management group, see [Move subscriptions](../../governance/management-groups/manage.md#move-subscriptions).
-
-1. If you move a resource that has an Azure role assigned directly to the resource (or a child resource), the role assignment isn't moved and becomes orphaned. After the move, you must re-create the role assignment. Eventually, the orphaned role assignment is automatically removed, but we recommend removing the role assignment before the move.
-
-    For information about how to manage role assignments, see [List Azure role assignments](../../role-based-access-control/role-assignments-list-portal.md#list-role-assignments-at-a-scope) and [Assign Azure roles](../../role-based-access-control/role-assignments-portal.md).
 
 1. The source and destination subscriptions must be active. If you have trouble enabling an account that has been disabled, [create an Azure support request](../../azure-portal/supportability/how-to-create-azure-support-request.md). Select **Subscription Management** for the issue type.
 
@@ -67,6 +52,20 @@ There are some important steps to do before moving a resource. By verifying thes
    * [How to associate or add an Azure subscription to Azure Active Directory](../../active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md)
 
 1. If you're attempting to move resources to or from a Cloud Solution Provider (CSP) partner, see [Transfer Azure subscriptions between subscribers and CSPs](../../cost-management-billing/manage/transfer-subscriptions-subscribers-csp.md).
+
+1. The resources you want to move must support the move operation. For a list of which resources support move, see [Move operation support for resources](move-support-resources.md).
+
+1. Some services have specific limitations or requirements when moving resources. If you're moving any of the following services, check that guidance before moving.
+
+   * If you're using Azure Stack Hub, you can't move resources between groups.
+   * [App Services move guidance](./move-limitations/app-service-move-limitations.md)
+   * [Azure DevOps Services move guidance](/azure/devops/organizations/billing/change-azure-subscription?toc=/azure/azure-resource-manager/toc.json)
+   * [Classic deployment model move guidance](./move-limitations/classic-model-move-limitations.md) - Classic Compute, Classic Storage, Classic Virtual Networks, and Cloud Services
+   * [Cloud Services (extended support) move guidance](./move-limitations/classic-model-move-limitations.md)
+   * [Networking move guidance](./move-limitations/networking-move-limitations.md)
+   * [Recovery Services move guidance](../../backup/backup-azure-move-recovery-services-vault.md?toc=/azure/azure-resource-manager/toc.json)
+   * [Virtual Machines move guidance](./move-limitations/virtual-machines-move-limitations.md)
+   * To move an Azure subscription to a new management group, see [Move subscriptions](../../governance/management-groups/manage.md#move-subscriptions).
 
 1. The destination subscription must be registered for the resource provider of the resource being moved. If not, you receive an error stating that the **subscription is not registered for a resource type**. You might see this error when moving a resource to a new subscription, but that subscription has never been used with that resource type.
 
@@ -96,12 +95,16 @@ There are some important steps to do before moving a resource. By verifying thes
    az provider register --namespace Microsoft.Batch
    ```
 
+1. Before moving the resources, check the subscription quotas for the subscription you're moving the resources to. If moving the resources means the subscription will exceed its limits, you need to review whether you can request an increase in the quota. For a list of limits and how to request an increase, see [Azure subscription and service limits, quotas, and constraints](../../azure-resource-manager/management/azure-subscription-service-limits.md).
+
 1. The account moving the resources must have at least the following permissions:
 
    * **Microsoft.Resources/subscriptions/resourceGroups/moveResources/action** on the source resource group.
    * **Microsoft.Resources/subscriptions/resourceGroups/write** on the destination resource group.
 
-1. Before moving the resources, check the subscription quotas for the subscription you're moving the resources to. If moving the resources means the subscription will exceed its limits, you need to review whether you can request an increase in the quota. For a list of limits and how to request an increase, see [Azure subscription and service limits, quotas, and constraints](../../azure-resource-manager/management/azure-subscription-service-limits.md).
+1. If you move a resource that has an Azure role assigned directly to the resource (or a child resource), the role assignment isn't moved and becomes orphaned. After the move, you must re-create the role assignment. Eventually, the orphaned role assignment is automatically removed, but we recommend removing the role assignment before the move.
+
+    For information about how to manage role assignments, see [List Azure role assignments](../../role-based-access-control/role-assignments-list-portal.md#list-role-assignments-at-a-scope) and [Assign Azure roles](../../role-based-access-control/role-assignments-portal.md).
 
 1. **For a move across subscriptions, the resource and its dependent resources must be located in the same resource group and they must be moved together.** For example, a VM with managed disks would require the VM and the managed disks to be moved together, along with other dependent resources.
 
@@ -163,16 +166,21 @@ When the move has completed, you're notified of the result.
 
 ### Validate
 
-To test your move scenario without actually moving the resources, use the [Invoke-AzResourceAction](/powershell/module/az.resources/invoke-azresourceaction) command. Use this command only when you need to predetermine the results. To run this operation, you need the:
-
-* Resource ID of the source resource group
-* Resource ID of the target resource group
-* Resource ID of each resource to move
+To test your move scenario without actually moving the resources, use the [Invoke-AzResourceAction](/powershell/module/az.resources/invoke-azresourceaction) command. Use this command only when you need to predetermine the results.
 
 ```azurepowershell
+$sourceName = "sourceRG"
+$destinationName = "destinationRG"
+$resourcesToMove = @("app1", "app2")
+
+$sourceResourceGroup = Get-AzResourceGroup -Name $sourceName
+$destinationResourceGroup = Get-AzResourceGroup -Name $destinationName
+
+$resources = Get-AzResource -ResourceGroupName $sourceName | Where-Object { $_.Name -in $resourcesToMove }
+
 Invoke-AzResourceAction -Action validateMoveResources `
--ResourceId "/subscriptions/{subscription-id}/resourceGroups/{source-rg}" `
--Parameters @{ resources= @("/subscriptions/{subscription-id}/resourceGroups/{source-rg}/providers/{resource-provider}/{resource-type}/{resource-name}", "/subscriptions/{subscription-id}/resourceGroups/{source-rg}/providers/{resource-provider}/{resource-type}/{resource-name}", "/subscriptions/{subscription-id}/resourceGroups/{source-rg}/providers/{resource-provider}/{resource-type}/{resource-name}");targetResourceGroup = '/subscriptions/{subscription-id}/resourceGroups/{destination-rg}' }  
+-ResourceId $sourceResourceGroup.ResourceId `
+-Parameters @{ resources= $resources.ResourceId;targetResourceGroup = $destinationResourceGroup.ResourceId }  
 ```
 
 If validation passes, you see no output.
@@ -184,9 +192,13 @@ If validation fails, you see an error message describing why the resources can't
 To move existing resources to another resource group or subscription, use the [Move-AzResource](/powershell/module/az.resources/move-azresource) command. The following example shows how to move several resources to a new resource group.
 
 ```azurepowershell-interactive
-$webapp = Get-AzResource -ResourceGroupName OldRG -ResourceName ExampleSite
-$plan = Get-AzResource -ResourceGroupName OldRG -ResourceName ExamplePlan
-Move-AzResource -DestinationResourceGroupName NewRG -ResourceId $webapp.ResourceId, $plan.ResourceId
+$sourceName = "sourceRG"
+$destinationName = "destinationRG"
+$resourcesToMove = @("app1", "app2")
+
+$resources = Get-AzResource -ResourceGroupName $sourceName | Where-Object { $_.Name -in $resourcesToMove }
+
+Move-AzResource -DestinationResourceGroupName $destinationName -ResourceId $resources.ResourceId
 ```
 
 To move to a new subscription, include a value for the `DestinationSubscriptionId` parameter.
@@ -238,6 +250,86 @@ az resource move --destination-group newgroup --ids $webapp $plan
 ```
 
 To move to a new subscription, provide the `--destination-subscription-id` parameter.
+
+## Use Python
+
+### Validate
+
+To test your move scenario without actually moving the resources, use the [ResourceManagementClient.resources.begin_validate_move_resources](/python/api/azure-mgmt-resource/azure.mgmt.resource.resources.v2022_09_01.operations.resourcesoperations#azure-mgmt-resource-resources-v2022-09-01-operations-resourcesoperations-begin-validate-move-resources) method. Use this method only when you need to predetermine the results.
+
+```python
+import os
+from azure.identity import AzureCliCredential
+from azure.mgmt.resource import ResourceManagementClient
+
+credential = AzureCliCredential()
+subscription_id = os.environ["AZURE_SUBSCRIPTION_ID"]
+
+resource_client = ResourceManagementClient(credential, subscription_id)
+
+source_name = "sourceRG"
+destination_name = "destinationRG"
+resources_to_move = ["app1", "app2"]
+
+destination_resource_group = resource_client.resource_groups.get(destination_name)
+
+resources = [
+    resource for resource in resource_client.resources.list_by_resource_group(source_name)
+    if resource.name in resources_to_move
+]
+
+resource_ids = [resource.id for resource in resources]
+
+validate_move_resources_result = resource_client.resources.begin_validate_move_resources(
+    source_name,
+    {
+        "resources": resource_ids,
+        "target_resource_group": destination_resource_group.id
+    }
+).result()
+
+print("Validate move resources result: {}".format(validate_move_resources_result))
+```
+
+If validation passes, you see no output.
+
+If validation fails, you see an error message describing why the resources can't be moved.
+
+### Move
+
+To move existing resources to another resource group or subscription, use the [ResourceManagementClient.resources.begin_move_resources](/python/api/azure-mgmt-resource/azure.mgmt.resource.resources.v2022_09_01.operations.resourcesoperations#azure-mgmt-resource-resources-v2022-09-01-operations-resourcesoperations-begin-move-resources) method. The following example shows how to move several resources to a new resource group.
+
+```python
+import os
+from azure.identity import AzureCliCredential
+from azure.mgmt.resource import ResourceManagementClient
+
+credential = AzureCliCredential()
+subscription_id = os.environ["AZURE_SUBSCRIPTION_ID"]
+
+resource_client = ResourceManagementClient(credential, subscription_id)
+
+source_name = "sourceRG"
+destination_name = "destinationRG"
+resources_to_move = ["app1", "app2"]
+
+destination_resource_group = resource_client.resource_groups.get(destination_name)
+
+resources = [
+    resource for resource in resource_client.resources.list_by_resource_group(source_name)
+    if resource.name in resources_to_move
+]
+
+resource_ids = [resource.id for resource in resources]
+
+resource_client.resources.begin_move_resources(
+    source_name,
+    {
+        "resources": resource_ids,
+        "target_resource_group": destination_resource_group.id
+    }
+)
+```
 
 ## Use REST API
 
@@ -352,6 +444,7 @@ For example, moving a virtual machine could require moving seven resource types 
   * storageAccounts
 
 Another common example involves moving a virtual network. You may have to move several other resources associated with that virtual network. The move request could require moving public IP addresses, route tables, virtual network gateways, network security groups, and others.
+In general, a virtual network gateway must always be in the same resource group as its virtual network, they can't be moved separately.
 
 **Question: What does the error code "RequestDisallowedByPolicy" mean?**
 

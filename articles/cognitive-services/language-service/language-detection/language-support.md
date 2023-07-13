@@ -19,7 +19,7 @@ Use this article to learn which natural languages are supported by Language Dete
 
 
 > [!NOTE]
-> Languages are added as new [model versions](how-to/call-api.md#specify-the-language-detection-model) are released. The current model version for Language Detection is `2022-10-01`. However, to detect Japanese in better quality, we recommend you use the previous version `2021-11-20`.
+> Languages are added as new [model versions](how-to/call-api.md#specify-the-language-detection-model) are released. The current model version for Language Detection is `2022-10-01`.
 
 The Language Detection feature can detect a wide range of languages, variants, dialects, and some regional/cultural languages, and return detected languages with their name and code. The returned language code parameters conform to [BCP-47](https://tools.ietf.org/html/bcp47) standard with most of them conforming to [ISO-639-1](https://www.iso.org/iso-639-language-codes.html) identifiers. 
 
@@ -36,6 +36,7 @@ If you have content expressed in a less frequently used language, you can try La
 | Armenian            | `hy`          |                              |
 | Assamese            | `as`          | 2021-01-05                   |
 | Azerbaijani         | `az`          | 2021-01-05                   |
+| Bashkir             | `ba`          | 2022-10-01                   |
 | Basque              | `eu`          |                              |
 | Belarusian          | `be`          |                              |
 | Bengali             | `bn`          |                              |
@@ -47,6 +48,7 @@ If you have content expressed in a less frequently used language, you can try La
 | Chinese             | `zh`          |                              |
 | Chinese Simplified  | `zh_chs`      |                              |
 | Chinese Traditional | `zh_cht`      |                              |
+| Chuvash             | `cv`          | 2022-10-01                   |
 | Corsican            | `co`          | 2021-01-05                   |
 | Croatian            | `hr`          |                              |
 | Czech               | `cs`          |                              |
@@ -57,6 +59,7 @@ If you have content expressed in a less frequently used language, you can try La
 | English             | `en`          |                              |
 | Esperanto           | `eo`          |                              |
 | Estonian            | `et`          |                              |
+| Faroese             | `fo`          | 2022-10-01                   |
 | Fijian              | `fj`          | 2020-09-01                   |
 | Finnish             | `fi`          |                              |
 | French              | `fr`          |                              |
@@ -82,7 +85,7 @@ If you have content expressed in a less frequently used language, you can try La
 | Kannada             | `kn`          |                              |
 | Kazakh              | `kk`          | 2020-09-01                   |
 | Kinyarwanda         | `rw`          | 2021-01-05                   |
-| Kirghiz             | `ky`          | 2021-01-05                   |
+| Kirghiz             | `ky`          | 2022-10-01                   |
 | Korean              | `ko`          |                              |
 | Kurdish             | `ku`          |                              |
 | Lao                 | `lo`          |                              |
@@ -101,7 +104,7 @@ If you have content expressed in a less frequently used language, you can try La
 | Nepali              | `ne`          | 2021-01-05                   |
 | Norwegian           | `no`          |                              |
 | Norwegian Nynorsk   | `nn`          |                              |
-| Oriya               | `or`          |                              |
+| Odia                | `or`          |                              |
 | Pasht               | `ps`          |                              |
 | Persian             | `fa`          |                              |
 | Polish              | `pl`          |                              |
@@ -134,6 +137,8 @@ If you have content expressed in a less frequently used language, you can try La
 | Tongan              | `to`          | 2020-09-01                   |
 | Turkish             | `tr`          | 2021-01-05                   |
 | Turkmen             | `tk`          | 2021-01-05                   |
+| Upper Sorbian       | `hsb`          | 2022-10-01                   |
+| Uyghur              | `ug`          | 2022-10-01                   |
 | Ukrainian           | `uk`          |                              |
 | Urdu                | `ur`          |                              |
 | Uzbek               | `uz`          |                              |
@@ -144,6 +149,23 @@ If you have content expressed in a less frequently used language, you can try La
 | Yoruba              | `yo`          | 2021-01-05                   |
 | Yucatec Maya        | `yua`         |                              |  
 | Zulu                | `zu`          | 2021-01-05                   |
+
+## Romanized Indic Languages supported by Language Detection
+
+| Language            | Language Code | Starting with model version: |
+|---------------------|---------------|------------------------------|
+| Assamese            | `as`          | 2022-10-01                   |
+| Bengali             | `bn`          | 2022-10-01                   |
+| Gujarati            | `gu`          | 2022-10-01                   |
+| Hindi               | `hi`          | 2022-10-01                   |
+| Kannada             | `kn`          | 2022-10-01                   |
+| Malayalam           | `ml`          | 2022-10-01                   |
+| Marathi             | `mr`          | 2022-10-01                   |
+| Odia                | `or`          | 2022-10-01                   |
+| Punjabi             | `pa`          | 2022-10-01                   |
+| Tamil               | `ta`          | 2022-10-01                   |
+| Telugu              | `te`          | 2022-10-01                   |
+| Urdu                | `ur`          | 2022-10-01                   |
 
 ## Next steps
 

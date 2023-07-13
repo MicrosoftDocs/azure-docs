@@ -1,17 +1,17 @@
 ---
-title: Introduction
+title: Introduction/Overview
 titleSuffix: Azure Cosmos DB for Table
-description: Use Azure Cosmos DB for Table to store and query massive volumes of key-value data.
+description: Use Azure Cosmos DB for Table to store, manage, and query massive volumes of key-value typed NoSQL data.
 author: seesharprun
 ms.author: sidandrews
 ms.service: cosmos-db
 ms.subservice: table
 ms.topic: overview
-ms.date: 11/30/2022
+ms.date: 02/28/2023
 ms.custom: ignite-2022
 ---
 
-# Introduction to Azure Cosmos DB for Table
+# What is Azure Cosmos DB for Table?
 
 [!INCLUDE[Table](../includes/appliesto-table.md)]
 
@@ -39,7 +39,7 @@ If you currently use Azure Table Storage, you gain the following benefits by mov
 | | Azure Table storage | API for Table |
 | --- | --- | --- |
 | **Latency** | Fast, but no upper bounds on latency. | Single-digit millisecond latency for reads and writes, backed with <10-ms latency for reads and writes at the 99th percentile, at any scale, anywhere in the world. |
-| **Throughput** | Variable throughput model. Tables have a scalability limit of 20,000 operations/s. | Highly scalable with [dedicated reserved throughput per table](../request-units.md) that's backed by SLAs. Accounts have no upper limit on throughput and support >10 million operations/s per table. |
+| **Throughput** | Variable throughput model. Tables have a scalability limit of 20,000 operations/s. | Highly scalable with [dedicated reserved throughput per table](../request-units.md) backed by SLAs. Accounts have no upper limit on throughput and support >10 million operations/s per table. |
 | **Global distribution** | Single region with one optional readable secondary read region for high availability. | [Turnkey global distribution](../distribute-data-globally.md) from one to any number of regions. Support for [service-managed and manual failovers](../high-availability.md) at any time, anywhere in the world. Multiple write regions to let any region accept write operations. |
 | **Indexing** | Only primary index on PartitionKey and RowKey. No secondary indexes. | Automatic and complete indexing on all properties by default, with no index management. |
 | **Query** | Query execution uses index for primary key, and scans otherwise. | Queries can take advantage of automatic indexing on properties for fast query times. |
@@ -49,14 +49,6 @@ If you currently use Azure Table Storage, you gain the following benefits by mov
 
 ## Next steps
 
-> [!div class="nextstepaction"]
-> [Get started with our .NET Quickstart](quickstart-dotnet.md)
-
-Want to learn more?
-
 - [Query table data by using the API for Table](tutorial-query.md)
 - [Learn how to set up Azure Cosmos DB global distribution by using the API for Table](tutorial-global-distribution.md)
 - [Azure Cosmos DB Table .NET SDK](/dotnet/api/overview/azure/data.tables-readme)
-- [Azure Cosmos DB Table Java SDK](/java/api/overview/azure/data-tables-readme)
-- [Azure Cosmos DB Table Node.js SDK](/javascript/api/overview/azure/data-tables-readme)
-- [Azure Cosmos DB Table SDK for Python](/python/api/azure-data-tables/azure.data.tables)

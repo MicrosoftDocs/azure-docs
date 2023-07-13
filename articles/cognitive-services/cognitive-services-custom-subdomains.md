@@ -6,6 +6,7 @@ services: cognitive-services
 author: PatrickFarley
 manager: nitinme
 ms.service: cognitive-services
+ms.custom: devx-track-azurecli
 ms.topic: conceptual
 ms.date: 12/04/2020
 ms.author: pafarley

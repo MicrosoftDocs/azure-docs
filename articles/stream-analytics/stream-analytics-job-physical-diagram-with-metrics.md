@@ -7,7 +7,7 @@ ms.author: xujiang1
 ms.service: stream-analytics
 ms.custom: ignite-2022
 ms.topic: how-to
-ms.date: 10/12/2022
+ms.date: 2/17/2023
 ---
 
 # Debug using the physical job diagram (preview) in Azure portal
@@ -26,7 +26,7 @@ Job with parallelization is the scalable scenario in Stream Analytics that can p
 
 :::image type="content" source="./media/job-physical-diagram-debug/1-non-parallel-job-diagram.png" alt-text="Screenshot that shows the non-parallel job in physical diagram." lightbox="./media/job-physical-diagram-debug/1-non-parallel-job-diagram.png":::
 
-You may consider to optimize it to parallel job (as example below) by rewriting your query or updating input/output configurations with the **job diagram simulator** within VSCode ASA extension or query editor in Azure portal. To learn more, see [Optimize query using job diagram simulator (preview)](./optimize-query-using-job-diagram-simulator.md).
+You may consider to optimize it to parallel job (as example below) by rewriting your query or updating input/output configurations with the **job diagram simulator** within Visual Studio Code ASA extension or query editor in Azure portal. To learn more, see [Optimize query using job diagram simulator (preview)](./optimize-query-using-job-diagram-simulator.md).
 
 :::image type="content" source="./media/job-physical-diagram-debug/1-dataskew-overview.png" alt-text="Screenshot that shows data skew view with physical diagram." lightbox="./media/job-physical-diagram-debug/1-dataskew-overview.png":::
 

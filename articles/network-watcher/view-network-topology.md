@@ -1,16 +1,14 @@
 ---
-title: View Azure virtual network topology | Microsoft Docs
+title: View Azure virtual network topology
 description: Learn how to view the resources in a virtual network, and the relationships between the resources.
 services: network-watcher
-documentationcenter: na
-author: damendo
+author: halkazwini
+ms.author: halkazwini
 ms.service: network-watcher
 ms.topic: how-to
-ms.tgt_pltfrm: na
-ms.custom: ignite-2022, engagement-fy23
-ms.workload:  infrastructure-services
+ms.custom: ignite-2022, engagement-fy23, devx-track-azurecli
+ms.workload: infrastructure-services
 ms.date: 11/11/2022
-ms.author: damendo
 ---
 
 # View the topology of an Azure virtual network
@@ -82,7 +80,7 @@ The account that you use must have the necessary [permissions](required-rbac-per
 
 You can run the commands in the steps that follow:
 - In the Azure Cloud Shell, by selecting **Try It** at the top right of any command. The Azure Cloud Shell is a free interactive shell that has common Azure tools preinstalled and configured to use with your account.
-- By running PowerShell from your computer. If you run PowerShell from your computer, this article requires the Azure PowerShell `Az` module. Run `Get-Module -ListAvailable Az` to find the installed version. If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/install-Az-ps). If you are running PowerShell locally, you also need to run `Connect-AzAccount` to create a connection with Azure.
+- By running PowerShell from your computer. If you run PowerShell from your computer, this article requires the Azure PowerShell `Az` module. Run `Get-Module -ListAvailable Az` to find the installed version. If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/install-azure-powershell). If you are running PowerShell locally, you also need to run `Connect-AzAccount` to create a connection with Azure.
 
 The account that you use must have the necessary [permissions](required-rbac-permissions.md).
 

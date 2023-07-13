@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with Check Point Remote Secure Access VPN | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with Check Point Remote Secure Access VPN'
 description: Learn how to configure single sign-on between Azure Active Directory and Check Point Remote Secure Access VPN.
 services: active-directory
 author: jeevansd

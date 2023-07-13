@@ -21,7 +21,7 @@ Speech Studio provides two Custom Neural Voice (CNV) project types: CNV Lite and
 
 With a CNV Lite project, you record your voice online by reading 20-50 pre-defined scripts provided by Microsoft. After you've recorded at least 20 samples, you can start to train a model. Once the model is trained successfully, you can review the model and check out 20 output samples produced with another set of pre-defined scripts.
 
-See the [supported languages](language-support.md?tabs=stt-tts) for Custom Neural Voice.
+See the [supported languages](language-support.md?tabs=tts) for Custom Neural Voice.
 
 ## Compare project types
 
@@ -95,7 +95,7 @@ The training process takes approximately one compute hour. You can check the pro
 To review the CNV Lite model and listen to your own synthetic voice, follow these steps:
 
 1. Select **Custom Voice** > Your project name > **Review model**. Here you can review the voice model name, model language, sample data size, and training progress. The voice name is composed of the word "Neural" appended to your project name.
-1. Select the voice model name to review the model details and listen to the sample text-to-speech results.
+1. Select the voice model name to review the model details and listen to the sample text to speech results.
 1. Select the play icon to hear your voice speak each script. 
     :::image type="content" source="media/custom-voice/lite/lite-review-model.png" alt-text="Screenshot of the review sample output dashboard.":::
 
@@ -130,5 +130,5 @@ From here, you can use the CNV Lite voice model similarly as you would use a CNV
 ## Next steps
 
 * [Create a CNV Pro project](how-to-custom-voice.md) 
-* [Try the text-to-speech quickstart](get-started-text-to-speech.md)
+* [Try the text to speech quickstart](get-started-text-to-speech.md)
 * [Learn more about speech synthesis](how-to-speech-synthesis.md)

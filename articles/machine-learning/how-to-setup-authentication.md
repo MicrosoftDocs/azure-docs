@@ -10,16 +10,13 @@ ms.service: machine-learning
 ms.subservice: enterprise-readiness
 ms.date: 09/23/2022
 ms.topic: how-to
-ms.custom: has-adal-ref, devx-track-js, contperf-fy21q2, subject-rbac-steps, cliv2, sdkv2, event-tier1-build-2022, ignite-2022
+ms.custom: has-adal-ref, contperf-fy21q2, subject-rbac-steps, cliv2, sdkv2, event-tier1-build-2022, ignite-2022
 ---
 
 # Set up authentication for Azure Machine Learning resources and workflows
 
-[!INCLUDE [dev v2](../../includes/machine-learning-dev-v2.md)]
-	
-> [!div class="op_single_selector" title1="Select the version of Azure Machine Learning SDK you are using:"]
-> * [v1](./v1/how-to-setup-authentication.md)
-> * [v2 (current version)](how-to-setup-authentication.md)
+[!INCLUDE [dev v2](includes/machine-learning-dev-v2.md)]
+    
 
 Learn how to set up authentication to your Azure Machine Learning workspace from the Azure CLI or Azure Machine Learning SDK v2. Authentication to your Azure Machine Learning workspace is based on __Azure Active Directory__ (Azure AD) for most things. In general, there are four authentication workflows that you can use when connecting to the workspace:
 
@@ -38,7 +35,7 @@ Azure AD Conditional Access can be used to further control or restrict access to
 ## Prerequisites
 
 * Create an [Azure Machine Learning workspace](how-to-manage-workspace.md).
-* [Configure your development environment](how-to-configure-environment.md) or use a [Azure Machine Learning compute instance](how-to-create-manage-compute-instance.md) and install the [Azure Machine Learning SDK v2](https://aka.ms/sdk-v2-install).
+* [Configure your development environment](how-to-configure-environment.md) or use a [Azure Machine Learning compute instance](how-to-create-compute-instance.md) and install the [Azure Machine Learning SDK v2](https://aka.ms/sdk-v2-install).
 
 * Install the [Azure CLI](/cli/azure/install-azure-cli).
 
@@ -54,7 +51,7 @@ Once you've created the Azure AD accounts, see [Manage access to Azure Machine L
 
 # [Python SDK v2](#tab/sdk)
 
-[!INCLUDE [sdk v2](../../includes/machine-learning-sdk-v2.md)]
+[!INCLUDE [sdk v2](includes/machine-learning-sdk-v2.md)]
 
 Interactive authentication uses the [Azure Identity package for Python](/python/api/overview/azure/identity-readme). Most examples use `DefaultAzureCredential` to access your credentials. When a token is needed, it requests one using multiple identities (`EnvironmentCredential`, `ManagedIdentityCredential`, `SharedTokenCacheCredential`, `VisualStudioCodeCredential`, `AzureCliCredential`, `AzurePowerShellCredential`) in turn, stopping when one provides a token. For more information, see the [DefaultAzureCredential](/python/api/azure-identity/azure.identity.defaultazurecredential) class reference.
 
@@ -176,7 +173,7 @@ The easiest way to create an SP and grant access to your workspace is by using t
     ```
 
 1. To grant access to the workspace and other resources used by Azure Machine Learning, use the information in the following articles:
-    * [How to assign roles and actions in AzureML](how-to-assign-roles.md)
+    * [How to assign roles and actions in Azure Machine Learning](how-to-assign-roles.md)
     * [How to assign roles in the CLI](../role-based-access-control/role-assignments-cli.md)
 
     > [!IMPORTANT]
@@ -186,7 +183,7 @@ The easiest way to create an SP and grant access to your workspace is by using t
 ## Configure a managed identity
 
 > [!IMPORTANT]
-> Managed identity is only supported when using the Azure Machine Learning SDK from an Azure Virtual Machine or with an Azure Machine Learning compute cluster.
+> Managed identity is only supported when using the Azure Machine Learning SDK from an Azure Virtual Machine, an Azure Machine Learning compute cluster, or compute instance.
 
 ### Managed identity with a VM
 
@@ -200,13 +197,17 @@ The easiest way to create an SP and grant access to your workspace is by using t
 
 For more information, see [Set up managed identity for compute cluster](how-to-create-attach-compute-cluster.md#set-up-managed-identity).
 
+### Managed identity with compute instance
+
+For more information, see [Set up managed identity for compute instance](how-to-create-compute-instance.md#assign-managed-identity).
+
 <a id="service-principal-authentication"></a>
 
 ## Use service principal authentication
 
 # [Python SDK v2](#tab/sdk)
 
-[!INCLUDE [sdk v2](../../includes/machine-learning-sdk-v2.md)]
+[!INCLUDE [sdk v2](includes/machine-learning-sdk-v2.md)]
 
 Authenticating with a service principal uses the [Azure Identity package for Python](/python/api/overview/azure/identity-readme). The `DefaultAzureCredential` class looks for the following environment variables and uses the values when authenticating as the service principal:
 
@@ -278,7 +279,7 @@ For information and samples on authenticating with MSAL, see the following artic
 
 ## Use managed identity authentication
 
-[!INCLUDE [sdk v2](../../includes/machine-learning-sdk-v2.md)]
+[!INCLUDE [sdk v2](includes/machine-learning-sdk-v2.md)]
 
 Authenticating with a managed identity uses the [Azure Identity package for Python](/python/api/overview/azure/identity-readme). To authenticate to the workspace from a VM or compute cluster that is configured with a managed identity, use the `DefaultAzureCredential` class. This class automatically detects if a managed identity is being used, and uses the managed identity to authenticate to Azure services.
 
@@ -317,7 +318,7 @@ print(ml_client)
 ## Use Conditional Access
 
 As an administrator, you can enforce [Azure AD Conditional Access policies](../active-directory/conditional-access/overview.md) for users signing in to the workspace. For example, you 
-can require two-factor authentication, or allow sign in only from managed devices. To use Conditional Access for Azure Machine Learning workspaces specifically, [assign the Conditional Access policy](../active-directory/conditional-access/concept-conditional-access-cloud-apps.md) to Machine Learning Cloud app.
+can require two-factor authentication, or allow sign in only from managed devices. To use Conditional Access for Azure Machine Learning workspaces specifically, [assign the Conditional Access policy](../active-directory/conditional-access/concept-conditional-access-cloud-apps.md) to the app named __Azure Machine Learning__. The app ID is __0736f41a-0425-bdb5-1563eff02385__. 
 
 ## Next steps
 

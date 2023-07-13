@@ -1,5 +1,5 @@
 ---
-title: Application Proxy cookie settings - Azure Active Directory
+title: Application Proxy cookie settings
 description:  Azure Active Directory (Azure AD) has access and session cookies for accessing on-premises applications through Application Proxy. In this article, you'll find out how to use and configure the cookie settings. 
 services: active-directory
 author: kenwith

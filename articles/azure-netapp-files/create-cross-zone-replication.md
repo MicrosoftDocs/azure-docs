@@ -12,12 +12,14 @@ ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.topic: how-to
-ms.date: 12/15/2022
+ms.date: 01/04/2023
 ms.author: anfdocs
 ---
 # Create cross-zone replication relationships for Azure NetApp Files
 
 [Cross-zone replication](cross-zone-replication-introduction.md) enables you to replicate volumes across availability zones within the same region. It enables you to fail over your critical application if a region-wide outage or disaster happens. 
+
+For information about availability zones, see [Use availability zones for high availability in Azure NetApp Files](use-availability-zones.md) and [Manage availability zone volume placement for Azure NetApp Files](manage-availability-zone-volume-placement.md). 
 
 ## Requirements
 
@@ -28,7 +30,7 @@ Before you begin, you should review the [requirements and considerations for cro
 ## Register the feature 
 
 >[!IMPORTANT]
-> Cross-zone replication uses the [availability zone volume placement feature](use-availability-zones.md). The availability zone volume placement feature is currently in preview. You must [register the feature](manage-availability-zone-volume-placement.md#register-the-feature) before you can use availability zone volume placement.
+> Cross-zone replication uses the [availability zone volume placement feature](use-availability-zones.md). The availability zone volume placement feature is currently in preview. You must [register the feature](manage-availability-zone-volume-placement.md#register-the-feature) before you can register the cross-zone replication feature.
 
 Cross-zone replication is currently in preview. You need to register the feature before using it for the first time. After registration, the feature is enabled and works in the background. No UI control is required. 
 
@@ -50,7 +52,7 @@ You can also use [Azure CLI commands](/cli/azure/feature) `az feature register` 
 
 ## Create the source volume with an availability zone  
 
-This process requires that your account is subscribed to the availability zone volume placement private preview. Contact your account team to request access to the availability zone volume placement private preview program.
+This process requires that your account is subscribed to the [availability zone volume placement feature](use-availability-zones.md).
 
 1.	Select **Volumes** from your capacity pool. Then select **+ Add volume** to create a volume.
 

@@ -14,11 +14,9 @@ The following release notes identify the new features, critical open issues, and
 
 This article applies to the AP5GC 2211 release (PMN-2211-0). This release is compatible with the ASE Pro GPU running the ASE 2210 release and is supported by the 2022-04-01-preview and 2022-11-01 [Microsoft.MobileNetwork](/rest/api/mobilenetwork) API versions.
 
-## Support
+## Support lifetime
 
-The default support lifetime for a Packet Core version is roughly two calendar months from release. 
-
-The support lifetime for version 2211 is extended – due to the December holiday period – to three calendar months and will end on February 28, 2023. Please be prepared to plan your Packet Core upgrade to a future version before 2211 goes out of support on this date. 
+Packet core versions are supported until two subsequent versions have been released (unless otherwise noted). This is typically two months after the release date. You should plan to upgrade your packet core in this time frame to avoid losing support.
 
 ## What's new
 
@@ -56,9 +54,8 @@ The following table provides a summary of known issues in this release.
 
   |No.  |Feature  | Issue |
   |-----|-----|-----|
-  | 1 | Packet forwarding | If Azure Private 5G Core is deployed into a network where the gNodeB is on the same subnet as the Packet Core's N3 interface address (that is, there is no gateway router between them) then all downstream traffic is broken.   | 
-  | 2 | Local dashboards | In deployments with multiple Data Networks, **UPF Downstream CPU Utilization** is incorrectly reported on the local dashboards when running calls using single Data Network.  | 
-  | 3 | Local dashboards  | In some scenarios, the local dashboards don't show session rejection under the **Device and Session Statistics** panel if Session Establishment requests are rejected due to invalid PDU type (e.g. IPv6 when only IPv4 supported).   | 
+  | 1 | Local dashboards | In deployments with multiple Data Networks, **UPF Downstream CPU Utilization** is incorrectly reported on the local dashboards when running calls using single Data Network.  | 
+  | 2 | Local dashboards  | In some scenarios, the local dashboards don't show session rejection under the **Device and Session Statistics** panel if Session Establishment requests are rejected due to invalid PDU type (e.g. IPv6 when only IPv4 supported).   | 
 
 
 ## Known issues from previous releases
@@ -68,10 +65,8 @@ The following table provides a summary of known issues carried over from the pre
   |No.  |Feature  | Issue |
   |-----|-----|-----|
   | 1 | Policy configuration  | Azure Private 5G Core may ignore non-default QoS and Policy configuration when handling 4G subscribers.  | 
-  | 2 | Packet forwarding  | Azure Private 5G Core local dashboards may show incorrect values in some graphs (e.g. session counts) after a power cycle of the server.   | 
-  | 3 | Local dashboards  | Azure Private 5G Core local dashboards may show incorrect values in some graphs (e.g. session counts) after a power cycle of the server.   | 
-
-
+  | 2 | Packet forwarding  | Azure Private 5G Core may not forward buffered packets if NAT is enabled.   | 
+  | 3 | Packet forwarding  | When Azure Private 5G Core has NAT enabled on a data network, approximately one in every 65,536 downlink packets sent to a UE will be emitted with an incorrect IP checksum, which will likely cause it to be dropped.  | 
 
 
 ## Next steps

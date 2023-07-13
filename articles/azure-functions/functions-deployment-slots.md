@@ -59,6 +59,7 @@ Some configuration settings are slot-specific. The following lists detail which 
 - Always On
 - Diagnostic settings
 - Cross-origin resource sharing (CORS)
+- Private endpoints
 
 **Non slot-specific settings**:
 
@@ -204,7 +205,7 @@ Azure Functions deployment slots have the following considerations:
 - The number of slots available to an app depends on the plan. The Consumption plan is only allowed one deployment slot. Additional slots are available for apps running under other plans. For details, see [Service limits](functions-scale.md#service-limits).
 - Swapping a slot resets keys for apps that have an `AzureWebJobsSecretStorageType` app setting equal to `files`.
 - When slots are enabled, your function app is set to read-only mode in the portal.
-- Use function app names shorter than 32 characters. Names longer than 32 characters are at risk of causing [host ID collisons](storage-considerations.md#host-id-considerations).
+- Use function app names shorter than 32 characters. Names longer than 32 characters are at risk of causing [host ID collisions](storage-considerations.md#host-id-considerations).
 
 ## Next steps
 

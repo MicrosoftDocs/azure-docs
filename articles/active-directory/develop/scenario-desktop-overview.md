@@ -2,7 +2,7 @@
 title: Build a desktop app that calls web APIs
 description: Learn how to build a desktop app that calls web APIs (overview)
 services: active-directory
-author: jmprieur
+author: OwenRichards1
 manager: CelesteDG
 
 ms.service: active-directory
@@ -10,7 +10,8 @@ ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
 ms.date: 11/22/2021
-ms.author: jmprieur
+ms.author: owenrichards
+ms.reviewer: jmprieur
 ms.custom: aaddev, identityplatformtop40
 #Customer intent: As an application developer, I want to know how to write a desktop app that calls web APIs by using the Microsoft identity platform.
 ---
@@ -55,7 +56,7 @@ Desktop applications have few specificities. They depend mainly on whether your 
 
 ## Recommended reading
 
-[!INCLUDE [recommended-topics](../../../includes/active-directory-develop-scenarios-prerequisites.md)]
+[!INCLUDE [recommended-topics](./includes/scenarios/scenarios-prerequisites.md)]
 
 ## Next steps
 

@@ -57,7 +57,7 @@ In this case, you create a text-dependent verification voice profile. You should
 }
 ```
 
-Next, you [enroll the voice profile](/rest/api/speakerrecognition/verification/textdependent/createenrollment). For the `--data-binary` parameter value, specify an audio file on your computer that contains one of the supported passphrases, such as "My voice is my passport, verify me." You can record an audio file with an app like [Windows Voice Recorder](https://www.microsoft.com/p/windows-voice-recorder/9wzdncrfhwkn?activetab=pivot:overviewtab). Or you can generate it by using [text-to-speech](../../../index-text-to-speech.yml).
+Next, you [enroll the voice profile](/rest/api/speakerrecognition/verification/textdependent/createenrollment). For the `--data-binary` parameter value, specify an audio file on your computer that contains one of the supported passphrases, such as "My voice is my passport, verify me." You can record an audio file with an app like [Windows Voice Recorder](https://www.microsoft.com/p/windows-voice-recorder/9wzdncrfhwkn?activetab=pivot:overviewtab). Or you can generate it by using [text to speech](../../../index-text-to-speech.yml).
 
 ```curl
 curl --location --request POST 'INSERT_ENDPOINT_HERE/speaker-recognition/verification/text-dependent/profiles/INSERT_PROFILE_ID_HERE/enrollments?api-version=2021-09-05' \

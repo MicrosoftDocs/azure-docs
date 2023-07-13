@@ -8,8 +8,7 @@ ms.service: virtual-machine-scale-sets
 ms.subservice: availability
 ms.date: 11/22/2022
 ms.reviewer: jushiman
-ms.custom: mimckitt, devx-track-azurecli, devx-track-azurepowershell
-
+ms.custom: mimckitt, devx-track-azurecli, devx-track-azurepowershell, devx-track-arm-template
 ---
 
 # Create a Virtual Machine Scale Set that uses Availability Zones
@@ -92,7 +91,7 @@ The following example creates a single-zone scale set named *myScaleSet* in zone
 az vmss create \
     --resource-group myResourceGroup \
     --name myScaleSet \
-    --image UbuntuLTS \
+    --image <SKU image> \
     --upgrade-policy-mode automatic \
     --admin-username azureuser \
     --generate-ssh-keys \
@@ -111,7 +110,7 @@ To create a zone-redundant scale set, specify multiple zones with the `--zones` 
 az vmss create \
     --resource-group myResourceGroup \
     --name myScaleSet \
-    --image UbuntuLTS \
+    --image <SKU Image> \
     --upgrade-policy-mode automatic \
     --admin-username azureuser \
     --generate-ssh-keys \
@@ -188,9 +187,9 @@ The following example creates a Linux single-zone scale set named *myScaleSet* i
           "createOption": "FromImage"
         },
         "imageReference":  {
-          "publisher": "Canonical",
-          "offer": "UbuntuServer",
-          "sku": "16.04-LTS",
+          "publisher": "myPublisher",
+          "offer": "myOffer",
+          "sku": "mySKU",
           "version": "latest"
         }
       },

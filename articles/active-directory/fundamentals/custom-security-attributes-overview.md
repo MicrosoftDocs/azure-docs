@@ -1,14 +1,15 @@
 ---
-title: What are custom security attributes in Azure AD? (Preview) - Azure Active Directory
+title: What are custom security attributes in Azure AD? (Preview)
 description: Learn about custom security attributes in Azure Active Directory.
 services: active-directory
 author: rolyon
+manager: amycolannino
 ms.author: rolyon
 ms.service: active-directory
 ms.subservice: fundamentals
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 05/09/2022
+ms.date: 06/29/2023
 ms.collection: M365-identity-device-management
 ---
 
@@ -200,6 +201,6 @@ Depending on whether you have an Azure AD Premium P1 or P2 license, here are the
 
 ## Next steps
 
-- [Add or deactivate custom security attributes in Azure AD](custom-security-attributes-add.md)
+- [Add or deactivate custom security attribute definitions in Azure AD](custom-security-attributes-add.md)
 - [Manage access to custom security attributes in Azure AD](custom-security-attributes-manage.md)
-- [Assign or remove custom security attributes for a user](../enterprise-users/users-custom-security-attributes.md)
+- [Assign, update, list, or remove custom security attributes for a user](../enterprise-users/users-custom-security-attributes.md)

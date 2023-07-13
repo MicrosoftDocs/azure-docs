@@ -1,12 +1,13 @@
 ---
 title: Quickstart - Create a service connection in Container Apps using the Azure CLI
 description: Quickstart showing how to create a service connection in Azure Container Apps using the Azure CLI
-author: maud-lv
-ms.author: malev
+author: mcleanbyron
+ms.author: mcleans
 ms.service: service-connector
 ms.topic: quickstart
-ms.date: 08/09/2022
+ms.date: 04/13/2023
 ms.devlang: azurecli
+ms.custom: devx-track-azurecli
 ---
 
 # Quickstart: Create a service connection in Container Apps with the Azure CLI
@@ -23,23 +24,26 @@ This quickstart shows you how to connect Azure Container Apps to other Cloud res
 
 - At least one application deployed to Container Apps in a [region supported by Service Connector](./concept-region-support.md). If you don't have one, [create and deploy a container to Container Apps](../container-apps/quickstart-portal.md).
 
-[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](../../includes/azure-cli-prepare-your-environment-no-header.md)]
+[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment-no-header.md)]
 
 - Version 2.37.0 or higher of the Azure CLI must be installed. To upgrade to the latest version, run `az upgrade`. If using Azure Cloud Shell, the latest version is already installed.
 
 - The Container Apps extension must be installed in the Azure CLI or the Cloud Shell. To install it, run `az extension add --name containerapp`.
 
-## Prepare to create a connection
+## Initial set-up
 
-1. Run the command [az provider register](/cli/azure/provider#az-provider-register) to start using Service Connector.
+1. If you're using Service Connector for the first time, start by running the command [az provider register](/cli/azure/provider#az-provider-register) to register the Service Connector resource provider.
 
-    ```azurecli-interactive
+    ```azurecli
     az provider register -n Microsoft.ServiceLinker
     ```
 
-1. Run the command `az containerapp connection` to get a list of supported target services for Container Apps.
+    > [!TIP]
+    > You can check if the resource provider has already been registered by running the command `az provider show -n "Microsoft.ServiceLinker" --query registrationState`. If the output is `Registered`, then Service Connector has already been registered.
 
-    ```azurecli-interactive
+1. Optionally, run the command [az containerapp connection list-support-types](/cli/azure/containerapp/connection#az-containerapp-connection-list-support-types) to get a list of supported target services for Container Apps.
+
+    ```azurecli
     az containerapp connection list-support-types --output table
     ```
 
@@ -51,7 +55,7 @@ You can create a connection using an access key or a managed identity.
 
 1. Run the `az containerapp connection create` command to create a service connection between Container Apps and Azure Blob Storage with an access key.
 
-    ```azurecli-interactive
+    ```azurecli
     az containerapp connection create storage-blob --secret
     ```
 
@@ -75,7 +79,7 @@ You can create a connection using an access key or a managed identity.
 
 1. Run the `az containerapp connection create` command to create a service connection from Container Apps to a Blob Storage with a system-assigned managed identity.
 
-    ```azurecli-interactive
+    ```azurecli
     az containerapp connection create storage-blob --system-identity
     ```
 
@@ -98,7 +102,7 @@ You can create a connection using an access key or a managed identity.
 
  Use the Azure CLI command `az containerapp connection list` to list all your container app's provisioned connections. Replace the placeholders `<container-app-resource-group>` and `<container-app-name>` from the command below with the resource group and name of your container app. You can also remove the `--output table` option to view more information about your connections.
 
-```azurecli-interactive
+```azurecli
 az containerapp connection list -g "<container-app-resource-group>" --name "<container-app-name>" --output table
 ```
 

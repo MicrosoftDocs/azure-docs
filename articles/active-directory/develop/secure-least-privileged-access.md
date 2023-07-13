@@ -4,16 +4,14 @@ description: Learn how the principle of least privilege can help increase the se
 services: active-directory
 author: davidmu1
 manager: CelesteDG
-
 ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 06/16/2022
+ms.date: 01/06/2023
 ms.custom: template-concept
 ms.author: davidmu
-ms.reviewer: yuhko, saumadan, marsma
-
+ms.reviewer: yuhko, saumadan
 # Customer intent: As a developer, I want to learn about the principle of least privilege and the features of the Microsoft identity platform that I can use to make sure my application and its users are restricted to actions and have access to only the data they need perform their tasks.
 ---
 

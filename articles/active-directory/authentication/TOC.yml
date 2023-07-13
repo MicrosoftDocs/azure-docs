@@ -54,12 +54,14 @@
       href: concept-sspr-policy.md
     - name: Licenses
       href: concept-sspr-licensing.md
-  - name: Multi-Factor Authentication
+  - name: Multifactor Authentication
     items:
     - name: How MFA works
       href: concept-mfa-howitworks.md
     - name: Default protection 
       href: concept-authentication-default-enablement.md
+    - name: System-preferred MFA 
+      href: concept-system-preferred-multifactor-authentication.md
     - name: Prompts and session lifetime
       href: concepts-azure-multi-factor-authentication-prompts-session-lifetime.md
     - name: Data residency
@@ -106,7 +108,7 @@
             href: howto-authentication-passwordless-faqs.md
           - name: Troubleshoot hybrid
             href: howto-authentication-passwordless-troubleshoot.md
-      - name: Passwordless phone sign-in
+      - name: Microsoft Authenticator
         items:
         - name: Manage
           href: howto-authentication-passwordless-phone.md
@@ -116,22 +118,12 @@
           href: how-to-mfa-number-match.md
         - name: Use additional context 
           href: how-to-mfa-additional-context.md
+        - name: Use Authenticator Lite 
+          href: how-to-mfa-authenticator-lite.md
         - name: Use Microsoft managed settings 
           href: how-to-mfa-microsoft-managed.md
       - name: Windows Hello for Business
         href: /windows/security/identity-protection/hello-for-business/hello-identity-verification
-      - name: Use a Temporary Access Pass
-        href: howto-authentication-temporary-access-pass.md
-      - name: Use SMS-based authentication
-        items:  
-        - name: Manage
-          href: howto-authentication-sms-signin.md
-        - name: Supported apps for SMS-based authentication
-          href: how-to-authentication-sms-supported-apps.md
-        - name: Two-way SMS unsupported
-          href: how-to-authentication-two-way-sms-unsupported.md
-      - name: Use email address sign-in
-        href: howto-authentication-use-email-signin.md
       - name: Certificate-based authentication
         items:
         - name: Azure AD CBA
@@ -144,7 +136,7 @@
             href: how-to-certificate-based-authentication.md
           - name: Windows smart card logon
             href: concept-certificate-based-authentication-smartcard.md
-          - name: iOS devices
+          - name: Apple devices
             href: concept-certificate-based-authentication-mobile-ios.md
           - name: Android devices
             href: concept-certificate-based-authentication-mobile-android.md
@@ -157,11 +149,23 @@
         - name: Federated CBA with Azure AD
           items:
           - name: Configure CBA with federation
-            href: active-directory-certificate-based-authentication-get-started.md
+            href: certificate-based-authentication-federation-get-started.md
           - name: Use on Android Devices
-            href: active-directory-certificate-based-authentication-android.md
+            href: certificate-based-authentication-federation-android.md
           - name: Use on iOS Devices
-            href: active-directory-certificate-based-authentication-ios.md
+            href: certificate-based-authentication-federation-ios.md
+      - name: Use a Temporary Access Pass
+        href: howto-authentication-temporary-access-pass.md
+      - name: Use SMS-based authentication
+        items:  
+        - name: Manage
+          href: howto-authentication-sms-signin.md
+        - name: Supported apps for SMS-based authentication
+          href: how-to-authentication-sms-supported-apps.md
+        - name: Two-way SMS unsupported
+          href: how-to-authentication-two-way-sms-unsupported.md
+      - name: Use email address sign-in
+        href: howto-authentication-use-email-signin.md
   - name: Self-service password reset
     items:
     - name: Deployment guide
@@ -176,6 +180,8 @@
     items:
     - name: Deployment guide
       href: howto-mfa-getstarted.md
+    - name: Configure MFA using the portal guide
+      href: multi-factor-authentication-wizard.md
     - name: Configure settings
       href: howto-mfa-mfasettings.md
     - name: Configure users
@@ -247,9 +253,9 @@
       - name: Overview
         href: how-to-migrate-mfa-server-to-azure-mfa.md
       - name: Migrate to Azure MFA and user authentication
-        href: how-to-migrate-mfa-server-to-azure-mfa-user-authentication.md
+        href: how-to-migrate-mfa-server-to-mfa-user-authentication.md
       - name: Migrate to Azure MFA with Federation
-        href: how-to-migrate-mfa-server-to-azure-mfa-with-federation.md    
+        href: how-to-migrate-mfa-server-to-mfa-with-federation.md
       - name: Migration Utility
         href: how-to-mfa-server-migration-utility.md    
     - name: Deploy MFA on-premises
@@ -299,7 +305,7 @@
     - name: SSPR writeback
       href: troubleshoot-sspr-writeback.md
     - name: SSPR FAQ
-      href: active-directory-passwords-faq.yml
+      href: passwords-faq.yml
     - name: MFA FAQ
       href: multi-factor-authentication-faq.yml
     - name: NPS extension

@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory integration with Zscaler Private Access Administrator | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory integration with Zscaler Private Access Administrator'
 description: Learn how to configure single sign-on between Azure Active Directory and Zscaler Private Access Administrator.
 services: active-directory
 author: jeevansd

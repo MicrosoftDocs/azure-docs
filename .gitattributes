@@ -6,6 +6,9 @@
 *.c text
 *.h text
 
+# Include Markdown in the GitHub language breakdown statistics
+*.md linguist-detectable
+
 # Denote all files that are truly binary and should not be modified.
 *.gif   binary
 *.ico   binary

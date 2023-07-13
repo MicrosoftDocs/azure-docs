@@ -3,7 +3,7 @@ title: Govern resources for client applications with application groups
 description: Learn how to use application groups to govern resources for client applications that connect with Event Hubs. 
 ms.topic: how-to
 ms.date: 10/12/2022
-ms.custom: ignite-2022
+ms.custom: ignite-2022, devx-track-azurepowershell, devx-track-azurecli
 ---
 
 # Govern resources for client applications with application groups

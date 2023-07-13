@@ -5,7 +5,7 @@ services: event-hubs
 author: spelluru
 ms.service: event-hubs
 ms.topic: include
-ms.date: 10/19/2022
+ms.date: 05/18/2023
 ms.author: spelluru
 ms.custom: "include file","fasttrack-edit","iot","event-hubs"
 
@@ -16,7 +16,7 @@ The following table shows limits that may be different for basic, standard, prem
 > [!NOTE]
 > - In the table, CU is [capacity unit](../event-hubs-dedicated-overview.md), PU is [processing unit](../event-hubs-scalability.md#processing-units), and TU is [throughput unit](../event-hubs-scalability.md#throughput-units). 
 > - You can configure [TUs](../event-hubs-auto-inflate.md#use-azure-portal) for a basic or standard tier namespace or [PUs](../configure-processing-units-premium-namespace.md) for a premium tier namespace. 
-> - When you [create a dedicated cluster](../event-hubs-dedicated-cluster-create-portal.md#create-an-event-hubs-dedicated-cluster), 1 CU is assigned to the cluster. If you enable the **Support Scaling** option while creating the cluster, you'll be able to scale out by increasing CUs or scale in by decreasing CUs for the cluster yourself. For step-by-step instructions, see [Scale dedicated cluster](../event-hubs-dedicated-cluster-create-portal.md#scale-event-hubs-dedicated-cluster). For clusters that don't support the **Support Scaling** feature, [submit a ticket](../event-hubs-dedicated-cluster-create-portal.md#submit-a-support-request) To adjust CUs for the cluster. 
+> - When you [create a dedicated cluster](../event-hubs-dedicated-cluster-create-portal.md#create-an-event-hubs-dedicated-cluster), 1 CU is assigned to the cluster. If you enable the **Support Scaling** option while creating the cluster, you'll be able to scale out by increasing CUs or scale in by decreasing CUs for the cluster yourself. For step-by-step instructions, see [Scale dedicated cluster](../event-hubs-dedicated-cluster-create-portal.md#scale-a-dedicated-cluster). For clusters that don't support the **Support Scaling** feature, [submit a ticket](../event-hubs-dedicated-cluster-create-portal.md#submit-a-support-request) To adjust CUs for the cluster. 
 
 | Limit | Basic | Standard | Premium |  Dedicated |
 | ----- | ----- | -------- | -------- | --------- | 
@@ -29,6 +29,7 @@ The following table shows limits that may be different for basic, standard, prem
 | Number of namespaces per subscription | 1000 | 1000 | 1000 | 1000 (50 per CU) |
 | Number of event hubs per namespace | 10 | 10 | 100 per PU | 1000 |
 | Capture | N/A | Pay per hour | Included | Included |
+| Size of compacted event hub  | N/A | 1 GB per partition | 250 GB per partition | 250 GB per partition |
 | Size of the schema registry (namespace) in mega bytes | N/A | 25 | 100 | 1024 |
 | Number of schema groups in a schema registry or namespace | N/A | 1 - excluding the default group | 100 <br/>1 MB per schema | 1000<br/>1 MB per schema |
 | Number of schema versions across all schema groups | N/A | 25 | 1000 | 10000 |

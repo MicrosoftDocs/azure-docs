@@ -181,7 +181,7 @@ For more information and examples, see the [az dt network private-link reference
 
 ## Disable / enable public network access flags
 
-You can configure your Azure Digital Twins instance to deny all public connections and allow only connections through private endpoints to enhance the network security. This action is done with a *public network access flag*. 
+You can configure your Azure Digital Twins instance to deny all public connections and allow only connections through private access endpoints to enhance the network security. This action is done with a *public network access flag*. 
 
 This policy allows you to restrict API access to Private Link connections only. When the public network access flag is set to `disabled`, all REST API calls to the Azure Digital Twins instance data plane from the public cloud will return `403, Unauthorized`. Otherwise, when the policy is set to `disabled` and a request is made through a private endpoint, the API call will succeed.
 

@@ -3,13 +3,13 @@ title: Authorize access to tables using Active Directory
 titleSuffix: Azure Storage
 description: Authorize access to Azure tables using Azure Active Directory (Azure AD). Assign Azure roles for access rights. Access data with an Azure AD account.
 services: storage
-author: jimmart-dev
+author: tamram
 
-ms.service: storage
+ms.service: azure-storage
 ms.topic: conceptual
-ms.date: 07/13/2021
-ms.author: jammart
-ms.subservice: common
+ms.date: 02/09/2023
+ms.author: tamram
+ms.subservice: storage-common-concepts
 ---
 
 # Authorize access to tables using Azure Active Directory
@@ -24,11 +24,11 @@ Authorization with Azure AD is available for all general-purpose in all public r
 
 When a security principal (a user, group, or application) attempts to access a table resource, the request must be authorized. With Azure AD, access to a resource is a two-step process. First, the security principal's identity is authenticated and an OAuth 2.0 token is returned. Next, the token is passed as part of a request to the Table service and used by the service to authorize access to the specified resource.
 
-The authentication step requires that an application request an OAuth 2.0 access token at runtime. If an application is running from within an Azure entity such as an Azure VM, a virtual machine scale set, or an Azure Functions app, it can use a [managed identity](../../active-directory/managed-identities-azure-resources/overview.md) to access tables. To learn how to authorize requests made by a managed identity, see [Authorize access to table data with managed identities for Azure resources](authorize-managed-identity.md).
+The authentication step requires that an application request an OAuth 2.0 access token at runtime. If an application is running from within an Azure entity such as an Azure VM, a virtual machine scale set, or an Azure Functions app, it can use a [managed identity](../../active-directory/managed-identities-azure-resources/overview.md) to access tables.
 
 The authorization step requires that one or more Azure roles be assigned to the security principal. Azure Storage provides Azure roles that encompass common sets of permissions for table data. The roles that are assigned to a security principal determine the permissions that that principal will have. To learn more about assigning Azure roles for table access, see [Assign an Azure role for access to table data](assign-azure-role-data-access.md).
 
-Native applications and web applications that make requests to the Azure Table service can also authorize access with Azure AD. To learn how to request an access token and use it to authorize requests, see [Authorize access to Azure Storage with Azure AD from an Azure Storage application](../common/storage-auth-aad-app.md).
+[!INCLUDE [storage-auth-language-table](../../../includes/storage-auth-language-table.md)]
 
 ## Assign Azure roles for access rights
 
@@ -63,7 +63,7 @@ For more information about how built-in roles are defined for Azure Storage, see
 
 Only roles explicitly defined for data access permit a security principal to access table data. Built-in roles such as **Owner**, **Contributor**, and **Storage Account Contributor** permit a security principal to manage a storage account, but do not provide access to the table data within that account via Azure AD. However, if a role includes **Microsoft.Storage/storageAccounts/listKeys/action**, then a user to whom that role is assigned can access data in the storage account via Shared Key authorization with the account access keys.
 
-For detailed information about Azure built-in roles for Azure Storage for both the data services and the management service, see the **Storage** section in [Azure built-in roles for Azure RBAC](../../role-based-access-control/built-in-roles.md#storage). Additionally, for information about the different types of roles that provide permissions in Azure, see [Classic subscription administrator roles, Azure roles, and Azure AD roles](../../role-based-access-control/rbac-and-directory-admin-roles.md).
+For detailed information about Azure built-in roles for Azure Storage for both the data services and the management service, see the **Storage** section in [Azure built-in roles for Azure RBAC](../../role-based-access-control/built-in-roles.md#storage). Additionally, for information about the different types of roles that provide permissions in Azure, see [Azure roles, Azure AD roles, and classic subscription administrator roles](../../role-based-access-control/rbac-and-directory-admin-roles.md).
 
 > [!IMPORTANT]
 > Azure role assignments may take up to 30 minutes to propagate.

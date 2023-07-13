@@ -5,7 +5,7 @@ ms.topic: tutorial
 ms.date: 09/20/2022
 ms.author: evanhi
 author: MSEvanhi
-ms.custom: devx-track-azurepowershell, devx-track-azurecli
+ms.custom: devx-track-azurecli
 ---
 
 # Quickstart: Create Azure Custom Resource Provider and deploy custom resources
@@ -21,13 +21,13 @@ In this quickstart, you create a custom resource provider and deploy custom reso
 
 Prepare your environment for the Azure CLI.
 
-[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](../../../includes/azure-cli-prepare-your-environment-no-header.md)]
+[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment-no-header.md)]
 
 Azure CLI examples use `az rest` for `REST` requests. For more information, see [az rest](/cli/azure/reference-index#az-rest).
 
 # [PowerShell](#tab/azure-powershell)
 
-- The PowerShell commands are run locally using PowerShell 7 or later and the Azure PowerShell modules. For more information, see [Install Azure PowerShell](/powershell/azure/install-az-ps).
+- The PowerShell commands are run locally using PowerShell 7 or later and the Azure PowerShell modules. For more information, see [Install Azure PowerShell](/powershell/azure/install-azure-powershell).
 - If you don't already have a tool for `REST` operations, install the [ARMClient](https://github.com/projectkudu/ARMClient). It's an open-source command-line tool that simplifies invoking the Azure Resource Manager API.
 - After the **ARMClient** is installed, you can display usage information from a PowerShell command prompt by typing: `armclient.exe`. Or, go to the [ARMClient wiki](https://github.com/projectkudu/ARMClient/wiki).
 

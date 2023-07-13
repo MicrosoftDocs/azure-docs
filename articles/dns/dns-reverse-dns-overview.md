@@ -9,7 +9,7 @@ ms.service: dns
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/27/2022
+ms.date: 04/27/2023
 ms.author: greglin
 ---
 

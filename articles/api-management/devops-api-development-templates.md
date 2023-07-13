@@ -117,5 +117,5 @@ Review [Automated API deployments with APIOps][28] in the Azure Architecture Cen
 [26]: https://github.com/microsoft/api-guidelines/blob/vNext/azure/Guidelines.md
 [27]: https://github.com/Azure/azure-api-style-guide
 [28]: /azure/architecture/example-scenario/devops/automated-api-deployments-apiops
-[29]: /azure/api-management/api-management-howto-properties
-[30]: /azure/api-management/backends
+[29]: ./api-management-howto-properties.md
+[30]: ./backends.md

@@ -16,7 +16,7 @@ Azure Static Web Apps is a service that automatically builds and deploys full st
 
 :::image type="content" source="media/overview/azure-static-web-apps-overview.png" alt-text="Azure Static Web Apps overview diagram.":::
 
-The workflow of Azure Static Web Apps is tailored to a developer's daily workflow. Apps are built and deployed based off of code changes.
+The workflow of Azure Static Web Apps is tailored to a developer's daily workflow. Apps are built and deployed based on code changes.
 
 When you create an Azure Static Web Apps resource, Azure interacts directly with GitHub or Azure DevOps, to monitor a branch of your choice. Every time you push commits or accept pull requests into the watched branch, a build automatically runs and your app and API deploys to Azure.
 
@@ -27,7 +27,7 @@ With Static Web Apps, static assets are separated from a traditional web server 
 ## Key features
 
 - **Web hosting** for static content like HTML, CSS, JavaScript, and images.
-- **Integrated API** support provided by Azure Functions with the option to link an existing Azure Functions app using a standard account.
+- **Integrated API** support provided by managed Azure Functions, with the option to link an existing function app, web app, container app, or API Management instance using a standard account.  If you need your API in a region that doesn't support [managed functions](apis-functions.md), you can [bring your own functions](functions-bring-your-own.md) to your app.
 - **First-class GitHub and Azure DevOps integration** that allows repository changes to trigger builds and deployments.
 - **Globally distributed** static content, putting content closer to your users.
 - **Free SSL certificates**, which are automatically renewed.

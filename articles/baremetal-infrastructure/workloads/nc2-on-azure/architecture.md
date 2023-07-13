@@ -4,7 +4,7 @@ description: Learn about the architecture of several configurations of BareMetal
 ms.topic: reference
 ms.subservice: baremetal-nutanix
 ms.custom: engagement-fy23
-ms.date: 10/13/2022
+ms.date: 04/01/2023
 ---
 
 # Architecture of BareMetal Infrastructure for Nutanix
@@ -15,7 +15,7 @@ In this article, we look at the architectural options for BareMetal Infrastructu
 
 The image in this section shows one example of an NC2 on Azure deployment.
 
-:::image type="content" source="media/nc2-on-azure-deployment-architecture.png#lightbox" alt-text="Diagram showing NC2 on Azure deployment architecture." border="false" lightbox="media/nc2-on-azure-deployment-architecture-large.png":::
+:::image type="content" source="media/nc2-on-azure-deployment-architecture.png" alt-text="Diagram showing NC2 on Azure deployment architecture." border="false" lightbox="media/nc2-on-azure-deployment-architecture-large.png":::
 
 ### Cluster Management virtual network
 

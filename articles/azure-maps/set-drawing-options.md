@@ -1,17 +1,17 @@
 ---
-title: Drawing tools module | Microsoft Azure Maps
+title: Drawing tools module
+titleSuffix: Microsoft Azure Maps
 description: In this article, you'll learn how to set drawing options data using the Microsoft Azure Maps Web SDK
-author: stevemunk
-ms.author: v-munksteve
-ms.date: 01/29/2020
-ms.topic: conceptual
+author: dubiety
+ms.author: yuchungchen
+ms.date: 06/15/2023
+ms.topic: how-to
 ms.service: azure-maps
-ms.custom: devx-track-js
 ---
 
 # Use the drawing tools module
 
-The Azure Maps Web SDK provides a *drawing tools module*. This module makes it easy to draw and edit shapes on the map using an input device such as a mouse or touch screen. The core class of this module is the [drawing manager](/javascript/api/azure-maps-drawing-tools/atlas.drawing.drawingmanager#setoptions-drawingmanageroptions-). The drawing manager provides all the capabilities needed to draw and edit shapes on the map. It can be used directly, and it's integrated with a custom toolbar UI. You can also use the built-in [drawing toolbar](/javascript/api/azure-maps-drawing-tools/atlas.control.drawingtoolbar) class.
+The Azure Maps Web SDK provides a [drawing tools module]. This module makes it easy to draw and edit shapes on the map using an input device such as a mouse or touch screen. The core class of this module is the [drawing manager](/javascript/api/azure-maps-drawing-tools/atlas.drawing.drawingmanager#setoptions-drawingmanageroptions-). The drawing manager provides all the capabilities needed to draw and edit shapes on the map. It can be used directly, and it's integrated with a custom toolbar UI. You can also use the built-in [drawing toolbar](/javascript/api/azure-maps-drawing-tools/atlas.control.drawingtoolbar) class.
 
 ## Loading the drawing tools module in a webpage
 
@@ -28,11 +28,39 @@ The Azure Maps Web SDK provides a *drawing tools module*. This module makes it e
 
       `npm install azure-maps-drawing-tools`
 
-      Then, import the JavaScript and CSS stylesheet in a source file:
+      Then, import the JavaScript in a source file:
 
       ```js
       import * as drawing from "azure-maps-drawing-tools";
+      ```
+
+      You would also need to embed the CSS Style Sheet for various controls to display correctly. If you're using a JavaScript bundler to bundle the dependencies and package your code, refer to your bundler's documentation on how it's done. For [Webpack], it's commonly done via a combination of `style-loader` and `css-loader` with documentation available at [style-loader].
+
+      To begin, install style-loader and css-loader:
+
+      ```powershell
+      npm install --save-dev style-loader css-loader
+      ```
+
+      Inside your source file, import atlas-drawing.min.css:
+
+      ```js
       import "azure-maps-drawing-tools/dist/atlas-drawing.min.css";
+      ```
+
+      Then add loaders to the module rules portion of the Webpack config:
+
+      ```js
+      module.exports = {
+        module: {
+          rules: [
+            {
+              test: /\.css$/i,
+              use: ["style-loader", "css-loader"]
+            }
+          ]
+        }
+      };
       ```
 
 ## Use the drawing manager directly
@@ -41,7 +69,7 @@ Once the drawing tools module is loaded in your application, you can enable draw
 
 ### Set the drawing mode
 
-The following code creates an instance of the drawing manager and sets the drawing **mode** option. 
+The following code creates an instance of the drawing manager and sets the drawing **mode** option.
 
 ```javascript
 //Create an instance of the drawing manager and set drawing mode.
@@ -50,25 +78,25 @@ drawingManager = new atlas.drawing.DrawingManager(map,{
 });
 ```
 
-The code below is a complete running example of how to set a drawing mode of the drawing manager. Click the map to start drawing a polygon.
+The following image is an example of drawing mode of the `DrawingManager`. Select any place on the map to start drawing a polygon.
 
-<br/>
+:::image type="content" source="./media/set-drawing-options/drawing-mode.gif"alt-text="A screenshot of a map showing central park in New York City where the drawing manager is demonstrated by drawing line.":::
 
+<!--------------------------------
 <iframe height="500" scrolling="no" title="Draw a polygon" src="//codepen.io/azuremaps/embed/YzKVKRa/?height=265&theme-id=0&default-tab=js,result&editable=true" frameborder="no" allowtransparency="true" allowfullscreen="true">
   See the Pen <a href='https://codepen.io/azuremaps/pen/YzKVKRa/'>Draw a polygon</a> by Azure Maps
-  (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) on <a href='https://codepen.io'>CodePen</a>.
-</iframe>
-
+  (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) on <a href='https://codepen.io'>CodePen</a>.</iframe>
+-------------------------------->
 
 ### Set the interaction type
 
 The drawing manager supports three different ways of interacting with the map to draw shapes.
 
-* `click` - Coordinates are added when the mouse or touch is clicked.
-* `freehand ` - Coordinates are added when the mouse or touch is dragged on the map. 
-* `hybrid` - Coordinates are added when the mouse or touch is clicked or dragged.
+- `click` - Coordinates are added when the mouse or touch is clicked.
+- `freehand` - Coordinates are added when the mouse or touch is dragged on the map. 
+- `hybrid` - Coordinates are added when the mouse or touch is clicked or dragged.
 
-The following code enables the polygon drawing mode and sets the type of drawing interaction that the drawing manager should adhere to `freehand`. 
+The following code enables the polygon drawing mode and sets the type of drawing interaction that the drawing manager should adhere to `freehand`.
 
 ```javascript
 //Create an instance of the drawing manager and set drawing mode.
@@ -78,26 +106,28 @@ drawingManager = new atlas.drawing.DrawingManager(map,{
 });
 ```
 
+<!------------------------------
  This code sample implements the functionality of drawing a polygon on the map. Just hold down the left mouse button and dragging it around, freely.
 
 <br/>
 
 <iframe height="500" scrolling="no" title="Free-hand drawing" src="//codepen.io/azuremaps/embed/ZEzKoaj/?height=265&theme-id=0&default-tab=js,result&editable=true" frameborder="no" allowtransparency="true" allowfullscreen="true">
   See the Pen <a href='https://codepen.io/azuremaps/pen/ZEzKoaj/'>Free-hand drawing</a> by Azure Maps
-  (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) on <a href='https://codepen.io'>CodePen</a>.
-</iframe>
-
+  (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) on <a href='https://codepen.io'>CodePen</a>.</iframe>
+------------------------------>
 
 ### Customizing drawing options
 
-The previous examples demonstrated how to customize drawing options while instantiating the Drawing Manager. You can also set the Drawing Manager options by using the `drawingManager.setOptions()` function. Below is a tool to test out customization of all options for the drawing manager using the setOptions function.
+The previous examples demonstrated how to customize drawing options while instantiating the Drawing Manager. You can also set the Drawing Manager options by using the `drawingManager.setOptions()` function.
 
-<br/>
+The [Drawing manager options] can be used to test out customization of all options for the drawing manager using the `setOptions` function. For the source code for this sample, see [Drawing manager options source code].
 
+:::image type="content" source="./media/set-drawing-options/drawing-manager-options.png"alt-text="A screenshot of a map of Seattle with a panel on the left showing the drawing manager options that can be selected to see the effects they make to the map.":::
+
+<!------------------------------
 <iframe height="685" title="Customize drawing manager" src="//codepen.io/azuremaps/embed/LYPyrxR/?height=600&theme-id=0&default-tab=result" frameborder="no" allowtransparency="true" allowfullscreen="true">See the Pen <a href='https://codepen.io/azuremaps/pen/LYPyrxR/'>Get shape data</a> by Azure Maps
-  (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) on <a href='https://codepen.io'>CodePen</a>.
-</iframe>
-
+  (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) on <a href='https://codepen.io'>CodePen</a>.</iframe>
+------------------------------>
 
 ### Put a shape into edit mode
 
@@ -183,3 +213,9 @@ Learn more about the classes and methods used in this article:
 
 > [!div class="nextstepaction"]
 > [Drawing toolbar](/javascript/api/azure-maps-drawing-tools/atlas.control.drawingtoolbar)
+
+[Drawing manager options]: https://samples.azuremaps.com/drawing-tools-module/drawing-manager-options
+[Webpack]: https://webpack.js.org/
+[style-loader]: https://webpack.js.org/loaders/style-loader/
+[Drawing manager options source code]: https://github.com/Azure-Samples/AzureMapsCodeSamples/blob/main/Samples/Drawing%20Tools%20Module/Drawing%20manager%20options/Drawing%20manager%20options.html
+[drawing tools module]: https://www.npmjs.com/package/azure-maps-drawing-tools

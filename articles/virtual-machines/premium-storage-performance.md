@@ -2,11 +2,10 @@
 title: 'Azure Premium Storage: Design for high performance'
 description: Design high-performance applications using Azure premium SSD managed disks. Premium Storage offers high-performance, low-latency disk support for I/O-intensive workloads running on Azure Virtual Machines.
 author: roygara
-ms.service: storage
+ms.service: azure-disk-storage
 ms.topic: conceptual
 ms.date: 06/29/2021
 ms.author: rogarana
-ms.subservice: disks
 ---
 
 # Azure premium storage: design for high performance
@@ -116,7 +115,7 @@ The best way to measure performance requirements of your application, is to use 
 
 The PerfMon counters are available for processor, memory and, each logical disk and physical disk of your server. When you use premium storage disks with a VM, the physical disk counters are for each premium storage disk, and logical disk counters are for each volume created on the premium storage disks. You must capture the values for the disks that host your application workload. If there is a one to one mapping between logical and physical disks, you can refer to physical disk counters; otherwise refer to the logical disk counters. On Linux, the iostat command generates a CPU and disk utilization report. The disk utilization report provides statistics per physical device or partition. If you have a database server with its data and logs on separate disks, collect this data for both disks. Below table describes counters for disks, processors, and memory:
 
-| Counter | Description | PerfMon | Iostat |
+| Counter | Description | PerfMon | iostat |
 | --- | --- | --- | --- |
 | **IOPS or Transactions per second** |Number of I/O requests issued to the storage disk per second. |Disk Reads/sec <br> Disk Writes/sec |tps <br> r/s <br> w/s |
 | **Disk Reads and Writes** |% of Reads and Write operations performed on the disk. |% Disk Read Time <br> % Disk Write Time |r/s <br> w/s |
@@ -139,7 +138,7 @@ Throughout this section, refer to the application requirements checklist that yo
 
 ### Optimize IOPS, throughput, and latency at a glance
 
-The table below summarizes performance factors and the steps necessary to optimize IOPS, throughput, and latency. The sections following this summary will describe each factor is much more depth.
+The table below summarizes performance factors and the steps necessary to optimize IOPS, throughput, and latency. The sections following this summary will describe each factor in much more depth.
 
 For more information on VM sizes and on the IOPS, throughput, and latency available for each type of VM, see [Sizes for virtual machines in Azure](sizes.md).
 

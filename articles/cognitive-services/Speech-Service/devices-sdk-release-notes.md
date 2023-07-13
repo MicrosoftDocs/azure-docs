@@ -7,7 +7,7 @@ author: eric-urban
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
-ms.topic: reference
+ms.topic: release-notes
 ms.date: 02/12/2022
 ms.author: eur
 ---
@@ -119,4 +119,4 @@ The following sections list changes in the most recent releases.
 
 ## Speech Devices SDK 0.2.12733: 2018-May release
 
-The first public preview release of the Cognitive Services Speech Devices SDK.
+The first public preview release of the Speech Devices SDK.
