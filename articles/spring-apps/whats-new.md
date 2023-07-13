@@ -31,25 +31,24 @@ The following update is now available in all plans:
 
 The following update is now available in Basic/Standard plan:
 
-- **Azure Developer CLI (azd) for Azure Spring Apps**: Azure Developer CLI (azd) is an open-source tool that accelerates the time it takes for you to get your application from local development environment to Azure.  You can now initialize, package, provision and deploy a spring application onto Azure Spring Apps with only a few commands.[Try it on our quickstarts](https://learn.microsoft.com/en-us/azure/spring-apps/quickstart-deploy-web-app?tabs=Azure-Developer-CLI&pivots=sc-standard).
+- **Azure Developer CLI (azd) for Azure Spring Apps**: Azure Developer CLI (azd) is an open-source tool that accelerates the time it takes for you to get your application from local development environment to Azure.  You can now initialize, package, provision and deploy a spring application onto Azure Spring Apps with only a few commands.[Try it on our quickstarts](quickstart-deploy-web-app.md?tabs=Azure-Developer-CLI&pivots=sc-standard).
 
 The following updates are now available in Enterprise plan:
 
-- **Shareable build result among ASA-E instances (Preview)**: Allow to have full visibility of ASA built images by bring-your-own ACR to support below scenarios: 1) build and test in PREPROD environment and deploy to multiple PROD environments with the verified images; 2) orchestrate secure CICD pipeline to plug in any steps between build and deploy actions.  
+- **Shareable build result among ASA-E instances (Preview)**: Allow to have full visibility of ASA built images by bring-your-own ACR to support below scenarios: 1) build and test in PREPROD environment and deploy to multiple PROD environments with the verified images; 2) orchestrate secure CICD pipeline to plug in any steps between build and deploy actions.  Check [How to deploy](how-to-enterprise-deploy-polyglot-apps.md?tabs=Portal%2Cuser-managed-container-registry#build-and-deploy-polyglot-applications) and [CI/CD with GitHub Actions](how-to-github-actions.md?pivots=programming-language-java#create-or-update-build-enterprise-plan-only).
 
-- **High Availability support for App Accelerator and App Live View**: App Accelerator and App Live View now support multiple replicas to offer high availability.
+- **High Availability support for App Accelerator and App Live View**: App Accelerator and App Live View now support multiple replicas to offer high availability.[Learn More](how-to-use-dev-tool-portal.md?tabs=Portal).
 
-- **Spring Cloud Gateway auto scaling**: Spring Cloud Gateway now supports auto scaling to better serve the elastic traffic without the hassling of manual scaling.
+- **Spring Cloud Gateway auto scaling**: Spring Cloud Gateway now supports auto scaling to better serve the elastic traffic without the hassling of manual scaling.[Learn More](how-to-configure-enterprise-spring-cloud-gateway.md?tabs=Azure-portal#set-up-autoscale-settings-for-vmware-spring-cloud-gateway-in-azure-cli).
 
-- **Application Configuration Service – polyglot support**: Not only for Spring apps, any polyglot app (dotNet, Go, etc.) can be supported to leverage Application Configuration Service to manage its external configurations.
+- **Application Configuration Service – polyglot support**: Not only for Spring apps, any polyglot app (dotNet, Go, etc.) can be supported to leverage Application Configuration Service to manage its external configurations.[Learn More](how-to-enterprise-application-configuration-service.md?tabs=Portal#polyglot-support).
 
-- **Application Configuration Service – enhanced performance and security**: Performance dramatic enhancement in git monitoring operations allowing for faster updates of configuration and certification verification over TLS between it and git repos. [Learn More](https://learn.microsoft.com/en-us/azure/spring-apps/how-to-enterprise-application-configuration-service?tabs=Portal#polyglot-support).
+- **Application Configuration Service – enhanced performance and security**: Performance dramatic enhancement in git monitoring operations allowing for faster updates of configuration and certification verification over TLS between it and git repos. [Learn More](how-to-enterprise-application-configuration-service.md).
 
-- **1000 app instance support (preview)**: Maximum app instance count in one Azure Spring Apps enterprise service instance now is enlarged to be 1000 to support large scale microservice cluster.
+- **1000 app instance support (preview)**: Maximum app instance count in one Azure Spring Apps enterprise service instance now is enlarged to be 1000 to support large scale microservice cluster.[Learn More](quotas.md).
 
-- **App Accelerator certificate verification**: Certification verification over TLS between App Accelerator and git repos.
+- **App Accelerator certificate verification**: Certification verification over TLS between App Accelerator and git repos[Learn More](how-to-use-accelerator.md?tabs=Portal#configure-accelerators-with-a-self-signed-certificate).
 
-- **App Live View tooling support**: To better facilitate developer inner loop troubleshooting convenience, App Live View has been integrated into VS Code for developers to quickly open and troubleshoot apps in development.
 
 
 ## March 2023
