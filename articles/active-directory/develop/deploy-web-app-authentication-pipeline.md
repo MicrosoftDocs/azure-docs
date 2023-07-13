@@ -113,8 +113,55 @@ Add a service connection:
 
 1. When the **Configure** tab appears, select **ASP.NET Core**.
 
-1. When your new pipeline appears, take a look at the YAML to see what it does. When you're ready, select **Save and run**. To commit your changes to GitHub and start the pipeline, choose Commit directly to the main branch and select Save and run a second time. If prompted to grant permission with a message like This pipeline needs permission to access a resource before this run can continue, choose View and follow the prompts to permit access.
+1. A new pipeline with a very basic configuration appears. The default configuration uses a Microsoft-hosted agent.
 
+    ```yml
+    # Starter pipeline
+    # Start with a minimal pipeline that you can customize to build and deploy your code.
+    # Add steps that build, run tests, deploy, and more:
+    # https://aka.ms/yaml
+    
+    trigger:
+    - main
+    
+    pool:
+      vmImage: ubuntu-latest
+    
+    steps:
+    - script: echo Hello, world!
+      displayName: 'Run a one-line script'
+    
+    - script: |
+        echo Add other tasks to build, test, and deploy your project.
+        echo See https://aka.ms/yaml
+      displayName: 'Run a multi-line script'
+    ```
+
+1. When you're ready, select **Save and run**. To commit your changes to GitHub and start the pipeline, choose Commit directly to the main branch and select Save and run a second time. If prompted to grant permission with a message like **This pipeline needs permission to access a resource before this run can continue**, choose **View** and follow the prompts to permit access.
+
+Under **Jobs**, select **Job**. Next, trace the build process through each of the steps. To see the job output as a text file when the build completes, you can also select **View** raw log.
+
+## Add a variable group
+
+Add a variable group and varialbes to the pipeline.  Select **Library** in the left navigation pane and create a new **Variable group**.
+
+Give it the name "AzureResourcesVariableGroup".  Add the following variables and values:
+
+| Variable name | Value |
+| --- | --- |
+| KEYVAULTNAME | pipelinetestwebapp |
+| LOCATION | centralus |
+| PIPELINESPID | app-id|
+| RESOURCEGROUPNAME | pipelinetestgroup |
+| SVCPLANNAME | pipelinetestplan |
+| TENANTID |  tenant-id|
+| TESTCLIENNAME | pipelinetestclient |
+| TESTUSERNAME | testuser123 |
+| WEBAPPNAMETEST | pipelinetestwebapp |
+
+Select **Save**.
+
+Give the pipeline permissions to access the variable group.  Select **Pipeline permissions**, add your pipeline, and then close the window.
 
 ## Build and deploy the web app to Azure App Service
 
