@@ -110,6 +110,7 @@ Azure AD makes available a tenant-independent version of the document at [https:
       ]
     }
     ```
+ 3. Applications that use Azure AD's tenant-id (`tid`) claim as a trust boundary instead of the standard issuer claim should ensure that the tenant-id claim is a guid and that the issuer and tenant-id match.
 
 Using tenant-independent metadata is more efficient for applications which accept tokens from many tenants.
 
