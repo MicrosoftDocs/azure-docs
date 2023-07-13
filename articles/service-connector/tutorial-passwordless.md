@@ -505,7 +505,7 @@ public class Main {
 
 ### [Spring](#tab/spring)
 
-For Spring application, if you create connection with option `--client-type springboot`, Service Connector will set the properties `spring.datasource.url` with value format `jdbc:sqlserver://<sql-server>.database.windows.net:1433;databaseName=<sql-db>;authentication=ActiveDirectoryMSI;` to Azure Spring Apps. You needs to remove the `spring.datatsource.password` in configuration if it's set before. Then you need to add the dependencies to your Spring application as the tutorial [Bind an Azure Database for PostgreSQL to your application in Azure Spring Apps](/azure/developer/java/spring-framework/migrate-sql-database-to-passwordless-connection?tabs=spring%2Capp-service%2Cassign-role-service-connector#2-migrate-the-app-code-to-use-passwordless-connections)
+For Spring application, if you create connection with option `--client-type springboot`, Service Connector will set the properties `spring.datasource.url` with value format `jdbc:sqlserver://<sql-server>.database.windows.net:1433;databaseName=<sql-db>;authentication=ActiveDirectoryMSI;` to Azure Spring Apps. You needs to remove the `spring.datatsource.password` in configuration if it's set before. Then you need to add the dependencies to your Spring application as the tutorial [Migrate a Java application to use passwordless connections with Azure SQL Database](/azure/developer/java/spring-framework/migrate-sql-database-to-passwordless-connection?tabs=spring%2Capp-service%2Cassign-role-service-connector#2-migrate-the-app-code-to-use-passwordless-connections)
 
 
 ### [Dotnet](#tab/dotnet)
