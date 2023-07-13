@@ -31,7 +31,7 @@ VMware Spring Cloud Gateway includes the following features:
 - Circuit breaker configuration
 - Support for accessing application services via HTTP Basic Authentication credentials
 
-To integrate with the API portal for VMware Tanzu, VMware Spring Cloud Gateway automatically generates OpenAPI version 3 documentation after any route configuration additions or changes. For more information, see [Use API portal for VMware Tanzu](./how-to-use-enterprise-api-portal.md).
+To integrate with the API portal for VMware Tanzu, VMware Spring Cloud Gateway automatically generates OpenAPI version 3 documentation after any additions or changes to route configuration. For more information, see [Use API portal for VMware Tanzu](./how-to-use-enterprise-api-portal.md).
 
 ## Prerequisites
 
@@ -43,7 +43,7 @@ To integrate with the API portal for VMware Tanzu, VMware Spring Cloud Gateway a
 
 ## Enable or disable VMware Spring Cloud Gateway
 
-You can enable and disable VMware Spring Cloud Gateway after creation of the service instance by using the Azure portal or the Azure CLI. Before you disable VMware Spring Cloud Gateway, you must unassign its endpoint and remove all route configurations.
+You can enable or disable VMware Spring Cloud Gateway after creation of the service instance by using the Azure portal or the Azure CLI. Before you disable VMware Spring Cloud Gateway, you must unassign its endpoint and remove all route configurations.
 
 ### [Azure portal](#tab/Azure-portal)
 
@@ -134,7 +134,7 @@ az spring gateway update \
 
 VMware Spring Cloud Gateway metadata automatically generates OpenAPI version 3 documentation. You can configure VMware Spring Cloud Gateway metadata to display route groups in the API portal for VMware Tanzu. For more information, see [Use API portal for VMware Tanzu](./how-to-use-enterprise-api-portal.md).
 
-The following table describes the available metadata options:
+The following table describes the available metadata options.
 
 | Property      | Description                                                                                                                                                                                                                                                                 |
 |---------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -159,7 +159,7 @@ To edit metadata in the Azure portal, use the following steps:
 
 #### [Azure CLI](#tab/Azure-CLI)
 
-Use the following command to configure metadata properties for VMware Spring Cloud Gateway. You need the endpoint URL that you obtained when you [configured VMware Spring Cloud Gateway](#assign-a-public-endpoint-to-vmware-spring-cloud-gateway).
+Use the following command to configure metadata properties for VMware Spring Cloud Gateway. You need the endpoint URL that you obtained when you [assigned a public endpoint to VMware Spring Cloud Gateway](#assign-a-public-endpoint-to-vmware-spring-cloud-gateway).
 
 ```azurecli
 az spring gateway update \
@@ -231,7 +231,7 @@ VMware Spring Cloud Gateway service instances provide a default API endpoint to 
 
 ### Log out of the IdP and SSO session
 
-If you send a `GET` request to the `/scg-logout` endpoint, the endpoint sends a `302` redirect response to the IdP logout URL. To get the endpoint to return the user back to a path on the VMware Spring Cloud Gateway service instance, add a redirect parameter to the `GET` request with the `/scg-logout` endpoint. For example, use `${server-url}/scg-logout?redirect=/home`.
+If you send a `GET` request to the `/scg-logout` endpoint, the endpoint sends a `302` redirect response to the IdP logout URL. To get the endpoint to return the user to a path on the VMware Spring Cloud Gateway service instance, add a redirect parameter to the `GET` request with the `/scg-logout` endpoint. For example, use `${server-url}/scg-logout?redirect=/home`.
 
 The value of the redirect parameter must be a valid path on the VMware Spring Cloud Gateway service instance. You can't redirect to an external URL.
 
@@ -514,7 +514,7 @@ You can also put environment variables in the `--secrets` parameter instead of `
 
 You can configure the log levels of VMware Spring Cloud Gateway in the following ways to get more details or to reduce logs:
 
-- You can set log levels to `TRACE`, `DEBUG`, `INFO`, `WARN`, `ERROR`, `OFF`. The default log level for VMware Spring Cloud Gateway is `INFO`.
+- You can set log levels to `TRACE`, `DEBUG`, `INFO`, `WARN`, `ERROR`, or `OFF`. The default log level for VMware Spring Cloud Gateway is `INFO`.
 - You can turn off logs by setting log levels to `OFF`.
 - When the log level is set to `WARN`, `ERROR`, or `OFF`, you might be required to adjust it to `INFO` when requesting support from the Azure Spring Apps team. This change causes a restart of VMware Spring Cloud Gateway.
 - When the log level is set to `TRACE` or `DEBUG`, it might affect the performance of VMware Spring Cloud Gateway. Try avoid these settings in your production environment.
@@ -564,7 +564,7 @@ If the log level is sensitive information in your case, you can include it by us
 
 ---
 
-## Configure add-on configuration
+## Update add-on configuration
 
 The add-on configuration feature enables you to customize certain properties of VMware Spring Cloud Gateway by using a JSON format string. The feature is useful when you need to configure properties that aren't exposed through the REST API.
 
