@@ -63,7 +63,7 @@ The SAP built-in connector significantly differs from the SAP managed connector 
 
   Instead, the SAP built-in connector communicates directly with your SAP server on the local network, which avoids hops, latency, and failure points for a network gateway.Make sure that you upload or deploy the non-redistributable SAP client libraries with your logic app workflow application. For more information, see the [Prerequisites](#prerequisites) in this guide.
 
-* Payload size can now exceed 2.5 MB, so you don't have to use a blob URI for large requests.
+* Payload sizes up to 100 MB are supported, so you don't have to use a blob URI for large requests.
 
 * Specific actions are available for **Call BAPI**, **Call RFC**, and **Send IDoc**. These dedicated actions provide a better experience for stateful BAPIs, RFC transactions, and IDoc deduplication, and don't use the older SOAP Windows Communication Foundation (WCF) messaging model.
 
@@ -71,11 +71,9 @@ The SAP built-in connector significantly differs from the SAP managed connector 
 
 * No timeouts.
 
-  The SAP built-in connector doesn't use the shared or global connector infrastructure, which means no timeout happens as with the SAP managed connector (two minutes) and the SAP ISE-versioned connector (four minutes). Long-running requests are expected to work as-is without having to implement the webhook long-running request action pattern.
+  The SAP built-in connector doesn't use the shared or global connector infrastructure, which means no timeout happens as with the SAP managed connector (two minutes) and the SAP ISE-versioned connector (four minutes). Long-running requests work without you having to implement the [long-running webhook-based request action pattern](logic-apps-scenario-function-sb-trigger.md).
 
-* Enable stateful mode (affinity) for stateless built-in, service provider-based connectors
-
-  For more information, see [Enable stateful mode for stateless built-in, service provider-based connectors](../connectors/enable-stateful-affinity-built-in-connectors.md).
+* By default, the preview SAP built-in connector operations are *stateless*. However, you can [enable stateful mode (affinity) for these operations](../connectors/enable-stateful-affinity-built-in-connectors.md). In stateful mode, the SAP built-in connector supports high availability and horizontal scale-out configurations. By comparison, the SAP managed connector has restrictions regarding the on-premises data gateway limited to a single instance for triggers and to clusters only in failover mode for actions. For more information, see [SAP managed connector - Known issues and limitations](#known-issues-limitations).
 
 <a name="connector-parameters"></a>
 
@@ -86,6 +84,8 @@ Along with simple string and number inputs, the SAP connector accepts the follow
 * Table direction parameters, both input and output, for older SAP releases.
 * Parameter changes, which replace the table direction parameters for newer SAP releases.
 * Hierarchical table parameters.
+
+<a name="known-issues-limitations"></a>
 
 ## Known issues and limitations
 
@@ -151,7 +151,7 @@ The preview SAP built-in connector trigger named **Register SAP RFC server for t
     > When you use a Premium-level ISE, use the ISE-native SAP connector, not the SAP managed connector, 
     > which doesn't natively run in an ISE. For more information, review the [ISE prerequisites](#ise-prerequisites).
 
-* By default, the preview SAP built-in connector operations are stateless. To run these operations in stateful mode, see [Enable stateful mode for stateless built-in connectors](../connectors/enable-stateful-affinity-built-in-connectors.md).
+* By default, the preview SAP built-in connector operations are *stateless*. To run these operations in stateful mode, see [Enable stateful mode for stateless built-in connectors](../connectors/enable-stateful-affinity-built-in-connectors.md).
 
 * To use either the SAP managed connector trigger named **When a message is received from SAP** or the SAP built-in trigger named **Register SAP RFC server for trigger**, complete the following tasks:
 
@@ -1060,7 +1060,7 @@ See the steps for [SAP logging for Consumption logic apps in multi-tenant workfl
 
 ## Enable SAP client library (NCo) logging and tracing (Built-in connector only)
 
-When you have to investigate any problems with this component, you can set up custom text file-based NCo tracing, which SAP or Microsoft support might request from you. By default, this capability is disabled because enabling this trace might negatively affect performance and quickly consume the application host's disk space.
+When you have to investigate any problems with this component, you can set up custom text file-based NCo tracing, which SAP or Microsoft support might request from you. By default, this capability is disabled because enabling this trace might negatively affect performance and quickly consume the application host's storage space.
 
 You can control this tracing capability at the application level by through the following settings:
 
@@ -1078,7 +1078,7 @@ You can control this tracing capability at the application level by through the 
 
 1. Save your changes. This step restarts the application.
 
-<a name="trace-levels">
+<a name="trace-levels"></a>
 
 ### Trace levels available
 
@@ -1116,8 +1116,8 @@ You can control this tracing capability at the application level by through the 
 
    > [!NOTE]
    >
-   > If you download a log or trace file that's open and currently used by the application, 
-   > your download might result in an empty file.
+   > If you download a log or trace file that your logic app workflow opened 
+   > and is currently in use, your download might result in an empty file.
 
 ## Send SAP telemetry for on-premises data gateway to Azure Application Insights
 

@@ -463,7 +463,7 @@ To send an IDoc using a flat file schema when you use the SAP managed connector,
 
 > [!NOTE]
 >
-> If you're using the SAP built-in connector, make sure that you don't wrap an IDoc in an XML envelope.
+> If you're using the SAP built-in connector, make sure that you don't wrap a flat file IDoc in an XML envelope.
 
 ### Wrap IDoc with XML envelope
 
