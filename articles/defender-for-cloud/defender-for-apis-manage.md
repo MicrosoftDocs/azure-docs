@@ -42,7 +42,7 @@ There are three types of APIs you can query:
 
 1. From the drop down menu, select APIs.
 
-    :::image type="content" source="media/defender-for-apis-manage/cloud-explorer-apis.png" alt-text="Screenshout of Defender for Cloud's cloud security explorer that shows how to select APIs.":::
+    :::image type="content" source="media/defender-for-apis-manage/cloud-explorer-apis.png" alt-text="Screenshot of Defender for Cloud's cloud security explorer that shows how to select APIs." lightbox="media/defender-for-apis-manage/cloud-explorer-apis.png":::
 
 1. Select all relevant options.
 
