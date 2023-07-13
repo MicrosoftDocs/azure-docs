@@ -19,7 +19,7 @@ ms.custom: has-adal-ref
 
 # Certificate user IDs 
 
-Users in Azure AD can have a multivalued attribute named **certificateUserIds**. The attribute allows up to four values, and each value can be of 120-character length. It can store any value, and doesn't require email ID format. It can store non-routable User Principal Names (UPNs) like _bob@woodgrove_ or _bob@local_.
+Users in Azure AD can have a multivalued attribute named **certificateUserIds**. The attribute allows up to four values, and each value can be of 120-character length. It can store any value and doesn't require email ID format. It can store non-routable User Principal Names (UPNs) like _bob@woodgrove_ or _bob@local_.
  
 ## Supported patterns for certificate user IDs
  
@@ -35,11 +35,11 @@ The values stored in **certificateUserIds** should be in the format described in
 
 ## Roles to update certificateUserIds
 
-For cloud only users, only users with roles **Global Administrators**, **Privileged Authentication Administrator** can write into certificateUserIds.
-For sync'd users, AD users with role **Hybrid Identity Administrator** can write into the attribute.
+For cloud-only users, only users with roles **Global Administrators**, **Privileged Authentication Administrator** can write into certificateUserIds.
+For synched users, AD users with role **Hybrid Identity Administrator** can write into the attribute.
 
 >[!NOTE]
->Active Directory Administrators (including accounts with delegated administrative privilege over sync'd user accounts as well as administrative rights over the Azure >AD Connect Servers) can make changes that impact the certificateUserIds value in Azure AD for any sync'd accounts.
+>Active Directory Administrators (including accounts with delegated administrative privilege over synched user accounts as well as administrative rights over the Azure >AD Connect Servers) can make changes that impact the certificateUserIds value in Azure AD for any synched accounts.
  
 ## Update certificate user IDs in the Azure portal
  
@@ -71,7 +71,7 @@ Tenant admins can use the following steps Azure portal to update certificate use
 
 **Look up certificateUserIds**
 
-Authorized callers can run Microsoft Graph queries to find all the users with a given certificateUserId value. On the Microsoft Graph [user](/graph/api/resources/user) object, the collection of certificateUserIds are stored in the **authorizationInfo** property.
+Authorized callers can run Microsoft Graph queries to find all the users with a given certificateUserId value. On the Microsoft Graph [user](/graph/api/resources/user) object, the collection of certificateUserIds is stored in the **authorizationInfo** property.
 
 To retrieve all user objects that have the value 'bob@contoso.com' in certificateUserIds:
 
@@ -192,7 +192,7 @@ To synchronize X509:\<PN>PrincipalNameValue, create an outbound synchronization 
  
 ### Synchronize X509:\<RFC822>RFC822Name
 
-To synchronize X509:\<RFC822>RFC822Name, create an outbound synchronization rule, choose **Expression** in the flow type. Choose the target attribute as **certificateUserIds**, and in the source field, add the following expression. If your source attribute isn't userPrincipalName, you can change the expression accordingly.  
+To synchronize X509:\<RFC822>RFC822Name, create an outbound synchronization rule and choose **Expression** in the flow type. Choose the target attribute as **certificateUserIds**, and in the source field, add the following expression. If your source attribute isn't userPrincipalName, you can change the expression accordingly.  
 
 ```
 "X509:\<RFC822>"&[userPrincipalName]
@@ -241,7 +241,7 @@ alt-security-identity-add.
    |Option | Value |
    |-------|-------|
    |Name | Descriptive name of the rule, such as: Out to AAD - certificateUserIds |
-   |Connected System | Your Azure AD doamin |
+   |Connected System | Your Azure AD domain |
    |Connected System Object Type | user |
    |Metaverse Object Type | person |
    |Precedence | Choose a random high number not currently used |
