@@ -399,6 +399,6 @@ To provide more sign-in security, you can enforce Microsoft Entra ID Multifactor
 
 -   [Tutorial: Configure Secure Hybrid Access with Azure AD and Datawiza](datawiza-with-azure-ad.md)
 
--   [Tutorial: Configure Azure AD B2C with Datawiza to provide secure hybrid access](active-directory-b2c/partner-datawiza.md)
+-   [Tutorial: Configure Azure AD B2C with Datawiza to provide secure hybrid access](../active-directory-b2c/partner-datawiza.md)
 
 -   Go to docs.datawiza.com for [Datawiza user guides](https://docs.datawiza.com/)
