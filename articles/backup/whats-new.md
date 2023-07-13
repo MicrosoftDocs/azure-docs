@@ -68,7 +68,7 @@ Azure Backup now supports backup of HANA database with HANA System Replication. 
 
 This eliminates the need of manual intervention to continue backups on the new primary node during a failover. With the elimination of the need to trigger full backups for every failover, you can save costs and reduce time for continue protection.
 
-For more information, see [Back up a HANA system with replication enabled](sap-hana-database-about.md#back-up-a-hana-system-with-replication-enabled-preview).
+For more information, see [Back up a HANA system with replication enabled](sap-hana-database-about.md#back-up-a-hana-system-with-replication-enabled).
 
 ## Cross Region Restore for PostgreSQL (preview)
 
@@ -161,7 +161,7 @@ Azure Backup now supports backup of HANA database with HANA System Replication. 
 
 This eliminates the need of manual intervention to continue backups on the new primary node during a failover. With the elimination of the need to trigger full backups for every failover, you can save costs and reduce time for continue protection.
 
-For more information, see [Back up a HANA system with replication enabled (preview)](sap-hana-database-about.md#back-up-a-hana-system-with-replication-enabled-preview).
+For more information, see [Back up a HANA system with replication enabled (preview)](sap-hana-database-about.md#back-up-a-hana-system-with-replication-enabled).
 
 ## Built-in Azure Monitor alerting for Azure Backup is now generally available
 
