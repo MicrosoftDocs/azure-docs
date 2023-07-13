@@ -54,9 +54,9 @@ You can generate caches for your Visual Studio solution as part of an automated 
 
 When a Dev Box user opens the solution on a dev box based off the customized image, Visual Studio will read the already generated caches and skip the cache generation altogether. 
 
-## Enable Git Commit-Graph optimizations
+## Enable Git commit-graph optimizations
 
-You can also enable [Commit-Graph optimizations](https://devblogs.microsoft.com/visualstudio/supercharge-your-git-experience-in-vs/) as part of an automated pipeline that generates custom Dev Box images. To do so, you must meet the following requirements:
+Beyond the [standalone commit-graph feature that was made available with Visual Studio 17.2 Preview 3](https://devblogs.microsoft.com/visualstudio/supercharge-your-git-experience-in-vs/), you can also enable [commit-graph optimizations] as part of an automated pipeline that generates custom Dev Box images. To do so, you must meet the following requirements:
 
 * You're using [Microsoft Dev Box](overview-what-is-microsoft-dev-box.md) as your development workstation.
 * The source code for your project is saved in a non-user specific location to be included in the image.
