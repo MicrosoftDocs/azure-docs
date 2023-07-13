@@ -50,7 +50,7 @@ The Microsoft Sentinel solution for Power Platform ingests and cross-correlates 
 
 ### Analytic rules
 
-The solution includes analytics rules to detect threats and suspicious activity in your Power Platform environment. These activities include Power Apps being run from unauthorized geographies, suspicious data destruction by Power Apps, mass deletion of Power Apps, and more. For more information, see [Microsoft Sentinel solution for Microsoft Power Platform: security content reference](power-platform-security-solution-content.md).
+The solution includes analytics rules to detect threats and suspicious activity in your Power Platform environment. These activities include Power Apps being run from unauthorized geographies, suspicious data destruction by Power Apps, mass deletion of Power Apps, and more. For more information, see [Microsoft Sentinel solution for Microsoft Power Platform: security content reference](power-platform-solution-security-content.md).
 
 ## Next steps
 
