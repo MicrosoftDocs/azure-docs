@@ -101,11 +101,11 @@ After you create your artifacts and set up GitHub OIDC, you can use `draft gener
     az aks draft up --destination /Workspaces/ContosoAir
     ```
 
-## Use Web Application Routing with Draft to make your application accessible over the internet
+## Use Application Routing with Draft to make your application accessible over the internet
 
-[Web Application Routing][web-app-routing] is the easiest way to get your web application up and running in Kubernetes securely. Web Application Routing removes the complexity of ingress controllers and certificate and DNS management, and it offers configuration for enterprises looking to bring their own. Web Application Routing offers a managed ingress controller based on nginx that you can use without restrictions and integrates out of the box with Open Service Mesh to secure intra-cluster communications.
+ Application Routing][app-routing] is the easiest way to get your web application up and running in Kubernetes securely. Application Routing removes the complexity of ingress controllers and certificate and DNS management, and it offers configuration for enterprises looking to bring their own. Application Routing offers a managed ingress controller based on nginx that you can use without restrictions and integrates out of the box with Open Service Mesh to secure intra-cluster communications.
 
-- Set up Draft with Web Application Routing using the [`az aks draft update`][az-aks-draft-update] and pass in the DNS name and Azure Key Vault-stored certificate when prompted.
+- Set up Draft with Application Routing using the [`az aks draft update`][az-aks-draft-update] and pass in the DNS name and Azure Key Vault-stored certificate when prompted.
 
     ```azure-cli-interactive
     az aks draft update
@@ -119,7 +119,7 @@ After you create your artifacts and set up GitHub OIDC, you can use `draft gener
 
 <!-- LINKS INTERNAL -->
 [deploy-cluster]: ./tutorial-kubernetes-deploy-cluster.md
-[web-app-routing]: web-app-routing.md
+[app-routing]: app-routing.md
 [az-extension-add]: /cli/azure/extension#az-extension-add
 [az-extension-update]: /cli/azure/extension#az-extension-update
 [az-aks-draft-update]: /cli/azure/aks/draft#az-aks-draft-update
