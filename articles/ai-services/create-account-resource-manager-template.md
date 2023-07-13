@@ -44,7 +44,7 @@ One Azure resource is defined in the Bicep file: [Microsoft.CognitiveServices/ac
 
 # [Azure portal](#tab/portal)
 
-1. Click the **Deploy to Azure** button.
+1. Select the **Deploy to Azure** button.
 
     [![Deploy to Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.cognitiveservices%2Fcognitive-services-universalkey%2Fazuredeploy.json)
 
@@ -53,9 +53,9 @@ One Azure resource is defined in the Bicep file: [Microsoft.CognitiveServices/ac
     |Value  |Description  |
     |---------|---------|
     | **Subscription** | Select an Azure subscription. |
-    | **Resource group** | Select **Create new**, enter a unique name for the resource group, and then click **OK**. |
+    | **Resource group** | Select **Create new**, enter a unique name for the resource group, and then select **OK**. |
     | **Region** | Select a region.  For example, **East US** |
-    | **Cognitive Service Name** | Replace with a unique name for your resource. You will need the name in the next section when you validate the deployment. |
+    | **Cognitive Service Name** | Replace with a unique name for your Azure AI services resource. You will need the name in the next section when you validate the deployment. |
     | **Location** | Replace with the region used above. |
     | **Sku** | The [pricing tier](https://azure.microsoft.com/pricing/details/cognitive-services/) for your resource. |
 
@@ -89,7 +89,7 @@ read
 
 # [Portal](#tab/portal)
 
-When your deployment finishes, you will be able to click the **Go to resource** button to see your new resource. You can also find the resource group by:
+When your deployment finishes, you will be able to select the **Go to resource** button to see your new resource. You can also find the resource group by:
 
 1. Selecting **Resource groups** from the left navigation menu.
 2. Selecting the resource group name.

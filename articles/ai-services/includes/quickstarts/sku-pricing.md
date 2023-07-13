@@ -1,5 +1,5 @@
 ---
-title: "Cognitive Service SKUs and pricing"
+title: "Azure AI services SKUs and pricing"
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme

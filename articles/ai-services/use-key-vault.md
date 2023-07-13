@@ -58,7 +58,7 @@ Key Vault reduces the chances that secrets may be accidentally leaked, because y
 ::: zone-end
 
 > [!NOTE]
-> Review the documentation and quickstart articles for the Cognitive Service you're using to get an understanding of:
+> Review the documentation and quickstart articles for the Azure AI service you're using to get an understanding of:
 > * The credentials and other information you will need to send API calls.
 > * The packages and code you will need to run your application.
 
@@ -599,4 +599,4 @@ If you're using a multi-service resource or Language resource, you can update [y
 * For additional information on secure application development, see:
     * [Best practices for using Azure Key Vault](../key-vault/general/best-practices.md)
     * [Azure AI services security](security-features.md)
-    * [Azure security baseline for Cognitive Services](/security/benchmark/azure/baselines/cognitive-services-security-baseline?toc=/azure/ai-services/TOC.json)
+    * [Azure security baseline for Azure AI services](/security/benchmark/azure/baselines/cognitive-services-security-baseline?toc=/azure/ai-services/TOC.json)

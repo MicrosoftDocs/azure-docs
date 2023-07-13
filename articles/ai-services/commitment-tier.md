@@ -31,8 +31,6 @@ Commitment tier pricing is also available for the following Azure AI service:
 
 * Azure AI Vision - OCR
 
-Commitment tier pricing is also available for the following Applied AI service:
-
 * Document Intelligence – Custom/Invoice
 
 For more information, see [Azure AI services pricing](https://azure.microsoft.com/pricing/details/cognitive-services/).
@@ -67,7 +65,7 @@ For more information, see [Azure AI services pricing](https://azure.microsoft.co
     * **Auto-renewal** - Choose how you want to renew, change, or cancel the current commitment plan starting with the next billing cycle. If you decide to autorenew, the **Auto-renewal date** is the date (in your local timezone) when you'll be charged for the next billing cycle. This date coincides with the start of the calendar month.
 
     > [!CAUTION]
-    > Once you click **Purchase** you will be charged for the tier you select. Once purchased, the commitment plan is non-refundable.
+    > Once you select **Purchase** you will be charged for the tier you select. Once purchased, the commitment plan is non-refundable.
     >
     > Commitment plans are charged monthly, except the first month upon purchase which is pro-rated (cost and quota) based on the number of days remaining in that month. For the subsequent months, the charge is incurred on the first day of the month.
 

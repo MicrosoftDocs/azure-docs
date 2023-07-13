@@ -29,7 +29,7 @@
     href: cognitive-services-and-machine-learning.md 
   - name: Custom subdomains for Azure AI services
     href: cognitive-services-custom-subdomains.md
-- name: How-To
+- name: How-to
   items:
   - name: Plan and manage costs 
     href: plan-manage-costs.md

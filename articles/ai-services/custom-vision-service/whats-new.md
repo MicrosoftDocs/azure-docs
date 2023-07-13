@@ -59,6 +59,6 @@ Learn what's new in the service. These items may be release notes, videos, blog 
 
 * The Smart Labeler tool on the [Custom Vision website](https://www.customvision.ai/) generates suggested tags for your training images. This lets you label a large number of images more quickly when training a Custom Vision model. For instructions on how to use this feature, see [Suggested tags](./suggested-tags.md).
 
-## Cognitive Service updates
+## Azure AI services updates
 
 [Azure update announcements for Azure AI services](https://azure.microsoft.com/updates/?product=cognitive-services)

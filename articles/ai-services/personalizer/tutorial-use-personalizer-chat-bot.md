@@ -30,7 +30,7 @@ Use a C# .NET chat bot with a Personalizer loop to provide the correct content t
 
 A chat bot is typically a back-and-forth conversation with a user. This specific chat bot uses Personalizer to select the best action (coffee or tea) to offer the user. Personalizer uses reinforcement learning to make that selection.
 
-The chat bot needs to manage turns in conversation. The chat bot uses [Bot Framework](https://github.com/microsoft/botframework-sdk) to manage the bot architecture and conversation and uses the Cognitive Service, [Language Understanding](../LUIS/index.yml) (LUIS), to understand the intent of the natural language from the user.
+The chat bot needs to manage turns in conversation. The chat bot uses [Bot Framework](https://github.com/microsoft/botframework-sdk) to manage the bot architecture and conversation and uses [Azure AI Language Understanding](../LUIS/index.yml) (LUIS), to understand the intent of the natural language from the user.
 
 The chat bot is a web site with a specific route available to answer requests, `http://localhost:3978/api/messages`. You can use the Bot Framework Emulator to visually interact with the running chat bot while you are developing a bot locally.
 

@@ -1233,7 +1233,7 @@ items:
     items:
     - name: Virtual networks
       href: ../cognitive-services-virtual-networks.md?context=/azure/ai-services/language-service/context/context
-    - name: Cognitive Services security
+    - name: Azure AI services security
       href: ../security-features.md?context=/azure/ai-services/language-service/context/context
     - name: Encryption of data at rest
       href: concepts/encryption-data-at-rest.md
