@@ -95,8 +95,6 @@ If no sampling overrides match:
 * If this is the first span in the trace, then the
   [top-level sampling configuration](./java-standalone-config.md#sampling) is used.
 * If this is not the first span in the trace, then the parent sampling decision is used.
-* 
-
 
 ## Example: Suppress collecting telemetry for health checks
 
