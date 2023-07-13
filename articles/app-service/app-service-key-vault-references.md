@@ -1,10 +1,10 @@
 ---
 title: Use Key Vault references
 description: Learn how to set up Azure App Service and Azure Functions to use Azure Key Vault references. Make Key Vault secrets available to your application code.
-author: mattchenderson
+author: cephalin
 
 ms.topic: article
-ms.date: 06/11/2021
+ms.date: 07/31/2023
 ms.author: mahender
 ms.custom: seodec18
 
@@ -37,13 +37,13 @@ If your vault is configured with [network restrictions](../key-vault/general/ove
     # [Azure CLI](#tab/azure-cli)
 
     ```azurecli
-    az webapp config set --subscription <sub> -g MyResourceGroupName -n MyAppName --generic-configurations '{"vnetRouteAllEnabled": true}'
+    az webapp config set --subscription <sub> -g <group-name> -n <app-name> --generic-configurations '{"vnetRouteAllEnabled": true}'
     ```
     
     # [Azure PowerShell](#tab/azure-powershell) 
 
     ```azurepowershell
-    Update-AzFunctionAppSetting -Name MyAppName -ResourceGroupName MyResourceGroupName -AppSetting @{vnetRouteAllEnabled = $true}
+    Update-AzFunctionAppSetting -Name <app-name> -ResourceGroupName <group-name> -AppSetting @{vnetRouteAllEnabled = $true}
     ```
     
     ---
@@ -68,18 +68,17 @@ Once you have granted permissions to the user-assigned identity, follow these st
     # [Azure CLI](#tab/azure-cli)
     
     ```azurecli-interactive
-    userAssignedIdentityResourceId=$(az identity show -g MyResourceGroupName -n MyUserAssignedIdentityName --query id -o tsv)
-    appResourceId=$(az webapp show -g MyResourceGroupName -n MyAppName --query id -o tsv)
-    az rest --method PATCH --uri "${appResourceId}?api-version=2021-01-01" --body "{'properties':{'keyVaultReferenceIdentity':'${userAssignedIdentityResourceId}'}}"
+    identityResourceId=$(az identity show --resource-group <group-name> --name <identity-name> --query id -o tsv)
+    az webapp update --resource-group <group-name> --name <app-name> --set keyVaultReferenceIdentity=${identityResourceId}
     ```
     # [Azure PowerShell](#tab/azure-powershell) 
     
     ```azurepowershell-interactive   
-    $userAssignedIdentityResourceId = Get-AzUserAssignedIdentity -ResourceGroupName MyResourceGroupName -Name MyUserAssignedIdentityName | Select-Object -ExpandProperty Id
-    $appResourceId = Get-AzFunctionApp -ResourceGroupName MyResourceGroupName -Name MyAppName | Select-Object -ExpandProperty Id
+    $identityResourceId = Get-AzUserAssignedIdentity -ResourceGroupName <group-name> -Name MyUserAssignedIdentityName | Select-Object -ExpandProperty Id
+    $appResourceId = Get-AzFunctionApp -ResourceGroupName <group-name> -Name <app-name> | Select-Object -ExpandProperty Id
     
     $Path = "{0}?api-version=2021-01-01" -f $appResourceId
-    Invoke-AzRestMethod -Method PATCH -Path $Path -Payload "{'properties':{'keyVaultReferenceIdentity':'$userAssignedIdentityResourceId'}}"
+    Invoke-AzRestMethod -Method PATCH -Path $Path -Payload "{'properties':{'keyVaultReferenceIdentity':'$identityResourceId'}}"
     ```
     
     ---
@@ -261,8 +260,7 @@ You can also use one of the built-in detectors to get additional information.
 1. In the portal, navigate to your app.
 2. Select **Diagnose and solve problems**.
 3. Choose **Availability and Performance** and select **Web app down.**
-4. Find **Key Vault Application Settings Diagnostics** and click **More info**.
-
+4. In the search box, search for and select **Key Vault Application Settings Diagnostics**.
 
 ### Using the detector for Azure Functions
 
