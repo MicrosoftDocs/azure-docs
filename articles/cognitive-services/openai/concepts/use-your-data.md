@@ -145,7 +145,7 @@ Avoid asking long questions and break them down into multiple questions if possi
 
 You can use the available web app to interact with your model using a graphical user interface, which you can deploy using either [Azure OpenAI studio](../use-your-data-quickstart.md?pivots=programming-language-studio#deploy-a-web-app) or a [manual deployment](https://github.com/microsoft/sample-app-aoai-chatGPT). 
 
-![A screenshot of the web app interface.](media/use-your-data/web-app.png)
+![A screenshot of the web app interface.](../media/use-your-data/web-app.png)
 
 You can also customize the app's frontend and backend logic. For example, you could change the icon that appears in the center of the app by updating `/frontend/src/assets/Azure.svg` and then redeploying the app [using the Azure CLI](https://github.com/microsoft/sample-app-aoai-chatGPT#deploy-with-the-azure-cli).  See the source code for the web app, and more information [on GitHub](https://github.com/microsoft/sample-app-aoai-chatGPT).
 
