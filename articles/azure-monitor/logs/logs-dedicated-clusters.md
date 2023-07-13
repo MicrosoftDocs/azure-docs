@@ -9,7 +9,7 @@ ms.custom: devx-track-azurepowershell, devx-track-azurecli
 
 # Create and manage a dedicated cluster in Azure Monitor Logs 
 
-Linking a Log Analytics workspace to a dedicated cluster in Azure Monitor provides advanced capabilities and higher query utilization. Clusters require a minimum ingestion commitment of 100 GB per day. You can link and unlink workspaces from a dedicated cluster without any data loss or service interruption. 
+Linking a Log Analytics workspace to a dedicated cluster in Azure Monitor provides advanced capabilities and higher query utilization. Clusters require a minimum ingestion commitment of 500 GB per day. You can link and unlink workspaces from a dedicated cluster without any data loss or service interruption. 
 
 ## Advanced capabilities
 Capabilities that require dedicated clusters:
@@ -24,7 +24,7 @@ eligible for commitment tier discount.
 - **[Ingest from Azure Event Hubs](../logs/ingest-logs-event-hub.md)** - Lets you ingest data directly from an Event Bubs into a Log Analytics workspace. Dedicated cluster lets you use capability when ingestion from all linked workspaces combined meet commitment tier. 
 
 ## Cluster pricing model
-Log Analytics Dedicated Clusters use a commitment tier pricing model of at least 100 GB/day. Any usage above the tier level incurs charges based on the per-GB rate of that commitment tier. See [Azure Monitor Logs pricing details](cost-logs.md#dedicated-clusters) for pricing details for dedicated clusters. The commitment tiers have a 31-day commitment period from the time a commitment tier is selected.
+Log Analytics Dedicated Clusters use a commitment tier pricing model of at least 500 GB/day. Any usage above the tier level incurs charges based on the per-GB rate of that commitment tier. See [Azure Monitor Logs pricing details](cost-logs.md#dedicated-clusters) for pricing details for dedicated clusters. The commitment tiers have a 31-day commitment period from the time a commitment tier is selected.
 
 ## Required permissions
 
@@ -46,7 +46,7 @@ Provide the following properties when creating new dedicated cluster:
 - **ClusterName**: Must be unique for the resource group.
 - **ResourceGroupName**: Use a central IT resource group because many teams in the organization usually share clusters. For more design considerations, review Design a Log Analytics workspace configuration(../logs/workspace-design.md).
 - **Location**
-- **SkuCapacity**: You can set the commitment tier (formerly called capacity reservations) to 100, 200, 300, 400, 500, 1000, 2000 or 5000 GB/day. For more information on cluster costs, see [Dedicate clusters](./cost-logs.md#dedicated-clusters). 
+- **SkuCapacity**: You can set the commitment tier (formerly called capacity reservations) to 500, 1000, 2000 or 5000 GB/day. For more information on cluster costs, see [Dedicate clusters](./cost-logs.md#dedicated-clusters). 
 - **Managed identity**: Clusters support two [managed identity types](../../active-directory/managed-identities-azure-resources/overview.md#managed-identity-types): 
   - System-assigned managed identity - Generated automatically with the cluster creation when identity `type` is set to "*SystemAssigned*". This identity can be used later to grant storage access to your Key Vault for wrap and unwrap operations.
 
@@ -120,7 +120,7 @@ Content-type: application/json
     },
   "sku": {
     "name": "capacityReservation",
-    "Capacity": 100
+    "Capacity": 500
     },
   "properties": {
     "billingType": "Cluster",
@@ -175,7 +175,7 @@ Send a GET request on the cluster resource and look at the *provisioningState* v
     },
     "sku": {
       "name": "capacityreservation",
-      "capacity": 100
+      "capacity": 500
     },
     "properties": {
       "provisioningState": "ProvisioningAccount",
@@ -187,7 +187,7 @@ Send a GET request on the cluster resource and look at the *provisioningState* v
       "isAvailabilityZonesEnabled": false,
       "capacityReservationProperties": {
         "lastSkuUpdate": "last-sku-modified-date",
-        "minCapacity": 100
+        "minCapacity": 500
       }
     },
     "id": "/subscriptions/subscription-id/resourceGroups/resource-group-name/providers/Microsoft.OperationalInsights/clusters/cluster-name",
@@ -403,7 +403,7 @@ Authorization: Bearer <token>
       },
       "sku": {
         "name": "capacityreservation",
-        "capacity": 100
+        "capacity": 500
       },
       "properties": {
         "provisioningState": "Succeeded",
@@ -415,7 +415,7 @@ Authorization: Bearer <token>
         "isAvailabilityZonesEnabled": false,
         "capacityReservationProperties": {
           "lastSkuUpdate": "last-sku-modified-date",
-          "minCapacity": 100
+          "minCapacity": 500
         }
       },
       "id": "/subscriptions/subscription-id/resourceGroups/resource-group-name/providers/Microsoft.OperationalInsights/clusters/cluster-name",
@@ -466,7 +466,7 @@ The same as for 'clusters in a resource group', but in subscription scope.
 
 ## Update commitment tier in cluster
 
-When the data volume to linked workspaces changes over time, you can update the Commitment Tier level appropriately to optimize cost. The tier is specified in units of Gigabytes (GB) and can have values of 100, 200, 300, 400, 500, 1000, 2000 or 5000 GB per day. You don't have to provide the full REST request body, but you must include the sku.
+When the data volume to linked workspaces changes over time, you can update the Commitment Tier level appropriately to optimize cost. The tier is specified in units of Gigabytes (GB) and can have values of 500, 1000, 2000 or 5000 GB per day. You don't have to provide the full REST request body, but you must include the sku.
 
 During the commitment period, you can change to a higher commitment tier, which restarts the 31-day commitment period. You can't move back to pay-as-you-go or to a lower commitment tier until after you finish the commitment period.
 
@@ -475,7 +475,7 @@ During the commitment period, you can change to a higher commitment tier, which 
 ```azurecli
 az account set --subscription "cluster-subscription-id"
 
-az monitor log-analytics cluster update --resource-group "resource-group-name" --name "cluster-name"  --sku-capacity 100
+az monitor log-analytics cluster update --resource-group "resource-group-name" --name "cluster-name"  --sku-capacity 500
 ```
 
 #### [PowerShell](#tab/powershell)
@@ -483,7 +483,7 @@ az monitor log-analytics cluster update --resource-group "resource-group-name" -
 ```powershell
 Select-AzSubscription "cluster-subscription-id"
 
-Update-AzOperationalInsightsCluster -ResourceGroupName "resource-group-name" -ClusterName "cluster-name" -SkuCapacity 100
+Update-AzOperationalInsightsCluster -ResourceGroupName "resource-group-name" -ClusterName "cluster-name" -SkuCapacity 500
 ```
 
 #### [REST API](#tab/restapi)
@@ -673,9 +673,9 @@ Authorization: Bearer <token>
 -  400--The body of the request is null or in bad format.
 -  400--SKU name is invalid. Set SKU name to capacityReservation.
 -  400--Capacity was provided but SKU isn't capacityReservation. Set SKU name to capacityReservation.
--  400--Missing Capacity in SKU. Set Capacity value to 100, 200, 300, 400, 500, 1000, 2000 or 5000 GB/day.
+-  400--Missing Capacity in SKU. Set Capacity value to 500, 1000, 2000 or 5000 GB/day.
 -  400--Capacity is locked for 30 days. Decreasing capacity is permitted 30 days after update.
--  400--No SKU was set. Set the SKU name to capacityReservation and Capacity value to 100, 200, 300, 400, 500, 1000, 2000 or 5000 GB/day.
+-  400--No SKU was set. Set the SKU name to capacityReservation and Capacity value to 500, 1000, 2000 or 5000 GB/day.
 -  400--Identity is null or empty. Set Identity with systemAssigned type.
 -  400--KeyVaultProperties are set on creation. Update KeyVaultProperties after cluster creation.
 -  400--Operation can't be executed now. Async operation is in a state other than succeeded. Cluster must complete its operation before any update operation is performed.

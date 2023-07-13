@@ -69,8 +69,8 @@ landingContent:
             url: blob-backup-overview.md
           - text: Selective Disk backup with Enhanced policy for Azure VM (preview)
             url: selective-disk-backup-restore.md
-          - text: SAP HANA System Replication backup (preview)
-            url: sap-hana-database-about.md#back-up-a-hana-system-with-replication-enabled-preview
+          - text: SAP HANA System Replication backup
+            url: sap-hana-database-about.md#back-up-a-hana-system-with-replication-enabled
           - text: Cross Region Restore for PostgreSQL (preview)
             url: backup-vault-overview.md#cross-region-restore-support-for-postgresql-using-azure-backup-preview
 
@@ -122,7 +122,7 @@ landingContent:
         links:
           - text: Back up SAP HANA databases on Azure VMs
             url: backup-azure-sap-hana-database.md
-          - text: Back up SAP HSR databases on Azure VMs (preview)
+          - text: Back up SAP HSR databases on Azure VMs
             url: sap-hana-database-with-hana-system-replication-backup.md
           - text: Back up SAP HANA databases' instance snapshots on Azure VMs (preview)
             url: sap-hana-database-instances-backup.md
