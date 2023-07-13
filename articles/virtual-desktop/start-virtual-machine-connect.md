@@ -19,7 +19,7 @@ For personal host pools, Start VM On Connect will only turn on an existing sessi
 The time it takes for a user to connect to a session host VM that is powered off (deallocated) increases because the VM needs time to turn on again, much like turning on a physical computer. The Remote Desktop client has an indicator that lets the user know the VM is being powered on while they're connecting.
 
 > [!NOTE]
-> - Azure Virtual Desktop (classic) doesn't support Start VM On Connect.
+> Azure Virtual Desktop (classic) doesn't support Start VM On Connect.
 
 ## Prerequisites
 
