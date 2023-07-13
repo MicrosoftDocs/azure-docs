@@ -141,7 +141,7 @@ For the Hyperscale service tier, zone redundancy support can only be specified d
 
     - **Database copy and point-in-time restore methods (Offline mode)** creates a transactionally consistent database at a certain point in time. As a result, any data changes performed after the copy or restore operation have been initiated won't be available on the copied or restored database.
     
-    - **Geo replica method (Online mode)** is a mode of redeployment wherein any data changes from source is synchronized to target.  
+    - **Geo replica method (Online mode)** is a mode of redeployment wherein any data changes from source are synchronized to target.  
 
 - Connection string for the application must be updated to point to the zone redundant database. 
 
