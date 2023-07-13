@@ -8,7 +8,7 @@ ms.service: azure-large-instances
 ms.date: 06/01/2023
 ---
 
-# Frequently asked questions about Epic on Azure Large Instances
+# Frequently asked questions about the Epic workload on Azure Large Instances
 
 This article provides answers to frequently asked questions about Azure Large Instances (ALI) for the Epic<sup>®</sup> workload.
 
@@ -36,7 +36,7 @@ Ensure that your VNET address space provided in the request is the same as what 
 It’s not mandatory, but it's possible.
 If you need guidance, create a support ticket with Azure Customer Support so that Azure ARC Support can help in your setup.
 
-## How do I monitor Azure Large Instances(ALI) for Epic?
+## How do I monitor Azure Large Instances for the Epic workload?
 
 ALI is an IaaS offering and Azure teams are actively monitoring ALI infrastructure (network devices, storage appliances, server hardware, etc.).
 Customer alerts related to infrastructure are provided only via Azure portal’s Service Health.  
@@ -79,12 +79,4 @@ In the dropdown menu you can look for the Epic key word and then "Azure Large In
 ## What resources are available to learn more?
 
 See [What is Azure Large Instances?](../../what-is-azure-large-instances.md).
-
-## Next steps
-
-Learn how to identify and interact with ALI instances through the Azure portal.
-
-> [!div class="nextstepaction"]
-> [What is Azure Large Instances?](../../what-is-azure-large-instances.md)
-
 

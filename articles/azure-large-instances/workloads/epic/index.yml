@@ -22,6 +22,8 @@ landingContent:
         links:
           - text: Overview
             url: index.yml
+          - text: Available ALI SKUs for the Epic workload
+            url: available-skus.md
 
 # card 2
   - title: Solution architecture

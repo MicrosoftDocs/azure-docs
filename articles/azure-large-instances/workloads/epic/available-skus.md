@@ -8,7 +8,8 @@ ms.service: azure-large-instances
 ms.date: 06/01/2023
 ---
 
-# Available SKUs
+# Available ALI SKUs for the Epic workload    
+
 This article provides a list of available ALI for Epic<sup>®</sup> workload SKUs.
 ## Azure Large Instances availability by region
 

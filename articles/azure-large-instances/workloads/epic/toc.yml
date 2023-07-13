@@ -1,5 +1,9 @@
 - name: ALI for Epic workload documentation
   href: index.yml
+- name: Overview
+  items:
+  - name: Available ALI SKUs for the Epic workload
+    href: available-skus.md
 - name: Solution architecture
   items:
   - name: Architecture
