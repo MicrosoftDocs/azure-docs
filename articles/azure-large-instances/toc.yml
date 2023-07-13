@@ -6,5 +6,7 @@
     href: what-is-azure-large-instances.md
   - name: Working with ALI in the Azure portal
     href: work-with-ali-in-the-azure-portal.md
-- name: Azure Large Instances for Epic
-  href: ./workloads/epic/index.yml
+- name: Workloads
+  items:
+  - name: Azure Large Instances for Epic
+    href: ./workloads/epic/index.yml
