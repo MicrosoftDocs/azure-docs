@@ -120,6 +120,11 @@ To discover the HSR database, follow these steps:
 
    To view the details about all the databases of each discovered VM, select **View details** under the **Step 1: Discover DBs in VMs section**.
 
+>[!Note]
+>During discovery or configuration of backup on the secondary node, ignore the status if the **Backup Readiness** state appears **Not Ready** as this is an expected state for the secondary node on HSR.
+>
+>    :::image type="content" source="./media/sap-hana-database-with-hana-system-replication-backup/backup-readiness-state.png" alt-text="Screenshot shows the different backup readiness state." lightbox="./media/sap-hana-database-with-hana-system-replication-backup/backup-readiness-state.png":::
+
 ## Configure backup
 
 To enable the backup, follow these steps:
