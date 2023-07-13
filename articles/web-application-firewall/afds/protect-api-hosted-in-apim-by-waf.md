@@ -121,7 +121,7 @@ Requests routed through the Front Door include headers specific to your Front Do
 
 1. Obtain the newly created Azure Front Door endpoint from the **Front Door Manager**.
 
-   :::image type="content" source="../media/protect-api-hosted-in-apim-by-waf/afd-get-endpoint.png" alt-text="A screenshot showing the AFD endpoint selected." lightbox="../media/protect-api-hosted-in-apim-by-waf/afd-get-endpoint.png:::
+   :::image type="content" source="../media/protect-api-hosted-in-apim-by-waf/afd-get-endpoint.png" alt-text="A screenshot showing the AFD endpoint selected." lightbox="../media/protect-api-hosted-in-apim-by-waf/afd-get-endpoint.png":::
 
 2. Look at origin groups and confirm that the origin host name is __contoso-afd-apim-resource.azure-api.net.__ This step verifies that the APIM instance is an origin in the newly configured Azure Front Door premium.
 
