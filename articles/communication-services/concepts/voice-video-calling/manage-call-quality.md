@@ -271,12 +271,8 @@ By collecting call data such as Media Statistics, User Facing Diagnostics, and p
 
 The call may have fired a User Facing Diagnostic indicating a severe problem with the incoming or outgoing media steam quality. By storing the [detailed media statistics](media-quality-sdk.md) from the call you can review when the UFD occurred to see if there were high levels of packet loss, jitter, or latency around this time indicating a poor network condition. You explore whether the network was impacted by an external client's unmanaged network, unnecessary network traffic due to improper Quality of Service (QoS) network prioritization policies, or an unnecessary Virtual Private Network (VPN) for example.
 
-[!Note] 
-As a rule, we recommend prioritizing a user’s Audio
-  connection bandwidth before their video connection and both audio and video before
-  other network traffic. When a network is unable to support both audio
-  and video, you can proactively disable a user’s video or nudge a user
-  to disable their video.
+> [!Note] 
+> As a rule, we recommend prioritizing a user’s Audio connection bandwidth before their video connection and both audio and video before other network traffic. When a network is unable to support both audio and video, you can proactively disable a user’s video or nudge a user to disable their video.
 
 ### Other considerations
 <!-- - Considerations for Teams user data:
