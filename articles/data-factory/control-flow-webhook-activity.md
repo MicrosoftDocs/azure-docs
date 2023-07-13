@@ -26,7 +26,7 @@ A webhook activity can control the execution of pipelines through custom code. W
 To use a Webhook activity in a pipeline, complete the following steps:
 
 1. Search for _Webhook_ in the pipeline Activities pane, and drag a Webhook activity to the pipeline canvas.
-1. Select the new Fail activity on the canvas if it is not already selected, and its  **Settings** tab, to edit its details.
+1. Select the new webhook activity on the canvas if it is not already selected, and its  **Settings** tab, to edit its details.
 
    :::image type="content" source="media/control-flow-webhook-activity/webhook-activity.png" alt-text="Shows the UI for a Webhook activity.":::
 

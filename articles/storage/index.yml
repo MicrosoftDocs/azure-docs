@@ -1,18 +1,18 @@
 ### YamlMime:Hub
 
 title: Azure Storage documentation
-summary: Azure Storage includes object, file, disk, queue, and table storage. There are also services for hybrid storage solutions, and services to transfer, share, and back up data.
+summary: Azure Storage products offer secure and scalable cloud and hybrid data storage services to businesses. Review technical documentation and resources to choose, implement, and optimize the right Azure Storage solution for your data. Options include object, file, disk, queue, and table Storage. There are also services for hybrid storage solutions, and services to transfer, share, and back up data.
 brand: azure
 
 metadata:
-  title: Azure Storage documentation
-  description: Azure Storage documentation hub page. Points to service documentation for cloud and hybrid storage solutions, and services to transfer, share, and back up data. 
+  title: Azure Storage Documentation Hub | Microsoft Learn
+  description: Azure Storage options include cloud and hybrid storage solutions. Find documentation for object, file, disk, queue, big data, and table Storage. 
   ms.service: storage
   ms.custom: ignite-2022
   ms.topic: hub-page
   author: normesta
   ms.author: normesta
-  ms.date: 03/09/2022
+  ms.date: 05/25/2023
 highlightedContent:
 # itemType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
   items:
@@ -42,17 +42,17 @@ highlightedContent:
 additionalContent:
   # Supports up to 3 sections
   sections:
-    - title: Cloud storage solutions
+    - title: Azure Cloud storage solutions
       items:
         # Card
         - title: Object storage for your applications
           links:
           - url: ./blobs/storage-blobs-introduction.md
-            text: Learn about storage for unstructured data (Blob storage)
+            text: Learn about storage for unstructured data (Blob Storage)
           - url: /rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs
             text: Understand block, append, and page blobs  
           - url: ./blobs/index.yml
-            text: See more >
+            text: All Blob Storage documentation >
         # Card
         - title: Storage for big data analytics
           links:
@@ -73,7 +73,7 @@ additionalContent:
           - url: ../virtual-machines/managed-disks-overview.md
             text: Learn about Azure managed disks for Azure VMs
           - url: ../virtual-machines/disks-types.md
-            text: Understand the available disk types
+            text: Understand the available virtual machine disk types
           - url: elastic-san/elastic-san-introduction.md
             text: Learn about Azure Elastic SAN
           - url: elastic-san/elastic-san-planning.md
@@ -82,34 +82,34 @@ additionalContent:
         - title: Storage for asynchronous message queuing
           links:
           - url: ./queues/storage-queues-introduction.md
-            text: Learn about the Azure Storage solution for queues (Queue storage)
+            text: Learn about the Azure Storage solution for queues (Queue Storage)
           - url: ../service-bus-messaging/service-bus-azure-and-service-bus-queues-compared-contrasted.md
-            text: Compare Queue storage and Service Bus queues  
+            text: Compare Queue Storage and Service Bus queues  
           - url: ./queues/index.yml
-            text: See more >
+            text: All Queue Storage documentation >
         # Card
         - title: Storage for structured NoSQL data
           links:
           - url: ./tables/table-storage-overview.md
-            text: Store structured NoSQL data in the cloud (Table storage and Azure Cosmos DB)
+            text: Store structured NoSQL data in the cloud (Table Storage and Azure Cosmos DB)
           - url: ../cosmos-db/table-support.md
-            text: Compare Table storage and Azure Cosmos DB for Table
+            text: Compare Table Storage and Azure Cosmos DB for Table
           - url: ./tables/index.yml
-            text: See more >
+            text: All Table Storage documentation >
 
-    - title: Hybrid storage solutions
+    - title: Azure Hybrid storage solutions
       items:
         # Card
         - title: Expand on-premises file share to the cloud
           links:
           - url: ./file-sync/file-sync-introduction.md
-            text: Learn about Azure File Sync
+            text: Azure File Sync Introduction
           - url: ./file-sync/file-sync-planning.md
             text: Sync Azure file shares with Windows file server (Azure FileSync)
           - url: ./file-sync/file-sync-deployment-guide.md
             text: Deploy Azure File Sync
           - url: ./file-sync/index.yml
-            text: See more >
+            text: All Azure File Sync documentation >
         # Card
         - title: Online data transfer (on-premises to Azure)
           links:
@@ -118,7 +118,7 @@ additionalContent:
           - url: ../databox-online/azure-stack-edge-overview.md
             text: Locally process data before transfer to Azure (Azure Stack Edge)
           - url: ../databox-online/index.yml
-            text: See more >
+            text: All Data Box Online documentation >
         # Card
         - title: Caching for high-performance computing (HPC) workloads
           links:
@@ -141,7 +141,7 @@ additionalContent:
           - url: ../databox/data-box-heavy-overview.md
             text: Transfer > 500 TB of data (Data Box Heavy)
           - url: ../databox/index.yml
-            text: See more >
+            text: All Data Box documentation >
         # Card
         - title: Transfer small datasets (online)
           links:
@@ -156,6 +156,12 @@ additionalContent:
           links:
           - url: ./blobs/access-tiers-overview.md
             text: Tier blob data in cost-effective manner (hot, cool, archive)
+          - url: ./blobs/access-tiers-online-manage.md
+            text: How to set a blob's access tier
+          - url: ./blobs/archive-blob.md
+            text: How to archive a blob
+          - url: /training/modules/optimize-archive-costs-blob-storage
+            text: 'Training: Using Blob Storage tiers'
         # Card
         - title: Share your data
           links:
@@ -163,8 +169,8 @@ additionalContent:
             text: Share data with customers and partners (Azure Data Share)
           - url: ../data-share/supported-data-stores.md
             text: Supported data stores for sharing
-          - url: ../data-share/index.yml
-            text: See more >
+          - url: ../data-share/share-your-data.md
+            text: Azure Data Share tutorial
         # Card
         - title: Back up data
           links:
@@ -173,4 +179,4 @@ additionalContent:
           - url: ../backup/backup-afs.md
             text: Back up Azure file shares
           - url: ../backup/index.yml
-            text: See more >
+            text: All back up documentation >

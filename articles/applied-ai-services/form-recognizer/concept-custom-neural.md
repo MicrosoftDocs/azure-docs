@@ -7,7 +7,7 @@ manager: nitinme
 ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: conceptual
-ms.date: 03/03/2023
+ms.date: 05/23/2023
 ms.author: lajanuar
 ms.custom: references_regions
 monikerRange: 'form-recog-3.0.0'
@@ -128,7 +128,7 @@ Values in training cases should be diverse and representative. For example, if a
 * The model doesn't recognize values split across page boundaries.
 * Custom neural models are only trained in English. Model performance is lower for documents in other languages.
 * If a dataset labeled for custom template models is used to train a custom neural model, the unsupported field types are ignored.
-* Custom neural models are limited to 10 build operations per month. Open a support request if you need the limit increased.
+* Custom neural models are limited to 20 build operations per month. Open a support request if you need the limit increased. For more information, see [Form Recognizer service quotas and limits](service-limits.md)
 
 ## Training a model
 

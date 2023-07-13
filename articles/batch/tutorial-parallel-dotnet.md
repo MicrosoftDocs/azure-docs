@@ -4,7 +4,7 @@ description: Learn how to transcode media files in parallel using ffmpeg in Azur
 ms.devlang: csharp
 ms.topic: tutorial
 ms.date: 04/19/2023
-ms.custom: "mvc, devx-track-csharp"
+ms.custom: mvc, devx-track-csharp, devx-track-dotnet
 ---
 
 # Tutorial: Run a parallel workload with Azure Batch using the .NET API

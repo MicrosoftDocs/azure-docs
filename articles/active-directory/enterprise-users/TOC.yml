@@ -67,7 +67,7 @@
     - name: Restrict guest user access
       href: users-restrict-guest-permissions.md
     - name: Clean up unmanaged accounts
-      href: clean-up-unmanaged-azure-ad-accounts.md 
+      href: clean-up-unmanaged-accounts.md 
     - name: Clean up stale guest accounts
       href: clean-up-stale-guest-accounts.md
     - name: Dynamic groups and guests   
@@ -154,6 +154,8 @@
       href: licensing-group-advanced.md
     - name: Group licensing with PowerShell and Graph
       href: licensing-ps-examples.md
+    - name: Group licensing examples Microsoft Graph PowerShell
+      href: licensing-powershell-graph-examples.md
     - name: Service plan IDs for licensing
       href: licensing-service-plan-reference.md
   - name: Sign-in

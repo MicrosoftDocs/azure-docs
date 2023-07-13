@@ -1,31 +1,25 @@
 ---
-title: Contextual on-object interaction with Azure Maps Power BI visuals (preview)
+title: Contextual on-object interaction with Azure Maps Power BI visuals
 titleSuffix: Azure Maps
 description: How to format elements by selecting the element directly on the map to bring up the available formatting options.
 author: deniseatmicrosoft
-ms.author: limingchen 
+ms.author: limingchen
 ms.date: 03/13/2023
 ms.topic: how-to
 ms.service: azure-maps
 services: azure-maps
 ---
 
-# Contextual on-object interaction with Azure Maps Power BI Visual (preview)
+# Contextual on-object interaction with Azure Maps Power BI visual (preview)
 
 The Azure Maps Power BI Visual now features on-object interaction, an
 intuitive and efficient way to update the formatting of any element on the map.
 With on-object interaction, you can interact with the Azure Maps Power BI
 Visual like you interact with other Microsoft products or web applications.
 
-## Setting the Preview features option
+## Use on-object interaction in your Power BI Visual
 
-To use on-object interaction in your Power BI Visual, you must first select the **on-object interaction** setting in Power BI options, as shown in the following screenshot.
-
-:::image type="content" source="./media/power-bi-visual/on-object-interaction/on-object-interaction-setting.png" alt-text="A screenshot showing on-object interaction setting in Power BI." lightbox="./media/power-bi-visual/on-object-interaction/on-object-interaction-setting.png":::
-
-## using on-object interaction in your Power BI Visual
-
-on-object interaction can be used to edit chart titles, legends, bubble
+On-object interaction can be used to edit chart titles, legends, bubble
 layers, Map style and Map controls.
 
 ### Formatting objects on the map

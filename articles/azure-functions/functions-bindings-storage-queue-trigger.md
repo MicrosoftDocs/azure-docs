@@ -4,7 +4,7 @@ description: Learn to run an Azure Function as Azure Queue storage data changes.
 ms.topic: reference
 ms.date: 04/04/2023
 ms.devlang: csharp, java, javascript, powershell, python
-ms.custom: "devx-track-csharp, cc996988-fb4f-47, devx-track-python"
+ms.custom: devx-track-csharp, cc996988-fb4f-47, devx-track-python, devx-track-extended-java, devx-track-js
 zone_pivot_groups: programming-languages-set-functions-lang-workers
 ---
 
@@ -472,7 +472,7 @@ When binding to an object, the Functions runtime tries to deserialize the JSON p
 
 # [Extension 5.x+](#tab/extensionv5/isolated-process)
 
-Isolated worker process currently only supports binding to string parameters.
+[!INCLUDE [functions-bindings-storage-queue-trigger-dotnet-isolated-types](../../includes/functions-bindings-storage-queue-trigger-dotnet-isolated-types.md)]
 
 # [Extension 2.x+](#tab/extensionv2/isolated-process)
 

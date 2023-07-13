@@ -2,7 +2,7 @@
 title: Use extensions with Batch pools
 description: Extensions are small applications that facilitate post-provisioning configuration and setup on Batch compute nodes. 
 ms.topic: how-to
-ms.date: 11/03/2021
+ms.date: 05/26/2023
 ---
 
 # Use extensions with Batch pools
@@ -31,6 +31,7 @@ The following extensions can currently be installed when creating a Batch pool:
 - [HPC GPU driver extension for Windows on NVIDIA](../virtual-machines/extensions/hpccompute-gpu-windows.md)
 - [HPC GPU driver extension for Linux on NVIDIA](../virtual-machines/extensions/hpccompute-gpu-linux.md)
 - [Microsoft Antimalware extension for Windows](../virtual-machines/extensions/iaas-antimalware-windows.md)
+- [Azure Monitor agent for Linux](../azure-monitor/agents/azure-monitor-agent-manage.md)
 
 You can request support for additional publishers and/or extension types by opening a support request.
 
@@ -58,12 +59,12 @@ Request Body
         "deploymentConfiguration": {
             "virtualMachineConfiguration": {
                 "imageReference": {
-                    "publisher": "canonical",
-                    "offer": "ubuntuserver",
-                    "sku": "18.04-lts",
+                    "publisher": "almalinux",
+                    "offer": "almalinux",
+                    "sku": "9-gen1",
                     "version": "latest"
                 },
-                "nodeAgentSkuId": "batch.node.ubuntu 18.04",
+                "nodeAgentSkuId": "batch.node.el 9",
                 "extensions": [
                     {
                         "name": "secretext",

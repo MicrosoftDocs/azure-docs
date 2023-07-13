@@ -10,7 +10,7 @@ ms.topic: how-to
 ms.date: 12/22/2022
 ms.author: pauljewell
 ms.devlang: java
-ms.custom: devx-track-java, devguide-java
+ms.custom: devx-track-java, devguide-java, devx-track-extended-java
 ---
 
 # Manage container properties and metadata with Java

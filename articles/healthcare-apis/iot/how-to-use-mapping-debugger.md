@@ -6,7 +6,7 @@ author: msjasteppe
 ms.service: healthcare-apis
 ms.subservice: iomt
 ms.topic: how-to
-ms.date: 04/28/2023
+ms.date: 05/16/2023
 ms.author: jasteppe
 ---
 
@@ -38,14 +38,14 @@ The following video presents an overview of the Mapping debugger:
    :::image type="content" source="media\how-to-use-mapping-debugger\mapping-debugger-upload-and-download.png" alt-text="Screenshot of the Mapping debugger main screen with Upload and Download buttons highlighted." lightbox="media\how-to-use-mapping-debugger\mapping-debugger-upload-and-download.png":::
 
    **Upload** - With this selection, you can upload:
-    - **Device mapping**: Can be edited and saved (optional) to the MedTech service.
-    - **FHIR destination mapping**: Can be edited and saved (optional) to the MedTech service.
-    - **Test device message**: Used by the validation service to produce a sample normalized measurement and FHIR Observation based on the supplied mappings.
+    * **Device mapping**: Can be edited and saved (optional) to the MedTech service.
+    * **FHIR destination mapping**: Can be edited and saved (optional) to the MedTech service.
+    * **Test device message**: Used by the validation service to produce a sample normalized measurement and FHIR Observation based on the supplied mappings.
 
    **Download** - With this selection you can download copies of:
-     - **Device mapping**: The device mapping currently used by your MedTech service.
-     - **FHIR destination mapping**: The FHIR destination mapping currently used by your MedTech service.
-     - **Mappings**: Both mappings currently used by your MedTech service
+     * **Device mapping**: The device mapping currently used by your MedTech service.
+     * **FHIR destination mapping**: The FHIR destination mapping currently used by your MedTech service.
+     * **Mappings**: Both mappings currently used by your MedTech service
 
 ## How to troubleshoot the device and FHIR destination mappings using the Mapping debugger
 

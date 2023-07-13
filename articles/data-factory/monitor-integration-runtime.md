@@ -7,7 +7,7 @@ ms.topic: conceptual
 ms.date: 08/12/2022
 author: nabhishek
 ms.author: abnarain
-ms.custom: devx-track-azurepowershell
+ms.custom:
 ---
 
 # Monitor an integration runtime in Azure Data Factory

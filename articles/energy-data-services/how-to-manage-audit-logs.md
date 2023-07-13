@@ -1,13 +1,13 @@
 ---
-title: How to manage audit logs for Microsoft Azure Data Manager for Energy Preview
-description: Learn how to use audit logs on Azure Data Manager for Energy Preview
+title: How to manage audit logs for Microsoft Azure Data Manager for Energy
+description: Learn how to use audit logs on Azure Data Manager for Energy
 author: sandeepchads
 ms.author: sancha
 ms.service: energy-data-services    
 ms.topic: how-to
 ms.date: 04/11/2023
 ms.custom: template-how-to
-#Customer intent: As a developer, I want to use audit logs to check audit trail for data plane APIs for Azure Data Manager for Energy Preview.
+#Customer intent: As a developer, I want to use audit logs to check audit trail for data plane APIs for Azure Data Manager for Energy.
 ---
 
 
@@ -90,6 +90,6 @@ OEPAuditLogs
 
 Learn about Managed Identity:
 > [!div class="nextstepaction"]
-> [Managed Identity in Azure Data Manager for Energy Preview](how-to-use-managed-identity.md)
+> [Managed Identity in Azure Data Manager for Energy](how-to-use-managed-identity.md)
 
 

@@ -3,19 +3,16 @@ title: Key concepts and roles
 titleSuffix: Azure Deployment Environments
 description: Learn the key concepts, role definitions, and terminology for Azure Deployment Environments.
 ms.service: deployment-environments
-ms.custom: ignite-2022
+ms.custom: ignite-2022, build-2023
 ms.topic: conceptual
 ms.author: rosemalcolm
 author: RoseHJM
 ms.date: 04/25/2023
 ---
 
-# Key concepts for Azure Deployment Environments Preview
+# Key concepts for Azure Deployment Environments
 
-Learn about the key concepts and components of Azure Deployment Environments Preview. This knowledge can help you more effectively deploy environments for your scenarios.
-
-> [!IMPORTANT]
-> Azure Deployment Environments is currently in preview. For legal terms that apply to Azure features that are in beta, in preview, or otherwise not yet released into general availability, see the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+Learn about the key concepts and components of Azure Deployment Environments. This knowledge can help you more effectively deploy environments for your scenarios.
 
 ## Dev centers
 
@@ -57,14 +54,14 @@ Project environment types allow you to automatically apply the right set of poli
 
 Catalogs help you provide a set of curated IaC templates for your development teams to create environments. You can attach either a [GitHub repository](https://docs.github.com/repositories/creating-and-managing-repositories/about-repositories) or an [Azure DevOps Services repository](/azure/devops/repos/get-started/what-is-repos) as a catalog. 
 
-Deployment environments scan the specified folder of the repository to find [catalog items](#catalog-items). The environments then make those catalog items available to all the projects associated with the dev center.
+Deployment environments scan the specified folder of the repository to find [environment definitions](#environment-definitions). The environments then make those environment definitions available to all the projects associated with the dev center.
 
-## Catalog items
+## Environment definitions
 
-A catalog item is a combination of an IaC template and a manifest file. The template defines the environment, and the manifest provides metadata about the template. Your development teams will use the items that you provide in the catalog to create environments in Azure.
+An environment definition is a combination of an IaC template and a manifest file. The template defines the environment, and the manifest provides metadata about the template. Your development teams will use the items that you provide in the catalog to create environments in Azure.
 
 > [!NOTE]
-> During public preview, Azure Deployment Environments uses Azure Resource Manager (ARM) templates.
+> Azure Deployment Environments uses Azure Resource Manager (ARM) templates.
 
 ## ARM templates
 

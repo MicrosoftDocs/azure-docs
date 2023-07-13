@@ -4,7 +4,7 @@ items:
 - name: Overview
   expanded: true
   items: 
-    - name: What is Azure Deployment Environments Preview?
+    - name: What is Azure Deployment Environments?
       displayName: Azure Deployment Environments overview
       href: overview-what-is-azure-deployment-environments.md
 - name: Quickstarts
@@ -31,8 +31,8 @@ items:
   items:
     - name: Add & configure a catalog
       href: how-to-configure-catalog.md
-    - name: Add & configure a catalog item
-      href: configure-catalog-item.md
+    - name: Add & configure an environment definition
+      href: configure-environment-definition.md
     - name: Configure a managed identity
       href: how-to-configure-managed-identity.md
     - name: Configure dev center environment types

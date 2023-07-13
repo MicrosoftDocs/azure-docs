@@ -4,7 +4,7 @@ description: List of services supporting managed identities
 services: active-directory
 author: barclayn
 ms.author: barclayn
-ms.date: 05/10/2023
+ms.date: 05/25/2023
 ms.topic: conceptual
 ms.service: active-directory
 ms.subservice: msi

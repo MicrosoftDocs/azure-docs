@@ -8,7 +8,7 @@ ms.topic: conceptual
 ms.date: 10/24/2022
 author: lrtoyou1223
 ms.author: lle 
-ms.custom: devx-track-azurepowershell, synapse
+ms.custom: synapse
 ---
 
 # How to create and configure Azure Integration Runtime
@@ -104,4 +104,3 @@ See the following articles on how to create other types of integration runtimes:
 
 - [Create self-hosted integration runtime](create-self-hosted-integration-runtime.md)
 - [Create Azure-SSIS integration runtime](create-azure-ssis-integration-runtime.md)
-

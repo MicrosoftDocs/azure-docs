@@ -58,7 +58,7 @@ The Microsoft Purview connector for the Amazon S3 service is currently deployed 
 | US West (N. California)         | US West (N. California)                        |
 | US West (Oregon)                | US West (Oregon)                      |
 | Africa (Cape Town)              | Europe (Frankfurt)                    |
-| Asia Pacific (Hong Kong)        | Asia Pacific (Tokyo)                |
+| Asia Pacific (Hong Kong Special Administrative Region)        | Asia Pacific (Tokyo)                |
 | Asia Pacific (Mumbai)           | Asia Pacific (Singapore)                |
 | Asia Pacific (Osaka-Local)      | Asia Pacific (Tokyo)                 |
 | Asia Pacific (Seoul)            | Asia Pacific (Tokyo)                 |

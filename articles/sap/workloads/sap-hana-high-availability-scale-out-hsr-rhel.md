@@ -10,7 +10,7 @@ ms.subservice: sap-vm-workloads
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 04/25/2023
+ms.date: 07/11/2023
 ms.author: radeltch
 
 ---
@@ -94,8 +94,11 @@ In the following diagram, there are three HANA nodes on each site, and a majorit
 
 [Azure NetApp Files](../../azure-netapp-files/azure-netapp-files-introduction.md) provides the HANA shared file system, `/hana/shared`. It's mounted via NFS v4.1 on each HANA node in the same HANA system replication site. File systems `/hana/data` and `/hana/log` are local file systems, and aren't shared among the HANA DB nodes. SAP HANA will be installed in non-shared mode. 
 
-> [!TIP]
-> For recommended SAP HANA storage configurations, see [SAP HANA Azure VMs storage configurations](./hana-vm-operations-storage.md).   
+For recommended SAP HANA storage configurations, see [SAP HANA Azure VMs storage configurations](./hana-vm-operations-storage.md). 
+
+> [!IMPORTANT]
+> If deploying all HANA file systems on Azure NetApp Files, for production systems, where performance is a key, we recommend to evaluate and consider using [Azure NetApp Files application volume group for SAP HANA](hana-vm-operations-netapp.md#deployment-through-azure-netapp-files-application-volume-group-for-sap-hana-avg).  
+
 
 [![Diagram of SAP HANA scale-out with HSR and Pacemaker cluster.](./media/sap-hana-high-availability-rhel/sap-hana-high-availability-scale-out-hsr-rhel.png)](./media/sap-hana-high-availability-rhel/sap-hana-high-availability-scale-out-hsr-rhel-detail.png#lightbox)
 

@@ -3,7 +3,7 @@ title: Deploy multiple instances of resources
 description: Use copy operation and arrays in an Azure Resource Manager template (ARM template) to deploy resource type many times.
 ms.topic: conceptual
 ms.custom: devx-track-arm-template
-ms.date: 05/07/2021
+ms.date: 05/22/2023
 ---
 
 # Resource iteration in ARM templates
@@ -59,6 +59,10 @@ The following example creates the number of storage accounts specified in the `s
   "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
   "contentVersion": "1.0.0.0",
   "parameters": {
+    "location": {
+      "type": "string",
+      "defaultValue": "[resourceGroup().location]"
+    },
     "storageCount": {
       "type": "int",
       "defaultValue": 3
@@ -66,19 +70,19 @@ The following example creates the number of storage accounts specified in the `s
   },
   "resources": [
     {
+      "copy": {
+        "name": "storagecopy",
+        "count": "[length(range(0, parameters('storageCount')))]"
+      },
       "type": "Microsoft.Storage/storageAccounts",
-      "apiVersion": "2019-04-01",
-      "name": "[concat(copyIndex(),'storage', uniqueString(resourceGroup().id))]",
-      "location": "[resourceGroup().location]",
+      "apiVersion": "2022-09-01",
+      "name": "[format('{0}storage{1}', range(0, parameters('storageCount'))[copyIndex()], uniqueString(resourceGroup().id))]",
+      "location": "[parameters('location')]",
       "sku": {
         "name": "Standard_LRS"
       },
       "kind": "Storage",
-      "properties": {},
-      "copy": {
-        "name": "storagecopy",
-        "count": "[parameters('storageCount')]"
-      }
+      "properties": {}
     }
   ]
 }
@@ -117,33 +121,36 @@ The following example creates one storage account for each name provided in the 
   "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
   "contentVersion": "1.0.0.0",
   "parameters": {
-      "storageNames": {
-          "type": "array",
-          "defaultValue": [
-            "contoso",
-            "fabrikam",
-            "coho"
-          ]
-      }
+    "storageNames": {
+      "type": "array",
+      "defaultValue": [
+        "contoso",
+        "fabrikam",
+        "coho"
+      ]
+    },
+    "location": {
+      "type": "string",
+      "defaultValue": "[resourceGroup().location]"
+    }
   },
   "resources": [
     {
+      "copy": {
+        "name": "storagecopy",
+        "count": "[length(parameters('storageNames'))]"
+      },
       "type": "Microsoft.Storage/storageAccounts",
-      "apiVersion": "2019-04-01",
-      "name": "[concat(parameters('storageNames')[copyIndex()], uniqueString(resourceGroup().id))]",
-      "location": "[resourceGroup().location]",
+      "apiVersion": "2022-09-01",
+      "name": "[format('{0}{1}', parameters('storageNames')[copyIndex()], uniqueString(resourceGroup().id))]",
+      "location": "[parameters('location')]",
       "sku": {
         "name": "Standard_LRS"
       },
       "kind": "Storage",
-      "properties": {},
-      "copy": {
-        "name": "storagecopy",
-        "count": "[length(parameters('storageNames'))]"
-      }
+      "properties": {}
     }
-  ],
-  "outputs": {}
+  ]
 }
 ```
 
@@ -163,26 +170,31 @@ The value for `batchSize` can't exceed the value for `count` in the copy element
 {
   "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
   "contentVersion": "1.0.0.0",
+  "parameters": {
+    "location": {
+      "type": "string",
+      "defaultValue": "[resourceGroup().location]"
+    }
+  },
   "resources": [
     {
-      "type": "Microsoft.Storage/storageAccounts",
-      "apiVersion": "2019-04-01",
-      "name": "[concat(copyIndex(),'storage', uniqueString(resourceGroup().id))]",
-      "location": "[resourceGroup().location]",
-      "sku": {
-        "name": "Standard_LRS"
-      },
-      "kind": "Storage",
       "copy": {
         "name": "storagecopy",
         "count": 4,
         "mode": "serial",
         "batchSize": 2
       },
+      "type": "Microsoft.Storage/storageAccounts",
+      "apiVersion": "2022-09-01",
+      "name": "[format('{0}storage{1}', range(0, 4)[copyIndex()], uniqueString(resourceGroup().id))]",
+      "location": "[parameters('location')]",
+      "sku": {
+        "name": "Standard_LRS"
+      },
+      "kind": "Storage",
       "properties": {}
     }
-  ],
-  "outputs": {}
+  ]
 }
 ```
 

@@ -4,7 +4,7 @@ description: Learn to use the Azure Cosmos DB trigger in Azure Functions.
 ms.topic: reference
 ms.date: 04/04/2023
 ms.devlang: csharp, java, javascript, powershell, python
-ms.custom: devx-track-csharp, devx-track-python, ignite-2022
+ms.custom: devx-track-csharp, devx-track-python, ignite-2022, devx-track-extended-java, devx-track-js
 zone_pivot_groups: programming-languages-set-functions-lang-workers
 ---
 
@@ -55,40 +55,6 @@ C# script is used primarily when creating C# functions in the Azure portal.
 
 The following examples depend on the extension version for the given C# mode.
 
-# [Functions 2.x+](#tab/functionsv2/in-process)
-
-The following example shows a [C# function](functions-dotnet-class-library.md) that is invoked when there are inserts or updates in the specified database and collection.
-
-```cs
-using Microsoft.Azure.Documents;
-using Microsoft.Azure.WebJobs;
-using Microsoft.Azure.WebJobs.Host;
-using System.Collections.Generic;
-using Microsoft.Extensions.Logging;
-
-namespace CosmosDBSamplesV2
-{
-    public static class CosmosTrigger
-    {
-        [FunctionName("CosmosTrigger")]
-        public static void Run([CosmosDBTrigger(
-            databaseName: "ToDoItems",
-            collectionName: "Items",
-            ConnectionStringSetting = "CosmosDBConnection",
-            LeaseCollectionName = "leases",
-            CreateLeaseCollectionIfNotExists = true)]IReadOnlyList<Document> documents,
-            ILogger log)
-        {
-            if (documents != null && documents.Count > 0)
-            {
-                log.LogInformation($"Documents modified: {documents.Count}");
-                log.LogInformation($"First document Id: {documents[0].Id}");
-            }
-        }
-    }
-}
-```
-
 # [Extension 4.x+](#tab/extensionv4/in-process)
 
 Apps using [Azure Cosmos DB extension version 4.x](./functions-bindings-cosmosdb-v2.md?tabs=extensionv4) or higher will have different attribute properties, which are shown below. This example refers to a simple `ToDoItem` type.
@@ -133,56 +99,88 @@ namespace CosmosDBSamplesV2
 }
 ```
 
+# [Functions 2.x+](#tab/functionsv2/in-process)
+
+The following example shows a [C# function](functions-dotnet-class-library.md) that is invoked when there are inserts or updates in the specified database and collection.
+
+```cs
+using Microsoft.Azure.Documents;
+using Microsoft.Azure.WebJobs;
+using Microsoft.Azure.WebJobs.Host;
+using System.Collections.Generic;
+using Microsoft.Extensions.Logging;
+
+namespace CosmosDBSamplesV2
+{
+    public static class CosmosTrigger
+    {
+        [FunctionName("CosmosTrigger")]
+        public static void Run([CosmosDBTrigger(
+            databaseName: "ToDoItems",
+            collectionName: "Items",
+            ConnectionStringSetting = "CosmosDBConnection",
+            LeaseCollectionName = "leases",
+            CreateLeaseCollectionIfNotExists = true)]IReadOnlyList<Document> documents,
+            ILogger log)
+        {
+            if (documents != null && documents.Count > 0)
+            {
+                log.LogInformation($"Documents modified: {documents.Count}");
+                log.LogInformation($"First document Id: {documents[0].Id}");
+            }
+        }
+    }
+}
+```
+
+# [Extension 4.x+](#tab/extensionv4/isolated-process)
+
+This example refers to a simple `ToDoItem` type:
+
+```csharp
+public class ToDoItem
+{
+    public string? Id { get; set; }
+    public string? Description { get; set; }
+}
+```
+
+The following function is invoked when there are inserts or updates in the specified database and collection.
+
+```csharp
+[Function("CosmosTrigger")]
+public void Run([CosmosDBTrigger(
+    databaseName: "ToDoItems",
+    containerName:"TriggerItems",
+    Connection = "CosmosDBConnection",
+    LeaseContainerName = "leases",
+    CreateLeaseContainerIfNotExists = true)] IReadOnlyList<ToDoItem> todoItems,
+    FunctionContext context)
+{
+    if (todoItems is not null && todoItems.Any())
+    {
+        foreach (var doc in todoItems)
+        {
+            _logger.LogInformation("ToDoItem: {desc}", doc.Description);
+        }
+    }
+}
+```
+
 # [Functions 2.x+](#tab/functionsv2/isolated-process)
 
 The following code defines a `MyDocument` type:
 
-:::code language="csharp" source="~/azure-functions-dotnet-worker/samples/Extensions/CosmosDB/CosmosDBFunction.cs" range="37-46":::
+:::code language="csharp" source="~/azure-functions-dotnet-worker/samples/Extensions/CosmosDB/CosmosDBFunction.cs" range="40-49":::
 
-This document type is the type of the [`IReadOnlyList<T>`](/dotnet/api/system.collections.generic.ireadonlylist-1) used as the Azure Cosmos DB trigger binding parameter in the following example:
+An [`IReadOnlyList<T>`](/dotnet/api/system.collections.generic.ireadonlylist-1) is used as the Azure Cosmos DB trigger binding parameter in the following example:
 
-:::code language="csharp" source="~/azure-functions-dotnet-worker/samples/Extensions/CosmosDB/CosmosDBFunction.cs" range="4-35":::
+:::code language="csharp" source="~/azure-functions-dotnet-worker/samples/Extensions/CosmosDB/CosmosDBFunction.cs" id="docsnippet_exponential_backoff_retry_example":::
 
+This example requires the following `using` statements:
 
-# [Extension 4.x+](#tab/extensionv4/isolated-process)
+:::code language="csharp" source="~/azure-functions-dotnet-worker/samples/Extensions/CosmosDB/CosmosDBFunction.cs" range="4-7":::
 
-Example pending.
-
-# [Functions 2.x+](#tab/functionsv2/csharp-script)
-
-The following example shows an Azure Cosmos DB trigger binding in a *function.json* file and a [C# script function](functions-reference-csharp.md) that uses the binding. The function writes log messages when Azure Cosmos DB records are added or modified.
-
-Here's the binding data in the *function.json* file:
-
-```json
-{
-    "type": "cosmosDBTrigger",
-    "name": "documents",
-    "direction": "in",
-    "leaseCollectionName": "leases",
-    "connectionStringSetting": "<connection-app-setting>",
-    "databaseName": "Tasks",
-    "collectionName": "Items",
-    "createLeaseCollectionIfNotExists": true
-}
-```
-
-Here's the C# script code:
-
-```cs
-    #r "Microsoft.Azure.DocumentDB.Core"
-
-    using System;
-    using Microsoft.Azure.Documents;
-    using System.Collections.Generic;
-    using Microsoft.Extensions.Logging;
-
-    public static void Run(IReadOnlyList<Document> documents, ILogger log)
-    {
-      log.LogInformation("Documents modified " + documents.Count);
-      log.LogInformation("First document Id " + documents[0].Id);
-    }
-```
 
 # [Extension 4.x+](#tab/extensionv4/csharp-script)
 
@@ -221,6 +219,42 @@ Here's the C# script code:
     {
       log.LogInformation("Documents modified " + documents.Count);
       log.LogInformation("First document Id " + documents[0].id);
+    }
+```
+
+# [Functions 2.x+](#tab/functionsv2/csharp-script)
+
+The following example shows an Azure Cosmos DB trigger binding in a *function.json* file and a [C# script function](functions-reference-csharp.md) that uses the binding. The function writes log messages when Azure Cosmos DB records are added or modified.
+
+Here's the binding data in the *function.json* file:
+
+```json
+{
+    "type": "cosmosDBTrigger",
+    "name": "documents",
+    "direction": "in",
+    "leaseCollectionName": "leases",
+    "connectionStringSetting": "<connection-app-setting>",
+    "databaseName": "Tasks",
+    "collectionName": "Items",
+    "createLeaseCollectionIfNotExists": true
+}
+```
+
+Here's the C# script code:
+
+```cs
+    #r "Microsoft.Azure.DocumentDB.Core"
+
+    using System;
+    using Microsoft.Azure.Documents;
+    using System.Collections.Generic;
+    using Microsoft.Extensions.Logging;
+
+    public static void Run(IReadOnlyList<Document> documents, ILogger log)
+    {
+      log.LogInformation("Documents modified " + documents.Count);
+      log.LogInformation("First document Id " + documents[0].Id);
     }
 ```
 
@@ -336,11 +370,15 @@ Here's the Python code:
 
 Both [in-process](functions-dotnet-class-library.md) and [isolated process](dotnet-isolated-process-guide.md) C# libraries use the [CosmosDBTriggerAttribute](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.CosmosDB/Trigger/CosmosDBTriggerAttribute.cs) to define the function. C# script instead uses a function.json configuration file.
 
+# [Extension 4.x+](#tab/extensionv4/in-process)
+
+[!INCLUDE [functions-cosmosdb-attributes-v4](../../includes/functions-cosmosdb-attributes-v4.md)]
+
 # [Functions 2.x+](#tab/functionsv2/in-process)
 
 [!INCLUDE [functions-cosmosdb-attributes-v3](../../includes/functions-cosmosdb-attributes-v3.md)] 
 
-# [Extension 4.x+](#tab/extensionv4/in-process)
+# [Extension 4.x+](#tab/extensionv4/isolated-process)
 
 [!INCLUDE [functions-cosmosdb-attributes-v4](../../includes/functions-cosmosdb-attributes-v4.md)]
 
@@ -348,17 +386,13 @@ Both [in-process](functions-dotnet-class-library.md) and [isolated process](dotn
 
 [!INCLUDE [functions-cosmosdb-attributes-v3](../../includes/functions-cosmosdb-attributes-v3.md)]
 
-# [Extension 4.x+](#tab/extensionv4/isolated-process)
+# [Extension 4.x+](#tab/extensionv4/csharp-script)
 
-[!INCLUDE [functions-cosmosdb-attributes-v4](../../includes/functions-cosmosdb-attributes-v4.md)]
+[!INCLUDE [functions-cosmosdb-settings-v4](../../includes/functions-cosmosdb-settings-v4.md)]
 
 # [Functions 2.x+](#tab/functionsv2/csharp-script)
 
 [!INCLUDE [functions-cosmosdb-settings-v3](../../includes/functions-cosmosdb-settings-v3.md)]
-
-# [Extension 4.x+](#tab/extensionv4/csharp-script)
-
-[!INCLUDE [functions-cosmosdb-settings-v4](../../includes/functions-cosmosdb-settings-v4.md)]
 
 ---
 
@@ -442,8 +476,6 @@ See the [Example section](#example) for complete examples.
 
 ## Usage
 
-The parameter type supported by the Azure Cosmos DB trigger depends on the Functions runtime version, the extension package version, and the C# modality used.
-
 The trigger requires a second collection that it uses to store _leases_ over the partitions. Both the collection being monitored and the collection that contains the leases must be available for the trigger to work.
 
 ::: zone pivot="programming-language-csharp"  
@@ -460,6 +492,38 @@ The trigger requires a second collection that it uses to store _leases_ over the
 ::: zone-end
 
 The trigger doesn't indicate whether a document was updated or inserted, it just provides the document itself. If you need to handle updates and inserts differently, you could do that by implementing timestamp fields for insertion or update.
+
+::: zone pivot="programming-language-csharp"
+
+The parameter type supported by the Azure Cosmos DB trigger depends on the Functions runtime version, the extension package version, and the C# modality used.
+
+# [Extension 4.x+](#tab/extensionv4/in-process)
+
+See [Binding types](./functions-bindings-cosmosdb-v2.md?tabs=in-process%2Cextensionv4&pivots=programming-language-csharp#binding-types) for a list of supported types.
+
+# [Functions 2.x+](#tab/functionsv2/in-process)
+
+See [Binding types](./functions-bindings-cosmosdb-v2.md?tabs=in-process%2Cfunctionsv2&pivots=programming-language-csharp#binding-types) for a list of supported types.
+
+# [Extension 4.x+](#tab/extensionv4/isolated-process)
+
+[!INCLUDE [functions-bindings-cosmosdb-v2-trigger-dotnet-isolated-types](../../includes/functions-bindings-cosmosdb-v2-trigger-dotnet-isolated-types.md)]
+
+# [Functions 2.x+](#tab/functionsv2/isolated-process)
+
+See [Binding types](./functions-bindings-cosmosdb-v2.md?tabs=isolated-process%2Cfunctionsv2&pivots=programming-language-csharp#binding-types) for a list of supported types.
+
+# [Extension 4.x+](#tab/extensionv4/csharp-script)
+
+See [Binding types](./functions-bindings-cosmosdb-v2.md?tabs=in-process%2Cextensionv4&pivots=programming-language-csharp#binding-types) for a list of supported types.
+
+# [Functions 2.x+](#tab/functionsv2/csharp-script)
+
+See [Binding types](./functions-bindings-cosmosdb-v2.md?tabs=in-process%2Cfunctionsv2&pivots=programming-language-csharp#binding-types) for a list of supported types.
+
+---
+
+::: zone-end
 
 [!INCLUDE [functions-cosmosdb-connections](../../includes/functions-cosmosdb-connections.md)]
 
