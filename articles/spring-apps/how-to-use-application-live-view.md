@@ -290,7 +290,7 @@ If you try to open Application Live View for a service instance or an app that h
 
   :::image type="content" source="media/how-to-use-application-live-view/vscode-not-enabled.png" alt-text="Screenshot of the error message showing Application Live View not enabled and public endpoint not accessible." lightbox="media/how-to-use-application-live-view/vscode-not-enabled.png":::
 
-To enable Application Live View and expose public endpoint, use either the Azure portal or the Azure CLI. For more information, see [Manage Application Live View in existing Enterprise tier instances](#manage-application-live-view-in-existing-enterprise-plan-instances).
+To enable Application Live View and expose public endpoint, use either the Azure portal or the Azure CLI. For more information, see the [Manage Application Live View in existing Enterprise tier instances](#manage-application-live-view-in-existing-enterprise-plan-instances) section.
 
 ## Next steps
 
