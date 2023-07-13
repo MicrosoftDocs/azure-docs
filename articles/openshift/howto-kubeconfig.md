@@ -12,7 +12,7 @@ ms.custom: template-how-to
 
 # Use Admin Kubeconfig to access an Azure Red Hat OpenShift (ARO) cluster
 
-This article shows you how to regain access to an ARO cluster using the Admin Kubeconfig feature. The Admin Kubeconfig feature lets you download and log in with the Admin Kubconfig file using the OpenShift CLI rather than through the ARO console, thus bypassing components that may not be functioning properly. This can be helpful in the following instances:
+This article shows you how to regain access to an ARO cluster using the Admin Kubeconfig feature. The Admin Kubeconfig feature lets you download and log in with the Admin Kubconfig file using the OpenShift CLI rather than the ARO console, thus bypassing components that may not be functioning properly. This can be helpful in the following instances:
 
 - The Azure Red Hat OpenShift (ARO) console isn't responding, or not allowing a login.
 - The OpenShift CLI isn't responding to requests.
@@ -30,7 +30,7 @@ To check the version of Azure CLI run:
 # Azure CLI version
 az --version
 ```
-To install or upgrade Azure CLI, follow [Install Azure
+To install or upgrade Azure CLI, see [Install Azure
 CLI](/cli/azure/install-azure-cli).
 
 ## Retrieve Admin Kubeconfig
