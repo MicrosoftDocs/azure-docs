@@ -137,7 +137,7 @@ For the Hyperscale service tier, zone redundancy support can only be specified d
 
 ### Redeployment considerations
 
-- There are two modes of redeployment (Online and Offline): 
+- There are two modes of redeployment (online and offline): 
 
     - The **Database copy and point-in-time restore methods (offline mode)** create a transactionally consistent database at a certain point in time. As a result, any data changes performed after the copy or restore operation have been initiated won't be available on the copied or restored database.
 	    
