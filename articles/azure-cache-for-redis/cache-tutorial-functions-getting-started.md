@@ -33,30 +33,30 @@ Creating the cache can take a few minutes. You can move to the next section whil
 
 ### Set up Visual Studio Code
 
-If you haven’t installed the functions extension for VS Code, search for _Azure Functions_ in the extensions menu, and select **Install**. If you don’t have the C# extension installed, install it, too.
+1. If you haven’t installed the functions extension for VS Code, search for _Azure Functions_ in the extensions menu, and select **Install**. If you don’t have the C# extension installed, install it, too.
 
-:::image type="content" source="media/cache-tutorial-functions-getting-started/cache-code-editor.png" alt-text="Screenshot of the required extensions installed in VSCode.":::
+   :::image type="content" source="media/cache-tutorial-functions-getting-started/cache-code-editor.png" alt-text="Screenshot of the required extensions installed in VSCode.":::
 
-Next, go to the **Azure** tab, and sign-in to your existing Azure account, or create a new one:
+1. Next, go to the **Azure** tab, and sign-in to your existing Azure account, or create a new one:
 
-Create a new local folder on your computer to hold the project that you're building. In our example, we use _RedisAzureFunctionDemo_.
+1. Create a new local folder on your computer to hold the project that you're building. In our example, we use _RedisAzureFunctionDemo_.
 
-In the Azure tab, create a new functions app by clicking on the lightning bolt icon in the top right of the **Workspace** tab .
+1. In the Azure tab, create a new functions app by clicking on the lightning bolt icon in the top right of the **Workspace** tab .
 
-:::image type="content" source="media/cache-tutorial-functions-getting-started/cache-add-resource.png" alt-text="Screenshot showing how to add a new function from VSCode.":::
+   :::image type="content" source="media/cache-tutorial-functions-getting-started/cache-add-resource.png" alt-text="Screenshot showing how to add a new function from VSCode.":::
 
-Select the new folder that you’ve created to start the creation of a new Azure Functions project. You get several on-screen prompts. Select:
+1. Select the new folder that you’ve created to start the creation of a new Azure Functions project. You get several on-screen prompts. Select:
 
-- **C#** as the language
-- **.NET 6.0 LTS** as the .NET runtime
-- **Skip for now** as the project template
+   - **C#** as the language
+   - **.NET 6.0 LTS** as the .NET runtime
+   - **Skip for now** as the project template
 
-> [!NOTE]
-> If you don’t have the .NET Core SDK installed, you’ll be prompted to do so.
+   > [!NOTE]
+   > If you don’t have the .NET Core SDK installed, you’ll be prompted to do so.
 
-The new project is created:
+1. The new project is created:
 
-:::image type="content" source="media/cache-tutorial-functions-getting-started/cache-vscode-workspace.png" alt-text="Screenshot of a workspace in VSCode.":::
+   :::image type="content" source="media/cache-tutorial-functions-getting-started/cache-vscode-workspace.png" alt-text="Screenshot of a workspace in VSCode.":::
 
 ### Install the necessary NuGet package
 
@@ -153,20 +153,20 @@ This tutorial shows multiple different ways to trigger on Redis activity:
 
 ### Connect to your cache
 
-In order to trigger on Redis activity, you need to pass in the connection string of your cache instance. This information will be stored in the `local.settings.json` file that was automatically created in your folder. Using the [local settings file](../azure-functions/functions-run-local.md#local-settings) is recommended as a security best practice.
+1.  In order to trigger on Redis activity, you need to pass in the connection string of your cache instance. This information will be stored in the `local.settings.json` file that was automatically created in your folder. Using the [local settings file](../azure-functions/functions-run-local.md#local-settings) is recommended as a security best practice.
 
-To connect to your cache, add a `ConnectionStrings` section in the `local.settings.json` file and add your connection string using the parameter `redisConnectionString`. It should look like this:
+1. To connect to your cache, add a `ConnectionStrings` section in the `local.settings.json` file and add your connection string using the parameter `redisConnectionString`. It should look like this:
 
-```json
-{
-  "IsEncrypted": false,
-  "Values": {
-    "AzureWebJobsStorage": "",
-    "FUNCTIONS_WORKER_RUNTIME": "dotnet",
-    "redisConnectionString": "<your-connection-string>"
-  }
-}
-```
+    ```json
+    {
+      "IsEncrypted": false,
+      "Values": {
+        "AzureWebJobsStorage": "",
+        "FUNCTIONS_WORKER_RUNTIME": "dotnet",
+        "redisConnectionString": "<your-connection-string>"
+      }
+    }
+    ```
 
 ![Image](media/cache-tutorial-functions-getting-started/cache-connection-string.png)
 
@@ -206,32 +206,34 @@ To connect to your cache, add a `ConnectionStrings` section in the `local.settin
 
    :::image type="content" source="media/cache-tutorial-functions-getting-started/cache-create-function-app.png" alt-text="Screenshot of creating a function app in VSCode.":::
 
-You see several prompts on information to configure the new functions app:
+1. You see several prompts on information to configure the new functions app:
 
-- Enter a unique name
-- Choose **.NET 6** as the runtime stack
-- Choose either **Linux** or **Windows** (either works)
-- Select an existing or new resource group to hold the Function App
-- Choose the same region as your cache instance
-- Select **Premium** as the hosting plan
-- Create a new App Service plan
-- Choose the **EP1** pricing tier.
-- Choose an existing storage account or create a new one
-- Create a new Application Insights resource. We use the resource to confirm the trigger is working.
+    - Enter a unique name
+    - Choose **.NET 6** as the runtime stack
+    - Choose either **Linux** or **Windows** (either works)
+    - Select an existing or new resource group to hold the Function App
+    - Choose the same region as your cache instance
+    - Select **Premium** as the hosting plan
+    - Create a new App Service plan
+    - Choose the **EP1** pricing tier.
+    - Choose an existing storage account or create a new one
+    - Create a new Application Insights resource. We use the resource to confirm the trigger is working.
 
-> [!IMPORTANT]
-> Redis triggers are not currently supported on consumption functions.
->
+    > [!IMPORTANT]
+    > Redis triggers are not currently supported on consumption functions.
+    >
 
-Wait a few minutes for the new Function App to be created. It appears in the drop down under **Function App** in your subscription. Right click on the new function app and select **Deploy to Function App…**
+1. Wait a few minutes for the new Function App to be created. It appears in the drop down under **Function App** in your subscription. Right click on the new function app and select **Deploy to Function App…**
 
-:::image type="content" source="media/cache-tutorial-functions-getting-started/cache-deploy-to-function.png" alt-text="Screenshot of deploying to a function app in VSCode.":::
+    :::image type="content" source="media/cache-tutorial-functions-getting-started/cache-deploy-to-function.png" alt-text="Screenshot of deploying to a function app in VSCode.":::
 
-The app builds and starts deploying. You can track progress in the **Output Window**.
+1. The app builds and starts deploying. You can track progress in the **Output Window**.
 
 ### Add connection string information
 
-Navigate to your new Function App in the Azure portal and select the **Configuration** blade from the Resource menu. Select **New application setting** and enter `redisConnectionString` as the Name, with your connection string as the Value. Set Type to _Custom_, and select **Ok** to close the menu and then **Save** on the Configuration page to confirm. The functions app will restart with the new connection string information. 
+1. Navigate to your new Function App in the Azure portal and select the **Configuration** from the Resource menu.
+
+1. Select **New application setting** and enter `redisConnectionString` as the Name, with your connection string as the Value. Set Type to _Custom_, and select **Ok** to close the menu and then **Save** on the Configuration page to confirm. The functions app will restart with the new connection string information. 
 
 ### Test your triggers
 
