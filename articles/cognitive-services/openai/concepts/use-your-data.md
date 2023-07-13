@@ -9,7 +9,7 @@ ms.subservice: openai
 ms.topic: quickstart
 author: aahill
 ms.author: aahi
-ms.date: 06/01/2023
+ms.date: 07/12/2023
 recommendations: false
 ---
 
@@ -66,6 +66,17 @@ There are some caveats about document structure and how it might affect the qual
 ## Virtual network support & private link support
 
 Azure OpenAI on your data does not currently support private endpoints. 
+
+## Azure Role-based access controls (Azure RBAC)
+
+To add a new data source to your Azure OpenAI resource, you need the following Azure RBAC roles.
+
+
+|Azure RBAC role  |Needed when  |
+|---------|---------|
+|[Cognitive Services OpenAI Contributor](/azure/role-based-access-control/built-in-roles#cognitive-services-openai-contributor) | You want to use Azure OpenAI on your data. |
+|[Search Index Data Contributor](/azure/role-based-access-control/built-in-roles#search-index-data-contributor)     | You have an existing Azure Cognitive Search index that you want to use, instead of creating a new one.        |
+|[Storage Blob Data Contributor](/azure/role-based-access-control/built-in-roles#storage-blob-data-contributor)     | You have an existing Blob storage container that you want to use, instead of creating a new one.        |
 
 ## Recommended settings
 
@@ -140,6 +151,24 @@ Avoid asking long questions and break them down into multiple questions if possi
     *“You are an AI assistant that helps people find information. You retrieve Japanese documents, and you should read them carefully in Japanese and answer in Japanese.”* 
 
 * If you have documents in multiple languages, we recommend building a new index for each language and connecting them separately to Azure OpenAI.  
+
+### Using the web app
+
+You can use the available web app to interact with your model using a graphical user interface, which you can deploy using either [Azure OpenAI studio](../use-your-data-quickstart.md?pivots=programming-language-studio#deploy-a-web-app) or a [manual deployment](https://github.com/microsoft/sample-app-aoai-chatGPT). 
+
+![A screenshot of the web app interface.](../media/use-your-data/web-app.png)
+
+You can also customize the app's frontend and backend logic. For example, you could change the icon that appears in the center of the app by updating `/frontend/src/assets/Azure.svg` and then redeploying the app [using the Azure CLI](https://github.com/microsoft/sample-app-aoai-chatGPT#deploy-with-the-azure-cli).  See the source code for the web app, and more information [on GitHub](https://github.com/microsoft/sample-app-aoai-chatGPT).
+
+When customizing the app, we recommend:
+
+- Resetting the chat session (clear chat) if the user changes any settings. Notify the user that their chat history will be lost.
+
+- Clearly communicating the impact on the user experience that each setting you implement will have.
+
+- When you rotate API keys for your Azure OpenAI or Azure Cognitive Search resource, be sure to update the app settings for each of your deployed apps to use the new keys.
+
+- Pulling changes from the `main` branch for the web app's source code frequently to ensure you have the latest bug fixes and improvements.
 
 ### Using the API
 
@@ -217,4 +246,7 @@ When chatting with a model, providing a history of the chat will help the model 
 
 ## Next steps
 * [Get started using your data with Azure OpenAI](../use-your-data-quickstart.md)
+
 * [Introduction to prompt engineering](./prompt-engineering.md)
+
+

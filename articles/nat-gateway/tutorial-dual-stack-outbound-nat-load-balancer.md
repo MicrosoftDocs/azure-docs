@@ -6,7 +6,7 @@ author: asudbring
 ms.author: allensu
 ms.service: nat-gateway
 ms.topic: tutorial
-ms.date: 02/05/2023
+ms.date: 07/13/2023
 ms.custom: template-tutorial, devx-track-azurecli
 ---
 
@@ -14,7 +14,7 @@ ms.custom: template-tutorial, devx-track-azurecli
 
 In this tutorial, learn how to configure NAT gateway and a public load balancer to a dual stack subnet in order to allow for outbound connectivity for v4 workloads using NAT gateway and v6 workloads using Public Load balancer.
 
-NAT gateway supports the use of IPv4 public IP addresses for outbound connectivity whereas load balancer supports both IPv4 and IPv6 public IP addresses. When NAT gateway with an IPv4 public IP is present with a load balancer using an IPv4 public IP address, NAT gateway takes precedence over load balancer for providing outbound connectivity. When a NAT gateway is deployed in a dual-stack network with a IPv6 load balancer, IPv4 outbound traffic is handled by the NAT gateway, and IPv6 outbound traffic is handled by the load balancer.
+NAT gateway supports the use of IPv4 public IP addresses for outbound connectivity whereas load balancer supports both IPv4 and IPv6 public IP addresses. When NAT gateway with an IPv4 public IP is present with a load balancer using an IPv4 public IP address, NAT gateway takes precedence over load balancer for providing outbound connectivity. When a NAT gateway is deployed in a dual-stack network with a IPv6 load balancer, IPv4 outbound traffic uses the NAT gateway, and IPv6 outbound traffic uses the load balancer.
 
 In this tutorial, you learn how to:
 
@@ -32,7 +32,7 @@ In this tutorial, you learn how to:
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-# [**CLI**](#tab/dual-stack-outbound--cli)
+# [**CLI**](#tab/dual-stack-outbound-cli)
 
 [!INCLUDE [azure-cli-prepare-your-environment-no-header.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment-no-header.md)]
 
@@ -42,58 +42,30 @@ In this tutorial, you learn how to:
 
 ---
 
+## Sign in to Azure
+
+# [**Portal**](#tab/dual-stack-outbound-portal)
+
+Sign in to the [Azure portal](https://portal.azure.com) with your Azure account.
+
+# [**CLI**](#tab/dual-stack-outbound-cli)
+
+Use [az login](/cli/azure/reference-index#az-login) to sign in to Azure.
+
+```azurecli-interactive
+az login
+```
+---
+
 ## Create virtual network
 
 In this section, create a virtual network for the virtual machine and load balancer.
 
 # [**Portal**](#tab/dual-stack-outbound-portal)
 
-1. Sign-in to the [Azure portal](https://portal.azure.com).
+[!INCLUDE [virtual-network-create-with-bastion-tabs.md](../../includes/virtual-network-create-with-bastion-tabs.md)]
 
-1. In the search box at the top of the portal, enter **Virtual network**. Select **Virtual networks** in the search results.
-
-1. Select **+ Create**.
-
-1. In the **Basics** tab of **Create virtual network**, enter or select the following information.
-
-    | Setting | Value |
-    | ------- | ----- |
-    | **Project details** |   |
-    | Subscription | Select your subscription. |
-    | Resource group | Select **Create new**. </br> Enter **TutorialIPv6NATLB-rg**. </br> Select **OK**. |
-    | **Instance details** |   |
-    | Name | Enter **myVNet**. |
-    | Region | Select **West US 2**. |
-
-1. Select the **IP Addresses** tab, or **Next: IP Addresses**.
-
-1. Leave the default IPv4 address space of **10.1.0.0/16**. If the default is absent or different, enter an IPv4 address space of **10.1.0.0/16**.
-
-1. Select **default** under **Subnet name**. If default is missing, select **+ Add subnet**.
-
-1. In **Subnet name**, enter **myBackendSubnet**.
-
-1. Leave the default IPv4 subnet of **10.1.0.0/24**.
-
-1. Select **Save**. If creating a subnet, select **Add**.
-
-1. Select the **Security** tab or select **Next: Security**.
-
-1. In **BastionHost**, select **Enable**.
-
-1. Enter or select the following information:
-
-    | Setting | Value |
-    | ------- | ----- |
-    | Bastion name | **myBastion** |
-    | AzureBastionSubnet address space | Enter **10.1.1.0/26**. |
-    | Public IP address | Select **Create new**. </br> Enter **myPublicIP-Bastion** in **Name**. </br> Select **OK**. |
-
-1. Select the **Review + create**.
-
-1. Select **Create**.
-
-# [**CLI**](#tab/dual-stack-outbound--cli)
+# [**CLI**](#tab/dual-stack-outbound-cli)
 
 ### Create a resource group
 
@@ -170,41 +142,9 @@ The NAT gateway provides the outbound connectivity for the IPv4 portion of the v
 
 # [**Portal**](#tab/dual-stack-outbound-portal)
 
-1. In the search box at the top of the portal, enter **NAT gateway**. Select **NAT gateways** in the search results.
+[!INCLUDE [nat-gateway-create-tabs.md](../../includes/nat-gateway-create-tabs.md)]
 
-1. Select **+ Create**.
-
-1. In the **Basics** tab of **Create network address translation (NAT) gateway**, enter or select the following information:
-
-    | Setting | Value |
-    | ------- | ----- |
-    | **Project details** |   |
-    | Subscription | Select your subscription. |
-    | Resource group | Select **TutorialIPv6NATLB-rg**. |
-    | **Instance details** |   |
-    | NAT gateway name | Enter **myNATgateway**. |
-    | Region | Select **West US 2**. |
-    | Availability zone | Select a zone or **No Zone**. |
-    | TCP idle timeout (minutes) | Leave the default of **4**. |
-
-1. Select **Next: Outbound IP**.
-
-1. In **Public IP addresses**, select **Create a new public IP address**.
-
-1. Enter **myPublicIP-NAT** in **Name**. Select **OK**.
-
-1. Select **Next: Subnet**.
-
-1. In **Virtual network**, select **myVNet**.
-
-1. In the list of subnets, select the box for **myBackendSubnet**.
-
-1. Select **Review + create**.
-
-1. Select **Create**.
-
-
-# [**CLI**](#tab/dual-stack-outbound--cli)
+# [**CLI**](#tab/dual-stack-outbound-cli)
 
 Use [az network public-ip create](/cli/azure/network/public-ip#az_network_public_ip_create) to create a public IPv4 address for the NAT gateway.
 
@@ -246,7 +186,7 @@ The addition of IPv6 to the virtual network must be done after the NAT gateway i
 
 1. In the search box at the top of the portal, enter **Virtual network**. Select **Virtual networks** in the search results.
 
-1. Select **myVNet**.
+1. Select **vnet-1**.
 
 1. In **Settings**, select **Address space**.
 
@@ -256,7 +196,7 @@ The addition of IPv6 to the virtual network must be done after the NAT gateway i
 
 1. Select **Subnets** in **Settings**.
 
-1. Select **myBackendSubnet** in the list of subnets.
+1. Select **subnet-1** in the list of subnets.
 
 1. Select the box next to **Add IPv6 address space**.
 
@@ -264,7 +204,7 @@ The addition of IPv6 to the virtual network must be done after the NAT gateway i
 
 1. Select **Save**.
 
-# [**CLI**](#tab/dual-stack-outbound--cli)
+# [**CLI**](#tab/dual-stack-outbound-cli)
 
 Use [az network vnet update](/cli/azure/network/vnet#az-network-vnet-update) to add the IPv6 address space to the virtual network.
 
@@ -292,47 +232,7 @@ The network configuration of the virtual machine has IPv4 and IPv6 configuration
 
 # [**Portal**](#tab/dual-stack-outbound-portal)
 
-1. In the search box at the top of the portal, enter **Virtual machine**. Select **Virtual machines** in the search results.
-
-1. Select **+ Create** then **Azure virtual machine**.
-
-1. In the **Basics** tab of **Create a virtual machine**, enter or select the following information:
-
-    | Setting | Value | 
-    | ------- | ----- |
-    | **Project details** |  |
-    | Subscription | Select your subscription. |
-    | Resource group | Select **TutorialIPv6NATLB-rg**. |
-    | **Instance details** |  |
-    | Virtual machine name | Enter **myVM**. |
-    | Region | Select **(US) West US 2**. |
-    | Availability options | Leave the default of **No infrastructure redundancy required**. |
-    | Security type | Leave the default of **Standard**. |
-    | Image | Select **Windows Server 2022 Datacenter - x64 Gen2**. |
-    | Size | Select a size. |
-    | **Administrator account** |  |
-    | Username | Enter a username. |
-    | Password | Enter a password. |
-    | Confirm password | Confirm password. |
-    | **Inbound port rules** |   |
-    | Public inbound ports | Select **None**. |
-
-1. Select the **Networking** tab, or **Next: Disks** then **Next: Networking**.
-
-1. In the **Networking tab**, enter or select the following information:
-
-    | Setting | Value |
-    | ------- | ----- |
-    | **Network interface** |  |
-    | Virtual network | Select **myVNet**. |
-    | Subnet | Select **myBackendSubnet (10.1.0.0/24,2404:f800:8000:122::/64)**. |
-    | Public IP | Select **None**. |
-    | NIC network security group | Select **Basic**. |
-    | Public inbound ports | Select **None**. |
-
-1. Select **Review + create**.
-
-1. Select **Create**.
+[!INCLUDE [create-test-virtual-machine-linux-tabs.md](../../includes/create-test-virtual-machine-linux-tabs.md)]
 
 Wait for the virtual machine to finish deploying before continuing on to the next steps.
 
@@ -342,11 +242,11 @@ The support IPv6, the virtual machine must have a IPv6 network configuration add
 
 1. In the search box at the top of the portal, enter **Virtual machine**. Select **Virtual machines** in the search results.
 
-1. Select **myVM**.
+1. Select **vm-1**.
 
 1. In **Settings** select **Networking**.
 
-1. Select the name of the network interface in the **Network Interface:** field. The name of the network interface is the virtual machine name plus a random number. In this example, it's **myVM202**.
+1. Select the name of the network interface in the **Network Interface:** field. The name of the network interface is the virtual machine name plus a random number. In this example, it's **vm-1202**.
 
 1. In the network interface properties, select **IP configurations** in **Settings**.
 
@@ -356,12 +256,12 @@ The support IPv6, the virtual machine must have a IPv6 network configuration add
 
     | Setting | Value |
     | ------- | ----- |
-    | Name | Enter **ipv6config**. |
+    | Name | Enter **ipconfig-ipv6**. |
     | IP version | Select **IPv6**. |
 
-1. Leave the rest of the settings at the defaults and select **OK**.
+1. Leave the rest of the settings at the defaults and select **Add**.
 
-# [**CLI**](#tab/dual-stack-outbound--cli)
+# [**CLI**](#tab/dual-stack-outbound-cli)
 
 ### Create NSG
 
@@ -449,12 +349,13 @@ The public load balancer has a front-end IPv6 address and outbound rule for the 
     | ------- | ----- |
     | **Project details** |  |
     | Subscription | Select your subscription. |
-    | Resource group | Select **TutorialIPv6NATLB-rg**. |
+    | Resource group | Select **test-rg**. |
     | **Instance details** |  |
-    | Name | Enter **myLoadBalancer**. |
-    | Region | Select **West US 2**. |
+    | Name | Enter **load-balancer**. |
+    | Region | Select **East US 2**. |
     | SKU | Leave the default of **Standard**. |
     | Type | Select **Public**. |
+    | Tier | Leave the default of **Regional**. |
 
 1. Select **Next: Frontend IP configuration**.
 
@@ -464,10 +365,10 @@ The public load balancer has a front-end IPv6 address and outbound rule for the 
 
     | Setting | Value |
     | ------- | ----- |
-    | Name | Enter **myFrontend-IPv6**. |
+    | Name | Enter **frontend-ipv6**. |
     | IP version | Select **IPv6**. |
     | IP type | Select **IP address**. |
-    | Public IP address | Select **Create new**. </br> In **Name** enter **myPublicIP-IPv6**. </br> Select **OK**. |
+    | Public IP address | Select **Create new**. </br> In **Name** enter **public-ip-ipv6**. </br> Select **OK**. |
 
 1. Select **Add**.
 
@@ -479,8 +380,8 @@ The public load balancer has a front-end IPv6 address and outbound rule for the 
 
     | Setting | Value |
     | ------- | ----- |
-    | Name | Enter **myBackendPool**. |
-    | Virtual network | Select **myVNet (TutorialIPv6NATLB-rg)**. |
+    | Name | Enter **backend-pool**. |
+    | Virtual network | Select **vnet-1 (test-rg)**. |
     | Backend Pool Configuration | Leave the default of **NIC**. |
 
 1. Select **Save**.
@@ -493,13 +394,13 @@ The public load balancer has a front-end IPv6 address and outbound rule for the 
 
     | Setting | Value |
     | ------- | ----- |
-    | Name | Enter **myOutboundRule**. |
+    | Name | Enter **outbound-rule**. |
     | IP Version | Select **IPv6**. |
-    | Frontend IP address | Select **myFrontend-IPv6**. |
+    | Frontend IP address | Select **frontend-ipv6**. |
     | Protocol | Leave the default of **All**. |
     | Idle timeout (minutes) | Leave the default of **4**. |
     | TCP Reset | Leave the default of **Enabled**. |
-    | Backend pool | Select **myBackendPool**. |
+    | Backend pool | Select **backend-pool**. |
     | **Port allocation** |   |
     | Port allocation | Select **Manually choose number of outbound ports**. |
     | **Outbound ports** |  |
@@ -518,24 +419,24 @@ Wait for the load balancer to finish deploying before proceeding to the next ste
 
 1. In the search box at the top of the portal, enter **Load balancer**. Select **Load balancers** in the search results.
 
-1. Select **myLoadBalancer**.
+1. Select **load-balancer**.
 
 1. In **Settings** select **Backend pools**.
 
-1. Select **myBackendPool**.
+1. Select **backend-pool**.
 
-1. In **Virtual network** select **myVNet (TutorialIPv6NATLB-rg)**.
+1. In **Virtual network** select **vnet-1 (test-rg)**.
 
 1. In **IP configurations** select **+ Add**.
 
-1. Select the checkbox for **myVM** that corresponds with the **IP configuration** of **ipv6config**. Don't select **ipconfig1**.
+1. Select the checkbox for **vm-1** that corresponds with the **IP configuration** of **ipconfig-ipv6**. Don't select **ipconfig1**.
 
 1. Select **Add**.
 
 1. Select **Save**. 
 
 
-# [**CLI**](#tab/dual-stack-outbound--cli)
+# [**CLI**](#tab/dual-stack-outbound-cli)
 
 Use [az network public-ip create](/cli/azure/network/public-ip#az_network_public_ip_create) to create a public IPv6 address for the frontend IP address of the load balancer.
 
@@ -602,18 +503,18 @@ Before you can validate outbound connectivity, make not of the IPv4, and IPv6 pu
 
 1. In the search box at the top of the portal, enter **Public IP address**. Select **Public IP addresses** in the search results.
 
-1. Select **myPublicIP-NAT**.
+1. Select **public-ip-nat**.
 
 1. Make note of the address in **IP address**. In this example, it's **20.230.191.5**.
 
 1. Return to **Public IP addresses**.
 
-1. Select **myPublicIP-IPv6**.
+1. Select **public-ip-ipv6**.
 
 1. Make note of the address in **IP address**. In this example, it's **2603:1030:c02:8::14**.
 
 
-# [**CLI**](#tab/dual-stack-outbound--cli)
+# [**CLI**](#tab/dual-stack-outbound-cli)
 
 Use [az network public-ip show](/cli/azure/network/public-ip#az-network-public-ip-show) to obtain the IPv4 and IPv6 public IP addresses.
 
@@ -667,32 +568,39 @@ Make note of both IP addresses. Use the IPs to verify the outbound connectivity 
 
 1. In the search box at the top of the portal, enter **Virtual machine**. Select **Virtual machines** in the search results.
 
-1. Select **myVM**.
+1. Select **vm-1**.
 
-1. In the **Overview** of **myVM**, select **Connect** then **Bastion**. 
+1. In the **Overview** of **myVM**, select **Connect** then **Bastion**. Select **Use Bastion**
 
 1. Enter the username and password you created when you created the virtual machine.
 
 1. Select **Connect**.
 
-1. On the desktop of **myVM**, open **Microsoft Edge**.
+1. At the command line, enter the following command to verify the IPv4 address.
 
-1. To confirm the IPv4 address, enter `http://v4.testmyipv6.com` in the address bar.
+    ```bash
+    curl -4 icanhazip.com
+    ```
 
-1. You should see the IPv4 address displayed. In this example, the IP of **20.230.191.5** is displayed.
+    ```output
+    azureuser@vm-1:~$ curl -4 icanhazip.com
+    20.230.191.5
+    ```
 
-    :::image type="content" source="./media/tutorial-dual-stack-outbound-nat-load-balancer/portal-verify-ipv4.png" alt-text="Screenshot of outbound IPv4 public IP address from portal steps.":::
+1. At the command line, enter the following command to verify the IPv4 address.
 
-1. In the address bar, enter `http://v6.testmyipv6.com`
+    ```bash
+    curl -6 icanhazip.com
+    ```
 
-1. You should see the IPv6 address displayed. In this example, the IP of **2603:1030:c02:8::14** is displayed.
+    ```output
+    azureuser@vm-1:~$ curl -6 icanhazip.com
+    2603:1030:c02:8::14
+    ```
 
-    :::image type="content" source="./media/tutorial-dual-stack-outbound-nat-load-balancer/portal-verify-ipv6.png" alt-text="Screenshot of outbound IPv6 public IP address from portal steps.":::
+1. Close the bastion connection to **vm-1**.
 
-1. Close the bastion connection to **myVM**.
-
-
-# [**CLI**](#tab/dual-stack-outbound--cli)
+# [**CLI**](#tab/dual-stack-outbound-cli)
 
 1. Sign-in to the [Azure portal](https://portal.azure.com).
 
@@ -723,19 +631,16 @@ Make note of both IP addresses. Use the IPs to verify the outbound connectivity 
 1. Close the bastion connection to **myVM**.
 
 ---
+
 ## Clean up resources
 
 When your finished with the resources created in this article, delete the resource group and all of the resources it contains.
 
 # [**Portal**](#tab/dual-stack-outbound-portal)
 
-1. In the search box at the top of the portal, enter **TutorialIPv6NATLB-rg**. Select **TutorialIPv6NATLB-rg** in the search results in **Resource groups**.
+[!INCLUDE [portal-clean-up-tabs.md](../../includes/portal-clean-up-tabs.md)]
 
-1. Select **Delete resource group**.
-
-1. Enter **TutorialIPv6NATLB-rg** for **TYPE THE RESOURCE GROUP NAME** and select **Delete**.
-
-# [**CLI**](#tab/dual-stack-outbound--cli)
+# [**CLI**](#tab/dual-stack-outbound-cli)
 
 Use [az group delete](/cli/azure/group#az-group-delete) to delete the resource group and the resources it contains.
 

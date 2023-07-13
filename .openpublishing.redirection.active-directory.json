@@ -111,6 +111,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/active-directory/saas-apps/r-and-d-tax-credit-services-tutorial.md",
+      "redirect_url": "/azure/active-directory/saas-apps/pwc-identity-tutorial",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/active-directory/saas-apps/firstbird-tutorial.md",
       "redirect_url": "/azure/active-directory/saas-apps/radancys-employee-referrals-tutorial",
       "redirect_document_id": false
