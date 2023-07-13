@@ -360,6 +360,12 @@ All the pre-trained text DNN models currently available in AutoML NLP for fine-t
 
 Note that the large models are larger than their base counterparts. They are typically more performant, but they take up more GPU memory and time for training. As such, their SKU requirements are more stringent: we recommend running on ND-series VMs for the best results. 
 
+## Supported model algorithms - HuggingFace (preview)
+
+With the new backend that runs on [AzureML Pipelines](concept-ml-pipelines.md), you can additionally use any text/token classification model from the [HuggingFace Hub](https://huggingface.co/models?pipeline_tag=image-classification&library=transformers) which is part of the transformers library (such as microsoft/deberta-large-mnli). 
+
+Using any HuggingFace model will trigger runs using pipeline components. If both legacy and HuggingFace models are used, all runs/trials will be triggered using components.
+
 ## Supported hyperparameters 
 
 The following table describes the hyperparameters that AutoML NLP supports. 
