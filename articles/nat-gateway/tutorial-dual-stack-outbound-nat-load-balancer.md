@@ -259,7 +259,7 @@ The support IPv6, the virtual machine must have a IPv6 network configuration add
     | Name | Enter **ipconfig-ipv6**. |
     | IP version | Select **IPv6**. |
 
-1. Leave the rest of the settings at the defaults and select **OK**.
+1. Leave the rest of the settings at the defaults and select **Add**.
 
 # [**CLI**](#tab/dual-stack-outbound-cli)
 
@@ -355,6 +355,7 @@ The public load balancer has a front-end IPv6 address and outbound rule for the 
     | Region | Select **East US 2**. |
     | SKU | Leave the default of **Standard**. |
     | Type | Select **Public**. |
+    | Tier | Leave the default of **Regional**. |
 
 1. Select **Next: Frontend IP configuration**.
 
