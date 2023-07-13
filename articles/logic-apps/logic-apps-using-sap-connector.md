@@ -73,7 +73,21 @@ The SAP built-in connector significantly differs from the SAP managed connector 
 
   The SAP built-in connector doesn't use the shared or global connector infrastructure, which means no timeout happens as with the SAP managed connector (two minutes) and the SAP ISE-versioned connector (four minutes). Long-running requests work without you having to implement the [long-running webhook-based request action pattern](logic-apps-scenario-function-sb-trigger.md).
 
-* By default, the preview SAP built-in connector operations are *stateless*. However, you can [enable stateful mode (affinity) for these operations](../connectors/enable-stateful-affinity-built-in-connectors.md). In stateful mode, the SAP built-in connector supports high availability and horizontal scale-out configurations. By comparison, the SAP managed connector has restrictions regarding the on-premises data gateway limited to a single instance for triggers and to clusters only in failover mode for actions. For more information, see [SAP managed connector - Known issues and limitations](#known-issues-limitations).
+* By default, the preview SAP built-in connector operations are *stateless*. However, you can [enable stateful mode (affinity) for these operations](../connectors/enable-stateful-affinity-built-in-connectors.md).
+
+  In stateful mode, the SAP built-in connector supports high availability and horizontal scale-out configurations. By comparison, the SAP managed connector has restrictions regarding the on-premises data gateway limited to a single instance for triggers and to clusters only in failover mode for actions. For more information, see [SAP managed connector - Known issues and limitations](#known-issues-limitations).
+
+* Standard logic app workflows require and use the SAP NCo 3.1 client library, not the SAP NCo 3.0 version. For more information, see [Prerequisites](#prerequisites).
+
+* Standard logic app workflows provide application settings where you can specify a Personal Security Environment (PSE) and PSE password. This change lets you upload multiple PSE files. By comparison, Consumption logic app workflows had you specify these values through connection parameters, which prevented the capability to specify multiple PSE files.
+
+* **Generate Schema** action
+
+  * You can select from multiple schema types, such as RFC, BAPI, and IDoc, versus the same action in the SAP managed connector, which uses the **SapActionUris** parameter and a file system picker experience.
+
+  * You can provide an RFC name as a custom value, rather than as complex URI. If necessary, you can specify the exact field names.
+
+  * By design, this action doesn't support generating different versions of RFCs, BAPIs, or IDocs in single REST API call, which the SAP managed connector does support. This capability change now prevents attempts to send large amounts of content in a single call.
 
 <a name="connector-parameters"></a>
 
@@ -235,13 +249,11 @@ For more information about SAP services and ports, review the [TCP/IP Ports of A
 
 ### SAP NCo client library prerequisites
 
-To use the SAP connector, you'll need the SAP NCo client library named [SAP Connector (NCo 3.0) for Microsoft .NET 3.0.25.0 compiled with .NET Framework 4.0  - Windows 64-bit (x64)](https://support.sap.com/en/product/connectors/msnet.html). The following list describes the prerequisites for the SAP NCo client library that you're using with the SAP connector:
+To use the SAP connector, based on whether you have a Consumption or Standard workflow, you'll need install the SAP Connector NCo client library for Microsoft .NET 3.0 or 3.1, respectively. The following list describes the prerequisites for the SAP NCo client library, based on which workflow where you're using with the SAP connector:
 
 * Version:
 
-  * SAP Connector (NCo 3.1) isn't currently supported as dual-version capability is unavailable.
-
-  * For Consumption logic app workflows that use the on-premises data gateway, make sure that you install the latest 64-bit version, [SAP Connector (NCo 3.0) for Microsoft .NET 3.0.25.0 compiled with .NET Framework 4.0  - Windows 64-bit (x64)](https://support.sap.com/en/product/connectors/msnet.html). The data gateway runs only on 64-bit systems. Installing the unsupported 32-bit version results in a **"bad image"** error.
+  * For Consumption logic app workflows that use the on-premises data gateway, make sure that you install the latest 64-bit version, [SAP Connector (NCo 3.0) for Microsoft .NET 3.0.25.0 compiled with .NET Framework 4.0  - Windows 64-bit (x64)](https://support.sap.com/en/product/connectors/msnet.html). SAP Connector (NCo 3.1) isn't currently supported as dual-version capability is unavailable. The data gateway runs only on 64-bit systems. Installing the unsupported 32-bit version results in a **"bad image"** error.
 
     Earlier versions of SAP NCo might experience the following issues:
 
@@ -253,7 +265,7 @@ To use the SAP connector, you'll need the SAP NCo client library named [SAP Conn
 
     * After you upgrade the SAP server environment, you get the following exception message: **"The only destination &lt;some-GUID&gt; available failed when retrieving metadata from &lt;SAP-system-ID&gt; -- see log for details"**.
 
-  * For Standard logic app workflows, you can use the 32-bit or 64-bit version for the SAP NCo client library, but make sure that you install the version that matches the configuration in your Standard logic app resource. To check this version, follow these steps:
+  * For Standard logic app workflows, you can install the latest 64-bit or 32-bit version for [SAP Connector (NCo 3.1) for Microsoft .NET 3.1.2.0 compiled with .NET Framework 4.6.2](https://support.sap.com/en/product/connectors/msnet.html). However, make sure that you install the version that matches the configuration in your Standard logic app resource. To check the version used by your logic app, follow these steps:
 
     1. In the [Azure portal](https://portal.azure.com), open your Standard logic app.
 
@@ -1062,7 +1074,7 @@ See the steps for [SAP logging for Consumption logic apps in multi-tenant workfl
 
 When you have to investigate any problems with this component, you can set up custom text file-based NCo tracing, which SAP or Microsoft support might request from you. By default, this capability is disabled because enabling this trace might negatively affect performance and quickly consume the application host's storage space.
 
-You can control this tracing capability at the application level by through the following settings:
+You can control this tracing capability at the application level by using the following settings:
 
 1. In the [Azure portal](https://portal.azure.com), open your Standard logic app resource.
 
