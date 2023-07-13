@@ -54,7 +54,7 @@ landingContent:
         links:
            - text: Deploy Nexus Kubernetes cluster
              url: quickstarts-kubernetes-cluster-deployment-bicep.md
-           - text: Tenant workload deployment
+           - text: Deploy Nexus virtual machine
              url: quickstarts-tenant-workload-deployment.md
 #
   # Card

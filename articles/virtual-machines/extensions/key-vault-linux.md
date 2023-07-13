@@ -26,16 +26,14 @@ The Key Vault VM extension supports these Linux distributions:
 
 > [!NOTE]
 > To get extended security features, prepare to upgrade Ubuntu 16.04 and Debian 9 systems as these versions are reaching their end of designated support period.
-> 
 
 > [!NOTE]
-> The Key Vault VM Extension downloads the certificates in the default location or to the location provided by "certStoreLocation" property in the VM Extension settings. The KeyValut VM Extension updates the folder permission to 700 (drwx------) allowing read, write and execute permission to the owner of the folder only
+> The Key Vault VM Extension downloads the certificates in the default location or to the location provided by "certStoreLocation" property in the VM Extension settings. The Key Vault VM Extension updates the folder permission to 700 (drwx------) allowing read, write and execute permission to the owner of the folder only
 
 ### Supported certificate content types
 
 - PKCS #12
 - PEM
-
 
 ## Prerequisites
   - Key Vault instance with certificate. See [Create a Key Vault](../../key-vault/general/quick-create-portal.md)
@@ -59,7 +57,8 @@ The Key Vault VM extension supports these Linux distributions:
                   }
    `
 ## Key Vault VM extension version
-* Users can chose to upgrade their key vault vm extension version to `V2.0` to use full certificate chain download feature. Issuer certificates (intermediate and root) will be appended to the leaf certificate in the PEM file.
+
+* Users can chose to upgrade their Key Vault vm extension version to `V2.0` to use full certificate chain download feature. Issuer certificates (intermediate and root) will be appended to the leaf certificate in the PEM file.
 
 * If you prefer to upgrade to `v2.0`, you would need to delete `v1.0` first, then install `v2.0`.
 ```azurecli
@@ -69,9 +68,6 @@ The Key Vault VM extension supports these Linux distributions:
   The flag --version 2.0 is optional because the latest version will be installed by default.	
 
 * If the VM has certificates downloaded by v1.0, deleting the v1.0 AKVVM extension will NOT delete the downloaded certificates.  After installing v2.0, the existing certificates will NOT be modified.  You would need to delete the certificate files or roll-over the certificate to get the PEM file with full-chain on the VM.
-
-
-
 
 ## Extension schema
 
@@ -120,8 +116,6 @@ The following JSON shows the schema for the Key Vault VM extension. The extensio
 > Also **required** for **Azure Arc-enabled VMs**.
 > Set msiEndpoint to `http://localhost:40342/metadata/identity`.
 
-
-
 ### Property values
 
 | Name | Value / Example | Data Type |
@@ -138,7 +132,6 @@ The following JSON shows the schema for the Key Vault VM extension. The extensio
 | observedCertificates  | ["https://myvault.vault.azure.net/secrets/mycertificate", "https://myvault.vault.azure.net/secrets/mycertificate2"] | string array
 | msiEndpoint | http://169.254.169.254/metadata/identity | string |
 | msiClientId | c7373ae5-91c2-4165-8ab6-7381d6e75619 | string |
-
 
 ## Template deployment
 
@@ -233,7 +226,6 @@ The Azure PowerShell can be used to deploy the Key Vault VM extension to an exis
 
         # Start the deployment
         Update-AzVmss -ResourceGroupName <ResourceGroupName> -VMScaleSetName <VmssName> -VirtualMachineScaleSet $vmss 
-    
     ```
 
 ## Azure CLI deployment
