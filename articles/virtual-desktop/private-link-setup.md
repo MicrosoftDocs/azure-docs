@@ -847,8 +847,6 @@ To check the connection state of each private endpoint, select the relevant tab 
    }
    ```
 
----
-
 # [Azure PowerShell](#tab/powershell)
 
 1. In the same PowerShell session, run the following commands to check the connection state of a workspace:
