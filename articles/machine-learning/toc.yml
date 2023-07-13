@@ -140,18 +140,18 @@
           - name: Create Azure Container for PyTorch
             displayName: acpt
             href: how-to-azure-container-for-pytorch-environment.md
-    # v1
-    - name: Manage environments
-      items:
-        - name: Set up software environments CLI (v1)
-          href: ./v1/how-to-use-environments.md
-        - name: Set input & output directories
-          displayName: large data, write, experiment files, size limit
-          href: ./v1/how-to-save-write-experiment-files.md
-        - name: Use private Python packages
-          displayName: pip, Conda, anaconda
-          href: ./v1/how-to-use-private-python-packages.md
-    # end v1
+  # v1
+  - name: Manage environments
+    items:
+      - name: Set up software environments CLI (v1)
+        href: ./v1/how-to-use-environments.md
+      - name: Set input & output directories
+        displayName: large data, write, experiment files, size limit
+        href: ./v1/how-to-save-write-experiment-files.md
+      - name: Use private Python packages
+        displayName: pip, Conda, anaconda
+        href: ./v1/how-to-use-private-python-packages.md
+  # end v1
   - name: Development environment
     items:
       - name: Launch VS Code remote
