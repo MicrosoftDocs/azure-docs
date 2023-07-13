@@ -14,8 +14,12 @@ STATUS: IN REVIEW
 
 CONTENT: final
 
-REVIEW Stephen/Fabian: not reviewed
+REVIEW Stephen/Fabian: COMPLETE
 REVIEW Engineering: not reviewed
+EDIT PASS: COMPLETE
+
+Initial doc score: 86
+Current doc score: 100 (1654 words and 0 issues)
 
 !########################################################
 -->
