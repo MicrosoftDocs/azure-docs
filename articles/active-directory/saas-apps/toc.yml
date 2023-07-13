@@ -2435,6 +2435,8 @@
         href: sprinklr-tutorial.md
       - name: SSOGEN Azure AD SSO Gateway for Oracle E Business Suite EBS, PeopleSoft, and JDE
         href: ssogen-tutorial.md
+      - name: SSO for Jama Connect®
+        href: sso-for-jama-connect-tutorial.md
       - name: Stackby
         href: stackby-tutorial.md
       - name: Standard for Success Accreditation
