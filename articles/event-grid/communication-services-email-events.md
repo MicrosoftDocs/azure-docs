@@ -9,7 +9,7 @@ ms.author: anmolbohra
 
 # Azure Communication Services - Email events
 
-This article provides the properties and schema for communication services telephony and SMS events. For an introduction to event schemas, see [Azure Event Grid event schema](event-schema.md).
+This article provides the properties and schema for communication services email events. For an introduction to event schemas, see [Azure Event Grid event schema](event-schema.md).
 
 ## Events types
 
