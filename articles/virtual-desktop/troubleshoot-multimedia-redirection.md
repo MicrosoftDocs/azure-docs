@@ -25,7 +25,7 @@ The following issues are ones we're already aware of, so you won't need to repor
 
 - Multimedia redirection won't work as expected if the session hosts in your deployment are blocking cmd.exe.
   
-- Multimedia redirection is disabled by default on all sites except for the ones listed in [Websites that work with multimedia redirection](multimedia-redirection-intro.md#websites-that-work-with-multimedia-redirection). However, you can enable multimedia redirection features for all websites by following the directions in [Enable video playback for all sites](multimedia-redirection.md#enable-video-playback-for-all-sites) and [Enable call redirection for all sites](multimedia-redirection.md#enable-webrtc-call-redirection). We added the option to enable multimedia redirection on sites that aren't officially supported so organizations can test the feature on their company websites.
+- Multimedia redirection is disabled by default on all sites except for the ones listed in [Websites that work with multimedia redirection](multimedia-redirection-intro.md#websites-that-work-with-multimedia-redirection). However, you can enable multimedia redirection features for all websites by following the directions in [Enable video playback for all sites](multimedia-redirection.md#enable-video-playback-for-all-sites) and [Enable call redirection for all sites](multimedia-redirection.md#enable-webrtc-call-redirection-for-all-sites). We added the option to enable multimedia redirection on sites that aren't officially supported so organizations can test the feature on their company websites.
 
 - If you aren't using the default Windows size settings for video players, such as not fitting the player to window, not maximizing the window, and so on), parts of video players may not appear correctly. If you encounter this issue, you should change the settings back to Default mode.
 
@@ -52,7 +52,7 @@ The following issues are ones we're already aware of, so you won't need to repor
 
 ### Call redirection
 
-- Call redirection only works for WebRTC-based audio calls on the sites listed in [Call redirection](multimedia-redirection-intro#call-redirection).
+- Call redirection only works for WebRTC-based audio calls on the sites listed in [Call redirection](multimedia-redirection-intro.md#call-redirection).
 
 - When disconnecting from a remote session, call redirection might stop working. You can make redirection start working again by refreshing the webpage.
 
