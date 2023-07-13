@@ -6,7 +6,7 @@ author: asudbring
 ms.author: allensu
 ms.service: nat-gateway
 ms.topic: tutorial 
-ms.date: 01/17/2023
+ms.date: 07/13/2023
 ms.custom: template-tutorial 
 ---
 
@@ -49,10 +49,10 @@ All outbound internet traffic will traverse the NAT gateway to the internet. Use
     | ------- | ----- |
     | **Project details** |  |
     | Subscription | Select your subscription. |
-    | Resource group | Select **Create new**. </br> Enter **TutorialNATHubSpoke-rg** in **Name**. </br> Select **OK**. |
+    | Resource group | Select **Create new**. </br> Enter **test-rg** in **Name**. </br> Select **OK**. |
     | **Instance details** |  |
-    | NAT gateway name | Enter **myNATgateway**. |
-    | Region | Select **South Central US**. |
+    | NAT gateway name | Enter **nat-gateway**. |
+    | Region | Select **East US 2**. |
     | Availability zone | Select a **Zone** or **No zone**. |
     | TCP idle timeout (minutes) | Leave the default of **4**. |
 
@@ -60,7 +60,7 @@ All outbound internet traffic will traverse the NAT gateway to the internet. Use
 
 6. In **Outbound IP** in **Public IP addresses**, select **Create a new public IP address**.
 
-7. Enter **myPublicIP-NAT** in **Name**.
+7. Enter **public-ip-nat** in **Name**.
 
 8. Select **OK**.
 
@@ -82,16 +82,16 @@ The hub virtual network is the central network of the solution. The hub network 
     | ------- | ----- |
     | **Project details** |   |
     | Subscription | Select your subscription. |
-    | Resource group | Select **TutorialNATHubSpoke-rg**. |
+    | Resource group | Select **test-rg**. |
     | **Instance details** |   |
-    | Name | Enter **myVNet-Hub**. |
-    | Region | Select **South Central US**. |
+    | Name | Enter **vnet-hub**. |
+    | Region | Select **East US 2**. |
 
 4. Select **Next: IP Addresses**.
 
 5. In the **IP Addresses** tab in **IPv4 address space**, select the trash can to delete the address space that is auto populated.
 
-6. In **IPv4 address space** enter **10.1.0.0/16**.
+6. In **IPv4 address space** enter **10.0.0.0/16**.
 
 7. Select **+ Add subnet**.
 
@@ -100,7 +100,7 @@ The hub virtual network is the central network of the solution. The hub network 
     | Setting | Value |
     | ------- | ----- |
     | Subnet name | Enter **subnet-private**. |
-    | Subnet address range | Enter **10.1.0.0/24**. |
+    | Subnet address range | Enter **10.0.0.0/24**. |
 
 9. Select **Add**.
 
@@ -111,9 +111,9 @@ The hub virtual network is the central network of the solution. The hub network 
     | Setting | Value |
     | ------- | ----- |
     | Subnet name | Enter **subnet-public**. |
-    | Subnet address range | Enter **10.1.253.0/28**. |
+    | Subnet address range | Enter **10.0.253.0/28**. |
     | **NAT GATEWAY** |   |
-    | NAT gateway | Select **myNATgateway**. |
+    | NAT gateway | Select **nat-gateway**. |
 
 12. Select **Add**.
 
@@ -125,9 +125,9 @@ The hub virtual network is the central network of the solution. The hub network 
 
     | Setting | Value |
     | ------- | ----- |
-    | Bastion name | Enter **myBastion**. |
-    | AzureBastionSubnet address space | Enter **10.1.1.0/26**. |
-    | Public IP address | Select **Create new**. </br> In **Name** enter **myPublicIP-Bastion**. </br> Select **OK**. |
+    | Bastion name | Enter **bastion**. |
+    | AzureBastionSubnet address space | Enter **10.0.1.0/26**. |
+    | Public IP address | Select **Create new**. </br> In **Name** enter **public-ip**. </br> Select **OK**. |
 
 16. Select **Review + create**.
 
@@ -149,13 +149,13 @@ The simulated NVA will act as a virtual appliance to route all traffic between t
     | ------- | ----- |
     | **Project details** |   |
     | Subscription | Select your subscription. |
-    | Resource group | Select **TutorialNATHubSpoke-rg**. |
+    | Resource group | Select **test-rg**. |
     | **Instance details** |   |
-    | Virtual machine name | Enter **myVM-NVA**. |
-    | Region | Select **(US) South Central US**. |
+    | Virtual machine name | Enter **vm-nva**. |
+    | Region | Select **(US) East US 2**. |
     | Availability options | Select **No infrastructure redundancy required**. |
     | Security type | Select **Standard**. |
-    | Image | Select **Ubuntu Server 20.04 LTS - x64 Gen2**. |
+    | Image | Select **Ubuntu Server 22.04 LTS - x64 Gen2**. |
     | VM architecture | Leave the default of **x64**. |
     | Size | Select a size. |
     | **Administrator account** |   |
@@ -173,7 +173,7 @@ The simulated NVA will act as a virtual appliance to route all traffic between t
     | Setting | Value |
     | ------- | ----- |
     | **Network interface** |   |
-    | Virtual network | Select **myVNet-Hub**. |
+    | Virtual network | Select **vnet-hub**. |
     | Subnet | Select **subnet-public**. |
     | Public IP | Select **None**. |
 
@@ -187,13 +187,13 @@ The IP configuration of the primary network interface of the virtual machine is 
 
 1. In the search box at the top of the portal, enter **Virtual machine**. Select **Virtual machines** in the search results.
 
-2. Select **myVM-NVA**.
+2. Select **vm-nva**.
 
 3. In the **Overview** select **Stop** if the virtual machine is running.
 
 4. Select **Networking** in **Settings**.
 
-5. In **Networking** select the network interface name next to **Network Interface:**. The interface name is the virtual machine name and random numbers and letters. In this example, the interface name is **myvm-nva271**. 
+5. In **Networking** select the network interface name next to **Network Interface:**. The interface name is the virtual machine name and random numbers and letters. In this example, the interface name is **vm-nva271**. 
 
 6. In the network interface properties, select **IP configurations** in **Settings**.
 
@@ -205,13 +205,13 @@ The IP configuration of the primary network interface of the virtual machine is 
 
 10. In **Assignment** in **ipconfig1** select **Static**.
 
-11. In **IP address** enter **10.1.253.10**.
+11. In **IP address** enter **10.0.253.10**.
 
 12. Select **Save**.
 
-13. When the save action completes, return to the networking configuration for **myVM-NVA**.
+13. When the save action completes, return to the networking configuration for **vm-nva**.
 
-14. In **Networking** of **myVM-NVA** select **Attach network interface**.
+14. In **Networking** of **vm-nva** select **Attach network interface**.
 
 15. Select **Create and attach network interface**.
 
@@ -220,14 +220,14 @@ The IP configuration of the primary network interface of the virtual machine is 
     | Setting | Value |
     | ------- | ----- |
     | **Project details** |  |
-    | Resource group | Select **TutorialNATHubSpoke-rg**. |
+    | Resource group | Select **test-rg**. |
     | **Network interface** |  |
-    | Name | Enter **myVM-NVA-private-nic**. |
-    | Subnet | Select **subnet-private (10.1.0.0/24)**. |
+    | Name | Enter **nic-private**. |
+    | Subnet | Select **subnet-private (10.0.0.0/24)**. |
     | NIC network security group | Select **Advanced**. |
-    | Configure network security group | Select **myVM-VNA-nsg**. |
+    | Configure network security group | Select **nsg-nva**. |
     | Private IP address assignment | Select **Static**. |
-    | Private IP address | Enter **10.1.0.10**. |
+    | Private IP address | Enter **10.0.0.10**. |
 
 17. Select **Create**.
 
@@ -237,9 +237,9 @@ The routing for the simulated NVA uses IP tables and internal NAT in the Ubuntu 
 
 1. In the search box at the top of the portal, enter **Virtual machine**. Select **Virtual machines** in the search results.
 
-2. Select **myVM-NVA**.
+2. Select **vm-nva**.
 
-3. Start **myVM-NVA**.
+3. Start **vm-nva**.
 
 4. When the virtual machine is completed booting, continue with the next steps.
 
@@ -322,10 +322,10 @@ Route tables are used to overwrite Azure's default routing. Create a route table
     | ------- | ----- |
     | **Project details** |   |
     | Subscription | Select your subscription. |
-    | Resource group | Select **TutorialNATHubSpoke-rg**. |
+    | Resource group | Select **test-rg**. |
     | **Instance details** |   |
-    | Region | Select **South Central US**. |
-    | Name | Enter **myRouteTable-NAT-Hub**. |
+    | Region | Select **East US 2**. |
+    | Name | Enter **route-table-nat-hub**. |
     | Propagate gateway routes | Leave the default of **Yes**. |
 
 4. Select **Review + create**. 
@@ -334,7 +334,7 @@ Route tables are used to overwrite Azure's default routing. Create a route table
 
 6. In the search box at the top of the portal, enter **Route table**. Select **Route tables** in the search results.
 
-7. Select **myRouteTable-NAT-Hub**.
+7. Select **route-table-nat-hub**.
 
 8. In **Settings** select **Routes**.
 
@@ -344,11 +344,11 @@ Route tables are used to overwrite Azure's default routing. Create a route table
 
     | Setting | Value |
     | ------- | ----- |
-    | Route name | Enter **default-via-NAT-Hub**. |
+    | Route name | Enter **default-via-nat-hub**. |
     | Address prefix destination | Select **IP Addresses**. |
     | Destination IP addresses/CIDR ranges | Enter **0.0.0.0/0**. |
     | Next hop type | Select **Virtual appliance**. |
-    | Next hop address | Enter **10.1.0.10**. </br> **_This is the IP address you added to the private interface of the NVA in the previous steps._**. |
+    | Next hop address | Enter **10.0.0.10**. </br> **_This is the IP address you added to the private interface of the NVA in the previous steps._**. |
 
 11. Select **Add**.
 
@@ -360,7 +360,7 @@ Route tables are used to overwrite Azure's default routing. Create a route table
 
     | Setting | Value |
     | ------- | ----- |
-    | Virtual network | Select **myVNet-Hub (TutorialNATHubSpoke-rg)**. |
+    | Virtual network | Select **vnet-hub (test-rg)**. |
     | Subnet | Select **subnet-private**. |
 
 15. Select **OK**.
@@ -379,16 +379,16 @@ Create another virtual network in a different region for the first spoke of the 
     | ------- | ----- |
     | **Project details** |   |
     | Subscription | Select your subscription. |
-    | Resource group | Select **TutorialNATHubSpoke-rg**. |
+    | Resource group | Select **test-rg**. |
     | **Instance details** |   |
-    | Name | Enter **myVNet-Spoke-1**. |
+    | Name | Enter **vnet-spoke-1**. |
     | Region | Select **East US 2**. |
 
 4. Select **Next: IP Addresses**.
 
 5. In the **IP Addresses** tab in **IPv4 address space**, select the trash can to delete the address space that is auto populated.
 
-6. In **IPv4 address space** enter **10.2.0.0/16**.
+6. In **IPv4 address space** enter **10.1.0.0/16**.
 
 7. Select **+ Add subnet**.
 
@@ -397,7 +397,7 @@ Create another virtual network in a different region for the first spoke of the 
     | Setting | Value |
     | ------- | ----- |
     | Subnet name | Enter **subnet-private**. |
-    | Subnet address range | Enter **10.2.0.0/24**. |
+    | Subnet address range | Enter **10.1.0.0/24**. |
 
 9. Select **Add**.
 
@@ -411,7 +411,7 @@ A virtual network peering is used to connect the hub to spoke one and spoke one 
 
 1. In the search box at the top of the portal, enter **Virtual network**. Select **Virtual networks** in the search results.
 
-2. Select **myVNet-Hub**.
+2. Select **vnet-hub**.
 
 3. Select **Peerings** in **Settings**.
 
@@ -422,15 +422,15 @@ A virtual network peering is used to connect the hub to spoke one and spoke one 
     | Setting | Value |
     | ------- | ----- |
     | **This virtual network** |   |
-    | Peering link name | Enter **myVNet-Hub-To-myVNet-Spoke-1**. |
+    | Peering link name | Enter **vnet-hub-To-vnet-spoke-1**. |
     | Traffic to remote virtual network | Leave the default of **Allow (default)**. |
     | Traffic forwarded from remote virtual network | Leave the default of **Allow (default)**. |
     | Virtual network gateway or Route Server | Leave the default of **None**. |
     | **Remote virtual network** |   |
-    | Peering link name | Enter **myVNet-Spoke-1-To-myVNet-Hub**. |
+    | Peering link name | Enter **vnet-spoke-1-To-vnet-hub**. |
     | Virtual network deployment model | Leave the default of **Resource manager**. |
     | Subscription | Select your subscription. |
-    | Virtual network | Select **myVNet-Spoke-1**. |
+    | Virtual network | Select **vnet-spoke-1**. |
     | Traffic to remote virtual network | Leave the default of **Allow (default)**. |
     | Traffic forwarded from remote virtual network | Leave the default of **Allow (default)**. |
     | Virtual network gateway or Route Server | Leave the default of **None**. |
@@ -453,10 +453,10 @@ Create a route table to force all inter-interspoke and internet egress traffic t
     | ------- | ----- |
     | **Project details** |   |
     | Subscription | Select your subscription. |
-    | Resource group | Select **TutorialNATHubSpoke-rg**. |
+    | Resource group | Select **test-rg**. |
     | **Instance details** |   |
     | Region | Select **East US 2**. |
-    | Name | Enter **myRouteTable-NAT-Spoke-1**. |
+    | Name | Enter **route-table-nat-spoke-1**. |
     | Propagate gateway routes | Leave the default of **Yes**. |
 
 4. Select **Review + create**. 
@@ -465,7 +465,7 @@ Create a route table to force all inter-interspoke and internet egress traffic t
 
 6. In the search box at the top of the portal, enter **Route table**. Select **Route tables** in the search results.
 
-7. Select **myRouteTable-NAT-Spoke-1**.
+7. Select **route-table-nat-spoke-1**.
 
 8. In **Settings** select **Routes**.
 
@@ -475,11 +475,11 @@ Create a route table to force all inter-interspoke and internet egress traffic t
 
     | Setting | Value |
     | ------- | ----- |
-    | Route name | Enter **default-via-NAT-Spoke-1**. |
+    | Route name | Enter **default-via-nat-spoke-1**. |
     | Address prefix destination | Select **IP Addresses**. |
     | Destination IP addresses/CIDR ranges | Enter **0.0.0.0/0**. |
     | Next hop type | Select **Virtual appliance**. |
-    | Next hop address | Enter **10.1.0.10**. </br> **_This is the IP address you added to the private interface of the NVA in the previous steps._**. |
+    | Next hop address | Enter **10.0.0.10**. </br> **_This is the IP address you added to the private interface of the NVA in the previous steps._**. |
 
 11. Select **Add**.
 
@@ -491,7 +491,7 @@ Create a route table to force all inter-interspoke and internet egress traffic t
 
     | Setting | Value |
     | ------- | ----- |
-    | Virtual network | Select **myVNet-Spoke-1 (TutorialNATHubSpoke-rg)**. |
+    | Virtual network | Select **vnet-spoke-1 (test-rg)**. |
     | Subnet | Select **subnet-private**. |
 
 15. Select **OK**.
@@ -510,9 +510,9 @@ A Windows Server 2022 virtual machine is used to test the outbound internet traf
     | ------- | ----- |
     | **Project details** |   |
     | Subscription | Select your subscription. |
-    | Resource group | Select **TutorialNATHubSpoke-rg**. |
+    | Resource group | Select **test-rg**. |
     | **Instance details** |   |
-    | Virtual machine name | Enter **myVM-Spoke-1**. |
+    | Virtual machine name | Enter **vm-spoke-1**. |
     | Region | Select **(US) East US 2**. |
     | Availability options | Select **No infrastructure redundancy required**. |
     | Security type | Select **Standard**. |
@@ -534,8 +534,8 @@ A Windows Server 2022 virtual machine is used to test the outbound internet traf
     | Setting | Value |
     | ------- | ----- |
     | **Network interface** |   |
-    | Virtual network | Select **myVNet-Spoke-1**. |
-    | Subnet | Select **subnet-private (10.2.0.0/24)**. |
+    | Virtual network | Select **vnet-spoke-1**. |
+    | Subnet | Select **subnet-private (10.1.0.0/24)**. |
     | Public IP | Select **None**. |
     | NIC network security group | Select **Basic**. |
     | Public inbound ports | Select **Allow selected ports**. |
@@ -559,16 +559,16 @@ Create the second virtual network for the second spoke of the hub and spoke netw
     | ------- | ----- |
     | **Project details** |   |
     | Subscription | Select your subscription. |
-    | Resource group | Select **TutorialNATHubSpoke-rg**. |
+    | Resource group | Select **test-rg**. |
     | **Instance details** |   |
-    | Name | Enter **myVNet-Spoke-2**. |
+    | Name | Enter **vnet-spoke-2**. |
     | Region | Select **West US 2**. |
 
 4. Select **Next: IP Addresses**.
 
 5. In the **IP Addresses** tab in **IPv4 address space**, select the trash can to delete the address space that is auto populated.
 
-6. In **IPv4 address space** enter **10.3.0.0/16**.
+6. In **IPv4 address space** enter **10.2.0.0/16**.
 
 7. Select **+ Add subnet**.
 
@@ -577,7 +577,7 @@ Create the second virtual network for the second spoke of the hub and spoke netw
     | Setting | Value |
     | ------- | ----- |
     | Subnet name | Enter **subnet-private**. |
-    | Subnet address range | Enter **10.3.0.0/24**. |
+    | Subnet address range | Enter **10.2.0.0/24**. |
 
 9. Select **Add**.
 
@@ -591,7 +591,7 @@ Create a two-way virtual network peer between the hub and spoke two.
 
 1. In the search box at the top of the portal, enter **Virtual network**. Select **Virtual networks** in the search results.
 
-2. Select **myVNet-Hub**.
+2. Select **vnet-hub**.
 
 3. Select **Peerings** in **Settings**.
 
@@ -602,15 +602,15 @@ Create a two-way virtual network peer between the hub and spoke two.
     | Setting | Value |
     | ------- | ----- |
     | **This virtual network** |   |
-    | Peering link name | Enter **myVNet-Hub-To-myVNet-Spoke-2**. |
+    | Peering link name | Enter **vnet-hub-To-vnet-spoke-2**. |
     | Traffic to remote virtual network | Leave the default of **Allow (default)**. |
     | Traffic forwarded from remote virtual network | Leave the default of **Allow (default)**. |
     | Virtual network gateway or Route Server | Leave the default of **None**. |
     | **Remote virtual network** |   |
-    | Peering link name | Enter **myVNet-Spoke-2-To-myVNet-Hub**. |
+    | Peering link name | Enter **vnet-spoke-2-To-vnet-hub**. |
     | Virtual network deployment model | Leave the default of **Resource manager**. |
     | Subscription | Select your subscription. |
-    | Virtual network | Select **myVNet-Spoke-2**. |
+    | Virtual network | Select **vnet-spoke-2**. |
     | Traffic to remote virtual network | Leave the default of **Allow (default)**. |
     | Traffic forwarded from remote virtual network | Leave the default of **Allow (default)**. |
     | Virtual network gateway or Route Server | Leave the default of **None**. |
@@ -633,10 +633,10 @@ Create a route table to force all outbound internet and inter-spoke traffic thro
     | ------- | ----- |
     | **Project details** |   |
     | Subscription | Select your subscription. |
-    | Resource group | Select **TutorialNATHubSpoke-rg**. |
+    | Resource group | Select **test-rg**. |
     | **Instance details** |   |
     | Region | Select **West US 2**. |
-    | Name | Enter **myRouteTable-NAT-Spoke-2**. |
+    | Name | Enter **route-table-nat-spoke-2**. |
     | Propagate gateway routes | Leave the default of **Yes**. |
 
 4. Select **Review + create**. 
@@ -645,7 +645,7 @@ Create a route table to force all outbound internet and inter-spoke traffic thro
 
 6. In the search box at the top of the portal, enter **Route table**. Select **Route tables** in the search results.
 
-7. Select **myRouteTable-NAT-Spoke-2**.
+7. Select **route-table-nat-spoke-2**.
 
 8. In **Settings** select **Routes**.
 
@@ -655,11 +655,11 @@ Create a route table to force all outbound internet and inter-spoke traffic thro
 
     | Setting | Value |
     | ------- | ----- |
-    | Route name | Enter **default-via-NAT-Spoke-2**. |
+    | Route name | Enter **default-via-nat-spoke-2**. |
     | Address prefix destination | Select **IP Addresses**. |
     | Destination IP addresses/CIDR ranges | Enter **0.0.0.0/0**. |
     | Next hop type | Select **Virtual appliance**. |
-    | Next hop address | Enter **10.1.0.10**. </br> **_This is the IP address you added to the private interface of the NVA in the previous steps._**. |
+    | Next hop address | Enter **10.0.0.10**. </br> **_This is the IP address you added to the private interface of the NVA in the previous steps._**. |
 
 11. Select **Add**.
 
@@ -671,7 +671,7 @@ Create a route table to force all outbound internet and inter-spoke traffic thro
 
     | Setting | Value |
     | ------- | ----- |
-    | Virtual network | Select **myVNet-Spoke-2 (TutorialNATHubSpoke-rg)**. |
+    | Virtual network | Select **vnet-spoke-2 (test-rg)**. |
     | Subnet | Select **subnet-private**. |
 
 15. Select **OK**.
@@ -690,9 +690,9 @@ Create a Windows Server 2022 virtual machine for the test virtual machine in spo
     | ------- | ----- |
     | **Project details** |   |
     | Subscription | Select your subscription. |
-    | Resource group | Select **TutorialNATHubSpoke-rg**. |
+    | Resource group | Select **test-rg**. |
     | **Instance details** |   |
-    | Virtual machine name | Enter **myVM-Spoke-2**. |
+    | Virtual machine name | Enter **vm-spoke-2**. |
     | Region | Select **(US) West US 2**. |
     | Availability options | Select **No infrastructure redundancy required**. |
     | Security type | Select **Standard**. |
@@ -714,7 +714,7 @@ Create a Windows Server 2022 virtual machine for the test virtual machine in spo
     | Setting | Value |
     | ------- | ----- |
     | **Network interface** |   |
-    | Virtual network | Select **myVNet-Spoke-2**. |
+    | Virtual network | Select **vnet-spoke-2**. |
     | Subnet | Select **subnet-private (10.3.0.0/24)**. |
     | Public IP | Select **None**. |
     | NIC network security group | Select **Basic**. |
@@ -735,7 +735,7 @@ Obtain the NAT gateway public IP address for verification of the steps later in 
 
 1. In the search box at the top of the portal, enter **Public IP**. Select **Public IP addresses** in the search results.
 
-2. Select **myPublic-NAT**.
+2. Select **public-ip-nat**.
 
 3. Make note of value in **IP address**. The example used in this article is **52.153.224.79**.
 
@@ -745,7 +745,7 @@ Use Microsoft Edge on the Windows Server 2022 virtual machine to connect to http
 
 1. In the search box at the top of the portal, enter **Virtual machine**. Select **Virtual machines** in the search results.
 
-2. Select **myVM-Spoke-1**.
+2. Select **vm-spoke-1**.
 
 3. Select **Connect** then **Bastion**.
 
@@ -769,7 +769,7 @@ Use Microsoft Edge on the Windows Server 2022 virtual machine to connect to http
     Install-WindowsFeature Web-Server
     ```
 
-11. Leave the bastion connection open to **myVM-Spoke-1**.
+11. Leave the bastion connection open to **vm-spoke-1**.
 
 ### Test NAT gateway from spoke two
 
@@ -777,7 +777,7 @@ Use Microsoft Edge on the Windows Server 2022 virtual machine to connect to http
 
 1. In the search box at the top of the portal, enter **Virtual machine**. Select **Virtual machines** in the search results.
 
-2. Select **myVM-Spoke-2**.
+2. Select **vm-spoke-2**.
 
 3. Select **Connect** then **Bastion**.
 
@@ -801,7 +801,7 @@ Use Microsoft Edge on the Windows Server 2022 virtual machine to connect to http
     Install-WindowsFeature Web-Server
     ```
 
-11. Leave the bastion connection open to **myVM-Spoke-2**.
+11. Leave the bastion connection open to **vm-spoke-2**.
 
 ## Test routing between the spokes
 
@@ -809,49 +809,37 @@ Traffic from spoke one to spoke two and spoke two to spoke one will route throug
 
 ### Test routing from spoke one to spoke two
 
-Use Microsoft Edge to connect to the web server on **myVM-Spoke-2** you installed in the previous steps.
+Use Microsoft Edge to connect to the web server on **vm-spoke-2** you installed in the previous steps.
 
-1. Return to the open bastion connection to **myVM-Spoke-1**.
-
-2. Open **Microsoft Edge** if it's not open.
-
-3. In the address bar, enter **10.3.0.4**.
-
-4. Verify the default IIS page is displayed from **myVM-Spoke-2**.
-
-    :::image type="content" source="./media/tutorial-hub-spoke-route-nat/iis-myvm-spoke-1.png" alt-text="Screenshot of default IIS page on myVM-Spoke-1.":::
-
-5. Close the bastion connection to **myVM-Spoke-1**.
-
-### Test routing from spoke two to spoke one
-
-Use Microsoft Edge to connect to the web server on **myVM-Spoke-1** you installed in the previous steps.
-
-1. Return to the open bastion connection to **myVM-Spoke-2**.
+1. Return to the open bastion connection to **vm-spoke-1**.
 
 2. Open **Microsoft Edge** if it's not open.
 
 3. In the address bar, enter **10.2.0.4**.
 
-4. Verify the default IIS page is displayed from **myVM-Spoke-1**.
+4. Verify the default IIS page is displayed from **vm-spoke-2**.
 
-    :::image type="content" source="./media/tutorial-hub-spoke-route-nat/iis-myvm-spoke-2.png" alt-text="Screenshot of default IIS page on myVM-Spoke-2.":::
+    :::image type="content" source="./media/tutorial-hub-spoke-route-nat/iis-vm-spoke-1.png" alt-text="Screenshot of default IIS page on vm-spoke-1.":::
 
-5. Close the bastion connection to **myVM-Spoke-1**.
+5. Close the bastion connection to **vm-spoke-1**.
 
-## Clean up resources
+### Test routing from spoke two to spoke one
 
-If you're not going to continue to use this application, delete the created resources with the following steps:
+Use Microsoft Edge to connect to the web server on **vm-spoke-1** you installed in the previous steps.
 
-1. In the search box at the top of the portal, enter **Resource group**. Select **Resource groups** in the search results.
+1. Return to the open bastion connection to **vm-spoke-2**.
 
-2. Select **myResourceGroup**.
+2. Open **Microsoft Edge** if it's not open.
 
-3. In the **Overview** of **myResourceGroup**, select **Delete resource group**.
+3. In the address bar, enter **10.1.0.4**.
 
-4. In **TYPE THE RESOURCE GROUP NAME:**, enter **TutorialNATHubSpoke-rg**.
+4. Verify the default IIS page is displayed from **vm-spoke-1**.
 
-5. Select **Delete**.
+    :::image type="content" source="./media/tutorial-hub-spoke-route-nat/iis-vm-spoke-2.png" alt-text="Screenshot of default IIS page on vm-spoke-2.":::
+
+5. Close the bastion connection to **vm-spoke-1**.
+
+[!INCLUDE [portal-clean-up.md](../../includes/portal-clean-up.md)]
 
 ## Next steps
 
