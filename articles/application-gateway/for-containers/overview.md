@@ -24,11 +24,11 @@ Application Gateway for Containers provides an elastic and scalable ingress to A
 
 - Application Gateway for Containers improves on AKS orchestration by [increasing performance](#load-balancing-features) to sub second update times to add or move pods, routes and probes. 
 - Another significant benefit of Application Gateway for Containers over AGIC are the flexible [deployment strategies](#deployment-strategies) that it offers. 
-- Aplication Gateway for Containers offers an elastic and scalable ingress to AKS clusters and comprises a new data plane as well as control plane with [new set of ARM APIs](#implementation-of-gateway-api), different from existing Application Gateway.
+- Application Gateway for Containers offers an elastic and scalable ingress to AKS clusters and comprises a new data plane as well as control plane with [new set of ARM APIs](#implementation-of-gateway-api), different from existing Application Gateway.
 
 ## Features
 
-Application Gateway for Containers offers some entirely features at release, such as:
+Application Gateway for Containers offers some entirely new features at release, such as:
 - Traffic splitting 
 - Weighted round robin 
 - Mutual authentication to the backend target
