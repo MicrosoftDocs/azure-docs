@@ -40,8 +40,10 @@ landingContent:
     linkLists: 
       - linkListType: concept
         links:
-          - text: Architecture
+          - text: ALI for Epic architecture
             url: architecture.md
+          - text: Available SKUs
+            url: available-skus.md
 
 # card 3
   - title: Configuration
