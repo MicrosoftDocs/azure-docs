@@ -118,7 +118,7 @@ To enable zone redundancy, see [Databases - Create Or Update in ARM](/rest/api/s
 # [PowerShell](#tab/powershell)
 
 
-Open PowerShell as Administrator and run the following command (replace the placeholders in "<>" with your resource names):
+Open PowerShell as Administrator and run the following command (replace the placeholders in "<>" with your resource names). Note that `<server_name>` should not include `.database.windows.net`.
 
 ```powershell
 Connect-AzAccount
