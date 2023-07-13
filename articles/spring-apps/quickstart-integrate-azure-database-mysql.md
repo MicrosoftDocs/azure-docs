@@ -156,11 +156,11 @@ Repeat to validate the service connector action for the app `customers-service`,
 
 ## Update apps to use MySQL profile
 
-This section shows you how to update the apps to connect to the MySQL database.
+The following section explains how to update the apps to connect to the MySQL database.
 
 ### [Azure CLI](#tab/azure-cli)
 
-Run the below command to set an environment variable to activate the profile `mysql` for app `customers-service`:
+Run the following command to set an environment variable to activate the profile `mysql` for the app `customers-service`:
 
 ```azurecli
 az spring app update \
