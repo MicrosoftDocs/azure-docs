@@ -5,7 +5,7 @@ author: danieloh30
 ms.author: edburns
 ms.service: container-service
 ms.topic: how-to
-ms.date: 07/10/2023
+ms.date: 07/12/2023
 ms.custom: template-how-to, devx-track-java, devx-track-javaee, devx-track-javaee-quarkus-aks
 ---
 
@@ -13,20 +13,18 @@ ms.custom: template-how-to, devx-track-java, devx-track-javaee, devx-track-javae
 
 When you develop and run microservices in the Kubernetes cluster, you need to think of better practices and tools to evlove your existing microservices in the Kubernetes native way. For example, Kubernetes already provides non-functional microservices' capabilities such as *service discovery*, *externalizing config*, and *health check* that you should implement them inside methods and classes. The challenge for you as a developer is how to integrate these capabilities into your applications at build time rather than creating multiple Kubernetes manifest _YAML_ files manually.
 
-This best practices article focuses on how to deploy the `Minesweeper` with [Quarkus](https://quarkus.io/) on an Azure Kubernetes Service (AKS) cluster. You learn how to:
+This best practices article focuses on how to deploy a `Todo` application with [Quarkus](https://quarkus.io/) on an Azure Kubernetes Service (AKS) cluster. You learn how to:
 
 - Test your Quarkus App Locally
 - Deploy the Quarkus App to Azure Kubernetes Service (AKS)
 - Secure Database credential to Kubernetes Secrets
 
-![Screenshot](./media/aks-quarkus/aks-demo-arch.png)
-
 ## Technologies include:
 
-- JQuery-based Minesweeper written by [Nick Arocho](http://www.nickarocho.com/) and [available on GitHub](https://github.com/nickarocho/minesweeper).
-- Backend based on [Quarkus](https://quarkus.io) to persist scoreboard and provide a reactive frontend and backend connected to [Postgres](https://azure.microsoft.com/en-us/services/postgresql/).
+- [Quarkus Dev Services for Databases](https://quarkus.io/guides/databases-dev-services)
+- Backend based on [Quarkus](https://quarkus.io) to persist a todo list and provide a reactive frontend and backend connected to [Postgres](https://azure.microsoft.com/en-us/services/postgresql/).
 - Application Deployment on [Azure Kubernetes Service (AKS)](https://docs.microsoft.com/en-us/azure/aks/intro-kubernetes)
-- Datastore to store scores on [Azure Database for PostgreSQL](https://azure.microsoft.com/en-us/services/postgresql/) 
+- Datastore to store a todo list on [Azure Database for PostgreSQL](https://azure.microsoft.com/en-us/services/postgresql/) 
 
 ## Test your Quarkus App Locally
 
@@ -54,76 +52,84 @@ __  ____  __  _____   ___  __ ____  ______
  --/ __ \/ / / / _ | / _ \/ //_/ / / / __/ 
  -/ /_/ / /_/ / __ |/ , _/ ,< / /_/ /\ \   
 --\___\_\____/_/ |_/_/|_/_/|_|\____/___/   
-[org.hib.eng.jdb.spi.SqlExceptionHelper] (JPA Startup Thread: <default>) SQL Warning Code: 0, SQLState: 00000
+INFO  [io.quarkus] (Quarkus Main Thread) quarkus-todo-demo-app-aks 1.0.0-SNAPSHOT on JVM (powered by Quarkus 3.2.0.Final) started in 3.377s. Listening on: http://localhost:8080
 
-...
-
-INFO  [io.quarkus] (Quarkus Main Thread) microsweeper-appservice 1.0.0-SNAPSHOT on JVM (powered by Quarkus xx.xx.xx.Final) started in 9.631s. Listening on: http://localhost:8080
 INFO  [io.quarkus] (Quarkus Main Thread) Profile dev activated. Live Coding activated.
-INFO  [io.quarkus] (Quarkus Main Thread) Installed features: [agroal, cdi, hibernate-orm, hibernate-orm-panache, jdbc-postgresql, kubernetes, kubernetes-client, micrometer, narayana-jta, resteasy-reactive, resteasy-reactive-jsonb, smallrye-context-propagation, vertx]
+INFO  [io.quarkus] (Quarkus Main Thread) Installed features: [agroal, cdi, hibernate-orm, hibernate-orm-panache, hibernate-validator, jdbc-postgresql, narayana-jta, resteasy-reactive, resteasy-reactive-jackson, smallrye-context-propagation, vertx]
 
 --
 Tests paused
-Press [r] to resume testing, [o] Toggle test output, [:] for the terminal, [h] for more options>
+Press [e] to edit command line args (currently ''), [r] to resume testing, [o] Toggle test output, [:] for the terminal, [h] for more options>
 ```
 
-Press `w` key on the terminal where Quarkus dev mode is running. Then, it will automatically open a web browser or tab window to show the **Microsweeper** application. 
+Press `w` key on the terminal where Quarkus dev mode is running. Then, it will automatically open a web browser or tab window to show the **Todo** application. 
 _Note_ that you can also access the application GUI at http://localhost:8080 directly
 
-![Screenshot](./media/aks-quarkus/microsweeper-local.png)
+![Screenshot](./media/aks-quarkus/aks-demo-gui.png)
 
-Try playing the mine game! Then you will *scores* in the _Leaderboard_:
+Try selecting a few todo items in the todo list. Then, they will be *strikethrough*. You can also add a new todo item to the todo list by typing `Verify Todo apps` in:
 
-![Screenshot](./media/aks-quarkus/leaderboard-local.png)
+![Screenshot](./media/aks-quarkus/todo-local.png)
 
-Access the RESTful API (_/api/score_) to get all scores that store in the local PostgreSQL database. Run the following API testing client [HTTPie](https://httpie.io/) command-line tool: 
+Access the RESTful API (_/api_) to get all todo items that store in the local PostgreSQL database. Run the following API testing client [HTTPie](https://httpie.io/) command-line tool: 
 
 ```shell
-http :8080/api/scoreboard
+http :8080/api
 ```
 
 The output should look like:
 
 ```shell
 HTTP/1.1 200 OK
-Content-Type: application/json
-content-length: 253
+Content-Type: application/json;charset=UTF-8
+content-length: 737
 
 [
     {
+        "completed": true,
         "id": 1,
-        "level": "medium",
-        "name": "Narrow Track",
-        "scoreId": 0,
-        "success": false,
-        "time": 1
+        "order": 0,
+        "title": "Introduction to Quarkus Todo App",
+        "url": null
     },
     {
+        "completed": false,
         "id": 2,
-        "level": "medium",
-        "name": "Fish Paw",
-        "scoreId": 0,
-        "success": false,
-        "time": 4
+        "order": 1,
+        "title": "Quarkus on Azure App Service",
+        "url": "https://learn.microsoft.com/en-us/azure/developer/java/eclipse-microprofile/deploy-microprofile-quarkus-java-app-with-maven-plugin"
     },
     {
+        "completed": false,
         "id": 3,
-        "level": "medium",
-        "name": "Hickory Touch",
-        "scoreId": 0,
-        "success": false,
-        "time": 1
+        "order": 2,
+        "title": "Quarkus on Azure Container Apps",
+        "url": "https://learn.microsoft.com/en-us/training/modules/deploy-java-quarkus-azure-container-app-postgres/"
+    },
+    {
+        "completed": true,
+        "id": 4,
+        "order": 3,
+        "title": "Quarkus on Azure Functions",
+        "url": "https://learn.microsoft.com/en-us/azure/azure-functions/functions-create-first-quarkus"
+    },
+    {
+        "completed": false,
+        "id": 5,
+        "order": 5,
+        "title": "Verify Todo apps",
+        "url": null
     }
 ]
 ```
 
-Note that you can use `curl` command-line tool to access the RESTful API by `curl localhost:8080/api/scoreboard`.
+Note that you can use `curl` command-line tool to access the RESTful API by `curl localhost:8080/api`.
 
 ## Deploy the Quarkus App to Azure Kubernetes Service (AKS)
 
 ### 2.1. Create an Azure Database for PostgreSQL
 
-Let's say that AKS is our production environment to deploy the *Microsweeper* application. Also, We need to guarantee _data persistency_ regardless of randomly restarting an application container (_Microsweeper_) on the Kubernetes cluster. 
+Let's say that AKS is our production environment to deploy the *Todo* application. Also, We need to guarantee _data persistency_ regardless of randomly restarting an application container (_Todo_) on the Kubernetes cluster. 
 
 **Azure Database for PostgreSQL** is a managed service to run, manage, and scale highly available PostgreSQL databases in the Azure cloud. The following quickstart shows you how to create a single Azure Database for PostgreSQL server and connect to it.
 
@@ -131,13 +137,13 @@ Let's say that AKS is our production environment to deploy the *Microsweeper* ap
 
 Note that be sure to key the following value in the setting:
 
-* Server name - `microsweeper-database`
+* Server name - `todo-quarkus-database`
 * Admin username - `quarkus`
 * Password - `r3dh4t1!`
 
 ![Screenshot](./media/aks-quarkus/create-single-server.png)
 
-### 2.2 Create a **score** database in PostgreSQL
+### 2.2 Create a **Todo** database in PostgreSQL
 
 The PostgreSQL server that you created earlier is empty. It doesn't have any database that you can use with the Quarkus application. 
 
@@ -150,13 +156,13 @@ export RESOURCE_GROUP=YOUR_RESOURCE_GROUP
 export AKS_NAME=YOUR_AKS_NAME
 ```
 
-Create a new database called `score` by using the following command:
+Create a new database called `todo` by using the following command:
 
 ```shell
 az postgres db create \
   --resource-group $RESOURCE_GROUP \
-  --name score \
-  --server-name microsweeper-database
+  --name todo \
+  --server-name todo-quarkus-database
 ```
 
 ### 2.3. Create a new namespace in AKS
@@ -189,26 +195,26 @@ The output should look like:
 
 ```shell
 NAME                                STATUS   ROLES   AGE   VERSION
-aks-agentpool-30709549-vmss000001   Ready    agent   12d   v1.23.8
-aks-agentpool-30709549-vmss000002   Ready    agent   12d   v1.23.8
+aks-agentpool-30709549-vmss000001   Ready    agent   12m   v1.25.6
+aks-agentpool-30709549-vmss000002   Ready    agent   12m   v1.25.6
 ```
 
-Create a new `microsweeper-quarkus` namespace in your Kubernetes service:
+Create a new `todo-quarkus` namespace in your Kubernetes service:
 
 ```shell
-kubectl create namespace microsweeper-quarkus
+kubectl create namespace todo-quarkus
 ```
 
 The output should look like:
 
 ```shell
-namespace/microsweeper-quarkus created
+namespace/todo-quarkus created
 ```
 
-> **_NOTE:_** You can set the current context to *microsweeper-quarkus* namespace using the following kubectl command:
+> **_NOTE:_** You can set the current context to *todo-quarkus* namespace using the following kubectl command:
 
 ```shell
-kubectl config set-context --current --namespace=microsweeper-quarkus
+kubectl config set-context --current --namespace=todo-quarkus
 ```
 
 The output should look like:
@@ -249,14 +255,14 @@ Let’s add the following *Database configurations* variables in `src/main/resou
 ```yaml
 # Database configurations
 %prod.quarkus.datasource.db-kind=postgresql
-%prod.quarkus.datasource.jdbc.url=jdbc:postgresql://microsweeper-database.postgres.database.azure.com:5432/score
+%prod.quarkus.datasource.jdbc.url=jdbc:postgresql://todo-quarkus-database.postgres.database.azure.com:5432/todo
 %prod.quarkus.datasource.jdbc.driver=org.postgresql.Driver
-%prod.quarkus.datasource.username=quarkus@microsweeper-database
+%prod.quarkus.datasource.username=quarkus@todo-quarkus-database
 %prod.quarkus.datasource.password=r3dh4t1!
 %prod.quarkus.hibernate-orm.database.generation=drop-and-create
 ```
 
-Add the following *AKS configurations* variables in `src/main/resources/application.properties`. Make sure to set `load-balancer` to *service-type* to access the Microsweeper GUI externally.
+Add the following *AKS configurations* variables in `src/main/resources/application.properties`. Make sure to set `load-balancer` to *service-type* to access the TOdo GUI externally.
 
 ```yaml
 # AKS configurations
@@ -273,7 +279,7 @@ You also need to specify the external container registry (e.g. _Quay.io, Azure C
 %prod.quarkus.container-image.build=true
 %prod.quarkus.container-image.registry=quay.io
 %prod.quarkus.container-image.group=${user.name}
-%prod.quarkus.container-image.name=microsweeper-quarkus-aks
+%prod.quarkus.container-image.name=todo-quarkus-aks
 %prod.quarkus.container-image.tag=1.0
 ```
 
@@ -299,28 +305,26 @@ You can verify if the container image is generated as well using `docker` or `po
 > **_NOTE:_** `USERNAME` should be your own username in the quay.io repository.
 
 ```shell
-docker images | grep microsweeper
-quay.io/USERNAME/microsweeper-quarkus-aks                                         1.0                      4a23015d6f6c   3 mins ago    413MB
+docker images | grep todo
+quay.io/USERNAME/todo-quarkus-aks                                         1.0                      4a23015d6f6c   3 mins ago    413MB
 ```
 
 Push the container images to an external container registry using the following command. Make sure to replace `USERNAME` with your own username.
 
 ```shell
-docker push quay.io/USERNAME/microsweeper-quarkus-aks:1.0
+docker push quay.io/USERNAME/todo-quarkus-aks:1.0
 ```
 
 The output should look like:
 
 ```shell
-The push refers to repository [quay.io/USERNAME/microsweeper-quarkus-aks]
+The push refers to repository [quay.io/USERNAME/todo-quarkus-aks]
 dfd615499b3a: Pushed 
 56f5cf1aa271: Pushed 
 4218d39b228e: Pushed 
 b0538737ed64: Pushed 
 d13845d85ee5: Pushed 
-a73162ddb3c9: Mounted from USERNAME/quarkus-eda-demo 
 60609ec85f86: Pushed 
-f2c4302f03b8: Mounted from USERNAME/quarkus-eda-demo 
 1.0: digest: sha256:0ffd70d6d5bb3a4621c030df0d22cf1aa13990ca1880664d08967bd5bab1f2b6 size: 1995
 ```
 
@@ -331,41 +335,41 @@ Once the image is pushed, you need to make it `public` to be pulled by the Azure
 Deploy the Kubernetes resources using `kubectl` command line.
 
 ```shell
-kubectl apply -f target/kubernetes/kubernetes.yml -n microsweeper-quarkus
+kubectl apply -f target/kubernetes/kubernetes.yml -n todo-quarkus
 ```
 
 The output should look like:
 
 ```shell
-serviceaccount/microsweeper-quarkus-aks created
-service/microsweeper-quarkus-aks created
+serviceaccount/quarkus-todo-demo-app-aks created
 role.rbac.authorization.k8s.io/view-secrets created
-rolebinding.rbac.authorization.k8s.io/microsweeper-quarkus-aks-view created
-rolebinding.rbac.authorization.k8s.io/microsweeper-quarkus-aks-view-secrets created
-deployment.apps/microsweeper-quarkus-aks created
+rolebinding.rbac.authorization.k8s.io/quarkus-todo-demo-app-aks-view-secrets created
+rolebinding.rbac.authorization.k8s.io/quarkus-todo-demo-app-aks-view created
+service/quarkus-todo-demo-app-aks created
+deployment.apps/quarkus-todo-demo-app-aks created
 ```
 
-Get the `EXTERNAL-IP` to access the Microsweeper application using the following command.
+Get the `EXTERNAL-IP` to access the Todo application using the following command.
 
 ```shell
-kubectl get svc -n microsweeper-quarkus
+kubectl get svc -n todo-quarkus
 ```
 
 The output should look like:
 
 ```shell
-NAME                       TYPE           CLUSTER-IP    EXTERNAL-IP     PORT(S)        AGE
-microsweeper-quarkus-aks   LoadBalancer   10.0.62.249   20.237.19.191   80:30259/TCP   5m
+NAME                        TYPE           CLUSTER-IP     EXTERNAL-IP     PORT(S)        AGE
+quarkus-todo-demo-app-aks   LoadBalancer   10.0.236.101   20.12.126.200   80:30963/TCP   37s
 ```
 
-Open a new web browser to typy the `EXTERNAL-IP` (e.g. _20.237.19.191_) in. Then, give it try to play the mine game a few time:
+Open a new web browser to typy the `EXTERNAL-IP` (e.g. _20.12.126.200_) in. Then, add a new todo item with `Deployed the Todo app to AKS`. Also, select the `Introduction to Quarkus Todo App` item to complete.
 
-![Screenshot](./media/aks-quarkus/microsweeper-aks.png)
+![Screenshot](./media/aks-quarkus/aks-demo-gui-2.png)
 
-Access the RESTful API (_/api/score_) to get all scores that store in the **Azure PostgreSQL database**. You need to replace with your own `ROUTE` url: 
+Access the RESTful API (_/api_) to get all todo items that store in the **Azure PostgreSQL database**. You need to replace with your own `ROUTE` url: 
 
 ```shell
-http EXTERNAL-IP/api/scoreboard
+http EXTERNAL-IP/api
 ```
 
 The output should look like:
@@ -373,40 +377,43 @@ The output should look like:
 ```shell
 HTTP/1.1 200 OK
 Content-Type: application/json;charset=UTF-8
-content-length: 349
+content-length: 750
 
 [
     {
+        "completed": true,
         "id": 1,
-        "level": "medium",
-        "name": "Valiant Throat",
-        "scoreId": 0,
-        "success": false,
-        "time": 0
+        "order": 0,
+        "title": "Introduction to Quarkus Todo App",
+        "url": null
     },
     {
+        "completed": false,
         "id": 2,
-        "level": "medium",
-        "name": "Peat Trader",
-        "scoreId": 0,
-        "success": false,
-        "time": 2
+        "order": 1,
+        "title": "Quarkus on Azure App Service",
+        "url": "https://learn.microsoft.com/en-us/azure/developer/java/eclipse-microprofile/deploy-microprofile-quarkus-java-app-with-maven-plugin"
     },
     {
+        "completed": false,
         "id": 3,
-        "level": "medium",
-        "name": "Heather Crusher",
-        "scoreId": 0,
-        "success": false,
-        "time": 3
+        "order": 2,
+        "title": "Quarkus on Azure Container Apps",
+        "url": "https://learn.microsoft.com/en-us/training/modules/deploy-java-quarkus-azure-container-app-postgres/"
     },
     {
+        "completed": false,
         "id": 4,
-        "level": "medium",
-        "name": "Aquamarine Face",
-        "scoreId": 0,
-        "success": false,
-        "time": 13
+        "order": 3,
+        "title": "Quarkus on Azure Functions",
+        "url": "https://learn.microsoft.com/en-us/azure/azure-functions/functions-create-first-quarkus"
+    },
+    {
+        "completed": false,
+        "id": 5,
+        "order": 5,
+        "title": "Deployed the Todo app to AKS",
+        "url": null
     }
 ]
 ```
@@ -420,16 +427,16 @@ Open Azure Cloud Shell in the Azure portal by selecting the icon on the upper-le
 Run the following command in the Azure Cloud Shell terminal. Replace values with `your server name` and admin user login name:
 
 ```shell
-psql --host=YOUR-POSTGRESQL-SERVER-NAME --port=5432 --username=quarkus@microsweeper-database --dbname=score
+psql --host=YOUR-POSTGRESQL-SERVER-NAME --port=5432 --username=quarkus@todo-quarkus-database --dbname=todo
 ```
 
-Key the password (`r3dh4t1!`) in the prompt. Then, execute the following query to get all scores:
+Key the password (`r3dh4t1!`) in the prompt. Then, execute the following query to get all todo items:
 
 ```shell
-select * from score;
+select * from todo;
 ```
 
-The output should be the **same** as the above _Leaderboard_ GUI:
+The output should be the **same** as the above _Todo App_ GUI:
 
 ![Screenshot](./media/aks-quarkus/azure-cli-psql.png)
 
@@ -445,8 +452,8 @@ Create a new Kubernetes Secret to store the database credential using the follow
 
 ```shell
 kubectl create secret generic db-credentials \
-  --from-literal=username=quarkus@microsweeper-database \
-  --from-literal=password='r3dh4t1!' -n microsweeper-quarkus
+  --from-literal=username=quarkus@todo-quarkus-database \
+  --from-literal=password='r3dh4t1!' -n todo-quarkus
 ```
 
 ### 3.2. Integrate Kubernetes Secrets to the Quarkus Application
@@ -462,8 +469,8 @@ The output should look like:
 ```shell
 [SUCCESS] ✅  Extension io.quarkus:quarkus-kubernetes-config has been installed
 ```
-
-Secure the sensitive information such as *username* and *password* to access the Azure PostgreSQL database. Currently, the credential are stored as a plain text in `application.properties` file. Update the following values in `src/main/resources/application.properties` to keep the existing score data and secure the database credential:
+ 
+Secure the sensitive information such as *username* and *password* to access the Azure PostgreSQL database. Currently, the credential are stored as a plain text in `application.properties` file. Update the following values in `src/main/resources/application.properties` to keep the existing todo items and secure the database credential:
 
 ```yaml
 %prod.quarkus.datasource.username=${username}
@@ -498,21 +505,21 @@ The output should end with `BUILD SUCCESS`.
 Verify if the *new* container image is generated as well using `docker` or `podman` command line (CLI).
 
 ```shell
-docker images | grep microsweeper
-quay.io/USERNAME/microsweeper-quarkus-aks                                         1.1                      e927fd15ece3   1 mins ago    413MB
-quay.io/USERNAME/microsweeper-quarkus-aks                                         1.0                      4a23015d6f6c   9 mins ago    413MB
+docker images | grep todo
+quay.io/USERNAME/todo-quarkus-aks                                         1.1                      e927fd15ece3   1 mins ago    413MB
+quay.io/USERNAME/todo-quarkus-aks                                         1.0                      4a23015d6f6c   9 mins ago    413MB
 ```
 
 Push the *new* container images to an external container registry using the following command. Make sure to replace `USERNAME` with your own username.
 
 ```shell
-docker push quay.io/USERNAME/microsweeper-quarkus-aks:1.1
+docker push quay.io/USERNAME/todo-quarkus-aks:1.1
 ```
 
 The output should look like:
 
 ```shell
-The push refers to repository [quay.io/USERNAME/microsweeper-quarkus-aks]
+The push refers to repository [quay.io/USERNAME/todo-quarkus-aks]
 22023eab0cca: Pushed 
 ff886a485f2d: Pushed 
 cea2acd54a98: Pushed 
@@ -526,7 +533,7 @@ f2c4302f03b8: Layer already exists
 
 ### 3.4. Re-deploy the Quarkus application to AKS
 
-To patch the existing deployment in the AKS cluster, create a `patch-deployment.yml` file in the `kube` directory.
+To patch the existing deployment in the AKS cluster, create a `patch-deployment.yml` file in the `src/kube` directory.
 
 Add the following specification to the YAML file. Make sure to replace `USERNAME` with your own username.
 
@@ -535,41 +542,41 @@ spec:
   template:
     spec:
       containers:
-      - name: microsweeper-quarkus-aks
-        image: quay.io/USERNAME/microsweeper-quarkus-aks:1.1
+      - name: todo-quarkus-aks
+        image: quay.io/USERNAME/todo-quarkus-aks:1.1
 ```
 
 Save the file.
 
-Patch the `microsweeper-quarkus-aks` deployment using the following `kubectl` command:
+Patch the `quarkus-todo-demo-app-aks` deployment using the following `kubectl` command:
 
 ```shell
-kubectl patch deployment microsweeper-quarkus-aks --patch-file kube/patch-deployment.yml -n microsweeper-quarkus
+kubectl patch deployment quarkus-todo-demo-app-aks --patch-file src/kube/patch-deployment.yml -n todo-quarkus
 ```
 
 The output should look like:
 
 ```
-deployment.apps/microsweeper-quarkus-aks patched
+deployment.apps/quarkus-todo-demo-app-aks patched
 ```
 
-Let's go back to the Microsweeper GUI. Then, you will see the same scores in the Leaderboard as the above scores because the Azure PostgreSQL database is running on Azure cloud. Besides, the Quarkus application retrieves the database credential from *Kubernetes Secret* rather than the local file system:
+Let's go back to the Todo app GUI and `refresh` the page. Then, you will see the same todo list as the previous list because the Azure PostgreSQL database is running on Azure cloud. Besides, the Quarkus application retrieves the database credential from *Kubernetes Secret* rather than the local file system:
 
-![Screenshot](./media/aks-quarkus/microsweeper-aks-secret.png)
+![Screenshot](./media/aks-quarkus/todo-aks-secret.png)
 
 > **_NOTE:_** If you have a permission error to access the Kubernetes Secret by the Quarkus application with the following error:
 >
 > _ERROR: Failed to start application (with profile prod)_ 
-> _io.fabric8.kubernetes.client.KubernetesClientException: Failure executing: GET at: https://10.0.0.1/api/v1/> namespaces/microsweeper-quarkus/secrets/db-credentials. Message: Forbidden!Configured service account doesn't have access. Service account may have been revoked. secrets "db-credentials" is forbidden: User "system:serviceaccount:microsweeper-quarkus:default" cannot get resource "secrets" in API group "" in the namespace "microsweeper-quarkus"._
+> _io.fabric8.kubernetes.client.KubernetesClientException: Failure executing: GET at: https://10.0.0.1/api/v1/> namespaces/todo-quarkus/secrets/db-credentials. Message: Forbidden!Configured service account doesn't have access. Service account may have been revoked. secrets "db-credentials" is forbidden: User "system:serviceaccount:todo-quarkus:default" cannot get resource "secrets" in API group "" in the namespace "todo-quarkus"._
 >
 > Run the following `kubectl` command:
 >
 ```shell
-kubectl create role access-secrets --verb=get,list,watch,update,create --resource=secrets -n microsweeper-quarkus
-kubectl create rolebinding --role=access-secrets default-to-secrets --serviceaccount=microsweeper-quarkus:default -n microsweeper-quarkus
+kubectl create role access-secrets --verb=get,list,watch,update,create --resource=secrets -n todo-quarkus
+kubectl create rolebinding --role=access-secrets default-to-secrets --serviceaccount=todo-quarkus:default -n todo-quarkus
 ```
 
-Try to play the minesweeper game to verify if the Quarkus application works well!!
+Try to update and add your own todo list to verify if the Quarkus application works well!! Find the solution repository [here](https://github.com/danieloh30/quarkus-todo-demo-app-aks).
 
 ### (Optional) Delete Azure Kubernetes Service cluster
 
