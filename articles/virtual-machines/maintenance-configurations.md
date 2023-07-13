@@ -56,7 +56,8 @@ This scope is integrated with [update management center](../update-center/overvi
 
 - A minimum of 1 hour and 10 minutes is required for the maintenance window.
     :::image type="content" source="./media/maintenance-configurations/add-schedule-maintenance-window.png" alt-text="Screenshot of the upper maintenance window minimum time specification.":::
-- The upper maintenance window is 3.55 hours.
+
+- The upper maintenance window is 3 hours 55 mins.
 - A minimum of 1 hour and 30 minutes is required for the maintenance window.
 - There is no limit to the recurrence of your schedule.
 

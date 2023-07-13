@@ -4,7 +4,7 @@ titleSuffix: Azure Machine Learning
 description: Learn how to use an Azure Resource Manager template to create a new Azure Machine Learning workspace.
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: core
+ms.subservice: enterprise-readiness
 ms.topic: how-to
 ms.custom: devx-track-azurepowershell, ignite-2022, devx-track-arm-template
 ms.author: deeikele
