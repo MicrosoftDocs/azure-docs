@@ -88,7 +88,7 @@ If no sampling overrides match:
 
 * If this is the first span in the trace, then the
   [top-level sampling configuration](./java-standalone-config.md#sampling) is used.
-* If this is not the first span in the trace, then the parent sampling decision is used.
+* If this isn't the first span in the trace, then the parent sampling decision is used.
 
 ## Example: Suppress collecting telemetry for health checks
 
@@ -199,8 +199,9 @@ To see the exact set of attributes captured by Application Insights Java for you
 [self-diagnostics level to debug](./java-standalone-config.md#self-diagnostics), and look for debug messages starting
 with the text "exporting span".
 
-Note that only attributes set at the start of the span are available for sampling,
-so attributes such as `http.status_code` which are captured later on cannot be used for sampling.
+>[!Note]
+> Only attributes set at the start of the span are available for sampling,
+so attributes such as `http.status_code` which are captured later on can't be used for sampling.
 
 ## Troubleshooting
 
