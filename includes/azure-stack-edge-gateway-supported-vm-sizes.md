@@ -2,7 +2,7 @@
 author: alkohli
 ms.service: databox  
 ms.topic: include
-ms.date: 07/12/2023
+ms.date: 07/13/2023
 ms.author: alkohli
 ---
 
@@ -53,10 +53,10 @@ These sizes are supported for GPU VMs on your device and are optimized for compu
 | **Standard_NC4as_T4_v3**  | 4     | 28            | 176                 | 2000                           | 48000                               | 2300                             | 1    | 16                | 4         |
 | **Standard_NC8as_T4_v3**  | 8     | 56            | 352                 | 2000                           | 48000                               | 2300                             | 1    | 16                | 8         |
 | **Standard_NC16as_T4_v3**   | 16    | 110            | 352                 | 2000                           | 48000                               | 2300                             | 1    | 16                | 8         |
-| **Standard_NC16as_T4_v1**   | yy    | yyy           | yyy                 | yyyy                            | yyyyy                               | yyyy                             | y    | yy                | y         |   
-| **Standard_NC32as_T4_v3**   | yy    | yyy           | yyy                 | yyyy                            | yyyyy                               | yyyy                             | y    | yy                | y         |
-| **Standard_NC32as_T4_v1**   | yy    | yyy           | yyy                 | yyyy                            | yyyyy                               | yyyy                             | y    | yy                | y         |
-| **Standard_NC32as_2T4_v1**  | yy    | yyy           | yyy                 | yyyy                            | yyyyy                               | yyyy                             | y    | yy                | y         |
+| **Standard_NC16as_T4_v1**   | 16    | 32            | 352                 | 2000                            | 48000                               | 2300                             | 8    | 1                | 16         |   
+| **Standard_NC32as_T4_v3**   | 32    | 96           | 352                 | 2000                           | 48000                               | 2300                             | 8    | 1                | 16         |
+| **Standard_NC32as_T4_v1**   | 32    | 224           | 352                 | 2000                            | 48000                               | 2300                             | 8    | 1                | 16         |
+| **Standard_NC32as_2T4_v1**  | 32    | 224           | 352                 | 2000                            | 48000                               | 2300                             | 8    | 2                | 32         |
 
 
 For more information, see [NCasT4_v3-series](../articles/virtual-machines/nct4-v3-series.md).
@@ -69,10 +69,10 @@ For more information, see [NCasT4_v3-series](../articles/virtual-machines/nct4-v
 | **Standard_NC4as_A2**  | 4     | 28            | 176                 | 2000                           | 48000                               | 2300                             | 1    | 16                | 4         |
 | **Standard_NC8as_A2**  | 8     | 56            | 352                 | 2000                           | 48000                               | 2300                             | 1    | 16                | 8         |
 | **Standard_NC16as_A2**   | 16    | 110            | 352                 | 2000                           | 48000                               | 2300                             | 1    | 16                | 8         |
-| **Standard_NC16as_A2_v1**   | xx | xxx            | xxx                 | xxxx                           | xxxxx                            | xxxx    | x    | xx    | x    |
-| **Standard_NC32as_A2**      | xx | xxx            | xxx                 | xxxx                           | xxxxx                            | xxxx    | x    | xx    | x    |
-| **Standard_NC32as_A2_v1**   | xx | xxx            | xxx                 | xxxx                           | xxxxx                            | xxxx    | x    | xx    | x    |
-| **Standard_NC32as_2A2_v1**  | xx | xxx            | xxx                 | xxxx                           | xxxxx                            | xxxx    | x    | xx    | x    |
+| **Standard_NC16as_A2_v1**   | 16 | 32            | 352                 | 2000                           | 48000                            | 2300    | 8    | 1    | 16    |
+| **Standard_NC32as_A2**      | 32 | 96            | 352                 | 2000                           | 48000                            | 2300    | 8    | 1    | 16    |
+| **Standard_NC32as_A2_v1**   | 32 | 224            | 352                 | 2000                           | 48000                            | 2300    | 8    | 1    | 16    |
+| **Standard_NC32as_2A2_v1**  | 32 | 224            | 352                 | 2000                           | 48000                            | 2300    | 8    | 2    | 32    |
 
 
 ### F-series
@@ -93,9 +93,9 @@ These series are optimized for computational workloads and run on Intel Xeon pro
 | **Standard_F8s**   | 8       | 16           | 32                  | 2000                           | 32000                               | 2300                             | 32              | 8         |
 | **Standard_F16s**  | 16      | 32           | 64                  | 2000                           | 64000                               | 2300                             | 64              | 8         |
 | **Standard_F4s_v1**| 4       | 4            | 8                  | 2000                             | 8000                              | 2300                             | 8               | 4         |
-| **Standard_F32s**   | 32     | 48 = 49152 MiB   | 64    | 2000    | 64000   | 2300   | 64   | 8   |  
-| **Standard_F32s_v1**| 32     | 96 = 98304 MiB   | 64    | 2000    | 64000   | 2300   | 64   | 8   |
-| **Standard_F32s_v3**| 32     | 224 = 29376 MiB  | 64    | 2000    | 64000   | 32     | 64   | 8   |
+| **Standard_F32s**   | 32       | 48                | 64    | 2000    | 64000   | 2300   | 64   | 8   |  
+| **Standard_F32s_v1**| 32       | 96     | 64    | 2000    | 64000   | 2300   | 64   | 8   |
+| **Standard_F32s_v3**| 32     | 224      | 64    | 2000    | 64000   | 2300   | 64   | 8   |
 
 For more information, see [Fsv2-series](../articles/virtual-machines/fsv2-series.md).
 
