@@ -108,6 +108,12 @@ az networkcloud baremetalmachine reimage \
 
 Use `Replace BMM` command when a server has encountered hardware issues requiring a complete or partial hardware replacement. After replacement of components such as motherboard or NIC replacement, the MAC address of BMM will change, however the IDrac IP address and hostname will remain the same.
 
+> [!Warning]
+> Running more than one baremetalmachine replace command at the same time will leave servers in a
+> nonworking state. Make sure one replace has fully completed before starting another one. In a future
+> release, we plan to either add the ability to replace multiple servers at once or have the command
+> return an error when attempting to do so.
+
 ```azurecli
 az networkcloud baremetalmachine replace \
   --name "bareMetalMachineName" \

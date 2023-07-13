@@ -3,11 +3,11 @@ title: Plan and manage costs for Azure Blob Storage
 description: Learn how to plan for and manage costs for Azure Blob Storage by using cost analysis in Azure portal.
 services: storage
 author: normesta
-ms.service: storage
+ms.service: azure-storage
 ms.topic: conceptual
 ms.date: 04/03/2023
 ms.author: normesta
-ms.subservice: common
+ms.subservice: storage-common-concepts
 ms.custom: subject-cost-optimization
 ---
 
