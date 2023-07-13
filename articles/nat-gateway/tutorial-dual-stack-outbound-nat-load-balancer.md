@@ -573,7 +573,7 @@ Make note of both IP addresses. Use the IPs to verify the outbound connectivity 
 
 1. Select **vm-1**.
 
-1. In the **Overview** of **vm-1**, select **Connect** then **Bastion**. Select **Use Bastion**
+1. In the **Overview** of **myVM**, select **Connect** then **Bastion**. Select **Use Bastion**
 
 1. Enter the username and password you created when you created the virtual machine.
 
