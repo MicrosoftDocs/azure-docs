@@ -36,7 +36,7 @@ To create a snapshot using the Azure portal, complete these steps.
 
 # [PowerShell](#tab/powershell)
 
-This example requires that you use [Cloud Shell](https://shell.azure.com/bash) or have the [Azure Powershell AZ module](https://learn.microsoft.com/en-us/powershell/azure/?view=azps-10.1.0) installed.
+This example requires that you use [Cloud Shell](https://shell.azure.com/bash) or have the [Azure Powershell AZ module](/powershell/azure/?view=azps-10.1.0) installed.
 
 Follow these steps to take a snapshot with the `New-AzSnapshotConfig` and `New-AzSnapshot` cmdlets. This example assumes that you have a VM called *myVM* in the *myResourceGroup* resource group. The code sample provided creates a snapshot in the same resource group and within the same region as your source VM.
 
