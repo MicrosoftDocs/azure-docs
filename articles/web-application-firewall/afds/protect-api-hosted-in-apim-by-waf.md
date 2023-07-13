@@ -30,7 +30,7 @@ This article describes how to use [Azure Web Application Firewall on Azure Front
 
 2. Create an API and generate mock API responses
    
-   [Tutorial: Mock API responses](../../api-management/mock-api-responses.md#portal)
+   [Tutorial: Mock API responses](../../api-management/mock-api-responses.md#add-an-operation-to-the-test-api)
 
    Replace the name of API from **Test API** given in the above tutorial with **Book API**.
 
