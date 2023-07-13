@@ -135,7 +135,7 @@ Example output of successful gateway creation.
 status:
   addresses:
   - type: IPAddress
-    value: xxxx.yyyy.trafficcontroller.azure.com
+    value: xxxx.yyyy.alb.azure.com
   conditions:
   - lastTransitionTime: "2023-06-19T21:04:55Z"
     message: Valid Gateway
