@@ -292,7 +292,7 @@ Use the following instructions to integrate OWA with Microsoft Entra ID.
 
 2.  For **App name**, enter the app name. We recommend a meaningful naming convention.
 
-3.  For **Public Domain**, enter the app's external-facing URL. For example, <https://external.example.com>. Use localhost DNS for
+3.  For **Public Domain**, enter the app's external-facing URL. For example, `https://external.example.com`. Use localhost DNS for
     testing.
 
 4.  For **Listen Port**, enter the port DAP listens on. If DAP isn't deployed behind a load balancer, you can use port indicated in
