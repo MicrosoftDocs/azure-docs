@@ -87,7 +87,7 @@ The following example output shows the resource group created successfully:
 
 ## Create an AKS cluster
 
-To run an AKS cluster that supports node pools for Windows Server containers, your cluster needs to use a network policy that uses [Azure CNI][azure-cni-about] (advanced) network plugin. For more detailed information to help plan out the required subnet ranges and network considerations, see [configure Azure CNI networking][use-advanced-networking]. Use the [az aks create][az-aks-create] command to create an AKS cluster named *myAKSCluster*. This command will create the necessary network resources if they don't exist.
+To run an AKS cluster that supports node pools for Windows Server containers, your cluster needs to use a network policy that uses [Azure CNI][azure-cni-about] (advanced) network plugin. Use the [az aks create][az-aks-create] command to create an AKS cluster named *myAKSCluster*. This command will create the necessary network resources if they don't exist.
 
 * The cluster is configured with two nodes.
 * The `--windows-admin-password` and `--windows-admin-username` parameters set the administrator credentials for any Windows Server nodes on the cluster and must meet [Windows Server password requirements][windows-server-password].
@@ -150,32 +150,15 @@ az aks nodepool add \
 
 The above command creates a new node pool named *npwin* and adds it to the *myAKSCluster*. The above command also uses the default subnet in the default vnet created when running `az aks create`. The OS SKU was not specified so the nodepool will be set to the default operating system based on the Kubernetes version of the cluster. 
 
+## Add a Windows Server 2019 or Windows Server 2022 node pool
 
-## Add a Windows Server 2019 node pool
-
-> [!NOTE]
-> Windows Server 2019 is being retired after Kubernetes version 1.32 reaches end of life (EOL) and won't be supported in future releases. For more information about this retirement, see the [AKS release notes][aks-release-notes].
-
-When creating a Windows node pool, on Kubernetes version 1.24 or earlier, the default operating system will be Windows Server 2019. To use Windows Server 2019 node pools when not the default option, you need to specify an OS SKU type of `Windows2019`.
-
-```azurecli-interactive
-az aks nodepool add \
-    --resource-group myResourceGroup \
-    --cluster-name myAKSCluster \
-    --os-type Windows \
-    --os-sku Windows2019 \
-    --name npwin \
-    --node-count 1
-```
-
-The above command creates a new Windows Server 2019 node pool named *npwin* and adds it to the *myAKSCluster*. The above command also uses the default subnet in the default vnet created when running `az aks create`. 
-
-## Add a Windows Server 2022 node pool
-
-When creating a Windows node pool, for Kubernetes 1.25 and higher the default operating system will be Windows Server 2022. To use Windows Server 2022 nodes when not default, you need to specify an OS SKU type of `Windows2022`.
+AKS supports Windows Server 2019 and 2022 node pools. For Kubernetes version 1.25.0 and higher, Windows Server 2022 is the default operating system. For earlier Kubernetes versions, Windows Server 2019 is the default OS. To use Windows Server 2019, you need to specify the following parameters:
+- `os-type` set the value to `Windows`
+- `os-sku` set the value to `Windows2019`
 
 > [!NOTE]
-> Windows Server 2022 requires Kubernetes version "1.23.0" or higher.
+> - Windows Server 2022 requires Kubernetes version "1.23.0" or higher.
+> - Windows Server 2019 is being retired after Kubernetes version 1.32 reaches end of life (EOL) and won't be supported in future releases. For more information about this retirement, see the [AKS release notes][aks-release-notes].
 
 Use the `az aks nodepool add` command to add a Windows Server 2022 node pool:
 
@@ -422,13 +405,11 @@ To learn more about AKS, and walk through a complete code to deployment example,
 [az-group-delete]: /cli/azure/group#az_group_delete
 [az-provider-register]: /cli/azure/provider#az_provider_register
 [azure-cli-install]: /cli/azure/install-azure-cli
-[azure-cni-about]: ../concepts-network.md#azure-cni-advanced-networking
 [sp-delete]: ../kubernetes-service-principal.md#additional-considerations
 [azure-portal]: https://portal.azure.com
 [kubernetes-deployment]: ../concepts-clusters-workloads.md#deployments-and-yaml-manifests
 [kubernetes-service]: ../concepts-network.md#services
 [restricted-vm-sizes]: ../quotas-skus-regions.md#restricted-vm-sizes
-[use-advanced-networking]: ../configure-azure-cni.md
 [aks-support-policies]: ../support-policies.md
 [aks-faq]: faq.md
 [az-extension-add]: /cli/azure/extension#az-extension-add

@@ -1,13 +1,13 @@
 ---
-title: Data encryption with customer-managed key - Azure Database for PostgreSQL - Flexible server
-description: Azure Database for PostgreSQL Flexible server data encryption with a customer-managed key enables you to Bring Your Own Key (BYOK) for data protection at rest. It also allows organizations to implement separation of duties in the management of keys and data.
+title: Data encryption with customer-managed key - Azure Database for PostgreSQL - Flexible Server
+description: Azure Database for PostgreSQL Flexible Server data encryption with a customer-managed key enables you to Bring Your Own Key (BYOK) for data protection at rest. It also allows organizations to implement separation of duties in the management of keys and data.
 author: gennadNY
 ms.author: gennadyk
 ms.reviewer: maghan
 ms.date: 1/24/2023
 ms.service: postgresql
 ms.subservice: flexible-server
-ms.custom: devx-track-azurecli
+ms.custom:
 ms.topic: conceptual
 ---
 
@@ -17,9 +17,9 @@ ms.topic: conceptual
 
 
 
-Azure PostgreSQL uses [Azure Storage encryption](../../storage/common/storage-service-encryption.md) to encrypt data at-rest by default using Microsoft-managed keys. For Azure PostgreSQL users, it's similar to Transparent Data Encryption (TDE) in other databases such as SQL Server. Many organizations require full control of access to the data using a customer-managed key. Data encryption with customer-managed keys for Azure Database for PostgreSQL Flexible server enables you to bring your key (BYOK) for data protection at rest. It also allows organizations to implement separation of duties in the management of keys and data. With customer-managed encryption, you're responsible for, and in full control of, a key's lifecycle, key usage permissions, and auditing of operations on keys.
+Azure PostgreSQL uses [Azure Storage encryption](../../storage/common/storage-service-encryption.md) to encrypt data at-rest by default using Microsoft-managed keys. For Azure PostgreSQL users, it's similar to Transparent Data Encryption (TDE) in other databases such as SQL Server. Many organizations require full control of access to the data using a customer-managed key. Data encryption with customer-managed keys for Azure Database for PostgreSQL Flexible Server enables you to bring your key (BYOK) for data protection at rest. It also allows organizations to implement separation of duties in the management of keys and data. With customer-managed encryption, you're responsible for, and in full control of, a key's lifecycle, key usage permissions, and auditing of operations on keys.
 
-Data encryption with customer-managed keys for Azure Database for PostgreSQL Flexible server  is set at the server level. For a given server, a customer-managed key, called the key encryption key (KEK), is used to encrypt the service's data encryption key (DEK). The KEK is an asymmetric key stored in a customer-owned and customer-managed [Azure Key Vault](https://azure.microsoft.com/services/key-vault/)) instance. The Key Encryption Key (KEK) and Data Encryption Key (DEK) are described in more detail later in this article.
+Data encryption with customer-managed keys for Azure Database for PostgreSQL Flexible Server  is set at the server level. For a given server, a customer-managed key, called the key encryption key (KEK), is used to encrypt the service's data encryption key (DEK). The KEK is an asymmetric key stored in a customer-owned and customer-managed [Azure Key Vault](https://azure.microsoft.com/services/key-vault/)) instance. The Key Encryption Key (KEK) and Data Encryption Key (DEK) are described in more detail later in this article.
 
 Key Vault is a cloud-based, external key management system. It's highly available and provides scalable, secure storage for RSA cryptographic keys, optionally backed by FIPS 140-2 Level 2 validated hardware security modules (HSMs). It doesn't allow direct access to a stored key but provides encryption and decryption services to authorized entities. Key Vault can generate the key, import it, or have it transferred from an on-premises HSM device.
 
@@ -69,11 +69,11 @@ The key vault administrator can also [enable logging of Key Vault audit events](
 
 When the server is configured to use the customer-managed key stored in the key Vault, the server sends the DEK to the key Vault for encryptions. Key Vault returns the encrypted DEK stored in the user database. Similarly, when needed, the server sends the protected DEK to the key Vault for decryption. Auditors can use Azure Monitor to review Key Vault audit event logs, if logging is enabled.
 
-## Requirements for configuring data encryption for Azure Database for PostgreSQL Flexible server
+## Requirements for configuring data encryption for Azure Database for PostgreSQL Flexible Server
 
 The following are requirements for configuring Key Vault:
 
-- Key Vault and Azure Database for PostgreSQL Flexible server must belong to the same Azure Active Directory (Azure AD) tenant. Cross-tenant Key Vault and server interactions aren't supported. Moving the Key Vault resource afterward requires you to reconfigure the data encryption.
+- Key Vault and Azure Database for PostgreSQL Flexible Server must belong to the same Azure Active Directory (Azure AD) tenant. Cross-tenant Key Vault and server interactions aren't supported. Moving the Key Vault resource afterward requires you to reconfigure the data encryption.
 
 - The key Vault must be set with 90 days for 'Days to retain deleted vaults'. If the existing key Vault has been configured with a lower number, you'll need to create a new key vault as it can't be modified after creation.
 
@@ -81,7 +81,7 @@ The following are requirements for configuring Key Vault:
 
 - Enable Purge protection to enforce a mandatory retention period for deleted vaults and vault objects
 
-- Grant the Azure Database for PostgreSQL Flexible server access to the key Vault with the get, list, wrapKey, and unwrapKey permissions using its unique managed identity.
+- Grant the Azure Database for PostgreSQL Flexible Server access to the key Vault with the get, list, wrapKey, and unwrapKey permissions using its unique managed identity.
 
 The following are requirements for configuring the customer-managed key in Flexible Server:
 
@@ -101,7 +101,7 @@ When you're using data encryption by using a customer-managed key, here are reco
 
 - Enable auditing and reporting on all encryption keys. Key Vault provides logs that are easy to inject into other security information and event management tools. Azure Monitor Log Analytics is one example of a service that's already integrated.
 
-- Ensure that Key Vault and Azure Database for PostgreSQL = Flexible server reside in the same region to ensure a faster access for DEK wrap, and unwrap operations.
+- Ensure that Key Vault and Azure Database for PostgreSQL = Flexible Server reside in the same region to ensure a faster access for DEK wrap, and unwrap operations.
 
 - Lock down the Azure KeyVault to only **disable public access** and allow only *trusted Microsoft* services to secure the resources.
 
@@ -144,7 +144,7 @@ After Azure Database for PostgreSQL - Flexible Server is encrypted with a custom
 
 Avoid issues while setting up customer-managed data encryption during restore or read replica creation by following these steps on the primary and restored/replica servers:
 
-- Initiate the restore or read replica creation process from the primary Azure Database for PostgreSQL - Flexible server.
+- Initiate the restore or read replica creation process from the primary Azure Database for PostgreSQL - Flexible Server.
 
 - On the restored/replica server, you can change the customer-managed key and\or Azure Active Directory (Azure AD) identity used to access Azure Key Vault in the data encryption settings. Ensure that the newly created server is given list, wrap and unwrap permissions to the key stored in Key Vault.
 

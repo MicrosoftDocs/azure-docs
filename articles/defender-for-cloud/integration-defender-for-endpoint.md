@@ -4,7 +4,7 @@ description: Learn about deploying Microsoft Defender for Endpoint from Microsof
 author: dcurwin
 ms.author: dacurwin
 ms.topic: how-to
-ms.date: 04/24/2023
+ms.date: 06/14/2023
 ---
 
 # Protect your endpoints with Defender for Cloud's integrated EDR solution: Microsoft Defender for Endpoint
@@ -196,7 +196,7 @@ If you've already enabled the integration with **Defender for Endpoint for Windo
     Microsoft Defender for Cloud will automatically onboard your machines to Microsoft Defender for Endpoint. Onboarding might take up to 12 hours. For new machines created after the integration has been enabled, onboarding takes up to an hour.
 
     > [!NOTE]
-    > The next time you return to this page of the Azure portal, the **Enable for Linux machines** button won't be shown. To disable the integration for Linux, you'll need to disable it for Windows too by clearing the checkbox for **Allow Microsoft Defender for Endpoint to access my data**, and selecting **Save**.
+    > The next time you return to this page of the Azure portal, the **Enable for Linux machines** button won't be shown. To disable the integration for Linux, you'll need to disable it for Windows too by turning the toggle **off** in **Endpoint Protection**, and selecting **Continue**.
 
 1. To verify installation of Defender for Endpoint on a Linux machine, run the following shell command on your machines:
 
@@ -350,67 +350,8 @@ To remove the Defender for Endpoint solution from your machines:
 
 1. Follow the steps in [Offboard devices from the Microsoft Defender for Endpoint service](/microsoft-365/security/defender-endpoint/offboard-machines) from the Defender for Endpoint documentation.
 
-## FAQ - Microsoft Defender for Cloud integration with Microsoft Defender for Endpoint
-
-- [What's this "MDE.Windows" / "MDE.Linux" extension running on my machine?](#whats-this-mdewindows--mdelinux-extension-running-on-my-machine)
-- [What are the licensing requirements for Microsoft Defender for Endpoint?](#what-are-the-licensing-requirements-for-microsoft-defender-for-endpoint)
-- [Do I need to buy a separate anti-malware solution to protect my machines?](#do-i-need-to-buy-a-separate-anti-malware-solution-to-protect-my-machines)
-- [If I already have a license for Microsoft Defender for Endpoint, can I get a discount for Microsoft Defender for Servers?](#if-i-already-have-a-license-for-microsoft-defender-for-endpoint-can-i-get-a-discount-for-microsoft-defender-for-servers)
-- [How do I switch from a third-party EDR tool?](#how-do-i-switch-from-a-third-party-edr-tool)
-
-### What's this "MDE.Windows" / "MDE.Linux" extension running on my machine?
-
-In the past, Microsoft Defender for Endpoint was provisioned by the Log Analytics agent. When [we expanded support to include Windows Server 2019](release-notes-archive.md#microsoft-defender-for-endpoint-integration-with-azure-defender-now-supports-windows-server-2019-and-windows-10-on-windows-virtual-desktop-released-for-general-availability-ga) and Linux, we also added an extension to perform the automatic onboarding.
-
-Defender for Cloud automatically deploys the extension to machines running:
-
-- Windows Server 2019 and Windows Server 2022
-- Windows Server 2012 R2 and 2016 if [MDE Unified Solution integration](#enable-the-integration) is enabled
-- Windows 10 on Azure Virtual Desktop.
-- Other versions of Windows Server if Defender for Cloud doesn't recognize the OS version (for example, when a custom VM image is used). In this case, Microsoft Defender for Endpoint is still provisioned by the Log Analytics agent.
-- Linux.
-
-> [!IMPORTANT]
-> If you delete the MDE.Windows/MDE.Linux extension, it will not remove Microsoft Defender for Endpoint. To offboard the machine, see [Offboard Windows servers.](/microsoft-365/security/defender-endpoint/configure-server-endpoints#offboard-windows-servers).
-
-### I enabled the solution but the `MDE.Windows`/`MDE.Linux` extension isn't showing on my machine
-
-If you enabled the integration, but still don't see the extension running on your machines:
-
-1. You need to wait at least 12 hours to be sure there's an issue to investigate.
-1. If after 12 hours you still don't see the extension running on your machines, check that you've met [Prerequisites](#prerequisites) for the integration.
-1. Ensure you've enabled the [Microsoft Defender for Servers](defender-for-servers-introduction.md) plan for the subscriptions related to the machines you're investigating.
-1. If you've moved your Azure subscription between Azure tenants, some manual preparatory steps are required before Defender for Cloud will deploy Defender for Endpoint. For full details, [contact Microsoft support](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview).
-
-### What are the licensing requirements for Microsoft Defender for Endpoint?
-
-Licenses for Defender for Endpoint for servers are included with **Microsoft Defender for Servers**.
-
-### Do I need to buy a separate anti-malware solution to protect my machines?
-
-No. With MDE integration in Defender for Servers, you'll also get malware protection on your machines.
-
-- On Windows Server 2012 R2 with MDE unified solution integration enabled, Defender for Servers will deploy [Microsoft Defender Antivirus](/microsoft-365/security/defender-endpoint/microsoft-defender-antivirus-windows) in *active mode*.
-- On newer Windows Server operating systems, Microsoft Defender Antivirus is part of the operating system and will be enabled in *active mode*.
-- On Linux, Defender for Servers will deploy MDE including the anti-malware component, and set the component in *passive mode*.
-
-### If I already have a license for Microsoft Defender for Endpoint, can I get a discount for Microsoft Defender for Servers?
-
-If you already have a license for **Microsoft Defender for Endpoint for Servers** , you won't pay for that part of your [Microsoft Defender for Servers Plan 2](plan-defender-for-servers-select-plan.md#plan-features) license. Learn more about [the Microsoft 365 license](/microsoft-365/security/defender-endpoint/minimum-requirements#licensing-requirements).
-
-To request your discount, [contact Defender for Cloud's support team](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview). You'll need to provide the relevant workspace ID, region, and number of Microsoft Defender for Endpoint for servers licenses applied for machines in the given workspace.
-
-The discount will be effective starting from the approval date, and won't take place retroactively.
-
-### How do I switch from a third-party EDR tool?
-
-Full instructions for switching from a non-Microsoft endpoint solution are available in the Microsoft Defender for Endpoint documentation: [Migration overview](/windows/security/threat-protection/microsoft-defender-atp/switch-to-microsoft-defender-migration).
-
-### Which Microsoft Defender for Endpoint plan is supported in Defender for Servers?
-
-Defender for Servers Plan 1 and Plan 2 provides the capabilities of [Microsoft Defender for Endpoint Plan 2](/microsoft-365/security/defender-endpoint/microsoft-defender-endpoint).
-
 ## Next steps
 
 - [Platforms and features supported by Microsoft Defender for Cloud](security-center-os-coverage.md)
 - [Learn how recommendations help you protect your Azure resources](review-security-recommendations.md)
+- View common question about the [Defender for Cloud integration with Microsoft Defender for Endpoint](faq-defender-for-servers.yml)

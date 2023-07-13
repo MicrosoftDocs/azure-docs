@@ -242,7 +242,7 @@ User-Agent: <Your application name>
 
 <speak version='1.0' xml:lang='en-US'><voice xml:lang='en-US' xml:gender='Male'
     name='en-US-ChristopherNeural'>
-        Microsoft Speech Service Text to speech API
+        I'm excited to try text to speech!
 </voice></speak>
 ```
 <sup>*</sup> For the Content-Length, you should use your own content length. In most cases, this value is calculated automatically.

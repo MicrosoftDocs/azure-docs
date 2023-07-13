@@ -7,7 +7,7 @@ manager: amycolannino
 ms.service: role-based-access-control
 ms.topic: how-to
 ms.workload: identity
-ms.date: 06/05/2023
+ms.date: 06/21/2023
 ms.author: rolyon
 ---
 
@@ -32,7 +32,7 @@ When you try to assign a role, you get the following error message:
 Azure supports up to **4000** role assignments per subscription. This limit includes role assignments at the subscription, resource group, and resource scopes, but not at the management group scope. You should try to reduce the number of role assignments in the subscription.
 
 > [!NOTE]
-> The **4000** role assignments limit per subscription is fixed.
+> The **4000** role assignments limit per subscription is fixed and cannot be increased.
 
 To get the number of role assignments, you can view the [chart on the Access control (IAM) page](role-assignments-list-portal.md#list-number-of-role-assignments) in the Azure portal. You can also use the following Azure PowerShell commands:
 
@@ -89,6 +89,8 @@ To reduce the number of role assignments in the subscription, add principals (us
 1. Create an Azure AD group. For more information, see [Manage Azure Active Directory groups and group membership](../active-directory/fundamentals/how-to-manage-groups.md).
 
 1. Add the principals from **AllPrincipals** to the group.
+
+    For information about how to add principals in bulk, see [Bulk add group members in Azure Active Directory](../active-directory/enterprise-users/groups-bulk-import-members.md).
 
 1. Assign the role to the group you created at the same scope. For more information, see [Assign Azure roles using the Azure portal](role-assignments-portal.md).
 
@@ -252,7 +254,7 @@ You're unable to assign a role at management group scope.
 Azure supports up to **500** role assignments per management group. This limit is different than the role assignments limit per subscription.
 
 > [!NOTE]
-> The **500** role assignments limit per management group is fixed.
+> The **500** role assignments limit per management group is fixed and cannot be increased.
 
 ### Solution
 

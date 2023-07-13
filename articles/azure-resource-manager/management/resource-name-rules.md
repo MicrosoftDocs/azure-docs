@@ -555,6 +555,23 @@ In the following tables, the term alphanumeric refers to:
 > | mediaservices / liveEvents / liveOutputs | Live event | 1-256 | Alphanumerics and hyphens.<br><br>Start with alphanumeric. |
 > | mediaservices / streamingEndpoints | Media service | 1-24 | Alphanumerics and hyphens.<br><br>Start with alphanumeric. |
 
+## Microsoft.MobileNetwork
+
+> [!div class="mx-tableFixed"]
+> | Entity | Scope | Length | Valid Characters |
+> | --- | --- | --- | --- |
+> | mobileNetworks | Resource Group | 1-64 | Alphanumerics and hyphens.<br><br>Start with alphanumeric. |
+> | mobileNetworks / sites | Mobile Network | 1-64 | Alphanumerics and hyphens.<br><br>Start with alphanumeric. |
+> | mobileNetworks / slices | Mobile Network | 1-64 | Alphanumerics and hyphens.<br><br>Start with alphanumeric. |
+> | mobileNetworks / services | Mobile Network | 1-64 | Alphanumerics and hyphens.<br><br>Start with alphanumeric. <br><br> The following words cannot be used on their own as the name: `default`, `requested`, `service`.|
+> | mobileNetworks / dataNetworks | Mobile Network | 1-64 | Alphanumeric, hyphens and a period/dot (`.`) <br><br> Start and end with alphanumeric. <br><br> Note: A period/dot (`.`) must be followed by an alphanumeric character. |
+> | mobileNetworks / simPolicies | Mobile Network | 1-64 | Alphanumerics and hyphens.<br><br>Start with alphanumeric. |
+> | packetCoreControlPlanes | Resource Group | 1-64 | Alphanumeric, underscores and hyphens. <br><br> Start with alphanumeric. |
+> | packetCoreControlPlanes / packetCoreDataPlanes | Packet Core Control Plane | 1-64 | Alphanumeric, underscores and hyphens. <br><br> Start with alphanumeric. |
+> | packetCoreControlPlanes / packetCoreDataPlanes / attachedDataNetworks | Mobile Network | 1-64 | Alphanumeric, hyphens and a period/dot (`.`) <br><br> Start and end with alphanumeric. <br><br> Note: A period/dot (`.`) must be followed by an alphanumeric character. |
+> | simGroups | Resource Group | 1-64 | Alphanumeric, underscores and hyphens <br><br> Start with alphanumeric |
+> | simGroups / sims | Sim Group | 1-64 | Alphanumeric, underscores and hyphens <br><br> Start with alphanumeric |
+
 ## Microsoft.NetApp
 
 > [!div class="mx-tableFixed"]

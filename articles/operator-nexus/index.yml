@@ -32,6 +32,8 @@ landingContent:
              url: concepts-resource-types.md
            - text: Observability
              url: concepts-observability.md
+           - text: Frequently asked questions
+             url: azure-operator-nexus-faq.md
 #     - linkListType: how-to-guide
 #       links:
 #          - text: Deploy agents and monitoring
@@ -50,9 +52,9 @@ landingContent:
              url: howto-platform-prerequisites.md
       - linkListType: quickstart
         links:
-           - text: Before you start tenant workload deployment
-             url: quickstarts-tenant-workload-prerequisites.md
-           - text: Tenant workload deployment
+           - text: Deploy Nexus Kubernetes cluster
+             url: quickstarts-kubernetes-cluster-deployment-bicep.md
+           - text: Deploy Nexus virtual machine
              url: quickstarts-tenant-workload-deployment.md
 #
   # Card
@@ -64,8 +66,8 @@ landingContent:
              url: concepts-observability.md 
       - linkListType: how-to-guide
         links:
-           - text: Monitor AKS-Hybrid Cluster
-             url: howto-monitor-aks-h-cluster.md      
+           - text: Monitor Nexus Kubernetes cluster
+             url: howto-monitor-naks-cluster.md
            - text: Monitor VMs for VNF
              url: howto-monitor-virtualized-network-functions-virtual-machines.md
            - text: Cluster metrics configuration management

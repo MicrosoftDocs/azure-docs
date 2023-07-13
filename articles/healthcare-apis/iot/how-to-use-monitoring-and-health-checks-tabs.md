@@ -6,7 +6,7 @@ author: msjasteppe
 ms.service: healthcare-apis
 ms.subservice: iomt
 ms.topic: how-to
-ms.date: 04/28/2023
+ms.date: 06/19/2023
 ms.author: jasteppe
 ---
 
@@ -15,7 +15,7 @@ ms.author: jasteppe
 > [!NOTE]
 > [Fast Healthcare Interoperability Resources (FHIR&#174;)](https://www.hl7.org/fhir/) is an open healthcare specification.
 
-In this article, you'll learn how to use the MedTech service monitoring and health check tabs in the Azure portal. The monitoring and health check tabs provide access to crucial MedTech service metrics and health checks. These metrics and health checks can be used in assessing the health and performance of your MedTech service and can be useful seeing patterns and/or trends or assisting with troubleshooting your MedTech service.
+In this article, learn how to use the MedTech service monitoring and health check tabs in the Azure portal. The monitoring and health check tabs provide access to crucial MedTech service metrics and health checks. These metrics and health checks can be used in assessing the health and performance of your MedTech service and can be useful seeing patterns and/or trends or assisting with troubleshooting your MedTech service.
 
 ## Use the MedTech service monitoring tab
 

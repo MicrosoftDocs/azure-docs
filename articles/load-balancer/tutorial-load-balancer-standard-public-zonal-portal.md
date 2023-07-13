@@ -88,6 +88,12 @@ In this section, you'll create a virtual network and subnet.
 
 12. Select **Create**.
 
+> [!IMPORTANT]
+
+> [!INCLUDE [Pricing](../../includes/bastion-pricing.md)]
+
+>
+
 ## Create NAT gateway
 
 In this section, you'll create a NAT gateway for outbound internet access for resources in the virtual network.

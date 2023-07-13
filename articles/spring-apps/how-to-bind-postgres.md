@@ -6,7 +6,7 @@ ms.service: spring-apps
 ms.topic: how-to
 ms.date: 09/26/2022
 ms.author: karler
-ms.custom: passwordless-java, devx-track-java
+ms.custom: passwordless-java, devx-track-java, devx-track-extended-java
 zone_pivot_group_filename: spring-apps/postgresql-zone-pivot-groups.json
 zone_pivot_groups: passwordless-postgresql
 ---

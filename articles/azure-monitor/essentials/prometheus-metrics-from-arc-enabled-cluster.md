@@ -150,13 +150,6 @@ AzureMonitorMetrics.KubeStateMetrics.MetricAnnotationsAllowList="pods=[k8s-annot
 AzureMonitorMetrics.KubeStateMetrics.MetricsLabelsAllowlist "namespaces=[k8s-label-1,k8s-label-n]" 
 ```
 
-### Delete the extension instance
-The following command only deletes the extension instance. The Azure Monitor workspace and its data are not deleted.
-
-```azurecli
-az k8s-extension delete --name azuremonitor-metrics -g <cluster_resource_group> -c<cluster_name> -t connectedClusters
-```
-
 ### [Resource Manager](#tab/resource-manager)
 
 ### Prerequisites
@@ -271,6 +264,16 @@ az k8s-extension show \
 --cluster-type connectedClusters 
 ```
 ---
+
+### Delete the extension instance
+
+To delete the extension instance, use the following CLI command:
+
+```azurecli
+az k8s-extension delete --name azuremonitor-metrics -g <cluster_resource_group> -c<cluster_name> -t connectedClusters
+```
+
+The command only deletes the extension instance. The Azure Monitor workspace and its data are not deleted.
 
 ## Disconnected clusters
 

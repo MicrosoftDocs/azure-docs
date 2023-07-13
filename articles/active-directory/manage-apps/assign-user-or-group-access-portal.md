@@ -27,6 +27,8 @@ Group-based assignment requires Azure Active Directory Premium P1 or P2 edition.
 
 For greater control, certain types of enterprise applications can be configured to require user assignment. For more information on requiring user assignment for an app, see [Manage access to an application](what-is-access-management.md#requiring-user-assignment-for-an-app).
 
+[!INCLUDE [portal updates](../includes/portal-update.md)]
+
 ## Prerequisites
 
 To assign users to an enterprise application, you need:

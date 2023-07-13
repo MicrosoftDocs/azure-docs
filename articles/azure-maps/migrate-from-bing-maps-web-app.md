@@ -249,7 +249,7 @@ For more information on how to set up and use the Azure Maps map control in a we
 
 ### Localizing the map
 
-If your audience is spread across multiple countries or speak different languages, localization is important.
+If your audience is spread across multiple countries/regions or speak different languages, localization is important.
 
 **Before: Bing Maps**
 

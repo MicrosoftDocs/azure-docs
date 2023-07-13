@@ -182,4 +182,4 @@ There are seven aspects to a secure Identity infrastructure. This list will help
 
 ## Next steps
 
-Refer to the [Azure AD deployment plans](active-directory-deployment-plans.md) for implementation details on any capabilities you haven't deployed.
+Refer to the [Azure AD deployment plans](deployment-plans.md) for implementation details on any capabilities you haven't deployed.

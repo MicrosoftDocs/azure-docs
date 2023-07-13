@@ -31,10 +31,6 @@ sections:
         answer: |
           Any active connections associated with a public IP address terminate upon the public IP address being removed. If the NAT gateway resource has multiple public IPs, new traffic is distributed among the assigned IPs.
           
-      - question: Can NAT gateway be used with IPv6 public IP addresses?
-        answer: |
-          No, NAT gateway doesn't support IPv6 public IP addresses at this time. You can configure dual stack outbound connectivity with NAT gateway and public Load balancer, see [configure dual stack outbound connectivity](./tutorial-dual-stack-outbound-nat-load-balancer.md?tabs=dual-stack-outbound-portal)
-  
   - name: NAT gateway configurations
     questions:  
       - question: Is the NAT gateway public IP address static?  
@@ -61,6 +57,10 @@ sections:
         answer: |
           No, NAT gateway does not support public IP addresses with routing preference "internet". To see a list of Azure services that do support routing configuration type "internet" on public IPs, see [supported services for routing over the public internet](/azure/virtual-network/ip-services/routing-preference-overview#supported-services). 
       
+      - question: Can public IP addresses with DDoS protection enabled be used with NAT gateway? 
+        answer: |
+          No, public IP addresses with DDoS protection enabled are not supported by NAT gateway. See [DDoS limitations](/azure/ddos-protection/ddos-protection-sku-comparison#limitations) for more information. 
+      
       - question: Can public IPs of an existing NAT gateway be changed? 
         answer: |
           No, the address of an existing public IP can't be changed.  Associate either an existing or newly created public IP address to the NAT gateway resource.  Disassociate the old IP address. See [add or remove a public IP address](./manage-nat-gateway.md?tabs=manage-nat-portal#add-or-remove-a-public-ip-address) for guidance.
@@ -84,6 +84,7 @@ sections:
           
           To upgrade a basic Load balancer to standard, see [Upgrade Azure Public Load Balancer](../load-balancer/upgrade-basic-standard.md)
           To upgrade a basic public IP to standard, see [Upgrade a public IP address](../virtual-network/ip-services/public-ip-upgrade-portal.md)
+          To upgrade a basic public IP with an attached VM to standard, see [Upgrade a basic public IP address with an attached VM](../virtual-network/ip-services/public-ip-upgrade-vm.md).
       
       - question: Can NAT gateway be attached to multiple virtual networks?  
         answer: |

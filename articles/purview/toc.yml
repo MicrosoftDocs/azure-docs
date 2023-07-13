@@ -11,9 +11,9 @@ items:
   - name: Create a Microsoft Purview account
     items:
     - name: Create an account - Azure portal
-      href: create-catalog-portal.md
+      href: create-microsoft-purview-portal.md
     - name: Create an account - PowerShell/CLI
-      href: create-catalog-powershell.md
+      href: create-microsoft-purview-powershell.md
     - name: Create an account - .NET SDK
       href: create-microsoft-purview-dotnet.md
     - name: Create an account - Python
@@ -54,6 +54,8 @@ items:
         href: concept-best-practices-classification.md
       - name: Collections architecture best practices
         href: concept-best-practices-collections.md
+      - name: Describing data best practices
+        href: concept-best-practices-annotating-data.md
       - name: Deployment best practices
         href: deployment-best-practices.md
       - name: Governing domains best practices 
@@ -461,6 +463,8 @@ items:
     href: tutorial-using-python-sdk.md
 - name: Reference
   items:
+    - name: Account upgrades
+      href: account-upgrades.md
     - name: Product glossary reference
       href: reference-azure-purview-glossary.md
     - name: Supported browsers

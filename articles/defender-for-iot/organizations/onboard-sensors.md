@@ -1,10 +1,10 @@
 ---
 title: Onboard sensors to Defender for IoT in the Azure portal
 description: Learn how to onboard sensors to Defender for IoT in the Azure portal.
-ms.date: 03/02/2023
+ms.date: 05/28/2023
 ms.topic: install-set-up-deploy
 ms.collection:
-  -       zerotrust-services
+  -       zerotrust-extra
 ---
 
 # Onboard OT sensors to Defender for IoT
@@ -60,29 +60,20 @@ This procedure describes how to onboard an OT network sensor with Defender for I
 
     1. (Optional) Toggle on the **Automatic Threat Intelligence updates** to have Defender for IoT automatically push [threat intelligence packages](how-to-work-with-threat-intelligence-packages.md) to your OT sensor.
 
-    1. In the **Sensor version** field, verify that **22.X and above** is selected.
-
-        If you're working with legacy OT sensor software, we recommend that you update your version. For more information, see [Update Defender for IoT OT monitoring software](update-ot-software.md).
-
-    1. In the **Site** section, enter the following details to define your OT sensor's site.
-
-        |Field  |Description  |
+    1. In the **Site** section, enter the following details:
+        
+        |Field name |Description  |
         |---------|---------|
-        |**Resource name**     | In the **Resource name** field, select the site you want to use for your OT sensor, or select **Create site** to create a new one.        |
-        |**Display name**     | In the **Display name** field, enter a meaningful name for your site to be shown across Defender for IoT in Azure.        |
-        |**Tags** (Optional)     | In the **Tags** > **Key** and **Value** fields, enter tag values to help you identify and locate your site and sensor in the Azure portal.        |
+        |**Resource name**     |  Select the site you want to attach your sensors to, or select **Create site** to create a new site.  <br><br>**If you're creating a new site**: <br>1. In the **New site** field, enter your site's name and select the checkmark button. <br>2.  From the **Site size** menu, select your site's size. The sizes listed in this menu are the sizes that you're licensed for, based on the licenses [you'd purchased](how-to-manage-subscriptions.md) in the Microsoft 365 admin center.  <br><br>If you're working with a legacy OT plan, the **Site size** field isn't included.   |
+        |**Display name**     |    Enter a meaningful name for your site to be shown across Defender for IoT.   |
+        |**Tags**     |   Enter tag key and values to help you identify and locate your site and sensor in the Azure portal.      |
+        |**Zone**     | Select the zone you want to use for your OT sensor, or select **Create zone** to create a new one.        |
 
-    1. In the **Zone** field, select the zone you want to use for your OT sensor, or select **Create zone** to create a new one.
+1. When you're done with all other fields, select **Register**. A success message appears and your activation file is automatically downloaded.
 
-        For example:
+1. Select **Finish**. Your sensor is now shown under the selected site on the Defender for IoT **Sites and sensors** page.
 
-        :::image type="content" source="media/sites-and-zones/sites-and-zones-azure.png" alt-text="Screenshot of the Set up OT/ICS Security page with site and zone details defined." lightbox="media/sites-and-zones/sites-and-zones-azure.png":::
-
-1. When you're done with all other fields, select **Register**.
-
-A success message appears and your activation file is automatically downloaded. Your sensor is now shown under the configured site on the Defender for IoT **Sites and sensors** page.
-
-Until you activate your sensor, the sensor's status will show as **Pending Activation**. Make the downloaded activation file accessible to the sensor console admin so that they can activate the sensor.
+Until you activate your sensor, the sensor's status will show as **Pending Activation**. Make the downloaded activation file accessible to the sensor console admin so that they can [activate the sensor](ot-deploy/activate-deploy-sensor.md).
 
 [!INCLUDE [root-of-trust](includes/root-of-trust.md)]
 

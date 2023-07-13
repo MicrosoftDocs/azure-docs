@@ -491,7 +491,6 @@ OSM issues a certificate that Nginx uses as the client certificate to proxy HTTP
     kubectl apply -f deployment.yaml -n hello-web-app-routing
     kubectl apply -f service.yaml -n hello-web-app-routing
     kubectl apply -f ingress.yaml -n hello-web-app-routing
-    kubectl apply -f ingressbackend.yaml -n hello-web-app-routing
     ```
 
     The following example output shows the created resources:
@@ -500,7 +499,6 @@ OSM issues a certificate that Nginx uses as the client certificate to proxy HTTP
     deployment.apps/aks-helloworld created
     service/aks-helloworld created
     ingress.networking.k8s.io/aks-helloworld created
-    ingressbackend.policy.openservicemesh.io/aks-helloworld created
     ```
 
 # [With service annotations (retired)](#tab/service-annotations)

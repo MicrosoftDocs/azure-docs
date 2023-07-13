@@ -34,7 +34,6 @@ Ensure that the following prerequisites are in place:
     > [!NOTE]
     >
     > - Azure AD Connect versions 1.1.557.0, 1.1.558.0, 1.1.561.0, and 1.1.614.0 have a problem related to password hash sync. If you *don't* intend to use password hash sync in conjunction with pass-through authentication, review the [Azure AD Connect release notes](./reference-connect-version-history.md) to learn more.
-    > - If you have an outgoing HTTP proxy, make sure that the URL `autologon.microsoftazuread-sso.com` is on your allowlist. You should specify this URL explicitly because the wildcard might not be accepted.
 
 - **Use a supported Azure AD Connect topology**: Ensure that you're using one of the Azure AD Connect [supported topologies](plan-connect-topologies.md).
 
@@ -49,6 +48,9 @@ Ensure that the following prerequisites are in place:
 - **Enable modern authentication**: To use this feature, you must enable [modern authentication](/office365/enterprise/modern-auth-for-office-2013-and-2016) on your tenant.
 
 - **Use the latest versions of Microsoft 365 clients**: To get a silent sign-on experience with Microsoft 365 clients (for example, with Outlook, Word, or Excel), your users must use versions 16.0.8730.xxxx or later.
+
+> [!NOTE]
+> If you have an outgoing HTTP proxy, make sure that the URL `autologon.microsoftazuread-sso.com` is on your allowlist. You should specify this URL explicitly because the wildcard might not be accepted.
 
 ## Enable the feature
 

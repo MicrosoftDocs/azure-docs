@@ -93,5 +93,5 @@ After you've created the MSIX package, you'll still need to do the following tas
 Here are some other articles you might find helpful:
 
 - Learn more about the available [MSIXMGR tool parameters](msixmgr-tool-syntax-description.md).
-- [MSIX app attach glossary](app-attach-glossary.md)
+- [What is MSIX app attach?](what-is-app-attach.md)
 - [MSIX app attach FAQ](app-attach-faq.yml)

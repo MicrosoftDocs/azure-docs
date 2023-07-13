@@ -24,7 +24,7 @@ This article shows you how you can automatically scale a Service Bus namespace (
 > This article applies to only the **premium** tier of Azure Service Bus. 
 
 ## Configure using the Azure portal
-In this section, you learn how to use the Azure portal to configure auto-scaling of messaging units for a Service Bus namespace. 
+In this section, you learn how to use the Azure portal to configure autoscaling of messaging units for a Service Bus namespace. 
 
 ## Autoscale setting page
 First, follow these steps to navigate to the **Autoscale settings** page for your Service Bus namespace.
@@ -53,6 +53,9 @@ You can configure automatic scaling of messaging units by using conditions. This
 - Scale to specific number of messaging units
 
 You can't set a schedule to autoscale on a specific days or date range for a default condition. This scale condition is executed when none of the other scale conditions with schedules match. 
+
+> [!NOTE]
+> To improve the receive throughput, Service Bus keeps some messages in its cache. Service Bus trims the cache only when memory usage exceeds a certain high threshold like 90%. So if an entity is sending messages but not receiving them, those messages are cached and it reflects in increased memory usage. There is nothing to concern about, as Service Bus trims the cache if needed, which eventually causes the memory usage to go down. Memory will not cause any issue unless there is performance or any other issues with the namespace. We recommend that you use the CPU usage metric for autoscaling with Service Bus. 
 
 ### Scale based on a metric
 The following procedure shows you how to add a condition to automatically increase messaging units (scale out) when the CPU usage is greater than 75% and decrease messaging units (scale in) when the CPU usage is less than 25%. Increments are done from 1 to 2, 2 to 4, 4 to 8, and 8 to 16. Similarly, decrements are done from 16 to 8, 8 to 4, 4 to 2, and 2 to 1. 
@@ -348,6 +351,58 @@ You can also generate a JSON example for an autoscale setting resource from the 
 :::image type="content" source="./media/automate-update-messaging-units/auto-scale-json.png" alt-text="Image showing the selection of the JSON button on the command bar of the **Scale** page in the Azure portal.":::
 
 Then, include the JSON in the `resources` section of a Resource Manager template as shown in the preceding example. 
+
+## Additional considerations
+When you use the **Custom autoscale** option with the **Default** condition or profile,  messaging units are increased (1 -> 2 -> 4 -> 8 -> 16) or decreased (16 -> 8 -> 4 -> 2 -> 1) gradually. 
+
+When you create additional conditions, the messaging units may not be gradually increased or decreased. Suppose, you have two profiles defined as shown in the following example. At 06:00 UTC, messaging units are set to 16, and at 21:00 UTC, they're reduced to 1.
+
+```json
+{
+
+	"Profiles": [
+		{
+			"Name": "standardProfile",
+			"Capacity": {
+				"Minimum": "16",
+				"Maximum": "16",
+				"Default": "16"
+			},
+			"Rules": [],
+			"Recurrence": {
+				"Frequency": "Week",
+				"Schedule": {
+					"TimeZone": "UTC",
+					"Days": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"
+					],
+					"Hours": [6],
+					"Minutes": [0]
+				}
+			}
+		},
+		{
+			"Name": "outOfHoursProfile",
+			"Capacity": {
+				"Minimum": "1",
+				"Maximum": "1",
+				"Default": "1"
+			},
+			"Rules": [],
+			"Recurrence": {
+				"Frequency": "Week",
+				"Schedule": {
+					"TimeZone": "UTC",
+					"Days": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+					"Hours": [21],
+					"Minutes": [0]
+				}
+			}
+		}
+	]
+}
+```
+
+We recommend that you create rules such that messaging units are increased or decreases gradually. 
 
 ## Next steps
 To learn about messaging units, see the [Premium messaging](service-bus-premium-messaging.md)

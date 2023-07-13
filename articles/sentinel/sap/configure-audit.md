@@ -161,7 +161,5 @@ The following table lists Message IDs used by the Microsoft Sentinel solution fo
 
 In this article, you learned how to enable and configure SAP auditing for Microsoft Sentinel.
 
-Now you are ready to deploy the data connector agent container.
-
 > [!div class="nextstepaction"]
 > [Deploy and configure the container hosting the data connector agent](deploy-data-connector-agent-container.md)

@@ -20,6 +20,9 @@ In large environments, user accounts aren't always deleted when employees leave 
 
 This article explains a method to handle obsolete user accounts in Azure Active Directory (Azure AD). 
 
+>[!NOTE]
+>This article applies only to finding inactive user accounts in Azure Active Directory (Azure AD). It does not apply to finding inactive accounts in [Azure AD B2C](/azure/active-directory-b2c/overview).
+
 ## What are inactive user accounts?
 
 Inactive accounts are user accounts that aren't required anymore by members of your organization to gain access to your resources. One key identifier for inactive accounts is that they haven't been used *for a while* to sign in to your environment. Because inactive accounts are tied to the sign-in activity, you can use the timestamp of the last time an account attempted to sign in to detect inactive accounts. 

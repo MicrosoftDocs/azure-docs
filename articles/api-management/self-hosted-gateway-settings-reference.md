@@ -128,3 +128,4 @@ helm install azure-api-management-gateway \
 -   [Deploy self-hosted gateway to Kubernetes](how-to-deploy-self-hosted-gateway-kubernetes.md)
 -   [Deploy self-hosted gateway to Azure Arc-enabled Kubernetes cluster](how-to-deploy-self-hosted-gateway-azure-arc.md)
 - [Enable Dapr support on self-hosted gateway](self-hosted-gateway-enable-dapr.md)
+- Learn more about configuration options for [Azure Arc extension](self-hosted-gateway-arc-reference.md)

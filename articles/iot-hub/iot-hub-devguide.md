@@ -67,3 +67,6 @@ The following articles can help you get started exploring IoT Hub features in mo
 * [Azure IoT Hub SDKs](iot-hub-devguide-sdks.md) lists the Azure IoT SDKs for developing device and service apps that interact with your IoT hub. The article includes links to online API documentation.
 
 * [IoT Hub MQTT support](../iot/iot-mqtt-connect-to-iot-hub.md) provides detailed information about how IoT Hub supports the MQTT protocol. The article describes the support for the MQTT protocol built in to the Azure IoT SDKs and provides information about using the MQTT protocol directly.
+
+  > [!NOTE]
+  > IoT Hub has limited feature support for MQTT. If your solution needs MQTT v3.1.1 or v5 support, we recommend [MQTT support in Azure Event Grid](../event-grid/mqtt-overview.md), currently in public preview. For more information, see [Compare MQTT support in IoT Hub and Event Grid](../iot/iot-mqtt-connect-to-iot-hub.md#compare-mqtt-support-in-iot-hub-and-event-grid).

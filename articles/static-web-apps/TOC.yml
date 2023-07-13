@@ -130,6 +130,8 @@
       href: application-settings.md
     - name: Configure front-end frameworks and libraries
       href: front-end-frameworks.md
+    - name: Split traffic
+      href: traffic-splitting.md
     - name: Enable monitoring
       href: monitor.md
       displayName: Application Insights
@@ -138,6 +140,9 @@
     - name: Troubleshoot errors
       href: troubleshooting.md
       displayName: deployment, runtime, errors
+    - name: Deploy with external source control providers
+      href: external-providers.md
+      displayName: Jenkins, Jekyll
 - name: Tutorials
   items:
     - name: Publish from a static site generator
@@ -183,6 +188,8 @@
       href: assign-roles-microsoft-graph.md
     - name: Use an external code host
       items:
+        - name: Overview
+          href: external-providers.md
         - name: Bitbucket
           href: bitbucket.md
         - name: GitLab

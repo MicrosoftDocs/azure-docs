@@ -250,6 +250,8 @@
                 href: ./rest-api-locks.md
               - name: Revisions
                 href: ./rest-api-revisions.md
+              - name: Snapshots
+                href: ./rest-api-snapshot.md
             - name: Protocol
               items:
               - name: Authentication
@@ -282,6 +284,8 @@
                 href: ./rest-api-postman.md
         - name: Azure CLI
           href: /cli/azure/appconfig
+    - name: Kubernetes provider
+      href: reference-kubernetes-provider.md
     - name: Deployment
       href: /azure/templates/microsoft.appconfiguration/configurationstores
     - name: Azure Policy built-ins
