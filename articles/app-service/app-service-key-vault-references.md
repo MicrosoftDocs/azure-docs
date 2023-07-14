@@ -89,9 +89,20 @@ Once you have granted permissions to the user-assigned identity, follow these st
 
 This configuration will apply to all references for the app.
 
-## Reference syntax
+## Rotation
 
-A Key Vault reference is of the form `@Microsoft.KeyVault({referenceString})`, where `{referenceString}` is replaced by one of the following options:
+If the secret version isn't specified in the reference, the app uses the latest version that exists in the key vault. When newer versions become available, such as with a rotation event, the app automatically updates and begins using the latest version within 24 hours. The delay is because App Service caches the values of the key vault references and refetches it every 24 hours. Any configuration changes to the app causes an app restart and an immediate refetch of all referenced secrets.
+
+## Source app settings from key vault
+
+Key vault references can be used as values for [app settings](configure-common.md#configure-app-settings) or [connection strings](configure-common.md#configure-connection-strings), allowing you to keep secrets in a key vault instead of the site config. App settings are securely encrypted at rest, but if you need secret management capabilities, they should go into Key Vault.
+
+To use a key vault reference, set the reference as the value of the setting. Your app can reference the secret through its key as normal. No code changes are required.
+
+> [!TIP]
+> Most app settings using key vault references should be marked as slot settings, as you should have separate vaults for each environment.
+
+A key vault reference is of the form `@Microsoft.KeyVault({referenceString})`, where `{referenceString}` is replaced by one of the following options:
 
 > [!div class="mx-tdBreakAll"]
 > | Reference string                                                            | Description                                                                                                                                                                                 |
@@ -110,19 +121,6 @@ Alternatively:
 ```
 @Microsoft.KeyVault(VaultName=myvault;SecretName=mysecret)
 ```
-
-## Rotation
-
-If the secret version isn't specified in the reference, the app uses the latest version that exists in the key vault. When newer versions become available, such as with a rotation event, the app automatically updates and begins using the latest version within 24 hours. The delay is because App Service caches the values of the key vault references and refetches it every 24 hours. Any configuration changes to the app that results in a site restart causes an immediate refetch of all referenced secrets.
-
-## Source app settings from key vault
-
-Key vault references can be used as values for [app settings](configure-common.md#configure-app-settings), allowing you to keep secrets in Key Vault instead of the site config. Application Settings are securely encrypted at rest, but if you need secret management capabilities, they should go into Key Vault.
-
-To use a Key Vault reference for an [app setting](configure-common.md#configure-app-settings), set the reference as the value of the setting. Your app can reference the secret through its key as normal. No code changes are required.
-
-> [!TIP]
-> Most app settings using key vault references should be marked as slot settings, as you should have separate vaults for each environment.
 
 ### Considerations for Azure Files mounting
 
