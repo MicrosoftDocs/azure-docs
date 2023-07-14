@@ -819,7 +819,7 @@ Use Microsoft Edge to connect to the web server on **vm-spoke-2** you installed 
 
 4. Verify the default IIS page is displayed from **vm-spoke-2**.
 
-    :::image type="content" source="./media/tutorial-hub-spoke-route-nat/iis-vm-spoke-1.png" alt-text="Screenshot of default IIS page on vm-spoke-1.":::
+    :::image type="content" source="./media/tutorial-hub-spoke-route-nat/iis-myvm-spoke-1.png" alt-text="Screenshot of default IIS page on vm-spoke-1.":::
 
 5. Close the bastion connection to **vm-spoke-1**.
 
@@ -835,7 +835,7 @@ Use Microsoft Edge to connect to the web server on **vm-spoke-1** you installed 
 
 4. Verify the default IIS page is displayed from **vm-spoke-1**.
 
-    :::image type="content" source="./media/tutorial-hub-spoke-route-nat/iis-vm-spoke-2.png" alt-text="Screenshot of default IIS page on vm-spoke-2.":::
+    :::image type="content" source="./media/tutorial-hub-spoke-route-nat/iis-myvm-spoke-2.png" alt-text="Screenshot of default IIS page on vm-spoke-2.":::
 
 5. Close the bastion connection to **vm-spoke-1**.
 
