@@ -10,11 +10,11 @@ ms.date: 06/01/2023
 
 # Frequently asked questions about the Epic workload on Azure Large Instances
 
-This article provides answers to frequently asked questions about Azure Large Instances (ALI) for the Epic<sup>®</sup> workload.
+This article provides answers to frequently asked questions about Azure Large Instances (ALI).
 
 ## In which regions is this service available?
 
-ALI for the Epic workload is available in the following regions:
+ALI is available in the following regions:
 
 * East US
 * US West2
@@ -36,7 +36,7 @@ Ensure that your VNET address space provided in the request is the same as what 
 It’s not mandatory, but it's possible.
 If you need guidance, create a support ticket with Azure Customer Support so that Azure ARC Support can help in your setup.
 
-## How do I monitor Azure Large Instances for the Epic workload?
+## How do I monitor Azure Large Instances?
 
 ALI is an IaaS offering and Azure teams are actively monitoring ALI infrastructure (network devices, storage appliances, server hardware, etc.).
 Customer alerts related to infrastructure are provided only via Azure portal’s Service Health.  
@@ -48,7 +48,7 @@ Customers are highly recommended to set up Service Health alerts to get notified
 > Microsoft is not responsible for integration with any other tooling or 3P agents. 
 Customers are responsible for any additional third-party agents that they would like to install for logging and monitoring on ALI infrastructure.
 
-It’s also recommended to rerun Epic GenIO test post third-party agents are installed to check for any performance variations.
+It’s also recommended to rerun ALI GenIO test post third-party agents are installed to check for any performance variations.
 
 For more information, see “Shared Responsibility Model"
 

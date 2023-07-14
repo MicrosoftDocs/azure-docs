@@ -1,5 +1,5 @@
 ---
-title: Configure Azure service health alert
+title: Configure Azure service health alerts
 description: Explains how to configure Azure service health alerts.
 ms.topic: conceptual
 author: jjaygbay1
