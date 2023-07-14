@@ -28,7 +28,7 @@ To prepare to upgrade your storage account to Data Lake Storage Gen2:
 
 ### Review feature support
 
-Your account might be configured to use features that aren't yet supported in Data Lake Storage Gen2 enabled accounts. If your account is using a feature that isn't supported, the upgrade will not pass the validation step. Review the [Blob Storage feature support in Azure Storage accounts](storage-feature-support-in-storage-accounts.md) article to identify unsupported features. If you're using any such features in your account, disable them before you begin the upgrade.
+Your storage account might be configured to use features that aren't yet supported in Data Lake Storage Gen2 enabled accounts. If your account is using such a feature, the upgrade will not pass the validation step. Review the [Blob Storage feature support in Azure Storage accounts](storage-feature-support-in-storage-accounts.md) article to identify unsupported features. If you're using any such features in your account, disable them before you begin the upgrade.
 
 The following features are supported for Data Lake Storage Gen2 accounts, but are not supported by the upgrade process:
 
