@@ -1,5 +1,5 @@
 ---
-title: Email metric definitions for Azure Communication Services
+title: Metric definitions for Azure Communication Services
 titleSuffix: An Azure Communication Services concept document
 description: This document covers definitions of metrics available in the Azure portal.
 author: mkhribech
