@@ -51,7 +51,7 @@ If your database server is in Virtual Network, please make sure your environment
 
 ::: zone pivot="sql"
 
-If your database server disallows public access, please make sure your environment that run Azure CLI command can access the server through private endpoint.
+If your database server disallows public access, ensure your environment that runs the Azure CLI command can access the server through the private endpoint.
 
 ::: zone-end
 
