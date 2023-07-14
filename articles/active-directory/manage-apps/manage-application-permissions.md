@@ -45,7 +45,7 @@ Please see [Restore permissions granted to applications](restore-permissions.md)
 
 You can access the Azure portal to view the permissions granted to an app. You can revoke permissions granted by admins for your entire organization, and you can get contextual PowerShell scripts to perform other actions.
 
-To revoke application permissions granted for the entire organization:
+To revoke an application's permissions that have been granted for the entire organization:
 
 1. Sign in to the [Azure portal](https://portal.azure.com) using one of the roles listed in the prerequisites section.
 1. Select **Azure Active Directory**, and then select **Enterprise applications**.
@@ -53,7 +53,7 @@ To revoke application permissions granted for the entire organization:
 1. Select **Permissions**. 
 1. The permissions listed in the **Admin consent** tab apply to your entire organization. Choose the permission you would like to remove, select the **...** control for that permission, and then choose **Revoke permission**.
 
-To review application permissions:
+To review an application's permissions:
 
 1. Sign in to the [Azure portal](https://portal.azure.com) using one of the roles listed in the prerequisites section.
 1. Select **Azure Active Directory**, and then select **Enterprise applications**.

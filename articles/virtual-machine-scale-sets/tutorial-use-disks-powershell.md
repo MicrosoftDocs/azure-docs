@@ -97,12 +97,12 @@ Update-AzVmss `
   -VirtualMachineScaleSet $vmss
 ```
 
-Alternatively, if you want to add a data disk to an individual instance in a scale set, use [Add-AzVMDataDisk](/powershell/module/az.compute/add-azvmdatadisk).
+Alternatively, if you want to add a data disk to an individual instance in a scale set, use [Add-AzVmssVMDataDisk](/powershell/module/az.compute/add-azvmssvmdatadisk).
 
 ```azurepowershell-interactive
-$VirtualMachine = Get-AzVM -ResourceGroupName "myResourceGroup" -Name "myScaleSet_Instance1"
-Add-AzVMDataDisk -VM $VirtualMachine -Name "disk1" -LUN 2 -Caching ReadOnly -DiskSizeinGB 1 -CreateOption Empty
-Update-AzVM -ResourceGroupName "myResourceGroup" -VM $VirtualMachine
+$VirtualMachine = Get-AzVmssVM -ResourceGroupName "myResourceGroup" -VMScaleSetName "myScaleSet" -InstanceId 1
+Add-AzVmssVMDataDisk -VirtualMachineScaleSetVM $VirtualMachine -LUN 2 -DiskSizeInGB 1 -CreateOption Empty -StorageAccountType Standard_LRS
+Update-AzVmssVM -VirtualMachineScaleSetVM $VirtualMachine
 ```
 
 ## List attached disks
@@ -159,12 +159,12 @@ Update-AzVmss `
   -VirtualMachineScaleSet $vmss
 ```
 
-Alternatively, if you want to remove a data disk to an individual instance in a scale set, use [Remove-AzVMDataDisk](/powershell/module/az.compute/remove-azvmdatadisk).
+Alternatively, if you want to remove a data disk to an individual instance in a scale set, use [Remove-AzVmssVMDataDisk](/powershell/module/az.compute/remove-azvmssvmdatadisk).
 
 ```azurepowershell-interactive
-$VirtualMachine = Get-AzVM -ResourceGroupName "myResourceGroup" -Name "myScaleSet_c91dfbd9"
-Remove-AzVMDataDisk -VM $VirtualMachine -Name "myScaleSet_c91dfbd9_disk3_65c5d7a8f5ae40cb8d5f80c04b7b3d2e" 
-Update-AzVM -ResourceGroupName "myResourceGroup" -VM $VirtualMachine
+$VirtualMachine = Get-AzVmssVM -ResourceGroupName "myResourceGroup" -VMScaleSetName "myScaleSet" -InstanceId "c91dfbd9"
+Remove-AzVmssVMDataDisk -VirtualMachineScaleSetVM $VirtualMachine -Lun 2
+Update-AzVmssVM -VirtualMachineScaleSetVM -VM $VirtualMachine
 ```
 
 ## Clean up resources
