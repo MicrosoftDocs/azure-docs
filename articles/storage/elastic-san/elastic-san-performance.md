@@ -39,9 +39,9 @@ The throughput of an Elastic SAN increases by 80 MB/s per base TiB. So if you ha
 
 The performance of an individual volume is determined by its capacity. The maximum IOPS of a volume increase by 750 per GiB, up to a maximum of 64,000 IOPS. The maximum throughput increases by 60 MB/s per GiB, up to a maximum of 1,024 MB/s. A volume needs at least 86 GiB to be capable of using 64,000 IOPS. A volume needs at least 18 GiB in order to be capable of using the maximum 1,024 MB/s. The combined IOPS and throughput of all your volumes can't exceed the IOPS and throughput of your SAN.
 
-## Examples of workload performance
+## Example configuration
 
-Each of the example scenarios uses the following configuration for the VMs and the Elastic SAN:
+Each of the example scenarios in this article uses the following configuration for the VMs and the Elastic SAN:
 
 ### VM limits
 
@@ -62,6 +62,10 @@ Each of the example scenarios uses the following configuration for the VMs and t
 |Workload 2 SAN volume     |4 TiB         |Up to 64,000         |
 |Workload 3 SAN volume     |2 TiB          |Up to 64,000         |
 
+
+## Example scenarios
+
+The following example scenarios depict how your Elastic SAN handles performance allocation.
 
 ### Typical workload
 
