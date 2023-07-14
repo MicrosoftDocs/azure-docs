@@ -12,9 +12,9 @@ ms.custom: template-concept
 Farm operations data is one of the most important ground truth datasets in Agronomy. Users can choose to push this data into Azure Data Manager for Agriculture using APIs OR choose to fetch them from farm equipment manufacturers like Climate FieldView. 
 [!INCLUDE [public-preview-notice.md](includes/public-preview-notice.md)]
 ## Azure Data Manager for Agriculture supports the following types of farm Operations data:
-* **Planting Data** - Refer [this] (/rest/api/data-manager-for-agri/dataplane-version2023-07-01-preview/planting-data/create-or-update) API to know more on adding/creating planting data.
-* **Application Data** - Refer [this](/rest/api/data-manager-for-agri/dataplane-version2023-07-01-preview/application-data/create-or-update) API to know more on adding/creating application data.
-* **Harvest Data** - Refer [this](/rest/api/data-manager-for-agri/dataplane-version2023-07-01-preview/harvest-data/create-or-update) API to know more on adding/creating harvest data.
+* **Planting Data** - Refer to [this](/rest/api/data-manager-for-agri/dataplane-version2023-07-01-preview/planting-data/create-or-update) API to know more on adding/creating planting data.
+* **Application Data** - Refer to [this](/rest/api/data-manager-for-agri/dataplane-version2023-07-01-preview/application-data/create-or-update) API to know more on adding/creating application data.
+* **Harvest Data** - Refer to [this](/rest/api/data-manager-for-agri/dataplane-version2023-07-01-preview/harvest-data/create-or-update) API to know more on adding/creating harvest data.
 
 ### Supported farm management data
 
