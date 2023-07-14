@@ -17,7 +17,6 @@ ms.date: 03/09/2023
 ## Pre-migration assessment
 
 
-Discovery involves creating a comprehensive list of the existing resources (databases or collections) in your MongoDB data estate.
 
 Assessment involves finding out whether you're using the [features and syntax that are supported](./compatibility.md). The aim of this stage is to create a list of incompatibilities and warnings, if any. After you have the assessment results, you can try to address the findings during rest of the migration planning.
 
