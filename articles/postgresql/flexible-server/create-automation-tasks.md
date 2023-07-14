@@ -21,6 +21,8 @@ ms.date: 07/13/2023
 
 To help you manage Azure Database for PostgreSQL Flexible Server resources more efficiently, you can create automation tasks for your Flexible Server. One example of such tasks can be starting or stopping the PostgreSQL Flexible Server on a predefined schedule.
 
+For an Azure Database for PostgreSQL Flexible Server, you can create an automation task that starts or stops the server on a predefined schedule. You can set this task to automatically start or stop the server a specific number of times every day, week, or month by setting the Interval and Frequency values on the task's Configure tab. The automation task continues to work until you delete or disable the task.
+
 ## Prerequisites
 
 
