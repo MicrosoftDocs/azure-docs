@@ -45,9 +45,9 @@ While it is common to use private endpoints in the same region, to reduce costs,
 
 Having private endpoints in a secondary region does incur additional costs, though.
 
-In addition to the cost of the private endpoint itself (see [Azure Private Link pricing](https://azure.microsoft.com/pricing/details/private-link/)), there is a cost for sending the traffic between regions.  For regions located in North America, like our East US 2 and Central US scenario, there is a cost of $0.02 per GB in addition to a $0.01 cost per hour for operating each private endpoint.
+In addition to the cost of the private endpoint itself (see [Azure Private Link pricing](https://azure.microsoft.com/pricing/details/private-link/)), there is a cost for sending the traffic between regions.  Note that the cost is for each private endpoint, so the above design would have two endpoints.
 
-Global VNET peering, which connects virtual networks in multiple regions, has a cost based off of the zone your networks are in.  For example, our East US 2 to Central US scenario would cost $0.035 per GB inbound and outbound.  See [Virtual Network pricing](https://azure.microsoft.com/pricing/details/virtual-network) for more information.
+Global virtual network peering, which connects virtual networks in multiple regions, has a cost based off of the zone your networks are in.  See [Virtual Network pricing](https://azure.microsoft.com/pricing/details/virtual-network) for more information.
 
 Global peering can be used to enable services to communicate to each other during a service failure in a region, but would support fewer scenarios and may have more manual activities involved in activating a failover.  An organization should review the costs of operating in a highly available or resilient architecture, and compare that to the risks of longer durations to restore service.
 
