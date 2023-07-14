@@ -1,4 +1,4 @@
-- name: ALI for Epic workload documentation
+- name: Azure large Instances  documentation
   href: index.yml
 - name: Overview
   items:
@@ -10,9 +10,5 @@
     href: architecture.md
 - name: Configuration
   items:
-   - name: Configure Azure Service Health alerts
-     href: ../../configure-azure-service-health-alerts.md
    - name: Create a volume group
      href: create-a-volume-group.md
-- name: FAQ
-  href: ../../faq.md
