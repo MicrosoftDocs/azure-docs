@@ -125,7 +125,7 @@ EOF
 
 ---
 
-Once the gateway object has been created check the status on the object to ensure that the gateway is valid, and the listener is ready. Verify an address has been assigned to the gateway.
+Once the gateway object has been created check the status on the object to ensure that the gateway is valid, and the listener is _Programmed_. Verify an address has been assigned to the gateway.
 ```bash
 kubectl get gateway gateway-01 -n test-infra -o yaml
 ```
@@ -149,12 +149,6 @@ status:
     reason: Programmed
     status: "True"
     type: Programmed
-  - lastTransitionTime: "2023-06-19T21:04:55Z"
-    message: Application Gateway For Containers resource has been successfully updated.
-    observedGeneration: 1
-    reason: Ready
-    status: "True"
-    type: Ready
   listeners:
   - attachedRoutes: 0
     conditions:
@@ -176,12 +170,6 @@ status:
       reason: Programmed
       status: "True"
       type: Programmed
-    - lastTransitionTime: "2023-06-19T21:04:55Z"
-      message: Application Gateway For Containers resource has been successfully updated.
-      observedGeneration: 1
-      reason: Ready
-      status: "True"
-      type: Ready
     name: https-listener
     supportedKinds:
     - group: gateway.networking.k8s.io
@@ -232,9 +220,9 @@ status:
     - lastTransitionTime: "2023-06-19T22:18:23Z"
       message: Application Gateway For Containers resource has been successfully updated.
       observedGeneration: 1
-      reason: Ready
+      reason: Programmed
       status: "True"
-      type: Ready
+      type: Programmed
     controllerName: alb.networking.azure.io/alb-controller
     parentRef:
       group: gateway.networking.k8s.io
