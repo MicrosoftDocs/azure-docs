@@ -50,7 +50,7 @@ Each access log entry in Application Gateway for Containers will contain the fol
 
 | Value | Description |
 | ----- | ----------- |
-| backendHost | Address of backend tagret with appended port.  For example <ip>:<port> |
+| backendHost | Address of backend tagret with appended port.  For example \<ip\>:\<port\> |
 | backendIp | IP address of backend target Application Gateway for Containers will proxy the request to. |
 | backendPort | Port number of the backend target. |
 | backendResponseLatency | Time in milliseconds to receive syn-ack from backend target when Application Gateway for Containers begins to negotiate the connection. |
