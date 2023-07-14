@@ -82,7 +82,7 @@ Here's how to create a private endpoint for the *connection* sub-resource for co
 
 1. In the search bar, type *Azure Virtual Desktop* and select the matching service entry to go to the Azure Virtual Desktop overview.
 
-1. Select **Host pools**, then select the name of the host pool you want to create a *connection* sub-resource for.
+1. Select **Host pools**, then select the name of the host pool for which you want to create a *connection* sub-resource.
 
 1. From the host pool overview, select **Networking**, then **Private endpoint connections**, and finally **New private endpoint**.
 
@@ -116,7 +116,7 @@ Here's how to create a private endpoint for the *connection* sub-resource for co
 
    Once you've completed this tab, select **Next: Tags**.
 
-1. *Optional*: On the **Tags** tab, you can enter any name/value pairs you need, then select **Next: Review + create**.
+1. *Optional*: On the **Tags** tab, you can enter any [name/value pairs](../azure-resource-manager/management/tag-resources.md) you need, then select **Next: Review + create**.
 
 1. On the **Review + create** tab, ensure validation passes and review the information that is used during deployment.
 
@@ -321,7 +321,7 @@ Here's how to create a private endpoint for the *connection* sub-resource used f
 ---
 
 > [!IMPORTANT]
-> You need to create private endpoint for the connection sub-resource for each host pool you want to use with the Private Link.
+> You need to create a private endpoint for the connection sub-resource for each host pool you want to use with Private Link.
 
 ---
 
@@ -331,7 +331,7 @@ To create a private endpoint for the *feed* sub-resource for a workspace, select
 
 # [Portal](#tab/portal)
 
-1. From the Azure Virtual Desktop overview, select **Workspaces**, then select the name of the workspace you want to create a *feed* sub-resource for.
+1. From the Azure Virtual Desktop overview, select **Workspaces**, then select the name of the workspace for which you want to create a *feed* sub-resource.
 
 1. From the workspace overview, select **Networking**, then **Private endpoint connections**, and finally **New private endpoint**.
 
@@ -365,7 +365,7 @@ To create a private endpoint for the *feed* sub-resource for a workspace, select
 
    Once you've completed this tab, select **Next: Tags**.
 
-1. *Optional*: On the **Tags** tab, you can enter any name/value pairs you need, then select **Next: Review + create**.
+1. *Optional*: On the **Tags** tab, you can enter any [name/value pairs](../azure-resource-manager/management/tag-resources.md) you need, then select **Next: Review + create**.
 
 1. On the **Review + create** tab, ensure validation passes and review the information that is used during deployment.
 
@@ -373,7 +373,7 @@ To create a private endpoint for the *feed* sub-resource for a workspace, select
 
 # [Azure CLI](#tab/cli)
 
-1. In the same Bash session, create a Private Link service connection and the private endpoint for a workspace with the feed sub-resource by running the following commands.
+1. In the same CLI session, create a Private Link service connection and the private endpoint for a workspace with the feed sub-resource by running the following commands.
 
    1. To create a private endpoint with a dynamically allocated IP address:
    
@@ -531,7 +531,7 @@ To create a private endpoint for the *feed* sub-resource for a workspace, select
 ---
 
 > [!IMPORTANT]
-> You need to create private endpoint for the feed sub-resource for each workspace you want to use with the Private Link.
+> You need to a create private endpoint for the feed sub-resource for each workspace you want to use with Private Link.
 
 ### Initial feed discovery
 
@@ -580,7 +580,7 @@ To create a private endpoint for the *global* sub-resource used for the initial 
 
    Once you've completed this tab, select **Next: Tags**.
 
-1. *Optional*: On the **Tags** tab, you can enter any name/value pairs you need, then select **Next: Review + create**.
+1. *Optional*: On the **Tags** tab, you can enter any [name/value pairs](../azure-resource-manager/management/tag-resources.md) you need, then select **Next: Review + create**.
 
 1. On the **Review + create** tab, ensure validation passes and review the information that is used during deployment.
 
@@ -590,7 +590,7 @@ To create a private endpoint for the *global* sub-resource used for the initial 
 
 1. *Optional*: Create a placeholder workspace to terminate the global endpoint by following the instructions to [Create a workspace](create-application-group-workspace.md?tabs=cli#create-a-workspace).
 
-1. In the same Bash session, create a Private Link service connection and the private endpoint for the workspace with the global sub-resource by running the following commands:
+1. In the same CLI session, create a Private Link service connection and the private endpoint for the workspace with the global sub-resource by running the following commands:
 
    1. To create a private endpoint with a dynamically allocated IP address:
    
@@ -744,7 +744,7 @@ Once you've created private endpoints, you can also control if traffic is allowe
 
 ### Control routes with Azure Virtual Desktop
 
-With Azure Virtual Desktop, you can independently control public traffic for workspaces and host pools.
+With Azure Virtual Desktop, you can independently control public traffic for workspaces and host pools. You need to repeat these steps for each workspace and host pool you use with Private Link.
 
 #### Workspaces
 
@@ -761,8 +761,6 @@ With Azure Virtual Desktop, you can independently control public traffic for wor
 
 1. Select **Save**.
 
-You need to repeat these steps for each workspace you use with Private Link.
-
 #### Host pools
 
 1. From the Azure Virtual Desktop overview, select **Host pools**, then select the name of the host pool to control public traffic.
@@ -778,8 +776,6 @@ You need to repeat these steps for each workspace you use with Private Link.
    | **Disable public access and use private access** | End users can only access the feed and session hosts over the private endpoints. |
 
 1. Select **Save**.
-
-You need to repeat these steps for each host pool you use with Private Link.
 
 > [!IMPORTANT]
 > Selecting **Enable public access for end users, use private access for session hosts** or **Disable public access and use private access** won't affect existing sessions. You must restart the session host virtual machines for the change to take effect.
@@ -823,7 +819,7 @@ To check the connection state of each private endpoint, select the relevant tab 
 
 # [Azure CLI](#tab/cli)
 
-1. In the same Bash session, run the following commands to check the connection state of a workspace or a host pool:
+1. In the same CLI session, run the following commands to check the connection state of a workspace or a host pool:
 
    ```azurecli
    az network private-endpoint show \
