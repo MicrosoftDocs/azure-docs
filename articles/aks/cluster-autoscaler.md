@@ -2,7 +2,7 @@
 title: Use the cluster autoscaler in Azure Kubernetes Service (AKS)
 description: Learn how to use the cluster autoscaler to automatically scale your Azure Kubernetes Service (AKS) clusters to meet application demands.
 ms.topic: article
-ms.date: 05/02/2023
+ms.date: 07/14/2023
 ---
 
 # Automatically scale a cluster to meet application demands on Azure Kubernetes Service (AKS)
@@ -206,9 +206,9 @@ You can retrieve logs and status updates from the cluster autoscaler to help dia
 
 Use the following steps to configure logs to be pushed from the cluster autoscaler into Log Analytics:
 
-1. Set up a rule for resource logs to push cluster autoscaler logs to Log Analytics. Follow the [instructions here][aks-view-master-logs], and make sure you check the box for `cluster-autoscaler` when selecting options for "Logs".
-2. Select the "Logs" section on your cluster via the Azure portal.
-3. Input the following example query into Log Analytics:
+1. Set up a rule for resource logs to push cluster autoscaler logs to Log Analytics using the [instructions here][aks-view-master-logs]. Make sure you check the box for `cluster-autoscaler` when selecting options for **Logs**.
+2. Select the **Log** section on your cluster.
+3. Enter the following example query into Log Analytics:
 
     ```kusto
     AzureDiagnostics
@@ -219,21 +219,21 @@ Use the following steps to configure logs to be pushed from the cluster autoscal
 
     ![Log Analytics logs](media/autoscaler/autoscaler-logs.png)
 
-The cluster autoscaler also writes out the health status to a `configmap` named `cluster-autoscaler-status`. You can retrieve these logs using the following `kubectl` command:
+    The cluster autoscaler also writes out the health status to a `configmap` named `cluster-autoscaler-status`. You can retrieve these logs using the following `kubectl` command:
 
-```bash
-kubectl get configmap -n kube-system cluster-autoscaler-status -o yaml
-```
+    ```bash
+    kubectl get configmap -n kube-system cluster-autoscaler-status -o yaml
+    ```
 
-To learn more about the autoscaler logs, read the FAQ on the [Kubernetes/autoscaler GitHub project][kubernetes-faq].
+To learn more about the autoscaler logs, see the [Kubernetes/autoscaler GitHub project FAQ][kubernetes-faq].
 
 ## Use the cluster autoscaler with node pools
 
 ### Use the cluster autoscaler with multiple node pools enabled
 
-You can use the cluster autoscaler with [multiple node pools][aks-multiple-node-pools] enabled. When using both features together, you enable the cluster autoscaler on each individual node pool in the cluster and can pass unique autoscaling rules to each.
+You can use the cluster autoscaler with [multiple node pools][aks-multiple-node-pools] enabled. When using both features together, you can enable the cluster autoscaler on each individual node pool in the cluster and pass unique autoscaling rules to each node pool.
 
-* Update an existing node pool's settings using the [`az aks nodepool update`][az-aks-nodepool-update] command. The following command continues from the [previous steps](#enable-the-cluster-autoscaler-on-a-new-cluster) in this article:
+* Update the settings on an existing node pool using the [`az aks nodepool update`][az-aks-nodepool-update] command. The following command continues from the [previous steps](#enable-the-cluster-autoscaler-on-a-new-cluster) in this article:
 
     ```azurecli-interactive
     az aks nodepool update \
@@ -259,14 +259,24 @@ You can use the cluster autoscaler with [multiple node pools][aks-multiple-node-
 
 ### Re-enable the cluster autoscaler on a node pool
 
-Re-enable the cluster autoscaler on a node pool using the [az aks nodepool update][az-aks-nodepool-update] command and specifying the `--enable-cluster-autoscaler`, `--min-count`, and `--max-count` parameters.
+* Re-enable the cluster autoscaler on a node pool using the [`az aks nodepool update`][az-aks-nodepool-update] command and specifying the `--enable-cluster-autoscaler`, `--min-count`, and `--max-count` parameters.
 
-> [!NOTE]
-> If you plan on using the cluster autoscaler with node pools that span multiple zones and leverage scheduling features related to zones such as volume topological scheduling, we recommend that you have one node pool per zone and enable the `--balance-similar-node-groups` through the autoscaler profile. This ensure the autoscaler can successfully scale up and keep the sizes of the node pools balanced.
+    ```azurecli-interactive
+    az aks nodepool update \
+      --resource-group myResourceGroup \
+      --cluster-name myAKSCluster \
+      --name nodepool1 \
+      --enable-cluster-autoscaler \
+      --min-count 1 \
+      --max-count 5
+    ```
+
+    > [!NOTE]
+    > If you plan on using the cluster autoscaler with node pools that span multiple zones and leverage scheduling features related to zones, such as volume topological scheduling, we recommend you have one node pool per zone and enable the `--balance-similar-node-groups` through the autoscaler profile. This ensures the autoscaler can successfully scale up and keep the sizes of the node pools balanced.
 
 ## Configure the horizontal pod autoscaler
 
-Kubernetes supports [horizontal pod autoscaling][kubernetes-hpa] to adjust the number of pods in a deployment depending on CPU utilization or other select metrics. The [Metrics Server][metrics-server] is used to provide resource utilization to Kubernetes. You can configure horizontal pod autoscaling through the `kubectl autoscale` command or through a manifest. For more details on using the horizontal pod autoscaler, see the [HorizontalPodAutoscaler Walkthrough][kubernetes-hpa-walkthrough].
+Kubernetes supports [horizontal pod autoscaling][kubernetes-hpa] to adjust the number of pods in a deployment depending on CPU utilization or other select metrics. The [Metrics Server][metrics-server] provides resource utilization to Kubernetes. You can configure horizontal pod autoscaling through the `kubectl autoscale` command or through a manifest. For more details on using the horizontal pod autoscaler, see the [HorizontalPodAutoscaler walkthrough][kubernetes-hpa-walkthrough].
 
 ## Next steps
 
