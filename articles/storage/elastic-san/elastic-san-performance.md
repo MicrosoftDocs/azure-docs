@@ -2,11 +2,10 @@
 title: Azure Elastic SAN Preview performance
 description: Performance article example data.
 author: roygara
-ms.service: storage
+ms.service: azure-elastic-san-storage
 ms.topic: overview
 ms.date: 07/14/2023
 ms.author: rogarana
-ms.subservice: elastic-san
 ---
 
 # Elastic SAN Preview performance
