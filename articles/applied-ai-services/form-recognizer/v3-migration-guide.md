@@ -20,9 +20,13 @@ monikerRange: '>=form-recog-2.1.0'
 
 ## Migrating from a v3.0 preview API version
 
-Preview APIs are periodically deprecated. If you're using a preview API version, plan on updating your application to target the GA API version once available. To migrate from the 2021-09-30-preview or the 2022-01-30-preview API versions to the `2022-08-31` (GA) API version using the SDK, update to the [current version of the language specific SDK](sdk-overview.md).
+Preview APIs are periodically deprecated. If you're using a preview API version, please update your application to target the GA API version. To migrate from the 2021-09-30-preview, 2022-01-30-preview or the 2022-06-30-preview API versions to the `2022-08-31` (GA) API version using the SDK, update to the [current version of the language specific SDK](sdk-overview.md).
 
-The `2022-08-31` API has a few updates from the preview API versions:
+> [!IMPORTANT]
+>
+> Preview API versions 2021-09-30-preview, 2022-01-30-preview and 2022-06-30-preview are being retired July 31st 2023. All analyze requests that use these API versions will fail. Custom neural models trained with any of these API versions will no longer be usable once the API versions are deprecated. All custom neural models trained with preview API versions will need to be retrained with the GA API version.
+
+The `2022-08-31` (GA) API has a few updates from the preview API versions:
 
 * Field rename:  boundingBox to polygon to support non-quadrilateral polygon regions.
 * Field deleted: entities removed from the result of the general document model.

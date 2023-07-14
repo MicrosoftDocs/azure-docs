@@ -6,7 +6,7 @@ author: msjasteppe
 ms.service: healthcare-apis
 ms.subservice: iomt
 ms.topic: overview
-ms.date: 06/20/2023
+ms.date: 07/12/2023
 ms.author: jasteppe
 ---
 
@@ -62,7 +62,7 @@ Transform is the next stage where normalized messages are processed using the us
 > [!NOTE]
 > All identity look ups are cached once resolved to decrease load on the FHIR service. If you plan on reusing devices with multiple patients, it is advised you create a virtual device resource that is specific to the patient and send the virtual device identifier in the device message payload. The virtual device can be linked to the actual device resource as a parent.
 
-If no Device resource for a given device identifier exists in the FHIR service, the outcome depends upon the value of [**Resolution type**](deploy-new-config.md#configure-the-destination-tab) set at the time of the MedTech service deployment. When set to **Lookup**, the specific message is ignored, and the pipeline continues to process other incoming device messages. If set to **Create**, the MedTech service creates minimal Device and Patient resources in the FHIR service.  
+If no Device resource for a given device identifier exists in the FHIR service, the outcome depends upon the value of [**Resolution type**](deploy-manual-portal.md#configure-the-destination-tab) set at the time of the MedTech service deployment. When set to **Lookup**, the specific message is ignored, and the pipeline continues to process other incoming device messages. If set to **Create**, the MedTech service creates minimal Device and Patient resources in the FHIR service.  
 
 > [!NOTE]
 > The **Resolution type** can also be adjusted post deployment of the MedTech service if a different **Resolution type** is later required.

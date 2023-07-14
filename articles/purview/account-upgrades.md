@@ -89,234 +89,236 @@ For information regarding all available Microsoft Purview regions, see [the Azur
 These are the regions that are currently available for the new experience:
 
 | Purview Account Location | Mapped Azure AD Country or Region                           | Tenant Location Code |
-|--------------------------|-------------------------------------------------------------|----------------------|
-| Australia                |  Australia                                                  | AU                   |
-|                          |  Fiji                                                       | FJ                   |
-|                          |  New Zealand                                                | NZ                   |
-| Brazil South             |  Argentina                                                  | AR                   |
-|                          |  Bolivia (Plurinational State of)                           | BO                   |
-|                          |  Bonaire Sint Eustatius and Saba                            | BQ                   |
-|                          |  Brazil                                                     | BR                   |
-|                          |  Chile                                                      | CL                   |
-|                          |  Colombia                                                   | CO                   |
-|                          |  Curaçao                                                    | CW                   |
-|                          |  Ecuador                                                    | EC                   |
-|                          |  Falkland Islands (the)                                     | FK                   |
-|                          |  French Guiana                                              | GF                   |
-|                          |  Guyana                                                     | GY                   |
-|                          |  Peru                                                       | PE                   |
-|                          |  Paraguay                                                   | PY                   |
-|                          |  Suri                                                       | SR                   |
-|                          |  Sint Maarten (Dutch part)                                  | SX                   |
-|                          |  Uruguay                                                    | UY                   |
-|                          |  Venezuela (Bolivarian Republic of)                         | VE                   |
-| Canada Central           | Canada                                                      | CA                   |
-| Central India            |  India                                                      | IN                   |
-|                          |  Sri Lanka                                                  | LK                   |
-|                          |  Nepal                                                      | NP                   |
-| Central US               |  United States of America (the)                             | US                   |
-| East US                  | Antigua and Barbuda                                         | AG                   |
-|                          |  Anguilla                                                   | AI                   |
-|                          |  Aruba                                                      | AW                   |
-|                          |  Barbados                                                   | BB                   |
-|                          |  Bermuda                                                    | BM                   |
-|                          |  Bahamas (the)                                              | BS                   |
-|                          |  Cuba                                                       | CU                   |
-|                          |  Dominica                                                   | DM                   |
-|                          |  Dominican Republic (the)                                   | DO                   |
-|                          |  Grenada                                                    | GD                   |
-|                          |  Guadeloupe                                                 | GP                   |
-|                          |  Haiti                                                      | HT                   |
-|                          |  Jamaica                                                    | JM                   |
-|                          |  Saint Kitts and Nevis                                      | KN                   |
-|                          |  Cayman Islands (the)                                       | KY                   |
-|                          |  Saint Lucia                                                | LC                   |
-|                          |  Martinique                                                 | MQ                   |
-|                          |  Panama                                                     | PA                   |
-|                          |  Puerto Rico                                                | PR                   |
-|                          |  Trinidad and Tobago                                        | TT                   |
-|                          |  Saint Vincent and the Grenadines                           | VC                   |
-|                          |  Virgin Islands (British)                                   | VG                   |
-|                          |  Virgin Islands (U.S.)                                      | VI                   |
+| ------------------------ | ----------------------------------------------------------- | -------------------- |
+| Australia East           |  Australia                                                  | AU                   |
+|                          |  Fiji                                                       | FJ                   |
+|                          |  New Zealand                                                | NZ                   |
+| Brazil South             |  Argentina                                                  | AR                   |
+|                          |  Bolivia (Plurinational State of)                           | BO                   |
+|                          |  Bonaire Sint Eustatius and Saba                            | BQ                   |
+|                          |  Brazil                                                     | BR                   |
+|                          |  Chile                                                      | CL                   |
+|                          |  Colombia                                                   | CO                   |
+|                          |  Curaçao                                                    | CW                   |
+|                          |  Ecuador                                                    | EC                   |
+|                          |  Falkland Islands (the)                                     | FK                   |
+|                          |  French Guiana                                              | GF                   |
+|                          |  Guyana                                                     | GY                   |
+|                          |  Peru                                                       | PE                   |
+|                          |  Paraguay                                                   | PY                   |
+|                          |  Suri                                                       | SR                   |
+|                          |  Sint Maarten (Dutch part)                                  | SX                   |
+|                          |  Uruguay                                                    | UY                   |
+|                          |  Venezuela (Bolivarian Republic of)                         | VE                   |
+| Canada Central           | Canada                                                      | CA                   |
+| Central India            |  India                                                      | IN                   |
+|                          |  Sri Lanka                                                  | LK                   |
+|                          |  Nepal                                                      | NP                   |
+| Central US               |  United States of America (the)                             | US                   |
+| East US                  | Antigua and Barbuda                                         | AG                   |
+|                          |  Anguilla                                                   | AI                   |
+|                          |  Aruba                                                      | AW                   |
+|                          |  Barbados                                                   | BB                   |
+|                          |  Bermuda                                                    | BM                   |
+|                          |  Bahamas (the)                                              | BS                   |
+|                          |  Cuba                                                       | CU                   |
+|                          |  Dominica                                                   | DM                   |
+|                          |  Dominican Republic (the)                                   | DO                   |
+|                          |  Grenada                                                    | GD                   |
+|                          |  Guadeloupe                                                 | GP                   |
+|                          |  Haiti                                                      | HT                   |
+|                          |  Jamaica                                                    | JM                   |
+|                          |  Saint Kitts and Nevis                                      | KN                   |
+|                          |  Cayman Islands (the)                                       | KY                   |
+|                          |  Saint Lucia                                                | LC                   |
+|                          |  Martinique                                                 | MQ                   |
+|                          |  Panama                                                     | PA                   |
+|                          |  Puerto Rico                                                | PR                   |
+|                          |  Trinidad and Tobago                                        | TT                   |
+|                          |  Saint Vincent and the Grenadines                           | VC                   |
+|                          |  Virgin Islands (British)                                   | VG                   |
+|                          |  Virgin Islands (U.S.)                                      | VI                   |
 |                          |  United States of America (the)                             | US                   |
-| East US 2                |  United States of America (the)                             | US                   |
+| East US 2                |  United States of America (the)                             | US                   |
 | France Central           | France                                                      | FR                   |
 | Germany West Central     | Germany                                                     | DE                   |
 | Japan East               | Japan                                                       | JP                   |
-| Korea Central            | Korea (the Republic of)                                     | KR                   |
-| North Europe             |  Finland                                                    | FI                   |
-|                          |  Faroe Islands (the)                                        | FO                   |
-|                          |  Ireland                                                    | IE                   |
-|                          |  Iceland                                                    | IS                   |
-|                          |  Moldova (the Republic of)                                  | MD                   |
-|                          |  Sweden                                                     | SE                   |
-| South Africa North       |  Angola                                                     | AO                   |
-|                          |  Burkina Faso                                               | BF                   |
-|                          |  Burundi                                                    | BI                   |
-|                          |  Benin                                                      | BJ                   |
-|                          |  Botswana                                                   | BW                   |
-|                          |  Congo (the Democratic Republic of the)                     | CD                   |
-|                          |  Central African Republic (the)                             | CF                   |
-|                          |  Congo (the)                                                | CG                   |
-|                          |  Côte d'Ivoire                                              | CI                   |
-|                          |  Cameroon                                                   | CM                   |
-|                          |  Cabo Verde                                                 | CV                   |
-|                          |  Djibouti                                                   | DJ                   |
-|                          |  Algeria                                                    | DZ                   |
-|                          |  Egypt                                                      | EG                   |
-|                          |  Eritrea                                                    | ER                   |
-|                          |  Ethiopia                                                   | ET                   |
-|                          |  Gabon                                                      | GA                   |
-|                          |  Ghana                                                      | GH                   |
-|                          |  Gambia (the)                                               | GM                   |
-|                          |  Guinea                                                     | GN                   |
-|                          |  Equatorial Guinea                                          | GQ                   |
-|                          |  Guinea-Bissau                                              | GW                   |
-|                          |  Kenya                                                      | KE                   |
-|                          |  Comoros (the)                                              | KM                   |
-|                          |  Liberia                                                    | LR                   |
-|                          |  Lesotho                                                    | LS                   |
-|                          |  Libya                                                      | LY                   |
-|                          |  Morocco                                                    | MA                   |
-|                          |  Madagascar                                                 | MG                   |
-|                          |  Mali                                                       | ML                   |
-|                          |  Mauritania                                                 | MR                   |
-|                          |  Mauritius                                                  | MU                   |
-|                          |  Malawi                                                     | MW                   |
-|                          |  Mozambique                                                 | MZ                   |
-|                          |  Namibia                                                    | NA                   |
-|                          |  Niger (the)                                                | NE                   |
-|                          |  Nigeria                                                    | NG                   |
-|                          |  Réunion                                                    | RE                   |
-|                          |  Rwanda                                                     | RW                   |
-|                          |  Seychelles                                                 | SC                   |
-|                          |  Sudan (the)                                                | SD                   |
-|                          |  Saint Helena Ascension and Tristan da Cunha                | SH                   |
-|                          |  Sierra Leone                                               | SL                   |
-|                          |  Senegal                                                    | SN                   |
-|                          |  Somalia                                                    | SO                   |
-|                          |  South Sudan                                                | SS                   |
-|                          |  São Tomé and Príncipe                                      | ST                   |
-|                          |  Eswatini                                                   | SZ                   |
-|                          |  Chad                                                       | TD                   |
-|                          |  Togo                                                       | TG                   |
-|                          |  Tunisia                                                    | TN                   |
-|                          |  Tanzania United Republic of                                | TZ                   |
-|                          |  Uganda                                                     | UG                   |
-|                          |  Mayotte                                                    | YT                   |
-|                          |  South Africa                                               | ZA                   |
-|                          |  Zambia                                                     | ZM                   |
-|                          |  Zimbabwe                                                   | ZW                   |
-| Southeast Asia           |  Armenia                                                    | AM                   |
-|                          |  American Samoa                                             | AS                   |
-|                          |  Brunei Darussalam                                          | BN                   |
-|                          |  Cocos (Keeling) Islands (the)                              | CC                   |
-|                          |  Cook Islands (the)                                         | CK                   |
-|                          |  China                                                      | CN                   |
-|                          |  Christmas Island                                           | CX                   |
-|                          |  Micronesia (Federated States of)                           | FM                   |
-|                          |  Guam                                                       | GU                   |
-|                          |  Hong Kong SAR                                              | HK                   |
-|                          |  Indonesia                                                  | ID                   |
-|                          |  Cambodia                                                   | KH                   |
-|                          |  Kiribati                                                   | KI                   |
-|                          |  Lao People's Democratic Republic (the)                     | LA                   |
-|                          |  Marshall Islands (the)                                     | MH                   |
-|                          |  Myanmar                                                    | MM                   |
-|                          |  Macao SAR                                                  | MO                   |
-|                          |  Northern Mariana Islands (the)                             | MP                   |
-|                          |  Malaysia                                                   | MY                   |
-|                          |  New Caledonia                                              | NC                   |
-|                          |  Norfolk Island                                             | NF                   |
-|                          |  Nauru                                                      | NR                   |
-|                          |  Niue                                                       | NU                   |
-|                          |  French Polynesia                                           | PF                   |
-|                          |  Papua New Guinea                                           | PG                   |
-|                          |  Philippines (the)                                          | PH                   |
-|                          |  Pitcairn                                                   | PN                   |
-|                          |  Palau                                                      | PW                   |
-|                          |  Solomon Islands                                            | SB                   |
-|                          |  Singapore                                                  | SG                   |
-|                          |  Thailand                                                   | TH                   |
-|                          |  Tokelau                                                    | TK                   |
-|                          |  Tonga                                                      | TO                   |
-|                          |  Tuvalu                                                     | TV                   |
-|                          |  Taiwan (Province of China)                                 | TW                   |
-|                          |  United States Minor Outlying Islands (the)                 | UM                   |
-|                          |  Viet Nam                                                   | VN                   |
-|                          |  Vanuatu                                                    | VU                   |
-|                          |  Wallis and Futuna                                          | WF                   |
-|                          |  Samoa                                                      | WS                   |
-| Switzerland North        | Switzerland                                                 | CH                   |
+| Korea Central            |  Korea (the Republic of)                                    | KR                   |
+| North Europe             |  Finland                                                    | FI                   |
+|                          |  Faroe Islands (the)                                        | FO                   |
+|                          |  Ireland                                                    | IE                   |
+|                          |  Iceland                                                    | IS                   |
+|                          |  Moldova (the Republic of)                                  | MD                   |
+|                          |  Sweden                                                     | SE                   |
+| Qatar Central            | Qatar                                                       | QA                   |
+| South Africa North       |  Angola                                                     | AO                   |
+|                          |  Burkina Faso                                               | BF                   |
+|                          |  Burundi                                                    | BI                   |
+|                          |  Benin                                                      | BJ                   |
+|                          |  Botswana                                                   | BW                   |
+|                          |  Congo (the Democratic Republic of the)                     | CD                   |
+|                          |  Central African Republic (the)                             | CF                   |
+|                          |  Congo (the)                                                | CG                   |
+|                          |  Côte d'Ivoire                                              | CI                   |
+|                          |  Cameroon                                                   | CM                   |
+|                          |  Cabo Verde                                                 | CV                   |
+|                          |  Djibouti                                                   | DJ                   |
+|                          |  Algeria                                                    | DZ                   |
+|                          |  Egypt                                                      | EG                   |
+|                          |  Eritrea                                                    | ER                   |
+|                          |  Ethiopia                                                   | ET                   |
+|                          |  Gabon                                                      | GA                   |
+|                          |  Ghana                                                      | GH                   |
+|                          |  Gambia (the)                                               | GM                   |
+|                          |  Guinea                                                     | GN                   |
+|                          |  Equatorial Guinea                                          | GQ                   |
+|                          |  Guinea-Bissau                                              | GW                   |
+|                          |  Kenya                                                      | KE                   |
+|                          |  Comoros (the)                                              | KM                   |
+|                          |  Liberia                                                    | LR                   |
+|                          |  Lesotho                                                    | LS                   |
+|                          |  Libya                                                      | LY                   |
+|                          |  Morocco                                                    | MA                   |
+|                          |  Madagascar                                                 | MG                   |
+|                          |  Mali                                                       | ML                   |
+|                          |  Mauritania                                                 | MR                   |
+|                          |  Mauritius                                                  | MU                   |
+|                          |  Malawi                                                     | MW                   |
+|                          |  Mozambique                                                 | MZ                   |
+|                          |  Namibia                                                    | NA                   |
+|                          |  Niger (the)                                                | NE                   |
+|                          |  Nigeria                                                    | NG                   |
+|                          |  Réunion                                                    | RE                   |
+|                          |  Rwanda                                                     | RW                   |
+|                          |  Seychelles                                                 | SC                   |
+|                          |  Sudan (the)                                                | SD                   |
+|                          |  Saint Helena Ascension and Tristan da Cunha                | SH                   |
+|                          |  Sierra Leone                                               | SL                   |
+|                          |  Senegal                                                    | SN                   |
+|                          |  Somalia                                                    | SO                   |
+|                          |  South Sudan                                                | SS                   |
+|                          |  São Tomé and Príncipe                                      | ST                   |
+|                          |  Eswatini                                                   | SZ                   |
+|                          |  Chad                                                       | TD                   |
+|                          |  Togo                                                       | TG                   |
+|                          |  Tunisia                                                    | TN                   |
+|                          |  Tanzania United Republic of                                | TZ                   |
+|                          |  Uganda                                                     | UG                   |
+|                          |  Mayotte                                                    | YT                   |
+|                          |  South Africa                                               | ZA                   |
+|                          |  Zambia                                                     | ZM                   |
+|                          |  Zimbabwe                                                   | ZW                   |
+| Southeast Asia           |  Armenia                                                    | AM                   |
+|                          |  American Samoa                                             | AS                   |
+|                          |  Brunei Darussalam                                          | BN                   |
+|                          |  Cocos (Keeling) Islands (the)                              | CC                   |
+|                          |  Cook Islands (the)                                         | CK                   |
+|                          |  China                                                      | CN                   |
+|                          |  Christmas Island                                           | CX                   |
+|                          |  Micronesia (Federated States of)                           | FM                   |
+|                          |  Guam                                                       | GU                   |
+|                          |  Hong Kong SAR                                              | HK                   |
+|                          |  Indonesia                                                  | ID                   |
+|                          |  Cambodia                                                   | KH                   |
+|                          |  Kiribati                                                   | KI                   |
+|                          |  Lao People's Democratic Republic (the)                     | LA                   |
+|                          |  Marshall Islands (the)                                     | MH                   |
+|                          |  Myanmar                                                    | MM                   |
+|                          |  Macao SAR                                                  | MO                   |
+|                          |  Northern Mariana Islands (the)                             | MP                   |
+|                          |  Malaysia                                                   | MY                   |
+|                          |  New Caledonia                                              | NC                   |
+|                          |  Norfolk Island                                             | NF                   |
+|                          |  Nauru                                                      | NR                   |
+|                          |  Niue                                                       | NU                   |
+|                          |  French Polynesia                                           | PF                   |
+|                          |  Papua New Guinea                                           | PG                   |
+|                          |  Philippines (the)                                          | PH                   |
+|                          |  Pitcairn                                                   | PN                   |
+|                          |  Palau                                                      | PW                   |
+|                          |  Solomon Islands                                            | SB                   |
+|                          |  Singapore                                                  | SG                   |
+|                          |  Thailand                                                   | TH                   |
+|                          |  Tokelau                                                    | TK                   |
+|                          |  Tonga                                                      | TO                   |
+|                          |  Tuvalu                                                     | TV                   |
+|                          |  Taiwan (Province of China)                                 | TW                   |
+|                          |  United States Minor Outlying Islands (the)                 | UM                   |
+|                          |  Viet Nam                                                   | VN                   |
+|                          |  Vanuatu                                                    | VU                   |
+|                          |  Wallis and Futuna                                          | WF                   |
+|                          |  Samoa                                                      | WS                   |
+| South Central US         |  United States of America (the)                             | US                   |
+| Switzerland North        | Switzerland                                                 | CH                   |
 | UAE North                | United Arab Emirates (the)                                  | AE                   |
-| UK South                 |  United Kingdom of Great Britain and Northern Ireland (the) | GB                   |
+| UK South                 |  United Kingdom of Great Britain and Northern Ireland (the) | GB                   |
 | West Central US          |  United States of America (the)                             | US                   |
-| West Europe              |  Andorra                                                    | AD                   |
-|                          |  Albania                                                    | AL                   |
-|                          |  Austria                                                    | AT                   |
-|                          |  Åland Islands                                              | AX                   |
-|                          |  Azerbaijan                                                 | AZ                   |
-|                          |  Bosnia and Herzegovina                                     | BA                   |
-|                          |  Belgium                                                    | BE                   |
-|                          |  Bulgaria                                                   | BG                   |
-|                          |  Bahrain                                                    | BH                   |
-|                          |  Belarus                                                    | BY                   |
-|                          |  Cyprus                                                     | CY                   |
-|                          |  Czechia                                                    | CZ                   |
-|                          |  Denmark                                                    | DK                   |
-|                          |  Estonia                                                    | EE                   |
-|                          |  Spain                                                      | ES                   |
-|                          |  Georgia                                                    | GE                   |
-|                          |  Guernsey                                                   | GG                   |
-|                          |  Gibraltar                                                  | GI                   |
-|                          |  Greece                                                     | GR                   |
-|                          |  Croatia                                                    | HR                   |
-|                          |  Hungary                                                    | HU                   |
-|                          |  Israel                                                     | IL                   |
-|                          |  Isle of Man                                                | IM                   |
-|                          |  Italy                                                      | IT                   |
-|                          |  Jersey                                                     | JE                   |
-|                          |  Jordan                                                     | JO                   |
-|                          |  Kuwait                                                     | KW                   |
-|                          |  Kazakhstan                                                 | KZ                   |
-|                          |  Lebanon                                                    | LB                   |
-|                          |  Liechtenstein                                              | LI                   |
-|                          |  Lithuania                                                  | LT                   |
-|                          |  Luxembourg                                                 | LU                   |
-|                          |  Latvia                                                     | LV                   |
-|                          |  Monaco                                                     | MC                   |
-|                          |  Montenegro                                                 | ME                   |
-|                          |  Republic of North Macedonia                                | MK                   |
-|                          |  Malta                                                      | MT                   |
-|                          |  Netherlands (the)                                          | NL                   |
-|                          |  Norway                                                     | NO                   |
-|                          |  Oman                                                       | OM                   |
-|                          |  Pakistan                                                   | PK                   |
-|                          |  Poland                                                     | PL                   |
-|                          |  Portugal                                                   | PT                   |
-|                          |  Qatar                                                      | QA                   |
-|                          |  Romania                                                    | RO                   |
-|                          |  Serbia                                                     | RS                   |
-|                          |  Russian Federation (the)                                   | RU                   |
-|                          |  Saudi Arabia                                               | SA                   |
-|                          |  Slovenia                                                   | SI                   |
-|                          |  Svalbard and Jan Mayen                                     | SJ                   |
-|                          |  Slovakia                                                   | SK                   |
-|                          |  San Marino                                                 | SM                   |
-|                          |  Türkiye                                                    | TR                   |
-|                          |  Ukraine                                                    | UA                   |
-|                          |  Holy See (the)                                             | VA                   |
-|                          |  Yemen                                                      | YE                   |
+| West Europe              |  Andorra                                                    | AD                   |
+|                          |  Albania                                                    | AL                   |
+|                          |  Austria                                                    | AT                   |
+|                          |  Åland Islands                                              | AX                   |
+|                          |  Azerbaijan                                                 | AZ                   |
+|                          |  Bosnia and Herzegovina                                     | BA                   |
+|                          |  Belgium                                                    | BE                   |
+|                          |  Bulgaria                                                   | BG                   |
+|                          |  Bahrain                                                    | BH                   |
+|                          |  Belarus                                                    | BY                   |
+|                          |  Cyprus                                                     | CY                   |
+|                          |  Czechia                                                    | CZ                   |
+|                          |  Denmark                                                    | DK                   |
+|                          |  Estonia                                                    | EE                   |
+|                          |  Spain                                                      | ES                   |
+|                          |  Georgia                                                    | GE                   |
+|                          |  Guernsey                                                   | GG                   |
+|                          |  Gibraltar                                                  | GI                   |
+|                          |  Greece                                                     | GR                   |
+|                          |  Croatia                                                    | HR                   |
+|                          |  Hungary                                                    | HU                   |
+|                          |  Israel                                                     | IL                   |
+|                          |  Isle of Man                                                | IM                   |
+|                          |  Italy                                                      | IT                   |
+|                          |  Jersey                                                     | JE                   |
+|                          |  Jordan                                                     | JO                   |
+|                          |  Kuwait                                                     | KW                   |
+|                          |  Kazakhstan                                                 | KZ                   |
+|                          |  Lebanon                                                    | LB                   |
+|                          |  Liechtenstein                                              | LI                   |
+|                          |  Lithuania                                                  | LT                   |
+|                          |  Luxembourg                                                 | LU                   |
+|                          |  Latvia                                                     | LV                   |
+|                          |  Monaco                                                     | MC                   |
+|                          |  Montenegro                                                 | ME                   |
+|                          |  Republic of North Macedonia                                | MK                   |
+|                          |  Malta                                                      | MT                   |
+|                          |  Netherlands (the)                                          | NL                   |
+|                          |  Norway                                                     | NO                   |
+|                          |  Oman                                                       | OM                   |
+|                          |  Pakistan                                                   | PK                   |
+|                          |  Poland                                                     | PL                   |
+|                          |  Portugal                                                   | PT                   |
+|                          |  Romania                                                    | RO                   |
+|                          |  Serbia                                                     | RS                   |
+|                          |  Russian Federation (the)                                   | RU                   |
+|                          |  Saudi Arabia                                               | SA                   |
+|                          |  Slovenia                                                   | SI                   |
+|                          |  Svalbard and Jan Mayen                                     | SJ                   |
+|                          |  Slovakia                                                   | SK                   |
+|                          |  San Marino                                                 | SM                   |
+|                          |  Türkiye                                                    | TR                   |
+|                          |  Ukraine                                                    | UA                   |
+|                          |  Holy See (the)                                             | VA                   |
+|                          |  Yemen                                                      | YE                   |
 | West US                  |  United States of America (the)                             | US                   |
 | West US 2                |  United States of America (the)                             | US                   |
-| West US 3                |  Costa Rica                                                 | CR                   |
-|                          |  Guatemala                                                  | GT                   |
-|                          |  Honduras                                                   | HN                   |
-|                          |  Mexico                                                     | MX                   |
-|                          |  Nicaragua                                                  | NI                   |
-|                          |  El Salvador                                                | SV                   |
-|                          |  New Mexico                                                 | NM                   |
+| West US 3                |  Costa Rica                                                 | CR                   |
+|                          |  Guatemala                                                  | GT                   |
+|                          |  Honduras                                                   | HN                   |
+|                          |  Mexico                                                     | MX                   |
+|                          |  Nicaragua                                                  | NI                   |
+|                          |  El Salvador                                                | SV                   |
+|                          |  New Mexico                                                 | NM                   |
 |                          |  United States of America (the)                             | US                   |
+
 ## Next steps
 
 Stay tuned for updates! Until then, make use of Microsoft Purview's other features:

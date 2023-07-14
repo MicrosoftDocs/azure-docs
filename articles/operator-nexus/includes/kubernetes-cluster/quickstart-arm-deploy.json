@@ -208,14 +208,7 @@
         "metadata": {
           "description": "The size of the control plane nodes"
         },
-        "defaultValue": "NC_G2_v1",
-        "allowedValues": [
-          "NC_G2_v1",
-          "NC_G4_v1",
-          "NC_G8_v1",
-          "NC_G12_v1",
-          "NC_G16_v1"
-        ]
+        "defaultValue": "NC_G2_v1"
       },
       "systemPoolNodeCount": {
         "type": "int",
@@ -229,16 +222,7 @@
         "metadata": {
           "description": "The size of the worker nodes"
         },
-        "defaultValue": "NC_M4_v1",
-        "allowedValues": [
-          "NC_M4_v1",
-          "NC_M8_v1",
-          "NC_M12_v1",
-          "NC_M16_v1",
-          "NC_M32_v1",
-          "NC_M36_v1",
-          "NC_M44_v1"
-        ]
+        "defaultValue": "NC_M4_v1"
       },
       "initialPoolAgentOptions": {
         "type": "object",

@@ -2,7 +2,7 @@
 title: Restore SAP HANA databases on Azure VMs
 description: In this article, you'll learn how to restore SAP HANA databases that are running on Azure virtual machines. You can also use Cross Region Restore to restore your databases to a secondary region.
 ms.topic: how-to
-ms.date: 06/20/2023
+ms.date: 07/14/2023
 ms.service: backup
 ms.custom: ignite-2022
 author: jyothisuri
@@ -13,11 +13,11 @@ ms.author: jsuri
 
 This article describes how to restore SAP HANA databases that are running on Azure virtual machines (VMs) and that the Azure Backup service has backed up to a Recovery Services vault. You can use the restored data to create copies for development and test scenarios or to return to a previous state.
 
-Azure Backup now supports backup and restore of SAP HANA System Replication (HSR) instance (preview).
+Azure Backup now supports backup and restore of SAP HANA System Replication (HSR) instance.
 
 >[!Note]
 >- The restore process for HANA databases with HSR is the same as the restore process for HANA databases without HSR. As per SAP advisories, you can restore databases with HSR mode as *standalone* databases. If the target system has the HSR mode enabled, first disable the mode, and then restore the database.
->- Original Location Recovery (OLR) is currently not supported for HSR.
+>- Original Location Recovery (OLR) is currently not supported for HSR. Select **Alternate location** restore, and then select the source VM as your *Host* from the list.
 >- Restore to HSR instance isn't supported. However, restore only to HANA instance is supported.
 
 For information about the supported configurations and scenarios, see the [SAP HANA backup support matrix](sap-hana-backup-support-matrix.md).
@@ -84,6 +84,16 @@ To restore a database, you need the following permissions:
    * **Overwrite DB**: Restore the data to the same SAP HANA instance as the original source. This option overwrites the original database.
 
    :::image type="content" source="./media/sap-hana-db-restore/hana-restore-configuration.png" alt-text="Screenshot that shows where to restore the configuration.":::
+
+>[!Note]
+>During restore (applicable to Virtual IP/ Load balancer frontend IP scenario only), if you’re trying to restore a backup to target node after changing the HSR mode as standalone or breaking HSR before restore as recommended by SAP and, ensure that Load Balancer is pointed to the target node.
+>
+>**Example scenarios**:
+>
+>- If you’re using *hdbuserstore set SYSTEMKEY localhost* in your preregistration script, there will be no issues during restore.
+>- If your *hdbuserstore set `SYSTEMKEY <load balancer host/ip>` in your preregistration script and you’re trying to restore the backup to target node, ensure that the load balancer is pointed to the target node that needs to be restored.
+>
+>    
 
 ### Restore to an alternate location
 
