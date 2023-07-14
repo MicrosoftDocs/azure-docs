@@ -170,7 +170,7 @@ az spring app update \
     --env SPRING_PROFILES_ACTIVE=mysql
 ```
 
-### [Portal](#tab/azure-portal)
+### [Azure portal](#tab/azure-portal)
 
 1. Go to the Azure Spring Apps instance overview page, select **Apps** from the navigation menu, and then select the **customers-service** application from the list.
 
