@@ -187,7 +187,7 @@ Now that you have the Logic App connector resource set up and configured, let's 
 
     * **Model Identifier**.  Specify which model you want to call, in this case we're calling the prebuilt invoice model, so enter **prebuilt-invoice**.
     * **Document/Image File Content**. Select this field. A dynamic content pop-up appears. If it doesn't, select the **Add dynamic content** button below the field and choose **File content**. This step is essentially sending the file(s) to be analyzed to the Document Intelligence prebuilt-invoice model. Once you see the **File content** badge show in the **Document /Image file content** field, you've completed this step correctly.
-    * **Document/Image URL**. Skip this field for this project because we are already pointing to the file content directly from the OneDrive folder.
+    * **Document/Image URL**. Skip this field for this project because we're already pointing to the file content directly from the OneDrive folder.
     * **Add new parameter**. Skip this field for this project.
 
       :::image type="content" source="media/logic-apps-tutorial/add-file-content.png" alt-text="Screenshot of add file content window.":::
@@ -202,7 +202,7 @@ Now that you have the Logic App connector resource set up and configured, let's 
 
     :::image type="content" source="media/logic-apps-tutorial/for-each-tile.png" alt-text="Screenshot of the 'For each Control' tile from the 'Control' menu. ":::
 
-1. In the **For each** step window there is a field labeled **Select an output from previous steps**. Select this field. A dynamic content pop-up appears. If it doesn't, select the **Add dynamic content** button below the field and choose **documents**.
+1. In the **For each** step window, there's a field labeled **Select an output from previous steps**. Select this field. A dynamic content pop-up appears. If it doesn't, select the **Add dynamic content** button below the field and choose **documents**.
 
     :::image type="content" source="media/logic-apps-tutorial/dynamic-content-documents.png" alt-text="Screenshot of the dynamic content list.":::
 
@@ -307,7 +307,7 @@ Now that you have the Logic App connector resource set up and configured, let's 
 1. Complete the fields as follows:
 
     * **Document/Image File Content**. Select this field. A dynamic content pop-up appears. If it doesn't, select the **Add dynamic content** button below the field and choose **File content**. This step is essentially sending the file(s) to be analyzed to the Document Intelligence prebuilt-invoice model. Once you see the **File content** badge show in the **Document /Image file content** field, you've completed this step correctly.
-    * **Document/Image URL**. Skip this field for this project because we are already pointing to the file content directly from the OneDrive folder.
+    * **Document/Image URL**. Skip this field for this project because we're already pointing to the file content directly from the OneDrive folder.
     * **Include Text Details**. Select **Yes**.
     * **Add new parameter**. Skip this field for this project.
 
@@ -365,7 +365,7 @@ Let's quickly review what we've done before we test our flow:
 
 Now that we've created the flow, the last thing to do is to test it and make sure that we're getting the expected behavior.
 
-1. To test the Logic App first open a new tab and navigate to the OneDrive folder you set up at the beginning of this tutorial. Add this file to the OneDrive folder [Sample invoice.](https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/form-recognizer/invoice-logic-apps-tutorial.pdf)
+1. To test the Logic App, first open a new tab and navigate to the OneDrive folder you set up at the beginning of this tutorial. Add this file to the OneDrive folder [Sample invoice.](https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/form-recognizer/invoice-logic-apps-tutorial.pdf)
 
 1. Return to the Logic App designer tab and select the **Run trigger** button and select **Run** from the drop-down menu.
 
