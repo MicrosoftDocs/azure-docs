@@ -184,7 +184,7 @@ Use the following steps to set an environment variable to activate the `mysql` p
 
 ---
 
-Repeat to update app configuration action for the app `customers-service`, which is also required for apps `vets-service` and `visits-service`.
+Repeat these instructions to update app configuration for the `customers-service`, `vets-service`, and `visits-service` applications.
 
 ## Validate the apps
 
