@@ -242,12 +242,12 @@ If you encounter any permission-related errors, confirm the Azure CLI signed-in 
 
 | Permission | Operation |
 | --- | --- |
-| Microsoft.DBforPostgreSQL/flexibleServers/read | Required to get information of database server |
-| Microsoft.DBforPostgreSQL/flexibleServers/write | Required to enable Azure AD authentication for database server |
-| Microsoft.DBforPostgreSQL/flexibleServers/firewallRules/write | Required to create firewall rule in case the local IP address is blocked |
-| Microsoft.DBforPostgreSQL/flexibleServers/firewallRules/delete | Required to revert the firewall rule created by Service Connector to avoid security issue |
-| Microsoft.DBforPostgreSQL/flexibleServers/administrators/read | Required to check if Azure CLI login user is a database server Azure AD administrator |
-| Microsoft.DBforPostgreSQL/flexibleServers/administrators/write | Required to add Azure CLI login user as database server Azure AD administrator |
+| `Microsoft.DBforPostgreSQL/flexibleServers/read` | Required to get information of database server |
+| `Microsoft.DBforPostgreSQL/flexibleServers/write` | Required to enable Azure AD authentication for database server |
+| `Microsoft.DBforPostgreSQL/flexibleServers/firewallRules/write` | Required to create firewall rule in case the local IP address is blocked |
+| `Microsoft.DBforPostgreSQL/flexibleServers/firewallRules/delete` | Required to revert the firewall rule created by Service Connector to avoid security issue |
+| `Microsoft.DBforPostgreSQL/flexibleServers/administrators/read` | Required to check if Azure CLI login user is a database server Azure AD administrator |
+| `Microsoft.DBforPostgreSQL/flexibleServers/administrators/write` | Required to add Azure CLI login user as database server Azure AD administrator |
 
 ::: zone-end
 
@@ -255,12 +255,12 @@ If you encounter any permission-related errors, confirm the Azure CLI signed-in 
 
 | Permission | Operation |
 | --- | --- |
-| Microsoft.DBforMySQL/flexibleServers/read | Required to get information of database server |
-| Microsoft.DBforMySQL/flexibleServers/write | Required to add the provided User assigned managed identity to database server |
-| Microsoft.DBforMySQL/flexibleServers/firewallRules/write | Required to create firewall rule in case the local IP address is blocked |
-| Microsoft.DBforMySQL/flexibleServers/firewallRules/delete | Required to revert the firewall rule created by Service Connector to avoid security issue |
-| Microsoft.DBforMySQL/flexibleServers/administrators/read | Required to check if Azure CLI login user is a database server Azure AD administrator |
-| Microsoft.DBforMySQL/flexibleServers/administrators/write | Required to add Azure CLI login user as database server Azure AD administrator |
+| `Microsoft.DBforMySQL/flexibleServers/read` | Required to get information of database server |
+| `Microsoft.DBforMySQL/flexibleServers/write` | Required to add the provided User assigned managed identity to database server |
+| `Microsoft.DBforMySQL/flexibleServers/firewallRules/write` | Required to create firewall rule in case the local IP address is blocked |
+| `Microsoft.DBforMySQL/flexibleServers/firewallRules/delete` | Required to revert the firewall rule created by Service Connector to avoid security issue |
+| `Microsoft.DBforMySQL/flexibleServers/administrators/read` | Required to check if Azure CLI login user is a database server Azure AD administrator |
+| `Microsoft.DBforMySQL/flexibleServers/administrators/write` | Required to add Azure CLI login user as database server Azure AD administrator |
 
 ::: zone-end
 
@@ -269,11 +269,11 @@ If you encounter any permission-related errors, confirm the Azure CLI signed-in 
 
 | Permission | Operation |
 | --- | --- |
-| Microsoft.Sql/servers/read | Required to get information of database server |
-| Microsoft.Sql/servers/firewallRules/write | Required to create firewall rule in case the local IP address is blocked |
-| Microsoft.Sql/servers/firewallRules/delete | Required to revert the firewall rule created by Service Connector to avoid security issue |
-| Microsoft.Sql/servers/administrators/read | Required to check if Azure CLI login user is a database server Azure AD administrator |
-| Microsoft.Sql/servers/administrators/write | Required to add Azure CLI login user as database server Azure AD administrator |
+| `Microsoft.Sql/servers/read` | Required to get information of database server |
+| `Microsoft.Sql/servers/firewallRules/write` | Required to create firewall rule in case the local IP address is blocked |
+| `Microsoft.Sql/servers/firewallRules/delete` | Required to revert the firewall rule created by Service Connector to avoid security issue |
+| `Microsoft.Sql/servers/administrators/read` | Required to check if Azure CLI login user is a database server Azure AD administrator |
+| `Microsoft.Sql/servers/administrators/write` | Required to add Azure CLI login user as database server Azure AD administrator |
 
 ::: zone-end
 
