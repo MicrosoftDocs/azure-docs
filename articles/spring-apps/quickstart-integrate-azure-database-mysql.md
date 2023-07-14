@@ -85,7 +85,7 @@ Use [Service Connector](../service-connector/overview.md) to connect the app hos
    > [!TIP]
    > If the `az spring` command isn't recognized by the system, check that you have installed the Azure Spring Apps extension by running `az extension add --name spring`.
 
-### [Portal](#tab/azure-portal)
+### [Azure portal](#tab/azure-portal)
 
 1. In the Azure portal, type the name of your Azure Spring Apps instance in the search box at the top of the screen and select your instance.
 1. Under **Settings**, select **Apps**, and then select the application `customers-service` from the list.
