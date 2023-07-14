@@ -227,7 +227,6 @@ For more information on how to view online endpoint metrics, see [Monitor online
 
 After you deploy the endpoint and want to test it in the **Test tab** in the endpoint detail page, if the **Test tab** shows **Unable to fetch deployment schema** like following, you can try the following 2 methods to mitigate this issue:
 
-unable-to-fetch-deployment-schema
 :::image type="content" source="./media/how-to-deploy-for-real-time-inference/unable-to-fetch-deployment-schema.png" alt-text="Screenshot of the error unable to fetch deployment schema in Test tab in endpoint detail page. " lightbox = "./media/how-to-deploy-for-real-time-inference/unable-to-fetch-deployment-schema.png":::
 
 - Make sure you have granted the correct permission to the endpoint identity. Learn more about [how to grant permission to the endpoint identity](#grant-permissions-to-the-endpoint).
