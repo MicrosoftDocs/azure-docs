@@ -17,7 +17,7 @@ ms.date: 07/14/2023
 
 In Azure Cognitive Search, if you added vector fields to a search index, this article explains how to query those fields. It also explains how to combine vector queries with full text search and semantic search for hybrid query combination scenarios.
 
-Query execution in Cognitive Search doesn't include vector conversion. Encoding (text-to-vector) must be performed external to a search service. For both indexing and querying, your application code should call the same embedding model. To retrieve the text associated with a vector, remember that a query response can include non-vector fields in your search index. This allows you to query on a vector field (descriptionVector) but return the text field (description) in the response.
+Query execution in Cognitive Search doesn't include vector conversion. Encoding (text-to-vector) of the query string requires that you pass the text to an embedding model for vectorization. The output of the call to the embedding model is then passed to the search engine for similarity search over vector fields.
 
 ## Prerequisites
 
@@ -31,13 +31,13 @@ Query execution in Cognitive Search doesn't include vector conversion. Encoding 
 
 ## Check your index for vector fields
 
-In the index schema, check for:
+If you aren't sure whether your search index already has vector fields, look for:
 
-+ A `vectorSearch` algorithm configuration.
++ A `vectorSearch` algorithm configuration embedded in the index schema.
 
 + In the fields collection, look for fields of type `Collection(Edm.Single)`, with a `dimensions` attribute and a `vectorSearchConfiguration` set to the name of the `vectorSearch` algorithm configuration used by the field.
 
-Search documents containing vector data have fields containing many hundreds of floating point values.
+You can also send an empty query (`search=*`) against the index. Search documents containing vector data have fields containing many hundreds of floating point values.
 
 ## Convert query input into a vector
 
@@ -54,7 +54,7 @@ api-key: {{admin-api-key}}
 }
 ```
 
-The expected response is 202 for a successful call to the deployed model. The body of the response provides the vector representation of the "input". The vector for the query is in the "embedding" field. For testing purposes, you would copy the embedding value into "vector.value" in a query request, using syntax from the next sections. Note that the actual response for this query included 1536 embeddings, trimmed here for brevity.
+The expected response is 202 for a successful call to the deployed model. The body of the response provides the vector representation of the "input". The vector for the query is in the "embedding" field. For testing purposes, you would copy the value of the "embedding" array into "vector.value" in a query request, using syntax shown in the next several sections. The actual response for this call to the deployment model includes 1536 embeddings, trimmed here for brevity.
 
 ```json
 {
@@ -78,6 +78,20 @@ The expected response is 202 for a successful call to the deployed model. The bo
     }
 }
 ```
+
+## Design a query response
+
+When you're setting up the vector query, think about how you want to structure the response. Search results are composed of either all "retrievable" fields (a REST API default) or the fields explicitly listed in a "select" parameter. In the query examples that follow, each one includes a "select" parameter that specifies text (non-vector) content for the response.
+
+Vector fields themselves aren't human readable, so avoid returning them in the response. Instead, choose non-vector fields that provide equivalent information from the same search document. For example, if the query is on a vector field ("descriptionVector"), return an equivalent text field ("description") in the response.
+
+The quantity of results are determines by query parameters. Quantity is either: 
+
++ `"k": n` results for vector-only queries
++ `"top": n` results for hybrid queries
+
+> [!NOTE]
+> If you're familiar with full text search in Cognitive Search, you already know that a term or keyword, synonym, or filter criteria must match in order for a document to qualify as a match. Similarity search is less exacting because it's comparing vector compositions. It's possible for the HNSW model to sometimes return matches that don't seem especially relevant.
 
 ## Query syntax for vector search
 
@@ -106,6 +120,8 @@ api-key: {{admin-api-key}}
 ```
 
 The response includes 5 matches, and each result provides a search score, title, content, and category. In a similarity search, the response always includes "k" matches, even if the similarity is weak. For indexes that have fewer than "k" documents, only those number of documents will be returned.
+
+Notice that "select" returns textual fields from the index. Although the vector field is "retrievable" in this example, its content isn't usable as a search result.
 
 ## Query syntax for hybrid search
 
@@ -145,7 +161,7 @@ api-key: {{admin-api-key}}
 
 ## Query syntax for vector query over multiple fields
 
-You can set "vector.fields" property to multiple vector fields. For example, the Postman collection has vector fields named titleVector and contentVector. Your vector query executes over both the titleVector and contentVector fields, which must have the same embedding space since they share the same query vector.
+You can set "vector.fields" property to multiple vector fields. For example, the Postman collection has vector fields named "titleVector" and "contentVector". Your vector query executes over both the "titleVector" and "contentVector" fields, which must have the same embedding space since they share the same query vector.
 
 ```http
 POST https://{{search-service-name}}.search.windows.net/indexes/{{index-name}}/docs/search?api-version={{api-version}}
@@ -170,7 +186,7 @@ api-key: {{admin-api-key}}
 
 ## Query syntax for multiple vector queries
 
-You can issue a search request containing multiple query vectors using the `vectors` query parameter. The queries execute concurrently in the search index, each one looking for similarities in the target vector fields. The result set is a union of the documents that matched both vector queries. A common example of this query request is when using models such as [CLIP](https://openai.com/research/clip) for a multi-modal vector search where the same model can vectorize image and non-image content.
+You can issue a search request containing multiple query vectors using the "vectors" query parameter. The queries execute concurrently in the search index, each one looking for similarities in the target vector fields. The result set is a union of the documents that matched both vector queries. A common example of this query request is when using models such as [CLIP](https://openai.com/research/clip) for a multi-modal vector search where the same model can vectorize image and non-image content.
 
 You must use REST for this scenario. Currently, there isn't support for multiple vector queries in the alpha SDKs.
 
