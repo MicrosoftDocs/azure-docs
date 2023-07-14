@@ -50,7 +50,7 @@ $MetricInformation.Data
 
 * **Start Time and End Time** - This time is based on UTC, so please ensure that you're entering UTC values when inputting these parameters. If these parameters aren't used, the past one hour's worth of data is shown by default.  
 
-* **Sum Aggregation Type** - This will show you the total number of bytes that traversed the virtual hub router during a selected time period. 
+* **Sum Aggregation Type** - This aggregation type will show you the total number of bytes that traversed the virtual hub router during a selected time period. The **Max** and **Min** aggregation types are not meaningful. 
  
 
 ### <a name="s2s-metrics"></a>Site-to-site VPN gateway metrics
