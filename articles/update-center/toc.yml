@@ -14,13 +14,11 @@
   items:
   - name: Check and install on-demand updates
     href: quickstart-on-demand.md
-  - name: Schedule updates at scale using dynamic scoping (preview)
-    href: quickstart-dynamic-scoping.md
 - name: Tutorials
   items:
   - name: Enable periodic assessment and schedule patching using Policy
     href: tutorial-assessment-deployment-using-policy.md
-  - name: Apply updates at scale using dynamic scoping (preview)
+  - name: Schedule updates on dynamic scopes (preview)
     href: tutorial-dynamic-scoping-for-scheduled-patching.md
 - name: Concepts
   items:
