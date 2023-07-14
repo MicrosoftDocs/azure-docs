@@ -16,7 +16,6 @@ ms.date: 03/09/2023
 
 ## Pre-migration assessment
 
-The first pre-migration step is to discover your existing MongoDB resources and assess the readiness of your resources for migration.
 
 Discovery involves creating a comprehensive list of the existing resources (databases or collections) in your MongoDB data estate.
 
