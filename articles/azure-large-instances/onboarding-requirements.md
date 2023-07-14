@@ -14,13 +14,13 @@ This article explains the actions to take after you receive an environment from 
 
 ## Azure portal
 
-* Use Azure portal to:
+Use the Azure portal to:
   * Create Azure Virtual Network (or networks) and ExpressRoute Gateway or Gateways with High or Ultra Performance Reference.
   * Link them with ALI stamps using the Circuit/peer ID and Authorization Keys provided by Microsoft team.  
 
 ## VNET address space
 
-Ensure that the VNET address space provided in your request is the same as what you configure.  
+Ensure that the VNET address space provided in your request is the same as what you configure. 
 
 ## Time sync
 
