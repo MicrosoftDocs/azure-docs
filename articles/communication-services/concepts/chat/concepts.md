@@ -97,19 +97,20 @@ The client app can subscribe to following events:
 For more information, see [Server Events](../../../event-grid/event-schema-communication-services.md?bc=/azure/bread/toc.json&toc=/azure/communication-services/toc.json).
 
 ## Push notifications 
+
 Android and iOS Chat SDKs support push notifications. To send push notifications for messages missed by your users while they were away, connect a Notification Hub resource with Communication Services resource to send push notifications and notify your application users about incoming chats and messages when the mobile app is not running in the foreground.    
     
-    IOS and Android SDK support the below event:
-   - `chatMessageReceived` - when a new message is sent to a chat thread by a participant.     
+IOS and Android SDK support the below event:
+- `chatMessageReceived` - when a new message is sent to a chat thread by a participant.     
    
-    Android SDK supports additional events:
-   - `chatMessageEdited` - when a message is edited in a chat thread.	
-   - `chatMessageDeleted` - when a message is deleted in a chat thread.	
-   - `chatThreadCreated` - when a Communication Services user creates a chat thread.	
-   - `chatThreadDeleted` - when a Communication Services user deletes a chat thread.	
-   - `chatThreadPropertiesUpdated` - when chat thread properties are updated; currently, only updating the topic for the thread is supported.	
-   - `participantsAdded` - when a user is added as a chat thread participant. 	
-   - `participantsRemoved` - when an existing participant is removed from the chat thread.
+Android SDK supports additional events:
+- `chatMessageEdited` - when a message is edited in a chat thread.	
+- `chatMessageDeleted` - when a message is deleted in a chat thread.	
+- `chatThreadCreated` - when a Communication Services user creates a chat thread.	
+- `chatThreadDeleted` - when a Communication Services user deletes a chat thread.	
+- `chatThreadPropertiesUpdated` - when chat thread properties are updated; currently, only updating the topic for the thread is supported.	
+- `participantsAdded` - when a user is added as a chat thread participant. 	
+- `participantsRemoved` - when an existing participant is removed from the chat thread.
 
 For more information, see [Push Notifications](../notifications.md).
 
