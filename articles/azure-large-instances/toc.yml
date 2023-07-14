@@ -14,7 +14,7 @@
     href: quality-checks.md
   - name: Find your subscription ID
     href: find-your-subscription-id.md
-  - name: configure-azure-service-health-alerts.md
+  - name: Configure azure service health alerts
     href: configure-azure-service-health-alerts.md
   - name: Azure Large Instances NETAPP storage data protection with Azure CVO
     href: ali-netapp-with-cvo.md
