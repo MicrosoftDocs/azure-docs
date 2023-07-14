@@ -674,7 +674,7 @@ Currently, the Windows agent doesn't reduce memory pressure when other applicati
             },
             {
                 "key": "lossRate",
-                "value": 0.5
+                "value": "0.5"
             },
             {
                 "key": "virtualMachineScaleSetInstances",
