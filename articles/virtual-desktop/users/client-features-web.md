@@ -65,8 +65,7 @@ There are several keyboard shortcuts you can use to help use some of the feature
 
 | Windows shortcut | Azure Virtual Desktop shortcut | Description |
 |--|--|--|
-| <kbd>CTRL</kbd>+<kbd>ALT</kbd>+<kbd>DELETE</kbd> | <kbd>CTRL</kbd>+<kbd>ALT</kbd>+<kbd>END</kbd> (Windows) | Shows the Windows Security dialog box. |
-| <kbd>CTRL</kbd>+<kbd>ALT</kbd>+<kbd>DELETE</kbd> | <kbd>FN</kbd>+<kbd>Control</kbd>+<kbd>Option</kbd>+<kbd>Delete</kbd> (macOS) | Shows the Windows Security dialog box. |
+| <kbd>CTRL</kbd>+<kbd>ALT</kbd>+<kbd>DELETE</kbd> | <kbd>CTRL</kbd>+<kbd>ALT</kbd>+<kbd>END</kbd> (Windows)<br /><br /><kbd>FN</kbd>+<kbd>Control</kbd>+<kbd>Option</kbd>+<kbd>Delete</kbd> (macOS) | Shows the Windows Security dialog box. |
 | <kbd>Windows</kbd> | <kbd>ALT</kbd>+<kbd>F3</kbd> | Sends the *Windows* key to the remote session. |
 | <kbd>ALT</kbd>+<kbd>TAB</kbd> | <kbd>ALT</kbd>+<kbd>PAGE UP</kbd> | Switches between programs from left to right. |
 | <kbd>ALT</kbd>+<kbd>SHIFT</kbd>+<kbd>TAB</kbd> | <kbd>ALT</kbd>+<kbd>PAGE DOWN</kbd> | Switches between programs from right to left. |
