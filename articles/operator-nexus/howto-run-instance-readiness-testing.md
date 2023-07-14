@@ -53,7 +53,7 @@ Instance Readiness Testing (IRT) is a framework built to orchestrate real-world 
 1. Build your input file. The IRT tarball provides `irt-input.example.yml` as an example. These values **will not work for all instances**, they need to be manually changed and the file also needs to be renamed to `irt-input.yml`
 1. define the values of networks-blueprint input, an example of this file is given in networks-blueprint.example.yml
 
-The network blueprint input schema for IRT is defined in the networks-blueprint.example.yml. Currently IRT has the following network requirements. The networks are created as part of the test, provide network details that are not in use.
+The network blueprint input schema for IRT is defined in the networks-blueprint.example.yml. Currently IRT has the following network requirements. The networks are created as part of the test, provide network details that aren't in use.
 
 1. Three(3) L3 Networks
 
@@ -74,7 +74,7 @@ The network blueprint input schema for IRT is defined in the networks-blueprint.
     1. From any browser
     1. using elinks or lynx to view from the command line; for example:
        1.  `elinks summary-<cluster_name>-<timestamp>..html`
-    1. When SAS Token & URL is provided for the `PUBLISH_RESULTS_TO` parameter the results are uploaded to the blob container you specified. It can be previewed by navigating to the link presented to you at the end of the IRT run.
+    1. When an SAS Token is provided for the `PUBLISH_RESULTS_TO` parameter the results are uploaded to the blob container you specified. It can be previewed by navigating to the link presented to you at the end of the IRT run.
 
 ### Uploading results to your own archive
 
