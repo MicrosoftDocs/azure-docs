@@ -22,9 +22,7 @@ landingContent:
         links:
           - text: Available ALI SKUs for the Epic workload
             url: available-skus.md
-          - text: Create a volume group
-            url: create-a-volume-group.md
-
+        
 # card 2
   - title: Solution architecture
     linkLists: 
