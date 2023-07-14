@@ -42,81 +42,16 @@ For step-by-step guidance, see [Create and manage a Storage task assignment](sto
 
 ## Assignment authorization
 
-As part of creating an assignment, you must choose an Azure Built-in or custom role that has the permission necessary to perform the operations specified in the task on the storage account that you specify in the assignment. You can choose only roles that are assigned to your user identity. If you prefer to use a custom role, make sure that your role contains the RBAC actions necessary to perform the operations. This section describes the least privileged built-in Azure role as well as the RBAC actions required by each operation.
-
-### SetBlobTier
-
-The SetBlobTier operation requires the [Storage Blob Data Contributor](../role-based-access-control/built-in-roles.md#storage-blob-data-contributor) built-in role.
-
-If you prefer to create a custom role, then that role must contain the following RBAC actions:
-
-- Microsoft.Storage/storageAccounts/blobServices/read
-
-- Microsoft.Storage/storageAccounts/blobServices/write
-
-- Microsoft.Storage/storageAccounts/blobServices/containers/write
-
-- Microsoft.Storage/storageAccounts/blobServices/containers/read
-
-- Microsoft.Storage/storageAccounts/blobServices/containers/read
-
-- Microsoft.Storage/storageAccounts/blobServices/containers/write
-
-- Microsoft.Storage/storageAccounts/blobServices/containers/delete
-
-### SetBlobTags
-
-The SetBlobTags operation requires the [Storage Blob Data Contributor](../role-based-access-control/built-in-roles.md#storage-blob-data-contributor) built-in role.
-
-If you prefer to create a custom role, then that role must contain the Microsoft.Storage/storageAccounts/blobServices/containers/blobs/tags/write RBAC action.
-
-### SetBlobImmutabilityPolicy
-
-The SetBlobImmutabilityPolicy operation requires the [Storage Blob Data Contributor](../role-based-access-control/built-in-roles.md#storage-blob-data-contributor) built-in role.
-
-If you prefer to create a custom role, then that role must contain the following RBAC actions:
-
-- Microsoft.Storage/storageAccounts/blobServices/containers/immutabilityPolicies/write
-
-- Microsoft.Storage/storageAccounts/blobServices/containers/immutabilityPolicies/read
-
-- Microsoft.Storage/storageAccounts/blobServices/containers/immutabilityPolicies/delete
-
-- Microsoft.Storage/storageAccounts/blobServices/containers/immutabilityPolicies/extend/action
-
-- Microsoft.Storage/storageAccounts/blobServices/containers/immutabilityPolicies/lock/action
-
-### SetBlobLegalHold
-
-The SetBlobLegalHold operation requires the [Storage Blob Data Contributor](../role-based-access-control/built-in-roles.md#storage-blob-data-contributor) built-in role.
-
-If you prefer to create a custom role, then that role must contain the following RBAC actions:
-
-- Microsoft.Storage/storageAccounts/blobServices/containers/setLegalHold/action
-
-- Microsoft.Storage/storageAccounts/blobServices/containers/clearLegalHold/action
-
-### DeleteBlob
-
-The DeleteBlob operation requires the [Storage Blob Data Contributor](../role-based-access-control/built-in-roles.md#storage-blob-data-contributor) built-in role.
-
-If you prefer to create a custom role, then that role must contain the Microsoft.Storage/storageAccounts/blobServices/containers/delete RBAC action.
-
-### UndeleteBlob
-
-The UndeleteBlob operation requires the [Storage Blob Data Contributor](../role-based-access-control/built-in-roles.md#storage-blob-data-contributor) built-in role.
-
-If you prefer to create a custom role, then that role must contain the following RBAC actions:
-
-- Microsoft.Storage/storageAccounts/blobServices/containers/write
-
-- Microsoft.Storage/storageAccounts/blobServices/containers/delete  
-
-### Test table
+As part of creating an assignment, you must choose an Azure Built-in or custom role that has the permission necessary to perform the operations specified in the task on the storage account that you specify in the assignment. You can choose only roles that are assigned to your user identity. If you prefer to use a custom role, make sure that your role contains the RBAC actions necessary to perform the operations. The following table shows the least privileged built-in Azure role as well as the RBAC actions required by each operation.
 
 | Permission | Built-in role | RBAC actions for a custom role |
 |---|---|---|
-| SetBlobTier | [Storage Blob Data Contributor](../role-based-access-control/built-in-roles.md#storage-blob-data-contributor)| `Microsoft.Storage/storageAccounts/blobServices/read`<br>`Microsoft.Storage/storageAccounts/blobServices/write`<br>`Microsoft.Storage/storageAccounts/blobServices/containers/write`<br>`Microsoft.Storage/storageAccounts/blobServices/containers/read`<br>`Microsoft.Storage/storageAccounts/blobServices/containers/read`<br>`Microsoft.Storage/storageAccounts/blobServices/containers/write`<br>`Microsoft.Storage/storageAccounts/blobServices/containers/delete` |
+| SetBlobTier | [Storage Blob Data Contributor](../role-based-access-control/built-in-roles.md#storage-blob-data-contributor)| Microsoft.Storage/storageAccounts/blobServices/read<br>Microsoft.Storage/storageAccounts/blobServices/write<br>Microsoft.Storage/storageAccounts/blobServices/containers/write<br>Microsoft.Storage/storageAccounts/blobServices/containers/read<br>Microsoft.Storage/storageAccounts/blobServices/containers/read<br>Microsoft.Storage/storageAccounts/blobServices/containers/write<br>Microsoft.Storage/storageAccounts/blobServices/containers/delete |
+| SetBlobTags | [Storage Blob Data Contributor](../role-based-access-control/built-in-roles.md#storage-blob-data-contributor) | Microsoft.Storage/storageAccounts/blobServices/containers/blobs/tags/write |
+| SetBlobImmutabilityPolicy | [Storage Blob Data Contributor](../role-based-access-control/built-in-roles.md#storage-blob-data-contributor) | Microsoft.Storage/storageAccounts/blobServices/containers/immutabilityPolicies/write<br>Microsoft.Storage/storageAccounts/blobServices/containers/immutabilityPolicies/read<br>Microsoft.Storage/storageAccounts/blobServices/containers/immutabilityPolicies/delete<br>Microsoft.Storage/storageAccounts/blobServices/containers/immutabilityPolicies/extend/action<br>Microsoft.Storage/storageAccounts/blobServices/containers/immutabilityPolicies/lock/action |
+| SetBlobLegalHold | [Storage Blob Data Contributor](../role-based-access-control/built-in-roles.md#storage-blob-data-contributor) | Microsoft.Storage/storageAccounts/blobServices/containers/setLegalHold/action<br>Microsoft.Storage/storageAccounts/blobServices/containers/clearLegalHold/action |
+| DeleteBlob | [Storage Blob Data Contributor](../role-based-access-control/built-in-roles.md#storage-blob-data-contributor) | Microsoft.Storage/storageAccounts/blobServices/containers/delete |
+| UndeleteBlob | [Storage Blob Data Contributor](../role-based-access-control/built-in-roles.md#storage-blob-data-contributor) | Microsoft.Storage/storageAccounts/blobServices/containers/write<br>Microsoft.Storage/storageAccounts/blobServices/containers/delete |
 
 ## See also
 
