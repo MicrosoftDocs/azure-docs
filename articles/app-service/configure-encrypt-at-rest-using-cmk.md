@@ -44,7 +44,7 @@ Now you can replace the value of the `WEBSITE_RUN_FROM_PACKAGE` application sett
     az keyvault create --name "Contoso-Vault" --resource-group <group-name> --location eastus    
     ```    
 
-1. Follow [these instructions to grant your app access](app-service-key-vault-references.md#granting-your-app-access-to-key-vault) to your key vault:
+1. Follow [these instructions to grant your app access](app-service-key-vault-references.md#grant-your-app-access-to-a-key-vault) to your key vault:
 
 1. Use the following [`az keyvault secret set`](/cli/azure/keyvault/secret#az-keyvault-secret-set) command to add your external URL as a secret in your key vault:   
 

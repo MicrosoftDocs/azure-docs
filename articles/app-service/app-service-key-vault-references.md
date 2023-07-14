@@ -16,7 +16,7 @@ This article shows you how to use secrets from Azure Key Vault as values of [app
 
 [Azure Key Vault](../key-vault/general/overview.md) is a service that provides centralized secrets management, with full control over access policies and audit history. When an app setting or connection string is a key vault reference, your application code can use it like any other app setting or connection string. This way, you can maintain secrets apart from your app's configuration. App settings are securely encrypted at rest, but if you need secret management capabilities, they should go into a key vault.
 
-## Granting your app access to a key vault
+## Grant your app access to a key vault
 
 In order to read secrets from a key vault, you need to have a vault created and give your app permission to access it.
 
@@ -250,7 +250,7 @@ The following pseudo-template is an example of what a function app might look li
 
 If a reference isn't resolved properly, the reference string is used instead (for example, `@Microsoft.KeyVault(...)`). It may cause the application to throw errors, because it's expecting a secret of a different value.
 
-Failure to resolve is commonly due to a misconfiguration of the [Key Vault access policy](#granting-your-app-access-to-key-vault). However, it could also be due to a secret no longer existing or a syntax error in the reference itself.
+Failure to resolve is commonly due to a misconfiguration of the [Key Vault access policy](#grant-your-app-access-to-a-key-vault). However, it could also be due to a secret no longer existing or a syntax error in the reference itself.
 
 If the syntax is correct, you can view other causes for error by checking the current resolution status in the portal. Navigate to Application Settings and select "Edit" for the reference in question. The edit dialog shows status information, including any errors. If you don't see the status message, it means that the syntax is invalid and not recognized as a key vault reference.
 
