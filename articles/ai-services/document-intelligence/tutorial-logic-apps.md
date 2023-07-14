@@ -16,11 +16,11 @@ monikerRange: '<=doc-intel-3.0.0'
 
 :::moniker range="doc-intel-3.0.0"
 [!INCLUDE [applies to v3.0](includes/applies-to-v3-0.md)]
-::: moniker-end
+:::moniker-end
 
 :::moniker range="doc-intel-2.1.0"
 [!INCLUDE [applies to v2.1](includes/applies-to-v2-1.md)]
-::: moniker-end
+:::moniker-end
 
 :::moniker range="doc-intel-3.0.0"
 
@@ -28,7 +28,7 @@ monikerRange: '<=doc-intel-3.0.0'
 >
 > This tutorial and the Logic App Document intelligence connector targets Document intelligence REST API v3.0 and forward.
 
-::: moniker-end
+:::moniker-end
 
 :::moniker range="doc-intel-2.1.0"
 
@@ -36,7 +36,7 @@ monikerRange: '<=doc-intel-3.0.0'
 >
 > This tutorial and the Logic App Document intelligence connector targets Document intelligence REST API v2.1 and must be used with the [FOTT Sample Labeling tool](https://fott-2-1.azurewebsites.net/).
 
-::: moniker-end
+:::moniker-end
 
 Azure Logic Apps is a cloud-based platform that can be used to automate workflows without writing a single line of code. The platform enables you to easily integrate Microsoft and third-party applications with your apps, data, services, and systems. A Logic App is the Azure resource you create when you want to develop a workflow. Here are a few examples of what you can do with a Logic App:
 
@@ -283,7 +283,7 @@ Now that you have the Logic App connector resource set up and configured, let's 
 > * This current version only returns a single invoice per PDF.
 > * The "For each loop" is required around the send email action to enable an output format that may return more than one invoice from PDFs in the future.
 
-::: moniker-end
+:::moniker-end
 
 :::moniker range="doc-intel-2.1.0"
 
