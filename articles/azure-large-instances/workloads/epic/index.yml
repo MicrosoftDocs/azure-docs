@@ -33,5 +33,11 @@ landingContent:
           - text: Architecture
             url: architecture.md
 
-
+# card 3
+  - title: Configuration
+    linkLists: 
+      - linkListType: concept
+        links:
+          - text: Create a volume group
+            url: create-a-volume-group.md
           
