@@ -17,8 +17,6 @@ To gather the data needed to diagnose Azure Kubernetes Service (AKS) hybrid clus
 
 If **Status** isn't **Connected** and **Provisioning state** isn't **Succeeded**, the installation failed. This article can help you troubleshoot the failure.
 
-For more information, see [Manage an AKS hybrid cluster](./howto-hybrid-aks.md#how-to-manage-and-lifecycle-the-aks-hybrid-cluster).
-
 ## Prerequisites
 
 * Install the latest version of the
