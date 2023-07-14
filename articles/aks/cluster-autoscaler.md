@@ -143,19 +143,19 @@ You can also configure more granular details of the cluster autoscaler by changi
 | scale-down-delay-after-add       | How long after scale up that scale down evaluation resumes                               | 10 minutes    |
 | scale-down-delay-after-delete    | How long after node deletion that scale down evaluation resumes                          | scan-interval |
 | scale-down-delay-after-failure   | How long after scale down failure that scale down evaluation resumes                     | 3 minutes     |
-| scale-down-unneeded-time         | How long a node should be unneeded before it is eligible for scale down                  | 10 minutes    |
-| scale-down-unready-time          | How long an unready node should be unneeded before it is eligible for scale down         | 20 minutes    |
+| scale-down-unneeded-time         | How long a node should be unneeded before it's eligible for scale down                  | 10 minutes    |
+| scale-down-unready-time          | How long an unready node should be unneeded before it's eligible for scale down         | 20 minutes    |
 | scale-down-utilization-threshold | Node utilization level, defined as sum of requested resources divided by capacity, below which a node can be considered for scale down | 0.5 |
 | max-graceful-termination-sec     | Maximum number of seconds the cluster autoscaler waits for pod termination when trying to scale down a node | 600 seconds   |
 | balance-similar-node-groups      | Detects similar node pools and balances the number of nodes between them                 | false         |
 | expander                         | Type of node pool [expander](https://github.com/kubernetes/autoscaler/blob/master/cluster-autoscaler/FAQ.md#what-are-expanders) to be used in scale up. Possible values: `most-pods`, `random`, `least-waste`, `priority` | random |
-| skip-nodes-with-local-storage    | If true cluster autoscaler will never delete nodes with pods with local storage, for example, EmptyDir or HostPath | false |
-| skip-nodes-with-system-pods      | If true cluster autoscaler will never delete nodes with pods from kube-system (except for DaemonSet or mirror pods) | true |
+| skip-nodes-with-local-storage    | If true, cluster autoscaler doesn't delete nodes with pods with local storage, for example, EmptyDir or HostPath | false |
+| skip-nodes-with-system-pods      | If true, cluster autoscaler doesn't delete nodes with pods from kube-system (except for DaemonSet or mirror pods) | true |
 | max-empty-bulk-delete            | Maximum number of empty nodes that can be deleted at the same time                       | 10 nodes      |
 | new-pod-scale-up-delay           | For scenarios like burst/batch scale where you don't want CA to act before the kubernetes scheduler could schedule all the pods, you can tell CA to ignore unscheduled pods before they're a certain age.                                                                                                                | 0 seconds    |
 | max-total-unready-percentage     | Maximum percentage of unready nodes in the cluster. After this percentage is exceeded, CA halts operations | 45% |
 | max-node-provision-time          | Maximum time the autoscaler waits for a node to be provisioned                           | 15 minutes    |
-| ok-total-unready-count           | Number of allowed unready nodes, irrespective of max-total-unready-percentage            | 3 nodes       |
+| ok-total-unready-count           | Number of allowed unready nodes, irrespective of max-total-unready-percentage            | Three nodes       |
 
 > [!IMPORTANT]
 > When using the autoscaler profile, keep the following information in mind:
@@ -215,7 +215,7 @@ Use the following steps to configure logs to be pushed from the cluster autoscal
     | where Category == "cluster-autoscaler"
     ```
 
-    As long as there are logs to retrieve, you should see logs similar to the following:
+    As long as there are logs to retrieve, you should see logs similar to the following logs:
 
     ![Log Analytics logs](media/autoscaler/autoscaler-logs.png)
 
@@ -276,7 +276,7 @@ You can use the cluster autoscaler with [multiple node pools][aks-multiple-node-
 
 ## Configure the horizontal pod autoscaler
 
-Kubernetes supports [horizontal pod autoscaling][kubernetes-hpa] to adjust the number of pods in a deployment depending on CPU utilization or other select metrics. The [Metrics Server][metrics-server] provides resource utilization to Kubernetes. You can configure horizontal pod autoscaling through the `kubectl autoscale` command or through a manifest. For more details on using the horizontal pod autoscaler, see the [HorizontalPodAutoscaler walkthrough][kubernetes-hpa-walkthrough].
+Kubernetes supports [horizontal pod autoscaling][kubernetes-hpa] to adjust the number of pods in a deployment depending on CPU utilization or other select metrics. The [Metrics Server][metrics-server] provides resource utilization to Kubernetes. You can configure horizontal pod autoscaling through the `kubectl autoscale` command or through a manifest. For more information on using the horizontal pod autoscaler, see the [HorizontalPodAutoscaler walkthrough][kubernetes-hpa-walkthrough].
 
 ## Next steps
 
