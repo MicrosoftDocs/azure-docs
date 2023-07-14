@@ -9,16 +9,27 @@ ms.date: 07/13/2023
 ms.topic: quickstart
 ms.service: azure-communication-services
 ms.subservice: calling
-ms.custom: mode-other
+zone_pivot_groups: acs-plat-web-ios-android-windows
+ms.custom: mode-other, devx-track-js
 ---
 
 # Quickstart: Set video constraints in your calling app
 
-[!INCLUDE [Set video constraints with JavaScript](./includes/video-constraints/video-constraints-javascript.md)]
-[!INCLUDE [Set video constraints with Android](./includes/video-constraints/video-constraints-android.md)]
-[!INCLUDE [Set video constraints with iOS](./includes/video-constraints/video-constraints-ios.md)]
+::: zone pivot="platform-windows"
 [!INCLUDE [Set video constraints with Windows](./includes/video-constraints/video-constraints-windows.md)]
+::: zone-end
 
+::: zone pivot="platform-android"
+[!INCLUDE [Set video constraints with Android](./includes/video-constraints/video-constraints-android.md)]
+::: zone-end
+
+::: zone pivot="platform-ios"
+[!INCLUDE [Set video constraints with iOS](./includes/video-constraints/video-constraints-ios.md)]
+::: zone-end
+
+::: zone pivot="platform-web"
+[!INCLUDE [Set video constraints with JavaScript](./includes/video-constraints/video-constraints-javascript.md)]
+::: zone-end
 ## Next steps
 
 For more information, see the following articles:
