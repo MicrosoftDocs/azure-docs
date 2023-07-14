@@ -195,7 +195,7 @@
         - name: Integrate Datawiza with Azure AD
           href: datawiza-configure-sha.md
         - name: Guided configuration 
-          iteems: 
+          items: 
           - name: Oracle JDE  
             href: datawiza-sso-oracle-jde.md
           - name: Oracle PeopleSoft  
