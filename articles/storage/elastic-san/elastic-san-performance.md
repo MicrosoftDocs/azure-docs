@@ -1,6 +1,6 @@
 ---
-title: Azure Elastic SAN Preview performance
-description: Performance article example data.
+title: Azure Elastic SAN Preview and virtual machine performance
+description: Learn how your workload's performance is handled by Azure Elastic SAN and Azure Virtual Machines.
 author: roygara
 ms.service: azure-elastic-san-storage
 ms.topic: overview
@@ -8,9 +8,9 @@ ms.date: 07/14/2023
 ms.author: rogarana
 ---
 
-# Elastic SAN Preview performance
+# Elastic SAN Preview and virtual machine performance
 
-This article helps clarify the performance of an Elastic SAN Preview and how they work when used with Azure Virtual Machines (VM).
+This article clarifies how Elastic SAN performance works, and how the combination of Elastic SAN limits and Azure Virtual Machines (VM) limits can affect the performance of your workloads.
 
 ## How performance works
 
