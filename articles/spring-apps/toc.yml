@@ -443,14 +443,10 @@ items:
         href: how-to-circuit-breaker-metrics.md
       - name: Structured application log
         href: structured-app-log.md
-      - name: New Relic Java in-process agent
-        href: how-to-new-relic-monitor.md
       - name: Monitor app lifecycle events
         href: monitor-app-lifecycle-events.md
       - name: Logback with custom persistent storage
         href: how-to-write-log-to-custom-persistent-storage.md
-      - name: Elastic APM Java Agent
-        href: how-to-elastic-apm-java-agent-monitor.md
       - name: Analyze logs with ELK
         href: how-to-elastic-diagnostic-settings.md
       - name: Health probes and graceful termination
