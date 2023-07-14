@@ -23,6 +23,12 @@ To help you manage Azure Database for PostgreSQL Flexible Server resources more 
 
 For an Azure Database for PostgreSQL Flexible Server, you can create an automation task that starts or stops the server on a predefined schedule. You can set this task to automatically start or stop the server a specific number of times every day, week, or month by setting the Interval and Frequency values on the task's Configure tab. The automation task continues to work until you delete or disable the task.
 
+## How do automation tasks differ from Azure Automation?
+
+Automation tasks are more basic and lightweight than Azure Automation. Currently, you can create an automation task only at the Azure resource level. An automation task is actually a logic app resource that runs a workflow, powered by the multi-tenant Azure Logic Apps service. You can view and edit the underlying workflow by opening the task in the workflow designer after it has completed at least one run.
+
+In contrast, Azure Automation is a comprehensive cloud-based automation and configuration service that provides consistent management across your Azure and non-Azure environments. 
+
 ## Prerequisites
 
 
