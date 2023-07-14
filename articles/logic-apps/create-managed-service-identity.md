@@ -131,7 +131,6 @@ On a **Logic App (Standard)** resource, the system-assigned identity is automati
 
 1. Now follow the [steps that give that identity access to the resource](#access-other-resources) later in this topic.
 
-
 ---
 
 <a name="system-assigned-template"></a>
