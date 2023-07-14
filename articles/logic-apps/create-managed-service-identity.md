@@ -817,7 +817,6 @@ The following example shows a sample HTTP action with all the previously describ
 
 1. Continue building the workflow the way that you want.
 
-
 ---
 
 <a name="authenticate-managed-connector-managed-identity"></a>
