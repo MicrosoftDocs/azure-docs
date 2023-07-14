@@ -19,9 +19,9 @@ zone_pivot_groups: enterprise-apps-all
 ---
 # Disable user sign-in for an application
 
-There may be situations while configuring or managing an application where you don't want tokens to be issued for an application. Or, you may want to block an application that you don't want your employees to try to access. To block user access to an application, you can disable user sign-in for the application, which will prevent all tokens from being issued for that application.
+There may be situations while configuring or managing an application where you don't want tokens to be issued for an application. Or, you may want to block an application that you don't want your employees to try to access. To block user access to an application, you can disable user sign-in for the application, which prevents all tokens from being issued for that application.
 
-In this article, you'll learn how to prevent users from signing in to an application in Azure Active Directory through both the Azure portal and PowerShell. If you're looking for how to block specific users from accessing an application, use [user or group assignment](./assign-user-or-group-access-portal.md).
+In this article, you learn how to prevent users from signing in to an application in Azure Active Directory through both the Azure portal and PowerShell. If you're looking for how to block specific users from accessing an application, use [user or group assignment](./assign-user-or-group-access-portal.md).
 
 [!INCLUDE [portal updates](../includes/portal-update.md)]
 
@@ -32,7 +32,7 @@ To disable user sign-in, you need:
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - One of the following roles: An administrator, or owner of the service principal.
 
-## Disable how a user signs in
+## Disable user sign-in
 
 :::zone pivot="portal"
 
@@ -48,7 +48,7 @@ To disable user sign-in, you need:
 
 :::zone pivot="aad-powershell"
 
-You may know the AppId of an app that doesn't appear on the Enterprise apps list. For example, you may have deleted the app or the service principal hasn't yet been created due to the app being pre-authorized by Microsoft, you can manually create the service principal for the app and then disable it by using the following Azure AD PowerShell cmdlet.
+You may know the AppId of an app that doesn't appear on the Enterprise apps list. For example, you may have deleted the app or the service principal hasn't yet been created due to the app being preauthorized by Microsoft. You can manually create the service principal for the app and then disable it by using the following Microsoft Graph PowerShell cmdlet.
 
 Ensure you've installed the AzureAD module (use the command `Install-Module -Name AzureAD`). In case you're prompted to install a NuGet module or the new Azure AD V2 PowerShell module, type Y and press ENTER.
 
@@ -73,7 +73,7 @@ if ($servicePrincipal) {
 
 :::zone pivot="ms-powershell"
 
-You may know the AppId of an app that doesn't appear on the Enterprise apps list. For example, you may have deleted the app or the service principal hasn't yet been created due to the app being pre-authorized by Microsoft, you can manually create the service principal for the app and then disable it by using the following Microsoft Graph PowerShell cmdlet.
+You may know the AppId of an app that doesn't appear on the Enterprise apps list. For example, you may have deleted the app or the service principal hasn't yet been created due to the app being preauthorized by Microsoft. You can manually create the service principal for the app and then disable it by using the following Microsoft Graph PowerShell cmdlet.
 
 Ensure you've installed the Microsoft Graph module (use the command `Install-Module Microsoft.Graph`).
 
@@ -97,11 +97,11 @@ else {  $servicePrincipal = New-MgServicePrincipal -AppId $appId –AccountEnabl
 
 :::zone pivot="ms-graph"
 
-You may know the AppId of an app that doesn't appear on the Enterprise apps list. For example, you may have deleted the app or the service principal hasn't yet been created due to the app being pre-authorized by Microsoft, you can manually create the service principal for the app and then disable it by using Microsoft Graph explorer.
+You may know the AppId of an app that doesn't appear on the Enterprise apps list. For example, you may have deleted the app or the service principal hasn't yet been created due to the app being preauthorized by Microsoft. You can manually create the service principal for the app and then disable it by using the following Microsoft Graph PowerShell cmdlet.
 
 To disable sign-in to an application, sign in to [Graph Explorer](https://developer.microsoft.com/graph/graph-explorer) with one of the roles listed in the prerequisite section.
 
-You'll need to consent to the `Application.ReadWrite.All` permission.
+You need to consent to the `Application.ReadWrite.All` permission.
 
 Run the following query to disable user sign-in to an application.
 

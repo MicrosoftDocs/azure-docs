@@ -28,7 +28,7 @@ The following table compares RTO and RPO in a **typical workload** scenario:
 | **Capability** | **Basic** | **General Purpose** | **Memory optimized** |
 | :------------: | :-------: | :-----------------: | :------------------: |
 | Point in Time Restore from backup | Any restore point within the retention period <br/> RTO - Varies <br/>RPO < 15 min| Any restore point within the retention period <br/> RTO - Varies <br/>RPO < 15 min | Any restore point within the retention period <br/> RTO - Varies <br/>RPO < 15 min |
-| Geo-restore from geo-replicated backups | Not supported | RTO - Varies <br/>RPO < 1 h | RTO - Varies <br/>RPO < 1 h |
+| Geo-restore from geo-replicated backups | Not supported | RTO - Varies <br/>RPO > 24 h | RTO - Varies <br/>RPO > 24 h |
 | Read replicas | RTO - Minutes* <br/>RPO < 5 min* | RTO - Minutes* <br/>RPO < 5 min*| RTO - Minutes* <br/>RPO < 5 min*|
 
 \* RTO and RPO **can be much higher** in some cases depending on various factors including latency between sites, the amount of data to be transmitted, and importantly primary database write workload.
