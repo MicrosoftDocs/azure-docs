@@ -5,7 +5,7 @@ author: normesta
 ms.service: storage
 ms.custom: devx-track-azurepowershell
 ms.topic: conceptual
-ms.date: 07/11/2023
+ms.date: 07/14/2023
 ms.author: normesta
 ---
 
@@ -29,6 +29,16 @@ To prepare to upgrade your storage account to Data Lake Storage Gen2:
 ### Review feature support
 
 Your account might be configured to use features that aren't yet supported in Data Lake Storage Gen2 enabled accounts. If your account is using a feature that isn't supported, the upgrade will not pass the validation step. Review the [Blob Storage feature support in Azure Storage accounts](storage-feature-support-in-storage-accounts.md) article to identify unsupported features. If you're using any such features in your account, disable them before you begin the upgrade.
+
+The following features are supported for Data Lake Storage Gen2 accounts, but are not supported by the upgrade process:
+
+- Blob snapshots
+- Encryption scopes
+- Immutable storage
+- Soft delete for blobs
+- Soft delete for containers
+
+If your storage account has such features enabled, you must disable them before performing the upgrade. If you want to resume using the features after the upgrade is complete, re-enable them.
 
 In some cases, you will have to allow time for clean-up operations after the feature is disabled before upgrading. One example is the [blob soft delete](soft-delete-blob-overview.md) feature. You must disable blob soft delete and then allow all soft-delete blobs to expire before you can upgrade the account.
 
