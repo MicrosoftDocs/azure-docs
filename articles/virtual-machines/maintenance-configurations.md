@@ -79,6 +79,20 @@ You can create and manage maintenance configurations using any of the following 
 
 For an Azure Functions sample, see [Scheduling Maintenance Updates with Maintenance Configurations and Azure Functions](https://github.com/Azure/azure-docs-powershell-samples/tree/master/maintenance-auto-scheduler).
 
+## Service Limits
+
+The following are the recommended limits for the mentioned indicators
+
+| Indicator    | Limit          |
+|----------|----------------------------|
+| Number of schedules per Subscription per Region     | 250  |
+| Total number of Resource associations to a schedule | 3000 |
+| Resource associations on each dynamic scope    | 1000 |
+| Number of dynamic scopes per Resource Group or Subscription per Region     | 250  |
+
+The following are the Dynamic Scope Limits for **each dynamic scope**
+
+
 ## Next steps
 
 To learn more, see [Maintenance and updates](maintenance-and-updates.md).
