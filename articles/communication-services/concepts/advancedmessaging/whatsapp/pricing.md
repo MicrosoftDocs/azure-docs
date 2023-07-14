@@ -1,7 +1,7 @@
 ---
 title: Pricing for Advanced Messaging for WhatsApp
 titleSuffix: An Azure Communication Services concept document
-description: Learn about Communication Service WhatsApp concepts.
+description: Learn about Communication Service WhatsApp pricing concepts.
 author: darmour
 manager: sundraman
 services: azure-communication-services
@@ -12,11 +12,11 @@ ms.service: azure-communication-services
 ms.subservice: advancedmessaging
 ---
 
-**Advanced Messaging pricing in Azure Communication Services**
+# Advanced Messaging pricing in Azure Communication Services #
 
 Prices for Advanced Messaging in Azure Communication Services consists of two components: the usage fee and the channel fee.
 
-**Advanced Messaging usage fee**
+## Advanced Messaging usage fee ##
 
 The Azure Communication Services Advanced Messaging usage fee is based on the number of messages exchanged between the platform and an end user.
 
@@ -25,7 +25,7 @@ The Azure Communication Services Advanced Messaging usage fee is based on the nu
 | Inbound Message  | \$0.005/message |
 | Outbound Message | \$0.005/message |
 
-**Advanced Messaging channel price**
+## Advanced Messaging channel price ##
 
 **WhatsApp**
 
@@ -48,7 +48,7 @@ Alice is managing a virtual visit solution for her organization’s patients. Al
 
 Alice sends appointment reminders to 2,000 patients in North America each month and the pricing would be:
 
-**Advanced Messaging Usage:**
+### Advanced Messaging Usage for messages ###
 
 2,000 WhatsApp Conversations = 2,000 messages x \$0.005/message = \$10 USD
 
@@ -64,7 +64,7 @@ Contoso is a business which provides a contact center for customers to seek prod
 
 Contoso manages 2,000 cases in North America each month and the pricing would be:
 
-**Advanced Messaging Usage:**
+### Advanced Messaging Usage For Conversation ###
 
 2,000 WhatsApp Conversations \* 20 messages/conversation x \$0.005/message = \$200 USD
 
@@ -72,10 +72,10 @@ Contoso manages 2,000 cases in North America each month and the pricing would be
 
 To get the latest WhatsApp rates, refer to WhatsApp’s pricing documentation: [Conversation-Based Pricing](https://developers.facebook.com/docs/whatsapp/pricing).
 
-**Next steps**
+## Next steps ##
 
 -   [Connecting a WhatsApp Business Account](./connecting-whatsapp-business-account.md)
 -   [Advanced Messaging for WhatsApp Terms of Services](./whatsapp-termsof-service.md)
 -   [Trying the WhatsApp Sandbox]()
 -   [Get Started With AdvancedMessages](../../../quickstarts//advancedmessaging/whatsapp/get-started.md)
--   [Messaging Policy](https://learn.microsoft.com/en-us/azure/communication-services/concepts/sms/messaging-policy)
+-   [Messaging Policy](https://learn.microsoft.com/azure/communication-services/concepts/sms/messaging-policy)

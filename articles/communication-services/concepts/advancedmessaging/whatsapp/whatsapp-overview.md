@@ -18,7 +18,7 @@ Azure Communication Services enables you to send and receive WhatsApp messages u
 
 ## Advanced Messaging For WhatsApp Features
 
-The key features of Azure Communications Services Messaging for WhatsApp include:
+The key features of Azure Communications Services Advanced Messaging for WhatsApp include:
 
 * Create new or connect existing WhatsApp for Business Accounts to Azure Communication Services.
 * Participate in conversations with WhatsApp users world-wide.
@@ -29,12 +29,12 @@ The key features of Azure Communications Services Messaging for WhatsApp include
 
 ## Next Steps
 
-The following documents will help you get started with WhatsApp communication:
+The following documents will help you get started with Advanced Messaging for WhatsApp:
 
 -    [Connecting a WhatsApp Business Account](./connecting-whatsapp-business-account.md)
 -    [Advanced Messaging for WhatsApp Terms of Services](./whatsapp-termsof-service.md)
 -    [Trying the WhatsApp Sandbox]()
 -    [Get Started With AdvancedMessages](../../../quickstarts//advancedmessaging/whatsapp/get-started.md)
 -    [Get Started With Handle Advanced Messaging and delivery report events](../../../quickstarts/advancedmessaging/whatsapp/handle-advanced-messaging-events.md)
--    [Messaging Policy](https://learn.microsoft.com/en-us/azure/communication-services/concepts/sms/messaging-policy)
+-    [Messaging Policy](https://learn.microsoft.com/azure/communication-services/concepts/sms/messaging-policy)
 -    [Pricing for Advanced Messaging for WhatsApp](./pricing.md)

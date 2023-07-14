@@ -6,6 +6,7 @@ author: shamkh
 manager: Camilo.Ramirez
 ms.author: shamkh;acs_cpm
 ms.service: azure-communication-services
+ms.subservice: advancedmessaging
 ms.topic: quickstart 
 ms.date: 07/03/2023
 ms.custom: template-quickstart 
