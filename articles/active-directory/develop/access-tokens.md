@@ -92,7 +92,7 @@ The Azure AD middleware has built-in capabilities for validating access tokens, 
 ### Validate the issuer
 
 [OpenID Connect Core](https://openid.net/specs/openid-connect-core-1_0.html#IDTokenValidation) says "The Issuer Identifier \[...\] MUST exactly match the value of the iss (issuer) Claim." For applications which use a tenant-specific metadata endpoint (like [https://login.microsoftonline.com/{example-tenant-id}/v2.0/.well-known/openid-configuration](https://login.microsoftonline.com/{example-tenant-id}/v2.0/.well-known/openid-configuration) or [https://login.microsoftonline.com/contoso.onmicrosoft.com/v2.0/.well-known/openid-configuration](https://login.microsoftonline.com/contoso.onmicrosoft.com/v2.0/.well-known/openid-configuration)), this is all that is needed.
-Azure AD makes available a tenant-independent version of the document at [https://login.microsoftonline.com/common/v2.0/.well-known/openid-configuration](https://login.microsoftonline.com/common/v2.0/.well-known/openid-configuration). This endpoint returns an issuer value `https://login.microsoftonline.com/{tenantid}/v2.0`. Applications may use this tenant-independent endpoint to validate tokens from every tenant with the following modifications:
+Azure AD makes available a tenant-independent version of the document for multi-tenant apps at [https://login.microsoftonline.com/common/v2.0/.well-known/openid-configuration](https://login.microsoftonline.com/common/v2.0/.well-known/openid-configuration). This endpoint returns an issuer value `https://login.microsoftonline.com/{tenantid}/v2.0`. Applications may use this tenant-independent endpoint to validate tokens from every tenant with the following modifications:
 
  1. Instead of expecting the issuer claim in the token to exactly match the issuer value from metadata, the application should replace the `{tenantid}` value in the issuer metadata with the tenant ID that is the target of the current request, and then check the exact match.
 
@@ -178,7 +178,7 @@ The server possibly revokes refresh tokens due to a change in credentials, or du
 | Password changed by user | Revoked | Revoked | Stays alive | Stays alive | Stays alive |
 | User does SSPR | Revoked | Revoked | Stays alive | Stays alive | Stays alive |
 | Admin resets password | Revoked | Revoked | Stays alive | Stays alive | Stays alive |
-| User or admin revokes the refresh tokens by using PowerShell Invoke-MgInvalidateUserRefreshToken | Revoked | Revoked | Revoked | Revoked | Revoked |
+| User or admin revokes the refresh tokens by using [PowerShell](/powershell/module/microsoft.graph.beta.users.actions/invoke-mgbetainvalidateuserrefreshtoken?view=graph-powershell-beta) | Revoked | Revoked | Revoked | Revoked | Revoked |
 | [Single sign-out](v2-protocols-oidc.md#single-sign-out) on web | Revoked | Stays alive | Revoked | Stays alive | Stays alive |
 
 #### Non-password-based
