@@ -60,6 +60,11 @@ To view a task's history of runs along with their statuses, inputs, outputs, and
 2. On the resource's menu, under Settings, in the Automation section, select Tasks (preview).
 3. In the tasks list, find the task that you want to review. In that task's Runs column, select View.
 
+> [!NOTE]
+> You can't change the task name after creation, so consider a name that still applies if you [edit the underlying workflow](#edit-task-workflow). Changes that you make to the underlying workflow apply only to the task that you created, not the task template.
+>
+> For example, if you name your task `StopInstanceWeekly`, but you later edit the underlying workflow to run daily, you can't change your task's name to `StopInstanceDaily`.
+
 ## Edit the task
 
 To change a task, you can either:
