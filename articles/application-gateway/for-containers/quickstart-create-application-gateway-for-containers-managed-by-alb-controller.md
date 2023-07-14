@@ -115,7 +115,7 @@ EOF
 
 ## Validate creation of the Application Gateway for Containers resources
 
-Once the _ApplicationLoadBalancer_ resource has been created, you can track deployment progress of the Application Gateway for Containers resources. The deployment transitions from _InProgress_ to _Ready_ state when provisioning has completed. It can take 5-6 minutes for the Application Gateway for Containers resources to be created.
+Once the _ApplicationLoadBalancer_ resource has been created, you can track deployment progress of the Application Gateway for Containers resources. The deployment transitions from _InProgress_ to _Programmed_ state when provisioning has completed. It can take 5-6 minutes for the Application Gateway for Containers resources to be created.
 
 You can check the status of the _ApplicationLoadBalancer_ resource by running the following command:
 
@@ -136,7 +136,7 @@ status:
   - lastTransitionTime: "2023-06-19T21:03:29Z"
     message: alb-id=/subscriptions/xxx/resourceGroups/yyy/providers/Microsoft.ServiceNetworking/trafficControllers/alb-zzz
     observedGeneration: 1
-    reason: Ready
+    reason: Programmed
     status: "True"
     type: Deployment
 ```
