@@ -39,5 +39,5 @@ landingContent:
       - linkListType: how-to-guide
         links:
           - text: Configure Azure Service Health alerts
-            url: configure-azure-service-health-alerts.md
+            url: ../../configure-azure-service-health-alerts.md
           

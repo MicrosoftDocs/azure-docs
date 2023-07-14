@@ -33,4 +33,4 @@ You will now receive alerts when there are health issues or maintenance actions 
 
 Learn how to identify and interact with ALI instances through the Azure portal.
 
-> [What is Azure Large Instances?](../../what-is-azure-large-instances.md)
+> [What is Azure Large Instances?](what-is-azure-large-instances.md)

@@ -91,5 +91,5 @@ Expected output: lists all the logical volumes created.
 
 Learn how to identify and interact with ALI instances through the Azure portal.
 
-> [What is Azure for Large Instances?](what-is-azure-large-instances.md)
+> [What is Azure for Large Instances?](../../what-is-azure-large-instances.md)
 
