@@ -48,5 +48,14 @@ Creating an automation task doesn't immediately incur charges. Underneath, an au
 6. After you authenticate all the connections, select Next: Configure.
 7. Under Configure, provide a name for the task and any other information required for the task. When you're done, select Review + create.
 
+The task you've created, which is automatically live and running, will appear on the Tasks list.
+
+## Review task history
+
+To view a task's history of runs along with their statuses, inputs, outputs, and other information:
+
+1. In the Azure portal, find the PostgreSQL Flexible Server resource that has the task history you want to review.
+2. On the resource's menu, under Settings, in the Automation section, select Tasks (preview).
+3. In the tasks list, find the task that you want to review. In that task's Runs column, select View.
 
 
