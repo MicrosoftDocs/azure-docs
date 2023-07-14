@@ -92,6 +92,13 @@ The following are the recommended limits for the mentioned indicators
 
 The following are the Dynamic Scope Limits for **each dynamic scope**
 
+| Resource    | Limit          |
+|----------|----------------------------|
+| Resource associations     | 1000  |
+| Number of tag filters | 50 |
+| Number of Resource Group filters    | 50 |
+
+**Please note that the above limits are for the Dynamic Scoping in the Guest scope only.**
 
 ## Next steps
 
