@@ -2,12 +2,12 @@
 title: Get Started using DICOM Data in Analytics Workloads
 description: This guide demonstrates how to use Azure Data Factory and Microsoft Fabric to perform analytics on DICOM data.
 services: healthcare-apis
-author: smithasa
+author: mmitrik
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: reference
-ms.date: 02/09/2023
-ms.author: smithasa
+ms.date: 07/14/2023
+ms.author: mmitrik
 ---
 
 # Get Started using DICOM Data in Analytics Workloads
@@ -50,7 +50,7 @@ Azure Data Factory pipelines read from data sources and write to data sinks, typ
 
 3. Enter a **Name** and **Description** for the linked service.  
 
-TODO IMAGE
+:::image type="content" source="media/data-factory-linked-service-dicom.png" alt-text="New linked service panel with DICOM service details." lightbox="media/data-factory-linked-service-dicom.png":::
 
 4. In the **Base URL** field, enter the Service URL for your DICOM service.  For example, a DICOM service named `contosoclinic` in the `contosohealth` workspace will have the Service URL `https://contosohealth-contosoclinic.dicom.azurehealthcareapis.com`.
 
@@ -61,3 +61,37 @@ TODO IMAGE
 7. After populating the required fields, select **Test connection** to ensure the identity's roles are correctly configured.  
 
 8. When the connection test is successful, select **Create**.
+
+#### Create linked service for Azure Data Lake Storage Gen2
+1. In the Azure Data Factory Studio, select **Manage**  from the navigation menu. Under **Connections** select **Linked services** and then select **New**.
+
+2. On the New linked service panel, search for "Azure Data Lake Storage Gen2".  Select the **REST** tile and then **Continue**.
+
+:::image type="content" source="media/data-factory-adlsg2.png" alt-text="New Linked services panel with Azure Data Lake Storage Gen2 tile selected." lightbox="media/data-factory-adlsg2.png":::
+
+3. Enter a **Name** and **Description** for the linked service.
+
+:::image type="content" source="media/data-factory-linked-service-adlsg2.png" alt-text="New Linked services panel with Azure Data Lake Storage Gen2 details." lightbox="media/data-factory-linked-service-adlsg2.png":::
+
+4. For Authentication type, select **System Assigned Managed Identity**.
+
+5. Enter the storage account details by entering the URL to the storage account manually or by selecting the Azure subscription and storage account from dropdowns.  
+
+6. After populating the required fields, select **Test connection** to ensure the identity's roles are correctly configured.
+
+7. When the connection test is successful, select **Create**.
+
+### Create a pipeline for DICOM data
+Azure Data Factory pipelines are a collection of activities that perform a task, like copying DICOM metadata to Delta tables. This section details the creation of a pipeline that regularly synchronizes DICOM data to Delta tables as data is added to, updated, and deleted from a DICOM service.
+
+1.  Select **Author** from the navigation menu.  In the **Factory Resources** pane, select the plus (+) to add a new resource.  Select **Pipeline** and then **Template gallery** from the menu.  
+
+:::image type="content" source="media/data-factory-create-pipeline-menu.png" alt-text="New Linked services panel with Azure Data Lake Storage Gen2 details." lightbox="media/data-factory-create-pipeline-menu.png":::
+
+2. In the Template gallery, search for "DICOM".  Select the **Copy DICOM Metadata Changes to ADLS Gen2 in Delta Format** tile and then **Continue**.
+
+:::image type="content" source="media/data-factory-gallery-dicom.png" alt-text="New Linked services panel with Azure Data Lake Storage Gen2 details." lightbox="media/data-factory-gallery-dicom.png":::
+
+3. In the **Inputs** section, select the linked services previously created for the DICOM service and Azure Data Lake Storage Gen2 account.
+
+:::image type="content" source="media/data-factory-create-pipeline.png" alt-text="New Linked services panel with Azure Data Lake Storage Gen2 details." lightbox="media/data-factory-create-pipeline.png":::
