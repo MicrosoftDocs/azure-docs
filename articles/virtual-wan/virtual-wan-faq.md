@@ -444,6 +444,7 @@ If the update fails for any reason, your hub will be auto recovered to the old v
 
 >[!NOTE]
 > The user will need to have an **owner** or **contributor** role to see an accurate status of the hub router version. If a user is assigned a **reader** role to the Virtual WAN resource and subscription, then Azure portal will display to that user that the hub router needs to be upgraded to the latest version, even if the hub is already on the latest version. 
+> If you change your spoke virtual network's subscription status from disabled to enabled and then upgrade the virtual hub, you will need to update your virtual network connection after the virtual hub upgrade (Ex: you can configure the virtual network connection to propagate to a dummy label).
 
 ### Is there a route limit for OpenVPN clients connecting to an Azure P2S VPN gateway?
 
