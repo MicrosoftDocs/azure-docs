@@ -13,7 +13,17 @@ metadata:
 
 title: Frequently asked questions (FAQ)
 summary: |
-   [!INCLUDE [applies to v3.0 and v2.1](includes/applies-to-v3-0-v2-1.md)]\n Form Recognizer is now Document Intelligence!\n Azure AI services now encompass all of what were previously known as Azure Cognitive Services and Azure Applied AI Services.\n There are no changes to pricing.\n The names "Cognitive Services" and "Azure Applied AI" will continue to be used in Azure billing, cost analysis, price list, and price APIs.\n There are no breaking changes to application programming interfaces (APIs) or SDKs.
+   [!INCLUDE [applies to v3.0 and v2.1](includes/applies-to-v3-0-v2-1.md)]
+
+   - Form Recognizer is now Document Intelligence!
+   
+   - Azure AI services now encompass all of what were previously known as Azure Cognitive Services and Azure Applied AI Services.
+
+   - There are no changes to pricing.
+
+   - The names "Cognitive Services" and "Azure Applied AI" continue to be used in Azure billing, cost analysis, price list, and price APIs.
+
+   - There are no breaking changes to application programming interfaces (APIs) or SDKs.
 sections:
   - name: General concepts
     questions:
@@ -81,10 +91,10 @@ sections:
           How long is my custom model available for use?
         answer: |
 
-          Models have the same lifecycle as the API version used to train the model. Custom models trained with a generally available (GA) version of the API have the same lifecycle as the API version. When the API version is deprecated, the model is no longer available for inference. Models trained with a preview version of the API also have the same lifecycle as the preview API. 
-          
+          Models have the same lifecycle as the API version used to train the model. Custom models trained with a generally available (GA) version of the API have the same lifecycle as the API version. When the API version is deprecated, the model is no longer available for inference. Models trained with a preview version of the API also have the same lifecycle as the preview API.
+
           Expect preview API deprecation within three months of an updated preview API version or newer generally available API version.
-          
+
       - question: |
            What is the accuracy score and how is it calculated?
         answer: |

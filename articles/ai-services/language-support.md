@@ -1,49 +1,44 @@
 ---
 title: Language support
 titleSuffix: Azure AI services
-description: Azure AI services enables you to build applications that see, hear, speak with, and understand your users. Between these services, more than three dozen languages are supported, allowing users to communicate with your application in natural ways.
+description: Azure AI services enable you to build applications that see, hear, speak with, and understand your users.
 services: cognitive-services
-author: PatrickFarley
+author: laujan
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: conceptual
-ms.date: 10/28/2021
-ms.author: pafarley
+ms.date: 07/18/2023
+ms.author: lajanuar
 ms.custom: seodec18
 ---
 
 # Natural language support for Azure AI services
 
-Azure AI services enable you to build applications that see, hear, speak with, and understand your users. Between these services, more than three dozen languages are supported, allowing users to communicate with your application in natural ways. Use the links below to view language availability by service.
+Azure AI services enable you to build applications that see, hear, articulate, and understand users. Our burgeoning language support capabilities enable users to communicate with your application in natural ways and help facilitate your global outreach. Use the links in the tables to view language support and availability by service.
 
 These Azure AI services are language agnostic and don't have limitations based on human language.
 
-* [Anomaly Detector](./anomaly-detector/index.yml)
-* [Custom Vision](./custom-vision-service/index.yml)
-* [Face](./computer-vision/overview-identity.md)
-* [Personalizer](./personalizer/index.yml)
+| Language support | Description |
+| --- | --- |
+| ![Anomaly Detector icon](media/service-icons/anomaly-detector.svg)[Anomaly Detector](./Anomaly-Detector/index.yml) | Identify potential problems early on |
+|![Custom Vision icon](media/service-icons/custom-vision.svg)[Custom Vision](./custom-vision-service/index.yml) |Customize image recognition to fit your business |
+|![Face icon](media/service-icons/face.svg) [Face](./computer-vision/overview-identity.md) | Detect and identify people and emotions in images |
+|![Personalizer icon](media/service-icons/personalizer.svg) [Personalizer](./personalizer/index.yml) | Create rich, personalized experiences for users |
 
-## Vision
+The following table provides links to the language support reference articles. 
 
-* [Vision](./computer-vision/language-support.md)
-* [Video Indexer](../azure-video-indexer/language-identification-model.md#guidelines-and-limitations)
-
-## Language
-
-* [Language Understanding (LUIS)](./luis/luis-language-support.md)
-* [QnA Maker](./qnamaker/overview/language-support.md)
-* [Language service](./language-service/language-detection/overview.md)
-* [Translator](./translator/language-support.md)
-
-## Speech
-
-* [Speech Service: Speech to text](./speech-service/language-support.md?tabs=stt)
-* [Speech Service: Text to speech](./speech-service/language-support.md?tabs=tts)
-* [Speech Service: Speech Translation](./speech-service/language-support.md?tabs=speech-translation)
-
-## Decision
-
-* [Content Moderator](./content-moderator/language-support.md)
+| Language support | Description |
+| --- | --- |
+| ![Content Moderator icon](media/service-icons/content-moderator.svg)</br> [Content Moderator](./content-moderator/language-support.md) (retired) | Detect potentially offensive or unwanted content |
+| ![Document Intelligence icon](media/service-icons/document-intelligence.svg)</br> [Document Intelligence](./document-intelligence/language-support.md) | Turn documents into usable data at a fraction of the time and cost |
+| ![Immersive Reader icon](media/service-icons/immersive-reader.svg)</br> [Immersive Reader](./immersive-reader/language-support.md) | Help users read and comprehend text |
+| ![Language icon](media/service-icons/language.svg)</br> [Language service](./language-service/language-detection/overview.md) | Build apps with industry-leading natural language understanding capabilities |
+| ![Language Understanding icon](media/service-icons/luis.svg)</br> [Language Understanding (LUIS)](./luis/luis-language-support.md) (retired) | Understand natural language in your apps |
+| ![QnA Maker icon](media/service-icons/luis.svg)</br> [QnA Maker](./qnamaker/overview/language-support.md) (retired) | Distill information into easy-to-navigate questions and answers |
+| ![Speech icon](media/service-icons/speech.svg)</br> [Speech Service: Speech to text](./speech-service/language-support.md?tabs=stt)</br>[Speech Service: Text to speech](./speech-service/language-support.md?tabs=tts)</br>[Speech Service: Speech Translation](./speech-service/language-support.md?tabs=speech-translation) | Speech to text, text to speech, translation and speaker recognition |
+| ![Translator icon](media/service-icons/translator.svg)</br> [Translator](./translator/language-support.md) | Translate more than 100 languages and dialects |
+| ![Video Indexer icon](media/service-icons/video-indexer.svg)</br> [Video Indexer](../azure-video-indexer/language-identification-model.md#guidelines-and-limitations) | Extract actionable insights from your videos |
+| ![Vision icon](media/service-icons/vision.svg)</br> [Vision](./computer-vision/language-support.md) | Analyze content in images and videos |
 
 ## See also
 
