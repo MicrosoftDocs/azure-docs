@@ -28,6 +28,7 @@ If you're a Services Partner and would like to be considered into Entra Verified
 | ![Screenshot of Condatis logo](media/services-partners/condatis.png) | [Decentralized Identity | Condatis](https://condatis.com/technology/decentralized-identity/) |
 | ![Screenshot of DXC logo](media/services-partners/dxc.png) | [Digital Identity - Connect with DXC](https://dxc.com/us/en/services/security/digital-identity) |
 | ![Screenshot of CTC logo](media/services-partners/ctc.png) | [CTC's SELMID offering](https://ctc-insight.com/selmid) |
+| ![Screenshot of Formula5 logo](media/services-partners/formula5.png) | [Verified ID - Formula5](https://formula5.com/accelerator-for-microsoft-entra-verified-id/)<br/>[Azure Marketplace Verified ID offering](https://azuremarketplace.microsoft.com/marketplace/consulting-services/formulaconsultingllc1668008672143.verifiable_credentials_formula5-preview?tab=Overview&flightCodes=d12a14cf40204b39840e5c0f114c1366) |
 | ![Screenshot of Kocho logo](media/services-partners/kocho.png) | [Connect with Kocho. See Verified Identity in Action](https://kocho.co.uk/contact-us/)<br/>[See Verified Identity in Action](https://kocho.co.uk/verified-id-in-action/) |
 | ![Screenshot of Predica logo](media/services-partners/predica.png) | [Verified ID - Predica Group](https://www.predicagroup.com/en/verified-id/) |
 | ![Screenshot of Sphereon logo](media/services-partners/sphereon.png) | [Sphereon supports customers on Microsoft's Entra Verified ID](https://sphereon.com/sphereon-supports-microsofts-entra-verified-id/) |
