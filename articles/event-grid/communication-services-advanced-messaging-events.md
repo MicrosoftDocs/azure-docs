@@ -97,5 +97,5 @@ This section contains an example of what that data would look like for each even
 > Possible values for `Status` are `Sent`, `Delivered`, `Read` and `Failed`.
 
 
-## Tutorial
-For a tutorial that shows how to subscribe for advanced messaging events using web hooks, see [Quickstart: Handle Advanced Messaging events](../communication-services/quickstarts\advancedmessaging\whatsapp\handle-advanced-messaging-events.md). 
+## Quickstart
+For a quickstart that shows how to subscribe for advanced messaging events using web hooks, see [Quickstart: Handle Advanced Messaging events](../communication-services/quickstarts/advancedmessaging/whatsapp/handle-advanced-messaging-events.md). 
