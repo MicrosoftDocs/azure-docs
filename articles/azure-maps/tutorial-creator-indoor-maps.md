@@ -160,7 +160,7 @@ To convert a drawing package:
 5. Enter the following URL to the [Conversion service]. Replace `{Your-Azure-Maps-Subscription-key}` with your Azure Maps subscription key. Replace `udid` with the `udid` value of the uploaded package.
 
     ```http
-    https://us.atlas.microsoft.com/conversions?subscription-key={Your-Azure-Maps-Subscription-key}&api-version=2023-03-01-preview&udid={udid}&inputType=DWG&dwgPackageVersion=2.0
+    https://us.atlas.microsoft.com/conversions?subscription-key={Your-Azure-Maps-Subscription-key}&api-version=2023-07-01&udid={udid}&inputType=DWG&dwgPackageVersion=2.0
     ```
 
 6. Select **Send**.
@@ -245,7 +245,7 @@ To create a dataset:
 5. Enter the following URL to the [Dataset service]. Replace `{conversionId}` with the `conversionId` value that you obtained in [Check the status of the drawing package conversion](#check-the-status-of-the-drawing-package-conversion).
 
     ```http
-    https://us.atlas.microsoft.com/datasets?api-version=2023-03-01-preview&conversionId={conversionId}&subscription-key={Your-Azure-Maps-Subscription-key}
+    https://us.atlas.microsoft.com/datasets?api-version=2023-07-01&conversionId={conversionId}&subscription-key={Your-Azure-Maps-Subscription-key}
     ```
 
 6. Select **Send**.
@@ -271,7 +271,7 @@ To check the status of the dataset creation process and retrieve the `datasetId`
 5. Enter the status URL that you copied in the [Create a dataset](#create-a-dataset) section. The request should look like the following URL:
 
     ```http
-    https://us.atlas.microsoft.com/datasets/operations/{operationId}?api-version=2023-03-01-preview&subscription-key={Your-Azure-Maps-Subscription-key}
+    https://us.atlas.microsoft.com/datasets/operations/{operationId}?api-version=2023-07-01&subscription-key={Your-Azure-Maps-Subscription-key}
     ```
 
 6. Select **Send**.
@@ -299,7 +299,7 @@ To create a tileset:
 5. Enter the following URL to the [Tileset service]. Replace `{datasetId}` with the `datasetId` value that you obtained in the [Check the dataset creation status](#check-the-dataset-creation-status) section.
 
     ```http
-    https://us.atlas.microsoft.com/tilesets?api-version=2023-03-01-preview&datasetID={datasetId}&subscription-key={Your-Azure-Maps-Primary-Subscription-key}
+    https://us.atlas.microsoft.com/tilesets?api-version=2023-07-01&datasetID={datasetId}&subscription-key={Your-Azure-Maps-Primary-Subscription-key}
     ```
 
 6. Select **Send**.
@@ -325,7 +325,7 @@ To check the status of the tileset creation process and retrieve the `tilesetId`
 5. Enter the status URL that you copied in the [Create a tileset](#create-a-tileset) section. The request should look like the following URL:
 
     ```http
-    https://us.atlas.microsoft.com/tilesets/operations/{operationId}?api-version=2023-03-01-preview&subscription-key={Your-Azure-Maps-Subscription-key}
+    https://us.atlas.microsoft.com/tilesets/operations/{operationId}?api-version=2023-07-01&subscription-key={Your-Azure-Maps-Subscription-key}
     ```
 
 6. Select **Send**.
