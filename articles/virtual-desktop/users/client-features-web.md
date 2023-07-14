@@ -72,7 +72,9 @@ There are several keyboard shortcuts you can use to help use some of the feature
 | <kbd>ALT</kbd>+<kbd>SHIFT</kbd>+<kbd>TAB</kbd> | <kbd>ALT</kbd>+<kbd>PAGE DOWN</kbd> | Switches between programs from right to left. |
 
 > [!NOTE]
-> You can copy and paste text only. Files can't be copied or pasted to and from the web client. Additionally, you can only use <kbd>CTRL</kbd>+<kbd>C</kbd> and <kbd>CTRL</kbd>+<kbd>V</kbd> to copy and paste text.
+> - You can copy and paste text only. Files can't be copied or pasted to and from the web client. Additionally, you can only use <kbd>CTRL</kbd>+<kbd>C</kbd> and <kbd>CTRL</kbd>+<kbd>V</kbd> to copy and paste text.
+>
+> - When you're connected to a desktop or app, you can access the resources toolbar at the top of window by using <kbd>CTRL</kbd>+<kbd>ALT</kbd>+<kbd>HOME</kbd> on Windows, or <kbd>FN</kbd>+<kbd>Control</kbd>+<kbd>Option</kbd>+<kbd>Home</kbd> on macOS.
 
 #### Input Method Editor
 
