@@ -2,7 +2,7 @@
 title: Set up Azure VM disaster recovery to a secondary region with Azure Site Recovery
 description: Quickly set up disaster recovery to another Azure region for an Azure VM, using the Azure Site Recovery service.
 ms.topic: quickstart
-ms.date: 07/13/2023
+ms.date: 07/14/2023
 ms.custom: mvc, mode-other
 ms.author: ankitadutta
 author: ankitaduttaMSFT

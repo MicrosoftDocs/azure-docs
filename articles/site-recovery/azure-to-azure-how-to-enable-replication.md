@@ -5,7 +5,7 @@ author: ankitaduttaMSFT
 ms.author: ankitadutta
 manager: rochakm
 ms.topic: how-to
-ms.date: 12/07/2022
+ms.date: 07/14/2023
 ms.service: site-recovery
 ---
 
