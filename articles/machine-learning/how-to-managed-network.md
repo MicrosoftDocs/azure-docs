@@ -651,8 +651,7 @@ To enable the [serverless spark jobs](how-to-submit-spark-jobs.md) for the manag
     ```
 
     # [Azure portal](#tab/portal)
-
-    Create a new compute instance or compute cluster, which also creates the managed virtual network.
+    Provisioning the managed Vnet for serverless Spark jobs is currently not supported through the Portal.
 
     ---
 
