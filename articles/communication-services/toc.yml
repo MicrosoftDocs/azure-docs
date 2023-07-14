@@ -805,7 +805,7 @@ items:
       - name: Email logs
         href: concepts/analytics/logs/email-logs.md
       - name: Email metrics overview
-        href: concepts/metrics.md
+        href: concepts/email-metrics.md
   - name: Network Traversal
     items:
     - name: Overview
