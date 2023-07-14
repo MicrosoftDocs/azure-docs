@@ -85,7 +85,7 @@ You can authorize access to data using your account access keys (Shared Key). Th
 
 ## Create a container
 
-A container acts as a file system for your files. You can create a container using the following method:
+A container acts as a file system for your files. You can create a container by using the following method:
 
 - [DataLakeServiceClient.create_file_system](/python/api/azure-storage-file-datalake/azure.storage.filedatalake.datalakeserviceclient#azure-storage-filedatalake-datalakeserviceclient-create-file-system)
 
@@ -95,7 +95,7 @@ The following code example creates a container and returns a `FileSystemClient` 
 
 ## Create a directory
 
-You can create a directory reference in the container using the following method:
+You can create a directory reference in the container by using the following method:
 
 - [FileSystemClient.create_directory](/python/api/azure-storage-file-datalake/azure.storage.filedatalake.filesystemclient#azure-storage-filedatalake-filesystemclient-create-directory)
 
@@ -107,7 +107,7 @@ The following code example adds a directory to a container and returns a `DataLa
 
 ## Rename or move a directory
 
-You can rename or move a directory using the following method:
+You can rename or move a directory by using the following method:
 
 - [DataLakeDirectoryClient.rename_directory](/python/api/azure-storage-file-datalake/azure.storage.filedatalake.datalakedirectoryclient#azure-storage-filedatalake-datalakedirectoryclient-rename-directory)
 
@@ -119,24 +119,41 @@ The following code example shows how to rename a subdirectory:
 
 ## Upload a file to a directory
 
-First, create a file reference in the target directory by creating an instance of the **DataLakeFileClient** class. Upload a file by calling the [DataLakeFileClient.append_data](/python/api/azure-storage-file-datalake/azure.storage.filedatalake.datalakefileclient#azure-storage-filedatalake-datalakefileclient-append-data) method. Make sure to complete the upload by calling the [DataLakeFileClient.flush_data](/python/api/azure-storage-file-datalake/azure.storage.filedatalake.datalakefileclient#azure-storage-filedatalake-datalakefileclient-flush-data) method.
+This section shows how to upload data to a file in the following ways:
 
-This example uploads a text file to a directory named `my-directory`.
+- You can upload data to be appended to a file by using the [append_data](/python/api/azure-storage-file-datalake/azure.storage.filedatalake.datalakefileclient#azure-storage-filedatalake-datalakefileclient-append-data) method.
+- You can upload content to a new or existing file by using the [upload_data](/python/api/azure-storage-file-datalake/azure.storage.filedatalake.datalakefileclient#azure-storage-filedatalake-datalakefileclient-upload-data) method.
+
+> [!TIP]
+> If your file size is larger than 4000 MiB, your code will have to make multiple calls to the [append_data](/python/api/azure-storage-file-datalake/azure.storage.filedatalake.datalakefileclient#azure-storage-filedatalake-datalakefileclient-append-data) method. When uploading large files, consider using [upload_data](/python/api/azure-storage-file-datalake/azure.storage.filedatalake.datalakefileclient#azure-storage-filedatalake-datalakefileclient-upload-data), which uploads the entire file with a single method call.
+
+### Upload data to a file using append_data
+
+The following code example shows how to append data to a file and using these steps:
+
+- Create a file reference in the target directory by creating a `DataLakeFileClient` object.
+- Upload data to the file using the [append_data](/python/api/azure-storage-file-datalake/azure.storage.filedatalake.datalakefileclient#azure-storage-filedatalake-datalakefileclient-append-data) method.
+- Complete the upload by calling the [flush_data](/python/api/azure-storage-file-datalake/azure.storage.filedatalake.datalakefileclient#azure-storage-filedatalake-datalakefileclient-flush-data) method to write the previously uploaded data to the file.
 
 :::code language="python" source="~/azure-storage-snippets/blobs/howto/python/python-v12/crud_datalake.py" id="Snippet_UploadFile":::
 
-> [!TIP]
-> If your file size is large, your code will have to make multiple calls to the **DataLakeFileClient** [append_data](/python/api/azure-storage-file-datalake/azure.storage.filedatalake.datalakefileclient#azure-storage-filedatalake-datalakefileclient-append-data) method. Consider using the [upload_data](/python/api/azure-storage-file-datalake/azure.storage.filedatalake.datalakefileclient#azure-storage-filedatalake-datalakefileclient-upload-data) method instead. That way, you can upload the entire file in a single call.
+Using this method, data can only be appended to a file and the operation is limited to 4000 MiB per request.
 
-## Upload a large file to a directory
+### Upload a file using upload_data
 
-Use the [DataLakeFileClient.upload_data](/python/api/azure-storage-file-datalake/azure.storage.filedatalake.datalakefileclient#azure-storage-filedatalake-datalakefileclient-upload-data) method to upload large files without having to make multiple calls to the [DataLakeFileClient.append_data](/python/api/azure-storage-file-datalake/azure.storage.filedatalake.datalakefileclient#azure-storage-filedatalake-datalakefileclient-append-data) method.
+The following code example shows how to upload a file to a directory using the [upload_data](/python/api/azure-storage-file-datalake/azure.storage.filedatalake.datalakefileclient#azure-storage-filedatalake-datalakefileclient-upload-data) method. This method can be used to upload large files without having to make multiple calls to [append_data](/python/api/azure-storage-file-datalake/azure.storage.filedatalake.datalakefileclient#azure-storage-filedatalake-datalakefileclient-append-data).
 
 :::code language="python" source="~/azure-storage-snippets/blobs/howto/python/python-v12/crud_datalake.py" id="Snippet_UploadFileBulk":::
 
+You can use this method to create and upload content to a new file, or you can set the `overwrite` argument to `True` to overwrite an existing file.
+
 ## Download from a directory
 
-Open a local file for writing. Then, create a **DataLakeFileClient** instance that represents the file that you want to download. Call the [DataLakeFileClient.download_file](/python/api/azure-storage-file-datalake/azure.storage.filedatalake.datalakefileclient#azure-storage-filedatalake-datalakefileclient-download-file) to read bytes from the file and then write those bytes to the local file.
+The following code example shows how to download a file from a directory to a local file using these steps:
+
+- Create a `DataLakeFileClient` object to represent the file you want to download.
+- Open a local file for writing. 
+- Call the [download_file](/python/api/azure-storage-file-datalake/azure.storage.filedatalake.datalakefileclient#azure-storage-filedatalake-datalakefileclient-download-file) method to read from the file, then write the data to the local file.
 
 :::code language="python" source="~/azure-storage-snippets/blobs/howto/python/python-v12/crud_datalake.py" id="Snippet_DownloadFromDirectory":::
 
@@ -144,7 +161,7 @@ Open a local file for writing. Then, create a **DataLakeFileClient** instance th
 
 List directory contents by calling the [FileSystemClient.get_paths](/python/api/azure-storage-file-datalake/azure.storage.filedatalake.filesystemclient#azure-storage-filedatalake-filesystemclient-get-paths) method, and then enumerating through the results.
 
-This example, prints the path of each subdirectory and file that is located in a directory named `my-directory`.
+This example prints the path of each subdirectory and file that is located in a directory named `my-directory`.
 
 :::code language="python" source="~/azure-storage-snippets/blobs/howto/python/python-v12/crud_datalake.py" id="Snippet_ListFilesInDirectory":::
 
