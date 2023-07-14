@@ -254,9 +254,9 @@ If you need to export to a storage account behind the firewall due to security a
 
 Enable trusted Azure services access on the storage account from the Exports page. Here's a screenshot showing the page.
 
-<Insert screenshot on enabling trusted azure services> 
+:::image type="content" source="./media/tutorial-export-acm-data/xxx.png" alt-text="Screenshot showing the From any storage account option set." lightbox="./media/tutorial-export-acm-data/xxx.png" :::
 
-A screenshot of a computer
+
 
 Description automatically generated with medium confidence 
 
