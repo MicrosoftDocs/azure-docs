@@ -1,14 +1,13 @@
 ---
 title: Dedicated SQL pool (formerly SQL DW) architecture 
 description: Learn how Dedicated SQL pool (formerly SQL DW) in Azure Synapse Analytics combines distributed query processing capabilities with Azure Storage to achieve high performance and scalability.  
-author: mlee3gsd
+author: WilliamDAssafMSFT 
 manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice: sql-dw 
 ms.date: 07/20/2022
-ms.author: martinle
-ms.reviewer: wiassaf
+ms.author: wiassaf
 ---
 
 # Dedicated SQL pool (formerly SQL DW) architecture in Azure Synapse Analytics

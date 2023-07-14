@@ -112,7 +112,7 @@ If you run into any issues with Start VM On Connect, we recommend you use the Az
 If the session host VM doesn't turn on, you'll need to check the health of the VM you tried to turn on as a first step.
 
 > [!NOTE]
-> Connecting to a session host outside of Azure Virtual Desktop that is powered off, such as using the MSTSC client, won't start the VM.
+> Connecting to a session host outside of Azure Virtual Desktop that is powered off, such as by using the MSTSC client, won't start the VM.
 
 For other questions, check out the [Start VM on Connect FAQ](start-virtual-machine-connect-faq.md).
 
