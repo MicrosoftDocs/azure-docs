@@ -639,6 +639,59 @@ Currently, the Windows agent doesn't reduce memory pressure when other applicati
 
 * The agent-based network faults currently only support IPv4 addresses.
 
+## Network packet loss
+
+| Property | Value |
+|-|-|
+| Capability name | NetworkPacketLoss-1.0 |
+| Target type | Microsoft-Agent |
+| Supported OS types | Windows, Linux |
+| Description | Introduces packet loss for outbound traffic at a specified rate, between 0.0 (no packets lost) and 1.0 (all packets lost). This can help simulate scenarios like network congestion or network hardware issues. |
+| Prerequisites | Agent must run as administrator. If the agent is installed as a VM extension, it runs as administrator by default. |
+| Urn | urn:csci:microsoft:agent:networkPacketLoss/1.0 |
+| Parameters (key, value) |  |
+| lossRate | The rate at which packets matching the destination filters will be lost, ranging from 0.0 to 1.0. |
+| virtualMachineScaleSetInstances | An array of instance IDs when this fault is applied to a virtual machine scale set. Required for virtual machine scale sets. |
+| destinationFilters | Delimited JSON array of packet filters (parameters below) that define which outbound packets to target for fault injection. Maximum of three.|
+| address | IP address that indicates the start of the IP range. |
+| subnetMask | Subnet mask for the IP address range. |
+| portLow | (Optional) Port number of the start of the port range. |
+| portHigh | (Optional) Port number of the end of the port range. |
+
+### Sample JSON
+
+```json
+{
+  "name": "branchOne",
+  "actions": [
+    {
+      "type": "continuous",
+      "name": "urn:csci:microsoft:agent:networkPacketLoss/1.0",
+      "parameters": [
+            {
+                "key": "destinationFilters",
+                "value": "[{\"address\":\"23.45.229.97\",\"subnetMask\":\"255.255.255.224\",\"portLow\":5000,\"portHigh\":5200}]"
+            },
+            {
+                "key": "lossRate",
+                "value": 0.5
+            },
+            {
+                "key": "virtualMachineScaleSetInstances",
+                "value": "[0,1,2]"
+            }
+        ],
+      "duration": "PT10M",
+      "selectorid": "myResources"
+    }
+  ]
+}
+```
+
+### Limitations
+
+* The agent-based network faults currently only support IPv4 addresses.
+
 ## Azure Resource Manager virtual machine shutdown
 | Property | Value |
 |-|-|
