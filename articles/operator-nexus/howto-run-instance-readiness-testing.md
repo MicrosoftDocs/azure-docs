@@ -34,7 +34,7 @@ Instance Readiness Testing (IRT) is a framework built to orchestrate real-world 
         1. `elinks` for viewing html files on the command line
         1. `tree` for viewing directory structures
         1. `moreutils` utilities for viewing progress from the ACI container
-1. [Optional] Set up a storage account to archive test results over time. For help, see the [Instructions](#uploading-results-to-your-own-archive)
+1. [Optional] Set up a storage account to archive test results over time. For help, see the [instructions](#uploading-results-to-your-own-archive)
 1. Log into Azure, if not already logged in: `az login --use-device`
     * User should have `Contributor` role
 2. Create an Azure Managed Identity for the container to use.
