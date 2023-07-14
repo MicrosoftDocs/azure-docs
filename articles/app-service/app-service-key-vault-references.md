@@ -12,7 +12,9 @@ ms.custom: seodec18
 
 # Use Key Vault references as app settings in Azure App Service and Azure Functions
 
-This article shows you how to use secrets from Azure Key Vault as app settings or connection strings in your App Service or Azure Functions apps. [Azure Key Vault](../key-vault/general/overview.md) is a service that provides centralized secrets management, with full control over access policies and audit history. When an app setting or connection string is a key vault reference, your application code can use it like any other app setting or connection string.
+This article shows you how to use secrets from Azure Key Vault as values of [app settings](configure-common.md#configure-app-settings) or [connection strings](configure-common.md#configure-connection-strings) in your App Service or Azure Functions apps. 
+
+[Azure Key Vault](../key-vault/general/overview.md) is a service that provides centralized secrets management, with full control over access policies and audit history. When an app setting or connection string is a key vault reference, your application code can use it like any other app setting or connection string. This way, you can maintain secrets apart from your app's configuration. App settings are securely encrypted at rest, but if you need secret management capabilities, they should go into a key vault.
 
 ## Granting your app access to a key vault
 
@@ -22,13 +24,12 @@ In order to read secrets from a key vault, you need to have a vault created and 
 
 1. Create a [managed identity](overview-managed-identity.md) for your application.
 
-    Key vault references uses the app's system-assigned identity by default, but you can [specify a user-assigned identity](#access-vaults-with-a-user-assigned-identity).
+    Key vault references use the app's system-assigned identity by default, but you can [specify a user-assigned identity](#access-vaults-with-a-user-assigned-identity).
 
 1. Authorize [read access to secrets your key vault](../key-vault/general/security-features.md#privileged-access) for the managed identity you created earlier. How you do it depends on the permissions model of your key vault:
 
     - **Azure role-based access control**: Assign the **Key Vault Secrets User** role to the managed identity. For instructions, see [Provide access to Key Vault keys, certificates, and secrets with an Azure role-based access control](../key-vault/general/rbac-guide.md).
     - **Vault access policy**: Assign the **Get** secrets permission to the managed identity. For instructions, see [Assign a Key Vault access policy](../key-vault/general/assign-access-policy.md).
-    - 
 
 ### Access network-restricted vaults
 
@@ -36,7 +37,7 @@ If your vault is configured with [network restrictions](../key-vault/general/ove
 
 1. Make sure the application has outbound networking capabilities configured, as described in [App Service networking features](./networking-features.md) and [Azure Functions networking options](../azure-functions/functions-networking-options.md).
 
-    Linux applications that connect to private endpoints must be explicitly configured to route all traffic through the virtual network. This requirement will be removed in a forthcoming update. To set this, use the following Azure CLI or Azure PowerShell command:
+    Linux applications that connect to private endpoints must be explicitly configured to route all traffic through the virtual network. This requirement will be removed in a forthcoming update. To configure this setting, run the following command:
 
     # [Azure CLI](#tab/azure-cli)
 
@@ -87,22 +88,20 @@ Once you have granted permissions to the user-assigned identity, follow these st
     
     ---
 
-This configuration will apply to all references for the app.
+This setting applies to all key vault references for the app.
 
 ## Rotation
 
-If the secret version isn't specified in the reference, the app uses the latest version that exists in the key vault. When newer versions become available, such as with a rotation event, the app automatically updates and begins using the latest version within 24 hours. The delay is because App Service caches the values of the key vault references and refetches it every 24 hours. Any configuration changes to the app causes an app restart and an immediate refetch of all referenced secrets.
+If the secret version isn't specified in the reference, the app uses the latest version that exists in the key vault. When newer versions become available, such as with a rotation event, the app automatically updates and begins using the latest version within 24 hours. The delay is because App Service caches the values of the key vault references and refetches it every 24 hours. Any configuration change to the app causes an app restart and an immediate refetch of all referenced secrets.
 
 ## Source app settings from key vault
-
-Key vault references can be used as values for [app settings](configure-common.md#configure-app-settings) or [connection strings](configure-common.md#configure-connection-strings), allowing you to keep secrets in a key vault instead of the site config. App settings are securely encrypted at rest, but if you need secret management capabilities, they should go into a key vault.
 
 To use a key vault reference, set the reference as the value of the setting. Your app can reference the secret through its key as normal. No code changes are required.
 
 > [!TIP]
 > Most app settings using key vault references should be marked as slot settings, as you should have separate vaults for each environment.
 
-A key vault reference is of the form `@Microsoft.KeyVault({referenceString})`, where `{referenceString}` is replaced by one of the following options:
+A key vault reference is of the form `@Microsoft.KeyVault({referenceString})`, where `{referenceString}` is in one of the following formats:
 
 > [!div class="mx-tdBreakAll"]
 > | Reference string                                                            | Description                                                                                                                                                                                 |
@@ -110,7 +109,7 @@ A key vault reference is of the form `@Microsoft.KeyVault({referenceString})`, w
 > | SecretUri=_secretUri_                                                       | The **SecretUri** should be the full data-plane URI of a secret in the vault, optionally including a version, e.g., `https://myvault.vault.azure.net/secrets/mysecret/` or `https://myvault.vault.azure.net/secrets/mysecret/ec96f02080254f109c51a1f14cdb1931`  |
 > | VaultName=_vaultName_;SecretName=_secretName_;SecretVersion=_secretVersion_ | The **VaultName** is required and is the vault name. The **SecretName** is required and is the secret name. The **SecretVersion** is optional but if present indicates the version of the secret to use. |
 
-For example, a complete reference would look like the following:
+For example, a complete reference would look like the following string:
 
 ```
 @Microsoft.KeyVault(SecretUri=https://myvault.vault.azure.net/secrets/mysecret/)
@@ -126,12 +125,12 @@ Alternatively:
 
 Apps can use the `WEBSITE_CONTENTAZUREFILECONNECTIONSTRING` application setting to mount [Azure Files](../storage/files/storage-files-introduction.md) as the file system. This setting has validation checks to ensure that the app can be properly started. The platform relies on having a content share within Azure Files, and it assumes a default name unless one is specified via the `WEBSITE_CONTENTSHARE` setting. For any requests that modify these settings, the platform validates if this content share exists, and attempts to create it if not. If it can't locate or create the content share, it blocks the request.
 
-When using key vault references for this setting, this validation check fails by default, as the secret itself can't be resolved while processing the incoming request. To avoid this issue, you can skip the validation by setting `WEBSITE_SKIP_CONTENTSHARE_VALIDATION` to "1". This setting tells App Service to bypass all checks, and doesn't create the content share for you. You should ensure it is created in advance. 
+When you use key vault references in this setting, the validation check fails by default, because the secret itself can't be resolved while processing the incoming request. To avoid this issue, you can skip the validation by setting `WEBSITE_SKIP_CONTENTSHARE_VALIDATION` to "1". This setting tells App Service to bypass all checks, and doesn't create the content share for you. You should ensure that it's created in advance. 
 
 > [!CAUTION]
 > If you skip validation and either the connection string or content share are invalid, the app will be unable to start properly and will only serve HTTP 500 errors.
 
-As part of creating the app, attempted mounting of the content share could fail due to managed identity permissions not being propagated or the virtual network integration not being set up. You can defer setting up Azure Files until later in the deployment template to accommodate this. See [Azure Resource Manager deployment](#azure-resource-manager-deployment) to learn more. App Service will use a default file system until Azure Files is set up, and files aren't copied over. You must ensure that no deployment attempts occur during the interim period before Azure Files is mounted.
+As part of creating the app, attempted mounting of the content share could fail due to managed identity permissions not being propagated or the virtual network integration not being set up. You can defer setting up Azure Files until later in the deployment template to accommodate this. See [Azure Resource Manager deployment](#azure-resource-manager-deployment) to learn more. In this case, App Service uses a default file system until Azure Files is set up, and files aren't copied over. You must ensure that no deployment attempts occur during the interim period before Azure Files is mounted.
 
 ### Considerations for Application Insights instrumentation
 
@@ -139,9 +138,9 @@ Apps can use the `APPINSIGHTS_INSTRUMENTATIONKEY` or `APPLICATIONINSIGHTS_CONNEC
 
 ### Azure Resource Manager deployment
 
-When automating resource deployments through Azure Resource Manager templates, you may need to sequence your dependencies in a particular order to make this feature work. Be sure to define your app settings as their own resource, rather than using a `siteConfig` property in the app definition. This is because the site needs to be defined first so that the system-assigned identity is created with it and can be used in the access policy.
+When automating resource deployments through Azure Resource Manager templates, you may need to sequence your dependencies in a particular order to make this feature work. Be sure to define your app settings as their own resource, rather than using a `siteConfig` property in the app definition. This is because the app needs to be defined first so that the system-assigned identity is created with it and can be used in the access policy.
 
-An example pseudo-template for a function app might look like the following:
+The following pseudo-template is an example of what a function app might look like:
 
 ```json
 {
@@ -249,11 +248,11 @@ An example pseudo-template for a function app might look like the following:
 
 ## Troubleshooting key vault references
 
-If a reference isn't resolved properly, the reference value is used instead. This means that for application settings, an environment variable would be created whose value has the `@Microsoft.KeyVault(...)` syntax. This may cause the application to throw errors, as it was expecting a secret of a certain structure.
+If a reference isn't resolved properly, the reference string is used instead (for example, `@Microsoft.KeyVault(...)`). It may cause the application to throw errors, because it's expecting a secret of a different value.
 
-Most commonly, this is due to a misconfiguration of the [Key Vault access policy](#granting-your-app-access-to-key-vault). However, it could also be due to a secret no longer existing or a syntax error in the reference itself.
+Failure to resolve is commonly due to a misconfiguration of the [Key Vault access policy](#granting-your-app-access-to-key-vault). However, it could also be due to a secret no longer existing or a syntax error in the reference itself.
 
-If the syntax is correct, you can view other causes for error by checking the current resolution status in the portal. Navigate to Application Settings and select "Edit" for the reference in question. The edit dialog shows status information, including any errors. If you don't see the status message, it means that the syntax is invalid and it's not recognized as a key vault reference.
+If the syntax is correct, you can view other causes for error by checking the current resolution status in the portal. Navigate to Application Settings and select "Edit" for the reference in question. The edit dialog shows status information, including any errors. If you don't see the status message, it means that the syntax is invalid and not recognized as a key vault reference.
 
 You can also use one of the built-in detectors to get additional information.
 
