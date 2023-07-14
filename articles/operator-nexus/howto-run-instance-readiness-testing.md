@@ -9,7 +9,7 @@ ms.date: 07/13/2023
 ms.custom: template-how-to, devx-track-azurecli
 ---
 
-# Instance Resource Testing
+# Instance Readiness Testing
 
 Instance Readiness Testing (IRT) is a framework built to orchestrate real world workloads for testing on the Nexus For Operators Platform.
 
@@ -20,7 +20,7 @@ Instance Readiness Testing (IRT) is a framework built to orchestrate real world 
     * Networks to use for the test are specified in a "network-blueprint.jsonc" file, see [Input Configuration](#input-configuration).
 2. curl or wget to download IRT package
 
-## Before Execution
+## Before execution
 
 1. Download nexus-irt.tar.gz from aka.ms/nexus-irt `curl -Lo nexus-irt.tar.gz aka.ms/nexus-irt`
 1. Extract the tarball to the local file system: `mkdir -p irt && tar xf nexus-irt.tar.gz --directory ./irt`
@@ -48,7 +48,7 @@ Instance Readiness Testing (IRT) is a framework built to orchestrate real world 
    * `create-l3-isolation-domains.sh` takes one parameter, a path to your networks blueprint file; here's an example of the script being invoked:
      * `create-l3-isolation-domains.sh ./networks-blueprint.yml`
 
-### Input Configuration
+### Input configuration
 
 1. Build your input file. The IRT tarball provides `irt-input.example.yml` as an example. These values **will not work for all instances**, they need to be manually changed and the file also needs to be renamed to `irt-input.yml`
 1. define the values of networks-blueprint input, an example of this file is given in networks-blueprint.example.yml
@@ -76,7 +76,7 @@ The network blueprint input schema for IRT is defined in the networks-blueprint.
        1.  `elinks summary-<cluster_name>-<timestamp>..html`
     1. When SAS Token & URL is provided for the `PUBLISH_RESULTS_TO` parameter the results are uploaded to the blob container you specified. It can be previewed by navigating to the link presented to you at the end of the IRT run.
 
-### Uploading Results to Your Own Archive
+### Uploading results to your own archive
 
 1. We offer a supplementary script, `create-archive-storage.sh` to allow you to set up a storage container to store your results. The script generates an SAS Token for a storage container that is valid for three days. The script creates a storage container, storage account, and resource group if they don't already exist.
    1. The script expects the following environment variables to be defined:
