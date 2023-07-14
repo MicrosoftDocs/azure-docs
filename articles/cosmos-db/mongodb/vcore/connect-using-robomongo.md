@@ -11,7 +11,7 @@ ms.author: lucasbo
 # Use Studio 3T with Azure Cosmos DB's API for MongoDB vCore
 [!INCLUDE[MongoDB vCore](../../includes/appliesto-mongodb-vcore.md)]
 
-Studio 3T is a GUI that offers IDE & client tools for MongoDB in all current major operating systems: Windows, MacOS, and Linux. It's a great tool to speed up tasks that would otherwise have to be done using less user friendly interfaces. In order to connect to your Azure Cosmos DB for MongoDB vCore cluster using Studio 3T, you must:
+Studio 3T (also known as Robomongo or Robo 3T) is a professional GUI that offers IDE & client tools for MongoDB. It's a great tool to speed up MongoDB development with a friendly user interface. In order to connect to your Azure Cosmos DB for MongoDB vCore cluster using Studio 3T, you must:
 
 * Download and install [Studio 3T](https://robomongo.org/)
 * Have your Azure Cosmos DB for MongoDB vCore [connection string](quickstart-portal.md#get-cluster-credentials) information
@@ -37,3 +37,9 @@ To add your Azure Cosmos DB cluster to the Studio 3T connection manager, perform
 
     :::image type="content" source="./media/connect-using-robomongo/connectionssl.png" alt-text="Screenshot of the Studio 3T new connection SSL Tab":::
 7. Finally, click **Test Connection** in the bottom left to verify that you are able to connect, then click **Save**.
+
+## Next steps
+
+- Learn [how to use Bicep templates](quickstart-bicep.md) to deploy your Azure Cosmos DB for MongoDB vCore cluster.
+- Learn [how to connect your Nodejs web application](tutorial-nodejs-web-app.md) to a MongoDB vCore cluster.
+- Check the [migration options](migration-options.md) to lift and shift your MongoDB workloads to Azure Cosmos DB for MongoDB vCore.
