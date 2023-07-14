@@ -58,4 +58,13 @@ To view a task's history of runs along with their statuses, inputs, outputs, and
 2. On the resource's menu, under Settings, in the Automation section, select Tasks (preview).
 3. In the tasks list, find the task that you want to review. In that task's Runs column, select View.
 
+## Edit the task
+
+To change a task, you can either:
+- Edit the task "inline" to change the task's properties, such as connection information or configuration information.
+- Edit the task's underlying workflow in the workflow designer by navigating to the Azure Logic Apps service.
+
+Remember, as this feature is in preview, it may be subject to change and should be used with caution in production environments.
+
+
 
