@@ -50,20 +50,22 @@ Each successfully authenticated connection looks similar to this example:
 7. After you authenticate all the connections, select Next: **Configure**.
 8. Under **Configure**, provide a name for the task and any other information required for the task. When you're done, select **Review + create**.
 
-The task you've created, which is automatically live and running, will appear on the Tasks list.
+> [!NOTE]
+> You can't change the task name after creation, so consider a name that still applies if you [edit the underlying workflow](#edit-task-workflow). Changes that you make to the underlying workflow apply only to the task that you created, not the task template.
+>
+> For example, if you name your task `Stop-Instance-Weekly`, but you later edit the underlying workflow to run daily, you can't change your task's name to `Stop-Instance-Daily`.
+
+9. Tasks that send email notifications require an email address.
+
+The task you've created, which is automatically live and running, will appear on the **Tasks** list.
 
 ## Review task history
 
 To view a task's history of runs along with their statuses, inputs, outputs, and other information:
 
-1. In the Azure portal, find the PostgreSQL Flexible Server resource that has the task history you want to review.
-2. On the resource's menu, under Settings, in the Automation section, select Tasks (preview).
-3. In the tasks list, find the task that you want to review. In that task's Runs column, select View.
-
-> [!NOTE]
-> You can't change the task name after creation, so consider a name that still applies if you [edit the underlying workflow](#edit-task-workflow). Changes that you make to the underlying workflow apply only to the task that you created, not the task template.
->
-> For example, if you name your task `StopInstanceWeekly`, but you later edit the underlying workflow to run daily, you can't change your task's name to `StopInstanceDaily`.
+1. In the [Azure portal](https://portal.azure.com), find the PostgreSQL Flexible Server resource that you want to manage.
+2. On the resource navigation menu, in the **Automation** section, select **Tasks (preview)**.
+3. In the tasks list, find the task that you want to review. In that task's **Runs** column, select **View**.
 
 ## Edit the task
 
