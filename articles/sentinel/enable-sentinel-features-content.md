@@ -18,7 +18,7 @@ To begin your deployment, you need to enable Microsoft Sentinel and set up key f
 |---------|---------|
 |1. [Enable the Microsoft Sentinel service](quickstart-onboard.md#enable)     | In the Azure portal, enable Microsoft Sentinel to run on the Log Analytics workspace your organization planned as part of your workspace design.       |
 |2. [Enable health and audit](enable-monitoring.md)     |Enable health and audit at this stage of your deployment to make sure that the service's many moving parts are always functioning as intended and that the service isn't being manipulated by unauthorized actions. Learn more about the [health and audit](health-audit.md) feature.         |
-|3. [Enable solutions and content](sentinel-solutions-deploy.md)     |When you planned your deployment, you [identified which data sources you need to ingest into Microsoft Sentinel](prioritize-data-connectors.md). Now, you want to [enable the relevant solutions and content](sentinel-solutions-deploy.md) so that the data you need can start flowing into Microsoft Sentinel.         |
+|3. [Enable solutions and content](sentinel-solutions-deploy.md)     |When you planned your deployment, you identified which data sources you need to ingest into Microsoft Sentinel. Now, you want to enable the relevant solutions and content so that the data you need can start flowing into Microsoft Sentinel.         |
 
 ## Next steps
 
