@@ -18,7 +18,7 @@ Instance Readiness Testing (IRT) is a framework built to orchestrate real-world 
 1. A Linux environment (Ubuntu suggested) capable of calling Azure APIs
 1. Knowledge of networks to use for the test
     * Networks to use for the test are specified in a "network-blueprint.yml" file, see [Input Configuration](#input-configuration).
-2. curl or wget to download IRT package
+1. curl or wget to download IRT package
 
 ## Before execution
 
@@ -37,13 +37,13 @@ Instance Readiness Testing (IRT) is a framework built to orchestrate real-world 
 1. [Optional] Set up a storage account to archive test results over time. For help, see the [instructions](#uploading-results-to-your-own-archive)
 1. Log into Azure, if not already logged in: `az login --use-device`
     * User should have `Contributor` role
-2. Create an Azure Managed Identity for the container to use.
+1. Create an Azure Managed Identity for the container to use.
     * Using the provided script: `MI_RESOURCE_GROUP="<your resource group> MI_NAME="<managed identity name>" SUBSCRIPTION="<subscription>" ./create-managed-identity.sh`
     * Can be created manually via the Azure portal, refer to the script for needed permissions
-3. Create a service principal and security group. The service principal is used as the executor of the test. The group informs the kubernetes cluster of valid users. The service principal must be a part of the security group, so it has the ability to log into the cluster.
+1. Create a service principal and security group. The service principal is used as the executor of the test. The group informs the kubernetes cluster of valid users. The service principal must be a part of the security group, so it has the ability to log into the cluster.
     * You can provide your own, or use our provided script, here's an example of how it could be executed; `AAD_GROUP_NAME=external-test-aad-group-8 SERVICE_PRINCIPAL_NAME=external-test-sp-8 ./irt/create-service-principal.sh`
     * This script prints four key/value pairs for you to include in your input file.
-4. If necessary, create the isolation domains required to execute the tests. They aren't lifecycled as part of this test scenario.
+1. If necessary, create the isolation domains required to execute the tests. They aren't lifecycled as part of this test scenario.
    * **Note:** if deploying isolation domains, your network blueprint must define at least one external network per isolation domain. see `networks-blueprint.example.yml` for help with configuring your network blueprint.
    * `create-l3-isolation-domains.sh` takes one parameter, a path to your networks blueprint file; here's an example of the script being invoked:
      * `create-l3-isolation-domains.sh ./networks-blueprint.yml`
