@@ -2292,7 +2292,7 @@ groups:
   - id: ms-powershell
     title: Microsoft Graph PowerShell
 ## template without azure AD PowerShell
-- id: enterprise-apps-minus-aad-powershell
+- id: enterprise-apps-minus-former-powershell
   title: Manage Enterprise apps
   prompt: Choose an option
   pivots:

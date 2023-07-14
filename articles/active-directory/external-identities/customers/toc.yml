@@ -61,6 +61,8 @@ items:
             - name: Node.js - call an API
               href: sample-daemon-node-call-api.md
               displayName: client credentials grant
+            - name: .NET - call an API
+              href: sample-daemon-dotnet-call-api.md
         - name: Desktop app
           items:
             - name: Electron - sign in users
@@ -181,17 +183,21 @@ items:
         items: 
           - name: Node.js
             items:
-              - name: Acquire token, call an API
-                items:
-                  - name: Overview
-                    href: how-to-daemon-node-call-api-overview.md
-                    displayName: client credentials flow
-                  - name: Prepare tenant
-                    href: how-to-daemon-node-call-api-prepare-tenant.md
-                  - name: Prepare app
-                    href: how-to-daemon-node-call-api-prepare-app.md 
-                  - name: Acquire access token and call API
-                    href: how-to-daemon-node-call-api-call-api.md
+              - name: Overview
+                href: how-to-daemon-node-call-api-overview.md
+                displayName: client credentials flow
+              - name: Prepare tenant
+                href: how-to-daemon-node-call-api-prepare-tenant.md
+              - name: Prepare app
+                href: how-to-daemon-node-call-api-prepare-app.md 
+              - name: Acquire access token and call API
+                href: how-to-daemon-node-call-api-call-api.md
+          - name: .NET
+            items:
+              - name: Prepare tenant
+                href: tutorial-daemon-dotnet-call-api-prepare-tenant.md
+              - name: Acquire access token and call API
+                href: tutorial-daemon-dotnet-call-api-build-app.md 
       - name: Desktop app
         items:
           - name: .NET MAUI
