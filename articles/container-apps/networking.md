@@ -204,6 +204,27 @@ With the workload profiles environment (preview), you can fully secure your ingr
 - Integrate your Container Apps with an Application Gateway. For steps, see [here](./waf-app-gateway.md).
 - Configure UDR to route all traffic through Azure Firewall. For steps, see [here](./user-defined-routes.md).
 
+## mTLS - preview
+
+Azure Container Apps supports mutual transport layer security (mTLS) to provide encryption for apps communicating within an environment. One shared certificate is used by applications within an environment. Authorization and authentication through mTLS are not supported.
+
+> [!NOTE]
+> Enabling mTLS for your applications may increase response latency and reduce maximum throughput in high-load scenarios.
+
+# [Azure CLI](#tab/azure-cli)
+
+You can enable mTLS using the below commands.
+
+On create:
+```azurecli
+az containerapp env create --enable-mtls
+```
+
+For an existing container app:
+```azurecli
+az containerapp env update --enable-mtls
+```
+
 ## DNS
 
 -	**Custom DNS**: If your VNet uses a custom DNS server instead of the default Azure-provided DNS server, configure your DNS server to forward unresolved DNS queries to `168.63.129.16`. [Azure recursive resolvers](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-that-uses-your-own-dns-server) uses this IP address to resolve requests. When configuring your NSG or Firewall, don't block the `168.63.129.16` address, otherwise, your Container Apps environment won't function.
