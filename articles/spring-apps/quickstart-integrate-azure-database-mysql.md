@@ -152,7 +152,7 @@ Azure Spring Apps connections are displayed under **Settings > Service Connector
 
 ---
 
-Repeat to validate the service connector action for the app `customers-service`, which is also required for apps `vets-service` and `visits-service`.
+Repeat these instructions to validate the connections for the `customers-service`, `vets-service`, and `visits-service` applications.
 
 ## Update apps to use MySQL profile
 
