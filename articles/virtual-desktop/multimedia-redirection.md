@@ -21,33 +21,36 @@ Before you can use multimedia redirection on Azure Virtual Desktop, you'll need 
 
 - An Azure Virtual Desktop deployment.
 - Microsoft Edge or Google Chrome installed on your session hosts.
-- Windows Desktop client, version 1.2.3916 or later on Windows 11, Windows 10, or Windows 10 IoT Enterprise devices. This includes the multimedia redirection plugin (`C:\Program Files\Remote Desktop\MsMmrDVCPlugin.dll`), which is required on the client device. Your device must meet the [hardware requirements for Teams on a Windows PC](/microsoftteams/hardware-requirements-for-the-teams-app#hardware-requirements-for-teams-on-a-windows-pc/).
+- Windows Desktop client:
+   - To use Video Playback Redirection, you must install [Windows Desktop client, version 1.2.3916 or later](/windows-server/remote/remote-desktop-services/clients/windowsdesktop-whatsnew). This feature is only compatible with version 1.2.3916 or later of the Windows Desktop client.
+
+   - To use Call Redirection, you must install the Windows Desktop client, version 1.2.4237 or later with [Insider releases enabled](./users/client-features-windows.md#enable-windows-insider-releases).
+
 - Microsoft Visual C++ Redistributable 2015-2022, version 14.32.31332.0 or later installed on your session hosts and Windows client devices. You can download the latest version from [Microsoft Visual C++ Redistributable latest supported downloads](/cpp/windows/latest-supported-vc-redist).
 
-To use multimedia redirection video playback redirection, you must install [Windows Desktop client, version 1.2.3916 or later](/windows-server/remote/remote-desktop-services/clients/windowsdesktop-whatsnew). This feature is only compatible with version 1.2.3916 or later of the Windows Desktop client.
+- Your device must meet the [hardware requirements for Teams on a Windows PC](/microsoftteams/hardware-requirements-for-the-teams-app#hardware-requirements-for-teams-on-a-windows-pc/).
 
-To use multimedia redirection WebRTC call redirection, you must install the Windows Desktop client, version 1.2.4237 or later with Insider releases enabled.
+## Install the Multimedia Redirection extension
 
-## Install the multimedia redirection extension
+For multimedia redirection to work, there are two parts to install on your session hosts: the host component and the browser extension for Edge or Chrome. You install both the host component and browser extension for Edge or Chrome browsers on your session hosts from an MSI file. You can also get and install the browser extension from Microsoft Edge Add-ons or the Chrome Web Store.
 
-For multimedia redirection to work, there are two parts to install on your session hosts: the host component and the browser extension for Edge or Chrome. You install both the host component and browser extension from an MSI file. You can also get and install the browser extension from Microsoft Edge Add-ons or the Chrome Web Store, depending on which browser you're using.
-
-### Install the host component
+### Install the host component and browser extension from an MSI file
 
 To install the host component on your session hosts, you can install the MSI manually on each session host or use your enterprise deployment tool with `msiexec`. To install the MSI manually, you'll need to:
 
 1. Sign in to a session host as a local administrator.
 
-1. Download the [multimedia redirection host MSI installer](https://aka.ms/avdmmr/msi).
+1. Download the [Multimedia Redirection host MSI installer](https://aka.ms/avdmmr/msi).
 
 1. Open the file that you downloaded to run the setup wizard.
 
-1. Follow the prompts. Once you've finished following them, select **Finish**.
+1. Follow the prompts. Once it's finished installing, select **Finish**.
 
->[!NOTE]
->Installing the host component also installs the browser extension on the Edge or Chrome browsers in your session hosts.
+### Enable the browser extension
+Next, users need to enable the browser extension in a remote session to use Multimedia Redirection with Edge or Chrome.
 
-Next, you'll need to install the browser extension on session hosts where you already have Edge or Chrome available. When you install the host component, it also installs the browser extension. In order to use multimedia redirection, they'll need to enable the extension:
+> [!TIP]
+> You can also automate installing and enabling the browser extension from Microsoft Edge Add-ons or the Chrome Web Store for all users by [using Group Policy](#install-the-browser-extension-using-group-policy).
 
 1. Sign in to Azure Virtual Desktop and open Edge or Chrome.
 
@@ -166,7 +169,7 @@ Once you've installed the extension, you can check its status by visiting a webs
 
 ### Features supported on current page
 
-To find out what kinds of redirections are enabled on the webpage you're visiting, you can open up the extension menu and look for the section named **Features supported on current page**. If a feature is currently enabled, you'll see a green check mark next to it, as shown in the following screenshot.
+To find out what types of redirections are enabled on the webpage you're visiting, you can open up the extension menu and look for the section named **Features supported on current page**. If a feature is currently enabled, you'll see a green check mark next to it, as shown in the following screenshot.
 
 :::image type="content" source="./media/extension-menu-enabled.png" alt-text="A screenshot of the multimedia redirection extension menu. Both video playback redirection and call redirection are enabled, shown by a green circle with a white check mark inside next to each of them.":::
 
@@ -194,7 +197,7 @@ The following sections will show you how to enable and use various features rela
 
 ### Enable video playback for all sites
 
-Multimedia redirection is currently limited to the sites listed in [Websites that work with multimedia redirection](multimedia-redirection-intro.md#websites-that-work-with-multimedia-redirection) by default. However, you can enable video playback for all sites to allow you to test the feature with other websites. To enable video playback for all sites:
+Video Playback Redirection is currently limited to the sites listed in [Websites that work with multimedia redirection](multimedia-redirection-intro.md#websites-that-work-with-multimedia-redirection) by default. However, you can enable Video Playback Redirection for all sites to allow you to test the feature with other websites. To enable Video Playback Redirection for all sites:
 
 1. Select the extension icon in your browser.
 
@@ -226,9 +229,9 @@ When you enable video status overlay, you'll see a short message at the top of t
 
 The following section will show you how to use advanced features for WebRTC call redirection.
 
-### Enable WebRTC call redirection for all sites
+#### Enable Call Redirection for all sites
 
-Multimedia redirection is currently limited to the web apps listed in [Websites that work with multimedia redirection](multimedia-redirection-intro.md#websites-that-work-with-multimedia-redirection) by default. If you're using a listed calling app with an internal URL, you must turn the **Enable WebRTC for all sites** setting on to use WebRTC call redirection in your deployment. You can also enable call redirection for all sites to test the feature with web apps that aren't officially supported yet.
+Call Redirection is currently limited to the web apps listed in [Websites that work with multimedia redirection](multimedia-redirection-intro.md#websites-that-work-with-multimedia-redirection) by default. If you're using a listed calling app with an internal URL, you must turn the **Enable WebRTC for all sites** setting to use Call Redirection. You can also enable Call Redirection for all sites to test the feature with web apps that aren't officially supported yet.
 
 To enable call redirection for all sites:
 
@@ -236,11 +239,10 @@ To enable call redirection for all sites:
 
    - **Key**: HKCU\Software\Microsoft\MMR
    - **Type**: REG_DWORD 
-   - **Name**: AllowCallRedirectionAllSites 
+   - **Name**: AllowCallRedirectionAllSites
+   - **Value data**: 1
 
-1. Set the key's value to **1**.
-
-1.	Next, on your Azure Virtual Desktop host VM, select the **extension icon** in your browser.
+1. Next, connect to a remote session, then select the **extension icon** in your browser.
 
 1. Select **Show Advanced Settings**.
 

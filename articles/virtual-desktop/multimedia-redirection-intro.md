@@ -10,21 +10,21 @@ manager: femila
 # Understanding multimedia redirection for Azure Virtual Desktop
 
 > [!IMPORTANT]
-> Multimedia Redirection Call Redirection is currently in PREVIEW.
+> Call Redirection is currently in PREVIEW.
 > See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
-Multimedia redirection redirects media content from Azure Virtual Desktop to your local machine for faster processing and rendering. Both Microsoft Edge and Google Chrome support this feature.
+Multimedia Redirection redirects media content from Azure Virtual Desktop to your local machine for faster processing and rendering. Both Microsoft Edge and Google Chrome support this feature.
 
-Multimedia redirection has two key components:
+Multimedia Redirection has two key components:
 
 - Video playback redirection, which optimizes video playback experience for streaming sites and websites with embedded videos like YouTube and Facebook. For more information about which sites are compatible with this feature, see [Video playback redirection](#video-playback-redirection).
 - WebRTC call redirection (preview), which optimizes audio calls for WebRTC-based calling apps like Content Guru Storm. For more information about which sites are compatible with this feature, see [Call redirection](#call-redirection).
 
-MMR call redirection only affects the connection between the local client device and the telephony app server, as shown in the following diagram.
+Call Redirection only affects the connection between the local client device and the telephony app server, as shown in the following diagram.
 
-:::image type="content" source="media/multimedia-redirection-intro/call-redirection.png" alt-text="A diagram depicting the relationship between the telephony web app server, the Azure Virtual Desktop user, the VM, and other callers." lightbox="media/multimedia-redirection-intro/call-redirection.png":::
+:::image type="content" source="media/multimedia-redirection-intro/call-redirection.png" alt-text="A diagram depicting the relationship between the telephony web app server, the Azure Virtual Desktop user, the web app, and other callers." lightbox="media/multimedia-redirection-intro/call-redirection.png":::
 
-Call redirection offloads WebRTC calls from Azure VMs to local client devices to reduce latency and improve call quality. However, after the connection is established, call quality becomes dependent on the website or app providers just as it would with a non-redirected call.
+Call Redirection offloads WebRTC calls from session hosts to local client devices to reduce latency and improve call quality. However, after the connection is established, call quality becomes dependent on the website or app providers just as it would with a non-redirected call.
 
 ## Prerequisites
 
@@ -44,7 +44,7 @@ To use multimedia redirection WebRTC call redirection, you must install the Wind
 
 The following lists show websites that are known to work with multimedia redirection. Multimedia redirection works with these sites by default.
 
-### Video playback redirection
+### Video Playback Redirection
 
 The following sites work with video playback redirection:
 
@@ -94,7 +94,7 @@ The following sites work with video playback redirection:
    :::column-end:::
 :::row-end:::
 
-### Call redirection
+### Call Redirection
 
 The following websites work with call redirection:
 
@@ -102,19 +102,19 @@ The following websites work with call redirection:
 
 Microsoft Teams live events aren't media-optimized for Azure Virtual Desktop and Windows 365 when using the native Teams app. However, if you use Teams live events with a supported browser, multimedia redirection is a workaround that provides smoother Teams live events playback on Azure Virtual Desktop. Multimedia redirection supports Enterprise Content Delivery Network (ECDN) for Teams live events.
 
-### The multimedia redirection status icon
+### Check if Multimedia Redirection is active
 
 To quickly tell if multimedia redirection is active in your browser, we've added the following icon states:
 
 | Icon State  | Definition  |
 |-----------------|-----------------|
-| :::image type="content" source="./media/mmr-extension-unsupported.png" alt-text="The multimedia redirection extension icon greyed out, indicating that the website can't be redirected or the extension isn't loading."::: | A greyed out icon means that multimedia content on the website can't be redirected or the extension isn't loading. |
-| :::image type="content" source="./media/mmr-extension-disconnect.png" alt-text="The multimedia redirection extension icon with a red square with an x that indicates the client can't connect to multimedia redirection."::: | The red square with an "X" inside of it means that the client can't connect to multimedia redirection. You may need to uninstall and reinstall the extension, then try again. |
-| :::image type="content" source="./media/mmr-extension-supported.png" alt-text="The multimedia redirection extension icon with no status applied."::: | The default icon appearance with no status applied. This icon state means that multimedia content on the website can be redirected and is ready to use. |
-| :::image type="content" source="./media/mmr-extension-playback.png" alt-text="The multimedia redirection extension icon with a green square with a play button icon inside of it, indicating that multimedia redirection is working."::: | The green square with a play button icon inside of it means that the extension is currently redirecting video playback. |
-| :::image type="content" source="./media/mmr-extension-webrtc.png" alt-text="The multimedia redirection extension icon with a green square with telephone icon inside of it, indicating that multimedia redirection is working."::: | The green square with a phone icon inside of it means that the extension is currently redirecting a WebRTC call. This icon also appears when the service is redirecting both video playback and calls at the same time. |
+| :::image type="content" source="./media/mmr-extension-unsupported.png" alt-text="The Multimedia Redirection extension icon greyed out, indicating that the website can't be redirected or the extension isn't loading."::: | A greyed out icon means that multimedia content on the website can't be redirected or the extension isn't loading. |
+| :::image type="content" source="./media/mmr-extension-disconnect.png" alt-text="The Multimedia Redirection extension icon with a red square with an x that indicates the client can't connect to Multimedia Redirection."::: | The red square with an "X" inside of it means that the client can't connect to Multimedia Redirection. You may need to uninstall and reinstall the extension, then try again. |
+| :::image type="content" source="./media/mmr-extension-supported.png" alt-text="The Multimedia Redirection extension icon with no status applied."::: | The default icon appearance with no status applied. This icon state means that multimedia content on the website can be redirected and is ready to use. |
+| :::image type="content" source="./media/mmr-extension-playback.png" alt-text="The Multimedia Redirection extension icon with a green square with a play button icon inside of it, indicating that Multimedia Redirection is working."::: | The green square with a play button icon inside of it means that the extension is currently redirecting video playback. |
+| :::image type="content" source="./media/mmr-extension-webrtc.png" alt-text="The Multimedia Redirection extension icon with a green square with telephone icon inside of it, indicating that Multimedia Redirection is working."::: | The green square with a phone icon inside of it means that the extension is currently redirecting a WebRTC call. This icon also appears when both video playback and calls are being redirected at the same time. |
 
-Selecting the icon in your browser will display a pop-up menu where it lists the features supported on the current page, you can select to enable or disable video playback redirection and WebRTC call redirection on all websites and collect logs. It also lists the version numbers for each component of the service.
+Selecting the icon in your browser will display a pop-up menu where it lists the features supported on the current page. You can select to enable or disable Video Playback Redirection and Call Redirection on all websites, and collect logs. It also lists the version numbers for each component of Multimedia Redirection.
 
 You can use the icon to check the status of the extension by following the directions in [Check the extension status](multimedia-redirection.md#check-the-extension-status).
 

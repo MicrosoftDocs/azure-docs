@@ -21,7 +21,7 @@ The following issues are ones we're already aware of, so you won't need to repor
 
 - In the first browser tab a user opens, the extension pop-up might show a message that says, "The extension is not loaded", or a message that says video playback or call redirection isn't supported while redirection is working correctly in the tab. You can resolve this issue by opening a second tab. 
 
-- Multimedia redirection only works on the [Windows Desktop client](users/connect-windows.md). Any other clients, such as the web client, don't support multimedia redirection. Clients on any other non-Windows platforms, such as the macOS, iOS, Android, or Linux clients, don't support multimedia redirection.
+- Multimedia redirection only works on the [Windows Desktop client](users/connect-windows.md). Any other clients, such as the macOS, iOS, Android or Web client, don't support multimedia redirection.
 
 - Multimedia redirection won't work as expected if the session hosts in your deployment are blocking cmd.exe.
   
@@ -42,15 +42,15 @@ The following issues are ones we're already aware of, so you won't need to repor
 
 - Sometimes the host and client version number disappears from the extension status message, which prevents the extension from loading on websites that support it. If you've installed the extension correctly, this issue is because your host machine doesn't have the latest C++ Redistributable installed. To fix this issue, install the [latest supported Visual C++ Redistributable downloads](/cpp/windows/latest-supported-vc-redist).
 
-### Video playback redirection
+### Video Playback Redirection
 
-- Video playback redirection doesn't currently support protected content, so videos from Pluralsight and Netflix won't work.
+- Video playback redirection doesn't currently support protected content, so videos that use protected content, such as from Pluralsight and Netflix, won't work.
 
 - When you resize the video window, the window's size will adjust faster than the video itself. You'll also see this issue when minimizing and maximizing the window.
 
 - If you access a video site, sometimes the video will remain in a loading or buffering state but never actually start playing. We're aware of this issue and are currently investigating it. For now, you can make videos load again by signing out of Azure Virtual Desktop and restarting your session.
 
-### Call redirection
+### Call Redirection
 
 - Call redirection only works for WebRTC-based audio calls on the sites listed in [Call redirection](multimedia-redirection-intro.md#call-redirection).
 
