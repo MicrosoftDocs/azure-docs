@@ -231,7 +231,7 @@ ResourceType      : Microsoft.KeyVault/vaults
 ...
 ```
 
-The following examples uses Python:
+The following example uses Python:
 
 ```python
 import os
@@ -247,6 +247,12 @@ resources = resource_client.resources.list_by_resource_group(resource_group_name
 
 for resource in resources:
     print(resource.type)
+```
+
+The results list the resource type. The resource provider namespace is the first part of the resource type. The following example shows the **Microsoft.KeyVault** resource provider.
+
+```outout
+Microsoft.KeyVault/vaults
 ```
 
 ## Next steps
