@@ -25,7 +25,7 @@ This article describes how to use [Azure Web Application Firewall on Azure Front
 
    The following screenshot shows that an APIM instance called **contoso-afd-apim-resource** has been created. It can take up to 30 to 40 minutes to create and activate an API Management service. 
 
-   :::image type="content" source="../media/protect-api-hosted-in-apim-by-waf/contoso-main-page.png" alt-text="A screenshot showing the APIM instance created.":::
+   :::image type="content" source="../media/protect-api-hosted-in-apim-by-waf/contoso-main-page.png" alt-text="A screenshot showing the APIM instance created." lightbox="../media/protect-api-hosted-in-apim-by-waf/contoso-main-page.png":::
 
 
 2. Create an API and generate mock API responses
@@ -36,9 +36,9 @@ This article describes how to use [Azure Web Application Firewall on Azure Front
 
    The Book API does a GET operation for `_/test_` as the URL path for the API. You can see the response for the API is set as **200 OK** with content type as application/json with text as `{“Book”:” $100”}`.
 
-   :::image type="content" source="../media/protect-api-hosted-in-apim-by-waf/apim-get-test.png" alt-text="A screenshot showing the GET operation defined in APIM.":::
+   :::image type="content" source="../media/protect-api-hosted-in-apim-by-waf/apim-get-test.png" alt-text="A screenshot showing the GET operation defined in APIM." lightbox="../media/protect-api-hosted-in-apim-by-waf/apim-get-test.png":::
 
-   :::image type="content" source="../media/protect-api-hosted-in-apim-by-waf/apim-200-OK.png" alt-text="A screenshot showing the mock response created.":::
+   :::image type="content" source="../media/protect-api-hosted-in-apim-by-waf/apim-200-ok.png" alt-text="A screenshot showing the mock response created.":::
 
 
 3. Deselect **Subscription required** check box under the API settings tab and select **Save**.
@@ -137,7 +137,7 @@ At this point, the end-to-end call is set up, and the API is protected by Azure 
 
 1. Access the API through the Azure Front Door endpoint from your browser. The API should return the following response:
 
-   :::image type="content" source="../media/protect-api-hosted-in-apim-by-waf/test-book-thru-fd.png" alt-text="A screenshot showing API access through AFD endpoint.":::
+   :::image type="content" source="../media/protect-api-hosted-in-apim-by-waf/test-book-fd.png" alt-text="A screenshot showing API access through AFD endpoint.":::
 
 2. Verify that APIM isn't accessible directly over the Internet and accessible only via the AFD:
 

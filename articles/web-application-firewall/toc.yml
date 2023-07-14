@@ -159,7 +159,7 @@
   - name: Configure policies using Firewall Manager
     href: ./shared/manage-policies.md
   - name: Protect APIs hosted in APIM using Web Application Firewall
-    href: ./afds/protect-api-hosted-in-apim-by-waf.md
+    href: ./afds/protect-api-hosted-apim-by-waf.md
   - name: Using Microsoft Sentinel with Web Application Firewall
     href: waf-sentinel.md
   - name: Troubleshoot
