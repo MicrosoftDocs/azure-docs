@@ -1,6 +1,6 @@
 ---
 title: ALI FAQ
-description: Provides resolutions for common issues that arise in working with ALI for Epic.
+description: Provides resolutions for common issues that arise in working with ALI for the Epic workload.
 ms.topic: conceptual
 author: jjaygbay1
 ms.author: jacobjaygbay
