@@ -32,13 +32,13 @@ Before you can test-drive the API in the online console, you need your subscript
 
 3. In the **Ocp-Apim-Subscription-Key** box, enter your subscription key.
 
-   ![Try Image - Evaluate console subscription key](images/try-image-api-1.PNG)
+   ![Try Image - Evaluate console subscription key](images/try-image-api-1.png)
 
 4. In the **Request body** box, use the default sample image, or specify an image to scan. You can submit the image itself as binary bit data, or specify a publicly accessible URL for an image. 
 
    For this example, use the path provided in the **Request body** box, and then select **Send**. 
 
-   ![Try Image - Evaluate console Request body](images/try-image-api-2.PNG)
+   ![Try Image - Evaluate console Request body](images/try-image-api-2.png)
 
    This is the image at that URL:
 
@@ -48,7 +48,7 @@ Before you can test-drive the API in the online console, you need your subscript
 
 6. The API returns a probability score for each classification. It also returns a determination of whether the image meets the conditions (**true** or **false**). 
 
-   ![Try Image - Evaluate console probability score and condition determination](images/try-image-api-3.PNG)
+   ![Try Image - Evaluate console probability score and condition determination](images/try-image-api-3.png)
 
 ## Face detection
 
@@ -94,7 +94,7 @@ You can use the Content Moderator OCR capability to detect text in images.
 
 5. Select **Send**. The extracted text is displayed in JSON:
 
-   ![Image - OCR sample Response content box](images/try-image-api-ocr.PNG)
+   ![Image - OCR sample Response content box](images/try-image-api-ocr.png)
 
 ## Next steps
 

@@ -17,6 +17,9 @@ ms.custom: build-2023, build-2023-dataai
 
 Azure AI services help developers and organizations rapidly create intelligent, cutting-edge, market-ready, and responsible applications with out-of-the-box and pre-built and customizable APIs and models. Example applications include natural language processing for conversations, search, monitoring, translation, speech, vision, and decision-making. 
 
+> [!NOTE]
+> The Azure AI services such as Speech, Vision, and Language are no longer referred to as Azure Cognitive Services in the documentation. Azure AI services emcompasses all of these services and more.
+
 Most Azure AI services are available through REST APIs and client library SDKs in popular development languages. For more information, see each service's documentation.
 
 ## Available Azure AI services
