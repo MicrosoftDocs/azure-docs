@@ -211,13 +211,13 @@ Before you create the service principal name (SPN), you can list SPNs and confir
 
 1.  Use the following syntax on the Windows command line to list SPNs.
 
-    > setspn -Q \*/\<**domain.com**\>
+    `setspn -Q \*/\<**domain.com**`
 
 2.  Confirm the http SPN is among them.
 
 3.  Use the following syntax on the Windows command line to register the host SPN for the account.
 
-    > setspn -A host/dap.datawizatest.com dap
+    `setspn -A host/dap.datawizatest.com dap`
 
 >[!NOTE]
 >`host/dap.datawizatest.com` is the unique SPN, and dap is the service account you created.
@@ -228,7 +228,7 @@ Before you create the service principal name (SPN), you can list SPNs and confir
 
 2.  Select **Active Directory Users and Computers.**
 
-    ![Screenshot shows the onstrained delegation menu.](media/datawiza-access-proxy/constrained-delegation.png)
+    ![Screenshot shows the constrained delegation menu.](media/datawiza-access-proxy/constrained-delegation.png)
 
 3.  In your organization, locate and select the **Users** object.
 
@@ -373,9 +373,9 @@ time, effort, and errors.
 
 6.  Select **Save**.
 
-## Optional: Enable Microsoft Entra ID Multifactor Authentication
+## Optional: Enable Microsoft Entra ID Multi-Factor Authentication
 
-To provide more sign-in security, you can enforce Microsoft Entra ID Multifactor Authentication. The process starts in the Azure portal.
+To provide more sign-in security, you can enforce Microsoft Entra ID Multi-Factor Authentication. The process starts in the Azure portal.
 
 1.  Sign in to the [Azure portal](https://portal.azure.com) as a Global Administrator.
 
