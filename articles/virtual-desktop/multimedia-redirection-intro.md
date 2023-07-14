@@ -1,13 +1,13 @@
 ---
-title: Understanding multimedia redirection on Azure Virtual Desktop - Azure
-description: An overview of multimedia redirection on Azure Virtual Desktop.
+title: Understanding Multimedia Redirection on Azure Virtual Desktop - Azure
+description: An overview of Multimedia Redirection on Azure Virtual Desktop.
 author: Heidilohr
 ms.topic: conceptual
 ms.date: 07/18/2023
 ms.author: helohr
 manager: femila
 ---
-# Understanding multimedia redirection for Azure Virtual Desktop
+# Understanding Multimedia Redirection for Azure Virtual Desktop
 
 > [!IMPORTANT]
 > Call Redirection is currently in PREVIEW.
@@ -18,7 +18,7 @@ Multimedia Redirection redirects media content from Azure Virtual Desktop to you
 Multimedia Redirection has two key components:
 
 - Video playback redirection, which optimizes video playback experience for streaming sites and websites with embedded videos like YouTube and Facebook. For more information about which sites are compatible with this feature, see [Video playback redirection](#video-playback-redirection).
-- WebRTC call redirection (preview), which optimizes audio calls for WebRTC-based calling apps like Content Guru Storm. For more information about which sites are compatible with this feature, see [Call redirection](#call-redirection).
+- Call Redirection (preview), which optimizes audio calls for WebRTC-based calling apps. For more information about which sites are compatible with this feature, see [Call Redirection](#call-redirection).
 
 Call Redirection only affects the connection between the local client device and the telephony app server, as shown in the following diagram.
 
@@ -28,21 +28,18 @@ Call Redirection offloads WebRTC calls from session hosts to local client device
 
 ## Prerequisites
 
-In order to use multimedia redirection for Azure Virtual Desktop, you need:
+In order to use Multimedia Redirection for Azure Virtual Desktop, you need:
 
 - The Windows Desktop client.
 - A Windows 11, Windows 10, or Windows 10 IoT Enterprise device.
 
-To use multimedia redirection video playback redirection, you must install [Windows Desktop client, version 1.2.3916 or later](whats-new-client-windows.md). This feature is only compatible with version 1.2.3916 or later of the Windows Desktop client.
+To use Multimedia Redirection video playback redirection, you must install [Windows Desktop client, version 1.2.3916 or later](whats-new-client-windows.md). This feature is only compatible with version 1.2.3916 or later of the Windows Desktop client.
 
-To use multimedia redirection WebRTC call redirection, you must install the Windows Desktop client, version 1.2.4237 or later with Insider releases enabled.
+To use Multimedia Redirection Call Redirection, you must install the Windows Desktop client, version 1.2.4237 or later with Insider releases enabled.
 
-> [!NOTE]
-> Multimedia redirection isn't supported on Azure Virtual Desktop for Microsoft 365 Government (GCC), GCC-High environments, and Microsoft 365 DoD.
+## Websites that work with Multimedia Redirection
 
-## Websites that work with multimedia redirection
-
-The following lists show websites that are known to work with multimedia redirection. Multimedia redirection works with these sites by default.
+The following lists show websites that are known to work with Multimedia Redirection. Multimedia redirection works with these sites by default.
 
 ### Video Playback Redirection
 
@@ -96,15 +93,15 @@ The following sites work with video playback redirection:
 
 ### Call Redirection
 
-The following websites work with call redirection:
+The following websites work with Call Redirection:
 
 - WebRTC Sample Site
 
-Microsoft Teams live events aren't media-optimized for Azure Virtual Desktop and Windows 365 when using the native Teams app. However, if you use Teams live events with a supported browser, multimedia redirection is a workaround that provides smoother Teams live events playback on Azure Virtual Desktop. Multimedia redirection supports Enterprise Content Delivery Network (ECDN) for Teams live events.
+Microsoft Teams live events aren't media-optimized for Azure Virtual Desktop and Windows 365 when using the native Teams app. However, if you use Teams live events with a browser that supports Teams live events and Multimedia Redirection, Multimedia Redirection is a workaround that provides smoother Teams live events playback on Azure Virtual Desktop. Multimedia redirection supports Enterprise Content Delivery Network (ECDN) for Teams live events.
 
 ### Check if Multimedia Redirection is active
 
-To quickly tell if multimedia redirection is active in your browser, we've added the following icon states:
+To quickly tell if Multimedia Redirection is active in your browser, we've added the following icon states:
 
 | Icon State  | Definition  |
 |-----------------|-----------------|
