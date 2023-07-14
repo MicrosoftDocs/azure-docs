@@ -65,7 +65,7 @@ items:
       href: how-to-configure-dev-box-azure-diagnostic-logs.md
 - name: Reference
   items:
-    - name: Azure CLI
+    - name: Azure CLI - devcenter
       href: https://aka.ms/CLI-reference
     - name: REST API
       href: https://aka.ms/dev-box/restapidocs
