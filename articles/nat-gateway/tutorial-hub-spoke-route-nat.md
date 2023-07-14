@@ -35,7 +35,7 @@ In this tutorial, you learn how to:
 
 ## Create a NAT gateway
 
-All outbound internet traffic will traverse the NAT gateway to the internet. Use the following example to create a NAT gateway for the hub and spoke network.
+All outbound internet traffic traverses the NAT gateway to the internet. Use the following example to create a NAT gateway for the hub and spoke network.
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
@@ -133,11 +133,11 @@ The hub virtual network is the central network of the solution. The hub network 
 
 1. Select **Create**.
 
-It will take a few minutes for the bastion host to deploy. When the virtual network is created as part of the deployment, you can proceed to the next steps.
+It takes a few minutes for the bastion host to deploy. When the virtual network is created as part of the deployment, you can proceed to the next steps.
 
 ## Create simulated NVA virtual machine
 
-The simulated NVA will act as a virtual appliance to route all traffic between the spokes and hub and traffic outbound to the internet. An Ubuntu virtual machine is used for the simulated NVA. Use the following example to create the simulated NVA and configure the network interfaces.
+The simulated NVA acts as a virtual appliance to route all traffic between the spokes and hub and traffic outbound to the internet. An Ubuntu virtual machine is used for the simulated NVA. Use the following example to create the simulated NVA and configure the network interfaces.
 
 1. In the search box at the top of the portal, enter **Virtual machine**. Select **Virtual machines** in the search results.
 
@@ -805,7 +805,7 @@ IIS is installed on the Windows Server 2022 virtual machine to test outbound int
 
 ## Test NAT gateway
 
-You'll connect to the Windows Server 2022 virtual machines you created in the previous steps to verify that the outbound internet traffic is leaving the NAT gateway.
+Connect to the Windows Server 2022 virtual machines you created in the previous steps to verify that the outbound internet traffic is leaving the NAT gateway.
 
 ### Obtain NAT gateway public IP address
 
@@ -867,7 +867,7 @@ Use Microsoft Edge on the Windows Server 2022 virtual machine to connect to http
 
 ## Test routing between the spokes
 
-Traffic from spoke one to spoke two and spoke two to spoke one will route through the simulated NVA in the hub virtual network. Use the following examples to verify the routing between spokes of the hub and spoke network.
+Traffic from spoke one to spoke two and spoke two to spoke one route through the simulated NVA in the hub virtual network. Use the following examples to verify the routing between spokes of the hub and spoke network.
 
 ### Test routing from spoke one to spoke two
 
