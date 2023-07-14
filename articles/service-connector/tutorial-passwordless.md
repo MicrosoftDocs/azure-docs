@@ -516,7 +516,8 @@ For Spring application, if you create connection with option `--client-type spri
 For managed identity authentication, see [Using Active Directory Managed Identity authentication](/sql/connect/ado-net/sql/azure-active-directory-authentication#using-active-directory-service-principal-authentication)
 
 ```csharp
-using Microsoft.Data.SqlClient
+using Microsoft.Data.SqlClient;
+
 // The connection string should have been set to environment variables by Service Connector
 // string ConnectionStringSystemMI = @"Server=demo.database.windows.net; Authentication=Active Directory Managed Identity; Encrypt=True; Database=testdb";
 // string ConnectionStringUserMI = @"Server=demo.database.windows.net; Authentication=Active Directory Managed Identity; Encrypt=True; User Id=ObjectIdOfManagedIdentity; Database=testdb";
