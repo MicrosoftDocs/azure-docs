@@ -771,8 +771,8 @@ With Azure Virtual Desktop, you can independently control public traffic for wor
 
    | Setting | Description |
    |--|--|
-   | **Enable public access from all networks** | End users can access the feed and session hosts over the public internet or the private endpoints. |
-   | **Enable public access for end users, use private access for session hosts** | End users can access the feed over the public internet but must use private endpoints to access session hosts. |
+   | **Enable public access from all networks** | End users can access the feed and session hosts securely over the public internet or the private endpoints. |
+   | **Enable public access for end users, use private access for session hosts** | End users can access the feed securely over the public internet but must use private endpoints to access session hosts. |
    | **Disable public access and use private access** | End users can only access the feed and session hosts over the private endpoints. |
 
 1. Select **Save**.
