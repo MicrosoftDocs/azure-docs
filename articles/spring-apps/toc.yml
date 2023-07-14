@@ -275,8 +275,6 @@ items:
       href: how-to-configure-health-probes-graceful-termination.md
   - name: Network
     items:
-    - name: Custom DNS name
-      href: how-to-custom-domain.md
     - name: Deploy Azure Spring Apps in a virtual network
       href: how-to-deploy-in-azure-virtual-network.md
     - name: Access your application in a private network
