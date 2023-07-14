@@ -4,11 +4,11 @@ titleSuffix: Microsoft Cost Management
 description: This article shows you how you can create and manage exported Cost Management data so that you can use it in external systems.
 author: bandersmsft
 ms.author: banders
-ms.date: 11/22/2022
+ms.date: 07/14/2023
 ms.topic: tutorial
 ms.service: cost-management-billing
 ms.subservice: cost-management
-ms.reviewer: adwise
+ms.reviewer: jojoh
 ms.custom: seodec18, devx-track-azurepowershell, devx-track-azurecli
 ---
 
@@ -40,8 +40,15 @@ Data export is available for various Azure account types, including [Enterprise 
 For Azure Storage accounts:
 - Write permissions are required to change the configured storage account, independent of permissions on the export.
 - Your Azure storage account must be configured for blob or file storage.
-- The storage account must not have a firewall configured.
-- The storage account configuration must have the **Permitted scope for copy operations (preview)** option set to **From any storage account**.  
+- To export to storage accounts with configured firewalls, you will need additional privileges on the storage account. The required permissions to create an export are:
+  - Owner role on the storage account.  
+  Or
+  - Any custom role with `Microsoft.Authorization/roleAssignments/write` and `Microsoft.Authorization/permissions/read` permissions.  
+  Additionally, ensure that you enable [trusted Azure services](../../storage/common/storage-network-security.md#grant-access-to-trusted-azure-services) access to the storage account when you configure the firewall.
+- The storage account configuration must have the **Permitted scope for copy operations (preview)** option set to **From any storage account**.
+  >[!NOTE]
+  > Export to storage accounts behind firewall is in preview. Enable the preview feature in Cost Management labs by selecting **Export behind firewall**. For more information, see [Explore preview features](enable-preview-features-cost-management-labs.md#explore-preview-features).  
+
     :::image type="content" source="./media/tutorial-export-acm-data/permitted-scope-copy-operations.png" alt-text="Screenshot showing the From any storage account option set." lightbox="./media/tutorial-export-acm-data/permitted-scope-copy-operations.png" :::
 
 If you have a new subscription, you can't immediately use Cost Management features. It might take up to 48 hours before you can use all Cost Management features.
@@ -240,6 +247,58 @@ Remove-AzCostManagementExport -Name DemoExport -Scope 'subscriptions/00000000-00
 ```
 
 ---
+
+### Configure exports for storage accounts with a firewall
+
+If you need to export to a storage account behind the firewall due to security and compliance requirements, ensure that you have all [prerequisites](#prerequisites) met. 
+
+Enable trusted Azure services access on the storage account from the Exports page. Here's a screenshot showing the page.
+
+<Insert screenshot on enabling trusted azure services> 
+
+A screenshot of a computer
+
+Description automatically generated with medium confidence 
+
+ 
+
+A system assigned managed identity is created during the creation or modification of a new export job. The user should have permissions at the time of export job creation or modification, as we utilize that privilege to assign StorageBlobDataContributor role to the managed identity. This permission is restricted to the storage account container scope. Once the export job is created or updated, the user does not require Owner permissions for regular runtime operations. 
+
+ 
+
+Note:  
+
+When a user updates destination details or deletes an export, the StorageBlobDataContributor role assigned to the managed identity is automatically removed. To enable the system to remove the role assignment, the user should have "microsoft.Authorization/roleAssignments/delete" permissions. If these permissions are not available, the user will need to manually remove the role assignment on the managed identity. 
+
+Currently, firewalls are supported for storage accounts within the same tenant. However, please note that firewalls on storage accounts are not yet supported for cross-tenant exports. 
+
+ 
+
+ 
+
+3. Add exports into the list of trusted services 
+
+ 
+
+https://learn.microsoft.com/en-us/azure/storage/common/storage-network-security?tabs=azure-portal#trusted-access-based-on-a-managed-identity 
+
+ 
+
+Service 
+
+Resource provider name 
+
+Purpose 
+
+Microsoft Cost Management 
+
+Microsoft.CostManagementExports 
+
+Enables export to storage accounts behind firewall. Learn more.   
+
+ 
+
+ 
 
 ### Export schedule
 
