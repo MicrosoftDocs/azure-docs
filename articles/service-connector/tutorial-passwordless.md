@@ -72,19 +72,6 @@ If you use Azure Container Apps, use `az containerapp connection create` instead
 
 ::: zone pivot="postgresql"
 
-### [System-assigned managed identity](#tab/system)
-
-```azurecli
-az webapp connection create postgres-flexible \
-    --resource-group $RESOURCE_GROUP \
-    --name $APPSERVICE_NAME \
-    --target-resource-group $RESOURCE_GROUP \
-    --server $POSTGRESQL_HOST \
-    --database $DATABASE_NAME \
-    --system-identity \
-    --client-type java
-```
-
 ### [User-assigned managed identity](#tab/user)
 
 ```azurecli
@@ -95,6 +82,19 @@ az webapp connection create postgres-flexible \
     --server $POSTGRESQL_HOST \
     --database $DATABASE_NAME \
     --user-identity client-id=XX subs-id=XX \
+    --client-type java
+```
+
+### [System-assigned managed identity](#tab/system)
+
+```azurecli
+az webapp connection create postgres-flexible \
+    --resource-group $RESOURCE_GROUP \
+    --name $APPSERVICE_NAME \
+    --target-resource-group $RESOURCE_GROUP \
+    --server $POSTGRESQL_HOST \
+    --database $DATABASE_NAME \
+    --system-identity \
     --client-type java
 ```
 
@@ -135,19 +135,6 @@ IDENTITY_RESOURCE_ID=$(az identity create \
 
 Then, connect your app to a MySQL database with a system-assigned managed identity using Service Connector.
 
-### [System-assigned managed identity](#tab/system)
-
-```azurecli
-az webapp connection create mysql-flexible \
-    --resource-group $RESOURCE_GROUP \
-    --name $APPSERVICE_NAME \
-    --target-resource-group $RESOURCE_GROUP \
-    --server $MYSQL_HOST \
-    --database $DATABASE_NAME \
-    --system-identity mysql-identity-id=$IDENTITY_RESOURCE_ID \
-    --client-type java
-```
-
 ### [User-assigned managed identity](#tab/user)
 
 ```azurecli
@@ -158,6 +145,19 @@ az webapp connection create mysql-flexible \
     --server $MYSQL_HOST \
     --database $DATABASE_NAME \
     --user-identity client-id=XX subs-id=XX mysql-identity-id=$IDENTITY_RESOURCE_ID \
+    --client-type java
+```
+
+### [System-assigned managed identity](#tab/system)
+
+```azurecli
+az webapp connection create mysql-flexible \
+    --resource-group $RESOURCE_GROUP \
+    --name $APPSERVICE_NAME \
+    --target-resource-group $RESOURCE_GROUP \
+    --server $MYSQL_HOST \
+    --database $DATABASE_NAME \
+    --system-identity mysql-identity-id=$IDENTITY_RESOURCE_ID \
     --client-type java
 ```
 
@@ -181,19 +181,6 @@ As for `--client-type`, you can use `az webapp connection create mysql-flexible 
 
 ::: zone pivot="sql"
 
-### [System-assigned managed identity](#tab/system)
-
-```azurecli
-az webapp connection create sql \
-    --resource-group $RESOURCE_GROUP \
-    --name $APPSERVICE_NAME \
-    --target-resource-group $RESOURCE_GROUP \
-    --server $SQL_HOST \
-    --database $DATABASE_NAME \
-    --system-identity \
-    --client-type dotnet
-```
-
 ### [User-assigned managed identity](#tab/user)
 
 ```azurecli
@@ -204,6 +191,19 @@ az webapp connection create sql \
     --server $SQL_HOST \
     --database $DATABASE_NAME \
     --user-identity client-id=XX subs-id=XX \
+    --client-type dotnet
+```
+
+### [System-assigned managed identity](#tab/system)
+
+```azurecli
+az webapp connection create sql \
+    --resource-group $RESOURCE_GROUP \
+    --name $APPSERVICE_NAME \
+    --target-resource-group $RESOURCE_GROUP \
+    --server $SQL_HOST \
+    --database $DATABASE_NAME \
+    --system-identity \
     --client-type dotnet
 ```
 
@@ -357,7 +357,7 @@ namespace NpgsqlConnectionExample
             
             // user-assigned managed identity
             // var sqlServerTokenProvider = new DefaultAzureCredential(new DefaultAzureCredentialOptions { ManagedIdentityClientId = userAssignedClientId });
-            // service principal 
+            // service principal: tenantId, clientId, clientSecret can be got from environment variables
             // var sqlServerTokenProvider = new ClientSecretCredential(tenantId, clientId, clientSecret);
 
             string accessToken = (sqlServerTokenProvider.GetToken(
