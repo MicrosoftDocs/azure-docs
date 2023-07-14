@@ -25,6 +25,9 @@ To learn more about storage task assignments, see [Storage Task assignment](stor
 
 Create an assignment for each storage account you want to target. A storage task can contain up to 50 assignments.
 
+> [!NOTE]
+> To create an assignment, your user identity must be assigned an Azure role which gives you access to the storage task. See [Storage task authorization](storage-task-authorization.md).
+
 1. Navigate to the storage task in the Azure portal and then under **Storage task management**, select **Assignments**.
 
 2. In the **Assignments** page, select **+ Create assignment**, and the select **+ Add assignment**.
@@ -47,7 +50,12 @@ Create an assignment for each storage account you want to target. A storage task
    | Select scope | Select a storage account | Required | The storage account that you want to add to this assignment. |  
    | Select scope | Assignment name | Required | The name of the assignment. Assignment names must be between 2 and 62 characters in length and may contain only letters and numbers. |
 
-4. In the **Filter objects** section, choose whether you want to target a subset of blobs based on a filter. Filters help you narrow the scope of execution. If your want the task to evaluate all of the containers and blobs in an account, then you can select the **Do not filter** option. The following example uses a filter to target only blobs that exist in a container that is named `mycontainer`.
+4. In the **Role assignment** section, in the **Role** drop-down list, select the role that you want to assign to the system-assigned managed identity of the storage task. Only roles that are assigned to your user identity appear in this drop-down list. Roles not assigned to your user identity do not appear in this list. To learn more, see [Assignment authorization](storage-task-assignment.md#assignment-authorization)
+
+   > [!div class="mx-imgBorder"]
+   > ![Screenshot of the Role assignment section of the assignment pane.](./media/storage-task-assignment-create/assignment-role.png)
+
+5. In the **Filter objects** section, choose whether you want to target a subset of blobs based on a filter. Filters help you narrow the scope of execution. If your want the task to evaluate all of the containers and blobs in an account, then you can select the **Do not filter** option. The following example uses a filter to target only blobs that exist in a container that is named `mycontainer`.
 
    > [!div class="mx-imgBorder"]
    > ![Screenshot of the Filter objects section of the Add assignment pane.](./media/storage-task-assignment-create/assignment-pane-filter-prefix.png)
@@ -59,7 +67,7 @@ Create an assignment for each storage account you want to target. A storage task
    | Filter objects | Filter by | Required | Option to either filter objects by using a prefix or to run the task against the entire storage account. |
    | Filter objects | Blob prefixes | Optional | The string prefix that is used to narrow the scope of blobs that are evaluated by the task. This field is required only if you choose to filter by using a blob prefix. |
 
-5. In the **Trigger details** section, select how often you'd like this task to run. You can choose to run this task only once, or run the task recurring. If you decide to run this task on a recurring basis, choose a start and end time and specify the number of days in between each run. You can also specify where you'd like to store the execution reports.
+6. In the **Trigger details** section, select how often you'd like this task to run. You can choose to run this task only once, or run the task recurring. If you decide to run this task on a recurring basis, choose a start and end time and specify the number of days in between each run. You can also specify where you'd like to store the execution reports.
 
    > [!div class="mx-imgBorder"]
    > ![Screenshot of the Triggers section of the Add assignment pane.](./media/storage-task-assignment-create/assignment-trigger.png)
@@ -74,7 +82,7 @@ Create an assignment for each storage account you want to target. A storage task
    | Trigger details | Repeat very (in days) | Required | The interval in days between each run. |
    | Trigger details | Report export container | Required | The container where task execution reports are stored. |
 
-6. Select the **Add** button to create the assignment.
+7. Select the **Add** button to create the assignment.
 
    The **Add assignment pane** closes. When deployment is complete, the assignment appears in the **Assignments** page.  If you don't see the assignment in that page, then select the **Refresh** button.
 

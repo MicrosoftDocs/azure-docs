@@ -22,13 +22,27 @@ An _assignment_ identifies a storage account and a subset of objects in that acc
 
 ## Create an assignment
 
-Create an assignment by opening the **Add assignment** pane. You can use the fields in that pane to specify the target storage account, apply a filter to target a subset of blobs, configure when the task runs and where execution reports should be stored.
+Before you can create an assignment, your user identity must be assigned an Azure role that gives you access to the storage task. See [Storage task authorization](storage-task-authorization.md).
+
+Create an assignment by opening the **Add assignment** pane of a storage task. Then, use the fields in that pane to provide the following configuration settings:
+
+- The target storage account. You must be an owner of that account
+
+- The Azure role that you would like to assign to the system-assigned managed identity of the task
+
+  You can choose only roles that are assigned to your user identity. You can't give the task access to a resource that you don't already have.
+
+- A filter that can targets a subset of the blobs in an account
+
+- When and how often the task runs
+
+- Where the execution reports are stored.
 
 For step-by-step guidance, see [Create and manage a Storage Task assignment](storage-task-assignment-create.md).
 
 ## Assignment authorization
 
-When you create a task assignment, choose an Azure Built-in or custom role that has the permission necessary to perform the tasks that you've defined against the target storage account. If you prefer to use a custom role, make sure that your role contains the RBAC actions necessary to perform the tasks. This section describes the least privileged built-in Azure role as well as the RBAC actions required by each operation if you choose to create a custom role.
+As part of creating an assignment, you must choose an Azure Built-in or custom role that has the permission necessary to perform the tasks that you've defined against the target storage account. You can choose only roles that are assigned to your user identity. If you prefer to use a custom role, make sure that your role contains the RBAC actions necessary to perform the tasks. This section describes the least privileged built-in Azure role as well as the RBAC actions required by each operation.
 
 ### SetBlobTier
 
