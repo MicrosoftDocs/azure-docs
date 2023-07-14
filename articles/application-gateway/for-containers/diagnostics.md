@@ -50,7 +50,7 @@ Each access log entry in Application Gateway for Containers will contain the fol
 
 | Value | Description |
 | ----- | ----------- |
-| backendHost | Address of backend tagret with appended port.  For example \<ip\>:\<port\> |
+| backendHost | Address of backend target with appended port.  For example \<ip\>:\<port\> |
 | backendIp | IP address of backend target Application Gateway for Containers will proxy the request to. |
 | backendPort | Port number of the backend target. |
 | backendResponseLatency | Time in milliseconds to receive syn-ack from backend target when Application Gateway for Containers begins to negotiate the connection. |
@@ -68,7 +68,7 @@ Each access log entry in Application Gateway for Containers will contain the fol
 | requestUri | URI of the request received from the client by Application Gateway for Containers (everything after <protocol>://host of the URL)  |
 | responseBodyBytes | Size in bytes of the body payload of the response returned to the client by Application Gateway for Containers |
 | responseHeaderBytes | Size in bytes of the headers of the response returned to the client by Application Gateway for Containers |
-| timeTaken | Timein milliseconds of the client request received by Application Gateway for Containers and the last byte returned to the client from Application Gateway for Containers |
+| timeTaken | Time in milliseconds of the client request received by Application Gateway for Containers and the last byte returned to the client from Application Gateway for Containers |
 | tlsCipher | TLS cipher suite negotiated between the client and Application Gateway for Containers frontend |
 | tlsProtocol | TLS version negotiated between the client and Application Gateway for Containers frontend |
 | trackingId | Generated guid by Application Gateway for Containers to help with tracking and debugging.  This value correlates to the x-request-id header returned to the client from Application Gateway for Containers. |
