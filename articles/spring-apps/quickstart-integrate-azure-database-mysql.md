@@ -160,7 +160,7 @@ The following section explains how to update the apps to connect to the MySQL da
 
 ### [Azure CLI](#tab/azure-cli)
 
-Run the following command to set an environment variable to activate the profile `mysql` for the app `customers-service`:
+Use the following command to set an environment variable to activate the `mysql` profile for the `customers-service` app:
 
 ```azurecli
 az spring app update \
