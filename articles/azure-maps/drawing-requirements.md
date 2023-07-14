@@ -521,7 +521,7 @@ allowing the  [Conversion service] to parse their content. Only the files iden
 
 The file paths in the buildingLevels object of the manifest file must be relative to the root of the drawing package. The DWG file name must exactly match the name of the facility level. For example, a DWG file for the "Basement" level is *Basement.dwg*. A DWG file for level 2 is named as *level_2.dwg*. Filenames can't contain spaces, you can use an underscore to replace any spaces.
 
-Although there are requirements when you use the manifest objects, not all objects are required. The following table shows the required and optional objects for the 2023-03-01-preview [Conversion service].
+Although there are requirements when you use the manifest objects, not all objects are required. The following table shows the required and optional objects for the [Conversion service].
 
 > [!NOTE]
 > Unless otherwise specified, all string properties are limited to one thousand characters.
