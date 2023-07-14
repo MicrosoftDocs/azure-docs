@@ -14,9 +14,9 @@ ms.custom: seodec18
 
 This article shows you how to use secrets from Azure Key Vault as app settings or connection strings in your App Service or Azure Functions apps. [Azure Key Vault](../key-vault/general/overview.md) is a service that provides centralized secrets management, with full control over access policies and audit history. When an app setting or connection string is a key vault reference, your application code can use it like any other app setting or connection string.
 
-## Granting your app access to Key Vault
+## Granting your app access to a key vault
 
-In order to read secrets from Key Vault, you need to have a vault created and give your app permission to access it.
+In order to read secrets from a key vault, you need to have a vault created and give your app permission to access it.
 
 1. Create a key vault by following the [Key Vault quickstart](../key-vault/secrets/quick-create-cli.md).
 
@@ -95,7 +95,7 @@ If the secret version isn't specified in the reference, the app uses the latest 
 
 ## Source app settings from key vault
 
-Key vault references can be used as values for [app settings](configure-common.md#configure-app-settings) or [connection strings](configure-common.md#configure-connection-strings), allowing you to keep secrets in a key vault instead of the site config. App settings are securely encrypted at rest, but if you need secret management capabilities, they should go into Key Vault.
+Key vault references can be used as values for [app settings](configure-common.md#configure-app-settings) or [connection strings](configure-common.md#configure-connection-strings), allowing you to keep secrets in a key vault instead of the site config. App settings are securely encrypted at rest, but if you need secret management capabilities, they should go into a key vault.
 
 To use a key vault reference, set the reference as the value of the setting. Your app can reference the secret through its key as normal. No code changes are required.
 
@@ -107,8 +107,8 @@ A key vault reference is of the form `@Microsoft.KeyVault({referenceString})`, w
 > [!div class="mx-tdBreakAll"]
 > | Reference string                                                            | Description                                                                                                                                                                                 |
 > |-----------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-> | SecretUri=_secretUri_                                                       | The **SecretUri** should be the full data-plane URI of a secret in Key Vault, optionally including a version, e.g., `https://myvault.vault.azure.net/secrets/mysecret/` or `https://myvault.vault.azure.net/secrets/mysecret/ec96f02080254f109c51a1f14cdb1931`  |
-> | VaultName=_vaultName_;SecretName=_secretName_;SecretVersion=_secretVersion_ | The **VaultName** is required and should the name of your Key Vault resource. The **SecretName** is required and should be the name of the target secret. The **SecretVersion** is optional but if present indicates the version of the secret to use. |
+> | SecretUri=_secretUri_                                                       | The **SecretUri** should be the full data-plane URI of a secret in the vault, optionally including a version, e.g., `https://myvault.vault.azure.net/secrets/mysecret/` or `https://myvault.vault.azure.net/secrets/mysecret/ec96f02080254f109c51a1f14cdb1931`  |
+> | VaultName=_vaultName_;SecretName=_secretName_;SecretVersion=_secretVersion_ | The **VaultName** is required and is the vault name. The **SecretName** is required and is the secret name. The **SecretVersion** is optional but if present indicates the version of the secret to use. |
 
 For example, a complete reference would look like the following:
 
