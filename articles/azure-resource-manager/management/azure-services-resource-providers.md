@@ -191,7 +191,7 @@ The resources providers that are marked with **- registered** are registered by 
 Resource providers marked with **- registered** in the previous section are automatically registered for your subscription. For other resource providers, you need to [register them](resource-providers-and-types.md). However, many resource providers are registered automatically when you perform specific actions. For example, when you create resources through the portal or by deploying an [Azure Resource Manager template](../templates/overview.md), Azure Resource Manager automatically registers any required unregistered resource providers.
 
 > [!IMPORTANT]
-> Register a resource provider only when you're ready to use it. This registration step helps maintain least privileges within your subscription, and prevents malicious users from using unregistered resource providers.
+> Register a resource provider only when you're ready to use it. This registration step helps maintain least privileges within your subscription. A malicious user can't use unregistered resource providers.
 >
 > Registering unnecessary resource providers may result in unrecognized apps appearing in your Azure Active Directory tenant. Microsoft adds the app for a resource provider when you register it. These apps are typically added by the Windows Azure Service Management API. To prevent unnecessary apps in your tenant, only register needed resource providers.
 
@@ -251,7 +251,7 @@ for resource in resources:
 
 The results list the resource type. The resource provider namespace is the first part of the resource type. The following example shows the **Microsoft.KeyVault** resource provider.
 
-```outout
+```output
 Microsoft.KeyVault/vaults
 ```
 
