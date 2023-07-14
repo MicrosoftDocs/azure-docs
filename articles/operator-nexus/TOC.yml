@@ -54,6 +54,8 @@
           href: howto-configure-network-fabric.md
         - name: Cluster
           href: howto-configure-cluster.md
+        - name: Instance Readiness Testing
+          href: howto-run-instance-readiness-testing.md
         - name: Cluster Upgrades
           href: howto-cluster-runtime-upgrade.md
     - name: BareMetal Actions
