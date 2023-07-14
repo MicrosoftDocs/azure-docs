@@ -178,6 +178,6 @@ Learn the details of how to migrate your Bing Maps application with these articl
 [Microsoft Azure terms of use]: https://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=31
 [Microsoft learning center shows]: https://aka.ms/AzureMapsVideos
 [Migrate a web app]: migrate-from-bing-maps-web-app.md
-[Route - Get Route Directions]: https://learn.microsoft.com/rest/api/maps/route/get-route-directions
+[Route - Get Route Directions]: /rest/api/maps/route/get-route-directions
 [Snap points to logical route path]: https://samples.azuremaps.com/?search=Snap%20to%20road&sample=snap-points-to-logical-route-path
 [subscription key]: quick-demo-map-app.md#get-the-subscription-key-for-your-account
