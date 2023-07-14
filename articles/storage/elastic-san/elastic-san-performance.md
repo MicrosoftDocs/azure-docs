@@ -27,8 +27,6 @@ An Elastic SAN has three attributes that determine its performance: total capaci
 
 The total capacity of your Elastic SAN is determined by two different capacities, the base capacity and the additional capacity. Increasing the base capacity also increases the SAN's IOPS and throughput but is more costly than increasing the additional capacity. Increasing additional capacity doesn't increase IOPS or throughput.
 
-The maximum total capacity of your SAN is determined by the region where it's located and by its redundancy configuration. The minimum total capacity for an Elastic SAN is 1 tebibyte (TiB). Base or additional capacity can be increased in increments of 1 TiB.
-
 ### IOPS
 
 The IOPS of an Elastic SAN increases by 5,000 per base TiB. So if you had an Elastic SAN that has 6 TiB of base capacity, that SAN could still provide up to 30,000 IOPS. That same SAN would still provide 30,000 IOPS whether it had 50 TiB of additional capacity or 500 TiB of additional capacity, since the SAN's performance is only determined by the base capacity. The IOPS of an Elastic SAN are distributed among all its volumes.
