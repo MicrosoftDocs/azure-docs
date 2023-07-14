@@ -413,7 +413,8 @@ For code tutorial, see [Connect to Azure databases from App Service without secr
     ```
 
 
-1. Get connection string from environment variables and add plugin name to connect database.
+1. Get the connection string from the environment variable, and add the plugin name to connect to the database:
+
     ```java
     String url = System.getenv("AZURE_MYSQL_CONNECTIONSTRING");  
     Connection connection = DriverManager.getConnection(url + "&defaultAuthenticationPlugin=com.azure.identity.extensions.jdbc.mysql.AzureMysqlAuthenticationPlugin&authenticationPlugins=com.azure.identity.extensions.jdbc.mysql.AzureMysqlAuthenticationPlugin");
