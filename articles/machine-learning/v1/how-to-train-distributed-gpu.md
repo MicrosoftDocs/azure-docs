@@ -14,7 +14,7 @@ ms.custom: UpdateFrequency5, sdkv1, event-tier1-build-2022
 
 # Distributed GPU training guide (SDK v1)
 
-[!INCLUDE [sdk v1](../../../includes/machine-learning-sdk-v1.md)]
+[!INCLUDE [sdk v1](../includes/machine-learning-sdk-v1.md)]
 
 Learn more about how to use distributed GPU training code in Azure Machine Learning (ML). This article will not teach you about distributed training.  It will help you run your existing distributed training code on Azure Machine Learning. It offers tips and examples for you to follow for each framework:
 

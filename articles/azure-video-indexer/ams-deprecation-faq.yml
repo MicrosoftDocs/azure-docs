@@ -17,7 +17,7 @@ sections:
     questions:
       - question: What is being deprecated?
         answer: |
-            Azure Media Services is being deprecated as a product. For more information, see [AMS deprecation announcement]().
+            Azure Media Services is being deprecated as a product. For more information, see [AMS deprecation announcement](https://aka.ms/ams-retirement).
           
       - question:  Azure Video Indexer also being deprecated?
         answer: |
@@ -61,4 +61,4 @@ sections:
 
       - question: What can I do if I have more questions?
         answer: |
-          f you have additional questions you can contact Microsoft Support and create a ticket.
+          If you have additional questions you can contact Microsoft Support and create a ticket.

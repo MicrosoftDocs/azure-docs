@@ -29,7 +29,7 @@ Prebuilt Docker container images for inference are used when deploying a model w
 > [!IMPORTANT]
 > The list provided below includes only **currently supported** inference docker images by Azure Machine Learning.
 
-[!INCLUDE [list-of-inference-prebuilt-docker-images](../../includes/aml-inference-list-prebuilt-docker-images.md)]
+[!INCLUDE [list-of-inference-prebuilt-docker-images](includes/aml-inference-list-prebuilt-docker-images.md)]
 
 ## How to use inference prebuilt docker images?
 

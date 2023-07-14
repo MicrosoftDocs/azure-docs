@@ -21,7 +21,7 @@ This article shows you how to deploy the [NGINX ingress controller][nginx-ingres
 ## Before you begin
 
 * This article uses [Helm 3][helm] to install the NGINX ingress controller on a [supported version of Kubernetes][aks-supported versions]. Make sure that you're using the latest release of Helm and have access to the *ingress-nginx* Helm repository. The steps outlined in this article may not be compatible with previous versions of the Helm chart, NGINX ingress controller, or Kubernetes.
-* This article assumes you have an existing AKS cluster with an integrated Azure Container Registry (ACR). For more information on creating an AKS cluster with an integrated ACR, see [Authenticate with Azure Container Registry from Azure Kubernetes Service][aks-integrated-acr-ps].
+* This article assumes you have an existing AKS cluster with an integrated Azure Container Registry (ACR). For more information on creating an AKS cluster with an integrated ACR, see [Authenticate with Azure Container Registry from Azure Kubernetes Service][aks-integrated-acr].
 * The Kubernetes API health endpoint, `healthz` was deprecated in Kubernetes v1.16. You can replace this endpoint with the `livez` and `readyz` endpoints instead. See [Kubernetes API endpoints for health](https://kubernetes.io/docs/reference/using-api/health-checks/#api-endpoints-for-health) to determine which endpoint to use for your scenario.
 * If you're using Azure CLI, this article requires that you're running the Azure CLI version 2.0.64 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI][azure-cli-install].
 * If you're using Azure PowerShell, this article requires that you're running Azure PowerShell version 5.9.0 or later. Run `Get-InstalledModule -Name Az` to find the version. If you need to install or upgrade, see [Install Azure PowerShell][azure-powershell-install].
@@ -584,7 +584,6 @@ This article included some external components to AKS. To learn more about these
 [aks-http-app-routing]: http-application-routing.md
 [client-source-ip]: concepts-network.md#ingress-controllers
 [aks-supported versions]: supported-kubernetes-versions.md
-[aks-integrated-acr]: cluster-container-registry-integration.md?tabs=azure-cli#create-a-new-aks-cluster-with-acr-integration
-[aks-integrated-acr-ps]: cluster-container-registry-integration.md?tabs=azure-powershell#create-a-new-aks-cluster-with-acr-integration
+[aks-integrated-acr]: cluster-container-registry-integration.md#create-a-new-acr
 [acr-helm]: ../container-registry/container-registry-helm-repos.md
 [azure-powershell-install]: /powershell/azure/install-az-ps

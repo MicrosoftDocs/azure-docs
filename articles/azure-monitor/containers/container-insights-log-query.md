@@ -307,44 +307,6 @@ KubePodInv
 
 These queries are generated from the [out of the box visualizations](./container-insights-analyze.md) from container insights. You can choose to use these if you have enabled custom [cost optimization settings](./container-insights-cost-config.md), in lieu of the default charts.
 
-### Node CPU and memory utilization
-
-The required tables for this chart include Perf and KubeNodeInventory.
-
-```kusto
- let trendBinSize = 5m;
- let MaxListSize = 1000;
- let clusterId = 'clusterResourceID'; //update with resource ID
- let clusterIdToken = strcat(clusterId, "/");
- 
- let materializedPerfData = materialize(Perf 
-| where InstanceName startswith clusterIdToken 
-| where ObjectName == 'K8SNode' 
-| summarize arg_max(TimeGenerated, *) by CounterName, Computer, bin(TimeGenerated, trendBinSize) 
-| where CounterName == 'cpuCapacityNanoCores' or CounterName == 'memoryCapacityBytes' or CounterName == 'cpuUsageNanoCores' or CounterName == 'memoryRssBytes' 
-| project TimeGenerated, Computer, CounterName, CounterValue 
-| summarize StoredValue = max(CounterValue) by Computer, CounterName, bin(TimeGenerated, trendBinSize));
-
- let rawData = KubeNodeInventory 
-| where ClusterId =~ clusterId 
-| summarize arg_max(TimeGenerated, *) by Computer, bin(TimeGenerated, trendBinSize) 
-| join( materializedPerfData 
-| where CounterName == 'cpuCapacityNanoCores' or CounterName == 'memoryCapacityBytes' 
-| project Computer, CounterName = iif(CounterName == 'cpuCapacityNanoCores', 'cpu', 'memory'), CapacityValue = StoredValue, TimeGenerated ) on Computer, TimeGenerated 
-| join kind=inner( materializedPerfData 
-| where CounterName == 'cpuUsageNanoCores' or CounterName == 'memoryRssBytes' 
-| project Computer, CounterName = iif(CounterName == 'cpuUsageNanoCores', 'cpu', 'memory'), UsageValue = StoredValue, TimeGenerated ) on Computer, CounterName, TimeGenerated 
-| project Computer, CounterName, TimeGenerated, UsagePercent = UsageValue * 100.0 / CapacityValue;
-
- rawData 
-| summarize Min = min(UsagePercent), Avg = avg(UsagePercent), Max = max(UsagePercent), percentiles(UsagePercent, 50, 90, 95) by bin(TimeGenerated, trendBinSize), CounterName 
-| sort by TimeGenerated asc 
-| project CounterName, TimeGenerated, Min, Avg, Max, P50 = percentile_UsagePercent_50, P90 = percentile_UsagePercent_90, P95 = percentile_UsagePercent_95 
-| summarize makelist(TimeGenerated, MaxListSize), makelist(Min, MaxListSize), makelist(Avg, MaxListSize), makelist(Max, MaxListSize), makelist(P50, MaxListSize), makelist(P90, MaxListSize), makelist(P95, MaxListSize) by CounterName 
-| join ( rawData 
-| summarize Min = min(UsagePercent), Avg = avg(UsagePercent), Max = max(UsagePercent), percentiles(UsagePercent, 50, 90, 95) by CounterName ) on CounterName 
-| project ClusterId = clusterId, CounterName, Min, Avg, Max, P50 = percentile_UsagePercent_50, P90 = percentile_UsagePercent_90, P95 = percentile_UsagePercent_95, list_TimeGenerated, list_Min, list_Avg, list_Max, list_P50, list_P90, list_P95 
-```
 ### Node count by status
 
 The required tables for this chart include KubeNodeInventory.

@@ -5,7 +5,7 @@ author: EdB-MSFT
 services: azure-monitor
 ms.topic: reference
 ms.custom: ignite-2022
-ms.date: 06/27/2023
+ms.date: 07/03/2023
 ms.author: edbaynash
 ms.reviewer: priyamishra
 ---
@@ -15,7 +15,7 @@ ms.reviewer: priyamishra
 > [!NOTE]
 > This list is largely auto-generated. Any modification made to this list via GitHub might be written over without warning. Contact the author of this article for details on how to make permanent updates.
 
-Date list was last updated: 06/27/2023.
+Date list was last updated: 07/03/2023.
 
 Azure Monitor provides several ways to interact with metrics, including charting them in the Azure portal, accessing them through the REST API, or querying them by using PowerShell or the Azure CLI (Command Line Interface).  
 
@@ -2685,55 +2685,55 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 
 |Metric|Exportable via Diagnostic Settings?|Metric Display Name|Unit|Aggregation Type|Description|Dimensions|
 |---|---|---|---|---|---|---|
-|AclMatchedPackets |Yes |Acl Matched Packets |Count |Average |Count of the number of packets matching the current ACL entry. |FabricId, RegionName, AclSetName, AclEntrySequenceId, AclSetType |
-|BgpPeerStatus |Yes |BGP Peer Status |Unspecified |Minimum |Operational state of the BGP peer. State is represented in numerical form. Idle : 1, Connect : 2, Active : 3, Opensent : 4, Openconfirm : 5, Established : 6 |FabricId, RegionName, IpAddress |
-|ComponentOperStatus |Yes |Component Operational State |Unspecified |Minimum |The current operational status of the component. |FabricId, RegionName, ComponentName |
-|CpuUtilizationMax |Yes |Cpu Utilization Max |Percent |Average |Max cpu utilization. The maximum value of the percentage measure of the statistic over the time interval. |FabricId, RegionName, ComponentName |
-|CpuUtilizationMin |Yes |Cpu Utilization Min |Percent |Average |Min cpu utilization. The minimum value of the percentage measure of the statistic over the time interval. |FabricId, RegionName, ComponentName |
-|FanSpeed |Yes |Fan Speed |Unspecified |Average |Current fan speed. |FabricId, RegionName, ComponentName |
-|IfEthInCrcErrors |Yes |Ethernet Interface In CRC Errors |Count |Average |The total number of frames received that had a length (excluding framing bits, but including FCS octets) of between 64 and 1518 octets, inclusive, but had either a bad Frame Check Sequence (FCS) with an integral number of octets (FCS Error) or a bad FCS with a non-integral number of octets (Alignment Error) |FabricId, RegionName, InterfaceName |
-|IfEthInFragmentFrames |Yes |Ethernet Interface In Fragment Frames |Count |Average |The total number of frames received that were less than 64 octets in length (excluding framing bits but including FCS octets) and had either a bad Frame Check Sequence (FCS) with an integral number of octets (FCS Error) or a bad FCS with a non-integral number of octets (Alignment Error). |FabricId, RegionName, InterfaceName |
-|IfEthInJabberFrames |Yes |Ethernet Interface In Jabber Frames |Count |Average |Number of jabber frames received on the interface. Jabber frames are typically defined as oversize frames which also have a bad CRC. |FabricId, RegionName, InterfaceName |
-|IfEthInMacControlFrames |Yes |Ethernet Interface In MAC Control Frames |Count |Average |MAC layer control frames received on the interface |FabricId, RegionName, InterfaceName |
-|IfEthInMacPauseFrames |Yes |Ethernet Interface In MAC Pause Frames |Count |Average |MAC layer PAUSE frames received on the interface |FabricId, RegionName, InterfaceName |
-|IfEthInMaxsizeExceeded |Yes |Ethernet Interface In Maxsize Exceeded |Count |Average |The total number frames received that are well-formed dropped due to exceeding the maximum frame size on the interface. |FabricId, RegionName, InterfaceName |
-|IfEthInOversizeFrames |Yes |Ethernet Interface In Oversize Frames |Count |Average |The total number of frames received that were longer than 1518 octets (excluding framing bits, but including FCS octets) and were otherwise well formed. |FabricId, RegionName, InterfaceName |
-|IfEthOutMacControlFrames |Yes |Ethernet Interface Out MAC Control Frames |Count |Average |MAC layer control frames sent on the interface. |FabricId, RegionName, InterfaceName |
-|IfEthOutMacPauseFrames |Yes |Ethernet Interface Out MAC Pause Frames |Count |Average |MAC layer PAUSE frames sent on the interface. |FabricId, RegionName, InterfaceName |
-|IfInBroadcastPkts |Yes |Interface In Broadcast Pkts |Count |Average |The number of packets, delivered by this sub-layer to a higher (sub-)layer, that were addressed to a broadcast address at this sub-layer. |FabricId, RegionName, InterfaceName |
-|IfInDiscards |Yes |Interface In Discards |Count |Average |The number of inbound packets that were chosen to be discarded even though no errors had been detected to prevent their being deliverable to a higher-layer protocol. |FabricId, RegionName, InterfaceName |
-|IfInErrors |Yes |Interface In Errors |Count |Average |For packet-oriented interfaces, the number of inbound packets that contained errors preventing them from being deliverable to a higher-layer protocol. |FabricId, RegionName, InterfaceName |
-|IfInFcsErrors |Yes |Interface In FCS Errors |Count |Average |Number of received packets which had errors in the frame check sequence (FCS), i.e., framing errors. |FabricId, RegionName, InterfaceName |
-|IfInMulticastPkts |Yes |Interface In Multicast Pkts |Count |Average |The number of packets, delivered by this sub-layer to a higher (sub-)layer, that were addressed to a multicast address at this sub-layer. For a MAC-layer protocol, this includes both Group and Functional addresses. |FabricId, RegionName, InterfaceName |
-|IfInOctets |Yes |Interface In Octets |Count |Average |The total number of octets received on the interface, including framing characters. |FabricId, RegionName, InterfaceName |
-|IfInPkts |Yes |Interface In Pkts |Count |Average |The total number of packets received on the interface, including all unicast, multicast, broadcast and bad packets etc. |FabricId, RegionName, InterfaceName |
-|IfInUnicastPkts |Yes |Interface In Unicast Pkts |Count |Average |The number of packets, delivered by this sub-layer to a higher (sub-)layer, that were not addressed to a multicast or broadcast address at this sub-layer. |FabricId, RegionName, InterfaceName |
-|IfOutBroadcastPkts |Yes |Interface Out Broadcast Pkts |Count |Average |The total number of packets that higher-level protocols requested be transmitted, and that were addressed to a broadcast address at this sub-layer, including those that were discarded or not sent. |FabricId, RegionName, InterfaceName |
-|IfOutDiscards |Yes |Interface Out Discards |Count |Average |The number of outbound packets that were chosen to be discarded even though no errors had been detected to prevent their being transmitted. |FabricId, RegionName, InterfaceName |
-|IfOutErrors |Yes |Interface Out Errors |Count |Average |For packet-oriented interfaces, the number of outbound packets that could not be transmitted because of errors. |FabricId, RegionName, InterfaceName |
-|IfOutMulticastPkts |Yes |Interface Out Multicast Pkts |Count |Average |The total number of packets that higher-level protocols requested be transmitted, and that were addressed to a multicast address at this sub-layer, including those that were discarded or not sent. For a MAC-layer protocol, this includes both Group and Functional addresses. |FabricId, RegionName, InterfaceName |
-|IfOutOctets |Yes |Interface Out Octets |Count |Average |The total number of octets transmitted out of the interface, including framing characters. |FabricId, RegionName, InterfaceName |
-|IfOutPkts |Yes |Interface Out Pkts |Count |Average |The total number of packets transmitted out of the interface, including all unicast, multicast, broadcast, and bad packets etc. |FabricId, RegionName, InterfaceName |
-|IfOutUnicastPkts |Yes |Interface Out Unicast Pkts |Count |Average |The total number of packets that higher-level requested be transmitted, and that were not addressed to a multicast or broadcast address at this sub-layer, including those that were discarded or not sent. |FabricId, RegionName, InterfaceName |
-|InterfaceOperStatus |Yes |Interface Operational State |Unspecified |Minimum |The current operational state of the interface. State is represented in numerical form. Up: 0, Down: 1, Lower_layer_down: 2, Testing: 3, Unknown: 4, Dormant: 5, Not_present: 6. |FabricId, RegionName, InterfaceName |
-|LacpErrors |Yes |Lacp Errors |Count |Average |Number of LACPDU illegal packet errors. |FabricId, RegionName, InterfaceName |
-|LacpInPkts |Yes |Lacp In Pkts |Count |Average |Number of LACPDUs received. |FabricId, RegionName, InterfaceName |
-|LacpOutPkts |Yes |Lacp Out Pkts |Count |Average |Number of LACPDUs transmitted. |FabricId, RegionName, InterfaceName |
-|LacpRxErrors |Yes |Lacp Rx Errors |Count |Average |Number of LACPDU receive packet errors. |FabricId, RegionName, InterfaceName |
-|LacpTxErrors |Yes |Lacp Tx Errors |Count |Average |Number of LACPDU transmit packet errors. |FabricId, RegionName, InterfaceName |
-|LacpUnknownErrors |Yes |Lacp Unknown Errors |Count |Average |Number of LACPDU unknown packet errors. |FabricId, RegionName, InterfaceName |
-|LldpFrameIn |Yes |Lldp Frame In |Count |Average |The number of lldp frames received. |FabricId, RegionName, InterfaceName |
-|LldpFrameOut |Yes |Lldp Frame Out |Count |Average |The number of frames transmitted out. |FabricId, RegionName, InterfaceName |
-|LldpTlvUnknown |Yes |Lldp Tlv Unknown |Count |Average |The number of frames received with unknown TLV. |FabricId, RegionName, InterfaceName |
-|MemoryAvailable |Yes |Memory Available |Bytes |Average |The available memory physically installed, or logically allocated to the component. |FabricId, RegionName, ComponentName |
-|MemoryUtilized |Yes |Memory Utilized |Bytes |Average |The memory currently in use by processes running on the component, not considering reserved memory that is not available for use. |FabricId, RegionName, ComponentName |
-|PowerSupplyCapacity |Yes |Power Supply Maximum Power Capacity |Unspecified |Average |Maximum power capacity of the power supply (watts). |FabricId, RegionName, ComponentName |
-|PowerSupplyInputCurrent |Yes |Power Supply Input Current |Unspecified |Average |The input current draw of the power supply (amps). |FabricId, RegionName, ComponentName |
-|PowerSupplyInputVoltage |Yes |Power Supply Input Voltage |Unspecified |Average |Input voltage to the power supply (volts). |FabricId, RegionName, ComponentName |
-|PowerSupplyOutputCurrent |Yes |Power Supply Output Current |Unspecified |Average |The output current supplied by the power supply (amps) |FabricId, RegionName, ComponentName |
-|PowerSupplyOutputPower |Yes |Power Supply Output Power |Unspecified |Average |Output power supplied by the power supply (watts) |FabricId, RegionName, ComponentName |
-|PowerSupplyOutputVoltage |Yes |Power Supply Output Voltage |Unspecified |Average |Output voltage supplied by the power supply (volts). |FabricId, RegionName, ComponentName |
-|TemperatureMax |Yes |Temperature Max |Unspecified |Average |Max temperature in degrees Celsius of the component. The maximum value of the statistic over the sampling period. |FabricId, RegionName, ComponentName |
+|AclMatchedPackets |Yes |Acl Matched Packets |Count |Average |Count of the number of packets matching the current ACL entry. |FabricId, AclSetName, AclEntrySequenceId, AclSetType |
+|BgpPeerStatus |Yes |BGP Peer Status |Unspecified |Minimum |Operational state of the BGP peer. State is represented in numerical form. Idle : 1, Connect : 2, Active : 3, Opensent : 4, Openconfirm : 5, Established : 6 |FabricId, IpAddress |
+|ComponentOperStatus |Yes |Component Operational State |Unspecified |Minimum |The current operational status of the component. |FabricId, ComponentName |
+|CpuUtilizationMax |Yes |Cpu Utilization Max |Percent |Average |Max cpu utilization. The maximum value of the percentage measure of the statistic over the time interval. |FabricId, ComponentName |
+|CpuUtilizationMin |Yes |Cpu Utilization Min |Percent |Average |Min cpu utilization. The minimum value of the percentage measure of the statistic over the time interval. |FabricId, ComponentName |
+|FanSpeed |Yes |Fan Speed |Unspecified |Average |Current fan speed. |FabricId, ComponentName |
+|IfEthInCrcErrors |Yes |Ethernet Interface In CRC Errors |Count |Average |The total number of frames received that had a length (excluding framing bits, but including FCS octets) of between 64 and 1518 octets, inclusive, but had either a bad Frame Check Sequence (FCS) with an integral number of octets (FCS Error) or a bad FCS with a non-integral number of octets (Alignment Error) |FabricId, InterfaceName |
+|IfEthInFragmentFrames |Yes |Ethernet Interface In Fragment Frames |Count |Average |The total number of frames received that were less than 64 octets in length (excluding framing bits but including FCS octets) and had either a bad Frame Check Sequence (FCS) with an integral number of octets (FCS Error) or a bad FCS with a non-integral number of octets (Alignment Error). |FabricId, InterfaceName |
+|IfEthInJabberFrames |Yes |Ethernet Interface In Jabber Frames |Count |Average |Number of jabber frames received on the interface. Jabber frames are typically defined as oversize frames which also have a bad CRC. |FabricId, InterfaceName |
+|IfEthInMacControlFrames |Yes |Ethernet Interface In MAC Control Frames |Count |Average |MAC layer control frames received on the interface |FabricId, InterfaceName |
+|IfEthInMacPauseFrames |Yes |Ethernet Interface In MAC Pause Frames |Count |Average |MAC layer PAUSE frames received on the interface |FabricId, InterfaceName |
+|IfEthInMaxsizeExceeded |Yes |Ethernet Interface In Maxsize Exceeded |Count |Average |The total number frames received that are well-formed dropped due to exceeding the maximum frame size on the interface. |FabricId, InterfaceName |
+|IfEthInOversizeFrames |Yes |Ethernet Interface In Oversize Frames |Count |Average |The total number of frames received that were longer than 1518 octets (excluding framing bits, but including FCS octets) and were otherwise well formed. |FabricId, InterfaceName |
+|IfEthOutMacControlFrames |Yes |Ethernet Interface Out MAC Control Frames |Count |Average |MAC layer control frames sent on the interface. |FabricId, InterfaceName |
+|IfEthOutMacPauseFrames |Yes |Ethernet Interface Out MAC Pause Frames |Count |Average |MAC layer PAUSE frames sent on the interface. |FabricId, InterfaceName |
+|IfInBroadcastPkts |Yes |Interface In Broadcast Pkts |Count |Average |The number of packets, delivered by this sub-layer to a higher (sub-)layer, that were addressed to a broadcast address at this sub-layer. |FabricId, InterfaceName |
+|IfInDiscards |Yes |Interface In Discards |Count |Average |The number of inbound packets that were chosen to be discarded even though no errors had been detected to prevent their being deliverable to a higher-layer protocol. |FabricId, InterfaceName |
+|IfInErrors |Yes |Interface In Errors |Count |Average |For packet-oriented interfaces, the number of inbound packets that contained errors preventing them from being deliverable to a higher-layer protocol. |FabricId, InterfaceName |
+|IfInFcsErrors |Yes |Interface In FCS Errors |Count |Average |Number of received packets which had errors in the frame check sequence (FCS), i.e., framing errors. |FabricId, InterfaceName |
+|IfInMulticastPkts |Yes |Interface In Multicast Pkts |Count |Average |The number of packets, delivered by this sub-layer to a higher (sub-)layer, that were addressed to a multicast address at this sub-layer. For a MAC-layer protocol, this includes both Group and Functional addresses. |FabricId, InterfaceName |
+|IfInOctets |Yes |Interface In Octets |Count |Average |The total number of octets received on the interface, including framing characters. |FabricId, InterfaceName |
+|IfInPkts |Yes |Interface In Pkts |Count |Average |The total number of packets received on the interface, including all unicast, multicast, broadcast and bad packets etc. |FabricId, InterfaceName |
+|IfInUnicastPkts |Yes |Interface In Unicast Pkts |Count |Average |The number of packets, delivered by this sub-layer to a higher (sub-)layer, that were not addressed to a multicast or broadcast address at this sub-layer. |FabricId, InterfaceName |
+|IfOutBroadcastPkts |Yes |Interface Out Broadcast Pkts |Count |Average |The total number of packets that higher-level protocols requested be transmitted, and that were addressed to a broadcast address at this sub-layer, including those that were discarded or not sent. |FabricId, InterfaceName |
+|IfOutDiscards |Yes |Interface Out Discards |Count |Average |The number of outbound packets that were chosen to be discarded even though no errors had been detected to prevent their being transmitted. |FabricId, InterfaceName |
+|IfOutErrors |Yes |Interface Out Errors |Count |Average |For packet-oriented interfaces, the number of outbound packets that could not be transmitted because of errors. |FabricId, InterfaceName |
+|IfOutMulticastPkts |Yes |Interface Out Multicast Pkts |Count |Average |The total number of packets that higher-level protocols requested be transmitted, and that were addressed to a multicast address at this sub-layer, including those that were discarded or not sent. For a MAC-layer protocol, this includes both Group and Functional addresses. |FabricId, InterfaceName |
+|IfOutOctets |Yes |Interface Out Octets |Count |Average |The total number of octets transmitted out of the interface, including framing characters. |FabricId, InterfaceName |
+|IfOutPkts |Yes |Interface Out Pkts |Count |Average |The total number of packets transmitted out of the interface, including all unicast, multicast, broadcast, and bad packets etc. |FabricId, InterfaceName |
+|IfOutUnicastPkts |Yes |Interface Out Unicast Pkts |Count |Average |The total number of packets that higher-level requested be transmitted, and that were not addressed to a multicast or broadcast address at this sub-layer, including those that were discarded or not sent. |FabricId, InterfaceName |
+|InterfaceOperStatus |Yes |Interface Operational State |Unspecified |Minimum |The current operational state of the interface. State is represented in numerical form. Up: 0, Down: 1, Lower_layer_down: 2, Testing: 3, Unknown: 4, Dormant: 5, Not_present: 6. |FabricId, InterfaceName |
+|LacpErrors |Yes |Lacp Errors |Count |Average |Number of LACPDU illegal packet errors. |FabricId, InterfaceName |
+|LacpInPkts |Yes |Lacp In Pkts |Count |Average |Number of LACPDUs received. |FabricId, InterfaceName |
+|LacpOutPkts |Yes |Lacp Out Pkts |Count |Average |Number of LACPDUs transmitted. |FabricId, InterfaceName |
+|LacpRxErrors |Yes |Lacp Rx Errors |Count |Average |Number of LACPDU receive packet errors. |FabricId, InterfaceName |
+|LacpTxErrors |Yes |Lacp Tx Errors |Count |Average |Number of LACPDU transmit packet errors. |FabricId, InterfaceName |
+|LacpUnknownErrors |Yes |Lacp Unknown Errors |Count |Average |Number of LACPDU unknown packet errors. |FabricId, InterfaceName |
+|LldpFrameIn |Yes |Lldp Frame In |Count |Average |The number of lldp frames received. |FabricId, InterfaceName |
+|LldpFrameOut |Yes |Lldp Frame Out |Count |Average |The number of frames transmitted out. |FabricId, InterfaceName |
+|LldpTlvUnknown |Yes |Lldp Tlv Unknown |Count |Average |The number of frames received with unknown TLV. |FabricId, InterfaceName |
+|MemoryAvailable |Yes |Memory Available |Bytes |Average |The available memory physically installed, or logically allocated to the component. |FabricId, ComponentName |
+|MemoryUtilized |Yes |Memory Utilized |Bytes |Average |The memory currently in use by processes running on the component, not considering reserved memory that is not available for use. |FabricId, ComponentName |
+|PowerSupplyCapacity |Yes |Power Supply Maximum Power Capacity |Unspecified |Average |Maximum power capacity of the power supply (watts). |FabricId, ComponentName |
+|PowerSupplyInputCurrent |Yes |Power Supply Input Current |Unspecified |Average |The input current draw of the power supply (amps). |FabricId, ComponentName |
+|PowerSupplyInputVoltage |Yes |Power Supply Input Voltage |Unspecified |Average |Input voltage to the power supply (volts). |FabricId, ComponentName |
+|PowerSupplyOutputCurrent |Yes |Power Supply Output Current |Unspecified |Average |The output current supplied by the power supply (amps) |FabricId, ComponentName |
+|PowerSupplyOutputPower |Yes |Power Supply Output Power |Unspecified |Average |Output power supplied by the power supply (watts) |FabricId, ComponentName |
+|PowerSupplyOutputVoltage |Yes |Power Supply Output Voltage |Unspecified |Average |Output voltage supplied by the power supply (volts). |FabricId, ComponentName |
+|TemperatureMax |Yes |Temperature Max |Unspecified |Average |Max temperature in degrees Celsius of the component. The maximum value of the statistic over the sampling period. |FabricId, ComponentName |
 
 ## Microsoft.Maps/accounts  
 <!-- Data source : arm-->
@@ -3300,12 +3300,12 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 
 |Metric|Exportable via Diagnostic Settings?|Metric Display Name|Unit|Aggregation Type|Description|Dimensions|
 |---|---|---|---|---|---|---|
-|HostBootTimeSeconds |No |Host Boot Seconds |Seconds |Average |Unix time of last boot |Host |
+|HostBootTimeSeconds |No |Host Boot Seconds (Preview) |Seconds |Average |Unix time of last boot |Host |
 |HostDiskReadCompleted |No |Host Disk Reads Completed |Count |Average |Disk reads completed by node |Device, Host |
-|HostDiskReadSeconds |No |Host Disk Read Seconds |Seconds |Average |Disk read time by node |Device, Host |
+|HostDiskReadSeconds |No |Host Disk Read Seconds (Preview) |Seconds |Average |Disk read time by node |Device, Host |
 |HostDiskWriteCompleted |No |Total Number of Writes Completed |Count |Average |Disk writes completed by node |Device, Host |
-|HostDiskWriteSeconds |No |Host Disk Write In Seconds |Seconds |Average |Disk write time by node |Device, Host |
-|HostDmiInfo |No |Host DMI Info |Unspecified |Count |Host Desktop Management Interface (DMI) environment information |BiosDate, BiosRelease, BiosVendor, BiosVersion, BoardAssetTag, BoardName, BoardVendor, BoardVersion, ChassisAssetTag, ChassisVendor, ChassisVersion, Host, ProductFamily, ProductName, ProductSku, ProductUuid, ProductVersion, SystemVendor |
+|HostDiskWriteSeconds |No |Host Disk Write Seconds (Preview) |Seconds |Average |Disk write time by node |Device, Host |
+|HostDmiInfo |No |Host DMI Info (Preview) |Unspecified |Count |Host Desktop Management Interface (DMI) environment information |BiosDate, BiosRelease, BiosVendor, BiosVersion, BoardAssetTag, BoardName, BoardVendor, BoardVersion, ChassisAssetTag, ChassisVendor, ChassisVersion, Host, ProductFamily, ProductName, ProductSku, ProductUuid, ProductVersion, SystemVendor |
 |HostEntropyAvailableBits |No |Host Entropy Available Bits (Preview) |Count |Average |Available bits in node entropy |Host |
 |HostFilesystemAvailBytes |No |Host Filesystem Available Bytes |Count |Average |Available filesystem size by node |Device, FSType, Host, Mountpoint |
 |HostFilesystemDeviceError |No |Host Filesystem Device Errors |Count |Average |Indicates if there was a problem getting information for the filesystem |Device, FSType, Host, Mountpoint |
@@ -3315,13 +3315,13 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 |HostFilesystemSizeBytes |No |Host Filesystem Size In Bytes |Count |Average |Filesystem size by node |Device, FSType, Host, Mountpoint |
 |HostHwmonTempCelsius |No |Host Hardware Monitor Temp |Count |Average |Hardware monitor for temperature (celsius) |Chip, Host, Sensor |
 |HostHwmonTempMax |No |Host Hardware Monitor Temp Max |Count |Average |Hardware monitor for maximum temperature (celsius) |Chip, Host, Sensor |
-|HostLoad1 |No |Average Load In 1 Minute |Count |Average |1 minute load average |Host |
-|HostLoad15 |No |Average Load In 15 Minutes |Count |Average |15 minute load average |Host |
-|HostLoad5 |No |Average load in 5 minutes |Count |Average |5 minute load average |Host |
+|HostLoad1 |No |Average Load In 1 Minute (Preview) |Count |Average |1 minute load average |Host |
+|HostLoad15 |No |Average Load In 15 Minutes (Preview) |Count |Average |15 minute load average |Host |
+|HostLoad5 |No |Average load in 5 minutes (Preview) |Count |Average |5 minute load average |Host |
 |HostMemAvailBytes |No |Host Memory Available Bytes |Count |Average |Available memory in bytes by node |Host |
 |HostMemHWCorruptedBytes |No |Total Amount of Memory In Corrupted Pages |Count |Average |Corrupted bytes in hardware by node |Host |
 |HostMemTotalBytes |No |Host Memory Total Bytes |Bytes |Average |Total bytes of memory by node |Host |
-|HostSpecificCPUUtilization |No |Host Specific CPU Utilization |Seconds |Average |A counter metric that counts the number of seconds the CPU has been running in a particular mode |Cpu, Host, Mode |
+|HostSpecificCPUUtilization |No |Host Specific CPU Utilization (Preview) |Seconds |Average |A counter metric that counts the number of seconds the CPU has been running in a particular mode |Cpu, Host, Mode |
 |IdracPowerCapacityWatts |No |IDRAC Power Capacity Watts |Unspecified |Average |Power Capacity |Host, PSU |
 |IdracPowerInputWatts |No |IDRAC Power Input Watts |Unspecified |Average |Power Input |Host, PSU |
 |IdracPowerOn |No |IDRAC Power On |Unspecified |Count |IDRAC Power On Status |Host |
@@ -3332,20 +3332,20 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 |NcTotalCpusPerNuma |No |Total CPUs Available to Nexus per NUMA |Count |Average |Total number of CPUs available to Nexus per NUMA |Hostname, NUMA Node |
 |NcTotalWorkloadCpusAllocatedPerNuma |No |CPUs per NUMA Allocated for Nexus Kubernetes |Count |Average |Total number of CPUs per NUMA allocated for Nexus Kubernetes and Tenant Workloads |Hostname, NUMA Node |
 |NcTotalWorkloadCpusAvailablePerNuma |No |CPUs per NUMA Available for Nexus Kubernetes |Count |Average |Total number of CPUs per NUMA available to Nexus Kubernetes and Tenant Workloads |Hostname, NUMA Node |
-|NodeBondingActive |No |Node Bonding Active |Count |Average |Number of active interfaces per bonding interface |Master |
-|NodeMemHugePagesFree |No |Node Memory Huge Pages Free |Bytes |Average |NUMA hugepages free by node |Host, Node |
+|NodeBondingActive |No |Node Bonding Active (Preview) |Count |Average |Number of active interfaces per bonding interface |Master |
+|NodeMemHugePagesFree |No |Node Memory Huge Pages Free (Preview) |Bytes |Average |NUMA hugepages free by node |Host, Node |
 |NodeMemHugePagesTotal |No |Node Memory Huge Pages Total |Bytes |Average |NUMA huge pages total by node |Host, Node |
 |NodeMemNumaFree |No |Node Memory NUMA (Free Memory) |Bytes |Average |NUMA memory free |Name, Host |
 |NodeMemNumaShem |No |Node Memory NUMA (Shared Memory) |Bytes |Average |NUMA shared memory |Host, Node |
 |NodeMemNumaUsed |No |Node Memory NUMA (Used Memory) |Bytes |Average |NUMA memory used |Host, Node |
 |NodeNetworkCarrierChanges |No |Node Network Carrier Changes |Count |Average |Node network carrier changes |Device, Host |
-|NodeNetworkMtuBytes |No |Node Network Maximum Transmission Unit Bytes |Bytes |Average |Node network Maximum Transmission Unit (mtu_bytes) value of /sys/class/net/<iface> |Device, Host |
+|NodeNetworkMtuBytes |No |Node Network Maximum Transmission Unit Bytes |Bytes |Average |Node network Maximum Transmission Unit (mtu_bytes) value of /sys/class/net/\<iface\> |Device, Host |
 |NodeNetworkReceiveMulticastTotal |No |Node Network Received Multicast Total |Bytes |Average |Network device statistic receive_multicast |Device, Host |
 |NodeNetworkReceivePackets |No |Node Network Received Packets |Count |Average |Network device statistic receive_packets |Device, Host |
-|NodeNetworkSpeedBytes |No |Node Network Speed Bytes |Bytes |Average |speed_bytes value of /sys/class/net/<iface> |Device, Host |
+|NodeNetworkSpeedBytes |No |Node Network Speed Bytes |Bytes |Average |speed_bytes value of /sys/class/net/\<iface\> |Device, Host |
 |NodeNetworkTransmitPackets |No |Node Network Transmited Packets |Count |Average |Network device statistic transmit_packets |Device, Host |
 |NodeNetworkUp |No |Node Network Up |Count |Count |Value is 1 if operstate is 'up', 0 otherwise. |Device, Host |
-|NodeNvmeInfo |No |Node NVMe Info |Count |Count |Non-numeric data from /sys/class/nvme/<device>, value is always 1. Provides firmware, model, state and serial for a device |Device, State |
+|NodeNvmeInfo |No |Node NVMe Info (Preview) |Count |Count |Non-numeric data from /sys/class/nvme/\<device\>, value is always 1. Provides firmware, model, state and serial for a device |Device, State |
 |NodeOsInfo |No |Node OS Info |Count |Count |Node OS information |Host, Name, Version |
 |NodeTimexMaxErrorSeconds |No |Node Timex Max Error Seconds |Seconds |Average |Maximum time error between the local system and reference clock |Host |
 |NodeTimexOffsetSeconds |No |Node Timex Offset Seconds |Seconds |Average |Time offset in between the local system and reference clock |Host |
@@ -3360,22 +3360,22 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 |Metric|Exportable via Diagnostic Settings?|Metric Display Name|Unit|Aggregation Type|Description|Dimensions|
 |---|---|---|---|---|---|---|
 |ApiserverAuditRequestsRejectedTotal |No |API Server Audit Requests Rejected Total |Count |Average |Counter of API server requests rejected due to an error in the audit logging backend |Component, Pod Name |
-|ApiserverClientCertificateExpirationSecondsSum |No |API Server Client Certificate Expiration Seconds Sum |Seconds |Average |Sum of API server client certificate expiration (seconds) |Component, Pod Name |
+|ApiserverClientCertificateExpirationSecondsSum |No |API Server Client Certificate Expiration Seconds Sum (Preview) |Seconds |Average |Sum of API server client certificate expiration (seconds) |Component, Pod Name |
 |ApiserverStorageDataKeyGenerationFailuresTotal |No |API Server Storage Data Key Generation Failures Total |Count |Average |Total number of operations that failed Data Encryption Key (DEK) generation |Component, Pod Name |
-|ApiserverTlsHandshakeErrorsTotal |No |API Server TLS Handshake Errors Total |Count |Average |Number of requests dropped with 'TLS handshake' error |Component, Pod Name |
-|ContainerFsIoTimeSecondsTotal |No |Container FS I/O Time Seconds Total |Seconds |Average |Time taken for container Input/Output (I/O) operations |Device, Host |
+|ApiserverTlsHandshakeErrorsTotal |No |API Server TLS Handshake Errors Total (Preview) |Count |Average |Number of requests dropped with 'TLS handshake' error |Component, Pod Name |
+|ContainerFsIoTimeSecondsTotal |No |Container FS I/O Time Seconds Total (Preview) |Seconds |Average |Time taken for container Input/Output (I/O) operations |Device, Host |
 |ContainerMemoryFailcnt |No |Container Memory Fail Count |Count |Average |Number of times a container's memory usage limit is hit |Container, Host, Namespace, Pod |
 |ContainerMemoryUsageBytes |No |Container Memory Usage Bytes |Bytes |Average |Current memory usage, including all memory regardless of when it was accessed |Container, Host, Namespace, Pod |
-|ContainerNetworkReceiveErrorsTotal |No |Container Network Receive Errors Total |Count |Average |Number of errors encountered while receiving bytes over the network |Interface, Namespace, Pod |
-|ContainerNetworkTransmitErrorsTotal |No |Container Network Transmit Errors Total |Count |Average |Count of errors that happened while transmitting |Interface, Namespace, Pod |
+|ContainerNetworkReceiveErrorsTotal |No |Container Network Receive Errors Total (Preview) |Count |Average |Number of errors encountered while receiving bytes over the network |Interface, Namespace, Pod |
+|ContainerNetworkTransmitErrorsTotal |No |Container Network Transmit Errors Total (Preview) |Count |Average |Count of errors that happened while transmitting |Interface, Namespace, Pod |
 |ContainerScrapeError |No |Container Scrape Error |Unspecified |Average |Indicates whether there was an error while getting container metrics |Host |
 |ContainerTasksState |No |Container Tasks State |Count |Average |Number of tasks or processes in a given state (sleeping, running, stopped, uninterruptible, or waiting) in a container |Container, Host, Namespace, Pod, State |
 |ControllerRuntimeReconcileErrorsTotal |No |Controller Reconcile Errors Total |Count |Average |Total number of reconciliation errors per controller |Controller, Namespace, Pod Name |
 |ControllerRuntimeReconcileTotal |No |Controller Reconciliations Total |Count |Average |Total number of reconciliations per controller |Controller, Namespace, Pod Name |
 |CorednsDnsRequestsTotal |No |CoreDNS Requests Total |Count |Average |Total number of DNS requests |Family, Pod Name, Proto, Server, Type |
 |CorednsDnsResponsesTotal |No |CoreDNS Responses Total |Count |Average |Total number of DNS responses |Pod Name, Server, Rcode |
-|CorednsForwardHealthcheckBrokenTotal |No |CoreDNS Forward Healthcheck Broken Total |Count |Average |Total number of times all upstreams are unhealthy |Pod Name, Namespace |
-|CorednsForwardMaxConcurrentRejectsTotal |No |CoreDNS Forward Max Concurrent Rejects Total |Count |Average |Total number of rejected queries because concurrent queries were at the maximum limit |Pod Name, Namespace |
+|CorednsForwardHealthcheckBrokenTotal |No |CoreDNS Forward Healthcheck Broken Total (Preview) |Count |Average |Total number of times all upstreams are unhealthy |Pod Name, Namespace |
+|CorednsForwardMaxConcurrentRejectsTotal |No |CoreDNS Forward Max Concurrent Rejects Total (Preview) |Count |Average |Total number of rejected queries because concurrent queries were at the maximum limit |Pod Name, Namespace |
 |CorednsHealthRequestFailuresTotal |No |CoreDNS Health Request Failures Total |Count |Average |The number of times the self health check failed |Pod Name |
 |CorednsPanicsTotal |No |CoreDNS Panics Total |Count |Average |Total number of panics |Pod Name |
 |CorednsReloadFailedTotal |No |CoreDNS Reload Failed Total |Count |Average |Total number of failed reload attempts |Pod Name, Namespace |
@@ -3388,7 +3388,7 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 |EtcdServerProposalsAppliedTotal |No |Etcd Server Proposals Applied Total |Count |Average |The total number of consensus proposals applied |Component, Pod Name, Tier |
 |EtcdServerProposalsCommittedTotal |No |Etcd Server Proposals Committed Total |Count |Average |The total number of consensus proposals committed |Component, Pod Name, Tier |
 |EtcdServerProposalsFailedTotal |No |Etcd Server Proposals Failed Total |Count |Average |The total number of failed proposals |Component, Pod Name, Tier |
-|EtcdServerSlowApplyTotal |No |Etcd Server Slow Apply Total |Count |Average |The total number of slow apply requests |Pod Name, Tier |
+|EtcdServerSlowApplyTotal |No |Etcd Server Slow Apply Total (Preview) |Count |Average |The total number of slow apply requests |Pod Name, Tier |
 |FelixActiveLocalEndpoints |No |Felix Active Local Endpoints |Count |Average |Number of active endpoints on this host |Host |
 |FelixClusterNumHostEndpoints |No |Felix Cluster Num Host Endpoints |Count |Average |Total number of host endpoints cluster-wide |Host |
 |FelixClusterNumHosts |No |Felix Cluster Number of Hosts |Count |Average |Total number of Calico hosts in the cluster |Host |
@@ -3419,7 +3419,7 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 |KubeNodeStatusCondition |No |Node Status Condition |Count |Average |The condition of a node |Condition, Node, Status |
 |KubePodContainerResourceLimits |No |Container Resources Limits |Count |Average |The container's resources limits |Container, Namespace, Node, Pod, Resource, Unit |
 |KubePodContainerResourceRequests |No |Container Resources Requests |Count |Average |The container's resources requested |Container, Namespace, Node, Pod, Resource, Unit |
-|KubePodContainerStateStarted |No |Container State Started |Count |Average |Unix timestamp start time of a container |Container, Namespace, Pod |
+|KubePodContainerStateStarted |No |Container State Started (Preview) |Count |Average |Unix timestamp start time of a container |Container, Namespace, Pod |
 |KubePodContainerStatusLastTerminatedReason |No |Container Status Last Terminated Reason |Count |Average |The reason of a container's last terminated status |Container, Namespace, Pod, Reason |
 |KubePodContainerStatusReady |No |Container Status Ready |Count |Average |Describes whether the container's readiness check succeeded |Container, Namespace, Pod |
 |KubePodContainerStatusRestartsTotal |No |Container Restarts |Count |Average |The number of container restarts |Container, Namespace, Pod |
@@ -3428,7 +3428,7 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 |KubePodContainerStatusTerminatedReason |No |Container Status Terminated Reason |Count |Average |The number and reason of containers with a status of 'terminated' |Container, Namespace, Pod, Reason |
 |KubePodContainerStatusWaiting |No |Container Status Waiting |Count |Average |The number of containers with a status of 'waiting' |Container, Namespace, Pod |
 |KubePodContainerStatusWaitingReason |No |Container Status Waiting Reason |Count |Average |The number and reason of containers with a status of 'waiting' |Container, Namespace, Pod, Reason |
-|KubePodDeletionTimestamp |No |Pod Deletion Timestamp |Count |Average |The timestamp of the pod's deletion |Namespace, Pod |
+|KubePodDeletionTimestamp |No |Pod Deletion Timestamp (Preview) |Count |Average |The timestamp of the pod's deletion |Namespace, Pod |
 |KubePodInitContainerStatusReady |No |Pod Init Container Ready |Count |Average |The number of ready pod init containers |Namespace, Container, Pod |
 |KubePodInitContainerStatusRestartsTotal |No |Pod Init Container Restarts |Count |Average |The number of pod init containers restarts |Namespace, Container, Pod |
 |KubePodInitContainerStatusRunning |No |Pod Init Container Running |Count |Average |The number of running pod init containers |Namespace, Container, Pod |
@@ -3447,7 +3447,7 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 |KubevirtVirtOperatorReady |No |Kubevirt Virt Operator Ready |Unspecified |Average |Indication for a virt operator being ready |Pod Name |
 |KubevirtVmiMemoryActualBalloonBytes |No |Kubevirt VMI Memory Actual BalloonBytes |Bytes |Average |Current balloon size (in bytes) |Name, Node |
 |KubevirtVmiMemoryAvailableBytes |No |Kubevirt VMI Memory Available Bytes |Bytes |Average |Amount of usable memory as seen by the domain. This value may not be accurate if a balloon driver is in use or if the guest OS does not initialize all assigned pages |Name, Node |
-|KubevirtVmiMemoryDomainBytesTotal |No |Kubevirt VMI Memory Domain Bytes Total |Bytes |Average |The amount of memory (in bytes) allocated to the domain. The memory value in domain XML file |Node |
+|KubevirtVmiMemoryDomainBytesTotal |No |Kubevirt VMI Memory Domain Bytes Total (Preview) |Bytes |Average |The amount of memory (in bytes) allocated to the domain. The memory value in domain XML file |Node |
 |KubevirtVmiMemorySwapInTrafficBytesTotal |No |Kubevirt VMI Memory Swap In Traffic Bytes Total |Bytes |Average |The total amount of data read from swap space of the guest (in bytes) |Name, Node |
 |KubevirtVmiMemorySwapOutTrafficBytesTotal |No |Kubevirt VMI Memory Swap Out Traffic Bytes Total |Bytes |Average |The total amount of memory written out to swap space of the guest (in bytes) |Name, Node |
 |KubevirtVmiMemoryUnusedBytes |No |Kubevirt VMI Memory Unused Bytes |Bytes |Average |The amount of memory left completely unused by the system. Memory that is available but used for reclaimable caches should NOT be reported as free |Name, Node |
@@ -3458,9 +3458,10 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 |KubevirtVmiPhaseCount |No |Kubevirt VMI Phase Count |Count |Average |Sum of VirtualMachineInstances (VMIs) per phase and node |Node, Phase, Workload |
 |KubevirtVmiStorageIopsReadTotal |No |Kubevirt VMI Storage IOPS Read Total |Count |Average |Total number of Input/Output (I/O) read operations |Drive, Name, Node |
 |KubevirtVmiStorageIopsWriteTotal |No |Kubevirt VMI Storage IOPS Write Total |Count |Average |Total number of Input/Output (I/O) write operations |Drive, Name, Node |
-|KubevirtVmiStorageReadTimesMsTotal |No |Kubevirt VMI Storage Read Times Total |Milliseconds |Average |Total time in milliseconds (ms) spent on read operations |Drive, Name, Node |
-|KubevirtVmiStorageWriteTimesMsTotal |No |Kubevirt VMI Storage Write Times Total |Milliseconds |Average |Total time in milliseconds (ms) spent on write operations |Drive, Name, Node |
-|NcVmiCpuAffinity |No |CPU Pinning Map |Count |Average |Pinning map of virtual CPUs (vCPUs) to CPUs |CPU, NUMA Node, VMI Namespace, VMI Node, VMI Name |
+|KubevirtVmiStorageReadTimesMsTotal |No |Kubevirt VMI Storage Read Times Total (Preview) |Milliseconds |Average |Total time in milliseconds (ms) spent on read operations |Drive, Name, Node |
+|KubevirtVmiStorageWriteTimesMsTotal |No |Kubevirt VMI Storage Write Times Total (Preview) |Milliseconds |Average |Total time in milliseconds (ms) spent on write operations |Drive, Name, Node |
+|NcVmiCpuAffinity |No |CPU Pinning Map (Preview) |Count |Average |Pinning map of virtual CPUs (vCPUs) to CPUs |CPU, NUMA Node, VMI Namespace, VMI Node, VMI Name |
+|TyphaClientLatencySecsCount |No |Typha Client Latency Secs |Count |Average |Per-client latency. I.e. how far behind the current state each client is. |Pod Name |
 |TyphaConnectionsAccepted |No |Typha Connections Accepted |Count |Average |Total number of connections accepted over time |Pod Name |
 |TyphaConnectionsDropped |No |Typha Connections Dropped |Count |Average |Total number of connections dropped due to rebalancing |Pod Name |
 |TyphaPingLatencyCount |No |Typha Ping Latency |Count |Average |Round-trip ping/pong latency to client. Typha's protocol includes a regular ping/pong keepalive to verify that the connection is still up |Pod Name |
@@ -3489,7 +3490,7 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 |PurefaHostSpaceBytes |No |Nexus Storage Host Space Bytes |Bytes |Average |Storage array host space in bytes |Dimension, Host |
 |PurefaHostSpaceDatareductionRatio |No |Nexus Storage Host Space Datareduction Ratio |Percent |Average |Storage array host volumes data reduction ratio |Host |
 |PurefaHostSpaceSizeBytes |No |Nexus Storage Host Space Size Bytes |Bytes |Average |Storage array host volumes size |Host |
-|PurefaInfo |No |Nexus Storage Info |Unspecified |Average |Storage array system information |Array Name |
+|PurefaInfo |No |Nexus Storage Info (Preview) |Unspecified |Average |Storage array system information |Array Name |
 |PurefaVolumePerformanceIOPS |No |Nexus Storage Volume Performance IOPS |Count |Average |Storage array volume IOPS |Dimension, Volume |
 |PurefaVolumePerformanceLatencyUsec |No |Nexus Storage Volume Performance Latency (Microseconds) |MilliSeconds |Average |Storage array volume latency in microseconds |Dimension, Volume |
 |PurefaVolumePerformanceThroughputBytes |No |Nexus Storage Volume Performance Throughput Bytes |Bytes |Average |Storage array volume throughput |Dimension, Volume |
@@ -3952,7 +3953,7 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 |cache_used_percent |Yes |Cache used percentage |Percent |Maximum |Cache used percentage. Applies only to data warehouses. |No Dimensions |
 |connection_failed |Yes |Failed Connections : System Errors |Count |Total |Failed Connections |Error |
 |connection_failed_user_error |Yes |Failed Connections : User Errors |Count |Total |Failed Connections : User Errors |Error |
-|connection_successful |Yes |Successful Connections |Count |Total |Successful Connections |SslProtocol |
+|connection_successful |Yes |Successful Connections |Count |Total |Successful Connections |SslProtocol, ConnectionPolicyResult |
 |cpu_limit |Yes |CPU limit |Count |Average |CPU limit. Applies to vCore-based databases. |No Dimensions |
 |cpu_percent |Yes |CPU percentage |Percent |Average |CPU percentage |No Dimensions |
 |cpu_used |Yes |CPU used |Count |Average |CPU used. Applies to vCore-based databases. |No Dimensions |
@@ -4724,4 +4725,4 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 - [Export metrics to storage, Event Hub, or Log Analytics](../essentials/platform-logs-overview.md)
 
 
-<!--Gen Date:  Wed Jun 28 2023 02:42:02 GMT+0800 (China Standard Time)-->
+<!--Gen Date:  Mon Jul 03 2023 13:34:26 GMT+0800 (China Standard Time)-->

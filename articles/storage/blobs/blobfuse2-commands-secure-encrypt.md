@@ -4,7 +4,6 @@ titleSuffix: Azure Storage
 description: Learn how to use the `blobfuse2 secure encrypt` command to encrypt a BlobFuse2 configuration file.
 author: jimmart-dev
 ms.service: storage
-ms.subservice: blobs
 ms.topic: how-to
 ms.date: 12/02/2022
 ms.author: jammart

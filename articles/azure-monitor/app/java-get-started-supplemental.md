@@ -2,7 +2,7 @@
 title: Application Insights with containers
 description: This article shows you how to set-up Application Insights
 ms.topic: conceptual
-ms.date: 06/19/2023
+ms.date: 07/10/2023
 ms.devlang: java
 ms.custom: devx-track-java, devx-track-extended-java
 ms.reviewer: mmcc
@@ -10,7 +10,7 @@ ms.reviewer: mmcc
 
 # Get Started (Supplemental)
 
-In the following sections, you will find information on how to get Java auto-instrumentation for specific technical environments.
+In the following sections, you will find information on how to get Java autoinstrumentation for specific technical environments.
 
 ## Azure App Service
 

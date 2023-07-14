@@ -25,7 +25,7 @@ As an administrator, you [create an access review of groups or applications](cre
  
 ## Prerequisites
  
-- Azure AD Premium P2
+- Microsoft Azure AD Premium P2 or Microsoft Entra ID Governance
 - Global administrator, User administrator, or Identity Governance administrator to manage access of reviews on groups and applications. Global administrators and Privileged Role administrators can manage reviews of role-assignable groups See [Use Azure AD groups to manage role assignments](../roles/groups-concept.md)
 - Security readers have read access.
  
