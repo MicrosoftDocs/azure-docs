@@ -172,6 +172,8 @@ az spring app update \
 
 ### [Azure portal](#tab/azure-portal)
 
+Use the following steps to set an environment variable to activate the `mysql` profile for the `customers-service` app:
+
 1. Go to the Azure Spring Apps instance overview page, select **Apps** from the navigation menu, and then select the **customers-service** application from the list.
 
 1. On the **customers-service Overview** page, select **Configuration** from the navigation menu.
