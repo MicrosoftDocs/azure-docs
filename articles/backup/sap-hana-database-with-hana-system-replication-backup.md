@@ -13,7 +13,7 @@ ms.author: v-abhmallick
 
 SAP HANA databases are critical workloads that require a low recovery-point objective (RPO) and long-term retention. This article describes how you can back up SAP HANA databases that are running on Azure virtual machines (VMs) to an Azure Backup Recovery Services vault by using [Azure Backup](backup-overview.md).
 
-You can also switch the protection of SAP HANA database on Azure VM (standalone) on Azure Backup to HSR. [Learn more](#possible-scenarios-to-protect-hsr-nodes-on-azure-backup).
+You can also switch the protection of SAP HANA database on Azure VM (standalone) on Azure Backup to HSR. [Learn more](#scenarios-to-protect-hsr-nodes-on-azure-backup).
 
 >[!Note]
 >- The support for **HSR + DR** scenario is currently not available because there is a restriction to have VM and Vault in the same region.
@@ -238,7 +238,7 @@ Backups run in accordance with the policy schedule. Learn how to [run an on-dema
 You can run an on-demand backup using SAP HANA native clients to local file-system instead of Backint. Learn more how to [manage operations using SAP native clients](sap-hana-database-manage.md#manage-operations-using-sap-hana-native-clients).
 
 
-## Possible scenarios to protect HSR nodes on Azure Backup
+## Scenarios to protect HSR nodes on Azure Backup
 
 
 You can now switch the protection of SAP HANA database on Azure VM (standalone) on Azure Backup to HSR. If you’ve already configured HSR and protecting only the primary node using Azure Backup, you can modify the configuration to protect both primary and secondary nodes.
