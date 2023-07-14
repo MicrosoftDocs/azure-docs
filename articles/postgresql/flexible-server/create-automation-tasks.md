@@ -67,6 +67,19 @@ To view a task's history of runs along with their statuses, inputs, outputs, and
 2. On the resource navigation menu, in the **Automation** section, select **Tasks (preview)**.
 3. In the tasks list, find the task that you want to review. In that task's **Runs** column, select **View**.
 
+Here the possible statuses for a run:
+
+   | Status | Description |
+   |--------|-------------|
+   | **Cancelled** | The task was canceled while running. |
+   | **Failed** | The task has at least one failed action, but no subsequent actions existed to handle the failure. |
+   | **Running** | The task is currently running. |
+   | **Succeeded** | All actions succeeded. A task can still finish successfully if an action failed, but a subsequent action existed to handle the failure. |
+   | **Waiting** | The run hasn't started yet and is paused because an earlier instance of the task is still running. |
+   |||
+
+   For more information, see [Review runs history in monitoring view](monitor-logic-apps.md#review-runs-history).
+
 ## Edit the task
 
 To change a task, you can either:
