@@ -283,7 +283,7 @@ Now that you have the Logic App connector resource set up and configured, let's 
 > * This current version only returns a single invoice per PDF.
 > * The "For each loop" is required around the send email action to enable an output format that may return more than one invoice from PDFs in the future.
 
-  :::moniker-end
+:::moniker-end
 
    :::moniker range="doc-intel-2.1.0"
 
@@ -351,7 +351,7 @@ Now that you have the Logic App connector resource set up and configured, let's 
     > * This current version only returns a single invoice per PDF.
     > * The "For each loop" around the send email action enables an output format that may return more than one invoice from PDFs in the future.
 
-::: moniker-end
+:::moniker-end
 
 ## Test the automation flow
 
