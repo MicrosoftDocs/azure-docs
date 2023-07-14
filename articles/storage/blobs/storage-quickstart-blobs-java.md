@@ -6,7 +6,6 @@ ms.author: pauljewell
 ms.custom: devx-track-java, mode-api, passwordless-java, devx-track-extended-java
 ms.date: 10/24/2022
 ms.service: storage
-ms.subservice: blobs
 ms.topic: quickstart
 ms.devlang: java
 ---

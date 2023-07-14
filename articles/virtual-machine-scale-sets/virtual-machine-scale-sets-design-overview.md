@@ -30,8 +30,8 @@ Generally, scale sets are useful for deploying highly available infrastructure w
 
 Some features are currently only available in VMs:
 
-- You can capture an image from an individual VM, but not from a VM in a scale set.
-- You can migrate an individual VM from native disks to managed disks, but you cannot migrate VM instances in a scale set.
+- You can capture an image from a VM in a flexible scale set, but not from a VM in a uniform scale set.
+- You can migrate an individual VM from classic disks to managed disks, but you cannot migrate VM instances in a uniform scale set.
 - You can assign IPv6 public IP addresses to individual VM virtual network interface cards (NICs), but cannot do so for VM instances in a scale set. You can assign IPv6 public IP addresses to load balancers in front of either individual VMs or scale set VMs.
 
 ## Storage

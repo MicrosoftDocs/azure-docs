@@ -2,11 +2,10 @@
 title: Prevent accidental deletion - Azure file shares
 description: Learn about soft delete for Azure file shares and how you can use it to for data recovery and preventing accidental deletion.
 author: khdownie
-ms.service: storage
+ms.service: azure-file-storage
 ms.topic: conceptual
 ms.date: 03/29/2021
 ms.author: kendownie
-ms.subservice: files
 services: storage
 ---
 

@@ -63,6 +63,8 @@
     href: tutorial-enrich-ip-information.md
   - name: Respond to threats using automation 
     href: tutorial-respond-threats-playbook.md
+  - name: Extract incident entities with non-native actions
+    href: tutorial-extract-incident-entities.md  
   - name: Investigate with UEBA
     href: investigate-with-ueba.md
   - name: Build and monitor Zero Trust
@@ -195,10 +197,16 @@
       href: sap/solution-overview.md
     - name: Working with the SAP solution across multiple workspaces
       href: sap/cross-workspace.md
+    - name: Respond to SAP incidents with playbooks
+      href: sap/sap-incident-response-playbooks.md
     - name: SAP BTP solution
       items:
       - name: Overview
         href: sap/sap-btp-solution-overview.md
+  - name: Integrate Dynamics 365
+    items:
+    - name: Dynamics 365 Finance and Operations solution overview
+      href: dynamics-365/dynamics-365-finance-operations-solution-overview.md 
 - name: How-tos
   items:    
   - name: Migrate to Microsoft Sentinel
@@ -965,7 +973,7 @@
         href: mssp-protect-intellectual-property.md
     - name: Manage workspace access
       href: resource-context-rbac.md
-    - name: Switch to simplified pricing triggers
+    - name: Switch to simplified pricing tiers
       href: enroll-simplified-pricing-tier.md
     - name: Set up customer-managed keys
       href: customer-managed-keys.md
@@ -1034,6 +1042,10 @@
       items:
       - name: Deploy SAP BTP
         href: sap/deploy-sap-btp-solution.md
+  - name: Integrate Dynamics 365
+    items:
+    - name: Deploy Dynamics 365 Finance and Operations
+      href: dynamics-365/deploy-dynamics-365-finance-operations-solution.md
 - name: Troubleshoot
   items:
   - name: Troubleshoot CEF/Syslog data collection
@@ -1068,6 +1080,10 @@
       items:
       - name: SAP BTP solution content overview
         href: sap/sap-btp-security-content.md
+  - name: Dynamics 365    
+    items:
+    - name: Dynamics 365 Finance and Operations content overview
+      href: dynamics-365/dynamics-365-finance-operations-security-content.md
   - name: Service limits
     href: sentinel-service-limits.md
   - name: Microsoft Sentinel REST-API

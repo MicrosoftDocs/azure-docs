@@ -6,7 +6,6 @@ ms.service: storage
 ms.topic: tutorial
 ms.date: 02/20/2018
 ms.author: rogarana
-ms.subservice: blobs
 ---
 
 # Verify throughput and latency metrics for a storage account

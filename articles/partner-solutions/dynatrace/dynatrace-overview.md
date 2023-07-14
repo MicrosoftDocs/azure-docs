@@ -13,7 +13,7 @@ ms.date: 02/02/2023
 
 Azure Native ISV Services enable you to easily provision, manage, and tightly integrate independent software vendor (ISV) software and services on Azure. This Azure Native ISV Service is developed and managed by Microsoft and Dynatrace.
 
-You can find Azure Native Dynatrace Service in the [Azure Portal](https://aka.ms/partners/Dynatrace/portal) or get it on [Azure Marketplace](https://aka.ms/partners/Dynatrace/AMPOffer).
+You can find Azure Native Dynatrace Service in the [Azure portal](https://portal.azure.com/#view/HubsExtension/BrowseResource/resourceType/Dynatrace.Observability%2Fmonitors) or get it on [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/dynatrace.dynatrace_portal_integration?tab=Overview).
 
 Dynatrace is a monitoring solution that provides deep cloud observability, advanced AIOps, and continuous runtime application security capabilities in Azure.
 
@@ -44,6 +44,10 @@ For more help using Azure Native Dynatrace Service, visit the [Dynatrace](https:
 ## Next steps
 
 - To create an instance of Dynatrace, see [QuickStart: Get started with Dynatrace](dynatrace-create.md).
-- Get started with Azure Native Dynatrace Service on [Azure Portal](https://aka.ms/partners/Dynatrace/portal) or [Azure Marketplace](https://aka.ms/partners/Dynatrace/AMPOffer).
+- Get started with Azure Native Dynatrace Service on
 
+    > [!div class="nextstepaction"]
+    > [Azure portal](https://portal.azure.com/#view/HubsExtension/BrowseResource/resourceType/Dynatrace.Observability%2Fmonitors)
 
+    > [!div class="nextstepaction"]
+    > [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/dynatrace.dynatrace_portal_integration?tab=Overview)
