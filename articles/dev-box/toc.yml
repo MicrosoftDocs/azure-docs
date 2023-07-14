@@ -55,6 +55,8 @@ items:
       href: how-to-install-dev-box-cli.md  
     - name: Provision a Custom Image with Azure Image Builder
       href: how-to-customize-devbox-azure-image-builder.md
+    - name: Configure Visual Studio caches
+      href: how-to-generate-visual-studio-caches.md
     - name: Manage a dev box through developer portal
       href: how-to-create-dev-boxes-developer-portal.md
     - name: How to configure Dev Box Hibernation
