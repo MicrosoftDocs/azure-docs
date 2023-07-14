@@ -63,11 +63,11 @@ The prebuilt IDs service extracts the key values from worldwide passports and U.
 
 ### **Driver's license example**
 
-![Sample Driver's License](./media/id-example-drivers-license.JPG)
+![Sample Driver's License](./media/id-example-drivers-license.jpg)
 
 ### **Passport example**
 
-![Sample Passport](./media/id-example-passport-result.JPG)
+![Sample Passport](./media/id-example-passport-result.jpg)
 
 ::: moniker-end
 

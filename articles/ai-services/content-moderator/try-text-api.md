@@ -47,7 +47,7 @@ Select the query parameters that you want to use in your text screen. For this e
 
 For **autocorrect**, **PII**, and **classify (preview)**, select **true**. Leave the **ListId** field empty.
 
-  ![Text - Screen console query parameters](images/text-api-console-inputs.PNG)
+  ![Text - Screen console query parameters](images/text-api-console-inputs.png)
 
 ### Content type
 
