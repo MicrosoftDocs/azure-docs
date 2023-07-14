@@ -24,7 +24,11 @@ In order to read secrets from Key Vault, you need to have a vault created and gi
 
     Key vault references uses the app's system-assigned identity by default, but you can [specify a user-assigned identity](#access-vaults-with-a-user-assigned-identity).
 
-1. Create an [access policy in your key vault](../key-vault/general/security-features.md#privileged-access) for the application identity you created earlier. Enable the "Get" secret permission on this policy. Don't configure the "authorized application" or `applicationId` settings, because this isn't compatible with a managed identity.
+1. Authorize [read access to secrets your key vault](../key-vault/general/security-features.md#privileged-access) for the managed identity you created earlier. How you do it depends on the permissions model of your key vault:
+
+    - **Azure role-based access control**: Assign the **Key Vault Secrets User** role to the managed identity. For instructions, see [Provide access to Key Vault keys, certificates, and secrets with an Azure role-based access control](../key-vault/general/rbac-guide.md).
+    - **Vault access policy**: Assign the **Get** secrets permission to the managed identity. For instructions, see [Assign a Key Vault access policy](../key-vault/general/assign-access-policy.md).
+    - 
 
 ### Access network-restricted vaults
 
