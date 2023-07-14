@@ -225,6 +225,23 @@ For an existing container app:
 az containerapp env update --enable-mtls
 ```
 
+# [ARM template](#tab/arm-template)
+
+You can enable mTLS in the ARM template for Container Apps environments using the below.
+
+```json
+{
+  ...
+  "properties": {
+       "peerAuthentication":{
+            "mtls": {
+                "enabled": "true|false"
+            }
+        }
+  ...
+}
+```
+
 ## DNS
 
 -	**Custom DNS**: If your VNet uses a custom DNS server instead of the default Azure-provided DNS server, configure your DNS server to forward unresolved DNS queries to `168.63.129.16`. [Azure recursive resolvers](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-that-uses-your-own-dns-server) uses this IP address to resolve requests. When configuring your NSG or Firewall, don't block the `168.63.129.16` address, otherwise, your Container Apps environment won't function.

@@ -39,7 +39,7 @@ A resource's `properties` object has the following properties:
 |---|---|---|---|
 | `daprAIInstrumentationKey` | The Application Insights instrumentation key used by Dapr. | string | No |
 | `appLogsConfiguration` | The environment's logging configuration. | Object | No |
-| `mtls` | How to enable mTLS encryption. | Object | No |
+| `peerAuthentication` | How to enable mTLS encryption. | Object | No |
 
 ### <a name="container-apps-environment-examples"></a>Examples
 
