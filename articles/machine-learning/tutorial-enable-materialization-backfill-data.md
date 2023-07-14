@@ -131,7 +131,7 @@ This list summarizes the required setup steps:
 
 1.  Storage containers
 
-    Option 1: create new storage and container resources
+   Option 1: create new storage and container resources
 
    # [Python SDK](#tab/python)
 
@@ -149,15 +149,15 @@ This list summarizes the required setup steps:
 
    Option 2: reuse an existing storage container
 
-      # [Python SDK](#tab/python)
+   # [Python SDK](#tab/python)
 
-      [!notebook-python[] (~/azureml-examples-main/sdk/python/featurestore_sample/notebooks/sdk_only/2. Enable materialization and backfill feature data.ipynb?name=use-existing-storage)]
+   [!notebook-python[] (~/azureml-examples-main/sdk/python/featurestore_sample/notebooks/sdk_only/2. Enable materialization and backfill feature data.ipynb?name=use-existing-storage)]
 
-      # [Azure CLI](#tab/cli)
+   # [Azure CLI](#tab/cli)
 
-      [!notebook-python[] (~/azureml-examples-main/sdk/python/featurestore_sample/notebooks/sdk_and_cli/2. Enable materialization and backfill feature data.ipynb?name=use-existing-storage)]
+   [!notebook-python[] (~/azureml-examples-main/sdk/python/featurestore_sample/notebooks/sdk_and_cli/2. Enable materialization and backfill feature data.ipynb?name=use-existing-storage)]
 
-      ---
+   ---
 
 1.  Set up user assigned managed identity (UAI)
 
