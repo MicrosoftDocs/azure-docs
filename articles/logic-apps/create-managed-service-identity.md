@@ -882,7 +882,6 @@ The Azure Resource Manager managed connector has an action named **Read a resour
 
 1. Continue building the workflow the way that you want.
 
-
 ---
 
 <a name="logic-app-resource-definition-connection-managed-identity"></a>
