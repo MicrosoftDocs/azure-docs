@@ -64,9 +64,9 @@ Updating this application setting causes your function app to restart. After the
 
 ## How to rotate the access token
 
-It is best practice to periodically rotate the SAS key of your storage account. To ensure the function app does not inadvertently loose access, you must also update the SAS URL in Key Vault.
+It is best practice to periodically rotate the SAS key of your storage account. To ensure the function app does not inadvertently lose access, you must also update the SAS URL in Key Vault.
 
-1. Rotate the SAS key by navigating to your storage account in the Azure portal. Under **Settings** > **Access keys**, click the icon to rotate the SAS key.
+1. Rotate the SAS key by navigating to your storage account in the Azure portal. Under **Settings** > **Access keys**, select the icon to rotate the SAS key.
 
 1. Copy the new SAS URL, and use the following command to set the updated SAS URL in your key vault:
 
@@ -98,7 +98,7 @@ You can revoke the function app's access to the site data by disabling the funct
 
 Your application files are now encrypted at rest in your storage account. When your function app starts, it retrieves the SAS URL from your key vault. Finally, the function app loads the application files from the storage account. 
 
-If you need to revoke the function app's access to your storage account, you can either revoke access to the key vault or rotate the storage account keys, which invalidates the SAS URL.
+If you need to revoke the function app's access to your storage account, you can either revoke access to the key vault or rotate the storage account keys, both of which invalidate the SAS URL.
 
 ## Frequently Asked Questions
 
