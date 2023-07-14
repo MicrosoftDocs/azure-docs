@@ -18,7 +18,7 @@ Security should be a primary focus whenever you're developing applications. The 
 > [!IMPORTANT]
 > By default there is *no security* on the Cognitive Services container API. The reason for this is that most often the container will run as part of a pod which is protected from the outside by a network bridge. However, it is possible for users to construct their own authentication infrastructure to approximate the authentication methods used when accessing the [cloud-based Cognitive Services][request-authentication].
 
-The diagram below illustrates the default and **non-secure** approach:
+The following diagram illustrates the default and **non-secure** approach:
 
 ![Container security](../media/container-security.svg)
 
@@ -28,18 +28,18 @@ As an example of an alternative and *secure* approach, consumers of Cognitive Se
 
 ### Container networking
 
-The Cognitive Services containers are required to submit metering information for billing purposes. Failure to allow list various network channels that the Cognitive Services containers rely on will prevent the container from working.
+The Cognitive Services containers are required to submit metering information for billing purposes. Failure to allowlist various network channels that the Cognitive Services containers rely on will prevent the container from working.
 
-#### Allow list Cognitive Services domains and ports
+#### Allowlist Cognitive Services domains and ports
 
-The host should allow list **port 443** and the following domains:
+The host should allowlist **port 443** and the following domains:
 
 * `*.cognitive.microsoft.com`
 * `*.cognitiveservices.azure.com`
 
 #### Disable deep packet inspection
 
-[Deep packet inspection](https://en.wikipedia.org/wiki/Deep_packet_inspection) (DPI) is a type of data processing that inspects in detail the data being sent over a computer network, and usually takes action by blocking, re-routing, or logging it accordingly.
+[Deep packet inspection](https://en.wikipedia.org/wiki/Deep_packet_inspection) (DPI) is a type of data processing that inspects in detail the data sent over a computer network, and usually takes action by blocking, rerouting, or logging it accordingly.
 
 Disable DPI on the secure channels that the Cognitive Services containers create to Microsoft servers. Failure to do so will prevent the container from functioning correctly.
 
