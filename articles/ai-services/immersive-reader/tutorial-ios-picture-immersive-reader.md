@@ -555,7 +555,7 @@ Set the archive scheme in Xcode by selecting a simulator or device target.
 ![Archive scheme](./media/ios/xcode-archive-scheme.png)<br/>
 ![Select Target](./media/ios/xcode-select-target.png)
 
-In Xcode, press Ctrl + R or click on the play button to run the project and the app should launch on the specified simulator or device.
+In Xcode, press Ctrl + R or select the play button to run the project and the app should launch on the specified simulator or device.
 
 In your app, you should see:
 

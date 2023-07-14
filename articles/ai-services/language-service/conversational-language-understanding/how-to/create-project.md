@@ -67,7 +67,7 @@ That project can be reimported as a new project. If you import a project with th
 
 If you have an existing LUIS application, you can _import_ the LUIS application JSON to Conversational Language Understanding directly, and it will create a Conversation project with all the pieces that are currently available: Intents, ML entities, and utterances. See [the LUIS migration article](../how-to/migrate-from-luis.md) for more information.
 
-To import a project, click on the arrow button next to **Create a new project** and select **Import**, then select the LUIS or Conversational Language Understanding JSON file.
+To import a project, select the arrow button next to **Create a new project** and select **Import**, then select the LUIS or Conversational Language Understanding JSON file.
 
 :::image type="content" source="../media/import.png" alt-text="A screenshot showing the Conversational Language Understanding import button." lightbox="../media/import.png":::
 

@@ -675,7 +675,7 @@ To replace `datetime` with `datetimeV2` in your LUIS app, complete the following
 
 1. Open the **Entities** pane of the LUIS web interface.
 2. Delete the **datetime** prebuilt entity.
-3. Click **Add prebuilt entity**
+3. Select **Add prebuilt entity**
 4. Select **datetimeV2** and click **Save**.
 
 ## Next steps

@@ -158,7 +158,7 @@ To install the container, create a new Azure App Service and fill in the require
 
 ![Enter image details](./media/spatial-analysis/solution-app-create-screen.png)
 
-After entering the above parameters, click on **Review+Create** and create the app.
+After entering the above parameters, select **Review+Create** and create the app.
 
 ### Configure the app 
 

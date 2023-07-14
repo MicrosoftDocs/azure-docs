@@ -91,13 +91,13 @@ A `*` symbol will appear next to the application name if you have a prediction r
 
    Provide the following information:
 
-   * **Tenant Name**: The tenant that your Azure subscription is associated with. By default this is set to the tenant you're currently using. You can switch tenants by closing this window and selecting the avatar in the top right of the screen, containing your initials. Click on **Migrate to Azure** to re-open the window.
+   * **Tenant Name**: The tenant that your Azure subscription is associated with. By default this is set to the tenant you're currently using. You can switch tenants by closing this window and selecting the avatar in the top right of the screen, containing your initials. Select **Migrate to Azure** to re-open the window.
    * **Azure Subscription Name**: The subscription that will be associated with the resource. If you have more than one subscription that belongs to your tenant, select the one you want from the drop-down list.
    * **Authoring Resource Name**: A custom name that you choose. It's used as part of the URL for your authoring and prediction endpoint queries. If you are creating a new authoring resource, note that the resource name can only include alphanumeric characters, `-`, and can’t start or end with `-`. If any other symbols are included in the name,
  resource creation and migration will fail.
    * **Azure Resource Group Name**: A custom resource group name that you choose from the drop-down list. Resource groups allow you to group Azure resources for access and management. If you currently do not have a resource group in your subscription, you will not be allowed to create one in the LUIS portal. Go to [Azure portal](https://portal.azure.com/#create/Microsoft.ResourceGroup) to create one then go to LUIS to continue the sign-in process.
 
-6. After you have successfully migrated in all regions, click on finish. You will now have access to your applications. You can continue authoring and maintaining all your applications in all regions within the portal.
+6. After you have successfully migrated in all regions, select finish. You will now have access to your applications. You can continue authoring and maintaining all your applications in all regions within the portal.
 
 ## Migration notes
 

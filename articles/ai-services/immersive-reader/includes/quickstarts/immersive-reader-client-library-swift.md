@@ -34,11 +34,11 @@ Choose **Single View App**.
 
 ## Set up authentication
 
-In the top menu, click on **Product > Scheme > Edit Scheme...**.
+In the top menu, select **Product > Scheme > Edit Scheme...**.
 
 ![Edit Scheme - Swift](../../media/ios/quickstart-ios-edit-scheme.png)
 
-In the **Run** view, click on **Arguments** tab.
+In the **Run** view, select **Arguments** tab.
 
 ![Edit Scheme environment variables - Swift](../../media/ios/quickstart-ios-env-vars.png)
 
@@ -559,13 +559,13 @@ Set the archive scheme in Xcode by selecting a simulator or device target.
 
 ![Select Target - Swift](../../media/ios/xcode-select-target.png)
 
-In Xcode, press **Ctrl+R** or click on the play button to run the project. The app should launch on the specified simulator or device.
+In Xcode, press **Ctrl+R** or select the play button to run the project. The app should launch on the specified simulator or device.
 
 In your app, you should see:
 
 ![Sample app - Swift](../../media/ios/sample-app-ipad.png)
 
-When you click on the **Immersive Reader** button, you'll see the Immersive Reader launched with the content on app.
+When you select the **Immersive Reader** button, you'll see the Immersive Reader launched with the content on app.
 
 ![Immersive Reader - Swift](../../media/ios/immersive-reader-ipad.png)
 

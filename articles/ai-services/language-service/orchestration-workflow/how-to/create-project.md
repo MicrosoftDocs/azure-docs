@@ -41,7 +41,7 @@ Before you start using orchestration workflow, you will need an Azure AI Languag
 
 ## Sign in to Language Studio
 
-To create a new intent, click on *+Add* button and start by giving your intent a **name**. You will see two options, to connect to a project or not. You can connect to (LUIS, question answering, or Conversational Language Understanding) projects, or choose the **no** option.
+To create a new intent, select *+Add* button and start by giving your intent a **name**. You will see two options, to connect to a project or not. You can connect to (LUIS, question answering, or Conversational Language Understanding) projects, or choose the **no** option.
 
 
 ## Create an orchestration workflow project
@@ -65,7 +65,7 @@ You can export an orchestration workflow project as a JSON file at any time by g
 
 That project can be reimported as a new project. If you import a project with the exact same name, it replaces the project's data with the newly imported project's data.
 
-To import a project, click on the arrow button next to **Create a new project** and select **Import**, then select the JSON file.
+To import a project, select the arrow button next to **Create a new project** and select **Import**, then select the JSON file.
 
 :::image type="content" source="../media/import-export.png" alt-text="A screenshot showing the Conversational Language Understanding import button." lightbox="../media/import-export.png":::
 

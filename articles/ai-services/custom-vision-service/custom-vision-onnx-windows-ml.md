@@ -54,7 +54,7 @@ To use your own image classifier model, follow these steps:
    * __Copy to Output Directory__ -> __Copy if newer__
 1. Then open _MainPage.xaml.cs_ and change the value of `_ourOnnxFileName` to the name of your ONNX file.
 1. Use the `F5` to build and run the project.
-1. Click button to select image to evaluate.
+1. Select button to select image to evaluate.
 
 ## Next steps
 

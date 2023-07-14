@@ -32,7 +32,7 @@ In this tutorial, you learn how to:
 
 ## Create and publish a project
 1. Follow the [quickstart](../quickstart/sdk.md?pivots=studio) to create a Question Answering project. Once you have deployed your project.
-2. After deploying your project from Language Studio, click on “Get Prediction URL”. 
+2. After deploying your project from Language Studio, select “Get Prediction URL”. 
 3. Get your Site URL from the hostname of Prediction URL and your Account key which would be the Ocp-Apim-Subscription-Key.
 
 > [!div class="mx-imgBorder"]
@@ -93,17 +93,17 @@ Select "Instant Cloud flow"
 > [!div class="mx-imgBorder"]
 > [ ![Screenshot of the Instant cloud flow selection box.]( ../media/power-virtual-agents/create-instant-cloud-flow.png) ]( ../media/power-virtual-agents/create-instant-cloud-flow.png#lightbox)
 
-For testing this connector, you can click on “When PowerVirtual Agents calls a flow” and select **Create**.
+For testing this connector, you can select “When PowerVirtual Agents calls a flow” and select **Create**.
 
 > [!div class="mx-imgBorder"]
 > [ ![Screenshot of the When Power Virtual Agents calls a flow selection in the Choose how to trigger this flow list.]( ../media/power-virtual-agents/create-trigger.png) ]( ../media/power-virtual-agents/create-trigger.png#lightbox)
 
-Click on "New Step" and search for "Power Virtual Agents". Choose "Add an input" and select text. Next, provide the keyword and the value.
+Select "New Step" and search for "Power Virtual Agents". Choose "Add an input" and select text. Next, provide the keyword and the value.
 
 > [!div class="mx-imgBorder"]
 > [ ![Screenshot of the Add an input option.]( ../media/power-virtual-agents/flow-step-1.png) ]( ../media/power-virtual-agents/flow-step-1.png#lightbox)
 
-Click on "New Step" and search "Language - Question Answering" and choose "Generate answer from Project" from the three actions.
+Select "New Step" and search "Language - Question Answering" and choose "Generate answer from Project" from the three actions.
 
 > [!div class="mx-imgBorder"]
 > [ ![Screenshot of the Generate answer from Project selection in the Action list.]( ../media/power-virtual-agents/flow-step-2.png) ]( ../media/power-virtual-agents/flow-step-2.png#lightbox)
@@ -113,17 +113,17 @@ This option helps in answering the specified question using your project. Type i
 > [!div class="mx-imgBorder"]
 > [ ![Screenshot of fields for the Generate answer from Project action.]( ../media/power-virtual-agents/flow-step-3.png) ]( ../media/power-virtual-agents/flow-step-3.png#lightbox)
 
-Click on "New Step" and search for "Initialize variable". Choose a name for your variable, and select the "String" type.
+Select "New Step" and search for "Initialize variable". Choose a name for your variable, and select the "String" type.
 
 > [!div class="mx-imgBorder"]
 > [ ![Screenshot of the Initialize variable action fields.]( ../media/power-virtual-agents/flow-step-4.png) ]( ../media/power-virtual-agents/flow-step-4.png#lightbox)
 
-Click on "New Step" again, and search for "Apply to each", then select the output from the previous steps and add an action of "Set variable" and select the connector action.
+Select "New Step" again, and search for "Apply to each", then select the output from the previous steps and add an action of "Set variable" and select the connector action.
 
 > [!div class="mx-imgBorder"]
 > [ ![Screenshot of the Set variable action within the Apply to each step.]( ../media/power-virtual-agents/flow-step-5.png) ]( ../media/power-virtual-agents/flow-step-5.png#lightbox)
 
-Click on "New Step" and search for "Return value(s) to Power Virtual Agents" and type in a keyword, then choose the previous variable name in the answer.
+Select "New Step" and search for "Return value(s) to Power Virtual Agents" and type in a keyword, then choose the previous variable name in the answer.
 
 > [!div class="mx-imgBorder"]
 > [ ![Screenshot of the Return value(s) to Power Virtual Agents step, containing the previous variable.]( ../media/power-virtual-agents/flow-step-6.png) ]( ../media/power-virtual-agents/flow-step-6.png#lightbox)

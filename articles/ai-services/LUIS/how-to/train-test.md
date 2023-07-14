@@ -91,7 +91,7 @@ Use the [Version settings API](https://westus.dev.cognitive.microsoft.com/docs/s
 
 ## Change deterministic training settings using the LUIS portal
 
-Log into the [LUIS portal](https://www.luis.ai/) and click on your app. Select  **Manage**  at the top of the screen, then select  **Settings.** Enable or disable the  **use non-deterministic training**  option. When disabled, training will use all available data. Training will only use a _random_ sample of data from other intents as negative data when training each intent
+Log into the [LUIS portal](https://www.luis.ai/) and select your app. Select  **Manage**  at the top of the screen, then select  **Settings.** Enable or disable the  **use non-deterministic training**  option. When disabled, training will use all available data. Training will only use a _random_ sample of data from other intents as negative data when training each intent
 
 :::image type="content" source="../media/non-determinstic-training.png" alt-text="A button for enabling or disabling non deterministic training." lightbox="../media/non-determinstic-training.png":::
 

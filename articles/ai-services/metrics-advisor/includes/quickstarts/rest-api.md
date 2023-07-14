@@ -22,7 +22,7 @@ ms.author: mbullwin
 The example code for this quickstart will show you how to call the REST API using Python. For specific REST API calls, consult [GitHub Samples](https://github.com/Azure/azure-rest-api-specs/tree/main/specification/cognitiveservices/data-plane/MetricsAdvisor/stable/v1.0/examples)
 
 > [!TIP]
-> * It may 10 to 30 minutes for your Metrics Advisor resource to deploy a service instance for you to use. Click **Go to resource** once it successfully deploys. After deployment, you can start using your Metrics Advisor instance with both the web portal and REST API. 
+> * It may 10 to 30 minutes for your Metrics Advisor resource to deploy a service instance for you to use. Select **Go to resource** once it successfully deploys. After deployment, you can start using your Metrics Advisor instance with both the web portal and REST API. 
 > * You can find the URL for the REST API in Azure portal, in the **Overview** section of your resource. it will look like this:
 > * `https://<instance-name>.cognitiveservices.azure.com/`
 

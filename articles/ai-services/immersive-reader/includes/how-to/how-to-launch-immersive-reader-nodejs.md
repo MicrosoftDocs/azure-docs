@@ -167,7 +167,7 @@ The **getimmersivereaderlaunchparams** API endpoint should be secured behind som
     npm start
     ```
 
-4. Open your browser and navigate to _http://localhost:3000_. You should see the above content on the page. Click the **Immersive Reader** button to launch the Immersive Reader with your content.
+4. Open your browser and navigate to _http://localhost:3000_. You should see the above content on the page. Select the **Immersive Reader** button to launch the Immersive Reader with your content.
 
 ## Specify the language of your content
 
@@ -188,7 +188,7 @@ The Immersive Reader has support for many different languages. You can specify t
     });
     ```
 
-3. Navigate to _http://localhost:3000_ again. You should see the Spanish text on the page, and when you click on **Immersive Reader**, it will show up in the Immersive Reader as well.
+3. Navigate to _http://localhost:3000_ again. You should see the Spanish text on the page, and when you select **Immersive Reader**, it will show up in the Immersive Reader as well.
 
 ## Specify the language of the Immersive Reader interface
 

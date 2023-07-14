@@ -28,7 +28,7 @@ To get started, you can [create a new project](../quickstart.md?pivots=language-
 
 ## Comparison between LUIS and CLU
 
-The following table presents a side-by-side comparison between the features of LUIS and CLU. It also highlights the changes to your LUIS application after migrating to CLU. Click on the linked concept to learn more about the changes.
+The following table presents a side-by-side comparison between the features of LUIS and CLU. It also highlights the changes to your LUIS application after migrating to CLU. Select the linked concept to learn more about the changes.
 
 |LUIS features | CLU features | Post migration |
 |:------------:|:----------------------------------------------:|:--------------:|

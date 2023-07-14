@@ -113,7 +113,7 @@ Additional links which can help you are given below:
 This topic compares two hypothetical scenarios when migrating from QnA Maker to Question Answering. These scenarios can help you to determine the right set of migration steps to execute for the given scenario.
 
 > [!NOTE]
-> An attempt has been made to ensure these scenarios are representative of real customer migrations, however, individual customer scenarios will of course differ. Also, this article doesn't include pricing details. Click here for [pricing](https://azure.microsoft.com/pricing/details/cognitive-services/language-service/)
+> An attempt has been made to ensure these scenarios are representative of real customer migrations, however, individual customer scenarios will of course differ. Also, this article doesn't include pricing details. Visit the [pricing](https://azure.microsoft.com/pricing/details/cognitive-services/language-service/) page for more information.
 
 > [!IMPORTANT] 
 > Each question answering project is equivalent to a knowledge base in QnA Maker. Resource level settings such as Role-based access control (RBAC) are not migrated to the new resource. These resource level settings would have to be reconfigured for the language resource post migration. You will also need to [re-enable analytics](analytics.md) for the language resource.

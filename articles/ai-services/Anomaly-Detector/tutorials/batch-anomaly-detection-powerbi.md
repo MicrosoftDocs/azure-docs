@@ -49,7 +49,7 @@ After the dialog appears, navigate to the folder where you downloaded the exampl
 
 Power BI will convert the timestamps in the first column to a `Date/Time` data type. These timestamps must be converted to text in order to be sent to the Anomaly Detector API. If the Power Query editor doesn't automatically open, select **Edit Queries** on the home tab.
 
-Click the **Transform** ribbon in the Power Query Editor. In the **Any Column** group, open the **Data Type:** drop-down menu, and select **Text**.
+Select the **Transform** ribbon in the Power Query Editor. In the **Any Column** group, open the **Data Type:** drop-down menu, and select **Text**.
 
 ![An image of the data type drop down](../media/tutorials/data-type-drop-down.png)
 

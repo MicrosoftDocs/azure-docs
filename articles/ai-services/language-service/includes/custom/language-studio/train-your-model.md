@@ -21,9 +21,9 @@ To start training your model from within the [Language Studio](https://aka.ms/La
     
 4. By default, the system will split your labeled data between the training and testing sets, according to specified percentages. If you have documents in your testing set, you can manually split the training and testing data.
 
-4. Click on the **Train** button.
+4. Select the **Train** button.
 
-5. If you click on the Training Job ID from the list, a side pane will appear where you can check the **Training progress**, **Job status**, and other details for this job.
+5. If you select the Training Job ID from the list, a side pane will appear where you can check the **Training progress**, **Job status**, and other details for this job.
 
     > [!NOTE]
     > * Only successfully completed training jobs will generate models.

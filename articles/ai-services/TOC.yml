@@ -5,6 +5,7 @@
   items:
   - name: What are Azure AI services?
     href: what-are-ai-services.md
+    displayName: applied, cognitive, form recognizer
   - name: Language support
     href: language-support.md
   - name: Pricing
@@ -13,6 +14,7 @@
   items:
   - name: Create a multi-service resource
     href: multi-service-resource.md
+    displayName: cognitive
   - name: Create a new resource using Bicep
     displayName: Resource Manager, ARM, Template
     href: create-account-bicep.md

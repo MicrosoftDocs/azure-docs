@@ -95,7 +95,7 @@ If you want to remove a label, uncheck the button next to the class.
 
 ## Delete or classes
 
-To delete a class, click on the delete icon next to the class you want to remove. Deleting a class will remove all its labeled instances from your dataset.
+To delete a class, select the delete icon next to the class you want to remove. Deleting a class will remove all its labeled instances from your dataset.
 
 ## Next steps
 

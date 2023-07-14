@@ -242,7 +242,7 @@ Logs are uploaded on-demand with the `getRTCVLogs` IoT Edge method, in the `diag
 
 
 1. Go to your IoT Hub portal page, select **Edge Devices**, then select your device and your diagnostics module. 
-2. Go to the details page of the module and click on the ***direct method*** tab.
+2. Go to the details page of the module and select the ***direct method*** tab.
 3. Type `getRTCVLogs` on Method Name, and a json format string in payload. You can enter `{}`, which is an empty payload. 
 4. Set the connection and method timeouts, and select **Invoke Method**.
 5. Select your target container, and build a payload json string using the parameters described in the **Logging syntax** section. Select **Invoke Method** to perform the request.
