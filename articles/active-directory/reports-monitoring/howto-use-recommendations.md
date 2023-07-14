@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.topic: how-to
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 03/06/2023
+ms.date: 07/14/2023
 ms.author: sarahlipsey
 ms.reviewer: hafowler
 ---
@@ -73,7 +73,10 @@ Each recommendation provides the same set of details that explain what the recom
 - The **Impacted resources** table contains a list of resources identified by the recommendation. The resource's name, ID, date it was first detected, and status are provided. The resource could be an application or resource service principal, for example. 
 
 > [!NOTE]
-> In the Azure portal the impacted resources are limited to a maximum of 50 resources. To view more resources, you should use the expand query parameter at the end of your API query on Microsoft graph. For example: Get: https://graph.microsoft.com/beta/directory/recommendations?$expand=impactedResources
+> In the Azure portal the impacted resources are limited to a maximum of 50 resources. To view all impacted resources for a recommendation, use this Microsoft Graph API request:
+>`GET /directory/recommendations/{recommendationId}/impactedResources`
+>
+>For more information, see the [How to use Microsoft Graph with with Azure AD recommendations](#how-to-use-microsoft-graph-with-azure-active-directory-recommendations) section of this article.
 
 ## How to update a recommendation
 
@@ -109,32 +112,41 @@ Continue to monitor the recommendations in your tenant for changes.
 
 ### How to use Microsoft Graph with Azure Active Directory recommendations
 
-Azure Active Directory recommendations can be viewed and managed using Microsoft Graph on the `/beta` endpoint. You can view recommendations along with their impacted resources, postpone a recommendation for later, and more. 
+Azure Active Directory recommendations can be viewed and managed using Microsoft Graph on the `/beta` endpoint. You can view recommendations along with their impacted resources, postpone a recommendation for later, and more. For more information, see the [Microsoft Graph documentation for recommendations](/graph/api/resources/recommendations-api-overview). 
 
-To get started, follow these instructions to work with recommendations using Microsoft Graph in Graph Explorer. The example uses the "Migrate apps from Active Directory Federated Services (ADFS) to Azure AD" recommendation.
+To get started, follow these instructions to work with recommendations using Microsoft Graph in Graph Explorer. 
 
 1. Sign in to [Graph Explorer](https://aka.ms/ge).
 1. Select **GET** as the HTTP method from the dropdown.
 1. Set the API version to **beta**.
-1. Add the following query to retrieve recommendations, then select the **Run query** button.
 
-    ```http
-    GET https://graph.microsoft.com/beta/directory/recommendations
-    ```
+#### View all recommendations
 
-1. To view the details of a specific `recommendationType`, use the following API. This example retrieves the detail of the "Migrate apps from AD FS to Azure AD" recommendation.
+Add the following query to retrieve all recommendations for your tenant, then select the **Run query** button.
 
-    ```http
-    GET https://graph.microsoft.com/beta/directory/recommendations?$filter=recommendationType eq 'adfsAppsMigration'
-    ```
+```http
+GET https://graph.microsoft.com/beta/directory/recommendations
+```
 
-1. To view the impacted resources for a specific recommendation, expand the `impactedResources` relationship.
+All recommendations that apply to your tenant appear in the response. The impact, benefits, summary of the impacted resources, and remediation steps are provided in the response. Locate the recommendation ID for any recommendation to view the impacted resources.
 
-    ```http
-    GET https://graph.microsoft.com/beta/directory/recommendations?$filter=recommendationType eq 'adfsAppsMigration'&$expand=impactedResources
-    ```
+#### View a specific recommendation
 
-For more information, see the [Microsoft Graph documentation for recommendations](/graph/api/resources/recommendations-api-overview).
+If you want to look for a specific recommendation, you can add a `recommendationType` to the request. This example retrieves the details of the `applicationCredentialExpiry` recommendation.
+
+```http
+GET https://graph.microsoft.com/beta/directory/recommendations?$filter=recommendationType eq 'applicationCredentialExpiry'
+```
+
+#### View impacted resources for a recommendation
+
+Some recommendations may potentially return a long list of impacted resources. To view the list of impacted resources, you need to locate the recommendation ID. The recommendation ID appears in the response when viewing all recommendations and a specific recommendation.
+
+To view the impacted resources for a specific recommendation, use the following query with the recommendation ID you saved.
+
+```http
+GET /directory/recommendations/{recommendationId}/impactedResources
+```
 
 ## Next steps
 
