@@ -56,7 +56,12 @@ can provide. In this scenario, you could utilize our [Video constraints](video-c
 
 ## Implement existing quality and reliability capabilities before deployment
 
-Before you launch and scale your Azure Communication Services calling
+> [!Note]
+> We recommend you use our easy to implement samples since they are already optimized to give your users the best call quality. Please see: [Samples](../../overview.md#samples)
+
+If our calling samples don't meet your needs or you decide to customize your solution please ensure you understand and implement the following capabilities in your custom calling scenarios. 
+
+Before you launch and scale your customized Azure Communication Services calling
 solution, implement the following capabilities to support a high quality calling experience. These tools help prevent common quality and reliability calling issues from happening and diagnose issues if they occur. Keep in mind, some of these call data aren't created or stored unless you implement them.
 
 The following sections detail the tools to implement at different phases of a call: 
