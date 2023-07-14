@@ -744,7 +744,9 @@ Once you've created private endpoints, you can also control if traffic is allowe
 
 ### Control routes with Azure Virtual Desktop
 
-With Azure Virtual Desktop, you can independently control public traffic for workspaces and host pools. You need to repeat these steps for each workspace and host pool you use with Private Link.
+With Azure Virtual Desktop, you can independently control public traffic for workspaces and host pools. Select the relevant tab for your scenario and follow the steps. You can't configure this in Azure CLI. You need to repeat these steps for each workspace and host pool you use with Private Link.
+
+# [Portal](#tab/portal-2)
 
 #### Workspaces
 
@@ -777,14 +779,95 @@ With Azure Virtual Desktop, you can independently control public traffic for wor
 
 1. Select **Save**.
 
+# [Azure PowerShell](#tab/powershell-2)
+
 > [!IMPORTANT]
-> Selecting **Enable public access for end users, use private access for session hosts** or **Disable public access and use private access** won't affect existing sessions. You must restart the session host virtual machines for the change to take effect.
+> You need to use the preview version of the Az.DesktopVirtualization module to run the following commands. For more information and to download and install the preview module, see [PowerShell Gallery](https://www.powershellgallery.com/packages/Az.DesktopVirtualization/5.0.0-preview).
+
+#### Workspaces
+
+1. In the same PowerShell session, you can disable public access and use private access by running the following command:
+
+   ```azurepowershell
+   $parameters = @{
+       Name = '<WorkspaceName>'
+       ResourceGroupName = '<ResourceGroupName>'
+       PublicNetworkAccess = 'Disabled'
+   }
+   
+   Update-AzWvdWorkspace @parameters
+   ```
+
+1. To enable public access from all networks, run the following command:
+
+   ```azurepowershell
+   $parameters = @{
+       Name = '<WorkspaceName>'
+       ResourceGroupName = '<ResourceGroupName>'
+       PublicNetworkAccess = 'Enabled'
+   }
+   
+   Update-AzWvdWorkspace @parameters
+   ```
+
+#### Host pools
+
+1. In the same PowerShell session, you can disable public access and use private access by running the following command:
+
+   ```azurepowershell
+   $parameters = @{
+       Name = '<HostPoolName>'
+       ResourceGroupName = '<ResourceGroupName>'
+       PublicNetworkAccess = 'Disabled'
+   }
+
+   Update-AzWvdHostPool @parameters 
+   ```
+
+1. To enable public access from all networks, run the following command:
+
+   ```azurepowershell
+   $parameters = @{
+       Name = '<HostPoolName>'
+       ResourceGroupName = '<ResourceGroupName>'
+       PublicNetworkAccess = 'Enabled'
+   }
+   
+   Update-AzWvdHostPool @parameters
+   ```
+
+1. To use public access for end users, but use private access for session hosts, run the following command:
+
+   ```azurepowershell
+   $parameters = @{
+       Name = '<HostPoolName>'
+       ResourceGroupName = '<ResourceGroupName>'
+       PublicNetworkAccess = 'EnabledForSessionHostsOnly'
+   }
+   
+   Update-AzWvdHostPool @parameters
+   ```
+
+1. To use private access for end users, but use public access for session hosts, run the following command:
+
+   ```azurepowershell
+   $parameters = @{
+       Name = '<HostPoolName>'
+       ResourceGroupName = '<ResourceGroupName>'
+       PublicNetworkAccess = 'EnabledForClientsOnly'
+   }
+   
+   Update-AzWvdHostPool @parameters
+   ```
 
 ---
 
+> [!IMPORTANT]
+> Changing access for session hosts won't affect existing sessions. You must restart the session host virtual machines for the change to take effect.
+
 ### Block public routes with network security groups or Azure Firewall
 
-If you're using network security groups or Azure Firewall to control connections from user client devices or your session hosts to the private endpoints, you can use the **WindowsVirtualDesktop** service tag to block traffic from the public internet. If you block public internet traffic using this service tag, all service traffic uses private routes only.
+If you're using [network security groups](../virtual-network/network-security-groups-overview.md) or [Azure Firewall](../firewall/overview.md) to control connections from user client devices or your session hosts to the private endpoints, you can use the **WindowsVirtualDesktop** service tag to block traffic from the public internet. If you block public internet traffic using this service tag, all service traffic uses private routes only.
 
 > [!CAUTION]
 > - Make sure you don't block traffic between your private endpoints and the addresses in the [required URL list](safe-url-list.md).
@@ -845,45 +928,41 @@ To check the connection state of each private endpoint, select the relevant tab 
 
 # [Azure PowerShell](#tab/powershell)
 
+> [!IMPORTANT]
+> You need to use the preview version of the Az.DesktopVirtualization module to run the following commands. For more information and to download and install the preview module, see [PowerShell Gallery](https://www.powershellgallery.com/packages/Az.DesktopVirtualization/5.0.0-preview).
+
+#### Workspaces
+
 1. In the same PowerShell session, run the following commands to check the connection state of a workspace:
 
    ```azurepowershell
-   # Get the resource ID of the workspace
-   $workspaceId = (Get-AzWvdWorkspace -Name <WorkspaceName> -ResourceGroupName <ResourceGroupName>).Id
-   
-   Get-AzPrivateEndpointConnection -PrivateLinkResourceId $workspaceId  | FL Name, PrivateLinkServiceConnectionStateText
+   (Get-AzWvdWorkspace -Name <WorkspaceName> -ResourceGroupName <ResourceGroupName).PrivateEndpointConnection | FL Name, PrivateLinkServiceConnectionStateStatus, PrivateLinkServiceConnectionStateDescription, PrivateLinkServiceConnectionStateActionsRequired
    ```
 
-   Your output should be similar to the following. Check that the value for **Status** is **Approved**.
+   Your output should be similar to the following. Check that the value for **PrivateLinkServiceConnectionStateStatus** is **Approved**.
 
    ```output
-   Name                                  : endpoint-ws01
-   PrivateLinkServiceConnectionStateText : {
-                                             "Status": "Approved",
-                                             "Description": "Auto-approved",
-                                             "ActionRequired": "None"
-                                           }
+   Name                                             : endpoint-ws01
+   PrivateLinkServiceConnectionStateStatus          : Approved
+   PrivateLinkServiceConnectionStateDescription     : Auto-approved
+   PrivateLinkServiceConnectionStateActionsRequired : None
    ```
 
-1. Run the following commands to check the connection state of a host pool:
+#### Host pools
+
+1. In the same PowerShell session, run the following commands to check the connection state of a host pool:
 
    ```azurepowershell
-   # Get the resource ID of the workspace
-   $hostPoolId = (Get-AzWvdHostPool -Name <HostPoolName> -ResourceGroupName <ResourceGroupName>).Id
-   
-   Get-AzPrivateEndpointConnection -PrivateLinkResourceId $hostPoolId | FL Name, PrivateLinkServiceConnectionStateText
+   (Get-AzWvdHostPool -Name <HostPoolName> -ResourceGroupName <ResourceGroupName).PrivateEndpointConnection | FL Name, PrivateLinkServiceConnectionStateStatus, PrivateLinkServiceConnectionStateDescription, PrivateLinkServiceConnectionStateActionsRequired
    ```
 
-   Your output should be similar to the following. Check that the value for **Status** is **Approved**.
+   Your output should be similar to the following. Check that the value for **PrivateLinkServiceConnectionStateStatus** is **Approved**.
 
    ```output
-   Name                                  : endpoint-hp01
-   PrivateLinkServiceConnectionStateText : {
-                                             "Status": "Approved",
-                                             "Description": "Auto-approved",
-                                             "ActionRequired": "None"
-                                           }
-   ```
+   Name                                             : endpoint-hp01
+   PrivateLinkServiceConnectionStateStatus          : Approved
+   PrivateLinkServiceConnectionStateDescription     : Auto-approved
+   PrivateLinkServiceConnectionStateActionsRequired : None
 
 ---
 
