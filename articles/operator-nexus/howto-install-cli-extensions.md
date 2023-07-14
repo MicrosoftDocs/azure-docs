@@ -42,27 +42,11 @@ If you haven't already installed Azure CLI: [Install Azure CLI][installation-ins
     az extension remove --name managednetworkfabric
     ```
 
-- Download the `managednetworkfabric` python wheel
-
-# [Linux / macOS / WSL](#tab/linux+macos+wsl)
-
-```sh
-    curl -L "https://aka.ms/nexus-nf-cli" --output "managednetworkfabric-0.0.0-py3-none-any.whl"
-```
-
-# [PowerShell](#tab/powershell)
-
-```ps
-    curl "https://aka.ms/nexus-nf-cli" -OutFile "managednetworkfabric-0.0.0-py3-none-any.whl"
-```
-
----
-
 - Install and test the `managednetworkfabric` CLI extension
 
     ```azurecli
-    az extension add --source managednetworkfabric-0.0.0-py3-none-any.whl
-    az nf --help
+    az extension add --name managednetworkfabric
+    az networkfabric --help
     ```
 
 ## Install AKS-Hybrid (`hybridaks`) CLI extension
