@@ -6,7 +6,7 @@ author: flang-msft
 ms.author: franlanglois
 ms.service: cache
 ms.topic: tutorial
-ms.date: 06/19/2023
+ms.date: 07/13/2023
 
 ---
 
@@ -84,76 +84,74 @@ dotnet add package Microsoft.Azure.WebJobs.Extensions.Redis --prerelease
 
 ### Set up the example code
 
-Go back to VS Code, add a file to the project called `RedisFunctions.cs` Copy and paste the code sample:
+1. Go back to VS Code, add a file to the project called `RedisFunctions.cs`.
 
-```csharp
-using Microsoft.Extensions.Logging;
-using StackExchange.Redis;
+1. Copy and paste the code sample into the new file.
 
-namespace Microsoft.Azure.WebJobs.Extensions.Redis.Samples
-{
-    public static class RedisSamples
+    ```csharp
+    using Microsoft.Extensions.Logging;
+    using StackExchange.Redis;
+
+    namespace Microsoft.Azure.WebJobs.Extensions.Redis.Samples
     {
-        public const string connectionString = "redisConnectionString";
-
-        [FunctionName(nameof(PubSubTrigger))]
-        public static void PubSubTrigger(
-            [RedisPubSubTrigger(connectionString, "pubsubTest")] string message,
-            ILogger logger)
+        public static class RedisSamples
         {
-            logger.LogInformation(message);
-        }
+            public const string connectionString = "redisConnectionString";
 
-        [FunctionName(nameof(KeyspaceTrigger))]
-        public static void KeyspaceTrigger(
-            [RedisPubSubTrigger(connectionString, "__keyspace@0__:keyspaceTest")] string message,
-            ILogger logger)
-        {
-            logger.LogInformation(message);
-        }
+            [FunctionName(nameof(PubSubTrigger))]
+            public static void PubSubTrigger(
+                [RedisPubSubTrigger(connectionString, "pubsubTest")] string message,
+                ILogger logger)
+            {
+                logger.LogInformation(message);
+            }
 
-        [FunctionName(nameof(KeyeventTrigger))]
-        public static void KeyeventTrigger(
-            [RedisPubSubTrigger(connectionString, "__keyevent@0__:del")] string message,
-            ILogger logger)
-        {
-            logger.LogInformation(message);
-        }
+            [FunctionName(nameof(KeyspaceTrigger))]
+            public static void KeyspaceTrigger(
+                [RedisPubSubTrigger(connectionString, "__keyspace@0__:keyspaceTest")] string message,
+                ILogger logger)
+            {
+                logger.LogInformation(message);
+            }
 
-        [FunctionName(nameof(ListTrigger))]
-        public static void ListTrigger(
-            [RedisListTrigger(connectionString, "listTest")] string entry,
-            ILogger logger)
-        {
-            logger.LogInformation(entry);
-        }
+            [FunctionName(nameof(KeyeventTrigger))]
+            public static void KeyeventTrigger(
+                [RedisPubSubTrigger(connectionString, "__keyevent@0__:del")] string message,
+                ILogger logger)
+            {
+                logger.LogInformation(message);
+            }
 
-        [FunctionName(nameof(StreamTrigger))]
-        public static void StreamTrigger(
-            [RedisStreamTrigger(connectionString, "streamTest")] string entry,
-            ILogger logger)
-        {
-            logger.LogInformation(entry);
+            [FunctionName(nameof(ListTrigger))]
+            public static void ListTrigger(
+                [RedisListTrigger(connectionString, "listTest")] string entry,
+                ILogger logger)
+            {
+                logger.LogInformation(entry);
+            }
+
+            [FunctionName(nameof(StreamTrigger))]
+            public static void StreamTrigger(
+                [RedisStreamTrigger(connectionString, "streamTest")] string entry,
+                ILogger logger)
+            {
+                logger.LogInformation(entry);
+            }
         }
     }
-}
-```
+    ```
 
-This tutorial shows multiple different ways to trigger on Redis activity:
+1. This tutorial shows multiple different ways to trigger on Redis activity:
 
-1. _PubSubTrigger_, which is triggered when activity is published to the pub/sub channel named `pubsubTest`
-
-1. _KeyspaceTrigger_, which is built on the Pub/Sub trigger. Use it to look for changes to the key `keyspaceTest`
-
-1. _KeyeventTrigger_, which is also built on the Pub/Sub trigger. Use it to look for any use of the`DEL` command.
-
-1. _ListTrigger_, which looks for changes to the list `listTest`
-
-1. _StreamTrigger_, which looks for changes to the stream `streamTest`
+    - _PubSubTrigger_, which is triggered when activity is published to the pub/sub channel named `pubsubTest`
+    - _KeyspaceTrigger_, which is built on the Pub/Sub trigger. Use it to look for changes to the key `keyspaceTest`
+    -  _KeyeventTrigger_, which is also built on the Pub/Sub trigger. Use it to look for any use of the`DEL` command.
+    -  _ListTrigger_, which looks for changes to the list `listTest`
+    -  _StreamTrigger_, which looks for changes to the stream `streamTest`
 
 ### Connect to your cache
 
-1.  In order to trigger on Redis activity, you need to pass in the connection string of your cache instance. This information will be stored in the `local.settings.json` file that was automatically created in your folder. Using the [local settings file](../azure-functions/functions-run-local.md#local-settings) is recommended as a security best practice.
+1. In order to trigger on Redis activity, you need to pass in the connection string of your cache instance. This information will be stored in the `local.settings.json` file that was automatically created in your folder. Using the [local settings file](../azure-functions/functions-run-local.md#local-settings) is recommended as a security best practice.
 
 1. To connect to your cache, add a `ConnectionStrings` section in the `local.settings.json` file and add your connection string using the parameter `redisConnectionString`. It should look like this:
 
@@ -173,7 +171,6 @@ This tutorial shows multiple different ways to trigger on Redis activity:
 > [!IMPORTANT]
 > This example is simplified for the tutorial. For production use, we recommend that you use [Azure Key Vault](../service-connector/tutorial-portal-key-vault.md) to store connection string information.
 >
-
 
 ### Build and run the code locally
 
@@ -237,9 +234,11 @@ This tutorial shows multiple different ways to trigger on Redis activity:
 
 ### Test your triggers
 
-Once deployment is complete and the connection string information added, open your Function App in the Azure portal and select **Log Stream** from the Resource menu. Wait for log analytics to connect, and then use the Redis console to activate any of the triggers. You should see the triggers being logged here.
+1. Once deployment is complete and the connection string information added, open your Function App in the Azure portal and select **Log Stream** from the Resource menu. 
 
-:::image type="content" source="media/cache-tutorial-functions-getting-started/cache-log-stream.png" alt-text="Screenshot of log stream for a function app resource in the Resource menu.":::
+1. Wait for log analytics to connect, and then use the Redis console to activate any of the triggers. You should see the triggers being logged here.
+
+    :::image type="content" source="media/cache-tutorial-functions-getting-started/cache-log-stream.png" alt-text="Screenshot of log stream for a function app resource in the Resource menu.":::
 
 ## Next steps
 
