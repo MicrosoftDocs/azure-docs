@@ -63,13 +63,13 @@
                   href: howto-configure-cluster.md
                 - name: Cluster Upgrades
                   href: howto-cluster-runtime-upgrade.md
-        - name: Network Fabric
-          expanded: false
-          items:
-          - name: Isolation Domain
-            href: howto-configure-isolation-domain.md
-          - name: Network Fabric Route Policy
-            href: how-to-route-policy.md  
+    - name: Network Fabric
+      expanded: false
+      items:
+        - name: Isolation Domain
+          href: howto-configure-isolation-domain.md
+        - name: Network Fabric Route Policy
+          href: how-to-route-policy.md  
     - name: Nexus Kubernetes cluster
       expanded: false
       items:
