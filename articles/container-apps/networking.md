@@ -204,9 +204,9 @@ With the workload profiles environment (preview), you can fully secure your ingr
 - Integrate your Container Apps with an Application Gateway. For steps, see [here](./waf-app-gateway.md).
 - Configure UDR to route all traffic through Azure Firewall. For steps, see [here](./user-defined-routes.md).
 
-## mTLS - preview
+## Environment level network encryption - preview
 
-Azure Container Apps supports mutual transport layer security (mTLS). When end-to-end encryption is required, mTLS will encrypt data transmitted between applications within an environment. One shared certificate is used by applications within an environment. Authorization and authentication through mTLS are not supported.
+Azure Container Apps supports environment level network encryption using mutual transport layer security (mTLS). When end-to-end encryption is required, mTLS will encrypt data transmitted between applications within an environment. One shared certificate is used by applications within an environment. Authorization and authentication through mTLS are not supported.
 
 > [!NOTE]
 > Enabling mTLS for your applications may increase response latency and reduce maximum throughput in high-load scenarios.
