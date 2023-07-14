@@ -35,8 +35,7 @@ Creating an automation task doesn't immediately incur charges. Underneath, an au
 
 
 ## Prerequisites
+* An Azure account and subscription.
+* Azure Database for PostgreSQL Flexible Server that you want to manage.
 
-
-* The Azure resource that you want to manage. This article uses an Azure storage account as the example.
-* An Office 365 account if you want to follow along with the example, which sends email by using Office 365 Outlook.
 
