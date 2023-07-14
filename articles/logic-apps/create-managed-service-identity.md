@@ -689,7 +689,6 @@ These steps show how to use the managed identity with a trigger or action throug
 
         For more information, review [Example: Authenticate managed connector trigger or action with a managed identity](#authenticate-managed-connector-managed-identity).
 
-
 ---
 
 <a name="authenticate-built-in-managed-identity"></a>
