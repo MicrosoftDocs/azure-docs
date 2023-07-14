@@ -1,14 +1,12 @@
-- name: Azure large Instances  documentation
+- name: ALI for Epic workload  documentation
   href: index.yml
 - name: Overview
   items:
   - name: Available ALI SKUs for the Epic workload
     href: available-skus.md
+  - name: Create a volume group
+    href: create-a-volume-group.md
 - name: Solution architecture
   items:
   - name: Architecture
     href: architecture.md
-- name: Configuration
-  items:
-   - name: Create a volume group
-     href: create-a-volume-group.md
