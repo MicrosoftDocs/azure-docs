@@ -2,14 +2,14 @@
 title: Quick start for inbound provisioning to Azure Active Directory with PowerShell
 description: Learn how to configure Inbound Provisioning API with PowerShell.
 services: active-directory
-author: jfields
+author: jennifer-skc
 manager: amycolannino
 ms.service: active-directory
 ms.subservice: app-provisioning
 ms.topic: how-to
 ms.workload: identity
 ms.date: 07/14/2023
-ms.author: jenniferf-skc
+ms.author: jfields
 ms.reviewer: cmmdesai
 ---
 
@@ -54,7 +54,7 @@ The following steps successfully configure out-of-the-box provisioning job with 
 
    :::image type="content" border="true" source="./media/inbound-provisioning-api-powershell/save-initial-job.png" alt-text="Screenshot of how to save the initial configuration of the job.":::
 
-1. After the operation is saved, you will see two more expansion panels: one for Mappings and one for Settings. Before you proceed, make sure you provide a valid notification email ID and **Save** the configuration once more. 
+1. After the operation is saved, you see two more expansion panels: one for Mappings and one for Settings. Before you proceed, make sure you provide a valid notification email ID and **Save** the configuration once more. 
 
    >[!NOTE]
    >Providing the notification email is mandatory, though the user interface doesn’t require it. Make sure you set a notification email. If the notification email remains empty, the provisioning job goes into quarantine when you start the execution.    
@@ -72,7 +72,7 @@ The following steps successfully configure out-of-the-box provisioning job with 
 
    :::image type="content" border="true" source="./media/inbound-provisioning-api-powershell/navigate.png" alt-text="Screenshot of how to navigate to provisioning app name.":::
 
-1. On the Provisioning App Landing page, you will see the following information and controls.
+1. On the Provisioning App Landing page, you see the following information and controls.
 
    :::image type="content" border="true" source="./media/inbound-provisioning-api-powershell/provisioning-controls.png" alt-text="Screenshot of provisioning controls.":::
 
@@ -115,7 +115,7 @@ Download the CSV2SCIM PowerShell script and samples.
    set-executionpolicy remotesigned
    ```
 
-1. Install the following pre-requisite modules:
+1. Install the following prerequisite modules:
    
    ```powershell
    Install-Module -Name Microsoft.Graph.Applications,Microsoft.Graph.Reports
@@ -131,7 +131,7 @@ To illustrate the procedure, you'll use the CSV file ```Samples/csv-with-2-recor
 
    :::image type="content" border="true" source="./media/inbound-provisioning-api-powershell/columns.png" alt-text="Screenshot of columns in Excel.":::
 
-1. In Notepad++ or a source code editor like Visual Studio Code, open the PowerShell data file ```Samples/AttributeMapping.psd1``` that enables mapping of CSV file columns to SCIM standard schema elements. The file that's shipped out-of-the-box already has pre-configured mapping of CSV file columns to corresponding SCIM elements. We will use it as-is for this execution. 
+1. In Notepad++ or a source code editor like Visual Studio Code, open the PowerShell data file ```Samples/AttributeMapping.psd1``` that enables mapping of CSV file columns to SCIM standard schema elements. The file that's shipped out-of-the-box already has preconfigured mapping of CSV file columns to corresponding SCIM elements. We'll use it as-is for this execution. 
 1. Open PowerShell and change to the directory **azure-activedirectory-inbound-provisioning\src**.
 1. Run the following command to initialize the AttributeMapping variable. 
 
@@ -168,14 +168,14 @@ To illustrate the procedure, you'll use the CSV file ```Samples/csv-with-2-recor
 
 ## Generate and upload SCIM payload with standard schema
 
-Building upon the previous section, we will now demonstrate how to send the generated SCIM payload to your Azure AD Inbound Provisioning API endpoint with the script. 
+Building upon the previous section, we'll demonstrate how to send the generated SCIM payload to your Azure AD Inbound Provisioning API endpoint with the script. 
 
-1. Login to your Entra portal as *Application Administrator*.
+1. Log in to your Entra portal as *Application Administrator*.
 1. Copy the ServicePrincipalId associated with your provisioning app from **Provisioning App** > **Properties** > **Object ID**.
 
    :::image type="content" border="true" source="./media/inbound-provisioning-api-powershell/object-id.png" alt-text="Screenshot of the Object ID.":::
 
-1. Run the following command. This promts you for authentication if an authenticated session doesn't already exist for this tenant. As long as the authenticated user has *Application Administrator* or *Global Admininistrator* role, the command below should succeed, and it will post the generated SCIM payload to the API endpoint. 
+1. Run the following command. This promts you for authentication if an authenticated session doesn't already exist for this tenant. As long as the authenticated user has *Application Administrator* or *Global Administrator* role, the command should succeed, and it posts the generated SCIM payload to the API endpoint. 
 
    ```powershell
    .\CSV2SCIM.ps1 -Path '..\Samples\csv-with-2-records.csv' -AttributeMapping $AttributeMapping -ServicePrincipalId <servicePrincipalId> -TenantId "contoso.onmicrosoft.com"
@@ -206,7 +206,7 @@ After sending the SCIM Request, we can query the logs of the latest sync cycles 
 
      :::image type="content" border="true" source="./media/inbound-provisioning-api-powershell/index.png" alt-text="Screenshot of a selected index.":::
 
-   - We can also use the `where-object` statement to search for a specific record using the sourceid or DisplayName:
+   - We can also use the `where-object` statement to search for a specific record using the sourceID or DisplayName:
 
      :::image type="content" border="true" source="./media/inbound-provisioning-api-powershell/index.png" alt-text="Screenshot of a where-object command.":::
 
@@ -251,7 +251,7 @@ For example:</br>
 $AttributeMapping = Import-PowerShellDataFile '.\Samples\AttributeMapping.psd1'`
 -AttributeMapping $AttributeMapping
 ``` 
-| Mandatory: Yes </br> The only scenario when you dont need to specify this is when using the `UpdateSchema` switch.  |
+| Mandatory: Yes </br> The only scenario when you don't need to specify this is when using the `UpdateSchema` switch.  |
 |ValidateAttributeMapping |Use this Switch flag to validate that the AttributeMapping file contains attributes that comply with the SCIM Core and Enterprise user schema. |Mandatory: No</br>  Recommend using it to ensure compliance. |
 |ServicePrincipalId |The GUID value of your provisioning app's service principal ID, which you can retrieve from the **Provisioning App** > **Properties** > **Object ID**|Mandatory: Only when you want to: </br>- Update the provisioning app schema or</br>When you want to send the generated SCIM bulk request to the API endpoint. |
 |UpdateSchema |Use this switch to instruct the script to read the CSV columns and add them as custom SCIM attributes in your provisioning app schema.| | 	
@@ -311,7 +311,7 @@ In the next example, we mapped the following columns in the CSV file to their co
 
 ### Extending provisioning job schema with CSV2SCIM script
 
-Often the data file sent by HR teams contains additional attributes that don't have a direct representation in the standard SCIM schema. To represent such attributes, we recommend creating a SCIM extension schema and adding attributes under this namespace. 
+Often the data file sent by HR teams contains more attributes that don't have a direct representation in the standard SCIM schema. To represent such attributes, we recommend creating a SCIM extension schema and adding attributes under this namespace. 
 
 The CSV2SCIM script provides an execution mode called UpdateSchema which reads all columns in the CSV file, adds them under an extension schema namespace, and updates the provisioning app schema. 
 
