@@ -48,39 +48,35 @@ Before you proceed with this article, make sure you cover these prerequisites:
 ## Prepare the notebook environment for development
 Note: This tutorial uses an Azure Machine Learning Spark notebook for development.
 
-1. In the Azure Machine Learning studio environment, first select **Notebooks** in the left nav, and then select the **Samples** tab. Select the **featurestore_sample** directory
+1. In the Azure Machine Learning studio environment, first select **Notebooks** in the left nav, and then select the **Samples** tab. Navigate to the **featurestore_sample** directory
 
-   Samples -> SDK v2 -> sdk -> python -> featurestore_sample
+   **Samples -> SDK v2 -> sdk -> python -> featurestore_sample**
 
-and then select **Clone**, as shown in this screenshot:
+   and then select **Clone**, as shown in this screenshot:
 
    :::image type="content" source="media/tutorial-get-started-with-feature-store/clone-featurestore-example-notebooks.png" lightbox="media/tutorial-get-started-with-feature-store/clone-featurestore-example-notebooks.png" alt-text="Screenshot showing selection of the featurestore_sample directory in Azure Machine Learning studio UI.":::
-
-The workspace of the user has the **featurestore_sample** resource available by default.
 
 1. The **Select target directory** panel opens next. Select the User directory, in this case **testUser**, and then select **Clone**, as shown in this screenshot:
 
    :::image type="content" source="media/tutorial-get-started-with-feature-store/select-target-directory.png" lightbox="media/tutorial-get-started-with-feature-store/select-target-directory.png" alt-text="Screenshot showing selection of the target directory location in Azure Machine Learning studio UI for the featurestore_sample resource.":::
 
-1. To configure the notebook environment, you must upload the **conda.yml** file. Select **Notebooks** in the left nav, and then select the **Samples** tab. Select the **env** directory
+1. To configure the notebook environment, you must upload the **conda.yml** file. Select **Notebooks** in the left nav, and then select the **Files** tab. Navigate to the **env** directory
 
-   Samples -> SDK v2 -> sdk -> python -> featurestore_sample -> project -> env
+   **Users -> testUser -> featurestore_sample -> project -> env**
 
-and then select **Download**, as shown in this screenshot:
+   and select the **conda.yml** file. In this navigation, **testUser** is the user directory. Select **Download**, as shown in this screenshot:
 
    :::image type="content" source="media/tutorial-get-started-with-feature-store/download-conda-file.png" lightbox="media/tutorial-get-started-with-feature-store/download-conda-file.png" alt-text="Screenshot showing selection of the conda.yml file in Azure Machine Learning studio UI.":::
-
-This step downloads the Conda file to your local machine. The user workspace has the **conda.yml** file available, for download, by default.
-
-1. Open the **conda.yml** file download directory, as shown in this screenshot:
-
-   :::image type="content" source="media/tutorial-get-started-with-feature-store/open-conda-file-location.png" lightbox="media/tutorial-get-started-with-feature-store/open-conda-file-location.png" alt-text="Screenshot showing the opening of the conda.yml file download directory.":::
 
 1. At the Azure Machine Learning environment, open the notebook, and select **Configure Session**, as shown in this screenshot:
 
    :::image type="content" source="media/tutorial-get-started-with-feature-store/open-configure-session.png" lightbox="media/tutorial-get-started-with-feature-store/open-configure-session.png" alt-text="Screenshot showing Open Configure Session for this notebook.":::
 
-1. At the **Configure Session** panel, select **Python packages**. To upload the Conda file, select **Upload Conda file**, **Browse** to the Conda file in the directory selected earlier, and select **Apply**, as shown in this screenshot:
+1. At the **Configure Session** panel, select **Python packages**. To upload the Conda file, select **Upload Conda file**, and **Browse** to the directory hosting the Conda file. Select **conda.yml**, and then select **Open**, as shown in this screenshot:
+
+   :::image type="content" source="media/tutorial-get-started-with-feature-store/open-conda-file.png" lightbox="media/tutorial-get-started-with-feature-store/open-conda-file.png" alt-text="Screenshot showing the directory hosting the Conda file.":::
+
+1. Select **Apply**, as shown in this screenshot:
 
    :::image type="content" source="media/tutorial-get-started-with-feature-store/upload-conda-file.png" lightbox="media/tutorial-get-started-with-feature-store/upload-conda-file.png" alt-text="Screenshot showing the Conda file upload.":::
 

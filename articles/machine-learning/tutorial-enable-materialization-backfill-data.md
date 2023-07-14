@@ -60,7 +60,7 @@ This list summarizes the required setup steps:
 
       * Select "configure session" in the bottom nav
       * Select **upload conda file**
-      * Select file `azureml-examples/sdk/python/featurestore-sample/project/env/conda.yml` from your local device
+      * Upload the **conda.yml** file you [uploaded in Tutorial #1](./tutorial-get-started-with-feature-store.md#prepare-the-notebook-environment-for-development)
       * Increase the session time-out (idle time) to avoid frequent prerequisite reruns
 
       [!notebook-python[] (~/azureml-examples-main/sdk/python/featurestore_sample/notebooks/sdk_only/2. Enable materialization and backfill feature data.ipynb?name=start-spark-session)]
@@ -131,7 +131,7 @@ This list summarizes the required setup steps:
 
 1.  Storage containers
 
-1. Option 1: create new storage and container resources
+    Option 1: create new storage and container resources
 
    # [Python SDK](#tab/python)
 
@@ -147,7 +147,7 @@ This list summarizes the required setup steps:
 
    ---
 
-   1. Option 2: reuse an existing storage container
+   Option 2: reuse an existing storage container
 
       # [Python SDK](#tab/python)
 

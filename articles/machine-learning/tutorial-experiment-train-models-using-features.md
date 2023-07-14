@@ -47,7 +47,7 @@ Before you proceed with this article, make sure you complete parts 1 and 2 of th
 
       * Select "configure session" in the bottom nav
       * Select **upload conda file**
-      * Select file `azureml-examples/sdk/python/featurestore-sample/project/env/conda.yml` from your local device
+      * Upload the **conda.yml** file you [uploaded in Tutorial #1](./tutorial-get-started-with-feature-store.md#prepare-the-notebook-environment-for-development)
       * (Optional) Increase the session time-out (idle time) to avoid frequent prerequisite reruns
 
    1. Start the spark session
