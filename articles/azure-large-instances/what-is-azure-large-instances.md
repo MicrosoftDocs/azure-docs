@@ -87,8 +87,7 @@ Therefore, for ALI, Azure offers a consultation with a CSA/GBB in the field who 
 By the time your ALI implementation has been provisioned, the OS, networks, storage volumes, placements in zones and regions, and WAN connections between locations have already been configured.
 You're set to register your OS licenses (BYOL), configure the OS, and install the application layer.
 
-You'll see all the ALI resources, and their state and attributes, in the Azure portal.
-You can also operate the instances and open service requests and support tickets from there.
+You'll see all the ALI resources, and their state and attributes, in the Azure portal. You can also operate the instances, open service requests, and support tickets from there.
 
 ## ALI stamp
 
@@ -108,7 +107,7 @@ When deploying a tenant, you name an Azure subscription within your Azure enroll
 This Azure subscription is the one billed for your implementation of ALI.
 
 > [!Note]
->A customer implementing ALI is isolated into a tenant.
+> A customer implementing ALI is isolated into a tenant.
 A tenant is isolated in the networking, storage, and compute layer from other tenants.
 Storage and compute units assigned to different tenants cannot see each other or communicate with each other on their implementations of ALI.
 
@@ -116,7 +115,7 @@ Storage and compute units assigned to different tenants cannot see each other or
 
 The Linux OS version for ALI is Red Hat Enterprise Linux (RHEL) 8.4.  
 
->[!Note}
+>[!Note]
 > Remember, ALI is a BYOL model.
 
 Microsoft loads base image with RHEL 8.4, but customers can choose to upgrade to newer versions in collaboration with Microsoft team.

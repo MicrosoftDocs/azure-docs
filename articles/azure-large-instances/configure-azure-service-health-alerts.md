@@ -17,16 +17,30 @@ Follow these steps to configure Service Health alerts:
 
 1. Go to the [Microsoft Azure portal](https://portal.Azure.Com).
 2. Search for “service health” in the search bar and select **Service Health** from the results.
-3. in the Service Health Dashboard, select **Health Alerts**.
-4. Select **Create service health alert**.
-5. Deselect **Select all** under **Services**.
-6. Select **Azure Large Instances**.
-7. Select the regions in which your ALI for the Epic workload instances are deployed.
-8. Under **Action Groups**, select **Create New**.
-9. Fill in the details and select the type of notification for the Action (Examples: Email, SMS, Voice).
-10. Click **OK** to add the Action.
-11. Click **OK** to add the Action Group.
-12. Verify you see your newly created Action Group.
+
+    :::image type="content" source="media/health-alerts-step-2.png" alt-text="Screen shot of the health alert dashboard.":::
+
+1. In the Service Health Dashboard, select **Health Alerts**.
+    :::image type="content" source="media/health-alerts-step-3.png" alt-text="Screen shot of the health alert service issues.":::
+
+1. Select **Create service health alert**.
+
+    :::image type="content" source="media/health-alerts-step-4.png" alt-text="Screen shot of create health service alert.":::
+
+1. Deselect **Select all** under **Services**.
+    :::image type="content" source="media/health-alerts-step-5.png" alt-text="Screen shot of create health service alert rule.":::
+
+1. Select **Azure Large Instances**.
+
+1. Select the regions in which your ALI for the Epic workload instances are deployed.
+1. Under **Action Groups**, select **Create New**.
+1. Fill in the details and select the type of notification for the Action (Examples: Email, SMS, Voice).
+
+    :::image type="content" source="media/health-alerts-step-8.png" alt-text="Screen shot of create health service fill the details.":::
+
+1. Click **OK** to add the Action.
+1. Click **OK** to add the Action Group.
+1. Verify you see your newly created Action Group.
 You will now receive alerts when there are health issues or maintenance actions on your systems.
 
 ## Next steps

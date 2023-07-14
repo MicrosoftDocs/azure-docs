@@ -209,9 +209,6 @@ Data collected includes:
 * Subscription ID
 
 This information is important in support requests and when setting up a storage snapshot configuration.
-
-Image TBD in next couple of weeks - IW 
-
 ### Restart an ALI instance through the Azure portal
 
 There are various situations in which the operating system won't complete a restart, which requires a power restart of the ALI instance.
