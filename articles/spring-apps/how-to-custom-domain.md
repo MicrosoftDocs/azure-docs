@@ -26,13 +26,10 @@ Certificates encrypt web traffic. These TLS/SSL certificates can be stored in Az
 
 - An Azure subscription. If you don't have a subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
 - (Optional) [Azure CLI](/cli/azure/install-azure-cli) version 2.45.0 or higher. Use the following command to install the Azure Spring Apps extension: `az extension add --name spring`
-- An application deployed to Azure Spring Apps (see [Quickstart: Launch an existing application in Azure Spring Apps using the Azure portal](./quickstart.md), or use an existing app).
+- An application deployed to Azure Spring Apps (see [Quickstart: Launch an existing application in Azure Spring Apps using the Azure portal](./quickstart.md), or use an existing app). If your application is deployed using the Basic plan, be sure to upgrade to the Standard plan.
 - A domain name with access to the DNS registry for a domain provider, such as GoDaddy.
 - A private certificate (that is, your self-signed certificate) from a third-party provider. The certificate must match the domain.
 - A deployed instance of Azure Key Vault. For more information, see [About Azure Key Vault](../key-vault/general/overview.md).
-
-> [!NOTE]
-> Upgrade to the Standard plan for Azure Spring Apps instance if your applications are deployed on a Basic plan.
 
 ## Key Vault private link considerations
 
