@@ -789,13 +789,25 @@ With Azure Virtual Desktop, you can independently control public traffic for wor
 1. In the same PowerShell session, you can disable public access and use private access by running the following command:
 
    ```azurepowershell
-   Update-AzWvdworkspace -Name <WorkspaceName> -ResourceGroup <ResourceGroupName> -PublicNetworkAccess Disabled 
+   $parameters = @{
+       Name = '<WorkspaceName>'
+       ResourceGroupName = '<ResourceGroupName>'
+       PublicNetworkAccess = 'Disabled'
+   }
+   
+   Update-AzWvdWorkspace @parameters
    ```
 
 1. To enable public access from all networks, run the following command:
 
    ```azurepowershell
-   Update-AzWvdworkspace -Name <WorkspaceName> -ResourceGroup <ResourceGroupName> -PublicNetworkAccess Enabled 
+   $parameters = @{
+       Name = '<WorkspaceName>'
+       ResourceGroupName = '<ResourceGroupName>'
+       PublicNetworkAccess = 'Enabled'
+   }
+   
+   Update-AzWvdWorkspace @parameters
    ```
 
 #### Host pools
@@ -803,25 +815,49 @@ With Azure Virtual Desktop, you can independently control public traffic for wor
 1. In the same PowerShell session, you can disable public access and use private access by running the following command:
 
    ```azurepowershell
-   Update-AzWvdHostPool -Name <HostPoolName> -ResourceGroup <ResourceGroupName> -PublicNetworkAccess Disabled 
+   $parameters = @{
+       Name = '<HostPoolName>'
+       ResourceGroupName = '<ResourceGroupName>'
+       PublicNetworkAccess = 'Disabled'
+   }
+
+   Update-AzWvdHostPool @parameters 
    ```
 
 1. To enable public access from all networks, run the following command:
 
    ```azurepowershell
-   Update-AzWvdHostPool -Name <HostPoolName> -ResourceGroup <ResourceGroupName> -PublicNetworkAccess Enabled 
+   $parameters = @{
+       Name = '<HostPoolName>'
+       ResourceGroupName = '<ResourceGroupName>'
+       PublicNetworkAccess = 'Enabled'
+   }
+   
+   Update-AzWvdHostPool @parameters
    ```
 
 1. To use public access for end users, but use private access for session hosts, run the following command:
 
    ```azurepowershell
-   Update-AzWvdHostPool -Name <HostPoolName> -ResourceGroup <ResourceGroupName> -PublicNetworkAccess EnabledForSessionHostsOnly
+   $parameters = @{
+       Name = '<HostPoolName>'
+       ResourceGroupName = '<ResourceGroupName>'
+       PublicNetworkAccess = 'EnabledForSessionHostsOnly'
+   }
+   
+   Update-AzWvdHostPool @parameters
    ```
 
 1. To use private access for end users, but use public access for session hosts, run the following command:
 
    ```azurepowershell
-   Update-AzWvdHostPool -Name <HostPoolName> -ResourceGroup <ResourceGroupName> -PublicNetworkAccess EnabledForClientsOnly
+   $parameters = @{
+       Name = '<HostPoolName>'
+       ResourceGroupName = '<ResourceGroupName>'
+       PublicNetworkAccess = 'EnabledForClientsOnly'
+   }
+   
+   Update-AzWvdHostPool @parameters
    ```
 
 ---
