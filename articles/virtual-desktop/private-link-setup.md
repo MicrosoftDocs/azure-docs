@@ -744,7 +744,7 @@ Once you've created private endpoints, you can also control if traffic is allowe
 
 ### Control routes with Azure Virtual Desktop
 
-With Azure Virtual Desktop, you can independently control public traffic for workspaces and host pools.
+With Azure Virtual Desktop, you can independently control public traffic for workspaces and host pools. You need to repeat these steps for each workspace and host pool you use with Private Link.
 
 #### Workspaces
 
@@ -761,8 +761,6 @@ With Azure Virtual Desktop, you can independently control public traffic for wor
 
 1. Select **Save**.
 
-You need to repeat these steps for each workspace you use with Private Link.
-
 #### Host pools
 
 1. From the Azure Virtual Desktop overview, select **Host pools**, then select the name of the host pool to control public traffic.
@@ -778,8 +776,6 @@ You need to repeat these steps for each workspace you use with Private Link.
    | **Disable public access and use private access** | End users can only access the feed and session hosts over the private endpoints. |
 
 1. Select **Save**.
-
-You need to repeat these steps for each host pool you use with Private Link.
 
 > [!IMPORTANT]
 > Selecting **Enable public access for end users, use private access for session hosts** or **Disable public access and use private access** won't affect existing sessions. You must restart the session host virtual machines for the change to take effect.
