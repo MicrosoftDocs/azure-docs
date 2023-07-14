@@ -44,8 +44,8 @@ The following dimensions are available on the `Email Service Delivery Status Upd
 | SmtpStatusCode       | Smpt error code from for failed deliveries. |
 | EnhancedSmtpStatusCode       | The EnhancedSmtpStatusCode status code will be emitted if it is available. This status code provides additional details not available with the SmtpStatusCode. |
 
-:::image type="content" source="./media/acs-email-delivery-status-hardbounce-metrics.png" alt-text="Email Delivery Status Update Metric - IsHardBounce.":::
-:::image type="content" source="./media/acs-email-delivery-status-smtp-metrics.png" alt-text="Email Delivery Status Update Metric - SmptStatusCode.":::
+:::image type="content" source="./media/acs-email-delivery-status-hardbounce-metrics.png" alt-text="Screenshot showing the Email delivery status update metric - IsHardBounce.":::
+:::image type="content" source="./media/acs-email-delivery-status-smtp-metrics.png" alt-text="Screenshot showing the Email delivery status update metric - SmptStatusCode.":::
 
 ### Email Service API requests
 
@@ -56,7 +56,7 @@ The following operations are available for the `Email Service API Requests` metr
 | SendMail       | Email Send API. |
 | GetMessageStatus       | Get the delivery status of a messageId. |
 
-:::image type="content" source="./media/acs-email-api-request-metrics.png" alt-text="Email API Request Metric.":::
+:::image type="content" source="./media/acs-email-api-request-metrics.png" alt-text="Screenshot showing the Email API Request Metrics.":::
 
 ### Email User Engagement
 
@@ -64,9 +64,9 @@ The `Email Service User Engagement` metric is supported with HTML type emails an
 
 | Dimension    | Description                                                                                    |
 | -------------------- | ---------------------------------------------------------------------------------------------- |
-| EngagementType       | Type of interaction performed by the reciever of the email. |
+| EngagementType       | Type of interaction performed by the receiver of the email. |
 
-:::image type="content" source="./media/acs-email-user-engagement-metrics.png" alt-text="Email User Engagement Metric.":::
+:::image type="content" source="./media/acs-email-user-engagement-metrics.png" alt-text="Screenshot showing the Email user engagement metric.":::
 
 ## Next steps
 
