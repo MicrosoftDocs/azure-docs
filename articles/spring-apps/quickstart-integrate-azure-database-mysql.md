@@ -120,7 +120,7 @@ Repeat these steps to create connections for the `customers-service`, `vets-serv
 
 ### [Azure CLI](#tab/azure-cli)
 
-Run the `az spring connection validate` command to show the status of the connection between app `customers-service` and the Azure MySQL database. Replace the placeholders below with your own information.
+Run the `az spring connection validate` command to show the status of the connection between the `customers-service` app and the Azure MySQL database. Replace the placeholders with your own information.
 
 ```azurecli-interactive
 az spring connection validate \
