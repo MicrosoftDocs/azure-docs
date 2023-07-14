@@ -193,7 +193,7 @@ Resource providers marked with **- registered** in the previous section are auto
 > [!IMPORTANT]
 > Register a resource provider only when you're ready to use it. This registration step helps maintain least privileges within your subscription, and prevents malicious users from using unregistered resource providers.
 >
-> Registering unnecessary resource providers may result in unrecognized apps appearing in your Azure Active Directory tenant. Microsoft adds the app for a resource provider when you register it, typically through the Windows Azure Service Management API. To prevent unnecessary apps in your tenant, only register needed resource providers.
+> Registering unnecessary resource providers may result in unrecognized apps appearing in your Azure Active Directory tenant. Microsoft adds the app for a resource provider when you register it. These apps are typically added by the Windows Azure Service Management API. To prevent unnecessary apps in your tenant, only register needed resource providers.
 
 ## Find resource provider
 
