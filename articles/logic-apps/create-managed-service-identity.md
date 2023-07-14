@@ -996,7 +996,6 @@ This example shows what the configuration looks like when the logic app enables 
 }
 ```
 
-
 ---
 
 <a name="arm-templates-connection-resource-managed-identity"></a>
