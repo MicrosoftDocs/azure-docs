@@ -9,6 +9,11 @@
             "source_path_from_root": "/articles/aks/cilium-enterprise-marketplace.md",
             "redirect_url": "/azure/aks/azure-cni-powered-by-cilium",
             "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/aks/web-app-routing.md",
+            "redirect_url": "/azure/aks/app-routing",
+            "redirect_document_id": false
         }
     ]
 }
