@@ -13,11 +13,11 @@ ms.author: memontic
 ---
 
 ::: zone pivot="platform-visualstudio"
-[!INCLUDE [Setup project with Visual Studio](./includes/get-started/messages-get-started-net-vs-setup.md)]
+[!INCLUDE [Setup project with Visual Studio](./messages-get-started-net-vs-setup.md)]
 ::: zone-end
 
 ::: zone pivot="platform-vscode"
-[!INCLUDE [Setup project with VS Code](./includes/get-started/messages-get-started-net-vscode-setup.md)]
+[!INCLUDE [Setup project with VS Code](./messages-get-started-net-vscode-setup.md)]
 ::: zone-end
 
 3. Include the package in your C# project   
@@ -31,7 +31,7 @@ using Azure.Communication.Messages;
 ### 1. Set Connection String   
 Get the Connection String from your ACS resource in the portal. From the `Keys` blade, copy the `Connection string` field for the `Primary key`.
 
-:::image type="content" source="./media/get-started/get-acs-connection-string.png" alt-text="Screenshot that shows an Azure Communication Services resource in the Azure Portal, viewing the 'Keys' blade. Attention is placed on the copy action of the 'Connection string' field in the 'Primary key' section.":::
+:::image type="content" source="../media/get-started/get-acs-connection-string.png" alt-text="Screenshot that shows an Azure Communication Services resource in the Azure Portal, viewing the 'Keys' blade. Attention is placed on the copy action of the 'Connection string' field in the 'Primary key' section.":::
 
 ```dotnetcli
 string connectionString = "{your connection string}";
@@ -53,7 +53,7 @@ NotificationMessagesClient notificationMessagesClient =
 ### 3. Set Channel Registration ID   
 The Channel Registration ID GUID was created during channel registration. You can look it up in the portal on the Channels tab of your ACS resource.
 
-:::image type="content" source="./media/get-started//get-messages-channel-id.png" alt-text="Screenshot that shows an Azure Communication Services resource in the Azure Portal, viewing the 'Channels' blade. Attention is placed on the copy action of the 'Channel ID' field.":::
+:::image type="content" source="../media/get-started/get-messages-channel-id.png" alt-text="Screenshot that shows an Azure Communication Services resource in the Azure Portal, viewing the 'Channels' blade. Attention is placed on the copy action of the 'Channel ID' field.":::
 
 Assign it to a variable called channelRegistrationId   
 ```dotnetcli
@@ -128,7 +128,7 @@ The other option to initiate a conversation between a WhatsApp Business Account 
 
 To do so, from your personal WhatsApp account, send a message to your business number.
 
-:::image type="content" source="./media/get-started//user-initiated-conversation.png" alt-text="A WhatsApp conversation viewed on the web showing a user message sent to the WhatsApp Business Account number. The user messages reads 'Conversations between a WhatsApp Business Account and a WhatsApp user can be initiated in one of two ways: 1. The business sends a template message to the WhatsApp user. 2. The WhatsApp user sends any message to the business number.'":::
+:::image type="content" source="../media/get-started/user-initiated-conversation.png" alt-text="A WhatsApp conversation viewed on the web showing a user message sent to the WhatsApp Business Account number. The user messages reads 'Conversations between a WhatsApp Business Account and a WhatsApp user can be initiated in one of two ways: 1. The business sends a template message to the WhatsApp user. 2. The WhatsApp user sends any message to the business number.'":::
 
 
 ## Send a Text Message to WhatsApp User

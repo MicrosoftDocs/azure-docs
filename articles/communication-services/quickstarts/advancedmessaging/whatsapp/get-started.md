@@ -6,7 +6,6 @@ author: memontic-ms
 manager: 
 services: azure-communication-services
 ms.subservice: messages
-
 ms.author: memontic
 ms.date: 06/20/2023
 ms.topic: quickstart
@@ -17,9 +16,9 @@ ms.service: azure-communication-services
 
 # Prerequisites
 
-- [Azure Communication Services resource](../../../create-communication-resource.md)
-- WhatsApp Business Account connected to your Azure Communication Services resource
-- Personal/Customer's WhatsApp number
+- [Azure Communication Services resource](../../create-communication-resource.md)
+- [Connecting a WhatsApp Business Account](../../../concepts/advancedmessaging/whatsapp/connecting-whatsapp-business-account.md)
+- [PhoneNumber TODO]()
 
 ::: zone pivot="platform-net"
 [!INCLUDE [Send WhatsApp Messages with .NET](./includes/get-started/messages-get-started-net.md)]
