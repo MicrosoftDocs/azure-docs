@@ -1521,3 +1521,31 @@ Currently, only virtual machine scale sets configured with the **Uniform** orche
   ]
 }
 ```
+
+## App Service Stop
+	
+| Property  | Value |
+| ---- | --- |
+| Capability name | Stop-1.0 |
+| Target type | Microsoft-AppService |
+| Description | Stops the targeted App Service applications, then restarts them at the end of the fault duration. This applies to resources of the "Microsoft.Web/sites" type, including App Service, API Apps, Mobile Apps, and Azure Functions. |
+| Prerequisites | None. |
+| Urn | urn:csci:microsoft:appService:stop/1.0 |
+| Fault type | Continuous. |
+| Parameters (key, value) | None. |
+
+### Sample JSON
+
+```json
+{
+  "name": "branchOne",
+  "actions": [
+    {
+      "type": "continuous",
+      "name": "urn:csci:microsoft:appService:stop/1.0",
+      "duration": "PT10M",
+      "selectorid": "myResources"
+    }
+  ]
+}
+```
