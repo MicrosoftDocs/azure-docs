@@ -217,7 +217,7 @@ Now that you have the Logic App connector resource set up and configured, let's 
 
 1. In the actions list, scroll down until you find **Send an email (V2)** and select this action.
 
-    :::image type="content" source="media/logic-apps-tutorial/outlook-send-email.png" alt-text="Screenshot of Send an email (V2) action button.":::
+    :::image type="content" source="media/logic-apps-tutorial/send-email.png" alt-text="Screenshot of Send an email (V2) action button.":::
 
 1. Just like with OneDrive, you're asked to sign into your Outlook or Office 365 Outlook account. After you sign in, you should see a window where we're going to format the email that with the dynamic content that Document Intelligence extracts from the invoice.
 
@@ -296,7 +296,7 @@ Now that you have the Logic App connector resource set up and configured, let's 
 
 1. A new node should be added to the Logic App designer view. Search for "Form Recognizer (Document Intelligence forthcoming)" in the **Choose an operation** search bar and select **Analyze invoice** from the list.
 
-    :::image type="content" source="media/logic-apps-tutorial/analyze-invoice-v2.png" alt-text="Screenshot of "Analyze Invoice" action.":::
+    :::image type="content" source="media/logic-apps-tutorial/analyze-invoice-v2.png" alt-text="Screenshot of 'Analyze Invoice' action.":::
 
 1. Now, you should see a window where to create your connection. Specifically, you're going to connect your Form Recognizer resource to the Logic Apps Designer Studio:
 
