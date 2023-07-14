@@ -202,7 +202,7 @@ Embed a map in a web page using the map control npm package.
 
 9. Open the file _index.html_ in your web browser and view the rendered map. It should look like the following image:
 
-:::image type="content" source="./media/how-to-use-npm-package/map-of-the-world.png" alt-text="A screenshot showing a map of the world.":::
+   :::image type="content" source="./media/how-to-use-npm-package/map-of-the-world.png" alt-text="A screenshot showing a map of the world.":::
 
 ## Use other Azure Maps npm packages
 
@@ -267,14 +267,14 @@ The following sample shows how to import a module and use it in your application
 
 4. Webpack 5 may throw errors about not being able to resolve some node.js core modules. Add these settings to your Webpack config file to fix the problem.
 
-```js
-module.exports = {
-  // ...
-  resolve: {
-    fallback: { "crypto": false, "worker_threads": false }
-  }
-};
-```
+   ```js
+   module.exports = {
+     // ...
+     resolve: {
+       fallback: { "crypto": false, "worker_threads": false }
+     }
+   };
+   ```
 
 This image is a screenshot of the sample’s output.
 
