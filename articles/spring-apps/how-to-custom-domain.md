@@ -121,7 +121,7 @@ Use the following steps to upload your certificate to key vault:
 1. Go to your key vault instance.
 1. In the navigation pane, select **Certificates**.
 1. On the upper menu, select **Generate/import**.
-1. On the **Create a certificate** page, select `Import` for **Method of Certificate Creation**, enter a certificate name for **Certificate Name**.
+1. On the **Create a certificate** page, select `Import` for **Method of Certificate Creation**, and then enter a **Certificate Name**.
 1. Under **Upload Certificate File**, navigate to certificate location and select it.
 1. Under **Password**, if you're uploading a password protected certificate file, provide that password here. Otherwise, leave it blank. Once the certificate file is successfully imported, key vault removes that password.
 1. Select **Create**.
@@ -191,11 +191,11 @@ az keyvault set-policy \
 
    :::image type="content" source="./media/how-to-custom-domain/import-certificate.png" alt-text="Screenshot of the Azure portal showing the TLS/SSL settings page for an Azure Spring Apps instance, with the Import key vault certificate button highlighted." lightbox="./media/how-to-custom-domain/import-certificate.png":::
 
-1. On the **Select certificate from Azure** page, for **Subscription**, select the subscription used for your key vault, for **Key Vault**, select your Key Vault instance, and for **Certificate**, select the certificate you want to import, then select **Select**.
+1. On the **Select certificate from Azure** page, select the **Subscription**, **Key Vault**, and **Certificate** from the drop-down options, and then select **Select**.
 
-   :::image type="content" source="./media/how-to-custom-domain/select-certificate-from-key-vault.png" alt-text="Screenshot of the Azure portal showing the TLS/SSL settings page for an Azure Spring Apps instance, select certificate from key vault." lightbox="./media/how-to-custom-domain/select-certificate-from-key-vault.png":::
+   :::image type="content" source="./media/how-to-custom-domain/select-certificate-from-key-vault.png" alt-text="Screenshot of the Azure portal showing the Select certificate from Azure page." lightbox="./media/how-to-custom-domain/select-certificate-from-key-vault.png":::
 
-1. On the opened **Set certificate name** page, enter the certificate name corresponding to your certificate and select **Apply**.
+1. On the opened **Set certificate name** page, enter your certificate name, and then select **Apply**.
 
 1. When you have successfully imported your certificate, it displays in the list of **Private Key Certificates**.
 
