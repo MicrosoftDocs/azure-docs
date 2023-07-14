@@ -281,7 +281,6 @@ Before you can enable the user-assigned identity on your **Logic App (Consumptio
 
 1. Now follow the [steps that give the identity access to the resource](#access-other-resources) later in this topic.
 
-
 ---
 
 <a name="template-user-identity"></a>
