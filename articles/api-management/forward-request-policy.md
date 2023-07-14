@@ -6,7 +6,7 @@ author: dlepow
 
 ms.service: api-management
 ms.topic: article
-ms.date: 12/08/2022
+ms.date: 07/14/2023
 ms.author: danlep
 ---
 
@@ -23,7 +23,9 @@ The `forward-request` policy forwards the incoming request to the backend servic
 ## Policy statement
 
 ```xml
-<forward-request http-version="1 | 2or1 | 2" timeout="time in seconds" follow-redirects="false | true" buffer-request-body="false | true" buffer-response="true | false" fail-on-error-status-code="false | true"/>
+<forward-request http-version="1 | 2or1 | 2" timeout="time in seconds" 
+continue-timeout="time in seconds"
+follow-redirects="false | true" buffer-request-body="false | true" buffer-response="true | false" fail-on-error-status-code="false | true"/>
 ```
 
 ## Attributes
@@ -31,6 +33,7 @@ The `forward-request` policy forwards the incoming request to the backend servic
 | Attribute                                     | Description                                                                                                                                                                                                                                                                                                    | Required | Default |
 | --------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- | ------- |
 | timeout                             | The amount of time in seconds to wait for the HTTP response headers to be returned by the backend service before a timeout error is raised. Minimum value is 0 seconds. Values greater than 240 seconds may not be honored, because the underlying network infrastructure can drop idle connections after this time. Policy expressions are allowed. | No       | 300    |
+| continue-timeout | The amount of time in seconds to wait for a `100 Continue`` status code to be returned by the backend service before a timeout error is raised. Policy expressions are allowed. | No  | N /A |
 | http-version                             | The HTTP spec version to use when sending the HTTP response to the backend service. When using `2or1`, the gateway will favor HTTP /2 over /1, but fall back to HTTP /1 if HTTP /2 does not work. | No       | 1    |
 | follow-redirects | Specifies whether redirects from the backend service are followed by the gateway or returned to the caller. Policy expressions are allowed.                                                                                                                                                                                                    | No       | `false`   |
 | buffer-request-body      | When set to `true`, request is buffered and will be reused on [retry](retry-policy.md).                                                                                                                                                                                               | No       | `false`   |
