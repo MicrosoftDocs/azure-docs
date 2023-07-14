@@ -277,7 +277,7 @@ Secondly, check if you have the following permissions that may be required to cr
 
 ::: zone-end
 
-In some cases, the permissions aren't required. For example, if the CLI login user is already an Active Directory Administrator on SQL server, then you don't need to have `Microsoft.Sql/servers/administrators/write` permission.
+In some cases, the permissions aren't required. For example, if the Azure CLI-authenticated user is already an Active Directory Administrator on SQL server, you don't need to have `Microsoft.Sql/servers/administrators/write` permission.
 
 #### Azure Active Directory
 
