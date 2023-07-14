@@ -302,7 +302,7 @@ After creating the connection, you can use the connection string in your applica
 
 ### [Java](#tab/java)
 
-1. Add the following dependencies in your pom.xml file.
+1. Add the following dependencies in your *pom.xml* file:
 
     ```xml
     <dependency>
