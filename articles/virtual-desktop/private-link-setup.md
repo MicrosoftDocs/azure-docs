@@ -746,7 +746,6 @@ Once you've created private endpoints, you can also control if traffic is allowe
 
 With Azure Virtual Desktop, you can independently control public traffic for workspaces and host pools. Select the relevant tab for your scenario and follow the steps. You can't configure this in Azure CLI. You need to repeat these steps for each workspace and host pool you use with Private Link.
 
-
 # [Portal](#tab/portal-2)
 
 #### Workspaces
