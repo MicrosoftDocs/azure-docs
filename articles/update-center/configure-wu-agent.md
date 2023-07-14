@@ -39,7 +39,7 @@ The registry keys listed in [Configuring Automatic Updates by editing the regist
 
 ## Enable updates for other Microsoft products
 
-By default, the Windows Update client is configured to provide updates only for Windows operating system. If you enable the **Give me updates for other Microsoft products when I update Windows** setting, you also receive updates for other Microsoft products, including security patches for Microsoft SQL Server and other Microsoft software. 
+By default, the Windows Update client is configured to provide updates only for Windows operating system. In Windows update, select **Check online for Windows updates**, to enable the **Give me updates for other Microsoft products when I update Windows** to receive updates for other Microsoft products, including security patches for Microsoft SQL Server and other Microsoft software. 
 
 Use one of the following options to perform the settings change at scale:
 
@@ -53,6 +53,8 @@ Use one of the following options to perform the settings change at scale:
     ```
 
 - For servers running Server 2016 or later which are not using Update management center scheduled patching (that has the VM PatchSettings set to AutomaticByOS = Azure-Orchestrated) you can use Group Policy to control this by downloading and using the latest Group Policy [Administrative template files](https://learn.microsoft.com/troubleshoot/windows-client/group-policy/create-and-manage-central-store).
+
+- To change the settings on a single server, follow these steps mentioned in How to [configure a Windows server to use Microsoft product](https://supportability.visualstudio.com/AzureAutomation/_wiki/wikis/Azure-Automation.wiki/654338/HT-Configure-a-Windows-Server-to-use-Microsoft-Updates-or-Windows-Updates).
 
 ## Make WSUS configuration settings
 

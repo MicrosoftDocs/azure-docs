@@ -99,7 +99,7 @@ To check the updates on your machines at scale, follow these steps:
 ---
 
 > [!NOTE]
-> In update management center (preview), you can initiate a software updates compliance scan on the machine to get the current list of operating system (guest) updates including the security and critical updates. On Windows, the software update scan is performed by the Windows Update Agent. On Linux, the software update scan is performed using OVAL-compatible tools to test for the presence of vulnerabilities based on the OVAL Definitions for that platform, which is retrieved from a local or remote repository. 
+> In update management center (preview), you can initiate a software updates compliance scan on the machine to get the current list of operating system (guest) updates including the security and critical updates. On Windows, the software update scan is performed by the Windows Update Agent and configured by the [Windows Update Client](configure-wu-agent.md#enable-updates-for-other-microsoft-products). On Linux, the software update scan is performed using OVAL-compatible tools to test for the presence of vulnerabilities based on the OVAL Definitions for that platform, which is retrieved from a local or remote repository. 
 
  
 ## Next steps
