@@ -36,10 +36,10 @@ ACS Calling SDK (Android/iOS/Windows) currently supports setting the maximum val
 
 > [!NOTE]
 > The availability of Video Constraints API for each platform is as follows:
-ACS Calling SDK (Web): starting in version [1.11.0-beta.1](https://www.npmjs.com/package/@azure/communication-calling/v/1.11.0-beta.1).
-ACS Calling SDK (Android): starting in version [undecided]().
-ACS Calling SDK (iOS): starting in version [undecided]().
-ACS Calling SDK (Windows): starting in version [undecided]().
+>ACS Calling SDK (Web): starting in version [1.11.0-beta.1](https://www.npmjs.com/package/@azure/communication-calling/v/1.11.0-beta.1).
+>ACS Calling SDK (Android): starting in version [undecided]().
+>ACS Calling SDK (iOS): starting in version [undecided]().
+>ACS Calling SDK (Windows): starting in version [undecided]().
 
 ## Next steps
 For more information, see the following articles:
