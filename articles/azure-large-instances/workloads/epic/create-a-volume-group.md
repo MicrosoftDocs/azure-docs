@@ -1,6 +1,6 @@
 ---
 title: Create a volume group
-description: Explains how to create an ALI for Epic volume group.
+description: Explains how to create an ALI for Epic workload volume group.
 ms.topic: conceptual
 author: jjaygbay1
 ms.author: jacobjaygbay
@@ -9,8 +9,7 @@ ms.date: 06/01/2023
 ---
 
 # Create a volume group
-
-
+This article explains how to create an ALI for Epic workload volume group.
 
 1. Discover storage using the following command.
 
