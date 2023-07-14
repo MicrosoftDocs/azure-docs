@@ -163,7 +163,7 @@ If you want to test the Call Redirection (preview) feature, you first need to co
 
 ## Check the extension status
 
-Once you've installed the extension, you can check its status by visiting a website with media content, such as one from the list at [Websites that work with Multimedia Redirection](multimedia-redirection-intro.md#websites-that-work-with-multimedia-redirection), and hovering your mouse cursor over [the Multimedia Redirection extension icon](multimedia-redirection-intro.md#the-multimedia-redirection-status-icon) in the extension bar on the top-right corner of your browser. A message will appear and tell you about the current status, as shown in the following screenshot.
+Once you've installed the extension, you can check its status by visiting a website with media content, such as one from the list at [Websites that work with Multimedia Redirection](multimedia-redirection-intro.md#websites-that-work-with-multimedia-redirection), and hovering your mouse cursor over [the Multimedia Redirection extension icon](multimedia-redirection-intro.md#tcheck-if-multimedia-redirection-is-active) in the extension bar on the top-right corner of your browser. A message will appear and tell you about the current status, as shown in the following screenshot.
 
 :::image type="content" source="./media/mmr-extension-status-popup.png" alt-text="A screenshot of the Multimedia Redirection extension in the Microsoft Edge extension bar.":::
 
@@ -181,7 +181,7 @@ To use Multimedia Redirection with Teams live events:
 
 1. Open the link to the Teams live event in either the Edge or Chrome browser.
 
-1. Make sure you can see a green play icon as part of the [Multimedia Redirection status icon](multimedia-redirection-intro.md#the-multimedia-redirection-status-icon). If the green play icon is there, Multimedia Redirection is enabled for Teams live events.
+1. Make sure you can see a green play icon as part of the [Multimedia Redirection status icon](multimedia-redirection-intro.md#check-if-multimedia-redirection-is-active). If the green play icon is there, Multimedia Redirection is enabled for Teams live events.
 
 1. Select **Watch on the web instead**. The Teams live event should automatically start playing in your browser. Make sure you only select **Watch on the web instead**, as shown in the following screenshot. If you use the native Teams app, Multimedia Redirection won't work.
 
