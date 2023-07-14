@@ -1075,7 +1075,6 @@
         "articles/ai-services/Speech-Service/**/*.md": "speech-service",
         "articles/ai-services/language-service/**/*.md": "language-service",
         "articles/ai-services/Translator/**/*.md": "translator-text",
-        "articles/industry/agriculture/**/*.md": "agriculture",
         "articles/media-services/azure-media-player/*.md": "media-player",
         "articles/media-services/latest/*.md": "rest-v3",
         "articles/media-services/live-video-analytics-edge/*.md": "lva-edge",
