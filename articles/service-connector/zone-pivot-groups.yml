@@ -6,8 +6,8 @@ groups:
   prompt: Choose the Azure service to connect
   pivots:
   - id: postgresql
-    title: Azure Database for PostgreSQL Flexible Server
+    title: Azure Database for PostgreSQL - Flexible Server
   - id: mysql
-    title: Azure Database for MySQL Flexible Server
+    title: Azure Database for MySQL - Flexible Server
   - id: sql
     title: Azure SQL Database
