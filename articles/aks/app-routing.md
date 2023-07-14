@@ -322,7 +322,7 @@ The application routing add-on creates an ingress class on the cluster called *w
 
     > [!NOTE]
     > Update *`<Hostname>`* with your DNS host name and *`<KeyVaultCertificateUri>`* with the ID returned from Azure Key Vault.
-    > The *`secretName`* key in the `tls` section defines the name of the secret that contains the certificate for this Ingress resource. This certificate will be presented in the browser when a client browses to the URL defined in the `<Hostname>` key. Make sure that the value of `secretName` is equal to `keyvault-` followed by the value of the Ingress resource name (from `metadata.name`). In the example yaml, secretName will need to be equal to `keyvault-aks-helloworld`.
+    > The *`secretName`* key in the `tls` section defines the name of the secret that contains the certificate for this Ingress resource. This certificate will be presented in the browser when a client browses to the URL defined in the `<Hostname>` key. Make sure that the value of `secretName` is equal to `keyvault-` followed by the value of the Ingress resource name (from `metadata.name`). In the example YAML, secretName will need to be equal to `keyvault-aks-helloworld`.
 
     ```yaml
     apiVersion: networking.k8s.io/v1
@@ -449,7 +449,7 @@ OSM issues a certificate that Nginx uses as the client certificate to proxy HTTP
 
     > [!NOTE]
     > Update *`<Hostname>`* with your DNS host name and *`<KeyVaultCertificateUri>`* with the ID returned from Azure Key Vault.
-    > The *`secretName`* key in the `tls` section defines the name of the secret that contains the certificate for this Ingress resource. This certificate will be presented in the browser when a client browses to the URL defined in the `<Hostname>` key. Make sure that the value of `secretName` is equal to `keyvault-` followed by the value of the Ingress resource name (from `metadata.name`). In the example yaml, secretName will need to be equal to `keyvault-aks-helloworld`.
+    > The *`secretName`* key in the `tls` section defines the name of the secret that contains the certificate for this Ingress resource. This certificate will be presented in the browser when a client browses to the URL defined in the `<Hostname>` key. Make sure that the value of `secretName` is equal to `keyvault-` followed by the value of the Ingress resource name (from `metadata.name`). In the example YAML, secretName will need to be equal to `keyvault-aks-helloworld`.
 
     ```yaml
     apiVersion: networking.k8s.io/v1
