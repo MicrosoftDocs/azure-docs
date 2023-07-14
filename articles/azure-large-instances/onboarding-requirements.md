@@ -1,6 +1,6 @@
 ---
 title: Onboarding requirements
-description: Provides an overview of onboarding requirements for ALI for Epic.
+description: Provides an overview of onboarding requirements for ALI.
 ms.topic: conceptual
 author: jjaygbay1
 ms.author: jacobjaygbay
@@ -16,7 +16,7 @@ This article explains the actions to take after you receive an environment from 
 
 * Use Azure portal to:
   * Create Azure Virtual Network (or networks) and ExpressRoute Gateway or Gateways with High or Ultra Performance Reference.
-  * Link them with ALI for Epic stamps using the Circuit/peer ID and Authorization Keys provided by Microsoft team.  
+  * Link them with ALI stamps using the Circuit/peer ID and Authorization Keys provided by Microsoft team.  
 
 ## VNET address space
 
@@ -28,24 +28,24 @@ Setup time synchronization with NTP server. 
 
 ## Jump box
 
-* Set up a jump box in a VM to connect to ALI for Epic stamps.
+* Set up a jump box in a VM to connect to ALI stamps.
 * Change the root password at first login and store password in a secure location.  
 
 ## Satellite server
 
 Install a red hat satellite server in a VM for RHEL 8.4 and patch download.
 
-## ALI for Epic stamps
+## ALI stamps
 
-* Validate ALI for Epic stamps and configure and patch OS based on your requirements.  
+* Validate ALI stamps and configure and patch OS based on your requirements.  
 * Verify that the stamps are visible on Azure portal.
 
   > [!Note]
-  > Do *not* place large files like ALI for Epic installation bits on the boot volume. The Boot volume is small and can fill quickly, which could cause the server to hang (50 GB per OS is the boot limit).
+  > Do *not* place large files like ALI installation bits on the boot volume. The Boot volume is small and can fill quickly, which could cause the server to hang (50 GB per OS is the boot limit).
 
 ## Secure Server IP pool address range
 
-This IP address range is used to assign the individual IP address to ALI for Epic servers.
+This IP address range is used to assign the individual IP address to ALI servers.
 The recommended subnet size is a /24 CIDR block. If needed, it can be smaller, with as few as 64 IP addresses.
 
 From this range, the first 30 IP addresses are reserved for use by Microsoft.
@@ -57,10 +57,10 @@ This range is an IP address range, which must be submitted to Microsoft when ask
 
 ## Optional IP address ranges to submit to Microsoft
   
-If you choose to use ExpressRoute Global Reach to enable direct routing from on-premises to ALI for Epic instance units, you must reserve another /29 IP address range.
+If you choose to use ExpressRoute Global Reach to enable direct routing from on-premises to ALI tenant, you must reserve another /29 IP address range.
 This range may not overlap with any of the other IP addresses ranges you defined before.  
 
-If you choose to use ExpressRoute Global Reach to enable direct routing from an ALI for Epic instance tenant in one Azure region to another ALI for Epic instance tenant in another Azure region, you must reserve another /29 IP address range.
+If you choose to use ExpressRoute Global Reach to enable direct routing from an ALI instance tenant in one Azure region to another ALI  tenant in another Azure region, you must reserve another /29 IP address range.
 This range may not overlap with the  IP address ranges you defined before.  
 
 ## Using ExpressRoute Fast Path
@@ -114,7 +114,7 @@ This example declares the variables using the values for this exercise.
 Replace the values with your subscription values.
 
 ```azurecli
-$Sub1 = "Replace_With_Your_Subcription_Name"  
+$Sub1 = "Replace_With_Your_Subscription_Name"  
 
 $RG1 = "TestRG1"  
 
@@ -124,7 +124,7 @@ $GWName1 = "VNet1GW" 
 
 $Authkey = “Express route circuit auth key”  
 
-$Sub1 = "Replace_With_Your_Subcription_Name"  
+$Sub1 = "Replace_With_Your_Subscription_Name"  
 
 $RG1 = "TestRG1"  
 
@@ -181,5 +181,4 @@ For more information, see [Accelerated networking for Windows or Linux virtual m
 
 Learn how to identify and interact with ALI instances through the Azure portal.
 
-> [!div class="nextstepaction"]
 > [What is Azure Large Instances?](what-is-azure-large-instances.md)

@@ -11,8 +11,8 @@
 - name: Configuration
   items:
    - name: Configure Azure Service Health alerts
-     href: configure-azure-service-health-alerts.md
+     href: ../../configure-azure-service-health-alerts.md
    - name: Create a volume group
-     href: create-a-volume-group.md
+     href: ../../create-a-volume-group.md
 - name: FAQ
-  href: faq.md
+  href: ../../faq.md
