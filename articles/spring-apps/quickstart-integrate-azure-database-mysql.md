@@ -114,7 +114,7 @@ Use [Service Connector](../service-connector/overview.md) to connect the app hos
 
 ---
 
-Repeat to create the service connector action for the app `customers-service`, which is also required for apps `vets-service` and `visits-service`.
+Repeat these steps to create connections for the `customers-service`, `vets-service`, and `visits-service` applications.
 
 ## Check connection to MySQL database
 
