@@ -59,7 +59,7 @@ Scenarios for vector search include:
 
 + **Hybrid search**. For text data, combine the best of vector retrieval and keyword retrieval to obtain the best results. Use with [semantic search (preview)](semantic-search-overview.md) for even more accuracy with L2 reranking using the same language models that power Bing.  
 
-+ **Vector database**. Use Cognitive Search as a vector store to server as long-term memory or an external knowledge base for Large Language Models (LLMs), or other applications.
++ **Vector database**. Use Cognitive Search as a vector store to serve as long-term memory or an external knowledge base for Large Language Models (LLMs), or other applications.
 
 ## Azure integration and related services
 
