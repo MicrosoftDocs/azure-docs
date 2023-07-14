@@ -9,7 +9,7 @@ ms.service: azure-operator-service-manager
 ---
 # About Azure Operator Service Manager
 
-Azure Operator Service Manager is an Azure service for managing network services for telecom operators. It allows for the seamless management of complex, multi-part, multi-vendor applications across thousands of hybrid cloud sites, including Azure regions, edge platforms, and Arc-connected sites. The initial target customers for Azure Operator Service Manager are telecom operators migrating workloads to Azure and Arc-connected cloud environments.
+Azure Operator Service Manager is an Azure service designed to assist telecom operators in managing their network services. It provides streamlined management capabilities for intricate, multi-part, multi-vendor applications across numerous hybrid cloud sites, encompassing Azure regions, edge platforms, and Arc-connected sites. Initially, Azure Operator Service Manager caters to the needs of telecom operators who are in the process of migrating their workloads to Azure and Arc-connected cloud environments.
 
 Azure Operator Service Manager expands and improves the Network Function Manager by incorporating technology and ideas from Azure for Operators' on-premises management tools. Its purpose is to manage the convergence of comprehensive, multi-vendor service solutions on a per-site basis. It uses a declarative software and configuration model for the system. It also combines Azure's hyperscaler experience and tooling for error-free Safe Deployment Practices (SDP) across sites grouped in canary tiers.
 
