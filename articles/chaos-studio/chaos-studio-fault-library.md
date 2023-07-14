@@ -1544,6 +1544,7 @@ Currently, only virtual machine scale sets configured with the **Uniform** orche
       "type": "continuous",
       "name": "urn:csci:microsoft:appService:stop/1.0",
       "duration": "PT10M",
+      "parameters":[],
       "selectorid": "myResources"
     }
   ]
