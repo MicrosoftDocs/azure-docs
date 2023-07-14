@@ -133,7 +133,7 @@ Here's how to create a host pool using the Azure portal.
    | Host pool type | Select whether your host pool will be Personal or Pooled.<br /><br />If you select **Personal**, a new option will appear for **Assignment type**. Select either **Automatic** or **Direct**.<br /><br />If you select **Pooled**, two new options will appear for **Load balancing algorithm** and **Max session limit**.<br /><br />- For **Load balancing algorithm**, choose either **breadth-first** or **depth-first**, based on your usage pattern.<br /><br />- For **Max session limit**, enter the maximum number of users you want load-balanced to a single session host. |
 
    > [!TIP]
-   > Once you've completed this tab, you can continue to optionally configure networking, create session hosts, a workspace, register the default desktop application group from this host pool, and enable diagnostics settings. Alternatively, if you want to create and configure these separately, select **Next: Review + create** and go to step 9.
+   > Once you've completed this tab, you can continue to optionally configure networking, create session hosts, a workspace, register the default desktop application group from this host pool, and enable diagnostics settings. Alternatively, if you want to create and configure these separately, select **Next: Review + create** and go to step 10.
 
 1. *Optional*: On the **Networking** tab, select how end users and session hosts will connect to the Azure Virtual Desktop service. You also need to configure Azure Private Link to use private access. For more information, see [Azure Private Link with Azure Virtual Desktop](private-link-overview.md).
 
