@@ -31,7 +31,7 @@ To review and verify the charges on your invoice, you must be an Enterprise Admi
 
 ## Review usage charges
 
-To view detailed usage for specific accounts, download the usage detail report. Usage files may be large. If you prefer, you can use the exports feature to get the same data exported to an Azure Storage account. For more information, see [Export usage details to a storage account](export-usage-details.md).
+To view detailed usage for specific accounts, download the usage detail report. Usage files may be large. If you prefer, you can use the exports feature to get the same data exported to an Azure Storage account. For more information, see [Export usage details to a storage account](../costs/tutorial-export-acm-data.md).
 
 As an enterprise administrator:
 
