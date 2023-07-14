@@ -2,24 +2,24 @@
 title: Quick start for inbound provisioning to Azure Active Directory with PowerShell
 description: Learn how to configure Inbound Provisioning API with PowerShell.
 services: active-directory
-author: kenwith
+author: jfields
 manager: amycolannino
 ms.service: active-directory
 ms.subservice: app-provisioning
 ms.topic: how-to
 ms.workload: identity
-ms.date: 06/30/2023
-ms.author: kenwith
-ms.reviewer: arvinh
+ms.date: 07/14/2023
+ms.author: jenniferf-skc
+ms.reviewer: cmmdesai
 ---
 
 # Quick start for inbound provisioning to Azure Active Directory with PowerShell
 
-This document describes how to use PowerShell to configure the inbound provisioning API for Azure Active Directory (Azure AD). To perform the steps described in this doc, you need either the Azure AD Application Administrator or the Global Administrator role.  
+This document describes how to use PowerShell to configure the inbound provisioning API for Azure Active Directory (Azure AD). To perform the steps described in this article, you need either the *Azure AD Application Administrator* or the *Global Administrator* role.  
 
-Using the steps in this guide, you will be able to successfully convert a CSV file containing HR data into a SCIM bulk request payload and send it to the Azure AD inbound provisioning API endpoint. 
+Using the steps in this guide, you'll convert a CSV file containing HR data into a SCIM bulk request payload and send it to the Azure AD inbound provisioning API endpoint. 
 
-To help you with this conversion process, we are providing a sample PowerShell script that you can customize as per your requirements. You can download this script from the Inbound Provisioning Private Preview Teams folder.  
+To help you with this process, we provide a sample PowerShell script that you can customize with your requirements. You can download this script from the Inbound Provisioning Private Preview Teams folder(WHAT IS THE PUBLIC PREVIEW, OR GA, FOLDER?).  
 
 ## Configure provisioning job for API-based data ingestion 
 
@@ -40,9 +40,9 @@ The following steps successfully configure out-of-the-box provisioning job with 
    :::image type="content" border="true" source="./media/inbound-provisioning-api-powershell/create.png" alt-text="Screenshot of how to create an inbound provisioning API application.":::
 
    >[!TIP]
-   >If you plan to ingest data from multiple sources that each have their own sync rules, you can create multiple apps and give each app a descriptive name, such as API2AAD-Provision-Employees-From-CSV or API2AAD-Provision-Contractors.
+   >If you plan to ingest data from multiple sources that each have their own sync rules, you can create multiple apps and give each app a descriptive name, such as **API2AAD-Provision-Employees-From-CSV** or **API2AAD-Provision-Contractors**.
 
-1. After the application is created, go to the **Provisioning** blade and click **Get started**. 
+1. After the application is created, go to the **Provisioning** blade, the click **Get started**. 
 
    :::image type="content" border="true" source="./media/inbound-provisioning-api-powershell/get-started.png" alt-text="Screenshot of how to get started on the Provisioning blade.":::
 
@@ -57,18 +57,18 @@ The following steps successfully configure out-of-the-box provisioning job with 
 1. After the operation is saved, you will see two more expansion panels: one for Mappings and one for Settings. Before you proceed, make sure you provide a valid notification email ID and **Save** the configuration once more. 
 
    >[!NOTE]
-   >Providing the notification email is mandatory, though the user interface doesn’t require it. If the notification email remains empty, then the provisioning job goes into quarantine when you start the execution. Make sure you set the notification email.    
+   >Providing the notification email is mandatory, though the user interface doesn’t require it. Make sure you set a notification email. If the notification email remains empty, the provisioning job goes into quarantine when you start the execution.    
 
    :::image type="content" border="true" source="./media/inbound-provisioning-api-powershell/email.png" alt-text="Screenshot of how to set email notification.":::
 
 1. Click the hyperlink in the Mappings expansion panel to view the default attribute mappings.
 
    >[!IMPORTANT]
-   >The default configuration in the **Attribute Mappings** page maps SCIM Core User and Enterprise User attributes to Azure AD attributes. We recommend using the default mappings to get started and customizing these mappings later as you get more familiar with the overall data flow. For more information about customization, see [](). 
+   >The default configuration in the **Attribute Mappings** page maps SCIM Core User and Enterprise User attributes to Azure AD attributes. We recommend using the default mappings to get started and customizing these mappings later as you get more familiar with the overall data flow. For more information about customization, see [NEED UPDATED LINK](###). 
 
    :::image type="content" border="true" source="./media/inbound-provisioning-api-powershell/attribute-mapping.png" alt-text="Screenshot of how to set attribute mapping.":::
 
-1. Navigate back to the Provisioning blade landing page by clicking the provisioning app name.
+1. Click the provisioning app name to navigate back to the Provisioning blade landing page.
 
    :::image type="content" border="true" source="./media/inbound-provisioning-api-powershell/navigate.png" alt-text="Screenshot of how to navigate to provisioning app name.":::
 
@@ -81,7 +81,7 @@ The following steps successfully configure out-of-the-box provisioning job with 
 
    | Control | Description |
    |---------|-------------|
-   | **Start provisioning** | Place the provisioning job in "listen mode". In the "Start" state, the provisioning job wakes up every 40 minutes and checks if any SCIM bulk request payloads need to be processed. |
+   | **Start provisioning** | Place the provisioning job in **listen mode**. In the **Start** state, the provisioning job wakes up every 40 minutes and checks if any SCIM bulk request payloads need to be processed. |
    | **Stop provisioning** | Pause or stop the provisioning job. |
    | **Restart provisioning** | Purge any SCIM payloads that are pending processing, and start a new provisioning cycle. |
    | **Edit provisioning** | Edit the job settings, attribute mappings, and customize the SCIM schema. |
@@ -92,7 +92,7 @@ The following steps successfully configure out-of-the-box provisioning job with 
 
 Download the CSV2SCIM PowerShell script and samples.
 
-1. Extract the contents to your local folder. It has the following directory structure
+1. Extract the contents to your local folder. It has the following directory structure:
 
    **azure-activedirectory-inbound-provisioning**
 
@@ -107,6 +107,7 @@ Download the CSV2SCIM PowerShell script and samples.
      - Test-ScriptCommands.ps1 (sample usage commands)
      - UseClientCertificate.ps1 (script to generate self-signed certificate and upload it as service principal credential for use in OAuth flow)
      - Sample1 (folder with more examples of how CSV file columns can be mapped to SCIM standard attributes. If you get different CSV files for employees, contractors, interns, you can create a separate AttributeMapping.psd1 file for each entity.)
+       
 1. Download and install the latest version of PowerShell. 
 1. Run the command to enable execution of remote signed scripts: 
 
@@ -122,15 +123,15 @@ Download the CSV2SCIM PowerShell script and samples.
 
 ## Generate SCIM payload with standard schema
 
-In this section, we will explore how to generate a SCIM payload with standard Core User and Enterprise User attribute from a CSV file. 
-To illustrate the procedure, we will use the CSV file Samples/csv-with-2-records.csv present in the **azure-activedirectory-inbound-provisioning** folder. 
+In this section, you'll generate a SCIM payload with standard Core User and Enterprise User attribute from a CSV file. 
+To illustrate the procedure, you'll use the CSV file ```Samples/csv-with-2-records.csv``` present in the **azure-activedirectory-inbound-provisioning** folder. 
 
 
-1. Open the CSV file Samples/csv-with-2-records.csv in Notepad/Excel/TextPad to check the columns present in the file. 
+1. Open the CSV file ```Samples/csv-with-2-records.csv``` in Notepad, Excel, or TextPad to check the columns present in the file. 
 
    :::image type="content" border="true" source="./media/inbound-provisioning-api-powershell/columns.png" alt-text="Screenshot of columns in Excel.":::
 
-1. In Notepad++ or a source code editor like Visual Studio Code, open the PowerShell data file Samples/AttributeMapping.psd1 that enables mapping of CSV file columns to SCIM standard schema elements. The file that is shipped out-of-the-box already has pre-configured mapping of CSV file columns to corresponding SCIM elements. We will use it as-is for this execution. 
+1. In Notepad++ or a source code editor like Visual Studio Code, open the PowerShell data file ```Samples/AttributeMapping.psd1``` that enables mapping of CSV file columns to SCIM standard schema elements. The file that's shipped out-of-the-box already has pre-configured mapping of CSV file columns to corresponding SCIM elements. We will use it as-is for this execution. 
 1. Open PowerShell and change to the directory **azure-activedirectory-inbound-provisioning\src**.
 1. Run the following command to initialize the AttributeMapping variable. 
 
@@ -138,29 +139,29 @@ To illustrate the procedure, we will use the CSV file Samples/csv-with-2-records
    $AttributeMapping = Import-PowerShellDataFile '..\Samples\AttributeMapping.psd1'
    ```
 
-1. Run the following command to validate if the AttributeMapping specified has valid standard SCIM schema attributes. This command will return **True** if the validation is successful. 
+1. Run the following command to validate if the AttributeMapping specified has valid standard SCIM schema attributes. This command returns **True** if the validation is successful. 
 
    ```powershell
    .\CSV2SCIM.ps1 -Path '..\Samples\csv-with-2-records.csv' -AttributeMapping $AttributeMapping -ValidateAttributeMapping
    ```
 
-1. Let’s say the AttributeMapping file has an invalid SCIM attribute called **userId**, then the ValidateAttributeMapping mode will display the following error. 
+1. Let’s say the AttributeMapping file has an invalid SCIM attribute called **userId**, then the ValidateAttributeMapping mode displays the following error. 
 
    :::image type="content" border="true" source="./media/inbound-provisioning-api-powershell/mapping-error.png" alt-text="Screenshot of a mapping error.":::
 
-1. Once you verified that the AttributeMapping is valid, run the following command to generate a SCIM bulk request in the file **SCIMPayload.json** that includes the two records present in the CSV file. 
+1. Once you verified that the AttributeMapping is valid, run the following command to generate a SCIM bulk request in the file ```SCIMPayload.json``` that includes the two records present in the CSV file. 
 
 
    ```powershell
    .\CSV2SCIM.ps1 -Path '..\Samples\csv-with-2-records.csv' -AttributeMapping $AttributeMapping > SCIMPayload.json
    ```
 
-1. You can open the contents of the file **SCIMPayload.json** to verify if the SCIM attributes have been set as per mapping defined in the file **AttributeMapping.psd1**.
+1. You can open the contents of the file ```SCIMPayload.json``` to verify if the SCIM attributes are set as per mapping defined in the file ```AttributeMapping.psd1```.
 
 1. You can post this file as-is to the Provisioning API endpoint using Graph Explorer or Postman. Reference: 
 
-   - [Quick start with Graph Explorer]() 
-   - [Quick start with Postman]()
+   - [Quick start with Graph Explorer](quick-start-inbound-provisioning-api-graph-explorer.md) 
+   - [Quick start with Postman](quick-start-inbound-provisioning-api-postman.md)
 
    Or you can refer to the next step and directly upload the generated payload to the API endpoint. 
 
@@ -169,12 +170,12 @@ To illustrate the procedure, we will use the CSV file Samples/csv-with-2-records
 
 Building upon the previous section, we will now demonstrate how to send the generated SCIM payload to your Azure AD Inbound Provisioning API endpoint with the script. 
 
-1. Login to your Entra portal as Application Administrator.
+1. Login to your Entra portal as *Application Administrator*.
 1. Copy the ServicePrincipalId associated with your provisioning app from **Provisioning App** > **Properties** > **Object ID**.
 
    :::image type="content" border="true" source="./media/inbound-provisioning-api-powershell/object-id.png" alt-text="Screenshot of the Object ID.":::
 
-1. Run the following command. This will prompt you for authentication if an authenticated session doesn't already exist for this tenant. As long as the authenticated user has Application Administrator or Global Admininistrator role, the command below should succeed, and it will post the generated SCIM payload to the API endpoint. 
+1. Run the following command. This promts you for authentication if an authenticated session doesn't already exist for this tenant. As long as the authenticated user has *Application Administrator* or *Global Admininistrator* role, the command below should succeed, and it will post the generated SCIM payload to the API endpoint. 
 
    ```powershell
    .\CSV2SCIM.ps1 -Path '..\Samples\csv-with-2-records.csv' -AttributeMapping $AttributeMapping -ServicePrincipalId <servicePrincipalId> -TenantId "contoso.onmicrosoft.com"
@@ -182,7 +183,7 @@ Building upon the previous section, we will now demonstrate how to send the gene
 
 ## Get provisioning logs of the latest Sync Cycles
 
-After sending the SCIM Request, we can query the logs of the latest sync cycles processed by Azure AD. We can just see the sync statistics from the logs, or we can return the sync details from the logs and save them to a variable for further analysis.
+After sending the SCIM Request, we can query the logs of the latest sync cycles processed by Azure AD. We can see the sync statistics from the logs, or we can return the sync details from the logs and save them to a variable for further analysis.
 
 1. To just show the log details and sync statistics on the console, we need to execute the script as the following example:
 
@@ -261,7 +262,7 @@ $AttributeMapping = Import-PowerShellDataFile '.\Samples\AttributeMapping.psd1'`
 
 ### AttributeMapping.psd file for CSV2SCIM script
 
-This file is used to map columns in the CSV file to standard SCIM Core User and Enterprise User attribute schema elements. It's used to generate an appropriate representation of the CSV file contents as a SCIM bulk request payload. 
+This file is used to map columns in the CSV file to standard SCIM Core User and Enterprise User attribute schema elements. The file also generates an appropriate representation of the CSV file contents as a SCIM bulk request payload. 
 
 In the next example, we mapped the following columns in the CSV file to their counterpart SCIM Core User and Enterprise User attributes.
 
@@ -315,11 +316,11 @@ Often the data file sent by HR teams contains additional attributes that don't h
 The CSV2SCIM script provides an execution mode called UpdateSchema which reads all columns in the CSV file, adds them under an extension schema namespace, and updates the provisioning app schema. 
 
 >[!NOTE] 
->If the attribute extensions are already present in the provisioning app schema, then this mode will only emit a warning that the attribute extension already exists. So, there is no issue running the CSV2SCIM script in the `UpdateSchema` mode if new fields are added to the CSV file and you want to add them as an extension. 
+>If the attribute extensions are already present in the provisioning app schema, then this mode only emits a warning that the attribute extension already exists. So, there is no issue running the CSV2SCIM script in the **UpdateSchema** mode if new fields are added to the CSV file and you want to add them as an extension. 
 
-To illustrate the procedure, we will use the CSV file **Samples/csv-with-2-records.csv** present in the **azure-activedirectory-inbound-provisioning** folder. 
+To illustrate the procedure, we'll use the CSV file ```Samples/csv-with-2-records.csv``` present in the **azure-activedirectory-inbound-provisioning** folder. 
 
-1. Open the CSV file Samples/csv-with-2-records.csv in a Notepad/Excel/TextPad to check the columns present in the file. 
+1. Open the CSV file ```Samples/csv-with-2-records.csv``` in a Notepad, Excel, or TextPad to check the columns present in the file. 
 
    :::image type="content" border="true" source="./media/inbound-provisioning-api-powershell/check-columns.png" alt-text="Screenshot of how to check CSV columns.":::
 
@@ -333,7 +334,7 @@ To illustrate the procedure, we will use the CSV file **Samples/csv-with-2-recor
 
    :::image type="content" border="true" source="./media/inbound-provisioning-api-powershell/advanced-options.png" alt-text="Screenshot of Attribute Mapping in Advanced options.":::
 
-1. The **Attribute List** will now show attributes under the new namespace. 
+1. The **Attribute List** shows attributes under the new namespace. 
 
    :::image type="content" border="true" source="./media/inbound-provisioning-api-powershell/attribute-list.png" alt-text="Screenshot of the attribute list.":::
 
