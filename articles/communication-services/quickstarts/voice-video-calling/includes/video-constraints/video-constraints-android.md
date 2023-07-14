@@ -11,10 +11,10 @@ ms.service: azure-communication-services
 ms.subservice: calling
 ---
 
-The Video Constraints API enables developers to control the video quality from within their video calls. In this quickstart guide, we illustrate how to use the API to set the constraints.
-
-
 [!INCLUDE [Public Preview](../../../../includes/public-preview-include-document.md)]
+
+## Overview
+The Video Constraints API enables developers to control the video quality from within their video calls. In this quickstart guide, we illustrate how to use the API to set the constraints.
 
 ### Prerequisites
 Refer to the [Voice Calling Quickstart](../../getting-started-with-calling.md?pivots=platform-android) to set up a sample app with voice calling.
