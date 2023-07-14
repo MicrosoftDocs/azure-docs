@@ -1365,4 +1365,3 @@ If you created the logic app's managed identity by using an ARM template, set th
 ## Next steps
 
 * [Secure access and data in Azure Logic Apps](logic-apps-securing-a-logic-app.md)
-
