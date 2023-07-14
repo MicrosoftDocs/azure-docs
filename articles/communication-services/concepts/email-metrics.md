@@ -12,7 +12,7 @@ ms.topic: conceptual
 ms.service: azure-communication-services
 ms.subservice: data
 ---
-# Email Metrics overview
+# Email metrics overview
 
 Azure Communication Services currently provides metrics for all Azure communication services' primitives. [Azure Metrics Explorer](../../azure-monitor/essentials/metrics-getting-started.md) can be used to plot your own charts, investigate abnormalities in your metric values, and understand your API traffic by using the metrics data that email requests emit.
 
@@ -40,8 +40,8 @@ The following dimensions are available on the `Email Service Delivery Status Upd
 | Result       | High level status of the message delivery: Success, Failure. |
 | MessageStatus       | Terminal state of the Delivered, Failed, Suppressed. Emails are suppressed when a user sends an email to an email address that is known not to exist. Sending emails to addresses that do not exist trigger a hard bounce. |
 | IsHardBounce       | True when a message delivery failed due to a hard bounce or if an item was suppressed due to a previous hard bounce. |
-| SenderDomain       | The domain portion the the senders email address. |
-| SmtpStatusCode       | Smpt error code from for failed deliveriess. |
+| SenderDomain       | The domain portion of the senders email address. |
+| SmtpStatusCode       | Smpt error code from for failed deliveries. |
 | EnhancedSmtpStatusCode       | The EnhancedSmtpStatusCode status code will be emitted if it is available. This status code provides additional details not available with the SmtpStatusCode. |
 
 :::image type="content" source="./media/acs-email-delivery-status-hardbounce-metrics.png" alt-text="Email Delivery Status Update Metric - IsHardBounce.":::
@@ -49,14 +49,14 @@ The following dimensions are available on the `Email Service Delivery Status Upd
 
 ### Email Service API requests
 
-The follow operations are available for the `Email Service API Requests` metric. These standard dimensions are supported: StatusCode, StatusCodeClass, StatusCodeReason and Operation.
+The following operations are available for the `Email Service API Requests` metric. These standard dimensions are supported: StatusCode, StatusCodeClass, StatusCodeReason and Operation.
 
 | Operation    | Description                                                                                    |
 | -------------------- | ---------------------------------------------------------------------------------------------- |
 | SendMail       | Email Send API. |
 | GetMessageStatus       | Get the delivery status of a messageId. |
 
-:::image type="content" source="./media/acs-email-api-resquest-metrics.png" alt-text="Email API Request Metric.":::
+:::image type="content" source="./media/acs-email-api-request-metrics.png" alt-text="Email API Request Metric.":::
 
 ### Email User Engagement
 
