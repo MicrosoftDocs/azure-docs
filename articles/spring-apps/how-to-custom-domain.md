@@ -118,7 +118,7 @@ Use the following steps to upload your certificate to key vault:
 1. Go to your key vault instance.
 1. In the navigation pane, select **Certificates**.
 1. On the upper menu, select **Generate/import**.
-1. On the **Create a certificate** page, select `Import` for **Method of Certificate Creation**, and then enter a **Certificate Name**.
+1. On the **Create a certificate** page, select **Import** for **Method of Certificate Creation**, and then provide a value for **Certificate Name**.
 1. Under **Upload Certificate File**, navigate to certificate location and select it.
 1. Under **Password**, if you're uploading a password protected certificate file, provide that password here. Otherwise, leave it blank. Once the certificate file is successfully imported, key vault removes that password.
 1. Select **Create**.
