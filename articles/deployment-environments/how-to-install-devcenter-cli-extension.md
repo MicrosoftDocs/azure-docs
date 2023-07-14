@@ -26,7 +26,7 @@ To install the devcenter extension, you first need to install the Azure CLI. The
 ``` azurecli
 az extension add --name devcenter
 ```
-1. Check that the `devcenter` extension is installed 
+1. Check that the devcenter extension is installed 
 ``` azurecli
 az extension list
 ```
