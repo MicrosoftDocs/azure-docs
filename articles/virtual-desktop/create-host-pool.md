@@ -133,7 +133,17 @@ Here's how to create a host pool using the Azure portal.
    | Host pool type | Select whether your host pool will be Personal or Pooled.<br /><br />If you select **Personal**, a new option will appear for **Assignment type**. Select either **Automatic** or **Direct**.<br /><br />If you select **Pooled**, two new options will appear for **Load balancing algorithm** and **Max session limit**.<br /><br />- For **Load balancing algorithm**, choose either **breadth-first** or **depth-first**, based on your usage pattern.<br /><br />- For **Max session limit**, enter the maximum number of users you want load-balanced to a single session host. |
 
    > [!TIP]
-   > Once you've completed this tab, you can continue to optionally create session hosts, a workspace, register the default desktop application group from this host pool, and enable diagnostics settings. Alternatively, if you want to create and configure these separately, select **Next: Review + create** and go to step 9.
+   > Once you've completed this tab, you can continue to optionally configure networking, create session hosts, a workspace, register the default desktop application group from this host pool, and enable diagnostics settings. Alternatively, if you want to create and configure these separately, select **Next: Review + create** and go to step 10.
+
+1. *Optional*: On the **Networking** tab, select how end users and session hosts will connect to the Azure Virtual Desktop service. You also need to configure Azure Private Link to use private access. For more information, see [Azure Private Link with Azure Virtual Desktop](private-link-overview.md).
+
+   | Parameter | Value/Description |
+   |--|--|
+   | **Enable public access from all networks** | End users can access the feed and session hosts securely over the public internet or the private endpoints. |
+   | **Enable public access for end users, use private access for session hosts** | End users can access the feed securely over the public internet but must use private endpoints to access session hosts. |
+   | **Disable public access and use private access** | End users can only access the feed and session hosts over the private endpoints. |
+
+   Once you've completed this tab, select **Next: Virtual Machines**.
 
 1. *Optional*: If you want to add session hosts in this process, on the **Virtual machines** tab, complete the following information:
 
