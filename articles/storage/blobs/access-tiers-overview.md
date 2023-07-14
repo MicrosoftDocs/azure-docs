@@ -5,7 +5,7 @@ description: Azure storage offers different access tiers so that you can store y
 author: normesta
 
 ms.author: normesta
-ms.date: 06/23/2023
+ms.date: 07/13/2023
 ms.service: storage
 ms.topic: conceptual
 ms.reviewer: fryu
@@ -138,8 +138,8 @@ The following table summarizes the features of the hot, cool, cold, and archive 
 
 |  | **Hot tier** | **Cool tier** | **Cold tier (preview)** |**Archive tier** |
 |--|--|--|--|--|
-| **Availability** | 99.9% | 99% | 99% | Offline |
-| **Availability** <br> **(RA-GRS reads)** | 99.99% | 99.99% | 99.9% | Offline |
+| **Availability** | 99.9% | 99% | 99% | 99% |
+| **Availability** <br> **(RA-GRS reads)** | 99.99% | 99.999% | 99.999% | 99.999% |
 | **Usage charges** | Higher storage costs, but lower access and transaction costs | Lower storage costs, but higher access and transaction costs | Lower storage costs, but higher access and transaction costs | Lowest storage costs, but highest access, and transaction costs |
 | **Minimum recommended data retention period** | N/A | 30 days<sup>1</sup> | 90 days<sup>1</sup> | 180 days |
 | **Latency** <br> **(Time to first byte)** | Milliseconds | Milliseconds | Milliseconds | Hours<sup>2</sup> |
