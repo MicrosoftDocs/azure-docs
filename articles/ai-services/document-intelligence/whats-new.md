@@ -27,6 +27,17 @@ Document Intelligence service is updated on an ongoing basis. Bookmark this page
 >[!NOTE]
 > With the release of the 2022-08-31 GA API, the associated preview APIs are being deprecated. If you are using the 2021-09-30-preview or the 2022-01-30-preview API versions, please update your applications to target the 2022-08-31 API version. There are a few minor changes involved, for more information, _see_ the [migration guide](v3-migration-guide.md).
 
+## July 2023
+
+> [!NOTE]
+> Form Recognizer is now Document Intelligence!
+>
+> Azure AI services now encompass all of what were previously known as Azure Cognitive Services and Azure Applied AI Services.
+>
+> There are no changes to pricing. The names "Cognitive Services" and "Azure Applied AI" will continue to be used in Azure billing, cost analysis, price list, and price APIs.
+>
+> There are no breaking changes to application programming interfaces (APIs) or SDKs.
+
 ## May 2023
 
 **Introducing refreshed documentation for Build 2023**
@@ -65,7 +76,7 @@ Document Intelligence service is updated on an ongoing basis. Bookmark this page
   * [**Font extraction**](concept-add-on-capabilities.md#font-property-extraction) is now recognized with the ```2023-02-28-preview``` API.
   * [**Formula extraction**](concept-add-on-capabilities.md#formula-extraction) is now recognized with the ```2023-02-28-preview``` API.
   * [**High resolution extraction**](concept-add-on-capabilities.md#high-resolution-extraction) is now recognized with the ```2023-02-28-preview``` API.
-* [**Common name key normalization**](concept-general-document.md#key-normalization-common-name) capabilities are added to the General Document model to improve processing forms with variations in key names. 
+* [**Common name key normalization**](concept-general-document.md#key-normalization-common-name) capabilities are added to the General Document model to improve processing forms with variations in key names.
 * [**Custom extraction model updates**](concept-custom.md)
   * [**Custom neural model**](concept-custom-neural.md) now supports added languages for training and analysis. Train neural models for Dutch, French, German, Italian and Spanish.
   * [**Custom template model**](concept-custom-template.md) now has an improved signature detection capability.
