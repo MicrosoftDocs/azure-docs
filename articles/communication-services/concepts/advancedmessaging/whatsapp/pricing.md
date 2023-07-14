@@ -74,7 +74,7 @@ To get the latest WhatsApp rates, refer to WhatsApp’s pricing documentation: [
 
 ## Next steps ##
 
--   [Connecting a WhatsApp Business Account](./connecting-whatsapp-business-account.md)
+-    [Register WhatsApp Business Account](../../../quickstarts/advancedmessaging/whatsapp/connecting-whatsapp-business-account.md)
 -   [Advanced Messaging for WhatsApp Terms of Services](./whatsapp-termsof-service.md)
 -   [Trying the WhatsApp Sandbox]()
 -   [Get Started With AdvancedMessages](../../../quickstarts//advancedmessaging/whatsapp/get-started.md)

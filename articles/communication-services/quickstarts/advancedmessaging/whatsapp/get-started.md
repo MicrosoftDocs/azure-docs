@@ -14,10 +14,10 @@ ms.service: azure-communication-services
 
 # Quickstart: Add Advanced Messages SDK to your App
 
-# Prerequisites
+## Prerequisites
 
 - [Azure Communication Services resource](../../create-communication-resource.md)
-- [Connecting a WhatsApp Business Account](../../../concepts/advancedmessaging/whatsapp/connecting-whatsapp-business-account.md)
+- [Connecting a WhatsApp Business Account](../../../quickstarts/advancedmessaging/whatsapp/connecting-whatsapp-business-account.md)
 - Active PhoneNumber
 
 ::: zone pivot="platform-net"

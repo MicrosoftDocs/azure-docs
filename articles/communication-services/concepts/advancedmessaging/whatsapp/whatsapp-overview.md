@@ -31,7 +31,7 @@ The key features of Azure Communications Services Advanced Messaging for WhatsAp
 
 The following documents will help you get started with Advanced Messaging for WhatsApp:
 
--    [Connecting a WhatsApp Business Account](./connecting-whatsapp-business-account.md)
+-    [Register WhatsApp Business Account](../../../quickstarts/advancedmessaging/whatsapp/connecting-whatsapp-business-account.md)
 -    [Advanced Messaging for WhatsApp Terms of Services](./whatsapp-termsof-service.md)
 -    [Trying the WhatsApp Sandbox]()
 -    [Get Started With AdvancedMessages](../../../quickstarts//advancedmessaging/whatsapp/get-started.md)

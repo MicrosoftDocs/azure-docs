@@ -175,6 +175,8 @@ items:
     items:
     - name: WhatsApp
       items:
+        - name: Register WhatsApp Business Account
+          href: quickstarts/advancedmessaging/whatsapp/connecting-whatsapp-business-account.md
         - name: Get Started With Advanced Messages
           href: quickstarts/advancedmessaging/whatsapp/get-started.md
 - name: Tutorials
@@ -824,8 +826,6 @@ items:
       items:
       - name: Overview
         href: concepts/advancedmessaging/whatsapp/whatsapp-overview.md
-      - name: Register WhatsApp Business Account
-        href: concepts/advancedmessaging/whatsapp/connecting-whatsapp-business-account.md
       - name: WhatsAppTermsOfService
         href: concepts/advancedmessaging/whatsapp/whatsapp-termsof-service.md
       - name: Pricing
