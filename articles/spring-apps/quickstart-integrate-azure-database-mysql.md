@@ -178,7 +178,7 @@ az spring app update \
 
 1. On the **Configuration** page, select **Environment variables** tab page, enter `SPRING_PROFILES_ACTIVE` for **Key**, enter `mysql` for **Value**, and then select **Save**.
 
-   :::image type="content" source="media/quickstart-integrate-azure-database-mysql/app-customers-service-config-env.png" alt-text="Screenshot of the Azure portal showing the configuration settings for the customers-service app." lightbox="media/quickstart-integrate-azure-database-mysql/app-customers-service-config-env.png":::
+   :::image type="content" source="media/quickstart-integrate-azure-database-mysql/customers-service-app-configuration.png" alt-text="Screenshot of the Azure portal showing the configuration settings for the customers-service app." lightbox="media/quickstart-integrate-azure-database-mysql/app-customers-service-config-env.png":::
 
 ---
 
