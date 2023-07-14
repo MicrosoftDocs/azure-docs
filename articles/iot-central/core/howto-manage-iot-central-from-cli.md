@@ -12,7 +12,7 @@ ms.custom: [devx-track-azurecli, devx-track-azurepowershell]
 
 # Manage IoT Central from Azure CLI or PowerShell
 
-Instead of creating and managing IoT Central applications on the [Azure IoT Central application manager](https://aka.ms/iotcentral) website, you can use [Azure CLI](/cli/azure/) or [Azure PowerShell](/powershell/azure/) to manage your applications.
+Instead of creating and managing IoT Central applications in the [Azure portal](https://portal.azure.com/#create/Microsoft.IoTCentral), you can use [Azure CLI](/cli/azure/) or [Azure PowerShell](/powershell/azure/) to manage your applications.
 
 If you prefer to use a language such as JavaScript, Python, C#, Ruby, or Go to create, update, list, and delete Azure IoT Central applications, see the [Azure IoT Central ARM SDK samples](/samples/azure-samples/azure-iot-central-arm-sdk-samples/azure-iot-central-arm-sdk-samples/) repository.
 

@@ -5,7 +5,7 @@ services: iot-central
 ms.service: iot-central
 author: dominicbetts
 ms.author: dobett
-ms.date: 10/28/2022
+ms.date: 07/14/2023
 ms.topic: how-to
 ---
 
@@ -60,15 +60,17 @@ If you choose one of the standard plans, you need to provide billing information
 
 ## Azure portal
 
-The easiest way to get started creating IoT Central applications is in the [Azure portal](https://portal.azure.com/#view/Microsoft_Azure_Marketplace/GalleryItemDetailsBladeNopdl/id/Microsoft.IoTCentral).
+The easiest way to get started creating IoT Central applications is in the [Azure portal](https://portal.azure.com/#create/Microsoft.IoTCentral).
 
-Select **Create** to open the **IoT Central > Basics** page. Enter the following information:
+[!INCLUDE [Warning About Access Required](../../../includes/iot-central-warning-contribitorrequireaccess.md)]
+
+Enter the following information:
 
 | Field | Description |
 | ----- | ----------- |
 | Subscription | The Azure subscription you want to use. |
-| Resource group | The resource group you want to use.  You have the option to create a new resource group or use an existing one. |
-| Resource name | A valid Azure resource name |
+| Resource group | The resource group you want to use.  You can create a new resource group or use an existing one. |
+| Resource name | A valid Azure resource name. |
 | Application URL | The URL subdomain for your application. The URL for an IoT Central application looks like `https://yoursubdomain.azureiotcentral.com`. |
 | Template | The application template you want to use. For a blank application template, select **Custom application**.|
 | Region | The Azure region you want to use. |
@@ -134,9 +136,7 @@ To create an application template from an existing IoT Central application:
 
 ### Use an application template
 
-To use an application template to create a new IoT Central application, you need a previously created **Shareable Link**. Paste the **Shareable Link** into your browser's address bar. The **Create an application** page displays with your custom application template selected:
-
-:::image type="content" source="media/howto-create-iot-central-application/create-app.png" alt-text="Screenshot that shows create an application from a template.":::
+To use an application template to create a new IoT Central application, you need a previously created **Shareable Link**. Paste the **Shareable Link** into your browser's address bar. The **Create an application** page displays with your custom application template selected.
 
 Select your pricing plan and fill out the other fields on the form. Then select **Create** to create a new IoT Central application from the application template.
 
