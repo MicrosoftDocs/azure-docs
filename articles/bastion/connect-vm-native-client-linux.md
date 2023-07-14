@@ -34,7 +34,7 @@ Verify that the following roles and ports are configured in order to connect to 
 
 ## <a name="ssh"></a>Connect to a Linux VM
 
-The steps in the following sections help you connect to a Linux VM from a Linux native client using the **az network bastion** command.  This extension can be installed by running, `az extension add --name ssh`.
+The steps in the following sections help you connect to a Linux VM from a Linux native client using the **az network bastion** command.  This extension can be installed by running, `az extension add --name bastion`.
 
 When you connect using this command, file transfers aren't supported. If you want to upload files, connect using the [az network bastion tunnel](#tunnel) command instead.
 

@@ -36,7 +36,7 @@ Each lab is isolated by its own virtual network.  If the lab has a [peered virtu
 
 Lab Services handles the student’s ability to perform actions like start and stop on their virtual machines.  It also controls access to their VM connection information.
 
-Lab Services also handles the registration of students to the service. There are currently two different access settings: restricted and nonrestricted. For more information, see the [manage lab users](how-to-configure-student-usage.md#send-invitations-to-users) article. Restricted access means Lab Services  verifies that the students are added as user before allowing access. Nonrestricted means any user can register as long as they have the registration link and there's capacity in the lab. Nonrestricted can be useful for hackathon events.
+Lab Services also handles the registration of students to the service. There are currently two different access settings: restricted and nonrestricted. For more information, see the [manage lab users](how-to-manage-lab-users.md#send-invitations-to-users) article. Restricted access means Lab Services  verifies that the students are added as user before allowing access. Nonrestricted means any user can register as long as they have the registration link and there's capacity in the lab. Nonrestricted can be useful for hackathon events.
 
 Student VMs that are hosted in the lab have a username and password set by the creator of the lab.  Alternately, the creator of the lab can allow registered students to choose their own password on first sign-in.  
 

@@ -62,6 +62,8 @@ Otherwise, use <kbd>Ctrl</kbd>-<kbd>F</kbd> to use your browser's search feature
 
 [!INCLUDE [authorization-resources-role-definitions-permissions-list](../../includes/resource-graph/query/authorization-resources-role-definitions-permissions-list.md)]
 
+[!INCLUDE [authorization-resources-troubleshoot-rbac-limits](../../includes/resource-graph/query/authorization-resources-troubleshoot-rbac-limits.md)]
+
 ## Azure Service Health
 
 [!INCLUDE [azure-resource-graph-samples-cat-azure-service-health](../../../../includes/resource-graph/samples/bycat/azure-service-health.md)]

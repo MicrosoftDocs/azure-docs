@@ -6,7 +6,6 @@ author: pauljewellmsft
 ms.author: pauljewell
 ms.date: 02/13/2023
 ms.service: storage
-ms.subservice: blobs
 ms.topic: quickstart
 ms.devlang: golang
 ms.custom: mode-api, passwordless-go, devx-track-go

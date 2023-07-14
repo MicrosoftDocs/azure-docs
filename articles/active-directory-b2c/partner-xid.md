@@ -182,8 +182,8 @@ Get the custom policy starter packs from GitHub, then update the XML files in th
         </InputClaims>
         <OutputClaims>
           <!-- Claims parsed from your REST API -->
-          <OutputClaim ClaimTypeReferenceId="last_name" PartnerClaimType="givenName" />
-          <OutputClaim ClaimTypeReferenceId="first_name" PartnerClaimType="surname" />
+          <OutputClaim ClaimTypeReferenceId="last_name" />
+          <OutputClaim ClaimTypeReferenceId="first_name" />
           <OutputClaim ClaimTypeReferenceId="previous_name" />
           <OutputClaim ClaimTypeReferenceId="year" />
           <OutputClaim ClaimTypeReferenceId="month" />
