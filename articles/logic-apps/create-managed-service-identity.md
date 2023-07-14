@@ -63,6 +63,7 @@ The following table lists the connectors that support using a managed identity i
 ### [Standard](#tab/standard)
 
 The following table lists the connectors that support using a managed identity in a Standard logic app workflow:
+
 | Connector type | Supported connectors |
 |----------------|----------------------|
 | Built-in | - Azure Automation <br>- Azure Blob Storage <br>- Azure Event Hubs <br>- Azure Service Bus <br>- Azure Queues <br>- Azure Tables <br>- HTTP <br>- HTTP + Webhook <br>- SQL Server <br><br>**Note**: Except for the SQL Server and HTTP connectors, most [built-in, service provider-based connectors](/azure/logic-apps/connectors/built-in/reference/) currently don't support selecting user-assigned managed identities for authentication. Instead, you must use the system-assigned identity. HTTP operations can authenticate connections to Azure Storage accounts behind Azure firewalls with the system-assigned identity. |
