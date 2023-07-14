@@ -31,10 +31,10 @@ The key features of Azure Communications Services Messaging for WhatsApp include
 
 The following documents will help you get started with WhatsApp communication:
 
--    Creating or connecting a WhatsApp Business Account [Connecting a WhatsApp Business Account](./connecting-whatsapp-business-account.md)
--    WhatsApp data transfer and independent terms of service [Advanced Messaging for WhatsApp Terms of Services](./whatsapp-termsof-service.md)
--    Trying the WhatsApp Sandbox
--    Getting started with the Messages SDK for WhatsApp []()
--    Getting started with Event Grid to receive WhatsApp messages and delivery reports [Quickstart - Handle Advanced Messaging and delivery report events](../../../quickstarts/advancedmessaging/whatsapp/handle-advanced-messaging-events.md)
+-    [Connecting a WhatsApp Business Account](./connecting-whatsapp-business-account.md)
+-    [Advanced Messaging for WhatsApp Terms of Services](./whatsapp-termsof-service.md)
+-    [Trying the WhatsApp Sandbox]()
+-    [Get Started With AdvancedMessages](../../../quickstarts//advancedmessaging/whatsapp/get-started.md)
+-    [Get Started With Handle Advanced Messaging and delivery report events](../../../quickstarts/advancedmessaging/whatsapp/handle-advanced-messaging-events.md)
 -    [Messaging Policy](https://learn.microsoft.com/en-us/azure/communication-services/concepts/sms/messaging-policy)
--    Pricing [Pricing for Advanced Messaging for WhatsApp](./pricing.md)
+-    [Pricing for Advanced Messaging for WhatsApp](./pricing.md)

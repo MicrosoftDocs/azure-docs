@@ -96,7 +96,7 @@ Click the **Get Started** button.
 
 The next screen summarizes the permissions you will be granting Azure Communication Services to manage your WhatsApp Business Account.
 
-::image type="content" source="../media/azure-permissions.png" alt-text="Screenshot that shows Azure permissions for your WhatsApp Business account.":::
+::image type="content" source="../media/permissions-to-azure.png" alt-text="Screenshot that shows Azure permissions for your WhatsApp Business account.":::
 
 Click the **Continue** button to proceed.
 
@@ -156,12 +156,17 @@ When you no longer want to use the WhatsApp Business account with Azure Communic
 
 # Next Steps
 
-Now that your WhatsApp Business Account is registered with Azure Communication Services, you are ready to send a receive messages.
+In this quickstart, you have learned how is registered with Azure Communication Services your WhatsApp Business Account, you are ready to send and receive messages.
 
-Learn more about managing your WhatsApp for Business account on the [WhatsApp Business Help Center](https://www.facebook.com/business/help/524220081677109?id=2129163877102343)
+> [!div class="nextstepaction"]
+> [Get Started With AdvancedMessages](../../../quickstarts//advancedmessaging/whatsapp/get-started.md)
 
-Learn more about the [WhatsApp Business Display Name Policy](https://www.facebook.com/business/help/338047025165344).
+You might also want to see the following articles: 
 
-Learn how to about [Business Verification](https://www.facebook.com/business/help/1095661473946872?id=180505742745347) for your WhatsApp for Business account.
+[WhatsApp Business Help Center](https://www.facebook.com/business/help/524220081677109?id=2129163877102343)
 
-Learn how to [Add Additional Management Accounts](https://www.facebook.com/business/help/2169003770027706) to your WhatsApp for Business account.
+[WhatsApp Business Display Name Policy](https://www.facebook.com/business/help/338047025165344)
+
+[Business Verification](https://www.facebook.com/business/help/1095661473946872?id=180505742745347) 
+
+[Add Additional Management Accounts](https://www.facebook.com/business/help/2169003770027706)

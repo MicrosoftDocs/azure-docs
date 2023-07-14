@@ -132,7 +132,7 @@ To do so, from your personal WhatsApp account, send a message to your business n
 
 
 ## Send a Text Message to WhatsApp User
-> To send a text message, there must be an active conversation between the WhatsApp Business Account and the WhatsApp user. See [Initiate Conversation between Business and User](#initiate-conversation-between-business-and-user) for more details
+> To send a text message, there must be an active conversation between the WhatsApp Business Account and the WhatsApp user. See [Initiate Conversation between Business and User](https://developers.facebook.com/docs/whatsapp/cloud-api/reference/messages) for more details
 
 In the text message, provide text to send to the recipient. In this example, we will reply to the WhatsApp user with the text “Thanks for your feedback”.
 
@@ -149,7 +149,7 @@ Response<SendMessageResult> textResponse =
 ```
 
 ## Send a Media Message to WhatsApp User
-> To send a Media message, there must be an active conversation between the WhatsApp Business Account and the WhatsApp user. See [Initiate Conversation between Business and User](#initiate-conversation-between-business-and-user) for more details
+> To send a Media message, there must be an active conversation between the WhatsApp Business Account and the WhatsApp user. See [Initiate Conversation between Business and User](https://developers.facebook.com/docs/whatsapp/cloud-api/reference/messages) for more details
 
 To send a media message, we will provide a URI to an image.
 As an example, create your URI:

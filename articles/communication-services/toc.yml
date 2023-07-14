@@ -43,7 +43,7 @@ items:
       expanded: true
       items:
       - name: WhatsApp
-        href: concepts/whatsapp/overview.md
+        href: concepts/advancedmessaging/whatsapp/whatsapp-overview.md
   - name: Common scenarios
     items:
     - name: Virtual visit
@@ -171,6 +171,12 @@ items:
     items:
     - name: Access TURN relays
       href: quickstarts/relay-token.md  
+  - name: Advanced Messaging
+    items:
+    - name: WhatsApp
+      items:
+        - name: Get Started With Advanced Messages
+          href: quickstarts/advancedmessaging/whatsapp/get-started.md
 - name: Tutorials
   items:
   - name: SMS
@@ -818,7 +824,7 @@ items:
       items:
       - name: Overview
         href: concepts/advancedmessaging/whatsapp/whatsapp-overview.md
-      - name: Creating or connecting a WhatsApp Business Account
+      - name: Creating or Connecting a WhatsApp Business Account
         href: concepts/advancedmessaging/whatsapp/connecting-whatsapp-business-account.md
       - name: WhatsAppTermsOfService
         href: concepts/advancedmessaging/whatsapp/whatsapp-termsof-service.md
@@ -906,9 +912,9 @@ items:
       href: https://azure.github.io/azure-sdk-for-java/communication.html#azure-communication-identity
     - name: Identity (Python)
       href: https://azure.github.io/azure-sdk-for-python/communication.html#azure-communication-identity
-  - name: WhatsApp
+  - name: Advanced Messaging
     items:
-    - name: WhatsApp (.Net)
+    - name: Advanced Messaging (.Net)
       href: https://azure.github.io/azure-sdk-for-net/communication.html#azure-communication-messages
   - name: Common 
     items:
