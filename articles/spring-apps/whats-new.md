@@ -29,7 +29,7 @@ The following update is now available in all plans:
 
 - **Azure Migrate for Spring Apps**: Discover and assess your Spring workloads for cloud readiness and price estimate of Azure Spring Apps using Azure Migrate. Sign up for private preview on https://aka.ms/discover-spring-apps.
 
-The following update is now available in Basic/Standard plan:
+The following update is now available in Consumption and Basic/Standard plan:
 
 - **Azure Developer CLI (azd) for Azure Spring Apps**: Azure Developer CLI (azd) is an open-source tool that accelerates the time it takes for you to get your application from local development environment to Azure.  You can now initialize, package, provision and deploy a spring application onto Azure Spring Apps with only a few commands.[Try it on our quickstarts](quickstart-deploy-web-app.md?tabs=Azure-Developer-CLI&pivots=sc-standard).
 
