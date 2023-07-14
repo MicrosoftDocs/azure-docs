@@ -85,9 +85,35 @@ If none of the above scenarios apply, there's no need to validate the token, and
 
 APIs and web applications must only validate tokens that have an `aud` claim that matches the application. Other resources may have custom token validation rules. For example, you can't validate tokens for Microsoft Graph according to these rules due to their proprietary format. Validating and accepting tokens meant for another resource is an example of the [confused deputy](https://cwe.mitre.org/data/definitions/441.html) problem.
 
-If the application needs to validate an ID token or an access token, it should first validate the signature of the token and the issuer against the values in the OpenID discovery document. For example, the tenant-independent version of the document is located at [https://login.microsoftonline.com/common/.well-known/openid-configuration](https://login.microsoftonline.com/common/.well-known/openid-configuration).
+If the application needs to validate an ID token or an access token, it should first validate the signature of the token and the issuer against the values in the OpenID discovery document.
 
 The Azure AD middleware has built-in capabilities for validating access tokens, see [samples](sample-v2-code.md) to find one in the appropriate language. There are also several third-party open-source libraries available for JWT validation. For more information about Azure AD authentication libraries and code samples, see the [authentication libraries](reference-v2-libraries.md).
+
+### Validate the issuer
+
+[OpenID Connect Core](https://openid.net/specs/openid-connect-core-1_0.html#IDTokenValidation) says "The Issuer Identifier \[...\] MUST exactly match the value of the iss (issuer) Claim." For applications which use a tenant-specific metadata endpoint (like [https://login.microsoftonline.com/{example-tenant-id}/v2.0/.well-known/openid-configuration](https://login.microsoftonline.com/{example-tenant-id}/v2.0/.well-known/openid-configuration) or [https://login.microsoftonline.com/contoso.onmicrosoft.com/v2.0/.well-known/openid-configuration](https://login.microsoftonline.com/contoso.onmicrosoft.com/v2.0/.well-known/openid-configuration)), this is all that is needed.
+Azure AD makes available a tenant-independent version of the document for multi-tenant apps at [https://login.microsoftonline.com/common/v2.0/.well-known/openid-configuration](https://login.microsoftonline.com/common/v2.0/.well-known/openid-configuration). This endpoint returns an issuer value `https://login.microsoftonline.com/{tenantid}/v2.0`. Applications may use this tenant-independent endpoint to validate tokens from every tenant with the following modifications:
+
+ 1. Instead of expecting the issuer claim in the token to exactly match the issuer value from metadata, the application should replace the `{tenantid}` value in the issuer metadata with the tenant ID that is the target of the current request, and then check the exact match.
+
+ 1. The application should use the `issuer` property returned from the keys endpoint to restrict the scope of keys.
+    - Keys that have an issuer value like `https://login.microsoftonline.com/{tenantid}/v2.0` may be used with any matching token issuer.
+    - Keys that have an issuer value like `https://login.microsoftonline.com/9188040d-6c67-4c5b-b112-36a304b66dad/v2.0` should only be used with exact match.
+    Azure AD's tenant-independent key endpoint ([https://login.microsoftonline.com/common/discovery/v2.0/keys](https://login.microsoftonline.com/common/discovery/v2.0/keys)) returns a document like:
+    ```
+    {
+      "keys":[
+        {"kty":"RSA","use":"sig","kid":"jS1Xo1OWDj_52vbwGNgvQO2VzMc","x5t":"jS1Xo1OWDj_52vbwGNgvQO2VzMc","n":"spv...","e":"AQAB","x5c":["MIID..."],"issuer":"https://login.microsoftonline.com/{tenantid}/v2.0"},
+        {"kty":"RSA","use":"sig","kid":"2ZQpJ3UpbjAYXYGaXEJl8lV0TOI","x5t":"2ZQpJ3UpbjAYXYGaXEJl8lV0TOI","n":"wEM...","e":"AQAB","x5c":["MIID..."],"issuer":"https://login.microsoftonline.com/{tenantid}/v2.0"},
+        {"kty":"RSA","use":"sig","kid":"yreX2PsLi-qkbR8QDOmB_ySxp8Q","x5t":"yreX2PsLi-qkbR8QDOmB_ySxp8Q","n":"rv0...","e":"AQAB","x5c":["MIID..."],"issuer":"https://login.microsoftonline.com/9188040d-6c67-4c5b-b112-36a304b66dad/v2.0"}
+      ]
+    }
+    ```
+
+1. Applications that use Azure AD's tenant ID (`tid`) claim as a trust boundary instead of the standard issuer claim should ensure that the tenant-id claim is a GUID and that the issuer and tenant ID match.
+Using tenant-independent metadata is more efficient for applications which accept tokens from many tenants.
+> [!NOTE]
+> With Azure AD tenant-independent metadata, claims should be interpreted within the tenant, just as under standard OpenID Connect, claims are interpreted within the issuer. That is, `{"sub":"ABC123","iss":"https://login.microsoftonline.com/{example-tenant-id}/v2.0","tid":"{example-tenant-id}"}` and `{"sub":"ABC123","iss":"https://login.microsoftonline.com/{another-tenand-id}/v2.0","tid":"{another-tenant-id}"}` describe different users, even though the `sub` is the same, because claims like `sub` are interpreted within the context of the issuer/tenant.
 
 ### Validate the signature
 
@@ -152,7 +178,7 @@ The server possibly revokes refresh tokens due to a change in credentials, or du
 | Password changed by user | Revoked | Revoked | Stays alive | Stays alive | Stays alive |
 | User does SSPR | Revoked | Revoked | Stays alive | Stays alive | Stays alive |
 | Admin resets password | Revoked | Revoked | Stays alive | Stays alive | Stays alive |
-| User or admin revokes the refresh tokens by using [PowerShell](/powershell/module/microsoft.graph.users.actions/invoke-mginvalidateuserrefreshtoken) | Revoked | Revoked | Revoked | Revoked | Revoked |
+| User or admin revokes the refresh tokens by using [PowerShell](/powershell/module/microsoft.graph.beta.users.actions/invoke-mgbetainvalidateuserrefreshtoken?view=graph-powershell-beta&preserve-view=true) | Revoked | Revoked | Revoked | Revoked | Revoked |
 | [Single sign-out](v2-protocols-oidc.md#single-sign-out) on web | Revoked | Stays alive | Revoked | Stays alive | Stays alive |
 
 #### Non-password-based

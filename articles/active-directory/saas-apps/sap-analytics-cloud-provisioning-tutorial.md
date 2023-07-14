@@ -42,7 +42,7 @@ The scenario outlined in this tutorial assumes that you already have the followi
 * An OAuth client with authorization grant Client Credentials in SAP Analytics Cloud. To learn how, see: [Managing OAuth Clients and Trusted Identity Providers](https://help.sap.com/viewer/00f68c2e08b941f081002fd3691d86a7/release/en-US/4f43b54398fc4acaa5efa32badfe3df6.html)
 
 > [!NOTE]
-> This integration is also available to use from Microsoft Entra ID US Government Cloud environment. You can find this application in the Microsoft Entra ID US Government Cloud Application Gallery and configure it in the same way as you do from public cloud.
+> This integration is also available to use from Microsoft Entra ID US Government Cloud environment. You can follow the steps below and configure it in the same way as you do from public cloud.
 
 
 ## Step 1. Plan your provisioning deployment
