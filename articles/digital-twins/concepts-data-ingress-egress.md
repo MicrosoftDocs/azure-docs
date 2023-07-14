@@ -68,6 +68,8 @@ In order for Azure Digital Twins to send data to other Azure services via endpoi
 
 Once the connection is set up, Azure Digital Twins implements *at least once* delivery for data emitted to egress services. 
 
+If the event hub, Event Grid, or Service Bus topic used for your endpoint is unavailable and the message can't be delivered, Azure Digital Twins will try to resend the message for up to one day.
+
 ## Next steps
 
 Learn more about endpoints and routing events to external services:
