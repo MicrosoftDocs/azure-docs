@@ -7,7 +7,7 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: how-to
-ms.date: 07/10/2023
+ms.date: 07/14/2023
 ---
 
 # Query vector data in a search index
@@ -16,6 +16,8 @@ ms.date: 07/10/2023
 > Vector search is in public preview under [supplemental terms of use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). It's available through the Azure portal, preview REST API, and [alpha SDKs](https://github.com/Azure/cognitive-search-vector-pr#readme).
 
 In Azure Cognitive Search, if you added vector fields to a search index, this article explains how to query those fields. It also explains how to combine vector queries with full text search and semantic search for hybrid query combination scenarios.
+
+Query execution in Cognitive Search doesn't include vector conversion. Encoding (text-to-vector) and decoding (vector-to-text) is external to a search service. For both steps, your application code should call the same embedding model. As an alternative, remember that a query response can include non-vector fields in your search index. If you want to skip a decoding step, you could query on a vector field (descriptionVector) but return the text field (description) in the response.
 
 ## Prerequisites
 
