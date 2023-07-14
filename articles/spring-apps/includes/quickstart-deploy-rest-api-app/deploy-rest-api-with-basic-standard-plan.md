@@ -195,7 +195,7 @@ This section provides the steps to expose your REST APIs in Azure AD.
 
 1. Under **Manage**, select **App registrations** > **New registration**.
 
-1. Enter a name for your application in the **Name** field, for example `SimpleToDoApi`. Users of your app might see this name, and you can change it later.
+1. Enter a name for your application in the **Name** field, for example `Todo`. Users of your app might see this name, and you can change it later.
 
 1. For **Supported account types**, select **Accounts in any organizational directory (Any Azure AD directory - Multitenant) and personal Microsoft accounts**.
 
