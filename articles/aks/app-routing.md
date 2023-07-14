@@ -482,7 +482,7 @@ OSM issues a certificate that Nginx uses as the client certificate to proxy HTTP
       tls:
      - hosts:
         - <Hostname>
-        secretName: keyvault-aks-helloworld
+        secretName: keyvault-<Ingress resource name>
     ```
 
 ### Create the resources on the cluster
