@@ -14,11 +14,11 @@ Customer intent: As a dev infra admin, I want to install the Dev Box CLI extensi
 
 # Configure Microsoft Dev Box from the command-line with the Azure CLI
 
-In addition to the Azure admin portal and the developer portal, you can use the Dev Box Azure CLI extension to create resources. Microsoft Dev Box and Azure Deployment Environments use the same Azure CLI extension, which is called `devcenter`.
+In addition to the Azure admin portal and the developer portal, you can use the Dev Box Azure CLI extension to create resources. Microsoft Dev Box and Azure Deployment Environments use the same Azure CLI extension, which is called *devcenter*.
 
 ## Install the devcenter extension 
 
-To install the Dev Box Azure CLI extension, `devcenter`, you first need to install the Azure CLI. The following steps show you how to install the Azure CLI, then the devcenter extension.
+To install the devcenter extension, you first need to install the Azure CLI. The following steps show you how to install the Azure CLI, then the devcenter extension.
 
 1. Download and install the [Azure CLI](/cli/azure/install-azure-cli).
 
@@ -26,7 +26,7 @@ To install the Dev Box Azure CLI extension, `devcenter`, you first need to insta
 ``` azurecli
 az extension add --name devcenter
 ```
-1. Check that the `devcenter` extension is installed 
+1. Check that the devcenter extension is installed 
 ``` azurecli
 az extension list
 ```
