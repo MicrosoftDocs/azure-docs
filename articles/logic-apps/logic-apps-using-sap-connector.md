@@ -61,7 +61,7 @@ The SAP built-in connector significantly differs from the SAP managed connector 
 
 * On-premises connections don't require the on-premises data gateway.
 
-  Instead, the SAP built-in connector communicates directly with your SAP server on the local network, which avoids hops, latency, and failure points for a network gateway.Make sure that you upload or deploy the non-redistributable SAP client libraries with your logic app workflow application. For more information, see the [Prerequisites](#prerequisites) in this guide.
+  Instead, the SAP built-in connector communicates directly with your SAP server in the integrated virtual network, which avoids hops, latency, and failure points for a network gateway. Make sure that you upload or deploy the non-redistributable SAP client libraries with your logic app workflow application. For more information, see the [Prerequisites](#prerequisites) in this guide.
 
 * Payload sizes up to 100 MB are supported, so you don't have to use a blob URI for large requests.
 
@@ -79,15 +79,15 @@ The SAP built-in connector significantly differs from the SAP managed connector 
 
 * Standard logic app workflows require and use the SAP NCo 3.1 client library, not the SAP NCo 3.0 version. For more information, see [Prerequisites](#prerequisites).
 
-* Standard logic app workflows provide application settings where you can specify a Personal Security Environment (PSE) and PSE password. This change lets you upload multiple PSE files. By comparison, Consumption logic app workflows had you specify these values through connection parameters, which prevented the capability to specify multiple PSE files.
+* Standard logic app workflows provide application settings where you can specify a Personal Security Environment (PSE) and PSE password. This change prevents you from uploading multiple PSE files, which isn't supported and results in SAP connection failures. In Consumption logic app workflows, the SAP managed connector lets you specify these values through connection parameters, which allowed you to upload multiple PSE files and isn't supported, causing SAP connection failures.
 
 * **Generate Schema** action
 
-  * You can select from multiple schema types, such as RFC, BAPI, and IDoc, versus the same action in the SAP managed connector, which uses the **SapActionUris** parameter and a file system picker experience.
+  * You can select from multiple operation types, such as BAPI, IDoc, RFC, and tRFC, versus the same action in the SAP managed connector, which uses the **SapActionUris** parameter and a file system picker experience.
 
-  * You can provide an RFC name as a custom value, rather than as complex URI. If necessary, you can specify the exact field names.
+  * You can directly provide a parameter name as a custom value. For example, you can specify the **RFC Name** parameter from the **Call RFC** action. By comparison, in the SAP managed connector, you had to provide a complex **Action URI** parameter name.
 
-  * By design, this action doesn't support generating different versions of RFCs, BAPIs, or IDocs in single REST API call, which the SAP managed connector does support. This capability change now prevents attempts to send large amounts of content in a single call.
+  * By design, this action doesn't support generating multiple schemas for RFCs, BAPIs, or IDocs in single action execution, which the SAP managed connector supports. This capability change now prevents attempts to send large amounts of content in a single call.
 
 <a name="connector-parameters"></a>
 
