@@ -35,7 +35,7 @@ Your Language resource must have identity management, to enable it using [Azure 
 
 Your Language resource must have identity management, to enable it using [Language Studio](https://aka.ms/languageStudio):
 
-1. Click the settings icon in the top right corner of the screen
+1. Select the settings icon in the top right corner of the screen
 2. Select **Resources**
 3. Select the check box **Managed Identity** for your Azure AI Language resource.
 

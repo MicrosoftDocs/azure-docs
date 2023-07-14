@@ -109,7 +109,7 @@ ms.author: eur
 
 * Embedded (on-device) Speech Recognition now supports both 8 and 16 kHz sampling rate input audio (16-bit per sample, mono PCM).
 * Speech Synthesis now reports connection, network and service latencies in the result to help end-to-end latency optimization.
-* New tiebreaking rules for [Intent Recognition with simple pattern matching](../../how-to-use-simple-language-pattern-matching.md). The more character bytes that are matched, will win over pattern matches with lower character byte count. Example: Pattern "Click {something} in the top right" will win over "Click {something}"
+* New tiebreaking rules for [Intent Recognition with simple pattern matching](../../how-to-use-simple-language-pattern-matching.md). The more character bytes that are matched, will win over pattern matches with lower character byte count. Example: Pattern "Select {something} in the top right" will win over "Select {something}"
 
 #### Bug fixes
 

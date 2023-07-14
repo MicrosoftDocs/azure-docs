@@ -91,7 +91,7 @@ In workspace page you can view history of all document uploads details like docu
 
    :::image type="content" source="../media/how-to/upload-history-page.png" alt-text="Screenshot showing the upload history page.":::
 
-3. Click on any upload history record. In upload history details page,
+3. Select any upload history record. In upload history details page,
     you can view the files uploaded as part of the upload, uploaded status of the file, language of the file and error message (if there is any error in upload).
 
 ## Next steps

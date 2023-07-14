@@ -252,7 +252,7 @@ Open your browser and navigate to _http://localhost:3000_. You should see the fo
 
 ## Launch the Immersive Reader
 
-When you click on the "Immersive Reader" button, you'll see the Immersive Reader launched with the content on the page.
+When you select the "Immersive Reader" button, you'll see the Immersive Reader launched with the content on the page.
 
 ![Immersive Reader - Node.js](../../media/quickstart-nodejs/2-viewimmersivereader.png)
 

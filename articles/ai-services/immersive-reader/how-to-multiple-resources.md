@@ -256,7 +256,7 @@ The **getimmersivereaderlaunchparams** API endpoint should be secured behind som
     npm start
     ```
 
-4. Open your browser and navigate to `http://localhost:3000`. You should see the above content on the page. Click on either the **EastUS Immersive Reader** button or the **WestUS Immersive Reader** button to launch the Immersive Reader using those respective resources.
+4. Open your browser and navigate to `http://localhost:3000`. You should see the above content on the page. Select either the **EastUS Immersive Reader** button or the **WestUS Immersive Reader** button to launch the Immersive Reader using those respective resources.
 
 ## Next steps
 

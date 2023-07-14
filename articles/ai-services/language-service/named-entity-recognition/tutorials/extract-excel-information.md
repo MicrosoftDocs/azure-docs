@@ -64,7 +64,7 @@ Create variables representing the information that will be added to the Excel fi
 :::image type="content" source="../media/tutorials/excel/initialize-variables.png" alt-text="The step for initializing variables" lightbox="../media/tutorials/excel/initialize-variables.png":::
 
 
-Add the following information to the variables you created. They represent the columns of the Excel file. If any variables are collapsed, you can click on them to expand them.
+Add the following information to the variables you created. They represent the columns of the Excel file. If any variables are collapsed, you can select them to expand them.
 
 | Action |Name   | Type | Value |
 |---------|---------|---|---|
@@ -104,7 +104,7 @@ In the **Apply to each**, select **Add an action**. Go to your Language resource
 In your flow, enter the following information to create a new Language connection.
 
 > [!NOTE]
-> If you already have created a Language connection and want to change your connection details, Click on the ellipsis on the top right corner, and select **+ Add new connection**.
+> If you already have created a Language connection and want to change your connection details, Select the ellipsis on the top right corner, and select **+ Add new connection**.
 
 | Field           | Value                                                                                                             |
 |-----------------|-------------------------------------------------------------------------------------------------------------------|
@@ -121,19 +121,19 @@ After the connection is created, search for **Text Analytics** and select **Name
 
 :::image type="content" source="../media/tutorials/excel/extract-info.png" alt-text="Extract the entities from the Excel sheet" lightbox="../media/tutorials/excel/extract-info.png":::
 
-Click in the **Text** field and select **Description** from the Dynamic content windows that appears. Enter `en` for Language, and a unique name as  the document ID (you might need to select **Show advanced options**).
+Select in the **Text** field and select **Description** from the Dynamic content windows that appears. Enter `en` for Language, and a unique name as  the document ID (you might need to select **Show advanced options**).
 
 :::image type="content" source="../media/tutorials/excel/description-from-dynamic-content.png" alt-text="Get the description column text from the Excel sheet" lightbox="../media/tutorials/excel/description-from-dynamic-content.png":::
 
 
-Within the **Apply to each**, select **Add an action** and create another **Apply to each** action. Click inside the text box and select **documents** in the Dynamic Content window that appears.
+Within the **Apply to each**, select **Add an action** and create another **Apply to each** action. Select inside the text box and select **documents** in the Dynamic Content window that appears.
 
 :::image type="content" source="../media/tutorials/excel/apply-to-each-documents.png" alt-text="Create another apply to each action." lightbox="../media/tutorials/excel/apply-to-each-documents.png":::
 
 
 ## Extract the person name
 
-Next, we will find the person entity type in the NER output. Within the **Apply to each 2**, select **Add an action**, and create another **Apply to each** action. Click inside the text box and select **Entities** in the Dynamic Content window that appears.
+Next, we will find the person entity type in the NER output. Within the **Apply to each 2**, select **Add an action**, and create another **Apply to each** action. Select inside the text box and select **Entities** in the Dynamic Content window that appears.
 
 :::image type="content" source="../media/tutorials/excel/add-apply-action-2.png" alt-text="Find the person entity in the NER output" lightbox="../media/tutorials/excel/add-apply-action-2.png":::
 
@@ -143,7 +143,7 @@ Within the newly created **Apply to each 3** action, select **Add an action**, a
 :::image type="content" source="../media/tutorials/excel/create-condition.png" alt-text="Add a condition control to the Apply to each 3 action" lightbox="../media/tutorials/excel/create-condition.png":::
 
 
-In the Condition window, click on the first text box. In the Dynamic content window, search for **Category** and select it.
+In the Condition window, select the first text box. In the Dynamic content window, search for **Category** and select it.
 
 :::image type="content" source="../media/tutorials/excel/choose-entities-value.png" alt-text="Add the category to the control condition" lightbox="../media/tutorials/excel/choose-entities-value.png":::
 

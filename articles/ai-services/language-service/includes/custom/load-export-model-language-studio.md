@@ -13,7 +13,7 @@ To **load** your model data:
 
 1. Select any model in the **model evaluation** page.
 
-2. Click on the **Load model data** button. 
+2. Select the **Load model data** button. 
 
 3. Confirm that you do not have any unsaved changes you need to capture in window that appears, and select **Load data**. 
 
@@ -23,4 +23,4 @@ To **export** your model data:
 
 1. Select any model in the **model evaluation** page.
 
-2.  Click on the **Export model data** button. Wait for the JSON snapshot of your model to be downloaded locally. 
+2.  Select the **Export model data** button. Wait for the JSON snapshot of your model to be downloaded locally. 

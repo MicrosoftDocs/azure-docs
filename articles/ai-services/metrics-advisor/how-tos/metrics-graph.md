@@ -19,7 +19,7 @@ For example, if you have several metrics that monitor your business from differe
 
 ## Select a metric to put the first node to the graph
 
-Click the **Metrics graph** tab in the navigation bar. The first step for building a metrics graph is to put a node onto the graph. Select a data feed and a metric at the top of the page. A node will appear in the bottom panel. 
+Select the **Metrics graph** tab in the navigation bar. The first step for building a metrics graph is to put a node onto the graph. Select a data feed and a metric at the top of the page. A node will appear in the bottom panel. 
 
 :::image type="content" source="../media/graph/metrics-graph-select.png" alt-text="Select metric":::
 
@@ -54,7 +54,7 @@ Each node on the graph represents a metric. There are four kinds of nodes in the
 
 When the metrics graph is built, whenever an anomaly is detected on metrics within the graph, you will able to view related anomaly statuses and get a high-level view of the incident. 
 
-Click into an incident within the graph and scroll down to **cross metrics analysis**, below the diagnostic information.
+Select into an incident within the graph and scroll down to **cross metrics analysis**, below the diagnostic information.
 
 :::image type="content" source="../media/graph/metrics-graph-cross-metrics-analysis.png" alt-text="View related metrics and anomalies":::
 

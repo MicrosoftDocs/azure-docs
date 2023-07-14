@@ -14,7 +14,7 @@ ms.author: aahi
 2. Select **Model performance** from the menu on the left side of the screen.
 
 3. In this page you can only view the successfully trained models, F1 score for each model and [model expiration date](../../../concepts/model-lifecycle.md#expiration-timeline).
-You can click on the model name for more details about its performance.
+You can select the model name for more details about its performance.
 
 4. You can find the *model-level evaluation metrics* under **Overview**, and the *intent-level* evaluation metrics. See [Evaluation metrics](../../concepts/evaluation-metrics.md) for more information.
 

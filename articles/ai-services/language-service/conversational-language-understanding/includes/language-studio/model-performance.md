@@ -13,7 +13,7 @@ ms.author: aahi
 
 2. Select **Model performance** from the menu on the left side of the screen.
 
-3. In this page you can only view the successfully trained models, F1 score of each model and [model expiration date](../../../concepts/model-lifecycle.md#expiration-timeline). You can click on the model name for more details about its performance. Models only include evaluation details if there was test data selected while training the model.
+3. In this page you can only view the successfully trained models, F1 score of each model and [model expiration date](../../../concepts/model-lifecycle.md#expiration-timeline). You can select the model name for more details about its performance. Models only include evaluation details if there was test data selected while training the model.
 
 ### [Overview](#tab/overview)
 

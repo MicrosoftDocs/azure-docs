@@ -152,7 +152,7 @@ An entity is an item or element that is relevant to the user's intent. Entities 
 
     :::image type="content" source="../media/build-decomposable-app/add-subentities.png" alt-text="A screenshot of subentities in the app." lightbox="../media/build-decomposable-app/add-subentities.png":::
 
-6. Click **Create** after adding all THE subentities.
+6. Select **Create** after adding all THE subentities.
 
     We will create another entity named "**Tier**", but this time it will be a list entity, and it will include all the tiers that we might provide: Standard tier, Premium tier, and VIP tier.
 

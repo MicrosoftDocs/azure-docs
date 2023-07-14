@@ -37,7 +37,7 @@ When you trigger an autolabeling job with GPT, you're charged to your Azure Open
 
     :::image type="content" source="../media/trigger-autotag.png" alt-text="A screenshot showing how to trigger an autotag job from the activity pane." lightbox="../media/trigger-autotag.png":::
 
-4. Choose Autolabel with GPT and click on Next.
+4. Choose Autolabel with GPT and select Next.
 
     :::image type="content" source="../media/choose-models.png" alt-text="A screenshot showing model choice for auto labeling." lightbox="../media/choose-models.png":::
 

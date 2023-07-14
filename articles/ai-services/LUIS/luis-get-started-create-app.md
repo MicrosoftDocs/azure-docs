@@ -69,7 +69,7 @@ LUIS offers a set of prebuilt domains that can help you get started with your ap
     > [!div class="mx-imgBorder"]
     > [![Screenshot of HomeAutomation.TurnOff intent](media/luis-quickstart-new-app/home-automation-turnoff.png "Screenshot of HomeAutomation.TurnOff intent")](media/luis-quickstart-new-app/home-automation-turnoff.png)
 
-3. If you want to view the entities for the app, select **Entities**. If you click on one of the entities, such as **HomeAutomation.DeviceName** you will see a list of values associated with it. 
+3. If you want to view the entities for the app, select **Entities**. If you select one of the entities, such as **HomeAutomation.DeviceName** you will see a list of values associated with it. 
  
     :::image type="content" source="media/luis-quickstart-new-app/entities-page.png" alt-text="Image alt text" lightbox="media/luis-quickstart-new-app/entities-page.png":::
 

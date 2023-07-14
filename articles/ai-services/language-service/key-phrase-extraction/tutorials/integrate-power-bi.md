@@ -45,7 +45,7 @@ In the main Power BI Desktop window, select the **Home** ribbon. In the **Extern
 
 ![The Get Data button](../media/tutorials/power-bi/get-data-button.png)
 
-The Open dialog appears. Navigate to your Downloads folder, or to the folder where you downloaded the CSV file. Click on the name of the file, then the **Open** button. The CSV import dialog appears.
+The Open dialog appears. Navigate to your Downloads folder, or to the folder where you downloaded the CSV file. Select the name of the file, then the **Open** button. The CSV import dialog appears.
 
 ![The CSV Import dialog](../media/tutorials/power-bi/csv-import.png)
 
@@ -196,7 +196,7 @@ Down a little further in this panel, turn off **Rotate Text** and **Title**.
 
 ![activate focus mode](../media/tutorials/power-bi/word-cloud-focus-mode.png)
 
-Click the Focus Mode tool in the report to get a better look at our word cloud. The tool expands the word cloud to fill the entire workspace, as shown below.
+Select the Focus Mode tool in the report to get a better look at our word cloud. The tool expands the word cloud to fill the entire workspace, as shown below.
 
 ![A Word Cloud](../media/tutorials/power-bi/word-cloud.png)
 

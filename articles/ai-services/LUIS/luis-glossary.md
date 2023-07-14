@@ -22,7 +22,7 @@ The active version is the [version](luis-how-to-manage-versions.md) of your app 
 
 ## Active learning
 
-Active learning is a technique of machine learning in which the machine learned model is used to identify informative new examples to label. In LUIS, active learning refers to adding utterances from the endpoint traffic whose current predictions are unclear to improve your model. Click on "review endpoint utterances", to view utterances to label.
+Active learning is a technique of machine learning in which the machine learned model is used to identify informative new examples to label. In LUIS, active learning refers to adding utterances from the endpoint traffic whose current predictions are unclear to improve your model. Select "review endpoint utterances", to view utterances to label.
 
 See also:
 * [Conceptual information](how-to/improve-application.md)

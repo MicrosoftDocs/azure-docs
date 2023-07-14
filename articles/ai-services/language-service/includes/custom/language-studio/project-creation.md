@@ -11,7 +11,7 @@ ms.author: jboback
 
 1. Sign into the [Language Studio](https://aka.ms/languageStudio). A window will appear to let you select your subscription and Language resource. Select the Language resource you created in the above step. 
 
-2. Under the sections at the top of the page, section of Language Studio, find this service and click on the box that represents it.
+2. Under the sections at the top of the page, section of Language Studio, find this service and select the box that represents it.
 
     :::image type="content" source="../../../media/custom/language-studio/select-custom-service.png" alt-text="A screenshot showing the location of services in the Language Studio landing page."../../../media/custom/language-studio/select-custom-service.png":::
 
@@ -34,6 +34,6 @@ ms.author: jboback
     > Your dataset doesn't have to be entirely in the same language. You can have multiple documents, each with different supported languages. If your dataset contains documents of different languages or if you expect text from different languages during runtime, select **enable multi-lingual dataset** option when you enter the basic information for your project. This option can be enabled later from the **Project settings** page.
 
 6. Select the container where you have uploaded your dataset. 
-If you have already labeled data make sure it follows the supported format and click on the relevant data format confirmation, then select the labels file from the drop-down menu. Select **Next**.
+If you have already labeled data make sure it follows the supported format and select the relevant data format confirmation, then select the labels file from the drop-down menu. Select **Next**.
 
 7. Review the data you entered and select **Create Project**.

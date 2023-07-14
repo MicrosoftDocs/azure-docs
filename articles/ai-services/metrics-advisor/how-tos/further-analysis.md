@@ -17,7 +17,7 @@ ms.author: mbullwin
 
 When you're viewing incident information, you may need to get more detailed information, for example, for different dimensions, and timestamps. If your data has one or more dimensions, you can use the drill down function to get a more detailed view. 
 
-To use the drill down function, click on the **Metric drilling** tab in the **Incident hub**. 
+To use the drill down function, select the **Metric drilling** tab in the **Incident hub**. 
 
 :::image type="content" source="../media/diagnostics/metric-drilling.png" lightbox="../media/diagnostics/metric-drilling.png" alt-text="Metric drilling ":::
 
@@ -53,11 +53,11 @@ The last part of drill down tab is a line chart of the raw values. With this cha
 ## Compare time series
 
 Sometimes when an anomaly is detected on a specific time series, it's helpful to compare it with multiple other series in a single visualization. 
-Click on the **Compare tools** tab, and then click on the blue **+ Add** button. 
+Select the **Compare tools** tab, and then select the blue **+ Add** button. 
 
 :::image type="content" source="../media/diagnostics/add-series.png" alt-text="Add series to compare" lightbox="../media/diagnostics/add-series.png":::
 
-Select a series from your data feed. You can choose the same granularity or a different one. Select the target dimensions and load the series trend, then click **Ok** to compare it with a previous series. The series will be put together in one visualization. You can continue to add more series for comparison and get further insights. Click the drop down menu at the top of the **Compare tools** tab to compare the time series data over a time-shifted period.  
+Select a series from your data feed. You can choose the same granularity or a different one. Select the target dimensions and load the series trend, then click **Ok** to compare it with a previous series. The series will be put together in one visualization. You can continue to add more series for comparison and get further insights. Select the drop down menu at the top of the **Compare tools** tab to compare the time series data over a time-shifted period.  
 
 > [!Warning]
 > To make a comparison, time series data analysis may require shifts in data points so the granularity of your data must support it. For example, if your data is weekly and you use the **Day over day** comparison, you will get no results. In this example, you would use the **Month over month** comparison instead.
