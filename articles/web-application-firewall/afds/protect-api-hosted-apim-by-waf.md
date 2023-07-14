@@ -38,7 +38,7 @@ This article describes how to use [Azure Web Application Firewall on Azure Front
 
    :::image type="content" source="../media/protect-api-hosted-in-apim-by-waf/apim-get-test.png" alt-text="A screenshot showing the GET operation defined in APIM." lightbox="../media/protect-api-hosted-in-apim-by-waf/apim-get-test.png":::
 
-   :::image type="content" source="../media/protect-api-hosted-in-apim-by-waf/apim-200-ok.png" alt-text="A screenshot showing the mock response created.":::
+   :::image type="content" source="../media/protect-api-hosted-in-apim-by-waf/apim-200-ok.png" alt-text="A screenshot showing the mock response created." lightbox="../media/protect-api-hosted-in-apim-by-waf/apim-200-ok.png":::
 
 
 3. Deselect **Subscription required** check box under the API settings tab and select **Save**.
