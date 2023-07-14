@@ -51,7 +51,7 @@ items:
       href: how-to-configure-network-connections.md
     - name: Configure an auto-stop schedule
       href: how-to-configure-stop-schedule.md
-    - name: Use Azure CLI devcenter extension
+    - name: Install Azure CLI devcenter extension
       href: how-to-install-dev-box-cli.md  
     - name: Provision a Custom Image with Azure Image Builder
       href: how-to-customize-devbox-azure-image-builder.md
