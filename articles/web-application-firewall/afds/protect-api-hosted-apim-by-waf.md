@@ -137,7 +137,7 @@ At this point, the end-to-end call is set up, and the API is protected by Azure 
 
 1. Access the API through the Azure Front Door endpoint from your browser. The API should return the following response:
 
-   :::image type="content" source="../media/protect-api-hosted-in-apim-by-waf/test-book-fd.png" alt-text="A screenshot showing API access through AFD endpoint.":::
+   :::image type="content" source="../media/protect-api-hosted-in-apim-by-waf/test-book-front-door.png" alt-text="A screenshot showing API access through AFD endpoint.":::
 
 2. Verify that APIM isn't accessible directly over the Internet and accessible only via the AFD:
 
