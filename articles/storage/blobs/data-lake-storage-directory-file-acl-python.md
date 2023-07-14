@@ -167,7 +167,7 @@ This example prints the path of each subdirectory and file that is located in a 
 
 ## Delete a directory
 
-You can delete a directory using the following method:
+You can delete a directory by using the following method:
 
 - [DataLakeDirectoryClient.delete_directory](/python/api/azure-storage-file-datalake/azure.storage.filedatalake.datalakedirectoryclient#azure-storage-filedatalake-datalakedirectoryclient-delete-directory)
 
