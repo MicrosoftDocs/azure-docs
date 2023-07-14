@@ -9,7 +9,7 @@ ms.date: 06/9/2023
 <!-- 
 For clarity of structure, a separate markdown file is used to describe how to deploy to Azure Spring Apps with Basic/Standard plan.
 
-[!INCLUDE [deploy-microservice-apps-with-basic-standard-plan](includes/quickstart-deploy-rest-api-app/deploy-rest-api-app-with-basic-standard-plan.md)]
+[!INCLUDE [deploy-microservice-apps-with-basic-standard-plan](includes/quickstart-deploy-restful-api-app/deploy-rest-api-app-with-basic-standard-plan.md)]
 
 -->
 
@@ -27,13 +27,13 @@ Use the following steps to clone and run the app locally.
    git clone https://github.com/moarychan/ASA-Samples-Web-API-Application.git
    ```
 
-1. If you want to run locally, please complete the [Update the application configuration](#update-the-application-configuration) steps and then execute the following command to run the sample application by Maven.
+1. If you want to run locally, please complete steps [Expose REST APIs](#expose-restful-apis) and [Update the application configuration](#update-the-application-configuration) first and then execute the following command to run the sample application by Maven.
 
    ```bash
    ./mvnw spring-boot:run
    ```
 
-1. Go to `http://localhost:8080` in your browser to access the application.
+1. Access the ToDo RESTful APIs based on `http://localhost:8080` address.
 
 #### [Azure Developer CLI](#tab/Azure-Developer-CLI)
 
@@ -87,7 +87,7 @@ Use the following steps to create a service instance:
 
 1. Select **Compute** > **Azure Spring Apps**.
 
-   :::image type="content" source="../../media/quickstart-deploy-rest-api-app/create-service-instance.png" alt-text="Screenshot of the Azure portal showing the Create a resource page with Azure Spring Apps highlighted." lightbox="../../media/quickstart-deploy-rest-api-app/create-service-instance.png":::
+   :::image type="content" source="../../media/quickstart-deploy-restful-api-app/create-service-instance.png" alt-text="Screenshot of the Azure portal showing the Create a resource page with Azure Spring Apps highlighted." lightbox="../../media/quickstart-deploy-restful-api-app/create-service-instance.png":::
 
 1. Fill out the **Basics** form with the following information:
 
@@ -100,13 +100,13 @@ Use the following steps to create a service instance:
    | Region         | The region closest to your users | The location that is closest to your users.                                                                                                                                                                                                                                                        |
    | Zone Redundant | Unchecked                        | Whether to create your Azure Spring Apps service in an Azure availability zone. Currently, this feature is supported only in some regions.                                                                                                                                                         |
 
-   :::image type="content" source="../../media/quickstart-deploy-rest-api-app/create-basics.png" alt-text="Screenshot of the Azure portal showing the Create Azure Spring Apps page." lightbox="../../media/quickstart-deploy-rest-api-app/create-basics.png":::
+   :::image type="content" source="../../media/quickstart-deploy-restful-api-app/create-basics.png" alt-text="Screenshot of the Azure portal showing the Create Azure Spring Apps page." lightbox="../../media/quickstart-deploy-restful-api-app/create-basics.png":::
 
 1. Select **Review and Create** to review your selections. Select **Create** to provision the Azure Spring Apps instance.
 
 1. On the toolbar, select the **Notifications** icon (a bell) to monitor the deployment process. Once the deployment is done, you can select **Pin to dashboard**, which creates a tile for this service on your Azure portal dashboard as a shortcut to the service's **Overview** page. Select **Go to resource** to open the service's **Overview** page.
 
-   :::image type="content" source="../../media/quickstart-deploy-rest-api-app/notifications.png" alt-text="Screenshot of the Azure portal showing the Overview page with the Notifications pane open." lightbox="../../media/quickstart-deploy-rest-api-app/notifications.png":::
+   :::image type="content" source="../../media/quickstart-deploy-restful-api-app/notifications.png" alt-text="Screenshot of the Azure portal showing the Overview page with the Notifications pane open." lightbox="../../media/quickstart-deploy-restful-api-app/notifications.png":::
 
 ### 3.3. Prepare the PostgreSQL instance
 
@@ -122,13 +122,13 @@ Use the following steps to connect your service instances:
 
 1. On the **Create App** page, fill in the app name and select *Java 17* as the runtime platform.
 
-   :::image type="content" source="../../media/quickstart-deploy-rest-api-app/create-app.png" alt-text="Screenshot of the Azure portal showing the Create app pane." lightbox="../../media/quickstart-deploy-rest-api-app/create-app.png":::
+   :::image type="content" source="../../media/quickstart-deploy-restful-api-app/create-app.png" alt-text="Screenshot of the Azure portal showing the Create app pane." lightbox="../../media/quickstart-deploy-restful-api-app/create-app.png":::
 
 1. Select **Create** to finish the app creation and select the app to view details.
 
 1. Select **Service Connector** from the navigation pane to create a new service connection.
 
-   :::image type="content" source="../../media/quickstart-deploy-rest-api-app/app-service-connector.png" alt-text="Screenshot of the Azure portal showing the Service Connector page with the Create button highlighted." lightbox="../../media/quickstart-deploy-rest-api-app/app-service-connector.png":::
+   :::image type="content" source="../../media/quickstart-deploy-restful-api-app/app-service-connector.png" alt-text="Screenshot of the Azure portal showing the Service Connector page with the Create button highlighted." lightbox="../../media/quickstart-deploy-restful-api-app/app-service-connector.png":::
 
 1. Fill out the **Basics** tab with the following information:
 
@@ -139,7 +139,7 @@ Use the following steps to connect your service instances:
     - **PostgreSQL database**: *todo*
     - **Client type**: **SpringBoot**
 
-   :::image type="content" source="../../media/quickstart-deploy-rest-api-app/app-service-connector-basics.png" alt-text="Screenshot of the Azure portal showing the Basics tab of the Create connection pane for connecting to PostgreSQL." lightbox="../../media/quickstart-deploy-rest-api-app/app-service-connector-basics.png":::
+   :::image type="content" source="../../media/quickstart-deploy-restful-api-app/app-service-connector-basics.png" alt-text="Screenshot of the Azure portal showing the Basics tab of the Create connection pane for connecting to PostgreSQL." lightbox="../../media/quickstart-deploy-restful-api-app/app-service-connector-basics.png":::
 
 1. Configure the **Authentication** tab with the following information:
 
@@ -148,7 +148,7 @@ Use the following steps to connect your service instances:
     - **Username**: *myadmin*
     - **Password**: Enter your password.
 
-   :::image type="content" source="../../media/quickstart-deploy-rest-api-app/app-service-connector-authentication.png" alt-text="Screenshot of the Azure portal showing the Authentication tab of the Create connection pane with the Connection string option highlighted." lightbox="../../media/quickstart-deploy-rest-api-app/app-service-connector-authentication.png":::
+   :::image type="content" source="../../media/quickstart-deploy-restful-api-app/app-service-connector-authentication.png" alt-text="Screenshot of the Azure portal showing the Authentication tab of the Create connection pane with the Connection string option highlighted." lightbox="../../media/quickstart-deploy-restful-api-app/app-service-connector-authentication.png":::
 
 1. Select **Review and Create** to review your selections, then select **Create** to create the connection.
 
@@ -183,13 +183,13 @@ Use the following steps to connect your service instances:
 
 ---
 
-### Expose REST APIs
+### Expose RESTful APIs
 
-This section provides the steps to expose your REST APIs in Azure AD.
+This section provides the steps to expose your RESTful APIs in Azure AD.
 
 1. Sign in to the [Azure portal](https://portal.azure.com/).
 
-1. If you have access to multiple tenants, use the **Directory + subscription** filter (:::image type="icon" source="../../media/quickstart-deploy-rest-api-app/portal-directory-subscription-filter.png" border="false":::) to select the tenant in which you want to register an application.
+1. If you have access to multiple tenants, use the **Directory + subscription** filter (:::image type="icon" source="../../media/quickstart-deploy-restful-api-app/portal-directory-subscription-filter.png" border="false":::) to select the tenant in which you want to register an application.
 
 1. Search for and Select **Azure Active Directory**.
 
@@ -210,29 +210,20 @@ This section provides the steps to expose your REST APIs in Azure AD.
 
 1. Under **Manage**, select **Expose an API** > **Add a scope**, and then enter the following information:
 
-    - For **Scope name**, enter `SimpleToDo.User`.
-    - For **Who can consent**, select **Admins and users**.
-    - For **Admin consent display name**, enter `Access the Simple ToDo service as an administrator`.
-    - For **Admin consent description**, enter `Allows authenticated admin users to access resources of Simple ToDo.`.
-    - For **User consent display name**, enter `Access the Simple ToDo service as a user`.
-    - For **User consent description**, enter `Allows authenticated users to access the resources of Simple ToDo.`.
-    - For **State**, keep **Enabled**.
-    - Select **Add scope**.
-
-1. Repeat the previous step to add another scope. When you select **Add a scope**, enter the following information:
-
-    - For **Scope name**, enter `SimpleToDo.Admin`.
+    - For **Scope name**, enter `ToDo.Read`.
     - For **Who can consent**, select **Admins only**.
-    - For **Admin consent display name**, enter `Access the Simple ToDo service as an administrator`.
-    - For **Admin consent description**, enter `Allows authenticated admin users to access resources of Simple ToDo.`.
+    - For **Admin consent display name**, enter `Read the ToDo data`.
+    - For **Admin consent description**, enter `Allows authenticated users to read the ToDo data.`.
     - For **State**, keep **Enabled**.
     - Select **Add scope**.
 
-:::image type="content" source="../../media/quickstart-deploy-rest-api-app/expose-an-api.png" alt-text="Image that shows the Expose an API of a REST API application." lightbox="../../media/quickstart-deploy-rest-api-app/expose-an-api.png":::
+1. Repeat the previous step to add two other scopes: `Todo.Write` and `Todo.Delete`.
+
+:::image type="content" source="../../media/quickstart-deploy-restful-api-app/expose-an-api.png" alt-text="Image that shows the Expose an API of a RESTful API application." lightbox="../../media/quickstart-deploy-restful-api-app/expose-an-api.png":::
 
 ### Update the application configuration
 
-This section provides the steps to update the YAML file to use your Azure AD registered application information to establish a relationship with the REST API application.
+This section provides the steps to update the YAML file to use your Azure AD registered application information to establish a relationship with the RESTful API application.
 
 Update the configuration of `spring.cloud.azure.active-directory` in the configuration file. Be sure to replace the placeholders with your own values you created in the previous step.
 
@@ -242,8 +233,8 @@ spring:
     azure:
       active-directory:
         credential:
-          client-id: <your-application-ID-of-SimpleToDoApi>
-        app-id-uri: <your-application-ID-URI-of-SimpleToDoApi>
+          client-id: <your-application-ID-of-ToDo>
+        app-id-uri: <your-application-ID-URI-of-ToDo>
 ```
 
 > [!NOTE]

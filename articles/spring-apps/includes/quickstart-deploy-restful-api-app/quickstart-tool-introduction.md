@@ -9,7 +9,7 @@ ms.date: 05/26/2022
 
 <!-- 
 Use the following line at the end of the heading Prerequisites, with blank lines before and after. Each quickstart should provide two tools for developers.
-[!INCLUDE [quickstart-tool-introduction](includes/quickstart-deploy-rest-api-app/quickstart-tool-introduction.md)]
+[!INCLUDE [quickstart-tool-introduction](includes/quickstart-deploy-restful-api-app/quickstart-tool-introduction.md)]
 -->
 
 This article provides the following options for deploying to Azure Spring Apps:

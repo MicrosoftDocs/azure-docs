@@ -22,8 +22,8 @@ items:
     href: quickstart.md
   - name: Launch your first web app
     href: quickstart-deploy-web-app.md
-  - name: Launch your first REST API app
-    href: quickstart-deploy-rest-api-app.md
+  - name: Launch your first RESTful API app
+    href: quickstart-deploy-restful-api-app.md
   - name: Launch your first event-driven app
     href: quickstart-deploy-event-driven-app-standard-consumption.md
   - name: Launch your first microservice apps

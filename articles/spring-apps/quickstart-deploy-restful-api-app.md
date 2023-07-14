@@ -1,6 +1,6 @@
 ---
-title: Quickstart - Deploy REST API application to Azure Spring Apps
-description: Learn how to deploy REST API application to Azure Spring Apps.
+title: Quickstart - Deploy RESTful API application to Azure Spring Apps
+description: Learn how to deploy RESTful API application to Azure Spring Apps.
 author: KarlErickson
 ms.service: spring-apps
 ms.topic: quickstart
@@ -21,18 +21,18 @@ ms.custom: devx-track-java, devx-track-extended-java, devx-track-azurecli, mode-
 
 This article explains how to deploy a RESTful API application protected by [Azure Active Directory (Azure AD)](../active-directory/fundamentals/active-directory-whatis.md) to Azure Spring Apps. 
 The sample project is a simplified version based on the [Simple Todo] web application (https://github.com/Azure-Samples/ASA-Samples-Web-Application), 
-which only provides the backend service and uses Azure AD to protect the REST APIs.
-These REST APIs are protected by applying role-based access control (RBAC), with the following three permissions to control access for different users:
-
-- Anonymous user, who can only read the ToDo data.
-- Ordinary user, who can read, create and modify the ToDo data.
-- Admin user, who can read and delete the ToDo data.
+which only provides the backend service and uses Azure AD to protect the RESTful APIs.
+These RESTful APIs are protected by applying role-based access control (RBAC), anonymous users are not allowed, with the following three permissions to control access for different users:
+the Anonymous user cant's access any data,
+- Read, with this permission can read the ToDo data.
+- Write, with this permission can write the ToDo data.
+- Delete, with this permission can delete the ToDO data.
 
 The following diagram shows the architecture of the system:
 
-  :::image type="content" source="media/quickstart-deploy-rest-api-app/diagram.png" alt-text="Image that shows the architecture of a Spring web application." lightbox="media/quickstart-deploy-rest-api-app/diagram.png":::
+  :::image type="content" source="media/quickstart-deploy-restful-api-app/diagram.png" alt-text="Image that shows the architecture of a Spring web application." lightbox="media/quickstart-deploy-restful-api-app/diagram.png":::
 
-[!INCLUDE [quickstart-tool-introduction](includes/quickstart-deploy-rest-api-app/quickstart-tool-introduction.md)]
+[!INCLUDE [quickstart-tool-introduction](includes/quickstart-deploy-restful-api-app/quickstart-tool-introduction.md)]
 
 ## 1. Prerequisites
 
@@ -41,29 +41,29 @@ The following diagram shows the architecture of the system:
 - [Java Development Kit (JDK)](/java/azure/jdk/), version 17.
 - An Azure AD instance. For instructions on creating one, see [Quickstart: Create a new tenant in Azure AD](../active-directory/fundamentals/create-new-tenant).
 
-[!INCLUDE [deploy-rest-api-app-with-basic-standard-plan](includes/quickstart-deploy-rest-api-app/deploy-rest-api-with-basic-standard-plan.md)]
+[!INCLUDE [deploy-rest-api-app-with-basic-standard-plan](includes/quickstart-deploy-restful-api-app/deploy-rest-api-with-basic-standard-plan.md)]
 
 ## 5. Validate the app
 
-Now we can access the REST API to see if it works.
+Now we can access the RESTful API to see if it works.
 
 ### Request an access token
 
-The REST APIs acts as a resource server, which is protected by Azure AD. Before acquiring an access token, it's required to register another application in Azure AD and grant permissions to the client application, which is named `SimpleToDoWebApp`.
+The RESTful APIs acts as a resource server, which is protected by Azure AD. Before acquiring an access token, it's required to register another application in Azure AD and grant permissions to the client application, which is named `ToDoWeb`.
 
 #### Register the client application
 
-This section provides the steps to register an application in Azure AD, which is used to add the permissions of app `SimpleToDoApi`.
+This section provides the steps to register an application in Azure AD, which is used to add the permissions of app `ToDo`.
 
 1. Sign in to the [Azure portal](https://portal.azure.com/).
 
-1. If you have access to multiple tenants, use the **Directory + subscription** filter (:::image type="icon" source="media/quickstart-deploy-rest-api-app/portal-directory-subscription-filter.png" border="false":::) to select the tenant in which you want to register an application.
+1. If you have access to multiple tenants, use the **Directory + subscription** filter (:::image type="icon" source="media/quickstart-deploy-restful-api-app/portal-directory-subscription-filter.png" border="false":::) to select the tenant in which you want to register an application.
 
 1. Search for and Select **Azure Active Directory**.
 
 1. Under **Manage**, select **App registrations** > **New registration**.
 
-1. Enter a name for your application in the **Name** field, for example `SimpleToDoWebApp`. Users of your app might see this name, and you can change it later.
+1. Enter a name for your application in the **Name** field, for example `ToDoWeb`. Users of your app might see this name, and you can change it later.
 
 1. For **Supported account types**, use the default **Accounts in this organizational directory only**.
 
@@ -71,20 +71,20 @@ This section provides the steps to register an application in Azure AD, which is
 
 1. On the app **Overview** page, look for the **Application (client) ID** value, and then record it for later use. You need it to acquire access token.
 
-1. Select **API permissions** > **Add a permission** > **My APIs**. Select the `SimpleToDoApi` application that you registered earlier, 
-   then select the Permissions **SimpleToDo.User** or **SimpleToDo.Admin**, and select **Add permissions**.
+1. Select **API permissions** > **Add a permission** > **My APIs**. Select the `ToDo` application that you registered earlier, 
+   then select the Permissions **ToDo.Read**, **Todo.Write** and **Todo.Delete**, and select **Add permissions**.
 
 1. Select **Grant admin consent for {your-tenant-name}** to grant admin consent for the permissions you added.
 
-:::image type="content" source="media/quickstart-deploy-rest-api-app/api-permissions.png" alt-text="Image that shows the API permissions of a web application." lightbox="media/quickstart-deploy-rest-api-app/api-permissions.png":::
+:::image type="content" source="media/quickstart-deploy-restful-api-app/api-permissions.png" alt-text="Image that shows the API permissions of a web application." lightbox="media/quickstart-deploy-restful-api-app/api-permissions.png":::
 
 1. Navigate to **Certificates & secrets** and select the **New client secret**. On the **Add a client secret** page, enter a description for the secret, select an expiration date, and select **Add**. 
 
 1. Look for the **Value** of the secret, and then record it for later use. You need it to acquire access token.
 
-#### Add user to access the REST APIs
+#### Add user to access the RESTful APIs
 
-This section provides the steps to create a member user in your Azure AD, then the user can manage the data of ToDo application through REST APIs.
+This section provides the steps to create a member user in your Azure AD, then the user can manage the data of ToDo application through RESTful APIs.
 
 1. Under **Manage**, select **Users** > **New user** -> **Create new user**.
 
@@ -102,26 +102,27 @@ This section provides the steps to create a member user in your Azure AD, then t
 
 #### Obtain the access token
 
-This section provides the steps to use [OAuth 2.0 Resource Owner Password Credentials](../active-directory/develop/v2-oauth-ropc.md) method to obtain an access token in Azure AD, then access the REST APIs of the app `SimpleToDoApi`.
+This section provides the steps to use [OAuth 2.0 Resource Owner Password Credentials](../active-directory/develop/v2-oauth-ropc.md) method to obtain an access token in Azure AD, then access the RESTful APIs of the app `ToDo`.
 
 1. Request an access token using the following command. Be sure to replace the placeholders with your own values you created in the previous step.
 
    ```bash
-   export CLIENT_ID=<client-ID-of-your-app-SimpleToDoWebApp>
-   export CLIENT_SECRET=<client-secret-of-your-app-SimpleToDoWebApp>
+   export CLIENT_ID=<client-ID-of-your-app-ToDoWeb>
+   export CLIENT_SECRET=<client-secret-of-your-app-ToDoWeb>
    export USERNAME=<user-principal-name>
    export PASSWORD='<user-password>'
    export TENANT_ID=<tenant-ID-of-your-Azure-AD>
+   export SCOPE=api://simple-todo/SimpleToDo.Read%20api://simple-todo/ToDo.Write%20api://simple-todo/ToDo.Delete
    curl -H "Content-Type: application/x-www-form-urlencoded" \
-     -d "grant_type=password&client_id=${CLIENT_ID}&scope=api://simple-todo/SimpleToDo.User%20api://simple-todo/SimpleToDo.Admin&client_secret=${CLIENT_SECRET}&username=${USERNAME}&password=${PASSWORD}" \
+     -d "grant_type=password&client_id=${CLIENT_ID}&scope=${SCOPE}&client_secret=${CLIENT_SECRET}&username=${USERNAME}&password=${PASSWORD}" \
      "https://login.microsoftonline.com/${TENANT_ID}/oauth2/v2.0/token"
    ```
 
-1. Look for the **access_token** value, and then record it for later use. You need it to access REST APIs.
+1. Look for the **access_token** value, and then record it for later use. You need it to access RESTful APIs.
 
-### Access the REST APIs
+### Access the RESTful APIs
 
-This section provides the steps to access the REST APIs of the app `SimpleToDoApi`.
+This section provides the steps to access the RESTful APIs of the app `ToDo`.
 
 1. Define the following variables for HTTP requests:
    
@@ -216,7 +217,7 @@ This section provides the steps to access the REST APIs of the app `SimpleToDoAp
    ...
    ```
 
-[!INCLUDE [clean-up-resources](includes/quickstart-deploy-rest-api-app/clean-up-resources.md)]
+[!INCLUDE [clean-up-resources](includes/quickstart-deploy-restful-api-app/clean-up-resources.md)]
 
 ## 7. Next steps
 
