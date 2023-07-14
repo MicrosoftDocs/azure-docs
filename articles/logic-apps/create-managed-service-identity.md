@@ -498,7 +498,10 @@ Before you can use your logic app's managed identity for authentication, you hav
 > target resource, you must give the identity access to the subscription.
 
 > [!NOTE]
-> In some cases you might need the identity to have access to the resource that it is associated with.  For example, you have a managed identity for a Logic App that needs access to update the Application settings of that Logic App from within a workflow, you would need to give the identity access to the Logic App it is associated with.
+> In some cases, you might need the identity to have access to the associated resource. For example, 
+> suppose you have a managed identity for a logic app that needs access to update the application 
+> settings for that same logic app from a workflow. You must give that identity access to the associated logic app.
+
 
 For example, to access an Azure Blob storage account with your managed identity, you have to set up access by using Azure role-based access control (Azure RBAC) and assign the appropriate role for that identity to the storage account. The steps in this section describe how to complete this task by using the [Azure portal](#azure-portal-assign-role) and [Azure Resource Manager template (ARM template)](../role-based-access-control/role-assignments-template.md). For Azure PowerShell, Azure CLI, and Azure REST API, review the following documentation:
 
