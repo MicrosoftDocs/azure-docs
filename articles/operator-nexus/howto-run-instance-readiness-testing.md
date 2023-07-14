@@ -17,7 +17,7 @@ Instance Readiness Testing (IRT) is a framework built to orchestrate real-world 
 
 1. A Linux environment (Ubuntu suggested) capable of calling Azure APIs
 1. Knowledge of networks to use for the test
-    * Networks to use for the test are specified in a "network-blueprint.yml" file, see [Input Configuration](#input-configuration).
+    * Networks to use for the test are specified in a "networks-blueprint.yml" file, see [Input Configuration](#input-configuration).
 1. curl or wget to download IRT package
 
 ## Before execution
