@@ -8,7 +8,7 @@ ms.service: azure-large-instances
 ms.date: 06/01/2023
 ---
 
-# ALI for Epic onboarding requirements
+# ALI onboarding requirements
 
 This article explains the actions to take after you receive an environment from the Microsoft ALI team.
 
@@ -71,13 +71,13 @@ For setup instructions, see [Enable ExpressRoute Fast Path](#enable-expressroute
 
 To see the learned routes from ALI, one of the options is looking at the Effective Routes table of one of your VMs, as follows:
 
-1. In Azure portal, select any of your VMs (any connected to the Hub, or to a Spoke connected to the Hub which is connected to ALI for Epic), select **Networking**, select the network interface name, then select **Effective Routes**.
+1. In Azure portal, select any of your VMs (any connected to the Hub, or to a Spoke connected to the Hub which is connected to ALI), select **Networking**, select the network interface name, then select **Effective Routes**.
 
-2. Make sure to enable accelerated networking with all VMs connecting to ALI for Epic (link1) or (link2).
+2. Make sure to enable accelerated networking with all VMs connecting to ALI (link1) or (link2).
 
-3. Set up ALI for Epic solution based on your system requirements and take a system backup.  
+3. Set up ALI solution based on your system requirements and take a system backup.  
 4. Take an OS backup.  
-5. Set up volume groups. (See [Create a volume group](create-a-volume-group.md).)  
+5. Set up volume groups. For more information, see [Create a volume group](create-a-volume-group.md).  
 6. Set up a storage snapshot, backup, and data offload. For more information, see [Azure Large Instances NETAPP storage data protection with Azure CVO](ali-netapp-with-cvo.md).
 
 > [!Note]
@@ -105,8 +105,7 @@ For more information, see these resources:
 Ensure you have an authorization key for the express route (ER) circuit used for virtual gateway connection to ER circuit. 
 Also obtain ER circuit resource ID.
 
-If you don’t have this information, obtain the details from the circuit owner (these details are usually provided by the Microsoft team as part of provisioning request completion.
-Reach out to
+If you don’t have this information, obtain the details from the circuit owner. Reach out to
 <a href=mailto:"AzureBMISupportEpic@microsoft.com">Microsoft support</a> in case of any inconsistencies).  
 
 ### Declare variables

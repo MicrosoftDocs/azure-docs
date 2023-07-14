@@ -35,8 +35,10 @@ landingContent:
             url: quality-checks.md
           - text: Find your subscription ID
             url: find-your-subscription-id.md
-          - text: Create a volume group
-            url: create-a-volume-group.md
+          - text: Azure Large Instances NETAPP storage data protection with Azure CVO
+            url: ali-netapp-storage-data-protection-with-azure-cvo.md
+
+          
 
 # card 3
   - title: Workloads

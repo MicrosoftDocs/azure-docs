@@ -16,7 +16,13 @@
     href: find-your-subscription-id.md
   - name: Create a volume group
     href: create-a-volume-group.md
+  - name: configure-azure-service-health-alerts.md
+    href: configure-azure-service-health-alerts.md
+  - name: Azure Large Instances NETAPP storage data protection with Azure CVO
+    href: ali-netapp-storage-data-protection-with-azure-cvo.md
 - name: Workloads
   items:
   - name: Azure Large Instances for the Epic workload
     href: ./workloads/epic/index.yml
+- name: FAQ
+  href: faq.md
