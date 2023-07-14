@@ -397,7 +397,7 @@ For code tutorial, see [Connect to Azure databases from App Service without secr
 :::zone pivot="mysql"
 
 ### [Java](#tab/java)
-1. Add the following dependencies in your pom.xml file.
+1. Add the following dependencies in your *pom.xml* file:
 
     ```xml
     <dependency>
