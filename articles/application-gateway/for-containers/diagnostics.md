@@ -50,7 +50,29 @@ Each access log entry in Application Gateway for Containers will contain the fol
 
 | Value | Description |
 | ----- | ----------- |
-|[broken link for update](../../azure-monitorbrokenlink.md).||
+| backendHost | Address of backend tagret with appended port.  For example <ip>:<port> |
+| backendIp | IP address of backend target Application Gateway for Containers will proxy the request to. |
+| backendPort | Port number of the backend target. |
+| backendResponseLatency | Time in milliseconds to receive syn-ack from backend target when Application Gateway for Containers begins to negotiate the connection. |
+| backendTimeTaken | Time in milliseconds to for the response to be transmitted from the backend target to Application Gateway for Containers. |
+| clientIp | IP address of the client initiating the request to the frontend of Application Gateway for Containers |
+| frontendName | Name of the Application Gateway for Containers frontend that received the request from the client |
+| frontendPort | Port number the request was listened on by Application Gateway for Containers |
+| hostName | Host header value received from the client by Application Gateway for Containers |
+| httpMethod | HTTP Method of the request received from the client by Application Gateway for Containers as per [RFC 7231](https://datatracker.ietf.org/doc/html/rfc7231#section-4.3). |
+| httpStatusCode | HTTP Status code returned from Application Gateway for Containers to the client |
+| httpVersion | HTTP version of the request received from the client by Application Gateway for Containers  |
+| referer | Referer header of the request received from the client by Application Gateway for Containers  |
+| requestBodyBytes | Size in bytes of the body payload of the request received from the client by Application Gateway for Containers  |
+| requestHeaderBytes | Size in bytes of the headers of the request received from the client by Application Gateway for Containers  |
+| requestUri | URI of the request received from the client by Application Gateway for Containers (everything after <protocol>://host of the URL)  |
+| responseBodyBytes | Size in bytes of the body payload of the response returned to the client by Application Gateway for Containers |
+| responseHeaderBytes | Size in bytes of the headers of the response returned to the client by Application Gateway for Containers |
+| timeTaken | Timein milliseconds of the client request received by Application Gateway for Containers and the last byte returned to the client from Application Gateway for Containers |
+| tlsCipher | TLS cipher suite negotiated between the client and Application Gateway for Containers frontend |
+| tlsProtocol | TLS version negotiated between the client and Application Gateway for Containers frontend |
+| trackingId | Generated guid by Application Gateway for Containers to help with tracking and debugging.  This value correlates to the x-request-id header returned to the client from Application Gateway for Containers. |
+| userAgent | User-Agent header of the request received from the client by Application Gateway for Containers |
 
 Here an example of the access log emitted in JSON format to a storage account.
 ```JSON
