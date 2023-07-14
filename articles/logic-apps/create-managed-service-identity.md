@@ -174,7 +174,6 @@ To automate creating and deploying logic app resources, you can use an [ARM temp
 }
 ```
 
-
 ---
 
 When Azure creates your logic app resource definition, the `identity` object gets these other properties:
