@@ -83,10 +83,21 @@ Here the possible statuses for a run:
 ## Edit the task
 
 To change a task, you can either:
-- Edit the task "inline" to change the task's properties, such as connection information or configuration information.
-- Edit the task's underlying workflow in the workflow designer by navigating to the Azure Logic Apps service.
 
-Remember, as this feature is in preview, it may be subject to change and should be used with caution in production environments.
+1. In the [Azure portal](https://portal.azure.com), find the PostgreSQL Flexible Server resource that you want to manage.
+2. On the resource navigation menu, in the **Automation** section, select **Tasks (preview)**.
+3. In the tasks list, find the task that you want to update. Open the task's ellipses (**...**) menu, and select **Edit in-line**.
+
+By default, the **Authenticate** tab appears and shows the existing connections.
+
+4. To add new authentication credentials or select different existing authentication credentials for a connection, open the connection's ellipses (**...**) menu, and select either **Add new connection** or if available, different authentication credentials.
+5. To update other task properties, select **Next: Configure**.
+6. When you're done, select **Save**.
+
+## Next steps
+
+* [Manage logic apps in the Azure portal](manage-logic-apps-with-azure-portal.md)
+
 
 
 
