@@ -7,7 +7,7 @@ author: jimmart-dev
 
 ms.service: azure-storage
 ms.topic: how-to
-ms.date: 07/12/2023
+ms.date: 07/14/2023
 ms.author: jammart
 ms.subservice: storage-common-concepts
 ms.custom: engagement-fy23, references_regions
@@ -340,7 +340,7 @@ If you initiate a zone-redundancy [conversion](#customer-initiated-conversion) f
 
 There is no SLA for completion of a conversion. If you need more control over when a conversion begins and finishes, consider a [Manual migration](#manual-migration). Generally, the more data you have in your account, the longer it takes to replicate that data to other zones or regions.
 
-After changing a replication setting, you must wait 72 hours before changing it again. For example, going from LRS to GZRS is a 2-step process. You must add zone redundancy in one operation, then add geo-redundancy in a second. After going from LRS to ZRS, you must wait 72 hours before going from ZRS to GZRS.
+After a zone-redundancy conversion, you must wait at least 72 hours before changing the redundancy setting of the storage account again. The temporary hold allows background processes to complete before making another change, ensuring the consistency and integrity of the account. For example, going from LRS to GZRS is a 2-step process. You must add zone redundancy in one operation, then add geo-redundancy in a second. After going from LRS to ZRS, you must wait at least 72 hours before going from ZRS to GZRS.
 
 ## Costs associated with changing how data is replicated
 
