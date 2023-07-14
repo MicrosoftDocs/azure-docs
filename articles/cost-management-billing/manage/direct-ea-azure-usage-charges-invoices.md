@@ -31,7 +31,7 @@ To review and verify the charges on your invoice, you must be an Enterprise Admi
 
 ## Review usage charges
 
-To view detailed usage for specific accounts, download the usage detail report. Usage files may be very large. If you prefer, you can use the exports feature to get the same data exported to an Azure Storage account. For more information, see [Export usage details to a storage account](export-usage-details.md).
+To view detailed usage for specific accounts, download the usage detail report. Usage files may be large. If you prefer, you can use the exports feature to get the same data exported to an Azure Storage account. For more information, see [Export usage details to a storage account](export-usage-details.md).
 
 As an enterprise administrator:
 
@@ -67,7 +67,7 @@ The following table lists the terms and descriptions shown on the Usage + Charge
 
 Previously, when reservation purchase refunds occurred in closed billing periods, Microsoft updated your account retroactively, sometimes going back multiple years. The refund could affect your financial reporting and cause problems. To solve this issue, refunds are now applied as a credit and the refunds don't affect closed billing periods.
 
-A refund is reimbursed using the same payment method that was used during the purchase transaction. If the refund goes back to as an overage, then a credit note is issued to you. If a refund goes toward Azure prepayment (previously called Monetary Commitment (MC)), then the overage portion results in issuing a credit note and Azure prepayment is applied as an adjustment.
+A refund is reimbursed using the same payment method that was used during the purchase transaction. If the refund goes back to as an overage, then a credit note is issued to you. If a refund goes toward Azure prepayment (previously called Monetary Commitment (MC)), then the overage portion results in issuing a credit note. Azure prepayment is applied as an adjustment.
 
 >[!NOTE]
 >The reservation refund applies only to purchase refunds completed in previously closed billing periods. There's no change to refund behavior completed in an open billing period. When a refund is completed before the purchased is invoiced, then the refund is reimbursed as part of the purchase and noted on the invoice.
@@ -110,7 +110,7 @@ Question: Why do I see some overage refunds going back to the purchase month?<br
 Answer: If the refund is a combination of Overage & Azure prepayment, then refunds that were completed by August 1 still go back to the purchase month.
 
 Question: Why do I see some refunds that aren't included in *Refunded Overage credits*?<br>
-Answer: If the refund happened before the purchase is invoiced, then it appears on the the invoice and it reduces the purchase charge. The invoice date cut off is the fifth day of every month (UTC 12:00 am). Any refunds that happen between the first and fifth day are considered as being on the previous month's invoice because the purchase isn't invoiced yet.
+Answer: If the refund happened before the purchase is invoiced, then it appears on the invoice and it reduces the purchase charge. The invoice date cut-off is the fifth day of every month (UTC 12:00 am). Any refunds that happen between the first and fifth day are considered as being on the previous month's invoice because the purchase isn't invoiced yet.
 
 Question: How do I reconcile the amount shown in **Refunded Overage Credits**?<br>
 Answer:
