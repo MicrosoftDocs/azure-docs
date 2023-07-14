@@ -39,7 +39,7 @@ $metric = @()
 $log = @()
 $metric += New-AzDiagnosticSettingMetricSettingsObject -Enabled $true -Category AllMetrics -RetentionPolicyDay 30 -RetentionPolicyEnabled $true
 $log += New-AzDiagnosticSettingLogSettingsObject -Enabled $true -CategoryGroup allLogs -RetentionPolicyDay 30 -RetentionPolicyEnabled $true
-New-AzDiagnosticSetting -Name 'AppGWForContainersLogs' -ResourceId "/subscriptions/711d99a7-fd79-4ce7-9831-ea1afa18442e/resourceGroups/acctest5097/providers/Microsoft.ServiceNetworking/trafficControllers/acctest2920" -StorageAccountId $storageAccount.Id -Log $log -Metric $metric
+New-AzDiagnosticSetting -Name 'AppGWForContainersLogs' -ResourceId "/subscriptions/XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX/resourceGroups/acctest5097/providers/Microsoft.ServiceNetworking/trafficControllers/myagfc" -StorageAccountId $storageAccount.Id -Log $log -Metric $metric
 ```
 
 More information on diagnostic settings in Azure Monitor and deployment tutorials for Portal, CLI, and more, may be [referenced here](../../azure-monitor/essentials/diagnostic-settings.md).
