@@ -43,7 +43,7 @@ The performance of an individual volume is determined by its capacity. The maxim
 
 ## Examples of workload performance
 
-Each of the example scenarios use the following configuration for the VMs and the Elastic SAN:
+Each of the example scenarios uses the following configuration for the VMs and the Elastic SAN:
 
 ### VM limits
 
@@ -90,7 +90,7 @@ In this scenario, no throttling occurs at either the VM or SAN level. The SAN it
 
 In this scenario, no throttling occurs. Workload 3 spiked at 9am, requesting 64,000 IOPS. None of the other workloads spiked and the SAN had enough free IOPS to distribute to the workload, so there was no throttling. 
 
-Generally, this is the ideal configuration for a SAN sharing workloads. It's best to have enough performance to handle the normal operations of workloads, as well as occasional peaks.
+Generally, this is the ideal configuration for a SAN sharing workloads. It's best to have enough performance to handle the normal operations of workloads, and occasional peaks.
 
 :::image type="content" source="media/elastic-san-performance/scenario_two.png" alt-text="Single workload spike example diagram." lightbox="media/elastic-san-performance/scenario_two.png":::
 
