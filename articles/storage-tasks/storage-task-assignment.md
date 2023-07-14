@@ -112,6 +112,12 @@ If you prefer to create a custom role, then that role must contain the following
 
 - Microsoft.Storage/storageAccounts/blobServices/containers/delete  
 
+### Test table
+
+| Permission | Built-in role | RBAC actions for a custom role |
+|---|---|---|
+| SetBlobTier | [Storage Blob Data Contributor](../role-based-access-control/built-in-roles.md#storage-blob-data-contributor)| `Microsoft.Storage/storageAccounts/blobServices/read`<br>`Microsoft.Storage/storageAccounts/blobServices/write`<br>`Microsoft.Storage/storageAccounts/blobServices/containers/write`<br>`Microsoft.Storage/storageAccounts/blobServices/containers/read`<br>`Microsoft.Storage/storageAccounts/blobServices/containers/read`<br>`Microsoft.Storage/storageAccounts/blobServices/containers/write`<br>`Microsoft.Storage/storageAccounts/blobServices/containers/delete` |
+
 ## See also
 
 - [Create and manage an assignment](storage-task-assignment-create.md)
