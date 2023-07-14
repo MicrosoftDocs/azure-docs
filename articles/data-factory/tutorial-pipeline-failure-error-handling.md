@@ -16,7 +16,7 @@ ms.date: 01/09/2023
 
 ## Conditional paths
 
-Azure Data Factory and Synapse Pipeline orchestration allows conditional logic and enables user to take different based upon outcomes of a previous activity. Using different paths allow users to build robust pipelines and incorporates error handling in ETL/ELT logic. In total, we allow four conditional paths,
+Azure Data Factory and Synapse Pipeline orchestration allows conditional logic and enables the user to take a different path based upon outcomes of a previous activity. Using different paths allow users to build robust pipelines and incorporates error handling in ETL/ELT logic. In total, we allow four conditional paths,
 
 |  Name | Explanation |
 |  --- | --- |

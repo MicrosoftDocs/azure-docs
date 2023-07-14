@@ -37,7 +37,7 @@ The replication appliance is deployed when you set up agent-based migration of V
 
 ## Appliance requirements
 
-When you set up the replication appliance using the OVA template provided in the Azure Migrate hub, the appliance runs Windows Server 2016 and complies with the support requirements. If you set up the replication appliance manually on a physical server, then make sure that it complies with the requirements.
+When you set up the replication appliance using the OVA template provided in the Azure Migrate hub, the appliance runs Windows Server 2022 and complies with the support requirements. If you set up the replication appliance manually on a physical server, then make sure that it complies with the requirements.
 
 **Component** | **Requirement**
 --- | ---
@@ -50,8 +50,8 @@ RAM | 16 GB
 Number of disks | Two: The OS disk and the process server cache disk.
 Free disk space (cache) | 600 GB
 **Software settings** |
-Operating system | Windows Server 2016 or Windows Server 2012 R2
-License | The appliance comes with a Windows Server 2016 evaluation license, which is valid for 180 days. <br>If the evaluation period is close to expiry, we recommend that you download and deploy a new appliance, or that you activate the operating system license of the appliance VM.
+Operating system | Windows Server 2022 or Windows Server 2012 R2
+License | The appliance comes with a Windows Server 2022 evaluation license, which is valid for 180 days. <br>If the evaluation period is close to expiry, we recommend that you download and deploy a new appliance, or that you activate the operating system license of the appliance VM.
 Operating system locale | English (en-us)
 TLS | TLS 1.2 should be enabled.
 .NET Framework | .NET Framework 4.6 or later should be installed on the machine (with strong cryptography enabled.

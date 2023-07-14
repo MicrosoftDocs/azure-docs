@@ -53,6 +53,7 @@ Use the following steps to create an instance of Azure Spring Apps:
    - **Resource group**: Creating new resource groups for new resources is a best practice. You use this value in later steps as `<resource-group-name>`.
    - **Service Details/Name**: Specify the `<service-instance-name>`. The name must be between 4 and 32 characters long and can contain only lowercase letters, numbers, and hyphens. The first character of the service name must be a letter and the last character must be either a letter or a number.
    - **Location**: Select the location for your service instance.
+   - **Zone Redundant**: Select to create your service instance with an availability zone.
    - Select **Standard** for the **Pricing tier** option.
 
    :::image type="content" source="media/quickstart-provision-service-instance/portal-start.png" alt-text="Screenshot of Azure portal showing the Azure Spring Apps Create page." lightbox="media/quickstart-provision-service-instance/portal-start.png":::

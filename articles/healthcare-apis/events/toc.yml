@@ -31,12 +31,12 @@ items:
   - name: Troubleshoot
     expanded: true
     items:
-    - name: Events troubleshooting guide  
+    - name: Troubleshoot Events  
       href: events-troubleshooting-guide.md
 - name: Concepts
   expanded: true
   items:
-  - name: Events message structure
+  - name: Events message structures
     href: events-message-structure.md
 - name: Resources
   expanded: true

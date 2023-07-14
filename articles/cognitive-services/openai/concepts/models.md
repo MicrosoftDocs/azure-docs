@@ -3,8 +3,9 @@ title: Azure OpenAI Service models
 titleSuffix: Azure OpenAI
 description: Learn about the different model capabilities that are available with Azure OpenAI. 
 ms.service: cognitive-services
+ms.subservice: openai
 ms.topic: conceptual 
-ms.date: 07/06/2023
+ms.date: 07/12/2023
 ms.custom: event-tier1-build-2022, references_regions, build-2023, build-2023-dataai
 manager: nitinme
 author: mrbullwinkle #ChrisHMSFT
@@ -43,6 +44,8 @@ GPT-3.5 models can understand and generate natural language or code. The most ca
 - `gpt-35-turbo-16k`
 
 The `gpt-35-turbo` model supports 4096 max input tokens and the `gpt-35-turbo-16k` model supports up to 16,384 tokens.
+
+`gpt-35-turbo` and `gpt-35-turbo-16k` share the same [quota](../how-to/quota.md).
 
 Like GPT-4, use the Chat Completions API to use GPT-3.5 Turbo. To learn more about how to interact with GPT-3.5 Turbo and the Chat Completions API check out our [in-depth how-to](../how-to/chatgpt.md).
 

@@ -185,7 +185,7 @@ tools:
     url: /javascript/api/@azure/msal-node
     imageSrc: ./media/hub/node.svg
   - title: Python
-    url: /python/api/msal/overview-msal
+    url: /entra/msal/python
     imageSrc: /media/logos/logo_python.svg
   - title: React
     url: /javascript/api/@azure/msal-react

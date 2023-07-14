@@ -114,7 +114,7 @@ Create a directory on your Linux system and then mount the container in the stor
      1. Create an entry in the /etc/fstab file by adding the following line:
   
         ```
-        <storage-account-name>.blob.core.windows.net:/<storage-account-name>/<container-name>  /nfsdata    aznfs defaults,sec=sys,vers=3,nolock,proto=tcp,nofail    0 0
+        <storage-account-name>.blob.core.windows.net:/<storage-account-name>/<container-name>  /nfsdata    aznfs defaults,sec=sys,vers=3,nolock,proto=tcp,nofail,_netdev    0 0
         ```
 
      2. Run the following command to immediately process the /etc/fstab entries and attempt to mount the preceding path:
