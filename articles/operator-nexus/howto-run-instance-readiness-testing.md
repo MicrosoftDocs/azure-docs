@@ -9,13 +9,13 @@ ms.date: 07/13/2023
 ms.custom: template-how-to, devx-track-azurecli
 ---
 
-# Instance Readiness Testing
+# Instance readiness testing
 
-Instance Readiness Testing (IRT) is a framework built to orchestrate real world workloads for testing on the Nexus For Operators Platform.
+Instance Readiness Testing (IRT) is a framework built to orchestrate real-world workloads for testing of the Azure Operator Nexus Platform.
 
-## Prerequisites
+## Environment Requirements
 
-1. Linux environment (tested on Ubuntu)
+1. Linux environment (Ubuntu suggested)
 1. Knowledge of networks to use for the test
     * Networks to use for the test are specified in a "network-blueprint.jsonc" file, see [Input Configuration](#input-configuration).
 2. curl or wget to download IRT package
@@ -25,7 +25,7 @@ Instance Readiness Testing (IRT) is a framework built to orchestrate real world 
 1. Download nexus-irt.tar.gz from aka.ms/nexus-irt `curl -Lo nexus-irt.tar.gz aka.ms/nexus-irt`
 1. Extract the tarball to the local file system: `mkdir -p irt && tar xf nexus-irt.tar.gz --directory ./irt`
 1. Switch to the new directory `cd irt`
-1. If needed run `setup.sh` to initially set up an environment.
+1. The `setup.sh` script is provided to aid in the initial set up an environment.
     * `setup.sh` assumes a nonroot user and attempts to use `sudo`, which installs:
         1. `jq` version 1.6
         1. `yq` version 4.33
@@ -34,13 +34,13 @@ Instance Readiness Testing (IRT) is a framework built to orchestrate real world 
         1. `elinks` for viewing html files on the command line
         1. `tree` for viewing directory structures
         1. `moreutils` utilities for viewing progress from the ACI container
-1. If desired, set up a storage account to archive test results over time. For help, see the [Instructions](#uploading-results-to-your-own-archive)
+1. [Optional] Set up a storage account to archive test results over time. For help, see the [Instructions](#uploading-results-to-your-own-archive)
 1. Log into Azure, if not already logged in: `az login --use-device`
     * User should have `Contributor` role
 2. Create an Azure Managed Identity for the container to use.
     * Using the provided script: `MI_RESOURCE_GROUP="<your resource group> MI_NAME="<managed identity name>" SUBSCRIPTION="<subscription>" ./create-managed-identity.sh`
     * Can be created manually via the Azure portal, refer to the script for needed permissions
-3. Create a service principal and security group. The service principal is used to make operations during the test, the group informs the kubernetes cluster of valid users, so the service principal must be a part of the security group.
+3. Create a service principal and security group. The service principal is used as the executor of the test. The group informs the kubernetes cluster of valid users. The service principal must be a part of the security group, so it has the ability to log into the cluster.
     * You can provide your own, or use our provided script, here's an example of how it could be executed; `AAD_GROUP_NAME=external-test-aad-group-8 SERVICE_PRINCIPAL_NAME=external-test-sp-8 ./irt/create-service-principal.sh`
     * This script prints four key/value pairs for you to include in your input file.
 4. If necessary, create the Isolation Domains required to execute the tests. They aren't lifecycled as part of this test scenario.
