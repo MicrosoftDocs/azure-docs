@@ -125,7 +125,7 @@ DELETE https://management.azure.com/subscriptions/{subscriptionId}/providers/Mic
 
 This will permanently delete your API Management instance from Azure.
 
-## Reusing an API Management instance name after deletion
+## Reuse an API Management instance name after deletion
 
 You **can** reuse the name of an API Management instance in a new deployment:
 
@@ -139,7 +139,7 @@ You **can't** reuse the name of an API Management instance in a new deployment:
 
 * In a subscription in a different Azure AD tenant than the original instance, even after the original instance has been permanently deleted (purged) from Azure. This restriction is in effect for several days or longer after deletion, depending on the subscription type. 
 
-    This restriction is because Azure reserves the service host name to a customer's tenant for a reservation period to prevent the threat of subdomain takeover with dangling DNS entries. For more information, see [Prevent dangling DNS entries and avoid subdomain takeover](/azure/security/fundamentals/subdomain-takeover). To see all dangling DNS entries for subscriptions in an Azure AD tenant, see [Identify dangling DNS entries](azure/security/fundamentals/subdomain-takeover#identify-dangling-dns-entries). 
+    This restriction is because Azure reserves the service host name to a customer's tenant for a reservation period to prevent the threat of subdomain takeover with dangling DNS entries. For more information, see [Prevent dangling DNS entries and avoid subdomain takeover](/azure/security/fundamentals/subdomain-takeover). To see all dangling DNS entries for subscriptions in an Azure AD tenant, see [Identify dangling DNS entries](/azure/security/fundamentals/subdomain-takeover#identify-dangling-dns-entries). 
 
 
 ## Next steps
