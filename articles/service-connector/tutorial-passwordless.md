@@ -495,7 +495,7 @@ public class Main {
         // For system assigned identity: "jdbc:sqlserver://{SQLName}.database.windows.net:1433;databaseName={SQLDbName};authentication=ActiveDirectoryMSI;"
         // For user assigned identity: "jdbc:sqlserver://{SQLName}.database.windows.net:1433;databaseName={SQLDbName};msiClientId={UserAssignedMiClientId};authentication=ActiveDirectoryMSI;"
         // For service principal: "jdbc:sqlserver://{SQLName}.database.windows.net:1433;databaseName={SQLDbName};user={ServicePrincipalClientId};password={spSecret};authentication=ActiveDirectoryServicePrincipal;"
-        String connectionString = System.getenv("Azure_SQL_CONNECTIONSTRING");
+        String connectionString = System.getenv("AZURE_SQL_CONNECTIONSTRING");
         SQLServerDataSource ds = new SQLServerDataSource();
         ds.setURL(connectionString);
         try (Connection connection = ds.getConnection()) {
