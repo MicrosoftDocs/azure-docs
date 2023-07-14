@@ -401,7 +401,7 @@ Create another virtual network in a different region for the first spoke of the 
     | Subnet name | Enter **subnet-private**. |
     | Subnet address range | Enter **10.1.0.0/24**. |
 
-. Select **Add**.
+1. Select **Add**.
 
 1. Select **Review + create**.
 
