@@ -206,7 +206,7 @@ With the workload profiles environment (preview), you can fully secure your ingr
 
 ## Environment level network encryption - preview
 
-Azure Container Apps supports environment level network encryption using mutual transport layer security (mTLS). When end-to-end encryption is required, mTLS will encrypt data transmitted between applications within an environment. One shared certificate is used by applications within an environment. Authorization and authentication through mTLS are not supported when apps are communicating within the environment. MTLS can also be used for client certificates, to learn more see [Configure client certificates](client-certificate-authorization.md). 
+Azure Container Apps supports environment level network encryption using mutual transport layer security (mTLS). When end-to-end encryption is required, mTLS will encrypt data transmitted between applications within an environment. One shared certificate is used by applications, and authorization and authentication through mTLS are not supported when apps are communicating within the environment. MTLS can also be used for client certificates, to learn more see [Configure client certificates](client-certificate-authorization.md). 
 
 > [!NOTE]
 > Enabling mTLS for your applications may increase response latency and reduce maximum throughput in high-load scenarios.
