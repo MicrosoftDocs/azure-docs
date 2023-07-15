@@ -98,7 +98,7 @@ For more information, see [Server Events](../../../event-grid/event-schema-commu
 
 ## Server Events
 
-Server events are events that are generated on the server side using Azure Event grid. There is no additional cost to you to use these events. Common scenarios include participants leaving the chats, messages being received that requires a follow up action and archiving chats. TO see what kinds of chat events can be used to developers, please see [Server Events](../../../event-grid/event-schema-communication-services.md?bc=/azure/bread/toc.json&toc=/azure/communication-services/toc.json)
+Server events are events that are generated on the server side using Azure Event grid. There is no additional cost to you to use these events. Common scenarios include participants leaving the chats, messages being received that requires a follow up action and archiving chats. To see what kinds of chat events can be used to developers, please see [Server Events](../../../event-grid/event-schema-communication-services.md?bc=/azure/bread/toc.json&toc=/azure/communication-services/toc.json)
 
 ## Push notifications 
 
