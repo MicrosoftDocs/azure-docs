@@ -1,5 +1,5 @@
 ---
-title: Available SKUs
+title: Available ALI SKUs
 description: Provides a list of ALI for Epic SKUs.
 ms.topic: conceptual
 author: jjaygbay1
@@ -66,9 +66,5 @@ A deployed tenant in the ALI stamp is assigned to one Azure subscription for bil
 If you deploy with another Azure subscription in the same Azure region, you also request for a separated ALI tenant.
 
 
-## Next steps
 
-Learn how to identify and interact with ALI instances through the Azure portal.
-
-> [What is Azure Large Instances?](../../what-is-azure-large-instances.md)
 

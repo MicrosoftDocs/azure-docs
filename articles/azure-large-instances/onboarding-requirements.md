@@ -104,7 +104,7 @@ For more information, see these resources:
 Ensure you have an authorization key for the express route (ER) circuit used for virtual gateway connection to ER circuit. 
 Also obtain ER circuit resource ID.
 
-If you don’t have this information, obtain the details from the circuit owner. Reach out to ALI support by [creating a support ticket](https://rc.portal.azure.com/#create/Microsoft.Support) with the Azure Customer Support team.
+If you don’t have this information, obtain the details from the circuit owner. Reach out to ALI support by [creating a support ticket](work-with-ali-in-the-azure-portal.md#open-a-support-request-for-ali-instances) with the Azure Customer Support team.
 ### Declare variables
 
 This example declares the variables using the values for this exercise.
@@ -163,6 +163,13 @@ To take advantage of low latency access on VMs network stack, enable accelerated
 For more information, see [Accelerated networking for Windows or Linux virtual machines](https://docs.microsoft.com/azure/virtual-network/create-vm-accelerated-networking-cli).
 ## Next steps
 
-Learn how to identify and interact with ALI instances through the Azure portal.
+- [What is Azure Large Instances?](what-is-azure-large-instances.md)
+- [Quality checks](quality-checks.md)
+- [ALI onboarding requirements](ali-onboarding-requirements.md)
+- [What is Azure Large Instances?](what-is-azure-large-instances.md)
+- [Working with Azure Large Instances](working-with-azure-large-instances.md)
+- [Find your subscription ID](find-your-subscription-id.md)
+- [Configure Azure Large Instances](configure-azure-large-instances.md)
+- [Azure Large Instances NETAPP storage data protection with Azure CVO](ali-netapp-with-cvo.md)
 
-> [What is Azure Large Instances?](what-is-azure-large-instances.md)
+- [Available ALI SKUs](available-skus.md)

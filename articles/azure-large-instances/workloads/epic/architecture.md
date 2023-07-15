@@ -56,11 +56,6 @@ If both your Epic workload production and alternate environments are in Azure, y
 Upon setting this up Azure will also configure an Express route connecting the two Azure regions. This network connectivity allows you configure IRIS mirroring for database replication.
 To activate DR to a production instance of the Epic workload, you should work with your Epic technical services team to complete all necessary tasks and go through proper activation.
 
-## Next steps
-
-Learn how to identify and interact with ALI instances through the Azure portal.
-
-> [What is Azure Large Instances?](../../what-is-azure-large-instances.md)
 
 
 

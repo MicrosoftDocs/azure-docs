@@ -1,10 +1,10 @@
 ### YamlMime:Landing
 
-title: ALI for Epic workload documentation
+title: ALI for Epic workload 
 summary: Learn how to use Azure Large Instances for Epic
 
 metadata:
-  title: ALI for Epic workload documentation
+  title: ALI for Epic workload 
   description: Learn how to use ALI for Epic.
   services: baremetal-infrastructure 
   ms.service: baremetal-infrastructure
@@ -24,14 +24,6 @@ landingContent:
             url: available-skus.md
         
 # card 2
-  - title: Solution architecture
-    linkLists: 
-      - linkListType: concept
-        links:
-          - text: Architecture
-            url: architecture.md
-
-# card 3
   - title: Configuration
     linkLists: 
       - linkListType: concept

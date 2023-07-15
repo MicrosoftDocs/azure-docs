@@ -186,9 +186,3 @@ Shows using your ExpressRoute Gateway enabled with ExpressRoute FastPath for ALI
 
 
 
-## Next steps
-
-Learn how to identify and interact with ALI instances through the Azure portal.
-
-> [!div class="nextstepaction"]
-> [Architecture](workloads/epic/architecture.md)

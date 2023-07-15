@@ -85,6 +85,5 @@ Expected output: lists all the logical volumes created.
 
 
 
-## Next steps
-> [What is Azure for Large Instances?](../../what-is-azure-large-instances.md)
+
 

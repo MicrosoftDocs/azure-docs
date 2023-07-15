@@ -43,8 +43,3 @@ Follow these steps to configure Service Health alerts:
 1. Verify you see your newly created Action Group.
 You will now receive alerts when there are health issues or maintenance actions on your systems.
 
-## Next steps
-
-Learn how to identify and interact with ALI instances through the Azure portal.
-
-> [What is Azure Large Instances?](what-is-azure-large-instances.md)

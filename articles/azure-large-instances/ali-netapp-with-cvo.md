@@ -129,6 +129,3 @@ Dev/test/reporting/training use case
 Azure VM ISCSI initiator host can be used for dev/test/training/reporting
 In summary, you should now have a better understanding of the E2E keys steps required. You can now move on to plan the E2E implementation of the above-mentioned tasks either on your own or engage the NETAPP/MSFT resources for assistance if needed.
 
-## Next steps
-
-> [What is Azure Large Instances?](what-is-azure-large-instances.md)
