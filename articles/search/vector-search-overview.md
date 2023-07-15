@@ -54,9 +54,9 @@ Scenarios for vector search include:
 
 + **Multi-lingual search**. Use a multi-lingual embeddings model to represent your document in multiple languages in a single vector space to find documents regardless of the language they are in.
 
-+ **Hybrid search**. Vector search is implemented at the field level, which means you can build qeuries that include vector fields and searchable text fields. The queries execute in parallel and the results are merged into a single reponse. Optionally, add [semantic search (preview)](semantic-search-overview.md) for even more accuracy with L2 reranking using the same language models that power Bing.
++ **Hybrid search**. Vector search is implemented at the field level, which means you can build queries that include vector fields and searchable text fields. The queries execute in parallel and the results are merged into a single response. Optionally, add [semantic search (preview)](semantic-search-overview.md) for even more accuracy with L2 reranking using the same language models that power Bing.
 
-+ **Filtered vector search**. A query request can include a vector query and a [filter expression](search-filters.md). Filters apply to text and numeric fields, and are useful for including or excluding search documents based on filter criteria. Athough a vector field is not filterable itself, you can set up a filterable text or numeric field. The search engine processes the filter first, reducing the surface area of the search corpus before running the vector query.
++ **Filtered vector search**. A query request can include a vector query and a [filter expression](search-filters.md). Filters apply to text and numeric fields, and are useful for including or excluding search documents based on filter criteria. Although a vector field isn't filterable itself, you can set up a filterable text or numeric field. The search engine processes the filter first, reducing the surface area of the search corpus before running the vector query.
 
 + **Vector database**. Use Cognitive Search as a vector store to serve as long-term memory or an external knowledge base for Large Language Models (LLMs), or other applications.
 
@@ -99,7 +99,7 @@ For example, documents that talk about different species of dogs would be cluste
 Popular vector similarity metrics include the following, which are all supported by Azure Cognitive Search. 
 
 + `euclidean` (also known as `L2 norm`): This measures the length of the vector difference between two vectors.
-+ `cosine`: This measures the angle between two vectors, and is not affected by differing vector lengths.
++ `cosine`: This measures the angle between two vectors, and isn't affected by differing vector lengths.
 + `dotProduct`: This measures both the length of each of the pair of two vectors, and the angle between them. For normalized vectors, this is identical to `cosine` similarity, but slightly more performant.
 
 ### Approximate Nearest Neighbors
