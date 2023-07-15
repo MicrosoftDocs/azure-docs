@@ -17,7 +17,7 @@ ms.date: 07/14/2023
 
 In Azure Cognitive Search, if you added vector fields to a search index, this article explains how to query those fields. It also explains how to combine vector queries with full text search and semantic search for hybrid query combination scenarios.
 
-Query execution in Cognitive Search doesn't include vector conversion. Encoding (text-to-vector) of the query string requires that you pass the text to an embedding model for vectorization. The output of the call to the embedding model is then passed to the search engine for similarity search over vector fields.
+Query execution in Cognitive Search doesn't include vector conversion. Encoding (text-to-vector) of the query string requires that you pass the text to an embedding model for vectorization. You would then pass the output of the call to the embedding model to the search engine for similarity search over vector fields.
 
 ## Prerequisites
 
@@ -37,7 +37,7 @@ If you aren't sure whether your search index already has vector fields, look for
 
 + In the fields collection, look for fields of type `Collection(Edm.Single)`, with a `dimensions` attribute and a `vectorSearchConfiguration` set to the name of the `vectorSearch` algorithm configuration used by the field.
 
-You can also send an empty query (`search=*`) against the index if the vector field is "retrievable". In a response, a vector field consists of an array of floating point values.
+You can also send an empty query (`search=*`) against the index. If the vector field is "retrievable", the response includes a vector field consisting of an array of floating point values.
 
 ## Convert query input into a vector
 
@@ -83,7 +83,7 @@ The expected response is 202 for a successful call to the deployed model. The bo
 
 When you're setting up the vector query, think about the response structure. Search results are composed of either all "retrievable" fields (a REST API default) or the fields explicitly listed in a "select" parameter on the query. In the examples that follow, each one includes a "select" statement that specifies text (non-vector) fields to include the response.
 
-Vectors aren't designed for readability, so avoid returning them in the response. Instead, choose non-vector fields that are representative of the search document. For example, if the query targets a "descriptionVector" field, return an equivalent text field ("description") in the response.
+Vectors aren't designed for readability, so avoid returning them in the response. Instead, choose non-vector fields that are representative of the search document. For example, if the query targets a "descriptionVector" field, return an equivalent text field if you have one ("description") in the response.
 
 Size of the results is determined by the query parameters "k" and "top". Maximum results in a response are either: 
 
@@ -93,11 +93,11 @@ Size of the results is determined by the query parameters "k" and "top". Maximum
 
 Ranking of results is either:
 
-+ Cosine similarity if the query is over a single vector field, assuming `cosine` is what you specified in the index `vectorConfiguration`. Azure OpenAI embedding models use cosine similarity metrics. Other supported ranking metrics include `euclidean` and `dotProduct`.
++ Cosine similarity if the query is over a single vector field, assuming `cosine` is what you specified in the index `vectorConfiguration`. Azure OpenAI embedding models use cosine similarity, so if you're using Azure OpenAI embedding models, `cosine` is the recommended metric. Other supported ranking metrics include `euclidean` and `dotProduct`.
 
 + Reciprocal Rank Fusion (RRF) if there are multiple sets of search results. Multiple sets are created if the query targets multiple vector fields, or if the query is a hybrid of vector and full text search, with or without the optional semantic reranking capabilities of [semantic search](semantic-search-overview.md).
 
-Within vector search, a vector query can only target one internal vector index. So for [multiple vector fields](#query-syntax-for-vector-query-over-multiple-fields) and [multiple vector queries](#query-syntax-for-multiple-vector-queries), the search engine generates parallel queries that target the respective vector indexes of each field. Output is a set of ranked results for each query, which are fused using RRF. For more information, see [Vector query execution and scoring](vector-search-ranking.md).
+  Within vector search, a vector query can only target one internal vector index. So for [multiple vector fields](#query-syntax-for-vector-query-over-multiple-fields) and [multiple vector queries](#query-syntax-for-multiple-vector-queries), the search engine generates parallel queries that target the respective vector indexes of each field. Output is a set of ranked results for each query, which are fused using RRF. For more information, see [Vector query execution and scoring](vector-search-ranking.md).
 
 ## Query syntax for vector search
 
