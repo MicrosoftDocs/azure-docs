@@ -82,7 +82,7 @@ The schema must include fields for the document key, vector fields, and any othe
 
 1. Add other fields that define the substance and structure of the textual content you're indexing. At a minimum, you need a document key. 
 
-   You should also add fields that are useful in the query or in its response. The example below shows vector fields for title and content ("titleVector", "contentVector") that are equivalent to vectosr. It also provides fields for equivalent textual content ("title", "content") useful for sorting, filtering, and reading in a search result.
+   You should also add fields that are useful in the query or in its response. The example below shows vector fields for title and content ("titleVector", "contentVector") that are equivalent to vectors. It also provides fields for equivalent textual content ("title", "content") useful for sorting, filtering, and reading in a search result.
 
    An index definition with the described elements looks like this:
 

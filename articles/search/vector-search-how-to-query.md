@@ -88,20 +88,16 @@ Vectors aren't designed for readability, so avoid returning them in the response
 Size of the results is determined by the query parameters "k" and "top". Maximum results in a response are either:
 
 + `"k": n` results for vector-only queries
-
 + `"top": n` results for hybrid queries
 
-Ranking of results is either:
+Ranking of results is computed by either:
 
-+ Cosine similarity if the query is over a single vector field, assuming `cosine` is what you specified in the index `vectorConfiguration`.
-
-  Azure OpenAI embedding models use cosine similarity, so if you're using Azure OpenAI embedding models, `cosine` is the recommended metric. Other supported ranking metrics include `euclidean` and `dotProduct`.
-
++ The similarity metric specified in the index `vectorConfiguration` for a vector-only query.
 + Reciprocal Rank Fusion (RRF) if there are multiple sets of search results.
 
-  Multiple sets are created if the query targets multiple vector fields, or if the query is a hybrid of vector and full text search, with or without the optional semantic reranking capabilities of [semantic search](semantic-search-overview.md).
+Azure OpenAI embedding models use cosine similarity, so if you're using Azure OpenAI embedding models, `cosine` is the recommended metric. Other supported ranking metrics include `euclidean` and `dotProduct`.
 
-  Within vector search, a vector query can only target one internal vector index. So for [multiple vector fields](#query-syntax-for-vector-query-over-multiple-fields) and [multiple vector queries](#query-syntax-for-multiple-vector-queries), the search engine generates parallel queries that target the respective vector indexes of each field. Output is a set of ranked results for each query, which are fused using RRF. For more information, see [Vector query execution and scoring](vector-search-ranking.md).
+Multiple sets are created if the query targets multiple vector fields, or if the query is a hybrid of vector and full text search, with or without the optional semantic reranking capabilities of [semantic search](semantic-search-overview.md). Within vector search, a vector query can only target one internal vector index. So for [multiple vector fields](#query-syntax-for-vector-query-over-multiple-fields) and [multiple vector queries](#query-syntax-for-multiple-vector-queries), the search engine generates multiple queries that target the respective vector indexes of each field. Output is a set of ranked results for each query, which are fused using RRF. For more information, see [Vector query execution and scoring](vector-search-ranking.md).
 
 ## Query syntax for vector search
 
