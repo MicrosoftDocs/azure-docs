@@ -26,11 +26,11 @@ Policy enforcement is available in all Microsoft Purview regions except:
 #### Security considerations for Azure Arc-enabled SQL Server
 
 - The server admin can turn off the Microsoft Purview policy enforcement.
-- Azure Arc admin and server admin permissions provide the ability to change the Azure Resource Manager path of the server. Because mappings in Microsoft Purview use Resource Manager paths, this can lead to wrong policy enforcements. 
+- Azure Arc admin and server admin permissions provide the ability to change the Azure Resource Manager path of the server. Because mappings in Microsoft Purview use Resource Manager paths, it can lead to wrong policy enforcements. 
 - A SQL Server admin (database admin) can gain the power of a server admin and can tamper with the cached policies from Microsoft Purview.
 - The recommended configuration is to create a separate app registration for each SQL server instance. This configuration prevents the second SQL Server instance from reading the policies meant for the first SQL Server instance, in case a rogue admin in the second SQL Server instance tampers with the Resource Manager path.
 
-#### Verify the pre-requisites
+#### Verify the prerequisites
 
 1. Sign in to the Azure portal through [this link](https://portal.azure.com/#view/Microsoft_Azure_HybridCompute/AzureArcCenterBlade/~/overview)
 
