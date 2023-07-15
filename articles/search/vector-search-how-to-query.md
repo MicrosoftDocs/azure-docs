@@ -81,14 +81,24 @@ The expected response is 202 for a successful call to the deployed model. The bo
 
 ## Configure a query response
 
-When you're setting up the vector query, think about the response structure. Search results are composed of either all "retrievable" fields (a REST API default) or the fields explicitly listed in a "select" parameter on the query. In the examples that follow, each one includes a "select" statement that specifies text (non-vector) fields to include the response.
+When you're setting up the vector query, think about the response structure. You can control the shape of the response by choosing which fields are in the results and how many results are included. The search engine ranks the results. Ranking algorithms aren't generally configurable.
+
+### Fields in a response
+
+Search results are composed of either all "retrievable" fields (a REST API default) or the fields explicitly listed in a "select" parameter on the query. In the examples that follow, each one includes a "select" statement that specifies text (non-vector) fields to include the response.
 
 Vectors aren't designed for readability, so avoid returning them in the response. Instead, choose non-vector fields that are representative of the search document. For example, if the query targets a "descriptionVector" field, return an equivalent text field if you have one ("description") in the response.
 
-Size of the results is determined by the query parameters "k" and "top". Maximum results in a response are either:
+### Number of results
+
+A query might match to any number of documents, up to all of them in the search index if the search criteria is weak. However, the size of the results sent back in the response is determined by the query parameters "k" and "top". Maximum results in a response are either:
 
 + `"k": n` results for vector-only queries
 + `"top": n` results for hybrid queries
+
+Both "k" and "top" are optional. Unspecified, the default number of results in a response is 50. You can set "top" and "skip" to [page through more results](search-pagination-page-layout.md#paging-results).
+
+### Ranking
 
 Ranking of results is computed by either:
 
