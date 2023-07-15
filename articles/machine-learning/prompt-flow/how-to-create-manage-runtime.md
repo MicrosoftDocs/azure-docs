@@ -9,7 +9,7 @@ ms.topic: how-to
 author: cloga
 ms.author: lochen
 ms.reviewer: lagayhar
-ms.date: 06/30/2023
+ms.date: 07/14/2023
 ---
 
 # Create and manage runtimes (preview)
@@ -236,43 +236,45 @@ This type error usually related to runtime lack required packages. If you're usi
 
 ##### Request timeout error shown in UI
 
-###### 1. MIR runtime request timeout error
+MIR runtime request timeout error:
 
-:::image type="content" source="./media/how-to-create-manage-runtime/mir-runtime-request-timeout.png" alt-text="Screenshot of a mir runtime timeout error. " lightbox = "./media/how-to-create-manage-runtime/mir-runtime-request-timeout.png":::
+:::image type="content" source="./media/how-to-create-manage-runtime/mir-runtime-request-timeout.png" alt-text="Screenshot of a MIR runtime timeout error in the studio UI. " lightbox = "./media/how-to-create-manage-runtime/mir-runtime-request-timeout.png":::
 
-###### 2. CI runtime request timeout error
+Compute instance runtime request timeout error:
 
-:::image type="content" source="./media/how-to-create-manage-runtime/ci-runtime-request-timeout.png" alt-text="Screenshot of a ci runtime timeout error. " lightbox = "./media/how-to-create-manage-runtime/ci-runtime-request-timeout.png":::
+:::image type="content" source="./media/how-to-create-manage-runtime/ci-runtime-request-timeout.png" alt-text="Screenshot of a compute instance runtime timeout error in the studio UI. " lightbox = "./media/how-to-create-manage-runtime/ci-runtime-request-timeout.png":::
 
 #### How to identify which node consume the most time
 
-##### Step 1. Check the runtime logs
+1. Check the runtime logs
 
-##### Step 2. Trying to find below warning log format
+2. Trying to find below warning log format
 
-{node_name} has been running for {duration} seconds. E.g.:
+    {node_name} has been running for {duration} seconds.
+    
+    For example:
 
-###### case1: python script node running for long time.
+   - Case 1: Python script node running for long time.
 
-:::image type="content" source="./media/how-to-create-manage-runtime/runtime-timeout-running-for-long-time.png" alt-text="Screenshot of a timeout run logs. " lightbox = "./media/how-to-create-manage-runtime/runtime-timeout-running-for-long-time.png":::
+        :::image type="content" source="./media/how-to-create-manage-runtime/runtime-timeout-running-for-long-time.png" alt-text="Screenshot of a timeout run logs in the studio UI. " lightbox = "./media/how-to-create-manage-runtime/runtime-timeout-running-for-long-time.png":::
 
-In this case, you can find that the 'PythonScriptNode' running for a long time (almost 300s), then you can check the node details to see what's the problem.
+        In this case, you can find that the 'PythonScriptNode' running for a long time (almost 300s), then you can check the node details to see what's the problem.
 
-###### case2: llm node running for long time.
+   - Case 2: LLM node running for long time.
 
-:::image type="content" source="./media/how-to-create-manage-runtime/runtime-timeout-by-llm-timeout.png" alt-text="Screenshot of a timeout logs caused by llm timeout. " lightbox = "./media/how-to-create-manage-runtime/runtime-timeout-by-llm-timeout.png":::
+        :::image type="content" source="./media/how-to-create-manage-runtime/runtime-timeout-by-llm-timeout.png" alt-text="Screenshot of a timeout logs caused by LLM timeout in the studio UI. " lightbox = "./media/how-to-create-manage-runtime/runtime-timeout-by-llm-timeout.png":::
 
-In this case, if you find the message `request canceled` in the logs, it may be due to the OpenAI API call taking too long and exceeding the runtime limit.
+        In this case, if you find the message `request canceled` in the logs, it may be due to the OpenAI API call taking too long and exceeding the runtime limit.
 
-An OpenAI API Timeout could be caused by a network issue or a complex request that requires more processing time. For more information, please refer to [OpenAI API Timeout](https://help.openai.com/en/articles/6897186-timeout).
+        An OpenAI API Timeout could be caused by a network issue or a complex request that requires more processing time. For more information, please refer to [OpenAI API Timeout](https://help.openai.com/en/articles/6897186-timeout).
 
-You can try waiting a few seconds and retrying your request. This usually resolves any network issues.
+        You can try waiting a few seconds and retrying your request. This usually resolves any network issues.
 
-If retrying does not work, check whether you are using a long context model, such as ‘gpt-4-32k’, and have set a large value for `max_tokens`. If this is the case, it is expected behavior because your prompt may generate a very long response that takes longer than the interactive mode upper threshold. In this situation, we recommend trying 'Bulk test', as this mode does not have a timeout setting.
+        If retrying doesn't work, check whether you're using a long context model, such as ‘gpt-4-32k’, and have set a large value for `max_tokens`. If so, it's expected behavior because your prompt may generate a very long response that takes longer than the interactive mode upper threshold. In this situation, we recommend trying 'Bulk test', as this mode doesn't have a timeout setting.
 
-##### Step 3.  If you cannot find anything in runtime logs to indicate it is a specific node issue
+3. If you can't find anything in runtime logs to indicate it's a specific node issue
 
-Please contact the PromptFlow team([promptflow-eng](mailto:aml-pt-eng@microsoft.com)) with the runtime logs. We will try to identify the root cause.
+    Please contact the Prompt Flow team ([promptflow-eng](mailto:aml-pt-eng@microsoft.com)) with the runtime logs. We'll try to identify the root cause.
 
 ### Compute instance runtime related
 
@@ -289,8 +291,8 @@ This because you're cloning a flow from others that is using compute instance as
 #### Compute instance behind VNet
 
 If your compute instance is behind a VNet, you need to make the following changes to ensure that your compute instance can be used in prompt flow:
-- Please follow [required-public-internet-access](../how-to-secure-workspace-vnet.md#required-public-internet-access) to set your CI network configuration.
-- If your storage account also behind vnet, please follow [Secure Azure storage accounts](../how-to-secure-workspace-vnet.md#secure-azure-storage-accounts) to create private endpoints for both table and blob.
+- See [required-public-internet-access](../how-to-secure-workspace-vnet.md#required-public-internet-access) to set your compute instance network configuration.
+- If your storage account also behind vnet, see [Secure Azure storage accounts](../how-to-secure-workspace-vnet.md#secure-azure-storage-accounts) to create private endpoints for both table and blob.
 - Make sure the managed identity of workspace have `Storage Blob Data Contributor`, `Storage Table Data Contributor` roles on the workspace default storage account.
 
 ### Managed endpoint runtime related
