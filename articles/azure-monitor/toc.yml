@@ -480,7 +480,7 @@ items:
   - name: Monitor containers
     items:
     - name: Monitor Azure Kubernetes Service (AKS)
-      href: ../aks/monitor-aks.md?toc=/azure/azure-monitor/toc.json
+      href: containers/monitor-kubernetes.md
     - name: Container insights
       items:
       - name: Overview
