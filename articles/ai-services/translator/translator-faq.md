@@ -15,6 +15,13 @@ ms.author: lajanuar
 
 # Frequently asked questions—Translator API
 
+> [!NOTE]
+> As of July 2023, the Azure AI services encompass all of what were previously known as Azure Cognitive Services and Azure Applied AI Services.
+>
+> There are no changes to pricing. The names "Cognitive Services" and "Azure Applied AI" will continue to be used in Azure billing, cost analysis, price list, and price APIs.
+>
+> There are no breaking changes to application programming interfaces (APIs) or SDKs.
+
 ## How does Translator count characters?
 
 Translator counts every code point defined in Unicode as a character. Each translation counts as a separate translation, even if the request was made in a single API call translating to multiple languages. The length of the response doesn't matter and the number of requests, words, bytes, or sentences isn't relevant to character count.
