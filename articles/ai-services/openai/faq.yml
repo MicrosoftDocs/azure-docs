@@ -168,6 +168,11 @@ sections:
           Do the query language and the data source language need to be the same?
         answer:
           You must send queries in the same language of your data. Your data can be in any of the languages supported by [Azure Cognitive Search](/azure/search/search-language-support).
+      - question: |
+          If Semantic Search is enabled for my Azure Cognitive Search resource, will it be automatically applied to Azure OpenAI on your data in the Azure OpenAI Studio?
+        answer:
+          When you select "Azure Cognitive Search" as the data source, you can choose to apply semantic search. 
+          If you select "Azure Blob Container" or "Upload files" as the data source, you can create the index as usual. Afterwards you would re-ingest the data using the "Azure Cognitive Search" option to select the same index and apply Semantic Search. You will then be ready to chat on your data with semantic search applied.
 additionalContent: |
 
   ## Next steps

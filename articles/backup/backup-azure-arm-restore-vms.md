@@ -5,8 +5,8 @@ ms.reviewer: geg
 ms.topic: how-to
 ms.date: 07/13/2023
 ms.service: backup
-author: jyothisuri
-ms.author: jsuri
+author: AbhishekMallick-MS
+ms.author: v-abhmallick
 ---
 # How to restore Azure VM data in Azure portal
 

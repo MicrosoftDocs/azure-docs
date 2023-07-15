@@ -34,6 +34,10 @@ sections:
           Does Global Secure Access support IPv6?
         answer: |
           At this time, IPv4 is preferred over IPv6. If you encounter issues, disable IPv6. For more information, see the Disable IPv6 section of the [Install Windows client](how-to-install-windows-client.md#disable-ipv6-and-secure-dns) article.
+      - question: | 
+          Can I manage Global Secure Access with Microsoft Graph APIs?
+        answer: |
+          Yes, there's a set of Microsoft Graph APIs available to manage aspects of Microsoft Entra Internet Access and Microsoft Entra Private Access. For more information about these APIs, see the article [Secure access to cloud, public, and private apps using Microsoft Graph network access APIs](/graph/api/resources/networkaccess-global-secure-access-api-overview).
   - name: Private Access
     questions:
         - question: |

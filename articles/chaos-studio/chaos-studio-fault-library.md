@@ -349,7 +349,7 @@ Currently, the Windows agent doesn't reduce memory pressure when other applicati
 ```
 
 ### Limitations
-* **Windows**: Service-friendly names aren't supported. Use `sc.exe query` in the command prompt to explore service names.
+* **Windows**: Display names for services aren't supported. Use `sc.exe query` in the command prompt to explore service names.
 * **Linux**: Other service types besides systemd, like sysvinit, aren't supported.
 
 ## Time change
@@ -403,7 +403,7 @@ Currently, the Windows agent doesn't reduce memory pressure when other applicati
 | Prerequisites | None. |
 | Urn | urn:csci:microsoft:agent:killProcess/1.0 |
 | Parameters (key, value) |  |
-| processName | Name of a process running on a VM (without the .exe). |
+| processName | Name of a process to continuously kill (without the .exe). The process does not need to be running when the fault begins executing. |
 | killIntervalInMilliseconds | Amount of time the fault waits in between successive kill attempts in milliseconds. |
 | virtualMachineScaleSetInstances | An array of instance IDs when this fault is applied to a virtual machine scale set. Required for virtual machine scale sets. |
 
@@ -536,6 +536,11 @@ Currently, the Windows agent doesn't reduce memory pressure when other applicati
 }
 ```
 
+### Limitations
+
+* The agent-based network faults currently only support IPv4 addresses.
+
+
 ## Network disconnect
 
 | Property | Value |
@@ -580,8 +585,11 @@ Currently, the Windows agent doesn't reduce memory pressure when other applicati
 }
 ```
 
-> [!WARNING]
-> The network disconnect fault only affects new connections. Existing *active* connections continue to persist. You can restart the service or process to force connections to break.
+### Limitations
+
+* The agent-based network faults currently only support IPv4 addresses.
+* The network disconnect fault only affects new connections. Existing active connections continue to persist. You can restart the service or process to force connections to break.
+* On Windows, the network disconnect fault currently only works with TCP or UDP packets.
 
 ## Network disconnect with firewall rule
 
@@ -627,6 +635,63 @@ Currently, the Windows agent doesn't reduce memory pressure when other applicati
 }
 ```
 
+### Limitations
+
+* The agent-based network faults currently only support IPv4 addresses.
+
+## Network packet loss
+
+| Property | Value |
+|-|-|
+| Capability name | NetworkPacketLoss-1.0 |
+| Target type | Microsoft-Agent |
+| Supported OS types | Windows, Linux |
+| Description | Introduces packet loss for outbound traffic at a specified rate, between 0.0 (no packets lost) and 1.0 (all packets lost). This can help simulate scenarios like network congestion or network hardware issues. |
+| Prerequisites | Agent must run as administrator. If the agent is installed as a VM extension, it runs as administrator by default. |
+| Urn | urn:csci:microsoft:agent:networkPacketLoss/1.0 |
+| Parameters (key, value) |  |
+| lossRate | The rate at which packets matching the destination filters will be lost, ranging from 0.0 to 1.0. |
+| virtualMachineScaleSetInstances | An array of instance IDs when this fault is applied to a virtual machine scale set. Required for virtual machine scale sets. |
+| destinationFilters | Delimited JSON array of packet filters (parameters below) that define which outbound packets to target for fault injection. Maximum of three.|
+| address | IP address that indicates the start of the IP range. |
+| subnetMask | Subnet mask for the IP address range. |
+| portLow | (Optional) Port number of the start of the port range. |
+| portHigh | (Optional) Port number of the end of the port range. |
+
+### Sample JSON
+
+```json
+{
+  "name": "branchOne",
+  "actions": [
+    {
+      "type": "continuous",
+      "name": "urn:csci:microsoft:agent:networkPacketLoss/1.0",
+      "parameters": [
+            {
+                "key": "destinationFilters",
+                "value": "[{\"address\":\"23.45.229.97\",\"subnetMask\":\"255.255.255.224\",\"portLow\":5000,\"portHigh\":5200}]"
+            },
+            {
+                "key": "lossRate",
+                "value": "0.5"
+            },
+            {
+                "key": "virtualMachineScaleSetInstances",
+                "value": "[0,1,2]"
+            }
+        ],
+      "duration": "PT10M",
+      "selectorid": "myResources"
+    }
+  ]
+}
+```
+
+### Limitations
+
+* The agent-based network faults currently only support IPv4 addresses.
+
 ## Azure Resource Manager virtual machine shutdown
 | Property | Value |
 |-|-|
@@ -663,7 +728,7 @@ Currently, the Windows agent doesn't reduce memory pressure when other applicati
 
 ## Azure Resource Manager virtual machine scale set instance shutdown
 
-This fault has two available versions that you can use, Version 1.0 and Version 2.0.
+This fault has two available versions that you can use, Version 1.0 and Version 2.0. The main difference is that Version 2.0 allows you to filter by availability zones, only shutting down instances within a specified zone or zones.
 
 ### Version 1.0
 
@@ -864,7 +929,7 @@ Currently, only virtual machine scale sets configured with the **Uniform** orche
       "parameters": [
         {
             "key": "jsonSpec",
-            "value": "{\"action\":\"pod-failure\",\"mode\":\"one\",\"duration\":\"30s\",\"selector\":{\"labelSelectors\":{\"app.kubernetes.io\/component\":\"tikv\"}}}"
+            "value": "{\"action\":\"pod-failure\",\"mode\":\"one\",\"selector\":{\"labelSelectors\":{\"app.kubernetes.io\/component\":\"tikv\"}}}"
         }
     ],
       "selectorid": "myResources"
@@ -932,7 +997,7 @@ Currently, only virtual machine scale sets configured with the **Uniform** orche
       "parameters": [
         {
             "key": "jsonSpec",
-            "value": "{\"action\":\"latency\",\"mode\":\"one\",\"selector\":{\"labelSelectors\":{\"app\":\"etcd\"}},\"volumePath\":\"\/var\/run\/etcd\",\"path\":\"\/var\/run\/etcd\/**\/*\",\"delay\":\"100ms\",\"percent\":50,\"duration\":\"400s\"}"
+            "value": "{\"action\":\"latency\",\"mode\":\"one\",\"selector\":{\"labelSelectors\":{\"app\":\"etcd\"}},\"volumePath\":\"\/var\/run\/etcd\",\"path\":\"\/var\/run\/etcd\/**\/*\",\"delay\":\"100ms\",\"percent\":50}"
         }
     ],
       "selectorid": "myResources"
@@ -1034,7 +1099,7 @@ Currently, only virtual machine scale sets configured with the **Uniform** orche
       "parameters": [
         {
             "key": "jsonSpec",
-            "value": "{\"mode\":\"all\",\"selector\":{\"labelSelectors\":{\"app\":\"nginx\"}},\"target\":\"Request\",\"port\":80,\"method\":\"GET\",\"path\":\"\/api\",\"abort\":true,\"duration\":\"5m\",\"scheduler\":{\"cron\":\"@every 10m\"}}"
+            "value": "{\"mode\":\"all\",\"selector\":{\"labelSelectors\":{\"app\":\"nginx\"}},\"target\":\"Request\",\"port\":80,\"method\":\"GET\",\"path\":\"\/api\",\"abort\":true,\"scheduler\":{\"cron\":\"@every 10m\"}}"
         }
     ],
       "selectorid": "myResources"
@@ -1089,8 +1154,8 @@ Currently, only virtual machine scale sets configured with the **Uniform** orche
 | Parameters (key, value) |  |
 | name | A unique name for the security rule that's created. The fault fails if another rule already exists on the NSG with the same name. Must begin with a letter or number. Must end with a letter, number, or underscore. May contain only letters, numbers, underscores, periods, or hyphens. |
 | protocol | Protocol for the security rule. Must be Any, TCP, UDP, or ICMP. |
-| sourceAddresses | A string that represents a JSON-delimited array of CIDR-formatted IP addresses. Can also be a service tag name for an inbound rule, for example, `AppService`. An asterisk `*` can also be used to match all source IPs. |
-| destinationAddresses | A string that represents a JSON-delimited array of CIDR-formatted IP addresses. Can also be a service tag name for an outbound rule, for example, `AppService`. An asterisk `*` can also be used to match all destination IPs. |
+| sourceAddresses | A string that represents a JSON-delimited array of CIDR-formatted IP addresses. Can also be a [service tag name](../virtual-network/service-tags-overview.md) for an inbound rule, for example, `AppService`. An asterisk `*` can also be used to match all source IPs. |
+| destinationAddresses | A string that represents a JSON-delimited array of CIDR-formatted IP addresses. Can also be a [service tag name](../virtual-network/service-tags-overview.md) for an outbound rule, for example, `AppService`. An asterisk `*` can also be used to match all destination IPs. |
 | action | Security group access type. Must be either Allow or Deny. |
 | destinationPortRanges | A string that represents a JSON-delimited array of single ports and/or port ranges, such as 80 or 1024-65535. |
 | sourcePortRanges | A string that represents a JSON-delimited array of single ports and/or port ranges, such as 80 or 1024-65535. |
@@ -1451,6 +1516,35 @@ Currently, only virtual machine scale sets configured with the **Uniform** orche
 
      ],
       "duration": "PT10M",
+      "selectorid": "myResources"
+    }
+  ]
+}
+```
+
+## App Service Stop
+	
+| Property  | Value |
+| ---- | --- |
+| Capability name | Stop-1.0 |
+| Target type | Microsoft-AppService |
+| Description | Stops the targeted App Service applications, then restarts them at the end of the fault duration. This applies to resources of the "Microsoft.Web/sites" type, including App Service, API Apps, Mobile Apps, and Azure Functions. |
+| Prerequisites | None. |
+| Urn | urn:csci:microsoft:appService:stop/1.0 |
+| Fault type | Continuous. |
+| Parameters (key, value) | None. |
+
+### Sample JSON
+
+```json
+{
+  "name": "branchOne",
+  "actions": [
+    {
+      "type": "continuous",
+      "name": "urn:csci:microsoft:appService:stop/1.0",
+      "duration": "PT10M",
+      "parameters":[],
       "selectorid": "myResources"
     }
   ]

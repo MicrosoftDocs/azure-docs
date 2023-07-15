@@ -2,8 +2,10 @@
 title: Resource providers by Azure services
 description: Lists all resource provider namespaces for Azure Resource Manager and shows the Azure service for that namespace.
 ms.topic: conceptual
-ms.date: 02/28/2023
+ms.date: 07/14/2023
 ms.custom: ignite-2022, devx-track-arm-template
+content_well_notification: 
+  - AI-contribution
 ---
 
 # Resource providers for Azure services
@@ -186,26 +188,26 @@ The resources providers that are marked with **- registered** are registered by 
 
 ## Registration
 
-The resources providers in the preceding section that are marked with **- registered** are registered by default for your subscription. To use the other resource providers, you must [register them](resource-providers-and-types.md). However, many resource providers are registered for you when you take certain actions. For example, if you create a resource through the portal, the portal automatically registers any unregistered resource providers that are needed. When deploy resources through an [Azure Resource Manager template](../templates/overview.md), any required resource providers are also registered.
+Resource providers marked with **- registered** in the previous section are automatically registered for your subscription. For other resource providers, you need to [register them](resource-providers-and-types.md). However, many resource providers are registered automatically when you perform specific actions. For example, when you create resources through the portal or by deploying an [Azure Resource Manager template](../templates/overview.md), Azure Resource Manager automatically registers any required unregistered resource providers.
 
 > [!IMPORTANT]
-> Only register a resource provider when you're ready to use it. The registration step enables you to maintain least privileges within your subscription. A malicious user can't use resource providers that aren't registered.
+> Register a resource provider only when you're ready to use it. This registration step helps maintain least privileges within your subscription. A malicious user can't use unregistered resource providers.
 >
-> When you register resource providers that aren't needed, you may see apps in your Azure Active Directory tenant that you don't recognize. Microsoft adds the app for a resource provider when you register it. These applications are typically added by Windows Azure Service Management API. To avoid having unnecessary apps in your tenant, only register resource providers that are needed.
+> Registering unnecessary resource providers may result in unrecognized apps appearing in your Azure Active Directory tenant. Microsoft adds the app for a resource provider when you register it. These apps are typically added by the Windows Azure Service Management API. To prevent unnecessary apps in your tenant, only register needed resource providers.
 
 ## Find resource provider
 
-If you have existing infrastructure in Azure, but aren't sure which resource provider is used, you can use either Azure CLI or PowerShell to find the resource provider. Specify the name of the resource group that contains the resources to find.
+To identify resource providers used for your existing Azure infrastructure, list the deployed resources. Specify the resource group containing the resources.
 
 The following example uses Azure CLI:
 
 ```azurecli-interactive
-az resource list -g examplegroup
+az resource list --resource-group examplegroup
 ```
 
 The results include the resource type. The resource provider namespace is the first part of the resource type. The following example shows the **Microsoft.KeyVault** resource provider.
 
-```json
+```output
 [
   {
     ...
@@ -222,11 +224,35 @@ Get-AzResource -ResourceGroupName examplegroup
 
 The results include the resource type. The resource provider namespace is the first part of the resource type. The following example shows the **Microsoft.KeyVault** resource provider.
 
-```azurepowershell
+```output
 Name              : examplekey
 ResourceGroupName : examplegroup
 ResourceType      : Microsoft.KeyVault/vaults
 ...
+```
+
+The following example uses Python:
+
+```python
+import os
+from azure.identity import DefaultAzureCredential
+from azure.mgmt.resource import ResourceManagementClient
+
+subscription_id = os.environ["AZURE_SUBSCRIPTION_ID"]
+credential = DefaultAzureCredential()
+resource_client = ResourceManagementClient(credential, subscription_id)
+
+resource_group_name = "examplegroup"
+resources = resource_client.resources.list_by_resource_group(resource_group_name)
+
+for resource in resources:
+    print(resource.type)
+```
+
+The results list the resource type. The resource provider namespace is the first part of the resource type. The following example shows the **Microsoft.KeyVault** resource provider.
+
+```output
+Microsoft.KeyVault/vaults
 ```
 
 ## Next steps

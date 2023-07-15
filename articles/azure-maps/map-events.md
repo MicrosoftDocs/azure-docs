@@ -1,5 +1,6 @@
 ---
-title: Handle map events | Microsoft Azure Maps
+title: Handle map events
+titleSuffix: Microsoft Azure Maps
 description: Learn which events are fired when users interact with maps. View a list of all supported map events. See how to use the Azure Maps Web SDK to handle events.
 author: dubiety
 ms.author: yuchungchen
@@ -8,9 +9,9 @@ ms.topic: how-to
 ms.service: azure-maps
 ---
 
-# Interact with the map
+# Handle map events
 
-This article shows you how to use [map events class](/javascript/api/azure-maps-control/atlas.map#events). The property highlight events on the map and on different layers of the map. You can also highlight events when you interact with an HTML marker.
+This article shows you how to use [map events class]. The property highlight events on the map and on different layers of the map. You can also highlight events when you interact with an HTML marker.
 
 ## Interact with the map
 
@@ -52,7 +53,7 @@ The following table lists all supported map class events.
 | `boxzoomend`        | Fired when a "box zoom" interaction ends.|
 | `boxzoomstart`      | Fired when a "box zoom" interaction starts.|
 | `click`             | Fired when a pointing device is pressed and released at the same point on the map.|
-| `close`             | Fired when the popup is closed manually or programatically.|
+| `close`             | Fired when the popup is closed manually or programmatically.|
 | `contextmenu`       | Fired when the right button of the mouse is clicked.|
 | `data`              | Fired when any map data loads or changes. |
 | `dataadded`         | Fired when shapes are added to the `DataSource`.|
@@ -65,7 +66,7 @@ The following table lists all supported map class events.
 | `error`             | Fired when an error occurs.|
 | `idle`              | <p>Fired after the last frame rendered before the map enters an "idle" state:<ul><li>No camera transitions are in progress.</li><li>All currently requested tiles have loaded.</li><li>All fade/transition animations have completed.</li></ul></p>|
 | `keydown`           | Fired when a key is pressed down.|
-| `keypress`          | Fired when a key that produces a typable character (an ANSI key) is pressed.|
+| `keypress`          | Fired when a key that produces a typeable character (an ANSI key) is pressed.|
 | `keyup`             | Fired when a key is released.|
 | `layeradded`        | Fired when a layer is added to the map.|
 | `layerremoved`      | Fired when a layer is removed from the map.|
@@ -80,7 +81,7 @@ The following table lists all supported map class events.
 | `move`              | Fired repeatedly during an animated transition from one view to another, as the result of either user interaction or methods.|
 | `moveend`           | Fired just after the map completes a transition from one view to another, as the result of either user interaction or methods.|
 | `movestart`         | Fired just before the map begins a transition from one view to another, as the result of either user interaction or methods.|
-| `open`              | Fired when the popup is opened manually or programatically.|
+| `open`              | Fired when the popup is opened manually or programmatically.|
 | `pitch`             | Fired whenever the map's pitch (tilt) changes as the result of either user interaction or methods.|
 | `pitchend`          | Fired immediately after the map's pitch (tilt) finishes changing as the result of either user interaction or methods.|
 | `pitchstart`        | Fired whenever the map's pitch (tilt) begins a change as the result of either user interaction or methods.|
@@ -111,11 +112,12 @@ The following table lists all supported map class events.
 See the following articles for full code examples:
 
 > [!div class="nextstepaction"]
-> [Using the Azure Maps Services module](./how-to-use-services-module.md)
+> [Using the Azure Maps Services module]
 
 > [!div class="nextstepaction"]
-> [Code samples](/samples/browse/?products=azure-maps)
+> [Code samples]
 
+[map events class]: /javascript/api/azure-maps-control/atlas.map#events
 [Map Events]: https://samples.azuremaps.com/map/map-events
 [Layer Events]: https://samples.azuremaps.com/symbol-layer/symbol-layer-events
 [HTML marker layer events]: https://samples.azuremaps.com/html-markers/html-marker-layer-events
@@ -123,3 +125,5 @@ See the following articles for full code examples:
 [Map Events source code]: https://github.com/Azure-Samples/AzureMapsCodeSamples/blob/main/Samples/Map/Map%20Events/Map%20Events.html
 [Layer Events source code]: https://github.com/Azure-Samples/AzureMapsCodeSamples/blob/main/Samples/Symbol%20Layer/Symbol%20layer%20events/Symbol%20layer%20events.html
 [HTML marker layer events source code]: https://github.com/Azure-Samples/AzureMapsCodeSamples/blob/main/Samples/HTML%20Markers/HTML%20marker%20layer%20events/HTML%20marker%20layer%20events.html
+[Using the Azure Maps Services module]: how-to-use-services-module.md
+[Code samples]: /samples/browse/?products=azure-maps
