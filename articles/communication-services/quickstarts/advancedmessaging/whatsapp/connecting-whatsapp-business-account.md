@@ -49,7 +49,7 @@ Getting started with the Azure Communication Services Advanced Message SDK which
 
 1. Now that you have created a Meta Business Account, you will need to create a WhatsApp Business profile. Fill out the required information.
 
-        :::image type="content" source="./media/register-whatsapp-account/whatsapp-business-account-details.png" alt-text="Screenshot that shows Providing WhatsApp Business account details.":::
+:::image type="content" source="./media/register-whatsapp-account/whatsapp-business-account-details.png" alt-text="Screenshot that shows Providing WhatsApp Business account details.":::
 
 1. Once you have completed the form, click **Next** to continue.
 
@@ -63,7 +63,7 @@ You will see the account and status listed in the Azure portal along with the ot
 
 When you no longer want to use the WhatsApp Business account with Azure Communication Services, you can select the account and click the **Disconnect** button. This will disconnect the account from Azure Communication Services but will not delete the account and the account can be re-connected later.
 
-        :::image type="content" source="./media/register-whatsapp-account/list-whatsapp-accounts.png" alt-text="Screenshot that shows Listing your WhatsApp accounts in the Azure portal.":::
+:::image type="content" source="./media/register-whatsapp-account/list-whatsapp-accounts.png" alt-text="Screenshot that shows Listing your WhatsApp accounts in the Azure portal.":::
 
 ## Next Steps
 
