@@ -1,7 +1,7 @@
 ---
 title: Create a Python function from the command line - Azure Functions
 description: Learn how to create a Python function from the command line, then publish the local project to serverless hosting in Azure Functions.
-ms.date: 03/22/2023
+ms.date: 07/15/2023
 ms.topic: quickstart
 ms.devlang: python
 ms.custom: devx-track-python, devx-track-azurecli, devx-track-azurepowershell, mode-api, devdivchpfy22
@@ -28,12 +28,8 @@ Before you begin, you must have the following requirements in place:
 
 + An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
 
-::: zone pivot="python-mode-configuration"  
 + The [Azure Functions Core Tools](functions-run-local.md#v2) version 4.x.
-::: zone-end
-::: zone pivot="python-mode-decorators"  
-+ The [Azure Functions Core Tools](functions-run-local.md#v2) version 4.2.1 or later.
-::: zone-end  
+
 + One of the following tools for creating Azure resources:
 
   + [Azure CLI](/cli/azure/install-azure-cli) version 2.4 or later.
@@ -171,16 +167,25 @@ In Azure Functions, a function project is a container for one or more individual
 
 1. The file `function_app.py` can include all functions within your project. To start with, there's already an HTTP function stored in the file.
 
-```python
-import azure.functions as func
+  ```python
+  import azure.functions as func
+  
+  app = func.FunctionApp()
+  
+  @app.function_name(name="HttpTrigger1")
+  @app.route(route="hello")
+  def test_function(req: func.HttpRequest) -> func.HttpResponse:
+      return func.HttpResponse("HttpTrigger1 function processed a request!")
+  ```
+1. Open the local.settings.json project file and verify that the `AzureWebJobsFeatureFlags` setting has a value of `EnableWorkerIndexing`. This is required for Functions to interpret your project correctly as the Python v2 model. You'll add this same setting to your application settings after you publish your project to Azure. 
 
-app = func.FunctionApp()
+1. In the local.settings.json file, update the `AzureWebJobsStorage` setting as in the following example:
 
-@app.function_name(name="HttpTrigger1")
-@app.route(route="hello")
-def test_function(req: func.HttpRequest) -> func.HttpResponse:
-    return func.HttpResponse("HttpTrigger1 function processed a request!")
-```
+    ```json
+    "AzureWebJobsStorage": "UseDevelopmentStorage=true",
+    ```
+
+    This tells the local Functions host to use the storage emulator for the storage connection currently required by the Python v2 model. When you publish your project to Azure, you'll need to instead use the default storage account. If you're instead using an Azure Storage account, set your storage account connection string here.
 ::: zone-end
 
 ### (Optional) Examine the file contents
