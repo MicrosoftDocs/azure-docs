@@ -42,11 +42,9 @@ Expected output: lists all the logical volumes created.
 ```
 
 > [!Note]
-> • `-L 45T` specifies the logical volume size.
-
-> • `-i 32` specifies the number of stripes, this is equal to the number of physical LUNs to scatter the logical volume.
-
-> • `-I 8M` specifies the stripe size.
+> • `-L 45T` specifies the  logical volume size.  
+>• `-i 32` specifies the number of stripes, this is equal to the number of physical LUNs to scatter the logical volume.  
+>• `-I 8M` specifies the stripe size.
 
 5. Make the file system
  

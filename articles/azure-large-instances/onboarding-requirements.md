@@ -89,8 +89,7 @@ If you don't see your deployed Azure Large Instances under your subscription, re
 ### Enable ExpressRoute Fast Path
 
 Before you begin, install the latest version of the Azure resource manager PowerShell cmdlets, at least 4.0 or later.
-For more information about installing the power shell cmdlets, see [How to install Azure PowerShell](https://learn.microsoft.com/powershell/azure/install-azure-powershell?view=azps-10.0.0).
-
+If
 For more information, see these resources:
 
 * [Azure ExpressRoute overview](https://azure.microsoft.com/products/expressroute/)
@@ -105,8 +104,7 @@ For more information, see these resources:
 Ensure you have an authorization key for the express route (ER) circuit used for virtual gateway connection to ER circuit. 
 Also obtain ER circuit resource ID.
 
-If you don’t have this information, obtain the details from the circuit owner. Reach out to ALI support by creating a support ticket with Azure Customer Support.
-
+If you don’t have this information, obtain the details from the circuit owner. Reach out to ALI support by [creating a support ticket](https://rc.portal.azure.com/#create/Microsoft.Support) with the Azure Customer Support team.
 ### Declare variables
 
 This example declares the variables using the values for this exercise.

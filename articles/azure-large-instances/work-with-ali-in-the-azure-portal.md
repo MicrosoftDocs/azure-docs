@@ -209,6 +209,9 @@ Data collected includes:
 * Subscription ID
 
 This information is important in support requests and when setting up a storage snapshot configuration.
+
+:::image type="content" source="../baremetal-infrastructure/media/connect-baremetal-infrastructure/baremetal-instance-restart.png" alt-text="Screenshot showing how to restart the ALI instance.":::
+
 ### Restart an ALI instance through the Azure portal
 
 There are various situations in which the operating system won't complete a restart, which requires a power restart of the ALI instance.
@@ -218,8 +221,6 @@ You can do a power restart of the instance directly from the Azure portal or thr
 ### [Portal](#tab/azure-portal)
 
 Select Restart and then Yes to confirm the restart. 
-
- :::image type="content" source="../baremetal-infrastructure/media/connect-baremetal-infrastructure/baremetal-instance-restart.png" alt-text="Screenshot showing how to restart the ALI instance.":::
 
 When you restart an AKI instance, you'll experience a delay. 
 During this delay, the power state moves from **Starting** to **Started**, which means the OS has started up completely. 

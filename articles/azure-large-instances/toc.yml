@@ -20,7 +20,7 @@
     href: ali-netapp-with-cvo.md
 - name: Workloads
   items:
-  - name: Azure Large Instances for the Epic workload
+  - name: ALI for Epic workload
     href: ./workloads/epic/index.yml
 - name: FAQ
   href: faq.md

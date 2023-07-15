@@ -59,12 +59,6 @@ ALI offers the following benefits:
 
 ## SKU availability in Azure regions
 
-ALI offers multiple SKUs certified for specialized workloads.
-Use the workload-specific SKUs to meet your needs:
-
-* Large instances – two-socket to four-socket systems
-* Very Large instances – 4-socket to 20-socket systems
-
 ALI for specialized workloads is available in the following Azure regions:
 
 * West Europe
@@ -90,7 +84,7 @@ You're set to register your OS licenses (BYOL), configure the OS, and install th
 
 You'll see all the ALI resources, and their state and attributes, in the Azure portal. You can also operate the instances, open service requests, and support tickets from there. 
 
-Azure Large instances are ISO 27001, ISO 27017, SOC 1, and SOC 2 compliant. It also uses a bring-your-own-license (BYOL) model: OS, specialized workload, and third-party applications.
+Azure Large instances are ISO 27001, ISO 27017, ISO 27018, SOC 1, and SOC 2 compliant. It also uses a bring-your-own-license (BYOL) model: OS, specialized workload, and third-party applications.
 
 As soon as you receive root access and full control, you assume responsibility for the following tasks:
 
@@ -132,7 +126,7 @@ Storage and compute units assigned to different tenants cannot see each other or
 The Linux OS version for ALI is Red Hat Enterprise Linux (RHEL) 8.4.  
 
 >[!Note]
-> Remember, ALI is a BYOL model.
+> Remember,Check properties of an instance ALI is a BYOL model.
 
 Microsoft loads base image with RHEL 8.4, but customers can choose to upgrade to newer versions in collaboration with Microsoft team.
 
