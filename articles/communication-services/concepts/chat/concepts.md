@@ -6,7 +6,7 @@ author: kperla97
 manager: sundraman
 services: azure-communication-services
 ms.author: chpalm
-ms.date: 05/09/2023
+ms.date: 07/14/2023
 ms.topic: conceptual
 ms.service: azure-communication-services
 ms.subservice: chat
@@ -95,6 +95,10 @@ The client app can subscribe to following events:
 > Real time notifications are not to be used with server applications.
 
 For more information, see [Server Events](../../../event-grid/event-schema-communication-services.md?bc=/azure/bread/toc.json&toc=/azure/communication-services/toc.json).
+
+## Server Events
+
+Server events are events that are generated on the server side using Azure Event grid. There is no additional cost to you to use these events. Common scenarios include participants leaving the chats, messages being received that requires a follow up action and archiving chats. TO see what kinds of chat events can be used to developers, please see [Server Events](../../../event-grid/event-schema-communication-services.md?bc=/azure/bread/toc.json&toc=/azure/communication-services/toc.json)
 
 ## Push notifications 
 
