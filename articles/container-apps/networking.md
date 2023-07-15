@@ -232,8 +232,6 @@ az containerapp env update \
     --enable-mtls
 ```
 
----
-
 # [ARM template](#tab/arm-template)
 
 You can enable mTLS in the ARM template for Container Apps environments using the below.
