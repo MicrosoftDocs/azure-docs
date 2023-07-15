@@ -232,7 +232,6 @@ To restart an ALI instance, use the [az baremetalinstance restart](/cli/azure/ba
 ```azurecli
 az baremetalinstance restart --resource-group --instance-name MyALIinstanceName
 ```
-```
 
 ---
 

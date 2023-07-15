@@ -71,7 +71,7 @@ For setup instructions, see [Enable ExpressRoute Fast Path](#enable-expressroute
 
 To see the learned routes from ALI, one of the options is looking at the Effective Routes table of one of your VMs, as follows:
 
-1. In Azure portal, select any of your VMs (any connected to the Hub, or to a Spoke connected to the Hub which is connected to ALI), select **Networking**, select the network interface name, then select **Effective Routes**.
+1. In Azure portal, select any of your VMs (any connected to the Hub, or to a Spoke connected to the Hub that is connected to ALI), select **Networking**, select the network interface name, then select **Effective Routes**.
 
 2. Make sure to enable accelerated networking with all VMs connecting to ALI. 
 
@@ -88,8 +88,8 @@ If you don't see your deployed Azure Large Instances under your subscription, re
 
 ### Enable ExpressRoute Fast Path
 
-Before you begin, install the latest version of the Azure resource manager power shell cmdlets, at least 4.0 or later.
-For more information about installing the power shell cmdlets, see [How to install Azure Powershell](https://learn.microsoft.com/powershell/azure/install-azure-powershell?view=azps-10.0.0).
+Before you begin, install the latest version of the Azure resource manager PowerShell cmdlets, at least 4.0 or later.
+For more information about installing the power shell cmdlets, see [How to install Azure PowerShell](https://learn.microsoft.com/powershell/azure/install-azure-powershell?view=azps-10.0.0).
 
 For more information, see these resources:
 

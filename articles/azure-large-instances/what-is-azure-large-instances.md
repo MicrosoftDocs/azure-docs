@@ -102,7 +102,7 @@ Microsoft is responsible for:
 - Providing the hardware for specialized workloads.
 - Provisioning the OS.
 
-    :::image type="content" source="media/what-is-azure-large-instances/ali-support-model-2.png" alt-text="Networking diagram of ALI for Epic diagram." lightbox="media/what-is-azure-large-instances/ali-support-model-2.png" border="false":::
+    :::image type="content" source="media/what-is-azure-large-instances/ali-support-model-2.png" alt-text="ALI support model." lightbox="media/what-is-azure-large-instances/ali-support-model-2.png" border="false":::
 
 
 ## ALI stamp
@@ -170,7 +170,7 @@ To extend connectivity across geopolitical boundaries, you can enable ExpressRou
 
 ALI is provisioned within your Azure VNet server IP address range.
 
-:::image type="content" source="media/what-is-azure-large-instances/ali-networking.png" alt-text="Networking diagram of ALI for Epic diagram." lightbox="media/what-is-azure-large-instances/ali-networking.png" border="false":::
+:::image type="content" source="media/what-is-azure-large-instances/ali-networking.png" alt-text="Networking diagram of ALI." lightbox="media/what-is-azure-large-instances/ali-networking.png" border="false":::
 
 The architecture shown is divided into three sections: 
 
