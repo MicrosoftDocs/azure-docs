@@ -27,9 +27,9 @@ Benefits of precaching your Visual Studio solution on a dev box image include:
 
 ## Prerequisites
 
-To leverage pre-caching of your source code and Visual Studio IDE customizations on Microsoft Dev Box, you need to meet the following requirements:
+To leverage precaching of your source code and Visual Studio IDE customizations on Microsoft Dev Box, you need to meet the following requirements:
 
-- Create a dev center and configure the Microsoft Dev Box service. If you don't have one available, follow the steps in the [Quickstart: Configure Microsoft Dev Box](quickstart-configure-dev-box-service.md) to create a dev center and configure a dev box.
+- Create a dev center and configure the Microsoft Dev Box service. If you don't have one available, follow the steps in [Quickstart: Configure Microsoft Dev Box](quickstart-configure-dev-box-service.md) to create a dev center and configure a dev box.
 - [Create a custom VM image for dev box](how-to-customize-devbox-azure-image-builder.md) that includes your source code and pregenerated caches. 
 
   This article guides you through the creation of an Azure Resource Manager template. In the following sections, you'll modify that template to include processes to [generate the Visual Studio solution cache](#enable-caches-in-dev-box-images) and further improve Visual Studio performance by [preparing the git commit graph](#enable-git-commit-graph-optimizations) for your project.
@@ -40,7 +40,7 @@ You can then use the resulting image to [create new dev boxes](quickstart-config
 
 You can generate caches for your Visual Studio solution as part of an automated pipeline that builds custom dev box images. To do so, you must meet the following requirements:
 
-* Within the Azure Resource Manager template, add a customized step to clone the source repository of your project into a nonuser specific location on the VM.
+* Within the [Azure Resource Manager template](how-to-customize-devbox-azure-image-builder.md), add a customized step to clone the source repository of your project into a nonuser specific location on the VM.
 * With the project source located on disk you can now run the `PopulateSolutionCache` feature to generate the project caches. To do this, add the following PowerShell command to your template's customized steps:
 
     ```shell
