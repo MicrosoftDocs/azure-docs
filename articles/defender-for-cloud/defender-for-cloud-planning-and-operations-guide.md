@@ -23,7 +23,7 @@ This guide provides the background for how Defender for Cloud fits into your org
 
 In the next section, you'll learn how to plan for each one of those areas and apply those recommendations based on your requirements.
 
-> [!NOTE]
+> [NOTE!]
 > Read [Defender for Cloud common questions](faq-general.yml) for a list of common questions that can also be useful during the designing and planning phase.
 
 ## Security roles and access controls
