@@ -91,7 +91,7 @@ Vectors aren't designed for readability, so avoid returning them in the response
 
 ### Number of results
 
-A query might match to any number of documents, up to all of them in the search index if the search criteria is weak. However, the size of the results sent back in the response is determined by the query parameters "k" and "top". Maximum results in a response are either:
+A query might match to any number of documents, up to all of them in the search index if the search criteria are weak. However, the size of the results sent back in the response is determined by the query parameters "k" and "top". Maximum results in a response are either:
 
 + `"k": n` results for vector-only queries
 + `"top": n` results for hybrid queries
@@ -141,9 +141,9 @@ Notice that "select" returns textual fields from the index. Although the vector 
 
 ## Query syntax for hybrid search
 
-A hybrid query combines full text search and vector search. The search engine runs full text and vector queries in parallel. All matches are evaluated for relevance using Reciprocal Rank Fusion (RRF) and a single result set is returned in the response.
+A hybrid query combines full text search and vector search, where the `"search"` parameter takes a query string and `"vectors.value"` takes the vector query. The search engine runs full text and vector queries in parallel. All matches are evaluated for relevance using Reciprocal Rank Fusion (RRF) and a single result set is returned in the response.
 
-You can also write queries that target just the vector fields, or just the text fields, within your search index. For example, besides vector queries, you might also want to write queries that filter by location or search over product names or titles, scenarios for which similarity search isn't a good fit.
+Hybrid queries are useful because they add support for filters, orderby, and [semantic search](semantic-how-to-query-request.md) For example, in addition to the vector query, you could filter by location or search over product names or titles, scenarios for which similarity search isn't a good fit.
 
 The following example is from the [Postman collection of REST APIs](https://github.com/Azure/cognitive-search-vector-pr/tree/main/demo-python) that demonstrate query configurations. It shows a complete request that includes vector search, full text search with filters, and semantic search with captions and answers. Semantic search is an optional premium feature. It's not required for vector search or hybrid search. For content that includes rich descriptive text *and* vectors, it's possible to benefit from all of the search modalities in one request.
 
@@ -177,7 +177,7 @@ api-key: {{admin-api-key}}
 
 ## Query syntax for vector query over multiple fields
 
-You can set "vector.fields" property to multiple vector fields. For example, the Postman collection has vector fields named "titleVector" and "contentVector". Your vector query executes over both the "titleVector" and "contentVector" fields, which must have the same embedding space since they share the same query vector.
+You can set the "vectors.fields" property to multiple vector fields. For example, the Postman collection has vector fields named "titleVector" and "contentVector". Your vector query executes over both the "titleVector" and "contentVector" fields, which must have the same embedding space since they share the same query vector.
 
 ```http
 POST https://{{search-service-name}}.search.windows.net/indexes/{{index-name}}/docs/search?api-version={{api-version}}
