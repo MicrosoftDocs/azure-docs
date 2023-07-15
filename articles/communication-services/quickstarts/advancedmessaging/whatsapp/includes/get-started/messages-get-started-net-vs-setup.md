@@ -5,7 +5,6 @@ services: azure-communication-services
 author: memontic-ms
 manager: 
 ms.service: azure-communication-services
-ms.subservice: messages
 ms.date: 06/20/2023
 ms.topic: include
 ms.custom: include file

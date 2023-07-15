@@ -9,7 +9,6 @@ ms.author: darmour
 ms.date: 06/26/2023
 ms.topic: conceptual
 ms.service: azure-communication-services
-ms.subservice: advancedmessaging
 ---
 
 # Advanced Messaging For WhatsApp in Azure Communication Services
