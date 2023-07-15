@@ -270,7 +270,7 @@ If you want to know when you reach a certain transaction threshold, for example 
 
     :::image type="content" source="./media/luis-usage-tiers/alerts.png" alt-text="Screenshot that shows the alert rules page." lightbox="./media/luis-usage-tiers/alerts.png":::
 
-3. Click on **Add condition**
+3. Select **Add condition**
 
     :::image type="content" source="./media/luis-usage-tiers/alerts-2.png" alt-text="Screenshot that shows the add condition page for alert rules." lightbox="./media/luis-usage-tiers/alerts-2.png":::
 

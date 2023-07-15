@@ -27,6 +27,17 @@ Document Intelligence service is updated on an ongoing basis. Bookmark this page
 >[!NOTE]
 > With the release of the 2022-08-31 GA API, the associated preview APIs are being deprecated. If you are using the 2021-09-30-preview or the 2022-01-30-preview API versions, please update your applications to target the 2022-08-31 API version. There are a few minor changes involved, for more information, _see_ the [migration guide](v3-migration-guide.md).
 
+## July 2023
+
+> [!NOTE]
+> Form Recognizer is now Document Intelligence!
+>
+> Azure AI services now encompass all of what were previously known as Azure Cognitive Services and Azure Applied AI Services.
+>
+> There are no changes to pricing. The names "Cognitive Services" and "Azure Applied AI" will continue to be used in Azure billing, cost analysis, price list, and price APIs.
+>
+> There are no breaking changes to application programming interfaces (APIs) or SDKs.
+
 ## May 2023
 
 **Introducing refreshed documentation for Build 2023**
@@ -59,13 +70,13 @@ Document Intelligence service is updated on an ongoing basis. Bookmark this page
 > * East US
 
 * [**Custom classification model**](concept-custom-classifier.md) is a new capability within Document Intelligence starting with the ```2023-02-28-preview``` API. Try the document classification capability using the [Document Intelligence Studio](https://formrecognizer.appliedai.azure.com/studio/document-classifier/projects) or the [REST API](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2023-02-28-preview/operations/GetClassifyDocumentResult).
-* [**Query fields**](concept-query-fields.md) capabilities, added to the General Document model, use Azure OpenAI models to extract specific fields from documents. Try the **General documents with query fields** feature using the [Document Intelligence Studio](https://formrecognizer.appliedai.azure.com/studio). Query fields are currently only active for resources in the `East US` region.
+* [**Query fields**](concept-query-fields.md) capabilities added to the General Document model, use Azure OpenAI models to extract specific fields from documents. Try the **General documents with query fields** feature using the [Document Intelligence Studio](https://formrecognizer.appliedai.azure.com/studio). Query fields are currently only active for resources in the `East US` region.
 * [**Read**](concept-read.md#barcode-extraction) and [**Layout**](concept-layout.md#barcode-extraction) models support **barcode** extraction with the ```2023-02-28-preview``` API.
 * [**Add-on capabilities**](concept-add-on-capabilities.md)
   * [**Font extraction**](concept-add-on-capabilities.md#font-property-extraction) is now recognized with the ```2023-02-28-preview``` API.
   * [**Formula extraction**](concept-add-on-capabilities.md#formula-extraction) is now recognized with the ```2023-02-28-preview``` API.
   * [**High resolution extraction**](concept-add-on-capabilities.md#high-resolution-extraction) is now recognized with the ```2023-02-28-preview``` API.
-* [**Common name key normalization**](concept-general-document.md#key-normalization-common-name) capabilities are added to the General Document model to improve processing forms with variations in key names. 
+* [**Common name key normalization**](concept-general-document.md#key-normalization-common-name) capabilities are added to the General Document model to improve processing forms with variations in key names.
 * [**Custom extraction model updates**](concept-custom.md)
   * [**Custom neural model**](concept-custom-neural.md) now supports added languages for training and analysis. Train neural models for Dutch, French, German, Italian and Spanish.
   * [**Custom template model**](concept-custom-template.md) now has an improved signature detection capability.
@@ -200,7 +211,7 @@ Document Intelligence service is updated on an ongoing basis. Bookmark this page
 ## October 2022
 
 * **Document Intelligence versioned content**
-  * Document Intelligence documentation has been updated to present a versioned experience. Now, you can choose to view content targeting the v3.0 GA experience or the v2.1 GA experience. The v3.0 experience is the default.
+  * Document Intelligence documentation has been updated to present a versioned experience. Now, you can choose to view content targeting the `v3.0 GA` experience or the `v2.1 GA` experience. The v3.0 experience is the default.
 
     :::image type="content" source="media/versioning-and-monikers.png" alt-text="Screenshot of the Document Intelligence landing page denoting the version dropdown menu.":::
 
@@ -310,7 +321,7 @@ Document Intelligence service is updated on an ongoing basis. Bookmark this page
 
   * For a complete list of regions where training is supported see [custom neural models](concept-custom-neural.md).
 
-  * Document Intelligence SDK version 4.0.0 GA release
+  * Document Intelligence SDK version `4.0.0 GA` release
     * **Document Intelligence SDKs version 4.0.0 (.NET/C#, Java, JavaScript) and version 3.2.0 (Python) are generally available and ready for use in production applications!**
     * For more information on Document Intelligence SDKs, see the [**SDK overview**](sdk-overview.md).
     * Update your applications using your programming language's **migration guide**.
@@ -763,7 +774,7 @@ Document Intelligence service is updated on an ongoing basis. Bookmark this page
 
    For a list of field values, _see_ [Fields extracted](./concept-id-document.md) in our Document Intelligence documentation.
 
-* ** **Bitmap Image file (.bmp) support for custom forms and training methods in the [FormContentType](/java/api/com.azure.ai.formrecognizer.models.formcontenttype?view=azure-java-preview&preserve-view=true#fields) fields**:
+* ** **Bitmap Image file (.bmp) support for custom forms and training methods in the [`FormContentType`](/java/api/com.azure.ai.formrecognizer.models.formcontenttype?view=azure-java-preview&preserve-view=true#fields) fields**:
 
   * `image/bmp`
 

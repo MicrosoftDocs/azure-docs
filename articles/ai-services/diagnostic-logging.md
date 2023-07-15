@@ -13,7 +13,7 @@ ms.author: pafarley
 
 # Enable diagnostic logging for Azure AI services
 
-This guide provides step-by-step instructions to enable diagnostic logging for an Azure AI service. These logs provide rich, frequent data about the operation of a resource that are used for issue identification and debugging. Before you continue, you must have an Azure account with a subscription to at least one Cognitive Service, such as [Speech Services](./speech-service/overview.md), or [LUIS](./luis/what-is-luis.md).
+This guide provides step-by-step instructions to enable diagnostic logging for an Azure AI service. These logs provide rich, frequent data about the operation of a resource that are used for issue identification and debugging. Before you continue, you must have an Azure account with a subscription to at least one Azure AI service, such as [Speech Services](./speech-service/overview.md), or [LUIS](./luis/what-is-luis.md).
 
 ## Prerequisites
 
@@ -39,7 +39,7 @@ Let's start by enabling diagnostic logging using the Azure portal.
 4. Enter a name for the setting. Then select **Archive to a storage account** and **Send to log Analytics**.
 5. When prompted to configure, select the storage account and OMS workspace that you'd like to use to store you diagnostic logs. **Note**: If you don't have a storage account or OMS workspace, follow the prompts to create one.
 6. Select **Audit**, **RequestResponse**, and **AllMetrics**. Then set the retention period for your diagnostic log data. If a retention policy is set to zero, events for that log category are stored indefinitely.
-7. Click **Save**.
+7. Select **Save**.
 
 It can take up to two hours before logging data is available to query and analyze. So don't worry if you don't see anything right away.
 

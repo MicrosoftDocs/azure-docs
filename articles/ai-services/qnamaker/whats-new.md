@@ -99,6 +99,6 @@ Learn what's new with QnA Maker.
 > [!div class="nextstepaction"]
 > [Create a QnA Maker service](how-to/set-up-qnamaker-service-azure.md)
 
-## Cognitive Service updates
+## Azure AI services updates
 
 [Azure update announcements for Azure AI services](https://azure.microsoft.com/updates/?product=cognitive-services)

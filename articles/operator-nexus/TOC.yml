@@ -23,8 +23,6 @@
   items:
     - name: Before you start workload deployment
       href: quickstarts-tenant-workload-prerequisites.md
-    - name: Tenant workload deployment
-      href: quickstarts-tenant-workload-deployment.md
     - name: Deploy Nexus Kubernetes cluster
       expanded: true
       items:
@@ -34,6 +32,11 @@
           href: quickstarts-kubernetes-cluster-deployment-arm.md
         - name: Use Bicep file
           href: quickstarts-kubernetes-cluster-deployment-bicep.md
+    - name: Deploy Nexus Virtual Machine
+      expanded: true
+      items:
+        - name: Use the Azure CLI
+          href: quickstarts-tenant-workload-deployment.md
 - name: How-To Guides
   items:
     - name: Instance Deployment and Upgrade
@@ -81,15 +84,18 @@
           href: howto-kubernetes-cluster-aad-rbac.md
         - name: Monitor Nexus Kubernetes cluster
           href: howto-monitor-naks-cluster.md
+    - name: Nexus Virtual Machine
+      expanded: false
+      items:
+        - name: Create virtual machine image
+          href: howto-virtual-machine-image.md
     - name: Network Fabric Route Policy
-      href: how-to-route-policy.md      
-    - name: AKS-Hybrid
-      href: howto-hybrid-aks.md
+      href: how-to-route-policy.md     
     - name: Monitor VMs for VNF
       href: howto-monitor-virtualized-network-functions-virtual-machines.md
     - name: Cluster metrics configuration management
       href: howto-cluster-metrics-configuration-management.md
-    - name: Pre-certification
+    - name: Precertification
       href: howto-precertification.md
     - name: Tracking asynchronous operations
       href: howto-track-async-operations-cli.md
@@ -107,15 +113,9 @@
       href: troubleshoot-internet-host-virtual-machine.md
     - name: Troubleshoot BMM reboot issues
       href: troubleshoot-bmm-node-reboot.md
-- name: Sample Deployment
-  items:
-    - name: VNF Deployment
-      href: template-virtualized-network-function-deployment.md
-    - name: CNF Deployment
-      href: template-cloud-native-network-function-deployment.md
 - name: Reference
   items:
-    - name: Instance to On-Premises WAN Connectivity
+    - name: Instance to on-premises WAN Connectivity
       href: reference-customer-edge-provider-edge-connectivity.md
     - name: List of metrics collected
       href: List-of-metrics-collected.md

@@ -23,9 +23,19 @@ Translator is a language service that enables users to translate text and docume
 
 Translator service supports language translation for more than 100 languages. If your language community is interested in partnering with Microsoft to add your language to Translator, contact us via the [Translator community partner onboarding form](https://forms.office.com/pages/responsepage.aspx?id=v4j5cvGGr0GRqy180BHbR-riVR3Xj0tOnIRdZOALbM9UOU1aMlNaWFJOOE5YODhRR1FWVzY0QzU1OS4u).
 
+## July 2023
+
+> [!NOTE]
+> Azure AI services now encompass all of what were previously known as Azure Cognitive Services and Azure Applied AI Services.
+>
+> There are no changes to pricing. The names "Cognitive Services" and "Azure Applied AI" will continue to be used in Azure billing, cost analysis, price list, and price APIs.
+>
+> There are no breaking changes to application programming interfaces (APIs) or SDKs.
+
 ## June 2023
 
 **Documentation updates**
+
 * The [Document Translation SDK overview](document-translation/document-sdk-overview.md) is now available to provide guidance and resources for the .NET/C# and Python SDKs.
 * The [Document Translation SDK quickstart](document-translation/quickstarts/document-translation-sdk.md) is now available for the C# and Python programming languages.
 
@@ -114,7 +124,7 @@ Document Translation .NET and Python client-library SDKs are now generally avail
 
 ## February 2022
 
-### [Text and document translation support for Upper Sorbian](https://www.microsoft.com/translator/blog/2022/02/21/translator-celebrates-international-mother-language-day-by-adding-upper-sorbian/), 
+### [Text and document translation support for Upper Sorbian](https://www.microsoft.com/translator/blog/2022/02/21/translator-celebrates-international-mother-language-day-by-adding-upper-sorbian/),
 
 * Translator service has [text and document translation language support](language-support.md) for Upper Sorbian. The Translator team has worked tirelessly to preserve indigenous and endangered languages around the world. Language data provided by the Upper Sorbian language community was instrumental in introducing this language to Translator.
 

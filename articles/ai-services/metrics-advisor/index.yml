@@ -82,7 +82,7 @@ landingContent:
   linkLists:
     - linkListType: reference
       links:
-        - text: Introducing Metrics Advisor - A new Cognitive Service
+        - text: Introducing Metrics Advisor - A new Azure AI service
           url: https://techcommunity.microsoft.com/t5/azure-ai/introducing-metrics-advisor-a-new-cognitive-service/ba-p/1668025
         - text: Protect your organization's growth by using Azure AI Metrics Advisor
           url: https://techcommunity.microsoft.com/t5/azure-ai/protect-your-organization-s-growth-by-using-azure-metrics/ba-p/2564682

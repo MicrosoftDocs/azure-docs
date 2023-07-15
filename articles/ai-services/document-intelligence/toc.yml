@@ -5,7 +5,7 @@ items:
   expanded: true
   items:
   - name: 🆕 What is Azure AI Document Intelligence?
-    displayName: models, develop, development
+    displayName: models, develop, development, cognitive, applied, form recognizer, form, recognizer
     href: overview.md
   - name: 🆕 Choose a model?
     href: choose-model-feature.md
@@ -33,10 +33,10 @@ items:
     displayName: quota, tiers, throttle, max, adjustments, requests, support, ocr
     href: service-limits.md
   - name: What's new
-    displayName: changelog, release, updates, previews, beta, packages, ga
+    displayName: changelog, release, updates, previews, beta, packages, ga, cognitive, applied, form recognizer, form, recognizer
     href: whats-new.md
   - name: Document Intelligence FAQ
-    displayName: storage, security, privacy, help, support, versions, development, migrate, migration
+    displayName: storage, security, privacy, help, support, versions, development, migrate, migration, cognitive, applied, form recognizer, form, recognizer
     href: faq.yml
 - name: Quickstarts
   items:

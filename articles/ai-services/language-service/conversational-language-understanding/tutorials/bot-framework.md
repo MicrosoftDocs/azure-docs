@@ -30,7 +30,7 @@ This tutorial will explain how to integrate your own conversational language und
 
 1. Download the [FlightBooking.json](https://aka.ms/clu-botframework-json) file in the **Core Bot with CLU** sample, in the _Cognitive Models_ folder.
 2. Sign into the [Language Studio](https://language.cognitive.azure.com/) and select your Language resource. 
-3. Navigate to [Conversational Language Understanding](https://language.cognitive.azure.com/clu/projects) and click on the service. This will route you the projects page. Click the Import button next to the Create New Project button. Import the FlightBooking.json file with the project name as **FlightBooking**. This will automatically import the CLU project with all the intents, entities, and utterances. 
+3. Navigate to [Conversational Language Understanding](https://language.cognitive.azure.com/clu/projects) and select the service. This will route you the projects page. Select the Import button next to the Create New Project button. Import the FlightBooking.json file with the project name as **FlightBooking**. This will automatically import the CLU project with all the intents, entities, and utterances. 
     
     :::image type="content" source="../media/import.png" alt-text="A screenshot showing where to import a J son file." lightbox="../media/import.png":::
 
@@ -38,7 +38,7 @@ This tutorial will explain how to integrate your own conversational language und
     
     :::image type="content" source="../media/train-model.png" alt-text="A screenshot of the training page in C L U." lightbox="../media/train-model.png":::
     
-5. Once training is complete, click to **Deploying a model** on the left. Click on Add Deployment and create a new deployment with the name **Testing**, and assign model **v1** to the deployment.
+5. Once training is complete, click to **Deploying a model** on the left. Select Add Deployment and create a new deployment with the name **Testing**, and assign model **v1** to the deployment.
     
     :::image type="content" source="../media/deploy-model-tutorial.png" alt-text="A screenshot of the deployment page within the deploy model screen in C L U." lightbox="../media/deploy-model-tutorial.png":::
     

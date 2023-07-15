@@ -106,7 +106,7 @@ sections:
           | `Invalid` |	Your API key is invalid. You must provide a valid API key to configure the container for use in disconnected environments. Find your API key and service region in the Azure portal, in the **Keys and Endpoint** section for your Azure AI services resource. |
           | `Mismatch` | You've provided an API key or endpoint for a different kind of Azure AI services resource. Find your API key and service region in the Azure portal, in the **Keys and Endpoint** section for your Azure AI services resource. |
           | `CouldNotConnect` | The container couldn't connect to the endpoint. |
-          | `OutOfQuota` | The API key has exceeded the quota. You can either upgrade your pricing tier or wait for additional quota to become available. Find your tier in the Azure portal, in the **Pricing Tier** section of your Cognitive Service resource. |
+          | `OutOfQuota` | The API key has exceeded the quota. You can either upgrade your pricing tier or wait for additional quota to become available. Find your tier in the Azure portal, in the **Pricing Tier** section of your Azure AI service resource. |
           | `ContainerUseUnauthorized` | The provided API key isn't authorized for use with this container. You're likely using a gated container, so make sure your Azure subscription ID is approved by submitting an [online request](https://aka.ms/csgate). |
           | `Unknown` | The server is currently unable to process requests. |
       - question: How do I get support?

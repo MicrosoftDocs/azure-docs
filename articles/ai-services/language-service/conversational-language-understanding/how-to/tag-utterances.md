@@ -91,7 +91,7 @@ To remove a label:
 
 To delete an entity:
   1. Select the entity you want to edit in the right side pane.
-  2. Click on the three dots next to the entity, and select the option you want from the drop-down menu.
+  2. Select the three dots next to the entity, and select the option you want from the drop-down menu.
 
 ## Suggest utterances with Azure OpenAI
 
@@ -104,7 +104,7 @@ Before you get started, the suggest utterances feature is only available if your
 
 In the Data Labeling page: 
 
-1. Click on the **Suggest utterances** button. A pane will open up on the right side prompting you to select your Azure OpenAI resource and deployment. 
+1. Select the **Suggest utterances** button. A pane will open up on the right side prompting you to select your Azure OpenAI resource and deployment. 
 2. On selection of an Azure OpenAI resource, select **Connect**, which allows your Language resource to have direct access to your Azure OpenAI resource. It assigns your Language resource the role of `Cognitive Services User` to your Azure OpenAI resource, which allows your current Language resource to have access to Azure OpenAI's service. If the connection fails, follow these [steps](#add-required-configurations-to-azure-openai-resource) below to add the right role to your Azure OpenAI resource manually. 
 3. Once the resource is connected, select the deployment. The recommended model for the Azure OpenAI deployment is `text-davinci-002`.
 4. Select the intent you'd like to get suggestions for. Make sure the intent you have selected has at least 5 saved utterances to be enabled for utterance suggestions. The suggestions provided by Azure OpenAI are based on the **most recent utterances** you've added for that intent. 
@@ -132,7 +132,7 @@ Your Language resource must have identity management, to enable it using [Azure 
 
 Your Language resource must have identity management, to enable it using [Language Studio](https://aka.ms/languageStudio):
 
-1. Click the settings icon in the top right corner of the screen
+1. Select the settings icon in the top right corner of the screen
 2. Select **Resources**
 3. Select the check box **Managed Identity** for your Language resource.
 
@@ -141,14 +141,14 @@ Your Language resource must have identity management, to enable it using [Langua
 After enabling managed identity, assign the role `Azure AI services User` to your Azure OpenAI resource using the managed identity of your Language resource. 
 
   1. Go to the [Azure portal](https://portal.azure.com/) and navigate to your Azure OpenAI resource.
-  2. Click on the Access Control (IAM) tab on the left. 
-  3. Click on Add > Add role assignment. 
+  2. Select the Access Control (IAM) tab on the left. 
+  3. Select Add > Add role assignment. 
   4. Select "Job function roles" and click Next.
   5. Select `Azure AI services User` from the list of roles and click Next.
-  6. Select Assign access to "Managed identity" and click on "Select members". 
+  6. Select Assign access to "Managed identity" and select "Select members". 
   7. Under "Managed identity" select "Language".
-  8. Search for your resource and select it. Then click on the Select button below and next to complete the process.
-  9. Review the details and click on Review + Assign.
+  8. Search for your resource and select it. Then select the Select button below and next to complete the process.
+  9. Review the details and select Review + Assign.
 
 :::image type="content" source="../media/add-role-azure-openai.gif" alt-text="Multiple screenshots showing the steps to add the required role to your Azure OpenAI resource." lightbox="../media/add-role-azure-openai.gif":::
 

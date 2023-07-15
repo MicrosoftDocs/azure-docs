@@ -94,7 +94,7 @@ Once you prepare your data with either of the two schemas above, you could uploa
     > [!div class="mx-imgBorder"]
     > ![Screenshot of set access control UI.](../media/prepare-data/add-role-assignment.png)
 
-    * Search role of **Storage Blob Data Reader**, **click on it** and then select **Next**. Technically, the roles highlighted below and the *Owner* role all should work.
+    * Search for and select the role of **Storage Blob Data Reader** and then select **Next**. Technically, the roles highlighted below and the *Owner* role all should work.
 
     > [!div class="mx-imgBorder"]
     > ![Screenshot of add role assignment with reader roles selected.](../media/prepare-data/add-reader-role.png)

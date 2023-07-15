@@ -27,19 +27,20 @@ Private endpoints are provided by [Azure Private Link](../../private-link/privat
 > [!div class="mx-imgBorder"]
 > ![Text Analytics Identity](../qnamaker/media/qnamaker-reference-private-endpoints/private-endpoints-identity.png)
 
-2. Add the above identity as *Contributer* by going to Azure Search Service IAM tab.
+1. Add the above identity as *Contributer* by going to Azure Search Service IAM tab.
 
 ![Managed service IAM](../qnamaker/media/qnamaker-reference-private-endpoints/private-endpoint-access-control.png)
 
-3. Click on *Add role assignments*, add the identity and click on *Save*.
+1. Select **Add role assignments**, add the identity and then select **Save**.
 
 ![Managed role assignment](../qnamaker/media/qnamaker-reference-private-endpoints/private-endpoint-role-assignment.png)
 
-4. Now, go to *Networking* tab in the Azure Search Service instance and switch Endpoint connectivity data from *Public* to *Private*. This operation is a long running process and can take up to 30 mins to complete. 
+1. Now, go to the **Networking** tab in the Azure Search Service instance and switch Endpoint connectivity data from *Public* to *Private*. This operation is a long running process and can take up to 30 mins to complete. 
 
 ![Managed Azure search networking](../qnamaker/media/qnamaker-reference-private-endpoints/private-endpoint-networking.png)
 
-5. Go to *Networking* tab of Text Analytics service and under the *Allow access from*, select the *Selected Networks and private endpoints* option and Click *save*.
+1. Go to the **Networking** tab of Text Analytics service and under **Allow access from**, select the **Selected Networks and private endpoints** option.
+1. Select **Save**
  
 > [!div class="mx-imgBorder"]
 > ![Text Analytics newtorking](../qnamaker/media/qnamaker-reference-private-endpoints/private-endpoint-networking-custom-qna.png)

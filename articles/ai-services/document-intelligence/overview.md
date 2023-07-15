@@ -20,7 +20,15 @@ monikerRange: '<=doc-intel-3.0.0'
 
 # What is Azure AI Document Intelligence?
 
-[!INCLUDE [document-intelligence-rebrand](includes/document-intelligence-rebrand.md)]
+> [!NOTE]
+>
+> * Form Recognizer is now **Document Intelligence**!
+>
+> * Azure AI services now encompass all of what were previously known as Azure Cognitive Services and Azure Applied AI Services.
+>
+> * There are no changes to pricing. The names "Cognitive Services" and "Azure Applied AI" will continue to be used in Azure billing, cost analysis, price list, and price APIs.
+>
+> * There are no breaking changes to application programming interfaces (APIs) or SDKs.
 
 ::: moniker range="doc-intel-3.0.0"
 [!INCLUDE [applies to v3.0](includes/applies-to-v3-0.md)]

@@ -32,4 +32,4 @@ To start training your model from within the [Language Studio](https://aka.ms/la
     > * Only successfully completed training jobs will generate models.
     > * Training can take some time between a couple of minutes and couple of hours based on the count of utterances.
     > * You can only have one training job running at a time. You can't start other training jobs within the same project until the running job is completed.
-    > * The machine learning used to train models is regularly updated. To train on a previous [configuration version](../../../concepts/model-lifecycle.md), select **Click here to change** from the **Start a training job** page and choose a previous version.
+    > * The machine learning used to train models is regularly updated. To train on a previous [configuration version](../../../concepts/model-lifecycle.md), select **Select here to change** from the **Start a training job** page and choose a previous version.

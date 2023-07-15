@@ -21,7 +21,7 @@ ms.author: mbullwin
   
 > [!TIP]
 > * You can find Python Metrics Advisor samples on [GitHub](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/metricsadvisor/azure-ai-metricsadvisor/samples).
-> * It may take 10 to 30 minutes for your Metrics Advisor resource to deploy a service instance for you to use. Click **Go to resource** once it successfully deploys. After deployment, you can start using your Metrics Advisor instance with both the web portal and REST API.
+> * It may take 10 to 30 minutes for your Metrics Advisor resource to deploy a service instance for you to use. Select **Go to resource** once it successfully deploys. After deployment, you can start using your Metrics Advisor instance with both the web portal and REST API.
 > * You can find the URL for the REST API in Azure portal, in the **Overview** section of your resource. It will look like this:
 > * `https://<instance-name>.cognitiveservices.azure.com/`
 

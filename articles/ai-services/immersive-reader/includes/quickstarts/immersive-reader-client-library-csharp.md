@@ -315,7 +315,7 @@ In your browser, you should see:
 
 ## Launch the Immersive Reader
 
-When you click on the "Immersive Reader" button, you'll see the Immersive Reader launched with the content on the page.
+When you select the "Immersive Reader" button, you'll see the Immersive Reader launched with the content on the page.
 
 ![Immersive Reader - C#](../../media/quickstart-csharp/5-viewimmersivereader.png)
 

@@ -10,7 +10,7 @@ ms.date: 06/27/2022
 
 # Azure AI services autoscale feature
 
-This article provides guidance for how customers can access higher rate limits on their Cognitive Service resources.
+This article provides guidance for how customers can access higher rate limits on their Azure AI services resources.
 
 ## Overview
 
@@ -49,7 +49,7 @@ If the available capacity isn't enough for an increase, the autoscale feature wa
 
 ### What if I need a higher default rate limit?
 
-By default, Cognitive Service resources have a default rate limit of 10 TPS. If you need a higher default TPS, submit a ticket by following the **New Support Request** link on your resource's page in the Azure portal. Remember to include a business justification in the request.
+By default, Azure AI services resources have a default rate limit of 10 TPS. If you need a higher default TPS, submit a ticket by following the **New Support Request** link on your resource's page in the Azure portal. Remember to include a business justification in the request.
 
 ### Will this feature increase my Azure spend? 
 

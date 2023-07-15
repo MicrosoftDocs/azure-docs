@@ -36,9 +36,9 @@ Follow the instructions in [Create an Azure Media Services account](/azure/media
 
 Navigate to your new AMS subscription in the Azure portal and select **API access** from the side menu. Select **Connect to Azure Media Services with service principal**. Note the value in the **REST API endpoint** field; you will need this later.
 
-In the **Azure AD app** section, select **Create New** and name your new Azure AD application registration (for example, "VideoModADApp"). Click **Save** and wait a few minutes while the application is configured. Then, you should see your new app registration under the **Azure AD app** section of the page.
+In the **Azure AD app** section, select **Create New** and name your new Azure AD application registration (for example, "VideoModADApp"). Select **Save** and wait a few minutes while the application is configured. Then, you should see your new app registration under the **Azure AD app** section of the page.
 
-Select your app registration and click the **Manage application** button below it. Note the value in the **Application ID** field; you will need this later. Select **Settings** > **Keys**, and enter a description for a new key (such as "VideoModKey"). Click **Save**, and then notice the new key value. Copy this string and save it somewhere secure.
+Select your app registration and click the **Manage application** button below it. Note the value in the **Application ID** field; you will need this later. Select **Settings** > **Keys**, and enter a description for a new key (such as "VideoModKey"). Select **Save**, and then notice the new key value. Copy this string and save it somewhere secure.
 
 For a more thorough walkthrough of the above process, See [Get started with Azure AD authentication](/azure/media-services/previous/media-services-portal-get-started-with-aad).
 
@@ -48,7 +48,7 @@ Once you've done this, you can use the video moderation media processor in two d
 
 The Azure Media Services Explorer is a user-friendly frontend for AMS. Use it to browse your AMS account, upload videos, and scan content with the Content Moderator media processor. Download and install it from [GitHub](https://github.com/Azure/Azure-Media-Services-Explorer/releases), or see the [Azure Media Services Explorer blog post](https://azure.microsoft.com/blog/managing-media-workflows-with-the-new-azure-media-services-explorer-tool/) for more information.
 
-![Azure Media Services explorer with Content Moderator](images/ams-explorer-content-moderator.PNG)
+![Azure Media Services explorer with Content Moderator](images/ams-explorer-content-moderator.png)
 
 ## Create the Visual Studio project
 

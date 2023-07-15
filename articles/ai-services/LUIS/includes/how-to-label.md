@@ -17,7 +17,7 @@ To label your utterances, you have two options: Entity palette labeling and inli
 
 **Entity palette labeling**
 
-When you click on the **@** icon on top right, the entity palette opens in the right side of the page.
+When you select the **@** icon on top right, the entity palette opens in the right side of the page.
 
 1. Select the entity you want to start labeling.
 

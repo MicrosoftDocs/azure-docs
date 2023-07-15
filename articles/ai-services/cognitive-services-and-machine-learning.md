@@ -41,9 +41,9 @@ The process of building a machine learning system requires some knowledge of mac
 
 Machine learning is provided using [Azure Machine Learning (AML) products and services](/azure/architecture/data-guide/technology-choices/data-science-and-machine-learning?context=azure%2fmachine-learning%2fstudio%2fcontext%2fml-context).
 
-## What is a Cognitive Service?
+## What is an Azure AI service?
 
-A Cognitive Service provides part or all of the components in a machine learning solution: data, algorithm, and trained model. These services are meant to require general knowledge about your data without needing experience with machine learning or data science. These services provide both REST API(s) and language-based SDKs. As a result, you need to have programming language knowledge to use the services.
+An Azure AI service provides part or all of the components in a machine learning solution: data, algorithm, and trained model. These services are meant to require general knowledge about your data without needing experience with machine learning or data science. These services provide both REST API(s) and language-based SDKs. As a result, you need to have programming language knowledge to use the services.
 
 ## How are Azure AI services and Azure Machine Learning (AML) similar?
 
@@ -54,11 +54,11 @@ Generally, the audiences are different:
 * Azure AI services are for developers without machine-learning experience.
 * Azure Machine Learning is tailored for data scientists.
 
-## How is a Cognitive Service different from machine learning?
+## How are Azure AI services different from machine learning?
 
-A Cognitive Service provides a trained model for you. This brings data and an algorithm together, available from a REST API(s) or SDK. You can implement this service within minutes, depending on your scenario.  A Cognitive Service provides answers to general problems such as key phrases in text or item identification in images. 
+Azure AI services provide a trained model for you. This brings data and an algorithm together, available from a REST API(s) or SDK. You can implement this service within minutes, depending on your scenario. An Azure AI service provides answers to general problems such as key phrases in text or item identification in images. 
 
-Machine learning is a process that generally requires a longer period of time to implement successfully. This time is spent on data collection, cleaning, transformation, algorithm selection, model training, and deployment to get to the same level of functionality provided by a Cognitive Service. With machine learning, it is possible to provide answers to highly specialized and/or specific problems. Machine learning problems require familiarity with the specific subject matter and data of the problem under consideration, as well as expertise in data science.
+Machine learning is a process that generally requires a longer period of time to implement successfully. This time is spent on data collection, cleaning, transformation, algorithm selection, model training, and deployment to get to the same level of functionality provided by an Azure AI service. With machine learning, it is possible to provide answers to highly specialized and/or specific problems. Machine learning problems require familiarity with the specific subject matter and data of the problem under consideration, as well as expertise in data science.
 
 ## What kind of data do you have?
 
@@ -82,26 +82,25 @@ A service may need real-time or near-real time data to build an effective model.
 
 The following data categorizes each service by which kind of data it allows or requires.
 
-|Cognitive Service|No training data required|You provide some or all training data|Real-time or near real-time data collection|
+|Azure AI service|No training data required|You provide some or all training data|Real-time or near real-time data collection|
 |--|--|--|--|
 |[Anomaly Detector](./Anomaly-Detector/overview.md)|x|x|x|
-|Bing Search |x|||
-|[Azure AI Vision](./computer-vision/overview.md)|x|||
 |[Content Moderator](./Content-Moderator/overview.md)|x||x|
 |[Custom Vision](./custom-vision-service/overview.md)||x||
 |[Face](./computer-vision/overview-identity.md)|x|x||
 |[Language Understanding (LUIS)](./LUIS/what-is-luis.md)||x||
-|[Personalizer](./personalizer/what-is-personalizer.md)|x*|x*|x|
+|[Personalizer](./personalizer/what-is-personalizer.md)<sup>1</sup></sup>|x|x|x|
 |[QnA Maker](./QnAMaker/Overview/overview.md)||x||
 |[Speaker Recognizer](./speech-service/speaker-recognition-overview.md)||x||
 |[Speech Text to speech (TTS)](speech-service/text-to-speech.md)|x|x||
 |[Speech Speech to text (STT)](speech-service/speech-to-text.md)|x|x||
 |[Speech Translation](speech-service/speech-translation.md)|x|||
-|[Language service](./language-service/overview.md)|x|||
+|[Language](./language-service/overview.md)|x|||
 |[Translator](./translator/translator-overview.md)|x|||
 |[Translator - custom translator](./translator/custom-translator/overview.md)||x||
+|[Vision](./computer-vision/overview.md)|x|||
 
-*Personalizer only needs training data collected by the service (as it operates in real-time) to evaluate your policy and data. Personalizer does not need large historical datasets for up-front or batch training. 
+<sup>1</sup> Personalizer only needs training data collected by the service (as it operates in real-time) to evaluate your policy and data. Personalizer does not need large historical datasets for up-front or batch training. 
 
 ## Where can you use Azure AI services?
  
@@ -117,7 +116,7 @@ Each service provides information about your data. You can combine services toge
 
 Azure AI services that provide exported models for other machine learning tools:
 
-|Cognitive Service|Model information|
+|Azure AI service|Model information|
 |--|--|
 |[Custom Vision](./custom-vision-service/overview.md)|[Export](./custom-vision-service/export-model-python.md) for Tensorflow for Android, CoreML for iOS11, ONNX for Windows ML|
 

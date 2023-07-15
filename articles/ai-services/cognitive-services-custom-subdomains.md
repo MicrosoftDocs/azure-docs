@@ -1,7 +1,7 @@
 ---
 title: Custom subdomains
 titleSuffix: Azure AI services
-description: Custom subdomain names for each Cognitive Service resource are created through the Azure portal, Azure Cloud Shell, or Azure CLI.
+description: Custom subdomain names for each Azure AI services resource are created through the Azure portal, Azure Cloud Shell, or Azure CLI.
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme

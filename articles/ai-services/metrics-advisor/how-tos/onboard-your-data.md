@@ -185,15 +185,15 @@ There are several advanced settings to enable data ingested in a customized way,
 
 ## Specify a name for the data feed and check the ingestion progress
  
-Give a custom name for the data feed, which will be displayed in your workspace. Then click on **Submit**. In the data feed details page, you can use the ingestion progress bar to view status information.
+Give a custom name for the data feed, which will be displayed in your workspace. Then select **Submit**. In the data feed details page, you can use the ingestion progress bar to view status information.
 
 :::image type="content" source="../media/datafeeds/ingestion-progress.png" alt-text="Ingestion progress bar" lightbox="../media/datafeeds/ingestion-progress.png":::
 
 
 To check ingestion failure details: 
 
-1. Click **Show Details**.
-2. Click **Status** then choose **Failed** or **Error**.
+1. Select **Show Details**.
+2. Select **Status** then choose **Failed** or **Error**.
 3. Hover over a failed ingestion, and view the details message that appears.
 
 :::image type="content" source="../media/datafeeds/check-failed-ingestion.png" alt-text="Check failed ingestion":::

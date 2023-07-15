@@ -24,12 +24,12 @@ Use this article to get started with the LUIS portal, and create an authoring re
 
 :::image type="content" source="../media/migrate-authoring-key/select-subscription-sign-in-2.png" alt-text="A screenshot showing how to select a subscription." lightbox="../media/migrate-authoring-key/select-subscription-sign-in-2.png":::
 
-4. If your subscription lives under another tenant, you will not be able to switch tenants from the existing window. You can switch tenants by closing this window and selecting the avatar containing your initials in the top-right section of the screen. Click on  **Choose a different authoring resource**  from the top to reopen the window.
+4. If your subscription lives under another tenant, you will not be able to switch tenants from the existing window. You can switch tenants by closing this window and selecting the avatar containing your initials in the top-right section of the screen. Select **Choose a different authoring resource**  from the top to reopen the window.
 
 :::image type="content" source="../media/migrate-authoring-key/switch-directories.png" alt-text="A screenshot showing how to choose a different authoring resource." lightbox="../media/migrate-authoring-key/switch-directories.png":::
 
 5. If you have an existing LUIS authoring resource associated with your subscription, choose it from the dropdown list. You can view all applications that are created under this authoring resource.
-6. If not, then click on  **Create a new authoring resource**  at the bottom of this modal.
+6. If not, then select  **Create a new authoring resource**  at the bottom of this modal.
 7. When creating a new authoring resource, provide the following information:
 :::image type="content" source="../media/migrate-authoring-key/create-new-authoring-resource-2.png" alt-text="A screenshot showing the page for adding resource information." lightbox="../media/migrate-authoring-key/create-new-authoring-resource-2.png":::
 
@@ -59,7 +59,7 @@ There are a couple of ways to create a LUIS app. You can create a LUIS app in th
 * [Add prebuilt application](https://westeurope.dev.cognitive.microsoft.com/docs/services/luis-programmatic-apis-v3-0-preview/operations/59104e515aca2f0b48c76be5) - start with a prebuilt domain, including intents, utterances, and entities.
 
 ## Create new app in LUIS using portal
-1. On  **My Apps**  page, select your  **Subscription** , and  **Authoring resource**  then click on **+ New App**.
+1. On  **My Apps**  page, select your  **Subscription** , and  **Authoring resource**  then select **+ New App**.
 :::image type="content" source="../media/create-app-in-portal.png" alt-text="A screenshot showing the LUIS apps screen." lightbox="../media/create-app-in-portal.png":::
 
 1. In the dialog box, enter the name of your application, such as Pizza Tutorial.

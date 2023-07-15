@@ -430,6 +430,6 @@ Follow an [Extract text quickstart](https://github.com/Azure-Samples/cognitive-s
 * Deprecated the V0 endpoint of Face API on June 30, 2016.
 
 
-## Cognitive Service updates
+## Azure AI services updates
 
 [Azure update announcements for Azure AI services](https://azure.microsoft.com/updates/?product=cognitive-services)

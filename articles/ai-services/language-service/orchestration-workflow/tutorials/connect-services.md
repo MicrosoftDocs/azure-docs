@@ -45,8 +45,8 @@ You are now done with deploying your knowledge base for chit chat. You can explo
 ## Create a conversational language understanding project
 
 1. In Language Studio, go to the [Conversational language understanding](https://language.cognitive.azure.com/clu/projects) service. 
-2. Download the **EmailProject.json** sample file [here](https://aka.ms/clu-sample-json).
-3. Click on the **Import** button. Browse to the EmailProject.json file you downloaded and press Done. 
+2. Download the `EmailProject.json` sample file [here](https://aka.ms/clu-sample-json).
+3. Select the **Import** button. Browse to the `EmailProject.json`` file you downloaded and press Done. 
     
     :::image type="content" source="../media/import-export.png" alt-text="A screenshot showing where to import a J son file." lightbox="../media/import-export.png":::
     
@@ -54,7 +54,7 @@ You are now done with deploying your knowledge base for chit chat. You can explo
     
     :::image type="content" source="../media/train-model.png" alt-text="A screenshot of the training page." lightbox="../media/train-model.png":::
     
-5. Once training is complete, click to **Deploying a model** on the left. Click on Add Deployment and create a new deployment with the name **Testing**, and assign model **v1** to the deployment.
+5. Once training is complete, click to **Deploying a model** on the left. Select **Add Deployment** and create a new deployment with the name **Testing**, and assign model **v1** to the deployment.
     
     :::image type="content" source="../media/deploy-model-tutorial.png" alt-text="A screenshot showing the model deployment page." lightbox="../media/deploy-model-tutorial.png":::
     
@@ -71,7 +71,7 @@ You are now done with deploying a conversational language understanding project 
 
 5. Add another intent but now select **Question Answering** as the service and select **chitchat** as the project name. 
 6. Similar to conversational language understanding, go to **Training jobs** and start a new training job with the name **v1** and press Train.
-7. Once training is complete, click to **Deploying a model** on the left. Click on Add deployment and create a new deployment with the name **Testing**, and assign model **v1** to the deployment and press Next.
+7. Once training is complete, click to **Deploying a model** on the left. Select **Add deployment** and create a new deployment with the name **Testing**, and assign model **v1** to the deployment and press Next.
 8. On the next page, select the deployment name **Testing** for the **EmailIntent**. This tells the orchestrator to call the **Testing** deployment in **EmailProject** when it routes to it. Custom question answering projects only have one deployment by default. 
 
 :::image type="content" source="../media/deployment-orchestrator-tutorial.png" alt-text="A screenshot of the deployment popup for orchestration workflow." lightbox="../media/deployment-orchestrator-tutorial.png":::

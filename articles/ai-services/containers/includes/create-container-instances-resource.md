@@ -42,6 +42,6 @@ ms.author: aahi
     |`Billing`| Your endpoint URL copied from the **Keys and endpoint** page of the resource.|
     |`Eula`|`accept`|
 
-5. Click **Review and Create**
+5. Select **Review and Create**
 6. After validation passes, click **Create** to finish the creation process
 7. When the resource is successfully deployed, it's ready

@@ -186,7 +186,7 @@ public class Main {
 
 Now you're ready to build your app and test our intent recognition using the speech service and the embedded pattern matcher.
 
-Click the run button in Eclipse or press ctrl+F11, then watch the output for the "Say something..." prompt. Once it appears speak your utterance and watch the output.
+Select the run button in Eclipse or press ctrl+F11, then watch the output for the "Say something..." prompt. Once it appears speak your utterance and watch the output.
 
 
 For example if you say "Take me to floor 7", this should be the output:

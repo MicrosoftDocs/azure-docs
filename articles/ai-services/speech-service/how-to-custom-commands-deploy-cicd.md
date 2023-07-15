@@ -91,7 +91,7 @@ The scripts are hosted at [Voice Assistant - Custom Commands](https://github.com
     > [!div class="mx-imgBorder"]
     > ![Send Activity payload](media/custom-commands/cicd-edit-pipeline-variables.png)
 
-1. Click "Run" and then click in the "Job" running. 
+1. Select "Run" and then select the "Job" running. 
 
     You should see a list of tasks running that contains: "Export source app", "Import to target app" & "Train and Publish target app"
 
@@ -163,7 +163,7 @@ The scripts are hosted at [Voice Assistant - Custom Commands](https://github.com
     | SubscriptionKey | The key used for both applications |
     | Culture | Culture of the applications (en-us) |
 
-1. Click "Run" and then click in the "Job" running.
+1. Select "Run" and then select the "Job" running.
     You should see a list of tasks running that contains: "Import app" & "Train and Publish app"
 
 ## Next steps
