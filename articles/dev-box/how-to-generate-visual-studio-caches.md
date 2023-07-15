@@ -40,7 +40,7 @@ You can then use the resulting image to [create new dev boxes](quickstart-config
 
 You can generate caches for your Visual Studio solution as part of an automated pipeline that builds custom dev box images. To do so, you must meet the following requirements:
 
-* Within the [Azure Resource Manager template](how-to-customize-devbox-azure-image-builder.md), add a customized step to clone the source repository of your project into a nonuser specific location on the VM.
+* Within the [Azure Resource Manager template](../azure-resource-manager/templates/overview.md), add a customized step to clone the source repository of your project into a nonuser specific location on the VM.
 * With the project source located on disk you can now run the `PopulateSolutionCache` feature to generate the project caches. To do this, add the following PowerShell command to your template's customized steps:
 
     ```shell
