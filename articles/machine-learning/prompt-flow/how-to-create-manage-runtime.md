@@ -232,6 +232,48 @@ Use  `docker images`  to check if the image was pulled successfully. If your ima
 
 This type error usually related to runtime lack required packages. If you're using default environment, make sure image of your runtime is using the latest version, learn more: [runtime update](#update-runtime-from-ui), if you're using custom image and you're using conda environment, make sure you have installed all required packages in your conda environment, learn more: [customize Prompt flow environment](how-to-customize-environment-runtime.md#customize-environment-with-docker-context-for-runtime).
 
+#### Request timeout issue
+
+##### Request timeout error shown in UI
+
+###### 1. MIR runtime request timeout error
+
+:::image type="content" source="./media/how-to-create-manage-runtime/mir-runtime-request-timeout.png" alt-text="Screenshot of a mir runtime timeout error. " lightbox = "./media/how-to-create-manage-runtime/mir-runtime-request-timeout.png":::
+
+###### 2. CI runtime request timeout error
+
+:::image type="content" source="./media/how-to-create-manage-runtime/ci-runtime-request-timeout.png" alt-text="Screenshot of a ci runtime timeout error. " lightbox = "./media/how-to-create-manage-runtime/ci-runtime-request-timeout.png":::
+
+#### How to identify which node consume the most time
+
+##### Step 1. Check the runtime logs
+
+##### Step 2. Trying to find below warning log format
+
+{node_name} has been running for {duration} seconds. E.g.:
+
+###### case1: python script node running for long time.
+
+:::image type="content" source="./media/how-to-create-manage-runtime/runtime-timeout-running-for-long-time.png" alt-text="Screenshot of a timeout run logs. " lightbox = "./media/how-to-create-manage-runtime/runtime-timeout-running-for-long-time.png":::
+
+In this case, you can find that the 'PythonScriptNode' running for a long time (almost 300s), then you can check the node details to see what's the problem.
+
+###### case2: llm node running for long time.
+
+:::image type="content" source="./media/how-to-create-manage-runtime/runtime-timeout-by-llm-timeout.png" alt-text="Screenshot of a timeout logs caused by llm timeout. " lightbox = "./media/how-to-create-manage-runtime/runtime-timeout-by-llm-timeout.png":::
+
+In this case, if you find the message `request canceled` in the logs, it may be due to the OpenAI API call taking too long and exceeding the runtime limit.
+
+An OpenAI API Timeout could be caused by a network issue or a complex request that requires more processing time. For more information, please refer to [OpenAI API Timeout](https://help.openai.com/en/articles/6897186-timeout).
+
+You can try waiting a few seconds and retrying your request. This usually resolves any network issues.
+
+If retrying does not work, check whether you are using a long context model, such as ‘gpt-4-32k’, and have set a large value for `max_tokens`. If this is the case, it is expected behavior because your prompt may generate a very long response that takes longer than the interactive mode upper threshold. In this situation, we recommend trying 'Bulk test', as this mode does not have a timeout setting.
+
+##### Step 3.  If you cannot find anything in runtime logs to indicate it is a specific node issue
+
+Please contact the PromptFlow team([promptflow-eng](mailto:aml-pt-eng@microsoft.com)) with the runtime logs. We will try to identify the root cause.
+
 ### Compute instance runtime related
 
 #### How to find the compute instance runtime log for further investigation?
