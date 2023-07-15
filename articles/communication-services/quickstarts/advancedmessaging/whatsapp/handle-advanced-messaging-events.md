@@ -4,7 +4,7 @@ titleSuffix: Azure Communication Services
 description: "In this quickstart, you will learn how to subscribe for Azure Communication Services events.Know how to subscribe/receive whatsapp messages status events and receive messages delivery report events." 
 author: shamkh
 manager: Camilo.Ramirez
-ms.author: shamkh;acs_cpm
+ms.author: shamkh
 ms.service: azure-communication-services
 ms.topic: quickstart 
 ms.date: 07/03/2023
@@ -19,11 +19,11 @@ Azure Communication Services now enables you to send and receive WhatsApp messag
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - Register Event Grid Resource Provider. If your Azure subscription does not yet have the Event Grid resource provider registered, you can follow the steps in the "Register an EventGrid resource provider" section on [Register Event Grid Resource Provider](https://learn.microsoft.com/azure/communication-services/quickstarts/sms/handle-sms-events#register-an-event-grid-resource-provider).
-- A Communication Services resource. For detailed information, see [Create an Azure Communication Services resource](../create-communication-resource.md).
+- A Communication Services resource. For detailed information, see [Create an Azure Communication Services resource](../../create-communication-resource.md).
 
 ## About Event Grid
 
-[Event Grid](../../../event-grid/overview.md) is a cloud-based eventing service. In this article, you'll learn how to subscribe to [communication service events](../../../event-grid/event-schema-communication-services.md), and trigger an event to view the result. Typically, you send events to an endpoint that processes the event data and takes actions. In this article, we'll send the events to a web app that collects and displays the messages.
+[Event Grid](../../../../event-grid/overview.md) is a cloud-based eventing service. In this article, you'll learn how to subscribe to [communication service events](../../../../event-grid/event-schema-communication-services.md), and trigger an event to view the result. Typically, you send events to an endpoint that processes the event data and takes actions. In this article, we'll send the events to a web app that collects and displays the messages.
 
 ## [Setup Event Grid Viewer]
 
@@ -78,11 +78,11 @@ The Event Grid Viewer is a sample site that allows you to view incoming events f
 
 ## Clean up resources
 
-If you want to clean up and remove a Communication Services subscription, you can delete the resource or resource group. Deleting the resource group also deletes any other resources associated with it. Learn more about [cleaning up resources](../create-communication-resource.md#clean-up-resources).
+If you want to clean up and remove a Communication Services subscription, you can delete the resource or resource group. Deleting the resource group also deletes any other resources associated with it. Learn more about [cleaning up resources](../../create-communication-resource.md#clean-up-resources).
 
 ## Next steps
 
 Advance to the next article to learn how to use Advanced Messaging SDK for WhatsApp messaging.
 > [!div class="nextstepaction"]
-> [Advanced Messaging SDK Getting Started](../whatsapp/includes/messages-get-started-net.md).
+> [Advanced Messaging SDK Getting Started](./get-started.md).
 
