@@ -21,7 +21,7 @@ This article provides a list of available ALI for Epic<sup>®</sup> workload SKU
 * South Central US
 * West US 2 with Zones support
 
-Azure Large Instances (ALI) for Epic<sup>®</sup> workload has limited availability currently in the following regions:
+Azure Large Instances (ALI) for Epic<sup>®</sup> workload has limited availability and is currently available in the following regions:
 
 * East US with Zones support
 * South Central US

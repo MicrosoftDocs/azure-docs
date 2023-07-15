@@ -39,7 +39,8 @@ ALI is built, certified, and tested for a select set of such applications. Azure
 ALI is intended for critical workloads that require certification to run your enterprise applications. 
 Azure Large Instances implementations are dedicated only to you, and you'll have full access (root access) to the operating system (OS).
 You manage OS and application installation according to your needs.
-For security, the instances are provisioned within your Azure Virtual Network (VNet) with no internet connectivity.
+For security, the instances are provisioned within your Azure Virtual Network (VNet) with no internet connectivity. If you need access to the internet, you need to set up an internet proxy service.
+
 Only services running on your virtual machines (VMs), and other Azure services in same Tier 2 network, can communicate with your implementation of ALI.
 
 ALI offers the following benefits:
@@ -87,7 +88,22 @@ Therefore, for ALI, Azure offers a consultation with a CSA/GBB in the field who 
 By the time your ALI implementation has been provisioned, the OS, networks, storage volumes, placements in zones and regions, and WAN connections between locations have already been configured.
 You're set to register your OS licenses (BYOL), configure the OS, and install the application layer.
 
-You'll see all the ALI resources, and their state and attributes, in the Azure portal. You can also operate the instances, open service requests, and support tickets from there.
+You'll see all the ALI resources, and their state and attributes, in the Azure portal. You can also operate the instances, open service requests, and support tickets from there. 
+
+Azure Large instances are ISO 27001, ISO 27017, SOC 1, and SOC 2 compliant. It also uses a bring-your-own-license (BYOL) model: OS, specialized workload, and third-party applications.
+
+As soon as you receive root access and full control, you assume responsibility for the following tasks:
+
+- Designing and implementing backup and recovery solutions, high availability, and disaster recovery.
+
+- Licensing, security, and support for the OS and third-party software.
+
+Microsoft is responsible for:
+- Providing the hardware for specialized workloads.
+- Provisioning the OS.
+
+    :::image type="content" source="media/what-is-azure-large-instances/ali-support-model-2.png" alt-text="Networking diagram of ALI for Epic diagram." lightbox="media/what-is-azure-large-instances/ali-support-model-2.png" border="false":::
+
 
 ## ALI stamp
 

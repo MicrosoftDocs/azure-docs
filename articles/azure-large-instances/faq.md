@@ -34,7 +34,7 @@ Ensure that your VNET address space provided in the request is the same as what 
 ## Is it possible to have Azure ARC installed on Azure Large Instances?
 
 It’s not mandatory, but it's possible.
-If you need guidance, [create a support ticket](work-with-ali-in-the-azure-portal.md) with Azure Customer Support so that Azure ARC Support can help in your setup.
+If you need guidance, [create a support ticket](work-with-ali-in-the-azure-portal.md) with Azure Customer Support so that Azure ARC Support can help with your setup.
 
 ## How do I monitor Azure Large Instances?
 

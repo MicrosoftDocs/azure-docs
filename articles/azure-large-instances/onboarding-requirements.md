@@ -38,7 +38,7 @@ Install a red hat satellite server in a VM for RHEL 8.4 and patch download.
 ## ALI stamps
 
 * Validate ALI stamps and configure and patch OS based on your requirements.  
-* Verify that the stamps are visible on Azure portal.
+* Verify that the servers are visible on Azure portal.
 
   > [!Note]
   > Do *not* place large files like ALI installation bits on the boot volume. The Boot volume is small and can fill quickly, which could cause the server to hang (50 GB per OS is the boot limit).
@@ -73,7 +73,7 @@ To see the learned routes from ALI, one of the options is looking at the Effecti
 
 1. In Azure portal, select any of your VMs (any connected to the Hub, or to a Spoke connected to the Hub which is connected to ALI), select **Networking**, select the network interface name, then select **Effective Routes**.
 
-2. Make sure to enable accelerated networking with all VMs connecting to ALI (link1) or (link2).
+2. Make sure to enable accelerated networking with all VMs connecting to ALI. 
 
 3. Set up ALI solution based on your system requirements and take a system backup.  
 4. Take an OS backup.  
@@ -105,8 +105,7 @@ For more information, see these resources:
 Ensure you have an authorization key for the express route (ER) circuit used for virtual gateway connection to ER circuit. 
 Also obtain ER circuit resource ID.
 
-If you don’t have this information, obtain the details from the circuit owner. Reach out to
-<a href=mailto:"AzureBMISupportEpic@microsoft.com">Microsoft support</a> in case of any inconsistencies).  
+If you don’t have this information, obtain the details from the circuit owner. Reach out to ALI support by creating a support ticket with Azure Customer Support.
 
 ### Declare variables
 
@@ -114,51 +113,38 @@ This example declares the variables using the values for this exercise.
 Replace the values with your subscription values.
 
 ```azurecli
-$Sub1 = "Replace_With_Your_Subscription_Name"  
-
-$RG1 = "TestRG1"  
-
-$Location1 = "East US"  
-
-$GWName1 = "VNet1GW"  
-
-$Authkey = “Express route circuit auth key”  
-
-$Sub1 = "Replace_With_Your_Subscription_Name"  
-
-$RG1 = "TestRG1"  
-
-$Location1 = "East US"  
-
-$GWName1 = "VNet1GW"  
-
-$Authkey = “Express route circuit auth key”  
+$Sub = "Replace_With_Your_Subscription_ID"
+$RG = "Your_Resource_Group_Name"
+$CircuitName="ExpressRoute Circuit Name"
+$Location="Location_Name" #Example: "East US"
+$GWName="VNET_Gateway_Name"
+$ConnectionName=”ER Gateway Connection Name”
+$Authkey="ExpressRoute Circuit Authorization Key" 
 ```
   
-### Connect to your account
+### Check the subscription for the account.
+```azurecli
+Get-AzSubscription  
+```
+### Specify the subscription that you want to use
 
 ```azurecli
-Connect-AzureRmAccount  
+Select-AzSubscription -SubscriptionId $Sub1  
 ```
   
-#### Check the subscriptions for the account
+### Enable ER FastPath on the gateway connection.  
+```$Circuit = Get-AzExpressRouteCircuit -Name $CircuitName -ResourceGroupName $RG
+$GW = Get-AzVirtualNetworkGateway -Name $GWName -ResourceGroupName $RG```
+dotnetcli
 
-```azurecli
-Get-AzureRmSubscription  
 ```
-
-#### Specify the subscription that you want to use
-
-```azurecli
-Select-AzureRmSubscription -SubscriptionName $Sub1  
-```
-  
-### Enable ExpressRoute fast path on the gateway connection  
-
 #### Declare a variable for the gateway object
 
 ```azurecli
-$gw = Get-AzureRmVirtualNetworkGateway -Name $GWName1 -ResourceGroupName $RG1  
+$gw = Get-AzVirtualNetworkGateway -Name $GWName1 -ResourceGroupName $RG1
+
+Enable MSEEv2 using "ExpressRouteGatewayBypass" flag
+$connection = New-AzVirtualNetworkGatewayConnection -Name $ConnectionName -ResourceGroupName $RG -ExpressRouteGatewayBypass -VirtualNetworkGateway1 $GW -PeerId $Circuit.Id -ConnectionType ExpressRoute -Location $Location -AuthorizationKey $Authkey  
 ```
 
 #### Declare a variable for the Express route circuit ID
