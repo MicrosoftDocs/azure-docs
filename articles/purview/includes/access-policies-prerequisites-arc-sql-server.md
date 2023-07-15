@@ -7,12 +7,12 @@ ms.topic: include
 ms.date: 07/15/2023
 ms.custom: references_regions
 ---
-- Get [SQL Server on-premises version 2022](https://www.microsoft.com/en-us/sql-server/sql-server-downloads) running on Windows and install it. For this configuration only version 2022 or more recent are supported. Only Windows based SQL Server is supported. You can try the free Developer edition.
+- Get [SQL Server on-premises version 2022](https://www.microsoft.com/en-us/sql-server/sql-server-downloads) running on Windows and install it. For this configuration, only version 2022 or more recent are supported. Only Windows based SQL Server is supported. You can try the free Developer edition.
 - Configure your [permissions](/azure/azure-arc/servers/prerequisites#required-permissions) and then [register a list of resource providers](/azure/azure-arc/servers/prerequisites#azure-resource-providers) in the subscription you will use to onboard the SQL Server instance to Azure Arc
 - Complete prerequisites and onboard the [Windows based SQL Server instance with Azure Arc](/sql/sql-server/azure-arc/connect-with-installer).
 - Enable [Azure Active Directory authentication in SQL Server](/sql/relational-databases/security/authentication-access/azure-ad-authentication-sql-server-setup-tutorial). For a simpler setup, complete the [prerequisites](/sql/relational-databases/security/authentication-access/azure-ad-authentication-sql-server-automation-setup-tutorial#preparation-before-setting-the-azure-ad-admin) and process outlined in [this article](/sql/relational-databases/security/authentication-access/azure-ad-authentication-sql-server-automation-setup-tutorial#setting-up-azure-ad-admin-using-the-azure-portal).
 - Remember to [grant application permissions and granting admin consent](/sql/relational-databases/security/authentication-access/azure-ad-authentication-sql-server-setup-tutorial#grant-application-permissions)
-- Beyond configuring an Azure AD admin for the SQL Server instance, it is not necessary to set up additional Azure AD logins or users. You will grant those users access by using Microsoft Purview policies.
+- Beyond configuring an Azure AD admin for the SQL Server instance, it is not necessary to set up other Azure AD logins or users. You will grant those users access by using Microsoft Purview policies.
 
 
 #### Region support
