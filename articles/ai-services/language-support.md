@@ -18,7 +18,7 @@ Azure AI services enable you to build applications that see, hear, articulate, a
 
 ## Language supported services
 
-The following table provides links to the language support reference articles. 
+The following table provides links to language support reference articles by supported service. 
 
 | Azure AI Language support | Description |
 | --- | --- |
