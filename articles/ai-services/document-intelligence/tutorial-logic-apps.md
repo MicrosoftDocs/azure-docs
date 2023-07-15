@@ -1,7 +1,7 @@
 ---
 title: Use Document intelligence with Azure Logic Apps
 titleSuffix: Azure AI services
-description: A tutorial outlining how to use Document intelligence with Logic Apps.
+description: A tutorial introducing how to use Document intelligence with Logic Apps.
 author: laujan
 manager: nitinme
 ms.service: applied-ai-services
@@ -76,7 +76,7 @@ To complete this tutorial, you need the following resources:
 
   * After the resource deploys, select **Go to resource**. Copy the **Keys and Endpoint** values from your resource in the Azure portal and paste them in a convenient location, such as *Microsoft Notepad*. You need the key and endpoint values to connect your application to the Document Intelligence API. For more information, *see* [**create a Document Intelligence resource**](create-document-intelligence-resource.md).
 
-      :::image border="true" type="content" source="media/containers/keys-and-endpoint.png" alt-text="Still photo showing how to access resource key and endpoint URL.":::
+      :::image border="true" type="content" source="media/containers/keys-and-endpoint.png" alt-text="Screenshot showing how to access resource key and endpoint URL.":::
 
 ## Create a OneDrive folder
 
@@ -128,7 +128,7 @@ At this point, you should have a Document Intelligence resource and a OneDrive f
 
 1. When you're done, you have something similar to the following image (Resource group, Logic App name, and Region may be different). After checking these values, select **Review + create** in the bottom-left corner.
 
-    :::image border="true" type="content" source="media/logic-apps-tutorial/create-logic-app-fields.png" alt-text="Image showing field values to create a Logic App resource.":::
+    :::image border="true" type="content" source="media/logic-apps-tutorial/create-logic-app-fields.png" alt-text="Screenshot showing field values to create a Logic App resource.":::
 
 1. A short validation check runs. After it completes successfully, select **Create** in the bottom-left corner.
 
@@ -136,11 +136,11 @@ At this point, you should have a Document Intelligence resource and a OneDrive f
 
 1. Finally, you're redirected to the **Logic Apps Designer** page. There's a short video for a quick introduction to Logic Apps available on the home screen. When you're ready to begin designing your Logic App, select the **Blank Logic App** button from the **Templates** section.
 
-    :::image border="true" type="content" source="media/logic-apps-tutorial/logic-app-designer-templates.png" alt-text="Image showing how to enter the Logic App Designer.":::
+    :::image border="true" type="content" source="media/logic-apps-tutorial/logic-app-designer-templates.png" alt-text="Screenshot showing how to enter the Logic App Designer.":::
 
 1. You see a screen that looks similar to the following image. Now, you're ready to start designing and implementing your Logic App.
 
-    :::image border="true" type="content" source="media/logic-apps-tutorial/logic-app-designer.png" alt-text="Image of the Logic App Designer start page.":::
+    :::image border="true" type="content" source="media/logic-apps-tutorial/logic-app-designer.png" alt-text="Screenshot of the Logic App Designer start page.":::
 
 ## Create an automation flow
 
@@ -162,7 +162,7 @@ Now that you have the Logic App connector resource set up and configured, let's 
 
     :::image type="content" source="media/logic-apps-tutorial/when-file-created.png" alt-text="Screenshot of the 'When a file is created window.":::
 
-:::moniker range="doc-intel-3.0.0"
+    :::moniker range="doc-intel-3.0.0"
 
 1. Next, we're going to add a new step to the workflow. Select the **➕ New step** button underneath the newly created OneDrive node.
 
@@ -272,7 +272,7 @@ Now that you have the Logic App connector resource set up and configured, let's 
 
     * When you're done, the window looks similar to the following image:
 
-      :::image type="content" source="media/logic-apps-tutorial/send-email-with-functions.png" alt-text="Screenshot of the 'Send an email (V2)' window with completed fields.":::
+      :::image type="content" source="media/logic-apps-tutorial/send-email-functions.png" alt-text="Screenshot of the 'Send an email (V2)' window with completed fields.":::
 
 1. **Select Save in the upper left corner**.
 
@@ -291,18 +291,18 @@ Now that you have the Logic App connector resource set up and configured, let's 
 
 1. A new node is added to the Logic App designer view. Search for "Form Recognizer (Document Intelligence forthcoming)" in the **Choose an operation** search bar and select **Analyze invoice** from the list.
 
-    :::image type="content" source="media/logic-apps-tutorial/analyze-invoice-v2.png" alt-text="Screenshot of 'Analyze Invoice' action.":::
+    :::image type="content" source="media/logic-apps-tutorial/analyze-invoice-v-2.png" alt-text="Screenshot of 'Analyze Invoice' action.":::
 
 1. Now, you see a window where to create your connection. Specifically, you're going to connect your Form Recognizer resource to the Logic Apps Designer Studio:
 
     * Enter a **Connection name**. It should be something easy to remember.
     * Enter the Form Recognizer resource **Endpoint URL** and **Account Key** that you copied previously. If you skipped this step earlier or lost the strings, you can navigate back to your Form Recognizer resource and copy them again. When you're done, select **Create**.
 
-    :::image type="content" source="media/logic-apps-tutorial/create-logic-app-connector.png" alt-text="Screenshot of the logic app connector dialog window":::
+    :::image type="content" source="media/logic-apps-tutorial/create-logic-app-connector.png" alt-text="Screenshot of the logic app connector dialog window.":::
 
 1. Next, you see the selection parameters window for the **Analyze Invoice** connector.
 
-    :::image type="content" source="media/logic-apps-tutorial/analyze-invoice-parameters.png" alt-text="{alt-text}":::
+    :::image type="content" source="media/logic-apps-tutorial/analyze-invoice-parameters.png" alt-text="Screenshot showing the analyze invoice window fields.":::
 
 1. Complete the fields as follows:
 
@@ -337,7 +337,7 @@ Now that you have the Logic App connector resource set up and configured, let's 
 
       * Lastly, because the amount due is an important number we also want to send the confidence score for this extraction in the email. To do this type ***Amount due (confidence):***  and add the dynamic content **Amount due field confidence of amount due**. When you're done, the window looks similar to the following image.
 
-      :::image border="true" type="content" source="media/logic-apps-tutorial/send-email-fields-complete.png" alt-text="Image of completed Outlook node.":::
+      :::image border="true" type="content" source="media/logic-apps-tutorial/send-email-fields-complete.png" alt-text="Screenshot of the completed Outlook fields.":::
 
       > [!TIP]
       > If you don't see the dynamic content display automatically, use the **Search dynamic content** bar to find field entries.
@@ -377,7 +377,7 @@ Now that we've created the flow, the last thing to do is to test it and make sur
 
 1. Navigate to your Logic App overview page by selecting your app name link in the upper-left corner.
 
-    :::image type="content" source="media/logic-apps-tutorial/navigate-to-overview.png" alt-text="Screenshot of navigate to overview page link.":::
+    :::image type="content" source="media/logic-apps-tutorial/navigate-overview.png" alt-text="Screenshot of navigate to overview page link.":::
 
 1. Check the status, to see if the run succeeded or failed. You can select the status indicator to check which steps were successful.
 
