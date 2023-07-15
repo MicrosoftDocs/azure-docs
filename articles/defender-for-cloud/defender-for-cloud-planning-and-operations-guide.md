@@ -32,41 +32,35 @@ Depending on the size and structure of your organization, multiple individuals a
 
 :::image type="content" source="./media/defender-for-cloud-planning-and-operations-guide/defender-for-cloud-planning-and-operations-guide-fig01-new.png" alt-text="Roles.":::
 
-Defender for Cloud enables these individuals to meet these various responsibilities. For example:
+Defender for Cloud enables these individuals to meet these various responsibilities.
 
-**Jeff (Workload Owner)**
 
-- Manage a cloud workload and its related resources.
 
-- Responsible for implementing and maintaining protections in accordance with company security policy.
 
-**Ellen (CISO/CIO)**
 
-- Responsible for all aspects of security for the company.
 
-- Wants to understand the company's security posture across cloud workloads.
 
-- Needs to be informed of major attacks and risks.
 
-**David (IT Security)**
 
-- Sets company security policies to ensure the appropriate protections are in place.
 
-- Monitors compliance with policies.
 
-- Generates reports for leadership or auditors.
 
-**Judy (Security Operations)**
 
-- Monitors and responds to security alerts at any time.
 
-- Escalates to Cloud Workload Owner or IT Security Analyst.
 
-**Sam (Security Analyst)**
 
-- Investigate attacks.
 
-- Work with Cloud Workload Owner to apply remediation.
+
+
+
+
+
+
+
+
+
+
+
 
 Defender for Cloud uses [Azure role-based access control (Azure Role-based access control)](../role-based-access-control/role-assignments-portal.md), which provides [built-in roles](../role-based-access-control/built-in-roles.md) that can be assigned to users, groups, and services in Azure. When a user opens Defender for Cloud, they only see information related to resources they have access to. Which means the user is assigned the role of Owner, Contributor, or Reader to the subscription or resource group that a resource belongs to. In addition to these roles, there are two roles specific to Defender for Cloud:
 
