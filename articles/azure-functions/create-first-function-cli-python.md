@@ -112,8 +112,7 @@ In Azure Functions, a function project is a container for one or more individual
     func new --name HttpExample --template "HTTP trigger" --authlevel "anonymous"
     ```
 
-    `func new` creates a subfolder matching the function name that contains a code file appropriate to the project's chosen language and a configuration file named *function.json*.
-    ```  
+    `func new` creates a subfolder matching the function name that contains a code file appropriate to the project's chosen language and a configuration file named *function.json*.    
 ::: zone-end  
 ::: zone pivot="python-mode-decorators"  
 1. Run the `func init` command as follows to create a functions project in a folder named *LocalFunctionProj* with the specified runtime and the specified programming model version.
