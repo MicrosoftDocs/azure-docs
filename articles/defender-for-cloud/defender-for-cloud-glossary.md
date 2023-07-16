@@ -93,91 +93,112 @@ File Integrity Monitoring. Learn about ([file Integrity Monitoring in Microsoft 
 ### **FTP** 
 File Transfer Protocol. Learn how to  [Deploy content using FTP](../app-service/deploy-ftp.md).
 
+## G
+
+### **GCP**
+Google Cloud Platform. Learn how to [onboard a GPC Project](../active-directory/cloud-infrastructure-entitlement-management/onboard-gcp.md).
+### **GKE**
+Google Kubernetes Engine, Google's managed environment for deploying, managing, and scaling applications using GCP infrastructure.|[Deploy a Kubernetes workload using GPU sharing on your Azure Stack Edge Pro](../databox-online/azure-stack-edge-gpu-deploy-kubernetes-gpu-sharing.md).
+### **Governance**
+A set of rules and policies adopted by companies that run services in the cloud. The goal of cloud governance is to enhance data security, manage risk, and enable the smooth operation of cloud systems.[Governance Overview](governance-rules.md).
+
 ## I
 
-| Term | Description | Learn more |
-|--|--|--|
-| **IaaS** | Infrastructure as a service, a type of cloud computing service that offers essential compute, storage, and networking resources on demand, on a pay-as-you-go basis. |[What is IaaS?](https://azure.microsoft.com/resources/cloud-computing-dictionary/what-is-iaas/)
-| **IAM** | Identity and Access management |[Introduction to IAM](https://www.microsoft.com/security/business/security-101/what-is-identity-access-management-iam)|
+### **IaaS** 
+Infrastructure as a service, a type of cloud computing service that offers essential compute, storage, and networking resources on demand, on a pay-as-you-go basis. [What is IaaS?](https://azure.microsoft.com/resources/cloud-computing-dictionary/what-is-iaas/).
+### **IAM** 
+Identity and Access management. [Introduction to IAM](https://www.microsoft.com/security/business/security-101/what-is-identity-access-management-iam).
 
 ## J
 
-| Term | Description | Learn more |
-|--|--|--|
-| **JIT** | Just-in-Time VM access |[Understanding just-in-time (JIT) VM access](just-in-time-access-overview.md)|
+### **JIT** 
+Just-in-Time VM access. [Understanding just-in-time (JIT) VM access](just-in-time-access-overview.md).
 
 ## K
 
-| Term | Description | Learn more |
-|--|--|--|
-|**Kill Chain**|The series of steps that describe the progression of a cyberattack from reconnaissance to data exfiltration. Defender for Cloud's supported kill chain intents are based on the MITRE ATT&CK matrix. | [MITRE Attack Matrix](https://attack.mitre.org/matrices/enterprise/)|
-|**KQL**|Kusto Query Language-a tool to explore your data and discover patterns, identify anomalies and outliers, create statistical modeling, and more.| [KQL Overview](/azure/data-explorer/kusto/query/)|
+### **Kill Chain**
+The series of steps that describe the progression of a cyberattack from reconnaissance to data exfiltration. Defender for Cloud's supported kill chain intents are based on the MITRE ATT&CK matrix. [MITRE Attack Matrix](https://attack.mitre.org/matrices/enterprise/).
+### **KQL**
+Kusto Query Language - a tool to explore your data and discover patterns, identify anomalies and outliers, create statistical modeling, and more. [KQL Overview](/azure/data-explorer/kusto/query/).
 
 ## L
 
-| Term | Description | Learn more |
-|--|--|--|
-|**LSA**| Local Security Authority| [Secure and use policies on virtual machines in Azure](../virtual-machines/security-policy.md)|
+### **LSA**
+Local Security Authority. Learn about [secure and use policies on virtual machines in Azure](../virtual-machines/security-policy.md).
 
 ## M
 
-| Term | Description | Learn more |
-|--|--|--|
-|**MCSB**| Microsoft Cloud Security Benchmark | [MCSB in Defender for Cloud](concept-regulatory-compliance.md#microsoft-cloud-security-benchmark-in-defender-for-cloud)|
-|**MDC**| Microsoft Defender for Cloud is a Cloud Security Posture Management (CSPM) and Cloud Workload Protection Platform (CWPP) for all of your Azure, on-premises, and multicloud (Amazon AWS and Google GCP) resources. | [What is Microsoft Defender for Cloud?](defender-for-cloud-introduction.md)|
-|**MDE**| Microsoft Defender for Endpoint is an enterprise endpoint security platform designed to help enterprise networks prevent, detect, investigate, and respond to advanced threats.|[Protect your endpoints with Defender for Cloud's integrated EDR solution: Microsoft Defender for Endpoint](integration-defender-for-endpoint.md)|
-|**MFA**|multi factor authentication, a process in which users are prompted during the sign-in process for an extra form of identification, such as a code on their cellphone or a fingerprint scan.|[How it works: Azure Multi Factor Authentication](../active-directory/authentication/concept-mfa-howitworks.md)|
-|**MITRE ATT&CK**| A globally accessible knowledge base of adversary tactics and techniques based on real-world observations.|[MITRE ATT&CK](https://attack.mitre.org/)|
-|**MMA**| Microsoft Monitoring Agent, also known as Log Analytics Agent|[Log Analytics Agent Overview](../azure-monitor/agents/log-analytics-agent.md)|
+### **MCSB**
+Microsoft Cloud Security Benchmark. See [MCSB in Defender for Cloud](concept-regulatory-compliance.md#microsoft-cloud-security-benchmark-in-defender-for-cloud).
+### **MDC**
+Microsoft Defender for Cloud is a Cloud Security Posture Management (CSPM) and Cloud Workload Protection Platform (CWPP) for all of your Azure, on-premises, and multicloud (Amazon AWS and Google GCP) resources. [What is Microsoft Defender for Cloud?](defender-for-cloud-introduction.md).
+### **MDE**
+Microsoft Defender for Endpoint is an enterprise endpoint security platform designed to help enterprise networks prevent, detect, investigate, and respond to advanced threats. [Protect your endpoints with Defender for Cloud's integrated EDR solution: Microsoft Defender for Endpoint](integration-defender-for-endpoint.md).
+### **MDVM**
+Microsoft Defender Vulnerability Management. Learn how to [enable vulnerability scanning with Microsoft Defender Vulnerability Management](deploy-vulnerability-assessment-defender-vulnerability-management).
+
+### **MFA**
+Multi-factor authentication, a process in which users are prompted during the sign-in process for an extra form of identification, such as a code on their cellphone or a fingerprint scan.[How it works: Azure Multi Factor Authentication](../active-directory/authentication/concept-mfa-howitworks.md).
+### **MITRE ATT&CK**
+A globally accessible knowledge base of adversary tactics and techniques based on real-world observations. [MITRE ATT&CK](https://attack.mitre.org/).
+### **MMA**
+Microsoft Monitoring Agent, also known as Log Analytics Agent|[Log Analytics Agent Overview](../azure-monitor/agents/log-analytics-agent.md).
 
 ## N
 
-| Term | Description | Learn more |
-|--|--|--|
-|**NGAV**| Next Generation Anti-Virus |
-**NIST** | National Institute of Standards and Technology|[National Institute of Standards and Technology](https://www.nist.gov/)
-|**NSG**| Network Security Group |[network security groups (NSGs)](../virtual-network/network-security-groups-overview.md)|
+### **NGAV**
+Next Generation Anti-Virus
+### **NIST** 
+National Institute of Standards and Technology. See [National Institute of Standards and Technology](https://www.nist.gov/).
+### **NSG**
+Network Security Group. Learn about [network security groups (NSGs)](../virtual-network/network-security-groups-overview.md).
 
 ## P
 
-| Term | Description | Learn more |
-|--|--|--|
-|**PaaS**| Platform as a service (PaaS) is a complete development and deployment environment in the cloud, with resources that enable you to deliver everything from simple cloud-based apps to sophisticated, cloud-enabled enterprise applications. |[What is PaaS?](https://azure.microsoft.com/resources/cloud-computing-dictionary/what-is-paas/)
+### **PaaS**
+Platform as a service (PaaS) is a complete development and deployment environment in the cloud, with resources that enable you to deliver everything from simple cloud-based apps to sophisticated, cloud-enabled enterprise applications. [What is PaaS?](https://azure.microsoft.com/resources/cloud-computing-dictionary/what-is-paas/).
 
 ## R
 
-| Term | Description | Learn more |
-|--|--|--|
-|**RaMP**| Rapid Modernization Plan,  guidance based on initiatives, giving you a set of deployment paths to more quickly implement key layers of protection.|[Zero Trust Rapid Modernization Plan](../security/fundamentals/zero-trust.md)|
-|**RBAC**| Azure role-based access control (Azure RBAC) helps you manage who has access to Azure resources, what they can do with those resources, and what areas they have access to. | [RBAC Overview](../role-based-access-control/overview.md)|
-|**RDP** | Remote Desktop Protocol (RDP) is a sophisticated technology that uses various techniques to perfect the server's remote graphics' delivery to the client device.| [RDP Bandwidth Requirements](../virtual-desktop/rdp-bandwidth.md)|
-|**Recommendations**|Recommendations secure your workloads with step-by-step actions that protect your workloads from known security risks.| [What are security policies, initiatives, and recommendations?](security-policy-concept.md)|
-|**Regulatory Compliance** | Regulatory compliance refers to the discipline and process of ensuring that a company follows the laws enforced by governing bodies in their geography or rules required | [Regulatory Compliance Overview](/azure/cloud-adoption-framework/govern/policy-compliance/regulatory-compliance) |
+### **RaMP**
+Rapid Modernization Plan,  guidance based on initiatives, giving you a set of deployment paths to more quickly implement key layers of protection. Learn about [Zero Trust Rapid Modernization Plan](../security/fundamentals/zero-trust.md).
+### **RBAC**
+Azure role-based access control (Azure RBAC) helps you manage who has access to Azure resources, what they can do with those resources, and what areas they have access to. [RBAC Overview](../role-based-access-control/overview.md).
+### **RDP** 
+Remote Desktop Protocol (RDP) is a sophisticated technology that uses various techniques to perfect the server's remote graphics' delivery to the client device. [RDP Bandwidth Requirements](../virtual-desktop/rdp-bandwidth.md).
+### **Recommendations**
+Recommendations secure your workloads with step-by-step actions that protect your workloads from known security risks. [What are security policies, initiatives, and recommendations?](security-policy-concept.md).
+### **Regulatory Compliance**
+Regulatory compliance refers to the discipline and process of ensuring that a company follows the laws enforced by governing bodies in their geography or rules required. [Regulatory Compliance Overview](/azure/cloud-adoption-framework/govern/policy-compliance/regulatory-compliance).
 
 ## S
 
-| Term | Description | Learn more |
-|--|--|--|
-|**SAS**| Shared access signature that provides secure delegated access to resources in your storage account.|[Storage SAS Overview](/azure/storage/common/storage-sas-overview)|
-|**SaaS**| Software as a service (SaaS) allows users to connect to and use cloud-based apps over the Internet. Common examples are email, calendaring, and office tools (such as Microsoft Office 365). SaaS provides a complete software solution that you purchase on a pay-as-you-go basis from a cloud service provider.|[What is SaaS?](https://azure.microsoft.com/resources/cloud-computing-dictionary/what-is-saas/)|
-|**Secure Score**|Defender for Cloud continually assesses your cross-cloud resources for security issues. It then aggregates all the findings into a single score that represents your current security situation: the higher the score, the lower the identified risk level.|[Security posture for Microsoft Defender for Cloud](secure-score-security-controls.md)|
-|**Security Alerts**|Security alerts are the notifications generated by Defender for Cloud and Defender for Cloud plans when threats are identified in your cloud, hybrid, or on-premises environment.|[What are security alerts?](../defender-for-cloud/alerts-overview.md#what-are-security-alerts)|
-|**Security Initiative** | A collection of Azure Policy Definitions, or rules, that are grouped together towards a specific goal or purpose. | [What are security policies, initiatives, and recommendations?](security-policy-concept.md)
-|**Security Policy**| An Azure rule about specific security conditions that you want controlled.|[Understanding Security Policies](security-policy-concept.md)|
-|**SIEM**| Security Information and Event Management.| [What is SIEM?](https://www.microsoft.com/security/business/security-101/what-is-siem?rtc=1)|
-|**SOAR**| Security Orchestration Automated Response, a collection of software tools designed to collect data about security threats from multiple sources and respond to low-level security events without human assistance.| [SOAR](../sentinel/automation.md)|
+### **SAS**
+Shared access signature that provides secure delegated access to resources in your storage account.[Storage SAS Overview](/azure/storage/common/storage-sas-overview).
+### **SaaS**
+Software as a service (SaaS) allows users to connect to and use cloud-based apps over the Internet. Common examples are email, calendaring, and office tools (such as Microsoft Office 365). SaaS provides a complete software solution that you purchase on a pay-as-you-go basis from a cloud service provider.[What is SaaS?](https://azure.microsoft.com/resources/cloud-computing-dictionary/what-is-saas/).
+### **Secure Score**
+Defender for Cloud continually assesses your cross-cloud resources for security issues. It then aggregates all the findings into a single score that represents your current security situation: the higher the score, the lower the identified risk level. Learn more about [security posture for Microsoft Defender for Cloud](secure-score-security-controls.md).
+### **Security Alerts**
+Security alerts are the notifications generated by Defender for Cloud and Defender for Cloud plans when threats are identified in your cloud, hybrid, or on-premises environment.[What are security alerts?](../defender-for-cloud/alerts-overview.md#what-are-security-alerts)
+### **Security Initiative** 
+A collection of Azure Policy Definitions, or rules, that are grouped together towards a specific goal or purpose. [What are security policies, initiatives, and recommendations?](security-policy-concept.md)
+### **Security Policy**
+An Azure rule about specific security conditions that you want controlled.[Understanding Security Policies](security-policy-concept.md).
+### **SIEM**
+Security Information and Event Management. [What is SIEM?](https://www.microsoft.com/security/business/security-101/what-is-siem?rtc=1)
+### **SOAR**
+Security Orchestration Automated Response, a collection of software tools designed to collect data about security threats from multiple sources and respond to low-level security events without human assistance. Learn more about [SOAR](../sentinel/automation.md).
 
 ## T
 
-| Term | Description | Learn more |
-|--|--|--|
-|**TVM**|Threat and Vulnerability Management, a built-in module in Microsoft Defender for Endpoint that can discover vulnerabilities and misconfigurations in near real time and prioritize vulnerabilities based on the threat landscape and detections in your organization.|[Investigate weaknesses with Microsoft Defender for Endpoint's threat and vulnerability management](deploy-vulnerability-assessment-defender-vulnerability-management.md)
+### **TVM**
+Threat and Vulnerability Management, a built-in module in Microsoft Defender for Endpoint that can discover vulnerabilities and misconfigurations in near real time and prioritize vulnerabilities based on the threat landscape and detections in your organization.[Investigate weaknesses with Microsoft Defender for Endpoint's threat and vulnerability management](deploy-vulnerability-assessment-defender-vulnerability-management.md).
 
 ## Z
 
-| Term | Description | Learn more |
-|--|--|--|
-|**Zero-Trust**|A new security model that assumes breach and verifies each request as though it originated from an uncontrolled network.|[Zero-Trust Security](../security/fundamentals/zero-trust.md)|
+### **Zero-Trust**
+A new security model that assumes breach and verifies each request as though it originated from an uncontrolled network. Learn more about [Zero-Trust Security](../security/fundamentals/zero-trust.md).
 
 ## Next Steps
 
