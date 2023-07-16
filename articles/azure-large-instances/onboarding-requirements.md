@@ -161,15 +161,3 @@ New-AzureRmVirtualNetworkGatewayConnection -Name "Virtual Gateway connection nam
 
 To take advantage of low latency access on VMs network stack, enable accelerated networking (AN), also known as SR-IOV, on supported VMs.
 For more information, see [Accelerated networking for Windows or Linux virtual machines](https://docs.microsoft.com/azure/virtual-network/create-vm-accelerated-networking-cli).
-## Next steps
-
-- [What is Azure Large Instances?](what-is-azure-large-instances.md)
-- [Quality checks](quality-checks.md)
-- [ALI onboarding requirements](ali-onboarding-requirements.md)
-- [What is Azure Large Instances?](what-is-azure-large-instances.md)
-- [Working with Azure Large Instances](working-with-azure-large-instances.md)
-- [Find your subscription ID](find-your-subscription-id.md)
-- [Configure Azure Large Instances](configure-azure-large-instances.md)
-- [Azure Large Instances NETAPP storage data protection with Azure CVO](ali-netapp-with-cvo.md)
-
-- [Available ALI SKUs](available-skus.md)
