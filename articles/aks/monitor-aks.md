@@ -33,7 +33,7 @@ Access monitoring features for all AKS clusters in your subscription from the **
 | Metrics | Open [metrics explorer](../azure-monitor/essentials/metrics-getting-started.md) with the scope set to the current cluster. |
 | Diagnostic settings | Create [diagnostic settings](#collect-control-plane-logs) for the cluster to collect control plane logs for the cluster. |
 | Advisor | Recommendations for the current cluster from [Azure Advisor](../advisor/advisor-overview.md). |
-| Logs | Open [Log Analytics](#analyzing-logs) with the scope set to the current cluster to analyze control plane logs and data collected by Container insights. |
+| Logs | Open [Log Analytics](../azure-monitor/logs/log-analytics-overview.md) with the scope set to the current cluster to analyze control plane logs and data collected by Container insights. |
 | Workbooks | Open workbook gallery for the Kubernetes service. |
 
 
@@ -62,7 +62,7 @@ AKS collects the same kinds of monitoring data as other Azure resources that are
 
 Control plane logs for AKS clusters are implemented as [resource logs](../azure-monitor/essentials/resource-logs.md) in Azure Monitor. Resource Logs are not collected and stored until you create a diagnostic setting and route them to one or more locations. You'll typically send them to a Log Analytics workspace, which is where the data for Container insights is stored.
 
-See [Create diagnostic setting to collect platform logs and metrics in Azure](../azure-monitor/essentials/diagnostic-settings) for the detailed process for creating a diagnostic setting using the Azure portal, CLI, or PowerShell. When you create a diagnostic setting, you specify which categories of logs to collect. The categories for AKS are listed in [AKS monitoring data reference](monitor-aks-reference.md#resource-logs).
+See [Create diagnostic setting to collect platform logs and metrics in Azure](../azure-monitor/essentials/diagnostic-settings.md) for the detailed process for creating a diagnostic setting using the Azure portal, CLI, or PowerShell. When you create a diagnostic setting, you specify which categories of logs to collect. The categories for AKS are listed in [AKS monitoring data reference](monitor-aks-reference.md#resource-logs).
 
 AKS supports either [Azure diagnostics mode](../azure-monitor/essentials/resource-logs.md#azure-diagnostics-mode) or [resource-specific mode](../azure-monitor/essentials/resource-logs.md#resource-specific) for resource logs. Resource-specific mode is recommended for AKS since this sends the data to individual tables in the Log Analytics workspace. This makes the data easier to query and gives you the option of configuring the tables for [basic logs](../azure-monitor/logs/basic-logs-configure.md).
 
