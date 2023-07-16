@@ -20,7 +20,7 @@ landingContent:
     linkLists: 
       - linkListType: overview
         links:
-          - text: Available ALI SKUs for the Epic workload
+          - text: ALI SKUs for Epic workload
             url: available-skus.md
         
 # card 2
