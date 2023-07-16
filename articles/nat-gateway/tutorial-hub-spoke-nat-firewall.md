@@ -6,7 +6,7 @@ author: asudbring
 ms.author: allensu
 ms.service: nat-gateway
 ms.topic: tutorial
-ms.date: 01/17/2023
+ms.date: 07/15/2023
 ms.custom: template-tutorial
 ---
 
@@ -49,16 +49,16 @@ The hub virtual network contains the firewall subnet that is associated with the
     | ------- | ----- |
     | **Project details** |   |
     | Subscription | Select your subscription. |
-    | Resource group | Select **Create new**. </br> Enter **TutorialNATHubSpokeFW-rg**. </br> Select **OK**. |
+    | Resource group | Select **Create new**. </br> Enter **test-rg**. </br> Select **OK**. |
     | **Instance details** |   |
-    | Name | Enter **myVNet-Hub**. |
+    | Name | Enter **vnet-hub**. |
     | Region | Select **South Central US**. |
 
 5. Select **Next: IP Addresses**.
 
 6. In the **IP Addresses** tab in **IPv4 address space**, select the trash can to delete the address space that is auto populated.
 
-7. In **IPv4 address space** enter **10.1.0.0/16**.
+7. In **IPv4 address space** enter **10.0.0.0/16**.
 
 8. Select **+ Add subnet**.
 
@@ -67,7 +67,7 @@ The hub virtual network contains the firewall subnet that is associated with the
     | Setting | Value |
     | ------- | ----- |
     | Subnet name | Enter **subnet-private**. |
-    | Subnet address range | Enter **10.1.0.0/24**. |
+    | Subnet address range | Enter **10.0.0.0/24**. |
 
 10. Select **Add**.
 
@@ -79,9 +79,9 @@ The hub virtual network contains the firewall subnet that is associated with the
 
     | Setting | Value |
     | ------- | ----- |
-    | Bastion name | Enter **myBastion**. |
-    | AzureBastionSubnet address space | Enter **10.1.1.0/26**. |
-    | Public IP address | Select **Create new**. </br> In **Name** enter **myPublicIP-Bastion**. </br> Select **OK**. |
+    | Bastion name | Enter **bastion**. |
+    | AzureBastionSubnet address space | Enter **10.0.1.0/26**. |
+    | Public IP address | Select **Create new**. </br> In **Name** enter **public-ip**. </br> Select **OK**. |
 
 14. In **Firewall** select **Enable**.
 
@@ -89,9 +89,9 @@ The hub virtual network contains the firewall subnet that is associated with the
 
     | Setting | Value |
     | ------- | ----- |
-    | Firewall name | Enter **myFirewall**. |
-    | Firewall subnet address space | Enter **10.1.2.0/26**. |
-    | Public IP address | Select **Create new**. </br> In **Name** enter **myPublicIP-Firewall**. </br> Select **OK**. |
+    | Firewall name | Enter **firewall**. |
+    | Firewall subnet address space | Enter **10.0.2.0/26**. |
+    | Public IP address | Select **Create new**. </br> In **Name** enter **public-ip-firewall**. </br> Select **OK**. |
 
 16. Select **Review + create**.
 
@@ -113,9 +113,9 @@ All outbound internet traffic will traverse the NAT gateway to the internet. Use
     | ------- | ----- |
     | **Project details** |  |
     | Subscription | Select your subscription. |
-    | Resource group | Select **TutorialNATHubSpokeFW-rg**. |
+    | Resource group | Select **test-rg**. |
     | **Instance details** |  |
-    | NAT gateway name | Enter **myNATgateway**. |
+    | NAT gateway name | Enter **nat-gateway**. |
     | Region | Select **South Central US**. |
     | Availability zone | Select a **Zone** or **No zone**. |
     | TCP idle timeout (minutes) | Leave the default of **4**. |
@@ -126,13 +126,13 @@ All outbound internet traffic will traverse the NAT gateway to the internet. Use
 
 6. In **Outbound IP** in **Public IP addresses**, select **Create a new public IP address**.
 
-7. Enter **myPublicIP-NAT** in **Name**.
+7. Enter **public-ip-nat** in **Name**.
 
 8. Select **OK**.
 
 9. Select **Next: Subnet**.
 
-10. In **Virtual Network** select **myVNet-Hub**.
+10. In **Virtual Network** select **vnet-hub**.
 
 11. Select **AzureFirewallSubnet** in **Subnet name**.
 
@@ -154,16 +154,16 @@ The spoke virtual network contains the test virtual machine used to test the rou
     | ------- | ----- |
     | **Project details** |   |
     | Subscription | Select your subscription. |
-    | Resource group | Select **TutorialNATHubSpokeFW-rg**. |
+    | Resource group | Select **test-rg**. |
     | **Instance details** |   |
-    | Name | Enter **myVNet-Spoke**. |
+    | Name | Enter **vnet-spoke**. |
     | Region | Select **South Central US**. |
 
 4. Select **Next: IP Addresses**.
 
 5. In the **IP Addresses** tab in **IPv4 address space**, select the trash can to delete the address space that is auto populated.
 
-6. In **IPv4 address space** enter **10.2.0.0/16**.
+6. In **IPv4 address space** enter **10.1.0.0/16**.
 
 7. Select **+ Add subnet**.
 
@@ -172,7 +172,7 @@ The spoke virtual network contains the test virtual machine used to test the rou
     | Setting | Value |
     | ------- | ----- |
     | Subnet name | Enter **subnet-private**. |
-    | Subnet address range | Enter **10.2.0.0/24**. |
+    | Subnet address range | Enter **10.1.0.0/24**. |
 
 9. Select **Add**.
 
@@ -186,7 +186,7 @@ A virtual network peering is used to connect the hub to the spoke and the spoke 
 
 1. In the search box at the top of the portal, enter **Virtual network**. Select **Virtual networks** in the search results.
 
-2. Select **myVNet-Hub**.
+2. Select **vnet-hub**.
 
 3. Select **Peerings** in **Settings**.
 
@@ -197,15 +197,15 @@ A virtual network peering is used to connect the hub to the spoke and the spoke 
     | Setting | Value |
     | ------- | ----- |
     | **This virtual network** |   |
-    | Peering link name | Enter **myVNet-Hub-To-myVNet-Spoke**. |
+    | Peering link name | Enter **vnet-hub-To-vnet-spoke**. |
     | Traffic to remote virtual network | Leave the default of **Allow (default)**. |
     | Traffic forwarded from remote virtual network | Leave the default of **Allow (default)**. |
     | Virtual network gateway or Route Server | Leave the default of **None**. |
     | **Remote virtual network** |   |
-    | Peering link name | Enter **myVNet-Spoke-To-myVNet-Hub**. |
+    | Peering link name | Enter **vnet-spoke-To-vnet-hub**. |
     | Virtual network deployment model | Leave the default of **Resource manager**. |
     | Subscription | Select your subscription. |
-    | Virtual network | Select **myVNet-Spoke**. |
+    | Virtual network | Select **vnet-spoke**. |
     | Traffic to remote virtual network | Leave the default of **Allow (default)**. |
     | Traffic forwarded from remote virtual network | Leave the default of **Allow (default)**. |
     | Virtual network gateway or Route Server | Leave the default of **None**. |
@@ -224,9 +224,9 @@ The private IP address of the firewall is needed for the route table created lat
 
 1. In the search box at the top of the portal, enter **Firewall**. Select **Firewall** in the search results.
 
-2. Select **myFirewall**.
+2. Select **firewall**.
 
-3. In the **Overview** of **myFirewall**, note the IP address in the field **Firewall private IP**. The IP address should be **10.1.2.4**.
+3. In the **Overview** of **firewall**, note the IP address in the field **Firewall private IP**. The IP address should be **10.1.2.4**.
 
 ### Create route table
 
@@ -242,10 +242,10 @@ Create a route table to force all inter-spoke and internet egress traffic throug
     | ------- | ----- |
     | **Project details** |   |
     | Subscription | Select your subscription. |
-    | Resource group | Select **TutorialNATHubSpokeFW-rg**. |
+    | Resource group | Select **test-rg**. |
     | **Instance details** |   |
     | Region | Select **South Central US**. |
-    | Name | Enter **myRouteTable-Spoke**. |
+    | Name | Enter **route-table-spoke**. |
     | Propagate gateway routes | Select **No**. |
 
 4. Select **Review + create**. 
@@ -254,7 +254,7 @@ Create a route table to force all inter-spoke and internet egress traffic throug
 
 6. In the search box at the top of the portal, enter **Route table**. Select **Route tables** in the search results.
 
-7. Select **myRouteTable-Spoke**.
+7. Select **route-table-spoke**.
 
 8. In **Settings** select **Routes**.
 
@@ -264,11 +264,11 @@ Create a route table to force all inter-spoke and internet egress traffic throug
 
     | Setting | Value |
     | ------- | ----- |
-    | Route name | Enter **Route-To-Hub**. |
+    | Route name | Enter **route-to-hub**. |
     | Address prefix destination | Select **IP Addresses**. |
     | Destination IP addresses/CIDR ranges | Enter **0.0.0.0/0**. |
     | Next hop type | Select **Virtual appliance**. |
-    | Next hop address | Enter **10.1.2.4**. |
+    | Next hop address | Enter **10.0.2.4**. |
 
 11. Select **Add**.
 
@@ -280,7 +280,7 @@ Create a route table to force all inter-spoke and internet egress traffic throug
 
     | Setting | Value |
     | ------- | ----- |
-    | Virtual network | Select **myVNet-Spoke (TutorialNATHubSpokeFW-rg)**. |
+    | Virtual network | Select **vnet-spoke (test-rg)**. |
     | Subnet | Select **subnet-private**. |
 
 15. Select **OK**.
@@ -293,7 +293,7 @@ Traffic from the spoke through the hub must be allowed through and firewall poli
 
 1. In the search box at the top of the portal, enter **Firewall**. Select **Firewalls** in the search results.
 
-2. Select **myFirewall**.
+2. Select **firewall**.
 
 3. In the **Overview** select **Migrate to firewall policy**.
 
@@ -303,9 +303,9 @@ Traffic from the spoke through the hub must be allowed through and firewall poli
     | ------- | ----- |
     | **Project details** |  |
     | Subscription | Select your subscription. |
-    | Resource group | Select **TutorialNATHubSpokeFW-rg**. |
+    | Resource group | Select **test-rg**. |
     | **Policy details** |  |
-    | Name | Enter **myFirewallPolicy**. |
+    | Name | Enter **firewallPolicy**. |
     | Region | Select **South Central US**. |
 
 5. Select **Review + create**.
@@ -316,7 +316,7 @@ Traffic from the spoke through the hub must be allowed through and firewall poli
 
 1. In the search box at the top of the portal, enter **Firewall**. Select **Firewall Policies** in the search results.
 
-2. Select **myFirewallPolicy**.
+2. Select **firewallPolicy**.
 
 3. In **Settings** select **Network rules**.
 
@@ -326,7 +326,7 @@ Traffic from the spoke through the hub must be allowed through and firewall poli
 
     | Setting | Value |
     | ------- | ----- |
-    | Name | Enter **SpokeToInternet**. |
+    | Name | Enter **spoke-to-internet**. |
     | Rule collection type | Select **Network**. |
     | Priority | Enter **100**. |
     | Rule collection action | Select **Allow**. |
@@ -334,7 +334,7 @@ Traffic from the spoke through the hub must be allowed through and firewall poli
     | Rules |    |
     | Name | Enter **AllowWeb**. |
     | Source type | **IP Address**. |
-    | Source | Enter **10.2.0.0/24**. |
+    | Source | Enter **10.1.0.0/24**. |
     | Protocol | Select **TCP**. |
     | Destination Ports | Enter **80**,**443**. |
     | Destination Type | Select **IP Address**. |
@@ -356,9 +356,9 @@ A Windows Server 2022 virtual machine is used to test the outbound internet traf
     | ------- | ----- |
     | **Project details** |   |
     | Subscription | Select your subscription. |
-    | Resource group | Select **TutorialNATHubSpokeFW-rg**. |
+    | Resource group | Select **test-rg**. |
     | **Instance details** |   |
-    | Virtual machine name | Enter **myVM-Spoke**. |
+    | Virtual machine name | Enter **vm-spoke**. |
     | Region | Select **South Central US**. |
     | Availability options | Select **No infrastructure redundancy required**. |
     | Security type | Select **Standard**. |
@@ -380,7 +380,7 @@ A Windows Server 2022 virtual machine is used to test the outbound internet traf
     | Setting | Value |
     | ------- | ----- |
     | **Network interface** |   |
-    | Virtual network | Select **myVNet-Spoke**. |
+    | Virtual network | Select **vnet-spoke**. |
     | Subnet | Select **subnet-private (10.2.0.0/24)**. |
     | Public IP | Select **None**. |
 
@@ -398,7 +398,7 @@ Obtain the NAT gateway public IP address for verification of the steps later in 
 
 1. In the search box at the top of the portal, enter **Public IP**. Select **Public IP addresses** in the search results.
 
-2. Select **myPublic-NAT**.
+2. Select **public-ip-nat**.
 
 3. Make note of value in **IP address**. The example used in this article is **20.225.88.213**.
 
@@ -408,7 +408,7 @@ Use Microsoft Edge on the Windows Server 2022 virtual machine to connect to http
 
 1. In the search box at the top of the portal, enter **Virtual machine**. Select **Virtual machines** in the search results.
 
-2. Select **myVM-Spoke**.
+2. Select **vm-spoke**.
 
 3. Select **Connect** then **Bastion**.
 
@@ -430,11 +430,11 @@ If you're not going to continue to use this application, delete the created reso
 
 1. In the search box at the top of the portal, enter **Resource group**. Select **Resource groups** in the search results.
 
-2. Select **TutorialNATHubSpokeFW-rg**.
+2. Select **test-rg**.
 
-3. In the **Overview** of **TutorialNATHubSpokeFW-rg**, select **Delete resource group**.
+3. In the **Overview** of **test-rg**, select **Delete resource group**.
 
-4. In **TYPE THE RESOURCE GROUP NAME:**, enter **TutorialNATHubSpokeFW-rg**.
+4. In **TYPE THE RESOURCE GROUP NAME:**, enter **test-rg**.
 
 5. Select **Delete**.
 
