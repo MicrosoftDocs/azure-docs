@@ -2,7 +2,7 @@
   href: index.yml
 - name: Overview
   items:
-  - name: Available ALI SKUs Epic workload
+  - name: ALI SKUs for Epic workload
     href: available-skus.md  
 - name: Configuration
   items:
