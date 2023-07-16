@@ -160,7 +160,7 @@ Now that you have the Logic App connector resource set up and configured, let's 
 
 1. After your account is connected, select the folder you created earlier in your **OneDrive** or **OneDrive for Business** account. Leave the other default values in place.
 
-    :::image type="content" source="media/logic-apps-tutorial/when-file-created.png" alt-text="Screenshot of the 'When a file is created window.":::
+    :::image type="content" source="media/logic-apps-tutorial/when-file-created.png" alt-text="Screenshot of the When a file is created window.":::
 
 :::moniker range="doc-intel-3.0.0"
 
@@ -196,11 +196,11 @@ Now that you have the Logic App connector resource set up and configured, let's 
 
 1. In the **Choose an operation** search bar, enter *Control* and select the **Control** tile.
 
-    :::image type="content" source="media/logic-apps-tutorial/select-control-tile.png" alt-text="Screenshot of the control tile from the 'choose an operation' menu.":::
+    :::image type="content" source="media/logic-apps-tutorial/select-control-tile.png" alt-text="Screenshot of the control tile from the choose an operation menu.":::
 
 1. Scroll down and select the **For each Control** tile from the **Control** list.
 
-    :::image type="content" source="media/logic-apps-tutorial/for-each-tile.png" alt-text="Screenshot of the 'For each Control' tile from the 'Control' menu. ":::
+    :::image type="content" source="media/logic-apps-tutorial/for-each-tile.png" alt-text="Screenshot of the For each Control tile from the Control menu. ":::
 
 1. In the **For each** step window, there's a field labeled **Select an output from previous steps**. Select this field. A dynamic content pop-up appears. If it doesn't, select the **Add dynamic content** button below the field and choose **documents**.
 
@@ -272,7 +272,7 @@ Now that you have the Logic App connector resource set up and configured, let's 
 
     * When you're done, the window looks similar to the following image:
 
-      :::image type="content" source="media/logic-apps-tutorial/send-email-functions.png" alt-text="Screenshot of the 'Send an email (V2)' window with completed fields.":::
+      :::image type="content" source="media/logic-apps-tutorial/send-email-functions.png" alt-text="Screenshot of the Send an email (V2) window with completed fields.":::
 
 1. **Select Save in the upper left corner**.
 
@@ -291,7 +291,7 @@ Now that you have the Logic App connector resource set up and configured, let's 
 
 1. A new node is added to the Logic App designer view. Search for "Form Recognizer (Document Intelligence forthcoming)" in the **Choose an operation** search bar and select **Analyze invoice** from the list.
 
-    :::image type="content" source="media/logic-apps-tutorial/analyze-invoice-v-2.png" alt-text="Screenshot of 'Analyze Invoice' action.":::
+    :::image type="content" source="media/logic-apps-tutorial/analyze-invoice-v-2.png" alt-text="Screenshot of Analyze Invoice action.":::
 
 1. Now, you see a window where to create your connection. Specifically, you're going to connect your Form Recognizer resource to the Logic Apps Designer Studio:
 
@@ -319,7 +319,7 @@ Now that you have the Logic App connector resource set up and configured, let's 
 
 1. Just like with OneDrive, you're asked to sign into your **Outlook** or **Office 365 Outlook** account. After you sign in, you see a window like the following image. In this window, we're going to format the email to be sent with the dynamic content extracted from the invoice.
 
-    :::image type="content" source="media/logic-apps-tutorial/send-email.png" alt-text="Screenshot of 'Send an email (V2)' action button.":::
+    :::image type="content" source="media/logic-apps-tutorial/send-email.png" alt-text="Screenshot of Send an email (V2) action button.":::
 
 1. We're almost done! Type the following entries in the fields:
 
@@ -369,11 +369,11 @@ Now that we've created the flow, the last thing to do is to test it and make sur
 
 1. Return to the Logic App designer tab and select the **Run trigger** button and select **Run** from the drop-down menu.
 
-    :::image type="content" source="media/logic-apps-tutorial/trigger-run.png" alt-text="Screenshot of 'Run trigger' and 'Run' buttons.":::
+    :::image type="content" source="media/logic-apps-tutorial/trigger-run.png" alt-text="Screenshot of Run trigger and Run buttons.":::
 
 1. You see a message in the upper=right corner indicating that the trigger was successful:
 
-   :::image type="content" source="media/logic-apps-tutorial/trigger-successful.png" alt-text="Screenshot of 'Successful trigger' message.":::
+   :::image type="content" source="media/logic-apps-tutorial/trigger-successful.png" alt-text="Screenshot of Successful trigger message.":::
 
 1. Navigate to your Logic App overview page by selecting your app name link in the upper-left corner.
 
@@ -381,7 +381,7 @@ Now that we've created the flow, the last thing to do is to test it and make sur
 
 1. Check the status, to see if the run succeeded or failed. You can select the status indicator to check which steps were successful.
 
-    :::image border="true" type="content" source="media/logic-apps-tutorial/succeeded-failed-indicator.png" alt-text="Screenshot of 'Succeeded' or 'Failed' status.":::
+    :::image border="true" type="content" source="media/logic-apps-tutorial/succeeded-failed-indicator.png" alt-text="Screenshot of Succeeded or Failed status.":::
 
 1. If your run failed, check the failed step to ensure that you entered the correct information.
 
