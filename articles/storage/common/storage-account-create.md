@@ -104,7 +104,7 @@ Every Resource Manager resource, including an Azure storage account, must belong
 
 To create an Azure storage account with the Azure portal, follow these steps:
 
-1. From the left portal menu, select **Storage accounts** to display a list of your storage accounts. If the portal menu isn't visible, click the menu button to toggle it on.
+1. From the left portal menu, select **Storage accounts** to display a list of your storage accounts. If the portal menu isn't visible, select the menu button to toggle it on.
 
     :::image type="content" source="media/storage-account-create/menu-expand-sml.png" alt-text="Image of the Azure portal homepage showing the location of the Menu button near the top left corner of the browser." lightbox="media/storage-account-create/menu-expand-lrg.png":::
 
@@ -447,7 +447,7 @@ If you try to delete a storage account associated with an Azure virtual machine,
 # [Portal](#tab/azure-portal)
 
 1. Navigate to the storage account in the [Azure portal](https://portal.azure.com).
-1. Click **Delete**.
+1. Select **Delete**.
 
 # [PowerShell](#tab/azure-powershell)
 
