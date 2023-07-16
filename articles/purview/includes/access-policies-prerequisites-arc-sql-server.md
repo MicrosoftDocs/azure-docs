@@ -4,13 +4,16 @@ ms.author: vlrodrig
 ms.service: purview
 ms.subservice: purview-data-policies
 ms.topic: include
-ms.date: 07/12/2023
+ms.date: 07/15/2023
 ms.custom: references_regions
 ---
-- Get [SQL Server on-premises version 2022](https://www.microsoft.com/en-us/sql-server/sql-server-downloads) running on Windows and install it. You can try the free Developer edition.
-- [Register a list of resource providers](/azure/azure-arc/servers/prerequisites#azure-resource-providers) in the subscription you will use to onboard the SQL Server instance to Azure Arc
-- Configure your permissions and then onboard the [SQL Server instance with Azure Arc](/sql/sql-server/azure-arc/connect-with-installer).
-- Enable [Azure Active Directory authentication in SQL Server](/sql/relational-databases/security/authentication-access/azure-ad-authentication-sql-server-setup-tutorial). For a simpler setup, follow [this article](/sql/relational-databases/security/authentication-access/azure-ad-authentication-sql-server-automation-setup-tutorial#setting-up-azure-ad-admin-using-the-azure-portal).
+- Get [SQL Server on-premises version 2022](https://www.microsoft.com/en-us/sql-server/sql-server-downloads) running on Windows and install it. For this configuration, only version 2022 or more recent are supported. Only Windows based SQL Server is supported. You can try the free Developer edition.
+- Configure your [permissions](/azure/azure-arc/servers/prerequisites#required-permissions) and then [register a list of resource providers](/azure/azure-arc/servers/prerequisites#azure-resource-providers) in the subscription you will use to onboard the SQL Server instance to Azure Arc
+- Complete prerequisites and onboard the [Windows based SQL Server instance with Azure Arc](/sql/sql-server/azure-arc/connect-with-installer).
+- Enable [Azure Active Directory authentication in SQL Server](/sql/relational-databases/security/authentication-access/azure-ad-authentication-sql-server-setup-tutorial). For a simpler setup, complete the [prerequisites](/sql/relational-databases/security/authentication-access/azure-ad-authentication-sql-server-automation-setup-tutorial#preparation-before-setting-the-azure-ad-admin) and process outlined in [this article](/sql/relational-databases/security/authentication-access/azure-ad-authentication-sql-server-automation-setup-tutorial#setting-up-azure-ad-admin-using-the-azure-portal).
+- Remember to [grant application permissions and granting admin consent](/sql/relational-databases/security/authentication-access/azure-ad-authentication-sql-server-setup-tutorial#grant-application-permissions)
+- Beyond configuring an Azure AD admin for the SQL Server instance, it is not necessary to set up other Azure AD logins or users. You will grant those users access by using Microsoft Purview policies.
+
 
 #### Region support
 
@@ -23,11 +26,11 @@ Policy enforcement is available in all Microsoft Purview regions except:
 #### Security considerations for Azure Arc-enabled SQL Server
 
 - The server admin can turn off the Microsoft Purview policy enforcement.
-- Azure Arc admin and server admin permissions provide the ability to change the Azure Resource Manager path of the server. Because mappings in Microsoft Purview use Resource Manager paths, this can lead to wrong policy enforcements. 
+- Azure Arc admin and server admin permissions provide the ability to change the Azure Resource Manager path of the server. Because mappings in Microsoft Purview use Resource Manager paths, it can lead to wrong policy enforcements. 
 - A SQL Server admin (database admin) can gain the power of a server admin and can tamper with the cached policies from Microsoft Purview.
 - The recommended configuration is to create a separate app registration for each SQL server instance. This configuration prevents the second SQL Server instance from reading the policies meant for the first SQL Server instance, in case a rogue admin in the second SQL Server instance tampers with the Resource Manager path.
 
-#### Verify the pre-requisites
+#### Verify the prerequisites
 
 1. Sign in to the Azure portal through [this link](https://portal.azure.com/#view/Microsoft_Azure_HybridCompute/AzureArcCenterBlade/~/overview)
 
