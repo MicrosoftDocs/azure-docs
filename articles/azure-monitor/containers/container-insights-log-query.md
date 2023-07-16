@@ -622,7 +622,7 @@ The required tables for this chart include KubeNodeInventory, KubePodInventory, 
 
 ## Resource logs
 
-For details on resource logs for AKS clusters, see [Collect control plane logs](../../aks/monitor-aks.md#collect-control-plane-logs).
+For details on resource logs for AKS clusters, see [Collect control plane logs](../../aks/monitor-aks.md#control-plane-logs).
 
 
 
