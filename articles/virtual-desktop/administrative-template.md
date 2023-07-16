@@ -1,35 +1,71 @@
 ---
 title: Administrative template for Azure Virtual Desktop
-description: Learn how to use the administrative template for Azure Virtual Desktop with Group Policy to configure settings.
+description: Learn how to use the administrative template (ADMX) for Azure Virtual Desktop with Intune or Group Policy to configure certain settings on your session hosts.
 author: dknappettmsft
 ms.topic: how-to
-ms.date: 02/02/2023
+ms.date: 06/28/2023
 ms.author: daknappe
 ---
+
 # Administrative template for Azure Virtual Desktop
 
-We've created an administrative template for Azure Virtual Desktop to configure some features of Azure Virtual Desktop. You can use the template with Group Policy, which enables you to centrally configure session hosts that are joined to an Active Directory (AD) domain. You can also use the template with Group Policy locally on each session host, but this isn't recommended to manage session hosts at scale.
+We've created an administrative template for Azure Virtual Desktop to configure some features of Azure Virtual Desktop. You can use the template with:
+
+- Intune, which enables you to centrally configure session hosts that are enrolled in Intune and joined to Azure Active Directory (Azure AD) or hybrid Azure AD joined.
+
+- Group Policy with Active Directory (AD), which enables you to centrally configure session hosts that are joined to an AD domain.
+
+- Group Policy locally on each session host, but we don't recommend this to manage session hosts at scale.
 
 You can configure the following features with the administrative template:
 
+- [Graphics related data logging](connection-latency.md#connection-graphics-data-preview)
 - [Screen capture protection](screen-capture-protection.md)
 - [RDP Shortpath for managed networks](rdp-shortpath.md?tabs=managed-networks)
 - [Watermarking](watermarking.md)
 
-> [!NOTE]
-> Importing the administrative template to Microsoft Intune is currently not supported. You should eventually be able to configure these features using the Intune settings catalog.
-
 ## Prerequisites
 
-You'll need the following permission:
+Before you can configure the template settings, you need to meet the following prerequisites. Select a tab for your scenario.
 
-- For Group Policy in an Active Directory domain, you'll need to be a member of the **Domain Admins** security group.
+# [Intune](#tab/intune)
 
-- For local Group Policy on a session host, you'll need to be a member of the local **Administrators** security group.
+For Intune device configuration profile, you need the following permission:
 
-## Add the administrative template
+- Assigned the [**Policy and Profile manager**](/mem/intune/fundamentals/role-based-access-control-reference#policy-and-profile-manager) built-in role-based access control (RBAC) role.
 
-To add the administrative template, select a tab for your scenario and follow these steps.
+# [Group Policy (AD)](#tab/group-policy-domain)
+
+For Group Policy in an Active Directory (AD) domain, you need the following permission:
+
+- A member of the **Domain Admins** security group.
+
+# [Local Group Policy](#tab/local-group-policy)
+
+For local Group Policy on a session host, you need the following permission:
+
+- A member of the local **Administrators** security group on each session host.
+
+---
+
+## Configure the administrative template
+
+To configure the administrative template, select a tab for your scenario and follow these steps.
+
+# [Intune](#tab/intune)
+
+> [!IMPORTANT]
+> The administrative template for Azure Virtual Desktop is only available with the *templates* profile type, not the *settings catalog*. You can use the templates profile type with Windows 10 and Windows 11, but you can't use this with multi-session versions of these operating systems as they only support the settings catalog. You'll need to use one of the other methods with multi-session.
+
+1. Sign in to the [Microsoft Intune admin center](https://endpoint.microsoft.com/).
+
+1. [Create or edit a configuration profile](/mem/intune/configuration/administrative-templates-windows) for **Windows 10 and later** devices, with the **Templates** profile type and **Administrative templates** template name.
+
+1. Browse to **Computer configuration** > **Windows Components** > **Remote Desktop Services** > **Remote Desktop Session Host** > **Azure Virtual Desktop**. You should see policy settings for Azure Virtual Desktop available for you to configure, as shown in the following screenshot:
+
+   :::image type="content" source="media/administrative-template/azure-virtual-desktop-intune-template.png" alt-text="Screenshot of the Intune admin center showing Azure Virtual Desktop policy settings." lightbox="media/administrative-template/azure-virtual-desktop-intune-template.png":::
+
+1. Apply the configuration profile to your session hosts, then restart your clients.
 
 # [Group Policy (AD)](#tab/group-policy-domain)
 
@@ -42,9 +78,11 @@ To add the administrative template, select a tab for your scenario and follow th
 
 1. Open the **Group Policy Management Console** (GPMC) and create or edit a policy that targets your session hosts.
 
-1. To verify that the Azure Virtual Desktop administrative template is available, browse to **Computer Configuration** > **Policies** > **Administrative Templates** > **Windows Components** > **Remote Desktop Services** > **Remote Desktop Session Host** > **Azure Virtual Desktop**. You should see policy settings for Azure Virtual Desktop, as shown in the following screenshot:
+1. To verify that the Azure Virtual Desktop administrative template is available, browse to **Computer Configuration** > **Policies** > **Administrative Templates** > **Windows Components** > **Remote Desktop Services** > **Remote Desktop Session Host** > **Azure Virtual Desktop**. You should see policy settings for Azure Virtual Desktop available for you to configure, as shown in the following screenshot:
 
    :::image type="content" source="media/administrative-template/azure-virtual-desktop-gpo.png" alt-text="Screenshot of the Group Policy Management Editor showing Azure Virtual Desktop policy settings." lightbox="media/administrative-template/azure-virtual-desktop-gpo.png":::
+
+1. Apply the policy to your session hosts, then restart your session hosts.
 
 # [Local Group Policy](#tab/local-group-policy)
 
@@ -54,9 +92,11 @@ To add the administrative template, select a tab for your scenario and follow th
 
 1. Open the **Local Group Policy Editor** console.
 
-1. To verify that the Azure Virtual Desktop administrative template is available, browse to **Computer Configuration** > **Administrative Templates** > **Windows Components** > **Remote Desktop Services** > **Remote Desktop Session Host** > **Azure Virtual Desktop**. You should see policy settings for Azure Virtual Desktop, as shown in the following screenshot:
+1. To verify that the Azure Virtual Desktop administrative template is available, browse to **Computer Configuration** > **Administrative Templates** > **Windows Components** > **Remote Desktop Services** > **Remote Desktop Session Host** > **Azure Virtual Desktop**. You should see policy settings for Azure Virtual Desktop available for you to configure, as shown in the following screenshot:
 
    :::image type="content" source="media/administrative-template/azure-virtual-desktop-gpo.png" alt-text="Screenshot of the Local Group Policy Editor showing Azure Virtual Desktop policy settings." lightbox="media/administrative-template/azure-virtual-desktop-gpo.png":::
+
+1. Restart your session hosts for the settings to take effect.
 
 ---
 
@@ -64,6 +104,7 @@ To add the administrative template, select a tab for your scenario and follow th
 
 Learn how to use the administrative template with the following features:
 
+- [Graphics related data logging](connection-latency.md#connection-graphics-data-preview)
 - [Screen capture protection](screen-capture-protection.md)
 - [RDP Shortpath for managed networks](rdp-shortpath.md?tabs=managed-networks)
 - [Watermarking](watermarking.md)

@@ -4,7 +4,7 @@ description: Learn how to onboard sensors to Defender for IoT in the Azure porta
 ms.date: 05/28/2023
 ms.topic: install-set-up-deploy
 ms.collection:
-  -       zerotrust-services
+  -       zerotrust-extra
 ---
 
 # Onboard OT sensors to Defender for IoT

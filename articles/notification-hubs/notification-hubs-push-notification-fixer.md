@@ -61,6 +61,8 @@ If you inadvertently upload different types of certificates to the same hub, you
 
 ### FCM configuration
 
+[!INCLUDE [notification-hubs-firebase-deprecation](../../includes/notification-hubs-firebase-deprecation.md)]
+
 1. Ensure that the *server key* you obtained from Firebase matches the server key you registered in the Azure portal.
 
    ![Firebase server key][3]

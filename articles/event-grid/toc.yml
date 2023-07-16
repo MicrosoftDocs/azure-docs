@@ -70,6 +70,8 @@ items:
         href: mqtt-troubleshoot-errors.md
     - name: Reference
       items:
+      - name: SDKs
+        href: sdk-overview.md
       - name: Azure CLI
         href: /cli/azure/eventgrid
       - name: PowerShell
@@ -126,6 +128,8 @@ items:
         href: create-view-manage-event-subscriptions.md
     - name: Reference
       items:
+      - name: SDKs
+        href: sdk-overview.md
       - name: Azure CLI
         href: /cli/azure/eventgrid
       - name: PowerShell
@@ -299,7 +303,7 @@ items:
             href: event-schema-data-box.md
           - name: Azure Data Manager for Agriculture
             href: event-schema-data-manager-for-agriculture.md
-          - name: Azure Event Grid Namespace
+          - name: Azure Event Grid 
             href: event-schema-event-grid-namespace.md
           - name: Azure Event Hubs
             href: event-schema-event-hubs.md
@@ -522,6 +526,8 @@ items:
           href: troubleshoot-subscription-validation.md
     - name: Reference
       items:
+      - name: SDKs
+        href: sdk-overview.md
       - name: Azure CLI
         href: /cli/azure/eventgrid
       - name: PowerShell
@@ -548,8 +554,6 @@ items:
           href: /azure/templates/microsoft.eventgrid/eventsubscriptions
         - name: Topics
           href: /azure/templates/microsoft.eventgrid/topics
-      - name: SDKs
-        href: sdk-overview.md
       - name: Transition from Event Grid on IoT Edge to Azure IoT Edge
         href: transition.md
     - name: Resources

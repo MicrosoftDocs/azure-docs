@@ -16,7 +16,7 @@ monikerRange: 'form-recog-3.0.0'
 
 **This article applies to:** ![Form Recognizer v3.0 checkmark](media/yes-icon.png) **Form Recognizer v3.0**.
 
-[Form Recognizer Studio](https://formrecognizer.appliedai.azure.com/) is an online tool for visually exploring, understanding, and integrating features from the Form Recognizer service into your applications. Use the [Form Recognizer Studio quickstart](quickstarts/try-v3-form-recognizer-studio.md) to get started analyzing documents with pretrained models. Build custom template models and reference the models in your applications using the [Python SDK v3.0](quickstarts/get-started-sdks-rest-api.md?view=form-recog-3.0.0&preserve-view=true) and other quickstarts.
+[Form Recognizer Studio](https://formrecognizer.appliedai.azure.com/) is an online tool for visually exploring, understanding, and integrating features from the Form Recognizer service into your applications. Use the [Form Recognizer Studio quickstart](quickstarts/try-form-recognizer-studio.md) to get started analyzing documents with pretrained models. Build custom template models and reference the models in your applications using the [Python SDK v3.0](quickstarts/get-started-sdks-rest-api.md?view=form-recog-3.0.0&preserve-view=true) and other quickstarts.
 
 The following image shows the Invoice prebuilt model feature at work.
 
@@ -43,4 +43,4 @@ The following Form Recognizer service features are available in the Studio.
 * Refer to our [**v3.0 REST API quickstarts**](quickstarts/get-started-sdks-rest-api.md?view=form-recog-3.0.0&preserve-view=true) to try the v3.0features using the new REST API.
 
 > [!div class="nextstepaction"]
-> [Form Recognizer Studio  quickstart](quickstarts/try-v3-form-recognizer-studio.md)
+> [Form Recognizer Studio  quickstart](quickstarts/try-form-recognizer-studio.md)

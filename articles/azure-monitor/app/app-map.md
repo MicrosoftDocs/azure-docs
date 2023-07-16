@@ -2,7 +2,7 @@
 title: Application Map in Azure Application Insights | Microsoft Docs
 description: Monitor complex application topologies with Application Map and Intelligent view.
 ms.topic: conceptual
-ms.date: 11/15/2022
+ms.date: 07/10/2023
 ms.devlang: csharp, java, javascript, python
 ms.custom: devx-track-csharp
 ms.reviewer: rijolly 
@@ -14,7 +14,7 @@ Application maps represent the logical structure of a distributed application. I
 
 Application Map helps you spot performance bottlenecks or failure hotspots across all components of your distributed application. Each node on the map represents an application component or its dependencies and has health KPI and alerts status. You can select any component to get more detailed diagnostics, such as Application Insights events. If your app uses Azure services, you can also select Azure diagnostics, such as SQL Database Advisor recommendations.
 
-Application Map also features [Intelligent view](#application-map-intelligent-view-public-preview) to assist with fast service health investigations.
+Application Map also features [Intelligent view](#application-map-intelligent-view) to assist with fast service health investigations.
 
 ## What is a component?
 
@@ -427,7 +427,7 @@ There are many filter combinations. Here are some suggestions that apply to most
 
 ---------------------------------------------------------------------------------
 
-## Application Map Intelligent view (public preview)
+## Application Map Intelligent view
 
 The following sections discuss Intelligent view.
 
@@ -549,12 +549,7 @@ If an edge is highlighted, the explanation from the model should point you to th
 
 #### Why doesn't Intelligent view load?
 
-If **Intelligent view** doesn't load:
-
-1. Set the configured time frame to six days or less.
-1. The **Try preview** button must be selected to opt in.
-
-   :::image type="content" source="media/app-map/intelligent-view-try-preview.png" alt-text="Screenshot that shows the Try preview button in the Application Map user interface." lightbox="media/app-map/intelligent-view-try-preview.png":::
+If **Intelligent view** doesn't load, set the configured time frame to six days or less.
 
 #### Why does Intelligent view take a long time to load?
 

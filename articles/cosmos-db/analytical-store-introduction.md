@@ -2,15 +2,16 @@
 title: What is Azure Cosmos DB analytical store?
 description: Learn about Azure Cosmos DB transactional (row-based) and analytical(column-based) store. Benefits of analytical store, performance impact for large-scale workloads, and auto sync of data from transactional store to analytical store.  
 author: Rodrigossz
+ms.author: rosouz
+ms.reviewer: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 04/18/2023
-ms.author: rosouz
 ms.custom: seo-nov-2020, devx-track-azurecli, ignite-2022
-ms.reviewer: mjbrown
 ---
 
 # What is Azure Cosmos DB analytical store?
+
 [!INCLUDE[NoSQL, MongoDB, Gremlin](includes/appliesto-nosql-mongodb-gremlin.md)]
 
 Azure Cosmos DB analytical store is a fully isolated column store for enabling large-scale analytics against operational data in your Azure Cosmos DB, without any impact to your transactional workloads. 
@@ -555,7 +556,7 @@ Analytical store relies on Azure Storage and offers the following protection aga
  * By default, Azure Cosmos DB database accounts allocate analytical store in Locally Redundant Storage (LRS) accounts. LRS provides at least 99.999999999% (11 nines) durability of objects over a given year.
  * If any geo-region of the database account is configured for zone-redundancy, it is allocated in Zone-redundant Storage (ZRS) accounts. Customers need to enable Availability Zones on a region of their Azure Cosmos DB database account to have analytical data of that region stored in Zone-redundant Storage. ZRS offers durability for storage resources of at least 99.9999999999% (12 9's) over a given year.
 
-For more information about Azure Storage durability, click [here](https://learn.microsoft.com/azure/storage/common/storage-redundancy).
+For more information about Azure Storage durability, click [here](/azure/storage/common/storage-redundancy).
 
 ## Backup
 

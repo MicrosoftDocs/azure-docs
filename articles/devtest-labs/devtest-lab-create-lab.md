@@ -5,7 +5,7 @@ ms.topic: quickstart
 ms.author: rosemalcolm
 author: RoseHJM
 ms.date: 05/22/2023
-ms.custom: mode-ui
+ms.custom: mode-ui, UpdateFrequency2
 ---
 
 # Quickstart: Create a lab in the Azure portal

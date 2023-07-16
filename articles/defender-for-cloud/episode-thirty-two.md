@@ -34,4 +34,4 @@ ms.date: 06/08/2023
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [New AWS Connector in Microsoft Defender for Cloud](episode-one.md)
+> [Agentless Container Posture Management in Defender for Cloud](episode-thirty-three.md)

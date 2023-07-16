@@ -5,7 +5,7 @@ description: Learn how to use a public load balancer with a Standard SKU to expo
 ms.subservice: aks-networking
 ms.custom: devx-track-azurecli
 ms.topic: how-to
-ms.date: 02/22/2023
+ms.date: 07/14/2023
 ms.author: allensu
 author: asudbring
 #Customer intent: As a cluster operator or developer, I want to learn how to create a service in AKS that uses an Azure Load Balancer with a Standard SKU.
@@ -211,7 +211,7 @@ An outbound rule configures outbound NAT for all virtual machines identified by 
 
 While you can use an outbound rule with a single public IP address, outbound rules are great for scaling outbound NAT because they ease the configuration burden. You can use multiple IP addresses to plan for large-scale scenarios and outbound rules to mitigate SNAT exhaustion prone patterns. Each IP address provided by a frontend provides 64k ephemeral ports for the load balancer to use as SNAT ports.
 
-When using a *Standard* SKU load balancer with managed outbound public IPs (which are created by default), you can scale the number of managed outbound public IPs using the **`load-balancer-managed-ip-count`** parameter.
+When using a *Standard* SKU load balancer with managed outbound public IPs (which are created by default), you can scale the number of managed outbound public IPs using the **`--load-balancer-managed-outbound-ip-count`** parameter.
 
 Use the following command to update an existing cluster. You can also set this parameter to have multiple managed outbound public IPs.
 
@@ -233,7 +233,7 @@ az aks update \
 
 The above example sets the number of managed outbound public IPs to *2* for the *myAKSCluster* cluster in *myResourceGroup*.
 
-At cluster creation time, you can also use the **`load-balancer-managed-ip-count`** parameter to set the initial number of managed outbound public IPs by appending the **`--load-balancer-managed-outbound-ip-count`** parameter and setting it to your desired value. The default number of managed outbound public IPs is *1*.
+At cluster creation time, you can also set the initial number of managed outbound public IPs by appending the **`--load-balancer-managed-outbound-ip-count`** parameter and setting it to your desired value. The default number of managed outbound public IPs is *1*.
 
 ### Provide your own outbound public IPs or prefixes
 
@@ -316,7 +316,12 @@ az aks create \
 >
 > For more information on SNAT, see [Use SNAT for outbound connections](../load-balancer/load-balancer-outbound-connections.md).
 
-By default, AKS sets *AllocatedOutboundPorts* on its load balancer to `0`, which enables [automatic outbound port assignment based on backend pool size][azure-lb-outbound-preallocatedports] when creating a cluster. For example, if a cluster has 50 or fewer nodes, 1024 ports are allocated to each node. As the number of nodes in the cluster increases, fewer ports are available per node. To show the *AllocatedOutboundPorts* value for the AKS cluster load balancer, use `az network lb outbound-rule list`.
+By default, AKS sets *AllocatedOutboundPorts* on its load balancer to `0`, which enables [automatic outbound port assignment based on backend pool size][azure-lb-outbound-preallocatedports] when creating a cluster. For example, if a cluster has 50 or fewer nodes, 1024 ports are allocated to each node. As the number of nodes in the cluster increases, fewer ports are available per node. 
+
+> [!IMPORTANT]
+> There is a hard limit of 1024 ports regardless of whether front-end IPs are added when the node size is less than 50.
+
+To show the *AllocatedOutboundPorts* value for the AKS cluster load balancer, use `az network lb outbound-rule list`.
 
 ```azurecli-interactive
 NODE_RG=$(az aks show --resource-group myResourceGroup --name myAKSCluster --query nodeResourceGroup -o tsv)

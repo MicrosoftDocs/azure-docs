@@ -10,12 +10,12 @@ ms.date: 04/29/2021
 ms.author: mbullwin
 ---
 
-Get started with the Anomaly Detector multivariate client library for JavaScript. Follow these steps to install the package and start using the algorithms provided by the service. The new multivariate anomaly detection APIs enable developers by easily integrating advanced AI for detecting anomalies from groups of metrics, without the need for machine learning knowledge or labeled data. Dependencies and inter-correlations between different signals are automatically counted as key factors. This helps you to proactively protect your complex systems from failures.
+Get started with the Anomaly Detector multivariate client library for JavaScript. Follow these steps to install the package and start using the algorithms provided by the service. The new multivariate anomaly detector APIs enable developers by easily integrating advanced AI for detecting anomalies from groups of metrics, without the need for machine learning knowledge or labeled data. Dependencies and inter-correlations between different signals are automatically counted as key factors. This helps you to proactively protect your complex systems from failures.
 
 Use the Anomaly Detector multivariate client library for JavaScript to:
 
 * Detect system level anomalies from a group of time series.
-* When any individual time series won't tell you much and you have to look at all signals to detect a problem.
+* When any individual time series won't tell you much, and you have to look at all signals to detect a problem.
 * Predicative maintenance of expensive physical assets with tens to hundreds of different types of sensors measuring various aspects of system health.
 
 [Library reference documentation](/javascript/api/overview/azure/ai-anomaly-detector-readme) | [Library source code](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/anomalydetector/ai-anomaly-detector-rest) | [Package (npm)](https://www.npmjs.com/package/@azure/ai-anomaly-detector) | [Sample code](https://github.com/Azure/azure-sdk-for-js/blob/main/sdk/anomalydetector/ai-anomaly-detector-rest/samples/v1-beta/javascript/sample_multivariate_detection.js)
@@ -24,8 +24,8 @@ Use the Anomaly Detector multivariate client library for JavaScript to:
 
 * Azure subscription - [Create one for free](https://azure.microsoft.com/free/cognitive-services)
 * The current version of [Node.js](https://nodejs.org/)
-* Once you have your Azure subscription, <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesAnomalyDetector"  title="Create an Anomaly Detector resource"  target="_blank">create an Anomaly Detector resource </a> in the Azure portal to get your key and endpoint. Wait for it to deploy and click the **Go to resource** button.
-    * You will need the key and endpoint from the resource you create to connect your application to the Anomaly Detector API. You'll paste your key and endpoint into the code below later in the quickstart.
+* Once you have your Azure subscription, <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesAnomalyDetector"  title="Create an Anomaly Detector resource"  target="_blank">create an Anomaly Detector resource </a> in the Azure portal to get your key and endpoint. Wait for it to deploy and select the **Go to resource** button.
+    * You'll need the key and endpoint from the resource you create to connect your application to the Anomaly Detector API. You'll paste your key and endpoint into the code below later in the quickstart.
     You can use the free pricing tier (`F0`) to try the service, and upgrade later to a paid tier for production.
 
 ## Setting up
@@ -91,7 +91,7 @@ Install the `ms-rest-azure` and `azure-ai-anomalydetector` NPM packages. The csv
 npm install @azure/ai-anomaly-detector csv-parse
 ```
 
-Your app's `package.json` file will be updated with the dependencies.
+Your app's `package.json` file is updated with the dependencies.
 
 ## Code examples
 
@@ -128,7 +128,7 @@ const Modelrequest = {
 
 ### Train a new model
 
-You will need to pass your model request to the Anomaly Detector client `trainMultivariateModel` method.
+You pass your model request to the Anomaly Detector client `trainMultivariateModel` method.
 
 ```javascript
 console.log("Training a new model...")

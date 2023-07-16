@@ -4,7 +4,7 @@ description: Description of command line options available with kickstart deploy
 author: MSFTandrelom
 ms.author: andrelom
 ms.topic: reference
-ms.date: 03/02/2022
+ms.date: 05/24/2023
 ---
 
 # Kickstart script reference
@@ -162,7 +162,7 @@ If set to `cfgf`, configuration file stored locally will be used to store secret
 
 **Required:** Yes, if [Secret storage location](#secret-storage-location) is set to `kvsi`.
 
-**Explanation:** When Azure Key Vault authentication mode is set to `kvsi`, authentication to key vault is done using an [enterprise application (service principal) identity](deploy-data-connector-agent-container.md?tabs=registered-application#deploy-the-data-connector-agent-container). This parameter specifies the application ID.
+**Explanation:** When Azure Key Vault authentication mode is set to `kvsi`, authentication to key vault is done using an [enterprise application (service principal) identity](deploy-data-connector-agent-container-other-methods.md?tabs=registered-application#deploy-the-data-connector-agent-container). This parameter specifies the application ID.
 
 #### Enterprise Application secret
 
@@ -172,7 +172,7 @@ If set to `cfgf`, configuration file stored locally will be used to store secret
 
 **Required:** Yes, if [Secret storage location](#secret-storage-location) is set to `kvsi`.
 
-**Explanation:** When Azure Key Vault authentication mode is set to `kvsi`, authentication to key vault is done using an [enterprise application (service principal) identity](deploy-data-connector-agent-container.md?tabs=registered-application#deploy-the-data-connector-agent-container). This parameter specifies the application secret.
+**Explanation:** When Azure Key Vault authentication mode is set to `kvsi`, authentication to key vault is done using an [enterprise application (service principal) identity](deploy-data-connector-agent-container-other-methods.md?tabs=registered-application#deploy-the-data-connector-agent-container). This parameter specifies the application secret.
 
 #### Tenant ID
 
@@ -182,7 +182,7 @@ If set to `cfgf`, configuration file stored locally will be used to store secret
 
 **Required:** Yes, if [Secret storage location](#secret-storage-location) is set to `kvsi`.
 
-**Explanation:** When Azure Key Vault authentication mode is set to `kvsi`, authentication to key vault is done using an [enterprise application (service principal) identity](deploy-data-connector-agent-container.md?tabs=registered-application#deploy-the-data-connector-agent-container). This parameter specifies the Azure Active Directory Tenant ID.
+**Explanation:** When Azure Key Vault authentication mode is set to `kvsi`, authentication to key vault is done using an [enterprise application (service principal) identity](deploy-data-connector-agent-container-other-methods.md?tabs=registered-application#deploy-the-data-connector-agent-container). This parameter specifies the Azure Active Directory Tenant ID.
  
 #### Key Vault Name
 
@@ -341,8 +341,8 @@ Learn more about the Microsoft Sentinel solution for SAP® applications:
 - [Deploy Microsoft Sentinel solution for SAP® applications](deployment-overview.md)
 - [Prerequisites for deploying Microsoft Sentinel solution for SAP® applications](prerequisites-for-deploying-sap-continuous-threat-monitoring.md)
 - [Deploy SAP Change Requests (CRs) and configure authorization](preparing-sap.md)
+- [Deploy the solution content from the content hub](deploy-sap-security-content.md)
 - [Deploy and configure the container hosting the SAP data connector agent](deploy-data-connector-agent-container.md)
-- [Deploy SAP security content](deploy-sap-security-content.md)
 - [Deploy the Microsoft Sentinel for SAP data connector with SNC](configure-snc.md)
 - [Monitor the health of your SAP system](../monitor-sap-system-health.md)
 - [Enable and configure SAP auditing](configure-audit.md)
@@ -351,7 +351,6 @@ Learn more about the Microsoft Sentinel solution for SAP® applications:
 Troubleshooting:
 
 - [Troubleshoot your Microsoft Sentinel solution for SAP® applications solution deployment](sap-deploy-troubleshoot.md)
-- [Configure SAP Transport Management System](configure-transport.md)
 
 Reference files:
 

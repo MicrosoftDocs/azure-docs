@@ -2,11 +2,10 @@
 title: Improve NFS Azure file share performance with nconnect
 description: Learn how using nconnect with Linux clients can improve the performance of NFS Azure file shares at scale.
 author: khdownie
-ms.service: storage
+ms.service: azure-file-storage
 ms.topic: conceptual
 ms.date: 03/20/2023
 ms.author: kendownie
-ms.subservice: files
 ---
 
 # Improve NFS Azure file share performance with `nconnect`

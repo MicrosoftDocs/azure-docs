@@ -3,7 +3,7 @@ title: Monitor copy logs in Azure Storage Mover
 description: Learn how to monitor the status of Azure Storage Mover migration jobs.
 author: stevenmatthew
 ms.author: shaas
-ms.service: storage-mover
+ms.service: azure-storage-mover
 ms.topic: how-to
 ms.date: 03/20/2023
 ---

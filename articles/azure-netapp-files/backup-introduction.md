@@ -16,6 +16,7 @@ ms.date: 06/01/2023
 ms.author: anfdocs
 ms.custom: references_regions
 ---
+
 # Understand Azure NetApp Files backup
 
 Azure NetApp Files backup expands the data protection capabilities of Azure NetApp Files by providing fully managed backup solution for long-term recovery, archive, and compliance. Backups created by the service are stored in Azure storage, independent of volume snapshots that are available for near-term recovery or cloning. Backups taken by the service can be restored to new Azure NetApp Files volumes within the region. Azure NetApp Files backup supports both policy-based (scheduled) backups and manual (on-demand) backups. For more information, see [How Azure NetApp Files snapshots work](snapshots-introduction.md).
@@ -73,7 +74,7 @@ If you choose to restore a backup of, for example, 600 GiB to a new volume, you'
 
 ## Next steps
 
-* [Requirements and considerations for Azure NetApp Files](backup-requirements-considerations.md)
+* [Requirements and considerations for Azure NetApp Files backup](backup-requirements-considerations.md) 
 * [Resource limits for Azure NetApp Files](azure-netapp-files-resource-limits.md)
 * [Configure policy-based backups](backup-configure-policy-based.md)
 * [Configure manual backups](backup-configure-manual.md)
@@ -85,3 +86,5 @@ If you choose to restore a backup of, for example, 600 GiB to a new volume, you'
 * [Volume backup metrics](azure-netapp-files-metrics.md#volume-backup-metrics)
 * [Azure NetApp Files backup FAQs](faq-backup.md)
 * [How Azure NetApp Files snapshots work](snapshots-introduction.md)
+
+

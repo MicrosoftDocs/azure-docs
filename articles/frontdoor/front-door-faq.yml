@@ -25,7 +25,7 @@ sections:
       - question: |
           What is Azure Front Door?
         answer:  |
-          Azure Front Door is an Application Delivery Network (ADN) as a service, offering various layer 7 load-balancing capabilities for your applications. It provides dynamic site acceleration (DSA) along with global load balancing with near real-time failover. It's a highly available and scalable service, which is completed managed by Azure.
+          Azure Front Door is an Application Delivery Network (ADN) as a service, offering various layer 7 load-balancing capabilities for your applications. It provides dynamic site acceleration (DSA) along with global load balancing with near real-time failover. It's a highly available and scalable service, which is completely managed by Azure.
 
       - question: |
           What features does Azure Front Door support?

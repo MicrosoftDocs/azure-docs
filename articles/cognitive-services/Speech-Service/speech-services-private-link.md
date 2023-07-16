@@ -10,19 +10,17 @@ ms.subservice: speech-service
 ms.topic: how-to
 ms.date: 04/07/2021
 ms.author: alexeyo
-ms.custom: devx-track-azurepowershell
+ms.custom: devx-track-azurepowershell, devx-track-azurecli
 ---
 
 # Use Speech service through a private endpoint
 
 [Azure Private Link](../../private-link/private-link-overview.md) lets you connect to services in Azure by using a [private endpoint](../../private-link/private-endpoint-overview.md). A private endpoint is a private IP address that's accessible only within a specific [virtual network](../../virtual-network/virtual-networks-overview.md) and subnet.
 
-This article explains how to set up and use Private Link and private endpoints with Speech Services in Azure Cognitive Services.
-This article then describes how to remove private endpoints later, but still use the Speech resource.
+This article explains how to set up and use Private Link and private endpoints with the Speech service. This article then describes how to remove private endpoints later, but still use the Speech resource.
 
 > [!NOTE]
 > Before you proceed, review [how to use virtual networks with Cognitive Services](../cognitive-services-virtual-networks.md).
-
 
 
 Setting up a Speech resource for the private endpoint scenarios requires performing the following tasks:
@@ -111,20 +109,20 @@ If you plan to access the resource by using only a private endpoint, you can ski
    ```
 
 > [!NOTE]
-> The resolved IP address points to a virtual network proxy endpoint, which dispatches the network traffic to the private endpoint for the Cognitive Services resource. The behavior will be different for a resource with a custom domain name but *without* private endpoints. See [this section](#dns-configuration) for details.
+> The resolved IP address points to a virtual network proxy endpoint, which dispatches the network traffic to the private endpoint for the Speech resource. The behavior will be different for a resource with a custom domain name but *without* private endpoints. See [this section](#dns-configuration) for details.
 
 ## Adjust an application to use a Speech resource with a private endpoint
 
-A Speech resource with a custom domain interacts with Speech Services in a different way.
+A Speech resource with a custom domain interacts with the Speech service in a different way.
 This is true for a custom-domain-enabled Speech resource both with and without private endpoints.
 Information in this section applies to both scenarios.
 
 Follow instructions in this section to adjust existing applications and solutions to use a Speech resource with a custom domain name and a private endpoint turned on.
 
-A Speech resource with a custom domain name and a private endpoint turned on uses a different way to interact with Speech Services. This section explains how to use such a resource with the Speech Services REST APIs and the [Speech SDK](speech-sdk.md).
+A Speech resource with a custom domain name and a private endpoint turned on uses a different way to interact with the Speech service. This section explains how to use such a resource with the Speech service REST APIs and the [Speech SDK](speech-sdk.md).
 
 > [!NOTE]
-> A Speech resource without private endpoints that uses a custom domain name also has a special way of interacting with Speech Services.
+> A Speech resource without private endpoints that uses a custom domain name also has a special way of interacting with the Speech service.
 > This way differs from the scenario of a Speech resource that uses a private endpoint.
 > This is important to consider because you may decide to remove private endpoints later.
 > See [Adjust an application to use a Speech resource without private endpoints](#adjust-an-application-to-use-a-speech-resource-without-private-endpoints) later in this article.
@@ -285,7 +283,7 @@ Follow these steps to modify your code:
 1. Determine the application endpoint URL:
 
    - [Turn on logging for your application](how-to-use-logging.md) and run it to log activity.
-   - In the log file, search for `SPEECH-ConnectionUrl`. In matching lines, the `value` parameter contains the full URL that your application used to reach Speech Services.
+   - In the log file, search for `SPEECH-ConnectionUrl`. In matching lines, the `value` parameter contains the full URL that your application used to reach the Speech service.
 
    Example:
 
@@ -348,7 +346,7 @@ After this modification, your application should work with the private-endpoint-
 
 In this article, we've pointed out several times that enabling a custom domain for a Speech resource is *irreversible*. Such a resource will use a different way of communicating with Speech service, compared to the ones that are using [regional endpoint names](../cognitive-services-custom-subdomains.md#is-there-a-list-of-regional-endpoints).
 
-This section explains how to use a Speech resource with a custom domain name but *without* any private endpoints with the Speech Services REST APIs and [Speech SDK](speech-sdk.md). This might be a resource that was once used in a private endpoint scenario, but then had its private endpoints deleted.
+This section explains how to use a Speech resource with a custom domain name but *without* any private endpoints with the Speech service REST APIs and [Speech SDK](speech-sdk.md). This might be a resource that was once used in a private endpoint scenario, but then had its private endpoints deleted.
 
 ### DNS configuration
 
