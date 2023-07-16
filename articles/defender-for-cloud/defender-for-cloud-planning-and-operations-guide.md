@@ -102,14 +102,14 @@ Some other important information to consider:
 
 - Only subscription and resource group Owners and Contributors can apply security recommendations for a resource.
 
-When planning access control using Azure Role-based access control for Defender for Cloud, make sure you understand who in your organization needs access to Defender for Cloud the tasks they'll perform. Then you can configure Azure Role-based access control properly.
+When planning access control using Azure Role-based access control for Defender for Cloud, make sure you understand who in your organization needs access to Defender for Cloud tasks they'll perform. Then you can configure Azure Role-based access control properly.
 
-> [!NOTE]
+> [NOTE!]
 > We recommend that you assign the least permissive role needed for users to complete their tasks. For example, users who only need to view information about the security state of resources but not take action, such as applying recommendations or editing policies, should be assigned the Reader role.
 
 ## Security policies and recommendations
 
-A security policy defines the desired configuration of your workloads and helps ensure compliance with company or regulatory security requirements. In Defender for Cloud, you can define policies for your Azure subscriptions, which can be tailored to the type of workload or the sensitivity of data.
+A security policy defines the desired configuration of your workloads and helps ensure compliance with company or regulatory security requirements. In Defender for Cloud, you can define policies for your Azure subscriptions. This can be tailored to the type of workload or the sensitivity of the data.
 
 Defenders for Cloud policies contain the following components:
 
@@ -120,7 +120,7 @@ Defenders for Cloud policies contain the following components:
 - [Email notifications](configure-email-notifications.md): security contacts and notification settings.
 - [Pricing tier](defender-for-cloud-introduction.md#protect-cloud-workloads): with or without Microsoft Defender for Cloud's Defender plans, which determine which Defender for Cloud features are available for resources in scope (can be specified for subscriptions and workspaces using the API).
 
-> [!NOTE]
+> [NOTE!]
 > Specifying a security contact ensures that Azure can reach the right person in your organization if a security incident occurs. Read [Provide security contact details in Defender for Cloud](configure-email-notifications.md) for more information on how to enable this recommendation.
 
 ### Security policies definitions and recommendations
@@ -133,7 +133,7 @@ Before configuring security policies, review each of the [security recommendatio
 
 - Understand what actions address the security recommendations.
 
-- Determine who in your organization is responsible for monitoring and remediating new recommendations.
+- Determine who in your organization is responsible for monitoring and addressing new recommendations.
 
 ## Data collection and storage
 
