@@ -12,7 +12,7 @@ ms.custom: template-tutorial
 
 # Tutorial: Integrate NAT gateway with Azure Firewall in a hub and spoke network for outbound connectivity
 
-In this tutorial, you’ll learn how to integrate a NAT gateway with an Azure Firewall in a hub and spoke network
+In this tutorial, you learn how to integrate a NAT gateway with an Azure Firewall in a hub and spoke network
 
 Azure Firewall provides [2,496 SNAT ports per public IP address](../firewall/integrate-with-nat-gateway.md) configured per backend Virtual Machine Scale Set instance (minimum of two instances). You can associate up to 250 public IP addresses to Azure Firewall. Depending on your architecture requirements and traffic patterns, you may require more SNAT ports than what Azure Firewall can provide. You may also require the use of fewer public IPs while also requiring more SNAT ports. A better method for outbound connectivity is to use NAT gateway. NAT gateway provides 64,512 SNAT ports per public IP address and can be used with up to 16 public IP addresses. 
 
@@ -97,11 +97,11 @@ The hub virtual network contains the firewall subnet that is associated with the
 
 17. Select **Create**.
 
-It will take a few minutes for the bastion host and firewall to deploy. When the virtual network is created as part of the deployment, you can proceed to the next steps.
+It takes a few minutes for the bastion host and firewall to deploy. When the virtual network is created as part of the deployment, you can proceed to the next steps.
 
 ## Create the NAT gateway
 
-All outbound internet traffic will traverse the NAT gateway to the internet. Use the following example to create a NAT gateway for the hub and spoke network and associate it with the **AzureFirewallSubnet**.
+All outbound internet traffic traverses the NAT gateway to the internet. Use the following example to create a NAT gateway for the hub and spoke network and associate it with the **AzureFirewallSubnet**.
 
 1. In the search box at the top of the portal, enter **NAT gateway**. Select **NAT gateways** in the search results.
 
@@ -216,7 +216,7 @@ A virtual network peering is used to connect the hub to the spoke and the spoke 
 
 ## Create spoke network route table
 
-A route table will force all traffic leaving the spoke virtual network to the hub virtual network. The route table is configured with the private IP address of the Azure Firewall as the virtual appliance.
+A route table forces all traffic leaving the spoke virtual network to the hub virtual network. The route table is configured with the private IP address of the Azure Firewall as the virtual appliance.
 
 ### Obtain private IP address of firewall
 
@@ -390,7 +390,7 @@ A Windows Server 2022 virtual machine is used to test the outbound internet traf
 
 ## Test NAT gateway
 
-You'll connect to the Windows Server 2022 virtual machines you created in the previous steps to verify that the outbound internet traffic is leaving the NAT gateway.
+You connect to the Windows Server 2022 virtual machines you created in the previous steps to verify that the outbound internet traffic is leaving the NAT gateway.
 
 ### Obtain NAT gateway public IP address
 
