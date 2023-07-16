@@ -135,7 +135,7 @@ Microsoft Defender for Cloud is a Cloud Security Posture Management (CSPM) and C
 ### **MDE**
 Microsoft Defender for Endpoint is an enterprise endpoint security platform designed to help enterprise networks prevent, detect, investigate, and respond to advanced threats. [Protect your endpoints with Defender for Cloud's integrated EDR solution: Microsoft Defender for Endpoint](integration-defender-for-endpoint.md).
 ### **MDVM**
-Microsoft Defender Vulnerability Management. Learn how to [enable vulnerability scanning with Microsoft Defender Vulnerability Management](deploy-vulnerability-assessment-defender-vulnerability-management).
+Microsoft Defender Vulnerability Management. Learn how to [enable vulnerability scanning with Microsoft Defender Vulnerability Management](deploy-vulnerability-assessment-defender-vulnerability-management.md).
 
 ### **MFA**
 Multi-factor authentication, a process in which users are prompted during the sign-in process for an extra form of identification, such as a code on their cellphone or a fingerprint scan.[How it works: Azure Multi Factor Authentication](../active-directory/authentication/concept-mfa-howitworks.md).
