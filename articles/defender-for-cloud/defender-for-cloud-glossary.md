@@ -18,7 +18,7 @@ Adaptive application controls are an intelligent and automated solution for defi
 ### **AAD**
 Azure Active Directory (Azure AD) is a cloud-based identity and access management service. See [Adaptive Application Controls](../active-directory/fundamentals/active-directory-whatis.md).
 ### **ACR Tasks** 
-A suite of features within Azure container registry.  See [Frequently asked questions - Azure Container Registry](../container-registry/container-registry-faq.yml).
+A suite of features within Azure container registry. See [Frequently asked questions - Azure Container Registry](../container-registry/container-registry-faq.yml).
 ### **Adaptive network hardening**
 Adaptive network hardening provides recommendations to further harden the [network security groups (NSG)](../virtual-network/network-security-groups-overview.md) rules. See [What is Adaptive Network Hardening?](../defender-for-cloud/adaptive-network-hardening.md#what-is-adaptive-network-hardening).
 ### **ADO**
@@ -72,6 +72,8 @@ Cloud Workload Protection Platform. See [CWPP](./overview-page.md).
 
 ## D
 
+### Data Aware Security Posture
+Data-aware security posture automatically discovers datastores containing sensitive data, and helps reduce risk of data breaches. Learn about [data-aware security posture](concept-data-security-posture.md). 
 ### **DDOS Attack** 
 Distributed denial-of-service, a type of attack where an attacker sends more requests to an application than the application is capable of handling. See [DDOS FAQs](../ddos-protection/ddos-faq.yml).
 
@@ -194,6 +196,11 @@ Security Orchestration Automated Response, a collection of software tools design
 
 ### **TVM**
 Threat and Vulnerability Management, a built-in module in Microsoft Defender for Endpoint that can discover vulnerabilities and misconfigurations in near real time and prioritize vulnerabilities based on the threat landscape and detections in your organization.[Investigate weaknesses with Microsoft Defender for Endpoint's threat and vulnerability management](deploy-vulnerability-assessment-defender-vulnerability-management.md).
+
+## W
+
+### **WAF**
+Web Application Firewall (WAF) provides centralized protection of your web applications from common exploits and vulnerabilities. Learn more about [WAF](https://learn.microsoft.com/azure/web-application-firewall/overview).
 
 ## Z
 
