@@ -226,7 +226,7 @@ The private IP address of the firewall is needed for the route table created lat
 
 2. Select **firewall**.
 
-3. In the **Overview** of **firewall**, note the IP address in the field **Firewall private IP**. The IP address should be **10.1.2.4**.
+3. In the **Overview** of **firewall**, note the IP address in the field **Firewall private IP**. The IP address should be **10.0.2.4**.
 
 ### Create route table
 
