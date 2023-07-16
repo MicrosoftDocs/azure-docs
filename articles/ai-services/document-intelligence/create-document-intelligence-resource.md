@@ -33,8 +33,6 @@ Let's get started:
 
 1. Select the **Create** button.
 
-    :::image border="true" type="content" source="media/logic-apps-tutorial/logic-app-connector-demo-one.gif" alt-text="Gif showing how to create a Document Intelligence resource.":::
-
 ## Create a resource
 
 1. Next, you're going to fill out the **Create Document Intelligence** fields with the following values:
@@ -54,8 +52,6 @@ Let's get started:
 1. Once the validation banner appears, select the **Create** button from the bottom-left corner.
 
 1. After you select create, you'll be redirected to a new page that says **Deployment in progress**. After a few seconds, you'll see a message that says, **Your deployment is complete**.
-
-:::image type="content" source="media/logic-apps-tutorial/form-recognizer-validation.gif" alt-text="GIF showing the Azure portal validation process.":::
 
 ## Get Endpoint URL and keys
 
