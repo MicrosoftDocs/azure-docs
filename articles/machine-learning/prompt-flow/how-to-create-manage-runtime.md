@@ -236,13 +236,17 @@ This type error usually related to runtime lack required packages. If you're usi
 
 ##### Request timeout error shown in UI
 
-MIR runtime request timeout error:
+**MIR runtime request timeout error in the UI:**
 
 :::image type="content" source="./media/how-to-create-manage-runtime/mir-runtime-request-timeout.png" alt-text="Screenshot of a MIR runtime timeout error in the studio UI. " lightbox = "./media/how-to-create-manage-runtime/mir-runtime-request-timeout.png":::
 
-Compute instance runtime request timeout error:
+Error in the example says " UserError: Invoking runtime gega-ci timeout, error message: The request was canceled due to the configured HttpClient.Timeout of 100 seconds elapsing."
+
+**Compute instance runtime request timeout error:**
 
 :::image type="content" source="./media/how-to-create-manage-runtime/ci-runtime-request-timeout.png" alt-text="Screenshot of a compute instance runtime timeout error in the studio UI. " lightbox = "./media/how-to-create-manage-runtime/ci-runtime-request-timeout.png":::
+
+Error in the example says " UserError: Upstream request timeout".
 
 #### How to identify which node consume the most time
 
@@ -258,7 +262,7 @@ Compute instance runtime request timeout error:
 
         :::image type="content" source="./media/how-to-create-manage-runtime/runtime-timeout-running-for-long-time.png" alt-text="Screenshot of a timeout run logs in the studio UI. " lightbox = "./media/how-to-create-manage-runtime/runtime-timeout-running-for-long-time.png":::
 
-        In this case, you can find that the 'PythonScriptNode' running for a long time (almost 300s), then you can check the node details to see what's the problem.
+        In this case, you can find that the `PythonScriptNode` was running for a long time (almost 300s), then you can check the node details to see what's the problem.
 
    - Case 2: LLM node running for long time.
 
@@ -266,7 +270,7 @@ Compute instance runtime request timeout error:
 
         In this case, if you find the message `request canceled` in the logs, it may be due to the OpenAI API call taking too long and exceeding the runtime limit.
 
-        An OpenAI API Timeout could be caused by a network issue or a complex request that requires more processing time. For more information, please refer to [OpenAI API Timeout](https://help.openai.com/en/articles/6897186-timeout).
+        An OpenAI API Timeout could be caused by a network issue or a complex request that requires more processing time. For more information, see [OpenAI API Timeout](https://help.openai.com/en/articles/6897186-timeout).
 
         You can try waiting a few seconds and retrying your request. This usually resolves any network issues.
 
