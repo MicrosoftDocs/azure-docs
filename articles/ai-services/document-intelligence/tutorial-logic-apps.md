@@ -287,7 +287,7 @@ Now that you have the Logic App connector resource set up and configured, let's 
 
 :::moniker range="doc-intel-2.1.0"
 
-1. Next, we're going to add a new step to the workflow. Select the **➕ New step** button underneath the newly created OneDrive node.
+4. Next, we're going to add a new step to the workflow. Select the **➕ New step** button underneath the newly created OneDrive node.
 
 1. A new node is added to the Logic App designer view. Search for "Form Recognizer (Document Intelligence forthcoming)" in the **Choose an operation** search bar and select **Analyze invoice** from the list.
 
