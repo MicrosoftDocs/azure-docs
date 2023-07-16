@@ -81,28 +81,34 @@ The expected response is 202 for a successful call to the deployed model. The bo
 
 ## Configure a query response
 
-When you're setting up the vector query, think about the response structure. You can control the shape of the response by choosing which fields are in the results and how many results are included. The search engine ranks the results. Ranking algorithms aren't generally configurable.
+When you're setting up the vector query, think about the response structure. The response is a flattened rowset. Parameters on the query determine which fields are in each row and how many rows are in the response. The search engine ranks the matching documents and returns the most relevant results.
 
 ### Fields in a response
 
-Search results are composed of either all "retrievable" fields (a REST API default) or the fields explicitly listed in a "select" parameter on the query. In the examples that follow, each one includes a "select" statement that specifies text (non-vector) fields to include the response.
+Search results are composed of "retrievable" fields from your search index. A result is either:
 
-Vectors aren't designed for readability, so avoid returning them in the response. Instead, choose non-vector fields that are representative of the search document. For example, if the query targets a "descriptionVector" field, return an equivalent text field if you have one ("description") in the response.
++ All "retrievable" fields (a REST API default).
++ Fields explicitly listed in a "select" parameter on the query. 
+
+The examples in this article include a "select" statement that specifies text (non-vector) fields to include the response.
+
+> [!NOTE]
+> Vectors aren't designed for readability, so avoid returning them in the response. Instead, choose non-vector fields that are representative of the search document. For example, if the query targets a "descriptionVector" field, return an equivalent text field if you have one ("description") in the response.
 
 ### Number of results
 
-A query might match to any number of documents, up to all of them in the search index if the search criteria are weak. However, the size of the results sent back in the response is determined by the query parameters "k" and "top". Maximum results in a response are either:
+A query might match to any number of documents, as many as all of them if the search criteria are weak (for example "search=*" for a null query). Because it's seldom practical to return unbounded results, you should specify a maximum for the response:
 
 + `"k": n` results for vector-only queries
-+ `"top": n` results for hybrid queries
++ `"top": n` results for hybrid queries that include a "search" parameter
 
-Both "k" and "top" are optional. Unspecified, the default number of results in a response is 50. You can set "top" and "skip" to [page through more results](search-pagination-page-layout.md#paging-results).
+Both "k" and "top" are optional. Unspecified, the default number of results in a response is 50. You can set "top" and "skip" to [page through more results](search-pagination-page-layout.md#paging-results) or to change the default.
 
 ### Ranking
 
 Ranking of results is computed by either:
 
-+ The similarity metric specified in the index `vectorConfiguration` for a vector-only query.
++ The similarity metric specified in the index `vectorConfiguration` for a vector-only query. Valid values are `cosine` , `euclidean`, and `dotProduct`.
 + Reciprocal Rank Fusion (RRF) if there are multiple sets of search results.
 
 Azure OpenAI embedding models use cosine similarity, so if you're using Azure OpenAI embedding models, `cosine` is the recommended metric. Other supported ranking metrics include `euclidean` and `dotProduct`.
@@ -113,7 +119,7 @@ Multiple sets are created if the query targets multiple vector fields, or if the
 
 In this vector query, which is shortened for brevity, the "value" contains the vectorized text of the query input. The "fields" property specifies which vector fields are searched. The "k" property specifies the number of nearest neighbors to return as top hits.
 
-Recall that the vector query was generated from this string: `"what Azure services support full text search"`. The search targets the "contentVector" field.
+The sample vector query for this article is: `"what Azure services support full text search"`. The query targets the "contentVector" field.
 
 ```http
 POST https://{{search-service-name}}.search.windows.net/indexes/{{index-name}}/docs/search?api-version={{api-version}}
