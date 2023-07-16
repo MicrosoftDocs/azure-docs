@@ -1,7 +1,7 @@
 ---
 title: Defender for Cloud glossary
 description: The glossary provides a brief description of important Defender for Cloud platform terms and concepts.
-ms.date: 06/26/2023
+ms.date: 07/16/2023
 ms.topic: article
 ---
 
@@ -46,53 +46,52 @@ To make sure that your server resources are secure, Microsoft Defender for Cloud
 
 ## B
 
-| Term | Description | Learn more |
-|--|--|--|
-|**Bicep**| Bicep is a domain-specific language (DSL) that uses declarative syntax to deploy Azure resources. It provides concise syntax, reliable type safety, and support for code reuse.| [Bicep tutorial](../azure-resource-manager/bicep/quickstart-create-bicep-use-visual-studio-code.md)|
-|**Blob storage**| Azure Blob Storage is the high scale object storage service for Azure and a key building block for data storage in Azure.| [what is Azure blob storage?](../storage/blobs/storage-blobs-introduction.md)|
+### **Bicep**
+Bicep is a domain-specific language (DSL) that uses declarative syntax to deploy Azure resources. It provides concise syntax, reliable type safety, and support for code reuse. See [Bicep tutorial](../azure-resource-manager/bicep/quickstart-create-bicep-use-visual-studio-code.md).
+### **Blob storage**
+Azure Blob Storage is the high scale object storage service for Azure and a key building block for data storage in Azure. See [what is Azure blob storage?](../storage/blobs/storage-blobs-introduction.md).
 
 ## C
 
-| Term | Description | Learn more |
-|--|--|--|
-|**Cacls** | Change access control list, Microsoft Windows native command-line utility often used for modifying the security permission on folders and files.| [Access control lists](/windows/win32/secauthz/access-control-lists) |
-|**CIS Benchmark** | (Kubernetes) Center for Internet Security benchmark| [CIS](../aks/cis-kubernetes.md)|
-|**Cloud security graph** | The cloud security graph is a graph-based context engine that exists within Defender for Cloud. The cloud security graph collects data from your multicloud environment and other data sources| [What is the cloud security graph?](concept-attack-path.md#what-is-cloud-security-graph)|
-|**CORS**| Cross origin resource sharing, an HTTP feature that enables a web application running under one domain to access resources in another domain.| [CORS](/rest/api/storageservices/cross-origin-resource-sharing--cors--support-for-the-azure-storage-services)|
-|**CNAPP**|Cloud Native Application Protection Platform|[Build cloud native applications in Azure](https://azure.microsoft.com/solutions/cloud-native-apps/)|
-|**CNCF**|Cloud Native Computing Foundation|[Build CNCF projects by using Azure Kubernetes service](/azure/architecture/example-scenario/apps/build-cncf-incubated-graduated-projects-aks)|
-|**CSPM**|Cloud Security Posture Management| [Cloud Security Posture Management (CSPM)](concept-cloud-security-posture-management.md)|
-|**CWPP** | Cloud Workload Protection Platform | [CWPP](./overview-page.md)|
+### **Cacls** 
+Change access control list, Microsoft Windows native command-line utility often used for modifying the security permission on folders and files. See [Access control lists](/windows/win32/secauthz/access-control-lists).
+### **CIS Benchmark** 
+(Kubernetes) Center for Internet Security benchmark. See [CIS](../aks/cis-kubernetes.md).
+### **Cloud security graph** 
+The cloud security graph is a graph-based context engine that exists within Defender for Cloud. The cloud security graph collects data from your multicloud environment and other data sources. See [What is the cloud security graph?](concept-attack-path.md#what-is-cloud-security-graph).
+### **CORS**
+Cross origin resource sharing, an HTTP feature that enables a web application running under one domain to access resources in another domain. See [CORS](/rest/api/storageservices/cross-origin-resource-sharing--cors--support-for-the-azure-storage-services).
+### **CNAPP**
+Cloud Native Application Protection Platform. See [Build cloud native applications in Azure](https://azure.microsoft.com/solutions/cloud-native-apps/).
+### **CNCF**
+Cloud Native Computing Foundation. Learn how to [build CNCF projects by using Azure Kubernetes service](/azure/architecture/example-scenario/apps/build-cncf-incubated-graduated-projects-aks).
+### **CSPM**
+Cloud Security Posture Management. See [Cloud Security Posture Management (CSPM)](concept-cloud-security-posture-management.md). 
+### **CWPP** 
+Cloud Workload Protection Platform. See [CWPP](./overview-page.md).
 
 ## D
 
-| Term | Description | Learn more |
-|--|--|--|
-| **DDOS Attack** | Distributed denial-of-service, a type of attack where an attacker sends more requests to an application than the application is capable of handling.| [DDOS FAQs](../ddos-protection/ddos-faq.yml)|
+### **DDOS Attack** 
+Distributed denial-of-service, a type of attack where an attacker sends more requests to an application than the application is capable of handling. See [DDOS FAQs](../ddos-protection/ddos-faq.yml).
 
 ## E
 
-| Term | Description | Learn more |
-|--|--|--|
-|**EASM**| External Attack Surface Management|[EASM Overview](how-to-manage-attack-path.md#external-attack-surface-management-easm)|
-|**EDR**| Endpoint Detection and Response|[Microsoft Defender for Endpoint](integration-defender-for-endpoint.md)|
-|**EKS**| Amazon Elastic Kubernetes Service, Amazon's managed service for running Kubernetes on AWS without needing to install, operate, and maintain your own Kubernetes control plane or nodes.|[EKS](https://aws.amazon.com/eks/)|
-|**eBPF**|Extended Berkley Packet Filter |[What is eBPF?](https://ebpf.io/)|
+### **EASM**
+External Attack Surface Management. See [EASM Overview](how-to-manage-attack-path.md#external-attack-surface-management-easm).
+### **EDR**
+Endpoint Detection and Response. See [Microsoft Defender for Endpoint](integration-defender-for-endpoint.md).
+### **EKS**
+Amazon Elastic Kubernetes Service, Amazon's managed service for running Kubernetes on AWS without needing to install, operate, and maintain your own Kubernetes control plane or nodes. See[EKS](https://aws.amazon.com/eks/).
+### **eBPF**
+Extended Berkley Packet Filter [What is eBPF?](https://ebpf.io/)
 
 ## F
 
-| Term | Description | Learn more |
-|--|--|--|
-|**FIM**| File Integrity Monitoring | ([File Integrity Monitoring in Microsoft Defender for Cloud](file-integrity-monitoring-overview.md)|
-**FTP** | File Transfer Protocol | [Deploy content using FTP](../app-service/deploy-ftp.md?tabs=portal)|
-
-## G
-
-| Term | Description | Learn more |
-|--|--|--|
-|**GCP**| Google Cloud Platform | [Onboard a GPC Project](../active-directory/cloud-infrastructure-entitlement-management/onboard-gcp.md)|
-|**GKE**| Google Kubernetes Engine, Google's managed environment for deploying, managing, and scaling applications using GCP infrastructure.|[Deploy a Kubernetes workload using GPU sharing on your Azure Stack Edge Pro](../databox-online/azure-stack-edge-gpu-deploy-kubernetes-gpu-sharing.md)|
-|**Governance**| A set of rules and policies adopted by companies that run services in the cloud. The goal of cloud governance is to enhance data security, manage risk, and enable the smooth operation of cloud systems.|[Governance Overview](governance-rules.md)|
+### **FIM**
+File Integrity Monitoring. Learn about ([file Integrity Monitoring in Microsoft Defender for Cloud](file-integrity-monitoring-overview.md).
+### **FTP** 
+File Transfer Protocol. Learn how to  [Deploy content using FTP](../app-service/deploy-ftp.md).
 
 ## I
 
