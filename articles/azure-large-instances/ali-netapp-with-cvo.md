@@ -76,7 +76,7 @@ Doing so allows you to isolate replication traffic in multi-tenant environments.
 4. Setup the cluster level peering between ALI storage cluster and Azure CVO cluster.
 
 > [!Note]
->Full meshed IPSpace on all the nodes in the cluster can be optional if needed. For example, you can create custom IPSpace just for two nodes in the cluster instead on all the nodes and use that IPSpace to create snap-mirror peering at both cluster and SVM level between ALIstorage and Azure CVO. In addition, you can leverage the same IPSpace if existed, to create SVM peering between single ALI NETAPP storage cluster SVM and multiple Azure CVO SVMs too.
+>Full meshed IPSpace on all the nodes in the cluster can be optional if needed. For example, you can create custom IPSpace just for two nodes in the cluster instead on all the nodes and use that IPSpace to create snap-mirror peering at both cluster and SVM level between ALI storage and Azure CVO. In addition, you can leverage the same IPSpace if existed, to create SVM peering between single ALI NETAPP storage cluster SVM and multiple Azure CVO SVMs too.
 
 ### SVM peering between ALI NETAPP storage and Azure CVO
 
