@@ -3,7 +3,7 @@ title: Quickstart - Handle Advanced Messaging and delivery report events
 titleSuffix: Azure Communication Services
 description: "In this quickstart, you will learn how to subscribe for Azure Communication Services events.Know how to subscribe/receive whatsapp messages status events and receive messages delivery report events." 
 author: shamkh
-manager: Camilo.Ramirez
+manager: camilo.ramirez
 ms.author: shamkh
 ms.service: azure-communication-services
 ms.topic: quickstart 

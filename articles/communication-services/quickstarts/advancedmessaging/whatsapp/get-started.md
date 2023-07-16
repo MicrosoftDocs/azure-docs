@@ -1,11 +1,10 @@
 ---
-title: Quickstart: Add Messages SDK to your App
+title: Quickstart- Add Messages SDK to your App
 titleSuffix: An Azure Communication Services Messages quickstart
 description: In this quickstart, you'll learn to set up the basic functionality of Azure Communication Services Messages
 author: memontic-ms
-manager: 
+manager: camilo.ramirez
 services: azure-communication-services
-ms.subservice: advancedmessaging
 ms.author: memontic
 ms.date: 06/20/2023
 ms.topic: quickstart
