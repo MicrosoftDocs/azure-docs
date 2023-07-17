@@ -197,12 +197,12 @@ A virtual network peering is used to connect the hub to the spoke and the spoke 
     | Setting | Value |
     | ------- | ----- |
     | **This virtual network** |   |
-    | Peering link name | Enter **vnet-hub-To-vnet-spoke**. |
+    | Peering link name | Enter **vnet-hub-to-vnet-spoke**. |
     | Traffic to remote virtual network | Leave the default of **Allow (default)**. |
     | Traffic forwarded from remote virtual network | Leave the default of **Allow (default)**. |
     | Virtual network gateway or Route Server | Leave the default of **None**. |
     | **Remote virtual network** |   |
-    | Peering link name | Enter **vnet-spoke-To-vnet-hub**. |
+    | Peering link name | Enter **vnet-spoke-to-vnet-hub**. |
     | Virtual network deployment model | Leave the default of **Resource manager**. |
     | Subscription | Select your subscription. |
     | Virtual network | Select **vnet-spoke**. |
@@ -222,7 +222,7 @@ A route table forces all traffic leaving the spoke virtual network to the hub vi
 
 The private IP address of the firewall is needed for the route table created later in this article. Use the following example to obtain the firewall private IP address.
 
-1. In the search box at the top of the portal, enter **Firewall**. Select **Firewall** in the search results.
+1. In the search box at the top of the portal, enter **Firewall**. Select **Firewalls** in the search results.
 
 2. Select **firewall**.
 
@@ -265,7 +265,7 @@ Create a route table to force all inter-spoke and internet egress traffic throug
     | Setting | Value |
     | ------- | ----- |
     | Route name | Enter **route-to-hub**. |
-    | Address prefix destination | Select **IP Addresses**. |
+    | Destination type | Select **IP Addresses**. |
     | Destination IP addresses/CIDR ranges | Enter **0.0.0.0/0**. |
     | Next hop type | Select **Virtual appliance**. |
     | Next hop address | Enter **10.0.2.4**. |
@@ -305,7 +305,7 @@ Traffic from the spoke through the hub must be allowed through and firewall poli
     | Subscription | Select your subscription. |
     | Resource group | Select **test-rg**. |
     | **Policy details** |  |
-    | Name | Enter **firewallPolicy**. |
+    | Name | Enter **firewall-policy**. |
     | Region | Select **South Central US**. |
 
 5. Select **Review + create**.
@@ -316,7 +316,7 @@ Traffic from the spoke through the hub must be allowed through and firewall poli
 
 1. In the search box at the top of the portal, enter **Firewall**. Select **Firewall Policies** in the search results.
 
-2. Select **firewallPolicy**.
+2. Select **firewall-policy**.
 
 3. In **Settings** select **Network rules**.
 
@@ -332,7 +332,7 @@ Traffic from the spoke through the hub must be allowed through and firewall poli
     | Rule collection action | Select **Allow**. |
     | Rule collection group | Select **DefaultNetworkRuleCollectionGroup**. |
     | Rules |    |
-    | Name | Enter **AllowWeb**. |
+    | Name | Enter **allow-web**. |
     | Source type | **IP Address**. |
     | Source | Enter **10.1.0.0/24**. |
     | Protocol | Select **TCP**. |
@@ -344,53 +344,62 @@ Traffic from the spoke through the hub must be allowed through and firewall poli
 
 ## Create test virtual machine
 
-A Windows Server 2022 virtual machine is used to test the outbound internet traffic through the NAT gateway. Use the following example to create a Windows Server 2022 virtual machine.
+A Ubuntu virtual machine is used to test the outbound internet traffic through the NAT gateway. Use the following example to create a Ubuntu virtual machine.
 
-1. In the search box at the top of the portal, enter **Virtual machine**. Select **Virtual machines** in the search results.
+The following procedure creates a test virtual machine (VM) named **vm-spoke** in the virtual network.
 
-2. Select **+ Create** then **Azure virtual machine**.
+1. In the portal, search for and select **Virtual machines**.
 
-3. In **Create a virtual machine** enter or select the following information in the **Basics** tab:
+1. In **Virtual machines**, select **+ Create**, then **Azure virtual machine**.
+
+1. On the **Basics** tab of **Create a virtual machine**, enter or select the following information:
 
     | Setting | Value |
-    | ------- | ----- |
-    | **Project details** |   |
+    |---|---|
+    | **Project details** |  |
     | Subscription | Select your subscription. |
     | Resource group | Select **test-rg**. |
-    | **Instance details** |   |
+    | **Instance details** |  |
     | Virtual machine name | Enter **vm-spoke**. |
-    | Region | Select **South Central US**. |
+    | Region | Select **(US) South Central US**. |
     | Availability options | Select **No infrastructure redundancy required**. |
-    | Security type | Select **Standard**. |
-    | Image | Select **Windows Server 2022 Datacenter - x64 Gen2**. |
+    | Security type | Leave the default of **Standard**. |
+    | Image | Select **Ubuntu Server 22.04 LTS - x64 Gen2**. |
     | VM architecture | Leave the default of **x64**. |
     | Size | Select a size. |
-    | **Administrator account** |   |
+    | **Administrator account** |  |
     | Authentication type | Select **Password**. |
-    | Username | Enter a username. |
+    | Username | Enter **azureuser**. |
     | Password | Enter a password. |
-    | Confirm password | Reenter password. |
+    | Confirm password | Reenter the password. |
     | **Inbound port rules** |  |
     | Public inbound ports | Select **None**. |
 
-4. Select **Next: Disks** then **Next: Networking**.
+1. Select the **Networking** tab at the top of the page.
 
-5. In the Networking tab, enter or select the following information:
+1. Enter or select the following information in the **Networking** tab:
 
     | Setting | Value |
-    | ------- | ----- |
-    | **Network interface** |   |
+    |---|---|
+    | **Network interface** |  |
     | Virtual network | Select **vnet-spoke**. |
-    | Subnet | Select **subnet-private (10.2.0.0/24)**. |
+    | Subnet | Select **subnet-private (10.1.0.0/24)**. |
     | Public IP | Select **None**. |
+    | NIC network security group | Select **Advanced**. |
+    | Configure network security group | Select **Create new**. </br> Enter **nsg-1** for the name. </br> Leave the rest at the defaults and select **OK**. |
 
-6. Leave the rest of the options at the defaults and select **Review + create**.
+1. Leave the rest of the settings at the defaults and select **Review + create**.
 
-7. Select **Create**.
+1. Review the settings and select **Create**.
+
+>[!NOTE]
+>Virtual machines in a virtual network with a bastion host don't need public IP addresses. Bastion provides the public IP, and the VMs use private IPs to communicate within the network. You can remove the public IPs from any VMs in bastion hosted virtual networks. For more information, see [Dissociate a public IP address from an Azure VM](../articles/virtual-network/ip-services/remove-public-ip-address-vm.md).
+
+[!INCLUDE [ephemeral-ip-note.md](./ephemeral-ip-note.md)]
 
 ## Test NAT gateway
 
-You connect to the Windows Server 2022 virtual machines you created in the previous steps to verify that the outbound internet traffic is leaving the NAT gateway.
+You connect to the Ubuntu virtual machines you created in the previous steps to verify that the outbound internet traffic is leaving the NAT gateway.
 
 ### Obtain NAT gateway public IP address
 
@@ -398,46 +407,38 @@ Obtain the NAT gateway public IP address for verification of the steps later in 
 
 1. In the search box at the top of the portal, enter **Public IP**. Select **Public IP addresses** in the search results.
 
-2. Select **public-ip-nat**.
+1. Select **public-ip-nat**.
 
-3. Make note of value in **IP address**. The example used in this article is **20.225.88.213**.
+1. Make note of value in **IP address**. The example used in this article is **20.225.88.213**.
 
 ### Test NAT gateway from spoke
 
-Use Microsoft Edge on the Windows Server 2022 virtual machine to connect to https://whatsmyip.com to verify the functionality of the NAT gateway.
-
 1. In the search box at the top of the portal, enter **Virtual machine**. Select **Virtual machines** in the search results.
 
-2. Select **vm-spoke**.
+1. Select **vm-spoke**.
 
-3. Select **Connect** then **Bastion**.
+1. On the **Overview** page, select **Connect**, then select the **Bastion** tab.
 
-4. Enter the username and password you entered when the virtual machine was created.
+1. Select **Use Bastion**.
 
-5. Select **Connect**.
+1. Enter the username and password entered during VM creation. Select **Connect**.
 
-6. Open **Microsoft Edge** when the desktop finishes loading.
+1. In the bash prompt, enter the following command:
 
-7. In the address bar, enter **https://whatsmyip.com**.
+    ```bash
+    curl ifconfig.me
+    ```
 
-8. Verify the outbound IP address displayed is the same as the IP of the NAT gateway you obtained previously.
+1. Verify the IP address returned by the command matches the public IP address of the NAT gateway.
 
-    :::image type="content" source="./media/tutorial-hub-spoke-nat-firewall/outbound-ip-address.png" alt-text="Screenshot of outbound IP address.":::
+    ```output
+    azureuser@vm-1:~$ curl ifconfig.me
+    20.225.88.213
+    ```
 
-## Clean up resources
+1. Close the Bastion connection to **vm-spoke**.
 
-If you're not going to continue to use this application, delete the created resources with the following steps:
-
-1. In the search box at the top of the portal, enter **Resource group**. Select **Resource groups** in the search results.
-
-2. Select **test-rg**.
-
-3. In the **Overview** of **test-rg**, select **Delete resource group**.
-
-4. In **TYPE THE RESOURCE GROUP NAME:**, enter **test-rg**.
-
-5. Select **Delete**.
-
+[!INCLUDE [portal-clean-up.md](../../includes/portal-clean-up.md)]
 ## Next steps
 
 Advance to the next article to learn how to integrate a NAT gateway with an Azure Load Balancer:
