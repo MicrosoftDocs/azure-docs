@@ -66,7 +66,7 @@ Before following the steps in this article, make sure you have the following pre
 >
 > Model monitoring jobs are scheduled to run on serverless Spark compute pool with `Standard_E4s_v3` VM instance type support only. More VM instance type support will come in the future roadmap.
 
-## Set up out-of-box model monitoring
+## Set up out-of-the-box model monitoring
 
 If you deploy your model to production in an Azure Machine Learning online endpoint, Azure Machine Learning collects production inference data automatically and uses it for continuous monitoring.
 
@@ -79,6 +79,9 @@ You can use Azure CLI, the Python SDK, or Azure Machine Learning studio for out-
   * smart defaults for metrics and thresholds.
 * A monitoring job is scheduled to run daily at 3:15am (for this example) to acquire monitoring signals and evaluate each metric result against its corresponding threshold. By default, when any threshold is exceeded, an alert email is sent to the user who set up the monitoring.
 
+## Configure feature importance
+
+For feature importance to be enabled with any of your signals (such as data drift or data quality,) you need to provide both the 'baseline_dataset' (typically training) dataset and 'target_column_name' fields. 
 
 # [Azure CLI](#tab/azure-cli)
 
@@ -88,7 +91,7 @@ Azure Machine Learning model monitoring uses `az ml schedule` for model monitori
 az ml schedule create -f ./out-of-box-monitoring.yaml
 ```
 
-The following YAML contains the definition for out-of-box model monitoring.
+The following YAML contains the definition for out-of-the-box model monitoring.
 
 ```yaml
 # out-of-box-monitoring.yaml
@@ -117,7 +120,7 @@ create_monitor:
 
 # [Python](#tab/python)
 
-You can use the following code to set up out-of-box model monitoring:
+You can use the following code to set up out-of-the-box model monitoring:
 
 ```python
 
@@ -476,12 +479,9 @@ created_monitor = poller.result()
    
    A.) In your model creation wizard, add your custom data asset from your [custom Model Data Collector score.py ](articles/machine-learning/how-to-collect-production-data.md) called 'model inputs and outputs' which combines your joined model inputs and data assets as a separate data context. 
    
-   B.) Specify your training reference dataset that will be used in the feature attribution drift component, and select your 'target column name' field 
-   ![image](https://github.com/buchananwp/azure-docs/assets/8934290/bb919691-df07-43cd-865b-95742d943da9)
+   B.) Specify your training reference dataset that will be used in the feature attribution drift component, and select your 'target column name' field, which is required to enable feature importance. 
 
    C.) Confirm your parameters are correct
-   ![image](https://github.com/buchananwp/azure-docs/assets/8934290/3d74a938-b8cf-4455-8ff9-cf11b6a937b9)
-
    
 1. Adjust the data window size according to your business case.
 1. Adjust the threshold according to your need.
