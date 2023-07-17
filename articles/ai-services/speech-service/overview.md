@@ -14,6 +14,8 @@ ms.author: eur
 
 # What is the Speech service?
 
+[!INCLUDE [Azure AI services rebrand](../includes/rebrand-note.md)]
+
 The Speech service provides speech to text and text to speech capabilities with a [Speech resource](~/articles/ai-services/multi-service-resource.md?pivots=azportal). You can transcribe speech to text with high accuracy, produce natural-sounding text to speech voices, translate spoken audio, and use speaker recognition during conversations. 
 
 :::image type="content" border="false" source="media/overview/speech-features-highlight.png" alt-text="Image of tiles that highlight some Speech service features.":::

@@ -25,12 +25,7 @@ Translator service supports language translation for more than 100 languages. If
 
 ## July 2023
 
-> [!NOTE]
-> Azure AI services now encompass all of what were previously known as Azure Cognitive Services and Azure Applied AI Services.
->
-> There are no changes to pricing. The names "Cognitive Services" and "Azure Applied AI" will continue to be used in Azure billing, cost analysis, price list, and price APIs.
->
-> There are no breaking changes to application programming interfaces (APIs) or SDKs.
+[!INCLUDE [Azure AI services rebrand](../includes/rebrand-note.md)]
 
 ## June 2023
 
