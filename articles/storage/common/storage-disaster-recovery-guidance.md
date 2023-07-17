@@ -127,7 +127,7 @@ Review the additional considerations described in this section to understand how
 
 ### Supported storage account types
 
-All geo-redundant offerings support [Microsoft-managed failover](#microsoft-managed-failover) in the event of a disaster in the primary region. In addition, some account types support customer-managed account failover, as shown in the following table.
+All geo-redundant offerings support [Microsoft-managed failover](#microsoft-managed-failover) in the event of a disaster in the primary region. In addition, some account types support customer-managed account failover, as shown in the following table:
 
 | Type of failover | GRS/RA-GRS | GZRS/RA-GZRS |
 |---|---|---|

@@ -247,7 +247,7 @@ For pricing information for each redundancy option, see [Azure Storage pricing](
 
 ### Support for customer-managed account failover
 
-All geo-redundant offerings support [Microsoft-managed failover](storage-disaster-recovery-guidance.md#microsoft-managed-failover) in the event of a disaster in the primary region. In addition, some account types support customer-managed account failover, as shown in the following table.
+All geo-redundant offerings support [Microsoft-managed failover](storage-disaster-recovery-guidance.md#microsoft-managed-failover) in the event of a disaster in the primary region. In addition, some account types support customer-managed account failover, as shown in the following table:
 
 | Type of failover | GRS/RA-GRS | GZRS/RA-GZRS |
 |---|---|---|
