@@ -17,7 +17,7 @@ Azure Private 5G Core provides the [distributed tracing](distributed-tracing.md)
 In this how-to guide, you'll carry out the steps you need to complete after deploying or configuring a site that uses Azure AD to authenticate access to your local monitoring tools. You don't need to follow this if you decided to use local usernames and passwords to access the distributed tracing and packet core dashboards.
 
 > [!CAUTION]
-> Azure Active Directory for local monitoring tools is not supported when a web proxy is enabled on the Azure Stack Edge appliance on which Azure Private 5G Core is running. If a firewall that blocks traffic not transmitted via the web proxy is enabled, then enabling Azure Active Directory will cause the Azure Private 5G Core installation to fail.
+> Azure AD for local monitoring tools is not supported when a web proxy is enabled on the Azure Stack Edge device on which Azure Private 5G Core is running. If you have configured a firewall that blocks traffic not transmitted via the web proxy, then enabling Azure AD will cause the Azure Private 5G Core installation to fail.
 
 ## Prerequisites
 
