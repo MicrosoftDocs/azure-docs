@@ -66,7 +66,7 @@ Creating an automation task doesn't immediately incur charges. Underneath, an au
 1. Tasks that send email notifications require an email address.
 
 > [!NOTE]
-> You can't change the task name after creation, so consider a name that still applies if you [edit the underlying workflow](#edit-task-workflow). Changes that you make to the underlying workflow apply only to the task that you created, not the task template.
+> You can't change the task name after creation, so consider a name that still applies if you edit the underlying workflow. Changes that you make to the underlying workflow apply only to the task that you created, not the task template.
 >
 > For example, if you name your task `Stop-Instance-Weekly`, but you later edit the underlying workflow to run daily, you can't change your task's name to `Stop-Instance-Daily`.
 
@@ -93,7 +93,7 @@ Here the possible statuses for a run:
    | **Waiting** | The run hasn't started yet and is paused because an earlier instance of the task is still running. |
    |||
 
-   For more information, see [Review runs history in monitoring view](monitor-logic-apps.md#review-runs-history).
+   For more information, see [Review runs history in monitoring view](../../logic-apps/monitor-logic-apps.md#review-runs-history).
 
 ## Edit the task
 
@@ -117,6 +117,6 @@ To change a task, you have these options:
 * For steps on how to edit the task's underlying workflow, refer
 
 ## Next steps
-* [Manage logic apps in the Azure portal](manage-logic-apps-with-azure-portal.md)
+* [Manage logic apps in the Azure portal](../../manage-logic-apps-with-azure-portal.md)
 
 
