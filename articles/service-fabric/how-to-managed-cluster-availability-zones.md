@@ -29,7 +29,7 @@ A Service Fabric cluster distributed across Availability Zones ensures high avai
 The recommended topology for managed cluster requires the resources outlined below:
 
 * The cluster SKU must be Standard
-* Primary node type should have at least nine nodes for best resiliency, but supports minimum number of six.
+* Primary node type should have at least nine nodes (3 in each AZ) for best resiliency, but supports minimum number of six (2 in each AZ).
 * Secondary node type(s) should have at least six nodes for best resiliency, but supports minimum number of three.
 
 >[!NOTE]
