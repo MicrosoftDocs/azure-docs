@@ -76,9 +76,9 @@ The following steps walk you through the process of creating [standard tests](av
 6. Once you have validated the functionality of the new standard test, [update your alert rules](/azure/azure-monitor/alerts/alerts-manage-alert-rules) that reference the URL ping test to reference the standard test instead. Then you disable or delete the URL ping test.
 7. To delete a URL ping test with Azure PowerShell, you can use this command:
 
-```azurepowershell
-Remove-AzApplicationInsightsWebTest -ResourceGroupName $resourceGroup -Name $pingTestName;
-```
+    ```azurepowershell
+    Remove-AzApplicationInsightsWebTest -ResourceGroupName $resourceGroup -Name $pingTestName;
+    ```
 
 ## FAQ
 
