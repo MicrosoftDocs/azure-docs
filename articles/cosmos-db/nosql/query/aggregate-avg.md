@@ -1,19 +1,22 @@
 ---
-title: AVG in Azure Cosmos DB query language
-description: Learn about the Average (AVG) SQL system function in Azure Cosmos DB.
-author: seesharprun
+title: AVG
+titleSuffix: Azure Cosmos DB for NoSQL
+description: An Azure Cosmos DB for NoSQL system function that
+author: jcodella
+ms.author: jacodel
+ms.reviewer: sidandrews
 ms.service: cosmos-db
 ms.subservice: nosql
-ms.topic: conceptual
-ms.date: 12/02/2020
-ms.author: sidandrews
-ms.reviewer: jucocchi
-ms.custom: query-reference, ignite-2022
+ms.topic: reference
+ms.date: 07/17/2023
+ms.custom: query-reference
 ---
-# AVG (Azure Cosmos DB)
+
+# AVG (NoSQL query)
+
 [!INCLUDE[NoSQL](../../includes/appliesto-nosql.md)]
 
-This aggregate function returns the average of the values in the expression.
+Returns the average of the values in the expression.
   
 ## Syntax
   
@@ -22,22 +25,27 @@ AVG(<numeric_expr>)
 ```  
   
 ## Arguments
-  
-*numeric_expr*  
-   Is a numeric expression.  
+
+| | Description |
+| --- | --- |
+| **`numeric_expr`** | A numeric expression. |  
   
 ## Return types
-  
-Returns a numeric expression.  
+
+Returns a numeric expression.
   
 ## Examples
-  
-The following example returns the average value of `propertyA`:
-  
-```sql
-SELECT AVG(c.propertyA)
-FROM c
-```  
+
+For this example, consider a container with multiple items that each contain a `price` field.
+
+:::code language="json" source="~/cosmos-db-nosql-query-samples/scripts/average/seed.json" range="1,4-8,10-14,16-20" highlight="6,12,18":::
+
+In this example, the function is used to average the values of a specific field into an single aggregated value.
+
+:::code language="sql" source="~/cosmos-db-nosql-query-samples/scripts/average/query.sql" highlight="2":::
+
+:::code language="json" source="~/cosmos-db-nosql-query-samples/scripts/average/result.json":::
+
 
 ## Remarks
 
