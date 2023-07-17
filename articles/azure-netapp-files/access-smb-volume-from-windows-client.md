@@ -1,12 +1,12 @@
 ---
-title: Connect to on-premises environment with Azure Active Directory | Microsoft Learn
+title: Access SMB volumes from Windows clients joined to Azure Active Directory
 description: Explains how to connect Azure NetApp Files volumes from on-premises environment using Azure Active Directory (AD).
 ms.service: azure-netapp-files
 ms.workload: storage
 ms.topic: how-to
 author: b-ahibbard
 ms.author: anfdocs
-ms.date: 06/16/2023
+ms.date: 07/17/2023
 ---
 # Access SMB volumes from Windows clients joined to Azure Active Directory
 
@@ -17,7 +17,7 @@ You can use Azure Active Directory (Azure AD) with the Hybrid Authentication Man
 Before you can connect your on-premises environment to Azure AD, you must have:
 
 * [created an Azure NetApp Files volume](azure-netapp-files-create-volumes-smb.md).
-    * Add the CIFS service provider name to the computer account created as part of the Azure NetApp Files volume in on-premises Active Directory. 
+    * added the CIFS service provider name to the computer account created as part of the Azure NetApp Files volume in on-premises Active Directory. 
 
 ### Create the Azure AD Kerberos application
 
@@ -44,18 +44,20 @@ Before you can connect your on-premises environment to Azure AD, you must have:
     >[!NOTE]
     >After the initial configuration, when you add a new local user, you must run the `Start-ADSyncSyncCycle` command in the Administrator PowerShell to synchronize the new user to Azure AD.
     
+:::image type="content" source="../media/azure-netapp-files/multi-value-string-editor.png" alt-text="Screenshot of multi-value string editor window." lightbox="../media/azure-netapp-files/multi-value-string-editor.png":::
+
 ### Sync CIFS password from on-premises AD to Azure AD Kerberos Application 
 
 1. Sign on to Active Directory in your on-premises environment.
 2. Open PowerShell. 
-1. Install the Hybrid Authentication Management module for synchronizing passwords. 
+1. Install the [Hybrid Authentication Management module](../azure-sql/managed-instance/winauth-azuread-setup-incoming-trust-based-flow) for synchronizing passwords. 
 
     ```powershell
     Install-Module -Name AzureADHybridAuthenticationManagement -AllowClobber -Force 
     ```
 
 1. Provide values for: 
-    * `$servicePrincipalName`: The SPN details from mounting the Azure NetApp Files volume. Use the CIFS/FQDN format. 
+    * `$servicePrincipalName`: The SPN details from mounting the Azure NetApp Files volume. Use the CIFS/FQDN format. For example: `CIFS/NETBIOS-1234.CONTOSO.COM`
     * `$targetApplicationID`: Application ID of the Azure AD application 
     * `$domainCred`: use `Get-Credential`
     * `$cloudCred`: use `Get-Credential`
@@ -100,6 +102,8 @@ Before you can connect your on-premises environment to Azure AD, you must have:
 1. Mount using the mount info provided in the Azure NetApp Files. 
 net use * \\ NETBIOS-1234.contoso.com\volume1 
 1. Confirm the mounted volume is using Kerberos and not NTLM authentication. Open a Command Prompt to issue the `klist` command and observe the output in the cloud TGT (`krbtgt`) and CIFS server ticket information.  
+
+    :::image type="content" source="../media/azure-netapp-files/klist-output.png" alt-text="Screenshot of CLI output." lightbox="../media/azure-netapp-files/klist-output.png":::
 
 ## Further information 
 
