@@ -836,6 +836,8 @@ items:
           href: ../event-grid/event-schema-communication-services.md
         - name: Advanced Messaging events
           href: ../event-grid/communication-services-advanced-messaging-events.md
+      - name: Templates
+        href: concepts/advancedmessaging/whatsapp/template-messages.md
   - name: Azure Advisor
     href: concepts/advisor-overview.md
 - name: Resources 
