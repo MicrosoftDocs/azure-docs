@@ -213,7 +213,7 @@ Although we can't create your Incident Response plan, we'll use Microsoft Azure 
 
 You can use Defender for Cloud alerts during the following stages:
 
-- **Detect**: identify a suspicious activity in one or more resources.
+- **Detect**: identify suspicious activity in one or more resources.
 
 - **Assess**: perform the initial assessment to obtain more information about the suspicious activity.
 
@@ -225,11 +225,11 @@ The following example shows a suspicious RDP activity taking place:
 
 :::image type="content" source="./media/defender-for-cloud-planning-and-operations-guide/defender-for-cloud-planning-and-operations-guide-fig5-ga.png" alt-text="Suspicious activity.":::
 
-This page shows the details regarding the time that the attack took place, the source hostname, the target VM and also gives recommendation steps. In some circumstances, the source information of the attack may be empty. Read [Missing Source Information in Defender for Cloud alerts](/archive/blogs/azuresecurity/missing-source-information-in-azure-security-center-alerts) for more information about this type of behavior.
+This page shows the details regarding the time that the attack took place, the source hostname, and the target VM and also gives recommendation steps. In some circumstances, the source information of the attack may be empty. Read [Missing Source Information in Defender for Cloud alerts](/archive/blogs/azuresecurity/missing-source-information-in-azure-security-center-alerts) for more information about this type of behavior.
 
 Once you identify the compromised system, you can run a [workflow automation](workflow-automation.md) that was previously created. Workflow automations are a collection of procedures that can be executed from Defender for Cloud once triggered by an alert.
 
-> [!NOTE]
+> [NOTE!]
 > Read [Managing and responding to security alerts in Defender for Cloud](managing-and-responding-alerts.md) for more information on how to use Defender for Cloud capabilities to assist you during your Incident Response process.
 
 ## Next steps
