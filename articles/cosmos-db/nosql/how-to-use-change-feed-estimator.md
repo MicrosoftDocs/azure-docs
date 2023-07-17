@@ -91,7 +91,6 @@ Change Feed Processor lag checking can be performed on a separate application (l
 The estimator calculates the accumulated lag by retrieving the current state of the Change Feed Processor and summing up the estimated lag values for each event being processed:
 [!code-java[](~/azure-cosmos-java-sql-api-samples/src/main/java/com/azure/cosmos/examples/changefeed/SampleChangeFeedEstimator.java?name=EstimatedLag)]
 
-
 The total lag initially should be zero and finally should be greater or equal to the number of documents created. The total lag value can be logged or used for further analysis, allowing to monitor the performance of the change feed processing and identify any potential bottlenecks or delays in the system:
 [!code-java[](~/azure-cosmos-java-sql-api-samples/src/main/java/com/azure/cosmos/examples/changefeed/SampleChangeFeedEstimator.java?name=FinalLag)]
 
