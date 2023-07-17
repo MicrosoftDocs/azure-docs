@@ -16,7 +16,7 @@ ms.author: memontic
 
 This template takes no parameters.
 
-```dotnetcli
+```csharp
 string templateName = "sample_template"; 
 string templateLanguage = "en_us"; 
 
@@ -28,7 +28,7 @@ var shippingConfirmationTemplate = new MessageTemplate(templateName, templateLan
 
 Some templates take parameters. Only include the parameters which are required by the template. Including parameters not in the template is invalid.
 
-```dotnetcli
+```csharp
 string templateName = "sample_shipping_confirmation"; 
 string templateLanguage = "en_us"; 
 
@@ -43,7 +43,7 @@ var shippingConfirmationTemplate = new MessageTemplate(templateName, templateLan
 
 ### Use sample_movie_ticket_confirmation template
 
-```dotnetcli
+```csharp
 string templateName = "sample_movie_ticket_confirmation"; 
 string templateLanguage = "en_us"; 
 
