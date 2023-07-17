@@ -1,5 +1,5 @@
 ---
-title: We're retiring Azure VMs (classic) on September 1, 2023 
+title: We're retiring Azure VMs (classic) on September 6, 2023 
 description: This article provides a high-level overview of the retirement of VMs created using the classic deployment model.
 author: tanmaygore
 manager: vashan
@@ -12,21 +12,21 @@ ms.date: 02/10/2020
 ms.author: tagore
 ---
 
-# Migrate your IaaS resources to Azure Resource Manager by September 1, 2023 
+# Migrate your IaaS resources to Azure Resource Manager by September 6, 2023 
 
 **Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Windows VMs
 
-In 2014, we launched infrastructure as a service (IaaS) on [Azure Resource Manager](https://azure.microsoft.com/features/resource-manager/). We've been enhancing capabilities ever since. Because Azure Resource Manager now has full IaaS capabilities and other advancements, we deprecated the management of IaaS virtual machines (VMs) through [Azure Service Manager](./migration-classic-resource-manager-faq.yml) (ASM) on February 28, 2020. This functionality will be fully retired on September 1, 2023. 
+In 2014, we launched infrastructure as a service (IaaS) on [Azure Resource Manager](https://azure.microsoft.com/features/resource-manager/). We've been enhancing capabilities ever since. Because Azure Resource Manager now has full IaaS capabilities and other advancements, we deprecated the management of IaaS virtual machines (VMs) through [Azure Service Manager](./migration-classic-resource-manager-faq.yml) (ASM) on February 28, 2020. This functionality will be fully retired on September 6, 2023. 
 
-Today, about 90 percent of the IaaS VMs are using Azure Resource Manager. If you use IaaS resources through ASM, start planning your migration now. Complete it by September 1, 2023, to take advantage of [Azure Resource Manager](../azure-resource-manager/management/index.yml).
+Today, about 90 percent of the IaaS VMs are using Azure Resource Manager. If you use IaaS resources through ASM, start planning your migration now. Complete it by September 6, 2023, to take advantage of [Azure Resource Manager](../azure-resource-manager/management/index.yml).
 
 VMs created using the classic deployment model will follow the [Modern Lifecycle Policy](https://support.microsoft.com/help/30881/modern-lifecycle-policy) for retirement.
 
 ## How does this affect me? 
 
 - As of February 28, 2020, customers who didn't utilize IaaS VMs through ASM in the month of February 2020 can no longer create VMs (classic). 
-- On September 1, 2023, customers will no longer be able to start IaaS VMs by using ASM. Any that are still running or allocated will be stopped and deallocated. 
-- On September 1, 2023, subscriptions that are not migrated to Azure Resource Manager will be informed regarding timelines for deleting any remaining VMs (classic).  
+- On September 6, 2023, customers will no longer be able to start IaaS VMs by using ASM. Any that are still running or allocated will be stopped and deallocated. 
+- On September 6, 2023, subscriptions that are not migrated to Azure Resource Manager will be informed regarding timelines for deleting any remaining VMs (classic).  
 
 This retirement does *not* affect the following Azure services and functionality: 
 - Storage accounts *not* used by VMs (classic) 

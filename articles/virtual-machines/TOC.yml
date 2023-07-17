@@ -1064,7 +1064,7 @@
     href: /virtualization/hyper-v-on-windows/user-guide/nested-virtualization
   - name: Migrate to Azure Resource Manager
     items:
-    - name: Retirement starting September 1, 2023
+    - name: Retirement starting September 6, 2023
       displayName: classic, migration, classic to ARM, CSES, Cloud Services
       href: classic-vm-deprecation.md
     - name: Migration Overview

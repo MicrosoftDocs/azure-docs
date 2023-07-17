@@ -1,6 +1,6 @@
 ---
 title: NV series retirement
-description: NV series retirement starting September 1, 2023
+description: NV series retirement starting September 6, 2023
 author: vikancha-MSFT
 ms.service: virtual-machines
 ms.subservice: sizes
