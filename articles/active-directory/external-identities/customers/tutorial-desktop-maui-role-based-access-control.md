@@ -58,7 +58,7 @@ Claims.ItemsSource = IdTokenClaims;
 ```
 
 > [!NOTE] 
-> To read the Id token, you must install the `System.IdentityModel.Tokens.Jwt` package.
+> To read the ID token, you must install the `System.IdentityModel.Tokens.Jwt` package.
 
 If you assign a user to multiple roles, the roles string contains all roles separated by a comma, such as `Orders.Manager, Store.Manager,...`. Make sure you build your application to handle the following conditions:
 
