@@ -92,7 +92,7 @@ Switch the order of your arguments. For example, if you're using an HTTP trigger
 
 ## Define your function in code
 
-You no longer need *function.json* files. All of the configuration that was previously specified in a *function.json* file is now defined directly in your TypeScript or JavaScript files. In addition, many properties now have a default so that you don't have to specify them every time.
+You no longer have to create and maintain those separate *function.json* configuration files. You can now fully define your functions directly in your TypeScript or JavaScript files. In addition, many properties now have defaults so that you don't have to specify them every time.
 
 # [v4](#tab/v4)
 
