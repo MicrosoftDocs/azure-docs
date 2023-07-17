@@ -4,7 +4,7 @@ titleSuffix: Microsoft Cost Management
 description: This article describes the fields in the usage data files.
 author: bandersmsft
 ms.author: banders
-ms.date: 04/04/2023
+ms.date: 07/14/2023
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: cost-management
@@ -37,6 +37,7 @@ MPA accounts have all MCA terms, in addition to the MPA terms, as described in t
 | BillingAccountId¹ | All | Unique identifier for the root billing account. |
 | BillingAccountName | All | Name of the billing account. |
 | BillingCurrency | All | Currency associated with the billing account. |
+| BillingCurrencyCode | All | See BillingCurrency. |
 | BillingPeriod | EA, pay-as-you-go | The billing period of the charge. |
 | BillingPeriodEndDate | All | The end date of the billing period. |
 | BillingPeriodStartDate | All | The start date of the billing period. |
@@ -47,7 +48,7 @@ MPA accounts have all MCA terms, in addition to the MPA terms, as described in t
 | CostCenter¹ | EA, MCA | The cost center defined for the subscription for tracking costs (only available in open billing periods for MCA accounts). |
 | Cost | EA, pay-as-you-go | See CostInBillingCurrency. |
 | CostAllocationRuleName | EA, MCA | Name of the Cost Allocation rule that's applicable to the record. |
-| CostInBillingCurrency | MCA | Cost of the charge in the billing currency before credits or taxes. |
+| CostInBillingCurrency | EA, MCA | Cost of the charge in the billing currency before credits or taxes. |
 | CostInPricingCurrency | MCA | Cost of the charge in the pricing currency before credits or taxes. |
 | Currency | EA, pay-as-you-go | See `BillingCurrency`. |
 | CustomerName | MPA | Name of the Azure Active Directory tenant for the customer's subscription. |

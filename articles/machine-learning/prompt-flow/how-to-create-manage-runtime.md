@@ -9,7 +9,7 @@ ms.topic: how-to
 author: cloga
 ms.author: lochen
 ms.reviewer: lagayhar
-ms.date: 06/30/2023
+ms.date: 07/14/2023
 ---
 
 # Create and manage runtimes (preview)
@@ -232,6 +232,54 @@ Use  `docker images`  to check if the image was pulled successfully. If your ima
 
 This type error usually related to runtime lack required packages. If you're using default environment, make sure image of your runtime is using the latest version, learn more: [runtime update](#update-runtime-from-ui), if you're using custom image and you're using conda environment, make sure you have installed all required packages in your conda environment, learn more: [customize Prompt flow environment](how-to-customize-environment-runtime.md#customize-environment-with-docker-context-for-runtime).
 
+#### Request timeout issue
+
+##### Request timeout error shown in UI
+
+**MIR runtime request timeout error in the UI:**
+
+:::image type="content" source="./media/how-to-create-manage-runtime/mir-runtime-request-timeout.png" alt-text="Screenshot of a MIR runtime timeout error in the studio UI. " lightbox = "./media/how-to-create-manage-runtime/mir-runtime-request-timeout.png":::
+
+Error in the example says "UserError: Upstream request timeout".
+
+**Compute instance runtime request timeout error:**
+
+:::image type="content" source="./media/how-to-create-manage-runtime/ci-runtime-request-timeout.png" alt-text="Screenshot of a compute instance runtime timeout error in the studio UI. " lightbox = "./media/how-to-create-manage-runtime/ci-runtime-request-timeout.png":::
+
+Error in the example says "UserError: Invoking runtime gega-ci timeout, error message: The request was canceled due to the configured HttpClient.Timeout of 100 seconds elapsing".
+
+#### How to identify which node consume the most time
+
+1. Check the runtime logs
+
+2. Trying to find below warning log format
+
+    {node_name} has been running for {duration} seconds.
+
+    For example:
+
+   - Case 1: Python script node running for long time.
+
+        :::image type="content" source="./media/how-to-create-manage-runtime/runtime-timeout-running-for-long-time.png" alt-text="Screenshot of a timeout run logs in the studio UI. " lightbox = "./media/how-to-create-manage-runtime/runtime-timeout-running-for-long-time.png":::
+
+        In this case, you can find that the `PythonScriptNode` was running for a long time (almost 300s), then you can check the node details to see what's the problem.
+
+   - Case 2: LLM node running for long time.
+
+        :::image type="content" source="./media/how-to-create-manage-runtime/runtime-timeout-by-language-model-timeout.png" alt-text="Screenshot of a timeout logs caused by LLM timeout in the studio UI. " lightbox = "./media/how-to-create-manage-runtime/runtime-timeout-by-language-model-timeout.png":::
+
+        In this case, if you find the message `request canceled` in the logs, it may be due to the OpenAI API call taking too long and exceeding the runtime limit.
+
+        An OpenAI API Timeout could be caused by a network issue or a complex request that requires more processing time. For more information, see [OpenAI API Timeout](https://help.openai.com/en/articles/6897186-timeout).
+
+        You can try waiting a few seconds and retrying your request. This usually resolves any network issues.
+
+        If retrying doesn't work, check whether you're using a long context model, such as ‘gpt-4-32k’, and have set a large value for `max_tokens`. If so, it's expected behavior because your prompt may generate a very long response that takes longer than the interactive mode upper threshold. In this situation, we recommend trying 'Bulk test', as this mode doesn't have a timeout setting.
+
+3. If you can't find anything in runtime logs to indicate it's a specific node issue
+
+    Please contact the Prompt Flow team ([promptflow-eng](mailto:aml-pt-eng@microsoft.com)) with the runtime logs. We'll try to identify the root cause.
+
 ### Compute instance runtime related
 
 #### How to find the compute instance runtime log for further investigation?
@@ -247,8 +295,8 @@ This because you're cloning a flow from others that is using compute instance as
 #### Compute instance behind VNet
 
 If your compute instance is behind a VNet, you need to make the following changes to ensure that your compute instance can be used in prompt flow:
-- Please follow [required-public-internet-access](../how-to-secure-workspace-vnet.md#required-public-internet-access) to set your CI network configuration.
-- If your storage account also behind vnet, please follow [Secure Azure storage accounts](../how-to-secure-workspace-vnet.md#secure-azure-storage-accounts) to create private endpoints for both table and blob.
+- See [required-public-internet-access](../how-to-secure-workspace-vnet.md#required-public-internet-access) to set your compute instance network configuration.
+- If your storage account also behind vnet, see [Secure Azure storage accounts](../how-to-secure-workspace-vnet.md#secure-azure-storage-accounts) to create private endpoints for both table and blob.
 - Make sure the managed identity of workspace have `Storage Blob Data Contributor`, `Storage Table Data Contributor` roles on the workspace default storage account.
 
 ### Managed endpoint runtime related

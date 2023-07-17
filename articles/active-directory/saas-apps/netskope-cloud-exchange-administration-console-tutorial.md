@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: how-to
-ms.date: 07/11/2023
+ms.date: 07/17/2023
 ms.author: jeedes
 
 ---
@@ -60,7 +60,7 @@ Complete the following steps to enable Azure AD single sign-on in the Azure port
 1. On the **Basic SAML Configuration** section, perform the following steps:
 
 	a. In the **Identifier** textbox, type a URL using the following pattern:
-	`https://<Cloud_Exchange_FQDN>.com/api/metadata`
+	`https://<Cloud_Exchange_FQDN>/api/metadata`
 
     b. In the **Reply URL** textbox, type a URL using the following pattern:
     `https://<Cloud_Exchange_FQDN>/api/ssoauth?acs=true`
