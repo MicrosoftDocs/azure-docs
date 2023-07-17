@@ -18,7 +18,7 @@ Azure Communication Services now enables you to send and receive WhatsApp messag
 ## Prerequisites
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-- Register Event Grid Resource Provider. If your Azure subscription does not yet have the Event Grid resource provider registered, you can follow the steps in the "Register an EventGrid resource provider" section on [Register Event Grid Resource Provider](https://learn.microsoft.com/azure/communication-services/quickstarts/sms/handle-sms-events#register-an-event-grid-resource-provider).
+- Register Event Grid Resource Provider. If your Azure subscription does not yet have the Event Grid resource provider registered, you can follow the steps in the "Register an EventGrid resource provider" section on [Register Event Grid Resource Provider](../../sms/handle-sms-events#register-an-event-grid-resource-provider).
 - A Communication Services resource. For detailed information, see [Create an Azure Communication Services resource](../../create-communication-resource.md).
 
 ## About Event Grid
@@ -29,7 +29,7 @@ Azure Communication Services now enables you to send and receive WhatsApp messag
 
 The Event Grid Viewer is a sample site that allows you to view incoming events from Event Grid.
 
-1.  Go to this Link [Azure Event Grid Viewer - Code Samples \| Microsoft Learn](https://learn.microsoft.com/samples/azure-samples/azure-event-grid-viewer/azure-event-grid-viewer/). Deploy the Event Grid Viewer sample by clicking the "Deploy to Azure" button.
+1.  Go to this Link [Azure Event Grid Viewer - Code Samples \| Microsoft Learn](/samples/azure-samples/azure-event-grid-viewer/azure-event-grid-viewer/). Deploy the Event Grid Viewer sample by clicking the "Deploy to Azure" button.
     
     :::image type="content" source="./media/handle-advanced-messaging-events/eventgrid-viewer.png" alt-text="Screenshot that shows the Event Grid Viewer Sample Page with Deploy To Azure option.":::
 
