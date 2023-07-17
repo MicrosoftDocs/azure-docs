@@ -69,7 +69,7 @@ Cross-zone replication leverages [availability zones](use-availability-zones.md)
 
 To learn more, see [Understand cross-zone replication](cross-zone-replication-introduction.md). To get started with cross-zone replication, see [Create cross-zone replication relationships for Azure NetApp Files](create-cross-zone-replication.md). 
 
-## Select the appropriate data protection solution
+## Choose a data protection solution
 
 Choosing the best data protection option for your Azure NetApp Files deployment depends on your configuration and needs. The following table can help you choose the best option for your use case.  
 
