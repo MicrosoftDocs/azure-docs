@@ -73,7 +73,10 @@ items:
     - name: Deployment errors
       href: troubleshoot-errors-deployment.md
     - name: Error logs
-      href: troubleshoot-errors-logs.md   
+      href: troubleshoot-errors-logs.md
+- name: Samples
+  expanded: false
+  href: overview-of-samples.md     
 - name: Concepts
   expanded: false
   items:
