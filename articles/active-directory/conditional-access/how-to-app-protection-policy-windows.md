@@ -83,6 +83,7 @@ Clicking on **Switch Edge profile** will open a window listing their Work or sch
 
 This will open a window offering to allow Windows to remember your account and automatically sign you in to your apps and websites. 
 
+> [!CAUTION]
 > You must *UNCHECK* the box **Allow my organization to manage my device**. Leaving this checked enrolls your device in mobile device maangment (MDM) not mobile application management (MAM).
 
 ![Screenshot showing the stay signed in you all your apps window. Uncheck the allow my organization to manage my device checkbox.](./media/how-to-app-protection-policy-windows/stay-signed-in-to-all-your-apps.png)
