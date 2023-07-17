@@ -8,7 +8,7 @@ ms.author: henrymbugua
 ms.service: active-directory
 ms.topic: tutorial
 ms.subservice: ciam
-ms.date: 06/05/2023
+ms.date: 07/17/2023
 ---
 
 # Tutorial: Add app roles to .NET MAUI and receive them in the ID token
@@ -36,6 +36,12 @@ In this tutorial series, you created a .NET MAUI app where you developed the [_C
 
 ```csharp
 IdTokenClaims = PublicClientSingleton.Instance.MSALClientHelper.AuthResult.ClaimsPrincipal.Claims.Select(c => c.Value);
+```
+
+To access the role claim only, you can modify the code snippet as follows:
+
+```csharp
+IdTokenClaims = PublicClientSingleton.Instance.MSALClientHelper.AuthResult.ClaimsPrincipal.Claims.Select(c => c.Type == "roles")?.Value;
 ```
 
 If you assign a user to multiple roles, the roles string contains all roles separated by a comma, such as `Orders.Manager, Store.Manager,...`. Make sure you build your application to handle the following conditions:
