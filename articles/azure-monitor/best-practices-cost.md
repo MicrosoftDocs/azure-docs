@@ -71,7 +71,6 @@ This article describes [Cost optimization](/azure/architecture/framework/cost/) 
 
 > [!div class="checklist"]
 > - Use sampling to tune the amount of data collected.
-> - Use sampling to tune the amount of data collected.
 > - Limit the number of Ajax calls.
 > - Disable unneeded modules.
 > - Pre-aggregate metrics from any calls to TrackMetric.
