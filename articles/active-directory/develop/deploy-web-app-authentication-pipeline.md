@@ -102,7 +102,7 @@ Add a service connection:
 1. Select **Azure Resource Manager** and then **Next**.
 1. Select **Service principal (automatic)** and then **Next**.
 1. Select **Subscription** for **scope level** and select your subscription.  Enter a service connection name such as "PipelinesTextServiceConnetion" and select **Next**.
-        
+
 ## Create the pipeline
 
 1. Go to **Pipelines**, and then select **Create Pipeline**.
@@ -127,20 +127,17 @@ Under **Jobs**, select **Job**. Next, trace the build process through each of th
 
 Add a variable group and variables to the pipeline.  Select **Library** in the left navigation pane and create a new **Variable group**.
 
-In Portal, find app registration created for service connection.  Copy app/client ID into pipeline variable.
+In the Azure Portal, find app registration created for service connection.  Copy app/client ID into pipeline variable.
 
 Give it the name "AzureResourcesVariableGroup".  Add the following variables and values:
 
 | Variable name | Value |
 | --- | --- |
-| KEYVAULTNAME | pipelinetestwebapp |
 | LOCATION | centralus |
-| PIPELINESPID | app-id|
+| PIPELINESPID | {app-id}|
 | RESOURCEGROUPNAME | pipelinetestgroup |
 | SVCPLANNAME | pipelinetestplan |
 | TENANTID |  {tenant-id}|
-| TESTCLIENNAME | pipelinetestclient |
-| TESTUSERNAME | testuser123 |
 | WEBAPPNAMETEST | pipelinetestwebapp |
 | AZURESUBSCRIPTION | PipelinesTextServiceConnetion |
 
@@ -154,47 +151,7 @@ Add a build stage.  Add build tasks, restore project dependencies, publish the b
 
 Replace the basic pipeline configuration with:
 
-```yml
-variables: 
-- group: AzureResourcesVariableGroup   
-
-trigger:
-- main
-
-stages:
-- stage: Build
-  jobs: 
-  - job: Build
-
-    pool:
-      vmImage: 'windows-latest'
-
-    variables:
-      solution: '**/*.sln'
-      buildPlatform: 'Any CPU'
-      wwwrootDir: 'PipelinesTest/wwwroot'
-      buildConfiguration: 'Release'      
-
-    steps:
-    - task: NuGetToolInstaller@1
-
-    - task: NuGetCommand@2
-      inputs:
-        restoreSolution: '$(solution)'
-
-    - task: VSBuild@1
-      inputs:
-        solution: '$(solution)'
-        msbuildArgs: '/p:DeployOnBuild=true /p:WebPublishMethod=Package /p:PackageAsSingleFile=true /p:SkipInvalidConfigurations=true /p:DesktopBuildPackageLocation="$(build.artifactStagingDirectory)\WebApp.zip" /p:DeployIisAppPath="Default Web Site"'
-        platform: '$(buildPlatform)'
-        configuration: '$(buildConfiguration)'
-        
-    - task: PublishBuildArtifacts@1
-      inputs:
-        PathtoPublish: '$(Build.ArtifactStagingDirectory)'
-        ArtifactName: 'drop'
-        publishLocation: 'Container'  
-```
+[!code-yml[](includes/deploy-web-app-authentication-pipeline/azure-pipeline-1.yml)]
 
 Save your changes and run the pipeline.
 
@@ -204,68 +161,11 @@ Add stage to the pipeline to deploy Azure resources.
 
 Grant service connection permission to the pipeline.
 
-```yml
-- stage: DeployAzureResources
-  displayName: 'Deploy resources to Azure'
-  dependsOn: Build
-  condition: |
-    succeeded()    
-  jobs: 
-  - job: DeployAzureResources
-    pool: 
-      vmImage: 'windows-latest'
-    steps:
-      - task: AzureCLI@2
-        inputs:
-          azureSubscription: $(AZURESUBSCRIPTION)
-          scriptType: 'bash'
-          scriptLocation: 'inlineScript'
-          inlineScript: |
-            # Create a resource group
-            az group create --location $LOCATION --name $RESOURCEGROUPNAME
-            echo "Created resource group $RESOURCEGROUPNAME"    
-
-            # Create App Service plan
-            az appservice plan create -g $RESOURCEGROUPNAME -n $SVCPLANNAME --sku FREE
-            echo "Created App Service plan"
-            
-            ### Create Test resources
-            # create and configure an Azure App Service web app
-            az webapp create -g $RESOURCEGROUPNAME -p $SVCPLANNAME -n $WEBAPPNAMETEST -r "dotnet:7"
-            
-        name: DeploymentScript
-```
+[!code-yml[](includes/deploy-web-app-authentication-pipeline/azure-pipeline-2.yml?highlight=42-70)]
 
 ## Deploy the web app to Azure App Service
 
-```yaml
-- stage: DeployWebApp
-  displayName: 'Deploy the web app'
-  dependsOn: DeployAzureResources
-  condition: |
-    succeeded()    
-  
-  jobs: 
-  - job: DeployWebApp
-    displayName: 'Depoy Web App'
-    pool: 
-      vmImage: 'windows-latest'
-    
-    steps:      
-    - task: DownloadBuildArtifacts@0
-      inputs:
-        buildType: 'current'
-        downloadType: 'single'
-        artifactName: 'drop'
-        downloadPath: '$(System.DefaultWorkingDirectory)'
-    - task: AzureRmWebAppDeployment@4
-      inputs:
-        ConnectionType: 'AzureRM'
-        azureSubscription: $(AZURESUBSCRIPTION)
-        appType: 'webApp'
-        WebAppName: '$(WEBAPPNAMETEST)'
-        packageForLinux: '$(System.DefaultWorkingDirectory)/**/*.zip'
-``` 
+[!code-yml[](includes/deploy-web-app-authentication-pipeline/azure-pipeline-3.yml?highlight=72-98)]
 
 Save your changes and run the pipeline.  Verify that a new resource group and App Service instance are created.
 
@@ -273,90 +173,31 @@ Save your changes and run the pipeline.  Verify that a new resource group and Ap
 
 Modify the deploy Azure resources stage.
 
-```yml
-- stage: DeployAzureResources
-  displayName: 'Deploy resources to Azure'
-  dependsOn: Build
-  condition: |
-    succeeded()    
-  jobs: 
-  - job: DeployAzureResources
-    pool: 
-      vmImage: 'windows-latest'
-    steps:
-      - task: AzureCLI@2
-        inputs:
-          azureSubscription: $(AZURESUBSCRIPTION)
-          scriptType: 'bash'
-          scriptLocation: 'inlineScript'
-          inlineScript: |
-            # Create a resource group
-            az group create --location $LOCATION --name $RESOURCEGROUPNAME
-            echo "Created resource group $RESOURCEGROUPNAME"    
-
-            # Create App Service plan
-            az appservice plan create -g $RESOURCEGROUPNAME -n $SVCPLANNAME --sku FREE
-            echo "Created App Service plan"
-
-            ### Create Test resources
-            # create and configure an Azure App Service web app
-            az webapp create -g $RESOURCEGROUPNAME -p $SVCPLANNAME -n $WEBAPPNAMETEST
-            echo "Created App Service webapp $WEBAPPNAMETEST"
-
-            redirectUriTest="https://$WEBAPPNAMETEST.azurewebsites.net/.auth/login/aad/callback"
-            homePageUrlTest="https://$WEBAPPNAMETEST.azurewebsites.net"
-            issuerTest="https://sts.windows.net/$TENANTID"
-            
-            # Required resource access
-            cat > manifest.json << EOF
-            [
-                {
-                    "resourceAppId": "00000003-0000-0000-c000-000000000000",
-                    "resourceAccess": [
-                        {
-                            "id": "e1fe6dd8-ba31-4d61-89e7-88639da4683d",
-                            "type": "Scope"
-                        }
-                    ]
-                }
-            ]
-            EOF
-            
-            # Create app registration for App Service authentication
-            appIdTest=$(az ad app create --display-name $WEBAPPNAMETEST --sign-in-audience AzureADMyOrg --enable-id-token-issuance true --query appId --output tsv)
-            echo "Registered app: $appIdTest"
-
-            # Set identifier URI, homepage, redirect URI, and resource access
-            az ad app update --id $appIdTest --identifier-uris api://$appIdTest --web-redirect-uris $redirectUriTest  --web-home-page-url $homePageUrlTest --required-resource-accesses @manifest.json
-            echo "Updated app"
-
-            # Get secret from the app for App Service authentication
-            secretTest=$(az ad app credential reset --id $appIdTest --query password --output tsv)
-            echo "Got secret"
-
-            az config set extension.use_dynamic_install=yes_without_prompt
-            az extension add --name authV2                      
-
-            az webapp config appsettings set --name $WEBAPPNAMETEST --resource-group $RESOURCEGROUPNAME --slot-settings MICROSOFT_PROVIDER_AUTHENTICATION_SECRET=$secretTest
-            echo "Set web app settings"
-
-            az webapp auth microsoft update --name $WEBAPPNAMETEST --resource-group $RESOURCEGROUPNAME --client-id $appIdTest --secret-setting MICROSOFT_PROVIDER_AUTHENTICATION_SECRET --allowed-audiences $redirectUriTest  --issuer $issuerTest
-            echo "Set EasyAuth settings"
-        name: DeploymentScript
-``````
-1. Create an Azure AD app registration as an identity for your web app.
+1. Create an Azure AD app registration as an identity for your web app. To create app registration, SP for running pipeline needs Application Administrator role in the directory.
 1. Get a secret from the app for App Service authentication
 1. Configure secret setting for App Service web app
 1. Configure redirect URI, home page URI, and issuer settings for App Service Authentication
 1. Deploy the web app to Azure App Service and verify user sign in
 
-## Clean up
+[!code-yml[](includes/deploy-web-app-authentication-pipeline/azure-pipeline-4.yml?highlight=70-108)]
 
-Delete the Azure DevOps project.  
+## Verify limited access to the web app
 
-Delete Azure resources.
+To verify that access to your app is limited to users in your organization, start a browser in incognito or private mode and go to https://<app-name>.azurewebsites.net. You should be directed to a secured sign-in page, verifying that unauthenticated users aren't allowed access to the site. Sign in as a user in your organization to gain access to the site. You can also start up a new browser and try to sign in by using a personal account to verify that users outside the organization don't have access.
 
-Delete app registration in Azure AD.
+This command might take several minutes to run.
+
+## Clean up resources
+
+### Delete the resource group
+
+In the Azure portal, select Resource groups from the portal menu and select the resource group that contains your app service and app service plan.
+
+Select Delete resource group to delete the resource group and all the resources.
+
+### Delete the Azure DevOps project
+
+### Delete app registration in Azure AD
 
 ## Next steps
 
