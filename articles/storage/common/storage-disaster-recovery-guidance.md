@@ -140,6 +140,17 @@ Two important exceptions to consider are:
 > * [Classic storage accounts](#classic-storage-accounts)
 > * [Azure Data Lake Storage Gen2](#azure-data-lake-storage-gen2)
 
+#### Classic storage accounts
+
+Customer-managed account failover is only supported for storage accounts deployed using the Azure Resource Manager (ARM) deployment model. The Azure Service Manager (ASM) deployment model, also known as Classic, is not supported. To make classic storage accounts eligible for customer-managed account failover, they must first be [upgraded to the ARM model](../../virtual-machines/migration-classic-resource-manager-overview.md#migration-of-storage-accounts). Your storage account must be accessible to perform the upgrade, so the primary region cannot currently be in a failed state.
+
+#### Azure Data Lake Storage Gen2
+
+Customer-managed account failover is not yet supported in accounts that have a hierarchical namespace enabled (Azure Data Lake Storage Gen2). To learn more, see [Blob storage features available in Azure Data Lake Storage Gen2](../blobs/storage-feature-support-in-storage-accounts.md).
+
+> [!IMPORTANT]
+> In the event of a disaster that affects the primary region, Microsoft will manage the failover for accounts with a hierarchical namespace. For more information, see [Microsoft-managed failover](storage-disaster-recovery-guidance.md#microsoft-managed-failover).
+
 ### Storage account containing archived blobs
 
 Storage accounts containing archived blobs support account failover. After failover is complete, all archived blobs need to be rehydrated to an online tier before the account can be configured for geo-redundancy.
