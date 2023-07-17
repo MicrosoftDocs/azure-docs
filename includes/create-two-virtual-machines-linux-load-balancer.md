@@ -12,7 +12,7 @@
 
 ## Create virtual machines
 
-In this section, you'll create two VMs (**vm-1** and **vm-2**) in two different zones (**Zone 1** and **Zone 2**).
+In this section, you create two VMs (**vm-1** and **vm-2**) in two different zones (**Zone 1** and **Zone 2**).
 
 These VMs are added to the backend pool of the load balancer that was created earlier.
 
