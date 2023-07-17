@@ -157,7 +157,7 @@ This section guides you through the steps to configure the Azure AD provisioning
 	|urn:ietf:params:scim:schemas:extension:infor:2.0:User:actorId|String||
 	|urn:ietf:params:scim:schemas:extension:infor:2.0:User:federationId|String||
 	|urn:ietf:params:scim:schemas:extension:infor:2.0:User:ifsPersonId|String||
-	|urn:ietf:params:scim:schemas:extension:infor:2.0:User:inUser|String||
+	|urn:ietf:params:scim:schemas:extension:infor:2.0:User:lnUser|String||
 	|urn:ietf:params:scim:schemas:extension:infor:2.0:User:userAlias|String||
 
 
