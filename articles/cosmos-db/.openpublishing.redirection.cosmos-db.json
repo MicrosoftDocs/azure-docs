@@ -6079,6 +6079,11 @@
       "source_path_from_root": "/articles/cosmos-db/nosql/query/type-checking-functions.md",
       "redirect_url": "/azure/cosmos-db/nosql/query/system-functions",
       "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/cosmos-db/nosql/query/aggregate-avg.md",
+      "redirect_url": "/azure/cosmos-db/nosql/query/average",
+      "redirect_document_id": true
     }
   ]
 }
