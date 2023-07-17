@@ -14,23 +14,11 @@ ms.date:     07/17/2023
 
 Log Sharing provides access to Log files, to help facilitate the creation of more effective support channels.
 
-## Problem Statement
+## Accessing Log Files with Azure Calling SDK
 
-To facilitate support requests, occasionally log files are requested. For certain end-users, especially Android/iOS users providing these files can be a major hurdle as these files are stored within the Application's sandbox.
+In order to have effective support, occasionally log files will be requested. As an application developer it can be valuable to collect these files in your support and diagnostic flows. This method provide the foundation for enhanced support for end users.
 
-## Solution
-
-Provide the application developer with the location of the files, so that they can implement share/export functionality in a more robust and reliable way.
-
-## Api Functionalities
-
-For each platform, a `getSupportFiles` method is offered. This method returns a list of files that should be included in a support request.
-
-This API does not package/transmit the files, and that functionality must be implemented in the application as appropriate.
-
-## Included Support Files
-
-ACS Calling Logs as well as Media Stack Logs are listed out. In releases, these log files are encrypted and not in a format that an Application developer or End user can read.
+The support files list includes all files that will enable Microsoft Support to thoroughly investigate a wide range of potential issues.
 
 ## Integration Guidance
 
