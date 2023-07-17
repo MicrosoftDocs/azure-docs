@@ -24,9 +24,10 @@ Azure Monitor workspaces include an exploration workbook to query your Prometheu
 1. From the Azure Monitor workspace overview page, select **Prometheus explorer**
 
 ![Screenshot that shows Azure Monitor workspace menu selection.](./media/prometheus-workbooks/prometheus-explorer-menu.png)
-    * Or the **Workbooks** menu item, and in the Azure Monitor workspace gallery, select the **Prometheus Explorer** workbook tile.
+    
+2. Or the **Workbooks** menu item, and in the Azure Monitor workspace gallery, select the **Prometheus Explorer** workbook tile.
 
-  ![Screenshot that shows Azure Monitor workspace gallery.](./media/prometheus-workbooks/prometheus-gallery.png)
+![Screenshot that shows Azure Monitor workspace gallery.](./media/prometheus-workbooks/prometheus-gallery.png)
 
 A workbook has the following input options:
 -	**Time Range**. Select the period of time that you want to include in your query. Select **Custom** to set a start and end time.
