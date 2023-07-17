@@ -149,7 +149,7 @@ Automatic OS image upgrade is supported for custom images deployed through [Azur
 - The new image version should not be excluded from the latest version for that gallery image. Image versions excluded from the gallery image's latest version are not rolled out to the scale set through automatic OS image upgrade.
 
 > [!NOTE]
-> The upgrade initiation can take time based on certain factors such as the VM image version and deployment cycle. Customers on the latest image may not get an upgrade until a new image is available. 
+> It can take up to 3 hours for a scale set to trigger the first image upgrade rollout after the scale set is first configured for automatic OS upgrades due to certain factors such as Maintenance Windows or other restrictions. Customers on the latest image may not get an upgrade until a new image is available. 
 
 
 ## Configure automatic OS image upgrade
