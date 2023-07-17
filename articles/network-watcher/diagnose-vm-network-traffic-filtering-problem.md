@@ -6,7 +6,7 @@ author: halkazwini
 ms.author: halkazwini
 ms.service: network-watcher
 ms.topic: quickstart
-ms.date: 07/12/2023
+ms.date: 07/17/2023
 ms.custom: template-quickstart, engagement-fy23
 #Customer intent: I need to diagnose and troubleshoot a virtual machine (VM) network traffic filter problem that prevents communication to and from a VM.
 ---
@@ -169,7 +169,9 @@ When no longer needed, delete the resource group and all of the resources it con
 
 1. Select **Delete resource group**.
 
-1. Enter ***myResourceGroup*** for **Enter resource group name to confirm deletion** and select **Delete**.
+1. In **Delete a resource group**, enter ***myResourceGroup***, and then select **Delete**.
+
+1. Select **Delete** to confirm the deletion of the resource group and all its resources.
 
 ## Next steps
 
