@@ -5,6 +5,8 @@
     - name: What is Azure Machine Learning?
       displayName: AML, services, overview, introduction
       href: overview-what-is-azure-machine-learning.md
+    - name: Azure Machine Learning CLI and Python SDK
+      href: concept-v2.md
     # v1
     - name: Azure Machine Learning SDK & CLI v1
       href: ./v1/introduction.md
@@ -119,6 +121,8 @@
         href: concept-azure-machine-learning-v2.md
       - name: Workspaces
         href: concept-workspace.md
+      - name: Searching for Assets and Resources
+        href: how-to-search-assets.md
       - name: Compute
         items:
           - name: Compute instances
@@ -154,14 +158,26 @@
   # end v1
   - name: Development environment
     items:
-      - name: Launch VS Code remote
-        displayName: Visual Studio Code, VSCode, debug, bugs
-        href: how-to-launch-vs-code-remote.md
-      - name: Work in VS Code remote
-        displayName: Visual Studio Code, VSCode, debug, bugs
-        href: how-to-work-in-vs-code-remote.md
-      - name: Manage resources VS Code
-        href: how-to-manage-resources-vscode.md
+      - name: Notebooks
+        items:
+          - name: Create and manage files
+            href: how-to-manage-files.md
+          - name: Run Jupyter notebooks
+            href: how-to-run-jupyter-notebooks.md
+          - name: Use a terminal
+            href: how-to-access-terminal.md
+          - name: Manage compute sessions
+            href: how-to-manage-compute-sessions.md
+      - name: VS Code
+        items: 
+          - name: Launch VS Code remote
+            displayName: Visual Studio Code, VSCode, debug, bugs
+            href: how-to-launch-vs-code-remote.md
+          - name: Work in VS Code remote
+            displayName: Visual Studio Code, VSCode, debug, bugs
+            href: how-to-work-in-vs-code-remote.md
+          - name: Manage resources VS Code
+            href: how-to-manage-resources-vscode.md
   - name: Integration with other tools
     items:
       - name: Work with MLflow
@@ -233,20 +249,6 @@
             href: how-to-r-train-model.md
           - name: Deploy R model
             href: how-to-r-deploy-r-model.md
-  - name: TBD
-    items:
-      - name: Create and manage files
-        href: how-to-manage-files.md
-      - name: Run Jupyter notebooks
-        href: how-to-run-jupyter-notebooks.md
-      - name: Use a terminal
-        href: how-to-access-terminal.md
-      - name: Manage compute sessions
-        href: how-to-manage-compute-sessions.md
-      - name: Searching for Assets and Resources
-        href: how-to-search-assets.md
-      - name: Azure Machine Learning CLI and Python SDK
-        href: concept-v2.md
 - name: Work with data
   items:
   - name: Data concepts in Azure Machine Learning
