@@ -19,7 +19,7 @@ With [Visual Studio 17.7 Preview 3](https://visualstudio.microsoft.com/vs/previe
 
 Benefits of precaching your Visual Studio solution on a dev box image include:
 - You can reduce the time it takes to load your solution for the first time. 
-- You can quickly access and use key IDE features like [**Find In Files**](/visualstudio/ide/find-in-files) and [**IntelliCode**](/visualstudio/intellicode/intellicode-visual-studio) in Visual Studio.
+- You can quickly access and use key IDE features like [**Find In Files**](/visualstudio/ide/find-in-files) and [**Intellisense**](/visualstudio/ide/using-intellisense) in Visual Studio.
 - You can improve the Git performance on large repositories.
 
 > [!NOTE]
