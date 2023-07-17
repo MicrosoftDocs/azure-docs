@@ -45,20 +45,19 @@ Creating an automation task doesn't immediately incur charges. Underneath, an au
 ![Screenshot showing Azure portal and Azure PostgreSQL resource menu with "Tasks (preview)" selected.](media/create-automation-tasks/screen-2.png)
 
 1. On the **Tasks** pane, select **Add a task** to select a task template.
-![Screen-2](media/create-automation-tasks/screen-3.png)
+![Screenshot that shows the "Tasks (preview)" pane with "Add a task" selected.](media/create-automation-tasks/screen-3.png)
 
 1. Under **Select a template**, select the task for **Starting** or **Stopping** your Azure PostgreSQL Flexible Server.
-![Screen-3](media/create-automation-tasks/screen-4.png)
+![Screenshot that shows the "Add a task" pane with "Stop PostgreSQL Flexible Server" template selected.](media/create-automation-tasks/screen-4.png)
 
 1. Under **Authenticate**, in the **Connections** section, select **Create** for every connection that appears in the task so that you can provide authentication credentials for all the connections.  The types of connections in each task vary based on the task.
-![Screen-4](media/create-automation-tasks/screen-5.png)
+![Screenshot that shows the selected "Create" option for the Azure Resource Manager connection.](media/create-automation-tasks/screen-5.png)
 
 1. When you're prompted, **sign in with your Azure account** credentials.
-![Screen-5](media/create-automation-tasks/screen-9.png)
+![Screenshot that shows the selection, "Sign in".](media/create-automation-tasks/screen-9.png)
 
-1. 
-Each successfully authenticated connection looks similar to this example:
-![Screen-6](media/create-automation-tasks/screen-10.png)
+1. Each successfully authenticated connection looks similar to this example:
+![Screenshot that shows successfully created connection.](media/create-automation-tasks/screen-10.png)
 
 1. After you authenticate all the connections, select Next: **Configure**.
 1. Under **Configure**, provide a name for the task and any other information required for the task. When you're done, select **Review + create**.
@@ -69,11 +68,11 @@ Each successfully authenticated connection looks similar to this example:
 > For example, if you name your task `Stop-Instance-Weekly`, but you later edit the underlying workflow to run daily, you can't change your task's name to `Stop-Instance-Daily`.
 
 1. Tasks that send email notifications require an email address.
-![Screen-7](media/create-automation-tasks/screen-11.png)
+![Screenshot that shows the required information for the selected task.](media/create-automation-tasks/screen-11.png)
 
 The task you've created, which is automatically live and running, will appear on the **Tasks** list.
 
-![Screen-10](media/create-automation-tasks/screen-13.png)
+![Screenshot that shows the automation tasks list.](media/create-automation-tasks/screen-13.png)
 
 ## Review task history
 
