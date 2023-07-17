@@ -96,11 +96,11 @@ You can build queries with cloud security explorer in one of two ways:
 
 You can also create your own custom queries. The following example shows a search for pods running container images that are vulnerable to remote code execution.
 
-    :::image type="content" source="media/how-to-test-attack-path/custom-query-search.png" alt-text="Screenshot that shows a custom query." lightbox="media/how-to-test-attack-path/custom-query-search.png":::
+:::image type="content" source="media/how-to-test-attack-path/custom-query-search.png" alt-text="Screenshot that shows a custom query." lightbox="media/how-to-test-attack-path/custom-query-search.png":::
 
 The results are listed below the query.
 
-    :::image type="content" source="media/how-to-test-attack-path/custom-query-results.png" alt-text="Screenshot that shows the results from a custom query." lightbox="media/how-to-test-attack-path/custom-query-results.png":::
+:::image type="content" source="media/how-to-test-attack-path/custom-query-results.png" alt-text="Screenshot that shows the results from a custom query." lightbox="media/how-to-test-attack-path/custom-query-results.png":::
 
 ## Next Steps 
 
