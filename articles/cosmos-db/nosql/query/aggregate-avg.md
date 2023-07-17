@@ -40,18 +40,20 @@ For this example, consider a container with multiple items that each contain a `
 
 :::code language="json" source="~/cosmos-db-nosql-query-samples/scripts/average/seed.json" range="1,4-8,10-14,16-20" highlight="6,12,18":::
 
-In this example, the function is used to average the values of a specific field into an single aggregated value.
+In this example, the function is used to average the values of a specific field into a single aggregated value.
 
 :::code language="sql" source="~/cosmos-db-nosql-query-samples/scripts/average/query.sql" highlight="2":::
 
 :::code language="json" source="~/cosmos-db-nosql-query-samples/scripts/average/result.json":::
 
-
 ## Remarks
 
-This system function will benefit from a [range index](../../index-policy.md#includeexclude-strategy). If any arguments in `AVG` are string, boolean, or null, the entire aggregate system function will return `undefined`. If any argument has an `undefined` value, it will not impact the `AVG` calculation.
+- This function benefits from a [range index](../../index-policy.md#includeexclude-strategy).
+- If any arguments in `AVG` are string, boolean, or null; the entire aggregate system function returns `undefined`.
+- If any individual argument has an `undefined` value that value isn't included in the `AVG` calculation.
 
 ## Next steps
 
 - [System functions in Azure Cosmos DB](system-functions.yml)
 - [Aggregate functions in Azure Cosmos DB](aggregate-functions.md)
+- [`SUM`](sum.md)
