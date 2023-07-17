@@ -1534,6 +1534,8 @@
       href: ../virtual-network/tutorial-filter-network-traffic-powershell.md?toc=/azure/virtual-machines/toc.json
     - name: Azure CLI
       href: ../virtual-network/tutorial-filter-network-traffic-cli.md?toc=/azure/virtual-machines/toc.json
+  - name: Network security group test
+    href: network-security-group-test.md
   - name: Create VM - static public IP
     items:
     - name: Azure portal
