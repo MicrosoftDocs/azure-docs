@@ -30,9 +30,7 @@ Each MedTech service scenario-based sample contains the following resources:
 > [!TIP]
 > You can use the MedTech service [Mapping debugger](how-to-use-mapping-debugger.md) for assistance creating, updating, and troubleshooting the MedTech service device and FHIR destination mappings. The Mapping debugger enables you to easily view and make inline adjustments in real-time, without ever having to leave the Azure portal. The Mapping debugger can also be used for uploading test device messages to see how they'll look after being processed into normalized messages and transformed into FHIR Observations.
 
-## Samples
-
-### CalculatedContent
+## CalculatedContent
 
 [Conversions using functions](https://github.com/Azure-Samples/azure-health-data-services-samples/tree/main/samples/medtech-service-mappings/calculatedcontent/conversions-using-functions)
 

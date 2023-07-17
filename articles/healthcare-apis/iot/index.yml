@@ -57,7 +57,7 @@ landingContent:
             url: overview-of-device-mapping.md
           - text: Overview of the FHIR destination mapping
             url: overview-of-fhir-destination-mapping.md 
-          - text: Overview of The MedTech service scenario-based mappings samples
+          - text: Overview of the MedTech service scenario-based mappings samples
             url: overview-of-samples.md
       - linkListType: how-to-guide
         links:
