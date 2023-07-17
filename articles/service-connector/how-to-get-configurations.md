@@ -10,7 +10,7 @@ ms.date: 07/04/2023
 
 # Get connection configurations added by Service Connector
 
-Service Connector will configure connection information, such as Dtabase connection string, while creating or updating service connections. After service connections are created, you might want to write code to consume these connection configurations in code. This page shows how to get connection configurations added by Service Connector. 
+Service Connector configures connection information, such as Database connection string, while creating or updating service connections. After service connections are created, you might want to write code to consume these connection configurations in code. This page shows how to get connection configurations added by Service Connector. 
 
 There are multiple ways to get connection configurations of a service connection. You can get configuration names for specific target service type from the following articles [Integrate Azure Database for PostgreSQL with Service Connector](./how-to-integrate-postgres.md).
 
@@ -28,13 +28,13 @@ az containerapp connection list-configuration -g <myResourceGroupName> -n <myCon
 # for Azure Spring App
 az spring connection list-configuration --id /subscriptions/{subscription}/resourceGroups/{myResourceGroupName}/providers/Microsoft.AppPlatform/Spring/{mySpringAppName}/apps/{myAppName}/deployments/default/providers/Microsoft.ServiceLinker/linkers/{myConnectionName}
 ```
-For more information, see the following articles in Azure CLI reference docoumentations:
+For more information, see the following articles in Azure CLI reference documentations:
 [az webapp connection list-configuration](/cli/azure/webapp/connection?view=azure-cli-latest#az-webapp-connection-list-configuration)
 [az containerapp connection list-configuration](/cli/azure/containerapp/connection?view=azure-cli-latest#az-containerapp-connection-list-configuration)
 [az spring connection list-configuration](/cli/azure/spring/connection?view=azure-cli-latest#az-spring-connection-list-configuration)
 
-## [Azure Powershell](#tab/azure-powershell)
-You can run the following commands in Azure Powershell to list configurations of a service connection.
+## [Azure PowerShell](#tab/azure-powershell)
+You can run the following commands in Azure PowerShell to list configurations of a service connection.
 ```azurepowershell
 # for Azure Web App
 Get-AzServiceLinkerConfigurationForWebApp -WebApp {myWebAppName} -ResourceGroupName {myResourceGroupName} -LinkerName {myConnectionName} | Format-List
@@ -45,7 +45,7 @@ Get-AzServiceLinkerConfigurationForContainerApp -ContainerApp {myContainerAppNam
 # for Azure Spring App
 Get-AzServiceLinkerConfigurationForSpringCloud -ServiceName {mySpringAppName} -AppName {myAppName} -ResourceGroupName {myResourceGroupName} -LinkerName {myConnectionName} | Format-List
 ```
-For more information, see the following articles in Azure Powershell reference docoumentations: 
+For more information, see the following articles in Azure PowerShell reference documentations: 
 [Get-AzServiceLinkerConfigurationForWebApp](/powershell/module/az.servicelinker/get-azservicelinkerconfigurationforwebapp?view=azps-10.1.0)
 [Get-AzServiceLinkerConfigurationForContainerApp](/powershell/module/az.servicelinker/get-azservicelinkerconfigurationforcontainerapp?view=azps-10.1.0)
 [Get-AzServiceLinkerConfigurationForSpringApp](/powershell/module/az.servicelinker/get-azservicelinkerconfigurationforspringcloud?view=azps-10.1.0)
