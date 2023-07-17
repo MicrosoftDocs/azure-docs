@@ -140,7 +140,7 @@ Azure AI services provides information and guidelines on how to responsibly use 
 * [Integration and responsible use](/legal/cognitive-services/luis/guidance-integration-responsible-use?context=/azure/ai-services/LUIS/context/context)
 * [Data, privacy, and security](/legal/cognitive-services/luis/data-privacy-security?context=/azure/ai-services/LUIS/context/context)
 
-## OpenAI
+## Azure OpenAI Service
 
 * [Transparency note](/legal/cognitive-services/openai/transparency-note?context=/azure/ai-services/openai/context/context)
 * [Limited access](/legal/cognitive-services/openai/limited-access?context=/azure/ai-services/openai/context/context)
