@@ -22,7 +22,7 @@ A [task hub](durable-functions-task-hubs.md) durably persists all instance state
 
 The Azure Storage provider represents the task hub in storage using the following components:
 
-* Two Azure Tables store the instance states. If table partition manager is enabled, one more Table will be introduced to store the partitions distribution.
+* Two Azure Tables store the instance states. If Table Partition Manager is enabled, one more Table will be introduced to store the partitions information.
 * One Azure Queue stores the activity messages.
 * One or more Azure Queues store the instance messages. Each of these so-called *control queues* represents a [partition](durable-functions-perf-and-scale.md#partition-count) that is assigned a subset of all instance messages, based on the hash of the instance ID.
 * A few extra blob containers used for lease blobs and/or large messages.
@@ -53,7 +53,10 @@ This table is used to satisfy [instance query requests from code](durable-functi
 
 ### Partitions table
 
-The **Partitions** table stores the partitions distirbution of the Durable Function app. This table will be shown in the task hub only when Table Partition Manager is enabled. Workers will manage the partitions based on the information of this table.
+The **Partitions** table stores the current status of partitions within the Durable Functions app. Detailed information for each column could be seen [here](https://github.com/Azure/durabletask/blob/main/src/DurableTask.AzureStorage/Partitioning/TableLease.cs). When a Durable Functions app is triggered, this table will be generated, and a specified number of partitions, configured as `PartitionCount`, will be added to the table. The workers will then utilize the information within the table to manage the partitions. The table will be updated each time the workers successfully modify it.
+
+[!Note]
+This table will be shown in the task hub only when `Table Partition Manager` is enabled. To apply it, configure `useTablePartitionManagement` setting in your app's [host.json](/includes/functions-host-json-durabletask.md).
 
 ### Queues
 
