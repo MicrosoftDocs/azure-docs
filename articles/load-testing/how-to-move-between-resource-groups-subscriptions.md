@@ -20,7 +20,7 @@ When you move an Azure Load Testing resource across resource groups or subscript
 
 - Moving a resource to a new resource group or subscription is a metadata change that shouldn't affect the data. For example, the test and test runs data is preserved.
 
-- Moving a resource will change the ID of the resource. The standard format for a resource ID is /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}. When a resource is moved to a new resource group or subscription, one or more values in the path are impacted. After the resource has been moved, you will need to update your tools and scripts to use the new resource IDs.
+- Moving a resource changes the ID of the resource. The standard format for a resource ID is `/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}`. When a resource is moved to a new resource group or subscription, one or more values in the path are impacted. After the resource has been moved, you'll need to update your tools and scripts to use the new resource IDs.
 
 - Moving a resource across subscriptions is allowed only for subscriptions in the same tenant.
 
