@@ -54,7 +54,7 @@ In this example, the function counts the number of times the specified scalar fi
 
 ## Remarks
 
-- This function benefit from a [range index](../../index-policy.md#includeexclude-strategy) for any properties in the query's filter.
+- This function benefits from a [range index](../../index-policy.md#includeexclude-strategy) for any properties in the query's filter.
 
 ## Next steps
 
