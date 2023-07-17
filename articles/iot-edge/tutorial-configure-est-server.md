@@ -185,15 +185,16 @@ Using Device Provisioning Service allows you to automatically issue and renew ce
 1. Under **Settings**, select **Manage enrollments**.
 1. Select **Add enrollment group** then complete the following steps to configure the enrollment:
 
-    :::image type="content" source="./media/tutorial-configure-est-server/dps-add-enrollment.png" alt-text="A screenshot adding DPS enrollment group using the Azure portal.":::
+    :::image type="content" source="./media/tutorial-configure-est-server/dps-add-enrollment-latest.png" alt-text="A screenshot adding DPS enrollment group using the Azure portal.":::
 
     |Setting | Value |
     |--------|---------|
-    |Group name | Provide a friendly name for this group enrollment |
-    |Attestation Type | Select **Certificate** |
-    |IoT Edge device | Select **True** |
-    |Certificate Type | Select **CA Certificate** |
+    |Attestation Type | Select **X.509 certificates uploaded to this Device Provisioning Service Instance** |
     |Primary certificate | Choose your certificate from the dropdown list |
+    |Group name | Provide a friendly name for this group enrollment |
+    |Enable this enrollment | Select the checkbox |
+    |Target IoT Hubs | From IoT Hubs tab, choose your IoT Hub from the dropdown list |
+    |Enable IoT Edge on provisioned devices | From Device settings tab, select the checkbox |
     
     The other settings aren't relevant to the tutorial. You can accept the default settings.
 
