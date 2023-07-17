@@ -99,17 +99,17 @@ Use the following steps to adjust the log levels:
 
 You can create alert rules based on logs and metrics. For more information, see [Create a new alert rule](../azure-monitor/alerts/alerts-create-new-alert-rule.md).
 
-Use the following steps to directly create alert rules from the Azure Portal for Azure Spring Apps:
+Use the following steps to directly create alert rules from the Azure portal for Azure Spring Apps:
 
-1. Go to the Azure Portal for Azure Spring Apps, and then select your Azure Spring Apps instance.
+1. Go to the Azure portal for Azure Spring Apps, and then select your Azure Spring Apps instance.
 1. Go to **Logs** or **Metrics**.
 1. Write the log query in the **Logs** pane, or add a metrics chart.
-1. Select the **New alert rule**. This action will take you to the **Create an alert rule** pane, and the log query or the metrics is filled automatically.
+1. Select the **New alert rule**. This action takes you to the **Create an alert rule** pane, and the log query or the metrics is filled automatically.
 1. You can now configure the alert rule details.
 
 ## Monitor Gateway with application performance monitor
 
- For more information on supported application performance monitors and how to configure them, see the [Configure application performance monitoring](./how-to-configure-enterprise-spring-cloud-gateway.md#configure-application-performance-monitoring) section of the [Configure VMware Spring Cloud Gateway](./how-to-configure-enterprise-spring-cloud-gateway.md) article.
+ For more information on supported application performance monitors and how to configure them, see the [Configure application performance monitoring](./how-to-configure-enterprise-spring-cloud-gateway.md#configure-application-performance-monitoring) section of [Configure VMware Spring Cloud Gateway](./how-to-configure-enterprise-spring-cloud-gateway.md).
 
 ## Restart Gateway
 
