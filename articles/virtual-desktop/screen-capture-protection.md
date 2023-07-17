@@ -18,7 +18,7 @@ There are two supported scenarios for screen capture protection, depending on th
 
 - **Block screen capture on client and server**: the session host instructs a supported Remote Desktop client to enable screen capture protection for a remote session. This prevents screen capture from the client of the application running in the remote session, but also prevents tools and services within the session host from capturing the screen.
 
-When screen capture protection is enabled, users can't share their Remote Desktop window using local collaboration software, such as Microsoft Teams. With Teams, neither the local Teams app or using Teams in Azure Virtual Desktop with media optimization can share protected content.
+When screen capture protection is enabled, users can't share their Remote Desktop window using local collaboration software, such as Microsoft Teams. With Teams, neither the local Teams app or using Teams with media optimization can share protected content.
 
 > [!TIP]
 > - To increase the security of your sensitive information, you should also disable clipboard, drive, and printer redirection. Disabling redirection helps prevent users from copying content from the remote session. To learn about supported redirection values, see [Device redirection](rdp-properties.md#device-redirection).
@@ -29,15 +29,15 @@ When screen capture protection is enabled, users can't share their Remote Deskto
 
 - Your session hosts must be running one of the following versions of Windows to use screen capture protection:
 
-   - *Block screen capture on client* is available with a [supported version of Windows 10 or Windows 11](prerequisites.md#operating-systems-and-licenses).
-   - *Block screen capture on client and server* is available starting with Windows 11, version 22H2.
+   - **Block screen capture on client** is available with a [supported version of Windows 10 or Windows 11](prerequisites.md#operating-systems-and-licenses).
+   - **Block screen capture on client and server** is available starting with Windows 11, version 22H2.
 
 - Users must connect to Azure Virtual Desktop with one of the following Remote Desktop clients to use screen capture protection. If a user tries to connect with a different client or version, the connection will be denied and show an error message with the code `0x1151`.
 
    | Client | Client version | Desktop session | RemoteApp session | 
    |--|--|--|--|
-   | Remote Desktop client for Windows | 1.2.1672 or later | Yes | Yes<br /><br />(Client device OS must be Windows 11, version 22H2 or later.) |
-   | Azure Virtual Desktop Store app | Any | Yes | Yes<br /><br />(Client device OS must be Windows 11, version 22H2 or later.) |
+   | Remote Desktop client for Windows | 1.2.1672 or later | Yes | Yes. Client device OS must be Windows 11, version 22H2 or later. |
+   | Azure Virtual Desktop Store app | Any | Yes | Yes. Client device OS must be Windows 11, version 22H2 or later. |
    | Remote Desktop client for macOS | 10.7.0 or later | Yes | Yes |
 
 ## Enable screen capture protection
