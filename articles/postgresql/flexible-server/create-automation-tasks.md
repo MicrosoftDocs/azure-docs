@@ -42,13 +42,27 @@ Creating an automation task doesn't immediately incur charges. Underneath, an au
 
 1. In the [Azure portal](https://portal.azure.com), find the PostgreSQL Flexible Server resource that you want to manage.
 1. On the resource navigation menu, in the **Automation** section, select **Tasks (preview)**.
+![Screenshot showing Azure portal and Azure PostgreSQL resource menu with "Tasks (preview)" selected.](media/create-automation-tasks/azure-postgres-menu-automation-section.png)
+
 1. On the **Tasks** pane, select **Add a task** to select a task template.
+![add-automation-task](media/create-automation-tasks/add-automation-task.png)
+
 1. Under **Select a template**, select the task for **Starting** or **Stopping** your Azure PostgreSQL Flexible Server.
+![select-task-template](media/create-automation-tasks/select-task-template.png)
+
 1. Under **Authenticate**, in the **Connections** section, select **Create** for every connection that appears in the task so that you can provide authentication credentials for all the connections.  The types of connections in each task vary based on the task.
+![create-authenticate-connections](media/create-automation-tasks/create-authenticate-connections.png)
+
 1. When you're prompted, **sign in with your Azure account** credentials.
+![create-connection-sign-in](media/create-automation-tasks/create-connection-sign-in.png)
+
 1. Each successfully authenticated connection looks similar to this example:
 1. After you authenticate all the connections, select Next: **Configure**.
+![create-connection-success](media/create-automation-tasks/create-connection-success.png)
+
 1. Under **Configure**, provide a name for the task and any other information required for the task. When you're done, select **Review + create**.
+![provide-task-information](media/create-automation-tasks/provide-task-information.png)
+
 1. Tasks that send email notifications require an email address.
 
 > [!NOTE]
@@ -57,6 +71,8 @@ Creating an automation task doesn't immediately incur charges. Underneath, an au
 > For example, if you name your task `Stop-Instance-Weekly`, but you later edit the underlying workflow to run daily, you can't change your task's name to `Stop-Instance-Daily`.
 
 The task you've created, which is automatically live and running, will appear on the **Tasks** list.
+
+![automation-tasks-list](media/create-automation-tasks/automation-tasks-list.png)
 
 ## Review task history
 
@@ -96,7 +112,5 @@ By default, the **Authenticate** tab appears and shows the existing connections.
 ## Next steps
 
 * [Manage logic apps in the Azure portal](manage-logic-apps-with-azure-portal.md)
-
-
 
 
