@@ -1,19 +1,22 @@
 ---
-title: MIN in Azure Cosmos DB query language
-description: Learn about the Min (MIN) SQL system function in Azure Cosmos DB.
-author: seesharprun
+title: MIN
+titleSuffix: Azure Cosmos DB for NoSQL
+description: An Azure Cosmos DB for NoSQL system function that returns the minimum value.
+author: jcodella
+ms.author: jacodel
+ms.reviewer: sidandrews
 ms.service: cosmos-db
 ms.subservice: nosql
-ms.topic: conceptual
-ms.date: 12/02/2020
-ms.author: sidandrews
-ms.reviewer: jucocchi
-ms.custom: query-reference, ignite-2022
+ms.topic: reference
+ms.date: 07/17/2023
+ms.custom: query-reference
 ---
-# MIN (Azure Cosmos DB)
+
+# MIN (NoSQL query)
+
 [!INCLUDE[NoSQL](../../includes/appliesto-nosql.md)]
 
-This aggregate function returns the minimum of the values in the expression.
+Returns the minimum of the values in the expression.
   
 ## Syntax
   
@@ -22,35 +25,40 @@ MIN(<scalar_expr>)
 ```  
   
 ## Arguments
-  
-*scalar_expr*  
-   Is a scalar expression. 
+
+| | Description |
+| --- | --- |
+| **`scalar_expr`** | A scalar expression. |
   
 ## Return types
   
-Returns a scalar expression.  
+Returns a numeric scalar value. 
   
 ## Examples
+
+This example uses a container with multiple items that each have a `/price` numeric field.
   
-The following example returns the minimum value of `propertyA`:
-  
-```sql
-SELECT MIN(c.propertyA)
-FROM c
-```  
+:::code language="json" source="~/cosmos-db-nosql-query-samples/scripts/min/seed.json" range="1-2,4-8,10-14" highlight="4,10":::
+
+For this example, the `MIN` function is used in a query that includes the numeric field that was mentioned.
+
+:::code language="sql" source="~/cosmos-db-nosql-query-samples/scripts/min/query.sql" highlight="2":::
+
+:::code language="json" source="~/cosmos-db-nosql-query-samples/scripts/min/result.json":::
 
 ## Remarks
 
-This system function will benefit from a [range index](../../index-policy.md#includeexclude-strategy). The arguments in `MIN` can be number, string, boolean, or null. Any undefined values will be ignored.
-
-When comparing different types data, the following priority order is used (in ascending order):
-
-- null
-- boolean
-- number
-- string
+- This function benefits from a [range index](../../index-policy.md#includeexclude-strategy). 
+- The arguments in `MIN` can be number, string, boolean, or null.
+- Any `undefined` values will be ignored.
+- When comparing different types of data, the following priority order is used (in ascending order):
+   1. null
+   1. boolean
+   1. number
+   1. string
 
 ## Next steps
 
 - [System functions in Azure Cosmos DB](system-functions.yml)
 - [Aggregate functions in Azure Cosmos DB](aggregate-functions.md)
+- [`MAX`](max.md)
